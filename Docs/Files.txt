@@ -1,0 +1,147 @@
+=== DATA FILES ===============================================================
+Filename        Type        Deciphered?     Notes
+ANIM_SEQ        Animation?  No              96 * 43b sequences?
+AUTOMAPS.DAT    Map view    No              Seems to be very simple
+AUTOMAPS.NEW    Map view    No              Original copy for Automaps.dat
+BOOKYS1.FLI     Movie       No              Format likely exists online.
+ENDBOOK.FLI     Movie       No              Format likely exists online.
+Mychars.dat     Characters  No              Encrypted.
+mychars.new     Characters  No              Encrypted.
+HELP.DAT        Text        Yes
+IMAGES.DAT      Image       Yes
+MAIN.TSU        Image       Yes
+PALETTE.DAT     Palette     Yes
+TITLIMG.DAT     Image       Yes
+TITLPAL.DAT     Palette     Yes
+WALLS.DAT       Image       Yes
+
+=== MUSIC FILES ==============================================================
+Filename        Type            Deciphered?     Notes
+AD00.XMI        Music           No*
+AD01.XMI        Music           No*
+AD02.XMI        Music           No*
+AD04.XMI        Music           No*
+AD05.XMI        Music           No*
+AD06.XMI        Music           No*
+AD07.XMI        Music           No*
+AD08.XMI        Music           No*
+AD09.XMI        Music           No*
+AD10.XMI        Music           No*
+AD11.XMI        Music           No*
+AD12.XMI        Music           No*
+AD13.XMI        Music           No*
+AD14.XMI        Music           No*
+AD15.XMI        Music           No*
+AD16.XMI        Music           No*
+AD17.XMI        Music           No*
+AD18.XMI        Music           No*
+AD19.XMI        Music           No*
+AD20.XMI        Music           No*
+AD21.XMI        Music           No*
+AD22.XMI        Music           No*
+AD23.XMI        Music           No*
+AD24.XMI        Music           No*
+AD25.XMI        Music           No*
+AD26.XMI        Music           No*
+ADLIB.ADV       Sound Driver    No+
+ADTIMBRE.GTL    Sound timbre    No
+DEFAULT.XMI     Music           No*
+MT00.XMI        Music           No*
+MT01.XMI        Music           No*
+MT02.XMI        Music           No*
+MT04.XMI        Music           No*
+MT05.XMI        Music           No*
+MT06.XMI        Music           No*
+MT07.XMI        Music           No*
+MT08.XMI        Music           No*
+MT09.XMI        Music           No*
+MT10.XMI        Music           No*
+MT11.XMI        Music           No*
+MT12.XMI        Music           No*
+MT13.XMI        Music           No*
+MT14.XMI        Music           No*
+MT15.XMI        Music           No*
+MT16.XMI        Music           No*
+MT17.XMI        Music           No*
+MT18.XMI        Music           No*
+MT19.XMI        Music           No*
+MT20.XMI        Music           No*
+MT21.XMI        Music           No*
+MT22.XMI        Music           No*
+MT23.XMI        Music           No*
+MT24.XMI        Music           No*
+MT25.XMI        Music           No*
+MT26.XMI        Music           No*
+MT32MPU.ADV     Music driver    No+
+SAMPLE.AD       Sound samples   Yes
+SBFM.ADV        Sound driver    No+
+TSN.XMI         Music           No*
+XMS00.XMI       Music           No*
+XSS00.XMI       Music           No*
+
+=== RESOURCE FILES ===========================================================
+Filename        Type                Deciphered?     Notes
+RESOURCE.001
+RESOURCE.002
+RESOURCE.003
+RESOURCE.004
+RESOURCE.005
+RESOURCE.006
+RESOURCE.007
+RESOURCE.008
+RESOURCE.009
+RESOURCE.010
+RESOURCE.011
+RESOURCE.012
+RESOURCE.013
+RESOURCE.014
+RESOURCE.015
+RESOURCE.016
+RESOURCE.017
+RESOURCE.018
+RESOURCE.019
+RESOURCE.020
+RESOURCE.021
+RESOURCE.022
+RESOURCE.023
+RESOURCE.024
+RESOURCE.025
+RESOURCE.026
+RESOURCE.027
+RESOURCE.028
+RESOURCE.029
+RESOURCE.030
+RESOURCE.031
+RESOURCE.032
+RESOURCE.033
+RESOURCE.034
+RESOURCE.035
+RESOURCE.036
+RESOURCE.037
+RESOURCE.038
+RESOURCE.039
+RESOURCE.040
+RESOURCE.041
+RESOURCE.042
+RESOURCE.043
+RESOURCE.044
+RESOURCE.045
+RESOURCE.046
+RESOURCE.047
+RESOURCE.048
+RESOURCE.049
+RESOURCE.050
+RESOURCE.051
+RESOURCE.052
+RESOURCE.053
+RESOURCE.054
+RESOURCE.099
+
+=== EXECUTABLE FILES =========================================================
+Filename        Type        Deciphered?     Notes
+CGENN.EXE       Exe         No
+DARKSTRT.EXE    Exe         No
+TITLE.EXE       Exe         No
+YSBOX.EXE       Exe         No
+YSERBIUS.EXE    Exe         No
+YSGENN.EXE      Exe         No
