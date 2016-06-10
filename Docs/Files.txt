@@ -3,14 +3,22 @@ Filename        Type        Deciphered?     Notes
 ANIM_SEQ        Animation?  No              96 * 43b sequences?
 AUTOMAPS.DAT    Map view    No              Seems to be very simple
 AUTOMAPS.NEW    Map view    No              Original copy for Automaps.dat
-BOOKYS1.FLI     Movie       No              Format likely exists online.
-ENDBOOK.FLI     Movie       No              Format likely exists online.
+BOOKYS1.FLI     Movie       Yes             See http://www.compuphase.com/flic.htm
+ENDBOOK.FLI     Movie       Yes             See http://www.compuphase.com/flic.htm
 Mychars.dat     Characters  No              Encrypted.
 mychars.new     Characters  No              Encrypted.
-HELP.DAT        Text        Yes
+HELP.DAT        Text[255]   Yes
 IMAGES.DAT      Image       Yes
 MAIN.TSU        Image       Yes
 PALETTE.DAT     Palette     Yes
+RESOURCE.035    Map data    No          
+RESOURCE.036    ????        No
+RESOURCE.037    ????        No              300x6b structs + 313x8b structs
+RESOURCE.038    Item[256]   No              256x46b structs
+RESOURCE.039    ????        No              156x18b structs + 48x18b structs + 256x4b@3672 (last 46x4b all 0)
+RESOURCE.040    Text[127]   Yes
+RESOURCE.054    ????        No              Same structure as RESOURCE.039, VERY similar but not identical data
+RESOURCE.099    ????        No
 TITLIMG.DAT     Image       Yes
 TITLPAL.DAT     Palette     Yes
 WALLS.DAT       Image       Yes
@@ -79,7 +87,7 @@ TSN.XMI         Music           No*
 XMS00.XMI       Music           No*
 XSS00.XMI       Music           No*
 
-=== RESOURCE FILES ===========================================================
+=== MAP EXE / RESOURCE FILES ===================================================
 Filename        Type                Deciphered?     Notes
 RESOURCE.001
 RESOURCE.002
@@ -115,12 +123,6 @@ RESOURCE.031
 RESOURCE.032
 RESOURCE.033
 RESOURCE.034
-RESOURCE.035
-RESOURCE.036
-RESOURCE.037
-RESOURCE.038
-RESOURCE.039
-RESOURCE.040
 RESOURCE.041
 RESOURCE.042
 RESOURCE.043
@@ -134,8 +136,6 @@ RESOURCE.050
 RESOURCE.051
 RESOURCE.052
 RESOURCE.053
-RESOURCE.054
-RESOURCE.099
 
 === EXECUTABLE FILES =========================================================
 Filename        Type        Deciphered?     Notes
