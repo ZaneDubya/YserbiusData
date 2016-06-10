@@ -1,0 +1,12 @@
+Files: TITLPAL.DAT and PALETTE.DAT
+These are resource files containing up to 256 palettes of 256 RGB colors each.
+
+File structure:
+
+Header (1024 bytes)
+    256 x 4 byte offset to palette entry.
+    An entry can be designated as 'not present' by setting all bits (0xFFFFFFFF).
+Palette entries (768 bytes each)
+    256 x 3 byte color (byte red, byte green, byte blue).
+    At offset equal to the offset in the header + 1024.
+    
