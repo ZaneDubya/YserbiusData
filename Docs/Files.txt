@@ -12,7 +12,7 @@ IMAGES.DAT      Image       Yes
 MAIN.TSU        Image       Yes
 PALETTE.DAT     Palette     Yes
 RESOURCE.035    Map data    No          
-RESOURCE.036    ????        No
+RESOURCE.036    ????        No              690x46b structs + 1359x76b@31740 structs + 2252b@135024
 RESOURCE.037    ????        No              300x6b structs + 313x8b structs
 RESOURCE.038    Item[256]   No              256x46b structs
 RESOURCE.039    ????        No              156x18b structs + 48x18b structs + 256x4b@3672 (last 46x4b all 0)
