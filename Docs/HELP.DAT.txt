@@ -1,0 +1,8 @@
+Header
+    2b      FileSize
+    255x2b  StringOffset
+    
+StringData
+    Each string is an array of ascii chars beginning at 
+    offset StringOffset+512, and is null-terminated.
+    

@@ -1,0 +1,13 @@
+Header
+    2b FileSize
+    2b ImageCount
+    
+ImageDescs
+    ImageCount x 6b ImageDesc
+        4b Offset
+        1b Width
+        1b Height
+        
+ImageData
+    Each image is an uncompressed array of bytes of size ImageDesc.Width x
+    ImageDesc.Height, and is located at ImageDesc.Offset+512.
