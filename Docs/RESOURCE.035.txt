@@ -1,0 +1,21 @@
+This is the map file - contains information about the physical state of the map.
+Also contains 'tags' that indicate what is present in each tile. The file is
+scrambled - to unscramble, the game reads the data as 16b words and shifts each
+word 2 bits to the left, rolling the 2 hi bits over to the right.
+
+Each map is made up of a structure of 6416 bytes. Not all data is read to create
+the map. The first 16 bytes are some kind of header, but only the first 3 bytes
+are ever set. Examples of first four maps:
+
+Dungeon Ent.    01  01  01  00  00  00  00  00  00  00  00  00  00  00  00  00
+The Mines       01  04  04  00  00  00  00  00  00  00  00  00  00  00  00  00
+Vestibule       01  05  05  00  00  00  00  00  00  00  00  00  00  00  00  00
+Hall of Doors   01  05  05  00  00  00  00  00  00  00  00  00  00  00  00  00
+
+The next 256 bytes are a 16x16 representation of the map tiles. For each byte:
+01  West wall present
+04  South wall present
+10  East wall present
+40  North wall present
+
+Some walls are represented by 02 and 08 values - not sure why this is the case.
