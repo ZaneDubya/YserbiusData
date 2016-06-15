@@ -1,0 +1,64 @@
+From http://www.shikadi.net/moddingwiki/XMI_Format:
+The file format is made up of two standard Interchange File Format (IFF) files
+one after the other. As there is more than one root-level chunk in the same
+file, technically the file does not meet the IFF standard which only allows one
+root-level chunk per file. The chunks are arranged as follows:
+
+FORM (type XDIR)
+    INFO
+
+Immediately following this is another IFF file, which contains a FORM subchunk
+for each sequence (song) stored in the XMI file:
+
+CAT (type XMID)
+FORM (type XMID) - first song
+TIMB
+EVNT
+FORM (type XMID) - second song (optional)
+TIMB
+EVNT
+etc. for as many songs as needed
+
+For AD00.XMI:
+
+4b  ChunkName   FORM
+4b  ChunkLength 0000000E == 14
+ChunkData
+    4b  ChunkType   XDIR
+    4b  ChunkName   INFO            // Number of songs in this XMI file
+    4b  ChunkLength 00000002 == 2
+    ChunkData
+        02 00                       // 2 songs in this XMID
+
+4b  ChunkName   CAT_
+4b  ChunkLength 0000174C == 5964
+ChunkData
+    4b  ChunkType   XMID
+    4b  ChunkName   FORM
+    4b  ChunkLength 00000076 == 118
+    ChunkData
+        4b  ChunkType   XMID
+        4b  ChunkName   RBRN
+        4b  ChunkLength 00000008 == 8
+        ChunkData
+            01 00 3C 00 3F 00 00 00
+        4b  ChunkName   EVNT
+        4b  ChunkLength 0000005A == 90
+        ChunkData
+            FF 59 02 00 00 FF 51 03 08 07 ...
+    4b  ChunkName   FORM
+    4b  ChunkLength 000016C2 == 5826
+    ChunkData
+        4b  ChunkType   XMID
+        4b  ChunkName   TIMB
+        4b  ChunkLength 0000000E == 14
+        ChunkData
+            06 00 55 00 02 00 01 00 4C 00 45 00 43 00
+        4b  ChunkName   RBRN
+        4b  ChunkLength 00000008 == 8
+        ChunkData
+            01 00 01 00 0E 00 00 00
+        4b  ChunkName   EVNT
+        4b  ChunkLength 00001690 == 5776
+        ChunkData
+            FF 59 02 00 00 FF ....
