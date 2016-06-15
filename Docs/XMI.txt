@@ -4,22 +4,41 @@ one after the other. As there is more than one root-level chunk in the same
 file, technically the file does not meet the IFF standard which only allows one
 root-level chunk per file. The chunks are arranged as follows:
 
-FORM (type XDIR)
-    INFO
+The first file is FORM:XDIR with a single INFO chunk. The info chunk contains 
+a single 16bit value of the number of sequences (songs) stored in the XMI file.
 
-Immediately following this is another IFF file, which contains a FORM subchunk
-for each sequence (song) stored in the XMI file:
+The second file is CAT_:XMID containing FORM:XMID chunks for as many sequences 
+as are indicated in the first file's INFO value.
 
-CAT (type XMID)
-FORM (type XMID) - first song
-TIMB
-EVNT
-FORM (type XMID) - second song (optional)
-TIMB
-EVNT
-etc. for as many songs as needed
+Each FORM:XMID contains TIMB, RBRN, and EVNT chunks.
 
-For AD00.XMI:
+-- TIMB ------------------------------------------------------------------------
+The TIMB chunk stores details about the MIDI patches used in the song. It is
+used so that normal MIDI patch-change events can set instrument banks at the
+same time. It is an array of the following structure:
+    Data type	Name	Description
+    UINT8	    patch   MIDI patch for this instrument number
+    UINT8       bank    MIDI bank for this instrument number
+    This structure is repeated once for each instrument in the file.
+The official XMI creation utility (midiform) uses MIDI controller AIL_TIMB_BNK
+(114) to set the bank on a given channel, and a standard MIDI program change
+event to store the patch. These two values (bank and patch) are used to
+populate an entry in the TIMB chunk on the next note-on event on the channel.
+
+-- RBRN ------------------------------------------------------------------------
+The optional RBRN chunk is used to store seek destinations where playback should
+jump to when encountering a branch event. It is an array of the following
+structure:
+    Data type	Name	Description
+    UINT16LE	id	    Branch ID, used to select this branch destination
+    UINT32LE	dest	Seek destination for this branch, expressed as a number of bytes since the start of the event data, i.e. 0 means the start of the song. It is important that this points to the start of an event or delay value, otherwise the results will be unpredictable.
+It is unknown whether the chunk order is important, however the official XMI creation utility (midiform) places this chunk after TIMB and before EVNT. If there are no branch points then the chunk is omitted entirely.
+
+midiform uses MIDI controller number AIL_BRANCH_PT (120) to place branch destination points in a song, with the controller value setting the id for that branch point. These controller events are not removed from the MIDI data, so the first event at each branch point is likely to be MIDI controller 120 on some channel. This is just an observation however, and these MIDI controller events are by no means required.
+
+! It is unknown how branch points are triggered (whether it is by code or by other MIDI events.)
+
+Example: AD00.XMI:
 
 4b  ChunkName   FORM
 4b  ChunkLength 0000000E == 14
