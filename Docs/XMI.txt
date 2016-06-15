@@ -25,18 +25,35 @@ The official XMI creation utility (midiform) uses MIDI controller AIL_TIMB_BNK
 event to store the patch. These two values (bank and patch) are used to
 populate an entry in the TIMB chunk on the next note-on event on the channel.
 
+
 -- RBRN ------------------------------------------------------------------------
 The optional RBRN chunk is used to store seek destinations where playback should
 jump to when encountering a branch event. It is an array of the following
 structure:
     Data type	Name	Description
     UINT16LE	id	    Branch ID, used to select this branch destination
-    UINT32LE	dest	Seek destination for this branch, expressed as a number of bytes since the start of the event data, i.e. 0 means the start of the song. It is important that this points to the start of an event or delay value, otherwise the results will be unpredictable.
-It is unknown whether the chunk order is important, however the official XMI creation utility (midiform) places this chunk after TIMB and before EVNT. If there are no branch points then the chunk is omitted entirely.
+    UINT32LE	dest	Seek destination for this branch, expressed as a
+                        number of bytes since the start of the event data,
+                        i.e. 0 means the start of the song. It is important that
+                        this points to the start of an event or delay value,
+                        otherwise the results will be unpredictable.
+                        
+It It is unknown whether the chunk order is important, however the official XMI
+creation utility (midiform) places this chunk after TIMB and before EVNT. If
+there are no branch points then the chunk is omitted entirely.
 
-midiform uses MIDI controller number AIL_BRANCH_PT (120) to place branch destination points in a song, with the controller value setting the id for that branch point. These controller events are not removed from the MIDI data, so the first event at each branch point is likely to be MIDI controller 120 on some channel. This is just an observation however, and these MIDI controller events are by no means required.
+It is unknown how branch points are triggered (whether it is by code or by other
+MIDI events.)
 
-! It is unknown how branch points are triggered (whether it is by code or by other MIDI events.)
+midiform uses MIDI controller number AIL_BRANCH_PT (120) to place branch
+destination points in a song, with the controller value setting the id for that
+branch point. These controller events are not removed from the MIDI data, so the
+first event at each branch point is likely to be MIDI controller 120 on some
+channel. This is just an observation however, and these MIDI controller events
+are by no means required.
+
+
+-- EVNT ------------------------------------------------------------------------
 
 Example: AD00.XMI:
 
