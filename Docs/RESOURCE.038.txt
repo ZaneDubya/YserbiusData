@@ -1,0 +1,8 @@
+Resource.038 is item data. It is comprised of 256 item entries - each entry is 46b.
+Each entry is comprised of 23x2b scrambled values.
+To unscramble the values, shift each value left by 6, with roll over.
+Once the values are unscrambled, the data is as follows:
+
+24b ASCII item name, zero terminated.
+2b 
+2b 
