@@ -234,3 +234,7 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+# Mac meta data file
+.DS_Store
+._.DS_Store
