@@ -1,86 +1,86 @@
-0000: Heroes of level 20 or more may go on.
-0026: The gate to the North leads down a level.
-0050: The gate to the North leads upward.
-0074: Heroes of level 20 or more may enter.
-009A: The gate to the south leads downward.
-00C0: The stairs to the south lead to the Tavern
-00EB: You have used up the supplies in the Infirmary.
-011B: You have discovered the Thieves' Infirmary.  All your wounds have been cured!
-0169: You surprise creatures eating lunch!
-018E: You stumble upon some rather nasty monsters.
-01BB: A group of restless undead surprise you!
-01E4: You are attacked by Mages of the Thieves' Guild out walking their pets!
-022C: You stumble upon mean animals out foraging!
-0258: You stumble upon foraging animals! They found something shiny!
-0297: The storage room has been emptied by other adventurers.
-02CF: You found a storage room.  Most items are worthless, but in the refuse are a few treasures.
-032B: Thieves have emptied this room.
-034B: In a cabinet are some scrolls and potions, and 15,000 Gold Pieces in a sack.
-0398: You find 1 gold piece in an empty safe.
-03C0: The safe contains several treasures and 25,000 gold pieces!
-03FC: The room has been ransacked!
-0419: Your familiarity with thieving helps you avoid a vicious trap!
-0458: You find some items and 5000 pieces of gold.
-0485: You find several items and 5000 pieces of gold.
-04B5: Unfortunately, you overlook the cleverly hidden trap that protects the treasure.
-0506: You found a sleeping thief who cannot be roused from deep slumber.
-0549: A wise old thief bends your ear with stories of his exploits.  His story is very helpful.
-05A3: The Club and Axe Training Center.  All who lack this skill gain enlightenment and training.
-05FF: Thieves provide you with training in Clubs and Axes!
-0634: You have already trained in this skill. The thieves cannot help you any further.
-0685: A wise old thief will teach you the Bard Skill!
-06B5: You are already pretty good at Barding, and he cannot help you further.
-06FD: The wise old thief has already taught you all he knows.
-0735: The Fencing Training Center.  All who lack this skill gain enlightenment and training.
-078C: Thieves provide you with training in the use of Swords!
-07C4: You have already trained in this skill. The thieves cannot help you any further.
-0815: A wise young thief will teach you the Detect Skill!
-0849: You are already pretty good at detection, and she cannot help you further.
-0894: The young thief has already taught you all she knows.
-08CA: The Staff Training Center.  All who lack this skill gain enlightenment and training.
-091F: Thieves provide you with training in the use of Staves!
-0957: You have already trained in this skill. The thieves cannot help you any further.
-09A8: A wise old thief will teach you the Lockpick Skill!
-09DC: You are already pretty good at picking locks, and he cannot help you further.
-0A2A: The old thief has already taught you all he knows.
-0A5D: The waters from Sinestra's Fountain are invigorating, but have no further effect.
-0AAF: You have discovered Sinestra's Fountain.  You feel healthier and more experienced after drinking the waters!
-0B1C: The Archery Training Center.  All who lack this skill gain enlightenment and training.
-0B73: Thieves provide you with training in Archery!
-0BA1: You have already trained in this skill. The thieves cannot help you any further.
-0BF2: The Thieves' Key unlocks the door!
-0C15: The door is locked.  You need a special key.
-0C42: The wall springs open.  A musky odor fills the room.
-0C77: Cracks in the wall reveal what could be a doorway. If only you could open it...
-0CC7: You skillfully open the entrance to a passage!
-0CF6: You found a very well-hidden entrance to what might be a passage.  Unfortunately, it seems to be locked.
-0D5F: You release the stonework, revealing a secret passage!
-0D96: A piece of stonework looks like it could be moved, if you can pick the mechanism.
-0DE8: The wall slides open.
-0DFE: You located a sliding door which must be picked to be opened. Curious sounds can be heard through the stonework.
-0E6F: You successfully opened the locked door.
-0E98: You found a secret door, but it's locked.
-0EC2: You successfully opened the locked door.
-0EEB: You found a secret door.
-0F04: You successfully opened the locked door.
-0F2D: You spot a well hidden secret door. It's locked.
-0F5E: You skillfully pick the door lock.
-0F81: The door is locked.
-0F95: You found a hidden door!
-0FAE: You successfully opened the locked door.
-0FD7: You found a secret door, but it's locked.
-1001: You successfully opened the locked door.
-102A: You found a locked door. You hear strange noises on the other side of the door.
-107A: You found a hidden door!
-1093: You successfully opened the locked door. You also feel a cool breeze.
-10D9: You found a secret door, but it's locked.
-1103: You opened the locked chamber door.
-1127: You found a hidden chamber door, but it's locked.
-1159: With great effort, you unlock the door.
-1181: This door has a nasty looking lock on it.
-11AB: The door is opened with a lot of effort.
-11D4: You found another secret door, but it is locked.
-1205: Can't take any more?  The door is marked 'Exit!'
-1236: A message on the wall:  'Welcome to the Den of Thieves!'
-126F: You find an empty chest.
-1288: You find a Purple Lockpick and 1250 gold inside a small chest.
+03FC: Heroes of level 20 or more may go on.
+0422: The gate to the North leads down a level.
+044C: The gate to the North leads upward.
+0470: Heroes of level 20 or more may enter.
+0496: The gate to the south leads downward.
+04BC: The stairs to the south lead to the Tavern
+04E7: You have used up the supplies in the Infirmary.
+0517: You have discovered the Thieves' Infirmary.  All your wounds have been cured!
+0565: You surprise creatures eating lunch!
+058A: You stumble upon some rather nasty monsters.
+05B7: A group of restless undead surprise you!
+05E0: You are attacked by Mages of the Thieves' Guild out walking their pets!
+0628: You stumble upon mean animals out foraging!
+0654: You stumble upon foraging animals! They found something shiny!
+0693: The storage room has been emptied by other adventurers.
+06CB: You found a storage room.  Most items are worthless, but in the refuse are a few treasures.
+0727: Thieves have emptied this room.
+0747: In a cabinet are some scrolls and potions, and 15,000 Gold Pieces in a sack.
+0794: You find 1 gold piece in an empty safe.
+07BC: The safe contains several treasures and 25,000 gold pieces!
+07F8: The room has been ransacked!
+0815: Your familiarity with thieving helps you avoid a vicious trap!
+0854: You find some items and 5000 pieces of gold.
+0881: You find several items and 5000 pieces of gold.
+08B1: Unfortunately, you overlook the cleverly hidden trap that protects the treasure.
+0902: You found a sleeping thief who cannot be roused from deep slumber.
+0945: A wise old thief bends your ear with stories of his exploits.  His story is very helpful.
+099F: The Club and Axe Training Center.  All who lack this skill gain enlightenment and training.
+09FB: Thieves provide you with training in Clubs and Axes!
+0A30: You have already trained in this skill. The thieves cannot help you any further.
+0A81: A wise old thief will teach you the Bard Skill!
+0AB1: You are already pretty good at Barding, and he cannot help you further.
+0AF9: The wise old thief has already taught you all he knows.
+0B31: The Fencing Training Center.  All who lack this skill gain enlightenment and training.
+0B88: Thieves provide you with training in the use of Swords!
+0BC0: You have already trained in this skill. The thieves cannot help you any further.
+0C11: A wise young thief will teach you the Detect Skill!
+0C45: You are already pretty good at detection, and she cannot help you further.
+0C90: The young thief has already taught you all she knows.
+0CC6: The Staff Training Center.  All who lack this skill gain enlightenment and training.
+0D1B: Thieves provide you with training in the use of Staves!
+0D53: You have already trained in this skill. The thieves cannot help you any further.
+0DA4: A wise old thief will teach you the Lockpick Skill!
+0DD8: You are already pretty good at picking locks, and he cannot help you further.
+0E26: The old thief has already taught you all he knows.
+0E59: The waters from Sinestra's Fountain are invigorating, but have no further effect.
+0EAB: You have discovered Sinestra's Fountain.  You feel healthier and more experienced after drinking the waters!
+0F18: The Archery Training Center.  All who lack this skill gain enlightenment and training.
+0F6F: Thieves provide you with training in Archery!
+0F9D: You have already trained in this skill. The thieves cannot help you any further.
+0FEE: The Thieves' Key unlocks the door!
+1011: The door is locked.  You need a special key.
+103E: The wall springs open.  A musky odor fills the room.
+1073: Cracks in the wall reveal what could be a doorway. If only you could open it...
+10C3: You skillfully open the entrance to a passage!
+10F2: You found a very well-hidden entrance to what might be a passage.  Unfortunately, it seems to be locked.
+115B: You release the stonework, revealing a secret passage!
+1192: A piece of stonework looks like it could be moved, if you can pick the mechanism.
+11E4: The wall slides open.
+11FA: You located a sliding door which must be picked to be opened. Curious sounds can be heard through the stonework.
+126B: You successfully opened the locked door.
+1294: You found a secret door, but it's locked.
+12BE: You successfully opened the locked door.
+12E7: You found a secret door.
+1300: You successfully opened the locked door.
+1329: You spot a well hidden secret door. It's locked.
+135A: You skillfully pick the door lock.
+137D: The door is locked.
+1391: You found a hidden door!
+13AA: You successfully opened the locked door.
+13D3: You found a secret door, but it's locked.
+13FD: You successfully opened the locked door.
+1426: You found a locked door. You hear strange noises on the other side of the door.
+1476: You found a hidden door!
+148F: You successfully opened the locked door. You also feel a cool breeze.
+14D5: You found a secret door, but it's locked.
+14FF: You opened the locked chamber door.
+1523: You found a hidden chamber door, but it's locked.
+1555: With great effort, you unlock the door.
+157D: This door has a nasty looking lock on it.
+15A7: The door is opened with a lot of effort.
+15D0: You found another secret door, but it is locked.
+1601: Can't take any more?  The door is marked 'Exit!'
+1632: A message on the wall:  'Welcome to the Den of Thieves!'
+166B: You find an empty chest.
+1684: You find a Purple Lockpick and 1250 gold inside a small chest.

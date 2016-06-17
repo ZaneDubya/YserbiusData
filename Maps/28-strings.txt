@@ -1,9 +1,9 @@
-0000: A Gateway back to the Labyrinth.
-0021: Gate to the entrance of Arnakkian's Arena.
-004C: Gate to the Red Arena Staging Area.
-0070: Gate to the Blue Arena Staging Area.
-0095: Gate to the Green Arena Staging Area.
-00BB: Gate to the Yellow Arena Staging Area.
-00E2: In the time when Arnakkian bestrode the land of Twinion, a Great Arena was built where the bravest warriors and wisest mages could challenge each other in deadly battle.
-018C: You stand in the nexus of the Arena.  Doorways lead to the four team staging areas.
-01E0: Carved on a recessed stone, you find a roster from a Arnakkian-era private guild.  None of the names are recognizable. 
+03FC: A Gateway back to the Labyrinth.
+041D: Gate to the entrance of Arnakkian's Arena.
+0448: Gate to the Red Arena Staging Area.
+046C: Gate to the Blue Arena Staging Area.
+0491: Gate to the Green Arena Staging Area.
+04B7: Gate to the Yellow Arena Staging Area.
+04DE: In the time when Arnakkian bestrode the land of Twinion, a Great Arena was built where the bravest warriors and wisest mages could challenge each other in deadly battle.
+0588: You stand in the nexus of the Arena.  Doorways lead to the four team staging areas.
+05DC: Carved on a recessed stone, you find a roster from a Arnakkian-era private guild.  None of the names are recognizable. 

@@ -1,4 +1,4 @@
-Functn00:
+Functn01: "CHESLITE"
 0000: push bp
 0001: mov bp, sp
 0003: push si
@@ -150,7 +150,7 @@ Functn00:
 0194: pop bp
 0195: retf
 
-Functn01:
+Functn02: "CHESDARK"
 0000: push bp
 0001: mov bp, sp
 0003: push si
@@ -302,7 +302,7 @@ Functn01:
 0194: pop bp
 0195: retf
 
-Functn02:
+Functn03: "VOID"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x53e
@@ -319,7 +319,7 @@ Functn02:
 0021: pop bp
 0022: retf
 
-Functn03:
+Functn04: "POKERBRG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x568
@@ -378,7 +378,7 @@ Functn03:
 0081: pop bp
 0082: retf
 
-Functn04:
+Functn05: "POKERSW"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xec
@@ -435,7 +435,7 @@ Functn04:
 0077: pop bp
 0078: retf
 
-Functn05:
+Functn06: "HEARTSDR"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x725
@@ -446,7 +446,7 @@ Functn05:
 0010: pop bp
 0011: retf
 
-Functn06:
+Functn07: "MOONSW"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xeb
@@ -491,7 +491,7 @@ Functn06:
 0060: pop bp
 0061: retf
 
-Functn07:
+Functn08: "BLAKJAK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xed
@@ -546,7 +546,7 @@ Functn07:
 007A: pop bp
 007B: retf
 
-Functn08:
+Functn09: "BLAKJAKK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x898
@@ -557,7 +557,7 @@ Functn08:
 0010: pop bp
 0011: retf
 
-Functn09:
+Functn0A: "CRIB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xea
@@ -617,7 +617,7 @@ Functn09:
 0087: pop bp
 0088: retf
 
-Functn0A:
+Functn0B: "CRIBJACK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x9a2
@@ -628,7 +628,7 @@ Functn0A:
 0010: pop bp
 0011: retf
 
-Functn0B:
+Functn0C: "CRIBFIVE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x9d5
@@ -639,7 +639,7 @@ Functn0B:
 0010: pop bp
 0011: retf
 
-Functn0C:
+Functn0D: "BRDGFALL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x9ed
@@ -667,7 +667,7 @@ Functn0C:
 0035: pop bp
 0036: retf
 
-Functn0D:
+Functn0E: "DICEPASS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xa14
@@ -678,7 +678,7 @@ Functn0D:
 0010: pop bp
 0011: retf
 
-Functn0E:
+Functn0F: "DICESNAK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xa42
@@ -689,7 +689,7 @@ Functn0E:
 0010: pop bp
 0011: retf
 
-Functn0F:
+Functn10: "DICEBOXC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xa62
@@ -700,7 +700,7 @@ Functn0F:
 0010: pop bp
 0011: retf
 
-Functn10:
+Functn11: "DICEENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xa
@@ -754,7 +754,7 @@ Functn10:
 006F: pop bp
 0070: retf
 
-Functn11:
+Functn12: "DICEENCB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xa
@@ -808,7 +808,7 @@ Functn11:
 006F: pop bp
 0070: retf
 
-Functn12:
+Functn13: "BLJKFOUN"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xa95
@@ -889,7 +889,7 @@ Functn12:
 00BC: pop bp
 00BD: retf
 
-Functn13:
+Functn14: "CRIBFOUN"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xb8a
@@ -969,7 +969,7 @@ Functn13:
 00B8: pop bp
 00B9: retf
 
-Functn14:
+Functn15: "DICETRSA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xc7f
@@ -990,7 +990,7 @@ Functn14:
 002A: pop bp
 002B: retf
 
-Functn15:
+Functn16: "DICETRSB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd2a
@@ -1011,7 +1011,7 @@ Functn15:
 002A: pop bp
 002B: retf
 
-Functn16:
+Functn17: "DICETRSC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xdd0
@@ -1037,7 +1037,7 @@ Functn16:
 0037: pop bp
 0038: retf
 
-Functn17:
+Functn18: "DICETRSD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xec8
@@ -1058,7 +1058,7 @@ Functn17:
 002A: pop bp
 002B: retf
 
-Functn18:
+Functn19: "DICETRSE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xf7e
@@ -1079,7 +1079,7 @@ Functn18:
 002A: pop bp
 002B: retf
 
-Functn19:
+Functn1A: "DICETRSF"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1f
@@ -1125,7 +1125,7 @@ Functn19:
 006B: pop bp
 006C: retf
 
-Functn1A:
+Functn1B: "DICETRSG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x11de
@@ -1146,7 +1146,7 @@ Functn1A:
 002A: pop bp
 002B: retf
 
-Functn1B:
+Functn1C: "DICETRSH"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x128c
@@ -1162,7 +1162,7 @@ Functn1B:
 001D: pop bp
 001E: retf
 
-Functn1C:
+Functn1D: "DICETRSI"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x12ed
@@ -1183,7 +1183,7 @@ Functn1C:
 002A: pop bp
 002B: retf
 
-Functn21:
+Functn22: "BARD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x13a1
@@ -1194,7 +1194,7 @@ Functn21:
 0010: pop bp
 0011: retf
 
-Functn22:
+Functn23: "APPLES"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x141d
@@ -1210,7 +1210,7 @@ Functn22:
 001D: pop bp
 001E: retf
 
-Functn23:
+Functn24: "APPLEENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x14cd
@@ -1279,7 +1279,7 @@ Functn23:
 0096: pop bp
 0097: retf
 
-Functn24:
+Functn25: "CHESENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1c
@@ -1333,7 +1333,7 @@ Functn24:
 006F: pop bp
 0070: retf
 
-Functn25:
+Functn26: "CHESENCB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1e
@@ -1387,7 +1387,7 @@ Functn25:
 006F: pop bp
 0070: retf
 
-Functn26:
+Functn27: "CHESENCC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1f
@@ -1441,7 +1441,7 @@ Functn26:
 006F: pop bp
 0070: retf
 
-Functn27:
+Functn28: "CHESENCD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x20
@@ -1495,7 +1495,7 @@ Functn27:
 006F: pop bp
 0070: retf
 
-Functn28:
+Functn29: "CHESENCE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x22
@@ -1587,7 +1587,7 @@ Functn28:
 00C0: pop bp
 00C1: retf
 
-Functn29:
+Functn2A: "CHESENCF"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x18
@@ -1679,7 +1679,7 @@ Functn29:
 00C0: pop bp
 00C1: retf
 
-Functn2A:
+Functn2B: "POKRENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1f
@@ -1733,7 +1733,7 @@ Functn2A:
 006F: pop bp
 0070: retf
 
-Functn2B:
+Functn2C: "CRIBENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x23
@@ -1786,7 +1786,7 @@ Functn2B:
 006C: pop bp
 006D: retf
 
-Functn2C:
+Functn2D: "BLJKENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x26
@@ -1855,7 +1855,7 @@ Functn2C:
 008F: pop bp
 0090: retf
 
-Functn2D:
+Functn2E: "BLJKENCB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x26
@@ -1924,7 +1924,7 @@ Functn2D:
 008F: pop bp
 0090: retf
 
-Functn2E:
+Functn2F: "CRIBENCB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1567
@@ -1990,7 +1990,7 @@ Functn2E:
 008B: pop bp
 008C: retf
 
-Functn2F:
+Functn30: "VARYENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x4
@@ -2028,7 +2028,7 @@ Functn2F:
 004B: pop bp
 004C: retf
 
-Functn30:
+Functn31: "VARYENCB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xe
@@ -2066,7 +2066,7 @@ Functn30:
 004B: pop bp
 004C: retf
 
-Functn33:
+Functn34: "VARYENCE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x13
@@ -2120,7 +2120,7 @@ Functn33:
 006F: pop bp
 0070: retf
 
-Functn34:
+Functn35: "GATEA"
 0000: push bp
 0001: mov bp, sp
 0003: xor ax, ax
@@ -2137,7 +2137,7 @@ Functn34:
 001D: pop bp
 001E: retf
 
-Functn35:
+Functn36: "TOLABY"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x15b3
@@ -2148,7 +2148,7 @@ Functn35:
 0010: pop bp
 0011: retf
 
-Functn36:
+Functn37: "TXTCHESL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x15dd
@@ -2159,7 +2159,7 @@ Functn36:
 0010: pop bp
 0011: retf
 
-Functn37:
+Functn38: "TXTCHESD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x161d
@@ -2170,7 +2170,7 @@ Functn37:
 0010: pop bp
 0011: retf
 
-Functn38:
+Functn39: "TXTDICEB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1654
@@ -2181,7 +2181,7 @@ Functn38:
 0010: pop bp
 0011: retf
 
-Functn39:
+Functn3A: "TXTDICEA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1682

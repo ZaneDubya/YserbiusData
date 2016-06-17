@@ -1,4 +1,4 @@
-Functn00:
+Functn01: "VOID"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x3fc
@@ -20,7 +20,7 @@ Functn00:
 002E: pop bp
 002F: retf
 
-Functn01:
+Functn02: "LIFE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x46d
@@ -37,7 +37,7 @@ Functn01:
 0021: pop bp
 0022: retf
 
-Functn02:
+Functn03: "TIMEA"
 0000: push bp
 0001: mov bp, sp
 0003: dec sp
@@ -151,7 +151,7 @@ Functn02:
 00F4: pop bp
 00F5: retf
 
-Functn03:
+Functn04: "TIMEB"
 0000: push bp
 0001: mov bp, sp
 0003: dec sp
@@ -265,7 +265,7 @@ Functn03:
 00F4: pop bp
 00F5: retf
 
-Functn04:
+Functn05: "TIMEC"
 0000: push bp
 0001: mov bp, sp
 0003: dec sp
@@ -379,7 +379,7 @@ Functn04:
 00F4: pop bp
 00F5: retf
 
-Functn05:
+Functn06: "TIMEELEM"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x11
@@ -487,7 +487,7 @@ Functn05:
 00F4: pop bp
 00F5: retf
 
-Functn06:
+Functn07: "TIMEPLAT"
 0000: push bp
 0001: mov bp, sp
 0003: xor ax, ax
@@ -566,7 +566,7 @@ Functn06:
 00A9: pop bp
 00AA: retf
 
-Functn07:
+Functn08: "GOAL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xf4
@@ -694,7 +694,7 @@ Functn07:
 012A: pop bp
 012B: retf
 
-Functn08:
+Functn09: "ENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xc2f
@@ -758,7 +758,7 @@ Functn08:
 0089: pop bp
 008A: retf
 
-Functn09:
+Functn0A: "ENCB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x8
@@ -812,7 +812,7 @@ Functn09:
 006F: pop bp
 0070: retf
 
-Functn0A:
+Functn0B: "ENCC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1b
@@ -866,7 +866,7 @@ Functn0A:
 006F: pop bp
 0070: retf
 
-Functn0B:
+Functn0C: "ENCD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x7b
@@ -958,7 +958,7 @@ Functn0B:
 00BE: pop bp
 00BF: retf
 
-Functn0C:
+Functn0D: "ENCE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1e
@@ -1012,7 +1012,7 @@ Functn0C:
 006F: pop bp
 0070: retf
 
-Functn0D:
+Functn0E: "ENCF"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x22
@@ -1066,7 +1066,7 @@ Functn0D:
 006F: pop bp
 0070: retf
 
-Functn0E:
+Functn0F: "CROSSOVR"
 0000: push bp
 0001: mov bp, sp
 0003: xor ax, ax
@@ -1119,7 +1119,7 @@ Functn0E:
 0064: pop bp
 0065: retf
 
-Functn0F:
+Functn10: "MAPCONV"
 0000: push bp
 0001: mov bp, sp
 0003: dec sp
@@ -1235,7 +1235,7 @@ Functn0F:
 00EA: pop bp
 00EB: retf
 
-Functn11:
+Functn12: "TELEBACK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xca5

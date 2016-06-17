@@ -1,4 +1,4 @@
-Functn00:
+Functn01: "STRSTELE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -15,7 +15,7 @@ Functn00:
 001E: pop bp
 001F: retf
 
-Functn01:
+Functn02: "KEYDOOR"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xdc
@@ -75,7 +75,7 @@ Functn01:
 008D: pop bp
 008E: retf
 
-Functn02:
+Functn03: "SCEPTENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xe3
@@ -257,7 +257,7 @@ Functn02:
 019C: pop bp
 019D: retf
 
-Functn03:
+Functn04: "ITEMBENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xbd
@@ -397,7 +397,7 @@ Functn03:
 013C: pop bp
 013D: retf
 
-Functn04:
+Functn05: "ITEMCENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x56
@@ -537,7 +537,7 @@ Functn04:
 013B: pop bp
 013C: retf
 
-Functn05:
+Functn06: "GOLDAENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1c
@@ -689,7 +689,7 @@ Functn05:
 0156: pop bp
 0157: retf
 
-Functn06:
+Functn07: "GOLDBENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1d
@@ -844,7 +844,7 @@ Functn06:
 015B: pop bp
 015C: retf
 
-Functn07:
+Functn08: "STRMNSTR"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -968,7 +968,7 @@ Functn07:
 0119: pop bp
 011A: retf
 
-Functn08:
+Functn09: "TUFMNSTR"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -1116,7 +1116,7 @@ Functn08:
 014F: pop bp
 0150: retf
 
-Functn09:
+Functn0A: "VTFMNSTR"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -1224,7 +1224,7 @@ Functn09:
 00F5: pop bp
 00F6: retf
 
-Functn0A:
+Functn0B: "STRSMESS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x6da
@@ -1235,7 +1235,7 @@ Functn0A:
 0010: pop bp
 0011: retf
 
-Functn0B:
+Functn0C: "NPCCHATA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x706
@@ -1269,7 +1269,7 @@ Functn0B:
 004B: pop bp
 004C: retf
 
-Functn0C:
+Functn0D: "NPCCHATB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x801

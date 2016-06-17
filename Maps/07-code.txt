@@ -1,4 +1,4 @@
-Functn00:
+Functn01: "STRSTELE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -15,7 +15,7 @@ Functn00:
 001E: pop bp
 001F: retf
 
-Functn01:
+Functn02: "STAIRSUP"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1
@@ -32,7 +32,7 @@ Functn01:
 001E: pop bp
 001F: retf
 
-Functn02:
+Functn03: "TELPORTE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -49,7 +49,7 @@ Functn02:
 001E: pop bp
 001F: retf
 
-Functn03:
+Functn04: "TELPORTW"
 0000: push bp
 0001: mov bp, sp
 0003: xor ax, ax
@@ -66,7 +66,7 @@ Functn03:
 001D: pop bp
 001E: retf
 
-Functn04:
+Functn05: "HIDNDOOR"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -140,7 +140,7 @@ Functn04:
 00A0: pop bp
 00A1: retf
 
-Functn05:
+Functn06: "GOLDAENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x16
@@ -344,7 +344,7 @@ Functn05:
 01C9: pop bp
 01CA: retf
 
-Functn06:
+Functn07: "FOUNTAIN"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1e
@@ -396,7 +396,7 @@ Functn06:
 0075: pop bp
 0076: retf
 
-Functn07:
+Functn08: "LKPKDOOR"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xc4
@@ -463,7 +463,7 @@ Functn07:
 009E: pop bp
 009F: retf
 
-Functn08:
+Functn09: "STRMNSTR"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -604,7 +604,7 @@ Functn08:
 0140: pop bp
 0141: retf
 
-Functn09:
+Functn0A: "VTFMNSTR"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -745,7 +745,7 @@ Functn09:
 0140: pop bp
 0141: retf
 
-Functn0A:
+Functn0B: "STRMNSTR"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -870,7 +870,7 @@ Functn0A:
 011C: pop bp
 011D: retf
 
-Functn0B:
+Functn0C: "BADMNSTR"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -1011,7 +1011,7 @@ Functn0B:
 0140: pop bp
 0141: retf
 
-Functn0C:
+Functn0D: "GOLDBENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x17
@@ -1172,7 +1172,7 @@ Functn0C:
 016B: pop bp
 016C: retf
 
-Functn0D:
+Functn0E: "WEAPENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x18
@@ -1426,7 +1426,7 @@ Functn0D:
 0236: pop bp
 0237: retf
 
-Functn0E:
+Functn0F: "ARMORENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x7f
@@ -1570,7 +1570,7 @@ Functn0E:
 0143: pop bp
 0144: retf
 
-Functn0F:
+Functn10: "MAGICENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x8b
@@ -1808,7 +1808,7 @@ Functn0F:
 0212: pop bp
 0213: retf
 
-Functn10:
+Functn11: "ITEMBENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x52
@@ -1952,7 +1952,7 @@ Functn10:
 0143: pop bp
 0144: retf
 
-Functn11:
+Functn12: "ITEMCENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x20
@@ -2174,7 +2174,7 @@ Functn11:
 01EE: pop bp
 01EF: retf
 
-Functn12:
+Functn13: "TELEPORT"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x3
@@ -2191,7 +2191,7 @@ Functn12:
 001E: pop bp
 001F: retf
 
-Functn13:
+Functn14: "STRSMESS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x626
@@ -2202,7 +2202,7 @@ Functn13:
 0010: pop bp
 0011: retf
 
-Functn14:
+Functn15: "STRSMESS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x659
@@ -2213,7 +2213,7 @@ Functn14:
 0010: pop bp
 0011: retf
 
-Functn15:
+Functn16: "STRSMESS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x68e
@@ -2224,7 +2224,7 @@ Functn15:
 0010: pop bp
 0011: retf
 
-Functn16:
+Functn17: "STRSMESS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x6c1
@@ -2235,7 +2235,7 @@ Functn16:
 0010: pop bp
 0011: retf
 
-Functn17:
+Functn18: "TELEMESS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x6f4
@@ -2246,7 +2246,7 @@ Functn17:
 0010: pop bp
 0011: retf
 
-Functn18:
+Functn19: "TELEMESS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x71a
@@ -2257,7 +2257,7 @@ Functn18:
 0010: pop bp
 0011: retf
 
-Functn19:
+Functn1A: "TELEPORT"
 0000: push bp
 0001: mov bp, sp
 0003: xor ax, ax
@@ -2274,7 +2274,7 @@ Functn19:
 001D: pop bp
 001E: retf
 
-Functn1A:
+Functn1B: "TELEMESS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x740
@@ -2285,7 +2285,7 @@ Functn1A:
 0010: pop bp
 0011: retf
 
-Functn1B:
+Functn1C: "NPCCHATA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x766
@@ -2319,7 +2319,7 @@ Functn1B:
 004B: pop bp
 004C: retf
 
-Functn1C:
+Functn1D: "NPCCHATB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x862
@@ -2358,7 +2358,7 @@ Functn1C:
 0058: pop bp
 0059: retf
 
-Functn1D:
+Functn1E: "NPCCHATC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x9a4
@@ -2392,7 +2392,7 @@ Functn1D:
 004B: pop bp
 004C: retf
 
-Functn1E:
+Functn1F: "NPCCHATD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xab2
@@ -2426,7 +2426,7 @@ Functn1E:
 004B: pop bp
 004C: retf
 
-Functn1F:
+Functn20: "NPCCHATE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xb77

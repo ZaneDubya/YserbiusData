@@ -1,43 +1,43 @@
-0000: The Ageless Void swallows you whole.
-0025: Time freezes forever in your mind.  To the rest of the world, you are dead.
-0071: You are dragged into the Waters of Death. Your death agonies are mercifully short.
-00C4: The wall sparkles with phantasmal light.
-00ED: A Timeswitch has been set.
-0108: Two other Timeswitches must be set to reveal the platform.
-0143: The second Timeswitch has been set.
-0167: The third and final Timeswitch has been set.
-0194: All is deathly quiet near the Fountain of Life.
-01C4: The wall sparkles with phantasmal light.
-01ED: A Timeswitch has been set.
-0208: Two other Timeswitches must be set to reveal the platform.
-0243: The second Timeswitch has been set.
-0267: The third and final Timeswitch has been set.
-0294: All is deathly quiet near the Fountain of Life.
-02C4: The wall sparkles with phantasmal light.
-02ED: A Timeswitch has been set.
-0308: Two other Timeswitches must be set to reveal the platform.
-0343: The second Timeswitch has been set.
-0367: The third and final Timeswitch has been set.
-0394: All is deathly quiet near the Fountain of Life.
-03C4: I am the Time Elemental, En-Li-Kil.
-03E8: You have traveled far...only to die!
-040D: Your arrival frees me from my long imprisonment here -- halfway between two worlds.
-0461: I destroyed that fool Arnakkian Slowfoot, and I shall destroy you as easily.
-04AE: Then I shall search out all mortals in your world and destroy them!
-04F2: I am En-Li-Kil!  The immortal!!!
-0513: You cross the Waters of Death safely.
-0539: En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
-05B1: You are dragged into the Waters of Death. Your death agonies are mercifully short.
-0604: You have found the Fountain of Life, but the waters are drained.
-0645: The Rainbow Gems and Golden Boat dissolve into dust.
-067A: Humiliating En-Li-Kil a second time is reward enough.
-06B0: You stand on the Fountain of Life.
-06D3: The Rainbow Gems and Golden Boat dissolve in the golden water.
-0712: You have defeated the Time Elemental En-Li-Kil.
-0742: You have won the game of life and death.  You are now a HERO OF YSERBIUS.
-078C: Return to your home safely now.
-07AC: Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
-0803: Farewell...this ending is just the beginning!!!
-0833: Across the Waters of Death at the center of this finite square is the Fountain of Life.
-088B: The Fountain is well guarded.
-08A9: You leave this dimension and re-enter your world.
+03FC: The Ageless Void swallows you whole.
+0421: Time freezes forever in your mind.  To the rest of the world, you are dead.
+046D: You are dragged into the Waters of Death. Your death agonies are mercifully short.
+04C0: The wall sparkles with phantasmal light.
+04E9: A Timeswitch has been set.
+0504: Two other Timeswitches must be set to reveal the platform.
+053F: The second Timeswitch has been set.
+0563: The third and final Timeswitch has been set.
+0590: All is deathly quiet near the Fountain of Life.
+05C0: The wall sparkles with phantasmal light.
+05E9: A Timeswitch has been set.
+0604: Two other Timeswitches must be set to reveal the platform.
+063F: The second Timeswitch has been set.
+0663: The third and final Timeswitch has been set.
+0690: All is deathly quiet near the Fountain of Life.
+06C0: The wall sparkles with phantasmal light.
+06E9: A Timeswitch has been set.
+0704: Two other Timeswitches must be set to reveal the platform.
+073F: The second Timeswitch has been set.
+0763: The third and final Timeswitch has been set.
+0790: All is deathly quiet near the Fountain of Life.
+07C0: I am the Time Elemental, En-Li-Kil.
+07E4: You have traveled far...only to die!
+0809: Your arrival frees me from my long imprisonment here -- halfway between two worlds.
+085D: I destroyed that fool Arnakkian Slowfoot, and I shall destroy you as easily.
+08AA: Then I shall search out all mortals in your world and destroy them!
+08EE: I am En-Li-Kil!  The immortal!!!
+090F: You cross the Waters of Death safely.
+0935: En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
+09AD: You are dragged into the Waters of Death. Your death agonies are mercifully short.
+0A00: You have found the Fountain of Life, but the waters are drained.
+0A41: The Rainbow Gems and Golden Boat dissolve into dust.
+0A76: Humiliating En-Li-Kil a second time is reward enough.
+0AAC: You stand on the Fountain of Life.
+0ACF: The Rainbow Gems and Golden Boat dissolve in the golden water.
+0B0E: You have defeated the Time Elemental En-Li-Kil.
+0B3E: You have won the game of life and death.  You are now a HERO OF YSERBIUS.
+0B88: Return to your home safely now.
+0BA8: Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
+0BFF: Farewell...this ending is just the beginning!!!
+0C2F: Across the Waters of Death at the center of this finite square is the Fountain of Life.
+0C87: The Fountain is well guarded.
+0CA5: You leave this dimension and re-enter your world.

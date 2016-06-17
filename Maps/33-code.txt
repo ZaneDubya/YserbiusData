@@ -1,4 +1,4 @@
-Functn00:
+Functn01: "VOID"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x3fc
@@ -20,7 +20,7 @@ Functn00:
 002E: pop bp
 002F: retf
 
-Functn01:
+Functn02: "ISLEETRN"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x46d
@@ -36,7 +36,7 @@ Functn01:
 001D: pop bp
 001E: retf
 
-Functn02:
+Functn03: "ENCSELF"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x19
@@ -90,7 +90,7 @@ Functn02:
 006F: pop bp
 0070: retf
 
-Functn03:
+Functn04: "ENCWINTR"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x4e8
@@ -182,7 +182,7 @@ Functn03:
 00D8: pop bp
 00D9: retf
 
-Functn04:
+Functn05: "RAINRED"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x6f2
@@ -204,7 +204,7 @@ Functn04:
 002B: pop bp
 002C: retf
 
-Functn05:
+Functn06: "RAINYEL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x71c
@@ -226,7 +226,7 @@ Functn05:
 002B: pop bp
 002C: retf
 
-Functn06:
+Functn07: "RAINGRN"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x749
@@ -248,7 +248,7 @@ Functn06:
 002B: pop bp
 002C: retf
 
-Functn07:
+Functn08: "RAINBLU"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x775
@@ -270,7 +270,7 @@ Functn07:
 002B: pop bp
 002C: retf
 
-Functn08:
+Functn09: "ENCTIME"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x7a0
@@ -306,7 +306,7 @@ Functn08:
 0051: pop bp
 0052: retf
 
-Functn09:
+Functn0A: "TELENW"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x9d4
@@ -328,7 +328,7 @@ Functn09:
 002B: pop bp
 002C: retf
 
-Functn0A:
+Functn0B: "TELENE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x9f1
@@ -350,7 +350,7 @@ Functn0A:
 002A: pop bp
 002B: retf
 
-Functn0B:
+Functn0C: "TELESE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xa0e
@@ -372,7 +372,7 @@ Functn0B:
 002B: pop bp
 002C: retf
 
-Functn0C:
+Functn0D: "TELESW"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xa2b

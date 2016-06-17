@@ -1,4 +1,4 @@
-Functn00:
+Functn01: "RIVER"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x3fc
@@ -29,7 +29,7 @@ Functn00:
 0047: pop bp
 0048: retf
 
-Functn01:
+Functn02: "RIVRBANK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x438
@@ -40,7 +40,7 @@ Functn01:
 0010: pop bp
 0011: retf
 
-Functn02:
+Functn03: "VOID"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x47c
@@ -57,7 +57,7 @@ Functn02:
 0021: pop bp
 0022: retf
 
-Functn03:
+Functn04: "PLATA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x42
@@ -84,7 +84,7 @@ Functn03:
 003B: pop bp
 003C: retf
 
-Functn04:
+Functn05: "PLATB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x84
@@ -151,7 +151,7 @@ Functn04:
 008E: pop bp
 008F: retf
 
-Functn05:
+Functn06: "PLATCTOA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x42
@@ -178,7 +178,7 @@ Functn05:
 003B: pop bp
 003C: retf
 
-Functn06:
+Functn07: "PLATDTOB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x53d
@@ -200,7 +200,7 @@ Functn06:
 002B: pop bp
 002C: retf
 
-Functn0B:
+Functn0C: "TAPMOONS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xf2
@@ -248,7 +248,7 @@ Functn0B:
 006C: pop bp
 006D: retf
 
-Functn11:
+Functn12: "THEFCLUE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x24
@@ -284,7 +284,7 @@ Functn11:
 0051: pop bp
 0052: retf
 
-Functn12:
+Functn13: "THIEVES"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x751
@@ -295,7 +295,7 @@ Functn12:
 0010: pop bp
 0011: retf
 
-Functn13:
+Functn14: "RAINBOW"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x77d
@@ -306,7 +306,7 @@ Functn13:
 0010: pop bp
 0011: retf
 
-Functn14:
+Functn15: "RAINRED"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xf4
@@ -463,7 +463,7 @@ Functn14:
 015A: pop bp
 015B: retf
 
-Functn15:
+Functn16: "RAINYEL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xf5
@@ -614,7 +614,7 @@ Functn15:
 014B: pop bp
 014C: retf
 
-Functn16:
+Functn17: "RAINGRN"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xf6
@@ -765,7 +765,7 @@ Functn16:
 014B: pop bp
 014C: retf
 
-Functn17:
+Functn18: "RAINBLU"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xf7
@@ -916,7 +916,7 @@ Functn17:
 014B: pop bp
 014C: retf
 
-Functn18:
+Functn19: "GATEA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xe1b
@@ -938,7 +938,7 @@ Functn18:
 002B: pop bp
 002C: retf
 
-Functn19:
+Functn1A: "ENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xe3f
@@ -997,7 +997,7 @@ Functn19:
 007C: pop bp
 007D: retf
 
-Functn1A:
+Functn1B: "ENCB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x26
@@ -1043,7 +1043,7 @@ Functn1A:
 005D: pop bp
 005E: retf
 
-Functn1B:
+Functn1C: "ENCC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xe66
@@ -1086,7 +1086,7 @@ Functn1B:
 0058: pop bp
 0059: retf
 
-Functn1C:
+Functn1D: "ENCD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x19
@@ -1140,7 +1140,7 @@ Functn1C:
 006F: pop bp
 0070: retf
 
-Functn1D:
+Functn1E: "TAPECLUE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xe81
@@ -1166,7 +1166,7 @@ Functn1D:
 0037: pop bp
 0038: retf
 
-Functn1E:
+Functn1F: "BOAT"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1
@@ -1230,7 +1230,7 @@ Functn1E:
 0093: pop bp
 0094: retf
 
-Functn1F:
+Functn20: "DOORWARN"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1123
@@ -1241,7 +1241,7 @@ Functn1F:
 0010: pop bp
 0011: retf
 
-Functn23:
+Functn24: "NOLIGHT"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1157
@@ -1252,7 +1252,7 @@ Functn23:
 0010: pop bp
 0011: retf
 
-Functn24:
+Functn25: "PLATFORM"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x117f

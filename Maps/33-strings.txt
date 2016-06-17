@@ -1,25 +1,25 @@
-0000: The Ageless Void swallows you whole.
-0025: Time freezes forever in your mind.  To the rest of the world, you are dead.
-0071: The Island of Eternity sits at the edge of time.
-00A2: Along its edge is the Ageless Void, a vastness where time does not exist.
-00EC: A titanic Elemental appears!
-0109: 'You have gotten past Zephyr, Tempest, ZZyzx, Heaven's Fury, and all other winds.  But now you face your greatest challenge!'
-0187: The sky above you darkens and dark clouds mass together. Tornadoes swirl around you.  Hurricane winds beat against you.  The clouds shine with the endless flash of lightning.
-0236: The winds rip at your weapons.
-0255: Your weapon snaps in the wind!  It is gone.
-0281: The Wind Sword resists the winds!  It will indeed be a good fight!
-02C4: You notice En-Li-Kil, the Time Elemental, vanish.
-02F6: A streak of Red crosses the Ageless Void.
-0320: A streak of Yellow crosses the Ageless Void.
-034D: A streak of Green crosses the Ageless Void.
-0379: A streak of Blue crosses the Ageless Void.
-03A4: Threads of blinding light appear from all directions, bending and weaving into a tight spiral before you.
-040E: From within the luminary vortex, an ageless elemental appears.
-044D: 'I am Time, I am En-Li-Kil.  I have seen the birth of the universe and I will mark its death.'
-04AC: His face turns with age, then glows bright red.
-04DC: 'Arnakkian summoned me to this realm -- to watch over his soul -- to make him immortal.  He lost his body and his castle for his lust.
-0563: Mortal!  You have no business in the affairs of Time. I waste myself no more, my Wind Elemental will deal with you.'
-05D8: You enter another dimension.
-05F5: You enter another dimension.
-0612: You enter another dimension.
-062F: You enter another dimension.
+03FC: The Ageless Void swallows you whole.
+0421: Time freezes forever in your mind.  To the rest of the world, you are dead.
+046D: The Island of Eternity sits at the edge of time.
+049E: Along its edge is the Ageless Void, a vastness where time does not exist.
+04E8: A titanic Elemental appears!
+0505: 'You have gotten past Zephyr, Tempest, ZZyzx, Heaven's Fury, and all other winds.  But now you face your greatest challenge!'
+0583: The sky above you darkens and dark clouds mass together. Tornadoes swirl around you.  Hurricane winds beat against you.  The clouds shine with the endless flash of lightning.
+0632: The winds rip at your weapons.
+0651: Your weapon snaps in the wind!  It is gone.
+067D: The Wind Sword resists the winds!  It will indeed be a good fight!
+06C0: You notice En-Li-Kil, the Time Elemental, vanish.
+06F2: A streak of Red crosses the Ageless Void.
+071C: A streak of Yellow crosses the Ageless Void.
+0749: A streak of Green crosses the Ageless Void.
+0775: A streak of Blue crosses the Ageless Void.
+07A0: Threads of blinding light appear from all directions, bending and weaving into a tight spiral before you.
+080A: From within the luminary vortex, an ageless elemental appears.
+0849: 'I am Time, I am En-Li-Kil.  I have seen the birth of the universe and I will mark its death.'
+08A8: His face turns with age, then glows bright red.
+08D8: 'Arnakkian summoned me to this realm -- to watch over his soul -- to make him immortal.  He lost his body and his castle for his lust.
+095F: Mortal!  You have no business in the affairs of Time. I waste myself no more, my Wind Elemental will deal with you.'
+09D4: You enter another dimension.
+09F1: You enter another dimension.
+0A0E: You enter another dimension.
+0A2B: You enter another dimension.

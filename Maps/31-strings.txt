@@ -1,44 +1,44 @@
-0000: The River of Eternity taps your life energy.
-002D: You have died.
-003C: Only the bravest adventurers explore the River for hidden passages.
-0080: Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
-00E0: The tapestry glows with the image of a Cyclops.
-0110: Your Dwarf Mine Key activated this platform.
-013D: Your Hidden Mine Key makes the wall become transparent.
-0175: There is something strange about this wall.
-01A1: You locate a hidden door in the wall.
-01C7: You locate a hidden door in the wall.
-01ED: You locate a hidden door in the wall.
-0213: A band of dwarves moves out of the shadows.
-023F: The leader steps forward, his eyes fixed on the blue metal.
-027B: 'This magnificent blue treasure you hold can certainly do YOU no good.  Perhaps we may offer you a TRADE to remove this rock from your hands.'
-030A: A key appears from beneath his pack.
-032F: 'We offer you this key to our kingdom in return.'
-0361: A beam of bluish sunshine filters down from the surface above and reflects on a ceremonial dwarven rock.
-03CA: You fall into a lava pit and die.
-03EC: This gate leads to DWARF KINGDOM.
-040E: This gate leads to RIVERS END.
-042D: Hobgoblins appear from the surrounding walls.
-045B: The air is heavy with the scent of burnt flesh.
-048B: You wander into a renegade adventurer camp.
-04B7: A den of manticores is disturbed.
-04D9: Stone fragments litter the floor.
-04FB: A huge Cyclops appears from behind large boulders.
-052E: You encounter adventurers slaying a dragon.  They do not welcome your intrusion.
-057F: Creatures fight over a stone key.
-05A1: Creatures fight over a green tree-shaped key
-05CE: Your full health is restored by the ancient waters of RoundBrook Fountain.
-0619: You feel all your health restored after sipping from JasperStone Fountain.
-0664: The waters of RockyFlat Fountain restores your health.
-069B: Your mana is recharged by drinking the magical waters of Omar Fountain.
-06E3: Your magical powers are recharged by the heated steams of Venivor Geyser.
-072D: Your mana is increased in a whirlpool at the edge of the river.
-076D: A message is inscribed on the wall -- 
-0794: The Tapestry of the Moons requires a spectrum of color to open.
-07D4: A gust of wind from caverns above catches your attention.
-080E: 'I am Zephyr.  
-081E: 'Only the FlexSword can bend against the Wind Elemental's gail.'
-085F: A collection of runes reveals a message -- 
-088B: It is said that the Dwarves can build magnificent creations and vessels out of golden threads.
-08EA: Written in blood on the wall is the message -- 
-091A: Acquire the Sunbeam Key at the Dwarf Ceremonial Rock to access the Dwarf Kingdom.
+03FC: The River of Eternity taps your life energy.
+0429: You have died.
+0438: Only the bravest adventurers explore the River for hidden passages.
+047C: Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
+04DC: The tapestry glows with the image of a Cyclops.
+050C: Your Dwarf Mine Key activated this platform.
+0539: Your Hidden Mine Key makes the wall become transparent.
+0571: There is something strange about this wall.
+059D: You locate a hidden door in the wall.
+05C3: You locate a hidden door in the wall.
+05E9: You locate a hidden door in the wall.
+060F: A band of dwarves moves out of the shadows.
+063B: The leader steps forward, his eyes fixed on the blue metal.
+0677: 'This magnificent blue treasure you hold can certainly do YOU no good.  Perhaps we may offer you a TRADE to remove this rock from your hands.'
+0706: A key appears from beneath his pack.
+072B: 'We offer you this key to our kingdom in return.'
+075D: A beam of bluish sunshine filters down from the surface above and reflects on a ceremonial dwarven rock.
+07C6: You fall into a lava pit and die.
+07E8: This gate leads to DWARF KINGDOM.
+080A: This gate leads to RIVERS END.
+0829: Hobgoblins appear from the surrounding walls.
+0857: The air is heavy with the scent of burnt flesh.
+0887: You wander into a renegade adventurer camp.
+08B3: A den of manticores is disturbed.
+08D5: Stone fragments litter the floor.
+08F7: A huge Cyclops appears from behind large boulders.
+092A: You encounter adventurers slaying a dragon.  They do not welcome your intrusion.
+097B: Creatures fight over a stone key.
+099D: Creatures fight over a green tree-shaped key
+09CA: Your full health is restored by the ancient waters of RoundBrook Fountain.
+0A15: You feel all your health restored after sipping from JasperStone Fountain.
+0A60: The waters of RockyFlat Fountain restores your health.
+0A97: Your mana is recharged by drinking the magical waters of Omar Fountain.
+0ADF: Your magical powers are recharged by the heated steams of Venivor Geyser.
+0B29: Your mana is increased in a whirlpool at the edge of the river.
+0B69: A message is inscribed on the wall -- 
+0B90: The Tapestry of the Moons requires a spectrum of color to open.
+0BD0: A gust of wind from caverns above catches your attention.
+0C0A: 'I am Zephyr.  
+0C1A: 'Only the FlexSword can bend against the Wind Elemental's gail.'
+0C5B: A collection of runes reveals a message -- 
+0C87: It is said that the Dwarves can build magnificent creations and vessels out of golden threads.
+0CE6: Written in blood on the wall is the message -- 
+0D16: Acquire the Sunbeam Key at the Dwarf Ceremonial Rock to access the Dwarf Kingdom.

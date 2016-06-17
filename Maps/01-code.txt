@@ -1,11 +1,11 @@
-Functn00:
+Functn01: "TOMINES"
 0000: push bp
 0001: mov bp, sp
-0003: mov ax, 0x3
+0003: mov ax, 0x3       ; facing 3 == n
 0006: push ax
-0007: mov ax, 0xfd
+0007: mov ax, 0xfd      ; tile = fd
 000A: push ax
-000B: mov ax, 0x2
+000B: mov ax, 0x2       ; map = 2
 000E: push ax
 000F: mov ax, 0x1
 0012: push ax
@@ -15,14 +15,14 @@ Functn00:
 001E: pop bp
 001F: retf
 
-Functn01:
+Functn02: "TOTREAS"
 0000: push bp
 0001: mov bp, sp
-0003: mov ax, 0x2
+0003: mov ax, 0x2       ; facing 2 == e
 0006: push ax
-0007: mov ax, 0x10
+0007: mov ax, 0x10      ; tile = 10
 000A: push ax
-000B: mov ax, 0x4
+000B: mov ax, 0x4       ; map = 4
 000E: push ax
 000F: mov ax, 0x1
 0012: push ax
@@ -32,12 +32,12 @@ Functn01:
 001E: pop bp
 001F: retf
 
-Functn02:
+Functn03: "TOSOLDQU"
 0000: push bp
 0001: mov bp, sp
-0003: mov ax, 0x1
+0003: mov ax, 0x1       ; facing 1 == s
 0006: push ax
-0007: mov ax, 0xf
+0007: mov ax, 0xf       ; tile = f
 000A: push ax
 000B: mov ax, 0x6
 000E: push ax
@@ -49,15 +49,15 @@ Functn02:
 001E: pop bp
 001F: retf
 
-Functn03:
+Functn04: "EXITDUNG"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
-0006: call far word [es:bx+0xc0]
+0006: call far word [es:bx+0xc0]    ; exit
 000B: pop bp
 000C: retf
 
-Functn04:
+Functn05: "DOORMESA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x3fc
@@ -68,7 +68,7 @@ Functn04:
 0010: pop bp
 0011: retf
 
-Functn05:
+Functn06: "DOORMESB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x41c
@@ -79,7 +79,7 @@ Functn05:
 0010: pop bp
 0011: retf
 
-Functn06:
+Functn07: "DOORMESC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x444
@@ -90,7 +90,7 @@ Functn06:
 0010: pop bp
 0011: retf
 
-Functn07:
+Functn08: "DOORMESD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x471
@@ -121,7 +121,7 @@ Functn07:
 003F: pop bp
 0040: retf
 
-Functn08:
+Functn09: "TELEPORT"
 0000: push bp
 0001: mov bp, sp
 0003: xor ax, ax
@@ -138,7 +138,7 @@ Functn08:
 001D: pop bp
 001E: retf
 
-Functn09:
+Functn0A: "TELEMESS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x4de
@@ -149,7 +149,7 @@ Functn09:
 0010: pop bp
 0011: retf
 
-Functn0A:
+Functn0B: "DOORMESS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x14
@@ -291,7 +291,7 @@ Functn0A:
 0156: pop bp
 0157: retf
 
-Functn0B:
+Functn0C: "PRTYPORT"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x14
@@ -326,7 +326,7 @@ Functn0B:
 0049: pop bp
 004A: retf
 
-Functn0C:
+Functn0D: "NOJOIN"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]

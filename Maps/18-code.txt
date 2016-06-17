@@ -1,4 +1,4 @@
-Functn00:
+Functn01: "STARSADN"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x14
@@ -39,7 +39,7 @@ Functn00:
 0059: pop bp
 005A: retf
 
-Functn01:
+Functn02: "STRSMESA"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -52,7 +52,7 @@ Functn01:
 0018: pop bp
 0019: retf
 
-Functn02:
+Functn03: "TELPRTUP"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -69,7 +69,7 @@ Functn02:
 001E: pop bp
 001F: retf
 
-Functn03:
+Functn04: "TELEMESS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x44c
@@ -80,7 +80,7 @@ Functn03:
 0010: pop bp
 0011: retf
 
-Functn04:
+Functn05: "TELETAVR"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x14
@@ -121,7 +121,7 @@ Functn04:
 005A: pop bp
 005B: retf
 
-Functn05:
+Functn06: "TELPRTMS"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -134,7 +134,7 @@ Functn05:
 0018: pop bp
 0019: retf
 
-Functn06:
+Functn07: "STAIRMSS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x4bc
@@ -145,7 +145,7 @@ Functn06:
 0010: pop bp
 0011: retf
 
-Functn07:
+Functn08: "TAVERN"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -153,7 +153,7 @@ Functn07:
 000B: pop bp
 000C: retf
 
-Functn08:
+Functn09: "SPECIALD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x42
@@ -200,7 +200,7 @@ Functn08:
 0066: pop bp
 0067: retf
 
-Functn09:
+Functn0A: "MONENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x565
@@ -235,7 +235,7 @@ Functn09:
 0046: pop bp
 0047: retf
 
-Functn0A:
+Functn0B: "MONENCB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x58a
@@ -293,7 +293,7 @@ Functn0A:
 0078: pop bp
 0079: retf
 
-Functn0B:
+Functn0C: "MONENCC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x5b7
@@ -377,7 +377,7 @@ Functn0B:
 00BC: pop bp
 00BD: retf
 
-Functn0D:
+Functn0E: "MONENCE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xbe
@@ -450,7 +450,7 @@ Functn0D:
 0098: pop bp
 0099: retf
 
-Functn0E:
+Functn0F: "MONENCF"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x68
@@ -528,7 +528,7 @@ Functn0E:
 00A3: pop bp
 00A4: retf
 
-Functn0F:
+Functn10: "FLSPECA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x41
@@ -587,7 +587,7 @@ Functn0F:
 007F: pop bp
 0080: retf
 
-Functn10:
+Functn11: "FLSPECB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x3e
@@ -656,7 +656,7 @@ Functn10:
 0097: pop bp
 0098: retf
 
-Functn11:
+Functn12: "FLSPECC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x43
@@ -723,7 +723,7 @@ Functn11:
 0090: pop bp
 0091: retf
 
-Functn12:
+Functn13: "FLSPECD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xfb
@@ -866,7 +866,7 @@ Functn12:
 0150: pop bp
 0151: retf
 
-Functn13:
+Functn14: "FLSPECE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x44
@@ -910,7 +910,7 @@ Functn13:
 005B: pop bp
 005C: retf
 
-Functn14:
+Functn15: "FLSPECF"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x22
@@ -952,7 +952,7 @@ Functn14:
 005A: pop bp
 005B: retf
 
-Functn15:
+Functn16: "FLSPECG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x45
@@ -1019,7 +1019,7 @@ Functn15:
 0094: pop bp
 0095: retf
 
-Functn16:
+Functn17: "FLSPECH"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x26
@@ -1061,7 +1061,7 @@ Functn16:
 005A: pop bp
 005B: retf
 
-Functn17:
+Functn18: "FLSPECI"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x64
@@ -1128,7 +1128,7 @@ Functn17:
 0094: pop bp
 0095: retf
 
-Functn18:
+Functn19: "FLSPECJ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xcc6
@@ -1175,7 +1175,7 @@ Functn18:
 0067: pop bp
 0068: retf
 
-Functn19:
+Functn1A: "FLSPECK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x65
@@ -1242,7 +1242,7 @@ Functn19:
 0094: pop bp
 0095: retf
 
-Functn1A:
+Functn1B: "FLSPECL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x68
@@ -1307,7 +1307,7 @@ Functn1A:
 0090: pop bp
 0091: retf
 
-Functn1C:
+Functn1D: "FLSPECN"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x26
@@ -1349,7 +1349,7 @@ Functn1C:
 005A: pop bp
 005B: retf
 
-Functn1D:
+Functn1E: "HIDEDOOR"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1
@@ -1366,7 +1366,7 @@ Functn1D:
 0021: pop bp
 0022: retf
 
-Functn23:
+Functn24: "HIDDORG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xfb
@@ -1426,7 +1426,7 @@ Functn23:
 008D: pop bp
 008E: retf
 
-Functn24:
+Functn25: "HIDDORH"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xc4
@@ -1493,7 +1493,7 @@ Functn24:
 009E: pop bp
 009F: retf
 
-Functn25:
+Functn26: "HIDDORI"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -1647,7 +1647,7 @@ Functn25:
 0166: pop bp
 0167: retf
 
-Functn26:
+Functn27: "HIDDORJ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -1801,7 +1801,7 @@ Functn26:
 0166: pop bp
 0167: retf
 
-Functn27:
+Functn28: "HIDDORK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -1955,7 +1955,7 @@ Functn27:
 0166: pop bp
 0167: retf
 
-Functn28:
+Functn29: "HIDDORL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -2109,7 +2109,7 @@ Functn28:
 0166: pop bp
 0167: retf
 
-Functn29:
+Functn2A: "HIDDORM"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -2263,7 +2263,7 @@ Functn29:
 0166: pop bp
 0167: retf
 
-Functn2A:
+Functn2B: "HIDDORN"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -2417,7 +2417,7 @@ Functn2A:
 0166: pop bp
 0167: retf
 
-Functn2D:
+Functn2E: "HIDDORQ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xc4
@@ -2484,7 +2484,7 @@ Functn2D:
 009E: pop bp
 009F: retf
 
-Functn30:
+Functn31: "HIDDORT"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -2532,7 +2532,7 @@ Functn30:
 006E: pop bp
 006F: retf
 
-Functn31:
+Functn32: "HIDDORU"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -2686,7 +2686,7 @@ Functn31:
 0166: pop bp
 0167: retf
 
-Functn32:
+Functn33: "HIDDORV"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1
@@ -2703,7 +2703,7 @@ Functn32:
 0021: pop bp
 0022: retf
 
-Functn34:
+Functn35: "HIDDORX"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1
@@ -2720,7 +2720,7 @@ Functn34:
 0021: pop bp
 0022: retf
 
-Functn35:
+Functn36: "HIDDORY"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -2874,7 +2874,7 @@ Functn35:
 0166: pop bp
 0167: retf
 
-Functn36:
+Functn37: "HIDDORZ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -2940,7 +2940,7 @@ Functn36:
 008E: pop bp
 008F: retf
 
-Functn37:
+Functn38: "HIDDORAA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1
@@ -2957,7 +2957,7 @@ Functn37:
 0021: pop bp
 0022: retf
 
-Functn38:
+Functn39: "HIDDORBB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -3111,7 +3111,7 @@ Functn38:
 0166: pop bp
 0167: retf
 
-Functn39:
+Functn3A: "HIDDORCC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -3265,7 +3265,7 @@ Functn39:
 0166: pop bp
 0167: retf
 
-Functn3C:
+Functn3D: "HIDDORFF"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xc4
@@ -3332,7 +3332,7 @@ Functn3C:
 009E: pop bp
 009F: retf
 
-Functn3F:
+Functn40: "HIDDORII"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xd
@@ -3486,7 +3486,7 @@ Functn3F:
 0166: pop bp
 0167: retf
 
-Functn40:
+Functn41: "EXITMSG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1601
@@ -3497,7 +3497,7 @@ Functn40:
 0010: pop bp
 0011: retf
 
-Functn41:
+Functn42: "STRTMSG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1632
@@ -3508,7 +3508,7 @@ Functn41:
 0010: pop bp
 0011: retf
 
-Functn42:
+Functn43: "GOODYA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xc3

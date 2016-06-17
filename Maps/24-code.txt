@@ -1,4 +1,4 @@
-Functn00:
+Functn01: "ATELEA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x3fc
@@ -25,7 +25,7 @@ Functn00:
 0038: pop bp
 0039: retf
 
-Functn01:
+Functn02: "RTELEB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x41b
@@ -52,7 +52,7 @@ Functn01:
 0038: pop bp
 0039: retf
 
-Functn02:
+Functn03: "NTELEC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x43a
@@ -88,7 +88,7 @@ Functn02:
 004D: pop bp
 004E: retf
 
-Functn03:
+Functn04: "ATELED"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x45d
@@ -115,7 +115,7 @@ Functn03:
 0037: pop bp
 0038: retf
 
-Functn04:
+Functn05: "KTELEE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x47b
@@ -142,7 +142,7 @@ Functn04:
 0038: pop bp
 0039: retf
 
-Functn05:
+Functn06: "KTELEF"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x498
@@ -169,7 +169,7 @@ Functn05:
 0038: pop bp
 0039: retf
 
-Functn06:
+Functn07: "ITELEG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x4b5
@@ -196,7 +196,7 @@ Functn06:
 0038: pop bp
 0039: retf
 
-Functn07:
+Functn08: "ATELEH"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x49
@@ -233,7 +233,7 @@ Functn07:
 004E: pop bp
 004F: retf
 
-Functn08:
+Functn09: "NTELEI"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x4f7
@@ -260,7 +260,7 @@ Functn08:
 0037: pop bp
 0038: retf
 
-Functn09:
+Functn0A: "ARNKENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1
@@ -335,7 +335,7 @@ Functn09:
 00A1: pop bp
 00A2: retf
 
-Functn0B:
+Functn0C: "TOENTRY"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x550
@@ -357,7 +357,7 @@ Functn0B:
 002B: pop bp
 002C: retf
 
-Functn0C:
+Functn0D: "ETELEJ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x57a
@@ -384,7 +384,7 @@ Functn0C:
 0038: pop bp
 0039: retf
 
-Functn0D:
+Functn0E: "NTELEK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x59a
@@ -411,7 +411,7 @@ Functn0D:
 0038: pop bp
 0039: retf
 
-Functn0E:
+Functn0F: "LTELEL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x3
@@ -447,7 +447,7 @@ Functn0E:
 004D: pop bp
 004E: retf
 
-Functn0F:
+Functn10: "ITELEG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x49
@@ -516,7 +516,7 @@ Functn0F:
 009B: pop bp
 009C: retf
 
-Functn10:
+Functn11: "KTELEL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x4
@@ -552,7 +552,7 @@ Functn10:
 004D: pop bp
 004E: retf
 
-Functn11:
+Functn12: "LTELEN"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x63a
@@ -579,7 +579,7 @@ Functn11:
 0038: pop bp
 0039: retf
 
-Functn12:
+Functn13: "ENLKENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1
@@ -654,7 +654,7 @@ Functn12:
 009F: pop bp
 00A0: retf
 
-Functn14:
+Functn15: "DTELEO"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x5
@@ -690,7 +690,7 @@ Functn14:
 004D: pop bp
 004E: retf
 
-Functn15:
+Functn16: "ETELEP"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x6ba
@@ -717,7 +717,7 @@ Functn15:
 0038: pop bp
 0039: retf
 
-Functn16:
+Functn17: "RTELEQ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x6d9
@@ -744,7 +744,7 @@ Functn16:
 0038: pop bp
 0039: retf
 
-Functn17:
+Functn18: "GTELER"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x6f6
@@ -771,7 +771,7 @@ Functn17:
 0037: pop bp
 0038: retf
 
-Functn18:
+Functn19: "HTELES"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x714
@@ -798,7 +798,7 @@ Functn18:
 0038: pop bp
 0039: retf
 
-Functn19:
+Functn1A: "OTELET"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x72f
@@ -825,7 +825,7 @@ Functn19:
 0037: pop bp
 0038: retf
 
-Functn1A:
+Functn1B: "STELEU"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x750
@@ -852,7 +852,7 @@ Functn1A:
 0037: pop bp
 0038: retf
 
-Functn1B:
+Functn1C: "TTELEV"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x76f
@@ -879,7 +879,7 @@ Functn1B:
 0038: pop bp
 0039: retf
 
-Functn1C:
+Functn1D: "ARNAKEND"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x52
@@ -932,7 +932,7 @@ Functn1C:
 0071: pop bp
 0072: retf
 
-Functn1D:
+Functn1E: "DTELEX"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x839
@@ -959,7 +959,7 @@ Functn1D:
 0038: pop bp
 0039: retf
 
-Functn1E:
+Functn1F: "RTELEY"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x856
@@ -986,7 +986,7 @@ Functn1E:
 0037: pop bp
 0038: retf
 
-Functn1F:
+Functn20: "ATELEZ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x873
@@ -1013,7 +1013,7 @@ Functn1F:
 0037: pop bp
 0038: retf
 
-Functn20:
+Functn21: "GTELEAA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x894
@@ -1040,7 +1040,7 @@ Functn20:
 0038: pop bp
 0039: retf
 
-Functn21:
+Functn22: "OTELEBB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x8b1
@@ -1067,7 +1067,7 @@ Functn21:
 0037: pop bp
 0038: retf
 
-Functn22:
+Functn23: "NTELECC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x8cc
@@ -1094,7 +1094,7 @@ Functn22:
 0038: pop bp
 0039: retf
 
-Functn23:
+Functn24: "DRAGENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1a
@@ -1155,7 +1155,7 @@ Functn23:
 007E: pop bp
 007F: retf
 
-Functn24:
+Functn25: "DRAGENCB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1c
@@ -1216,7 +1216,7 @@ Functn24:
 007F: pop bp
 0080: retf
 
-Functn25:
+Functn26: "ZTELEDD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x8e9
@@ -1252,7 +1252,7 @@ Functn25:
 004D: pop bp
 004E: retf
 
-Functn26:
+Functn27: "ITELEG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x906
@@ -1279,7 +1279,7 @@ Functn26:
 0038: pop bp
 0039: retf
 
-Functn27:
+Functn28: "WTELEEE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x49
@@ -1316,7 +1316,7 @@ Functn27:
 004E: pop bp
 004F: retf
 
-Functn28:
+Functn29: "VTELEWW"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x944
@@ -1343,7 +1343,7 @@ Functn28:
 0038: pop bp
 0039: retf
 
-Functn29:
+Functn2A: "BTELEXX"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x962
@@ -1370,7 +1370,7 @@ Functn29:
 0037: pop bp
 0038: retf
 
-Functn2A:
+Functn2B: "CTELEYY"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x981
@@ -1397,7 +1397,7 @@ Functn2A:
 0038: pop bp
 0039: retf
 
-Functn2B:
+Functn2C: "PTELEZZ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x9a0
@@ -1424,7 +1424,7 @@ Functn2B:
 0037: pop bp
 0038: retf
 
-Functn2C:
+Functn2D: "MTELEXX"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x9c0
@@ -1451,7 +1451,7 @@ Functn2C:
 0037: pop bp
 0038: retf
 
-Functn2D:
+Functn2E: "JTELEYY"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x9dd
@@ -1478,7 +1478,7 @@ Functn2D:
 0038: pop bp
 0039: retf
 
-Functn2E:
+Functn2F: "UTELEWW"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x9f9
@@ -1505,7 +1505,7 @@ Functn2E:
 0038: pop bp
 0039: retf
 
-Functn2F:
+Functn30: "XTELEWW"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xa1a
@@ -1532,7 +1532,7 @@ Functn2F:
 0038: pop bp
 0039: retf
 
-Functn30:
+Functn31: "YTELEZZ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xa36
@@ -1559,7 +1559,7 @@ Functn30:
 0037: pop bp
 0038: retf
 
-Functn31:
+Functn32: "IENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x18
@@ -1597,7 +1597,7 @@ Functn31:
 004B: pop bp
 004C: retf
 
-Functn33:
+Functn34: "WIZENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1e
@@ -1666,7 +1666,7 @@ Functn33:
 008F: pop bp
 0090: retf
 
-Functn34:
+Functn35: "WIZENCB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1d
@@ -1735,7 +1735,7 @@ Functn34:
 008F: pop bp
 0090: retf
 
-Functn35:
+Functn36: "WIZENCC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1e
@@ -1780,7 +1780,7 @@ Functn35:
 0059: pop bp
 005A: retf
 
-Functn36:
+Functn37: "PIT"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xa53
@@ -1797,7 +1797,7 @@ Functn36:
 0021: pop bp
 0022: retf
 
-Functn37:
+Functn38: "GHOSENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x20
@@ -1858,7 +1858,7 @@ Functn37:
 007D: pop bp
 007E: retf
 
-Functn3A:
+Functn3B: "TXTGHOSB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xa72
@@ -1874,7 +1874,7 @@ Functn3A:
 001D: pop bp
 001E: retf
 
-Functn3C:
+Functn3D: "TXTGHOST"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x29
@@ -1895,7 +1895,7 @@ Functn3C:
 002A: pop bp
 002B: retf
 
-Functn3D:
+Functn3E: "ENDRENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1f
@@ -1956,7 +1956,7 @@ Functn3D:
 007F: pop bp
 0080: retf
 
-Functn40:
+Functn41: "BADEXIT"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1e
@@ -2010,7 +2010,7 @@ Functn40:
 006F: pop bp
 0070: retf
 
-Functn44:
+Functn45: "ENTRENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x24
@@ -2048,7 +2048,7 @@ Functn44:
 004B: pop bp
 004C: retf
 
-Functn46:
+Functn47: "LICHDOOR"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1
@@ -2128,7 +2128,7 @@ Functn46:
 00B2: pop bp
 00B3: retf
 
-Functn47:
+Functn48: "ENTRENCD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x19
@@ -2182,7 +2182,7 @@ Functn47:
 006F: pop bp
 0070: retf
 
-Functn48:
+Functn49: "LICHA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x19
@@ -2270,7 +2270,7 @@ Functn48:
 00B3: pop bp
 00B4: retf
 
-Functn49:
+Functn4A: "LICHB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x19
@@ -2358,7 +2358,7 @@ Functn49:
 00B3: pop bp
 00B4: retf
 
-Functn4A:
+Functn4B: "LICHC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x19
@@ -2446,7 +2446,7 @@ Functn4A:
 00B3: pop bp
 00B4: retf
 
-Functn4B:
+Functn4C: "LICHD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x19
@@ -2534,7 +2534,7 @@ Functn4B:
 00B3: pop bp
 00B4: retf
 
-Functn4C:
+Functn4D: "LICHMAIN"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xb7f
@@ -2650,7 +2650,7 @@ Functn4C:
 00F6: pop bp
 00F7: retf
 
-Functn4D:
+Functn4E: "TXTLICH"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xba9
@@ -2661,7 +2661,7 @@ Functn4D:
 0010: pop bp
 0011: retf
 
-Functn4E:
+Functn4F: "LABY"
 0000: push bp
 0001: mov bp, sp
 0003: xor ax, ax
@@ -2678,7 +2678,7 @@ Functn4E:
 001D: pop bp
 001E: retf
 
-Functn4F:
+Functn50: "TXTLABY"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xbda
@@ -2689,7 +2689,7 @@ Functn4F:
 0010: pop bp
 0011: retf
 
-Functn50:
+Functn51: "SETLICHA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1
@@ -2714,7 +2714,7 @@ Functn50:
 002D: pop bp
 002E: retf
 
-Functn51:
+Functn52: "SETLICHB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -2739,7 +2739,7 @@ Functn51:
 002D: pop bp
 002E: retf
 
-Functn52:
+Functn53: "SETLICHC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x3
@@ -2764,7 +2764,7 @@ Functn52:
 002D: pop bp
 002E: retf
 
-Functn53:
+Functn54: "SETLICHD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x4

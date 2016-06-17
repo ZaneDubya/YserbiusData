@@ -1,100 +1,100 @@
-0000: Runes on magic wall --
-0017: Alchemy
-001F: Runes on magic wall --
-0036: Reverie
-003E: Runes on magic wall --
-0055: Netherworld
-0061: Runes on magic wall --
-0078: Arcane
-007F: Runes on magic wall --
-0096: Karma
-009C: Runes on magic wall --
-00B3: Karma
-00B9: Runes on magic wall --
-00D0: Incantation
-00DC: Runes on magic wall --
-00F3: Archaic
-00FB: Runes on magic wall --
-0112: Netherworld
-011E: Secrets follow when you spell that which powers time.
-0154: The gate takes you back to the Labyrinth.
-017E: Runes on magic wall --
-0195: Ethereal
-019E: Runes on magic wall --
-01B5: Netherworld
-01C1: Runes on magic wall --
-01D8: Luck
-01DD: Runes on magic wall --
-01F4: Illusion
-01FD: Runes on magic wall --
-0214: Invulnerable
-0221: Runes on magic wall --
-0238: Karma
-023E: Runes on magic wall --
-0255: Luminous
-025E: Those which haunt this castle must be spelled to find their master.
-02A2: Runes on magic wall --
-02B9: Dust
-02BE: Runes on magic wall --
-02D5: Enchant
-02DD: Runes on magic wall --
-02F4: Magic
-02FA: Runes on magic wall --
-0311: Ghouls
-0318: Runes on magic wall --
-032F: Hex
-0333: Runes on magic wall --
-034A: Obsession
-0354: Runes on magic wall --
-036B: Sorcery
-0373: Runes on magic wall --
-038A: Talisman
-0393: Both Arnakkian and Enlikil have been identified.
-03C4: The Ghost takes you to the Guardians.
-03EA: The master of this castle must be identified before the ghost may take you to him.
-043D: Runes on magic wall --
-0454: Druid
-045A: Runes on magic wall --
-0471: Runes
-0477: Runes on magic wall --
-048E: Alchemist
+03FC: Runes on magic wall --
+0413: Alchemy
+041B: Runes on magic wall --
+0432: Reverie
+043A: Runes on magic wall --
+0451: Netherworld
+045D: Runes on magic wall --
+0474: Arcane
+047B: Runes on magic wall --
+0492: Karma
 0498: Runes on magic wall --
-04AF: Ghost
+04AF: Karma
 04B5: Runes on magic wall --
-04CC: Orb
-04D0: Runes on magic wall --
-04E7: Nexus
-04ED: Runes on magic wall --
-0504: Zzyzx
-050A: Runes on magic wall --
-0521: Illusive
-052A: Runes on magic wall --
-0541: Wizard
-0548: Runes on magic wall --
-055F: Vision
-0566: Runes on magic wall --
-057D: Bewitch
-0585: Runes on magic wall --
-059C: Conjure
-05A4: Runes on magic wall --
-05BB: Powerful
-05C4: Runes on magic wall --
-05DB: Magus
-05E1: Runes on magic wall --
-05F8: Jinx
-05FD: Runes on magic wall --
-0614: Unspeller
-061E: Runes on magic wall --
-0635: XxxX
+04CC: Incantation
+04D8: Runes on magic wall --
+04EF: Archaic
+04F7: Runes on magic wall --
+050E: Netherworld
+051A: Secrets follow when you spell that which powers time.
+0550: The gate takes you back to the Labyrinth.
+057A: Runes on magic wall --
+0591: Ethereal
+059A: Runes on magic wall --
+05B1: Netherworld
+05BD: Runes on magic wall --
+05D4: Luck
+05D9: Runes on magic wall --
+05F0: Illusion
+05F9: Runes on magic wall --
+0610: Invulnerable
+061D: Runes on magic wall --
+0634: Karma
 063A: Runes on magic wall --
-0651: Youth
-0657: You fall into the pit and die.
-0676: A message is written on a scroll.
-0698: 'To gain access to Arnakkian's Chamber, you must defeat his lich apprentices.'
-06E7: A Cleric appears..
-06FA: 'Beyond the words lies the power of the earth.'
-072A: The Wizard Door opens.
-0741: The symbol of the Four Corners magically radiates from this door.
-0783: The spirit of Arnakkian Slowfoot appears.
-07AD: Apprentices of Arnakkian roam these passageways.
-07DE: This gate returns you to MAGE'S OVERLOOK.
+0651: Luminous
+065A: Those which haunt this castle must be spelled to find their master.
+069E: Runes on magic wall --
+06B5: Dust
+06BA: Runes on magic wall --
+06D1: Enchant
+06D9: Runes on magic wall --
+06F0: Magic
+06F6: Runes on magic wall --
+070D: Ghouls
+0714: Runes on magic wall --
+072B: Hex
+072F: Runes on magic wall --
+0746: Obsession
+0750: Runes on magic wall --
+0767: Sorcery
+076F: Runes on magic wall --
+0786: Talisman
+078F: Both Arnakkian and Enlikil have been identified.
+07C0: The Ghost takes you to the Guardians.
+07E6: The master of this castle must be identified before the ghost may take you to him.
+0839: Runes on magic wall --
+0850: Druid
+0856: Runes on magic wall --
+086D: Runes
+0873: Runes on magic wall --
+088A: Alchemist
+0894: Runes on magic wall --
+08AB: Ghost
+08B1: Runes on magic wall --
+08C8: Orb
+08CC: Runes on magic wall --
+08E3: Nexus
+08E9: Runes on magic wall --
+0900: Zzyzx
+0906: Runes on magic wall --
+091D: Illusive
+0926: Runes on magic wall --
+093D: Wizard
+0944: Runes on magic wall --
+095B: Vision
+0962: Runes on magic wall --
+0979: Bewitch
+0981: Runes on magic wall --
+0998: Conjure
+09A0: Runes on magic wall --
+09B7: Powerful
+09C0: Runes on magic wall --
+09D7: Magus
+09DD: Runes on magic wall --
+09F4: Jinx
+09F9: Runes on magic wall --
+0A10: Unspeller
+0A1A: Runes on magic wall --
+0A31: XxxX
+0A36: Runes on magic wall --
+0A4D: Youth
+0A53: You fall into the pit and die.
+0A72: A message is written on a scroll.
+0A94: 'To gain access to Arnakkian's Chamber, you must defeat his lich apprentices.'
+0AE3: A Cleric appears..
+0AF6: 'Beyond the words lies the power of the earth.'
+0B26: The Wizard Door opens.
+0B3D: The symbol of the Four Corners magically radiates from this door.
+0B7F: The spirit of Arnakkian Slowfoot appears.
+0BA9: Apprentices of Arnakkian roam these passageways.
+0BDA: This gate returns you to MAGE'S OVERLOOK.

@@ -1,84 +1,84 @@
-0000: As you step forward, the column slides away.
-002D: As you step forward, the column slides away.
-005A: Runes appear on the tapestry...
-007A: Imps have hidden the Crown, Robe and Scepter. Only a master of the runes may find them. Two-faced Y is at the center of the quest. From Y, open O and E and I. When a rune key is used correctly, it will disappear.
-014F: You see an ornate tapestry. The middle of the tapestry is blank.
-0190: King Cleowyn's angry spirit appears.
-01B5: He tears the Key to the Palace away from you as he and his courtiers attack.
-0202: King Cleowyn and his dead courtiers appear to challenge you.
-023F: You fall into a deep, deep pit.
-025F: Your body provides a soft landing pad for the rest of your party.
-02A1: You feel the tickle of cobwebs on your neck.
-02CE: Spiders are using a spear in the middle of the floor as a support for their webs.
-0320: You see a weapon on the floor and step forward. Banshees sense your presence and gather to attack.
-0383: Nightmares emerge from the shadows.
-03A7: A group of Nightmares claw at an axe on the floor.
-03DA: You stumble upon some Zombies, eating the remains of a former adventurer.
-0424: The shuffle of heavy feet put you on your guard. One of the things kicks a shield out of its way.
-0486: Ghosts rise from the floor to haunt you.
-04AF: Ghosts are gathered around a jacket on the floor. They seem to be pondering its purpose.
-0508: Skeletons of King Cleowyn's elite palace guard advance on you.
-0547: The leader of the dead palace guards that surrounds you wears rusty chainmail.
-0596: There are runes on the wall...
-05B5: What you see is not always what is real.
-05DE: You successfully picked the locked door.
-0607: The door is locked.
-061B: You manage to open the door by brute force.
-0647: You are not strong enough to force the door open.
-0679: You picked the lock of the door successfully.
-06A7: The door is locked.
-06BB: You found a trapdoor on the floor.
-06DE: You fall through a trapdoor.
-06FB: You found a trapdoor on the floor.
-071E: You fall through a trapdoor.
-073B: You found a trapdoor on the floor.
-075E: You fall through a trapdoor.
-077B: You found a trapdoor on the floor.
-079E: You fall through a trapdoor.
-07BB: You found a trapdoor on the floor.
-07DE: You fall through a trapdoor.
-07FB: You found a trapdoor on the floor.
-081E: You fall through a trapdoor.
-083B: You found a trapdoor on the floor.
-085E: You fall through a trapdoor.
-087B: You found a trapdoor on the floor.
-089E: You fall through a trapdoor.
-08BB: You found a trapdoor on the floor.
-08DE: You fall through a trapdoor.
-08FB: You found a trapdoor on the floor.
-091E: You fall through a trapdoor.
-093B: You found a trapdoor on the floor.
-095E: You fall through a trapdoor.
-097B: You found a trapdoor on the floor.
-099E: You fall through a trapdoor.
-09BB: You found a trapdoor on the floor.
-09DE: You fall through a trapdoor.
-09FB: You found a trapdoor on the floor.
-0A1E: You fall through a trapdoor.
-0A3B: You found a trapdoor on the floor.
-0A5E: You fall through a trapdoor.
-0A7B: You found a trapdoor on the floor.
-0A9E: You fall through a trapdoor.
-0ABB: You found a trapdoor on the floor.
-0ADE: You fall through a trapdoor.
-0AFB: The gateway leads to THE PALACE CORRIDOR.
-0B25: As you step forward, the column slides away.
-0B52: You bump into the pillar.
-0B6C: You encounter an Elf Ranger.
-0B89: The ghost of King Cleowyn appears at his throne on special occasions. Once the king appears, he will not appear again until all mortals have left the Palace.
-0C27: The Elf Ranger ignores you as he wanders the room, rapping on the walls.
-0C70: You encounter a Gremlin Thief.
-0C8F: The pit is pitiless. Do not go near it. The traps are dangerous, but they may aid you.
-0CE6: The Gremlin Thief runs away when you approach him.
-0D19: You encounter a Dwarf Knight.
-0D37: Obey the king. Return his cherished possessions and you will be blessed. Keep them and you will die.
-0D9C: The Dwarf Knight snubs you and wanders off in search of adventure.
-0DDF: Very good, heroes. You have proven your strength in battle. Know that I am the spirit of King Cleowyn, called the Cruel. I set you a quest.
-0E6B: The imps who serve Arnakkian have stolen my Crown, Robe, and Scepter. I want them back. Return them to their proper places in my mausoleum, and I shall reward you.
-0F0F: If you keep my possessions, I shall curse you! I give you gold to dull your greed.
-0F62: I earned Arnakkian's enmity because I tried to wrest his secrets from the buried castle
-0FBA: I almost succeeded, but the spirit of the wizard tracked me down and killed me.
-100A: I would be grateful if you can find my body and place it in my mausoleum. Then, perhaps, my spirit can rest in peace.
-1080: But first you must return my possessions to me. Then I shall let you continue your journeys.
-10DD: Take my ring as seal of your promise. Go, heroes! Find the tapestry and read. Start your quest.
-113D: Echoes of ghostly laughter mock you.
+03FC: As you step forward, the column slides away.
+0429: As you step forward, the column slides away.
+0456: Runes appear on the tapestry...
+0476: Imps have hidden the Crown, Robe and Scepter. Only a master of the runes may find them. Two-faced Y is at the center of the quest. From Y, open O and E and I. When a rune key is used correctly, it will disappear.
+054B: You see an ornate tapestry. The middle of the tapestry is blank.
+058C: King Cleowyn's angry spirit appears.
+05B1: He tears the Key to the Palace away from you as he and his courtiers attack.
+05FE: King Cleowyn and his dead courtiers appear to challenge you.
+063B: You fall into a deep, deep pit.
+065B: Your body provides a soft landing pad for the rest of your party.
+069D: You feel the tickle of cobwebs on your neck.
+06CA: Spiders are using a spear in the middle of the floor as a support for their webs.
+071C: You see a weapon on the floor and step forward. Banshees sense your presence and gather to attack.
+077F: Nightmares emerge from the shadows.
+07A3: A group of Nightmares claw at an axe on the floor.
+07D6: You stumble upon some Zombies, eating the remains of a former adventurer.
+0820: The shuffle of heavy feet put you on your guard. One of the things kicks a shield out of its way.
+0882: Ghosts rise from the floor to haunt you.
+08AB: Ghosts are gathered around a jacket on the floor. They seem to be pondering its purpose.
+0904: Skeletons of King Cleowyn's elite palace guard advance on you.
+0943: The leader of the dead palace guards that surrounds you wears rusty chainmail.
+0992: There are runes on the wall...
+09B1: What you see is not always what is real.
+09DA: You successfully picked the locked door.
+0A03: The door is locked.
+0A17: You manage to open the door by brute force.
+0A43: You are not strong enough to force the door open.
+0A75: You picked the lock of the door successfully.
+0AA3: The door is locked.
+0AB7: You found a trapdoor on the floor.
+0ADA: You fall through a trapdoor.
+0AF7: You found a trapdoor on the floor.
+0B1A: You fall through a trapdoor.
+0B37: You found a trapdoor on the floor.
+0B5A: You fall through a trapdoor.
+0B77: You found a trapdoor on the floor.
+0B9A: You fall through a trapdoor.
+0BB7: You found a trapdoor on the floor.
+0BDA: You fall through a trapdoor.
+0BF7: You found a trapdoor on the floor.
+0C1A: You fall through a trapdoor.
+0C37: You found a trapdoor on the floor.
+0C5A: You fall through a trapdoor.
+0C77: You found a trapdoor on the floor.
+0C9A: You fall through a trapdoor.
+0CB7: You found a trapdoor on the floor.
+0CDA: You fall through a trapdoor.
+0CF7: You found a trapdoor on the floor.
+0D1A: You fall through a trapdoor.
+0D37: You found a trapdoor on the floor.
+0D5A: You fall through a trapdoor.
+0D77: You found a trapdoor on the floor.
+0D9A: You fall through a trapdoor.
+0DB7: You found a trapdoor on the floor.
+0DDA: You fall through a trapdoor.
+0DF7: You found a trapdoor on the floor.
+0E1A: You fall through a trapdoor.
+0E37: You found a trapdoor on the floor.
+0E5A: You fall through a trapdoor.
+0E77: You found a trapdoor on the floor.
+0E9A: You fall through a trapdoor.
+0EB7: You found a trapdoor on the floor.
+0EDA: You fall through a trapdoor.
+0EF7: The gateway leads to THE PALACE CORRIDOR.
+0F21: As you step forward, the column slides away.
+0F4E: You bump into the pillar.
+0F68: You encounter an Elf Ranger.
+0F85: The ghost of King Cleowyn appears at his throne on special occasions. Once the king appears, he will not appear again until all mortals have left the Palace.
+1023: The Elf Ranger ignores you as he wanders the room, rapping on the walls.
+106C: You encounter a Gremlin Thief.
+108B: The pit is pitiless. Do not go near it. The traps are dangerous, but they may aid you.
+10E2: The Gremlin Thief runs away when you approach him.
+1115: You encounter a Dwarf Knight.
+1133: Obey the king. Return his cherished possessions and you will be blessed. Keep them and you will die.
+1198: The Dwarf Knight snubs you and wanders off in search of adventure.
+11DB: Very good, heroes. You have proven your strength in battle. Know that I am the spirit of King Cleowyn, called the Cruel. I set you a quest.
+1267: The imps who serve Arnakkian have stolen my Crown, Robe, and Scepter. I want them back. Return them to their proper places in my mausoleum, and I shall reward you.
+130B: If you keep my possessions, I shall curse you! I give you gold to dull your greed.
+135E: I earned Arnakkian's enmity because I tried to wrest his secrets from the buried castle
+13B6: I almost succeeded, but the spirit of the wizard tracked me down and killed me.
+1406: I would be grateful if you can find my body and place it in my mausoleum. Then, perhaps, my spirit can rest in peace.
+147C: But first you must return my possessions to me. Then I shall let you continue your journeys.
+14D9: Take my ring as seal of your promise. Go, heroes! Find the tapestry and read. Start your quest.
+1539: Echoes of ghostly laughter mock you.

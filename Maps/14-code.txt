@@ -1,4 +1,4 @@
-Functn00:
+Functn01: "TELEPORT"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -15,7 +15,7 @@ Functn00:
 001E: pop bp
 001F: retf
 
-Functn01:
+Functn02: "PIT"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -41,7 +41,7 @@ Functn01:
 0033: pop bp
 0034: retf
 
-Functn02:
+Functn03: "NPCCHATA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x3fc
@@ -80,7 +80,7 @@ Functn02:
 0058: pop bp
 0059: retf
 
-Functn03:
+Functn04: "NPCCHATB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x5c7
@@ -114,7 +114,7 @@ Functn03:
 004B: pop bp
 004C: retf
 
-Functn04:
+Functn05: "NPCCHATC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x69a
@@ -153,7 +153,7 @@ Functn04:
 0058: pop bp
 0059: retf
 
-Functn05:
+Functn06: "NPCCHATD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x7c2
@@ -192,7 +192,7 @@ Functn05:
 0058: pop bp
 0059: retf
 
-Functn06:
+Functn07: "NPCCHATE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x929
@@ -226,7 +226,7 @@ Functn06:
 004B: pop bp
 004C: retf
 
-Functn07:
+Functn08: "TELEMESG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xa69
@@ -237,7 +237,7 @@ Functn07:
 0010: pop bp
 0011: retf
 
-Functn08:
+Functn09: "ITEMAENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x77
@@ -389,7 +389,7 @@ Functn08:
 0152: pop bp
 0153: retf
 
-Functn09:
+Functn0A: "ITEMBENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xc1
@@ -553,7 +553,7 @@ Functn09:
 0171: pop bp
 0172: retf
 
-Functn0A:
+Functn0B: "ITEMCENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x20
@@ -717,7 +717,7 @@ Functn0A:
 0171: pop bp
 0172: retf
 
-Functn0B:
+Functn0C: "ITEMDENC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x54
@@ -881,7 +881,7 @@ Functn0B:
 0171: pop bp
 0172: retf
 
-Functn0C:
+Functn0D: "STRMNSTR"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -1013,7 +1013,7 @@ Functn0C:
 012B: pop bp
 012C: retf
 
-Functn0D:
+Functn0E: "AVEMNSTR"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -1178,7 +1178,7 @@ Functn0D:
 0176: pop bp
 0177: retf
 
-Functn0E:
+Functn0F: "LKPKDORA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xc4
@@ -1245,7 +1245,7 @@ Functn0E:
 009E: pop bp
 009F: retf
 
-Functn0F:
+Functn10: "LKPKDORB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xc4
@@ -1312,7 +1312,7 @@ Functn0F:
 009E: pop bp
 009F: retf
 
-Functn10:
+Functn11: "LKPKDORC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xc4
@@ -1379,7 +1379,7 @@ Functn10:
 009E: pop bp
 009F: retf
 
-Functn11:
+Functn12: "LKPKDORD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xc4
@@ -1446,7 +1446,7 @@ Functn11:
 009E: pop bp
 009F: retf
 
-Functn12:
+Functn13: "STRNDORA"
 0000: push bp
 0001: mov bp, sp
 0003: xor ax, ax
@@ -1503,7 +1503,7 @@ Functn12:
 0089: pop bp
 008A: retf
 
-Functn13:
+Functn14: "STRDOORB"
 0000: push bp
 0001: mov bp, sp
 0003: xor ax, ax
@@ -1560,7 +1560,7 @@ Functn13:
 0089: pop bp
 008A: retf
 
-Functn14:
+Functn15: "STRDOORC"
 0000: push bp
 0001: mov bp, sp
 0003: xor ax, ax
@@ -1617,7 +1617,7 @@ Functn14:
 0089: pop bp
 008A: retf
 
-Functn15:
+Functn16: "STRDOORD"
 0000: push bp
 0001: mov bp, sp
 0003: xor ax, ax

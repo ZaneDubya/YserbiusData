@@ -1,4 +1,4 @@
-Functn00:
+Functn01: "GATEWAYA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x3fc
@@ -20,7 +20,7 @@ Functn00:
 002A: pop bp
 002B: retf
 
-Functn01:
+Functn02: "XOVERA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -37,7 +37,7 @@ Functn01:
 001E: pop bp
 001F: retf
 
-Functn02:
+Functn03: "XOVERB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x41d
@@ -59,7 +59,7 @@ Functn02:
 002A: pop bp
 002B: retf
 
-Functn03:
+Functn04: "AREAA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x448
@@ -81,7 +81,7 @@ Functn03:
 002B: pop bp
 002C: retf
 
-Functn04:
+Functn05: "AREAB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x46c
@@ -103,7 +103,7 @@ Functn04:
 002B: pop bp
 002C: retf
 
-Functn05:
+Functn06: "AREAC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x491
@@ -125,7 +125,7 @@ Functn05:
 002B: pop bp
 002C: retf
 
-Functn06:
+Functn07: "AREAD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x4b7
@@ -147,7 +147,7 @@ Functn06:
 002B: pop bp
 002C: retf
 
-Functn08:
+Functn09: "ARENTEXT"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x4de
@@ -163,7 +163,7 @@ Functn08:
 001D: pop bp
 001E: retf
 
-Functn09:
+Functn0A: "WAITTEXT"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x5dc

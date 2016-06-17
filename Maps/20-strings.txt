@@ -1,15 +1,15 @@
-0000: There is a teleport in the west wall.
-0026: You sip from the Fountain of Restoration, but nothing happens.
-0065: You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.
-00C1: Monsters attack you.
-00D6: Among a horde of Nightmares and Cockatrices you spot armor and other items on the floor.
-012F: The door opens easily when you use the Lava Key.
-0160: This door cannot be unlocked without the Lava Key.
-0193: You manage to force the door open.
-01B6: The door is stuck.
-01C9: You encounter a Human Thief.
-01E6: Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
-0236: The Human Thief cringes in terror and wraps herself up in a tight ball.
-027E: You encounter an Elf Barbarian.
-029E: A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.
-0337: The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.
+03FC: There is a teleport in the west wall.
+0422: You sip from the Fountain of Restoration, but nothing happens.
+0461: You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.
+04BD: Monsters attack you.
+04D2: Among a horde of Nightmares and Cockatrices you spot armor and other items on the floor.
+052B: The door opens easily when you use the Lava Key.
+055C: This door cannot be unlocked without the Lava Key.
+058F: You manage to force the door open.
+05B2: The door is stuck.
+05C5: You encounter a Human Thief.
+05E2: Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
+0632: The Human Thief cringes in terror and wraps herself up in a tight ball.
+067A: You encounter an Elf Barbarian.
+069A: A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.
+0733: The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.

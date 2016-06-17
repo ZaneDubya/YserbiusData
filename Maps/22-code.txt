@@ -1,4 +1,4 @@
-Functn00:
+Functn01: "PIT"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x3fc
@@ -15,7 +15,7 @@ Functn00:
 0021: pop bp
 0022: retf
 
-Functn01:
+Functn02: "ENCGUARD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x424
@@ -93,7 +93,7 @@ Functn01:
 00A6: pop bp
 00A7: retf
 
-Functn02:
+Functn03: "ENCEARTH"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1
@@ -228,7 +228,7 @@ Functn02:
 0123: pop bp
 0124: retf
 
-Functn03:
+Functn04: "GUARDIAN"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x49a
@@ -239,7 +239,7 @@ Functn03:
 0010: pop bp
 0011: retf
 
-Functn04:
+Functn05: "EARTHELE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1
@@ -260,7 +260,7 @@ Functn04:
 0025: pop bp
 0026: retf
 
-Functn05:
+Functn06: "PLATA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x555
@@ -276,7 +276,7 @@ Functn05:
 001D: pop bp
 001E: retf
 
-Functn06:
+Functn07: "PLATB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x5fc
@@ -287,7 +287,7 @@ Functn06:
 0010: pop bp
 0011: retf
 
-Functn07:
+Functn08: "YBOXA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x638
@@ -307,7 +307,7 @@ Functn07:
 0025: pop bp
 0026: retf
 
-Functn08:
+Functn09: "YBOXB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x648
@@ -327,7 +327,7 @@ Functn08:
 0025: pop bp
 0026: retf
 
-Functn09:
+Functn0A: "YBOXC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x658
@@ -347,7 +347,7 @@ Functn09:
 0025: pop bp
 0026: retf
 
-Functn0A:
+Functn0B: "YBOXD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x668
@@ -367,7 +367,7 @@ Functn0A:
 0025: pop bp
 0026: retf
 
-Functn0B:
+Functn0C: "YBOXE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x678
@@ -387,7 +387,7 @@ Functn0B:
 0025: pop bp
 0026: retf
 
-Functn0C:
+Functn0D: "YBOXF"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x688
@@ -407,7 +407,7 @@ Functn0C:
 0025: pop bp
 0026: retf
 
-Functn0D:
+Functn0E: "XBOXG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x698
@@ -427,7 +427,7 @@ Functn0D:
 0025: pop bp
 0026: retf
 
-Functn0E:
+Functn0F: "XBOXH"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x6a8
@@ -447,7 +447,7 @@ Functn0E:
 0025: pop bp
 0026: retf
 
-Functn0F:
+Functn10: "XBOXI"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x6b8
@@ -467,7 +467,7 @@ Functn0F:
 0025: pop bp
 0026: retf
 
-Functn10:
+Functn11: "XBOXJ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x6c8
@@ -487,7 +487,7 @@ Functn10:
 0025: pop bp
 0026: retf
 
-Functn11:
+Functn12: "XBOXK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x6d8
@@ -507,7 +507,7 @@ Functn11:
 0025: pop bp
 0026: retf
 
-Functn12:
+Functn13: "XBOXL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x6e8
@@ -527,7 +527,7 @@ Functn12:
 0025: pop bp
 0026: retf
 
-Functn13:
+Functn14: "XBOXM"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x6f8
@@ -547,7 +547,7 @@ Functn13:
 0025: pop bp
 0026: retf
 
-Functn14:
+Functn15: "PITAJ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -590,7 +590,7 @@ Functn14:
 005C: pop bp
 005D: retf
 
-Functn15:
+Functn16: "PITAK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -633,7 +633,7 @@ Functn15:
 005C: pop bp
 005D: retf
 
-Functn16:
+Functn17: "PITAL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -676,7 +676,7 @@ Functn16:
 005C: pop bp
 005D: retf
 
-Functn17:
+Functn18: "PITAM"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -719,7 +719,7 @@ Functn17:
 005C: pop bp
 005D: retf
 
-Functn18:
+Functn19: "PITBG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -762,7 +762,7 @@ Functn18:
 005C: pop bp
 005D: retf
 
-Functn19:
+Functn1A: "PITBI"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -805,7 +805,7 @@ Functn19:
 005C: pop bp
 005D: retf
 
-Functn1A:
+Functn1B: "PITBJ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -848,7 +848,7 @@ Functn1A:
 005C: pop bp
 005D: retf
 
-Functn1B:
+Functn1C: "PITBK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -891,7 +891,7 @@ Functn1B:
 005C: pop bp
 005D: retf
 
-Functn1C:
+Functn1D: "PITBL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -934,7 +934,7 @@ Functn1C:
 005C: pop bp
 005D: retf
 
-Functn1D:
+Functn1E: "PITBM"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -977,7 +977,7 @@ Functn1D:
 005C: pop bp
 005D: retf
 
-Functn1E:
+Functn1F: "PITCG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1020,7 +1020,7 @@ Functn1E:
 005C: pop bp
 005D: retf
 
-Functn1F:
+Functn20: "PITCH"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1063,7 +1063,7 @@ Functn1F:
 005C: pop bp
 005D: retf
 
-Functn20:
+Functn21: "PITCI"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1106,7 +1106,7 @@ Functn20:
 005C: pop bp
 005D: retf
 
-Functn21:
+Functn22: "PITCJ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1149,7 +1149,7 @@ Functn21:
 005C: pop bp
 005D: retf
 
-Functn22:
+Functn23: "PITCK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1192,7 +1192,7 @@ Functn22:
 005C: pop bp
 005D: retf
 
-Functn23:
+Functn24: "PITCL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1235,7 +1235,7 @@ Functn23:
 005C: pop bp
 005D: retf
 
-Functn24:
+Functn25: "PITCM"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1278,7 +1278,7 @@ Functn24:
 005C: pop bp
 005D: retf
 
-Functn25:
+Functn26: "PITDG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1321,7 +1321,7 @@ Functn25:
 005C: pop bp
 005D: retf
 
-Functn26:
+Functn27: "PITDH"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1364,7 +1364,7 @@ Functn26:
 005C: pop bp
 005D: retf
 
-Functn27:
+Functn28: "PITDI"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1407,7 +1407,7 @@ Functn27:
 005C: pop bp
 005D: retf
 
-Functn28:
+Functn29: "PITDJ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1450,7 +1450,7 @@ Functn28:
 005C: pop bp
 005D: retf
 
-Functn29:
+Functn2A: "PITDK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1493,7 +1493,7 @@ Functn29:
 005C: pop bp
 005D: retf
 
-Functn2A:
+Functn2B: "PITDL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1536,7 +1536,7 @@ Functn2A:
 005C: pop bp
 005D: retf
 
-Functn2B:
+Functn2C: "PITDM"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1579,7 +1579,7 @@ Functn2B:
 005C: pop bp
 005D: retf
 
-Functn2C:
+Functn2D: "PITEG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1622,7 +1622,7 @@ Functn2C:
 005C: pop bp
 005D: retf
 
-Functn2D:
+Functn2E: "PITEH"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1665,7 +1665,7 @@ Functn2D:
 005C: pop bp
 005D: retf
 
-Functn2E:
+Functn2F: "PITEI"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1708,7 +1708,7 @@ Functn2E:
 005C: pop bp
 005D: retf
 
-Functn2F:
+Functn30: "PITEJ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1751,7 +1751,7 @@ Functn2F:
 005C: pop bp
 005D: retf
 
-Functn30:
+Functn31: "PITEK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1794,7 +1794,7 @@ Functn30:
 005C: pop bp
 005D: retf
 
-Functn31:
+Functn32: "PITFG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1837,7 +1837,7 @@ Functn31:
 005C: pop bp
 005D: retf
 
-Functn32:
+Functn33: "PITFH"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1880,7 +1880,7 @@ Functn32:
 005C: pop bp
 005D: retf
 
-Functn33:
+Functn34: "PITFI"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1923,7 +1923,7 @@ Functn33:
 005C: pop bp
 005D: retf
 
-Functn34:
+Functn35: "PITFJ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -1966,7 +1966,7 @@ Functn34:
 005C: pop bp
 005D: retf
 
-Functn35:
+Functn36: "PITFK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -2009,7 +2009,7 @@ Functn35:
 005C: pop bp
 005D: retf
 
-Functn36:
+Functn37: "PITFL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -2052,7 +2052,7 @@ Functn36:
 005C: pop bp
 005D: retf
 
-Functn37:
+Functn38: "PITFM"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x2
@@ -2095,7 +2095,7 @@ Functn37:
 005C: pop bp
 005D: retf
 
-Functn38:
+Functn39: "ENCPITBJ"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x19
@@ -2141,7 +2141,7 @@ Functn38:
 005D: pop bp
 005E: retf
 
-Functn39:
+Functn3A: "ENCPITDI"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1f
@@ -2179,7 +2179,7 @@ Functn39:
 004B: pop bp
 004C: retf
 
-Functn3A:
+Functn3B: "PITENCDK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1b
@@ -2233,7 +2233,7 @@ Functn3A:
 006F: pop bp
 0070: retf
 
-Functn3B:
+Functn3C: "PITENCBL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x24
@@ -2279,7 +2279,7 @@ Functn3B:
 005D: pop bp
 005E: retf
 
-Functn3C:
+Functn3D: "DOORARNK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1
@@ -2326,7 +2326,7 @@ Functn3C:
 0068: pop bp
 0069: retf
 
-Functn3D:
+Functn3E: "TELEARNK"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x119c
@@ -2348,7 +2348,7 @@ Functn3D:
 002B: pop bp
 002C: retf
 
-Functn3E:
+Functn3F: "SETEKILL"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1

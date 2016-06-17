@@ -1,43 +1,43 @@
-0000: You encounter a Troll Cleric.
-001E: I have almost despaired of finding a way out of this prison. Yet there must be an exit of some kind - stairs or teleport. The guards must have had some way of leaving this area.
-00D0: To the east are the guard's living quarters and the interrogation rooms. The 36 prison cells are empty now, except for the resident spirits of those who perished here.
-0178: The Troll Cleric bounces her head on the floor in frustration. She must be insane.
-01CB: You encounter an Orc Ranger.
-01E8: I have heard rumors that some few brave souls have escaped the dungeon. If you can find the Rainbow Bridge, you are near the exit.
-026B: The Orc Ranger glares at you and refuses to speak.
-029E: You encounter a Halfling Thief.
-02BE: A special challenge awaits the brave. If you dare continue after finding what the guard Deldwinn desires, great rewards await you.
-0341: Chaos should walk with Chaos and Harmony with Harmony to find the rewards.
-038C: The Halfling Thief thumbs his nose at you and dashes off.
-03C6: You encounter a Gnome Barbarian.
-03E7: Two wizards have crafted a Challenge for the brave. The Wizards' Challenge is on this level, but you cannot reach it from this prison area.
-0473: Know that race and Guild must walk together if the Challenge is to be overcome.
-04C3: The Gnome Barbarian becomes distracted as he tries to twiddle his thumbs and instead gets them entangled.
-052D: You encounter a Dwarf Wizard.
-054B: King Cleowyn built his palace inside this volcano because he hoped to unearth the secrets of the wizard Arnakkian. Many of the stones that form Cleowyn's palace were taken from the wizard's castle. No wonder this dungeon is cursed.
-0633: The Dwarf Wizard smiles kindly, but she refuses to speak.
-066D: There is a teleport in the west wall.
-0693: Incubi haunt the empty prison cell.
-06B7: As you reach for a jacket lying on the floor, you see Incubi appear in the cell.
-0708: Leeches and Black Widows live in the cell.
-0733: Just out of reach behind a mass of Leeches and Black Widows is a lockpick.
-077E: Hell Wolves appear in the cell.
-079E: A circle of Hell Wolves surrounds you and a mace lying on the floor.
-07E3: Phantasms creep into the empty cell.
-0808: Spirits of the dead guard their precious treasure.
-083B: Your skill at picking locks soon has the door open.
-086F: The door is locked.
-0883: The lock of the door clicks open.
-08A5: The door is locked.
-08B9: You successfully pick the lock of the door.
-08E5: The door is locked.
-08F9: The lock of the door is quickly opened by your skillfulness.
-0936: The door is locked.
-094A: You manage to force the door open.
-096D: The door is stuck shut.
-0985: The door flies open as you smash against it.
-09B2: The door is stuck and will not open.
-09D7: You push hard on the door and it creaks open.
-0A05: The door refuses to open. It is stuck.
-0A2C: You manage to open the door by brute strength.
-0A5B: You are not strong enough to force the door open.
+03FC: You encounter a Troll Cleric.
+041A: I have almost despaired of finding a way out of this prison. Yet there must be an exit of some kind - stairs or teleport. The guards must have had some way of leaving this area.
+04CC: To the east are the guard's living quarters and the interrogation rooms. The 36 prison cells are empty now, except for the resident spirits of those who perished here.
+0574: The Troll Cleric bounces her head on the floor in frustration. She must be insane.
+05C7: You encounter an Orc Ranger.
+05E4: I have heard rumors that some few brave souls have escaped the dungeon. If you can find the Rainbow Bridge, you are near the exit.
+0667: The Orc Ranger glares at you and refuses to speak.
+069A: You encounter a Halfling Thief.
+06BA: A special challenge awaits the brave. If you dare continue after finding what the guard Deldwinn desires, great rewards await you.
+073D: Chaos should walk with Chaos and Harmony with Harmony to find the rewards.
+0788: The Halfling Thief thumbs his nose at you and dashes off.
+07C2: You encounter a Gnome Barbarian.
+07E3: Two wizards have crafted a Challenge for the brave. The Wizards' Challenge is on this level, but you cannot reach it from this prison area.
+086F: Know that race and Guild must walk together if the Challenge is to be overcome.
+08BF: The Gnome Barbarian becomes distracted as he tries to twiddle his thumbs and instead gets them entangled.
+0929: You encounter a Dwarf Wizard.
+0947: King Cleowyn built his palace inside this volcano because he hoped to unearth the secrets of the wizard Arnakkian. Many of the stones that form Cleowyn's palace were taken from the wizard's castle. No wonder this dungeon is cursed.
+0A2F: The Dwarf Wizard smiles kindly, but she refuses to speak.
+0A69: There is a teleport in the west wall.
+0A8F: Incubi haunt the empty prison cell.
+0AB3: As you reach for a jacket lying on the floor, you see Incubi appear in the cell.
+0B04: Leeches and Black Widows live in the cell.
+0B2F: Just out of reach behind a mass of Leeches and Black Widows is a lockpick.
+0B7A: Hell Wolves appear in the cell.
+0B9A: A circle of Hell Wolves surrounds you and a mace lying on the floor.
+0BDF: Phantasms creep into the empty cell.
+0C04: Spirits of the dead guard their precious treasure.
+0C37: Your skill at picking locks soon has the door open.
+0C6B: The door is locked.
+0C7F: The lock of the door clicks open.
+0CA1: The door is locked.
+0CB5: You successfully pick the lock of the door.
+0CE1: The door is locked.
+0CF5: The lock of the door is quickly opened by your skillfulness.
+0D32: The door is locked.
+0D46: You manage to force the door open.
+0D69: The door is stuck shut.
+0D81: The door flies open as you smash against it.
+0DAE: The door is stuck and will not open.
+0DD3: You push hard on the door and it creaks open.
+0E01: The door refuses to open. It is stuck.
+0E28: You manage to open the door by brute strength.
+0E57: You are not strong enough to force the door open.

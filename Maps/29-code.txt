@@ -1,4 +1,4 @@
-Functn00:
+Functn01: "ALDBORA"
 0000: push bp
 0001: mov bp, sp
 0003: push si
@@ -492,7 +492,7 @@ Functn00:
 0467: add al, 0x5b
 0469: invalid
 
-Functn01:
+Functn02: "ENCA"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x7dd
@@ -535,7 +535,7 @@ Functn01:
 0058: pop bp
 0059: retf
 
-Functn02:
+Functn03: "ENCB"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1f
@@ -589,7 +589,7 @@ Functn02:
 006F: pop bp
 0070: retf
 
-Functn03:
+Functn04: "ENCC"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1f
@@ -627,7 +627,7 @@ Functn03:
 004B: pop bp
 004C: retf
 
-Functn04:
+Functn05: "ENCD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x18
@@ -681,7 +681,7 @@ Functn04:
 006F: pop bp
 0070: retf
 
-Functn05:
+Functn06: "ENCE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x14
@@ -719,7 +719,7 @@ Functn05:
 004B: pop bp
 004C: retf
 
-Functn06:
+Functn07: "ENCF"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0xfa
@@ -800,7 +800,7 @@ Functn06:
 00A9: pop bp
 00AA: retf
 
-Functn07:
+Functn08: "ENCG"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1a
@@ -838,7 +838,7 @@ Functn07:
 004B: pop bp
 004C: retf
 
-Functn08:
+Functn09: "ENCH"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x21
@@ -876,7 +876,7 @@ Functn08:
 004B: pop bp
 004C: retf
 
-Functn09:
+Functn0A: "ENCI"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1c
@@ -957,7 +957,7 @@ Functn09:
 00AB: pop bp
 00AC: retf
 
-Functn0A:
+Functn0B: "CGATE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x858
@@ -979,7 +979,7 @@ Functn0A:
 002B: pop bp
 002C: retf
 
-Functn0B:
+Functn0C: "DWARF"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1e
@@ -1014,7 +1014,7 @@ Functn0B:
 004A: pop bp
 004B: retf
 
-Functn0C:
+Functn0D: "NOJOIN"
 0000: push bp
 0001: mov bp, sp
 0003: les bx, [bp+0x6]
@@ -1022,7 +1022,7 @@ Functn0C:
 000B: pop bp
 000C: retf
 
-Functn0D:
+Functn0E: "BEECHWD"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x8fb
@@ -1079,7 +1079,7 @@ Functn0D:
 0079: pop bp
 007A: retf
 
-Functn0E:
+Functn0F: "OAKLEAF"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x935
@@ -1136,7 +1136,7 @@ Functn0E:
 0079: pop bp
 007A: retf
 
-Functn0F:
+Functn10: "MAPLEBRS"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x978
@@ -1193,7 +1193,7 @@ Functn0F:
 0079: pop bp
 007A: retf
 
-Functn10:
+Functn11: "PINECONE"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x9b4
@@ -1250,7 +1250,7 @@ Functn10:
 0079: pop bp
 007A: retf
 
-Functn11:
+Functn12: "BWACTOR"
 0000: push bp
 0001: mov bp, sp
 0003: push si
@@ -1575,7 +1575,7 @@ Functn11:
 030A: outsb
 030B: invalid
 
-Functn12:
+Functn13: "OLACTOR"
 0000: push bp
 0001: mov bp, sp
 0003: push si
@@ -1894,7 +1894,7 @@ Functn12:
 02F9: sub [0xe51], cl
 02FD: jp 0x30d
 
-Functn13:
+Functn14: "MBACTOR"
 0000: push bp
 0001: mov bp, sp
 0003: push si
@@ -2174,7 +2174,7 @@ Functn13:
 0291: adc [di], si
 0293: adc [bx+di+0x11], dx
 
-Functn14:
+Functn15: "PCACTOR"
 0000: push bp
 0001: mov bp, sp
 0003: push si
@@ -2451,7 +2451,7 @@ Functn14:
 028C: adc bx, [bx-0x51ed]
 0290: invalid
 
-Functn15:
+Functn16: "INFO"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1f
@@ -2472,7 +2472,7 @@ Functn15:
 002A: pop bp
 002B: retf
 
-Functn16:
+Functn17: "INFO"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x27
@@ -2493,7 +2493,7 @@ Functn16:
 002A: pop bp
 002B: retf
 
-Functn17:
+Functn18: "CAVEDOOR"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1c91
@@ -2539,7 +2539,7 @@ Functn17:
 0066: pop bp
 0067: retf
 
-Functn18:
+Functn19: "ELFHOME"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1cd4
@@ -2550,7 +2550,7 @@ Functn18:
 0010: pop bp
 0011: retf
 
-Functn19:
+Functn1A: "ELFHOME"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1d0e
@@ -2561,7 +2561,7 @@ Functn19:
 0010: pop bp
 0011: retf
 
-Functn1A:
+Functn1B: "INFO"
 0000: push bp
 0001: mov bp, sp
 0003: mov ax, 0x1f
