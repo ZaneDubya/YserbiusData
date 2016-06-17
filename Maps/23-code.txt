@@ -1,3218 +1,2634 @@
 Functn01: "DROP"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x3fc
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x43a
-0013: push ax
-0014: les bx, [bp+0x6]
-0017: call far word [es:bx+0xf8]
-001C: pop cx
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0x74]
-0024: push ax
-0025: les bx, [bp+0x6]
-0028: call far word [es:bx+0x90]
-002D: pop cx
-002E: pop bp
-002F: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(03FC)
+0010                          cx = ShowMessage(043A)
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 5F 74              call far word [es:bx+0x74]
+0024 50                       push ax
+0025 C4 5E 06                 les bx, [bp+0x6]
+0028 26 FF 9F 90 00           call far word [es:bx+0x90]
+002D 59                       pop cx
+002E                          RETURN
 
 Functn02: "XOVER"
-0000: push bp
-0001: mov bp, sp
-0003: les bx, [bp+0x6]
-0006: call far word [es:bx+0x20]
-000A: cmp ax, 0x47
-000D: jnz 0x70
-000F: mov ax, 0x1
-0012: push ax
-0013: mov ax, 0x1
-0016: push ax
-0017: les bx, [bp+0x6]
-001A: call far word [es:bx+0x4]
-001E: pop cx
-001F: pop cx
-0020: or ax, ax
-0022: jz 0x43
-0024: mov ax, 0x47
-0027: push ax
-0028: xor ax, ax
-002A: push ax
-002B: les bx, [bp+0x6]
-002E: call far word [es:bx+0x38]
-0032: pop cx
-0033: pop cx
-0034: mov ax, 0x46e
-0037: push ax
-0038: les bx, [bp+0x6]
-003B: call far word [es:bx+0xf8]
-0040: pop cx
-0041: jmp 0x6e
-0043: mov ax, 0x4a2
-0046: push ax
-0047: les bx, [bp+0x6]
-004A: call far word [es:bx+0xf8]
-004F: pop cx
-0050: mov ax, 0x4c3
-0053: push ax
-0054: les bx, [bp+0x6]
-0057: call far word [es:bx+0xf8]
-005C: pop cx
-005D: les bx, [bp+0x6]
-0060: call far word [es:bx+0x74]
-0064: push ax
-0065: les bx, [bp+0x6]
-0068: call far word [es:bx+0x90]
-006D: pop cx
-006E: jmp 0xa8
-0070: mov ax, 0x1
-0073: push ax
-0074: mov ax, 0x1
-0077: push ax
-0078: les bx, [bp+0x6]
-007B: call far word [es:bx+0x4]
-007F: pop cx
-0080: pop cx
-0081: or ax, ax
-0083: jz 0x97
-0085: mov ax, 0x47
-0088: push ax
-0089: xor ax, ax
-008B: push ax
-008C: les bx, [bp+0x6]
-008F: call far word [es:bx+0x38]
-0093: pop cx
-0094: pop cx
-0095: jmp 0xa8
-0097: mov ax, 0x47
-009A: push ax
-009B: mov ax, 0x1
-009E: push ax
-009F: les bx, [bp+0x6]
-00A2: call far word [es:bx+0x38]
-00A6: pop cx
-00A7: pop cx
-00A8: pop bp
-00A9: retf
+0000                          BEGIN
+0003 C4 5E 06                 les bx, [bp+0x6]
+0006 26 FF 5F 20              call far word [es:bx+0x20]
+000A 3D 47 00                 cmp ax, 0x47
+000D 75 61                    jnz 0x70
+000F B8 01 00                 mov ax, 0x1
+0012 50                       push ax
+0013 B8 01 00                 mov ax, 0x1
+0016 50                       push ax
+0017 C4 5E 06                 les bx, [bp+0x6]
+001A 26 FF 5F 04              call far word [es:bx+0x4]
+001E 59                       pop cx
+001F 59                       pop cx
+0020 0B C0                    or ax, ax
+0022 74 1F                    jz 0x43
+0024 B8 47 00                 mov ax, 0x47
+0027 50                       push ax
+0028 33 C0                    xor ax, ax
+002A 50                       push ax
+002B C4 5E 06                 les bx, [bp+0x6]
+002E 26 FF 5F 38              call far word [es:bx+0x38]
+0032 59                       pop cx
+0033 59                       pop cx
+0034                          cx = ShowMessage(046E)
+0041 EB 2B                    jmp 0x6e
+0043                          cx = ShowMessage(04A2)
+0050                          cx = ShowMessage(04C3)
+005D C4 5E 06                 les bx, [bp+0x6]
+0060 26 FF 5F 74              call far word [es:bx+0x74]
+0064 50                       push ax
+0065 C4 5E 06                 les bx, [bp+0x6]
+0068 26 FF 9F 90 00           call far word [es:bx+0x90]
+006D 59                       pop cx
+006E EB 38                    jmp 0xa8
+0070 B8 01 00                 mov ax, 0x1
+0073 50                       push ax
+0074 B8 01 00                 mov ax, 0x1
+0077 50                       push ax
+0078 C4 5E 06                 les bx, [bp+0x6]
+007B 26 FF 5F 04              call far word [es:bx+0x4]
+007F 59                       pop cx
+0080 59                       pop cx
+0081 0B C0                    or ax, ax
+0083 74 12                    jz 0x97
+0085 B8 47 00                 mov ax, 0x47
+0088 50                       push ax
+0089 33 C0                    xor ax, ax
+008B 50                       push ax
+008C C4 5E 06                 les bx, [bp+0x6]
+008F 26 FF 5F 38              call far word [es:bx+0x38]
+0093 59                       pop cx
+0094 59                       pop cx
+0095 EB 11                    jmp 0xa8
+0097 B8 47 00                 mov ax, 0x47
+009A 50                       push ax
+009B B8 01 00                 mov ax, 0x1
+009E 50                       push ax
+009F C4 5E 06                 les bx, [bp+0x6]
+00A2 26 FF 5F 38              call far word [es:bx+0x38]
+00A6 59                       pop cx
+00A7 59                       pop cx
+00A8                          RETURN
 
 Functn03: "XOVERON"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x1
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: mov ax, 0x1
-000E: push ax
-000F: les bx, [bp+0x6]
-0012: call far word [es:bx]
-0015: add sp, 0x6
-0018: mov ax, 0x47
-001B: push ax
-001C: xor ax, ax
-001E: push ax
-001F: les bx, [bp+0x6]
-0022: call far word [es:bx+0x38]
-0026: pop cx
-0027: pop cx
-0028: mov ax, 0x4f6
-002B: push ax
-002C: les bx, [bp+0x6]
-002F: call far word [es:bx+0xf8]
-0034: pop cx
-0035: mov ax, 0x511
-0038: push ax
-0039: les bx, [bp+0x6]
-003C: call far word [es:bx+0xf8]
-0041: pop cx
-0042: pop bp
-0043: retf
+0000                          BEGIN
+0003 B8 01 00                 mov ax, 0x1
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B B8 01 00                 mov ax, 0x1
+000E 50                       push ax
+000F C4 5E 06                 les bx, [bp+0x6]
+0012 26 FF 1F                 call far word [es:bx]
+0015 83 C4 06                 add sp, 0x6
+0018 B8 47 00                 mov ax, 0x47
+001B 50                       push ax
+001C 33 C0                    xor ax, ax
+001E 50                       push ax
+001F C4 5E 06                 les bx, [bp+0x6]
+0022 26 FF 5F 38              call far word [es:bx+0x38]
+0026 59                       pop cx
+0027 59                       pop cx
+0028                          cx = ShowMessage(04F6)
+0035                          cx = ShowMessage(0511)
+0042                          RETURN
 
 Functn04: "BAZAAR"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x552
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x3
-0013: push ax
-0014: mov ax, 0x12
-0017: push ax
-0018: mov ax, 0x1
-001B: push ax
-001C: mov ax, 0x36
-001F: push ax
-0020: les bx, [bp+0x6]
-0023: call far word [es:bx+0xbc]
-0028: add sp, 0x8
-002B: pop bp
-002C: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0552)
+0010                          GoMap(03, 12, 01, 36)
+002B                          RETURN
 
 Functn05: "HEAVENS"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x5d0
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x614
-0013: push ax
-0014: les bx, [bp+0x6]
-0017: call far word [es:bx+0xf8]
-001C: pop cx
-001D: mov ax, 0x679
-0020: push ax
-0021: les bx, [bp+0x6]
-0024: call far word [es:bx+0xf8]
-0029: pop cx
-002A: mov ax, 0x2
-002D: push ax
-002E: mov ax, 0xa3
-0031: push ax
-0032: mov ax, 0x1
-0035: push ax
-0036: mov ax, 0x35
-0039: push ax
-003A: les bx, [bp+0x6]
-003D: call far word [es:bx+0xbc]
-0042: add sp, 0x8
-0045: pop bp
-0046: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(05D0)
+0010                          cx = ShowMessage(0614)
+001D                          cx = ShowMessage(0679)
+002A                          GoMap(02, A3, 01, 35)
+0045                          RETURN
 
 Functn06: "EXODUS"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x6d1
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x709
-0013: push ax
-0014: les bx, [bp+0x6]
-0017: call far word [es:bx+0xf8]
-001C: pop cx
-001D: mov ax, 0x2
-0020: push ax
-0021: mov ax, 0x75
-0024: push ax
-0025: mov ax, 0x1
-0028: push ax
-0029: mov ax, 0x35
-002C: push ax
-002D: les bx, [bp+0x6]
-0030: call far word [es:bx+0xbc]
-0035: add sp, 0x8
-0038: pop bp
-0039: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(06D1)
+0010                          cx = ShowMessage(0709)
+001D                          GoMap(02, 75, 01, 35)
+0038                          RETURN
 
 Functn07: "WINDHOLO"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x76a
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x3
-0013: push ax
-0014: mov ax, 0x8a
-0017: push ax
-0018: mov ax, 0x1
-001B: push ax
-001C: mov ax, 0x35
-001F: push ax
-0020: les bx, [bp+0x6]
-0023: call far word [es:bx+0xbc]
-0028: add sp, 0x8
-002B: pop bp
-002C: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(076A)
+0010                          GoMap(03, 8A, 01, 35)
+002B                          RETURN
 
 Functn08: "TEMPEST"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x7cd
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x1
-0013: push ax
-0014: mov ax, 0x9b
-0017: push ax
-0018: mov ax, 0x1
-001B: push ax
-001C: mov ax, 0x35
-001F: push ax
-0020: les bx, [bp+0x6]
-0023: call far word [es:bx+0xbc]
-0028: add sp, 0x8
-002B: pop bp
-002C: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(07CD)
+0010                          GoMap(01, 9B, 01, 35)
+002B                          RETURN
 
 Functn09: "WINDHOLO"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x815
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: xor ax, ax
-0012: push ax
-0013: mov ax, 0x7d
-0016: push ax
-0017: mov ax, 0x1
-001A: push ax
-001B: mov ax, 0x35
-001E: push ax
-001F: les bx, [bp+0x6]
-0022: call far word [es:bx+0xbc]
-0027: add sp, 0x8
-002A: pop bp
-002B: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0815)
+0010 33 C0                    xor ax, ax
+0012 50                       push ax
+0013 B8 7D 00                 mov ax, 0x7d
+0016 50                       push ax
+0017 B8 01 00                 mov ax, 0x1
+001A 50                       push ax
+001B B8 35 00                 mov ax, 0x35
+001E 50                       push ax
+001F C4 5E 06                 les bx, [bp+0x6]
+0022 26 FF 9F BC 00           call far word [es:bx+0xbc]
+0027 83 C4 08                 add sp, 0x8
+002A                          RETURN
 
 Functn0A: "BACKALLY"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x86a
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: xor ax, ax
-0012: push ax
-0013: mov ax, 0x4d
-0016: push ax
-0017: mov ax, 0x1
-001A: push ax
-001B: mov ax, 0x35
-001E: push ax
-001F: les bx, [bp+0x6]
-0022: call far word [es:bx+0xbc]
-0027: add sp, 0x8
-002A: pop bp
-002B: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(086A)
+0010 33 C0                    xor ax, ax
+0012 50                       push ax
+0013 B8 4D 00                 mov ax, 0x4d
+0016 50                       push ax
+0017 B8 01 00                 mov ax, 0x1
+001A 50                       push ax
+001B B8 35 00                 mov ax, 0x35
+001E 50                       push ax
+001F C4 5E 06                 les bx, [bp+0x6]
+0022 26 FF 9F BC 00           call far word [es:bx+0xbc]
+0027 83 C4 08                 add sp, 0x8
+002A                          RETURN
 
 Functn0B: "HEAVENS"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x8b6
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x2
-0013: push ax
-0014: mov ax, 0xf3
-0017: push ax
-0018: mov ax, 0x1
-001B: push ax
-001C: mov ax, 0x35
-001F: push ax
-0020: les bx, [bp+0x6]
-0023: call far word [es:bx+0xbc]
-0028: add sp, 0x8
-002B: pop bp
-002C: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(08B6)
+0010                          GoMap(02, F3, 01, 35)
+002B                          RETURN
 
 Functn0C: "LABYATIC"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x900
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x2
-0013: push ax
-0014: mov ax, 0xc3
-0017: push ax
-0018: mov ax, 0x1
-001B: push ax
-001C: mov ax, 0x33
-001F: push ax
-0020: les bx, [bp+0x6]
-0023: call far word [es:bx+0xbc]
-0028: add sp, 0x8
-002B: pop bp
-002C: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0900)
+0010                          GoMap(02, C3, 01, 33)
+002B                          RETURN
 
 Functn0D: "WINDHOLO"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x932
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: xor ax, ax
-0012: push ax
-0013: mov ax, 0x6d
-0016: push ax
-0017: mov ax, 0x1
-001A: push ax
-001B: mov ax, 0x33
-001E: push ax
-001F: les bx, [bp+0x6]
-0022: call far word [es:bx+0xbc]
-0027: add sp, 0x8
-002A: pop bp
-002B: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0932)
+0010 33 C0                    xor ax, ax
+0012 50                       push ax
+0013 B8 6D 00                 mov ax, 0x6d
+0016 50                       push ax
+0017 B8 01 00                 mov ax, 0x1
+001A 50                       push ax
+001B B8 33 00                 mov ax, 0x33
+001E 50                       push ax
+001F C4 5E 06                 les bx, [bp+0x6]
+0022 26 FF 9F BC 00           call far word [es:bx+0xbc]
+0027 83 C4 08                 add sp, 0x8
+002A                          RETURN
 
 Functn0E: "THVTRESR"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x953
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x2
-0013: push ax
-0014: mov ax, 0x6e
-0017: push ax
-0018: mov ax, 0x1
-001B: push ax
-001C: mov ax, 0x33
-001F: push ax
-0020: les bx, [bp+0x6]
-0023: call far word [es:bx+0xbc]
-0028: add sp, 0x8
-002B: pop bp
-002C: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0953)
+0010                          GoMap(02, 6E, 01, 33)
+002B                          RETURN
 
 Functn0F: "LAVA"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x99e
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: les bx, [bp+0x6]
-0013: call far word [es:bx+0x74]
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0x90]
-0020: pop cx
-0021: pop bp
-0022: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(099E)
+0010 C4 5E 06                 les bx, [bp+0x6]
+0013 26 FF 5F 74              call far word [es:bx+0x74]
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 9F 90 00           call far word [es:bx+0x90]
+0020 59                       pop cx
+0021                          RETURN
 
 Functn10: "DRTOBALY"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x9c9
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0xe0
-0013: push ax
-0014: mov ax, 0xe0
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0x54]
-001F: pop cx
-0020: pop cx
-0021: or ax, ax
-0023: jz 0x66
-0025: mov ax, 0x1
-0028: push ax
-0029: mov ax, 0x3
-002C: push ax
-002D: les bx, [bp+0x6]
-0030: call far word [es:bx+0x20]
-0034: push ax
-0035: les bx, [bp+0x6]
-0038: call far word [es:bx+0x2c]
-003C: add sp, 0x6
-003F: mov ax, 0x3
-0042: push ax
-0043: les bx, [bp+0x6]
-0046: call far word [es:bx+0x20]
-004A: push ax
-004B: mov ax, 0x1
-004E: push ax
-004F: les bx, [bp+0x6]
-0052: call far word [es:bx+0x30]
-0056: add sp, 0x6
-0059: mov ax, 0xa06
-005C: push ax
-005D: les bx, [bp+0x6]
-0060: call far word [es:bx+0xf8]
-0065: pop cx
-0066: pop bp
-0067: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(09C9)
+0010 B8 E0 00                 mov ax, 0xe0
+0013 50                       push ax
+0014 B8 E0 00                 mov ax, 0xe0
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 54              call far word [es:bx+0x54]
+001F 59                       pop cx
+0020 59                       pop cx
+0021 0B C0                    or ax, ax
+0023 74 41                    jz 0x66
+0025 B8 01 00                 mov ax, 0x1
+0028 50                       push ax
+0029 B8 03 00                 mov ax, 0x3
+002C 50                       push ax
+002D C4 5E 06                 les bx, [bp+0x6]
+0030 26 FF 5F 20              call far word [es:bx+0x20]
+0034 50                       push ax
+0035 C4 5E 06                 les bx, [bp+0x6]
+0038 26 FF 5F 2C              call far word [es:bx+0x2c]
+003C 83 C4 06                 add sp, 0x6
+003F B8 03 00                 mov ax, 0x3
+0042 50                       push ax
+0043 C4 5E 06                 les bx, [bp+0x6]
+0046 26 FF 5F 20              call far word [es:bx+0x20]
+004A 50                       push ax
+004B B8 01 00                 mov ax, 0x1
+004E 50                       push ax
+004F C4 5E 06                 les bx, [bp+0x6]
+0052 26 FF 5F 30              call far word [es:bx+0x30]
+0056 83 C4 06                 add sp, 0x6
+0059                          cx = ShowMessage(0A06)
+0066                          RETURN
 
 Functn14: "LABYATIC"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xa21
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x2
-0013: push ax
-0014: mov ax, 0x59
-0017: push ax
-0018: mov ax, 0x1
-001B: push ax
-001C: mov ax, 0x33
-001F: push ax
-0020: les bx, [bp+0x6]
-0023: call far word [es:bx+0xbc]
-0028: add sp, 0x8
-002B: pop bp
-002C: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0A21)
+0010                          GoMap(02, 59, 01, 33)
+002B                          RETURN
 
 Functn15: "WINDHOLO"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xa59
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0xac0
-0013: push ax
-0014: les bx, [bp+0x6]
-0017: call far word [es:bx+0xf8]
-001C: pop cx
-001D: mov ax, 0xc8
-0020: push ax
-0021: les bx, [bp+0x6]
-0024: call far word [es:bx+0x90]
-0029: pop cx
-002A: les bx, [bp+0x6]
-002D: call far word [es:bx+0x70]
-0031: or ax, ax
-0033: ja 0x42
-0035: mov ax, 0xae0
-0038: push ax
-0039: les bx, [bp+0x6]
-003C: call far word [es:bx+0xf8]
-0041: pop cx
-0042: mov ax, 0x3
-0045: push ax
-0046: mov ax, 0xbc
-0049: push ax
-004A: mov ax, 0x1
-004D: push ax
-004E: mov ax, 0x35
-0051: push ax
-0052: les bx, [bp+0x6]
-0055: call far word [es:bx+0xbc]
-005A: add sp, 0x8
-005D: pop bp
-005E: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0A59)
+0010                          cx = ShowMessage(0AC0)
+001D B8 C8 00                 mov ax, 0xc8
+0020 50                       push ax
+0021 C4 5E 06                 les bx, [bp+0x6]
+0024 26 FF 9F 90 00           call far word [es:bx+0x90]
+0029 59                       pop cx
+002A C4 5E 06                 les bx, [bp+0x6]
+002D 26 FF 5F 70              call far word [es:bx+0x70]
+0031 0B C0                    or ax, ax
+0033 77 0D                    ja 0x42
+0035                          cx = ShowMessage(0AE0)
+0042                          GoMap(03, BC, 01, 35)
+005D                          RETURN
 
 Functn16: "MAGICRMS"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xaef
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0xb3a
-0013: push ax
-0014: les bx, [bp+0x6]
-0017: call far word [es:bx+0xf8]
-001C: pop cx
-001D: mov ax, 0x2
-0020: push ax
-0021: mov ax, 0x30
-0024: push ax
-0025: mov ax, 0x2
-0028: push ax
-0029: mov ax, 0x34
-002C: push ax
-002D: les bx, [bp+0x6]
-0030: call far word [es:bx+0xbc]
-0035: add sp, 0x8
-0038: pop bp
-0039: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0AEF)
+0010                          cx = ShowMessage(0B3A)
+001D                          GoMap(02, 30, 02, 34)
+0038                          RETURN
 
 Functn18: "ZEPHENCA"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x16
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x16
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x19
-002A: push ax
-002B: mov ax, 0x5
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x19
-003C: push ax
-003D: mov ax, 0x6
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: mov ax, 0xb4
-004E: push ax
-004F: les bx, [bp+0x6]
-0052: call far word [es:bx+0x50]
-0056: pop cx
-0057: or ax, ax
-0059: jz 0x7c
-005B: mov ax, 0x3e8
-005E: push ax
-005F: xor ax, ax
-0061: push ax
-0062: xor ax, ax
-0064: push ax
-0065: xor ax, ax
-0067: push ax
-0068: xor ax, ax
-006A: push ax
-006B: mov ax, 0xd1
-006E: push ax
-006F: les bx, [bp+0x6]
-0072: call far word [es:bx+0xd8]
-0077: add sp, 0xc
-007A: jmp 0x9d
-007C: mov ax, 0x7d0
-007F: push ax
-0080: xor ax, ax
-0082: push ax
-0083: xor ax, ax
-0085: push ax
-0086: mov ax, 0xc8
-0089: push ax
-008A: mov ax, 0xb4
-008D: push ax
-008E: mov ax, 0xd0
-0091: push ax
-0092: les bx, [bp+0x6]
-0095: call far word [es:bx+0xd8]
-009A: add sp, 0xc
-009D: pop bp
-009E: retf
+0000                          BEGIN
+0003 B8 16 00                 mov ax, 0x16
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 16 00                 mov ax, 0x16
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 19 00                 mov ax, 0x19
+002A 50                       push ax
+002B B8 05 00                 mov ax, 0x5
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 19 00                 mov ax, 0x19
+003C 50                       push ax
+003D B8 06 00                 mov ax, 0x6
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B B8 B4 00                 mov ax, 0xb4
+004E 50                       push ax
+004F C4 5E 06                 les bx, [bp+0x6]
+0052 26 FF 5F 50              call far word [es:bx+0x50]
+0056 59                       pop cx
+0057 0B C0                    or ax, ax
+0059 74 21                    jz 0x7c
+005B B8 E8 03                 mov ax, 0x3e8
+005E 50                       push ax
+005F 33 C0                    xor ax, ax
+0061 50                       push ax
+0062 33 C0                    xor ax, ax
+0064 50                       push ax
+0065 33 C0                    xor ax, ax
+0067 50                       push ax
+0068 33 C0                    xor ax, ax
+006A 50                       push ax
+006B B8 D1 00                 mov ax, 0xd1
+006E 50                       push ax
+006F C4 5E 06                 les bx, [bp+0x6]
+0072 26 FF 9F D8 00           call far word [es:bx+0xd8]
+0077 83 C4 0C                 add sp, 0xc
+007A EB 21                    jmp 0x9d
+007C B8 D0 07                 mov ax, 0x7d0
+007F 50                       push ax
+0080 33 C0                    xor ax, ax
+0082 50                       push ax
+0083 33 C0                    xor ax, ax
+0085 50                       push ax
+0086 B8 C8 00                 mov ax, 0xc8
+0089 50                       push ax
+008A B8 B4 00                 mov ax, 0xb4
+008D 50                       push ax
+008E B8 D0 00                 mov ax, 0xd0
+0091 50                       push ax
+0092 C4 5E 06                 les bx, [bp+0x6]
+0095 26 FF 9F D8 00           call far word [es:bx+0xd8]
+009A 83 C4 0C                 add sp, 0xc
+009D                          RETURN
 
 Functn19: "ZEPHENCB"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x79
-0006: push ax
-0007: mov ax, 0x2
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0x8]
-0012: pop cx
-0013: pop cx
-0014: or ax, ax
-0016: jz 0x7b
-0018: mov ax, 0x9
-001B: push ax
-001C: les bx, [bp+0x6]
-001F: call far word [es:bx+0x50]
-0023: pop cx
-0024: or ax, ax
-0026: jnz 0x38
-0028: mov ax, 0xf0
-002B: push ax
-002C: les bx, [bp+0x6]
-002F: call far word [es:bx+0x50]
-0033: pop cx
-0034: or ax, ax
-0036: jz 0x5a
-0038: mov ax, 0x1388
-003B: push ax
-003C: xor ax, ax
-003E: push ax
-003F: xor ax, ax
-0041: push ax
-0042: xor ax, ax
-0044: push ax
-0045: mov ax, 0xb3
-0048: push ax
-0049: mov ax, 0xd0
-004C: push ax
-004D: les bx, [bp+0x6]
-0050: call far word [es:bx+0xd8]
-0055: add sp, 0xc
-0058: jmp 0x79
-005A: mov ax, 0x2710
-005D: push ax
-005E: xor ax, ax
-0060: push ax
-0061: xor ax, ax
-0063: push ax
-0064: xor ax, ax
-0066: push ax
-0067: xor ax, ax
-0069: push ax
-006A: mov ax, 0xf0
-006D: push ax
-006E: les bx, [bp+0x6]
-0071: call far word [es:bx+0xd8]
-0076: add sp, 0xc
-0079: jmp 0xea
-007B: mov ax, 0xe6
-007E: push ax
-007F: les bx, [bp+0x6]
-0082: call far word [es:bx+0x50]
-0086: pop cx
-0087: or ax, ax
-0089: jz 0xea
-008B: mov ax, 0xe6
-008E: push ax
-008F: les bx, [bp+0x6]
-0092: call far word [es:bx+0x4c]
-0096: pop cx
-0097: mov ax, 0x1
-009A: push ax
-009B: mov ax, 0x79
-009E: push ax
-009F: mov ax, 0x2
-00A2: push ax
-00A3: les bx, [bp+0x6]
-00A6: call far word [es:bx]
-00A9: add sp, 0x6
-00AC: mov ax, 0x2710
-00AF: push ax
-00B0: xor ax, ax
-00B2: push ax
-00B3: xor ax, ax
-00B5: push ax
-00B6: xor ax, ax
-00B8: push ax
-00B9: xor ax, ax
-00BB: push ax
-00BC: mov ax, 0xf0
-00BF: push ax
-00C0: les bx, [bp+0x6]
-00C3: call far word [es:bx+0xd8]
-00C8: add sp, 0xc
-00CB: mov ax, 0x3
-00CE: mov dx, 0xd090
-00D1: push ax
-00D2: push dx
-00D3: les bx, [bp+0x6]
-00D6: call far word [es:bx+0x98]
-00DB: pop cx
-00DC: pop cx
-00DD: mov ax, 0xb92
-00E0: push ax
-00E1: les bx, [bp+0x6]
-00E4: call far word [es:bx+0xf8]
-00E9: pop cx
-00EA: mov ax, 0x10
-00ED: push ax
-00EE: mov ax, 0x1
-00F1: push ax
-00F2: les bx, [bp+0x6]
-00F5: call far word [es:bx+0xd4]
-00FA: pop cx
-00FB: pop cx
-00FC: mov ax, 0x10
-00FF: push ax
-0100: mov ax, 0x2
-0103: push ax
-0104: les bx, [bp+0x6]
-0107: call far word [es:bx+0xd4]
-010C: pop cx
-010D: pop cx
-010E: mov ax, 0xf
-0111: push ax
-0112: mov ax, 0x5
-0115: push ax
-0116: les bx, [bp+0x6]
-0119: call far word [es:bx+0xd4]
-011E: pop cx
-011F: pop cx
-0120: mov ax, 0xf
-0123: push ax
-0124: mov ax, 0x6
-0127: push ax
-0128: les bx, [bp+0x6]
-012B: call far word [es:bx+0xd4]
-0130: pop cx
-0131: pop cx
-0132: pop bp
-0133: retf
+0000                          BEGIN
+0003 B8 79 00                 mov ax, 0x79
+0006 50                       push ax
+0007 B8 02 00                 mov ax, 0x2
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 5F 08              call far word [es:bx+0x8]
+0012 59                       pop cx
+0013 59                       pop cx
+0014 0B C0                    or ax, ax
+0016 74 63                    jz 0x7b
+0018 B8 09 00                 mov ax, 0x9
+001B 50                       push ax
+001C C4 5E 06                 les bx, [bp+0x6]
+001F 26 FF 5F 50              call far word [es:bx+0x50]
+0023 59                       pop cx
+0024 0B C0                    or ax, ax
+0026 75 10                    jnz 0x38
+0028 B8 F0 00                 mov ax, 0xf0
+002B 50                       push ax
+002C C4 5E 06                 les bx, [bp+0x6]
+002F 26 FF 5F 50              call far word [es:bx+0x50]
+0033 59                       pop cx
+0034 0B C0                    or ax, ax
+0036 74 22                    jz 0x5a
+0038 B8 88 13                 mov ax, 0x1388
+003B 50                       push ax
+003C 33 C0                    xor ax, ax
+003E 50                       push ax
+003F 33 C0                    xor ax, ax
+0041 50                       push ax
+0042 33 C0                    xor ax, ax
+0044 50                       push ax
+0045 B8 B3 00                 mov ax, 0xb3
+0048 50                       push ax
+0049 B8 D0 00                 mov ax, 0xd0
+004C 50                       push ax
+004D C4 5E 06                 les bx, [bp+0x6]
+0050 26 FF 9F D8 00           call far word [es:bx+0xd8]
+0055 83 C4 0C                 add sp, 0xc
+0058 EB 1F                    jmp 0x79
+005A B8 10 27                 mov ax, 0x2710
+005D 50                       push ax
+005E 33 C0                    xor ax, ax
+0060 50                       push ax
+0061 33 C0                    xor ax, ax
+0063 50                       push ax
+0064 33 C0                    xor ax, ax
+0066 50                       push ax
+0067 33 C0                    xor ax, ax
+0069 50                       push ax
+006A B8 F0 00                 mov ax, 0xf0
+006D 50                       push ax
+006E C4 5E 06                 les bx, [bp+0x6]
+0071 26 FF 9F D8 00           call far word [es:bx+0xd8]
+0076 83 C4 0C                 add sp, 0xc
+0079 EB 6F                    jmp 0xea
+007B B8 E6 00                 mov ax, 0xe6
+007E 50                       push ax
+007F C4 5E 06                 les bx, [bp+0x6]
+0082 26 FF 5F 50              call far word [es:bx+0x50]
+0086 59                       pop cx
+0087 0B C0                    or ax, ax
+0089 74 5F                    jz 0xea
+008B B8 E6 00                 mov ax, 0xe6
+008E 50                       push ax
+008F C4 5E 06                 les bx, [bp+0x6]
+0092 26 FF 5F 4C              call far word [es:bx+0x4c]
+0096 59                       pop cx
+0097 B8 01 00                 mov ax, 0x1
+009A 50                       push ax
+009B B8 79 00                 mov ax, 0x79
+009E 50                       push ax
+009F B8 02 00                 mov ax, 0x2
+00A2 50                       push ax
+00A3 C4 5E 06                 les bx, [bp+0x6]
+00A6 26 FF 1F                 call far word [es:bx]
+00A9 83 C4 06                 add sp, 0x6
+00AC B8 10 27                 mov ax, 0x2710
+00AF 50                       push ax
+00B0 33 C0                    xor ax, ax
+00B2 50                       push ax
+00B3 33 C0                    xor ax, ax
+00B5 50                       push ax
+00B6 33 C0                    xor ax, ax
+00B8 50                       push ax
+00B9 33 C0                    xor ax, ax
+00BB 50                       push ax
+00BC B8 F0 00                 mov ax, 0xf0
+00BF 50                       push ax
+00C0 C4 5E 06                 les bx, [bp+0x6]
+00C3 26 FF 9F D8 00           call far word [es:bx+0xd8]
+00C8 83 C4 0C                 add sp, 0xc
+00CB B8 03 00                 mov ax, 0x3
+00CE BA 90 D0                 mov dx, 0xd090
+00D1 50                       push ax
+00D2 52                       push dx
+00D3 C4 5E 06                 les bx, [bp+0x6]
+00D6 26 FF 9F 98 00           call far word [es:bx+0x98]
+00DB 59                       pop cx
+00DC 59                       pop cx
+00DD                          cx = ShowMessage(0B92)
+00EA B8 10 00                 mov ax, 0x10
+00ED 50                       push ax
+00EE B8 01 00                 mov ax, 0x1
+00F1 50                       push ax
+00F2 C4 5E 06                 les bx, [bp+0x6]
+00F5 26 FF 9F D4 00           call far word [es:bx+0xd4]
+00FA 59                       pop cx
+00FB 59                       pop cx
+00FC B8 10 00                 mov ax, 0x10
+00FF 50                       push ax
+0100 B8 02 00                 mov ax, 0x2
+0103 50                       push ax
+0104 C4 5E 06                 les bx, [bp+0x6]
+0107 26 FF 9F D4 00           call far word [es:bx+0xd4]
+010C 59                       pop cx
+010D 59                       pop cx
+010E B8 0F 00                 mov ax, 0xf
+0111 50                       push ax
+0112 B8 05 00                 mov ax, 0x5
+0115 50                       push ax
+0116 C4 5E 06                 les bx, [bp+0x6]
+0119 26 FF 9F D4 00           call far word [es:bx+0xd4]
+011E 59                       pop cx
+011F 59                       pop cx
+0120 B8 0F 00                 mov ax, 0xf
+0123 50                       push ax
+0124 B8 06 00                 mov ax, 0x6
+0127 50                       push ax
+0128 C4 5E 06                 les bx, [bp+0x6]
+012B 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0130 59                       pop cx
+0131 59                       pop cx
+0132                          RETURN
 
 Functn1B: "TXTZEPHR"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xc09
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: pop bp
-0011: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0C09)
+0010                          RETURN
 
 Functn1C: "XOVEROFF"
-0000: push bp
-0001: mov bp, sp
-0003: xor ax, ax
-0005: push ax
-0006: mov ax, 0x1
-0009: push ax
-000A: mov ax, 0x1
-000D: push ax
-000E: les bx, [bp+0x6]
-0011: call far word [es:bx]
-0014: add sp, 0x6
-0017: mov ax, 0x47
-001A: push ax
-001B: mov ax, 0x1
-001E: push ax
-001F: les bx, [bp+0x6]
-0022: call far word [es:bx+0x38]
-0026: pop cx
-0027: pop cx
-0028: mov ax, 0xca2
-002B: push ax
-002C: les bx, [bp+0x6]
-002F: call far word [es:bx+0xf8]
-0034: pop cx
-0035: pop bp
-0036: retf
+0000                          BEGIN
+0003 33 C0                    xor ax, ax
+0005 50                       push ax
+0006 B8 01 00                 mov ax, 0x1
+0009 50                       push ax
+000A B8 01 00                 mov ax, 0x1
+000D 50                       push ax
+000E C4 5E 06                 les bx, [bp+0x6]
+0011 26 FF 1F                 call far word [es:bx]
+0014 83 C4 06                 add sp, 0x6
+0017 B8 47 00                 mov ax, 0x47
+001A 50                       push ax
+001B B8 01 00                 mov ax, 0x1
+001E 50                       push ax
+001F C4 5E 06                 les bx, [bp+0x6]
+0022 26 FF 5F 38              call far word [es:bx+0x38]
+0026 59                       pop cx
+0027 59                       pop cx
+0028                          cx = ShowMessage(0CA2)
+0035                          RETURN
 
 Functn1D: "ZEPHBLOW"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xcd0
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: les bx, [bp+0x6]
-0013: call far word [es:bx+0x74]
-0017: mov bx, 0x3
-001A: cwd
-001B: idiv bx
-001D: push ax
-001E: les bx, [bp+0x6]
-0021: call far word [es:bx+0x90]
-0026: pop cx
-0027: les bx, [bp+0x6]
-002A: call far word [es:bx+0x70]
-002E: or ax, ax
-0030: ja 0x3f
-0032: mov ax, 0xcff
-0035: push ax
-0036: les bx, [bp+0x6]
-0039: call far word [es:bx+0xf8]
-003E: pop cx
-003F: pop bp
-0040: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0CD0)
+0010 C4 5E 06                 les bx, [bp+0x6]
+0013 26 FF 5F 74              call far word [es:bx+0x74]
+0017 BB 03 00                 mov bx, 0x3
+001A 99                       cwd
+001B F7 FB                    idiv bx
+001D 50                       push ax
+001E C4 5E 06                 les bx, [bp+0x6]
+0021 26 FF 9F 90 00           call far word [es:bx+0x90]
+0026 59                       pop cx
+0027 C4 5E 06                 les bx, [bp+0x6]
+002A 26 FF 5F 70              call far word [es:bx+0x70]
+002E 0B C0                    or ax, ax
+0030 77 0D                    ja 0x3f
+0032                          cx = ShowMessage(0CFF)
+003F                          RETURN
 
 Functn1E: "DRLPENCA"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xd0e
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x19
-0013: push ax
-0014: mov ax, 0x1
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0xd4]
-0020: pop cx
-0021: pop cx
-0022: mov ax, 0x19
-0025: push ax
-0026: mov ax, 0x2
-0029: push ax
-002A: les bx, [bp+0x6]
-002D: call far word [es:bx+0xd4]
-0032: pop cx
-0033: pop cx
-0034: mov ax, 0xf
-0037: push ax
-0038: mov ax, 0x5
-003B: push ax
-003C: les bx, [bp+0x6]
-003F: call far word [es:bx+0xd4]
-0044: pop cx
-0045: pop cx
-0046: mov ax, 0xf
-0049: push ax
-004A: mov ax, 0x6
-004D: push ax
-004E: les bx, [bp+0x6]
-0051: call far word [es:bx+0xd4]
-0056: pop cx
-0057: pop cx
-0058: pop bp
-0059: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0D0E)
+0010 B8 19 00                 mov ax, 0x19
+0013 50                       push ax
+0014 B8 01 00                 mov ax, 0x1
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0020 59                       pop cx
+0021 59                       pop cx
+0022 B8 19 00                 mov ax, 0x19
+0025 50                       push ax
+0026 B8 02 00                 mov ax, 0x2
+0029 50                       push ax
+002A C4 5E 06                 les bx, [bp+0x6]
+002D 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0032 59                       pop cx
+0033 59                       pop cx
+0034 B8 0F 00                 mov ax, 0xf
+0037 50                       push ax
+0038 B8 05 00                 mov ax, 0x5
+003B 50                       push ax
+003C C4 5E 06                 les bx, [bp+0x6]
+003F 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0044 59                       pop cx
+0045 59                       pop cx
+0046 B8 0F 00                 mov ax, 0xf
+0049 50                       push ax
+004A B8 06 00                 mov ax, 0x6
+004D 50                       push ax
+004E C4 5E 06                 les bx, [bp+0x6]
+0051 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0056 59                       pop cx
+0057 59                       pop cx
+0058                          RETURN
 
 Functn1F: "DRLPENCB"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xd43
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0xf
-0013: push ax
-0014: mov ax, 0x1
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0xd4]
-0020: pop cx
-0021: pop cx
-0022: mov ax, 0xf
-0025: push ax
-0026: mov ax, 0x2
-0029: push ax
-002A: les bx, [bp+0x6]
-002D: call far word [es:bx+0xd4]
-0032: pop cx
-0033: pop cx
-0034: mov ax, 0x1b
-0037: push ax
-0038: mov ax, 0x5
-003B: push ax
-003C: les bx, [bp+0x6]
-003F: call far word [es:bx+0xd4]
-0044: pop cx
-0045: pop cx
-0046: mov ax, 0x1b
-0049: push ax
-004A: mov ax, 0x6
-004D: push ax
-004E: les bx, [bp+0x6]
-0051: call far word [es:bx+0xd4]
-0056: pop cx
-0057: pop cx
-0058: pop bp
-0059: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0D43)
+0010 B8 0F 00                 mov ax, 0xf
+0013 50                       push ax
+0014 B8 01 00                 mov ax, 0x1
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0020 59                       pop cx
+0021 59                       pop cx
+0022 B8 0F 00                 mov ax, 0xf
+0025 50                       push ax
+0026 B8 02 00                 mov ax, 0x2
+0029 50                       push ax
+002A C4 5E 06                 les bx, [bp+0x6]
+002D 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0032 59                       pop cx
+0033 59                       pop cx
+0034 B8 1B 00                 mov ax, 0x1b
+0037 50                       push ax
+0038 B8 05 00                 mov ax, 0x5
+003B 50                       push ax
+003C C4 5E 06                 les bx, [bp+0x6]
+003F 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0044 59                       pop cx
+0045 59                       pop cx
+0046 B8 1B 00                 mov ax, 0x1b
+0049 50                       push ax
+004A B8 06 00                 mov ax, 0x6
+004D 50                       push ax
+004E C4 5E 06                 les bx, [bp+0x6]
+0051 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0056 59                       pop cx
+0057 59                       pop cx
+0058                          RETURN
 
 Functn20: "DRLPENCC"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xd67
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x1c
-0013: push ax
-0014: mov ax, 0x1
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0xd4]
-0020: pop cx
-0021: pop cx
-0022: mov ax, 0x1c
-0025: push ax
-0026: mov ax, 0x2
-0029: push ax
-002A: les bx, [bp+0x6]
-002D: call far word [es:bx+0xd4]
-0032: pop cx
-0033: pop cx
-0034: mov ax, 0x1c
-0037: push ax
-0038: mov ax, 0x3
-003B: push ax
-003C: les bx, [bp+0x6]
-003F: call far word [es:bx+0xd4]
-0044: pop cx
-0045: pop cx
-0046: mov ax, 0x1c
-0049: push ax
-004A: mov ax, 0x4
-004D: push ax
-004E: les bx, [bp+0x6]
-0051: call far word [es:bx+0xd4]
-0056: pop cx
-0057: pop cx
-0058: mov ax, 0x1a
-005B: push ax
-005C: mov ax, 0x5
-005F: push ax
-0060: les bx, [bp+0x6]
-0063: call far word [es:bx+0xd4]
-0068: pop cx
-0069: pop cx
-006A: mov ax, 0x1a
-006D: push ax
-006E: mov ax, 0x6
-0071: push ax
-0072: les bx, [bp+0x6]
-0075: call far word [es:bx+0xd4]
-007A: pop cx
-007B: pop cx
-007C: mov ax, 0xdf
-007F: push ax
-0080: les bx, [bp+0x6]
-0083: call far word [es:bx+0x50]
-0087: pop cx
-0088: or ax, ax
-008A: jz 0xad
-008C: mov ax, 0x3e8
-008F: push ax
-0090: xor ax, ax
-0092: push ax
-0093: xor ax, ax
-0095: push ax
-0096: xor ax, ax
-0098: push ax
-0099: xor ax, ax
-009B: push ax
-009C: mov ax, 0xd1
-009F: push ax
-00A0: les bx, [bp+0x6]
-00A3: call far word [es:bx+0xd8]
-00A8: add sp, 0xc
-00AB: jmp 0xce
-00AD: mov ax, 0x4e20
-00B0: push ax
-00B1: xor ax, ax
-00B3: push ax
-00B4: xor ax, ax
-00B6: push ax
-00B7: mov ax, 0xdf
-00BA: push ax
-00BB: mov ax, 0x46
-00BE: push ax
-00BF: mov ax, 0x6e
-00C2: push ax
-00C3: les bx, [bp+0x6]
-00C6: call far word [es:bx+0xd8]
-00CB: add sp, 0xc
-00CE: pop bp
-00CF: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0D67)
+0010 B8 1C 00                 mov ax, 0x1c
+0013 50                       push ax
+0014 B8 01 00                 mov ax, 0x1
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0020 59                       pop cx
+0021 59                       pop cx
+0022 B8 1C 00                 mov ax, 0x1c
+0025 50                       push ax
+0026 B8 02 00                 mov ax, 0x2
+0029 50                       push ax
+002A C4 5E 06                 les bx, [bp+0x6]
+002D 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0032 59                       pop cx
+0033 59                       pop cx
+0034 B8 1C 00                 mov ax, 0x1c
+0037 50                       push ax
+0038 B8 03 00                 mov ax, 0x3
+003B 50                       push ax
+003C C4 5E 06                 les bx, [bp+0x6]
+003F 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0044 59                       pop cx
+0045 59                       pop cx
+0046 B8 1C 00                 mov ax, 0x1c
+0049 50                       push ax
+004A B8 04 00                 mov ax, 0x4
+004D 50                       push ax
+004E C4 5E 06                 les bx, [bp+0x6]
+0051 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0056 59                       pop cx
+0057 59                       pop cx
+0058 B8 1A 00                 mov ax, 0x1a
+005B 50                       push ax
+005C B8 05 00                 mov ax, 0x5
+005F 50                       push ax
+0060 C4 5E 06                 les bx, [bp+0x6]
+0063 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0068 59                       pop cx
+0069 59                       pop cx
+006A B8 1A 00                 mov ax, 0x1a
+006D 50                       push ax
+006E B8 06 00                 mov ax, 0x6
+0071 50                       push ax
+0072 C4 5E 06                 les bx, [bp+0x6]
+0075 26 FF 9F D4 00           call far word [es:bx+0xd4]
+007A 59                       pop cx
+007B 59                       pop cx
+007C B8 DF 00                 mov ax, 0xdf
+007F 50                       push ax
+0080 C4 5E 06                 les bx, [bp+0x6]
+0083 26 FF 5F 50              call far word [es:bx+0x50]
+0087 59                       pop cx
+0088 0B C0                    or ax, ax
+008A 74 21                    jz 0xad
+008C B8 E8 03                 mov ax, 0x3e8
+008F 50                       push ax
+0090 33 C0                    xor ax, ax
+0092 50                       push ax
+0093 33 C0                    xor ax, ax
+0095 50                       push ax
+0096 33 C0                    xor ax, ax
+0098 50                       push ax
+0099 33 C0                    xor ax, ax
+009B 50                       push ax
+009C B8 D1 00                 mov ax, 0xd1
+009F 50                       push ax
+00A0 C4 5E 06                 les bx, [bp+0x6]
+00A3 26 FF 9F D8 00           call far word [es:bx+0xd8]
+00A8 83 C4 0C                 add sp, 0xc
+00AB EB 21                    jmp 0xce
+00AD B8 20 4E                 mov ax, 0x4e20
+00B0 50                       push ax
+00B1 33 C0                    xor ax, ax
+00B3 50                       push ax
+00B4 33 C0                    xor ax, ax
+00B6 50                       push ax
+00B7 B8 DF 00                 mov ax, 0xdf
+00BA 50                       push ax
+00BB B8 46 00                 mov ax, 0x46
+00BE 50                       push ax
+00BF B8 6E 00                 mov ax, 0x6e
+00C2 50                       push ax
+00C3 C4 5E 06                 les bx, [bp+0x6]
+00C6 26 FF 9F D8 00           call far word [es:bx+0xd8]
+00CB 83 C4 0C                 add sp, 0xc
+00CE                          RETURN
 
 Functn21: "ZZYZENCA"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x1e
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x1e
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x1e
-002A: push ax
-002B: mov ax, 0x3
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x1e
-003C: push ax
-003D: mov ax, 0x4
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: mov ax, 0x1d
-004E: push ax
-004F: mov ax, 0x5
-0052: push ax
-0053: les bx, [bp+0x6]
-0056: call far word [es:bx+0xd4]
-005B: pop cx
-005C: pop cx
-005D: mov ax, 0x1d
-0060: push ax
-0061: mov ax, 0x6
-0064: push ax
-0065: les bx, [bp+0x6]
-0068: call far word [es:bx+0xd4]
-006D: pop cx
-006E: pop cx
-006F: mov ax, 0x1388
-0072: push ax
-0073: xor ax, ax
-0075: push ax
-0076: xor ax, ax
-0078: push ax
-0079: mov ax, 0x17
-007C: push ax
-007D: mov ax, 0x8
-0080: push ax
-0081: mov ax, 0x6c
-0084: push ax
-0085: les bx, [bp+0x6]
-0088: call far word [es:bx+0xd8]
-008D: add sp, 0xc
-0090: pop bp
-0091: retf
+0000                          BEGIN
+0003 B8 1E 00                 mov ax, 0x1e
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 1E 00                 mov ax, 0x1e
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 1E 00                 mov ax, 0x1e
+002A 50                       push ax
+002B B8 03 00                 mov ax, 0x3
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 1E 00                 mov ax, 0x1e
+003C 50                       push ax
+003D B8 04 00                 mov ax, 0x4
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B B8 1D 00                 mov ax, 0x1d
+004E 50                       push ax
+004F B8 05 00                 mov ax, 0x5
+0052 50                       push ax
+0053 C4 5E 06                 les bx, [bp+0x6]
+0056 26 FF 9F D4 00           call far word [es:bx+0xd4]
+005B 59                       pop cx
+005C 59                       pop cx
+005D B8 1D 00                 mov ax, 0x1d
+0060 50                       push ax
+0061 B8 06 00                 mov ax, 0x6
+0064 50                       push ax
+0065 C4 5E 06                 les bx, [bp+0x6]
+0068 26 FF 9F D4 00           call far word [es:bx+0xd4]
+006D 59                       pop cx
+006E 59                       pop cx
+006F B8 88 13                 mov ax, 0x1388
+0072 50                       push ax
+0073 33 C0                    xor ax, ax
+0075 50                       push ax
+0076 33 C0                    xor ax, ax
+0078 50                       push ax
+0079 B8 17 00                 mov ax, 0x17
+007C 50                       push ax
+007D B8 08 00                 mov ax, 0x8
+0080 50                       push ax
+0081 B8 6C 00                 mov ax, 0x6c
+0084 50                       push ax
+0085 C4 5E 06                 les bx, [bp+0x6]
+0088 26 FF 9F D8 00           call far word [es:bx+0xd8]
+008D 83 C4 0C                 add sp, 0xc
+0090                          RETURN
 
 Functn23: "SDRZZYZA"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xd
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0x58]
-000E: pop cx
-000F: cmp ax, 0xb
-0012: jae 0x39
-0014: mov ax, 0x17
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0x64]
-001F: pop cx
-0020: or ax, ax
-0022: jnz 0x39
-0024: mov ax, 0xbe
-0027: push ax
-0028: mov ax, 0xbe
-002B: push ax
-002C: les bx, [bp+0x6]
-002F: call far word [es:bx+0x54]
-0033: pop cx
-0034: pop cx
-0035: or ax, ax
-0037: jz 0x82
-0039: mov ax, 0xdbf
-003C: push ax
-003D: les bx, [bp+0x6]
-0040: call far word [es:bx+0xf8]
-0045: pop cx
-0046: mov ax, 0x1
-0049: push ax
-004A: les bx, [bp+0x6]
-004D: call far word [es:bx+0x24]
-0051: push ax
-0052: les bx, [bp+0x6]
-0055: call far word [es:bx+0x20]
-0059: push ax
-005A: les bx, [bp+0x6]
-005D: call far word [es:bx+0x2c]
-0061: add sp, 0x6
-0064: les bx, [bp+0x6]
-0067: call far word [es:bx+0x24]
-006B: push ax
-006C: les bx, [bp+0x6]
-006F: call far word [es:bx+0x20]
-0073: push ax
-0074: mov ax, 0x1
-0077: push ax
-0078: les bx, [bp+0x6]
-007B: call far word [es:bx+0x30]
-007F: add sp, 0x6
-0082: pop bp
-0083: retf
+0000                          BEGIN
+0003 B8 0D 00                 mov ax, 0xd
+0006 50                       push ax
+0007 C4 5E 06                 les bx, [bp+0x6]
+000A 26 FF 5F 58              call far word [es:bx+0x58]
+000E 59                       pop cx
+000F 3D 0B 00                 cmp ax, 0xb
+0012 73 25                    jae 0x39
+0014 B8 17 00                 mov ax, 0x17
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 64              call far word [es:bx+0x64]
+001F 59                       pop cx
+0020 0B C0                    or ax, ax
+0022 75 15                    jnz 0x39
+0024 B8 BE 00                 mov ax, 0xbe
+0027 50                       push ax
+0028 B8 BE 00                 mov ax, 0xbe
+002B 50                       push ax
+002C C4 5E 06                 les bx, [bp+0x6]
+002F 26 FF 5F 54              call far word [es:bx+0x54]
+0033 59                       pop cx
+0034 59                       pop cx
+0035 0B C0                    or ax, ax
+0037 74 49                    jz 0x82
+0039                          cx = ShowMessage(0DBF)
+0046 B8 01 00                 mov ax, 0x1
+0049 50                       push ax
+004A C4 5E 06                 les bx, [bp+0x6]
+004D 26 FF 5F 24              call far word [es:bx+0x24]
+0051 50                       push ax
+0052 C4 5E 06                 les bx, [bp+0x6]
+0055 26 FF 5F 20              call far word [es:bx+0x20]
+0059 50                       push ax
+005A C4 5E 06                 les bx, [bp+0x6]
+005D 26 FF 5F 2C              call far word [es:bx+0x2c]
+0061 83 C4 06                 add sp, 0x6
+0064 C4 5E 06                 les bx, [bp+0x6]
+0067 26 FF 5F 24              call far word [es:bx+0x24]
+006B 50                       push ax
+006C C4 5E 06                 les bx, [bp+0x6]
+006F 26 FF 5F 20              call far word [es:bx+0x20]
+0073 50                       push ax
+0074 B8 01 00                 mov ax, 0x1
+0077 50                       push ax
+0078 C4 5E 06                 les bx, [bp+0x6]
+007B 26 FF 5F 30              call far word [es:bx+0x30]
+007F 83 C4 06                 add sp, 0x6
+0082                          RETURN
 
 Functn24: "ZZYZENCC"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x10
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x10
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x1d
-002A: push ax
-002B: mov ax, 0x3
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x1d
-003C: push ax
-003D: mov ax, 0x4
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: pop bp
-004C: retf
+0000                          BEGIN
+0003 B8 10 00                 mov ax, 0x10
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 10 00                 mov ax, 0x10
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 1D 00                 mov ax, 0x1d
+002A 50                       push ax
+002B B8 03 00                 mov ax, 0x3
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 1D 00                 mov ax, 0x1d
+003C 50                       push ax
+003D B8 04 00                 mov ax, 0x4
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B                          RETURN
 
 Functn25: "MGOVENCA"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xde5
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x1f
-0013: push ax
-0014: mov ax, 0x1
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0xd4]
-0020: pop cx
-0021: pop cx
-0022: mov ax, 0x1f
-0025: push ax
-0026: mov ax, 0x2
-0029: push ax
-002A: les bx, [bp+0x6]
-002D: call far word [es:bx+0xd4]
-0032: pop cx
-0033: pop cx
-0034: mov ax, 0x20
-0037: push ax
-0038: mov ax, 0x3
-003B: push ax
-003C: les bx, [bp+0x6]
-003F: call far word [es:bx+0xd4]
-0044: pop cx
-0045: pop cx
-0046: mov ax, 0x20
-0049: push ax
-004A: mov ax, 0x4
-004D: push ax
-004E: les bx, [bp+0x6]
-0051: call far word [es:bx+0xd4]
-0056: pop cx
-0057: pop cx
-0058: mov ax, 0x3e8
-005B: push ax
-005C: xor ax, ax
-005E: push ax
-005F: xor ax, ax
-0061: push ax
-0062: mov ax, 0xca
-0065: push ax
-0066: mov ax, 0xb2
-0069: push ax
-006A: mov ax, 0xb1
-006D: push ax
-006E: les bx, [bp+0x6]
-0071: call far word [es:bx+0xd8]
-0076: add sp, 0xc
-0079: pop bp
-007A: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0DE5)
+0010 B8 1F 00                 mov ax, 0x1f
+0013 50                       push ax
+0014 B8 01 00                 mov ax, 0x1
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0020 59                       pop cx
+0021 59                       pop cx
+0022 B8 1F 00                 mov ax, 0x1f
+0025 50                       push ax
+0026 B8 02 00                 mov ax, 0x2
+0029 50                       push ax
+002A C4 5E 06                 les bx, [bp+0x6]
+002D 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0032 59                       pop cx
+0033 59                       pop cx
+0034 B8 20 00                 mov ax, 0x20
+0037 50                       push ax
+0038 B8 03 00                 mov ax, 0x3
+003B 50                       push ax
+003C C4 5E 06                 les bx, [bp+0x6]
+003F 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0044 59                       pop cx
+0045 59                       pop cx
+0046 B8 20 00                 mov ax, 0x20
+0049 50                       push ax
+004A B8 04 00                 mov ax, 0x4
+004D 50                       push ax
+004E C4 5E 06                 les bx, [bp+0x6]
+0051 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0056 59                       pop cx
+0057 59                       pop cx
+0058 B8 E8 03                 mov ax, 0x3e8
+005B 50                       push ax
+005C 33 C0                    xor ax, ax
+005E 50                       push ax
+005F 33 C0                    xor ax, ax
+0061 50                       push ax
+0062 B8 CA 00                 mov ax, 0xca
+0065 50                       push ax
+0066 B8 B2 00                 mov ax, 0xb2
+0069 50                       push ax
+006A B8 B1 00                 mov ax, 0xb1
+006D 50                       push ax
+006E C4 5E 06                 les bx, [bp+0x6]
+0071 26 FF 9F D8 00           call far word [es:bx+0xd8]
+0076 83 C4 0C                 add sp, 0xc
+0079                          RETURN
 
 Functn26: "MGOVENCB"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x1f
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x1f
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x1f
-002A: push ax
-002B: mov ax, 0x3
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x19
-003C: push ax
-003D: mov ax, 0x4
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: mov ax, 0x5
-004E: push ax
-004F: mov ax, 0x5
-0052: push ax
-0053: les bx, [bp+0x6]
-0056: call far word [es:bx+0xd4]
-005B: pop cx
-005C: pop cx
-005D: pop bp
-005E: retf
+0000                          BEGIN
+0003 B8 1F 00                 mov ax, 0x1f
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 1F 00                 mov ax, 0x1f
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 1F 00                 mov ax, 0x1f
+002A 50                       push ax
+002B B8 03 00                 mov ax, 0x3
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 19 00                 mov ax, 0x19
+003C 50                       push ax
+003D B8 04 00                 mov ax, 0x4
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B B8 05 00                 mov ax, 0x5
+004E 50                       push ax
+004F B8 05 00                 mov ax, 0x5
+0052 50                       push ax
+0053 C4 5E 06                 les bx, [bp+0x6]
+0056 26 FF 9F D4 00           call far word [es:bx+0xd4]
+005B 59                       pop cx
+005C 59                       pop cx
+005D                          RETURN
 
 Functn28: "SDRMGOVA"
-0000: push bp
-0001: mov bp, sp
-0003: les bx, [bp+0x6]
-0006: call far word [es:bx+0x7c]
-000A: cmp ax, 0x5
-000D: jz 0x12
-000F: jmp 0x91
-0012: mov ax, 0xd
-0015: push ax
-0016: les bx, [bp+0x6]
-0019: call far word [es:bx+0x58]
-001D: pop cx
-001E: cmp ax, 0xc
-0021: jae 0x48
-0023: mov ax, 0x17
-0026: push ax
-0027: les bx, [bp+0x6]
-002A: call far word [es:bx+0x64]
-002E: pop cx
-002F: or ax, ax
-0031: jnz 0x48
-0033: mov ax, 0xbe
-0036: push ax
-0037: mov ax, 0xbe
-003A: push ax
-003B: les bx, [bp+0x6]
-003E: call far word [es:bx+0x54]
-0042: pop cx
-0043: pop cx
-0044: or ax, ax
-0046: jz 0x91
-0048: mov ax, 0xe0e
-004B: push ax
-004C: les bx, [bp+0x6]
-004F: call far word [es:bx+0xf8]
-0054: pop cx
-0055: mov ax, 0x1
-0058: push ax
-0059: les bx, [bp+0x6]
-005C: call far word [es:bx+0x24]
-0060: push ax
-0061: les bx, [bp+0x6]
-0064: call far word [es:bx+0x20]
-0068: push ax
-0069: les bx, [bp+0x6]
-006C: call far word [es:bx+0x2c]
-0070: add sp, 0x6
-0073: les bx, [bp+0x6]
-0076: call far word [es:bx+0x24]
-007A: push ax
-007B: les bx, [bp+0x6]
-007E: call far word [es:bx+0x20]
-0082: push ax
-0083: mov ax, 0x1
-0086: push ax
-0087: les bx, [bp+0x6]
-008A: call far word [es:bx+0x30]
-008E: add sp, 0x6
-0091: pop bp
-0092: retf
+0000                          BEGIN
+0003 C4 5E 06                 les bx, [bp+0x6]
+0006 26 FF 5F 7C              call far word [es:bx+0x7c]
+000A 3D 05 00                 cmp ax, 0x5
+000D 74 03                    jz 0x12
+000F E9 7F 00                 jmp 0x91
+0012 B8 0D 00                 mov ax, 0xd
+0015 50                       push ax
+0016 C4 5E 06                 les bx, [bp+0x6]
+0019 26 FF 5F 58              call far word [es:bx+0x58]
+001D 59                       pop cx
+001E 3D 0C 00                 cmp ax, 0xc
+0021 73 25                    jae 0x48
+0023 B8 17 00                 mov ax, 0x17
+0026 50                       push ax
+0027 C4 5E 06                 les bx, [bp+0x6]
+002A 26 FF 5F 64              call far word [es:bx+0x64]
+002E 59                       pop cx
+002F 0B C0                    or ax, ax
+0031 75 15                    jnz 0x48
+0033 B8 BE 00                 mov ax, 0xbe
+0036 50                       push ax
+0037 B8 BE 00                 mov ax, 0xbe
+003A 50                       push ax
+003B C4 5E 06                 les bx, [bp+0x6]
+003E 26 FF 5F 54              call far word [es:bx+0x54]
+0042 59                       pop cx
+0043 59                       pop cx
+0044 0B C0                    or ax, ax
+0046 74 49                    jz 0x91
+0048                          cx = ShowMessage(0E0E)
+0055 B8 01 00                 mov ax, 0x1
+0058 50                       push ax
+0059 C4 5E 06                 les bx, [bp+0x6]
+005C 26 FF 5F 24              call far word [es:bx+0x24]
+0060 50                       push ax
+0061 C4 5E 06                 les bx, [bp+0x6]
+0064 26 FF 5F 20              call far word [es:bx+0x20]
+0068 50                       push ax
+0069 C4 5E 06                 les bx, [bp+0x6]
+006C 26 FF 5F 2C              call far word [es:bx+0x2c]
+0070 83 C4 06                 add sp, 0x6
+0073 C4 5E 06                 les bx, [bp+0x6]
+0076 26 FF 5F 24              call far word [es:bx+0x24]
+007A 50                       push ax
+007B C4 5E 06                 les bx, [bp+0x6]
+007E 26 FF 5F 20              call far word [es:bx+0x20]
+0082 50                       push ax
+0083 B8 01 00                 mov ax, 0x1
+0086 50                       push ax
+0087 C4 5E 06                 les bx, [bp+0x6]
+008A 26 FF 5F 30              call far word [es:bx+0x30]
+008E 83 C4 06                 add sp, 0x6
+0091                          RETURN
 
 Functn29: "VORAENCA"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x22
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x22
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x10
-002A: push ax
-002B: mov ax, 0x3
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x10
-003C: push ax
-003D: mov ax, 0x4
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: pop bp
-004C: retf
+0000                          BEGIN
+0003 B8 22 00                 mov ax, 0x22
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 22 00                 mov ax, 0x22
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 10 00                 mov ax, 0x10
+002A 50                       push ax
+002B B8 03 00                 mov ax, 0x3
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 10 00                 mov ax, 0x10
+003C 50                       push ax
+003D B8 04 00                 mov ax, 0x4
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B                          RETURN
 
 Functn2A: "VORAENCB"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x22
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x22
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x15
-002A: push ax
-002B: mov ax, 0x3
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x12
-003C: push ax
-003D: mov ax, 0x4
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: pop bp
-004C: retf
+0000                          BEGIN
+0003 B8 22 00                 mov ax, 0x22
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 22 00                 mov ax, 0x22
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 15 00                 mov ax, 0x15
+002A 50                       push ax
+002B B8 03 00                 mov ax, 0x3
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 12 00                 mov ax, 0x12
+003C 50                       push ax
+003D B8 04 00                 mov ax, 0x4
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B                          RETURN
 
 Functn30: "VORAENCV"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xe34
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: les bx, [bp+0x6]
-0013: call far word [es:bx+0x78]
-0017: cmp ax, 0x2
-001A: jnz 0x29
-001C: mov ax, 0xf0a
-001F: push ax
-0020: les bx, [bp+0x6]
-0023: call far word [es:bx+0xf8]
-0028: pop cx
-0029: les bx, [bp+0x6]
-002C: call far word [es:bx+0x78]
-0030: cmp ax, 0x4
-0033: jnz 0x42
-0035: mov ax, 0xf81
-0038: push ax
-0039: les bx, [bp+0x6]
-003C: call far word [es:bx+0xf8]
-0041: pop cx
-0042: mov ax, 0x1c
-0045: push ax
-0046: mov ax, 0x1
-0049: push ax
-004A: les bx, [bp+0x6]
-004D: call far word [es:bx+0xd4]
-0052: pop cx
-0053: pop cx
-0054: mov ax, 0x21
-0057: push ax
-0058: mov ax, 0x5
-005B: push ax
-005C: les bx, [bp+0x6]
-005F: call far word [es:bx+0xd4]
-0064: pop cx
-0065: pop cx
-0066: mov ax, 0xed
-0069: push ax
-006A: les bx, [bp+0x6]
-006D: call far word [es:bx+0x50]
-0071: pop cx
-0072: or ax, ax
-0074: jz 0x97
-0076: mov ax, 0x1388
-0079: push ax
-007A: xor ax, ax
-007C: push ax
-007D: xor ax, ax
-007F: push ax
-0080: xor ax, ax
-0082: push ax
-0083: xor ax, ax
-0085: push ax
-0086: mov ax, 0xcc
-0089: push ax
-008A: les bx, [bp+0x6]
-008D: call far word [es:bx+0xd8]
-0092: add sp, 0xc
-0095: jmp 0xb6
-0097: mov ax, 0x2710
-009A: push ax
-009B: xor ax, ax
-009D: push ax
-009E: xor ax, ax
-00A0: push ax
-00A1: xor ax, ax
-00A3: push ax
-00A4: xor ax, ax
-00A6: push ax
-00A7: mov ax, 0xed
-00AA: push ax
-00AB: les bx, [bp+0x6]
-00AE: call far word [es:bx+0xd8]
-00B3: add sp, 0xc
-00B6: pop bp
-00B7: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(0E34)
+0010 C4 5E 06                 les bx, [bp+0x6]
+0013 26 FF 5F 78              call far word [es:bx+0x78]
+0017 3D 02 00                 cmp ax, 0x2
+001A 75 0D                    jnz 0x29
+001C                          cx = ShowMessage(0F0A)
+0029 C4 5E 06                 les bx, [bp+0x6]
+002C 26 FF 5F 78              call far word [es:bx+0x78]
+0030 3D 04 00                 cmp ax, 0x4
+0033 75 0D                    jnz 0x42
+0035                          cx = ShowMessage(0F81)
+0042 B8 1C 00                 mov ax, 0x1c
+0045 50                       push ax
+0046 B8 01 00                 mov ax, 0x1
+0049 50                       push ax
+004A C4 5E 06                 les bx, [bp+0x6]
+004D 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0052 59                       pop cx
+0053 59                       pop cx
+0054 B8 21 00                 mov ax, 0x21
+0057 50                       push ax
+0058 B8 05 00                 mov ax, 0x5
+005B 50                       push ax
+005C C4 5E 06                 les bx, [bp+0x6]
+005F 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0064 59                       pop cx
+0065 59                       pop cx
+0066 B8 ED 00                 mov ax, 0xed
+0069 50                       push ax
+006A C4 5E 06                 les bx, [bp+0x6]
+006D 26 FF 5F 50              call far word [es:bx+0x50]
+0071 59                       pop cx
+0072 0B C0                    or ax, ax
+0074 74 21                    jz 0x97
+0076 B8 88 13                 mov ax, 0x1388
+0079 50                       push ax
+007A 33 C0                    xor ax, ax
+007C 50                       push ax
+007D 33 C0                    xor ax, ax
+007F 50                       push ax
+0080 33 C0                    xor ax, ax
+0082 50                       push ax
+0083 33 C0                    xor ax, ax
+0085 50                       push ax
+0086 B8 CC 00                 mov ax, 0xcc
+0089 50                       push ax
+008A C4 5E 06                 les bx, [bp+0x6]
+008D 26 FF 9F D8 00           call far word [es:bx+0xd8]
+0092 83 C4 0C                 add sp, 0xc
+0095 EB 1F                    jmp 0xb6
+0097 B8 10 27                 mov ax, 0x2710
+009A 50                       push ax
+009B 33 C0                    xor ax, ax
+009D 50                       push ax
+009E 33 C0                    xor ax, ax
+00A0 50                       push ax
+00A1 33 C0                    xor ax, ax
+00A3 50                       push ax
+00A4 33 C0                    xor ax, ax
+00A6 50                       push ax
+00A7 B8 ED 00                 mov ax, 0xed
+00AA 50                       push ax
+00AB C4 5E 06                 les bx, [bp+0x6]
+00AE 26 FF 9F D8 00           call far word [es:bx+0xd8]
+00B3 83 C4 0C                 add sp, 0xc
+00B6                          RETURN
 
 Functn31: "SDRVORDW"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xd
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0x58]
-000E: pop cx
-000F: cmp ax, 0xb
-0012: jae 0x39
-0014: mov ax, 0x17
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0x64]
-001F: pop cx
-0020: or ax, ax
-0022: jnz 0x39
-0024: mov ax, 0xbe
-0027: push ax
-0028: mov ax, 0xbe
-002B: push ax
-002C: les bx, [bp+0x6]
-002F: call far word [es:bx+0x54]
-0033: pop cx
-0034: pop cx
-0035: or ax, ax
-0037: jz 0x82
-0039: mov ax, 0xff2
-003C: push ax
-003D: les bx, [bp+0x6]
-0040: call far word [es:bx+0xf8]
-0045: pop cx
-0046: les bx, [bp+0x6]
-0049: call far word [es:bx+0x24]
-004D: push ax
-004E: les bx, [bp+0x6]
-0051: call far word [es:bx+0x20]
-0055: push ax
-0056: mov ax, 0x1
-0059: push ax
-005A: les bx, [bp+0x6]
-005D: call far word [es:bx+0x30]
-0061: add sp, 0x6
-0064: mov ax, 0x1
-0067: push ax
-0068: les bx, [bp+0x6]
-006B: call far word [es:bx+0x24]
-006F: push ax
-0070: les bx, [bp+0x6]
-0073: call far word [es:bx+0x20]
-0077: push ax
-0078: les bx, [bp+0x6]
-007B: call far word [es:bx+0x2c]
-007F: add sp, 0x6
-0082: pop bp
-0083: retf
+0000                          BEGIN
+0003 B8 0D 00                 mov ax, 0xd
+0006 50                       push ax
+0007 C4 5E 06                 les bx, [bp+0x6]
+000A 26 FF 5F 58              call far word [es:bx+0x58]
+000E 59                       pop cx
+000F 3D 0B 00                 cmp ax, 0xb
+0012 73 25                    jae 0x39
+0014 B8 17 00                 mov ax, 0x17
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 64              call far word [es:bx+0x64]
+001F 59                       pop cx
+0020 0B C0                    or ax, ax
+0022 75 15                    jnz 0x39
+0024 B8 BE 00                 mov ax, 0xbe
+0027 50                       push ax
+0028 B8 BE 00                 mov ax, 0xbe
+002B 50                       push ax
+002C C4 5E 06                 les bx, [bp+0x6]
+002F 26 FF 5F 54              call far word [es:bx+0x54]
+0033 59                       pop cx
+0034 59                       pop cx
+0035 0B C0                    or ax, ax
+0037 74 49                    jz 0x82
+0039                          cx = ShowMessage(0FF2)
+0046 C4 5E 06                 les bx, [bp+0x6]
+0049 26 FF 5F 24              call far word [es:bx+0x24]
+004D 50                       push ax
+004E C4 5E 06                 les bx, [bp+0x6]
+0051 26 FF 5F 20              call far word [es:bx+0x20]
+0055 50                       push ax
+0056 B8 01 00                 mov ax, 0x1
+0059 50                       push ax
+005A C4 5E 06                 les bx, [bp+0x6]
+005D 26 FF 5F 30              call far word [es:bx+0x30]
+0061 83 C4 06                 add sp, 0x6
+0064 B8 01 00                 mov ax, 0x1
+0067 50                       push ax
+0068 C4 5E 06                 les bx, [bp+0x6]
+006B 26 FF 5F 24              call far word [es:bx+0x24]
+006F 50                       push ax
+0070 C4 5E 06                 les bx, [bp+0x6]
+0073 26 FF 5F 20              call far word [es:bx+0x20]
+0077 50                       push ax
+0078 C4 5E 06                 les bx, [bp+0x6]
+007B 26 FF 5F 2C              call far word [es:bx+0x2c]
+007F 83 C4 06                 add sp, 0x6
+0082                          RETURN
 
 Functn32: "MOONENCA"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xa
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0xa
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x24
-002A: push ax
-002B: mov ax, 0x3
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x24
-003C: push ax
-003D: mov ax, 0x4
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: mov ax, 0xbe
-004E: push ax
-004F: les bx, [bp+0x6]
-0052: call far word [es:bx+0x50]
-0056: pop cx
-0057: or ax, ax
-0059: jz 0x7d
-005B: mov ax, 0x7d0
-005E: push ax
-005F: xor ax, ax
-0061: push ax
-0062: xor ax, ax
-0064: push ax
-0065: xor ax, ax
-0067: push ax
-0068: mov ax, 0xd0
-006B: push ax
-006C: mov ax, 0xb7
-006F: push ax
-0070: les bx, [bp+0x6]
-0073: call far word [es:bx+0xd8]
-0078: add sp, 0xc
-007B: jmp 0x9e
-007D: mov ax, 0x1388
-0080: push ax
-0081: xor ax, ax
-0083: push ax
-0084: xor ax, ax
-0086: push ax
-0087: mov ax, 0xc6
-008A: push ax
-008B: mov ax, 0xd1
-008E: push ax
-008F: mov ax, 0xbe
-0092: push ax
-0093: les bx, [bp+0x6]
-0096: call far word [es:bx+0xd8]
-009B: add sp, 0xc
-009E: pop bp
-009F: retf
+0000                          BEGIN
+0003 B8 0A 00                 mov ax, 0xa
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 0A 00                 mov ax, 0xa
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 24 00                 mov ax, 0x24
+002A 50                       push ax
+002B B8 03 00                 mov ax, 0x3
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 24 00                 mov ax, 0x24
+003C 50                       push ax
+003D B8 04 00                 mov ax, 0x4
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B B8 BE 00                 mov ax, 0xbe
+004E 50                       push ax
+004F C4 5E 06                 les bx, [bp+0x6]
+0052 26 FF 5F 50              call far word [es:bx+0x50]
+0056 59                       pop cx
+0057 0B C0                    or ax, ax
+0059 74 22                    jz 0x7d
+005B B8 D0 07                 mov ax, 0x7d0
+005E 50                       push ax
+005F 33 C0                    xor ax, ax
+0061 50                       push ax
+0062 33 C0                    xor ax, ax
+0064 50                       push ax
+0065 33 C0                    xor ax, ax
+0067 50                       push ax
+0068 B8 D0 00                 mov ax, 0xd0
+006B 50                       push ax
+006C B8 B7 00                 mov ax, 0xb7
+006F 50                       push ax
+0070 C4 5E 06                 les bx, [bp+0x6]
+0073 26 FF 9F D8 00           call far word [es:bx+0xd8]
+0078 83 C4 0C                 add sp, 0xc
+007B EB 21                    jmp 0x9e
+007D B8 88 13                 mov ax, 0x1388
+0080 50                       push ax
+0081 33 C0                    xor ax, ax
+0083 50                       push ax
+0084 33 C0                    xor ax, ax
+0086 50                       push ax
+0087 B8 C6 00                 mov ax, 0xc6
+008A 50                       push ax
+008B B8 D1 00                 mov ax, 0xd1
+008E 50                       push ax
+008F B8 BE 00                 mov ax, 0xbe
+0092 50                       push ax
+0093 C4 5E 06                 les bx, [bp+0x6]
+0096 26 FF 9F D8 00           call far word [es:bx+0xd8]
+009B 83 C4 0C                 add sp, 0xc
+009E                          RETURN
 
 Functn33: "MOONENCB"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x26
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x26
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x25
-002A: push ax
-002B: mov ax, 0x3
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x26
-003C: push ax
-003D: mov ax, 0x5
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: mov ax, 0x26
-004E: push ax
-004F: mov ax, 0x6
-0052: push ax
-0053: les bx, [bp+0x6]
-0056: call far word [es:bx+0xd4]
-005B: pop cx
-005C: pop cx
-005D: mov ax, 0x1b58
-0060: push ax
-0061: xor ax, ax
-0063: push ax
-0064: xor ax, ax
-0066: push ax
-0067: xor ax, ax
-0069: push ax
-006A: mov ax, 0x59
-006D: push ax
-006E: mov ax, 0x13
-0071: push ax
-0072: les bx, [bp+0x6]
-0075: call far word [es:bx+0xd8]
-007A: add sp, 0xc
-007D: pop bp
-007E: retf
+0000                          BEGIN
+0003 B8 26 00                 mov ax, 0x26
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 26 00                 mov ax, 0x26
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 25 00                 mov ax, 0x25
+002A 50                       push ax
+002B B8 03 00                 mov ax, 0x3
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 26 00                 mov ax, 0x26
+003C 50                       push ax
+003D B8 05 00                 mov ax, 0x5
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B B8 26 00                 mov ax, 0x26
+004E 50                       push ax
+004F B8 06 00                 mov ax, 0x6
+0052 50                       push ax
+0053 C4 5E 06                 les bx, [bp+0x6]
+0056 26 FF 9F D4 00           call far word [es:bx+0xd4]
+005B 59                       pop cx
+005C 59                       pop cx
+005D B8 58 1B                 mov ax, 0x1b58
+0060 50                       push ax
+0061 33 C0                    xor ax, ax
+0063 50                       push ax
+0064 33 C0                    xor ax, ax
+0066 50                       push ax
+0067 33 C0                    xor ax, ax
+0069 50                       push ax
+006A B8 59 00                 mov ax, 0x59
+006D 50                       push ax
+006E B8 13 00                 mov ax, 0x13
+0071 50                       push ax
+0072 C4 5E 06                 les bx, [bp+0x6]
+0075 26 FF 9F D8 00           call far word [es:bx+0xd8]
+007A 83 C4 0C                 add sp, 0xc
+007D                          RETURN
 
 Functn34: "MOONENCC"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xe
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0xe
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x1c
-002A: push ax
-002B: mov ax, 0x3
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x1c
-003C: push ax
-003D: mov ax, 0x4
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: mov ax, 0x1b
-004E: push ax
-004F: mov ax, 0x5
-0052: push ax
-0053: les bx, [bp+0x6]
-0056: call far word [es:bx+0xd4]
-005B: pop cx
-005C: pop cx
-005D: mov ax, 0x1b
-0060: push ax
-0061: mov ax, 0x6
-0064: push ax
-0065: les bx, [bp+0x6]
-0068: call far word [es:bx+0xd4]
-006D: pop cx
-006E: pop cx
-006F: mov ax, 0x2710
-0072: push ax
-0073: xor ax, ax
-0075: push ax
-0076: xor ax, ax
-0078: push ax
-0079: xor ax, ax
-007B: push ax
-007C: mov ax, 0x83
-007F: push ax
-0080: mov ax, 0x10
-0083: push ax
-0084: les bx, [bp+0x6]
-0087: call far word [es:bx+0xd8]
-008C: add sp, 0xc
-008F: pop bp
-0090: retf
+0000                          BEGIN
+0003 B8 0E 00                 mov ax, 0xe
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 0E 00                 mov ax, 0xe
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 1C 00                 mov ax, 0x1c
+002A 50                       push ax
+002B B8 03 00                 mov ax, 0x3
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 1C 00                 mov ax, 0x1c
+003C 50                       push ax
+003D B8 04 00                 mov ax, 0x4
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B B8 1B 00                 mov ax, 0x1b
+004E 50                       push ax
+004F B8 05 00                 mov ax, 0x5
+0052 50                       push ax
+0053 C4 5E 06                 les bx, [bp+0x6]
+0056 26 FF 9F D4 00           call far word [es:bx+0xd4]
+005B 59                       pop cx
+005C 59                       pop cx
+005D B8 1B 00                 mov ax, 0x1b
+0060 50                       push ax
+0061 B8 06 00                 mov ax, 0x6
+0064 50                       push ax
+0065 C4 5E 06                 les bx, [bp+0x6]
+0068 26 FF 9F D4 00           call far word [es:bx+0xd4]
+006D 59                       pop cx
+006E 59                       pop cx
+006F B8 10 27                 mov ax, 0x2710
+0072 50                       push ax
+0073 33 C0                    xor ax, ax
+0075 50                       push ax
+0076 33 C0                    xor ax, ax
+0078 50                       push ax
+0079 33 C0                    xor ax, ax
+007B 50                       push ax
+007C B8 83 00                 mov ax, 0x83
+007F 50                       push ax
+0080 B8 10 00                 mov ax, 0x10
+0083 50                       push ax
+0084 C4 5E 06                 les bx, [bp+0x6]
+0087 26 FF 9F D8 00           call far word [es:bx+0xd8]
+008C 83 C4 0C                 add sp, 0xc
+008F                          RETURN
 
 Functn35: "MOONENCD"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x24
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x24
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x24
-002A: push ax
-002B: mov ax, 0x3
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x24
-003C: push ax
-003D: mov ax, 0x4
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: pop bp
-004C: retf
+0000                          BEGIN
+0003 B8 24 00                 mov ax, 0x24
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 24 00                 mov ax, 0x24
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 24 00                 mov ax, 0x24
+002A 50                       push ax
+002B B8 03 00                 mov ax, 0x3
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 24 00                 mov ax, 0x24
+003C 50                       push ax
+003D B8 04 00                 mov ax, 0x4
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B                          RETURN
 
 Functn36: "MOONENCE"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x1016
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0xe
-0013: push ax
-0014: mov ax, 0x1
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0xd4]
-0020: pop cx
-0021: pop cx
-0022: mov ax, 0xe
-0025: push ax
-0026: mov ax, 0x2
-0029: push ax
-002A: les bx, [bp+0x6]
-002D: call far word [es:bx+0xd4]
-0032: pop cx
-0033: pop cx
-0034: mov ax, 0xf
-0037: push ax
-0038: mov ax, 0x3
-003B: push ax
-003C: les bx, [bp+0x6]
-003F: call far word [es:bx+0xd4]
-0044: pop cx
-0045: pop cx
-0046: mov ax, 0x1c
-0049: push ax
-004A: mov ax, 0x4
-004D: push ax
-004E: les bx, [bp+0x6]
-0051: call far word [es:bx+0xd4]
-0056: pop cx
-0057: pop cx
-0058: pop bp
-0059: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(1016)
+0010 B8 0E 00                 mov ax, 0xe
+0013 50                       push ax
+0014 B8 01 00                 mov ax, 0x1
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0020 59                       pop cx
+0021 59                       pop cx
+0022 B8 0E 00                 mov ax, 0xe
+0025 50                       push ax
+0026 B8 02 00                 mov ax, 0x2
+0029 50                       push ax
+002A C4 5E 06                 les bx, [bp+0x6]
+002D 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0032 59                       pop cx
+0033 59                       pop cx
+0034 B8 0F 00                 mov ax, 0xf
+0037 50                       push ax
+0038 B8 03 00                 mov ax, 0x3
+003B 50                       push ax
+003C C4 5E 06                 les bx, [bp+0x6]
+003F 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0044 59                       pop cx
+0045 59                       pop cx
+0046 B8 1C 00                 mov ax, 0x1c
+0049 50                       push ax
+004A B8 04 00                 mov ax, 0x4
+004D 50                       push ax
+004E C4 5E 06                 les bx, [bp+0x6]
+0051 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0056 59                       pop cx
+0057 59                       pop cx
+0058                          RETURN
 
 Functn37: "MOONENCF"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x24
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x24
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x24
-002A: push ax
-002B: mov ax, 0x5
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: pop bp
-003A: retf
+0000                          BEGIN
+0003 B8 24 00                 mov ax, 0x24
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 24 00                 mov ax, 0x24
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 24 00                 mov ax, 0x24
+002A 50                       push ax
+002B B8 05 00                 mov ax, 0x5
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039                          RETURN
 
 Functn38: "MOONENCG"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x102f
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x104d
-0013: push ax
-0014: les bx, [bp+0x6]
-0017: call far word [es:bx+0xf8]
-001C: pop cx
-001D: mov ax, 0x28
-0020: push ax
-0021: mov ax, 0x1
-0024: push ax
-0025: les bx, [bp+0x6]
-0028: call far word [es:bx+0xd4]
-002D: pop cx
-002E: pop cx
-002F: mov ax, 0x28
-0032: push ax
-0033: mov ax, 0x2
-0036: push ax
-0037: les bx, [bp+0x6]
-003A: call far word [es:bx+0xd4]
-003F: pop cx
-0040: pop cx
-0041: mov ax, 0x28
-0044: push ax
-0045: mov ax, 0x3
-0048: push ax
-0049: les bx, [bp+0x6]
-004C: call far word [es:bx+0xd4]
-0051: pop cx
-0052: pop cx
-0053: mov ax, 0x24
-0056: push ax
-0057: mov ax, 0x5
-005A: push ax
-005B: les bx, [bp+0x6]
-005E: call far word [es:bx+0xd4]
-0063: pop cx
-0064: pop cx
-0065: mov ax, 0x24
-0068: push ax
-0069: mov ax, 0x6
-006C: push ax
-006D: les bx, [bp+0x6]
-0070: call far word [es:bx+0xd4]
-0075: pop cx
-0076: pop cx
-0077: mov ax, 0xea
-007A: push ax
-007B: les bx, [bp+0x6]
-007E: call far word [es:bx+0x50]
-0082: pop cx
-0083: or ax, ax
-0085: jz 0xa8
-0087: mov ax, 0x2328
-008A: push ax
-008B: xor ax, ax
-008D: push ax
-008E: xor ax, ax
-0090: push ax
-0091: xor ax, ax
-0093: push ax
-0094: xor ax, ax
-0096: push ax
-0097: mov ax, 0xbb
-009A: push ax
-009B: les bx, [bp+0x6]
-009E: call far word [es:bx+0xd8]
-00A3: add sp, 0xc
-00A6: jmp 0xc8
-00A8: mov ax, 0x1388
-00AB: push ax
-00AC: xor ax, ax
-00AE: push ax
-00AF: xor ax, ax
-00B1: push ax
-00B2: xor ax, ax
-00B4: push ax
-00B5: mov ax, 0xea
-00B8: push ax
-00B9: mov ax, 0x85
-00BC: push ax
-00BD: les bx, [bp+0x6]
-00C0: call far word [es:bx+0xd8]
-00C5: add sp, 0xc
-00C8: pop bp
-00C9: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(102F)
+0010                          cx = ShowMessage(104D)
+001D B8 28 00                 mov ax, 0x28
+0020 50                       push ax
+0021 B8 01 00                 mov ax, 0x1
+0024 50                       push ax
+0025 C4 5E 06                 les bx, [bp+0x6]
+0028 26 FF 9F D4 00           call far word [es:bx+0xd4]
+002D 59                       pop cx
+002E 59                       pop cx
+002F B8 28 00                 mov ax, 0x28
+0032 50                       push ax
+0033 B8 02 00                 mov ax, 0x2
+0036 50                       push ax
+0037 C4 5E 06                 les bx, [bp+0x6]
+003A 26 FF 9F D4 00           call far word [es:bx+0xd4]
+003F 59                       pop cx
+0040 59                       pop cx
+0041 B8 28 00                 mov ax, 0x28
+0044 50                       push ax
+0045 B8 03 00                 mov ax, 0x3
+0048 50                       push ax
+0049 C4 5E 06                 les bx, [bp+0x6]
+004C 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0051 59                       pop cx
+0052 59                       pop cx
+0053 B8 24 00                 mov ax, 0x24
+0056 50                       push ax
+0057 B8 05 00                 mov ax, 0x5
+005A 50                       push ax
+005B C4 5E 06                 les bx, [bp+0x6]
+005E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0063 59                       pop cx
+0064 59                       pop cx
+0065 B8 24 00                 mov ax, 0x24
+0068 50                       push ax
+0069 B8 06 00                 mov ax, 0x6
+006C 50                       push ax
+006D C4 5E 06                 les bx, [bp+0x6]
+0070 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0075 59                       pop cx
+0076 59                       pop cx
+0077 B8 EA 00                 mov ax, 0xea
+007A 50                       push ax
+007B C4 5E 06                 les bx, [bp+0x6]
+007E 26 FF 5F 50              call far word [es:bx+0x50]
+0082 59                       pop cx
+0083 0B C0                    or ax, ax
+0085 74 21                    jz 0xa8
+0087 B8 28 23                 mov ax, 0x2328
+008A 50                       push ax
+008B 33 C0                    xor ax, ax
+008D 50                       push ax
+008E 33 C0                    xor ax, ax
+0090 50                       push ax
+0091 33 C0                    xor ax, ax
+0093 50                       push ax
+0094 33 C0                    xor ax, ax
+0096 50                       push ax
+0097 B8 BB 00                 mov ax, 0xbb
+009A 50                       push ax
+009B C4 5E 06                 les bx, [bp+0x6]
+009E 26 FF 9F D8 00           call far word [es:bx+0xd8]
+00A3 83 C4 0C                 add sp, 0xc
+00A6 EB 20                    jmp 0xc8
+00A8 B8 88 13                 mov ax, 0x1388
+00AB 50                       push ax
+00AC 33 C0                    xor ax, ax
+00AE 50                       push ax
+00AF 33 C0                    xor ax, ax
+00B1 50                       push ax
+00B2 33 C0                    xor ax, ax
+00B4 50                       push ax
+00B5 B8 EA 00                 mov ax, 0xea
+00B8 50                       push ax
+00B9 B8 85 00                 mov ax, 0x85
+00BC 50                       push ax
+00BD C4 5E 06                 les bx, [bp+0x6]
+00C0 26 FF 9F D8 00           call far word [es:bx+0xd8]
+00C5 83 C4 0C                 add sp, 0xc
+00C8                          RETURN
 
 Functn3A: "TXTMOONB"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x10a6
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: pop bp
-0011: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(10A6)
+0010                          RETURN
 
 Functn3B: "MOONENCJ"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x12
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x12
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x1e
-002A: push ax
-002B: mov ax, 0x3
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x1e
-003C: push ax
-003D: mov ax, 0x4
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: pop bp
-004C: retf
+0000                          BEGIN
+0003 B8 12 00                 mov ax, 0x12
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 12 00                 mov ax, 0x12
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 1E 00                 mov ax, 0x1e
+002A 50                       push ax
+002B B8 03 00                 mov ax, 0x3
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 1E 00                 mov ax, 0x1e
+003C 50                       push ax
+003D B8 04 00                 mov ax, 0x4
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B                          RETURN
 
 Functn3C: "MOONENCK"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x26
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x26
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x26
-002A: push ax
-002B: mov ax, 0x3
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x25
-003C: push ax
-003D: mov ax, 0x5
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: mov ax, 0x25
-004E: push ax
-004F: mov ax, 0x6
-0052: push ax
-0053: les bx, [bp+0x6]
-0056: call far word [es:bx+0xd4]
-005B: pop cx
-005C: pop cx
-005D: pop bp
-005E: retf
+0000                          BEGIN
+0003 B8 26 00                 mov ax, 0x26
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 26 00                 mov ax, 0x26
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 26 00                 mov ax, 0x26
+002A 50                       push ax
+002B B8 03 00                 mov ax, 0x3
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 25 00                 mov ax, 0x25
+003C 50                       push ax
+003D B8 05 00                 mov ax, 0x5
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B B8 25 00                 mov ax, 0x25
+004E 50                       push ax
+004F B8 06 00                 mov ax, 0x6
+0052 50                       push ax
+0053 C4 5E 06                 les bx, [bp+0x6]
+0056 26 FF 9F D4 00           call far word [es:bx+0xd4]
+005B 59                       pop cx
+005C 59                       pop cx
+005D                          RETURN
 
 Functn3E: "BDRMOONB"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x10ea
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: xor ax, ax
-0012: push ax
-0013: les bx, [bp+0x6]
-0016: call far word [es:bx+0xa4]
-001B: pop cx
-001C: cmp ax, 0x15
-001F: jb 0x6a
-0021: mov ax, 0x1117
-0024: push ax
-0025: les bx, [bp+0x6]
-0028: call far word [es:bx+0xf8]
-002D: pop cx
-002E: les bx, [bp+0x6]
-0031: call far word [es:bx+0x24]
-0035: push ax
-0036: les bx, [bp+0x6]
-0039: call far word [es:bx+0x20]
-003D: push ax
-003E: mov ax, 0x1
-0041: push ax
-0042: les bx, [bp+0x6]
-0045: call far word [es:bx+0x30]
-0049: add sp, 0x6
-004C: mov ax, 0x1
-004F: push ax
-0050: les bx, [bp+0x6]
-0053: call far word [es:bx+0x24]
-0057: push ax
-0058: les bx, [bp+0x6]
-005B: call far word [es:bx+0x20]
-005F: push ax
-0060: les bx, [bp+0x6]
-0063: call far word [es:bx+0x2c]
-0067: add sp, 0x6
-006A: pop bp
-006B: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(10EA)
+0010 33 C0                    xor ax, ax
+0012 50                       push ax
+0013 C4 5E 06                 les bx, [bp+0x6]
+0016 26 FF 9F A4 00           call far word [es:bx+0xa4]
+001B 59                       pop cx
+001C 3D 15 00                 cmp ax, 0x15
+001F 72 49                    jb 0x6a
+0021                          cx = ShowMessage(1117)
+002E C4 5E 06                 les bx, [bp+0x6]
+0031 26 FF 5F 24              call far word [es:bx+0x24]
+0035 50                       push ax
+0036 C4 5E 06                 les bx, [bp+0x6]
+0039 26 FF 5F 20              call far word [es:bx+0x20]
+003D 50                       push ax
+003E B8 01 00                 mov ax, 0x1
+0041 50                       push ax
+0042 C4 5E 06                 les bx, [bp+0x6]
+0045 26 FF 5F 30              call far word [es:bx+0x30]
+0049 83 C4 06                 add sp, 0x6
+004C B8 01 00                 mov ax, 0x1
+004F 50                       push ax
+0050 C4 5E 06                 les bx, [bp+0x6]
+0053 26 FF 5F 24              call far word [es:bx+0x24]
+0057 50                       push ax
+0058 C4 5E 06                 les bx, [bp+0x6]
+005B 26 FF 5F 20              call far word [es:bx+0x20]
+005F 50                       push ax
+0060 C4 5E 06                 les bx, [bp+0x6]
+0063 26 FF 5F 2C              call far word [es:bx+0x2c]
+0067 83 C4 06                 add sp, 0x6
+006A                          RETURN
 
 Functn3F: "SDRMOONC"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xf2
-0006: push ax
-0007: mov ax, 0xf2
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0x54]
-0012: pop cx
-0013: pop cx
-0014: or ax, ax
-0016: jz 0x61
-0018: mov ax, 0x114f
-001B: push ax
-001C: les bx, [bp+0x6]
-001F: call far word [es:bx+0xf8]
-0024: pop cx
-0025: les bx, [bp+0x6]
-0028: call far word [es:bx+0x24]
-002C: push ax
-002D: les bx, [bp+0x6]
-0030: call far word [es:bx+0x20]
-0034: push ax
-0035: mov ax, 0x1
-0038: push ax
-0039: les bx, [bp+0x6]
-003C: call far word [es:bx+0x30]
-0040: add sp, 0x6
-0043: mov ax, 0x1
-0046: push ax
-0047: les bx, [bp+0x6]
-004A: call far word [es:bx+0x24]
-004E: push ax
-004F: les bx, [bp+0x6]
-0052: call far word [es:bx+0x20]
-0056: push ax
-0057: les bx, [bp+0x6]
-005A: call far word [es:bx+0x2c]
-005E: add sp, 0x6
-0061: pop bp
-0062: retf
+0000                          BEGIN
+0003 B8 F2 00                 mov ax, 0xf2
+0006 50                       push ax
+0007 B8 F2 00                 mov ax, 0xf2
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 5F 54              call far word [es:bx+0x54]
+0012 59                       pop cx
+0013 59                       pop cx
+0014 0B C0                    or ax, ax
+0016 74 49                    jz 0x61
+0018                          cx = ShowMessage(114F)
+0025 C4 5E 06                 les bx, [bp+0x6]
+0028 26 FF 5F 24              call far word [es:bx+0x24]
+002C 50                       push ax
+002D C4 5E 06                 les bx, [bp+0x6]
+0030 26 FF 5F 20              call far word [es:bx+0x20]
+0034 50                       push ax
+0035 B8 01 00                 mov ax, 0x1
+0038 50                       push ax
+0039 C4 5E 06                 les bx, [bp+0x6]
+003C 26 FF 5F 30              call far word [es:bx+0x30]
+0040 83 C4 06                 add sp, 0x6
+0043 B8 01 00                 mov ax, 0x1
+0046 50                       push ax
+0047 C4 5E 06                 les bx, [bp+0x6]
+004A 26 FF 5F 24              call far word [es:bx+0x24]
+004E 50                       push ax
+004F C4 5E 06                 les bx, [bp+0x6]
+0052 26 FF 5F 20              call far word [es:bx+0x20]
+0056 50                       push ax
+0057 C4 5E 06                 les bx, [bp+0x6]
+005A 26 FF 5F 2C              call far word [es:bx+0x2c]
+005E 83 C4 06                 add sp, 0x6
+0061                          RETURN
 
 Functn40: "SDRMOOND"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xd
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0x58]
-000E: pop cx
-000F: cmp ax, 0xb
-0012: jae 0x4e
-0014: mov ax, 0x17
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0x64]
-001F: pop cx
-0020: or ax, ax
-0022: jnz 0x4e
-0024: mov ax, 0xa2
-0027: push ax
-0028: mov ax, 0xa2
-002B: push ax
-002C: les bx, [bp+0x6]
-002F: call far word [es:bx+0x54]
-0033: pop cx
-0034: pop cx
-0035: or ax, ax
-0037: jnz 0x4e
-0039: mov ax, 0xbe
-003C: push ax
-003D: mov ax, 0xbe
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0x54]
-0048: pop cx
-0049: pop cx
-004A: or ax, ax
-004C: jz 0x97
-004E: mov ax, 0x1176
-0051: push ax
-0052: les bx, [bp+0x6]
-0055: call far word [es:bx+0xf8]
-005A: pop cx
-005B: les bx, [bp+0x6]
-005E: call far word [es:bx+0x24]
-0062: push ax
-0063: les bx, [bp+0x6]
-0066: call far word [es:bx+0x20]
-006A: push ax
-006B: mov ax, 0x1
-006E: push ax
-006F: les bx, [bp+0x6]
-0072: call far word [es:bx+0x30]
-0076: add sp, 0x6
-0079: mov ax, 0x1
-007C: push ax
-007D: les bx, [bp+0x6]
-0080: call far word [es:bx+0x24]
-0084: push ax
-0085: les bx, [bp+0x6]
-0088: call far word [es:bx+0x20]
-008C: push ax
-008D: les bx, [bp+0x6]
-0090: call far word [es:bx+0x2c]
-0094: add sp, 0x6
-0097: pop bp
-0098: retf
+0000                          BEGIN
+0003 B8 0D 00                 mov ax, 0xd
+0006 50                       push ax
+0007 C4 5E 06                 les bx, [bp+0x6]
+000A 26 FF 5F 58              call far word [es:bx+0x58]
+000E 59                       pop cx
+000F 3D 0B 00                 cmp ax, 0xb
+0012 73 3A                    jae 0x4e
+0014 B8 17 00                 mov ax, 0x17
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 64              call far word [es:bx+0x64]
+001F 59                       pop cx
+0020 0B C0                    or ax, ax
+0022 75 2A                    jnz 0x4e
+0024 B8 A2 00                 mov ax, 0xa2
+0027 50                       push ax
+0028 B8 A2 00                 mov ax, 0xa2
+002B 50                       push ax
+002C C4 5E 06                 les bx, [bp+0x6]
+002F 26 FF 5F 54              call far word [es:bx+0x54]
+0033 59                       pop cx
+0034 59                       pop cx
+0035 0B C0                    or ax, ax
+0037 75 15                    jnz 0x4e
+0039 B8 BE 00                 mov ax, 0xbe
+003C 50                       push ax
+003D B8 BE 00                 mov ax, 0xbe
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 5F 54              call far word [es:bx+0x54]
+0048 59                       pop cx
+0049 59                       pop cx
+004A 0B C0                    or ax, ax
+004C 74 49                    jz 0x97
+004E                          cx = ShowMessage(1176)
+005B C4 5E 06                 les bx, [bp+0x6]
+005E 26 FF 5F 24              call far word [es:bx+0x24]
+0062 50                       push ax
+0063 C4 5E 06                 les bx, [bp+0x6]
+0066 26 FF 5F 20              call far word [es:bx+0x20]
+006A 50                       push ax
+006B B8 01 00                 mov ax, 0x1
+006E 50                       push ax
+006F C4 5E 06                 les bx, [bp+0x6]
+0072 26 FF 5F 30              call far word [es:bx+0x30]
+0076 83 C4 06                 add sp, 0x6
+0079 B8 01 00                 mov ax, 0x1
+007C 50                       push ax
+007D C4 5E 06                 les bx, [bp+0x6]
+0080 26 FF 5F 24              call far word [es:bx+0x24]
+0084 50                       push ax
+0085 C4 5E 06                 les bx, [bp+0x6]
+0088 26 FF 5F 20              call far word [es:bx+0x20]
+008C 50                       push ax
+008D C4 5E 06                 les bx, [bp+0x6]
+0090 26 FF 5F 2C              call far word [es:bx+0x2c]
+0094 83 C4 06                 add sp, 0x6
+0097                          RETURN
 
 Functn41: "SDRMOONE"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x119a
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0xbd
-0013: push ax
-0014: mov ax, 0xbd
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0x54]
-001F: pop cx
-0020: pop cx
-0021: or ax, ax
-0023: jnz 0x3a
-0025: mov ax, 0xbe
-0028: push ax
-0029: mov ax, 0xbe
-002C: push ax
-002D: les bx, [bp+0x6]
-0030: call far word [es:bx+0x54]
-0034: pop cx
-0035: pop cx
-0036: or ax, ax
-0038: jz 0x83
-003A: mov ax, 0x11cd
-003D: push ax
-003E: les bx, [bp+0x6]
-0041: call far word [es:bx+0xf8]
-0046: pop cx
-0047: les bx, [bp+0x6]
-004A: call far word [es:bx+0x24]
-004E: push ax
-004F: les bx, [bp+0x6]
-0052: call far word [es:bx+0x20]
-0056: push ax
-0057: mov ax, 0x1
-005A: push ax
-005B: les bx, [bp+0x6]
-005E: call far word [es:bx+0x30]
-0062: add sp, 0x6
-0065: mov ax, 0x1
-0068: push ax
-0069: les bx, [bp+0x6]
-006C: call far word [es:bx+0x24]
-0070: push ax
-0071: les bx, [bp+0x6]
-0074: call far word [es:bx+0x20]
-0078: push ax
-0079: les bx, [bp+0x6]
-007C: call far word [es:bx+0x2c]
-0080: add sp, 0x6
-0083: pop bp
-0084: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(119A)
+0010 B8 BD 00                 mov ax, 0xbd
+0013 50                       push ax
+0014 B8 BD 00                 mov ax, 0xbd
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 54              call far word [es:bx+0x54]
+001F 59                       pop cx
+0020 59                       pop cx
+0021 0B C0                    or ax, ax
+0023 75 15                    jnz 0x3a
+0025 B8 BE 00                 mov ax, 0xbe
+0028 50                       push ax
+0029 B8 BE 00                 mov ax, 0xbe
+002C 50                       push ax
+002D C4 5E 06                 les bx, [bp+0x6]
+0030 26 FF 5F 54              call far word [es:bx+0x54]
+0034 59                       pop cx
+0035 59                       pop cx
+0036 0B C0                    or ax, ax
+0038 74 49                    jz 0x83
+003A                          cx = ShowMessage(11CD)
+0047 C4 5E 06                 les bx, [bp+0x6]
+004A 26 FF 5F 24              call far word [es:bx+0x24]
+004E 50                       push ax
+004F C4 5E 06                 les bx, [bp+0x6]
+0052 26 FF 5F 20              call far word [es:bx+0x20]
+0056 50                       push ax
+0057 B8 01 00                 mov ax, 0x1
+005A 50                       push ax
+005B C4 5E 06                 les bx, [bp+0x6]
+005E 26 FF 5F 30              call far word [es:bx+0x30]
+0062 83 C4 06                 add sp, 0x6
+0065 B8 01 00                 mov ax, 0x1
+0068 50                       push ax
+0069 C4 5E 06                 les bx, [bp+0x6]
+006C 26 FF 5F 24              call far word [es:bx+0x24]
+0070 50                       push ax
+0071 C4 5E 06                 les bx, [bp+0x6]
+0074 26 FF 5F 20              call far word [es:bx+0x20]
+0078 50                       push ax
+0079 C4 5E 06                 les bx, [bp+0x6]
+007C 26 FF 5F 2C              call far word [es:bx+0x2c]
+0080 83 C4 06                 add sp, 0x6
+0083                          RETURN
 
 Functn42: "MOONENCM"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x26
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x26
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x25
-002A: push ax
-002B: mov ax, 0x3
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x25
-003C: push ax
-003D: mov ax, 0x4
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: pop bp
-004C: retf
+0000                          BEGIN
+0003 B8 26 00                 mov ax, 0x26
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 26 00                 mov ax, 0x26
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 25 00                 mov ax, 0x25
+002A 50                       push ax
+002B B8 03 00                 mov ax, 0x3
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 25 00                 mov ax, 0x25
+003C 50                       push ax
+003D B8 04 00                 mov ax, 0x4
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B                          RETURN
 
 Functn43: "SDRMOONF"
-0000: push bp
-0001: mov bp, sp
-0003: les bx, [bp+0x6]
-0006: call far word [es:bx+0x7c]
-000A: cmp ax, 0x2
-000D: jz 0x12
-000F: jmp 0x91
-0012: mov ax, 0xd
-0015: push ax
-0016: les bx, [bp+0x6]
-0019: call far word [es:bx+0x58]
-001D: pop cx
-001E: cmp ax, 0xa
-0021: jae 0x48
-0023: mov ax, 0x17
-0026: push ax
-0027: les bx, [bp+0x6]
-002A: call far word [es:bx+0x64]
-002E: pop cx
-002F: or ax, ax
-0031: jnz 0x48
-0033: mov ax, 0xbe
-0036: push ax
-0037: mov ax, 0xbe
-003A: push ax
-003B: les bx, [bp+0x6]
-003E: call far word [es:bx+0x54]
-0042: pop cx
-0043: pop cx
-0044: or ax, ax
-0046: jz 0x91
-0048: mov ax, 0x11eb
-004B: push ax
-004C: les bx, [bp+0x6]
-004F: call far word [es:bx+0xf8]
-0054: pop cx
-0055: les bx, [bp+0x6]
-0058: call far word [es:bx+0x24]
-005C: push ax
-005D: les bx, [bp+0x6]
-0060: call far word [es:bx+0x20]
-0064: push ax
-0065: mov ax, 0x1
-0068: push ax
-0069: les bx, [bp+0x6]
-006C: call far word [es:bx+0x30]
-0070: add sp, 0x6
-0073: mov ax, 0x1
-0076: push ax
-0077: les bx, [bp+0x6]
-007A: call far word [es:bx+0x24]
-007E: push ax
-007F: les bx, [bp+0x6]
-0082: call far word [es:bx+0x20]
-0086: push ax
-0087: les bx, [bp+0x6]
-008A: call far word [es:bx+0x2c]
-008E: add sp, 0x6
-0091: pop bp
-0092: retf
+0000                          BEGIN
+0003 C4 5E 06                 les bx, [bp+0x6]
+0006 26 FF 5F 7C              call far word [es:bx+0x7c]
+000A 3D 02 00                 cmp ax, 0x2
+000D 74 03                    jz 0x12
+000F E9 7F 00                 jmp 0x91
+0012 B8 0D 00                 mov ax, 0xd
+0015 50                       push ax
+0016 C4 5E 06                 les bx, [bp+0x6]
+0019 26 FF 5F 58              call far word [es:bx+0x58]
+001D 59                       pop cx
+001E 3D 0A 00                 cmp ax, 0xa
+0021 73 25                    jae 0x48
+0023 B8 17 00                 mov ax, 0x17
+0026 50                       push ax
+0027 C4 5E 06                 les bx, [bp+0x6]
+002A 26 FF 5F 64              call far word [es:bx+0x64]
+002E 59                       pop cx
+002F 0B C0                    or ax, ax
+0031 75 15                    jnz 0x48
+0033 B8 BE 00                 mov ax, 0xbe
+0036 50                       push ax
+0037 B8 BE 00                 mov ax, 0xbe
+003A 50                       push ax
+003B C4 5E 06                 les bx, [bp+0x6]
+003E 26 FF 5F 54              call far word [es:bx+0x54]
+0042 59                       pop cx
+0043 59                       pop cx
+0044 0B C0                    or ax, ax
+0046 74 49                    jz 0x91
+0048                          cx = ShowMessage(11EB)
+0055 C4 5E 06                 les bx, [bp+0x6]
+0058 26 FF 5F 24              call far word [es:bx+0x24]
+005C 50                       push ax
+005D C4 5E 06                 les bx, [bp+0x6]
+0060 26 FF 5F 20              call far word [es:bx+0x20]
+0064 50                       push ax
+0065 B8 01 00                 mov ax, 0x1
+0068 50                       push ax
+0069 C4 5E 06                 les bx, [bp+0x6]
+006C 26 FF 5F 30              call far word [es:bx+0x30]
+0070 83 C4 06                 add sp, 0x6
+0073 B8 01 00                 mov ax, 0x1
+0076 50                       push ax
+0077 C4 5E 06                 les bx, [bp+0x6]
+007A 26 FF 5F 24              call far word [es:bx+0x24]
+007E 50                       push ax
+007F C4 5E 06                 les bx, [bp+0x6]
+0082 26 FF 5F 20              call far word [es:bx+0x20]
+0086 50                       push ax
+0087 C4 5E 06                 les bx, [bp+0x6]
+008A 26 FF 5F 2C              call far word [es:bx+0x2c]
+008E 83 C4 06                 add sp, 0x6
+0091                          RETURN
 
 Functn44: "SDRMOONJ"
-0000: push bp
-0001: mov bp, sp
-0003: les bx, [bp+0x6]
-0006: call far word [es:bx+0x7c]
-000A: cmp ax, 0x4
-000D: jz 0x12
-000F: jmp 0x91
-0012: mov ax, 0xd
-0015: push ax
-0016: les bx, [bp+0x6]
-0019: call far word [es:bx+0x58]
-001D: pop cx
-001E: cmp ax, 0xa
-0021: jae 0x48
-0023: mov ax, 0x17
-0026: push ax
-0027: les bx, [bp+0x6]
-002A: call far word [es:bx+0x64]
-002E: pop cx
-002F: or ax, ax
-0031: jnz 0x48
-0033: mov ax, 0xbe
-0036: push ax
-0037: mov ax, 0xbe
-003A: push ax
-003B: les bx, [bp+0x6]
-003E: call far word [es:bx+0x54]
-0042: pop cx
-0043: pop cx
-0044: or ax, ax
-0046: jz 0x91
-0048: mov ax, 0x1229
-004B: push ax
-004C: les bx, [bp+0x6]
-004F: call far word [es:bx+0xf8]
-0054: pop cx
-0055: les bx, [bp+0x6]
-0058: call far word [es:bx+0x24]
-005C: push ax
-005D: les bx, [bp+0x6]
-0060: call far word [es:bx+0x20]
-0064: push ax
-0065: mov ax, 0x1
-0068: push ax
-0069: les bx, [bp+0x6]
-006C: call far word [es:bx+0x30]
-0070: add sp, 0x6
-0073: mov ax, 0x1
-0076: push ax
-0077: les bx, [bp+0x6]
-007A: call far word [es:bx+0x24]
-007E: push ax
-007F: les bx, [bp+0x6]
-0082: call far word [es:bx+0x20]
-0086: push ax
-0087: les bx, [bp+0x6]
-008A: call far word [es:bx+0x2c]
-008E: add sp, 0x6
-0091: pop bp
-0092: retf
+0000                          BEGIN
+0003 C4 5E 06                 les bx, [bp+0x6]
+0006 26 FF 5F 7C              call far word [es:bx+0x7c]
+000A 3D 04 00                 cmp ax, 0x4
+000D 74 03                    jz 0x12
+000F E9 7F 00                 jmp 0x91
+0012 B8 0D 00                 mov ax, 0xd
+0015 50                       push ax
+0016 C4 5E 06                 les bx, [bp+0x6]
+0019 26 FF 5F 58              call far word [es:bx+0x58]
+001D 59                       pop cx
+001E 3D 0A 00                 cmp ax, 0xa
+0021 73 25                    jae 0x48
+0023 B8 17 00                 mov ax, 0x17
+0026 50                       push ax
+0027 C4 5E 06                 les bx, [bp+0x6]
+002A 26 FF 5F 64              call far word [es:bx+0x64]
+002E 59                       pop cx
+002F 0B C0                    or ax, ax
+0031 75 15                    jnz 0x48
+0033 B8 BE 00                 mov ax, 0xbe
+0036 50                       push ax
+0037 B8 BE 00                 mov ax, 0xbe
+003A 50                       push ax
+003B C4 5E 06                 les bx, [bp+0x6]
+003E 26 FF 5F 54              call far word [es:bx+0x54]
+0042 59                       pop cx
+0043 59                       pop cx
+0044 0B C0                    or ax, ax
+0046 74 49                    jz 0x91
+0048                          cx = ShowMessage(1229)
+0055 C4 5E 06                 les bx, [bp+0x6]
+0058 26 FF 5F 24              call far word [es:bx+0x24]
+005C 50                       push ax
+005D C4 5E 06                 les bx, [bp+0x6]
+0060 26 FF 5F 20              call far word [es:bx+0x20]
+0064 50                       push ax
+0065 B8 01 00                 mov ax, 0x1
+0068 50                       push ax
+0069 C4 5E 06                 les bx, [bp+0x6]
+006C 26 FF 5F 30              call far word [es:bx+0x30]
+0070 83 C4 06                 add sp, 0x6
+0073 B8 01 00                 mov ax, 0x1
+0076 50                       push ax
+0077 C4 5E 06                 les bx, [bp+0x6]
+007A 26 FF 5F 24              call far word [es:bx+0x24]
+007E 50                       push ax
+007F C4 5E 06                 les bx, [bp+0x6]
+0082 26 FF 5F 20              call far word [es:bx+0x20]
+0086 50                       push ax
+0087 C4 5E 06                 les bx, [bp+0x6]
+008A 26 FF 5F 2C              call far word [es:bx+0x2c]
+008E 83 C4 06                 add sp, 0x6
+0091                          RETURN
 
 Functn45: "BDRMOONK"
-0000: push bp
-0001: mov bp, sp
-0003: xor ax, ax
-0005: push ax
-0006: les bx, [bp+0x6]
-0009: call far word [es:bx+0xa4]
-000E: pop cx
-000F: cmp ax, 0x14
-0012: jb 0x5f
-0014: mov ax, 0x1266
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0xf8]
-0020: pop cx
-0021: les bx, [bp+0x6]
-0024: call far word [es:bx+0x24]
-0028: push ax
-0029: les bx, [bp+0x6]
-002C: call far word [es:bx+0x20]
-0030: push ax
-0031: mov ax, 0x1
-0034: push ax
-0035: les bx, [bp+0x6]
-0038: call far word [es:bx+0x30]
-003C: add sp, 0x6
-003F: mov ax, 0x1
-0042: push ax
-0043: les bx, [bp+0x6]
-0046: call far word [es:bx+0x24]
-004A: push ax
-004B: les bx, [bp+0x6]
-004E: call far word [es:bx+0x20]
-0052: push ax
-0053: les bx, [bp+0x6]
-0056: call far word [es:bx+0x2c]
-005A: add sp, 0x6
-005D: jmp 0xa7
-005F: mov ax, 0x1290
-0062: push ax
-0063: les bx, [bp+0x6]
-0066: call far word [es:bx+0xf8]
-006B: pop cx
-006C: les bx, [bp+0x6]
-006F: call far word [es:bx+0x24]
-0073: push ax
-0074: les bx, [bp+0x6]
-0077: call far word [es:bx+0x20]
-007B: push ax
-007C: mov ax, 0x1
-007F: push ax
-0080: les bx, [bp+0x6]
-0083: call far word [es:bx+0x30]
-0087: add sp, 0x6
-008A: xor ax, ax
-008C: push ax
-008D: les bx, [bp+0x6]
-0090: call far word [es:bx+0x24]
-0094: push ax
-0095: les bx, [bp+0x6]
-0098: call far word [es:bx+0x20]
-009C: push ax
-009D: les bx, [bp+0x6]
-00A0: call far word [es:bx+0x2c]
-00A4: add sp, 0x6
-00A7: pop bp
-00A8: retf
+0000                          BEGIN
+0003 33 C0                    xor ax, ax
+0005 50                       push ax
+0006 C4 5E 06                 les bx, [bp+0x6]
+0009 26 FF 9F A4 00           call far word [es:bx+0xa4]
+000E 59                       pop cx
+000F 3D 14 00                 cmp ax, 0x14
+0012 72 4B                    jb 0x5f
+0014                          cx = ShowMessage(1266)
+0021 C4 5E 06                 les bx, [bp+0x6]
+0024 26 FF 5F 24              call far word [es:bx+0x24]
+0028 50                       push ax
+0029 C4 5E 06                 les bx, [bp+0x6]
+002C 26 FF 5F 20              call far word [es:bx+0x20]
+0030 50                       push ax
+0031 B8 01 00                 mov ax, 0x1
+0034 50                       push ax
+0035 C4 5E 06                 les bx, [bp+0x6]
+0038 26 FF 5F 30              call far word [es:bx+0x30]
+003C 83 C4 06                 add sp, 0x6
+003F B8 01 00                 mov ax, 0x1
+0042 50                       push ax
+0043 C4 5E 06                 les bx, [bp+0x6]
+0046 26 FF 5F 24              call far word [es:bx+0x24]
+004A 50                       push ax
+004B C4 5E 06                 les bx, [bp+0x6]
+004E 26 FF 5F 20              call far word [es:bx+0x20]
+0052 50                       push ax
+0053 C4 5E 06                 les bx, [bp+0x6]
+0056 26 FF 5F 2C              call far word [es:bx+0x2c]
+005A 83 C4 06                 add sp, 0x6
+005D EB 48                    jmp 0xa7
+005F                          cx = ShowMessage(1290)
+006C C4 5E 06                 les bx, [bp+0x6]
+006F 26 FF 5F 24              call far word [es:bx+0x24]
+0073 50                       push ax
+0074 C4 5E 06                 les bx, [bp+0x6]
+0077 26 FF 5F 20              call far word [es:bx+0x20]
+007B 50                       push ax
+007C B8 01 00                 mov ax, 0x1
+007F 50                       push ax
+0080 C4 5E 06                 les bx, [bp+0x6]
+0083 26 FF 5F 30              call far word [es:bx+0x30]
+0087 83 C4 06                 add sp, 0x6
+008A 33 C0                    xor ax, ax
+008C 50                       push ax
+008D C4 5E 06                 les bx, [bp+0x6]
+0090 26 FF 5F 24              call far word [es:bx+0x24]
+0094 50                       push ax
+0095 C4 5E 06                 les bx, [bp+0x6]
+0098 26 FF 5F 20              call far word [es:bx+0x20]
+009C 50                       push ax
+009D C4 5E 06                 les bx, [bp+0x6]
+00A0 26 FF 5F 2C              call far word [es:bx+0x2c]
+00A4 83 C4 06                 add sp, 0x6
+00A7                          RETURN
 
 Functn46: "SDRMOONM"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xd
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0x58]
-000E: pop cx
-000F: cmp ax, 0x8
-0012: jae 0x39
-0014: mov ax, 0x17
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0x64]
-001F: pop cx
-0020: or ax, ax
-0022: jnz 0x39
-0024: mov ax, 0xbe
-0027: push ax
-0028: mov ax, 0xbe
-002B: push ax
-002C: les bx, [bp+0x6]
-002F: call far word [es:bx+0x54]
-0033: pop cx
-0034: pop cx
-0035: or ax, ax
-0037: jz 0x82
-0039: mov ax, 0x12a8
-003C: push ax
-003D: les bx, [bp+0x6]
-0040: call far word [es:bx+0xf8]
-0045: pop cx
-0046: mov ax, 0x1
-0049: push ax
-004A: les bx, [bp+0x6]
-004D: call far word [es:bx+0x24]
-0051: push ax
-0052: les bx, [bp+0x6]
-0055: call far word [es:bx+0x20]
-0059: push ax
-005A: les bx, [bp+0x6]
-005D: call far word [es:bx+0x2c]
-0061: add sp, 0x6
-0064: les bx, [bp+0x6]
-0067: call far word [es:bx+0x24]
-006B: push ax
-006C: les bx, [bp+0x6]
-006F: call far word [es:bx+0x20]
-0073: push ax
-0074: mov ax, 0x1
-0077: push ax
-0078: les bx, [bp+0x6]
-007B: call far word [es:bx+0x30]
-007F: add sp, 0x6
-0082: pop bp
-0083: retf
+0000                          BEGIN
+0003 B8 0D 00                 mov ax, 0xd
+0006 50                       push ax
+0007 C4 5E 06                 les bx, [bp+0x6]
+000A 26 FF 5F 58              call far word [es:bx+0x58]
+000E 59                       pop cx
+000F 3D 08 00                 cmp ax, 0x8
+0012 73 25                    jae 0x39
+0014 B8 17 00                 mov ax, 0x17
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 64              call far word [es:bx+0x64]
+001F 59                       pop cx
+0020 0B C0                    or ax, ax
+0022 75 15                    jnz 0x39
+0024 B8 BE 00                 mov ax, 0xbe
+0027 50                       push ax
+0028 B8 BE 00                 mov ax, 0xbe
+002B 50                       push ax
+002C C4 5E 06                 les bx, [bp+0x6]
+002F 26 FF 5F 54              call far word [es:bx+0x54]
+0033 59                       pop cx
+0034 59                       pop cx
+0035 0B C0                    or ax, ax
+0037 74 49                    jz 0x82
+0039                          cx = ShowMessage(12A8)
+0046 B8 01 00                 mov ax, 0x1
+0049 50                       push ax
+004A C4 5E 06                 les bx, [bp+0x6]
+004D 26 FF 5F 24              call far word [es:bx+0x24]
+0051 50                       push ax
+0052 C4 5E 06                 les bx, [bp+0x6]
+0055 26 FF 5F 20              call far word [es:bx+0x20]
+0059 50                       push ax
+005A C4 5E 06                 les bx, [bp+0x6]
+005D 26 FF 5F 2C              call far word [es:bx+0x2c]
+0061 83 C4 06                 add sp, 0x6
+0064 C4 5E 06                 les bx, [bp+0x6]
+0067 26 FF 5F 24              call far word [es:bx+0x24]
+006B 50                       push ax
+006C C4 5E 06                 les bx, [bp+0x6]
+006F 26 FF 5F 20              call far word [es:bx+0x20]
+0073 50                       push ax
+0074 B8 01 00                 mov ax, 0x1
+0077 50                       push ax
+0078 C4 5E 06                 les bx, [bp+0x6]
+007B 26 FF 5F 30              call far word [es:bx+0x30]
+007F 83 C4 06                 add sp, 0x6
+0082                          RETURN
 
 Functn47: "SDRMOONN"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x12e0
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: les bx, [bp+0x6]
-0013: call far word [es:bx+0x24]
-0017: push ax
-0018: les bx, [bp+0x6]
-001B: call far word [es:bx+0x20]
-001F: push ax
-0020: mov ax, 0x1
-0023: push ax
-0024: les bx, [bp+0x6]
-0027: call far word [es:bx+0x30]
-002B: add sp, 0x6
-002E: mov ax, 0x1
-0031: push ax
-0032: les bx, [bp+0x6]
-0035: call far word [es:bx+0x24]
-0039: push ax
-003A: les bx, [bp+0x6]
-003D: call far word [es:bx+0x20]
-0041: push ax
-0042: les bx, [bp+0x6]
-0045: call far word [es:bx+0x2c]
-0049: add sp, 0x6
-004C: pop bp
-004D: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(12E0)
+0010 C4 5E 06                 les bx, [bp+0x6]
+0013 26 FF 5F 24              call far word [es:bx+0x24]
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 20              call far word [es:bx+0x20]
+001F 50                       push ax
+0020 B8 01 00                 mov ax, 0x1
+0023 50                       push ax
+0024 C4 5E 06                 les bx, [bp+0x6]
+0027 26 FF 5F 30              call far word [es:bx+0x30]
+002B 83 C4 06                 add sp, 0x6
+002E B8 01 00                 mov ax, 0x1
+0031 50                       push ax
+0032 C4 5E 06                 les bx, [bp+0x6]
+0035 26 FF 5F 24              call far word [es:bx+0x24]
+0039 50                       push ax
+003A C4 5E 06                 les bx, [bp+0x6]
+003D 26 FF 5F 20              call far word [es:bx+0x20]
+0041 50                       push ax
+0042 C4 5E 06                 les bx, [bp+0x6]
+0045 26 FF 5F 2C              call far word [es:bx+0x2c]
+0049 83 C4 06                 add sp, 0x6
+004C                          RETURN
 
 Functn48: "MOONTRSA"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0xf2
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0x50]
-000E: pop cx
-000F: or ax, ax
-0011: jz 0x22
-0013: mov ax, 0x130f
-0016: push ax
-0017: les bx, [bp+0x6]
-001A: call far word [es:bx+0xf8]
-001F: pop cx
-0020: jmp 0x50
-0022: mov ax, 0xf2
-0025: push ax
-0026: les bx, [bp+0x6]
-0029: call far word [es:bx+0x48]
-002D: pop cx
-002E: mov ax, 0x1
-0031: push ax
-0032: mov ax, 0x46
-0035: push ax
-0036: mov ax, 0x2
-0039: push ax
-003A: les bx, [bp+0x6]
-003D: call far word [es:bx]
-0040: add sp, 0x6
-0043: mov ax, 0x132e
-0046: push ax
-0047: les bx, [bp+0x6]
-004A: call far word [es:bx+0xf8]
-004F: pop cx
-0050: pop bp
-0051: retf
+0000                          BEGIN
+0003 B8 F2 00                 mov ax, 0xf2
+0006 50                       push ax
+0007 C4 5E 06                 les bx, [bp+0x6]
+000A 26 FF 5F 50              call far word [es:bx+0x50]
+000E 59                       pop cx
+000F 0B C0                    or ax, ax
+0011 74 0F                    jz 0x22
+0013                          cx = ShowMessage(130F)
+0020 EB 2E                    jmp 0x50
+0022 B8 F2 00                 mov ax, 0xf2
+0025 50                       push ax
+0026 C4 5E 06                 les bx, [bp+0x6]
+0029 26 FF 5F 48              call far word [es:bx+0x48]
+002D 59                       pop cx
+002E B8 01 00                 mov ax, 0x1
+0031 50                       push ax
+0032 B8 46 00                 mov ax, 0x46
+0035 50                       push ax
+0036 B8 02 00                 mov ax, 0x2
+0039 50                       push ax
+003A C4 5E 06                 les bx, [bp+0x6]
+003D 26 FF 1F                 call far word [es:bx]
+0040 83 C4 06                 add sp, 0x6
+0043                          cx = ShowMessage(132E)
+0050                          RETURN
 
 Functn49: "MOONTRSB"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x47
-0006: push ax
-0007: mov ax, 0x2
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0x4]
-0012: pop cx
-0013: pop cx
-0014: cmp ax, 0x1
-0017: jnz 0x28
-0019: mov ax, 0x1352
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xf8]
-0025: pop cx
-0026: jmp 0x56
-0028: mov ax, 0x37
-002B: push ax
-002C: les bx, [bp+0x6]
-002F: call far word [es:bx+0x48]
-0033: pop cx
-0034: mov ax, 0x1
-0037: push ax
-0038: mov ax, 0x47
-003B: push ax
-003C: mov ax, 0x2
-003F: push ax
-0040: les bx, [bp+0x6]
-0043: call far word [es:bx]
-0046: add sp, 0x6
-0049: mov ax, 0x1365
-004C: push ax
-004D: les bx, [bp+0x6]
-0050: call far word [es:bx+0xf8]
-0055: pop cx
-0056: pop bp
-0057: retf
+0000                          BEGIN
+0003 B8 47 00                 mov ax, 0x47
+0006 50                       push ax
+0007 B8 02 00                 mov ax, 0x2
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 5F 04              call far word [es:bx+0x4]
+0012 59                       pop cx
+0013 59                       pop cx
+0014 3D 01 00                 cmp ax, 0x1
+0017 75 0F                    jnz 0x28
+0019                          cx = ShowMessage(1352)
+0026 EB 2E                    jmp 0x56
+0028 B8 37 00                 mov ax, 0x37
+002B 50                       push ax
+002C C4 5E 06                 les bx, [bp+0x6]
+002F 26 FF 5F 48              call far word [es:bx+0x48]
+0033 59                       pop cx
+0034 B8 01 00                 mov ax, 0x1
+0037 50                       push ax
+0038 B8 47 00                 mov ax, 0x47
+003B 50                       push ax
+003C B8 02 00                 mov ax, 0x2
+003F 50                       push ax
+0040 C4 5E 06                 les bx, [bp+0x6]
+0043 26 FF 1F                 call far word [es:bx]
+0046 83 C4 06                 add sp, 0x6
+0049                          cx = ShowMessage(1365)
+0056                          RETURN
 
 Functn4A: "MOONTRSC"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x48
-0006: push ax
-0007: mov ax, 0x2
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0x4]
-0012: pop cx
-0013: pop cx
-0014: cmp ax, 0x1
-0017: jnz 0x28
-0019: mov ax, 0x138d
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xf8]
-0025: pop cx
-0026: jmp 0x56
-0028: mov ax, 0x3d
-002B: push ax
-002C: les bx, [bp+0x6]
-002F: call far word [es:bx+0x48]
-0033: pop cx
-0034: mov ax, 0x1
-0037: push ax
-0038: mov ax, 0x48
-003B: push ax
-003C: mov ax, 0x2
-003F: push ax
-0040: les bx, [bp+0x6]
-0043: call far word [es:bx]
-0046: add sp, 0x6
-0049: mov ax, 0x13b8
-004C: push ax
-004D: les bx, [bp+0x6]
-0050: call far word [es:bx+0xf8]
-0055: pop cx
-0056: pop bp
-0057: retf
+0000                          BEGIN
+0003 B8 48 00                 mov ax, 0x48
+0006 50                       push ax
+0007 B8 02 00                 mov ax, 0x2
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 5F 04              call far word [es:bx+0x4]
+0012 59                       pop cx
+0013 59                       pop cx
+0014 3D 01 00                 cmp ax, 0x1
+0017 75 0F                    jnz 0x28
+0019                          cx = ShowMessage(138D)
+0026 EB 2E                    jmp 0x56
+0028 B8 3D 00                 mov ax, 0x3d
+002B 50                       push ax
+002C C4 5E 06                 les bx, [bp+0x6]
+002F 26 FF 5F 48              call far word [es:bx+0x48]
+0033 59                       pop cx
+0034 B8 01 00                 mov ax, 0x1
+0037 50                       push ax
+0038 B8 48 00                 mov ax, 0x48
+003B 50                       push ax
+003C B8 02 00                 mov ax, 0x2
+003F 50                       push ax
+0040 C4 5E 06                 les bx, [bp+0x6]
+0043 26 FF 1F                 call far word [es:bx]
+0046 83 C4 06                 add sp, 0x6
+0049                          cx = ShowMessage(13B8)
+0056                          RETURN
 
 Functn4B: "TORBFOUN"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x42
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xfc]
-000F: pop cx
-0010: mov ax, 0x13e4
-0013: push ax
-0014: les bx, [bp+0x6]
-0017: call far word [es:bx+0xf8]
-001C: pop cx
-001D: mov ax, 0x63
-0020: push ax
-0021: mov ax, 0x2
-0024: push ax
-0025: les bx, [bp+0x6]
-0028: call far word [es:bx+0x4]
-002C: pop cx
-002D: pop cx
-002E: or ax, ax
-0030: jz 0x35
-0032: jmp 0x17c
-0035: mov ax, 0x1
-0038: push ax
-0039: mov ax, 0x63
-003C: push ax
-003D: mov ax, 0x2
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx]
-0047: add sp, 0x6
-004A: mov ax, 0x8
-004D: push ax
-004E: les bx, [bp+0x6]
-0051: call far word [es:bx+0x5c]
-0055: pop cx
-0056: or ax, ax
-0058: jnz 0x7b
-005A: mov ax, 0x2
-005D: push ax
-005E: mov ax, 0x8
-0061: push ax
-0062: les bx, [bp+0x6]
-0065: call far word [es:bx+0x60]
-0069: pop cx
-006A: pop cx
-006B: mov ax, 0x1430
-006E: push ax
-006F: les bx, [bp+0x6]
-0072: call far word [es:bx+0xf8]
-0077: pop cx
-0078: jmp 0x17a
-007B: mov ax, 0x1
-007E: push ax
-007F: les bx, [bp+0x6]
-0082: call far word [es:bx+0x5c]
-0086: pop cx
-0087: or ax, ax
-0089: jnz 0xac
-008B: mov ax, 0x2
-008E: push ax
-008F: mov ax, 0x1
-0092: push ax
-0093: les bx, [bp+0x6]
-0096: call far word [es:bx+0x60]
-009A: pop cx
-009B: pop cx
-009C: mov ax, 0x144f
-009F: push ax
-00A0: les bx, [bp+0x6]
-00A3: call far word [es:bx+0xf8]
-00A8: pop cx
-00A9: jmp 0x17a
-00AC: mov ax, 0x5
-00AF: push ax
-00B0: les bx, [bp+0x6]
-00B3: call far word [es:bx+0x5c]
-00B7: pop cx
-00B8: or ax, ax
-00BA: jnz 0xdd
-00BC: mov ax, 0x2
-00BF: push ax
-00C0: mov ax, 0x5
-00C3: push ax
-00C4: les bx, [bp+0x6]
-00C7: call far word [es:bx+0x60]
-00CB: pop cx
-00CC: pop cx
-00CD: mov ax, 0x1475
-00D0: push ax
-00D1: les bx, [bp+0x6]
-00D4: call far word [es:bx+0xf8]
-00D9: pop cx
-00DA: jmp 0x17a
-00DD: mov ax, 0xc
-00E0: push ax
-00E1: les bx, [bp+0x6]
-00E4: call far word [es:bx+0x5c]
-00E8: pop cx
-00E9: or ax, ax
-00EB: jnz 0x10d
-00ED: mov ax, 0x2
-00F0: push ax
-00F1: mov ax, 0xc
-00F4: push ax
-00F5: les bx, [bp+0x6]
-00F8: call far word [es:bx+0x60]
-00FC: pop cx
-00FD: pop cx
-00FE: mov ax, 0x149a
-0101: push ax
-0102: les bx, [bp+0x6]
-0105: call far word [es:bx+0xf8]
-010A: pop cx
-010B: jmp 0x17a
-010D: mov ax, 0x10
-0110: push ax
-0111: les bx, [bp+0x6]
-0114: call far word [es:bx+0x5c]
-0118: pop cx
-0119: or ax, ax
-011B: jnz 0x13d
-011D: mov ax, 0x2
-0120: push ax
-0121: mov ax, 0x10
-0124: push ax
-0125: les bx, [bp+0x6]
-0128: call far word [es:bx+0x60]
-012C: pop cx
-012D: pop cx
-012E: mov ax, 0x14b3
-0131: push ax
-0132: les bx, [bp+0x6]
-0135: call far word [es:bx+0xf8]
-013A: pop cx
-013B: jmp 0x17a
-013D: mov ax, 0x16
-0140: push ax
-0141: les bx, [bp+0x6]
-0144: call far word [es:bx+0x5c]
-0148: pop cx
-0149: or ax, ax
-014B: jnz 0x16d
-014D: mov ax, 0x2
-0150: push ax
-0151: mov ax, 0x16
-0154: push ax
-0155: les bx, [bp+0x6]
-0158: call far word [es:bx+0x60]
-015C: pop cx
-015D: pop cx
-015E: mov ax, 0x14d7
-0161: push ax
-0162: les bx, [bp+0x6]
-0165: call far word [es:bx+0xf8]
-016A: pop cx
-016B: jmp 0x17a
-016D: mov ax, 0x14f3
-0170: push ax
-0171: les bx, [bp+0x6]
-0174: call far word [es:bx+0xf8]
-0179: pop cx
-017A: jmp 0x189
-017C: mov ax, 0x150e
-017F: push ax
-0180: les bx, [bp+0x6]
-0183: call far word [es:bx+0xf8]
-0188: pop cx
-0189: pop bp
-018A: retf
+0000                          BEGIN
+0003 B8 42 00                 mov ax, 0x42
+0006 50                       push ax
+0007 C4 5E 06                 les bx, [bp+0x6]
+000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
+000F 59                       pop cx
+0010                          cx = ShowMessage(13E4)
+001D B8 63 00                 mov ax, 0x63
+0020 50                       push ax
+0021 B8 02 00                 mov ax, 0x2
+0024 50                       push ax
+0025 C4 5E 06                 les bx, [bp+0x6]
+0028 26 FF 5F 04              call far word [es:bx+0x4]
+002C 59                       pop cx
+002D 59                       pop cx
+002E 0B C0                    or ax, ax
+0030 74 03                    jz 0x35
+0032 E9 47 01                 jmp 0x17c
+0035 B8 01 00                 mov ax, 0x1
+0038 50                       push ax
+0039 B8 63 00                 mov ax, 0x63
+003C 50                       push ax
+003D B8 02 00                 mov ax, 0x2
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 1F                 call far word [es:bx]
+0047 83 C4 06                 add sp, 0x6
+004A B8 08 00                 mov ax, 0x8
+004D 50                       push ax
+004E C4 5E 06                 les bx, [bp+0x6]
+0051 26 FF 5F 5C              call far word [es:bx+0x5c]
+0055 59                       pop cx
+0056 0B C0                    or ax, ax
+0058 75 21                    jnz 0x7b
+005A B8 02 00                 mov ax, 0x2
+005D 50                       push ax
+005E B8 08 00                 mov ax, 0x8
+0061 50                       push ax
+0062 C4 5E 06                 les bx, [bp+0x6]
+0065 26 FF 5F 60              call far word [es:bx+0x60]
+0069 59                       pop cx
+006A 59                       pop cx
+006B                          cx = ShowMessage(1430)
+0078 E9 FF 00                 jmp 0x17a
+007B B8 01 00                 mov ax, 0x1
+007E 50                       push ax
+007F C4 5E 06                 les bx, [bp+0x6]
+0082 26 FF 5F 5C              call far word [es:bx+0x5c]
+0086 59                       pop cx
+0087 0B C0                    or ax, ax
+0089 75 21                    jnz 0xac
+008B B8 02 00                 mov ax, 0x2
+008E 50                       push ax
+008F B8 01 00                 mov ax, 0x1
+0092 50                       push ax
+0093 C4 5E 06                 les bx, [bp+0x6]
+0096 26 FF 5F 60              call far word [es:bx+0x60]
+009A 59                       pop cx
+009B 59                       pop cx
+009C                          cx = ShowMessage(144F)
+00A9 E9 CE 00                 jmp 0x17a
+00AC B8 05 00                 mov ax, 0x5
+00AF 50                       push ax
+00B0 C4 5E 06                 les bx, [bp+0x6]
+00B3 26 FF 5F 5C              call far word [es:bx+0x5c]
+00B7 59                       pop cx
+00B8 0B C0                    or ax, ax
+00BA 75 21                    jnz 0xdd
+00BC B8 02 00                 mov ax, 0x2
+00BF 50                       push ax
+00C0 B8 05 00                 mov ax, 0x5
+00C3 50                       push ax
+00C4 C4 5E 06                 les bx, [bp+0x6]
+00C7 26 FF 5F 60              call far word [es:bx+0x60]
+00CB 59                       pop cx
+00CC 59                       pop cx
+00CD                          cx = ShowMessage(1475)
+00DA E9 9D 00                 jmp 0x17a
+00DD B8 0C 00                 mov ax, 0xc
+00E0 50                       push ax
+00E1 C4 5E 06                 les bx, [bp+0x6]
+00E4 26 FF 5F 5C              call far word [es:bx+0x5c]
+00E8 59                       pop cx
+00E9 0B C0                    or ax, ax
+00EB 75 20                    jnz 0x10d
+00ED B8 02 00                 mov ax, 0x2
+00F0 50                       push ax
+00F1 B8 0C 00                 mov ax, 0xc
+00F4 50                       push ax
+00F5 C4 5E 06                 les bx, [bp+0x6]
+00F8 26 FF 5F 60              call far word [es:bx+0x60]
+00FC 59                       pop cx
+00FD 59                       pop cx
+00FE                          cx = ShowMessage(149A)
+010B EB 6D                    jmp 0x17a
+010D B8 10 00                 mov ax, 0x10
+0110 50                       push ax
+0111 C4 5E 06                 les bx, [bp+0x6]
+0114 26 FF 5F 5C              call far word [es:bx+0x5c]
+0118 59                       pop cx
+0119 0B C0                    or ax, ax
+011B 75 20                    jnz 0x13d
+011D B8 02 00                 mov ax, 0x2
+0120 50                       push ax
+0121 B8 10 00                 mov ax, 0x10
+0124 50                       push ax
+0125 C4 5E 06                 les bx, [bp+0x6]
+0128 26 FF 5F 60              call far word [es:bx+0x60]
+012C 59                       pop cx
+012D 59                       pop cx
+012E                          cx = ShowMessage(14B3)
+013B EB 3D                    jmp 0x17a
+013D B8 16 00                 mov ax, 0x16
+0140 50                       push ax
+0141 C4 5E 06                 les bx, [bp+0x6]
+0144 26 FF 5F 5C              call far word [es:bx+0x5c]
+0148 59                       pop cx
+0149 0B C0                    or ax, ax
+014B 75 20                    jnz 0x16d
+014D B8 02 00                 mov ax, 0x2
+0150 50                       push ax
+0151 B8 16 00                 mov ax, 0x16
+0154 50                       push ax
+0155 C4 5E 06                 les bx, [bp+0x6]
+0158 26 FF 5F 60              call far word [es:bx+0x60]
+015C 59                       pop cx
+015D 59                       pop cx
+015E                          cx = ShowMessage(14D7)
+016B EB 0D                    jmp 0x17a
+016D                          cx = ShowMessage(14F3)
+017A EB 0D                    jmp 0x189
+017C                          cx = ShowMessage(150E)
+0189                          RETURN
 
 Functn4C: "TORBENCB"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x28
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x28
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x27
-002A: push ax
-002B: mov ax, 0x4
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x15
-003C: push ax
-003D: mov ax, 0x5
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: mov ax, 0x15
-004E: push ax
-004F: mov ax, 0x6
-0052: push ax
-0053: les bx, [bp+0x6]
-0056: call far word [es:bx+0xd4]
-005B: pop cx
-005C: pop cx
-005D: les bx, [bp+0x6]
-0060: call far word [es:bx+0x7c]
-0064: or ax, ax
-0066: jnz 0x87
-0068: mov ax, 0x3e8
-006B: push ax
-006C: xor ax, ax
-006E: push ax
-006F: xor ax, ax
-0071: push ax
-0072: xor ax, ax
-0074: push ax
-0075: xor ax, ax
-0077: push ax
-0078: mov ax, 0x18
-007B: push ax
-007C: les bx, [bp+0x6]
-007F: call far word [es:bx+0xd8]
-0084: add sp, 0xc
-0087: les bx, [bp+0x6]
-008A: call far word [es:bx+0x7c]
-008E: cmp ax, 0x1
-0091: jnz 0xb2
-0093: mov ax, 0x3e8
-0096: push ax
-0097: xor ax, ax
-0099: push ax
-009A: xor ax, ax
-009C: push ax
-009D: xor ax, ax
-009F: push ax
-00A0: xor ax, ax
-00A2: push ax
-00A3: mov ax, 0x11
-00A6: push ax
-00A7: les bx, [bp+0x6]
-00AA: call far word [es:bx+0xd8]
-00AF: add sp, 0xc
-00B2: pop bp
-00B3: retf
+0000                          BEGIN
+0003 B8 28 00                 mov ax, 0x28
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 28 00                 mov ax, 0x28
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 27 00                 mov ax, 0x27
+002A 50                       push ax
+002B B8 04 00                 mov ax, 0x4
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 15 00                 mov ax, 0x15
+003C 50                       push ax
+003D B8 05 00                 mov ax, 0x5
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B B8 15 00                 mov ax, 0x15
+004E 50                       push ax
+004F B8 06 00                 mov ax, 0x6
+0052 50                       push ax
+0053 C4 5E 06                 les bx, [bp+0x6]
+0056 26 FF 9F D4 00           call far word [es:bx+0xd4]
+005B 59                       pop cx
+005C 59                       pop cx
+005D C4 5E 06                 les bx, [bp+0x6]
+0060 26 FF 5F 7C              call far word [es:bx+0x7c]
+0064 0B C0                    or ax, ax
+0066 75 1F                    jnz 0x87
+0068 B8 E8 03                 mov ax, 0x3e8
+006B 50                       push ax
+006C 33 C0                    xor ax, ax
+006E 50                       push ax
+006F 33 C0                    xor ax, ax
+0071 50                       push ax
+0072 33 C0                    xor ax, ax
+0074 50                       push ax
+0075 33 C0                    xor ax, ax
+0077 50                       push ax
+0078 B8 18 00                 mov ax, 0x18
+007B 50                       push ax
+007C C4 5E 06                 les bx, [bp+0x6]
+007F 26 FF 9F D8 00           call far word [es:bx+0xd8]
+0084 83 C4 0C                 add sp, 0xc
+0087 C4 5E 06                 les bx, [bp+0x6]
+008A 26 FF 5F 7C              call far word [es:bx+0x7c]
+008E 3D 01 00                 cmp ax, 0x1
+0091 75 1F                    jnz 0xb2
+0093 B8 E8 03                 mov ax, 0x3e8
+0096 50                       push ax
+0097 33 C0                    xor ax, ax
+0099 50                       push ax
+009A 33 C0                    xor ax, ax
+009C 50                       push ax
+009D 33 C0                    xor ax, ax
+009F 50                       push ax
+00A0 33 C0                    xor ax, ax
+00A2 50                       push ax
+00A3 B8 11 00                 mov ax, 0x11
+00A6 50                       push ax
+00A7 C4 5E 06                 les bx, [bp+0x6]
+00AA 26 FF 9F D8 00           call far word [es:bx+0xd8]
+00AF 83 C4 0C                 add sp, 0xc
+00B2                          RETURN
 
 Functn4D: "TORBENCC"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x28
-0006: push ax
-0007: mov ax, 0x1
-000A: push ax
-000B: les bx, [bp+0x6]
-000E: call far word [es:bx+0xd4]
-0013: pop cx
-0014: pop cx
-0015: mov ax, 0x28
-0018: push ax
-0019: mov ax, 0x2
-001C: push ax
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0xd4]
-0025: pop cx
-0026: pop cx
-0027: mov ax, 0x15
-002A: push ax
-002B: mov ax, 0x3
-002E: push ax
-002F: les bx, [bp+0x6]
-0032: call far word [es:bx+0xd4]
-0037: pop cx
-0038: pop cx
-0039: mov ax, 0x15
-003C: push ax
-003D: mov ax, 0x4
-0040: push ax
-0041: les bx, [bp+0x6]
-0044: call far word [es:bx+0xd4]
-0049: pop cx
-004A: pop cx
-004B: pop bp
-004C: retf
+0000                          BEGIN
+0003 B8 28 00                 mov ax, 0x28
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0013 59                       pop cx
+0014 59                       pop cx
+0015 B8 28 00                 mov ax, 0x28
+0018 50                       push ax
+0019 B8 02 00                 mov ax, 0x2
+001C 50                       push ax
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0025 59                       pop cx
+0026 59                       pop cx
+0027 B8 15 00                 mov ax, 0x15
+002A 50                       push ax
+002B B8 03 00                 mov ax, 0x3
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0037 59                       pop cx
+0038 59                       pop cx
+0039 B8 15 00                 mov ax, 0x15
+003C 50                       push ax
+003D B8 04 00                 mov ax, 0x4
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0049 59                       pop cx
+004A 59                       pop cx
+004B                          RETURN
 
 Functn52: "TXTTORB"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x152d
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: pop bp
-0011: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(152D)
+0010                          RETURN
 
 Functn53: "SDRTORBA"
-0000: push bp
-0001: mov bp, sp
-0003: les bx, [bp+0x6]
-0006: call far word [es:bx+0x7c]
-000A: cmp ax, 0x1
-000D: jz 0x12
-000F: jmp 0x91
-0012: mov ax, 0xd
-0015: push ax
-0016: les bx, [bp+0x6]
-0019: call far word [es:bx+0x58]
-001D: pop cx
-001E: cmp ax, 0x8
-0021: jae 0x48
-0023: mov ax, 0x17
-0026: push ax
-0027: les bx, [bp+0x6]
-002A: call far word [es:bx+0x64]
-002E: pop cx
-002F: or ax, ax
-0031: jnz 0x48
-0033: mov ax, 0xbe
-0036: push ax
-0037: mov ax, 0xbe
-003A: push ax
-003B: les bx, [bp+0x6]
-003E: call far word [es:bx+0x54]
-0042: pop cx
-0043: pop cx
-0044: or ax, ax
-0046: jz 0x91
-0048: mov ax, 0x15aa
-004B: push ax
-004C: les bx, [bp+0x6]
-004F: call far word [es:bx+0xf8]
-0054: pop cx
-0055: mov ax, 0x1
-0058: push ax
-0059: les bx, [bp+0x6]
-005C: call far word [es:bx+0x24]
-0060: push ax
-0061: les bx, [bp+0x6]
-0064: call far word [es:bx+0x20]
-0068: push ax
-0069: les bx, [bp+0x6]
-006C: call far word [es:bx+0x2c]
-0070: add sp, 0x6
-0073: les bx, [bp+0x6]
-0076: call far word [es:bx+0x24]
-007A: push ax
-007B: les bx, [bp+0x6]
-007E: call far word [es:bx+0x20]
-0082: push ax
-0083: mov ax, 0x1
-0086: push ax
-0087: les bx, [bp+0x6]
-008A: call far word [es:bx+0x30]
-008E: add sp, 0x6
-0091: pop bp
-0092: retf
+0000                          BEGIN
+0003 C4 5E 06                 les bx, [bp+0x6]
+0006 26 FF 5F 7C              call far word [es:bx+0x7c]
+000A 3D 01 00                 cmp ax, 0x1
+000D 74 03                    jz 0x12
+000F E9 7F 00                 jmp 0x91
+0012 B8 0D 00                 mov ax, 0xd
+0015 50                       push ax
+0016 C4 5E 06                 les bx, [bp+0x6]
+0019 26 FF 5F 58              call far word [es:bx+0x58]
+001D 59                       pop cx
+001E 3D 08 00                 cmp ax, 0x8
+0021 73 25                    jae 0x48
+0023 B8 17 00                 mov ax, 0x17
+0026 50                       push ax
+0027 C4 5E 06                 les bx, [bp+0x6]
+002A 26 FF 5F 64              call far word [es:bx+0x64]
+002E 59                       pop cx
+002F 0B C0                    or ax, ax
+0031 75 15                    jnz 0x48
+0033 B8 BE 00                 mov ax, 0xbe
+0036 50                       push ax
+0037 B8 BE 00                 mov ax, 0xbe
+003A 50                       push ax
+003B C4 5E 06                 les bx, [bp+0x6]
+003E 26 FF 5F 54              call far word [es:bx+0x54]
+0042 59                       pop cx
+0043 59                       pop cx
+0044 0B C0                    or ax, ax
+0046 74 49                    jz 0x91
+0048                          cx = ShowMessage(15AA)
+0055 B8 01 00                 mov ax, 0x1
+0058 50                       push ax
+0059 C4 5E 06                 les bx, [bp+0x6]
+005C 26 FF 5F 24              call far word [es:bx+0x24]
+0060 50                       push ax
+0061 C4 5E 06                 les bx, [bp+0x6]
+0064 26 FF 5F 20              call far word [es:bx+0x20]
+0068 50                       push ax
+0069 C4 5E 06                 les bx, [bp+0x6]
+006C 26 FF 5F 2C              call far word [es:bx+0x2c]
+0070 83 C4 06                 add sp, 0x6
+0073 C4 5E 06                 les bx, [bp+0x6]
+0076 26 FF 5F 24              call far word [es:bx+0x24]
+007A 50                       push ax
+007B C4 5E 06                 les bx, [bp+0x6]
+007E 26 FF 5F 20              call far word [es:bx+0x20]
+0082 50                       push ax
+0083 B8 01 00                 mov ax, 0x1
+0086 50                       push ax
+0087 C4 5E 06                 les bx, [bp+0x6]
+008A 26 FF 5F 30              call far word [es:bx+0x30]
+008E 83 C4 06                 add sp, 0x6
+0091                          RETURN
 
 Functn54: "SDRTORBB"
-0000: push bp
-0001: mov bp, sp
-0003: les bx, [bp+0x6]
-0006: call far word [es:bx+0x7c]
-000A: or ax, ax
-000C: jz 0x11
-000E: jmp 0x90
-0011: mov ax, 0xd
-0014: push ax
-0015: les bx, [bp+0x6]
-0018: call far word [es:bx+0x58]
-001C: pop cx
-001D: cmp ax, 0x8
-0020: jae 0x47
-0022: mov ax, 0x17
-0025: push ax
-0026: les bx, [bp+0x6]
-0029: call far word [es:bx+0x64]
-002D: pop cx
-002E: or ax, ax
-0030: jnz 0x47
-0032: mov ax, 0xbe
-0035: push ax
-0036: mov ax, 0xbe
-0039: push ax
-003A: les bx, [bp+0x6]
-003D: call far word [es:bx+0x54]
-0041: pop cx
-0042: pop cx
-0043: or ax, ax
-0045: jz 0x90
-0047: mov ax, 0x15e6
-004A: push ax
-004B: les bx, [bp+0x6]
-004E: call far word [es:bx+0xf8]
-0053: pop cx
-0054: mov ax, 0x1
-0057: push ax
-0058: les bx, [bp+0x6]
-005B: call far word [es:bx+0x24]
-005F: push ax
-0060: les bx, [bp+0x6]
-0063: call far word [es:bx+0x20]
-0067: push ax
-0068: les bx, [bp+0x6]
-006B: call far word [es:bx+0x2c]
-006F: add sp, 0x6
-0072: les bx, [bp+0x6]
-0075: call far word [es:bx+0x24]
-0079: push ax
-007A: les bx, [bp+0x6]
-007D: call far word [es:bx+0x20]
-0081: push ax
-0082: mov ax, 0x1
-0085: push ax
-0086: les bx, [bp+0x6]
-0089: call far word [es:bx+0x30]
-008D: add sp, 0x6
-0090: pop bp
-0091: retf
+0000                          BEGIN
+0003 C4 5E 06                 les bx, [bp+0x6]
+0006 26 FF 5F 7C              call far word [es:bx+0x7c]
+000A 0B C0                    or ax, ax
+000C 74 03                    jz 0x11
+000E E9 7F 00                 jmp 0x90
+0011 B8 0D 00                 mov ax, 0xd
+0014 50                       push ax
+0015 C4 5E 06                 les bx, [bp+0x6]
+0018 26 FF 5F 58              call far word [es:bx+0x58]
+001C 59                       pop cx
+001D 3D 08 00                 cmp ax, 0x8
+0020 73 25                    jae 0x47
+0022 B8 17 00                 mov ax, 0x17
+0025 50                       push ax
+0026 C4 5E 06                 les bx, [bp+0x6]
+0029 26 FF 5F 64              call far word [es:bx+0x64]
+002D 59                       pop cx
+002E 0B C0                    or ax, ax
+0030 75 15                    jnz 0x47
+0032 B8 BE 00                 mov ax, 0xbe
+0035 50                       push ax
+0036 B8 BE 00                 mov ax, 0xbe
+0039 50                       push ax
+003A C4 5E 06                 les bx, [bp+0x6]
+003D 26 FF 5F 54              call far word [es:bx+0x54]
+0041 59                       pop cx
+0042 59                       pop cx
+0043 0B C0                    or ax, ax
+0045 74 49                    jz 0x90
+0047                          cx = ShowMessage(15E6)
+0054 B8 01 00                 mov ax, 0x1
+0057 50                       push ax
+0058 C4 5E 06                 les bx, [bp+0x6]
+005B 26 FF 5F 24              call far word [es:bx+0x24]
+005F 50                       push ax
+0060 C4 5E 06                 les bx, [bp+0x6]
+0063 26 FF 5F 20              call far word [es:bx+0x20]
+0067 50                       push ax
+0068 C4 5E 06                 les bx, [bp+0x6]
+006B 26 FF 5F 2C              call far word [es:bx+0x2c]
+006F 83 C4 06                 add sp, 0x6
+0072 C4 5E 06                 les bx, [bp+0x6]
+0075 26 FF 5F 24              call far word [es:bx+0x24]
+0079 50                       push ax
+007A C4 5E 06                 les bx, [bp+0x6]
+007D 26 FF 5F 20              call far word [es:bx+0x20]
+0081 50                       push ax
+0082 B8 01 00                 mov ax, 0x1
+0085 50                       push ax
+0086 C4 5E 06                 les bx, [bp+0x6]
+0089 26 FF 5F 30              call far word [es:bx+0x30]
+008D 83 C4 06                 add sp, 0x6
+0090                          RETURN
 
 Functn55: "TORBWIND"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x160a
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0x64
-0013: push ax
-0014: les bx, [bp+0x6]
-0017: call far word [es:bx+0x90]
-001C: pop cx
-001D: les bx, [bp+0x6]
-0020: call far word [es:bx+0x70]
-0024: or ax, ax
-0026: ja 0x35
-0028: mov ax, 0x1638
-002B: push ax
-002C: les bx, [bp+0x6]
-002F: call far word [es:bx+0xf8]
-0034: pop cx
-0035: pop bp
-0036: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(160A)
+0010 B8 64 00                 mov ax, 0x64
+0013 50                       push ax
+0014 C4 5E 06                 les bx, [bp+0x6]
+0017 26 FF 9F 90 00           call far word [es:bx+0x90]
+001C 59                       pop cx
+001D C4 5E 06                 les bx, [bp+0x6]
+0020 26 FF 5F 70              call far word [es:bx+0x70]
+0024 0B C0                    or ax, ax
+0026 77 0D                    ja 0x35
+0028                          cx = ShowMessage(1638)
+0035                          RETURN
 
 Functn56: "MOONWIND"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x1647
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: mov ax, 0xfed4
-0013: push ax
-0014: les bx, [bp+0x6]
-0017: call far word [es:bx+0xb4]
-001C: pop cx
-001D: pop bp
-001E: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(1647)
+0010 B8 D4 FE                 mov ax, 0xfed4
+0013 50                       push ax
+0014 C4 5E 06                 les bx, [bp+0x6]
+0017 26 FF 9F B4 00           call far word [es:bx+0xb4]
+001C 59                       pop cx
+001D                          RETURN
 
 Functn57: "VORAWIND"
-0000: push bp
-0001: mov bp, sp
-0003: mov ax, 0x166e
-0006: push ax
-0007: les bx, [bp+0x6]
-000A: call far word [es:bx+0xf8]
-000F: pop cx
-0010: les bx, [bp+0x6]
-0013: call far word [es:bx+0x70]
-0017: mov bx, 0x2
-001A: cwd
-001B: idiv bx
-001D: push ax
-001E: les bx, [bp+0x6]
-0021: call far word [es:bx+0x90]
-0026: pop cx
-0027: les bx, [bp+0x6]
-002A: call far word [es:bx+0x70]
-002E: or ax, ax
-0030: ja 0x3f
-0032: mov ax, 0x16a7
-0035: push ax
-0036: les bx, [bp+0x6]
-0039: call far word [es:bx+0xf8]
-003E: pop cx
-003F: pop bp
-0040: retf
+0000                          BEGIN
+0003                          cx = ShowMessage(166E)
+0010 C4 5E 06                 les bx, [bp+0x6]
+0013 26 FF 5F 70              call far word [es:bx+0x70]
+0017 BB 02 00                 mov bx, 0x2
+001A 99                       cwd
+001B F7 FB                    idiv bx
+001D 50                       push ax
+001E C4 5E 06                 les bx, [bp+0x6]
+0021 26 FF 9F 90 00           call far word [es:bx+0x90]
+0026 59                       pop cx
+0027 C4 5E 06                 les bx, [bp+0x6]
+002A 26 FF 5F 70              call far word [es:bx+0x70]
+002E 0B C0                    or ax, ax
+0030 77 0D                    ja 0x3f
+0032                          cx = ShowMessage(16A7)
+003F                          RETURN
 
