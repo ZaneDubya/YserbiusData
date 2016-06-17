@@ -1,0 +1,96 @@
+0000: You step into a bottomless pit and die.
+0028: Guardians stand ready.  'We are sworn to defend Arnakkian.'
+0064: Earth Elemental Andreas rises from his mountainous perch.
+009E: Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
+00EE: The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
+0159: The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
+01BC: A voice whispers 'Only true friendship can bridge the gap of time.'
+0200: Quiet solitude fills the chasm.  You are on the other side.
+023C: The wall glows.
+024C: The wall glows.
+025C: The wall glows.
+026C: The wall glows.
+027C: The wall glows.
+028C: The wall glows.
+029C: The wall glows.
+02AC: The wall glows.
+02BC: The wall glows.
+02CC: The wall glows.
+02DC: The wall glows.
+02EC: The wall glows.
+02FC: The wall glows.
+030C: Your decision on where to step next saves you.
+033B: You step over the edge and into oblivion.
+0365: You selected your next move wisely.
+0389: You step over the edge and into oblivion.
+03B3: Your next step is a safe one.
+03D1: You step over the edge and into oblivion.
+03FB: The step you take is wisely chosen.
+041F: You step over the edge and into oblivion.
+0449: You take one good step forward.
+0469: You step over the edge and into oblivion.
+0493: You safely step forward.
+04AC: You step over the edge and into oblivion.
+04D6: You take a step in the right direction,
+04FE: You step over the edge and into oblivion.
+0528: Your move is wise.
+053B: You step over the edge and into oblivion.
+0565: You select your next move wisely.
+0587: You step over the edge and into oblivion.
+05B1: You move forward with confidence.
+05D3: You step over the edge and into oblivion.
+05FD: Your next step is a good one.
+061B: You step over the edge and into oblivion.
+0645: You move ahead assuredly.
+065F: You step over the edge and into oblivion.
+0689: You choose your next step correctly.
+06AE: You step over the edge and into oblivion.
+06D8: Your choice of movement saves you.
+06FB: You step over the edge and into oblivion.
+0725: You step in the right direction.
+0746: You step over the edge and into oblivion.
+0770: You select your next step wisely.
+0792: You step over the edge and into oblivion.
+07BC: Your next step is sagely chosen.
+07DD: You step over the edge and into oblivion.
+0807: You take a wise step forward.
+0825: You step over the edge and into oblivion.
+084F: You move forward wisely.
+0868: You step over the edge and into oblivion.
+0892: Your next step is wisely decided.
+08B4: You step over the edge and into oblivion.
+08DE: You step ahead with confidence.
+08FE: You step over the edge and into oblivion.
+0928: You move forward carefully.
+0944: You step over the edge and into oblivion.
+096E: You move ahead.
+097E: You step over the edge and into oblivion.
+09A8: Your step is wisely selected.
+09C6: You step over the edge and into oblivion.
+09F0: You forge ahead.
+0A01: You step over the edge and into oblivion.
+0A2B: You select your next move wisely.
+0A4D: You step over the edge and into oblivion.
+0A77: Good sense guides your feet.
+0A94: You step over the edge and into oblivion.
+0ABE: You walk ahead.
+0ACE: You step over the edge and into oblivion.
+0AF8: Your next step is assuredly taken.
+0B1B: You step over the edge and into oblivion.
+0B45: The next step is an intelligent one.
+0B6A: You step over the edge and into oblivion.
+0B94: You move safely ahead.
+0BAB: You step over the edge and into oblivion.
+0BD5: Your movement decision was correct.
+0BF9: You step over the edge and into oblivion.
+0C23: You move forward with confidence.
+0C45: You step over the edge and into oblivion.
+0C6F: You carefully selected your next step.
+0C96: You step over the edge and into oblivion.
+0CC0: You make a sage choice.
+0CD8: You step over the edge and into oblivion.
+0D02: You have made a wise decision.
+0D21: You step over the edge and into oblivion.
+0D4B: Andreas no longer defends this door.
+0D70: The Earth Elemental holds power over this door.
+0DA0: A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.

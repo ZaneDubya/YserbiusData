@@ -1,0 +1,58 @@
+0000: The River of Eternity taps your life energy.
+002D: You have died.
+003C: Only the bravest adventurers explore the River for hidden passages.
+0080: The Ageless Void swallows you whole.
+00A5: SageCross Fountain revives your Health and Mana
+00D5: DragonBreath Fountain empowers you with improved attributes.
+0112: Minotaur Fountain revives your Health and Mana
+0141: As you reach the platform, a magical field envelops you and teleports you to a moon tapestry.
+019F: A magical door appears where the tapestry used to be.
+01D5: A brilliant tapestry depicting moons decorates this room.
+020F: A Gnome Thief steps out of the shadows -
+0238: 'You are very near the final battle with the Elemental En-Li-Kil.
+027A: The four Rainbow Gems will light your way to the infinite beyond when they are all placed.
+02D5: Red, yellow, green and blue are the rainbow colors.
+0309: Have your boat when the gems are set and sail the rainbow to your destiny.'
+0355: A doorway is marked -- 'Voranti's Treasure'
+0381: Various golden objects appear to be standing to the west, just at the edge of the Ageless Void.
+03E1: A beam of red arcs over the Ageless Void.
+040B: A vibrant rainbow of color forms.
+042D: A golden statue appears to be capable of holding a gem.
+0465: Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
+04B2: It intersects the Rainbow and bursts into blinding light.
+04EC: Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
+0558: A rainbow voyage across the Ageless Void awaits you to the West.
+0599: A beam of yellow arcs over the Ageless Void.
+05C6: A vibrant rainbow of color forms.
+05E8: Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
+0635: It intersects the Rainbow and bursts into blinding light.
+066F: Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
+06DB: A rainbow voyage across the Ageless Void awaits you to the West.
+071C: A beam of green arcs over the Ageless Void.
+0748: A vibrant rainbow of color forms.
+076A: Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
+07B7: It intersects the Rainbow and bursts into blinding light.
+07F1: Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
+085D: A rainbow voyage across the Ageless Void awaits you to the West.
+089E: A beam of blue arcs over the Ageless Void.
+08C9: A vibrant rainbow of color forms.
+08EB: Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
+0938: It intersects the Rainbow and bursts into blinding light.
+0972: Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
+09DE: A rainbow voyage across the Ageless Void awaits you to the West.
+0A1F: This gate leads to the GIANTS' LAND
+0A43: A burst of moon light floods the room.
+0A6A: Dragons defend their lair.
+0A85: Rune symbols decorate the tapestry -- 
+0AAC: Past the Platforms a Tapestry you will find.
+0AD9: Illuminate the Moons with the Spectrum of the Moon Prism.
+0B13: Then... ACK, UGH, THUMP  (the rest of the tapestry is smeared with blood)
+0B5D: You step across the platform and into the Golden Boat.
+0B94: The Zephyr Wind blows the lightest of breezes from the east and the Golden Boat sets sail west across the Rainbow.
+0C07: In the moments that follow the Zephyr tells you only the FlexSword can remain in your hands when you encounter the Wind Elemental.
+0C8A: Destroy him and the way to En-li-kil's Domain will be clear.
+0CC7: You arrive at an island in the center of the Ageless Void.
+0D02: The Ageless Void swallows you whole.
+0D27: This door leads the way back to the Land of Giants.
+0D5B: This side of the tapestry appears dark.
+0D83: You stand upon a platform in the center of the River of Eternity.

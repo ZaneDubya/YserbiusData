@@ -1,0 +1,72 @@
+0000: You may enter.
+000F: Only heroes of the twentieth level or higher may venture beyond this door.
+005A: The room is bare.
+006C: You find 100 Gold Pieces lying on the floor.
+0099: The room is empty, except for a few rogues.
+00C5: You encounter Rogues counting their gold.
+00EF: You successfully picked the locked door.
+0118: The door is locked.
+012C: You encounter Rogues.
+0142: To reach the next level of the dungeon, you need a special key. The key is rumored to be somewhere on this level.
+01B4: The Rogues refuse to talk.
+01CF: They attack you!
+01E0: Cro-Lizards snarl at you.
+01FA: You see an interesting lockpick on the floor. On the shaft are the words - Property of King Cleowyn. The Cro-Lizards you see are also interested in the lockpick.
+029C: King Cleowyn's Key unlocks the door.
+02C1: The door is locked.  A special key opens this door.
+02F5: Some rather nasty monsters hang out here.
+031F: On the floor is a key. The grasp bears the Galabryan insignia and the initials KC. It must have belonged to King Cleowyn.  
+039B: Between you and the key are monsters.
+03C1: You manage to open the door by brute strength.
+03F0: You are not strong enough to force the door open.
+0422: You encounter Rogues.
+0438: The imps that haunt the dungeon frequently return gold and lost items to their original places.
+0498: The Rogues refuse to talk.
+04B3: They charge you!
+04C4: You find nothing interesting in the room except a vial and some monsters.
+050E: You notice an axe and a vial on the floor. You also notice some Bronze Ogres.
+055C: You fall into a pit.
+0571: You take heavy damage from the long, long fall.
+05A1: Since you are the first to land, your body provides a soft mattress for the rest of your party.
+0601: A kindly spirit rescues you from falling to your death.
+0639: It warns you to stay away from danger until you are stronger.
+0677: You detect a secret door in the wall.
+069D: You see a blank wall.
+06B3: The gateway leads to THE DUNGEON ENTRANCE.
+06DE: The gateway leads to THE VESTIBULE.
+0702: You fall into a pit.
+0717: You take heavy damage from the long, long fall.
+0747: Since you are the first to land, your body provides a soft mattress for the rest of your party.
+07A7: A kindly spirit rescues you from falling to your death.
+07DF: It warns you to stay away from danger until you are stronger.
+081D: You fall into a pit.
+0832: You take heavy damage from the long, long fall.
+0862: Since you are the first to land, your body provides a soft mattress for the rest of your party.
+08C2: A kindly spirit rescues you from falling to your death.
+08FA: It warns you to stay away from danger until you are stronger.
+0938: You fall into a pit.
+094D: You take heavy damage from the long, long fall.
+097D: Since you are the first to land, your body provides a soft mattress for the rest of your party.
+09DD: A kindly spirit rescues you from falling to your death.
+0A15: It warns you to stay away from danger until you are stronger.
+0A53: There is a teleport in the west wall.
+0A79: You encounter an Orc Ranger.
+0A96: King Cleowyn had a special lockpick which opened a set of doors in the Vestibule, leading to his Palace. He was the king of thieves, or so my father told me.
+0B34: The Orc Ranger ignores you and wanders off.
+0B60: You encounter a Human Wizard.
+0B7E: The lone adventurer is often at a disadvantage in this cursed dungeon. Those deeper levels...oh, they are very dangerous, indeed.
+0C00: The Human Wizard turns his back on you.
+0C28: You encounter a Dwarf Knight.
+0C46: There are rumors of a fantastic treasury which King Cleowyn visited each night to count his ill-gotten tax revenues.
+0CBB: The Dwarf Knight seems uninterested in you and turns away.
+0CF6: You encounter a Troll Cleric.
+0D14: Being able to detect hidden traps and doors is important for any party of adventurers wandering this dungeon.
+0D82: Also, keep an eye open for better lockpicks. They will open doors to new wonders.
+0DD4: The Troll Cleric is annoyed that you disturbed her reverie. She raps you on the head with her staff and marches off.
+0E49: You encounter a Human Thief.
+0E66: The upper levels of this dungeon make up the Palace of King Cleowyn. He was a cruel ruler and was hated by all.
+0ED6: Beware of the many traps and pitfalls in and around the Palace. Not even the most clever thief can escape Cleowyn's traps.
+0F51: The Human Thief slithers away without saying a word.
+0F86: You encounter an Elf Barbarian.
+0FA6: Beware the pit to be found at the heart of the mine. Only the very strongest can survive the fall into the deep abyss.
+101D: The Elf Barbarian trudges off to kill some monsters.

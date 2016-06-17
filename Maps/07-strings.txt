@@ -1,0 +1,36 @@
+0000: You found a hidden door in the east wall.
+002A: Rogues are splitting up some gold they stole.
+0058: You take a sip from the fountain, but nothing happens.
+008F: You take a sip from the Healing Fountain and feel your Health improve quite a bit.
+00E2: You skillfully pick the door lock.
+0105: The door is locked.
+0119: Minotaurs charge you.
+012F: A Minotaur teases you by holding a bag of gold just out of reach.
+0171: Huge beings lumber into sight.
+0190: You have entered a Rogue encampment.
+01B5: You encounter marauding Hobgoblins.
+01D9: The sound of hooves on stone alerts you to danger.
+020C: Gruff laughter surrounds you.
+022A: The stairs through the south gateway lead upwards.
+025D: Through the west gateway are stairs leading upwards.
+0292: The stairs through the north gateway lead upwards.
+02C5: The stairs past the north gateway lead up a level.
+02F8: There is a teleport in the east wall.
+031E: There is a teleport in the west wall.
+0344: There is a teleport in the west wall.
+036A: You encounter a Gnome Thief.
+0387: There is more to this basement than first meets the eye. Someday I will learn the secret of what lies behind the thick, silent walls that line this corridor.
+0425: The Gnome Thief smiles enigmatically and ducks into the shadows.
+0466: You encounter a Human Barbarian.
+0487: As much as I despise orcs, I sometimes find it useful to have them in my party. Indeed, you will frequently have to work with races and Guilds you would otherwise ignore, if you wish to solve the many mysteries of this dungeon.
+056B: The Human Barbarian raps you with his club and trudges away.
+05A8: You encounter an Orc Knight.
+05C5: A colleague told me he encountered a strange elfin race far down in the dungeon. He would not say much else, other than that he knew why cold-loving creatures were to be found inside a volcano.
+0687: The Orc Knight bows graciously and walks away.
+06B6: You encounter an Elf Cleric.
+06D3: I stumbled over a marble block not long ago. On it were the words - Arnakkian Slowfoot, Wizard to the King.
+073F: The Elf Cleric sighs mournfully and massages a stubbed toe.
+077B: You encounter a Human Thief.
+0798: To the east of the Rune Room on level three can be found the Wizards' Challenge. It is quite a challenge, too.
+0807: I have found several short cuts in the Wizards' Challenge.
+0842: The Human Thief points at something behind you. While your back is turned, she sneaks away.

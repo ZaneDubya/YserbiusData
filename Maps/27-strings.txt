@@ -1,0 +1,66 @@
+0000: You stumble into the lava river and die.
+0029: This gate leads to the entrance of Arnakkian's Arena.
+005F: Of all the winds, the TEMPEST is the most violent and dangerous.
+00A0: Enter HEAVEN'S FURY if you must.  It is here Voranti cursed the winds.
+00E7: A doorway leads to the town of Castlegate, a village just outside Arnakkian's Castle.
+013D: It is rumored that a band of dwarves once lived behind the doors of LookOut.
+018A: With a massive effort, you manage to force the door open.
+01C4: The door is stuck and will not open.
+01E9: A plaque reads..
+01FA: 'Thanks to the gracious generosity of the Mage Council, the survivors of the Arnakkian disaster hereby proclaim a new teleport to the top.'
+0286: Fighting the raging River of Eternity taps your life energy.
+02C3: You have died.
+02D2: The Phoenix is being reborn and may not be disturbed.
+0308: Ahead, bound by the River of Eternity, is the shadow of the Phoenix Firebird. 
+0357: The raging waters of the river look daunting.
+0385: You hear the sound of rushing water behind the wall.
+03BA: You also hear muffled roars.
+03D7: Loose rocks tumble away, revealing a narrow passageway down.
+0414: A Gnome Wizard greets you.
+042F: 'Thank you for helping my master the Phoenix be reborn.
+0467: The Phoenix may no longer be disturbed.'
+0490: 'I am the Guardian of the Phoenix.  That you have passed my Dragon Guards is proof of your courage.
+04F4: The way is now clear for you to meet the Phoenix.
+0526: It is time for the Phoenix to die and so be reborn from its own ashes.
+056D: Go!  Let the glorious Phoenix die and be renewed!'
+05A0: A frightened Halfling Cleric hides in the shadows.
+05D3: 'You must do something about these trolls.  They're everywhere.'
+0614: An exhausted Dwarf Knight hides in a large barrel.
+0647: 'Hail!  I welcome your help.  These trolls have been giving me fits.'
+068D: A Gnome Wizard suddenly appears.
+06AE: 'Past the CastleGates and past the Elves, you will find a place where the blue light of the sky meets the underworld below.'
+072B: An Elf Ranger is delighted at your presense.
+0758: 'I got clobbered by Andreas, the Earth Elemental!  I wish you luck in your adventurers.'
+07B1: You feel a sudden increase in your Dexterity.
+07DF: Nothing happens.
+07F0: A small band of gypsies has formed camp in an old bazaar stall.
+0830: A young gypsy stares at you, gestures you closer, and whispers..
+0871: 'It is written on the Lava Walls that a Hero will someday reach the end of the rainbow and confront time.'
+08DC: He pauses, then says, 'Go now, before more Trolls come!  Go!' 
+091B: You sip the cool purple waters of the ElfFoot Fountain
+0952: You gain the skill of Rune Reading!
+0976: You gain the Channel skill!
+0992: You gain the Staff skill!
+09AC: You gain the Deep Trance skill!
+09CC: Nothing happens.
+09DD: The purple waters of the ElfFoot Fountain slip through your fingers before you can wet your lips.
+0A3F: An inscription on the wall reads...
+0A63: 'We, the Dwarves of NottiRock, seek brightly colored metals to forge magnificent treasures.'
+0AC0: Ranger banners decorate the woodwork of Lookout Fountain.
+0AFA: You gain the skill of Stamina!
+0B19: You gain the skill of Furtiveness!
+0B3C: You gain the skill of Reading Tracks!
+0B62: You gain the skill of Archery!
+0B81: The waters are refreshing, but not enlightening!
+0BB2: A message is etched on wall...
+0BD1: 'The runes seem to spell names.  That is the way to Arnakkian.'
+0C11: A Human Barbarian belches, then looks up at you.
+0C42: 'Andreas built a great pit. Two.'
+0C64: Holding up three fingers, he repeats...
+0C8C: 'Two.  Must need two to cross.'
+0CAC: DayFrost Fountain restores your Health.
+0CD4: NightFrost Fountain renews your Mana.
+0CFA: A Phantasm appears...
+0D10: 'Dare time?  Yes?  Ah, adventurers should not challenge En-Li-Kil!'
+0D54: The Phantasm drains your life energies.
+0D7C: You have died.

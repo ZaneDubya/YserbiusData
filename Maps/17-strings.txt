@@ -1,0 +1,81 @@
+0000: You found a trapdoor.
+0016: You fall through a trapdoor.
+0033: You spot a trapdoor.
+0048: You fall through a trapdoor.
+0065: You detect a trapdoor.
+007C: You fall through a trapdoor.
+0099: You escape a trapdoor.
+00B0: You fall through a trapdoor.
+00CD: You notice a trapdoor.
+00E4: You fall through a trapdoor.
+0101: There is a trapdoor in the floor.
+0123: You fall through a trapdoor.
+0140: You discover a trapdoor.
+0159: You fall through a trapdoor.
+0176: You detect a trapdoor.
+018D: You fall through a trapdoor.
+01AA: You spot a trapdoor.
+01BF: You fall through a trapdoor.
+01DC: You detect a trapdoor.
+01F3: You fall through a trapdoor.
+0210: A trapdoor is in this room.
+022C: You fall through a trapdoor.
+0249: You sidestep a trapdoor.
+0262: You fall through a trapdoor.
+027F: You avoid a trapdoor.
+0295: You fall through a trapdoor.
+02B2: You soon have the door unlocked.
+02D3: The door is locked.
+02E7: Your aptitude at opening locks pays off.
+0310: The door is locked.
+0324: You succeed at picking the door lock.
+034A: The door is locked.
+035E: The door lock is no match for your skills.
+0389: The door is locked.
+039D: You deftly trip the door lock.
+03BC: The door is locked.
+03D0: You quickly have the door open.
+03F0: The door is locked.
+0404: You push on the door and open it.
+0426: The door is stuck shut.
+043E: You force the door open by muscle power.
+0467: The door is stuck shut.
+047F: The Domicile Key opens the door!
+04A0: The door is locked.
+04B4: You have spotted a secret door!
+04D4: Clerics use this room as a sanctuary.
+04FA: A scroll fall from a Cleric's robe.
+051E: Rogues use this room as a hideout.
+0541: A Barbarian drops some potions when she sees you.
+0573: You sense evil in the room.
+058F: You see a wand on the floor.
+05AC: The stench of reptiles assails you.
+05D0: You hear hissing.
+05E2: Rogues surprise you.
+05F7: A Knight drops a poleaxe as you approach.
+0621: Nightmares loom up before you.
+0640: A Nightmare throws a bow aside to attack.
+066A: You stumble on some Dwarf Knights.
+068D: The brilliant chainmail worn by a Knight blinds you.
+06C2: You enter a den of thieves.
+06DE: A Halfling Thief tries to wield a large shield.
+070E: The room is jammed with Rogues.
+072E: A Ranger wears the King's Domicile Key around his neck.
+0766: There is a teleport in the south wall.
+078D: There is a teleport to the south.
+07AF: There is a teleport to the north.
+07D1: Banshees haunt this room.
+07EB: Deinons protect a chest.
+0804: Stairs through the east gateway lead upstairs.
+0833: There are stairs to the north beyond the gateway.
+0865: There is an elevator platform to the north.
+0891: Stairs through the west gateway lead down a level.
+08C4: You encounter a Human Wizard.
+08E2: This is the lowest level of Cleowyn's Palace, yet you are merely at the beginning of the dungeon proper.
+094B: The Human Wizard chortles softly.
+096D: You encounter a Gnome Thief.
+098A: In the king's quarters is an elevator that will lift you up to the King's Palace. Cleowyn used this elevator to  by-pass the traps around his throne.
+0A20: The Gnome Thief tiptoes away as you draw near.
+0A4F: You encounter a Gnome Barbarian.
+0A70: The name of the Elemental bound by the wizard Arnakkian is En-li-kil. This Elemental commands Time itself.
+0ADB: The Gnome Barbarian warns you to stay away.

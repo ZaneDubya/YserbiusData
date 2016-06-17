@@ -1,0 +1,151 @@
+0000: The AldBora Tree bears... 
+001B: the knowledge of Athletics!
+0037: the knowledge of Clubs and Axes!
+0058: the knowledge of Berserker!
+0074: the knowledge of Pursuit!
+008E: the knowledge of Leadership!
+00AB: the knowledge of Fencing!
+00C5: the knowledge of Binding!
+00DF: the knowledge of Intimidation!
+00FE: the knowledge of Archery!
+0118: the knowledge of Stamina!
+0132: the knowledge of Furtiveness!
+0150: the knowledge of Reading Tracks!
+0171: the knowledge of Martial Arts!
+0190: the knowledge of Deflect Magic!
+01B0: the knowledge of Medic!
+01C8: the knowledge of Reverie!
+01E2: the knowledge of Rune Reading!
+0201: the knowledge of Staff!
+0219: the knowledge of Channeling!
+0236: the knowledge of Deep Trance!
+0254: The leaves whisper, 'Defeat my enemies the four winds, South, North, East and West, and you will find a precious gem as green as my foliage.'
+02E2: Spring flowers and new leaves appear on the magical Aldbora Tree.
+0324: The Aldbora Tree proudly displays its summer foliage.
+035A: Golden Autumn leaves fall from the Aldbora Tree.
+038B: In the Winter, the Aldbora Tree shows its age.  The fruits of Knowledge are now ripe.
+03E1: Dwarven Knights attempt an ambush.
+0404: You see scattered bones and a bag under a Dragon.
+0436: A glowing yellow gem lights the area.
+045C: A path leads up to CASTLEGATE
+047A: A narrow tunnel appears, leading down to the DWARF KINGDOM.
+04B6: At level thirty, the entrance to the land of dwarfs will be open to you.
+04FF: Upon a wood sign is written -- 'Wilderness of BeechWood.'
+0539: A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'
+057C: A sign of ancient wood reads -- 'Wilderness of MapleBrush.'
+05B8: In the dust of pine needles is written -- 'Wilderness of PineCone.'
+05FC: We are the Wise Ones of Beechwood who serve the Seasons.
+0635: I am Lobard, and the Season I serve is gentle Spring.
+066B: The soft breezes of Spring warned me of your coming.
+06A0: Wise are they who know how to please my master.
+06D0: My name is Shushian, servant to vibrant Summer.
+0700: The Summer gently warms those who serve it and parches those who anger it.
+074B: Why have you come to me in these sultry days of Summer?
+0783: Distly Bombak, the vassal of Autumn, greets you.
+07B4: Lovely Autumn in its varicolored foliage urges you to gather in your harvest before harsh Winter comes.
+081C: Autumn begins to fade, and so asks why you have come.
+0852: You may call me Karakiar, since that is my name. My liege is Winter.
+0897: The bracing sting of Winter's winds refresh those who love its white wonderland.
+08E8: Winter would know why you are here.
+090C: Spring thanks you for the Winter Waters.
+0935: See how soft Spring transforms into vibrant Summer!
+0969: Take this Summer Radiance for your troubles.
+0996: You dishonor Spring with your false gift.
+09C0: Summer rejoices in the wondrous Harvest Horn.
+09EE: Behold!  Summer ripens into mature Autumn!
+0A19: The golden Autumn Seeds are ample reward for your generosity.
+0A57: Summer burns in anger at your false gift.  Begone!
+0A8A: Autumn gladly accepts the Spring Renewal.
+0AB4: Lo!  Golden Autumn pales to white Winter and now sleeps under snowy blankets.
+0B02: These icy Winter Waters are a present to you.
+0B30: Autumn is angry that you mock it with a false gift.
+0B64: These Autumn Seeds are wonderful, indeed!
+0B8E: See sleeping Winter blossom with new life!
+0BB9: You now receive the glory of Spring Renewal.  It is a priceless gift!
+0BFF: Winter turns a cold back on your poor gift.
+0C2B: Leave before Winter blasts you!
+0C4B: That item is of no interest to my master.
+0C75: We are the Clerics of Oakleaf who comfort the Seasons.
+0CAC: Call me Donbard.  I ease the distress of gentle Spring.
+0CE4: Spring quakes in fear at your coming.
+0D0A: Why have you come to Spring's home?
+0D2E: I am Shashamia, friend to the temperate Summer.
+0D5E: Sullen summer is nervous around mortals.
+0D87: Do you have some business with Summer?
+0DAE: Dindly Bindiak is my name.  Autumn is my friend.
+0DDF: Russet-clad Autumn welcomes you if you are true friends of the Seasons.
+0E27: Autumn will fade away unless you tell me why you have come.
+0E63: I am called Kalakial, and I help poor Winter.
+0E91: Wistful Winter is too shy to speak to you directly.
+0EC5: Winter wishes you to leave, so do quickly what you came to do.
+0F04: Spring accepts the Winter Waters.
+0F26: Spring sings sweetly of its transformation into Summer!
+0F5E: Summer Radiance is yours as happy reward.
+0F88: Spring departs at the sight of your poor gift.
+0FB7: Summer accepts the Harvest Horn.
+0FD8: Summer mellows by the sweet music and is now Autumn!
+100D: Autumn Seeds are now yours to enjoy.
+1032: Summer shies away from your pitiful gift.
+105C: Autumn shyly receives the Spring Renewal.
+1086: Now Autumn turns to Winter, still clutching the hope of vernal renewal.
+10CE: Winter Waters are yours, my friends.
+10F3: Autumn rejects your horrid gift.
+1114: Autumn Seeds hold the germ of life!
+1138: Cold Winter is become warm Spring.  Rejoice!
+1165: The magnificent Spring Renewal is your just reward.
+1199: Winter weeps at your cruelty.
+11B7: No season is interested in the item you offer.
+11E6: We are the Wardens of Maplebrush and hold the Seasons.
+121D: You may not know my name.
+1237: It is Spring.  That is all you need know.
+1261: My name is my secret.
+1277: It is Summer. That is all I'll say.
+129B: Never mind what my name is.
+12B7: It is Autumn.  That is enough for now.
+12DE: Not even I know my true name.
+12FC: It is Winter.  I may say no more.
+131E: From Winter Waters comes the change of Spring to Summer.
+1357: You are rewarded.
+1369: Wrong gift, mortal!
+137D: The Harvest Horn blows Summer into Autumn.
+13A8: A reward is yours.
+13BB: Wrong present, mortal!
+13D2: The Spring Renewal eases Autumn's slide into Winter.
+1407: Enjoy your reward.
+141A: Not even close, mortal!
+1432: Winter devours the Autumn Seeds and becomes Spring.
+1466: You are well rewarded.
+147D: Wrong, wrong, wrong, mortal!
+149A: Why do you offer the seasons such a thing?
+14C5: We are the Seasons incarnate in mortal form.
+14F2: I am Spring
+14FE: I am Summer
+150A: I am Autumn
+1516: I am Winter
+1522: The Winter Waters you offer quench my thirst.
+1550: Look how I have become Summer!
+156F: Take my new Summer Radiance.
+158C: I have no need for that item.
+15AA: I blow the Harvest Horn you give me...
+15D1: ...and I change to Autumn!
+15EC: Have some of my Autumn Seeds as thanks.
+1614: The present you offer I must reject.
+1639: Because you give me Spring Renewal...
+165F: ...I can safely transform into Winter and still survive.
+1698: May my Winter Waters refresh you.
+16BA: I cannot accept your present.
+16D8: The Autumn Seeds awaken me from my long hibernation.
+170D: I am Spring again!
+1720: Take the Renewal of Spring and rejoice with me!
+1750: I have no use for what you offer.
+1772: We Seasons cannot use the item you offer.
+179C: 'Welcome, Adventurer.  I am Varstad, counselor to the Elf King.
+17DC: The magic Aldbora requires Summer Radiance to shed its knowledge fruit.'
+1825: The storyteller Sorshian honors your arrival.
+1853: 'Only when the season is winter will the Aldbora shed its fruit.'
+1895: A wooden sign says, 'To the cave of NeedleWood.'
+18C6: The door unlocks.
+18D8: Young elves scurry and hide when you enter this elf home.
+1912: Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.
+197D: 'I am Fernank, Hunter to the Elf King.
+19A4: It is known in the trees that Nature's Robe must be used for the harvest.'

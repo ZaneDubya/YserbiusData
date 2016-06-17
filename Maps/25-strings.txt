@@ -1,0 +1,91 @@
+0000: You fall through the abyss and land in the lava below.
+0037: A magical platform forms a bridge across the abyss.
+006B: You will need help to cross the abyss.  This time you die.
+00A6: Something strange happens!
+00C1: When you step onto the stone, a magical platform appears nearby.
+0102: A magical platform nearby seems to disappear.
+0130: Many adventurers have been ambushed in VORANTI'S PASSAGE.
+016A: The passage leads to MAGE'S OVERLOOK.
+0190: Iron rungs line an access shaft leading down to DRAWBRIDGE.
+01CC: The tunnels ahead leading to CASTLEGATE are well marked.
+0205: VORANTI'S PASSAGE is home to Voranti, the Dark Dwarf Thief.
+0241: Dry desert winds parch your throat as you peer down the winding passages leading to ZZYZX.
+029C: In the days of Arnakkian Slowfoot, the citizens of the Kingdom gathered in festive celebrations.  The GREAT HALL welcomed them with magical games conjured by Arnakkian.
+0345: The ZEPHYR winds are known to be the swiftest of all the winds.
+0385: You stumble into the lava pools.  You die.
+03B0: Past this doorway are the corridors known as TROLLS END.
+03E9: To enter VORANTI'S PASSAGE, you must use his key!
+041B: You unlock the door.
+0430: Clerical symbols decorate the marblework of Morgard's Fountain.
+0470: You gain the Reverie skill!
+048C: You gain the Deflect Magic skill!
+04AE: You gain the Medic skill!
+04C8: You gain the skill of Martial Arts!
+04EC: The waters have no effect.
+0507: The fountain appears to be dry.
+0527: The fury of Heaven's Wind ripping through the corridor inflicts considerable damage.
+057C: You have died.
+058B: A peaceful breeze cools your soul
+05AD: The forces of Chaos and Harmony compete in the cyclone known as HEAVENS FURY.
+05FB: You force the massive door open by sheer muscle power.
+0632: The door is stuck. You cannot force it open.
+065F: You discover a secret door!
+067B: Tempest unleashes its full torrent of wind as you approach!
+06B7: Then it reveals itself in material form.
+06E0: The Harvest Horn protects you from the dangerous winds!
+0718: The Tempest Winds rip through your armor, causing many wounds!
+0757: You have died.
+0766: The mystic waters of the Charter Fountain restore all your Health.
+07A9: The mystic waters of the Infinity Fountain restore your Mana.
+07E7: The sparkling waters of the Ariel Fountain heal your many wounds.
+0829: You encounter an Orc Ranger.
+0846: 'There is a great river in the dwarven lands below.  It seems to lead to a great chasm I could not cross.  A mage told me the chasm was called the Ageless Void.
+08E7: Be careful in the great river.  It drains your health for every step you take.'
+0937: Your initiative in combat improves.
+095B: Nothing happens.
+096C: Your agility improves.
+0983: Nothing happens.
+0994: You feel much stronger.
+09AC: Nothing happens.
+09BD: Your ability to defend yourself in combat improves.
+09F1: Nothing happens.
+0A02: The door is barred to all but Humans and Halflings.
+0A36: The enormous door opens for you.
+0A57: The door is barred to all but Elves and Gnomes.
+0A87: The tremendous door swings open as you approach.
+0AB8: The door is barred to all but Orcs and Trolls.
+0AE7: The heavy door creaks open as you draw near.
+0B14: The door is barred to all but Gremlins and Dwarves.
+0B48: The sealed door opens at your command.
+0B6F: A Troll Cleric comes hobbling by.
+0B91: 'I found an interesting tapestry past one of the dwarven teleports.  It had a picture of a great moon, just like the one in the sky, but different.'
+0C26: Next to bones is a message scratched on stone -- 
+0C58: 'Mortal wounds I have suffered.  But I shall pass on a gem of knowledge before I die.
+0CAE: To cross the void and challenge En-Li-Kil, you must see the rainbow.'
+0CF4: Behind a loose stone is a note.  You can barely read -- 
+0D2D: 'Death to those who help the Snow Elves.' -- Nasranti, Mage Dwarf.
+0D70: The turgid water of the Troll Fountain tastes terrible, but it makes you feel stronger.
+0DC8: The fountain waters taste awful and make you nauseated.
+0E00: Pictograms of Hunting Expeditions have been carved into the loose rock above StoneGiant Fountain. 
+0E63: You gain the skill of Athletics!
+0E84: You gain the Berserker skill!
+0EA2: You gain the skill of Pursuit!
+0EC1: You gain the skill of Clubs and Axes!
+0EE7: The waters have no effect.
+0F02: Dry rocks and stones fill the fountain basin.
+0F30: You drink from the crystal waters of My My Fountain.
+0F65: You gain the skill of Leadership!
+0F87: You gain the skill of Binding!
+0FA6: You gain the skill of Fencing!
+0FC5: You gain the skill of Intimidation!
+0FE9: You gain the Berserker skill!
+1007: You gain the skill of Furtiveness!
+102A: You gain the skill of Lockpicking!
+104D: You gain the Pickpocket skill!
+106C: You gain the Reverie skill!
+1088: You gain the Deep Trance skill!
+10A8: Nothing happens.
+10B9: The waters are refreshing, but not enlightening!
+10EA: The full fury of Hell's Wind rips through the corridor, causing considerable damage.
+113F: You have died.
+114E: A strengthening, benevolent breeze warms your blood!

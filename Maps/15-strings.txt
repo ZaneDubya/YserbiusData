@@ -1,0 +1,80 @@
+0000: The door opens.
+0010: This door is locked.
+0025: The door magically opens!
+003F: This door will not open.
+0058: That is indeed the King's Pass. You may continue. If you ever return, I'll need to see another pass.
+00BD: None may pass. I am pledged to guard King Cleowyn's Apartments for eternity. Of course, if you had the King's Pass, I could let you through.
+014A: Seek the Pass where Ranger and Troll are blessed.
+017C: You have passed the Trial of Harmony. A great reward is yours, if you but look for it.
+01D3: You have mastered our Challenge. Congratulations! Behold the door of Harmony. Only those pledged to Harmony should enter.
+024D: You have passed the Trial of Chaos. A great reward is yours, if you but look for it.
+02A2: You have mastered our Challenge. Congratulations! Behold the door of Chaos. Only those pledged to Chaos should enter.
+0318: The door is opened
+032B: The door can be opened only by a Human or Thief.
+035C: The lock of the door opens as you step forward.
+038C: The door can be opened only by an Orc or Cleric.
+03BD: The lock opens as you approach.
+03DD: The door can be opened only by an Elf or Barbarian.
+0411: The door unlocks when you test it.
+0434: The door can be opened only by a Troll or Ranger.
+0466: The door opens as you advance.
+0485: The door can be opened only by a Dwarf or Knight.
+04B7: The door is opened.
+04CB: The door can be opened only by a Gnome or Wizard.
+04FD: The door clicks open.
+0513: The door can be opened only by a Halfling or by Cleowyn's Key.
+0552: The lock opens for you.
+056A: The door can be opened only by a Gremlin or by Cleowyn's Lockpick.
+05AD: A warning is on the door -
+05C8: 'Those honoring Harmony may safely enter.'
+05F3: 'Woe to you who serve Chaos, if you dare cross the threshold.'
+0632: A warning is on the door -
+064D: 'Those honoring Chaos may safely enter.'
+0676: 'Woe to you who serve Harmony, if you dare cross the threshold.'
+06B7: A sign is on the door -
+06CF: The way is clear for members of Chaos.
+06F6: Those not sworn to Chaos have been duly chastised.
+0729: A sign is on the door -
+0741: The way is clear for members of Harmony.
+076A: Those not sworn to Harmony have been duly chastised.
+079F: Rogues bar the way to Chaos.
+07BC: Rogues bar the way to Harmony.
+07DB: Blessed Human or Thief, you may continue the quest.
+080F: The tapestry shows nothing of interest.
+0837: Blessed Orc or Cleric, you may continue the quest.
+086A: The tapestry shows a jumble of runes.
+0890: Blessed Elf or Barbarian, you may continue the quest.
+08C6: The tapestry is blank.
+08DD: Blessed Troll or Ranger, you may continue the quest.
+0912: The tapestry is blank.
+0929: Blessed Dwarf or Knight, you may continue the quest.
+095E: It is too dark to read the inscription.
+0986: Blessed Gnome or Wizard, you may continue the quest.
+09BB: An inscription on the tapestry fades away as you draw near.
+09F7: Blessed Halfling! Blessed Key of Cleowyn! With either, the quest may continue.
+0A46: The tapestry is empty.
+0A5D: Blessed Gremlin! Blessed Pick of Cleowyn! With either, the quest may continue.
+0AAC: The tapestry once held a woven message.
+0AD4: You found a secret door!
+0AED: Reptilian bodies rise from the shadows.
+0B15: On the floor is a Chess Piece inscribed with the words - 'Property of Arnakkian Slowfoot.'
+0B70: You are challenged to combat.
+0B8E: Ferocious enemies stop you.
+0BAA: Elf Rangers await you.
+0BC1: An Elf Ranger holds the King's Pass.
+0BE6: Proud knights dispute your progress.
+0C0B: Strong enemies bar your way.
+0C28: There is nothing of interest here.
+0C4B: You see a lockpick on the floor.
+0C6C: Gallants challenge you.
+0C84: The key opens the door.
+0C9C: The door is locked and requires a special key.
+0CCB: Fierce opponents bar your way.
+0CEA: This area has been looted.
+0D05: You find 12000 Gold Pieces on the floor.
+0D2E: Your way is blocked.
+0D43: The gateway leads to THE RUNE ROOM.
+0D67: The gateway leads to THE MAUSOLEUM.
+0D8B: Stairs past the south gateway lead down.
+0DB4: There is a teleport in the east wall.
+0DDA: There is a teleport in the west wall.

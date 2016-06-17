@@ -1,0 +1,66 @@
+0000: You see a switch on the wall and throw it. You hear the sound of locks opening.
+0050: You see a switch on the wall and throw it. You hear the sound of locks opening.
+00A0: You see a switch on the wall and throw it. You hear the sound of locks opening.
+00F0: You see a switch on the wall and throw it. You hear the sound of locks opening.
+0140: The door is unlocked.
+0156: The door is sealed shut. There is no lock on the outside.
+0190: The door is unlocked.
+01A6: The door is sealed shut. There is no lock on the outside.
+01E0: The door is unlocked.
+01F6: The door is sealed shut. There is no lock on the outside.
+0230: The door is unlocked.
+0246: The door is sealed shut. There is no lock on the outside.
+0280: A door appears in the south wall.
+02A2: Monsters attack you.
+02B7: A key dangles from a spider's mandible.
+02DF: Silver Ogres spring a trap.
+02FB: A Silver Ogre plays with an unusual key.
+0324: Lizardites have made this room their home.
+034F: A Lizardite holds a key shaped like the rune sign for I.
+0388: The tapestry contains runes...
+03A7: Take the Crown, Robe and Scepter to the Mausoleum of Cleowyn. Use them in the correct niches to open the true path to the king's tomb.
+042E: There are runes on this tapestry...
+0452: Go west, but not farthest west, and give the Crown when you can go no more. Go east, but not farthest east, and give the Robe when you can go no more. When Crown and Robe are given, continue to the door of the tomb. Give the Scepter there to be rewarded.
+0551: You encounter Bugbears.
+0569: Bugbears stand near some gold.
+0588: Dire Wolves scratch the floor impatiently.
+05B3: A Dire Wolf plays with a coin purse.
+05D8: You suddenly feel nervous.
+05F3: Hungry lions prowl the area.
+0610: The floor crawls with Leeches.
+062F: Leeches swarm over a magic wand.
+0650: Giants interrupt your search.
+066E: A Giant wears a medallion around his neck.
+0699: You disturb a nest of Cockatrices.
+06BC: You see a vial in a Cockatrice nest.
+06E1: Silver Ogres suddenly appear around you.
+070A: The lead Silver Ogre wields a powerful morningstar.
+073E: You disturb some sleeping Giants.
+0760: A gleaming sword lies on the floor between you and a group of Giants.
+07A6: Dark shadows coalesce into Bugbears.
+07CB: A Bugbear guards some chainmail.
+07EC: You enter a roosting area for Cockatrices.
+0817: In a Cockatrice nest you see luminous chainmail.
+0848: Dire Wolves encircle you.
+0862: Dire Wolves seem fascinated by a shiny shield.
+0891: Loud hisses alert you to danger.
+08B2: Lizardites move between you and a piece of armor on the floor.
+08F1: The door is unlocked.
+0907: The door is sealed shut. You see what appears to be the bas relief of a royal ring 
+095B: The stairs through the north gateway lead up. The gateway to the east leads to THE GREAT CORRIDOR.
+09BE: The stairs past the south gateway lead up a level.
+09F1: There are stairs through the the north gateway.
+0A21: There are stairs beyond the west gateway.
+0A4B: You encounter a Human Barbarian.
+0A6C: The opening and closing of secret doors in this area give me a headache. I simply cannot puzzle out the correct sequence of opening the doors. I wish my map of this area were more complete.
+0B2A: By the way, if you don't have the king's ring, you won't get anywhere in this crazy place.
+0B85: The Human Barbarian pays you no attention as he puzzles over a map.
+0BC9: You encounter a Gnome Wizard.
+0BE7: Once you find a key in this area, seek the hidden door and follow your destiny. The door appears only when you have the right key. Where it leads I do not know.
+0C88: The Gnome Wizard is too intent on drawing runes in the dust to talk to you.
+0CD4: You encounter an Orc Knight.
+0CF1: There are many ways into King Cleowyn's Mausoleum, but few are rewarding. The most direct ways are the most challenging. Do not continue unless you have what the king demands.
+0DA1: The Orc Knight dismisses you as low-level buffoons.
+0DD5: You encounter a Halfling Thief.
+0DF5: Beneath the king's living quarters is an area known as the Thieves' Maze. Only an experienced thief - or a hero who has a thief's skills - will pick his way through this intricate maze.
+0EAF: The Halfling Thief steals some gold and runs away.

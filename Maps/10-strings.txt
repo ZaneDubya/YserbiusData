@@ -1,0 +1,18 @@
+0000: The E Rune Key unlocked the thick door.
+0028: The door is locked.  You need a special key.
+0055: The room is crawling with Spinorpions.
+007C: You are trapped by angry Ogres.
+009C: Nasty Ogres contemptuously flick gold coins at you.
+00D0: A painful nip at your ankle warns you of great danger.
+0107: The E Vowel Key fades away when you enter the room.
+013B: Behind a writhing mass of ill-tempered snakes lies King Cleowyn's Robe.
+0183: Hobgoblins are waiting for you.
+01A3: Hobgoblins throw items aside so they can attack you.
+01D8: You encounter a lost band of Silver Ogres.
+0203: East past the gateway are stairs leading down a level.
+023A: A Halfling Cleric creeps out of the shadows.
+0267: You will need Cleowyn's Robe, Crown and Scepter to reach his hidden tomb in the Mausoleum.
+02C2: The Halfling Cleric mumbles something incoherent and creeps back into the shadows.
+0315: A half-mad Gnome Thief crawls into the room.
+0342: The wizard Arnakkian hired his own troops from the Snow Elves. It is said that these strange elves disappeared before the volcano erupted. Where they wound up is anybody's guess.
+03F5: The insane Gnome Thief crawls away.

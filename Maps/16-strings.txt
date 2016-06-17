@@ -1,0 +1,56 @@
+0000: A note reads -
+000F: 'Only heroes of the thirtieth level or higher may pass this door.'
+0052: The Sunbeam Key reveals a hidden door to the Dwarf Kingdom!
+008E: You skillfully pick the door lock.
+00B1: The door is locked.
+00C5: Invisible hands take Cleowyn's Crown and place it in a niche in the wall.
+010F: The niche disappears.
+0125: You hear a rumbling sound in the distance
+014F: There is a niche in the wall which seems designed to hold a crown.
+0192: Returning the Crown of Cleowyn reveals a secret door in the west wall!
+01D9: Cleowyn's Robe flies out of your hands and into a niche in the wall.
+021E: The niche disappears.
+0234: You hear a rumbling sound in the distance.
+025F: There is a niche in the wall which seems designed to hold a robe.
+02A1: Returning the Robe of Cleowyn reveals a secret door in the east wall.
+02E7: Cleowyn's Scepter is taken from you by spectral hands and is placed in a niche in the wall.
+0343: The spirit of King Cleowyn whispers -
+0369: 'Well done!  The reward is yours for the taking, if you dare claim it.
+03B0: The door to the tomb opens.
+03CC: There is a niche in the wall which seems designed to hold a scepter.
+0411: The room you enter is cold as ice.
+0434: An Ice Lion stands over a torn bag of gold.
+0460: The room stinks of rotten meat.
+0480: Something kicks gold across the floor as it charges you.
+04B9: Lizardites guard this area.
+04D5: Giants guard the corridor.
+04F0: There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
+05BE: As you place Cleowyn's bones in the crypt, Cleowyn's spirit whispers to you -
+060C: 'My thanks to you. You certainly took your time finding my bones. Here is the Netherworld Medallion. Now go away and don't bother me again.'
+0699: There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
+0767: You find the Crypt of King Cleowyn and open it. Inside is the Sword of the Crypt, the Mourning Star, the Bow of Sorrow, and Galabryan Chainmail.
+07F8: Polar Bears wander the empty room.
+081B: A Polar Bear plays with a pile of stuff.
+0844: Hell Wolves snarl at you.
+085E: A Hell Wolf kicks an object aside as it leaps at you.
+0894: This gateway leads to THE GREAT CORRIDOR.
+08BE: There is a teleport in the east wall.
+08E4: There is a teleport in the west wall.
+090A: You encounter a Gremlin Cleric.
+092A: Listen carefully, friend. Be careful where you place the possessions Cleowyn demands. Use Crown before Robe before Scepter.
+09A6: Someone in your group must always remain in the Mausoleum until all three items are placed and the tomb is opened.
+0A19: Otherwise, imps will steal the treasures away and hide them again.  They love to torment adventurers and Cleowyn's spirit.
+0A94: Remember to leave one person at all times and to reform your group before continuing your quest.
+0AF5: The Gremlin Cleric turns away as you approach her.
+0B28: You encounter a Halfling Knight.
+0B49: The longest routes through this Mausoleum are the least rewarding.
+0B8C: The Halfling Knight looks at you once and then continues polishing her shield.
+0BDB: You encounter an Elf Ranger.
+0BF8: The night the volcano erupted, the wizard Arnakkian Slowfoot threw a great feast. All who attended died in the eruption. They died at their games of cards and gambling. Some, it is said, were transformed into the monsters who inhabit the dungeon.
+0CEF: The Elf Ranger abruptly walks away.
+0D13: You encounter a Gnome Barbarian.
+0D34: Cleowyn's bones are guarded by the Snow Elves, I have heard. Whether or not it is worth returning the king's bones to the Mausoleum is much debated, for the imps will seize them again and return them to the elves.
+0E0A: The Gnome Barbarian opens his mouth to speak, but he forgets what he planned to say.
+0E5F: You encounter a Human Thief.
+0E7C: If you find King Cleowyn's quarters, you will find a shortcut back to his Palace. Be careful where you tread, lest you leave his quarters unrewarded.
+0F12: The Human Thief darts away as you approach.

@@ -1,0 +1,28 @@
+0000: You succeeded at opening the locked door.
+002A: The door is locked.
+003E: Your attempt to open the door springs a trap. Dozens of darts attack you.
+0088: The key unlocked the massive door, bypassing a well hidden trap.
+00C9: The Palace doors are locked.  Only the Palace key will open these doors.
+0112: Runes can be seen on the tapestry...
+0137: None shall pass save one who holds the Key to the Palace.
+0171: The stairs through the west gateway lead up a level.
+01A6: Through the north gateway are stairs going up to the next level.
+01E7: The stairs to the east lead downstairs.
+020F: The stairs past the north gateway go down a level.
+0242: The gateway leads to THE PALACE OF KING CLEOWYN.
+0273: You encounter a Dwarf Thief.
+0290: The palace doors are locked. Somewhere on the first level is the object that will open these doors.
+02F4: The Dwarf Thief is too busy removing darts from his leather shield to answer you.
+0346: You encounter a Halfling Ranger.
+0367: I know there are three secret areas on this level, but they cannot be entered from this corridor.
+03C9: The Halfling Ranger waves you away in annoyance.
+03FA: You encounter a Dwarf Wizard.
+0418: Not all traps should be by-passed. I fell through one and, after some nosing around and polishing off some bothersome rogues and monsters, found a most useful key.
+04BC: The Dwarf Wizard disappears in a puff of smoke.
+04EC: You encounter an Orc Knight.
+0509: King Cleowyn's Palace is an evil place, filled with the spirits of the tormented dead.  A cleric told me to look for an asymmetry in the Palace if I wished to learn the truth about the dead king.
+05CD: The Orc Knight pretends not to hear you.
+05F6: You encounter a Halfling Cleric.
+0617: On the next level down you will find a dwarf by the name of Deldwinn.  He guards the entrance to King Cleowyn's Apartments.
+0693: Do not try to fight Deldwinn, for he is enchanted and cannot be killed by mortals.
+06E6: The Halfling Cleric mumbles his prayers.

@@ -1,0 +1,2624 @@
+Functn00:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x3fc
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xf8]
+000F: pop cx
+0010: les bx, [bp+0x6]
+0013: call far word [es:bx+0x74]
+0017: push ax
+0018: les bx, [bp+0x6]
+001B: call far word [es:bx+0x90]
+0020: pop cx
+0021: pop bp
+0022: retf
+Functn01:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x1
+0006: push ax
+0007: mov ax, 0x4f
+000A: push ax
+000B: mov ax, 0x1
+000E: push ax
+000F: mov ax, 0x35
+0012: push ax
+0013: les bx, [bp+0x6]
+0016: call far word [es:bx+0xbc]
+001B: add sp, 0x8
+001E: pop bp
+001F: retf
+Functn02:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x425
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xf8]
+000F: pop cx
+0010: mov ax, 0x2
+0013: push ax
+0014: mov ax, 0x40
+0017: push ax
+0018: mov ax, 0x2
+001B: push ax
+001C: mov ax, 0x36
+001F: push ax
+0020: les bx, [bp+0x6]
+0023: call far word [es:bx+0xbc]
+0028: add sp, 0x8
+002B: pop bp
+002C: retf
+Functn03:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x2
+0006: push ax
+0007: mov ax, 0xf6
+000A: push ax
+000B: mov ax, 0x1
+000E: push ax
+000F: mov ax, 0x35
+0012: push ax
+0013: les bx, [bp+0x6]
+0016: call far word [es:bx+0xbc]
+001B: add sp, 0x8
+001E: pop bp
+001F: retf
+Functn04:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x45b
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xf8]
+000F: pop cx
+0010: pop bp
+0011: retf
+Functn05:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x49c
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xf8]
+000F: pop cx
+0010: pop bp
+0011: retf
+Functn06:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x4e3
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xf8]
+000F: pop cx
+0010: pop bp
+0011: retf
+Functn07:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn08:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x539
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xf8]
+000F: pop cx
+0010: pop bp
+0011: retf
+Functn09:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn0A:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn0B:
+0000: push bp
+0001: mov bp, sp
+0003: xor ax, ax
+0005: push ax
+0006: les bx, [bp+0x6]
+0009: call far word [es:bx+0xa4]
+000E: pop cx
+000F: cmp ax, 0x14
+0012: jb 0x41
+0014: mov ax, 0x586
+0017: push ax
+0018: les bx, [bp+0x6]
+001B: call far word [es:bx+0xf8]
+0020: pop cx
+0021: mov ax, 0x1
+0024: push ax
+0025: les bx, [bp+0x6]
+0028: call far word [es:bx+0x24]
+002C: push ax
+002D: les bx, [bp+0x6]
+0030: call far word [es:bx+0x20]
+0034: push ax
+0035: les bx, [bp+0x6]
+0038: call far word [es:bx+0x2c]
+003C: add sp, 0x6
+003F: jmp 0x4e
+0041: mov ax, 0x5c0
+0044: push ax
+0045: les bx, [bp+0x6]
+0048: call far word [es:bx+0xf8]
+004D: pop cx
+004E: pop bp
+004F: retf
+Functn0C:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn0D:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn0E:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn0F:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x1
+0006: push ax
+0007: mov ax, 0x57
+000A: push ax
+000B: mov ax, 0x2
+000E: push ax
+000F: les bx, [bp+0x6]
+0012: call far word [es:bx]
+0015: add sp, 0x6
+0018: mov ax, 0x5e5
+001B: push ax
+001C: les bx, [bp+0x6]
+001F: call far word [es:bx+0xf8]
+0024: pop cx
+0025: mov ax, 0x5f6
+0028: push ax
+0029: les bx, [bp+0x6]
+002C: call far word [es:bx+0xf8]
+0031: pop cx
+0032: mov ax, 0x2
+0035: push ax
+0036: les bx, [bp+0x6]
+0039: call far word [es:bx+0x20]
+003D: push ax
+003E: mov ax, 0x1
+0041: push ax
+0042: mov ax, 0x33
+0045: push ax
+0046: les bx, [bp+0x6]
+0049: call far word [es:bx+0xbc]
+004E: add sp, 0x8
+0051: pop bp
+0052: retf
+Functn10:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x682
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xf8]
+000F: pop cx
+0010: les bx, [bp+0x6]
+0013: call far word [es:bx+0x74]
+0017: mov bx, 0x4
+001A: cwd
+001B: idiv bx
+001D: push ax
+001E: les bx, [bp+0x6]
+0021: call far word [es:bx+0x90]
+0026: pop cx
+0027: les bx, [bp+0x6]
+002A: call far word [es:bx+0x70]
+002E: or ax, ax
+0030: ja 0x3f
+0032: mov ax, 0x6bf
+0035: push ax
+0036: les bx, [bp+0x6]
+0039: call far word [es:bx+0xf8]
+003E: pop cx
+003F: pop bp
+0040: retf
+Functn11:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x85
+0006: push ax
+0007: mov ax, 0x2
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0x8]
+0012: pop cx
+0013: pop cx
+0014: or ax, ax
+0016: jz 0x28
+0018: mov ax, 0x6ce
+001B: push ax
+001C: les bx, [bp+0x6]
+001F: call far word [es:bx+0xf8]
+0024: pop cx
+0025: jmp 0xa7
+0028: mov ax, 0x86
+002B: push ax
+002C: mov ax, 0x2
+002F: push ax
+0030: les bx, [bp+0x6]
+0033: call far word [es:bx+0x8]
+0037: pop cx
+0038: pop cx
+0039: or ax, ax
+003B: jz 0x8d
+003D: mov ax, 0x704
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xf8]
+0049: pop cx
+004A: mov ax, 0x753
+004D: push ax
+004E: les bx, [bp+0x6]
+0051: call far word [es:bx+0xf8]
+0056: pop cx
+0057: mov ax, 0x1
+005A: push ax
+005B: mov ax, 0x2
+005E: push ax
+005F: les bx, [bp+0x6]
+0062: call far word [es:bx+0x20]
+0066: push ax
+0067: les bx, [bp+0x6]
+006A: call far word [es:bx+0x2c]
+006E: add sp, 0x6
+0071: mov ax, 0x2
+0074: push ax
+0075: les bx, [bp+0x6]
+0078: call far word [es:bx+0x20]
+007C: push ax
+007D: mov ax, 0x1
+0080: push ax
+0081: les bx, [bp+0x6]
+0084: call far word [es:bx+0x30]
+0088: add sp, 0x6
+008B: jmp 0xa7
+008D: mov ax, 0x781
+0090: push ax
+0091: les bx, [bp+0x6]
+0094: call far word [es:bx+0xf8]
+0099: pop cx
+009A: mov ax, 0x7b6
+009D: push ax
+009E: les bx, [bp+0x6]
+00A1: call far word [es:bx+0xf8]
+00A6: pop cx
+00A7: pop bp
+00A8: retf
+Functn12:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0xe
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0xe
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: mov ax, 0x25
+002A: push ax
+002B: mov ax, 0x3
+002E: push ax
+002F: les bx, [bp+0x6]
+0032: call far word [es:bx+0xd4]
+0037: pop cx
+0038: pop cx
+0039: mov ax, 0x25
+003C: push ax
+003D: mov ax, 0x4
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xd4]
+0049: pop cx
+004A: pop cx
+004B: mov ax, 0x26
+004E: push ax
+004F: mov ax, 0x6
+0052: push ax
+0053: les bx, [bp+0x6]
+0056: call far word [es:bx+0xd4]
+005B: pop cx
+005C: pop cx
+005D: pop bp
+005E: retf
+Functn13:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x19
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0x19
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: mov ax, 0x19
+002A: push ax
+002B: mov ax, 0x3
+002E: push ax
+002F: les bx, [bp+0x6]
+0032: call far word [es:bx+0xd4]
+0037: pop cx
+0038: pop cx
+0039: mov ax, 0x19
+003C: push ax
+003D: mov ax, 0x4
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xd4]
+0049: pop cx
+004A: pop cx
+004B: pop bp
+004C: retf
+Functn14:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x19
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0x19
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: mov ax, 0x1a
+002A: push ax
+002B: mov ax, 0x3
+002E: push ax
+002F: les bx, [bp+0x6]
+0032: call far word [es:bx+0xd4]
+0037: pop cx
+0038: pop cx
+0039: mov ax, 0x1a
+003C: push ax
+003D: mov ax, 0x4
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xd4]
+0049: pop cx
+004A: pop cx
+004B: mov ax, 0x1388
+004E: push ax
+004F: xor ax, ax
+0051: push ax
+0052: xor ax, ax
+0054: push ax
+0055: xor ax, ax
+0057: push ax
+0058: xor ax, ax
+005A: push ax
+005B: mov ax, 0x71
+005E: push ax
+005F: les bx, [bp+0x6]
+0062: call far word [es:bx+0xd8]
+0067: add sp, 0xc
+006A: pop bp
+006B: retf
+Functn15:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x19
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0x19
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: mov ax, 0x18
+002A: push ax
+002B: mov ax, 0x3
+002E: push ax
+002F: les bx, [bp+0x6]
+0032: call far word [es:bx+0xd4]
+0037: pop cx
+0038: pop cx
+0039: mov ax, 0x18
+003C: push ax
+003D: mov ax, 0x4
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xd4]
+0049: pop cx
+004A: pop cx
+004B: mov ax, 0x1a
+004E: push ax
+004F: mov ax, 0x5
+0052: push ax
+0053: les bx, [bp+0x6]
+0056: call far word [es:bx+0xd4]
+005B: pop cx
+005C: pop cx
+005D: mov ax, 0x1a
+0060: push ax
+0061: mov ax, 0x6
+0064: push ax
+0065: les bx, [bp+0x6]
+0068: call far word [es:bx+0xd4]
+006D: pop cx
+006E: pop cx
+006F: pop bp
+0070: retf
+Functn16:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x24
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0x24
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: pop bp
+0028: retf
+Functn17:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x1b
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0x1b
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: mov ax, 0x1c
+002A: push ax
+002B: mov ax, 0x3
+002E: push ax
+002F: les bx, [bp+0x6]
+0032: call far word [es:bx+0xd4]
+0037: pop cx
+0038: pop cx
+0039: mov ax, 0x1c
+003C: push ax
+003D: mov ax, 0x4
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xd4]
+0049: pop cx
+004A: pop cx
+004B: pop bp
+004C: retf
+Functn18:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x1c
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0x1c
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: mov ax, 0x1c
+002A: push ax
+002B: mov ax, 0x3
+002E: push ax
+002F: les bx, [bp+0x6]
+0032: call far word [es:bx+0xd4]
+0037: pop cx
+0038: pop cx
+0039: mov ax, 0x1c
+003C: push ax
+003D: mov ax, 0x4
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xd4]
+0049: pop cx
+004A: pop cx
+004B: mov ax, 0x1388
+004E: push ax
+004F: xor ax, ax
+0051: push ax
+0052: xor ax, ax
+0054: push ax
+0055: xor ax, ax
+0057: push ax
+0058: xor ax, ax
+005A: push ax
+005B: mov ax, 0x76
+005E: push ax
+005F: les bx, [bp+0x6]
+0062: call far word [es:bx+0xd8]
+0067: add sp, 0xc
+006A: pop bp
+006B: retf
+Functn19:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0xf
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0x10
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: mov ax, 0x11
+002A: push ax
+002B: mov ax, 0x3
+002E: push ax
+002F: les bx, [bp+0x6]
+0032: call far word [es:bx+0xd4]
+0037: pop cx
+0038: pop cx
+0039: mov ax, 0x1c
+003C: push ax
+003D: mov ax, 0x4
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xd4]
+0049: pop cx
+004A: pop cx
+004B: mov ax, 0xef
+004E: push ax
+004F: les bx, [bp+0x6]
+0052: call far word [es:bx+0x50]
+0056: pop cx
+0057: or ax, ax
+0059: jz 0x7c
+005B: mov ax, 0x3e8
+005E: push ax
+005F: xor ax, ax
+0061: push ax
+0062: xor ax, ax
+0064: push ax
+0065: xor ax, ax
+0067: push ax
+0068: xor ax, ax
+006A: push ax
+006B: mov ax, 0xd0
+006E: push ax
+006F: les bx, [bp+0x6]
+0072: call far word [es:bx+0xd8]
+0077: add sp, 0xc
+007A: jmp 0x9b
+007C: mov ax, 0x1388
+007F: push ax
+0080: xor ax, ax
+0082: push ax
+0083: xor ax, ax
+0085: push ax
+0086: xor ax, ax
+0088: push ax
+0089: xor ax, ax
+008B: push ax
+008C: mov ax, 0xef
+008F: push ax
+0090: les bx, [bp+0x6]
+0093: call far word [es:bx+0xd8]
+0098: add sp, 0xc
+009B: pop bp
+009C: retf
+Functn1A:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x7d3
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xf8]
+000F: pop cx
+0010: mov ax, 0x3
+0013: push ax
+0014: mov ax, 0x1a
+0017: push ax
+0018: mov ax, 0x1
+001B: push ax
+001C: mov ax, 0x37
+001F: push ax
+0020: les bx, [bp+0x6]
+0023: call far word [es:bx+0xbc]
+0028: add sp, 0x8
+002B: pop bp
+002C: retf
+Functn1B:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x2d
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xfc]
+000F: pop cx
+0010: mov ax, 0x810
+0013: push ax
+0014: les bx, [bp+0x6]
+0017: call far word [es:bx+0xf8]
+001C: pop cx
+001D: mov ax, 0x85
+0020: push ax
+0021: mov ax, 0x2
+0024: push ax
+0025: les bx, [bp+0x6]
+0028: call far word [es:bx+0x8]
+002C: pop cx
+002D: pop cx
+002E: or ax, ax
+0030: jz 0x4e
+0032: mov ax, 0x82b
+0035: push ax
+0036: les bx, [bp+0x6]
+0039: call far word [es:bx+0xf8]
+003E: pop cx
+003F: mov ax, 0x863
+0042: push ax
+0043: les bx, [bp+0x6]
+0046: call far word [es:bx+0xf8]
+004B: pop cx
+004C: jmp 0x97
+004E: mov ax, 0x88c
+0051: push ax
+0052: les bx, [bp+0x6]
+0055: call far word [es:bx+0xf8]
+005A: pop cx
+005B: mov ax, 0x8f0
+005E: push ax
+005F: les bx, [bp+0x6]
+0062: call far word [es:bx+0xf8]
+0067: pop cx
+0068: mov ax, 0x922
+006B: push ax
+006C: les bx, [bp+0x6]
+006F: call far word [es:bx+0xf8]
+0074: pop cx
+0075: mov ax, 0x969
+0078: push ax
+0079: les bx, [bp+0x6]
+007C: call far word [es:bx+0xf8]
+0081: pop cx
+0082: mov ax, 0x1
+0085: push ax
+0086: mov ax, 0x86
+0089: push ax
+008A: mov ax, 0x2
+008D: push ax
+008E: les bx, [bp+0x6]
+0091: call far word [es:bx]
+0094: add sp, 0x6
+0097: pop bp
+0098: retf
+Functn1C:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x29
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xfc]
+000F: pop cx
+0010: mov ax, 0x99c
+0013: push ax
+0014: les bx, [bp+0x6]
+0017: call far word [es:bx+0xf8]
+001C: pop cx
+001D: mov ax, 0x9cf
+0020: push ax
+0021: les bx, [bp+0x6]
+0024: call far word [es:bx+0xf8]
+0029: pop cx
+002A: pop bp
+002B: retf
+Functn1D:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x1c
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xfc]
+000F: pop cx
+0010: mov ax, 0xa10
+0013: push ax
+0014: les bx, [bp+0x6]
+0017: call far word [es:bx+0xf8]
+001C: pop cx
+001D: mov ax, 0xa43
+0020: push ax
+0021: les bx, [bp+0x6]
+0024: call far word [es:bx+0xf8]
+0029: pop cx
+002A: pop bp
+002B: retf
+Functn1E:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x2d
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xfc]
+000F: pop cx
+0010: mov ax, 0xa89
+0013: push ax
+0014: les bx, [bp+0x6]
+0017: call far word [es:bx+0xf8]
+001C: pop cx
+001D: mov ax, 0xaaa
+0020: push ax
+0021: les bx, [bp+0x6]
+0024: call far word [es:bx+0xf8]
+0029: pop cx
+002A: pop bp
+002B: retf
+Functn1F:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x1f
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xfc]
+000F: pop cx
+0010: mov ax, 0xb27
+0013: push ax
+0014: les bx, [bp+0x6]
+0017: call far word [es:bx+0xf8]
+001C: pop cx
+001D: mov ax, 0xb54
+0020: push ax
+0021: les bx, [bp+0x6]
+0024: call far word [es:bx+0xf8]
+0029: pop cx
+002A: pop bp
+002B: retf
+Functn20:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x5e
+0006: push ax
+0007: mov ax, 0x2
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0x4]
+0012: pop cx
+0013: pop cx
+0014: or ax, ax
+0016: jnz 0x63
+0018: mov ax, 0x1
+001B: push ax
+001C: mov ax, 0x5e
+001F: push ax
+0020: mov ax, 0x2
+0023: push ax
+0024: les bx, [bp+0x6]
+0027: call far word [es:bx]
+002A: add sp, 0x6
+002D: mov ax, 0x1
+0030: push ax
+0031: mov ax, 0x85
+0034: push ax
+0035: mov ax, 0x2
+0038: push ax
+0039: les bx, [bp+0x6]
+003C: call far word [es:bx]
+003F: add sp, 0x6
+0042: mov ax, 0xc8
+0045: push ax
+0046: mov ax, 0x4
+0049: push ax
+004A: les bx, [bp+0x6]
+004D: call far word [es:bx+0xa8]
+0052: pop cx
+0053: pop cx
+0054: mov ax, 0xbad
+0057: push ax
+0058: les bx, [bp+0x6]
+005B: call far word [es:bx+0xf8]
+0060: pop cx
+0061: jmp 0x70
+0063: mov ax, 0xbdb
+0066: push ax
+0067: les bx, [bp+0x6]
+006A: call far word [es:bx+0xf8]
+006F: pop cx
+0070: pop bp
+0071: retf
+Functn21:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn22:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn23:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x16
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xfc]
+000F: pop cx
+0010: mov ax, 0xbec
+0013: push ax
+0014: les bx, [bp+0x6]
+0017: call far word [es:bx+0xf8]
+001C: pop cx
+001D: mov ax, 0xc2c
+0020: push ax
+0021: les bx, [bp+0x6]
+0024: call far word [es:bx+0xf8]
+0029: pop cx
+002A: mov ax, 0xc6d
+002D: push ax
+002E: les bx, [bp+0x6]
+0031: call far word [es:bx+0xf8]
+0036: pop cx
+0037: mov ax, 0xcd8
+003A: push ax
+003B: les bx, [bp+0x6]
+003E: call far word [es:bx+0xf8]
+0043: pop cx
+0044: pop bp
+0045: retf
+Functn24:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x5f
+0006: push ax
+0007: mov ax, 0x2
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0x4]
+0012: pop cx
+0013: pop cx
+0014: or ax, ax
+0016: jz 0x1b
+0018: jmp 0x11a
+001B: mov ax, 0x1
+001E: push ax
+001F: mov ax, 0x5f
+0022: push ax
+0023: mov ax, 0x2
+0026: push ax
+0027: les bx, [bp+0x6]
+002A: call far word [es:bx]
+002D: add sp, 0x6
+0030: mov ax, 0x42
+0033: push ax
+0034: les bx, [bp+0x6]
+0037: call far word [es:bx+0xfc]
+003C: pop cx
+003D: mov ax, 0xd17
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xf8]
+0049: pop cx
+004A: mov ax, 0x14
+004D: push ax
+004E: les bx, [bp+0x6]
+0051: call far word [es:bx+0x5c]
+0055: pop cx
+0056: or ax, ax
+0058: jnz 0x7b
+005A: mov ax, 0x1
+005D: push ax
+005E: mov ax, 0x14
+0061: push ax
+0062: les bx, [bp+0x6]
+0065: call far word [es:bx+0x60]
+0069: pop cx
+006A: pop cx
+006B: mov ax, 0xd4e
+006E: push ax
+006F: les bx, [bp+0x6]
+0072: call far word [es:bx+0xf8]
+0077: pop cx
+0078: jmp 0x118
+007B: mov ax, 0x16
+007E: push ax
+007F: les bx, [bp+0x6]
+0082: call far word [es:bx+0x5c]
+0086: pop cx
+0087: or ax, ax
+0089: jnz 0xab
+008B: mov ax, 0x1
+008E: push ax
+008F: mov ax, 0x16
+0092: push ax
+0093: les bx, [bp+0x6]
+0096: call far word [es:bx+0x60]
+009A: pop cx
+009B: pop cx
+009C: mov ax, 0xd72
+009F: push ax
+00A0: les bx, [bp+0x6]
+00A3: call far word [es:bx+0xf8]
+00A8: pop cx
+00A9: jmp 0x118
+00AB: mov ax, 0x15
+00AE: push ax
+00AF: les bx, [bp+0x6]
+00B2: call far word [es:bx+0x5c]
+00B6: pop cx
+00B7: or ax, ax
+00B9: jnz 0xdb
+00BB: mov ax, 0x1
+00BE: push ax
+00BF: mov ax, 0x15
+00C2: push ax
+00C3: les bx, [bp+0x6]
+00C6: call far word [es:bx+0x60]
+00CA: pop cx
+00CB: pop cx
+00CC: mov ax, 0xd8e
+00CF: push ax
+00D0: les bx, [bp+0x6]
+00D3: call far word [es:bx+0xf8]
+00D8: pop cx
+00D9: jmp 0x118
+00DB: mov ax, 0x17
+00DE: push ax
+00DF: les bx, [bp+0x6]
+00E2: call far word [es:bx+0x5c]
+00E6: pop cx
+00E7: or ax, ax
+00E9: jnz 0x10b
+00EB: mov ax, 0x1
+00EE: push ax
+00EF: mov ax, 0x17
+00F2: push ax
+00F3: les bx, [bp+0x6]
+00F6: call far word [es:bx+0x60]
+00FA: pop cx
+00FB: pop cx
+00FC: mov ax, 0xda8
+00FF: push ax
+0100: les bx, [bp+0x6]
+0103: call far word [es:bx+0xf8]
+0108: pop cx
+0109: jmp 0x118
+010B: mov ax, 0xdc8
+010E: push ax
+010F: les bx, [bp+0x6]
+0112: call far word [es:bx+0xf8]
+0117: pop cx
+0118: jmp 0x127
+011A: mov ax, 0xdd9
+011D: push ax
+011E: les bx, [bp+0x6]
+0121: call far word [es:bx+0xf8]
+0126: pop cx
+0127: pop bp
+0128: retf
+Functn25:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x1e
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0x1e
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: mov ax, 0x25
+002A: push ax
+002B: mov ax, 0x3
+002E: push ax
+002F: les bx, [bp+0x6]
+0032: call far word [es:bx+0xd4]
+0037: pop cx
+0038: pop cx
+0039: mov ax, 0x25
+003C: push ax
+003D: mov ax, 0x4
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xd4]
+0049: pop cx
+004A: pop cx
+004B: mov ax, 0x1f
+004E: push ax
+004F: mov ax, 0x5
+0052: push ax
+0053: les bx, [bp+0x6]
+0056: call far word [es:bx+0xd4]
+005B: pop cx
+005C: pop cx
+005D: mov ax, 0x1f
+0060: push ax
+0061: mov ax, 0x6
+0064: push ax
+0065: les bx, [bp+0x6]
+0068: call far word [es:bx+0xd4]
+006D: pop cx
+006E: pop cx
+006F: pop bp
+0070: retf
+Functn26:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn27:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn28:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn29:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0xe3b
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xf8]
+000F: pop cx
+0010: mov ax, 0xe5f
+0013: push ax
+0014: les bx, [bp+0x6]
+0017: call far word [es:bx+0xf4]
+001C: pop cx
+001D: pop bp
+001E: retf
+Functn2A:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x42
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xfc]
+000F: pop cx
+0010: mov ax, 0xebc
+0013: push ax
+0014: les bx, [bp+0x6]
+0017: call far word [es:bx+0xf8]
+001C: pop cx
+001D: mov ax, 0x60
+0020: push ax
+0021: mov ax, 0x2
+0024: push ax
+0025: les bx, [bp+0x6]
+0028: call far word [es:bx+0x4]
+002C: pop cx
+002D: pop cx
+002E: or ax, ax
+0030: jz 0x35
+0032: jmp 0x118
+0035: mov ax, 0x1
+0038: push ax
+0039: mov ax, 0x60
+003C: push ax
+003D: mov ax, 0x2
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx]
+0047: add sp, 0x6
+004A: mov ax, 0x9
+004D: push ax
+004E: les bx, [bp+0x6]
+0051: call far word [es:bx+0x5c]
+0055: pop cx
+0056: or ax, ax
+0058: jnz 0x7b
+005A: mov ax, 0x2
+005D: push ax
+005E: mov ax, 0x9
+0061: push ax
+0062: les bx, [bp+0x6]
+0065: call far word [es:bx+0x60]
+0069: pop cx
+006A: pop cx
+006B: mov ax, 0xef6
+006E: push ax
+006F: les bx, [bp+0x6]
+0072: call far word [es:bx+0xf8]
+0077: pop cx
+0078: jmp 0x118
+007B: mov ax, 0xa
+007E: push ax
+007F: les bx, [bp+0x6]
+0082: call far word [es:bx+0x5c]
+0086: pop cx
+0087: or ax, ax
+0089: jnz 0xab
+008B: mov ax, 0x2
+008E: push ax
+008F: mov ax, 0xa
+0092: push ax
+0093: les bx, [bp+0x6]
+0096: call far word [es:bx+0x60]
+009A: pop cx
+009B: pop cx
+009C: mov ax, 0xf15
+009F: push ax
+00A0: les bx, [bp+0x6]
+00A3: call far word [es:bx+0xf8]
+00A8: pop cx
+00A9: jmp 0x118
+00AB: mov ax, 0xb
+00AE: push ax
+00AF: les bx, [bp+0x6]
+00B2: call far word [es:bx+0x5c]
+00B6: pop cx
+00B7: or ax, ax
+00B9: jnz 0xdb
+00BB: mov ax, 0x2
+00BE: push ax
+00BF: mov ax, 0xb
+00C2: push ax
+00C3: les bx, [bp+0x6]
+00C6: call far word [es:bx+0x60]
+00CA: pop cx
+00CB: pop cx
+00CC: mov ax, 0xf38
+00CF: push ax
+00D0: les bx, [bp+0x6]
+00D3: call far word [es:bx+0xf8]
+00D8: pop cx
+00D9: jmp 0x118
+00DB: mov ax, 0x8
+00DE: push ax
+00DF: les bx, [bp+0x6]
+00E2: call far word [es:bx+0x5c]
+00E6: pop cx
+00E7: or ax, ax
+00E9: jnz 0x10b
+00EB: mov ax, 0x2
+00EE: push ax
+00EF: mov ax, 0x8
+00F2: push ax
+00F3: les bx, [bp+0x6]
+00F6: call far word [es:bx+0x60]
+00FA: pop cx
+00FB: pop cx
+00FC: mov ax, 0xf5e
+00FF: push ax
+0100: les bx, [bp+0x6]
+0103: call far word [es:bx+0xf8]
+0108: pop cx
+0109: jmp 0x118
+010B: mov ax, 0xf7d
+010E: push ax
+010F: les bx, [bp+0x6]
+0112: call far word [es:bx+0xf8]
+0117: pop cx
+0118: pop bp
+0119: retf
+Functn2B:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x17
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0x17
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: mov ax, 0x20
+002A: push ax
+002B: mov ax, 0x4
+002E: push ax
+002F: les bx, [bp+0x6]
+0032: call far word [es:bx+0xd4]
+0037: pop cx
+0038: pop cx
+0039: mov ax, 0x17
+003C: push ax
+003D: mov ax, 0x5
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xd4]
+0049: pop cx
+004A: pop cx
+004B: mov ax, 0x17
+004E: push ax
+004F: mov ax, 0x6
+0052: push ax
+0053: les bx, [bp+0x6]
+0056: call far word [es:bx+0xd4]
+005B: pop cx
+005C: pop cx
+005D: pop bp
+005E: retf
+Functn2C:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x1d
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0x1d
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: mov ax, 0x1d
+002A: push ax
+002B: mov ax, 0x4
+002E: push ax
+002F: les bx, [bp+0x6]
+0032: call far word [es:bx+0xd4]
+0037: pop cx
+0038: pop cx
+0039: mov ax, 0x1d
+003C: push ax
+003D: mov ax, 0x6
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xd4]
+0049: pop cx
+004A: pop cx
+004B: pop bp
+004C: retf
+Functn2D:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x18
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0x18
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: mov ax, 0x22
+002A: push ax
+002B: mov ax, 0x3
+002E: push ax
+002F: les bx, [bp+0x6]
+0032: call far word [es:bx+0xd4]
+0037: pop cx
+0038: pop cx
+0039: mov ax, 0x22
+003C: push ax
+003D: mov ax, 0x4
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xd4]
+0049: pop cx
+004A: pop cx
+004B: pop bp
+004C: retf
+Functn2E:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x1d
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0x1d
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: mov ax, 0x1d
+002A: push ax
+002B: mov ax, 0x4
+002E: push ax
+002F: les bx, [bp+0x6]
+0032: call far word [es:bx+0xd4]
+0037: pop cx
+0038: pop cx
+0039: mov ax, 0x18
+003C: push ax
+003D: mov ax, 0x5
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xd4]
+0049: pop cx
+004A: pop cx
+004B: mov ax, 0x18
+004E: push ax
+004F: mov ax, 0x6
+0052: push ax
+0053: les bx, [bp+0x6]
+0056: call far word [es:bx+0xd4]
+005B: pop cx
+005C: pop cx
+005D: pop bp
+005E: retf
+Functn2F:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x21
+0006: push ax
+0007: mov ax, 0x1
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0xd4]
+0013: pop cx
+0014: pop cx
+0015: mov ax, 0x21
+0018: push ax
+0019: mov ax, 0x2
+001C: push ax
+001D: les bx, [bp+0x6]
+0020: call far word [es:bx+0xd4]
+0025: pop cx
+0026: pop cx
+0027: mov ax, 0x21
+002A: push ax
+002B: mov ax, 0x4
+002E: push ax
+002F: les bx, [bp+0x6]
+0032: call far word [es:bx+0xd4]
+0037: pop cx
+0038: pop cx
+0039: mov ax, 0xa
+003C: push ax
+003D: mov ax, 0x5
+0040: push ax
+0041: les bx, [bp+0x6]
+0044: call far word [es:bx+0xd4]
+0049: pop cx
+004A: pop cx
+004B: mov ax, 0x21
+004E: push ax
+004F: mov ax, 0x6
+0052: push ax
+0053: les bx, [bp+0x6]
+0056: call far word [es:bx+0xd4]
+005B: pop cx
+005C: pop cx
+005D: pop bp
+005E: retf
+Functn30:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn31:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn32:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn33:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn34:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0xfae
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xf8]
+000F: pop cx
+0010: mov ax, 0xfcd
+0013: push ax
+0014: les bx, [bp+0x6]
+0017: call far word [es:bx+0xf8]
+001C: pop cx
+001D: pop bp
+001E: retf
+Functn35:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x16
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xfc]
+000F: pop cx
+0010: mov ax, 0x100d
+0013: push ax
+0014: les bx, [bp+0x6]
+0017: call far word [es:bx+0xf8]
+001C: pop cx
+001D: mov ax, 0x103e
+0020: push ax
+0021: les bx, [bp+0x6]
+0024: call far word [es:bx+0xf8]
+0029: pop cx
+002A: mov ax, 0x1060
+002D: push ax
+002E: les bx, [bp+0x6]
+0031: call far word [es:bx+0xf8]
+0036: pop cx
+0037: mov ax, 0x1088
+003A: push ax
+003B: les bx, [bp+0x6]
+003E: call far word [es:bx+0xf8]
+0043: pop cx
+0044: pop bp
+0045: retf
+Functn36:
+0000: push bp
+0001: mov bp, sp
+0003: les bx, [bp+0x6]
+0006: call far word [es:bx+0x74]
+000A: push ax
+000B: les bx, [bp+0x6]
+000E: call far word [es:bx+0x94]
+0013: pop cx
+0014: mov ax, 0x42
+0017: push ax
+0018: les bx, [bp+0x6]
+001B: call far word [es:bx+0xfc]
+0020: pop cx
+0021: mov ax, 0x10a8
+0024: push ax
+0025: les bx, [bp+0x6]
+0028: call far word [es:bx+0xf8]
+002D: pop cx
+002E: pop bp
+002F: retf
+Functn37:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x2710
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xb4]
+000F: pop cx
+0010: mov ax, 0x42
+0013: push ax
+0014: les bx, [bp+0x6]
+0017: call far word [es:bx+0xfc]
+001C: pop cx
+001D: mov ax, 0x10d0
+0020: push ax
+0021: les bx, [bp+0x6]
+0024: call far word [es:bx+0xf8]
+0029: pop cx
+002A: pop bp
+002B: retf
+Functn38:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn39:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn3A:
+0000: push bp
+0001: mov bp, sp
+0003: mov ax, 0x11
+0006: push ax
+0007: les bx, [bp+0x6]
+000A: call far word [es:bx+0xfc]
+000F: pop cx
+0010: mov ax, 0x10f6
+0013: push ax
+0014: les bx, [bp+0x6]
+0017: call far word [es:bx+0xf8]
+001C: pop cx
+001D: mov ax, 0x110c
+0020: push ax
+0021: les bx, [bp+0x6]
+0024: call far word [es:bx+0xf8]
+0029: pop cx
+002A: mov ax, 0x1150
+002D: push ax
+002E: les bx, [bp+0x6]
+0031: call far word [es:bx+0xf8]
+0036: pop cx
+0037: les bx, [bp+0x6]
+003A: call far word [es:bx+0x70]
+003E: mov bx, 0x2
+0041: cwd
+0042: idiv bx
+0044: push ax
+0045: les bx, [bp+0x6]
+0048: call far word [es:bx+0x90]
+004D: pop cx
+004E: les bx, [bp+0x6]
+0051: call far word [es:bx+0x70]
+0055: or ax, ax
+0057: ja 0x66
+0059: mov ax, 0x1178
+005C: push ax
+005D: les bx, [bp+0x6]
+0060: call far word [es:bx+0xf8]
+0065: pop cx
+0066: pop bp
+0067: retf
+Functn3B:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn3C:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn3D:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn3E:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn3F:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn40:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn41:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn42:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn43:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn44:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn45:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn46:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn47:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn48:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn49:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn4A:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn4B:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn4C:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn4D:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn4E:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn4F:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn50:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn51:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn52:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn53:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn54:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn55:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn56:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn57:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn58:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn59:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn5A:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn5B:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn5C:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn5D:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn5E:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn5F:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn60:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn61:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn62:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn63:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn64:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn65:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn66:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn67:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn68:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn69:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn6A:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn6B:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn6C:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn6D:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn6E:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn6F:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn70:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn71:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn72:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn73:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn74:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn75:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn76:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn77:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn78:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn79:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn7A:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn7B:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn7C:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn7D:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn7E:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn7F:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn80:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn81:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn82:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn83:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn84:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn85:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn86:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn87:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn88:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn89:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn8A:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn8B:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn8C:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn8D:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn8E:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn8F:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn90:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn91:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn92:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn93:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn94:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn95:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn96:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn97:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn98:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn99:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn9A:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn9B:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn9C:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn9D:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn9E:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+Functn9F:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnA0:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnA1:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnA2:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnA3:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnA4:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnA5:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnA6:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnA7:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnA8:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnA9:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnAA:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnAB:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnAC:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnAD:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnAE:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnAF:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnB0:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnB1:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnB2:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnB3:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnB4:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnB5:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnB6:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnB7:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnB8:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnB9:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnBA:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnBB:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnBC:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnBD:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnBE:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnBF:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnC0:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnC1:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnC2:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnC3:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnC4:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnC5:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnC6:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnC7:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnC8:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnC9:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnCA:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnCB:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnCC:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnCD:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnCE:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnCF:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnD0:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnD1:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnD2:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnD3:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnD4:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnD5:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnD6:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnD7:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnD8:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnD9:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnDA:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnDB:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnDC:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnDD:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnDE:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnDF:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnE0:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnE1:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnE2:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnE3:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnE4:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnE5:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnE6:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnE7:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnE8:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnE9:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnEA:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnEB:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnEC:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnED:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnEE:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnEF:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnF0:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnF1:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnF2:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnF3:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnF4:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnF5:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnF6:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnF7:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnF8:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnF9:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnFA:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnFB:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnFC:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnFD:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf
+FunctnFE:
+0000: push bp
+0001: mov bp, sp
+0003: pop bp
+0004: retf

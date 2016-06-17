@@ -1,0 +1,15 @@
+0000: The gateway leads to THE MINES.
+0020: The gateway leads to THE HALL OF DOORS.
+0048: The gateway leads to THE SOLDIERS  QUARTERS.
+0075: The gateway is the DUNGEON EXIT.
+0096: Hail, conquering HERO OF YSERBIUS!
+00B9: All of Twinion bows to your prominence!!
+00E2: There is a teleport in the west wall.
+0108: This room contains the gateway to the Labyrinth.
+0139: The Thieves' Key unlocks this door!
+015D: This room contains the gateway to the Labyrinth.
+018E: The Thieves' Key is needed to unlock this door.
+01BE: The Thieves' Key is needed to unlock this door.
+01EE: Only heroes of the twentieth level or higher may venture beyond this door.
+0239: Good Journeys, brave hero.
+0254: Only heroes of the twentieth level or higher may venture beyond this door.
