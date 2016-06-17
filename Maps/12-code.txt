@@ -18,7 +18,7 @@ Functn02: "IMPILLAR"
 
 Functn03: "ILPILLAR"
 0000                          BEGIN
-0003                          cx = ShowMessage(03FC)
+0003                          ShowMessage(03FC)
 0010 B8 01 00                 mov ax, 0x1
 0013 50                       push ax
 0014 B8 7F 00                 mov ax, 0x7f
@@ -31,7 +31,7 @@ Functn03: "ILPILLAR"
 
 Functn04: "PASSCOLM"
 0000                          BEGIN
-0003                          cx = ShowMessage(0429)
+0003                          ShowMessage(0429)
 0010 B8 01 00                 mov ax, 0x1
 0013 50                       push ax
 0014 B8 F5 00                 mov ax, 0xf5
@@ -51,14 +51,14 @@ Functn05: "TAPESTRY"
 000E 59                       pop cx
 000F 0B C0                    or ax, ax
 0011 74 1C                    jz 0x2f
-0013                          cx = ShowMessage(0456)
+0013                          ShowMessage(0456)
 0020 B8 76 04                 mov ax, 0x476
 0023 50                       push ax
 0024 C4 5E 06                 les bx, [bp+0x6]
 0027 26 FF 9F F4 00           call far word [es:bx+0xf4]
 002C 59                       pop cx
 002D EB 0D                    jmp 0x3c
-002F                          cx = ShowMessage(054B)
+002F                          ShowMessage(054B)
 003C                          RETURN
 
 Functn06: "KNGGHST"
@@ -70,8 +70,8 @@ Functn06: "KNGGHST"
 000E 59                       pop cx
 000F 0B C0                    or ax, ax
 0011 74 48                    jz 0x5b
-0013                          cx = ShowMessage(058C)
-0020                          cx = ShowMessage(05B1)
+0013                          ShowMessage(058C)
+0020                          ShowMessage(05B1)
 002D B8 E8 03                 mov ax, 0x3e8
 0030 50                       push ax
 0031 33 C0                    xor ax, ax
@@ -93,7 +93,7 @@ Functn06: "KNGGHST"
 0054 26 FF 5F 4C              call far word [es:bx+0x4c]
 0058 59                       pop cx
 0059 EB 2E                    jmp 0x89
-005B                          cx = ShowMessage(05FE)
+005B                          ShowMessage(05FE)
 0068 B8 98 3A                 mov ax, 0x3a98
 006B 50                       push ax
 006C 33 C0                    xor ax, ax
@@ -146,7 +146,7 @@ Functn07: "PIT"
 0012 26 FF 5F 38              call far word [es:bx+0x38]
 0016 59                       pop cx
 0017 59                       pop cx
-0018                          cx = ShowMessage(063B)
+0018                          ShowMessage(063B)
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 9F F0 00           call far word [es:bx+0xf0]
 002D 3D 01 00                 cmp ax, 0x1
@@ -158,7 +158,7 @@ Functn07: "PIT"
 003E 59                       pop cx
 003F                          GoMap(02, E0, 01, 04)
 005A EB 35                    jmp 0x91
-005C                          cx = ShowMessage(065B)
+005C                          ShowMessage(065B)
 0069 B8 90 01                 mov ax, 0x190
 006C 50                       push ax
 006D C4 5E 06                 les bx, [bp+0x6]
@@ -567,7 +567,7 @@ Functn0C: "WEAPBENC"
 000E 59                       pop cx
 000F 0B C0                    or ax, ax
 0011 74 2E                    jz 0x41
-0013                          cx = ShowMessage(069D)
+0013                          ShowMessage(069D)
 0020 B8 2C 01                 mov ax, 0x12c
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -599,7 +599,7 @@ Functn0C: "WEAPBENC"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005E 83 C4 0C                 add sp, 0xc
-0061                          cx = ShowMessage(06CA)
+0061                          ShowMessage(06CA)
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
@@ -705,7 +705,7 @@ Functn0D: "WEAPAENC"
 0017 C4 5E 06                 les bx, [bp+0x6]
 001A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 001F 83 C4 0C                 add sp, 0xc
-0022                          cx = ShowMessage(071C)
+0022                          ShowMessage(071C)
 002F C4 5E 06                 les bx, [bp+0x6]
 0032 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0037 3D 01 00                 cmp ax, 0x1
@@ -843,7 +843,7 @@ Functn0E: "WEAPCENC"
 000E 59                       pop cx
 000F 0B C0                    or ax, ax
 0011 74 2E                    jz 0x41
-0013                          cx = ShowMessage(077F)
+0013                          ShowMessage(077F)
 0020 B8 C8 00                 mov ax, 0xc8
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -875,7 +875,7 @@ Functn0E: "WEAPCENC"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005E 83 C4 0C                 add sp, 0xc
-0061                          cx = ShowMessage(07A3)
+0061                          ShowMessage(07A3)
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
@@ -1013,7 +1013,7 @@ Functn0F: "SHLDENC"
 000E 59                       pop cx
 000F 0B C0                    or ax, ax
 0011 74 2F                    jz 0x42
-0013                          cx = ShowMessage(07D6)
+0013                          ShowMessage(07D6)
 0020 B8 90 01                 mov ax, 0x190
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -1045,7 +1045,7 @@ Functn0F: "SHLDENC"
 0057 C4 5E 06                 les bx, [bp+0x6]
 005A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005F 83 C4 0C                 add sp, 0xc
-0062                          cx = ShowMessage(0820)
+0062                          ShowMessage(0820)
 006F C4 5E 06                 les bx, [bp+0x6]
 0072 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0077 3D 01 00                 cmp ax, 0x1
@@ -1199,7 +1199,7 @@ Functn10: "JACKTENC"
 000E 59                       pop cx
 000F 0B C0                    or ax, ax
 0011 74 2F                    jz 0x42
-0013                          cx = ShowMessage(0882)
+0013                          ShowMessage(0882)
 0020 B8 64 00                 mov ax, 0x64
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -1231,7 +1231,7 @@ Functn10: "JACKTENC"
 0057 C4 5E 06                 les bx, [bp+0x6]
 005A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005F 83 C4 0C                 add sp, 0xc
-0062                          cx = ShowMessage(08AB)
+0062                          ShowMessage(08AB)
 006F C4 5E 06                 les bx, [bp+0x6]
 0072 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0077 3D 01 00                 cmp ax, 0x1
@@ -1329,7 +1329,7 @@ Functn11: "ARMRBENC"
 000E 59                       pop cx
 000F 0B C0                    or ax, ax
 0011 74 2E                    jz 0x41
-0013                          cx = ShowMessage(0904)
+0013                          ShowMessage(0904)
 0020 B8 4B 00                 mov ax, 0x4b
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -1361,7 +1361,7 @@ Functn11: "ARMRBENC"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005E 83 C4 0C                 add sp, 0xc
-0061                          cx = ShowMessage(0943)
+0061                          ShowMessage(0943)
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
@@ -1492,7 +1492,7 @@ Functn11: "ARMRBENC"
 
 Functn12: "RUNES"
 0000                          BEGIN
-0003                          cx = ShowMessage(0992)
+0003                          ShowMessage(0992)
 0010 B8 B1 09                 mov ax, 0x9b1
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -1541,7 +1541,7 @@ Functn15: "LKPKDOOR"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          cx = ShowMessage(09DA)
+0065                          ShowMessage(09DA)
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -1554,7 +1554,7 @@ Functn15: "LKPKDOOR"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          cx = ShowMessage(0A03)
+0091                          ShowMessage(0A03)
 009E                          RETURN
 
 Functn16: "STRDOOR"
@@ -1566,7 +1566,7 @@ Functn16: "STRDOOR"
 000E 59                       pop cx
 000F 3D 0C 00                 cmp ax, 0xc
 0012 72 4B                    jb 0x5f
-0014                          cx = ShowMessage(0A17)
+0014                          ShowMessage(0A17)
 0021 C4 5E 06                 les bx, [bp+0x6]
 0024 26 FF 5F 24              call far word [es:bx+0x24]
 0028 50                       push ax
@@ -1590,7 +1590,7 @@ Functn16: "STRDOOR"
 0056 26 FF 5F 2C              call far word [es:bx+0x2c]
 005A 83 C4 06                 add sp, 0x6
 005D EB 2A                    jmp 0x89
-005F                          cx = ShowMessage(0A43)
+005F                          ShowMessage(0A43)
 006C 33 C0                    xor ax, ax
 006E 50                       push ax
 006F C4 5E 06                 les bx, [bp+0x6]
@@ -1645,7 +1645,7 @@ Functn17: "LKPKDOOR"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          cx = ShowMessage(0A75)
+0065                          ShowMessage(0A75)
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -1658,7 +1658,7 @@ Functn17: "LKPKDOOR"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          cx = ShowMessage(0AA3)
+0091                          ShowMessage(0AA3)
 009E                          RETURN
 
 Functn18: "TRAPDORA"
@@ -1697,10 +1697,10 @@ Functn18: "TRAPDORA"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0AB7)
+004E                          ShowMessage(0AB7)
 005B                          GoMap(01, 82, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0ADA)
+0078                          ShowMessage(0ADA)
 0085                          GoMap(01, 82, 02, 03)
 00A0                          RETURN
 
@@ -1740,10 +1740,10 @@ Functn19: "TRAPDORB"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0AF7)
+004E                          ShowMessage(0AF7)
 005B                          GoMap(01, 86, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0B1A)
+0078                          ShowMessage(0B1A)
 0085                          GoMap(01, 86, 02, 03)
 00A0                          RETURN
 
@@ -1783,10 +1783,10 @@ Functn1A: "TRAPDORC"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0B37)
+004E                          ShowMessage(0B37)
 005B                          GoMap(03, A0, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0B5A)
+0078                          ShowMessage(0B5A)
 0085                          GoMap(03, A0, 02, 03)
 00A0                          RETURN
 
@@ -1826,10 +1826,10 @@ Functn1B: "TRAPDORD"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0B77)
+004E                          ShowMessage(0B77)
 005B                          GoMap(03, A8, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0B9A)
+0078                          ShowMessage(0B9A)
 0085                          GoMap(03, A8, 02, 03)
 00A0                          RETURN
 
@@ -1869,31 +1869,11 @@ Functn1C: "TRAPDORE"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 29                    jz 0x77
-004E                          cx = ShowMessage(0BB7)
-005B 33 C0                    xor ax, ax
-005D 50                       push ax
-005E B8 B3 00                 mov ax, 0xb3
-0061 50                       push ax
-0062 B8 02 00                 mov ax, 0x2
-0065 50                       push ax
-0066 B8 03 00                 mov ax, 0x3
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0072 83 C4 08                 add sp, 0x8
+004E                          ShowMessage(0BB7)
+005B                          GoMap(00, B3, 02, 03)
 0075 EB 27                    jmp 0x9e
-0077                          cx = ShowMessage(0BDA)
-0084 33 C0                    xor ax, ax
-0086 50                       push ax
-0087 B8 B3 00                 mov ax, 0xb3
-008A 50                       push ax
-008B B8 02 00                 mov ax, 0x2
-008E 50                       push ax
-008F B8 03 00                 mov ax, 0x3
-0092 50                       push ax
-0093 C4 5E 06                 les bx, [bp+0x6]
-0096 26 FF 9F BC 00           call far word [es:bx+0xbc]
-009B 83 C4 08                 add sp, 0x8
+0077                          ShowMessage(0BDA)
+0084                          GoMap(00, B3, 02, 03)
 009E                          RETURN
 
 Functn1D: "TRAPDORF"
@@ -1932,10 +1912,10 @@ Functn1D: "TRAPDORF"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0BF7)
+004E                          ShowMessage(0BF7)
 005B                          GoMap(02, B5, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0C1A)
+0078                          ShowMessage(0C1A)
 0085                          GoMap(02, B5, 02, 03)
 00A0                          RETURN
 
@@ -1975,31 +1955,11 @@ Functn1E: "TRAPDORG"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 29                    jz 0x77
-004E                          cx = ShowMessage(0C37)
-005B 33 C0                    xor ax, ax
-005D 50                       push ax
-005E B8 C2 00                 mov ax, 0xc2
-0061 50                       push ax
-0062 B8 02 00                 mov ax, 0x2
-0065 50                       push ax
-0066 B8 03 00                 mov ax, 0x3
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0072 83 C4 08                 add sp, 0x8
+004E                          ShowMessage(0C37)
+005B                          GoMap(00, C2, 02, 03)
 0075 EB 27                    jmp 0x9e
-0077                          cx = ShowMessage(0C5A)
-0084 33 C0                    xor ax, ax
-0086 50                       push ax
-0087 B8 C2 00                 mov ax, 0xc2
-008A 50                       push ax
-008B B8 02 00                 mov ax, 0x2
-008E 50                       push ax
-008F B8 03 00                 mov ax, 0x3
-0092 50                       push ax
-0093 C4 5E 06                 les bx, [bp+0x6]
-0096 26 FF 9F BC 00           call far word [es:bx+0xbc]
-009B 83 C4 08                 add sp, 0x8
+0077                          ShowMessage(0C5A)
+0084                          GoMap(00, C2, 02, 03)
 009E                          RETURN
 
 Functn1F: "TRAPDORH"
@@ -2038,10 +1998,10 @@ Functn1F: "TRAPDORH"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0C77)
+004E                          ShowMessage(0C77)
 005B                          GoMap(02, C6, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0C9A)
+0078                          ShowMessage(0C9A)
 0085                          GoMap(02, C6, 02, 03)
 00A0                          RETURN
 
@@ -2081,31 +2041,11 @@ Functn20: "TRAPDORI"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 29                    jz 0x77
-004E                          cx = ShowMessage(0CB7)
-005B 33 C0                    xor ax, ax
-005D 50                       push ax
-005E B8 D3 00                 mov ax, 0xd3
-0061 50                       push ax
-0062 B8 02 00                 mov ax, 0x2
-0065 50                       push ax
-0066 B8 03 00                 mov ax, 0x3
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0072 83 C4 08                 add sp, 0x8
+004E                          ShowMessage(0CB7)
+005B                          GoMap(00, D3, 02, 03)
 0075 EB 27                    jmp 0x9e
-0077                          cx = ShowMessage(0CDA)
-0084 33 C0                    xor ax, ax
-0086 50                       push ax
-0087 B8 D3 00                 mov ax, 0xd3
-008A 50                       push ax
-008B B8 02 00                 mov ax, 0x2
-008E 50                       push ax
-008F B8 03 00                 mov ax, 0x3
-0092 50                       push ax
-0093 C4 5E 06                 les bx, [bp+0x6]
-0096 26 FF 9F BC 00           call far word [es:bx+0xbc]
-009B 83 C4 08                 add sp, 0x8
+0077                          ShowMessage(0CDA)
+0084                          GoMap(00, D3, 02, 03)
 009E                          RETURN
 
 Functn21: "TRAPDORJ"
@@ -2144,10 +2084,10 @@ Functn21: "TRAPDORJ"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0CF7)
+004E                          ShowMessage(0CF7)
 005B                          GoMap(01, D4, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0D1A)
+0078                          ShowMessage(0D1A)
 0085                          GoMap(01, D4, 02, 03)
 00A0                          RETURN
 
@@ -2187,10 +2127,10 @@ Functn22: "TRAPDORK"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0D37)
+004E                          ShowMessage(0D37)
 005B                          GoMap(02, D5, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0D5A)
+0078                          ShowMessage(0D5A)
 0085                          GoMap(02, D5, 02, 03)
 00A0                          RETURN
 
@@ -2230,10 +2170,10 @@ Functn23: "TRAPDORL"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0D77)
+004E                          ShowMessage(0D77)
 005B                          GoMap(01, E0, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0D9A)
+0078                          ShowMessage(0D9A)
 0085                          GoMap(01, E0, 02, 03)
 00A0                          RETURN
 
@@ -2273,10 +2213,10 @@ Functn24: "TRAPDORM"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0DB7)
+004E                          ShowMessage(0DB7)
 005B                          GoMap(01, E2, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0DDA)
+0078                          ShowMessage(0DDA)
 0085                          GoMap(01, E2, 02, 03)
 00A0                          RETURN
 
@@ -2316,10 +2256,10 @@ Functn25: "TRAPDORN"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0DF7)
+004E                          ShowMessage(0DF7)
 005B                          GoMap(01, E3, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0E1A)
+0078                          ShowMessage(0E1A)
 0085                          GoMap(01, E3, 02, 03)
 00A0                          RETURN
 
@@ -2359,10 +2299,10 @@ Functn26: "TRAPDORO"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0E37)
+004E                          ShowMessage(0E37)
 005B                          GoMap(01, E5, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0E5A)
+0078                          ShowMessage(0E5A)
 0085                          GoMap(01, E5, 02, 03)
 00A0                          RETURN
 
@@ -2402,10 +2342,10 @@ Functn27: "TRAPDORP"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0E77)
+004E                          ShowMessage(0E77)
 005B                          GoMap(01, E6, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0E9A)
+0078                          ShowMessage(0E9A)
 0085                          GoMap(01, E6, 02, 03)
 00A0                          RETURN
 
@@ -2445,10 +2385,10 @@ Functn28: "TRAPDORQ"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          cx = ShowMessage(0EB7)
+004E                          ShowMessage(0EB7)
 005B                          GoMap(01, E8, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          cx = ShowMessage(0EDA)
+0078                          ShowMessage(0EDA)
 0085                          GoMap(01, E8, 02, 03)
 00A0                          RETURN
 
@@ -2459,12 +2399,12 @@ Functn29: "TOCORRB"
 
 Functn2A: "GATEMESS"
 0000                          BEGIN
-0003                          cx = ShowMessage(0EF7)
+0003                          ShowMessage(0EF7)
 0010                          RETURN
 
 Functn2B: "PASSCOLM"
 0000                          BEGIN
-0003                          cx = ShowMessage(0F21)
+0003                          ShowMessage(0F21)
 0010 B8 01 00                 mov ax, 0x1
 0013 50                       push ax
 0014 B8 F7 00                 mov ax, 0xf7
@@ -2477,12 +2417,12 @@ Functn2B: "PASSCOLM"
 
 Functn2C: ""
 0000                          BEGIN
-0003                          cx = ShowMessage(0F4E)
+0003                          ShowMessage(0F4E)
 0010                          RETURN
 
 Functn2D: "NPCCHATA"
 0000                          BEGIN
-0003                          cx = ShowMessage(0F68)
+0003                          ShowMessage(0F68)
 0010 B8 1F 00                 mov ax, 0x1f
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -2495,14 +2435,14 @@ Functn2D: "NPCCHATA"
 0029 59                       pop cx
 002A 3D 0D 00                 cmp ax, 0xd
 002D 77 0F                    ja 0x3e
-002F                          cx = ShowMessage(0F85)
+002F                          ShowMessage(0F85)
 003C EB 0D                    jmp 0x4b
-003E                          cx = ShowMessage(1023)
+003E                          ShowMessage(1023)
 004B                          RETURN
 
 Functn2E: "NPCCHATB"
 0000                          BEGIN
-0003                          cx = ShowMessage(106C)
+0003                          ShowMessage(106C)
 0010 B8 26 00                 mov ax, 0x26
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -2515,14 +2455,14 @@ Functn2E: "NPCCHATB"
 0029 59                       pop cx
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          cx = ShowMessage(108B)
+002F                          ShowMessage(108B)
 003C EB 0D                    jmp 0x4b
-003E                          cx = ShowMessage(10E2)
+003E                          ShowMessage(10E2)
 004B                          RETURN
 
 Functn2F: "NPCCHATC"
 0000                          BEGIN
-0003                          cx = ShowMessage(1115)
+0003                          ShowMessage(1115)
 0010 B8 1C 00                 mov ax, 0x1c
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -2535,9 +2475,9 @@ Functn2F: "NPCCHATC"
 0029 59                       pop cx
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
-002F                          cx = ShowMessage(1133)
+002F                          ShowMessage(1133)
 003C EB 0D                    jmp 0x4b
-003E                          cx = ShowMessage(1198)
+003E                          ShowMessage(1198)
 004B                          RETURN
 
 Functn30: "KINGMSG"
@@ -2555,14 +2495,14 @@ Functn30: "KINGMSG"
 001A C4 5E 06                 les bx, [bp+0x6]
 001D 26 FF 9F FC 00           call far word [es:bx+0xfc]
 0022 59                       pop cx
-0023                          cx = ShowMessage(11DB)
-0030                          cx = ShowMessage(1267)
-003D                          cx = ShowMessage(130B)
-004A                          cx = ShowMessage(135E)
-0057                          cx = ShowMessage(13B6)
-0064                          cx = ShowMessage(1406)
-0071                          cx = ShowMessage(147C)
-007E                          cx = ShowMessage(14D9)
+0023                          ShowMessage(11DB)
+0030                          ShowMessage(1267)
+003D                          ShowMessage(130B)
+004A                          ShowMessage(135E)
+0057                          ShowMessage(13B6)
+0064                          ShowMessage(1406)
+0071                          ShowMessage(147C)
+007E                          ShowMessage(14D9)
 008B B8 8F 00                 mov ax, 0x8f
 008E 50                       push ax
 008F B8 02 00                 mov ax, 0x2
@@ -2591,6 +2531,6 @@ Functn30: "KINGMSG"
 00C4 59                       pop cx
 00C5 59                       pop cx
 00C6 EB 0D                    jmp 0xd5
-00C8                          cx = ShowMessage(1539)
+00C8                          ShowMessage(1539)
 00D5                          RETURN
 

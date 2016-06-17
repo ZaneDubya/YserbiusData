@@ -1,7 +1,7 @@
 Functn01: "VOID"
 0000                          BEGIN
-0003                          cx = ShowMessage(03FC)
-0010                          cx = ShowMessage(0421)
+0003                          ShowMessage(03FC)
+0010                          ShowMessage(0421)
 001D C4 5E 06                 les bx, [bp+0x6]
 0020 26 FF 5F 74              call far word [es:bx+0x74]
 0024 50                       push ax
@@ -12,7 +12,7 @@ Functn01: "VOID"
 
 Functn02: "LIFE"
 0000                          BEGIN
-0003                          cx = ShowMessage(046D)
+0003                          ShowMessage(046D)
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -34,7 +34,7 @@ Functn03: "TIMEA"
 0011 C4 5E 06                 les bx, [bp+0x6]
 0014 26 FF 1F                 call far word [es:bx]
 0017 83 C4 06                 add sp, 0x6
-001A                          cx = ShowMessage(04C0)
+001A                          ShowMessage(04C0)
 0027 B8 7B 00                 mov ax, 0x7b
 002A 50                       push ax
 002B B8 02 00                 mov ax, 0x2
@@ -74,8 +74,8 @@ Functn03: "TIMEA"
 0072 3D 03 00                 cmp ax, 0x3
 0075 74 4F                    jz 0xc6
 0077 EB 6C                    jmp 0xe5
-0079                          cx = ShowMessage(04E9)
-0086                          cx = ShowMessage(0504)
+0079                          ShowMessage(04E9)
+0086                          ShowMessage(0504)
 0093 B8 A8 00                 mov ax, 0xa8
 0096 50                       push ax
 0097 B8 03 00                 mov ax, 0x3
@@ -85,7 +85,7 @@ Functn03: "TIMEA"
 00A2 59                       pop cx
 00A3 59                       pop cx
 00A4 EB 3F                    jmp 0xe5
-00A6                          cx = ShowMessage(053F)
+00A6                          ShowMessage(053F)
 00B3 B8 A8 00                 mov ax, 0xa8
 00B6 50                       push ax
 00B7 B8 03 00                 mov ax, 0x3
@@ -95,7 +95,7 @@ Functn03: "TIMEA"
 00C2 59                       pop cx
 00C3 59                       pop cx
 00C4 EB 1F                    jmp 0xe5
-00C6                          cx = ShowMessage(0563)
+00C6                          ShowMessage(0563)
 00D3 B8 A8 00                 mov ax, 0xa8
 00D6 50                       push ax
 00D7 33 C0                    xor ax, ax
@@ -105,7 +105,7 @@ Functn03: "TIMEA"
 00E1 59                       pop cx
 00E2 59                       pop cx
 00E3 EB 00                    jmp 0xe5
-00E5                          cx = ShowMessage(0590)
+00E5                          ShowMessage(0590)
 00F2 8B E5                    mov sp, bp
 00F4                          RETURN
 
@@ -122,7 +122,7 @@ Functn04: "TIMEB"
 0011 C4 5E 06                 les bx, [bp+0x6]
 0014 26 FF 1F                 call far word [es:bx]
 0017 83 C4 06                 add sp, 0x6
-001A                          cx = ShowMessage(05C0)
+001A                          ShowMessage(05C0)
 0027 B8 7B 00                 mov ax, 0x7b
 002A 50                       push ax
 002B B8 02 00                 mov ax, 0x2
@@ -162,8 +162,8 @@ Functn04: "TIMEB"
 0072 3D 03 00                 cmp ax, 0x3
 0075 74 4F                    jz 0xc6
 0077 EB 6C                    jmp 0xe5
-0079                          cx = ShowMessage(05E9)
-0086                          cx = ShowMessage(0604)
+0079                          ShowMessage(05E9)
+0086                          ShowMessage(0604)
 0093 B8 A8 00                 mov ax, 0xa8
 0096 50                       push ax
 0097 B8 03 00                 mov ax, 0x3
@@ -173,7 +173,7 @@ Functn04: "TIMEB"
 00A2 59                       pop cx
 00A3 59                       pop cx
 00A4 EB 3F                    jmp 0xe5
-00A6                          cx = ShowMessage(063F)
+00A6                          ShowMessage(063F)
 00B3 B8 A8 00                 mov ax, 0xa8
 00B6 50                       push ax
 00B7 B8 03 00                 mov ax, 0x3
@@ -183,7 +183,7 @@ Functn04: "TIMEB"
 00C2 59                       pop cx
 00C3 59                       pop cx
 00C4 EB 1F                    jmp 0xe5
-00C6                          cx = ShowMessage(0663)
+00C6                          ShowMessage(0663)
 00D3 B8 A8 00                 mov ax, 0xa8
 00D6 50                       push ax
 00D7 33 C0                    xor ax, ax
@@ -193,7 +193,7 @@ Functn04: "TIMEB"
 00E1 59                       pop cx
 00E2 59                       pop cx
 00E3 EB 00                    jmp 0xe5
-00E5                          cx = ShowMessage(0690)
+00E5                          ShowMessage(0690)
 00F2 8B E5                    mov sp, bp
 00F4                          RETURN
 
@@ -210,7 +210,7 @@ Functn05: "TIMEC"
 0011 C4 5E 06                 les bx, [bp+0x6]
 0014 26 FF 1F                 call far word [es:bx]
 0017 83 C4 06                 add sp, 0x6
-001A                          cx = ShowMessage(06C0)
+001A                          ShowMessage(06C0)
 0027 B8 7B 00                 mov ax, 0x7b
 002A 50                       push ax
 002B B8 02 00                 mov ax, 0x2
@@ -250,8 +250,8 @@ Functn05: "TIMEC"
 0072 3D 03 00                 cmp ax, 0x3
 0075 74 4F                    jz 0xc6
 0077 EB 6C                    jmp 0xe5
-0079                          cx = ShowMessage(06E9)
-0086                          cx = ShowMessage(0704)
+0079                          ShowMessage(06E9)
+0086                          ShowMessage(0704)
 0093 B8 A8 00                 mov ax, 0xa8
 0096 50                       push ax
 0097 B8 03 00                 mov ax, 0x3
@@ -261,7 +261,7 @@ Functn05: "TIMEC"
 00A2 59                       pop cx
 00A3 59                       pop cx
 00A4 EB 3F                    jmp 0xe5
-00A6                          cx = ShowMessage(073F)
+00A6                          ShowMessage(073F)
 00B3 B8 A8 00                 mov ax, 0xa8
 00B6 50                       push ax
 00B7 B8 03 00                 mov ax, 0x3
@@ -271,7 +271,7 @@ Functn05: "TIMEC"
 00C2 59                       pop cx
 00C3 59                       pop cx
 00C4 EB 1F                    jmp 0xe5
-00C6                          cx = ShowMessage(0763)
+00C6                          ShowMessage(0763)
 00D3 B8 A8 00                 mov ax, 0xa8
 00D6 50                       push ax
 00D7 33 C0                    xor ax, ax
@@ -281,7 +281,7 @@ Functn05: "TIMEC"
 00E1 59                       pop cx
 00E2 59                       pop cx
 00E3 EB 00                    jmp 0xe5
-00E5                          cx = ShowMessage(0790)
+00E5                          ShowMessage(0790)
 00F2 8B E5                    mov sp, bp
 00F4                          RETURN
 
@@ -292,12 +292,12 @@ Functn06: "TIMEELEM"
 0007 C4 5E 06                 les bx, [bp+0x6]
 000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
 000F 59                       pop cx
-0010                          cx = ShowMessage(07C0)
-001D                          cx = ShowMessage(07E4)
-002A                          cx = ShowMessage(0809)
-0037                          cx = ShowMessage(085D)
-0044                          cx = ShowMessage(08AA)
-0051                          cx = ShowMessage(08EE)
+0010                          ShowMessage(07C0)
+001D                          ShowMessage(07E4)
+002A                          ShowMessage(0809)
+0037                          ShowMessage(085D)
+0044                          ShowMessage(08AA)
+0051                          ShowMessage(08EE)
 005E 33 C0                    xor ax, ax
 0060 50                       push ax
 0061 B8 7B 00                 mov ax, 0x7b
@@ -407,8 +407,8 @@ Functn07: "TIMEPLAT"
 004B 26 FF 5F 38              call far word [es:bx+0x38]
 004F 59                       pop cx
 0050 59                       pop cx
-0051                          cx = ShowMessage(090F)
-005E                          cx = ShowMessage(0935)
+0051                          ShowMessage(090F)
+005E                          ShowMessage(0935)
 006B B8 42 00                 mov ax, 0x42
 006E 50                       push ax
 006F C4 5E 06                 les bx, [bp+0x6]
@@ -423,7 +423,7 @@ Functn07: "TIMEPLAT"
 0085 26 FF 5F 38              call far word [es:bx+0x38]
 0089 59                       pop cx
 008A 59                       pop cx
-008B                          cx = ShowMessage(09AD)
+008B                          ShowMessage(09AD)
 0098 C4 5E 06                 les bx, [bp+0x6]
 009B 26 FF 5F 74              call far word [es:bx+0x74]
 009F 50                       push ax
@@ -469,17 +469,17 @@ Functn08: "GOAL"
 004F 59                       pop cx
 0050 0B C0                    or ax, ax
 0052 74 2A                    jz 0x7e
-0054                          cx = ShowMessage(0A00)
-0061                          cx = ShowMessage(0A41)
-006E                          cx = ShowMessage(0A76)
+0054                          ShowMessage(0A00)
+0061                          ShowMessage(0A41)
+006E                          ShowMessage(0A76)
 007B E9 AC 00                 jmp 0x12a
-007E                          cx = ShowMessage(0AAC)
-008B                          cx = ShowMessage(0ACF)
-0098                          cx = ShowMessage(0B0E)
-00A5                          cx = ShowMessage(0B3E)
-00B2                          cx = ShowMessage(0B88)
-00BF                          cx = ShowMessage(0BA8)
-00CC                          cx = ShowMessage(0BFF)
+007E                          ShowMessage(0AAC)
+008B                          ShowMessage(0ACF)
+0098                          ShowMessage(0B0E)
+00A5                          ShowMessage(0B3E)
+00B2                          ShowMessage(0B88)
+00BF                          ShowMessage(0BA8)
+00CC                          ShowMessage(0BFF)
 00D9 B8 69 00                 mov ax, 0x69
 00DC 50                       push ax
 00DD B8 02 00                 mov ax, 0x2
@@ -520,8 +520,8 @@ Functn08: "GOAL"
 
 Functn09: "ENCA"
 0000                          BEGIN
-0003                          cx = ShowMessage(0C2F)
-0010                          cx = ShowMessage(0C87)
+0003                          ShowMessage(0C2F)
+0010                          ShowMessage(0C87)
 001D B8 19 00                 mov ax, 0x19
 0020 50                       push ax
 0021 B8 01 00                 mov ax, 0x1
@@ -1037,7 +1037,7 @@ Functn10: "MAPCONV"
 
 Functn12: "TELEBACK"
 0000                          BEGIN
-0003                          cx = ShowMessage(0CA5)
+0003                          ShowMessage(0CA5)
 0010                          GoMap(02, 88, 04, 38)
 002B                          RETURN
 

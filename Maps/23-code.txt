@@ -1,7 +1,7 @@
 Functn01: "DROP"
 0000                          BEGIN
-0003                          cx = ShowMessage(03FC)
-0010                          cx = ShowMessage(043A)
+0003                          ShowMessage(03FC)
+0010                          ShowMessage(043A)
 001D C4 5E 06                 les bx, [bp+0x6]
 0020 26 FF 5F 74              call far word [es:bx+0x74]
 0024 50                       push ax
@@ -34,10 +34,10 @@ Functn02: "XOVER"
 002E 26 FF 5F 38              call far word [es:bx+0x38]
 0032 59                       pop cx
 0033 59                       pop cx
-0034                          cx = ShowMessage(046E)
+0034                          ShowMessage(046E)
 0041 EB 2B                    jmp 0x6e
-0043                          cx = ShowMessage(04A2)
-0050                          cx = ShowMessage(04C3)
+0043                          ShowMessage(04A2)
+0050                          ShowMessage(04C3)
 005D C4 5E 06                 les bx, [bp+0x6]
 0060 26 FF 5F 74              call far word [es:bx+0x74]
 0064 50                       push ax
@@ -93,112 +93,82 @@ Functn03: "XOVERON"
 0022 26 FF 5F 38              call far word [es:bx+0x38]
 0026 59                       pop cx
 0027 59                       pop cx
-0028                          cx = ShowMessage(04F6)
-0035                          cx = ShowMessage(0511)
+0028                          ShowMessage(04F6)
+0035                          ShowMessage(0511)
 0042                          RETURN
 
 Functn04: "BAZAAR"
 0000                          BEGIN
-0003                          cx = ShowMessage(0552)
+0003                          ShowMessage(0552)
 0010                          GoMap(03, 12, 01, 36)
 002B                          RETURN
 
 Functn05: "HEAVENS"
 0000                          BEGIN
-0003                          cx = ShowMessage(05D0)
-0010                          cx = ShowMessage(0614)
-001D                          cx = ShowMessage(0679)
+0003                          ShowMessage(05D0)
+0010                          ShowMessage(0614)
+001D                          ShowMessage(0679)
 002A                          GoMap(02, A3, 01, 35)
 0045                          RETURN
 
 Functn06: "EXODUS"
 0000                          BEGIN
-0003                          cx = ShowMessage(06D1)
-0010                          cx = ShowMessage(0709)
+0003                          ShowMessage(06D1)
+0010                          ShowMessage(0709)
 001D                          GoMap(02, 75, 01, 35)
 0038                          RETURN
 
 Functn07: "WINDHOLO"
 0000                          BEGIN
-0003                          cx = ShowMessage(076A)
+0003                          ShowMessage(076A)
 0010                          GoMap(03, 8A, 01, 35)
 002B                          RETURN
 
 Functn08: "TEMPEST"
 0000                          BEGIN
-0003                          cx = ShowMessage(07CD)
+0003                          ShowMessage(07CD)
 0010                          GoMap(01, 9B, 01, 35)
 002B                          RETURN
 
 Functn09: "WINDHOLO"
 0000                          BEGIN
-0003                          cx = ShowMessage(0815)
-0010 33 C0                    xor ax, ax
-0012 50                       push ax
-0013 B8 7D 00                 mov ax, 0x7d
-0016 50                       push ax
-0017 B8 01 00                 mov ax, 0x1
-001A 50                       push ax
-001B B8 35 00                 mov ax, 0x35
-001E 50                       push ax
-001F C4 5E 06                 les bx, [bp+0x6]
-0022 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0027 83 C4 08                 add sp, 0x8
+0003                          ShowMessage(0815)
+0010                          GoMap(00, 7D, 01, 35)
 002A                          RETURN
 
 Functn0A: "BACKALLY"
 0000                          BEGIN
-0003                          cx = ShowMessage(086A)
-0010 33 C0                    xor ax, ax
-0012 50                       push ax
-0013 B8 4D 00                 mov ax, 0x4d
-0016 50                       push ax
-0017 B8 01 00                 mov ax, 0x1
-001A 50                       push ax
-001B B8 35 00                 mov ax, 0x35
-001E 50                       push ax
-001F C4 5E 06                 les bx, [bp+0x6]
-0022 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0027 83 C4 08                 add sp, 0x8
+0003                          ShowMessage(086A)
+0010                          GoMap(00, 4D, 01, 35)
 002A                          RETURN
 
 Functn0B: "HEAVENS"
 0000                          BEGIN
-0003                          cx = ShowMessage(08B6)
+0003                          ShowMessage(08B6)
 0010                          GoMap(02, F3, 01, 35)
 002B                          RETURN
 
 Functn0C: "LABYATIC"
 0000                          BEGIN
-0003                          cx = ShowMessage(0900)
+0003                          ShowMessage(0900)
 0010                          GoMap(02, C3, 01, 33)
 002B                          RETURN
 
 Functn0D: "WINDHOLO"
 0000                          BEGIN
-0003                          cx = ShowMessage(0932)
-0010 33 C0                    xor ax, ax
-0012 50                       push ax
-0013 B8 6D 00                 mov ax, 0x6d
-0016 50                       push ax
-0017 B8 01 00                 mov ax, 0x1
-001A 50                       push ax
-001B B8 33 00                 mov ax, 0x33
-001E 50                       push ax
-001F C4 5E 06                 les bx, [bp+0x6]
-0022 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0027 83 C4 08                 add sp, 0x8
+0003                          ShowMessage(0932)
+0010                          GoMap(00, 6D, 01, 33)
 002A                          RETURN
 
 Functn0E: "THVTRESR"
 0000                          BEGIN
-0003                          cx = ShowMessage(0953)
+0003                          ShowMessage(0953)
 0010                          GoMap(02, 6E, 01, 33)
 002B                          RETURN
 
 Functn0F: "LAVA"
 0000                          BEGIN
-0003                          cx = ShowMessage(099E)
+0003                          ShowMessage(099E)
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -209,7 +179,7 @@ Functn0F: "LAVA"
 
 Functn10: "DRTOBALY"
 0000                          BEGIN
-0003                          cx = ShowMessage(09C9)
+0003                          ShowMessage(09C9)
 0010 B8 E0 00                 mov ax, 0xe0
 0013 50                       push ax
 0014 B8 E0 00                 mov ax, 0xe0
@@ -240,19 +210,19 @@ Functn10: "DRTOBALY"
 004F C4 5E 06                 les bx, [bp+0x6]
 0052 26 FF 5F 30              call far word [es:bx+0x30]
 0056 83 C4 06                 add sp, 0x6
-0059                          cx = ShowMessage(0A06)
+0059                          ShowMessage(0A06)
 0066                          RETURN
 
 Functn14: "LABYATIC"
 0000                          BEGIN
-0003                          cx = ShowMessage(0A21)
+0003                          ShowMessage(0A21)
 0010                          GoMap(02, 59, 01, 33)
 002B                          RETURN
 
 Functn15: "WINDHOLO"
 0000                          BEGIN
-0003                          cx = ShowMessage(0A59)
-0010                          cx = ShowMessage(0AC0)
+0003                          ShowMessage(0A59)
+0010                          ShowMessage(0AC0)
 001D B8 C8 00                 mov ax, 0xc8
 0020 50                       push ax
 0021 C4 5E 06                 les bx, [bp+0x6]
@@ -262,14 +232,14 @@ Functn15: "WINDHOLO"
 002D 26 FF 5F 70              call far word [es:bx+0x70]
 0031 0B C0                    or ax, ax
 0033 77 0D                    ja 0x42
-0035                          cx = ShowMessage(0AE0)
+0035                          ShowMessage(0AE0)
 0042                          GoMap(03, BC, 01, 35)
 005D                          RETURN
 
 Functn16: "MAGICRMS"
 0000                          BEGIN
-0003                          cx = ShowMessage(0AEF)
-0010                          cx = ShowMessage(0B3A)
+0003                          ShowMessage(0AEF)
+0010                          ShowMessage(0B3A)
 001D                          GoMap(02, 30, 02, 34)
 0038                          RETURN
 
@@ -449,7 +419,7 @@ Functn19: "ZEPHENCB"
 00D6 26 FF 9F 98 00           call far word [es:bx+0x98]
 00DB 59                       pop cx
 00DC 59                       pop cx
-00DD                          cx = ShowMessage(0B92)
+00DD                          ShowMessage(0B92)
 00EA B8 10 00                 mov ax, 0x10
 00ED 50                       push ax
 00EE B8 01 00                 mov ax, 0x1
@@ -486,7 +456,7 @@ Functn19: "ZEPHENCB"
 
 Functn1B: "TXTZEPHR"
 0000                          BEGIN
-0003                          cx = ShowMessage(0C09)
+0003                          ShowMessage(0C09)
 0010                          RETURN
 
 Functn1C: "XOVEROFF"
@@ -508,12 +478,12 @@ Functn1C: "XOVEROFF"
 0022 26 FF 5F 38              call far word [es:bx+0x38]
 0026 59                       pop cx
 0027 59                       pop cx
-0028                          cx = ShowMessage(0CA2)
+0028                          ShowMessage(0CA2)
 0035                          RETURN
 
 Functn1D: "ZEPHBLOW"
 0000                          BEGIN
-0003                          cx = ShowMessage(0CD0)
+0003                          ShowMessage(0CD0)
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 BB 03 00                 mov bx, 0x3
@@ -527,12 +497,12 @@ Functn1D: "ZEPHBLOW"
 002A 26 FF 5F 70              call far word [es:bx+0x70]
 002E 0B C0                    or ax, ax
 0030 77 0D                    ja 0x3f
-0032                          cx = ShowMessage(0CFF)
+0032                          ShowMessage(0CFF)
 003F                          RETURN
 
 Functn1E: "DRLPENCA"
 0000                          BEGIN
-0003                          cx = ShowMessage(0D0E)
+0003                          ShowMessage(0D0E)
 0010 B8 19 00                 mov ax, 0x19
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -569,7 +539,7 @@ Functn1E: "DRLPENCA"
 
 Functn1F: "DRLPENCB"
 0000                          BEGIN
-0003                          cx = ShowMessage(0D43)
+0003                          ShowMessage(0D43)
 0010 B8 0F 00                 mov ax, 0xf
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -606,7 +576,7 @@ Functn1F: "DRLPENCB"
 
 Functn20: "DRLPENCC"
 0000                          BEGIN
-0003                          cx = ShowMessage(0D67)
+0003                          ShowMessage(0D67)
 0010 B8 1C 00                 mov ax, 0x1c
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -788,7 +758,7 @@ Functn23: "SDRZZYZA"
 0034 59                       pop cx
 0035 0B C0                    or ax, ax
 0037 74 49                    jz 0x82
-0039                          cx = ShowMessage(0DBF)
+0039                          ShowMessage(0DBF)
 0046 B8 01 00                 mov ax, 0x1
 0049 50                       push ax
 004A C4 5E 06                 les bx, [bp+0x6]
@@ -851,7 +821,7 @@ Functn24: "ZZYZENCC"
 
 Functn25: "MGOVENCA"
 0000                          BEGIN
-0003                          cx = ShowMessage(0DE5)
+0003                          ShowMessage(0DE5)
 0010 B8 1F 00                 mov ax, 0x1f
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -976,7 +946,7 @@ Functn28: "SDRMGOVA"
 0043 59                       pop cx
 0044 0B C0                    or ax, ax
 0046 74 49                    jz 0x91
-0048                          cx = ShowMessage(0E0E)
+0048                          ShowMessage(0E0E)
 0055 B8 01 00                 mov ax, 0x1
 0058 50                       push ax
 0059 C4 5E 06                 les bx, [bp+0x6]
@@ -1075,17 +1045,17 @@ Functn2A: "VORAENCB"
 
 Functn30: "VORAENCV"
 0000                          BEGIN
-0003                          cx = ShowMessage(0E34)
+0003                          ShowMessage(0E34)
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 78              call far word [es:bx+0x78]
 0017 3D 02 00                 cmp ax, 0x2
 001A 75 0D                    jnz 0x29
-001C                          cx = ShowMessage(0F0A)
+001C                          ShowMessage(0F0A)
 0029 C4 5E 06                 les bx, [bp+0x6]
 002C 26 FF 5F 78              call far word [es:bx+0x78]
 0030 3D 04 00                 cmp ax, 0x4
 0033 75 0D                    jnz 0x42
-0035                          cx = ShowMessage(0F81)
+0035                          ShowMessage(0F81)
 0042 B8 1C 00                 mov ax, 0x1c
 0045 50                       push ax
 0046 B8 01 00                 mov ax, 0x1
@@ -1168,7 +1138,7 @@ Functn31: "SDRVORDW"
 0034 59                       pop cx
 0035 0B C0                    or ax, ax
 0037 74 49                    jz 0x82
-0039                          cx = ShowMessage(0FF2)
+0039                          ShowMessage(0FF2)
 0046 C4 5E 06                 les bx, [bp+0x6]
 0049 26 FF 5F 24              call far word [es:bx+0x24]
 004D 50                       push ax
@@ -1431,7 +1401,7 @@ Functn35: "MOONENCD"
 
 Functn36: "MOONENCE"
 0000                          BEGIN
-0003                          cx = ShowMessage(1016)
+0003                          ShowMessage(1016)
 0010 B8 0E 00                 mov ax, 0xe
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -1496,8 +1466,8 @@ Functn37: "MOONENCF"
 
 Functn38: "MOONENCG"
 0000                          BEGIN
-0003                          cx = ShowMessage(102F)
-0010                          cx = ShowMessage(104D)
+0003                          ShowMessage(102F)
+0010                          ShowMessage(104D)
 001D B8 28 00                 mov ax, 0x28
 0020 50                       push ax
 0021 B8 01 00                 mov ax, 0x1
@@ -1580,7 +1550,7 @@ Functn38: "MOONENCG"
 
 Functn3A: "TXTMOONB"
 0000                          BEGIN
-0003                          cx = ShowMessage(10A6)
+0003                          ShowMessage(10A6)
 0010                          RETURN
 
 Functn3B: "MOONENCJ"
@@ -1665,7 +1635,7 @@ Functn3C: "MOONENCK"
 
 Functn3E: "BDRMOONB"
 0000                          BEGIN
-0003                          cx = ShowMessage(10EA)
+0003                          ShowMessage(10EA)
 0010 33 C0                    xor ax, ax
 0012 50                       push ax
 0013 C4 5E 06                 les bx, [bp+0x6]
@@ -1673,7 +1643,7 @@ Functn3E: "BDRMOONB"
 001B 59                       pop cx
 001C 3D 15 00                 cmp ax, 0x15
 001F 72 49                    jb 0x6a
-0021                          cx = ShowMessage(1117)
+0021                          ShowMessage(1117)
 002E C4 5E 06                 les bx, [bp+0x6]
 0031 26 FF 5F 24              call far word [es:bx+0x24]
 0035 50                       push ax
@@ -1710,7 +1680,7 @@ Functn3F: "SDRMOONC"
 0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 49                    jz 0x61
-0018                          cx = ShowMessage(114F)
+0018                          ShowMessage(114F)
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 5F 24              call far word [es:bx+0x24]
 002C 50                       push ax
@@ -1771,7 +1741,7 @@ Functn40: "SDRMOOND"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 49                    jz 0x97
-004E                          cx = ShowMessage(1176)
+004E                          ShowMessage(1176)
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 24              call far word [es:bx+0x24]
 0062 50                       push ax
@@ -1798,7 +1768,7 @@ Functn40: "SDRMOOND"
 
 Functn41: "SDRMOONE"
 0000                          BEGIN
-0003                          cx = ShowMessage(119A)
+0003                          ShowMessage(119A)
 0010 B8 BD 00                 mov ax, 0xbd
 0013 50                       push ax
 0014 B8 BD 00                 mov ax, 0xbd
@@ -1819,7 +1789,7 @@ Functn41: "SDRMOONE"
 0035 59                       pop cx
 0036 0B C0                    or ax, ax
 0038 74 49                    jz 0x83
-003A                          cx = ShowMessage(11CD)
+003A                          ShowMessage(11CD)
 0047 C4 5E 06                 les bx, [bp+0x6]
 004A 26 FF 5F 24              call far word [es:bx+0x24]
 004E 50                       push ax
@@ -1911,7 +1881,7 @@ Functn43: "SDRMOONF"
 0043 59                       pop cx
 0044 0B C0                    or ax, ax
 0046 74 49                    jz 0x91
-0048                          cx = ShowMessage(11EB)
+0048                          ShowMessage(11EB)
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 5F 24              call far word [es:bx+0x24]
 005C 50                       push ax
@@ -1967,7 +1937,7 @@ Functn44: "SDRMOONJ"
 0043 59                       pop cx
 0044 0B C0                    or ax, ax
 0046 74 49                    jz 0x91
-0048                          cx = ShowMessage(1229)
+0048                          ShowMessage(1229)
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 5F 24              call far word [es:bx+0x24]
 005C 50                       push ax
@@ -2001,7 +1971,7 @@ Functn45: "BDRMOONK"
 000E 59                       pop cx
 000F 3D 14 00                 cmp ax, 0x14
 0012 72 4B                    jb 0x5f
-0014                          cx = ShowMessage(1266)
+0014                          ShowMessage(1266)
 0021 C4 5E 06                 les bx, [bp+0x6]
 0024 26 FF 5F 24              call far word [es:bx+0x24]
 0028 50                       push ax
@@ -2025,7 +1995,7 @@ Functn45: "BDRMOONK"
 0056 26 FF 5F 2C              call far word [es:bx+0x2c]
 005A 83 C4 06                 add sp, 0x6
 005D EB 48                    jmp 0xa7
-005F                          cx = ShowMessage(1290)
+005F                          ShowMessage(1290)
 006C C4 5E 06                 les bx, [bp+0x6]
 006F 26 FF 5F 24              call far word [es:bx+0x24]
 0073 50                       push ax
@@ -2076,7 +2046,7 @@ Functn46: "SDRMOONM"
 0034 59                       pop cx
 0035 0B C0                    or ax, ax
 0037 74 49                    jz 0x82
-0039                          cx = ShowMessage(12A8)
+0039                          ShowMessage(12A8)
 0046 B8 01 00                 mov ax, 0x1
 0049 50                       push ax
 004A C4 5E 06                 les bx, [bp+0x6]
@@ -2103,7 +2073,7 @@ Functn46: "SDRMOONM"
 
 Functn47: "SDRMOONN"
 0000                          BEGIN
-0003                          cx = ShowMessage(12E0)
+0003                          ShowMessage(12E0)
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 24              call far word [es:bx+0x24]
 0017 50                       push ax
@@ -2137,7 +2107,7 @@ Functn48: "MOONTRSA"
 000E 59                       pop cx
 000F 0B C0                    or ax, ax
 0011 74 0F                    jz 0x22
-0013                          cx = ShowMessage(130F)
+0013                          ShowMessage(130F)
 0020 EB 2E                    jmp 0x50
 0022 B8 F2 00                 mov ax, 0xf2
 0025 50                       push ax
@@ -2153,7 +2123,7 @@ Functn48: "MOONTRSA"
 003A C4 5E 06                 les bx, [bp+0x6]
 003D 26 FF 1F                 call far word [es:bx]
 0040 83 C4 06                 add sp, 0x6
-0043                          cx = ShowMessage(132E)
+0043                          ShowMessage(132E)
 0050                          RETURN
 
 Functn49: "MOONTRSB"
@@ -2168,7 +2138,7 @@ Functn49: "MOONTRSB"
 0013 59                       pop cx
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 0F                    jnz 0x28
-0019                          cx = ShowMessage(1352)
+0019                          ShowMessage(1352)
 0026 EB 2E                    jmp 0x56
 0028 B8 37 00                 mov ax, 0x37
 002B 50                       push ax
@@ -2184,7 +2154,7 @@ Functn49: "MOONTRSB"
 0040 C4 5E 06                 les bx, [bp+0x6]
 0043 26 FF 1F                 call far word [es:bx]
 0046 83 C4 06                 add sp, 0x6
-0049                          cx = ShowMessage(1365)
+0049                          ShowMessage(1365)
 0056                          RETURN
 
 Functn4A: "MOONTRSC"
@@ -2199,7 +2169,7 @@ Functn4A: "MOONTRSC"
 0013 59                       pop cx
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 0F                    jnz 0x28
-0019                          cx = ShowMessage(138D)
+0019                          ShowMessage(138D)
 0026 EB 2E                    jmp 0x56
 0028 B8 3D 00                 mov ax, 0x3d
 002B 50                       push ax
@@ -2215,7 +2185,7 @@ Functn4A: "MOONTRSC"
 0040 C4 5E 06                 les bx, [bp+0x6]
 0043 26 FF 1F                 call far word [es:bx]
 0046 83 C4 06                 add sp, 0x6
-0049                          cx = ShowMessage(13B8)
+0049                          ShowMessage(13B8)
 0056                          RETURN
 
 Functn4B: "TORBFOUN"
@@ -2225,7 +2195,7 @@ Functn4B: "TORBFOUN"
 0007 C4 5E 06                 les bx, [bp+0x6]
 000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
 000F 59                       pop cx
-0010                          cx = ShowMessage(13E4)
+0010                          ShowMessage(13E4)
 001D B8 63 00                 mov ax, 0x63
 0020 50                       push ax
 0021 B8 02 00                 mov ax, 0x2
@@ -2261,7 +2231,7 @@ Functn4B: "TORBFOUN"
 0065 26 FF 5F 60              call far word [es:bx+0x60]
 0069 59                       pop cx
 006A 59                       pop cx
-006B                          cx = ShowMessage(1430)
+006B                          ShowMessage(1430)
 0078 E9 FF 00                 jmp 0x17a
 007B B8 01 00                 mov ax, 0x1
 007E 50                       push ax
@@ -2278,7 +2248,7 @@ Functn4B: "TORBFOUN"
 0096 26 FF 5F 60              call far word [es:bx+0x60]
 009A 59                       pop cx
 009B 59                       pop cx
-009C                          cx = ShowMessage(144F)
+009C                          ShowMessage(144F)
 00A9 E9 CE 00                 jmp 0x17a
 00AC B8 05 00                 mov ax, 0x5
 00AF 50                       push ax
@@ -2295,7 +2265,7 @@ Functn4B: "TORBFOUN"
 00C7 26 FF 5F 60              call far word [es:bx+0x60]
 00CB 59                       pop cx
 00CC 59                       pop cx
-00CD                          cx = ShowMessage(1475)
+00CD                          ShowMessage(1475)
 00DA E9 9D 00                 jmp 0x17a
 00DD B8 0C 00                 mov ax, 0xc
 00E0 50                       push ax
@@ -2312,7 +2282,7 @@ Functn4B: "TORBFOUN"
 00F8 26 FF 5F 60              call far word [es:bx+0x60]
 00FC 59                       pop cx
 00FD 59                       pop cx
-00FE                          cx = ShowMessage(149A)
+00FE                          ShowMessage(149A)
 010B EB 6D                    jmp 0x17a
 010D B8 10 00                 mov ax, 0x10
 0110 50                       push ax
@@ -2329,7 +2299,7 @@ Functn4B: "TORBFOUN"
 0128 26 FF 5F 60              call far word [es:bx+0x60]
 012C 59                       pop cx
 012D 59                       pop cx
-012E                          cx = ShowMessage(14B3)
+012E                          ShowMessage(14B3)
 013B EB 3D                    jmp 0x17a
 013D B8 16 00                 mov ax, 0x16
 0140 50                       push ax
@@ -2346,11 +2316,11 @@ Functn4B: "TORBFOUN"
 0158 26 FF 5F 60              call far word [es:bx+0x60]
 015C 59                       pop cx
 015D 59                       pop cx
-015E                          cx = ShowMessage(14D7)
+015E                          ShowMessage(14D7)
 016B EB 0D                    jmp 0x17a
-016D                          cx = ShowMessage(14F3)
+016D                          ShowMessage(14F3)
 017A EB 0D                    jmp 0x189
-017C                          cx = ShowMessage(150E)
+017C                          ShowMessage(150E)
 0189                          RETURN
 
 Functn4C: "TORBENCB"
@@ -2473,7 +2443,7 @@ Functn4D: "TORBENCC"
 
 Functn52: "TXTTORB"
 0000                          BEGIN
-0003                          cx = ShowMessage(152D)
+0003                          ShowMessage(152D)
 0010                          RETURN
 
 Functn53: "SDRTORBA"
@@ -2507,7 +2477,7 @@ Functn53: "SDRTORBA"
 0043 59                       pop cx
 0044 0B C0                    or ax, ax
 0046 74 49                    jz 0x91
-0048                          cx = ShowMessage(15AA)
+0048                          ShowMessage(15AA)
 0055 B8 01 00                 mov ax, 0x1
 0058 50                       push ax
 0059 C4 5E 06                 les bx, [bp+0x6]
@@ -2563,7 +2533,7 @@ Functn54: "SDRTORBB"
 0042 59                       pop cx
 0043 0B C0                    or ax, ax
 0045 74 49                    jz 0x90
-0047                          cx = ShowMessage(15E6)
+0047                          ShowMessage(15E6)
 0054 B8 01 00                 mov ax, 0x1
 0057 50                       push ax
 0058 C4 5E 06                 les bx, [bp+0x6]
@@ -2590,7 +2560,7 @@ Functn54: "SDRTORBB"
 
 Functn55: "TORBWIND"
 0000                          BEGIN
-0003                          cx = ShowMessage(160A)
+0003                          ShowMessage(160A)
 0010 B8 64 00                 mov ax, 0x64
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -2600,12 +2570,12 @@ Functn55: "TORBWIND"
 0020 26 FF 5F 70              call far word [es:bx+0x70]
 0024 0B C0                    or ax, ax
 0026 77 0D                    ja 0x35
-0028                          cx = ShowMessage(1638)
+0028                          ShowMessage(1638)
 0035                          RETURN
 
 Functn56: "MOONWIND"
 0000                          BEGIN
-0003                          cx = ShowMessage(1647)
+0003                          ShowMessage(1647)
 0010 B8 D4 FE                 mov ax, 0xfed4
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -2615,7 +2585,7 @@ Functn56: "MOONWIND"
 
 Functn57: "VORAWIND"
 0000                          BEGIN
-0003                          cx = ShowMessage(166E)
+0003                          ShowMessage(166E)
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 70              call far word [es:bx+0x70]
 0017 BB 02 00                 mov bx, 0x2
@@ -2629,6 +2599,6 @@ Functn57: "VORAWIND"
 002A 26 FF 5F 70              call far word [es:bx+0x70]
 002E 0B C0                    or ax, ax
 0030 77 0D                    ja 0x3f
-0032                          cx = ShowMessage(16A7)
+0032                          ShowMessage(16A7)
 003F                          RETURN
 

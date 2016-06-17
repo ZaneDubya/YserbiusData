@@ -20,22 +20,22 @@ Functn04: "EXITDUNG"
 
 Functn05: "DOORMESA"
 0000                          BEGIN
-0003                          cx = ShowMessage(03FC)
+0003                          ShowMessage(03FC)
 0010                          RETURN
 
 Functn06: "DOORMESB"
 0000                          BEGIN
-0003                          cx = ShowMessage(041C)
+0003                          ShowMessage(041C)
 0010                          RETURN
 
 Functn07: "DOORMESC"
 0000                          BEGIN
-0003                          cx = ShowMessage(0444)
+0003                          ShowMessage(0444)
 0010                          RETURN
 
 Functn08: "DOORMESD"
 0000                          BEGIN
-0003                          cx = ShowMessage(0471)
+0003                          ShowMessage(0471)
 0010 B8 6A 00                 mov ax, 0x6a
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -46,37 +46,23 @@ Functn08: "DOORMESD"
 0020 59                       pop cx
 0021 0B C0                    or ax, ax
 0023 74 1A                    jz 0x3f
-0025                          cx = ShowMessage(0492)
-0032                          cx = ShowMessage(04B5)
+0025                          ShowMessage(0492)
+0032                          ShowMessage(04B5)
 003F                          RETURN
 
 Functn09: "TELEPORT"
 0000                          BEGIN
-0003 33 C0                    xor ax, ax
-0005 50                       push ax
-0006 B8 5D 00                 mov ax, 0x5d
-0009 50                       push ax
-000A B8 01 00                 mov ax, 0x1
-000D 50                       push ax
-000E B8 33 00                 mov ax, 0x33
-0011 50                       push ax
-0012 C4 5E 06                 les bx, [bp+0x6]
-0015 26 FF 9F BC 00           call far word [es:bx+0xbc]
-001A 83 C4 08                 add sp, 0x8
+0003                          GoMap(00, 5D, 01, 33)
 001D                          RETURN
 
 Functn0A: "TELEMESS"
 0000                          BEGIN
-0003                          cx = ShowMessage(04DE)
+0003                          ShowMessage(04DE)
 0010                          RETURN
 
 Functn0B: "DOORMESS"
 0000                          BEGIN
-0003 B8 14 00                 mov ax, 0x14
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 44              call far word [es:bx+0x44]
-000E 59                       pop cx
+0003                          ax = CheckLevel(0014)
 000F 0B C0                    or ax, ax
 0011 75 03                    jnz 0x16
 0013 E9 09 01                 jmp 0x11f
@@ -90,7 +76,7 @@ Functn0B: "DOORMESS"
 0026 59                       pop cx
 0027 3D 01 00                 cmp ax, 0x1
 002A 75 2E                    jnz 0x5a
-002C                          cx = ShowMessage(0504)
+002C                          ShowMessage(0504)
 0039 B8 01 00                 mov ax, 0x1
 003C 50                       push ax
 003D C4 5E 06                 les bx, [bp+0x6]
@@ -111,8 +97,8 @@ Functn0B: "DOORMESS"
 0066 0B C0                    or ax, ax
 0068 75 03                    jnz 0x6d
 006A E9 A3 00                 jmp 0x110
-006D                          cx = ShowMessage(0535)
-007A                          cx = ShowMessage(0559)
+006D                          ShowMessage(0535)
+007A                          ShowMessage(0559)
 0087 B8 01 00                 mov ax, 0x1
 008A 50                       push ax
 008B B8 78 00                 mov ax, 0x78
@@ -169,10 +155,10 @@ Functn0B: "DOORMESS"
 0107 26 FF 5F 2C              call far word [es:bx+0x2c]
 010B 83 C4 06                 add sp, 0x6
 010E EB 0D                    jmp 0x11d
-0110                          cx = ShowMessage(058A)
+0110                          ShowMessage(058A)
 011D EB 37                    jmp 0x156
-011F                          cx = ShowMessage(05BA)
-012C                          cx = ShowMessage(05EA)
+011F                          ShowMessage(05BA)
+012C                          ShowMessage(05EA)
 0139 33 C0                    xor ax, ax
 013B 50                       push ax
 013C C4 5E 06                 les bx, [bp+0x6]
@@ -188,27 +174,13 @@ Functn0B: "DOORMESS"
 
 Functn0C: "PRTYPORT"
 0000                          BEGIN
-0003 B8 14 00                 mov ax, 0x14
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 44              call far word [es:bx+0x44]
-000E 59                       pop cx
+0003                          ax = CheckLevel(0014)
 000F 0B C0                    or ax, ax
 0011 74 0F                    jz 0x22
-0013                          cx = ShowMessage(0635)
+0013                          ShowMessage(0635)
 0020 EB 27                    jmp 0x49
-0022                          cx = ShowMessage(0650)
-002F 33 C0                    xor ax, ax
-0031 50                       push ax
-0032 B8 02 00                 mov ax, 0x2
-0035 50                       push ax
-0036 B8 01 00                 mov ax, 0x1
-0039 50                       push ax
-003A B8 01 00                 mov ax, 0x1
-003D 50                       push ax
-003E C4 5E 06                 les bx, [bp+0x6]
-0041 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0046 83 C4 08                 add sp, 0x8
+0022                          ShowMessage(0650)
+002F                          GoMap(00, 02, 01, 01)
 0049                          RETURN
 
 Functn0D: "NOJOIN"

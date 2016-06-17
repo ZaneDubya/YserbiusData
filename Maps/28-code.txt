@@ -1,17 +1,7 @@
 Functn01: "GATEWAYA"
 0000                          BEGIN
-0003                          cx = ShowMessage(03FC)
-0010 33 C0                    xor ax, ax
-0012 50                       push ax
-0013 B8 3F 00                 mov ax, 0x3f
-0016 50                       push ax
-0017 B8 01 00                 mov ax, 0x1
-001A 50                       push ax
-001B B8 36 00                 mov ax, 0x36
-001E 50                       push ax
-001F C4 5E 06                 les bx, [bp+0x6]
-0022 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0027 83 C4 08                 add sp, 0x8
+0003                          ShowMessage(03FC)
+0010                          GoMap(00, 3F, 01, 36)
 002A                          RETURN
 
 Functn02: "XOVERA"
@@ -21,52 +11,42 @@ Functn02: "XOVERA"
 
 Functn03: "XOVERB"
 0000                          BEGIN
-0003                          cx = ShowMessage(041D)
-0010 33 C0                    xor ax, ax
-0012 50                       push ax
-0013 B8 51 00                 mov ax, 0x51
-0016 50                       push ax
-0017 B8 02 00                 mov ax, 0x2
-001A 50                       push ax
-001B B8 36 00                 mov ax, 0x36
-001E 50                       push ax
-001F C4 5E 06                 les bx, [bp+0x6]
-0022 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0027 83 C4 08                 add sp, 0x8
+0003                          ShowMessage(041D)
+0010                          GoMap(00, 51, 02, 36)
 002A                          RETURN
 
 Functn04: "AREAA"
 0000                          BEGIN
-0003                          cx = ShowMessage(0448)
+0003                          ShowMessage(0448)
 0010                          GoMap(03, 33, 02, 36)
 002B                          RETURN
 
 Functn05: "AREAB"
 0000                          BEGIN
-0003                          cx = ShowMessage(046C)
+0003                          ShowMessage(046C)
 0010                          GoMap(03, C3, 02, 36)
 002B                          RETURN
 
 Functn06: "AREAC"
 0000                          BEGIN
-0003                          cx = ShowMessage(0491)
+0003                          ShowMessage(0491)
 0010                          GoMap(03, CC, 02, 36)
 002B                          RETURN
 
 Functn07: "AREAD"
 0000                          BEGIN
-0003                          cx = ShowMessage(04B7)
+0003                          ShowMessage(04B7)
 0010                          GoMap(03, 3C, 02, 36)
 002B                          RETURN
 
 Functn09: "ARENTEXT"
 0000                          BEGIN
-0003                          cx = ShowMessage(04DE)
-0010                          cx = ShowMessage(0588)
+0003                          ShowMessage(04DE)
+0010                          ShowMessage(0588)
 001D                          RETURN
 
 Functn0A: "WAITTEXT"
 0000                          BEGIN
-0003                          cx = ShowMessage(05DC)
+0003                          ShowMessage(05DC)
 0010                          RETURN
 

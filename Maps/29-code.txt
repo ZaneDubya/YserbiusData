@@ -32,7 +32,7 @@ Functn01: "ALDBORA"
 0043 0B C0                    or ax, ax
 0045 75 03                    jnz 0x4a
 0047 E9 CA 03                 jmp 0x414
-004A                          cx = ShowMessage(03FC)
+004A                          ShowMessage(03FC)
 0057 B8 E8 00                 mov ax, 0xe8
 005A 50                       push ax
 005B C4 5E 06                 les bx, [bp+0x6]
@@ -58,7 +58,7 @@ Functn01: "ALDBORA"
 0088 26 FF 5F 60              call far word [es:bx+0x60]
 008C 59                       pop cx
 008D 59                       pop cx
-008E                          cx = ShowMessage(0417)
+008E                          ShowMessage(0417)
 009B B8 01 00                 mov ax, 0x1
 009E 50                       push ax
 009F C4 5E 06                 les bx, [bp+0x6]
@@ -74,7 +74,7 @@ Functn01: "ALDBORA"
 00B6 26 FF 5F 60              call far word [es:bx+0x60]
 00BA 59                       pop cx
 00BB 59                       pop cx
-00BC                          cx = ShowMessage(0433)
+00BC                          ShowMessage(0433)
 00C9 B8 02 00                 mov ax, 0x2
 00CC 50                       push ax
 00CD C4 5E 06                 les bx, [bp+0x6]
@@ -90,7 +90,7 @@ Functn01: "ALDBORA"
 00E4 26 FF 5F 60              call far word [es:bx+0x60]
 00E8 59                       pop cx
 00E9 59                       pop cx
-00EA                          cx = ShowMessage(0454)
+00EA                          ShowMessage(0454)
 00F7 B8 03 00                 mov ax, 0x3
 00FA 50                       push ax
 00FB C4 5E 06                 les bx, [bp+0x6]
@@ -106,7 +106,7 @@ Functn01: "ALDBORA"
 0112 26 FF 5F 60              call far word [es:bx+0x60]
 0116 59                       pop cx
 0117 59                       pop cx
-0118                          cx = ShowMessage(0470)
+0118                          ShowMessage(0470)
 0125 B8 04 00                 mov ax, 0x4
 0128 50                       push ax
 0129 C4 5E 06                 les bx, [bp+0x6]
@@ -122,7 +122,7 @@ Functn01: "ALDBORA"
 0140 26 FF 5F 60              call far word [es:bx+0x60]
 0144 59                       pop cx
 0145 59                       pop cx
-0146                          cx = ShowMessage(048A)
+0146                          ShowMessage(048A)
 0153 B8 05 00                 mov ax, 0x5
 0156 50                       push ax
 0157 C4 5E 06                 les bx, [bp+0x6]
@@ -138,7 +138,7 @@ Functn01: "ALDBORA"
 016E 26 FF 5F 60              call far word [es:bx+0x60]
 0172 59                       pop cx
 0173 59                       pop cx
-0174                          cx = ShowMessage(04A7)
+0174                          ShowMessage(04A7)
 0181 B8 06 00                 mov ax, 0x6
 0184 50                       push ax
 0185 C4 5E 06                 les bx, [bp+0x6]
@@ -154,7 +154,7 @@ Functn01: "ALDBORA"
 019C 26 FF 5F 60              call far word [es:bx+0x60]
 01A0 59                       pop cx
 01A1 59                       pop cx
-01A2                          cx = ShowMessage(04C1)
+01A2                          ShowMessage(04C1)
 01AF B8 07 00                 mov ax, 0x7
 01B2 50                       push ax
 01B3 C4 5E 06                 les bx, [bp+0x6]
@@ -170,7 +170,7 @@ Functn01: "ALDBORA"
 01CA 26 FF 5F 60              call far word [es:bx+0x60]
 01CE 59                       pop cx
 01CF 59                       pop cx
-01D0                          cx = ShowMessage(04DB)
+01D0                          ShowMessage(04DB)
 01DD B8 08 00                 mov ax, 0x8
 01E0 50                       push ax
 01E1 C4 5E 06                 les bx, [bp+0x6]
@@ -186,7 +186,7 @@ Functn01: "ALDBORA"
 01F8 26 FF 5F 60              call far word [es:bx+0x60]
 01FC 59                       pop cx
 01FD 59                       pop cx
-01FE                          cx = ShowMessage(04FA)
+01FE                          ShowMessage(04FA)
 020B B8 09 00                 mov ax, 0x9
 020E 50                       push ax
 020F C4 5E 06                 les bx, [bp+0x6]
@@ -202,7 +202,7 @@ Functn01: "ALDBORA"
 0226 26 FF 5F 60              call far word [es:bx+0x60]
 022A 59                       pop cx
 022B 59                       pop cx
-022C                          cx = ShowMessage(0514)
+022C                          ShowMessage(0514)
 0239 B8 0A 00                 mov ax, 0xa
 023C 50                       push ax
 023D C4 5E 06                 les bx, [bp+0x6]
@@ -218,7 +218,7 @@ Functn01: "ALDBORA"
 0254 26 FF 5F 60              call far word [es:bx+0x60]
 0258 59                       pop cx
 0259 59                       pop cx
-025A                          cx = ShowMessage(052E)
+025A                          ShowMessage(052E)
 0267 B8 0B 00                 mov ax, 0xb
 026A 50                       push ax
 026B C4 5E 06                 les bx, [bp+0x6]
@@ -234,7 +234,7 @@ Functn01: "ALDBORA"
 0282 26 FF 5F 60              call far word [es:bx+0x60]
 0286 59                       pop cx
 0287 59                       pop cx
-0288                          cx = ShowMessage(054C)
+0288                          ShowMessage(054C)
 0295 B8 10 00                 mov ax, 0x10
 0298 50                       push ax
 0299 C4 5E 06                 les bx, [bp+0x6]
@@ -250,7 +250,7 @@ Functn01: "ALDBORA"
 02B0 26 FF 5F 60              call far word [es:bx+0x60]
 02B4 59                       pop cx
 02B5 59                       pop cx
-02B6                          cx = ShowMessage(056D)
+02B6                          ShowMessage(056D)
 02C3 B8 11 00                 mov ax, 0x11
 02C6 50                       push ax
 02C7 C4 5E 06                 les bx, [bp+0x6]
@@ -266,7 +266,7 @@ Functn01: "ALDBORA"
 02DE 26 FF 5F 60              call far word [es:bx+0x60]
 02E2 59                       pop cx
 02E3 59                       pop cx
-02E4                          cx = ShowMessage(058C)
+02E4                          ShowMessage(058C)
 02F1 B8 12 00                 mov ax, 0x12
 02F4 50                       push ax
 02F5 C4 5E 06                 les bx, [bp+0x6]
@@ -282,7 +282,7 @@ Functn01: "ALDBORA"
 030C 26 FF 5F 60              call far word [es:bx+0x60]
 0310 59                       pop cx
 0311 59                       pop cx
-0312                          cx = ShowMessage(05AC)
+0312                          ShowMessage(05AC)
 031F B8 13 00                 mov ax, 0x13
 0322 50                       push ax
 0323 C4 5E 06                 les bx, [bp+0x6]
@@ -298,7 +298,7 @@ Functn01: "ALDBORA"
 033A 26 FF 5F 60              call far word [es:bx+0x60]
 033E 59                       pop cx
 033F 59                       pop cx
-0340                          cx = ShowMessage(05C4)
+0340                          ShowMessage(05C4)
 034D B8 14 00                 mov ax, 0x14
 0350 50                       push ax
 0351 C4 5E 06                 les bx, [bp+0x6]
@@ -314,7 +314,7 @@ Functn01: "ALDBORA"
 0368 26 FF 5F 60              call far word [es:bx+0x60]
 036C 59                       pop cx
 036D 59                       pop cx
-036E                          cx = ShowMessage(05DE)
+036E                          ShowMessage(05DE)
 037B B8 15 00                 mov ax, 0x15
 037E 50                       push ax
 037F C4 5E 06                 les bx, [bp+0x6]
@@ -330,7 +330,7 @@ Functn01: "ALDBORA"
 0396 26 FF 5F 60              call far word [es:bx+0x60]
 039A 59                       pop cx
 039B 59                       pop cx
-039C                          cx = ShowMessage(05FD)
+039C                          ShowMessage(05FD)
 03A9 B8 16 00                 mov ax, 0x16
 03AC 50                       push ax
 03AD C4 5E 06                 les bx, [bp+0x6]
@@ -346,7 +346,7 @@ Functn01: "ALDBORA"
 03C4 26 FF 5F 60              call far word [es:bx+0x60]
 03C8 59                       pop cx
 03C9 59                       pop cx
-03CA                          cx = ShowMessage(0615)
+03CA                          ShowMessage(0615)
 03D7 B8 17 00                 mov ax, 0x17
 03DA 50                       push ax
 03DB C4 5E 06                 les bx, [bp+0x6]
@@ -362,8 +362,8 @@ Functn01: "ALDBORA"
 03F2 26 FF 5F 60              call far word [es:bx+0x60]
 03F6 59                       pop cx
 03F7 59                       pop cx
-03F8                          cx = ShowMessage(0632)
-0405                          cx = ShowMessage(0650)
+03F8                          ShowMessage(0632)
+0405                          ShowMessage(0650)
 0412 EB 4B                    jmp 0x45f
 0414 8B DE                    mov bx, si
 0416 4B                       dec bx
@@ -371,13 +371,13 @@ Functn01: "ALDBORA"
 041A 77 43                    ja 0x45f
 041C D1 E3                    shl bx, 1
 041E 2E FF A7 6D 04           jmp word [cs:bx+0x46d]
-0423                          cx = ShowMessage(06DE)
+0423                          ShowMessage(06DE)
 0430 EB 2D                    jmp 0x45f
-0432                          cx = ShowMessage(0720)
+0432                          ShowMessage(0720)
 043F EB 1E                    jmp 0x45f
-0441                          cx = ShowMessage(0756)
+0441                          ShowMessage(0756)
 044E EB 0F                    jmp 0x45f
-0450                          cx = ShowMessage(0787)
+0450                          ShowMessage(0787)
 045D EB 00                    jmp 0x45f
 045F 5E                       pop si
 0460                          RETURN
@@ -388,7 +388,7 @@ Functn01: "ALDBORA"
 
 Functn02: "ENCA"
 0000                          BEGIN
-0003                          cx = ShowMessage(07DD)
+0003                          ShowMessage(07DD)
 0010 B8 20 00                 mov ax, 0x20
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -639,7 +639,7 @@ Functn07: "ENCF"
 0049 C4 5E 06                 les bx, [bp+0x6]
 004C 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0051 83 C4 0C                 add sp, 0xc
-0054                          cx = ShowMessage(0800)
+0054                          ShowMessage(0800)
 0061 B8 1B 00                 mov ax, 0x1b
 0064 50                       push ax
 0065 B8 01 00                 mov ax, 0x1
@@ -803,7 +803,7 @@ Functn0A: "ENCI"
 0073 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0078 83 C4 0C                 add sp, 0xc
 007B EB 2E                    jmp 0xab
-007D                          cx = ShowMessage(0832)
+007D                          ShowMessage(0832)
 008A B8 10 27                 mov ax, 0x2710
 008D 50                       push ax
 008E 33 C0                    xor ax, ax
@@ -823,20 +823,16 @@ Functn0A: "ENCI"
 
 Functn0B: "CGATE"
 0000                          BEGIN
-0003                          cx = ShowMessage(0858)
+0003                          ShowMessage(0858)
 0010                          GoMap(01, 74, 01, 36)
 002B                          RETURN
 
 Functn0C: "DWARF"
 0000                          BEGIN
-0003 B8 1E 00                 mov ax, 0x1e
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 44              call far word [es:bx+0x44]
-000E 59                       pop cx
+0003                          ax = CheckLevel(001E)
 000F 0B C0                    or ax, ax
 0011 74 2A                    jz 0x3d
-0013                          cx = ShowMessage(0876)
+0013                          ShowMessage(0876)
 0020                          GoMap(02, 7A, 01, 38)
 003B EB 0D                    jmp 0x4a
 003D B8 B2 08                 mov ax, 0x8b2
@@ -854,7 +850,7 @@ Functn0D: "NOJOIN"
 
 Functn0E: "BEECHWD"
 0000                          BEGIN
-0003                          cx = ShowMessage(08FB)
+0003                          ShowMessage(08FB)
 0010 B8 01 00                 mov ax, 0x1
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -905,7 +901,7 @@ Functn0E: "BEECHWD"
 
 Functn0F: "OAKLEAF"
 0000                          BEGIN
-0003                          cx = ShowMessage(0935)
+0003                          ShowMessage(0935)
 0010 B8 02 00                 mov ax, 0x2
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -956,7 +952,7 @@ Functn0F: "OAKLEAF"
 
 Functn10: "MAPLEBRS"
 0000                          BEGIN
-0003                          cx = ShowMessage(0978)
+0003                          ShowMessage(0978)
 0010 B8 03 00                 mov ax, 0x3
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -1007,7 +1003,7 @@ Functn10: "MAPLEBRS"
 
 Functn11: "PINECONE"
 0000                          BEGIN
-0003                          cx = ShowMessage(09B4)
+0003                          ShowMessage(09B4)
 0010 B8 04 00                 mov ax, 0x4
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -1059,7 +1055,7 @@ Functn11: "PINECONE"
 Functn12: "BWACTOR"
 0000                          BEGIN
 0003 56                       push si
-0004                          cx = ShowMessage(09F8)
+0004                          ShowMessage(09F8)
 0011 B8 27 00                 mov ax, 0x27
 0014 50                       push ax
 0015 C4 5E 06                 les bx, [bp+0x6]
@@ -1081,22 +1077,22 @@ Functn12: "BWACTOR"
 0039 E9 AC 00                 jmp 0xe8
 003C D1 E3                    shl bx, 1
 003E 2E FF A7 B3 0D           jmp word [cs:bx+0xdb3]
-0043                          cx = ShowMessage(0A31)
-0050                          cx = ShowMessage(0A67)
-005D                          cx = ShowMessage(0A9C)
+0043                          ShowMessage(0A31)
+0050                          ShowMessage(0A67)
+005D                          ShowMessage(0A9C)
 006A EB 7C                    jmp 0xe8
 006C 90                       nop
-006D                          cx = ShowMessage(0ACC)
-007A                          cx = ShowMessage(0AFC)
-0087                          cx = ShowMessage(0B47)
+006D                          ShowMessage(0ACC)
+007A                          ShowMessage(0AFC)
+0087                          ShowMessage(0B47)
 0094 EB 52                    jmp 0xe8
-0096                          cx = ShowMessage(0B7F)
-00A3                          cx = ShowMessage(0BB0)
-00B0                          cx = ShowMessage(0C18)
+0096                          ShowMessage(0B7F)
+00A3                          ShowMessage(0BB0)
+00B0                          ShowMessage(0C18)
 00BD EB 29                    jmp 0xe8
-00BF                          cx = ShowMessage(0C4E)
-00CC                          cx = ShowMessage(0C93)
-00D9                          cx = ShowMessage(0CE4)
+00BF                          ShowMessage(0C4E)
+00CC                          ShowMessage(0C93)
+00D9                          ShowMessage(0CE4)
 00E6 EB 00                    jmp 0xe8
 00E8 B8 E5 00                 mov ax, 0xe5
 00EB 50                       push ax
@@ -1129,11 +1125,11 @@ Functn12: "BWACTOR"
 0126 C4 5E 06                 les bx, [bp+0x6]
 0129 26 FF 1F                 call far word [es:bx]
 012C 83 C4 06                 add sp, 0x6
-012F                          cx = ShowMessage(0D08)
-013C                          cx = ShowMessage(0D31)
-0149                          cx = ShowMessage(0D65)
+012F                          ShowMessage(0D08)
+013C                          ShowMessage(0D31)
+0149                          ShowMessage(0D65)
 0156 EB 0D                    jmp 0x165
-0158                          cx = ShowMessage(0D92)
+0158                          ShowMessage(0D92)
 0165 E9 99 01                 jmp 0x301
 0168 B8 E6 00                 mov ax, 0xe6
 016B 50                       push ax
@@ -1166,11 +1162,11 @@ Functn12: "BWACTOR"
 01A6 C4 5E 06                 les bx, [bp+0x6]
 01A9 26 FF 1F                 call far word [es:bx]
 01AC 83 C4 06                 add sp, 0x6
-01AF                          cx = ShowMessage(0DBC)
-01BC                          cx = ShowMessage(0DEA)
-01C9                          cx = ShowMessage(0E15)
+01AF                          ShowMessage(0DBC)
+01BC                          ShowMessage(0DEA)
+01C9                          ShowMessage(0E15)
 01D6 EB 0D                    jmp 0x1e5
-01D8                          cx = ShowMessage(0E53)
+01D8                          ShowMessage(0E53)
 01E5 E9 19 01                 jmp 0x301
 01E8 B8 E7 00                 mov ax, 0xe7
 01EB 50                       push ax
@@ -1203,11 +1199,11 @@ Functn12: "BWACTOR"
 0226 C4 5E 06                 les bx, [bp+0x6]
 0229 26 FF 1F                 call far word [es:bx]
 022C 83 C4 06                 add sp, 0x6
-022F                          cx = ShowMessage(0E86)
-023C                          cx = ShowMessage(0EB0)
-0249                          cx = ShowMessage(0EFE)
+022F                          ShowMessage(0E86)
+023C                          ShowMessage(0EB0)
+0249                          ShowMessage(0EFE)
 0256 EB 0D                    jmp 0x265
-0258                          cx = ShowMessage(0F2C)
+0258                          ShowMessage(0F2C)
 0265 E9 99 00                 jmp 0x301
 0268 B8 E4 00                 mov ax, 0xe4
 026B 50                       push ax
@@ -1240,14 +1236,14 @@ Functn12: "BWACTOR"
 02A6 C4 5E 06                 les bx, [bp+0x6]
 02A9 26 FF 1F                 call far word [es:bx]
 02AC 83 C4 06                 add sp, 0x6
-02AF                          cx = ShowMessage(0F60)
-02BC                          cx = ShowMessage(0F8A)
-02C9                          cx = ShowMessage(0FB5)
+02AF                          ShowMessage(0F60)
+02BC                          ShowMessage(0F8A)
+02C9                          ShowMessage(0FB5)
 02D6 EB 1A                    jmp 0x2f2
-02D8                          cx = ShowMessage(0FFB)
-02E5                          cx = ShowMessage(1027)
+02D8                          ShowMessage(0FFB)
+02E5                          ShowMessage(1027)
 02F2 EB 0D                    jmp 0x301
-02F4                          cx = ShowMessage(1047)
+02F4                          ShowMessage(1047)
 0301 5E                       pop si
 0302                          RETURN
 0304 F2 0A 1C                 repne or bl, [si]
@@ -1258,7 +1254,7 @@ Functn12: "BWACTOR"
 Functn13: "OLACTOR"
 0000                          BEGIN
 0003 56                       push si
-0004                          cx = ShowMessage(1071)
+0004                          ShowMessage(1071)
 0011 B8 27 00                 mov ax, 0x27
 0014 50                       push ax
 0015 C4 5E 06                 les bx, [bp+0x6]
@@ -1280,22 +1276,22 @@ Functn13: "OLACTOR"
 0039 E9 AC 00                 jmp 0xe8
 003C D1 E3                    shl bx, 1
 003E 2E FF A7 B2 10           jmp word [cs:bx+0x10b2]
-0043                          cx = ShowMessage(10A8)
-0050                          cx = ShowMessage(10E0)
-005D                          cx = ShowMessage(1106)
+0043                          ShowMessage(10A8)
+0050                          ShowMessage(10E0)
+005D                          ShowMessage(1106)
 006A EB 7C                    jmp 0xe8
 006C 90                       nop
-006D                          cx = ShowMessage(112A)
-007A                          cx = ShowMessage(115A)
-0087                          cx = ShowMessage(1183)
+006D                          ShowMessage(112A)
+007A                          ShowMessage(115A)
+0087                          ShowMessage(1183)
 0094 EB 52                    jmp 0xe8
-0096                          cx = ShowMessage(11AA)
-00A3                          cx = ShowMessage(11DB)
-00B0                          cx = ShowMessage(1223)
+0096                          ShowMessage(11AA)
+00A3                          ShowMessage(11DB)
+00B0                          ShowMessage(1223)
 00BD EB 29                    jmp 0xe8
-00BF                          cx = ShowMessage(125F)
-00CC                          cx = ShowMessage(128D)
-00D9                          cx = ShowMessage(12C1)
+00BF                          ShowMessage(125F)
+00CC                          ShowMessage(128D)
+00D9                          ShowMessage(12C1)
 00E6 EB 00                    jmp 0xe8
 00E8 B8 E5 00                 mov ax, 0xe5
 00EB 50                       push ax
@@ -1328,11 +1324,11 @@ Functn13: "OLACTOR"
 0126 C4 5E 06                 les bx, [bp+0x6]
 0129 26 FF 1F                 call far word [es:bx]
 012C 83 C4 06                 add sp, 0x6
-012F                          cx = ShowMessage(1300)
-013C                          cx = ShowMessage(1322)
-0149                          cx = ShowMessage(135A)
+012F                          ShowMessage(1300)
+013C                          ShowMessage(1322)
+0149                          ShowMessage(135A)
 0156 EB 0D                    jmp 0x165
-0158                          cx = ShowMessage(1384)
+0158                          ShowMessage(1384)
 0165 E9 8C 01                 jmp 0x2f4
 0168 B8 E6 00                 mov ax, 0xe6
 016B 50                       push ax
@@ -1365,11 +1361,11 @@ Functn13: "OLACTOR"
 01A6 C4 5E 06                 les bx, [bp+0x6]
 01A9 26 FF 1F                 call far word [es:bx]
 01AC 83 C4 06                 add sp, 0x6
-01AF                          cx = ShowMessage(13B3)
-01BC                          cx = ShowMessage(13D4)
-01C9                          cx = ShowMessage(1409)
+01AF                          ShowMessage(13B3)
+01BC                          ShowMessage(13D4)
+01C9                          ShowMessage(1409)
 01D6 EB 0D                    jmp 0x1e5
-01D8                          cx = ShowMessage(142E)
+01D8                          ShowMessage(142E)
 01E5 E9 0C 01                 jmp 0x2f4
 01E8 B8 E7 00                 mov ax, 0xe7
 01EB 50                       push ax
@@ -1402,11 +1398,11 @@ Functn13: "OLACTOR"
 0226 C4 5E 06                 les bx, [bp+0x6]
 0229 26 FF 1F                 call far word [es:bx]
 022C 83 C4 06                 add sp, 0x6
-022F                          cx = ShowMessage(1458)
-023C                          cx = ShowMessage(1482)
-0249                          cx = ShowMessage(14CA)
+022F                          ShowMessage(1458)
+023C                          ShowMessage(1482)
+0249                          ShowMessage(14CA)
 0256 EB 0D                    jmp 0x265
-0258                          cx = ShowMessage(14EF)
+0258                          ShowMessage(14EF)
 0265 E9 8C 00                 jmp 0x2f4
 0268 B8 E4 00                 mov ax, 0xe4
 026B 50                       push ax
@@ -1439,13 +1435,13 @@ Functn13: "OLACTOR"
 02A6 C4 5E 06                 les bx, [bp+0x6]
 02A9 26 FF 1F                 call far word [es:bx]
 02AC 83 C4 06                 add sp, 0x6
-02AF                          cx = ShowMessage(1510)
-02BC                          cx = ShowMessage(1534)
-02C9                          cx = ShowMessage(1561)
+02AF                          ShowMessage(1510)
+02BC                          ShowMessage(1534)
+02C9                          ShowMessage(1561)
 02D6 EB 0D                    jmp 0x2e5
-02D8                          cx = ShowMessage(1595)
+02D8                          ShowMessage(1595)
 02E5 EB 0D                    jmp 0x2f4
-02E7                          cx = ShowMessage(15B3)
+02E7                          ShowMessage(15B3)
 02F4 5E                       pop si
 02F5                          RETURN
 02F7 FE 0D                    dec byte [di]
@@ -1455,7 +1451,7 @@ Functn13: "OLACTOR"
 Functn14: "MBACTOR"
 0000                          BEGIN
 0003 56                       push si
-0004                          cx = ShowMessage(15E2)
+0004                          ShowMessage(15E2)
 0011 B8 27 00                 mov ax, 0x27
 0014 50                       push ax
 0015 C4 5E 06                 les bx, [bp+0x6]
@@ -1478,17 +1474,17 @@ Functn14: "MBACTOR"
 003B 90                       nop
 003C D1 E3                    shl bx, 1
 003E 2E FF A7 48 13           jmp word [cs:bx+0x1348]
-0043                          cx = ShowMessage(1619)
-0050                          cx = ShowMessage(1633)
+0043                          ShowMessage(1619)
+0050                          ShowMessage(1633)
 005D EB 54                    jmp 0xb3
-005F                          cx = ShowMessage(165D)
-006C                          cx = ShowMessage(1673)
+005F                          ShowMessage(165D)
+006C                          ShowMessage(1673)
 0079 EB 38                    jmp 0xb3
-007B                          cx = ShowMessage(1697)
-0088                          cx = ShowMessage(16B3)
+007B                          ShowMessage(1697)
+0088                          ShowMessage(16B3)
 0095 EB 1C                    jmp 0xb3
-0097                          cx = ShowMessage(16DA)
-00A4                          cx = ShowMessage(16F8)
+0097                          ShowMessage(16DA)
+00A4                          ShowMessage(16F8)
 00B1 EB 00                    jmp 0xb3
 00B3 B8 E5 00                 mov ax, 0xe5
 00B6 50                       push ax
@@ -1521,10 +1517,10 @@ Functn14: "MBACTOR"
 00F1 C4 5E 06                 les bx, [bp+0x6]
 00F4 26 FF 1F                 call far word [es:bx]
 00F7 83 C4 06                 add sp, 0x6
-00FA                          cx = ShowMessage(171A)
-0107                          cx = ShowMessage(1753)
+00FA                          ShowMessage(171A)
+0107                          ShowMessage(1753)
 0114 EB 0D                    jmp 0x123
-0116                          cx = ShowMessage(1765)
+0116                          ShowMessage(1765)
 0123 E9 65 01                 jmp 0x28b
 0126 B8 E6 00                 mov ax, 0xe6
 0129 50                       push ax
@@ -1557,10 +1553,10 @@ Functn14: "MBACTOR"
 0164 C4 5E 06                 les bx, [bp+0x6]
 0167 26 FF 1F                 call far word [es:bx]
 016A 83 C4 06                 add sp, 0x6
-016D                          cx = ShowMessage(1779)
-017A                          cx = ShowMessage(17A4)
+016D                          ShowMessage(1779)
+017A                          ShowMessage(17A4)
 0187 EB 0D                    jmp 0x196
-0189                          cx = ShowMessage(17B7)
+0189                          ShowMessage(17B7)
 0196 E9 F2 00                 jmp 0x28b
 0199 B8 E7 00                 mov ax, 0xe7
 019C 50                       push ax
@@ -1593,10 +1589,10 @@ Functn14: "MBACTOR"
 01D7 C4 5E 06                 les bx, [bp+0x6]
 01DA 26 FF 1F                 call far word [es:bx]
 01DD 83 C4 06                 add sp, 0x6
-01E0                          cx = ShowMessage(17CE)
-01ED                          cx = ShowMessage(1803)
+01E0                          ShowMessage(17CE)
+01ED                          ShowMessage(1803)
 01FA EB 0D                    jmp 0x209
-01FC                          cx = ShowMessage(1816)
+01FC                          ShowMessage(1816)
 0209 E9 7F 00                 jmp 0x28b
 020C B8 E4 00                 mov ax, 0xe4
 020F 50                       push ax
@@ -1629,12 +1625,12 @@ Functn14: "MBACTOR"
 024A C4 5E 06                 les bx, [bp+0x6]
 024D 26 FF 1F                 call far word [es:bx]
 0250 83 C4 06                 add sp, 0x6
-0253                          cx = ShowMessage(182E)
-0260                          cx = ShowMessage(1862)
+0253                          ShowMessage(182E)
+0260                          ShowMessage(1862)
 026D EB 0D                    jmp 0x27c
-026F                          cx = ShowMessage(1879)
+026F                          ShowMessage(1879)
 027C EB 0D                    jmp 0x28b
-027E                          cx = ShowMessage(1896)
+027E                          ShowMessage(1896)
 028B 5E                       pop si
 028C                          RETURN
 028E FD                       std
@@ -1645,7 +1641,7 @@ Functn14: "MBACTOR"
 Functn15: "PCACTOR"
 0000                          BEGIN
 0003 56                       push si
-0004                          cx = ShowMessage(18C1)
+0004                          ShowMessage(18C1)
 0011 B8 27 00                 mov ax, 0x27
 0014 50                       push ax
 0015 C4 5E 06                 les bx, [bp+0x6]
@@ -1666,13 +1662,13 @@ Functn15: "PCACTOR"
 0037 77 43                    ja 0x7c
 0039 D1 E3                    shl bx, 1
 003B 2E FF A7 DB 15           jmp word [cs:bx+0x15db]
-0040                          cx = ShowMessage(18EE)
+0040                          ShowMessage(18EE)
 004D EB 2D                    jmp 0x7c
-004F                          cx = ShowMessage(18FA)
+004F                          ShowMessage(18FA)
 005C EB 1E                    jmp 0x7c
-005E                          cx = ShowMessage(1906)
+005E                          ShowMessage(1906)
 006B EB 0F                    jmp 0x7c
-006D                          cx = ShowMessage(1912)
+006D                          ShowMessage(1912)
 007A EB 00                    jmp 0x7c
 007C B8 E5 00                 mov ax, 0xe5
 007F 50                       push ax
@@ -1705,11 +1701,11 @@ Functn15: "PCACTOR"
 00BA C4 5E 06                 les bx, [bp+0x6]
 00BD 26 FF 1F                 call far word [es:bx]
 00C0 83 C4 06                 add sp, 0x6
-00C3                          cx = ShowMessage(191E)
-00D0                          cx = ShowMessage(194C)
-00DD                          cx = ShowMessage(196B)
+00C3                          ShowMessage(191E)
+00D0                          ShowMessage(194C)
+00DD                          ShowMessage(196B)
 00EA EB 0D                    jmp 0xf9
-00EC                          cx = ShowMessage(1988)
+00EC                          ShowMessage(1988)
 00F9 E9 8C 01                 jmp 0x288
 00FC B8 E6 00                 mov ax, 0xe6
 00FF 50                       push ax
@@ -1742,11 +1738,11 @@ Functn15: "PCACTOR"
 013A C4 5E 06                 les bx, [bp+0x6]
 013D 26 FF 1F                 call far word [es:bx]
 0140 83 C4 06                 add sp, 0x6
-0143                          cx = ShowMessage(19A6)
-0150                          cx = ShowMessage(19CD)
-015D                          cx = ShowMessage(19E8)
+0143                          ShowMessage(19A6)
+0150                          ShowMessage(19CD)
+015D                          ShowMessage(19E8)
 016A EB 0D                    jmp 0x179
-016C                          cx = ShowMessage(1A10)
+016C                          ShowMessage(1A10)
 0179 E9 0C 01                 jmp 0x288
 017C B8 E7 00                 mov ax, 0xe7
 017F 50                       push ax
@@ -1779,11 +1775,11 @@ Functn15: "PCACTOR"
 01BA C4 5E 06                 les bx, [bp+0x6]
 01BD 26 FF 1F                 call far word [es:bx]
 01C0 83 C4 06                 add sp, 0x6
-01C3                          cx = ShowMessage(1A35)
-01D0                          cx = ShowMessage(1A5B)
-01DD                          cx = ShowMessage(1A94)
+01C3                          ShowMessage(1A35)
+01D0                          ShowMessage(1A5B)
+01DD                          ShowMessage(1A94)
 01EA EB 0D                    jmp 0x1f9
-01EC                          cx = ShowMessage(1AB6)
+01EC                          ShowMessage(1AB6)
 01F9 E9 8C 00                 jmp 0x288
 01FC B8 E4 00                 mov ax, 0xe4
 01FF 50                       push ax
@@ -1816,13 +1812,13 @@ Functn15: "PCACTOR"
 023A C4 5E 06                 les bx, [bp+0x6]
 023D 26 FF 1F                 call far word [es:bx]
 0240 83 C4 06                 add sp, 0x6
-0243                          cx = ShowMessage(1AD4)
-0250                          cx = ShowMessage(1B09)
-025D                          cx = ShowMessage(1B1C)
+0243                          ShowMessage(1AD4)
+0250                          ShowMessage(1B09)
+025D                          ShowMessage(1B1C)
 026A EB 0D                    jmp 0x279
-026C                          cx = ShowMessage(1B4C)
+026C                          ShowMessage(1B4C)
 0279 EB 0D                    jmp 0x288
-027B                          cx = ShowMessage(1B6E)
+027B                          ShowMessage(1B6E)
 0288 5E                       pop si
 0289                          RETURN
 028B 90                       nop
@@ -1836,8 +1832,8 @@ Functn16: "INFO"
 0007 C4 5E 06                 les bx, [bp+0x6]
 000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
 000F 59                       pop cx
-0010                          cx = ShowMessage(1B98)
-001D                          cx = ShowMessage(1BD8)
+0010                          ShowMessage(1B98)
+001D                          ShowMessage(1BD8)
 002A                          RETURN
 
 Functn17: "INFO"
@@ -1847,13 +1843,13 @@ Functn17: "INFO"
 0007 C4 5E 06                 les bx, [bp+0x6]
 000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
 000F 59                       pop cx
-0010                          cx = ShowMessage(1C21)
-001D                          cx = ShowMessage(1C4F)
+0010                          ShowMessage(1C21)
+001D                          ShowMessage(1C4F)
 002A                          RETURN
 
 Functn18: "CAVEDOOR"
 0000                          BEGIN
-0003                          cx = ShowMessage(1C91)
+0003                          ShowMessage(1C91)
 0010 B8 D8 00                 mov ax, 0xd8
 0013 50                       push ax
 0014 B8 D8 00                 mov ax, 0xd8
@@ -1864,7 +1860,7 @@ Functn18: "CAVEDOOR"
 0020 59                       pop cx
 0021 0B C0                    or ax, ax
 0023 74 41                    jz 0x66
-0025                          cx = ShowMessage(1CC2)
+0025                          ShowMessage(1CC2)
 0032 B8 01 00                 mov ax, 0x1
 0035 50                       push ax
 0036 B8 03 00                 mov ax, 0x3
@@ -1889,12 +1885,12 @@ Functn18: "CAVEDOOR"
 
 Functn19: "ELFHOME"
 0000                          BEGIN
-0003                          cx = ShowMessage(1CD4)
+0003                          ShowMessage(1CD4)
 0010                          RETURN
 
 Functn1A: "ELFHOME"
 0000                          BEGIN
-0003                          cx = ShowMessage(1D0E)
+0003                          ShowMessage(1D0E)
 0010                          RETURN
 
 Functn1B: "INFO"
@@ -1904,7 +1900,7 @@ Functn1B: "INFO"
 0007 C4 5E 06                 les bx, [bp+0x6]
 000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
 000F 59                       pop cx
-0010                          cx = ShowMessage(1D79)
-001D                          cx = ShowMessage(1DA0)
+0010                          ShowMessage(1D79)
+001D                          ShowMessage(1DA0)
 002A                          RETURN
 

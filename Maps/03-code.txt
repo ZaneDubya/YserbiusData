@@ -1,16 +1,6 @@
 Functn01: "TOMINES"
 0000                          BEGIN
-0003 33 C0                    xor ax, ax
-0005 50                       push ax
-0006 B8 7F 00                 mov ax, 0x7f
-0009 50                       push ax
-000A B8 02 00                 mov ax, 0x2
-000D 50                       push ax
-000E B8 01 00                 mov ax, 0x1
-0011 50                       push ax
-0012 C4 5E 06                 les bx, [bp+0x6]
-0015 26 FF 9F BC 00           call far word [es:bx+0xbc]
-001A 83 C4 08                 add sp, 0x8
+0003                          GoMap(00, 7F, 02, 01)
 001D                          RETURN
 
 Functn02: "TOTREAS"
@@ -30,7 +20,7 @@ Functn03: "KEYDOOR"
 0012 59                       pop cx
 0013 3D 01 00                 cmp ax, 0x1
 0016 75 4B                    jnz 0x63
-0018                          cx = ShowMessage(03FC)
+0018                          ShowMessage(03FC)
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 5F 24              call far word [es:bx+0x24]
 002C 50                       push ax
@@ -54,7 +44,7 @@ Functn03: "KEYDOOR"
 005A 26 FF 5F 2C              call far word [es:bx+0x2c]
 005E 83 C4 06                 add sp, 0x6
 0061 EB 2A                    jmp 0x8d
-0063                          cx = ShowMessage(0421)
+0063                          ShowMessage(0421)
 0070 33 C0                    xor ax, ax
 0072 50                       push ax
 0073 C4 5E 06                 les bx, [bp+0x6]
@@ -70,7 +60,7 @@ Functn03: "KEYDOOR"
 
 Functn04: "KEYMESSG"
 0000                          BEGIN
-0003                          cx = ShowMessage(0465)
+0003                          ShowMessage(0465)
 0010 B8 8E 04                 mov ax, 0x48e
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -90,7 +80,7 @@ Functn05: "LKPKDOOR"
 0012 59                       pop cx
 0013 3D 02 00                 cmp ax, 0x2
 0016 75 4B                    jnz 0x63
-0018                          cx = ShowMessage(04B8)
+0018                          ShowMessage(04B8)
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 5F 24              call far word [es:bx+0x24]
 002C 50                       push ax
@@ -114,7 +104,7 @@ Functn05: "LKPKDOOR"
 005A 26 FF 5F 2C              call far word [es:bx+0x2c]
 005E 83 C4 06                 add sp, 0x6
 0061 EB 2A                    jmp 0x8d
-0063                          cx = ShowMessage(04E2)
+0063                          ShowMessage(04E2)
 0070 33 C0                    xor ax, ax
 0072 50                       push ax
 0073 C4 5E 06                 les bx, [bp+0x6]
@@ -130,7 +120,7 @@ Functn05: "LKPKDOOR"
 
 Functn06: "LKPKMESG"
 0000                          BEGIN
-0003                          cx = ShowMessage(04F6)
+0003                          ShowMessage(04F6)
 0010 B8 19 05                 mov ax, 0x519
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -150,7 +140,7 @@ Functn07: "STRDOOR"
 0012 59                       pop cx
 0013 3D 03 00                 cmp ax, 0x3
 0016 75 4B                    jnz 0x63
-0018                          cx = ShowMessage(0546)
+0018                          ShowMessage(0546)
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 5F 24              call far word [es:bx+0x24]
 002C 50                       push ax
@@ -174,7 +164,7 @@ Functn07: "STRDOOR"
 005A 26 FF 5F 2C              call far word [es:bx+0x2c]
 005E 83 C4 06                 add sp, 0x6
 0061 EB 2A                    jmp 0x8d
-0063                          cx = ShowMessage(0565)
+0063                          ShowMessage(0565)
 0070 33 C0                    xor ax, ax
 0072 50                       push ax
 0073 C4 5E 06                 les bx, [bp+0x6]
@@ -190,7 +180,7 @@ Functn07: "STRDOOR"
 
 Functn08: "STRMESSG"
 0000                          BEGIN
-0003                          cx = ShowMessage(0587)
+0003                          ShowMessage(0587)
 0010 B8 A1 05                 mov ax, 0x5a1
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -210,7 +200,7 @@ Functn09: "GOLDENC"
 0013 59                       pop cx
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          cx = ShowMessage(05D1)
+0019                          ShowMessage(05D1)
 0026 B8 14 00                 mov ax, 0x14
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -251,7 +241,7 @@ Functn09: "GOLDENC"
 0072 C4 5E 06                 les bx, [bp+0x6]
 0075 26 FF 1F                 call far word [es:bx]
 0078 83 C4 06                 add sp, 0x6
-007B                          cx = ShowMessage(05FD)
+007B                          ShowMessage(05FD)
 0088 C4 5E 06                 les bx, [bp+0x6]
 008B 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0090 3D 01 00                 cmp ax, 0x1
@@ -332,7 +322,7 @@ Functn0B: "PALKEYEN"
 0028 C4 5E 06                 les bx, [bp+0x6]
 002B 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0030 83 C4 0C                 add sp, 0xc
-0033                          cx = ShowMessage(0647)
+0033                          ShowMessage(0647)
 0040 EB 2C                    jmp 0x6e
 0042 B8 E8 03                 mov ax, 0x3e8
 0045 50                       push ax
@@ -349,7 +339,7 @@ Functn0B: "PALKEYEN"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005E 83 C4 0C                 add sp, 0xc
-0061                          cx = ShowMessage(0662)
+0061                          ShowMessage(0662)
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
@@ -454,7 +444,7 @@ Functn0C: "TELEPORT"
 
 Functn0D: "LOWMNSTR"
 0000                          BEGIN
-0003                          cx = ShowMessage(06A9)
+0003                          ShowMessage(06A9)
 0010 B8 0F 00                 mov ax, 0xf
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -477,10 +467,10 @@ Functn0D: "LOWMNSTR"
 0036 C4 5E 06                 les bx, [bp+0x6]
 0039 26 FF 9F D8 00           call far word [es:bx+0xd8]
 003E 83 C4 0C                 add sp, 0xc
-0041                          cx = ShowMessage(06BF)
+0041                          ShowMessage(06BF)
 004E EB 3A                    jmp 0x8a
-0050                          cx = ShowMessage(0728)
-005D                          cx = ShowMessage(0741)
+0050                          ShowMessage(0728)
+005D                          ShowMessage(0741)
 006A B8 E8 03                 mov ax, 0x3e8
 006D 50                       push ax
 006E 33 C0                    xor ax, ax
@@ -906,7 +896,7 @@ Functn11: "MESSAGEA"
 000D C4 5E 06                 les bx, [bp+0x6]
 0010 26 FF 1F                 call far word [es:bx]
 0013 83 C4 06                 add sp, 0x6
-0016                          cx = ShowMessage(074E)
+0016                          ShowMessage(074E)
 0023                          RETURN
 
 Functn12: "MESSAGEB"
@@ -920,7 +910,7 @@ Functn12: "MESSAGEB"
 000D C4 5E 06                 les bx, [bp+0x6]
 0010 26 FF 1F                 call far word [es:bx]
 0013 83 C4 06                 add sp, 0x6
-0016                          cx = ShowMessage(076F)
+0016                          ShowMessage(076F)
 0023                          RETURN
 
 Functn13: "TELEMESS"
@@ -934,7 +924,7 @@ Functn13: "TELEMESS"
 000E C4 5E 06                 les bx, [bp+0x6]
 0011 26 FF 1F                 call far word [es:bx]
 0014 83 C4 06                 add sp, 0x6
-0017                          cx = ShowMessage(0798)
+0017                          ShowMessage(0798)
 0024                          RETURN
 
 Functn14: "STRSMESS"
@@ -948,7 +938,7 @@ Functn14: "STRSMESS"
 000E C4 5E 06                 les bx, [bp+0x6]
 0011 26 FF 1F                 call far word [es:bx]
 0014 83 C4 06                 add sp, 0x6
-0017                          cx = ShowMessage(07BA)
+0017                          ShowMessage(07BA)
 0024                          RETURN
 
 Functn15: "STRSTLPT"
@@ -968,7 +958,7 @@ Functn16: "REGDOOR"
 0012 59                       pop cx
 0013 3D 04 00                 cmp ax, 0x4
 0016 75 4B                    jnz 0x63
-0018                          cx = ShowMessage(07EC)
+0018                          ShowMessage(07EC)
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 5F 24              call far word [es:bx+0x24]
 002C 50                       push ax
@@ -992,7 +982,7 @@ Functn16: "REGDOOR"
 005A 26 FF 5F 2C              call far word [es:bx+0x2c]
 005E 83 C4 06                 add sp, 0x6
 0061 EB 2A                    jmp 0x8d
-0063                          cx = ShowMessage(082F)
+0063                          ShowMessage(082F)
 0070 33 C0                    xor ax, ax
 0072 50                       push ax
 0073 C4 5E 06                 les bx, [bp+0x6]
@@ -1008,7 +998,7 @@ Functn16: "REGDOOR"
 
 Functn17: "NPCCHATA"
 0000                          BEGIN
-0003                          cx = ShowMessage(0851)
+0003                          ShowMessage(0851)
 0010 B8 1F 00                 mov ax, 0x1f
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -1021,14 +1011,14 @@ Functn17: "NPCCHATA"
 0029 59                       pop cx
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 0F                    ja 0x3e
-002F                          cx = ShowMessage(086E)
+002F                          ShowMessage(086E)
 003C EB 0D                    jmp 0x4b
-003E                          cx = ShowMessage(08D2)
+003E                          ShowMessage(08D2)
 004B                          RETURN
 
 Functn18: "NPCCHATB"
 0000                          BEGIN
-0003                          cx = ShowMessage(0914)
+0003                          ShowMessage(0914)
 0010 B8 2B 00                 mov ax, 0x2b
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -1041,14 +1031,14 @@ Functn18: "NPCCHATB"
 0029 59                       pop cx
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
-002F                          cx = ShowMessage(0932)
+002F                          ShowMessage(0932)
 003C EB 0D                    jmp 0x4b
-003E                          cx = ShowMessage(0A32)
+003E                          ShowMessage(0A32)
 004B                          RETURN
 
 Functn19: "NPCCHATC"
 0000                          BEGIN
-0003                          cx = ShowMessage(0A71)
+0003                          ShowMessage(0A71)
 0010 B8 26 00                 mov ax, 0x26
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -1061,14 +1051,14 @@ Functn19: "NPCCHATC"
 0029 59                       pop cx
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
-002F                          cx = ShowMessage(0A90)
+002F                          ShowMessage(0A90)
 003C EB 0D                    jmp 0x4b
-003E                          cx = ShowMessage(0B33)
+003E                          ShowMessage(0B33)
 004B                          RETURN
 
 Functn1A: "NPCCHATD"
 0000                          BEGIN
-0003                          cx = ShowMessage(0B69)
+0003                          ShowMessage(0B69)
 0010 B8 1A 00                 mov ax, 0x1a
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -1081,14 +1071,14 @@ Functn1A: "NPCCHATD"
 0029 59                       pop cx
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 0F                    ja 0x3e
-002F                          cx = ShowMessage(0B86)
+002F                          ShowMessage(0B86)
 003C EB 0D                    jmp 0x4b
-003E                          cx = ShowMessage(0C60)
+003E                          ShowMessage(0C60)
 004B                          RETURN
 
 Functn1B: "NPCCHATE"
 0000                          BEGIN
-0003                          cx = ShowMessage(0C93)
+0003                          ShowMessage(0C93)
 0010 B8 27 00                 mov ax, 0x27
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -1101,9 +1091,9 @@ Functn1B: "NPCCHATE"
 0029 59                       pop cx
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 0F                    ja 0x3e
-002F                          cx = ShowMessage(0CB0)
+002F                          ShowMessage(0CB0)
 003C EB 0D                    jmp 0x4b
-003E                          cx = ShowMessage(0D4B)
+003E                          ShowMessage(0D4B)
 004B                          RETURN
 
 Functn1C: "KEYDRA"
@@ -1124,7 +1114,7 @@ Functn1C: "KEYDRA"
 001E C4 5E 06                 les bx, [bp+0x6]
 0021 26 FF 1F                 call far word [es:bx]
 0024 83 C4 06                 add sp, 0x6
-0027                          cx = ShowMessage(0D8C)
+0027                          ShowMessage(0D8C)
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 5F 24              call far word [es:bx+0x24]
 003B 50                       push ax
@@ -1148,7 +1138,7 @@ Functn1C: "KEYDRA"
 0069 26 FF 5F 2C              call far word [es:bx+0x2c]
 006D 83 C4 06                 add sp, 0x6
 0070 EB 2A                    jmp 0x9c
-0072                          cx = ShowMessage(0DAC)
+0072                          ShowMessage(0DAC)
 007F 33 C0                    xor ax, ax
 0081 50                       push ax
 0082 C4 5E 06                 les bx, [bp+0x6]
@@ -1180,7 +1170,7 @@ Functn1D: "LKPKDRA"
 001E C4 5E 06                 les bx, [bp+0x6]
 0021 26 FF 1F                 call far word [es:bx]
 0024 83 C4 06                 add sp, 0x6
-0027                          cx = ShowMessage(0DC0)
+0027                          ShowMessage(0DC0)
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 5F 24              call far word [es:bx+0x24]
 003B 50                       push ax
@@ -1204,7 +1194,7 @@ Functn1D: "LKPKDRA"
 0069 26 FF 5F 2C              call far word [es:bx+0x2c]
 006D 83 C4 06                 add sp, 0x6
 0070 EB 2A                    jmp 0x9c
-0072                          cx = ShowMessage(0DEA)
+0072                          ShowMessage(0DEA)
 007F 33 C0                    xor ax, ax
 0081 50                       push ax
 0082 C4 5E 06                 les bx, [bp+0x6]
@@ -1236,7 +1226,7 @@ Functn1E: "STRNGDRA"
 001F C4 5E 06                 les bx, [bp+0x6]
 0022 26 FF 1F                 call far word [es:bx]
 0025 83 C4 06                 add sp, 0x6
-0028                          cx = ShowMessage(0E3C)
+0028                          ShowMessage(0E3C)
 0035 C4 5E 06                 les bx, [bp+0x6]
 0038 26 FF 5F 24              call far word [es:bx+0x24]
 003C 50                       push ax
@@ -1260,7 +1250,7 @@ Functn1E: "STRNGDRA"
 006A 26 FF 5F 2C              call far word [es:bx+0x2c]
 006E 83 C4 06                 add sp, 0x6
 0071 EB 2A                    jmp 0x9d
-0073                          cx = ShowMessage(0E5F)
+0073                          ShowMessage(0E5F)
 0080 33 C0                    xor ax, ax
 0082 50                       push ax
 0083 C4 5E 06                 les bx, [bp+0x6]
@@ -1305,7 +1295,7 @@ Functn1F: "REGDORA"
 0037 C4 5E 06                 les bx, [bp+0x6]
 003A 26 FF 1F                 call far word [es:bx]
 003D 83 C4 06                 add sp, 0x6
-0040                          cx = ShowMessage(0E81)
+0040                          ShowMessage(0E81)
 004D C4 5E 06                 les bx, [bp+0x6]
 0050 26 FF 5F 24              call far word [es:bx+0x24]
 0054 50                       push ax
@@ -1329,7 +1319,7 @@ Functn1F: "REGDORA"
 0082 26 FF 5F 2C              call far word [es:bx+0x2c]
 0086 83 C4 06                 add sp, 0x6
 0089 EB 2A                    jmp 0xb5
-008B                          cx = ShowMessage(0EC4)
+008B                          ShowMessage(0EC4)
 0098 33 C0                    xor ax, ax
 009A 50                       push ax
 009B C4 5E 06                 les bx, [bp+0x6]

@@ -1,6 +1,6 @@
 Functn01: "PIT"
 0000                          BEGIN
-0003                          cx = ShowMessage(03FC)
+0003                          ShowMessage(03FC)
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -11,7 +11,7 @@ Functn01: "PIT"
 
 Functn02: "ENCGUARD"
 0000                          BEGIN
-0003                          cx = ShowMessage(0424)
+0003                          ShowMessage(0424)
 0010 B8 27 00                 mov ax, 0x27
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -94,7 +94,7 @@ Functn03: "ENCEARTH"
 0014 0B C0                    or ax, ax
 0016 74 03                    jz 0x1b
 0018 E9 08 01                 jmp 0x123
-001B                          cx = ShowMessage(0460)
+001B                          ShowMessage(0460)
 0028 B8 04 00                 mov ax, 0x4
 002B 50                       push ax
 002C B8 01 00                 mov ax, 0x1
@@ -212,7 +212,7 @@ Functn03: "ENCEARTH"
 
 Functn04: "GUARDIAN"
 0000                          BEGIN
-0003                          cx = ShowMessage(049A)
+0003                          ShowMessage(049A)
 0010                          RETURN
 
 Functn05: "EARTHELE"
@@ -227,23 +227,23 @@ Functn05: "EARTHELE"
 0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 75 0D                    jnz 0x25
-0018                          cx = ShowMessage(04EA)
+0018                          ShowMessage(04EA)
 0025                          RETURN
 
 Functn06: "PLATA"
 0000                          BEGIN
-0003                          cx = ShowMessage(0555)
-0010                          cx = ShowMessage(05B8)
+0003                          ShowMessage(0555)
+0010                          ShowMessage(05B8)
 001D                          RETURN
 
 Functn07: "PLATB"
 0000                          BEGIN
-0003                          cx = ShowMessage(05FC)
+0003                          ShowMessage(05FC)
 0010                          RETURN
 
 Functn08: "YBOXA"
 0000                          BEGIN
-0003                          cx = ShowMessage(0638)
+0003                          ShowMessage(0638)
 0010 B8 01 00                 mov ax, 0x1
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -257,7 +257,7 @@ Functn08: "YBOXA"
 
 Functn09: "YBOXB"
 0000                          BEGIN
-0003                          cx = ShowMessage(0648)
+0003                          ShowMessage(0648)
 0010 B8 02 00                 mov ax, 0x2
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -271,7 +271,7 @@ Functn09: "YBOXB"
 
 Functn0A: "YBOXC"
 0000                          BEGIN
-0003                          cx = ShowMessage(0658)
+0003                          ShowMessage(0658)
 0010 B8 03 00                 mov ax, 0x3
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -285,7 +285,7 @@ Functn0A: "YBOXC"
 
 Functn0B: "YBOXD"
 0000                          BEGIN
-0003                          cx = ShowMessage(0668)
+0003                          ShowMessage(0668)
 0010 B8 04 00                 mov ax, 0x4
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -299,7 +299,7 @@ Functn0B: "YBOXD"
 
 Functn0C: "YBOXE"
 0000                          BEGIN
-0003                          cx = ShowMessage(0678)
+0003                          ShowMessage(0678)
 0010 B8 05 00                 mov ax, 0x5
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -313,7 +313,7 @@ Functn0C: "YBOXE"
 
 Functn0D: "YBOXF"
 0000                          BEGIN
-0003                          cx = ShowMessage(0688)
+0003                          ShowMessage(0688)
 0010 B8 06 00                 mov ax, 0x6
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -327,7 +327,7 @@ Functn0D: "YBOXF"
 
 Functn0E: "XBOXG"
 0000                          BEGIN
-0003                          cx = ShowMessage(0698)
+0003                          ShowMessage(0698)
 0010 B8 01 00                 mov ax, 0x1
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -341,7 +341,7 @@ Functn0E: "XBOXG"
 
 Functn0F: "XBOXH"
 0000                          BEGIN
-0003                          cx = ShowMessage(06A8)
+0003                          ShowMessage(06A8)
 0010 B8 02 00                 mov ax, 0x2
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -355,7 +355,7 @@ Functn0F: "XBOXH"
 
 Functn10: "XBOXI"
 0000                          BEGIN
-0003                          cx = ShowMessage(06B8)
+0003                          ShowMessage(06B8)
 0010 B8 03 00                 mov ax, 0x3
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -369,7 +369,7 @@ Functn10: "XBOXI"
 
 Functn11: "XBOXJ"
 0000                          BEGIN
-0003                          cx = ShowMessage(06C8)
+0003                          ShowMessage(06C8)
 0010 B8 04 00                 mov ax, 0x4
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -383,7 +383,7 @@ Functn11: "XBOXJ"
 
 Functn12: "XBOXK"
 0000                          BEGIN
-0003                          cx = ShowMessage(06D8)
+0003                          ShowMessage(06D8)
 0010 B8 05 00                 mov ax, 0x5
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -397,7 +397,7 @@ Functn12: "XBOXK"
 
 Functn13: "XBOXL"
 0000                          BEGIN
-0003                          cx = ShowMessage(06E8)
+0003                          ShowMessage(06E8)
 0010 B8 06 00                 mov ax, 0x6
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -411,7 +411,7 @@ Functn13: "XBOXL"
 
 Functn14: "XBOXM"
 0000                          BEGIN
-0003                          cx = ShowMessage(06F8)
+0003                          ShowMessage(06F8)
 0010 B8 07 00                 mov ax, 0x7
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -445,9 +445,9 @@ Functn15: "PITAJ"
 0029 59                       pop cx
 002A 3D 04 00                 cmp ax, 0x4
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0708)
+002F                          ShowMessage(0708)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0737)
+003E                          ShowMessage(0737)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -478,9 +478,9 @@ Functn16: "PITAK"
 0029 59                       pop cx
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0761)
+002F                          ShowMessage(0761)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0785)
+003E                          ShowMessage(0785)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -511,9 +511,9 @@ Functn17: "PITAL"
 0029 59                       pop cx
 002A 3D 06 00                 cmp ax, 0x6
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(07AF)
+002F                          ShowMessage(07AF)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(07CD)
+003E                          ShowMessage(07CD)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -544,9 +544,9 @@ Functn18: "PITAM"
 0029 59                       pop cx
 002A 3D 07 00                 cmp ax, 0x7
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(07F7)
+002F                          ShowMessage(07F7)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(081B)
+003E                          ShowMessage(081B)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -577,9 +577,9 @@ Functn19: "PITBG"
 0029 59                       pop cx
 002A 3D 01 00                 cmp ax, 0x1
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0845)
+002F                          ShowMessage(0845)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0865)
+003E                          ShowMessage(0865)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -610,9 +610,9 @@ Functn1A: "PITBI"
 0029 59                       pop cx
 002A 3D 03 00                 cmp ax, 0x3
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(088F)
+002F                          ShowMessage(088F)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(08A8)
+003E                          ShowMessage(08A8)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -643,9 +643,9 @@ Functn1B: "PITBJ"
 0029 59                       pop cx
 002A 3D 04 00                 cmp ax, 0x4
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(08D2)
+002F                          ShowMessage(08D2)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(08FA)
+003E                          ShowMessage(08FA)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -676,9 +676,9 @@ Functn1C: "PITBK"
 0029 59                       pop cx
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0924)
+002F                          ShowMessage(0924)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0937)
+003E                          ShowMessage(0937)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -709,9 +709,9 @@ Functn1D: "PITBL"
 0029 59                       pop cx
 002A 3D 06 00                 cmp ax, 0x6
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0961)
+002F                          ShowMessage(0961)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0983)
+003E                          ShowMessage(0983)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -742,9 +742,9 @@ Functn1E: "PITBM"
 0029 59                       pop cx
 002A 3D 07 00                 cmp ax, 0x7
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(09AD)
+002F                          ShowMessage(09AD)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(09CF)
+003E                          ShowMessage(09CF)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -775,9 +775,9 @@ Functn1F: "PITCG"
 0029 59                       pop cx
 002A 3D 01 00                 cmp ax, 0x1
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(09F9)
+002F                          ShowMessage(09F9)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0A17)
+003E                          ShowMessage(0A17)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -808,9 +808,9 @@ Functn20: "PITCH"
 0029 59                       pop cx
 002A 3D 02 00                 cmp ax, 0x2
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0A41)
+002F                          ShowMessage(0A41)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0A5B)
+003E                          ShowMessage(0A5B)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -841,9 +841,9 @@ Functn21: "PITCI"
 0029 59                       pop cx
 002A 3D 03 00                 cmp ax, 0x3
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0A85)
+002F                          ShowMessage(0A85)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0AAA)
+003E                          ShowMessage(0AAA)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -874,9 +874,9 @@ Functn22: "PITCJ"
 0029 59                       pop cx
 002A 3D 04 00                 cmp ax, 0x4
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0AD4)
+002F                          ShowMessage(0AD4)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0AF7)
+003E                          ShowMessage(0AF7)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -907,9 +907,9 @@ Functn23: "PITCK"
 0029 59                       pop cx
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0B21)
+002F                          ShowMessage(0B21)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0B42)
+003E                          ShowMessage(0B42)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -940,9 +940,9 @@ Functn24: "PITCL"
 0029 59                       pop cx
 002A 3D 06 00                 cmp ax, 0x6
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0B6C)
+002F                          ShowMessage(0B6C)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0B8E)
+003E                          ShowMessage(0B8E)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -973,9 +973,9 @@ Functn25: "PITCM"
 0029 59                       pop cx
 002A 3D 07 00                 cmp ax, 0x7
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0BB8)
+002F                          ShowMessage(0BB8)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0BD9)
+003E                          ShowMessage(0BD9)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1006,9 +1006,9 @@ Functn26: "PITDG"
 0029 59                       pop cx
 002A 3D 01 00                 cmp ax, 0x1
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0C03)
+002F                          ShowMessage(0C03)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0C21)
+003E                          ShowMessage(0C21)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1039,9 +1039,9 @@ Functn27: "PITDH"
 0029 59                       pop cx
 002A 3D 02 00                 cmp ax, 0x2
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0C4B)
+002F                          ShowMessage(0C4B)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0C64)
+003E                          ShowMessage(0C64)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1072,9 +1072,9 @@ Functn28: "PITDI"
 0029 59                       pop cx
 002A 3D 03 00                 cmp ax, 0x3
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0C8E)
+002F                          ShowMessage(0C8E)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0CB0)
+003E                          ShowMessage(0CB0)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1105,9 +1105,9 @@ Functn29: "PITDJ"
 0029 59                       pop cx
 002A 3D 04 00                 cmp ax, 0x4
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0CDA)
+002F                          ShowMessage(0CDA)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0CFA)
+003E                          ShowMessage(0CFA)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1138,9 +1138,9 @@ Functn2A: "PITDK"
 0029 59                       pop cx
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0D24)
+002F                          ShowMessage(0D24)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0D40)
+003E                          ShowMessage(0D40)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1171,9 +1171,9 @@ Functn2B: "PITDL"
 0029 59                       pop cx
 002A 3D 06 00                 cmp ax, 0x6
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0D6A)
+002F                          ShowMessage(0D6A)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0D7A)
+003E                          ShowMessage(0D7A)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1204,9 +1204,9 @@ Functn2C: "PITDM"
 0029 59                       pop cx
 002A 3D 07 00                 cmp ax, 0x7
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0DA4)
+002F                          ShowMessage(0DA4)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0DC2)
+003E                          ShowMessage(0DC2)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1237,9 +1237,9 @@ Functn2D: "PITEG"
 0029 59                       pop cx
 002A 3D 01 00                 cmp ax, 0x1
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0DEC)
+002F                          ShowMessage(0DEC)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0DFD)
+003E                          ShowMessage(0DFD)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1270,9 +1270,9 @@ Functn2E: "PITEH"
 0029 59                       pop cx
 002A 3D 02 00                 cmp ax, 0x2
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0E27)
+002F                          ShowMessage(0E27)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0E49)
+003E                          ShowMessage(0E49)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1303,9 +1303,9 @@ Functn2F: "PITEI"
 0029 59                       pop cx
 002A 3D 03 00                 cmp ax, 0x3
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0E73)
+002F                          ShowMessage(0E73)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0E90)
+003E                          ShowMessage(0E90)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1336,9 +1336,9 @@ Functn30: "PITEJ"
 0029 59                       pop cx
 002A 3D 04 00                 cmp ax, 0x4
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0EBA)
+002F                          ShowMessage(0EBA)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0ECA)
+003E                          ShowMessage(0ECA)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1369,9 +1369,9 @@ Functn31: "PITEK"
 0029 59                       pop cx
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0EF4)
+002F                          ShowMessage(0EF4)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0F17)
+003E                          ShowMessage(0F17)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1402,9 +1402,9 @@ Functn32: "PITFG"
 0029 59                       pop cx
 002A 3D 01 00                 cmp ax, 0x1
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0F41)
+002F                          ShowMessage(0F41)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0F66)
+003E                          ShowMessage(0F66)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1435,9 +1435,9 @@ Functn33: "PITFH"
 0029 59                       pop cx
 002A 3D 02 00                 cmp ax, 0x2
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0F90)
+002F                          ShowMessage(0F90)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0FA7)
+003E                          ShowMessage(0FA7)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1468,9 +1468,9 @@ Functn34: "PITFI"
 0029 59                       pop cx
 002A 3D 03 00                 cmp ax, 0x3
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(0FD1)
+002F                          ShowMessage(0FD1)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(0FF5)
+003E                          ShowMessage(0FF5)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1501,9 +1501,9 @@ Functn35: "PITFJ"
 0029 59                       pop cx
 002A 3D 04 00                 cmp ax, 0x4
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(101F)
+002F                          ShowMessage(101F)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(1041)
+003E                          ShowMessage(1041)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1534,9 +1534,9 @@ Functn36: "PITFK"
 0029 59                       pop cx
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(106B)
+002F                          ShowMessage(106B)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(1092)
+003E                          ShowMessage(1092)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1567,9 +1567,9 @@ Functn37: "PITFL"
 0029 59                       pop cx
 002A 3D 06 00                 cmp ax, 0x6
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(10BC)
+002F                          ShowMessage(10BC)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(10D4)
+003E                          ShowMessage(10D4)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1600,9 +1600,9 @@ Functn38: "PITFM"
 0029 59                       pop cx
 002A 3D 07 00                 cmp ax, 0x7
 002D 75 0F                    jnz 0x3e
-002F                          cx = ShowMessage(10FE)
+002F                          ShowMessage(10FE)
 003C EB 1E                    jmp 0x5c
-003E                          cx = ShowMessage(111D)
+003E                          ShowMessage(111D)
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -1819,14 +1819,14 @@ Functn3D: "DOORARNK"
 0042 C4 5E 06                 les bx, [bp+0x6]
 0045 26 FF 5F 30              call far word [es:bx+0x30]
 0049 83 C4 06                 add sp, 0x6
-004C                          cx = ShowMessage(1147)
+004C                          ShowMessage(1147)
 0059 EB 0D                    jmp 0x68
-005B                          cx = ShowMessage(116C)
+005B                          ShowMessage(116C)
 0068                          RETURN
 
 Functn3E: "TELEARNK"
 0000                          BEGIN
-0003                          cx = ShowMessage(119C)
+0003                          ShowMessage(119C)
 0010                          GoMap(03, 76, 02, 34)
 002B                          RETURN
 
