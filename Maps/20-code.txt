@@ -30,11 +30,7 @@ Functn03: "FOUNBLES"
 0013 59                       pop cx
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 1C                    jnz 0x35
-0019 B8 42 00                 mov ax, 0x42
-001C 50                       push ax
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0025 59                       pop cx
+0019                          ShowPortrait(0042)
 0026                          ShowMessage(0422)
 0033 EB 4B                    jmp 0x80
 0035 B8 01 00                 mov ax, 0x1
@@ -46,11 +42,7 @@ Functn03: "FOUNBLES"
 0041 C4 5E 06                 les bx, [bp+0x6]
 0044 26 FF 1F                 call far word [es:bx]
 0047 83 C4 06                 add sp, 0x6
-004A B8 42 00                 mov ax, 0x42
-004D 50                       push ax
-004E C4 5E 06                 les bx, [bp+0x6]
-0051 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0056 59                       pop cx
+004A                          ShowPortrait(0042)
 0057 C4 5E 06                 les bx, [bp+0x6]
 005A 26 FF 5F 74              call far word [es:bx+0x74]
 005E 50                       push ax
@@ -646,16 +638,8 @@ Functn0C: "STRMNSTR"
 Functn0E: "NPCCHATA"
 0000                          BEGIN
 0003                          ShowMessage(05C5)
-0010 B8 22 00                 mov ax, 0x22
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001C 59                       pop cx
-001D B8 0F 00                 mov ax, 0xf
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F EC 00           call far word [es:bx+0xec]
-0029 59                       pop cx
+0010                          ShowPortrait(0022)
+001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(05E2)
@@ -666,16 +650,8 @@ Functn0E: "NPCCHATA"
 Functn0F: "NPCCHATB"
 0000                          BEGIN
 0003                          ShowMessage(067A)
-0010 B8 18 00                 mov ax, 0x18
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001C 59                       pop cx
-001D B8 0F 00                 mov ax, 0xf
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F EC 00           call far word [es:bx+0xec]
-0029 59                       pop cx
+0010                          ShowPortrait(0018)
+001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 04 00                 cmp ax, 0x4
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(069A)

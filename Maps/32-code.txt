@@ -37,11 +37,7 @@ Functn03: "VOID"
 
 Functn04: "PLATA"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010                          ShowMessage(04A1)
 001D C4 5E 06                 les bx, [bp+0x6]
 0020 26 FF 5F 74              call far word [es:bx+0x74]
@@ -77,11 +73,7 @@ Functn05: "PLATB"
 0024 C4 5E 06                 les bx, [bp+0x6]
 0027 26 FF 1F                 call far word [es:bx]
 002A 83 C4 06                 add sp, 0x6
-002D B8 42 00                 mov ax, 0x42
-0030 50                       push ax
-0031 C4 5E 06                 les bx, [bp+0x6]
-0034 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0039 59                       pop cx
+002D                          ShowPortrait(0042)
 003A                          ShowMessage(04D1)
 0047 B8 01 00                 mov ax, 0x1
 004A 50                       push ax
@@ -119,11 +111,7 @@ Functn05: "PLATB"
 
 Functn06: "PLATCTOA"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010                          ShowMessage(050E)
 001D C4 5E 06                 les bx, [bp+0x6]
 0020 26 FF 5F 74              call far word [es:bx+0x74]
@@ -184,11 +172,7 @@ Functn0C: "TAPMOONS"
 
 Functn12: "THEFCLUE"
 0000                          BEGIN
-0003 B8 24 00                 mov ax, 0x24
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0024)
 0010                          ShowMessage(060B)
 001D                          ShowMessage(0634)
 002A                          ShowMessage(0676)

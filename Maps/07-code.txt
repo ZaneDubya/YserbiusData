@@ -296,11 +296,7 @@ Functn07: "FOUNTAIN"
 0013 59                       pop cx
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 1C                    jnz 0x35
-0019 B8 42 00                 mov ax, 0x42
-001C 50                       push ax
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0025 59                       pop cx
+0019                          ShowPortrait(0042)
 0026                          ShowMessage(0454)
 0033 EB 40                    jmp 0x75
 0035 C4 5E 06                 les bx, [bp+0x6]
@@ -318,11 +314,7 @@ Functn07: "FOUNTAIN"
 0052 C4 5E 06                 les bx, [bp+0x6]
 0055 26 FF 1F                 call far word [es:bx]
 0058 83 C4 06                 add sp, 0x6
-005B B8 42 00                 mov ax, 0x42
-005E 50                       push ax
-005F C4 5E 06                 les bx, [bp+0x6]
-0062 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0067 59                       pop cx
+005B                          ShowPortrait(0042)
 0068                          ShowMessage(048B)
 0075                          RETURN
 
@@ -2094,16 +2086,8 @@ Functn1B: "TELEMESS"
 Functn1C: "NPCCHATA"
 0000                          BEGIN
 0003                          ShowMessage(0766)
-0010 B8 24 00                 mov ax, 0x24
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001C 59                       pop cx
-001D B8 0F 00                 mov ax, 0xf
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F EC 00           call far word [es:bx+0xec]
-0029 59                       pop cx
+0010                          ShowPortrait(0024)
+001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 01 00                 cmp ax, 0x1
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0783)
@@ -2114,16 +2098,8 @@ Functn1C: "NPCCHATA"
 Functn1D: "NPCCHATB"
 0000                          BEGIN
 0003                          ShowMessage(0862)
-0010 B8 16 00                 mov ax, 0x16
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001C 59                       pop cx
-001D B8 0F 00                 mov ax, 0xf
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F EC 00           call far word [es:bx+0xec]
-0029 59                       pop cx
+0010                          ShowPortrait(0016)
+001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0883)
@@ -2139,16 +2115,8 @@ Functn1D: "NPCCHATB"
 Functn1E: "NPCCHATC"
 0000                          BEGIN
 0003                          ShowMessage(09A4)
-0010 B8 1A 00                 mov ax, 0x1a
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001C 59                       pop cx
-001D B8 0F 00                 mov ax, 0xf
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F EC 00           call far word [es:bx+0xec]
-0029 59                       pop cx
+0010                          ShowPortrait(001A)
+001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 06 00                 cmp ax, 0x6
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(09C1)
@@ -2159,16 +2127,8 @@ Functn1E: "NPCCHATC"
 Functn1F: "NPCCHATD"
 0000                          BEGIN
 0003                          ShowMessage(0AB2)
-0010 B8 27 00                 mov ax, 0x27
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001C 59                       pop cx
-001D B8 0F 00                 mov ax, 0xf
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F EC 00           call far word [es:bx+0xec]
-0029 59                       pop cx
+0010                          ShowPortrait(0027)
+001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0ACF)
@@ -2179,16 +2139,8 @@ Functn1F: "NPCCHATD"
 Functn20: "NPCCHATE"
 0000                          BEGIN
 0003                          ShowMessage(0B77)
-0010 B8 22 00                 mov ax, 0x22
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001C 59                       pop cx
-001D B8 0F 00                 mov ax, 0xf
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F EC 00           call far word [es:bx+0xec]
-0029 59                       pop cx
+0010                          ShowPortrait(0022)
+001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(0B94)

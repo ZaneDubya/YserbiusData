@@ -386,11 +386,7 @@ Functn14: "SUNBEAM"
 000E 59                       pop cx
 000F 0B C0                    or ax, ax
 0011 74 68                    jz 0x7b
-0013 B8 1C 00                 mov ax, 0x1c
-0016 50                       push ax
-0017 C4 5E 06                 les bx, [bp+0x6]
-001A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001F 59                       pop cx
+0013                          ShowPortrait(001C)
 0020                          ShowMessage(060F)
 002D                          ShowMessage(063B)
 003A                          ShowMessage(0677)
@@ -1266,11 +1262,7 @@ Functn26: "ENCO"
 
 Functn27: "HEALFA"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -1282,11 +1274,7 @@ Functn27: "HEALFA"
 
 Functn28: "HEALFB"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -1298,11 +1286,7 @@ Functn28: "HEALFB"
 
 Functn29: "HEALFC"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -1314,11 +1298,7 @@ Functn29: "HEALFC"
 
 Functn2A: "MANAFA"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010 B8 D0 07                 mov ax, 0x7d0
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]

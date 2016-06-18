@@ -1144,11 +1144,7 @@ Functn3B: "TXTGHOSB"
 
 Functn3D: "TXTGHOST"
 0000                          BEGIN
-0003 B8 29 00                 mov ax, 0x29
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0029)
 0010                          ShowMessage(0AE3)
 001D                          ShowMessage(0AF6)
 002A                          RETURN

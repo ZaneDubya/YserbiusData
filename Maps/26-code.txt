@@ -668,11 +668,7 @@ Functn13: "BLJKFOUN"
 0041 C4 5E 06                 les bx, [bp+0x6]
 0044 26 FF 5F 4C              call far word [es:bx+0x4c]
 0048 59                       pop cx
-0049 B8 42 00                 mov ax, 0x42
-004C 50                       push ax
-004D C4 5E 06                 les bx, [bp+0x6]
-0050 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0055 59                       pop cx
+0049                          ShowPortrait(0042)
 0056 B8 03 00                 mov ax, 0x3
 0059 50                       push ax
 005A B8 02 00                 mov ax, 0x2
@@ -718,11 +714,7 @@ Functn14: "CRIBFOUN"
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 1F                 call far word [es:bx]
 003A 83 C4 06                 add sp, 0x6
-003D B8 42 00                 mov ax, 0x42
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0049 59                       pop cx
+003D                          ShowPortrait(0042)
 004A B8 ED 00                 mov ax, 0xed
 004D 50                       push ax
 004E C4 5E 06                 les bx, [bp+0x6]
@@ -831,11 +823,7 @@ Functn19: "DICETRSE"
 
 Functn1A: "DICETRSF"
 0000                          BEGIN
-0003 B8 1F 00                 mov ax, 0x1f
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(001F)
 0010                          ShowMessage(1022)
 001D                          ShowMessage(1039)
 002A                          ShowMessage(107A)

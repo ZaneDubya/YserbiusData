@@ -578,11 +578,7 @@ Functn13: "WSTRES"
 0031 C4 5E 06                 les bx, [bp+0x6]
 0034 26 FF 1F                 call far word [es:bx]
 0037 83 C4 06                 add sp, 0x6
-003A B8 42 00                 mov ax, 0x42
-003D 50                       push ax
-003E C4 5E 06                 les bx, [bp+0x6]
-0041 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0046 59                       pop cx
+003A                          ShowPortrait(0042)
 0047 B8 03 00                 mov ax, 0x3
 004A 50                       push ax
 004B B8 03 00                 mov ax, 0x3
@@ -687,11 +683,7 @@ Functn19: "SDOORWKT"
 0068 59                       pop cx
 0069 0B C0                    or ax, ax
 006B 74 6A                    jz 0xd7
-006D B8 0A 00                 mov ax, 0xa
-0070 50                       push ax
-0071 C4 5E 06                 les bx, [bp+0x6]
-0074 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0079 59                       pop cx
+006D                          ShowPortrait(000A)
 007A                          ShowMessage(0BF2)
 0087                          ShowMessage(0C19)
 0094                          ShowMessage(0C5D)
@@ -721,11 +713,7 @@ Functn19: "SDOORWKT"
 
 Functn1A: "TXTCAMP"
 0000                          BEGIN
-0003 B8 28 00                 mov ax, 0x28
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0028)
 0010                          ShowMessage(0D01)
 001D                          ShowMessage(0D1D)
 002A                          ShowMessage(0D5E)
@@ -776,11 +764,7 @@ Functn1C: "TXTWYNS"
 
 Functn1D: "PITINFO"
 0000                          BEGIN
-0003 B8 2A 00                 mov ax, 0x2a
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(002A)
 0010                          ShowMessage(0EAB)
 001D                          ShowMessage(0EC4)
 002A                          ShowMessage(0F08)
@@ -1845,11 +1829,7 @@ Functn37: "FNTNHEAL"
 000B C4 5E 06                 les bx, [bp+0x6]
 000E 26 FF 9F 94 00           call far word [es:bx+0x94]
 0013 59                       pop cx
-0014 B8 42 00                 mov ax, 0x42
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0020 59                       pop cx
+0014                          ShowPortrait(0042)
 0021                          ShowMessage(15DF)
 002E                          RETURN
 
@@ -1860,11 +1840,7 @@ Functn38: "FNTNMANA"
 0007 C4 5E 06                 les bx, [bp+0x6]
 000A 26 FF 9F B4 00           call far word [es:bx+0xb4]
 000F 59                       pop cx
-0010 B8 42 00                 mov ax, 0x42
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001C 59                       pop cx
+0010                          ShowPortrait(0042)
 001D                          ShowMessage(163F)
 002A                          RETURN
 
@@ -2586,11 +2562,7 @@ Functn48: "LTENCK"
 
 Functn49: "TXTAWIND"
 0000                          BEGIN
-0003 B8 0A 00                 mov ax, 0xa
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(000A)
 0010                          ShowMessage(1968)
 001D                          ShowMessage(198C)
 002A                          ShowMessage(19B7)

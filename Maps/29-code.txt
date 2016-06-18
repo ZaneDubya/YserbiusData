@@ -1056,11 +1056,7 @@ Functn12: "BWACTOR"
 0000                          BEGIN
 0003 56                       push si
 0004                          ShowMessage(09F8)
-0011 B8 27 00                 mov ax, 0x27
-0014 50                       push ax
-0015 C4 5E 06                 les bx, [bp+0x6]
-0018 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001D 59                       pop cx
+0011                          ShowPortrait(0027)
 001E B8 01 00                 mov ax, 0x1
 0021 50                       push ax
 0022 B8 01 00                 mov ax, 0x1
@@ -1255,11 +1251,7 @@ Functn13: "OLACTOR"
 0000                          BEGIN
 0003 56                       push si
 0004                          ShowMessage(1071)
-0011 B8 27 00                 mov ax, 0x27
-0014 50                       push ax
-0015 C4 5E 06                 les bx, [bp+0x6]
-0018 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001D 59                       pop cx
+0011                          ShowPortrait(0027)
 001E B8 02 00                 mov ax, 0x2
 0021 50                       push ax
 0022 B8 01 00                 mov ax, 0x1
@@ -1452,11 +1444,7 @@ Functn14: "MBACTOR"
 0000                          BEGIN
 0003 56                       push si
 0004                          ShowMessage(15E2)
-0011 B8 27 00                 mov ax, 0x27
-0014 50                       push ax
-0015 C4 5E 06                 les bx, [bp+0x6]
-0018 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001D 59                       pop cx
+0011                          ShowPortrait(0027)
 001E B8 03 00                 mov ax, 0x3
 0021 50                       push ax
 0022 B8 01 00                 mov ax, 0x1
@@ -1642,11 +1630,7 @@ Functn15: "PCACTOR"
 0000                          BEGIN
 0003 56                       push si
 0004                          ShowMessage(18C1)
-0011 B8 27 00                 mov ax, 0x27
-0014 50                       push ax
-0015 C4 5E 06                 les bx, [bp+0x6]
-0018 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001D 59                       pop cx
+0011                          ShowPortrait(0027)
 001E B8 04 00                 mov ax, 0x4
 0021 50                       push ax
 0022 B8 01 00                 mov ax, 0x1
@@ -1827,22 +1811,14 @@ Functn15: "PCACTOR"
 
 Functn16: "INFO"
 0000                          BEGIN
-0003 B8 1F 00                 mov ax, 0x1f
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(001F)
 0010                          ShowMessage(1B98)
 001D                          ShowMessage(1BD8)
 002A                          RETURN
 
 Functn17: "INFO"
 0000                          BEGIN
-0003 B8 27 00                 mov ax, 0x27
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0027)
 0010                          ShowMessage(1C21)
 001D                          ShowMessage(1C4F)
 002A                          RETURN
@@ -1895,11 +1871,7 @@ Functn1A: "ELFHOME"
 
 Functn1B: "INFO"
 0000                          BEGIN
-0003 B8 1F 00                 mov ax, 0x1f
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(001F)
 0010                          ShowMessage(1D79)
 001D                          ShowMessage(1DA0)
 002A                          RETURN

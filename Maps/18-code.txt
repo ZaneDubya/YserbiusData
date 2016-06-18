@@ -727,11 +727,7 @@ Functn14: "FLSPECE"
 
 Functn15: "FLSPECF"
 0000                          BEGIN
-0003 B8 22 00                 mov ax, 0x22
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0022)
 0010                          ShowMessage(099F)
 001D B8 01 00                 mov ax, 0x1
 0020 50                       push ax
@@ -765,11 +761,7 @@ Functn16: "FLSPECG"
 0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 62                    jz 0x7a
-0018 B8 23 00                 mov ax, 0x23
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0024 59                       pop cx
+0018                          ShowPortrait(0023)
 0025                          ShowMessage(0A81)
 0032 B8 01 00                 mov ax, 0x1
 0035 50                       push ax
@@ -798,21 +790,13 @@ Functn16: "FLSPECG"
 0069 EB 0D                    jmp 0x78
 006B                          ShowMessage(0AB1)
 0078 EB 1A                    jmp 0x94
-007A B8 23 00                 mov ax, 0x23
-007D 50                       push ax
-007E C4 5E 06                 les bx, [bp+0x6]
-0081 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0086 59                       pop cx
+007A                          ShowPortrait(0023)
 0087                          ShowMessage(0AF9)
 0094                          RETURN
 
 Functn17: "FLSPECH"
 0000                          BEGIN
-0003 B8 26 00                 mov ax, 0x26
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0026)
 0010                          ShowMessage(0B31)
 001D B8 05 00                 mov ax, 0x5
 0020 50                       push ax
@@ -846,11 +830,7 @@ Functn18: "FLSPECI"
 0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 62                    jz 0x7a
-0018 B8 24 00                 mov ax, 0x24
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0024 59                       pop cx
+0018                          ShowPortrait(0024)
 0025                          ShowMessage(0C11)
 0032 B8 01 00                 mov ax, 0x1
 0035 50                       push ax
@@ -879,11 +859,7 @@ Functn18: "FLSPECI"
 0069 EB 0D                    jmp 0x78
 006B                          ShowMessage(0C45)
 0078 EB 1A                    jmp 0x94
-007A B8 24 00                 mov ax, 0x24
-007D 50                       push ax
-007E C4 5E 06                 les bx, [bp+0x6]
-0081 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0086 59                       pop cx
+007A                          ShowPortrait(0024)
 0087                          ShowMessage(0C90)
 0094                          RETURN
 
@@ -905,18 +881,10 @@ Functn19: "FLSPECJ"
 002B 26 FF 5F 60              call far word [es:bx+0x60]
 002F 59                       pop cx
 0030 59                       pop cx
-0031 B8 23 00                 mov ax, 0x23
-0034 50                       push ax
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 9F FC 00           call far word [es:bx+0xfc]
-003D 59                       pop cx
+0031                          ShowPortrait(0023)
 003E                          ShowMessage(0D1B)
 004B EB 1A                    jmp 0x67
-004D B8 23 00                 mov ax, 0x23
-0050 50                       push ax
-0051 C4 5E 06                 les bx, [bp+0x6]
-0054 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0059 59                       pop cx
+004D                          ShowPortrait(0023)
 005A                          ShowMessage(0D53)
 0067                          RETURN
 
@@ -932,11 +900,7 @@ Functn1A: "FLSPECK"
 0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 62                    jz 0x7a
-0018 B8 25 00                 mov ax, 0x25
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0024 59                       pop cx
+0018                          ShowPortrait(0025)
 0025                          ShowMessage(0DA4)
 0032 B8 01 00                 mov ax, 0x1
 0035 50                       push ax
@@ -965,11 +929,7 @@ Functn1A: "FLSPECK"
 0069 EB 0D                    jmp 0x78
 006B                          ShowMessage(0DD8)
 0078 EB 1A                    jmp 0x94
-007A B8 25 00                 mov ax, 0x25
-007D 50                       push ax
-007E C4 5E 06                 les bx, [bp+0x6]
-0081 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0086 59                       pop cx
+007A                          ShowPortrait(0025)
 0087                          ShowMessage(0E26)
 0094                          RETURN
 
@@ -985,11 +945,7 @@ Functn1B: "FLSPECL"
 0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 1C                    jz 0x34
-0018 B8 42 00                 mov ax, 0x42
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0024 59                       pop cx
+0018                          ShowPortrait(0042)
 0025                          ShowMessage(0E59)
 0032 EB 5C                    jmp 0x90
 0034 B8 01 00                 mov ax, 0x1
@@ -1001,11 +957,7 @@ Functn1B: "FLSPECL"
 0040 C4 5E 06                 les bx, [bp+0x6]
 0043 26 FF 1F                 call far word [es:bx]
 0046 83 C4 06                 add sp, 0x6
-0049 B8 42 00                 mov ax, 0x42
-004C 50                       push ax
-004D C4 5E 06                 les bx, [bp+0x6]
-0050 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0055 59                       pop cx
+0049                          ShowPortrait(0042)
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 5F 74              call far word [es:bx+0x74]
 005D 50                       push ax
@@ -1030,11 +982,7 @@ Functn1B: "FLSPECL"
 
 Functn1D: "FLSPECN"
 0000                          BEGIN
-0003 B8 26 00                 mov ax, 0x26
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0026)
 0010                          ShowMessage(0F18)
 001D B8 08 00                 mov ax, 0x8
 0020 50                       push ax

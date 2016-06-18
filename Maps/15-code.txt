@@ -169,11 +169,7 @@ Functn06: "QSTCHARA"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 1F                 call far word [es:bx]
 0061 83 C4 06                 add sp, 0x6
-0064 B8 1C 00                 mov ax, 0x1c
-0067 50                       push ax
-0068 C4 5E 06                 les bx, [bp+0x6]
-006B 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0070 59                       pop cx
+0064                          ShowPortrait(001C)
 0071 B8 F9 00                 mov ax, 0xf9
 0074 50                       push ax
 0075 C4 5E 06                 les bx, [bp+0x6]
@@ -192,11 +188,7 @@ Functn06: "QSTCHARA"
 009F C4 5E 06                 les bx, [bp+0x6]
 00A2 26 FF 5F 2C              call far word [es:bx+0x2c]
 00A6 83 C4 06                 add sp, 0x6
-00A9 B8 1C 00                 mov ax, 0x1c
-00AC 50                       push ax
-00AD C4 5E 06                 les bx, [bp+0x6]
-00B0 26 FF 9F FC 00           call far word [es:bx+0xfc]
-00B5 59                       pop cx
+00A9                          ShowPortrait(001C)
 00B6                          ShowMessage(04B9)
 00C3                          ShowMessage(0546)
 00D0                          RETURN
@@ -213,18 +205,10 @@ Functn07: "QSTCHARB"
 0013 59                       pop cx
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 1C                    jnz 0x35
-0019 B8 2C 00                 mov ax, 0x2c
-001C 50                       push ax
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0025 59                       pop cx
+0019                          ShowPortrait(002C)
 0026                          ShowMessage(0578)
 0033 EB 1A                    jmp 0x4f
-0035 B8 2C 00                 mov ax, 0x2c
-0038 50                       push ax
-0039 C4 5E 06                 les bx, [bp+0x6]
-003C 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0041 59                       pop cx
+0035                          ShowPortrait(002C)
 0042                          ShowMessage(05CF)
 004F                          RETURN
 
@@ -240,18 +224,10 @@ Functn08: "QSTCHARC"
 0013 59                       pop cx
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 1C                    jnz 0x35
-0019 B8 2D 00                 mov ax, 0x2d
-001C 50                       push ax
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0025 59                       pop cx
+0019                          ShowPortrait(002D)
 0026                          ShowMessage(0649)
 0033 EB 1A                    jmp 0x4f
-0035 B8 2D 00                 mov ax, 0x2d
-0038 50                       push ax
-0039 C4 5E 06                 les bx, [bp+0x6]
-003C 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0041 59                       pop cx
+0035                          ShowPortrait(002D)
 0042                          ShowMessage(069E)
 004F                          RETURN
 

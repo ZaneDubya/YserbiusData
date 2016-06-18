@@ -539,11 +539,7 @@ Functn1B: "TOELVES"
 
 Functn1C: "PHOEGURD"
 0000                          BEGIN
-0003 B8 2D 00                 mov ax, 0x2d
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(002D)
 0010                          ShowMessage(0810)
 001D B8 85 00                 mov ax, 0x85
 0020 50                       push ax
@@ -575,44 +571,28 @@ Functn1C: "PHOEGURD"
 
 Functn1D: "TXTBAZZA"
 0000                          BEGIN
-0003 B8 29 00                 mov ax, 0x29
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0029)
 0010                          ShowMessage(099C)
 001D                          ShowMessage(09CF)
 002A                          RETURN
 
 Functn1E: "TXTBAZZB"
 0000                          BEGIN
-0003 B8 1C 00                 mov ax, 0x1c
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(001C)
 0010                          ShowMessage(0A10)
 001D                          ShowMessage(0A43)
 002A                          RETURN
 
 Functn1F: "TXTBAZZC"
 0000                          BEGIN
-0003 B8 2D 00                 mov ax, 0x2d
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(002D)
 0010                          ShowMessage(0A89)
 001D                          ShowMessage(0AAA)
 002A                          RETURN
 
 Functn20: "TXTBAZZD"
 0000                          BEGIN
-0003 B8 1F 00                 mov ax, 0x1f
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(001F)
 0010                          ShowMessage(0B27)
 001D                          ShowMessage(0B54)
 002A                          RETURN
@@ -662,11 +642,7 @@ Functn21: "PHOEREW"
 
 Functn24: "MYSTICS"
 0000                          BEGIN
-0003 B8 16 00                 mov ax, 0x16
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0016)
 0010                          ShowMessage(0BEC)
 001D                          ShowMessage(0C2C)
 002A                          ShowMessage(0C6D)
@@ -695,11 +671,7 @@ Functn25: "FNTNBAZZ"
 0027 C4 5E 06                 les bx, [bp+0x6]
 002A 26 FF 1F                 call far word [es:bx]
 002D 83 C4 06                 add sp, 0x6
-0030 B8 42 00                 mov ax, 0x42
-0033 50                       push ax
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 9F FC 00           call far word [es:bx+0xfc]
-003C 59                       pop cx
+0030                          ShowPortrait(0042)
 003D                          ShowMessage(0D17)
 004A B8 14 00                 mov ax, 0x14
 004D 50                       push ax
@@ -838,11 +810,7 @@ Functn2A: "TXTLOOKB"
 
 Functn2B: "FNTNLOOK"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010                          ShowMessage(0EBC)
 001D B8 60 00                 mov ax, 0x60
 0020 50                       push ax
@@ -1147,11 +1115,7 @@ Functn35: "TXTCSTLA"
 
 Functn36: "TXTCSTLB"
 0000                          BEGIN
-0003 B8 16 00                 mov ax, 0x16
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0016)
 0010                          ShowMessage(100D)
 001D                          ShowMessage(103E)
 002A                          ShowMessage(1060)
@@ -1166,11 +1130,7 @@ Functn37: "FNTNHEAL"
 000B C4 5E 06                 les bx, [bp+0x6]
 000E 26 FF 9F 94 00           call far word [es:bx+0x94]
 0013 59                       pop cx
-0014 B8 42 00                 mov ax, 0x42
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F FC 00           call far word [es:bx+0xfc]
-0020 59                       pop cx
+0014                          ShowPortrait(0042)
 0021                          ShowMessage(10A8)
 002E                          RETURN
 
@@ -1181,21 +1141,13 @@ Functn38: "FNTNMANA"
 0007 C4 5E 06                 les bx, [bp+0x6]
 000A 26 FF 9F B4 00           call far word [es:bx+0xb4]
 000F 59                       pop cx
-0010 B8 42 00                 mov ax, 0x42
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001C 59                       pop cx
+0010                          ShowPortrait(0042)
 001D                          ShowMessage(10D0)
 002A                          RETURN
 
 Functn3B: "TXTCSTLC"
 0000                          BEGIN
-0003 B8 11 00                 mov ax, 0x11
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0011)
 0010                          ShowMessage(10F6)
 001D                          ShowMessage(110C)
 002A                          ShowMessage(1150)

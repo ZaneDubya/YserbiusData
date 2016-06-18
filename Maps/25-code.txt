@@ -232,11 +232,7 @@ Functn10: "DRTOVORA"
 
 Functn14: "HEAVFOUN"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010                          ShowMessage(082C)
 001D B8 61 00                 mov ax, 0x61
 0020 50                       push ax
@@ -819,11 +815,7 @@ Functn23: "TEMPWIND"
 
 Functn24: "FNTNHEAL"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -835,11 +827,7 @@ Functn24: "FNTNHEAL"
 
 Functn25: "FNTNMANA"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010 B8 10 27                 mov ax, 0x2710
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -850,11 +838,7 @@ Functn25: "FNTNMANA"
 
 Functn26: "FNTNHEAL"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -976,11 +960,7 @@ Functn28: "WINDENC"
 
 Functn29: "TXTEXOD"
 0000                          BEGIN
-0003 B8 1E 00                 mov ax, 0x1e
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(001E)
 0010                          ShowMessage(0C25)
 001D                          ShowMessage(0C42)
 002A                          ShowMessage(0CE3)
@@ -1256,11 +1236,7 @@ Functn31: "BDRWINDD"
 
 Functn32: "TXTWINDH"
 0000                          BEGIN
-0003 B8 28 00                 mov ax, 0x28
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0028)
 0010                          ShowMessage(0F6B)
 001D                          ShowMessage(0F8D)
 002A                          RETURN
@@ -1383,11 +1359,7 @@ Functn37: "TXTTROLB"
 
 Functn38: "FNTNSTRN"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010 B8 4A 00                 mov ax, 0x4a
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -1510,11 +1482,7 @@ Functn3A: "BACKENCB"
 
 Functn3B: "BACKENCC"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010                          ShowMessage(11FC)
 001D B8 62 00                 mov ax, 0x62
 0020 50                       push ax
@@ -1745,11 +1713,7 @@ Functn3D: "BACKENCE"
 
 Functn48: "FNTNTROL"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F FC 00           call far word [es:bx+0xfc]
-000F 59                       pop cx
+0003                          ShowPortrait(0042)
 0010                          ShowMessage(132C)
 001D B8 4B 00                 mov ax, 0x4b
 0020 50                       push ax

@@ -1077,16 +1077,8 @@ Functn0A: "STRSMESS"
 Functn0B: "NPCCHATA"
 0000                          BEGIN
 0003                          ShowMessage(06B2)
-0010 B8 2B 00                 mov ax, 0x2b
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001C 59                       pop cx
-001D B8 0F 00                 mov ax, 0xf
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F EC 00           call far word [es:bx+0xec]
-0029 59                       pop cx
+0010                          ShowPortrait(002B)
+001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 29                    ja 0x58
 002F                          ShowMessage(06E5)
@@ -1099,16 +1091,8 @@ Functn0B: "NPCCHATA"
 Functn0C: "NPCCHATB"
 0000                          BEGIN
 0003                          ShowMessage(0830)
-0010 B8 1B 00                 mov ax, 0x1b
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F FC 00           call far word [es:bx+0xfc]
-001C 59                       pop cx
-001D B8 0F 00                 mov ax, 0xf
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F EC 00           call far word [es:bx+0xec]
-0029 59                       pop cx
+0010                          ShowPortrait(001B)
+001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(0855)
