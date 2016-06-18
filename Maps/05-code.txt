@@ -1,32 +1,32 @@
 Functn01: "TELPORTN"
 0000                          BEGIN
-0003                          GoMap(01, 5F, 04, 01)
+0003                          GoMap(01, 5F, 04, 01) [es:bx+0xbc]
 001E                          RETURN
 
 Functn02: "TELEMESG"
 0000                          BEGIN
-0003                          ShowMessage(03FC) = There is a teleport in the north wall to the Hall of Doors.
+0003                          ShowMessage(03FC) [es:bx+0xf8] = There is a teleport in the north wall to the Hall of Doors.
 0010                          RETURN
 
 Functn03: "TOSOLDQU"
 0000                          BEGIN
-0003                          GoMap(00, 4F, 06, 01)
+0003                          GoMap(00, 4F, 06, 01) [es:bx+0xbc]
 001D                          RETURN
 
 Functn04: "GATEMESG"
 0000                          BEGIN
-0003                          ShowMessage(0438) = The gateway leads to the SOLDIERS QUARTERS.
+0003                          ShowMessage(0438) [es:bx+0xf8] = The gateway leads to the SOLDIERS QUARTERS.
 0010                          RETURN
 
 Functn05: "NPCCHATA"
 0000                          BEGIN
-0003                          ShowMessage(0464) = You encounter a Human Thief.
-0010                          ShowPortrait(0022)
+0003                          ShowMessage(0464) [es:bx+0xf8] = You encounter a Human Thief.
+0010                          ShowPortrait(0022) [es:bx+0xd4]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 1C                    ja 0x4b
-002F                          ShowMessage(0481) = King Cleowyn long sought the buried secrets of a great wizard whose castle lies buried inside this mountain. 
-003C                          ShowMessage(04EF) = The king died most horribly, it is said. His anguished death scream was heard across the island, but no one ever found his body. The dead wizard may have claimed the body, but no one knows for sure.
+002F                          ShowMessage(0481) [es:bx+0xf8] = King Cleowyn long sought the buried secrets of a great wizard whose castle lies buried inside this mountain. 
+003C                          ShowMessage(04EF) [es:bx+0xf8] = The king died most horribly, it is said. His anguished death scream was heard across the island, but no one ever found his body. The dead wizard may have claimed the body, but no one knows for sure.
 0049 EB 1F                    jmp 0x6a
 004B B8 FF FF                 mov ax, 0xffff
 004E BA 38 FF                 mov dx, 0xff38
@@ -36,19 +36,19 @@ Functn05: "NPCCHATA"
 0056 26 FF 9F AC 00           call far word [es:bx+0xac]
 005B 59                       pop cx
 005C 59                       pop cx
-005D                          ShowMessage(05B6) = The Human Thief cadges some money from you and runs away.
+005D                          ShowMessage(05B6) [es:bx+0xf8] = The Human Thief cadges some money from you and runs away.
 006A                          RETURN
 
 Functn06: "NPCCHATB"
 0000                          BEGIN
-0003                          ShowMessage(05F0) = You encounter an Elf Barbarian.
-0010                          ShowPortrait(0018)
+0003                          ShowMessage(05F0) [es:bx+0xf8] = You encounter an Elf Barbarian.
+0010                          ShowPortrait(0018) [es:bx+0xd4]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0610) = Two levels down is a most strange area. Six small rooms are accessible to anyone, but there is a large area I have not been able to reach. A wizard told me I should study my runes to solve the mystery of this area.
+002F                          ShowMessage(0610) [es:bx+0xf8] = Two levels down is a most strange area. Six small rooms are accessible to anyone, but there is a large area I have not been able to reach. A wizard told me I should study my runes to solve the mystery of this area.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(06E7) = The Elf Barbarian is busy tending her many wounds and ignores you.
+003E                          ShowMessage(06E7) [es:bx+0xf8] = The Elf Barbarian is busy tending her many wounds and ignores you.
 004B                          RETURN
 
 Functn07: "ITEMAENC"
@@ -56,7 +56,7 @@ Functn07: "ITEMAENC"
 0003                          ax = CheckState(02, 12) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
-0019                          ShowMessage(072A) = Monsters jump out of the shadows.
+0019                          ShowMessage(072A) [es:bx+0xf8] = Monsters jump out of the shadows.
 0026 B8 64 00                 mov ax, 0x64
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -97,7 +97,7 @@ Functn07: "ITEMAENC"
 0075 C4 5E 06                 les bx, [bp+0x6]
 0078 26 FF 1F                 call far word [es:bx]
 007B 83 C4 06                 add sp, 0x6
-007E                          ShowMessage(074C) = Monsters snarl as you approach a pile of weapons.
+007E                          ShowMessage(074C) [es:bx+0xf8] = Monsters snarl as you approach a pile of weapons.
 008B C4 5E 06                 les bx, [bp+0x6]
 008E 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0093 3D 01 00                 cmp ax, 0x1
@@ -106,19 +106,19 @@ Functn07: "ITEMAENC"
 009B 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00A0 3D 02 00                 cmp ax, 0x2
 00A3 75 26                    jnz 0xcb
-00A5                          SetEncData(19, 01)
-00B7                          SetEncData(1E, 02)
+00A5                          SetEncData(19, 01) [es:bx+0xd4]
+00B7                          SetEncData(1E, 02) [es:bx+0xd4]
 00C9 EB 5A                    jmp 0x125
-00CB                          SetEncData(1B, 01)
-00DD                          SetEncData(1A, 02)
-00EF                          SetEncData(19, 03)
-0101                          SetEncData(1E, 05)
-0113                          SetEncData(1E, 06)
+00CB                          SetEncData(1B, 01) [es:bx+0xd4]
+00DD                          SetEncData(1A, 02) [es:bx+0xd4]
+00EF                          SetEncData(19, 03) [es:bx+0xd4]
+0101                          SetEncData(1E, 05) [es:bx+0xd4]
+0113                          SetEncData(1E, 06) [es:bx+0xd4]
 0125                          RETURN
 
 Functn08: "TELPORTN"
 0000                          BEGIN
-0003                          GoMap(01, 5F, 04, 01)
+0003                          GoMap(01, 5F, 04, 01) [es:bx+0xbc]
 001E                          RETURN
 
 Functn09: "ITEMBENC"
@@ -126,7 +126,7 @@ Functn09: "ITEMBENC"
 0003                          ax = CheckState(02, 13) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
-0019                          ShowMessage(077E) = Unclean spirits shriek as they attack.
+0019                          ShowMessage(077E) [es:bx+0xf8] = Unclean spirits shriek as they attack.
 0026 B8 90 01                 mov ax, 0x190
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -167,29 +167,29 @@ Functn09: "ITEMBENC"
 0074 C4 5E 06                 les bx, [bp+0x6]
 0077 26 FF 1F                 call far word [es:bx]
 007A 83 C4 06                 add sp, 0x6
-007D                          ShowMessage(07A5) = Incubi surround you as you approach a weapon on the floor.
+007D                          ShowMessage(07A5) [es:bx+0xf8] = Incubi surround you as you approach a weapon on the floor.
 008A C4 5E 06                 les bx, [bp+0x6]
 008D 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0092 3D 01 00                 cmp ax, 0x1
 0095 75 27                    jnz 0xbe
-0097                          SetEncData(24, 01)
-00A9                          SetEncData(24, 02)
+0097                          SetEncData(24, 01) [es:bx+0xd4]
+00A9                          SetEncData(24, 02) [es:bx+0xd4]
 00BB E9 C3 00                 jmp 0x181
 00BE C4 5E 06                 les bx, [bp+0x6]
 00C1 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00C6 3D 02 00                 cmp ax, 0x2
 00C9 75 4A                    jnz 0x115
-00CB                          SetEncData(23, 01)
-00DD                          SetEncData(23, 02)
-00EF                          SetEncData(23, 03)
-0101                          SetEncData(25, 04)
+00CB                          SetEncData(23, 01) [es:bx+0xd4]
+00DD                          SetEncData(23, 02) [es:bx+0xd4]
+00EF                          SetEncData(23, 03) [es:bx+0xd4]
+0101                          SetEncData(25, 04) [es:bx+0xd4]
 0113 EB 6C                    jmp 0x181
-0115                          SetEncData(28, 01)
-0127                          SetEncData(28, 02)
-0139                          SetEncData(27, 03)
-014B                          SetEncData(27, 04)
-015D                          SetEncData(26, 05)
-016F                          SetEncData(26, 06)
+0115                          SetEncData(28, 01) [es:bx+0xd4]
+0127                          SetEncData(28, 02) [es:bx+0xd4]
+0139                          SetEncData(27, 03) [es:bx+0xd4]
+014B                          SetEncData(27, 04) [es:bx+0xd4]
+015D                          SetEncData(26, 05) [es:bx+0xd4]
+016F                          SetEncData(26, 06) [es:bx+0xd4]
 0181                          RETURN
 
 Functn0A: "ITEMCENC"
@@ -212,7 +212,7 @@ Functn0A: "ITEMCENC"
 002D C4 5E 06                 les bx, [bp+0x6]
 0030 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0035 83 C4 0C                 add sp, 0xc
-0038                          ShowMessage(07E0) = Skeletons attack you.
+0038                          ShowMessage(07E0) [es:bx+0xf8] = Skeletons attack you.
 0045 EB 44                    jmp 0x8b
 0047 B8 B8 0B                 mov ax, 0xbb8
 004A 50                       push ax
@@ -238,38 +238,38 @@ Functn0A: "ITEMCENC"
 0075 C4 5E 06                 les bx, [bp+0x6]
 0078 26 FF 1F                 call far word [es:bx]
 007B 83 C4 06                 add sp, 0x6
-007E                          ShowMessage(07F6) = Skeletons guard a precious hoard.
+007E                          ShowMessage(07F6) [es:bx+0xf8] = Skeletons guard a precious hoard.
 008B C4 5E 06                 les bx, [bp+0x6]
 008E 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0093 3D 01 00                 cmp ax, 0x1
 0096 75 27                    jnz 0xbf
-0098                          SetEncData(03, 01)
-00AA                          SetEncData(02, 02)
+0098                          SetEncData(03, 01) [es:bx+0xd4]
+00AA                          SetEncData(02, 02) [es:bx+0xd4]
 00BC E9 1B 01                 jmp 0x1da
 00BF C4 5E 06                 les bx, [bp+0x6]
 00C2 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00C7 3D 02 00                 cmp ax, 0x2
 00CA 75 39                    jnz 0x105
-00CC                          SetEncData(03, 01)
-00DE                          SetEncData(01, 02)
-00F0                          SetEncData(03, 03)
+00CC                          SetEncData(03, 01) [es:bx+0xd4]
+00DE                          SetEncData(01, 02) [es:bx+0xd4]
+00F0                          SetEncData(03, 03) [es:bx+0xd4]
 0102 E9 D5 00                 jmp 0x1da
 0105 C4 5E 06                 les bx, [bp+0x6]
 0108 26 FF 9F F0 00           call far word [es:bx+0xf0]
 010D 3D 03 00                 cmp ax, 0x3
 0110 75 5C                    jnz 0x16e
-0112                          SetEncData(04, 01)
-0124                          SetEncData(02, 02)
-0136                          SetEncData(04, 03)
-0148                          SetEncData(03, 04)
-015A                          SetEncData(01, 06)
+0112                          SetEncData(04, 01) [es:bx+0xd4]
+0124                          SetEncData(02, 02) [es:bx+0xd4]
+0136                          SetEncData(04, 03) [es:bx+0xd4]
+0148                          SetEncData(03, 04) [es:bx+0xd4]
+015A                          SetEncData(01, 06) [es:bx+0xd4]
 016C EB 6C                    jmp 0x1da
-016E                          SetEncData(04, 01)
-0180                          SetEncData(04, 02)
-0192                          SetEncData(03, 03)
-01A4                          SetEncData(03, 04)
-01B6                          SetEncData(02, 05)
-01C8                          SetEncData(02, 06)
+016E                          SetEncData(04, 01) [es:bx+0xd4]
+0180                          SetEncData(04, 02) [es:bx+0xd4]
+0192                          SetEncData(03, 03) [es:bx+0xd4]
+01A4                          SetEncData(03, 04) [es:bx+0xd4]
+01B6                          SetEncData(02, 05) [es:bx+0xd4]
+01C8                          SetEncData(02, 06) [es:bx+0xd4]
 01DA                          RETURN
 
 Functn0B: "ITEMDENC"
@@ -277,7 +277,7 @@ Functn0B: "ITEMDENC"
 0003                          ax = CheckState(02, 15) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(0818) = The dead arise as you draw near.
+0019                          ShowMessage(0818) [es:bx+0xf8] = The dead arise as you draw near.
 0026 B8 96 00                 mov ax, 0x96
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -318,28 +318,28 @@ Functn0B: "ITEMDENC"
 0073 C4 5E 06                 les bx, [bp+0x6]
 0076 26 FF 1F                 call far word [es:bx]
 0079 83 C4 06                 add sp, 0x6
-007C                          ShowMessage(0839) = Your movement disturbs the dead who have guarded King Cleowyn's Treasury.
+007C                          ShowMessage(0839) [es:bx+0xf8] = Your movement disturbs the dead who have guarded King Cleowyn's Treasury.
 0089 C4 5E 06                 les bx, [bp+0x6]
 008C 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0091 3D 01 00                 cmp ax, 0x1
 0094 75 27                    jnz 0xbd
-0096                          SetEncData(08, 01)
-00A8                          SetEncData(0D, 02)
+0096                          SetEncData(08, 01) [es:bx+0xd4]
+00A8                          SetEncData(0D, 02) [es:bx+0xd4]
 00BA E9 B1 00                 jmp 0x16e
 00BD C4 5E 06                 les bx, [bp+0x6]
 00C0 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00C5 3D 02 00                 cmp ax, 0x2
 00C8 75 38                    jnz 0x102
-00CA                          SetEncData(09, 01)
-00DC                          SetEncData(0E, 02)
-00EE                          SetEncData(06, 03)
+00CA                          SetEncData(09, 01) [es:bx+0xd4]
+00DC                          SetEncData(0E, 02) [es:bx+0xd4]
+00EE                          SetEncData(06, 03) [es:bx+0xd4]
 0100 EB 6C                    jmp 0x16e
-0102                          SetEncData(0B, 01)
-0114                          SetEncData(0A, 02)
-0126                          SetEncData(05, 03)
-0138                          SetEncData(06, 04)
-014A                          SetEncData(12, 05)
-015C                          SetEncData(13, 06)
+0102                          SetEncData(0B, 01) [es:bx+0xd4]
+0114                          SetEncData(0A, 02) [es:bx+0xd4]
+0126                          SetEncData(05, 03) [es:bx+0xd4]
+0138                          SetEncData(06, 04) [es:bx+0xd4]
+014A                          SetEncData(12, 05) [es:bx+0xd4]
+015C                          SetEncData(13, 06) [es:bx+0xd4]
 016E                          RETURN
 
 Functn0D: "TRAPDORA"
@@ -388,11 +388,11 @@ Functn0D: "TRAPDORA"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 74 2A                    jz 0x8d
-0063                          ShowMessage(0883) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0070                          GoMap(01, 85, 01, 02)
+0063                          ShowMessage(0883) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+0070                          GoMap(01, 85, 01, 02) [es:bx+0xbc]
 008B EB 28                    jmp 0xb5
-008D                          ShowMessage(08D3) = A trapdoor in the floor opens.
-009A                          GoMap(01, 85, 01, 02)
+008D                          ShowMessage(08D3) [es:bx+0xf8] = A trapdoor in the floor opens.
+009A                          GoMap(01, 85, 01, 02) [es:bx+0xbc]
 00B5                          RETURN
 
 Functn0E: "TRAPDORB"
@@ -441,11 +441,11 @@ Functn0E: "TRAPDORB"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 74 2A                    jz 0x8d
-0063                          ShowMessage(08F2) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0070                          GoMap(01, 86, 01, 02)
+0063                          ShowMessage(08F2) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+0070                          GoMap(01, 86, 01, 02) [es:bx+0xbc]
 008B EB 28                    jmp 0xb5
-008D                          ShowMessage(0942) = A trapdoor in the floor opens.
-009A                          GoMap(01, 86, 01, 02)
+008D                          ShowMessage(0942) [es:bx+0xf8] = A trapdoor in the floor opens.
+009A                          GoMap(01, 86, 01, 02) [es:bx+0xbc]
 00B5                          RETURN
 
 Functn0F: "TRAPDORC"
@@ -494,11 +494,11 @@ Functn0F: "TRAPDORC"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 74 2A                    jz 0x8d
-0063                          ShowMessage(0961) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0070                          GoMap(02, 98, 01, 02)
+0063                          ShowMessage(0961) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+0070                          GoMap(02, 98, 01, 02) [es:bx+0xbc]
 008B EB 28                    jmp 0xb5
-008D                          ShowMessage(09B1) = A trapdoor in the floor opens.
-009A                          GoMap(02, 98, 01, 02)
+008D                          ShowMessage(09B1) [es:bx+0xf8] = A trapdoor in the floor opens.
+009A                          GoMap(02, 98, 01, 02) [es:bx+0xbc]
 00B5                          RETURN
 
 Functn10: "TRAPDORD"
@@ -547,11 +547,11 @@ Functn10: "TRAPDORD"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 74 29                    jz 0x8c
-0063                          ShowMessage(09D0) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0070                          GoMap(00, A6, 01, 02)
+0063                          ShowMessage(09D0) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+0070                          GoMap(00, A6, 01, 02) [es:bx+0xbc]
 008A EB 27                    jmp 0xb3
-008C                          ShowMessage(0A20) = A trapdoor in the floor opens.
-0099                          GoMap(00, A6, 01, 02)
+008C                          ShowMessage(0A20) [es:bx+0xf8] = A trapdoor in the floor opens.
+0099                          GoMap(00, A6, 01, 02) [es:bx+0xbc]
 00B3                          RETURN
 
 Functn11: "TRAPDORE"
@@ -590,11 +590,11 @@ Functn11: "TRAPDORE"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 29                    jz 0x77
-004E                          ShowMessage(0A3F) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-005B                          GoMap(00, A8, 01, 02)
+004E                          ShowMessage(0A3F) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+005B                          GoMap(00, A8, 01, 02) [es:bx+0xbc]
 0075 EB 27                    jmp 0x9e
-0077                          ShowMessage(0A8F) = A trapdoor in the floor opens.
-0084                          GoMap(00, A8, 01, 02)
+0077                          ShowMessage(0A8F) [es:bx+0xf8] = A trapdoor in the floor opens.
+0084                          GoMap(00, A8, 01, 02) [es:bx+0xbc]
 009E                          RETURN
 
 Functn12: "TRAPDORF"
@@ -633,11 +633,11 @@ Functn12: "TRAPDORF"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0AAE) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-005B                          GoMap(02, B5, 01, 02)
+004E                          ShowMessage(0AAE) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+005B                          GoMap(02, B5, 01, 02) [es:bx+0xbc]
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0AFE) = A trapdoor in the floor opens.
-0085                          GoMap(02, B5, 01, 02)
+0078                          ShowMessage(0AFE) [es:bx+0xf8] = A trapdoor in the floor opens.
+0085                          GoMap(02, B5, 01, 02) [es:bx+0xbc]
 00A0                          RETURN
 
 Functn13: "TRAPDORG"
@@ -686,11 +686,11 @@ Functn13: "TRAPDORG"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 74 2A                    jz 0x8d
-0063                          ShowMessage(0B1D) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0070                          GoMap(01, C7, 01, 02)
+0063                          ShowMessage(0B1D) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+0070                          GoMap(01, C7, 01, 02) [es:bx+0xbc]
 008B EB 28                    jmp 0xb5
-008D                          ShowMessage(0B6D) = A trapdoor in the floor opens.
-009A                          GoMap(01, C7, 01, 02)
+008D                          ShowMessage(0B6D) [es:bx+0xf8] = A trapdoor in the floor opens.
+009A                          GoMap(01, C7, 01, 02) [es:bx+0xbc]
 00B5                          RETURN
 
 Functn14: "TRAPDORH"
@@ -729,11 +729,11 @@ Functn14: "TRAPDORH"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 29                    jz 0x77
-004E                          ShowMessage(0B8C) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-005B                          GoMap(00, CF, 01, 02)
+004E                          ShowMessage(0B8C) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+005B                          GoMap(00, CF, 01, 02) [es:bx+0xbc]
 0075 EB 27                    jmp 0x9e
-0077                          ShowMessage(0BDC) = A trapdoor in the floor opens.
-0084                          GoMap(00, CF, 01, 02)
+0077                          ShowMessage(0BDC) [es:bx+0xf8] = A trapdoor in the floor opens.
+0084                          GoMap(00, CF, 01, 02) [es:bx+0xbc]
 009E                          RETURN
 
 Functn15: "TRAPDOR"
@@ -782,11 +782,11 @@ Functn15: "TRAPDOR"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 74 29                    jz 0x8c
-0063                          ShowMessage(0BFB) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0070                          GoMap(00, D6, 01, 02)
+0063                          ShowMessage(0BFB) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+0070                          GoMap(00, D6, 01, 02) [es:bx+0xbc]
 008A EB 27                    jmp 0xb3
-008C                          ShowMessage(0C4B) = A trapdoor in the floor opens.
-0099                          GoMap(00, D6, 01, 02)
+008C                          ShowMessage(0C4B) [es:bx+0xf8] = A trapdoor in the floor opens.
+0099                          GoMap(00, D6, 01, 02) [es:bx+0xbc]
 00B3                          RETURN
 
 Functn16: "TRAPDORJ"
@@ -825,11 +825,11 @@ Functn16: "TRAPDORJ"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0C6A) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-005B                          GoMap(03, D8, 01, 02)
+004E                          ShowMessage(0C6A) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+005B                          GoMap(03, D8, 01, 02) [es:bx+0xbc]
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0CBA) = A trapdoor in the floor opens.
-0085                          GoMap(03, D8, 01, 02)
+0078                          ShowMessage(0CBA) [es:bx+0xf8] = A trapdoor in the floor opens.
+0085                          GoMap(03, D8, 01, 02) [es:bx+0xbc]
 00A0                          RETURN
 
 Functn17: "TRAPDORK"
@@ -878,11 +878,11 @@ Functn17: "TRAPDORK"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 74 2A                    jz 0x8d
-0063                          ShowMessage(0CD9) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0070                          GoMap(03, E9, 01, 02)
+0063                          ShowMessage(0CD9) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+0070                          GoMap(03, E9, 01, 02) [es:bx+0xbc]
 008B EB 28                    jmp 0xb5
-008D                          ShowMessage(0D29) = A trapdoor in the floor opens.
-009A                          GoMap(03, E9, 01, 02)
+008D                          ShowMessage(0D29) [es:bx+0xf8] = A trapdoor in the floor opens.
+009A                          GoMap(03, E9, 01, 02) [es:bx+0xbc]
 00B5                          RETURN
 
 Functn18: "TRAPDORL"
@@ -921,11 +921,11 @@ Functn18: "TRAPDORL"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 29                    jz 0x77
-004E                          ShowMessage(0D48) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-005B                          GoMap(00, EB, 01, 02)
+004E                          ShowMessage(0D48) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+005B                          GoMap(00, EB, 01, 02) [es:bx+0xbc]
 0075 EB 27                    jmp 0x9e
-0077                          ShowMessage(0D98) = A trapdoor in the floor opens.
-0084                          GoMap(00, EB, 01, 02)
+0077                          ShowMessage(0D98) [es:bx+0xf8] = A trapdoor in the floor opens.
+0084                          GoMap(00, EB, 01, 02) [es:bx+0xbc]
 009E                          RETURN
 
 Functn19: "TRAPDORM"
@@ -964,11 +964,11 @@ Functn19: "TRAPDORM"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 29                    jz 0x77
-004E                          ShowMessage(0DB7) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-005B                          GoMap(00, F5, 01, 02)
+004E                          ShowMessage(0DB7) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+005B                          GoMap(00, F5, 01, 02) [es:bx+0xbc]
 0075 EB 27                    jmp 0x9e
-0077                          ShowMessage(0E07) = A trapdoor in the floor opens.
-0084                          GoMap(00, F5, 01, 02)
+0077                          ShowMessage(0E07) [es:bx+0xf8] = A trapdoor in the floor opens.
+0084                          GoMap(00, F5, 01, 02) [es:bx+0xbc]
 009E                          RETURN
 
 Functn1A: "TRAPDORN"
@@ -1007,11 +1007,11 @@ Functn1A: "TRAPDORN"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0E26) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-005B                          GoMap(02, F7, 01, 02)
+004E                          ShowMessage(0E26) [es:bx+0xf8] = You detect a trapdoor in the floor, but not in time to prevent falling through!
+005B                          GoMap(02, F7, 01, 02) [es:bx+0xbc]
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0E76) = A trapdoor in the floor opens.
-0085                          GoMap(02, F7, 01, 02)
+0078                          ShowMessage(0E76) [es:bx+0xf8] = A trapdoor in the floor opens.
+0085                          GoMap(02, F7, 01, 02) [es:bx+0xbc]
 00A0                          RETURN
 
 Functn1B: "TUFMNSTR"
@@ -1024,14 +1024,14 @@ Functn1B: "TUFMNSTR"
 0013 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0018 3D 02 00                 cmp ax, 0x2
 001B 75 26                    jnz 0x43
-001D                          SetEncData(1A, 01)
-002F                          SetEncData(1A, 02)
+001D                          SetEncData(1A, 01) [es:bx+0xd4]
+002F                          SetEncData(1A, 02) [es:bx+0xd4]
 0041 EB 5A                    jmp 0x9d
-0043                          SetEncData(1D, 01)
-0055                          SetEncData(1D, 02)
-0067                          SetEncData(1C, 03)
-0079                          SetEncData(1E, 04)
-008B                          SetEncData(1E, 05)
+0043                          SetEncData(1D, 01) [es:bx+0xd4]
+0055                          SetEncData(1D, 02) [es:bx+0xd4]
+0067                          SetEncData(1C, 03) [es:bx+0xd4]
+0079                          SetEncData(1E, 04) [es:bx+0xd4]
+008B                          SetEncData(1E, 05) [es:bx+0xd4]
 009D                          RETURN
 
 Functn1E: "GOLDENCA"
@@ -1039,7 +1039,7 @@ Functn1E: "GOLDENCA"
 0003                          ax = CheckState(02, 09) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2D                    jnz 0x46
-0019                          ShowMessage(0E95) = Ghosts haunt the empty room.
+0019                          ShowMessage(0E95) [es:bx+0xf8] = Ghosts haunt the empty room.
 0026 33 C0                    xor ax, ax
 0028 50                       push ax
 0029 33 C0                    xor ax, ax
@@ -1080,7 +1080,7 @@ Functn1E: "GOLDENCA"
 0071 C4 5E 06                 les bx, [bp+0x6]
 0074 26 FF 1F                 call far word [es:bx]
 0077 83 C4 06                 add sp, 0x6
-007A                          ShowMessage(0EB2) = Spirits of the dead guard King Cleowyn's gold.
+007A                          ShowMessage(0EB2) [es:bx+0xf8] = Spirits of the dead guard King Cleowyn's gold.
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 9F F0 00           call far word [es:bx+0xf0]
 008F 3D 01 00                 cmp ax, 0x1
@@ -1089,13 +1089,13 @@ Functn1E: "GOLDENCA"
 0097 26 FF 9F F0 00           call far word [es:bx+0xf0]
 009C 3D 02 00                 cmp ax, 0x2
 009F 75 26                    jnz 0xc7
-00A1                          SetEncData(0F, 01)
-00B3                          SetEncData(10, 02)
+00A1                          SetEncData(0F, 01) [es:bx+0xd4]
+00B3                          SetEncData(10, 02) [es:bx+0xd4]
 00C5 EB 48                    jmp 0x10f
-00C7                          SetEncData(10, 01)
-00D9                          SetEncData(11, 02)
-00EB                          SetEncData(11, 03)
-00FD                          SetEncData(10, 04)
+00C7                          SetEncData(10, 01) [es:bx+0xd4]
+00D9                          SetEncData(11, 02) [es:bx+0xd4]
+00EB                          SetEncData(11, 03) [es:bx+0xd4]
+00FD                          SetEncData(10, 04) [es:bx+0xd4]
 010F                          RETURN
 
 Functn1F: "GOLDBENC"
@@ -1103,7 +1103,7 @@ Functn1F: "GOLDBENC"
 0003                          ax = CheckState(02, 0A) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(0EE1) = Bones of dead guards and one-time thieves rise to challenge you.
+0019                          ShowMessage(0EE1) [es:bx+0xf8] = Bones of dead guards and one-time thieves rise to challenge you.
 0026 B8 FA 00                 mov ax, 0xfa
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -1144,38 +1144,38 @@ Functn1F: "GOLDBENC"
 0072 C4 5E 06                 les bx, [bp+0x6]
 0075 26 FF 1F                 call far word [es:bx]
 0078 83 C4 06                 add sp, 0x6
-007B                          ShowMessage(0F22) = Skeletons of dead guards and the thieves they killed stand between you and Cleowyn's gold.
+007B                          ShowMessage(0F22) [es:bx+0xf8] = Skeletons of dead guards and the thieves they killed stand between you and Cleowyn's gold.
 0088 C4 5E 06                 les bx, [bp+0x6]
 008B 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0090 3D 01 00                 cmp ax, 0x1
 0093 75 27                    jnz 0xbc
-0095                          SetEncData(03, 01)
-00A7                          SetEncData(02, 02)
+0095                          SetEncData(03, 01) [es:bx+0xd4]
+00A7                          SetEncData(02, 02) [es:bx+0xd4]
 00B9 E9 1B 01                 jmp 0x1d7
 00BC C4 5E 06                 les bx, [bp+0x6]
 00BF 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00C4 3D 02 00                 cmp ax, 0x2
 00C7 75 39                    jnz 0x102
-00C9                          SetEncData(03, 01)
-00DB                          SetEncData(01, 02)
-00ED                          SetEncData(03, 03)
+00C9                          SetEncData(03, 01) [es:bx+0xd4]
+00DB                          SetEncData(01, 02) [es:bx+0xd4]
+00ED                          SetEncData(03, 03) [es:bx+0xd4]
 00FF E9 D5 00                 jmp 0x1d7
 0102 C4 5E 06                 les bx, [bp+0x6]
 0105 26 FF 9F F0 00           call far word [es:bx+0xf0]
 010A 3D 03 00                 cmp ax, 0x3
 010D 75 5C                    jnz 0x16b
-010F                          SetEncData(04, 01)
-0121                          SetEncData(02, 02)
-0133                          SetEncData(04, 03)
-0145                          SetEncData(03, 04)
-0157                          SetEncData(01, 06)
+010F                          SetEncData(04, 01) [es:bx+0xd4]
+0121                          SetEncData(02, 02) [es:bx+0xd4]
+0133                          SetEncData(04, 03) [es:bx+0xd4]
+0145                          SetEncData(03, 04) [es:bx+0xd4]
+0157                          SetEncData(01, 06) [es:bx+0xd4]
 0169 EB 6C                    jmp 0x1d7
-016B                          SetEncData(04, 01)
-017D                          SetEncData(04, 02)
-018F                          SetEncData(03, 03)
-01A1                          SetEncData(03, 04)
-01B3                          SetEncData(02, 05)
-01C5                          SetEncData(02, 06)
+016B                          SetEncData(04, 01) [es:bx+0xd4]
+017D                          SetEncData(04, 02) [es:bx+0xd4]
+018F                          SetEncData(03, 03) [es:bx+0xd4]
+01A1                          SetEncData(03, 04) [es:bx+0xd4]
+01B3                          SetEncData(02, 05) [es:bx+0xd4]
+01C5                          SetEncData(02, 06) [es:bx+0xd4]
 01D7                          RETURN
 
 Functn20: "GOLDCENC"
@@ -1183,7 +1183,7 @@ Functn20: "GOLDCENC"
 0003                          ax = CheckState(02, 0B) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(0F7D) = Spiders drop from the ceiling.
+0019                          ShowMessage(0F7D) [es:bx+0xf8] = Spiders drop from the ceiling.
 0026 B8 C8 00                 mov ax, 0xc8
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -1224,27 +1224,27 @@ Functn20: "GOLDCENC"
 0072 C4 5E 06                 les bx, [bp+0x6]
 0075 26 FF 1F                 call far word [es:bx]
 0078 83 C4 06                 add sp, 0x6
-007B                          ShowMessage(0F9C) = Spider webs envelop a pile of gold pieces on the floor.
+007B                          ShowMessage(0F9C) [es:bx+0xf8] = Spider webs envelop a pile of gold pieces on the floor.
 0088 C4 5E 06                 les bx, [bp+0x6]
 008B 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0090 3D 01 00                 cmp ax, 0x1
 0093 75 27                    jnz 0xbc
-0095                          SetEncData(16, 01)
-00A7                          SetEncData(16, 02)
+0095                          SetEncData(16, 01) [es:bx+0xd4]
+00A7                          SetEncData(16, 02) [es:bx+0xd4]
 00B9 E9 9F 00                 jmp 0x15b
 00BC C4 5E 06                 les bx, [bp+0x6]
 00BF 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00C4 3D 02 00                 cmp ax, 0x2
 00C7 75 38                    jnz 0x101
-00C9                          SetEncData(17, 01)
-00DB                          SetEncData(16, 02)
-00ED                          SetEncData(17, 03)
+00C9                          SetEncData(17, 01) [es:bx+0xd4]
+00DB                          SetEncData(16, 02) [es:bx+0xd4]
+00ED                          SetEncData(17, 03) [es:bx+0xd4]
 00FF EB 5A                    jmp 0x15b
-0101                          SetEncData(16, 01)
-0113                          SetEncData(16, 02)
-0125                          SetEncData(17, 03)
-0137                          SetEncData(17, 04)
-0149                          SetEncData(18, 05)
+0101                          SetEncData(16, 01) [es:bx+0xd4]
+0113                          SetEncData(16, 02) [es:bx+0xd4]
+0125                          SetEncData(17, 03) [es:bx+0xd4]
+0137                          SetEncData(17, 04) [es:bx+0xd4]
+0149                          SetEncData(18, 05) [es:bx+0xd4]
 015B                          RETURN
 
 03FC: There is a teleport in the north wall to the Hall of Doors.

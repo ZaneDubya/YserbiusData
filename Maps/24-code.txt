@@ -1,20 +1,20 @@
 Functn01: "ATELEA"
 0000                          BEGIN
-0003                          ShowMessage(03FC) = Runes on magic wall --
+0003                          ShowMessage(03FC) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5004) [es:bx+0xf4] = Alchemy
-001D                          GoMap(02, 8A, 02, 34)
+001D                          GoMap(02, 8A, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn02: "RTELEB"
 0000                          BEGIN
-0003                          ShowMessage(041B) = Runes on magic wall --
+0003                          ShowMessage(041B) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5004) [es:bx+0xf4] = Reverie
-001D                          GoMap(03, 38, 02, 34)
+001D                          GoMap(03, 38, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn03: "NTELEC"
 0000                          BEGIN
-0003                          ShowMessage(043A) = Runes on magic wall --
+0003                          ShowMessage(043A) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5004) [es:bx+0xf4] = Netherworld
 001D B8 02 00                 mov ax, 0x2
 0020 50                       push ax
@@ -25,35 +25,35 @@ Functn03: "NTELEC"
 0029 C4 5E 06                 les bx, [bp+0x6]
 002C 26 FF 1F                 call far word [es:bx]
 002F 83 C4 06                 add sp, 0x6
-0032                          GoMap(02, E0, 02, 34)
+0032                          GoMap(02, E0, 02, 34) [es:bx+0xbc]
 004D                          RETURN
 
 Functn04: "ATELED"
 0000                          BEGIN
-0003                          ShowMessage(045D) = Runes on magic wall --
+0003                          ShowMessage(045D) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5004) [es:bx+0xf4] = Arcane
-001D                          GoMap(00, F2, 02, 34)
+001D                          GoMap(00, F2, 02, 34) [es:bx+0xbc]
 0037                          RETURN
 
 Functn05: "KTELEE"
 0000                          BEGIN
-0003                          ShowMessage(047B) = Runes on magic wall --
+0003                          ShowMessage(047B) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5004) [es:bx+0xf4] = Karma
-001D                          GoMap(03, F5, 02, 34)
+001D                          GoMap(03, F5, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn06: "KTELEF"
 0000                          BEGIN
-0003                          ShowMessage(0498) = Runes on magic wall --
+0003                          ShowMessage(0498) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5004) [es:bx+0xf4] = Karma
-001D                          GoMap(02, E3, 02, 34)
+001D                          GoMap(02, E3, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn07: "ITELEG"
 0000                          BEGIN
-0003                          ShowMessage(04B5) = Runes on magic wall --
+0003                          ShowMessage(04B5) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5004) [es:bx+0xf4] = Incantation
-001D                          GoMap(02, CC, 02, 34)
+001D                          GoMap(02, CC, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn08: "ATELEH"
@@ -61,16 +61,16 @@ Functn08: "ATELEH"
 0003                          ax = CheckState(02, 49) [es:bx+0x4]
 0014 3D 02 00                 cmp ax, 0x2
 0017 75 35                    jnz 0x4e
-0019                          ShowMessage(04D8) = Runes on magic wall --
+0019                          ShowMessage(04D8) [es:bx+0xf8] = Runes on magic wall --
 0026                          ShowRunes(5004) [es:bx+0xf4] = Archaic
-0033                          GoMap(02, FA, 02, 34)
+0033                          GoMap(02, FA, 02, 34) [es:bx+0xbc]
 004E                          RETURN
 
 Functn09: "NTELEI"
 0000                          BEGIN
-0003                          ShowMessage(04F7) = Runes on magic wall --
+0003                          ShowMessage(04F7) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5005) [es:bx+0xf4] = Netherworld
-001D                          GoMap(00, 88, 02, 34)
+001D                          GoMap(00, 88, 02, 34) [es:bx+0xbc]
 0037                          RETURN
 
 Functn0A: "ARNKENCA"
@@ -84,12 +84,12 @@ Functn0A: "ARNKENCA"
 000F C4 5E 06                 les bx, [bp+0x6]
 0012 26 FF 1F                 call far word [es:bx]
 0015 83 C4 06                 add sp, 0x6
-0018                          ShowMessage(051A) = Secrets follow when you spell that which powers time.
-0025                          SetEncData(19, 01)
-0037                          SetEncData(19, 02)
-0049                          SetEncData(19, 03)
-005B                          SetEncData(12, 05)
-006D                          SetEncData(12, 06)
+0018                          ShowMessage(051A) [es:bx+0xf8] = Secrets follow when you spell that which powers time.
+0025                          SetEncData(19, 01) [es:bx+0xd4]
+0037                          SetEncData(19, 02) [es:bx+0xd4]
+0049                          SetEncData(19, 03) [es:bx+0xd4]
+005B                          SetEncData(12, 05) [es:bx+0xd4]
+006D                          SetEncData(12, 06) [es:bx+0xd4]
 007F B8 F4 01                 mov ax, 0x1f4
 0082 50                       push ax
 0083 33 C0                    xor ax, ax
@@ -109,22 +109,22 @@ Functn0A: "ARNKENCA"
 
 Functn0C: "TOENTRY"
 0000                          BEGIN
-0003                          ShowMessage(0550) = The gate takes you back to the Labyrinth.
-0010                          GoMap(02, 30, 02, 34)
+0003                          ShowMessage(0550) [es:bx+0xf8] = The gate takes you back to the Labyrinth.
+0010                          GoMap(02, 30, 02, 34) [es:bx+0xbc]
 002B                          RETURN
 
 Functn0D: "ETELEJ"
 0000                          BEGIN
-0003                          ShowMessage(057A) = Runes on magic wall --
+0003                          ShowMessage(057A) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5005) [es:bx+0xf4] = Ethereal
-001D                          GoMap(02, BB, 02, 34)
+001D                          GoMap(02, BB, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn0E: "NTELEK"
 0000                          BEGIN
-0003                          ShowMessage(059A) = Runes on magic wall --
+0003                          ShowMessage(059A) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5005) [es:bx+0xf4] = Netherworld
-001D                          GoMap(02, DA, 02, 34)
+001D                          GoMap(02, DA, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn0F: "LTELEL"
@@ -138,9 +138,9 @@ Functn0F: "LTELEL"
 000F C4 5E 06                 les bx, [bp+0x6]
 0012 26 FF 1F                 call far word [es:bx]
 0015 83 C4 06                 add sp, 0x6
-0018                          ShowMessage(05BD) = Runes on magic wall --
+0018                          ShowMessage(05BD) [es:bx+0xf8] = Runes on magic wall --
 0025                          ShowRunes(5005) [es:bx+0xf4] = Luck
-0032                          GoMap(02, B9, 02, 34)
+0032                          GoMap(02, B9, 02, 34) [es:bx+0xbc]
 004D                          RETURN
 
 Functn10: "ITELEG"
@@ -148,16 +148,16 @@ Functn10: "ITELEG"
 0003                          ax = CheckState(02, 49) [es:bx+0x4]
 0014 3D 03 00                 cmp ax, 0x3
 0017 75 37                    jnz 0x50
-0019                          ShowMessage(05D9) = Runes on magic wall --
+0019                          ShowMessage(05D9) [es:bx+0xf8] = Runes on magic wall --
 0026                          ShowRunes(5005) [es:bx+0xf4] = Illusion
-0033                          GoMap(02, CC, 02, 34)
+0033                          GoMap(02, CC, 02, 34) [es:bx+0xbc]
 004E EB 4B                    jmp 0x9b
 0050                          ax = CheckState(02, 49) [es:bx+0x4]
 0061 3D 04 00                 cmp ax, 0x4
 0064 75 35                    jnz 0x9b
-0066                          ShowMessage(05F9) = Runes on magic wall --
+0066                          ShowMessage(05F9) [es:bx+0xf8] = Runes on magic wall --
 0073                          ShowRunes(5006) [es:bx+0xf4] = Invulnerable
-0080                          GoMap(02, D8, 02, 34)
+0080                          GoMap(02, D8, 02, 34) [es:bx+0xbc]
 009B                          RETURN
 
 Functn11: "KTELEL"
@@ -171,16 +171,16 @@ Functn11: "KTELEL"
 000F C4 5E 06                 les bx, [bp+0x6]
 0012 26 FF 1F                 call far word [es:bx]
 0015 83 C4 06                 add sp, 0x6
-0018                          ShowMessage(061D) = Runes on magic wall --
+0018                          ShowMessage(061D) [es:bx+0xf8] = Runes on magic wall --
 0025                          ShowRunes(5006) [es:bx+0xf4] = Karma
-0032                          GoMap(02, B9, 02, 34)
+0032                          GoMap(02, B9, 02, 34) [es:bx+0xbc]
 004D                          RETURN
 
 Functn12: "LTELEN"
 0000                          BEGIN
-0003                          ShowMessage(063A) = Runes on magic wall --
+0003                          ShowMessage(063A) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5006) [es:bx+0xf4] = Luminous
-001D                          GoMap(02, 6A, 02, 34)
+001D                          GoMap(02, 6A, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn13: "ENLKENCA"
@@ -194,12 +194,12 @@ Functn13: "ENLKENCA"
 000F C4 5E 06                 les bx, [bp+0x6]
 0012 26 FF 1F                 call far word [es:bx]
 0015 83 C4 06                 add sp, 0x6
-0018                          ShowMessage(065A) = Those which haunt this castle must be spelled to find their master.
-0025                          SetEncData(19, 01)
-0037                          SetEncData(19, 02)
-0049                          SetEncData(19, 03)
-005B                          SetEncData(19, 04)
-006D                          SetEncData(19, 05)
+0018                          ShowMessage(065A) [es:bx+0xf8] = Those which haunt this castle must be spelled to find their master.
+0025                          SetEncData(19, 01) [es:bx+0xd4]
+0037                          SetEncData(19, 02) [es:bx+0xd4]
+0049                          SetEncData(19, 03) [es:bx+0xd4]
+005B                          SetEncData(19, 04) [es:bx+0xd4]
+006D                          SetEncData(19, 05) [es:bx+0xd4]
 007F B8 64 00                 mov ax, 0x64
 0082 50                       push ax
 0083 33 C0                    xor ax, ax
@@ -228,58 +228,58 @@ Functn15: "DTELEO"
 000F C4 5E 06                 les bx, [bp+0x6]
 0012 26 FF 1F                 call far word [es:bx]
 0015 83 C4 06                 add sp, 0x6
-0018                          ShowMessage(069E) = Runes on magic wall --
+0018                          ShowMessage(069E) [es:bx+0xf8] = Runes on magic wall --
 0025                          ShowRunes(5006) [es:bx+0xf4] = Dust
-0032                          GoMap(02, B7, 02, 34)
+0032                          GoMap(02, B7, 02, 34) [es:bx+0xbc]
 004D                          RETURN
 
 Functn16: "ETELEP"
 0000                          BEGIN
-0003                          ShowMessage(06BA) = Runes on magic wall --
+0003                          ShowMessage(06BA) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5006) [es:bx+0xf4] = Enchant
-001D                          GoMap(02, D6, 02, 34)
+001D                          GoMap(02, D6, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn17: "RTELEQ"
 0000                          BEGIN
-0003                          ShowMessage(06D9) = Runes on magic wall --
+0003                          ShowMessage(06D9) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5006) [es:bx+0xf4] = Magic
-001D                          GoMap(03, D0, 02, 34)
+001D                          GoMap(03, D0, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn18: "GTELER"
 0000                          BEGIN
-0003                          ShowMessage(06F6) = Runes on magic wall --
+0003                          ShowMessage(06F6) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5007) [es:bx+0xf4] = Ghouls
-001D                          GoMap(00, 68, 02, 34)
+001D                          GoMap(00, 68, 02, 34) [es:bx+0xbc]
 0037                          RETURN
 
 Functn19: "HTELES"
 0000                          BEGIN
-0003                          ShowMessage(0714) = Runes on magic wall --
+0003                          ShowMessage(0714) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5007) [es:bx+0xf4] = Hex
-001D                          GoMap(02, AD, 02, 34)
+001D                          GoMap(02, AD, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn1A: "OTELET"
 0000                          BEGIN
-0003                          ShowMessage(072F) = Runes on magic wall --
+0003                          ShowMessage(072F) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5007) [es:bx+0xf4] = Obsession
-001D                          GoMap(00, 7E, 02, 34)
+001D                          GoMap(00, 7E, 02, 34) [es:bx+0xbc]
 0037                          RETURN
 
 Functn1B: "STELEU"
 0000                          BEGIN
-0003                          ShowMessage(0750) = Runes on magic wall --
+0003                          ShowMessage(0750) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5007) [es:bx+0xf4] = Sorcery
-001D                          GoMap(00, 5E, 02, 34)
+001D                          GoMap(00, 5E, 02, 34) [es:bx+0xbc]
 0037                          RETURN
 
 Functn1C: "TTELEV"
 0000                          BEGIN
-0003                          ShowMessage(076F) = Runes on magic wall --
+0003                          ShowMessage(076F) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5007) [es:bx+0xf4] = Talisman
-001D                          GoMap(02, C2, 02, 34)
+001D                          GoMap(02, C2, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn1D: "ARNAKEND"
@@ -290,62 +290,62 @@ Functn1D: "ARNAKEND"
 0018                          ax = CheckState(02, 53) [es:bx+0x4]
 0029 0B C0                    or ax, ax
 002B 74 37                    jz 0x64
-002D                          ShowMessage(078F) = Both Arnakkian and Enlikil have been identified.
-003A                          ShowMessage(07C0) = The Ghost takes you to the Guardians.
-0047                          GoMap(02, 56, 02, 33)
+002D                          ShowMessage(078F) [es:bx+0xf8] = Both Arnakkian and Enlikil have been identified.
+003A                          ShowMessage(07C0) [es:bx+0xf8] = The Ghost takes you to the Guardians.
+0047                          GoMap(02, 56, 02, 33) [es:bx+0xbc]
 0062 EB 0D                    jmp 0x71
-0064                          ShowMessage(07E6) = The master of this castle must be identified before the ghost may take you to him.
+0064                          ShowMessage(07E6) [es:bx+0xf8] = The master of this castle must be identified before the ghost may take you to him.
 0071                          RETURN
 
 Functn1E: "DTELEX"
 0000                          BEGIN
-0003                          ShowMessage(0839) = Runes on magic wall --
+0003                          ShowMessage(0839) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5008) [es:bx+0xf4] = Druid
-001D                          GoMap(02, 36, 02, 34)
+001D                          GoMap(02, 36, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn1F: "RTELEY"
 0000                          BEGIN
-0003                          ShowMessage(0856) = Runes on magic wall --
+0003                          ShowMessage(0856) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5008) [es:bx+0xf4] = Runes
-001D                          GoMap(00, 3B, 02, 34)
+001D                          GoMap(00, 3B, 02, 34) [es:bx+0xbc]
 0037                          RETURN
 
 Functn20: "ATELEZ"
 0000                          BEGIN
-0003                          ShowMessage(0873) = Runes on magic wall --
+0003                          ShowMessage(0873) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5008) [es:bx+0xf4] = Alchemist
-001D                          GoMap(00, 2C, 02, 34)
+001D                          GoMap(00, 2C, 02, 34) [es:bx+0xbc]
 0037                          RETURN
 
 Functn21: "GTELEAA"
 0000                          BEGIN
-0003                          ShowMessage(0894) = Runes on magic wall --
+0003                          ShowMessage(0894) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5008) [es:bx+0xf4] = Ghost
-001D                          GoMap(03, 3E, 02, 34)
+001D                          GoMap(03, 3E, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn22: "OTELEBB"
 0000                          BEGIN
-0003                          ShowMessage(08B1) = Runes on magic wall --
+0003                          ShowMessage(08B1) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5008) [es:bx+0xf4] = Orb
-001D                          GoMap(00, 8E, 02, 34)
+001D                          GoMap(00, 8E, 02, 34) [es:bx+0xbc]
 0037                          RETURN
 
 Functn23: "NTELECC"
 0000                          BEGIN
-0003                          ShowMessage(08CC) = Runes on magic wall --
+0003                          ShowMessage(08CC) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5008) [es:bx+0xf4] = Nexus
-001D                          GoMap(02, FD, 02, 34)
+001D                          GoMap(02, FD, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn24: "DRAGENCA"
 0000                          BEGIN
-0003                          SetEncData(1A, 01)
-0015                          SetEncData(1A, 02)
-0027                          SetEncData(1A, 03)
-0039                          SetEncData(1A, 04)
-004B                          SetEncData(1B, 05)
+0003                          SetEncData(1A, 01) [es:bx+0xd4]
+0015                          SetEncData(1A, 02) [es:bx+0xd4]
+0027                          SetEncData(1A, 03) [es:bx+0xd4]
+0039                          SetEncData(1A, 04) [es:bx+0xd4]
+004B                          SetEncData(1B, 05) [es:bx+0xd4]
 005D B8 A0 0F                 mov ax, 0xfa0
 0060 50                       push ax
 0061 33 C0                    xor ax, ax
@@ -365,11 +365,11 @@ Functn24: "DRAGENCA"
 
 Functn25: "DRAGENCB"
 0000                          BEGIN
-0003                          SetEncData(1C, 01)
-0015                          SetEncData(1C, 02)
-0027                          SetEncData(1C, 03)
-0039                          SetEncData(07, 05)
-004B                          SetEncData(09, 06)
+0003                          SetEncData(1C, 01) [es:bx+0xd4]
+0015                          SetEncData(1C, 02) [es:bx+0xd4]
+0027                          SetEncData(1C, 03) [es:bx+0xd4]
+0039                          SetEncData(07, 05) [es:bx+0xd4]
+004B                          SetEncData(09, 06) [es:bx+0xd4]
 005D B8 40 1F                 mov ax, 0x1f40
 0060 50                       push ax
 0061 33 C0                    xor ax, ax
@@ -389,7 +389,7 @@ Functn25: "DRAGENCB"
 
 Functn26: "ZTELEDD"
 0000                          BEGIN
-0003                          ShowMessage(08E9) = Runes on magic wall --
+0003                          ShowMessage(08E9) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5009) [es:bx+0xf4] = Zzyzx
 001D B8 01 00                 mov ax, 0x1
 0020 50                       push ax
@@ -400,14 +400,14 @@ Functn26: "ZTELEDD"
 0029 C4 5E 06                 les bx, [bp+0x6]
 002C 26 FF 1F                 call far word [es:bx]
 002F 83 C4 06                 add sp, 0x6
-0032                          GoMap(02, 27, 02, 34)
+0032                          GoMap(02, 27, 02, 34) [es:bx+0xbc]
 004D                          RETURN
 
 Functn27: "ITELEG"
 0000                          BEGIN
-0003                          ShowMessage(0906) = Runes on magic wall --
+0003                          ShowMessage(0906) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5009) [es:bx+0xf4] = Illusive
-001D                          GoMap(02, CC, 02, 34)
+001D                          GoMap(02, CC, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn28: "WTELEEE"
@@ -415,35 +415,35 @@ Functn28: "WTELEEE"
 0003                          ax = CheckState(02, 49) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 35                    jnz 0x4e
-0019                          ShowMessage(0926) = Runes on magic wall --
+0019                          ShowMessage(0926) [es:bx+0xf8] = Runes on magic wall --
 0026                          ShowRunes(5009) [es:bx+0xf4] = Wizard
-0033                          GoMap(02, E6, 02, 34)
+0033                          GoMap(02, E6, 02, 34) [es:bx+0xbc]
 004E                          RETURN
 
 Functn29: "VTELEWW"
 0000                          BEGIN
-0003                          ShowMessage(0944) = Runes on magic wall --
+0003                          ShowMessage(0944) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5009) [es:bx+0xf4] = Vision
-001D                          GoMap(01, 07, 02, 34)
+001D                          GoMap(01, 07, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn2A: "BTELEXX"
 0000                          BEGIN
-0003                          ShowMessage(0962) = Runes on magic wall --
+0003                          ShowMessage(0962) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5009) [es:bx+0xf4] = Bewitch
-001D                          GoMap(00, 1D, 02, 34)
+001D                          GoMap(00, 1D, 02, 34) [es:bx+0xbc]
 0037                          RETURN
 
 Functn2B: "CTELEYY"
 0000                          BEGIN
-0003                          ShowMessage(0981) = Runes on magic wall --
+0003                          ShowMessage(0981) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5009) [es:bx+0xf4] = Conjure
-001D                          GoMap(02, BD, 02, 34)
+001D                          GoMap(02, BD, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn2C: "PTELEZZ"
 0000                          BEGIN
-0003                          ShowMessage(09A0) = Runes on magic wall --
+0003                          ShowMessage(09A0) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5009) [es:bx+0xf4] = Powerful
 001D B8 01 00                 mov ax, 0x1
 0020 50                       push ax
@@ -460,35 +460,35 @@ Functn2C: "PTELEZZ"
 
 Functn2D: "MTELEXX"
 0000                          BEGIN
-0003                          ShowMessage(09C0) = Runes on magic wall --
+0003                          ShowMessage(09C0) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5009) [es:bx+0xf4] = Magus
-001D                          GoMap(00, 1D, 02, 34)
+001D                          GoMap(00, 1D, 02, 34) [es:bx+0xbc]
 0037                          RETURN
 
 Functn2E: "JTELEYY"
 0000                          BEGIN
-0003                          ShowMessage(09DD) = Runes on magic wall --
+0003                          ShowMessage(09DD) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(5009) [es:bx+0xf4] = Jinx
-001D                          GoMap(02, BD, 02, 34)
+001D                          GoMap(02, BD, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn2F: "UTELEWW"
 0000                          BEGIN
-0003                          ShowMessage(09F9) = Runes on magic wall --
+0003                          ShowMessage(09F9) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(500A) [es:bx+0xf4] = Unspeller
-001D                          GoMap(01, 07, 02, 34)
+001D                          GoMap(01, 07, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn30: "XTELEWW"
 0000                          BEGIN
-0003                          ShowMessage(0A1A) = Runes on magic wall --
+0003                          ShowMessage(0A1A) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(500A) [es:bx+0xf4] = XxxX
-001D                          GoMap(01, 07, 02, 34)
+001D                          GoMap(01, 07, 02, 34) [es:bx+0xbc]
 0038                          RETURN
 
 Functn31: "YTELEZZ"
 0000                          BEGIN
-0003                          ShowMessage(0A36) = Runes on magic wall --
+0003                          ShowMessage(0A36) [es:bx+0xf8] = Runes on magic wall --
 0010                          ShowRunes(500A) [es:bx+0xf4] = Youth
 001D B8 01 00                 mov ax, 0x1
 0020 50                       push ax
@@ -505,20 +505,20 @@ Functn31: "YTELEZZ"
 
 Functn32: "IENCA"
 0000                          BEGIN
-0003                          SetEncData(18, 01)
-0015                          SetEncData(18, 02)
-0027                          SetEncData(1E, 03)
-0039                          SetEncData(21, 05)
+0003                          SetEncData(18, 01) [es:bx+0xd4]
+0015                          SetEncData(18, 02) [es:bx+0xd4]
+0027                          SetEncData(1E, 03) [es:bx+0xd4]
+0039                          SetEncData(21, 05) [es:bx+0xd4]
 004B                          RETURN
 
 Functn34: "WIZENCA"
 0000                          BEGIN
-0003                          SetEncData(1E, 01)
-0015                          SetEncData(1E, 02)
-0027                          SetEncData(18, 03)
-0039                          SetEncData(18, 04)
-004B                          SetEncData(21, 05)
-005D                          SetEncData(21, 06)
+0003                          SetEncData(1E, 01) [es:bx+0xd4]
+0015                          SetEncData(1E, 02) [es:bx+0xd4]
+0027                          SetEncData(18, 03) [es:bx+0xd4]
+0039                          SetEncData(18, 04) [es:bx+0xd4]
+004B                          SetEncData(21, 05) [es:bx+0xd4]
+005D                          SetEncData(21, 06) [es:bx+0xd4]
 006F B8 64 00                 mov ax, 0x64
 0072 50                       push ax
 0073 33 C0                    xor ax, ax
@@ -538,12 +538,12 @@ Functn34: "WIZENCA"
 
 Functn35: "WIZENCB"
 0000                          BEGIN
-0003                          SetEncData(1D, 01)
-0015                          SetEncData(1D, 02)
-0027                          SetEncData(1D, 03)
-0039                          SetEncData(1D, 04)
-004B                          SetEncData(18, 05)
-005D                          SetEncData(18, 06)
+0003                          SetEncData(1D, 01) [es:bx+0xd4]
+0015                          SetEncData(1D, 02) [es:bx+0xd4]
+0027                          SetEncData(1D, 03) [es:bx+0xd4]
+0039                          SetEncData(1D, 04) [es:bx+0xd4]
+004B                          SetEncData(18, 05) [es:bx+0xd4]
+005D                          SetEncData(18, 06) [es:bx+0xd4]
 006F B8 64 00                 mov ax, 0x64
 0072 50                       push ax
 0073 33 C0                    xor ax, ax
@@ -563,9 +563,9 @@ Functn35: "WIZENCB"
 
 Functn36: "WIZENCC"
 0000                          BEGIN
-0003                          SetEncData(1E, 01)
-0015                          SetEncData(1E, 02)
-0027                          SetEncData(18, 05)
+0003                          SetEncData(1E, 01) [es:bx+0xd4]
+0015                          SetEncData(1E, 02) [es:bx+0xd4]
+0027                          SetEncData(18, 05) [es:bx+0xd4]
 0039 B8 64 00                 mov ax, 0x64
 003C 50                       push ax
 003D 33 C0                    xor ax, ax
@@ -585,7 +585,7 @@ Functn36: "WIZENCC"
 
 Functn37: "PIT"
 0000                          BEGIN
-0003                          ShowMessage(0A53) = You fall into the pit and die.
+0003                          ShowMessage(0A53) [es:bx+0xf8] = You fall into the pit and die.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -596,11 +596,11 @@ Functn37: "PIT"
 
 Functn38: "GHOSENCA"
 0000                          BEGIN
-0003                          SetEncData(20, 01)
-0015                          SetEncData(20, 02)
-0027                          SetEncData(1F, 03)
-0039                          SetEncData(1F, 04)
-004B                          SetEncData(20, 06)
+0003                          SetEncData(20, 01) [es:bx+0xd4]
+0015                          SetEncData(20, 02) [es:bx+0xd4]
+0027                          SetEncData(1F, 03) [es:bx+0xd4]
+0039                          SetEncData(1F, 04) [es:bx+0xd4]
+004B                          SetEncData(20, 06) [es:bx+0xd4]
 005D B8 64 00                 mov ax, 0x64
 0060 50                       push ax
 0061 33 C0                    xor ax, ax
@@ -620,24 +620,24 @@ Functn38: "GHOSENCA"
 
 Functn3B: "TXTGHOSB"
 0000                          BEGIN
-0003                          ShowMessage(0A72) = A message is written on a scroll.
-0010                          ShowMessage(0A94) = 'To gain access to Arnakkian's Chamber, you must defeat his lich apprentices.'
+0003                          ShowMessage(0A72) [es:bx+0xf8] = A message is written on a scroll.
+0010                          ShowMessage(0A94) [es:bx+0xf8] = 'To gain access to Arnakkian's Chamber, you must defeat his lich apprentices.'
 001D                          RETURN
 
 Functn3D: "TXTGHOST"
 0000                          BEGIN
-0003                          ShowPortrait(0029)
-0010                          ShowMessage(0AE3) = A Cleric appears..
-001D                          ShowMessage(0AF6) = 'Beyond the words lies the power of the earth.'
+0003                          ShowPortrait(0029) [es:bx+0xd4]
+0010                          ShowMessage(0AE3) [es:bx+0xf8] = A Cleric appears..
+001D                          ShowMessage(0AF6) [es:bx+0xf8] = 'Beyond the words lies the power of the earth.'
 002A                          RETURN
 
 Functn3E: "ENDRENCA"
 0000                          BEGIN
-0003                          SetEncData(1F, 01)
-0015                          SetEncData(20, 02)
-0027                          SetEncData(1F, 04)
-0039                          SetEncData(02, 05)
-004B                          SetEncData(02, 06)
+0003                          SetEncData(1F, 01) [es:bx+0xd4]
+0015                          SetEncData(20, 02) [es:bx+0xd4]
+0027                          SetEncData(1F, 04) [es:bx+0xd4]
+0039                          SetEncData(02, 05) [es:bx+0xd4]
+004B                          SetEncData(02, 06) [es:bx+0xd4]
 005D B8 64 00                 mov ax, 0x64
 0060 50                       push ax
 0061 33 C0                    xor ax, ax
@@ -657,20 +657,20 @@ Functn3E: "ENDRENCA"
 
 Functn41: "BADEXIT"
 0000                          BEGIN
-0003                          SetEncData(1E, 01)
-0015                          SetEncData(1E, 02)
-0027                          SetEncData(1E, 03)
-0039                          SetEncData(18, 04)
-004B                          SetEncData(19, 05)
-005D                          SetEncData(19, 06)
+0003                          SetEncData(1E, 01) [es:bx+0xd4]
+0015                          SetEncData(1E, 02) [es:bx+0xd4]
+0027                          SetEncData(1E, 03) [es:bx+0xd4]
+0039                          SetEncData(18, 04) [es:bx+0xd4]
+004B                          SetEncData(19, 05) [es:bx+0xd4]
+005D                          SetEncData(19, 06) [es:bx+0xd4]
 006F                          RETURN
 
 Functn45: "ENTRENCA"
 0000                          BEGIN
-0003                          SetEncData(24, 01)
-0015                          SetEncData(25, 02)
-0027                          SetEncData(22, 03)
-0039                          SetEncData(23, 06)
+0003                          SetEncData(24, 01) [es:bx+0xd4]
+0015                          SetEncData(25, 02) [es:bx+0xd4]
+0027                          SetEncData(22, 03) [es:bx+0xd4]
+0039                          SetEncData(23, 06) [es:bx+0xd4]
 004B                          RETURN
 
 Functn47: "LICHDOOR"
@@ -710,26 +710,26 @@ Functn47: "LICHDOOR"
 008C C4 5E 06                 les bx, [bp+0x6]
 008F 26 FF 5F 30              call far word [es:bx+0x30]
 0093 83 C4 06                 add sp, 0x6
-0096                          ShowMessage(0B26) = The Wizard Door opens.
+0096                          ShowMessage(0B26) [es:bx+0xf8] = The Wizard Door opens.
 00A3 EB 0D                    jmp 0xb2
-00A5                          ShowMessage(0B3D) = The symbol of the Four Corners magically radiates from this door.
+00A5                          ShowMessage(0B3D) [es:bx+0xf8] = The symbol of the Four Corners magically radiates from this door.
 00B2                          RETURN
 
 Functn48: "ENTRENCD"
 0000                          BEGIN
-0003                          SetEncData(19, 01)
-0015                          SetEncData(19, 02)
-0027                          SetEncData(18, 03)
-0039                          SetEncData(18, 04)
-004B                          SetEncData(19, 05)
-005D                          SetEncData(19, 06)
+0003                          SetEncData(19, 01) [es:bx+0xd4]
+0015                          SetEncData(19, 02) [es:bx+0xd4]
+0027                          SetEncData(18, 03) [es:bx+0xd4]
+0039                          SetEncData(18, 04) [es:bx+0xd4]
+004B                          SetEncData(19, 05) [es:bx+0xd4]
+005D                          SetEncData(19, 06) [es:bx+0xd4]
 006F                          RETURN
 
 Functn49: "LICHA"
 0000                          BEGIN
-0003                          SetEncData(19, 01)
-0015                          SetEncData(19, 02)
-0027                          SetEncData(27, 05)
+0003                          SetEncData(19, 01) [es:bx+0xd4]
+0015                          SetEncData(19, 02) [es:bx+0xd4]
+0027                          SetEncData(27, 05) [es:bx+0xd4]
 0039                          ax = CheckState(02, 8B) [es:bx+0x4]
 004A 0B C0                    or ax, ax
 004C 74 20                    jz 0x6e
@@ -785,9 +785,9 @@ Functn49: "LICHA"
 
 Functn4A: "LICHB"
 0000                          BEGIN
-0003                          SetEncData(19, 01)
-0015                          SetEncData(19, 02)
-0027                          SetEncData(27, 05)
+0003                          SetEncData(19, 01) [es:bx+0xd4]
+0015                          SetEncData(19, 02) [es:bx+0xd4]
+0027                          SetEncData(27, 05) [es:bx+0xd4]
 0039                          ax = CheckState(02, 8C) [es:bx+0x4]
 004A 0B C0                    or ax, ax
 004C 74 20                    jz 0x6e
@@ -843,9 +843,9 @@ Functn4A: "LICHB"
 
 Functn4B: "LICHC"
 0000                          BEGIN
-0003                          SetEncData(19, 01)
-0015                          SetEncData(19, 02)
-0027                          SetEncData(27, 05)
+0003                          SetEncData(19, 01) [es:bx+0xd4]
+0015                          SetEncData(19, 02) [es:bx+0xd4]
+0027                          SetEncData(27, 05) [es:bx+0xd4]
 0039                          ax = CheckState(02, 8D) [es:bx+0x4]
 004A 0B C0                    or ax, ax
 004C 74 20                    jz 0x6e
@@ -901,9 +901,9 @@ Functn4B: "LICHC"
 
 Functn4C: "LICHD"
 0000                          BEGIN
-0003                          SetEncData(19, 01)
-0015                          SetEncData(19, 02)
-0027                          SetEncData(27, 05)
+0003                          SetEncData(19, 01) [es:bx+0xd4]
+0015                          SetEncData(19, 02) [es:bx+0xd4]
+0027                          SetEncData(27, 05) [es:bx+0xd4]
 0039                          ax = CheckState(02, 8E) [es:bx+0x4]
 004A 0B C0                    or ax, ax
 004C 74 20                    jz 0x6e
@@ -959,12 +959,12 @@ Functn4C: "LICHD"
 
 Functn4D: "LICHMAIN"
 0000                          BEGIN
-0003                          ShowMessage(0B7F) = The spirit of Arnakkian Slowfoot appears.
-0010                          SetEncData(27, 01)
-0022                          SetEncData(27, 02)
-0034                          SetEncData(27, 03)
-0046                          SetEncData(27, 04)
-0058                          SetEncData(28, 05)
+0003                          ShowMessage(0B7F) [es:bx+0xf8] = The spirit of Arnakkian Slowfoot appears.
+0010                          SetEncData(27, 01) [es:bx+0xd4]
+0022                          SetEncData(27, 02) [es:bx+0xd4]
+0034                          SetEncData(27, 03) [es:bx+0xd4]
+0046                          SetEncData(27, 04) [es:bx+0xd4]
+0058                          SetEncData(28, 05) [es:bx+0xd4]
 006A                          ax = HasItem(F7) ? 1 : 0 [es:bx+0x50]
 0078 74 20                    jz 0x9a
 007A 33 C0                    xor ax, ax
@@ -1022,17 +1022,17 @@ Functn4D: "LICHMAIN"
 
 Functn4E: "TXTLICH"
 0000                          BEGIN
-0003                          ShowMessage(0BA9) = Apprentices of Arnakkian roam these passageways.
+0003                          ShowMessage(0BA9) [es:bx+0xf8] = Apprentices of Arnakkian roam these passageways.
 0010                          RETURN
 
 Functn4F: "LABY"
 0000                          BEGIN
-0003                          GoMap(00, 3F, 01, 34)
+0003                          GoMap(00, 3F, 01, 34) [es:bx+0xbc]
 001D                          RETURN
 
 Functn50: "TXTLABY"
 0000                          BEGIN
-0003                          ShowMessage(0BDA) = This gate returns you to MAGE'S OVERLOOK.
+0003                          ShowMessage(0BDA) [es:bx+0xf8] = This gate returns you to MAGE'S OVERLOOK.
 0010                          RETURN
 
 Functn51: "SETLICHA"

@@ -1,6 +1,6 @@
 Functn01: "DROP"
 0000                          BEGIN
-0003                          ShowMessage(03FC) = You fall through the abyss and land in the lava below.
+0003                          ShowMessage(03FC) [es:bx+0xf8] = You fall through the abyss and land in the lava below.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -26,9 +26,9 @@ Functn02: "XOVER"
 002E 26 FF 5F 38              call far word [es:bx+0x38]
 0032 59                       pop cx
 0033 59                       pop cx
-0034                          ShowMessage(0433) = A magical platform forms a bridge across the abyss.
+0034                          ShowMessage(0433) [es:bx+0xf8] = A magical platform forms a bridge across the abyss.
 0041 EB 1E                    jmp 0x61
-0043                          ShowMessage(0467) = You will need help to cross the abyss.  This time you die.
+0043                          ShowMessage(0467) [es:bx+0xf8] = You will need help to cross the abyss.  This time you die.
 0050 C4 5E 06                 les bx, [bp+0x6]
 0053 26 FF 5F 74              call far word [es:bx+0x74]
 0057 50                       push ax
@@ -77,8 +77,8 @@ Functn03: "XOVERON"
 0022 26 FF 5F 38              call far word [es:bx+0x38]
 0026 59                       pop cx
 0027 59                       pop cx
-0028                          ShowMessage(04A2) = Something strange happens!
-0035                          ShowMessage(04BD) = When you step onto the stone, a magical platform appears nearby.
+0028                          ShowMessage(04A2) [es:bx+0xf8] = Something strange happens!
+0035                          ShowMessage(04BD) [es:bx+0xf8] = When you step onto the stone, a magical platform appears nearby.
 0042                          RETURN
 
 Functn04: "XOVEROFF"
@@ -100,36 +100,36 @@ Functn04: "XOVEROFF"
 0022 26 FF 5F 38              call far word [es:bx+0x38]
 0026 59                       pop cx
 0027 59                       pop cx
-0028                          ShowMessage(04FE) = A magical platform nearby seems to disappear.
+0028                          ShowMessage(04FE) [es:bx+0xf8] = A magical platform nearby seems to disappear.
 0035                          RETURN
 
 Functn05: "VORANTI"
 0000                          BEGIN
-0003                          ShowMessage(052C) = Many adventurers have been ambushed in VORANTI'S PASSAGE.
-0010                          GoMap(01, 4D, 01, 34)
+0003                          ShowMessage(052C) [es:bx+0xf8] = Many adventurers have been ambushed in VORANTI'S PASSAGE.
+0010                          GoMap(01, 4D, 01, 34) [es:bx+0xbc]
 002B                          RETURN
 
 Functn06: "MAGEOVRL"
 0000                          BEGIN
-0003                          ShowMessage(0566) = The passage leads to MAGE'S OVERLOOK.
-0010                          GoMap(00, 3D, 01, 34)
+0003                          ShowMessage(0566) [es:bx+0xf8] = The passage leads to MAGE'S OVERLOOK.
+0010                          GoMap(00, 3D, 01, 34) [es:bx+0xbc]
 002A                          RETURN
 
 Functn07: "DRAWBRDG"
 0000                          BEGIN
-0003                          ShowMessage(058C) = Iron rungs line an access shaft leading down to DRAWBRIDGE.
-0010                          GoMap(02, 6E, 01, 36)
+0003                          ShowMessage(058C) [es:bx+0xf8] = Iron rungs line an access shaft leading down to DRAWBRIDGE.
+0010                          GoMap(02, 6E, 01, 36) [es:bx+0xbc]
 002B                          RETURN
 
 Functn08: "CSTLGATE"
 0000                          BEGIN
-0003                          ShowMessage(05C8) = The tunnels ahead leading to CASTLEGATE are well marked.
-0010                          GoMap(00, 4F, 01, 36)
+0003                          ShowMessage(05C8) [es:bx+0xf8] = The tunnels ahead leading to CASTLEGATE are well marked.
+0010                          GoMap(00, 4F, 01, 36) [es:bx+0xbc]
 002A                          RETURN
 
 Functn09: "VORANTI"
 0000                          BEGIN
-0003                          ShowMessage(0601) = VORANTI'S PASSAGE is home to Voranti, the Dark Dwarf Thief.
+0003                          ShowMessage(0601) [es:bx+0xf8] = VORANTI'S PASSAGE is home to Voranti, the Dark Dwarf Thief.
 0010 B8 02 00                 mov ax, 0x2
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -146,25 +146,25 @@ Functn09: "VORANTI"
 
 Functn0A: "ZZYZX"
 0000                          BEGIN
-0003                          ShowMessage(063D) = Dry desert winds parch your throat as you peer down the winding passages leading to ZZYZX.
-0010                          GoMap(03, BC, 01, 34)
+0003                          ShowMessage(063D) [es:bx+0xf8] = Dry desert winds parch your throat as you peer down the winding passages leading to ZZYZX.
+0010                          GoMap(03, BC, 01, 34) [es:bx+0xbc]
 002B                          RETURN
 
 Functn0B: "GRHALL"
 0000                          BEGIN
-0003                          ShowMessage(0698) = In the days of Arnakkian Slowfoot, the citizens of the Kingdom gathered in festive celebrations.  The GREAT HALL welcomed them with magical games conjured by Arnakkian.
-0010                          GoMap(02, 40, 02, 35)
+0003                          ShowMessage(0698) [es:bx+0xf8] = In the days of Arnakkian Slowfoot, the citizens of the Kingdom gathered in festive celebrations.  The GREAT HALL welcomed them with magical games conjured by Arnakkian.
+0010                          GoMap(02, 40, 02, 35) [es:bx+0xbc]
 002B                          RETURN
 
 Functn0D: "ZEPHYR"
 0000                          BEGIN
-0003                          ShowMessage(0741) = The ZEPHYR winds are known to be the swiftest of all the winds.
-0010                          GoMap(01, C8, 01, 34)
+0003                          ShowMessage(0741) [es:bx+0xf8] = The ZEPHYR winds are known to be the swiftest of all the winds.
+0010                          GoMap(01, C8, 01, 34) [es:bx+0xbc]
 002B                          RETURN
 
 Functn0E: "LAVA"
 0000                          BEGIN
-0003                          ShowMessage(0781) = You stumble into the lava pools.  You die.
+0003                          ShowMessage(0781) [es:bx+0xf8] = You stumble into the lava pools.  You die.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -175,12 +175,12 @@ Functn0E: "LAVA"
 
 Functn0F: "TROLS"
 0000                          BEGIN
-0003                          ShowMessage(07AC) = Past this doorway are the corridors known as TROLLS END.
+0003                          ShowMessage(07AC) [es:bx+0xf8] = Past this doorway are the corridors known as TROLLS END.
 0010                          RETURN
 
 Functn10: "DRTOVORA"
 0000                          BEGIN
-0003                          ShowMessage(07E5) = To enter VORANTI'S PASSAGE, you must use his key!
+0003                          ShowMessage(07E5) [es:bx+0xf8] = To enter VORANTI'S PASSAGE, you must use his key!
 0010 B8 DF 00                 mov ax, 0xdf
 0013 50                       push ax
 0014 B8 DF 00                 mov ax, 0xdf
@@ -191,7 +191,7 @@ Functn10: "DRTOVORA"
 0020 59                       pop cx
 0021 0B C0                    or ax, ax
 0023 74 49                    jz 0x6e
-0025                          ShowMessage(0817) = You unlock the door.
+0025                          ShowMessage(0817) [es:bx+0xf8] = You unlock the door.
 0032 B8 01 00                 mov ax, 0x1
 0035 50                       push ax
 0036 C4 5E 06                 les bx, [bp+0x6]
@@ -218,8 +218,8 @@ Functn10: "DRTOVORA"
 
 Functn14: "HEAVFOUN"
 0000                          BEGIN
-0003                          ShowPortrait(0042)
-0010                          ShowMessage(082C) = Clerical symbols decorate the marblework of Morgard's Fountain.
+0003                          ShowPortrait(0042) [es:bx+0xd4]
+0010                          ShowMessage(082C) [es:bx+0xf8] = Clerical symbols decorate the marblework of Morgard's Fountain.
 001D                          ax = CheckState(02, 61) [es:bx+0x4]
 002E 0B C0                    or ax, ax
 0030 74 03                    jz 0x35
@@ -248,7 +248,7 @@ Functn14: "HEAVFOUN"
 0065 26 FF 5F 60              call far word [es:bx+0x60]
 0069 59                       pop cx
 006A 59                       pop cx
-006B                          ShowMessage(086C) = You gain the Reverie skill!
+006B                          ShowMessage(086C) [es:bx+0xf8] = You gain the Reverie skill!
 0078 E9 9D 00                 jmp 0x118
 007B B8 11 00                 mov ax, 0x11
 007E 50                       push ax
@@ -265,7 +265,7 @@ Functn14: "HEAVFOUN"
 0096 26 FF 5F 60              call far word [es:bx+0x60]
 009A 59                       pop cx
 009B 59                       pop cx
-009C                          ShowMessage(0888) = You gain the Deflect Magic skill!
+009C                          ShowMessage(0888) [es:bx+0xf8] = You gain the Deflect Magic skill!
 00A9 EB 6D                    jmp 0x118
 00AB B8 12 00                 mov ax, 0x12
 00AE 50                       push ax
@@ -282,7 +282,7 @@ Functn14: "HEAVFOUN"
 00C6 26 FF 5F 60              call far word [es:bx+0x60]
 00CA 59                       pop cx
 00CB 59                       pop cx
-00CC                          ShowMessage(08AA) = You gain the Medic skill!
+00CC                          ShowMessage(08AA) [es:bx+0xf8] = You gain the Medic skill!
 00D9 EB 3D                    jmp 0x118
 00DB B8 10 00                 mov ax, 0x10
 00DE 50                       push ax
@@ -299,21 +299,21 @@ Functn14: "HEAVFOUN"
 00F6 26 FF 5F 60              call far word [es:bx+0x60]
 00FA 59                       pop cx
 00FB 59                       pop cx
-00FC                          ShowMessage(08C4) = You gain the skill of Martial Arts!
+00FC                          ShowMessage(08C4) [es:bx+0xf8] = You gain the skill of Martial Arts!
 0109 EB 0D                    jmp 0x118
-010B                          ShowMessage(08E8) = The waters have no effect.
+010B                          ShowMessage(08E8) [es:bx+0xf8] = The waters have no effect.
 0118 EB 0D                    jmp 0x127
-011A                          ShowMessage(0903) = The fountain appears to be dry.
+011A                          ShowMessage(0903) [es:bx+0xf8] = The fountain appears to be dry.
 0127                          RETURN
 
 Functn15: "HEAVENCB"
 0000                          BEGIN
-0003                          SetEncData(20, 01)
-0015                          SetEncData(20, 02)
-0027                          SetEncData(1F, 03)
-0039                          SetEncData(1F, 04)
-004B                          SetEncData(21, 05)
-005D                          SetEncData(21, 06)
+0003                          SetEncData(20, 01) [es:bx+0xd4]
+0015                          SetEncData(20, 02) [es:bx+0xd4]
+0027                          SetEncData(1F, 03) [es:bx+0xd4]
+0039                          SetEncData(1F, 04) [es:bx+0xd4]
+004B                          SetEncData(21, 05) [es:bx+0xd4]
+005D                          SetEncData(21, 06) [es:bx+0xd4]
 006F B8 E8 03                 mov ax, 0x3e8
 0072 50                       push ax
 0073 33 C0                    xor ax, ax
@@ -333,17 +333,17 @@ Functn15: "HEAVENCB"
 
 Functn16: "HEAVENCC"
 0000                          BEGIN
-0003                          SetEncData(20, 01)
-0015                          SetEncData(20, 02)
-0027                          SetEncData(26, 03)
+0003                          SetEncData(20, 01) [es:bx+0xd4]
+0015                          SetEncData(20, 02) [es:bx+0xd4]
+0027                          SetEncData(26, 03) [es:bx+0xd4]
 0039                          RETURN
 
 Functn18: "HEAVENCE"
 0000                          BEGIN
-0003                          SetEncData(1F, 01)
-0015                          SetEncData(1F, 02)
-0027                          SetEncData(27, 03)
-0039                          SetEncData(28, 04)
+0003                          SetEncData(1F, 01) [es:bx+0xd4]
+0015                          SetEncData(1F, 02) [es:bx+0xd4]
+0027                          SetEncData(27, 03) [es:bx+0xd4]
+0039                          SetEncData(28, 04) [es:bx+0xd4]
 004B                          RETURN
 
 Functn1A: "HEAVWIND"
@@ -352,7 +352,7 @@ Functn1A: "HEAVWIND"
 0006 26 FF 9F 80 00           call far word [es:bx+0x80]
 000B 3D 01 00                 cmp ax, 0x1
 000E 75 3E                    jnz 0x4e
-0010                          ShowMessage(0923) = The fury of Heaven's Wind ripping through the corridor inflicts considerable damage.
+0010                          ShowMessage(0923) [es:bx+0xf8] = The fury of Heaven's Wind ripping through the corridor inflicts considerable damage.
 001D C4 5E 06                 les bx, [bp+0x6]
 0020 26 FF 5F 70              call far word [es:bx+0x70]
 0024 BB 05 00                 mov bx, 0x5
@@ -366,14 +366,14 @@ Functn1A: "HEAVWIND"
 0037 26 FF 5F 70              call far word [es:bx+0x70]
 003B 0B C0                    or ax, ax
 003D 77 0D                    ja 0x4c
-003F                          ShowMessage(0978) = You have died.
+003F                          ShowMessage(0978) [es:bx+0xf8] = You have died.
 004C EB 0D                    jmp 0x5b
-004E                          ShowMessage(0987) = A peaceful breeze cools your soul
+004E                          ShowMessage(0987) [es:bx+0xf8] = A peaceful breeze cools your soul
 005B                          RETURN
 
 Functn1B: "TXTHEAV"
 0000                          BEGIN
-0003                          ShowMessage(09A9) = The forces of Chaos and Harmony compete in the cyclone known as HEAVENS FURY.
+0003                          ShowMessage(09A9) [es:bx+0xf8] = The forces of Chaos and Harmony compete in the cyclone known as HEAVENS FURY.
 0010                          RETURN
 
 Functn1C: "BDRHEAVA"
@@ -385,7 +385,7 @@ Functn1C: "BDRHEAVA"
 000E 59                       pop cx
 000F 3D 14 00                 cmp ax, 0x14
 0012 72 2D                    jb 0x41
-0014                          ShowMessage(09F7) = You force the massive door open by sheer muscle power.
+0014                          ShowMessage(09F7) [es:bx+0xf8] = You force the massive door open by sheer muscle power.
 0021 B8 01 00                 mov ax, 0x1
 0024 50                       push ax
 0025 C4 5E 06                 les bx, [bp+0x6]
@@ -398,7 +398,7 @@ Functn1C: "BDRHEAVA"
 0038 26 FF 5F 2C              call far word [es:bx+0x2c]
 003C 83 C4 06                 add sp, 0x6
 003F EB 0D                    jmp 0x4e
-0041                          ShowMessage(0A2E) = The door is stuck. You cannot force it open.
+0041                          ShowMessage(0A2E) [es:bx+0xf8] = The door is stuck. You cannot force it open.
 004E                          RETURN
 
 Functn1D: "SDRHEAVE"
@@ -438,51 +438,51 @@ Functn1D: "SDRHEAVE"
 004D C4 5E 06                 les bx, [bp+0x6]
 0050 26 FF 5F 2C              call far word [es:bx+0x2c]
 0054 83 C4 06                 add sp, 0x6
-0057                          ShowMessage(0A5B) = You discover a secret door!
+0057                          ShowMessage(0A5B) [es:bx+0xf8] = You discover a secret door!
 0064                          RETURN
 
 Functn1E: "TEMPENCA"
 0000                          BEGIN
-0003                          SetEncData(17, 01)
-0015                          SetEncData(17, 02)
-0027                          SetEncData(17, 03)
-0039                          SetEncData(17, 04)
+0003                          SetEncData(17, 01) [es:bx+0xd4]
+0015                          SetEncData(17, 02) [es:bx+0xd4]
+0027                          SetEncData(17, 03) [es:bx+0xd4]
+0039                          SetEncData(17, 04) [es:bx+0xd4]
 004B                          RETURN
 
 Functn1F: "TEMPENCB"
 0000                          BEGIN
-0003                          SetEncData(17, 01)
-0015                          SetEncData(17, 02)
-0027                          SetEncData(17, 04)
-0039                          SetEncData(18, 05)
-004B                          SetEncData(18, 06)
+0003                          SetEncData(17, 01) [es:bx+0xd4]
+0015                          SetEncData(17, 02) [es:bx+0xd4]
+0027                          SetEncData(17, 04) [es:bx+0xd4]
+0039                          SetEncData(18, 05) [es:bx+0xd4]
+004B                          SetEncData(18, 06) [es:bx+0xd4]
 005D                          RETURN
 
 Functn20: "TEMPENCC"
 0000                          BEGIN
-0003                          SetEncData(18, 01)
-0015                          SetEncData(18, 02)
-0027                          SetEncData(24, 03)
-0039                          SetEncData(24, 04)
+0003                          SetEncData(18, 01) [es:bx+0xd4]
+0015                          SetEncData(18, 02) [es:bx+0xd4]
+0027                          SetEncData(24, 03) [es:bx+0xd4]
+0039                          SetEncData(24, 04) [es:bx+0xd4]
 004B                          RETURN
 
 Functn21: "TEMPENCD"
 0000                          BEGIN
-0003                          SetEncData(17, 01)
-0015                          SetEncData(18, 02)
-0027                          SetEncData(1A, 03)
-0039                          SetEncData(16, 04)
+0003                          SetEncData(17, 01) [es:bx+0xd4]
+0015                          SetEncData(18, 02) [es:bx+0xd4]
+0027                          SetEncData(1A, 03) [es:bx+0xd4]
+0039                          SetEncData(16, 04) [es:bx+0xd4]
 004B                          RETURN
 
 Functn22: "TEMPMAIN"
 0000                          BEGIN
-0003                          ShowMessage(0A77) = Tempest unleashes its full torrent of wind as you approach!
-0010                          ShowMessage(0AB3) = Then it reveals itself in material form.
-001D                          SetEncData(08, 01)
-002F                          SetEncData(08, 02)
-0041                          SetEncData(25, 04)
-0053                          SetEncData(18, 05)
-0065                          SetEncData(18, 06)
+0003                          ShowMessage(0A77) [es:bx+0xf8] = Tempest unleashes its full torrent of wind as you approach!
+0010                          ShowMessage(0AB3) [es:bx+0xf8] = Then it reveals itself in material form.
+001D                          SetEncData(08, 01) [es:bx+0xd4]
+002F                          SetEncData(08, 02) [es:bx+0xd4]
+0041                          SetEncData(25, 04) [es:bx+0xd4]
+0053                          SetEncData(18, 05) [es:bx+0xd4]
+0065                          SetEncData(18, 06) [es:bx+0xd4]
 0077                          ax = HasItem(E6) ? 1 : 0 [es:bx+0x50]
 0085 74 20                    jz 0xa7
 0087 33 C0                    xor ax, ax
@@ -522,9 +522,9 @@ Functn23: "TEMPWIND"
 0000                          BEGIN
 0003                          ax = HasItem(E6) ? 1 : 0 [es:bx+0x50]
 0011 74 0F                    jz 0x22
-0013                          ShowMessage(0ADC) = The Harvest Horn protects you from the dangerous winds!
+0013                          ShowMessage(0ADC) [es:bx+0xf8] = The Harvest Horn protects you from the dangerous winds!
 0020 EB 32                    jmp 0x54
-0022                          ShowMessage(0B14) = The Tempest Winds rip through your armor, causing many wounds!
+0022                          ShowMessage(0B14) [es:bx+0xf8] = The Tempest Winds rip through your armor, causing many wounds!
 002F B8 64 00                 mov ax, 0x64
 0032 50                       push ax
 0033 C4 5E 06                 les bx, [bp+0x6]
@@ -534,50 +534,50 @@ Functn23: "TEMPWIND"
 003F 26 FF 5F 70              call far word [es:bx+0x70]
 0043 0B C0                    or ax, ax
 0045 77 0D                    ja 0x54
-0047                          ShowMessage(0B53) = You have died.
+0047                          ShowMessage(0B53) [es:bx+0xf8] = You have died.
 0054                          RETURN
 
 Functn24: "FNTNHEAL"
 0000                          BEGIN
-0003                          ShowPortrait(0042)
+0003                          ShowPortrait(0042) [es:bx+0xd4]
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
 001B 26 FF 9F 94 00           call far word [es:bx+0x94]
 0020 59                       pop cx
-0021                          ShowMessage(0B62) = The mystic waters of the Charter Fountain restore all your Health.
+0021                          ShowMessage(0B62) [es:bx+0xf8] = The mystic waters of the Charter Fountain restore all your Health.
 002E                          RETURN
 
 Functn25: "FNTNMANA"
 0000                          BEGIN
-0003                          ShowPortrait(0042)
+0003                          ShowPortrait(0042) [es:bx+0xd4]
 0010 B8 10 27                 mov ax, 0x2710
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
 0017 26 FF 9F B4 00           call far word [es:bx+0xb4]
 001C 59                       pop cx
-001D                          ShowMessage(0BA5) = The mystic waters of the Infinity Fountain restore your Mana.
+001D                          ShowMessage(0BA5) [es:bx+0xf8] = The mystic waters of the Infinity Fountain restore your Mana.
 002A                          RETURN
 
 Functn26: "FNTNHEAL"
 0000                          BEGIN
-0003                          ShowPortrait(0042)
+0003                          ShowPortrait(0042) [es:bx+0xd4]
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
 001B 26 FF 9F 94 00           call far word [es:bx+0x94]
 0020 59                       pop cx
-0021                          ShowMessage(0BE3) = The sparkling waters of the Ariel Fountain heal your many wounds.
+0021                          ShowMessage(0BE3) [es:bx+0xf8] = The sparkling waters of the Ariel Fountain heal your many wounds.
 002E                          RETURN
 
 Functn27: "EXODENCA"
 0000                          BEGIN
-0003                          SetEncData(03, 01)
-0015                          SetEncData(03, 02)
-0027                          SetEncData(03, 03)
-0039                          SetEncData(03, 04)
+0003                          SetEncData(03, 01) [es:bx+0xd4]
+0015                          SetEncData(03, 02) [es:bx+0xd4]
+0027                          SetEncData(03, 03) [es:bx+0xd4]
+0039                          SetEncData(03, 04) [es:bx+0xd4]
 004B                          ax = HasItem(E0) ? 1 : 0 [es:bx+0x50]
 0059 74 21                    jz 0x7c
 005B 33 C0                    xor ax, ax
@@ -615,18 +615,18 @@ Functn27: "EXODENCA"
 
 Functn28: "WINDENC"
 0000                          BEGIN
-0003                          SetEncData(17, 01)
-0015                          SetEncData(17, 02)
-0027                          SetEncData(18, 03)
-0039                          SetEncData(18, 04)
+0003                          SetEncData(17, 01) [es:bx+0xd4]
+0015                          SetEncData(17, 02) [es:bx+0xd4]
+0027                          SetEncData(18, 03) [es:bx+0xd4]
+0039                          SetEncData(18, 04) [es:bx+0xd4]
 004B                          RETURN
 
 Functn29: "TXTEXOD"
 0000                          BEGIN
-0003                          ShowPortrait(001E)
-0010                          ShowMessage(0C25) = You encounter an Orc Ranger.
-001D                          ShowMessage(0C42) = 'There is a great river in the dwarven lands below.  It seems to lead to a great chasm I could not cross.  A mage told me the chasm was called the Ageless Void.
-002A                          ShowMessage(0CE3) = Be careful in the great river.  It drains your health for every step you take.'
+0003                          ShowPortrait(001E) [es:bx+0xd4]
+0010                          ShowMessage(0C25) [es:bx+0xf8] = You encounter an Orc Ranger.
+001D                          ShowMessage(0C42) [es:bx+0xf8] = 'There is a great river in the dwarven lands below.  It seems to lead to a great chasm I could not cross.  A mage told me the chasm was called the Ageless Void.
+002A                          ShowMessage(0CE3) [es:bx+0xf8] = Be careful in the great river.  It drains your health for every step you take.'
 0037                          RETURN
 
 Functn2A: "WINDENCA"
@@ -651,7 +651,7 @@ Functn2A: "WINDENCA"
 003B C4 5E 06                 les bx, [bp+0x6]
 003E 26 FF 1F                 call far word [es:bx]
 0041 83 C4 06                 add sp, 0x6
-0044                          ShowMessage(0D33) = Your initiative in combat improves.
+0044                          ShowMessage(0D33) [es:bx+0xf8] = Your initiative in combat improves.
 0051 B8 03 00                 mov ax, 0x3
 0054 50                       push ax
 0055 B8 03 00                 mov ax, 0x3
@@ -661,7 +661,7 @@ Functn2A: "WINDENCA"
 0061 59                       pop cx
 0062 59                       pop cx
 0063 EB 0D                    jmp 0x72
-0065                          ShowMessage(0D57) = Nothing happens.
+0065                          ShowMessage(0D57) [es:bx+0xf8] = Nothing happens.
 0072                          RETURN
 
 Functn2B: "WINDENCB"
@@ -686,7 +686,7 @@ Functn2B: "WINDENCB"
 003C C4 5E 06                 les bx, [bp+0x6]
 003F 26 FF 1F                 call far word [es:bx]
 0042 83 C4 06                 add sp, 0x6
-0045                          ShowMessage(0D68) = Your agility improves.
+0045                          ShowMessage(0D68) [es:bx+0xf8] = Your agility improves.
 0052 B8 03 00                 mov ax, 0x3
 0055 50                       push ax
 0056 B8 02 00                 mov ax, 0x2
@@ -696,7 +696,7 @@ Functn2B: "WINDENCB"
 0062 59                       pop cx
 0063 59                       pop cx
 0064 EB 0D                    jmp 0x73
-0066                          ShowMessage(0D7F) = Nothing happens.
+0066                          ShowMessage(0D7F) [es:bx+0xf8] = Nothing happens.
 0073                          RETURN
 
 Functn2C: "WINDENCC"
@@ -721,7 +721,7 @@ Functn2C: "WINDENCC"
 003C C4 5E 06                 les bx, [bp+0x6]
 003F 26 FF 1F                 call far word [es:bx]
 0042 83 C4 06                 add sp, 0x6
-0045                          ShowMessage(0D90) = You feel much stronger.
+0045                          ShowMessage(0D90) [es:bx+0xf8] = You feel much stronger.
 0052 B8 03 00                 mov ax, 0x3
 0055 50                       push ax
 0056 33 C0                    xor ax, ax
@@ -731,7 +731,7 @@ Functn2C: "WINDENCC"
 0061 59                       pop cx
 0062 59                       pop cx
 0063 EB 0D                    jmp 0x72
-0065                          ShowMessage(0DA8) = Nothing happens.
+0065                          ShowMessage(0DA8) [es:bx+0xf8] = Nothing happens.
 0072                          RETURN
 
 Functn2D: "WINDENCD"
@@ -756,7 +756,7 @@ Functn2D: "WINDENCD"
 003C C4 5E 06                 les bx, [bp+0x6]
 003F 26 FF 1F                 call far word [es:bx]
 0042 83 C4 06                 add sp, 0x6
-0045                          ShowMessage(0DB9) = Your ability to defend yourself in combat improves.
+0045                          ShowMessage(0DB9) [es:bx+0xf8] = Your ability to defend yourself in combat improves.
 0052 B8 03 00                 mov ax, 0x3
 0055 50                       push ax
 0056 B8 01 00                 mov ax, 0x1
@@ -766,12 +766,12 @@ Functn2D: "WINDENCD"
 0062 59                       pop cx
 0063 59                       pop cx
 0064 EB 0D                    jmp 0x73
-0066                          ShowMessage(0DED) = Nothing happens.
+0066                          ShowMessage(0DED) [es:bx+0xf8] = Nothing happens.
 0073                          RETURN
 
 Functn2E: "BDRWINDA"
 0000                          BEGIN
-0003                          ShowMessage(0DFE) = The door is barred to all but Humans and Halflings.
+0003                          ShowMessage(0DFE) [es:bx+0xf8] = The door is barred to all but Humans and Halflings.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 78              call far word [es:bx+0x78]
 0017 0B C0                    or ax, ax
@@ -791,12 +791,12 @@ Functn2E: "BDRWINDA"
 003B C4 5E 06                 les bx, [bp+0x6]
 003E 26 FF 5F 2C              call far word [es:bx+0x2c]
 0042 83 C4 06                 add sp, 0x6
-0045                          ShowMessage(0E32) = The enormous door opens for you.
+0045                          ShowMessage(0E32) [es:bx+0xf8] = The enormous door opens for you.
 0052                          RETURN
 
 Functn2F: "BDRWINDB"
 0000                          BEGIN
-0003                          ShowMessage(0E53) = The door is barred to all but Elves and Gnomes.
+0003                          ShowMessage(0E53) [es:bx+0xf8] = The door is barred to all but Elves and Gnomes.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 78              call far word [es:bx+0x78]
 0017 3D 02 00                 cmp ax, 0x2
@@ -816,12 +816,12 @@ Functn2F: "BDRWINDB"
 003C C4 5E 06                 les bx, [bp+0x6]
 003F 26 FF 5F 2C              call far word [es:bx+0x2c]
 0043 83 C4 06                 add sp, 0x6
-0046                          ShowMessage(0E83) = The tremendous door swings open as you approach.
+0046                          ShowMessage(0E83) [es:bx+0xf8] = The tremendous door swings open as you approach.
 0053                          RETURN
 
 Functn30: "BDRWINDC"
 0000                          BEGIN
-0003                          ShowMessage(0EB4) = The door is barred to all but Orcs and Trolls.
+0003                          ShowMessage(0EB4) [es:bx+0xf8] = The door is barred to all but Orcs and Trolls.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 78              call far word [es:bx+0x78]
 0017 3D 01 00                 cmp ax, 0x1
@@ -841,12 +841,12 @@ Functn30: "BDRWINDC"
 003C C4 5E 06                 les bx, [bp+0x6]
 003F 26 FF 5F 2C              call far word [es:bx+0x2c]
 0043 83 C4 06                 add sp, 0x6
-0046                          ShowMessage(0EE3) = The heavy door creaks open as you draw near.
+0046                          ShowMessage(0EE3) [es:bx+0xf8] = The heavy door creaks open as you draw near.
 0053                          RETURN
 
 Functn31: "BDRWINDD"
 0000                          BEGIN
-0003                          ShowMessage(0F10) = The door is barred to all but Gremlins and Dwarves.
+0003                          ShowMessage(0F10) [es:bx+0xf8] = The door is barred to all but Gremlins and Dwarves.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 78              call far word [es:bx+0x78]
 0017 3D 04 00                 cmp ax, 0x4
@@ -866,32 +866,32 @@ Functn31: "BDRWINDD"
 003C C4 5E 06                 les bx, [bp+0x6]
 003F 26 FF 5F 2C              call far word [es:bx+0x2c]
 0043 83 C4 06                 add sp, 0x6
-0046                          ShowMessage(0F44) = The sealed door opens at your command.
+0046                          ShowMessage(0F44) [es:bx+0xf8] = The sealed door opens at your command.
 0053                          RETURN
 
 Functn32: "TXTWINDH"
 0000                          BEGIN
-0003                          ShowPortrait(0028)
-0010                          ShowMessage(0F6B) = A Troll Cleric comes hobbling by.
-001D                          ShowMessage(0F8D) = 'I found an interesting tapestry past one of the dwarven teleports.  It had a picture of a great moon, just like the one in the sky, but different.'
+0003                          ShowPortrait(0028) [es:bx+0xd4]
+0010                          ShowMessage(0F6B) [es:bx+0xf8] = A Troll Cleric comes hobbling by.
+001D                          ShowMessage(0F8D) [es:bx+0xf8] = 'I found an interesting tapestry past one of the dwarven teleports.  It had a picture of a great moon, just like the one in the sky, but different.'
 002A                          RETURN
 
 Functn33: "TROLENCA"
 0000                          BEGIN
-0003                          SetEncData(21, 01)
-0015                          SetEncData(21, 02)
-0027                          SetEncData(1D, 03)
-0039                          SetEncData(1E, 04)
+0003                          SetEncData(21, 01) [es:bx+0xd4]
+0015                          SetEncData(21, 02) [es:bx+0xd4]
+0027                          SetEncData(1D, 03) [es:bx+0xd4]
+0039                          SetEncData(1E, 04) [es:bx+0xd4]
 004B                          RETURN
 
 Functn34: "TROLENCB"
 0000                          BEGIN
-0003                          SetEncData(1D, 01)
-0015                          SetEncData(1D, 02)
-0027                          SetEncData(1C, 03)
-0039                          SetEncData(26, 04)
-004B                          SetEncData(1C, 05)
-005D                          SetEncData(1E, 06)
+0003                          SetEncData(1D, 01) [es:bx+0xd4]
+0015                          SetEncData(1D, 02) [es:bx+0xd4]
+0027                          SetEncData(1C, 03) [es:bx+0xd4]
+0039                          SetEncData(26, 04) [es:bx+0xd4]
+004B                          SetEncData(1C, 05) [es:bx+0xd4]
+005D                          SetEncData(1E, 06) [es:bx+0xd4]
 006F B8 E8 03                 mov ax, 0x3e8
 0072 50                       push ax
 0073 33 C0                    xor ax, ax
@@ -911,20 +911,20 @@ Functn34: "TROLENCB"
 
 Functn36: "TXTTROLA"
 0000                          BEGIN
-0003                          ShowMessage(1022) = Next to bones is a message scratched on stone -- 
-0010                          ShowMessage(1054) = 'Mortal wounds I have suffered.  But I shall pass on a gem of knowledge before I die.
-001D                          ShowMessage(10AA) = To cross the void and challenge En-Li-Kil, you must see the rainbow.'
+0003                          ShowMessage(1022) [es:bx+0xf8] = Next to bones is a message scratched on stone -- 
+0010                          ShowMessage(1054) [es:bx+0xf8] = 'Mortal wounds I have suffered.  But I shall pass on a gem of knowledge before I die.
+001D                          ShowMessage(10AA) [es:bx+0xf8] = To cross the void and challenge En-Li-Kil, you must see the rainbow.'
 002A                          RETURN
 
 Functn37: "TXTTROLB"
 0000                          BEGIN
-0003                          ShowMessage(10F0) = Behind a loose stone is a note.  You can barely read -- 
-0010                          ShowMessage(1129) = 'Death to those who help the Snow Elves.' -- Nasranti, Mage Dwarf.
+0003                          ShowMessage(10F0) [es:bx+0xf8] = Behind a loose stone is a note.  You can barely read -- 
+0010                          ShowMessage(1129) [es:bx+0xf8] = 'Death to those who help the Snow Elves.' -- Nasranti, Mage Dwarf.
 001D                          RETURN
 
 Functn38: "FNTNSTRN"
 0000                          BEGIN
-0003                          ShowPortrait(0042)
+0003                          ShowPortrait(0042) [es:bx+0xd4]
 0010                          ax = CheckState(02, 4A) [es:bx+0x4]
 0021 0B C0                    or ax, ax
 0023 75 47                    jnz 0x6c
@@ -953,32 +953,32 @@ Functn38: "FNTNSTRN"
 0056 26 FF 9F A8 00           call far word [es:bx+0xa8]
 005B 59                       pop cx
 005C 59                       pop cx
-005D                          ShowMessage(116C) = The turgid water of the Troll Fountain tastes terrible, but it makes you feel stronger.
+005D                          ShowMessage(116C) [es:bx+0xf8] = The turgid water of the Troll Fountain tastes terrible, but it makes you feel stronger.
 006A EB 0D                    jmp 0x79
-006C                          ShowMessage(11C4) = The fountain waters taste awful and make you nauseated.
+006C                          ShowMessage(11C4) [es:bx+0xf8] = The fountain waters taste awful and make you nauseated.
 0079                          RETURN
 
 Functn39: "BACKENCA"
 0000                          BEGIN
-0003                          SetEncData(16, 01)
-0015                          SetEncData(16, 02)
-0027                          SetEncData(21, 03)
-0039                          SetEncData(22, 04)
+0003                          SetEncData(16, 01) [es:bx+0xd4]
+0015                          SetEncData(16, 02) [es:bx+0xd4]
+0027                          SetEncData(21, 03) [es:bx+0xd4]
+0039                          SetEncData(22, 04) [es:bx+0xd4]
 004B                          RETURN
 
 Functn3A: "BACKENCB"
 0000                          BEGIN
-0003                          SetEncData(21, 01)
-0015                          SetEncData(21, 02)
-0027                          SetEncData(24, 03)
-0039                          SetEncData(24, 04)
-004B                          SetEncData(24, 05)
+0003                          SetEncData(21, 01) [es:bx+0xd4]
+0015                          SetEncData(21, 02) [es:bx+0xd4]
+0027                          SetEncData(24, 03) [es:bx+0xd4]
+0039                          SetEncData(24, 04) [es:bx+0xd4]
+004B                          SetEncData(24, 05) [es:bx+0xd4]
 005D                          RETURN
 
 Functn3B: "BACKENCC"
 0000                          BEGIN
-0003                          ShowPortrait(0042)
-0010                          ShowMessage(11FC) = Pictograms of Hunting Expeditions have been carved into the loose rock above StoneGiant Fountain. 
+0003                          ShowPortrait(0042) [es:bx+0xd4]
+0010                          ShowMessage(11FC) [es:bx+0xf8] = Pictograms of Hunting Expeditions have been carved into the loose rock above StoneGiant Fountain. 
 001D                          ax = CheckState(02, 62) [es:bx+0x4]
 002E 0B C0                    or ax, ax
 0030 74 03                    jz 0x35
@@ -1007,7 +1007,7 @@ Functn3B: "BACKENCC"
 0063 26 FF 5F 60              call far word [es:bx+0x60]
 0067 59                       pop cx
 0068 59                       pop cx
-0069                          ShowMessage(125F) = You gain the skill of Athletics!
+0069                          ShowMessage(125F) [es:bx+0xf8] = You gain the skill of Athletics!
 0076 E9 9D 00                 jmp 0x116
 0079 B8 02 00                 mov ax, 0x2
 007C 50                       push ax
@@ -1024,7 +1024,7 @@ Functn3B: "BACKENCC"
 0094 26 FF 5F 60              call far word [es:bx+0x60]
 0098 59                       pop cx
 0099 59                       pop cx
-009A                          ShowMessage(1280) = You gain the Berserker skill!
+009A                          ShowMessage(1280) [es:bx+0xf8] = You gain the Berserker skill!
 00A7 EB 6D                    jmp 0x116
 00A9 B8 03 00                 mov ax, 0x3
 00AC 50                       push ax
@@ -1041,7 +1041,7 @@ Functn3B: "BACKENCC"
 00C4 26 FF 5F 60              call far word [es:bx+0x60]
 00C8 59                       pop cx
 00C9 59                       pop cx
-00CA                          ShowMessage(129E) = You gain the skill of Pursuit!
+00CA                          ShowMessage(129E) [es:bx+0xf8] = You gain the skill of Pursuit!
 00D7 EB 3D                    jmp 0x116
 00D9 B8 01 00                 mov ax, 0x1
 00DC 50                       push ax
@@ -1058,21 +1058,21 @@ Functn3B: "BACKENCC"
 00F4 26 FF 5F 60              call far word [es:bx+0x60]
 00F8 59                       pop cx
 00F9 59                       pop cx
-00FA                          ShowMessage(12BD) = You gain the skill of Clubs and Axes!
+00FA                          ShowMessage(12BD) [es:bx+0xf8] = You gain the skill of Clubs and Axes!
 0107 EB 0D                    jmp 0x116
-0109                          ShowMessage(12E3) = The waters have no effect.
+0109                          ShowMessage(12E3) [es:bx+0xf8] = The waters have no effect.
 0116 EB 0D                    jmp 0x125
-0118                          ShowMessage(12FE) = Dry rocks and stones fill the fountain basin.
+0118                          ShowMessage(12FE) [es:bx+0xf8] = Dry rocks and stones fill the fountain basin.
 0125                          RETURN
 
 Functn3C: "BACKENCD"
 0000                          BEGIN
-0003                          SetEncData(21, 01)
-0015                          SetEncData(21, 02)
-0027                          SetEncData(21, 03)
-0039                          SetEncData(26, 04)
-004B                          SetEncData(23, 05)
-005D                          SetEncData(23, 06)
+0003                          SetEncData(21, 01) [es:bx+0xd4]
+0015                          SetEncData(21, 02) [es:bx+0xd4]
+0027                          SetEncData(21, 03) [es:bx+0xd4]
+0039                          SetEncData(26, 04) [es:bx+0xd4]
+004B                          SetEncData(23, 05) [es:bx+0xd4]
+005D                          SetEncData(23, 06) [es:bx+0xd4]
 006F B8 E8 03                 mov ax, 0x3e8
 0072 50                       push ax
 0073 33 C0                    xor ax, ax
@@ -1092,12 +1092,12 @@ Functn3C: "BACKENCD"
 
 Functn3D: "BACKENCE"
 0000                          BEGIN
-0003                          SetEncData(26, 01)
-0015                          SetEncData(26, 02)
-0027                          SetEncData(27, 03)
-0039                          SetEncData(27, 04)
-004B                          SetEncData(23, 05)
-005D                          SetEncData(23, 06)
+0003                          SetEncData(26, 01) [es:bx+0xd4]
+0015                          SetEncData(26, 02) [es:bx+0xd4]
+0027                          SetEncData(27, 03) [es:bx+0xd4]
+0039                          SetEncData(27, 04) [es:bx+0xd4]
+004B                          SetEncData(23, 05) [es:bx+0xd4]
+005D                          SetEncData(23, 06) [es:bx+0xd4]
 006F B8 DC 05                 mov ax, 0x5dc
 0072 50                       push ax
 0073 33 C0                    xor ax, ax
@@ -1117,8 +1117,8 @@ Functn3D: "BACKENCE"
 
 Functn48: "FNTNTROL"
 0000                          BEGIN
-0003                          ShowPortrait(0042)
-0010                          ShowMessage(132C) = You drink from the crystal waters of My My Fountain.
+0003                          ShowPortrait(0042) [es:bx+0xd4]
+0010                          ShowMessage(132C) [es:bx+0xf8] = You drink from the crystal waters of My My Fountain.
 001D                          ax = CheckState(02, 4B) [es:bx+0x4]
 002E 0B C0                    or ax, ax
 0030 74 03                    jz 0x35
@@ -1147,7 +1147,7 @@ Functn48: "FNTNTROL"
 0065 26 FF 5F 60              call far word [es:bx+0x60]
 0069 59                       pop cx
 006A 59                       pop cx
-006B                          ShowMessage(1361) = You gain the skill of Leadership!
+006B                          ShowMessage(1361) [es:bx+0xf8] = You gain the skill of Leadership!
 0078 E9 C3 01                 jmp 0x23e
 007B B8 06 00                 mov ax, 0x6
 007E 50                       push ax
@@ -1164,7 +1164,7 @@ Functn48: "FNTNTROL"
 0096 26 FF 5F 60              call far word [es:bx+0x60]
 009A 59                       pop cx
 009B 59                       pop cx
-009C                          ShowMessage(1383) = You gain the skill of Binding!
+009C                          ShowMessage(1383) [es:bx+0xf8] = You gain the skill of Binding!
 00A9 E9 92 01                 jmp 0x23e
 00AC B8 05 00                 mov ax, 0x5
 00AF 50                       push ax
@@ -1181,7 +1181,7 @@ Functn48: "FNTNTROL"
 00C7 26 FF 5F 60              call far word [es:bx+0x60]
 00CB 59                       pop cx
 00CC 59                       pop cx
-00CD                          ShowMessage(13A2) = You gain the skill of Fencing!
+00CD                          ShowMessage(13A2) [es:bx+0xf8] = You gain the skill of Fencing!
 00DA E9 61 01                 jmp 0x23e
 00DD B8 07 00                 mov ax, 0x7
 00E0 50                       push ax
@@ -1198,7 +1198,7 @@ Functn48: "FNTNTROL"
 00F8 26 FF 5F 60              call far word [es:bx+0x60]
 00FC 59                       pop cx
 00FD 59                       pop cx
-00FE                          ShowMessage(13C1) = You gain the skill of Intimidation!
+00FE                          ShowMessage(13C1) [es:bx+0xf8] = You gain the skill of Intimidation!
 010B E9 30 01                 jmp 0x23e
 010E B8 02 00                 mov ax, 0x2
 0111 50                       push ax
@@ -1215,7 +1215,7 @@ Functn48: "FNTNTROL"
 0129 26 FF 5F 60              call far word [es:bx+0x60]
 012D 59                       pop cx
 012E 59                       pop cx
-012F                          ShowMessage(13E5) = You gain the Berserker skill!
+012F                          ShowMessage(13E5) [es:bx+0xf8] = You gain the Berserker skill!
 013C E9 FF 00                 jmp 0x23e
 013F B8 0A 00                 mov ax, 0xa
 0142 50                       push ax
@@ -1232,7 +1232,7 @@ Functn48: "FNTNTROL"
 015A 26 FF 5F 60              call far word [es:bx+0x60]
 015E 59                       pop cx
 015F 59                       pop cx
-0160                          ShowMessage(1403) = You gain the skill of Furtiveness!
+0160                          ShowMessage(1403) [es:bx+0xf8] = You gain the skill of Furtiveness!
 016D E9 CE 00                 jmp 0x23e
 0170 B8 0E 00                 mov ax, 0xe
 0173 50                       push ax
@@ -1249,7 +1249,7 @@ Functn48: "FNTNTROL"
 018B 26 FF 5F 60              call far word [es:bx+0x60]
 018F 59                       pop cx
 0190 59                       pop cx
-0191                          ShowMessage(1426) = You gain the skill of Lockpicking!
+0191                          ShowMessage(1426) [es:bx+0xf8] = You gain the skill of Lockpicking!
 019E E9 9D 00                 jmp 0x23e
 01A1 B8 0F 00                 mov ax, 0xf
 01A4 50                       push ax
@@ -1266,7 +1266,7 @@ Functn48: "FNTNTROL"
 01BC 26 FF 5F 60              call far word [es:bx+0x60]
 01C0 59                       pop cx
 01C1 59                       pop cx
-01C2                          ShowMessage(1449) = You gain the Pickpocket skill!
+01C2                          ShowMessage(1449) [es:bx+0xf8] = You gain the Pickpocket skill!
 01CF EB 6D                    jmp 0x23e
 01D1 B8 13 00                 mov ax, 0x13
 01D4 50                       push ax
@@ -1283,7 +1283,7 @@ Functn48: "FNTNTROL"
 01EC 26 FF 5F 60              call far word [es:bx+0x60]
 01F0 59                       pop cx
 01F1 59                       pop cx
-01F2                          ShowMessage(1468) = You gain the Reverie skill!
+01F2                          ShowMessage(1468) [es:bx+0xf8] = You gain the Reverie skill!
 01FF EB 3D                    jmp 0x23e
 0201 B8 17 00                 mov ax, 0x17
 0204 50                       push ax
@@ -1300,9 +1300,9 @@ Functn48: "FNTNTROL"
 021C 26 FF 5F 60              call far word [es:bx+0x60]
 0220 59                       pop cx
 0221 59                       pop cx
-0222                          ShowMessage(1484) = You gain the Deep Trance skill!
+0222                          ShowMessage(1484) [es:bx+0xf8] = You gain the Deep Trance skill!
 022F EB 0D                    jmp 0x23e
-0231                          ShowMessage(14A4) = Nothing happens.
+0231                          ShowMessage(14A4) [es:bx+0xf8] = Nothing happens.
 023E EB 22                    jmp 0x262
 0240 B8 01 00                 mov ax, 0x1
 0243 50                       push ax
@@ -1313,7 +1313,7 @@ Functn48: "FNTNTROL"
 024C C4 5E 06                 les bx, [bp+0x6]
 024F 26 FF 1F                 call far word [es:bx]
 0252 83 C4 06                 add sp, 0x6
-0255                          ShowMessage(14B5) = The waters are refreshing, but not enlightening!
+0255                          ShowMessage(14B5) [es:bx+0xf8] = The waters are refreshing, but not enlightening!
 0262                          RETURN
 
 Functn49: "HELLWIND"
@@ -1322,7 +1322,7 @@ Functn49: "HELLWIND"
 0006 26 FF 9F 80 00           call far word [es:bx+0x80]
 000B 0B C0                    or ax, ax
 000D 75 3E                    jnz 0x4d
-000F                          ShowMessage(14E6) = The full fury of Hell's Wind rips through the corridor, causing considerable damage.
+000F                          ShowMessage(14E6) [es:bx+0xf8] = The full fury of Hell's Wind rips through the corridor, causing considerable damage.
 001C C4 5E 06                 les bx, [bp+0x6]
 001F 26 FF 5F 74              call far word [es:bx+0x74]
 0023 BB 05 00                 mov bx, 0x5
@@ -1336,9 +1336,9 @@ Functn49: "HELLWIND"
 0036 26 FF 5F 70              call far word [es:bx+0x70]
 003A 0B C0                    or ax, ax
 003C 77 0D                    ja 0x4b
-003E                          ShowMessage(153B) = You have died.
+003E                          ShowMessage(153B) [es:bx+0xf8] = You have died.
 004B EB 0D                    jmp 0x5a
-004D                          ShowMessage(154A) = A strengthening, benevolent breeze warms your blood!
+004D                          ShowMessage(154A) [es:bx+0xf8] = A strengthening, benevolent breeze warms your blood!
 005A                          RETURN
 
 03FC: You fall through the abyss and land in the lava below.

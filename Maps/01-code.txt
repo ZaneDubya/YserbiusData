@@ -1,55 +1,55 @@
 Functn01: "TOMINES"
 0000                          BEGIN
-0003                          GoMap(03, FD, 02, 01)
+0003                          GoMap(03, FD, 02, 01) [es:bx+0xbc]
 001E                          RETURN
 
 Functn02: "TOTREAS"
 0000                          BEGIN
-0003                          GoMap(02, 10, 04, 01)
+0003                          GoMap(02, 10, 04, 01) [es:bx+0xbc]
 001E                          RETURN
 
 Functn03: "TOSOLDQU"
 0000                          BEGIN
-0003                          GoMap(01, 0F, 06, 01)
+0003                          GoMap(01, 0F, 06, 01) [es:bx+0xbc]
 001E                          RETURN
 
 Functn04: "EXITDUNG"
 0000                          BEGIN
-0003                          ExitDungeon()
+0003                          ExitDungeon() [es:bx+0xc0]
 000B                          RETURN
 
 Functn05: "DOORMESA"
 0000                          BEGIN
-0003                          ShowMessage(03FC) = The gateway leads to THE MINES.
+0003                          ShowMessage(03FC) [es:bx+0xf8] = The gateway leads to THE MINES.
 0010                          RETURN
 
 Functn06: "DOORMESB"
 0000                          BEGIN
-0003                          ShowMessage(041C) = The gateway leads to THE HALL OF DOORS.
+0003                          ShowMessage(041C) [es:bx+0xf8] = The gateway leads to THE HALL OF DOORS.
 0010                          RETURN
 
 Functn07: "DOORMESC"
 0000                          BEGIN
-0003                          ShowMessage(0444) = The gateway leads to THE SOLDIERS  QUARTERS.
+0003                          ShowMessage(0444) [es:bx+0xf8] = The gateway leads to THE SOLDIERS  QUARTERS.
 0010                          RETURN
 
 Functn08: "DOORMESD"
 0000                          BEGIN
-0003                          ShowMessage(0471) = The gateway is the DUNGEON EXIT.
+0003                          ShowMessage(0471) [es:bx+0xf8] = The gateway is the DUNGEON EXIT.
 0010                          ax = CheckState2(02, 6A) ? 1 : 0 [es:bx+0x8]
 0023 74 1A                    jz 0x3f
-0025                          ShowMessage(0492) = Hail, conquering HERO OF YSERBIUS!
-0032                          ShowMessage(04B5) = All of Twinion bows to your prominence!!
+0025                          ShowMessage(0492) [es:bx+0xf8] = Hail, conquering HERO OF YSERBIUS!
+0032                          ShowMessage(04B5) [es:bx+0xf8] = All of Twinion bows to your prominence!!
 003F                          RETURN
 
 Functn09: "TELEPORT"
 0000                          BEGIN
-0003                          GoMap(00, 5D, 01, 33)
+0003                          GoMap(00, 5D, 01, 33) [es:bx+0xbc]
 001D                          RETURN
 
 Functn0A: "TELEMESS"
 0000                          BEGIN
-0003                          ShowMessage(04DE) = There is a teleport in the west wall.
+0003                          ShowMessage(04DE) [es:bx+0xf8] = There is a teleport in the west wall.
 0010                          RETURN
 
 Functn0B: "DOORMESS"
@@ -60,7 +60,7 @@ Functn0B: "DOORMESS"
 0016                          ax = CheckState(02, 78) [es:bx+0x4]
 0027 3D 01 00                 cmp ax, 0x1
 002A 75 2E                    jnz 0x5a
-002C                          ShowMessage(0504) = This room contains the gateway to the Labyrinth.
+002C                          ShowMessage(0504) [es:bx+0xf8] = This room contains the gateway to the Labyrinth.
 0039 B8 01 00                 mov ax, 0x1
 003C 50                       push ax
 003D C4 5E 06                 les bx, [bp+0x6]
@@ -76,8 +76,8 @@ Functn0B: "DOORMESS"
 005A                          ax = HasItem(FB) ? 1 : 0 [es:bx+0x50]
 0068 75 03                    jnz 0x6d
 006A E9 A3 00                 jmp 0x110
-006D                          ShowMessage(0535) = The Thieves' Key unlocks this door!
-007A                          ShowMessage(0559) = This room contains the gateway to the Labyrinth.
+006D                          ShowMessage(0535) [es:bx+0xf8] = The Thieves' Key unlocks this door!
+007A                          ShowMessage(0559) [es:bx+0xf8] = This room contains the gateway to the Labyrinth.
 0087 B8 01 00                 mov ax, 0x1
 008A 50                       push ax
 008B B8 78 00                 mov ax, 0x78
@@ -134,10 +134,10 @@ Functn0B: "DOORMESS"
 0107 26 FF 5F 2C              call far word [es:bx+0x2c]
 010B 83 C4 06                 add sp, 0x6
 010E EB 0D                    jmp 0x11d
-0110                          ShowMessage(058A) = The Thieves' Key is needed to unlock this door.
+0110                          ShowMessage(058A) [es:bx+0xf8] = The Thieves' Key is needed to unlock this door.
 011D EB 37                    jmp 0x156
-011F                          ShowMessage(05BA) = The Thieves' Key is needed to unlock this door.
-012C                          ShowMessage(05EA) = Only heroes of the twentieth level or higher may venture beyond this door.
+011F                          ShowMessage(05BA) [es:bx+0xf8] = The Thieves' Key is needed to unlock this door.
+012C                          ShowMessage(05EA) [es:bx+0xf8] = Only heroes of the twentieth level or higher may venture beyond this door.
 0139 33 C0                    xor ax, ax
 013B 50                       push ax
 013C C4 5E 06                 les bx, [bp+0x6]
@@ -155,10 +155,10 @@ Functn0C: "PRTYPORT"
 0000                          BEGIN
 0003                          ax = CheckLevel(0014) ? 1 : 0 [es:bx+0x44]
 0011 74 0F                    jz 0x22
-0013                          ShowMessage(0635) = Good Journeys, brave hero.
+0013                          ShowMessage(0635) [es:bx+0xf8] = Good Journeys, brave hero.
 0020 EB 27                    jmp 0x49
-0022                          ShowMessage(0650) = Only heroes of the twentieth level or higher may venture beyond this door.
-002F                          GoMap(00, 02, 01, 01)
+0022                          ShowMessage(0650) [es:bx+0xf8] = Only heroes of the twentieth level or higher may venture beyond this door.
+002F                          GoMap(00, 02, 01, 01) [es:bx+0xbc]
 0049                          RETURN
 
 Functn0D: "NOJOIN"

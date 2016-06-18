@@ -1,6 +1,6 @@
 Functn01: "PIT"
 0000                          BEGIN
-0003                          ShowMessage(03FC) = You step into a bottomless pit and die.
+0003                          ShowMessage(03FC) [es:bx+0xf8] = You step into a bottomless pit and die.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -11,12 +11,12 @@ Functn01: "PIT"
 
 Functn02: "ENCGUARD"
 0000                          BEGIN
-0003                          ShowMessage(0424) = Guardians stand ready.  'We are sworn to defend Arnakkian.'
-0010                          SetEncData(27, 01)
-0022                          SetEncData(27, 02)
-0034                          SetEncData(27, 03)
-0046                          SetEncData(27, 04)
-0058                          SetEncData(27, 05)
+0003                          ShowMessage(0424) [es:bx+0xf8] = Guardians stand ready.  'We are sworn to defend Arnakkian.'
+0010                          SetEncData(27, 01) [es:bx+0xd4]
+0022                          SetEncData(27, 02) [es:bx+0xd4]
+0034                          SetEncData(27, 03) [es:bx+0xd4]
+0046                          SetEncData(27, 04) [es:bx+0xd4]
+0058                          SetEncData(27, 05) [es:bx+0xd4]
 006A                          ax = CheckState(02, 88) [es:bx+0x4]
 007B 0B C0                    or ax, ax
 007D 75 27                    jnz 0xa6
@@ -45,13 +45,13 @@ Functn03: "ENCEARTH"
 0014 0B C0                    or ax, ax
 0016 74 03                    jz 0x1b
 0018 E9 08 01                 jmp 0x123
-001B                          ShowMessage(0460) = Earth Elemental Andreas rises from his mountainous perch.
-0028                          SetEncData(04, 01)
-003A                          SetEncData(04, 02)
-004C                          SetEncData(22, 03)
-005E                          SetEncData(0F, 04)
-0070                          SetEncData(23, 05)
-0082                          SetEncData(28, 06)
+001B                          ShowMessage(0460) [es:bx+0xf8] = Earth Elemental Andreas rises from his mountainous perch.
+0028                          SetEncData(04, 01) [es:bx+0xd4]
+003A                          SetEncData(04, 02) [es:bx+0xd4]
+004C                          SetEncData(22, 03) [es:bx+0xd4]
+005E                          SetEncData(0F, 04) [es:bx+0xd4]
+0070                          SetEncData(23, 05) [es:bx+0xd4]
+0082                          SetEncData(28, 06) [es:bx+0xd4]
 0094                          ax = HasItem(E9) ? 1 : 0 [es:bx+0x50]
 00A2 74 22                    jz 0xc6
 00A4 33 C0                    xor ax, ax
@@ -109,7 +109,7 @@ Functn03: "ENCEARTH"
 
 Functn04: "GUARDIAN"
 0000                          BEGIN
-0003                          ShowMessage(049A) = Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
+0003                          ShowMessage(049A) [es:bx+0xf8] = Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
 0010                          RETURN
 
 Functn05: "EARTHELE"
@@ -117,23 +117,23 @@ Functn05: "EARTHELE"
 0003                          ax = CheckState(01, 01) [es:bx+0x4]
 0014 0B C0                    or ax, ax
 0016 75 0D                    jnz 0x25
-0018                          ShowMessage(04EA) = The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
+0018                          ShowMessage(04EA) [es:bx+0xf8] = The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
 0025                          RETURN
 
 Functn06: "PLATA"
 0000                          BEGIN
-0003                          ShowMessage(0555) = The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
-0010                          ShowMessage(05B8) = A voice whispers 'Only true friendship can bridge the gap of time.'
+0003                          ShowMessage(0555) [es:bx+0xf8] = The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
+0010                          ShowMessage(05B8) [es:bx+0xf8] = A voice whispers 'Only true friendship can bridge the gap of time.'
 001D                          RETURN
 
 Functn07: "PLATB"
 0000                          BEGIN
-0003                          ShowMessage(05FC) = Quiet solitude fills the chasm.  You are on the other side.
+0003                          ShowMessage(05FC) [es:bx+0xf8] = Quiet solitude fills the chasm.  You are on the other side.
 0010                          RETURN
 
 Functn08: "YBOXA"
 0000                          BEGIN
-0003                          ShowMessage(0638) = The wall glows.
+0003                          ShowMessage(0638) [es:bx+0xf8] = The wall glows.
 0010 B8 01 00                 mov ax, 0x1
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -147,7 +147,7 @@ Functn08: "YBOXA"
 
 Functn09: "YBOXB"
 0000                          BEGIN
-0003                          ShowMessage(0648) = The wall glows.
+0003                          ShowMessage(0648) [es:bx+0xf8] = The wall glows.
 0010 B8 02 00                 mov ax, 0x2
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -161,7 +161,7 @@ Functn09: "YBOXB"
 
 Functn0A: "YBOXC"
 0000                          BEGIN
-0003                          ShowMessage(0658) = The wall glows.
+0003                          ShowMessage(0658) [es:bx+0xf8] = The wall glows.
 0010 B8 03 00                 mov ax, 0x3
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -175,7 +175,7 @@ Functn0A: "YBOXC"
 
 Functn0B: "YBOXD"
 0000                          BEGIN
-0003                          ShowMessage(0668) = The wall glows.
+0003                          ShowMessage(0668) [es:bx+0xf8] = The wall glows.
 0010 B8 04 00                 mov ax, 0x4
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -189,7 +189,7 @@ Functn0B: "YBOXD"
 
 Functn0C: "YBOXE"
 0000                          BEGIN
-0003                          ShowMessage(0678) = The wall glows.
+0003                          ShowMessage(0678) [es:bx+0xf8] = The wall glows.
 0010 B8 05 00                 mov ax, 0x5
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -203,7 +203,7 @@ Functn0C: "YBOXE"
 
 Functn0D: "YBOXF"
 0000                          BEGIN
-0003                          ShowMessage(0688) = The wall glows.
+0003                          ShowMessage(0688) [es:bx+0xf8] = The wall glows.
 0010 B8 06 00                 mov ax, 0x6
 0013 50                       push ax
 0014 B8 02 00                 mov ax, 0x2
@@ -217,7 +217,7 @@ Functn0D: "YBOXF"
 
 Functn0E: "XBOXG"
 0000                          BEGIN
-0003                          ShowMessage(0698) = The wall glows.
+0003                          ShowMessage(0698) [es:bx+0xf8] = The wall glows.
 0010 B8 01 00                 mov ax, 0x1
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -231,7 +231,7 @@ Functn0E: "XBOXG"
 
 Functn0F: "XBOXH"
 0000                          BEGIN
-0003                          ShowMessage(06A8) = The wall glows.
+0003                          ShowMessage(06A8) [es:bx+0xf8] = The wall glows.
 0010 B8 02 00                 mov ax, 0x2
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -245,7 +245,7 @@ Functn0F: "XBOXH"
 
 Functn10: "XBOXI"
 0000                          BEGIN
-0003                          ShowMessage(06B8) = The wall glows.
+0003                          ShowMessage(06B8) [es:bx+0xf8] = The wall glows.
 0010 B8 03 00                 mov ax, 0x3
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -259,7 +259,7 @@ Functn10: "XBOXI"
 
 Functn11: "XBOXJ"
 0000                          BEGIN
-0003                          ShowMessage(06C8) = The wall glows.
+0003                          ShowMessage(06C8) [es:bx+0xf8] = The wall glows.
 0010 B8 04 00                 mov ax, 0x4
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -273,7 +273,7 @@ Functn11: "XBOXJ"
 
 Functn12: "XBOXK"
 0000                          BEGIN
-0003                          ShowMessage(06D8) = The wall glows.
+0003                          ShowMessage(06D8) [es:bx+0xf8] = The wall glows.
 0010 B8 05 00                 mov ax, 0x5
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -287,7 +287,7 @@ Functn12: "XBOXK"
 
 Functn13: "XBOXL"
 0000                          BEGIN
-0003                          ShowMessage(06E8) = The wall glows.
+0003                          ShowMessage(06E8) [es:bx+0xf8] = The wall glows.
 0010 B8 06 00                 mov ax, 0x6
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -301,7 +301,7 @@ Functn13: "XBOXL"
 
 Functn14: "XBOXM"
 0000                          BEGIN
-0003                          ShowMessage(06F8) = The wall glows.
+0003                          ShowMessage(06F8) [es:bx+0xf8] = The wall glows.
 0010 B8 07 00                 mov ax, 0x7
 0013 50                       push ax
 0014 B8 03 00                 mov ax, 0x3
@@ -321,9 +321,9 @@ Functn15: "PITAJ"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 04 00                 cmp ax, 0x4
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0708) = Your decision on where to step next saves you.
+002F                          ShowMessage(0708) [es:bx+0xf8] = Your decision on where to step next saves you.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0737) = You step over the edge and into oblivion.
+003E                          ShowMessage(0737) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -340,9 +340,9 @@ Functn16: "PITAK"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0761) = You selected your next move wisely.
+002F                          ShowMessage(0761) [es:bx+0xf8] = You selected your next move wisely.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0785) = You step over the edge and into oblivion.
+003E                          ShowMessage(0785) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -359,9 +359,9 @@ Functn17: "PITAL"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 06 00                 cmp ax, 0x6
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(07AF) = Your next step is a safe one.
+002F                          ShowMessage(07AF) [es:bx+0xf8] = Your next step is a safe one.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(07CD) = You step over the edge and into oblivion.
+003E                          ShowMessage(07CD) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -378,9 +378,9 @@ Functn18: "PITAM"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 07 00                 cmp ax, 0x7
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(07F7) = The step you take is wisely chosen.
+002F                          ShowMessage(07F7) [es:bx+0xf8] = The step you take is wisely chosen.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(081B) = You step over the edge and into oblivion.
+003E                          ShowMessage(081B) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -397,9 +397,9 @@ Functn19: "PITBG"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 01 00                 cmp ax, 0x1
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0845) = You take one good step forward.
+002F                          ShowMessage(0845) [es:bx+0xf8] = You take one good step forward.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0865) = You step over the edge and into oblivion.
+003E                          ShowMessage(0865) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -416,9 +416,9 @@ Functn1A: "PITBI"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 03 00                 cmp ax, 0x3
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(088F) = You safely step forward.
+002F                          ShowMessage(088F) [es:bx+0xf8] = You safely step forward.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(08A8) = You step over the edge and into oblivion.
+003E                          ShowMessage(08A8) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -435,9 +435,9 @@ Functn1B: "PITBJ"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 04 00                 cmp ax, 0x4
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(08D2) = You take a step in the right direction,
+002F                          ShowMessage(08D2) [es:bx+0xf8] = You take a step in the right direction,
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(08FA) = You step over the edge and into oblivion.
+003E                          ShowMessage(08FA) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -454,9 +454,9 @@ Functn1C: "PITBK"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0924) = Your move is wise.
+002F                          ShowMessage(0924) [es:bx+0xf8] = Your move is wise.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0937) = You step over the edge and into oblivion.
+003E                          ShowMessage(0937) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -473,9 +473,9 @@ Functn1D: "PITBL"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 06 00                 cmp ax, 0x6
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0961) = You select your next move wisely.
+002F                          ShowMessage(0961) [es:bx+0xf8] = You select your next move wisely.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0983) = You step over the edge and into oblivion.
+003E                          ShowMessage(0983) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -492,9 +492,9 @@ Functn1E: "PITBM"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 07 00                 cmp ax, 0x7
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(09AD) = You move forward with confidence.
+002F                          ShowMessage(09AD) [es:bx+0xf8] = You move forward with confidence.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(09CF) = You step over the edge and into oblivion.
+003E                          ShowMessage(09CF) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -511,9 +511,9 @@ Functn1F: "PITCG"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 01 00                 cmp ax, 0x1
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(09F9) = Your next step is a good one.
+002F                          ShowMessage(09F9) [es:bx+0xf8] = Your next step is a good one.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0A17) = You step over the edge and into oblivion.
+003E                          ShowMessage(0A17) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -530,9 +530,9 @@ Functn20: "PITCH"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 02 00                 cmp ax, 0x2
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0A41) = You move ahead assuredly.
+002F                          ShowMessage(0A41) [es:bx+0xf8] = You move ahead assuredly.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0A5B) = You step over the edge and into oblivion.
+003E                          ShowMessage(0A5B) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -549,9 +549,9 @@ Functn21: "PITCI"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 03 00                 cmp ax, 0x3
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0A85) = You choose your next step correctly.
+002F                          ShowMessage(0A85) [es:bx+0xf8] = You choose your next step correctly.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0AAA) = You step over the edge and into oblivion.
+003E                          ShowMessage(0AAA) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -568,9 +568,9 @@ Functn22: "PITCJ"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 04 00                 cmp ax, 0x4
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0AD4) = Your choice of movement saves you.
+002F                          ShowMessage(0AD4) [es:bx+0xf8] = Your choice of movement saves you.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0AF7) = You step over the edge and into oblivion.
+003E                          ShowMessage(0AF7) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -587,9 +587,9 @@ Functn23: "PITCK"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0B21) = You step in the right direction.
+002F                          ShowMessage(0B21) [es:bx+0xf8] = You step in the right direction.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0B42) = You step over the edge and into oblivion.
+003E                          ShowMessage(0B42) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -606,9 +606,9 @@ Functn24: "PITCL"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 06 00                 cmp ax, 0x6
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0B6C) = You select your next step wisely.
+002F                          ShowMessage(0B6C) [es:bx+0xf8] = You select your next step wisely.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0B8E) = You step over the edge and into oblivion.
+003E                          ShowMessage(0B8E) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -625,9 +625,9 @@ Functn25: "PITCM"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 07 00                 cmp ax, 0x7
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0BB8) = Your next step is sagely chosen.
+002F                          ShowMessage(0BB8) [es:bx+0xf8] = Your next step is sagely chosen.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0BD9) = You step over the edge and into oblivion.
+003E                          ShowMessage(0BD9) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -644,9 +644,9 @@ Functn26: "PITDG"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 01 00                 cmp ax, 0x1
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0C03) = You take a wise step forward.
+002F                          ShowMessage(0C03) [es:bx+0xf8] = You take a wise step forward.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0C21) = You step over the edge and into oblivion.
+003E                          ShowMessage(0C21) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -663,9 +663,9 @@ Functn27: "PITDH"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 02 00                 cmp ax, 0x2
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0C4B) = You move forward wisely.
+002F                          ShowMessage(0C4B) [es:bx+0xf8] = You move forward wisely.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0C64) = You step over the edge and into oblivion.
+003E                          ShowMessage(0C64) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -682,9 +682,9 @@ Functn28: "PITDI"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 03 00                 cmp ax, 0x3
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0C8E) = Your next step is wisely decided.
+002F                          ShowMessage(0C8E) [es:bx+0xf8] = Your next step is wisely decided.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0CB0) = You step over the edge and into oblivion.
+003E                          ShowMessage(0CB0) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -701,9 +701,9 @@ Functn29: "PITDJ"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 04 00                 cmp ax, 0x4
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0CDA) = You step ahead with confidence.
+002F                          ShowMessage(0CDA) [es:bx+0xf8] = You step ahead with confidence.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0CFA) = You step over the edge and into oblivion.
+003E                          ShowMessage(0CFA) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -720,9 +720,9 @@ Functn2A: "PITDK"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0D24) = You move forward carefully.
+002F                          ShowMessage(0D24) [es:bx+0xf8] = You move forward carefully.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0D40) = You step over the edge and into oblivion.
+003E                          ShowMessage(0D40) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -739,9 +739,9 @@ Functn2B: "PITDL"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 06 00                 cmp ax, 0x6
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0D6A) = You move ahead.
+002F                          ShowMessage(0D6A) [es:bx+0xf8] = You move ahead.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0D7A) = You step over the edge and into oblivion.
+003E                          ShowMessage(0D7A) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -758,9 +758,9 @@ Functn2C: "PITDM"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 07 00                 cmp ax, 0x7
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0DA4) = Your step is wisely selected.
+002F                          ShowMessage(0DA4) [es:bx+0xf8] = Your step is wisely selected.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0DC2) = You step over the edge and into oblivion.
+003E                          ShowMessage(0DC2) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -777,9 +777,9 @@ Functn2D: "PITEG"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 01 00                 cmp ax, 0x1
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0DEC) = You forge ahead.
+002F                          ShowMessage(0DEC) [es:bx+0xf8] = You forge ahead.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0DFD) = You step over the edge and into oblivion.
+003E                          ShowMessage(0DFD) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -796,9 +796,9 @@ Functn2E: "PITEH"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 02 00                 cmp ax, 0x2
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0E27) = You select your next move wisely.
+002F                          ShowMessage(0E27) [es:bx+0xf8] = You select your next move wisely.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0E49) = You step over the edge and into oblivion.
+003E                          ShowMessage(0E49) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -815,9 +815,9 @@ Functn2F: "PITEI"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 03 00                 cmp ax, 0x3
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0E73) = Good sense guides your feet.
+002F                          ShowMessage(0E73) [es:bx+0xf8] = Good sense guides your feet.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0E90) = You step over the edge and into oblivion.
+003E                          ShowMessage(0E90) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -834,9 +834,9 @@ Functn30: "PITEJ"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 04 00                 cmp ax, 0x4
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0EBA) = You walk ahead.
+002F                          ShowMessage(0EBA) [es:bx+0xf8] = You walk ahead.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0ECA) = You step over the edge and into oblivion.
+003E                          ShowMessage(0ECA) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -853,9 +853,9 @@ Functn31: "PITEK"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0EF4) = Your next step is assuredly taken.
+002F                          ShowMessage(0EF4) [es:bx+0xf8] = Your next step is assuredly taken.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0F17) = You step over the edge and into oblivion.
+003E                          ShowMessage(0F17) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -872,9 +872,9 @@ Functn32: "PITFG"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 01 00                 cmp ax, 0x1
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0F41) = The next step is an intelligent one.
+002F                          ShowMessage(0F41) [es:bx+0xf8] = The next step is an intelligent one.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0F66) = You step over the edge and into oblivion.
+003E                          ShowMessage(0F66) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -891,9 +891,9 @@ Functn33: "PITFH"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 02 00                 cmp ax, 0x2
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0F90) = You move safely ahead.
+002F                          ShowMessage(0F90) [es:bx+0xf8] = You move safely ahead.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0FA7) = You step over the edge and into oblivion.
+003E                          ShowMessage(0FA7) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -910,9 +910,9 @@ Functn34: "PITFI"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 03 00                 cmp ax, 0x3
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(0FD1) = Your movement decision was correct.
+002F                          ShowMessage(0FD1) [es:bx+0xf8] = Your movement decision was correct.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(0FF5) = You step over the edge and into oblivion.
+003E                          ShowMessage(0FF5) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -929,9 +929,9 @@ Functn35: "PITFJ"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 04 00                 cmp ax, 0x4
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(101F) = You move forward with confidence.
+002F                          ShowMessage(101F) [es:bx+0xf8] = You move forward with confidence.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(1041) = You step over the edge and into oblivion.
+003E                          ShowMessage(1041) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -948,9 +948,9 @@ Functn36: "PITFK"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(106B) = You carefully selected your next step.
+002F                          ShowMessage(106B) [es:bx+0xf8] = You carefully selected your next step.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(1092) = You step over the edge and into oblivion.
+003E                          ShowMessage(1092) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -967,9 +967,9 @@ Functn37: "PITFL"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 06 00                 cmp ax, 0x6
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(10BC) = You make a sage choice.
+002F                          ShowMessage(10BC) [es:bx+0xf8] = You make a sage choice.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(10D4) = You step over the edge and into oblivion.
+003E                          ShowMessage(10D4) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -986,9 +986,9 @@ Functn38: "PITFM"
 0019                          ax = CheckState(01, 03) [es:bx+0x4]
 002A 3D 07 00                 cmp ax, 0x7
 002D 75 0F                    jnz 0x3e
-002F                          ShowMessage(10FE) = You have made a wise decision.
+002F                          ShowMessage(10FE) [es:bx+0xf8] = You have made a wise decision.
 003C EB 1E                    jmp 0x5c
-003E                          ShowMessage(111D) = You step over the edge and into oblivion.
+003E                          ShowMessage(111D) [es:bx+0xf8] = You step over the edge and into oblivion.
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 74              call far word [es:bx+0x74]
 0052 50                       push ax
@@ -999,38 +999,38 @@ Functn38: "PITFM"
 
 Functn39: "ENCPITBJ"
 0000                          BEGIN
-0003                          SetEncData(19, 01)
-0015                          SetEncData(1A, 02)
-0027                          SetEncData(1A, 03)
-0039                          SetEncData(1B, 04)
-004B                          SetEncData(1C, 05)
+0003                          SetEncData(19, 01) [es:bx+0xd4]
+0015                          SetEncData(1A, 02) [es:bx+0xd4]
+0027                          SetEncData(1A, 03) [es:bx+0xd4]
+0039                          SetEncData(1B, 04) [es:bx+0xd4]
+004B                          SetEncData(1C, 05) [es:bx+0xd4]
 005D                          RETURN
 
 Functn3A: "ENCPITDI"
 0000                          BEGIN
-0003                          SetEncData(1F, 01)
-0015                          SetEncData(1F, 02)
-0027                          SetEncData(20, 03)
-0039                          SetEncData(20, 04)
+0003                          SetEncData(1F, 01) [es:bx+0xd4]
+0015                          SetEncData(1F, 02) [es:bx+0xd4]
+0027                          SetEncData(20, 03) [es:bx+0xd4]
+0039                          SetEncData(20, 04) [es:bx+0xd4]
 004B                          RETURN
 
 Functn3B: "PITENCDK"
 0000                          BEGIN
-0003                          SetEncData(1B, 01)
-0015                          SetEncData(1B, 02)
-0027                          SetEncData(19, 03)
-0039                          SetEncData(19, 04)
-004B                          SetEncData(1B, 05)
-005D                          SetEncData(1B, 06)
+0003                          SetEncData(1B, 01) [es:bx+0xd4]
+0015                          SetEncData(1B, 02) [es:bx+0xd4]
+0027                          SetEncData(19, 03) [es:bx+0xd4]
+0039                          SetEncData(19, 04) [es:bx+0xd4]
+004B                          SetEncData(1B, 05) [es:bx+0xd4]
+005D                          SetEncData(1B, 06) [es:bx+0xd4]
 006F                          RETURN
 
 Functn3C: "PITENCBL"
 0000                          BEGIN
-0003                          SetEncData(24, 01)
-0015                          SetEncData(24, 02)
-0027                          SetEncData(24, 03)
-0039                          SetEncData(25, 04)
-004B                          SetEncData(26, 05)
+0003                          SetEncData(24, 01) [es:bx+0xd4]
+0015                          SetEncData(24, 02) [es:bx+0xd4]
+0027                          SetEncData(24, 03) [es:bx+0xd4]
+0039                          SetEncData(25, 04) [es:bx+0xd4]
+004B                          SetEncData(26, 05) [es:bx+0xd4]
 005D                          RETURN
 
 Functn3D: "DOORARNK"
@@ -1058,15 +1058,15 @@ Functn3D: "DOORARNK"
 0042 C4 5E 06                 les bx, [bp+0x6]
 0045 26 FF 5F 30              call far word [es:bx+0x30]
 0049 83 C4 06                 add sp, 0x6
-004C                          ShowMessage(1147) = Andreas no longer defends this door.
+004C                          ShowMessage(1147) [es:bx+0xf8] = Andreas no longer defends this door.
 0059 EB 0D                    jmp 0x68
-005B                          ShowMessage(116C) = The Earth Elemental holds power over this door.
+005B                          ShowMessage(116C) [es:bx+0xf8] = The Earth Elemental holds power over this door.
 0068                          RETURN
 
 Functn3E: "TELEARNK"
 0000                          BEGIN
-0003                          ShowMessage(119C) = A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
-0010                          GoMap(03, 76, 02, 34)
+0003                          ShowMessage(119C) [es:bx+0xf8] = A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
+0010                          GoMap(03, 76, 02, 34) [es:bx+0xbc]
 002B                          RETURN
 
 Functn3F: "SETEKILL"

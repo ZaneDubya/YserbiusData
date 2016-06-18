@@ -1,6 +1,6 @@
 Functn01: "STRSTELE"
 0000                          BEGIN
-0003                          GoMap(03, C2, 01, 03)
+0003                          GoMap(03, C2, 01, 03) [es:bx+0xbc]
 001E                          RETURN
 
 Functn02: "KEYDOOR"
@@ -37,7 +37,7 @@ Functn02: "KEYDOOR"
 004A C4 5E 06                 les bx, [bp+0x6]
 004D 26 FF 5F 30              call far word [es:bx+0x30]
 0051 83 C4 06                 add sp, 0x6
-0054                          ShowMessage(03FC) = The O Rune Key unlocked the door.
+0054                          ShowMessage(03FC) [es:bx+0xf8] = The O Rune Key unlocked the door.
 0061 EB 2A                    jmp 0x8d
 0063 33 C0                    xor ax, ax
 0065 50                       push ax
@@ -50,7 +50,7 @@ Functn02: "KEYDOOR"
 0076 C4 5E 06                 les bx, [bp+0x6]
 0079 26 FF 5F 2C              call far word [es:bx+0x2c]
 007D 83 C4 06                 add sp, 0x6
-0080                          ShowMessage(041E) = The door is locked. It requires a special key.
+0080                          ShowMessage(041E) [es:bx+0xf8] = The door is locked. It requires a special key.
 008D                          RETURN
 
 Functn03: "GOLDAENC"
@@ -58,7 +58,7 @@ Functn03: "GOLDAENC"
 0003                          ax = CheckState(02, 18) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(044D) = Skeletons on the floor stir to life.
+0019                          ShowMessage(044D) [es:bx+0xf8] = Skeletons on the floor stir to life.
 0026 B8 E8 03                 mov ax, 0x3e8
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -99,12 +99,12 @@ Functn03: "GOLDAENC"
 0072 C4 5E 06                 les bx, [bp+0x6]
 0075 26 FF 1F                 call far word [es:bx]
 0078 83 C4 06                 add sp, 0x6
-007B                          ShowMessage(0472) = Among the bones on the floor are pieces of gold. The bones begin to move.
+007B                          ShowMessage(0472) [es:bx+0xf8] = Among the bones on the floor are pieces of gold. The bones begin to move.
 0088 C4 5E 06                 les bx, [bp+0x6]
 008B 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0090 3D 01 00                 cmp ax, 0x1
 0093 75 15                    jnz 0xaa
-0095                          SetEncData(01, 01)
+0095                          SetEncData(01, 01) [es:bx+0xd4]
 00A7 E9 9A 00                 jmp 0x144
 00AA C4 5E 06                 les bx, [bp+0x6]
 00AD 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -114,21 +114,21 @@ Functn03: "GOLDAENC"
 00BA 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00BF 3D 03 00                 cmp ax, 0x3
 00C2 75 38                    jnz 0xfc
-00C4                          SetEncData(02, 01)
-00D6                          SetEncData(04, 02)
-00E8                          SetEncData(06, 03)
+00C4                          SetEncData(02, 01) [es:bx+0xd4]
+00D6                          SetEncData(04, 02) [es:bx+0xd4]
+00E8                          SetEncData(06, 03) [es:bx+0xd4]
 00FA EB 48                    jmp 0x144
-00FC                          SetEncData(01, 01)
-010E                          SetEncData(02, 02)
-0120                          SetEncData(03, 03)
-0132                          SetEncData(04, 04)
+00FC                          SetEncData(01, 01) [es:bx+0xd4]
+010E                          SetEncData(02, 02) [es:bx+0xd4]
+0120                          SetEncData(03, 03) [es:bx+0xd4]
+0132                          SetEncData(04, 04) [es:bx+0xd4]
 0144                          RETURN
 
 Functn04: "GOLDBENC"
 0000                          BEGIN
 0003                          ax = HasItem(C6) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(04BC) = A clutch of Large-Uns growl at you.
+0013                          ShowMessage(04BC) [es:bx+0xf8] = A clutch of Large-Uns growl at you.
 0020 B8 D0 07                 mov ax, 0x7d0
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -160,43 +160,43 @@ Functn04: "GOLDBENC"
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005D 83 C4 0C                 add sp, 0xc
-0060                          ShowMessage(04E0) = A Large-Un tosses a piece of wood aside as he and his friends attack.
+0060                          ShowMessage(04E0) [es:bx+0xf8] = A Large-Un tosses a piece of wood aside as he and his friends attack.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0075 3D 01 00                 cmp ax, 0x1
 0078 75 27                    jnz 0xa1
-007A                          SetEncData(19, 01)
-008C                          SetEncData(1A, 02)
+007A                          SetEncData(19, 01) [es:bx+0xd4]
+008C                          SetEncData(1A, 02) [es:bx+0xd4]
 009E E9 F7 00                 jmp 0x198
 00A1 C4 5E 06                 les bx, [bp+0x6]
 00A4 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00A9 3D 02 00                 cmp ax, 0x2
 00AC 75 39                    jnz 0xe7
-00AE                          SetEncData(19, 01)
-00C0                          SetEncData(1A, 02)
-00D2                          SetEncData(19, 03)
+00AE                          SetEncData(19, 01) [es:bx+0xd4]
+00C0                          SetEncData(1A, 02) [es:bx+0xd4]
+00D2                          SetEncData(19, 03) [es:bx+0xd4]
 00E4 E9 B1 00                 jmp 0x198
 00E7 C4 5E 06                 les bx, [bp+0x6]
 00EA 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00EF 3D 03 00                 cmp ax, 0x3
 00F2 75 4A                    jnz 0x13e
-00F4                          SetEncData(1A, 01)
-0106                          SetEncData(1A, 02)
-0118                          SetEncData(1B, 03)
-012A                          SetEncData(1B, 04)
+00F4                          SetEncData(1A, 01) [es:bx+0xd4]
+0106                          SetEncData(1A, 02) [es:bx+0xd4]
+0118                          SetEncData(1B, 03) [es:bx+0xd4]
+012A                          SetEncData(1B, 04) [es:bx+0xd4]
 013C EB 5A                    jmp 0x198
-013E                          SetEncData(1B, 01)
-0150                          SetEncData(1B, 02)
-0162                          SetEncData(1B, 03)
-0174                          SetEncData(1B, 04)
-0186                          SetEncData(1C, 05)
+013E                          SetEncData(1B, 01) [es:bx+0xd4]
+0150                          SetEncData(1B, 02) [es:bx+0xd4]
+0162                          SetEncData(1B, 03) [es:bx+0xd4]
+0174                          SetEncData(1B, 04) [es:bx+0xd4]
+0186                          SetEncData(1C, 05) [es:bx+0xd4]
 0198                          RETURN
 
 Functn05: "CROWN"
 0000                          BEGIN
 0003                          ax = HasItem(69) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(0526) = You have interrupted a Lizardite religious service.
+0013                          ShowMessage(0526) [es:bx+0xf8] = You have interrupted a Lizardite religious service.
 0020 B8 F4 01                 mov ax, 0x1f4
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -233,14 +233,14 @@ Functn05: "CROWN"
 0065 C4 5E 06                 les bx, [bp+0x6]
 0068 26 FF 5F 4C              call far word [es:bx+0x4c]
 006C 59                       pop cx
-006D                          ShowMessage(055A) = As you enter the room, the O Rune Key vanishes.
-007A                          ShowMessage(058A) = You see a Lizardite proudly wearing the Crown of King Cleowyn.
+006D                          ShowMessage(055A) [es:bx+0xf8] = As you enter the room, the O Rune Key vanishes.
+007A                          ShowMessage(058A) [es:bx+0xf8] = You see a Lizardite proudly wearing the Crown of King Cleowyn.
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 9F F0 00           call far word [es:bx+0xf0]
 008F 3D 01 00                 cmp ax, 0x1
 0092 75 27                    jnz 0xbb
-0094                          SetEncData(21, 01)
-00A6                          SetEncData(21, 02)
+0094                          SetEncData(21, 01) [es:bx+0xd4]
+00A6                          SetEncData(21, 02) [es:bx+0xd4]
 00B8 E9 D0 00                 jmp 0x18b
 00BB C4 5E 06                 les bx, [bp+0x6]
 00BE 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -250,24 +250,24 @@ Functn05: "CROWN"
 00CB 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00D0 3D 03 00                 cmp ax, 0x3
 00D3 75 4A                    jnz 0x11f
-00D5                          SetEncData(21, 01)
-00E7                          SetEncData(21, 02)
-00F9                          SetEncData(21, 03)
-010B                          SetEncData(21, 05)
+00D5                          SetEncData(21, 01) [es:bx+0xd4]
+00E7                          SetEncData(21, 02) [es:bx+0xd4]
+00F9                          SetEncData(21, 03) [es:bx+0xd4]
+010B                          SetEncData(21, 05) [es:bx+0xd4]
 011D EB 6C                    jmp 0x18b
-011F                          SetEncData(21, 01)
-0131                          SetEncData(21, 02)
-0143                          SetEncData(21, 03)
-0155                          SetEncData(21, 04)
-0167                          SetEncData(21, 05)
-0179                          SetEncData(21, 06)
+011F                          SetEncData(21, 01) [es:bx+0xd4]
+0131                          SetEncData(21, 02) [es:bx+0xd4]
+0143                          SetEncData(21, 03) [es:bx+0xd4]
+0155                          SetEncData(21, 04) [es:bx+0xd4]
+0167                          SetEncData(21, 05) [es:bx+0xd4]
+0179                          SetEncData(21, 06) [es:bx+0xd4]
 018B                          RETURN
 
 Functn06: "ITEMBENC"
 0000                          BEGIN
 0003                          ax = HasItem(BB) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(05C9) = You run into the living skeletons of King Cleowyn's guards.
+0013                          ShowMessage(05C9) [es:bx+0xf8] = You run into the living skeletons of King Cleowyn's guards.
 0020 B8 20 03                 mov ax, 0x320
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -299,12 +299,12 @@ Functn06: "ITEMBENC"
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005D 83 C4 0C                 add sp, 0xc
-0060                          ShowMessage(0605) = One of the skeletons approaching you holds a piece of paper in its bony hand.
+0060                          ShowMessage(0605) [es:bx+0xf8] = One of the skeletons approaching you holds a piece of paper in its bony hand.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0075 3D 01 00                 cmp ax, 0x1
 0078 75 15                    jnz 0x8f
-007A                          SetEncData(15, 01)
+007A                          SetEncData(15, 01) [es:bx+0xd4]
 008C E9 9A 00                 jmp 0x129
 008F C4 5E 06                 les bx, [bp+0x6]
 0092 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -314,14 +314,14 @@ Functn06: "ITEMBENC"
 009F 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00A4 3D 03 00                 cmp ax, 0x3
 00A7 75 38                    jnz 0xe1
-00A9                          SetEncData(15, 01)
-00BB                          SetEncData(16, 02)
-00CD                          SetEncData(17, 03)
+00A9                          SetEncData(15, 01) [es:bx+0xd4]
+00BB                          SetEncData(16, 02) [es:bx+0xd4]
+00CD                          SetEncData(17, 03) [es:bx+0xd4]
 00DF EB 48                    jmp 0x129
-00E1                          SetEncData(15, 01)
-00F3                          SetEncData(17, 02)
-0105                          SetEncData(16, 03)
-0117                          SetEncData(18, 04)
+00E1                          SetEncData(15, 01) [es:bx+0xd4]
+00F3                          SetEncData(17, 02) [es:bx+0xd4]
+0105                          SetEncData(16, 03) [es:bx+0xd4]
+0117                          SetEncData(18, 04) [es:bx+0xd4]
 0129                          RETURN
 
 Functn07: "ITEMCENC"
@@ -395,12 +395,12 @@ Functn07: "ITEMCENC"
 00AB C4 5E 06                 les bx, [bp+0x6]
 00AE 26 FF 9F D8 00           call far word [es:bx+0xd8]
 00B3 83 C4 0C                 add sp, 0xc
-00B6                          ShowMessage(0653) = Reptilian bodies stir as you draw near.
+00B6                          ShowMessage(0653) [es:bx+0xf8] = Reptilian bodies stir as you draw near.
 00C3 C4 5E 06                 les bx, [bp+0x6]
 00C6 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00CB 3D 01 00                 cmp ax, 0x1
 00CE 75 15                    jnz 0xe5
-00D0                          SetEncData(23, 01)
+00D0                          SetEncData(23, 01) [es:bx+0xd4]
 00E2 E9 9A 00                 jmp 0x17f
 00E5 C4 5E 06                 les bx, [bp+0x6]
 00E8 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -410,14 +410,14 @@ Functn07: "ITEMCENC"
 00F5 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00FA 3D 03 00                 cmp ax, 0x3
 00FD 75 38                    jnz 0x137
-00FF                          SetEncData(23, 01)
-0111                          SetEncData(23, 02)
-0123                          SetEncData(23, 03)
+00FF                          SetEncData(23, 01) [es:bx+0xd4]
+0111                          SetEncData(23, 02) [es:bx+0xd4]
+0123                          SetEncData(23, 03) [es:bx+0xd4]
 0135 EB 48                    jmp 0x17f
-0137                          SetEncData(23, 01)
-0149                          SetEncData(23, 02)
-015B                          SetEncData(23, 03)
-016D                          SetEncData(23, 04)
+0137                          SetEncData(23, 01) [es:bx+0xd4]
+0149                          SetEncData(23, 02) [es:bx+0xd4]
+015B                          SetEncData(23, 03) [es:bx+0xd4]
+016D                          SetEncData(23, 04) [es:bx+0xd4]
 017F                          RETURN
 
 Functn08: "STRMNSTR"
@@ -426,33 +426,33 @@ Functn08: "STRMNSTR"
 0006 26 FF 9F F0 00           call far word [es:bx+0xf0]
 000B 3D 01 00                 cmp ax, 0x1
 000E 75 27                    jnz 0x37
-0010                          SetEncData(19, 01)
-0022                          SetEncData(1A, 02)
+0010                          SetEncData(19, 01) [es:bx+0xd4]
+0022                          SetEncData(1A, 02) [es:bx+0xd4]
 0034 E9 1B 01                 jmp 0x152
 0037 C4 5E 06                 les bx, [bp+0x6]
 003A 26 FF 9F F0 00           call far word [es:bx+0xf0]
 003F 3D 02 00                 cmp ax, 0x2
 0042 75 39                    jnz 0x7d
-0044                          SetEncData(19, 01)
-0056                          SetEncData(1A, 02)
-0068                          SetEncData(19, 03)
+0044                          SetEncData(19, 01) [es:bx+0xd4]
+0056                          SetEncData(1A, 02) [es:bx+0xd4]
+0068                          SetEncData(19, 03) [es:bx+0xd4]
 007A E9 D5 00                 jmp 0x152
 007D C4 5E 06                 les bx, [bp+0x6]
 0080 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0085 3D 03 00                 cmp ax, 0x3
 0088 75 5C                    jnz 0xe6
-008A                          SetEncData(1A, 01)
-009C                          SetEncData(1A, 02)
-00AE                          SetEncData(1B, 03)
-00C0                          SetEncData(1B, 04)
-00D2                          SetEncData(1C, 05)
+008A                          SetEncData(1A, 01) [es:bx+0xd4]
+009C                          SetEncData(1A, 02) [es:bx+0xd4]
+00AE                          SetEncData(1B, 03) [es:bx+0xd4]
+00C0                          SetEncData(1B, 04) [es:bx+0xd4]
+00D2                          SetEncData(1C, 05) [es:bx+0xd4]
 00E4 EB 6C                    jmp 0x152
-00E6                          SetEncData(1B, 01)
-00F8                          SetEncData(1B, 02)
-010A                          SetEncData(1B, 03)
-011C                          SetEncData(1B, 04)
-012E                          SetEncData(1C, 05)
-0140                          SetEncData(1C, 06)
+00E6                          SetEncData(1B, 01) [es:bx+0xd4]
+00F8                          SetEncData(1B, 02) [es:bx+0xd4]
+010A                          SetEncData(1B, 03) [es:bx+0xd4]
+011C                          SetEncData(1B, 04) [es:bx+0xd4]
+012E                          SetEncData(1C, 05) [es:bx+0xd4]
+0140                          SetEncData(1C, 06) [es:bx+0xd4]
 0152                          RETURN
 
 Functn09: "TUFMNSTR"
@@ -461,61 +461,61 @@ Functn09: "TUFMNSTR"
 0006 26 FF 9F F0 00           call far word [es:bx+0xf0]
 000B 3D 01 00                 cmp ax, 0x1
 000E 75 15                    jnz 0x25
-0010                          SetEncData(21, 01)
+0010                          SetEncData(21, 01) [es:bx+0xd4]
 0022 E9 E5 00                 jmp 0x10a
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 9F F0 00           call far word [es:bx+0xf0]
 002D 3D 02 00                 cmp ax, 0x2
 0030 75 27                    jnz 0x59
-0032                          SetEncData(21, 01)
-0044                          SetEncData(21, 02)
+0032                          SetEncData(21, 01) [es:bx+0xd4]
+0044                          SetEncData(21, 02) [es:bx+0xd4]
 0056 E9 B1 00                 jmp 0x10a
 0059 C4 5E 06                 les bx, [bp+0x6]
 005C 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0061 3D 03 00                 cmp ax, 0x3
 0064 75 4A                    jnz 0xb0
-0066                          SetEncData(21, 01)
-0078                          SetEncData(21, 02)
-008A                          SetEncData(21, 03)
-009C                          SetEncData(21, 04)
+0066                          SetEncData(21, 01) [es:bx+0xd4]
+0078                          SetEncData(21, 02) [es:bx+0xd4]
+008A                          SetEncData(21, 03) [es:bx+0xd4]
+009C                          SetEncData(21, 04) [es:bx+0xd4]
 00AE EB 5A                    jmp 0x10a
-00B0                          SetEncData(21, 01)
-00C2                          SetEncData(21, 02)
-00D4                          SetEncData(21, 03)
-00E6                          SetEncData(21, 04)
-00F8                          SetEncData(21, 05)
+00B0                          SetEncData(21, 01) [es:bx+0xd4]
+00C2                          SetEncData(21, 02) [es:bx+0xd4]
+00D4                          SetEncData(21, 03) [es:bx+0xd4]
+00E6                          SetEncData(21, 04) [es:bx+0xd4]
+00F8                          SetEncData(21, 05) [es:bx+0xd4]
 010A                          RETURN
 
 Functn0A: "STRSMESS"
 0000                          BEGIN
-0003                          ShowMessage(067B) = The stairs through the west gateway lead down a level.
+0003                          ShowMessage(067B) [es:bx+0xf8] = The stairs through the west gateway lead down a level.
 0010                          RETURN
 
 Functn0B: "NPCCHATA"
 0000                          BEGIN
-0003                          ShowMessage(06B2) = A Human Wizard teleports into the room you occupy.
-0010                          ShowPortrait(002B)
+0003                          ShowMessage(06B2) [es:bx+0xf8] = A Human Wizard teleports into the room you occupy.
+0010                          ShowPortrait(002B) [es:bx+0xd4]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 29                    ja 0x58
-002F                          ShowMessage(06E5) = Be careful when you find the way to open the door that leads to the nether depths of this dungeon.
-003C                          ShowMessage(0748) = All quest items from Cleowyn's Palace levels will be stripped from you.
-0049                          ShowMessage(0790) = But if you are indeed ready to enter the lower depths, you will no longer need Cleowyn's toys.
+002F                          ShowMessage(06E5) [es:bx+0xf8] = Be careful when you find the way to open the door that leads to the nether depths of this dungeon.
+003C                          ShowMessage(0748) [es:bx+0xf8] = All quest items from Cleowyn's Palace levels will be stripped from you.
+0049                          ShowMessage(0790) [es:bx+0xf8] = But if you are indeed ready to enter the lower depths, you will no longer need Cleowyn's toys.
 0056 EB 0D                    jmp 0x65
-0058                          ShowMessage(07EF) = The Human Wizard smiles sheepishly and teleports somewhere else.
+0058                          ShowMessage(07EF) [es:bx+0xf8] = The Human Wizard smiles sheepishly and teleports somewhere else.
 0065                          RETURN
 
 Functn0C: "NPCCHATB"
 0000                          BEGIN
-0003                          ShowMessage(0830) = You encounter a sleepy Troll Knight.
-0010                          ShowPortrait(001B)
+0003                          ShowMessage(0830) [es:bx+0xf8] = You encounter a sleepy Troll Knight.
+0010                          ShowPortrait(001B) [es:bx+0xd4]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 1C                    ja 0x4b
-002F                          ShowMessage(0855) = The Galabryan kings brought the great wizard Arnakkian Slowfoot to Twinion. The island grew famous and rich thanks to this wizard.
-003C                          ShowMessage(08D8) = But the wizard had his own schemes, and soon he and good King Leowyn Galabryan were at loggerheads. Supposedly, the wizard had the king assassinated.
+002F                          ShowMessage(0855) [es:bx+0xf8] = The Galabryan kings brought the great wizard Arnakkian Slowfoot to Twinion. The island grew famous and rich thanks to this wizard.
+003C                          ShowMessage(08D8) [es:bx+0xf8] = But the wizard had his own schemes, and soon he and good King Leowyn Galabryan were at loggerheads. Supposedly, the wizard had the king assassinated.
 0049 EB 0D                    jmp 0x58
-004B                          ShowMessage(096E) = The Troll Knight blinks at you dumbly and falls asleep.
+004B                          ShowMessage(096E) [es:bx+0xf8] = The Troll Knight blinks at you dumbly and falls asleep.
 0058                          RETURN
 
 03FC: The O Rune Key unlocked the door.

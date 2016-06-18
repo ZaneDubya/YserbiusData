@@ -1,6 +1,6 @@
 Functn01: "RIVER"
 0000                          BEGIN
-0003                          ShowMessage(03FC) = The River of Eternity taps your life energy.
+0003                          ShowMessage(03FC) [es:bx+0xf8] = The River of Eternity taps your life energy.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 9F C4 00           call far word [es:bx+0xc4]
 0018 C4 5E 06                 les bx, [bp+0x6]
@@ -16,7 +16,7 @@ Functn01: "RIVER"
 0032 26 FF 5F 70              call far word [es:bx+0x70]
 0036 0B C0                    or ax, ax
 0038 77 0D                    ja 0x47
-003A                          ShowMessage(0429) = You have died.
+003A                          ShowMessage(0429) [es:bx+0xf8] = You have died.
 0047                          ax = HasItem(D5) ? 1 : 0 [es:bx+0x50]
 0055 75 15                    jnz 0x6c
 0057                          ax = CheckState(02, 6D) [es:bx+0x4]
@@ -43,7 +43,7 @@ Functn01: "RIVER"
 
 Functn02: "RIVRBANK"
 0000                          BEGIN
-0003                          ShowMessage(0438) = Only the bravest adventurers explore the River for hidden passages.
+0003                          ShowMessage(0438) [es:bx+0xf8] = Only the bravest adventurers explore the River for hidden passages.
 0010                          RETURN
 
 Functn03: "STEPCYCL"
@@ -77,9 +77,9 @@ Functn03: "STEPCYCL"
 0059 C4 5E 06                 les bx, [bp+0x6]
 005C 26 FF 1F                 call far word [es:bx]
 005F 83 C4 06                 add sp, 0x6
-0062                          ShowMessage(047C) = Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
+0062                          ShowMessage(047C) [es:bx+0xf8] = Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
 006F EB 0D                    jmp 0x7e
-0071                          ShowMessage(04DC) = The tapestry glows with the image of a Cyclops.
+0071                          ShowMessage(04DC) [es:bx+0xf8] = The tapestry glows with the image of a Cyclops.
 007E                          RETURN
 
 Functn04: "STEPMINE"
@@ -111,7 +111,7 @@ Functn04: "STEPMINE"
 0053 26 FF 5F 38              call far word [es:bx+0x38]
 0057 59                       pop cx
 0058 59                       pop cx
-0059                          ShowMessage(050C) = Your Dwarf Mine Key activated this platform.
+0059                          ShowMessage(050C) [es:bx+0xf8] = Your Dwarf Mine Key activated this platform.
 0066 EB 11                    jmp 0x79
 0068 B8 03 00                 mov ax, 0x3
 006B 50                       push ax
@@ -155,24 +155,24 @@ Functn05: "STEPHIDE"
 005D C4 5E 06                 les bx, [bp+0x6]
 0060 26 FF 5F 2C              call far word [es:bx+0x2c]
 0064 83 C4 06                 add sp, 0x6
-0067                          ShowMessage(0539) = Your Hidden Mine Key makes the wall become transparent.
+0067                          ShowMessage(0539) [es:bx+0xf8] = Your Hidden Mine Key makes the wall become transparent.
 0074 EB 0D                    jmp 0x83
-0076                          ShowMessage(0571) = There is something strange about this wall.
+0076                          ShowMessage(0571) [es:bx+0xf8] = There is something strange about this wall.
 0083                          RETURN
 
 Functn06: "ASENDB"
 0000                          BEGIN
-0003                          GoMap(02, CC, 02, 38)
+0003                          GoMap(02, CC, 02, 38) [es:bx+0xbc]
 001E                          RETURN
 
 Functn09: "DSENDC"
 0000                          BEGIN
-0003                          GoMap(00, E1, 02, 38)
+0003                          GoMap(00, E1, 02, 38) [es:bx+0xbc]
 001D                          RETURN
 
 Functn0A: "ESENDF"
 0000                          BEGIN
-0003                          GoMap(00, FD, 02, 38)
+0003                          GoMap(00, FD, 02, 38) [es:bx+0xbc]
 001D                          RETURN
 
 Functn0C: "SECDOORA"
@@ -194,7 +194,7 @@ Functn0C: "SECDOORA"
 0024 59                       pop cx
 0025 0B C0                    or ax, ax
 0027 74 49                    jz 0x72
-0029                          ShowMessage(059D) = You locate a hidden door in the wall.
+0029                          ShowMessage(059D) [es:bx+0xf8] = You locate a hidden door in the wall.
 0036 C4 5E 06                 les bx, [bp+0x6]
 0039 26 FF 5F 24              call far word [es:bx+0x24]
 003D 50                       push ax
@@ -238,7 +238,7 @@ Functn0D: "SECDOORB"
 0024 59                       pop cx
 0025 0B C0                    or ax, ax
 0027 74 49                    jz 0x72
-0029                          ShowMessage(05C3) = You locate a hidden door in the wall.
+0029                          ShowMessage(05C3) [es:bx+0xf8] = You locate a hidden door in the wall.
 0036 C4 5E 06                 les bx, [bp+0x6]
 0039 26 FF 5F 24              call far word [es:bx+0x24]
 003D 50                       push ax
@@ -282,7 +282,7 @@ Functn0E: "SECDOORC"
 0024 59                       pop cx
 0025 0B C0                    or ax, ax
 0027 74 4B                    jz 0x74
-0029                          ShowMessage(05E9) = You locate a hidden door in the wall.
+0029                          ShowMessage(05E9) [es:bx+0xf8] = You locate a hidden door in the wall.
 0036 C4 5E 06                 les bx, [bp+0x6]
 0039 26 FF 5F 24              call far word [es:bx+0x24]
 003D 50                       push ax
@@ -321,24 +321,24 @@ Functn0E: "SECDOORC"
 
 Functn0F: "GSENDH"
 0000                          BEGIN
-0003                          GoMap(00, 02, 02, 38)
+0003                          GoMap(00, 02, 02, 38) [es:bx+0xbc]
 001D                          RETURN
 
 Functn11: "ISENDJ"
 0000                          BEGIN
-0003                          GoMap(02, 60, 02, 38)
+0003                          GoMap(02, 60, 02, 38) [es:bx+0xbc]
 001E                          RETURN
 
 Functn14: "SUNBEAM"
 0000                          BEGIN
 0003                          ax = HasItem(EF) ? 1 : 0 [es:bx+0x50]
 0011 74 68                    jz 0x7b
-0013                          ShowPortrait(001C)
-0020                          ShowMessage(060F) = A band of dwarves moves out of the shadows.
-002D                          ShowMessage(063B) = The leader steps forward, his eyes fixed on the blue metal.
-003A                          ShowMessage(0677) = 'This magnificent blue treasure you hold can certainly do YOU no good.  Perhaps we may offer you a TRADE to remove this rock from your hands.'
-0047                          ShowMessage(0706) = A key appears from beneath his pack.
-0054                          ShowMessage(072B) = 'We offer you this key to our kingdom in return.'
+0013                          ShowPortrait(001C) [es:bx+0xd4]
+0020                          ShowMessage(060F) [es:bx+0xf8] = A band of dwarves moves out of the shadows.
+002D                          ShowMessage(063B) [es:bx+0xf8] = The leader steps forward, his eyes fixed on the blue metal.
+003A                          ShowMessage(0677) [es:bx+0xf8] = 'This magnificent blue treasure you hold can certainly do YOU no good.  Perhaps we may offer you a TRADE to remove this rock from your hands.'
+0047                          ShowMessage(0706) [es:bx+0xf8] = A key appears from beneath his pack.
+0054                          ShowMessage(072B) [es:bx+0xf8] = 'We offer you this key to our kingdom in return.'
 0061 B8 EF 00                 mov ax, 0xef
 0064 50                       push ax
 0065 C4 5E 06                 les bx, [bp+0x6]
@@ -350,12 +350,12 @@ Functn14: "SUNBEAM"
 0074 26 FF 5F 48              call far word [es:bx+0x48]
 0078 59                       pop cx
 0079 EB 0D                    jmp 0x88
-007B                          ShowMessage(075D) = A beam of bluish sunshine filters down from the surface above and reflects on a ceremonial dwarven rock.
+007B                          ShowMessage(075D) [es:bx+0xf8] = A beam of bluish sunshine filters down from the surface above and reflects on a ceremonial dwarven rock.
 0088                          RETURN
 
 Functn15: "LAVA"
 0000                          BEGIN
-0003                          ShowMessage(07C6) = You fall into a lava pit and die.
+0003                          ShowMessage(07C6) [es:bx+0xf8] = You fall into a lava pit and die.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -366,97 +366,97 @@ Functn15: "LAVA"
 
 Functn16: "GATEA"
 0000                          BEGIN
-0003                          ShowMessage(07E8) = This gate leads to DWARF KINGDOM.
-0010                          GoMap(00, 3F, 01, 38)
+0003                          ShowMessage(07E8) [es:bx+0xf8] = This gate leads to DWARF KINGDOM.
+0010                          GoMap(00, 3F, 01, 38) [es:bx+0xbc]
 002A                          RETURN
 
 Functn17: "GATEB"
 0000                          BEGIN
-0003                          ShowMessage(080A) = This gate leads to RIVERS END.
-0010                          GoMap(00, 0B, 03, 38)
+0003                          ShowMessage(080A) [es:bx+0xf8] = This gate leads to RIVERS END.
+0010                          GoMap(00, 0B, 03, 38) [es:bx+0xbc]
 002A                          RETURN
 
 Functn18: ""
 0000                          BEGIN
-0003                          ShowMessage(0829) = Hobgoblins appear from the surrounding walls.
-0010                          SetEncData(24, 01)
-0022                          SetEncData(24, 02)
-0034                          SetEncData(0E, 03)
-0046                          SetEncData(0E, 04)
-0058                          SetEncData(25, 05)
-006A                          SetEncData(25, 06)
+0003                          ShowMessage(0829) [es:bx+0xf8] = Hobgoblins appear from the surrounding walls.
+0010                          SetEncData(24, 01) [es:bx+0xd4]
+0022                          SetEncData(24, 02) [es:bx+0xd4]
+0034                          SetEncData(0E, 03) [es:bx+0xd4]
+0046                          SetEncData(0E, 04) [es:bx+0xd4]
+0058                          SetEncData(25, 05) [es:bx+0xd4]
+006A                          SetEncData(25, 06) [es:bx+0xd4]
 007C                          RETURN
 
 Functn19: "ENCB"
 0000                          BEGIN
-0003                          ShowMessage(0857) = The air is heavy with the scent of burnt flesh.
-0010                          SetEncData(12, 01)
-0022                          SetEncData(12, 02)
-0034                          SetEncData(28, 03)
-0046                          SetEncData(28, 04)
-0058                          SetEncData(15, 05)
-006A                          SetEncData(15, 06)
+0003                          ShowMessage(0857) [es:bx+0xf8] = The air is heavy with the scent of burnt flesh.
+0010                          SetEncData(12, 01) [es:bx+0xd4]
+0022                          SetEncData(12, 02) [es:bx+0xd4]
+0034                          SetEncData(28, 03) [es:bx+0xd4]
+0046                          SetEncData(28, 04) [es:bx+0xd4]
+0058                          SetEncData(15, 05) [es:bx+0xd4]
+006A                          SetEncData(15, 06) [es:bx+0xd4]
 007C                          RETURN
 
 Functn1A: "ENCC"
 0000                          BEGIN
-0003                          ShowMessage(0887) = You wander into a renegade adventurer camp.
-0010                          SetEncData(1E, 01)
-0022                          SetEncData(19, 02)
-0034                          SetEncData(1C, 03)
-0046                          SetEncData(05, 04)
-0058                          SetEncData(03, 05)
-006A                          SetEncData(03, 06)
+0003                          ShowMessage(0887) [es:bx+0xf8] = You wander into a renegade adventurer camp.
+0010                          SetEncData(1E, 01) [es:bx+0xd4]
+0022                          SetEncData(19, 02) [es:bx+0xd4]
+0034                          SetEncData(1C, 03) [es:bx+0xd4]
+0046                          SetEncData(05, 04) [es:bx+0xd4]
+0058                          SetEncData(03, 05) [es:bx+0xd4]
+006A                          SetEncData(03, 06) [es:bx+0xd4]
 007C                          RETURN
 
 Functn1B: "ENCD"
 0000                          BEGIN
-0003                          ShowMessage(08B3) = A den of manticores is disturbed.
-0010                          SetEncData(18, 01)
-0022                          SetEncData(18, 02)
-0034                          SetEncData(19, 03)
-0046                          SetEncData(19, 04)
-0058                          SetEncData(1A, 05)
-006A                          SetEncData(04, 06)
+0003                          ShowMessage(08B3) [es:bx+0xf8] = A den of manticores is disturbed.
+0010                          SetEncData(18, 01) [es:bx+0xd4]
+0022                          SetEncData(18, 02) [es:bx+0xd4]
+0034                          SetEncData(19, 03) [es:bx+0xd4]
+0046                          SetEncData(19, 04) [es:bx+0xd4]
+0058                          SetEncData(1A, 05) [es:bx+0xd4]
+006A                          SetEncData(04, 06) [es:bx+0xd4]
 007C                          RETURN
 
 Functn1C: "ENCE"
 0000                          BEGIN
-0003                          ShowMessage(08D5) = Stone fragments litter the floor.
-0010                          SetEncData(11, 01)
-0022                          SetEncData(11, 02)
-0034                          SetEncData(10, 03)
-0046                          SetEncData(10, 04)
-0058                          SetEncData(16, 05)
-006A                          SetEncData(22, 06)
+0003                          ShowMessage(08D5) [es:bx+0xf8] = Stone fragments litter the floor.
+0010                          SetEncData(11, 01) [es:bx+0xd4]
+0022                          SetEncData(11, 02) [es:bx+0xd4]
+0034                          SetEncData(10, 03) [es:bx+0xd4]
+0046                          SetEncData(10, 04) [es:bx+0xd4]
+0058                          SetEncData(16, 05) [es:bx+0xd4]
+006A                          SetEncData(22, 06) [es:bx+0xd4]
 007C                          RETURN
 
 Functn1D: "ENCF"
 0000                          BEGIN
-0003                          SetEncData(0B, 01)
-0015                          SetEncData(0B, 02)
-0027                          SetEncData(0C, 03)
-0039                          SetEncData(0C, 04)
-004B                          SetEncData(1F, 05)
-005D                          SetEncData(1F, 05)
+0003                          SetEncData(0B, 01) [es:bx+0xd4]
+0015                          SetEncData(0B, 02) [es:bx+0xd4]
+0027                          SetEncData(0C, 03) [es:bx+0xd4]
+0039                          SetEncData(0C, 04) [es:bx+0xd4]
+004B                          SetEncData(1F, 05) [es:bx+0xd4]
+005D                          SetEncData(1F, 05) [es:bx+0xd4]
 006F                          RETURN
 
 Functn1E: "ENCG"
 0000                          BEGIN
-0003                          SetEncData(0F, 01)
-0015                          SetEncData(10, 02)
-0027                          SetEncData(26, 03)
-0039                          SetEncData(18, 04)
-004B                          SetEncData(27, 05)
-005D                          SetEncData(28, 06)
+0003                          SetEncData(0F, 01) [es:bx+0xd4]
+0015                          SetEncData(10, 02) [es:bx+0xd4]
+0027                          SetEncData(26, 03) [es:bx+0xd4]
+0039                          SetEncData(18, 04) [es:bx+0xd4]
+004B                          SetEncData(27, 05) [es:bx+0xd4]
+005D                          SetEncData(28, 06) [es:bx+0xd4]
 006F                          RETURN
 
 Functn1F: "ENCH"
 0000                          BEGIN
-0003                          ShowMessage(08F7) = A huge Cyclops appears from behind large boulders.
-0010                          SetEncData(0E, 01)
-0022                          SetEncData(0E, 02)
-0034                          SetEncData(21, 03)
+0003                          ShowMessage(08F7) [es:bx+0xf8] = A huge Cyclops appears from behind large boulders.
+0010                          SetEncData(0E, 01) [es:bx+0xd4]
+0022                          SetEncData(0E, 02) [es:bx+0xd4]
+0034                          SetEncData(21, 03) [es:bx+0xd4]
 0046                          ax = HasItem(F1) ? 1 : 0 [es:bx+0x50]
 0054 74 22                    jz 0x78
 0056 B8 C4 09                 mov ax, 0x9c4
@@ -494,58 +494,58 @@ Functn1F: "ENCH"
 
 Functn20: "ENCI"
 0000                          BEGIN
-0003                          SetEncData(17, 01)
-0015                          SetEncData(17, 02)
-0027                          SetEncData(14, 05)
-0039                          SetEncData(14, 06)
+0003                          SetEncData(17, 01) [es:bx+0xd4]
+0015                          SetEncData(17, 02) [es:bx+0xd4]
+0027                          SetEncData(14, 05) [es:bx+0xd4]
+0039                          SetEncData(14, 06) [es:bx+0xd4]
 004B                          RETURN
 
 Functn21: "ENCJ"
 0000                          BEGIN
-0003                          SetEncData(23, 01)
-0015                          SetEncData(23, 02)
-0027                          SetEncData(1F, 03)
-0039                          SetEncData(1F, 04)
-004B                          SetEncData(14, 05)
-005D                          SetEncData(14, 06)
+0003                          SetEncData(23, 01) [es:bx+0xd4]
+0015                          SetEncData(23, 02) [es:bx+0xd4]
+0027                          SetEncData(1F, 03) [es:bx+0xd4]
+0039                          SetEncData(1F, 04) [es:bx+0xd4]
+004B                          SetEncData(14, 05) [es:bx+0xd4]
+005D                          SetEncData(14, 06) [es:bx+0xd4]
 006F                          RETURN
 
 Functn22: "ENCK"
 0000                          BEGIN
-0003                          SetEncData(18, 01)
-0015                          SetEncData(18, 02)
-0027                          SetEncData(22, 03)
-0039                          SetEncData(26, 04)
+0003                          SetEncData(18, 01) [es:bx+0xd4]
+0015                          SetEncData(18, 02) [es:bx+0xd4]
+0027                          SetEncData(22, 03) [es:bx+0xd4]
+0039                          SetEncData(26, 04) [es:bx+0xd4]
 004B                          RETURN
 
 Functn23: "ENCL"
 0000                          BEGIN
-0003                          SetEncData(1F, 01)
-0015                          SetEncData(1F, 02)
-0027                          SetEncData(0A, 03)
-0039                          SetEncData(0A, 04)
-004B                          SetEncData(16, 05)
-005D                          SetEncData(16, 05)
+0003                          SetEncData(1F, 01) [es:bx+0xd4]
+0015                          SetEncData(1F, 02) [es:bx+0xd4]
+0027                          SetEncData(0A, 03) [es:bx+0xd4]
+0039                          SetEncData(0A, 04) [es:bx+0xd4]
+004B                          SetEncData(16, 05) [es:bx+0xd4]
+005D                          SetEncData(16, 05) [es:bx+0xd4]
 006F                          RETURN
 
 Functn24: "ENCM"
 0000                          BEGIN
-0003                          ShowMessage(092A) = You encounter adventurers slaying a dragon.  They do not welcome your intrusion.
-0010                          SetEncData(19, 01)
-0022                          SetEncData(1B, 02)
-0034                          SetEncData(1D, 03)
-0046                          SetEncData(03, 04)
-0058                          SetEncData(05, 05)
-006A                          SetEncData(16, 05)
+0003                          ShowMessage(092A) [es:bx+0xf8] = You encounter adventurers slaying a dragon.  They do not welcome your intrusion.
+0010                          SetEncData(19, 01) [es:bx+0xd4]
+0022                          SetEncData(1B, 02) [es:bx+0xd4]
+0034                          SetEncData(1D, 03) [es:bx+0xd4]
+0046                          SetEncData(03, 04) [es:bx+0xd4]
+0058                          SetEncData(05, 05) [es:bx+0xd4]
+006A                          SetEncData(16, 05) [es:bx+0xd4]
 007C                          RETURN
 
 Functn25: "ENCN"
 0000                          BEGIN
-0003                          SetEncData(23, 01)
-0015                          SetEncData(23, 02)
-0027                          SetEncData(12, 03)
-0039                          SetEncData(12, 04)
-004B                          SetEncData(22, 05)
+0003                          SetEncData(23, 01) [es:bx+0xd4]
+0015                          SetEncData(23, 02) [es:bx+0xd4]
+0027                          SetEncData(12, 03) [es:bx+0xd4]
+0039                          SetEncData(12, 04) [es:bx+0xd4]
+004B                          SetEncData(22, 05) [es:bx+0xd4]
 005D                          ax = HasItem(D5) ? 1 : 0 [es:bx+0x50]
 006B 74 22                    jz 0x8f
 006D B8 D0 07                 mov ax, 0x7d0
@@ -564,7 +564,7 @@ Functn25: "ENCN"
 0085 26 FF 9F D8 00           call far word [es:bx+0xd8]
 008A 83 C4 0C                 add sp, 0xc
 008D EB 2C                    jmp 0xbb
-008F                          ShowMessage(097B) = Creatures fight over a stone key.
+008F                          ShowMessage(097B) [es:bx+0xf8] = Creatures fight over a stone key.
 009C B8 10 27                 mov ax, 0x2710
 009F 50                       push ax
 00A0 33 C0                    xor ax, ax
@@ -584,11 +584,11 @@ Functn25: "ENCN"
 
 Functn26: "ENCO"
 0000                          BEGIN
-0003                          SetEncData(23, 01)
-0015                          SetEncData(23, 02)
-0027                          SetEncData(12, 03)
-0039                          SetEncData(12, 04)
-004B                          SetEncData(22, 05)
+0003                          SetEncData(23, 01) [es:bx+0xd4]
+0015                          SetEncData(23, 02) [es:bx+0xd4]
+0027                          SetEncData(12, 03) [es:bx+0xd4]
+0039                          SetEncData(12, 04) [es:bx+0xd4]
+004B                          SetEncData(22, 05) [es:bx+0xd4]
 005D                          ax = HasItem(D8) ? 1 : 0 [es:bx+0x50]
 006B 74 21                    jz 0x8e
 006D B8 D0 07                 mov ax, 0x7d0
@@ -607,7 +607,7 @@ Functn26: "ENCO"
 0084 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0089 83 C4 0C                 add sp, 0xc
 008C EB 2C                    jmp 0xba
-008E                          ShowMessage(099D) = Creatures fight over a green tree-shaped key
+008E                          ShowMessage(099D) [es:bx+0xf8] = Creatures fight over a green tree-shaped key
 009B B8 28 23                 mov ax, 0x2328
 009E 50                       push ax
 009F 33 C0                    xor ax, ax
@@ -627,49 +627,49 @@ Functn26: "ENCO"
 
 Functn27: "HEALFA"
 0000                          BEGIN
-0003                          ShowPortrait(0042)
+0003                          ShowPortrait(0042) [es:bx+0xd4]
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
 001B 26 FF 9F 94 00           call far word [es:bx+0x94]
 0020 59                       pop cx
-0021                          ShowMessage(09CA) = Your full health is restored by the ancient waters of RoundBrook Fountain.
+0021                          ShowMessage(09CA) [es:bx+0xf8] = Your full health is restored by the ancient waters of RoundBrook Fountain.
 002E                          RETURN
 
 Functn28: "HEALFB"
 0000                          BEGIN
-0003                          ShowPortrait(0042)
+0003                          ShowPortrait(0042) [es:bx+0xd4]
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
 001B 26 FF 9F 94 00           call far word [es:bx+0x94]
 0020 59                       pop cx
-0021                          ShowMessage(0A15) = You feel all your health restored after sipping from JasperStone Fountain.
+0021                          ShowMessage(0A15) [es:bx+0xf8] = You feel all your health restored after sipping from JasperStone Fountain.
 002E                          RETURN
 
 Functn29: "HEALFC"
 0000                          BEGIN
-0003                          ShowPortrait(0042)
+0003                          ShowPortrait(0042) [es:bx+0xd4]
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
 001B 26 FF 9F 94 00           call far word [es:bx+0x94]
 0020 59                       pop cx
-0021                          ShowMessage(0A60) = The waters of RockyFlat Fountain restores your health.
+0021                          ShowMessage(0A60) [es:bx+0xf8] = The waters of RockyFlat Fountain restores your health.
 002E                          RETURN
 
 Functn2A: "MANAFA"
 0000                          BEGIN
-0003                          ShowPortrait(0042)
+0003                          ShowPortrait(0042) [es:bx+0xd4]
 0010 B8 D0 07                 mov ax, 0x7d0
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
 0017 26 FF 9F B4 00           call far word [es:bx+0xb4]
 001C 59                       pop cx
-001D                          ShowMessage(0A97) = Your mana is recharged by drinking the magical waters of Omar Fountain.
+001D                          ShowMessage(0A97) [es:bx+0xf8] = Your mana is recharged by drinking the magical waters of Omar Fountain.
 002A                          RETURN
 
 Functn2B: "MANAFB"
@@ -679,7 +679,7 @@ Functn2B: "MANAFB"
 0007 C4 5E 06                 les bx, [bp+0x6]
 000A 26 FF 9F B4 00           call far word [es:bx+0xb4]
 000F 59                       pop cx
-0010                          ShowMessage(0ADF) = Your magical powers are recharged by the heated steams of Venivor Geyser.
+0010                          ShowMessage(0ADF) [es:bx+0xf8] = Your magical powers are recharged by the heated steams of Venivor Geyser.
 001D                          RETURN
 
 Functn2C: "MANAFC"
@@ -689,31 +689,31 @@ Functn2C: "MANAFC"
 0007 C4 5E 06                 les bx, [bp+0x6]
 000A 26 FF 9F B4 00           call far word [es:bx+0xb4]
 000F 59                       pop cx
-0010                          ShowMessage(0B29) = Your mana is increased in a whirlpool at the edge of the river.
+0010                          ShowMessage(0B29) [es:bx+0xf8] = Your mana is increased in a whirlpool at the edge of the river.
 001D                          RETURN
 
 Functn2D: "CLUEA"
 0000                          BEGIN
-0003                          ShowMessage(0B69) = A message is inscribed on the wall -- 
+0003                          ShowMessage(0B69) [es:bx+0xf8] = A message is inscribed on the wall -- 
 0010                          ShowRunes(500B) [es:bx+0xf4] = The Tapestry of the Moons requires a spectrum of color to open.
 001D                          RETURN
 
 Functn2E: "CLUEB"
 0000                          BEGIN
-0003                          ShowMessage(0BD0) = A gust of wind from caverns above catches your attention.
-0010                          ShowMessage(0C0A) = 'I am Zephyr.  
-001D                          ShowMessage(0C1A) = 'Only the FlexSword can bend against the Wind Elemental's gail.'
+0003                          ShowMessage(0BD0) [es:bx+0xf8] = A gust of wind from caverns above catches your attention.
+0010                          ShowMessage(0C0A) [es:bx+0xf8] = 'I am Zephyr.  
+001D                          ShowMessage(0C1A) [es:bx+0xf8] = 'Only the FlexSword can bend against the Wind Elemental's gail.'
 002A                          RETURN
 
 Functn2F: "CLUEC"
 0000                          BEGIN
-0003                          ShowMessage(0C5B) = A collection of runes reveals a message -- 
+0003                          ShowMessage(0C5B) [es:bx+0xf8] = A collection of runes reveals a message -- 
 0010                          ShowRunes(500C) [es:bx+0xf4] = It is said that the Dwarves can build magnificent creations and vessels out of golden threads.
 001D                          RETURN
 
 Functn30: "CLUED"
 0000                          BEGIN
-0003                          ShowMessage(0CE6) = Written in blood on the wall is the message -- 
+0003                          ShowMessage(0CE6) [es:bx+0xf8] = Written in blood on the wall is the message -- 
 0010                          ShowRunes(500D) [es:bx+0xf4] = Acquire the Sunbeam Key at the Dwarf Ceremonial Rock to access the Dwarf Kingdom.
 001D                          RETURN
 

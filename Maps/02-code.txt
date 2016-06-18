@@ -1,16 +1,16 @@
 Functn01: "TOEXIT"
 0000                          BEGIN
-0003                          GoMap(01, 04, 01, 01)
+0003                          GoMap(01, 04, 01, 01) [es:bx+0xbc]
 001E                          RETURN
 
 Functn02: "TELEPORT"
 0000                          BEGIN
 0003                          ax = CheckLevel(0014) ? 1 : 0 [es:bx+0x44]
 0011 74 2A                    jz 0x3d
-0013                          ShowMessage(03FC) = You may enter.
-0020                          GoMap(01, 8D, 01, 05)
+0013                          ShowMessage(03FC) [es:bx+0xf8] = You may enter.
+0020                          GoMap(01, 8D, 01, 05) [es:bx+0xbc]
 003B EB 2B                    jmp 0x68
-003D                          ShowMessage(040B) = Only heroes of the twentieth level or higher may venture beyond this door.
+003D                          ShowMessage(040B) [es:bx+0xf8] = Only heroes of the twentieth level or higher may venture beyond this door.
 004A B8 01 00                 mov ax, 0x1
 004D 50                       push ax
 004E C4 5E 06                 les bx, [bp+0x6]
@@ -34,13 +34,13 @@ Functn03: "LOWMNSTR"
 0013 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0018 3D 02 00                 cmp ax, 0x2
 001B 75 26                    jnz 0x43
-001D                          SetEncData(1A, 01)
-002F                          SetEncData(1A, 02)
+001D                          SetEncData(1A, 01) [es:bx+0xd4]
+002F                          SetEncData(1A, 02) [es:bx+0xd4]
 0041 EB 48                    jmp 0x8b
-0043                          SetEncData(1A, 01)
-0055                          SetEncData(1A, 02)
-0067                          SetEncData(19, 03)
-0079                          SetEncData(19, 04)
+0043                          SetEncData(1A, 01) [es:bx+0xd4]
+0055                          SetEncData(1A, 02) [es:bx+0xd4]
+0067                          SetEncData(19, 03) [es:bx+0xd4]
+0079                          SetEncData(19, 04) [es:bx+0xd4]
 008B                          RETURN
 
 Functn04: "SMALGOLD"
@@ -48,7 +48,7 @@ Functn04: "SMALGOLD"
 0003                          ax = CheckState(02, 02) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 0F                    jnz 0x28
-0019                          ShowMessage(0456) = The room is bare.
+0019                          ShowMessage(0456) [es:bx+0xf8] = The room is bare.
 0026 EB 33                    jmp 0x5b
 0028 33 C0                    xor ax, ax
 002A BA 64 00                 mov dx, 0x64
@@ -58,7 +58,7 @@ Functn04: "SMALGOLD"
 0032 26 FF 9F AC 00           call far word [es:bx+0xac]
 0037 59                       pop cx
 0038 59                       pop cx
-0039                          ShowMessage(0468) = You find 100 Gold Pieces lying on the floor.
+0039                          ShowMessage(0468) [es:bx+0xf8] = You find 100 Gold Pieces lying on the floor.
 0046 B8 01 00                 mov ax, 0x1
 0049 50                       push ax
 004A B8 02 00                 mov ax, 0x2
@@ -75,7 +75,7 @@ Functn05: "GOLDENC"
 0003                          ax = CheckState(02, 03) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(0495) = The room is empty, except for a few rogues.
+0019                          ShowMessage(0495) [es:bx+0xf8] = The room is empty, except for a few rogues.
 0026 B8 64 00                 mov ax, 0x64
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -116,7 +116,7 @@ Functn05: "GOLDENC"
 0073 C4 5E 06                 les bx, [bp+0x6]
 0076 26 FF 1F                 call far word [es:bx]
 0079 83 C4 06                 add sp, 0x6
-007C                          ShowMessage(04C1) = You encounter Rogues counting their gold.
+007C                          ShowMessage(04C1) [es:bx+0xf8] = You encounter Rogues counting their gold.
 0089 C4 5E 06                 les bx, [bp+0x6]
 008C 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0091 3D 01 00                 cmp ax, 0x1
@@ -125,13 +125,13 @@ Functn05: "GOLDENC"
 0099 26 FF 9F F0 00           call far word [es:bx+0xf0]
 009E 3D 02 00                 cmp ax, 0x2
 00A1 75 26                    jnz 0xc9
-00A3                          SetEncData(13, 01)
-00B5                          SetEncData(13, 02)
+00A3                          SetEncData(13, 01) [es:bx+0xd4]
+00B5                          SetEncData(13, 02) [es:bx+0xd4]
 00C7 EB 48                    jmp 0x111
-00C9                          SetEncData(13, 01)
-00DB                          SetEncData(13, 02)
-00ED                          SetEncData(14, 03)
-00FF                          SetEncData(18, 06)
+00C9                          SetEncData(13, 01) [es:bx+0xd4]
+00DB                          SetEncData(13, 02) [es:bx+0xd4]
+00ED                          SetEncData(14, 03) [es:bx+0xd4]
+00FF                          SetEncData(18, 06) [es:bx+0xd4]
 0111                          RETURN
 
 Functn06: "LKPKDOOR"
@@ -173,7 +173,7 @@ Functn06: "LKPKDOOR"
 0053 C4 5E 06                 les bx, [bp+0x6]
 0056 26 FF 5F 30              call far word [es:bx+0x30]
 005A 83 C4 06                 add sp, 0x6
-005D                          ShowMessage(04EB) = You successfully picked the locked door.
+005D                          ShowMessage(04EB) [es:bx+0xf8] = You successfully picked the locked door.
 006A EB 26                    jmp 0x92
 006C 33 C0                    xor ax, ax
 006E 50                       push ax
@@ -185,19 +185,19 @@ Functn06: "LKPKDOOR"
 007B C4 5E 06                 les bx, [bp+0x6]
 007E 26 FF 5F 2C              call far word [es:bx+0x2c]
 0082 83 C4 06                 add sp, 0x6
-0085                          ShowMessage(0514) = The door is locked.
+0085                          ShowMessage(0514) [es:bx+0xf8] = The door is locked.
 0092                          RETURN
 
 Functn07: "LOWROGUE"
 0000                          BEGIN
-0003                          ShowMessage(0528) = You encounter Rogues.
+0003                          ShowMessage(0528) [es:bx+0xf8] = You encounter Rogues.
 0010                          UnknownFunction(000F) [es:bx+0xec]
 001D 3D 05 00                 cmp ax, 0x5
 0020 77 0F                    ja 0x31
-0022                          ShowMessage(053E) = To reach the next level of the dungeon, you need a special key. The key is rumored to be somewhere on this level.
+0022                          ShowMessage(053E) [es:bx+0xf8] = To reach the next level of the dungeon, you need a special key. The key is rumored to be somewhere on this level.
 002F EB 1A                    jmp 0x4b
-0031                          ShowMessage(05B0) = The Rogues refuse to talk.
-003E                          ShowMessage(05CB) = They attack you!
+0031                          ShowMessage(05B0) [es:bx+0xf8] = The Rogues refuse to talk.
+003E                          ShowMessage(05CB) [es:bx+0xf8] = They attack you!
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0053 3D 01 00                 cmp ax, 0x1
@@ -206,14 +206,14 @@ Functn07: "LOWROGUE"
 005B 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0060 3D 02 00                 cmp ax, 0x2
 0063 75 26                    jnz 0x8b
-0065                          SetEncData(1C, 01)
-0077                          SetEncData(1D, 02)
+0065                          SetEncData(1C, 01) [es:bx+0xd4]
+0077                          SetEncData(1D, 02) [es:bx+0xd4]
 0089 EB 5A                    jmp 0xe5
-008B                          SetEncData(1D, 01)
-009D                          SetEncData(1D, 02)
-00AF                          SetEncData(1B, 03)
-00C1                          SetEncData(1B, 04)
-00D3                          SetEncData(1C, 05)
+008B                          SetEncData(1D, 01) [es:bx+0xd4]
+009D                          SetEncData(1D, 02) [es:bx+0xd4]
+00AF                          SetEncData(1B, 03) [es:bx+0xd4]
+00C1                          SetEncData(1B, 04) [es:bx+0xd4]
+00D3                          SetEncData(1C, 05) [es:bx+0xd4]
 00E5                          RETURN
 
 Functn08: "TUFMNSTR"
@@ -222,8 +222,8 @@ Functn08: "TUFMNSTR"
 0006 26 FF 9F F0 00           call far word [es:bx+0xf0]
 000B 3D 01 00                 cmp ax, 0x1
 000E 75 27                    jnz 0x37
-0010                          SetEncData(1F, 01)
-0022                          SetEncData(20, 02)
+0010                          SetEncData(1F, 01) [es:bx+0xd4]
+0022                          SetEncData(20, 02) [es:bx+0xd4]
 0034 E9 AC 00                 jmp 0xe3
 0037 C4 5E 06                 les bx, [bp+0x6]
 003A 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -233,22 +233,22 @@ Functn08: "TUFMNSTR"
 0047 26 FF 9F F0 00           call far word [es:bx+0xf0]
 004C 3D 03 00                 cmp ax, 0x3
 004F 75 4A                    jnz 0x9b
-0051                          SetEncData(1E, 01)
-0063                          SetEncData(1F, 02)
-0075                          SetEncData(1E, 03)
-0087                          SetEncData(1F, 04)
+0051                          SetEncData(1E, 01) [es:bx+0xd4]
+0063                          SetEncData(1F, 02) [es:bx+0xd4]
+0075                          SetEncData(1E, 03) [es:bx+0xd4]
+0087                          SetEncData(1F, 04) [es:bx+0xd4]
 0099 EB 48                    jmp 0xe3
-009B                          SetEncData(1E, 01)
-00AD                          SetEncData(20, 02)
-00BF                          SetEncData(20, 03)
-00D1                          SetEncData(1F, 04)
+009B                          SetEncData(1E, 01) [es:bx+0xd4]
+00AD                          SetEncData(20, 02) [es:bx+0xd4]
+00BF                          SetEncData(20, 03) [es:bx+0xd4]
+00D1                          SetEncData(1F, 04) [es:bx+0xd4]
 00E3                          RETURN
 
 Functn09: "LCPKENC"
 0000                          BEGIN
 0003                          ax = HasItem(D2) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(05DC) = Cro-Lizards snarl at you.
+0013                          ShowMessage(05DC) [es:bx+0xf8] = Cro-Lizards snarl at you.
 0020 B8 2C 01                 mov ax, 0x12c
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -280,35 +280,35 @@ Functn09: "LCPKENC"
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005D 83 C4 0C                 add sp, 0xc
-0060                          ShowMessage(05F6) = You see an interesting lockpick on the floor. On the shaft are the words - Property of King Cleowyn. The Cro-Lizards you see are also interested in the lockpick.
+0060                          ShowMessage(05F6) [es:bx+0xf8] = You see an interesting lockpick on the floor. On the shaft are the words - Property of King Cleowyn. The Cro-Lizards you see are also interested in the lockpick.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0075 3D 01 00                 cmp ax, 0x1
 0078 75 15                    jnz 0x8f
-007A                          SetEncData(1E, 01)
+007A                          SetEncData(1E, 01) [es:bx+0xd4]
 008C E9 F7 00                 jmp 0x186
 008F C4 5E 06                 les bx, [bp+0x6]
 0092 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0097 3D 02 00                 cmp ax, 0x2
 009A 75 39                    jnz 0xd5
-009C                          SetEncData(1E, 01)
-00AE                          SetEncData(1E, 02)
-00C0                          SetEncData(1E, 04)
+009C                          SetEncData(1E, 01) [es:bx+0xd4]
+00AE                          SetEncData(1E, 02) [es:bx+0xd4]
+00C0                          SetEncData(1E, 04) [es:bx+0xd4]
 00D2 E9 B1 00                 jmp 0x186
 00D5 C4 5E 06                 les bx, [bp+0x6]
 00D8 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00DD 3D 03 00                 cmp ax, 0x3
 00E0 75 4A                    jnz 0x12c
-00E2                          SetEncData(1E, 01)
-00F4                          SetEncData(1E, 02)
-0106                          SetEncData(1E, 03)
-0118                          SetEncData(1E, 04)
+00E2                          SetEncData(1E, 01) [es:bx+0xd4]
+00F4                          SetEncData(1E, 02) [es:bx+0xd4]
+0106                          SetEncData(1E, 03) [es:bx+0xd4]
+0118                          SetEncData(1E, 04) [es:bx+0xd4]
 012A EB 5A                    jmp 0x186
-012C                          SetEncData(1E, 01)
-013E                          SetEncData(1E, 02)
-0150                          SetEncData(1E, 03)
-0162                          SetEncData(1E, 04)
-0174                          SetEncData(1E, 05)
+012C                          SetEncData(1E, 01) [es:bx+0xd4]
+013E                          SetEncData(1E, 02) [es:bx+0xd4]
+0150                          SetEncData(1E, 03) [es:bx+0xd4]
+0162                          SetEncData(1E, 04) [es:bx+0xd4]
+0174                          SetEncData(1E, 05) [es:bx+0xd4]
 0186                          RETURN
 
 Functn0A: "KEYDOOR"
@@ -342,9 +342,9 @@ Functn0A: "KEYDOOR"
 003C C4 5E 06                 les bx, [bp+0x6]
 003F 26 FF 5F 30              call far word [es:bx+0x30]
 0043 83 C4 06                 add sp, 0x6
-0046                          ShowMessage(0698) = King Cleowyn's Key unlocks the door.
+0046                          ShowMessage(0698) [es:bx+0xf8] = King Cleowyn's Key unlocks the door.
 0053 EB 21                    jmp 0x76
-0055                          ShowMessage(06BD) = The door is locked.  A special key opens this door.
+0055                          ShowMessage(06BD) [es:bx+0xf8] = The door is locked.  A special key opens this door.
 0062 33 C0                    xor ax, ax
 0064 50                       push ax
 0065 33 C0                    xor ax, ax
@@ -375,7 +375,7 @@ Functn0B: "KEYENC"
 0027 C4 5E 06                 les bx, [bp+0x6]
 002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 002F 83 C4 0C                 add sp, 0xc
-0032                          ShowMessage(06F1) = Some rather nasty monsters hang out here.
+0032                          ShowMessage(06F1) [es:bx+0xf8] = Some rather nasty monsters hang out here.
 003F EB 39                    jmp 0x7a
 0041 B8 C8 00                 mov ax, 0xc8
 0044 50                       push ax
@@ -392,35 +392,35 @@ Functn0B: "KEYENC"
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005D 83 C4 0C                 add sp, 0xc
-0060                          ShowMessage(071B) = On the floor is a key. The grasp bears the Galabryan insignia and the initials KC. It must have belonged to King Cleowyn.  
-006D                          ShowMessage(0797) = Between you and the key are monsters.
+0060                          ShowMessage(071B) [es:bx+0xf8] = On the floor is a key. The grasp bears the Galabryan insignia and the initials KC. It must have belonged to King Cleowyn.  
+006D                          ShowMessage(0797) [es:bx+0xf8] = Between you and the key are monsters.
 007A C4 5E 06                 les bx, [bp+0x6]
 007D 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0082 3D 01 00                 cmp ax, 0x1
 0085 75 15                    jnz 0x9c
-0087                          SetEncData(1F, 01)
+0087                          SetEncData(1F, 01) [es:bx+0xd4]
 0099 E9 E5 00                 jmp 0x181
 009C C4 5E 06                 les bx, [bp+0x6]
 009F 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00A4 3D 02 00                 cmp ax, 0x2
 00A7 75 27                    jnz 0xd0
-00A9                          SetEncData(1F, 01)
-00BB                          SetEncData(20, 02)
+00A9                          SetEncData(1F, 01) [es:bx+0xd4]
+00BB                          SetEncData(20, 02) [es:bx+0xd4]
 00CD E9 B1 00                 jmp 0x181
 00D0 C4 5E 06                 les bx, [bp+0x6]
 00D3 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00D8 3D 03 00                 cmp ax, 0x3
 00DB 75 4A                    jnz 0x127
-00DD                          SetEncData(1F, 01)
-00EF                          SetEncData(1F, 02)
-0101                          SetEncData(20, 03)
-0113                          SetEncData(20, 04)
+00DD                          SetEncData(1F, 01) [es:bx+0xd4]
+00EF                          SetEncData(1F, 02) [es:bx+0xd4]
+0101                          SetEncData(20, 03) [es:bx+0xd4]
+0113                          SetEncData(20, 04) [es:bx+0xd4]
 0125 EB 5A                    jmp 0x181
-0127                          SetEncData(20, 01)
-0139                          SetEncData(20, 02)
-014B                          SetEncData(1F, 03)
-015D                          SetEncData(1F, 04)
-016F                          SetEncData(1F, 06)
+0127                          SetEncData(20, 01) [es:bx+0xd4]
+0139                          SetEncData(20, 02) [es:bx+0xd4]
+014B                          SetEncData(1F, 03) [es:bx+0xd4]
+015D                          SetEncData(1F, 04) [es:bx+0xd4]
+016F                          SetEncData(1F, 06) [es:bx+0xd4]
 0181                          RETURN
 
 Functn0C: "STRDOOR"
@@ -432,7 +432,7 @@ Functn0C: "STRDOOR"
 000E 59                       pop cx
 000F 3D 0A 00                 cmp ax, 0xa
 0012 72 4B                    jb 0x5f
-0014                          ShowMessage(07BD) = You manage to open the door by brute strength.
+0014                          ShowMessage(07BD) [es:bx+0xf8] = You manage to open the door by brute strength.
 0021 C4 5E 06                 les bx, [bp+0x6]
 0024 26 FF 5F 24              call far word [es:bx+0x24]
 0028 50                       push ax
@@ -456,7 +456,7 @@ Functn0C: "STRDOOR"
 0056 26 FF 5F 2C              call far word [es:bx+0x2c]
 005A 83 C4 06                 add sp, 0x6
 005D EB 2A                    jmp 0x89
-005F                          ShowMessage(07EC) = You are not strong enough to force the door open.
+005F                          ShowMessage(07EC) [es:bx+0xf8] = You are not strong enough to force the door open.
 006C 33 C0                    xor ax, ax
 006E 50                       push ax
 006F C4 5E 06                 les bx, [bp+0x6]
@@ -472,16 +472,16 @@ Functn0C: "STRDOOR"
 
 Functn0D: "TOVEST"
 0000                          BEGIN
-0003                          GoMap(02, 70, 03, 01)
+0003                          GoMap(02, 70, 03, 01) [es:bx+0xbc]
 001E                          RETURN
 
 Functn0E: "MODMNSTR"
 0000                          BEGIN
-0003                          ShowMessage(081E) = You encounter Rogues.
+0003                          ShowMessage(081E) [es:bx+0xf8] = You encounter Rogues.
 0010                          UnknownFunction(000F) [es:bx+0xec]
 001D 3D 07 00                 cmp ax, 0x7
 0020 77 2E                    ja 0x50
-0022                          ShowMessage(0834) = The imps that haunt the dungeon frequently return gold and lost items to their original places.
+0022                          ShowMessage(0834) [es:bx+0xf8] = The imps that haunt the dungeon frequently return gold and lost items to their original places.
 002F B8 C8 00                 mov ax, 0xc8
 0032 50                       push ax
 0033 33 C0                    xor ax, ax
@@ -498,8 +498,8 @@ Functn0E: "MODMNSTR"
 0046 26 FF 9F D8 00           call far word [es:bx+0xd8]
 004B 83 C4 0C                 add sp, 0xc
 004E EB 39                    jmp 0x89
-0050                          ShowMessage(0894) = The Rogues refuse to talk.
-005D                          ShowMessage(08AF) = They charge you!
+0050                          ShowMessage(0894) [es:bx+0xf8] = The Rogues refuse to talk.
+005D                          ShowMessage(08AF) [es:bx+0xf8] = They charge you!
 006A B8 C8 00                 mov ax, 0xc8
 006D 50                       push ax
 006E 33 C0                    xor ax, ax
@@ -523,8 +523,8 @@ Functn0E: "MODMNSTR"
 0099 26 FF 9F F0 00           call far word [es:bx+0xf0]
 009E 3D 02 00                 cmp ax, 0x2
 00A1 75 26                    jnz 0xc9
-00A3                          SetEncData(23, 01)
-00B5                          SetEncData(22, 02)
+00A3                          SetEncData(23, 01) [es:bx+0xd4]
+00B5                          SetEncData(22, 02) [es:bx+0xd4]
 00C7 EB 62                    jmp 0x12b
 00C9 C4 5E 06                 les bx, [bp+0x6]
 00CC 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -534,10 +534,10 @@ Functn0E: "MODMNSTR"
 00D9 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00DE 3D 04 00                 cmp ax, 0x4
 00E1 75 48                    jnz 0x12b
-00E3                          SetEncData(22, 01)
-00F5                          SetEncData(23, 02)
-0107                          SetEncData(23, 03)
-0119                          SetEncData(21, 05)
+00E3                          SetEncData(22, 01) [es:bx+0xd4]
+00F5                          SetEncData(23, 02) [es:bx+0xd4]
+0107                          SetEncData(23, 03) [es:bx+0xd4]
+0119                          SetEncData(21, 05) [es:bx+0xd4]
 012B                          RETURN
 
 Functn0F: "HRDMONST"
@@ -565,7 +565,7 @@ Functn10: "WEAPENC"
 0003                          ax = CheckState(02, 04) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(08C0) = You find nothing interesting in the room except a vial and some monsters.
+0019                          ShowMessage(08C0) [es:bx+0xf8] = You find nothing interesting in the room except a vial and some monsters.
 0026 B8 C8 00                 mov ax, 0xc8
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -597,32 +597,32 @@ Functn10: "WEAPENC"
 005C C4 5E 06                 les bx, [bp+0x6]
 005F 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0064 83 C4 0C                 add sp, 0xc
-0067                          ShowMessage(090A) = You notice an axe and a vial on the floor. You also notice some Bronze Ogres.
+0067                          ShowMessage(090A) [es:bx+0xf8] = You notice an axe and a vial on the floor. You also notice some Bronze Ogres.
 0074 C4 5E 06                 les bx, [bp+0x6]
 0077 26 FF 9F F0 00           call far word [es:bx+0xf0]
 007C 3D 01 00                 cmp ax, 0x1
 007F 75 15                    jnz 0x96
-0081                          SetEncData(26, 01)
+0081                          SetEncData(26, 01) [es:bx+0xd4]
 0093 E9 C1 00                 jmp 0x157
 0096 C4 5E 06                 les bx, [bp+0x6]
 0099 26 FF 9F F0 00           call far word [es:bx+0xf0]
 009E 3D 02 00                 cmp ax, 0x2
 00A1 75 27                    jnz 0xca
-00A3                          SetEncData(26, 01)
-00B5                          SetEncData(26, 02)
+00A3                          SetEncData(26, 01) [es:bx+0xd4]
+00B5                          SetEncData(26, 02) [es:bx+0xd4]
 00C7 E9 8D 00                 jmp 0x157
 00CA C4 5E 06                 les bx, [bp+0x6]
 00CD 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00D2 3D 03 00                 cmp ax, 0x3
 00D5 75 38                    jnz 0x10f
-00D7                          SetEncData(26, 01)
-00E9                          SetEncData(26, 02)
-00FB                          SetEncData(26, 03)
+00D7                          SetEncData(26, 01) [es:bx+0xd4]
+00E9                          SetEncData(26, 02) [es:bx+0xd4]
+00FB                          SetEncData(26, 03) [es:bx+0xd4]
 010D EB 48                    jmp 0x157
-010F                          SetEncData(26, 01)
-0121                          SetEncData(26, 02)
-0133                          SetEncData(26, 03)
-0145                          SetEncData(26, 04)
+010F                          SetEncData(26, 01) [es:bx+0xd4]
+0121                          SetEncData(26, 02) [es:bx+0xd4]
+0133                          SetEncData(26, 03) [es:bx+0xd4]
+0145                          SetEncData(26, 04) [es:bx+0xd4]
 0157                          RETURN
 
 Functn11: "PITA"
@@ -639,8 +639,8 @@ Functn11: "PITA"
 0025 26 FF 5F 38              call far word [es:bx+0x38]
 0029 59                       pop cx
 002A 59                       pop cx
-002B                          ShowMessage(0958) = You fall into a pit.
-0038                          ShowMessage(096D) = You take heavy damage from the long, long fall.
+002B                          ShowMessage(0958) [es:bx+0xf8] = You fall into a pit.
+0038                          ShowMessage(096D) [es:bx+0xf8] = You take heavy damage from the long, long fall.
 0045 C4 5E 06                 les bx, [bp+0x6]
 0048 26 FF 9F F0 00           call far word [es:bx+0xf0]
 004D 3D 01 00                 cmp ax, 0x1
@@ -650,19 +650,19 @@ Functn11: "PITA"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F 90 00           call far word [es:bx+0x90]
 005E 59                       pop cx
-005F                          GoMap(03, 11, 03, 05)
+005F                          GoMap(03, 11, 03, 05) [es:bx+0xbc]
 007A EB 35                    jmp 0xb1
-007C                          ShowMessage(099D) = Since you are the first to land, your body provides a soft mattress for the rest of your party.
+007C                          ShowMessage(099D) [es:bx+0xf8] = Since you are the first to land, your body provides a soft mattress for the rest of your party.
 0089 B8 C2 01                 mov ax, 0x1c2
 008C 50                       push ax
 008D C4 5E 06                 les bx, [bp+0x6]
 0090 26 FF 9F 90 00           call far word [es:bx+0x90]
 0095 59                       pop cx
-0096                          GoMap(03, 11, 03, 05)
+0096                          GoMap(03, 11, 03, 05) [es:bx+0xbc]
 00B1 EB 35                    jmp 0xe8
-00B3                          ShowMessage(09FD) = A kindly spirit rescues you from falling to your death.
-00C0                          ShowMessage(0A35) = It warns you to stay away from danger until you are stronger.
-00CD                          GoMap(01, 67, 02, 01)
+00B3                          ShowMessage(09FD) [es:bx+0xf8] = A kindly spirit rescues you from falling to your death.
+00C0                          ShowMessage(0A35) [es:bx+0xf8] = It warns you to stay away from danger until you are stronger.
+00CD                          GoMap(01, 67, 02, 01) [es:bx+0xbc]
 00E8                          RETURN
 
 Functn12: "SECDOOR"
@@ -711,7 +711,7 @@ Functn12: "SECDOOR"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 74 3B                    jz 0x9e
-0063                          ShowMessage(0A73) = You detect a secret door in the wall.
+0063                          ShowMessage(0A73) [es:bx+0xf8] = You detect a secret door in the wall.
 0070 B8 02 00                 mov ax, 0x2
 0073 50                       push ax
 0074 B8 ED 00                 mov ax, 0xed
@@ -731,7 +731,7 @@ Functn12: "SECDOOR"
 0095 26 FF 5F 2C              call far word [es:bx+0x2c]
 0099 83 C4 06                 add sp, 0x6
 009C EB 22                    jmp 0xc0
-009E                          ShowMessage(0A99) = You see a blank wall.
+009E                          ShowMessage(0A99) [es:bx+0xf8] = You see a blank wall.
 00AB 33 C0                    xor ax, ax
 00AD 50                       push ax
 00AE B8 02 00                 mov ax, 0x2
@@ -745,12 +745,12 @@ Functn12: "SECDOOR"
 
 Functn13: ""
 0000                          BEGIN
-0003                          ShowMessage(0AAF) = The gateway leads to THE DUNGEON ENTRANCE.
+0003                          ShowMessage(0AAF) [es:bx+0xf8] = The gateway leads to THE DUNGEON ENTRANCE.
 0010                          RETURN
 
 Functn14: ""
 0000                          BEGIN
-0003                          ShowMessage(0ADA) = The gateway leads to THE VESTIBULE.
+0003                          ShowMessage(0ADA) [es:bx+0xf8] = The gateway leads to THE VESTIBULE.
 0010                          RETURN
 
 Functn15: "PITB"
@@ -767,8 +767,8 @@ Functn15: "PITB"
 0025 26 FF 5F 38              call far word [es:bx+0x38]
 0029 59                       pop cx
 002A 59                       pop cx
-002B                          ShowMessage(0AFE) = You fall into a pit.
-0038                          ShowMessage(0B13) = You take heavy damage from the long, long fall.
+002B                          ShowMessage(0AFE) [es:bx+0xf8] = You fall into a pit.
+0038                          ShowMessage(0B13) [es:bx+0xf8] = You take heavy damage from the long, long fall.
 0045 C4 5E 06                 les bx, [bp+0x6]
 0048 26 FF 9F F0 00           call far word [es:bx+0xf0]
 004D 3D 01 00                 cmp ax, 0x1
@@ -778,19 +778,19 @@ Functn15: "PITB"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F 90 00           call far word [es:bx+0x90]
 005E 59                       pop cx
-005F                          GoMap(03, 12, 03, 05)
+005F                          GoMap(03, 12, 03, 05) [es:bx+0xbc]
 007A EB 35                    jmp 0xb1
-007C                          ShowMessage(0B43) = Since you are the first to land, your body provides a soft mattress for the rest of your party.
+007C                          ShowMessage(0B43) [es:bx+0xf8] = Since you are the first to land, your body provides a soft mattress for the rest of your party.
 0089 B8 C2 01                 mov ax, 0x1c2
 008C 50                       push ax
 008D C4 5E 06                 les bx, [bp+0x6]
 0090 26 FF 9F 90 00           call far word [es:bx+0x90]
 0095 59                       pop cx
-0096                          GoMap(03, 12, 03, 05)
+0096                          GoMap(03, 12, 03, 05) [es:bx+0xbc]
 00B1 EB 34                    jmp 0xe7
-00B3                          ShowMessage(0BA3) = A kindly spirit rescues you from falling to your death.
-00C0                          ShowMessage(0BDB) = It warns you to stay away from danger until you are stronger.
-00CD                          GoMap(00, 69, 02, 01)
+00B3                          ShowMessage(0BA3) [es:bx+0xf8] = A kindly spirit rescues you from falling to your death.
+00C0                          ShowMessage(0BDB) [es:bx+0xf8] = It warns you to stay away from danger until you are stronger.
+00CD                          GoMap(00, 69, 02, 01) [es:bx+0xbc]
 00E7                          RETURN
 
 Functn16: "PITC"
@@ -807,8 +807,8 @@ Functn16: "PITC"
 0025 26 FF 5F 38              call far word [es:bx+0x38]
 0029 59                       pop cx
 002A 59                       pop cx
-002B                          ShowMessage(0C19) = You fall into a pit.
-0038                          ShowMessage(0C2E) = You take heavy damage from the long, long fall.
+002B                          ShowMessage(0C19) [es:bx+0xf8] = You fall into a pit.
+0038                          ShowMessage(0C2E) [es:bx+0xf8] = You take heavy damage from the long, long fall.
 0045 C4 5E 06                 les bx, [bp+0x6]
 0048 26 FF 9F F0 00           call far word [es:bx+0xf0]
 004D 3D 01 00                 cmp ax, 0x1
@@ -818,19 +818,19 @@ Functn16: "PITC"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F 90 00           call far word [es:bx+0x90]
 005E 59                       pop cx
-005F                          GoMap(01, 21, 03, 05)
+005F                          GoMap(01, 21, 03, 05) [es:bx+0xbc]
 007A EB 35                    jmp 0xb1
-007C                          ShowMessage(0C5E) = Since you are the first to land, your body provides a soft mattress for the rest of your party.
+007C                          ShowMessage(0C5E) [es:bx+0xf8] = Since you are the first to land, your body provides a soft mattress for the rest of your party.
 0089 B8 C2 01                 mov ax, 0x1c2
 008C 50                       push ax
 008D C4 5E 06                 les bx, [bp+0x6]
 0090 26 FF 9F 90 00           call far word [es:bx+0x90]
 0095 59                       pop cx
-0096                          GoMap(01, 21, 03, 05)
+0096                          GoMap(01, 21, 03, 05) [es:bx+0xbc]
 00B1 EB 35                    jmp 0xe8
-00B3                          ShowMessage(0CBE) = A kindly spirit rescues you from falling to your death.
-00C0                          ShowMessage(0CF6) = It warns you to stay away from danger until you are stronger.
-00CD                          GoMap(02, 76, 02, 01)
+00B3                          ShowMessage(0CBE) [es:bx+0xf8] = A kindly spirit rescues you from falling to your death.
+00C0                          ShowMessage(0CF6) [es:bx+0xf8] = It warns you to stay away from danger until you are stronger.
+00CD                          GoMap(02, 76, 02, 01) [es:bx+0xbc]
 00E8                          RETURN
 
 Functn17: "PITD"
@@ -847,8 +847,8 @@ Functn17: "PITD"
 0025 26 FF 5F 38              call far word [es:bx+0x38]
 0029 59                       pop cx
 002A 59                       pop cx
-002B                          ShowMessage(0D34) = You fall into a pit.
-0038                          ShowMessage(0D49) = You take heavy damage from the long, long fall.
+002B                          ShowMessage(0D34) [es:bx+0xf8] = You fall into a pit.
+0038                          ShowMessage(0D49) [es:bx+0xf8] = You take heavy damage from the long, long fall.
 0045 C4 5E 06                 les bx, [bp+0x6]
 0048 26 FF 9F F0 00           call far word [es:bx+0xf0]
 004D 3D 01 00                 cmp ax, 0x1
@@ -858,75 +858,75 @@ Functn17: "PITD"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F 90 00           call far word [es:bx+0x90]
 005E 59                       pop cx
-005F                          GoMap(00, 22, 03, 05)
+005F                          GoMap(00, 22, 03, 05) [es:bx+0xbc]
 0079 EB 34                    jmp 0xaf
-007B                          ShowMessage(0D79) = Since you are the first to land, your body provides a soft mattress for the rest of your party.
+007B                          ShowMessage(0D79) [es:bx+0xf8] = Since you are the first to land, your body provides a soft mattress for the rest of your party.
 0088 B8 C2 01                 mov ax, 0x1c2
 008B 50                       push ax
 008C C4 5E 06                 les bx, [bp+0x6]
 008F 26 FF 9F 90 00           call far word [es:bx+0x90]
 0094 59                       pop cx
-0095                          GoMap(00, 22, 03, 05)
+0095                          GoMap(00, 22, 03, 05) [es:bx+0xbc]
 00AF EB 34                    jmp 0xe5
-00B1                          ShowMessage(0DD9) = A kindly spirit rescues you from falling to your death.
-00BE                          ShowMessage(0E11) = It warns you to stay away from danger until you are stronger.
-00CB                          GoMap(00, 79, 02, 01)
+00B1                          ShowMessage(0DD9) [es:bx+0xf8] = A kindly spirit rescues you from falling to your death.
+00BE                          ShowMessage(0E11) [es:bx+0xf8] = It warns you to stay away from danger until you are stronger.
+00CB                          GoMap(00, 79, 02, 01) [es:bx+0xbc]
 00E5                          RETURN
 
 Functn18: "TELEMESA"
 0000                          BEGIN
 0003 C4 5E 06                 les bx, [bp+0x6]
 0006 26 FF 9F E0 00           call far word [es:bx+0xe0]
-000B                          ShowMessage(0E4F) = There is a teleport in the west wall.
+000B                          ShowMessage(0E4F) [es:bx+0xf8] = There is a teleport in the west wall.
 0018                          RETURN
 
 Functn19: "NPCCHATA"
 0000                          BEGIN
-0003                          ShowMessage(0E75) = You encounter an Orc Ranger.
-0010                          ShowPortrait(001E)
+0003                          ShowMessage(0E75) [es:bx+0xf8] = You encounter an Orc Ranger.
+0010                          ShowPortrait(001E) [es:bx+0xd4]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0E92) = King Cleowyn had a special lockpick which opened a set of doors in the Vestibule, leading to his Palace. He was the king of thieves, or so my father told me.
+002F                          ShowMessage(0E92) [es:bx+0xf8] = King Cleowyn had a special lockpick which opened a set of doors in the Vestibule, leading to his Palace. He was the king of thieves, or so my father told me.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0F30) = The Orc Ranger ignores you and wanders off.
+003E                          ShowMessage(0F30) [es:bx+0xf8] = The Orc Ranger ignores you and wanders off.
 004B                          RETURN
 
 Functn1A: "NPCCHATB"
 0000                          BEGIN
-0003                          ShowMessage(0F5C) = You encounter a Human Wizard.
-0010                          ShowPortrait(002B)
+0003                          ShowMessage(0F5C) [es:bx+0xf8] = You encounter a Human Wizard.
+0010                          ShowPortrait(002B) [es:bx+0xd4]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 04 00                 cmp ax, 0x4
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0F7A) = The lone adventurer is often at a disadvantage in this cursed dungeon. Those deeper levels...oh, they are very dangerous, indeed.
+002F                          ShowMessage(0F7A) [es:bx+0xf8] = The lone adventurer is often at a disadvantage in this cursed dungeon. Those deeper levels...oh, they are very dangerous, indeed.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0FFC) = The Human Wizard turns his back on you.
+003E                          ShowMessage(0FFC) [es:bx+0xf8] = The Human Wizard turns his back on you.
 004B                          RETURN
 
 Functn1B: "NPCCHATC"
 0000                          BEGIN
-0003                          ShowMessage(1024) = You encounter a Dwarf Knight.
-0010                          ShowPortrait(001C)
+0003                          ShowMessage(1024) [es:bx+0xf8] = You encounter a Dwarf Knight.
+0010                          ShowPortrait(001C) [es:bx+0xd4]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(1042) = There are rumors of a fantastic treasury which King Cleowyn visited each night to count his ill-gotten tax revenues.
+002F                          ShowMessage(1042) [es:bx+0xf8] = There are rumors of a fantastic treasury which King Cleowyn visited each night to count his ill-gotten tax revenues.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(10B7) = The Dwarf Knight seems uninterested in you and turns away.
+003E                          ShowMessage(10B7) [es:bx+0xf8] = The Dwarf Knight seems uninterested in you and turns away.
 004B                          RETURN
 
 Functn1C: "NPCCHATD"
 0000                          BEGIN
-0003                          ShowMessage(10F2) = You encounter a Troll Cleric.
-0010                          ShowPortrait(0028)
+0003                          ShowMessage(10F2) [es:bx+0xf8] = You encounter a Troll Cleric.
+0010                          ShowPortrait(0028) [es:bx+0xd4]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 1C                    ja 0x4b
-002F                          ShowMessage(1110) = Being able to detect hidden traps and doors is important for any party of adventurers wandering this dungeon.
-003C                          ShowMessage(117E) = Also, keep an eye open for better lockpicks. They will open doors to new wonders.
+002F                          ShowMessage(1110) [es:bx+0xf8] = Being able to detect hidden traps and doors is important for any party of adventurers wandering this dungeon.
+003C                          ShowMessage(117E) [es:bx+0xf8] = Also, keep an eye open for better lockpicks. They will open doors to new wonders.
 0049 EB 1A                    jmp 0x65
-004B                          ShowMessage(11D0) = The Troll Cleric is annoyed that you disturbed her reverie. She raps you on the head with her staff and marches off.
+004B                          ShowMessage(11D0) [es:bx+0xf8] = The Troll Cleric is annoyed that you disturbed her reverie. She raps you on the head with her staff and marches off.
 0058 B8 03 00                 mov ax, 0x3
 005B 50                       push ax
 005C C4 5E 06                 les bx, [bp+0x6]
@@ -936,27 +936,27 @@ Functn1C: "NPCCHATD"
 
 Functn1D: "NPCCHATE"
 0000                          BEGIN
-0003                          ShowMessage(1245) = You encounter a Human Thief.
-0010                          ShowPortrait(0022)
+0003                          ShowMessage(1245) [es:bx+0xf8] = You encounter a Human Thief.
+0010                          ShowPortrait(0022) [es:bx+0xd4]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 1C                    ja 0x4b
-002F                          ShowMessage(1262) = The upper levels of this dungeon make up the Palace of King Cleowyn. He was a cruel ruler and was hated by all.
-003C                          ShowMessage(12D2) = Beware of the many traps and pitfalls in and around the Palace. Not even the most clever thief can escape Cleowyn's traps.
+002F                          ShowMessage(1262) [es:bx+0xf8] = The upper levels of this dungeon make up the Palace of King Cleowyn. He was a cruel ruler and was hated by all.
+003C                          ShowMessage(12D2) [es:bx+0xf8] = Beware of the many traps and pitfalls in and around the Palace. Not even the most clever thief can escape Cleowyn's traps.
 0049 EB 0D                    jmp 0x58
-004B                          ShowMessage(134D) = The Human Thief slithers away without saying a word.
+004B                          ShowMessage(134D) [es:bx+0xf8] = The Human Thief slithers away without saying a word.
 0058                          RETURN
 
 Functn1E: "NPCCHATF"
 0000                          BEGIN
-0003                          ShowMessage(1382) = You encounter an Elf Barbarian.
-0010                          ShowPortrait(0018)
+0003                          ShowMessage(1382) [es:bx+0xf8] = You encounter an Elf Barbarian.
+0010                          ShowPortrait(0018) [es:bx+0xd4]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(13A2) = Beware the pit to be found at the heart of the mine. Only the very strongest can survive the fall into the deep abyss.
+002F                          ShowMessage(13A2) [es:bx+0xf8] = Beware the pit to be found at the heart of the mine. Only the very strongest can survive the fall into the deep abyss.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(1419) = The Elf Barbarian trudges off to kill some monsters.
+003E                          ShowMessage(1419) [es:bx+0xf8] = The Elf Barbarian trudges off to kill some monsters.
 004B                          RETURN
 
 03FC: You may enter.
