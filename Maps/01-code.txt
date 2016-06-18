@@ -65,7 +65,7 @@ Functn0B: "DOORMESS"
 0003                          ax = CheckLevel(0014) ? 1 : 0 [es:bx+0x44]
 0011 75 03                    jnz 0x16
 0013 E9 09 01                 jmp 0x11f
-0016                          ax = CheckState(02, 78) [es:bx+0xf0]
+0016                          ax = CheckState(02, 78) [es:bx+0x4]
 0027 3D 01 00                 cmp ax, 0x1
 002A 75 2E                    jnz 0x5a
 002C                          ShowMessage(0504) = This room contains the gateway to the Labyrinth.

@@ -54,7 +54,7 @@ Functn04: "PLATA"
 
 Functn05: "PLATB"
 0000                          BEGIN
-0003                          ax = CheckState(02, 84) [es:bx+0xf0]
+0003                          ax = CheckState(02, 84) [es:bx+0x4]
 0014 0B C0                    or ax, ax
 0016 75 76                    jnz 0x8e
 0018 B8 01 00                 mov ax, 0x1
@@ -206,16 +206,16 @@ Functn15: "RAINRED"
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 1F                 call far word [es:bx]
 003A 83 C4 06                 add sp, 0x6
-003D                          ax = CheckState(02, 80) [es:bx+0xf0]
+003D                          ax = CheckState(02, 80) [es:bx+0x4]
 004E 0B C0                    or ax, ax
 0050 74 61                    jz 0xb3
-0052                          ax = CheckState(02, 81) [es:bx+0xf0]
+0052                          ax = CheckState(02, 81) [es:bx+0x4]
 0063 0B C0                    or ax, ax
 0065 74 4C                    jz 0xb3
-0067                          ax = CheckState(02, 82) [es:bx+0xf0]
+0067                          ax = CheckState(02, 82) [es:bx+0x4]
 0078 0B C0                    or ax, ax
 007A 74 37                    jz 0xb3
-007C                          ax = CheckState(02, 83) [es:bx+0xf0]
+007C                          ax = CheckState(02, 83) [es:bx+0x4]
 008D 0B C0                    or ax, ax
 008F 74 22                    jz 0xb3
 0091 B8 01 00                 mov ax, 0x1
@@ -241,7 +241,7 @@ Functn15: "RAINRED"
 00D3 0B C0                    or ax, ax
 00D5 75 03                    jnz 0xda
 00D7 E9 80 00                 jmp 0x15a
-00DA                          ax = CheckState(01, 01) [es:bx+0xf0]
+00DA                          ax = CheckState(01, 01) [es:bx+0x4]
 00EB 0B C0                    or ax, ax
 00ED 74 6B                    jz 0x15a
 00EF B8 01 00                 mov ax, 0x1
@@ -298,16 +298,16 @@ Functn16: "RAINYEL"
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 1F                 call far word [es:bx]
 003A 83 C4 06                 add sp, 0x6
-003D                          ax = CheckState(02, 80) [es:bx+0xf0]
+003D                          ax = CheckState(02, 80) [es:bx+0x4]
 004E 0B C0                    or ax, ax
 0050 74 61                    jz 0xb3
-0052                          ax = CheckState(02, 81) [es:bx+0xf0]
+0052                          ax = CheckState(02, 81) [es:bx+0x4]
 0063 0B C0                    or ax, ax
 0065 74 4C                    jz 0xb3
-0067                          ax = CheckState(02, 82) [es:bx+0xf0]
+0067                          ax = CheckState(02, 82) [es:bx+0x4]
 0078 0B C0                    or ax, ax
 007A 74 37                    jz 0xb3
-007C                          ax = CheckState(02, 83) [es:bx+0xf0]
+007C                          ax = CheckState(02, 83) [es:bx+0x4]
 008D 0B C0                    or ax, ax
 008F 74 22                    jz 0xb3
 0091 B8 01 00                 mov ax, 0x1
@@ -331,7 +331,7 @@ Functn16: "RAINYEL"
 00C4 0B C0                    or ax, ax
 00C6 75 03                    jnz 0xcb
 00C8 E9 80 00                 jmp 0x14b
-00CB                          ax = CheckState(01, 01) [es:bx+0xf0]
+00CB                          ax = CheckState(01, 01) [es:bx+0x4]
 00DC 0B C0                    or ax, ax
 00DE 74 6B                    jz 0x14b
 00E0 B8 01 00                 mov ax, 0x1
@@ -388,16 +388,16 @@ Functn17: "RAINGRN"
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 1F                 call far word [es:bx]
 003A 83 C4 06                 add sp, 0x6
-003D                          ax = CheckState(02, 80) [es:bx+0xf0]
+003D                          ax = CheckState(02, 80) [es:bx+0x4]
 004E 0B C0                    or ax, ax
 0050 74 61                    jz 0xb3
-0052                          ax = CheckState(02, 81) [es:bx+0xf0]
+0052                          ax = CheckState(02, 81) [es:bx+0x4]
 0063 0B C0                    or ax, ax
 0065 74 4C                    jz 0xb3
-0067                          ax = CheckState(02, 82) [es:bx+0xf0]
+0067                          ax = CheckState(02, 82) [es:bx+0x4]
 0078 0B C0                    or ax, ax
 007A 74 37                    jz 0xb3
-007C                          ax = CheckState(02, 83) [es:bx+0xf0]
+007C                          ax = CheckState(02, 83) [es:bx+0x4]
 008D 0B C0                    or ax, ax
 008F 74 22                    jz 0xb3
 0091 B8 01 00                 mov ax, 0x1
@@ -421,7 +421,7 @@ Functn17: "RAINGRN"
 00C4 0B C0                    or ax, ax
 00C6 75 03                    jnz 0xcb
 00C8 E9 80 00                 jmp 0x14b
-00CB                          ax = CheckState(01, 01) [es:bx+0xf0]
+00CB                          ax = CheckState(01, 01) [es:bx+0x4]
 00DC 0B C0                    or ax, ax
 00DE 74 6B                    jz 0x14b
 00E0 B8 01 00                 mov ax, 0x1
@@ -478,16 +478,16 @@ Functn18: "RAINBLU"
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 1F                 call far word [es:bx]
 003A 83 C4 06                 add sp, 0x6
-003D                          ax = CheckState(02, 80) [es:bx+0xf0]
+003D                          ax = CheckState(02, 80) [es:bx+0x4]
 004E 0B C0                    or ax, ax
 0050 74 61                    jz 0xb3
-0052                          ax = CheckState(02, 81) [es:bx+0xf0]
+0052                          ax = CheckState(02, 81) [es:bx+0x4]
 0063 0B C0                    or ax, ax
 0065 74 4C                    jz 0xb3
-0067                          ax = CheckState(02, 82) [es:bx+0xf0]
+0067                          ax = CheckState(02, 82) [es:bx+0x4]
 0078 0B C0                    or ax, ax
 007A 74 37                    jz 0xb3
-007C                          ax = CheckState(02, 83) [es:bx+0xf0]
+007C                          ax = CheckState(02, 83) [es:bx+0x4]
 008D 0B C0                    or ax, ax
 008F 74 22                    jz 0xb3
 0091 B8 01 00                 mov ax, 0x1
@@ -511,7 +511,7 @@ Functn18: "RAINBLU"
 00C4 0B C0                    or ax, ax
 00C6 75 03                    jnz 0xcb
 00C8 E9 80 00                 jmp 0x14b
-00CB                          ax = CheckState(01, 01) [es:bx+0xf0]
+00CB                          ax = CheckState(01, 01) [es:bx+0x4]
 00DC 0B C0                    or ax, ax
 00DE 74 6B                    jz 0x14b
 00E0 B8 01 00                 mov ax, 0x1
@@ -554,187 +554,40 @@ Functn19: "GATEA"
 Functn1A: "ENCA"
 0000                          BEGIN
 0003                          ShowMessage(0E3F) = A burst of moon light floods the room.
-0010 B8 24 00                 mov ax, 0x24
-0013 50                       push ax
-0014 B8 01 00                 mov ax, 0x1
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0020 59                       pop cx
-0021 59                       pop cx
-0022 B8 24 00                 mov ax, 0x24
-0025 50                       push ax
-0026 B8 02 00                 mov ax, 0x2
-0029 50                       push ax
-002A C4 5E 06                 les bx, [bp+0x6]
-002D 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0032 59                       pop cx
-0033 59                       pop cx
-0034 B8 25 00                 mov ax, 0x25
-0037 50                       push ax
-0038 B8 03 00                 mov ax, 0x3
-003B 50                       push ax
-003C C4 5E 06                 les bx, [bp+0x6]
-003F 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0044 59                       pop cx
-0045 59                       pop cx
-0046 B8 25 00                 mov ax, 0x25
-0049 50                       push ax
-004A B8 04 00                 mov ax, 0x4
-004D 50                       push ax
-004E C4 5E 06                 les bx, [bp+0x6]
-0051 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0056 59                       pop cx
-0057 59                       pop cx
-0058 B8 22 00                 mov ax, 0x22
-005B 50                       push ax
-005C B8 05 00                 mov ax, 0x5
-005F 50                       push ax
-0060 C4 5E 06                 les bx, [bp+0x6]
-0063 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0068 59                       pop cx
-0069 59                       pop cx
-006A B8 22 00                 mov ax, 0x22
-006D 50                       push ax
-006E B8 06 00                 mov ax, 0x6
-0071 50                       push ax
-0072 C4 5E 06                 les bx, [bp+0x6]
-0075 26 FF 9F D4 00           call far word [es:bx+0xd4]
-007A 59                       pop cx
-007B 59                       pop cx
+0010                          SetEncData(24, 01)
+0022                          SetEncData(24, 02)
+0034                          SetEncData(25, 03)
+0046                          SetEncData(25, 04)
+0058                          SetEncData(22, 05)
+006A                          SetEncData(22, 06)
 007C                          RETURN
 
 Functn1B: "ENCB"
 0000                          BEGIN
-0003 B8 26 00                 mov ax, 0x26
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0013 59                       pop cx
-0014 59                       pop cx
-0015 B8 27 00                 mov ax, 0x27
-0018 50                       push ax
-0019 B8 02 00                 mov ax, 0x2
-001C 50                       push ax
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0025 59                       pop cx
-0026 59                       pop cx
-0027 B8 1A 00                 mov ax, 0x1a
-002A 50                       push ax
-002B B8 03 00                 mov ax, 0x3
-002E 50                       push ax
-002F C4 5E 06                 les bx, [bp+0x6]
-0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0037 59                       pop cx
-0038 59                       pop cx
-0039 B8 1C 00                 mov ax, 0x1c
-003C 50                       push ax
-003D B8 04 00                 mov ax, 0x4
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0049 59                       pop cx
-004A 59                       pop cx
-004B B8 1E 00                 mov ax, 0x1e
-004E 50                       push ax
-004F B8 05 00                 mov ax, 0x5
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F D4 00           call far word [es:bx+0xd4]
-005B 59                       pop cx
-005C 59                       pop cx
+0003                          SetEncData(26, 01)
+0015                          SetEncData(27, 02)
+0027                          SetEncData(1A, 03)
+0039                          SetEncData(1C, 04)
+004B                          SetEncData(1E, 05)
 005D                          RETURN
 
 Functn1C: "ENCC"
 0000                          BEGIN
 0003                          ShowMessage(0E66) = Dragons defend their lair.
-0010 B8 26 00                 mov ax, 0x26
-0013 50                       push ax
-0014 B8 01 00                 mov ax, 0x1
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0020 59                       pop cx
-0021 59                       pop cx
-0022 B8 28 00                 mov ax, 0x28
-0025 50                       push ax
-0026 B8 02 00                 mov ax, 0x2
-0029 50                       push ax
-002A C4 5E 06                 les bx, [bp+0x6]
-002D 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0032 59                       pop cx
-0033 59                       pop cx
-0034 B8 17 00                 mov ax, 0x17
-0037 50                       push ax
-0038 B8 05 00                 mov ax, 0x5
-003B 50                       push ax
-003C C4 5E 06                 les bx, [bp+0x6]
-003F 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0044 59                       pop cx
-0045 59                       pop cx
-0046 B8 17 00                 mov ax, 0x17
-0049 50                       push ax
-004A B8 06 00                 mov ax, 0x6
-004D 50                       push ax
-004E C4 5E 06                 les bx, [bp+0x6]
-0051 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0056 59                       pop cx
-0057 59                       pop cx
+0010                          SetEncData(26, 01)
+0022                          SetEncData(28, 02)
+0034                          SetEncData(17, 05)
+0046                          SetEncData(17, 06)
 0058                          RETURN
 
 Functn1D: "ENCD"
 0000                          BEGIN
-0003 B8 19 00                 mov ax, 0x19
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0013 59                       pop cx
-0014 59                       pop cx
-0015 B8 19 00                 mov ax, 0x19
-0018 50                       push ax
-0019 B8 02 00                 mov ax, 0x2
-001C 50                       push ax
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0025 59                       pop cx
-0026 59                       pop cx
-0027 B8 1B 00                 mov ax, 0x1b
-002A 50                       push ax
-002B B8 03 00                 mov ax, 0x3
-002E 50                       push ax
-002F C4 5E 06                 les bx, [bp+0x6]
-0032 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0037 59                       pop cx
-0038 59                       pop cx
-0039 B8 1B 00                 mov ax, 0x1b
-003C 50                       push ax
-003D B8 04 00                 mov ax, 0x4
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0049 59                       pop cx
-004A 59                       pop cx
-004B B8 22 00                 mov ax, 0x22
-004E 50                       push ax
-004F B8 05 00                 mov ax, 0x5
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F D4 00           call far word [es:bx+0xd4]
-005B 59                       pop cx
-005C 59                       pop cx
-005D B8 23 00                 mov ax, 0x23
-0060 50                       push ax
-0061 B8 06 00                 mov ax, 0x6
-0064 50                       push ax
-0065 C4 5E 06                 les bx, [bp+0x6]
-0068 26 FF 9F D4 00           call far word [es:bx+0xd4]
-006D 59                       pop cx
-006E 59                       pop cx
+0003                          SetEncData(19, 01)
+0015                          SetEncData(19, 02)
+0027                          SetEncData(1B, 03)
+0039                          SetEncData(1B, 04)
+004B                          SetEncData(22, 05)
+005D                          SetEncData(23, 06)
 006F                          RETURN
 
 Functn1E: "TAPECLUE"
@@ -747,7 +600,7 @@ Functn1E: "TAPECLUE"
 
 Functn1F: "BOAT"
 0000                          BEGIN
-0003                          ax = CheckState(01, 01) [es:bx+0xf0]
+0003                          ax = CheckState(01, 01) [es:bx+0x4]
 0014 0B C0                    or ax, ax
 0016 74 5D                    jz 0x75
 0018                          ShowMessage(0F59) = You step across the platform and into the Golden Boat.

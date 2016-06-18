@@ -74,7 +74,7 @@ Functn08: "TAVERN"
 
 Functn09: "SPECIALD"
 0000                          BEGIN
-0003                          ax = CheckState(02, 42) [es:bx+0xf0]
+0003                          ax = CheckState(02, 42) [es:bx+0x4]
 0014 3D 05 00                 cmp ax, 0x5
 0017 75 0F                    jnz 0x28
 0019                          ShowMessage(04E7) = You have used up the supplies in the Infirmary.
@@ -105,30 +105,9 @@ Functn09: "SPECIALD"
 Functn0A: "MONENCA"
 0000                          BEGIN
 0003                          ShowMessage(0565) = You surprise creatures eating lunch!
-0010 B8 19 00                 mov ax, 0x19
-0013 50                       push ax
-0014 B8 01 00                 mov ax, 0x1
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0020 59                       pop cx
-0021 59                       pop cx
-0022 B8 1A 00                 mov ax, 0x1a
-0025 50                       push ax
-0026 B8 02 00                 mov ax, 0x2
-0029 50                       push ax
-002A C4 5E 06                 les bx, [bp+0x6]
-002D 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0032 59                       pop cx
-0033 59                       pop cx
-0034 B8 1D 00                 mov ax, 0x1d
-0037 50                       push ax
-0038 B8 03 00                 mov ax, 0x3
-003B 50                       push ax
-003C C4 5E 06                 les bx, [bp+0x6]
-003F 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0044 59                       pop cx
-0045 59                       pop cx
+0010                          SetEncData(19, 01)
+0022                          SetEncData(1A, 02)
+0034                          SetEncData(1D, 03)
 0046                          RETURN
 
 Functn0B: "MONENCB"
@@ -149,38 +128,10 @@ Functn0B: "MONENCB"
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 9F D8 00           call far word [es:bx+0xd8]
 002D 83 C4 0C                 add sp, 0xc
-0030 B8 1E 00                 mov ax, 0x1e
-0033 50                       push ax
-0034 B8 01 00                 mov ax, 0x1
-0037 50                       push ax
-0038 C4 5E 06                 les bx, [bp+0x6]
-003B 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0040 59                       pop cx
-0041 59                       pop cx
-0042 B8 22 00                 mov ax, 0x22
-0045 50                       push ax
-0046 B8 02 00                 mov ax, 0x2
-0049 50                       push ax
-004A C4 5E 06                 les bx, [bp+0x6]
-004D 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0052 59                       pop cx
-0053 59                       pop cx
-0054 B8 1B 00                 mov ax, 0x1b
-0057 50                       push ax
-0058 B8 03 00                 mov ax, 0x3
-005B 50                       push ax
-005C C4 5E 06                 les bx, [bp+0x6]
-005F 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0064 59                       pop cx
-0065 59                       pop cx
-0066 B8 25 00                 mov ax, 0x25
-0069 50                       push ax
-006A B8 04 00                 mov ax, 0x4
-006D 50                       push ax
-006E C4 5E 06                 les bx, [bp+0x6]
-0071 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0076 59                       pop cx
-0077 59                       pop cx
+0030                          SetEncData(1E, 01)
+0042                          SetEncData(22, 02)
+0054                          SetEncData(1B, 03)
+0066                          SetEncData(25, 04)
 0078                          RETURN
 
 Functn0C: "MONENCC"
@@ -194,71 +145,15 @@ Functn0C: "MONENCC"
 0020 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0025 3D 02 00                 cmp ax, 0x2
 0028 75 38                    jnz 0x62
-002A B8 1C 00                 mov ax, 0x1c
-002D 50                       push ax
-002E B8 01 00                 mov ax, 0x1
-0031 50                       push ax
-0032 C4 5E 06                 les bx, [bp+0x6]
-0035 26 FF 9F D4 00           call far word [es:bx+0xd4]
-003A 59                       pop cx
-003B 59                       pop cx
-003C B8 1F 00                 mov ax, 0x1f
-003F 50                       push ax
-0040 B8 02 00                 mov ax, 0x2
-0043 50                       push ax
-0044 C4 5E 06                 les bx, [bp+0x6]
-0047 26 FF 9F D4 00           call far word [es:bx+0xd4]
-004C 59                       pop cx
-004D 59                       pop cx
-004E B8 1D 00                 mov ax, 0x1d
-0051 50                       push ax
-0052 B8 03 00                 mov ax, 0x3
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F D4 00           call far word [es:bx+0xd4]
-005E 59                       pop cx
-005F 59                       pop cx
+002A                          SetEncData(1C, 01)
+003C                          SetEncData(1F, 02)
+004E                          SetEncData(1D, 03)
 0060 EB 5A                    jmp 0xbc
-0062 B8 1C 00                 mov ax, 0x1c
-0065 50                       push ax
-0066 B8 01 00                 mov ax, 0x1
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0072 59                       pop cx
-0073 59                       pop cx
-0074 B8 1C 00                 mov ax, 0x1c
-0077 50                       push ax
-0078 B8 02 00                 mov ax, 0x2
-007B 50                       push ax
-007C C4 5E 06                 les bx, [bp+0x6]
-007F 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0084 59                       pop cx
-0085 59                       pop cx
-0086 B8 1D 00                 mov ax, 0x1d
-0089 50                       push ax
-008A B8 03 00                 mov ax, 0x3
-008D 50                       push ax
-008E C4 5E 06                 les bx, [bp+0x6]
-0091 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0096 59                       pop cx
-0097 59                       pop cx
-0098 B8 1D 00                 mov ax, 0x1d
-009B 50                       push ax
-009C B8 04 00                 mov ax, 0x4
-009F 50                       push ax
-00A0 C4 5E 06                 les bx, [bp+0x6]
-00A3 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00A8 59                       pop cx
-00A9 59                       pop cx
-00AA B8 1F 00                 mov ax, 0x1f
-00AD 50                       push ax
-00AE B8 05 00                 mov ax, 0x5
-00B1 50                       push ax
-00B2 C4 5E 06                 les bx, [bp+0x6]
-00B5 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00BA 59                       pop cx
-00BB 59                       pop cx
+0062                          SetEncData(1C, 01)
+0074                          SetEncData(1C, 02)
+0086                          SetEncData(1D, 03)
+0098                          SetEncData(1D, 04)
+00AA                          SetEncData(1F, 05)
 00BC                          RETURN
 
 Functn0E: "MONENCE"
@@ -297,30 +192,9 @@ Functn0E: "MONENCE"
 004D 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0052 83 C4 0C                 add sp, 0xc
 0055                          ShowMessage(05E0) = You are attacked by Mages of the Thieves' Guild out walking their pets!
-0062 B8 25 00                 mov ax, 0x25
-0065 50                       push ax
-0066 B8 01 00                 mov ax, 0x1
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0072 59                       pop cx
-0073 59                       pop cx
-0074 B8 26 00                 mov ax, 0x26
-0077 50                       push ax
-0078 B8 05 00                 mov ax, 0x5
-007B 50                       push ax
-007C C4 5E 06                 les bx, [bp+0x6]
-007F 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0084 59                       pop cx
-0085 59                       pop cx
-0086 B8 27 00                 mov ax, 0x27
-0089 50                       push ax
-008A B8 06 00                 mov ax, 0x6
-008D 50                       push ax
-008E C4 5E 06                 les bx, [bp+0x6]
-0091 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0096 59                       pop cx
-0097 59                       pop cx
+0062                          SetEncData(25, 01)
+0074                          SetEncData(26, 05)
+0086                          SetEncData(27, 06)
 0098                          RETURN
 
 Functn0F: "MONENCF"
@@ -360,35 +234,14 @@ Functn0F: "MONENCF"
 0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005D 83 C4 0C                 add sp, 0xc
 0060                          ShowMessage(0654) = You stumble upon foraging animals! They found something shiny!
-006D B8 19 00                 mov ax, 0x19
-0070 50                       push ax
-0071 B8 01 00                 mov ax, 0x1
-0074 50                       push ax
-0075 C4 5E 06                 les bx, [bp+0x6]
-0078 26 FF 9F D4 00           call far word [es:bx+0xd4]
-007D 59                       pop cx
-007E 59                       pop cx
-007F B8 20 00                 mov ax, 0x20
-0082 50                       push ax
-0083 B8 02 00                 mov ax, 0x2
-0086 50                       push ax
-0087 C4 5E 06                 les bx, [bp+0x6]
-008A 26 FF 9F D4 00           call far word [es:bx+0xd4]
-008F 59                       pop cx
-0090 59                       pop cx
-0091 B8 21 00                 mov ax, 0x21
-0094 50                       push ax
-0095 B8 05 00                 mov ax, 0x5
-0098 50                       push ax
-0099 C4 5E 06                 les bx, [bp+0x6]
-009C 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00A1 59                       pop cx
-00A2 59                       pop cx
+006D                          SetEncData(19, 01)
+007F                          SetEncData(20, 02)
+0091                          SetEncData(21, 05)
 00A3                          RETURN
 
 Functn10: "FLSPECA"
 0000                          BEGIN
-0003                          ax = CheckState(02, 41) [es:bx+0xf0]
+0003                          ax = CheckState(02, 41) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 0F                    jnz 0x28
 0019                          ShowMessage(0693) = The storage room has been emptied by other adventurers.
@@ -430,7 +283,7 @@ Functn10: "FLSPECA"
 
 Functn11: "FLSPECB"
 0000                          BEGIN
-0003                          ax = CheckState(02, 3E) [es:bx+0xf0]
+0003                          ax = CheckState(02, 3E) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 0F                    jnz 0x28
 0019                          ShowMessage(0727) = Thieves have emptied this room.
@@ -482,7 +335,7 @@ Functn11: "FLSPECB"
 
 Functn12: "FLSPECC"
 0000                          BEGIN
-0003                          ax = CheckState(02, 43) [es:bx+0xf0]
+0003                          ax = CheckState(02, 43) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 20                    jnz 0x39
 0019 33 C0                    xor ax, ax
@@ -648,7 +501,7 @@ Functn13: "FLSPECD"
 
 Functn14: "FLSPECE"
 0000                          BEGIN
-0003                          ax = CheckState(02, 44) [es:bx+0xf0]
+0003                          ax = CheckState(02, 44) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 0F                    jnz 0x28
 0019                          ShowMessage(0902) = You found a sleeping thief who cannot be roused from deep slumber.

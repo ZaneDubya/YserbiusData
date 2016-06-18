@@ -140,150 +140,38 @@ Functn14: "KEYENC"
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0075 3D 01 00                 cmp ax, 0x1
 0078 75 27                    jnz 0xa1
-007A B8 27 00                 mov ax, 0x27
-007D 50                       push ax
-007E B8 01 00                 mov ax, 0x1
-0081 50                       push ax
-0082 C4 5E 06                 les bx, [bp+0x6]
-0085 26 FF 9F D4 00           call far word [es:bx+0xd4]
-008A 59                       pop cx
-008B 59                       pop cx
-008C B8 28 00                 mov ax, 0x28
-008F 50                       push ax
-0090 B8 05 00                 mov ax, 0x5
-0093 50                       push ax
-0094 C4 5E 06                 les bx, [bp+0x6]
-0097 26 FF 9F D4 00           call far word [es:bx+0xd4]
-009C 59                       pop cx
-009D 59                       pop cx
+007A                          SetEncData(27, 01)
+008C                          SetEncData(28, 05)
 009E E9 1B 01                 jmp 0x1bc
 00A1 C4 5E 06                 les bx, [bp+0x6]
 00A4 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00A9 3D 02 00                 cmp ax, 0x2
 00AC 75 39                    jnz 0xe7
-00AE B8 26 00                 mov ax, 0x26
-00B1 50                       push ax
-00B2 B8 01 00                 mov ax, 0x1
-00B5 50                       push ax
-00B6 C4 5E 06                 les bx, [bp+0x6]
-00B9 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00BE 59                       pop cx
-00BF 59                       pop cx
-00C0 B8 27 00                 mov ax, 0x27
-00C3 50                       push ax
-00C4 B8 02 00                 mov ax, 0x2
-00C7 50                       push ax
-00C8 C4 5E 06                 les bx, [bp+0x6]
-00CB 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00D0 59                       pop cx
-00D1 59                       pop cx
-00D2 B8 28 00                 mov ax, 0x28
-00D5 50                       push ax
-00D6 B8 05 00                 mov ax, 0x5
-00D9 50                       push ax
-00DA C4 5E 06                 les bx, [bp+0x6]
-00DD 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00E2 59                       pop cx
-00E3 59                       pop cx
+00AE                          SetEncData(26, 01)
+00C0                          SetEncData(27, 02)
+00D2                          SetEncData(28, 05)
 00E4 E9 D5 00                 jmp 0x1bc
 00E7 C4 5E 06                 les bx, [bp+0x6]
 00EA 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00EF 3D 03 00                 cmp ax, 0x3
 00F2 75 5C                    jnz 0x150
-00F4 B8 26 00                 mov ax, 0x26
-00F7 50                       push ax
-00F8 B8 01 00                 mov ax, 0x1
-00FB 50                       push ax
-00FC C4 5E 06                 les bx, [bp+0x6]
-00FF 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0104 59                       pop cx
-0105 59                       pop cx
-0106 B8 27 00                 mov ax, 0x27
-0109 50                       push ax
-010A B8 02 00                 mov ax, 0x2
-010D 50                       push ax
-010E C4 5E 06                 les bx, [bp+0x6]
-0111 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0116 59                       pop cx
-0117 59                       pop cx
-0118 B8 27 00                 mov ax, 0x27
-011B 50                       push ax
-011C B8 03 00                 mov ax, 0x3
-011F 50                       push ax
-0120 C4 5E 06                 les bx, [bp+0x6]
-0123 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0128 59                       pop cx
-0129 59                       pop cx
-012A B8 28 00                 mov ax, 0x28
-012D 50                       push ax
-012E B8 05 00                 mov ax, 0x5
-0131 50                       push ax
-0132 C4 5E 06                 les bx, [bp+0x6]
-0135 26 FF 9F D4 00           call far word [es:bx+0xd4]
-013A 59                       pop cx
-013B 59                       pop cx
-013C B8 28 00                 mov ax, 0x28
-013F 50                       push ax
-0140 B8 06 00                 mov ax, 0x6
-0143 50                       push ax
-0144 C4 5E 06                 les bx, [bp+0x6]
-0147 26 FF 9F D4 00           call far word [es:bx+0xd4]
-014C 59                       pop cx
-014D 59                       pop cx
+00F4                          SetEncData(26, 01)
+0106                          SetEncData(27, 02)
+0118                          SetEncData(27, 03)
+012A                          SetEncData(28, 05)
+013C                          SetEncData(28, 06)
 014E EB 6C                    jmp 0x1bc
-0150 B8 26 00                 mov ax, 0x26
-0153 50                       push ax
-0154 B8 01 00                 mov ax, 0x1
-0157 50                       push ax
-0158 C4 5E 06                 les bx, [bp+0x6]
-015B 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0160 59                       pop cx
-0161 59                       pop cx
-0162 B8 27 00                 mov ax, 0x27
-0165 50                       push ax
-0166 B8 02 00                 mov ax, 0x2
-0169 50                       push ax
-016A C4 5E 06                 les bx, [bp+0x6]
-016D 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0172 59                       pop cx
-0173 59                       pop cx
-0174 B8 28 00                 mov ax, 0x28
-0177 50                       push ax
-0178 B8 03 00                 mov ax, 0x3
-017B 50                       push ax
-017C C4 5E 06                 les bx, [bp+0x6]
-017F 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0184 59                       pop cx
-0185 59                       pop cx
-0186 B8 28 00                 mov ax, 0x28
-0189 50                       push ax
-018A B8 04 00                 mov ax, 0x4
-018D 50                       push ax
-018E C4 5E 06                 les bx, [bp+0x6]
-0191 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0196 59                       pop cx
-0197 59                       pop cx
-0198 B8 28 00                 mov ax, 0x28
-019B 50                       push ax
-019C B8 05 00                 mov ax, 0x5
-019F 50                       push ax
-01A0 C4 5E 06                 les bx, [bp+0x6]
-01A3 26 FF 9F D4 00           call far word [es:bx+0xd4]
-01A8 59                       pop cx
-01A9 59                       pop cx
-01AA B8 28 00                 mov ax, 0x28
-01AD 50                       push ax
-01AE B8 06 00                 mov ax, 0x6
-01B1 50                       push ax
-01B2 C4 5E 06                 les bx, [bp+0x6]
-01B5 26 FF 9F D4 00           call far word [es:bx+0xd4]
-01BA 59                       pop cx
-01BB 59                       pop cx
+0150                          SetEncData(26, 01)
+0162                          SetEncData(27, 02)
+0174                          SetEncData(28, 03)
+0186                          SetEncData(28, 04)
+0198                          SetEncData(28, 05)
+01AA                          SetEncData(28, 06)
 01BC                          RETURN
 
 Functn15: "FOUNHLTH"
 0000                          BEGIN
-0003                          ax = CheckState(01, 01) [es:bx+0xf0]
+0003                          ax = CheckState(01, 01) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 1C                    jnz 0x35
 0019                          ShowPortrait(0042)
@@ -366,7 +254,7 @@ Functn16: "LKPKDOOR"
 
 Functn17: "GOLDAENC"
 0000                          BEGIN
-0003                          ax = CheckState(02, 3B) [es:bx+0xf0]
+0003                          ax = CheckState(02, 3B) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(058A) = Angry Sabertooth Lions roar at you.
@@ -415,102 +303,32 @@ Functn17: "GOLDAENC"
 008D 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0092 3D 01 00                 cmp ax, 0x1
 0095 75 15                    jnz 0xac
-0097 B8 1B 00                 mov ax, 0x1b
-009A 50                       push ax
-009B B8 01 00                 mov ax, 0x1
-009E 50                       push ax
-009F C4 5E 06                 les bx, [bp+0x6]
-00A2 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00A7 59                       pop cx
-00A8 59                       pop cx
+0097                          SetEncData(1B, 01)
 00A9 E9 C1 00                 jmp 0x16d
 00AC C4 5E 06                 les bx, [bp+0x6]
 00AF 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00B4 3D 02 00                 cmp ax, 0x2
 00B7 75 27                    jnz 0xe0
-00B9 B8 1B 00                 mov ax, 0x1b
-00BC 50                       push ax
-00BD B8 01 00                 mov ax, 0x1
-00C0 50                       push ax
-00C1 C4 5E 06                 les bx, [bp+0x6]
-00C4 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00C9 59                       pop cx
-00CA 59                       pop cx
-00CB B8 1B 00                 mov ax, 0x1b
-00CE 50                       push ax
-00CF B8 02 00                 mov ax, 0x2
-00D2 50                       push ax
-00D3 C4 5E 06                 les bx, [bp+0x6]
-00D6 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00DB 59                       pop cx
-00DC 59                       pop cx
+00B9                          SetEncData(1B, 01)
+00CB                          SetEncData(1B, 02)
 00DD E9 8D 00                 jmp 0x16d
 00E0 C4 5E 06                 les bx, [bp+0x6]
 00E3 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00E8 3D 03 00                 cmp ax, 0x3
 00EB 75 38                    jnz 0x125
-00ED B8 1B 00                 mov ax, 0x1b
-00F0 50                       push ax
-00F1 B8 01 00                 mov ax, 0x1
-00F4 50                       push ax
-00F5 C4 5E 06                 les bx, [bp+0x6]
-00F8 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00FD 59                       pop cx
-00FE 59                       pop cx
-00FF B8 1B 00                 mov ax, 0x1b
-0102 50                       push ax
-0103 B8 02 00                 mov ax, 0x2
-0106 50                       push ax
-0107 C4 5E 06                 les bx, [bp+0x6]
-010A 26 FF 9F D4 00           call far word [es:bx+0xd4]
-010F 59                       pop cx
-0110 59                       pop cx
-0111 B8 1B 00                 mov ax, 0x1b
-0114 50                       push ax
-0115 B8 03 00                 mov ax, 0x3
-0118 50                       push ax
-0119 C4 5E 06                 les bx, [bp+0x6]
-011C 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0121 59                       pop cx
-0122 59                       pop cx
+00ED                          SetEncData(1B, 01)
+00FF                          SetEncData(1B, 02)
+0111                          SetEncData(1B, 03)
 0123 EB 48                    jmp 0x16d
-0125 B8 1B 00                 mov ax, 0x1b
-0128 50                       push ax
-0129 B8 01 00                 mov ax, 0x1
-012C 50                       push ax
-012D C4 5E 06                 les bx, [bp+0x6]
-0130 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0135 59                       pop cx
-0136 59                       pop cx
-0137 B8 1B 00                 mov ax, 0x1b
-013A 50                       push ax
-013B B8 02 00                 mov ax, 0x2
-013E 50                       push ax
-013F C4 5E 06                 les bx, [bp+0x6]
-0142 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0147 59                       pop cx
-0148 59                       pop cx
-0149 B8 1B 00                 mov ax, 0x1b
-014C 50                       push ax
-014D B8 03 00                 mov ax, 0x3
-0150 50                       push ax
-0151 C4 5E 06                 les bx, [bp+0x6]
-0154 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0159 59                       pop cx
-015A 59                       pop cx
-015B B8 1B 00                 mov ax, 0x1b
-015E 50                       push ax
-015F B8 04 00                 mov ax, 0x4
-0162 50                       push ax
-0163 C4 5E 06                 les bx, [bp+0x6]
-0166 26 FF 9F D4 00           call far word [es:bx+0xd4]
-016B 59                       pop cx
-016C 59                       pop cx
+0125                          SetEncData(1B, 01)
+0137                          SetEncData(1B, 02)
+0149                          SetEncData(1B, 03)
+015B                          SetEncData(1B, 04)
 016D                          RETURN
 
 Functn18: "GOLDBENC"
 0000                          BEGIN
-0003                          ax = CheckState(02, 3C) [es:bx+0xf0]
+0003                          ax = CheckState(02, 3C) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(05DD) = You step into a Wyvern den.
@@ -559,97 +377,27 @@ Functn18: "GOLDBENC"
 008C 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0091 3D 01 00                 cmp ax, 0x1
 0094 75 15                    jnz 0xab
-0096 B8 1F 00                 mov ax, 0x1f
-0099 50                       push ax
-009A B8 01 00                 mov ax, 0x1
-009D 50                       push ax
-009E C4 5E 06                 les bx, [bp+0x6]
-00A1 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00A6 59                       pop cx
-00A7 59                       pop cx
+0096                          SetEncData(1F, 01)
 00A8 E9 C1 00                 jmp 0x16c
 00AB C4 5E 06                 les bx, [bp+0x6]
 00AE 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00B3 3D 02 00                 cmp ax, 0x2
 00B6 75 27                    jnz 0xdf
-00B8 B8 1F 00                 mov ax, 0x1f
-00BB 50                       push ax
-00BC B8 01 00                 mov ax, 0x1
-00BF 50                       push ax
-00C0 C4 5E 06                 les bx, [bp+0x6]
-00C3 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00C8 59                       pop cx
-00C9 59                       pop cx
-00CA B8 1F 00                 mov ax, 0x1f
-00CD 50                       push ax
-00CE B8 02 00                 mov ax, 0x2
-00D1 50                       push ax
-00D2 C4 5E 06                 les bx, [bp+0x6]
-00D5 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00DA 59                       pop cx
-00DB 59                       pop cx
+00B8                          SetEncData(1F, 01)
+00CA                          SetEncData(1F, 02)
 00DC E9 8D 00                 jmp 0x16c
 00DF C4 5E 06                 les bx, [bp+0x6]
 00E2 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00E7 3D 03 00                 cmp ax, 0x3
 00EA 75 38                    jnz 0x124
-00EC B8 1F 00                 mov ax, 0x1f
-00EF 50                       push ax
-00F0 B8 01 00                 mov ax, 0x1
-00F3 50                       push ax
-00F4 C4 5E 06                 les bx, [bp+0x6]
-00F7 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00FC 59                       pop cx
-00FD 59                       pop cx
-00FE B8 1F 00                 mov ax, 0x1f
-0101 50                       push ax
-0102 B8 02 00                 mov ax, 0x2
-0105 50                       push ax
-0106 C4 5E 06                 les bx, [bp+0x6]
-0109 26 FF 9F D4 00           call far word [es:bx+0xd4]
-010E 59                       pop cx
-010F 59                       pop cx
-0110 B8 1F 00                 mov ax, 0x1f
-0113 50                       push ax
-0114 B8 05 00                 mov ax, 0x5
-0117 50                       push ax
-0118 C4 5E 06                 les bx, [bp+0x6]
-011B 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0120 59                       pop cx
-0121 59                       pop cx
+00EC                          SetEncData(1F, 01)
+00FE                          SetEncData(1F, 02)
+0110                          SetEncData(1F, 05)
 0122 EB 48                    jmp 0x16c
-0124 B8 1F 00                 mov ax, 0x1f
-0127 50                       push ax
-0128 B8 01 00                 mov ax, 0x1
-012B 50                       push ax
-012C C4 5E 06                 les bx, [bp+0x6]
-012F 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0134 59                       pop cx
-0135 59                       pop cx
-0136 B8 1F 00                 mov ax, 0x1f
-0139 50                       push ax
-013A B8 02 00                 mov ax, 0x2
-013D 50                       push ax
-013E C4 5E 06                 les bx, [bp+0x6]
-0141 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0146 59                       pop cx
-0147 59                       pop cx
-0148 B8 1F 00                 mov ax, 0x1f
-014B 50                       push ax
-014C B8 04 00                 mov ax, 0x4
-014F 50                       push ax
-0150 C4 5E 06                 les bx, [bp+0x6]
-0153 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0158 59                       pop cx
-0159 59                       pop cx
-015A B8 1F 00                 mov ax, 0x1f
-015D 50                       push ax
-015E B8 06 00                 mov ax, 0x6
-0161 50                       push ax
-0162 C4 5E 06                 les bx, [bp+0x6]
-0165 26 FF 9F D4 00           call far word [es:bx+0xd4]
-016A 59                       pop cx
-016B 59                       pop cx
+0124                          SetEncData(1F, 01)
+0136                          SetEncData(1F, 02)
+0148                          SetEncData(1F, 04)
+015A                          SetEncData(1F, 06)
 016C                          RETURN
 
 Functn19: "ITEMAENC"
@@ -693,121 +441,30 @@ Functn19: "ITEMAENC"
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
 0079 75 15                    jnz 0x90
-007B B8 23 00                 mov ax, 0x23
-007E 50                       push ax
-007F B8 01 00                 mov ax, 0x1
-0082 50                       push ax
-0083 C4 5E 06                 les bx, [bp+0x6]
-0086 26 FF 9F D4 00           call far word [es:bx+0xd4]
-008B 59                       pop cx
-008C 59                       pop cx
+007B                          SetEncData(23, 01)
 008D E9 F7 00                 jmp 0x187
 0090 C4 5E 06                 les bx, [bp+0x6]
 0093 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0098 3D 02 00                 cmp ax, 0x2
 009B 75 27                    jnz 0xc4
-009D B8 23 00                 mov ax, 0x23
-00A0 50                       push ax
-00A1 B8 01 00                 mov ax, 0x1
-00A4 50                       push ax
-00A5 C4 5E 06                 les bx, [bp+0x6]
-00A8 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00AD 59                       pop cx
-00AE 59                       pop cx
-00AF B8 24 00                 mov ax, 0x24
-00B2 50                       push ax
-00B3 B8 02 00                 mov ax, 0x2
-00B6 50                       push ax
-00B7 C4 5E 06                 les bx, [bp+0x6]
-00BA 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00BF 59                       pop cx
-00C0 59                       pop cx
+009D                          SetEncData(23, 01)
+00AF                          SetEncData(24, 02)
 00C1 E9 C3 00                 jmp 0x187
 00C4 C4 5E 06                 les bx, [bp+0x6]
 00C7 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00CC 3D 03 00                 cmp ax, 0x3
 00CF 75 4A                    jnz 0x11b
-00D1 B8 23 00                 mov ax, 0x23
-00D4 50                       push ax
-00D5 B8 01 00                 mov ax, 0x1
-00D8 50                       push ax
-00D9 C4 5E 06                 les bx, [bp+0x6]
-00DC 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00E1 59                       pop cx
-00E2 59                       pop cx
-00E3 B8 23 00                 mov ax, 0x23
-00E6 50                       push ax
-00E7 B8 02 00                 mov ax, 0x2
-00EA 50                       push ax
-00EB C4 5E 06                 les bx, [bp+0x6]
-00EE 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00F3 59                       pop cx
-00F4 59                       pop cx
-00F5 B8 24 00                 mov ax, 0x24
-00F8 50                       push ax
-00F9 B8 03 00                 mov ax, 0x3
-00FC 50                       push ax
-00FD C4 5E 06                 les bx, [bp+0x6]
-0100 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0105 59                       pop cx
-0106 59                       pop cx
-0107 B8 24 00                 mov ax, 0x24
-010A 50                       push ax
-010B B8 04 00                 mov ax, 0x4
-010E 50                       push ax
-010F C4 5E 06                 les bx, [bp+0x6]
-0112 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0117 59                       pop cx
-0118 59                       pop cx
+00D1                          SetEncData(23, 01)
+00E3                          SetEncData(23, 02)
+00F5                          SetEncData(24, 03)
+0107                          SetEncData(24, 04)
 0119 EB 6C                    jmp 0x187
-011B B8 23 00                 mov ax, 0x23
-011E 50                       push ax
-011F B8 01 00                 mov ax, 0x1
-0122 50                       push ax
-0123 C4 5E 06                 les bx, [bp+0x6]
-0126 26 FF 9F D4 00           call far word [es:bx+0xd4]
-012B 59                       pop cx
-012C 59                       pop cx
-012D B8 24 00                 mov ax, 0x24
-0130 50                       push ax
-0131 B8 02 00                 mov ax, 0x2
-0134 50                       push ax
-0135 C4 5E 06                 les bx, [bp+0x6]
-0138 26 FF 9F D4 00           call far word [es:bx+0xd4]
-013D 59                       pop cx
-013E 59                       pop cx
-013F B8 24 00                 mov ax, 0x24
-0142 50                       push ax
-0143 B8 03 00                 mov ax, 0x3
-0146 50                       push ax
-0147 C4 5E 06                 les bx, [bp+0x6]
-014A 26 FF 9F D4 00           call far word [es:bx+0xd4]
-014F 59                       pop cx
-0150 59                       pop cx
-0151 B8 23 00                 mov ax, 0x23
-0154 50                       push ax
-0155 B8 04 00                 mov ax, 0x4
-0158 50                       push ax
-0159 C4 5E 06                 les bx, [bp+0x6]
-015C 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0161 59                       pop cx
-0162 59                       pop cx
-0163 B8 23 00                 mov ax, 0x23
-0166 50                       push ax
-0167 B8 05 00                 mov ax, 0x5
-016A 50                       push ax
-016B C4 5E 06                 les bx, [bp+0x6]
-016E 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0173 59                       pop cx
-0174 59                       pop cx
-0175 B8 24 00                 mov ax, 0x24
-0178 50                       push ax
-0179 B8 06 00                 mov ax, 0x6
-017C 50                       push ax
-017D C4 5E 06                 les bx, [bp+0x6]
-0180 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0185 59                       pop cx
-0186 59                       pop cx
+011B                          SetEncData(23, 01)
+012D                          SetEncData(24, 02)
+013F                          SetEncData(24, 03)
+0151                          SetEncData(23, 04)
+0163                          SetEncData(23, 05)
+0175                          SetEncData(24, 06)
 0187                          RETURN
 
 Functn1A: "ITEMBENC"
@@ -851,121 +508,30 @@ Functn1A: "ITEMBENC"
 0072 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0077 3D 01 00                 cmp ax, 0x1
 007A 75 15                    jnz 0x91
-007C B8 25 00                 mov ax, 0x25
-007F 50                       push ax
-0080 B8 01 00                 mov ax, 0x1
-0083 50                       push ax
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 9F D4 00           call far word [es:bx+0xd4]
-008C 59                       pop cx
-008D 59                       pop cx
+007C                          SetEncData(25, 01)
 008E E9 F7 00                 jmp 0x188
 0091 C4 5E 06                 les bx, [bp+0x6]
 0094 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0099 3D 02 00                 cmp ax, 0x2
 009C 75 27                    jnz 0xc5
-009E B8 25 00                 mov ax, 0x25
-00A1 50                       push ax
-00A2 B8 01 00                 mov ax, 0x1
-00A5 50                       push ax
-00A6 C4 5E 06                 les bx, [bp+0x6]
-00A9 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00AE 59                       pop cx
-00AF 59                       pop cx
-00B0 B8 25 00                 mov ax, 0x25
-00B3 50                       push ax
-00B4 B8 02 00                 mov ax, 0x2
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00C0 59                       pop cx
-00C1 59                       pop cx
+009E                          SetEncData(25, 01)
+00B0                          SetEncData(25, 02)
 00C2 E9 C3 00                 jmp 0x188
 00C5 C4 5E 06                 les bx, [bp+0x6]
 00C8 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00CD 3D 03 00                 cmp ax, 0x3
 00D0 75 4A                    jnz 0x11c
-00D2 B8 25 00                 mov ax, 0x25
-00D5 50                       push ax
-00D6 B8 01 00                 mov ax, 0x1
-00D9 50                       push ax
-00DA C4 5E 06                 les bx, [bp+0x6]
-00DD 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00E2 59                       pop cx
-00E3 59                       pop cx
-00E4 B8 25 00                 mov ax, 0x25
-00E7 50                       push ax
-00E8 B8 02 00                 mov ax, 0x2
-00EB 50                       push ax
-00EC C4 5E 06                 les bx, [bp+0x6]
-00EF 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00F4 59                       pop cx
-00F5 59                       pop cx
-00F6 B8 25 00                 mov ax, 0x25
-00F9 50                       push ax
-00FA B8 05 00                 mov ax, 0x5
-00FD 50                       push ax
-00FE C4 5E 06                 les bx, [bp+0x6]
-0101 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0106 59                       pop cx
-0107 59                       pop cx
-0108 B8 25 00                 mov ax, 0x25
-010B 50                       push ax
-010C B8 05 00                 mov ax, 0x5
-010F 50                       push ax
-0110 C4 5E 06                 les bx, [bp+0x6]
-0113 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0118 59                       pop cx
-0119 59                       pop cx
+00D2                          SetEncData(25, 01)
+00E4                          SetEncData(25, 02)
+00F6                          SetEncData(25, 05)
+0108                          SetEncData(25, 05)
 011A EB 6C                    jmp 0x188
-011C B8 25 00                 mov ax, 0x25
-011F 50                       push ax
-0120 B8 01 00                 mov ax, 0x1
-0123 50                       push ax
-0124 C4 5E 06                 les bx, [bp+0x6]
-0127 26 FF 9F D4 00           call far word [es:bx+0xd4]
-012C 59                       pop cx
-012D 59                       pop cx
-012E B8 25 00                 mov ax, 0x25
-0131 50                       push ax
-0132 B8 02 00                 mov ax, 0x2
-0135 50                       push ax
-0136 C4 5E 06                 les bx, [bp+0x6]
-0139 26 FF 9F D4 00           call far word [es:bx+0xd4]
-013E 59                       pop cx
-013F 59                       pop cx
-0140 B8 25 00                 mov ax, 0x25
-0143 50                       push ax
-0144 B8 03 00                 mov ax, 0x3
-0147 50                       push ax
-0148 C4 5E 06                 les bx, [bp+0x6]
-014B 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0150 59                       pop cx
-0151 59                       pop cx
-0152 B8 25 00                 mov ax, 0x25
-0155 50                       push ax
-0156 B8 04 00                 mov ax, 0x4
-0159 50                       push ax
-015A C4 5E 06                 les bx, [bp+0x6]
-015D 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0162 59                       pop cx
-0163 59                       pop cx
-0164 B8 25 00                 mov ax, 0x25
-0167 50                       push ax
-0168 B8 05 00                 mov ax, 0x5
-016B 50                       push ax
-016C C4 5E 06                 les bx, [bp+0x6]
-016F 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0174 59                       pop cx
-0175 59                       pop cx
-0176 B8 25 00                 mov ax, 0x25
-0179 50                       push ax
-017A B8 06 00                 mov ax, 0x6
-017D 50                       push ax
-017E C4 5E 06                 les bx, [bp+0x6]
-0181 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0186 59                       pop cx
-0187 59                       pop cx
+011C                          SetEncData(25, 01)
+012E                          SetEncData(25, 02)
+0140                          SetEncData(25, 03)
+0152                          SetEncData(25, 04)
+0164                          SetEncData(25, 05)
+0176                          SetEncData(25, 06)
 0188                          RETURN
 
 Functn1B: "ITEMCENC"
@@ -1009,108 +575,24 @@ Functn1B: "ITEMCENC"
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
 0079 75 27                    jnz 0xa2
-007B B8 1D 00                 mov ax, 0x1d
-007E 50                       push ax
-007F B8 01 00                 mov ax, 0x1
-0082 50                       push ax
-0083 C4 5E 06                 les bx, [bp+0x6]
-0086 26 FF 9F D4 00           call far word [es:bx+0xd4]
-008B 59                       pop cx
-008C 59                       pop cx
-008D B8 1E 00                 mov ax, 0x1e
-0090 50                       push ax
-0091 B8 05 00                 mov ax, 0x5
-0094 50                       push ax
-0095 C4 5E 06                 les bx, [bp+0x6]
-0098 26 FF 9F D4 00           call far word [es:bx+0xd4]
-009D 59                       pop cx
-009E 59                       pop cx
+007B                          SetEncData(1D, 01)
+008D                          SetEncData(1E, 05)
 009F E9 C3 00                 jmp 0x165
 00A2 C4 5E 06                 les bx, [bp+0x6]
 00A5 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00AA 3D 02 00                 cmp ax, 0x2
 00AD 75 4A                    jnz 0xf9
-00AF B8 1E 00                 mov ax, 0x1e
-00B2 50                       push ax
-00B3 B8 01 00                 mov ax, 0x1
-00B6 50                       push ax
-00B7 C4 5E 06                 les bx, [bp+0x6]
-00BA 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00BF 59                       pop cx
-00C0 59                       pop cx
-00C1 B8 1D 00                 mov ax, 0x1d
-00C4 50                       push ax
-00C5 B8 02 00                 mov ax, 0x2
-00C8 50                       push ax
-00C9 C4 5E 06                 les bx, [bp+0x6]
-00CC 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00D1 59                       pop cx
-00D2 59                       pop cx
-00D3 B8 1D 00                 mov ax, 0x1d
-00D6 50                       push ax
-00D7 B8 03 00                 mov ax, 0x3
-00DA 50                       push ax
-00DB C4 5E 06                 les bx, [bp+0x6]
-00DE 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00E3 59                       pop cx
-00E4 59                       pop cx
-00E5 B8 1E 00                 mov ax, 0x1e
-00E8 50                       push ax
-00E9 B8 04 00                 mov ax, 0x4
-00EC 50                       push ax
-00ED C4 5E 06                 les bx, [bp+0x6]
-00F0 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00F5 59                       pop cx
-00F6 59                       pop cx
+00AF                          SetEncData(1E, 01)
+00C1                          SetEncData(1D, 02)
+00D3                          SetEncData(1D, 03)
+00E5                          SetEncData(1E, 04)
 00F7 EB 6C                    jmp 0x165
-00F9 B8 1D 00                 mov ax, 0x1d
-00FC 50                       push ax
-00FD B8 01 00                 mov ax, 0x1
-0100 50                       push ax
-0101 C4 5E 06                 les bx, [bp+0x6]
-0104 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0109 59                       pop cx
-010A 59                       pop cx
-010B B8 1D 00                 mov ax, 0x1d
-010E 50                       push ax
-010F B8 02 00                 mov ax, 0x2
-0112 50                       push ax
-0113 C4 5E 06                 les bx, [bp+0x6]
-0116 26 FF 9F D4 00           call far word [es:bx+0xd4]
-011B 59                       pop cx
-011C 59                       pop cx
-011D B8 1D 00                 mov ax, 0x1d
-0120 50                       push ax
-0121 B8 03 00                 mov ax, 0x3
-0124 50                       push ax
-0125 C4 5E 06                 les bx, [bp+0x6]
-0128 26 FF 9F D4 00           call far word [es:bx+0xd4]
-012D 59                       pop cx
-012E 59                       pop cx
-012F B8 1D 00                 mov ax, 0x1d
-0132 50                       push ax
-0133 B8 04 00                 mov ax, 0x4
-0136 50                       push ax
-0137 C4 5E 06                 les bx, [bp+0x6]
-013A 26 FF 9F D4 00           call far word [es:bx+0xd4]
-013F 59                       pop cx
-0140 59                       pop cx
-0141 B8 1E 00                 mov ax, 0x1e
-0144 50                       push ax
-0145 B8 05 00                 mov ax, 0x5
-0148 50                       push ax
-0149 C4 5E 06                 les bx, [bp+0x6]
-014C 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0151 59                       pop cx
-0152 59                       pop cx
-0153 B8 1E 00                 mov ax, 0x1e
-0156 50                       push ax
-0157 B8 06 00                 mov ax, 0x6
-015A 50                       push ax
-015B C4 5E 06                 les bx, [bp+0x6]
-015E 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0163 59                       pop cx
-0164 59                       pop cx
+00F9                          SetEncData(1D, 01)
+010B                          SetEncData(1D, 02)
+011D                          SetEncData(1D, 03)
+012F                          SetEncData(1D, 04)
+0141                          SetEncData(1E, 05)
+0153                          SetEncData(1E, 06)
 0165                          RETURN
 
 Functn1C: "ARMRAENC"
@@ -1154,108 +636,24 @@ Functn1C: "ARMRAENC"
 0072 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0077 3D 01 00                 cmp ax, 0x1
 007A 75 27                    jnz 0xa3
-007C B8 28 00                 mov ax, 0x28
-007F 50                       push ax
-0080 B8 01 00                 mov ax, 0x1
-0083 50                       push ax
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 9F D4 00           call far word [es:bx+0xd4]
-008C 59                       pop cx
-008D 59                       pop cx
-008E B8 28 00                 mov ax, 0x28
-0091 50                       push ax
-0092 B8 02 00                 mov ax, 0x2
-0095 50                       push ax
-0096 C4 5E 06                 les bx, [bp+0x6]
-0099 26 FF 9F D4 00           call far word [es:bx+0xd4]
-009E 59                       pop cx
-009F 59                       pop cx
+007C                          SetEncData(28, 01)
+008E                          SetEncData(28, 02)
 00A0 E9 C3 00                 jmp 0x166
 00A3 C4 5E 06                 les bx, [bp+0x6]
 00A6 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00AB 3D 02 00                 cmp ax, 0x2
 00AE 75 4A                    jnz 0xfa
-00B0 B8 28 00                 mov ax, 0x28
-00B3 50                       push ax
-00B4 B8 01 00                 mov ax, 0x1
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00C0 59                       pop cx
-00C1 59                       pop cx
-00C2 B8 28 00                 mov ax, 0x28
-00C5 50                       push ax
-00C6 B8 02 00                 mov ax, 0x2
-00C9 50                       push ax
-00CA C4 5E 06                 les bx, [bp+0x6]
-00CD 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00D2 59                       pop cx
-00D3 59                       pop cx
-00D4 B8 28 00                 mov ax, 0x28
-00D7 50                       push ax
-00D8 B8 05 00                 mov ax, 0x5
-00DB 50                       push ax
-00DC C4 5E 06                 les bx, [bp+0x6]
-00DF 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00E4 59                       pop cx
-00E5 59                       pop cx
-00E6 B8 28 00                 mov ax, 0x28
-00E9 50                       push ax
-00EA B8 06 00                 mov ax, 0x6
-00ED 50                       push ax
-00EE C4 5E 06                 les bx, [bp+0x6]
-00F1 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00F6 59                       pop cx
-00F7 59                       pop cx
+00B0                          SetEncData(28, 01)
+00C2                          SetEncData(28, 02)
+00D4                          SetEncData(28, 05)
+00E6                          SetEncData(28, 06)
 00F8 EB 6C                    jmp 0x166
-00FA B8 28 00                 mov ax, 0x28
-00FD 50                       push ax
-00FE B8 01 00                 mov ax, 0x1
-0101 50                       push ax
-0102 C4 5E 06                 les bx, [bp+0x6]
-0105 26 FF 9F D4 00           call far word [es:bx+0xd4]
-010A 59                       pop cx
-010B 59                       pop cx
-010C B8 28 00                 mov ax, 0x28
-010F 50                       push ax
-0110 B8 02 00                 mov ax, 0x2
-0113 50                       push ax
-0114 C4 5E 06                 les bx, [bp+0x6]
-0117 26 FF 9F D4 00           call far word [es:bx+0xd4]
-011C 59                       pop cx
-011D 59                       pop cx
-011E B8 28 00                 mov ax, 0x28
-0121 50                       push ax
-0122 B8 03 00                 mov ax, 0x3
-0125 50                       push ax
-0126 C4 5E 06                 les bx, [bp+0x6]
-0129 26 FF 9F D4 00           call far word [es:bx+0xd4]
-012E 59                       pop cx
-012F 59                       pop cx
-0130 B8 28 00                 mov ax, 0x28
-0133 50                       push ax
-0134 B8 04 00                 mov ax, 0x4
-0137 50                       push ax
-0138 C4 5E 06                 les bx, [bp+0x6]
-013B 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0140 59                       pop cx
-0141 59                       pop cx
-0142 B8 28 00                 mov ax, 0x28
-0145 50                       push ax
-0146 B8 05 00                 mov ax, 0x5
-0149 50                       push ax
-014A C4 5E 06                 les bx, [bp+0x6]
-014D 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0152 59                       pop cx
-0153 59                       pop cx
-0154 B8 28 00                 mov ax, 0x28
-0157 50                       push ax
-0158 B8 06 00                 mov ax, 0x6
-015B 50                       push ax
-015C C4 5E 06                 les bx, [bp+0x6]
-015F 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0164 59                       pop cx
-0165 59                       pop cx
+00FA                          SetEncData(28, 01)
+010C                          SetEncData(28, 02)
+011E                          SetEncData(28, 03)
+0130                          SetEncData(28, 04)
+0142                          SetEncData(28, 05)
+0154                          SetEncData(28, 06)
 0166                          RETURN
 
 Functn1D: "MAGICENC"
@@ -1299,108 +697,24 @@ Functn1D: "MAGICENC"
 0072 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0077 3D 01 00                 cmp ax, 0x1
 007A 75 27                    jnz 0xa3
-007C B8 20 00                 mov ax, 0x20
-007F 50                       push ax
-0080 B8 01 00                 mov ax, 0x1
-0083 50                       push ax
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 9F D4 00           call far word [es:bx+0xd4]
-008C 59                       pop cx
-008D 59                       pop cx
-008E B8 21 00                 mov ax, 0x21
-0091 50                       push ax
-0092 B8 05 00                 mov ax, 0x5
-0095 50                       push ax
-0096 C4 5E 06                 les bx, [bp+0x6]
-0099 26 FF 9F D4 00           call far word [es:bx+0xd4]
-009E 59                       pop cx
-009F 59                       pop cx
+007C                          SetEncData(20, 01)
+008E                          SetEncData(21, 05)
 00A0 E9 C3 00                 jmp 0x166
 00A3 C4 5E 06                 les bx, [bp+0x6]
 00A6 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00AB 3D 02 00                 cmp ax, 0x2
 00AE 75 4A                    jnz 0xfa
-00B0 B8 20 00                 mov ax, 0x20
-00B3 50                       push ax
-00B4 B8 01 00                 mov ax, 0x1
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00C0 59                       pop cx
-00C1 59                       pop cx
-00C2 B8 21 00                 mov ax, 0x21
-00C5 50                       push ax
-00C6 B8 02 00                 mov ax, 0x2
-00C9 50                       push ax
-00CA C4 5E 06                 les bx, [bp+0x6]
-00CD 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00D2 59                       pop cx
-00D3 59                       pop cx
-00D4 B8 21 00                 mov ax, 0x21
-00D7 50                       push ax
-00D8 B8 03 00                 mov ax, 0x3
-00DB 50                       push ax
-00DC C4 5E 06                 les bx, [bp+0x6]
-00DF 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00E4 59                       pop cx
-00E5 59                       pop cx
-00E6 B8 20 00                 mov ax, 0x20
-00E9 50                       push ax
-00EA B8 04 00                 mov ax, 0x4
-00ED 50                       push ax
-00EE C4 5E 06                 les bx, [bp+0x6]
-00F1 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00F6 59                       pop cx
-00F7 59                       pop cx
+00B0                          SetEncData(20, 01)
+00C2                          SetEncData(21, 02)
+00D4                          SetEncData(21, 03)
+00E6                          SetEncData(20, 04)
 00F8 EB 6C                    jmp 0x166
-00FA B8 20 00                 mov ax, 0x20
-00FD 50                       push ax
-00FE B8 01 00                 mov ax, 0x1
-0101 50                       push ax
-0102 C4 5E 06                 les bx, [bp+0x6]
-0105 26 FF 9F D4 00           call far word [es:bx+0xd4]
-010A 59                       pop cx
-010B 59                       pop cx
-010C B8 20 00                 mov ax, 0x20
-010F 50                       push ax
-0110 B8 02 00                 mov ax, 0x2
-0113 50                       push ax
-0114 C4 5E 06                 les bx, [bp+0x6]
-0117 26 FF 9F D4 00           call far word [es:bx+0xd4]
-011C 59                       pop cx
-011D 59                       pop cx
-011E B8 21 00                 mov ax, 0x21
-0121 50                       push ax
-0122 B8 03 00                 mov ax, 0x3
-0125 50                       push ax
-0126 C4 5E 06                 les bx, [bp+0x6]
-0129 26 FF 9F D4 00           call far word [es:bx+0xd4]
-012E 59                       pop cx
-012F 59                       pop cx
-0130 B8 21 00                 mov ax, 0x21
-0133 50                       push ax
-0134 B8 04 00                 mov ax, 0x4
-0137 50                       push ax
-0138 C4 5E 06                 les bx, [bp+0x6]
-013B 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0140 59                       pop cx
-0141 59                       pop cx
-0142 B8 21 00                 mov ax, 0x21
-0145 50                       push ax
-0146 B8 05 00                 mov ax, 0x5
-0149 50                       push ax
-014A C4 5E 06                 les bx, [bp+0x6]
-014D 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0152 59                       pop cx
-0153 59                       pop cx
-0154 B8 20 00                 mov ax, 0x20
-0157 50                       push ax
-0158 B8 06 00                 mov ax, 0x6
-015B 50                       push ax
-015C C4 5E 06                 les bx, [bp+0x6]
-015F 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0164 59                       pop cx
-0165 59                       pop cx
+00FA                          SetEncData(20, 01)
+010C                          SetEncData(20, 02)
+011E                          SetEncData(21, 03)
+0130                          SetEncData(21, 04)
+0142                          SetEncData(21, 05)
+0154                          SetEncData(20, 06)
 0166                          RETURN
 
 Functn1E: "WEAPAENC"
@@ -1444,108 +758,24 @@ Functn1E: "WEAPAENC"
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
 0079 75 27                    jnz 0xa2
-007B B8 26 00                 mov ax, 0x26
-007E 50                       push ax
-007F B8 01 00                 mov ax, 0x1
-0082 50                       push ax
-0083 C4 5E 06                 les bx, [bp+0x6]
-0086 26 FF 9F D4 00           call far word [es:bx+0xd4]
-008B 59                       pop cx
-008C 59                       pop cx
-008D B8 27 00                 mov ax, 0x27
-0090 50                       push ax
-0091 B8 05 00                 mov ax, 0x5
-0094 50                       push ax
-0095 C4 5E 06                 les bx, [bp+0x6]
-0098 26 FF 9F D4 00           call far word [es:bx+0xd4]
-009D 59                       pop cx
-009E 59                       pop cx
+007B                          SetEncData(26, 01)
+008D                          SetEncData(27, 05)
 009F E9 C3 00                 jmp 0x165
 00A2 C4 5E 06                 les bx, [bp+0x6]
 00A5 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00AA 3D 02 00                 cmp ax, 0x2
 00AD 75 4A                    jnz 0xf9
-00AF B8 27 00                 mov ax, 0x27
-00B2 50                       push ax
-00B3 B8 01 00                 mov ax, 0x1
-00B6 50                       push ax
-00B7 C4 5E 06                 les bx, [bp+0x6]
-00BA 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00BF 59                       pop cx
-00C0 59                       pop cx
-00C1 B8 26 00                 mov ax, 0x26
-00C4 50                       push ax
-00C5 B8 02 00                 mov ax, 0x2
-00C8 50                       push ax
-00C9 C4 5E 06                 les bx, [bp+0x6]
-00CC 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00D1 59                       pop cx
-00D2 59                       pop cx
-00D3 B8 26 00                 mov ax, 0x26
-00D6 50                       push ax
-00D7 B8 03 00                 mov ax, 0x3
-00DA 50                       push ax
-00DB C4 5E 06                 les bx, [bp+0x6]
-00DE 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00E3 59                       pop cx
-00E4 59                       pop cx
-00E5 B8 27 00                 mov ax, 0x27
-00E8 50                       push ax
-00E9 B8 06 00                 mov ax, 0x6
-00EC 50                       push ax
-00ED C4 5E 06                 les bx, [bp+0x6]
-00F0 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00F5 59                       pop cx
-00F6 59                       pop cx
+00AF                          SetEncData(27, 01)
+00C1                          SetEncData(26, 02)
+00D3                          SetEncData(26, 03)
+00E5                          SetEncData(27, 06)
 00F7 EB 6C                    jmp 0x165
-00F9 B8 26 00                 mov ax, 0x26
-00FC 50                       push ax
-00FD B8 01 00                 mov ax, 0x1
-0100 50                       push ax
-0101 C4 5E 06                 les bx, [bp+0x6]
-0104 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0109 59                       pop cx
-010A 59                       pop cx
-010B B8 26 00                 mov ax, 0x26
-010E 50                       push ax
-010F B8 02 00                 mov ax, 0x2
-0112 50                       push ax
-0113 C4 5E 06                 les bx, [bp+0x6]
-0116 26 FF 9F D4 00           call far word [es:bx+0xd4]
-011B 59                       pop cx
-011C 59                       pop cx
-011D B8 27 00                 mov ax, 0x27
-0120 50                       push ax
-0121 B8 03 00                 mov ax, 0x3
-0124 50                       push ax
-0125 C4 5E 06                 les bx, [bp+0x6]
-0128 26 FF 9F D4 00           call far word [es:bx+0xd4]
-012D 59                       pop cx
-012E 59                       pop cx
-012F B8 27 00                 mov ax, 0x27
-0132 50                       push ax
-0133 B8 04 00                 mov ax, 0x4
-0136 50                       push ax
-0137 C4 5E 06                 les bx, [bp+0x6]
-013A 26 FF 9F D4 00           call far word [es:bx+0xd4]
-013F 59                       pop cx
-0140 59                       pop cx
-0141 B8 26 00                 mov ax, 0x26
-0144 50                       push ax
-0145 B8 05 00                 mov ax, 0x5
-0148 50                       push ax
-0149 C4 5E 06                 les bx, [bp+0x6]
-014C 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0151 59                       pop cx
-0152 59                       pop cx
-0153 B8 26 00                 mov ax, 0x26
-0156 50                       push ax
-0157 B8 06 00                 mov ax, 0x6
-015A 50                       push ax
-015B C4 5E 06                 les bx, [bp+0x6]
-015E 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0163 59                       pop cx
-0164 59                       pop cx
+00F9                          SetEncData(26, 01)
+010B                          SetEncData(26, 02)
+011D                          SetEncData(27, 03)
+012F                          SetEncData(27, 04)
+0141                          SetEncData(26, 05)
+0153                          SetEncData(26, 06)
 0165                          RETURN
 
 Functn1F: "STRMNSTR"
@@ -1554,169 +784,36 @@ Functn1F: "STRMNSTR"
 0006 26 FF 9F F0 00           call far word [es:bx+0xf0]
 000B 3D 01 00                 cmp ax, 0x1
 000E 75 39                    jnz 0x49
-0010 B8 19 00                 mov ax, 0x19
-0013 50                       push ax
-0014 B8 01 00                 mov ax, 0x1
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0020 59                       pop cx
-0021 59                       pop cx
-0022 B8 19 00                 mov ax, 0x19
-0025 50                       push ax
-0026 B8 02 00                 mov ax, 0x2
-0029 50                       push ax
-002A C4 5E 06                 les bx, [bp+0x6]
-002D 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0032 59                       pop cx
-0033 59                       pop cx
-0034 B8 1A 00                 mov ax, 0x1a
-0037 50                       push ax
-0038 B8 03 00                 mov ax, 0x3
-003B 50                       push ax
-003C C4 5E 06                 les bx, [bp+0x6]
-003F 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0044 59                       pop cx
-0045 59                       pop cx
+0010                          SetEncData(19, 01)
+0022                          SetEncData(19, 02)
+0034                          SetEncData(1A, 03)
 0046 E9 3F 01                 jmp 0x188
 0049 C4 5E 06                 les bx, [bp+0x6]
 004C 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0051 3D 02 00                 cmp ax, 0x2
 0054 75 4B                    jnz 0xa1
-0056 B8 1A 00                 mov ax, 0x1a
-0059 50                       push ax
-005A B8 01 00                 mov ax, 0x1
-005D 50                       push ax
-005E C4 5E 06                 les bx, [bp+0x6]
-0061 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0066 59                       pop cx
-0067 59                       pop cx
-0068 B8 1A 00                 mov ax, 0x1a
-006B 50                       push ax
-006C B8 02 00                 mov ax, 0x2
-006F 50                       push ax
-0070 C4 5E 06                 les bx, [bp+0x6]
-0073 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0078 59                       pop cx
-0079 59                       pop cx
-007A B8 19 00                 mov ax, 0x19
-007D 50                       push ax
-007E B8 03 00                 mov ax, 0x3
-0081 50                       push ax
-0082 C4 5E 06                 les bx, [bp+0x6]
-0085 26 FF 9F D4 00           call far word [es:bx+0xd4]
-008A 59                       pop cx
-008B 59                       pop cx
-008C B8 19 00                 mov ax, 0x19
-008F 50                       push ax
-0090 B8 04 00                 mov ax, 0x4
-0093 50                       push ax
-0094 C4 5E 06                 les bx, [bp+0x6]
-0097 26 FF 9F D4 00           call far word [es:bx+0xd4]
-009C 59                       pop cx
-009D 59                       pop cx
+0056                          SetEncData(1A, 01)
+0068                          SetEncData(1A, 02)
+007A                          SetEncData(19, 03)
+008C                          SetEncData(19, 04)
 009E E9 E7 00                 jmp 0x188
 00A1 C4 5E 06                 les bx, [bp+0x6]
 00A4 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00A9 3D 03 00                 cmp ax, 0x3
 00AC 75 6E                    jnz 0x11c
-00AE B8 19 00                 mov ax, 0x19
-00B1 50                       push ax
-00B2 B8 01 00                 mov ax, 0x1
-00B5 50                       push ax
-00B6 C4 5E 06                 les bx, [bp+0x6]
-00B9 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00BE 59                       pop cx
-00BF 59                       pop cx
-00C0 B8 1A 00                 mov ax, 0x1a
-00C3 50                       push ax
-00C4 B8 02 00                 mov ax, 0x2
-00C7 50                       push ax
-00C8 C4 5E 06                 les bx, [bp+0x6]
-00CB 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00D0 59                       pop cx
-00D1 59                       pop cx
-00D2 B8 19 00                 mov ax, 0x19
-00D5 50                       push ax
-00D6 B8 03 00                 mov ax, 0x3
-00D9 50                       push ax
-00DA C4 5E 06                 les bx, [bp+0x6]
-00DD 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00E2 59                       pop cx
-00E3 59                       pop cx
-00E4 B8 1A 00                 mov ax, 0x1a
-00E7 50                       push ax
-00E8 B8 04 00                 mov ax, 0x4
-00EB 50                       push ax
-00EC C4 5E 06                 les bx, [bp+0x6]
-00EF 26 FF 9F D4 00           call far word [es:bx+0xd4]
-00F4 59                       pop cx
-00F5 59                       pop cx
-00F6 B8 19 00                 mov ax, 0x19
-00F9 50                       push ax
-00FA B8 05 00                 mov ax, 0x5
-00FD 50                       push ax
-00FE C4 5E 06                 les bx, [bp+0x6]
-0101 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0106 59                       pop cx
-0107 59                       pop cx
-0108 B8 1A 00                 mov ax, 0x1a
-010B 50                       push ax
-010C B8 05 00                 mov ax, 0x5
-010F 50                       push ax
-0110 C4 5E 06                 les bx, [bp+0x6]
-0113 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0118 59                       pop cx
-0119 59                       pop cx
+00AE                          SetEncData(19, 01)
+00C0                          SetEncData(1A, 02)
+00D2                          SetEncData(19, 03)
+00E4                          SetEncData(1A, 04)
+00F6                          SetEncData(19, 05)
+0108                          SetEncData(1A, 05)
 011A EB 6C                    jmp 0x188
-011C B8 19 00                 mov ax, 0x19
-011F 50                       push ax
-0120 B8 01 00                 mov ax, 0x1
-0123 50                       push ax
-0124 C4 5E 06                 les bx, [bp+0x6]
-0127 26 FF 9F D4 00           call far word [es:bx+0xd4]
-012C 59                       pop cx
-012D 59                       pop cx
-012E B8 19 00                 mov ax, 0x19
-0131 50                       push ax
-0132 B8 02 00                 mov ax, 0x2
-0135 50                       push ax
-0136 C4 5E 06                 les bx, [bp+0x6]
-0139 26 FF 9F D4 00           call far word [es:bx+0xd4]
-013E 59                       pop cx
-013F 59                       pop cx
-0140 B8 1A 00                 mov ax, 0x1a
-0143 50                       push ax
-0144 B8 03 00                 mov ax, 0x3
-0147 50                       push ax
-0148 C4 5E 06                 les bx, [bp+0x6]
-014B 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0150 59                       pop cx
-0151 59                       pop cx
-0152 B8 1A 00                 mov ax, 0x1a
-0155 50                       push ax
-0156 B8 04 00                 mov ax, 0x4
-0159 50                       push ax
-015A C4 5E 06                 les bx, [bp+0x6]
-015D 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0162 59                       pop cx
-0163 59                       pop cx
-0164 B8 1A 00                 mov ax, 0x1a
-0167 50                       push ax
-0168 B8 05 00                 mov ax, 0x5
-016B 50                       push ax
-016C C4 5E 06                 les bx, [bp+0x6]
-016F 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0174 59                       pop cx
-0175 59                       pop cx
-0176 B8 1A 00                 mov ax, 0x1a
-0179 50                       push ax
-017A B8 06 00                 mov ax, 0x6
-017D 50                       push ax
-017E C4 5E 06                 les bx, [bp+0x6]
-0181 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0186 59                       pop cx
-0187 59                       pop cx
+011C                          SetEncData(19, 01)
+012E                          SetEncData(19, 02)
+0140                          SetEncData(1A, 03)
+0152                          SetEncData(1A, 04)
+0164                          SetEncData(1A, 05)
+0176                          SetEncData(1A, 06)
 0188                          RETURN
 
 Functn25: "TELMESSA"
