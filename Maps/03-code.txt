@@ -530,12 +530,7 @@ Functn1D: "LKPKDRA"
 
 Functn1E: "STRNGDRA"
 0000                          BEGIN
-0003 33 C0                    xor ax, ax
-0005 50                       push ax
-0006 C4 5E 06                 les bx, [bp+0x6]
-0009 26 FF 9F A4 00           call far word [es:bx+0xa4]
-000E 59                       pop cx
-000F 3D 12 00                 cmp ax, 0x12
+0003                          CheckStrength(12) [es:bx+0xa4]
 0012 72 5F                    jb 0x73
 0014                          SetState(02, 00, 03) [es:bx]
 0028                          ShowMessage(0E3C) [es:bx+0xf8] = You manage to force open the door.

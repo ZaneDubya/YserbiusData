@@ -987,12 +987,7 @@ Functn19: "KEYDOORC"
 
 Functn1A: "STRDOORA"
 0000                          BEGIN
-0003 33 C0                    xor ax, ax
-0005 50                       push ax
-0006 C4 5E 06                 les bx, [bp+0x6]
-0009 26 FF 9F A4 00           call far word [es:bx+0xa4]
-000E 59                       pop cx
-000F 3D 0E 00                 cmp ax, 0xe
+0003                          CheckStrength(0E) [es:bx+0xa4]
 0012 72 4B                    jb 0x5f
 0014                          ShowMessage(0800) [es:bx+0xf8] = You push on the door and open it.
 0021 C4 5E 06                 les bx, [bp+0x6]
@@ -1034,12 +1029,7 @@ Functn1A: "STRDOORA"
 
 Functn1B: "STRDOORB"
 0000                          BEGIN
-0003 33 C0                    xor ax, ax
-0005 50                       push ax
-0006 C4 5E 06                 les bx, [bp+0x6]
-0009 26 FF 9F A4 00           call far word [es:bx+0xa4]
-000E 59                       pop cx
-000F 3D 10 00                 cmp ax, 0x10
+0003                          CheckStrength(10) [es:bx+0xa4]
 0012 72 4B                    jb 0x5f
 0014                          ShowMessage(083A) [es:bx+0xf8] = You force the door open by muscle power.
 0021 C4 5E 06                 les bx, [bp+0x6]

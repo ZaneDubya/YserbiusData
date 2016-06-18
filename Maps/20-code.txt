@@ -130,12 +130,7 @@ Functn05: "LKPKDORZ"
 
 Functn06: "STRDOOR"
 0000                          BEGIN
-0003 33 C0                    xor ax, ax
-0005 50                       push ax
-0006 C4 5E 06                 les bx, [bp+0x6]
-0009 26 FF 9F A4 00           call far word [es:bx+0xa4]
-000E 59                       pop cx
-000F 3D 0E 00                 cmp ax, 0xe
+0003                          CheckStrength(0E) [es:bx+0xa4]
 0012 72 4B                    jb 0x5f
 0014                          ShowMessage(058F) [es:bx+0xf8] = You manage to force the door open.
 0021 C4 5E 06                 les bx, [bp+0x6]

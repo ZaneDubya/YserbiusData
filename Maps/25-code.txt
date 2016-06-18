@@ -346,12 +346,7 @@ Functn1B: "TXTHEAV"
 
 Functn1C: "BDRHEAVA"
 0000                          BEGIN
-0003 33 C0                    xor ax, ax
-0005 50                       push ax
-0006 C4 5E 06                 les bx, [bp+0x6]
-0009 26 FF 9F A4 00           call far word [es:bx+0xa4]
-000E 59                       pop cx
-000F 3D 14 00                 cmp ax, 0x14
+0003                          CheckStrength(14) [es:bx+0xa4]
 0012 72 2D                    jb 0x41
 0014                          ShowMessage(09F7) [es:bx+0xf8] = You force the massive door open by sheer muscle power.
 0021 B8 01 00                 mov ax, 0x1

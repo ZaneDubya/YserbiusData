@@ -669,12 +669,7 @@ Functn3C: "MOONENCK"
 Functn3E: "BDRMOONB"
 0000                          BEGIN
 0003                          ShowMessage(10EA) [es:bx+0xf8] = This door requires immense strength to open.
-0010 33 C0                    xor ax, ax
-0012 50                       push ax
-0013 C4 5E 06                 les bx, [bp+0x6]
-0016 26 FF 9F A4 00           call far word [es:bx+0xa4]
-001B 59                       pop cx
-001C 3D 15 00                 cmp ax, 0x15
+0010                          CheckStrength(15) [es:bx+0xa4]
 001F 72 49                    jb 0x6a
 0021                          ShowMessage(1117) [es:bx+0xf8] = You push against the door and barely manage to open it.
 002E C4 5E 06                 les bx, [bp+0x6]
@@ -969,12 +964,7 @@ Functn44: "SDRMOONJ"
 
 Functn45: "BDRMOONK"
 0000                          BEGIN
-0003 33 C0                    xor ax, ax
-0005 50                       push ax
-0006 C4 5E 06                 les bx, [bp+0x6]
-0009 26 FF 9F A4 00           call far word [es:bx+0xa4]
-000E 59                       pop cx
-000F 3D 14 00                 cmp ax, 0x14
+0003                          CheckStrength(14) [es:bx+0xa4]
 0012 72 4B                    jb 0x5f
 0014                          ShowMessage(1266) [es:bx+0xf8] = You barely manage to force open the door.
 0021 C4 5E 06                 les bx, [bp+0x6]

@@ -838,12 +838,7 @@ Functn29: "SIROCCO"
 
 Functn2A: "WSBIGDR"
 0000                          BEGIN
-0003 33 C0                    xor ax, ax
-0005 50                       push ax
-0006 C4 5E 06                 les bx, [bp+0x6]
-0009 26 FF 9F A4 00           call far word [es:bx+0xa4]
-000E 59                       pop cx
-000F 3D 12 00                 cmp ax, 0x12
+0003                          CheckStrength(12) [es:bx+0xa4]
 0012 72 2D                    jb 0x41
 0014                          ShowMessage(1303) [es:bx+0xf8] = You force the massive door open by sheer muscle power.
 0021 B8 01 00                 mov ax, 0x1
@@ -1176,12 +1171,7 @@ Functn3C: "SDOORLTC"
 
 Functn3D: "BDOORLTD"
 0000                          BEGIN
-0003 33 C0                    xor ax, ax
-0005 50                       push ax
-0006 C4 5E 06                 les bx, [bp+0x6]
-0009 26 FF 9F A4 00           call far word [es:bx+0xa4]
-000E 59                       pop cx
-000F 3D 10 00                 cmp ax, 0x10
+0003                          CheckStrength(10) [es:bx+0xa4]
 0012 72 2B                    jb 0x3f
 0014                          ShowMessage(1705) [es:bx+0xf8] = You bash the massive door open.
 0021 B8 01 00                 mov ax, 0x1
