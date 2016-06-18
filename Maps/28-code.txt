@@ -50,3 +50,12 @@ Functn0A: "WAITTEXT"
 0003                          ShowMessage(05DC) = Carved on a recessed stone, you find a roster from a Arnakkian-era private guild.  None of the names are recognizable. 
 0010                          RETURN
 
+03FC: A Gateway back to the Labyrinth.
+041D: Gate to the entrance of Arnakkian's Arena.
+0448: Gate to the Red Arena Staging Area.
+046C: Gate to the Blue Arena Staging Area.
+0491: Gate to the Green Arena Staging Area.
+04B7: Gate to the Yellow Arena Staging Area.
+04DE: In the time when Arnakkian bestrode the land of Twinion, a Great Arena was built where the bravest warriors and wisest mages could challenge each other in deadly battle.
+0588: You stand in the nexus of the Arena.  Doorways lead to the four team staging areas.
+05DC: Carved on a recessed stone, you find a roster from a Arnakkian-era private guild.  None of the names are recognizable. 

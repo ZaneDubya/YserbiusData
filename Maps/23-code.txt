@@ -2518,3 +2518,87 @@ Functn57: "VORAWIND"
 0032                          ShowMessage(16A7) = You have died.
 003F                          RETURN
 
+03FC: Other pits in the Labyrinth provide access to hidden areas...
+043A: This pit, however, sends you to the gates of Death.
+046E: A magical platform forms a bridge across the abyss.
+04A2: You fall into the abyss and die.
+04C3: With help, you might have been able to cross here.
+04F6: Something strange happens!
+0511: When you step onto the stone, a magical platform appears nearby.
+0552: You do not suffer the death found in other pits in the Labyrinth.  Instead you are rewarded with a trip to CASTLEGATE BAZAAR.
+05D0: The Dark Dwarf Voranti tricked the Lords of Harmony many moons ago.
+0614: He stole the secrets of the Winds from the Lords and has used them for his own purposes every since.
+0679: The Lords' Harmonic Shrine has now become the raging passageway known as HEAVEN'S FURY.
+06D1: The survivors of the cataclysm named this place EXODUS.
+0709: It is here they escaped the horrors of Arnakkian's Castle and began their new subterranean life.
+076A: No adventurer dares camp in WIND HOLLOW.  At night the howling wind makes one deaf to the dangers.
+07CD: TEMPEST dares all to explore the magic rooms along her narrow corridor.
+0815: The barren rocks are swept clean by the violent winds that race through WIND HOLLOW.
+086A: 'Beware!  Those who enter the Labyrinth BACK ALLEY must guard against all!'
+08B6: Enter HEAVEN'S FURY if you must.  Here is where Voranti cursed the winds.
+0900: The gates of LABYRINTH ATTIC are a welcome sight.
+0932: The door leads to WYN SANCTUARY.
+0953: The gateway opens, revealing the secret chambers of the Labyrinth Thieves.
+099E: You stumble into the lava pools.  You die.
+09C9: This door locks out all except those who have the alley key.
+0A06: Your key unlocks the door.
+0A21: You return to LABYRINTH ATTIC through a one-way tunnel.
+0A59: The door to WIND HOLLOW bursts open with terrible force, throwing all adventurers against the rocks...
+0AC0: ...and inflicting heavy damage.
+0AE0: You have died.
+0AEF: Runes can be the most powerful of weapons in the hands of an adept Wizard.
+0B3A: Here, the runes also protect the great mage's magical possessions against the unwanted.
+0B92: The Zephyr Wind whispers, 'I have taken the Harvest Horn, and I give you something to help defeat the Wind Elemental'.
+0C09: The Zephyr Wind whistles 'No harm was intended, but I am sworn to serve the Wind Elemental.  Return the Harvest Horn to my Wyverns to release my bonds.'
+0CA2: A magical platform nearby seems to disappear.
+0CD0: The Zephyr Wind gusts in fury, causing damage!
+0CFF: You have died.
+0D0E: Wafts of reddish smoke eminate from the rooms ahead.
+0D43: An acrid odor fills these chambers.
+0D67: The fiery eyes of Ancient Dragons blaze through the thick clouds that fill the chamber.
+0DBF: You detect a secret door in the wall.
+0DE5: A stash of wizard items is being raided.
+0E0E: You locate a hidden door in the wall.
+0E34: A powerful Dwarf Thief stands before you. 'I am Voranti, Lord of Dwarf Thieves!  Fight me if you must, but you shall not find my secret treasure!  Do not fear, for I will provide decent burial when I am finished.'
+0F0A: Voranti's dark eyes glow bright with hatred. 'As for you, miserable Elf, my pet gargoyles will pick your bones clean.'
+0F81: Voranti smiles sadly. 'It saddens me that I must kill a fellow dwarf, but you have brought death upon yourself.'
+0FF2: You find a secret door in the wall.
+1016: A nest of young dragons!
+102F: A yellowed piece of paper  --
+104D: 'Help! My brother Orilon has been bitten by bears and is transformed.'  - signed Margery
+10A6: A note -- 'Only past the Darkside will you find En-Li-Kil himself.'
+10EA: This door requires immense strength to open.
+1117: You push against the door and barely manage to open it.
+114F: Your Moon Prism reveals a secret door!
+1176: You find a door hidden in the wall.
+119A: The signature of the spectrum appears on the wall.
+11CD: In the wall is a secret door.
+11EB: Your Ranger skills help you locate a door hidden in the wall.
+1229: Your holy calling allows you find a door hidden in the wall.
+1266: You barely manage to force open the door.
+1290: The door is stuck shut.
+12A8: Your training helps you find a secret door in the wall.
+12E0: You detect a door cleverly hidden in the wall.
+130F: Piles of dirt cover the floor.
+132E: You find a Moon Prism on the floor.
+1352: The floor is bare.
+1365: You find the Ranger Spear on the floor.
+138D: There is nothing of interest in this area.
+13B8: You find a Holy Halberd lying on the floor.
+13E4: Pictorials of War are painted on the walls surrounding Torbriar's Fountain.
+1430: You gain the skill of Archery!
+144F: You gain the skill of Clubs and Axes!
+1475: You gain the skill of Swordsmanship!
+149A: You gain the Bard skill!
+14B3: You gain the skill of Martial Arts!
+14D7: You gain the Channel skill!
+14F3: The waters have no effect.
+150E: Dust fills the fountain basin.
+152D: A bard's scroll sings a simple song of how someday bands of adventurers will form an invisible bridge across a deadly chasm.
+15AA: A secret door visible only to knights appears in the wall .
+15E6: In the wall you find a hidden door.
+160A: The wind is nasty here!  You take 100 damage.
+1638: You have died.
+1647: The Moon Hollow winds steals 300 Mana!
+166E: A violent whirlwind pounds you, taking half your health!
+16A7: You have died.

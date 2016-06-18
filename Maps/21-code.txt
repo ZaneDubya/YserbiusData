@@ -2267,3 +2267,114 @@ Functn49: "TXTAWIND"
 0044                          ShowMessage(1A21) = The Winds will keep these places clean.'
 0051                          RETURN
 
+03FC: You step into nothingness...
+0419:                                          ...and die!
+044E: Cast in shadowy blue light, the tunnels of MOON HOLLOW are a nexus to more dangerous locations.
+04AE: Well worn trails greet those who dare travel the corridors of the ZEPHYR.
+04F8: Dry desert winds parch your throat as you peer down the winding passages leading to ZZYZX.
+0553: A brave step..
+0562: Death does not greet you now, but it will perhaps when you meet the DRAGONS OF THE LEAP.
+05BB: You drop into TORBRIAR'S TREASURE.
+05DE: An inscription on the wall reads...
+0602: 'We, the Knights of Torbriar, build this shrine to celebrate WarMaster Torbriar's stunning victory over the armies of Ogres and Trolls.'
+068B: You land squarely in the center of MOON HOLLOW!
+06BB: The howling of winds screams harsh against the blue light of a fool moon.
+0705: You drop into MAGES OVERLOOK.
+0723: Mages found this plateau useful for looking out over the labyrinth denizens following the great cataclysm.
+078E: The North Wind blows a wintry chill.
+07B3: Warriors of the East Wind challenge you.
+07DC: Monsters materialize from the South Wind.
+0806: The fury of the West Wind is upon you.
+082D: The North Wind is the first to be defeated.
+0859: The North Wind has been quieted.
+087A: The East Wind is the first to be defeated.
+08A5: The East Wind has been quieted.
+08C5: The South Wind is the first to be defeated.
+08F1: The South Wind has been quieted.
+0912: The West Wind is the first to be defeated.
+093D: The West Wind has been quieted.
+095D: This wall is the teleport to CASTLEGATE.
+0986: There is something strange about this wall.
+09B2: You enter the Labyrinths of the Winds.
+09D9: A network of tunnels seems to wind its way past pits and lava.
+0A18: Wyn's Fountain is old and cracked.
+0A3B: A small puddle of magic water sits at the bottom.
+0A6D: It seems to instantly evaporate into a large steam cloud.
+0AA7: You feel you may be quicker in a fight.
+0ACF: The basin is dust dry.
+0AE6: A twisting passage to the east offers a quick way to the entrance.
+0B29: You discover the back entrance to the THIEVES' DEN.
+0B5D: You stumble into the lava pools and die.
+0B86: Well worn trails greet those who dare travel the windswept corridors of the ZEPHYR.
+0BDA: Skeletal voices echo...
+0BF2: 'The four winds have been defeated!!!!
+0C19: ARGGG!  We cannot hold you back.  You are indeed a powerful force!!
+0C5D: Enter the WIND KNIGHTS' TOMB if you dare, but if you have any honor, do not disturb our bones.'
+0CBD: 'Only Forces more powerful than all four winds can open this door!'
+0D01: Welcome to LABYRINTH ATTIC!
+0D1D: Refresh yourself in the fountains nearby.  But do not take long!
+0D5E: Bands of travelers rest here before exploring the Wind Labyrinths.
+0DA1: The door is unlocked.
+0DB7: The soft breezes seem to whisper - 'Beware, those who seek the treasure of WIND KNIGHTS' TOMB.'
+0E17: Winds pound furiously at the door.
+0E3A: The feeble survivors of Arnakkian's Experiment harbored hatred toward those who found home in the WYN SANCTUARY.
+0EAB: A Gremlin Cleric Appears
+0EC4: 'Take my advice - Jump only into the pits with floors beneath them.
+0F08: That is the way of the Labyrinth.'
+0F2B: A message is etched in stone -- 
+0F4C: 'The last of Arnakkian's Knights have been buried.  
+0F81: At last I can tell my secret!  I watched as Arnakkian challenged the Time Elemental En-Li-Kil and lost.
+0FE9: His greed for immortality cursed us all.' -- Morgard, ArchCleric
+102A: The Four Winds gather strength once again as they throw skeletal bones against the wall.
+1083: Monsters form out of the dust and winds.
+10AC: In the midst of sleeping Hobgoblins, a small tempest swirls.  It whispers that one's treasure comes from the directions of the winds.
+1132: Then the tempest roars into a nightmare and wakens the hobgoblins.
+1175: Sleeping adventurers are disturbed.
+1199: A dark corner hides an unlikely mix of beasts.
+11C8: Sirocco's powers no longer hold the Sirocco Door.
+11FA: Sirocco's powers no longer hold this door.  It is open.
+1232: Sirocco's Door does not open.  In the distance, a wizard laughs aloud.
+1279: 'It is I, Sirocco, who bars your way!'
+12A0: Sirocco, the wind labyrinth doorkeeper, materializes in the room.
+12E2: 'You dare challenge the winds??!
+1303: You force the massive door open by sheer muscle power.
+133A: The door is stuck. You are not strong enough to force it open.
+1379: A nest of dragons sneers at you. 'The Sanctuary belongs to us!'
+13B9: A band of sanctuary guards are alerted.
+13E1: Your path is blocked.
+13F7: Adventurers are disturbed.  'We are cursed to kill those who have seen our fate.'
+1449: Stuffed behind a rock, you find a magical note that reads... 
+1487: 'Red, Yellow, Green and Blue.  That is the order of the gems.'
+14C6: -- signed last Wyn Survivor, Kanasgwyn.
+14EE: Commanders of the Wyn Ogres have set up camp here.
+1521: You found a secret door!
+153A: A message is inscribed on stone -- 
+155E: 'Labyrinth and lower levels first explored by Arkarch of the Snow Elves.'
+15A8: Apprentice thieves jump you!  'We must earn our dues!'
+15DF: Your many wounds and lingering diseases are removed by the sweet waters of WindyBless Fountain.
+163F: The mystic waters of the NightWillow Fountain restore your Mana level.
+1686: You stumble into a den of angry monsters.
+16B0: You found a secret door!
+16C9: You discover a secret door!
+16E5: A secret door suddenly appears!
+1705: You bash the massive door open.
+1725: A note -- 'The Runes suggest a path to Arnakkian's Treasure Room.'
+1768: Upon the wall you see a message -- 
+178C: 'Beneath each pit is a floor or another pit.  Fall to the floors to find more passages.'
+17E5: Hobgoblins smile, then attack.
+1804: A special thieves' shrine magically glows.
+182F: You gain the skill of Detection!
+1850: You gain the skill of Lockpicking!
+1873: You gain the Bard skill!
+188C: You gain the Pickpocketing skill!
+18AE: Nothing happens.
+18BF: The shrines does nothing.
+18D9: Thieves make a desperate stand.
+18F9: Master Thieves Attack!
+1910: Master Thieves ready themselves.
+1931: Light sparks off a key tied to the neck of the leader.
+1968: A voice echoes through the winds...
+198C: 'You have traveled well, fair adventurers!
+19B7: I laughed when you troubled King Cleowyn's ghost!
+19E9: But now you enter my tunnels!  Go back whence you came!
+1A21: The Winds will keep these places clean.'

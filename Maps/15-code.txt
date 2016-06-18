@@ -3468,3 +3468,83 @@ Functn3E: "TELEMESB"
 0003                          ShowMessage(11D6) = There is a teleport in the west wall.
 0010                          RETURN
 
+03FC: The door opens.
+040C: This door is locked.
+0421: The door magically opens!
+043B: This door will not open.
+0454: That is indeed the King's Pass. You may continue. If you ever return, I'll need to see another pass.
+04B9: None may pass. I am pledged to guard King Cleowyn's Apartments for eternity. Of course, if you had the King's Pass, I could let you through.
+0546: Seek the Pass where Ranger and Troll are blessed.
+0578: You have passed the Trial of Harmony. A great reward is yours, if you but look for it.
+05CF: You have mastered our Challenge. Congratulations! Behold the door of Harmony. Only those pledged to Harmony should enter.
+0649: You have passed the Trial of Chaos. A great reward is yours, if you but look for it.
+069E: You have mastered our Challenge. Congratulations! Behold the door of Chaos. Only those pledged to Chaos should enter.
+0714: The door is opened
+0727: The door can be opened only by a Human or Thief.
+0758: The lock of the door opens as you step forward.
+0788: The door can be opened only by an Orc or Cleric.
+07B9: The lock opens as you approach.
+07D9: The door can be opened only by an Elf or Barbarian.
+080D: The door unlocks when you test it.
+0830: The door can be opened only by a Troll or Ranger.
+0862: The door opens as you advance.
+0881: The door can be opened only by a Dwarf or Knight.
+08B3: The door is opened.
+08C7: The door can be opened only by a Gnome or Wizard.
+08F9: The door clicks open.
+090F: The door can be opened only by a Halfling or by Cleowyn's Key.
+094E: The lock opens for you.
+0966: The door can be opened only by a Gremlin or by Cleowyn's Lockpick.
+09A9: A warning is on the door -
+09C4: 'Those honoring Harmony may safely enter.'
+09EF: 'Woe to you who serve Chaos, if you dare cross the threshold.'
+0A2E: A warning is on the door -
+0A49: 'Those honoring Chaos may safely enter.'
+0A72: 'Woe to you who serve Harmony, if you dare cross the threshold.'
+0AB3: A sign is on the door -
+0ACB: The way is clear for members of Chaos.
+0AF2: Those not sworn to Chaos have been duly chastised.
+0B25: A sign is on the door -
+0B3D: The way is clear for members of Harmony.
+0B66: Those not sworn to Harmony have been duly chastised.
+0B9B: Rogues bar the way to Chaos.
+0BB8: Rogues bar the way to Harmony.
+0BD7: Blessed Human or Thief, you may continue the quest.
+0C0B: The tapestry shows nothing of interest.
+0C33: Blessed Orc or Cleric, you may continue the quest.
+0C66: The tapestry shows a jumble of runes.
+0C8C: Blessed Elf or Barbarian, you may continue the quest.
+0CC2: The tapestry is blank.
+0CD9: Blessed Troll or Ranger, you may continue the quest.
+0D0E: The tapestry is blank.
+0D25: Blessed Dwarf or Knight, you may continue the quest.
+0D5A: It is too dark to read the inscription.
+0D82: Blessed Gnome or Wizard, you may continue the quest.
+0DB7: An inscription on the tapestry fades away as you draw near.
+0DF3: Blessed Halfling! Blessed Key of Cleowyn! With either, the quest may continue.
+0E42: The tapestry is empty.
+0E59: Blessed Gremlin! Blessed Pick of Cleowyn! With either, the quest may continue.
+0EA8: The tapestry once held a woven message.
+0ED0: You found a secret door!
+0EE9: Reptilian bodies rise from the shadows.
+0F11: On the floor is a Chess Piece inscribed with the words - 'Property of Arnakkian Slowfoot.'
+0F6C: You are challenged to combat.
+0F8A: Ferocious enemies stop you.
+0FA6: Elf Rangers await you.
+0FBD: An Elf Ranger holds the King's Pass.
+0FE2: Proud knights dispute your progress.
+1007: Strong enemies bar your way.
+1024: There is nothing of interest here.
+1047: You see a lockpick on the floor.
+1068: Gallants challenge you.
+1080: The key opens the door.
+1098: The door is locked and requires a special key.
+10C7: Fierce opponents bar your way.
+10E6: This area has been looted.
+1101: You find 12000 Gold Pieces on the floor.
+112A: Your way is blocked.
+113F: The gateway leads to THE RUNE ROOM.
+1163: The gateway leads to THE MAUSOLEUM.
+1187: Stairs past the south gateway lead down.
+11B0: There is a teleport in the east wall.
+11D6: There is a teleport in the west wall.

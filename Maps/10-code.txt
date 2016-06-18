@@ -1283,3 +1283,21 @@ Functn0D: "NPCCHATB"
 003E                          ShowMessage(07F1) = The insane Gnome Thief crawls away.
 004B                          RETURN
 
+03FC: The E Rune Key unlocked the thick door.
+0424: The door is locked.  You need a special key.
+0451: The room is crawling with Spinorpions.
+0478: You are trapped by angry Ogres.
+0498: Nasty Ogres contemptuously flick gold coins at you.
+04CC: A painful nip at your ankle warns you of great danger.
+0503: The E Vowel Key fades away when you enter the room.
+0537: Behind a writhing mass of ill-tempered snakes lies King Cleowyn's Robe.
+057F: Hobgoblins are waiting for you.
+059F: Hobgoblins throw items aside so they can attack you.
+05D4: You encounter a lost band of Silver Ogres.
+05FF: East past the gateway are stairs leading down a level.
+0636: A Halfling Cleric creeps out of the shadows.
+0663: You will need Cleowyn's Robe, Crown and Scepter to reach his hidden tomb in the Mausoleum.
+06BE: The Halfling Cleric mumbles something incoherent and creeps back into the shadows.
+0711: A half-mad Gnome Thief crawls into the room.
+073E: The wizard Arnakkian hired his own troops from the Snow Elves. It is said that these strange elves disappeared before the volcano erupted. Where they wound up is anybody's guess.
+07F1: The insane Gnome Thief crawls away.

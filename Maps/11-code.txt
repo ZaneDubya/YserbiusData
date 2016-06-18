@@ -1146,3 +1146,22 @@ Functn0D: "NPCCHATB"
 003E                          ShowMessage(0952) = The Gremlin Cleric ignores your questions as he becomes engrossed in his book.
 004B                          RETURN
 
+03FC: The I Rune Key unlocked the massive door.
+0426: The door is locked.  It can be opened by a special key.
+045E: The room has been ransacked.
+047B: The I Rune Key mysteriously vanishes as you move forward.
+04B5: The beating of leathery wings overhead alerts you to your great danger. On the floor is the Scepter of King Cleowyn.
+052A: You are dwarfed by the Giants who surround you.
+055A: A Giant holds a gleaming prism in his hand.
+0586: You interrupt Minotaurs butting their heads together.
+05BC: The lead Minotaur you encounter carries a shield that appears to weep.
+0603: Black Widows unweave an empty sack.
+0627: As you reach down to take a coin purse on the ground, you become entangled in a sticky web.
+0683: King Cleowyn's favorite pets still guard his secrets long after their master has died.
+06DA: There are stairs through the north gateway.
+0706: A dying Troll Knight lies on the floor.
+072E: Cleowyn's Crown is the final treasure needed to placate the dead king's spirit. Return the king's possessions quickly or suffer his eternal wrath.
+07C1: The Troll Knight tries to say something, but falls unconscious.
+0801: A Gremlin Cleric sits on the floor, holding a thick book in her hands.
+0848: The wizard Arnakkian desired immortality above all else. It is whispered that he trapped one of the Elementals and bade it obey his will and make him live forever. I believe Arnakkian got his wish, but the Elemental buried the wizard's castle under lava in revenge.
+0952: The Gremlin Cleric ignores your questions as he becomes engrossed in his book.

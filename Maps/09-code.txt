@@ -1064,3 +1064,25 @@ Functn0C: "NPCCHATB"
 004B                          ShowMessage(096E) = The Troll Knight blinks at you dumbly and falls asleep.
 0058                          RETURN
 
+03FC: The O Rune Key unlocked the door.
+041E: The door is locked. It requires a special key.
+044D: Skeletons on the floor stir to life.
+0472: Among the bones on the floor are pieces of gold. The bones begin to move.
+04BC: A clutch of Large-Uns growl at you.
+04E0: A Large-Un tosses a piece of wood aside as he and his friends attack.
+0526: You have interrupted a Lizardite religious service.
+055A: As you enter the room, the O Rune Key vanishes.
+058A: You see a Lizardite proudly wearing the Crown of King Cleowyn.
+05C9: You run into the living skeletons of King Cleowyn's guards.
+0605: One of the skeletons approaching you holds a piece of paper in its bony hand.
+0653: Reptilian bodies stir as you draw near.
+067B: The stairs through the west gateway lead down a level.
+06B2: A Human Wizard teleports into the room you occupy.
+06E5: Be careful when you find the way to open the door that leads to the nether depths of this dungeon.
+0748: All quest items from Cleowyn's Palace levels will be stripped from you.
+0790: But if you are indeed ready to enter the lower depths, you will no longer need Cleowyn's toys.
+07EF: The Human Wizard smiles sheepishly and teleports somewhere else.
+0830: You encounter a sleepy Troll Knight.
+0855: The Galabryan kings brought the great wizard Arnakkian Slowfoot to Twinion. The island grew famous and rich thanks to this wizard.
+08D8: But the wizard had his own schemes, and soon he and good King Leowyn Galabryan were at loggerheads. Supposedly, the wizard had the king assassinated.
+096E: The Troll Knight blinks at you dumbly and falls asleep.

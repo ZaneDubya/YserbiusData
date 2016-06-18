@@ -1303,3 +1303,81 @@ Functn2C: "TOELVES"
 0010                          GoMap(01, 7F, 01, 37)
 002B                          RETURN
 
+03FC: The River of Eternity taps your life energy.
+0429: You have died.
+0438: Only the bravest adventurers explore the life-devouring River of Eternity for hidden passages.
+0497: A great dwarven door appears in the wall.
+04C1: Your step into lava is fatal.
+04DF: You locate a hidden door!
+04F9: A ledge can be seen across the lava pit.
+0522: A platform appears beneath your feet..
+0549: You step into a lava pit and die!
+056B: A platform appears beneath your feet..
+0592: You step into a lava pit and die!
+05B4: A platform appears beneath your feet..
+05DB: You step into a lava pit and die!
+05FD: A platform appears beneath your feet..
+0624: You step into a lava pit and die!
+0646: The wall bursts with color!
+0662: In the distance you hear a platform moving.
+068E: The wall bursts with color!
+06AA: In the distance you hear a platform moving.
+06D6: The wall bursts with color!
+06F2: In the distance you hear a platform moving.
+071E: The wall bursts with color!
+073A: In the distance you hear a platform moving.
+0766: Perhaps there is a way for you to join your party.
+0799: You enter a magnificently ornamented room, bedecked with jewels and the finely crafted metalworks of dwarf craftsmen.
+080F: In a small chair in the center of this royal treasure sits the Dwarf King.
+085A: The Dwarf King nods.
+086F: 'Welcome strangers! 
+0884: I have a quest for you, if you are brave enough!
+08B5: Beyond the keyhole lava lies a gem of great value, stolen by a fiercesome Dragon.
+0907: Keep the gem if you like, as our token of friendship. We ask only that you destroy this vile creature who blackmails us in return for peace.'
+0995: The dwarf takes the Flex Metal and smiles broadly. 'No greater pleasure can a dwarf blacksmith have than to test the powers of a new metal.'
+0A22: After a few hours working the metal, she holds up a brilliant blue sword.
+0A6C: 'There!  My finest weapon, made from your Flex Metal.  I dub it The Wind Sword!  May it destroy your enemies at first blow!'
+0AE9: The dwarf blacksmith cuts down the furnace, then turns to greet you. 
+0B2F: 'I am a wizard swordmaker, ready to make the finest weapons from your valuable metals.  What may I build for you?'
+0BA2: The dwarf blacksmith pauses briefly from her work.
+0BD5: 'I see you have returned!'  An expression of worry crosses her face.  'Oh, I hope The Wind Sword has given you no trouble.'
+0C51: She then notices the great blue sword.  'Ah, it's in fine shape!
+0C92: If you find other types of metals, I will gladly make you another weapon!'
+0CDD: The room you enter contains furnaces, hammers and anvils.
+0D17: In a corner is a dwarf blacksmith, hard at work on her latest golden creation.
+0D66: A mean, twisted smile appears across the face of the dwarf blacksmith.
+0DAD: 'You have killed the cyclop!  My gold caves are won!
+0DE2: Hmmph.  It is my debt to repay you.  And I shall!'
+0E15: A few hours pass as the blacksmith weaves a magnificent treasure from golden threads.  Then she appears again.
+0E84: 'Here.  My proudest work!  A golden boat that can ride the rainbows.  May you find treasure wherever you go.'
+0EF2: Then she scoots away.
+0F08: The old dwarf blacksmith at first does not hear you approach. Then she senses your presence and wheels on you. 
+0F78: 'A mean trick you play on a wise one!  No matter.  No doubt you're looking for another golden trinket of mine.
+0FE7: Well, I will not give you any of my creations.  Never!
+101E: Unless, hmmm, Unless you are able to rid my gold caves of a horrible Cyclop! He fancies himself King of the Cyclops.'
+1094: The dwarf miner greets you with youthful enthusiasm.
+10C9: You show signs of entering my caves!  I thank-you for clearing my mines and repay you with treasure.
+112E: The dwarf miner smiles as you approach.
+1156: 'Have you found my cave yet?  It is by the water's edge.'
+1190: An apprentice dwarf miner notices your arrival.
+11C0: 'Adventurers!  At last!  I've heard tales from the elders about your deeds.  I, too, have a cave, well hidden beyond the edges of the waters.
+124E: Monsters have forced me from my home. I am not strong enough to fight them.
+129A: Perhaps, if I give you the key to my small cave, you will do me a favor. Then I may repay you well some day.'
+1308: All the east side platforms appear to be up.
+1335: A glowing red gem casts a beam from under the dragon's lair.
+1372: A collection of runes reveals a clue -- 
+139B: The Keyhole Lava lies at the center of the Kingdom.
+13CF: Activate the switches to the west one at a time to move a party from south to north.
+1424: A faint message written in dust -- 
+1448: The Keyhole Lava lies at the center of the Kingdom.
+147C: Repeat the sequence that moved a party south to north to move  a party north to south.
+14D3: A note is found behind a rock -- 
+14F5: The one who switches a party across the Keyhole Lava may join the party at the south end of a second crossing.
+1564: Distant bellows from gruesome monsters echo through the cavern.
+15A4: The room has been emptied.
+15BF: You find a key to the Cyclop's Mine on the floor.
+15F1: You found a hidden door!
+160A: You found a hidden door!
+1623: You drink from the Fountain of Attributes and feel your powers greatly increase.
+1674: The waters of the Fountain of Attributes quench your thirst but do not otherwise affect you.
+16D1: A passageway leads up to the elfin lands.

@@ -644,3 +644,31 @@ Functn16: "NPCCHATE"
 004B                          ShowMessage(0AE2) = The Halfling Cleric mumbles his prayers.
 0058                          RETURN
 
+03FC: You succeeded at opening the locked door.
+0426: The door is locked.
+043A: Your attempt to open the door springs a trap. Dozens of darts attack you.
+0484: The key unlocked the massive door, bypassing a well hidden trap.
+04C5: The Palace doors are locked.  Only the Palace key will open these doors.
+050E: Runes can be seen on the tapestry...
+0533: None shall pass save one who holds the Key to the Palace.
+056D: The stairs through the west gateway lead up a level.
+05A2: Through the north gateway are stairs going up to the next level.
+05E3: The stairs to the east lead downstairs.
+060B: The stairs past the north gateway go down a level.
+063E: The gateway leads to THE PALACE OF KING CLEOWYN.
+066F: You encounter a Dwarf Thief.
+068C: The palace doors are locked. Somewhere on the first level is the object that will open these doors.
+06F0: The Dwarf Thief is too busy removing darts from his leather shield to answer you.
+0742: You encounter a Halfling Ranger.
+0763: I know there are three secret areas on this level, but they cannot be entered from this corridor.
+07C5: The Halfling Ranger waves you away in annoyance.
+07F6: You encounter a Dwarf Wizard.
+0814: Not all traps should be by-passed. I fell through one and, after some nosing around and polishing off some bothersome rogues and monsters, found a most useful key.
+08B8: The Dwarf Wizard disappears in a puff of smoke.
+08E8: You encounter an Orc Knight.
+0905: King Cleowyn's Palace is an evil place, filled with the spirits of the tormented dead.  A cleric told me to look for an asymmetry in the Palace if I wished to learn the truth about the dead king.
+09C9: The Orc Knight pretends not to hear you.
+09F2: You encounter a Halfling Cleric.
+0A13: On the next level down you will find a dwarf by the name of Deldwinn.  He guards the entrance to King Cleowyn's Apartments.
+0A8F: Do not try to fight Deldwinn, for he is enchanted and cannot be killed by mortals.
+0AE2: The Halfling Cleric mumbles his prayers.

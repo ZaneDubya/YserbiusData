@@ -1677,3 +1677,50 @@ Functn28: "NPCCHATF"
 003E                          ShowMessage(0ED5) = The Orc Barbarian watches you impassively, refusing to talk.
 004B                          RETURN
 
+03FC: You successfully picked the locked door.
+0425: The door is locked.
+0439: Dire Wolves prowl the area.
+0455: A Dire Wolf holds something in its mouth.
+047F: Copper Ogres are huddled around a small fire.
+04AD: Copper Ogres are counting gold they have stolen.
+04DE: This room is the lair of Mountain Lions.
+0507: Mountain Lions chew on a small bag.
+052B: You hear the angry snapping of pincers.
+0553: As you step forward to pick up some gold on the floor...
+058C: Imps spring an ambush on you.
+05AA: You see gold on the floor and something hiding in the shadows.
+05E9: You turn as you hear bones rattling.
+060E: A skeleton has a coin bag tied to its belt.
+063A: You stumble upon an almost empty nesting area.
+0669: Angry hissing distracts you as you reach down for some gold coins.
+06AC: You encounter Rogues.
+06C2: The rooms in the center of this area once housed the king's soldiers.
+0708: The Rogues laugh at you and attack.
+072C: You are waylaid by Rogues.
+0747: You surprise some Rogues.
+0761: You successfully picked the locked door.
+078A: The door is locked.
+079E: The gateway leads to THE DUNGEON ENTRANCE.
+07C9: There is a sign on the east door - STAY OUT!
+07F6: Through the gateway you see stairs leading downwards.The stairs are rather long, at least 2 levels.
+085A: There is a teleport in the south wall.
+0881: There is a teleport in the north wall.
+08A8: Through the north gateway you see stairs leading down to the next level.
+08F1: You encounter a Human Barbarian.
+0912: This area is called the Soldiers' Quarters. Why it is so named is beyond me. I've wandered these halls for weeks and have found nothing resembling living quarters, much less any soldiers.
+09CE: The Human Barbarian is trying to count his fingers and so neglects to answer.
+0A1C: You encounter a Gremlin Wizard.
+0A3C: The volcano Yserbius roils the sea and makes it unnavigable. We are doomed to live out our miserable lives, unknown to other peoples. I would give my left eyetooth for a way to escape this dull island.
+0B06: The Gremlin Wizards squeals in terror and flees.
+0B37: You encounter a Troll Ranger.
+0B55: Unless you have especially sharp eyes for traps, you should heed the sign at the end of the corridor. This bum leg of mine is proof of that sign's warning.
+0BF1: The Troll Ranger snarls a curse at you and limps away.
+0C28: You encounter an Elf Cleric.
+0C45: You may think you are limited only to those skills you acquire through your Guild. I know there are places in this dungeon where you may acquire new and different skills.
+0CF0: The Elf Cleric gives you gold to leave him in peace.
+0D25: You encounter a Troll Knight.
+0D43: Under Cleowyn's palace is a strange maze. The maze is infested with thieves, and they seem to be the only ones who know how to get through the thing.
+0DD9: The Troll Knight is lost in thought and does not hear you.
+0E14: You encounter an Orc Barbarian.
+0E34: A dwarf knight told me he encountered polar bears and ice lions deep in the dungeon. Whoever heard of polar bears and ice lions living inside an active volcano?
+0ED5: The Orc Barbarian watches you impassively, refusing to talk.

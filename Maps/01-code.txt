@@ -175,3 +175,18 @@ Functn0D: "NOJOIN"
 0006 26 FF 9F E0 00           call far word [es:bx+0xe0]
 000B                          RETURN
 
+03FC: The gateway leads to THE MINES.
+041C: The gateway leads to THE HALL OF DOORS.
+0444: The gateway leads to THE SOLDIERS  QUARTERS.
+0471: The gateway is the DUNGEON EXIT.
+0492: Hail, conquering HERO OF YSERBIUS!
+04B5: All of Twinion bows to your prominence!!
+04DE: There is a teleport in the west wall.
+0504: This room contains the gateway to the Labyrinth.
+0535: The Thieves' Key unlocks this door!
+0559: This room contains the gateway to the Labyrinth.
+058A: The Thieves' Key is needed to unlock this door.
+05BA: The Thieves' Key is needed to unlock this door.
+05EA: Only heroes of the twentieth level or higher may venture beyond this door.
+0635: Good Journeys, brave hero.
+0650: Only heroes of the twentieth level or higher may venture beyond this door.

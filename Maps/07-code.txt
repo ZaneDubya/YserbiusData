@@ -2073,3 +2073,39 @@ Functn20: "NPCCHATE"
 004B                          ShowMessage(0C3E) = The Human Thief points at something behind you. While your back is turned, she sneaks away.
 0058                          RETURN
 
+03FC: You found a hidden door in the east wall.
+0426: Rogues are splitting up some gold they stole.
+0454: You take a sip from the fountain, but nothing happens.
+048B: You take a sip from the Healing Fountain and feel your Health improve quite a bit.
+04DE: You skillfully pick the door lock.
+0501: The door is locked.
+0515: Minotaurs charge you.
+052B: A Minotaur teases you by holding a bag of gold just out of reach.
+056D: Huge beings lumber into sight.
+058C: You have entered a Rogue encampment.
+05B1: You encounter marauding Hobgoblins.
+05D5: The sound of hooves on stone alerts you to danger.
+0608: Gruff laughter surrounds you.
+0626: The stairs through the south gateway lead upwards.
+0659: Through the west gateway are stairs leading upwards.
+068E: The stairs through the north gateway lead upwards.
+06C1: The stairs past the north gateway lead up a level.
+06F4: There is a teleport in the east wall.
+071A: There is a teleport in the west wall.
+0740: There is a teleport in the west wall.
+0766: You encounter a Gnome Thief.
+0783: There is more to this basement than first meets the eye. Someday I will learn the secret of what lies behind the thick, silent walls that line this corridor.
+0821: The Gnome Thief smiles enigmatically and ducks into the shadows.
+0862: You encounter a Human Barbarian.
+0883: As much as I despise orcs, I sometimes find it useful to have them in my party. Indeed, you will frequently have to work with races and Guilds you would otherwise ignore, if you wish to solve the many mysteries of this dungeon.
+0967: The Human Barbarian raps you with his club and trudges away.
+09A4: You encounter an Orc Knight.
+09C1: A colleague told me he encountered a strange elfin race far down in the dungeon. He would not say much else, other than that he knew why cold-loving creatures were to be found inside a volcano.
+0A83: The Orc Knight bows graciously and walks away.
+0AB2: You encounter an Elf Cleric.
+0ACF: I stumbled over a marble block not long ago. On it were the words - Arnakkian Slowfoot, Wizard to the King.
+0B3B: The Elf Cleric sighs mournfully and massages a stubbed toe.
+0B77: You encounter a Human Thief.
+0B94: To the east of the Rune Room on level three can be found the Wizards' Challenge. It is quite a challenge, too.
+0C03: I have found several short cuts in the Wizards' Challenge.
+0C3E: The Human Thief points at something behind you. While your back is turned, she sneaks away.

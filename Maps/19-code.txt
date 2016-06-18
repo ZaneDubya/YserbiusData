@@ -1797,3 +1797,45 @@ Functn2D: "NPCCHATD"
 003E                          ShowMessage(0CDD) = The Gremlin Cleric is deep in meditation and does not answer you.
 004B                          RETURN
 
+03FC: You step into molten lava and your flesh burns.
+042C: The Lava Key opens the door.
+0449: The door is locked. It requires a special key.
+0478: Half-starved Rogues eye you hungrily.
+049E: A smirking Barbarian dangles a glowing red key in your face.
+04DB: You sip from the Fountain of Hot Ice, but nothing happens.
+0516: You sip from the Fountain of Hot Ice and feel your Health restored.
+055A: The door lock opens easily.
+0576: The door is locked.
+058A: Angry Sabertooth Lions roar at you.
+05AE: The lion lair you enter is littered with gold.
+05DD: You step into a Wyvern den.
+05F9: Gold coins are stuck to a Wyvern's scales.
+0624: You discover a Knights' sanctuary.
+0647: A Knight drops a lockpick on the floor.
+066F: This room is a Cleric stronghold.
+0691: A Cleric shows off a wand to his associates.
+06BE: You step into a nest of Pincer Cobras.
+06E5: In a snake nest is a shining prism.
+0709: You interrupt a Wizards' coven.
+0729: The chief Wizard of the coven wears a round breastplate.
+0762: Rogue Rangers use this place as a safehold.
+078E: A sly Ranger hides something inside his jacket.
+07BE: Rogue Barbarians have a wrestling center here.
+07ED: A Barbarian throws a heavy mace aside to swing at you.
+0824: There is a teleport in the north wall.
+084B: There is a teleport in the south wall.
+0872: There is a teleport in the east wall.
+0898: There is a teleport in the south wall.
+08BF: The heat of the adjacent lava weakens you.
+08EA: You encounter a Troll Knight.
+0908: The only way to get out of this basement area is to go through the lava field. Touching the lava is deadly, as you might expect. However, even if you pass safely through the lava field, the great heat of the lava will sap your strength.
+09F5: The Troll Knight scowls angrily, causing you to leave her alone.
+0A36: You encounter a Dwarf Thief.
+0A53: I know there is a short cut through the lava field. If you can find the correct key, you will be able to use the short cut. The key also will lead you to riches.
+0AF5: The Dwarf Thief runs away.
+0B10: You encounter a Halfling Ranger.
+0B31: The dwarves who built Cleowyn's Palace transported precious metals and building blocks up to the top level by means of a teleport. I believe the teleport is somewhere in this area.
+0BE6: The Halfling Ranger faints from heat stroke.
+0C13: You encounter a Gremlin Cleric.
+0C33: Deep in the dungeon are the Pillow Labyrinths. They were formed from pillow lava that spilled into the sea. The labyrinth is formed from the hollow interior of the lava.
+0CDD: The Gremlin Cleric is deep in meditation and does not answer you.
