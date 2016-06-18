@@ -130,15 +130,7 @@ Functn06: "CRWNNICH"
 0000                          BEGIN
 0003                          ax = HasItem(69) ? 1 : 0 [es:bx+0x50]
 0011 75 15                    jnz 0x28
-0013 B8 01 00                 mov ax, 0x1
-0016 50                       push ax
-0017 B8 01 00                 mov ax, 0x1
-001A 50                       push ax
-001B C4 5E 06                 les bx, [bp+0x6]
-001E 26 FF 5F 08              call far word [es:bx+0x8]
-0022 59                       pop cx
-0023 59                       pop cx
-0024 0B C0                    or ax, ax
+0013                          ax = CheckState2(01, 01) ? 1 : 0 [es:bx+0x8]
 0026 74 4A                    jz 0x72
 0028 B8 69 00                 mov ax, 0x69
 002B 50                       push ax
@@ -210,15 +202,7 @@ Functn08: "ROBENICH"
 0013                          ax = CheckState(01, 01) [es:bx+0x4]
 0024 3D 01 00                 cmp ax, 0x1
 0027 74 15                    jz 0x3e
-0029 B8 02 00                 mov ax, 0x2
-002C 50                       push ax
-002D B8 01 00                 mov ax, 0x1
-0030 50                       push ax
-0031 C4 5E 06                 les bx, [bp+0x6]
-0034 26 FF 5F 08              call far word [es:bx+0x8]
-0038 59                       pop cx
-0039 59                       pop cx
-003A 0B C0                    or ax, ax
+0029                          ax = CheckState2(01, 02) ? 1 : 0 [es:bx+0x8]
 003C 74 4A                    jz 0x88
 003E B8 78 00                 mov ax, 0x78
 0041 50                       push ax
@@ -295,35 +279,11 @@ Functn0A: "SCEPNICH"
 0000                          BEGIN
 0003                          ax = HasItem(E3) ? 1 : 0 [es:bx+0x50]
 0011 74 2A                    jz 0x3d
-0013 B8 01 00                 mov ax, 0x1
-0016 50                       push ax
-0017 B8 01 00                 mov ax, 0x1
-001A 50                       push ax
-001B C4 5E 06                 les bx, [bp+0x6]
-001E 26 FF 5F 08              call far word [es:bx+0x8]
-0022 59                       pop cx
-0023 59                       pop cx
-0024 0B C0                    or ax, ax
+0013                          ax = CheckState2(01, 01) ? 1 : 0 [es:bx+0x8]
 0026 74 15                    jz 0x3d
-0028 B8 02 00                 mov ax, 0x2
-002B 50                       push ax
-002C B8 01 00                 mov ax, 0x1
-002F 50                       push ax
-0030 C4 5E 06                 les bx, [bp+0x6]
-0033 26 FF 5F 08              call far word [es:bx+0x8]
-0037 59                       pop cx
-0038 59                       pop cx
-0039 0B C0                    or ax, ax
+0028                          ax = CheckState2(01, 02) ? 1 : 0 [es:bx+0x8]
 003B 75 18                    jnz 0x55
-003D B8 03 00                 mov ax, 0x3
-0040 50                       push ax
-0041 B8 01 00                 mov ax, 0x1
-0044 50                       push ax
-0045 C4 5E 06                 les bx, [bp+0x6]
-0048 26 FF 5F 08              call far word [es:bx+0x8]
-004C 59                       pop cx
-004D 59                       pop cx
-004E 0B C0                    or ax, ax
+003D                          ax = CheckState2(01, 03) ? 1 : 0 [es:bx+0x8]
 0050 75 03                    jnz 0x55
 0052 E9 8B 00                 jmp 0xe0
 0055 B8 E3 00                 mov ax, 0xe3

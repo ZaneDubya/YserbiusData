@@ -736,15 +736,7 @@ Functn1A: "FLSPECK"
 
 Functn1B: "FLSPECL"
 0000                          BEGIN
-0003 B8 68 00                 mov ax, 0x68
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 08              call far word [es:bx+0x8]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState2(02, 68) ? 1 : 0 [es:bx+0x8]
 0016 74 1C                    jz 0x34
 0018                          ShowPortrait(0042)
 0025                          ShowMessage(0E59) = The waters from Sinestra's Fountain are invigorating, but have no further effect.
@@ -973,15 +965,7 @@ Functn26: "HIDDORI"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 75 17                    jnz 0x7a
-0063 B8 01 00                 mov ax, 0x1
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 5F 08              call far word [es:bx+0x8]
-0071 59                       pop cx
-0072 59                       pop cx
-0073 0B C0                    or ax, ax
+0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
 007A B8 01 00                 mov ax, 0x1
@@ -1117,15 +1101,7 @@ Functn27: "HIDDORJ"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 75 17                    jnz 0x7a
-0063 B8 01 00                 mov ax, 0x1
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 5F 08              call far word [es:bx+0x8]
-0071 59                       pop cx
-0072 59                       pop cx
-0073 0B C0                    or ax, ax
+0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
 007A B8 01 00                 mov ax, 0x1
@@ -1261,15 +1237,7 @@ Functn28: "HIDDORK"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 75 17                    jnz 0x7a
-0063 B8 01 00                 mov ax, 0x1
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 5F 08              call far word [es:bx+0x8]
-0071 59                       pop cx
-0072 59                       pop cx
-0073 0B C0                    or ax, ax
+0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
 007A B8 01 00                 mov ax, 0x1
@@ -1405,15 +1373,7 @@ Functn29: "HIDDORL"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 75 17                    jnz 0x7a
-0063 B8 01 00                 mov ax, 0x1
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 5F 08              call far word [es:bx+0x8]
-0071 59                       pop cx
-0072 59                       pop cx
-0073 0B C0                    or ax, ax
+0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
 007A B8 01 00                 mov ax, 0x1
@@ -1549,15 +1509,7 @@ Functn2A: "HIDDORM"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 75 17                    jnz 0x7a
-0063 B8 01 00                 mov ax, 0x1
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 5F 08              call far word [es:bx+0x8]
-0071 59                       pop cx
-0072 59                       pop cx
-0073 0B C0                    or ax, ax
+0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
 007A B8 01 00                 mov ax, 0x1
@@ -1693,15 +1645,7 @@ Functn2B: "HIDDORN"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 75 17                    jnz 0x7a
-0063 B8 01 00                 mov ax, 0x1
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 5F 08              call far word [es:bx+0x8]
-0071 59                       pop cx
-0072 59                       pop cx
-0073 0B C0                    or ax, ax
+0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
 007A B8 01 00                 mov ax, 0x1
@@ -1936,15 +1880,7 @@ Functn32: "HIDDORU"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 75 17                    jnz 0x7a
-0063 B8 01 00                 mov ax, 0x1
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 5F 08              call far word [es:bx+0x8]
-0071 59                       pop cx
-0072 59                       pop cx
-0073 0B C0                    or ax, ax
+0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
 007A B8 01 00                 mov ax, 0x1
@@ -2110,15 +2046,7 @@ Functn36: "HIDDORY"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 75 17                    jnz 0x7a
-0063 B8 01 00                 mov ax, 0x1
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 5F 08              call far word [es:bx+0x8]
-0071 59                       pop cx
-0072 59                       pop cx
-0073 0B C0                    or ax, ax
+0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
 007A B8 01 00                 mov ax, 0x1
@@ -2329,15 +2257,7 @@ Functn39: "HIDDORBB"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 75 17                    jnz 0x7a
-0063 B8 01 00                 mov ax, 0x1
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 5F 08              call far word [es:bx+0x8]
-0071 59                       pop cx
-0072 59                       pop cx
-0073 0B C0                    or ax, ax
+0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
 007A B8 01 00                 mov ax, 0x1
@@ -2473,15 +2393,7 @@ Functn3A: "HIDDORCC"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 75 17                    jnz 0x7a
-0063 B8 01 00                 mov ax, 0x1
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 5F 08              call far word [es:bx+0x8]
-0071 59                       pop cx
-0072 59                       pop cx
-0073 0B C0                    or ax, ax
+0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
 007A B8 01 00                 mov ax, 0x1
@@ -2674,15 +2586,7 @@ Functn40: "HIDDORII"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 75 17                    jnz 0x7a
-0063 B8 01 00                 mov ax, 0x1
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 5F 08              call far word [es:bx+0x8]
-0071 59                       pop cx
-0072 59                       pop cx
-0073 0B C0                    or ax, ax
+0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
 007A B8 01 00                 mov ax, 0x1

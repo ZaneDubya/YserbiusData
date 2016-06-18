@@ -118,27 +118,11 @@ Functn11: "RIVER"
 
 Functn12: "TXTPHNX"
 0000                          BEGIN
-0003 B8 85 00                 mov ax, 0x85
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 08              call far word [es:bx+0x8]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState2(02, 85) ? 1 : 0 [es:bx+0x8]
 0016 74 10                    jz 0x28
 0018                          ShowMessage(06CE) = The Phoenix is being reborn and may not be disturbed.
 0025 E9 7F 00                 jmp 0xa7
-0028 B8 86 00                 mov ax, 0x86
-002B 50                       push ax
-002C B8 02 00                 mov ax, 0x2
-002F 50                       push ax
-0030 C4 5E 06                 les bx, [bp+0x6]
-0033 26 FF 5F 08              call far word [es:bx+0x8]
-0037 59                       pop cx
-0038 59                       pop cx
-0039 0B C0                    or ax, ax
+0028                          ax = CheckState2(02, 86) ? 1 : 0 [es:bx+0x8]
 003B 74 50                    jz 0x8d
 003D                          ShowMessage(0704) = Ahead, bound by the River of Eternity, is the shadow of the Phoenix Firebird. 
 004A                          ShowMessage(0753) = The raging waters of the river look daunting.
@@ -305,15 +289,7 @@ Functn1C: "PHOEGURD"
 0000                          BEGIN
 0003                          ShowPortrait(002D)
 0010                          ShowMessage(0810) = A Gnome Wizard greets you.
-001D B8 85 00                 mov ax, 0x85
-0020 50                       push ax
-0021 B8 02 00                 mov ax, 0x2
-0024 50                       push ax
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 5F 08              call far word [es:bx+0x8]
-002C 59                       pop cx
-002D 59                       pop cx
-002E 0B C0                    or ax, ax
+001D                          ax = CheckState2(02, 85) ? 1 : 0 [es:bx+0x8]
 0030 74 1C                    jz 0x4e
 0032                          ShowMessage(082B) = 'Thank you for helping my master the Phoenix be reborn.
 003F                          ShowMessage(0863) = The Phoenix may no longer be disturbed.'

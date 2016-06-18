@@ -36,15 +36,7 @@ Functn07: "DOORMESC"
 Functn08: "DOORMESD"
 0000                          BEGIN
 0003                          ShowMessage(0471) = The gateway is the DUNGEON EXIT.
-0010 B8 6A 00                 mov ax, 0x6a
-0013 50                       push ax
-0014 B8 02 00                 mov ax, 0x2
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 08              call far word [es:bx+0x8]
-001F 59                       pop cx
-0020 59                       pop cx
-0021 0B C0                    or ax, ax
+0010                          ax = CheckState2(02, 6A) ? 1 : 0 [es:bx+0x8]
 0023 74 1A                    jz 0x3f
 0025                          ShowMessage(0492) = Hail, conquering HERO OF YSERBIUS!
 0032                          ShowMessage(04B5) = All of Twinion bows to your prominence!!

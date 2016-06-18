@@ -1592,15 +1592,7 @@ Functn22: "QUESTBEN"
 
 Functn23: "GOLDAENC"
 0000                          BEGIN
-0003 B8 24 00                 mov ax, 0x24
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 08              call far word [es:bx+0x8]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState2(02, 24) ? 1 : 0 [es:bx+0x8]
 0016 74 21                    jz 0x39
 0018 B8 64 00                 mov ax, 0x64
 001B 50                       push ax
@@ -1672,15 +1664,7 @@ Functn23: "GOLDAENC"
 
 Functn24: "WEAPAENC"
 0000                          BEGIN
-0003 B8 25 00                 mov ax, 0x25
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 08              call far word [es:bx+0x8]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState2(02, 25) ? 1 : 0 [es:bx+0x8]
 0016 74 22                    jz 0x3a
 0018 B8 64 00                 mov ax, 0x64
 001B 50                       push ax

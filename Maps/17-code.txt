@@ -64,15 +64,7 @@ Functn07: "TRAPDORA"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 75 14                    jnz 0x62
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 08              call far word [es:bx+0x8]
-005C 59                       pop cx
-005D 59                       pop cx
-005E 0B C0                    or ax, ax
+004E                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0060 74 23                    jz 0x85
 0062                          ShowMessage(03FC) = You found a trapdoor.
 006F B8 01 00                 mov ax, 0x1
@@ -125,15 +117,7 @@ Functn08: "TRAPDORB"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 75 14                    jnz 0x62
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 08              call far word [es:bx+0x8]
-005C 59                       pop cx
-005D 59                       pop cx
-005E 0B C0                    or ax, ax
+004E                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0060 74 23                    jz 0x85
 0062                          ShowMessage(042F) = You spot a trapdoor.
 006F B8 01 00                 mov ax, 0x1
@@ -186,15 +170,7 @@ Functn09: "TRAPDORC"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 75 14                    jnz 0x62
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 08              call far word [es:bx+0x8]
-005C 59                       pop cx
-005D 59                       pop cx
-005E 0B C0                    or ax, ax
+004E                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0060 74 23                    jz 0x85
 0062                          ShowMessage(0461) = You detect a trapdoor.
 006F B8 01 00                 mov ax, 0x1
@@ -247,15 +223,7 @@ Functn0A: "TRAPDORD"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 75 14                    jnz 0x62
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 08              call far word [es:bx+0x8]
-005C 59                       pop cx
-005D 59                       pop cx
-005E 0B C0                    or ax, ax
+004E                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0060 74 23                    jz 0x85
 0062                          ShowMessage(0495) = You escape a trapdoor.
 006F B8 01 00                 mov ax, 0x1
@@ -308,15 +276,7 @@ Functn0B: "TRAPDORE"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 75 14                    jnz 0x62
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 08              call far word [es:bx+0x8]
-005C 59                       pop cx
-005D 59                       pop cx
-005E 0B C0                    or ax, ax
+004E                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0060 74 23                    jz 0x85
 0062                          ShowMessage(04C9) = You notice a trapdoor.
 006F B8 01 00                 mov ax, 0x1
@@ -369,15 +329,7 @@ Functn0C: "TRAPDORF"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 75 14                    jnz 0x62
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 08              call far word [es:bx+0x8]
-005C 59                       pop cx
-005D 59                       pop cx
-005E 0B C0                    or ax, ax
+004E                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0060 74 23                    jz 0x85
 0062                          ShowMessage(04FD) = There is a trapdoor in the floor.
 006F B8 01 00                 mov ax, 0x1
@@ -430,15 +382,7 @@ Functn0D: "TRAPDORG"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 75 14                    jnz 0x62
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 08              call far word [es:bx+0x8]
-005C 59                       pop cx
-005D 59                       pop cx
-005E 0B C0                    or ax, ax
+004E                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0060 74 23                    jz 0x85
 0062                          ShowMessage(053C) = You discover a trapdoor.
 006F B8 01 00                 mov ax, 0x1
@@ -491,15 +435,7 @@ Functn0E: "TRAPDORH"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 75 14                    jnz 0x62
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 08              call far word [es:bx+0x8]
-005C 59                       pop cx
-005D 59                       pop cx
-005E 0B C0                    or ax, ax
+004E                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0060 74 23                    jz 0x85
 0062                          ShowMessage(0572) = You detect a trapdoor.
 006F B8 01 00                 mov ax, 0x1
@@ -552,15 +488,7 @@ Functn0F: "TRAPDORI"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 75 14                    jnz 0x62
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 08              call far word [es:bx+0x8]
-005C 59                       pop cx
-005D 59                       pop cx
-005E 0B C0                    or ax, ax
+004E                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0060 74 23                    jz 0x85
 0062                          ShowMessage(05A6) = You spot a trapdoor.
 006F B8 01 00                 mov ax, 0x1
@@ -613,15 +541,7 @@ Functn10: "TRAPDORJ"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 75 14                    jnz 0x62
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 08              call far word [es:bx+0x8]
-005C 59                       pop cx
-005D 59                       pop cx
-005E 0B C0                    or ax, ax
+004E                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0060 74 23                    jz 0x85
 0062                          ShowMessage(05D8) = You detect a trapdoor.
 006F B8 01 00                 mov ax, 0x1
@@ -674,15 +594,7 @@ Functn11: "TRAPDORK"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 75 14                    jnz 0x62
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 08              call far word [es:bx+0x8]
-005C 59                       pop cx
-005D 59                       pop cx
-005E 0B C0                    or ax, ax
+004E                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0060 74 23                    jz 0x85
 0062                          ShowMessage(060C) = A trapdoor is in this room.
 006F B8 01 00                 mov ax, 0x1
@@ -735,15 +647,7 @@ Functn12: "TRAPDORL"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 75 14                    jnz 0x62
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 08              call far word [es:bx+0x8]
-005C 59                       pop cx
-005D 59                       pop cx
-005E 0B C0                    or ax, ax
+004E                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0060 74 23                    jz 0x85
 0062                          ShowMessage(0645) = You sidestep a trapdoor.
 006F B8 01 00                 mov ax, 0x1
@@ -796,15 +700,7 @@ Functn13: "TRAPDORM"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 75 14                    jnz 0x62
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 08              call far word [es:bx+0x8]
-005C 59                       pop cx
-005D 59                       pop cx
-005E 0B C0                    or ax, ax
+004E                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0060 74 23                    jz 0x85
 0062                          ShowMessage(067B) = You avoid a trapdoor.
 006F B8 01 00                 mov ax, 0x1
