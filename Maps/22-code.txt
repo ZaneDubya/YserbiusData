@@ -1,18 +1,18 @@
-Functn01: "PIT"
+PIT_01:
 0000                          BEGIN
 0003                          ShowMessage(03FC) [es:bx+0xf8] = You step into a bottomless pit and die.
 0010                          ax = GetHits() [es:bx+0x74]
 0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
-Functn02: "ENCGUARD"
+ENCGUARD_02:
 0000                          BEGIN
 0003                          ShowMessage(0424) [es:bx+0xf8] = Guardians stand ready.  'We are sworn to defend Arnakkian.'
-0010                          SetEncData(27, 01) [es:bx+0xd4]
-0022                          SetEncData(27, 02) [es:bx+0xd4]
-0034                          SetEncData(27, 03) [es:bx+0xd4]
-0046                          SetEncData(27, 04) [es:bx+0xd4]
-0058                          SetEncData(27, 05) [es:bx+0xd4]
+0010                          AddEncounter(27, 01) [es:bx+0xd4]
+0022                          AddEncounter(27, 02) [es:bx+0xd4]
+0034                          AddEncounter(27, 03) [es:bx+0xd4]
+0046                          AddEncounter(27, 04) [es:bx+0xd4]
+0058                          AddEncounter(27, 05) [es:bx+0xd4]
 006A B8 88 00                 mov ax, 0x88
 006D 50                       push ax
 006E B8 02 00                 mov ax, 0x2
@@ -34,7 +34,7 @@ Functn02: "ENCGUARD"
 00A5 59                       pop cx
 00A6                          RETURN
 
-Functn03: "ENCEARTH"
+ENCEARTH_03:
 0000                          BEGIN
 0003 B8 01 00                 mov ax, 0x1
 0006 50                       push ax
@@ -48,17 +48,17 @@ Functn03: "ENCEARTH"
 0016 74 03                    jz 0x1b
 0018 E9 08 01                 jmp 0x123
 001B                          ShowMessage(0460) [es:bx+0xf8] = Earth Elemental Andreas rises from his mountainous perch.
-0028                          SetEncData(04, 01) [es:bx+0xd4]
-003A                          SetEncData(04, 02) [es:bx+0xd4]
-004C                          SetEncData(22, 03) [es:bx+0xd4]
-005E                          SetEncData(0F, 04) [es:bx+0xd4]
-0070                          SetEncData(23, 05) [es:bx+0xd4]
-0082                          SetEncData(28, 06) [es:bx+0xd4]
+0028                          AddEncounter(04, 01) [es:bx+0xd4]
+003A                          AddEncounter(04, 02) [es:bx+0xd4]
+004C                          AddEncounter(22, 03) [es:bx+0xd4]
+005E                          AddEncounter(0F, 04) [es:bx+0xd4]
+0070                          AddEncounter(23, 05) [es:bx+0xd4]
+0082                          AddEncounter(28, 06) [es:bx+0xd4]
 0094                          ax = HasItem(E9) [es:bx+0x50]
 00A2 74 22                    jz 0xc6
-00A4                          SetTreasureData(0000, 00, 00, 50, 50, D0) [es:bx+0xd8]
+00A4                          AddTreasure(0000, 00, 00, 50, 50, D0) [es:bx+0xd8]
 00C4 EB 5D                    jmp 0x123
-00C6                          SetTreasureData(03E8, 00, 00, 88, 1D, E9) [es:bx+0xd8]
+00C6                          AddTreasure(03E8, 00, 00, 88, 1D, E9) [es:bx+0xd8]
 00E7 B8 8A 00                 mov ax, 0x8a
 00EA 50                       push ax
 00EB B8 02 00                 mov ax, 0x2
@@ -80,12 +80,12 @@ Functn03: "ENCEARTH"
 0122 59                       pop cx
 0123                          RETURN
 
-Functn04: "GUARDIAN"
+GUARDIAN_04:
 0000                          BEGIN
 0003                          ShowMessage(049A) [es:bx+0xf8] = Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
 0010                          RETURN
 
-Functn05: "EARTHELE"
+EARTHELE_05:
 0000                          BEGIN
 0003 B8 01 00                 mov ax, 0x1
 0006 50                       push ax
@@ -100,96 +100,96 @@ Functn05: "EARTHELE"
 0018                          ShowMessage(04EA) [es:bx+0xf8] = The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
 0025                          RETURN
 
-Functn06: "PLATA"
+PLATA_06:
 0000                          BEGIN
 0003                          ShowMessage(0555) [es:bx+0xf8] = The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
 0010                          ShowMessage(05B8) [es:bx+0xf8] = A voice whispers 'Only true friendship can bridge the gap of time.'
 001D                          RETURN
 
-Functn07: "PLATB"
+PLATB_07:
 0000                          BEGIN
 0003                          ShowMessage(05FC) [es:bx+0xf8] = Quiet solitude fills the chasm.  You are on the other side.
 0010                          RETURN
 
-Functn08: "YBOXA"
+YBOXA_08:
 0000                          BEGIN
 0003                          ShowMessage(0638) [es:bx+0xf8] = The wall glows.
 0010                          SetState(01, 02, 01) [es:bx]
 0025                          RETURN
 
-Functn09: "YBOXB"
+YBOXB_09:
 0000                          BEGIN
 0003                          ShowMessage(0648) [es:bx+0xf8] = The wall glows.
 0010                          SetState(01, 02, 02) [es:bx]
 0025                          RETURN
 
-Functn0A: "YBOXC"
+YBOXC_0A:
 0000                          BEGIN
 0003                          ShowMessage(0658) [es:bx+0xf8] = The wall glows.
 0010                          SetState(01, 02, 03) [es:bx]
 0025                          RETURN
 
-Functn0B: "YBOXD"
+YBOXD_0B:
 0000                          BEGIN
 0003                          ShowMessage(0668) [es:bx+0xf8] = The wall glows.
 0010                          SetState(01, 02, 04) [es:bx]
 0025                          RETURN
 
-Functn0C: "YBOXE"
+YBOXE_0C:
 0000                          BEGIN
 0003                          ShowMessage(0678) [es:bx+0xf8] = The wall glows.
 0010                          SetState(01, 02, 05) [es:bx]
 0025                          RETURN
 
-Functn0D: "YBOXF"
+YBOXF_0D:
 0000                          BEGIN
 0003                          ShowMessage(0688) [es:bx+0xf8] = The wall glows.
 0010                          SetState(01, 02, 06) [es:bx]
 0025                          RETURN
 
-Functn0E: "XBOXG"
+XBOXG_0E:
 0000                          BEGIN
 0003                          ShowMessage(0698) [es:bx+0xf8] = The wall glows.
 0010                          SetState(01, 03, 01) [es:bx]
 0025                          RETURN
 
-Functn0F: "XBOXH"
+XBOXH_0F:
 0000                          BEGIN
 0003                          ShowMessage(06A8) [es:bx+0xf8] = The wall glows.
 0010                          SetState(01, 03, 02) [es:bx]
 0025                          RETURN
 
-Functn10: "XBOXI"
+XBOXI_10:
 0000                          BEGIN
 0003                          ShowMessage(06B8) [es:bx+0xf8] = The wall glows.
 0010                          SetState(01, 03, 03) [es:bx]
 0025                          RETURN
 
-Functn11: "XBOXJ"
+XBOXJ_11:
 0000                          BEGIN
 0003                          ShowMessage(06C8) [es:bx+0xf8] = The wall glows.
 0010                          SetState(01, 03, 04) [es:bx]
 0025                          RETURN
 
-Functn12: "XBOXK"
+XBOXK_12:
 0000                          BEGIN
 0003                          ShowMessage(06D8) [es:bx+0xf8] = The wall glows.
 0010                          SetState(01, 03, 05) [es:bx]
 0025                          RETURN
 
-Functn13: "XBOXL"
+XBOXL_13:
 0000                          BEGIN
 0003                          ShowMessage(06E8) [es:bx+0xf8] = The wall glows.
 0010                          SetState(01, 03, 06) [es:bx]
 0025                          RETURN
 
-Functn14: "XBOXM"
+XBOXM_14:
 0000                          BEGIN
 0003                          ShowMessage(06F8) [es:bx+0xf8] = The wall glows.
 0010                          SetState(01, 03, 07) [es:bx]
 0025                          RETURN
 
-Functn15: "PITAJ"
+PITAJ_15:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 01) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -202,7 +202,7 @@ Functn15: "PITAJ"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn16: "PITAK"
+PITAK_16:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 01) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -215,7 +215,7 @@ Functn16: "PITAK"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn17: "PITAL"
+PITAL_17:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 01) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -228,7 +228,7 @@ Functn17: "PITAL"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn18: "PITAM"
+PITAM_18:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 01) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -241,7 +241,7 @@ Functn18: "PITAM"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn19: "PITBG"
+PITBG_19:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 02) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -254,7 +254,7 @@ Functn19: "PITBG"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn1A: "PITBI"
+PITBI_1A:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 02) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -267,7 +267,7 @@ Functn1A: "PITBI"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn1B: "PITBJ"
+PITBJ_1B:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 02) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -280,7 +280,7 @@ Functn1B: "PITBJ"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn1C: "PITBK"
+PITBK_1C:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 02) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -293,7 +293,7 @@ Functn1C: "PITBK"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn1D: "PITBL"
+PITBL_1D:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 02) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -306,7 +306,7 @@ Functn1D: "PITBL"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn1E: "PITBM"
+PITBM_1E:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 02) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -319,7 +319,7 @@ Functn1E: "PITBM"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn1F: "PITCG"
+PITCG_1F:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -332,7 +332,7 @@ Functn1F: "PITCG"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn20: "PITCH"
+PITCH_20:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -345,7 +345,7 @@ Functn20: "PITCH"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn21: "PITCI"
+PITCI_21:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -358,7 +358,7 @@ Functn21: "PITCI"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn22: "PITCJ"
+PITCJ_22:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -371,7 +371,7 @@ Functn22: "PITCJ"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn23: "PITCK"
+PITCK_23:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -384,7 +384,7 @@ Functn23: "PITCK"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn24: "PITCL"
+PITCL_24:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -397,7 +397,7 @@ Functn24: "PITCL"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn25: "PITCM"
+PITCM_25:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -410,7 +410,7 @@ Functn25: "PITCM"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn26: "PITDG"
+PITDG_26:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -423,7 +423,7 @@ Functn26: "PITDG"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn27: "PITDH"
+PITDH_27:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -436,7 +436,7 @@ Functn27: "PITDH"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn28: "PITDI"
+PITDI_28:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -449,7 +449,7 @@ Functn28: "PITDI"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn29: "PITDJ"
+PITDJ_29:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -462,7 +462,7 @@ Functn29: "PITDJ"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn2A: "PITDK"
+PITDK_2A:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -475,7 +475,7 @@ Functn2A: "PITDK"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn2B: "PITDL"
+PITDL_2B:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -488,7 +488,7 @@ Functn2B: "PITDL"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn2C: "PITDM"
+PITDM_2C:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -501,7 +501,7 @@ Functn2C: "PITDM"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn2D: "PITEG"
+PITEG_2D:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 05) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -514,7 +514,7 @@ Functn2D: "PITEG"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn2E: "PITEH"
+PITEH_2E:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 05) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -527,7 +527,7 @@ Functn2E: "PITEH"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn2F: "PITEI"
+PITEI_2F:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 05) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -540,7 +540,7 @@ Functn2F: "PITEI"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn30: "PITEJ"
+PITEJ_30:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 05) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -553,7 +553,7 @@ Functn30: "PITEJ"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn31: "PITEK"
+PITEK_31:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 05) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -566,7 +566,7 @@ Functn31: "PITEK"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn32: "PITFG"
+PITFG_32:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -579,7 +579,7 @@ Functn32: "PITFG"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn33: "PITFH"
+PITFH_33:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -592,7 +592,7 @@ Functn33: "PITFH"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn34: "PITFI"
+PITFI_34:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -605,7 +605,7 @@ Functn34: "PITFI"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn35: "PITFJ"
+PITFJ_35:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -618,7 +618,7 @@ Functn35: "PITFJ"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn36: "PITFK"
+PITFK_36:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -631,7 +631,7 @@ Functn36: "PITFK"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn37: "PITFL"
+PITFL_37:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -644,7 +644,7 @@ Functn37: "PITFL"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn38: "PITFM"
+PITFM_38:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
@@ -657,43 +657,43 @@ Functn38: "PITFM"
 0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
-Functn39: "ENCPITBJ"
+ENCPITBJ_39:
 0000                          BEGIN
-0003                          SetEncData(19, 01) [es:bx+0xd4]
-0015                          SetEncData(1A, 02) [es:bx+0xd4]
-0027                          SetEncData(1A, 03) [es:bx+0xd4]
-0039                          SetEncData(1B, 04) [es:bx+0xd4]
-004B                          SetEncData(1C, 05) [es:bx+0xd4]
+0003                          AddEncounter(19, 01) [es:bx+0xd4]
+0015                          AddEncounter(1A, 02) [es:bx+0xd4]
+0027                          AddEncounter(1A, 03) [es:bx+0xd4]
+0039                          AddEncounter(1B, 04) [es:bx+0xd4]
+004B                          AddEncounter(1C, 05) [es:bx+0xd4]
 005D                          RETURN
 
-Functn3A: "ENCPITDI"
+ENCPITDI_3A:
 0000                          BEGIN
-0003                          SetEncData(1F, 01) [es:bx+0xd4]
-0015                          SetEncData(1F, 02) [es:bx+0xd4]
-0027                          SetEncData(20, 03) [es:bx+0xd4]
-0039                          SetEncData(20, 04) [es:bx+0xd4]
+0003                          AddEncounter(1F, 01) [es:bx+0xd4]
+0015                          AddEncounter(1F, 02) [es:bx+0xd4]
+0027                          AddEncounter(20, 03) [es:bx+0xd4]
+0039                          AddEncounter(20, 04) [es:bx+0xd4]
 004B                          RETURN
 
-Functn3B: "PITENCDK"
+PITENCDK_3B:
 0000                          BEGIN
-0003                          SetEncData(1B, 01) [es:bx+0xd4]
-0015                          SetEncData(1B, 02) [es:bx+0xd4]
-0027                          SetEncData(19, 03) [es:bx+0xd4]
-0039                          SetEncData(19, 04) [es:bx+0xd4]
-004B                          SetEncData(1B, 05) [es:bx+0xd4]
-005D                          SetEncData(1B, 06) [es:bx+0xd4]
+0003                          AddEncounter(1B, 01) [es:bx+0xd4]
+0015                          AddEncounter(1B, 02) [es:bx+0xd4]
+0027                          AddEncounter(19, 03) [es:bx+0xd4]
+0039                          AddEncounter(19, 04) [es:bx+0xd4]
+004B                          AddEncounter(1B, 05) [es:bx+0xd4]
+005D                          AddEncounter(1B, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn3C: "PITENCBL"
+PITENCBL_3C:
 0000                          BEGIN
-0003                          SetEncData(24, 01) [es:bx+0xd4]
-0015                          SetEncData(24, 02) [es:bx+0xd4]
-0027                          SetEncData(24, 03) [es:bx+0xd4]
-0039                          SetEncData(25, 04) [es:bx+0xd4]
-004B                          SetEncData(26, 05) [es:bx+0xd4]
+0003                          AddEncounter(24, 01) [es:bx+0xd4]
+0015                          AddEncounter(24, 02) [es:bx+0xd4]
+0027                          AddEncounter(24, 03) [es:bx+0xd4]
+0039                          AddEncounter(25, 04) [es:bx+0xd4]
+004B                          AddEncounter(26, 05) [es:bx+0xd4]
 005D                          RETURN
 
-Functn3D: "DOORARNK"
+DOORARNK_3D:
 0000                          BEGIN
 0003 B8 01 00                 mov ax, 0x1
 0006 50                       push ax
@@ -730,13 +730,13 @@ Functn3D: "DOORARNK"
 005B                          ShowMessage(116C) [es:bx+0xf8] = The Earth Elemental holds power over this door.
 0068                          RETURN
 
-Functn3E: "TELEARNK"
+TELEARNK_3E:
 0000                          BEGIN
 0003                          ShowMessage(119C) [es:bx+0xf8] = A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
 0010                          GoMap(03, 76, 02, 34) [es:bx+0xbc]
 002B                          RETURN
 
-Functn3F: "SETEKILL"
+SETEKILL_3F:
 0000                          BEGIN
 0003                          SetState(01, 01, 01) [es:bx]
 0018                          RETURN

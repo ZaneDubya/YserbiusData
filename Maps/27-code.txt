@@ -1,55 +1,52 @@
-Functn01: "LAVA"
+LAVA_01:
 0000                          BEGIN
 0003                          ShowMessage(03FC) [es:bx+0xf8] = You stumble into the lava river and die.
 0010                          ax = GetHits() [es:bx+0x74]
 0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
-Functn02: "TEMPEST"
+TEMPEST_02:
 0000                          BEGIN
 0003                          GoMap(01, 4F, 01, 35) [es:bx+0xbc]
 001E                          RETURN
 
-Functn03: "DUNGEON"
+DUNGEON_03:
 0000                          BEGIN
 0003                          ShowMessage(0425) [es:bx+0xf8] = This gate leads to the entrance of Arnakkian's Arena.
 0010                          GoMap(02, 40, 02, 36) [es:bx+0xbc]
 002B                          RETURN
 
-Functn04: "HEAVENS"
+HEAVENS_04:
 0000                          BEGIN
 0003                          GoMap(02, F6, 01, 35) [es:bx+0xbc]
 001E                          RETURN
 
-Functn05: "TXTTEMPS"
+TXTTEMPS_05:
 0000                          BEGIN
 0003                          ShowMessage(045B) [es:bx+0xf8] = Of all the winds, the TEMPEST is the most violent and dangerous.
 0010                          RETURN
 
-Functn06: "TXTHEAVN"
+TXTHEAVN_06:
 0000                          BEGIN
 0003                          ShowMessage(049C) [es:bx+0xf8] = Enter HEAVEN'S FURY if you must.  It is here Voranti cursed the winds.
 0010                          RETURN
 
-Functn07: "TXTCSTLG"
+TXTCSTLG_07:
 0000                          BEGIN
 0003                          ShowMessage(04E3) [es:bx+0xf8] = A doorway leads to the town of Castlegate, a village just outside Arnakkian's Castle.
 0010                          RETURN
 
-Functn09: "TXTLOOKO"
+TXTLOOKO_09:
 0000                          BEGIN
 0003                          ShowMessage(0539) [es:bx+0xf8] = It is rumored that a band of dwarves once lived behind the doors of LookOut.
 0010                          RETURN
 
-Functn0C: "BDOORCGC"
+BDOORCGC_0C:
 0000                          BEGIN
 0003                          CheckStrength(14) [es:bx+0xa4]
 0012 72 2D                    jb 0x41
 0014                          ShowMessage(0586) [es:bx+0xf8] = With a massive effort, you manage to force the door open.
-0021 B8 01 00                 mov ax, 0x1
-0024 50                       push ax
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 5F 24              call far word [es:bx+0x24]
+0021                          ax = SetExitability(01) [es:bx+0x24]
 002C 50                       push ax
 002D C4 5E 06                 les bx, [bp+0x6]
 0030 26 FF 5F 20              call far word [es:bx+0x20]
@@ -61,7 +58,7 @@ Functn0C: "BDOORCGC"
 0041                          ShowMessage(05C0) [es:bx+0xf8] = The door is stuck and will not open.
 004E                          RETURN
 
-Functn10: "RAPID"
+RAPID_10:
 0000                          BEGIN
 0003                          SetState(02, 57, 01) [es:bx]
 0018                          ShowMessage(05E5) [es:bx+0xf8] = A plaque reads..
@@ -80,7 +77,7 @@ Functn10: "RAPID"
 004E 83 C4 08                 add sp, 0x8
 0051                          RETURN
 
-Functn11: "RIVER"
+RIVER_11:
 0000                          BEGIN
 0003                          ShowMessage(0682) [es:bx+0xf8] = Fighting the raging River of Eternity taps your life energy.
 0010                          ax = GetHits() [es:bx+0x74]
@@ -95,7 +92,7 @@ Functn11: "RIVER"
 0032                          ShowMessage(06BF) [es:bx+0xf8] = You have died.
 003F                          RETURN
 
-Functn12: "TXTPHNX"
+TXTPHNX_12:
 0000                          BEGIN
 0003                          ax = CheckState2(02, 85) [es:bx+0x8]
 0016 74 10                    jz 0x28
@@ -130,85 +127,85 @@ Functn12: "TXTPHNX"
 009A                          ShowMessage(07B6) [es:bx+0xf8] = You also hear muffled roars.
 00A7                          RETURN
 
-Functn13: "DBENCPHO"
+DBENCPHO_13:
 0000                          BEGIN
-0003                          SetEncData(0E, 01) [es:bx+0xd4]
-0015                          SetEncData(0E, 02) [es:bx+0xd4]
-0027                          SetEncData(25, 03) [es:bx+0xd4]
-0039                          SetEncData(25, 04) [es:bx+0xd4]
-004B                          SetEncData(26, 06) [es:bx+0xd4]
+0003                          AddEncounter(0E, 01) [es:bx+0xd4]
+0015                          AddEncounter(0E, 02) [es:bx+0xd4]
+0027                          AddEncounter(25, 03) [es:bx+0xd4]
+0039                          AddEncounter(25, 04) [es:bx+0xd4]
+004B                          AddEncounter(26, 06) [es:bx+0xd4]
 005D                          RETURN
 
-Functn14: "DBENCA"
+DBENCA_14:
 0000                          BEGIN
-0003                          SetEncData(19, 01) [es:bx+0xd4]
-0015                          SetEncData(19, 02) [es:bx+0xd4]
-0027                          SetEncData(19, 03) [es:bx+0xd4]
-0039                          SetEncData(19, 04) [es:bx+0xd4]
+0003                          AddEncounter(19, 01) [es:bx+0xd4]
+0015                          AddEncounter(19, 02) [es:bx+0xd4]
+0027                          AddEncounter(19, 03) [es:bx+0xd4]
+0039                          AddEncounter(19, 04) [es:bx+0xd4]
 004B                          RETURN
 
-Functn15: "DBENCB"
+DBENCB_15:
 0000                          BEGIN
-0003                          SetEncData(19, 01) [es:bx+0xd4]
-0015                          SetEncData(19, 02) [es:bx+0xd4]
-0027                          SetEncData(1A, 03) [es:bx+0xd4]
-0039                          SetEncData(1A, 04) [es:bx+0xd4]
-004B                          SetTreasureData(1388, 00, 00, 00, 00, 71) [es:bx+0xd8]
+0003                          AddEncounter(19, 01) [es:bx+0xd4]
+0015                          AddEncounter(19, 02) [es:bx+0xd4]
+0027                          AddEncounter(1A, 03) [es:bx+0xd4]
+0039                          AddEncounter(1A, 04) [es:bx+0xd4]
+004B                          AddTreasure(1388, 00, 00, 00, 00, 71) [es:bx+0xd8]
 006A                          RETURN
 
-Functn16: "DBENCC"
+DBENCC_16:
 0000                          BEGIN
-0003                          SetEncData(19, 01) [es:bx+0xd4]
-0015                          SetEncData(19, 02) [es:bx+0xd4]
-0027                          SetEncData(18, 03) [es:bx+0xd4]
-0039                          SetEncData(18, 04) [es:bx+0xd4]
-004B                          SetEncData(1A, 05) [es:bx+0xd4]
-005D                          SetEncData(1A, 06) [es:bx+0xd4]
+0003                          AddEncounter(19, 01) [es:bx+0xd4]
+0015                          AddEncounter(19, 02) [es:bx+0xd4]
+0027                          AddEncounter(18, 03) [es:bx+0xd4]
+0039                          AddEncounter(18, 04) [es:bx+0xd4]
+004B                          AddEncounter(1A, 05) [es:bx+0xd4]
+005D                          AddEncounter(1A, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn17: "DBENCD"
+DBENCD_17:
 0000                          BEGIN
-0003                          SetEncData(24, 01) [es:bx+0xd4]
-0015                          SetEncData(24, 02) [es:bx+0xd4]
+0003                          AddEncounter(24, 01) [es:bx+0xd4]
+0015                          AddEncounter(24, 02) [es:bx+0xd4]
 0027                          RETURN
 
-Functn18: "BAZZENCA"
+BAZZENCA_18:
 0000                          BEGIN
-0003                          SetEncData(1B, 01) [es:bx+0xd4]
-0015                          SetEncData(1B, 02) [es:bx+0xd4]
-0027                          SetEncData(1C, 03) [es:bx+0xd4]
-0039                          SetEncData(1C, 04) [es:bx+0xd4]
+0003                          AddEncounter(1B, 01) [es:bx+0xd4]
+0015                          AddEncounter(1B, 02) [es:bx+0xd4]
+0027                          AddEncounter(1C, 03) [es:bx+0xd4]
+0039                          AddEncounter(1C, 04) [es:bx+0xd4]
 004B                          RETURN
 
-Functn19: "BAZZENCB"
+BAZZENCB_19:
 0000                          BEGIN
-0003                          SetEncData(1C, 01) [es:bx+0xd4]
-0015                          SetEncData(1C, 02) [es:bx+0xd4]
-0027                          SetEncData(1C, 03) [es:bx+0xd4]
-0039                          SetEncData(1C, 04) [es:bx+0xd4]
-004B                          SetTreasureData(1388, 00, 00, 00, 00, 76) [es:bx+0xd8]
+0003                          AddEncounter(1C, 01) [es:bx+0xd4]
+0015                          AddEncounter(1C, 02) [es:bx+0xd4]
+0027                          AddEncounter(1C, 03) [es:bx+0xd4]
+0039                          AddEncounter(1C, 04) [es:bx+0xd4]
+004B                          AddTreasure(1388, 00, 00, 00, 00, 76) [es:bx+0xd8]
 006A                          RETURN
 
-Functn1A: "BAZZENCC"
+BAZZENCC_1A:
 0000                          BEGIN
-0003                          SetEncData(0F, 01) [es:bx+0xd4]
-0015                          SetEncData(10, 02) [es:bx+0xd4]
-0027                          SetEncData(11, 03) [es:bx+0xd4]
-0039                          SetEncData(1C, 04) [es:bx+0xd4]
+0003                          AddEncounter(0F, 01) [es:bx+0xd4]
+0015                          AddEncounter(10, 02) [es:bx+0xd4]
+0027                          AddEncounter(11, 03) [es:bx+0xd4]
+0039                          AddEncounter(1C, 04) [es:bx+0xd4]
 004B                          ax = HasItem(EF) [es:bx+0x50]
 0059 74 21                    jz 0x7c
-005B                          SetTreasureData(03E8, 00, 00, 00, 00, D0) [es:bx+0xd8]
+005B                          AddTreasure(03E8, 00, 00, 00, 00, D0) [es:bx+0xd8]
 007A EB 1F                    jmp 0x9b
-007C                          SetTreasureData(1388, 00, 00, 00, 00, EF) [es:bx+0xd8]
+007C                          AddTreasure(1388, 00, 00, 00, 00, EF) [es:bx+0xd8]
 009B                          RETURN
 
-Functn1B: "TOELVES"
+TOELVES_1B:
 0000                          BEGIN
 0003                          ShowMessage(07D3) [es:bx+0xf8] = Loose rocks tumble away, revealing a narrow passageway down.
 0010                          GoMap(03, 1A, 01, 37) [es:bx+0xbc]
 002B                          RETURN
 
-Functn1C: "PHOEGURD"
+PHOEGURD_1C:
 0000                          BEGIN
 0003                          ShowPortrait(002D) [es:bx+0xfc]
 0010                          ShowMessage(0810) [es:bx+0xf8] = A Gnome Wizard greets you.
@@ -224,35 +221,35 @@ Functn1C: "PHOEGURD"
 0082                          SetState(02, 86, 01) [es:bx]
 0097                          RETURN
 
-Functn1D: "TXTBAZZA"
+TXTBAZZA_1D:
 0000                          BEGIN
 0003                          ShowPortrait(0029) [es:bx+0xfc]
 0010                          ShowMessage(099C) [es:bx+0xf8] = A frightened Halfling Cleric hides in the shadows.
 001D                          ShowMessage(09CF) [es:bx+0xf8] = 'You must do something about these trolls.  They're everywhere.'
 002A                          RETURN
 
-Functn1E: "TXTBAZZB"
+TXTBAZZB_1E:
 0000                          BEGIN
 0003                          ShowPortrait(001C) [es:bx+0xfc]
 0010                          ShowMessage(0A10) [es:bx+0xf8] = An exhausted Dwarf Knight hides in a large barrel.
 001D                          ShowMessage(0A43) [es:bx+0xf8] = 'Hail!  I welcome your help.  These trolls have been giving me fits.'
 002A                          RETURN
 
-Functn1F: "TXTBAZZC"
+TXTBAZZC_1F:
 0000                          BEGIN
 0003                          ShowPortrait(002D) [es:bx+0xfc]
 0010                          ShowMessage(0A89) [es:bx+0xf8] = A Gnome Wizard suddenly appears.
 001D                          ShowMessage(0AAA) [es:bx+0xf8] = 'Past the CastleGates and past the Elves, you will find a place where the blue light of the sky meets the underworld below.'
 002A                          RETURN
 
-Functn20: "TXTBAZZD"
+TXTBAZZD_20:
 0000                          BEGIN
 0003                          ShowPortrait(001F) [es:bx+0xfc]
 0010                          ShowMessage(0B27) [es:bx+0xf8] = An Elf Ranger is delighted at your presense.
 001D                          ShowMessage(0B54) [es:bx+0xf8] = 'I got clobbered by Andreas, the Earth Elemental!  I wish you luck in your adventurers.'
 002A                          RETURN
 
-Functn21: "PHOEREW"
+PHOEREW_21:
 0000                          BEGIN
 0003 B8 5E 00                 mov ax, 0x5e
 0006 50                       push ax
@@ -279,7 +276,7 @@ Functn21: "PHOEREW"
 0063                          ShowMessage(0BDB) [es:bx+0xf8] = Nothing happens.
 0070                          RETURN
 
-Functn24: "MYSTICS"
+MYSTICS_24:
 0000                          BEGIN
 0003                          ShowPortrait(0016) [es:bx+0xfc]
 0010                          ShowMessage(0BEC) [es:bx+0xf8] = A small band of gypsies has formed camp in an old bazaar stall.
@@ -288,7 +285,7 @@ Functn24: "MYSTICS"
 0037                          ShowMessage(0CD8) [es:bx+0xf8] = He pauses, then says, 'Go now, before more Trolls come!  Go!' 
 0044                          RETURN
 
-Functn25: "FNTNBAZZ"
+FNTNBAZZ_25:
 0000                          BEGIN
 0003 B8 5F 00                 mov ax, 0x5f
 0006 50                       push ax
@@ -377,23 +374,23 @@ Functn25: "FNTNBAZZ"
 011A                          ShowMessage(0DD9) [es:bx+0xf8] = The purple waters of the ElfFoot Fountain slip through your fingers before you can wet your lips.
 0127                          RETURN
 
-Functn26: "LOOKENCA"
+LOOKENCA_26:
 0000                          BEGIN
-0003                          SetEncData(1E, 01) [es:bx+0xd4]
-0015                          SetEncData(1E, 02) [es:bx+0xd4]
-0027                          SetEncData(25, 03) [es:bx+0xd4]
-0039                          SetEncData(25, 04) [es:bx+0xd4]
-004B                          SetEncData(1F, 05) [es:bx+0xd4]
-005D                          SetEncData(1F, 06) [es:bx+0xd4]
+0003                          AddEncounter(1E, 01) [es:bx+0xd4]
+0015                          AddEncounter(1E, 02) [es:bx+0xd4]
+0027                          AddEncounter(25, 03) [es:bx+0xd4]
+0039                          AddEncounter(25, 04) [es:bx+0xd4]
+004B                          AddEncounter(1F, 05) [es:bx+0xd4]
+005D                          AddEncounter(1F, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn2A: "TXTLOOKB"
+TXTLOOKB_2A:
 0000                          BEGIN
 0003                          ShowMessage(0E3B) [es:bx+0xf8] = An inscription on the wall reads...
 0010                          ShowRunes(500E) [es:bx+0xf4] = 'We, the Dwarves of NottiRock, seek brightly colored metals to forge magnificent treasures.'
 001D                          RETURN
 
-Functn2B: "FNTNLOOK"
+FNTNLOOK_2B:
 0000                          BEGIN
 0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010                          ShowMessage(0EBC) [es:bx+0xf8] = Ranger banners decorate the woodwork of Lookout Fountain.
@@ -480,56 +477,56 @@ Functn2B: "FNTNLOOK"
 010B                          ShowMessage(0F7D) [es:bx+0xf8] = The waters are refreshing, but not enlightening!
 0118                          RETURN
 
-Functn2C: "CSTLENCA"
+CSTLENCA_2C:
 0000                          BEGIN
-0003                          SetEncData(17, 01) [es:bx+0xd4]
-0015                          SetEncData(17, 02) [es:bx+0xd4]
-0027                          SetEncData(20, 04) [es:bx+0xd4]
-0039                          SetEncData(17, 05) [es:bx+0xd4]
-004B                          SetEncData(17, 06) [es:bx+0xd4]
+0003                          AddEncounter(17, 01) [es:bx+0xd4]
+0015                          AddEncounter(17, 02) [es:bx+0xd4]
+0027                          AddEncounter(20, 04) [es:bx+0xd4]
+0039                          AddEncounter(17, 05) [es:bx+0xd4]
+004B                          AddEncounter(17, 06) [es:bx+0xd4]
 005D                          RETURN
 
-Functn2D: "CSTLENCB"
+CSTLENCB_2D:
 0000                          BEGIN
-0003                          SetEncData(1D, 01) [es:bx+0xd4]
-0015                          SetEncData(1D, 02) [es:bx+0xd4]
-0027                          SetEncData(1D, 04) [es:bx+0xd4]
-0039                          SetEncData(1D, 06) [es:bx+0xd4]
+0003                          AddEncounter(1D, 01) [es:bx+0xd4]
+0015                          AddEncounter(1D, 02) [es:bx+0xd4]
+0027                          AddEncounter(1D, 04) [es:bx+0xd4]
+0039                          AddEncounter(1D, 06) [es:bx+0xd4]
 004B                          RETURN
 
-Functn2E: "CSTLENCC"
+CSTLENCC_2E:
 0000                          BEGIN
-0003                          SetEncData(18, 01) [es:bx+0xd4]
-0015                          SetEncData(18, 02) [es:bx+0xd4]
-0027                          SetEncData(22, 03) [es:bx+0xd4]
-0039                          SetEncData(22, 04) [es:bx+0xd4]
+0003                          AddEncounter(18, 01) [es:bx+0xd4]
+0015                          AddEncounter(18, 02) [es:bx+0xd4]
+0027                          AddEncounter(22, 03) [es:bx+0xd4]
+0039                          AddEncounter(22, 04) [es:bx+0xd4]
 004B                          RETURN
 
-Functn2F: "CSTLENCD"
+CSTLENCD_2F:
 0000                          BEGIN
-0003                          SetEncData(1D, 01) [es:bx+0xd4]
-0015                          SetEncData(1D, 02) [es:bx+0xd4]
-0027                          SetEncData(1D, 04) [es:bx+0xd4]
-0039                          SetEncData(18, 05) [es:bx+0xd4]
-004B                          SetEncData(18, 06) [es:bx+0xd4]
+0003                          AddEncounter(1D, 01) [es:bx+0xd4]
+0015                          AddEncounter(1D, 02) [es:bx+0xd4]
+0027                          AddEncounter(1D, 04) [es:bx+0xd4]
+0039                          AddEncounter(18, 05) [es:bx+0xd4]
+004B                          AddEncounter(18, 06) [es:bx+0xd4]
 005D                          RETURN
 
-Functn30: "CSTLENCE"
+CSTLENCE_30:
 0000                          BEGIN
-0003                          SetEncData(21, 01) [es:bx+0xd4]
-0015                          SetEncData(21, 02) [es:bx+0xd4]
-0027                          SetEncData(21, 04) [es:bx+0xd4]
-0039                          SetEncData(0A, 05) [es:bx+0xd4]
-004B                          SetEncData(21, 06) [es:bx+0xd4]
+0003                          AddEncounter(21, 01) [es:bx+0xd4]
+0015                          AddEncounter(21, 02) [es:bx+0xd4]
+0027                          AddEncounter(21, 04) [es:bx+0xd4]
+0039                          AddEncounter(0A, 05) [es:bx+0xd4]
+004B                          AddEncounter(21, 06) [es:bx+0xd4]
 005D                          RETURN
 
-Functn35: "TXTCSTLA"
+TXTCSTLA_35:
 0000                          BEGIN
 0003                          ShowMessage(0FAE) [es:bx+0xf8] = A message is etched on wall...
 0010                          ShowMessage(0FCD) [es:bx+0xf8] = 'The runes seem to spell names.  That is the way to Arnakkian.'
 001D                          RETURN
 
-Functn36: "TXTCSTLB"
+TXTCSTLB_36:
 0000                          BEGIN
 0003                          ShowPortrait(0016) [es:bx+0xfc]
 0010                          ShowMessage(100D) [es:bx+0xf8] = A Human Barbarian belches, then looks up at you.
@@ -538,7 +535,7 @@ Functn36: "TXTCSTLB"
 0037                          ShowMessage(1088) [es:bx+0xf8] = 'Two.  Must need two to cross.'
 0044                          RETURN
 
-Functn37: "FNTNHEAL"
+FNTNHEAL_37:
 0000                          BEGIN
 0003                          ax = GetHits() [es:bx+0x74]
 000A 50                       push ax
@@ -549,7 +546,7 @@ Functn37: "FNTNHEAL"
 0021                          ShowMessage(10A8) [es:bx+0xf8] = DayFrost Fountain restores your Health.
 002E                          RETURN
 
-Functn38: "FNTNMANA"
+FNTNMANA_38:
 0000                          BEGIN
 0003 B8 10 27                 mov ax, 0x2710
 0006 50                       push ax
@@ -560,7 +557,7 @@ Functn38: "FNTNMANA"
 001D                          ShowMessage(10D0) [es:bx+0xf8] = NightFrost Fountain renews your Mana.
 002A                          RETURN
 
-Functn3B: "TXTCSTLC"
+TXTCSTLC_3B:
 0000                          BEGIN
 0003                          ShowPortrait(0011) [es:bx+0xfc]
 0010                          ShowMessage(10F6) [es:bx+0xf8] = A Phantasm appears...

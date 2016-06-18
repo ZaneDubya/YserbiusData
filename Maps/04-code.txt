@@ -1,49 +1,49 @@
-Functn01: "TOEXIT"
+TOEXIT_01:
 0000                          BEGIN
 0003                          GoMap(00, 3A, 01, 01) [es:bx+0xbc]
 001D                          RETURN
 
-Functn02: "TOVEST"
+TOVEST_02:
 0000                          BEGIN
 0003                          GoMap(03, F5, 03, 01) [es:bx+0xbc]
 001E                          RETURN
 
-Functn03: "GATEMSGA"
+GATEMSGA_03:
 0000                          BEGIN
 0003                          ShowMessage(03FC) [es:bx+0xf8] = The gateway leads to THE VESTIBULE.
 0010                          RETURN
 
-Functn04: "TELEPORT"
+TELEPORT_04:
 0000                          BEGIN
 0003                          GoMap(00, F7, 04, 03) [es:bx+0xbc]
 001D                          RETURN
 
-Functn05: "TELPORTW"
+TELPORTW_05:
 0000                          BEGIN
 0003                          GoMap(02, 57, 04, 01) [es:bx+0xbc]
 001E                          RETURN
 
-Functn06: "TELPORTE"
+TELPORTE_06:
 0000                          BEGIN
 0003                          GoMap(03, 4F, 04, 01) [es:bx+0xbc]
 001E                          RETURN
 
-Functn07: "TELPORTS"
+TELPORTS_07:
 0000                          BEGIN
 0003                          GoMap(01, 8F, 05, 01) [es:bx+0xbc]
 001E                          RETURN
 
-Functn08: "STAIRMSG"
+STAIRMSG_08:
 0000                          BEGIN
 0003                          ShowMessage(0420) [es:bx+0xf8] = Through the gateway to the west you see stairs leading down to the next level.
 0010                          RETURN
 
-Functn09: "STAIRSDN"
+STAIRSDN_09:
 0000                          BEGIN
 0003                          GoMap(01, 05, 01, 02) [es:bx+0xbc]
 001E                          RETURN
 
-Functn0A: "LKPKDOOR"
+LKPKDOOR_0A:
 0000                          BEGIN
 0003 B8 C4 00                 mov ax, 0xc4
 0006 50                       push ax
@@ -95,12 +95,12 @@ Functn0A: "LKPKDOOR"
 007D                          ShowMessage(0498) [es:bx+0xf8] = The door is locked.
 008A                          RETURN
 
-Functn0B: "TELEPORT"
+TELEPORT_0B:
 0000                          BEGIN
 0003                          GoMap(02, 0E, 01, 02) [es:bx+0xbc]
 001E                          RETURN
 
-Functn0C: "LKPKDOOR"
+LKPKDOOR_0C:
 0000                          BEGIN
 0003 B8 C4 00                 mov ax, 0xc4
 0006 50                       push ax
@@ -152,32 +152,32 @@ Functn0C: "LKPKDOOR"
 007D                          ShowMessage(04D5) [es:bx+0xf8] = The door is locked.
 008A                          RETURN
 
-Functn0D: "GATEMSGB"
+GATEMSGB_0D:
 0000                          BEGIN
 0003                          ShowMessage(04E9) [es:bx+0xf8] = The gateway leads to THE MAIN DUNGEON ENTRANCE.
 0010                          RETURN
 
-Functn0E: "TELMESSA"
+TELMESSA_0E:
 0000                          BEGIN
 0003                          ShowMessage(0519) [es:bx+0xf8] = There is a teleport in the west wall.
 0010                          RETURN
 
-Functn0F: "TELMESSB"
+TELMESSB_0F:
 0000                          BEGIN
 0003                          ShowMessage(053F) [es:bx+0xf8] = There is a teleport in the south wall.
 0010                          RETURN
 
-Functn10: "TELMESSC"
+TELMESSC_10:
 0000                          BEGIN
 0003                          ShowMessage(0566) [es:bx+0xf8] = There is a teleport in the west wall.
 0010                          RETURN
 
-Functn11: "TELMESSD"
+TELMESSD_11:
 0000                          BEGIN
 0003                          ShowMessage(058C) [es:bx+0xf8] = There is a teleport in the north wall.
 0010                          RETURN
 
-Functn12: "NPCCHATA"
+NPCCHATA_12:
 0000                          BEGIN
 0003                          ShowMessage(05B3) [es:bx+0xf8] = You encounter a Gnome Barbarian.
 0010                          ShowPortrait(0019) [es:bx+0xfc]
@@ -190,7 +190,7 @@ Functn12: "NPCCHATA"
 004B                          ShowMessage(0700) [es:bx+0xf8] = The Gnome Barbarian ignores you as he tries to remember his own name.
 0058                          RETURN
 
-Functn13: "NPCCHATB"
+NPCCHATB_13:
 0000                          BEGIN
 0003                          ShowMessage(0746) [es:bx+0xf8] = You encounter a Dwarf Wizard.
 0010                          ShowPortrait(002C) [es:bx+0xfc]
@@ -210,7 +210,7 @@ Functn13: "NPCCHATB"
 004F                          ShowMessage(0805) [es:bx+0xf8] = The Dwarf Wizard offers to teach you the Bless spell since you didn't hurt her.
 005C                          RETURN
 
-Functn14: "NPCCHATC"
+NPCCHATC_14:
 0000                          BEGIN
 0003                          ShowMessage(0855) [es:bx+0xf8] = You encounter a Halfling Ranger.
 0010                          ShowPortrait(0021) [es:bx+0xfc]
@@ -222,7 +222,7 @@ Functn14: "NPCCHATC"
 003E                          ShowMessage(08CF) [es:bx+0xf8] = The Halfling Ranger wanders off in pursuit of friends.
 004B                          RETURN
 
-Functn15: "NPCCHATD"
+NPCCHATD_15:
 0000                          BEGIN
 0003                          ShowMessage(0906) [es:bx+0xf8] = You encounter a Troll Cleric.
 0010                          ShowPortrait(0028) [es:bx+0xfc]
@@ -234,7 +234,7 @@ Functn15: "NPCCHATD"
 003E                          ShowMessage(09E0) [es:bx+0xf8] = The Troll Cleric is too busy counting her blessings to speak to you.
 004B                          RETURN
 
-Functn16: "NPCCHATE"
+NPCCHATE_16:
 0000                          BEGIN
 0003                          ShowMessage(0A25) [es:bx+0xf8] = You encounter a Troll Knight.
 0010                          ShowPortrait(001B) [es:bx+0xfc]
@@ -247,22 +247,22 @@ Functn16: "NPCCHATE"
 004F                          ShowMessage(0B1D) [es:bx+0xf8] = The Troll Knight gives you 10 Gold Pieces and departs in peace.
 005C                          RETURN
 
-Functn17: "LOWMNSTR"
+LOWMNSTR_17:
 0000                          BEGIN
 0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 74 0D                    jz 0x1d
 0010                          ax = PartyCountIs(02) [es:bx+0xf0]
 001B 75 26                    jnz 0x43
-001D                          SetEncData(1A, 01) [es:bx+0xd4]
-002F                          SetEncData(1A, 02) [es:bx+0xd4]
+001D                          AddEncounter(1A, 01) [es:bx+0xd4]
+002F                          AddEncounter(1A, 02) [es:bx+0xd4]
 0041 EB 48                    jmp 0x8b
-0043                          SetEncData(1A, 01) [es:bx+0xd4]
-0055                          SetEncData(1A, 02) [es:bx+0xd4]
-0067                          SetEncData(1B, 03) [es:bx+0xd4]
-0079                          SetEncData(1B, 04) [es:bx+0xd4]
+0043                          AddEncounter(1A, 01) [es:bx+0xd4]
+0055                          AddEncounter(1A, 02) [es:bx+0xd4]
+0067                          AddEncounter(1B, 03) [es:bx+0xd4]
+0079                          AddEncounter(1B, 04) [es:bx+0xd4]
 008B                          RETURN
 
-Functn18: "LWRMNSTR"
+LWRMNSTR_18:
 0000                          BEGIN
 0003                          ShowMessage(0B5D) [es:bx+0xf8] = You encounter Goblins.
 0010                          UnknownFunction(000F) [es:bx+0xec]
@@ -274,41 +274,41 @@ Functn18: "LWRMNSTR"
 003E                          ShowMessage(0C18) [es:bx+0xf8] = They draw their weapons and attack!
 004B                          ax = PartyCountIs(01) [es:bx+0xf0]
 0056 75 27                    jnz 0x7f
-0058                          SetEncData(1C, 01) [es:bx+0xd4]
-006A                          SetEncData(1C, 02) [es:bx+0xd4]
+0058                          AddEncounter(1C, 01) [es:bx+0xd4]
+006A                          AddEncounter(1C, 02) [es:bx+0xd4]
 007C E9 9F 00                 jmp 0x11e
 007F                          ax = PartyCountIs(02) [es:bx+0xf0]
 008A 75 38                    jnz 0xc4
-008C                          SetEncData(1D, 01) [es:bx+0xd4]
-009E                          SetEncData(1C, 02) [es:bx+0xd4]
-00B0                          SetEncData(1C, 03) [es:bx+0xd4]
+008C                          AddEncounter(1D, 01) [es:bx+0xd4]
+009E                          AddEncounter(1C, 02) [es:bx+0xd4]
+00B0                          AddEncounter(1C, 03) [es:bx+0xd4]
 00C2 EB 5A                    jmp 0x11e
-00C4                          SetEncData(1E, 01) [es:bx+0xd4]
-00D6                          SetEncData(1E, 02) [es:bx+0xd4]
-00E8                          SetEncData(1D, 03) [es:bx+0xd4]
-00FA                          SetEncData(1D, 04) [es:bx+0xd4]
-010C                          SetEncData(1E, 05) [es:bx+0xd4]
+00C4                          AddEncounter(1E, 01) [es:bx+0xd4]
+00D6                          AddEncounter(1E, 02) [es:bx+0xd4]
+00E8                          AddEncounter(1D, 03) [es:bx+0xd4]
+00FA                          AddEncounter(1D, 04) [es:bx+0xd4]
+010C                          AddEncounter(1E, 05) [es:bx+0xd4]
 011E                          RETURN
 
-Functn19: "OGREENC"
+OGREENC_19:
 0000                          BEGIN
 0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 74 0D                    jz 0x1d
 0010                          ax = PartyCountIs(02) [es:bx+0xf0]
 001B 75 38                    jnz 0x55
-001D                          SetEncData(21, 01) [es:bx+0xd4]
-002F                          SetEncData(28, 02) [es:bx+0xd4]
-0041                          SetEncData(23, 03) [es:bx+0xd4]
+001D                          AddEncounter(21, 01) [es:bx+0xd4]
+002F                          AddEncounter(28, 02) [es:bx+0xd4]
+0041                          AddEncounter(23, 03) [es:bx+0xd4]
 0053 EB 6C                    jmp 0xc1
-0055                          SetEncData(1F, 01) [es:bx+0xd4]
-0067                          SetEncData(20, 02) [es:bx+0xd4]
-0079                          SetEncData(21, 03) [es:bx+0xd4]
-008B                          SetEncData(21, 04) [es:bx+0xd4]
-009D                          SetEncData(23, 05) [es:bx+0xd4]
-00AF                          SetEncData(28, 06) [es:bx+0xd4]
+0055                          AddEncounter(1F, 01) [es:bx+0xd4]
+0067                          AddEncounter(20, 02) [es:bx+0xd4]
+0079                          AddEncounter(21, 03) [es:bx+0xd4]
+008B                          AddEncounter(21, 04) [es:bx+0xd4]
+009D                          AddEncounter(23, 05) [es:bx+0xd4]
+00AF                          AddEncounter(28, 06) [es:bx+0xd4]
 00C1                          RETURN
 
-Functn1A: "TUFMNSTR"
+TUFMNSTR_1A:
 0000                          BEGIN
 0003                          ShowMessage(0C3C) [es:bx+0xf8] = You encounter Rogues.
 0010                          UnknownFunction(000F) [es:bx+0xec]
@@ -320,123 +320,123 @@ Functn1A: "TUFMNSTR"
 003E                          ShowMessage(0D03) [es:bx+0xf8] = They charge at you!
 004B                          ax = PartyCountIs(01) [es:bx+0xf0]
 0056 75 14                    jnz 0x6c
-0058                          SetEncData(22, 01) [es:bx+0xd4]
+0058                          AddEncounter(22, 01) [es:bx+0xd4]
 006A EB 7B                    jmp 0xe7
 006C                          ax = PartyCountIs(02) [es:bx+0xf0]
 0077 75 26                    jnz 0x9f
-0079                          SetEncData(23, 01) [es:bx+0xd4]
-008B                          SetEncData(23, 02) [es:bx+0xd4]
+0079                          AddEncounter(23, 01) [es:bx+0xd4]
+008B                          AddEncounter(23, 02) [es:bx+0xd4]
 009D EB 48                    jmp 0xe7
-009F                          SetEncData(24, 01) [es:bx+0xd4]
-00B1                          SetEncData(24, 02) [es:bx+0xd4]
-00C3                          SetEncData(23, 03) [es:bx+0xd4]
-00D5                          SetEncData(23, 04) [es:bx+0xd4]
+009F                          AddEncounter(24, 01) [es:bx+0xd4]
+00B1                          AddEncounter(24, 02) [es:bx+0xd4]
+00C3                          AddEncounter(23, 03) [es:bx+0xd4]
+00D5                          AddEncounter(23, 04) [es:bx+0xd4]
 00E7                          RETURN
 
-Functn1B: "STRMNSTR"
+STRMNSTR_1B:
 0000                          BEGIN
 0003                          ShowMessage(0D17) [es:bx+0xf8] = You encounter Rogues!
 0010                          ShowMessage(0D2D) [es:bx+0xf8] = The Rogues scowl at you and attack!
 001D                          ax = PartyCountIs(01) [es:bx+0xf0]
 0028 75 14                    jnz 0x3e
-002A                          SetEncData(28, 01) [es:bx+0xd4]
+002A                          AddEncounter(28, 01) [es:bx+0xd4]
 003C EB 7B                    jmp 0xb9
 003E                          ax = PartyCountIs(02) [es:bx+0xf0]
 0049 75 26                    jnz 0x71
-004B                          SetEncData(25, 01) [es:bx+0xd4]
-005D                          SetEncData(27, 02) [es:bx+0xd4]
+004B                          AddEncounter(25, 01) [es:bx+0xd4]
+005D                          AddEncounter(27, 02) [es:bx+0xd4]
 006F EB 48                    jmp 0xb9
-0071                          SetEncData(27, 01) [es:bx+0xd4]
-0083                          SetEncData(25, 02) [es:bx+0xd4]
-0095                          SetEncData(28, 03) [es:bx+0xd4]
-00A7                          SetEncData(26, 05) [es:bx+0xd4]
+0071                          AddEncounter(27, 01) [es:bx+0xd4]
+0083                          AddEncounter(25, 02) [es:bx+0xd4]
+0095                          AddEncounter(28, 03) [es:bx+0xd4]
+00A7                          AddEncounter(26, 05) [es:bx+0xd4]
 00B9                          RETURN
 
-Functn1C: "WEAPENC"
+WEAPENC_1C:
 0000                          BEGIN
 0003                          ax = CheckState(02, 06, 01) [es:bx+0x4]
 0017 75 2E                    jnz 0x47
-0019                          SetTreasureData(0190, 00, 00, 00, 00, CE) [es:bx+0xd8]
+0019                          AddTreasure(0190, 00, 00, 00, 00, CE) [es:bx+0xd8]
 0038                          ShowMessage(0D51) [es:bx+0xf8] = It looks like the Rogues you encounter have already looted the room.
 0045 EB 42                    jmp 0x89
-0047                          SetTreasureData(05DC, 00, 00, 00, 0C, 05) [es:bx+0xd8]
+0047                          AddTreasure(05DC, 00, 00, 00, 0C, 05) [es:bx+0xd8]
 0067                          SetState(02, 06, 01) [es:bx]
 007C                          ShowMessage(0D96) [es:bx+0xf8] = Rogues covet the Sword of the Flames and Sword of Decision you see lying on the floor.
 0089                          ax = PartyCountIs(01) [es:bx+0xf0]
 0094 75 15                    jnz 0xab
-0096                          SetEncData(26, 01) [es:bx+0xd4]
+0096                          AddEncounter(26, 01) [es:bx+0xd4]
 00A8 E9 D3 00                 jmp 0x17e
 00AB                          ax = PartyCountIs(02) [es:bx+0xf0]
 00B6 75 27                    jnz 0xdf
-00B8                          SetEncData(25, 01) [es:bx+0xd4]
-00CA                          SetEncData(26, 02) [es:bx+0xd4]
+00B8                          AddEncounter(25, 01) [es:bx+0xd4]
+00CA                          AddEncounter(26, 02) [es:bx+0xd4]
 00DC E9 9F 00                 jmp 0x17e
 00DF                          ax = PartyCountIs(03) [es:bx+0xf0]
 00EA 75 38                    jnz 0x124
-00EC                          SetEncData(28, 01) [es:bx+0xd4]
-00FE                          SetEncData(24, 02) [es:bx+0xd4]
-0110                          SetEncData(25, 03) [es:bx+0xd4]
+00EC                          AddEncounter(28, 01) [es:bx+0xd4]
+00FE                          AddEncounter(24, 02) [es:bx+0xd4]
+0110                          AddEncounter(25, 03) [es:bx+0xd4]
 0122 EB 5A                    jmp 0x17e
-0124                          SetEncData(25, 01) [es:bx+0xd4]
-0136                          SetEncData(27, 02) [es:bx+0xd4]
-0148                          SetEncData(26, 03) [es:bx+0xd4]
-015A                          SetEncData(27, 04) [es:bx+0xd4]
-016C                          SetEncData(23, 05) [es:bx+0xd4]
+0124                          AddEncounter(25, 01) [es:bx+0xd4]
+0136                          AddEncounter(27, 02) [es:bx+0xd4]
+0148                          AddEncounter(26, 03) [es:bx+0xd4]
+015A                          AddEncounter(27, 04) [es:bx+0xd4]
+016C                          AddEncounter(23, 05) [es:bx+0xd4]
 017E                          RETURN
 
-Functn1D: "GOLDENC"
+GOLDENC_1D:
 0000                          BEGIN
 0003                          ax = CheckState(02, 07, 01) [es:bx+0x4]
 0017 75 2E                    jnz 0x47
-0019                          SetTreasureData(0064, 00, 00, 00, 00, CB) [es:bx+0xd8]
+0019                          AddTreasure(0064, 00, 00, 00, 00, CB) [es:bx+0xd8]
 0038                          ShowMessage(0DED) [es:bx+0xf8] = Goblins grab their weapons as you enter the room.
 0045 EB 42                    jmp 0x89
-0047                          SetTreasureData(03E8, 00, 00, 00, CB, B5) [es:bx+0xd8]
+0047                          AddTreasure(03E8, 00, 00, 00, CB, B5) [es:bx+0xd8]
 0067                          SetState(02, 07, 01) [es:bx]
 007C                          ShowMessage(0E1F) [es:bx+0xf8] = Goblins are pitching Gold Pieces against the wall.
 0089                          ax = PartyCountIs(01) [es:bx+0xf0]
 0094 74 0D                    jz 0xa3
 0096                          ax = PartyCountIs(02) [es:bx+0xf0]
 00A1 75 26                    jnz 0xc9
-00A3                          SetEncData(1D, 01) [es:bx+0xd4]
-00B5                          SetEncData(1C, 02) [es:bx+0xd4]
+00A3                          AddEncounter(1D, 01) [es:bx+0xd4]
+00B5                          AddEncounter(1C, 02) [es:bx+0xd4]
 00C7 EB 48                    jmp 0x111
-00C9                          SetEncData(1C, 01) [es:bx+0xd4]
-00DB                          SetEncData(1C, 02) [es:bx+0xd4]
-00ED                          SetEncData(1D, 03) [es:bx+0xd4]
-00FF                          SetEncData(1D, 04) [es:bx+0xd4]
+00C9                          AddEncounter(1C, 01) [es:bx+0xd4]
+00DB                          AddEncounter(1C, 02) [es:bx+0xd4]
+00ED                          AddEncounter(1D, 03) [es:bx+0xd4]
+00FF                          AddEncounter(1D, 04) [es:bx+0xd4]
 0111                          RETURN
 
-Functn1E: "MAGICENC"
+MAGICENC_1E:
 0000                          BEGIN
 0003                          ax = CheckState(02, 08, 01) [es:bx+0x4]
 0017 75 2F                    jnz 0x48
-0019                          SetTreasureData(0078, 00, 00, 00, CB, B5) [es:bx+0xd8]
+0019                          AddTreasure(0078, 00, 00, 00, CB, B5) [es:bx+0xd8]
 0039                          ShowMessage(0E52) [es:bx+0xf8] = Ogres grimace in pleasure as you walk into their ambush.
 0046 EB 43                    jmp 0x8b
-0048                          SetTreasureData(1388, 00, 00, C5, 8A, 8E) [es:bx+0xd8]
+0048                          AddTreasure(1388, 00, 00, C5, 8A, 8E) [es:bx+0xd8]
 0069                          SetState(02, 08, 01) [es:bx]
 007E                          ShowMessage(0E8B) [es:bx+0xf8] = Ogres are playing with items you identify as the Ring of Vigor, a Cudgel Insignia, and the Wand of Radiance.
 008B                          ax = PartyCountIs(01) [es:bx+0xf0]
 0096 75 15                    jnz 0xad
-0098                          SetEncData(1F, 01) [es:bx+0xd4]
+0098                          AddEncounter(1F, 01) [es:bx+0xd4]
 00AA E9 D3 00                 jmp 0x180
 00AD                          ax = PartyCountIs(02) [es:bx+0xf0]
 00B8 75 27                    jnz 0xe1
-00BA                          SetEncData(21, 01) [es:bx+0xd4]
-00CC                          SetEncData(20, 02) [es:bx+0xd4]
+00BA                          AddEncounter(21, 01) [es:bx+0xd4]
+00CC                          AddEncounter(20, 02) [es:bx+0xd4]
 00DE E9 9F 00                 jmp 0x180
 00E1                          ax = PartyCountIs(03) [es:bx+0xf0]
 00EC 75 38                    jnz 0x126
-00EE                          SetEncData(1F, 01) [es:bx+0xd4]
-0100                          SetEncData(20, 02) [es:bx+0xd4]
-0112                          SetEncData(21, 03) [es:bx+0xd4]
+00EE                          AddEncounter(1F, 01) [es:bx+0xd4]
+0100                          AddEncounter(20, 02) [es:bx+0xd4]
+0112                          AddEncounter(21, 03) [es:bx+0xd4]
 0124 EB 5A                    jmp 0x180
-0126                          SetEncData(1F, 01) [es:bx+0xd4]
-0138                          SetEncData(1F, 02) [es:bx+0xd4]
-014A                          SetEncData(20, 03) [es:bx+0xd4]
-015C                          SetEncData(20, 04) [es:bx+0xd4]
-016E                          SetEncData(21, 05) [es:bx+0xd4]
+0126                          AddEncounter(1F, 01) [es:bx+0xd4]
+0138                          AddEncounter(1F, 02) [es:bx+0xd4]
+014A                          AddEncounter(20, 03) [es:bx+0xd4]
+015C                          AddEncounter(20, 04) [es:bx+0xd4]
+016E                          AddEncounter(21, 05) [es:bx+0xd4]
 0180                          RETURN
 
 03FC: The gateway leads to THE VESTIBULE.

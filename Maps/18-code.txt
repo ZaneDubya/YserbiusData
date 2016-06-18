@@ -1,13 +1,10 @@
-Functn01: "STARSADN"
+STARSADN_01:
 0000                          BEGIN
 0003                          ax = CheckLevel(0014) [es:bx+0x44]
 0011 74 1C                    jz 0x2f
 0013                          GoMap(00, 4D, 01, 33) [es:bx+0xbc]
 002D EB 2A                    jmp 0x59
-002F 33 C0                    xor ax, ax
-0031 50                       push ax
-0032 C4 5E 06                 les bx, [bp+0x6]
-0035 26 FF 5F 24              call far word [es:bx+0x24]
+002F                          ax = SetExitability(00) [es:bx+0x24]
 0039 50                       push ax
 003A C4 5E 06                 les bx, [bp+0x6]
 003D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -18,33 +15,29 @@ Functn01: "STARSADN"
 004C                          ShowMessage(03FC) [es:bx+0xf8] = Heroes of level 20 or more may go on.
 0059                          RETURN
 
-Functn02: "STRSMESA"
+STRSMESA_02:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F E0 00           call far word [es:bx+0xe0]
+0003                          TileIsNoJoinArea() [es:bx+0xe0]
 000B                          ShowMessage(0422) [es:bx+0xf8] = The gate to the North leads down a level.
 0018                          RETURN
 
-Functn03: "TELPRTUP"
+TELPRTUP_03:
 0000                          BEGIN
 0003                          GoMap(02, D8, 01, 04) [es:bx+0xbc]
 001E                          RETURN
 
-Functn04: "TELEMESS"
+TELEMESS_04:
 0000                          BEGIN
 0003                          ShowMessage(044C) [es:bx+0xf8] = The gate to the North leads upward.
 0010                          RETURN
 
-Functn05: "TELETAVR"
+TELETAVR_05:
 0000                          BEGIN
 0003                          ax = CheckLevel(0014) [es:bx+0x44]
 0011 74 1D                    jz 0x30
 0013                          GoMap(02, 4D, 01, 33) [es:bx+0xbc]
 002E EB 2A                    jmp 0x5a
-0030 33 C0                    xor ax, ax
-0032 50                       push ax
-0033 C4 5E 06                 les bx, [bp+0x6]
-0036 26 FF 5F 24              call far word [es:bx+0x24]
+0030                          ax = SetExitability(00) [es:bx+0x24]
 003A 50                       push ax
 003B C4 5E 06                 les bx, [bp+0x6]
 003E 26 FF 5F 20              call far word [es:bx+0x20]
@@ -55,24 +48,23 @@ Functn05: "TELETAVR"
 004D                          ShowMessage(0470) [es:bx+0xf8] = Heroes of level 20 or more may enter.
 005A                          RETURN
 
-Functn06: "TELPRTMS"
+TELPRTMS_06:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F E0 00           call far word [es:bx+0xe0]
+0003                          TileIsNoJoinArea() [es:bx+0xe0]
 000B                          ShowMessage(0496) [es:bx+0xf8] = The gate to the south leads downward.
 0018                          RETURN
 
-Functn07: "STAIRMSS"
+STAIRMSS_07:
 0000                          BEGIN
 0003                          ShowMessage(04BC) [es:bx+0xf8] = The stairs to the south lead to the Tavern
 0010                          RETURN
 
-Functn08: "TAVERN"
+TAVERN_08:
 0000                          BEGIN
 0003                          ExitDungeon() [es:bx+0xc0]
 000B                          RETURN
 
-Functn09: "SPECIALD"
+SPECIALD_09:
 0000                          BEGIN
 0003                          ax = CheckState(02, 42, 05) [es:bx+0x4]
 0017 75 0F                    jnz 0x28
@@ -92,70 +84,70 @@ Functn09: "SPECIALD"
 0059                          ShowMessage(0517) [es:bx+0xf8] = You have discovered the Thieves' Infirmary.  All your wounds have been cured!
 0066                          RETURN
 
-Functn0A: "MONENCA"
+MONENCA_0A:
 0000                          BEGIN
 0003                          ShowMessage(0565) [es:bx+0xf8] = You surprise creatures eating lunch!
-0010                          SetEncData(19, 01) [es:bx+0xd4]
-0022                          SetEncData(1A, 02) [es:bx+0xd4]
-0034                          SetEncData(1D, 03) [es:bx+0xd4]
+0010                          AddEncounter(19, 01) [es:bx+0xd4]
+0022                          AddEncounter(1A, 02) [es:bx+0xd4]
+0034                          AddEncounter(1D, 03) [es:bx+0xd4]
 0046                          RETURN
 
-Functn0B: "MONENCB"
+MONENCB_0B:
 0000                          BEGIN
 0003                          ShowMessage(058A) [es:bx+0xf8] = You stumble upon some rather nasty monsters.
-0010                          SetTreasureData(1194, 00, 00, 00, B2, CD) [es:bx+0xd8]
-0030                          SetEncData(1E, 01) [es:bx+0xd4]
-0042                          SetEncData(22, 02) [es:bx+0xd4]
-0054                          SetEncData(1B, 03) [es:bx+0xd4]
-0066                          SetEncData(25, 04) [es:bx+0xd4]
+0010                          AddTreasure(1194, 00, 00, 00, B2, CD) [es:bx+0xd8]
+0030                          AddEncounter(1E, 01) [es:bx+0xd4]
+0042                          AddEncounter(22, 02) [es:bx+0xd4]
+0054                          AddEncounter(1B, 03) [es:bx+0xd4]
+0066                          AddEncounter(25, 04) [es:bx+0xd4]
 0078                          RETURN
 
-Functn0C: "MONENCC"
+MONENCC_0C:
 0000                          BEGIN
 0003                          ShowMessage(05B7) [es:bx+0xf8] = A group of restless undead surprise you!
 0010                          ax = PartyCountIs(01) [es:bx+0xf0]
 001B 74 0D                    jz 0x2a
 001D                          ax = PartyCountIs(02) [es:bx+0xf0]
 0028 75 38                    jnz 0x62
-002A                          SetEncData(1C, 01) [es:bx+0xd4]
-003C                          SetEncData(1F, 02) [es:bx+0xd4]
-004E                          SetEncData(1D, 03) [es:bx+0xd4]
+002A                          AddEncounter(1C, 01) [es:bx+0xd4]
+003C                          AddEncounter(1F, 02) [es:bx+0xd4]
+004E                          AddEncounter(1D, 03) [es:bx+0xd4]
 0060 EB 5A                    jmp 0xbc
-0062                          SetEncData(1C, 01) [es:bx+0xd4]
-0074                          SetEncData(1C, 02) [es:bx+0xd4]
-0086                          SetEncData(1D, 03) [es:bx+0xd4]
-0098                          SetEncData(1D, 04) [es:bx+0xd4]
-00AA                          SetEncData(1F, 05) [es:bx+0xd4]
+0062                          AddEncounter(1C, 01) [es:bx+0xd4]
+0074                          AddEncounter(1C, 02) [es:bx+0xd4]
+0086                          AddEncounter(1D, 03) [es:bx+0xd4]
+0098                          AddEncounter(1D, 04) [es:bx+0xd4]
+00AA                          AddEncounter(1F, 05) [es:bx+0xd4]
 00BC                          RETURN
 
-Functn0E: "MONENCE"
+MONENCE_0E:
 0000                          BEGIN
 0003                          ax = HasItem(BE) [es:bx+0x50]
 0011 74 22                    jz 0x35
-0013                          SetTreasureData(06D6, 00, 00, 00, BB, C6) [es:bx+0xd8]
+0013                          AddTreasure(06D6, 00, 00, 00, BB, C6) [es:bx+0xd8]
 0033 EB 20                    jmp 0x55
-0035                          SetTreasureData(0BB8, 00, 00, 00, BB, BE) [es:bx+0xd8]
+0035                          AddTreasure(0BB8, 00, 00, 00, BB, BE) [es:bx+0xd8]
 0055                          ShowMessage(05E0) [es:bx+0xf8] = You are attacked by Mages of the Thieves' Guild out walking their pets!
-0062                          SetEncData(25, 01) [es:bx+0xd4]
-0074                          SetEncData(26, 05) [es:bx+0xd4]
-0086                          SetEncData(27, 06) [es:bx+0xd4]
+0062                          AddEncounter(25, 01) [es:bx+0xd4]
+0074                          AddEncounter(26, 05) [es:bx+0xd4]
+0086                          AddEncounter(27, 06) [es:bx+0xd4]
 0098                          RETURN
 
-Functn0F: "MONENCF"
+MONENCF_0F:
 0000                          BEGIN
 0003                          ax = HasItem(68) [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013                          SetTreasureData(01F4, 00, 00, 00, 00, B6) [es:bx+0xd8]
+0013                          AddTreasure(01F4, 00, 00, 00, 00, B6) [es:bx+0xd8]
 0032                          ShowMessage(0628) [es:bx+0xf8] = You stumble upon mean animals out foraging!
 003F EB 2C                    jmp 0x6d
-0041                          SetTreasureData(2EE0, 00, 00, 00, 00, 68) [es:bx+0xd8]
+0041                          AddTreasure(2EE0, 00, 00, 00, 00, 68) [es:bx+0xd8]
 0060                          ShowMessage(0654) [es:bx+0xf8] = You stumble upon foraging animals! They found something shiny!
-006D                          SetEncData(19, 01) [es:bx+0xd4]
-007F                          SetEncData(20, 02) [es:bx+0xd4]
-0091                          SetEncData(21, 05) [es:bx+0xd4]
+006D                          AddEncounter(19, 01) [es:bx+0xd4]
+007F                          AddEncounter(20, 02) [es:bx+0xd4]
+0091                          AddEncounter(21, 05) [es:bx+0xd4]
 00A3                          RETURN
 
-Functn10: "FLSPECA"
+FLSPECA_10:
 0000                          BEGIN
 0003                          ax = CheckState(02, 41, 01) [es:bx+0x4]
 0017 75 0F                    jnz 0x28
@@ -181,7 +173,7 @@ Functn10: "FLSPECA"
 0072                          ShowMessage(06CB) [es:bx+0xf8] = You found a storage room.  Most items are worthless, but in the refuse are a few treasures.
 007F                          RETURN
 
-Functn11: "FLSPECB"
+FLSPECB_11:
 0000                          BEGIN
 0003                          ax = CheckState(02, 3E, 01) [es:bx+0x4]
 0017 75 0F                    jnz 0x28
@@ -217,7 +209,7 @@ Functn11: "FLSPECB"
 008A                          ShowMessage(0747) [es:bx+0xf8] = In a cabinet are some scrolls and potions, and 15,000 Gold Pieces in a sack.
 0097                          RETURN
 
-Functn12: "FLSPECC"
+FLSPECC_12:
 0000                          BEGIN
 0003                          ax = CheckState(02, 43, 01) [es:bx+0x4]
 0017 75 20                    jnz 0x39
@@ -244,7 +236,7 @@ Functn12: "FLSPECC"
 0083                          ShowMessage(07BC) [es:bx+0xf8] = The safe contains several treasures and 25,000 gold pieces!
 0090                          RETURN
 
-Functn13: "FLSPECD"
+FLSPECD_13:
 0000                          BEGIN
 0003                          ax = HasItem(FB) [es:bx+0x50]
 0011 74 10                    jz 0x23
@@ -327,7 +319,7 @@ Functn13: "FLSPECD"
 013B                          SetState(02, 3F, 01) [es:bx]
 0150                          RETURN
 
-Functn14: "FLSPECE"
+FLSPECE_14:
 0000                          BEGIN
 0003                          ax = CheckState(02, 44, 01) [es:bx+0x4]
 0017 75 0F                    jnz 0x28
@@ -345,7 +337,7 @@ Functn14: "FLSPECE"
 004E                          ShowMessage(0945) [es:bx+0xf8] = A wise old thief bends your ear with stories of his exploits.  His story is very helpful.
 005B                          RETURN
 
-Functn15: "FLSPECF"
+FLSPECF_15:
 0000                          BEGIN
 0003                          ShowPortrait(0022) [es:bx+0xfc]
 0010                          ShowMessage(099F) [es:bx+0xf8] = The Club and Axe Training Center.  All who lack this skill gain enlightenment and training.
@@ -369,7 +361,7 @@ Functn15: "FLSPECF"
 004D                          ShowMessage(0A30) [es:bx+0xf8] = You have already trained in this skill. The thieves cannot help you any further.
 005A                          RETURN
 
-Functn16: "FLSPECG"
+FLSPECG_16:
 0000                          BEGIN
 0003 B8 45 00                 mov ax, 0x45
 0006 50                       push ax
@@ -406,7 +398,7 @@ Functn16: "FLSPECG"
 0087                          ShowMessage(0AF9) [es:bx+0xf8] = The wise old thief has already taught you all he knows.
 0094                          RETURN
 
-Functn17: "FLSPECH"
+FLSPECH_17:
 0000                          BEGIN
 0003                          ShowPortrait(0026) [es:bx+0xfc]
 0010                          ShowMessage(0B31) [es:bx+0xf8] = The Fencing Training Center.  All who lack this skill gain enlightenment and training.
@@ -430,7 +422,7 @@ Functn17: "FLSPECH"
 004D                          ShowMessage(0BC0) [es:bx+0xf8] = You have already trained in this skill. The thieves cannot help you any further.
 005A                          RETURN
 
-Functn18: "FLSPECI"
+FLSPECI_18:
 0000                          BEGIN
 0003 B8 64 00                 mov ax, 0x64
 0006 50                       push ax
@@ -467,7 +459,7 @@ Functn18: "FLSPECI"
 0087                          ShowMessage(0C90) [es:bx+0xf8] = The young thief has already taught you all she knows.
 0094                          RETURN
 
-Functn19: "FLSPECJ"
+FLSPECJ_19:
 0000                          BEGIN
 0003                          ShowMessage(0CC6) [es:bx+0xf8] = The Staff Training Center.  All who lack this skill gain enlightenment and training.
 0010 B8 15 00                 mov ax, 0x15
@@ -492,7 +484,7 @@ Functn19: "FLSPECJ"
 005A                          ShowMessage(0D53) [es:bx+0xf8] = You have already trained in this skill. The thieves cannot help you any further.
 0067                          RETURN
 
-Functn1A: "FLSPECK"
+FLSPECK_1A:
 0000                          BEGIN
 0003 B8 65 00                 mov ax, 0x65
 0006 50                       push ax
@@ -529,7 +521,7 @@ Functn1A: "FLSPECK"
 0087                          ShowMessage(0E26) [es:bx+0xf8] = The old thief has already taught you all he knows.
 0094                          RETURN
 
-Functn1B: "FLSPECL"
+FLSPECL_1B:
 0000                          BEGIN
 0003                          ax = CheckState2(02, 68) [es:bx+0x8]
 0016 74 1C                    jz 0x34
@@ -559,7 +551,7 @@ Functn1B: "FLSPECL"
 0083                          ShowMessage(0EAB) [es:bx+0xf8] = You have discovered Sinestra's Fountain.  You feel healthier and more experienced after drinking the waters!
 0090                          RETURN
 
-Functn1D: "FLSPECN"
+FLSPECN_1D:
 0000                          BEGIN
 0003                          ShowPortrait(0026) [es:bx+0xfc]
 0010                          ShowMessage(0F18) [es:bx+0xf8] = The Archery Training Center.  All who lack this skill gain enlightenment and training.
@@ -583,12 +575,9 @@ Functn1D: "FLSPECN"
 004D                          ShowMessage(0F9D) [es:bx+0xf8] = You have already trained in this skill. The thieves cannot help you any further.
 005A                          RETURN
 
-Functn1E: "HIDEDOOR"
+HIDEDOOR_1E:
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 24              call far word [es:bx+0x24]
+0003                          ax = SetExitability(01) [es:bx+0x24]
 000E 50                       push ax
 000F C4 5E 06                 les bx, [bp+0x6]
 0012 26 FF 5F 20              call far word [es:bx+0x20]
@@ -598,7 +587,7 @@ Functn1E: "HIDEDOOR"
 001E 83 C4 06                 add sp, 0x6
 0021                          RETURN
 
-Functn24: "HIDDORG"
+HIDDORG_24:
 0000                          BEGIN
 0003 B8 FB 00                 mov ax, 0xfb
 0006 50                       push ax
@@ -610,10 +599,7 @@ Functn24: "HIDDORG"
 0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 4B                    jz 0x63
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 5F 24              call far word [es:bx+0x24]
+0018                          ax = SetExitability(01) [es:bx+0x24]
 0023 50                       push ax
 0024 C4 5E 06                 les bx, [bp+0x6]
 0027 26 FF 5F 20              call far word [es:bx+0x20]
@@ -621,8 +607,7 @@ Functn24: "HIDDORG"
 002C C4 5E 06                 les bx, [bp+0x6]
 002F 26 FF 5F 2C              call far word [es:bx+0x2c]
 0033 83 C4 06                 add sp, 0x6
-0036 C4 5E 06                 les bx, [bp+0x6]
-0039 26 FF 5F 24              call far word [es:bx+0x24]
+0036                          ax = SetExitability(ax) [es:bx+0x24]
 003D 50                       push ax
 003E C4 5E 06                 les bx, [bp+0x6]
 0041 26 FF 5F 20              call far word [es:bx+0x20]
@@ -634,10 +619,7 @@ Functn24: "HIDDORG"
 0051 83 C4 06                 add sp, 0x6
 0054                          ShowMessage(0FEE) [es:bx+0xf8] = The Thieves' Key unlocks the door!
 0061 EB 2A                    jmp 0x8d
-0063 33 C0                    xor ax, ax
-0065 50                       push ax
-0066 C4 5E 06                 les bx, [bp+0x6]
-0069 26 FF 5F 24              call far word [es:bx+0x24]
+0063                          ax = SetExitability(00) [es:bx+0x24]
 006D 50                       push ax
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 5F 20              call far word [es:bx+0x20]
@@ -648,7 +630,7 @@ Functn24: "HIDDORG"
 0080                          ShowMessage(1011) [es:bx+0xf8] = The door is locked.  You need a special key.
 008D                          RETURN
 
-Functn25: "HIDDORH"
+HIDDORH_25:
 0000                          BEGIN
 0003 B8 C4 00                 mov ax, 0xc4
 0006 50                       push ax
@@ -667,10 +649,7 @@ Functn25: "HIDDORH"
 0023 59                       pop cx
 0024 3D 0A 00                 cmp ax, 0xa
 0027 72 4B                    jb 0x74
-0029 B8 01 00                 mov ax, 0x1
-002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 5F 24              call far word [es:bx+0x24]
+0029                          ax = SetExitability(01) [es:bx+0x24]
 0034 50                       push ax
 0035 C4 5E 06                 les bx, [bp+0x6]
 0038 26 FF 5F 20              call far word [es:bx+0x20]
@@ -678,8 +657,7 @@ Functn25: "HIDDORH"
 003D C4 5E 06                 les bx, [bp+0x6]
 0040 26 FF 5F 2C              call far word [es:bx+0x2c]
 0044 83 C4 06                 add sp, 0x6
-0047 C4 5E 06                 les bx, [bp+0x6]
-004A 26 FF 5F 24              call far word [es:bx+0x24]
+0047                          ax = SetExitability(ax) [es:bx+0x24]
 004E 50                       push ax
 004F C4 5E 06                 les bx, [bp+0x6]
 0052 26 FF 5F 20              call far word [es:bx+0x20]
@@ -691,10 +669,7 @@ Functn25: "HIDDORH"
 0062 83 C4 06                 add sp, 0x6
 0065                          ShowMessage(103E) [es:bx+0xf8] = The wall springs open.  A musky odor fills the room.
 0072 EB 2A                    jmp 0x9e
-0074 33 C0                    xor ax, ax
-0076 50                       push ax
-0077 C4 5E 06                 les bx, [bp+0x6]
-007A 26 FF 5F 24              call far word [es:bx+0x24]
+0074                          ax = SetExitability(00) [es:bx+0x24]
 007E 50                       push ax
 007F C4 5E 06                 les bx, [bp+0x6]
 0082 26 FF 5F 20              call far word [es:bx+0x20]
@@ -705,7 +680,7 @@ Functn25: "HIDDORH"
 0091                          ShowMessage(1073) [es:bx+0xf8] = Cracks in the wall reveal what could be a doorway. If only you could open it...
 009E                          RETURN
 
-Functn26: "HIDDORI"
+HIDDORI_26:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -772,10 +747,7 @@ Functn26: "HIDDORI"
 00AE 59                       pop cx
 00AF 3D 0C 00                 cmp ax, 0xc
 00B2 72 4B                    jb 0xff
-00B4 B8 01 00                 mov ax, 0x1
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 5F 24              call far word [es:bx+0x24]
+00B4                          ax = SetExitability(01) [es:bx+0x24]
 00BF 50                       push ax
 00C0 C4 5E 06                 les bx, [bp+0x6]
 00C3 26 FF 5F 20              call far word [es:bx+0x20]
@@ -783,8 +755,7 @@ Functn26: "HIDDORI"
 00C8 C4 5E 06                 les bx, [bp+0x6]
 00CB 26 FF 5F 2C              call far word [es:bx+0x2c]
 00CF 83 C4 06                 add sp, 0x6
-00D2 C4 5E 06                 les bx, [bp+0x6]
-00D5 26 FF 5F 24              call far word [es:bx+0x24]
+00D2                          ax = SetExitability(ax) [es:bx+0x24]
 00D9 50                       push ax
 00DA C4 5E 06                 les bx, [bp+0x6]
 00DD 26 FF 5F 20              call far word [es:bx+0x20]
@@ -796,10 +767,7 @@ Functn26: "HIDDORI"
 00ED 83 C4 06                 add sp, 0x6
 00F0                          ShowMessage(10C3) [es:bx+0xf8] = You skillfully open the entrance to a passage!
 00FD EB 48                    jmp 0x147
-00FF 33 C0                    xor ax, ax
-0101 50                       push ax
-0102 C4 5E 06                 les bx, [bp+0x6]
-0105 26 FF 5F 24              call far word [es:bx+0x24]
+00FF                          ax = SetExitability(00) [es:bx+0x24]
 0109 50                       push ax
 010A C4 5E 06                 les bx, [bp+0x6]
 010D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -807,8 +775,7 @@ Functn26: "HIDDORI"
 0112 C4 5E 06                 les bx, [bp+0x6]
 0115 26 FF 5F 2C              call far word [es:bx+0x2c]
 0119 83 C4 06                 add sp, 0x6
-011C C4 5E 06                 les bx, [bp+0x6]
-011F 26 FF 5F 24              call far word [es:bx+0x24]
+011C                          ax = SetExitability(ax) [es:bx+0x24]
 0123 50                       push ax
 0124 C4 5E 06                 les bx, [bp+0x6]
 0127 26 FF 5F 20              call far word [es:bx+0x20]
@@ -820,10 +787,7 @@ Functn26: "HIDDORI"
 0137 83 C4 06                 add sp, 0x6
 013A                          ShowMessage(10F2) [es:bx+0xf8] = You found a very well-hidden entrance to what might be a passage.  Unfortunately, it seems to be locked.
 0147 EB 1D                    jmp 0x166
-0149 33 C0                    xor ax, ax
-014B 50                       push ax
-014C C4 5E 06                 les bx, [bp+0x6]
-014F 26 FF 5F 24              call far word [es:bx+0x24]
+0149                          ax = SetExitability(00) [es:bx+0x24]
 0153 50                       push ax
 0154 C4 5E 06                 les bx, [bp+0x6]
 0157 26 FF 5F 20              call far word [es:bx+0x20]
@@ -833,7 +797,7 @@ Functn26: "HIDDORI"
 0163 83 C4 06                 add sp, 0x6
 0166                          RETURN
 
-Functn27: "HIDDORJ"
+HIDDORJ_27:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -900,10 +864,7 @@ Functn27: "HIDDORJ"
 00AE 59                       pop cx
 00AF 3D 0A 00                 cmp ax, 0xa
 00B2 72 4B                    jb 0xff
-00B4 B8 01 00                 mov ax, 0x1
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 5F 24              call far word [es:bx+0x24]
+00B4                          ax = SetExitability(01) [es:bx+0x24]
 00BF 50                       push ax
 00C0 C4 5E 06                 les bx, [bp+0x6]
 00C3 26 FF 5F 20              call far word [es:bx+0x20]
@@ -911,8 +872,7 @@ Functn27: "HIDDORJ"
 00C8 C4 5E 06                 les bx, [bp+0x6]
 00CB 26 FF 5F 2C              call far word [es:bx+0x2c]
 00CF 83 C4 06                 add sp, 0x6
-00D2 C4 5E 06                 les bx, [bp+0x6]
-00D5 26 FF 5F 24              call far word [es:bx+0x24]
+00D2                          ax = SetExitability(ax) [es:bx+0x24]
 00D9 50                       push ax
 00DA C4 5E 06                 les bx, [bp+0x6]
 00DD 26 FF 5F 20              call far word [es:bx+0x20]
@@ -924,10 +884,7 @@ Functn27: "HIDDORJ"
 00ED 83 C4 06                 add sp, 0x6
 00F0                          ShowMessage(115B) [es:bx+0xf8] = You release the stonework, revealing a secret passage!
 00FD EB 48                    jmp 0x147
-00FF 33 C0                    xor ax, ax
-0101 50                       push ax
-0102 C4 5E 06                 les bx, [bp+0x6]
-0105 26 FF 5F 24              call far word [es:bx+0x24]
+00FF                          ax = SetExitability(00) [es:bx+0x24]
 0109 50                       push ax
 010A C4 5E 06                 les bx, [bp+0x6]
 010D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -935,8 +892,7 @@ Functn27: "HIDDORJ"
 0112 C4 5E 06                 les bx, [bp+0x6]
 0115 26 FF 5F 2C              call far word [es:bx+0x2c]
 0119 83 C4 06                 add sp, 0x6
-011C C4 5E 06                 les bx, [bp+0x6]
-011F 26 FF 5F 24              call far word [es:bx+0x24]
+011C                          ax = SetExitability(ax) [es:bx+0x24]
 0123 50                       push ax
 0124 C4 5E 06                 les bx, [bp+0x6]
 0127 26 FF 5F 20              call far word [es:bx+0x20]
@@ -948,10 +904,7 @@ Functn27: "HIDDORJ"
 0137 83 C4 06                 add sp, 0x6
 013A                          ShowMessage(1192) [es:bx+0xf8] = A piece of stonework looks like it could be moved, if you can pick the mechanism.
 0147 EB 1D                    jmp 0x166
-0149 33 C0                    xor ax, ax
-014B 50                       push ax
-014C C4 5E 06                 les bx, [bp+0x6]
-014F 26 FF 5F 24              call far word [es:bx+0x24]
+0149                          ax = SetExitability(00) [es:bx+0x24]
 0153 50                       push ax
 0154 C4 5E 06                 les bx, [bp+0x6]
 0157 26 FF 5F 20              call far word [es:bx+0x20]
@@ -961,7 +914,7 @@ Functn27: "HIDDORJ"
 0163 83 C4 06                 add sp, 0x6
 0166                          RETURN
 
-Functn28: "HIDDORK"
+HIDDORK_28:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -1028,10 +981,7 @@ Functn28: "HIDDORK"
 00AE 59                       pop cx
 00AF 3D 09 00                 cmp ax, 0x9
 00B2 72 4B                    jb 0xff
-00B4 B8 01 00                 mov ax, 0x1
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 5F 24              call far word [es:bx+0x24]
+00B4                          ax = SetExitability(01) [es:bx+0x24]
 00BF 50                       push ax
 00C0 C4 5E 06                 les bx, [bp+0x6]
 00C3 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1039,8 +989,7 @@ Functn28: "HIDDORK"
 00C8 C4 5E 06                 les bx, [bp+0x6]
 00CB 26 FF 5F 2C              call far word [es:bx+0x2c]
 00CF 83 C4 06                 add sp, 0x6
-00D2 C4 5E 06                 les bx, [bp+0x6]
-00D5 26 FF 5F 24              call far word [es:bx+0x24]
+00D2                          ax = SetExitability(ax) [es:bx+0x24]
 00D9 50                       push ax
 00DA C4 5E 06                 les bx, [bp+0x6]
 00DD 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1052,10 +1001,7 @@ Functn28: "HIDDORK"
 00ED 83 C4 06                 add sp, 0x6
 00F0                          ShowMessage(11E4) [es:bx+0xf8] = The wall slides open.
 00FD EB 48                    jmp 0x147
-00FF 33 C0                    xor ax, ax
-0101 50                       push ax
-0102 C4 5E 06                 les bx, [bp+0x6]
-0105 26 FF 5F 24              call far word [es:bx+0x24]
+00FF                          ax = SetExitability(00) [es:bx+0x24]
 0109 50                       push ax
 010A C4 5E 06                 les bx, [bp+0x6]
 010D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1063,8 +1009,7 @@ Functn28: "HIDDORK"
 0112 C4 5E 06                 les bx, [bp+0x6]
 0115 26 FF 5F 2C              call far word [es:bx+0x2c]
 0119 83 C4 06                 add sp, 0x6
-011C C4 5E 06                 les bx, [bp+0x6]
-011F 26 FF 5F 24              call far word [es:bx+0x24]
+011C                          ax = SetExitability(ax) [es:bx+0x24]
 0123 50                       push ax
 0124 C4 5E 06                 les bx, [bp+0x6]
 0127 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1076,10 +1021,7 @@ Functn28: "HIDDORK"
 0137 83 C4 06                 add sp, 0x6
 013A                          ShowMessage(11FA) [es:bx+0xf8] = You located a sliding door which must be picked to be opened. Curious sounds can be heard through the stonework.
 0147 EB 1D                    jmp 0x166
-0149 33 C0                    xor ax, ax
-014B 50                       push ax
-014C C4 5E 06                 les bx, [bp+0x6]
-014F 26 FF 5F 24              call far word [es:bx+0x24]
+0149                          ax = SetExitability(00) [es:bx+0x24]
 0153 50                       push ax
 0154 C4 5E 06                 les bx, [bp+0x6]
 0157 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1089,7 +1031,7 @@ Functn28: "HIDDORK"
 0163 83 C4 06                 add sp, 0x6
 0166                          RETURN
 
-Functn29: "HIDDORL"
+HIDDORL_29:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -1156,10 +1098,7 @@ Functn29: "HIDDORL"
 00AE 59                       pop cx
 00AF 3D 08 00                 cmp ax, 0x8
 00B2 72 4B                    jb 0xff
-00B4 B8 01 00                 mov ax, 0x1
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 5F 24              call far word [es:bx+0x24]
+00B4                          ax = SetExitability(01) [es:bx+0x24]
 00BF 50                       push ax
 00C0 C4 5E 06                 les bx, [bp+0x6]
 00C3 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1167,8 +1106,7 @@ Functn29: "HIDDORL"
 00C8 C4 5E 06                 les bx, [bp+0x6]
 00CB 26 FF 5F 2C              call far word [es:bx+0x2c]
 00CF 83 C4 06                 add sp, 0x6
-00D2 C4 5E 06                 les bx, [bp+0x6]
-00D5 26 FF 5F 24              call far word [es:bx+0x24]
+00D2                          ax = SetExitability(ax) [es:bx+0x24]
 00D9 50                       push ax
 00DA C4 5E 06                 les bx, [bp+0x6]
 00DD 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1180,10 +1118,7 @@ Functn29: "HIDDORL"
 00ED 83 C4 06                 add sp, 0x6
 00F0                          ShowMessage(126B) [es:bx+0xf8] = You successfully opened the locked door.
 00FD EB 48                    jmp 0x147
-00FF 33 C0                    xor ax, ax
-0101 50                       push ax
-0102 C4 5E 06                 les bx, [bp+0x6]
-0105 26 FF 5F 24              call far word [es:bx+0x24]
+00FF                          ax = SetExitability(00) [es:bx+0x24]
 0109 50                       push ax
 010A C4 5E 06                 les bx, [bp+0x6]
 010D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1191,8 +1126,7 @@ Functn29: "HIDDORL"
 0112 C4 5E 06                 les bx, [bp+0x6]
 0115 26 FF 5F 2C              call far word [es:bx+0x2c]
 0119 83 C4 06                 add sp, 0x6
-011C C4 5E 06                 les bx, [bp+0x6]
-011F 26 FF 5F 24              call far word [es:bx+0x24]
+011C                          ax = SetExitability(ax) [es:bx+0x24]
 0123 50                       push ax
 0124 C4 5E 06                 les bx, [bp+0x6]
 0127 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1204,10 +1138,7 @@ Functn29: "HIDDORL"
 0137 83 C4 06                 add sp, 0x6
 013A                          ShowMessage(1294) [es:bx+0xf8] = You found a secret door, but it's locked.
 0147 EB 1D                    jmp 0x166
-0149 33 C0                    xor ax, ax
-014B 50                       push ax
-014C C4 5E 06                 les bx, [bp+0x6]
-014F 26 FF 5F 24              call far word [es:bx+0x24]
+0149                          ax = SetExitability(00) [es:bx+0x24]
 0153 50                       push ax
 0154 C4 5E 06                 les bx, [bp+0x6]
 0157 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1217,7 +1148,7 @@ Functn29: "HIDDORL"
 0163 83 C4 06                 add sp, 0x6
 0166                          RETURN
 
-Functn2A: "HIDDORM"
+HIDDORM_2A:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -1284,10 +1215,7 @@ Functn2A: "HIDDORM"
 00AE 59                       pop cx
 00AF 3D 0C 00                 cmp ax, 0xc
 00B2 72 4B                    jb 0xff
-00B4 B8 01 00                 mov ax, 0x1
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 5F 24              call far word [es:bx+0x24]
+00B4                          ax = SetExitability(01) [es:bx+0x24]
 00BF 50                       push ax
 00C0 C4 5E 06                 les bx, [bp+0x6]
 00C3 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1295,8 +1223,7 @@ Functn2A: "HIDDORM"
 00C8 C4 5E 06                 les bx, [bp+0x6]
 00CB 26 FF 5F 2C              call far word [es:bx+0x2c]
 00CF 83 C4 06                 add sp, 0x6
-00D2 C4 5E 06                 les bx, [bp+0x6]
-00D5 26 FF 5F 24              call far word [es:bx+0x24]
+00D2                          ax = SetExitability(ax) [es:bx+0x24]
 00D9 50                       push ax
 00DA C4 5E 06                 les bx, [bp+0x6]
 00DD 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1308,10 +1235,7 @@ Functn2A: "HIDDORM"
 00ED 83 C4 06                 add sp, 0x6
 00F0                          ShowMessage(12BE) [es:bx+0xf8] = You successfully opened the locked door.
 00FD EB 48                    jmp 0x147
-00FF 33 C0                    xor ax, ax
-0101 50                       push ax
-0102 C4 5E 06                 les bx, [bp+0x6]
-0105 26 FF 5F 24              call far word [es:bx+0x24]
+00FF                          ax = SetExitability(00) [es:bx+0x24]
 0109 50                       push ax
 010A C4 5E 06                 les bx, [bp+0x6]
 010D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1319,8 +1243,7 @@ Functn2A: "HIDDORM"
 0112 C4 5E 06                 les bx, [bp+0x6]
 0115 26 FF 5F 2C              call far word [es:bx+0x2c]
 0119 83 C4 06                 add sp, 0x6
-011C C4 5E 06                 les bx, [bp+0x6]
-011F 26 FF 5F 24              call far word [es:bx+0x24]
+011C                          ax = SetExitability(ax) [es:bx+0x24]
 0123 50                       push ax
 0124 C4 5E 06                 les bx, [bp+0x6]
 0127 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1332,10 +1255,7 @@ Functn2A: "HIDDORM"
 0137 83 C4 06                 add sp, 0x6
 013A                          ShowMessage(12E7) [es:bx+0xf8] = You found a secret door.
 0147 EB 1D                    jmp 0x166
-0149 33 C0                    xor ax, ax
-014B 50                       push ax
-014C C4 5E 06                 les bx, [bp+0x6]
-014F 26 FF 5F 24              call far word [es:bx+0x24]
+0149                          ax = SetExitability(00) [es:bx+0x24]
 0153 50                       push ax
 0154 C4 5E 06                 les bx, [bp+0x6]
 0157 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1345,7 +1265,7 @@ Functn2A: "HIDDORM"
 0163 83 C4 06                 add sp, 0x6
 0166                          RETURN
 
-Functn2B: "HIDDORN"
+HIDDORN_2B:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -1412,10 +1332,7 @@ Functn2B: "HIDDORN"
 00AE 59                       pop cx
 00AF 3D 0C 00                 cmp ax, 0xc
 00B2 72 4B                    jb 0xff
-00B4 B8 01 00                 mov ax, 0x1
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 5F 24              call far word [es:bx+0x24]
+00B4                          ax = SetExitability(01) [es:bx+0x24]
 00BF 50                       push ax
 00C0 C4 5E 06                 les bx, [bp+0x6]
 00C3 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1423,8 +1340,7 @@ Functn2B: "HIDDORN"
 00C8 C4 5E 06                 les bx, [bp+0x6]
 00CB 26 FF 5F 2C              call far word [es:bx+0x2c]
 00CF 83 C4 06                 add sp, 0x6
-00D2 C4 5E 06                 les bx, [bp+0x6]
-00D5 26 FF 5F 24              call far word [es:bx+0x24]
+00D2                          ax = SetExitability(ax) [es:bx+0x24]
 00D9 50                       push ax
 00DA C4 5E 06                 les bx, [bp+0x6]
 00DD 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1436,10 +1352,7 @@ Functn2B: "HIDDORN"
 00ED 83 C4 06                 add sp, 0x6
 00F0                          ShowMessage(1300) [es:bx+0xf8] = You successfully opened the locked door.
 00FD EB 48                    jmp 0x147
-00FF 33 C0                    xor ax, ax
-0101 50                       push ax
-0102 C4 5E 06                 les bx, [bp+0x6]
-0105 26 FF 5F 24              call far word [es:bx+0x24]
+00FF                          ax = SetExitability(00) [es:bx+0x24]
 0109 50                       push ax
 010A C4 5E 06                 les bx, [bp+0x6]
 010D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1447,8 +1360,7 @@ Functn2B: "HIDDORN"
 0112 C4 5E 06                 les bx, [bp+0x6]
 0115 26 FF 5F 2C              call far word [es:bx+0x2c]
 0119 83 C4 06                 add sp, 0x6
-011C C4 5E 06                 les bx, [bp+0x6]
-011F 26 FF 5F 24              call far word [es:bx+0x24]
+011C                          ax = SetExitability(ax) [es:bx+0x24]
 0123 50                       push ax
 0124 C4 5E 06                 les bx, [bp+0x6]
 0127 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1460,10 +1372,7 @@ Functn2B: "HIDDORN"
 0137 83 C4 06                 add sp, 0x6
 013A                          ShowMessage(1329) [es:bx+0xf8] = You spot a well hidden secret door. It's locked.
 0147 EB 1D                    jmp 0x166
-0149 33 C0                    xor ax, ax
-014B 50                       push ax
-014C C4 5E 06                 les bx, [bp+0x6]
-014F 26 FF 5F 24              call far word [es:bx+0x24]
+0149                          ax = SetExitability(00) [es:bx+0x24]
 0153 50                       push ax
 0154 C4 5E 06                 les bx, [bp+0x6]
 0157 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1473,7 +1382,7 @@ Functn2B: "HIDDORN"
 0163 83 C4 06                 add sp, 0x6
 0166                          RETURN
 
-Functn2E: "HIDDORQ"
+HIDDORQ_2E:
 0000                          BEGIN
 0003 B8 C4 00                 mov ax, 0xc4
 0006 50                       push ax
@@ -1492,10 +1401,7 @@ Functn2E: "HIDDORQ"
 0023 59                       pop cx
 0024 3D 08 00                 cmp ax, 0x8
 0027 72 4B                    jb 0x74
-0029 B8 01 00                 mov ax, 0x1
-002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 5F 24              call far word [es:bx+0x24]
+0029                          ax = SetExitability(01) [es:bx+0x24]
 0034 50                       push ax
 0035 C4 5E 06                 les bx, [bp+0x6]
 0038 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1503,8 +1409,7 @@ Functn2E: "HIDDORQ"
 003D C4 5E 06                 les bx, [bp+0x6]
 0040 26 FF 5F 2C              call far word [es:bx+0x2c]
 0044 83 C4 06                 add sp, 0x6
-0047 C4 5E 06                 les bx, [bp+0x6]
-004A 26 FF 5F 24              call far word [es:bx+0x24]
+0047                          ax = SetExitability(ax) [es:bx+0x24]
 004E 50                       push ax
 004F C4 5E 06                 les bx, [bp+0x6]
 0052 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1516,10 +1421,7 @@ Functn2E: "HIDDORQ"
 0062 83 C4 06                 add sp, 0x6
 0065                          ShowMessage(135A) [es:bx+0xf8] = You skillfully pick the door lock.
 0072 EB 2A                    jmp 0x9e
-0074 33 C0                    xor ax, ax
-0076 50                       push ax
-0077 C4 5E 06                 les bx, [bp+0x6]
-007A 26 FF 5F 24              call far word [es:bx+0x24]
+0074                          ax = SetExitability(00) [es:bx+0x24]
 007E 50                       push ax
 007F C4 5E 06                 les bx, [bp+0x6]
 0082 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1530,7 +1432,7 @@ Functn2E: "HIDDORQ"
 0091                          ShowMessage(137D) [es:bx+0xf8] = The door is locked.
 009E                          RETURN
 
-Functn31: "HIDDORT"
+HIDDORT_31:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -1546,10 +1448,7 @@ Functn31: "HIDDORT"
 001F 59                       pop cx
 0020 0B C0                    or ax, ax
 0022 74 2D                    jz 0x51
-0024 B8 01 00                 mov ax, 0x1
-0027 50                       push ax
-0028 C4 5E 06                 les bx, [bp+0x6]
-002B 26 FF 5F 24              call far word [es:bx+0x24]
+0024                          ax = SetExitability(01) [es:bx+0x24]
 002F 50                       push ax
 0030 C4 5E 06                 les bx, [bp+0x6]
 0033 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1559,10 +1458,7 @@ Functn31: "HIDDORT"
 003F 83 C4 06                 add sp, 0x6
 0042                          ShowMessage(1391) [es:bx+0xf8] = You found a hidden door!
 004F EB 1D                    jmp 0x6e
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 C4 5E 06                 les bx, [bp+0x6]
-0057 26 FF 5F 24              call far word [es:bx+0x24]
+0051                          ax = SetExitability(00) [es:bx+0x24]
 005B 50                       push ax
 005C C4 5E 06                 les bx, [bp+0x6]
 005F 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1572,7 +1468,7 @@ Functn31: "HIDDORT"
 006B 83 C4 06                 add sp, 0x6
 006E                          RETURN
 
-Functn32: "HIDDORU"
+HIDDORU_32:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -1639,10 +1535,7 @@ Functn32: "HIDDORU"
 00AE 59                       pop cx
 00AF 3D 08 00                 cmp ax, 0x8
 00B2 72 4B                    jb 0xff
-00B4 B8 01 00                 mov ax, 0x1
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 5F 24              call far word [es:bx+0x24]
+00B4                          ax = SetExitability(01) [es:bx+0x24]
 00BF 50                       push ax
 00C0 C4 5E 06                 les bx, [bp+0x6]
 00C3 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1650,8 +1543,7 @@ Functn32: "HIDDORU"
 00C8 C4 5E 06                 les bx, [bp+0x6]
 00CB 26 FF 5F 2C              call far word [es:bx+0x2c]
 00CF 83 C4 06                 add sp, 0x6
-00D2 C4 5E 06                 les bx, [bp+0x6]
-00D5 26 FF 5F 24              call far word [es:bx+0x24]
+00D2                          ax = SetExitability(ax) [es:bx+0x24]
 00D9 50                       push ax
 00DA C4 5E 06                 les bx, [bp+0x6]
 00DD 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1663,10 +1555,7 @@ Functn32: "HIDDORU"
 00ED 83 C4 06                 add sp, 0x6
 00F0                          ShowMessage(13AA) [es:bx+0xf8] = You successfully opened the locked door.
 00FD EB 48                    jmp 0x147
-00FF 33 C0                    xor ax, ax
-0101 50                       push ax
-0102 C4 5E 06                 les bx, [bp+0x6]
-0105 26 FF 5F 24              call far word [es:bx+0x24]
+00FF                          ax = SetExitability(00) [es:bx+0x24]
 0109 50                       push ax
 010A C4 5E 06                 les bx, [bp+0x6]
 010D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1674,8 +1563,7 @@ Functn32: "HIDDORU"
 0112 C4 5E 06                 les bx, [bp+0x6]
 0115 26 FF 5F 2C              call far word [es:bx+0x2c]
 0119 83 C4 06                 add sp, 0x6
-011C C4 5E 06                 les bx, [bp+0x6]
-011F 26 FF 5F 24              call far word [es:bx+0x24]
+011C                          ax = SetExitability(ax) [es:bx+0x24]
 0123 50                       push ax
 0124 C4 5E 06                 les bx, [bp+0x6]
 0127 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1687,10 +1575,7 @@ Functn32: "HIDDORU"
 0137 83 C4 06                 add sp, 0x6
 013A                          ShowMessage(13D3) [es:bx+0xf8] = You found a secret door, but it's locked.
 0147 EB 1D                    jmp 0x166
-0149 33 C0                    xor ax, ax
-014B 50                       push ax
-014C C4 5E 06                 les bx, [bp+0x6]
-014F 26 FF 5F 24              call far word [es:bx+0x24]
+0149                          ax = SetExitability(00) [es:bx+0x24]
 0153 50                       push ax
 0154 C4 5E 06                 les bx, [bp+0x6]
 0157 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1700,12 +1585,9 @@ Functn32: "HIDDORU"
 0163 83 C4 06                 add sp, 0x6
 0166                          RETURN
 
-Functn33: "HIDDORV"
+HIDDORV_33:
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 24              call far word [es:bx+0x24]
+0003                          ax = SetExitability(01) [es:bx+0x24]
 000E 50                       push ax
 000F C4 5E 06                 les bx, [bp+0x6]
 0012 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1715,12 +1597,9 @@ Functn33: "HIDDORV"
 001E 83 C4 06                 add sp, 0x6
 0021                          RETURN
 
-Functn35: "HIDDORX"
+HIDDORX_35:
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 24              call far word [es:bx+0x24]
+0003                          ax = SetExitability(01) [es:bx+0x24]
 000E 50                       push ax
 000F C4 5E 06                 les bx, [bp+0x6]
 0012 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1730,7 +1609,7 @@ Functn35: "HIDDORX"
 001E 83 C4 06                 add sp, 0x6
 0021                          RETURN
 
-Functn36: "HIDDORY"
+HIDDORY_36:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -1797,10 +1676,7 @@ Functn36: "HIDDORY"
 00AE 59                       pop cx
 00AF 3D 0A 00                 cmp ax, 0xa
 00B2 72 4B                    jb 0xff
-00B4 B8 01 00                 mov ax, 0x1
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 5F 24              call far word [es:bx+0x24]
+00B4                          ax = SetExitability(01) [es:bx+0x24]
 00BF 50                       push ax
 00C0 C4 5E 06                 les bx, [bp+0x6]
 00C3 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1808,8 +1684,7 @@ Functn36: "HIDDORY"
 00C8 C4 5E 06                 les bx, [bp+0x6]
 00CB 26 FF 5F 2C              call far word [es:bx+0x2c]
 00CF 83 C4 06                 add sp, 0x6
-00D2 C4 5E 06                 les bx, [bp+0x6]
-00D5 26 FF 5F 24              call far word [es:bx+0x24]
+00D2                          ax = SetExitability(ax) [es:bx+0x24]
 00D9 50                       push ax
 00DA C4 5E 06                 les bx, [bp+0x6]
 00DD 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1821,10 +1696,7 @@ Functn36: "HIDDORY"
 00ED 83 C4 06                 add sp, 0x6
 00F0                          ShowMessage(13FD) [es:bx+0xf8] = You successfully opened the locked door.
 00FD EB 48                    jmp 0x147
-00FF 33 C0                    xor ax, ax
-0101 50                       push ax
-0102 C4 5E 06                 les bx, [bp+0x6]
-0105 26 FF 5F 24              call far word [es:bx+0x24]
+00FF                          ax = SetExitability(00) [es:bx+0x24]
 0109 50                       push ax
 010A C4 5E 06                 les bx, [bp+0x6]
 010D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1832,8 +1704,7 @@ Functn36: "HIDDORY"
 0112 C4 5E 06                 les bx, [bp+0x6]
 0115 26 FF 5F 2C              call far word [es:bx+0x2c]
 0119 83 C4 06                 add sp, 0x6
-011C C4 5E 06                 les bx, [bp+0x6]
-011F 26 FF 5F 24              call far word [es:bx+0x24]
+011C                          ax = SetExitability(ax) [es:bx+0x24]
 0123 50                       push ax
 0124 C4 5E 06                 les bx, [bp+0x6]
 0127 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1845,10 +1716,7 @@ Functn36: "HIDDORY"
 0137 83 C4 06                 add sp, 0x6
 013A                          ShowMessage(1426) [es:bx+0xf8] = You found a locked door. You hear strange noises on the other side of the door.
 0147 EB 1D                    jmp 0x166
-0149 33 C0                    xor ax, ax
-014B 50                       push ax
-014C C4 5E 06                 les bx, [bp+0x6]
-014F 26 FF 5F 24              call far word [es:bx+0x24]
+0149                          ax = SetExitability(00) [es:bx+0x24]
 0153 50                       push ax
 0154 C4 5E 06                 les bx, [bp+0x6]
 0157 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1858,7 +1726,7 @@ Functn36: "HIDDORY"
 0163 83 C4 06                 add sp, 0x6
 0166                          RETURN
 
-Functn37: "HIDDORZ"
+HIDDORZ_37:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -1904,10 +1772,7 @@ Functn37: "HIDDORZ"
 005E 59                       pop cx
 005F 0B C0                    or ax, ax
 0061 74 2B                    jz 0x8e
-0063 B8 01 00                 mov ax, 0x1
-0066 50                       push ax
-0067 C4 5E 06                 les bx, [bp+0x6]
-006A 26 FF 5F 24              call far word [es:bx+0x24]
+0063                          ax = SetExitability(01) [es:bx+0x24]
 006E 50                       push ax
 006F C4 5E 06                 les bx, [bp+0x6]
 0072 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1918,12 +1783,9 @@ Functn37: "HIDDORZ"
 0081                          ShowMessage(1476) [es:bx+0xf8] = You found a hidden door!
 008E                          RETURN
 
-Functn38: "HIDDORAA"
+HIDDORAA_38:
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 24              call far word [es:bx+0x24]
+0003                          ax = SetExitability(01) [es:bx+0x24]
 000E 50                       push ax
 000F C4 5E 06                 les bx, [bp+0x6]
 0012 26 FF 5F 20              call far word [es:bx+0x20]
@@ -1933,7 +1795,7 @@ Functn38: "HIDDORAA"
 001E 83 C4 06                 add sp, 0x6
 0021                          RETURN
 
-Functn39: "HIDDORBB"
+HIDDORBB_39:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -2000,10 +1862,7 @@ Functn39: "HIDDORBB"
 00AE 59                       pop cx
 00AF 3D 09 00                 cmp ax, 0x9
 00B2 72 4B                    jb 0xff
-00B4 B8 01 00                 mov ax, 0x1
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 5F 24              call far word [es:bx+0x24]
+00B4                          ax = SetExitability(01) [es:bx+0x24]
 00BF 50                       push ax
 00C0 C4 5E 06                 les bx, [bp+0x6]
 00C3 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2011,8 +1870,7 @@ Functn39: "HIDDORBB"
 00C8 C4 5E 06                 les bx, [bp+0x6]
 00CB 26 FF 5F 2C              call far word [es:bx+0x2c]
 00CF 83 C4 06                 add sp, 0x6
-00D2 C4 5E 06                 les bx, [bp+0x6]
-00D5 26 FF 5F 24              call far word [es:bx+0x24]
+00D2                          ax = SetExitability(ax) [es:bx+0x24]
 00D9 50                       push ax
 00DA C4 5E 06                 les bx, [bp+0x6]
 00DD 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2024,10 +1882,7 @@ Functn39: "HIDDORBB"
 00ED 83 C4 06                 add sp, 0x6
 00F0                          ShowMessage(148F) [es:bx+0xf8] = You successfully opened the locked door. You also feel a cool breeze.
 00FD EB 48                    jmp 0x147
-00FF 33 C0                    xor ax, ax
-0101 50                       push ax
-0102 C4 5E 06                 les bx, [bp+0x6]
-0105 26 FF 5F 24              call far word [es:bx+0x24]
+00FF                          ax = SetExitability(00) [es:bx+0x24]
 0109 50                       push ax
 010A C4 5E 06                 les bx, [bp+0x6]
 010D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2035,8 +1890,7 @@ Functn39: "HIDDORBB"
 0112 C4 5E 06                 les bx, [bp+0x6]
 0115 26 FF 5F 2C              call far word [es:bx+0x2c]
 0119 83 C4 06                 add sp, 0x6
-011C C4 5E 06                 les bx, [bp+0x6]
-011F 26 FF 5F 24              call far word [es:bx+0x24]
+011C                          ax = SetExitability(ax) [es:bx+0x24]
 0123 50                       push ax
 0124 C4 5E 06                 les bx, [bp+0x6]
 0127 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2048,10 +1902,7 @@ Functn39: "HIDDORBB"
 0137 83 C4 06                 add sp, 0x6
 013A                          ShowMessage(14D5) [es:bx+0xf8] = You found a secret door, but it's locked.
 0147 EB 1D                    jmp 0x166
-0149 33 C0                    xor ax, ax
-014B 50                       push ax
-014C C4 5E 06                 les bx, [bp+0x6]
-014F 26 FF 5F 24              call far word [es:bx+0x24]
+0149                          ax = SetExitability(00) [es:bx+0x24]
 0153 50                       push ax
 0154 C4 5E 06                 les bx, [bp+0x6]
 0157 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2061,7 +1912,7 @@ Functn39: "HIDDORBB"
 0163 83 C4 06                 add sp, 0x6
 0166                          RETURN
 
-Functn3A: "HIDDORCC"
+HIDDORCC_3A:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -2128,10 +1979,7 @@ Functn3A: "HIDDORCC"
 00AE 59                       pop cx
 00AF 3D 09 00                 cmp ax, 0x9
 00B2 72 4B                    jb 0xff
-00B4 B8 01 00                 mov ax, 0x1
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 5F 24              call far word [es:bx+0x24]
+00B4                          ax = SetExitability(01) [es:bx+0x24]
 00BF 50                       push ax
 00C0 C4 5E 06                 les bx, [bp+0x6]
 00C3 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2139,8 +1987,7 @@ Functn3A: "HIDDORCC"
 00C8 C4 5E 06                 les bx, [bp+0x6]
 00CB 26 FF 5F 2C              call far word [es:bx+0x2c]
 00CF 83 C4 06                 add sp, 0x6
-00D2 C4 5E 06                 les bx, [bp+0x6]
-00D5 26 FF 5F 24              call far word [es:bx+0x24]
+00D2                          ax = SetExitability(ax) [es:bx+0x24]
 00D9 50                       push ax
 00DA C4 5E 06                 les bx, [bp+0x6]
 00DD 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2152,10 +1999,7 @@ Functn3A: "HIDDORCC"
 00ED 83 C4 06                 add sp, 0x6
 00F0                          ShowMessage(14FF) [es:bx+0xf8] = You opened the locked chamber door.
 00FD EB 48                    jmp 0x147
-00FF 33 C0                    xor ax, ax
-0101 50                       push ax
-0102 C4 5E 06                 les bx, [bp+0x6]
-0105 26 FF 5F 24              call far word [es:bx+0x24]
+00FF                          ax = SetExitability(00) [es:bx+0x24]
 0109 50                       push ax
 010A C4 5E 06                 les bx, [bp+0x6]
 010D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2163,8 +2007,7 @@ Functn3A: "HIDDORCC"
 0112 C4 5E 06                 les bx, [bp+0x6]
 0115 26 FF 5F 2C              call far word [es:bx+0x2c]
 0119 83 C4 06                 add sp, 0x6
-011C C4 5E 06                 les bx, [bp+0x6]
-011F 26 FF 5F 24              call far word [es:bx+0x24]
+011C                          ax = SetExitability(ax) [es:bx+0x24]
 0123 50                       push ax
 0124 C4 5E 06                 les bx, [bp+0x6]
 0127 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2176,10 +2019,7 @@ Functn3A: "HIDDORCC"
 0137 83 C4 06                 add sp, 0x6
 013A                          ShowMessage(1523) [es:bx+0xf8] = You found a hidden chamber door, but it's locked.
 0147 EB 1D                    jmp 0x166
-0149 33 C0                    xor ax, ax
-014B 50                       push ax
-014C C4 5E 06                 les bx, [bp+0x6]
-014F 26 FF 5F 24              call far word [es:bx+0x24]
+0149                          ax = SetExitability(00) [es:bx+0x24]
 0153 50                       push ax
 0154 C4 5E 06                 les bx, [bp+0x6]
 0157 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2189,7 +2029,7 @@ Functn3A: "HIDDORCC"
 0163 83 C4 06                 add sp, 0x6
 0166                          RETURN
 
-Functn3D: "HIDDORFF"
+HIDDORFF_3D:
 0000                          BEGIN
 0003 B8 C4 00                 mov ax, 0xc4
 0006 50                       push ax
@@ -2208,10 +2048,7 @@ Functn3D: "HIDDORFF"
 0023 59                       pop cx
 0024 3D 0C 00                 cmp ax, 0xc
 0027 72 4B                    jb 0x74
-0029 B8 01 00                 mov ax, 0x1
-002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 5F 24              call far word [es:bx+0x24]
+0029                          ax = SetExitability(01) [es:bx+0x24]
 0034 50                       push ax
 0035 C4 5E 06                 les bx, [bp+0x6]
 0038 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2219,8 +2056,7 @@ Functn3D: "HIDDORFF"
 003D C4 5E 06                 les bx, [bp+0x6]
 0040 26 FF 5F 2C              call far word [es:bx+0x2c]
 0044 83 C4 06                 add sp, 0x6
-0047 C4 5E 06                 les bx, [bp+0x6]
-004A 26 FF 5F 24              call far word [es:bx+0x24]
+0047                          ax = SetExitability(ax) [es:bx+0x24]
 004E 50                       push ax
 004F C4 5E 06                 les bx, [bp+0x6]
 0052 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2232,10 +2068,7 @@ Functn3D: "HIDDORFF"
 0062 83 C4 06                 add sp, 0x6
 0065                          ShowMessage(1555) [es:bx+0xf8] = With great effort, you unlock the door.
 0072 EB 2A                    jmp 0x9e
-0074 33 C0                    xor ax, ax
-0076 50                       push ax
-0077 C4 5E 06                 les bx, [bp+0x6]
-007A 26 FF 5F 24              call far word [es:bx+0x24]
+0074                          ax = SetExitability(00) [es:bx+0x24]
 007E 50                       push ax
 007F C4 5E 06                 les bx, [bp+0x6]
 0082 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2246,7 +2079,7 @@ Functn3D: "HIDDORFF"
 0091                          ShowMessage(157D) [es:bx+0xf8] = This door has a nasty looking lock on it.
 009E                          RETURN
 
-Functn40: "HIDDORII"
+HIDDORII_40:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -2313,10 +2146,7 @@ Functn40: "HIDDORII"
 00AE 59                       pop cx
 00AF 3D 09 00                 cmp ax, 0x9
 00B2 72 4B                    jb 0xff
-00B4 B8 01 00                 mov ax, 0x1
-00B7 50                       push ax
-00B8 C4 5E 06                 les bx, [bp+0x6]
-00BB 26 FF 5F 24              call far word [es:bx+0x24]
+00B4                          ax = SetExitability(01) [es:bx+0x24]
 00BF 50                       push ax
 00C0 C4 5E 06                 les bx, [bp+0x6]
 00C3 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2324,8 +2154,7 @@ Functn40: "HIDDORII"
 00C8 C4 5E 06                 les bx, [bp+0x6]
 00CB 26 FF 5F 2C              call far word [es:bx+0x2c]
 00CF 83 C4 06                 add sp, 0x6
-00D2 C4 5E 06                 les bx, [bp+0x6]
-00D5 26 FF 5F 24              call far word [es:bx+0x24]
+00D2                          ax = SetExitability(ax) [es:bx+0x24]
 00D9 50                       push ax
 00DA C4 5E 06                 les bx, [bp+0x6]
 00DD 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2337,10 +2166,7 @@ Functn40: "HIDDORII"
 00ED 83 C4 06                 add sp, 0x6
 00F0                          ShowMessage(15A7) [es:bx+0xf8] = The door is opened with a lot of effort.
 00FD EB 48                    jmp 0x147
-00FF 33 C0                    xor ax, ax
-0101 50                       push ax
-0102 C4 5E 06                 les bx, [bp+0x6]
-0105 26 FF 5F 24              call far word [es:bx+0x24]
+00FF                          ax = SetExitability(00) [es:bx+0x24]
 0109 50                       push ax
 010A C4 5E 06                 les bx, [bp+0x6]
 010D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2348,8 +2174,7 @@ Functn40: "HIDDORII"
 0112 C4 5E 06                 les bx, [bp+0x6]
 0115 26 FF 5F 2C              call far word [es:bx+0x2c]
 0119 83 C4 06                 add sp, 0x6
-011C C4 5E 06                 les bx, [bp+0x6]
-011F 26 FF 5F 24              call far word [es:bx+0x24]
+011C                          ax = SetExitability(ax) [es:bx+0x24]
 0123 50                       push ax
 0124 C4 5E 06                 les bx, [bp+0x6]
 0127 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2361,10 +2186,7 @@ Functn40: "HIDDORII"
 0137 83 C4 06                 add sp, 0x6
 013A                          ShowMessage(15D0) [es:bx+0xf8] = You found another secret door, but it is locked.
 0147 EB 1D                    jmp 0x166
-0149 33 C0                    xor ax, ax
-014B 50                       push ax
-014C C4 5E 06                 les bx, [bp+0x6]
-014F 26 FF 5F 24              call far word [es:bx+0x24]
+0149                          ax = SetExitability(00) [es:bx+0x24]
 0153 50                       push ax
 0154 C4 5E 06                 les bx, [bp+0x6]
 0157 26 FF 5F 20              call far word [es:bx+0x20]
@@ -2374,17 +2196,17 @@ Functn40: "HIDDORII"
 0163 83 C4 06                 add sp, 0x6
 0166                          RETURN
 
-Functn41: "EXITMSG"
+EXITMSG_41:
 0000                          BEGIN
 0003                          ShowMessage(1601) [es:bx+0xf8] = Can't take any more?  The door is marked 'Exit!'
 0010                          RETURN
 
-Functn42: "STRTMSG"
+STRTMSG_42:
 0000                          BEGIN
 0003                          ShowMessage(1632) [es:bx+0xf8] = A message on the wall:  'Welcome to the Den of Thieves!'
 0010                          RETURN
 
-Functn43: "GOODYA"
+GOODYA_43:
 0000                          BEGIN
 0003                          ax = HasItem(C3) [es:bx+0x50]
 0011 74 0F                    jz 0x22

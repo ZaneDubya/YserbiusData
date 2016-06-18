@@ -1,20 +1,19 @@
-Functn01: "TOMINES"
+TOMINES_01:
 0000                          BEGIN
 0003                          GoMap(00, 7F, 02, 01) [es:bx+0xbc]
 001D                          RETURN
 
-Functn02: "TOTREAS"
+TOTREAS_02:
 0000                          BEGIN
 0003                          GoMap(01, 05, 04, 01) [es:bx+0xbc]
 001E                          RETURN
 
-Functn03: "KEYDOOR"
+KEYDOOR_03:
 0000                          BEGIN
 0003                          ax = CheckState(02, 00, 01) [es:bx+0x4]
 0016 75 4B                    jnz 0x63
 0018                          ShowMessage(03FC) [es:bx+0xf8] = Cleowyn's Key has unlocked the door.
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 5F 24              call far word [es:bx+0x24]
+0025                          ax = SetExitability(ax) [es:bx+0x24]
 002C 50                       push ax
 002D C4 5E 06                 les bx, [bp+0x6]
 0030 26 FF 5F 20              call far word [es:bx+0x20]
@@ -24,10 +23,7 @@ Functn03: "KEYDOOR"
 0039 C4 5E 06                 les bx, [bp+0x6]
 003C 26 FF 5F 30              call far word [es:bx+0x30]
 0040 83 C4 06                 add sp, 0x6
-0043 B8 01 00                 mov ax, 0x1
-0046 50                       push ax
-0047 C4 5E 06                 les bx, [bp+0x6]
-004A 26 FF 5F 24              call far word [es:bx+0x24]
+0043                          ax = SetExitability(01) [es:bx+0x24]
 004E 50                       push ax
 004F C4 5E 06                 les bx, [bp+0x6]
 0052 26 FF 5F 20              call far word [es:bx+0x20]
@@ -37,10 +33,7 @@ Functn03: "KEYDOOR"
 005E 83 C4 06                 add sp, 0x6
 0061 EB 2A                    jmp 0x8d
 0063                          ShowMessage(0421) [es:bx+0xf8] = The door is locked.  Something special is needed to open this door.
-0070 33 C0                    xor ax, ax
-0072 50                       push ax
-0073 C4 5E 06                 les bx, [bp+0x6]
-0076 26 FF 5F 24              call far word [es:bx+0x24]
+0070                          ax = SetExitability(00) [es:bx+0x24]
 007A 50                       push ax
 007B C4 5E 06                 les bx, [bp+0x6]
 007E 26 FF 5F 20              call far word [es:bx+0x20]
@@ -50,19 +43,18 @@ Functn03: "KEYDOOR"
 008A 83 C4 06                 add sp, 0x6
 008D                          RETURN
 
-Functn04: "KEYMESSG"
+KEYMESSG_04:
 0000                          BEGIN
 0003                          ShowMessage(0465) [es:bx+0xf8] = The tapestry shows a message in runes...
 0010                          ShowRunes(5004) [es:bx+0xf4] = A certain Key unlocks my series of doors.
 001D                          RETURN
 
-Functn05: "LKPKDOOR"
+LKPKDOOR_05:
 0000                          BEGIN
 0003                          ax = CheckState(02, 00, 02) [es:bx+0x4]
 0016 75 4B                    jnz 0x63
 0018                          ShowMessage(04B8) [es:bx+0xf8] = Cleowyn's Lockpick has unlocked the door.
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 5F 24              call far word [es:bx+0x24]
+0025                          ax = SetExitability(ax) [es:bx+0x24]
 002C 50                       push ax
 002D C4 5E 06                 les bx, [bp+0x6]
 0030 26 FF 5F 20              call far word [es:bx+0x20]
@@ -72,10 +64,7 @@ Functn05: "LKPKDOOR"
 0039 C4 5E 06                 les bx, [bp+0x6]
 003C 26 FF 5F 30              call far word [es:bx+0x30]
 0040 83 C4 06                 add sp, 0x6
-0043 B8 01 00                 mov ax, 0x1
-0046 50                       push ax
-0047 C4 5E 06                 les bx, [bp+0x6]
-004A 26 FF 5F 24              call far word [es:bx+0x24]
+0043                          ax = SetExitability(01) [es:bx+0x24]
 004E 50                       push ax
 004F C4 5E 06                 les bx, [bp+0x6]
 0052 26 FF 5F 20              call far word [es:bx+0x20]
@@ -85,10 +74,7 @@ Functn05: "LKPKDOOR"
 005E 83 C4 06                 add sp, 0x6
 0061 EB 2A                    jmp 0x8d
 0063                          ShowMessage(04E2) [es:bx+0xf8] = The door is locked.
-0070 33 C0                    xor ax, ax
-0072 50                       push ax
-0073 C4 5E 06                 les bx, [bp+0x6]
-0076 26 FF 5F 24              call far word [es:bx+0x24]
+0070                          ax = SetExitability(00) [es:bx+0x24]
 007A 50                       push ax
 007B C4 5E 06                 les bx, [bp+0x6]
 007E 26 FF 5F 20              call far word [es:bx+0x20]
@@ -98,19 +84,18 @@ Functn05: "LKPKDOOR"
 008A 83 C4 06                 add sp, 0x6
 008D                          RETURN
 
-Functn06: "LKPKMESG"
+LKPKMESG_06:
 0000                          BEGIN
 0003                          ShowMessage(04F6) [es:bx+0xf8] = There are runes on the tapestry...
 0010                          ShowRunes(5005) [es:bx+0xf4] = A certain Lockpick opens my series of doors.
 001D                          RETURN
 
-Functn07: "STRDOOR"
+STRDOOR_07:
 0000                          BEGIN
 0003                          ax = CheckState(02, 00, 03) [es:bx+0x4]
 0016 75 4B                    jnz 0x63
 0018                          ShowMessage(0546) [es:bx+0xf8] = The door has been forced open.
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 5F 24              call far word [es:bx+0x24]
+0025                          ax = SetExitability(ax) [es:bx+0x24]
 002C 50                       push ax
 002D C4 5E 06                 les bx, [bp+0x6]
 0030 26 FF 5F 20              call far word [es:bx+0x20]
@@ -120,10 +105,7 @@ Functn07: "STRDOOR"
 0039 C4 5E 06                 les bx, [bp+0x6]
 003C 26 FF 5F 30              call far word [es:bx+0x30]
 0040 83 C4 06                 add sp, 0x6
-0043 B8 01 00                 mov ax, 0x1
-0046 50                       push ax
-0047 C4 5E 06                 les bx, [bp+0x6]
-004A 26 FF 5F 24              call far word [es:bx+0x24]
+0043                          ax = SetExitability(01) [es:bx+0x24]
 004E 50                       push ax
 004F C4 5E 06                 les bx, [bp+0x6]
 0052 26 FF 5F 20              call far word [es:bx+0x20]
@@ -133,10 +115,7 @@ Functn07: "STRDOOR"
 005E 83 C4 06                 add sp, 0x6
 0061 EB 2A                    jmp 0x8d
 0063                          ShowMessage(0565) [es:bx+0xf8] = The door is currently impassable.
-0070 33 C0                    xor ax, ax
-0072 50                       push ax
-0073 C4 5E 06                 les bx, [bp+0x6]
-0076 26 FF 5F 24              call far word [es:bx+0x24]
+0070                          ax = SetExitability(00) [es:bx+0x24]
 007A 50                       push ax
 007B C4 5E 06                 les bx, [bp+0x6]
 007E 26 FF 5F 20              call far word [es:bx+0x20]
@@ -146,207 +125,206 @@ Functn07: "STRDOOR"
 008A 83 C4 06                 add sp, 0x6
 008D                          RETURN
 
-Functn08: "STRMESSG"
+STRMESSG_08:
 0000                          BEGIN
 0003                          ShowMessage(0587) [es:bx+0xf8] = The tapestry has runes...
 0010                          ShowRunes(5005) [es:bx+0xf4] = A hero of strength may open my series of doors.
 001D                          RETURN
 
-Functn09: "GOLDENC"
+GOLDENC_09:
 0000                          BEGIN
 0003                          ax = CheckState(02, 05, 01) [es:bx+0x4]
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(05D1) [es:bx+0xf8] = Aside from angry Rogues, the room is empty.
-0026                          SetTreasureData(0014, 00, 00, 00, 00, B5) [es:bx+0xd8]
+0026                          AddTreasure(0014, 00, 00, 00, 00, B5) [es:bx+0xd8]
 0045 EB 41                    jmp 0x88
-0047                          SetTreasureData(01F4, 00, 00, 00, 00, CE) [es:bx+0xd8]
+0047                          AddTreasure(01F4, 00, 00, 00, 00, CE) [es:bx+0xd8]
 0066                          SetState(02, 05, 01) [es:bx]
 007B                          ShowMessage(05FD) [es:bx+0xf8] = A Rogue drops gold coins on the floor as the villains draw their weapons.
 0088                          ax = PartyCountIs(01) [es:bx+0xf0]
 0093 74 0D                    jz 0xa2
 0095                          ax = PartyCountIs(02) [es:bx+0xf0]
 00A0 75 14                    jnz 0xb6
-00A2                          SetEncData(1A, 01) [es:bx+0xd4]
+00A2                          AddEncounter(1A, 01) [es:bx+0xd4]
 00B4 EB 48                    jmp 0xfe
-00B6                          SetEncData(1C, 01) [es:bx+0xd4]
-00C8                          SetEncData(1A, 02) [es:bx+0xd4]
-00DA                          SetEncData(19, 03) [es:bx+0xd4]
-00EC                          SetEncData(1B, 04) [es:bx+0xd4]
+00B6                          AddEncounter(1C, 01) [es:bx+0xd4]
+00C8                          AddEncounter(1A, 02) [es:bx+0xd4]
+00DA                          AddEncounter(19, 03) [es:bx+0xd4]
+00EC                          AddEncounter(1B, 04) [es:bx+0xd4]
 00FE                          RETURN
 
-Functn0A: "STAIRS"
+STAIRS_0A:
 0000                          BEGIN
 0003                          GoMap(02, 01, 02, 02) [es:bx+0xbc]
 001E                          RETURN
 
-Functn0B: "PALKEYEN"
+PALKEYEN_0B:
 0000                          BEGIN
 0003                          ax = HasItem(D9) [es:bx+0x50]
 0011 74 2F                    jz 0x42
-0013                          SetTreasureData(01F4, 00, 00, 00, BC, CE) [es:bx+0xd8]
+0013                          AddTreasure(01F4, 00, 00, 00, BC, CE) [es:bx+0xd8]
 0033                          ShowMessage(0647) [es:bx+0xf8] = The room is empty. Almost.
 0040 EB 2C                    jmp 0x6e
-0042                          SetTreasureData(03E8, 00, 00, 00, 00, D9) [es:bx+0xd8]
+0042                          AddTreasure(03E8, 00, 00, 00, 00, D9) [es:bx+0xd8]
 0061                          ShowMessage(0662) [es:bx+0xf8] = A Key in the shape of a Palace lies in a corner, if you can get to it.
 006E                          ax = PartyCountIs(01) [es:bx+0xf0]
 0079 75 15                    jnz 0x90
-007B                          SetEncData(21, 01) [es:bx+0xd4]
+007B                          AddEncounter(21, 01) [es:bx+0xd4]
 008D E9 C1 00                 jmp 0x151
 0090                          ax = PartyCountIs(02) [es:bx+0xf0]
 009B 75 27                    jnz 0xc4
-009D                          SetEncData(25, 01) [es:bx+0xd4]
-00AF                          SetEncData(21, 02) [es:bx+0xd4]
+009D                          AddEncounter(25, 01) [es:bx+0xd4]
+00AF                          AddEncounter(21, 02) [es:bx+0xd4]
 00C1 E9 8D 00                 jmp 0x151
 00C4                          ax = PartyCountIs(03) [es:bx+0xf0]
 00CF 75 38                    jnz 0x109
-00D1                          SetEncData(21, 01) [es:bx+0xd4]
-00E3                          SetEncData(21, 02) [es:bx+0xd4]
-00F5                          SetEncData(25, 04) [es:bx+0xd4]
+00D1                          AddEncounter(21, 01) [es:bx+0xd4]
+00E3                          AddEncounter(21, 02) [es:bx+0xd4]
+00F5                          AddEncounter(25, 04) [es:bx+0xd4]
 0107 EB 48                    jmp 0x151
-0109                          SetEncData(25, 01) [es:bx+0xd4]
-011B                          SetEncData(25, 02) [es:bx+0xd4]
-012D                          SetEncData(21, 03) [es:bx+0xd4]
-013F                          SetEncData(21, 04) [es:bx+0xd4]
+0109                          AddEncounter(25, 01) [es:bx+0xd4]
+011B                          AddEncounter(25, 02) [es:bx+0xd4]
+012D                          AddEncounter(21, 03) [es:bx+0xd4]
+013F                          AddEncounter(21, 04) [es:bx+0xd4]
 0151                          RETURN
 
-Functn0C: "TELEPORT"
+TELEPORT_0C:
 0000                          BEGIN
 0003                          GoMap(03, F0, 01, 04) [es:bx+0xbc]
 001E                          RETURN
 
-Functn0D: "LOWMNSTR"
+LOWMNSTR_0D:
 0000                          BEGIN
 0003                          ShowMessage(06A9) [es:bx+0xf8] = You encounter Rogues.
 0010                          UnknownFunction(000F) [es:bx+0xec]
 001D 3D 06 00                 cmp ax, 0x6
 0020 77 2E                    ja 0x50
-0022                          SetTreasureData(01F4, 00, 00, 00, 00, B5) [es:bx+0xd8]
+0022                          AddTreasure(01F4, 00, 00, 00, 00, B5) [es:bx+0xd8]
 0041                          ShowMessage(06BF) [es:bx+0xf8] = If you are skilled enough, you may find teleports that speed your way to various levels of this dungeon.
 004E EB 3A                    jmp 0x8a
 0050                          ShowMessage(0728) [es:bx+0xf8] = The Rogues snarl at you.
 005D                          ShowMessage(0741) [es:bx+0xf8] = They attack!
-006A                          SetTreasureData(03E8, 00, 00, 00, BD, 03) [es:bx+0xd8]
+006A                          AddTreasure(03E8, 00, 00, 00, BD, 03) [es:bx+0xd8]
 008A                          ax = PartyCountIs(01) [es:bx+0xf0]
 0095 74 0D                    jz 0xa4
 0097                          ax = PartyCountIs(02) [es:bx+0xf0]
 00A2 75 26                    jnz 0xca
-00A4                          SetEncData(1B, 01) [es:bx+0xd4]
-00B6                          SetEncData(1A, 02) [es:bx+0xd4]
+00A4                          AddEncounter(1B, 01) [es:bx+0xd4]
+00B6                          AddEncounter(1A, 02) [es:bx+0xd4]
 00C8 EB 48                    jmp 0x112
-00CA                          SetEncData(1C, 01) [es:bx+0xd4]
-00DC                          SetEncData(1A, 02) [es:bx+0xd4]
-00EE                          SetEncData(19, 03) [es:bx+0xd4]
-0100                          SetEncData(1B, 04) [es:bx+0xd4]
+00CA                          AddEncounter(1C, 01) [es:bx+0xd4]
+00DC                          AddEncounter(1A, 02) [es:bx+0xd4]
+00EE                          AddEncounter(19, 03) [es:bx+0xd4]
+0100                          AddEncounter(1B, 04) [es:bx+0xd4]
 0112                          RETURN
 
-Functn0E: "MODMNSTR"
+MODMNSTR_0E:
 0000                          BEGIN
 0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 75 14                    jnz 0x24
-0010                          SetEncData(1D, 01) [es:bx+0xd4]
+0010                          AddEncounter(1D, 01) [es:bx+0xd4]
 0022 EB 7B                    jmp 0x9f
 0024                          ax = PartyCountIs(02) [es:bx+0xf0]
 002F 75 26                    jnz 0x57
-0031                          SetEncData(1D, 01) [es:bx+0xd4]
-0043                          SetEncData(1E, 02) [es:bx+0xd4]
+0031                          AddEncounter(1D, 01) [es:bx+0xd4]
+0043                          AddEncounter(1E, 02) [es:bx+0xd4]
 0055 EB 48                    jmp 0x9f
-0057                          SetEncData(20, 01) [es:bx+0xd4]
-0069                          SetEncData(1F, 02) [es:bx+0xd4]
-007B                          SetEncData(1C, 03) [es:bx+0xd4]
-008D                          SetEncData(1D, 04) [es:bx+0xd4]
+0057                          AddEncounter(20, 01) [es:bx+0xd4]
+0069                          AddEncounter(1F, 02) [es:bx+0xd4]
+007B                          AddEncounter(1C, 03) [es:bx+0xd4]
+008D                          AddEncounter(1D, 04) [es:bx+0xd4]
 009F                          RETURN
 
-Functn0F: "STRMNST"
+STRMNST_0F:
 0000                          BEGIN
 0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 75 15                    jnz 0x25
-0010                          SetEncData(21, 01) [es:bx+0xd4]
+0010                          AddEncounter(21, 01) [es:bx+0xd4]
 0022 E9 E5 00                 jmp 0x10a
 0025                          ax = PartyCountIs(02) [es:bx+0xf0]
 0030 75 27                    jnz 0x59
-0032                          SetEncData(21, 01) [es:bx+0xd4]
-0044                          SetEncData(22, 02) [es:bx+0xd4]
+0032                          AddEncounter(21, 01) [es:bx+0xd4]
+0044                          AddEncounter(22, 02) [es:bx+0xd4]
 0056 E9 B1 00                 jmp 0x10a
 0059                          ax = PartyCountIs(03) [es:bx+0xf0]
 0064 75 4A                    jnz 0xb0
-0066                          SetEncData(21, 01) [es:bx+0xd4]
-0078                          SetEncData(21, 02) [es:bx+0xd4]
-008A                          SetEncData(23, 03) [es:bx+0xd4]
-009C                          SetEncData(23, 04) [es:bx+0xd4]
+0066                          AddEncounter(21, 01) [es:bx+0xd4]
+0078                          AddEncounter(21, 02) [es:bx+0xd4]
+008A                          AddEncounter(23, 03) [es:bx+0xd4]
+009C                          AddEncounter(23, 04) [es:bx+0xd4]
 00AE EB 5A                    jmp 0x10a
-00B0                          SetEncData(24, 01) [es:bx+0xd4]
-00C2                          SetEncData(24, 02) [es:bx+0xd4]
-00D4                          SetEncData(23, 03) [es:bx+0xd4]
-00E6                          SetEncData(23, 04) [es:bx+0xd4]
-00F8                          SetEncData(22, 05) [es:bx+0xd4]
+00B0                          AddEncounter(24, 01) [es:bx+0xd4]
+00C2                          AddEncounter(24, 02) [es:bx+0xd4]
+00D4                          AddEncounter(23, 03) [es:bx+0xd4]
+00E6                          AddEncounter(23, 04) [es:bx+0xd4]
+00F8                          AddEncounter(22, 05) [es:bx+0xd4]
 010A                          RETURN
 
-Functn10: "BADMNSTR"
+BADMNSTR_10:
 0000                          BEGIN
 0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 75 27                    jnz 0x37
-0010                          SetEncData(26, 01) [es:bx+0xd4]
-0022                          SetEncData(26, 02) [es:bx+0xd4]
+0010                          AddEncounter(26, 01) [es:bx+0xd4]
+0022                          AddEncounter(26, 02) [es:bx+0xd4]
 0034 E9 2D 01                 jmp 0x164
 0037                          ax = PartyCountIs(02) [es:bx+0xf0]
 0042 75 4B                    jnz 0x8f
-0044                          SetEncData(25, 01) [es:bx+0xd4]
-0056                          SetEncData(25, 02) [es:bx+0xd4]
-0068                          SetEncData(27, 03) [es:bx+0xd4]
-007A                          SetEncData(27, 04) [es:bx+0xd4]
+0044                          AddEncounter(25, 01) [es:bx+0xd4]
+0056                          AddEncounter(25, 02) [es:bx+0xd4]
+0068                          AddEncounter(27, 03) [es:bx+0xd4]
+007A                          AddEncounter(27, 04) [es:bx+0xd4]
 008C E9 D5 00                 jmp 0x164
 008F                          ax = PartyCountIs(03) [es:bx+0xf0]
 009A 75 5C                    jnz 0xf8
-009C                          SetEncData(26, 01) [es:bx+0xd4]
-00AE                          SetEncData(26, 02) [es:bx+0xd4]
-00C0                          SetEncData(27, 03) [es:bx+0xd4]
-00D2                          SetEncData(27, 04) [es:bx+0xd4]
-00E4                          SetEncData(28, 05) [es:bx+0xd4]
+009C                          AddEncounter(26, 01) [es:bx+0xd4]
+00AE                          AddEncounter(26, 02) [es:bx+0xd4]
+00C0                          AddEncounter(27, 03) [es:bx+0xd4]
+00D2                          AddEncounter(27, 04) [es:bx+0xd4]
+00E4                          AddEncounter(28, 05) [es:bx+0xd4]
 00F6 EB 6C                    jmp 0x164
-00F8                          SetEncData(28, 01) [es:bx+0xd4]
-010A                          SetEncData(28, 02) [es:bx+0xd4]
-011C                          SetEncData(27, 03) [es:bx+0xd4]
-012E                          SetEncData(27, 04) [es:bx+0xd4]
-0140                          SetEncData(26, 05) [es:bx+0xd4]
-0152                          SetEncData(25, 06) [es:bx+0xd4]
+00F8                          AddEncounter(28, 01) [es:bx+0xd4]
+010A                          AddEncounter(28, 02) [es:bx+0xd4]
+011C                          AddEncounter(27, 03) [es:bx+0xd4]
+012E                          AddEncounter(27, 04) [es:bx+0xd4]
+0140                          AddEncounter(26, 05) [es:bx+0xd4]
+0152                          AddEncounter(25, 06) [es:bx+0xd4]
 0164                          RETURN
 
-Functn11: "MESSAGEA"
+MESSAGEA_11:
 0000                          BEGIN
 0003                          SetState(02, 00, 00) [es:bx]
 0016                          ShowMessage(074E) [es:bx+0xf8] = This gateway leads to THE MINES.
 0023                          RETURN
 
-Functn12: "MESSAGEB"
+MESSAGEB_12:
 0000                          BEGIN
 0003                          SetState(02, 00, 00) [es:bx]
 0016                          ShowMessage(076F) [es:bx+0xf8] = This gateway leads to THE HALL OF DOORS.
 0023                          RETURN
 
-Functn13: "TELEMESS"
+TELEMESS_13:
 0000                          BEGIN
 0003                          SetState(02, 00, 03) [es:bx]
 0017                          ShowMessage(0798) [es:bx+0xf8] = There is a teleport to the north.
 0024                          RETURN
 
-Functn14: "STRSMESS"
+STRSMESS_14:
 0000                          BEGIN
 0003                          SetState(02, 00, 01) [es:bx]
 0017                          ShowMessage(07BA) [es:bx+0xf8] = There are stairs to the west through the gateway.
 0024                          RETURN
 
-Functn15: "STRSTLPT"
+STRSTLPT_15:
 0000                          BEGIN
 0003                          GoMap(02, 01, 02, 02) [es:bx+0xbc]
 001E                          RETURN
 
-Functn16: "REGDOOR"
+REGDOOR_16:
 0000                          BEGIN
 0003                          ax = CheckState(02, 00, 04) [es:bx+0x4]
 0016 75 4B                    jnz 0x63
 0018                          ShowMessage(07EC) [es:bx+0xf8] = As you open the door, you hear locks click throughout the dungeon.
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 5F 24              call far word [es:bx+0x24]
+0025                          ax = SetExitability(ax) [es:bx+0x24]
 002C 50                       push ax
 002D C4 5E 06                 les bx, [bp+0x6]
 0030 26 FF 5F 20              call far word [es:bx+0x20]
@@ -356,10 +334,7 @@ Functn16: "REGDOOR"
 0039 C4 5E 06                 les bx, [bp+0x6]
 003C 26 FF 5F 30              call far word [es:bx+0x30]
 0040 83 C4 06                 add sp, 0x6
-0043 B8 01 00                 mov ax, 0x1
-0046 50                       push ax
-0047 C4 5E 06                 les bx, [bp+0x6]
-004A 26 FF 5F 24              call far word [es:bx+0x24]
+0043                          ax = SetExitability(01) [es:bx+0x24]
 004E 50                       push ax
 004F C4 5E 06                 les bx, [bp+0x6]
 0052 26 FF 5F 20              call far word [es:bx+0x20]
@@ -369,10 +344,7 @@ Functn16: "REGDOOR"
 005E 83 C4 06                 add sp, 0x6
 0061 EB 2A                    jmp 0x8d
 0063                          ShowMessage(082F) [es:bx+0xf8] = The door is currently impassable.
-0070 33 C0                    xor ax, ax
-0072 50                       push ax
-0073 C4 5E 06                 les bx, [bp+0x6]
-0076 26 FF 5F 24              call far word [es:bx+0x24]
+0070                          ax = SetExitability(00) [es:bx+0x24]
 007A 50                       push ax
 007B C4 5E 06                 les bx, [bp+0x6]
 007E 26 FF 5F 20              call far word [es:bx+0x20]
@@ -382,7 +354,7 @@ Functn16: "REGDOOR"
 008A 83 C4 06                 add sp, 0x6
 008D                          RETURN
 
-Functn17: "NPCCHATA"
+NPCCHATA_17:
 0000                          BEGIN
 0003                          ShowMessage(0851) [es:bx+0xf8] = You encounter an Elf Ranger.
 0010                          ShowPortrait(001F) [es:bx+0xfc]
@@ -394,7 +366,7 @@ Functn17: "NPCCHATA"
 003E                          ShowMessage(08D2) [es:bx+0xf8] = The Elf Ranger decides you are not worthy of his time and leaves.
 004B                          RETURN
 
-Functn18: "NPCCHATB"
+NPCCHATB_18:
 0000                          BEGIN
 0003                          ShowMessage(0914) [es:bx+0xf8] = You encounter a Human Wizard.
 0010                          ShowPortrait(002B) [es:bx+0xfc]
@@ -406,7 +378,7 @@ Functn18: "NPCCHATB"
 003E                          ShowMessage(0A32) [es:bx+0xf8] = The Human Wizard falls into a deep trance and refuses to talk.
 004B                          RETURN
 
-Functn19: "NPCCHATC"
+NPCCHATC_19:
 0000                          BEGIN
 0003                          ShowMessage(0A71) [es:bx+0xf8] = You encounter a Gremlin Thief.
 0010                          ShowPortrait(0026) [es:bx+0xfc]
@@ -418,7 +390,7 @@ Functn19: "NPCCHATC"
 003E                          ShowMessage(0B33) [es:bx+0xf8] = The Gremlin Thief slips into a shadow and disappears.
 004B                          RETURN
 
-Functn1A: "NPCCHATD"
+NPCCHATD_1A:
 0000                          BEGIN
 0003                          ShowMessage(0B69) [es:bx+0xf8] = You encounter an Orc Knight.
 0010                          ShowPortrait(001A) [es:bx+0xfc]
@@ -430,7 +402,7 @@ Functn1A: "NPCCHATD"
 003E                          ShowMessage(0C60) [es:bx+0xf8] = The Orc Knight smiles politely and shoos you away.
 004B                          RETURN
 
-Functn1B: "NPCCHATE"
+NPCCHATE_1B:
 0000                          BEGIN
 0003                          ShowMessage(0C93) [es:bx+0xf8] = You encounter an Elf Cleric.
 0010                          ShowPortrait(0027) [es:bx+0xfc]
@@ -442,14 +414,13 @@ Functn1B: "NPCCHATE"
 003E                          ShowMessage(0D4B) [es:bx+0xf8] = The Elf Cleric is too engrossed in his prayers to talk with you.
 004B                          RETURN
 
-Functn1C: "KEYDRA"
+KEYDRA_1C:
 0000                          BEGIN
 0003                          ax = HasItem(D3) [es:bx+0x50]
 0011 74 5F                    jz 0x72
 0013                          SetState(02, 00, 01) [es:bx]
 0027                          ShowMessage(0D8C) [es:bx+0xf8] = Cleowyn's Key unlocks the door.
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 5F 24              call far word [es:bx+0x24]
+0034                          ax = SetExitability(ax) [es:bx+0x24]
 003B 50                       push ax
 003C C4 5E 06                 les bx, [bp+0x6]
 003F 26 FF 5F 20              call far word [es:bx+0x20]
@@ -459,10 +430,7 @@ Functn1C: "KEYDRA"
 0048 C4 5E 06                 les bx, [bp+0x6]
 004B 26 FF 5F 30              call far word [es:bx+0x30]
 004F 83 C4 06                 add sp, 0x6
-0052 B8 01 00                 mov ax, 0x1
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 5F 24              call far word [es:bx+0x24]
+0052                          ax = SetExitability(01) [es:bx+0x24]
 005D 50                       push ax
 005E C4 5E 06                 les bx, [bp+0x6]
 0061 26 FF 5F 20              call far word [es:bx+0x20]
@@ -472,10 +440,7 @@ Functn1C: "KEYDRA"
 006D 83 C4 06                 add sp, 0x6
 0070 EB 2A                    jmp 0x9c
 0072                          ShowMessage(0DAC) [es:bx+0xf8] = The door is locked.
-007F 33 C0                    xor ax, ax
-0081 50                       push ax
-0082 C4 5E 06                 les bx, [bp+0x6]
-0085 26 FF 5F 24              call far word [es:bx+0x24]
+007F                          ax = SetExitability(00) [es:bx+0x24]
 0089 50                       push ax
 008A C4 5E 06                 les bx, [bp+0x6]
 008D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -485,14 +450,13 @@ Functn1C: "KEYDRA"
 0099 83 C4 06                 add sp, 0x6
 009C                          RETURN
 
-Functn1D: "LKPKDRA"
+LKPKDRA_1D:
 0000                          BEGIN
 0003                          ax = HasItem(D2) [es:bx+0x50]
 0011 74 5F                    jz 0x72
 0013                          SetState(02, 00, 02) [es:bx]
 0027                          ShowMessage(0DC0) [es:bx+0xf8] = Cleowyn's Lockpick has unlocked the door.
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 5F 24              call far word [es:bx+0x24]
+0034                          ax = SetExitability(ax) [es:bx+0x24]
 003B 50                       push ax
 003C C4 5E 06                 les bx, [bp+0x6]
 003F 26 FF 5F 20              call far word [es:bx+0x20]
@@ -502,10 +466,7 @@ Functn1D: "LKPKDRA"
 0048 C4 5E 06                 les bx, [bp+0x6]
 004B 26 FF 5F 30              call far word [es:bx+0x30]
 004F 83 C4 06                 add sp, 0x6
-0052 B8 01 00                 mov ax, 0x1
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 5F 24              call far word [es:bx+0x24]
+0052                          ax = SetExitability(01) [es:bx+0x24]
 005D 50                       push ax
 005E C4 5E 06                 les bx, [bp+0x6]
 0061 26 FF 5F 20              call far word [es:bx+0x20]
@@ -515,10 +476,7 @@ Functn1D: "LKPKDRA"
 006D 83 C4 06                 add sp, 0x6
 0070 EB 2A                    jmp 0x9c
 0072                          ShowMessage(0DEA) [es:bx+0xf8] = The door is locked.  It looks like something special is needed to open this door.
-007F 33 C0                    xor ax, ax
-0081 50                       push ax
-0082 C4 5E 06                 les bx, [bp+0x6]
-0085 26 FF 5F 24              call far word [es:bx+0x24]
+007F                          ax = SetExitability(00) [es:bx+0x24]
 0089 50                       push ax
 008A C4 5E 06                 les bx, [bp+0x6]
 008D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -528,14 +486,13 @@ Functn1D: "LKPKDRA"
 0099 83 C4 06                 add sp, 0x6
 009C                          RETURN
 
-Functn1E: "STRNGDRA"
+STRNGDRA_1E:
 0000                          BEGIN
 0003                          CheckStrength(12) [es:bx+0xa4]
 0012 72 5F                    jb 0x73
 0014                          SetState(02, 00, 03) [es:bx]
 0028                          ShowMessage(0E3C) [es:bx+0xf8] = You manage to force open the door.
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 5F 24              call far word [es:bx+0x24]
+0035                          ax = SetExitability(ax) [es:bx+0x24]
 003C 50                       push ax
 003D C4 5E 06                 les bx, [bp+0x6]
 0040 26 FF 5F 20              call far word [es:bx+0x20]
@@ -545,10 +502,7 @@ Functn1E: "STRNGDRA"
 0049 C4 5E 06                 les bx, [bp+0x6]
 004C 26 FF 5F 30              call far word [es:bx+0x30]
 0050 83 C4 06                 add sp, 0x6
-0053 B8 01 00                 mov ax, 0x1
-0056 50                       push ax
-0057 C4 5E 06                 les bx, [bp+0x6]
-005A 26 FF 5F 24              call far word [es:bx+0x24]
+0053                          ax = SetExitability(01) [es:bx+0x24]
 005E 50                       push ax
 005F C4 5E 06                 les bx, [bp+0x6]
 0062 26 FF 5F 20              call far word [es:bx+0x20]
@@ -558,10 +512,7 @@ Functn1E: "STRNGDRA"
 006E 83 C4 06                 add sp, 0x6
 0071 EB 2A                    jmp 0x9d
 0073                          ShowMessage(0E5F) [es:bx+0xf8] = The door is currently impassable.
-0080 33 C0                    xor ax, ax
-0082 50                       push ax
-0083 C4 5E 06                 les bx, [bp+0x6]
-0086 26 FF 5F 24              call far word [es:bx+0x24]
+0080                          ax = SetExitability(00) [es:bx+0x24]
 008A 50                       push ax
 008B C4 5E 06                 les bx, [bp+0x6]
 008E 26 FF 5F 20              call far word [es:bx+0x20]
@@ -571,7 +522,7 @@ Functn1E: "STRNGDRA"
 009A 83 C4 06                 add sp, 0x6
 009D                          RETURN
 
-Functn1F: "REGDORA"
+REGDORA_1F:
 0000                          BEGIN
 0003                          ax = CheckState(02, 00, FF) [es:bx+0x4]
 0015 74 15                    jz 0x2c
@@ -579,8 +530,7 @@ Functn1F: "REGDORA"
 002A 75 5F                    jnz 0x8b
 002C                          SetState(02, 00, 04) [es:bx]
 0040                          ShowMessage(0E81) [es:bx+0xf8] = As you open the door, you hear locks click throughout the dungeon.
-004D C4 5E 06                 les bx, [bp+0x6]
-0050 26 FF 5F 24              call far word [es:bx+0x24]
+004D                          ax = SetExitability(ax) [es:bx+0x24]
 0054 50                       push ax
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 5F 20              call far word [es:bx+0x20]
@@ -590,10 +540,7 @@ Functn1F: "REGDORA"
 0061 C4 5E 06                 les bx, [bp+0x6]
 0064 26 FF 5F 30              call far word [es:bx+0x30]
 0068 83 C4 06                 add sp, 0x6
-006B B8 01 00                 mov ax, 0x1
-006E 50                       push ax
-006F C4 5E 06                 les bx, [bp+0x6]
-0072 26 FF 5F 24              call far word [es:bx+0x24]
+006B                          ax = SetExitability(01) [es:bx+0x24]
 0076 50                       push ax
 0077 C4 5E 06                 les bx, [bp+0x6]
 007A 26 FF 5F 20              call far word [es:bx+0x20]
@@ -603,10 +550,7 @@ Functn1F: "REGDORA"
 0086 83 C4 06                 add sp, 0x6
 0089 EB 2A                    jmp 0xb5
 008B                          ShowMessage(0EC4) [es:bx+0xf8] = The door is currently impassable.
-0098 33 C0                    xor ax, ax
-009A 50                       push ax
-009B C4 5E 06                 les bx, [bp+0x6]
-009E 26 FF 5F 24              call far word [es:bx+0x24]
+0098                          ax = SetExitability(00) [es:bx+0x24]
 00A2 50                       push ax
 00A3 C4 5E 06                 les bx, [bp+0x6]
 00A6 26 FF 5F 20              call far word [es:bx+0x20]

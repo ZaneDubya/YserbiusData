@@ -1,4 +1,4 @@
-Functn01: "RIVER"
+RIVER_01:
 0000                          BEGIN
 0003                          ShowMessage(03FC) [es:bx+0xf8] = The River of Eternity taps your life energy.
 0010 C4 5E 06                 les bx, [bp+0x6]
@@ -15,19 +15,19 @@ Functn01: "RIVER"
 003A                          ShowMessage(0429) [es:bx+0xf8] = You have died.
 0047                          RETURN
 
-Functn02: "RIVRBANK"
+RIVRBANK_02:
 0000                          BEGIN
 0003                          ShowMessage(0438) [es:bx+0xf8] = Only the bravest adventurers explore the River for hidden passages.
 0010                          RETURN
 
-Functn03: "VOID"
+VOID_03:
 0000                          BEGIN
 0003                          ShowMessage(047C) [es:bx+0xf8] = The Ageless Void swallows you whole.
 0010                          ax = GetHits() [es:bx+0x74]
 0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
-Functn04: "PLATA"
+PLATA_04:
 0000                          BEGIN
 0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010                          ShowMessage(04A1) [es:bx+0xf8] = SageCross Fountain revives your Health and Mana
@@ -43,7 +43,7 @@ Functn04: "PLATA"
 003A 59                       pop cx
 003B                          RETURN
 
-Functn05: "PLATB"
+PLATB_05:
 0000                          BEGIN
 0003 B8 84 00                 mov ax, 0x84
 0006 50                       push ax
@@ -92,7 +92,7 @@ Functn05: "PLATB"
 008D 59                       pop cx
 008E                          RETURN
 
-Functn06: "PLATCTOA"
+PLATCTOA_06:
 0000                          BEGIN
 0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010                          ShowMessage(050E) [es:bx+0xf8] = Minotaur Fountain revives your Health and Mana
@@ -108,13 +108,13 @@ Functn06: "PLATCTOA"
 003A 59                       pop cx
 003B                          RETURN
 
-Functn07: "PLATDTOB"
+PLATDTOB_07:
 0000                          BEGIN
 0003                          ShowMessage(053D) [es:bx+0xf8] = As you reach the platform, a magical field envelops you and teleports you to a moon tapestry.
 0010                          GoMap(02, EE, 03, 38) [es:bx+0xbc]
 002B                          RETURN
 
-Functn0C: "TAPMOONS"
+TAPMOONS_0C:
 0000                          BEGIN
 0003 B8 F2 00                 mov ax, 0xf2
 0006 50                       push ax
@@ -136,10 +136,7 @@ Functn0C: "TAPMOONS"
 0028 C4 5E 06                 les bx, [bp+0x6]
 002B 26 FF 5F 30              call far word [es:bx+0x30]
 002F 83 C4 06                 add sp, 0x6
-0032 B8 01 00                 mov ax, 0x1
-0035 50                       push ax
-0036 C4 5E 06                 les bx, [bp+0x6]
-0039 26 FF 5F 24              call far word [es:bx+0x24]
+0032                          ax = SetExitability(01) [es:bx+0x24]
 003D 50                       push ax
 003E C4 5E 06                 les bx, [bp+0x6]
 0041 26 FF 5F 20              call far word [es:bx+0x20]
@@ -152,7 +149,7 @@ Functn0C: "TAPMOONS"
 005F                          ShowMessage(05D1) [es:bx+0xf8] = A brilliant tapestry depicting moons decorates this room.
 006C                          RETURN
 
-Functn12: "THEFCLUE"
+THEFCLUE_12:
 0000                          BEGIN
 0003                          ShowPortrait(0024) [es:bx+0xfc]
 0010                          ShowMessage(060B) [es:bx+0xf8] = A Gnome Thief steps out of the shadows -
@@ -162,17 +159,17 @@ Functn12: "THEFCLUE"
 0044                          ShowMessage(0705) [es:bx+0xf8] = Have your boat when the gems are set and sail the rainbow to your destiny.'
 0051                          RETURN
 
-Functn13: "THIEVES"
+THIEVES_13:
 0000                          BEGIN
 0003                          ShowMessage(0751) [es:bx+0xf8] = A doorway is marked -- 'Voranti's Treasure'
 0010                          RETURN
 
-Functn14: "RAINBOW"
+RAINBOW_14:
 0000                          BEGIN
 0003                          ShowMessage(077D) [es:bx+0xf8] = Various golden objects appear to be standing to the west, just at the edge of the Ageless Void.
 0010                          RETURN
 
-Functn15: "RAINRED"
+RAINRED_15:
 0000                          BEGIN
 0003 B8 F4 00                 mov ax, 0xf4
 0006 50                       push ax
@@ -275,7 +272,7 @@ Functn15: "RAINRED"
 014D                          ShowMessage(0954) [es:bx+0xf8] = A rainbow voyage across the Ageless Void awaits you to the West.
 015A                          RETURN
 
-Functn16: "RAINYEL"
+RAINYEL_16:
 0000                          BEGIN
 0003 B8 F5 00                 mov ax, 0xf5
 0006 50                       push ax
@@ -376,7 +373,7 @@ Functn16: "RAINYEL"
 013E                          ShowMessage(0AD7) [es:bx+0xf8] = A rainbow voyage across the Ageless Void awaits you to the West.
 014B                          RETURN
 
-Functn17: "RAINGRN"
+RAINGRN_17:
 0000                          BEGIN
 0003 B8 F6 00                 mov ax, 0xf6
 0006 50                       push ax
@@ -477,7 +474,7 @@ Functn17: "RAINGRN"
 013E                          ShowMessage(0C59) [es:bx+0xf8] = A rainbow voyage across the Ageless Void awaits you to the West.
 014B                          RETURN
 
-Functn18: "RAINBLU"
+RAINBLU_18:
 0000                          BEGIN
 0003 B8 F7 00                 mov ax, 0xf7
 0006 50                       push ax
@@ -578,52 +575,52 @@ Functn18: "RAINBLU"
 013E                          ShowMessage(0DDA) [es:bx+0xf8] = A rainbow voyage across the Ageless Void awaits you to the West.
 014B                          RETURN
 
-Functn19: "GATEA"
+GATEA_19:
 0000                          BEGIN
 0003                          ShowMessage(0E1B) [es:bx+0xf8] = This gate leads to the GIANTS' LAND
 0010                          GoMap(03, FB, 02, 38) [es:bx+0xbc]
 002B                          RETURN
 
-Functn1A: "ENCA"
+ENCA_1A:
 0000                          BEGIN
 0003                          ShowMessage(0E3F) [es:bx+0xf8] = A burst of moon light floods the room.
-0010                          SetEncData(24, 01) [es:bx+0xd4]
-0022                          SetEncData(24, 02) [es:bx+0xd4]
-0034                          SetEncData(25, 03) [es:bx+0xd4]
-0046                          SetEncData(25, 04) [es:bx+0xd4]
-0058                          SetEncData(22, 05) [es:bx+0xd4]
-006A                          SetEncData(22, 06) [es:bx+0xd4]
+0010                          AddEncounter(24, 01) [es:bx+0xd4]
+0022                          AddEncounter(24, 02) [es:bx+0xd4]
+0034                          AddEncounter(25, 03) [es:bx+0xd4]
+0046                          AddEncounter(25, 04) [es:bx+0xd4]
+0058                          AddEncounter(22, 05) [es:bx+0xd4]
+006A                          AddEncounter(22, 06) [es:bx+0xd4]
 007C                          RETURN
 
-Functn1B: "ENCB"
+ENCB_1B:
 0000                          BEGIN
-0003                          SetEncData(26, 01) [es:bx+0xd4]
-0015                          SetEncData(27, 02) [es:bx+0xd4]
-0027                          SetEncData(1A, 03) [es:bx+0xd4]
-0039                          SetEncData(1C, 04) [es:bx+0xd4]
-004B                          SetEncData(1E, 05) [es:bx+0xd4]
+0003                          AddEncounter(26, 01) [es:bx+0xd4]
+0015                          AddEncounter(27, 02) [es:bx+0xd4]
+0027                          AddEncounter(1A, 03) [es:bx+0xd4]
+0039                          AddEncounter(1C, 04) [es:bx+0xd4]
+004B                          AddEncounter(1E, 05) [es:bx+0xd4]
 005D                          RETURN
 
-Functn1C: "ENCC"
+ENCC_1C:
 0000                          BEGIN
 0003                          ShowMessage(0E66) [es:bx+0xf8] = Dragons defend their lair.
-0010                          SetEncData(26, 01) [es:bx+0xd4]
-0022                          SetEncData(28, 02) [es:bx+0xd4]
-0034                          SetEncData(17, 05) [es:bx+0xd4]
-0046                          SetEncData(17, 06) [es:bx+0xd4]
+0010                          AddEncounter(26, 01) [es:bx+0xd4]
+0022                          AddEncounter(28, 02) [es:bx+0xd4]
+0034                          AddEncounter(17, 05) [es:bx+0xd4]
+0046                          AddEncounter(17, 06) [es:bx+0xd4]
 0058                          RETURN
 
-Functn1D: "ENCD"
+ENCD_1D:
 0000                          BEGIN
-0003                          SetEncData(19, 01) [es:bx+0xd4]
-0015                          SetEncData(19, 02) [es:bx+0xd4]
-0027                          SetEncData(1B, 03) [es:bx+0xd4]
-0039                          SetEncData(1B, 04) [es:bx+0xd4]
-004B                          SetEncData(22, 05) [es:bx+0xd4]
-005D                          SetEncData(23, 06) [es:bx+0xd4]
+0003                          AddEncounter(19, 01) [es:bx+0xd4]
+0015                          AddEncounter(19, 02) [es:bx+0xd4]
+0027                          AddEncounter(1B, 03) [es:bx+0xd4]
+0039                          AddEncounter(1B, 04) [es:bx+0xd4]
+004B                          AddEncounter(22, 05) [es:bx+0xd4]
+005D                          AddEncounter(23, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn1E: "TAPECLUE"
+TAPECLUE_1E:
 0000                          BEGIN
 0003                          ShowMessage(0E81) [es:bx+0xf8] = Rune symbols decorate the tapestry -- 
 0010                          ShowRunes(500E) [es:bx+0xf4] = Past the Platforms a Tapestry you will find.
@@ -631,7 +628,7 @@ Functn1E: "TAPECLUE"
 002A                          ShowRunes(500F) [es:bx+0xf4] = Then... ACK, UGH, THUMP  (the rest of the tapestry is smeared with blood)
 0037                          RETURN
 
-Functn1F: "BOAT"
+BOAT_1F:
 0000                          BEGIN
 0003 B8 01 00                 mov ax, 0x1
 0006 50                       push ax
@@ -655,17 +652,17 @@ Functn1F: "BOAT"
 0089                          DoDamage(ax) [es:bx+0x90]
 0093                          RETURN
 
-Functn20: "DOORWARN"
+DOORWARN_20:
 0000                          BEGIN
 0003                          ShowMessage(1123) [es:bx+0xf8] = This door leads the way back to the Land of Giants.
 0010                          RETURN
 
-Functn24: "NOLIGHT"
+NOLIGHT_24:
 0000                          BEGIN
 0003                          ShowMessage(1157) [es:bx+0xf8] = This side of the tapestry appears dark.
 0010                          RETURN
 
-Functn25: "PLATFORM"
+PLATFORM_25:
 0000                          BEGIN
 0003                          ShowMessage(117F) [es:bx+0xf8] = You stand upon a platform in the center of the River of Eternity.
 0010                          RETURN

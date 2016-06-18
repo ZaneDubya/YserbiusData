@@ -1,4 +1,4 @@
-Functn01: "VOID"
+VOID_01:
 0000                          BEGIN
 0003                          ShowMessage(03FC) [es:bx+0xf8] = The Ageless Void swallows you whole.
 0010                          ShowMessage(0421) [es:bx+0xf8] = Time freezes forever in your mind.  To the rest of the world, you are dead.
@@ -6,14 +6,14 @@ Functn01: "VOID"
 0024                          DoDamage(ax) [es:bx+0x90]
 002E                          RETURN
 
-Functn02: "LIFE"
+LIFE_02:
 0000                          BEGIN
 0003                          ShowMessage(046D) [es:bx+0xf8] = You are dragged into the Waters of Death. Your death agonies are mercifully short.
 0010                          ax = GetHits() [es:bx+0x74]
 0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
-Functn03: "TIMEA"
+TIMEA_03:
 0000                          BEGIN
 0003 4C                       dec sp
 0004 4C                       dec sp
@@ -93,7 +93,7 @@ Functn03: "TIMEA"
 00F2 8B E5                    mov sp, bp
 00F4                          RETURN
 
-Functn04: "TIMEB"
+TIMEB_04:
 0000                          BEGIN
 0003 4C                       dec sp
 0004 4C                       dec sp
@@ -173,7 +173,7 @@ Functn04: "TIMEB"
 00F2 8B E5                    mov sp, bp
 00F4                          RETURN
 
-Functn05: "TIMEC"
+TIMEC_05:
 0000                          BEGIN
 0003 4C                       dec sp
 0004 4C                       dec sp
@@ -253,7 +253,7 @@ Functn05: "TIMEC"
 00F2 8B E5                    mov sp, bp
 00F4                          RETURN
 
-Functn06: "TIMEELEM"
+TIMEELEM_06:
 0000                          BEGIN
 0003                          ShowPortrait(0011) [es:bx+0xfc]
 0010                          ShowMessage(07C0) [es:bx+0xf8] = I am the Time Elemental, En-Li-Kil.
@@ -265,14 +265,14 @@ Functn06: "TIMEELEM"
 005E                          SetState(02, 7B, 00) [es:bx]
 0072                          SetState(02, 7C, 00) [es:bx]
 0086                          SetState(02, 7D, 00) [es:bx]
-009A                          SetEncData(21, 01) [es:bx+0xd4]
-00AC                          SetEncData(23, 02) [es:bx+0xd4]
-00BE                          SetEncData(10, 03) [es:bx+0xd4]
-00D0                          SetEncData(19, 04) [es:bx+0xd4]
-00E2                          SetEncData(28, 06) [es:bx+0xd4]
+009A                          AddEncounter(21, 01) [es:bx+0xd4]
+00AC                          AddEncounter(23, 02) [es:bx+0xd4]
+00BE                          AddEncounter(10, 03) [es:bx+0xd4]
+00D0                          AddEncounter(19, 04) [es:bx+0xd4]
+00E2                          AddEncounter(28, 06) [es:bx+0xd4]
 00F4                          RETURN
 
-Functn07: "TIMEPLAT"
+TIMEPLAT_07:
 0000                          BEGIN
 0003                          ax = CheckState(01, 00, FF) [es:bx+0x4]
 0015 74 63                    jz 0x7a
@@ -321,33 +321,13 @@ Functn07: "TIMEPLAT"
 009F                          DoDamage(ax) [es:bx+0x90]
 00A9                          RETURN
 
-Functn08: "GOAL"
+GOAL_08:
 0000                          BEGIN
-0003 B8 F4 00                 mov ax, 0xf4
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 4C              call far word [es:bx+0x4c]
-000E 59                       pop cx
-000F B8 F5 00                 mov ax, 0xf5
-0012 50                       push ax
-0013 C4 5E 06                 les bx, [bp+0x6]
-0016 26 FF 5F 4C              call far word [es:bx+0x4c]
-001A 59                       pop cx
-001B B8 F6 00                 mov ax, 0xf6
-001E 50                       push ax
-001F C4 5E 06                 les bx, [bp+0x6]
-0022 26 FF 5F 4C              call far word [es:bx+0x4c]
-0026 59                       pop cx
-0027 B8 F7 00                 mov ax, 0xf7
-002A 50                       push ax
-002B C4 5E 06                 les bx, [bp+0x6]
-002E 26 FF 5F 4C              call far word [es:bx+0x4c]
-0032 59                       pop cx
-0033 B8 F3 00                 mov ax, 0xf3
-0036 50                       push ax
-0037 C4 5E 06                 les bx, [bp+0x6]
-003A 26 FF 5F 4C              call far word [es:bx+0x4c]
-003E 59                       pop cx
+0003                          RemoveItem(F4) [es:bx+0x4c]
+000F                          RemoveItem(F5) [es:bx+0x4c]
+001B                          RemoveItem(F6) [es:bx+0x4c]
+0027                          RemoveItem(F7) [es:bx+0x4c]
+0033                          RemoveItem(F3) [es:bx+0x4c]
 003F                          ax = CheckState2(02, 6A) [es:bx+0x8]
 0052 74 2A                    jz 0x7e
 0054                          ShowMessage(0A00) [es:bx+0xf8] = You have found the Fountain of Life, but the waters are drained.
@@ -383,39 +363,39 @@ Functn08: "GOAL"
 0129 59                       pop cx
 012A                          RETURN
 
-Functn09: "ENCA"
+ENCA_09:
 0000                          BEGIN
 0003                          ShowMessage(0C2F) [es:bx+0xf8] = Across the Waters of Death at the center of this finite square is the Fountain of Life.
 0010                          ShowMessage(0C87) [es:bx+0xf8] = The Fountain is well guarded.
-001D                          SetEncData(19, 01) [es:bx+0xd4]
-002F                          SetEncData(1B, 02) [es:bx+0xd4]
-0041                          SetEncData(19, 03) [es:bx+0xd4]
-0053                          SetEncData(1B, 04) [es:bx+0xd4]
-0065                          SetEncData(23, 05) [es:bx+0xd4]
-0077                          SetEncData(1D, 06) [es:bx+0xd4]
+001D                          AddEncounter(19, 01) [es:bx+0xd4]
+002F                          AddEncounter(1B, 02) [es:bx+0xd4]
+0041                          AddEncounter(19, 03) [es:bx+0xd4]
+0053                          AddEncounter(1B, 04) [es:bx+0xd4]
+0065                          AddEncounter(23, 05) [es:bx+0xd4]
+0077                          AddEncounter(1D, 06) [es:bx+0xd4]
 0089                          RETURN
 
-Functn0A: "ENCB"
+ENCB_0A:
 0000                          BEGIN
-0003                          SetEncData(08, 01) [es:bx+0xd4]
-0015                          SetEncData(08, 02) [es:bx+0xd4]
-0027                          SetEncData(24, 03) [es:bx+0xd4]
-0039                          SetEncData(25, 04) [es:bx+0xd4]
-004B                          SetEncData(26, 05) [es:bx+0xd4]
-005D                          SetEncData(27, 06) [es:bx+0xd4]
+0003                          AddEncounter(08, 01) [es:bx+0xd4]
+0015                          AddEncounter(08, 02) [es:bx+0xd4]
+0027                          AddEncounter(24, 03) [es:bx+0xd4]
+0039                          AddEncounter(25, 04) [es:bx+0xd4]
+004B                          AddEncounter(26, 05) [es:bx+0xd4]
+005D                          AddEncounter(27, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn0B: "ENCC"
+ENCC_0B:
 0000                          BEGIN
-0003                          SetEncData(1B, 01) [es:bx+0xd4]
-0015                          SetEncData(1B, 02) [es:bx+0xd4]
-0027                          SetEncData(1C, 03) [es:bx+0xd4]
-0039                          SetEncData(1C, 04) [es:bx+0xd4]
-004B                          SetEncData(1F, 05) [es:bx+0xd4]
-005D                          SetEncData(1F, 06) [es:bx+0xd4]
+0003                          AddEncounter(1B, 01) [es:bx+0xd4]
+0015                          AddEncounter(1B, 02) [es:bx+0xd4]
+0027                          AddEncounter(1C, 03) [es:bx+0xd4]
+0039                          AddEncounter(1C, 04) [es:bx+0xd4]
+004B                          AddEncounter(1F, 05) [es:bx+0xd4]
+005D                          AddEncounter(1F, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn0C: "ENCD"
+ENCD_0C:
 0000                          BEGIN
 0003 B8 7B 00                 mov ax, 0x7b
 0006 50                       push ax
@@ -455,35 +435,35 @@ Functn0C: "ENCD"
 004C 26 FF 5F 38              call far word [es:bx+0x38]
 0050 59                       pop cx
 0051 59                       pop cx
-0052                          SetEncData(19, 01) [es:bx+0xd4]
-0064                          SetEncData(19, 02) [es:bx+0xd4]
-0076                          SetEncData(1C, 03) [es:bx+0xd4]
-0088                          SetEncData(1C, 04) [es:bx+0xd4]
-009A                          SetEncData(1D, 05) [es:bx+0xd4]
-00AC                          SetEncData(1D, 06) [es:bx+0xd4]
+0052                          AddEncounter(19, 01) [es:bx+0xd4]
+0064                          AddEncounter(19, 02) [es:bx+0xd4]
+0076                          AddEncounter(1C, 03) [es:bx+0xd4]
+0088                          AddEncounter(1C, 04) [es:bx+0xd4]
+009A                          AddEncounter(1D, 05) [es:bx+0xd4]
+00AC                          AddEncounter(1D, 06) [es:bx+0xd4]
 00BE                          RETURN
 
-Functn0D: "ENCE"
+ENCE_0D:
 0000                          BEGIN
-0003                          SetEncData(1E, 01) [es:bx+0xd4]
-0015                          SetEncData(1E, 02) [es:bx+0xd4]
-0027                          SetEncData(20, 03) [es:bx+0xd4]
-0039                          SetEncData(20, 04) [es:bx+0xd4]
-004B                          SetEncData(18, 05) [es:bx+0xd4]
-005D                          SetEncData(21, 06) [es:bx+0xd4]
+0003                          AddEncounter(1E, 01) [es:bx+0xd4]
+0015                          AddEncounter(1E, 02) [es:bx+0xd4]
+0027                          AddEncounter(20, 03) [es:bx+0xd4]
+0039                          AddEncounter(20, 04) [es:bx+0xd4]
+004B                          AddEncounter(18, 05) [es:bx+0xd4]
+005D                          AddEncounter(21, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn0E: "ENCF"
+ENCF_0E:
 0000                          BEGIN
-0003                          SetEncData(22, 01) [es:bx+0xd4]
-0015                          SetEncData(22, 02) [es:bx+0xd4]
-0027                          SetEncData(1F, 03) [es:bx+0xd4]
-0039                          SetEncData(1F, 04) [es:bx+0xd4]
-004B                          SetEncData(23, 05) [es:bx+0xd4]
-005D                          SetEncData(23, 06) [es:bx+0xd4]
+0003                          AddEncounter(22, 01) [es:bx+0xd4]
+0015                          AddEncounter(22, 02) [es:bx+0xd4]
+0027                          AddEncounter(1F, 03) [es:bx+0xd4]
+0039                          AddEncounter(1F, 04) [es:bx+0xd4]
+004B                          AddEncounter(23, 05) [es:bx+0xd4]
+005D                          AddEncounter(23, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn0F: "CROSSOVR"
+CROSSOVR_0F:
 0000                          BEGIN
 0003                          ax = CheckState(01, 00, FF) [es:bx+0x4]
 0015 74 3C                    jz 0x53
@@ -526,7 +506,7 @@ Functn0F: "CROSSOVR"
 0063 59                       pop cx
 0064                          RETURN
 
-Functn10: "MAPCONV"
+MAPCONV_10:
 0000                          BEGIN
 0003 4C                       dec sp
 0004 4C                       dec sp
@@ -592,7 +572,7 @@ Functn10: "MAPCONV"
 00E8 8B E5                    mov sp, bp
 00EA                          RETURN
 
-Functn12: "TELEBACK"
+TELEBACK_12:
 0000                          BEGIN
 0003                          ShowMessage(0CA5) [es:bx+0xf8] = You leave this dimension and re-enter your world.
 0010                          GoMap(02, 88, 04, 38) [es:bx+0xbc]

@@ -1,4 +1,4 @@
-Functn01: "ALDBORA"
+ALDBORA_01:
 0000                          BEGIN
 0003 56                       push si
 0004 B8 01 00                 mov ax, 0x1
@@ -28,16 +28,8 @@ Functn01: "ALDBORA"
 0045 75 03                    jnz 0x4a
 0047 E9 CA 03                 jmp 0x414
 004A                          ShowMessage(03FC) [es:bx+0xf8] = The AldBora Tree bears... 
-0057 B8 E8 00                 mov ax, 0xe8
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 5F 4C              call far word [es:bx+0x4c]
-0062 59                       pop cx
-0063 B8 E9 00                 mov ax, 0xe9
-0066 50                       push ax
-0067 C4 5E 06                 les bx, [bp+0x6]
-006A 26 FF 5F 4C              call far word [es:bx+0x4c]
-006E 59                       pop cx
+0057                          RemoveItem(E8) [es:bx+0x4c]
+0063                          RemoveItem(E9) [es:bx+0x4c]
 006F 33 C0                    xor ax, ax
 0071 50                       push ax
 0072 C4 5E 06                 les bx, [bp+0x6]
@@ -381,102 +373,102 @@ Functn01: "ALDBORA"
 0467 04 5B                    add al, 0x5b
 0469 04                       invalid
 
-Functn02: "ENCA"
+ENCA_02:
 0000                          BEGIN
 0003                          ShowMessage(07DD) [es:bx+0xf8] = Dwarven Knights attempt an ambush.
-0010                          SetEncData(20, 01) [es:bx+0xd4]
-0022                          SetEncData(20, 02) [es:bx+0xd4]
-0034                          SetEncData(22, 05) [es:bx+0xd4]
-0046                          SetEncData(22, 06) [es:bx+0xd4]
+0010                          AddEncounter(20, 01) [es:bx+0xd4]
+0022                          AddEncounter(20, 02) [es:bx+0xd4]
+0034                          AddEncounter(22, 05) [es:bx+0xd4]
+0046                          AddEncounter(22, 06) [es:bx+0xd4]
 0058                          RETURN
 
-Functn03: "ENCB"
+ENCB_03:
 0000                          BEGIN
-0003                          SetEncData(1F, 01) [es:bx+0xd4]
-0015                          SetEncData(1E, 02) [es:bx+0xd4]
-0027                          SetEncData(1D, 03) [es:bx+0xd4]
-0039                          SetEncData(1B, 04) [es:bx+0xd4]
-004B                          SetEncData(23, 05) [es:bx+0xd4]
-005D                          SetEncData(23, 06) [es:bx+0xd4]
+0003                          AddEncounter(1F, 01) [es:bx+0xd4]
+0015                          AddEncounter(1E, 02) [es:bx+0xd4]
+0027                          AddEncounter(1D, 03) [es:bx+0xd4]
+0039                          AddEncounter(1B, 04) [es:bx+0xd4]
+004B                          AddEncounter(23, 05) [es:bx+0xd4]
+005D                          AddEncounter(23, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn04: "ENCC"
+ENCC_04:
 0000                          BEGIN
-0003                          SetEncData(1F, 01) [es:bx+0xd4]
-0015                          SetEncData(1F, 02) [es:bx+0xd4]
-0027                          SetEncData(24, 03) [es:bx+0xd4]
-0039                          SetEncData(19, 04) [es:bx+0xd4]
+0003                          AddEncounter(1F, 01) [es:bx+0xd4]
+0015                          AddEncounter(1F, 02) [es:bx+0xd4]
+0027                          AddEncounter(24, 03) [es:bx+0xd4]
+0039                          AddEncounter(19, 04) [es:bx+0xd4]
 004B                          RETURN
 
-Functn05: "ENCD"
+ENCD_05:
 0000                          BEGIN
-0003                          SetEncData(18, 01) [es:bx+0xd4]
-0015                          SetEncData(1A, 02) [es:bx+0xd4]
-0027                          SetEncData(26, 03) [es:bx+0xd4]
-0039                          SetEncData(26, 04) [es:bx+0xd4]
-004B                          SetEncData(22, 05) [es:bx+0xd4]
-005D                          SetEncData(22, 06) [es:bx+0xd4]
+0003                          AddEncounter(18, 01) [es:bx+0xd4]
+0015                          AddEncounter(1A, 02) [es:bx+0xd4]
+0027                          AddEncounter(26, 03) [es:bx+0xd4]
+0039                          AddEncounter(26, 04) [es:bx+0xd4]
+004B                          AddEncounter(22, 05) [es:bx+0xd4]
+005D                          AddEncounter(22, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn06: "ENCE"
+ENCE_06:
 0000                          BEGIN
-0003                          SetEncData(14, 01) [es:bx+0xd4]
-0015                          SetEncData(16, 02) [es:bx+0xd4]
-0027                          SetEncData(26, 03) [es:bx+0xd4]
-0039                          SetEncData(27, 04) [es:bx+0xd4]
+0003                          AddEncounter(14, 01) [es:bx+0xd4]
+0015                          AddEncounter(16, 02) [es:bx+0xd4]
+0027                          AddEncounter(26, 03) [es:bx+0xd4]
+0039                          AddEncounter(27, 04) [es:bx+0xd4]
 004B                          RETURN
 
-Functn07: "ENCF"
+ENCF_07:
 0000                          BEGIN
 0003                          ax = HasItem(FA) [es:bx+0x50]
 0011 74 21                    jz 0x34
-0013                          SetTreasureData(012C, 00, 00, 00, 00, CE) [es:bx+0xd8]
+0013                          AddTreasure(012C, 00, 00, 00, 00, CE) [es:bx+0xd8]
 0032 EB 2D                    jmp 0x61
-0034                          SetTreasureData(012C, 00, 00, 00, D0, FA) [es:bx+0xd8]
+0034                          AddTreasure(012C, 00, 00, 00, D0, FA) [es:bx+0xd8]
 0054                          ShowMessage(0800) [es:bx+0xf8] = You see scattered bones and a bag under a Dragon.
-0061                          SetEncData(1B, 01) [es:bx+0xd4]
-0073                          SetEncData(1B, 02) [es:bx+0xd4]
-0085                          SetEncData(19, 03) [es:bx+0xd4]
-0097                          SetEncData(19, 04) [es:bx+0xd4]
+0061                          AddEncounter(1B, 01) [es:bx+0xd4]
+0073                          AddEncounter(1B, 02) [es:bx+0xd4]
+0085                          AddEncounter(19, 03) [es:bx+0xd4]
+0097                          AddEncounter(19, 04) [es:bx+0xd4]
 00A9                          RETURN
 
-Functn08: "ENCG"
+ENCG_08:
 0000                          BEGIN
-0003                          SetEncData(1A, 01) [es:bx+0xd4]
-0015                          SetEncData(1A, 02) [es:bx+0xd4]
-0027                          SetEncData(1B, 03) [es:bx+0xd4]
-0039                          SetEncData(1B, 04) [es:bx+0xd4]
+0003                          AddEncounter(1A, 01) [es:bx+0xd4]
+0015                          AddEncounter(1A, 02) [es:bx+0xd4]
+0027                          AddEncounter(1B, 03) [es:bx+0xd4]
+0039                          AddEncounter(1B, 04) [es:bx+0xd4]
 004B                          RETURN
 
-Functn09: "ENCH"
+ENCH_09:
 0000                          BEGIN
-0003                          SetEncData(21, 01) [es:bx+0xd4]
-0015                          SetEncData(22, 02) [es:bx+0xd4]
-0027                          SetEncData(26, 05) [es:bx+0xd4]
-0039                          SetEncData(28, 06) [es:bx+0xd4]
+0003                          AddEncounter(21, 01) [es:bx+0xd4]
+0015                          AddEncounter(22, 02) [es:bx+0xd4]
+0027                          AddEncounter(26, 05) [es:bx+0xd4]
+0039                          AddEncounter(28, 06) [es:bx+0xd4]
 004B                          RETURN
 
-Functn0A: "ENCI"
+ENCI_0A:
 0000                          BEGIN
-0003                          SetEncData(1C, 01) [es:bx+0xd4]
-0015                          SetEncData(1C, 02) [es:bx+0xd4]
-0027                          SetEncData(22, 03) [es:bx+0xd4]
-0039                          SetEncData(22, 04) [es:bx+0xd4]
+0003                          AddEncounter(1C, 01) [es:bx+0xd4]
+0015                          AddEncounter(1C, 02) [es:bx+0xd4]
+0027                          AddEncounter(22, 03) [es:bx+0xd4]
+0039                          AddEncounter(22, 04) [es:bx+0xd4]
 004B                          ax = HasItem(F5) [es:bx+0x50]
 0059 74 22                    jz 0x7d
-005B                          SetTreasureData(03E8, 00, 00, 00, CF, C6) [es:bx+0xd8]
+005B                          AddTreasure(03E8, 00, 00, 00, CF, C6) [es:bx+0xd8]
 007B EB 2E                    jmp 0xab
 007D                          ShowMessage(0832) [es:bx+0xf8] = A glowing yellow gem lights the area.
-008A                          SetTreasureData(2710, 00, 00, D0, D0, F5) [es:bx+0xd8]
+008A                          AddTreasure(2710, 00, 00, D0, D0, F5) [es:bx+0xd8]
 00AB                          RETURN
 
-Functn0B: "CGATE"
+CGATE_0B:
 0000                          BEGIN
 0003                          ShowMessage(0858) [es:bx+0xf8] = A path leads up to CASTLEGATE
 0010                          GoMap(01, 74, 01, 36) [es:bx+0xbc]
 002B                          RETURN
 
-Functn0C: "DWARF"
+DWARF_0C:
 0000                          BEGIN
 0003                          ax = CheckLevel(001E) [es:bx+0x44]
 0011 74 2A                    jz 0x3d
@@ -486,13 +478,12 @@ Functn0C: "DWARF"
 003D                          ShowRunes(5008) [es:bx+0xf4] = At level thirty, the entrance to the land of dwarfs will be open to you.
 004A                          RETURN
 
-Functn0D: "NOJOIN"
+NOJOIN_0D:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F E0 00           call far word [es:bx+0xe0]
+0003                          TileIsNoJoinArea() [es:bx+0xe0]
 000B                          RETURN
 
-Functn0E: "BEECHWD"
+BEECHWD_0E:
 0000                          BEGIN
 0003                          ShowMessage(08FB) [es:bx+0xf8] = Upon a wood sign is written -- 'Wilderness of BeechWood.'
 0010 B8 01 00                 mov ax, 0x1
@@ -511,7 +502,7 @@ Functn0E: "BEECHWD"
 0064                          SetState(01, 04, 04) [es:bx]
 0079                          RETURN
 
-Functn0F: "OAKLEAF"
+OAKLEAF_0F:
 0000                          BEGIN
 0003                          ShowMessage(0935) [es:bx+0xf8] = A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'
 0010 B8 02 00                 mov ax, 0x2
@@ -530,7 +521,7 @@ Functn0F: "OAKLEAF"
 0064                          SetState(01, 04, 04) [es:bx]
 0079                          RETURN
 
-Functn10: "MAPLEBRS"
+MAPLEBRS_10:
 0000                          BEGIN
 0003                          ShowMessage(0978) [es:bx+0xf8] = A sign of ancient wood reads -- 'Wilderness of MapleBrush.'
 0010 B8 03 00                 mov ax, 0x3
@@ -549,7 +540,7 @@ Functn10: "MAPLEBRS"
 0064                          SetState(01, 04, 04) [es:bx]
 0079                          RETURN
 
-Functn11: "PINECONE"
+PINECONE_11:
 0000                          BEGIN
 0003                          ShowMessage(09B4) [es:bx+0xf8] = In the dust of pine needles is written -- 'Wilderness of PineCone.'
 0010 B8 04 00                 mov ax, 0x4
@@ -568,7 +559,7 @@ Functn11: "PINECONE"
 0064                          SetState(01, 04, 04) [es:bx]
 0079                          RETURN
 
-Functn12: "BWACTOR"
+BWACTOR_12:
 0000                          BEGIN
 0003 56                       push si
 0004                          ShowMessage(09F8) [es:bx+0xf8] = We are the Wise Ones of Beechwood who serve the Seasons.
@@ -618,11 +609,7 @@ Functn12: "BWACTOR"
 00FB 74 6B                    jz 0x168
 00FD 83 FE 01                 cmp si, 0x1
 0100 75 56                    jnz 0x158
-0102 B8 E5 00                 mov ax, 0xe5
-0105 50                       push ax
-0106 C4 5E 06                 les bx, [bp+0x6]
-0109 26 FF 5F 4C              call far word [es:bx+0x4c]
-010D 59                       pop cx
+0102                          RemoveItem(E5) [es:bx+0x4c]
 010E B8 E8 00                 mov ax, 0xe8
 0111 50                       push ax
 0112 C4 5E 06                 les bx, [bp+0x6]
@@ -647,11 +634,7 @@ Functn12: "BWACTOR"
 017B 74 6B                    jz 0x1e8
 017D 83 FE 02                 cmp si, 0x2
 0180 75 56                    jnz 0x1d8
-0182 B8 E6 00                 mov ax, 0xe6
-0185 50                       push ax
-0186 C4 5E 06                 les bx, [bp+0x6]
-0189 26 FF 5F 4C              call far word [es:bx+0x4c]
-018D 59                       pop cx
+0182                          RemoveItem(E6) [es:bx+0x4c]
 018E B8 E4 00                 mov ax, 0xe4
 0191 50                       push ax
 0192 C4 5E 06                 les bx, [bp+0x6]
@@ -676,11 +659,7 @@ Functn12: "BWACTOR"
 01FB 74 6B                    jz 0x268
 01FD 83 FE 03                 cmp si, 0x3
 0200 75 56                    jnz 0x258
-0202 B8 E7 00                 mov ax, 0xe7
-0205 50                       push ax
-0206 C4 5E 06                 les bx, [bp+0x6]
-0209 26 FF 5F 4C              call far word [es:bx+0x4c]
-020D 59                       pop cx
+0202                          RemoveItem(E7) [es:bx+0x4c]
 020E B8 E5 00                 mov ax, 0xe5
 0211 50                       push ax
 0212 C4 5E 06                 les bx, [bp+0x6]
@@ -705,11 +684,7 @@ Functn12: "BWACTOR"
 027B 74 77                    jz 0x2f4
 027D 83 FE 04                 cmp si, 0x4
 0280 75 56                    jnz 0x2d8
-0282 B8 E4 00                 mov ax, 0xe4
-0285 50                       push ax
-0286 C4 5E 06                 les bx, [bp+0x6]
-0289 26 FF 5F 4C              call far word [es:bx+0x4c]
-028D 59                       pop cx
+0282                          RemoveItem(E4) [es:bx+0x4c]
 028E B8 E7 00                 mov ax, 0xe7
 0291 50                       push ax
 0292 C4 5E 06                 les bx, [bp+0x6]
@@ -731,7 +706,7 @@ Functn12: "BWACTOR"
 030A 6E                       outsb
 030B 0B                       invalid
 
-Functn13: "OLACTOR"
+OLACTOR_13:
 0000                          BEGIN
 0003 56                       push si
 0004                          ShowMessage(1071) [es:bx+0xf8] = We are the Clerics of Oakleaf who comfort the Seasons.
@@ -781,11 +756,7 @@ Functn13: "OLACTOR"
 00FB 74 6B                    jz 0x168
 00FD 83 FE 01                 cmp si, 0x1
 0100 75 56                    jnz 0x158
-0102 B8 E5 00                 mov ax, 0xe5
-0105 50                       push ax
-0106 C4 5E 06                 les bx, [bp+0x6]
-0109 26 FF 5F 4C              call far word [es:bx+0x4c]
-010D 59                       pop cx
+0102                          RemoveItem(E5) [es:bx+0x4c]
 010E B8 E8 00                 mov ax, 0xe8
 0111 50                       push ax
 0112 C4 5E 06                 les bx, [bp+0x6]
@@ -810,11 +781,7 @@ Functn13: "OLACTOR"
 017B 74 6B                    jz 0x1e8
 017D 83 FE 02                 cmp si, 0x2
 0180 75 56                    jnz 0x1d8
-0182 B8 E6 00                 mov ax, 0xe6
-0185 50                       push ax
-0186 C4 5E 06                 les bx, [bp+0x6]
-0189 26 FF 5F 4C              call far word [es:bx+0x4c]
-018D 59                       pop cx
+0182                          RemoveItem(E6) [es:bx+0x4c]
 018E B8 E4 00                 mov ax, 0xe4
 0191 50                       push ax
 0192 C4 5E 06                 les bx, [bp+0x6]
@@ -839,11 +806,7 @@ Functn13: "OLACTOR"
 01FB 74 6B                    jz 0x268
 01FD 83 FE 03                 cmp si, 0x3
 0200 75 56                    jnz 0x258
-0202 B8 E7 00                 mov ax, 0xe7
-0205 50                       push ax
-0206 C4 5E 06                 les bx, [bp+0x6]
-0209 26 FF 5F 4C              call far word [es:bx+0x4c]
-020D 59                       pop cx
+0202                          RemoveItem(E7) [es:bx+0x4c]
 020E B8 E5 00                 mov ax, 0xe5
 0211 50                       push ax
 0212 C4 5E 06                 les bx, [bp+0x6]
@@ -868,11 +831,7 @@ Functn13: "OLACTOR"
 027B 74 6A                    jz 0x2e7
 027D 83 FE 04                 cmp si, 0x4
 0280 75 56                    jnz 0x2d8
-0282 B8 E4 00                 mov ax, 0xe4
-0285 50                       push ax
-0286 C4 5E 06                 les bx, [bp+0x6]
-0289 26 FF 5F 4C              call far word [es:bx+0x4c]
-028D 59                       pop cx
+0282                          RemoveItem(E4) [es:bx+0x4c]
 028E B8 E7 00                 mov ax, 0xe7
 0291 50                       push ax
 0292 C4 5E 06                 les bx, [bp+0x6]
@@ -892,7 +851,7 @@ Functn13: "OLACTOR"
 02F9 28 0E 51 0E              sub [0xe51], cl
 02FD 7A 0E                    jp 0x30d
 
-Functn14: "MBACTOR"
+MBACTOR_14:
 0000                          BEGIN
 0003 56                       push si
 0004                          ShowMessage(15E2) [es:bx+0xf8] = We are the Wardens of Maplebrush and hold the Seasons.
@@ -938,11 +897,7 @@ Functn14: "MBACTOR"
 00C6 74 5E                    jz 0x126
 00C8 83 FE 01                 cmp si, 0x1
 00CB 75 49                    jnz 0x116
-00CD B8 E5 00                 mov ax, 0xe5
-00D0 50                       push ax
-00D1 C4 5E 06                 les bx, [bp+0x6]
-00D4 26 FF 5F 4C              call far word [es:bx+0x4c]
-00D8 59                       pop cx
+00CD                          RemoveItem(E5) [es:bx+0x4c]
 00D9 B8 E8 00                 mov ax, 0xe8
 00DC 50                       push ax
 00DD C4 5E 06                 les bx, [bp+0x6]
@@ -966,11 +921,7 @@ Functn14: "MBACTOR"
 0139 74 5E                    jz 0x199
 013B 83 FE 02                 cmp si, 0x2
 013E 75 49                    jnz 0x189
-0140 B8 E6 00                 mov ax, 0xe6
-0143 50                       push ax
-0144 C4 5E 06                 les bx, [bp+0x6]
-0147 26 FF 5F 4C              call far word [es:bx+0x4c]
-014B 59                       pop cx
+0140                          RemoveItem(E6) [es:bx+0x4c]
 014C B8 E4 00                 mov ax, 0xe4
 014F 50                       push ax
 0150 C4 5E 06                 les bx, [bp+0x6]
@@ -994,11 +945,7 @@ Functn14: "MBACTOR"
 01AC 74 5E                    jz 0x20c
 01AE 83 FE 03                 cmp si, 0x3
 01B1 75 49                    jnz 0x1fc
-01B3 B8 E7 00                 mov ax, 0xe7
-01B6 50                       push ax
-01B7 C4 5E 06                 les bx, [bp+0x6]
-01BA 26 FF 5F 4C              call far word [es:bx+0x4c]
-01BE 59                       pop cx
+01B3                          RemoveItem(E7) [es:bx+0x4c]
 01BF B8 E5 00                 mov ax, 0xe5
 01C2 50                       push ax
 01C3 C4 5E 06                 les bx, [bp+0x6]
@@ -1022,11 +969,7 @@ Functn14: "MBACTOR"
 021F 74 5D                    jz 0x27e
 0221 83 FE 04                 cmp si, 0x4
 0224 75 49                    jnz 0x26f
-0226 B8 E4 00                 mov ax, 0xe4
-0229 50                       push ax
-022A C4 5E 06                 les bx, [bp+0x6]
-022D 26 FF 5F 4C              call far word [es:bx+0x4c]
-0231 59                       pop cx
+0226                          RemoveItem(E4) [es:bx+0x4c]
 0232 B8 E7 00                 mov ax, 0xe7
 0235 50                       push ax
 0236 C4 5E 06                 les bx, [bp+0x6]
@@ -1046,7 +989,7 @@ Functn14: "MBACTOR"
 0291 11 35                    adc [di], si
 0293 11 51 11                 adc [bx+di+0x11], dx
 
-Functn15: "PCACTOR"
+PCACTOR_15:
 0000                          BEGIN
 0003 56                       push si
 0004                          ShowMessage(18C1) [es:bx+0xf8] = We are the Seasons incarnate in mortal form.
@@ -1086,11 +1029,7 @@ Functn15: "PCACTOR"
 008F 74 6B                    jz 0xfc
 0091 83 FE 01                 cmp si, 0x1
 0094 75 56                    jnz 0xec
-0096 B8 E5 00                 mov ax, 0xe5
-0099 50                       push ax
-009A C4 5E 06                 les bx, [bp+0x6]
-009D 26 FF 5F 4C              call far word [es:bx+0x4c]
-00A1 59                       pop cx
+0096                          RemoveItem(E5) [es:bx+0x4c]
 00A2 B8 E8 00                 mov ax, 0xe8
 00A5 50                       push ax
 00A6 C4 5E 06                 les bx, [bp+0x6]
@@ -1115,11 +1054,7 @@ Functn15: "PCACTOR"
 010F 74 6B                    jz 0x17c
 0111 83 FE 02                 cmp si, 0x2
 0114 75 56                    jnz 0x16c
-0116 B8 E6 00                 mov ax, 0xe6
-0119 50                       push ax
-011A C4 5E 06                 les bx, [bp+0x6]
-011D 26 FF 5F 4C              call far word [es:bx+0x4c]
-0121 59                       pop cx
+0116                          RemoveItem(E6) [es:bx+0x4c]
 0122 B8 E4 00                 mov ax, 0xe4
 0125 50                       push ax
 0126 C4 5E 06                 les bx, [bp+0x6]
@@ -1144,11 +1079,7 @@ Functn15: "PCACTOR"
 018F 74 6B                    jz 0x1fc
 0191 83 FE 03                 cmp si, 0x3
 0194 75 56                    jnz 0x1ec
-0196 B8 E7 00                 mov ax, 0xe7
-0199 50                       push ax
-019A C4 5E 06                 les bx, [bp+0x6]
-019D 26 FF 5F 4C              call far word [es:bx+0x4c]
-01A1 59                       pop cx
+0196                          RemoveItem(E7) [es:bx+0x4c]
 01A2 B8 E5 00                 mov ax, 0xe5
 01A5 50                       push ax
 01A6 C4 5E 06                 les bx, [bp+0x6]
@@ -1173,11 +1104,7 @@ Functn15: "PCACTOR"
 020F 74 6A                    jz 0x27b
 0211 83 FE 04                 cmp si, 0x4
 0214 75 56                    jnz 0x26c
-0216 B8 E4 00                 mov ax, 0xe4
-0219 50                       push ax
-021A C4 5E 06                 les bx, [bp+0x6]
-021D 26 FF 5F 4C              call far word [es:bx+0x4c]
-0221 59                       pop cx
+0216                          RemoveItem(E4) [es:bx+0x4c]
 0222 B8 E7 00                 mov ax, 0xe7
 0225 50                       push ax
 0226 C4 5E 06                 les bx, [bp+0x6]
@@ -1197,21 +1124,21 @@ Functn15: "PCACTOR"
 028C 13 9F 13 AE              adc bx, [bx-0x51ed]
 0290 13 BD 13                 invalid
 
-Functn16: "INFO"
+INFO_16:
 0000                          BEGIN
 0003                          ShowPortrait(001F) [es:bx+0xfc]
 0010                          ShowMessage(1B98) [es:bx+0xf8] = 'Welcome, Adventurer.  I am Varstad, counselor to the Elf King.
 001D                          ShowMessage(1BD8) [es:bx+0xf8] = The magic Aldbora requires Summer Radiance to shed its knowledge fruit.'
 002A                          RETURN
 
-Functn17: "INFO"
+INFO_17:
 0000                          BEGIN
 0003                          ShowPortrait(0027) [es:bx+0xfc]
 0010                          ShowMessage(1C21) [es:bx+0xf8] = The storyteller Sorshian honors your arrival.
 001D                          ShowMessage(1C4F) [es:bx+0xf8] = 'Only when the season is winter will the Aldbora shed its fruit.'
 002A                          RETURN
 
-Functn18: "CAVEDOOR"
+CAVEDOOR_18:
 0000                          BEGIN
 0003                          ShowMessage(1C91) [es:bx+0xf8] = A wooden sign says, 'To the cave of NeedleWood.'
 0010 B8 D8 00                 mov ax, 0xd8
@@ -1247,17 +1174,17 @@ Functn18: "CAVEDOOR"
 0063 83 C4 06                 add sp, 0x6
 0066                          RETURN
 
-Functn19: "ELFHOME"
+ELFHOME_19:
 0000                          BEGIN
 0003                          ShowMessage(1CD4) [es:bx+0xf8] = Young elves scurry and hide when you enter this elf home.
 0010                          RETURN
 
-Functn1A: "ELFHOME"
+ELFHOME_1A:
 0000                          BEGIN
 0003                          ShowMessage(1D0E) [es:bx+0xf8] = Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.
 0010                          RETURN
 
-Functn1B: "INFO"
+INFO_1B:
 0000                          BEGIN
 0003                          ShowPortrait(001F) [es:bx+0xfc]
 0010                          ShowMessage(1D79) [es:bx+0xf8] = 'I am Fernank, Hunter to the Elf King.

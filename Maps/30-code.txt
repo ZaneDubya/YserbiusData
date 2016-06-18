@@ -1,4 +1,4 @@
-Functn01: "RIVER"
+RIVER_01:
 0000                          BEGIN
 0003                          ShowMessage(03FC) [es:bx+0xf8] = The River of Eternity taps your life energy.
 0010 C4 5E 06                 les bx, [bp+0x6]
@@ -15,12 +15,12 @@ Functn01: "RIVER"
 003A                          ShowMessage(0429) [es:bx+0xf8] = You have died.
 0047                          RETURN
 
-Functn02: "RIVRBANK"
+RIVRBANK_02:
 0000                          BEGIN
 0003                          ShowMessage(0438) [es:bx+0xf8] = Only the bravest adventurers explore the life-devouring River of Eternity for hidden passages.
 0010                          RETURN
 
-Functn03: "SECDOORA"
+SECDOORA_03:
 0000                          BEGIN
 0003 B8 D4 00                 mov ax, 0xd4
 0006 50                       push ax
@@ -42,16 +42,9 @@ Functn03: "SECDOORA"
 0028 59                       pop cx
 0029 0B C0                    or ax, ax
 002B 74 66                    jz 0x93
-002D B8 D4 00                 mov ax, 0xd4
-0030 50                       push ax
-0031 C4 5E 06                 les bx, [bp+0x6]
-0034 26 FF 5F 4C              call far word [es:bx+0x4c]
-0038 59                       pop cx
+002D                          RemoveItem(D4) [es:bx+0x4c]
 0039                          SetState(02, 6C, 01) [es:bx]
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 C4 5E 06                 les bx, [bp+0x6]
-0055 26 FF 5F 24              call far word [es:bx+0x24]
+004E                          ax = SetExitability(01) [es:bx+0x24]
 0059 50                       push ax
 005A C4 5E 06                 les bx, [bp+0x6]
 005D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -72,14 +65,14 @@ Functn03: "SECDOORA"
 0086                          ShowMessage(0497) [es:bx+0xf8] = A great dwarven door appears in the wall.
 0093                          RETURN
 
-Functn04: "LAVA"
+LAVA_04:
 0000                          BEGIN
 0003                          ShowMessage(04C1) [es:bx+0xf8] = Your step into lava is fatal.
 0010                          ax = GetHits() [es:bx+0x74]
 0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
-Functn05: "SECDOORB"
+SECDOORB_05:
 0000                          BEGIN
 0003 B8 0D 00                 mov ax, 0xd
 0006 50                       push ax
@@ -115,10 +108,7 @@ Functn05: "SECDOORB"
 0049 59                       pop cx
 004A 0B C0                    or ax, ax
 004C 74 4B                    jz 0x99
-004E B8 01 00                 mov ax, 0x1
-0051 50                       push ax
-0052 C4 5E 06                 les bx, [bp+0x6]
-0055 26 FF 5F 24              call far word [es:bx+0x24]
+004E                          ax = SetExitability(01) [es:bx+0x24]
 0059 50                       push ax
 005A C4 5E 06                 les bx, [bp+0x6]
 005D 26 FF 5F 20              call far word [es:bx+0x20]
@@ -126,8 +116,7 @@ Functn05: "SECDOORB"
 0062 C4 5E 06                 les bx, [bp+0x6]
 0065 26 FF 5F 2C              call far word [es:bx+0x2c]
 0069 83 C4 06                 add sp, 0x6
-006C C4 5E 06                 les bx, [bp+0x6]
-006F 26 FF 5F 24              call far word [es:bx+0x24]
+006C                          ax = SetExitability(ax) [es:bx+0x24]
 0073 50                       push ax
 0074 C4 5E 06                 les bx, [bp+0x6]
 0077 26 FF 5F 20              call far word [es:bx+0x20]
@@ -139,10 +128,7 @@ Functn05: "SECDOORB"
 0087 83 C4 06                 add sp, 0x6
 008A                          ShowMessage(04DF) [es:bx+0xf8] = You locate a hidden door!
 0097 EB 1D                    jmp 0xb6
-0099 33 C0                    xor ax, ax
-009B 50                       push ax
-009C C4 5E 06                 les bx, [bp+0x6]
-009F 26 FF 5F 24              call far word [es:bx+0x24]
+0099                          ax = SetExitability(00) [es:bx+0x24]
 00A3 50                       push ax
 00A4 C4 5E 06                 les bx, [bp+0x6]
 00A7 26 FF 5F 20              call far word [es:bx+0x20]
@@ -152,12 +138,12 @@ Functn05: "SECDOORB"
 00B3 83 C4 06                 add sp, 0x6
 00B6                          RETURN
 
-Functn06: "LAVALEDG"
+LAVALEDG_06:
 0000                          BEGIN
 0003                          ShowMessage(04F9) [es:bx+0xf8] = A ledge can be seen across the lava pit.
 0010                          RETURN
 
-Functn07: "LAVAPA"
+LAVAPA_07:
 0000                          BEGIN
 0003                          ax = CheckState(01, 03, 01) [es:bx+0x4]
 0017 74 16                    jz 0x2f
@@ -202,7 +188,7 @@ Functn07: "LAVAPA"
 0094                          DoDamage(ax) [es:bx+0x90]
 009E                          RETURN
 
-Functn08: "LAVAPB"
+LAVAPB_08:
 0000                          BEGIN
 0003                          ax = CheckState(01, 03, 02) [es:bx+0x4]
 0017 74 16                    jz 0x2f
@@ -247,7 +233,7 @@ Functn08: "LAVAPB"
 0094                          DoDamage(ax) [es:bx+0x90]
 009E                          RETURN
 
-Functn09: "LAVAPC"
+LAVAPC_09:
 0000                          BEGIN
 0003                          ax = CheckState(01, 03, 03) [es:bx+0x4]
 0017 74 16                    jz 0x2f
@@ -292,7 +278,7 @@ Functn09: "LAVAPC"
 0094                          DoDamage(ax) [es:bx+0x90]
 009E                          RETURN
 
-Functn0A: "LAVAPD"
+LAVAPD_0A:
 0000                          BEGIN
 0003                          ax = CheckState(01, 03, 04) [es:bx+0x4]
 0017 74 16                    jz 0x2f
@@ -337,28 +323,28 @@ Functn0A: "LAVAPD"
 0094                          DoDamage(ax) [es:bx+0x90]
 009E                          RETURN
 
-Functn0B: "LAVASWA"
+LAVASWA_0B:
 0000                          BEGIN
 0003                          ShowMessage(0646) [es:bx+0xf8] = The wall bursts with color!
 0010                          ShowMessage(0662) [es:bx+0xf8] = In the distance you hear a platform moving.
 001D                          SetState(01, 03, 01) [es:bx]
 0032                          RETURN
 
-Functn0C: "LAVASWB"
+LAVASWB_0C:
 0000                          BEGIN
 0003                          ShowMessage(068E) [es:bx+0xf8] = The wall bursts with color!
 0010                          ShowMessage(06AA) [es:bx+0xf8] = In the distance you hear a platform moving.
 001D                          SetState(01, 03, 02) [es:bx]
 0032                          RETURN
 
-Functn0D: "LAVASWC"
+LAVASWC_0D:
 0000                          BEGIN
 0003                          ShowMessage(06D6) [es:bx+0xf8] = The wall bursts with color!
 0010                          ShowMessage(06F2) [es:bx+0xf8] = In the distance you hear a platform moving.
 001D                          SetState(01, 03, 03) [es:bx]
 0032                          RETURN
 
-Functn0E: "LAVASWD"
+LAVASWD_0E:
 0000                          BEGIN
 0003                          ShowMessage(071E) [es:bx+0xf8] = The wall bursts with color!
 0010                          ShowMessage(073A) [es:bx+0xf8] = In the distance you hear a platform moving.
@@ -366,13 +352,13 @@ Functn0E: "LAVASWD"
 002A                          SetState(01, 03, 04) [es:bx]
 003F                          RETURN
 
-Functn0F: "KINGROOM"
+KINGROOM_0F:
 0000                          BEGIN
 0003                          ShowMessage(0799) [es:bx+0xf8] = You enter a magnificently ornamented room, bedecked with jewels and the finely crafted metalworks of dwarf craftsmen.
 0010                          ShowMessage(080F) [es:bx+0xf8] = In a small chair in the center of this royal treasure sits the Dwarf King.
 001D                          RETURN
 
-Functn10: "DWARKING"
+DWARKING_10:
 0000                          BEGIN
 0003                          ax = HasItem(F4) [es:bx+0x50]
 0011 75 4E                    jnz 0x61
@@ -384,7 +370,7 @@ Functn10: "DWARKING"
 0054                          ShowMessage(0907) [es:bx+0xf8] = Keep the gem if you like, as our token of friendship. We ask only that you destroy this vile creature who blackmails us in return for peace.'
 0061                          RETURN
 
-Functn11: "FLEXSWOR"
+FLEXSWOR_11:
 0000                          BEGIN
 0003                          ShowPortrait(002C) [es:bx+0xfc]
 0010                          ax = HasItem(09) [es:bx+0x50]
@@ -394,11 +380,7 @@ Functn11: "FLEXSWOR"
 0030                          ShowMessage(0995) [es:bx+0xf8] = The dwarf takes the Flex Metal and smiles broadly. 'No greater pleasure can a dwarf blacksmith have than to test the powers of a new metal.'
 003D                          ShowMessage(0A22) [es:bx+0xf8] = After a few hours working the metal, she holds up a brilliant blue sword.
 004A                          ShowMessage(0A6C) [es:bx+0xf8] = 'There!  My finest weapon, made from your Flex Metal.  I dub it The Wind Sword!  May it destroy your enemies at first blow!'
-0057 B8 F0 00                 mov ax, 0xf0
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 5F 4C              call far word [es:bx+0x4c]
-0062 59                       pop cx
+0057                          RemoveItem(F0) [es:bx+0x4c]
 0063 B8 09 00                 mov ax, 0x9
 0066 50                       push ax
 0067 C4 5E 06                 les bx, [bp+0x6]
@@ -414,13 +396,13 @@ Functn11: "FLEXSWOR"
 00B4                          ShowMessage(0C92) [es:bx+0xf8] = If you find other types of metals, I will gladly make you another weapon!'
 00C1                          RETURN
 
-Functn12: "BLAKSMTH"
+BLAKSMTH_12:
 0000                          BEGIN
 0003                          ShowMessage(0CDD) [es:bx+0xf8] = The room you enter contains furnaces, hammers and anvils.
 0010                          ShowMessage(0D17) [es:bx+0xf8] = In a corner is a dwarf blacksmith, hard at work on her latest golden creation.
 001D                          RETURN
 
-Functn13: "CYCLQUST"
+CYCLQUST_13:
 0000                          BEGIN
 0003                          ShowPortrait(002C) [es:bx+0xfc]
 0010                          ax = HasItem(F3) [es:bx+0x50]
@@ -434,11 +416,7 @@ Functn13: "CYCLQUST"
 005A                          ShowMessage(0E15) [es:bx+0xf8] = A few hours pass as the blacksmith weaves a magnificent treasure from golden threads.  Then she appears again.
 0067                          ShowMessage(0E84) [es:bx+0xf8] = 'Here.  My proudest work!  A golden boat that can ride the rainbows.  May you find treasure wherever you go.'
 0074                          ShowMessage(0EF2) [es:bx+0xf8] = Then she scoots away.
-0081 B8 F1 00                 mov ax, 0xf1
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 5F 4C              call far word [es:bx+0x4c]
-008C 59                       pop cx
+0081                          RemoveItem(F1) [es:bx+0x4c]
 008D B8 F3 00                 mov ax, 0xf3
 0090 50                       push ax
 0091 C4 5E 06                 les bx, [bp+0x6]
@@ -452,7 +430,7 @@ Functn13: "CYCLQUST"
 00D0                          ShowMessage(101E) [es:bx+0xf8] = Unless, hmmm, Unless you are able to rid my gold caves of a horrible Cyclop! He fancies himself King of the Cyclops.'
 00DD                          RETURN
 
-Functn14: "MNRPLATC"
+MNRPLATC_14:
 0000                          BEGIN
 0003                          ShowPortrait(0023) [es:bx+0xfc]
 0010 B8 6F 00                 mov ax, 0x6f
@@ -510,17 +488,17 @@ Functn14: "MNRPLATC"
 00FA 59                       pop cx
 00FB                          RETURN
 
-Functn15: "NSTYOGRE"
+NSTYOGRE_15:
 0000                          BEGIN
-0003                          SetEncData(14, 01) [es:bx+0xd4]
-0015                          SetEncData(14, 02) [es:bx+0xd4]
-0027                          SetEncData(14, 03) [es:bx+0xd4]
-0039                          SetEncData(14, 04) [es:bx+0xd4]
-004B                          SetEncData(14, 05) [es:bx+0xd4]
-005D                          SetEncData(14, 06) [es:bx+0xd4]
+0003                          AddEncounter(14, 01) [es:bx+0xd4]
+0015                          AddEncounter(14, 02) [es:bx+0xd4]
+0027                          AddEncounter(14, 03) [es:bx+0xd4]
+0039                          AddEncounter(14, 04) [es:bx+0xd4]
+004B                          AddEncounter(14, 05) [es:bx+0xd4]
+005D                          AddEncounter(14, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn16: "OPENER"
+OPENER_16:
 0000                          BEGIN
 0003                          SetState(01, 03, 05) [es:bx]
 0018                          ShowMessage(1308) [es:bx+0xf8] = All the east side platforms appear to be up.
@@ -590,7 +568,7 @@ Functn16: "OPENER"
 00A8 59                       pop cx
 00A9                          RETURN
 
-Functn17: "OPENEE"
+OPENEE_17:
 0000                          BEGIN
 0003                          ax = CheckState(01, 03, 05) [es:bx+0x4]
 0017 75 34                    jnz 0x4d
@@ -616,79 +594,79 @@ Functn17: "OPENEE"
 004A 83 C4 06                 add sp, 0x6
 004D                          RETURN
 
-Functn18: "MANTICOR"
+MANTICOR_18:
 0000                          BEGIN
-0003                          SetEncData(23, 01) [es:bx+0xd4]
-0015                          SetEncData(24, 02) [es:bx+0xd4]
-0027                          SetEncData(24, 03) [es:bx+0xd4]
-0039                          SetEncData(23, 04) [es:bx+0xd4]
-004B                          SetEncData(19, 05) [es:bx+0xd4]
-005D                          SetEncData(19, 06) [es:bx+0xd4]
+0003                          AddEncounter(23, 01) [es:bx+0xd4]
+0015                          AddEncounter(24, 02) [es:bx+0xd4]
+0027                          AddEncounter(24, 03) [es:bx+0xd4]
+0039                          AddEncounter(23, 04) [es:bx+0xd4]
+004B                          AddEncounter(19, 05) [es:bx+0xd4]
+005D                          AddEncounter(19, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn19: "BASILISK"
+BASILISK_19:
 0000                          BEGIN
-0003                          SetEncData(11, 01) [es:bx+0xd4]
-0015                          SetEncData(11, 02) [es:bx+0xd4]
-0027                          SetEncData(12, 03) [es:bx+0xd4]
-0039                          SetEncData(12, 04) [es:bx+0xd4]
-004B                          SetEncData(13, 05) [es:bx+0xd4]
-005D                          SetEncData(13, 06) [es:bx+0xd4]
+0003                          AddEncounter(11, 01) [es:bx+0xd4]
+0015                          AddEncounter(11, 02) [es:bx+0xd4]
+0027                          AddEncounter(12, 03) [es:bx+0xd4]
+0039                          AddEncounter(12, 04) [es:bx+0xd4]
+004B                          AddEncounter(13, 05) [es:bx+0xd4]
+005D                          AddEncounter(13, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn1A: "KINGGOBL"
+KINGGOBL_1A:
 0000                          BEGIN
-0003                          SetEncData(04, 01) [es:bx+0xd4]
-0015                          SetEncData(04, 02) [es:bx+0xd4]
-0027                          SetEncData(04, 03) [es:bx+0xd4]
-0039                          SetEncData(04, 04) [es:bx+0xd4]
-004B                          SetEncData(06, 05) [es:bx+0xd4]
-005D                          SetEncData(06, 06) [es:bx+0xd4]
+0003                          AddEncounter(04, 01) [es:bx+0xd4]
+0015                          AddEncounter(04, 02) [es:bx+0xd4]
+0027                          AddEncounter(04, 03) [es:bx+0xd4]
+0039                          AddEncounter(04, 04) [es:bx+0xd4]
+004B                          AddEncounter(06, 05) [es:bx+0xd4]
+005D                          AddEncounter(06, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn1B: "DRAGON"
+DRAGON_1B:
 0000                          BEGIN
-0003                          SetEncData(06, 01) [es:bx+0xd4]
-0015                          SetEncData(06, 02) [es:bx+0xd4]
-0027                          SetEncData(19, 03) [es:bx+0xd4]
-0039                          SetEncData(19, 04) [es:bx+0xd4]
-004B                          SetEncData(1B, 05) [es:bx+0xd4]
-005D                          SetEncData(13, 06) [es:bx+0xd4]
+0003                          AddEncounter(06, 01) [es:bx+0xd4]
+0015                          AddEncounter(06, 02) [es:bx+0xd4]
+0027                          AddEncounter(19, 03) [es:bx+0xd4]
+0039                          AddEncounter(19, 04) [es:bx+0xd4]
+004B                          AddEncounter(1B, 05) [es:bx+0xd4]
+005D                          AddEncounter(13, 06) [es:bx+0xd4]
 006F                          ax = HasItem(F4) [es:bx+0x50]
 007D 74 22                    jz 0xa1
-007F                          SetTreasureData(07D0, 00, 00, 00, C6, B7) [es:bx+0xd8]
+007F                          AddTreasure(07D0, 00, 00, 00, C6, B7) [es:bx+0xd8]
 009F EB 2F                    jmp 0xd0
 00A1                          ShowMessage(1335) [es:bx+0xf8] = A glowing red gem casts a beam from under the dragon's lair.
-00AE                          SetTreasureData(2328, 00, 14, D0, D0, F4) [es:bx+0xd8]
+00AE                          AddTreasure(2328, 00, 14, D0, D0, F4) [es:bx+0xd8]
 00D0                          RETURN
 
-Functn1C: "KEYCLUEA"
+KEYCLUEA_1C:
 0000                          BEGIN
 0003                          ShowMessage(1372) [es:bx+0xf8] = A collection of runes reveals a clue -- 
 0010                          ShowRunes(5013) [es:bx+0xf4] = The Keyhole Lava lies at the center of the Kingdom.
 001D                          ShowRunes(5013) [es:bx+0xf4] = Activate the switches to the west one at a time to move a party from south to north.
 002A                          RETURN
 
-Functn1D: "KEYCLUEB"
+KEYCLUEB_1D:
 0000                          BEGIN
 0003                          ShowMessage(1424) [es:bx+0xf8] = A faint message written in dust -- 
 0010                          ShowRunes(5014) [es:bx+0xf4] = The Keyhole Lava lies at the center of the Kingdom.
 001D                          ShowRunes(5014) [es:bx+0xf4] = Repeat the sequence that moved a party south to north to move  a party north to south.
 002A                          RETURN
 
-Functn1E: "KEYCLUEC"
+KEYCLUEC_1E:
 0000                          BEGIN
 0003                          ShowMessage(14D3) [es:bx+0xf8] = A note is found behind a rock -- 
 0010                          ShowRunes(5014) [es:bx+0xf4] = The one who switches a party across the Keyhole Lava may join the party at the south end of a second crossing.
 001D                          RETURN
 
-Functn1F: "GATEA"
+GATEA_1F:
 0000                          BEGIN
 0003                          ShowMessage(1564) [es:bx+0xf8] = Distant bellows from gruesome monsters echo through the cavern.
 0010                          GoMap(02, 30, 02, 38) [es:bx+0xbc]
 002B                          RETURN
 
-Functn20: "CYCLKEY"
+CYCLKEY_20:
 0000                          BEGIN
 0003                          ax = HasItem(D6) [es:bx+0x50]
 0011 74 0F                    jz 0x22
@@ -702,7 +680,7 @@ Functn20: "CYCLKEY"
 002E                          ShowMessage(15BF) [es:bx+0xf8] = You find a key to the Cyclop's Mine on the floor.
 003B                          RETURN
 
-Functn21: "SECDOORC"
+SECDOORC_21:
 0000                          BEGIN
 0003 C4 5E 06                 les bx, [bp+0x6]
 0006 26 FF 5F 78              call far word [es:bx+0x78]
@@ -743,10 +721,7 @@ Functn21: "SECDOORC"
 0058 59                       pop cx
 0059 0B C0                    or ax, ax
 005B 74 4B                    jz 0xa8
-005D B8 01 00                 mov ax, 0x1
-0060 50                       push ax
-0061 C4 5E 06                 les bx, [bp+0x6]
-0064 26 FF 5F 24              call far word [es:bx+0x24]
+005D                          ax = SetExitability(01) [es:bx+0x24]
 0068 50                       push ax
 0069 C4 5E 06                 les bx, [bp+0x6]
 006C 26 FF 5F 20              call far word [es:bx+0x20]
@@ -754,8 +729,7 @@ Functn21: "SECDOORC"
 0071 C4 5E 06                 les bx, [bp+0x6]
 0074 26 FF 5F 2C              call far word [es:bx+0x2c]
 0078 83 C4 06                 add sp, 0x6
-007B C4 5E 06                 les bx, [bp+0x6]
-007E 26 FF 5F 24              call far word [es:bx+0x24]
+007B                          ax = SetExitability(ax) [es:bx+0x24]
 0082 50                       push ax
 0083 C4 5E 06                 les bx, [bp+0x6]
 0086 26 FF 5F 20              call far word [es:bx+0x20]
@@ -767,10 +741,7 @@ Functn21: "SECDOORC"
 0096 83 C4 06                 add sp, 0x6
 0099                          ShowMessage(15F1) [es:bx+0xf8] = You found a hidden door!
 00A6 EB 1D                    jmp 0xc5
-00A8 33 C0                    xor ax, ax
-00AA 50                       push ax
-00AB C4 5E 06                 les bx, [bp+0x6]
-00AE 26 FF 5F 24              call far word [es:bx+0x24]
+00A8                          ax = SetExitability(00) [es:bx+0x24]
 00B2 50                       push ax
 00B3 C4 5E 06                 les bx, [bp+0x6]
 00B6 26 FF 5F 20              call far word [es:bx+0x20]
@@ -813,10 +784,7 @@ Functn21: "SECDOORC"
 010E 59                       pop cx
 010F 0B C0                    or ax, ax
 0111 74 4B                    jz 0x15e
-0113 B8 01 00                 mov ax, 0x1
-0116 50                       push ax
-0117 C4 5E 06                 les bx, [bp+0x6]
-011A 26 FF 5F 24              call far word [es:bx+0x24]
+0113                          ax = SetExitability(01) [es:bx+0x24]
 011E 50                       push ax
 011F C4 5E 06                 les bx, [bp+0x6]
 0122 26 FF 5F 20              call far word [es:bx+0x20]
@@ -824,8 +792,7 @@ Functn21: "SECDOORC"
 0127 C4 5E 06                 les bx, [bp+0x6]
 012A 26 FF 5F 2C              call far word [es:bx+0x2c]
 012E 83 C4 06                 add sp, 0x6
-0131 C4 5E 06                 les bx, [bp+0x6]
-0134 26 FF 5F 24              call far word [es:bx+0x24]
+0131                          ax = SetExitability(ax) [es:bx+0x24]
 0138 50                       push ax
 0139 C4 5E 06                 les bx, [bp+0x6]
 013C 26 FF 5F 20              call far word [es:bx+0x20]
@@ -837,10 +804,7 @@ Functn21: "SECDOORC"
 014C 83 C4 06                 add sp, 0x6
 014F                          ShowMessage(160A) [es:bx+0xf8] = You found a hidden door!
 015C EB 1D                    jmp 0x17b
-015E 33 C0                    xor ax, ax
-0160 50                       push ax
-0161 C4 5E 06                 les bx, [bp+0x6]
-0164 26 FF 5F 24              call far word [es:bx+0x24]
+015E                          ax = SetExitability(00) [es:bx+0x24]
 0168 50                       push ax
 0169 C4 5E 06                 les bx, [bp+0x6]
 016C 26 FF 5F 20              call far word [es:bx+0x20]
@@ -850,7 +814,7 @@ Functn21: "SECDOORC"
 0178 83 C4 06                 add sp, 0x6
 017B                          RETURN
 
-Functn25: "FNTNATTR"
+FNTNATTR_25:
 0000                          BEGIN
 0003 B8 56 00                 mov ax, 0x56
 0006 50                       push ax
@@ -886,27 +850,27 @@ Functn25: "FNTNATTR"
 0079                          ShowMessage(1674) [es:bx+0xf8] = The waters of the Fountain of Attributes quench your thirst but do not otherwise affect you.
 0086                          RETURN
 
-Functn26: "NSTYGIAN"
+NSTYGIAN_26:
 0000                          BEGIN
-0003                          SetEncData(1E, 01) [es:bx+0xd4]
-0015                          SetEncData(1E, 02) [es:bx+0xd4]
-0027                          SetEncData(1E, 03) [es:bx+0xd4]
-0039                          SetEncData(1E, 04) [es:bx+0xd4]
-004B                          SetEncData(1E, 05) [es:bx+0xd4]
-005D                          SetEncData(1E, 06) [es:bx+0xd4]
+0003                          AddEncounter(1E, 01) [es:bx+0xd4]
+0015                          AddEncounter(1E, 02) [es:bx+0xd4]
+0027                          AddEncounter(1E, 03) [es:bx+0xd4]
+0039                          AddEncounter(1E, 04) [es:bx+0xd4]
+004B                          AddEncounter(1E, 05) [es:bx+0xd4]
+005D                          AddEncounter(1E, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn27: "MAINGIAN"
+MAINGIAN_27:
 0000                          BEGIN
-0003                          SetEncData(1F, 01) [es:bx+0xd4]
-0015                          SetEncData(1F, 02) [es:bx+0xd4]
-0027                          SetEncData(1E, 03) [es:bx+0xd4]
-0039                          SetEncData(1E, 04) [es:bx+0xd4]
-004B                          SetEncData(20, 05) [es:bx+0xd4]
-005D                          SetEncData(1F, 06) [es:bx+0xd4]
+0003                          AddEncounter(1F, 01) [es:bx+0xd4]
+0015                          AddEncounter(1F, 02) [es:bx+0xd4]
+0027                          AddEncounter(1E, 03) [es:bx+0xd4]
+0039                          AddEncounter(1E, 04) [es:bx+0xd4]
+004B                          AddEncounter(20, 05) [es:bx+0xd4]
+005D                          AddEncounter(1F, 06) [es:bx+0xd4]
 006F                          RETURN
 
-Functn2C: "TOELVES"
+TOELVES_2C:
 0000                          BEGIN
 0003                          ShowMessage(16D1) [es:bx+0xf8] = A passageway leads up to the elfin lands.
 0010                          GoMap(01, 7F, 01, 37) [es:bx+0xbc]
