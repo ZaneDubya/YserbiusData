@@ -1,6 +1,6 @@
 Functn01: "RIVER"
 0000                          BEGIN
-0003                          ShowMessage(03FC)
+0003                          ShowMessage(03FC) = The River of Eternity taps your life energy.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 9F C4 00           call far word [es:bx+0xc4]
 0018 C4 5E 06                 les bx, [bp+0x6]
@@ -16,12 +16,12 @@ Functn01: "RIVER"
 0032 26 FF 5F 70              call far word [es:bx+0x70]
 0036 0B C0                    or ax, ax
 0038 77 0D                    ja 0x47
-003A                          ShowMessage(0429)
+003A                          ShowMessage(0429) = You have died.
 0047                          RETURN
 
 Functn02: "RIVRBANK"
 0000                          BEGIN
-0003                          ShowMessage(0438)
+0003                          ShowMessage(0438) = Only the bravest adventurers explore the life-devouring River of Eternity for hidden passages.
 0010                          RETURN
 
 Functn03: "SECDOORA"
@@ -36,14 +36,7 @@ Functn03: "SECDOORA"
 0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 75 15                    jnz 0x2d
-0018 B8 6C 00                 mov ax, 0x6c
-001B 50                       push ax
-001C B8 02 00                 mov ax, 0x2
-001F 50                       push ax
-0020 C4 5E 06                 les bx, [bp+0x6]
-0023 26 FF 5F 04              call far word [es:bx+0x4]
-0027 59                       pop cx
-0028 59                       pop cx
+0018                          ax = CheckState(02, 6C) [es:bx+0xf0]
 0029 0B C0                    or ax, ax
 002B 74 66                    jz 0x93
 002D B8 D4 00                 mov ax, 0xd4
@@ -81,12 +74,12 @@ Functn03: "SECDOORA"
 007C C4 5E 06                 les bx, [bp+0x6]
 007F 26 FF 5F 30              call far word [es:bx+0x30]
 0083 83 C4 06                 add sp, 0x6
-0086                          ShowMessage(0497)
+0086                          ShowMessage(0497) = A great dwarven door appears in the wall.
 0093                          RETURN
 
 Functn04: "LAVA"
 0000                          BEGIN
-0003                          ShowMessage(04C1)
+0003                          ShowMessage(04C1) = Your step into lava is fatal.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -153,7 +146,7 @@ Functn05: "SECDOORB"
 0080 C4 5E 06                 les bx, [bp+0x6]
 0083 26 FF 5F 30              call far word [es:bx+0x30]
 0087 83 C4 06                 add sp, 0x6
-008A                          ShowMessage(04DF)
+008A                          ShowMessage(04DF) = You locate a hidden door!
 0097 EB 1D                    jmp 0xb6
 0099 33 C0                    xor ax, ax
 009B 50                       push ax
@@ -170,32 +163,18 @@ Functn05: "SECDOORB"
 
 Functn06: "LAVALEDG"
 0000                          BEGIN
-0003                          ShowMessage(04F9)
+0003                          ShowMessage(04F9) = A ledge can be seen across the lava pit.
 0010                          RETURN
 
 Functn07: "LAVAPA"
 0000                          BEGIN
-0003 B8 03 00                 mov ax, 0x3
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(01, 03) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 74 16                    jz 0x2f
-0019 B8 03 00                 mov ax, 0x3
-001C 50                       push ax
-001D B8 01 00                 mov ax, 0x1
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 5F 04              call far word [es:bx+0x4]
-0028 59                       pop cx
-0029 59                       pop cx
+0019                          ax = CheckState(01, 03) [es:bx+0xf0]
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 51                    jnz 0x80
-002F                          ShowMessage(0522)
+002F                          ShowMessage(0522) = A platform appears beneath your feet..
 003C B8 A8 00                 mov ax, 0xa8
 003F 50                       push ax
 0040 33 C0                    xor ax, ax
@@ -229,7 +208,7 @@ Functn07: "LAVAPA"
 007C 59                       pop cx
 007D 59                       pop cx
 007E EB 1E                    jmp 0x9e
-0080                          ShowMessage(0549)
+0080                          ShowMessage(0549) = You step into a lava pit and die!
 008D C4 5E 06                 les bx, [bp+0x6]
 0090 26 FF 5F 74              call far word [es:bx+0x74]
 0094 50                       push ax
@@ -240,27 +219,13 @@ Functn07: "LAVAPA"
 
 Functn08: "LAVAPB"
 0000                          BEGIN
-0003 B8 03 00                 mov ax, 0x3
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(01, 03) [es:bx+0xf0]
 0014 3D 02 00                 cmp ax, 0x2
 0017 74 16                    jz 0x2f
-0019 B8 03 00                 mov ax, 0x3
-001C 50                       push ax
-001D B8 01 00                 mov ax, 0x1
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 5F 04              call far word [es:bx+0x4]
-0028 59                       pop cx
-0029 59                       pop cx
+0019                          ax = CheckState(01, 03) [es:bx+0xf0]
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 51                    jnz 0x80
-002F                          ShowMessage(056B)
+002F                          ShowMessage(056B) = A platform appears beneath your feet..
 003C B8 98 00                 mov ax, 0x98
 003F 50                       push ax
 0040 33 C0                    xor ax, ax
@@ -294,7 +259,7 @@ Functn08: "LAVAPB"
 007C 59                       pop cx
 007D 59                       pop cx
 007E EB 1E                    jmp 0x9e
-0080                          ShowMessage(0592)
+0080                          ShowMessage(0592) = You step into a lava pit and die!
 008D C4 5E 06                 les bx, [bp+0x6]
 0090 26 FF 5F 74              call far word [es:bx+0x74]
 0094 50                       push ax
@@ -305,27 +270,13 @@ Functn08: "LAVAPB"
 
 Functn09: "LAVAPC"
 0000                          BEGIN
-0003 B8 03 00                 mov ax, 0x3
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(01, 03) [es:bx+0xf0]
 0014 3D 03 00                 cmp ax, 0x3
 0017 74 16                    jz 0x2f
-0019 B8 03 00                 mov ax, 0x3
-001C 50                       push ax
-001D B8 01 00                 mov ax, 0x1
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 5F 04              call far word [es:bx+0x4]
-0028 59                       pop cx
-0029 59                       pop cx
+0019                          ax = CheckState(01, 03) [es:bx+0xf0]
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 51                    jnz 0x80
-002F                          ShowMessage(05B4)
+002F                          ShowMessage(05B4) = A platform appears beneath your feet..
 003C B8 88 00                 mov ax, 0x88
 003F 50                       push ax
 0040 33 C0                    xor ax, ax
@@ -359,7 +310,7 @@ Functn09: "LAVAPC"
 007C 59                       pop cx
 007D 59                       pop cx
 007E EB 1E                    jmp 0x9e
-0080                          ShowMessage(05DB)
+0080                          ShowMessage(05DB) = You step into a lava pit and die!
 008D C4 5E 06                 les bx, [bp+0x6]
 0090 26 FF 5F 74              call far word [es:bx+0x74]
 0094 50                       push ax
@@ -370,27 +321,13 @@ Functn09: "LAVAPC"
 
 Functn0A: "LAVAPD"
 0000                          BEGIN
-0003 B8 03 00                 mov ax, 0x3
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(01, 03) [es:bx+0xf0]
 0014 3D 04 00                 cmp ax, 0x4
 0017 74 16                    jz 0x2f
-0019 B8 03 00                 mov ax, 0x3
-001C 50                       push ax
-001D B8 01 00                 mov ax, 0x1
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 5F 04              call far word [es:bx+0x4]
-0028 59                       pop cx
-0029 59                       pop cx
+0019                          ax = CheckState(01, 03) [es:bx+0xf0]
 002A 3D 05 00                 cmp ax, 0x5
 002D 75 51                    jnz 0x80
-002F                          ShowMessage(05FD)
+002F                          ShowMessage(05FD) = A platform appears beneath your feet..
 003C B8 78 00                 mov ax, 0x78
 003F 50                       push ax
 0040 33 C0                    xor ax, ax
@@ -424,7 +361,7 @@ Functn0A: "LAVAPD"
 007C 59                       pop cx
 007D 59                       pop cx
 007E EB 1E                    jmp 0x9e
-0080                          ShowMessage(0624)
+0080                          ShowMessage(0624) = You step into a lava pit and die!
 008D C4 5E 06                 les bx, [bp+0x6]
 0090 26 FF 5F 74              call far word [es:bx+0x74]
 0094 50                       push ax
@@ -435,8 +372,8 @@ Functn0A: "LAVAPD"
 
 Functn0B: "LAVASWA"
 0000                          BEGIN
-0003                          ShowMessage(0646)
-0010                          ShowMessage(0662)
+0003                          ShowMessage(0646) = The wall bursts with color!
+0010                          ShowMessage(0662) = In the distance you hear a platform moving.
 001D B8 01 00                 mov ax, 0x1
 0020 50                       push ax
 0021 B8 03 00                 mov ax, 0x3
@@ -450,8 +387,8 @@ Functn0B: "LAVASWA"
 
 Functn0C: "LAVASWB"
 0000                          BEGIN
-0003                          ShowMessage(068E)
-0010                          ShowMessage(06AA)
+0003                          ShowMessage(068E) = The wall bursts with color!
+0010                          ShowMessage(06AA) = In the distance you hear a platform moving.
 001D B8 02 00                 mov ax, 0x2
 0020 50                       push ax
 0021 B8 03 00                 mov ax, 0x3
@@ -465,8 +402,8 @@ Functn0C: "LAVASWB"
 
 Functn0D: "LAVASWC"
 0000                          BEGIN
-0003                          ShowMessage(06D6)
-0010                          ShowMessage(06F2)
+0003                          ShowMessage(06D6) = The wall bursts with color!
+0010                          ShowMessage(06F2) = In the distance you hear a platform moving.
 001D B8 03 00                 mov ax, 0x3
 0020 50                       push ax
 0021 B8 03 00                 mov ax, 0x3
@@ -480,9 +417,9 @@ Functn0D: "LAVASWC"
 
 Functn0E: "LAVASWD"
 0000                          BEGIN
-0003                          ShowMessage(071E)
-0010                          ShowMessage(073A)
-001D                          ShowMessage(0766)
+0003                          ShowMessage(071E) = The wall bursts with color!
+0010                          ShowMessage(073A) = In the distance you hear a platform moving.
+001D                          ShowMessage(0766) = Perhaps there is a way for you to join your party.
 002A B8 04 00                 mov ax, 0x4
 002D 50                       push ax
 002E B8 03 00                 mov ax, 0x3
@@ -496,47 +433,32 @@ Functn0E: "LAVASWD"
 
 Functn0F: "KINGROOM"
 0000                          BEGIN
-0003                          ShowMessage(0799)
-0010                          ShowMessage(080F)
+0003                          ShowMessage(0799) = You enter a magnificently ornamented room, bedecked with jewels and the finely crafted metalworks of dwarf craftsmen.
+0010                          ShowMessage(080F) = In a small chair in the center of this royal treasure sits the Dwarf King.
 001D                          RETURN
 
 Functn10: "DWARKING"
 0000                          BEGIN
-0003 B8 F4 00                 mov ax, 0xf4
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(F4) ? 1 : 0 [es:bx+0x50]
 0011 75 4E                    jnz 0x61
 0013                          ShowPortrait(001C)
-0020                          ShowMessage(085A)
-002D                          ShowMessage(086F)
-003A                          ShowMessage(0884)
-0047                          ShowMessage(08B5)
-0054                          ShowMessage(0907)
+0020                          ShowMessage(085A) = The Dwarf King nods.
+002D                          ShowMessage(086F) = 'Welcome strangers! 
+003A                          ShowMessage(0884) = I have a quest for you, if you are brave enough!
+0047                          ShowMessage(08B5) = Beyond the keyhole lava lies a gem of great value, stolen by a fiercesome Dragon.
+0054                          ShowMessage(0907) = Keep the gem if you like, as our token of friendship. We ask only that you destroy this vile creature who blackmails us in return for peace.'
 0061                          RETURN
 
 Functn11: "FLEXSWOR"
 0000                          BEGIN
 0003                          ShowPortrait(002C)
-0010 B8 09 00                 mov ax, 0x9
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 5F 50              call far word [es:bx+0x50]
-001B 59                       pop cx
-001C 0B C0                    or ax, ax
+0010                          ax = HasItem(09) ? 1 : 0 [es:bx+0x50]
 001E 75 6D                    jnz 0x8d
-0020 B8 F0 00                 mov ax, 0xf0
-0023 50                       push ax
-0024 C4 5E 06                 les bx, [bp+0x6]
-0027 26 FF 5F 50              call far word [es:bx+0x50]
-002B 59                       pop cx
-002C 0B C0                    or ax, ax
+0020                          ax = HasItem(F0) ? 1 : 0 [es:bx+0x50]
 002E 74 41                    jz 0x71
-0030                          ShowMessage(0995)
-003D                          ShowMessage(0A22)
-004A                          ShowMessage(0A6C)
+0030                          ShowMessage(0995) = The dwarf takes the Flex Metal and smiles broadly. 'No greater pleasure can a dwarf blacksmith have than to test the powers of a new metal.'
+003D                          ShowMessage(0A22) = After a few hours working the metal, she holds up a brilliant blue sword.
+004A                          ShowMessage(0A6C) = 'There!  My finest weapon, made from your Flex Metal.  I dub it The Wind Sword!  May it destroy your enemies at first blow!'
 0057 B8 F0 00                 mov ax, 0xf0
 005A 50                       push ax
 005B C4 5E 06                 les bx, [bp+0x6]
@@ -548,45 +470,35 @@ Functn11: "FLEXSWOR"
 006A 26 FF 5F 48              call far word [es:bx+0x48]
 006E 59                       pop cx
 006F EB 1A                    jmp 0x8b
-0071                          ShowMessage(0AE9)
-007E                          ShowMessage(0B2F)
+0071                          ShowMessage(0AE9) = The dwarf blacksmith cuts down the furnace, then turns to greet you. 
+007E                          ShowMessage(0B2F) = 'I am a wizard swordmaker, ready to make the finest weapons from your valuable metals.  What may I build for you?'
 008B EB 34                    jmp 0xc1
-008D                          ShowMessage(0BA2)
-009A                          ShowMessage(0BD5)
-00A7                          ShowMessage(0C51)
-00B4                          ShowMessage(0C92)
+008D                          ShowMessage(0BA2) = The dwarf blacksmith pauses briefly from her work.
+009A                          ShowMessage(0BD5) = 'I see you have returned!'  An expression of worry crosses her face.  'Oh, I hope The Wind Sword has given you no trouble.'
+00A7                          ShowMessage(0C51) = She then notices the great blue sword.  'Ah, it's in fine shape!
+00B4                          ShowMessage(0C92) = If you find other types of metals, I will gladly make you another weapon!'
 00C1                          RETURN
 
 Functn12: "BLAKSMTH"
 0000                          BEGIN
-0003                          ShowMessage(0CDD)
-0010                          ShowMessage(0D17)
+0003                          ShowMessage(0CDD) = The room you enter contains furnaces, hammers and anvils.
+0010                          ShowMessage(0D17) = In a corner is a dwarf blacksmith, hard at work on her latest golden creation.
 001D                          RETURN
 
 Functn13: "CYCLQUST"
 0000                          BEGIN
 0003                          ShowPortrait(002C)
-0010 B8 F3 00                 mov ax, 0xf3
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 5F 50              call far word [es:bx+0x50]
-001B 59                       pop cx
-001C 0B C0                    or ax, ax
+0010                          ax = HasItem(F3) ? 1 : 0 [es:bx+0x50]
 001E 74 03                    jz 0x23
 0020 E9 BA 00                 jmp 0xdd
-0023 B8 F1 00                 mov ax, 0xf1
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 5F 50              call far word [es:bx+0x50]
-002E 59                       pop cx
-002F 0B C0                    or ax, ax
+0023                          ax = HasItem(F1) ? 1 : 0 [es:bx+0x50]
 0031 74 66                    jz 0x99
-0033                          ShowMessage(0D66)
-0040                          ShowMessage(0DAD)
-004D                          ShowMessage(0DE2)
-005A                          ShowMessage(0E15)
-0067                          ShowMessage(0E84)
-0074                          ShowMessage(0EF2)
+0033                          ShowMessage(0D66) = A mean, twisted smile appears across the face of the dwarf blacksmith.
+0040                          ShowMessage(0DAD) = 'You have killed the cyclop!  My gold caves are won!
+004D                          ShowMessage(0DE2) = Hmmph.  It is my debt to repay you.  And I shall!'
+005A                          ShowMessage(0E15) = A few hours pass as the blacksmith weaves a magnificent treasure from golden threads.  Then she appears again.
+0067                          ShowMessage(0E84) = 'Here.  My proudest work!  A golden boat that can ride the rainbows.  May you find treasure wherever you go.'
+0074                          ShowMessage(0EF2) = Then she scoots away.
 0081 B8 F1 00                 mov ax, 0xf1
 0084 50                       push ax
 0085 C4 5E 06                 les bx, [bp+0x6]
@@ -597,41 +509,22 @@ Functn13: "CYCLQUST"
 0091 C4 5E 06                 les bx, [bp+0x6]
 0094 26 FF 5F 48              call far word [es:bx+0x48]
 0098 59                       pop cx
-0099 B8 F1 00                 mov ax, 0xf1
-009C 50                       push ax
-009D C4 5E 06                 les bx, [bp+0x6]
-00A0 26 FF 5F 50              call far word [es:bx+0x50]
-00A4 59                       pop cx
-00A5 0B C0                    or ax, ax
+0099                          ax = HasItem(F1) ? 1 : 0 [es:bx+0x50]
 00A7 75 34                    jnz 0xdd
-00A9                          ShowMessage(0F08)
-00B6                          ShowMessage(0F78)
-00C3                          ShowMessage(0FE7)
-00D0                          ShowMessage(101E)
+00A9                          ShowMessage(0F08) = The old dwarf blacksmith at first does not hear you approach. Then she senses your presence and wheels on you. 
+00B6                          ShowMessage(0F78) = 'A mean trick you play on a wise one!  No matter.  No doubt you're looking for another golden trinket of mine.
+00C3                          ShowMessage(0FE7) = Well, I will not give you any of my creations.  Never!
+00D0                          ShowMessage(101E) = Unless, hmmm, Unless you are able to rid my gold caves of a horrible Cyclop! He fancies himself King of the Cyclops.'
 00DD                          RETURN
 
 Functn14: "MNRPLATC"
 0000                          BEGIN
 0003                          ShowPortrait(0023)
-0010 B8 6F 00                 mov ax, 0x6f
-0013 50                       push ax
-0014 B8 02 00                 mov ax, 0x2
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 04              call far word [es:bx+0x4]
-001F 59                       pop cx
-0020 59                       pop cx
+0010                          ax = CheckState(02, 6F) [es:bx+0xf0]
 0021 0B C0                    or ax, ax
 0023 74 6A                    jz 0x8f
-0025                          ShowMessage(1094)
-0032 B8 6B 00                 mov ax, 0x6b
-0035 50                       push ax
-0036 B8 02 00                 mov ax, 0x2
-0039 50                       push ax
-003A C4 5E 06                 les bx, [bp+0x6]
-003D 26 FF 5F 04              call far word [es:bx+0x4]
-0041 59                       pop cx
-0042 59                       pop cx
+0025                          ShowMessage(1094) = The dwarf miner greets you with youthful enthusiasm.
+0032                          ax = CheckState(02, 6B) [es:bx+0xf0]
 0043 0B C0                    or ax, ax
 0045 75 46                    jnz 0x8d
 0047 B8 01 00                 mov ax, 0x1
@@ -643,7 +536,7 @@ Functn14: "MNRPLATC"
 0053 C4 5E 06                 les bx, [bp+0x6]
 0056 26 FF 1F                 call far word [es:bx]
 0059 83 C4 06                 add sp, 0x6
-005C                          ShowMessage(10C9)
+005C                          ShowMessage(10C9) = You show signs of entering my caves!  I thank-you for clearing my mines and repay you with treasure.
 0069 B8 BA 00                 mov ax, 0xba
 006C 50                       push ax
 006D C4 5E 06                 les bx, [bp+0x6]
@@ -660,20 +553,15 @@ Functn14: "MNRPLATC"
 0088 26 FF 5F 48              call far word [es:bx+0x48]
 008C 59                       pop cx
 008D EB 6C                    jmp 0xfb
-008F B8 D7 00                 mov ax, 0xd7
-0092 50                       push ax
-0093 C4 5E 06                 les bx, [bp+0x6]
-0096 26 FF 5F 50              call far word [es:bx+0x50]
-009A 59                       pop cx
-009B 0B C0                    or ax, ax
+008F                          ax = HasItem(D7) ? 1 : 0 [es:bx+0x50]
 009D 74 1C                    jz 0xbb
-009F                          ShowMessage(112E)
-00AC                          ShowMessage(1156)
+009F                          ShowMessage(112E) = The dwarf miner smiles as you approach.
+00AC                          ShowMessage(1156) = 'Have you found my cave yet?  It is by the water's edge.'
 00B9 EB 40                    jmp 0xfb
-00BB                          ShowMessage(1190)
-00C8                          ShowMessage(11C0)
-00D5                          ShowMessage(124E)
-00E2                          ShowMessage(129A)
+00BB                          ShowMessage(1190) = An apprentice dwarf miner notices your arrival.
+00C8                          ShowMessage(11C0) = 'Adventurers!  At last!  I've heard tales from the elders about your deeds.  I, too, have a cave, well hidden beyond the edges of the waters.
+00D5                          ShowMessage(124E) = Monsters have forced me from my home. I am not strong enough to fight them.
+00E2                          ShowMessage(129A) = Perhaps, if I give you the key to my small cave, you will do me a favor. Then I may repay you well some day.'
 00EF B8 D7 00                 mov ax, 0xd7
 00F2 50                       push ax
 00F3 C4 5E 06                 les bx, [bp+0x6]
@@ -744,7 +632,7 @@ Functn16: "OPENER"
 000F C4 5E 06                 les bx, [bp+0x6]
 0012 26 FF 1F                 call far word [es:bx]
 0015 83 C4 06                 add sp, 0x6
-0018                          ShowMessage(1308)
+0018                          ShowMessage(1308) = All the east side platforms appear to be up.
 0025 B8 A9 00                 mov ax, 0xa9
 0028 50                       push ax
 0029 33 C0                    xor ax, ax
@@ -813,14 +701,7 @@ Functn16: "OPENER"
 
 Functn17: "OPENEE"
 0000                          BEGIN
-0003 B8 03 00                 mov ax, 0x3
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(01, 03) [es:bx+0xf0]
 0014 3D 05 00                 cmp ax, 0x5
 0017 75 34                    jnz 0x4d
 0019 B8 03 00                 mov ax, 0x3
@@ -1051,12 +932,7 @@ Functn1B: "DRAGON"
 0068 26 FF 9F D4 00           call far word [es:bx+0xd4]
 006D 59                       pop cx
 006E 59                       pop cx
-006F B8 F4 00                 mov ax, 0xf4
-0072 50                       push ax
-0073 C4 5E 06                 les bx, [bp+0x6]
-0076 26 FF 5F 50              call far word [es:bx+0x50]
-007A 59                       pop cx
-007B 0B C0                    or ax, ax
+006F                          ax = HasItem(F4) ? 1 : 0 [es:bx+0x50]
 007D 74 22                    jz 0xa1
 007F B8 D0 07                 mov ax, 0x7d0
 0082 50                       push ax
@@ -1074,7 +950,7 @@ Functn1B: "DRAGON"
 0097 26 FF 9F D8 00           call far word [es:bx+0xd8]
 009C 83 C4 0C                 add sp, 0xc
 009F EB 2F                    jmp 0xd0
-00A1                          ShowMessage(1335)
+00A1                          ShowMessage(1335) = A glowing red gem casts a beam from under the dragon's lair.
 00AE B8 28 23                 mov ax, 0x2328
 00B1 50                       push ax
 00B2 33 C0                    xor ax, ax
@@ -1094,67 +970,42 @@ Functn1B: "DRAGON"
 
 Functn1C: "KEYCLUEA"
 0000                          BEGIN
-0003                          ShowMessage(1372)
-0010 B8 9B 13                 mov ax, 0x139b
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
-001D B8 CF 13                 mov ax, 0x13cf
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F F4 00           call far word [es:bx+0xf4]
-0029 59                       pop cx
+0003                          ShowMessage(1372) = A collection of runes reveals a clue -- 
+0010                          ShowRunes(5013) [es:bx+0xf4] = The Keyhole Lava lies at the center of the Kingdom.
+001D                          ShowRunes(5013) [es:bx+0xf4] = Activate the switches to the west one at a time to move a party from south to north.
 002A                          RETURN
 
 Functn1D: "KEYCLUEB"
 0000                          BEGIN
-0003                          ShowMessage(1424)
-0010 B8 48 14                 mov ax, 0x1448
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
-001D B8 7C 14                 mov ax, 0x147c
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F F4 00           call far word [es:bx+0xf4]
-0029 59                       pop cx
+0003                          ShowMessage(1424) = A faint message written in dust -- 
+0010                          ShowRunes(5014) [es:bx+0xf4] = The Keyhole Lava lies at the center of the Kingdom.
+001D                          ShowRunes(5014) [es:bx+0xf4] = Repeat the sequence that moved a party south to north to move  a party north to south.
 002A                          RETURN
 
 Functn1E: "KEYCLUEC"
 0000                          BEGIN
-0003                          ShowMessage(14D3)
-0010 B8 F5 14                 mov ax, 0x14f5
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
+0003                          ShowMessage(14D3) = A note is found behind a rock -- 
+0010                          ShowRunes(5014) [es:bx+0xf4] = The one who switches a party across the Keyhole Lava may join the party at the south end of a second crossing.
 001D                          RETURN
 
 Functn1F: "GATEA"
 0000                          BEGIN
-0003                          ShowMessage(1564)
+0003                          ShowMessage(1564) = Distant bellows from gruesome monsters echo through the cavern.
 0010                          GoMap(02, 30, 02, 38)
 002B                          RETURN
 
 Functn20: "CYCLKEY"
 0000                          BEGIN
-0003 B8 D6 00                 mov ax, 0xd6
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(D6) ? 1 : 0 [es:bx+0x50]
 0011 74 0F                    jz 0x22
-0013                          ShowMessage(15A4)
+0013                          ShowMessage(15A4) = The room has been emptied.
 0020 EB 19                    jmp 0x3b
 0022 B8 D6 00                 mov ax, 0xd6
 0025 50                       push ax
 0026 C4 5E 06                 les bx, [bp+0x6]
 0029 26 FF 5F 48              call far word [es:bx+0x48]
 002D 59                       pop cx
-002E                          ShowMessage(15BF)
+002E                          ShowMessage(15BF) = You find a key to the Cyclop's Mine on the floor.
 003B                          RETURN
 
 Functn21: "SECDOORC"
@@ -1220,7 +1071,7 @@ Functn21: "SECDOORC"
 008F C4 5E 06                 les bx, [bp+0x6]
 0092 26 FF 5F 30              call far word [es:bx+0x30]
 0096 83 C4 06                 add sp, 0x6
-0099                          ShowMessage(15F1)
+0099                          ShowMessage(15F1) = You found a hidden door!
 00A6 EB 1D                    jmp 0xc5
 00A8 33 C0                    xor ax, ax
 00AA 50                       push ax
@@ -1290,7 +1141,7 @@ Functn21: "SECDOORC"
 0145 C4 5E 06                 les bx, [bp+0x6]
 0148 26 FF 5F 30              call far word [es:bx+0x30]
 014C 83 C4 06                 add sp, 0x6
-014F                          ShowMessage(160A)
+014F                          ShowMessage(160A) = You found a hidden door!
 015C EB 1D                    jmp 0x17b
 015E 33 C0                    xor ax, ax
 0160 50                       push ax
@@ -1307,14 +1158,7 @@ Functn21: "SECDOORC"
 
 Functn25: "FNTNATTR"
 0000                          BEGIN
-0003 B8 56 00                 mov ax, 0x56
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 56) [es:bx+0xf0]
 0014 0B C0                    or ax, ax
 0016 75 54                    jnz 0x6c
 0018 B8 01 00                 mov ax, 0x1
@@ -1343,10 +1187,10 @@ Functn25: "FNTNATTR"
 0056 26 FF 9F A8 00           call far word [es:bx+0xa8]
 005B 59                       pop cx
 005C 59                       pop cx
-005D                          ShowMessage(1623)
+005D                          ShowMessage(1623) = You drink from the Fountain of Attributes and feel your powers greatly increase.
 006A EB 1A                    jmp 0x86
 006C                          ShowPortrait(0042)
-0079                          ShowMessage(1674)
+0079                          ShowMessage(1674) = The waters of the Fountain of Attributes quench your thirst but do not otherwise affect you.
 0086                          RETURN
 
 Functn26: "NSTYGIAN"
@@ -1455,7 +1299,7 @@ Functn27: "MAINGIAN"
 
 Functn2C: "TOELVES"
 0000                          BEGIN
-0003                          ShowMessage(16D1)
+0003                          ShowMessage(16D1) = A passageway leads up to the elfin lands.
 0010                          GoMap(01, 7F, 01, 37)
 002B                          RETURN
 

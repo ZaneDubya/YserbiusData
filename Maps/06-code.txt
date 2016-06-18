@@ -79,7 +79,7 @@ Functn09: "LKPKDOOR"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(03FC)
+0065                          ShowMessage(03FC) = You successfully picked the locked door.
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -92,19 +92,14 @@ Functn09: "LKPKDOOR"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(0425)
+0091                          ShowMessage(0425) = The door is locked.
 009E                          RETURN
 
 Functn0A: "ITEMCENC"
 0000                          BEGIN
-0003 B8 27 00                 mov ax, 0x27
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(27) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(0439)
+0013                          ShowMessage(0439) = Dire Wolves prowl the area.
 0020 B8 F4 01                 mov ax, 0x1f4
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -136,7 +131,7 @@ Functn0A: "ITEMCENC"
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005D 83 C4 0C                 add sp, 0xc
-0060                          ShowMessage(0455)
+0060                          ShowMessage(0455) = A Dire Wolf holds something in its mouth.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0075 3D 01 00                 cmp ax, 0x1
@@ -182,17 +177,10 @@ Functn0A: "ITEMCENC"
 
 Functn0B: "GOLDAENC"
 0000                          BEGIN
-0003 B8 0C 00                 mov ax, 0xc
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 0C) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
-0019                          ShowMessage(047F)
+0019                          ShowMessage(047F) = Copper Ogres are huddled around a small fire.
 0026 B8 32 00                 mov ax, 0x32
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -224,7 +212,7 @@ Functn0B: "GOLDAENC"
 005C C4 5E 06                 les bx, [bp+0x6]
 005F 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0064 83 C4 0C                 add sp, 0xc
-0067                          ShowMessage(04AD)
+0067                          ShowMessage(04AD) = Copper Ogres are counting gold they have stolen.
 0074 B8 01 00                 mov ax, 0x1
 0077 50                       push ax
 0078 B8 0C 00                 mov ax, 0xc
@@ -333,17 +321,10 @@ Functn0B: "GOLDAENC"
 
 Functn0C: "GOLDBENC"
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 0D) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(04DE)
+0019                          ShowMessage(04DE) = This room is the lair of Mountain Lions.
 0026 33 C0                    xor ax, ax
 0028 50                       push ax
 0029 33 C0                    xor ax, ax
@@ -375,7 +356,7 @@ Functn0C: "GOLDBENC"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0063 83 C4 0C                 add sp, 0xc
-0066                          ShowMessage(0507)
+0066                          ShowMessage(0507) = Mountain Lions chew on a small bag.
 0073 B8 01 00                 mov ax, 0x1
 0076 50                       push ax
 0077 B8 0D 00                 mov ax, 0xd
@@ -500,17 +481,10 @@ Functn0C: "GOLDBENC"
 
 Functn0D: "GOLDCENC"
 0000                          BEGIN
-0003 B8 0E 00                 mov ax, 0xe
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 0E) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(052B)
+0019                          ShowMessage(052B) = You hear the angry snapping of pincers.
 0026 B8 32 00                 mov ax, 0x32
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -542,7 +516,7 @@ Functn0D: "GOLDCENC"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0063 83 C4 0C                 add sp, 0xc
-0066                          ShowMessage(0553)
+0066                          ShowMessage(0553) = As you step forward to pick up some gold on the floor...
 0073 B8 01 00                 mov ax, 0x1
 0076 50                       push ax
 0077 B8 0E 00                 mov ax, 0xe
@@ -622,17 +596,10 @@ Functn0D: "GOLDCENC"
 
 Functn0E: "GOLDDENC"
 0000                          BEGIN
-0003 B8 0F 00                 mov ax, 0xf
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 0F) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(058C)
+0019                          ShowMessage(058C) = Imps spring an ambush on you.
 0026 B8 14 00                 mov ax, 0x14
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -664,7 +631,7 @@ Functn0E: "GOLDDENC"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0063 83 C4 0C                 add sp, 0xc
-0066                          ShowMessage(05AA)
+0066                          ShowMessage(05AA) = You see gold on the floor and something hiding in the shadows.
 0073 B8 01 00                 mov ax, 0x1
 0076 50                       push ax
 0077 B8 0F 00                 mov ax, 0xf
@@ -780,17 +747,10 @@ Functn0E: "GOLDDENC"
 
 Functn0F: "GOLDEENC"
 0000                          BEGIN
-0003 B8 10 00                 mov ax, 0x10
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 10) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(05E9)
+0019                          ShowMessage(05E9) = You turn as you hear bones rattling.
 0026 B8 50 00                 mov ax, 0x50
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -822,7 +782,7 @@ Functn0F: "GOLDEENC"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0063 83 C4 0C                 add sp, 0xc
-0066                          ShowMessage(060E)
+0066                          ShowMessage(060E) = A skeleton has a coin bag tied to its belt.
 0073 B8 01 00                 mov ax, 0x1
 0076 50                       push ax
 0077 B8 10 00                 mov ax, 0x10
@@ -963,17 +923,10 @@ Functn0F: "GOLDEENC"
 
 Functn10: "GOLDFENC"
 0000                          BEGIN
-0003 B8 11 00                 mov ax, 0x11
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 11) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(063A)
+0019                          ShowMessage(063A) = You stumble upon an almost empty nesting area.
 0026 33 C0                    xor ax, ax
 0028 50                       push ax
 0029 33 C0                    xor ax, ax
@@ -1005,7 +958,7 @@ Functn10: "GOLDFENC"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0063 83 C4 0C                 add sp, 0xc
-0066                          ShowMessage(0669)
+0066                          ShowMessage(0669) = Angry hissing distracts you as you reach down for some gold coins.
 0073 B8 01 00                 mov ax, 0x1
 0076 50                       push ax
 0077 B8 11 00                 mov ax, 0x11
@@ -1084,13 +1037,13 @@ Functn10: "GOLDFENC"
 
 Functn13: "TUFMNSTR"
 0000                          BEGIN
-0003                          ShowMessage(06AC)
+0003                          ShowMessage(06AC) = You encounter Rogues.
 0010                          UnknownFunction(000F) [es:bx+0xec]
 001D 3D 02 00                 cmp ax, 0x2
 0020 77 0F                    ja 0x31
-0022                          ShowMessage(06C2)
+0022                          ShowMessage(06C2) = The rooms in the center of this area once housed the king's soldiers.
 002F EB 0D                    jmp 0x3e
-0031                          ShowMessage(0708)
+0031                          ShowMessage(0708) = The Rogues laugh at you and attack.
 003E C4 5E 06                 les bx, [bp+0x6]
 0041 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0046 3D 01 00                 cmp ax, 0x1
@@ -1205,19 +1158,9 @@ Functn13: "TUFMNSTR"
 
 Functn15: "ITEMAENC"
 0000                          BEGIN
-0003 B8 03 00                 mov ax, 0x3
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(03) ? 1 : 0 [es:bx+0x50]
 0011 74 52                    jz 0x65
-0013 B8 4F 00                 mov ax, 0x4f
-0016 50                       push ax
-0017 C4 5E 06                 les bx, [bp+0x6]
-001A 26 FF 5F 50              call far word [es:bx+0x50]
-001E 59                       pop cx
-001F 0B C0                    or ax, ax
+0013                          ax = HasItem(4F) ? 1 : 0 [es:bx+0x50]
 0021 74 21                    jz 0x44
 0023 B8 64 00                 mov ax, 0x64
 0026 50                       push ax
@@ -1251,12 +1194,7 @@ Functn15: "ITEMAENC"
 005B 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0060 83 C4 0C                 add sp, 0xc
 0063 EB 51                    jmp 0xb6
-0065 B8 4F 00                 mov ax, 0x4f
-0068 50                       push ax
-0069 C4 5E 06                 les bx, [bp+0x6]
-006C 26 FF 5F 50              call far word [es:bx+0x50]
-0070 59                       pop cx
-0071 0B C0                    or ax, ax
+0065                          ax = HasItem(4F) ? 1 : 0 [es:bx+0x50]
 0073 74 21                    jz 0x96
 0075 B8 E8 03                 mov ax, 0x3e8
 0078 50                       push ax
@@ -1289,7 +1227,7 @@ Functn15: "ITEMAENC"
 00AB C4 5E 06                 les bx, [bp+0x6]
 00AE 26 FF 9F D8 00           call far word [es:bx+0xd8]
 00B3 83 C4 0C                 add sp, 0xc
-00B6                          ShowMessage(072C)
+00B6                          ShowMessage(072C) = You are waylaid by Rogues.
 00C3 C4 5E 06                 les bx, [bp+0x6]
 00C6 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00CB 3D 01 00                 cmp ax, 0x1
@@ -1389,19 +1327,9 @@ Functn15: "ITEMAENC"
 
 Functn16: "ITEMBENC"
 0000                          BEGIN
-0003 B8 0F 00                 mov ax, 0xf
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(0F) ? 1 : 0 [es:bx+0x50]
 0011 74 53                    jz 0x66
-0013 B8 7B 00                 mov ax, 0x7b
-0016 50                       push ax
-0017 C4 5E 06                 les bx, [bp+0x6]
-001A 26 FF 5F 50              call far word [es:bx+0x50]
-001E 59                       pop cx
-001F 0B C0                    or ax, ax
+0013                          ax = HasItem(7B) ? 1 : 0 [es:bx+0x50]
 0021 74 22                    jz 0x45
 0023 B8 64 00                 mov ax, 0x64
 0026 50                       push ax
@@ -1435,12 +1363,7 @@ Functn16: "ITEMBENC"
 005C 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0061 83 C4 0C                 add sp, 0xc
 0064 EB 51                    jmp 0xb7
-0066 B8 7B 00                 mov ax, 0x7b
-0069 50                       push ax
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 5F 50              call far word [es:bx+0x50]
-0071 59                       pop cx
-0072 0B C0                    or ax, ax
+0066                          ax = HasItem(7B) ? 1 : 0 [es:bx+0x50]
 0074 74 21                    jz 0x97
 0076 B8 E8 03                 mov ax, 0x3e8
 0079 50                       push ax
@@ -1473,7 +1396,7 @@ Functn16: "ITEMBENC"
 00AC C4 5E 06                 les bx, [bp+0x6]
 00AF 26 FF 9F D8 00           call far word [es:bx+0xd8]
 00B4 83 C4 0C                 add sp, 0xc
-00B7                          ShowMessage(0747)
+00B7                          ShowMessage(0747) = You surprise some Rogues.
 00C4 C4 5E 06                 les bx, [bp+0x6]
 00C7 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00CC 3D 01 00                 cmp ax, 0x1
@@ -1628,7 +1551,7 @@ Functn18: "LKPKDOOR"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(0761)
+0065                          ShowMessage(0761) = You successfully picked the locked door.
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -1641,83 +1564,83 @@ Functn18: "LKPKDOOR"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(078A)
+0091                          ShowMessage(078A) = The door is locked.
 009E                          RETURN
 
 Functn19: "GATEMESA"
 0000                          BEGIN
-0003                          ShowMessage(079E)
+0003                          ShowMessage(079E) = The gateway leads to THE DUNGEON ENTRANCE.
 0010                          RETURN
 
 Functn1A: "GATEMESB"
 0000                          BEGIN
-0003                          ShowMessage(07C9)
+0003                          ShowMessage(07C9) = There is a sign on the east door - STAY OUT!
 0010                          RETURN
 
 Functn1F: "TELEMESC"
 0000                          BEGIN
-0003                          ShowMessage(07F6)
+0003                          ShowMessage(07F6) = Through the gateway you see stairs leading downwards.The stairs are rather long, at least 2 levels.
 0010                          RETURN
 
 Functn20: "TELEMESD"
 0000                          BEGIN
-0003                          ShowMessage(085A)
+0003                          ShowMessage(085A) = There is a teleport in the south wall.
 0010                          RETURN
 
 Functn21: "TELEMESE"
 0000                          BEGIN
-0003                          ShowMessage(0881)
+0003                          ShowMessage(0881) = There is a teleport in the north wall.
 0010                          RETURN
 
 Functn22: "STRSMESB"
 0000                          BEGIN
-0003                          ShowMessage(08A8)
+0003                          ShowMessage(08A8) = Through the north gateway you see stairs leading down to the next level.
 0010                          RETURN
 
 Functn23: "NPCCHATA"
 0000                          BEGIN
 0003                          ShowPortrait(0016)
-0010                          ShowMessage(08F1)
+0010                          ShowMessage(08F1) = You encounter a Human Barbarian.
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0912)
+002F                          ShowMessage(0912) = This area is called the Soldiers' Quarters. Why it is so named is beyond me. I've wandered these halls for weeks and have found nothing resembling living quarters, much less any soldiers.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(09CE)
+003E                          ShowMessage(09CE) = The Human Barbarian is trying to count his fingers and so neglects to answer.
 004B                          RETURN
 
 Functn24: "NPCCHATB"
 0000                          BEGIN
-0003                          ShowMessage(0A1C)
+0003                          ShowMessage(0A1C) = You encounter a Gremlin Wizard.
 0010                          ShowPortrait(002E)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0A3C)
+002F                          ShowMessage(0A3C) = The volcano Yserbius roils the sea and makes it unnavigable. We are doomed to live out our miserable lives, unknown to other peoples. I would give my left eyetooth for a way to escape this dull island.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0B06)
+003E                          ShowMessage(0B06) = The Gremlin Wizards squeals in terror and flees.
 004B                          RETURN
 
 Functn25: "NPCCHATC"
 0000                          BEGIN
-0003                          ShowMessage(0B37)
+0003                          ShowMessage(0B37) = You encounter a Troll Ranger.
 0010                          ShowPortrait(0020)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0B55)
+002F                          ShowMessage(0B55) = Unless you have especially sharp eyes for traps, you should heed the sign at the end of the corridor. This bum leg of mine is proof of that sign's warning.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0BF1)
+003E                          ShowMessage(0BF1) = The Troll Ranger snarls a curse at you and limps away.
 004B                          RETURN
 
 Functn26: "NPCCHATD"
 0000                          BEGIN
-0003                          ShowMessage(0C28)
+0003                          ShowMessage(0C28) = You encounter an Elf Cleric.
 0010                          ShowPortrait(0027)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0C45)
+002F                          ShowMessage(0C45) = You may think you are limited only to those skills you acquire through your Guild. I know there are places in this dungeon where you may acquire new and different skills.
 003C EB 1E                    jmp 0x5c
 003E 33 C0                    xor ax, ax
 0040 BA 08 00                 mov dx, 0x8
@@ -1727,30 +1650,30 @@ Functn26: "NPCCHATD"
 0048 26 FF 9F AC 00           call far word [es:bx+0xac]
 004D 59                       pop cx
 004E 59                       pop cx
-004F                          ShowMessage(0CF0)
+004F                          ShowMessage(0CF0) = The Elf Cleric gives you gold to leave him in peace.
 005C                          RETURN
 
 Functn27: "NPCCHATE"
 0000                          BEGIN
-0003                          ShowMessage(0D25)
+0003                          ShowMessage(0D25) = You encounter a Troll Knight.
 0010                          ShowPortrait(001B)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0D43)
+002F                          ShowMessage(0D43) = Under Cleowyn's palace is a strange maze. The maze is infested with thieves, and they seem to be the only ones who know how to get through the thing.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0DD9)
+003E                          ShowMessage(0DD9) = The Troll Knight is lost in thought and does not hear you.
 004B                          RETURN
 
 Functn28: "NPCCHATF"
 0000                          BEGIN
-0003                          ShowMessage(0E14)
+0003                          ShowMessage(0E14) = You encounter an Orc Barbarian.
 0010                          ShowPortrait(0017)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0E34)
+002F                          ShowMessage(0E34) = A dwarf knight told me he encountered polar bears and ice lions deep in the dungeon. Whoever heard of polar bears and ice lions living inside an active volcano?
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0ED5)
+003E                          ShowMessage(0ED5) = The Orc Barbarian watches you impassively, refusing to talk.
 004B                          RETURN
 

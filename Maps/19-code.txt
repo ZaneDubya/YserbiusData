@@ -29,7 +29,7 @@ Functn05: "LAVA"
 0012 26 FF 5F 38              call far word [es:bx+0x38]
 0016 59                       pop cx
 0017 59                       pop cx
-0018                          ShowMessage(03FC)
+0018                          ShowMessage(03FC) = You step into molten lava and your flesh burns.
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 5F 74              call far word [es:bx+0x74]
 002C 50                       push ax
@@ -72,7 +72,7 @@ Functn13: "SPKEYDOR"
 004A C4 5E 06                 les bx, [bp+0x6]
 004D 26 FF 5F 2C              call far word [es:bx+0x2c]
 0051 83 C4 06                 add sp, 0x6
-0054                          ShowMessage(042C)
+0054                          ShowMessage(042C) = The Lava Key opens the door.
 0061 EB 48                    jmp 0xab
 0063 C4 5E 06                 les bx, [bp+0x6]
 0066 26 FF 5F 24              call far word [es:bx+0x24]
@@ -96,19 +96,14 @@ Functn13: "SPKEYDOR"
 0094 C4 5E 06                 les bx, [bp+0x6]
 0097 26 FF 5F 2C              call far word [es:bx+0x2c]
 009B 83 C4 06                 add sp, 0x6
-009E                          ShowMessage(0449)
+009E                          ShowMessage(0449) = The door is locked. It requires a special key.
 00AB                          RETURN
 
 Functn14: "KEYENC"
 0000                          BEGIN
-0003 B8 E2 00                 mov ax, 0xe2
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(E2) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(0478)
+0013                          ShowMessage(0478) = Half-starved Rogues eye you hungrily.
 0020 B8 88 13                 mov ax, 0x1388
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -140,7 +135,7 @@ Functn14: "KEYENC"
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005D 83 C4 0C                 add sp, 0xc
-0060                          ShowMessage(049E)
+0060                          ShowMessage(049E) = A smirking Barbarian dangles a glowing red key in your face.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0075 3D 01 00                 cmp ax, 0x1
@@ -288,18 +283,11 @@ Functn14: "KEYENC"
 
 Functn15: "FOUNHLTH"
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(01, 01) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 1C                    jnz 0x35
 0019                          ShowPortrait(0042)
-0026                          ShowMessage(04DB)
+0026                          ShowMessage(04DB) = You sip from the Fountain of Hot Ice, but nothing happens.
 0033 EB 3C                    jmp 0x71
 0035 B8 D0 07                 mov ax, 0x7d0
 0038 50                       push ax
@@ -316,7 +304,7 @@ Functn15: "FOUNHLTH"
 0051 26 FF 1F                 call far word [es:bx]
 0054 83 C4 06                 add sp, 0x6
 0057                          ShowPortrait(0042)
-0064                          ShowMessage(0516)
+0064                          ShowMessage(0516) = You sip from the Fountain of Hot Ice and feel your Health restored.
 0071                          RETURN
 
 Functn16: "LKPKDOOR"
@@ -360,7 +348,7 @@ Functn16: "LKPKDOOR"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(055A)
+0065                          ShowMessage(055A) = The door lock opens easily.
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -373,22 +361,15 @@ Functn16: "LKPKDOOR"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(0576)
+0091                          ShowMessage(0576) = The door is locked.
 009E                          RETURN
 
 Functn17: "GOLDAENC"
 0000                          BEGIN
-0003 B8 3B 00                 mov ax, 0x3b
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 3B) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(058A)
+0019                          ShowMessage(058A) = Angry Sabertooth Lions roar at you.
 0026 B8 D0 07                 mov ax, 0x7d0
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -429,7 +410,7 @@ Functn17: "GOLDAENC"
 0074 C4 5E 06                 les bx, [bp+0x6]
 0077 26 FF 1F                 call far word [es:bx]
 007A 83 C4 06                 add sp, 0x6
-007D                          ShowMessage(05AE)
+007D                          ShowMessage(05AE) = The lion lair you enter is littered with gold.
 008A C4 5E 06                 les bx, [bp+0x6]
 008D 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0092 3D 01 00                 cmp ax, 0x1
@@ -529,17 +510,10 @@ Functn17: "GOLDAENC"
 
 Functn18: "GOLDBENC"
 0000                          BEGIN
-0003 B8 3C 00                 mov ax, 0x3c
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 3C) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(05DD)
+0019                          ShowMessage(05DD) = You step into a Wyvern den.
 0026 B8 58 1B                 mov ax, 0x1b58
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -580,7 +554,7 @@ Functn18: "GOLDBENC"
 0073 C4 5E 06                 les bx, [bp+0x6]
 0076 26 FF 1F                 call far word [es:bx]
 0079 83 C4 06                 add sp, 0x6
-007C                          ShowMessage(05F9)
+007C                          ShowMessage(05F9) = Gold coins are stuck to a Wyvern's scales.
 0089 C4 5E 06                 les bx, [bp+0x6]
 008C 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0091 3D 01 00                 cmp ax, 0x1
@@ -680,14 +654,9 @@ Functn18: "GOLDBENC"
 
 Functn19: "ITEMAENC"
 0000                          BEGIN
-0003 B8 C4 00                 mov ax, 0xc4
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(C4) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(0624)
+0013                          ShowMessage(0624) = You discover a Knights' sanctuary.
 0020 B8 B8 0B                 mov ax, 0xbb8
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -719,7 +688,7 @@ Functn19: "ITEMAENC"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005E 83 C4 0C                 add sp, 0xc
-0061                          ShowMessage(0647)
+0061                          ShowMessage(0647) = A Knight drops a lockpick on the floor.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
@@ -843,14 +812,9 @@ Functn19: "ITEMAENC"
 
 Functn1A: "ITEMBENC"
 0000                          BEGIN
-0003 B8 C9 00                 mov ax, 0xc9
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(C9) ? 1 : 0 [es:bx+0x50]
 0011 74 2F                    jz 0x42
-0013                          ShowMessage(066F)
+0013                          ShowMessage(066F) = This room is a Cleric stronghold.
 0020 B8 D0 07                 mov ax, 0x7d0
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -882,7 +846,7 @@ Functn1A: "ITEMBENC"
 0057 C4 5E 06                 les bx, [bp+0x6]
 005A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005F 83 C4 0C                 add sp, 0xc
-0062                          ShowMessage(0691)
+0062                          ShowMessage(0691) = A Cleric shows off a wand to his associates.
 006F C4 5E 06                 les bx, [bp+0x6]
 0072 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0077 3D 01 00                 cmp ax, 0x1
@@ -1006,14 +970,9 @@ Functn1A: "ITEMBENC"
 
 Functn1B: "ITEMCENC"
 0000                          BEGIN
-0003 B8 BE 00                 mov ax, 0xbe
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(BE) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(06BE)
+0013                          ShowMessage(06BE) = You step into a nest of Pincer Cobras.
 0020 B8 88 13                 mov ax, 0x1388
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -1045,7 +1004,7 @@ Functn1B: "ITEMCENC"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005E 83 C4 0C                 add sp, 0xc
-0061                          ShowMessage(06E5)
+0061                          ShowMessage(06E5) = In a snake nest is a shining prism.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
@@ -1156,14 +1115,9 @@ Functn1B: "ITEMCENC"
 
 Functn1C: "ARMRAENC"
 0000                          BEGIN
-0003 B8 82 00                 mov ax, 0x82
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(82) ? 1 : 0 [es:bx+0x50]
 0011 74 2F                    jz 0x42
-0013                          ShowMessage(0709)
+0013                          ShowMessage(0709) = You interrupt a Wizards' coven.
 0020 B8 E8 03                 mov ax, 0x3e8
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -1195,7 +1149,7 @@ Functn1C: "ARMRAENC"
 0057 C4 5E 06                 les bx, [bp+0x6]
 005A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005F 83 C4 0C                 add sp, 0xc
-0062                          ShowMessage(0729)
+0062                          ShowMessage(0729) = The chief Wizard of the coven wears a round breastplate.
 006F C4 5E 06                 les bx, [bp+0x6]
 0072 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0077 3D 01 00                 cmp ax, 0x1
@@ -1306,14 +1260,9 @@ Functn1C: "ARMRAENC"
 
 Functn1D: "MAGICENC"
 0000                          BEGIN
-0003 B8 9E 00                 mov ax, 0x9e
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(9E) ? 1 : 0 [es:bx+0x50]
 0011 74 2F                    jz 0x42
-0013                          ShowMessage(0762)
+0013                          ShowMessage(0762) = Rogue Rangers use this place as a safehold.
 0020 B8 D0 07                 mov ax, 0x7d0
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -1345,7 +1294,7 @@ Functn1D: "MAGICENC"
 0057 C4 5E 06                 les bx, [bp+0x6]
 005A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005F 83 C4 0C                 add sp, 0xc
-0062                          ShowMessage(078E)
+0062                          ShowMessage(078E) = A sly Ranger hides something inside his jacket.
 006F C4 5E 06                 les bx, [bp+0x6]
 0072 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0077 3D 01 00                 cmp ax, 0x1
@@ -1456,14 +1405,9 @@ Functn1D: "MAGICENC"
 
 Functn1E: "WEAPAENC"
 0000                          BEGIN
-0003 B8 29 00                 mov ax, 0x29
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(29) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(07BE)
+0013                          ShowMessage(07BE) = Rogue Barbarians have a wrestling center here.
 0020 B8 58 1B                 mov ax, 0x1b58
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -1495,7 +1439,7 @@ Functn1E: "WEAPAENC"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005E 83 C4 0C                 add sp, 0xc
-0061                          ShowMessage(07ED)
+0061                          ShowMessage(07ED) = A Barbarian throws a heavy mace aside to swing at you.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
@@ -1777,27 +1721,27 @@ Functn1F: "STRMNSTR"
 
 Functn25: "TELMESSA"
 0000                          BEGIN
-0003                          ShowMessage(0824)
+0003                          ShowMessage(0824) = There is a teleport in the north wall.
 0010                          RETURN
 
 Functn26: "TELMESSB"
 0000                          BEGIN
-0003                          ShowMessage(084B)
+0003                          ShowMessage(084B) = There is a teleport in the south wall.
 0010                          RETURN
 
 Functn27: "TELMESSC"
 0000                          BEGIN
-0003                          ShowMessage(0872)
+0003                          ShowMessage(0872) = There is a teleport in the east wall.
 0010                          RETURN
 
 Functn28: "TELMESSD"
 0000                          BEGIN
-0003                          ShowMessage(0898)
+0003                          ShowMessage(0898) = There is a teleport in the south wall.
 0010                          RETURN
 
 Functn29: "LAVAMESS"
 0000                          BEGIN
-0003                          ShowMessage(08BF)
+0003                          ShowMessage(08BF) = The heat of the adjacent lava weakens you.
 0010 B8 05 00                 mov ax, 0x5
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -1807,49 +1751,49 @@ Functn29: "LAVAMESS"
 
 Functn2A: "NPCCHATA"
 0000                          BEGIN
-0003                          ShowMessage(08EA)
+0003                          ShowMessage(08EA) = You encounter a Troll Knight.
 0010                          ShowPortrait(001B)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0908)
+002F                          ShowMessage(0908) = The only way to get out of this basement area is to go through the lava field. Touching the lava is deadly, as you might expect. However, even if you pass safely through the lava field, the great heat of the lava will sap your strength.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(09F5)
+003E                          ShowMessage(09F5) = The Troll Knight scowls angrily, causing you to leave her alone.
 004B                          RETURN
 
 Functn2B: "NPCCHATB"
 0000                          BEGIN
-0003                          ShowMessage(0A36)
+0003                          ShowMessage(0A36) = You encounter a Dwarf Thief.
 0010                          ShowPortrait(0023)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0A53)
+002F                          ShowMessage(0A53) = I know there is a short cut through the lava field. If you can find the correct key, you will be able to use the short cut. The key also will lead you to riches.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0AF5)
+003E                          ShowMessage(0AF5) = The Dwarf Thief runs away.
 004B                          RETURN
 
 Functn2C: "NPCCHATC"
 0000                          BEGIN
-0003                          ShowMessage(0B10)
+0003                          ShowMessage(0B10) = You encounter a Halfling Ranger.
 0010                          ShowPortrait(0021)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0B31)
+002F                          ShowMessage(0B31) = The dwarves who built Cleowyn's Palace transported precious metals and building blocks up to the top level by means of a teleport. I believe the teleport is somewhere in this area.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0BE6)
+003E                          ShowMessage(0BE6) = The Halfling Ranger faints from heat stroke.
 004B                          RETURN
 
 Functn2D: "NPCCHATD"
 0000                          BEGIN
-0003                          ShowMessage(0C13)
+0003                          ShowMessage(0C13) = You encounter a Gremlin Cleric.
 0010                          ShowPortrait(002A)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0C33)
+002F                          ShowMessage(0C33) = Deep in the dungeon are the Pillow Labyrinths. They were formed from pillow lava that spilled into the sea. The labyrinth is formed from the hollow interior of the lava.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0CDD)
+003E                          ShowMessage(0CDD) = The Gremlin Cleric is deep in meditation and does not answer you.
 004B                          RETURN
 

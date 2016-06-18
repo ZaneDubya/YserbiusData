@@ -5,13 +5,12 @@ Functn01: "TOCORDOR"
 
 Functn02: "TELEPORT"
 0000                          BEGIN
-0003                          ax = CheckLevel(001E)
-000F 0B C0                    or ax, ax
+0003                          ax = CheckLevel(001E) ? 1 : 0 [es:bx+0x44]
 0011 74 1D                    jz 0x30
 0013                          GoMap(02, 7A, 01, 38)
 002E EB 37                    jmp 0x67
-0030                          ShowMessage(03FC)
-003D                          ShowMessage(040B)
+0030                          ShowMessage(03FC) = A note reads -
+003D                          ShowMessage(040B) = 'Only heroes of the thirtieth level or higher may pass this door.'
 004A 33 C0                    xor ax, ax
 004C 50                       push ax
 004D C4 5E 06                 les bx, [bp+0x6]
@@ -32,12 +31,7 @@ Functn03: "TELEPORT"
 
 Functn04: "HIDNDOOR"
 0000                          BEGIN
-0003 B8 D4 00                 mov ax, 0xd4
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(D4) ? 1 : 0 [es:bx+0x50]
 0011 74 46                    jz 0x59
 0013 B8 01 00                 mov ax, 0x1
 0016 50                       push ax
@@ -60,7 +54,7 @@ Functn04: "HIDNDOOR"
 0040 C4 5E 06                 les bx, [bp+0x6]
 0043 26 FF 5F 30              call far word [es:bx+0x30]
 0047 83 C4 06                 add sp, 0x6
-004A                          ShowMessage(044E)
+004A                          ShowMessage(044E) = The Sunbeam Key reveals a hidden door to the Dwarf Kingdom!
 0057 EB 1D                    jmp 0x76
 0059 33 C0                    xor ax, ax
 005B 50                       push ax
@@ -116,7 +110,7 @@ Functn05: "LKPKDOOR"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(048A)
+0065                          ShowMessage(048A) = You skillfully pick the door lock.
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -129,17 +123,12 @@ Functn05: "LKPKDOOR"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(04AD)
+0091                          ShowMessage(04AD) = The door is locked.
 009E                          RETURN
 
 Functn06: "CRWNNICH"
 0000                          BEGIN
-0003 B8 69 00                 mov ax, 0x69
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(69) ? 1 : 0 [es:bx+0x50]
 0011 75 15                    jnz 0x28
 0013 B8 01 00                 mov ax, 0x1
 0016 50                       push ax
@@ -165,23 +154,16 @@ Functn06: "CRWNNICH"
 0040 C4 5E 06                 les bx, [bp+0x6]
 0043 26 FF 1F                 call far word [es:bx]
 0046 83 C4 06                 add sp, 0x6
-0049                          ShowMessage(04C1)
-0056                          ShowMessage(050B)
-0063                          ShowMessage(0521)
+0049                          ShowMessage(04C1) = Invisible hands take Cleowyn's Crown and place it in a niche in the wall.
+0056                          ShowMessage(050B) = The niche disappears.
+0063                          ShowMessage(0521) = You hear a rumbling sound in the distance
 0070 EB 0D                    jmp 0x7f
-0072                          ShowMessage(054B)
+0072                          ShowMessage(054B) = There is a niche in the wall which seems designed to hold a crown.
 007F                          RETURN
 
 Functn07: "CRWNDOOR"
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(01, 01) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 4B                    jnz 0x64
 0019 B8 01 00                 mov ax, 0x1
@@ -206,7 +188,7 @@ Functn07: "CRWNDOOR"
 004B C4 5E 06                 les bx, [bp+0x6]
 004E 26 FF 5F 30              call far word [es:bx+0x30]
 0052 83 C4 06                 add sp, 0x6
-0055                          ShowMessage(058E)
+0055                          ShowMessage(058E) = Returning the Crown of Cleowyn reveals a secret door in the west wall!
 0062 EB 1D                    jmp 0x81
 0064 33 C0                    xor ax, ax
 0066 50                       push ax
@@ -223,21 +205,9 @@ Functn07: "CRWNDOOR"
 
 Functn08: "ROBENICH"
 0000                          BEGIN
-0003 B8 78 00                 mov ax, 0x78
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(78) ? 1 : 0 [es:bx+0x50]
 0011 74 16                    jz 0x29
-0013 B8 01 00                 mov ax, 0x1
-0016 50                       push ax
-0017 B8 01 00                 mov ax, 0x1
-001A 50                       push ax
-001B C4 5E 06                 les bx, [bp+0x6]
-001E 26 FF 5F 04              call far word [es:bx+0x4]
-0022 59                       pop cx
-0023 59                       pop cx
+0013                          ax = CheckState(01, 01) [es:bx+0xf0]
 0024 3D 01 00                 cmp ax, 0x1
 0027 74 15                    jz 0x3e
 0029 B8 02 00                 mov ax, 0x2
@@ -264,9 +234,9 @@ Functn08: "ROBENICH"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 1F                 call far word [es:bx]
 005C 83 C4 06                 add sp, 0x6
-005F                          ShowMessage(05D5)
-006C                          ShowMessage(061A)
-0079                          ShowMessage(0630)
+005F                          ShowMessage(05D5) = Cleowyn's Robe flies out of your hands and into a niche in the wall.
+006C                          ShowMessage(061A) = The niche disappears.
+0079                          ShowMessage(0630) = You hear a rumbling sound in the distance.
 0086 EB 26                    jmp 0xae
 0088 33 C0                    xor ax, ax
 008A 50                       push ax
@@ -278,19 +248,12 @@ Functn08: "ROBENICH"
 0097 C4 5E 06                 les bx, [bp+0x6]
 009A 26 FF 5F 2C              call far word [es:bx+0x2c]
 009E 83 C4 06                 add sp, 0x6
-00A1                          ShowMessage(065B)
+00A1                          ShowMessage(065B) = There is a niche in the wall which seems designed to hold a robe.
 00AE                          RETURN
 
 Functn09: "ROBEDOOR"
 0000                          BEGIN
-0003 B8 02 00                 mov ax, 0x2
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(01, 02) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 43                    jnz 0x5c
 0019 B8 01 00                 mov ax, 0x1
@@ -313,7 +276,7 @@ Functn09: "ROBEDOOR"
 0043 C4 5E 06                 les bx, [bp+0x6]
 0046 26 FF 5F 30              call far word [es:bx+0x30]
 004A 83 C4 06                 add sp, 0x6
-004D                          ShowMessage(069D)
+004D                          ShowMessage(069D) = Returning the Robe of Cleowyn reveals a secret door in the east wall.
 005A EB 1D                    jmp 0x79
 005C 33 C0                    xor ax, ax
 005E 50                       push ax
@@ -330,12 +293,7 @@ Functn09: "ROBEDOOR"
 
 Functn0A: "SCEPNICH"
 0000                          BEGIN
-0003 B8 E3 00                 mov ax, 0xe3
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(E3) ? 1 : 0 [es:bx+0x50]
 0011 74 2A                    jz 0x3d
 0013 B8 01 00                 mov ax, 0x1
 0016 50                       push ax
@@ -402,10 +360,10 @@ Functn0A: "SCEPNICH"
 00A0 C4 5E 06                 les bx, [bp+0x6]
 00A3 26 FF 5F 30              call far word [es:bx+0x30]
 00A7 83 C4 06                 add sp, 0x6
-00AA                          ShowMessage(06E3)
-00B7                          ShowMessage(073F)
-00C4                          ShowMessage(0765)
-00D1                          ShowMessage(07AC)
+00AA                          ShowMessage(06E3) = Cleowyn's Scepter is taken from you by spectral hands and is placed in a niche in the wall.
+00B7                          ShowMessage(073F) = The spirit of King Cleowyn whispers -
+00C4                          ShowMessage(0765) = 'Well done!  The reward is yours for the taking, if you dare claim it.
+00D1                          ShowMessage(07AC) = The door to the tomb opens.
 00DE EB 26                    jmp 0x106
 00E0 33 C0                    xor ax, ax
 00E2 50                       push ax
@@ -417,22 +375,15 @@ Functn0A: "SCEPNICH"
 00EF C4 5E 06                 les bx, [bp+0x6]
 00F2 26 FF 5F 2C              call far word [es:bx+0x2c]
 00F6 83 C4 06                 add sp, 0x6
-00F9                          ShowMessage(07C8)
+00F9                          ShowMessage(07C8) = There is a niche in the wall which seems designed to hold a scepter.
 0106                          RETURN
 
 Functn0C: "GOLDAENC"
 0000                          BEGIN
-0003 B8 2C 00                 mov ax, 0x2c
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 2C) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
-0019                          ShowMessage(080D)
+0019                          ShowMessage(080D) = The room you enter is cold as ice.
 0026 B8 8C 00                 mov ax, 0x8c
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -473,7 +424,7 @@ Functn0C: "GOLDAENC"
 0075 C4 5E 06                 les bx, [bp+0x6]
 0078 26 FF 1F                 call far word [es:bx]
 007B 83 C4 06                 add sp, 0x6
-007E                          ShowMessage(0830)
+007E                          ShowMessage(0830) = An Ice Lion stands over a torn bag of gold.
 008B C4 5E 06                 les bx, [bp+0x6]
 008E 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0093 3D 01 00                 cmp ax, 0x1
@@ -584,17 +535,10 @@ Functn0C: "GOLDAENC"
 
 Functn0D: "GOLDBENC"
 0000                          BEGIN
-0003 B8 2D 00                 mov ax, 0x2d
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 2D) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
-0019                          ShowMessage(085C)
+0019                          ShowMessage(085C) = The room stinks of rotten meat.
 0026 B8 B4 00                 mov ax, 0xb4
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -635,7 +579,7 @@ Functn0D: "GOLDBENC"
 0074 C4 5E 06                 les bx, [bp+0x6]
 0077 26 FF 1F                 call far word [es:bx]
 007A 83 C4 06                 add sp, 0x6
-007D                          ShowMessage(087C)
+007D                          ShowMessage(087C) = Something kicks gold across the floor as it charges you.
 008A C4 5E 06                 les bx, [bp+0x6]
 008D 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0092 3D 01 00                 cmp ax, 0x1
@@ -726,7 +670,7 @@ Functn0D: "GOLDBENC"
 
 Functn0E: "SPCMONSA"
 0000                          BEGIN
-0003                          ShowMessage(08B5)
+0003                          ShowMessage(08B5) = Lizardites guard this area.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0018 3D 01 00                 cmp ax, 0x1
@@ -837,7 +781,7 @@ Functn0E: "SPCMONSA"
 
 Functn0F: "SPCMONSB"
 0000                          BEGIN
-0003                          ShowMessage(08D1)
+0003                          ShowMessage(08D1) = Giants guard the corridor.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0018 3D 01 00                 cmp ax, 0x1
@@ -1107,34 +1051,15 @@ Functn10: "SPCMONSC"
 
 Functn11: "PAYOFENC"
 0000                          BEGIN
-0003 B8 37 00                 mov ax, 0x37
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 37) [es:bx+0xf0]
 0014 3D 02 00                 cmp ax, 0x2
 0017 75 10                    jnz 0x29
-0019                          ShowMessage(08EC)
+0019                          ShowMessage(08EC) = There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
 0026 E9 F4 00                 jmp 0x11d
-0029 B8 37 00                 mov ax, 0x37
-002C 50                       push ax
-002D B8 02 00                 mov ax, 0x2
-0030 50                       push ax
-0031 C4 5E 06                 les bx, [bp+0x6]
-0034 26 FF 5F 04              call far word [es:bx+0x4]
-0038 59                       pop cx
-0039 59                       pop cx
+0029                          ax = CheckState(02, 37) [es:bx+0xf0]
 003A 3D 01 00                 cmp ax, 0x1
 003D 75 7A                    jnz 0xb9
-003F B8 FA 00                 mov ax, 0xfa
-0042 50                       push ax
-0043 C4 5E 06                 les bx, [bp+0x6]
-0046 26 FF 5F 50              call far word [es:bx+0x50]
-004A 59                       pop cx
-004B 0B C0                    or ax, ax
+003F                          ax = HasItem(FA) ? 1 : 0 [es:bx+0x50]
 004D 74 5B                    jz 0xaa
 004F B8 FA 00                 mov ax, 0xfa
 0052 50                       push ax
@@ -1163,10 +1088,10 @@ Functn11: "PAYOFENC"
 0087 26 FF 9F 98 00           call far word [es:bx+0x98]
 008C 59                       pop cx
 008D 59                       pop cx
-008E                          ShowMessage(09BA)
-009B                          ShowMessage(0A08)
+008E                          ShowMessage(09BA) = As you place Cleowyn's bones in the crypt, Cleowyn's spirit whispers to you -
+009B                          ShowMessage(0A08) = 'My thanks to you. You certainly took your time finding my bones. Here is the Netherworld Medallion. Now go away and don't bother me again.'
 00A8 EB 0D                    jmp 0xb7
-00AA                          ShowMessage(0A95)
+00AA                          ShowMessage(0A95) = There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
 00B7 EB 64                    jmp 0x11d
 00B9 B8 01 00                 mov ax, 0x1
 00BC 50                       push ax
@@ -1205,22 +1130,15 @@ Functn11: "PAYOFENC"
 0109 26 FF 9F 98 00           call far word [es:bx+0x98]
 010E 59                       pop cx
 010F 59                       pop cx
-0110                          ShowMessage(0B63)
+0110                          ShowMessage(0B63) = You find the Crypt of King Cleowyn and open it. Inside is the Sword of the Crypt, the Mourning Star, the Bow of Sorrow, and Galabryan Chainmail.
 011D                          RETURN
 
 Functn12: "ITEMAENC"
 0000                          BEGIN
-0003 B8 67 00                 mov ax, 0x67
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 67) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(0BF4)
+0019                          ShowMessage(0BF4) = Polar Bears wander the empty room.
 0026 B8 C8 00                 mov ax, 0xc8
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -1261,7 +1179,7 @@ Functn12: "ITEMAENC"
 0073 C4 5E 06                 les bx, [bp+0x6]
 0076 26 FF 9F D8 00           call far word [es:bx+0xd8]
 007B 83 C4 0C                 add sp, 0xc
-007E                          ShowMessage(0C17)
+007E                          ShowMessage(0C17) = A Polar Bear plays with a pile of stuff.
 008B C4 5E 06                 les bx, [bp+0x6]
 008E 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0093 3D 01 00                 cmp ax, 0x1
@@ -1323,14 +1241,9 @@ Functn12: "ITEMAENC"
 
 Functn13: "ITEMBENC"
 0000                          BEGIN
-0003 B8 A1 00                 mov ax, 0xa1
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(A1) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(0C40)
+0013                          ShowMessage(0C40) = Hell Wolves snarl at you.
 0020 B8 2C 01                 mov ax, 0x12c
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -1362,7 +1275,7 @@ Functn13: "ITEMBENC"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005E 83 C4 0C                 add sp, 0xc
-0061                          ShowMessage(0C5A)
+0061                          ShowMessage(0C5A) = A Hell Wolf kicks an object aside as it leaps at you.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
@@ -1758,82 +1671,82 @@ Functn15: "TERMNSTR"
 
 Functn16: "GATEMESS"
 0000                          BEGIN
-0003                          ShowMessage(0C90)
+0003                          ShowMessage(0C90) = This gateway leads to THE GREAT CORRIDOR.
 0010                          RETURN
 
 Functn17: "TELEMESA"
 0000                          BEGIN
-0003                          ShowMessage(0CBA)
+0003                          ShowMessage(0CBA) = There is a teleport in the east wall.
 0010                          RETURN
 
 Functn18: "TELEMESB"
 0000                          BEGIN
 0003 C4 5E 06                 les bx, [bp+0x6]
 0006 26 FF 9F E0 00           call far word [es:bx+0xe0]
-000B                          ShowMessage(0CE0)
+000B                          ShowMessage(0CE0) = There is a teleport in the west wall.
 0018                          RETURN
 
 Functn19: "NPCCHATA"
 0000                          BEGIN
-0003                          ShowMessage(0D06)
+0003                          ShowMessage(0D06) = You encounter a Gremlin Cleric.
 0010                          ShowPortrait(002A)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0D 00                 cmp ax, 0xd
 002D 77 36                    ja 0x65
-002F                          ShowMessage(0D26)
-003C                          ShowMessage(0DA2)
-0049                          ShowMessage(0E15)
-0056                          ShowMessage(0E90)
+002F                          ShowMessage(0D26) = Listen carefully, friend. Be careful where you place the possessions Cleowyn demands. Use Crown before Robe before Scepter.
+003C                          ShowMessage(0DA2) = Someone in your group must always remain in the Mausoleum until all three items are placed and the tomb is opened.
+0049                          ShowMessage(0E15) = Otherwise, imps will steal the treasures away and hide them again.  They love to torment adventurers and Cleowyn's spirit.
+0056                          ShowMessage(0E90) = Remember to leave one person at all times and to reform your group before continuing your quest.
 0063 EB 0D                    jmp 0x72
-0065                          ShowMessage(0EF1)
+0065                          ShowMessage(0EF1) = The Gremlin Cleric turns away as you approach her.
 0072                          RETURN
 
 Functn1A: "NPCCHATB"
 0000                          BEGIN
-0003                          ShowMessage(0F24)
+0003                          ShowMessage(0F24) = You encounter a Halfling Knight.
 0010                          ShowPortrait(001D)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0F45)
+002F                          ShowMessage(0F45) = The longest routes through this Mausoleum are the least rewarding.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0F88)
+003E                          ShowMessage(0F88) = The Halfling Knight looks at you once and then continues polishing her shield.
 004B                          RETURN
 
 Functn1B: "NPCCHATC"
 0000                          BEGIN
-0003                          ShowMessage(0FD7)
+0003                          ShowMessage(0FD7) = You encounter an Elf Ranger.
 0010                          ShowPortrait(001F)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0FF4)
+002F                          ShowMessage(0FF4) = The night the volcano erupted, the wizard Arnakkian Slowfoot threw a great feast. All who attended died in the eruption. They died at their games of cards and gambling. Some, it is said, were transformed into the monsters who inhabit the dungeon.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(10EB)
+003E                          ShowMessage(10EB) = The Elf Ranger abruptly walks away.
 004B                          RETURN
 
 Functn1C: "NPCCHATD"
 0000                          BEGIN
-0003                          ShowMessage(110F)
+0003                          ShowMessage(110F) = You encounter a Gnome Barbarian.
 0010                          ShowPortrait(0019)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(1130)
+002F                          ShowMessage(1130) = Cleowyn's bones are guarded by the Snow Elves, I have heard. Whether or not it is worth returning the king's bones to the Mausoleum is much debated, for the imps will seize them again and return them to the elves.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(1206)
+003E                          ShowMessage(1206) = The Gnome Barbarian opens his mouth to speak, but he forgets what he planned to say.
 004B                          RETURN
 
 Functn1D: "NPCCHATE"
 0000                          BEGIN
-0003                          ShowMessage(125B)
+0003                          ShowMessage(125B) = You encounter a Human Thief.
 0010                          ShowPortrait(0022)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(1278)
+002F                          ShowMessage(1278) = If you find King Cleowyn's quarters, you will find a shortcut back to his Palace. Be careful where you tread, lest you leave his quarters unrewarded.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(130E)
+003E                          ShowMessage(130E) = The Human Thief darts away as you approach.
 004B                          RETURN
 
 Functn1E: "MINOTAUR"

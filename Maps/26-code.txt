@@ -33,7 +33,7 @@ Functn01: "CHESLITE"
 0059 26 FF 5F 24              call far word [es:bx+0x24]
 005D 3D 02 00                 cmp ax, 0x2
 0060 75 10                    jnz 0x72
-0062                          ShowMessage(03FC)
+0062                          ShowMessage(03FC) = You may leave the chessboard through this opening.
 006F E9 21 01                 jmp 0x193
 0072 33 C0                    xor ax, ax
 0074 50                       push ax
@@ -46,12 +46,7 @@ Functn01: "CHESLITE"
 0085 C4 5E 06                 les bx, [bp+0x6]
 0088 26 FF 5F 2C              call far word [es:bx+0x2c]
 008C 83 C4 06                 add sp, 0x6
-008F B8 EE 00                 mov ax, 0xee
-0092 50                       push ax
-0093 C4 5E 06                 les bx, [bp+0x6]
-0096 26 FF 5F 50              call far word [es:bx+0x50]
-009A 59                       pop cx
-009B 0B C0                    or ax, ax
+008F                          ax = HasItem(EE) ? 1 : 0 [es:bx+0x50]
 009D 75 03                    jnz 0xa2
 009F E9 E4 00                 jmp 0x186
 00A2 C4 5E 06                 les bx, [bp+0x6]
@@ -130,9 +125,9 @@ Functn01: "CHESLITE"
 016D 26 FF 9F BC 00           call far word [es:bx+0xbc]
 0172 83 C4 08                 add sp, 0x8
 0175 EB 0D                    jmp 0x184
-0177                          ShowMessage(042F)
+0177                          ShowMessage(042F) = A knight move here would place you off the chessboard!
 0184 EB 0D                    jmp 0x193
-0186                          ShowMessage(0466)
+0186                          ShowMessage(0466) = With a chess piece you may step across the chessboard.
 0193 5E                       pop si
 0194                          RETURN
 
@@ -171,7 +166,7 @@ Functn02: "CHESDARK"
 0059 26 FF 5F 24              call far word [es:bx+0x24]
 005D 3D 02 00                 cmp ax, 0x2
 0060 75 10                    jnz 0x72
-0062                          ShowMessage(049D)
+0062                          ShowMessage(049D) = You may leave the chessboard through this opening.
 006F E9 21 01                 jmp 0x193
 0072 33 C0                    xor ax, ax
 0074 50                       push ax
@@ -184,12 +179,7 @@ Functn02: "CHESDARK"
 0085 C4 5E 06                 les bx, [bp+0x6]
 0088 26 FF 5F 2C              call far word [es:bx+0x2c]
 008C 83 C4 06                 add sp, 0x6
-008F B8 EE 00                 mov ax, 0xee
-0092 50                       push ax
-0093 C4 5E 06                 les bx, [bp+0x6]
-0096 26 FF 5F 50              call far word [es:bx+0x50]
-009A 59                       pop cx
-009B 0B C0                    or ax, ax
+008F                          ax = HasItem(EE) ? 1 : 0 [es:bx+0x50]
 009D 75 03                    jnz 0xa2
 009F E9 E4 00                 jmp 0x186
 00A2 C4 5E 06                 les bx, [bp+0x6]
@@ -268,15 +258,15 @@ Functn02: "CHESDARK"
 016D 26 FF 9F BC 00           call far word [es:bx+0xbc]
 0172 83 C4 08                 add sp, 0x8
 0175 EB 0D                    jmp 0x184
-0177                          ShowMessage(04D0)
+0177                          ShowMessage(04D0) = A knight move here would place you off the chessboard!
 0184 EB 0D                    jmp 0x193
-0186                          ShowMessage(0507)
+0186                          ShowMessage(0507) = With a chess piece you may step across the chessboard.
 0193 5E                       pop si
 0194                          RETURN
 
 Functn03: "VOID"
 0000                          BEGIN
-0003                          ShowMessage(053E)
+0003                          ShowMessage(053E) = You fall to your death in the lava below!
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -287,18 +277,11 @@ Functn03: "VOID"
 
 Functn04: "POKERBRG"
 0000                          BEGIN
-0003                          ShowMessage(0568)
-0010 B8 01 00                 mov ax, 0x1
-0013 50                       push ax
-0014 B8 01 00                 mov ax, 0x1
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 04              call far word [es:bx+0x4]
-001F 59                       pop cx
-0020 59                       pop cx
+0003                          ShowMessage(0568) = Planks of the Poker Bridge are made from used playing cards.
+0010                          ax = CheckState(01, 01) [es:bx+0xf0]
 0021 3D 01 00                 cmp ax, 0x1
 0024 75 30                    jnz 0x56
-0026                          ShowMessage(05A5)
+0026                          ShowMessage(05A5) = The rickety bridge barely holds your weight.
 0033 B8 DD 00                 mov ax, 0xdd
 0036 50                       push ax
 0037 33 C0                    xor ax, ax
@@ -316,8 +299,8 @@ Functn04: "POKERBRG"
 0052 59                       pop cx
 0053 59                       pop cx
 0054 EB 2B                    jmp 0x81
-0056                          ShowMessage(05D2)
-0063                          ShowMessage(0615)
+0056                          ShowMessage(05D2) = The bridge collapses as you step on it, sending you to your death.
+0063                          ShowMessage(0615) = The King laughs at his clever ruse.
 0070 C4 5E 06                 les bx, [bp+0x6]
 0073 26 FF 5F 74              call far word [es:bx+0x74]
 0077 50                       push ax
@@ -363,15 +346,15 @@ Functn05: "POKERSW"
 0048 26 FF 5F 34              call far word [es:bx+0x34]
 004C 59                       pop cx
 004D 59                       pop cx
-004E                          ShowMessage(0639)
+004E                          ShowMessage(0639) = The royal flush beats the Joker!  A bridge forms across the pit.
 005B EB 1A                    jmp 0x77
-005D                          ShowMessage(067A)
-006A                          ShowMessage(06BF)
+005D                          ShowMessage(067A) = A bottomless pit lies before you, and a broken bridge spans the pit.
+006A                          ShowMessage(06BF) = Upon each board are the symbols for 10, Jack, Queen and Ace.  A voice proclaims, 'I call your bluff'.
 0077                          RETURN
 
 Functn06: "HEARTSDR"
 0000                          BEGIN
-0003                          ShowMessage(0725)
+0003                          ShowMessage(0725) = The door bellows, 'I am all hearts!'
 0010                          RETURN
 
 Functn07: "MOONSW"
@@ -404,9 +387,9 @@ Functn07: "MOONSW"
 003A C4 5E 06                 les bx, [bp+0x6]
 003D 26 FF 5F 2C              call far word [es:bx+0x2c]
 0041 83 C4 06                 add sp, 0x6
-0044                          ShowMessage(074A)
+0044                          ShowMessage(074A) = The door proclaims,  'You shot the Moon!'
 0051 EB 0D                    jmp 0x60
-0053                          ShowMessage(0774)
+0053                          ShowMessage(0774) = A small button, shaped like the crescent moon, lies just out of reach.
 0060                          RETURN
 
 Functn08: "BLAKJAK"
@@ -439,16 +422,16 @@ Functn08: "BLAKJAK"
 003A C4 5E 06                 les bx, [bp+0x6]
 003D 26 FF 5F 2C              call far word [es:bx+0x2c]
 0041 83 C4 06                 add sp, 0x6
-0044                          ShowMessage(07BB)
-0051                          ShowMessage(07F6)
+0044                          ShowMessage(07BB) = The Ace is played as eleven points, scoring the BlackJack!
+0051                          ShowMessage(07F6) = A door unlocks...
 005E EB 1A                    jmp 0x7a
-0060                          ShowMessage(0808)
-006D                          ShowMessage(0838)
+0060                          ShowMessage(0808) = You enter a treasure room without any treasure.
+006D                          ShowMessage(0838) = A dwarf thief voice menacingly orders, 'The Kings guard their treasure.  Only one can find it.'
 007A                          RETURN
 
 Functn09: "BLAKJAKK"
 0000                          BEGIN
-0003                          ShowMessage(0898)
+0003                          ShowMessage(0898) = Stand back!  A King guards this wall!
 0010                          RETURN
 
 Functn0A: "CRIB"
@@ -481,27 +464,27 @@ Functn0A: "CRIB"
 003A C4 5E 06                 les bx, [bp+0x6]
 003D 26 FF 5F 2C              call far word [es:bx+0x2c]
 0041 83 C4 06                 add sp, 0x6
-0044                          ShowMessage(08BE)
-0051                          ShowMessage(08F2)
+0044                          ShowMessage(08BE) = The Jack scores the hand 22.  Cribbage is the game.
+0051                          ShowMessage(08F2) = A door unlocks...
 005E EB 27                    jmp 0x87
-0060                          ShowMessage(0904)
-006D                          ShowMessage(0929)
-007A                          ShowMessage(097A)
+0060                          ShowMessage(0904) = The 22nd room of this fine castle...
+006D                          ShowMessage(0929) = On the floor is a five, on two walls are fives, and the third wall holds a Jack.
+007A                          ShowMessage(097A) = A voice laughs, 'You stand on face up!'
 0087                          RETURN
 
 Functn0B: "CRIBJACK"
 0000                          BEGIN
-0003                          ShowMessage(09A2)
+0003                          ShowMessage(09A2) = I, the Jack, throw dust in your general direction.
 0010                          RETURN
 
 Functn0C: "CRIBFIVE"
 0000                          BEGIN
-0003                          ShowMessage(09D5)
+0003                          ShowMessage(09D5) = The 5 card smiles back.
 0010                          RETURN
 
 Functn0D: "BRDGFALL"
 0000                          BEGIN
-0003                          ShowMessage(09ED)
+0003                          ShowMessage(09ED) = The Poker Bridge behind you collapses.
 0010 33 C0                    xor ax, ax
 0012 50                       push ax
 0013 B8 01 00                 mov ax, 0x1
@@ -523,17 +506,17 @@ Functn0D: "BRDGFALL"
 
 Functn0E: "DICEPASS"
 0000                          BEGIN
-0003                          ShowMessage(0A14)
+0003                          ShowMessage(0A14) = Lucky Sevens! Lucky Sevens on the first roll!
 0010                          RETURN
 
 Functn0F: "DICESNAK"
 0000                          BEGIN
-0003                          ShowMessage(0A42)
+0003                          ShowMessage(0A42) = The door says, 'Snake eyes' ...
 0010                          RETURN
 
 Functn10: "DICEBOXC"
 0000                          BEGIN
-0003                          ShowMessage(0A62)
+0003                          ShowMessage(0A62) = The door shows two squares of six.  'Box Cars' ...
 0010                          RETURN
 
 Functn11: "DICEENCA"
@@ -642,15 +625,8 @@ Functn12: "DICEENCB"
 
 Functn13: "BLJKFOUN"
 0000                          BEGIN
-0003                          ShowMessage(0A95)
-0010 B8 7E 00                 mov ax, 0x7e
-0013 50                       push ax
-0014 B8 02 00                 mov ax, 0x2
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 04              call far word [es:bx+0x4]
-001F 59                       pop cx
-0020 59                       pop cx
+0003                          ShowMessage(0A95) = The Blackjack Fountain is made of playing cards.
+0010                          ax = CheckState(02, 7E) [es:bx+0xf0]
 0021 0B C0                    or ax, ax
 0023 74 03                    jz 0x28
 0025 E9 87 00                 jmp 0xaf
@@ -683,25 +659,18 @@ Functn13: "BLJKFOUN"
 0070 C4 5E 06                 les bx, [bp+0x6]
 0073 26 FF 9F 94 00           call far word [es:bx+0x94]
 0078 59                       pop cx
-0079                          ShowMessage(0AC6)
-0086                          ShowMessage(0AE3)
-0093                          ShowMessage(0B18)
-00A0                          ShowMessage(0B37)
+0079                          ShowMessage(0AC6) = Still water fills the basin.
+0086                          ShowMessage(0AE3) = A sip of it makes you feel healthier and more agile.
+0093                          ShowMessage(0B18) = As you sip, a voice whispers -
+00A0                          ShowMessage(0B37) = 'The Jack has come home.  Thank you for your help.'
 00AD EB 0D                    jmp 0xbc
-00AF                          ShowMessage(0B6B)
+00AF                          ShowMessage(0B6B) = The fountain is dry as a bone.
 00BC                          RETURN
 
 Functn14: "CRIBFOUN"
 0000                          BEGIN
-0003                          ShowMessage(0B8A)
-0010 B8 7F 00                 mov ax, 0x7f
-0013 50                       push ax
-0014 B8 02 00                 mov ax, 0x2
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 04              call far word [es:bx+0x4]
-001F 59                       pop cx
-0020 59                       pop cx
+0003                          ShowMessage(0B8A) = The Cribbage Fountain is bedecked with golden pegs.
+0010                          ax = CheckState(02, 7F) [es:bx+0xf0]
 0021 0B C0                    or ax, ax
 0023 74 03                    jz 0x28
 0025 E9 83 00                 jmp 0xab
@@ -733,162 +702,98 @@ Functn14: "CRIBFOUN"
 006C C4 5E 06                 les bx, [bp+0x6]
 006F 26 FF 9F B4 00           call far word [es:bx+0xb4]
 0074 59                       pop cx
-0075                          ShowMessage(0BBE)
-0082                          ShowMessage(0BF4)
-008F                          ShowMessage(0C29)
-009C                          ShowMessage(0C3C)
+0075                          ShowMessage(0BBE) = A puff of steam from the fountain blows in your face.
+0082                          ShowMessage(0BF4) = Your Mana is restored and you feel readier to fight.
+008F                          ShowMessage(0C29) = A voice whispers -
+009C                          ShowMessage(0C3C) = 'The Ace has returned.  Three points for you.'
 00A9 EB 0D                    jmp 0xb8
-00AB                          ShowMessage(0C6B)
+00AB                          ShowMessage(0C6B) = The basin is empty.
 00B8                          RETURN
 
 Functn15: "DICETRSA"
 0000                          BEGIN
-0003                          ShowMessage(0C7F)
-0010 B8 A4 0C                 mov ax, 0xca4
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
-001D B8 E6 0C                 mov ax, 0xce6
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F F4 00           call far word [es:bx+0xf4]
-0029 59                       pop cx
+0003                          ShowMessage(0C7F) = A message is inscribed on a wall -- 
+0010                          ShowRunes(500C) [es:bx+0xf4] = 'The Waters of Winter are needed to transform Spring into Summer.
+001D                          ShowRunes(500C) [es:bx+0xf4] = In return for your deeds, you will receive the Radiance of Summer.'
 002A                          RETURN
 
 Functn16: "DICETRSB"
 0000                          BEGIN
-0003                          ShowMessage(0D2A)
-0010 B8 4C 0D                 mov ax, 0xd4c
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
-001D B8 85 0D                 mov ax, 0xd85
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F F4 00           call far word [es:bx+0xf4]
-0029 59                       pop cx
+0003                          ShowMessage(0D2A) = A note is inscribed on a wall -- 
+0010                          ShowRunes(500D) [es:bx+0xf4] = 'To reach En-Li-Kil, you must defeat his Wind Elemental.
+001D                          ShowRunes(500D) [es:bx+0xf4] = Remember to use weapons that do not break when the Wind Elemental attacks.
 002A                          RETURN
 
 Functn17: "DICETRSC"
 0000                          BEGIN
-0003                          ShowMessage(0DD0)
-0010 B8 FC 0D                 mov ax, 0xdfc
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
-001D B8 22 0E                 mov ax, 0xe22
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F F4 00           call far word [es:bx+0xf4]
-0029 59                       pop cx
-002A B8 82 0E                 mov ax, 0xe82
-002D 50                       push ax
-002E C4 5E 06                 les bx, [bp+0x6]
-0031 26 FF 9F F4 00           call far word [es:bx+0xf4]
-0036 59                       pop cx
+0003                          ShowMessage(0DD0) = A message is written in blood on a wall -- 
+0010                          ShowRunes(500D) [es:bx+0xf4] = 'Be careful in the River of Eternity.
+001D                          ShowRunes(500E) [es:bx+0xf4] = The river takes one fourth of your full health every step you take with no opportunity to heal.
+002A                          ShowRunes(500E) [es:bx+0xf4] = 'A safe fourth square must be found to cross the Rivers of Eternity.'
 0037                          RETURN
 
 Functn18: "DICETRSD"
 0000                          BEGIN
-0003                          ShowMessage(0EC8)
-0010 B8 EB 0E                 mov ax, 0xeeb
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
-001D B8 41 0F                 mov ax, 0xf41
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F F4 00           call far word [es:bx+0xf4]
-0029 59                       pop cx
+0003                          ShowMessage(0EC8) = A message is written on a wall -- 
+0010                          ShowRunes(500E) [es:bx+0xf4] = 'Use the outer walls to set the location of another's next step in the Parapet Chasm.
+001D                          ShowRunes(500F) [es:bx+0xf4] = Once across, encounter Andreas to gain access to Arnakkian.'
 002A                          RETURN
 
 Functn19: "DICETRSE"
 0000                          BEGIN
-0003                          ShowMessage(0F7E)
-0010 B8 A1 0F                 mov ax, 0xfa1
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
-001D B8 EB 0F                 mov ax, 0xfeb
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F F4 00           call far word [es:bx+0xf4]
-0029 59                       pop cx
+0003                          ShowMessage(0F7E) = A message is written on a wall -- 
+0010                          ShowRunes(500F) [es:bx+0xf4] = 'The Promise of Spring Renewal must be sworn to convert Autumn to Winter.
+001D                          ShowRunes(500F) [es:bx+0xf4] = In return you will receive the cold Waters of Winter.'
 002A                          RETURN
 
 Functn1A: "DICETRSF"
 0000                          BEGIN
 0003                          ShowPortrait(001F)
-0010                          ShowMessage(1022)
-001D                          ShowMessage(1039)
-002A                          ShowMessage(107A)
-0037                          ShowMessage(10C0)
-0044                          ShowMessage(10EA)
-0051                          ShowMessage(111B)
-005E                          ShowMessage(1174)
+0010                          ShowMessage(1022) = An Elf Ranger appears.
+001D                          ShowMessage(1039) = 'In levels below the labyrinth, Snow Elves hide from the curses 
+002A                          ShowMessage(107A) = of Arnakkian and await the day they may return to their faraway land.
+0037                          ShowMessage(10C0) = A proud tree may be found in their caves.
+0044                          ShowMessage(10EA) = The Snow Elves call this grand tree the Aldbora.
+0051                          ShowMessage(111B) = The Aldbora bears the fruit of knowledge to all adventurers during the season of winter.
+005E                          ShowMessage(1174) = It lies dormant now, unable to ripen its fruit without the change of seasons and the Radiance of Summer.'
 006B                          RETURN
 
 Functn1B: "DICETRSG"
 0000                          BEGIN
-0003                          ShowMessage(11DE)
-0010 B8 02 12                 mov ax, 0x1202
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
-001D B8 43 12                 mov ax, 0x1243
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F F4 00           call far word [es:bx+0xf4]
-0029 59                       pop cx
+0003                          ShowMessage(11DE) = A message is scrawled on a wall -- 
+0010                          ShowRunes(5012) [es:bx+0xf4] = 'Use the Autumn Seeds to transform Winter into flowering Spring.
+001D                          ShowRunes(5012) [es:bx+0xf4] = The promise of Spring Renewal for another year will be given in return.'
 002A                          RETURN
 
 Functn1C: "DICETRSH"
 0000                          BEGIN
-0003                          ShowMessage(128C)
-0010 B8 B1 12                 mov ax, 0x12b1
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
+0003                          ShowMessage(128C) = A message is carved in the floor -- 
+0010                          ShowRunes(5012) [es:bx+0xf4] = 'The bones of a past king may be found in the Elven Caves.'
 001D                          RETURN
 
 Functn1D: "DICETRSI"
 0000                          BEGIN
-0003                          ShowMessage(12ED)
-0010 B8 12 13                 mov ax, 0x1312
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
-001D B8 66 13                 mov ax, 0x1366
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F F4 00           call far word [es:bx+0xf4]
-0029 59                       pop cx
+0003                          ShowMessage(12ED) = A message is scribbled on a wall -- 
+0010                          ShowRunes(5013) [es:bx+0xf4] = 'The trumpet sound of the Harvest Horn will announce Summer's conversion to Autumn.
+001D                          ShowRunes(5013) [es:bx+0xf4] = From the conversion you will receive the seeds of Autumn.'
 002A                          RETURN
 
 Functn22: "BARD"
 0000                          BEGIN
-0003                          ShowMessage(13A1)
+0003                          ShowMessage(13A1) = A ghost elf bard sings a tale of how four colored magical gems placed side by side can form a rainbow to a far away island.
 0010                          RETURN
 
 Functn23: "APPLES"
 0000                          BEGIN
-0003                          ShowMessage(141D)
-0010                          ShowMessage(147C)
+0003                          ShowMessage(141D) = The spirit of a beautiful wench appears. She hold a wooden bucket filled wtih floating apples.
+0010                          ShowMessage(147C) = 'Step forward and honor me with your kindness!  Bob for apples and win a prize.'
 001D                          RETURN
 
 Functn24: "APPLEENC"
 0000                          BEGIN
-0003                          ShowMessage(14CD)
-0010                          ShowMessage(14F6)
-001D                          ShowMessage(1533)
+0003                          ShowMessage(14CD) = You have accepted the ghost's challenge.
+0010                          ShowMessage(14F6) = You close your eyes and dunk your head into the wood bucket.
+001D                          ShowMessage(1533) = The ripe apples are rotten and filled with Leeches!
 002A B8 1A 00                 mov ax, 0x1a
 002D 50                       push ax
 002E B8 01 00                 mov ax, 0x1
@@ -1197,12 +1102,7 @@ Functn29: "CHESENCE"
 0068 26 FF 9F D4 00           call far word [es:bx+0xd4]
 006D 59                       pop cx
 006E 59                       pop cx
-006F B8 EB 00                 mov ax, 0xeb
-0072 50                       push ax
-0073 C4 5E 06                 les bx, [bp+0x6]
-0076 26 FF 5F 50              call far word [es:bx+0x50]
-007A 59                       pop cx
-007B 0B C0                    or ax, ax
+006F                          ax = HasItem(EB) ? 1 : 0 [es:bx+0x50]
 007D 74 21                    jz 0xa0
 007F 33 C0                    xor ax, ax
 0081 50                       push ax
@@ -1287,12 +1187,7 @@ Functn2A: "CHESENCF"
 0068 26 FF 9F D4 00           call far word [es:bx+0xd4]
 006D 59                       pop cx
 006E 59                       pop cx
-006F B8 EC 00                 mov ax, 0xec
-0072 50                       push ax
-0073 C4 5E 06                 les bx, [bp+0x6]
-0076 26 FF 5F 50              call far word [es:bx+0x50]
-007A 59                       pop cx
-007B 0B C0                    or ax, ax
+006F                          ax = HasItem(EC) ? 1 : 0 [es:bx+0x50]
 007D 74 21                    jz 0xa0
 007F 33 C0                    xor ax, ax
 0081 50                       push ax
@@ -1566,7 +1461,7 @@ Functn2E: "BLJKENCB"
 
 Functn2F: "CRIBENCB"
 0000                          BEGIN
-0003                          ShowMessage(1567)
+0003                          ShowMessage(1567) = You are able to dodge several bursts of flame as you enter a Dragon's Lair.
 0010 B8 24 00                 mov ax, 0x24
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -1755,26 +1650,26 @@ Functn35: "GATEA"
 
 Functn36: "TOLABY"
 0000                          BEGIN
-0003                          ShowMessage(15B3)
+0003                          ShowMessage(15B3) = The gate takes you back to the labyrinth.
 0010                          RETURN
 
 Functn37: "TXTCHESL"
 0000                          BEGIN
-0003                          ShowMessage(15DD)
+0003                          ShowMessage(15DD) = Use the red squares and you shall turn clockwise on your mount.
 0010                          RETURN
 
 Functn38: "TXTCHESD"
 0000                          BEGIN
-0003                          ShowMessage(161D)
+0003                          ShowMessage(161D) = The stallion must go counterclockwise on blue squares!
 0010                          RETURN
 
 Functn39: "TXTDICEB"
 0000                          BEGIN
-0003                          ShowMessage(1654)
+0003                          ShowMessage(1654) = To the west you will find a second dice maze.
 0010                          RETURN
 
 Functn3A: "TXTDICEA"
 0000                          BEGIN
-0003                          ShowMessage(1682)
+0003                          ShowMessage(1682) = A maze made out of dice lies just to the north.
 0010                          RETURN
 

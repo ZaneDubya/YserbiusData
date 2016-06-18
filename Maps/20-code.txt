@@ -15,23 +15,16 @@ Functn01: "TELEPORT"
 
 Functn02: "TELEMESS"
 0000                          BEGIN
-0003                          ShowMessage(03FC)
+0003                          ShowMessage(03FC) = There is a teleport in the west wall.
 0010                          RETURN
 
 Functn03: "FOUNBLES"
 0000                          BEGIN
-0003 B8 3D 00                 mov ax, 0x3d
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 3D) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 1C                    jnz 0x35
 0019                          ShowPortrait(0042)
-0026                          ShowMessage(0422)
+0026                          ShowMessage(0422) = You sip from the Fountain of Restoration, but nothing happens.
 0033 EB 4B                    jmp 0x80
 0035 B8 01 00                 mov ax, 0x1
 0038 50                       push ax
@@ -54,17 +47,12 @@ Functn03: "FOUNBLES"
 006A C4 5E 06                 les bx, [bp+0x6]
 006D 26 FF 9F 94 00           call far word [es:bx+0x94]
 0072 59                       pop cx
-0073                          ShowMessage(0461)
+0073                          ShowMessage(0461) = You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.
 0080                          RETURN
 
 Functn04: "QUESTENC"
 0000                          BEGIN
-0003 B8 81 00                 mov ax, 0x81
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(81) ? 1 : 0 [es:bx+0x50]
 0011 74 30                    jz 0x43
 0013 B8 F4 01                 mov ax, 0x1f4
 0016 50                       push ax
@@ -81,7 +69,7 @@ Functn04: "QUESTENC"
 0029 C4 5E 06                 les bx, [bp+0x6]
 002C 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0031 83 C4 0C                 add sp, 0xc
-0034                          ShowMessage(04BD)
+0034                          ShowMessage(04BD) = Monsters attack you.
 0041 EB 2E                    jmp 0x71
 0043 B8 E8 03                 mov ax, 0x3e8
 0046 50                       push ax
@@ -98,7 +86,7 @@ Functn04: "QUESTENC"
 0059 C4 5E 06                 les bx, [bp+0x6]
 005C 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0061 83 C4 0C                 add sp, 0xc
-0064                          ShowMessage(04D2)
+0064                          ShowMessage(04D2) = Among a horde of Nightmares and Cockatrices you spot armor and other items on the floor.
 0071 C4 5E 06                 les bx, [bp+0x6]
 0074 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0079 3D 01 00                 cmp ax, 0x1
@@ -294,7 +282,7 @@ Functn05: "LKPKDORZ"
 004A C4 5E 06                 les bx, [bp+0x6]
 004D 26 FF 5F 30              call far word [es:bx+0x30]
 0051 83 C4 06                 add sp, 0x6
-0054                          ShowMessage(052B)
+0054                          ShowMessage(052B) = The door opens easily when you use the Lava Key.
 0061 EB 2A                    jmp 0x8d
 0063 33 C0                    xor ax, ax
 0065 50                       push ax
@@ -307,7 +295,7 @@ Functn05: "LKPKDORZ"
 0076 C4 5E 06                 les bx, [bp+0x6]
 0079 26 FF 5F 2C              call far word [es:bx+0x2c]
 007D 83 C4 06                 add sp, 0x6
-0080                          ShowMessage(055C)
+0080                          ShowMessage(055C) = This door cannot be unlocked without the Lava Key.
 008D                          RETURN
 
 Functn06: "STRDOOR"
@@ -319,7 +307,7 @@ Functn06: "STRDOOR"
 000E 59                       pop cx
 000F 3D 0E 00                 cmp ax, 0xe
 0012 72 4B                    jb 0x5f
-0014                          ShowMessage(058F)
+0014                          ShowMessage(058F) = You manage to force the door open.
 0021 C4 5E 06                 les bx, [bp+0x6]
 0024 26 FF 5F 24              call far word [es:bx+0x24]
 0028 50                       push ax
@@ -343,7 +331,7 @@ Functn06: "STRDOOR"
 0056 26 FF 5F 2C              call far word [es:bx+0x2c]
 005A 83 C4 06                 add sp, 0x6
 005D EB 2A                    jmp 0x89
-005F                          ShowMessage(05B2)
+005F                          ShowMessage(05B2) = The door is stuck.
 006C 33 C0                    xor ax, ax
 006E 50                       push ax
 006F C4 5E 06                 les bx, [bp+0x6]
@@ -637,25 +625,25 @@ Functn0C: "STRMNSTR"
 
 Functn0E: "NPCCHATA"
 0000                          BEGIN
-0003                          ShowMessage(05C5)
+0003                          ShowMessage(05C5) = You encounter a Human Thief.
 0010                          ShowPortrait(0022)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(05E2)
+002F                          ShowMessage(05E2) = Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0632)
+003E                          ShowMessage(0632) = The Human Thief cringes in terror and wraps herself up in a tight ball.
 004B                          RETURN
 
 Functn0F: "NPCCHATB"
 0000                          BEGIN
-0003                          ShowMessage(067A)
+0003                          ShowMessage(067A) = You encounter an Elf Barbarian.
 0010                          ShowPortrait(0018)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 04 00                 cmp ax, 0x4
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(069A)
+002F                          ShowMessage(069A) = A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0733)
+003E                          ShowMessage(0733) = The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.
 004B                          RETURN
 

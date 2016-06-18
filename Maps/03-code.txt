@@ -20,7 +20,7 @@ Functn03: "KEYDOOR"
 0012 59                       pop cx
 0013 3D 01 00                 cmp ax, 0x1
 0016 75 4B                    jnz 0x63
-0018                          ShowMessage(03FC)
+0018                          ShowMessage(03FC) = Cleowyn's Key has unlocked the door.
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 5F 24              call far word [es:bx+0x24]
 002C 50                       push ax
@@ -44,7 +44,7 @@ Functn03: "KEYDOOR"
 005A 26 FF 5F 2C              call far word [es:bx+0x2c]
 005E 83 C4 06                 add sp, 0x6
 0061 EB 2A                    jmp 0x8d
-0063                          ShowMessage(0421)
+0063                          ShowMessage(0421) = The door is locked.  Something special is needed to open this door.
 0070 33 C0                    xor ax, ax
 0072 50                       push ax
 0073 C4 5E 06                 les bx, [bp+0x6]
@@ -60,12 +60,8 @@ Functn03: "KEYDOOR"
 
 Functn04: "KEYMESSG"
 0000                          BEGIN
-0003                          ShowMessage(0465)
-0010 B8 8E 04                 mov ax, 0x48e
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
+0003                          ShowMessage(0465) = The tapestry shows a message in runes...
+0010                          ShowRunes(5004) [es:bx+0xf4] = A certain Key unlocks my series of doors.
 001D                          RETURN
 
 Functn05: "LKPKDOOR"
@@ -80,7 +76,7 @@ Functn05: "LKPKDOOR"
 0012 59                       pop cx
 0013 3D 02 00                 cmp ax, 0x2
 0016 75 4B                    jnz 0x63
-0018                          ShowMessage(04B8)
+0018                          ShowMessage(04B8) = Cleowyn's Lockpick has unlocked the door.
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 5F 24              call far word [es:bx+0x24]
 002C 50                       push ax
@@ -104,7 +100,7 @@ Functn05: "LKPKDOOR"
 005A 26 FF 5F 2C              call far word [es:bx+0x2c]
 005E 83 C4 06                 add sp, 0x6
 0061 EB 2A                    jmp 0x8d
-0063                          ShowMessage(04E2)
+0063                          ShowMessage(04E2) = The door is locked.
 0070 33 C0                    xor ax, ax
 0072 50                       push ax
 0073 C4 5E 06                 les bx, [bp+0x6]
@@ -120,12 +116,8 @@ Functn05: "LKPKDOOR"
 
 Functn06: "LKPKMESG"
 0000                          BEGIN
-0003                          ShowMessage(04F6)
-0010 B8 19 05                 mov ax, 0x519
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
+0003                          ShowMessage(04F6) = There are runes on the tapestry...
+0010                          ShowRunes(5005) [es:bx+0xf4] = A certain Lockpick opens my series of doors.
 001D                          RETURN
 
 Functn07: "STRDOOR"
@@ -140,7 +132,7 @@ Functn07: "STRDOOR"
 0012 59                       pop cx
 0013 3D 03 00                 cmp ax, 0x3
 0016 75 4B                    jnz 0x63
-0018                          ShowMessage(0546)
+0018                          ShowMessage(0546) = The door has been forced open.
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 5F 24              call far word [es:bx+0x24]
 002C 50                       push ax
@@ -164,7 +156,7 @@ Functn07: "STRDOOR"
 005A 26 FF 5F 2C              call far word [es:bx+0x2c]
 005E 83 C4 06                 add sp, 0x6
 0061 EB 2A                    jmp 0x8d
-0063                          ShowMessage(0565)
+0063                          ShowMessage(0565) = The door is currently impassable.
 0070 33 C0                    xor ax, ax
 0072 50                       push ax
 0073 C4 5E 06                 les bx, [bp+0x6]
@@ -180,27 +172,16 @@ Functn07: "STRDOOR"
 
 Functn08: "STRMESSG"
 0000                          BEGIN
-0003                          ShowMessage(0587)
-0010 B8 A1 05                 mov ax, 0x5a1
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
+0003                          ShowMessage(0587) = The tapestry has runes...
+0010                          ShowRunes(5005) [es:bx+0xf4] = A hero of strength may open my series of doors.
 001D                          RETURN
 
 Functn09: "GOLDENC"
 0000                          BEGIN
-0003 B8 05 00                 mov ax, 0x5
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 05) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(05D1)
+0019                          ShowMessage(05D1) = Aside from angry Rogues, the room is empty.
 0026 B8 14 00                 mov ax, 0x14
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -241,7 +222,7 @@ Functn09: "GOLDENC"
 0072 C4 5E 06                 les bx, [bp+0x6]
 0075 26 FF 1F                 call far word [es:bx]
 0078 83 C4 06                 add sp, 0x6
-007B                          ShowMessage(05FD)
+007B                          ShowMessage(05FD) = A Rogue drops gold coins on the floor as the villains draw their weapons.
 0088 C4 5E 06                 les bx, [bp+0x6]
 008B 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0090 3D 01 00                 cmp ax, 0x1
@@ -300,12 +281,7 @@ Functn0A: "STAIRS"
 
 Functn0B: "PALKEYEN"
 0000                          BEGIN
-0003 B8 D9 00                 mov ax, 0xd9
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(D9) ? 1 : 0 [es:bx+0x50]
 0011 74 2F                    jz 0x42
 0013 B8 F4 01                 mov ax, 0x1f4
 0016 50                       push ax
@@ -322,7 +298,7 @@ Functn0B: "PALKEYEN"
 0028 C4 5E 06                 les bx, [bp+0x6]
 002B 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0030 83 C4 0C                 add sp, 0xc
-0033                          ShowMessage(0647)
+0033                          ShowMessage(0647) = The room is empty. Almost.
 0040 EB 2C                    jmp 0x6e
 0042 B8 E8 03                 mov ax, 0x3e8
 0045 50                       push ax
@@ -339,7 +315,7 @@ Functn0B: "PALKEYEN"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005E 83 C4 0C                 add sp, 0xc
-0061                          ShowMessage(0662)
+0061                          ShowMessage(0662) = A Key in the shape of a Palace lies in a corner, if you can get to it.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
@@ -444,7 +420,7 @@ Functn0C: "TELEPORT"
 
 Functn0D: "LOWMNSTR"
 0000                          BEGIN
-0003                          ShowMessage(06A9)
+0003                          ShowMessage(06A9) = You encounter Rogues.
 0010                          UnknownFunction(000F) [es:bx+0xec]
 001D 3D 06 00                 cmp ax, 0x6
 0020 77 2E                    ja 0x50
@@ -463,10 +439,10 @@ Functn0D: "LOWMNSTR"
 0036 C4 5E 06                 les bx, [bp+0x6]
 0039 26 FF 9F D8 00           call far word [es:bx+0xd8]
 003E 83 C4 0C                 add sp, 0xc
-0041                          ShowMessage(06BF)
+0041                          ShowMessage(06BF) = If you are skilled enough, you may find teleports that speed your way to various levels of this dungeon.
 004E EB 3A                    jmp 0x8a
-0050                          ShowMessage(0728)
-005D                          ShowMessage(0741)
+0050                          ShowMessage(0728) = The Rogues snarl at you.
+005D                          ShowMessage(0741) = They attack!
 006A B8 E8 03                 mov ax, 0x3e8
 006D 50                       push ax
 006E 33 C0                    xor ax, ax
@@ -892,7 +868,7 @@ Functn11: "MESSAGEA"
 000D C4 5E 06                 les bx, [bp+0x6]
 0010 26 FF 1F                 call far word [es:bx]
 0013 83 C4 06                 add sp, 0x6
-0016                          ShowMessage(074E)
+0016                          ShowMessage(074E) = This gateway leads to THE MINES.
 0023                          RETURN
 
 Functn12: "MESSAGEB"
@@ -906,7 +882,7 @@ Functn12: "MESSAGEB"
 000D C4 5E 06                 les bx, [bp+0x6]
 0010 26 FF 1F                 call far word [es:bx]
 0013 83 C4 06                 add sp, 0x6
-0016                          ShowMessage(076F)
+0016                          ShowMessage(076F) = This gateway leads to THE HALL OF DOORS.
 0023                          RETURN
 
 Functn13: "TELEMESS"
@@ -920,7 +896,7 @@ Functn13: "TELEMESS"
 000E C4 5E 06                 les bx, [bp+0x6]
 0011 26 FF 1F                 call far word [es:bx]
 0014 83 C4 06                 add sp, 0x6
-0017                          ShowMessage(0798)
+0017                          ShowMessage(0798) = There is a teleport to the north.
 0024                          RETURN
 
 Functn14: "STRSMESS"
@@ -934,7 +910,7 @@ Functn14: "STRSMESS"
 000E C4 5E 06                 les bx, [bp+0x6]
 0011 26 FF 1F                 call far word [es:bx]
 0014 83 C4 06                 add sp, 0x6
-0017                          ShowMessage(07BA)
+0017                          ShowMessage(07BA) = There are stairs to the west through the gateway.
 0024                          RETURN
 
 Functn15: "STRSTLPT"
@@ -954,7 +930,7 @@ Functn16: "REGDOOR"
 0012 59                       pop cx
 0013 3D 04 00                 cmp ax, 0x4
 0016 75 4B                    jnz 0x63
-0018                          ShowMessage(07EC)
+0018                          ShowMessage(07EC) = As you open the door, you hear locks click throughout the dungeon.
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 5F 24              call far word [es:bx+0x24]
 002C 50                       push ax
@@ -978,7 +954,7 @@ Functn16: "REGDOOR"
 005A 26 FF 5F 2C              call far word [es:bx+0x2c]
 005E 83 C4 06                 add sp, 0x6
 0061 EB 2A                    jmp 0x8d
-0063                          ShowMessage(082F)
+0063                          ShowMessage(082F) = The door is currently impassable.
 0070 33 C0                    xor ax, ax
 0072 50                       push ax
 0073 C4 5E 06                 les bx, [bp+0x6]
@@ -994,72 +970,67 @@ Functn16: "REGDOOR"
 
 Functn17: "NPCCHATA"
 0000                          BEGIN
-0003                          ShowMessage(0851)
+0003                          ShowMessage(0851) = You encounter an Elf Ranger.
 0010                          ShowPortrait(001F)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(086E)
+002F                          ShowMessage(086E) = You must solve the mystery of the linked Vestibule doors to continue farther down into the dungeon.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(08D2)
+003E                          ShowMessage(08D2) = The Elf Ranger decides you are not worthy of his time and leaves.
 004B                          RETURN
 
 Functn18: "NPCCHATB"
 0000                          BEGIN
-0003                          ShowMessage(0914)
+0003                          ShowMessage(0914) = You encounter a Human Wizard.
 0010                          ShowPortrait(002B)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0932)
+002F                          ShowMessage(0932) = Centuries ago, Twinion was a thriving port town, ruled by the Galabryan dynasty. The kings welcomed all races and Guilds to the island. When the volcano Yserbius erupted, it almost buried Twinion under lava. If only we could find some way off this island!
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0A32)
+003E                          ShowMessage(0A32) = The Human Wizard falls into a deep trance and refuses to talk.
 004B                          RETURN
 
 Functn19: "NPCCHATC"
 0000                          BEGIN
-0003                          ShowMessage(0A71)
+0003                          ShowMessage(0A71) = You encounter a Gremlin Thief.
 0010                          ShowPortrait(0026)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0A90)
+002F                          ShowMessage(0A90) = King Cleowyn created a clever maze of squares to discourage thieves and invaders. Mind you, no invaders ever thought Twinion rich enough to be worth their effort.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0B33)
+003E                          ShowMessage(0B33) = The Gremlin Thief slips into a shadow and disappears.
 004B                          RETURN
 
 Functn1A: "NPCCHATD"
 0000                          BEGIN
-0003                          ShowMessage(0B69)
+0003                          ShowMessage(0B69) = You encounter an Orc Knight.
 0010                          ShowPortrait(001A)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0B86)
+002F                          ShowMessage(0B86) = The richness of fine armor and weapons in this dungeon baffles me. I've heard rumors that skilled dwarfs once crafted such armory, but the rogue dwarfs you encounter nowadays have no talent for such expert metallurgy.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0C60)
+003E                          ShowMessage(0C60) = The Orc Knight smiles politely and shoos you away.
 004B                          RETURN
 
 Functn1B: "NPCCHATE"
 0000                          BEGIN
-0003                          ShowMessage(0C93)
+0003                          ShowMessage(0C93) = You encounter an Elf Cleric.
 0010                          ShowPortrait(0027)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0CB0)
+002F                          ShowMessage(0CB0) = I have visited King Cleowyn's throne room, and what a disappointment it was. Not much treasure there and too many dead things. Perhaps I missed something.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0D4B)
+003E                          ShowMessage(0D4B) = The Elf Cleric is too engrossed in his prayers to talk with you.
 004B                          RETURN
 
 Functn1C: "KEYDRA"
 0000                          BEGIN
-0003 B8 D3 00                 mov ax, 0xd3
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(D3) ? 1 : 0 [es:bx+0x50]
 0011 74 5F                    jz 0x72
 0013 B8 01 00                 mov ax, 0x1
 0016 50                       push ax
@@ -1070,7 +1041,7 @@ Functn1C: "KEYDRA"
 001E C4 5E 06                 les bx, [bp+0x6]
 0021 26 FF 1F                 call far word [es:bx]
 0024 83 C4 06                 add sp, 0x6
-0027                          ShowMessage(0D8C)
+0027                          ShowMessage(0D8C) = Cleowyn's Key unlocks the door.
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 5F 24              call far word [es:bx+0x24]
 003B 50                       push ax
@@ -1094,7 +1065,7 @@ Functn1C: "KEYDRA"
 0069 26 FF 5F 2C              call far word [es:bx+0x2c]
 006D 83 C4 06                 add sp, 0x6
 0070 EB 2A                    jmp 0x9c
-0072                          ShowMessage(0DAC)
+0072                          ShowMessage(0DAC) = The door is locked.
 007F 33 C0                    xor ax, ax
 0081 50                       push ax
 0082 C4 5E 06                 les bx, [bp+0x6]
@@ -1110,12 +1081,7 @@ Functn1C: "KEYDRA"
 
 Functn1D: "LKPKDRA"
 0000                          BEGIN
-0003 B8 D2 00                 mov ax, 0xd2
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(D2) ? 1 : 0 [es:bx+0x50]
 0011 74 5F                    jz 0x72
 0013 B8 02 00                 mov ax, 0x2
 0016 50                       push ax
@@ -1126,7 +1092,7 @@ Functn1D: "LKPKDRA"
 001E C4 5E 06                 les bx, [bp+0x6]
 0021 26 FF 1F                 call far word [es:bx]
 0024 83 C4 06                 add sp, 0x6
-0027                          ShowMessage(0DC0)
+0027                          ShowMessage(0DC0) = Cleowyn's Lockpick has unlocked the door.
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 5F 24              call far word [es:bx+0x24]
 003B 50                       push ax
@@ -1150,7 +1116,7 @@ Functn1D: "LKPKDRA"
 0069 26 FF 5F 2C              call far word [es:bx+0x2c]
 006D 83 C4 06                 add sp, 0x6
 0070 EB 2A                    jmp 0x9c
-0072                          ShowMessage(0DEA)
+0072                          ShowMessage(0DEA) = The door is locked.  It looks like something special is needed to open this door.
 007F 33 C0                    xor ax, ax
 0081 50                       push ax
 0082 C4 5E 06                 les bx, [bp+0x6]
@@ -1182,7 +1148,7 @@ Functn1E: "STRNGDRA"
 001F C4 5E 06                 les bx, [bp+0x6]
 0022 26 FF 1F                 call far word [es:bx]
 0025 83 C4 06                 add sp, 0x6
-0028                          ShowMessage(0E3C)
+0028                          ShowMessage(0E3C) = You manage to force open the door.
 0035 C4 5E 06                 les bx, [bp+0x6]
 0038 26 FF 5F 24              call far word [es:bx+0x24]
 003C 50                       push ax
@@ -1206,7 +1172,7 @@ Functn1E: "STRNGDRA"
 006A 26 FF 5F 2C              call far word [es:bx+0x2c]
 006E 83 C4 06                 add sp, 0x6
 0071 EB 2A                    jmp 0x9d
-0073                          ShowMessage(0E5F)
+0073                          ShowMessage(0E5F) = The door is currently impassable.
 0080 33 C0                    xor ax, ax
 0082 50                       push ax
 0083 C4 5E 06                 les bx, [bp+0x6]
@@ -1251,7 +1217,7 @@ Functn1F: "REGDORA"
 0037 C4 5E 06                 les bx, [bp+0x6]
 003A 26 FF 1F                 call far word [es:bx]
 003D 83 C4 06                 add sp, 0x6
-0040                          ShowMessage(0E81)
+0040                          ShowMessage(0E81) = As you open the door, you hear locks click throughout the dungeon.
 004D C4 5E 06                 les bx, [bp+0x6]
 0050 26 FF 5F 24              call far word [es:bx+0x24]
 0054 50                       push ax
@@ -1275,7 +1241,7 @@ Functn1F: "REGDORA"
 0082 26 FF 5F 2C              call far word [es:bx+0x2c]
 0086 83 C4 06                 add sp, 0x6
 0089 EB 2A                    jmp 0xb5
-008B                          ShowMessage(0EC4)
+008B                          ShowMessage(0EC4) = The door is currently impassable.
 0098 33 C0                    xor ax, ax
 009A 50                       push ax
 009B C4 5E 06                 les bx, [bp+0x6]

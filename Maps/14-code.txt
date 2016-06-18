@@ -19,80 +19,75 @@ Functn02: "PIT"
 
 Functn03: "NPCCHATA"
 0000                          BEGIN
-0003                          ShowMessage(03FC)
+0003                          ShowMessage(03FC) = You encounter a Troll Cleric.
 0010                          ShowPortrait(0028)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 1C                    ja 0x4b
-002F                          ShowMessage(041A)
-003C                          ShowMessage(04CC)
+002F                          ShowMessage(041A) = I have almost despaired of finding a way out of this prison. Yet there must be an exit of some kind - stairs or teleport. The guards must have had some way of leaving this area.
+003C                          ShowMessage(04CC) = To the east are the guard's living quarters and the interrogation rooms. The 36 prison cells are empty now, except for the resident spirits of those who perished here.
 0049 EB 0D                    jmp 0x58
-004B                          ShowMessage(0574)
+004B                          ShowMessage(0574) = The Troll Cleric bounces her head on the floor in frustration. She must be insane.
 0058                          RETURN
 
 Functn04: "NPCCHATB"
 0000                          BEGIN
-0003                          ShowMessage(05C7)
+0003                          ShowMessage(05C7) = You encounter an Orc Ranger.
 0010                          ShowPortrait(001E)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 06 00                 cmp ax, 0x6
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(05E4)
+002F                          ShowMessage(05E4) = I have heard rumors that some few brave souls have escaped the dungeon. If you can find the Rainbow Bridge, you are near the exit.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0667)
+003E                          ShowMessage(0667) = The Orc Ranger glares at you and refuses to speak.
 004B                          RETURN
 
 Functn05: "NPCCHATC"
 0000                          BEGIN
-0003                          ShowMessage(069A)
+0003                          ShowMessage(069A) = You encounter a Halfling Thief.
 0010                          ShowPortrait(0025)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 1C                    ja 0x4b
-002F                          ShowMessage(06BA)
-003C                          ShowMessage(073D)
+002F                          ShowMessage(06BA) = A special challenge awaits the brave. If you dare continue after finding what the guard Deldwinn desires, great rewards await you.
+003C                          ShowMessage(073D) = Chaos should walk with Chaos and Harmony with Harmony to find the rewards.
 0049 EB 0D                    jmp 0x58
-004B                          ShowMessage(0788)
+004B                          ShowMessage(0788) = The Halfling Thief thumbs his nose at you and dashes off.
 0058                          RETURN
 
 Functn06: "NPCCHATD"
 0000                          BEGIN
-0003                          ShowMessage(07C2)
+0003                          ShowMessage(07C2) = You encounter a Gnome Barbarian.
 0010                          ShowPortrait(0019)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 1C                    ja 0x4b
-002F                          ShowMessage(07E3)
-003C                          ShowMessage(086F)
+002F                          ShowMessage(07E3) = Two wizards have crafted a Challenge for the brave. The Wizards' Challenge is on this level, but you cannot reach it from this prison area.
+003C                          ShowMessage(086F) = Know that race and Guild must walk together if the Challenge is to be overcome.
 0049 EB 0D                    jmp 0x58
-004B                          ShowMessage(08BF)
+004B                          ShowMessage(08BF) = The Gnome Barbarian becomes distracted as he tries to twiddle his thumbs and instead gets them entangled.
 0058                          RETURN
 
 Functn07: "NPCCHATE"
 0000                          BEGIN
-0003                          ShowMessage(0929)
+0003                          ShowMessage(0929) = You encounter a Dwarf Wizard.
 0010                          ShowPortrait(002C)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0947)
+002F                          ShowMessage(0947) = King Cleowyn built his palace inside this volcano because he hoped to unearth the secrets of the wizard Arnakkian. Many of the stones that form Cleowyn's palace were taken from the wizard's castle. No wonder this dungeon is cursed.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0A2F)
+003E                          ShowMessage(0A2F) = The Dwarf Wizard smiles kindly, but she refuses to speak.
 004B                          RETURN
 
 Functn08: "TELEMESG"
 0000                          BEGIN
-0003                          ShowMessage(0A69)
+0003                          ShowMessage(0A69) = There is a teleport in the west wall.
 0010                          RETURN
 
 Functn09: "ITEMAENC"
 0000                          BEGIN
-0003 B8 77 00                 mov ax, 0x77
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(77) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013 B8 F4 01                 mov ax, 0x1f4
 0016 50                       push ax
@@ -109,7 +104,7 @@ Functn09: "ITEMAENC"
 0027 C4 5E 06                 les bx, [bp+0x6]
 002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 002F 83 C4 0C                 add sp, 0xc
-0032                          ShowMessage(0A8F)
+0032                          ShowMessage(0A8F) = Incubi haunt the empty prison cell.
 003F EB 2C                    jmp 0x6d
 0041 B8 DC 05                 mov ax, 0x5dc
 0044 50                       push ax
@@ -126,7 +121,7 @@ Functn09: "ITEMAENC"
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005D 83 C4 0C                 add sp, 0xc
-0060                          ShowMessage(0AB3)
+0060                          ShowMessage(0AB3) = As you reach for a jacket lying on the floor, you see Incubi appear in the cell.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0075 3D 01 00                 cmp ax, 0x1
@@ -229,12 +224,7 @@ Functn09: "ITEMAENC"
 
 Functn0A: "ITEMBENC"
 0000                          BEGIN
-0003 B8 C1 00                 mov ax, 0xc1
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(C1) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013 B8 FA 00                 mov ax, 0xfa
 0016 50                       push ax
@@ -251,7 +241,7 @@ Functn0A: "ITEMBENC"
 0027 C4 5E 06                 les bx, [bp+0x6]
 002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 002F 83 C4 0C                 add sp, 0xc
-0032                          ShowMessage(0B04)
+0032                          ShowMessage(0B04) = Leeches and Black Widows live in the cell.
 003F EB 2C                    jmp 0x6d
 0041 B8 E8 03                 mov ax, 0x3e8
 0044 50                       push ax
@@ -268,7 +258,7 @@ Functn0A: "ITEMBENC"
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005D 83 C4 0C                 add sp, 0xc
-0060                          ShowMessage(0B2F)
+0060                          ShowMessage(0B2F) = Just out of reach behind a mass of Leeches and Black Widows is a lockpick.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0075 3D 01 00                 cmp ax, 0x1
@@ -383,12 +373,7 @@ Functn0A: "ITEMBENC"
 
 Functn0B: "ITEMCENC"
 0000                          BEGIN
-0003 B8 20 00                 mov ax, 0x20
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(20) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013 B8 2C 01                 mov ax, 0x12c
 0016 50                       push ax
@@ -405,7 +390,7 @@ Functn0B: "ITEMCENC"
 0027 C4 5E 06                 les bx, [bp+0x6]
 002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 002F 83 C4 0C                 add sp, 0xc
-0032                          ShowMessage(0B7A)
+0032                          ShowMessage(0B7A) = Hell Wolves appear in the cell.
 003F EB 2D                    jmp 0x6e
 0041 B8 E8 03                 mov ax, 0x3e8
 0044 50                       push ax
@@ -422,7 +407,7 @@ Functn0B: "ITEMCENC"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005E 83 C4 0C                 add sp, 0xc
-0061                          ShowMessage(0B9A)
+0061                          ShowMessage(0B9A) = A circle of Hell Wolves surrounds you and a mace lying on the floor.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
@@ -537,12 +522,7 @@ Functn0B: "ITEMCENC"
 
 Functn0C: "ITEMDENC"
 0000                          BEGIN
-0003 B8 54 00                 mov ax, 0x54
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(54) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013 B8 2C 01                 mov ax, 0x12c
 0016 50                       push ax
@@ -559,7 +539,7 @@ Functn0C: "ITEMDENC"
 0027 C4 5E 06                 les bx, [bp+0x6]
 002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 002F 83 C4 0C                 add sp, 0xc
-0032                          ShowMessage(0BDF)
+0032                          ShowMessage(0BDF) = Phantasms creep into the empty cell.
 003F EB 2C                    jmp 0x6d
 0041 B8 D0 07                 mov ax, 0x7d0
 0044 50                       push ax
@@ -576,7 +556,7 @@ Functn0C: "ITEMDENC"
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005D 83 C4 0C                 add sp, 0xc
-0060                          ShowMessage(0C04)
+0060                          ShowMessage(0C04) = Spirits of the dead guard their precious treasure.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0075 3D 01 00                 cmp ax, 0x1
@@ -1023,7 +1003,7 @@ Functn0F: "LKPKDORA"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(0C37)
+0065                          ShowMessage(0C37) = Your skill at picking locks soon has the door open.
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -1036,7 +1016,7 @@ Functn0F: "LKPKDORA"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(0C6B)
+0091                          ShowMessage(0C6B) = The door is locked.
 009E                          RETURN
 
 Functn10: "LKPKDORB"
@@ -1080,7 +1060,7 @@ Functn10: "LKPKDORB"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(0C7F)
+0065                          ShowMessage(0C7F) = The lock of the door clicks open.
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -1093,7 +1073,7 @@ Functn10: "LKPKDORB"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(0CA1)
+0091                          ShowMessage(0CA1) = The door is locked.
 009E                          RETURN
 
 Functn11: "LKPKDORC"
@@ -1137,7 +1117,7 @@ Functn11: "LKPKDORC"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(0CB5)
+0065                          ShowMessage(0CB5) = You successfully pick the lock of the door.
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -1150,7 +1130,7 @@ Functn11: "LKPKDORC"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(0CE1)
+0091                          ShowMessage(0CE1) = The door is locked.
 009E                          RETURN
 
 Functn12: "LKPKDORD"
@@ -1194,7 +1174,7 @@ Functn12: "LKPKDORD"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(0CF5)
+0065                          ShowMessage(0CF5) = The lock of the door is quickly opened by your skillfulness.
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -1207,7 +1187,7 @@ Functn12: "LKPKDORD"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(0D32)
+0091                          ShowMessage(0D32) = The door is locked.
 009E                          RETURN
 
 Functn13: "STRNDORA"
@@ -1219,7 +1199,7 @@ Functn13: "STRNDORA"
 000E 59                       pop cx
 000F 3D 0C 00                 cmp ax, 0xc
 0012 72 4B                    jb 0x5f
-0014                          ShowMessage(0D46)
+0014                          ShowMessage(0D46) = You manage to force the door open.
 0021 B8 01 00                 mov ax, 0x1
 0024 50                       push ax
 0025 C4 5E 06                 les bx, [bp+0x6]
@@ -1243,7 +1223,7 @@ Functn13: "STRNDORA"
 0056 26 FF 5F 30              call far word [es:bx+0x30]
 005A 83 C4 06                 add sp, 0x6
 005D EB 2A                    jmp 0x89
-005F                          ShowMessage(0D69)
+005F                          ShowMessage(0D69) = The door is stuck shut.
 006C 33 C0                    xor ax, ax
 006E 50                       push ax
 006F C4 5E 06                 les bx, [bp+0x6]
@@ -1266,7 +1246,7 @@ Functn14: "STRDOORB"
 000E 59                       pop cx
 000F 3D 0F 00                 cmp ax, 0xf
 0012 72 4B                    jb 0x5f
-0014                          ShowMessage(0D81)
+0014                          ShowMessage(0D81) = The door flies open as you smash against it.
 0021 C4 5E 06                 les bx, [bp+0x6]
 0024 26 FF 5F 24              call far word [es:bx+0x24]
 0028 50                       push ax
@@ -1290,7 +1270,7 @@ Functn14: "STRDOORB"
 0056 26 FF 5F 2C              call far word [es:bx+0x2c]
 005A 83 C4 06                 add sp, 0x6
 005D EB 2A                    jmp 0x89
-005F                          ShowMessage(0DAE)
+005F                          ShowMessage(0DAE) = The door is stuck and will not open.
 006C 33 C0                    xor ax, ax
 006E 50                       push ax
 006F C4 5E 06                 les bx, [bp+0x6]
@@ -1313,7 +1293,7 @@ Functn15: "STRDOORC"
 000E 59                       pop cx
 000F 3D 11 00                 cmp ax, 0x11
 0012 72 4B                    jb 0x5f
-0014                          ShowMessage(0DD3)
+0014                          ShowMessage(0DD3) = You push hard on the door and it creaks open.
 0021 C4 5E 06                 les bx, [bp+0x6]
 0024 26 FF 5F 24              call far word [es:bx+0x24]
 0028 50                       push ax
@@ -1337,7 +1317,7 @@ Functn15: "STRDOORC"
 0056 26 FF 5F 2C              call far word [es:bx+0x2c]
 005A 83 C4 06                 add sp, 0x6
 005D EB 2A                    jmp 0x89
-005F                          ShowMessage(0E01)
+005F                          ShowMessage(0E01) = The door refuses to open. It is stuck.
 006C 33 C0                    xor ax, ax
 006E 50                       push ax
 006F C4 5E 06                 les bx, [bp+0x6]
@@ -1360,7 +1340,7 @@ Functn16: "STRDOORD"
 000E 59                       pop cx
 000F 3D 14 00                 cmp ax, 0x14
 0012 72 4B                    jb 0x5f
-0014                          ShowMessage(0E28)
+0014                          ShowMessage(0E28) = You manage to open the door by brute strength.
 0021 C4 5E 06                 les bx, [bp+0x6]
 0024 26 FF 5F 24              call far word [es:bx+0x24]
 0028 50                       push ax
@@ -1384,7 +1364,7 @@ Functn16: "STRDOORD"
 0056 26 FF 5F 2C              call far word [es:bx+0x2c]
 005A 83 C4 06                 add sp, 0x6
 005D EB 2A                    jmp 0x89
-005F                          ShowMessage(0E57)
+005F                          ShowMessage(0E57) = You are not strong enough to force the door open.
 006C 33 C0                    xor ax, ax
 006E 50                       push ax
 006F C4 5E 06                 les bx, [bp+0x6]

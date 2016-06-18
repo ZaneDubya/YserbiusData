@@ -37,7 +37,7 @@ Functn02: "KEYDOOR"
 004A C4 5E 06                 les bx, [bp+0x6]
 004D 26 FF 5F 30              call far word [es:bx+0x30]
 0051 83 C4 06                 add sp, 0x6
-0054                          ShowMessage(03FC)
+0054                          ShowMessage(03FC) = The I Rune Key unlocked the massive door.
 0061 EB 2A                    jmp 0x8d
 0063 33 C0                    xor ax, ax
 0065 50                       push ax
@@ -50,19 +50,14 @@ Functn02: "KEYDOOR"
 0076 C4 5E 06                 les bx, [bp+0x6]
 0079 26 FF 5F 2C              call far word [es:bx+0x2c]
 007D 83 C4 06                 add sp, 0x6
-0080                          ShowMessage(0426)
+0080                          ShowMessage(0426) = The door is locked.  It can be opened by a special key.
 008D                          RETURN
 
 Functn03: "SCEPTENC"
 0000                          BEGIN
-0003 B8 E3 00                 mov ax, 0xe3
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(E3) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(045E)
+0013                          ShowMessage(045E) = The room has been ransacked.
 0020 B8 F4 01                 mov ax, 0x1f4
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -99,8 +94,8 @@ Functn03: "SCEPTENC"
 0064 C4 5E 06                 les bx, [bp+0x6]
 0067 26 FF 5F 4C              call far word [es:bx+0x4c]
 006B 59                       pop cx
-006C                          ShowMessage(047B)
-0079                          ShowMessage(04B5)
+006C                          ShowMessage(047B) = The I Rune Key mysteriously vanishes as you move forward.
+0079                          ShowMessage(04B5) = The beating of leathery wings overhead alerts you to your great danger. On the floor is the Scepter of King Cleowyn.
 0086 C4 5E 06                 les bx, [bp+0x6]
 0089 26 FF 9F F0 00           call far word [es:bx+0xf0]
 008E 3D 01 00                 cmp ax, 0x1
@@ -223,12 +218,7 @@ Functn03: "SCEPTENC"
 
 Functn04: "ITEMBENC"
 0000                          BEGIN
-0003 B8 BD 00                 mov ax, 0xbd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(BD) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013 B8 C8 00                 mov ax, 0xc8
 0016 50                       push ax
@@ -245,7 +235,7 @@ Functn04: "ITEMBENC"
 0027 C4 5E 06                 les bx, [bp+0x6]
 002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 002F 83 C4 0C                 add sp, 0xc
-0032                          ShowMessage(052A)
+0032                          ShowMessage(052A) = You are dwarfed by the Giants who surround you.
 003F EB 2D                    jmp 0x6e
 0041 B8 B8 0B                 mov ax, 0xbb8
 0044 50                       push ax
@@ -262,7 +252,7 @@ Functn04: "ITEMBENC"
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005E 83 C4 0C                 add sp, 0xc
-0061                          ShowMessage(055A)
+0061                          ShowMessage(055A) = A Giant holds a gleaming prism in his hand.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0076 3D 01 00                 cmp ax, 0x1
@@ -353,14 +343,9 @@ Functn04: "ITEMBENC"
 
 Functn05: "ITEMCENC"
 0000                          BEGIN
-0003 B8 56 00                 mov ax, 0x56
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(56) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(0586)
+0013                          ShowMessage(0586) = You interrupt Minotaurs butting their heads together.
 0020 B8 64 00                 mov ax, 0x64
 0023 50                       push ax
 0024 33 C0                    xor ax, ax
@@ -392,7 +377,7 @@ Functn05: "ITEMCENC"
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005D 83 C4 0C                 add sp, 0xc
-0060                          ShowMessage(05BC)
+0060                          ShowMessage(05BC) = The lead Minotaur you encounter carries a shield that appears to weep.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0075 3D 01 00                 cmp ax, 0x1
@@ -483,14 +468,7 @@ Functn05: "ITEMCENC"
 
 Functn06: "GOLDAENC"
 0000                          BEGIN
-0003 B8 1C 00                 mov ax, 0x1c
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 1C) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019 B8 AF 00                 mov ax, 0xaf
@@ -508,7 +486,7 @@ Functn06: "GOLDAENC"
 002D C4 5E 06                 les bx, [bp+0x6]
 0030 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0035 83 C4 0C                 add sp, 0xc
-0038                          ShowMessage(0603)
+0038                          ShowMessage(0603) = Black Widows unweave an empty sack.
 0045 EB 41                    jmp 0x88
 0047 B8 70 17                 mov ax, 0x1770
 004A 50                       push ax
@@ -534,7 +512,7 @@ Functn06: "GOLDAENC"
 0072 C4 5E 06                 les bx, [bp+0x6]
 0075 26 FF 1F                 call far word [es:bx]
 0078 83 C4 06                 add sp, 0x6
-007B                          ShowMessage(0627)
+007B                          ShowMessage(0627) = As you reach down to take a coin purse on the ground, you become entangled in a sticky web.
 0088 C4 5E 06                 les bx, [bp+0x6]
 008B 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0090 3D 01 00                 cmp ax, 0x1
@@ -625,14 +603,7 @@ Functn06: "GOLDAENC"
 
 Functn07: "GOLDBENC"
 0000                          BEGIN
-0003 B8 1D 00                 mov ax, 0x1d
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 1D) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 21                    jnz 0x3a
 0019 B8 C8 00                 mov ax, 0xc8
@@ -675,7 +646,7 @@ Functn07: "GOLDBENC"
 0065 C4 5E 06                 les bx, [bp+0x6]
 0068 26 FF 1F                 call far word [es:bx]
 006B 83 C4 06                 add sp, 0x6
-006E                          ShowMessage(0683)
+006E                          ShowMessage(0683) = King Cleowyn's favorite pets still guard his secrets long after their master has died.
 007B C4 5E 06                 les bx, [bp+0x6]
 007E 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0083 3D 01 00                 cmp ax, 0x1
@@ -1148,30 +1119,30 @@ Functn0A: "VTFMNSTR"
 
 Functn0B: "STRSMESS"
 0000                          BEGIN
-0003                          ShowMessage(06DA)
+0003                          ShowMessage(06DA) = There are stairs through the north gateway.
 0010                          RETURN
 
 Functn0C: "NPCCHATA"
 0000                          BEGIN
-0003                          ShowMessage(0706)
+0003                          ShowMessage(0706) = A dying Troll Knight lies on the floor.
 0010                          ShowPortrait(001B)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(072E)
+002F                          ShowMessage(072E) = Cleowyn's Crown is the final treasure needed to placate the dead king's spirit. Return the king's possessions quickly or suffer his eternal wrath.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(07C1)
+003E                          ShowMessage(07C1) = The Troll Knight tries to say something, but falls unconscious.
 004B                          RETURN
 
 Functn0D: "NPCCHATB"
 0000                          BEGIN
-0003                          ShowMessage(0801)
+0003                          ShowMessage(0801) = A Gremlin Cleric sits on the floor, holding a thick book in her hands.
 0010                          ShowPortrait(002A)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0848)
+002F                          ShowMessage(0848) = The wizard Arnakkian desired immortality above all else. It is whispered that he trapped one of the Elementals and bade it obey his will and make him live forever. I believe Arnakkian got his wish, but the Elemental buried the wizard's castle under lava in revenge.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0952)
+003E                          ShowMessage(0952) = The Gremlin Cleric ignores your questions as he becomes engrossed in his book.
 004B                          RETURN
 

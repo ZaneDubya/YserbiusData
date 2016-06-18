@@ -37,7 +37,7 @@ Functn02: "KEYDOOR"
 004A C4 5E 06                 les bx, [bp+0x6]
 004D 26 FF 5F 30              call far word [es:bx+0x30]
 0051 83 C4 06                 add sp, 0x6
-0054                          ShowMessage(03FC)
+0054                          ShowMessage(03FC) = The E Rune Key unlocked the thick door.
 0061 EB 2A                    jmp 0x8d
 0063 33 C0                    xor ax, ax
 0065 50                       push ax
@@ -50,19 +50,12 @@ Functn02: "KEYDOOR"
 0076 C4 5E 06                 les bx, [bp+0x6]
 0079 26 FF 5F 2C              call far word [es:bx+0x2c]
 007D 83 C4 06                 add sp, 0x6
-0080                          ShowMessage(0424)
+0080                          ShowMessage(0424) = The door is locked.  You need a special key.
 008D                          RETURN
 
 Functn03: "GOLDAENC"
 0000                          BEGIN
-0003 B8 19 00                 mov ax, 0x19
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 19) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 21                    jnz 0x3a
 0019 B8 F4 01                 mov ax, 0x1f4
@@ -105,7 +98,7 @@ Functn03: "GOLDAENC"
 0065 C4 5E 06                 les bx, [bp+0x6]
 0068 26 FF 1F                 call far word [es:bx]
 006B 83 C4 06                 add sp, 0x6
-006E                          ShowMessage(0451)
+006E                          ShowMessage(0451) = The room is crawling with Spinorpions.
 007B C4 5E 06                 les bx, [bp+0x6]
 007E 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0083 3D 01 00                 cmp ax, 0x1
@@ -188,17 +181,10 @@ Functn03: "GOLDAENC"
 
 Functn04: "GOLDBENC"
 0000                          BEGIN
-0003 B8 1A 00                 mov ax, 0x1a
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 1A) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(0478)
+0019                          ShowMessage(0478) = You are trapped by angry Ogres.
 0026 B8 F4 01                 mov ax, 0x1f4
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -239,7 +225,7 @@ Functn04: "GOLDBENC"
 0072 C4 5E 06                 les bx, [bp+0x6]
 0075 26 FF 1F                 call far word [es:bx]
 0078 83 C4 06                 add sp, 0x6
-007B                          ShowMessage(0498)
+007B                          ShowMessage(0498) = Nasty Ogres contemptuously flick gold coins at you.
 0088 C4 5E 06                 les bx, [bp+0x6]
 008B 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0090 3D 01 00                 cmp ax, 0x1
@@ -338,12 +324,7 @@ Functn04: "GOLDBENC"
 
 Functn05: "CROWNENC"
 0000                          BEGIN
-0003 B8 78 00                 mov ax, 0x78
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(78) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013 B8 C8 00                 mov ax, 0xc8
 0016 50                       push ax
@@ -360,7 +341,7 @@ Functn05: "CROWNENC"
 0027 C4 5E 06                 les bx, [bp+0x6]
 002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 002F 83 C4 0C                 add sp, 0xc
-0032                          ShowMessage(04CC)
+0032                          ShowMessage(04CC) = A painful nip at your ankle warns you of great danger.
 003F EB 46                    jmp 0x87
 0041 B8 D0 07                 mov ax, 0x7d0
 0044 50                       push ax
@@ -382,8 +363,8 @@ Functn05: "CROWNENC"
 0065 C4 5E 06                 les bx, [bp+0x6]
 0068 26 FF 5F 4C              call far word [es:bx+0x4c]
 006C 59                       pop cx
-006D                          ShowMessage(0503)
-007A                          ShowMessage(0537)
+006D                          ShowMessage(0503) = The E Vowel Key fades away when you enter the room.
+007A                          ShowMessage(0537) = Behind a writhing mass of ill-tempered snakes lies King Cleowyn's Robe.
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 9F F0 00           call far word [es:bx+0xf0]
 008F 3D 01 00                 cmp ax, 0x1
@@ -539,17 +520,10 @@ Functn05: "CROWNENC"
 
 Functn06: "ITEMBENC"
 0000                          BEGIN
-0003 B8 1B 00                 mov ax, 0x1b
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 1B) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(057F)
+0019                          ShowMessage(057F) = Hobgoblins are waiting for you.
 0026 B8 C8 00                 mov ax, 0xc8
 0029 50                       push ax
 002A 33 C0                    xor ax, ax
@@ -590,7 +564,7 @@ Functn06: "ITEMBENC"
 0073 C4 5E 06                 les bx, [bp+0x6]
 0076 26 FF 1F                 call far word [es:bx]
 0079 83 C4 06                 add sp, 0x6
-007C                          ShowMessage(059F)
+007C                          ShowMessage(059F) = Hobgoblins throw items aside so they can attack you.
 0089 C4 5E 06                 les bx, [bp+0x6]
 008C 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0091 3D 01 00                 cmp ax, 0x1
@@ -746,19 +720,9 @@ Functn06: "ITEMBENC"
 
 Functn07: "ITEMCENC"
 0000                          BEGIN
-0003 B8 07 00                 mov ax, 0x7
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(07) ? 1 : 0 [es:bx+0x50]
 0011 74 52                    jz 0x65
-0013 B8 90 00                 mov ax, 0x90
-0016 50                       push ax
-0017 C4 5E 06                 les bx, [bp+0x6]
-001A 26 FF 5F 50              call far word [es:bx+0x50]
-001E 59                       pop cx
-001F 0B C0                    or ax, ax
+0013                          ax = HasItem(90) ? 1 : 0 [es:bx+0x50]
 0021 74 21                    jz 0x44
 0023 B8 C8 00                 mov ax, 0xc8
 0026 50                       push ax
@@ -792,12 +756,7 @@ Functn07: "ITEMCENC"
 005B 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0060 83 C4 0C                 add sp, 0xc
 0063 EB 51                    jmp 0xb6
-0065 B8 90 00                 mov ax, 0x90
-0068 50                       push ax
-0069 C4 5E 06                 les bx, [bp+0x6]
-006C 26 FF 5F 50              call far word [es:bx+0x50]
-0070 59                       pop cx
-0071 0B C0                    or ax, ax
+0065                          ax = HasItem(90) ? 1 : 0 [es:bx+0x50]
 0073 74 21                    jz 0x96
 0075 B8 B8 0B                 mov ax, 0xbb8
 0078 50                       push ax
@@ -830,7 +789,7 @@ Functn07: "ITEMCENC"
 00AB C4 5E 06                 les bx, [bp+0x6]
 00AE 26 FF 9F D8 00           call far word [es:bx+0xd8]
 00B3 83 C4 0C                 add sp, 0xc
-00B6                          ShowMessage(05D4)
+00B6                          ShowMessage(05D4) = You encounter a lost band of Silver Ogres.
 00C3 C4 5E 06                 les bx, [bp+0x6]
 00C6 26 FF 9F F0 00           call far word [es:bx+0xf0]
 00CB 3D 01 00                 cmp ax, 0x1
@@ -1297,30 +1256,30 @@ Functn0A: "VTFMNSTR"
 
 Functn0B: "STRSMESS"
 0000                          BEGIN
-0003                          ShowMessage(05FF)
+0003                          ShowMessage(05FF) = East past the gateway are stairs leading down a level.
 0010                          RETURN
 
 Functn0C: "NPCCHATA"
 0000                          BEGIN
-0003                          ShowMessage(0636)
+0003                          ShowMessage(0636) = A Halfling Cleric creeps out of the shadows.
 0010                          ShowPortrait(0029)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0663)
+002F                          ShowMessage(0663) = You will need Cleowyn's Robe, Crown and Scepter to reach his hidden tomb in the Mausoleum.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(06BE)
+003E                          ShowMessage(06BE) = The Halfling Cleric mumbles something incoherent and creeps back into the shadows.
 004B                          RETURN
 
 Functn0D: "NPCCHATB"
 0000                          BEGIN
-0003                          ShowMessage(0711)
+0003                          ShowMessage(0711) = A half-mad Gnome Thief crawls into the room.
 0010                          ShowPortrait(0024)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(073E)
+002F                          ShowMessage(073E) = The wizard Arnakkian hired his own troops from the Snow Elves. It is said that these strange elves disappeared before the volcano erupted. Where they wound up is anybody's guess.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(07F1)
+003E                          ShowMessage(07F1) = The insane Gnome Thief crawls away.
 004B                          RETURN
 

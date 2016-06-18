@@ -1,7 +1,6 @@
 Functn01: "STARSADN"
 0000                          BEGIN
-0003                          ax = CheckLevel(0014)
-000F 0B C0                    or ax, ax
+0003                          ax = CheckLevel(0014) ? 1 : 0 [es:bx+0x44]
 0011 74 1C                    jz 0x2f
 0013                          GoMap(00, 4D, 01, 33)
 002D EB 2A                    jmp 0x59
@@ -16,14 +15,14 @@ Functn01: "STARSADN"
 0042 C4 5E 06                 les bx, [bp+0x6]
 0045 26 FF 5F 2C              call far word [es:bx+0x2c]
 0049 83 C4 06                 add sp, 0x6
-004C                          ShowMessage(03FC)
+004C                          ShowMessage(03FC) = Heroes of level 20 or more may go on.
 0059                          RETURN
 
 Functn02: "STRSMESA"
 0000                          BEGIN
 0003 C4 5E 06                 les bx, [bp+0x6]
 0006 26 FF 9F E0 00           call far word [es:bx+0xe0]
-000B                          ShowMessage(0422)
+000B                          ShowMessage(0422) = The gate to the North leads down a level.
 0018                          RETURN
 
 Functn03: "TELPRTUP"
@@ -33,13 +32,12 @@ Functn03: "TELPRTUP"
 
 Functn04: "TELEMESS"
 0000                          BEGIN
-0003                          ShowMessage(044C)
+0003                          ShowMessage(044C) = The gate to the North leads upward.
 0010                          RETURN
 
 Functn05: "TELETAVR"
 0000                          BEGIN
-0003                          ax = CheckLevel(0014)
-000F 0B C0                    or ax, ax
+0003                          ax = CheckLevel(0014) ? 1 : 0 [es:bx+0x44]
 0011 74 1D                    jz 0x30
 0013                          GoMap(02, 4D, 01, 33)
 002E EB 2A                    jmp 0x5a
@@ -54,19 +52,19 @@ Functn05: "TELETAVR"
 0043 C4 5E 06                 les bx, [bp+0x6]
 0046 26 FF 5F 2C              call far word [es:bx+0x2c]
 004A 83 C4 06                 add sp, 0x6
-004D                          ShowMessage(0470)
+004D                          ShowMessage(0470) = Heroes of level 20 or more may enter.
 005A                          RETURN
 
 Functn06: "TELPRTMS"
 0000                          BEGIN
 0003 C4 5E 06                 les bx, [bp+0x6]
 0006 26 FF 9F E0 00           call far word [es:bx+0xe0]
-000B                          ShowMessage(0496)
+000B                          ShowMessage(0496) = The gate to the south leads downward.
 0018                          RETURN
 
 Functn07: "STAIRMSS"
 0000                          BEGIN
-0003                          ShowMessage(04BC)
+0003                          ShowMessage(04BC) = The stairs to the south lead to the Tavern
 0010                          RETURN
 
 Functn08: "TAVERN"
@@ -76,17 +74,10 @@ Functn08: "TAVERN"
 
 Functn09: "SPECIALD"
 0000                          BEGIN
-0003 B8 42 00                 mov ax, 0x42
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 42) [es:bx+0xf0]
 0014 3D 05 00                 cmp ax, 0x5
 0017 75 0F                    jnz 0x28
-0019                          ShowMessage(04E7)
+0019                          ShowMessage(04E7) = You have used up the supplies in the Infirmary.
 0026 EB 3E                    jmp 0x66
 0028 B8 43 00                 mov ax, 0x43
 002B 50                       push ax
@@ -108,12 +99,12 @@ Functn09: "SPECIALD"
 0050 C4 5E 06                 les bx, [bp+0x6]
 0053 26 FF 9F 94 00           call far word [es:bx+0x94]
 0058 59                       pop cx
-0059                          ShowMessage(0517)
+0059                          ShowMessage(0517) = You have discovered the Thieves' Infirmary.  All your wounds have been cured!
 0066                          RETURN
 
 Functn0A: "MONENCA"
 0000                          BEGIN
-0003                          ShowMessage(0565)
+0003                          ShowMessage(0565) = You surprise creatures eating lunch!
 0010 B8 19 00                 mov ax, 0x19
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -142,7 +133,7 @@ Functn0A: "MONENCA"
 
 Functn0B: "MONENCB"
 0000                          BEGIN
-0003                          ShowMessage(058A)
+0003                          ShowMessage(058A) = You stumble upon some rather nasty monsters.
 0010 B8 94 11                 mov ax, 0x1194
 0013 50                       push ax
 0014 33 C0                    xor ax, ax
@@ -194,7 +185,7 @@ Functn0B: "MONENCB"
 
 Functn0C: "MONENCC"
 0000                          BEGIN
-0003                          ShowMessage(05B7)
+0003                          ShowMessage(05B7) = A group of restless undead surprise you!
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0018 3D 01 00                 cmp ax, 0x1
@@ -272,12 +263,7 @@ Functn0C: "MONENCC"
 
 Functn0E: "MONENCE"
 0000                          BEGIN
-0003 B8 BE 00                 mov ax, 0xbe
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(BE) ? 1 : 0 [es:bx+0x50]
 0011 74 22                    jz 0x35
 0013 B8 D6 06                 mov ax, 0x6d6
 0016 50                       push ax
@@ -310,7 +296,7 @@ Functn0E: "MONENCE"
 004A C4 5E 06                 les bx, [bp+0x6]
 004D 26 FF 9F D8 00           call far word [es:bx+0xd8]
 0052 83 C4 0C                 add sp, 0xc
-0055                          ShowMessage(05E0)
+0055                          ShowMessage(05E0) = You are attacked by Mages of the Thieves' Guild out walking their pets!
 0062 B8 25 00                 mov ax, 0x25
 0065 50                       push ax
 0066 B8 01 00                 mov ax, 0x1
@@ -339,12 +325,7 @@ Functn0E: "MONENCE"
 
 Functn0F: "MONENCF"
 0000                          BEGIN
-0003 B8 68 00                 mov ax, 0x68
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(68) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013 B8 F4 01                 mov ax, 0x1f4
 0016 50                       push ax
@@ -361,7 +342,7 @@ Functn0F: "MONENCF"
 0027 C4 5E 06                 les bx, [bp+0x6]
 002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
 002F 83 C4 0C                 add sp, 0xc
-0032                          ShowMessage(0628)
+0032                          ShowMessage(0628) = You stumble upon mean animals out foraging!
 003F EB 2C                    jmp 0x6d
 0041 B8 E0 2E                 mov ax, 0x2ee0
 0044 50                       push ax
@@ -378,7 +359,7 @@ Functn0F: "MONENCF"
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
 005D 83 C4 0C                 add sp, 0xc
-0060                          ShowMessage(0654)
+0060                          ShowMessage(0654) = You stumble upon foraging animals! They found something shiny!
 006D B8 19 00                 mov ax, 0x19
 0070 50                       push ax
 0071 B8 01 00                 mov ax, 0x1
@@ -407,17 +388,10 @@ Functn0F: "MONENCF"
 
 Functn10: "FLSPECA"
 0000                          BEGIN
-0003 B8 41 00                 mov ax, 0x41
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 41) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 0F                    jnz 0x28
-0019                          ShowMessage(0693)
+0019                          ShowMessage(0693) = The storage room has been emptied by other adventurers.
 0026 EB 57                    jmp 0x7f
 0028 B8 59 00                 mov ax, 0x59
 002B 50                       push ax
@@ -451,22 +425,15 @@ Functn10: "FLSPECA"
 0069 C4 5E 06                 les bx, [bp+0x6]
 006C 26 FF 1F                 call far word [es:bx]
 006F 83 C4 06                 add sp, 0x6
-0072                          ShowMessage(06CB)
+0072                          ShowMessage(06CB) = You found a storage room.  Most items are worthless, but in the refuse are a few treasures.
 007F                          RETURN
 
 Functn11: "FLSPECB"
 0000                          BEGIN
-0003 B8 3E 00                 mov ax, 0x3e
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 3E) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 0F                    jnz 0x28
-0019                          ShowMessage(0727)
+0019                          ShowMessage(0727) = Thieves have emptied this room.
 0026 EB 6F                    jmp 0x97
 0028 B8 B0 00                 mov ax, 0xb0
 002B 50                       push ax
@@ -510,19 +477,12 @@ Functn11: "FLSPECB"
 0081 C4 5E 06                 les bx, [bp+0x6]
 0084 26 FF 1F                 call far word [es:bx]
 0087 83 C4 06                 add sp, 0x6
-008A                          ShowMessage(0747)
+008A                          ShowMessage(0747) = In a cabinet are some scrolls and potions, and 15,000 Gold Pieces in a sack.
 0097                          RETURN
 
 Functn12: "FLSPECC"
 0000                          BEGIN
-0003 B8 43 00                 mov ax, 0x43
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 43) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 20                    jnz 0x39
 0019 33 C0                    xor ax, ax
@@ -533,7 +493,7 @@ Functn12: "FLSPECC"
 0023 26 FF 9F AC 00           call far word [es:bx+0xac]
 0028 59                       pop cx
 0029 59                       pop cx
-002A                          ShowMessage(0794)
+002A                          ShowMessage(0794) = You find 1 gold piece in an empty safe.
 0037 EB 57                    jmp 0x90
 0039 B8 7F 00                 mov ax, 0x7f
 003C 50                       push ax
@@ -567,19 +527,14 @@ Functn12: "FLSPECC"
 007A C4 5E 06                 les bx, [bp+0x6]
 007D 26 FF 1F                 call far word [es:bx]
 0080 83 C4 06                 add sp, 0x6
-0083                          ShowMessage(07BC)
+0083                          ShowMessage(07BC) = The safe contains several treasures and 25,000 gold pieces!
 0090                          RETURN
 
 Functn13: "FLSPECD"
 0000                          BEGIN
-0003 B8 FB 00                 mov ax, 0xfb
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(FB) ? 1 : 0 [es:bx+0x50]
 0011 74 10                    jz 0x23
-0013                          ShowMessage(07F8)
+0013                          ShowMessage(07F8) = The room has been ransacked!
 0020 E9 2D 01                 jmp 0x150
 0023 C4 5E 06                 les bx, [bp+0x6]
 0026 26 FF 5F 7C              call far word [es:bx+0x7c]
@@ -595,8 +550,8 @@ Functn13: "FLSPECD"
 003E C4 5E 06                 les bx, [bp+0x6]
 0041 26 FF 1F                 call far word [es:bx]
 0044 83 C4 06                 add sp, 0x6
-0047                          ShowMessage(0815)
-0054                          ShowMessage(0854)
+0047                          ShowMessage(0815) = Your familiarity with thieving helps you avoid a vicious trap!
+0054                          ShowMessage(0854) = You find some items and 5000 pieces of gold.
 0061 B8 FB 00                 mov ax, 0xfb
 0064 50                       push ax
 0065 C4 5E 06                 les bx, [bp+0x6]
@@ -631,8 +586,8 @@ Functn13: "FLSPECD"
 00AC 59                       pop cx
 00AD 59                       pop cx
 00AE E9 9F 00                 jmp 0x150
-00B1                          ShowMessage(0881)
-00BE                          ShowMessage(08B1)
+00B1                          ShowMessage(0881) = You find several items and 5000 pieces of gold.
+00BE                          ShowMessage(08B1) = Unfortunately, you overlook the cleverly hidden trap that protects the treasure.
 00CB B8 FB 00                 mov ax, 0xfb
 00CE 50                       push ax
 00CF C4 5E 06                 les bx, [bp+0x6]
@@ -693,17 +648,10 @@ Functn13: "FLSPECD"
 
 Functn14: "FLSPECE"
 0000                          BEGIN
-0003 B8 44 00                 mov ax, 0x44
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 44) [es:bx+0xf0]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 0F                    jnz 0x28
-0019                          ShowMessage(0902)
+0019                          ShowMessage(0902) = You found a sleeping thief who cannot be roused from deep slumber.
 0026 EB 33                    jmp 0x5b
 0028 33 C0                    xor ax, ax
 002A BA 98 3A                 mov dx, 0x3a98
@@ -722,13 +670,13 @@ Functn14: "FLSPECE"
 0045 C4 5E 06                 les bx, [bp+0x6]
 0048 26 FF 1F                 call far word [es:bx]
 004B 83 C4 06                 add sp, 0x6
-004E                          ShowMessage(0945)
+004E                          ShowMessage(0945) = A wise old thief bends your ear with stories of his exploits.  His story is very helpful.
 005B                          RETURN
 
 Functn15: "FLSPECF"
 0000                          BEGIN
 0003                          ShowPortrait(0022)
-0010                          ShowMessage(099F)
+0010                          ShowMessage(099F) = The Club and Axe Training Center.  All who lack this skill gain enlightenment and training.
 001D B8 01 00                 mov ax, 0x1
 0020 50                       push ax
 0021 C4 5E 06                 les bx, [bp+0x6]
@@ -744,9 +692,9 @@ Functn15: "FLSPECF"
 0038 26 FF 5F 60              call far word [es:bx+0x60]
 003C 59                       pop cx
 003D 59                       pop cx
-003E                          ShowMessage(09FB)
+003E                          ShowMessage(09FB) = Thieves provide you with training in Clubs and Axes!
 004B EB 0D                    jmp 0x5a
-004D                          ShowMessage(0A30)
+004D                          ShowMessage(0A30) = You have already trained in this skill. The thieves cannot help you any further.
 005A                          RETURN
 
 Functn16: "FLSPECG"
@@ -762,7 +710,7 @@ Functn16: "FLSPECG"
 0014 0B C0                    or ax, ax
 0016 74 62                    jz 0x7a
 0018                          ShowPortrait(0023)
-0025                          ShowMessage(0A81)
+0025                          ShowMessage(0A81) = A wise old thief will teach you the Bard Skill!
 0032 B8 01 00                 mov ax, 0x1
 0035 50                       push ax
 0036 B8 45 00                 mov ax, 0x45
@@ -788,16 +736,16 @@ Functn16: "FLSPECG"
 0067 59                       pop cx
 0068 59                       pop cx
 0069 EB 0D                    jmp 0x78
-006B                          ShowMessage(0AB1)
+006B                          ShowMessage(0AB1) = You are already pretty good at Barding, and he cannot help you further.
 0078 EB 1A                    jmp 0x94
 007A                          ShowPortrait(0023)
-0087                          ShowMessage(0AF9)
+0087                          ShowMessage(0AF9) = The wise old thief has already taught you all he knows.
 0094                          RETURN
 
 Functn17: "FLSPECH"
 0000                          BEGIN
 0003                          ShowPortrait(0026)
-0010                          ShowMessage(0B31)
+0010                          ShowMessage(0B31) = The Fencing Training Center.  All who lack this skill gain enlightenment and training.
 001D B8 05 00                 mov ax, 0x5
 0020 50                       push ax
 0021 C4 5E 06                 les bx, [bp+0x6]
@@ -813,9 +761,9 @@ Functn17: "FLSPECH"
 0038 26 FF 5F 60              call far word [es:bx+0x60]
 003C 59                       pop cx
 003D 59                       pop cx
-003E                          ShowMessage(0B88)
+003E                          ShowMessage(0B88) = Thieves provide you with training in the use of Swords!
 004B EB 0D                    jmp 0x5a
-004D                          ShowMessage(0BC0)
+004D                          ShowMessage(0BC0) = You have already trained in this skill. The thieves cannot help you any further.
 005A                          RETURN
 
 Functn18: "FLSPECI"
@@ -831,7 +779,7 @@ Functn18: "FLSPECI"
 0014 0B C0                    or ax, ax
 0016 74 62                    jz 0x7a
 0018                          ShowPortrait(0024)
-0025                          ShowMessage(0C11)
+0025                          ShowMessage(0C11) = A wise young thief will teach you the Detect Skill!
 0032 B8 01 00                 mov ax, 0x1
 0035 50                       push ax
 0036 B8 64 00                 mov ax, 0x64
@@ -857,15 +805,15 @@ Functn18: "FLSPECI"
 0067 59                       pop cx
 0068 59                       pop cx
 0069 EB 0D                    jmp 0x78
-006B                          ShowMessage(0C45)
+006B                          ShowMessage(0C45) = You are already pretty good at detection, and she cannot help you further.
 0078 EB 1A                    jmp 0x94
 007A                          ShowPortrait(0024)
-0087                          ShowMessage(0C90)
+0087                          ShowMessage(0C90) = The young thief has already taught you all she knows.
 0094                          RETURN
 
 Functn19: "FLSPECJ"
 0000                          BEGIN
-0003                          ShowMessage(0CC6)
+0003                          ShowMessage(0CC6) = The Staff Training Center.  All who lack this skill gain enlightenment and training.
 0010 B8 15 00                 mov ax, 0x15
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -882,10 +830,10 @@ Functn19: "FLSPECJ"
 002F 59                       pop cx
 0030 59                       pop cx
 0031                          ShowPortrait(0023)
-003E                          ShowMessage(0D1B)
+003E                          ShowMessage(0D1B) = Thieves provide you with training in the use of Staves!
 004B EB 1A                    jmp 0x67
 004D                          ShowPortrait(0023)
-005A                          ShowMessage(0D53)
+005A                          ShowMessage(0D53) = You have already trained in this skill. The thieves cannot help you any further.
 0067                          RETURN
 
 Functn1A: "FLSPECK"
@@ -901,7 +849,7 @@ Functn1A: "FLSPECK"
 0014 0B C0                    or ax, ax
 0016 74 62                    jz 0x7a
 0018                          ShowPortrait(0025)
-0025                          ShowMessage(0DA4)
+0025                          ShowMessage(0DA4) = A wise old thief will teach you the Lockpick Skill!
 0032 B8 01 00                 mov ax, 0x1
 0035 50                       push ax
 0036 B8 65 00                 mov ax, 0x65
@@ -927,10 +875,10 @@ Functn1A: "FLSPECK"
 0067 59                       pop cx
 0068 59                       pop cx
 0069 EB 0D                    jmp 0x78
-006B                          ShowMessage(0DD8)
+006B                          ShowMessage(0DD8) = You are already pretty good at picking locks, and he cannot help you further.
 0078 EB 1A                    jmp 0x94
 007A                          ShowPortrait(0025)
-0087                          ShowMessage(0E26)
+0087                          ShowMessage(0E26) = The old thief has already taught you all he knows.
 0094                          RETURN
 
 Functn1B: "FLSPECL"
@@ -946,7 +894,7 @@ Functn1B: "FLSPECL"
 0014 0B C0                    or ax, ax
 0016 74 1C                    jz 0x34
 0018                          ShowPortrait(0042)
-0025                          ShowMessage(0E59)
+0025                          ShowMessage(0E59) = The waters from Sinestra's Fountain are invigorating, but have no further effect.
 0032 EB 5C                    jmp 0x90
 0034 B8 01 00                 mov ax, 0x1
 0037 50                       push ax
@@ -977,13 +925,13 @@ Functn1B: "FLSPECL"
 007C 26 FF 9F 98 00           call far word [es:bx+0x98]
 0081 59                       pop cx
 0082 59                       pop cx
-0083                          ShowMessage(0EAB)
+0083                          ShowMessage(0EAB) = You have discovered Sinestra's Fountain.  You feel healthier and more experienced after drinking the waters!
 0090                          RETURN
 
 Functn1D: "FLSPECN"
 0000                          BEGIN
 0003                          ShowPortrait(0026)
-0010                          ShowMessage(0F18)
+0010                          ShowMessage(0F18) = The Archery Training Center.  All who lack this skill gain enlightenment and training.
 001D B8 08 00                 mov ax, 0x8
 0020 50                       push ax
 0021 C4 5E 06                 les bx, [bp+0x6]
@@ -999,9 +947,9 @@ Functn1D: "FLSPECN"
 0038 26 FF 5F 60              call far word [es:bx+0x60]
 003C 59                       pop cx
 003D 59                       pop cx
-003E                          ShowMessage(0F6F)
+003E                          ShowMessage(0F6F) = Thieves provide you with training in Archery!
 004B EB 0D                    jmp 0x5a
-004D                          ShowMessage(0F9D)
+004D                          ShowMessage(0F9D) = You have already trained in this skill. The thieves cannot help you any further.
 005A                          RETURN
 
 Functn1E: "HIDEDOOR"
@@ -1053,7 +1001,7 @@ Functn24: "HIDDORG"
 004A C4 5E 06                 les bx, [bp+0x6]
 004D 26 FF 5F 30              call far word [es:bx+0x30]
 0051 83 C4 06                 add sp, 0x6
-0054                          ShowMessage(0FEE)
+0054                          ShowMessage(0FEE) = The Thieves' Key unlocks the door!
 0061 EB 2A                    jmp 0x8d
 0063 33 C0                    xor ax, ax
 0065 50                       push ax
@@ -1066,7 +1014,7 @@ Functn24: "HIDDORG"
 0076 C4 5E 06                 les bx, [bp+0x6]
 0079 26 FF 5F 2C              call far word [es:bx+0x2c]
 007D 83 C4 06                 add sp, 0x6
-0080                          ShowMessage(1011)
+0080                          ShowMessage(1011) = The door is locked.  You need a special key.
 008D                          RETURN
 
 Functn25: "HIDDORH"
@@ -1110,7 +1058,7 @@ Functn25: "HIDDORH"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(103E)
+0065                          ShowMessage(103E) = The wall springs open.  A musky odor fills the room.
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -1123,7 +1071,7 @@ Functn25: "HIDDORH"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(1073)
+0091                          ShowMessage(1073) = Cracks in the wall reveal what could be a doorway. If only you could open it...
 009E                          RETURN
 
 Functn26: "HIDDORI"
@@ -1231,7 +1179,7 @@ Functn26: "HIDDORI"
 00E6 C4 5E 06                 les bx, [bp+0x6]
 00E9 26 FF 5F 30              call far word [es:bx+0x30]
 00ED 83 C4 06                 add sp, 0x6
-00F0                          ShowMessage(10C3)
+00F0                          ShowMessage(10C3) = You skillfully open the entrance to a passage!
 00FD EB 48                    jmp 0x147
 00FF 33 C0                    xor ax, ax
 0101 50                       push ax
@@ -1255,7 +1203,7 @@ Functn26: "HIDDORI"
 0130 C4 5E 06                 les bx, [bp+0x6]
 0133 26 FF 5F 30              call far word [es:bx+0x30]
 0137 83 C4 06                 add sp, 0x6
-013A                          ShowMessage(10F2)
+013A                          ShowMessage(10F2) = You found a very well-hidden entrance to what might be a passage.  Unfortunately, it seems to be locked.
 0147 EB 1D                    jmp 0x166
 0149 33 C0                    xor ax, ax
 014B 50                       push ax
@@ -1375,7 +1323,7 @@ Functn27: "HIDDORJ"
 00E6 C4 5E 06                 les bx, [bp+0x6]
 00E9 26 FF 5F 30              call far word [es:bx+0x30]
 00ED 83 C4 06                 add sp, 0x6
-00F0                          ShowMessage(115B)
+00F0                          ShowMessage(115B) = You release the stonework, revealing a secret passage!
 00FD EB 48                    jmp 0x147
 00FF 33 C0                    xor ax, ax
 0101 50                       push ax
@@ -1399,7 +1347,7 @@ Functn27: "HIDDORJ"
 0130 C4 5E 06                 les bx, [bp+0x6]
 0133 26 FF 5F 30              call far word [es:bx+0x30]
 0137 83 C4 06                 add sp, 0x6
-013A                          ShowMessage(1192)
+013A                          ShowMessage(1192) = A piece of stonework looks like it could be moved, if you can pick the mechanism.
 0147 EB 1D                    jmp 0x166
 0149 33 C0                    xor ax, ax
 014B 50                       push ax
@@ -1519,7 +1467,7 @@ Functn28: "HIDDORK"
 00E6 C4 5E 06                 les bx, [bp+0x6]
 00E9 26 FF 5F 30              call far word [es:bx+0x30]
 00ED 83 C4 06                 add sp, 0x6
-00F0                          ShowMessage(11E4)
+00F0                          ShowMessage(11E4) = The wall slides open.
 00FD EB 48                    jmp 0x147
 00FF 33 C0                    xor ax, ax
 0101 50                       push ax
@@ -1543,7 +1491,7 @@ Functn28: "HIDDORK"
 0130 C4 5E 06                 les bx, [bp+0x6]
 0133 26 FF 5F 30              call far word [es:bx+0x30]
 0137 83 C4 06                 add sp, 0x6
-013A                          ShowMessage(11FA)
+013A                          ShowMessage(11FA) = You located a sliding door which must be picked to be opened. Curious sounds can be heard through the stonework.
 0147 EB 1D                    jmp 0x166
 0149 33 C0                    xor ax, ax
 014B 50                       push ax
@@ -1663,7 +1611,7 @@ Functn29: "HIDDORL"
 00E6 C4 5E 06                 les bx, [bp+0x6]
 00E9 26 FF 5F 30              call far word [es:bx+0x30]
 00ED 83 C4 06                 add sp, 0x6
-00F0                          ShowMessage(126B)
+00F0                          ShowMessage(126B) = You successfully opened the locked door.
 00FD EB 48                    jmp 0x147
 00FF 33 C0                    xor ax, ax
 0101 50                       push ax
@@ -1687,7 +1635,7 @@ Functn29: "HIDDORL"
 0130 C4 5E 06                 les bx, [bp+0x6]
 0133 26 FF 5F 30              call far word [es:bx+0x30]
 0137 83 C4 06                 add sp, 0x6
-013A                          ShowMessage(1294)
+013A                          ShowMessage(1294) = You found a secret door, but it's locked.
 0147 EB 1D                    jmp 0x166
 0149 33 C0                    xor ax, ax
 014B 50                       push ax
@@ -1807,7 +1755,7 @@ Functn2A: "HIDDORM"
 00E6 C4 5E 06                 les bx, [bp+0x6]
 00E9 26 FF 5F 30              call far word [es:bx+0x30]
 00ED 83 C4 06                 add sp, 0x6
-00F0                          ShowMessage(12BE)
+00F0                          ShowMessage(12BE) = You successfully opened the locked door.
 00FD EB 48                    jmp 0x147
 00FF 33 C0                    xor ax, ax
 0101 50                       push ax
@@ -1831,7 +1779,7 @@ Functn2A: "HIDDORM"
 0130 C4 5E 06                 les bx, [bp+0x6]
 0133 26 FF 5F 30              call far word [es:bx+0x30]
 0137 83 C4 06                 add sp, 0x6
-013A                          ShowMessage(12E7)
+013A                          ShowMessage(12E7) = You found a secret door.
 0147 EB 1D                    jmp 0x166
 0149 33 C0                    xor ax, ax
 014B 50                       push ax
@@ -1951,7 +1899,7 @@ Functn2B: "HIDDORN"
 00E6 C4 5E 06                 les bx, [bp+0x6]
 00E9 26 FF 5F 30              call far word [es:bx+0x30]
 00ED 83 C4 06                 add sp, 0x6
-00F0                          ShowMessage(1300)
+00F0                          ShowMessage(1300) = You successfully opened the locked door.
 00FD EB 48                    jmp 0x147
 00FF 33 C0                    xor ax, ax
 0101 50                       push ax
@@ -1975,7 +1923,7 @@ Functn2B: "HIDDORN"
 0130 C4 5E 06                 les bx, [bp+0x6]
 0133 26 FF 5F 30              call far word [es:bx+0x30]
 0137 83 C4 06                 add sp, 0x6
-013A                          ShowMessage(1329)
+013A                          ShowMessage(1329) = You spot a well hidden secret door. It's locked.
 0147 EB 1D                    jmp 0x166
 0149 33 C0                    xor ax, ax
 014B 50                       push ax
@@ -2031,7 +1979,7 @@ Functn2E: "HIDDORQ"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(135A)
+0065                          ShowMessage(135A) = You skillfully pick the door lock.
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -2044,7 +1992,7 @@ Functn2E: "HIDDORQ"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(137D)
+0091                          ShowMessage(137D) = The door is locked.
 009E                          RETURN
 
 Functn31: "HIDDORT"
@@ -2074,7 +2022,7 @@ Functn31: "HIDDORT"
 0038 C4 5E 06                 les bx, [bp+0x6]
 003B 26 FF 5F 2C              call far word [es:bx+0x2c]
 003F 83 C4 06                 add sp, 0x6
-0042                          ShowMessage(1391)
+0042                          ShowMessage(1391) = You found a hidden door!
 004F EB 1D                    jmp 0x6e
 0051 33 C0                    xor ax, ax
 0053 50                       push ax
@@ -2194,7 +2142,7 @@ Functn32: "HIDDORU"
 00E6 C4 5E 06                 les bx, [bp+0x6]
 00E9 26 FF 5F 30              call far word [es:bx+0x30]
 00ED 83 C4 06                 add sp, 0x6
-00F0                          ShowMessage(13AA)
+00F0                          ShowMessage(13AA) = You successfully opened the locked door.
 00FD EB 48                    jmp 0x147
 00FF 33 C0                    xor ax, ax
 0101 50                       push ax
@@ -2218,7 +2166,7 @@ Functn32: "HIDDORU"
 0130 C4 5E 06                 les bx, [bp+0x6]
 0133 26 FF 5F 30              call far word [es:bx+0x30]
 0137 83 C4 06                 add sp, 0x6
-013A                          ShowMessage(13D3)
+013A                          ShowMessage(13D3) = You found a secret door, but it's locked.
 0147 EB 1D                    jmp 0x166
 0149 33 C0                    xor ax, ax
 014B 50                       push ax
@@ -2368,7 +2316,7 @@ Functn36: "HIDDORY"
 00E6 C4 5E 06                 les bx, [bp+0x6]
 00E9 26 FF 5F 30              call far word [es:bx+0x30]
 00ED 83 C4 06                 add sp, 0x6
-00F0                          ShowMessage(13FD)
+00F0                          ShowMessage(13FD) = You successfully opened the locked door.
 00FD EB 48                    jmp 0x147
 00FF 33 C0                    xor ax, ax
 0101 50                       push ax
@@ -2392,7 +2340,7 @@ Functn36: "HIDDORY"
 0130 C4 5E 06                 les bx, [bp+0x6]
 0133 26 FF 5F 30              call far word [es:bx+0x30]
 0137 83 C4 06                 add sp, 0x6
-013A                          ShowMessage(1426)
+013A                          ShowMessage(1426) = You found a locked door. You hear strange noises on the other side of the door.
 0147 EB 1D                    jmp 0x166
 0149 33 C0                    xor ax, ax
 014B 50                       push ax
@@ -2464,7 +2412,7 @@ Functn37: "HIDDORZ"
 0077 C4 5E 06                 les bx, [bp+0x6]
 007A 26 FF 5F 2C              call far word [es:bx+0x2c]
 007E 83 C4 06                 add sp, 0x6
-0081                          ShowMessage(1476)
+0081                          ShowMessage(1476) = You found a hidden door!
 008E                          RETURN
 
 Functn38: "HIDDORAA"
@@ -2587,7 +2535,7 @@ Functn39: "HIDDORBB"
 00E6 C4 5E 06                 les bx, [bp+0x6]
 00E9 26 FF 5F 30              call far word [es:bx+0x30]
 00ED 83 C4 06                 add sp, 0x6
-00F0                          ShowMessage(148F)
+00F0                          ShowMessage(148F) = You successfully opened the locked door. You also feel a cool breeze.
 00FD EB 48                    jmp 0x147
 00FF 33 C0                    xor ax, ax
 0101 50                       push ax
@@ -2611,7 +2559,7 @@ Functn39: "HIDDORBB"
 0130 C4 5E 06                 les bx, [bp+0x6]
 0133 26 FF 5F 30              call far word [es:bx+0x30]
 0137 83 C4 06                 add sp, 0x6
-013A                          ShowMessage(14D5)
+013A                          ShowMessage(14D5) = You found a secret door, but it's locked.
 0147 EB 1D                    jmp 0x166
 0149 33 C0                    xor ax, ax
 014B 50                       push ax
@@ -2731,7 +2679,7 @@ Functn3A: "HIDDORCC"
 00E6 C4 5E 06                 les bx, [bp+0x6]
 00E9 26 FF 5F 30              call far word [es:bx+0x30]
 00ED 83 C4 06                 add sp, 0x6
-00F0                          ShowMessage(14FF)
+00F0                          ShowMessage(14FF) = You opened the locked chamber door.
 00FD EB 48                    jmp 0x147
 00FF 33 C0                    xor ax, ax
 0101 50                       push ax
@@ -2755,7 +2703,7 @@ Functn3A: "HIDDORCC"
 0130 C4 5E 06                 les bx, [bp+0x6]
 0133 26 FF 5F 30              call far word [es:bx+0x30]
 0137 83 C4 06                 add sp, 0x6
-013A                          ShowMessage(1523)
+013A                          ShowMessage(1523) = You found a hidden chamber door, but it's locked.
 0147 EB 1D                    jmp 0x166
 0149 33 C0                    xor ax, ax
 014B 50                       push ax
@@ -2811,7 +2759,7 @@ Functn3D: "HIDDORFF"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(1555)
+0065                          ShowMessage(1555) = With great effort, you unlock the door.
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -2824,7 +2772,7 @@ Functn3D: "HIDDORFF"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(157D)
+0091                          ShowMessage(157D) = This door has a nasty looking lock on it.
 009E                          RETURN
 
 Functn40: "HIDDORII"
@@ -2932,7 +2880,7 @@ Functn40: "HIDDORII"
 00E6 C4 5E 06                 les bx, [bp+0x6]
 00E9 26 FF 5F 30              call far word [es:bx+0x30]
 00ED 83 C4 06                 add sp, 0x6
-00F0                          ShowMessage(15A7)
+00F0                          ShowMessage(15A7) = The door is opened with a lot of effort.
 00FD EB 48                    jmp 0x147
 00FF 33 C0                    xor ax, ax
 0101 50                       push ax
@@ -2956,7 +2904,7 @@ Functn40: "HIDDORII"
 0130 C4 5E 06                 les bx, [bp+0x6]
 0133 26 FF 5F 30              call far word [es:bx+0x30]
 0137 83 C4 06                 add sp, 0x6
-013A                          ShowMessage(15D0)
+013A                          ShowMessage(15D0) = You found another secret door, but it is locked.
 0147 EB 1D                    jmp 0x166
 0149 33 C0                    xor ax, ax
 014B 50                       push ax
@@ -2973,24 +2921,19 @@ Functn40: "HIDDORII"
 
 Functn41: "EXITMSG"
 0000                          BEGIN
-0003                          ShowMessage(1601)
+0003                          ShowMessage(1601) = Can't take any more?  The door is marked 'Exit!'
 0010                          RETURN
 
 Functn42: "STRTMSG"
 0000                          BEGIN
-0003                          ShowMessage(1632)
+0003                          ShowMessage(1632) = A message on the wall:  'Welcome to the Den of Thieves!'
 0010                          RETURN
 
 Functn43: "GOODYA"
 0000                          BEGIN
-0003 B8 C3 00                 mov ax, 0xc3
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 50              call far word [es:bx+0x50]
-000E 59                       pop cx
-000F 0B C0                    or ax, ax
+0003                          ax = HasItem(C3) ? 1 : 0 [es:bx+0x50]
 0011 74 0F                    jz 0x22
-0013                          ShowMessage(166B)
+0013                          ShowMessage(166B) = You find an empty chest.
 0020 EB 2A                    jmp 0x4c
 0022 B8 C3 00                 mov ax, 0xc3
 0025 50                       push ax
@@ -3005,6 +2948,6 @@ Functn43: "GOODYA"
 0038 26 FF 9F AC 00           call far word [es:bx+0xac]
 003D 59                       pop cx
 003E 59                       pop cx
-003F                          ShowMessage(1684)
+003F                          ShowMessage(1684) = You find a Purple Lockpick and 1250 gold inside a small chest.
 004C                          RETURN
 

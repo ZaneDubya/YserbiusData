@@ -1,6 +1,6 @@
 Functn01: "RIVER"
 0000                          BEGIN
-0003                          ShowMessage(03FC)
+0003                          ShowMessage(03FC) = The River of Eternity taps your life energy.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 9F C4 00           call far word [es:bx+0xc4]
 0018 C4 5E 06                 les bx, [bp+0x6]
@@ -16,17 +16,17 @@ Functn01: "RIVER"
 0032 26 FF 5F 70              call far word [es:bx+0x70]
 0036 0B C0                    or ax, ax
 0038 77 0D                    ja 0x47
-003A                          ShowMessage(0429)
+003A                          ShowMessage(0429) = You have died.
 0047                          RETURN
 
 Functn02: "RIVRBANK"
 0000                          BEGIN
-0003                          ShowMessage(0438)
+0003                          ShowMessage(0438) = Only the bravest adventurers explore the River for hidden passages.
 0010                          RETURN
 
 Functn03: "VOID"
 0000                          BEGIN
-0003                          ShowMessage(047C)
+0003                          ShowMessage(047C) = The Ageless Void swallows you whole.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 74              call far word [es:bx+0x74]
 0017 50                       push ax
@@ -38,7 +38,7 @@ Functn03: "VOID"
 Functn04: "PLATA"
 0000                          BEGIN
 0003                          ShowPortrait(0042)
-0010                          ShowMessage(04A1)
+0010                          ShowMessage(04A1) = SageCross Fountain revives your Health and Mana
 001D C4 5E 06                 les bx, [bp+0x6]
 0020 26 FF 5F 74              call far word [es:bx+0x74]
 0024 50                       push ax
@@ -54,14 +54,7 @@ Functn04: "PLATA"
 
 Functn05: "PLATB"
 0000                          BEGIN
-0003 B8 84 00                 mov ax, 0x84
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(02, 84) [es:bx+0xf0]
 0014 0B C0                    or ax, ax
 0016 75 76                    jnz 0x8e
 0018 B8 01 00                 mov ax, 0x1
@@ -74,7 +67,7 @@ Functn05: "PLATB"
 0027 26 FF 1F                 call far word [es:bx]
 002A 83 C4 06                 add sp, 0x6
 002D                          ShowPortrait(0042)
-003A                          ShowMessage(04D1)
+003A                          ShowMessage(04D1) = DragonBreath Fountain empowers you with improved attributes.
 0047 B8 01 00                 mov ax, 0x1
 004A 50                       push ax
 004B 33 C0                    xor ax, ax
@@ -112,7 +105,7 @@ Functn05: "PLATB"
 Functn06: "PLATCTOA"
 0000                          BEGIN
 0003                          ShowPortrait(0042)
-0010                          ShowMessage(050E)
+0010                          ShowMessage(050E) = Minotaur Fountain revives your Health and Mana
 001D C4 5E 06                 les bx, [bp+0x6]
 0020 26 FF 5F 74              call far word [es:bx+0x74]
 0024 50                       push ax
@@ -128,7 +121,7 @@ Functn06: "PLATCTOA"
 
 Functn07: "PLATDTOB"
 0000                          BEGIN
-0003                          ShowMessage(053D)
+0003                          ShowMessage(053D) = As you reach the platform, a magical field envelops you and teleports you to a moon tapestry.
 0010                          GoMap(02, EE, 03, 38)
 002B                          RETURN
 
@@ -165,29 +158,29 @@ Functn0C: "TAPMOONS"
 0046 C4 5E 06                 les bx, [bp+0x6]
 0049 26 FF 5F 2C              call far word [es:bx+0x2c]
 004D 83 C4 06                 add sp, 0x6
-0050                          ShowMessage(059B)
+0050                          ShowMessage(059B) = A magical door appears where the tapestry used to be.
 005D EB 0D                    jmp 0x6c
-005F                          ShowMessage(05D1)
+005F                          ShowMessage(05D1) = A brilliant tapestry depicting moons decorates this room.
 006C                          RETURN
 
 Functn12: "THEFCLUE"
 0000                          BEGIN
 0003                          ShowPortrait(0024)
-0010                          ShowMessage(060B)
-001D                          ShowMessage(0634)
-002A                          ShowMessage(0676)
-0037                          ShowMessage(06D1)
-0044                          ShowMessage(0705)
+0010                          ShowMessage(060B) = A Gnome Thief steps out of the shadows -
+001D                          ShowMessage(0634) = 'You are very near the final battle with the Elemental En-Li-Kil.
+002A                          ShowMessage(0676) = The four Rainbow Gems will light your way to the infinite beyond when they are all placed.
+0037                          ShowMessage(06D1) = Red, yellow, green and blue are the rainbow colors.
+0044                          ShowMessage(0705) = Have your boat when the gems are set and sail the rainbow to your destiny.'
 0051                          RETURN
 
 Functn13: "THIEVES"
 0000                          BEGIN
-0003                          ShowMessage(0751)
+0003                          ShowMessage(0751) = A doorway is marked -- 'Voranti's Treasure'
 0010                          RETURN
 
 Functn14: "RAINBOW"
 0000                          BEGIN
-0003                          ShowMessage(077D)
+0003                          ShowMessage(077D) = Various golden objects appear to be standing to the west, just at the edge of the Ageless Void.
 0010                          RETURN
 
 Functn15: "RAINRED"
@@ -203,7 +196,7 @@ Functn15: "RAINRED"
 0014 0B C0                    or ax, ax
 0016 75 03                    jnz 0x1b
 0018 E9 9A 00                 jmp 0xb5
-001B                          ShowMessage(07DD)
+001B                          ShowMessage(07DD) = A beam of red arcs over the Ageless Void.
 0028 B8 01 00                 mov ax, 0x1
 002B 50                       push ax
 002C B8 80 00                 mov ax, 0x80
@@ -213,44 +206,16 @@ Functn15: "RAINRED"
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 1F                 call far word [es:bx]
 003A 83 C4 06                 add sp, 0x6
-003D B8 80 00                 mov ax, 0x80
-0040 50                       push ax
-0041 B8 02 00                 mov ax, 0x2
-0044 50                       push ax
-0045 C4 5E 06                 les bx, [bp+0x6]
-0048 26 FF 5F 04              call far word [es:bx+0x4]
-004C 59                       pop cx
-004D 59                       pop cx
+003D                          ax = CheckState(02, 80) [es:bx+0xf0]
 004E 0B C0                    or ax, ax
 0050 74 61                    jz 0xb3
-0052 B8 81 00                 mov ax, 0x81
-0055 50                       push ax
-0056 B8 02 00                 mov ax, 0x2
-0059 50                       push ax
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 5F 04              call far word [es:bx+0x4]
-0061 59                       pop cx
-0062 59                       pop cx
+0052                          ax = CheckState(02, 81) [es:bx+0xf0]
 0063 0B C0                    or ax, ax
 0065 74 4C                    jz 0xb3
-0067 B8 82 00                 mov ax, 0x82
-006A 50                       push ax
-006B B8 02 00                 mov ax, 0x2
-006E 50                       push ax
-006F C4 5E 06                 les bx, [bp+0x6]
-0072 26 FF 5F 04              call far word [es:bx+0x4]
-0076 59                       pop cx
-0077 59                       pop cx
+0067                          ax = CheckState(02, 82) [es:bx+0xf0]
 0078 0B C0                    or ax, ax
 007A 74 37                    jz 0xb3
-007C B8 83 00                 mov ax, 0x83
-007F 50                       push ax
-0080 B8 02 00                 mov ax, 0x2
-0083 50                       push ax
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 5F 04              call far word [es:bx+0x4]
-008B 59                       pop cx
-008C 59                       pop cx
+007C                          ax = CheckState(02, 83) [es:bx+0xf0]
 008D 0B C0                    or ax, ax
 008F 74 22                    jz 0xb3
 0091 B8 01 00                 mov ax, 0x1
@@ -262,9 +227,9 @@ Functn15: "RAINRED"
 009D C4 5E 06                 les bx, [bp+0x6]
 00A0 26 FF 1F                 call far word [es:bx]
 00A3 83 C4 06                 add sp, 0x6
-00A6                          ShowMessage(0807)
+00A6                          ShowMessage(0807) = A vibrant rainbow of color forms.
 00B3 EB 0D                    jmp 0xc2
-00B5                          ShowMessage(0829)
+00B5                          ShowMessage(0829) = A golden statue appears to be capable of holding a gem.
 00C2 B8 F3 00                 mov ax, 0xf3
 00C5 50                       push ax
 00C6 B8 F3 00                 mov ax, 0xf3
@@ -276,14 +241,7 @@ Functn15: "RAINRED"
 00D3 0B C0                    or ax, ax
 00D5 75 03                    jnz 0xda
 00D7 E9 80 00                 jmp 0x15a
-00DA B8 01 00                 mov ax, 0x1
-00DD 50                       push ax
-00DE B8 01 00                 mov ax, 0x1
-00E1 50                       push ax
-00E2 C4 5E 06                 les bx, [bp+0x6]
-00E5 26 FF 5F 04              call far word [es:bx+0x4]
-00E9 59                       pop cx
-00EA 59                       pop cx
+00DA                          ax = CheckState(01, 01) [es:bx+0xf0]
 00EB 0B C0                    or ax, ax
 00ED 74 6B                    jz 0x15a
 00EF B8 01 00                 mov ax, 0x1
@@ -311,10 +269,10 @@ Functn15: "RAINRED"
 0120 26 FF 5F 38              call far word [es:bx+0x38]
 0124 59                       pop cx
 0125 59                       pop cx
-0126                          ShowMessage(0861)
-0133                          ShowMessage(08AE)
-0140                          ShowMessage(08E8)
-014D                          ShowMessage(0954)
+0126                          ShowMessage(0861) = Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
+0133                          ShowMessage(08AE) = It intersects the Rainbow and bursts into blinding light.
+0140                          ShowMessage(08E8) = Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
+014D                          ShowMessage(0954) = A rainbow voyage across the Ageless Void awaits you to the West.
 015A                          RETURN
 
 Functn16: "RAINYEL"
@@ -330,7 +288,7 @@ Functn16: "RAINYEL"
 0014 0B C0                    or ax, ax
 0016 75 03                    jnz 0x1b
 0018 E9 98 00                 jmp 0xb3
-001B                          ShowMessage(0995)
+001B                          ShowMessage(0995) = A beam of yellow arcs over the Ageless Void.
 0028 B8 01 00                 mov ax, 0x1
 002B 50                       push ax
 002C B8 81 00                 mov ax, 0x81
@@ -340,44 +298,16 @@ Functn16: "RAINYEL"
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 1F                 call far word [es:bx]
 003A 83 C4 06                 add sp, 0x6
-003D B8 80 00                 mov ax, 0x80
-0040 50                       push ax
-0041 B8 02 00                 mov ax, 0x2
-0044 50                       push ax
-0045 C4 5E 06                 les bx, [bp+0x6]
-0048 26 FF 5F 04              call far word [es:bx+0x4]
-004C 59                       pop cx
-004D 59                       pop cx
+003D                          ax = CheckState(02, 80) [es:bx+0xf0]
 004E 0B C0                    or ax, ax
 0050 74 61                    jz 0xb3
-0052 B8 81 00                 mov ax, 0x81
-0055 50                       push ax
-0056 B8 02 00                 mov ax, 0x2
-0059 50                       push ax
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 5F 04              call far word [es:bx+0x4]
-0061 59                       pop cx
-0062 59                       pop cx
+0052                          ax = CheckState(02, 81) [es:bx+0xf0]
 0063 0B C0                    or ax, ax
 0065 74 4C                    jz 0xb3
-0067 B8 82 00                 mov ax, 0x82
-006A 50                       push ax
-006B B8 02 00                 mov ax, 0x2
-006E 50                       push ax
-006F C4 5E 06                 les bx, [bp+0x6]
-0072 26 FF 5F 04              call far word [es:bx+0x4]
-0076 59                       pop cx
-0077 59                       pop cx
+0067                          ax = CheckState(02, 82) [es:bx+0xf0]
 0078 0B C0                    or ax, ax
 007A 74 37                    jz 0xb3
-007C B8 83 00                 mov ax, 0x83
-007F 50                       push ax
-0080 B8 02 00                 mov ax, 0x2
-0083 50                       push ax
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 5F 04              call far word [es:bx+0x4]
-008B 59                       pop cx
-008C 59                       pop cx
+007C                          ax = CheckState(02, 83) [es:bx+0xf0]
 008D 0B C0                    or ax, ax
 008F 74 22                    jz 0xb3
 0091 B8 01 00                 mov ax, 0x1
@@ -389,7 +319,7 @@ Functn16: "RAINYEL"
 009D C4 5E 06                 les bx, [bp+0x6]
 00A0 26 FF 1F                 call far word [es:bx]
 00A3 83 C4 06                 add sp, 0x6
-00A6                          ShowMessage(09C2)
+00A6                          ShowMessage(09C2) = A vibrant rainbow of color forms.
 00B3 B8 F3 00                 mov ax, 0xf3
 00B6 50                       push ax
 00B7 B8 F3 00                 mov ax, 0xf3
@@ -401,14 +331,7 @@ Functn16: "RAINYEL"
 00C4 0B C0                    or ax, ax
 00C6 75 03                    jnz 0xcb
 00C8 E9 80 00                 jmp 0x14b
-00CB B8 01 00                 mov ax, 0x1
-00CE 50                       push ax
-00CF B8 01 00                 mov ax, 0x1
-00D2 50                       push ax
-00D3 C4 5E 06                 les bx, [bp+0x6]
-00D6 26 FF 5F 04              call far word [es:bx+0x4]
-00DA 59                       pop cx
-00DB 59                       pop cx
+00CB                          ax = CheckState(01, 01) [es:bx+0xf0]
 00DC 0B C0                    or ax, ax
 00DE 74 6B                    jz 0x14b
 00E0 B8 01 00                 mov ax, 0x1
@@ -436,10 +359,10 @@ Functn16: "RAINYEL"
 0111 26 FF 5F 38              call far word [es:bx+0x38]
 0115 59                       pop cx
 0116 59                       pop cx
-0117                          ShowMessage(09E4)
-0124                          ShowMessage(0A31)
-0131                          ShowMessage(0A6B)
-013E                          ShowMessage(0AD7)
+0117                          ShowMessage(09E4) = Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
+0124                          ShowMessage(0A31) = It intersects the Rainbow and bursts into blinding light.
+0131                          ShowMessage(0A6B) = Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
+013E                          ShowMessage(0AD7) = A rainbow voyage across the Ageless Void awaits you to the West.
 014B                          RETURN
 
 Functn17: "RAINGRN"
@@ -455,7 +378,7 @@ Functn17: "RAINGRN"
 0014 0B C0                    or ax, ax
 0016 75 03                    jnz 0x1b
 0018 E9 98 00                 jmp 0xb3
-001B                          ShowMessage(0B18)
+001B                          ShowMessage(0B18) = A beam of green arcs over the Ageless Void.
 0028 B8 01 00                 mov ax, 0x1
 002B 50                       push ax
 002C B8 82 00                 mov ax, 0x82
@@ -465,44 +388,16 @@ Functn17: "RAINGRN"
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 1F                 call far word [es:bx]
 003A 83 C4 06                 add sp, 0x6
-003D B8 80 00                 mov ax, 0x80
-0040 50                       push ax
-0041 B8 02 00                 mov ax, 0x2
-0044 50                       push ax
-0045 C4 5E 06                 les bx, [bp+0x6]
-0048 26 FF 5F 04              call far word [es:bx+0x4]
-004C 59                       pop cx
-004D 59                       pop cx
+003D                          ax = CheckState(02, 80) [es:bx+0xf0]
 004E 0B C0                    or ax, ax
 0050 74 61                    jz 0xb3
-0052 B8 81 00                 mov ax, 0x81
-0055 50                       push ax
-0056 B8 02 00                 mov ax, 0x2
-0059 50                       push ax
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 5F 04              call far word [es:bx+0x4]
-0061 59                       pop cx
-0062 59                       pop cx
+0052                          ax = CheckState(02, 81) [es:bx+0xf0]
 0063 0B C0                    or ax, ax
 0065 74 4C                    jz 0xb3
-0067 B8 82 00                 mov ax, 0x82
-006A 50                       push ax
-006B B8 02 00                 mov ax, 0x2
-006E 50                       push ax
-006F C4 5E 06                 les bx, [bp+0x6]
-0072 26 FF 5F 04              call far word [es:bx+0x4]
-0076 59                       pop cx
-0077 59                       pop cx
+0067                          ax = CheckState(02, 82) [es:bx+0xf0]
 0078 0B C0                    or ax, ax
 007A 74 37                    jz 0xb3
-007C B8 83 00                 mov ax, 0x83
-007F 50                       push ax
-0080 B8 02 00                 mov ax, 0x2
-0083 50                       push ax
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 5F 04              call far word [es:bx+0x4]
-008B 59                       pop cx
-008C 59                       pop cx
+007C                          ax = CheckState(02, 83) [es:bx+0xf0]
 008D 0B C0                    or ax, ax
 008F 74 22                    jz 0xb3
 0091 B8 01 00                 mov ax, 0x1
@@ -514,7 +409,7 @@ Functn17: "RAINGRN"
 009D C4 5E 06                 les bx, [bp+0x6]
 00A0 26 FF 1F                 call far word [es:bx]
 00A3 83 C4 06                 add sp, 0x6
-00A6                          ShowMessage(0B44)
+00A6                          ShowMessage(0B44) = A vibrant rainbow of color forms.
 00B3 B8 F3 00                 mov ax, 0xf3
 00B6 50                       push ax
 00B7 B8 F3 00                 mov ax, 0xf3
@@ -526,14 +421,7 @@ Functn17: "RAINGRN"
 00C4 0B C0                    or ax, ax
 00C6 75 03                    jnz 0xcb
 00C8 E9 80 00                 jmp 0x14b
-00CB B8 01 00                 mov ax, 0x1
-00CE 50                       push ax
-00CF B8 01 00                 mov ax, 0x1
-00D2 50                       push ax
-00D3 C4 5E 06                 les bx, [bp+0x6]
-00D6 26 FF 5F 04              call far word [es:bx+0x4]
-00DA 59                       pop cx
-00DB 59                       pop cx
+00CB                          ax = CheckState(01, 01) [es:bx+0xf0]
 00DC 0B C0                    or ax, ax
 00DE 74 6B                    jz 0x14b
 00E0 B8 01 00                 mov ax, 0x1
@@ -561,10 +449,10 @@ Functn17: "RAINGRN"
 0111 26 FF 5F 38              call far word [es:bx+0x38]
 0115 59                       pop cx
 0116 59                       pop cx
-0117                          ShowMessage(0B66)
-0124                          ShowMessage(0BB3)
-0131                          ShowMessage(0BED)
-013E                          ShowMessage(0C59)
+0117                          ShowMessage(0B66) = Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
+0124                          ShowMessage(0BB3) = It intersects the Rainbow and bursts into blinding light.
+0131                          ShowMessage(0BED) = Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
+013E                          ShowMessage(0C59) = A rainbow voyage across the Ageless Void awaits you to the West.
 014B                          RETURN
 
 Functn18: "RAINBLU"
@@ -580,7 +468,7 @@ Functn18: "RAINBLU"
 0014 0B C0                    or ax, ax
 0016 75 03                    jnz 0x1b
 0018 E9 98 00                 jmp 0xb3
-001B                          ShowMessage(0C9A)
+001B                          ShowMessage(0C9A) = A beam of blue arcs over the Ageless Void.
 0028 B8 01 00                 mov ax, 0x1
 002B 50                       push ax
 002C B8 83 00                 mov ax, 0x83
@@ -590,44 +478,16 @@ Functn18: "RAINBLU"
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 1F                 call far word [es:bx]
 003A 83 C4 06                 add sp, 0x6
-003D B8 80 00                 mov ax, 0x80
-0040 50                       push ax
-0041 B8 02 00                 mov ax, 0x2
-0044 50                       push ax
-0045 C4 5E 06                 les bx, [bp+0x6]
-0048 26 FF 5F 04              call far word [es:bx+0x4]
-004C 59                       pop cx
-004D 59                       pop cx
+003D                          ax = CheckState(02, 80) [es:bx+0xf0]
 004E 0B C0                    or ax, ax
 0050 74 61                    jz 0xb3
-0052 B8 81 00                 mov ax, 0x81
-0055 50                       push ax
-0056 B8 02 00                 mov ax, 0x2
-0059 50                       push ax
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 5F 04              call far word [es:bx+0x4]
-0061 59                       pop cx
-0062 59                       pop cx
+0052                          ax = CheckState(02, 81) [es:bx+0xf0]
 0063 0B C0                    or ax, ax
 0065 74 4C                    jz 0xb3
-0067 B8 82 00                 mov ax, 0x82
-006A 50                       push ax
-006B B8 02 00                 mov ax, 0x2
-006E 50                       push ax
-006F C4 5E 06                 les bx, [bp+0x6]
-0072 26 FF 5F 04              call far word [es:bx+0x4]
-0076 59                       pop cx
-0077 59                       pop cx
+0067                          ax = CheckState(02, 82) [es:bx+0xf0]
 0078 0B C0                    or ax, ax
 007A 74 37                    jz 0xb3
-007C B8 83 00                 mov ax, 0x83
-007F 50                       push ax
-0080 B8 02 00                 mov ax, 0x2
-0083 50                       push ax
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 5F 04              call far word [es:bx+0x4]
-008B 59                       pop cx
-008C 59                       pop cx
+007C                          ax = CheckState(02, 83) [es:bx+0xf0]
 008D 0B C0                    or ax, ax
 008F 74 22                    jz 0xb3
 0091 B8 01 00                 mov ax, 0x1
@@ -639,7 +499,7 @@ Functn18: "RAINBLU"
 009D C4 5E 06                 les bx, [bp+0x6]
 00A0 26 FF 1F                 call far word [es:bx]
 00A3 83 C4 06                 add sp, 0x6
-00A6                          ShowMessage(0CC5)
+00A6                          ShowMessage(0CC5) = A vibrant rainbow of color forms.
 00B3 B8 F3 00                 mov ax, 0xf3
 00B6 50                       push ax
 00B7 B8 F3 00                 mov ax, 0xf3
@@ -651,14 +511,7 @@ Functn18: "RAINBLU"
 00C4 0B C0                    or ax, ax
 00C6 75 03                    jnz 0xcb
 00C8 E9 80 00                 jmp 0x14b
-00CB B8 01 00                 mov ax, 0x1
-00CE 50                       push ax
-00CF B8 01 00                 mov ax, 0x1
-00D2 50                       push ax
-00D3 C4 5E 06                 les bx, [bp+0x6]
-00D6 26 FF 5F 04              call far word [es:bx+0x4]
-00DA 59                       pop cx
-00DB 59                       pop cx
+00CB                          ax = CheckState(01, 01) [es:bx+0xf0]
 00DC 0B C0                    or ax, ax
 00DE 74 6B                    jz 0x14b
 00E0 B8 01 00                 mov ax, 0x1
@@ -686,21 +539,21 @@ Functn18: "RAINBLU"
 0111 26 FF 5F 38              call far word [es:bx+0x38]
 0115 59                       pop cx
 0116 59                       pop cx
-0117                          ShowMessage(0CE7)
-0124                          ShowMessage(0D34)
-0131                          ShowMessage(0D6E)
-013E                          ShowMessage(0DDA)
+0117                          ShowMessage(0CE7) = Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
+0124                          ShowMessage(0D34) = It intersects the Rainbow and bursts into blinding light.
+0131                          ShowMessage(0D6E) = Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
+013E                          ShowMessage(0DDA) = A rainbow voyage across the Ageless Void awaits you to the West.
 014B                          RETURN
 
 Functn19: "GATEA"
 0000                          BEGIN
-0003                          ShowMessage(0E1B)
+0003                          ShowMessage(0E1B) = This gate leads to the GIANTS' LAND
 0010                          GoMap(03, FB, 02, 38)
 002B                          RETURN
 
 Functn1A: "ENCA"
 0000                          BEGIN
-0003                          ShowMessage(0E3F)
+0003                          ShowMessage(0E3F) = A burst of moon light floods the room.
 0010 B8 24 00                 mov ax, 0x24
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -797,7 +650,7 @@ Functn1B: "ENCB"
 
 Functn1C: "ENCC"
 0000                          BEGIN
-0003                          ShowMessage(0E66)
+0003                          ShowMessage(0E66) = Dragons defend their lair.
 0010 B8 26 00                 mov ax, 0x26
 0013 50                       push ax
 0014 B8 01 00                 mov ax, 0x1
@@ -886,44 +739,25 @@ Functn1D: "ENCD"
 
 Functn1E: "TAPECLUE"
 0000                          BEGIN
-0003                          ShowMessage(0E81)
-0010 B8 A8 0E                 mov ax, 0xea8
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
-001D B8 D5 0E                 mov ax, 0xed5
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F F4 00           call far word [es:bx+0xf4]
-0029 59                       pop cx
-002A B8 0F 0F                 mov ax, 0xf0f
-002D 50                       push ax
-002E C4 5E 06                 les bx, [bp+0x6]
-0031 26 FF 9F F4 00           call far word [es:bx+0xf4]
-0036 59                       pop cx
+0003                          ShowMessage(0E81) = Rune symbols decorate the tapestry -- 
+0010                          ShowRunes(500E) [es:bx+0xf4] = Past the Platforms a Tapestry you will find.
+001D                          ShowRunes(500E) [es:bx+0xf4] = Illuminate the Moons with the Spectrum of the Moon Prism.
+002A                          ShowRunes(500F) [es:bx+0xf4] = Then... ACK, UGH, THUMP  (the rest of the tapestry is smeared with blood)
 0037                          RETURN
 
 Functn1F: "BOAT"
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
+0003                          ax = CheckState(01, 01) [es:bx+0xf0]
 0014 0B C0                    or ax, ax
 0016 74 5D                    jz 0x75
-0018                          ShowMessage(0F59)
-0025                          ShowMessage(0F90)
-0032                          ShowMessage(1003)
-003F                          ShowMessage(1086)
-004C                          ShowMessage(10C3)
+0018                          ShowMessage(0F59) = You step across the platform and into the Golden Boat.
+0025                          ShowMessage(0F90) = The Zephyr Wind blows the lightest of breezes from the east and the Golden Boat sets sail west across the Rainbow.
+0032                          ShowMessage(1003) = In the moments that follow the Zephyr tells you only the FlexSword can remain in your hands when you encounter the Wind Elemental.
+003F                          ShowMessage(1086) = Destroy him and the way to En-li-kil's Domain will be clear.
+004C                          ShowMessage(10C3) = You arrive at an island in the center of the Ageless Void.
 0059                          GoMap(00, 4B, 04, 38)
 0073 EB 1E                    jmp 0x93
-0075                          ShowMessage(10FE)
+0075                          ShowMessage(10FE) = The Ageless Void swallows you whole.
 0082 C4 5E 06                 les bx, [bp+0x6]
 0085 26 FF 5F 74              call far word [es:bx+0x74]
 0089 50                       push ax
@@ -934,16 +768,16 @@ Functn1F: "BOAT"
 
 Functn20: "DOORWARN"
 0000                          BEGIN
-0003                          ShowMessage(1123)
+0003                          ShowMessage(1123) = This door leads the way back to the Land of Giants.
 0010                          RETURN
 
 Functn24: "NOLIGHT"
 0000                          BEGIN
-0003                          ShowMessage(1157)
+0003                          ShowMessage(1157) = This side of the tapestry appears dark.
 0010                          RETURN
 
 Functn25: "PLATFORM"
 0000                          BEGIN
-0003                          ShowMessage(117F)
+0003                          ShowMessage(117F) = You stand upon a platform in the center of the River of Eternity.
 0010                          RETURN
 

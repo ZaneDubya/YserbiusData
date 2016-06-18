@@ -49,7 +49,7 @@ Functn03: "LKPKDOOR"
 005B C4 5E 06                 les bx, [bp+0x6]
 005E 26 FF 5F 30              call far word [es:bx+0x30]
 0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(03FC)
+0065                          ShowMessage(03FC) = You succeeded at opening the locked door.
 0072 EB 2A                    jmp 0x9e
 0074 33 C0                    xor ax, ax
 0076 50                       push ax
@@ -62,7 +62,7 @@ Functn03: "LKPKDOOR"
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 2C              call far word [es:bx+0x2c]
 008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(0426)
+0091                          ShowMessage(0426) = The door is locked.
 009E                          RETURN
 
 Functn04: "LKPKDOOR"
@@ -89,7 +89,7 @@ Functn04: "LKPKDOOR"
 002D C4 5E 06                 les bx, [bp+0x6]
 0030 26 FF 9F 90 00           call far word [es:bx+0x90]
 0035 59                       pop cx
-0036                          ShowMessage(043A)
+0036                          ShowMessage(043A) = Your attempt to open the door springs a trap. Dozens of darts attack you.
 0043 E9 8A 00                 jmp 0xd0
 0046 B8 D9 00                 mov ax, 0xd9
 0049 50                       push ax
@@ -123,7 +123,7 @@ Functn04: "LKPKDOOR"
 008D C4 5E 06                 les bx, [bp+0x6]
 0090 26 FF 5F 30              call far word [es:bx+0x30]
 0094 83 C4 06                 add sp, 0x6
-0097                          ShowMessage(0484)
+0097                          ShowMessage(0484) = The key unlocked the massive door, bypassing a well hidden trap.
 00A4 EB 2A                    jmp 0xd0
 00A6 33 C0                    xor ax, ax
 00A8 50                       push ax
@@ -136,17 +136,13 @@ Functn04: "LKPKDOOR"
 00B9 C4 5E 06                 les bx, [bp+0x6]
 00BC 26 FF 5F 2C              call far word [es:bx+0x2c]
 00C0 83 C4 06                 add sp, 0x6
-00C3                          ShowMessage(04C5)
+00C3                          ShowMessage(04C5) = The Palace doors are locked.  Only the Palace key will open these doors.
 00D0                          RETURN
 
 Functn05: "RUNESIGN"
 0000                          BEGIN
-0003                          ShowMessage(050E)
-0010 B8 33 05                 mov ax, 0x533
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F F4 00           call far word [es:bx+0xf4]
-001C 59                       pop cx
+0003                          ShowMessage(050E) = Runes can be seen on the tapestry...
+0010                          ShowRunes(5005) [es:bx+0xf4] = None shall pass save one who holds the Key to the Palace.
 001D                          RETURN
 
 Functn06: "TOPALACA"
@@ -549,27 +545,27 @@ Functn09: "STRMNSTR"
 
 Functn0A: "STRSMESA"
 0000                          BEGIN
-0003                          ShowMessage(056D)
+0003                          ShowMessage(056D) = The stairs through the west gateway lead up a level.
 0010                          RETURN
 
 Functn0B: "STRSMESB"
 0000                          BEGIN
-0003                          ShowMessage(05A2)
+0003                          ShowMessage(05A2) = Through the north gateway are stairs going up to the next level.
 0010                          RETURN
 
 Functn0C: "STRSMESC"
 0000                          BEGIN
-0003                          ShowMessage(05E3)
+0003                          ShowMessage(05E3) = The stairs to the east lead downstairs.
 0010                          RETURN
 
 Functn0D: "STRSMESD"
 0000                          BEGIN
-0003                          ShowMessage(060B)
+0003                          ShowMessage(060B) = The stairs past the north gateway go down a level.
 0010                          RETURN
 
 Functn0E: "GATEMESS"
 0000                          BEGIN
-0003                          ShowMessage(063E)
+0003                          ShowMessage(063E) = The gateway leads to THE PALACE OF KING CLEOWYN.
 0010                          RETURN
 
 Functn0F: "TOPALACB"
@@ -579,50 +575,50 @@ Functn0F: "TOPALACB"
 
 Functn10: "NPCCHATA"
 0000                          BEGIN
-0003                          ShowMessage(066F)
+0003                          ShowMessage(066F) = You encounter a Dwarf Thief.
 0010                          ShowPortrait(0023)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(068C)
+002F                          ShowMessage(068C) = The palace doors are locked. Somewhere on the first level is the object that will open these doors.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(06F0)
+003E                          ShowMessage(06F0) = The Dwarf Thief is too busy removing darts from his leather shield to answer you.
 004B                          RETURN
 
 Functn11: "NPCCHATB"
 0000                          BEGIN
-0003                          ShowMessage(0742)
+0003                          ShowMessage(0742) = You encounter a Halfling Ranger.
 0010                          ShowPortrait(0021)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0763)
+002F                          ShowMessage(0763) = I know there are three secret areas on this level, but they cannot be entered from this corridor.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(07C5)
+003E                          ShowMessage(07C5) = The Halfling Ranger waves you away in annoyance.
 004B                          RETURN
 
 Functn12: "NPCCHATC"
 0000                          BEGIN
-0003                          ShowMessage(07F6)
+0003                          ShowMessage(07F6) = You encounter a Dwarf Wizard.
 0010                          ShowPortrait(002C)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0814)
+002F                          ShowMessage(0814) = Not all traps should be by-passed. I fell through one and, after some nosing around and polishing off some bothersome rogues and monsters, found a most useful key.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(08B8)
+003E                          ShowMessage(08B8) = The Dwarf Wizard disappears in a puff of smoke.
 004B                          RETURN
 
 Functn13: "NPCCHATD"
 0000                          BEGIN
-0003                          ShowMessage(08E8)
+0003                          ShowMessage(08E8) = You encounter an Orc Knight.
 0010                          ShowPortrait(001A)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0905)
+002F                          ShowMessage(0905) = King Cleowyn's Palace is an evil place, filled with the spirits of the tormented dead.  A cleric told me to look for an asymmetry in the Palace if I wished to learn the truth about the dead king.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(09C9)
+003E                          ShowMessage(09C9) = The Orc Knight pretends not to hear you.
 004B                          RETURN
 
 Functn14: "STRSTELE"
@@ -637,14 +633,14 @@ Functn15: "STRSTELE"
 
 Functn16: "NPCCHATE"
 0000                          BEGIN
-0003                          ShowMessage(09F2)
+0003                          ShowMessage(09F2) = You encounter a Halfling Cleric.
 0010                          ShowPortrait(0029)
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0D 00                 cmp ax, 0xd
 002D 77 1C                    ja 0x4b
-002F                          ShowMessage(0A13)
-003C                          ShowMessage(0A8F)
+002F                          ShowMessage(0A13) = On the next level down you will find a dwarf by the name of Deldwinn.  He guards the entrance to King Cleowyn's Apartments.
+003C                          ShowMessage(0A8F) = Do not try to fight Deldwinn, for he is enchanted and cannot be killed by mortals.
 0049 EB 0D                    jmp 0x58
-004B                          ShowMessage(0AE2)
+004B                          ShowMessage(0AE2) = The Halfling Cleric mumbles his prayers.
 0058                          RETURN
 
