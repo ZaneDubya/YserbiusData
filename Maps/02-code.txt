@@ -5,7 +5,7 @@ Functn01: "TOEXIT"
 
 Functn02: "TELEPORT"
 0000                          BEGIN
-0003                          ax = CheckLevel(0014) ? 1 : 0 [es:bx+0x44]
+0003                          ax = CheckLevel(0014) [es:bx+0x44]
 0011 74 2A                    jz 0x3d
 0013                          ShowMessage(03FC) [es:bx+0xf8] = You may enter.
 0020                          GoMap(01, 8D, 01, 05) [es:bx+0xbc]
@@ -26,13 +26,9 @@ Functn02: "TELEPORT"
 
 Functn03: "LOWMNSTR"
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F F0 00           call far word [es:bx+0xf0]
-000B 3D 01 00                 cmp ax, 0x1
+0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 74 0D                    jz 0x1d
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0018 3D 02 00                 cmp ax, 0x2
+0010                          ax = PartyCountIs(02) [es:bx+0xf0]
 001B 75 26                    jnz 0x43
 001D                          SetEncData(1A, 01) [es:bx+0xd4]
 002F                          SetEncData(1A, 02) [es:bx+0xd4]
@@ -45,57 +41,28 @@ Functn03: "LOWMNSTR"
 
 Functn04: "SMALGOLD"
 0000                          BEGIN
-0003                          ax = CheckState(02, 02) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(02, 02, 01) [es:bx+0x4]
 0017 75 0F                    jnz 0x28
 0019                          ShowMessage(0456) [es:bx+0xf8] = The room is bare.
 0026 EB 33                    jmp 0x5b
-0028 33 C0                    xor ax, ax
-002A BA 64 00                 mov dx, 0x64
-002D 50                       push ax
-002E 52                       push dx
-002F C4 5E 06                 les bx, [bp+0x6]
-0032 26 FF 9F AC 00           call far word [es:bx+0xac]
-0037 59                       pop cx
-0038 59                       pop cx
+0028                          ModifyGold(0064) [es:bx+0xac]
 0039                          ShowMessage(0468) [es:bx+0xf8] = You find 100 Gold Pieces lying on the floor.
-0046 B8 01 00                 mov ax, 0x1
-0049 50                       push ax
-004A B8 02 00                 mov ax, 0x2
-004D 50                       push ax
-004E B8 02 00                 mov ax, 0x2
-0051 50                       push ax
-0052 C4 5E 06                 les bx, [bp+0x6]
-0055 26 FF 1F                 call far word [es:bx]
-0058 83 C4 06                 add sp, 0x6
+0046                          SetState(02, 02, 01) [es:bx]
 005B                          RETURN
 
 Functn05: "GOLDENC"
 0000                          BEGIN
-0003                          ax = CheckState(02, 03) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(02, 03, 01) [es:bx+0x4]
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(0495) [es:bx+0xf8] = The room is empty, except for a few rogues.
 0026                          SetTreasureData(0064, 00, 00, 00, 00, B5) [es:bx+0xd8]
 0045 EB 42                    jmp 0x89
 0047                          SetTreasureData(03E8, 00, 00, 00, CB, CE) [es:bx+0xd8]
-0067 B8 01 00                 mov ax, 0x1
-006A 50                       push ax
-006B B8 03 00                 mov ax, 0x3
-006E 50                       push ax
-006F B8 02 00                 mov ax, 0x2
-0072 50                       push ax
-0073 C4 5E 06                 les bx, [bp+0x6]
-0076 26 FF 1F                 call far word [es:bx]
-0079 83 C4 06                 add sp, 0x6
+0067                          SetState(02, 03, 01) [es:bx]
 007C                          ShowMessage(04C1) [es:bx+0xf8] = You encounter Rogues counting their gold.
-0089 C4 5E 06                 les bx, [bp+0x6]
-008C 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0091 3D 01 00                 cmp ax, 0x1
+0089                          ax = PartyCountIs(01) [es:bx+0xf0]
 0094 74 0D                    jz 0xa3
-0096 C4 5E 06                 les bx, [bp+0x6]
-0099 26 FF 9F F0 00           call far word [es:bx+0xf0]
-009E 3D 02 00                 cmp ax, 0x2
+0096                          ax = PartyCountIs(02) [es:bx+0xf0]
 00A1 75 26                    jnz 0xc9
 00A3                          SetEncData(13, 01) [es:bx+0xd4]
 00B5                          SetEncData(13, 02) [es:bx+0xd4]
@@ -170,13 +137,9 @@ Functn07: "LOWROGUE"
 002F EB 1A                    jmp 0x4b
 0031                          ShowMessage(05B0) [es:bx+0xf8] = The Rogues refuse to talk.
 003E                          ShowMessage(05CB) [es:bx+0xf8] = They attack you!
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0053 3D 01 00                 cmp ax, 0x1
+004B                          ax = PartyCountIs(01) [es:bx+0xf0]
 0056 74 0D                    jz 0x65
-0058 C4 5E 06                 les bx, [bp+0x6]
-005B 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0060 3D 02 00                 cmp ax, 0x2
+0058                          ax = PartyCountIs(02) [es:bx+0xf0]
 0063 75 26                    jnz 0x8b
 0065                          SetEncData(1C, 01) [es:bx+0xd4]
 0077                          SetEncData(1D, 02) [es:bx+0xd4]
@@ -190,20 +153,14 @@ Functn07: "LOWROGUE"
 
 Functn08: "TUFMNSTR"
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F F0 00           call far word [es:bx+0xf0]
-000B 3D 01 00                 cmp ax, 0x1
+0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 75 27                    jnz 0x37
 0010                          SetEncData(1F, 01) [es:bx+0xd4]
 0022                          SetEncData(20, 02) [es:bx+0xd4]
 0034 E9 AC 00                 jmp 0xe3
-0037 C4 5E 06                 les bx, [bp+0x6]
-003A 26 FF 9F F0 00           call far word [es:bx+0xf0]
-003F 3D 02 00                 cmp ax, 0x2
+0037                          ax = PartyCountIs(02) [es:bx+0xf0]
 0042 74 0D                    jz 0x51
-0044 C4 5E 06                 les bx, [bp+0x6]
-0047 26 FF 9F F0 00           call far word [es:bx+0xf0]
-004C 3D 03 00                 cmp ax, 0x3
+0044                          ax = PartyCountIs(03) [es:bx+0xf0]
 004F 75 4A                    jnz 0x9b
 0051                          SetEncData(1E, 01) [es:bx+0xd4]
 0063                          SetEncData(1F, 02) [es:bx+0xd4]
@@ -218,30 +175,24 @@ Functn08: "TUFMNSTR"
 
 Functn09: "LCPKENC"
 0000                          BEGIN
-0003                          ax = HasItem(D2) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(D2) [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013                          ShowMessage(05DC) [es:bx+0xf8] = Cro-Lizards snarl at you.
 0020                          SetTreasureData(012C, 00, 00, 00, 00, CE) [es:bx+0xd8]
 003F EB 2C                    jmp 0x6d
 0041                          SetTreasureData(012C, 00, 00, 00, 00, D2) [es:bx+0xd8]
 0060                          ShowMessage(05F6) [es:bx+0xf8] = You see an interesting lockpick on the floor. On the shaft are the words - Property of King Cleowyn. The Cro-Lizards you see are also interested in the lockpick.
-006D C4 5E 06                 les bx, [bp+0x6]
-0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0075 3D 01 00                 cmp ax, 0x1
+006D                          ax = PartyCountIs(01) [es:bx+0xf0]
 0078 75 15                    jnz 0x8f
 007A                          SetEncData(1E, 01) [es:bx+0xd4]
 008C E9 F7 00                 jmp 0x186
-008F C4 5E 06                 les bx, [bp+0x6]
-0092 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0097 3D 02 00                 cmp ax, 0x2
+008F                          ax = PartyCountIs(02) [es:bx+0xf0]
 009A 75 39                    jnz 0xd5
 009C                          SetEncData(1E, 01) [es:bx+0xd4]
 00AE                          SetEncData(1E, 02) [es:bx+0xd4]
 00C0                          SetEncData(1E, 04) [es:bx+0xd4]
 00D2 E9 B1 00                 jmp 0x186
-00D5 C4 5E 06                 les bx, [bp+0x6]
-00D8 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00DD 3D 03 00                 cmp ax, 0x3
+00D5                          ax = PartyCountIs(03) [es:bx+0xf0]
 00E0 75 4A                    jnz 0x12c
 00E2                          SetEncData(1E, 01) [es:bx+0xd4]
 00F4                          SetEncData(1E, 02) [es:bx+0xd4]
@@ -302,7 +253,7 @@ Functn0A: "KEYDOOR"
 
 Functn0B: "KEYENC"
 0000                          BEGIN
-0003                          ax = HasItem(D3) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(D3) [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013                          SetTreasureData(00C8, 00, 00, 00, 00, B5) [es:bx+0xd8]
 0032                          ShowMessage(06F1) [es:bx+0xf8] = Some rather nasty monsters hang out here.
@@ -310,22 +261,16 @@ Functn0B: "KEYENC"
 0041                          SetTreasureData(00C8, 00, 00, 00, 00, D3) [es:bx+0xd8]
 0060                          ShowMessage(071B) [es:bx+0xf8] = On the floor is a key. The grasp bears the Galabryan insignia and the initials KC. It must have belonged to King Cleowyn.  
 006D                          ShowMessage(0797) [es:bx+0xf8] = Between you and the key are monsters.
-007A C4 5E 06                 les bx, [bp+0x6]
-007D 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0082 3D 01 00                 cmp ax, 0x1
+007A                          ax = PartyCountIs(01) [es:bx+0xf0]
 0085 75 15                    jnz 0x9c
 0087                          SetEncData(1F, 01) [es:bx+0xd4]
 0099 E9 E5 00                 jmp 0x181
-009C C4 5E 06                 les bx, [bp+0x6]
-009F 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00A4 3D 02 00                 cmp ax, 0x2
+009C                          ax = PartyCountIs(02) [es:bx+0xf0]
 00A7 75 27                    jnz 0xd0
 00A9                          SetEncData(1F, 01) [es:bx+0xd4]
 00BB                          SetEncData(20, 02) [es:bx+0xd4]
 00CD E9 B1 00                 jmp 0x181
-00D0 C4 5E 06                 les bx, [bp+0x6]
-00D3 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00D8 3D 03 00                 cmp ax, 0x3
+00D0                          ax = PartyCountIs(03) [es:bx+0xf0]
 00DB 75 4A                    jnz 0x127
 00DD                          SetEncData(1F, 01) [es:bx+0xd4]
 00EF                          SetEncData(1F, 02) [es:bx+0xd4]
@@ -403,24 +348,16 @@ Functn0E: "MODMNSTR"
 0050                          ShowMessage(0894) [es:bx+0xf8] = The Rogues refuse to talk.
 005D                          ShowMessage(08AF) [es:bx+0xf8] = They charge you!
 006A                          SetTreasureData(00C8, 00, 00, 00, 00, 02) [es:bx+0xd8]
-0089 C4 5E 06                 les bx, [bp+0x6]
-008C 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0091 3D 01 00                 cmp ax, 0x1
+0089                          ax = PartyCountIs(01) [es:bx+0xf0]
 0094 74 0D                    jz 0xa3
-0096 C4 5E 06                 les bx, [bp+0x6]
-0099 26 FF 9F F0 00           call far word [es:bx+0xf0]
-009E 3D 02 00                 cmp ax, 0x2
+0096                          ax = PartyCountIs(02) [es:bx+0xf0]
 00A1 75 26                    jnz 0xc9
 00A3                          SetEncData(23, 01) [es:bx+0xd4]
 00B5                          SetEncData(22, 02) [es:bx+0xd4]
 00C7 EB 62                    jmp 0x12b
-00C9 C4 5E 06                 les bx, [bp+0x6]
-00CC 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00D1 3D 03 00                 cmp ax, 0x3
+00C9                          ax = PartyCountIs(03) [es:bx+0xf0]
 00D4 74 0D                    jz 0xe3
-00D6 C4 5E 06                 les bx, [bp+0x6]
-00D9 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00DE 3D 04 00                 cmp ax, 0x4
+00D6                          ax = PartyCountIs(04) [es:bx+0xf0]
 00E1 75 48                    jnz 0x12b
 00E3                          SetEncData(22, 01) [es:bx+0xd4]
 00F5                          SetEncData(23, 02) [es:bx+0xd4]
@@ -434,46 +371,32 @@ Functn0F: "HRDMONST"
 0004 BE 01 00                 mov si, 0x1
 0007 EB 10                    jmp 0x19
 0009 B8 13 00                 mov ax, 0x13
-000C 50                       push ax
-000D 56                       push si
-000E C4 5E 06                 les bx, [bp+0x6]
-0011 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0016 59                       pop cx
-0017 59                       pop cx
+000C                          SetEncData(ax, si) [es:bx+0xd4]
 0018 46                       inc si
-0019 C4 5E 06                 les bx, [bp+0x6]
-001C 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0021 3B C6                    cmp ax, si
+0019                          ax = PartyCountIs(si) [es:bx+0xf0]
 0023 73 E4                    jae 0x9
 0025 5E                       pop si
 0026                          RETURN
 
 Functn10: "WEAPENC"
 0000                          BEGIN
-0003                          ax = CheckState(02, 04) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(02, 04, 01) [es:bx+0x4]
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(08C0) [es:bx+0xf8] = You find nothing interesting in the room except a vial and some monsters.
 0026                          SetTreasureData(00C8, 00, 00, 00, 00, B5) [es:bx+0xd8]
 0045 EB 2D                    jmp 0x74
 0047                          SetTreasureData(00C8, 00, 00, 00, B7, 18) [es:bx+0xd8]
 0067                          ShowMessage(090A) [es:bx+0xf8] = You notice an axe and a vial on the floor. You also notice some Bronze Ogres.
-0074 C4 5E 06                 les bx, [bp+0x6]
-0077 26 FF 9F F0 00           call far word [es:bx+0xf0]
-007C 3D 01 00                 cmp ax, 0x1
+0074                          ax = PartyCountIs(01) [es:bx+0xf0]
 007F 75 15                    jnz 0x96
 0081                          SetEncData(26, 01) [es:bx+0xd4]
 0093 E9 C1 00                 jmp 0x157
-0096 C4 5E 06                 les bx, [bp+0x6]
-0099 26 FF 9F F0 00           call far word [es:bx+0xf0]
-009E 3D 02 00                 cmp ax, 0x2
+0096                          ax = PartyCountIs(02) [es:bx+0xf0]
 00A1 75 27                    jnz 0xca
 00A3                          SetEncData(26, 01) [es:bx+0xd4]
 00B5                          SetEncData(26, 02) [es:bx+0xd4]
 00C7 E9 8D 00                 jmp 0x157
-00CA C4 5E 06                 les bx, [bp+0x6]
-00CD 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00D2 3D 03 00                 cmp ax, 0x3
+00CA                          ax = PartyCountIs(03) [es:bx+0xf0]
 00D5 75 38                    jnz 0x10f
 00D7                          SetEncData(26, 01) [es:bx+0xd4]
 00E9                          SetEncData(26, 02) [es:bx+0xd4]
@@ -487,7 +410,7 @@ Functn10: "WEAPENC"
 
 Functn11: "PITA"
 0000                          BEGIN
-0003                          ax = CheckLevel(000F) ? 1 : 0 [es:bx+0x44]
+0003                          ax = CheckLevel(000F) [es:bx+0x44]
 0011 75 03                    jnz 0x16
 0013 E9 9D 00                 jmp 0xb3
 0016 C4 5E 06                 les bx, [bp+0x6]
@@ -501,9 +424,7 @@ Functn11: "PITA"
 002A 59                       pop cx
 002B                          ShowMessage(0958) [es:bx+0xf8] = You fall into a pit.
 0038                          ShowMessage(096D) [es:bx+0xf8] = You take heavy damage from the long, long fall.
-0045 C4 5E 06                 les bx, [bp+0x6]
-0048 26 FF 9F F0 00           call far word [es:bx+0xf0]
-004D 3D 01 00                 cmp ax, 0x1
+0045                          ax = PartyCountIs(01) [es:bx+0xf0]
 0050 75 2A                    jnz 0x7c
 0052                          DoDamage(012C) [es:bx+0x90]
 005F                          GoMap(03, 11, 03, 05) [es:bx+0xbc]
@@ -607,7 +528,7 @@ Functn14: ""
 
 Functn15: "PITB"
 0000                          BEGIN
-0003                          ax = CheckLevel(000F) ? 1 : 0 [es:bx+0x44]
+0003                          ax = CheckLevel(000F) [es:bx+0x44]
 0011 75 03                    jnz 0x16
 0013 E9 9D 00                 jmp 0xb3
 0016 C4 5E 06                 les bx, [bp+0x6]
@@ -621,9 +542,7 @@ Functn15: "PITB"
 002A 59                       pop cx
 002B                          ShowMessage(0AFE) [es:bx+0xf8] = You fall into a pit.
 0038                          ShowMessage(0B13) [es:bx+0xf8] = You take heavy damage from the long, long fall.
-0045 C4 5E 06                 les bx, [bp+0x6]
-0048 26 FF 9F F0 00           call far word [es:bx+0xf0]
-004D 3D 01 00                 cmp ax, 0x1
+0045                          ax = PartyCountIs(01) [es:bx+0xf0]
 0050 75 2A                    jnz 0x7c
 0052                          DoDamage(012C) [es:bx+0x90]
 005F                          GoMap(03, 12, 03, 05) [es:bx+0xbc]
@@ -639,7 +558,7 @@ Functn15: "PITB"
 
 Functn16: "PITC"
 0000                          BEGIN
-0003                          ax = CheckLevel(000F) ? 1 : 0 [es:bx+0x44]
+0003                          ax = CheckLevel(000F) [es:bx+0x44]
 0011 75 03                    jnz 0x16
 0013 E9 9D 00                 jmp 0xb3
 0016 C4 5E 06                 les bx, [bp+0x6]
@@ -653,9 +572,7 @@ Functn16: "PITC"
 002A 59                       pop cx
 002B                          ShowMessage(0C19) [es:bx+0xf8] = You fall into a pit.
 0038                          ShowMessage(0C2E) [es:bx+0xf8] = You take heavy damage from the long, long fall.
-0045 C4 5E 06                 les bx, [bp+0x6]
-0048 26 FF 9F F0 00           call far word [es:bx+0xf0]
-004D 3D 01 00                 cmp ax, 0x1
+0045                          ax = PartyCountIs(01) [es:bx+0xf0]
 0050 75 2A                    jnz 0x7c
 0052                          DoDamage(012C) [es:bx+0x90]
 005F                          GoMap(01, 21, 03, 05) [es:bx+0xbc]
@@ -671,7 +588,7 @@ Functn16: "PITC"
 
 Functn17: "PITD"
 0000                          BEGIN
-0003                          ax = CheckLevel(000F) ? 1 : 0 [es:bx+0x44]
+0003                          ax = CheckLevel(000F) [es:bx+0x44]
 0011 75 03                    jnz 0x16
 0013 E9 9B 00                 jmp 0xb1
 0016 C4 5E 06                 les bx, [bp+0x6]
@@ -685,9 +602,7 @@ Functn17: "PITD"
 002A 59                       pop cx
 002B                          ShowMessage(0D34) [es:bx+0xf8] = You fall into a pit.
 0038                          ShowMessage(0D49) [es:bx+0xf8] = You take heavy damage from the long, long fall.
-0045 C4 5E 06                 les bx, [bp+0x6]
-0048 26 FF 9F F0 00           call far word [es:bx+0xf0]
-004D 3D 01 00                 cmp ax, 0x1
+0045                          ax = PartyCountIs(01) [es:bx+0xf0]
 0050 75 29                    jnz 0x7b
 0052                          DoDamage(012C) [es:bx+0x90]
 005F                          GoMap(00, 22, 03, 05) [es:bx+0xbc]
@@ -711,7 +626,7 @@ Functn18: "TELEMESA"
 Functn19: "NPCCHATA"
 0000                          BEGIN
 0003                          ShowMessage(0E75) [es:bx+0xf8] = You encounter an Orc Ranger.
-0010                          ShowPortrait(001E) [es:bx+0xd4]
+0010                          ShowPortrait(001E) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
@@ -723,7 +638,7 @@ Functn19: "NPCCHATA"
 Functn1A: "NPCCHATB"
 0000                          BEGIN
 0003                          ShowMessage(0F5C) [es:bx+0xf8] = You encounter a Human Wizard.
-0010                          ShowPortrait(002B) [es:bx+0xd4]
+0010                          ShowPortrait(002B) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 04 00                 cmp ax, 0x4
 002D 77 0F                    ja 0x3e
@@ -735,7 +650,7 @@ Functn1A: "NPCCHATB"
 Functn1B: "NPCCHATC"
 0000                          BEGIN
 0003                          ShowMessage(1024) [es:bx+0xf8] = You encounter a Dwarf Knight.
-0010                          ShowPortrait(001C) [es:bx+0xd4]
+0010                          ShowPortrait(001C) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
@@ -747,7 +662,7 @@ Functn1B: "NPCCHATC"
 Functn1C: "NPCCHATD"
 0000                          BEGIN
 0003                          ShowMessage(10F2) [es:bx+0xf8] = You encounter a Troll Cleric.
-0010                          ShowPortrait(0028) [es:bx+0xd4]
+0010                          ShowPortrait(0028) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 1C                    ja 0x4b
@@ -761,7 +676,7 @@ Functn1C: "NPCCHATD"
 Functn1D: "NPCCHATE"
 0000                          BEGIN
 0003                          ShowMessage(1245) [es:bx+0xf8] = You encounter a Human Thief.
-0010                          ShowPortrait(0022) [es:bx+0xd4]
+0010                          ShowPortrait(0022) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 1C                    ja 0x4b
@@ -774,7 +689,7 @@ Functn1D: "NPCCHATE"
 Functn1E: "NPCCHATF"
 0000                          BEGIN
 0003                          ShowMessage(1382) [es:bx+0xf8] = You encounter an Elf Barbarian.
-0010                          ShowPortrait(0018) [es:bx+0xd4]
+0010                          ShowPortrait(0018) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e

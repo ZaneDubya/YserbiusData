@@ -1,6 +1,6 @@
 Functn01: "STARSADN"
 0000                          BEGIN
-0003                          ax = CheckLevel(0014) ? 1 : 0 [es:bx+0x44]
+0003                          ax = CheckLevel(0014) [es:bx+0x44]
 0011 74 1C                    jz 0x2f
 0013                          GoMap(00, 4D, 01, 33) [es:bx+0xbc]
 002D EB 2A                    jmp 0x59
@@ -37,7 +37,7 @@ Functn04: "TELEMESS"
 
 Functn05: "TELETAVR"
 0000                          BEGIN
-0003                          ax = CheckLevel(0014) ? 1 : 0 [es:bx+0x44]
+0003                          ax = CheckLevel(0014) [es:bx+0x44]
 0011 74 1D                    jz 0x30
 0013                          GoMap(02, 4D, 01, 33) [es:bx+0xbc]
 002E EB 2A                    jmp 0x5a
@@ -74,20 +74,11 @@ Functn08: "TAVERN"
 
 Functn09: "SPECIALD"
 0000                          BEGIN
-0003                          ax = CheckState(02, 42) [es:bx+0x4]
-0014 3D 05 00                 cmp ax, 0x5
+0003                          ax = CheckState(02, 42, 05) [es:bx+0x4]
 0017 75 0F                    jnz 0x28
 0019                          ShowMessage(04E7) [es:bx+0xf8] = You have used up the supplies in the Infirmary.
 0026 EB 3E                    jmp 0x66
-0028 B8 43 00                 mov ax, 0x43
-002B 50                       push ax
-002C B8 42 00                 mov ax, 0x42
-002F 50                       push ax
-0030 B8 02 00                 mov ax, 0x2
-0033 50                       push ax
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 1F                 call far word [es:bx]
-003A 83 C4 06                 add sp, 0x6
+0028                          SetState(02, 42, 43) [es:bx]
 003D                          ax = GetHits() [es:bx+0x74]
 0044 50                       push ax
 0045 C4 5E 06                 les bx, [bp+0x6]
@@ -122,13 +113,9 @@ Functn0B: "MONENCB"
 Functn0C: "MONENCC"
 0000                          BEGIN
 0003                          ShowMessage(05B7) [es:bx+0xf8] = A group of restless undead surprise you!
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0018 3D 01 00                 cmp ax, 0x1
+0010                          ax = PartyCountIs(01) [es:bx+0xf0]
 001B 74 0D                    jz 0x2a
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0025 3D 02 00                 cmp ax, 0x2
+001D                          ax = PartyCountIs(02) [es:bx+0xf0]
 0028 75 38                    jnz 0x62
 002A                          SetEncData(1C, 01) [es:bx+0xd4]
 003C                          SetEncData(1F, 02) [es:bx+0xd4]
@@ -143,7 +130,7 @@ Functn0C: "MONENCC"
 
 Functn0E: "MONENCE"
 0000                          BEGIN
-0003                          ax = HasItem(BE) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(BE) [es:bx+0x50]
 0011 74 22                    jz 0x35
 0013                          SetTreasureData(06D6, 00, 00, 00, BB, C6) [es:bx+0xd8]
 0033 EB 20                    jmp 0x55
@@ -156,7 +143,7 @@ Functn0E: "MONENCE"
 
 Functn0F: "MONENCF"
 0000                          BEGIN
-0003                          ax = HasItem(68) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(68) [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013                          SetTreasureData(01F4, 00, 00, 00, 00, B6) [es:bx+0xd8]
 0032                          ShowMessage(0628) [es:bx+0xf8] = You stumble upon mean animals out foraging!
@@ -170,8 +157,7 @@ Functn0F: "MONENCF"
 
 Functn10: "FLSPECA"
 0000                          BEGIN
-0003                          ax = CheckState(02, 41) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(02, 41, 01) [es:bx+0x4]
 0017 75 0F                    jnz 0x28
 0019                          ShowMessage(0693) [es:bx+0xf8] = The storage room has been emptied by other adventurers.
 0026 EB 57                    jmp 0x7f
@@ -190,30 +176,14 @@ Functn10: "FLSPECA"
 0044 C4 5E 06                 les bx, [bp+0x6]
 0047 26 FF 5F 48              call far word [es:bx+0x48]
 004B 59                       pop cx
-004C 33 C0                    xor ax, ax
-004E BA 10 27                 mov dx, 0x2710
-0051 50                       push ax
-0052 52                       push dx
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F AC 00           call far word [es:bx+0xac]
-005B 59                       pop cx
-005C 59                       pop cx
-005D B8 01 00                 mov ax, 0x1
-0060 50                       push ax
-0061 B8 41 00                 mov ax, 0x41
-0064 50                       push ax
-0065 B8 02 00                 mov ax, 0x2
-0068 50                       push ax
-0069 C4 5E 06                 les bx, [bp+0x6]
-006C 26 FF 1F                 call far word [es:bx]
-006F 83 C4 06                 add sp, 0x6
+004C                          ModifyGold(2710) [es:bx+0xac]
+005D                          SetState(02, 41, 01) [es:bx]
 0072                          ShowMessage(06CB) [es:bx+0xf8] = You found a storage room.  Most items are worthless, but in the refuse are a few treasures.
 007F                          RETURN
 
 Functn11: "FLSPECB"
 0000                          BEGIN
-0003                          ax = CheckState(02, 3E) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(02, 3E, 01) [es:bx+0x4]
 0017 75 0F                    jnz 0x28
 0019                          ShowMessage(0727) [es:bx+0xf8] = Thieves have emptied this room.
 0026 EB 6F                    jmp 0x97
@@ -242,39 +212,16 @@ Functn11: "FLSPECB"
 005C C4 5E 06                 les bx, [bp+0x6]
 005F 26 FF 5F 48              call far word [es:bx+0x48]
 0063 59                       pop cx
-0064 33 C0                    xor ax, ax
-0066 BA 98 3A                 mov dx, 0x3a98
-0069 50                       push ax
-006A 52                       push dx
-006B C4 5E 06                 les bx, [bp+0x6]
-006E 26 FF 9F AC 00           call far word [es:bx+0xac]
-0073 59                       pop cx
-0074 59                       pop cx
-0075 B8 01 00                 mov ax, 0x1
-0078 50                       push ax
-0079 B8 3E 00                 mov ax, 0x3e
-007C 50                       push ax
-007D B8 02 00                 mov ax, 0x2
-0080 50                       push ax
-0081 C4 5E 06                 les bx, [bp+0x6]
-0084 26 FF 1F                 call far word [es:bx]
-0087 83 C4 06                 add sp, 0x6
+0064                          ModifyGold(3A98) [es:bx+0xac]
+0075                          SetState(02, 3E, 01) [es:bx]
 008A                          ShowMessage(0747) [es:bx+0xf8] = In a cabinet are some scrolls and potions, and 15,000 Gold Pieces in a sack.
 0097                          RETURN
 
 Functn12: "FLSPECC"
 0000                          BEGIN
-0003                          ax = CheckState(02, 43) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(02, 43, 01) [es:bx+0x4]
 0017 75 20                    jnz 0x39
-0019 33 C0                    xor ax, ax
-001B BA 01 00                 mov dx, 0x1
-001E 50                       push ax
-001F 52                       push dx
-0020 C4 5E 06                 les bx, [bp+0x6]
-0023 26 FF 9F AC 00           call far word [es:bx+0xac]
-0028 59                       pop cx
-0029 59                       pop cx
+0019                          ModifyGold(0001) [es:bx+0xac]
 002A                          ShowMessage(0794) [es:bx+0xf8] = You find 1 gold piece in an empty safe.
 0037 EB 57                    jmp 0x90
 0039 B8 7F 00                 mov ax, 0x7f
@@ -292,29 +239,14 @@ Functn12: "FLSPECC"
 0055 C4 5E 06                 les bx, [bp+0x6]
 0058 26 FF 5F 48              call far word [es:bx+0x48]
 005C 59                       pop cx
-005D 33 C0                    xor ax, ax
-005F BA A8 61                 mov dx, 0x61a8
-0062 50                       push ax
-0063 52                       push dx
-0064 C4 5E 06                 les bx, [bp+0x6]
-0067 26 FF 9F AC 00           call far word [es:bx+0xac]
-006C 59                       pop cx
-006D 59                       pop cx
-006E B8 01 00                 mov ax, 0x1
-0071 50                       push ax
-0072 B8 43 00                 mov ax, 0x43
-0075 50                       push ax
-0076 B8 02 00                 mov ax, 0x2
-0079 50                       push ax
-007A C4 5E 06                 les bx, [bp+0x6]
-007D 26 FF 1F                 call far word [es:bx]
-0080 83 C4 06                 add sp, 0x6
+005D                          ModifyGold(61A8) [es:bx+0xac]
+006E                          SetState(02, 43, 01) [es:bx]
 0083                          ShowMessage(07BC) [es:bx+0xf8] = The safe contains several treasures and 25,000 gold pieces!
 0090                          RETURN
 
 Functn13: "FLSPECD"
 0000                          BEGIN
-0003                          ax = HasItem(FB) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(FB) [es:bx+0x50]
 0011 74 10                    jz 0x23
 0013                          ShowMessage(07F8) [es:bx+0xf8] = The room has been ransacked!
 0020 E9 2D 01                 jmp 0x150
@@ -323,15 +255,7 @@ Functn13: "FLSPECD"
 002A 3D 03 00                 cmp ax, 0x3
 002D 74 03                    jz 0x32
 002F E9 7F 00                 jmp 0xb1
-0032 B8 01 00                 mov ax, 0x1
-0035 50                       push ax
-0036 B8 3F 00                 mov ax, 0x3f
-0039 50                       push ax
-003A B8 02 00                 mov ax, 0x2
-003D 50                       push ax
-003E C4 5E 06                 les bx, [bp+0x6]
-0041 26 FF 1F                 call far word [es:bx]
-0044 83 C4 06                 add sp, 0x6
+0032                          SetState(02, 3F, 01) [es:bx]
 0047                          ShowMessage(0815) [es:bx+0xf8] = Your familiarity with thieving helps you avoid a vicious trap!
 0054                          ShowMessage(0854) [es:bx+0xf8] = You find some items and 5000 pieces of gold.
 0061 B8 FB 00                 mov ax, 0xfb
@@ -359,14 +283,7 @@ Functn13: "FLSPECD"
 0095 C4 5E 06                 les bx, [bp+0x6]
 0098 26 FF 5F 48              call far word [es:bx+0x48]
 009C 59                       pop cx
-009D 33 C0                    xor ax, ax
-009F BA 88 13                 mov dx, 0x1388
-00A2 50                       push ax
-00A3 52                       push dx
-00A4 C4 5E 06                 les bx, [bp+0x6]
-00A7 26 FF 9F AC 00           call far word [es:bx+0xac]
-00AC 59                       pop cx
-00AD 59                       pop cx
+009D                          ModifyGold(1388) [es:bx+0xac]
 00AE E9 9F 00                 jmp 0x150
 00B1                          ShowMessage(0881) [es:bx+0xf8] = You find several items and 5000 pieces of gold.
 00BE                          ShowMessage(08B1) [es:bx+0xf8] = Unfortunately, you overlook the cleverly hidden trap that protects the treasure.
@@ -395,14 +312,7 @@ Functn13: "FLSPECD"
 00FF C4 5E 06                 les bx, [bp+0x6]
 0102 26 FF 5F 48              call far word [es:bx+0x48]
 0106 59                       pop cx
-0107 33 C0                    xor ax, ax
-0109 BA 88 13                 mov dx, 0x1388
-010C 50                       push ax
-010D 52                       push dx
-010E C4 5E 06                 les bx, [bp+0x6]
-0111 26 FF 9F AC 00           call far word [es:bx+0xac]
-0116 59                       pop cx
-0117 59                       pop cx
+0107                          ModifyGold(1388) [es:bx+0xac]
 0118 B8 01 00                 mov ax, 0x1
 011B 50                       push ax
 011C C4 5E 06                 les bx, [bp+0x6]
@@ -414,21 +324,12 @@ Functn13: "FLSPECD"
 012E 99                       cwd
 012F F7 FB                    idiv bx
 0131                          DoDamage(ax) [es:bx+0x90]
-013B B8 01 00                 mov ax, 0x1
-013E 50                       push ax
-013F B8 3F 00                 mov ax, 0x3f
-0142 50                       push ax
-0143 B8 02 00                 mov ax, 0x2
-0146 50                       push ax
-0147 C4 5E 06                 les bx, [bp+0x6]
-014A 26 FF 1F                 call far word [es:bx]
-014D 83 C4 06                 add sp, 0x6
+013B                          SetState(02, 3F, 01) [es:bx]
 0150                          RETURN
 
 Functn14: "FLSPECE"
 0000                          BEGIN
-0003                          ax = CheckState(02, 44) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(02, 44, 01) [es:bx+0x4]
 0017 75 0F                    jnz 0x28
 0019                          ShowMessage(0902) [es:bx+0xf8] = You found a sleeping thief who cannot be roused from deep slumber.
 0026 EB 33                    jmp 0x5b
@@ -440,21 +341,13 @@ Functn14: "FLSPECE"
 0032 26 FF 9F 98 00           call far word [es:bx+0x98]
 0037 59                       pop cx
 0038 59                       pop cx
-0039 B8 01 00                 mov ax, 0x1
-003C 50                       push ax
-003D B8 44 00                 mov ax, 0x44
-0040 50                       push ax
-0041 B8 02 00                 mov ax, 0x2
-0044 50                       push ax
-0045 C4 5E 06                 les bx, [bp+0x6]
-0048 26 FF 1F                 call far word [es:bx]
-004B 83 C4 06                 add sp, 0x6
+0039                          SetState(02, 44, 01) [es:bx]
 004E                          ShowMessage(0945) [es:bx+0xf8] = A wise old thief bends your ear with stories of his exploits.  His story is very helpful.
 005B                          RETURN
 
 Functn15: "FLSPECF"
 0000                          BEGIN
-0003                          ShowPortrait(0022) [es:bx+0xd4]
+0003                          ShowPortrait(0022) [es:bx+0xfc]
 0010                          ShowMessage(099F) [es:bx+0xf8] = The Club and Axe Training Center.  All who lack this skill gain enlightenment and training.
 001D B8 01 00                 mov ax, 0x1
 0020 50                       push ax
@@ -488,17 +381,9 @@ Functn16: "FLSPECG"
 0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 62                    jz 0x7a
-0018                          ShowPortrait(0023) [es:bx+0xd4]
+0018                          ShowPortrait(0023) [es:bx+0xfc]
 0025                          ShowMessage(0A81) [es:bx+0xf8] = A wise old thief will teach you the Bard Skill!
-0032 B8 01 00                 mov ax, 0x1
-0035 50                       push ax
-0036 B8 45 00                 mov ax, 0x45
-0039 50                       push ax
-003A B8 02 00                 mov ax, 0x2
-003D 50                       push ax
-003E C4 5E 06                 les bx, [bp+0x6]
-0041 26 FF 1F                 call far word [es:bx]
-0044 83 C4 06                 add sp, 0x6
+0032                          SetState(02, 45, 01) [es:bx]
 0047 B8 0C 00                 mov ax, 0xc
 004A 50                       push ax
 004B C4 5E 06                 les bx, [bp+0x6]
@@ -517,13 +402,13 @@ Functn16: "FLSPECG"
 0069 EB 0D                    jmp 0x78
 006B                          ShowMessage(0AB1) [es:bx+0xf8] = You are already pretty good at Barding, and he cannot help you further.
 0078 EB 1A                    jmp 0x94
-007A                          ShowPortrait(0023) [es:bx+0xd4]
+007A                          ShowPortrait(0023) [es:bx+0xfc]
 0087                          ShowMessage(0AF9) [es:bx+0xf8] = The wise old thief has already taught you all he knows.
 0094                          RETURN
 
 Functn17: "FLSPECH"
 0000                          BEGIN
-0003                          ShowPortrait(0026) [es:bx+0xd4]
+0003                          ShowPortrait(0026) [es:bx+0xfc]
 0010                          ShowMessage(0B31) [es:bx+0xf8] = The Fencing Training Center.  All who lack this skill gain enlightenment and training.
 001D B8 05 00                 mov ax, 0x5
 0020 50                       push ax
@@ -557,17 +442,9 @@ Functn18: "FLSPECI"
 0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 62                    jz 0x7a
-0018                          ShowPortrait(0024) [es:bx+0xd4]
+0018                          ShowPortrait(0024) [es:bx+0xfc]
 0025                          ShowMessage(0C11) [es:bx+0xf8] = A wise young thief will teach you the Detect Skill!
-0032 B8 01 00                 mov ax, 0x1
-0035 50                       push ax
-0036 B8 64 00                 mov ax, 0x64
-0039 50                       push ax
-003A B8 02 00                 mov ax, 0x2
-003D 50                       push ax
-003E C4 5E 06                 les bx, [bp+0x6]
-0041 26 FF 1F                 call far word [es:bx]
-0044 83 C4 06                 add sp, 0x6
+0032                          SetState(02, 64, 01) [es:bx]
 0047 B8 0D 00                 mov ax, 0xd
 004A 50                       push ax
 004B C4 5E 06                 les bx, [bp+0x6]
@@ -586,7 +463,7 @@ Functn18: "FLSPECI"
 0069 EB 0D                    jmp 0x78
 006B                          ShowMessage(0C45) [es:bx+0xf8] = You are already pretty good at detection, and she cannot help you further.
 0078 EB 1A                    jmp 0x94
-007A                          ShowPortrait(0024) [es:bx+0xd4]
+007A                          ShowPortrait(0024) [es:bx+0xfc]
 0087                          ShowMessage(0C90) [es:bx+0xf8] = The young thief has already taught you all she knows.
 0094                          RETURN
 
@@ -608,10 +485,10 @@ Functn19: "FLSPECJ"
 002B 26 FF 5F 60              call far word [es:bx+0x60]
 002F 59                       pop cx
 0030 59                       pop cx
-0031                          ShowPortrait(0023) [es:bx+0xd4]
+0031                          ShowPortrait(0023) [es:bx+0xfc]
 003E                          ShowMessage(0D1B) [es:bx+0xf8] = Thieves provide you with training in the use of Staves!
 004B EB 1A                    jmp 0x67
-004D                          ShowPortrait(0023) [es:bx+0xd4]
+004D                          ShowPortrait(0023) [es:bx+0xfc]
 005A                          ShowMessage(0D53) [es:bx+0xf8] = You have already trained in this skill. The thieves cannot help you any further.
 0067                          RETURN
 
@@ -627,17 +504,9 @@ Functn1A: "FLSPECK"
 0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 62                    jz 0x7a
-0018                          ShowPortrait(0025) [es:bx+0xd4]
+0018                          ShowPortrait(0025) [es:bx+0xfc]
 0025                          ShowMessage(0DA4) [es:bx+0xf8] = A wise old thief will teach you the Lockpick Skill!
-0032 B8 01 00                 mov ax, 0x1
-0035 50                       push ax
-0036 B8 65 00                 mov ax, 0x65
-0039 50                       push ax
-003A B8 02 00                 mov ax, 0x2
-003D 50                       push ax
-003E C4 5E 06                 les bx, [bp+0x6]
-0041 26 FF 1F                 call far word [es:bx]
-0044 83 C4 06                 add sp, 0x6
+0032                          SetState(02, 65, 01) [es:bx]
 0047 B8 0E 00                 mov ax, 0xe
 004A 50                       push ax
 004B C4 5E 06                 les bx, [bp+0x6]
@@ -656,27 +525,19 @@ Functn1A: "FLSPECK"
 0069 EB 0D                    jmp 0x78
 006B                          ShowMessage(0DD8) [es:bx+0xf8] = You are already pretty good at picking locks, and he cannot help you further.
 0078 EB 1A                    jmp 0x94
-007A                          ShowPortrait(0025) [es:bx+0xd4]
+007A                          ShowPortrait(0025) [es:bx+0xfc]
 0087                          ShowMessage(0E26) [es:bx+0xf8] = The old thief has already taught you all he knows.
 0094                          RETURN
 
 Functn1B: "FLSPECL"
 0000                          BEGIN
-0003                          ax = CheckState2(02, 68) ? 1 : 0 [es:bx+0x8]
+0003                          ax = CheckState2(02, 68) [es:bx+0x8]
 0016 74 1C                    jz 0x34
-0018                          ShowPortrait(0042) [es:bx+0xd4]
+0018                          ShowPortrait(0042) [es:bx+0xfc]
 0025                          ShowMessage(0E59) [es:bx+0xf8] = The waters from Sinestra's Fountain are invigorating, but have no further effect.
 0032 EB 5C                    jmp 0x90
-0034 B8 01 00                 mov ax, 0x1
-0037 50                       push ax
-0038 B8 68 00                 mov ax, 0x68
-003B 50                       push ax
-003C B8 02 00                 mov ax, 0x2
-003F 50                       push ax
-0040 C4 5E 06                 les bx, [bp+0x6]
-0043 26 FF 1F                 call far word [es:bx]
-0046 83 C4 06                 add sp, 0x6
-0049                          ShowPortrait(0042) [es:bx+0xd4]
+0034                          SetState(02, 68, 01) [es:bx]
+0049                          ShowPortrait(0042) [es:bx+0xfc]
 0056                          ax = GetHits() [es:bx+0x74]
 005D 50                       push ax
 005E C4 5E 06                 les bx, [bp+0x6]
@@ -700,7 +561,7 @@ Functn1B: "FLSPECL"
 
 Functn1D: "FLSPECN"
 0000                          BEGIN
-0003                          ShowPortrait(0026) [es:bx+0xd4]
+0003                          ShowPortrait(0026) [es:bx+0xfc]
 0010                          ShowMessage(0F18) [es:bx+0xf8] = The Archery Training Center.  All who lack this skill gain enlightenment and training.
 001D B8 08 00                 mov ax, 0x8
 0020 50                       push ax
@@ -893,15 +754,7 @@ Functn26: "HIDDORI"
 0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
-007A B8 01 00                 mov ax, 0x1
-007D 50                       push ax
-007E B8 01 00                 mov ax, 0x1
-0081 50                       push ax
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 1F                 call far word [es:bx]
-008B 83 C4 06                 add sp, 0x6
+007A                          SetState(00, 01, 01) [es:bx]
 008E B8 C4 00                 mov ax, 0xc4
 0091 50                       push ax
 0092 B8 C3 00                 mov ax, 0xc3
@@ -1029,15 +882,7 @@ Functn27: "HIDDORJ"
 0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
-007A B8 01 00                 mov ax, 0x1
-007D 50                       push ax
-007E B8 01 00                 mov ax, 0x1
-0081 50                       push ax
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 1F                 call far word [es:bx]
-008B 83 C4 06                 add sp, 0x6
+007A                          SetState(00, 01, 01) [es:bx]
 008E B8 C4 00                 mov ax, 0xc4
 0091 50                       push ax
 0092 B8 C3 00                 mov ax, 0xc3
@@ -1165,15 +1010,7 @@ Functn28: "HIDDORK"
 0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
-007A B8 01 00                 mov ax, 0x1
-007D 50                       push ax
-007E B8 01 00                 mov ax, 0x1
-0081 50                       push ax
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 1F                 call far word [es:bx]
-008B 83 C4 06                 add sp, 0x6
+007A                          SetState(00, 01, 01) [es:bx]
 008E B8 C4 00                 mov ax, 0xc4
 0091 50                       push ax
 0092 B8 C3 00                 mov ax, 0xc3
@@ -1301,15 +1138,7 @@ Functn29: "HIDDORL"
 0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
-007A B8 01 00                 mov ax, 0x1
-007D 50                       push ax
-007E B8 01 00                 mov ax, 0x1
-0081 50                       push ax
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 1F                 call far word [es:bx]
-008B 83 C4 06                 add sp, 0x6
+007A                          SetState(00, 01, 01) [es:bx]
 008E B8 C4 00                 mov ax, 0xc4
 0091 50                       push ax
 0092 B8 C2 00                 mov ax, 0xc2
@@ -1437,15 +1266,7 @@ Functn2A: "HIDDORM"
 0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
-007A B8 01 00                 mov ax, 0x1
-007D 50                       push ax
-007E B8 01 00                 mov ax, 0x1
-0081 50                       push ax
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 1F                 call far word [es:bx]
-008B 83 C4 06                 add sp, 0x6
+007A                          SetState(00, 01, 01) [es:bx]
 008E B8 C4 00                 mov ax, 0xc4
 0091 50                       push ax
 0092 B8 C4 00                 mov ax, 0xc4
@@ -1573,15 +1394,7 @@ Functn2B: "HIDDORN"
 0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
-007A B8 01 00                 mov ax, 0x1
-007D 50                       push ax
-007E B8 01 00                 mov ax, 0x1
-0081 50                       push ax
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 1F                 call far word [es:bx]
-008B 83 C4 06                 add sp, 0x6
+007A                          SetState(00, 01, 01) [es:bx]
 008E B8 C4 00                 mov ax, 0xc4
 0091 50                       push ax
 0092 B8 C4 00                 mov ax, 0xc4
@@ -1808,15 +1621,7 @@ Functn32: "HIDDORU"
 0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
-007A B8 01 00                 mov ax, 0x1
-007D 50                       push ax
-007E B8 01 00                 mov ax, 0x1
-0081 50                       push ax
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 1F                 call far word [es:bx]
-008B 83 C4 06                 add sp, 0x6
+007A                          SetState(00, 01, 01) [es:bx]
 008E B8 C4 00                 mov ax, 0xc4
 0091 50                       push ax
 0092 B8 C2 00                 mov ax, 0xc2
@@ -1974,15 +1779,7 @@ Functn36: "HIDDORY"
 0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
-007A B8 01 00                 mov ax, 0x1
-007D 50                       push ax
-007E B8 01 00                 mov ax, 0x1
-0081 50                       push ax
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 1F                 call far word [es:bx]
-008B 83 C4 06                 add sp, 0x6
+007A                          SetState(00, 01, 01) [es:bx]
 008E B8 C4 00                 mov ax, 0xc4
 0091 50                       push ax
 0092 B8 C3 00                 mov ax, 0xc3
@@ -2185,15 +1982,7 @@ Functn39: "HIDDORBB"
 0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
-007A B8 01 00                 mov ax, 0x1
-007D 50                       push ax
-007E B8 01 00                 mov ax, 0x1
-0081 50                       push ax
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 1F                 call far word [es:bx]
-008B 83 C4 06                 add sp, 0x6
+007A                          SetState(00, 01, 01) [es:bx]
 008E B8 C4 00                 mov ax, 0xc4
 0091 50                       push ax
 0092 B8 C3 00                 mov ax, 0xc3
@@ -2321,15 +2110,7 @@ Functn3A: "HIDDORCC"
 0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
-007A B8 01 00                 mov ax, 0x1
-007D 50                       push ax
-007E B8 01 00                 mov ax, 0x1
-0081 50                       push ax
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 1F                 call far word [es:bx]
-008B 83 C4 06                 add sp, 0x6
+007A                          SetState(00, 01, 01) [es:bx]
 008E B8 C4 00                 mov ax, 0xc4
 0091 50                       push ax
 0092 B8 C2 00                 mov ax, 0xc2
@@ -2514,15 +2295,7 @@ Functn40: "HIDDORII"
 0063                          ax = CheckState2(00, 01) ? 1 : 0 [es:bx+0x8]
 0075 75 03                    jnz 0x7a
 0077 E9 CF 00                 jmp 0x149
-007A B8 01 00                 mov ax, 0x1
-007D 50                       push ax
-007E B8 01 00                 mov ax, 0x1
-0081 50                       push ax
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 1F                 call far word [es:bx]
-008B 83 C4 06                 add sp, 0x6
+007A                          SetState(00, 01, 01) [es:bx]
 008E B8 C4 00                 mov ax, 0xc4
 0091 50                       push ax
 0092 B8 C3 00                 mov ax, 0xc3
@@ -2613,7 +2386,7 @@ Functn42: "STRTMSG"
 
 Functn43: "GOODYA"
 0000                          BEGIN
-0003                          ax = HasItem(C3) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(C3) [es:bx+0x50]
 0011 74 0F                    jz 0x22
 0013                          ShowMessage(166B) [es:bx+0xf8] = You find an empty chest.
 0020 EB 2A                    jmp 0x4c
@@ -2622,14 +2395,7 @@ Functn43: "GOODYA"
 0026 C4 5E 06                 les bx, [bp+0x6]
 0029 26 FF 5F 48              call far word [es:bx+0x48]
 002D 59                       pop cx
-002E 33 C0                    xor ax, ax
-0030 BA E2 04                 mov dx, 0x4e2
-0033 50                       push ax
-0034 52                       push dx
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 9F AC 00           call far word [es:bx+0xac]
-003D 59                       pop cx
-003E 59                       pop cx
+002E                          ModifyGold(04E2) [es:bx+0xac]
 003F                          ShowMessage(1684) [es:bx+0xf8] = You find a Purple Lockpick and 1250 gold inside a small chest.
 004C                          RETURN
 

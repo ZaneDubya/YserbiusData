@@ -12,7 +12,14 @@ Functn02: "XOVER"
 0006 26 FF 5F 20              call far word [es:bx+0x20]
 000A 3D 47 00                 cmp ax, 0x47
 000D 75 61                    jnz 0x70
-000F                          ax = CheckState(01, 01) [es:bx+0x4]
+000F B8 01 00                 mov ax, 0x1
+0012 50                       push ax
+0013 B8 01 00                 mov ax, 0x1
+0016 50                       push ax
+0017 C4 5E 06                 les bx, [bp+0x6]
+001A 26 FF 5F 04              call far word [es:bx+0x4]
+001E 59                       pop cx
+001F 59                       pop cx
 0020 0B C0                    or ax, ax
 0022 74 1F                    jz 0x43
 0024 B8 47 00                 mov ax, 0x47
@@ -30,7 +37,14 @@ Functn02: "XOVER"
 005D                          ax = GetHits() [es:bx+0x74]
 0064                          DoDamage(ax) [es:bx+0x90]
 006E EB 38                    jmp 0xa8
-0070                          ax = CheckState(01, 01) [es:bx+0x4]
+0070 B8 01 00                 mov ax, 0x1
+0073 50                       push ax
+0074 B8 01 00                 mov ax, 0x1
+0077 50                       push ax
+0078 C4 5E 06                 les bx, [bp+0x6]
+007B 26 FF 5F 04              call far word [es:bx+0x4]
+007F 59                       pop cx
+0080 59                       pop cx
 0081 0B C0                    or ax, ax
 0083 74 12                    jz 0x97
 0085 B8 47 00                 mov ax, 0x47
@@ -54,15 +68,7 @@ Functn02: "XOVER"
 
 Functn03: "XOVERON"
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B B8 01 00                 mov ax, 0x1
-000E 50                       push ax
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 1F                 call far word [es:bx]
-0015 83 C4 06                 add sp, 0x6
+0003                          SetState(01, 01, 01) [es:bx]
 0018 B8 47 00                 mov ax, 0x47
 001B 50                       push ax
 001C 33 C0                    xor ax, ax
@@ -219,7 +225,7 @@ Functn18: "ZEPHENCA"
 0015                          SetEncData(16, 02) [es:bx+0xd4]
 0027                          SetEncData(19, 05) [es:bx+0xd4]
 0039                          SetEncData(19, 06) [es:bx+0xd4]
-004B                          ax = HasItem(B4) ? 1 : 0 [es:bx+0x50]
+004B                          ax = HasItem(B4) [es:bx+0x50]
 0059 74 21                    jz 0x7c
 005B                          SetTreasureData(03E8, 00, 00, 00, 00, D1) [es:bx+0xd8]
 007A EB 21                    jmp 0x9d
@@ -228,32 +234,24 @@ Functn18: "ZEPHENCA"
 
 Functn19: "ZEPHENCB"
 0000                          BEGIN
-0003                          ax = CheckState2(02, 79) ? 1 : 0 [es:bx+0x8]
+0003                          ax = CheckState2(02, 79) [es:bx+0x8]
 0016 74 63                    jz 0x7b
-0018                          ax = HasItem(09) ? 1 : 0 [es:bx+0x50]
+0018                          ax = HasItem(09) [es:bx+0x50]
 0026 75 10                    jnz 0x38
-0028                          ax = HasItem(F0) ? 1 : 0 [es:bx+0x50]
+0028                          ax = HasItem(F0) [es:bx+0x50]
 0036 74 22                    jz 0x5a
 0038                          SetTreasureData(1388, 00, 00, 00, B3, D0) [es:bx+0xd8]
 0058 EB 1F                    jmp 0x79
 005A                          SetTreasureData(2710, 00, 00, 00, 00, F0) [es:bx+0xd8]
 0079 EB 6F                    jmp 0xea
-007B                          ax = HasItem(E6) ? 1 : 0 [es:bx+0x50]
+007B                          ax = HasItem(E6) [es:bx+0x50]
 0089 74 5F                    jz 0xea
 008B B8 E6 00                 mov ax, 0xe6
 008E 50                       push ax
 008F C4 5E 06                 les bx, [bp+0x6]
 0092 26 FF 5F 4C              call far word [es:bx+0x4c]
 0096 59                       pop cx
-0097 B8 01 00                 mov ax, 0x1
-009A 50                       push ax
-009B B8 79 00                 mov ax, 0x79
-009E 50                       push ax
-009F B8 02 00                 mov ax, 0x2
-00A2 50                       push ax
-00A3 C4 5E 06                 les bx, [bp+0x6]
-00A6 26 FF 1F                 call far word [es:bx]
-00A9 83 C4 06                 add sp, 0x6
+0097                          SetState(02, 79, 01) [es:bx]
 00AC                          SetTreasureData(2710, 00, 00, 00, 00, F0) [es:bx+0xd8]
 00CB B8 03 00                 mov ax, 0x3
 00CE BA 90 D0                 mov dx, 0xd090
@@ -277,15 +275,7 @@ Functn1B: "TXTZEPHR"
 
 Functn1C: "XOVEROFF"
 0000                          BEGIN
-0003 33 C0                    xor ax, ax
-0005 50                       push ax
-0006 B8 01 00                 mov ax, 0x1
-0009 50                       push ax
-000A B8 01 00                 mov ax, 0x1
-000D 50                       push ax
-000E C4 5E 06                 les bx, [bp+0x6]
-0011 26 FF 1F                 call far word [es:bx]
-0014 83 C4 06                 add sp, 0x6
+0003                          SetState(01, 01, 00) [es:bx]
 0017 B8 47 00                 mov ax, 0x47
 001A 50                       push ax
 001B B8 01 00                 mov ax, 0x1
@@ -339,7 +329,7 @@ Functn20: "DRLPENCC"
 0046                          SetEncData(1C, 04) [es:bx+0xd4]
 0058                          SetEncData(1A, 05) [es:bx+0xd4]
 006A                          SetEncData(1A, 06) [es:bx+0xd4]
-007C                          ax = HasItem(DF) ? 1 : 0 [es:bx+0x50]
+007C                          ax = HasItem(DF) [es:bx+0x50]
 008A 74 21                    jz 0xad
 008C                          SetTreasureData(03E8, 00, 00, 00, 00, D1) [es:bx+0xd8]
 00AB EB 21                    jmp 0xce
@@ -522,7 +512,7 @@ Functn30: "VORAENCV"
 0035                          ShowMessage(0F81) [es:bx+0xf8] = Voranti smiles sadly. 'It saddens me that I must kill a fellow dwarf, but you have brought death upon yourself.'
 0042                          SetEncData(1C, 01) [es:bx+0xd4]
 0054                          SetEncData(21, 05) [es:bx+0xd4]
-0066                          ax = HasItem(ED) ? 1 : 0 [es:bx+0x50]
+0066                          ax = HasItem(ED) [es:bx+0x50]
 0074 74 21                    jz 0x97
 0076                          SetTreasureData(1388, 00, 00, 00, 00, CC) [es:bx+0xd8]
 0095 EB 1F                    jmp 0xb6
@@ -586,7 +576,7 @@ Functn32: "MOONENCA"
 0015                          SetEncData(0A, 02) [es:bx+0xd4]
 0027                          SetEncData(24, 03) [es:bx+0xd4]
 0039                          SetEncData(24, 04) [es:bx+0xd4]
-004B                          ax = HasItem(BE) ? 1 : 0 [es:bx+0x50]
+004B                          ax = HasItem(BE) [es:bx+0x50]
 0059 74 22                    jz 0x7d
 005B                          SetTreasureData(07D0, 00, 00, 00, D0, B7) [es:bx+0xd8]
 007B EB 21                    jmp 0x9e
@@ -647,7 +637,7 @@ Functn38: "MOONENCG"
 0041                          SetEncData(28, 03) [es:bx+0xd4]
 0053                          SetEncData(24, 05) [es:bx+0xd4]
 0065                          SetEncData(24, 06) [es:bx+0xd4]
-0077                          ax = HasItem(EA) ? 1 : 0 [es:bx+0x50]
+0077                          ax = HasItem(EA) [es:bx+0x50]
 0085 74 21                    jz 0xa8
 0087                          SetTreasureData(2328, 00, 00, 00, 00, BB) [es:bx+0xd8]
 00A6 EB 20                    jmp 0xc8
@@ -1115,7 +1105,7 @@ Functn47: "SDRMOONN"
 
 Functn48: "MOONTRSA"
 0000                          BEGIN
-0003                          ax = HasItem(F2) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(F2) [es:bx+0x50]
 0011 74 0F                    jz 0x22
 0013                          ShowMessage(130F) [es:bx+0xf8] = Piles of dirt cover the floor.
 0020 EB 2E                    jmp 0x50
@@ -1124,22 +1114,13 @@ Functn48: "MOONTRSA"
 0026 C4 5E 06                 les bx, [bp+0x6]
 0029 26 FF 5F 48              call far word [es:bx+0x48]
 002D 59                       pop cx
-002E B8 01 00                 mov ax, 0x1
-0031 50                       push ax
-0032 B8 46 00                 mov ax, 0x46
-0035 50                       push ax
-0036 B8 02 00                 mov ax, 0x2
-0039 50                       push ax
-003A C4 5E 06                 les bx, [bp+0x6]
-003D 26 FF 1F                 call far word [es:bx]
-0040 83 C4 06                 add sp, 0x6
+002E                          SetState(02, 46, 01) [es:bx]
 0043                          ShowMessage(132E) [es:bx+0xf8] = You find a Moon Prism on the floor.
 0050                          RETURN
 
 Functn49: "MOONTRSB"
 0000                          BEGIN
-0003                          ax = CheckState(02, 47) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(02, 47, 01) [es:bx+0x4]
 0017 75 0F                    jnz 0x28
 0019                          ShowMessage(1352) [es:bx+0xf8] = The floor is bare.
 0026 EB 2E                    jmp 0x56
@@ -1148,22 +1129,13 @@ Functn49: "MOONTRSB"
 002C C4 5E 06                 les bx, [bp+0x6]
 002F 26 FF 5F 48              call far word [es:bx+0x48]
 0033 59                       pop cx
-0034 B8 01 00                 mov ax, 0x1
-0037 50                       push ax
-0038 B8 47 00                 mov ax, 0x47
-003B 50                       push ax
-003C B8 02 00                 mov ax, 0x2
-003F 50                       push ax
-0040 C4 5E 06                 les bx, [bp+0x6]
-0043 26 FF 1F                 call far word [es:bx]
-0046 83 C4 06                 add sp, 0x6
+0034                          SetState(02, 47, 01) [es:bx]
 0049                          ShowMessage(1365) [es:bx+0xf8] = You find the Ranger Spear on the floor.
 0056                          RETURN
 
 Functn4A: "MOONTRSC"
 0000                          BEGIN
-0003                          ax = CheckState(02, 48) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(02, 48, 01) [es:bx+0x4]
 0017 75 0F                    jnz 0x28
 0019                          ShowMessage(138D) [es:bx+0xf8] = There is nothing of interest in this area.
 0026 EB 2E                    jmp 0x56
@@ -1172,35 +1144,26 @@ Functn4A: "MOONTRSC"
 002C C4 5E 06                 les bx, [bp+0x6]
 002F 26 FF 5F 48              call far word [es:bx+0x48]
 0033 59                       pop cx
-0034 B8 01 00                 mov ax, 0x1
-0037 50                       push ax
-0038 B8 48 00                 mov ax, 0x48
-003B 50                       push ax
-003C B8 02 00                 mov ax, 0x2
-003F 50                       push ax
-0040 C4 5E 06                 les bx, [bp+0x6]
-0043 26 FF 1F                 call far word [es:bx]
-0046 83 C4 06                 add sp, 0x6
+0034                          SetState(02, 48, 01) [es:bx]
 0049                          ShowMessage(13B8) [es:bx+0xf8] = You find a Holy Halberd lying on the floor.
 0056                          RETURN
 
 Functn4B: "TORBFOUN"
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xd4]
+0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010                          ShowMessage(13E4) [es:bx+0xf8] = Pictorials of War are painted on the walls surrounding Torbriar's Fountain.
-001D                          ax = CheckState(02, 63) [es:bx+0x4]
+001D B8 63 00                 mov ax, 0x63
+0020 50                       push ax
+0021 B8 02 00                 mov ax, 0x2
+0024 50                       push ax
+0025 C4 5E 06                 les bx, [bp+0x6]
+0028 26 FF 5F 04              call far word [es:bx+0x4]
+002C 59                       pop cx
+002D 59                       pop cx
 002E 0B C0                    or ax, ax
 0030 74 03                    jz 0x35
 0032 E9 47 01                 jmp 0x17c
-0035 B8 01 00                 mov ax, 0x1
-0038 50                       push ax
-0039 B8 63 00                 mov ax, 0x63
-003C 50                       push ax
-003D B8 02 00                 mov ax, 0x2
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 1F                 call far word [es:bx]
-0047 83 C4 06                 add sp, 0x6
+0035                          SetState(02, 63, 01) [es:bx]
 004A B8 08 00                 mov ax, 0x8
 004D 50                       push ax
 004E C4 5E 06                 les bx, [bp+0x6]

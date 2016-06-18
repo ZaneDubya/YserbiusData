@@ -32,7 +32,14 @@ Functn03: "SECDOORA"
 0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 75 15                    jnz 0x2d
-0018                          ax = CheckState(02, 6C) [es:bx+0x4]
+0018 B8 6C 00                 mov ax, 0x6c
+001B 50                       push ax
+001C B8 02 00                 mov ax, 0x2
+001F 50                       push ax
+0020 C4 5E 06                 les bx, [bp+0x6]
+0023 26 FF 5F 04              call far word [es:bx+0x4]
+0027 59                       pop cx
+0028 59                       pop cx
 0029 0B C0                    or ax, ax
 002B 74 66                    jz 0x93
 002D B8 D4 00                 mov ax, 0xd4
@@ -40,15 +47,7 @@ Functn03: "SECDOORA"
 0031 C4 5E 06                 les bx, [bp+0x6]
 0034 26 FF 5F 4C              call far word [es:bx+0x4c]
 0038 59                       pop cx
-0039 B8 01 00                 mov ax, 0x1
-003C 50                       push ax
-003D B8 6C 00                 mov ax, 0x6c
-0040 50                       push ax
-0041 B8 02 00                 mov ax, 0x2
-0044 50                       push ax
-0045 C4 5E 06                 les bx, [bp+0x6]
-0048 26 FF 1F                 call far word [es:bx]
-004B 83 C4 06                 add sp, 0x6
+0039                          SetState(02, 6C, 01) [es:bx]
 004E B8 01 00                 mov ax, 0x1
 0051 50                       push ax
 0052 C4 5E 06                 les bx, [bp+0x6]
@@ -160,11 +159,9 @@ Functn06: "LAVALEDG"
 
 Functn07: "LAVAPA"
 0000                          BEGIN
-0003                          ax = CheckState(01, 03) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(01, 03, 01) [es:bx+0x4]
 0017 74 16                    jz 0x2f
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 05 00                 cmp ax, 0x5
+0019                          ax = CheckState(01, 03, 05) [es:bx+0x4]
 002D 75 51                    jnz 0x80
 002F                          ShowMessage(0522) [es:bx+0xf8] = A platform appears beneath your feet..
 003C B8 A8 00                 mov ax, 0xa8
@@ -207,11 +204,9 @@ Functn07: "LAVAPA"
 
 Functn08: "LAVAPB"
 0000                          BEGIN
-0003                          ax = CheckState(01, 03) [es:bx+0x4]
-0014 3D 02 00                 cmp ax, 0x2
+0003                          ax = CheckState(01, 03, 02) [es:bx+0x4]
 0017 74 16                    jz 0x2f
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 05 00                 cmp ax, 0x5
+0019                          ax = CheckState(01, 03, 05) [es:bx+0x4]
 002D 75 51                    jnz 0x80
 002F                          ShowMessage(056B) [es:bx+0xf8] = A platform appears beneath your feet..
 003C B8 98 00                 mov ax, 0x98
@@ -254,11 +249,9 @@ Functn08: "LAVAPB"
 
 Functn09: "LAVAPC"
 0000                          BEGIN
-0003                          ax = CheckState(01, 03) [es:bx+0x4]
-0014 3D 03 00                 cmp ax, 0x3
+0003                          ax = CheckState(01, 03, 03) [es:bx+0x4]
 0017 74 16                    jz 0x2f
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 05 00                 cmp ax, 0x5
+0019                          ax = CheckState(01, 03, 05) [es:bx+0x4]
 002D 75 51                    jnz 0x80
 002F                          ShowMessage(05B4) [es:bx+0xf8] = A platform appears beneath your feet..
 003C B8 88 00                 mov ax, 0x88
@@ -301,11 +294,9 @@ Functn09: "LAVAPC"
 
 Functn0A: "LAVAPD"
 0000                          BEGIN
-0003                          ax = CheckState(01, 03) [es:bx+0x4]
-0014 3D 04 00                 cmp ax, 0x4
+0003                          ax = CheckState(01, 03, 04) [es:bx+0x4]
 0017 74 16                    jz 0x2f
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 05 00                 cmp ax, 0x5
+0019                          ax = CheckState(01, 03, 05) [es:bx+0x4]
 002D 75 51                    jnz 0x80
 002F                          ShowMessage(05FD) [es:bx+0xf8] = A platform appears beneath your feet..
 003C B8 78 00                 mov ax, 0x78
@@ -350,45 +341,21 @@ Functn0B: "LAVASWA"
 0000                          BEGIN
 0003                          ShowMessage(0646) [es:bx+0xf8] = The wall bursts with color!
 0010                          ShowMessage(0662) [es:bx+0xf8] = In the distance you hear a platform moving.
-001D B8 01 00                 mov ax, 0x1
-0020 50                       push ax
-0021 B8 03 00                 mov ax, 0x3
-0024 50                       push ax
-0025 B8 01 00                 mov ax, 0x1
-0028 50                       push ax
-0029 C4 5E 06                 les bx, [bp+0x6]
-002C 26 FF 1F                 call far word [es:bx]
-002F 83 C4 06                 add sp, 0x6
+001D                          SetState(01, 03, 01) [es:bx]
 0032                          RETURN
 
 Functn0C: "LAVASWB"
 0000                          BEGIN
 0003                          ShowMessage(068E) [es:bx+0xf8] = The wall bursts with color!
 0010                          ShowMessage(06AA) [es:bx+0xf8] = In the distance you hear a platform moving.
-001D B8 02 00                 mov ax, 0x2
-0020 50                       push ax
-0021 B8 03 00                 mov ax, 0x3
-0024 50                       push ax
-0025 B8 01 00                 mov ax, 0x1
-0028 50                       push ax
-0029 C4 5E 06                 les bx, [bp+0x6]
-002C 26 FF 1F                 call far word [es:bx]
-002F 83 C4 06                 add sp, 0x6
+001D                          SetState(01, 03, 02) [es:bx]
 0032                          RETURN
 
 Functn0D: "LAVASWC"
 0000                          BEGIN
 0003                          ShowMessage(06D6) [es:bx+0xf8] = The wall bursts with color!
 0010                          ShowMessage(06F2) [es:bx+0xf8] = In the distance you hear a platform moving.
-001D B8 03 00                 mov ax, 0x3
-0020 50                       push ax
-0021 B8 03 00                 mov ax, 0x3
-0024 50                       push ax
-0025 B8 01 00                 mov ax, 0x1
-0028 50                       push ax
-0029 C4 5E 06                 les bx, [bp+0x6]
-002C 26 FF 1F                 call far word [es:bx]
-002F 83 C4 06                 add sp, 0x6
+001D                          SetState(01, 03, 03) [es:bx]
 0032                          RETURN
 
 Functn0E: "LAVASWD"
@@ -396,15 +363,7 @@ Functn0E: "LAVASWD"
 0003                          ShowMessage(071E) [es:bx+0xf8] = The wall bursts with color!
 0010                          ShowMessage(073A) [es:bx+0xf8] = In the distance you hear a platform moving.
 001D                          ShowMessage(0766) [es:bx+0xf8] = Perhaps there is a way for you to join your party.
-002A B8 04 00                 mov ax, 0x4
-002D 50                       push ax
-002E B8 03 00                 mov ax, 0x3
-0031 50                       push ax
-0032 B8 01 00                 mov ax, 0x1
-0035 50                       push ax
-0036 C4 5E 06                 les bx, [bp+0x6]
-0039 26 FF 1F                 call far word [es:bx]
-003C 83 C4 06                 add sp, 0x6
+002A                          SetState(01, 03, 04) [es:bx]
 003F                          RETURN
 
 Functn0F: "KINGROOM"
@@ -415,9 +374,9 @@ Functn0F: "KINGROOM"
 
 Functn10: "DWARKING"
 0000                          BEGIN
-0003                          ax = HasItem(F4) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(F4) [es:bx+0x50]
 0011 75 4E                    jnz 0x61
-0013                          ShowPortrait(001C) [es:bx+0xd4]
+0013                          ShowPortrait(001C) [es:bx+0xfc]
 0020                          ShowMessage(085A) [es:bx+0xf8] = The Dwarf King nods.
 002D                          ShowMessage(086F) [es:bx+0xf8] = 'Welcome strangers! 
 003A                          ShowMessage(0884) [es:bx+0xf8] = I have a quest for you, if you are brave enough!
@@ -427,10 +386,10 @@ Functn10: "DWARKING"
 
 Functn11: "FLEXSWOR"
 0000                          BEGIN
-0003                          ShowPortrait(002C) [es:bx+0xd4]
-0010                          ax = HasItem(09) ? 1 : 0 [es:bx+0x50]
+0003                          ShowPortrait(002C) [es:bx+0xfc]
+0010                          ax = HasItem(09) [es:bx+0x50]
 001E 75 6D                    jnz 0x8d
-0020                          ax = HasItem(F0) ? 1 : 0 [es:bx+0x50]
+0020                          ax = HasItem(F0) [es:bx+0x50]
 002E 74 41                    jz 0x71
 0030                          ShowMessage(0995) [es:bx+0xf8] = The dwarf takes the Flex Metal and smiles broadly. 'No greater pleasure can a dwarf blacksmith have than to test the powers of a new metal.'
 003D                          ShowMessage(0A22) [es:bx+0xf8] = After a few hours working the metal, she holds up a brilliant blue sword.
@@ -463,11 +422,11 @@ Functn12: "BLAKSMTH"
 
 Functn13: "CYCLQUST"
 0000                          BEGIN
-0003                          ShowPortrait(002C) [es:bx+0xd4]
-0010                          ax = HasItem(F3) ? 1 : 0 [es:bx+0x50]
+0003                          ShowPortrait(002C) [es:bx+0xfc]
+0010                          ax = HasItem(F3) [es:bx+0x50]
 001E 74 03                    jz 0x23
 0020 E9 BA 00                 jmp 0xdd
-0023                          ax = HasItem(F1) ? 1 : 0 [es:bx+0x50]
+0023                          ax = HasItem(F1) [es:bx+0x50]
 0031 74 66                    jz 0x99
 0033                          ShowMessage(0D66) [es:bx+0xf8] = A mean, twisted smile appears across the face of the dwarf blacksmith.
 0040                          ShowMessage(0DAD) [es:bx+0xf8] = 'You have killed the cyclop!  My gold caves are won!
@@ -485,7 +444,7 @@ Functn13: "CYCLQUST"
 0091 C4 5E 06                 les bx, [bp+0x6]
 0094 26 FF 5F 48              call far word [es:bx+0x48]
 0098 59                       pop cx
-0099                          ax = HasItem(F1) ? 1 : 0 [es:bx+0x50]
+0099                          ax = HasItem(F1) [es:bx+0x50]
 00A7 75 34                    jnz 0xdd
 00A9                          ShowMessage(0F08) [es:bx+0xf8] = The old dwarf blacksmith at first does not hear you approach. Then she senses your presence and wheels on you. 
 00B6                          ShowMessage(0F78) [es:bx+0xf8] = 'A mean trick you play on a wise one!  No matter.  No doubt you're looking for another golden trinket of mine.
@@ -495,23 +454,29 @@ Functn13: "CYCLQUST"
 
 Functn14: "MNRPLATC"
 0000                          BEGIN
-0003                          ShowPortrait(0023) [es:bx+0xd4]
-0010                          ax = CheckState(02, 6F) [es:bx+0x4]
+0003                          ShowPortrait(0023) [es:bx+0xfc]
+0010 B8 6F 00                 mov ax, 0x6f
+0013 50                       push ax
+0014 B8 02 00                 mov ax, 0x2
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 04              call far word [es:bx+0x4]
+001F 59                       pop cx
+0020 59                       pop cx
 0021 0B C0                    or ax, ax
 0023 74 6A                    jz 0x8f
 0025                          ShowMessage(1094) [es:bx+0xf8] = The dwarf miner greets you with youthful enthusiasm.
-0032                          ax = CheckState(02, 6B) [es:bx+0x4]
+0032 B8 6B 00                 mov ax, 0x6b
+0035 50                       push ax
+0036 B8 02 00                 mov ax, 0x2
+0039 50                       push ax
+003A C4 5E 06                 les bx, [bp+0x6]
+003D 26 FF 5F 04              call far word [es:bx+0x4]
+0041 59                       pop cx
+0042 59                       pop cx
 0043 0B C0                    or ax, ax
 0045 75 46                    jnz 0x8d
-0047 B8 01 00                 mov ax, 0x1
-004A 50                       push ax
-004B B8 6B 00                 mov ax, 0x6b
-004E 50                       push ax
-004F B8 02 00                 mov ax, 0x2
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 1F                 call far word [es:bx]
-0059 83 C4 06                 add sp, 0x6
+0047                          SetState(02, 6B, 01) [es:bx]
 005C                          ShowMessage(10C9) [es:bx+0xf8] = You show signs of entering my caves!  I thank-you for clearing my mines and repay you with treasure.
 0069 B8 BA 00                 mov ax, 0xba
 006C 50                       push ax
@@ -529,7 +494,7 @@ Functn14: "MNRPLATC"
 0088 26 FF 5F 48              call far word [es:bx+0x48]
 008C 59                       pop cx
 008D EB 6C                    jmp 0xfb
-008F                          ax = HasItem(D7) ? 1 : 0 [es:bx+0x50]
+008F                          ax = HasItem(D7) [es:bx+0x50]
 009D 74 1C                    jz 0xbb
 009F                          ShowMessage(112E) [es:bx+0xf8] = The dwarf miner smiles as you approach.
 00AC                          ShowMessage(1156) [es:bx+0xf8] = 'Have you found my cave yet?  It is by the water's edge.'
@@ -557,15 +522,7 @@ Functn15: "NSTYOGRE"
 
 Functn16: "OPENER"
 0000                          BEGIN
-0003 B8 05 00                 mov ax, 0x5
-0006 50                       push ax
-0007 B8 03 00                 mov ax, 0x3
-000A 50                       push ax
-000B B8 01 00                 mov ax, 0x1
-000E 50                       push ax
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 1F                 call far word [es:bx]
-0015 83 C4 06                 add sp, 0x6
+0003                          SetState(01, 03, 05) [es:bx]
 0018                          ShowMessage(1308) [es:bx+0xf8] = All the east side platforms appear to be up.
 0025 B8 A9 00                 mov ax, 0xa9
 0028 50                       push ax
@@ -635,8 +592,7 @@ Functn16: "OPENER"
 
 Functn17: "OPENEE"
 0000                          BEGIN
-0003                          ax = CheckState(01, 03) [es:bx+0x4]
-0014 3D 05 00                 cmp ax, 0x5
+0003                          ax = CheckState(01, 03, 05) [es:bx+0x4]
 0017 75 34                    jnz 0x4d
 0019 B8 03 00                 mov ax, 0x3
 001C 50                       push ax
@@ -698,7 +654,7 @@ Functn1B: "DRAGON"
 0039                          SetEncData(19, 04) [es:bx+0xd4]
 004B                          SetEncData(1B, 05) [es:bx+0xd4]
 005D                          SetEncData(13, 06) [es:bx+0xd4]
-006F                          ax = HasItem(F4) ? 1 : 0 [es:bx+0x50]
+006F                          ax = HasItem(F4) [es:bx+0x50]
 007D 74 22                    jz 0xa1
 007F                          SetTreasureData(07D0, 00, 00, 00, C6, B7) [es:bx+0xd8]
 009F EB 2F                    jmp 0xd0
@@ -734,7 +690,7 @@ Functn1F: "GATEA"
 
 Functn20: "CYCLKEY"
 0000                          BEGIN
-0003                          ax = HasItem(D6) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(D6) [es:bx+0x50]
 0011 74 0F                    jz 0x22
 0013                          ShowMessage(15A4) [es:bx+0xf8] = The room has been emptied.
 0020 EB 19                    jmp 0x3b
@@ -896,19 +852,18 @@ Functn21: "SECDOORC"
 
 Functn25: "FNTNATTR"
 0000                          BEGIN
-0003                          ax = CheckState(02, 56) [es:bx+0x4]
+0003 B8 56 00                 mov ax, 0x56
+0006 50                       push ax
+0007 B8 02 00                 mov ax, 0x2
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 5F 04              call far word [es:bx+0x4]
+0012 59                       pop cx
+0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 75 54                    jnz 0x6c
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C B8 56 00                 mov ax, 0x56
-001F 50                       push ax
-0020 B8 02 00                 mov ax, 0x2
-0023 50                       push ax
-0024 C4 5E 06                 les bx, [bp+0x6]
-0027 26 FF 1F                 call far word [es:bx]
-002A 83 C4 06                 add sp, 0x6
-002D                          ShowPortrait(0042) [es:bx+0xd4]
+0018                          SetState(02, 56, 01) [es:bx]
+002D                          ShowPortrait(0042) [es:bx+0xfc]
 003A B8 02 00                 mov ax, 0x2
 003D 50                       push ax
 003E 33 C0                    xor ax, ax
@@ -927,7 +882,7 @@ Functn25: "FNTNATTR"
 005C 59                       pop cx
 005D                          ShowMessage(1623) [es:bx+0xf8] = You drink from the Fountain of Attributes and feel your powers greatly increase.
 006A EB 1A                    jmp 0x86
-006C                          ShowPortrait(0042) [es:bx+0xd4]
+006C                          ShowPortrait(0042) [es:bx+0xfc]
 0079                          ShowMessage(1674) [es:bx+0xf8] = The waters of the Fountain of Attributes quench your thirst but do not otherwise affect you.
 0086                          RETURN
 

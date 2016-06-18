@@ -46,7 +46,7 @@ Functn01: "CHESLITE"
 0085 C4 5E 06                 les bx, [bp+0x6]
 0088 26 FF 5F 2C              call far word [es:bx+0x2c]
 008C 83 C4 06                 add sp, 0x6
-008F                          ax = HasItem(EE) ? 1 : 0 [es:bx+0x50]
+008F                          ax = HasItem(EE) [es:bx+0x50]
 009D 75 03                    jnz 0xa2
 009F E9 E4 00                 jmp 0x186
 00A2 C4 5E 06                 les bx, [bp+0x6]
@@ -179,7 +179,7 @@ Functn02: "CHESDARK"
 0085 C4 5E 06                 les bx, [bp+0x6]
 0088 26 FF 5F 2C              call far word [es:bx+0x2c]
 008C 83 C4 06                 add sp, 0x6
-008F                          ax = HasItem(EE) ? 1 : 0 [es:bx+0x50]
+008F                          ax = HasItem(EE) [es:bx+0x50]
 009D 75 03                    jnz 0xa2
 009F E9 E4 00                 jmp 0x186
 00A2 C4 5E 06                 les bx, [bp+0x6]
@@ -274,8 +274,7 @@ Functn03: "VOID"
 Functn04: "POKERBRG"
 0000                          BEGIN
 0003                          ShowMessage(0568) [es:bx+0xf8] = Planks of the Poker Bridge are made from used playing cards.
-0010                          ax = CheckState(01, 01) [es:bx+0x4]
-0021 3D 01 00                 cmp ax, 0x1
+0010                          ax = CheckState(01, 01, 01) [es:bx+0x4]
 0024 75 30                    jnz 0x56
 0026                          ShowMessage(05A5) [es:bx+0xf8] = The rickety bridge barely holds your weight.
 0033 B8 DD 00                 mov ax, 0xdd
@@ -313,15 +312,7 @@ Functn05: "POKERSW"
 0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 45                    jz 0x5d
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C B8 01 00                 mov ax, 0x1
-001F 50                       push ax
-0020 B8 01 00                 mov ax, 0x1
-0023 50                       push ax
-0024 C4 5E 06                 les bx, [bp+0x6]
-0027 26 FF 1F                 call far word [es:bx]
-002A 83 C4 06                 add sp, 0x6
+0018                          SetState(01, 01, 01) [es:bx]
 002D B8 DD 00                 mov ax, 0xdd
 0030 50                       push ax
 0031 33 C0                    xor ax, ax
@@ -477,15 +468,7 @@ Functn0C: "CRIBFIVE"
 Functn0D: "BRDGFALL"
 0000                          BEGIN
 0003                          ShowMessage(09ED) [es:bx+0xf8] = The Poker Bridge behind you collapses.
-0010 33 C0                    xor ax, ax
-0012 50                       push ax
-0013 B8 01 00                 mov ax, 0x1
-0016 50                       push ax
-0017 B8 01 00                 mov ax, 0x1
-001A 50                       push ax
-001B C4 5E 06                 les bx, [bp+0x6]
-001E 26 FF 1F                 call far word [es:bx]
-0021 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 01, 00) [es:bx]
 0024 B8 DD 00                 mov ax, 0xdd
 0027 50                       push ax
 0028 B8 01 00                 mov ax, 0x1
@@ -534,25 +517,24 @@ Functn12: "DICEENCB"
 Functn13: "BLJKFOUN"
 0000                          BEGIN
 0003                          ShowMessage(0A95) [es:bx+0xf8] = The Blackjack Fountain is made of playing cards.
-0010                          ax = CheckState(02, 7E) [es:bx+0x4]
+0010 B8 7E 00                 mov ax, 0x7e
+0013 50                       push ax
+0014 B8 02 00                 mov ax, 0x2
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 04              call far word [es:bx+0x4]
+001F 59                       pop cx
+0020 59                       pop cx
 0021 0B C0                    or ax, ax
 0023 74 03                    jz 0x28
 0025 E9 87 00                 jmp 0xaf
-0028 B8 01 00                 mov ax, 0x1
-002B 50                       push ax
-002C B8 7E 00                 mov ax, 0x7e
-002F 50                       push ax
-0030 B8 02 00                 mov ax, 0x2
-0033 50                       push ax
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 1F                 call far word [es:bx]
-003A 83 C4 06                 add sp, 0x6
+0028                          SetState(02, 7E, 01) [es:bx]
 003D B8 EA 00                 mov ax, 0xea
 0040 50                       push ax
 0041 C4 5E 06                 les bx, [bp+0x6]
 0044 26 FF 5F 4C              call far word [es:bx+0x4c]
 0048 59                       pop cx
-0049                          ShowPortrait(0042) [es:bx+0xd4]
+0049                          ShowPortrait(0042) [es:bx+0xfc]
 0056 B8 03 00                 mov ax, 0x3
 0059 50                       push ax
 005A B8 02 00                 mov ax, 0x2
@@ -577,20 +559,19 @@ Functn13: "BLJKFOUN"
 Functn14: "CRIBFOUN"
 0000                          BEGIN
 0003                          ShowMessage(0B8A) [es:bx+0xf8] = The Cribbage Fountain is bedecked with golden pegs.
-0010                          ax = CheckState(02, 7F) [es:bx+0x4]
+0010 B8 7F 00                 mov ax, 0x7f
+0013 50                       push ax
+0014 B8 02 00                 mov ax, 0x2
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 04              call far word [es:bx+0x4]
+001F 59                       pop cx
+0020 59                       pop cx
 0021 0B C0                    or ax, ax
 0023 74 03                    jz 0x28
 0025 E9 83 00                 jmp 0xab
-0028 B8 01 00                 mov ax, 0x1
-002B 50                       push ax
-002C B8 7F 00                 mov ax, 0x7f
-002F 50                       push ax
-0030 B8 02 00                 mov ax, 0x2
-0033 50                       push ax
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 1F                 call far word [es:bx]
-003A 83 C4 06                 add sp, 0x6
-003D                          ShowPortrait(0042) [es:bx+0xd4]
+0028                          SetState(02, 7F, 01) [es:bx]
+003D                          ShowPortrait(0042) [es:bx+0xfc]
 004A B8 ED 00                 mov ax, 0xed
 004D 50                       push ax
 004E C4 5E 06                 les bx, [bp+0x6]
@@ -655,7 +636,7 @@ Functn19: "DICETRSE"
 
 Functn1A: "DICETRSF"
 0000                          BEGIN
-0003                          ShowPortrait(001F) [es:bx+0xd4]
+0003                          ShowPortrait(001F) [es:bx+0xfc]
 0010                          ShowMessage(1022) [es:bx+0xf8] = An Elf Ranger appears.
 001D                          ShowMessage(1039) [es:bx+0xf8] = 'In levels below the labyrinth, Snow Elves hide from the curses 
 002A                          ShowMessage(107A) [es:bx+0xf8] = of Arnakkian and await the day they may return to their faraway land.
@@ -757,7 +738,7 @@ Functn29: "CHESENCE"
 0039                          SetEncData(22, 04) [es:bx+0xd4]
 004B                          SetEncData(22, 05) [es:bx+0xd4]
 005D                          SetEncData(1D, 06) [es:bx+0xd4]
-006F                          ax = HasItem(EB) ? 1 : 0 [es:bx+0x50]
+006F                          ax = HasItem(EB) [es:bx+0x50]
 007D 74 21                    jz 0xa0
 007F                          SetTreasureData(0000, 00, 00, 00, 90, AF) [es:bx+0xd8]
 009E EB 20                    jmp 0xc0
@@ -772,7 +753,7 @@ Functn2A: "CHESENCF"
 0039                          SetEncData(18, 04) [es:bx+0xd4]
 004B                          SetEncData(15, 05) [es:bx+0xd4]
 005D                          SetEncData(1C, 06) [es:bx+0xd4]
-006F                          ax = HasItem(EC) ? 1 : 0 [es:bx+0x50]
+006F                          ax = HasItem(EC) [es:bx+0x50]
 007D 74 21                    jz 0xa0
 007F                          SetTreasureData(0000, 00, 00, 00, 8D, CF) [es:bx+0xd8]
 009E EB 20                    jmp 0xc0

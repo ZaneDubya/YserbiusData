@@ -13,9 +13,16 @@ Functn01: "RIVER"
 0036 0B C0                    or ax, ax
 0038 77 0D                    ja 0x47
 003A                          ShowMessage(0429) [es:bx+0xf8] = You have died.
-0047                          ax = HasItem(D5) ? 1 : 0 [es:bx+0x50]
+0047                          ax = HasItem(D5) [es:bx+0x50]
 0055 75 15                    jnz 0x6c
-0057                          ax = CheckState(02, 6D) [es:bx+0x4]
+0057 B8 6D 00                 mov ax, 0x6d
+005A 50                       push ax
+005B B8 02 00                 mov ax, 0x2
+005E 50                       push ax
+005F C4 5E 06                 les bx, [bp+0x6]
+0062 26 FF 5F 04              call far word [es:bx+0x4]
+0066 59                       pop cx
+0067 59                       pop cx
 0068 0B C0                    or ax, ax
 006A 74 12                    jz 0x7e
 006C 33 C0                    xor ax, ax
@@ -44,9 +51,16 @@ Functn02: "RIVRBANK"
 
 Functn03: "STEPCYCL"
 0000                          BEGIN
-0003                          ax = HasItem(D6) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(D6) [es:bx+0x50]
 0011 75 15                    jnz 0x28
-0013                          ax = CheckState(02, 6E) [es:bx+0x4]
+0013 B8 6E 00                 mov ax, 0x6e
+0016 50                       push ax
+0017 B8 02 00                 mov ax, 0x2
+001A 50                       push ax
+001B C4 5E 06                 les bx, [bp+0x6]
+001E 26 FF 5F 04              call far word [es:bx+0x4]
+0022 59                       pop cx
+0023 59                       pop cx
 0024 0B C0                    or ax, ax
 0026 74 49                    jz 0x71
 0028 B8 01 00                 mov ax, 0x1
@@ -64,15 +78,7 @@ Functn03: "STEPCYCL"
 0045 C4 5E 06                 les bx, [bp+0x6]
 0048 26 FF 5F 4C              call far word [es:bx+0x4c]
 004C 59                       pop cx
-004D B8 01 00                 mov ax, 0x1
-0050 50                       push ax
-0051 B8 6E 00                 mov ax, 0x6e
-0054 50                       push ax
-0055 B8 02 00                 mov ax, 0x2
-0058 50                       push ax
-0059 C4 5E 06                 les bx, [bp+0x6]
-005C 26 FF 1F                 call far word [es:bx]
-005F 83 C4 06                 add sp, 0x6
+004D                          SetState(02, 6E, 01) [es:bx]
 0062                          ShowMessage(047C) [es:bx+0xf8] = Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
 006F EB 0D                    jmp 0x7e
 0071                          ShowMessage(04DC) [es:bx+0xf8] = The tapestry glows with the image of a Cyclops.
@@ -80,9 +86,16 @@ Functn03: "STEPCYCL"
 
 Functn04: "STEPMINE"
 0000                          BEGIN
-0003                          ax = HasItem(D5) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(D5) [es:bx+0x50]
 0011 75 15                    jnz 0x28
-0013                          ax = CheckState(02, 6D) [es:bx+0x4]
+0013 B8 6D 00                 mov ax, 0x6d
+0016 50                       push ax
+0017 B8 02 00                 mov ax, 0x2
+001A 50                       push ax
+001B C4 5E 06                 les bx, [bp+0x6]
+001E 26 FF 5F 04              call far word [es:bx+0x4]
+0022 59                       pop cx
+0023 59                       pop cx
 0024 0B C0                    or ax, ax
 0026 74 40                    jz 0x68
 0028 B8 D5 00                 mov ax, 0xd5
@@ -90,15 +103,7 @@ Functn04: "STEPMINE"
 002C C4 5E 06                 les bx, [bp+0x6]
 002F 26 FF 5F 4C              call far word [es:bx+0x4c]
 0033 59                       pop cx
-0034 B8 01 00                 mov ax, 0x1
-0037 50                       push ax
-0038 B8 6D 00                 mov ax, 0x6d
-003B 50                       push ax
-003C B8 02 00                 mov ax, 0x2
-003F 50                       push ax
-0040 C4 5E 06                 les bx, [bp+0x6]
-0043 26 FF 1F                 call far word [es:bx]
-0046 83 C4 06                 add sp, 0x6
+0034                          SetState(02, 6D, 01) [es:bx]
 0049 33 C0                    xor ax, ax
 004B 50                       push ax
 004C B8 9C 00                 mov ax, 0x9c
@@ -121,9 +126,16 @@ Functn04: "STEPMINE"
 
 Functn05: "STEPHIDE"
 0000                          BEGIN
-0003                          ax = HasItem(D7) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(D7) [es:bx+0x50]
 0011 75 15                    jnz 0x28
-0013                          ax = CheckState(02, 6F) [es:bx+0x4]
+0013 B8 6F 00                 mov ax, 0x6f
+0016 50                       push ax
+0017 B8 02 00                 mov ax, 0x2
+001A 50                       push ax
+001B C4 5E 06                 les bx, [bp+0x6]
+001E 26 FF 5F 04              call far word [es:bx+0x4]
+0022 59                       pop cx
+0023 59                       pop cx
 0024 0B C0                    or ax, ax
 0026 74 4E                    jz 0x76
 0028 B8 D7 00                 mov ax, 0xd7
@@ -131,15 +143,7 @@ Functn05: "STEPHIDE"
 002C C4 5E 06                 les bx, [bp+0x6]
 002F 26 FF 5F 4C              call far word [es:bx+0x4c]
 0033 59                       pop cx
-0034 B8 01 00                 mov ax, 0x1
-0037 50                       push ax
-0038 B8 6F 00                 mov ax, 0x6f
-003B 50                       push ax
-003C B8 02 00                 mov ax, 0x2
-003F 50                       push ax
-0040 C4 5E 06                 les bx, [bp+0x6]
-0043 26 FF 1F                 call far word [es:bx]
-0046 83 C4 06                 add sp, 0x6
+0034                          SetState(02, 6F, 01) [es:bx]
 0049 B8 01 00                 mov ax, 0x1
 004C 50                       push ax
 004D C4 5E 06                 les bx, [bp+0x6]
@@ -327,9 +331,9 @@ Functn11: "ISENDJ"
 
 Functn14: "SUNBEAM"
 0000                          BEGIN
-0003                          ax = HasItem(EF) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(EF) [es:bx+0x50]
 0011 74 68                    jz 0x7b
-0013                          ShowPortrait(001C) [es:bx+0xd4]
+0013                          ShowPortrait(001C) [es:bx+0xfc]
 0020                          ShowMessage(060F) [es:bx+0xf8] = A band of dwarves moves out of the shadows.
 002D                          ShowMessage(063B) [es:bx+0xf8] = The leader steps forward, his eyes fixed on the blue metal.
 003A                          ShowMessage(0677) [es:bx+0xf8] = 'This magnificent blue treasure you hold can certainly do YOU no good.  Perhaps we may offer you a TRADE to remove this rock from your hands.'
@@ -449,7 +453,7 @@ Functn1F: "ENCH"
 0010                          SetEncData(0E, 01) [es:bx+0xd4]
 0022                          SetEncData(0E, 02) [es:bx+0xd4]
 0034                          SetEncData(21, 03) [es:bx+0xd4]
-0046                          ax = HasItem(F1) ? 1 : 0 [es:bx+0x50]
+0046                          ax = HasItem(F1) [es:bx+0x50]
 0054 74 22                    jz 0x78
 0056                          SetTreasureData(09C4, 00, 00, 00, D0, C6) [es:bx+0xd8]
 0076 EB 1F                    jmp 0x97
@@ -510,7 +514,7 @@ Functn25: "ENCN"
 0027                          SetEncData(12, 03) [es:bx+0xd4]
 0039                          SetEncData(12, 04) [es:bx+0xd4]
 004B                          SetEncData(22, 05) [es:bx+0xd4]
-005D                          ax = HasItem(D5) ? 1 : 0 [es:bx+0x50]
+005D                          ax = HasItem(D5) [es:bx+0x50]
 006B 74 22                    jz 0x8f
 006D                          SetTreasureData(07D0, 00, 00, 00, B7, 98) [es:bx+0xd8]
 008D EB 2C                    jmp 0xbb
@@ -525,7 +529,7 @@ Functn26: "ENCO"
 0027                          SetEncData(12, 03) [es:bx+0xd4]
 0039                          SetEncData(12, 04) [es:bx+0xd4]
 004B                          SetEncData(22, 05) [es:bx+0xd4]
-005D                          ax = HasItem(D8) ? 1 : 0 [es:bx+0x50]
+005D                          ax = HasItem(D8) [es:bx+0x50]
 006B 74 21                    jz 0x8e
 006D                          SetTreasureData(07D0, 00, 00, 00, 00, D0) [es:bx+0xd8]
 008C EB 2C                    jmp 0xba
@@ -535,7 +539,7 @@ Functn26: "ENCO"
 
 Functn27: "HEALFA"
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xd4]
+0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010                          ax = GetHits() [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
@@ -546,7 +550,7 @@ Functn27: "HEALFA"
 
 Functn28: "HEALFB"
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xd4]
+0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010                          ax = GetHits() [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
@@ -557,7 +561,7 @@ Functn28: "HEALFB"
 
 Functn29: "HEALFC"
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xd4]
+0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010                          ax = GetHits() [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
@@ -568,7 +572,7 @@ Functn29: "HEALFC"
 
 Functn2A: "MANAFA"
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xd4]
+0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010 B8 D0 07                 mov ax, 0x7d0
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]

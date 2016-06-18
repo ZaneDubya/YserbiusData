@@ -180,7 +180,7 @@ Functn11: "TELMESSD"
 Functn12: "NPCCHATA"
 0000                          BEGIN
 0003                          ShowMessage(05B3) [es:bx+0xf8] = You encounter a Gnome Barbarian.
-0010                          ShowPortrait(0019) [es:bx+0xd4]
+0010                          ShowPortrait(0019) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 1C                    ja 0x4b
@@ -193,7 +193,7 @@ Functn12: "NPCCHATA"
 Functn13: "NPCCHATB"
 0000                          BEGIN
 0003                          ShowMessage(0746) [es:bx+0xf8] = You encounter a Dwarf Wizard.
-0010                          ShowPortrait(002C) [es:bx+0xd4]
+0010                          ShowPortrait(002C) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
@@ -213,7 +213,7 @@ Functn13: "NPCCHATB"
 Functn14: "NPCCHATC"
 0000                          BEGIN
 0003                          ShowMessage(0855) [es:bx+0xf8] = You encounter a Halfling Ranger.
-0010                          ShowPortrait(0021) [es:bx+0xd4]
+0010                          ShowPortrait(0021) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0D 00                 cmp ax, 0xd
 002D 77 0F                    ja 0x3e
@@ -225,7 +225,7 @@ Functn14: "NPCCHATC"
 Functn15: "NPCCHATD"
 0000                          BEGIN
 0003                          ShowMessage(0906) [es:bx+0xf8] = You encounter a Troll Cleric.
-0010                          ShowPortrait(0028) [es:bx+0xd4]
+0010                          ShowPortrait(0028) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 06 00                 cmp ax, 0x6
 002D 77 0F                    ja 0x3e
@@ -237,32 +237,21 @@ Functn15: "NPCCHATD"
 Functn16: "NPCCHATE"
 0000                          BEGIN
 0003                          ShowMessage(0A25) [es:bx+0xf8] = You encounter a Troll Knight.
-0010                          ShowPortrait(001B) [es:bx+0xd4]
+0010                          ShowPortrait(001B) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0A43) [es:bx+0xf8] = A wise leader knows how to organize a party. Keep your fighters in front and your magicians safely in the rear. And as much as thieves are despised in general, they can serve you well, for their skills are impressive.
 003C EB 1E                    jmp 0x5c
-003E 33 C0                    xor ax, ax
-0040 BA 0A 00                 mov dx, 0xa
-0043 50                       push ax
-0044 52                       push dx
-0045 C4 5E 06                 les bx, [bp+0x6]
-0048 26 FF 9F AC 00           call far word [es:bx+0xac]
-004D 59                       pop cx
-004E 59                       pop cx
+003E                          ModifyGold(000A) [es:bx+0xac]
 004F                          ShowMessage(0B1D) [es:bx+0xf8] = The Troll Knight gives you 10 Gold Pieces and departs in peace.
 005C                          RETURN
 
 Functn17: "LOWMNSTR"
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F F0 00           call far word [es:bx+0xf0]
-000B 3D 01 00                 cmp ax, 0x1
+0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 74 0D                    jz 0x1d
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0018 3D 02 00                 cmp ax, 0x2
+0010                          ax = PartyCountIs(02) [es:bx+0xf0]
 001B 75 26                    jnz 0x43
 001D                          SetEncData(1A, 01) [es:bx+0xd4]
 002F                          SetEncData(1A, 02) [es:bx+0xd4]
@@ -283,16 +272,12 @@ Functn18: "LWRMNSTR"
 002F EB 1A                    jmp 0x4b
 0031                          ShowMessage(0BFC) [es:bx+0xf8] = The Goblins refuse to talk.
 003E                          ShowMessage(0C18) [es:bx+0xf8] = They draw their weapons and attack!
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0053 3D 01 00                 cmp ax, 0x1
+004B                          ax = PartyCountIs(01) [es:bx+0xf0]
 0056 75 27                    jnz 0x7f
 0058                          SetEncData(1C, 01) [es:bx+0xd4]
 006A                          SetEncData(1C, 02) [es:bx+0xd4]
 007C E9 9F 00                 jmp 0x11e
-007F C4 5E 06                 les bx, [bp+0x6]
-0082 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0087 3D 02 00                 cmp ax, 0x2
+007F                          ax = PartyCountIs(02) [es:bx+0xf0]
 008A 75 38                    jnz 0xc4
 008C                          SetEncData(1D, 01) [es:bx+0xd4]
 009E                          SetEncData(1C, 02) [es:bx+0xd4]
@@ -307,13 +292,9 @@ Functn18: "LWRMNSTR"
 
 Functn19: "OGREENC"
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F F0 00           call far word [es:bx+0xf0]
-000B 3D 01 00                 cmp ax, 0x1
+0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 74 0D                    jz 0x1d
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0018 3D 02 00                 cmp ax, 0x2
+0010                          ax = PartyCountIs(02) [es:bx+0xf0]
 001B 75 38                    jnz 0x55
 001D                          SetEncData(21, 01) [es:bx+0xd4]
 002F                          SetEncData(28, 02) [es:bx+0xd4]
@@ -337,15 +318,11 @@ Functn1A: "TUFMNSTR"
 002F EB 1A                    jmp 0x4b
 0031                          ShowMessage(0CE8) [es:bx+0xf8] = The Rogues refuse to talk.
 003E                          ShowMessage(0D03) [es:bx+0xf8] = They charge at you!
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0053 3D 01 00                 cmp ax, 0x1
+004B                          ax = PartyCountIs(01) [es:bx+0xf0]
 0056 75 14                    jnz 0x6c
 0058                          SetEncData(22, 01) [es:bx+0xd4]
 006A EB 7B                    jmp 0xe7
-006C C4 5E 06                 les bx, [bp+0x6]
-006F 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0074 3D 02 00                 cmp ax, 0x2
+006C                          ax = PartyCountIs(02) [es:bx+0xf0]
 0077 75 26                    jnz 0x9f
 0079                          SetEncData(23, 01) [es:bx+0xd4]
 008B                          SetEncData(23, 02) [es:bx+0xd4]
@@ -360,15 +337,11 @@ Functn1B: "STRMNSTR"
 0000                          BEGIN
 0003                          ShowMessage(0D17) [es:bx+0xf8] = You encounter Rogues!
 0010                          ShowMessage(0D2D) [es:bx+0xf8] = The Rogues scowl at you and attack!
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0025 3D 01 00                 cmp ax, 0x1
+001D                          ax = PartyCountIs(01) [es:bx+0xf0]
 0028 75 14                    jnz 0x3e
 002A                          SetEncData(28, 01) [es:bx+0xd4]
 003C EB 7B                    jmp 0xb9
-003E C4 5E 06                 les bx, [bp+0x6]
-0041 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0046 3D 02 00                 cmp ax, 0x2
+003E                          ax = PartyCountIs(02) [es:bx+0xf0]
 0049 75 26                    jnz 0x71
 004B                          SetEncData(25, 01) [es:bx+0xd4]
 005D                          SetEncData(27, 02) [es:bx+0xd4]
@@ -381,39 +354,24 @@ Functn1B: "STRMNSTR"
 
 Functn1C: "WEAPENC"
 0000                          BEGIN
-0003                          ax = CheckState(02, 06) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(02, 06, 01) [es:bx+0x4]
 0017 75 2E                    jnz 0x47
 0019                          SetTreasureData(0190, 00, 00, 00, 00, CE) [es:bx+0xd8]
 0038                          ShowMessage(0D51) [es:bx+0xf8] = It looks like the Rogues you encounter have already looted the room.
 0045 EB 42                    jmp 0x89
 0047                          SetTreasureData(05DC, 00, 00, 00, 0C, 05) [es:bx+0xd8]
-0067 B8 01 00                 mov ax, 0x1
-006A 50                       push ax
-006B B8 06 00                 mov ax, 0x6
-006E 50                       push ax
-006F B8 02 00                 mov ax, 0x2
-0072 50                       push ax
-0073 C4 5E 06                 les bx, [bp+0x6]
-0076 26 FF 1F                 call far word [es:bx]
-0079 83 C4 06                 add sp, 0x6
+0067                          SetState(02, 06, 01) [es:bx]
 007C                          ShowMessage(0D96) [es:bx+0xf8] = Rogues covet the Sword of the Flames and Sword of Decision you see lying on the floor.
-0089 C4 5E 06                 les bx, [bp+0x6]
-008C 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0091 3D 01 00                 cmp ax, 0x1
+0089                          ax = PartyCountIs(01) [es:bx+0xf0]
 0094 75 15                    jnz 0xab
 0096                          SetEncData(26, 01) [es:bx+0xd4]
 00A8 E9 D3 00                 jmp 0x17e
-00AB C4 5E 06                 les bx, [bp+0x6]
-00AE 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00B3 3D 02 00                 cmp ax, 0x2
+00AB                          ax = PartyCountIs(02) [es:bx+0xf0]
 00B6 75 27                    jnz 0xdf
 00B8                          SetEncData(25, 01) [es:bx+0xd4]
 00CA                          SetEncData(26, 02) [es:bx+0xd4]
 00DC E9 9F 00                 jmp 0x17e
-00DF C4 5E 06                 les bx, [bp+0x6]
-00E2 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00E7 3D 03 00                 cmp ax, 0x3
+00DF                          ax = PartyCountIs(03) [es:bx+0xf0]
 00EA 75 38                    jnz 0x124
 00EC                          SetEncData(28, 01) [es:bx+0xd4]
 00FE                          SetEncData(24, 02) [es:bx+0xd4]
@@ -428,30 +386,17 @@ Functn1C: "WEAPENC"
 
 Functn1D: "GOLDENC"
 0000                          BEGIN
-0003                          ax = CheckState(02, 07) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(02, 07, 01) [es:bx+0x4]
 0017 75 2E                    jnz 0x47
 0019                          SetTreasureData(0064, 00, 00, 00, 00, CB) [es:bx+0xd8]
 0038                          ShowMessage(0DED) [es:bx+0xf8] = Goblins grab their weapons as you enter the room.
 0045 EB 42                    jmp 0x89
 0047                          SetTreasureData(03E8, 00, 00, 00, CB, B5) [es:bx+0xd8]
-0067 B8 01 00                 mov ax, 0x1
-006A 50                       push ax
-006B B8 07 00                 mov ax, 0x7
-006E 50                       push ax
-006F B8 02 00                 mov ax, 0x2
-0072 50                       push ax
-0073 C4 5E 06                 les bx, [bp+0x6]
-0076 26 FF 1F                 call far word [es:bx]
-0079 83 C4 06                 add sp, 0x6
+0067                          SetState(02, 07, 01) [es:bx]
 007C                          ShowMessage(0E1F) [es:bx+0xf8] = Goblins are pitching Gold Pieces against the wall.
-0089 C4 5E 06                 les bx, [bp+0x6]
-008C 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0091 3D 01 00                 cmp ax, 0x1
+0089                          ax = PartyCountIs(01) [es:bx+0xf0]
 0094 74 0D                    jz 0xa3
-0096 C4 5E 06                 les bx, [bp+0x6]
-0099 26 FF 9F F0 00           call far word [es:bx+0xf0]
-009E 3D 02 00                 cmp ax, 0x2
+0096                          ax = PartyCountIs(02) [es:bx+0xf0]
 00A1 75 26                    jnz 0xc9
 00A3                          SetEncData(1D, 01) [es:bx+0xd4]
 00B5                          SetEncData(1C, 02) [es:bx+0xd4]
@@ -464,39 +409,24 @@ Functn1D: "GOLDENC"
 
 Functn1E: "MAGICENC"
 0000                          BEGIN
-0003                          ax = CheckState(02, 08) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(02, 08, 01) [es:bx+0x4]
 0017 75 2F                    jnz 0x48
 0019                          SetTreasureData(0078, 00, 00, 00, CB, B5) [es:bx+0xd8]
 0039                          ShowMessage(0E52) [es:bx+0xf8] = Ogres grimace in pleasure as you walk into their ambush.
 0046 EB 43                    jmp 0x8b
 0048                          SetTreasureData(1388, 00, 00, C5, 8A, 8E) [es:bx+0xd8]
-0069 B8 01 00                 mov ax, 0x1
-006C 50                       push ax
-006D B8 08 00                 mov ax, 0x8
-0070 50                       push ax
-0071 B8 02 00                 mov ax, 0x2
-0074 50                       push ax
-0075 C4 5E 06                 les bx, [bp+0x6]
-0078 26 FF 1F                 call far word [es:bx]
-007B 83 C4 06                 add sp, 0x6
+0069                          SetState(02, 08, 01) [es:bx]
 007E                          ShowMessage(0E8B) [es:bx+0xf8] = Ogres are playing with items you identify as the Ring of Vigor, a Cudgel Insignia, and the Wand of Radiance.
-008B C4 5E 06                 les bx, [bp+0x6]
-008E 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0093 3D 01 00                 cmp ax, 0x1
+008B                          ax = PartyCountIs(01) [es:bx+0xf0]
 0096 75 15                    jnz 0xad
 0098                          SetEncData(1F, 01) [es:bx+0xd4]
 00AA E9 D3 00                 jmp 0x180
-00AD C4 5E 06                 les bx, [bp+0x6]
-00B0 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00B5 3D 02 00                 cmp ax, 0x2
+00AD                          ax = PartyCountIs(02) [es:bx+0xf0]
 00B8 75 27                    jnz 0xe1
 00BA                          SetEncData(21, 01) [es:bx+0xd4]
 00CC                          SetEncData(20, 02) [es:bx+0xd4]
 00DE E9 9F 00                 jmp 0x180
-00E1 C4 5E 06                 les bx, [bp+0x6]
-00E4 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00E9 3D 03 00                 cmp ax, 0x3
+00E1                          ax = PartyCountIs(03) [es:bx+0xf0]
 00EC 75 38                    jnz 0x126
 00EE                          SetEncData(1F, 01) [es:bx+0xd4]
 0100                          SetEncData(20, 02) [es:bx+0xd4]

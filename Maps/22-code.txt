@@ -13,18 +13,17 @@ Functn02: "ENCGUARD"
 0034                          SetEncData(27, 03) [es:bx+0xd4]
 0046                          SetEncData(27, 04) [es:bx+0xd4]
 0058                          SetEncData(27, 05) [es:bx+0xd4]
-006A                          ax = CheckState(02, 88) [es:bx+0x4]
+006A B8 88 00                 mov ax, 0x88
+006D 50                       push ax
+006E B8 02 00                 mov ax, 0x2
+0071 50                       push ax
+0072 C4 5E 06                 les bx, [bp+0x6]
+0075 26 FF 5F 04              call far word [es:bx+0x4]
+0079 59                       pop cx
+007A 59                       pop cx
 007B 0B C0                    or ax, ax
 007D 75 27                    jnz 0xa6
-007F B8 01 00                 mov ax, 0x1
-0082 50                       push ax
-0083 B8 88 00                 mov ax, 0x88
-0086 50                       push ax
-0087 B8 02 00                 mov ax, 0x2
-008A 50                       push ax
-008B C4 5E 06                 les bx, [bp+0x6]
-008E 26 FF 1F                 call far word [es:bx]
-0091 83 C4 06                 add sp, 0x6
+007F                          SetState(02, 88, 01) [es:bx]
 0094 B8 07 00                 mov ax, 0x7
 0097 BA 20 A1                 mov dx, 0xa120
 009A 50                       push ax
@@ -37,7 +36,14 @@ Functn02: "ENCGUARD"
 
 Functn03: "ENCEARTH"
 0000                          BEGIN
-0003                          ax = CheckState(01, 01) [es:bx+0x4]
+0003 B8 01 00                 mov ax, 0x1
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 5F 04              call far word [es:bx+0x4]
+0012 59                       pop cx
+0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 03                    jz 0x1b
 0018 E9 08 01                 jmp 0x123
@@ -48,23 +54,22 @@ Functn03: "ENCEARTH"
 005E                          SetEncData(0F, 04) [es:bx+0xd4]
 0070                          SetEncData(23, 05) [es:bx+0xd4]
 0082                          SetEncData(28, 06) [es:bx+0xd4]
-0094                          ax = HasItem(E9) ? 1 : 0 [es:bx+0x50]
+0094                          ax = HasItem(E9) [es:bx+0x50]
 00A2 74 22                    jz 0xc6
 00A4                          SetTreasureData(0000, 00, 00, 50, 50, D0) [es:bx+0xd8]
 00C4 EB 5D                    jmp 0x123
 00C6                          SetTreasureData(03E8, 00, 00, 88, 1D, E9) [es:bx+0xd8]
-00E7                          ax = CheckState(02, 8A) [es:bx+0x4]
+00E7 B8 8A 00                 mov ax, 0x8a
+00EA 50                       push ax
+00EB B8 02 00                 mov ax, 0x2
+00EE 50                       push ax
+00EF C4 5E 06                 les bx, [bp+0x6]
+00F2 26 FF 5F 04              call far word [es:bx+0x4]
+00F6 59                       pop cx
+00F7 59                       pop cx
 00F8 0B C0                    or ax, ax
 00FA 75 27                    jnz 0x123
-00FC B8 01 00                 mov ax, 0x1
-00FF 50                       push ax
-0100 B8 8A 00                 mov ax, 0x8a
-0103 50                       push ax
-0104 B8 02 00                 mov ax, 0x2
-0107 50                       push ax
-0108 C4 5E 06                 les bx, [bp+0x6]
-010B 26 FF 1F                 call far word [es:bx]
-010E 83 C4 06                 add sp, 0x6
+00FC                          SetState(02, 8A, 01) [es:bx]
 0111 B8 03 00                 mov ax, 0x3
 0114 BA 90 D0                 mov dx, 0xd090
 0117 50                       push ax
@@ -82,7 +87,14 @@ Functn04: "GUARDIAN"
 
 Functn05: "EARTHELE"
 0000                          BEGIN
-0003                          ax = CheckState(01, 01) [es:bx+0x4]
+0003 B8 01 00                 mov ax, 0x1
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 5F 04              call far word [es:bx+0x4]
+0012 59                       pop cx
+0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 75 0D                    jnz 0x25
 0018                          ShowMessage(04EA) [es:bx+0xf8] = The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
@@ -102,192 +114,86 @@ Functn07: "PLATB"
 Functn08: "YBOXA"
 0000                          BEGIN
 0003                          ShowMessage(0638) [es:bx+0xf8] = The wall glows.
-0010 B8 01 00                 mov ax, 0x1
-0013 50                       push ax
-0014 B8 02 00                 mov ax, 0x2
-0017 50                       push ax
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 1F                 call far word [es:bx]
-0022 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 02, 01) [es:bx]
 0025                          RETURN
 
 Functn09: "YBOXB"
 0000                          BEGIN
 0003                          ShowMessage(0648) [es:bx+0xf8] = The wall glows.
-0010 B8 02 00                 mov ax, 0x2
-0013 50                       push ax
-0014 B8 02 00                 mov ax, 0x2
-0017 50                       push ax
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 1F                 call far word [es:bx]
-0022 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 02, 02) [es:bx]
 0025                          RETURN
 
 Functn0A: "YBOXC"
 0000                          BEGIN
 0003                          ShowMessage(0658) [es:bx+0xf8] = The wall glows.
-0010 B8 03 00                 mov ax, 0x3
-0013 50                       push ax
-0014 B8 02 00                 mov ax, 0x2
-0017 50                       push ax
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 1F                 call far word [es:bx]
-0022 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 02, 03) [es:bx]
 0025                          RETURN
 
 Functn0B: "YBOXD"
 0000                          BEGIN
 0003                          ShowMessage(0668) [es:bx+0xf8] = The wall glows.
-0010 B8 04 00                 mov ax, 0x4
-0013 50                       push ax
-0014 B8 02 00                 mov ax, 0x2
-0017 50                       push ax
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 1F                 call far word [es:bx]
-0022 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 02, 04) [es:bx]
 0025                          RETURN
 
 Functn0C: "YBOXE"
 0000                          BEGIN
 0003                          ShowMessage(0678) [es:bx+0xf8] = The wall glows.
-0010 B8 05 00                 mov ax, 0x5
-0013 50                       push ax
-0014 B8 02 00                 mov ax, 0x2
-0017 50                       push ax
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 1F                 call far word [es:bx]
-0022 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 02, 05) [es:bx]
 0025                          RETURN
 
 Functn0D: "YBOXF"
 0000                          BEGIN
 0003                          ShowMessage(0688) [es:bx+0xf8] = The wall glows.
-0010 B8 06 00                 mov ax, 0x6
-0013 50                       push ax
-0014 B8 02 00                 mov ax, 0x2
-0017 50                       push ax
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 1F                 call far word [es:bx]
-0022 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 02, 06) [es:bx]
 0025                          RETURN
 
 Functn0E: "XBOXG"
 0000                          BEGIN
 0003                          ShowMessage(0698) [es:bx+0xf8] = The wall glows.
-0010 B8 01 00                 mov ax, 0x1
-0013 50                       push ax
-0014 B8 03 00                 mov ax, 0x3
-0017 50                       push ax
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 1F                 call far word [es:bx]
-0022 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 03, 01) [es:bx]
 0025                          RETURN
 
 Functn0F: "XBOXH"
 0000                          BEGIN
 0003                          ShowMessage(06A8) [es:bx+0xf8] = The wall glows.
-0010 B8 02 00                 mov ax, 0x2
-0013 50                       push ax
-0014 B8 03 00                 mov ax, 0x3
-0017 50                       push ax
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 1F                 call far word [es:bx]
-0022 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 03, 02) [es:bx]
 0025                          RETURN
 
 Functn10: "XBOXI"
 0000                          BEGIN
 0003                          ShowMessage(06B8) [es:bx+0xf8] = The wall glows.
-0010 B8 03 00                 mov ax, 0x3
-0013 50                       push ax
-0014 B8 03 00                 mov ax, 0x3
-0017 50                       push ax
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 1F                 call far word [es:bx]
-0022 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 03, 03) [es:bx]
 0025                          RETURN
 
 Functn11: "XBOXJ"
 0000                          BEGIN
 0003                          ShowMessage(06C8) [es:bx+0xf8] = The wall glows.
-0010 B8 04 00                 mov ax, 0x4
-0013 50                       push ax
-0014 B8 03 00                 mov ax, 0x3
-0017 50                       push ax
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 1F                 call far word [es:bx]
-0022 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 03, 04) [es:bx]
 0025                          RETURN
 
 Functn12: "XBOXK"
 0000                          BEGIN
 0003                          ShowMessage(06D8) [es:bx+0xf8] = The wall glows.
-0010 B8 05 00                 mov ax, 0x5
-0013 50                       push ax
-0014 B8 03 00                 mov ax, 0x3
-0017 50                       push ax
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 1F                 call far word [es:bx]
-0022 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 03, 05) [es:bx]
 0025                          RETURN
 
 Functn13: "XBOXL"
 0000                          BEGIN
 0003                          ShowMessage(06E8) [es:bx+0xf8] = The wall glows.
-0010 B8 06 00                 mov ax, 0x6
-0013 50                       push ax
-0014 B8 03 00                 mov ax, 0x3
-0017 50                       push ax
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 1F                 call far word [es:bx]
-0022 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 03, 06) [es:bx]
 0025                          RETURN
 
 Functn14: "XBOXM"
 0000                          BEGIN
 0003                          ShowMessage(06F8) [es:bx+0xf8] = The wall glows.
-0010 B8 07 00                 mov ax, 0x7
-0013 50                       push ax
-0014 B8 03 00                 mov ax, 0x3
-0017 50                       push ax
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 1F                 call far word [es:bx]
-0022 83 C4 06                 add sp, 0x6
+0010                          SetState(01, 03, 07) [es:bx]
 0025                          RETURN
 
 Functn15: "PITAJ"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(01, 02, 01) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 04 00                 cmp ax, 0x4
+0019                          ax = CheckState(01, 03, 04) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0708) [es:bx+0xf8] = Your decision on where to step next saves you.
 003C EB 1E                    jmp 0x5c
@@ -298,11 +204,9 @@ Functn15: "PITAJ"
 
 Functn16: "PITAK"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(01, 02, 01) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 05 00                 cmp ax, 0x5
+0019                          ax = CheckState(01, 03, 05) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0761) [es:bx+0xf8] = You selected your next move wisely.
 003C EB 1E                    jmp 0x5c
@@ -313,11 +217,9 @@ Functn16: "PITAK"
 
 Functn17: "PITAL"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(01, 02, 01) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 06 00                 cmp ax, 0x6
+0019                          ax = CheckState(01, 03, 06) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(07AF) [es:bx+0xf8] = Your next step is a safe one.
 003C EB 1E                    jmp 0x5c
@@ -328,11 +230,9 @@ Functn17: "PITAL"
 
 Functn18: "PITAM"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(01, 02, 01) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 07 00                 cmp ax, 0x7
+0019                          ax = CheckState(01, 03, 07) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(07F7) [es:bx+0xf8] = The step you take is wisely chosen.
 003C EB 1E                    jmp 0x5c
@@ -343,11 +243,9 @@ Functn18: "PITAM"
 
 Functn19: "PITBG"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 02 00                 cmp ax, 0x2
+0003                          ax = CheckState(01, 02, 02) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 01 00                 cmp ax, 0x1
+0019                          ax = CheckState(01, 03, 01) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0845) [es:bx+0xf8] = You take one good step forward.
 003C EB 1E                    jmp 0x5c
@@ -358,11 +256,9 @@ Functn19: "PITBG"
 
 Functn1A: "PITBI"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 02 00                 cmp ax, 0x2
+0003                          ax = CheckState(01, 02, 02) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 03 00                 cmp ax, 0x3
+0019                          ax = CheckState(01, 03, 03) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(088F) [es:bx+0xf8] = You safely step forward.
 003C EB 1E                    jmp 0x5c
@@ -373,11 +269,9 @@ Functn1A: "PITBI"
 
 Functn1B: "PITBJ"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 02 00                 cmp ax, 0x2
+0003                          ax = CheckState(01, 02, 02) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 04 00                 cmp ax, 0x4
+0019                          ax = CheckState(01, 03, 04) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(08D2) [es:bx+0xf8] = You take a step in the right direction,
 003C EB 1E                    jmp 0x5c
@@ -388,11 +282,9 @@ Functn1B: "PITBJ"
 
 Functn1C: "PITBK"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 02 00                 cmp ax, 0x2
+0003                          ax = CheckState(01, 02, 02) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 05 00                 cmp ax, 0x5
+0019                          ax = CheckState(01, 03, 05) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0924) [es:bx+0xf8] = Your move is wise.
 003C EB 1E                    jmp 0x5c
@@ -403,11 +295,9 @@ Functn1C: "PITBK"
 
 Functn1D: "PITBL"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 02 00                 cmp ax, 0x2
+0003                          ax = CheckState(01, 02, 02) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 06 00                 cmp ax, 0x6
+0019                          ax = CheckState(01, 03, 06) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0961) [es:bx+0xf8] = You select your next move wisely.
 003C EB 1E                    jmp 0x5c
@@ -418,11 +308,9 @@ Functn1D: "PITBL"
 
 Functn1E: "PITBM"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 02 00                 cmp ax, 0x2
+0003                          ax = CheckState(01, 02, 02) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 07 00                 cmp ax, 0x7
+0019                          ax = CheckState(01, 03, 07) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(09AD) [es:bx+0xf8] = You move forward with confidence.
 003C EB 1E                    jmp 0x5c
@@ -433,11 +321,9 @@ Functn1E: "PITBM"
 
 Functn1F: "PITCG"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 03 00                 cmp ax, 0x3
+0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 01 00                 cmp ax, 0x1
+0019                          ax = CheckState(01, 03, 01) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(09F9) [es:bx+0xf8] = Your next step is a good one.
 003C EB 1E                    jmp 0x5c
@@ -448,11 +334,9 @@ Functn1F: "PITCG"
 
 Functn20: "PITCH"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 03 00                 cmp ax, 0x3
+0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 02 00                 cmp ax, 0x2
+0019                          ax = CheckState(01, 03, 02) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0A41) [es:bx+0xf8] = You move ahead assuredly.
 003C EB 1E                    jmp 0x5c
@@ -463,11 +347,9 @@ Functn20: "PITCH"
 
 Functn21: "PITCI"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 03 00                 cmp ax, 0x3
+0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 03 00                 cmp ax, 0x3
+0019                          ax = CheckState(01, 03, 03) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0A85) [es:bx+0xf8] = You choose your next step correctly.
 003C EB 1E                    jmp 0x5c
@@ -478,11 +360,9 @@ Functn21: "PITCI"
 
 Functn22: "PITCJ"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 03 00                 cmp ax, 0x3
+0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 04 00                 cmp ax, 0x4
+0019                          ax = CheckState(01, 03, 04) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0AD4) [es:bx+0xf8] = Your choice of movement saves you.
 003C EB 1E                    jmp 0x5c
@@ -493,11 +373,9 @@ Functn22: "PITCJ"
 
 Functn23: "PITCK"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 03 00                 cmp ax, 0x3
+0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 05 00                 cmp ax, 0x5
+0019                          ax = CheckState(01, 03, 05) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0B21) [es:bx+0xf8] = You step in the right direction.
 003C EB 1E                    jmp 0x5c
@@ -508,11 +386,9 @@ Functn23: "PITCK"
 
 Functn24: "PITCL"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 03 00                 cmp ax, 0x3
+0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 06 00                 cmp ax, 0x6
+0019                          ax = CheckState(01, 03, 06) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0B6C) [es:bx+0xf8] = You select your next step wisely.
 003C EB 1E                    jmp 0x5c
@@ -523,11 +399,9 @@ Functn24: "PITCL"
 
 Functn25: "PITCM"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 03 00                 cmp ax, 0x3
+0003                          ax = CheckState(01, 02, 03) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 07 00                 cmp ax, 0x7
+0019                          ax = CheckState(01, 03, 07) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0BB8) [es:bx+0xf8] = Your next step is sagely chosen.
 003C EB 1E                    jmp 0x5c
@@ -538,11 +412,9 @@ Functn25: "PITCM"
 
 Functn26: "PITDG"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 04 00                 cmp ax, 0x4
+0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 01 00                 cmp ax, 0x1
+0019                          ax = CheckState(01, 03, 01) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0C03) [es:bx+0xf8] = You take a wise step forward.
 003C EB 1E                    jmp 0x5c
@@ -553,11 +425,9 @@ Functn26: "PITDG"
 
 Functn27: "PITDH"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 04 00                 cmp ax, 0x4
+0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 02 00                 cmp ax, 0x2
+0019                          ax = CheckState(01, 03, 02) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0C4B) [es:bx+0xf8] = You move forward wisely.
 003C EB 1E                    jmp 0x5c
@@ -568,11 +438,9 @@ Functn27: "PITDH"
 
 Functn28: "PITDI"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 04 00                 cmp ax, 0x4
+0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 03 00                 cmp ax, 0x3
+0019                          ax = CheckState(01, 03, 03) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0C8E) [es:bx+0xf8] = Your next step is wisely decided.
 003C EB 1E                    jmp 0x5c
@@ -583,11 +451,9 @@ Functn28: "PITDI"
 
 Functn29: "PITDJ"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 04 00                 cmp ax, 0x4
+0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 04 00                 cmp ax, 0x4
+0019                          ax = CheckState(01, 03, 04) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0CDA) [es:bx+0xf8] = You step ahead with confidence.
 003C EB 1E                    jmp 0x5c
@@ -598,11 +464,9 @@ Functn29: "PITDJ"
 
 Functn2A: "PITDK"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 04 00                 cmp ax, 0x4
+0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 05 00                 cmp ax, 0x5
+0019                          ax = CheckState(01, 03, 05) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0D24) [es:bx+0xf8] = You move forward carefully.
 003C EB 1E                    jmp 0x5c
@@ -613,11 +477,9 @@ Functn2A: "PITDK"
 
 Functn2B: "PITDL"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 04 00                 cmp ax, 0x4
+0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 06 00                 cmp ax, 0x6
+0019                          ax = CheckState(01, 03, 06) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0D6A) [es:bx+0xf8] = You move ahead.
 003C EB 1E                    jmp 0x5c
@@ -628,11 +490,9 @@ Functn2B: "PITDL"
 
 Functn2C: "PITDM"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 04 00                 cmp ax, 0x4
+0003                          ax = CheckState(01, 02, 04) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 07 00                 cmp ax, 0x7
+0019                          ax = CheckState(01, 03, 07) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0DA4) [es:bx+0xf8] = Your step is wisely selected.
 003C EB 1E                    jmp 0x5c
@@ -643,11 +503,9 @@ Functn2C: "PITDM"
 
 Functn2D: "PITEG"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 05 00                 cmp ax, 0x5
+0003                          ax = CheckState(01, 02, 05) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 01 00                 cmp ax, 0x1
+0019                          ax = CheckState(01, 03, 01) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0DEC) [es:bx+0xf8] = You forge ahead.
 003C EB 1E                    jmp 0x5c
@@ -658,11 +516,9 @@ Functn2D: "PITEG"
 
 Functn2E: "PITEH"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 05 00                 cmp ax, 0x5
+0003                          ax = CheckState(01, 02, 05) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 02 00                 cmp ax, 0x2
+0019                          ax = CheckState(01, 03, 02) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0E27) [es:bx+0xf8] = You select your next move wisely.
 003C EB 1E                    jmp 0x5c
@@ -673,11 +529,9 @@ Functn2E: "PITEH"
 
 Functn2F: "PITEI"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 05 00                 cmp ax, 0x5
+0003                          ax = CheckState(01, 02, 05) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 03 00                 cmp ax, 0x3
+0019                          ax = CheckState(01, 03, 03) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0E73) [es:bx+0xf8] = Good sense guides your feet.
 003C EB 1E                    jmp 0x5c
@@ -688,11 +542,9 @@ Functn2F: "PITEI"
 
 Functn30: "PITEJ"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 05 00                 cmp ax, 0x5
+0003                          ax = CheckState(01, 02, 05) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 04 00                 cmp ax, 0x4
+0019                          ax = CheckState(01, 03, 04) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0EBA) [es:bx+0xf8] = You walk ahead.
 003C EB 1E                    jmp 0x5c
@@ -703,11 +555,9 @@ Functn30: "PITEJ"
 
 Functn31: "PITEK"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 05 00                 cmp ax, 0x5
+0003                          ax = CheckState(01, 02, 05) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 05 00                 cmp ax, 0x5
+0019                          ax = CheckState(01, 03, 05) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0EF4) [es:bx+0xf8] = Your next step is assuredly taken.
 003C EB 1E                    jmp 0x5c
@@ -718,11 +568,9 @@ Functn31: "PITEK"
 
 Functn32: "PITFG"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 06 00                 cmp ax, 0x6
+0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 01 00                 cmp ax, 0x1
+0019                          ax = CheckState(01, 03, 01) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0F41) [es:bx+0xf8] = The next step is an intelligent one.
 003C EB 1E                    jmp 0x5c
@@ -733,11 +581,9 @@ Functn32: "PITFG"
 
 Functn33: "PITFH"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 06 00                 cmp ax, 0x6
+0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 02 00                 cmp ax, 0x2
+0019                          ax = CheckState(01, 03, 02) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0F90) [es:bx+0xf8] = You move safely ahead.
 003C EB 1E                    jmp 0x5c
@@ -748,11 +594,9 @@ Functn33: "PITFH"
 
 Functn34: "PITFI"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 06 00                 cmp ax, 0x6
+0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 03 00                 cmp ax, 0x3
+0019                          ax = CheckState(01, 03, 03) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(0FD1) [es:bx+0xf8] = Your movement decision was correct.
 003C EB 1E                    jmp 0x5c
@@ -763,11 +607,9 @@ Functn34: "PITFI"
 
 Functn35: "PITFJ"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 06 00                 cmp ax, 0x6
+0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 04 00                 cmp ax, 0x4
+0019                          ax = CheckState(01, 03, 04) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(101F) [es:bx+0xf8] = You move forward with confidence.
 003C EB 1E                    jmp 0x5c
@@ -778,11 +620,9 @@ Functn35: "PITFJ"
 
 Functn36: "PITFK"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 06 00                 cmp ax, 0x6
+0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 05 00                 cmp ax, 0x5
+0019                          ax = CheckState(01, 03, 05) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(106B) [es:bx+0xf8] = You carefully selected your next step.
 003C EB 1E                    jmp 0x5c
@@ -793,11 +633,9 @@ Functn36: "PITFK"
 
 Functn37: "PITFL"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 06 00                 cmp ax, 0x6
+0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 06 00                 cmp ax, 0x6
+0019                          ax = CheckState(01, 03, 06) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(10BC) [es:bx+0xf8] = You make a sage choice.
 003C EB 1E                    jmp 0x5c
@@ -808,11 +646,9 @@ Functn37: "PITFL"
 
 Functn38: "PITFM"
 0000                          BEGIN
-0003                          ax = CheckState(01, 02) [es:bx+0x4]
-0014 3D 06 00                 cmp ax, 0x6
+0003                          ax = CheckState(01, 02, 06) [es:bx+0x4]
 0017 75 25                    jnz 0x3e
-0019                          ax = CheckState(01, 03) [es:bx+0x4]
-002A 3D 07 00                 cmp ax, 0x7
+0019                          ax = CheckState(01, 03, 07) [es:bx+0x4]
 002D 75 0F                    jnz 0x3e
 002F                          ShowMessage(10FE) [es:bx+0xf8] = You have made a wise decision.
 003C EB 1E                    jmp 0x5c
@@ -859,7 +695,14 @@ Functn3C: "PITENCBL"
 
 Functn3D: "DOORARNK"
 0000                          BEGIN
-0003                          ax = CheckState(01, 01) [es:bx+0x4]
+0003 B8 01 00                 mov ax, 0x1
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 5F 04              call far word [es:bx+0x4]
+0012 59                       pop cx
+0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 43                    jz 0x5b
 0018 B8 01 00                 mov ax, 0x1
@@ -895,15 +738,7 @@ Functn3E: "TELEARNK"
 
 Functn3F: "SETEKILL"
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B B8 01 00                 mov ax, 0x1
-000E 50                       push ax
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 1F                 call far word [es:bx]
-0015 83 C4 06                 add sp, 0x6
+0003                          SetState(01, 01, 01) [es:bx]
 0018                          RETURN
 
 03FC: You step into a bottomless pit and die.

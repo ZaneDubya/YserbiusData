@@ -55,36 +55,21 @@ Functn02: "KEYDOOR"
 
 Functn03: "GOLDAENC"
 0000                          BEGIN
-0003                          ax = CheckState(02, 18) [es:bx+0x4]
-0014 3D 01 00                 cmp ax, 0x1
+0003                          ax = CheckState(02, 18, 01) [es:bx+0x4]
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(044D) [es:bx+0xf8] = Skeletons on the floor stir to life.
 0026                          SetTreasureData(03E8, 00, 00, 00, 00, B6) [es:bx+0xd8]
 0045 EB 41                    jmp 0x88
 0047                          SetTreasureData(1388, 00, 00, 00, 00, CF) [es:bx+0xd8]
-0066 B8 01 00                 mov ax, 0x1
-0069 50                       push ax
-006A B8 18 00                 mov ax, 0x18
-006D 50                       push ax
-006E B8 02 00                 mov ax, 0x2
-0071 50                       push ax
-0072 C4 5E 06                 les bx, [bp+0x6]
-0075 26 FF 1F                 call far word [es:bx]
-0078 83 C4 06                 add sp, 0x6
+0066                          SetState(02, 18, 01) [es:bx]
 007B                          ShowMessage(0472) [es:bx+0xf8] = Among the bones on the floor are pieces of gold. The bones begin to move.
-0088 C4 5E 06                 les bx, [bp+0x6]
-008B 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0090 3D 01 00                 cmp ax, 0x1
+0088                          ax = PartyCountIs(01) [es:bx+0xf0]
 0093 75 15                    jnz 0xaa
 0095                          SetEncData(01, 01) [es:bx+0xd4]
 00A7 E9 9A 00                 jmp 0x144
-00AA C4 5E 06                 les bx, [bp+0x6]
-00AD 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00B2 3D 02 00                 cmp ax, 0x2
+00AA                          ax = PartyCountIs(02) [es:bx+0xf0]
 00B5 74 0D                    jz 0xc4
-00B7 C4 5E 06                 les bx, [bp+0x6]
-00BA 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00BF 3D 03 00                 cmp ax, 0x3
+00B7                          ax = PartyCountIs(03) [es:bx+0xf0]
 00C2 75 38                    jnz 0xfc
 00C4                          SetEncData(02, 01) [es:bx+0xd4]
 00D6                          SetEncData(04, 02) [es:bx+0xd4]
@@ -98,31 +83,25 @@ Functn03: "GOLDAENC"
 
 Functn04: "GOLDBENC"
 0000                          BEGIN
-0003                          ax = HasItem(C6) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(C6) [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013                          ShowMessage(04BC) [es:bx+0xf8] = A clutch of Large-Uns growl at you.
 0020                          SetTreasureData(07D0, 00, 00, 00, 00, D1) [es:bx+0xd8]
 003F EB 2C                    jmp 0x6d
 0041                          SetTreasureData(1770, 00, 00, 00, 00, C6) [es:bx+0xd8]
 0060                          ShowMessage(04E0) [es:bx+0xf8] = A Large-Un tosses a piece of wood aside as he and his friends attack.
-006D C4 5E 06                 les bx, [bp+0x6]
-0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0075 3D 01 00                 cmp ax, 0x1
+006D                          ax = PartyCountIs(01) [es:bx+0xf0]
 0078 75 27                    jnz 0xa1
 007A                          SetEncData(19, 01) [es:bx+0xd4]
 008C                          SetEncData(1A, 02) [es:bx+0xd4]
 009E E9 F7 00                 jmp 0x198
-00A1 C4 5E 06                 les bx, [bp+0x6]
-00A4 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00A9 3D 02 00                 cmp ax, 0x2
+00A1                          ax = PartyCountIs(02) [es:bx+0xf0]
 00AC 75 39                    jnz 0xe7
 00AE                          SetEncData(19, 01) [es:bx+0xd4]
 00C0                          SetEncData(1A, 02) [es:bx+0xd4]
 00D2                          SetEncData(19, 03) [es:bx+0xd4]
 00E4 E9 B1 00                 jmp 0x198
-00E7 C4 5E 06                 les bx, [bp+0x6]
-00EA 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00EF 3D 03 00                 cmp ax, 0x3
+00E7                          ax = PartyCountIs(03) [es:bx+0xf0]
 00F2 75 4A                    jnz 0x13e
 00F4                          SetEncData(1A, 01) [es:bx+0xd4]
 0106                          SetEncData(1A, 02) [es:bx+0xd4]
@@ -138,7 +117,7 @@ Functn04: "GOLDBENC"
 
 Functn05: "CROWN"
 0000                          BEGIN
-0003                          ax = HasItem(69) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(69) [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013                          ShowMessage(0526) [es:bx+0xf8] = You have interrupted a Lizardite religious service.
 0020                          SetTreasureData(01F4, 00, 00, 00, 00, D0) [es:bx+0xd8]
@@ -151,20 +130,14 @@ Functn05: "CROWN"
 006C 59                       pop cx
 006D                          ShowMessage(055A) [es:bx+0xf8] = As you enter the room, the O Rune Key vanishes.
 007A                          ShowMessage(058A) [es:bx+0xf8] = You see a Lizardite proudly wearing the Crown of King Cleowyn.
-0087 C4 5E 06                 les bx, [bp+0x6]
-008A 26 FF 9F F0 00           call far word [es:bx+0xf0]
-008F 3D 01 00                 cmp ax, 0x1
+0087                          ax = PartyCountIs(01) [es:bx+0xf0]
 0092 75 27                    jnz 0xbb
 0094                          SetEncData(21, 01) [es:bx+0xd4]
 00A6                          SetEncData(21, 02) [es:bx+0xd4]
 00B8 E9 D0 00                 jmp 0x18b
-00BB C4 5E 06                 les bx, [bp+0x6]
-00BE 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00C3 3D 02 00                 cmp ax, 0x2
+00BB                          ax = PartyCountIs(02) [es:bx+0xf0]
 00C6 74 0D                    jz 0xd5
-00C8 C4 5E 06                 les bx, [bp+0x6]
-00CB 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00D0 3D 03 00                 cmp ax, 0x3
+00C8                          ax = PartyCountIs(03) [es:bx+0xf0]
 00D3 75 4A                    jnz 0x11f
 00D5                          SetEncData(21, 01) [es:bx+0xd4]
 00E7                          SetEncData(21, 02) [es:bx+0xd4]
@@ -181,26 +154,20 @@ Functn05: "CROWN"
 
 Functn06: "ITEMBENC"
 0000                          BEGIN
-0003                          ax = HasItem(BB) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(BB) [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013                          ShowMessage(05C9) [es:bx+0xf8] = You run into the living skeletons of King Cleowyn's guards.
 0020                          SetTreasureData(0320, 00, 00, 00, 00, BC) [es:bx+0xd8]
 003F EB 2C                    jmp 0x6d
 0041                          SetTreasureData(1B58, 00, 00, 00, 00, BB) [es:bx+0xd8]
 0060                          ShowMessage(0605) [es:bx+0xf8] = One of the skeletons approaching you holds a piece of paper in its bony hand.
-006D C4 5E 06                 les bx, [bp+0x6]
-0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0075 3D 01 00                 cmp ax, 0x1
+006D                          ax = PartyCountIs(01) [es:bx+0xf0]
 0078 75 15                    jnz 0x8f
 007A                          SetEncData(15, 01) [es:bx+0xd4]
 008C E9 9A 00                 jmp 0x129
-008F C4 5E 06                 les bx, [bp+0x6]
-0092 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0097 3D 02 00                 cmp ax, 0x2
+008F                          ax = PartyCountIs(02) [es:bx+0xf0]
 009A 74 0D                    jz 0xa9
-009C C4 5E 06                 les bx, [bp+0x6]
-009F 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00A4 3D 03 00                 cmp ax, 0x3
+009C                          ax = PartyCountIs(03) [es:bx+0xf0]
 00A7 75 38                    jnz 0xe1
 00A9                          SetEncData(15, 01) [es:bx+0xd4]
 00BB                          SetEncData(16, 02) [es:bx+0xd4]
@@ -214,33 +181,27 @@ Functn06: "ITEMBENC"
 
 Functn07: "ITEMCENC"
 0000                          BEGIN
-0003                          ax = HasItem(64) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(64) [es:bx+0x50]
 0011 74 52                    jz 0x65
-0013                          ax = HasItem(94) ? 1 : 0 [es:bx+0x50]
+0013                          ax = HasItem(94) [es:bx+0x50]
 0021 74 21                    jz 0x44
 0023                          SetTreasureData(01F4, 00, 00, 00, 00, BD) [es:bx+0xd8]
 0042 EB 1F                    jmp 0x63
 0044                          SetTreasureData(07D0, 00, 00, 00, 00, 94) [es:bx+0xd8]
 0063 EB 51                    jmp 0xb6
-0065                          ax = HasItem(94) ? 1 : 0 [es:bx+0x50]
+0065                          ax = HasItem(94) [es:bx+0x50]
 0073 74 21                    jz 0x96
 0075                          SetTreasureData(07D0, 00, 00, 00, 00, 64) [es:bx+0xd8]
 0094 EB 20                    jmp 0xb6
 0096                          SetTreasureData(07D0, 00, 00, 00, 64, 94) [es:bx+0xd8]
 00B6                          ShowMessage(0653) [es:bx+0xf8] = Reptilian bodies stir as you draw near.
-00C3 C4 5E 06                 les bx, [bp+0x6]
-00C6 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00CB 3D 01 00                 cmp ax, 0x1
+00C3                          ax = PartyCountIs(01) [es:bx+0xf0]
 00CE 75 15                    jnz 0xe5
 00D0                          SetEncData(23, 01) [es:bx+0xd4]
 00E2 E9 9A 00                 jmp 0x17f
-00E5 C4 5E 06                 les bx, [bp+0x6]
-00E8 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00ED 3D 02 00                 cmp ax, 0x2
+00E5                          ax = PartyCountIs(02) [es:bx+0xf0]
 00F0 74 0D                    jz 0xff
-00F2 C4 5E 06                 les bx, [bp+0x6]
-00F5 26 FF 9F F0 00           call far word [es:bx+0xf0]
-00FA 3D 03 00                 cmp ax, 0x3
+00F2                          ax = PartyCountIs(03) [es:bx+0xf0]
 00FD 75 38                    jnz 0x137
 00FF                          SetEncData(23, 01) [es:bx+0xd4]
 0111                          SetEncData(23, 02) [es:bx+0xd4]
@@ -254,24 +215,18 @@ Functn07: "ITEMCENC"
 
 Functn08: "STRMNSTR"
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F F0 00           call far word [es:bx+0xf0]
-000B 3D 01 00                 cmp ax, 0x1
+0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 75 27                    jnz 0x37
 0010                          SetEncData(19, 01) [es:bx+0xd4]
 0022                          SetEncData(1A, 02) [es:bx+0xd4]
 0034 E9 1B 01                 jmp 0x152
-0037 C4 5E 06                 les bx, [bp+0x6]
-003A 26 FF 9F F0 00           call far word [es:bx+0xf0]
-003F 3D 02 00                 cmp ax, 0x2
+0037                          ax = PartyCountIs(02) [es:bx+0xf0]
 0042 75 39                    jnz 0x7d
 0044                          SetEncData(19, 01) [es:bx+0xd4]
 0056                          SetEncData(1A, 02) [es:bx+0xd4]
 0068                          SetEncData(19, 03) [es:bx+0xd4]
 007A E9 D5 00                 jmp 0x152
-007D C4 5E 06                 les bx, [bp+0x6]
-0080 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0085 3D 03 00                 cmp ax, 0x3
+007D                          ax = PartyCountIs(03) [es:bx+0xf0]
 0088 75 5C                    jnz 0xe6
 008A                          SetEncData(1A, 01) [es:bx+0xd4]
 009C                          SetEncData(1A, 02) [es:bx+0xd4]
@@ -289,22 +244,16 @@ Functn08: "STRMNSTR"
 
 Functn09: "TUFMNSTR"
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F F0 00           call far word [es:bx+0xf0]
-000B 3D 01 00                 cmp ax, 0x1
+0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 75 15                    jnz 0x25
 0010                          SetEncData(21, 01) [es:bx+0xd4]
 0022 E9 E5 00                 jmp 0x10a
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 9F F0 00           call far word [es:bx+0xf0]
-002D 3D 02 00                 cmp ax, 0x2
+0025                          ax = PartyCountIs(02) [es:bx+0xf0]
 0030 75 27                    jnz 0x59
 0032                          SetEncData(21, 01) [es:bx+0xd4]
 0044                          SetEncData(21, 02) [es:bx+0xd4]
 0056 E9 B1 00                 jmp 0x10a
-0059 C4 5E 06                 les bx, [bp+0x6]
-005C 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0061 3D 03 00                 cmp ax, 0x3
+0059                          ax = PartyCountIs(03) [es:bx+0xf0]
 0064 75 4A                    jnz 0xb0
 0066                          SetEncData(21, 01) [es:bx+0xd4]
 0078                          SetEncData(21, 02) [es:bx+0xd4]
@@ -326,7 +275,7 @@ Functn0A: "STRSMESS"
 Functn0B: "NPCCHATA"
 0000                          BEGIN
 0003                          ShowMessage(06B2) [es:bx+0xf8] = A Human Wizard teleports into the room you occupy.
-0010                          ShowPortrait(002B) [es:bx+0xd4]
+0010                          ShowPortrait(002B) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 29                    ja 0x58
@@ -340,7 +289,7 @@ Functn0B: "NPCCHATA"
 Functn0C: "NPCCHATB"
 0000                          BEGIN
 0003                          ShowMessage(0830) [es:bx+0xf8] = You encounter a sleepy Troll Knight.
-0010                          ShowPortrait(001B) [es:bx+0xd4]
+0010                          ShowPortrait(001B) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 1C                    ja 0x4b

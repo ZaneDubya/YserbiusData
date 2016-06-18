@@ -11,7 +11,14 @@ Functn02: "XOVER"
 0006 26 FF 5F 20              call far word [es:bx+0x20]
 000A 3D 39 00                 cmp ax, 0x39
 000D 75 54                    jnz 0x63
-000F                          ax = CheckState(01, 01) [es:bx+0x4]
+000F B8 01 00                 mov ax, 0x1
+0012 50                       push ax
+0013 B8 01 00                 mov ax, 0x1
+0016 50                       push ax
+0017 C4 5E 06                 les bx, [bp+0x6]
+001A 26 FF 5F 04              call far word [es:bx+0x4]
+001E 59                       pop cx
+001F 59                       pop cx
 0020 0B C0                    or ax, ax
 0022 74 1F                    jz 0x43
 0024 B8 39 00                 mov ax, 0x39
@@ -28,7 +35,14 @@ Functn02: "XOVER"
 0050                          ax = GetHits() [es:bx+0x74]
 0057                          DoDamage(ax) [es:bx+0x90]
 0061 EB 38                    jmp 0x9b
-0063                          ax = CheckState(01, 01) [es:bx+0x4]
+0063 B8 01 00                 mov ax, 0x1
+0066 50                       push ax
+0067 B8 01 00                 mov ax, 0x1
+006A 50                       push ax
+006B C4 5E 06                 les bx, [bp+0x6]
+006E 26 FF 5F 04              call far word [es:bx+0x4]
+0072 59                       pop cx
+0073 59                       pop cx
 0074 0B C0                    or ax, ax
 0076 74 12                    jz 0x8a
 0078 B8 39 00                 mov ax, 0x39
@@ -52,15 +66,7 @@ Functn02: "XOVER"
 
 Functn03: "XOVERON"
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B B8 01 00                 mov ax, 0x1
-000E 50                       push ax
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 1F                 call far word [es:bx]
-0015 83 C4 06                 add sp, 0x6
+0003                          SetState(01, 01, 01) [es:bx]
 0018 B8 39 00                 mov ax, 0x39
 001B 50                       push ax
 001C 33 C0                    xor ax, ax
@@ -75,15 +81,7 @@ Functn03: "XOVERON"
 
 Functn04: "XOVEROFF"
 0000                          BEGIN
-0003 33 C0                    xor ax, ax
-0005 50                       push ax
-0006 B8 01 00                 mov ax, 0x1
-0009 50                       push ax
-000A B8 01 00                 mov ax, 0x1
-000D 50                       push ax
-000E C4 5E 06                 les bx, [bp+0x6]
-0011 26 FF 1F                 call far word [es:bx]
-0014 83 C4 06                 add sp, 0x6
+0003                          SetState(01, 01, 00) [es:bx]
 0017 B8 39 00                 mov ax, 0x39
 001A 50                       push ax
 001B B8 01 00                 mov ax, 0x1
@@ -206,21 +204,20 @@ Functn10: "DRTOVORA"
 
 Functn14: "HEAVFOUN"
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xd4]
+0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010                          ShowMessage(082C) [es:bx+0xf8] = Clerical symbols decorate the marblework of Morgard's Fountain.
-001D                          ax = CheckState(02, 61) [es:bx+0x4]
+001D B8 61 00                 mov ax, 0x61
+0020 50                       push ax
+0021 B8 02 00                 mov ax, 0x2
+0024 50                       push ax
+0025 C4 5E 06                 les bx, [bp+0x6]
+0028 26 FF 5F 04              call far word [es:bx+0x4]
+002C 59                       pop cx
+002D 59                       pop cx
 002E 0B C0                    or ax, ax
 0030 74 03                    jz 0x35
 0032 E9 E5 00                 jmp 0x11a
-0035 B8 01 00                 mov ax, 0x1
-0038 50                       push ax
-0039 B8 61 00                 mov ax, 0x61
-003C 50                       push ax
-003D B8 02 00                 mov ax, 0x2
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 1F                 call far word [es:bx]
-0047 83 C4 06                 add sp, 0x6
+0035                          SetState(02, 61, 01) [es:bx]
 004A B8 13 00                 mov ax, 0x13
 004D 50                       push ax
 004E C4 5E 06                 les bx, [bp+0x6]
@@ -454,7 +451,7 @@ Functn22: "TEMPMAIN"
 0041                          SetEncData(25, 04) [es:bx+0xd4]
 0053                          SetEncData(18, 05) [es:bx+0xd4]
 0065                          SetEncData(18, 06) [es:bx+0xd4]
-0077                          ax = HasItem(E6) ? 1 : 0 [es:bx+0x50]
+0077                          ax = HasItem(E6) [es:bx+0x50]
 0085 74 20                    jz 0xa7
 0087                          SetTreasureData(0000, 00, 00, 00, 00, 96) [es:bx+0xd8]
 00A5 EB 1E                    jmp 0xc5
@@ -463,7 +460,7 @@ Functn22: "TEMPMAIN"
 
 Functn23: "TEMPWIND"
 0000                          BEGIN
-0003                          ax = HasItem(E6) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(E6) [es:bx+0x50]
 0011 74 0F                    jz 0x22
 0013                          ShowMessage(0ADC) [es:bx+0xf8] = The Harvest Horn protects you from the dangerous winds!
 0020 EB 32                    jmp 0x54
@@ -478,7 +475,7 @@ Functn23: "TEMPWIND"
 
 Functn24: "FNTNHEAL"
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xd4]
+0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010                          ax = GetHits() [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
@@ -489,7 +486,7 @@ Functn24: "FNTNHEAL"
 
 Functn25: "FNTNMANA"
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xd4]
+0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010 B8 10 27                 mov ax, 0x2710
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -500,7 +497,7 @@ Functn25: "FNTNMANA"
 
 Functn26: "FNTNHEAL"
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xd4]
+0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010                          ax = GetHits() [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
@@ -515,7 +512,7 @@ Functn27: "EXODENCA"
 0015                          SetEncData(03, 02) [es:bx+0xd4]
 0027                          SetEncData(03, 03) [es:bx+0xd4]
 0039                          SetEncData(03, 04) [es:bx+0xd4]
-004B                          ax = HasItem(E0) ? 1 : 0 [es:bx+0x50]
+004B                          ax = HasItem(E0) [es:bx+0x50]
 0059 74 21                    jz 0x7c
 005B                          SetTreasureData(0000, 00, 00, 00, B6, D0) [es:bx+0xd8]
 007A EB 1F                    jmp 0x9b
@@ -532,7 +529,7 @@ Functn28: "WINDENC"
 
 Functn29: "TXTEXOD"
 0000                          BEGIN
-0003                          ShowPortrait(001E) [es:bx+0xd4]
+0003                          ShowPortrait(001E) [es:bx+0xfc]
 0010                          ShowMessage(0C25) [es:bx+0xf8] = You encounter an Orc Ranger.
 001D                          ShowMessage(0C42) [es:bx+0xf8] = 'There is a great river in the dwarven lands below.  It seems to lead to a great chasm I could not cross.  A mage told me the chasm was called the Ageless Void.
 002A                          ShowMessage(0CE3) [es:bx+0xf8] = Be careful in the great river.  It drains your health for every step you take.'
@@ -548,18 +545,17 @@ Functn2A: "WINDENCA"
 0011 26 FF 5F 78              call far word [es:bx+0x78]
 0015 3D 06 00                 cmp ax, 0x6
 0018 75 58                    jnz 0x72
-001A                          ax = CheckState(02, 5A) [es:bx+0x4]
+001A B8 5A 00                 mov ax, 0x5a
+001D 50                       push ax
+001E B8 02 00                 mov ax, 0x2
+0021 50                       push ax
+0022 C4 5E 06                 les bx, [bp+0x6]
+0025 26 FF 5F 04              call far word [es:bx+0x4]
+0029 59                       pop cx
+002A 59                       pop cx
 002B 0B C0                    or ax, ax
 002D 75 36                    jnz 0x65
-002F B8 01 00                 mov ax, 0x1
-0032 50                       push ax
-0033 B8 5A 00                 mov ax, 0x5a
-0036 50                       push ax
-0037 B8 02 00                 mov ax, 0x2
-003A 50                       push ax
-003B C4 5E 06                 les bx, [bp+0x6]
-003E 26 FF 1F                 call far word [es:bx]
-0041 83 C4 06                 add sp, 0x6
+002F                          SetState(02, 5A, 01) [es:bx]
 0044                          ShowMessage(0D33) [es:bx+0xf8] = Your initiative in combat improves.
 0051 B8 03 00                 mov ax, 0x3
 0054 50                       push ax
@@ -583,18 +579,17 @@ Functn2B: "WINDENCB"
 0012 26 FF 5F 78              call far word [es:bx+0x78]
 0016 3D 05 00                 cmp ax, 0x5
 0019 75 58                    jnz 0x73
-001B                          ax = CheckState(02, 5B) [es:bx+0x4]
+001B B8 5B 00                 mov ax, 0x5b
+001E 50                       push ax
+001F B8 02 00                 mov ax, 0x2
+0022 50                       push ax
+0023 C4 5E 06                 les bx, [bp+0x6]
+0026 26 FF 5F 04              call far word [es:bx+0x4]
+002A 59                       pop cx
+002B 59                       pop cx
 002C 0B C0                    or ax, ax
 002E 75 36                    jnz 0x66
-0030 B8 01 00                 mov ax, 0x1
-0033 50                       push ax
-0034 B8 5B 00                 mov ax, 0x5b
-0037 50                       push ax
-0038 B8 02 00                 mov ax, 0x2
-003B 50                       push ax
-003C C4 5E 06                 les bx, [bp+0x6]
-003F 26 FF 1F                 call far word [es:bx]
-0042 83 C4 06                 add sp, 0x6
+0030                          SetState(02, 5B, 01) [es:bx]
 0045                          ShowMessage(0D68) [es:bx+0xf8] = Your agility improves.
 0052 B8 03 00                 mov ax, 0x3
 0055 50                       push ax
@@ -618,18 +613,17 @@ Functn2C: "WINDENCC"
 0012 26 FF 5F 78              call far word [es:bx+0x78]
 0016 3D 03 00                 cmp ax, 0x3
 0019 75 57                    jnz 0x72
-001B                          ax = CheckState(02, 5C) [es:bx+0x4]
+001B B8 5C 00                 mov ax, 0x5c
+001E 50                       push ax
+001F B8 02 00                 mov ax, 0x2
+0022 50                       push ax
+0023 C4 5E 06                 les bx, [bp+0x6]
+0026 26 FF 5F 04              call far word [es:bx+0x4]
+002A 59                       pop cx
+002B 59                       pop cx
 002C 0B C0                    or ax, ax
 002E 75 35                    jnz 0x65
-0030 B8 01 00                 mov ax, 0x1
-0033 50                       push ax
-0034 B8 5C 00                 mov ax, 0x5c
-0037 50                       push ax
-0038 B8 02 00                 mov ax, 0x2
-003B 50                       push ax
-003C C4 5E 06                 les bx, [bp+0x6]
-003F 26 FF 1F                 call far word [es:bx]
-0042 83 C4 06                 add sp, 0x6
+0030                          SetState(02, 5C, 01) [es:bx]
 0045                          ShowMessage(0D90) [es:bx+0xf8] = You feel much stronger.
 0052 B8 03 00                 mov ax, 0x3
 0055 50                       push ax
@@ -653,18 +647,17 @@ Functn2D: "WINDENCD"
 0012 26 FF 5F 78              call far word [es:bx+0x78]
 0016 3D 04 00                 cmp ax, 0x4
 0019 75 58                    jnz 0x73
-001B                          ax = CheckState(02, 5D) [es:bx+0x4]
+001B B8 5D 00                 mov ax, 0x5d
+001E 50                       push ax
+001F B8 02 00                 mov ax, 0x2
+0022 50                       push ax
+0023 C4 5E 06                 les bx, [bp+0x6]
+0026 26 FF 5F 04              call far word [es:bx+0x4]
+002A 59                       pop cx
+002B 59                       pop cx
 002C 0B C0                    or ax, ax
 002E 75 36                    jnz 0x66
-0030 B8 01 00                 mov ax, 0x1
-0033 50                       push ax
-0034 B8 5D 00                 mov ax, 0x5d
-0037 50                       push ax
-0038 B8 02 00                 mov ax, 0x2
-003B 50                       push ax
-003C C4 5E 06                 les bx, [bp+0x6]
-003F 26 FF 1F                 call far word [es:bx]
-0042 83 C4 06                 add sp, 0x6
+0030                          SetState(02, 5D, 01) [es:bx]
 0045                          ShowMessage(0DB9) [es:bx+0xf8] = Your ability to defend yourself in combat improves.
 0052 B8 03 00                 mov ax, 0x3
 0055 50                       push ax
@@ -780,7 +773,7 @@ Functn31: "BDRWINDD"
 
 Functn32: "TXTWINDH"
 0000                          BEGIN
-0003                          ShowPortrait(0028) [es:bx+0xd4]
+0003                          ShowPortrait(0028) [es:bx+0xfc]
 0010                          ShowMessage(0F6B) [es:bx+0xf8] = A Troll Cleric comes hobbling by.
 001D                          ShowMessage(0F8D) [es:bx+0xf8] = 'I found an interesting tapestry past one of the dwarven teleports.  It had a picture of a great moon, just like the one in the sky, but different.'
 002A                          RETURN
@@ -819,19 +812,18 @@ Functn37: "TXTTROLB"
 
 Functn38: "FNTNSTRN"
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xd4]
-0010                          ax = CheckState(02, 4A) [es:bx+0x4]
+0003                          ShowPortrait(0042) [es:bx+0xfc]
+0010 B8 4A 00                 mov ax, 0x4a
+0013 50                       push ax
+0014 B8 02 00                 mov ax, 0x2
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 04              call far word [es:bx+0x4]
+001F 59                       pop cx
+0020 59                       pop cx
 0021 0B C0                    or ax, ax
 0023 75 47                    jnz 0x6c
-0025 B8 01 00                 mov ax, 0x1
-0028 50                       push ax
-0029 B8 4A 00                 mov ax, 0x4a
-002C 50                       push ax
-002D B8 02 00                 mov ax, 0x2
-0030 50                       push ax
-0031 C4 5E 06                 les bx, [bp+0x6]
-0034 26 FF 1F                 call far word [es:bx]
-0037 83 C4 06                 add sp, 0x6
+0025                          SetState(02, 4A, 01) [es:bx]
 003A B8 02 00                 mov ax, 0x2
 003D 50                       push ax
 003E 33 C0                    xor ax, ax
@@ -872,21 +864,20 @@ Functn3A: "BACKENCB"
 
 Functn3B: "BACKENCC"
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xd4]
+0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010                          ShowMessage(11FC) [es:bx+0xf8] = Pictograms of Hunting Expeditions have been carved into the loose rock above StoneGiant Fountain. 
-001D                          ax = CheckState(02, 62) [es:bx+0x4]
+001D B8 62 00                 mov ax, 0x62
+0020 50                       push ax
+0021 B8 02 00                 mov ax, 0x2
+0024 50                       push ax
+0025 C4 5E 06                 les bx, [bp+0x6]
+0028 26 FF 5F 04              call far word [es:bx+0x4]
+002C 59                       pop cx
+002D 59                       pop cx
 002E 0B C0                    or ax, ax
 0030 74 03                    jz 0x35
 0032 E9 E3 00                 jmp 0x118
-0035 B8 01 00                 mov ax, 0x1
-0038 50                       push ax
-0039 B8 62 00                 mov ax, 0x62
-003C 50                       push ax
-003D B8 02 00                 mov ax, 0x2
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 1F                 call far word [es:bx]
-0047 83 C4 06                 add sp, 0x6
+0035                          SetState(02, 62, 01) [es:bx]
 004A 33 C0                    xor ax, ax
 004C 50                       push ax
 004D C4 5E 06                 les bx, [bp+0x6]
@@ -984,21 +975,20 @@ Functn3D: "BACKENCE"
 
 Functn48: "FNTNTROL"
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xd4]
+0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010                          ShowMessage(132C) [es:bx+0xf8] = You drink from the crystal waters of My My Fountain.
-001D                          ax = CheckState(02, 4B) [es:bx+0x4]
+001D B8 4B 00                 mov ax, 0x4b
+0020 50                       push ax
+0021 B8 02 00                 mov ax, 0x2
+0024 50                       push ax
+0025 C4 5E 06                 les bx, [bp+0x6]
+0028 26 FF 5F 04              call far word [es:bx+0x4]
+002C 59                       pop cx
+002D 59                       pop cx
 002E 0B C0                    or ax, ax
 0030 74 03                    jz 0x35
 0032 E9 0B 02                 jmp 0x240
-0035 B8 01 00                 mov ax, 0x1
-0038 50                       push ax
-0039 B8 4B 00                 mov ax, 0x4b
-003C 50                       push ax
-003D B8 02 00                 mov ax, 0x2
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 1F                 call far word [es:bx]
-0047 83 C4 06                 add sp, 0x6
+0035                          SetState(02, 4B, 01) [es:bx]
 004A B8 04 00                 mov ax, 0x4
 004D 50                       push ax
 004E C4 5E 06                 les bx, [bp+0x6]
@@ -1171,15 +1161,7 @@ Functn48: "FNTNTROL"
 022F EB 0D                    jmp 0x23e
 0231                          ShowMessage(14A4) [es:bx+0xf8] = Nothing happens.
 023E EB 22                    jmp 0x262
-0240 B8 01 00                 mov ax, 0x1
-0243 50                       push ax
-0244 B8 4B 00                 mov ax, 0x4b
-0247 50                       push ax
-0248 B8 02 00                 mov ax, 0x2
-024B 50                       push ax
-024C C4 5E 06                 les bx, [bp+0x6]
-024F 26 FF 1F                 call far word [es:bx]
-0252 83 C4 06                 add sp, 0x6
+0240                          SetState(02, 4B, 01) [es:bx]
 0255                          ShowMessage(14B5) [es:bx+0xf8] = The waters are refreshing, but not enlightening!
 0262                          RETURN
 

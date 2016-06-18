@@ -148,22 +148,16 @@ Functn06: "TOPALACA"
 
 Functn07: "LOWMNSTR"
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F F0 00           call far word [es:bx+0xf0]
-000B 3D 01 00                 cmp ax, 0x1
+0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 75 15                    jnz 0x25
 0010                          SetEncData(19, 01) [es:bx+0xd4]
 0022 E9 C1 00                 jmp 0xe6
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 9F F0 00           call far word [es:bx+0xf0]
-002D 3D 02 00                 cmp ax, 0x2
+0025                          ax = PartyCountIs(02) [es:bx+0xf0]
 0030 75 27                    jnz 0x59
 0032                          SetEncData(1A, 01) [es:bx+0xd4]
 0044                          SetEncData(1C, 02) [es:bx+0xd4]
 0056 E9 8D 00                 jmp 0xe6
-0059 C4 5E 06                 les bx, [bp+0x6]
-005C 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0061 3D 03 00                 cmp ax, 0x3
+0059                          ax = PartyCountIs(03) [es:bx+0xf0]
 0064 75 38                    jnz 0x9e
 0066                          SetEncData(1A, 01) [es:bx+0xd4]
 0078                          SetEncData(1A, 02) [es:bx+0xd4]
@@ -177,25 +171,19 @@ Functn07: "LOWMNSTR"
 
 Functn08: "MEDMNSTR"
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F F0 00           call far word [es:bx+0xf0]
-000B 3D 01 00                 cmp ax, 0x1
+0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 75 27                    jnz 0x37
 0010                          SetEncData(1E, 01) [es:bx+0xd4]
 0022                          SetEncData(20, 02) [es:bx+0xd4]
 0034 E9 3F 01                 jmp 0x176
-0037 C4 5E 06                 les bx, [bp+0x6]
-003A 26 FF 9F F0 00           call far word [es:bx+0xf0]
-003F 3D 02 00                 cmp ax, 0x2
+0037                          ax = PartyCountIs(02) [es:bx+0xf0]
 0042 75 4B                    jnz 0x8f
 0044                          SetEncData(1F, 01) [es:bx+0xd4]
 0056                          SetEncData(1F, 02) [es:bx+0xd4]
 0068                          SetEncData(1E, 03) [es:bx+0xd4]
 007A                          SetEncData(21, 04) [es:bx+0xd4]
 008C E9 E7 00                 jmp 0x176
-008F C4 5E 06                 les bx, [bp+0x6]
-0092 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0097 3D 03 00                 cmp ax, 0x3
+008F                          ax = PartyCountIs(03) [es:bx+0xf0]
 009A 75 6E                    jnz 0x10a
 009C                          SetEncData(1E, 01) [es:bx+0xd4]
 00AE                          SetEncData(1F, 02) [es:bx+0xd4]
@@ -214,22 +202,16 @@ Functn08: "MEDMNSTR"
 
 Functn09: "STRMNSTR"
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F F0 00           call far word [es:bx+0xf0]
-000B 3D 01 00                 cmp ax, 0x1
+0003                          ax = PartyCountIs(01) [es:bx+0xf0]
 000E 75 15                    jnz 0x25
 0010                          SetEncData(23, 01) [es:bx+0xd4]
 0022 E9 09 01                 jmp 0x12e
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 9F F0 00           call far word [es:bx+0xf0]
-002D 3D 02 00                 cmp ax, 0x2
+0025                          ax = PartyCountIs(02) [es:bx+0xf0]
 0030 75 27                    jnz 0x59
 0032                          SetEncData(24, 01) [es:bx+0xd4]
 0044                          SetEncData(24, 02) [es:bx+0xd4]
 0056 E9 D5 00                 jmp 0x12e
-0059 C4 5E 06                 les bx, [bp+0x6]
-005C 26 FF 9F F0 00           call far word [es:bx+0xf0]
-0061 3D 03 00                 cmp ax, 0x3
+0059                          ax = PartyCountIs(03) [es:bx+0xf0]
 0064 75 5C                    jnz 0xc2
 0066                          SetEncData(24, 01) [es:bx+0xd4]
 0078                          SetEncData(24, 02) [es:bx+0xd4]
@@ -278,7 +260,7 @@ Functn0F: "TOPALACB"
 Functn10: "NPCCHATA"
 0000                          BEGIN
 0003                          ShowMessage(066F) [es:bx+0xf8] = You encounter a Dwarf Thief.
-0010                          ShowPortrait(0023) [es:bx+0xd4]
+0010                          ShowPortrait(0023) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 0F                    ja 0x3e
@@ -290,7 +272,7 @@ Functn10: "NPCCHATA"
 Functn11: "NPCCHATB"
 0000                          BEGIN
 0003                          ShowMessage(0742) [es:bx+0xf8] = You encounter a Halfling Ranger.
-0010                          ShowPortrait(0021) [es:bx+0xd4]
+0010                          ShowPortrait(0021) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 0F                    ja 0x3e
@@ -302,7 +284,7 @@ Functn11: "NPCCHATB"
 Functn12: "NPCCHATC"
 0000                          BEGIN
 0003                          ShowMessage(07F6) [es:bx+0xf8] = You encounter a Dwarf Wizard.
-0010                          ShowPortrait(002C) [es:bx+0xd4]
+0010                          ShowPortrait(002C) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
@@ -314,7 +296,7 @@ Functn12: "NPCCHATC"
 Functn13: "NPCCHATD"
 0000                          BEGIN
 0003                          ShowMessage(08E8) [es:bx+0xf8] = You encounter an Orc Knight.
-0010                          ShowPortrait(001A) [es:bx+0xd4]
+0010                          ShowPortrait(001A) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
@@ -336,7 +318,7 @@ Functn15: "STRSTELE"
 Functn16: "NPCCHATE"
 0000                          BEGIN
 0003                          ShowMessage(09F2) [es:bx+0xf8] = You encounter a Halfling Cleric.
-0010                          ShowPortrait(0029) [es:bx+0xd4]
+0010                          ShowPortrait(0029) [es:bx+0xfc]
 001D                          UnknownFunction(000F) [es:bx+0xec]
 002A 3D 0D 00                 cmp ax, 0xd
 002D 77 1C                    ja 0x4b

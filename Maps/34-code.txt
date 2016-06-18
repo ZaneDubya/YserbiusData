@@ -17,23 +17,36 @@ Functn03: "TIMEA"
 0000                          BEGIN
 0003 4C                       dec sp
 0004 4C                       dec sp
-0005 B8 01 00                 mov ax, 0x1
-0008 50                       push ax
-0009 B8 7B 00                 mov ax, 0x7b
-000C 50                       push ax
-000D B8 02 00                 mov ax, 0x2
-0010 50                       push ax
-0011 C4 5E 06                 les bx, [bp+0x6]
-0014 26 FF 1F                 call far word [es:bx]
-0017 83 C4 06                 add sp, 0x6
+0005                          SetState(02, 7B, 01) [es:bx]
 001A                          ShowMessage(04C0) [es:bx+0xf8] = The wall sparkles with phantasmal light.
-0027                          ax = CheckState(02, 7B) [es:bx+0x4]
+0027 B8 7B 00                 mov ax, 0x7b
+002A 50                       push ax
+002B B8 02 00                 mov ax, 0x2
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 5F 04              call far word [es:bx+0x4]
+0036 59                       pop cx
+0037 59                       pop cx
 0038 50                       push ax
-0039                          ax = CheckState(02, 7C) [es:bx+0x4]
+0039 B8 7C 00                 mov ax, 0x7c
+003C 50                       push ax
+003D B8 02 00                 mov ax, 0x2
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 5F 04              call far word [es:bx+0x4]
+0048 59                       pop cx
+0049 59                       pop cx
 004A 5A                       pop dx
 004B 03 D0                    add dx, ax
 004D 52                       push dx
-004E                          ax = CheckState(02, 7D) [es:bx+0x4]
+004E B8 7D 00                 mov ax, 0x7d
+0051 50                       push ax
+0052 B8 02 00                 mov ax, 0x2
+0055 50                       push ax
+0056 C4 5E 06                 les bx, [bp+0x6]
+0059 26 FF 5F 04              call far word [es:bx+0x4]
+005D 59                       pop cx
+005E 59                       pop cx
 005F 5A                       pop dx
 0060 03 D0                    add dx, ax
 0062 89 56 FE                 mov [bp-0x2], dx
@@ -84,23 +97,36 @@ Functn04: "TIMEB"
 0000                          BEGIN
 0003 4C                       dec sp
 0004 4C                       dec sp
-0005 B8 01 00                 mov ax, 0x1
-0008 50                       push ax
-0009 B8 7C 00                 mov ax, 0x7c
-000C 50                       push ax
-000D B8 02 00                 mov ax, 0x2
-0010 50                       push ax
-0011 C4 5E 06                 les bx, [bp+0x6]
-0014 26 FF 1F                 call far word [es:bx]
-0017 83 C4 06                 add sp, 0x6
+0005                          SetState(02, 7C, 01) [es:bx]
 001A                          ShowMessage(05C0) [es:bx+0xf8] = The wall sparkles with phantasmal light.
-0027                          ax = CheckState(02, 7B) [es:bx+0x4]
+0027 B8 7B 00                 mov ax, 0x7b
+002A 50                       push ax
+002B B8 02 00                 mov ax, 0x2
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 5F 04              call far word [es:bx+0x4]
+0036 59                       pop cx
+0037 59                       pop cx
 0038 50                       push ax
-0039                          ax = CheckState(02, 7C) [es:bx+0x4]
+0039 B8 7C 00                 mov ax, 0x7c
+003C 50                       push ax
+003D B8 02 00                 mov ax, 0x2
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 5F 04              call far word [es:bx+0x4]
+0048 59                       pop cx
+0049 59                       pop cx
 004A 5A                       pop dx
 004B 03 D0                    add dx, ax
 004D 52                       push dx
-004E                          ax = CheckState(02, 7D) [es:bx+0x4]
+004E B8 7D 00                 mov ax, 0x7d
+0051 50                       push ax
+0052 B8 02 00                 mov ax, 0x2
+0055 50                       push ax
+0056 C4 5E 06                 les bx, [bp+0x6]
+0059 26 FF 5F 04              call far word [es:bx+0x4]
+005D 59                       pop cx
+005E 59                       pop cx
 005F 5A                       pop dx
 0060 03 D0                    add dx, ax
 0062 89 56 FE                 mov [bp-0x2], dx
@@ -151,23 +177,36 @@ Functn05: "TIMEC"
 0000                          BEGIN
 0003 4C                       dec sp
 0004 4C                       dec sp
-0005 B8 01 00                 mov ax, 0x1
-0008 50                       push ax
-0009 B8 7D 00                 mov ax, 0x7d
-000C 50                       push ax
-000D B8 02 00                 mov ax, 0x2
-0010 50                       push ax
-0011 C4 5E 06                 les bx, [bp+0x6]
-0014 26 FF 1F                 call far word [es:bx]
-0017 83 C4 06                 add sp, 0x6
+0005                          SetState(02, 7D, 01) [es:bx]
 001A                          ShowMessage(06C0) [es:bx+0xf8] = The wall sparkles with phantasmal light.
-0027                          ax = CheckState(02, 7B) [es:bx+0x4]
+0027 B8 7B 00                 mov ax, 0x7b
+002A 50                       push ax
+002B B8 02 00                 mov ax, 0x2
+002E 50                       push ax
+002F C4 5E 06                 les bx, [bp+0x6]
+0032 26 FF 5F 04              call far word [es:bx+0x4]
+0036 59                       pop cx
+0037 59                       pop cx
 0038 50                       push ax
-0039                          ax = CheckState(02, 7C) [es:bx+0x4]
+0039 B8 7C 00                 mov ax, 0x7c
+003C 50                       push ax
+003D B8 02 00                 mov ax, 0x2
+0040 50                       push ax
+0041 C4 5E 06                 les bx, [bp+0x6]
+0044 26 FF 5F 04              call far word [es:bx+0x4]
+0048 59                       pop cx
+0049 59                       pop cx
 004A 5A                       pop dx
 004B 03 D0                    add dx, ax
 004D 52                       push dx
-004E                          ax = CheckState(02, 7D) [es:bx+0x4]
+004E B8 7D 00                 mov ax, 0x7d
+0051 50                       push ax
+0052 B8 02 00                 mov ax, 0x2
+0055 50                       push ax
+0056 C4 5E 06                 les bx, [bp+0x6]
+0059 26 FF 5F 04              call far word [es:bx+0x4]
+005D 59                       pop cx
+005E 59                       pop cx
 005F 5A                       pop dx
 0060 03 D0                    add dx, ax
 0062 89 56 FE                 mov [bp-0x2], dx
@@ -216,40 +255,16 @@ Functn05: "TIMEC"
 
 Functn06: "TIMEELEM"
 0000                          BEGIN
-0003                          ShowPortrait(0011) [es:bx+0xd4]
+0003                          ShowPortrait(0011) [es:bx+0xfc]
 0010                          ShowMessage(07C0) [es:bx+0xf8] = I am the Time Elemental, En-Li-Kil.
 001D                          ShowMessage(07E4) [es:bx+0xf8] = You have traveled far...only to die!
 002A                          ShowMessage(0809) [es:bx+0xf8] = Your arrival frees me from my long imprisonment here -- halfway between two worlds.
 0037                          ShowMessage(085D) [es:bx+0xf8] = I destroyed that fool Arnakkian Slowfoot, and I shall destroy you as easily.
 0044                          ShowMessage(08AA) [es:bx+0xf8] = Then I shall search out all mortals in your world and destroy them!
 0051                          ShowMessage(08EE) [es:bx+0xf8] = I am En-Li-Kil!  The immortal!!!
-005E 33 C0                    xor ax, ax
-0060 50                       push ax
-0061 B8 7B 00                 mov ax, 0x7b
-0064 50                       push ax
-0065 B8 02 00                 mov ax, 0x2
-0068 50                       push ax
-0069 C4 5E 06                 les bx, [bp+0x6]
-006C 26 FF 1F                 call far word [es:bx]
-006F 83 C4 06                 add sp, 0x6
-0072 33 C0                    xor ax, ax
-0074 50                       push ax
-0075 B8 7C 00                 mov ax, 0x7c
-0078 50                       push ax
-0079 B8 02 00                 mov ax, 0x2
-007C 50                       push ax
-007D C4 5E 06                 les bx, [bp+0x6]
-0080 26 FF 1F                 call far word [es:bx]
-0083 83 C4 06                 add sp, 0x6
-0086 33 C0                    xor ax, ax
-0088 50                       push ax
-0089 B8 7D 00                 mov ax, 0x7d
-008C 50                       push ax
-008D B8 02 00                 mov ax, 0x2
-0090 50                       push ax
-0091 C4 5E 06                 les bx, [bp+0x6]
-0094 26 FF 1F                 call far word [es:bx]
-0097 83 C4 06                 add sp, 0x6
+005E                          SetState(02, 7B, 00) [es:bx]
+0072                          SetState(02, 7C, 00) [es:bx]
+0086                          SetState(02, 7D, 00) [es:bx]
 009A                          SetEncData(21, 01) [es:bx+0xd4]
 00AC                          SetEncData(23, 02) [es:bx+0xd4]
 00BE                          SetEncData(10, 03) [es:bx+0xd4]
@@ -259,13 +274,26 @@ Functn06: "TIMEELEM"
 
 Functn07: "TIMEPLAT"
 0000                          BEGIN
-0003                          ax = CheckState(01, 00) [es:bx+0x4]
-0013 0B C0                    or ax, ax
+0003                          ax = CheckState(01, 00, FF) [es:bx+0x4]
 0015 74 63                    jz 0x7a
-0017                          ax = CheckState(01, 01) [es:bx+0x4]
+0017 B8 01 00                 mov ax, 0x1
+001A 50                       push ax
+001B B8 01 00                 mov ax, 0x1
+001E 50                       push ax
+001F C4 5E 06                 les bx, [bp+0x6]
+0022 26 FF 5F 04              call far word [es:bx+0x4]
+0026 59                       pop cx
+0027 59                       pop cx
 0028 0B C0                    or ax, ax
 002A 74 4E                    jz 0x7a
-002C                          ax = CheckState(01, 02) [es:bx+0x4]
+002C B8 02 00                 mov ax, 0x2
+002F 50                       push ax
+0030 B8 01 00                 mov ax, 0x1
+0033 50                       push ax
+0034 C4 5E 06                 les bx, [bp+0x6]
+0037 26 FF 5F 04              call far word [es:bx+0x4]
+003B 59                       pop cx
+003C 59                       pop cx
 003D 0B C0                    or ax, ax
 003F 74 39                    jz 0x7a
 0041 B8 A8 00                 mov ax, 0xa8
@@ -278,7 +306,7 @@ Functn07: "TIMEPLAT"
 0050 59                       pop cx
 0051                          ShowMessage(090F) [es:bx+0xf8] = You cross the Waters of Death safely.
 005E                          ShowMessage(0935) [es:bx+0xf8] = En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
-006B                          ShowPortrait(0042) [es:bx+0xd4]
+006B                          ShowPortrait(0042) [es:bx+0xfc]
 0078 EB 2F                    jmp 0xa9
 007A B8 A8 00                 mov ax, 0xa8
 007D 50                       push ax
@@ -320,7 +348,7 @@ Functn08: "GOAL"
 0037 C4 5E 06                 les bx, [bp+0x6]
 003A 26 FF 5F 4C              call far word [es:bx+0x4c]
 003E 59                       pop cx
-003F                          ax = CheckState2(02, 6A) ? 1 : 0 [es:bx+0x8]
+003F                          ax = CheckState2(02, 6A) [es:bx+0x8]
 0052 74 2A                    jz 0x7e
 0054                          ShowMessage(0A00) [es:bx+0xf8] = You have found the Fountain of Life, but the waters are drained.
 0061                          ShowMessage(0A41) [es:bx+0xf8] = The Rainbow Gems and Golden Boat dissolve into dust.
@@ -333,27 +361,18 @@ Functn08: "GOAL"
 00B2                          ShowMessage(0B88) [es:bx+0xf8] = Return to your home safely now.
 00BF                          ShowMessage(0BA8) [es:bx+0xf8] = Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
 00CC                          ShowMessage(0BFF) [es:bx+0xf8] = Farewell...this ending is just the beginning!!!
-00D9                          ax = CheckState(02, 69) [es:bx+0x4]
+00D9 B8 69 00                 mov ax, 0x69
+00DC 50                       push ax
+00DD B8 02 00                 mov ax, 0x2
+00E0 50                       push ax
+00E1 C4 5E 06                 les bx, [bp+0x6]
+00E4 26 FF 5F 04              call far word [es:bx+0x4]
+00E8 59                       pop cx
+00E9 59                       pop cx
 00EA 0B C0                    or ax, ax
 00EC 75 3C                    jnz 0x12a
-00EE B8 01 00                 mov ax, 0x1
-00F1 50                       push ax
-00F2 B8 69 00                 mov ax, 0x69
-00F5 50                       push ax
-00F6 B8 02 00                 mov ax, 0x2
-00F9 50                       push ax
-00FA C4 5E 06                 les bx, [bp+0x6]
-00FD 26 FF 1F                 call far word [es:bx]
-0100 83 C4 06                 add sp, 0x6
-0103 B8 01 00                 mov ax, 0x1
-0106 50                       push ax
-0107 B8 6A 00                 mov ax, 0x6a
-010A 50                       push ax
-010B B8 02 00                 mov ax, 0x2
-010E 50                       push ax
-010F C4 5E 06                 les bx, [bp+0x6]
-0112 26 FF 1F                 call far word [es:bx]
-0115 83 C4 06                 add sp, 0x6
+00EE                          SetState(02, 69, 01) [es:bx]
+0103                          SetState(02, 6A, 01) [es:bx]
 0118 B8 4C 00                 mov ax, 0x4c
 011B BA 40 4B                 mov dx, 0x4b40
 011E 50                       push ax
@@ -398,13 +417,34 @@ Functn0B: "ENCC"
 
 Functn0C: "ENCD"
 0000                          BEGIN
-0003                          ax = CheckState(01, 7B) [es:bx+0x4]
+0003 B8 7B 00                 mov ax, 0x7b
+0006 50                       push ax
+0007 B8 01 00                 mov ax, 0x1
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 5F 04              call far word [es:bx+0x4]
+0012 59                       pop cx
+0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 3A                    jz 0x52
-0018                          ax = CheckState(01, 7C) [es:bx+0x4]
+0018 B8 7C 00                 mov ax, 0x7c
+001B 50                       push ax
+001C B8 01 00                 mov ax, 0x1
+001F 50                       push ax
+0020 C4 5E 06                 les bx, [bp+0x6]
+0023 26 FF 5F 04              call far word [es:bx+0x4]
+0027 59                       pop cx
+0028 59                       pop cx
 0029 0B C0                    or ax, ax
 002B 74 25                    jz 0x52
-002D                          ax = CheckState(01, 7D) [es:bx+0x4]
+002D B8 7D 00                 mov ax, 0x7d
+0030 50                       push ax
+0031 B8 01 00                 mov ax, 0x1
+0034 50                       push ax
+0035 C4 5E 06                 les bx, [bp+0x6]
+0038 26 FF 5F 04              call far word [es:bx+0x4]
+003C 59                       pop cx
+003D 59                       pop cx
 003E 0B C0                    or ax, ax
 0040 74 10                    jz 0x52
 0042 B8 A8 00                 mov ax, 0xa8
@@ -445,13 +485,26 @@ Functn0E: "ENCF"
 
 Functn0F: "CROSSOVR"
 0000                          BEGIN
-0003                          ax = CheckState(01, 00) [es:bx+0x4]
-0013 0B C0                    or ax, ax
+0003                          ax = CheckState(01, 00, FF) [es:bx+0x4]
 0015 74 3C                    jz 0x53
-0017                          ax = CheckState(01, 01) [es:bx+0x4]
+0017 B8 01 00                 mov ax, 0x1
+001A 50                       push ax
+001B B8 01 00                 mov ax, 0x1
+001E 50                       push ax
+001F C4 5E 06                 les bx, [bp+0x6]
+0022 26 FF 5F 04              call far word [es:bx+0x4]
+0026 59                       pop cx
+0027 59                       pop cx
 0028 0B C0                    or ax, ax
 002A 74 27                    jz 0x53
-002C                          ax = CheckState(01, 02) [es:bx+0x4]
+002C B8 02 00                 mov ax, 0x2
+002F 50                       push ax
+0030 B8 01 00                 mov ax, 0x1
+0033 50                       push ax
+0034 C4 5E 06                 les bx, [bp+0x6]
+0037 26 FF 5F 04              call far word [es:bx+0x4]
+003B 59                       pop cx
+003C 59                       pop cx
 003D 0B C0                    or ax, ax
 003F 74 12                    jz 0x53
 0041 B8 A8 00                 mov ax, 0xa8
@@ -477,46 +530,43 @@ Functn10: "MAPCONV"
 0000                          BEGIN
 0003 4C                       dec sp
 0004 4C                       dec sp
-0005                          ax = CheckState2(02, 7B) ? 1 : 0 [es:bx+0x8]
+0005                          ax = CheckState2(02, 7B) [es:bx+0x8]
 0018 74 14                    jz 0x2e
-001A B8 01 00                 mov ax, 0x1
-001D 50                       push ax
-001E 33 C0                    xor ax, ax
-0020 50                       push ax
-0021 B8 01 00                 mov ax, 0x1
-0024 50                       push ax
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 1F                 call far word [es:bx]
-002B 83 C4 06                 add sp, 0x6
-002E                          ax = CheckState2(02, 7C) ? 1 : 0 [es:bx+0x8]
+001A                          SetState(01, 00, 01) [es:bx]
+002E                          ax = CheckState2(02, 7C) [es:bx+0x8]
 0041 74 15                    jz 0x58
-0043 B8 01 00                 mov ax, 0x1
-0046 50                       push ax
-0047 B8 01 00                 mov ax, 0x1
-004A 50                       push ax
-004B B8 01 00                 mov ax, 0x1
-004E 50                       push ax
-004F C4 5E 06                 les bx, [bp+0x6]
-0052 26 FF 1F                 call far word [es:bx]
-0055 83 C4 06                 add sp, 0x6
-0058                          ax = CheckState2(02, 7D) ? 1 : 0 [es:bx+0x8]
+0043                          SetState(01, 01, 01) [es:bx]
+0058                          ax = CheckState2(02, 7D) [es:bx+0x8]
 006B 74 15                    jz 0x82
-006D B8 01 00                 mov ax, 0x1
-0070 50                       push ax
-0071 B8 02 00                 mov ax, 0x2
-0074 50                       push ax
-0075 B8 01 00                 mov ax, 0x1
-0078 50                       push ax
-0079 C4 5E 06                 les bx, [bp+0x6]
-007C 26 FF 1F                 call far word [es:bx]
-007F 83 C4 06                 add sp, 0x6
-0082                          ax = CheckState(01, 00) [es:bx+0x4]
+006D                          SetState(01, 02, 01) [es:bx]
+0082 33 C0                    xor ax, ax
+0084 50                       push ax
+0085 B8 01 00                 mov ax, 0x1
+0088 50                       push ax
+0089 C4 5E 06                 les bx, [bp+0x6]
+008C 26 FF 5F 04              call far word [es:bx+0x4]
+0090 59                       pop cx
+0091 59                       pop cx
 0092 50                       push ax
-0093                          ax = CheckState(01, 01) [es:bx+0x4]
+0093 B8 01 00                 mov ax, 0x1
+0096 50                       push ax
+0097 B8 01 00                 mov ax, 0x1
+009A 50                       push ax
+009B C4 5E 06                 les bx, [bp+0x6]
+009E 26 FF 5F 04              call far word [es:bx+0x4]
+00A2 59                       pop cx
+00A3 59                       pop cx
 00A4 5A                       pop dx
 00A5 03 D0                    add dx, ax
 00A7 52                       push dx
-00A8                          ax = CheckState(01, 02) [es:bx+0x4]
+00A8 B8 02 00                 mov ax, 0x2
+00AB 50                       push ax
+00AC B8 01 00                 mov ax, 0x1
+00AF 50                       push ax
+00B0 C4 5E 06                 les bx, [bp+0x6]
+00B3 26 FF 5F 04              call far word [es:bx+0x4]
+00B7 59                       pop cx
+00B8 59                       pop cx
 00B9 5A                       pop dx
 00BA 03 D0                    add dx, ax
 00BC 89 56 FE                 mov [bp-0x2], dx

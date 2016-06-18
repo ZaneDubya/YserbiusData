@@ -1,7 +1,14 @@
 Functn01: "ALDBORA"
 0000                          BEGIN
 0003 56                       push si
-0004                          ax = CheckState(01, 01) [es:bx+0x4]
+0004 B8 01 00                 mov ax, 0x1
+0007 50                       push ax
+0008 B8 01 00                 mov ax, 0x1
+000B 50                       push ax
+000C C4 5E 06                 les bx, [bp+0x6]
+000F 26 FF 5F 04              call far word [es:bx+0x4]
+0013 59                       pop cx
+0014 59                       pop cx
 0015 8B F0                    mov si, ax
 0017 B8 E8 00                 mov ax, 0xe8
 001A 50                       push ax
@@ -17,7 +24,7 @@ Functn01: "ALDBORA"
 002F 83 FE 04                 cmp si, 0x4
 0032 74 03                    jz 0x37
 0034 E9 DD 03                 jmp 0x414
-0037                          ax = HasItem(E9) ? 1 : 0 [es:bx+0x50]
+0037                          ax = HasItem(E9) [es:bx+0x50]
 0045 75 03                    jnz 0x4a
 0047 E9 CA 03                 jmp 0x414
 004A                          ShowMessage(03FC) [es:bx+0xf8] = The AldBora Tree bears... 
@@ -421,7 +428,7 @@ Functn06: "ENCE"
 
 Functn07: "ENCF"
 0000                          BEGIN
-0003                          ax = HasItem(FA) ? 1 : 0 [es:bx+0x50]
+0003                          ax = HasItem(FA) [es:bx+0x50]
 0011 74 21                    jz 0x34
 0013                          SetTreasureData(012C, 00, 00, 00, 00, CE) [es:bx+0xd8]
 0032 EB 2D                    jmp 0x61
@@ -455,7 +462,7 @@ Functn0A: "ENCI"
 0015                          SetEncData(1C, 02) [es:bx+0xd4]
 0027                          SetEncData(22, 03) [es:bx+0xd4]
 0039                          SetEncData(22, 04) [es:bx+0xd4]
-004B                          ax = HasItem(F5) ? 1 : 0 [es:bx+0x50]
+004B                          ax = HasItem(F5) [es:bx+0x50]
 0059 74 22                    jz 0x7d
 005B                          SetTreasureData(03E8, 00, 00, 00, CF, C6) [es:bx+0xd8]
 007B EB 2E                    jmp 0xab
@@ -471,7 +478,7 @@ Functn0B: "CGATE"
 
 Functn0C: "DWARF"
 0000                          BEGIN
-0003                          ax = CheckLevel(001E) ? 1 : 0 [es:bx+0x44]
+0003                          ax = CheckLevel(001E) [es:bx+0x44]
 0011 74 2A                    jz 0x3d
 0013                          ShowMessage(0876) [es:bx+0xf8] = A narrow tunnel appears, leading down to the DWARF KINGDOM.
 0020                          GoMap(02, 7A, 01, 38) [es:bx+0xbc]
@@ -488,185 +495,92 @@ Functn0D: "NOJOIN"
 Functn0E: "BEECHWD"
 0000                          BEGIN
 0003                          ShowMessage(08FB) [es:bx+0xf8] = Upon a wood sign is written -- 'Wilderness of BeechWood.'
-0010                          ax = CheckState(01, 01) [es:bx+0x4]
+0010 B8 01 00                 mov ax, 0x1
+0013 50                       push ax
+0014 B8 01 00                 mov ax, 0x1
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 04              call far word [es:bx+0x4]
+001F 59                       pop cx
+0020 59                       pop cx
 0021 0B C0                    or ax, ax
 0023 75 54                    jnz 0x79
-0025 B8 01 00                 mov ax, 0x1
-0028 50                       push ax
-0029 B8 03 00                 mov ax, 0x3
-002C 50                       push ax
-002D B8 01 00                 mov ax, 0x1
-0030 50                       push ax
-0031 C4 5E 06                 les bx, [bp+0x6]
-0034 26 FF 1F                 call far word [es:bx]
-0037 83 C4 06                 add sp, 0x6
-003A B8 02 00                 mov ax, 0x2
-003D 50                       push ax
-003E B8 02 00                 mov ax, 0x2
-0041 50                       push ax
-0042 B8 01 00                 mov ax, 0x1
-0045 50                       push ax
-0046 C4 5E 06                 les bx, [bp+0x6]
-0049 26 FF 1F                 call far word [es:bx]
-004C 83 C4 06                 add sp, 0x6
-004F B8 03 00                 mov ax, 0x3
-0052 50                       push ax
-0053 B8 01 00                 mov ax, 0x1
-0056 50                       push ax
-0057 B8 01 00                 mov ax, 0x1
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 1F                 call far word [es:bx]
-0061 83 C4 06                 add sp, 0x6
-0064 B8 04 00                 mov ax, 0x4
-0067 50                       push ax
-0068 B8 04 00                 mov ax, 0x4
-006B 50                       push ax
-006C B8 01 00                 mov ax, 0x1
-006F 50                       push ax
-0070 C4 5E 06                 les bx, [bp+0x6]
-0073 26 FF 1F                 call far word [es:bx]
-0076 83 C4 06                 add sp, 0x6
+0025                          SetState(01, 03, 01) [es:bx]
+003A                          SetState(01, 02, 02) [es:bx]
+004F                          SetState(01, 01, 03) [es:bx]
+0064                          SetState(01, 04, 04) [es:bx]
 0079                          RETURN
 
 Functn0F: "OAKLEAF"
 0000                          BEGIN
 0003                          ShowMessage(0935) [es:bx+0xf8] = A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'
-0010                          ax = CheckState(01, 02) [es:bx+0x4]
+0010 B8 02 00                 mov ax, 0x2
+0013 50                       push ax
+0014 B8 01 00                 mov ax, 0x1
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 04              call far word [es:bx+0x4]
+001F 59                       pop cx
+0020 59                       pop cx
 0021 0B C0                    or ax, ax
 0023 75 54                    jnz 0x79
-0025 B8 01 00                 mov ax, 0x1
-0028 50                       push ax
-0029 B8 03 00                 mov ax, 0x3
-002C 50                       push ax
-002D B8 01 00                 mov ax, 0x1
-0030 50                       push ax
-0031 C4 5E 06                 les bx, [bp+0x6]
-0034 26 FF 1F                 call far word [es:bx]
-0037 83 C4 06                 add sp, 0x6
-003A B8 02 00                 mov ax, 0x2
-003D 50                       push ax
-003E B8 02 00                 mov ax, 0x2
-0041 50                       push ax
-0042 B8 01 00                 mov ax, 0x1
-0045 50                       push ax
-0046 C4 5E 06                 les bx, [bp+0x6]
-0049 26 FF 1F                 call far word [es:bx]
-004C 83 C4 06                 add sp, 0x6
-004F B8 03 00                 mov ax, 0x3
-0052 50                       push ax
-0053 B8 01 00                 mov ax, 0x1
-0056 50                       push ax
-0057 B8 01 00                 mov ax, 0x1
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 1F                 call far word [es:bx]
-0061 83 C4 06                 add sp, 0x6
-0064 B8 04 00                 mov ax, 0x4
-0067 50                       push ax
-0068 B8 04 00                 mov ax, 0x4
-006B 50                       push ax
-006C B8 01 00                 mov ax, 0x1
-006F 50                       push ax
-0070 C4 5E 06                 les bx, [bp+0x6]
-0073 26 FF 1F                 call far word [es:bx]
-0076 83 C4 06                 add sp, 0x6
+0025                          SetState(01, 03, 01) [es:bx]
+003A                          SetState(01, 02, 02) [es:bx]
+004F                          SetState(01, 01, 03) [es:bx]
+0064                          SetState(01, 04, 04) [es:bx]
 0079                          RETURN
 
 Functn10: "MAPLEBRS"
 0000                          BEGIN
 0003                          ShowMessage(0978) [es:bx+0xf8] = A sign of ancient wood reads -- 'Wilderness of MapleBrush.'
-0010                          ax = CheckState(01, 03) [es:bx+0x4]
+0010 B8 03 00                 mov ax, 0x3
+0013 50                       push ax
+0014 B8 01 00                 mov ax, 0x1
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 04              call far word [es:bx+0x4]
+001F 59                       pop cx
+0020 59                       pop cx
 0021 0B C0                    or ax, ax
 0023 75 54                    jnz 0x79
-0025 B8 01 00                 mov ax, 0x1
-0028 50                       push ax
-0029 B8 03 00                 mov ax, 0x3
-002C 50                       push ax
-002D B8 01 00                 mov ax, 0x1
-0030 50                       push ax
-0031 C4 5E 06                 les bx, [bp+0x6]
-0034 26 FF 1F                 call far word [es:bx]
-0037 83 C4 06                 add sp, 0x6
-003A B8 02 00                 mov ax, 0x2
-003D 50                       push ax
-003E B8 02 00                 mov ax, 0x2
-0041 50                       push ax
-0042 B8 01 00                 mov ax, 0x1
-0045 50                       push ax
-0046 C4 5E 06                 les bx, [bp+0x6]
-0049 26 FF 1F                 call far word [es:bx]
-004C 83 C4 06                 add sp, 0x6
-004F B8 03 00                 mov ax, 0x3
-0052 50                       push ax
-0053 B8 01 00                 mov ax, 0x1
-0056 50                       push ax
-0057 B8 01 00                 mov ax, 0x1
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 1F                 call far word [es:bx]
-0061 83 C4 06                 add sp, 0x6
-0064 B8 04 00                 mov ax, 0x4
-0067 50                       push ax
-0068 B8 04 00                 mov ax, 0x4
-006B 50                       push ax
-006C B8 01 00                 mov ax, 0x1
-006F 50                       push ax
-0070 C4 5E 06                 les bx, [bp+0x6]
-0073 26 FF 1F                 call far word [es:bx]
-0076 83 C4 06                 add sp, 0x6
+0025                          SetState(01, 03, 01) [es:bx]
+003A                          SetState(01, 02, 02) [es:bx]
+004F                          SetState(01, 01, 03) [es:bx]
+0064                          SetState(01, 04, 04) [es:bx]
 0079                          RETURN
 
 Functn11: "PINECONE"
 0000                          BEGIN
 0003                          ShowMessage(09B4) [es:bx+0xf8] = In the dust of pine needles is written -- 'Wilderness of PineCone.'
-0010                          ax = CheckState(01, 04) [es:bx+0x4]
+0010 B8 04 00                 mov ax, 0x4
+0013 50                       push ax
+0014 B8 01 00                 mov ax, 0x1
+0017 50                       push ax
+0018 C4 5E 06                 les bx, [bp+0x6]
+001B 26 FF 5F 04              call far word [es:bx+0x4]
+001F 59                       pop cx
+0020 59                       pop cx
 0021 0B C0                    or ax, ax
 0023 75 54                    jnz 0x79
-0025 B8 01 00                 mov ax, 0x1
-0028 50                       push ax
-0029 B8 03 00                 mov ax, 0x3
-002C 50                       push ax
-002D B8 01 00                 mov ax, 0x1
-0030 50                       push ax
-0031 C4 5E 06                 les bx, [bp+0x6]
-0034 26 FF 1F                 call far word [es:bx]
-0037 83 C4 06                 add sp, 0x6
-003A B8 02 00                 mov ax, 0x2
-003D 50                       push ax
-003E B8 02 00                 mov ax, 0x2
-0041 50                       push ax
-0042 B8 01 00                 mov ax, 0x1
-0045 50                       push ax
-0046 C4 5E 06                 les bx, [bp+0x6]
-0049 26 FF 1F                 call far word [es:bx]
-004C 83 C4 06                 add sp, 0x6
-004F B8 03 00                 mov ax, 0x3
-0052 50                       push ax
-0053 B8 01 00                 mov ax, 0x1
-0056 50                       push ax
-0057 B8 01 00                 mov ax, 0x1
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 1F                 call far word [es:bx]
-0061 83 C4 06                 add sp, 0x6
-0064 B8 04 00                 mov ax, 0x4
-0067 50                       push ax
-0068 B8 04 00                 mov ax, 0x4
-006B 50                       push ax
-006C B8 01 00                 mov ax, 0x1
-006F 50                       push ax
-0070 C4 5E 06                 les bx, [bp+0x6]
-0073 26 FF 1F                 call far word [es:bx]
-0076 83 C4 06                 add sp, 0x6
+0025                          SetState(01, 03, 01) [es:bx]
+003A                          SetState(01, 02, 02) [es:bx]
+004F                          SetState(01, 01, 03) [es:bx]
+0064                          SetState(01, 04, 04) [es:bx]
 0079                          RETURN
 
 Functn12: "BWACTOR"
 0000                          BEGIN
 0003 56                       push si
 0004                          ShowMessage(09F8) [es:bx+0xf8] = We are the Wise Ones of Beechwood who serve the Seasons.
-0011                          ShowPortrait(0027) [es:bx+0xd4]
-001E                          ax = CheckState(01, 01) [es:bx+0x4]
+0011                          ShowPortrait(0027) [es:bx+0xfc]
+001E B8 01 00                 mov ax, 0x1
+0021 50                       push ax
+0022 B8 01 00                 mov ax, 0x1
+0025 50                       push ax
+0026 C4 5E 06                 les bx, [bp+0x6]
+0029 26 FF 5F 04              call far word [es:bx+0x4]
+002D 59                       pop cx
+002E 59                       pop cx
 002F 8B F0                    mov si, ax
 0031 8B DE                    mov bx, si
 0033 4B                       dec bx
@@ -714,15 +628,7 @@ Functn12: "BWACTOR"
 0112 C4 5E 06                 les bx, [bp+0x6]
 0115 26 FF 5F 48              call far word [es:bx+0x48]
 0119 59                       pop cx
-011A B8 02 00                 mov ax, 0x2
-011D 50                       push ax
-011E B8 01 00                 mov ax, 0x1
-0121 50                       push ax
-0122 B8 01 00                 mov ax, 0x1
-0125 50                       push ax
-0126 C4 5E 06                 les bx, [bp+0x6]
-0129 26 FF 1F                 call far word [es:bx]
-012C 83 C4 06                 add sp, 0x6
+011A                          SetState(01, 01, 02) [es:bx]
 012F                          ShowMessage(0D08) [es:bx+0xf8] = Spring thanks you for the Winter Waters.
 013C                          ShowMessage(0D31) [es:bx+0xf8] = See how soft Spring transforms into vibrant Summer!
 0149                          ShowMessage(0D65) [es:bx+0xf8] = Take this Summer Radiance for your troubles.
@@ -751,15 +657,7 @@ Functn12: "BWACTOR"
 0192 C4 5E 06                 les bx, [bp+0x6]
 0195 26 FF 5F 48              call far word [es:bx+0x48]
 0199 59                       pop cx
-019A B8 03 00                 mov ax, 0x3
-019D 50                       push ax
-019E B8 01 00                 mov ax, 0x1
-01A1 50                       push ax
-01A2 B8 01 00                 mov ax, 0x1
-01A5 50                       push ax
-01A6 C4 5E 06                 les bx, [bp+0x6]
-01A9 26 FF 1F                 call far word [es:bx]
-01AC 83 C4 06                 add sp, 0x6
+019A                          SetState(01, 01, 03) [es:bx]
 01AF                          ShowMessage(0DBC) [es:bx+0xf8] = Summer rejoices in the wondrous Harvest Horn.
 01BC                          ShowMessage(0DEA) [es:bx+0xf8] = Behold!  Summer ripens into mature Autumn!
 01C9                          ShowMessage(0E15) [es:bx+0xf8] = The golden Autumn Seeds are ample reward for your generosity.
@@ -788,15 +686,7 @@ Functn12: "BWACTOR"
 0212 C4 5E 06                 les bx, [bp+0x6]
 0215 26 FF 5F 48              call far word [es:bx+0x48]
 0219 59                       pop cx
-021A B8 04 00                 mov ax, 0x4
-021D 50                       push ax
-021E B8 01 00                 mov ax, 0x1
-0221 50                       push ax
-0222 B8 01 00                 mov ax, 0x1
-0225 50                       push ax
-0226 C4 5E 06                 les bx, [bp+0x6]
-0229 26 FF 1F                 call far word [es:bx]
-022C 83 C4 06                 add sp, 0x6
+021A                          SetState(01, 01, 04) [es:bx]
 022F                          ShowMessage(0E86) [es:bx+0xf8] = Autumn gladly accepts the Spring Renewal.
 023C                          ShowMessage(0EB0) [es:bx+0xf8] = Lo!  Golden Autumn pales to white Winter and now sleeps under snowy blankets.
 0249                          ShowMessage(0EFE) [es:bx+0xf8] = These icy Winter Waters are a present to you.
@@ -825,15 +715,7 @@ Functn12: "BWACTOR"
 0292 C4 5E 06                 les bx, [bp+0x6]
 0295 26 FF 5F 48              call far word [es:bx+0x48]
 0299 59                       pop cx
-029A B8 01 00                 mov ax, 0x1
-029D 50                       push ax
-029E B8 01 00                 mov ax, 0x1
-02A1 50                       push ax
-02A2 B8 01 00                 mov ax, 0x1
-02A5 50                       push ax
-02A6 C4 5E 06                 les bx, [bp+0x6]
-02A9 26 FF 1F                 call far word [es:bx]
-02AC 83 C4 06                 add sp, 0x6
+029A                          SetState(01, 01, 01) [es:bx]
 02AF                          ShowMessage(0F60) [es:bx+0xf8] = These Autumn Seeds are wonderful, indeed!
 02BC                          ShowMessage(0F8A) [es:bx+0xf8] = See sleeping Winter blossom with new life!
 02C9                          ShowMessage(0FB5) [es:bx+0xf8] = You now receive the glory of Spring Renewal.  It is a priceless gift!
@@ -853,8 +735,15 @@ Functn13: "OLACTOR"
 0000                          BEGIN
 0003 56                       push si
 0004                          ShowMessage(1071) [es:bx+0xf8] = We are the Clerics of Oakleaf who comfort the Seasons.
-0011                          ShowPortrait(0027) [es:bx+0xd4]
-001E                          ax = CheckState(01, 02) [es:bx+0x4]
+0011                          ShowPortrait(0027) [es:bx+0xfc]
+001E B8 02 00                 mov ax, 0x2
+0021 50                       push ax
+0022 B8 01 00                 mov ax, 0x1
+0025 50                       push ax
+0026 C4 5E 06                 les bx, [bp+0x6]
+0029 26 FF 5F 04              call far word [es:bx+0x4]
+002D 59                       pop cx
+002E 59                       pop cx
 002F 8B F0                    mov si, ax
 0031 8B DE                    mov bx, si
 0033 4B                       dec bx
@@ -902,15 +791,7 @@ Functn13: "OLACTOR"
 0112 C4 5E 06                 les bx, [bp+0x6]
 0115 26 FF 5F 48              call far word [es:bx+0x48]
 0119 59                       pop cx
-011A B8 02 00                 mov ax, 0x2
-011D 50                       push ax
-011E B8 02 00                 mov ax, 0x2
-0121 50                       push ax
-0122 B8 01 00                 mov ax, 0x1
-0125 50                       push ax
-0126 C4 5E 06                 les bx, [bp+0x6]
-0129 26 FF 1F                 call far word [es:bx]
-012C 83 C4 06                 add sp, 0x6
+011A                          SetState(01, 02, 02) [es:bx]
 012F                          ShowMessage(1300) [es:bx+0xf8] = Spring accepts the Winter Waters.
 013C                          ShowMessage(1322) [es:bx+0xf8] = Spring sings sweetly of its transformation into Summer!
 0149                          ShowMessage(135A) [es:bx+0xf8] = Summer Radiance is yours as happy reward.
@@ -939,15 +820,7 @@ Functn13: "OLACTOR"
 0192 C4 5E 06                 les bx, [bp+0x6]
 0195 26 FF 5F 48              call far word [es:bx+0x48]
 0199 59                       pop cx
-019A B8 03 00                 mov ax, 0x3
-019D 50                       push ax
-019E B8 02 00                 mov ax, 0x2
-01A1 50                       push ax
-01A2 B8 01 00                 mov ax, 0x1
-01A5 50                       push ax
-01A6 C4 5E 06                 les bx, [bp+0x6]
-01A9 26 FF 1F                 call far word [es:bx]
-01AC 83 C4 06                 add sp, 0x6
+019A                          SetState(01, 02, 03) [es:bx]
 01AF                          ShowMessage(13B3) [es:bx+0xf8] = Summer accepts the Harvest Horn.
 01BC                          ShowMessage(13D4) [es:bx+0xf8] = Summer mellows by the sweet music and is now Autumn!
 01C9                          ShowMessage(1409) [es:bx+0xf8] = Autumn Seeds are now yours to enjoy.
@@ -976,15 +849,7 @@ Functn13: "OLACTOR"
 0212 C4 5E 06                 les bx, [bp+0x6]
 0215 26 FF 5F 48              call far word [es:bx+0x48]
 0219 59                       pop cx
-021A B8 04 00                 mov ax, 0x4
-021D 50                       push ax
-021E B8 02 00                 mov ax, 0x2
-0221 50                       push ax
-0222 B8 01 00                 mov ax, 0x1
-0225 50                       push ax
-0226 C4 5E 06                 les bx, [bp+0x6]
-0229 26 FF 1F                 call far word [es:bx]
-022C 83 C4 06                 add sp, 0x6
+021A                          SetState(01, 02, 04) [es:bx]
 022F                          ShowMessage(1458) [es:bx+0xf8] = Autumn shyly receives the Spring Renewal.
 023C                          ShowMessage(1482) [es:bx+0xf8] = Now Autumn turns to Winter, still clutching the hope of vernal renewal.
 0249                          ShowMessage(14CA) [es:bx+0xf8] = Winter Waters are yours, my friends.
@@ -1013,15 +878,7 @@ Functn13: "OLACTOR"
 0292 C4 5E 06                 les bx, [bp+0x6]
 0295 26 FF 5F 48              call far word [es:bx+0x48]
 0299 59                       pop cx
-029A B8 01 00                 mov ax, 0x1
-029D 50                       push ax
-029E B8 02 00                 mov ax, 0x2
-02A1 50                       push ax
-02A2 B8 01 00                 mov ax, 0x1
-02A5 50                       push ax
-02A6 C4 5E 06                 les bx, [bp+0x6]
-02A9 26 FF 1F                 call far word [es:bx]
-02AC 83 C4 06                 add sp, 0x6
+029A                          SetState(01, 02, 01) [es:bx]
 02AF                          ShowMessage(1510) [es:bx+0xf8] = Autumn Seeds hold the germ of life!
 02BC                          ShowMessage(1534) [es:bx+0xf8] = Cold Winter is become warm Spring.  Rejoice!
 02C9                          ShowMessage(1561) [es:bx+0xf8] = The magnificent Spring Renewal is your just reward.
@@ -1039,8 +896,15 @@ Functn14: "MBACTOR"
 0000                          BEGIN
 0003 56                       push si
 0004                          ShowMessage(15E2) [es:bx+0xf8] = We are the Wardens of Maplebrush and hold the Seasons.
-0011                          ShowPortrait(0027) [es:bx+0xd4]
-001E                          ax = CheckState(01, 03) [es:bx+0x4]
+0011                          ShowPortrait(0027) [es:bx+0xfc]
+001E B8 03 00                 mov ax, 0x3
+0021 50                       push ax
+0022 B8 01 00                 mov ax, 0x1
+0025 50                       push ax
+0026 C4 5E 06                 les bx, [bp+0x6]
+0029 26 FF 5F 04              call far word [es:bx+0x4]
+002D 59                       pop cx
+002E 59                       pop cx
 002F 8B F0                    mov si, ax
 0031 8B DE                    mov bx, si
 0033 4B                       dec bx
@@ -1084,15 +948,7 @@ Functn14: "MBACTOR"
 00DD C4 5E 06                 les bx, [bp+0x6]
 00E0 26 FF 5F 48              call far word [es:bx+0x48]
 00E4 59                       pop cx
-00E5 B8 02 00                 mov ax, 0x2
-00E8 50                       push ax
-00E9 B8 03 00                 mov ax, 0x3
-00EC 50                       push ax
-00ED B8 01 00                 mov ax, 0x1
-00F0 50                       push ax
-00F1 C4 5E 06                 les bx, [bp+0x6]
-00F4 26 FF 1F                 call far word [es:bx]
-00F7 83 C4 06                 add sp, 0x6
+00E5                          SetState(01, 03, 02) [es:bx]
 00FA                          ShowMessage(171A) [es:bx+0xf8] = From Winter Waters comes the change of Spring to Summer.
 0107                          ShowMessage(1753) [es:bx+0xf8] = You are rewarded.
 0114 EB 0D                    jmp 0x123
@@ -1120,15 +976,7 @@ Functn14: "MBACTOR"
 0150 C4 5E 06                 les bx, [bp+0x6]
 0153 26 FF 5F 48              call far word [es:bx+0x48]
 0157 59                       pop cx
-0158 B8 03 00                 mov ax, 0x3
-015B 50                       push ax
-015C B8 03 00                 mov ax, 0x3
-015F 50                       push ax
-0160 B8 01 00                 mov ax, 0x1
-0163 50                       push ax
-0164 C4 5E 06                 les bx, [bp+0x6]
-0167 26 FF 1F                 call far word [es:bx]
-016A 83 C4 06                 add sp, 0x6
+0158                          SetState(01, 03, 03) [es:bx]
 016D                          ShowMessage(1779) [es:bx+0xf8] = The Harvest Horn blows Summer into Autumn.
 017A                          ShowMessage(17A4) [es:bx+0xf8] = A reward is yours.
 0187 EB 0D                    jmp 0x196
@@ -1156,15 +1004,7 @@ Functn14: "MBACTOR"
 01C3 C4 5E 06                 les bx, [bp+0x6]
 01C6 26 FF 5F 48              call far word [es:bx+0x48]
 01CA 59                       pop cx
-01CB B8 04 00                 mov ax, 0x4
-01CE 50                       push ax
-01CF B8 03 00                 mov ax, 0x3
-01D2 50                       push ax
-01D3 B8 01 00                 mov ax, 0x1
-01D6 50                       push ax
-01D7 C4 5E 06                 les bx, [bp+0x6]
-01DA 26 FF 1F                 call far word [es:bx]
-01DD 83 C4 06                 add sp, 0x6
+01CB                          SetState(01, 03, 04) [es:bx]
 01E0                          ShowMessage(17CE) [es:bx+0xf8] = The Spring Renewal eases Autumn's slide into Winter.
 01ED                          ShowMessage(1803) [es:bx+0xf8] = Enjoy your reward.
 01FA EB 0D                    jmp 0x209
@@ -1192,15 +1032,7 @@ Functn14: "MBACTOR"
 0236 C4 5E 06                 les bx, [bp+0x6]
 0239 26 FF 5F 48              call far word [es:bx+0x48]
 023D 59                       pop cx
-023E B8 01 00                 mov ax, 0x1
-0241 50                       push ax
-0242 B8 03 00                 mov ax, 0x3
-0245 50                       push ax
-0246 B8 01 00                 mov ax, 0x1
-0249 50                       push ax
-024A C4 5E 06                 les bx, [bp+0x6]
-024D 26 FF 1F                 call far word [es:bx]
-0250 83 C4 06                 add sp, 0x6
+023E                          SetState(01, 03, 01) [es:bx]
 0253                          ShowMessage(182E) [es:bx+0xf8] = Winter devours the Autumn Seeds and becomes Spring.
 0260                          ShowMessage(1862) [es:bx+0xf8] = You are well rewarded.
 026D EB 0D                    jmp 0x27c
@@ -1218,8 +1050,15 @@ Functn15: "PCACTOR"
 0000                          BEGIN
 0003 56                       push si
 0004                          ShowMessage(18C1) [es:bx+0xf8] = We are the Seasons incarnate in mortal form.
-0011                          ShowPortrait(0027) [es:bx+0xd4]
-001E                          ax = CheckState(01, 04) [es:bx+0x4]
+0011                          ShowPortrait(0027) [es:bx+0xfc]
+001E B8 04 00                 mov ax, 0x4
+0021 50                       push ax
+0022 B8 01 00                 mov ax, 0x1
+0025 50                       push ax
+0026 C4 5E 06                 les bx, [bp+0x6]
+0029 26 FF 5F 04              call far word [es:bx+0x4]
+002D 59                       pop cx
+002E 59                       pop cx
 002F 8B F0                    mov si, ax
 0031 8B DE                    mov bx, si
 0033 4B                       dec bx
@@ -1257,15 +1096,7 @@ Functn15: "PCACTOR"
 00A6 C4 5E 06                 les bx, [bp+0x6]
 00A9 26 FF 5F 48              call far word [es:bx+0x48]
 00AD 59                       pop cx
-00AE B8 02 00                 mov ax, 0x2
-00B1 50                       push ax
-00B2 B8 04 00                 mov ax, 0x4
-00B5 50                       push ax
-00B6 B8 01 00                 mov ax, 0x1
-00B9 50                       push ax
-00BA C4 5E 06                 les bx, [bp+0x6]
-00BD 26 FF 1F                 call far word [es:bx]
-00C0 83 C4 06                 add sp, 0x6
+00AE                          SetState(01, 04, 02) [es:bx]
 00C3                          ShowMessage(191E) [es:bx+0xf8] = The Winter Waters you offer quench my thirst.
 00D0                          ShowMessage(194C) [es:bx+0xf8] = Look how I have become Summer!
 00DD                          ShowMessage(196B) [es:bx+0xf8] = Take my new Summer Radiance.
@@ -1294,15 +1125,7 @@ Functn15: "PCACTOR"
 0126 C4 5E 06                 les bx, [bp+0x6]
 0129 26 FF 5F 48              call far word [es:bx+0x48]
 012D 59                       pop cx
-012E B8 03 00                 mov ax, 0x3
-0131 50                       push ax
-0132 B8 04 00                 mov ax, 0x4
-0135 50                       push ax
-0136 B8 01 00                 mov ax, 0x1
-0139 50                       push ax
-013A C4 5E 06                 les bx, [bp+0x6]
-013D 26 FF 1F                 call far word [es:bx]
-0140 83 C4 06                 add sp, 0x6
+012E                          SetState(01, 04, 03) [es:bx]
 0143                          ShowMessage(19A6) [es:bx+0xf8] = I blow the Harvest Horn you give me...
 0150                          ShowMessage(19CD) [es:bx+0xf8] = ...and I change to Autumn!
 015D                          ShowMessage(19E8) [es:bx+0xf8] = Have some of my Autumn Seeds as thanks.
@@ -1331,15 +1154,7 @@ Functn15: "PCACTOR"
 01A6 C4 5E 06                 les bx, [bp+0x6]
 01A9 26 FF 5F 48              call far word [es:bx+0x48]
 01AD 59                       pop cx
-01AE B8 04 00                 mov ax, 0x4
-01B1 50                       push ax
-01B2 B8 04 00                 mov ax, 0x4
-01B5 50                       push ax
-01B6 B8 01 00                 mov ax, 0x1
-01B9 50                       push ax
-01BA C4 5E 06                 les bx, [bp+0x6]
-01BD 26 FF 1F                 call far word [es:bx]
-01C0 83 C4 06                 add sp, 0x6
+01AE                          SetState(01, 04, 04) [es:bx]
 01C3                          ShowMessage(1A35) [es:bx+0xf8] = Because you give me Spring Renewal...
 01D0                          ShowMessage(1A5B) [es:bx+0xf8] = ...I can safely transform into Winter and still survive.
 01DD                          ShowMessage(1A94) [es:bx+0xf8] = May my Winter Waters refresh you.
@@ -1368,15 +1183,7 @@ Functn15: "PCACTOR"
 0226 C4 5E 06                 les bx, [bp+0x6]
 0229 26 FF 5F 48              call far word [es:bx+0x48]
 022D 59                       pop cx
-022E B8 01 00                 mov ax, 0x1
-0231 50                       push ax
-0232 B8 04 00                 mov ax, 0x4
-0235 50                       push ax
-0236 B8 01 00                 mov ax, 0x1
-0239 50                       push ax
-023A C4 5E 06                 les bx, [bp+0x6]
-023D 26 FF 1F                 call far word [es:bx]
-0240 83 C4 06                 add sp, 0x6
+022E                          SetState(01, 04, 01) [es:bx]
 0243                          ShowMessage(1AD4) [es:bx+0xf8] = The Autumn Seeds awaken me from my long hibernation.
 0250                          ShowMessage(1B09) [es:bx+0xf8] = I am Spring again!
 025D                          ShowMessage(1B1C) [es:bx+0xf8] = Take the Renewal of Spring and rejoice with me!
@@ -1392,14 +1199,14 @@ Functn15: "PCACTOR"
 
 Functn16: "INFO"
 0000                          BEGIN
-0003                          ShowPortrait(001F) [es:bx+0xd4]
+0003                          ShowPortrait(001F) [es:bx+0xfc]
 0010                          ShowMessage(1B98) [es:bx+0xf8] = 'Welcome, Adventurer.  I am Varstad, counselor to the Elf King.
 001D                          ShowMessage(1BD8) [es:bx+0xf8] = The magic Aldbora requires Summer Radiance to shed its knowledge fruit.'
 002A                          RETURN
 
 Functn17: "INFO"
 0000                          BEGIN
-0003                          ShowPortrait(0027) [es:bx+0xd4]
+0003                          ShowPortrait(0027) [es:bx+0xfc]
 0010                          ShowMessage(1C21) [es:bx+0xf8] = The storyteller Sorshian honors your arrival.
 001D                          ShowMessage(1C4F) [es:bx+0xf8] = 'Only when the season is winter will the Aldbora shed its fruit.'
 002A                          RETURN
@@ -1452,7 +1259,7 @@ Functn1A: "ELFHOME"
 
 Functn1B: "INFO"
 0000                          BEGIN
-0003                          ShowPortrait(001F) [es:bx+0xd4]
+0003                          ShowPortrait(001F) [es:bx+0xfc]
 0010                          ShowMessage(1D79) [es:bx+0xf8] = 'I am Fernank, Hunter to the Elf King.
 001D                          ShowMessage(1DA0) [es:bx+0xf8] = It is known in the trees that Nature's Robe must be used for the harvest.'
 002A                          RETURN

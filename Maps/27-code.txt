@@ -68,15 +68,7 @@ Functn0C: "BDOORCGC"
 
 Functn10: "RAPID"
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 B8 57 00                 mov ax, 0x57
-000A 50                       push ax
-000B B8 02 00                 mov ax, 0x2
-000E 50                       push ax
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 1F                 call far word [es:bx]
-0015 83 C4 06                 add sp, 0x6
+0003                          SetState(02, 57, 01) [es:bx]
 0018                          ShowMessage(05E5) [es:bx+0xf8] = A plaque reads..
 0025                          ShowMessage(05F6) [es:bx+0xf8] = 'Thanks to the gracious generosity of the Mage Council, the survivors of the Arnakkian disaster hereby proclaim a new teleport to the top.'
 0032 B8 02 00                 mov ax, 0x2
@@ -110,11 +102,11 @@ Functn11: "RIVER"
 
 Functn12: "TXTPHNX"
 0000                          BEGIN
-0003                          ax = CheckState2(02, 85) ? 1 : 0 [es:bx+0x8]
+0003                          ax = CheckState2(02, 85) [es:bx+0x8]
 0016 74 10                    jz 0x28
 0018                          ShowMessage(06CE) [es:bx+0xf8] = The Phoenix is being reborn and may not be disturbed.
 0025 E9 7F 00                 jmp 0xa7
-0028                          ax = CheckState2(02, 86) ? 1 : 0 [es:bx+0x8]
+0028                          ax = CheckState2(02, 86) [es:bx+0x8]
 003B 74 50                    jz 0x8d
 003D                          ShowMessage(0704) [es:bx+0xf8] = Ahead, bound by the River of Eternity, is the shadow of the Phoenix Firebird. 
 004A                          ShowMessage(0753) [es:bx+0xf8] = The raging waters of the river look daunting.
@@ -208,7 +200,7 @@ Functn1A: "BAZZENCC"
 0015                          SetEncData(10, 02) [es:bx+0xd4]
 0027                          SetEncData(11, 03) [es:bx+0xd4]
 0039                          SetEncData(1C, 04) [es:bx+0xd4]
-004B                          ax = HasItem(EF) ? 1 : 0 [es:bx+0x50]
+004B                          ax = HasItem(EF) [es:bx+0x50]
 0059 74 21                    jz 0x7c
 005B                          SetTreasureData(03E8, 00, 00, 00, 00, D0) [es:bx+0xd8]
 007A EB 1F                    jmp 0x9b
@@ -223,9 +215,9 @@ Functn1B: "TOELVES"
 
 Functn1C: "PHOEGURD"
 0000                          BEGIN
-0003                          ShowPortrait(002D) [es:bx+0xd4]
+0003                          ShowPortrait(002D) [es:bx+0xfc]
 0010                          ShowMessage(0810) [es:bx+0xf8] = A Gnome Wizard greets you.
-001D                          ax = CheckState2(02, 85) ? 1 : 0 [es:bx+0x8]
+001D                          ax = CheckState2(02, 85) [es:bx+0x8]
 0030 74 1C                    jz 0x4e
 0032                          ShowMessage(082B) [es:bx+0xf8] = 'Thank you for helping my master the Phoenix be reborn.
 003F                          ShowMessage(0863) [es:bx+0xf8] = The Phoenix may no longer be disturbed.'
@@ -234,68 +226,51 @@ Functn1C: "PHOEGURD"
 005B                          ShowMessage(08F0) [es:bx+0xf8] = The way is now clear for you to meet the Phoenix.
 0068                          ShowMessage(0922) [es:bx+0xf8] = It is time for the Phoenix to die and so be reborn from its own ashes.
 0075                          ShowMessage(0969) [es:bx+0xf8] = Go!  Let the glorious Phoenix die and be renewed!'
-0082 B8 01 00                 mov ax, 0x1
-0085 50                       push ax
-0086 B8 86 00                 mov ax, 0x86
-0089 50                       push ax
-008A B8 02 00                 mov ax, 0x2
-008D 50                       push ax
-008E C4 5E 06                 les bx, [bp+0x6]
-0091 26 FF 1F                 call far word [es:bx]
-0094 83 C4 06                 add sp, 0x6
+0082                          SetState(02, 86, 01) [es:bx]
 0097                          RETURN
 
 Functn1D: "TXTBAZZA"
 0000                          BEGIN
-0003                          ShowPortrait(0029) [es:bx+0xd4]
+0003                          ShowPortrait(0029) [es:bx+0xfc]
 0010                          ShowMessage(099C) [es:bx+0xf8] = A frightened Halfling Cleric hides in the shadows.
 001D                          ShowMessage(09CF) [es:bx+0xf8] = 'You must do something about these trolls.  They're everywhere.'
 002A                          RETURN
 
 Functn1E: "TXTBAZZB"
 0000                          BEGIN
-0003                          ShowPortrait(001C) [es:bx+0xd4]
+0003                          ShowPortrait(001C) [es:bx+0xfc]
 0010                          ShowMessage(0A10) [es:bx+0xf8] = An exhausted Dwarf Knight hides in a large barrel.
 001D                          ShowMessage(0A43) [es:bx+0xf8] = 'Hail!  I welcome your help.  These trolls have been giving me fits.'
 002A                          RETURN
 
 Functn1F: "TXTBAZZC"
 0000                          BEGIN
-0003                          ShowPortrait(002D) [es:bx+0xd4]
+0003                          ShowPortrait(002D) [es:bx+0xfc]
 0010                          ShowMessage(0A89) [es:bx+0xf8] = A Gnome Wizard suddenly appears.
 001D                          ShowMessage(0AAA) [es:bx+0xf8] = 'Past the CastleGates and past the Elves, you will find a place where the blue light of the sky meets the underworld below.'
 002A                          RETURN
 
 Functn20: "TXTBAZZD"
 0000                          BEGIN
-0003                          ShowPortrait(001F) [es:bx+0xd4]
+0003                          ShowPortrait(001F) [es:bx+0xfc]
 0010                          ShowMessage(0B27) [es:bx+0xf8] = An Elf Ranger is delighted at your presense.
 001D                          ShowMessage(0B54) [es:bx+0xf8] = 'I got clobbered by Andreas, the Earth Elemental!  I wish you luck in your adventurers.'
 002A                          RETURN
 
 Functn21: "PHOEREW"
 0000                          BEGIN
-0003                          ax = CheckState(02, 5E) [es:bx+0x4]
+0003 B8 5E 00                 mov ax, 0x5e
+0006 50                       push ax
+0007 B8 02 00                 mov ax, 0x2
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 5F 04              call far word [es:bx+0x4]
+0012 59                       pop cx
+0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 75 4B                    jnz 0x63
-0018 B8 01 00                 mov ax, 0x1
-001B 50                       push ax
-001C B8 5E 00                 mov ax, 0x5e
-001F 50                       push ax
-0020 B8 02 00                 mov ax, 0x2
-0023 50                       push ax
-0024 C4 5E 06                 les bx, [bp+0x6]
-0027 26 FF 1F                 call far word [es:bx]
-002A 83 C4 06                 add sp, 0x6
-002D B8 01 00                 mov ax, 0x1
-0030 50                       push ax
-0031 B8 85 00                 mov ax, 0x85
-0034 50                       push ax
-0035 B8 02 00                 mov ax, 0x2
-0038 50                       push ax
-0039 C4 5E 06                 les bx, [bp+0x6]
-003C 26 FF 1F                 call far word [es:bx]
-003F 83 C4 06                 add sp, 0x6
+0018                          SetState(02, 5E, 01) [es:bx]
+002D                          SetState(02, 85, 01) [es:bx]
 0042 B8 C8 00                 mov ax, 0xc8
 0045 50                       push ax
 0046 B8 04 00                 mov ax, 0x4
@@ -311,7 +286,7 @@ Functn21: "PHOEREW"
 
 Functn24: "MYSTICS"
 0000                          BEGIN
-0003                          ShowPortrait(0016) [es:bx+0xd4]
+0003                          ShowPortrait(0016) [es:bx+0xfc]
 0010                          ShowMessage(0BEC) [es:bx+0xf8] = A small band of gypsies has formed camp in an old bazaar stall.
 001D                          ShowMessage(0C2C) [es:bx+0xf8] = A young gypsy stares at you, gestures you closer, and whispers..
 002A                          ShowMessage(0C6D) [es:bx+0xf8] = 'It is written on the Lava Walls that a Hero will someday reach the end of the rainbow and confront time.'
@@ -320,20 +295,19 @@ Functn24: "MYSTICS"
 
 Functn25: "FNTNBAZZ"
 0000                          BEGIN
-0003                          ax = CheckState(02, 5F) [es:bx+0x4]
+0003 B8 5F 00                 mov ax, 0x5f
+0006 50                       push ax
+0007 B8 02 00                 mov ax, 0x2
+000A 50                       push ax
+000B C4 5E 06                 les bx, [bp+0x6]
+000E 26 FF 5F 04              call far word [es:bx+0x4]
+0012 59                       pop cx
+0013 59                       pop cx
 0014 0B C0                    or ax, ax
 0016 74 03                    jz 0x1b
 0018 E9 FF 00                 jmp 0x11a
-001B B8 01 00                 mov ax, 0x1
-001E 50                       push ax
-001F B8 5F 00                 mov ax, 0x5f
-0022 50                       push ax
-0023 B8 02 00                 mov ax, 0x2
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 1F                 call far word [es:bx]
-002D 83 C4 06                 add sp, 0x6
-0030                          ShowPortrait(0042) [es:bx+0xd4]
+001B                          SetState(02, 5F, 01) [es:bx]
+0030                          ShowPortrait(0042) [es:bx+0xfc]
 003D                          ShowMessage(0D17) [es:bx+0xf8] = You sip the cool purple waters of the ElfFoot Fountain
 004A B8 14 00                 mov ax, 0x14
 004D 50                       push ax
@@ -426,21 +400,20 @@ Functn2A: "TXTLOOKB"
 
 Functn2B: "FNTNLOOK"
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xd4]
+0003                          ShowPortrait(0042) [es:bx+0xfc]
 0010                          ShowMessage(0EBC) [es:bx+0xf8] = Ranger banners decorate the woodwork of Lookout Fountain.
-001D                          ax = CheckState(02, 60) [es:bx+0x4]
+001D B8 60 00                 mov ax, 0x60
+0020 50                       push ax
+0021 B8 02 00                 mov ax, 0x2
+0024 50                       push ax
+0025 C4 5E 06                 les bx, [bp+0x6]
+0028 26 FF 5F 04              call far word [es:bx+0x4]
+002C 59                       pop cx
+002D 59                       pop cx
 002E 0B C0                    or ax, ax
 0030 74 03                    jz 0x35
 0032 E9 E3 00                 jmp 0x118
-0035 B8 01 00                 mov ax, 0x1
-0038 50                       push ax
-0039 B8 60 00                 mov ax, 0x60
-003C 50                       push ax
-003D B8 02 00                 mov ax, 0x2
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 1F                 call far word [es:bx]
-0047 83 C4 06                 add sp, 0x6
+0035                          SetState(02, 60, 01) [es:bx]
 004A B8 09 00                 mov ax, 0x9
 004D 50                       push ax
 004E C4 5E 06                 les bx, [bp+0x6]
@@ -563,7 +536,7 @@ Functn35: "TXTCSTLA"
 
 Functn36: "TXTCSTLB"
 0000                          BEGIN
-0003                          ShowPortrait(0016) [es:bx+0xd4]
+0003                          ShowPortrait(0016) [es:bx+0xfc]
 0010                          ShowMessage(100D) [es:bx+0xf8] = A Human Barbarian belches, then looks up at you.
 001D                          ShowMessage(103E) [es:bx+0xf8] = 'Andreas built a great pit. Two.'
 002A                          ShowMessage(1060) [es:bx+0xf8] = Holding up three fingers, he repeats...
@@ -577,7 +550,7 @@ Functn37: "FNTNHEAL"
 000B C4 5E 06                 les bx, [bp+0x6]
 000E 26 FF 9F 94 00           call far word [es:bx+0x94]
 0013 59                       pop cx
-0014                          ShowPortrait(0042) [es:bx+0xd4]
+0014                          ShowPortrait(0042) [es:bx+0xfc]
 0021                          ShowMessage(10A8) [es:bx+0xf8] = DayFrost Fountain restores your Health.
 002E                          RETURN
 
@@ -588,13 +561,13 @@ Functn38: "FNTNMANA"
 0007 C4 5E 06                 les bx, [bp+0x6]
 000A 26 FF 9F B4 00           call far word [es:bx+0xb4]
 000F 59                       pop cx
-0010                          ShowPortrait(0042) [es:bx+0xd4]
+0010                          ShowPortrait(0042) [es:bx+0xfc]
 001D                          ShowMessage(10D0) [es:bx+0xf8] = NightFrost Fountain renews your Mana.
 002A                          RETURN
 
 Functn3B: "TXTCSTLC"
 0000                          BEGIN
-0003                          ShowPortrait(0011) [es:bx+0xd4]
+0003                          ShowPortrait(0011) [es:bx+0xfc]
 0010                          ShowMessage(10F6) [es:bx+0xf8] = A Phantasm appears...
 001D                          ShowMessage(110C) [es:bx+0xf8] = 'Dare time?  Yes?  Ah, adventurers should not challenge En-Li-Kil!'
 002A                          ShowMessage(1150) [es:bx+0xf8] = The Phantasm drains your life energies.
