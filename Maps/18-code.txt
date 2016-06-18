@@ -88,8 +88,7 @@ Functn09: "SPECIALD"
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 1F                 call far word [es:bx]
 003A 83 C4 06                 add sp, 0x6
-003D C4 5E 06                 les bx, [bp+0x6]
-0040 26 FF 5F 74              call far word [es:bx+0x74]
+003D                          ax = GetHits() [es:bx+0x74]
 0044 50                       push ax
 0045 C4 5E 06                 les bx, [bp+0x6]
 0048 26 FF 5F 70              call far word [es:bx+0x70]
@@ -113,21 +112,7 @@ Functn0A: "MONENCA"
 Functn0B: "MONENCB"
 0000                          BEGIN
 0003                          ShowMessage(058A) [es:bx+0xf8] = You stumble upon some rather nasty monsters.
-0010 B8 94 11                 mov ax, 0x1194
-0013 50                       push ax
-0014 33 C0                    xor ax, ax
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D B8 B2 00                 mov ax, 0xb2
-0020 50                       push ax
-0021 B8 CD 00                 mov ax, 0xcd
-0024 50                       push ax
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002D 83 C4 0C                 add sp, 0xc
+0010                          SetTreasureData(1194, 00, 00, 00, B2, CD) [es:bx+0xd8]
 0030                          SetEncData(1E, 01) [es:bx+0xd4]
 0042                          SetEncData(22, 02) [es:bx+0xd4]
 0054                          SetEncData(1B, 03) [es:bx+0xd4]
@@ -160,37 +145,9 @@ Functn0E: "MONENCE"
 0000                          BEGIN
 0003                          ax = HasItem(BE) ? 1 : 0 [es:bx+0x50]
 0011 74 22                    jz 0x35
-0013 B8 D6 06                 mov ax, 0x6d6
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 B8 BB 00                 mov ax, 0xbb
-0023 50                       push ax
-0024 B8 C6 00                 mov ax, 0xc6
-0027 50                       push ax
-0028 C4 5E 06                 les bx, [bp+0x6]
-002B 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0030 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(06D6, 00, 00, 00, BB, C6) [es:bx+0xd8]
 0033 EB 20                    jmp 0x55
-0035 B8 B8 0B                 mov ax, 0xbb8
-0038 50                       push ax
-0039 33 C0                    xor ax, ax
-003B 50                       push ax
-003C 33 C0                    xor ax, ax
-003E 50                       push ax
-003F 33 C0                    xor ax, ax
-0041 50                       push ax
-0042 B8 BB 00                 mov ax, 0xbb
-0045 50                       push ax
-0046 B8 BE 00                 mov ax, 0xbe
-0049 50                       push ax
-004A C4 5E 06                 les bx, [bp+0x6]
-004D 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0052 83 C4 0C                 add sp, 0xc
+0035                          SetTreasureData(0BB8, 00, 00, 00, BB, BE) [es:bx+0xd8]
 0055                          ShowMessage(05E0) [es:bx+0xf8] = You are attacked by Mages of the Thieves' Guild out walking their pets!
 0062                          SetEncData(25, 01) [es:bx+0xd4]
 0074                          SetEncData(26, 05) [es:bx+0xd4]
@@ -201,38 +158,10 @@ Functn0F: "MONENCF"
 0000                          BEGIN
 0003                          ax = HasItem(68) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 F4 01                 mov ax, 0x1f4
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 B6 00                 mov ax, 0xb6
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(01F4, 00, 00, 00, 00, B6) [es:bx+0xd8]
 0032                          ShowMessage(0628) [es:bx+0xf8] = You stumble upon mean animals out foraging!
 003F EB 2C                    jmp 0x6d
-0041 B8 E0 2E                 mov ax, 0x2ee0
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 B8 68 00                 mov ax, 0x68
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005D 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(2EE0, 00, 00, 00, 00, 68) [es:bx+0xd8]
 0060                          ShowMessage(0654) [es:bx+0xf8] = You stumble upon foraging animals! They found something shiny!
 006D                          SetEncData(19, 01) [es:bx+0xd4]
 007F                          SetEncData(20, 02) [es:bx+0xd4]
@@ -484,10 +413,7 @@ Functn13: "FLSPECD"
 012B BB 02 00                 mov bx, 0x2
 012E 99                       cwd
 012F F7 FB                    idiv bx
-0131 50                       push ax
-0132 C4 5E 06                 les bx, [bp+0x6]
-0135 26 FF 9F 90 00           call far word [es:bx+0x90]
-013A 59                       pop cx
+0131                          DoDamage(ax) [es:bx+0x90]
 013B B8 01 00                 mov ax, 0x1
 013E 50                       push ax
 013F B8 3F 00                 mov ax, 0x3f
@@ -751,8 +677,7 @@ Functn1B: "FLSPECL"
 0043 26 FF 1F                 call far word [es:bx]
 0046 83 C4 06                 add sp, 0x6
 0049                          ShowPortrait(0042) [es:bx+0xd4]
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 5F 74              call far word [es:bx+0x74]
+0056                          ax = GetHits() [es:bx+0x74]
 005D 50                       push ax
 005E C4 5E 06                 les bx, [bp+0x6]
 0061 26 FF 5F 70              call far word [es:bx+0x70]

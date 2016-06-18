@@ -2,12 +2,8 @@ Functn01: "DROP"
 0000                          BEGIN
 0003                          ShowMessage(03FC) [es:bx+0xf8] = Other pits in the Labyrinth provide access to hidden areas...
 0010                          ShowMessage(043A) [es:bx+0xf8] = This pit, however, sends you to the gates of Death.
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 5F 74              call far word [es:bx+0x74]
-0024 50                       push ax
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 9F 90 00           call far word [es:bx+0x90]
-002D 59                       pop cx
+001D                          ax = GetHits() [es:bx+0x74]
+0024                          DoDamage(ax) [es:bx+0x90]
 002E                          RETURN
 
 Functn02: "XOVER"
@@ -31,12 +27,8 @@ Functn02: "XOVER"
 0041 EB 2B                    jmp 0x6e
 0043                          ShowMessage(04A2) [es:bx+0xf8] = You fall into the abyss and die.
 0050                          ShowMessage(04C3) [es:bx+0xf8] = With help, you might have been able to cross here.
-005D C4 5E 06                 les bx, [bp+0x6]
-0060 26 FF 5F 74              call far word [es:bx+0x74]
-0064 50                       push ax
-0065 C4 5E 06                 les bx, [bp+0x6]
-0068 26 FF 9F 90 00           call far word [es:bx+0x90]
-006D 59                       pop cx
+005D                          ax = GetHits() [es:bx+0x74]
+0064                          DoDamage(ax) [es:bx+0x90]
 006E EB 38                    jmp 0xa8
 0070                          ax = CheckState(01, 01) [es:bx+0x4]
 0081 0B C0                    or ax, ax
@@ -155,12 +147,8 @@ Functn0E: "THVTRESR"
 Functn0F: "LAVA"
 0000                          BEGIN
 0003                          ShowMessage(099E) [es:bx+0xf8] = You stumble into the lava pools.  You die.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F 90 00           call far word [es:bx+0x90]
-0020 59                       pop cx
+0010                          ax = GetHits() [es:bx+0x74]
+0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
 Functn10: "DRTOBALY"
@@ -209,11 +197,7 @@ Functn15: "WINDHOLO"
 0000                          BEGIN
 0003                          ShowMessage(0A59) [es:bx+0xf8] = The door to WIND HOLLOW bursts open with terrible force, throwing all adventurers against the rocks...
 0010                          ShowMessage(0AC0) [es:bx+0xf8] = ...and inflicting heavy damage.
-001D B8 C8 00                 mov ax, 0xc8
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 9F 90 00           call far word [es:bx+0x90]
-0029 59                       pop cx
+001D                          DoDamage(00C8) [es:bx+0x90]
 002A C4 5E 06                 les bx, [bp+0x6]
 002D 26 FF 5F 70              call far word [es:bx+0x70]
 0031 0B C0                    or ax, ax
@@ -237,37 +221,9 @@ Functn18: "ZEPHENCA"
 0039                          SetEncData(19, 06) [es:bx+0xd4]
 004B                          ax = HasItem(B4) ? 1 : 0 [es:bx+0x50]
 0059 74 21                    jz 0x7c
-005B B8 E8 03                 mov ax, 0x3e8
-005E 50                       push ax
-005F 33 C0                    xor ax, ax
-0061 50                       push ax
-0062 33 C0                    xor ax, ax
-0064 50                       push ax
-0065 33 C0                    xor ax, ax
-0067 50                       push ax
-0068 33 C0                    xor ax, ax
-006A 50                       push ax
-006B B8 D1 00                 mov ax, 0xd1
-006E 50                       push ax
-006F C4 5E 06                 les bx, [bp+0x6]
-0072 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0077 83 C4 0C                 add sp, 0xc
+005B                          SetTreasureData(03E8, 00, 00, 00, 00, D1) [es:bx+0xd8]
 007A EB 21                    jmp 0x9d
-007C B8 D0 07                 mov ax, 0x7d0
-007F 50                       push ax
-0080 33 C0                    xor ax, ax
-0082 50                       push ax
-0083 33 C0                    xor ax, ax
-0085 50                       push ax
-0086 B8 C8 00                 mov ax, 0xc8
-0089 50                       push ax
-008A B8 B4 00                 mov ax, 0xb4
-008D 50                       push ax
-008E B8 D0 00                 mov ax, 0xd0
-0091 50                       push ax
-0092 C4 5E 06                 les bx, [bp+0x6]
-0095 26 FF 9F D8 00           call far word [es:bx+0xd8]
-009A 83 C4 0C                 add sp, 0xc
+007C                          SetTreasureData(07D0, 00, 00, C8, B4, D0) [es:bx+0xd8]
 009D                          RETURN
 
 Functn19: "ZEPHENCB"
@@ -278,37 +234,9 @@ Functn19: "ZEPHENCB"
 0026 75 10                    jnz 0x38
 0028                          ax = HasItem(F0) ? 1 : 0 [es:bx+0x50]
 0036 74 22                    jz 0x5a
-0038 B8 88 13                 mov ax, 0x1388
-003B 50                       push ax
-003C 33 C0                    xor ax, ax
-003E 50                       push ax
-003F 33 C0                    xor ax, ax
-0041 50                       push ax
-0042 33 C0                    xor ax, ax
-0044 50                       push ax
-0045 B8 B3 00                 mov ax, 0xb3
-0048 50                       push ax
-0049 B8 D0 00                 mov ax, 0xd0
-004C 50                       push ax
-004D C4 5E 06                 les bx, [bp+0x6]
-0050 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0055 83 C4 0C                 add sp, 0xc
+0038                          SetTreasureData(1388, 00, 00, 00, B3, D0) [es:bx+0xd8]
 0058 EB 1F                    jmp 0x79
-005A B8 10 27                 mov ax, 0x2710
-005D 50                       push ax
-005E 33 C0                    xor ax, ax
-0060 50                       push ax
-0061 33 C0                    xor ax, ax
-0063 50                       push ax
-0064 33 C0                    xor ax, ax
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A B8 F0 00                 mov ax, 0xf0
-006D 50                       push ax
-006E C4 5E 06                 les bx, [bp+0x6]
-0071 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0076 83 C4 0C                 add sp, 0xc
+005A                          SetTreasureData(2710, 00, 00, 00, 00, F0) [es:bx+0xd8]
 0079 EB 6F                    jmp 0xea
 007B                          ax = HasItem(E6) ? 1 : 0 [es:bx+0x50]
 0089 74 5F                    jz 0xea
@@ -326,21 +254,7 @@ Functn19: "ZEPHENCB"
 00A3 C4 5E 06                 les bx, [bp+0x6]
 00A6 26 FF 1F                 call far word [es:bx]
 00A9 83 C4 06                 add sp, 0x6
-00AC B8 10 27                 mov ax, 0x2710
-00AF 50                       push ax
-00B0 33 C0                    xor ax, ax
-00B2 50                       push ax
-00B3 33 C0                    xor ax, ax
-00B5 50                       push ax
-00B6 33 C0                    xor ax, ax
-00B8 50                       push ax
-00B9 33 C0                    xor ax, ax
-00BB 50                       push ax
-00BC B8 F0 00                 mov ax, 0xf0
-00BF 50                       push ax
-00C0 C4 5E 06                 les bx, [bp+0x6]
-00C3 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00C8 83 C4 0C                 add sp, 0xc
+00AC                          SetTreasureData(2710, 00, 00, 00, 00, F0) [es:bx+0xd8]
 00CB B8 03 00                 mov ax, 0x3
 00CE BA 90 D0                 mov dx, 0xd090
 00D1 50                       push ax
@@ -386,15 +300,11 @@ Functn1C: "XOVEROFF"
 Functn1D: "ZEPHBLOW"
 0000                          BEGIN
 0003                          ShowMessage(0CD0) [es:bx+0xf8] = The Zephyr Wind gusts in fury, causing damage!
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
+0010                          ax = GetHits() [es:bx+0x74]
 0017 BB 03 00                 mov bx, 0x3
 001A 99                       cwd
 001B F7 FB                    idiv bx
-001D 50                       push ax
-001E C4 5E 06                 les bx, [bp+0x6]
-0021 26 FF 9F 90 00           call far word [es:bx+0x90]
-0026 59                       pop cx
+001D                          DoDamage(ax) [es:bx+0x90]
 0027 C4 5E 06                 les bx, [bp+0x6]
 002A 26 FF 5F 70              call far word [es:bx+0x70]
 002E 0B C0                    or ax, ax
@@ -431,37 +341,9 @@ Functn20: "DRLPENCC"
 006A                          SetEncData(1A, 06) [es:bx+0xd4]
 007C                          ax = HasItem(DF) ? 1 : 0 [es:bx+0x50]
 008A 74 21                    jz 0xad
-008C B8 E8 03                 mov ax, 0x3e8
-008F 50                       push ax
-0090 33 C0                    xor ax, ax
-0092 50                       push ax
-0093 33 C0                    xor ax, ax
-0095 50                       push ax
-0096 33 C0                    xor ax, ax
-0098 50                       push ax
-0099 33 C0                    xor ax, ax
-009B 50                       push ax
-009C B8 D1 00                 mov ax, 0xd1
-009F 50                       push ax
-00A0 C4 5E 06                 les bx, [bp+0x6]
-00A3 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00A8 83 C4 0C                 add sp, 0xc
+008C                          SetTreasureData(03E8, 00, 00, 00, 00, D1) [es:bx+0xd8]
 00AB EB 21                    jmp 0xce
-00AD B8 20 4E                 mov ax, 0x4e20
-00B0 50                       push ax
-00B1 33 C0                    xor ax, ax
-00B3 50                       push ax
-00B4 33 C0                    xor ax, ax
-00B6 50                       push ax
-00B7 B8 DF 00                 mov ax, 0xdf
-00BA 50                       push ax
-00BB B8 46 00                 mov ax, 0x46
-00BE 50                       push ax
-00BF B8 6E 00                 mov ax, 0x6e
-00C2 50                       push ax
-00C3 C4 5E 06                 les bx, [bp+0x6]
-00C6 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00CB 83 C4 0C                 add sp, 0xc
+00AD                          SetTreasureData(4E20, 00, 00, DF, 46, 6E) [es:bx+0xd8]
 00CE                          RETURN
 
 Functn21: "ZZYZENCA"
@@ -472,21 +354,7 @@ Functn21: "ZZYZENCA"
 0039                          SetEncData(1E, 04) [es:bx+0xd4]
 004B                          SetEncData(1D, 05) [es:bx+0xd4]
 005D                          SetEncData(1D, 06) [es:bx+0xd4]
-006F B8 88 13                 mov ax, 0x1388
-0072 50                       push ax
-0073 33 C0                    xor ax, ax
-0075 50                       push ax
-0076 33 C0                    xor ax, ax
-0078 50                       push ax
-0079 B8 17 00                 mov ax, 0x17
-007C 50                       push ax
-007D B8 08 00                 mov ax, 0x8
-0080 50                       push ax
-0081 B8 6C 00                 mov ax, 0x6c
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 9F D8 00           call far word [es:bx+0xd8]
-008D 83 C4 0C                 add sp, 0xc
+006F                          SetTreasureData(1388, 00, 00, 17, 08, 6C) [es:bx+0xd8]
 0090                          RETURN
 
 Functn23: "SDRZZYZA"
@@ -555,21 +423,7 @@ Functn25: "MGOVENCA"
 0022                          SetEncData(1F, 02) [es:bx+0xd4]
 0034                          SetEncData(20, 03) [es:bx+0xd4]
 0046                          SetEncData(20, 04) [es:bx+0xd4]
-0058 B8 E8 03                 mov ax, 0x3e8
-005B 50                       push ax
-005C 33 C0                    xor ax, ax
-005E 50                       push ax
-005F 33 C0                    xor ax, ax
-0061 50                       push ax
-0062 B8 CA 00                 mov ax, 0xca
-0065 50                       push ax
-0066 B8 B2 00                 mov ax, 0xb2
-0069 50                       push ax
-006A B8 B1 00                 mov ax, 0xb1
-006D 50                       push ax
-006E C4 5E 06                 les bx, [bp+0x6]
-0071 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0076 83 C4 0C                 add sp, 0xc
+0058                          SetTreasureData(03E8, 00, 00, CA, B2, B1) [es:bx+0xd8]
 0079                          RETURN
 
 Functn26: "MGOVENCB"
@@ -670,37 +524,9 @@ Functn30: "VORAENCV"
 0054                          SetEncData(21, 05) [es:bx+0xd4]
 0066                          ax = HasItem(ED) ? 1 : 0 [es:bx+0x50]
 0074 74 21                    jz 0x97
-0076 B8 88 13                 mov ax, 0x1388
-0079 50                       push ax
-007A 33 C0                    xor ax, ax
-007C 50                       push ax
-007D 33 C0                    xor ax, ax
-007F 50                       push ax
-0080 33 C0                    xor ax, ax
-0082 50                       push ax
-0083 33 C0                    xor ax, ax
-0085 50                       push ax
-0086 B8 CC 00                 mov ax, 0xcc
-0089 50                       push ax
-008A C4 5E 06                 les bx, [bp+0x6]
-008D 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0092 83 C4 0C                 add sp, 0xc
+0076                          SetTreasureData(1388, 00, 00, 00, 00, CC) [es:bx+0xd8]
 0095 EB 1F                    jmp 0xb6
-0097 B8 10 27                 mov ax, 0x2710
-009A 50                       push ax
-009B 33 C0                    xor ax, ax
-009D 50                       push ax
-009E 33 C0                    xor ax, ax
-00A0 50                       push ax
-00A1 33 C0                    xor ax, ax
-00A3 50                       push ax
-00A4 33 C0                    xor ax, ax
-00A6 50                       push ax
-00A7 B8 ED 00                 mov ax, 0xed
-00AA 50                       push ax
-00AB C4 5E 06                 les bx, [bp+0x6]
-00AE 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00B3 83 C4 0C                 add sp, 0xc
+0097                          SetTreasureData(2710, 00, 00, 00, 00, ED) [es:bx+0xd8]
 00B6                          RETURN
 
 Functn31: "SDRVORDW"
@@ -762,37 +588,9 @@ Functn32: "MOONENCA"
 0039                          SetEncData(24, 04) [es:bx+0xd4]
 004B                          ax = HasItem(BE) ? 1 : 0 [es:bx+0x50]
 0059 74 22                    jz 0x7d
-005B B8 D0 07                 mov ax, 0x7d0
-005E 50                       push ax
-005F 33 C0                    xor ax, ax
-0061 50                       push ax
-0062 33 C0                    xor ax, ax
-0064 50                       push ax
-0065 33 C0                    xor ax, ax
-0067 50                       push ax
-0068 B8 D0 00                 mov ax, 0xd0
-006B 50                       push ax
-006C B8 B7 00                 mov ax, 0xb7
-006F 50                       push ax
-0070 C4 5E 06                 les bx, [bp+0x6]
-0073 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0078 83 C4 0C                 add sp, 0xc
+005B                          SetTreasureData(07D0, 00, 00, 00, D0, B7) [es:bx+0xd8]
 007B EB 21                    jmp 0x9e
-007D B8 88 13                 mov ax, 0x1388
-0080 50                       push ax
-0081 33 C0                    xor ax, ax
-0083 50                       push ax
-0084 33 C0                    xor ax, ax
-0086 50                       push ax
-0087 B8 C6 00                 mov ax, 0xc6
-008A 50                       push ax
-008B B8 D1 00                 mov ax, 0xd1
-008E 50                       push ax
-008F B8 BE 00                 mov ax, 0xbe
-0092 50                       push ax
-0093 C4 5E 06                 les bx, [bp+0x6]
-0096 26 FF 9F D8 00           call far word [es:bx+0xd8]
-009B 83 C4 0C                 add sp, 0xc
+007D                          SetTreasureData(1388, 00, 00, C6, D1, BE) [es:bx+0xd8]
 009E                          RETURN
 
 Functn33: "MOONENCB"
@@ -802,21 +600,7 @@ Functn33: "MOONENCB"
 0027                          SetEncData(25, 03) [es:bx+0xd4]
 0039                          SetEncData(26, 05) [es:bx+0xd4]
 004B                          SetEncData(26, 06) [es:bx+0xd4]
-005D B8 58 1B                 mov ax, 0x1b58
-0060 50                       push ax
-0061 33 C0                    xor ax, ax
-0063 50                       push ax
-0064 33 C0                    xor ax, ax
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A B8 59 00                 mov ax, 0x59
-006D 50                       push ax
-006E B8 13 00                 mov ax, 0x13
-0071 50                       push ax
-0072 C4 5E 06                 les bx, [bp+0x6]
-0075 26 FF 9F D8 00           call far word [es:bx+0xd8]
-007A 83 C4 0C                 add sp, 0xc
+005D                          SetTreasureData(1B58, 00, 00, 00, 59, 13) [es:bx+0xd8]
 007D                          RETURN
 
 Functn34: "MOONENCC"
@@ -827,21 +611,7 @@ Functn34: "MOONENCC"
 0039                          SetEncData(1C, 04) [es:bx+0xd4]
 004B                          SetEncData(1B, 05) [es:bx+0xd4]
 005D                          SetEncData(1B, 06) [es:bx+0xd4]
-006F B8 10 27                 mov ax, 0x2710
-0072 50                       push ax
-0073 33 C0                    xor ax, ax
-0075 50                       push ax
-0076 33 C0                    xor ax, ax
-0078 50                       push ax
-0079 33 C0                    xor ax, ax
-007B 50                       push ax
-007C B8 83 00                 mov ax, 0x83
-007F 50                       push ax
-0080 B8 10 00                 mov ax, 0x10
-0083 50                       push ax
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 9F D8 00           call far word [es:bx+0xd8]
-008C 83 C4 0C                 add sp, 0xc
+006F                          SetTreasureData(2710, 00, 00, 00, 83, 10) [es:bx+0xd8]
 008F                          RETURN
 
 Functn35: "MOONENCD"
@@ -879,37 +649,9 @@ Functn38: "MOONENCG"
 0065                          SetEncData(24, 06) [es:bx+0xd4]
 0077                          ax = HasItem(EA) ? 1 : 0 [es:bx+0x50]
 0085 74 21                    jz 0xa8
-0087 B8 28 23                 mov ax, 0x2328
-008A 50                       push ax
-008B 33 C0                    xor ax, ax
-008D 50                       push ax
-008E 33 C0                    xor ax, ax
-0090 50                       push ax
-0091 33 C0                    xor ax, ax
-0093 50                       push ax
-0094 33 C0                    xor ax, ax
-0096 50                       push ax
-0097 B8 BB 00                 mov ax, 0xbb
-009A 50                       push ax
-009B C4 5E 06                 les bx, [bp+0x6]
-009E 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00A3 83 C4 0C                 add sp, 0xc
+0087                          SetTreasureData(2328, 00, 00, 00, 00, BB) [es:bx+0xd8]
 00A6 EB 20                    jmp 0xc8
-00A8 B8 88 13                 mov ax, 0x1388
-00AB 50                       push ax
-00AC 33 C0                    xor ax, ax
-00AE 50                       push ax
-00AF 33 C0                    xor ax, ax
-00B1 50                       push ax
-00B2 33 C0                    xor ax, ax
-00B4 50                       push ax
-00B5 B8 EA 00                 mov ax, 0xea
-00B8 50                       push ax
-00B9 B8 85 00                 mov ax, 0x85
-00BC 50                       push ax
-00BD C4 5E 06                 les bx, [bp+0x6]
-00C0 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00C5 83 C4 0C                 add sp, 0xc
+00A8                          SetTreasureData(1388, 00, 00, 00, EA, 85) [es:bx+0xd8]
 00C8                          RETURN
 
 Functn3A: "TXTMOONB"
@@ -1577,40 +1319,12 @@ Functn4C: "TORBENCB"
 0060 26 FF 5F 7C              call far word [es:bx+0x7c]
 0064 0B C0                    or ax, ax
 0066 75 1F                    jnz 0x87
-0068 B8 E8 03                 mov ax, 0x3e8
-006B 50                       push ax
-006C 33 C0                    xor ax, ax
-006E 50                       push ax
-006F 33 C0                    xor ax, ax
-0071 50                       push ax
-0072 33 C0                    xor ax, ax
-0074 50                       push ax
-0075 33 C0                    xor ax, ax
-0077 50                       push ax
-0078 B8 18 00                 mov ax, 0x18
-007B 50                       push ax
-007C C4 5E 06                 les bx, [bp+0x6]
-007F 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0084 83 C4 0C                 add sp, 0xc
+0068                          SetTreasureData(03E8, 00, 00, 00, 00, 18) [es:bx+0xd8]
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 7C              call far word [es:bx+0x7c]
 008E 3D 01 00                 cmp ax, 0x1
 0091 75 1F                    jnz 0xb2
-0093 B8 E8 03                 mov ax, 0x3e8
-0096 50                       push ax
-0097 33 C0                    xor ax, ax
-0099 50                       push ax
-009A 33 C0                    xor ax, ax
-009C 50                       push ax
-009D 33 C0                    xor ax, ax
-009F 50                       push ax
-00A0 33 C0                    xor ax, ax
-00A2 50                       push ax
-00A3 B8 11 00                 mov ax, 0x11
-00A6 50                       push ax
-00A7 C4 5E 06                 les bx, [bp+0x6]
-00AA 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00AF 83 C4 0C                 add sp, 0xc
+0093                          SetTreasureData(03E8, 00, 00, 00, 00, 11) [es:bx+0xd8]
 00B2                          RETURN
 
 Functn4D: "TORBENCC"
@@ -1741,11 +1455,7 @@ Functn54: "SDRTORBB"
 Functn55: "TORBWIND"
 0000                          BEGIN
 0003                          ShowMessage(160A) [es:bx+0xf8] = The wind is nasty here!  You take 100 damage.
-0010 B8 64 00                 mov ax, 0x64
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F 90 00           call far word [es:bx+0x90]
-001C 59                       pop cx
+0010                          DoDamage(0064) [es:bx+0x90]
 001D C4 5E 06                 les bx, [bp+0x6]
 0020 26 FF 5F 70              call far word [es:bx+0x70]
 0024 0B C0                    or ax, ax
@@ -1771,10 +1481,7 @@ Functn57: "VORAWIND"
 0017 BB 02 00                 mov bx, 0x2
 001A 99                       cwd
 001B F7 FB                    idiv bx
-001D 50                       push ax
-001E C4 5E 06                 les bx, [bp+0x6]
-0021 26 FF 9F 90 00           call far word [es:bx+0x90]
-0026 59                       pop cx
+001D                          DoDamage(ax) [es:bx+0x90]
 0027 C4 5E 06                 les bx, [bp+0x6]
 002A 26 FF 5F 70              call far word [es:bx+0x70]
 002E 0B C0                    or ax, ax

@@ -76,37 +76,9 @@ Functn05: "GOLDENC"
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(0495) [es:bx+0xf8] = The room is empty, except for a few rogues.
-0026 B8 64 00                 mov ax, 0x64
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 33 C0                    xor ax, ax
-0032 50                       push ax
-0033 33 C0                    xor ax, ax
-0035 50                       push ax
-0036 B8 B5 00                 mov ax, 0xb5
-0039 50                       push ax
-003A C4 5E 06                 les bx, [bp+0x6]
-003D 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0042 83 C4 0C                 add sp, 0xc
+0026                          SetTreasureData(0064, 00, 00, 00, 00, B5) [es:bx+0xd8]
 0045 EB 42                    jmp 0x89
-0047 B8 E8 03                 mov ax, 0x3e8
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 B8 CB 00                 mov ax, 0xcb
-0057 50                       push ax
-0058 B8 CE 00                 mov ax, 0xce
-005B 50                       push ax
-005C C4 5E 06                 les bx, [bp+0x6]
-005F 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0064 83 C4 0C                 add sp, 0xc
+0047                          SetTreasureData(03E8, 00, 00, 00, CB, CE) [es:bx+0xd8]
 0067 B8 01 00                 mov ax, 0x1
 006A 50                       push ax
 006B B8 03 00                 mov ax, 0x3
@@ -249,37 +221,9 @@ Functn09: "LCPKENC"
 0003                          ax = HasItem(D2) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013                          ShowMessage(05DC) [es:bx+0xf8] = Cro-Lizards snarl at you.
-0020 B8 2C 01                 mov ax, 0x12c
-0023 50                       push ax
-0024 33 C0                    xor ax, ax
-0026 50                       push ax
-0027 33 C0                    xor ax, ax
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 B8 CE 00                 mov ax, 0xce
-0033 50                       push ax
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 9F D8 00           call far word [es:bx+0xd8]
-003C 83 C4 0C                 add sp, 0xc
+0020                          SetTreasureData(012C, 00, 00, 00, 00, CE) [es:bx+0xd8]
 003F EB 2C                    jmp 0x6d
-0041 B8 2C 01                 mov ax, 0x12c
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 B8 D2 00                 mov ax, 0xd2
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005D 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(012C, 00, 00, 00, 00, D2) [es:bx+0xd8]
 0060                          ShowMessage(05F6) [es:bx+0xf8] = You see an interesting lockpick on the floor. On the shaft are the words - Property of King Cleowyn. The Cro-Lizards you see are also interested in the lockpick.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -360,38 +304,10 @@ Functn0B: "KEYENC"
 0000                          BEGIN
 0003                          ax = HasItem(D3) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 C8 00                 mov ax, 0xc8
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 B5 00                 mov ax, 0xb5
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(00C8, 00, 00, 00, 00, B5) [es:bx+0xd8]
 0032                          ShowMessage(06F1) [es:bx+0xf8] = Some rather nasty monsters hang out here.
 003F EB 39                    jmp 0x7a
-0041 B8 C8 00                 mov ax, 0xc8
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 B8 D3 00                 mov ax, 0xd3
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005D 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(00C8, 00, 00, 00, 00, D3) [es:bx+0xd8]
 0060                          ShowMessage(071B) [es:bx+0xf8] = On the floor is a key. The grasp bears the Galabryan insignia and the initials KC. It must have belonged to King Cleowyn.  
 006D                          ShowMessage(0797) [es:bx+0xf8] = Between you and the key are monsters.
 007A C4 5E 06                 les bx, [bp+0x6]
@@ -482,39 +398,11 @@ Functn0E: "MODMNSTR"
 001D 3D 07 00                 cmp ax, 0x7
 0020 77 2E                    ja 0x50
 0022                          ShowMessage(0834) [es:bx+0xf8] = The imps that haunt the dungeon frequently return gold and lost items to their original places.
-002F B8 C8 00                 mov ax, 0xc8
-0032 50                       push ax
-0033 33 C0                    xor ax, ax
-0035 50                       push ax
-0036 33 C0                    xor ax, ax
-0038 50                       push ax
-0039 33 C0                    xor ax, ax
-003B 50                       push ax
-003C 33 C0                    xor ax, ax
-003E 50                       push ax
-003F B8 B5 00                 mov ax, 0xb5
-0042 50                       push ax
-0043 C4 5E 06                 les bx, [bp+0x6]
-0046 26 FF 9F D8 00           call far word [es:bx+0xd8]
-004B 83 C4 0C                 add sp, 0xc
+002F                          SetTreasureData(00C8, 00, 00, 00, 00, B5) [es:bx+0xd8]
 004E EB 39                    jmp 0x89
 0050                          ShowMessage(0894) [es:bx+0xf8] = The Rogues refuse to talk.
 005D                          ShowMessage(08AF) [es:bx+0xf8] = They charge you!
-006A B8 C8 00                 mov ax, 0xc8
-006D 50                       push ax
-006E 33 C0                    xor ax, ax
-0070 50                       push ax
-0071 33 C0                    xor ax, ax
-0073 50                       push ax
-0074 33 C0                    xor ax, ax
-0076 50                       push ax
-0077 33 C0                    xor ax, ax
-0079 50                       push ax
-007A B8 02 00                 mov ax, 0x2
-007D 50                       push ax
-007E C4 5E 06                 les bx, [bp+0x6]
-0081 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0086 83 C4 0C                 add sp, 0xc
+006A                          SetTreasureData(00C8, 00, 00, 00, 00, 02) [es:bx+0xd8]
 0089 C4 5E 06                 les bx, [bp+0x6]
 008C 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0091 3D 01 00                 cmp ax, 0x1
@@ -566,37 +454,9 @@ Functn10: "WEAPENC"
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(08C0) [es:bx+0xf8] = You find nothing interesting in the room except a vial and some monsters.
-0026 B8 C8 00                 mov ax, 0xc8
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 33 C0                    xor ax, ax
-0032 50                       push ax
-0033 33 C0                    xor ax, ax
-0035 50                       push ax
-0036 B8 B5 00                 mov ax, 0xb5
-0039 50                       push ax
-003A C4 5E 06                 les bx, [bp+0x6]
-003D 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0042 83 C4 0C                 add sp, 0xc
+0026                          SetTreasureData(00C8, 00, 00, 00, 00, B5) [es:bx+0xd8]
 0045 EB 2D                    jmp 0x74
-0047 B8 C8 00                 mov ax, 0xc8
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 B8 B7 00                 mov ax, 0xb7
-0057 50                       push ax
-0058 B8 18 00                 mov ax, 0x18
-005B 50                       push ax
-005C C4 5E 06                 les bx, [bp+0x6]
-005F 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0064 83 C4 0C                 add sp, 0xc
+0047                          SetTreasureData(00C8, 00, 00, 00, B7, 18) [es:bx+0xd8]
 0067                          ShowMessage(090A) [es:bx+0xf8] = You notice an axe and a vial on the floor. You also notice some Bronze Ogres.
 0074 C4 5E 06                 les bx, [bp+0x6]
 0077 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -645,19 +505,11 @@ Functn11: "PITA"
 0048 26 FF 9F F0 00           call far word [es:bx+0xf0]
 004D 3D 01 00                 cmp ax, 0x1
 0050 75 2A                    jnz 0x7c
-0052 B8 2C 01                 mov ax, 0x12c
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F 90 00           call far word [es:bx+0x90]
-005E 59                       pop cx
+0052                          DoDamage(012C) [es:bx+0x90]
 005F                          GoMap(03, 11, 03, 05) [es:bx+0xbc]
 007A EB 35                    jmp 0xb1
 007C                          ShowMessage(099D) [es:bx+0xf8] = Since you are the first to land, your body provides a soft mattress for the rest of your party.
-0089 B8 C2 01                 mov ax, 0x1c2
-008C 50                       push ax
-008D C4 5E 06                 les bx, [bp+0x6]
-0090 26 FF 9F 90 00           call far word [es:bx+0x90]
-0095 59                       pop cx
+0089                          DoDamage(01C2) [es:bx+0x90]
 0096                          GoMap(03, 11, 03, 05) [es:bx+0xbc]
 00B1 EB 35                    jmp 0xe8
 00B3                          ShowMessage(09FD) [es:bx+0xf8] = A kindly spirit rescues you from falling to your death.
@@ -773,19 +625,11 @@ Functn15: "PITB"
 0048 26 FF 9F F0 00           call far word [es:bx+0xf0]
 004D 3D 01 00                 cmp ax, 0x1
 0050 75 2A                    jnz 0x7c
-0052 B8 2C 01                 mov ax, 0x12c
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F 90 00           call far word [es:bx+0x90]
-005E 59                       pop cx
+0052                          DoDamage(012C) [es:bx+0x90]
 005F                          GoMap(03, 12, 03, 05) [es:bx+0xbc]
 007A EB 35                    jmp 0xb1
 007C                          ShowMessage(0B43) [es:bx+0xf8] = Since you are the first to land, your body provides a soft mattress for the rest of your party.
-0089 B8 C2 01                 mov ax, 0x1c2
-008C 50                       push ax
-008D C4 5E 06                 les bx, [bp+0x6]
-0090 26 FF 9F 90 00           call far word [es:bx+0x90]
-0095 59                       pop cx
+0089                          DoDamage(01C2) [es:bx+0x90]
 0096                          GoMap(03, 12, 03, 05) [es:bx+0xbc]
 00B1 EB 34                    jmp 0xe7
 00B3                          ShowMessage(0BA3) [es:bx+0xf8] = A kindly spirit rescues you from falling to your death.
@@ -813,19 +657,11 @@ Functn16: "PITC"
 0048 26 FF 9F F0 00           call far word [es:bx+0xf0]
 004D 3D 01 00                 cmp ax, 0x1
 0050 75 2A                    jnz 0x7c
-0052 B8 2C 01                 mov ax, 0x12c
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F 90 00           call far word [es:bx+0x90]
-005E 59                       pop cx
+0052                          DoDamage(012C) [es:bx+0x90]
 005F                          GoMap(01, 21, 03, 05) [es:bx+0xbc]
 007A EB 35                    jmp 0xb1
 007C                          ShowMessage(0C5E) [es:bx+0xf8] = Since you are the first to land, your body provides a soft mattress for the rest of your party.
-0089 B8 C2 01                 mov ax, 0x1c2
-008C 50                       push ax
-008D C4 5E 06                 les bx, [bp+0x6]
-0090 26 FF 9F 90 00           call far word [es:bx+0x90]
-0095 59                       pop cx
+0089                          DoDamage(01C2) [es:bx+0x90]
 0096                          GoMap(01, 21, 03, 05) [es:bx+0xbc]
 00B1 EB 35                    jmp 0xe8
 00B3                          ShowMessage(0CBE) [es:bx+0xf8] = A kindly spirit rescues you from falling to your death.
@@ -853,19 +689,11 @@ Functn17: "PITD"
 0048 26 FF 9F F0 00           call far word [es:bx+0xf0]
 004D 3D 01 00                 cmp ax, 0x1
 0050 75 29                    jnz 0x7b
-0052 B8 2C 01                 mov ax, 0x12c
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F 90 00           call far word [es:bx+0x90]
-005E 59                       pop cx
+0052                          DoDamage(012C) [es:bx+0x90]
 005F                          GoMap(00, 22, 03, 05) [es:bx+0xbc]
 0079 EB 34                    jmp 0xaf
 007B                          ShowMessage(0D79) [es:bx+0xf8] = Since you are the first to land, your body provides a soft mattress for the rest of your party.
-0088 B8 C2 01                 mov ax, 0x1c2
-008B 50                       push ax
-008C C4 5E 06                 les bx, [bp+0x6]
-008F 26 FF 9F 90 00           call far word [es:bx+0x90]
-0094 59                       pop cx
+0088                          DoDamage(01C2) [es:bx+0x90]
 0095                          GoMap(00, 22, 03, 05) [es:bx+0xbc]
 00AF EB 34                    jmp 0xe5
 00B1                          ShowMessage(0DD9) [es:bx+0xf8] = A kindly spirit rescues you from falling to your death.
@@ -927,11 +755,7 @@ Functn1C: "NPCCHATD"
 003C                          ShowMessage(117E) [es:bx+0xf8] = Also, keep an eye open for better lockpicks. They will open doors to new wonders.
 0049 EB 1A                    jmp 0x65
 004B                          ShowMessage(11D0) [es:bx+0xf8] = The Troll Cleric is annoyed that you disturbed her reverie. She raps you on the head with her staff and marches off.
-0058 B8 03 00                 mov ax, 0x3
-005B 50                       push ax
-005C C4 5E 06                 les bx, [bp+0x6]
-005F 26 FF 9F 90 00           call far word [es:bx+0x90]
-0064 59                       pop cx
+0058                          DoDamage(0003) [es:bx+0x90]
 0065                          RETURN
 
 Functn1D: "NPCCHATE"

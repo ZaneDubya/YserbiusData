@@ -3,15 +3,11 @@ Functn01: "RIVER"
 0003                          ShowMessage(03FC) [es:bx+0xf8] = The River of Eternity taps your life energy.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 9F C4 00           call far word [es:bx+0xc4]
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 74              call far word [es:bx+0x74]
+0018                          ax = GetHits() [es:bx+0x74]
 001F BB 04 00                 mov bx, 0x4
 0022 99                       cwd
 0023 F7 FB                    idiv bx
-0025 50                       push ax
-0026 C4 5E 06                 les bx, [bp+0x6]
-0029 26 FF 9F 90 00           call far word [es:bx+0x90]
-002E 59                       pop cx
+0025                          DoDamage(ax) [es:bx+0x90]
 002F C4 5E 06                 les bx, [bp+0x6]
 0032 26 FF 5F 70              call far word [es:bx+0x70]
 0036 0B C0                    or ax, ax
@@ -27,20 +23,15 @@ Functn02: "RIVRBANK"
 Functn03: "VOID"
 0000                          BEGIN
 0003                          ShowMessage(047C) [es:bx+0xf8] = The Ageless Void swallows you whole.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F 90 00           call far word [es:bx+0x90]
-0020 59                       pop cx
+0010                          ax = GetHits() [es:bx+0x74]
+0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
 Functn04: "PLATA"
 0000                          BEGIN
 0003                          ShowPortrait(0042) [es:bx+0xd4]
 0010                          ShowMessage(04A1) [es:bx+0xf8] = SageCross Fountain revives your Health and Mana
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 5F 74              call far word [es:bx+0x74]
+001D                          ax = GetHits() [es:bx+0x74]
 0024 50                       push ax
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 9F 94 00           call far word [es:bx+0x94]
@@ -106,8 +97,7 @@ Functn06: "PLATCTOA"
 0000                          BEGIN
 0003                          ShowPortrait(0042) [es:bx+0xd4]
 0010                          ShowMessage(050E) [es:bx+0xf8] = Minotaur Fountain revives your Health and Mana
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 5F 74              call far word [es:bx+0x74]
+001D                          ax = GetHits() [es:bx+0x74]
 0024 50                       push ax
 0025 C4 5E 06                 les bx, [bp+0x6]
 0028 26 FF 9F 94 00           call far word [es:bx+0x94]
@@ -611,12 +601,8 @@ Functn1F: "BOAT"
 0059                          GoMap(00, 4B, 04, 38) [es:bx+0xbc]
 0073 EB 1E                    jmp 0x93
 0075                          ShowMessage(10FE) [es:bx+0xf8] = The Ageless Void swallows you whole.
-0082 C4 5E 06                 les bx, [bp+0x6]
-0085 26 FF 5F 74              call far word [es:bx+0x74]
-0089 50                       push ax
-008A C4 5E 06                 les bx, [bp+0x6]
-008D 26 FF 9F 90 00           call far word [es:bx+0x90]
-0092 59                       pop cx
+0082                          ax = GetHits() [es:bx+0x74]
+0089                          DoDamage(ax) [es:bx+0x90]
 0093                          RETURN
 
 Functn20: "DOORWARN"

@@ -2,12 +2,8 @@ Functn01: "VOID"
 0000                          BEGIN
 0003                          ShowMessage(03FC) [es:bx+0xf8] = You step into nothingness...
 0010                          ShowMessage(0419) [es:bx+0xf8] =                                          ...and die!
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 5F 74              call far word [es:bx+0x74]
-0024 50                       push ax
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 9F 90 00           call far word [es:bx+0x90]
-002D 59                       pop cx
+001D                          ax = GetHits() [es:bx+0x74]
+0024                          DoDamage(ax) [es:bx+0x90]
 002E                          RETURN
 
 Functn02: "MOONHOLO"
@@ -329,12 +325,8 @@ Functn16: "THIEVMAZ"
 Functn17: "LAVA"
 0000                          BEGIN
 0003                          ShowMessage(0B5D) [es:bx+0xf8] = You stumble into the lava pools and die.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F 90 00           call far word [es:bx+0x90]
-0020 59                       pop cx
+0010                          ax = GetHits() [es:bx+0x74]
+0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
 Functn18: "ZEPHYRB"
@@ -874,8 +866,7 @@ Functn36: "LAENCA"
 
 Functn37: "FNTNHEAL"
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 74              call far word [es:bx+0x74]
+0003                          ax = GetHits() [es:bx+0x74]
 000A 50                       push ax
 000B C4 5E 06                 les bx, [bp+0x6]
 000E 26 FF 9F 94 00           call far word [es:bx+0x94]
@@ -1250,38 +1241,10 @@ Functn48: "LTENCK"
 006A                          SetEncData(02, 06) [es:bx+0xd4]
 007C                          ax = HasItem(DD) ? 1 : 0 [es:bx+0x50]
 008A 74 21                    jz 0xad
-008C B8 D0 07                 mov ax, 0x7d0
-008F 50                       push ax
-0090 33 C0                    xor ax, ax
-0092 50                       push ax
-0093 33 C0                    xor ax, ax
-0095 50                       push ax
-0096 33 C0                    xor ax, ax
-0098 50                       push ax
-0099 33 C0                    xor ax, ax
-009B 50                       push ax
-009C B8 CF 00                 mov ax, 0xcf
-009F 50                       push ax
-00A0 C4 5E 06                 les bx, [bp+0x6]
-00A3 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00A8 83 C4 0C                 add sp, 0xc
+008C                          SetTreasureData(07D0, 00, 00, 00, 00, CF) [es:bx+0xd8]
 00AB EB 2E                    jmp 0xdb
 00AD                          ShowMessage(1931) [es:bx+0xf8] = Light sparks off a key tied to the neck of the leader.
-00BA B8 98 3A                 mov ax, 0x3a98
-00BD 50                       push ax
-00BE 33 C0                    xor ax, ax
-00C0 50                       push ax
-00C1 33 C0                    xor ax, ax
-00C3 50                       push ax
-00C4 B8 46 00                 mov ax, 0x46
-00C7 50                       push ax
-00C8 B8 61 00                 mov ax, 0x61
-00CB 50                       push ax
-00CC B8 DD 00                 mov ax, 0xdd
-00CF 50                       push ax
-00D0 C4 5E 06                 les bx, [bp+0x6]
-00D3 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00D8 83 C4 0C                 add sp, 0xc
+00BA                          SetTreasureData(3A98, 00, 00, 46, 61, DD) [es:bx+0xd8]
 00DB                          RETURN
 
 Functn49: "TXTAWIND"

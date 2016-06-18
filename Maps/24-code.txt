@@ -90,21 +90,7 @@ Functn0A: "ARNKENCA"
 0049                          SetEncData(19, 03) [es:bx+0xd4]
 005B                          SetEncData(12, 05) [es:bx+0xd4]
 006D                          SetEncData(12, 06) [es:bx+0xd4]
-007F B8 F4 01                 mov ax, 0x1f4
-0082 50                       push ax
-0083 33 C0                    xor ax, ax
-0085 50                       push ax
-0086 B8 CF 00                 mov ax, 0xcf
-0089 50                       push ax
-008A B8 CF 00                 mov ax, 0xcf
-008D 50                       push ax
-008E B8 C6 00                 mov ax, 0xc6
-0091 50                       push ax
-0092 B8 C9 00                 mov ax, 0xc9
-0095 50                       push ax
-0096 C4 5E 06                 les bx, [bp+0x6]
-0099 26 FF 9F D8 00           call far word [es:bx+0xd8]
-009E 83 C4 0C                 add sp, 0xc
+007F                          SetTreasureData(01F4, 00, CF, CF, C6, C9) [es:bx+0xd8]
 00A1                          RETURN
 
 Functn0C: "TOENTRY"
@@ -200,21 +186,7 @@ Functn13: "ENLKENCA"
 0049                          SetEncData(19, 03) [es:bx+0xd4]
 005B                          SetEncData(19, 04) [es:bx+0xd4]
 006D                          SetEncData(19, 05) [es:bx+0xd4]
-007F B8 64 00                 mov ax, 0x64
-0082 50                       push ax
-0083 33 C0                    xor ax, ax
-0085 50                       push ax
-0086 33 C0                    xor ax, ax
-0088 50                       push ax
-0089 33 C0                    xor ax, ax
-008B 50                       push ax
-008C B8 CF 00                 mov ax, 0xcf
-008F 50                       push ax
-0090 B8 D0 00                 mov ax, 0xd0
-0093 50                       push ax
-0094 C4 5E 06                 les bx, [bp+0x6]
-0097 26 FF 9F D8 00           call far word [es:bx+0xd8]
-009C 83 C4 0C                 add sp, 0xc
+007F                          SetTreasureData(0064, 00, 00, 00, CF, D0) [es:bx+0xd8]
 009F                          RETURN
 
 Functn15: "DTELEO"
@@ -346,21 +318,7 @@ Functn24: "DRAGENCA"
 0027                          SetEncData(1A, 03) [es:bx+0xd4]
 0039                          SetEncData(1A, 04) [es:bx+0xd4]
 004B                          SetEncData(1B, 05) [es:bx+0xd4]
-005D B8 A0 0F                 mov ax, 0xfa0
-0060 50                       push ax
-0061 33 C0                    xor ax, ax
-0063 50                       push ax
-0064 33 C0                    xor ax, ax
-0066 50                       push ax
-0067 B8 D0 00                 mov ax, 0xd0
-006A 50                       push ax
-006B B8 C8 00                 mov ax, 0xc8
-006E 50                       push ax
-006F B8 C6 00                 mov ax, 0xc6
-0072 50                       push ax
-0073 C4 5E 06                 les bx, [bp+0x6]
-0076 26 FF 9F D8 00           call far word [es:bx+0xd8]
-007B 83 C4 0C                 add sp, 0xc
+005D                          SetTreasureData(0FA0, 00, 00, D0, C8, C6) [es:bx+0xd8]
 007E                          RETURN
 
 Functn25: "DRAGENCB"
@@ -370,21 +328,7 @@ Functn25: "DRAGENCB"
 0027                          SetEncData(1C, 03) [es:bx+0xd4]
 0039                          SetEncData(07, 05) [es:bx+0xd4]
 004B                          SetEncData(09, 06) [es:bx+0xd4]
-005D B8 40 1F                 mov ax, 0x1f40
-0060 50                       push ax
-0061 33 C0                    xor ax, ax
-0063 50                       push ax
-0064 B8 CF 00                 mov ax, 0xcf
-0067 50                       push ax
-0068 B8 CF 00                 mov ax, 0xcf
-006B 50                       push ax
-006C B8 BC 00                 mov ax, 0xbc
-006F 50                       push ax
-0070 B8 C7 00                 mov ax, 0xc7
-0073 50                       push ax
-0074 C4 5E 06                 les bx, [bp+0x6]
-0077 26 FF 9F D8 00           call far word [es:bx+0xd8]
-007C 83 C4 0C                 add sp, 0xc
+005D                          SetTreasureData(1F40, 00, CF, CF, BC, C7) [es:bx+0xd8]
 007F                          RETURN
 
 Functn26: "ZTELEDD"
@@ -519,21 +463,7 @@ Functn34: "WIZENCA"
 0039                          SetEncData(18, 04) [es:bx+0xd4]
 004B                          SetEncData(21, 05) [es:bx+0xd4]
 005D                          SetEncData(21, 06) [es:bx+0xd4]
-006F B8 64 00                 mov ax, 0x64
-0072 50                       push ax
-0073 33 C0                    xor ax, ax
-0075 50                       push ax
-0076 33 C0                    xor ax, ax
-0078 50                       push ax
-0079 33 C0                    xor ax, ax
-007B 50                       push ax
-007C B8 CF 00                 mov ax, 0xcf
-007F 50                       push ax
-0080 B8 B4 00                 mov ax, 0xb4
-0083 50                       push ax
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 9F D8 00           call far word [es:bx+0xd8]
-008C 83 C4 0C                 add sp, 0xc
+006F                          SetTreasureData(0064, 00, 00, 00, CF, B4) [es:bx+0xd8]
 008F                          RETURN
 
 Functn35: "WIZENCB"
@@ -544,21 +474,7 @@ Functn35: "WIZENCB"
 0039                          SetEncData(1D, 04) [es:bx+0xd4]
 004B                          SetEncData(18, 05) [es:bx+0xd4]
 005D                          SetEncData(18, 06) [es:bx+0xd4]
-006F B8 64 00                 mov ax, 0x64
-0072 50                       push ax
-0073 33 C0                    xor ax, ax
-0075 50                       push ax
-0076 33 C0                    xor ax, ax
-0078 50                       push ax
-0079 33 C0                    xor ax, ax
-007B 50                       push ax
-007C B8 CF 00                 mov ax, 0xcf
-007F 50                       push ax
-0080 B8 C6 00                 mov ax, 0xc6
-0083 50                       push ax
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 9F D8 00           call far word [es:bx+0xd8]
-008C 83 C4 0C                 add sp, 0xc
+006F                          SetTreasureData(0064, 00, 00, 00, CF, C6) [es:bx+0xd8]
 008F                          RETURN
 
 Functn36: "WIZENCC"
@@ -566,32 +482,14 @@ Functn36: "WIZENCC"
 0003                          SetEncData(1E, 01) [es:bx+0xd4]
 0015                          SetEncData(1E, 02) [es:bx+0xd4]
 0027                          SetEncData(18, 05) [es:bx+0xd4]
-0039 B8 64 00                 mov ax, 0x64
-003C 50                       push ax
-003D 33 C0                    xor ax, ax
-003F 50                       push ax
-0040 33 C0                    xor ax, ax
-0042 50                       push ax
-0043 33 C0                    xor ax, ax
-0045 50                       push ax
-0046 B8 CF 00                 mov ax, 0xcf
-0049 50                       push ax
-004A B8 C8 00                 mov ax, 0xc8
-004D 50                       push ax
-004E C4 5E 06                 les bx, [bp+0x6]
-0051 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0056 83 C4 0C                 add sp, 0xc
+0039                          SetTreasureData(0064, 00, 00, 00, CF, C8) [es:bx+0xd8]
 0059                          RETURN
 
 Functn37: "PIT"
 0000                          BEGIN
 0003                          ShowMessage(0A53) [es:bx+0xf8] = You fall into the pit and die.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F 90 00           call far word [es:bx+0x90]
-0020 59                       pop cx
+0010                          ax = GetHits() [es:bx+0x74]
+0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
 Functn38: "GHOSENCA"
@@ -601,21 +499,7 @@ Functn38: "GHOSENCA"
 0027                          SetEncData(1F, 03) [es:bx+0xd4]
 0039                          SetEncData(1F, 04) [es:bx+0xd4]
 004B                          SetEncData(20, 06) [es:bx+0xd4]
-005D B8 64 00                 mov ax, 0x64
-0060 50                       push ax
-0061 33 C0                    xor ax, ax
-0063 50                       push ax
-0064 33 C0                    xor ax, ax
-0066 50                       push ax
-0067 33 C0                    xor ax, ax
-0069 50                       push ax
-006A B8 D1 00                 mov ax, 0xd1
-006D 50                       push ax
-006E B8 CF 00                 mov ax, 0xcf
-0071 50                       push ax
-0072 C4 5E 06                 les bx, [bp+0x6]
-0075 26 FF 9F D8 00           call far word [es:bx+0xd8]
-007A 83 C4 0C                 add sp, 0xc
+005D                          SetTreasureData(0064, 00, 00, 00, D1, CF) [es:bx+0xd8]
 007D                          RETURN
 
 Functn3B: "TXTGHOSB"
@@ -638,21 +522,7 @@ Functn3E: "ENDRENCA"
 0027                          SetEncData(1F, 04) [es:bx+0xd4]
 0039                          SetEncData(02, 05) [es:bx+0xd4]
 004B                          SetEncData(02, 06) [es:bx+0xd4]
-005D B8 64 00                 mov ax, 0x64
-0060 50                       push ax
-0061 33 C0                    xor ax, ax
-0063 50                       push ax
-0064 B8 CF 00                 mov ax, 0xcf
-0067 50                       push ax
-0068 B8 CF 00                 mov ax, 0xcf
-006B 50                       push ax
-006C B8 D0 00                 mov ax, 0xd0
-006F 50                       push ax
-0070 B8 D0 00                 mov ax, 0xd0
-0073 50                       push ax
-0074 C4 5E 06                 les bx, [bp+0x6]
-0077 26 FF 9F D8 00           call far word [es:bx+0xd8]
-007C 83 C4 0C                 add sp, 0xc
+005D                          SetTreasureData(0064, 00, CF, CF, D0, D0) [es:bx+0xd8]
 007F                          RETURN
 
 Functn41: "BADEXIT"
@@ -733,21 +603,7 @@ Functn49: "LICHA"
 0039                          ax = CheckState(02, 8B) [es:bx+0x4]
 004A 0B C0                    or ax, ax
 004C 74 20                    jz 0x6e
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 33 C0                    xor ax, ax
-0056 50                       push ax
-0057 33 C0                    xor ax, ax
-0059 50                       push ax
-005A 33 C0                    xor ax, ax
-005C 50                       push ax
-005D B8 CF 00                 mov ax, 0xcf
-0060 50                       push ax
-0061 C4 5E 06                 les bx, [bp+0x6]
-0064 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0069 83 C4 0C                 add sp, 0xc
+004E                          SetTreasureData(0000, 00, 00, 00, 00, CF) [es:bx+0xd8]
 006C EB 45                    jmp 0xb3
 006E B8 01 00                 mov ax, 0x1
 0071 50                       push ax
@@ -758,21 +614,7 @@ Functn49: "LICHA"
 007A C4 5E 06                 les bx, [bp+0x6]
 007D 26 FF 1F                 call far word [es:bx]
 0080 83 C4 06                 add sp, 0x6
-0083 33 C0                    xor ax, ax
-0085 50                       push ax
-0086 33 C0                    xor ax, ax
-0088 50                       push ax
-0089 33 C0                    xor ax, ax
-008B 50                       push ax
-008C 33 C0                    xor ax, ax
-008E 50                       push ax
-008F B8 B7 00                 mov ax, 0xb7
-0092 50                       push ax
-0093 B8 D0 00                 mov ax, 0xd0
-0096 50                       push ax
-0097 C4 5E 06                 les bx, [bp+0x6]
-009A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-009F 83 C4 0C                 add sp, 0xc
+0083                          SetTreasureData(0000, 00, 00, 00, B7, D0) [es:bx+0xd8]
 00A2 33 C0                    xor ax, ax
 00A4 BA 10 27                 mov dx, 0x2710
 00A7 50                       push ax
@@ -791,21 +633,7 @@ Functn4A: "LICHB"
 0039                          ax = CheckState(02, 8C) [es:bx+0x4]
 004A 0B C0                    or ax, ax
 004C 74 20                    jz 0x6e
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 33 C0                    xor ax, ax
-0056 50                       push ax
-0057 33 C0                    xor ax, ax
-0059 50                       push ax
-005A 33 C0                    xor ax, ax
-005C 50                       push ax
-005D B8 C6 00                 mov ax, 0xc6
-0060 50                       push ax
-0061 C4 5E 06                 les bx, [bp+0x6]
-0064 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0069 83 C4 0C                 add sp, 0xc
+004E                          SetTreasureData(0000, 00, 00, 00, 00, C6) [es:bx+0xd8]
 006C EB 45                    jmp 0xb3
 006E B8 01 00                 mov ax, 0x1
 0071 50                       push ax
@@ -816,21 +644,7 @@ Functn4A: "LICHB"
 007A C4 5E 06                 les bx, [bp+0x6]
 007D 26 FF 1F                 call far word [es:bx]
 0080 83 C4 06                 add sp, 0x6
-0083 33 C0                    xor ax, ax
-0085 50                       push ax
-0086 33 C0                    xor ax, ax
-0088 50                       push ax
-0089 33 C0                    xor ax, ax
-008B 50                       push ax
-008C 33 C0                    xor ax, ax
-008E 50                       push ax
-008F B8 CD 00                 mov ax, 0xcd
-0092 50                       push ax
-0093 B8 BD 00                 mov ax, 0xbd
-0096 50                       push ax
-0097 C4 5E 06                 les bx, [bp+0x6]
-009A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-009F 83 C4 0C                 add sp, 0xc
+0083                          SetTreasureData(0000, 00, 00, 00, CD, BD) [es:bx+0xd8]
 00A2 33 C0                    xor ax, ax
 00A4 BA 10 27                 mov dx, 0x2710
 00A7 50                       push ax
@@ -849,21 +663,7 @@ Functn4B: "LICHC"
 0039                          ax = CheckState(02, 8D) [es:bx+0x4]
 004A 0B C0                    or ax, ax
 004C 74 20                    jz 0x6e
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 33 C0                    xor ax, ax
-0056 50                       push ax
-0057 33 C0                    xor ax, ax
-0059 50                       push ax
-005A 33 C0                    xor ax, ax
-005C 50                       push ax
-005D B8 D1 00                 mov ax, 0xd1
-0060 50                       push ax
-0061 C4 5E 06                 les bx, [bp+0x6]
-0064 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0069 83 C4 0C                 add sp, 0xc
+004E                          SetTreasureData(0000, 00, 00, 00, 00, D1) [es:bx+0xd8]
 006C EB 45                    jmp 0xb3
 006E B8 01 00                 mov ax, 0x1
 0071 50                       push ax
@@ -874,21 +674,7 @@ Functn4B: "LICHC"
 007A C4 5E 06                 les bx, [bp+0x6]
 007D 26 FF 1F                 call far word [es:bx]
 0080 83 C4 06                 add sp, 0x6
-0083 33 C0                    xor ax, ax
-0085 50                       push ax
-0086 33 C0                    xor ax, ax
-0088 50                       push ax
-0089 33 C0                    xor ax, ax
-008B 50                       push ax
-008C 33 C0                    xor ax, ax
-008E 50                       push ax
-008F B8 C7 00                 mov ax, 0xc7
-0092 50                       push ax
-0093 B8 B2 00                 mov ax, 0xb2
-0096 50                       push ax
-0097 C4 5E 06                 les bx, [bp+0x6]
-009A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-009F 83 C4 0C                 add sp, 0xc
+0083                          SetTreasureData(0000, 00, 00, 00, C7, B2) [es:bx+0xd8]
 00A2 33 C0                    xor ax, ax
 00A4 BA 10 27                 mov dx, 0x2710
 00A7 50                       push ax
@@ -907,21 +693,7 @@ Functn4C: "LICHD"
 0039                          ax = CheckState(02, 8E) [es:bx+0x4]
 004A 0B C0                    or ax, ax
 004C 74 20                    jz 0x6e
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 33 C0                    xor ax, ax
-0056 50                       push ax
-0057 33 C0                    xor ax, ax
-0059 50                       push ax
-005A 33 C0                    xor ax, ax
-005C 50                       push ax
-005D B8 D0 00                 mov ax, 0xd0
-0060 50                       push ax
-0061 C4 5E 06                 les bx, [bp+0x6]
-0064 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0069 83 C4 0C                 add sp, 0xc
+004E                          SetTreasureData(0000, 00, 00, 00, 00, D0) [es:bx+0xd8]
 006C EB 45                    jmp 0xb3
 006E B8 01 00                 mov ax, 0x1
 0071 50                       push ax
@@ -932,21 +704,7 @@ Functn4C: "LICHD"
 007A C4 5E 06                 les bx, [bp+0x6]
 007D 26 FF 1F                 call far word [es:bx]
 0080 83 C4 06                 add sp, 0x6
-0083 33 C0                    xor ax, ax
-0085 50                       push ax
-0086 33 C0                    xor ax, ax
-0088 50                       push ax
-0089 33 C0                    xor ax, ax
-008B 50                       push ax
-008C 33 C0                    xor ax, ax
-008E 50                       push ax
-008F B8 AC 00                 mov ax, 0xac
-0092 50                       push ax
-0093 B8 B7 00                 mov ax, 0xb7
-0096 50                       push ax
-0097 C4 5E 06                 les bx, [bp+0x6]
-009A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-009F 83 C4 0C                 add sp, 0xc
+0083                          SetTreasureData(0000, 00, 00, 00, AC, B7) [es:bx+0xd8]
 00A2 33 C0                    xor ax, ax
 00A4 BA 10 27                 mov dx, 0x2710
 00A7 50                       push ax
@@ -967,37 +725,9 @@ Functn4D: "LICHMAIN"
 0058                          SetEncData(28, 05) [es:bx+0xd4]
 006A                          ax = HasItem(F7) ? 1 : 0 [es:bx+0x50]
 0078 74 20                    jz 0x9a
-007A 33 C0                    xor ax, ax
-007C 50                       push ax
-007D 33 C0                    xor ax, ax
-007F 50                       push ax
-0080 33 C0                    xor ax, ax
-0082 50                       push ax
-0083 33 C0                    xor ax, ax
-0085 50                       push ax
-0086 33 C0                    xor ax, ax
-0088 50                       push ax
-0089 B8 CF 00                 mov ax, 0xcf
-008C 50                       push ax
-008D C4 5E 06                 les bx, [bp+0x6]
-0090 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0095 83 C4 0C                 add sp, 0xc
+007A                          SetTreasureData(0000, 00, 00, 00, 00, CF) [es:bx+0xd8]
 0098 EB 5C                    jmp 0xf6
-009A 33 C0                    xor ax, ax
-009C 50                       push ax
-009D 33 C0                    xor ax, ax
-009F 50                       push ax
-00A0 33 C0                    xor ax, ax
-00A2 50                       push ax
-00A3 B8 F7 00                 mov ax, 0xf7
-00A6 50                       push ax
-00A7 B8 CA 00                 mov ax, 0xca
-00AA 50                       push ax
-00AB B8 2D 00                 mov ax, 0x2d
-00AE 50                       push ax
-00AF C4 5E 06                 les bx, [bp+0x6]
-00B2 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00B7 83 C4 0C                 add sp, 0xc
+009A                          SetTreasureData(0000, 00, 00, 50, 50, 2D) [es:bx+0xd8]
 00BA                          ax = CheckState(02, 89) [es:bx+0x4]
 00CB 0B C0                    or ax, ax
 00CD 75 27                    jnz 0xf6

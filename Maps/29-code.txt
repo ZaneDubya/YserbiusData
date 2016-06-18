@@ -423,37 +423,9 @@ Functn07: "ENCF"
 0000                          BEGIN
 0003                          ax = HasItem(FA) ? 1 : 0 [es:bx+0x50]
 0011 74 21                    jz 0x34
-0013 B8 2C 01                 mov ax, 0x12c
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 CE 00                 mov ax, 0xce
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(012C, 00, 00, 00, 00, CE) [es:bx+0xd8]
 0032 EB 2D                    jmp 0x61
-0034 B8 2C 01                 mov ax, 0x12c
-0037 50                       push ax
-0038 33 C0                    xor ax, ax
-003A 50                       push ax
-003B 33 C0                    xor ax, ax
-003D 50                       push ax
-003E 33 C0                    xor ax, ax
-0040 50                       push ax
-0041 B8 D0 00                 mov ax, 0xd0
-0044 50                       push ax
-0045 B8 FA 00                 mov ax, 0xfa
-0048 50                       push ax
-0049 C4 5E 06                 les bx, [bp+0x6]
-004C 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0051 83 C4 0C                 add sp, 0xc
+0034                          SetTreasureData(012C, 00, 00, 00, D0, FA) [es:bx+0xd8]
 0054                          ShowMessage(0800) [es:bx+0xf8] = You see scattered bones and a bag under a Dragon.
 0061                          SetEncData(1B, 01) [es:bx+0xd4]
 0073                          SetEncData(1B, 02) [es:bx+0xd4]
@@ -485,38 +457,10 @@ Functn0A: "ENCI"
 0039                          SetEncData(22, 04) [es:bx+0xd4]
 004B                          ax = HasItem(F5) ? 1 : 0 [es:bx+0x50]
 0059 74 22                    jz 0x7d
-005B B8 E8 03                 mov ax, 0x3e8
-005E 50                       push ax
-005F 33 C0                    xor ax, ax
-0061 50                       push ax
-0062 33 C0                    xor ax, ax
-0064 50                       push ax
-0065 33 C0                    xor ax, ax
-0067 50                       push ax
-0068 B8 CF 00                 mov ax, 0xcf
-006B 50                       push ax
-006C B8 C6 00                 mov ax, 0xc6
-006F 50                       push ax
-0070 C4 5E 06                 les bx, [bp+0x6]
-0073 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0078 83 C4 0C                 add sp, 0xc
+005B                          SetTreasureData(03E8, 00, 00, 00, CF, C6) [es:bx+0xd8]
 007B EB 2E                    jmp 0xab
 007D                          ShowMessage(0832) [es:bx+0xf8] = A glowing yellow gem lights the area.
-008A B8 10 27                 mov ax, 0x2710
-008D 50                       push ax
-008E 33 C0                    xor ax, ax
-0090 50                       push ax
-0091 33 C0                    xor ax, ax
-0093 50                       push ax
-0094 B8 D0 00                 mov ax, 0xd0
-0097 50                       push ax
-0098 B8 D0 00                 mov ax, 0xd0
-009B 50                       push ax
-009C B8 F5 00                 mov ax, 0xf5
-009F 50                       push ax
-00A0 C4 5E 06                 les bx, [bp+0x6]
-00A3 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00A8 83 C4 0C                 add sp, 0xc
+008A                          SetTreasureData(2710, 00, 00, D0, D0, F5) [es:bx+0xd8]
 00AB                          RETURN
 
 Functn0B: "CGATE"

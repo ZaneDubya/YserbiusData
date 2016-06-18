@@ -465,38 +465,10 @@ Functn0F: "WKEYENC"
 0000                          BEGIN
 0003                          ax = HasItem(DA) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 E8 03                 mov ax, 0x3e8
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 BE 00                 mov ax, 0xbe
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(03E8, 00, 00, 00, 00, BE) [es:bx+0xd8]
 0032                          ShowMessage(069E) [es:bx+0xf8] = Monsters attack you.
 003F EB 2D                    jmp 0x6e
-0041 B8 E8 03                 mov ax, 0x3e8
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E B8 CF 00                 mov ax, 0xcf
-0051 50                       push ax
-0052 B8 DA 00                 mov ax, 0xda
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005E 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(03E8, 00, 00, 00, CF, DA) [es:bx+0xd8]
 0061                          ShowMessage(06B3) [es:bx+0xf8] = A key dangles from a spider's mandible.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -523,38 +495,10 @@ Functn10: "CKEYENC"
 0000                          BEGIN
 0003                          ax = HasItem(DB) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 E8 03                 mov ax, 0x3e8
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 B6 00                 mov ax, 0xb6
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(03E8, 00, 00, 00, 00, B6) [es:bx+0xd8]
 0032                          ShowMessage(06DB) [es:bx+0xf8] = Silver Ogres spring a trap.
 003F EB 2E                    jmp 0x6f
-0041 B8 DC 05                 mov ax, 0x5dc
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B B8 CC 00                 mov ax, 0xcc
-004E 50                       push ax
-004F B8 D1 00                 mov ax, 0xd1
-0052 50                       push ax
-0053 B8 DB 00                 mov ax, 0xdb
-0056 50                       push ax
-0057 C4 5E 06                 les bx, [bp+0x6]
-005A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005F 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(05DC, 00, 00, CC, D1, DB) [es:bx+0xd8]
 0062                          ShowMessage(06F7) [es:bx+0xf8] = A Silver Ogre plays with an unusual key.
 006F C4 5E 06                 les bx, [bp+0x6]
 0072 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -579,38 +523,10 @@ Functn11: "EKEYENC"
 0000                          BEGIN
 0003                          ax = HasItem(DC) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 20 03                 mov ax, 0x320
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 B6 00                 mov ax, 0xb6
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(0320, 00, 00, 00, 00, B6) [es:bx+0xd8]
 0032                          ShowMessage(0720) [es:bx+0xf8] = Lizardites have made this room their home.
 003F EB 2D                    jmp 0x6e
-0041 B8 D0 07                 mov ax, 0x7d0
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E B8 B6 00                 mov ax, 0xb6
-0051 50                       push ax
-0052 B8 DC 00                 mov ax, 0xdc
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005E 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(07D0, 00, 00, 00, B6, DC) [es:bx+0xd8]
 0061                          ShowMessage(074B) [es:bx+0xf8] = A Lizardite holds a key shaped like the rune sign for I.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -687,38 +603,10 @@ Functn17: "GOLDAENC"
 0003                          ax = CheckState(02, 1F) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
-0019 B8 84 03                 mov ax, 0x384
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 33 C0                    xor ax, ax
-0025 50                       push ax
-0026 B8 B6 00                 mov ax, 0xb6
-0029 50                       push ax
-002A B8 D0 00                 mov ax, 0xd0
-002D 50                       push ax
-002E C4 5E 06                 les bx, [bp+0x6]
-0031 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0036 83 C4 0C                 add sp, 0xc
+0019                          SetTreasureData(0384, 00, 00, 00, B6, D0) [es:bx+0xd8]
 0039                          ShowMessage(094D) [es:bx+0xf8] = You encounter Bugbears.
 0046 EB 41                    jmp 0x89
-0048 B8 10 0E                 mov ax, 0xe10
-004B 50                       push ax
-004C 33 C0                    xor ax, ax
-004E 50                       push ax
-004F 33 C0                    xor ax, ax
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 33 C0                    xor ax, ax
-0057 50                       push ax
-0058 B8 B7 00                 mov ax, 0xb7
-005B 50                       push ax
-005C C4 5E 06                 les bx, [bp+0x6]
-005F 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0064 83 C4 0C                 add sp, 0xc
+0048                          SetTreasureData(0E10, 00, 00, 00, 00, B7) [es:bx+0xd8]
 0067 B8 01 00                 mov ax, 0x1
 006A 50                       push ax
 006B B8 1F 00                 mov ax, 0x1f
@@ -761,38 +649,10 @@ Functn18: "GOLDBENC"
 0003                          ax = CheckState(02, 20) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019 B8 20 03                 mov ax, 0x320
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 33 C0                    xor ax, ax
-0025 50                       push ax
-0026 33 C0                    xor ax, ax
-0028 50                       push ax
-0029 B8 B7 00                 mov ax, 0xb7
-002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0035 83 C4 0C                 add sp, 0xc
+0019                          SetTreasureData(0320, 00, 00, 00, 00, B7) [es:bx+0xd8]
 0038                          ShowMessage(0984) [es:bx+0xf8] = Dire Wolves scratch the floor impatiently.
 0045 EB 41                    jmp 0x88
-0047 B8 A0 0F                 mov ax, 0xfa0
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 33 C0                    xor ax, ax
-0056 50                       push ax
-0057 B8 8E 00                 mov ax, 0x8e
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0063 83 C4 0C                 add sp, 0xc
+0047                          SetTreasureData(0FA0, 00, 00, 00, 00, 8E) [es:bx+0xd8]
 0066 B8 01 00                 mov ax, 0x1
 0069 50                       push ax
 006A B8 20 00                 mov ax, 0x20
@@ -825,38 +685,10 @@ Functn19: "GOLDCENC"
 0003                          ax = CheckState(02, 21) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019 B8 EE 02                 mov ax, 0x2ee
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 33 C0                    xor ax, ax
-0025 50                       push ax
-0026 33 C0                    xor ax, ax
-0028 50                       push ax
-0029 B8 D1 00                 mov ax, 0xd1
-002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0035 83 C4 0C                 add sp, 0xc
+0019                          SetTreasureData(02EE, 00, 00, 00, 00, D1) [es:bx+0xd8]
 0038                          ShowMessage(09D4) [es:bx+0xf8] = You suddenly feel nervous.
 0045 EB 41                    jmp 0x88
-0047 B8 7C 15                 mov ax, 0x157c
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 33 C0                    xor ax, ax
-0056 50                       push ax
-0057 B8 CC 00                 mov ax, 0xcc
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0063 83 C4 0C                 add sp, 0xc
+0047                          SetTreasureData(157C, 00, 00, 00, 00, CC) [es:bx+0xd8]
 0066 B8 01 00                 mov ax, 0x1
 0069 50                       push ax
 006A B8 21 00                 mov ax, 0x21
@@ -896,38 +728,10 @@ Functn1A: "ITEMCENC"
 0000                          BEGIN
 0003                          ax = HasItem(C6) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 FA 00                 mov ax, 0xfa
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 CD 00                 mov ax, 0xcd
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(00FA, 00, 00, 00, 00, CD) [es:bx+0xd8]
 0032                          ShowMessage(0A0C) [es:bx+0xf8] = The floor crawls with Leeches.
 003F EB 2C                    jmp 0x6d
-0041 B8 E8 03                 mov ax, 0x3e8
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 B8 C6 00                 mov ax, 0xc6
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005D 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(03E8, 00, 00, 00, 00, C6) [es:bx+0xd8]
 0060                          ShowMessage(0A2B) [es:bx+0xf8] = Leeches swarm over a magic wand.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -957,38 +761,10 @@ Functn1B: "ITEMBENC"
 0000                          BEGIN
 0003                          ax = HasItem(96) ? 1 : 0 [es:bx+0x50]
 0011 74 2D                    jz 0x40
-0013 33 C0                    xor ax, ax
-0015 50                       push ax
-0016 33 C0                    xor ax, ax
-0018 50                       push ax
-0019 33 C0                    xor ax, ax
-001B 50                       push ax
-001C 33 C0                    xor ax, ax
-001E 50                       push ax
-001F 33 C0                    xor ax, ax
-0021 50                       push ax
-0022 B8 CF 00                 mov ax, 0xcf
-0025 50                       push ax
-0026 C4 5E 06                 les bx, [bp+0x6]
-0029 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002E 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(0000, 00, 00, 00, 00, CF) [es:bx+0xd8]
 0031                          ShowMessage(0A4C) [es:bx+0xf8] = Giants interrupt your search.
 003E EB 2B                    jmp 0x6b
-0040 33 C0                    xor ax, ax
-0042 50                       push ax
-0043 33 C0                    xor ax, ax
-0045 50                       push ax
-0046 33 C0                    xor ax, ax
-0048 50                       push ax
-0049 33 C0                    xor ax, ax
-004B 50                       push ax
-004C 33 C0                    xor ax, ax
-004E 50                       push ax
-004F B8 96 00                 mov ax, 0x96
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005B 83 C4 0C                 add sp, 0xc
+0040                          SetTreasureData(0000, 00, 00, 00, 00, 96) [es:bx+0xd8]
 005E                          ShowMessage(0A6A) [es:bx+0xf8] = A Giant wears a medallion around his neck.
 006B C4 5E 06                 les bx, [bp+0x6]
 006E 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -1016,38 +792,10 @@ Functn1C: "ITEMCENC"
 0000                          BEGIN
 0003                          ax = HasItem(D1) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 2C 01                 mov ax, 0x12c
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 B5 00                 mov ax, 0xb5
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(012C, 00, 00, 00, 00, B5) [es:bx+0xd8]
 0032                          ShowMessage(0A95) [es:bx+0xf8] = You disturb a nest of Cockatrices.
 003F EB 2C                    jmp 0x6d
-0041 B8 DC 05                 mov ax, 0x5dc
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 B8 D1 00                 mov ax, 0xd1
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005D 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(05DC, 00, 00, 00, 00, D1) [es:bx+0xd8]
 0060                          ShowMessage(0AB8) [es:bx+0xf8] = You see a vial in a Cockatrice nest.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -1070,38 +818,10 @@ Functn1D: "WEAPAENC"
 0000                          BEGIN
 0003                          ax = HasItem(2A) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 2C 01                 mov ax, 0x12c
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 BD 00                 mov ax, 0xbd
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(012C, 00, 00, 00, 00, BD) [es:bx+0xd8]
 0032                          ShowMessage(0ADD) [es:bx+0xf8] = Silver Ogres suddenly appear around you.
 003F EB 2C                    jmp 0x6d
-0041 B8 D0 07                 mov ax, 0x7d0
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 B8 2A 00                 mov ax, 0x2a
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005D 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(07D0, 00, 00, 00, 00, 2A) [es:bx+0xd8]
 0060                          ShowMessage(0B06) [es:bx+0xf8] = The lead Silver Ogre wields a powerful morningstar.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -1132,38 +852,10 @@ Functn1E: "WEAPBENC"
 0000                          BEGIN
 0003                          ax = HasItem(10) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 2C 01                 mov ax, 0x12c
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 CE 00                 mov ax, 0xce
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(012C, 00, 00, 00, 00, CE) [es:bx+0xd8]
 0032                          ShowMessage(0B3A) [es:bx+0xf8] = You disturb some sleeping Giants.
 003F EB 2C                    jmp 0x6d
-0041 B8 E8 03                 mov ax, 0x3e8
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 B8 10 00                 mov ax, 0x10
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005D 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(03E8, 00, 00, 00, 00, 10) [es:bx+0xd8]
 0060                          ShowMessage(0B5C) [es:bx+0xf8] = A gleaming sword lies on the floor between you and a group of Giants.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -1190,38 +882,10 @@ Functn1F: "ARMRAENC"
 0000                          BEGIN
 0003                          ax = HasItem(67) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 F4 01                 mov ax, 0x1f4
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 D0 00                 mov ax, 0xd0
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(01F4, 00, 00, 00, 00, D0) [es:bx+0xd8]
 0032                          ShowMessage(0BA2) [es:bx+0xf8] = Dark shadows coalesce into Bugbears.
 003F EB 2C                    jmp 0x6d
-0041 B8 D0 07                 mov ax, 0x7d0
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 B8 67 00                 mov ax, 0x67
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005D 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(07D0, 00, 00, 00, 00, 67) [es:bx+0xd8]
 0060                          ShowMessage(0BC7) [es:bx+0xf8] = A Bugbear guards some chainmail.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -1251,38 +915,10 @@ Functn20: "ARMRBENC"
 0000                          BEGIN
 0003                          ax = HasItem(7E) ? 1 : 0 [es:bx+0x50]
 0011 74 2F                    jz 0x42
-0013 B8 20 03                 mov ax, 0x320
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 B8 CF 00                 mov ax, 0xcf
-0023 50                       push ax
-0024 B8 CD 00                 mov ax, 0xcd
-0027 50                       push ax
-0028 C4 5E 06                 les bx, [bp+0x6]
-002B 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0030 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(0320, 00, 00, 00, CF, CD) [es:bx+0xd8]
 0033                          ShowMessage(0BE8) [es:bx+0xf8] = You enter a roosting area for Cockatrices.
 0040 EB 2C                    jmp 0x6e
-0042 B8 B8 0B                 mov ax, 0xbb8
-0045 50                       push ax
-0046 33 C0                    xor ax, ax
-0048 50                       push ax
-0049 33 C0                    xor ax, ax
-004B 50                       push ax
-004C 33 C0                    xor ax, ax
-004E 50                       push ax
-004F 33 C0                    xor ax, ax
-0051 50                       push ax
-0052 B8 7E 00                 mov ax, 0x7e
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005E 83 C4 0C                 add sp, 0xc
+0042                          SetTreasureData(0BB8, 00, 00, 00, 00, 7E) [es:bx+0xd8]
 0061                          ShowMessage(0C13) [es:bx+0xf8] = In a Cockatrice nest you see luminous chainmail.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -1313,38 +949,10 @@ Functn21: "SHLDAENC"
 0000                          BEGIN
 0003                          ax = HasItem(59) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 64 00                 mov ax, 0x64
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 C0 00                 mov ax, 0xc0
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(0064, 00, 00, 00, 00, C0) [es:bx+0xd8]
 0032                          ShowMessage(0C44) [es:bx+0xf8] = Dire Wolves encircle you.
 003F EB 2C                    jmp 0x6d
-0041 B8 E8 03                 mov ax, 0x3e8
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 B8 59 00                 mov ax, 0x59
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005D 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(03E8, 00, 00, 00, 00, 59) [es:bx+0xd8]
 0060                          ShowMessage(0C5E) [es:bx+0xf8] = Dire Wolves seem fascinated by a shiny shield.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -1369,38 +977,10 @@ Functn22: "SLDBENC"
 0000                          BEGIN
 0003                          ax = HasItem(81) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 C8 00                 mov ax, 0xc8
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 C5 00                 mov ax, 0xc5
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(00C8, 00, 00, 00, 00, C5) [es:bx+0xd8]
 0032                          ShowMessage(0C8D) [es:bx+0xf8] = Loud hisses alert you to danger.
 003F EB 2C                    jmp 0x6d
-0041 B8 84 03                 mov ax, 0x384
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 B8 81 00                 mov ax, 0x81
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005D 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(0384, 00, 00, 00, 00, 81) [es:bx+0xd8]
 0060                          ShowMessage(0CAE) [es:bx+0xf8] = Lizardites move between you and a piece of armor on the floor.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]

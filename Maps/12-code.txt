@@ -58,21 +58,7 @@ Functn06: "KNGGHST"
 0011 74 48                    jz 0x5b
 0013                          ShowMessage(058C) [es:bx+0xf8] = King Cleowyn's angry spirit appears.
 0020                          ShowMessage(05B1) [es:bx+0xf8] = He tears the Key to the Palace away from you as he and his courtiers attack.
-002D B8 E8 03                 mov ax, 0x3e8
-0030 50                       push ax
-0031 33 C0                    xor ax, ax
-0033 50                       push ax
-0034 33 C0                    xor ax, ax
-0036 50                       push ax
-0037 33 C0                    xor ax, ax
-0039 50                       push ax
-003A B8 B7 00                 mov ax, 0xb7
-003D 50                       push ax
-003E B8 CF 00                 mov ax, 0xcf
-0041 50                       push ax
-0042 C4 5E 06                 les bx, [bp+0x6]
-0045 26 FF 9F D8 00           call far word [es:bx+0xd8]
-004A 83 C4 0C                 add sp, 0xc
+002D                          SetTreasureData(03E8, 00, 00, 00, B7, CF) [es:bx+0xd8]
 004D B8 D9 00                 mov ax, 0xd9
 0050 50                       push ax
 0051 C4 5E 06                 les bx, [bp+0x6]
@@ -80,21 +66,7 @@ Functn06: "KNGGHST"
 0058 59                       pop cx
 0059 EB 2E                    jmp 0x89
 005B                          ShowMessage(05FE) [es:bx+0xf8] = King Cleowyn and his dead courtiers appear to challenge you.
-0068 B8 98 3A                 mov ax, 0x3a98
-006B 50                       push ax
-006C 33 C0                    xor ax, ax
-006E 50                       push ax
-006F 33 C0                    xor ax, ax
-0071 50                       push ax
-0072 B8 F8 00                 mov ax, 0xf8
-0075 50                       push ax
-0076 B8 B7 00                 mov ax, 0xb7
-0079 50                       push ax
-007A B8 CF 00                 mov ax, 0xcf
-007D 50                       push ax
-007E C4 5E 06                 les bx, [bp+0x6]
-0081 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0086 83 C4 0C                 add sp, 0xc
+0068                          SetTreasureData(3A98, 00, 00, F8, B7, CF) [es:bx+0xd8]
 0089                          SetEncData(25, 05) [es:bx+0xd4]
 009B                          SetEncData(01, 01) [es:bx+0xd4]
 00AD                          SetEncData(08, 02) [es:bx+0xd4]
@@ -116,19 +88,11 @@ Functn07: "PIT"
 0028 26 FF 9F F0 00           call far word [es:bx+0xf0]
 002D 3D 01 00                 cmp ax, 0x1
 0030 75 2A                    jnz 0x5c
-0032 B8 FA 00                 mov ax, 0xfa
-0035 50                       push ax
-0036 C4 5E 06                 les bx, [bp+0x6]
-0039 26 FF 9F 90 00           call far word [es:bx+0x90]
-003E 59                       pop cx
+0032                          DoDamage(00FA) [es:bx+0x90]
 003F                          GoMap(02, E0, 01, 04) [es:bx+0xbc]
 005A EB 35                    jmp 0x91
 005C                          ShowMessage(065B) [es:bx+0xf8] = Your body provides a soft landing pad for the rest of your party.
-0069 B8 90 01                 mov ax, 0x190
-006C 50                       push ax
-006D C4 5E 06                 les bx, [bp+0x6]
-0070 26 FF 9F 90 00           call far word [es:bx+0x90]
-0075 59                       pop cx
+0069                          DoDamage(0190) [es:bx+0x90]
 0076                          GoMap(02, E0, 01, 04) [es:bx+0xbc]
 0091                          RETURN
 
@@ -234,37 +198,9 @@ Functn0C: "WEAPBENC"
 0003                          ax = HasItem(35) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013                          ShowMessage(069D) [es:bx+0xf8] = You feel the tickle of cobwebs on your neck.
-0020 B8 2C 01                 mov ax, 0x12c
-0023 50                       push ax
-0024 33 C0                    xor ax, ax
-0026 50                       push ax
-0027 33 C0                    xor ax, ax
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 B8 B6 00                 mov ax, 0xb6
-0033 50                       push ax
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 9F D8 00           call far word [es:bx+0xd8]
-003C 83 C4 0C                 add sp, 0xc
+0020                          SetTreasureData(012C, 00, 00, 00, 00, B6) [es:bx+0xd8]
 003F EB 2D                    jmp 0x6e
-0041 B8 E8 03                 mov ax, 0x3e8
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E B8 CF 00                 mov ax, 0xcf
-0051 50                       push ax
-0052 B8 35 00                 mov ax, 0x35
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005E 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(03E8, 00, 00, 00, CF, 35) [es:bx+0xd8]
 0061                          ShowMessage(06CA) [es:bx+0xf8] = Spiders are using a spear in the middle of the floor as a support for their webs.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -293,21 +229,7 @@ Functn0C: "WEAPBENC"
 
 Functn0D: "WEAPAENC"
 0000                          BEGIN
-0003 B8 64 19                 mov ax, 0x1964
-0006 50                       push ax
-0007 33 C0                    xor ax, ax
-0009 50                       push ax
-000A 33 C0                    xor ax, ax
-000C 50                       push ax
-000D 33 C0                    xor ax, ax
-000F 50                       push ax
-0010 33 C0                    xor ax, ax
-0012 50                       push ax
-0013 B8 3B 00                 mov ax, 0x3b
-0016 50                       push ax
-0017 C4 5E 06                 les bx, [bp+0x6]
-001A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-001F 83 C4 0C                 add sp, 0xc
+0003                          SetTreasureData(1964, 00, 00, 00, 00, 3B) [es:bx+0xd8]
 0022                          ShowMessage(071C) [es:bx+0xf8] = You see a weapon on the floor and step forward. Banshees sense your presence and gather to attack.
 002F C4 5E 06                 les bx, [bp+0x6]
 0032 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -344,37 +266,9 @@ Functn0E: "WEAPCENC"
 0003                          ax = HasItem(16) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013                          ShowMessage(077F) [es:bx+0xf8] = Nightmares emerge from the shadows.
-0020 B8 C8 00                 mov ax, 0xc8
-0023 50                       push ax
-0024 33 C0                    xor ax, ax
-0026 50                       push ax
-0027 33 C0                    xor ax, ax
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 B8 CE 00                 mov ax, 0xce
-0033 50                       push ax
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 9F D8 00           call far word [es:bx+0xd8]
-003C 83 C4 0C                 add sp, 0xc
+0020                          SetTreasureData(00C8, 00, 00, 00, 00, CE) [es:bx+0xd8]
 003F EB 2D                    jmp 0x6e
-0041 B8 B8 0B                 mov ax, 0xbb8
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E B8 CF 00                 mov ax, 0xcf
-0051 50                       push ax
-0052 B8 16 00                 mov ax, 0x16
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005E 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(0BB8, 00, 00, 00, CF, 16) [es:bx+0xd8]
 0061                          ShowMessage(07A3) [es:bx+0xf8] = A group of Nightmares claw at an axe on the floor.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -411,37 +305,9 @@ Functn0F: "SHLDENC"
 0003                          ax = HasItem(4E) ? 1 : 0 [es:bx+0x50]
 0011 74 2F                    jz 0x42
 0013                          ShowMessage(07D6) [es:bx+0xf8] = You stumble upon some Zombies, eating the remains of a former adventurer.
-0020 B8 90 01                 mov ax, 0x190
-0023 50                       push ax
-0024 33 C0                    xor ax, ax
-0026 50                       push ax
-0027 33 C0                    xor ax, ax
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D B8 B5 00                 mov ax, 0xb5
-0030 50                       push ax
-0031 B8 CE 00                 mov ax, 0xce
-0034 50                       push ax
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 9F D8 00           call far word [es:bx+0xd8]
-003D 83 C4 0C                 add sp, 0xc
+0020                          SetTreasureData(0190, 00, 00, 00, B5, CE) [es:bx+0xd8]
 0040 EB 2D                    jmp 0x6f
-0042 B8 74 0E                 mov ax, 0xe74
-0045 50                       push ax
-0046 33 C0                    xor ax, ax
-0048 50                       push ax
-0049 33 C0                    xor ax, ax
-004B 50                       push ax
-004C 33 C0                    xor ax, ax
-004E 50                       push ax
-004F B8 B5 00                 mov ax, 0xb5
-0052 50                       push ax
-0053 B8 4E 00                 mov ax, 0x4e
-0056 50                       push ax
-0057 C4 5E 06                 les bx, [bp+0x6]
-005A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005F 83 C4 0C                 add sp, 0xc
+0042                          SetTreasureData(0E74, 00, 00, 00, B5, 4E) [es:bx+0xd8]
 0062                          ShowMessage(0820) [es:bx+0xf8] = The shuffle of heavy feet put you on your guard. One of the things kicks a shield out of its way.
 006F C4 5E 06                 les bx, [bp+0x6]
 0072 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -480,37 +346,9 @@ Functn10: "JACKTENC"
 0003                          ax = HasItem(7A) ? 1 : 0 [es:bx+0x50]
 0011 74 2F                    jz 0x42
 0013                          ShowMessage(0882) [es:bx+0xf8] = Ghosts rise from the floor to haunt you.
-0020 B8 64 00                 mov ax, 0x64
-0023 50                       push ax
-0024 33 C0                    xor ax, ax
-0026 50                       push ax
-0027 33 C0                    xor ax, ax
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D B8 B6 00                 mov ax, 0xb6
-0030 50                       push ax
-0031 B8 CE 00                 mov ax, 0xce
-0034 50                       push ax
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 9F D8 00           call far word [es:bx+0xd8]
-003D 83 C4 0C                 add sp, 0xc
+0020                          SetTreasureData(0064, 00, 00, 00, B6, CE) [es:bx+0xd8]
 0040 EB 2D                    jmp 0x6f
-0042 B8 A0 0F                 mov ax, 0xfa0
-0045 50                       push ax
-0046 33 C0                    xor ax, ax
-0048 50                       push ax
-0049 33 C0                    xor ax, ax
-004B 50                       push ax
-004C 33 C0                    xor ax, ax
-004E 50                       push ax
-004F B8 CE 00                 mov ax, 0xce
-0052 50                       push ax
-0053 B8 7A 00                 mov ax, 0x7a
-0056 50                       push ax
-0057 C4 5E 06                 les bx, [bp+0x6]
-005A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005F 83 C4 0C                 add sp, 0xc
+0042                          SetTreasureData(0FA0, 00, 00, 00, CE, 7A) [es:bx+0xd8]
 0062                          ShowMessage(08AB) [es:bx+0xf8] = Ghosts are gathered around a jacket on the floor. They seem to be pondering its purpose.
 006F C4 5E 06                 les bx, [bp+0x6]
 0072 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -542,37 +380,9 @@ Functn11: "ARMRBENC"
 0003                          ax = HasItem(76) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013                          ShowMessage(0904) [es:bx+0xf8] = Skeletons of King Cleowyn's elite palace guard advance on you.
-0020 B8 4B 00                 mov ax, 0x4b
-0023 50                       push ax
-0024 33 C0                    xor ax, ax
-0026 50                       push ax
-0027 33 C0                    xor ax, ax
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 B8 CE 00                 mov ax, 0xce
-0033 50                       push ax
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 9F D8 00           call far word [es:bx+0xd8]
-003C 83 C4 0C                 add sp, 0xc
+0020                          SetTreasureData(004B, 00, 00, 00, 00, CE) [es:bx+0xd8]
 003F EB 2D                    jmp 0x6e
-0041 B8 D0 07                 mov ax, 0x7d0
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E B8 CE 00                 mov ax, 0xce
-0051 50                       push ax
-0052 B8 76 00                 mov ax, 0x76
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005E 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(07D0, 00, 00, 00, CE, 76) [es:bx+0xd8]
 0061                          ShowMessage(0943) [es:bx+0xf8] = The leader of the dead palace guards that surrounds you wears rusty chainmail.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]

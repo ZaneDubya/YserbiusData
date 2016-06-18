@@ -344,37 +344,9 @@ Functn0C: "GOLDAENC"
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
 0019                          ShowMessage(080D) [es:bx+0xf8] = The room you enter is cold as ice.
-0026 B8 8C 00                 mov ax, 0x8c
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 33 C0                    xor ax, ax
-0032 50                       push ax
-0033 B8 A9 00                 mov ax, 0xa9
-0036 50                       push ax
-0037 B8 CC 00                 mov ax, 0xcc
-003A 50                       push ax
-003B C4 5E 06                 les bx, [bp+0x6]
-003E 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0043 83 C4 0C                 add sp, 0xc
+0026                          SetTreasureData(008C, 00, 00, 00, A9, CC) [es:bx+0xd8]
 0046 EB 43                    jmp 0x8b
-0048 B8 A0 0F                 mov ax, 0xfa0
-004B 50                       push ax
-004C 33 C0                    xor ax, ax
-004E 50                       push ax
-004F 33 C0                    xor ax, ax
-0051 50                       push ax
-0052 B8 CD 00                 mov ax, 0xcd
-0055 50                       push ax
-0056 B8 B7 00                 mov ax, 0xb7
-0059 50                       push ax
-005A B8 D0 00                 mov ax, 0xd0
-005D 50                       push ax
-005E C4 5E 06                 les bx, [bp+0x6]
-0061 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0066 83 C4 0C                 add sp, 0xc
+0048                          SetTreasureData(0FA0, 00, 00, CD, B7, D0) [es:bx+0xd8]
 0069 B8 01 00                 mov ax, 0x1
 006C 50                       push ax
 006D B8 2C 00                 mov ax, 0x2c
@@ -415,37 +387,9 @@ Functn0D: "GOLDBENC"
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
 0019                          ShowMessage(085C) [es:bx+0xf8] = The room stinks of rotten meat.
-0026 B8 B4 00                 mov ax, 0xb4
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 33 C0                    xor ax, ax
-0032 50                       push ax
-0033 B8 B6 00                 mov ax, 0xb6
-0036 50                       push ax
-0037 B8 CF 00                 mov ax, 0xcf
-003A 50                       push ax
-003B C4 5E 06                 les bx, [bp+0x6]
-003E 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0043 83 C4 0C                 add sp, 0xc
+0026                          SetTreasureData(00B4, 00, 00, 00, B6, CF) [es:bx+0xd8]
 0046 EB 42                    jmp 0x8a
-0048 B8 B8 0B                 mov ax, 0xbb8
-004B 50                       push ax
-004C 33 C0                    xor ax, ax
-004E 50                       push ax
-004F 33 C0                    xor ax, ax
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 B8 D0 00                 mov ax, 0xd0
-0058 50                       push ax
-0059 B8 AA 00                 mov ax, 0xaa
-005C 50                       push ax
-005D C4 5E 06                 les bx, [bp+0x6]
-0060 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0065 83 C4 0C                 add sp, 0xc
+0048                          SetTreasureData(0BB8, 00, 00, 00, D0, AA) [es:bx+0xd8]
 0068 B8 01 00                 mov ax, 0x1
 006B 50                       push ax
 006C B8 2D 00                 mov ax, 0x2d
@@ -665,21 +609,7 @@ Functn12: "ITEMAENC"
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(0BF4) [es:bx+0xf8] = Polar Bears wander the empty room.
-0026 B8 C8 00                 mov ax, 0xc8
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 33 C0                    xor ax, ax
-0032 50                       push ax
-0033 33 C0                    xor ax, ax
-0035 50                       push ax
-0036 B8 B7 00                 mov ax, 0xb7
-0039 50                       push ax
-003A C4 5E 06                 les bx, [bp+0x6]
-003D 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0042 83 C4 0C                 add sp, 0xc
+0026                          SetTreasureData(00C8, 00, 00, 00, 00, B7) [es:bx+0xd8]
 0045 EB 44                    jmp 0x8b
 0047 B8 01 00                 mov ax, 0x1
 004A 50                       push ax
@@ -690,21 +620,7 @@ Functn12: "ITEMAENC"
 0053 C4 5E 06                 les bx, [bp+0x6]
 0056 26 FF 1F                 call far word [es:bx]
 0059 83 C4 06                 add sp, 0x6
-005C B8 58 1B                 mov ax, 0x1b58
-005F 50                       push ax
-0060 33 C0                    xor ax, ax
-0062 50                       push ax
-0063 B8 D0 00                 mov ax, 0xd0
-0066 50                       push ax
-0067 B8 B2 00                 mov ax, 0xb2
-006A 50                       push ax
-006B B8 AA 00                 mov ax, 0xaa
-006E 50                       push ax
-006F B8 B0 00                 mov ax, 0xb0
-0072 50                       push ax
-0073 C4 5E 06                 les bx, [bp+0x6]
-0076 26 FF 9F D8 00           call far word [es:bx+0xd8]
-007B 83 C4 0C                 add sp, 0xc
+005C                          SetTreasureData(1B58, 00, D0, B2, AA, B0) [es:bx+0xd8]
 007E                          ShowMessage(0C17) [es:bx+0xf8] = A Polar Bear plays with a pile of stuff.
 008B C4 5E 06                 les bx, [bp+0x6]
 008E 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -728,37 +644,9 @@ Functn13: "ITEMBENC"
 0003                          ax = HasItem(A1) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
 0013                          ShowMessage(0C40) [es:bx+0xf8] = Hell Wolves snarl at you.
-0020 B8 2C 01                 mov ax, 0x12c
-0023 50                       push ax
-0024 33 C0                    xor ax, ax
-0026 50                       push ax
-0027 33 C0                    xor ax, ax
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 B8 B7 00                 mov ax, 0xb7
-0033 50                       push ax
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 9F D8 00           call far word [es:bx+0xd8]
-003C 83 C4 0C                 add sp, 0xc
+0020                          SetTreasureData(012C, 00, 00, 00, 00, B7) [es:bx+0xd8]
 003F EB 2D                    jmp 0x6e
-0041 B8 88 13                 mov ax, 0x1388
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E B8 D0 00                 mov ax, 0xd0
-0051 50                       push ax
-0052 B8 A1 00                 mov ax, 0xa1
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005E 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(1388, 00, 00, 00, D0, A1) [es:bx+0xd8]
 0061                          ShowMessage(0C5A) [es:bx+0xf8] = A Hell Wolf kicks an object aside as it leaps at you.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]

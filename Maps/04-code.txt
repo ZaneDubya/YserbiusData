@@ -384,38 +384,10 @@ Functn1C: "WEAPENC"
 0003                          ax = CheckState(02, 06) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019 B8 90 01                 mov ax, 0x190
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 33 C0                    xor ax, ax
-0025 50                       push ax
-0026 33 C0                    xor ax, ax
-0028 50                       push ax
-0029 B8 CE 00                 mov ax, 0xce
-002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0035 83 C4 0C                 add sp, 0xc
+0019                          SetTreasureData(0190, 00, 00, 00, 00, CE) [es:bx+0xd8]
 0038                          ShowMessage(0D51) [es:bx+0xf8] = It looks like the Rogues you encounter have already looted the room.
 0045 EB 42                    jmp 0x89
-0047 B8 DC 05                 mov ax, 0x5dc
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 B8 0C 00                 mov ax, 0xc
-0057 50                       push ax
-0058 B8 05 00                 mov ax, 0x5
-005B 50                       push ax
-005C C4 5E 06                 les bx, [bp+0x6]
-005F 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0064 83 C4 0C                 add sp, 0xc
+0047                          SetTreasureData(05DC, 00, 00, 00, 0C, 05) [es:bx+0xd8]
 0067 B8 01 00                 mov ax, 0x1
 006A 50                       push ax
 006B B8 06 00                 mov ax, 0x6
@@ -459,38 +431,10 @@ Functn1D: "GOLDENC"
 0003                          ax = CheckState(02, 07) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019 B8 64 00                 mov ax, 0x64
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 33 C0                    xor ax, ax
-0025 50                       push ax
-0026 33 C0                    xor ax, ax
-0028 50                       push ax
-0029 B8 CB 00                 mov ax, 0xcb
-002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0035 83 C4 0C                 add sp, 0xc
+0019                          SetTreasureData(0064, 00, 00, 00, 00, CB) [es:bx+0xd8]
 0038                          ShowMessage(0DED) [es:bx+0xf8] = Goblins grab their weapons as you enter the room.
 0045 EB 42                    jmp 0x89
-0047 B8 E8 03                 mov ax, 0x3e8
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 B8 CB 00                 mov ax, 0xcb
-0057 50                       push ax
-0058 B8 B5 00                 mov ax, 0xb5
-005B 50                       push ax
-005C C4 5E 06                 les bx, [bp+0x6]
-005F 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0064 83 C4 0C                 add sp, 0xc
+0047                          SetTreasureData(03E8, 00, 00, 00, CB, B5) [es:bx+0xd8]
 0067 B8 01 00                 mov ax, 0x1
 006A 50                       push ax
 006B B8 07 00                 mov ax, 0x7
@@ -523,38 +467,10 @@ Functn1E: "MAGICENC"
 0003                          ax = CheckState(02, 08) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
-0019 B8 78 00                 mov ax, 0x78
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 33 C0                    xor ax, ax
-0025 50                       push ax
-0026 B8 CB 00                 mov ax, 0xcb
-0029 50                       push ax
-002A B8 B5 00                 mov ax, 0xb5
-002D 50                       push ax
-002E C4 5E 06                 les bx, [bp+0x6]
-0031 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0036 83 C4 0C                 add sp, 0xc
+0019                          SetTreasureData(0078, 00, 00, 00, CB, B5) [es:bx+0xd8]
 0039                          ShowMessage(0E52) [es:bx+0xf8] = Ogres grimace in pleasure as you walk into their ambush.
 0046 EB 43                    jmp 0x8b
-0048 B8 88 13                 mov ax, 0x1388
-004B 50                       push ax
-004C 33 C0                    xor ax, ax
-004E 50                       push ax
-004F 33 C0                    xor ax, ax
-0051 50                       push ax
-0052 B8 C5 00                 mov ax, 0xc5
-0055 50                       push ax
-0056 B8 8A 00                 mov ax, 0x8a
-0059 50                       push ax
-005A B8 8E 00                 mov ax, 0x8e
-005D 50                       push ax
-005E C4 5E 06                 les bx, [bp+0x6]
-0061 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0066 83 C4 0C                 add sp, 0xc
+0048                          SetTreasureData(1388, 00, 00, C5, 8A, 8E) [es:bx+0xd8]
 0069 B8 01 00                 mov ax, 0x1
 006C 50                       push ax
 006D B8 08 00                 mov ax, 0x8

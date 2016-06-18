@@ -89,38 +89,10 @@ Functn09: "ITEMAENC"
 0000                          BEGIN
 0003                          ax = HasItem(77) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 F4 01                 mov ax, 0x1f4
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 CE 00                 mov ax, 0xce
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(01F4, 00, 00, 00, 00, CE) [es:bx+0xd8]
 0032                          ShowMessage(0A8F) [es:bx+0xf8] = Incubi haunt the empty prison cell.
 003F EB 2C                    jmp 0x6d
-0041 B8 DC 05                 mov ax, 0x5dc
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 B8 77 00                 mov ax, 0x77
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005D 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(05DC, 00, 00, 00, 00, 77) [es:bx+0xd8]
 0060                          ShowMessage(0AB3) [es:bx+0xf8] = As you reach for a jacket lying on the floor, you see Incubi appear in the cell.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -149,38 +121,10 @@ Functn0A: "ITEMBENC"
 0000                          BEGIN
 0003                          ax = HasItem(C1) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 FA 00                 mov ax, 0xfa
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 B6 00                 mov ax, 0xb6
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(00FA, 00, 00, 00, 00, B6) [es:bx+0xd8]
 0032                          ShowMessage(0B04) [es:bx+0xf8] = Leeches and Black Widows live in the cell.
 003F EB 2C                    jmp 0x6d
-0041 B8 E8 03                 mov ax, 0x3e8
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 B8 C1 00                 mov ax, 0xc1
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005D 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(03E8, 00, 00, 00, 00, C1) [es:bx+0xd8]
 0060                          ShowMessage(0B2F) [es:bx+0xf8] = Just out of reach behind a mass of Leeches and Black Widows is a lockpick.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -214,38 +158,10 @@ Functn0B: "ITEMCENC"
 0000                          BEGIN
 0003                          ax = HasItem(20) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 2C 01                 mov ax, 0x12c
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 CC 00                 mov ax, 0xcc
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(012C, 00, 00, 00, 00, CC) [es:bx+0xd8]
 0032                          ShowMessage(0B7A) [es:bx+0xf8] = Hell Wolves appear in the cell.
 003F EB 2D                    jmp 0x6e
-0041 B8 E8 03                 mov ax, 0x3e8
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E B8 CF 00                 mov ax, 0xcf
-0051 50                       push ax
-0052 B8 20 00                 mov ax, 0x20
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005E 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(03E8, 00, 00, 00, CF, 20) [es:bx+0xd8]
 0061                          ShowMessage(0B9A) [es:bx+0xf8] = A circle of Hell Wolves surrounds you and a mace lying on the floor.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -279,38 +195,10 @@ Functn0C: "ITEMDENC"
 0000                          BEGIN
 0003                          ax = HasItem(54) ? 1 : 0 [es:bx+0x50]
 0011 74 2E                    jz 0x41
-0013 B8 2C 01                 mov ax, 0x12c
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 B8 B6 00                 mov ax, 0xb6
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 9F D8 00           call far word [es:bx+0xd8]
-002F 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(012C, 00, 00, 00, 00, B6) [es:bx+0xd8]
 0032                          ShowMessage(0BDF) [es:bx+0xf8] = Phantasms creep into the empty cell.
 003F EB 2C                    jmp 0x6d
-0041 B8 D0 07                 mov ax, 0x7d0
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 33 C0                    xor ax, ax
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 B8 54 00                 mov ax, 0x54
-0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005D 83 C4 0C                 add sp, 0xc
+0041                          SetTreasureData(07D0, 00, 00, 00, 00, 54) [es:bx+0xd8]
 0060                          ShowMessage(0C04) [es:bx+0xf8] = Spirits of the dead guard their precious treasure.
 006D C4 5E 06                 les bx, [bp+0x6]
 0070 26 FF 9F F0 00           call far word [es:bx+0xf0]

@@ -36,8 +36,7 @@ Functn03: "FOUNBLES"
 0044 26 FF 1F                 call far word [es:bx]
 0047 83 C4 06                 add sp, 0x6
 004A                          ShowPortrait(0042) [es:bx+0xd4]
-0057 C4 5E 06                 les bx, [bp+0x6]
-005A 26 FF 5F 74              call far word [es:bx+0x74]
+0057                          ax = GetHits() [es:bx+0x74]
 005E 50                       push ax
 005F C4 5E 06                 les bx, [bp+0x6]
 0062 26 FF 5F 70              call far word [es:bx+0x70]
@@ -54,38 +53,10 @@ Functn04: "QUESTENC"
 0000                          BEGIN
 0003                          ax = HasItem(81) ? 1 : 0 [es:bx+0x50]
 0011 74 30                    jz 0x43
-0013 B8 F4 01                 mov ax, 0x1f4
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D B8 BD 00                 mov ax, 0xbd
-0020 50                       push ax
-0021 B8 A5 00                 mov ax, 0xa5
-0024 50                       push ax
-0025 B8 CD 00                 mov ax, 0xcd
-0028 50                       push ax
-0029 C4 5E 06                 les bx, [bp+0x6]
-002C 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0031 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(01F4, 00, 00, BD, A5, CD) [es:bx+0xd8]
 0034                          ShowMessage(04BD) [es:bx+0xf8] = Monsters attack you.
 0041 EB 2E                    jmp 0x71
-0043 B8 E8 03                 mov ax, 0x3e8
-0046 50                       push ax
-0047 33 C0                    xor ax, ax
-0049 50                       push ax
-004A 33 C0                    xor ax, ax
-004C 50                       push ax
-004D B8 A2 00                 mov ax, 0xa2
-0050 50                       push ax
-0051 B8 D0 00                 mov ax, 0xd0
-0054 50                       push ax
-0055 B8 81 00                 mov ax, 0x81
-0058 50                       push ax
-0059 C4 5E 06                 les bx, [bp+0x6]
-005C 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0061 83 C4 0C                 add sp, 0xc
+0043                          SetTreasureData(03E8, 00, 00, A2, D0, 81) [es:bx+0xd8]
 0064                          ShowMessage(04D2) [es:bx+0xf8] = Among a horde of Nightmares and Cockatrices you spot armor and other items on the floor.
 0071 C4 5E 06                 les bx, [bp+0x6]
 0074 26 FF 9F F0 00           call far word [es:bx+0xf0]

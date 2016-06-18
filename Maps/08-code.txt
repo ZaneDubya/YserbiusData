@@ -84,11 +84,7 @@ Functn04: "LKPKDOOR"
 0023 59                       pop cx
 0024 3D 01 00                 cmp ax, 0x1
 0027 72 1D                    jb 0x46
-0029 B8 96 00                 mov ax, 0x96
-002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 9F 90 00           call far word [es:bx+0x90]
-0035 59                       pop cx
+0029                          DoDamage(0096) [es:bx+0x90]
 0036                          ShowMessage(043A) [es:bx+0xf8] = Your attempt to open the door springs a trap. Dozens of darts attack you.
 0043 E9 8A 00                 jmp 0xd0
 0046 B8 D9 00                 mov ax, 0xd9

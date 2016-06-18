@@ -2,23 +2,15 @@ Functn01: "VOID"
 0000                          BEGIN
 0003                          ShowMessage(03FC) [es:bx+0xf8] = The Ageless Void swallows you whole.
 0010                          ShowMessage(0421) [es:bx+0xf8] = Time freezes forever in your mind.  To the rest of the world, you are dead.
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 5F 74              call far word [es:bx+0x74]
-0024 50                       push ax
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 9F 90 00           call far word [es:bx+0x90]
-002D 59                       pop cx
+001D                          ax = GetHits() [es:bx+0x74]
+0024                          DoDamage(ax) [es:bx+0x90]
 002E                          RETURN
 
 Functn02: "LIFE"
 0000                          BEGIN
 0003                          ShowMessage(046D) [es:bx+0xf8] = You are dragged into the Waters of Death. Your death agonies are mercifully short.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F 90 00           call far word [es:bx+0x90]
-0020 59                       pop cx
+0010                          ax = GetHits() [es:bx+0x74]
+0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
 Functn03: "TIMEA"
@@ -297,12 +289,8 @@ Functn07: "TIMEPLAT"
 0089 59                       pop cx
 008A 59                       pop cx
 008B                          ShowMessage(09AD) [es:bx+0xf8] = You are dragged into the Waters of Death. Your death agonies are mercifully short.
-0098 C4 5E 06                 les bx, [bp+0x6]
-009B 26 FF 5F 74              call far word [es:bx+0x74]
-009F 50                       push ax
-00A0 C4 5E 06                 les bx, [bp+0x6]
-00A3 26 FF 9F 90 00           call far word [es:bx+0x90]
-00A8 59                       pop cx
+0098                          ax = GetHits() [es:bx+0x74]
+009F                          DoDamage(ax) [es:bx+0x90]
 00A9                          RETURN
 
 Functn08: "GOAL"

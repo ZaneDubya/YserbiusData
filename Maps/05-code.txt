@@ -57,37 +57,9 @@ Functn07: "ITEMAENC"
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
 0019                          ShowMessage(072A) [es:bx+0xf8] = Monsters jump out of the shadows.
-0026 B8 64 00                 mov ax, 0x64
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 33 C0                    xor ax, ax
-0032 50                       push ax
-0033 B8 CE 00                 mov ax, 0xce
-0036 50                       push ax
-0037 B8 B5 00                 mov ax, 0xb5
-003A 50                       push ax
-003B C4 5E 06                 les bx, [bp+0x6]
-003E 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0043 83 C4 0C                 add sp, 0xc
+0026                          SetTreasureData(0064, 00, 00, 00, CE, B5) [es:bx+0xd8]
 0046 EB 43                    jmp 0x8b
-0048 B8 70 17                 mov ax, 0x1770
-004B 50                       push ax
-004C 33 C0                    xor ax, ax
-004E 50                       push ax
-004F 33 C0                    xor ax, ax
-0051 50                       push ax
-0052 B8 CE 00                 mov ax, 0xce
-0055 50                       push ax
-0056 B8 42 00                 mov ax, 0x42
-0059 50                       push ax
-005A B8 0A 00                 mov ax, 0xa
-005D 50                       push ax
-005E C4 5E 06                 les bx, [bp+0x6]
-0061 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0066 83 C4 0C                 add sp, 0xc
+0048                          SetTreasureData(1770, 00, 00, CE, 42, 0A) [es:bx+0xd8]
 0069 B8 01 00                 mov ax, 0x1
 006C 50                       push ax
 006D B8 12 00                 mov ax, 0x12
@@ -127,37 +99,9 @@ Functn09: "ITEMBENC"
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
 0019                          ShowMessage(077E) [es:bx+0xf8] = Unclean spirits shriek as they attack.
-0026 B8 90 01                 mov ax, 0x190
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 33 C0                    xor ax, ax
-0032 50                       push ax
-0033 B8 B5 00                 mov ax, 0xb5
-0036 50                       push ax
-0037 B8 CB 00                 mov ax, 0xcb
-003A 50                       push ax
-003B C4 5E 06                 les bx, [bp+0x6]
-003E 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0043 83 C4 0C                 add sp, 0xc
+0026                          SetTreasureData(0190, 00, 00, 00, B5, CB) [es:bx+0xd8]
 0046 EB 42                    jmp 0x8a
-0048 B8 B8 0B                 mov ax, 0xbb8
-004B 50                       push ax
-004C 33 C0                    xor ax, ax
-004E 50                       push ax
-004F 33 C0                    xor ax, ax
-0051 50                       push ax
-0052 33 C0                    xor ax, ax
-0054 50                       push ax
-0055 B8 8A 00                 mov ax, 0x8a
-0058 50                       push ax
-0059 B8 3B 00                 mov ax, 0x3b
-005C 50                       push ax
-005D C4 5E 06                 les bx, [bp+0x6]
-0060 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0065 83 C4 0C                 add sp, 0xc
+0048                          SetTreasureData(0BB8, 00, 00, 00, 8A, 3B) [es:bx+0xd8]
 0068 B8 01 00                 mov ax, 0x1
 006B 50                       push ax
 006C B8 13 00                 mov ax, 0x13
@@ -197,38 +141,10 @@ Functn0A: "ITEMCENC"
 0003                          ax = CheckState(02, 14) [es:bx+0x4]
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
-0019 B8 64 00                 mov ax, 0x64
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 33 C0                    xor ax, ax
-0022 50                       push ax
-0023 33 C0                    xor ax, ax
-0025 50                       push ax
-0026 33 C0                    xor ax, ax
-0028 50                       push ax
-0029 B8 CE 00                 mov ax, 0xce
-002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0035 83 C4 0C                 add sp, 0xc
+0019                          SetTreasureData(0064, 00, 00, 00, 00, CE) [es:bx+0xd8]
 0038                          ShowMessage(07E0) [es:bx+0xf8] = Skeletons attack you.
 0045 EB 44                    jmp 0x8b
-0047 B8 B8 0B                 mov ax, 0xbb8
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E B8 CC 00                 mov ax, 0xcc
-0051 50                       push ax
-0052 B8 39 00                 mov ax, 0x39
-0055 50                       push ax
-0056 B8 8C 00                 mov ax, 0x8c
-0059 50                       push ax
-005A B8 1C 00                 mov ax, 0x1c
-005D 50                       push ax
-005E C4 5E 06                 les bx, [bp+0x6]
-0061 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0066 83 C4 0C                 add sp, 0xc
+0047                          SetTreasureData(0BB8, 00, CC, 39, 8C, 1C) [es:bx+0xd8]
 0069 B8 01 00                 mov ax, 0x1
 006C 50                       push ax
 006D B8 14 00                 mov ax, 0x14
@@ -278,37 +194,9 @@ Functn0B: "ITEMDENC"
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(0818) [es:bx+0xf8] = The dead arise as you draw near.
-0026 B8 96 00                 mov ax, 0x96
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 33 C0                    xor ax, ax
-0032 50                       push ax
-0033 33 C0                    xor ax, ax
-0035 50                       push ax
-0036 B8 B6 00                 mov ax, 0xb6
-0039 50                       push ax
-003A C4 5E 06                 les bx, [bp+0x6]
-003D 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0042 83 C4 0C                 add sp, 0xc
+0026                          SetTreasureData(0096, 00, 00, 00, 00, B6) [es:bx+0xd8]
 0045 EB 42                    jmp 0x89
-0047 B8 C4 09                 mov ax, 0x9c4
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 B8 C2 00                 mov ax, 0xc2
-0057 50                       push ax
-0058 B8 76 00                 mov ax, 0x76
-005B 50                       push ax
-005C C4 5E 06                 les bx, [bp+0x6]
-005F 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0064 83 C4 0C                 add sp, 0xc
+0047                          SetTreasureData(09C4, 00, 00, 00, C2, 76) [es:bx+0xd8]
 0067 B8 01 00                 mov ax, 0x1
 006A 50                       push ax
 006B B8 15 00                 mov ax, 0x15
@@ -1040,37 +928,9 @@ Functn1E: "GOLDENCA"
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2D                    jnz 0x46
 0019                          ShowMessage(0E95) [es:bx+0xf8] = Ghosts haunt the empty room.
-0026 33 C0                    xor ax, ax
-0028 50                       push ax
-0029 33 C0                    xor ax, ax
-002B 50                       push ax
-002C 33 C0                    xor ax, ax
-002E 50                       push ax
-002F 33 C0                    xor ax, ax
-0031 50                       push ax
-0032 33 C0                    xor ax, ax
-0034 50                       push ax
-0035 B8 73 00                 mov ax, 0x73
-0038 50                       push ax
-0039 C4 5E 06                 les bx, [bp+0x6]
-003C 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0041 83 C4 0C                 add sp, 0xc
+0026                          SetTreasureData(0000, 00, 00, 00, 00, 73) [es:bx+0xd8]
 0044 EB 41                    jmp 0x87
-0046 B8 A0 0F                 mov ax, 0xfa0
-0049 50                       push ax
-004A 33 C0                    xor ax, ax
-004C 50                       push ax
-004D 33 C0                    xor ax, ax
-004F 50                       push ax
-0050 33 C0                    xor ax, ax
-0052 50                       push ax
-0053 33 C0                    xor ax, ax
-0055 50                       push ax
-0056 B8 CE 00                 mov ax, 0xce
-0059 50                       push ax
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0062 83 C4 0C                 add sp, 0xc
+0046                          SetTreasureData(0FA0, 00, 00, 00, 00, CE) [es:bx+0xd8]
 0065 B8 01 00                 mov ax, 0x1
 0068 50                       push ax
 0069 B8 09 00                 mov ax, 0x9
@@ -1104,37 +964,9 @@ Functn1F: "GOLDBENC"
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(0EE1) [es:bx+0xf8] = Bones of dead guards and one-time thieves rise to challenge you.
-0026 B8 FA 00                 mov ax, 0xfa
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 33 C0                    xor ax, ax
-0032 50                       push ax
-0033 33 C0                    xor ax, ax
-0035 50                       push ax
-0036 B8 B5 00                 mov ax, 0xb5
-0039 50                       push ax
-003A C4 5E 06                 les bx, [bp+0x6]
-003D 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0042 83 C4 0C                 add sp, 0xc
+0026                          SetTreasureData(00FA, 00, 00, 00, 00, B5) [es:bx+0xd8]
 0045 EB 41                    jmp 0x88
-0047 B8 88 13                 mov ax, 0x1388
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 33 C0                    xor ax, ax
-0056 50                       push ax
-0057 B8 CB 00                 mov ax, 0xcb
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0063 83 C4 0C                 add sp, 0xc
+0047                          SetTreasureData(1388, 00, 00, 00, 00, CB) [es:bx+0xd8]
 0066 B8 01 00                 mov ax, 0x1
 0069 50                       push ax
 006A B8 0A 00                 mov ax, 0xa
@@ -1184,37 +1016,9 @@ Functn20: "GOLDCENC"
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(0F7D) [es:bx+0xf8] = Spiders drop from the ceiling.
-0026 B8 C8 00                 mov ax, 0xc8
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 33 C0                    xor ax, ax
-0032 50                       push ax
-0033 33 C0                    xor ax, ax
-0035 50                       push ax
-0036 B8 CE 00                 mov ax, 0xce
-0039 50                       push ax
-003A C4 5E 06                 les bx, [bp+0x6]
-003D 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0042 83 C4 0C                 add sp, 0xc
+0026                          SetTreasureData(00C8, 00, 00, 00, 00, CE) [es:bx+0xd8]
 0045 EB 41                    jmp 0x88
-0047 B8 D0 07                 mov ax, 0x7d0
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 33 C0                    xor ax, ax
-0056 50                       push ax
-0057 B8 BD 00                 mov ax, 0xbd
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0063 83 C4 0C                 add sp, 0xc
+0047                          SetTreasureData(07D0, 00, 00, 00, 00, BD) [es:bx+0xd8]
 0066 B8 01 00                 mov ax, 0x1
 0069 50                       push ax
 006A B8 0B 00                 mov ax, 0xb

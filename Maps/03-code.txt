@@ -161,37 +161,9 @@ Functn09: "GOLDENC"
 0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(05D1) [es:bx+0xf8] = Aside from angry Rogues, the room is empty.
-0026 B8 14 00                 mov ax, 0x14
-0029 50                       push ax
-002A 33 C0                    xor ax, ax
-002C 50                       push ax
-002D 33 C0                    xor ax, ax
-002F 50                       push ax
-0030 33 C0                    xor ax, ax
-0032 50                       push ax
-0033 33 C0                    xor ax, ax
-0035 50                       push ax
-0036 B8 B5 00                 mov ax, 0xb5
-0039 50                       push ax
-003A C4 5E 06                 les bx, [bp+0x6]
-003D 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0042 83 C4 0C                 add sp, 0xc
+0026                          SetTreasureData(0014, 00, 00, 00, 00, B5) [es:bx+0xd8]
 0045 EB 41                    jmp 0x88
-0047 B8 F4 01                 mov ax, 0x1f4
-004A 50                       push ax
-004B 33 C0                    xor ax, ax
-004D 50                       push ax
-004E 33 C0                    xor ax, ax
-0050 50                       push ax
-0051 33 C0                    xor ax, ax
-0053 50                       push ax
-0054 33 C0                    xor ax, ax
-0056 50                       push ax
-0057 B8 CE 00                 mov ax, 0xce
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0063 83 C4 0C                 add sp, 0xc
+0047                          SetTreasureData(01F4, 00, 00, 00, 00, CE) [es:bx+0xd8]
 0066 B8 01 00                 mov ax, 0x1
 0069 50                       push ax
 006A B8 05 00                 mov ax, 0x5
@@ -227,38 +199,10 @@ Functn0B: "PALKEYEN"
 0000                          BEGIN
 0003                          ax = HasItem(D9) ? 1 : 0 [es:bx+0x50]
 0011 74 2F                    jz 0x42
-0013 B8 F4 01                 mov ax, 0x1f4
-0016 50                       push ax
-0017 33 C0                    xor ax, ax
-0019 50                       push ax
-001A 33 C0                    xor ax, ax
-001C 50                       push ax
-001D 33 C0                    xor ax, ax
-001F 50                       push ax
-0020 B8 BC 00                 mov ax, 0xbc
-0023 50                       push ax
-0024 B8 CE 00                 mov ax, 0xce
-0027 50                       push ax
-0028 C4 5E 06                 les bx, [bp+0x6]
-002B 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0030 83 C4 0C                 add sp, 0xc
+0013                          SetTreasureData(01F4, 00, 00, 00, BC, CE) [es:bx+0xd8]
 0033                          ShowMessage(0647) [es:bx+0xf8] = The room is empty. Almost.
 0040 EB 2C                    jmp 0x6e
-0042 B8 E8 03                 mov ax, 0x3e8
-0045 50                       push ax
-0046 33 C0                    xor ax, ax
-0048 50                       push ax
-0049 33 C0                    xor ax, ax
-004B 50                       push ax
-004C 33 C0                    xor ax, ax
-004E 50                       push ax
-004F 33 C0                    xor ax, ax
-0051 50                       push ax
-0052 B8 D9 00                 mov ax, 0xd9
-0055 50                       push ax
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 9F D8 00           call far word [es:bx+0xd8]
-005E 83 C4 0C                 add sp, 0xc
+0042                          SetTreasureData(03E8, 00, 00, 00, 00, D9) [es:bx+0xd8]
 0061                          ShowMessage(0662) [es:bx+0xf8] = A Key in the shape of a Palace lies in a corner, if you can get to it.
 006E C4 5E 06                 les bx, [bp+0x6]
 0071 26 FF 9F F0 00           call far word [es:bx+0xf0]
@@ -298,40 +242,12 @@ Functn0D: "LOWMNSTR"
 0010                          UnknownFunction(000F) [es:bx+0xec]
 001D 3D 06 00                 cmp ax, 0x6
 0020 77 2E                    ja 0x50
-0022 B8 F4 01                 mov ax, 0x1f4
-0025 50                       push ax
-0026 33 C0                    xor ax, ax
-0028 50                       push ax
-0029 33 C0                    xor ax, ax
-002B 50                       push ax
-002C 33 C0                    xor ax, ax
-002E 50                       push ax
-002F 33 C0                    xor ax, ax
-0031 50                       push ax
-0032 B8 B5 00                 mov ax, 0xb5
-0035 50                       push ax
-0036 C4 5E 06                 les bx, [bp+0x6]
-0039 26 FF 9F D8 00           call far word [es:bx+0xd8]
-003E 83 C4 0C                 add sp, 0xc
+0022                          SetTreasureData(01F4, 00, 00, 00, 00, B5) [es:bx+0xd8]
 0041                          ShowMessage(06BF) [es:bx+0xf8] = If you are skilled enough, you may find teleports that speed your way to various levels of this dungeon.
 004E EB 3A                    jmp 0x8a
 0050                          ShowMessage(0728) [es:bx+0xf8] = The Rogues snarl at you.
 005D                          ShowMessage(0741) [es:bx+0xf8] = They attack!
-006A B8 E8 03                 mov ax, 0x3e8
-006D 50                       push ax
-006E 33 C0                    xor ax, ax
-0070 50                       push ax
-0071 33 C0                    xor ax, ax
-0073 50                       push ax
-0074 33 C0                    xor ax, ax
-0076 50                       push ax
-0077 B8 BD 00                 mov ax, 0xbd
-007A 50                       push ax
-007B B8 03 00                 mov ax, 0x3
-007E 50                       push ax
-007F C4 5E 06                 les bx, [bp+0x6]
-0082 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0087 83 C4 0C                 add sp, 0xc
+006A                          SetTreasureData(03E8, 00, 00, 00, BD, 03) [es:bx+0xd8]
 008A C4 5E 06                 les bx, [bp+0x6]
 008D 26 FF 9F F0 00           call far word [es:bx+0xf0]
 0092 3D 01 00                 cmp ax, 0x1

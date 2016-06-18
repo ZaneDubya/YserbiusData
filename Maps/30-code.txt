@@ -3,15 +3,11 @@ Functn01: "RIVER"
 0003                          ShowMessage(03FC) [es:bx+0xf8] = The River of Eternity taps your life energy.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 9F C4 00           call far word [es:bx+0xc4]
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 74              call far word [es:bx+0x74]
+0018                          ax = GetHits() [es:bx+0x74]
 001F BB 04 00                 mov bx, 0x4
 0022 99                       cwd
 0023 F7 FB                    idiv bx
-0025 50                       push ax
-0026 C4 5E 06                 les bx, [bp+0x6]
-0029 26 FF 9F 90 00           call far word [es:bx+0x90]
-002E 59                       pop cx
+0025                          DoDamage(ax) [es:bx+0x90]
 002F C4 5E 06                 les bx, [bp+0x6]
 0032 26 FF 5F 70              call far word [es:bx+0x70]
 0036 0B C0                    or ax, ax
@@ -80,12 +76,8 @@ Functn03: "SECDOORA"
 Functn04: "LAVA"
 0000                          BEGIN
 0003                          ShowMessage(04C1) [es:bx+0xf8] = Your step into lava is fatal.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F 90 00           call far word [es:bx+0x90]
-0020 59                       pop cx
+0010                          ax = GetHits() [es:bx+0x74]
+0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
 Functn05: "SECDOORB"
@@ -209,12 +201,8 @@ Functn07: "LAVAPA"
 007D 59                       pop cx
 007E EB 1E                    jmp 0x9e
 0080                          ShowMessage(0549) [es:bx+0xf8] = You step into a lava pit and die!
-008D C4 5E 06                 les bx, [bp+0x6]
-0090 26 FF 5F 74              call far word [es:bx+0x74]
-0094 50                       push ax
-0095 C4 5E 06                 les bx, [bp+0x6]
-0098 26 FF 9F 90 00           call far word [es:bx+0x90]
-009D 59                       pop cx
+008D                          ax = GetHits() [es:bx+0x74]
+0094                          DoDamage(ax) [es:bx+0x90]
 009E                          RETURN
 
 Functn08: "LAVAPB"
@@ -260,12 +248,8 @@ Functn08: "LAVAPB"
 007D 59                       pop cx
 007E EB 1E                    jmp 0x9e
 0080                          ShowMessage(0592) [es:bx+0xf8] = You step into a lava pit and die!
-008D C4 5E 06                 les bx, [bp+0x6]
-0090 26 FF 5F 74              call far word [es:bx+0x74]
-0094 50                       push ax
-0095 C4 5E 06                 les bx, [bp+0x6]
-0098 26 FF 9F 90 00           call far word [es:bx+0x90]
-009D 59                       pop cx
+008D                          ax = GetHits() [es:bx+0x74]
+0094                          DoDamage(ax) [es:bx+0x90]
 009E                          RETURN
 
 Functn09: "LAVAPC"
@@ -311,12 +295,8 @@ Functn09: "LAVAPC"
 007D 59                       pop cx
 007E EB 1E                    jmp 0x9e
 0080                          ShowMessage(05DB) [es:bx+0xf8] = You step into a lava pit and die!
-008D C4 5E 06                 les bx, [bp+0x6]
-0090 26 FF 5F 74              call far word [es:bx+0x74]
-0094 50                       push ax
-0095 C4 5E 06                 les bx, [bp+0x6]
-0098 26 FF 9F 90 00           call far word [es:bx+0x90]
-009D 59                       pop cx
+008D                          ax = GetHits() [es:bx+0x74]
+0094                          DoDamage(ax) [es:bx+0x90]
 009E                          RETURN
 
 Functn0A: "LAVAPD"
@@ -362,12 +342,8 @@ Functn0A: "LAVAPD"
 007D 59                       pop cx
 007E EB 1E                    jmp 0x9e
 0080                          ShowMessage(0624) [es:bx+0xf8] = You step into a lava pit and die!
-008D C4 5E 06                 les bx, [bp+0x6]
-0090 26 FF 5F 74              call far word [es:bx+0x74]
-0094 50                       push ax
-0095 C4 5E 06                 les bx, [bp+0x6]
-0098 26 FF 9F 90 00           call far word [es:bx+0x90]
-009D 59                       pop cx
+008D                          ax = GetHits() [es:bx+0x74]
+0094                          DoDamage(ax) [es:bx+0x90]
 009E                          RETURN
 
 Functn0B: "LAVASWA"
@@ -724,38 +700,10 @@ Functn1B: "DRAGON"
 005D                          SetEncData(13, 06) [es:bx+0xd4]
 006F                          ax = HasItem(F4) ? 1 : 0 [es:bx+0x50]
 007D 74 22                    jz 0xa1
-007F B8 D0 07                 mov ax, 0x7d0
-0082 50                       push ax
-0083 33 C0                    xor ax, ax
-0085 50                       push ax
-0086 33 C0                    xor ax, ax
-0088 50                       push ax
-0089 33 C0                    xor ax, ax
-008B 50                       push ax
-008C B8 C6 00                 mov ax, 0xc6
-008F 50                       push ax
-0090 B8 B7 00                 mov ax, 0xb7
-0093 50                       push ax
-0094 C4 5E 06                 les bx, [bp+0x6]
-0097 26 FF 9F D8 00           call far word [es:bx+0xd8]
-009C 83 C4 0C                 add sp, 0xc
+007F                          SetTreasureData(07D0, 00, 00, 00, C6, B7) [es:bx+0xd8]
 009F EB 2F                    jmp 0xd0
 00A1                          ShowMessage(1335) [es:bx+0xf8] = A glowing red gem casts a beam from under the dragon's lair.
-00AE B8 28 23                 mov ax, 0x2328
-00B1 50                       push ax
-00B2 33 C0                    xor ax, ax
-00B4 50                       push ax
-00B5 B8 14 00                 mov ax, 0x14
-00B8 50                       push ax
-00B9 B8 D0 00                 mov ax, 0xd0
-00BC 50                       push ax
-00BD B8 D0 00                 mov ax, 0xd0
-00C0 50                       push ax
-00C1 B8 F4 00                 mov ax, 0xf4
-00C4 50                       push ax
-00C5 C4 5E 06                 les bx, [bp+0x6]
-00C8 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00CD 83 C4 0C                 add sp, 0xc
+00AE                          SetTreasureData(2328, 00, 14, D0, D0, F4) [es:bx+0xd8]
 00D0                          RETURN
 
 Functn1C: "KEYCLUEA"

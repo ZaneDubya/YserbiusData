@@ -2,12 +2,8 @@ Functn01: "VOID"
 0000                          BEGIN
 0003                          ShowMessage(03FC) [es:bx+0xf8] = The Ageless Void swallows you whole.
 0010                          ShowMessage(0421) [es:bx+0xf8] = Time freezes forever in your mind.  To the rest of the world, you are dead.
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 5F 74              call far word [es:bx+0x74]
-0024 50                       push ax
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 9F 90 00           call far word [es:bx+0x90]
-002D 59                       pop cx
+001D                          ax = GetHits() [es:bx+0x74]
+0024                          DoDamage(ax) [es:bx+0x90]
 002E                          RETURN
 
 Functn02: "ISLEETRN"

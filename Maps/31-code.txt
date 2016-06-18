@@ -3,15 +3,11 @@ Functn01: "RIVER"
 0003                          ShowMessage(03FC) [es:bx+0xf8] = The River of Eternity taps your life energy.
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 9F C4 00           call far word [es:bx+0xc4]
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 74              call far word [es:bx+0x74]
+0018                          ax = GetHits() [es:bx+0x74]
 001F BB 04 00                 mov bx, 0x4
 0022 99                       cwd
 0023 F7 FB                    idiv bx
-0025 50                       push ax
-0026 C4 5E 06                 les bx, [bp+0x6]
-0029 26 FF 9F 90 00           call far word [es:bx+0x90]
-002E 59                       pop cx
+0025                          DoDamage(ax) [es:bx+0x90]
 002F C4 5E 06                 les bx, [bp+0x6]
 0032 26 FF 5F 70              call far word [es:bx+0x70]
 0036 0B C0                    or ax, ax
@@ -356,12 +352,8 @@ Functn14: "SUNBEAM"
 Functn15: "LAVA"
 0000                          BEGIN
 0003                          ShowMessage(07C6) [es:bx+0xf8] = You fall into a lava pit and die.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F 90 00           call far word [es:bx+0x90]
-0020 59                       pop cx
+0010                          ax = GetHits() [es:bx+0x74]
+0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
 Functn16: "GATEA"
@@ -459,37 +451,9 @@ Functn1F: "ENCH"
 0034                          SetEncData(21, 03) [es:bx+0xd4]
 0046                          ax = HasItem(F1) ? 1 : 0 [es:bx+0x50]
 0054 74 22                    jz 0x78
-0056 B8 C4 09                 mov ax, 0x9c4
-0059 50                       push ax
-005A 33 C0                    xor ax, ax
-005C 50                       push ax
-005D 33 C0                    xor ax, ax
-005F 50                       push ax
-0060 33 C0                    xor ax, ax
-0062 50                       push ax
-0063 B8 D0 00                 mov ax, 0xd0
-0066 50                       push ax
-0067 B8 C6 00                 mov ax, 0xc6
-006A 50                       push ax
-006B C4 5E 06                 les bx, [bp+0x6]
-006E 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0073 83 C4 0C                 add sp, 0xc
+0056                          SetTreasureData(09C4, 00, 00, 00, D0, C6) [es:bx+0xd8]
 0076 EB 1F                    jmp 0x97
-0078 B8 10 27                 mov ax, 0x2710
-007B 50                       push ax
-007C 33 C0                    xor ax, ax
-007E 50                       push ax
-007F 33 C0                    xor ax, ax
-0081 50                       push ax
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
-0085 33 C0                    xor ax, ax
-0087 50                       push ax
-0088 B8 F1 00                 mov ax, 0xf1
-008B 50                       push ax
-008C C4 5E 06                 les bx, [bp+0x6]
-008F 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0094 83 C4 0C                 add sp, 0xc
+0078                          SetTreasureData(2710, 00, 00, 00, 00, F1) [es:bx+0xd8]
 0097                          RETURN
 
 Functn20: "ENCI"
@@ -548,38 +512,10 @@ Functn25: "ENCN"
 004B                          SetEncData(22, 05) [es:bx+0xd4]
 005D                          ax = HasItem(D5) ? 1 : 0 [es:bx+0x50]
 006B 74 22                    jz 0x8f
-006D B8 D0 07                 mov ax, 0x7d0
-0070 50                       push ax
-0071 33 C0                    xor ax, ax
-0073 50                       push ax
-0074 33 C0                    xor ax, ax
-0076 50                       push ax
-0077 33 C0                    xor ax, ax
-0079 50                       push ax
-007A B8 B7 00                 mov ax, 0xb7
-007D 50                       push ax
-007E B8 98 00                 mov ax, 0x98
-0081 50                       push ax
-0082 C4 5E 06                 les bx, [bp+0x6]
-0085 26 FF 9F D8 00           call far word [es:bx+0xd8]
-008A 83 C4 0C                 add sp, 0xc
+006D                          SetTreasureData(07D0, 00, 00, 00, B7, 98) [es:bx+0xd8]
 008D EB 2C                    jmp 0xbb
 008F                          ShowMessage(097B) [es:bx+0xf8] = Creatures fight over a stone key.
-009C B8 10 27                 mov ax, 0x2710
-009F 50                       push ax
-00A0 33 C0                    xor ax, ax
-00A2 50                       push ax
-00A3 33 C0                    xor ax, ax
-00A5 50                       push ax
-00A6 33 C0                    xor ax, ax
-00A8 50                       push ax
-00A9 33 C0                    xor ax, ax
-00AB 50                       push ax
-00AC B8 D5 00                 mov ax, 0xd5
-00AF 50                       push ax
-00B0 C4 5E 06                 les bx, [bp+0x6]
-00B3 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00B8 83 C4 0C                 add sp, 0xc
+009C                          SetTreasureData(2710, 00, 00, 00, 00, D5) [es:bx+0xd8]
 00BB                          RETURN
 
 Functn26: "ENCO"
@@ -591,45 +527,16 @@ Functn26: "ENCO"
 004B                          SetEncData(22, 05) [es:bx+0xd4]
 005D                          ax = HasItem(D8) ? 1 : 0 [es:bx+0x50]
 006B 74 21                    jz 0x8e
-006D B8 D0 07                 mov ax, 0x7d0
-0070 50                       push ax
-0071 33 C0                    xor ax, ax
-0073 50                       push ax
-0074 33 C0                    xor ax, ax
-0076 50                       push ax
-0077 33 C0                    xor ax, ax
-0079 50                       push ax
-007A 33 C0                    xor ax, ax
-007C 50                       push ax
-007D B8 D0 00                 mov ax, 0xd0
-0080 50                       push ax
-0081 C4 5E 06                 les bx, [bp+0x6]
-0084 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0089 83 C4 0C                 add sp, 0xc
+006D                          SetTreasureData(07D0, 00, 00, 00, 00, D0) [es:bx+0xd8]
 008C EB 2C                    jmp 0xba
 008E                          ShowMessage(099D) [es:bx+0xf8] = Creatures fight over a green tree-shaped key
-009B B8 28 23                 mov ax, 0x2328
-009E 50                       push ax
-009F 33 C0                    xor ax, ax
-00A1 50                       push ax
-00A2 33 C0                    xor ax, ax
-00A4 50                       push ax
-00A5 33 C0                    xor ax, ax
-00A7 50                       push ax
-00A8 33 C0                    xor ax, ax
-00AA 50                       push ax
-00AB B8 D8 00                 mov ax, 0xd8
-00AE 50                       push ax
-00AF C4 5E 06                 les bx, [bp+0x6]
-00B2 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00B7 83 C4 0C                 add sp, 0xc
+009B                          SetTreasureData(2328, 00, 00, 00, 00, D8) [es:bx+0xd8]
 00BA                          RETURN
 
 Functn27: "HEALFA"
 0000                          BEGIN
 0003                          ShowPortrait(0042) [es:bx+0xd4]
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
+0010                          ax = GetHits() [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
 001B 26 FF 9F 94 00           call far word [es:bx+0x94]
@@ -640,8 +547,7 @@ Functn27: "HEALFA"
 Functn28: "HEALFB"
 0000                          BEGIN
 0003                          ShowPortrait(0042) [es:bx+0xd4]
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
+0010                          ax = GetHits() [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
 001B 26 FF 9F 94 00           call far word [es:bx+0x94]
@@ -652,8 +558,7 @@ Functn28: "HEALFB"
 Functn29: "HEALFC"
 0000                          BEGIN
 0003                          ShowPortrait(0042) [es:bx+0xd4]
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
+0010                          ax = GetHits() [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
 001B 26 FF 9F 94 00           call far word [es:bx+0x94]

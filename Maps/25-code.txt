@@ -1,12 +1,8 @@
 Functn01: "DROP"
 0000                          BEGIN
 0003                          ShowMessage(03FC) [es:bx+0xf8] = You fall through the abyss and land in the lava below.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F 90 00           call far word [es:bx+0x90]
-0020 59                       pop cx
+0010                          ax = GetHits() [es:bx+0x74]
+0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
 Functn02: "XOVER"
@@ -29,12 +25,8 @@ Functn02: "XOVER"
 0034                          ShowMessage(0433) [es:bx+0xf8] = A magical platform forms a bridge across the abyss.
 0041 EB 1E                    jmp 0x61
 0043                          ShowMessage(0467) [es:bx+0xf8] = You will need help to cross the abyss.  This time you die.
-0050 C4 5E 06                 les bx, [bp+0x6]
-0053 26 FF 5F 74              call far word [es:bx+0x74]
-0057 50                       push ax
-0058 C4 5E 06                 les bx, [bp+0x6]
-005B 26 FF 9F 90 00           call far word [es:bx+0x90]
-0060 59                       pop cx
+0050                          ax = GetHits() [es:bx+0x74]
+0057                          DoDamage(ax) [es:bx+0x90]
 0061 EB 38                    jmp 0x9b
 0063                          ax = CheckState(01, 01) [es:bx+0x4]
 0074 0B C0                    or ax, ax
@@ -165,12 +157,8 @@ Functn0D: "ZEPHYR"
 Functn0E: "LAVA"
 0000                          BEGIN
 0003                          ShowMessage(0781) [es:bx+0xf8] = You stumble into the lava pools.  You die.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F 90 00           call far word [es:bx+0x90]
-0020 59                       pop cx
+0010                          ax = GetHits() [es:bx+0x74]
+0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
 Functn0F: "TROLS"
@@ -314,21 +302,7 @@ Functn15: "HEAVENCB"
 0039                          SetEncData(1F, 04) [es:bx+0xd4]
 004B                          SetEncData(21, 05) [es:bx+0xd4]
 005D                          SetEncData(21, 06) [es:bx+0xd4]
-006F B8 E8 03                 mov ax, 0x3e8
-0072 50                       push ax
-0073 33 C0                    xor ax, ax
-0075 50                       push ax
-0076 33 C0                    xor ax, ax
-0078 50                       push ax
-0079 33 C0                    xor ax, ax
-007B 50                       push ax
-007C B8 32 00                 mov ax, 0x32
-007F 50                       push ax
-0080 B8 49 00                 mov ax, 0x49
-0083 50                       push ax
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 9F D8 00           call far word [es:bx+0xd8]
-008C 83 C4 0C                 add sp, 0xc
+006F                          SetTreasureData(03E8, 00, 00, 00, 32, 49) [es:bx+0xd8]
 008F                          RETURN
 
 Functn16: "HEAVENCC"
@@ -358,10 +332,7 @@ Functn1A: "HEAVWIND"
 0024 BB 05 00                 mov bx, 0x5
 0027 99                       cwd
 0028 F7 FB                    idiv bx
-002A 50                       push ax
-002B C4 5E 06                 les bx, [bp+0x6]
-002E 26 FF 9F 90 00           call far word [es:bx+0x90]
-0033 59                       pop cx
+002A                          DoDamage(ax) [es:bx+0x90]
 0034 C4 5E 06                 les bx, [bp+0x6]
 0037 26 FF 5F 70              call far word [es:bx+0x70]
 003B 0B C0                    or ax, ax
@@ -485,37 +456,9 @@ Functn22: "TEMPMAIN"
 0065                          SetEncData(18, 06) [es:bx+0xd4]
 0077                          ax = HasItem(E6) ? 1 : 0 [es:bx+0x50]
 0085 74 20                    jz 0xa7
-0087 33 C0                    xor ax, ax
-0089 50                       push ax
-008A 33 C0                    xor ax, ax
-008C 50                       push ax
-008D 33 C0                    xor ax, ax
-008F 50                       push ax
-0090 33 C0                    xor ax, ax
-0092 50                       push ax
-0093 33 C0                    xor ax, ax
-0095 50                       push ax
-0096 B8 96 00                 mov ax, 0x96
-0099 50                       push ax
-009A C4 5E 06                 les bx, [bp+0x6]
-009D 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00A2 83 C4 0C                 add sp, 0xc
+0087                          SetTreasureData(0000, 00, 00, 00, 00, 96) [es:bx+0xd8]
 00A5 EB 1E                    jmp 0xc5
-00A7 33 C0                    xor ax, ax
-00A9 50                       push ax
-00AA 33 C0                    xor ax, ax
-00AC 50                       push ax
-00AD 33 C0                    xor ax, ax
-00AF 50                       push ax
-00B0 33 C0                    xor ax, ax
-00B2 50                       push ax
-00B3 33 C0                    xor ax, ax
-00B5 50                       push ax
-00B6 B8 E6 00                 mov ax, 0xe6
-00B9 50                       push ax
-00BA C4 5E 06                 les bx, [bp+0x6]
-00BD 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00C2 83 C4 0C                 add sp, 0xc
+00A7                          SetTreasureData(0000, 00, 00, 00, 00, E6) [es:bx+0xd8]
 00C5                          RETURN
 
 Functn23: "TEMPWIND"
@@ -525,11 +468,7 @@ Functn23: "TEMPWIND"
 0013                          ShowMessage(0ADC) [es:bx+0xf8] = The Harvest Horn protects you from the dangerous winds!
 0020 EB 32                    jmp 0x54
 0022                          ShowMessage(0B14) [es:bx+0xf8] = The Tempest Winds rip through your armor, causing many wounds!
-002F B8 64 00                 mov ax, 0x64
-0032 50                       push ax
-0033 C4 5E 06                 les bx, [bp+0x6]
-0036 26 FF 9F 90 00           call far word [es:bx+0x90]
-003B 59                       pop cx
+002F                          DoDamage(0064) [es:bx+0x90]
 003C C4 5E 06                 les bx, [bp+0x6]
 003F 26 FF 5F 70              call far word [es:bx+0x70]
 0043 0B C0                    or ax, ax
@@ -540,8 +479,7 @@ Functn23: "TEMPWIND"
 Functn24: "FNTNHEAL"
 0000                          BEGIN
 0003                          ShowPortrait(0042) [es:bx+0xd4]
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
+0010                          ax = GetHits() [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
 001B 26 FF 9F 94 00           call far word [es:bx+0x94]
@@ -563,8 +501,7 @@ Functn25: "FNTNMANA"
 Functn26: "FNTNHEAL"
 0000                          BEGIN
 0003                          ShowPortrait(0042) [es:bx+0xd4]
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
+0010                          ax = GetHits() [es:bx+0x74]
 0017 50                       push ax
 0018 C4 5E 06                 les bx, [bp+0x6]
 001B 26 FF 9F 94 00           call far word [es:bx+0x94]
@@ -580,37 +517,9 @@ Functn27: "EXODENCA"
 0039                          SetEncData(03, 04) [es:bx+0xd4]
 004B                          ax = HasItem(E0) ? 1 : 0 [es:bx+0x50]
 0059 74 21                    jz 0x7c
-005B 33 C0                    xor ax, ax
-005D 50                       push ax
-005E 33 C0                    xor ax, ax
-0060 50                       push ax
-0061 33 C0                    xor ax, ax
-0063 50                       push ax
-0064 33 C0                    xor ax, ax
-0066 50                       push ax
-0067 B8 B6 00                 mov ax, 0xb6
-006A 50                       push ax
-006B B8 D0 00                 mov ax, 0xd0
-006E 50                       push ax
-006F C4 5E 06                 les bx, [bp+0x6]
-0072 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0077 83 C4 0C                 add sp, 0xc
+005B                          SetTreasureData(0000, 00, 00, 00, B6, D0) [es:bx+0xd8]
 007A EB 1F                    jmp 0x9b
-007C B8 D0 07                 mov ax, 0x7d0
-007F 50                       push ax
-0080 33 C0                    xor ax, ax
-0082 50                       push ax
-0083 33 C0                    xor ax, ax
-0085 50                       push ax
-0086 33 C0                    xor ax, ax
-0088 50                       push ax
-0089 33 C0                    xor ax, ax
-008B 50                       push ax
-008C B8 E0 00                 mov ax, 0xe0
-008F 50                       push ax
-0090 C4 5E 06                 les bx, [bp+0x6]
-0093 26 FF 9F D8 00           call far word [es:bx+0xd8]
-0098 83 C4 0C                 add sp, 0xc
+007C                          SetTreasureData(07D0, 00, 00, 00, 00, E0) [es:bx+0xd8]
 009B                          RETURN
 
 Functn28: "WINDENC"
@@ -892,21 +801,7 @@ Functn34: "TROLENCB"
 0039                          SetEncData(26, 04) [es:bx+0xd4]
 004B                          SetEncData(1C, 05) [es:bx+0xd4]
 005D                          SetEncData(1E, 06) [es:bx+0xd4]
-006F B8 E8 03                 mov ax, 0x3e8
-0072 50                       push ax
-0073 33 C0                    xor ax, ax
-0075 50                       push ax
-0076 33 C0                    xor ax, ax
-0078 50                       push ax
-0079 B8 2B 00                 mov ax, 0x2b
-007C 50                       push ax
-007D B8 5D 00                 mov ax, 0x5d
-0080 50                       push ax
-0081 B8 87 00                 mov ax, 0x87
-0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 9F D8 00           call far word [es:bx+0xd8]
-008D 83 C4 0C                 add sp, 0xc
+006F                          SetTreasureData(03E8, 00, 00, 2B, 5D, 87) [es:bx+0xd8]
 0090                          RETURN
 
 Functn36: "TXTTROLA"
@@ -1073,21 +968,7 @@ Functn3C: "BACKENCD"
 0039                          SetEncData(26, 04) [es:bx+0xd4]
 004B                          SetEncData(23, 05) [es:bx+0xd4]
 005D                          SetEncData(23, 06) [es:bx+0xd4]
-006F B8 E8 03                 mov ax, 0x3e8
-0072 50                       push ax
-0073 33 C0                    xor ax, ax
-0075 50                       push ax
-0076 B8 D0 00                 mov ax, 0xd0
-0079 50                       push ax
-007A B8 D1 00                 mov ax, 0xd1
-007D 50                       push ax
-007E B8 15 00                 mov ax, 0x15
-0081 50                       push ax
-0082 B8 70 00                 mov ax, 0x70
-0085 50                       push ax
-0086 C4 5E 06                 les bx, [bp+0x6]
-0089 26 FF 9F D8 00           call far word [es:bx+0xd8]
-008E 83 C4 0C                 add sp, 0xc
+006F                          SetTreasureData(03E8, 00, D0, D1, 15, 70) [es:bx+0xd8]
 0091                          RETURN
 
 Functn3D: "BACKENCE"
@@ -1098,21 +979,7 @@ Functn3D: "BACKENCE"
 0039                          SetEncData(27, 04) [es:bx+0xd4]
 004B                          SetEncData(23, 05) [es:bx+0xd4]
 005D                          SetEncData(23, 06) [es:bx+0xd4]
-006F B8 DC 05                 mov ax, 0x5dc
-0072 50                       push ax
-0073 33 C0                    xor ax, ax
-0075 50                       push ax
-0076 33 C0                    xor ax, ax
-0078 50                       push ax
-0079 33 C0                    xor ax, ax
-007B 50                       push ax
-007C B8 CD 00                 mov ax, 0xcd
-007F 50                       push ax
-0080 B8 45 00                 mov ax, 0x45
-0083 50                       push ax
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 9F D8 00           call far word [es:bx+0xd8]
-008C 83 C4 0C                 add sp, 0xc
+006F                          SetTreasureData(05DC, 00, 00, 00, CD, 45) [es:bx+0xd8]
 008F                          RETURN
 
 Functn48: "FNTNTROL"
@@ -1323,15 +1190,11 @@ Functn49: "HELLWIND"
 000B 0B C0                    or ax, ax
 000D 75 3E                    jnz 0x4d
 000F                          ShowMessage(14E6) [es:bx+0xf8] = The full fury of Hell's Wind rips through the corridor, causing considerable damage.
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 5F 74              call far word [es:bx+0x74]
+001C                          ax = GetHits() [es:bx+0x74]
 0023 BB 05 00                 mov bx, 0x5
 0026 99                       cwd
 0027 F7 FB                    idiv bx
-0029 50                       push ax
-002A C4 5E 06                 les bx, [bp+0x6]
-002D 26 FF 9F 90 00           call far word [es:bx+0x90]
-0032 59                       pop cx
+0029                          DoDamage(ax) [es:bx+0x90]
 0033 C4 5E 06                 les bx, [bp+0x6]
 0036 26 FF 5F 70              call far word [es:bx+0x70]
 003A 0B C0                    or ax, ax

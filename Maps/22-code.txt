@@ -1,12 +1,8 @@
 Functn01: "PIT"
 0000                          BEGIN
 0003                          ShowMessage(03FC) [es:bx+0xf8] = You step into a bottomless pit and die.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 74              call far word [es:bx+0x74]
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 9F 90 00           call far word [es:bx+0x90]
-0020 59                       pop cx
+0010                          ax = GetHits() [es:bx+0x74]
+0017                          DoDamage(ax) [es:bx+0x90]
 0021                          RETURN
 
 Functn02: "ENCGUARD"
@@ -54,37 +50,9 @@ Functn03: "ENCEARTH"
 0082                          SetEncData(28, 06) [es:bx+0xd4]
 0094                          ax = HasItem(E9) ? 1 : 0 [es:bx+0x50]
 00A2 74 22                    jz 0xc6
-00A4 33 C0                    xor ax, ax
-00A6 50                       push ax
-00A7 33 C0                    xor ax, ax
-00A9 50                       push ax
-00AA 33 C0                    xor ax, ax
-00AC 50                       push ax
-00AD B8 B7 00                 mov ax, 0xb7
-00B0 50                       push ax
-00B1 B8 D0 00                 mov ax, 0xd0
-00B4 50                       push ax
-00B5 B8 D0 00                 mov ax, 0xd0
-00B8 50                       push ax
-00B9 C4 5E 06                 les bx, [bp+0x6]
-00BC 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00C1 83 C4 0C                 add sp, 0xc
+00A4                          SetTreasureData(0000, 00, 00, 50, 50, D0) [es:bx+0xd8]
 00C4 EB 5D                    jmp 0x123
-00C6 B8 E8 03                 mov ax, 0x3e8
-00C9 50                       push ax
-00CA 33 C0                    xor ax, ax
-00CC 50                       push ax
-00CD 33 C0                    xor ax, ax
-00CF 50                       push ax
-00D0 B8 88 00                 mov ax, 0x88
-00D3 50                       push ax
-00D4 B8 1D 00                 mov ax, 0x1d
-00D7 50                       push ax
-00D8 B8 E9 00                 mov ax, 0xe9
-00DB 50                       push ax
-00DC C4 5E 06                 les bx, [bp+0x6]
-00DF 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00E4 83 C4 0C                 add sp, 0xc
+00C6                          SetTreasureData(03E8, 00, 00, 88, 1D, E9) [es:bx+0xd8]
 00E7                          ax = CheckState(02, 8A) [es:bx+0x4]
 00F8 0B C0                    or ax, ax
 00FA 75 27                    jnz 0x123
@@ -324,12 +292,8 @@ Functn15: "PITAJ"
 002F                          ShowMessage(0708) [es:bx+0xf8] = Your decision on where to step next saves you.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0737) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn16: "PITAK"
@@ -343,12 +307,8 @@ Functn16: "PITAK"
 002F                          ShowMessage(0761) [es:bx+0xf8] = You selected your next move wisely.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0785) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn17: "PITAL"
@@ -362,12 +322,8 @@ Functn17: "PITAL"
 002F                          ShowMessage(07AF) [es:bx+0xf8] = Your next step is a safe one.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(07CD) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn18: "PITAM"
@@ -381,12 +337,8 @@ Functn18: "PITAM"
 002F                          ShowMessage(07F7) [es:bx+0xf8] = The step you take is wisely chosen.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(081B) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn19: "PITBG"
@@ -400,12 +352,8 @@ Functn19: "PITBG"
 002F                          ShowMessage(0845) [es:bx+0xf8] = You take one good step forward.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0865) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn1A: "PITBI"
@@ -419,12 +367,8 @@ Functn1A: "PITBI"
 002F                          ShowMessage(088F) [es:bx+0xf8] = You safely step forward.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(08A8) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn1B: "PITBJ"
@@ -438,12 +382,8 @@ Functn1B: "PITBJ"
 002F                          ShowMessage(08D2) [es:bx+0xf8] = You take a step in the right direction,
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(08FA) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn1C: "PITBK"
@@ -457,12 +397,8 @@ Functn1C: "PITBK"
 002F                          ShowMessage(0924) [es:bx+0xf8] = Your move is wise.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0937) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn1D: "PITBL"
@@ -476,12 +412,8 @@ Functn1D: "PITBL"
 002F                          ShowMessage(0961) [es:bx+0xf8] = You select your next move wisely.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0983) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn1E: "PITBM"
@@ -495,12 +427,8 @@ Functn1E: "PITBM"
 002F                          ShowMessage(09AD) [es:bx+0xf8] = You move forward with confidence.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(09CF) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn1F: "PITCG"
@@ -514,12 +442,8 @@ Functn1F: "PITCG"
 002F                          ShowMessage(09F9) [es:bx+0xf8] = Your next step is a good one.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0A17) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn20: "PITCH"
@@ -533,12 +457,8 @@ Functn20: "PITCH"
 002F                          ShowMessage(0A41) [es:bx+0xf8] = You move ahead assuredly.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0A5B) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn21: "PITCI"
@@ -552,12 +472,8 @@ Functn21: "PITCI"
 002F                          ShowMessage(0A85) [es:bx+0xf8] = You choose your next step correctly.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0AAA) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn22: "PITCJ"
@@ -571,12 +487,8 @@ Functn22: "PITCJ"
 002F                          ShowMessage(0AD4) [es:bx+0xf8] = Your choice of movement saves you.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0AF7) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn23: "PITCK"
@@ -590,12 +502,8 @@ Functn23: "PITCK"
 002F                          ShowMessage(0B21) [es:bx+0xf8] = You step in the right direction.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0B42) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn24: "PITCL"
@@ -609,12 +517,8 @@ Functn24: "PITCL"
 002F                          ShowMessage(0B6C) [es:bx+0xf8] = You select your next step wisely.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0B8E) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn25: "PITCM"
@@ -628,12 +532,8 @@ Functn25: "PITCM"
 002F                          ShowMessage(0BB8) [es:bx+0xf8] = Your next step is sagely chosen.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0BD9) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn26: "PITDG"
@@ -647,12 +547,8 @@ Functn26: "PITDG"
 002F                          ShowMessage(0C03) [es:bx+0xf8] = You take a wise step forward.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0C21) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn27: "PITDH"
@@ -666,12 +562,8 @@ Functn27: "PITDH"
 002F                          ShowMessage(0C4B) [es:bx+0xf8] = You move forward wisely.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0C64) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn28: "PITDI"
@@ -685,12 +577,8 @@ Functn28: "PITDI"
 002F                          ShowMessage(0C8E) [es:bx+0xf8] = Your next step is wisely decided.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0CB0) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn29: "PITDJ"
@@ -704,12 +592,8 @@ Functn29: "PITDJ"
 002F                          ShowMessage(0CDA) [es:bx+0xf8] = You step ahead with confidence.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0CFA) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn2A: "PITDK"
@@ -723,12 +607,8 @@ Functn2A: "PITDK"
 002F                          ShowMessage(0D24) [es:bx+0xf8] = You move forward carefully.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0D40) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn2B: "PITDL"
@@ -742,12 +622,8 @@ Functn2B: "PITDL"
 002F                          ShowMessage(0D6A) [es:bx+0xf8] = You move ahead.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0D7A) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn2C: "PITDM"
@@ -761,12 +637,8 @@ Functn2C: "PITDM"
 002F                          ShowMessage(0DA4) [es:bx+0xf8] = Your step is wisely selected.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0DC2) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn2D: "PITEG"
@@ -780,12 +652,8 @@ Functn2D: "PITEG"
 002F                          ShowMessage(0DEC) [es:bx+0xf8] = You forge ahead.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0DFD) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn2E: "PITEH"
@@ -799,12 +667,8 @@ Functn2E: "PITEH"
 002F                          ShowMessage(0E27) [es:bx+0xf8] = You select your next move wisely.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0E49) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn2F: "PITEI"
@@ -818,12 +682,8 @@ Functn2F: "PITEI"
 002F                          ShowMessage(0E73) [es:bx+0xf8] = Good sense guides your feet.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0E90) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn30: "PITEJ"
@@ -837,12 +697,8 @@ Functn30: "PITEJ"
 002F                          ShowMessage(0EBA) [es:bx+0xf8] = You walk ahead.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0ECA) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn31: "PITEK"
@@ -856,12 +712,8 @@ Functn31: "PITEK"
 002F                          ShowMessage(0EF4) [es:bx+0xf8] = Your next step is assuredly taken.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0F17) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn32: "PITFG"
@@ -875,12 +727,8 @@ Functn32: "PITFG"
 002F                          ShowMessage(0F41) [es:bx+0xf8] = The next step is an intelligent one.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0F66) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn33: "PITFH"
@@ -894,12 +742,8 @@ Functn33: "PITFH"
 002F                          ShowMessage(0F90) [es:bx+0xf8] = You move safely ahead.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0FA7) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn34: "PITFI"
@@ -913,12 +757,8 @@ Functn34: "PITFI"
 002F                          ShowMessage(0FD1) [es:bx+0xf8] = Your movement decision was correct.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(0FF5) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn35: "PITFJ"
@@ -932,12 +772,8 @@ Functn35: "PITFJ"
 002F                          ShowMessage(101F) [es:bx+0xf8] = You move forward with confidence.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(1041) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn36: "PITFK"
@@ -951,12 +787,8 @@ Functn36: "PITFK"
 002F                          ShowMessage(106B) [es:bx+0xf8] = You carefully selected your next step.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(1092) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn37: "PITFL"
@@ -970,12 +802,8 @@ Functn37: "PITFL"
 002F                          ShowMessage(10BC) [es:bx+0xf8] = You make a sage choice.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(10D4) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn38: "PITFM"
@@ -989,12 +817,8 @@ Functn38: "PITFM"
 002F                          ShowMessage(10FE) [es:bx+0xf8] = You have made a wise decision.
 003C EB 1E                    jmp 0x5c
 003E                          ShowMessage(111D) [es:bx+0xf8] = You step over the edge and into oblivion.
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 74              call far word [es:bx+0x74]
-0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F 90 00           call far word [es:bx+0x90]
-005B 59                       pop cx
+004B                          ax = GetHits() [es:bx+0x74]
+0052                          DoDamage(ax) [es:bx+0x90]
 005C                          RETURN
 
 Functn39: "ENCPITBJ"
