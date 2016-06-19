@@ -1,1330 +1,806 @@
 TOCORRA_01:
 0000                          BEGIN
-0003                          GoMap(03, F0, 02, 02) [es:bx+0xbc]
+0003                          GoMap(03, F0, 02, 02)
 001E                          RETURN
 
 IMPILLAR_02:
 0000                          BEGIN
-0003 33 C0                    xor ax, ax
-0005 50                       push ax
-0006 C4 5E 06                 les bx, [bp+0x6]
-0009 26 FF 5F 20              call far word [es:bx+0x20]
-000D 50                       push ax
-000E C4 5E 06                 les bx, [bp+0x6]
-0011 26 FF 5F 34              call far word [es:bx+0x34]
-0015 59                       pop cx
-0016 59                       pop cx
-0017                          RETURN
+0003                          Push(00)
+0006                          ax = GetNextTile()
+000D                          Move(stk[0], ax) // fails if stk[0] == 0
 
 ILPILLAR_03:
 0000                          BEGIN
-0003                          ShowMessage(03FC) [es:bx+0xf8] = As you step forward, the column slides away.
-0010 B8 01 00                 mov ax, 0x1
-0013 50                       push ax
-0014 B8 7F 00                 mov ax, 0x7f
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 34              call far word [es:bx+0x34]
-001F 59                       pop cx
-0020 59                       pop cx
+0003                          ShowMessage(03FC) = As you step forward, the column slides away.
+0010                          Move(01, 7F)
 0021                          RETURN
 
 PASSCOLM_04:
 0000                          BEGIN
-0003                          ShowMessage(0429) [es:bx+0xf8] = As you step forward, the column slides away.
-0010 B8 01 00                 mov ax, 0x1
-0013 50                       push ax
-0014 B8 F5 00                 mov ax, 0xf5
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 34              call far word [es:bx+0x34]
-001F 59                       pop cx
-0020 59                       pop cx
+0003                          ShowMessage(0429) = As you step forward, the column slides away.
+0010                          Move(01, F5)
 0021                          RETURN
 
 TAPESTRY_05:
 0000                          BEGIN
-0003                          ax = HasItem(F8) [es:bx+0x50]
+0003                          ax = HasItem(F8)
 0011 74 1C                    jz 0x2f
-0013                          ShowMessage(0456) [es:bx+0xf8] = Runes appear on the tapestry...
-0020                          ShowRunes(5004) [es:bx+0xf4] = Imps have hidden the Crown, Robe and Scepter. Only a master of the runes may find them. Two-faced Y is at the center of the quest. From Y, open O and E and I. When a rune key is used correctly, it will disappear.
+0013                          ShowMessage(0456) = Runes appear on the tapestry...
+0020                          ShowRunes(0476) = Imps have hidden the Crown, Robe and Scepter. Only a master of the runes may find them. Two-faced Y is at the center of the quest. From Y, open O and E and I. When a rune key is used correctly, it will disappear.
 002D EB 0D                    jmp 0x3c
-002F                          ShowMessage(054B) [es:bx+0xf8] = You see an ornate tapestry. The middle of the tapestry is blank.
+002F                          ShowMessage(054B) = You see an ornate tapestry. The middle of the tapestry is blank.
 003C                          RETURN
 
 KNGGHST_06:
 0000                          BEGIN
-0003                          ax = HasItem(F8) [es:bx+0x50]
+0003                          ax = HasItem(F8)
 0011 74 48                    jz 0x5b
-0013                          ShowMessage(058C) [es:bx+0xf8] = King Cleowyn's angry spirit appears.
-0020                          ShowMessage(05B1) [es:bx+0xf8] = He tears the Key to the Palace away from you as he and his courtiers attack.
-002D                          AddTreasure(03E8, 00, 00, 00, B7, CF) [es:bx+0xd8]
-004D                          RemoveItem(D9) [es:bx+0x4c]
+0013                          ShowMessage(058C) = King Cleowyn's angry spirit appears.
+0020                          ShowMessage(05B1) = He tears the Key to the Palace away from you as he and his courtiers attack.
+002D                          AddTreasure(03E8, 00, 00, 00, B7, CF)
+004D                          RemoveItem(D9)
 0059 EB 2E                    jmp 0x89
-005B                          ShowMessage(05FE) [es:bx+0xf8] = King Cleowyn and his dead courtiers appear to challenge you.
-0068                          AddTreasure(3A98, 00, 00, F8, B7, CF) [es:bx+0xd8]
-0089                          AddEncounter(25, 05) [es:bx+0xd4]
-009B                          AddEncounter(01, 01) [es:bx+0xd4]
-00AD                          AddEncounter(08, 02) [es:bx+0xd4]
+005B                          ShowMessage(05FE) = King Cleowyn and his dead courtiers appear to challenge you.
+0068                          AddTreasure(3A98, 00, 00, F8, B7, CF)
+0089                          AddEncounter(25, 05)
+009B                          AddEncounter(01, 01)
+00AD                          AddEncounter(08, 02)
 00BF                          RETURN
 
 PIT_07:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 20              call far word [es:bx+0x20]
-000A 50                       push ax
-000B B8 01 00                 mov ax, 0x1
-000E 50                       push ax
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 5F 38              call far word [es:bx+0x38]
-0016 59                       pop cx
+0003                          ax = GetNextTile()
+000A                          SetTileFloor(ax, 01)
 0017 59                       pop cx
-0018                          ShowMessage(063B) [es:bx+0xf8] = You fall into a deep, deep pit.
-0025                          ax = PartyCountIs(01) [es:bx+0xf0]
+0018                          ShowMessage(063B) = You fall into a deep, deep pit.
+0025                          ax = PartyCountIs(01)
 0030 75 2A                    jnz 0x5c
-0032                          DoDamage(00FA) [es:bx+0x90]
-003F                          GoMap(02, E0, 01, 04) [es:bx+0xbc]
+0032                          DoDamage(00FA)
+003F                          GoMap(02, E0, 01, 04)
 005A EB 35                    jmp 0x91
-005C                          ShowMessage(065B) [es:bx+0xf8] = Your body provides a soft landing pad for the rest of your party.
-0069                          DoDamage(0190) [es:bx+0x90]
-0076                          GoMap(02, E0, 01, 04) [es:bx+0xbc]
+005C                          ShowMessage(065B) = Your body provides a soft landing pad for the rest of your party.
+0069                          DoDamage(0190)
+0076                          GoMap(02, E0, 01, 04)
 0091                          RETURN
 
 AVRMNSTR_08:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ax = PartyCountIs(01)
 000E 75 39                    jnz 0x49
-0010                          AddEncounter(19, 01) [es:bx+0xd4]
-0022                          AddEncounter(1A, 02) [es:bx+0xd4]
-0034                          AddEncounter(19, 03) [es:bx+0xd4]
+0010                          AddEncounter(19, 01)
+0022                          AddEncounter(1A, 02)
+0034                          AddEncounter(19, 03)
 0046 E9 F4 00                 jmp 0x13d
-0049                          ax = PartyCountIs(02) [es:bx+0xf0]
+0049                          ax = PartyCountIs(02)
 0054 74 0D                    jz 0x63
-0056                          ax = PartyCountIs(03) [es:bx+0xf0]
+0056                          ax = PartyCountIs(03)
 0061 75 6E                    jnz 0xd1
-0063                          AddEncounter(1C, 01) [es:bx+0xd4]
-0075                          AddEncounter(1C, 02) [es:bx+0xd4]
-0087                          AddEncounter(1C, 03) [es:bx+0xd4]
-0099                          AddEncounter(1C, 04) [es:bx+0xd4]
-00AB                          AddEncounter(1B, 05) [es:bx+0xd4]
-00BD                          AddEncounter(1B, 06) [es:bx+0xd4]
+0063                          AddEncounter(1C, 01)
+0075                          AddEncounter(1C, 02)
+0087                          AddEncounter(1C, 03)
+0099                          AddEncounter(1C, 04)
+00AB                          AddEncounter(1B, 05)
+00BD                          AddEncounter(1B, 06)
 00CF EB 6C                    jmp 0x13d
-00D1                          AddEncounter(1B, 01) [es:bx+0xd4]
-00E3                          AddEncounter(1B, 02) [es:bx+0xd4]
-00F5                          AddEncounter(1B, 03) [es:bx+0xd4]
-0107                          AddEncounter(1B, 04) [es:bx+0xd4]
-0119                          AddEncounter(1B, 05) [es:bx+0xd4]
-012B                          AddEncounter(1B, 06) [es:bx+0xd4]
+00D1                          AddEncounter(1B, 01)
+00E3                          AddEncounter(1B, 02)
+00F5                          AddEncounter(1B, 03)
+0107                          AddEncounter(1B, 04)
+0119                          AddEncounter(1B, 05)
+012B                          AddEncounter(1B, 06)
 013D                          RETURN
 
 STRMNSTR_09:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ax = PartyCountIs(01)
 000E 74 0D                    jz 0x1d
-0010                          ax = PartyCountIs(02) [es:bx+0xf0]
+0010                          ax = PartyCountIs(02)
 001B 75 27                    jnz 0x44
-001D                          AddEncounter(1F, 01) [es:bx+0xd4]
-002F                          AddEncounter(1F, 02) [es:bx+0xd4]
+001D                          AddEncounter(1F, 01)
+002F                          AddEncounter(1F, 02)
 0041 E9 B1 00                 jmp 0xf5
-0044                          ax = PartyCountIs(03) [es:bx+0xf0]
+0044                          ax = PartyCountIs(03)
 004F 75 4A                    jnz 0x9b
-0051                          AddEncounter(20, 01) [es:bx+0xd4]
-0063                          AddEncounter(20, 02) [es:bx+0xd4]
-0075                          AddEncounter(1E, 03) [es:bx+0xd4]
-0087                          AddEncounter(1E, 04) [es:bx+0xd4]
+0051                          AddEncounter(20, 01)
+0063                          AddEncounter(20, 02)
+0075                          AddEncounter(1E, 03)
+0087                          AddEncounter(1E, 04)
 0099 EB 5A                    jmp 0xf5
-009B                          AddEncounter(1F, 01) [es:bx+0xd4]
-00AD                          AddEncounter(1F, 02) [es:bx+0xd4]
-00BF                          AddEncounter(1F, 03) [es:bx+0xd4]
-00D1                          AddEncounter(1F, 04) [es:bx+0xd4]
-00E3                          AddEncounter(20, 05) [es:bx+0xd4]
+009B                          AddEncounter(1F, 01)
+00AD                          AddEncounter(1F, 02)
+00BF                          AddEncounter(1F, 03)
+00D1                          AddEncounter(1F, 04)
+00E3                          AddEncounter(20, 05)
 00F5                          RETURN
 
 TUFMNSTR_0A:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ax = PartyCountIs(01)
 000E 75 27                    jnz 0x37
-0010                          AddEncounter(22, 01) [es:bx+0xd4]
-0022                          AddEncounter(22, 01) [es:bx+0xd4]
+0010                          AddEncounter(22, 01)
+0022                          AddEncounter(22, 01)
 0034 E9 1B 01                 jmp 0x152
-0037                          ax = PartyCountIs(02) [es:bx+0xf0]
+0037                          ax = PartyCountIs(02)
 0042 75 39                    jnz 0x7d
-0044                          AddEncounter(23, 01) [es:bx+0xd4]
-0056                          AddEncounter(21, 02) [es:bx+0xd4]
-0068                          AddEncounter(21, 03) [es:bx+0xd4]
+0044                          AddEncounter(23, 01)
+0056                          AddEncounter(21, 02)
+0068                          AddEncounter(21, 03)
 007A E9 D5 00                 jmp 0x152
-007D                          ax = PartyCountIs(03) [es:bx+0xf0]
+007D                          ax = PartyCountIs(03)
 0088 75 5C                    jnz 0xe6
-008A                          AddEncounter(21, 01) [es:bx+0xd4]
-009C                          AddEncounter(21, 02) [es:bx+0xd4]
-00AE                          AddEncounter(24, 03) [es:bx+0xd4]
-00C0                          AddEncounter(24, 04) [es:bx+0xd4]
-00D2                          AddEncounter(23, 05) [es:bx+0xd4]
+008A                          AddEncounter(21, 01)
+009C                          AddEncounter(21, 02)
+00AE                          AddEncounter(24, 03)
+00C0                          AddEncounter(24, 04)
+00D2                          AddEncounter(23, 05)
 00E4 EB 6C                    jmp 0x152
-00E6                          AddEncounter(23, 01) [es:bx+0xd4]
-00F8                          AddEncounter(23, 02) [es:bx+0xd4]
-010A                          AddEncounter(23, 03) [es:bx+0xd4]
-011C                          AddEncounter(23, 04) [es:bx+0xd4]
-012E                          AddEncounter(22, 05) [es:bx+0xd4]
-0140                          AddEncounter(22, 06) [es:bx+0xd4]
+00E6                          AddEncounter(23, 01)
+00F8                          AddEncounter(23, 02)
+010A                          AddEncounter(23, 03)
+011C                          AddEncounter(23, 04)
+012E                          AddEncounter(22, 05)
+0140                          AddEncounter(22, 06)
 0152                          RETURN
 
 WEAPBENC_0C:
 0000                          BEGIN
-0003                          ax = HasItem(35) [es:bx+0x50]
+0003                          ax = HasItem(35)
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(069D) [es:bx+0xf8] = You feel the tickle of cobwebs on your neck.
-0020                          AddTreasure(012C, 00, 00, 00, 00, B6) [es:bx+0xd8]
+0013                          ShowMessage(069D) = You feel the tickle of cobwebs on your neck.
+0020                          AddTreasure(012C, 00, 00, 00, 00, B6)
 003F EB 2D                    jmp 0x6e
-0041                          AddTreasure(03E8, 00, 00, 00, CF, 35) [es:bx+0xd8]
-0061                          ShowMessage(06CA) [es:bx+0xf8] = Spiders are using a spear in the middle of the floor as a support for their webs.
-006E                          ax = PartyCountIs(01) [es:bx+0xf0]
+0041                          AddTreasure(03E8, 00, 00, 00, CF, 35)
+0061                          ShowMessage(06CA) = Spiders are using a spear in the middle of the floor as a support for their webs.
+006E                          ax = PartyCountIs(01)
 0079 74 0D                    jz 0x88
-007B                          ax = PartyCountIs(02) [es:bx+0xf0]
+007B                          ax = PartyCountIs(02)
 0086 75 27                    jnz 0xaf
-0088                          AddEncounter(19, 01) [es:bx+0xd4]
-009A                          AddEncounter(1A, 02) [es:bx+0xd4]
+0088                          AddEncounter(19, 01)
+009A                          AddEncounter(1A, 02)
 00AC E9 8D 00                 jmp 0x13c
-00AF                          ax = PartyCountIs(03) [es:bx+0xf0]
+00AF                          ax = PartyCountIs(03)
 00BA 75 38                    jnz 0xf4
-00BC                          AddEncounter(19, 01) [es:bx+0xd4]
-00CE                          AddEncounter(19, 02) [es:bx+0xd4]
-00E0                          AddEncounter(1A, 03) [es:bx+0xd4]
+00BC                          AddEncounter(19, 01)
+00CE                          AddEncounter(19, 02)
+00E0                          AddEncounter(1A, 03)
 00F2 EB 48                    jmp 0x13c
-00F4                          AddEncounter(19, 01) [es:bx+0xd4]
-0106                          AddEncounter(1A, 02) [es:bx+0xd4]
-0118                          AddEncounter(1B, 03) [es:bx+0xd4]
-012A                          AddEncounter(1C, 04) [es:bx+0xd4]
+00F4                          AddEncounter(19, 01)
+0106                          AddEncounter(1A, 02)
+0118                          AddEncounter(1B, 03)
+012A                          AddEncounter(1C, 04)
 013C                          RETURN
 
 WEAPAENC_0D:
 0000                          BEGIN
-0003                          AddTreasure(1964, 00, 00, 00, 00, 3B) [es:bx+0xd8]
-0022                          ShowMessage(071C) [es:bx+0xf8] = You see a weapon on the floor and step forward. Banshees sense your presence and gather to attack.
-002F                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          AddTreasure(1964, 00, 00, 00, 00, 3B)
+0022                          ShowMessage(071C) = You see a weapon on the floor and step forward. Banshees sense your presence and gather to attack.
+002F                          ax = PartyCountIs(01)
 003A 74 0D                    jz 0x49
-003C                          ax = PartyCountIs(02) [es:bx+0xf0]
+003C                          ax = PartyCountIs(02)
 0047 75 39                    jnz 0x82
-0049                          AddEncounter(21, 01) [es:bx+0xd4]
-005B                          AddEncounter(22, 02) [es:bx+0xd4]
-006D                          AddEncounter(21, 03) [es:bx+0xd4]
+0049                          AddEncounter(21, 01)
+005B                          AddEncounter(22, 02)
+006D                          AddEncounter(21, 03)
 007F E9 D5 00                 jmp 0x157
-0082                          ax = PartyCountIs(03) [es:bx+0xf0]
+0082                          ax = PartyCountIs(03)
 008D 75 5C                    jnz 0xeb
-008F                          AddEncounter(22, 01) [es:bx+0xd4]
-00A1                          AddEncounter(22, 02) [es:bx+0xd4]
-00B3                          AddEncounter(21, 03) [es:bx+0xd4]
-00C5                          AddEncounter(24, 04) [es:bx+0xd4]
-00D7                          AddEncounter(23, 05) [es:bx+0xd4]
+008F                          AddEncounter(22, 01)
+00A1                          AddEncounter(22, 02)
+00B3                          AddEncounter(21, 03)
+00C5                          AddEncounter(24, 04)
+00D7                          AddEncounter(23, 05)
 00E9 EB 6C                    jmp 0x157
-00EB                          AddEncounter(23, 01) [es:bx+0xd4]
-00FD                          AddEncounter(23, 02) [es:bx+0xd4]
-010F                          AddEncounter(21, 03) [es:bx+0xd4]
-0121                          AddEncounter(21, 04) [es:bx+0xd4]
-0133                          AddEncounter(24, 05) [es:bx+0xd4]
-0145                          AddEncounter(24, 06) [es:bx+0xd4]
+00EB                          AddEncounter(23, 01)
+00FD                          AddEncounter(23, 02)
+010F                          AddEncounter(21, 03)
+0121                          AddEncounter(21, 04)
+0133                          AddEncounter(24, 05)
+0145                          AddEncounter(24, 06)
 0157                          RETURN
 
 WEAPCENC_0E:
 0000                          BEGIN
-0003                          ax = HasItem(16) [es:bx+0x50]
+0003                          ax = HasItem(16)
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(077F) [es:bx+0xf8] = Nightmares emerge from the shadows.
-0020                          AddTreasure(00C8, 00, 00, 00, 00, CE) [es:bx+0xd8]
+0013                          ShowMessage(077F) = Nightmares emerge from the shadows.
+0020                          AddTreasure(00C8, 00, 00, 00, 00, CE)
 003F EB 2D                    jmp 0x6e
-0041                          AddTreasure(0BB8, 00, 00, 00, CF, 16) [es:bx+0xd8]
-0061                          ShowMessage(07A3) [es:bx+0xf8] = A group of Nightmares claw at an axe on the floor.
-006E                          ax = PartyCountIs(01) [es:bx+0xf0]
+0041                          AddTreasure(0BB8, 00, 00, 00, CF, 16)
+0061                          ShowMessage(07A3) = A group of Nightmares claw at an axe on the floor.
+006E                          ax = PartyCountIs(01)
 0079 74 0D                    jz 0x88
-007B                          ax = PartyCountIs(02) [es:bx+0xf0]
+007B                          ax = PartyCountIs(02)
 0086 75 39                    jnz 0xc1
-0088                          AddEncounter(1E, 01) [es:bx+0xd4]
-009A                          AddEncounter(1E, 02) [es:bx+0xd4]
-00AC                          AddEncounter(1D, 03) [es:bx+0xd4]
+0088                          AddEncounter(1E, 01)
+009A                          AddEncounter(1E, 02)
+00AC                          AddEncounter(1D, 03)
 00BE E9 D5 00                 jmp 0x196
-00C1                          ax = PartyCountIs(03) [es:bx+0xf0]
+00C1                          ax = PartyCountIs(03)
 00CC 75 5C                    jnz 0x12a
-00CE                          AddEncounter(1F, 01) [es:bx+0xd4]
-00E0                          AddEncounter(20, 02) [es:bx+0xd4]
-00F2                          AddEncounter(1E, 03) [es:bx+0xd4]
-0104                          AddEncounter(1D, 04) [es:bx+0xd4]
-0116                          AddEncounter(1F, 05) [es:bx+0xd4]
+00CE                          AddEncounter(1F, 01)
+00E0                          AddEncounter(20, 02)
+00F2                          AddEncounter(1E, 03)
+0104                          AddEncounter(1D, 04)
+0116                          AddEncounter(1F, 05)
 0128 EB 6C                    jmp 0x196
-012A                          AddEncounter(1F, 01) [es:bx+0xd4]
-013C                          AddEncounter(1F, 02) [es:bx+0xd4]
-014E                          AddEncounter(20, 03) [es:bx+0xd4]
-0160                          AddEncounter(20, 04) [es:bx+0xd4]
-0172                          AddEncounter(1F, 05) [es:bx+0xd4]
-0184                          AddEncounter(1F, 06) [es:bx+0xd4]
+012A                          AddEncounter(1F, 01)
+013C                          AddEncounter(1F, 02)
+014E                          AddEncounter(20, 03)
+0160                          AddEncounter(20, 04)
+0172                          AddEncounter(1F, 05)
+0184                          AddEncounter(1F, 06)
 0196                          RETURN
 
 SHLDENC_0F:
 0000                          BEGIN
-0003                          ax = HasItem(4E) [es:bx+0x50]
+0003                          ax = HasItem(4E)
 0011 74 2F                    jz 0x42
-0013                          ShowMessage(07D6) [es:bx+0xf8] = You stumble upon some Zombies, eating the remains of a former adventurer.
-0020                          AddTreasure(0190, 00, 00, 00, B5, CE) [es:bx+0xd8]
+0013                          ShowMessage(07D6) = You stumble upon some Zombies, eating the remains of a former adventurer.
+0020                          AddTreasure(0190, 00, 00, 00, B5, CE)
 0040 EB 2D                    jmp 0x6f
-0042                          AddTreasure(0E74, 00, 00, 00, B5, 4E) [es:bx+0xd8]
-0062                          ShowMessage(0820) [es:bx+0xf8] = The shuffle of heavy feet put you on your guard. One of the things kicks a shield out of its way.
-006F                          ax = PartyCountIs(01) [es:bx+0xf0]
+0042                          AddTreasure(0E74, 00, 00, 00, B5, 4E)
+0062                          ShowMessage(0820) = The shuffle of heavy feet put you on your guard. One of the things kicks a shield out of its way.
+006F                          ax = PartyCountIs(01)
 007A 74 0D                    jz 0x89
-007C                          ax = PartyCountIs(02) [es:bx+0xf0]
+007C                          ax = PartyCountIs(02)
 0087 75 4B                    jnz 0xd4
-0089                          AddEncounter(11, 01) [es:bx+0xd4]
-009B                          AddEncounter(12, 02) [es:bx+0xd4]
-00AD                          AddEncounter(12, 03) [es:bx+0xd4]
-00BF                          AddEncounter(12, 04) [es:bx+0xd4]
+0089                          AddEncounter(11, 01)
+009B                          AddEncounter(12, 02)
+00AD                          AddEncounter(12, 03)
+00BF                          AddEncounter(12, 04)
 00D1 E9 E7 00                 jmp 0x1bb
-00D4                          ax = PartyCountIs(03) [es:bx+0xf0]
+00D4                          ax = PartyCountIs(03)
 00DF 75 6E                    jnz 0x14f
-00E1                          AddEncounter(12, 01) [es:bx+0xd4]
-00F3                          AddEncounter(12, 02) [es:bx+0xd4]
-0105                          AddEncounter(13, 03) [es:bx+0xd4]
-0117                          AddEncounter(13, 04) [es:bx+0xd4]
-0129                          AddEncounter(11, 05) [es:bx+0xd4]
-013B                          AddEncounter(11, 06) [es:bx+0xd4]
+00E1                          AddEncounter(12, 01)
+00F3                          AddEncounter(12, 02)
+0105                          AddEncounter(13, 03)
+0117                          AddEncounter(13, 04)
+0129                          AddEncounter(11, 05)
+013B                          AddEncounter(11, 06)
 014D EB 6C                    jmp 0x1bb
-014F                          AddEncounter(14, 01) [es:bx+0xd4]
-0161                          AddEncounter(14, 02) [es:bx+0xd4]
-0173                          AddEncounter(13, 03) [es:bx+0xd4]
-0185                          AddEncounter(13, 04) [es:bx+0xd4]
-0197                          AddEncounter(14, 05) [es:bx+0xd4]
-01A9                          AddEncounter(14, 06) [es:bx+0xd4]
+014F                          AddEncounter(14, 01)
+0161                          AddEncounter(14, 02)
+0173                          AddEncounter(13, 03)
+0185                          AddEncounter(13, 04)
+0197                          AddEncounter(14, 05)
+01A9                          AddEncounter(14, 06)
 01BB                          RETURN
 
 JACKTENC_10:
 0000                          BEGIN
-0003                          ax = HasItem(7A) [es:bx+0x50]
+0003                          ax = HasItem(7A)
 0011 74 2F                    jz 0x42
-0013                          ShowMessage(0882) [es:bx+0xf8] = Ghosts rise from the floor to haunt you.
-0020                          AddTreasure(0064, 00, 00, 00, B6, CE) [es:bx+0xd8]
+0013                          ShowMessage(0882) = Ghosts rise from the floor to haunt you.
+0020                          AddTreasure(0064, 00, 00, 00, B6, CE)
 0040 EB 2D                    jmp 0x6f
-0042                          AddTreasure(0FA0, 00, 00, 00, CE, 7A) [es:bx+0xd8]
-0062                          ShowMessage(08AB) [es:bx+0xf8] = Ghosts are gathered around a jacket on the floor. They seem to be pondering its purpose.
-006F                          ax = PartyCountIs(01) [es:bx+0xf0]
+0042                          AddTreasure(0FA0, 00, 00, 00, CE, 7A)
+0062                          ShowMessage(08AB) = Ghosts are gathered around a jacket on the floor. They seem to be pondering its purpose.
+006F                          ax = PartyCountIs(01)
 007A 74 0D                    jz 0x89
-007C                          ax = PartyCountIs(02) [es:bx+0xf0]
+007C                          ax = PartyCountIs(02)
 0087 75 27                    jnz 0xb0
-0089                          AddEncounter(03, 01) [es:bx+0xd4]
-009B                          AddEncounter(02, 02) [es:bx+0xd4]
+0089                          AddEncounter(03, 01)
+009B                          AddEncounter(02, 02)
 00AD E9 8D 00                 jmp 0x13d
-00B0                          ax = PartyCountIs(03) [es:bx+0xf0]
+00B0                          ax = PartyCountIs(03)
 00BB 75 38                    jnz 0xf5
-00BD                          AddEncounter(03, 01) [es:bx+0xd4]
-00CF                          AddEncounter(01, 02) [es:bx+0xd4]
-00E1                          AddEncounter(04, 03) [es:bx+0xd4]
+00BD                          AddEncounter(03, 01)
+00CF                          AddEncounter(01, 02)
+00E1                          AddEncounter(04, 03)
 00F3 EB 48                    jmp 0x13d
-00F5                          AddEncounter(01, 01) [es:bx+0xd4]
-0107                          AddEncounter(03, 02) [es:bx+0xd4]
-0119                          AddEncounter(02, 03) [es:bx+0xd4]
-012B                          AddEncounter(04, 04) [es:bx+0xd4]
+00F5                          AddEncounter(01, 01)
+0107                          AddEncounter(03, 02)
+0119                          AddEncounter(02, 03)
+012B                          AddEncounter(04, 04)
 013D                          RETURN
 
 ARMRBENC_11:
 0000                          BEGIN
-0003                          ax = HasItem(76) [es:bx+0x50]
+0003                          ax = HasItem(76)
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(0904) [es:bx+0xf8] = Skeletons of King Cleowyn's elite palace guard advance on you.
-0020                          AddTreasure(004B, 00, 00, 00, 00, CE) [es:bx+0xd8]
+0013                          ShowMessage(0904) = Skeletons of King Cleowyn's elite palace guard advance on you.
+0020                          AddTreasure(004B, 00, 00, 00, 00, CE)
 003F EB 2D                    jmp 0x6e
-0041                          AddTreasure(07D0, 00, 00, 00, CE, 76) [es:bx+0xd8]
-0061                          ShowMessage(0943) [es:bx+0xf8] = The leader of the dead palace guards that surrounds you wears rusty chainmail.
-006E                          ax = PartyCountIs(01) [es:bx+0xf0]
+0041                          AddTreasure(07D0, 00, 00, 00, CE, 76)
+0061                          ShowMessage(0943) = The leader of the dead palace guards that surrounds you wears rusty chainmail.
+006E                          ax = PartyCountIs(01)
 0079 74 0D                    jz 0x88
-007B                          ax = PartyCountIs(02) [es:bx+0xf0]
+007B                          ax = PartyCountIs(02)
 0086 75 39                    jnz 0xc1
-0088                          AddEncounter(09, 01) [es:bx+0xd4]
-009A                          AddEncounter(0A, 02) [es:bx+0xd4]
-00AC                          AddEncounter(09, 03) [es:bx+0xd4]
+0088                          AddEncounter(09, 01)
+009A                          AddEncounter(0A, 02)
+00AC                          AddEncounter(09, 03)
 00BE E9 D5 00                 jmp 0x196
-00C1                          ax = PartyCountIs(03) [es:bx+0xf0]
+00C1                          ax = PartyCountIs(03)
 00CC 75 5C                    jnz 0x12a
-00CE                          AddEncounter(0A, 01) [es:bx+0xd4]
-00E0                          AddEncounter(0A, 02) [es:bx+0xd4]
-00F2                          AddEncounter(0B, 03) [es:bx+0xd4]
-0104                          AddEncounter(09, 04) [es:bx+0xd4]
-0116                          AddEncounter(09, 05) [es:bx+0xd4]
+00CE                          AddEncounter(0A, 01)
+00E0                          AddEncounter(0A, 02)
+00F2                          AddEncounter(0B, 03)
+0104                          AddEncounter(09, 04)
+0116                          AddEncounter(09, 05)
 0128 EB 6C                    jmp 0x196
-012A                          AddEncounter(0A, 01) [es:bx+0xd4]
-013C                          AddEncounter(0A, 02) [es:bx+0xd4]
-014E                          AddEncounter(0B, 03) [es:bx+0xd4]
-0160                          AddEncounter(0B, 04) [es:bx+0xd4]
-0172                          AddEncounter(0C, 05) [es:bx+0xd4]
-0184                          AddEncounter(0C, 06) [es:bx+0xd4]
+012A                          AddEncounter(0A, 01)
+013C                          AddEncounter(0A, 02)
+014E                          AddEncounter(0B, 03)
+0160                          AddEncounter(0B, 04)
+0172                          AddEncounter(0C, 05)
+0184                          AddEncounter(0C, 06)
 0196                          RETURN
 
 RUNES_12:
 0000                          BEGIN
-0003                          ShowMessage(0992) [es:bx+0xf8] = There are runes on the wall...
-0010                          ShowRunes(5009) [es:bx+0xf4] = What you see is not always what is real.
+0003                          ShowMessage(0992) = There are runes on the wall...
+0010                          ShowRunes(09B1) = What you see is not always what is real.
 001D                          RETURN
 
 LKPKDOOR_15:
 0000                          BEGIN
-0003 B8 C4 00                 mov ax, 0xc4
-0006 50                       push ax
-0007 B8 C1 00                 mov ax, 0xc1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 54              call far word [es:bx+0x54]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = UsedItem(C1, C4)
 0016 75 11                    jnz 0x29
-0018 B8 0E 00                 mov ax, 0xe
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 5F 58              call far word [es:bx+0x58]
-0023 59                       pop cx
-0024 3D 05 00                 cmp ax, 0x5
+0018                          ax = UsedSkill(0E, 05) // returns 0 if did not use, compares to 2nd op if did use
 0027 72 4B                    jb 0x74
-0029                          ax = SetExitability(01) [es:bx+0x24]
+0029                          Push(01)
+002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0034 50                       push ax
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 5F 20              call far word [es:bx+0x20]
+0035                          ax = GetNextTile()
 003C 50                       push ax
-003D C4 5E 06                 les bx, [bp+0x6]
-0040 26 FF 5F 2C              call far word [es:bx+0x2c]
-0044 83 C4 06                 add sp, 0x6
-0047                          ax = SetExitability(ax) [es:bx+0x24]
+003D                          Move(stk[0], stk[1], stk[2])
+0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
 004E 50                       push ax
-004F C4 5E 06                 les bx, [bp+0x6]
-0052 26 FF 5F 20              call far word [es:bx+0x20]
+004F                          ax = GetNextTile()
 0056 50                       push ax
-0057 B8 01 00                 mov ax, 0x1
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 5F 30              call far word [es:bx+0x30]
-0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(09DA) [es:bx+0xf8] = You successfully picked the locked door.
+0057                          Push(01)
+005B                          SetUnblocked()
+0065                          ShowMessage(09DA) = You successfully picked the locked door.
 0072 EB 2A                    jmp 0x9e
-0074                          ax = SetExitability(00) [es:bx+0x24]
+0074                          Push(00)
+0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
 007E 50                       push ax
-007F C4 5E 06                 les bx, [bp+0x6]
-0082 26 FF 5F 20              call far word [es:bx+0x20]
+007F                          ax = GetNextTile()
 0086 50                       push ax
-0087 C4 5E 06                 les bx, [bp+0x6]
-008A 26 FF 5F 2C              call far word [es:bx+0x2c]
-008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(0A03) [es:bx+0xf8] = The door is locked.
+0087                          Move(stk[0], stk[1], stk[2])
+0091                          ShowMessage(0A03) = The door is locked.
 009E                          RETURN
 
 STRDOOR_16:
 0000                          BEGIN
-0003                          CheckStrength(0C) [es:bx+0xa4]
+0003                          CheckStrength(0C)
 0012 72 4B                    jb 0x5f
-0014                          ShowMessage(0A17) [es:bx+0xf8] = You manage to open the door by brute force.
-0021                          ax = SetExitability(ax) [es:bx+0x24]
+0014                          ShowMessage(0A17) = You manage to open the door by brute force.
+0021                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0028 50                       push ax
-0029 C4 5E 06                 les bx, [bp+0x6]
-002C 26 FF 5F 20              call far word [es:bx+0x20]
+0029                          ax = GetNextTile()
 0030 50                       push ax
-0031 B8 01 00                 mov ax, 0x1
-0034 50                       push ax
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 5F 30              call far word [es:bx+0x30]
-003C 83 C4 06                 add sp, 0x6
-003F                          ax = SetExitability(01) [es:bx+0x24]
+0031                          Push(01)
+0035                          SetUnblocked()
+003F                          Push(01)
+0043                          ax = SetExitability(ax) // ax is usually 0 following equality check
 004A 50                       push ax
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 20              call far word [es:bx+0x20]
+004B                          ax = GetNextTile()
 0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 5F 2C              call far word [es:bx+0x2c]
-005A 83 C4 06                 add sp, 0x6
+0053                          Move(stk[0], stk[1], stk[2])
 005D EB 2A                    jmp 0x89
-005F                          ShowMessage(0A43) [es:bx+0xf8] = You are not strong enough to force the door open.
-006C                          ax = SetExitability(00) [es:bx+0x24]
+005F                          ShowMessage(0A43) = You are not strong enough to force the door open.
+006C                          Push(00)
+006F                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0076 50                       push ax
-0077 C4 5E 06                 les bx, [bp+0x6]
-007A 26 FF 5F 20              call far word [es:bx+0x20]
+0077                          ax = GetNextTile()
 007E 50                       push ax
-007F C4 5E 06                 les bx, [bp+0x6]
-0082 26 FF 5F 2C              call far word [es:bx+0x2c]
-0086 83 C4 06                 add sp, 0x6
+007F                          Move(stk[0], stk[1], stk[2])
 0089                          RETURN
 
 LKPKDOOR_17:
 0000                          BEGIN
-0003 B8 C4 00                 mov ax, 0xc4
-0006 50                       push ax
-0007 B8 C2 00                 mov ax, 0xc2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 54              call far word [es:bx+0x54]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = UsedItem(C2, C4)
 0016 75 11                    jnz 0x29
-0018 B8 0E 00                 mov ax, 0xe
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 5F 58              call far word [es:bx+0x58]
-0023 59                       pop cx
-0024 3D 08 00                 cmp ax, 0x8
+0018                          ax = UsedSkill(0E, 08) // returns 0 if did not use, compares to 2nd op if did use
 0027 72 4B                    jb 0x74
-0029                          ax = SetExitability(01) [es:bx+0x24]
+0029                          Push(01)
+002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0034 50                       push ax
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 5F 20              call far word [es:bx+0x20]
+0035                          ax = GetNextTile()
 003C 50                       push ax
-003D C4 5E 06                 les bx, [bp+0x6]
-0040 26 FF 5F 2C              call far word [es:bx+0x2c]
-0044 83 C4 06                 add sp, 0x6
-0047                          ax = SetExitability(ax) [es:bx+0x24]
+003D                          Move(stk[0], stk[1], stk[2])
+0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
 004E 50                       push ax
-004F C4 5E 06                 les bx, [bp+0x6]
-0052 26 FF 5F 20              call far word [es:bx+0x20]
+004F                          ax = GetNextTile()
 0056 50                       push ax
-0057 B8 01 00                 mov ax, 0x1
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 5F 30              call far word [es:bx+0x30]
-0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(0A75) [es:bx+0xf8] = You picked the lock of the door successfully.
+0057                          Push(01)
+005B                          SetUnblocked()
+0065                          ShowMessage(0A75) = You picked the lock of the door successfully.
 0072 EB 2A                    jmp 0x9e
-0074                          ax = SetExitability(00) [es:bx+0x24]
+0074                          Push(00)
+0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
 007E 50                       push ax
-007F C4 5E 06                 les bx, [bp+0x6]
-0082 26 FF 5F 20              call far word [es:bx+0x20]
+007F                          ax = GetNextTile()
 0086 50                       push ax
-0087 C4 5E 06                 les bx, [bp+0x6]
-008A 26 FF 5F 2C              call far word [es:bx+0x2c]
-008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(0AA3) [es:bx+0xf8] = The door is locked.
+0087                          Move(stk[0], stk[1], stk[2])
+0091                          ShowMessage(0AA3) = The door is locked.
 009E                          RETURN
 
 TRAPDORA_18:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0AB7) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(01, 82, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0AB7) = You found a trapdoor on the floor.
+005B                          GoMap(01, 82, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0ADA) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(01, 82, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0ADA) = You fall through a trapdoor.
+0085                          GoMap(01, 82, 02, 03)
 00A0                          RETURN
 
 TRAPDORB_19:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0AF7) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(01, 86, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0AF7) = You found a trapdoor on the floor.
+005B                          GoMap(01, 86, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0B1A) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(01, 86, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0B1A) = You fall through a trapdoor.
+0085                          GoMap(01, 86, 02, 03)
 00A0                          RETURN
 
 TRAPDORC_1A:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0B37) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(03, A0, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0B37) = You found a trapdoor on the floor.
+005B                          GoMap(03, A0, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0B5A) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(03, A0, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0B5A) = You fall through a trapdoor.
+0085                          GoMap(03, A0, 02, 03)
 00A0                          RETURN
 
 TRAPDORD_1B:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0B77) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(03, A8, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0B77) = You found a trapdoor on the floor.
+005B                          GoMap(03, A8, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0B9A) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(03, A8, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0B9A) = You fall through a trapdoor.
+0085                          GoMap(03, A8, 02, 03)
 00A0                          RETURN
 
 TRAPDORE_1C:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 29                    jz 0x77
-004E                          ShowMessage(0BB7) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(00, B3, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0BB7) = You found a trapdoor on the floor.
+005B                          GoMap(00, B3, 02, 03)
 0075 EB 27                    jmp 0x9e
-0077                          ShowMessage(0BDA) [es:bx+0xf8] = You fall through a trapdoor.
-0084                          GoMap(00, B3, 02, 03) [es:bx+0xbc]
+0077                          ShowMessage(0BDA) = You fall through a trapdoor.
+0084                          GoMap(00, B3, 02, 03)
 009E                          RETURN
 
 TRAPDORF_1D:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0BF7) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(02, B5, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0BF7) = You found a trapdoor on the floor.
+005B                          GoMap(02, B5, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0C1A) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(02, B5, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0C1A) = You fall through a trapdoor.
+0085                          GoMap(02, B5, 02, 03)
 00A0                          RETURN
 
 TRAPDORG_1E:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 29                    jz 0x77
-004E                          ShowMessage(0C37) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(00, C2, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0C37) = You found a trapdoor on the floor.
+005B                          GoMap(00, C2, 02, 03)
 0075 EB 27                    jmp 0x9e
-0077                          ShowMessage(0C5A) [es:bx+0xf8] = You fall through a trapdoor.
-0084                          GoMap(00, C2, 02, 03) [es:bx+0xbc]
+0077                          ShowMessage(0C5A) = You fall through a trapdoor.
+0084                          GoMap(00, C2, 02, 03)
 009E                          RETURN
 
 TRAPDORH_1F:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0C77) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(02, C6, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0C77) = You found a trapdoor on the floor.
+005B                          GoMap(02, C6, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0C9A) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(02, C6, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0C9A) = You fall through a trapdoor.
+0085                          GoMap(02, C6, 02, 03)
 00A0                          RETURN
 
 TRAPDORI_20:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 29                    jz 0x77
-004E                          ShowMessage(0CB7) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(00, D3, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0CB7) = You found a trapdoor on the floor.
+005B                          GoMap(00, D3, 02, 03)
 0075 EB 27                    jmp 0x9e
-0077                          ShowMessage(0CDA) [es:bx+0xf8] = You fall through a trapdoor.
-0084                          GoMap(00, D3, 02, 03) [es:bx+0xbc]
+0077                          ShowMessage(0CDA) = You fall through a trapdoor.
+0084                          GoMap(00, D3, 02, 03)
 009E                          RETURN
 
 TRAPDORJ_21:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0CF7) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(01, D4, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0CF7) = You found a trapdoor on the floor.
+005B                          GoMap(01, D4, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0D1A) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(01, D4, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0D1A) = You fall through a trapdoor.
+0085                          GoMap(01, D4, 02, 03)
 00A0                          RETURN
 
 TRAPDORK_22:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0D37) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(02, D5, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0D37) = You found a trapdoor on the floor.
+005B                          GoMap(02, D5, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0D5A) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(02, D5, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0D5A) = You fall through a trapdoor.
+0085                          GoMap(02, D5, 02, 03)
 00A0                          RETURN
 
 TRAPDORL_23:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0D77) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(01, E0, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0D77) = You found a trapdoor on the floor.
+005B                          GoMap(01, E0, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0D9A) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(01, E0, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0D9A) = You fall through a trapdoor.
+0085                          GoMap(01, E0, 02, 03)
 00A0                          RETURN
 
 TRAPDORM_24:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0DB7) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(01, E2, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0DB7) = You found a trapdoor on the floor.
+005B                          GoMap(01, E2, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0DDA) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(01, E2, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0DDA) = You fall through a trapdoor.
+0085                          GoMap(01, E2, 02, 03)
 00A0                          RETURN
 
 TRAPDORN_25:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0DF7) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(01, E3, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0DF7) = You found a trapdoor on the floor.
+005B                          GoMap(01, E3, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0E1A) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(01, E3, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0E1A) = You fall through a trapdoor.
+0085                          GoMap(01, E3, 02, 03)
 00A0                          RETURN
 
 TRAPDORO_26:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0E37) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(01, E5, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0E37) = You found a trapdoor on the floor.
+005B                          GoMap(01, E5, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0E5A) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(01, E5, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0E5A) = You fall through a trapdoor.
+0085                          GoMap(01, E5, 02, 03)
 00A0                          RETURN
 
 TRAPDORP_27:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0E77) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(01, E6, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0E77) = You found a trapdoor on the floor.
+005B                          GoMap(01, E6, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0E9A) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(01, E6, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0E9A) = You fall through a trapdoor.
+0085                          GoMap(01, E6, 02, 03)
 00A0                          RETURN
 
 TRAPDORQ_28:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0A 00                 cmp ax, 0xa
+0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 2A                    jz 0x78
-004E                          ShowMessage(0EB7) [es:bx+0xf8] = You found a trapdoor on the floor.
-005B                          GoMap(01, E8, 02, 03) [es:bx+0xbc]
+004E                          ShowMessage(0EB7) = You found a trapdoor on the floor.
+005B                          GoMap(01, E8, 02, 03)
 0076 EB 28                    jmp 0xa0
-0078                          ShowMessage(0EDA) [es:bx+0xf8] = You fall through a trapdoor.
-0085                          GoMap(01, E8, 02, 03) [es:bx+0xbc]
+0078                          ShowMessage(0EDA) = You fall through a trapdoor.
+0085                          GoMap(01, E8, 02, 03)
 00A0                          RETURN
 
 TOCORRB_29:
 0000                          BEGIN
-0003                          GoMap(03, F1, 02, 02) [es:bx+0xbc]
+0003                          GoMap(03, F1, 02, 02)
 001E                          RETURN
 
 GATEMESS_2A:
 0000                          BEGIN
-0003                          ShowMessage(0EF7) [es:bx+0xf8] = The gateway leads to THE PALACE CORRIDOR.
+0003                          ShowMessage(0EF7) = The gateway leads to THE PALACE CORRIDOR.
 0010                          RETURN
 
 PASSCOLM_2B:
 0000                          BEGIN
-0003                          ShowMessage(0F21) [es:bx+0xf8] = As you step forward, the column slides away.
-0010 B8 01 00                 mov ax, 0x1
-0013 50                       push ax
-0014 B8 F7 00                 mov ax, 0xf7
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 34              call far word [es:bx+0x34]
-001F 59                       pop cx
-0020 59                       pop cx
+0003                          ShowMessage(0F21) = As you step forward, the column slides away.
+0010                          Move(01, F7)
 0021                          RETURN
 
 _2C:
 0000                          BEGIN
-0003                          ShowMessage(0F4E) [es:bx+0xf8] = You bump into the pillar.
+0003                          ShowMessage(0F4E) = You bump into the pillar.
 0010                          RETURN
 
 NPCCHATA_2D:
 0000                          BEGIN
-0003                          ShowMessage(0F68) [es:bx+0xf8] = You encounter an Elf Ranger.
-0010                          ShowPortrait(001F) [es:bx+0xfc]
-001D                          UnknownFunction(000F) [es:bx+0xec]
+0003                          ShowMessage(0F68) = You encounter an Elf Ranger.
+0010                          ShowPortrait(001F)
+001D                          UnknownFunction(000F)
 002A 3D 0D 00                 cmp ax, 0xd
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0F85) [es:bx+0xf8] = The ghost of King Cleowyn appears at his throne on special occasions. Once the king appears, he will not appear again until all mortals have left the Palace.
+002F                          ShowMessage(0F85) = The ghost of King Cleowyn appears at his throne on special occasions. Once the king appears, he will not appear again until all mortals have left the Palace.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(1023) [es:bx+0xf8] = The Elf Ranger ignores you as he wanders the room, rapping on the walls.
+003E                          ShowMessage(1023) = The Elf Ranger ignores you as he wanders the room, rapping on the walls.
 004B                          RETURN
 
 NPCCHATB_2E:
 0000                          BEGIN
-0003                          ShowMessage(106C) [es:bx+0xf8] = You encounter a Gremlin Thief.
-0010                          ShowPortrait(0026) [es:bx+0xfc]
-001D                          UnknownFunction(000F) [es:bx+0xec]
+0003                          ShowMessage(106C) = You encounter a Gremlin Thief.
+0010                          ShowPortrait(0026)
+001D                          UnknownFunction(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(108B) [es:bx+0xf8] = The pit is pitiless. Do not go near it. The traps are dangerous, but they may aid you.
+002F                          ShowMessage(108B) = The pit is pitiless. Do not go near it. The traps are dangerous, but they may aid you.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(10E2) [es:bx+0xf8] = The Gremlin Thief runs away when you approach him.
+003E                          ShowMessage(10E2) = The Gremlin Thief runs away when you approach him.
 004B                          RETURN
 
 NPCCHATC_2F:
 0000                          BEGIN
-0003                          ShowMessage(1115) [es:bx+0xf8] = You encounter a Dwarf Knight.
-0010                          ShowPortrait(001C) [es:bx+0xfc]
-001D                          UnknownFunction(000F) [es:bx+0xec]
+0003                          ShowMessage(1115) = You encounter a Dwarf Knight.
+0010                          ShowPortrait(001C)
+001D                          UnknownFunction(000F)
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(1133) [es:bx+0xf8] = Obey the king. Return his cherished possessions and you will be blessed. Keep them and you will die.
+002F                          ShowMessage(1133) = Obey the king. Return his cherished possessions and you will be blessed. Keep them and you will die.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(1198) [es:bx+0xf8] = The Dwarf Knight snubs you and wanders off in search of adventure.
+003E                          ShowMessage(1198) = The Dwarf Knight snubs you and wanders off in search of adventure.
 004B                          RETURN
 
 KINGMSG_30:
 0000                          BEGIN
-0003                          ax = HasItem(F8) [es:bx+0x50]
+0003                          ax = HasItem(F8)
 0011 75 03                    jnz 0x16
 0013 E9 B2 00                 jmp 0xc8
-0016                          ShowPortrait(000A) [es:bx+0xfc]
-0023                          ShowMessage(11DB) [es:bx+0xf8] = Very good, heroes. You have proven your strength in battle. Know that I am the spirit of King Cleowyn, called the Cruel. I set you a quest.
-0030                          ShowMessage(1267) [es:bx+0xf8] = The imps who serve Arnakkian have stolen my Crown, Robe, and Scepter. I want them back. Return them to their proper places in my mausoleum, and I shall reward you.
-003D                          ShowMessage(130B) [es:bx+0xf8] = If you keep my possessions, I shall curse you! I give you gold to dull your greed.
-004A                          ShowMessage(135E) [es:bx+0xf8] = I earned Arnakkian's enmity because I tried to wrest his secrets from the buried castle
-0057                          ShowMessage(13B6) [es:bx+0xf8] = I almost succeeded, but the spirit of the wizard tracked me down and killed me.
-0064                          ShowMessage(1406) [es:bx+0xf8] = I would be grateful if you can find my body and place it in my mausoleum. Then, perhaps, my spirit can rest in peace.
-0071                          ShowMessage(147C) [es:bx+0xf8] = But first you must return my possessions to me. Then I shall let you continue your journeys.
-007E                          ShowMessage(14D9) [es:bx+0xf8] = Take my ring as seal of your promise. Go, heroes! Find the tapestry and read. Start your quest.
-008B B8 8F 00                 mov ax, 0x8f
-008E 50                       push ax
-008F B8 02 00                 mov ax, 0x2
-0092 50                       push ax
-0093 C4 5E 06                 les bx, [bp+0x6]
-0096 26 FF 5F 04              call far word [es:bx+0x4]
-009A 59                       pop cx
-009B 59                       pop cx
-009C 0B C0                    or ax, ax
+0016                          ShowPortrait(000A)
+0023                          ShowMessage(11DB) = Very good, heroes. You have proven your strength in battle. Know that I am the spirit of King Cleowyn, called the Cruel. I set you a quest.
+0030                          ShowMessage(1267) = The imps who serve Arnakkian have stolen my Crown, Robe, and Scepter. I want them back. Return them to their proper places in my mausoleum, and I shall reward you.
+003D                          ShowMessage(130B) = If you keep my possessions, I shall curse you! I give you gold to dull your greed.
+004A                          ShowMessage(135E) = I earned Arnakkian's enmity because I tried to wrest his secrets from the buried castle
+0057                          ShowMessage(13B6) = I almost succeeded, but the spirit of the wizard tracked me down and killed me.
+0064                          ShowMessage(1406) = I would be grateful if you can find my body and place it in my mausoleum. Then, perhaps, my spirit can rest in peace.
+0071                          ShowMessage(147C) = But first you must return my possessions to me. Then I shall let you continue your journeys.
+007E                          ShowMessage(14D9) = Take my ring as seal of your promise. Go, heroes! Find the tapestry and read. Start your quest.
+008B                          ax = CheckState(02, 8F, any)
 009E 75 26                    jnz 0xc6
-00A0                          SetState(02, 8F, 01) [es:bx]
-00B5 33 C0                    xor ax, ax
-00B7 BA A8 61                 mov dx, 0x61a8
-00BA 50                       push ax
-00BB 52                       push dx
-00BC C4 5E 06                 les bx, [bp+0x6]
-00BF 26 FF 9F 98 00           call far word [es:bx+0x98]
-00C4 59                       pop cx
-00C5 59                       pop cx
+00A0                          SetState(02, 8F, 01)
+00B5                          AddExperience(000061A8)
 00C6 EB 0D                    jmp 0xd5
-00C8                          ShowMessage(1539) [es:bx+0xf8] = Echoes of ghostly laughter mock you.
+00C8                          ShowMessage(1539) = Echoes of ghostly laughter mock you.
 00D5                          RETURN
 
 03FC: As you step forward, the column slides away.

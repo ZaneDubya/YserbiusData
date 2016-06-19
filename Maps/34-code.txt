@@ -1,37 +1,33 @@
 VOID_01:
 0000                          BEGIN
-0003                          ShowMessage(03FC) [es:bx+0xf8] = The Ageless Void swallows you whole.
-0010                          ShowMessage(0421) [es:bx+0xf8] = Time freezes forever in your mind.  To the rest of the world, you are dead.
-001D                          ax = GetHits() [es:bx+0x74]
-0024                          DoDamage(ax) [es:bx+0x90]
+0003                          ShowMessage(03FC) = The Ageless Void swallows you whole.
+0010                          ShowMessage(0421) = Time freezes forever in your mind.  To the rest of the world, you are dead.
+001D                          ax = GetMaxHits()
+0024                          DoDamage(ax)
 002E                          RETURN
 
 LIFE_02:
 0000                          BEGIN
-0003                          ShowMessage(046D) [es:bx+0xf8] = You are dragged into the Waters of Death. Your death agonies are mercifully short.
-0010                          ax = GetHits() [es:bx+0x74]
-0017                          DoDamage(ax) [es:bx+0x90]
+0003                          ShowMessage(046D) = You are dragged into the Waters of Death. Your death agonies are mercifully short.
+0010                          ax = GetMaxHits()
+0017                          DoDamage(ax)
 0021                          RETURN
 
 TIMEA_03:
 0000                          BEGIN
 0003 4C                       dec sp
 0004 4C                       dec sp
-0005                          SetState(02, 7B, 01) [es:bx]
-001A                          ShowMessage(04C0) [es:bx+0xf8] = The wall sparkles with phantasmal light.
-0027 B8 7B 00                 mov ax, 0x7b
-002A 50                       push ax
-002B B8 02 00                 mov ax, 0x2
-002E 50                       push ax
+0005                          SetState(02, 7B, 01)
+001A                          ShowMessage(04C0) = The wall sparkles with phantasmal light.
+0027                          Push(7B)
+002B                          Push(02)
 002F C4 5E 06                 les bx, [bp+0x6]
 0032 26 FF 5F 04              call far word [es:bx+0x4]
 0036 59                       pop cx
 0037 59                       pop cx
 0038 50                       push ax
-0039 B8 7C 00                 mov ax, 0x7c
-003C 50                       push ax
-003D B8 02 00                 mov ax, 0x2
-0040 50                       push ax
+0039                          Push(7C)
+003D                          Push(02)
 0041 C4 5E 06                 les bx, [bp+0x6]
 0044 26 FF 5F 04              call far word [es:bx+0x4]
 0048 59                       pop cx
@@ -39,10 +35,8 @@ TIMEA_03:
 004A 5A                       pop dx
 004B 03 D0                    add dx, ax
 004D 52                       push dx
-004E B8 7D 00                 mov ax, 0x7d
-0051 50                       push ax
-0052 B8 02 00                 mov ax, 0x2
-0055 50                       push ax
+004E                          Push(7D)
+0052                          Push(02)
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 5F 04              call far word [es:bx+0x4]
 005D 59                       pop cx
@@ -58,38 +52,19 @@ TIMEA_03:
 0072 3D 03 00                 cmp ax, 0x3
 0075 74 4F                    jz 0xc6
 0077 EB 6C                    jmp 0xe5
-0079                          ShowMessage(04E9) [es:bx+0xf8] = A Timeswitch has been set.
-0086                          ShowMessage(0504) [es:bx+0xf8] = Two other Timeswitches must be set to reveal the platform.
-0093 B8 A8 00                 mov ax, 0xa8
-0096 50                       push ax
-0097 B8 03 00                 mov ax, 0x3
-009A 50                       push ax
-009B C4 5E 06                 les bx, [bp+0x6]
-009E 26 FF 5F 38              call far word [es:bx+0x38]
-00A2 59                       pop cx
-00A3 59                       pop cx
+0079                          ShowMessage(04E9) = A Timeswitch has been set.
+0086                          ShowMessage(0504) = Two other Timeswitches must be set to reveal the platform.
+0093                          SetTileFloor(A8, 03)
 00A4 EB 3F                    jmp 0xe5
-00A6                          ShowMessage(053F) [es:bx+0xf8] = The second Timeswitch has been set.
-00B3 B8 A8 00                 mov ax, 0xa8
-00B6 50                       push ax
-00B7 B8 03 00                 mov ax, 0x3
-00BA 50                       push ax
-00BB C4 5E 06                 les bx, [bp+0x6]
-00BE 26 FF 5F 38              call far word [es:bx+0x38]
-00C2 59                       pop cx
-00C3 59                       pop cx
+00A6                          ShowMessage(053F) = The second Timeswitch has been set.
+00B3                          SetTileFloor(A8, 03)
 00C4 EB 1F                    jmp 0xe5
-00C6                          ShowMessage(0563) [es:bx+0xf8] = The third and final Timeswitch has been set.
-00D3 B8 A8 00                 mov ax, 0xa8
-00D6 50                       push ax
-00D7 33 C0                    xor ax, ax
-00D9 50                       push ax
-00DA C4 5E 06                 les bx, [bp+0x6]
-00DD 26 FF 5F 38              call far word [es:bx+0x38]
+00C6                          ShowMessage(0563) = The third and final Timeswitch has been set.
+00D3                          SetTileFloor(A8, 00)
 00E1 59                       pop cx
 00E2 59                       pop cx
 00E3 EB 00                    jmp 0xe5
-00E5                          ShowMessage(0590) [es:bx+0xf8] = All is deathly quiet near the Fountain of Life.
+00E5                          ShowMessage(0590) = All is deathly quiet near the Fountain of Life.
 00F2 8B E5                    mov sp, bp
 00F4                          RETURN
 
@@ -97,21 +72,17 @@ TIMEB_04:
 0000                          BEGIN
 0003 4C                       dec sp
 0004 4C                       dec sp
-0005                          SetState(02, 7C, 01) [es:bx]
-001A                          ShowMessage(05C0) [es:bx+0xf8] = The wall sparkles with phantasmal light.
-0027 B8 7B 00                 mov ax, 0x7b
-002A 50                       push ax
-002B B8 02 00                 mov ax, 0x2
-002E 50                       push ax
+0005                          SetState(02, 7C, 01)
+001A                          ShowMessage(05C0) = The wall sparkles with phantasmal light.
+0027                          Push(7B)
+002B                          Push(02)
 002F C4 5E 06                 les bx, [bp+0x6]
 0032 26 FF 5F 04              call far word [es:bx+0x4]
 0036 59                       pop cx
 0037 59                       pop cx
 0038 50                       push ax
-0039 B8 7C 00                 mov ax, 0x7c
-003C 50                       push ax
-003D B8 02 00                 mov ax, 0x2
-0040 50                       push ax
+0039                          Push(7C)
+003D                          Push(02)
 0041 C4 5E 06                 les bx, [bp+0x6]
 0044 26 FF 5F 04              call far word [es:bx+0x4]
 0048 59                       pop cx
@@ -119,10 +90,8 @@ TIMEB_04:
 004A 5A                       pop dx
 004B 03 D0                    add dx, ax
 004D 52                       push dx
-004E B8 7D 00                 mov ax, 0x7d
-0051 50                       push ax
-0052 B8 02 00                 mov ax, 0x2
-0055 50                       push ax
+004E                          Push(7D)
+0052                          Push(02)
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 5F 04              call far word [es:bx+0x4]
 005D 59                       pop cx
@@ -138,38 +107,19 @@ TIMEB_04:
 0072 3D 03 00                 cmp ax, 0x3
 0075 74 4F                    jz 0xc6
 0077 EB 6C                    jmp 0xe5
-0079                          ShowMessage(05E9) [es:bx+0xf8] = A Timeswitch has been set.
-0086                          ShowMessage(0604) [es:bx+0xf8] = Two other Timeswitches must be set to reveal the platform.
-0093 B8 A8 00                 mov ax, 0xa8
-0096 50                       push ax
-0097 B8 03 00                 mov ax, 0x3
-009A 50                       push ax
-009B C4 5E 06                 les bx, [bp+0x6]
-009E 26 FF 5F 38              call far word [es:bx+0x38]
-00A2 59                       pop cx
-00A3 59                       pop cx
+0079                          ShowMessage(05E9) = A Timeswitch has been set.
+0086                          ShowMessage(0604) = Two other Timeswitches must be set to reveal the platform.
+0093                          SetTileFloor(A8, 03)
 00A4 EB 3F                    jmp 0xe5
-00A6                          ShowMessage(063F) [es:bx+0xf8] = The second Timeswitch has been set.
-00B3 B8 A8 00                 mov ax, 0xa8
-00B6 50                       push ax
-00B7 B8 03 00                 mov ax, 0x3
-00BA 50                       push ax
-00BB C4 5E 06                 les bx, [bp+0x6]
-00BE 26 FF 5F 38              call far word [es:bx+0x38]
-00C2 59                       pop cx
-00C3 59                       pop cx
+00A6                          ShowMessage(063F) = The second Timeswitch has been set.
+00B3                          SetTileFloor(A8, 03)
 00C4 EB 1F                    jmp 0xe5
-00C6                          ShowMessage(0663) [es:bx+0xf8] = The third and final Timeswitch has been set.
-00D3 B8 A8 00                 mov ax, 0xa8
-00D6 50                       push ax
-00D7 33 C0                    xor ax, ax
-00D9 50                       push ax
-00DA C4 5E 06                 les bx, [bp+0x6]
-00DD 26 FF 5F 38              call far word [es:bx+0x38]
+00C6                          ShowMessage(0663) = The third and final Timeswitch has been set.
+00D3                          SetTileFloor(A8, 00)
 00E1 59                       pop cx
 00E2 59                       pop cx
 00E3 EB 00                    jmp 0xe5
-00E5                          ShowMessage(0690) [es:bx+0xf8] = All is deathly quiet near the Fountain of Life.
+00E5                          ShowMessage(0690) = All is deathly quiet near the Fountain of Life.
 00F2 8B E5                    mov sp, bp
 00F4                          RETURN
 
@@ -177,21 +127,17 @@ TIMEC_05:
 0000                          BEGIN
 0003 4C                       dec sp
 0004 4C                       dec sp
-0005                          SetState(02, 7D, 01) [es:bx]
-001A                          ShowMessage(06C0) [es:bx+0xf8] = The wall sparkles with phantasmal light.
-0027 B8 7B 00                 mov ax, 0x7b
-002A 50                       push ax
-002B B8 02 00                 mov ax, 0x2
-002E 50                       push ax
+0005                          SetState(02, 7D, 01)
+001A                          ShowMessage(06C0) = The wall sparkles with phantasmal light.
+0027                          Push(7B)
+002B                          Push(02)
 002F C4 5E 06                 les bx, [bp+0x6]
 0032 26 FF 5F 04              call far word [es:bx+0x4]
 0036 59                       pop cx
 0037 59                       pop cx
 0038 50                       push ax
-0039 B8 7C 00                 mov ax, 0x7c
-003C 50                       push ax
-003D B8 02 00                 mov ax, 0x2
-0040 50                       push ax
+0039                          Push(7C)
+003D                          Push(02)
 0041 C4 5E 06                 les bx, [bp+0x6]
 0044 26 FF 5F 04              call far word [es:bx+0x4]
 0048 59                       pop cx
@@ -199,10 +145,8 @@ TIMEC_05:
 004A 5A                       pop dx
 004B 03 D0                    add dx, ax
 004D 52                       push dx
-004E B8 7D 00                 mov ax, 0x7d
-0051 50                       push ax
-0052 B8 02 00                 mov ax, 0x2
-0055 50                       push ax
+004E                          Push(7D)
+0052                          Push(02)
 0056 C4 5E 06                 les bx, [bp+0x6]
 0059 26 FF 5F 04              call far word [es:bx+0x4]
 005D 59                       pop cx
@@ -218,320 +162,197 @@ TIMEC_05:
 0072 3D 03 00                 cmp ax, 0x3
 0075 74 4F                    jz 0xc6
 0077 EB 6C                    jmp 0xe5
-0079                          ShowMessage(06E9) [es:bx+0xf8] = A Timeswitch has been set.
-0086                          ShowMessage(0704) [es:bx+0xf8] = Two other Timeswitches must be set to reveal the platform.
-0093 B8 A8 00                 mov ax, 0xa8
-0096 50                       push ax
-0097 B8 03 00                 mov ax, 0x3
-009A 50                       push ax
-009B C4 5E 06                 les bx, [bp+0x6]
-009E 26 FF 5F 38              call far word [es:bx+0x38]
-00A2 59                       pop cx
-00A3 59                       pop cx
+0079                          ShowMessage(06E9) = A Timeswitch has been set.
+0086                          ShowMessage(0704) = Two other Timeswitches must be set to reveal the platform.
+0093                          SetTileFloor(A8, 03)
 00A4 EB 3F                    jmp 0xe5
-00A6                          ShowMessage(073F) [es:bx+0xf8] = The second Timeswitch has been set.
-00B3 B8 A8 00                 mov ax, 0xa8
-00B6 50                       push ax
-00B7 B8 03 00                 mov ax, 0x3
-00BA 50                       push ax
-00BB C4 5E 06                 les bx, [bp+0x6]
-00BE 26 FF 5F 38              call far word [es:bx+0x38]
-00C2 59                       pop cx
-00C3 59                       pop cx
+00A6                          ShowMessage(073F) = The second Timeswitch has been set.
+00B3                          SetTileFloor(A8, 03)
 00C4 EB 1F                    jmp 0xe5
-00C6                          ShowMessage(0763) [es:bx+0xf8] = The third and final Timeswitch has been set.
-00D3 B8 A8 00                 mov ax, 0xa8
-00D6 50                       push ax
-00D7 33 C0                    xor ax, ax
-00D9 50                       push ax
-00DA C4 5E 06                 les bx, [bp+0x6]
-00DD 26 FF 5F 38              call far word [es:bx+0x38]
+00C6                          ShowMessage(0763) = The third and final Timeswitch has been set.
+00D3                          SetTileFloor(A8, 00)
 00E1 59                       pop cx
 00E2 59                       pop cx
 00E3 EB 00                    jmp 0xe5
-00E5                          ShowMessage(0790) [es:bx+0xf8] = All is deathly quiet near the Fountain of Life.
+00E5                          ShowMessage(0790) = All is deathly quiet near the Fountain of Life.
 00F2 8B E5                    mov sp, bp
 00F4                          RETURN
 
 TIMEELEM_06:
 0000                          BEGIN
-0003                          ShowPortrait(0011) [es:bx+0xfc]
-0010                          ShowMessage(07C0) [es:bx+0xf8] = I am the Time Elemental, En-Li-Kil.
-001D                          ShowMessage(07E4) [es:bx+0xf8] = You have traveled far...only to die!
-002A                          ShowMessage(0809) [es:bx+0xf8] = Your arrival frees me from my long imprisonment here -- halfway between two worlds.
-0037                          ShowMessage(085D) [es:bx+0xf8] = I destroyed that fool Arnakkian Slowfoot, and I shall destroy you as easily.
-0044                          ShowMessage(08AA) [es:bx+0xf8] = Then I shall search out all mortals in your world and destroy them!
-0051                          ShowMessage(08EE) [es:bx+0xf8] = I am En-Li-Kil!  The immortal!!!
-005E                          SetState(02, 7B, 00) [es:bx]
-0072                          SetState(02, 7C, 00) [es:bx]
-0086                          SetState(02, 7D, 00) [es:bx]
-009A                          AddEncounter(21, 01) [es:bx+0xd4]
-00AC                          AddEncounter(23, 02) [es:bx+0xd4]
-00BE                          AddEncounter(10, 03) [es:bx+0xd4]
-00D0                          AddEncounter(19, 04) [es:bx+0xd4]
-00E2                          AddEncounter(28, 06) [es:bx+0xd4]
+0003                          ShowPortrait(0011)
+0010                          ShowMessage(07C0) = I am the Time Elemental, En-Li-Kil.
+001D                          ShowMessage(07E4) = You have traveled far...only to die!
+002A                          ShowMessage(0809) = Your arrival frees me from my long imprisonment here -- halfway between two worlds.
+0037                          ShowMessage(085D) = I destroyed that fool Arnakkian Slowfoot, and I shall destroy you as easily.
+0044                          ShowMessage(08AA) = Then I shall search out all mortals in your world and destroy them!
+0051                          ShowMessage(08EE) = I am En-Li-Kil!  The immortal!!!
+005E                          SetState(02, 7B, 00)
+0072                          SetState(02, 7C, 00)
+0086                          SetState(02, 7D, 00)
+009A                          AddEncounter(21, 01)
+00AC                          AddEncounter(23, 02)
+00BE                          AddEncounter(10, 03)
+00D0                          AddEncounter(19, 04)
+00E2                          AddEncounter(28, 06)
 00F4                          RETURN
 
 TIMEPLAT_07:
 0000                          BEGIN
-0003                          ax = CheckState(01, 00, FF) [es:bx+0x4]
+0003                          ax = CheckState(01, 00, any)
 0015 74 63                    jz 0x7a
-0017 B8 01 00                 mov ax, 0x1
-001A 50                       push ax
-001B B8 01 00                 mov ax, 0x1
-001E 50                       push ax
-001F C4 5E 06                 les bx, [bp+0x6]
-0022 26 FF 5F 04              call far word [es:bx+0x4]
-0026 59                       pop cx
-0027 59                       pop cx
-0028 0B C0                    or ax, ax
+0017                          ax = CheckState(01, 01, any)
 002A 74 4E                    jz 0x7a
-002C B8 02 00                 mov ax, 0x2
-002F 50                       push ax
-0030 B8 01 00                 mov ax, 0x1
-0033 50                       push ax
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 5F 04              call far word [es:bx+0x4]
-003B 59                       pop cx
-003C 59                       pop cx
-003D 0B C0                    or ax, ax
+002C                          ax = CheckState(01, 02, any)
 003F 74 39                    jz 0x7a
-0041 B8 A8 00                 mov ax, 0xa8
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 C4 5E 06                 les bx, [bp+0x6]
-004B 26 FF 5F 38              call far word [es:bx+0x38]
+0041                          SetTileFloor(A8, 00)
 004F 59                       pop cx
 0050 59                       pop cx
-0051                          ShowMessage(090F) [es:bx+0xf8] = You cross the Waters of Death safely.
-005E                          ShowMessage(0935) [es:bx+0xf8] = En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
-006B                          ShowPortrait(0042) [es:bx+0xfc]
+0051                          ShowMessage(090F) = You cross the Waters of Death safely.
+005E                          ShowMessage(0935) = En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
+006B                          ShowPortrait(0042)
 0078 EB 2F                    jmp 0xa9
-007A B8 A8 00                 mov ax, 0xa8
-007D 50                       push ax
-007E B8 03 00                 mov ax, 0x3
-0081 50                       push ax
-0082 C4 5E 06                 les bx, [bp+0x6]
-0085 26 FF 5F 38              call far word [es:bx+0x38]
-0089 59                       pop cx
-008A 59                       pop cx
-008B                          ShowMessage(09AD) [es:bx+0xf8] = You are dragged into the Waters of Death. Your death agonies are mercifully short.
-0098                          ax = GetHits() [es:bx+0x74]
-009F                          DoDamage(ax) [es:bx+0x90]
+007A                          SetTileFloor(A8, 03)
+008B                          ShowMessage(09AD) = You are dragged into the Waters of Death. Your death agonies are mercifully short.
+0098                          ax = GetMaxHits()
+009F                          DoDamage(ax)
 00A9                          RETURN
 
 GOAL_08:
 0000                          BEGIN
-0003                          RemoveItem(F4) [es:bx+0x4c]
-000F                          RemoveItem(F5) [es:bx+0x4c]
-001B                          RemoveItem(F6) [es:bx+0x4c]
-0027                          RemoveItem(F7) [es:bx+0x4c]
-0033                          RemoveItem(F3) [es:bx+0x4c]
-003F                          ax = CheckState2(02, 6A) [es:bx+0x8]
+0003                          RemoveItem(F4)
+000F                          RemoveItem(F5)
+001B                          RemoveItem(F6)
+0027                          RemoveItem(F7)
+0033                          RemoveItem(F3)
+003F                          ax = CheckState2(02, 6A)
 0052 74 2A                    jz 0x7e
-0054                          ShowMessage(0A00) [es:bx+0xf8] = You have found the Fountain of Life, but the waters are drained.
-0061                          ShowMessage(0A41) [es:bx+0xf8] = The Rainbow Gems and Golden Boat dissolve into dust.
-006E                          ShowMessage(0A76) [es:bx+0xf8] = Humiliating En-Li-Kil a second time is reward enough.
+0054                          ShowMessage(0A00) = You have found the Fountain of Life, but the waters are drained.
+0061                          ShowMessage(0A41) = The Rainbow Gems and Golden Boat dissolve into dust.
+006E                          ShowMessage(0A76) = Humiliating En-Li-Kil a second time is reward enough.
 007B E9 AC 00                 jmp 0x12a
-007E                          ShowMessage(0AAC) [es:bx+0xf8] = You stand on the Fountain of Life.
-008B                          ShowMessage(0ACF) [es:bx+0xf8] = The Rainbow Gems and Golden Boat dissolve in the golden water.
-0098                          ShowMessage(0B0E) [es:bx+0xf8] = You have defeated the Time Elemental En-Li-Kil.
-00A5                          ShowMessage(0B3E) [es:bx+0xf8] = You have won the game of life and death.  You are now a HERO OF YSERBIUS.
-00B2                          ShowMessage(0B88) [es:bx+0xf8] = Return to your home safely now.
-00BF                          ShowMessage(0BA8) [es:bx+0xf8] = Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
-00CC                          ShowMessage(0BFF) [es:bx+0xf8] = Farewell...this ending is just the beginning!!!
-00D9 B8 69 00                 mov ax, 0x69
-00DC 50                       push ax
-00DD B8 02 00                 mov ax, 0x2
-00E0 50                       push ax
-00E1 C4 5E 06                 les bx, [bp+0x6]
-00E4 26 FF 5F 04              call far word [es:bx+0x4]
-00E8 59                       pop cx
-00E9 59                       pop cx
-00EA 0B C0                    or ax, ax
+007E                          ShowMessage(0AAC) = You stand on the Fountain of Life.
+008B                          ShowMessage(0ACF) = The Rainbow Gems and Golden Boat dissolve in the golden water.
+0098                          ShowMessage(0B0E) = You have defeated the Time Elemental En-Li-Kil.
+00A5                          ShowMessage(0B3E) = You have won the game of life and death.  You are now a HERO OF YSERBIUS.
+00B2                          ShowMessage(0B88) = Return to your home safely now.
+00BF                          ShowMessage(0BA8) = Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
+00CC                          ShowMessage(0BFF) = Farewell...this ending is just the beginning!!!
+00D9                          ax = CheckState(02, 69, any)
 00EC 75 3C                    jnz 0x12a
-00EE                          SetState(02, 69, 01) [es:bx]
-0103                          SetState(02, 6A, 01) [es:bx]
-0118 B8 4C 00                 mov ax, 0x4c
-011B BA 40 4B                 mov dx, 0x4b40
-011E 50                       push ax
-011F 52                       push dx
-0120 C4 5E 06                 les bx, [bp+0x6]
-0123 26 FF 9F 98 00           call far word [es:bx+0x98]
-0128 59                       pop cx
-0129 59                       pop cx
+00EE                          SetState(02, 69, 01)
+0103                          SetState(02, 6A, 01)
+0118                          AddExperience(004C4B40)
 012A                          RETURN
 
 ENCA_09:
 0000                          BEGIN
-0003                          ShowMessage(0C2F) [es:bx+0xf8] = Across the Waters of Death at the center of this finite square is the Fountain of Life.
-0010                          ShowMessage(0C87) [es:bx+0xf8] = The Fountain is well guarded.
-001D                          AddEncounter(19, 01) [es:bx+0xd4]
-002F                          AddEncounter(1B, 02) [es:bx+0xd4]
-0041                          AddEncounter(19, 03) [es:bx+0xd4]
-0053                          AddEncounter(1B, 04) [es:bx+0xd4]
-0065                          AddEncounter(23, 05) [es:bx+0xd4]
-0077                          AddEncounter(1D, 06) [es:bx+0xd4]
+0003                          ShowMessage(0C2F) = Across the Waters of Death at the center of this finite square is the Fountain of Life.
+0010                          ShowMessage(0C87) = The Fountain is well guarded.
+001D                          AddEncounter(19, 01)
+002F                          AddEncounter(1B, 02)
+0041                          AddEncounter(19, 03)
+0053                          AddEncounter(1B, 04)
+0065                          AddEncounter(23, 05)
+0077                          AddEncounter(1D, 06)
 0089                          RETURN
 
 ENCB_0A:
 0000                          BEGIN
-0003                          AddEncounter(08, 01) [es:bx+0xd4]
-0015                          AddEncounter(08, 02) [es:bx+0xd4]
-0027                          AddEncounter(24, 03) [es:bx+0xd4]
-0039                          AddEncounter(25, 04) [es:bx+0xd4]
-004B                          AddEncounter(26, 05) [es:bx+0xd4]
-005D                          AddEncounter(27, 06) [es:bx+0xd4]
+0003                          AddEncounter(08, 01)
+0015                          AddEncounter(08, 02)
+0027                          AddEncounter(24, 03)
+0039                          AddEncounter(25, 04)
+004B                          AddEncounter(26, 05)
+005D                          AddEncounter(27, 06)
 006F                          RETURN
 
 ENCC_0B:
 0000                          BEGIN
-0003                          AddEncounter(1B, 01) [es:bx+0xd4]
-0015                          AddEncounter(1B, 02) [es:bx+0xd4]
-0027                          AddEncounter(1C, 03) [es:bx+0xd4]
-0039                          AddEncounter(1C, 04) [es:bx+0xd4]
-004B                          AddEncounter(1F, 05) [es:bx+0xd4]
-005D                          AddEncounter(1F, 06) [es:bx+0xd4]
+0003                          AddEncounter(1B, 01)
+0015                          AddEncounter(1B, 02)
+0027                          AddEncounter(1C, 03)
+0039                          AddEncounter(1C, 04)
+004B                          AddEncounter(1F, 05)
+005D                          AddEncounter(1F, 06)
 006F                          RETURN
 
 ENCD_0C:
 0000                          BEGIN
-0003 B8 7B 00                 mov ax, 0x7b
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState(01, 7B, any)
 0016 74 3A                    jz 0x52
-0018 B8 7C 00                 mov ax, 0x7c
-001B 50                       push ax
-001C B8 01 00                 mov ax, 0x1
-001F 50                       push ax
-0020 C4 5E 06                 les bx, [bp+0x6]
-0023 26 FF 5F 04              call far word [es:bx+0x4]
-0027 59                       pop cx
-0028 59                       pop cx
-0029 0B C0                    or ax, ax
+0018                          ax = CheckState(01, 7C, any)
 002B 74 25                    jz 0x52
-002D B8 7D 00                 mov ax, 0x7d
-0030 50                       push ax
-0031 B8 01 00                 mov ax, 0x1
-0034 50                       push ax
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 5F 04              call far word [es:bx+0x4]
-003C 59                       pop cx
-003D 59                       pop cx
-003E 0B C0                    or ax, ax
+002D                          ax = CheckState(01, 7D, any)
 0040 74 10                    jz 0x52
-0042 B8 A8 00                 mov ax, 0xa8
-0045 50                       push ax
-0046 33 C0                    xor ax, ax
-0048 50                       push ax
-0049 C4 5E 06                 les bx, [bp+0x6]
-004C 26 FF 5F 38              call far word [es:bx+0x38]
+0042                          SetTileFloor(A8, 00)
 0050 59                       pop cx
 0051 59                       pop cx
-0052                          AddEncounter(19, 01) [es:bx+0xd4]
-0064                          AddEncounter(19, 02) [es:bx+0xd4]
-0076                          AddEncounter(1C, 03) [es:bx+0xd4]
-0088                          AddEncounter(1C, 04) [es:bx+0xd4]
-009A                          AddEncounter(1D, 05) [es:bx+0xd4]
-00AC                          AddEncounter(1D, 06) [es:bx+0xd4]
+0052                          AddEncounter(19, 01)
+0064                          AddEncounter(19, 02)
+0076                          AddEncounter(1C, 03)
+0088                          AddEncounter(1C, 04)
+009A                          AddEncounter(1D, 05)
+00AC                          AddEncounter(1D, 06)
 00BE                          RETURN
 
 ENCE_0D:
 0000                          BEGIN
-0003                          AddEncounter(1E, 01) [es:bx+0xd4]
-0015                          AddEncounter(1E, 02) [es:bx+0xd4]
-0027                          AddEncounter(20, 03) [es:bx+0xd4]
-0039                          AddEncounter(20, 04) [es:bx+0xd4]
-004B                          AddEncounter(18, 05) [es:bx+0xd4]
-005D                          AddEncounter(21, 06) [es:bx+0xd4]
+0003                          AddEncounter(1E, 01)
+0015                          AddEncounter(1E, 02)
+0027                          AddEncounter(20, 03)
+0039                          AddEncounter(20, 04)
+004B                          AddEncounter(18, 05)
+005D                          AddEncounter(21, 06)
 006F                          RETURN
 
 ENCF_0E:
 0000                          BEGIN
-0003                          AddEncounter(22, 01) [es:bx+0xd4]
-0015                          AddEncounter(22, 02) [es:bx+0xd4]
-0027                          AddEncounter(1F, 03) [es:bx+0xd4]
-0039                          AddEncounter(1F, 04) [es:bx+0xd4]
-004B                          AddEncounter(23, 05) [es:bx+0xd4]
-005D                          AddEncounter(23, 06) [es:bx+0xd4]
+0003                          AddEncounter(22, 01)
+0015                          AddEncounter(22, 02)
+0027                          AddEncounter(1F, 03)
+0039                          AddEncounter(1F, 04)
+004B                          AddEncounter(23, 05)
+005D                          AddEncounter(23, 06)
 006F                          RETURN
 
 CROSSOVR_0F:
 0000                          BEGIN
-0003                          ax = CheckState(01, 00, FF) [es:bx+0x4]
+0003                          ax = CheckState(01, 00, any)
 0015 74 3C                    jz 0x53
-0017 B8 01 00                 mov ax, 0x1
-001A 50                       push ax
-001B B8 01 00                 mov ax, 0x1
-001E 50                       push ax
-001F C4 5E 06                 les bx, [bp+0x6]
-0022 26 FF 5F 04              call far word [es:bx+0x4]
-0026 59                       pop cx
-0027 59                       pop cx
-0028 0B C0                    or ax, ax
+0017                          ax = CheckState(01, 01, any)
 002A 74 27                    jz 0x53
-002C B8 02 00                 mov ax, 0x2
-002F 50                       push ax
-0030 B8 01 00                 mov ax, 0x1
-0033 50                       push ax
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 5F 04              call far word [es:bx+0x4]
-003B 59                       pop cx
-003C 59                       pop cx
-003D 0B C0                    or ax, ax
+002C                          ax = CheckState(01, 02, any)
 003F 74 12                    jz 0x53
-0041 B8 A8 00                 mov ax, 0xa8
-0044 50                       push ax
-0045 33 C0                    xor ax, ax
-0047 50                       push ax
-0048 C4 5E 06                 les bx, [bp+0x6]
-004B 26 FF 5F 38              call far word [es:bx+0x38]
+0041                          SetTileFloor(A8, 00)
 004F 59                       pop cx
 0050 59                       pop cx
 0051 EB 11                    jmp 0x64
-0053 B8 A8 00                 mov ax, 0xa8
-0056 50                       push ax
-0057 B8 03 00                 mov ax, 0x3
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 5F 38              call far word [es:bx+0x38]
-0062 59                       pop cx
-0063 59                       pop cx
+0053                          SetTileFloor(A8, 03)
 0064                          RETURN
 
 MAPCONV_10:
 0000                          BEGIN
 0003 4C                       dec sp
 0004 4C                       dec sp
-0005                          ax = CheckState2(02, 7B) [es:bx+0x8]
+0005                          ax = CheckState2(02, 7B)
 0018 74 14                    jz 0x2e
-001A                          SetState(01, 00, 01) [es:bx]
-002E                          ax = CheckState2(02, 7C) [es:bx+0x8]
+001A                          SetState(01, 00, 01)
+002E                          ax = CheckState2(02, 7C)
 0041 74 15                    jz 0x58
-0043                          SetState(01, 01, 01) [es:bx]
-0058                          ax = CheckState2(02, 7D) [es:bx+0x8]
+0043                          SetState(01, 01, 01)
+0058                          ax = CheckState2(02, 7D)
 006B 74 15                    jz 0x82
-006D                          SetState(01, 02, 01) [es:bx]
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
-0085 B8 01 00                 mov ax, 0x1
-0088 50                       push ax
+006D                          SetState(01, 02, 01)
+0082                          Push(00)
+0085                          Push(01)
 0089 C4 5E 06                 les bx, [bp+0x6]
 008C 26 FF 5F 04              call far word [es:bx+0x4]
 0090 59                       pop cx
 0091 59                       pop cx
 0092 50                       push ax
-0093 B8 01 00                 mov ax, 0x1
-0096 50                       push ax
-0097 B8 01 00                 mov ax, 0x1
-009A 50                       push ax
+0093                          Push(01)
+0097                          Push(01)
 009B C4 5E 06                 les bx, [bp+0x6]
 009E 26 FF 5F 04              call far word [es:bx+0x4]
 00A2 59                       pop cx
@@ -539,10 +360,8 @@ MAPCONV_10:
 00A4 5A                       pop dx
 00A5 03 D0                    add dx, ax
 00A7 52                       push dx
-00A8 B8 02 00                 mov ax, 0x2
-00AB 50                       push ax
-00AC B8 01 00                 mov ax, 0x1
-00AF 50                       push ax
+00A8                          Push(02)
+00AC                          Push(01)
 00B0 C4 5E 06                 les bx, [bp+0x6]
 00B3 26 FF 5F 04              call far word [es:bx+0x4]
 00B7 59                       pop cx
@@ -552,30 +371,18 @@ MAPCONV_10:
 00BC 89 56 FE                 mov [bp-0x2], dx
 00BF 83 7E FE 03              cmp word [bp-0x2], 0x3
 00C3 75 12                    jnz 0xd7
-00C5 B8 A8 00                 mov ax, 0xa8
-00C8 50                       push ax
-00C9 33 C0                    xor ax, ax
-00CB 50                       push ax
-00CC C4 5E 06                 les bx, [bp+0x6]
-00CF 26 FF 5F 38              call far word [es:bx+0x38]
+00C5                          SetTileFloor(A8, 00)
 00D3 59                       pop cx
 00D4 59                       pop cx
 00D5 EB 11                    jmp 0xe8
-00D7 B8 A8 00                 mov ax, 0xa8
-00DA 50                       push ax
-00DB B8 03 00                 mov ax, 0x3
-00DE 50                       push ax
-00DF C4 5E 06                 les bx, [bp+0x6]
-00E2 26 FF 5F 38              call far word [es:bx+0x38]
-00E6 59                       pop cx
-00E7 59                       pop cx
+00D7                          SetTileFloor(A8, 03)
 00E8 8B E5                    mov sp, bp
 00EA                          RETURN
 
 TELEBACK_12:
 0000                          BEGIN
-0003                          ShowMessage(0CA5) [es:bx+0xf8] = You leave this dimension and re-enter your world.
-0010                          GoMap(02, 88, 04, 38) [es:bx+0xbc]
+0003                          ShowMessage(0CA5) = You leave this dimension and re-enter your world.
+0010                          GoMap(02, 88, 04, 38)
 002B                          RETURN
 
 03FC: The Ageless Void swallows you whole.

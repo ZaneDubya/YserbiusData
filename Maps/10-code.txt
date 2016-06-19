@@ -1,325 +1,309 @@
 STRSTELE_01:
 0000                          BEGIN
-0003                          GoMap(01, D7, 01, 03) [es:bx+0xbc]
+0003                          GoMap(01, D7, 01, 03)
 001E                          RETURN
 
 KEYDOOR_02:
 0000                          BEGIN
-0003 B8 DB 00                 mov ax, 0xdb
-0006 50                       push ax
-0007 B8 DB 00                 mov ax, 0xdb
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 54              call far word [es:bx+0x54]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = UsedItem(DB, DB)
 0016 74 4B                    jz 0x63
-0018                          ax = SetExitability(01) [es:bx+0x24]
+0018                          Push(01)
+001C                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0023 50                       push ax
-0024 C4 5E 06                 les bx, [bp+0x6]
-0027 26 FF 5F 20              call far word [es:bx+0x20]
+0024                          ax = GetNextTile()
 002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 2C              call far word [es:bx+0x2c]
-0033 83 C4 06                 add sp, 0x6
-0036                          ax = SetExitability(ax) [es:bx+0x24]
+002C                          Move(stk[0], stk[1], stk[2])
+0036                          ax = SetExitability(ax) // ax is usually 0 following equality check
 003D 50                       push ax
-003E C4 5E 06                 les bx, [bp+0x6]
-0041 26 FF 5F 20              call far word [es:bx+0x20]
+003E                          ax = GetNextTile()
 0045 50                       push ax
-0046 B8 01 00                 mov ax, 0x1
-0049 50                       push ax
-004A C4 5E 06                 les bx, [bp+0x6]
-004D 26 FF 5F 30              call far word [es:bx+0x30]
-0051 83 C4 06                 add sp, 0x6
-0054                          ShowMessage(03FC) [es:bx+0xf8] = The E Rune Key unlocked the thick door.
+0046                          Push(01)
+004A                          SetUnblocked()
+0054                          ShowMessage(03FC) = The E Rune Key unlocked the thick door.
 0061 EB 2A                    jmp 0x8d
-0063                          ax = SetExitability(00) [es:bx+0x24]
+0063                          Push(00)
+0066                          ax = SetExitability(ax) // ax is usually 0 following equality check
 006D 50                       push ax
-006E C4 5E 06                 les bx, [bp+0x6]
-0071 26 FF 5F 20              call far word [es:bx+0x20]
+006E                          ax = GetNextTile()
 0075 50                       push ax
-0076 C4 5E 06                 les bx, [bp+0x6]
-0079 26 FF 5F 2C              call far word [es:bx+0x2c]
-007D 83 C4 06                 add sp, 0x6
-0080                          ShowMessage(0424) [es:bx+0xf8] = The door is locked.  You need a special key.
+0076                          Move(stk[0], stk[1], stk[2])
+0080                          ShowMessage(0424) = The door is locked.  You need a special key.
 008D                          RETURN
 
 GOLDAENC_03:
 0000                          BEGIN
-0003                          ax = CheckState(02, 19, 01) [es:bx+0x4]
+0003                          ax = CheckState(02, 19, 01)
 0017 75 21                    jnz 0x3a
-0019                          AddTreasure(01F4, 00, 00, 00, 00, AD) [es:bx+0xd8]
+0019                          AddTreasure(01F4, 00, 00, 00, 00, AD)
 0038 EB 34                    jmp 0x6e
-003A                          AddTreasure(1388, 00, 00, 00, 00, CF) [es:bx+0xd8]
-0059                          SetState(02, 19, 01) [es:bx]
-006E                          ShowMessage(0451) [es:bx+0xf8] = The room is crawling with Spinorpions.
-007B                          ax = PartyCountIs(01) [es:bx+0xf0]
+003A                          AddTreasure(1388, 00, 00, 00, 00, CF)
+0059                          SetState(02, 19, 01)
+006E                          ShowMessage(0451) = The room is crawling with Spinorpions.
+007B                          ax = PartyCountIs(01)
 0086 75 15                    jnz 0x9d
-0088                          AddEncounter(1E, 01) [es:bx+0xd4]
+0088                          AddEncounter(1E, 01)
 009A E9 9A 00                 jmp 0x137
-009D                          ax = PartyCountIs(02) [es:bx+0xf0]
+009D                          ax = PartyCountIs(02)
 00A8 74 0D                    jz 0xb7
-00AA                          ax = PartyCountIs(03) [es:bx+0xf0]
+00AA                          ax = PartyCountIs(03)
 00B5 75 38                    jnz 0xef
-00B7                          AddEncounter(1E, 01) [es:bx+0xd4]
-00C9                          AddEncounter(1E, 02) [es:bx+0xd4]
-00DB                          AddEncounter(1E, 04) [es:bx+0xd4]
+00B7                          AddEncounter(1E, 01)
+00C9                          AddEncounter(1E, 02)
+00DB                          AddEncounter(1E, 04)
 00ED EB 48                    jmp 0x137
-00EF                          AddEncounter(1E, 01) [es:bx+0xd4]
-0101                          AddEncounter(1E, 02) [es:bx+0xd4]
-0113                          AddEncounter(20, 03) [es:bx+0xd4]
-0125                          AddEncounter(21, 04) [es:bx+0xd4]
+00EF                          AddEncounter(1E, 01)
+0101                          AddEncounter(1E, 02)
+0113                          AddEncounter(20, 03)
+0125                          AddEncounter(21, 04)
 0137                          RETURN
 
 GOLDBENC_04:
 0000                          BEGIN
-0003                          ax = CheckState(02, 1A, 01) [es:bx+0x4]
+0003                          ax = CheckState(02, 1A, 01)
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(0478) [es:bx+0xf8] = You are trapped by angry Ogres.
-0026                          AddTreasure(01F4, 00, 00, 00, 00, CE) [es:bx+0xd8]
+0019                          ShowMessage(0478) = You are trapped by angry Ogres.
+0026                          AddTreasure(01F4, 00, 00, 00, 00, CE)
 0045 EB 41                    jmp 0x88
-0047                          AddTreasure(1388, 00, 00, 00, 00, CF) [es:bx+0xd8]
-0066                          SetState(02, 1A, 01) [es:bx]
-007B                          ShowMessage(0498) [es:bx+0xf8] = Nasty Ogres contemptuously flick gold coins at you.
-0088                          ax = PartyCountIs(01) [es:bx+0xf0]
+0047                          AddTreasure(1388, 00, 00, 00, 00, CF)
+0066                          SetState(02, 1A, 01)
+007B                          ShowMessage(0498) = Nasty Ogres contemptuously flick gold coins at you.
+0088                          ax = PartyCountIs(01)
 0093 75 15                    jnz 0xaa
-0095                          AddEncounter(19, 01) [es:bx+0xd4]
+0095                          AddEncounter(19, 01)
 00A7 E9 BE 00                 jmp 0x168
-00AA                          ax = PartyCountIs(02) [es:bx+0xf0]
+00AA                          ax = PartyCountIs(02)
 00B5 74 0D                    jz 0xc4
-00B7                          ax = PartyCountIs(03) [es:bx+0xf0]
+00B7                          ax = PartyCountIs(03)
 00C2 75 4A                    jnz 0x10e
-00C4                          AddEncounter(1A, 01) [es:bx+0xd4]
-00D6                          AddEncounter(1A, 02) [es:bx+0xd4]
-00E8                          AddEncounter(19, 03) [es:bx+0xd4]
-00FA                          AddEncounter(19, 04) [es:bx+0xd4]
+00C4                          AddEncounter(1A, 01)
+00D6                          AddEncounter(1A, 02)
+00E8                          AddEncounter(19, 03)
+00FA                          AddEncounter(19, 04)
 010C EB 5A                    jmp 0x168
-010E                          AddEncounter(1A, 01) [es:bx+0xd4]
-0120                          AddEncounter(1A, 02) [es:bx+0xd4]
-0132                          AddEncounter(19, 03) [es:bx+0xd4]
-0144                          AddEncounter(19, 05) [es:bx+0xd4]
-0156                          AddEncounter(1C, 06) [es:bx+0xd4]
+010E                          AddEncounter(1A, 01)
+0120                          AddEncounter(1A, 02)
+0132                          AddEncounter(19, 03)
+0144                          AddEncounter(19, 05)
+0156                          AddEncounter(1C, 06)
 0168                          RETURN
 
 CROWNENC_05:
 0000                          BEGIN
-0003                          ax = HasItem(78) [es:bx+0x50]
+0003                          ax = HasItem(78)
 0011 74 2E                    jz 0x41
-0013                          AddTreasure(00C8, 00, 00, 00, 00, B7) [es:bx+0xd8]
-0032                          ShowMessage(04CC) [es:bx+0xf8] = A painful nip at your ankle warns you of great danger.
+0013                          AddTreasure(00C8, 00, 00, 00, 00, B7)
+0032                          ShowMessage(04CC) = A painful nip at your ankle warns you of great danger.
 003F EB 46                    jmp 0x87
-0041                          AddTreasure(07D0, 00, 00, 00, CF, 78) [es:bx+0xd8]
-0061                          RemoveItem(DB) [es:bx+0x4c]
-006D                          ShowMessage(0503) [es:bx+0xf8] = The E Vowel Key fades away when you enter the room.
-007A                          ShowMessage(0537) [es:bx+0xf8] = Behind a writhing mass of ill-tempered snakes lies King Cleowyn's Robe.
-0087                          ax = PartyCountIs(01) [es:bx+0xf0]
+0041                          AddTreasure(07D0, 00, 00, 00, CF, 78)
+0061                          RemoveItem(DB)
+006D                          ShowMessage(0503) = The E Vowel Key fades away when you enter the room.
+007A                          ShowMessage(0537) = Behind a writhing mass of ill-tempered snakes lies King Cleowyn's Robe.
+0087                          ax = PartyCountIs(01)
 0092 75 27                    jnz 0xbb
-0094                          AddEncounter(23, 01) [es:bx+0xd4]
-00A6                          AddEncounter(23, 02) [es:bx+0xd4]
+0094                          AddEncounter(23, 01)
+00A6                          AddEncounter(23, 02)
 00B8 E9 2D 01                 jmp 0x1e8
-00BB                          ax = PartyCountIs(02) [es:bx+0xf0]
+00BB                          ax = PartyCountIs(02)
 00C6 75 4B                    jnz 0x113
-00C8                          AddEncounter(23, 01) [es:bx+0xd4]
-00DA                          AddEncounter(23, 02) [es:bx+0xd4]
-00EC                          AddEncounter(23, 03) [es:bx+0xd4]
-00FE                          AddEncounter(1E, 06) [es:bx+0xd4]
+00C8                          AddEncounter(23, 01)
+00DA                          AddEncounter(23, 02)
+00EC                          AddEncounter(23, 03)
+00FE                          AddEncounter(1E, 06)
 0110 E9 D5 00                 jmp 0x1e8
-0113                          ax = PartyCountIs(03) [es:bx+0xf0]
+0113                          ax = PartyCountIs(03)
 011E 75 5C                    jnz 0x17c
-0120                          AddEncounter(23, 01) [es:bx+0xd4]
-0132                          AddEncounter(23, 02) [es:bx+0xd4]
-0144                          AddEncounter(23, 03) [es:bx+0xd4]
-0156                          AddEncounter(23, 04) [es:bx+0xd4]
-0168                          AddEncounter(1E, 05) [es:bx+0xd4]
+0120                          AddEncounter(23, 01)
+0132                          AddEncounter(23, 02)
+0144                          AddEncounter(23, 03)
+0156                          AddEncounter(23, 04)
+0168                          AddEncounter(1E, 05)
 017A EB 6C                    jmp 0x1e8
-017C                          AddEncounter(23, 01) [es:bx+0xd4]
-018E                          AddEncounter(23, 02) [es:bx+0xd4]
-01A0                          AddEncounter(23, 03) [es:bx+0xd4]
-01B2                          AddEncounter(23, 04) [es:bx+0xd4]
-01C4                          AddEncounter(20, 05) [es:bx+0xd4]
-01D6                          AddEncounter(20, 06) [es:bx+0xd4]
+017C                          AddEncounter(23, 01)
+018E                          AddEncounter(23, 02)
+01A0                          AddEncounter(23, 03)
+01B2                          AddEncounter(23, 04)
+01C4                          AddEncounter(20, 05)
+01D6                          AddEncounter(20, 06)
 01E8                          RETURN
 
 ITEMBENC_06:
 0000                          BEGIN
-0003                          ax = CheckState(02, 1B, 01) [es:bx+0x4]
+0003                          ax = CheckState(02, 1B, 01)
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(057F) [es:bx+0xf8] = Hobgoblins are waiting for you.
-0026                          AddTreasure(00C8, 00, 00, 00, 00, B6) [es:bx+0xd8]
+0019                          ShowMessage(057F) = Hobgoblins are waiting for you.
+0026                          AddTreasure(00C8, 00, 00, 00, 00, B6)
 0045 EB 42                    jmp 0x89
-0047                          AddTreasure(03E8, 00, 00, 00, B6, 3D) [es:bx+0xd8]
-0067                          SetState(02, 1B, 01) [es:bx]
-007C                          ShowMessage(059F) [es:bx+0xf8] = Hobgoblins throw items aside so they can attack you.
-0089                          ax = PartyCountIs(01) [es:bx+0xf0]
+0047                          AddTreasure(03E8, 00, 00, 00, B6, 3D)
+0067                          SetState(02, 1B, 01)
+007C                          ShowMessage(059F) = Hobgoblins throw items aside so they can attack you.
+0089                          ax = PartyCountIs(01)
 0094 75 27                    jnz 0xbd
-0096                          AddEncounter(01, 01) [es:bx+0xd4]
-00A8                          AddEncounter(02, 02) [es:bx+0xd4]
+0096                          AddEncounter(01, 01)
+00A8                          AddEncounter(02, 02)
 00BA E9 2D 01                 jmp 0x1ea
-00BD                          ax = PartyCountIs(02) [es:bx+0xf0]
+00BD                          ax = PartyCountIs(02)
 00C8 75 4B                    jnz 0x115
-00CA                          AddEncounter(01, 01) [es:bx+0xd4]
-00DC                          AddEncounter(02, 02) [es:bx+0xd4]
-00EE                          AddEncounter(02, 03) [es:bx+0xd4]
-0100                          AddEncounter(01, 04) [es:bx+0xd4]
+00CA                          AddEncounter(01, 01)
+00DC                          AddEncounter(02, 02)
+00EE                          AddEncounter(02, 03)
+0100                          AddEncounter(01, 04)
 0112 E9 D5 00                 jmp 0x1ea
-0115                          ax = PartyCountIs(03) [es:bx+0xf0]
+0115                          ax = PartyCountIs(03)
 0120 75 5C                    jnz 0x17e
-0122                          AddEncounter(04, 01) [es:bx+0xd4]
-0134                          AddEncounter(03, 02) [es:bx+0xd4]
-0146                          AddEncounter(03, 03) [es:bx+0xd4]
-0158                          AddEncounter(04, 04) [es:bx+0xd4]
-016A                          AddEncounter(01, 05) [es:bx+0xd4]
+0122                          AddEncounter(04, 01)
+0134                          AddEncounter(03, 02)
+0146                          AddEncounter(03, 03)
+0158                          AddEncounter(04, 04)
+016A                          AddEncounter(01, 05)
 017C EB 6C                    jmp 0x1ea
-017E                          AddEncounter(08, 01) [es:bx+0xd4]
-0190                          AddEncounter(08, 02) [es:bx+0xd4]
-01A2                          AddEncounter(04, 03) [es:bx+0xd4]
-01B4                          AddEncounter(04, 04) [es:bx+0xd4]
-01C6                          AddEncounter(03, 05) [es:bx+0xd4]
-01D8                          AddEncounter(03, 06) [es:bx+0xd4]
+017E                          AddEncounter(08, 01)
+0190                          AddEncounter(08, 02)
+01A2                          AddEncounter(04, 03)
+01B4                          AddEncounter(04, 04)
+01C6                          AddEncounter(03, 05)
+01D8                          AddEncounter(03, 06)
 01EA                          RETURN
 
 ITEMCENC_07:
 0000                          BEGIN
-0003                          ax = HasItem(07) [es:bx+0x50]
+0003                          ax = HasItem(07)
 0011 74 52                    jz 0x65
-0013                          ax = HasItem(90) [es:bx+0x50]
+0013                          ax = HasItem(90)
 0021 74 21                    jz 0x44
-0023                          AddTreasure(00C8, 00, 00, 00, 00, D1) [es:bx+0xd8]
+0023                          AddTreasure(00C8, 00, 00, 00, 00, D1)
 0042 EB 1F                    jmp 0x63
-0044                          AddTreasure(01F4, 00, 00, 00, 00, 90) [es:bx+0xd8]
+0044                          AddTreasure(01F4, 00, 00, 00, 00, 90)
 0063 EB 51                    jmp 0xb6
-0065                          ax = HasItem(90) [es:bx+0x50]
+0065                          ax = HasItem(90)
 0073 74 21                    jz 0x96
-0075                          AddTreasure(0BB8, 00, 00, 00, 00, 07) [es:bx+0xd8]
+0075                          AddTreasure(0BB8, 00, 00, 00, 00, 07)
 0094 EB 20                    jmp 0xb6
-0096                          AddTreasure(0BB8, 00, 00, 00, 90, 07) [es:bx+0xd8]
-00B6                          ShowMessage(05D4) [es:bx+0xf8] = You encounter a lost band of Silver Ogres.
-00C3                          ax = PartyCountIs(01) [es:bx+0xf0]
+0096                          AddTreasure(0BB8, 00, 00, 00, 90, 07)
+00B6                          ShowMessage(05D4) = You encounter a lost band of Silver Ogres.
+00C3                          ax = PartyCountIs(01)
 00CE 75 15                    jnz 0xe5
-00D0                          AddEncounter(1D, 01) [es:bx+0xd4]
+00D0                          AddEncounter(1D, 01)
 00E2 E9 9A 00                 jmp 0x17f
-00E5                          ax = PartyCountIs(02) [es:bx+0xf0]
+00E5                          ax = PartyCountIs(02)
 00F0 74 0D                    jz 0xff
-00F2                          ax = PartyCountIs(03) [es:bx+0xf0]
+00F2                          ax = PartyCountIs(03)
 00FD 75 38                    jnz 0x137
-00FF                          AddEncounter(1D, 01) [es:bx+0xd4]
-0111                          AddEncounter(1D, 02) [es:bx+0xd4]
-0123                          AddEncounter(1D, 03) [es:bx+0xd4]
+00FF                          AddEncounter(1D, 01)
+0111                          AddEncounter(1D, 02)
+0123                          AddEncounter(1D, 03)
 0135 EB 48                    jmp 0x17f
-0137                          AddEncounter(1D, 01) [es:bx+0xd4]
-0149                          AddEncounter(1D, 02) [es:bx+0xd4]
-015B                          AddEncounter(1D, 03) [es:bx+0xd4]
-016D                          AddEncounter(1D, 04) [es:bx+0xd4]
+0137                          AddEncounter(1D, 01)
+0149                          AddEncounter(1D, 02)
+015B                          AddEncounter(1D, 03)
+016D                          AddEncounter(1D, 04)
 017F                          RETURN
 
 STRMNSTR_08:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ax = PartyCountIs(01)
 000E 75 27                    jnz 0x37
-0010                          AddEncounter(19, 01) [es:bx+0xd4]
-0022                          AddEncounter(1B, 02) [es:bx+0xd4]
+0010                          AddEncounter(19, 01)
+0022                          AddEncounter(1B, 02)
 0034 E9 2D 01                 jmp 0x164
-0037                          ax = PartyCountIs(02) [es:bx+0xf0]
+0037                          ax = PartyCountIs(02)
 0042 75 4B                    jnz 0x8f
-0044                          AddEncounter(1B, 01) [es:bx+0xd4]
-0056                          AddEncounter(1B, 02) [es:bx+0xd4]
-0068                          AddEncounter(1A, 03) [es:bx+0xd4]
-007A                          AddEncounter(1A, 04) [es:bx+0xd4]
+0044                          AddEncounter(1B, 01)
+0056                          AddEncounter(1B, 02)
+0068                          AddEncounter(1A, 03)
+007A                          AddEncounter(1A, 04)
 008C E9 D5 00                 jmp 0x164
-008F                          ax = PartyCountIs(03) [es:bx+0xf0]
+008F                          ax = PartyCountIs(03)
 009A 75 5C                    jnz 0xf8
-009C                          AddEncounter(1C, 01) [es:bx+0xd4]
-00AE                          AddEncounter(1C, 02) [es:bx+0xd4]
-00C0                          AddEncounter(19, 03) [es:bx+0xd4]
-00D2                          AddEncounter(19, 04) [es:bx+0xd4]
-00E4                          AddEncounter(1D, 05) [es:bx+0xd4]
+009C                          AddEncounter(1C, 01)
+00AE                          AddEncounter(1C, 02)
+00C0                          AddEncounter(19, 03)
+00D2                          AddEncounter(19, 04)
+00E4                          AddEncounter(1D, 05)
 00F6 EB 6C                    jmp 0x164
-00F8                          AddEncounter(1D, 01) [es:bx+0xd4]
-010A                          AddEncounter(1D, 02) [es:bx+0xd4]
-011C                          AddEncounter(1D, 03) [es:bx+0xd4]
-012E                          AddEncounter(1D, 04) [es:bx+0xd4]
-0140                          AddEncounter(1C, 05) [es:bx+0xd4]
-0152                          AddEncounter(1C, 06) [es:bx+0xd4]
+00F8                          AddEncounter(1D, 01)
+010A                          AddEncounter(1D, 02)
+011C                          AddEncounter(1D, 03)
+012E                          AddEncounter(1D, 04)
+0140                          AddEncounter(1C, 05)
+0152                          AddEncounter(1C, 06)
 0164                          RETURN
 
 TUFMNSTR_09:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ax = PartyCountIs(01)
 000E 75 15                    jnz 0x25
-0010                          AddEncounter(1F, 01) [es:bx+0xd4]
+0010                          AddEncounter(1F, 01)
 0022 E9 BE 00                 jmp 0xe3
-0025                          ax = PartyCountIs(02) [es:bx+0xf0]
+0025                          ax = PartyCountIs(02)
 0030 74 0D                    jz 0x3f
-0032                          ax = PartyCountIs(03) [es:bx+0xf0]
+0032                          ax = PartyCountIs(03)
 003D 75 4A                    jnz 0x89
-003F                          AddEncounter(20, 01) [es:bx+0xd4]
-0051                          AddEncounter(20, 02) [es:bx+0xd4]
-0063                          AddEncounter(1F, 03) [es:bx+0xd4]
-0075                          AddEncounter(1F, 04) [es:bx+0xd4]
+003F                          AddEncounter(20, 01)
+0051                          AddEncounter(20, 02)
+0063                          AddEncounter(1F, 03)
+0075                          AddEncounter(1F, 04)
 0087 EB 5A                    jmp 0xe3
-0089                          AddEncounter(22, 01) [es:bx+0xd4]
-009B                          AddEncounter(22, 02) [es:bx+0xd4]
-00AD                          AddEncounter(21, 03) [es:bx+0xd4]
-00BF                          AddEncounter(21, 04) [es:bx+0xd4]
-00D1                          AddEncounter(22, 05) [es:bx+0xd4]
+0089                          AddEncounter(22, 01)
+009B                          AddEncounter(22, 02)
+00AD                          AddEncounter(21, 03)
+00BF                          AddEncounter(21, 04)
+00D1                          AddEncounter(22, 05)
 00E3                          RETURN
 
 VTFMNSTR_0A:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ax = PartyCountIs(01)
 000E 75 15                    jnz 0x25
-0010                          AddEncounter(23, 01) [es:bx+0xd4]
+0010                          AddEncounter(23, 01)
 0022 E9 09 01                 jmp 0x12e
-0025                          ax = PartyCountIs(02) [es:bx+0xf0]
+0025                          ax = PartyCountIs(02)
 0030 75 39                    jnz 0x6b
-0032                          AddEncounter(23, 01) [es:bx+0xd4]
-0044                          AddEncounter(23, 02) [es:bx+0xd4]
-0056                          AddEncounter(23, 03) [es:bx+0xd4]
+0032                          AddEncounter(23, 01)
+0044                          AddEncounter(23, 02)
+0056                          AddEncounter(23, 03)
 0068 E9 C3 00                 jmp 0x12e
-006B                          ax = PartyCountIs(03) [es:bx+0xf0]
+006B                          ax = PartyCountIs(03)
 0076 75 4A                    jnz 0xc2
-0078                          AddEncounter(23, 01) [es:bx+0xd4]
-008A                          AddEncounter(23, 02) [es:bx+0xd4]
-009C                          AddEncounter(23, 03) [es:bx+0xd4]
-00AE                          AddEncounter(23, 04) [es:bx+0xd4]
+0078                          AddEncounter(23, 01)
+008A                          AddEncounter(23, 02)
+009C                          AddEncounter(23, 03)
+00AE                          AddEncounter(23, 04)
 00C0 EB 6C                    jmp 0x12e
-00C2                          AddEncounter(23, 01) [es:bx+0xd4]
-00D4                          AddEncounter(23, 02) [es:bx+0xd4]
-00E6                          AddEncounter(23, 03) [es:bx+0xd4]
-00F8                          AddEncounter(23, 04) [es:bx+0xd4]
-010A                          AddEncounter(23, 05) [es:bx+0xd4]
-011C                          AddEncounter(23, 06) [es:bx+0xd4]
+00C2                          AddEncounter(23, 01)
+00D4                          AddEncounter(23, 02)
+00E6                          AddEncounter(23, 03)
+00F8                          AddEncounter(23, 04)
+010A                          AddEncounter(23, 05)
+011C                          AddEncounter(23, 06)
 012E                          RETURN
 
 STRSMESS_0B:
 0000                          BEGIN
-0003                          ShowMessage(05FF) [es:bx+0xf8] = East past the gateway are stairs leading down a level.
+0003                          ShowMessage(05FF) = East past the gateway are stairs leading down a level.
 0010                          RETURN
 
 NPCCHATA_0C:
 0000                          BEGIN
-0003                          ShowMessage(0636) [es:bx+0xf8] = A Halfling Cleric creeps out of the shadows.
-0010                          ShowPortrait(0029) [es:bx+0xfc]
-001D                          UnknownFunction(000F) [es:bx+0xec]
+0003                          ShowMessage(0636) = A Halfling Cleric creeps out of the shadows.
+0010                          ShowPortrait(0029)
+001D                          UnknownFunction(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0663) [es:bx+0xf8] = You will need Cleowyn's Robe, Crown and Scepter to reach his hidden tomb in the Mausoleum.
+002F                          ShowMessage(0663) = You will need Cleowyn's Robe, Crown and Scepter to reach his hidden tomb in the Mausoleum.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(06BE) [es:bx+0xf8] = The Halfling Cleric mumbles something incoherent and creeps back into the shadows.
+003E                          ShowMessage(06BE) = The Halfling Cleric mumbles something incoherent and creeps back into the shadows.
 004B                          RETURN
 
 NPCCHATB_0D:
 0000                          BEGIN
-0003                          ShowMessage(0711) [es:bx+0xf8] = A half-mad Gnome Thief crawls into the room.
-0010                          ShowPortrait(0024) [es:bx+0xfc]
-001D                          UnknownFunction(000F) [es:bx+0xec]
+0003                          ShowMessage(0711) = A half-mad Gnome Thief crawls into the room.
+0010                          ShowPortrait(0024)
+001D                          UnknownFunction(000F)
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(073E) [es:bx+0xf8] = The wizard Arnakkian hired his own troops from the Snow Elves. It is said that these strange elves disappeared before the volcano erupted. Where they wound up is anybody's guess.
+002F                          ShowMessage(073E) = The wizard Arnakkian hired his own troops from the Snow Elves. It is said that these strange elves disappeared before the volcano erupted. Where they wound up is anybody's guess.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(07F1) [es:bx+0xf8] = The insane Gnome Thief crawls away.
+003E                          ShowMessage(07F1) = The insane Gnome Thief crawls away.
 004B                          RETURN
 
 03FC: The E Rune Key unlocked the thick door.

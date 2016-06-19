@@ -1,77 +1,71 @@
 LAVA_01:
 0000                          BEGIN
-0003                          ShowMessage(03FC) [es:bx+0xf8] = You stumble into the lava river and die.
-0010                          ax = GetHits() [es:bx+0x74]
-0017                          DoDamage(ax) [es:bx+0x90]
+0003                          ShowMessage(03FC) = You stumble into the lava river and die.
+0010                          ax = GetMaxHits()
+0017                          DoDamage(ax)
 0021                          RETURN
 
 TEMPEST_02:
 0000                          BEGIN
-0003                          GoMap(01, 4F, 01, 35) [es:bx+0xbc]
+0003                          GoMap(01, 4F, 01, 35)
 001E                          RETURN
 
 DUNGEON_03:
 0000                          BEGIN
-0003                          ShowMessage(0425) [es:bx+0xf8] = This gate leads to the entrance of Arnakkian's Arena.
-0010                          GoMap(02, 40, 02, 36) [es:bx+0xbc]
+0003                          ShowMessage(0425) = This gate leads to the entrance of Arnakkian's Arena.
+0010                          GoMap(02, 40, 02, 36)
 002B                          RETURN
 
 HEAVENS_04:
 0000                          BEGIN
-0003                          GoMap(02, F6, 01, 35) [es:bx+0xbc]
+0003                          GoMap(02, F6, 01, 35)
 001E                          RETURN
 
 TXTTEMPS_05:
 0000                          BEGIN
-0003                          ShowMessage(045B) [es:bx+0xf8] = Of all the winds, the TEMPEST is the most violent and dangerous.
+0003                          ShowMessage(045B) = Of all the winds, the TEMPEST is the most violent and dangerous.
 0010                          RETURN
 
 TXTHEAVN_06:
 0000                          BEGIN
-0003                          ShowMessage(049C) [es:bx+0xf8] = Enter HEAVEN'S FURY if you must.  It is here Voranti cursed the winds.
+0003                          ShowMessage(049C) = Enter HEAVEN'S FURY if you must.  It is here Voranti cursed the winds.
 0010                          RETURN
 
 TXTCSTLG_07:
 0000                          BEGIN
-0003                          ShowMessage(04E3) [es:bx+0xf8] = A doorway leads to the town of Castlegate, a village just outside Arnakkian's Castle.
+0003                          ShowMessage(04E3) = A doorway leads to the town of Castlegate, a village just outside Arnakkian's Castle.
 0010                          RETURN
 
 TXTLOOKO_09:
 0000                          BEGIN
-0003                          ShowMessage(0539) [es:bx+0xf8] = It is rumored that a band of dwarves once lived behind the doors of LookOut.
+0003                          ShowMessage(0539) = It is rumored that a band of dwarves once lived behind the doors of LookOut.
 0010                          RETURN
 
 BDOORCGC_0C:
 0000                          BEGIN
-0003                          CheckStrength(14) [es:bx+0xa4]
+0003                          CheckStrength(14)
 0012 72 2D                    jb 0x41
-0014                          ShowMessage(0586) [es:bx+0xf8] = With a massive effort, you manage to force the door open.
-0021                          ax = SetExitability(01) [es:bx+0x24]
+0014                          ShowMessage(0586) = With a massive effort, you manage to force the door open.
+0021                          Push(01)
+0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
 002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 5F 20              call far word [es:bx+0x20]
+002D                          ax = GetNextTile()
 0034 50                       push ax
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 5F 2C              call far word [es:bx+0x2c]
-003C 83 C4 06                 add sp, 0x6
+0035                          Move(stk[0], stk[1], stk[2])
 003F EB 0D                    jmp 0x4e
-0041                          ShowMessage(05C0) [es:bx+0xf8] = The door is stuck and will not open.
+0041                          ShowMessage(05C0) = The door is stuck and will not open.
 004E                          RETURN
 
 RAPID_10:
 0000                          BEGIN
-0003                          SetState(02, 57, 01) [es:bx]
-0018                          ShowMessage(05E5) [es:bx+0xf8] = A plaque reads..
-0025                          ShowMessage(05F6) [es:bx+0xf8] = 'Thanks to the gracious generosity of the Mage Council, the survivors of the Arnakkian disaster hereby proclaim a new teleport to the top.'
-0032 B8 02 00                 mov ax, 0x2
-0035 50                       push ax
-0036 C4 5E 06                 les bx, [bp+0x6]
-0039 26 FF 5F 20              call far word [es:bx+0x20]
+0003                          SetState(02, 57, 01)
+0018                          ShowMessage(05E5) = A plaque reads..
+0025                          ShowMessage(05F6) = 'Thanks to the gracious generosity of the Mage Council, the survivors of the Arnakkian disaster hereby proclaim a new teleport to the top.'
+0032                          Push(02)
+0036                          ax = GetNextTile()
 003D 50                       push ax
-003E B8 01 00                 mov ax, 0x1
-0041 50                       push ax
-0042 B8 33 00                 mov ax, 0x33
-0045 50                       push ax
+003E                          Push(01)
+0042                          Push(33)
 0046 C4 5E 06                 les bx, [bp+0x6]
 0049 26 FF 9F BC 00           call far word [es:bx+0xbc]
 004E 83 C4 08                 add sp, 0x8
@@ -79,471 +73,343 @@ RAPID_10:
 
 RIVER_11:
 0000                          BEGIN
-0003                          ShowMessage(0682) [es:bx+0xf8] = Fighting the raging River of Eternity taps your life energy.
-0010                          ax = GetHits() [es:bx+0x74]
+0003                          ShowMessage(0682) = Fighting the raging River of Eternity taps your life energy.
+0010                          ax = GetMaxHits()
 0017 BB 04 00                 mov bx, 0x4
 001A 99                       cwd
 001B F7 FB                    idiv bx
-001D                          DoDamage(ax) [es:bx+0x90]
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 5F 70              call far word [es:bx+0x70]
+001D                          DoDamage(ax)
+0027                          ax = GetCurrentHits()
 002E 0B C0                    or ax, ax
 0030 77 0D                    ja 0x3f
-0032                          ShowMessage(06BF) [es:bx+0xf8] = You have died.
+0032                          ShowMessage(06BF) = You have died.
 003F                          RETURN
 
 TXTPHNX_12:
 0000                          BEGIN
-0003                          ax = CheckState2(02, 85) [es:bx+0x8]
+0003                          ax = CheckState2(02, 85)
 0016 74 10                    jz 0x28
-0018                          ShowMessage(06CE) [es:bx+0xf8] = The Phoenix is being reborn and may not be disturbed.
+0018                          ShowMessage(06CE) = The Phoenix is being reborn and may not be disturbed.
 0025 E9 7F 00                 jmp 0xa7
-0028                          ax = CheckState2(02, 86) [es:bx+0x8]
+0028                          ax = CheckState2(02, 86)
 003B 74 50                    jz 0x8d
-003D                          ShowMessage(0704) [es:bx+0xf8] = Ahead, bound by the River of Eternity, is the shadow of the Phoenix Firebird. 
-004A                          ShowMessage(0753) [es:bx+0xf8] = The raging waters of the river look daunting.
-0057 B8 01 00                 mov ax, 0x1
-005A 50                       push ax
-005B B8 02 00                 mov ax, 0x2
-005E 50                       push ax
-005F C4 5E 06                 les bx, [bp+0x6]
-0062 26 FF 5F 20              call far word [es:bx+0x20]
+003D                          ShowMessage(0704) = Ahead, bound by the River of Eternity, is the shadow of the Phoenix Firebird. 
+004A                          ShowMessage(0753) = The raging waters of the river look daunting.
+0057                          Push(01)
+005B                          Push(02)
+005F                          ax = GetNextTile()
 0066 50                       push ax
-0067 C4 5E 06                 les bx, [bp+0x6]
-006A 26 FF 5F 2C              call far word [es:bx+0x2c]
-006E 83 C4 06                 add sp, 0x6
-0071 B8 02 00                 mov ax, 0x2
-0074 50                       push ax
-0075 C4 5E 06                 les bx, [bp+0x6]
-0078 26 FF 5F 20              call far word [es:bx+0x20]
+0067                          Move(stk[0], stk[1], stk[2])
+0071                          Push(02)
+0075                          ax = GetNextTile()
 007C 50                       push ax
-007D B8 01 00                 mov ax, 0x1
-0080 50                       push ax
-0081 C4 5E 06                 les bx, [bp+0x6]
-0084 26 FF 5F 30              call far word [es:bx+0x30]
-0088 83 C4 06                 add sp, 0x6
+007D                          Push(01)
+0081                          SetUnblocked()
 008B EB 1A                    jmp 0xa7
-008D                          ShowMessage(0781) [es:bx+0xf8] = You hear the sound of rushing water behind the wall.
-009A                          ShowMessage(07B6) [es:bx+0xf8] = You also hear muffled roars.
+008D                          ShowMessage(0781) = You hear the sound of rushing water behind the wall.
+009A                          ShowMessage(07B6) = You also hear muffled roars.
 00A7                          RETURN
 
 DBENCPHO_13:
 0000                          BEGIN
-0003                          AddEncounter(0E, 01) [es:bx+0xd4]
-0015                          AddEncounter(0E, 02) [es:bx+0xd4]
-0027                          AddEncounter(25, 03) [es:bx+0xd4]
-0039                          AddEncounter(25, 04) [es:bx+0xd4]
-004B                          AddEncounter(26, 06) [es:bx+0xd4]
+0003                          AddEncounter(0E, 01)
+0015                          AddEncounter(0E, 02)
+0027                          AddEncounter(25, 03)
+0039                          AddEncounter(25, 04)
+004B                          AddEncounter(26, 06)
 005D                          RETURN
 
 DBENCA_14:
 0000                          BEGIN
-0003                          AddEncounter(19, 01) [es:bx+0xd4]
-0015                          AddEncounter(19, 02) [es:bx+0xd4]
-0027                          AddEncounter(19, 03) [es:bx+0xd4]
-0039                          AddEncounter(19, 04) [es:bx+0xd4]
+0003                          AddEncounter(19, 01)
+0015                          AddEncounter(19, 02)
+0027                          AddEncounter(19, 03)
+0039                          AddEncounter(19, 04)
 004B                          RETURN
 
 DBENCB_15:
 0000                          BEGIN
-0003                          AddEncounter(19, 01) [es:bx+0xd4]
-0015                          AddEncounter(19, 02) [es:bx+0xd4]
-0027                          AddEncounter(1A, 03) [es:bx+0xd4]
-0039                          AddEncounter(1A, 04) [es:bx+0xd4]
-004B                          AddTreasure(1388, 00, 00, 00, 00, 71) [es:bx+0xd8]
+0003                          AddEncounter(19, 01)
+0015                          AddEncounter(19, 02)
+0027                          AddEncounter(1A, 03)
+0039                          AddEncounter(1A, 04)
+004B                          AddTreasure(1388, 00, 00, 00, 00, 71)
 006A                          RETURN
 
 DBENCC_16:
 0000                          BEGIN
-0003                          AddEncounter(19, 01) [es:bx+0xd4]
-0015                          AddEncounter(19, 02) [es:bx+0xd4]
-0027                          AddEncounter(18, 03) [es:bx+0xd4]
-0039                          AddEncounter(18, 04) [es:bx+0xd4]
-004B                          AddEncounter(1A, 05) [es:bx+0xd4]
-005D                          AddEncounter(1A, 06) [es:bx+0xd4]
+0003                          AddEncounter(19, 01)
+0015                          AddEncounter(19, 02)
+0027                          AddEncounter(18, 03)
+0039                          AddEncounter(18, 04)
+004B                          AddEncounter(1A, 05)
+005D                          AddEncounter(1A, 06)
 006F                          RETURN
 
 DBENCD_17:
 0000                          BEGIN
-0003                          AddEncounter(24, 01) [es:bx+0xd4]
-0015                          AddEncounter(24, 02) [es:bx+0xd4]
+0003                          AddEncounter(24, 01)
+0015                          AddEncounter(24, 02)
 0027                          RETURN
 
 BAZZENCA_18:
 0000                          BEGIN
-0003                          AddEncounter(1B, 01) [es:bx+0xd4]
-0015                          AddEncounter(1B, 02) [es:bx+0xd4]
-0027                          AddEncounter(1C, 03) [es:bx+0xd4]
-0039                          AddEncounter(1C, 04) [es:bx+0xd4]
+0003                          AddEncounter(1B, 01)
+0015                          AddEncounter(1B, 02)
+0027                          AddEncounter(1C, 03)
+0039                          AddEncounter(1C, 04)
 004B                          RETURN
 
 BAZZENCB_19:
 0000                          BEGIN
-0003                          AddEncounter(1C, 01) [es:bx+0xd4]
-0015                          AddEncounter(1C, 02) [es:bx+0xd4]
-0027                          AddEncounter(1C, 03) [es:bx+0xd4]
-0039                          AddEncounter(1C, 04) [es:bx+0xd4]
-004B                          AddTreasure(1388, 00, 00, 00, 00, 76) [es:bx+0xd8]
+0003                          AddEncounter(1C, 01)
+0015                          AddEncounter(1C, 02)
+0027                          AddEncounter(1C, 03)
+0039                          AddEncounter(1C, 04)
+004B                          AddTreasure(1388, 00, 00, 00, 00, 76)
 006A                          RETURN
 
 BAZZENCC_1A:
 0000                          BEGIN
-0003                          AddEncounter(0F, 01) [es:bx+0xd4]
-0015                          AddEncounter(10, 02) [es:bx+0xd4]
-0027                          AddEncounter(11, 03) [es:bx+0xd4]
-0039                          AddEncounter(1C, 04) [es:bx+0xd4]
-004B                          ax = HasItem(EF) [es:bx+0x50]
+0003                          AddEncounter(0F, 01)
+0015                          AddEncounter(10, 02)
+0027                          AddEncounter(11, 03)
+0039                          AddEncounter(1C, 04)
+004B                          ax = HasItem(EF)
 0059 74 21                    jz 0x7c
-005B                          AddTreasure(03E8, 00, 00, 00, 00, D0) [es:bx+0xd8]
+005B                          AddTreasure(03E8, 00, 00, 00, 00, D0)
 007A EB 1F                    jmp 0x9b
-007C                          AddTreasure(1388, 00, 00, 00, 00, EF) [es:bx+0xd8]
+007C                          AddTreasure(1388, 00, 00, 00, 00, EF)
 009B                          RETURN
 
 TOELVES_1B:
 0000                          BEGIN
-0003                          ShowMessage(07D3) [es:bx+0xf8] = Loose rocks tumble away, revealing a narrow passageway down.
-0010                          GoMap(03, 1A, 01, 37) [es:bx+0xbc]
+0003                          ShowMessage(07D3) = Loose rocks tumble away, revealing a narrow passageway down.
+0010                          GoMap(03, 1A, 01, 37)
 002B                          RETURN
 
 PHOEGURD_1C:
 0000                          BEGIN
-0003                          ShowPortrait(002D) [es:bx+0xfc]
-0010                          ShowMessage(0810) [es:bx+0xf8] = A Gnome Wizard greets you.
-001D                          ax = CheckState2(02, 85) [es:bx+0x8]
+0003                          ShowPortrait(002D)
+0010                          ShowMessage(0810) = A Gnome Wizard greets you.
+001D                          ax = CheckState2(02, 85)
 0030 74 1C                    jz 0x4e
-0032                          ShowMessage(082B) [es:bx+0xf8] = 'Thank you for helping my master the Phoenix be reborn.
-003F                          ShowMessage(0863) [es:bx+0xf8] = The Phoenix may no longer be disturbed.'
+0032                          ShowMessage(082B) = 'Thank you for helping my master the Phoenix be reborn.
+003F                          ShowMessage(0863) = The Phoenix may no longer be disturbed.'
 004C EB 49                    jmp 0x97
-004E                          ShowMessage(088C) [es:bx+0xf8] = 'I am the Guardian of the Phoenix.  That you have passed my Dragon Guards is proof of your courage.
-005B                          ShowMessage(08F0) [es:bx+0xf8] = The way is now clear for you to meet the Phoenix.
-0068                          ShowMessage(0922) [es:bx+0xf8] = It is time for the Phoenix to die and so be reborn from its own ashes.
-0075                          ShowMessage(0969) [es:bx+0xf8] = Go!  Let the glorious Phoenix die and be renewed!'
-0082                          SetState(02, 86, 01) [es:bx]
+004E                          ShowMessage(088C) = 'I am the Guardian of the Phoenix.  That you have passed my Dragon Guards is proof of your courage.
+005B                          ShowMessage(08F0) = The way is now clear for you to meet the Phoenix.
+0068                          ShowMessage(0922) = It is time for the Phoenix to die and so be reborn from its own ashes.
+0075                          ShowMessage(0969) = Go!  Let the glorious Phoenix die and be renewed!'
+0082                          SetState(02, 86, 01)
 0097                          RETURN
 
 TXTBAZZA_1D:
 0000                          BEGIN
-0003                          ShowPortrait(0029) [es:bx+0xfc]
-0010                          ShowMessage(099C) [es:bx+0xf8] = A frightened Halfling Cleric hides in the shadows.
-001D                          ShowMessage(09CF) [es:bx+0xf8] = 'You must do something about these trolls.  They're everywhere.'
+0003                          ShowPortrait(0029)
+0010                          ShowMessage(099C) = A frightened Halfling Cleric hides in the shadows.
+001D                          ShowMessage(09CF) = 'You must do something about these trolls.  They're everywhere.'
 002A                          RETURN
 
 TXTBAZZB_1E:
 0000                          BEGIN
-0003                          ShowPortrait(001C) [es:bx+0xfc]
-0010                          ShowMessage(0A10) [es:bx+0xf8] = An exhausted Dwarf Knight hides in a large barrel.
-001D                          ShowMessage(0A43) [es:bx+0xf8] = 'Hail!  I welcome your help.  These trolls have been giving me fits.'
+0003                          ShowPortrait(001C)
+0010                          ShowMessage(0A10) = An exhausted Dwarf Knight hides in a large barrel.
+001D                          ShowMessage(0A43) = 'Hail!  I welcome your help.  These trolls have been giving me fits.'
 002A                          RETURN
 
 TXTBAZZC_1F:
 0000                          BEGIN
-0003                          ShowPortrait(002D) [es:bx+0xfc]
-0010                          ShowMessage(0A89) [es:bx+0xf8] = A Gnome Wizard suddenly appears.
-001D                          ShowMessage(0AAA) [es:bx+0xf8] = 'Past the CastleGates and past the Elves, you will find a place where the blue light of the sky meets the underworld below.'
+0003                          ShowPortrait(002D)
+0010                          ShowMessage(0A89) = A Gnome Wizard suddenly appears.
+001D                          ShowMessage(0AAA) = 'Past the CastleGates and past the Elves, you will find a place where the blue light of the sky meets the underworld below.'
 002A                          RETURN
 
 TXTBAZZD_20:
 0000                          BEGIN
-0003                          ShowPortrait(001F) [es:bx+0xfc]
-0010                          ShowMessage(0B27) [es:bx+0xf8] = An Elf Ranger is delighted at your presense.
-001D                          ShowMessage(0B54) [es:bx+0xf8] = 'I got clobbered by Andreas, the Earth Elemental!  I wish you luck in your adventurers.'
+0003                          ShowPortrait(001F)
+0010                          ShowMessage(0B27) = An Elf Ranger is delighted at your presense.
+001D                          ShowMessage(0B54) = 'I got clobbered by Andreas, the Earth Elemental!  I wish you luck in your adventurers.'
 002A                          RETURN
 
 PHOEREW_21:
 0000                          BEGIN
-0003 B8 5E 00                 mov ax, 0x5e
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState(02, 5E, any)
 0016 75 4B                    jnz 0x63
-0018                          SetState(02, 5E, 01) [es:bx]
-002D                          SetState(02, 85, 01) [es:bx]
-0042 B8 C8 00                 mov ax, 0xc8
-0045 50                       push ax
-0046 B8 04 00                 mov ax, 0x4
-0049 50                       push ax
+0018                          SetState(02, 5E, 01)
+002D                          SetState(02, 85, 01)
+0042                          Push(C8)
+0046                          Push(04)
 004A C4 5E 06                 les bx, [bp+0x6]
 004D 26 FF 9F A8 00           call far word [es:bx+0xa8]
 0052 59                       pop cx
 0053 59                       pop cx
-0054                          ShowMessage(0BAD) [es:bx+0xf8] = You feel a sudden increase in your Dexterity.
+0054                          ShowMessage(0BAD) = You feel a sudden increase in your Dexterity.
 0061 EB 0D                    jmp 0x70
-0063                          ShowMessage(0BDB) [es:bx+0xf8] = Nothing happens.
+0063                          ShowMessage(0BDB) = Nothing happens.
 0070                          RETURN
 
 MYSTICS_24:
 0000                          BEGIN
-0003                          ShowPortrait(0016) [es:bx+0xfc]
-0010                          ShowMessage(0BEC) [es:bx+0xf8] = A small band of gypsies has formed camp in an old bazaar stall.
-001D                          ShowMessage(0C2C) [es:bx+0xf8] = A young gypsy stares at you, gestures you closer, and whispers..
-002A                          ShowMessage(0C6D) [es:bx+0xf8] = 'It is written on the Lava Walls that a Hero will someday reach the end of the rainbow and confront time.'
-0037                          ShowMessage(0CD8) [es:bx+0xf8] = He pauses, then says, 'Go now, before more Trolls come!  Go!' 
+0003                          ShowPortrait(0016)
+0010                          ShowMessage(0BEC) = A small band of gypsies has formed camp in an old bazaar stall.
+001D                          ShowMessage(0C2C) = A young gypsy stares at you, gestures you closer, and whispers..
+002A                          ShowMessage(0C6D) = 'It is written on the Lava Walls that a Hero will someday reach the end of the rainbow and confront time.'
+0037                          ShowMessage(0CD8) = He pauses, then says, 'Go now, before more Trolls come!  Go!' 
 0044                          RETURN
 
 FNTNBAZZ_25:
 0000                          BEGIN
-0003 B8 5F 00                 mov ax, 0x5f
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState(02, 5F, any)
 0016 74 03                    jz 0x1b
 0018 E9 FF 00                 jmp 0x11a
-001B                          SetState(02, 5F, 01) [es:bx]
-0030                          ShowPortrait(0042) [es:bx+0xfc]
-003D                          ShowMessage(0D17) [es:bx+0xf8] = You sip the cool purple waters of the ElfFoot Fountain
-004A B8 14 00                 mov ax, 0x14
-004D 50                       push ax
-004E C4 5E 06                 les bx, [bp+0x6]
-0051 26 FF 5F 5C              call far word [es:bx+0x5c]
-0055 59                       pop cx
+001B                          SetState(02, 5F, 01)
+0030                          ShowPortrait(0042)
+003D                          ShowMessage(0D17) = You sip the cool purple waters of the ElfFoot Fountain
+004A                          ax = SkillLevel(14)
 0056 0B C0                    or ax, ax
 0058 75 21                    jnz 0x7b
-005A B8 01 00                 mov ax, 0x1
-005D 50                       push ax
-005E B8 14 00                 mov ax, 0x14
-0061 50                       push ax
-0062 C4 5E 06                 les bx, [bp+0x6]
-0065 26 FF 5F 60              call far word [es:bx+0x60]
-0069 59                       pop cx
-006A 59                       pop cx
-006B                          ShowMessage(0D4E) [es:bx+0xf8] = You gain the skill of Rune Reading!
+005A                          SetSkillLevel(14, 01)
+006B                          ShowMessage(0D4E) = You gain the skill of Rune Reading!
 0078 E9 9D 00                 jmp 0x118
-007B B8 16 00                 mov ax, 0x16
-007E 50                       push ax
-007F C4 5E 06                 les bx, [bp+0x6]
-0082 26 FF 5F 5C              call far word [es:bx+0x5c]
-0086 59                       pop cx
+007B                          ax = SkillLevel(16)
 0087 0B C0                    or ax, ax
 0089 75 20                    jnz 0xab
-008B B8 01 00                 mov ax, 0x1
-008E 50                       push ax
-008F B8 16 00                 mov ax, 0x16
-0092 50                       push ax
-0093 C4 5E 06                 les bx, [bp+0x6]
-0096 26 FF 5F 60              call far word [es:bx+0x60]
-009A 59                       pop cx
-009B 59                       pop cx
-009C                          ShowMessage(0D72) [es:bx+0xf8] = You gain the Channel skill!
+008B                          SetSkillLevel(16, 01)
+009C                          ShowMessage(0D72) = You gain the Channel skill!
 00A9 EB 6D                    jmp 0x118
-00AB B8 15 00                 mov ax, 0x15
-00AE 50                       push ax
-00AF C4 5E 06                 les bx, [bp+0x6]
-00B2 26 FF 5F 5C              call far word [es:bx+0x5c]
-00B6 59                       pop cx
+00AB                          ax = SkillLevel(15)
 00B7 0B C0                    or ax, ax
 00B9 75 20                    jnz 0xdb
-00BB B8 01 00                 mov ax, 0x1
-00BE 50                       push ax
-00BF B8 15 00                 mov ax, 0x15
-00C2 50                       push ax
-00C3 C4 5E 06                 les bx, [bp+0x6]
-00C6 26 FF 5F 60              call far word [es:bx+0x60]
-00CA 59                       pop cx
-00CB 59                       pop cx
-00CC                          ShowMessage(0D8E) [es:bx+0xf8] = You gain the Staff skill!
+00BB                          SetSkillLevel(15, 01)
+00CC                          ShowMessage(0D8E) = You gain the Staff skill!
 00D9 EB 3D                    jmp 0x118
-00DB B8 17 00                 mov ax, 0x17
-00DE 50                       push ax
-00DF C4 5E 06                 les bx, [bp+0x6]
-00E2 26 FF 5F 5C              call far word [es:bx+0x5c]
-00E6 59                       pop cx
+00DB                          ax = SkillLevel(17)
 00E7 0B C0                    or ax, ax
 00E9 75 20                    jnz 0x10b
-00EB B8 01 00                 mov ax, 0x1
-00EE 50                       push ax
-00EF B8 17 00                 mov ax, 0x17
-00F2 50                       push ax
-00F3 C4 5E 06                 les bx, [bp+0x6]
-00F6 26 FF 5F 60              call far word [es:bx+0x60]
-00FA 59                       pop cx
-00FB 59                       pop cx
-00FC                          ShowMessage(0DA8) [es:bx+0xf8] = You gain the Deep Trance skill!
+00EB                          SetSkillLevel(17, 01)
+00FC                          ShowMessage(0DA8) = You gain the Deep Trance skill!
 0109 EB 0D                    jmp 0x118
-010B                          ShowMessage(0DC8) [es:bx+0xf8] = Nothing happens.
+010B                          ShowMessage(0DC8) = Nothing happens.
 0118 EB 0D                    jmp 0x127
-011A                          ShowMessage(0DD9) [es:bx+0xf8] = The purple waters of the ElfFoot Fountain slip through your fingers before you can wet your lips.
+011A                          ShowMessage(0DD9) = The purple waters of the ElfFoot Fountain slip through your fingers before you can wet your lips.
 0127                          RETURN
 
 LOOKENCA_26:
 0000                          BEGIN
-0003                          AddEncounter(1E, 01) [es:bx+0xd4]
-0015                          AddEncounter(1E, 02) [es:bx+0xd4]
-0027                          AddEncounter(25, 03) [es:bx+0xd4]
-0039                          AddEncounter(25, 04) [es:bx+0xd4]
-004B                          AddEncounter(1F, 05) [es:bx+0xd4]
-005D                          AddEncounter(1F, 06) [es:bx+0xd4]
+0003                          AddEncounter(1E, 01)
+0015                          AddEncounter(1E, 02)
+0027                          AddEncounter(25, 03)
+0039                          AddEncounter(25, 04)
+004B                          AddEncounter(1F, 05)
+005D                          AddEncounter(1F, 06)
 006F                          RETURN
 
 TXTLOOKB_2A:
 0000                          BEGIN
-0003                          ShowMessage(0E3B) [es:bx+0xf8] = An inscription on the wall reads...
-0010                          ShowRunes(500E) [es:bx+0xf4] = 'We, the Dwarves of NottiRock, seek brightly colored metals to forge magnificent treasures.'
+0003                          ShowMessage(0E3B) = An inscription on the wall reads...
+0010                          ShowRunes(0E5F) = 'We, the Dwarves of NottiRock, seek brightly colored metals to forge magnificent treasures.'
 001D                          RETURN
 
 FNTNLOOK_2B:
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xfc]
-0010                          ShowMessage(0EBC) [es:bx+0xf8] = Ranger banners decorate the woodwork of Lookout Fountain.
-001D B8 60 00                 mov ax, 0x60
-0020 50                       push ax
-0021 B8 02 00                 mov ax, 0x2
-0024 50                       push ax
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 5F 04              call far word [es:bx+0x4]
-002C 59                       pop cx
-002D 59                       pop cx
-002E 0B C0                    or ax, ax
+0003                          ShowPortrait(0042)
+0010                          ShowMessage(0EBC) = Ranger banners decorate the woodwork of Lookout Fountain.
+001D                          ax = CheckState(02, 60, any)
 0030 74 03                    jz 0x35
 0032 E9 E3 00                 jmp 0x118
-0035                          SetState(02, 60, 01) [es:bx]
-004A B8 09 00                 mov ax, 0x9
-004D 50                       push ax
-004E C4 5E 06                 les bx, [bp+0x6]
-0051 26 FF 5F 5C              call far word [es:bx+0x5c]
-0055 59                       pop cx
+0035                          SetState(02, 60, 01)
+004A                          ax = SkillLevel(09)
 0056 0B C0                    or ax, ax
 0058 75 21                    jnz 0x7b
-005A B8 02 00                 mov ax, 0x2
-005D 50                       push ax
-005E B8 09 00                 mov ax, 0x9
-0061 50                       push ax
-0062 C4 5E 06                 les bx, [bp+0x6]
-0065 26 FF 5F 60              call far word [es:bx+0x60]
-0069 59                       pop cx
-006A 59                       pop cx
-006B                          ShowMessage(0EF6) [es:bx+0xf8] = You gain the skill of Stamina!
+005A                          SetSkillLevel(09, 02)
+006B                          ShowMessage(0EF6) = You gain the skill of Stamina!
 0078 E9 9D 00                 jmp 0x118
-007B B8 0A 00                 mov ax, 0xa
-007E 50                       push ax
-007F C4 5E 06                 les bx, [bp+0x6]
-0082 26 FF 5F 5C              call far word [es:bx+0x5c]
-0086 59                       pop cx
+007B                          ax = SkillLevel(0A)
 0087 0B C0                    or ax, ax
 0089 75 20                    jnz 0xab
-008B B8 02 00                 mov ax, 0x2
-008E 50                       push ax
-008F B8 0A 00                 mov ax, 0xa
-0092 50                       push ax
-0093 C4 5E 06                 les bx, [bp+0x6]
-0096 26 FF 5F 60              call far word [es:bx+0x60]
-009A 59                       pop cx
-009B 59                       pop cx
-009C                          ShowMessage(0F15) [es:bx+0xf8] = You gain the skill of Furtiveness!
+008B                          SetSkillLevel(0A, 02)
+009C                          ShowMessage(0F15) = You gain the skill of Furtiveness!
 00A9 EB 6D                    jmp 0x118
-00AB B8 0B 00                 mov ax, 0xb
-00AE 50                       push ax
-00AF C4 5E 06                 les bx, [bp+0x6]
-00B2 26 FF 5F 5C              call far word [es:bx+0x5c]
-00B6 59                       pop cx
+00AB                          ax = SkillLevel(0B)
 00B7 0B C0                    or ax, ax
 00B9 75 20                    jnz 0xdb
-00BB B8 02 00                 mov ax, 0x2
-00BE 50                       push ax
-00BF B8 0B 00                 mov ax, 0xb
-00C2 50                       push ax
-00C3 C4 5E 06                 les bx, [bp+0x6]
-00C6 26 FF 5F 60              call far word [es:bx+0x60]
-00CA 59                       pop cx
-00CB 59                       pop cx
-00CC                          ShowMessage(0F38) [es:bx+0xf8] = You gain the skill of Reading Tracks!
+00BB                          SetSkillLevel(0B, 02)
+00CC                          ShowMessage(0F38) = You gain the skill of Reading Tracks!
 00D9 EB 3D                    jmp 0x118
-00DB B8 08 00                 mov ax, 0x8
-00DE 50                       push ax
-00DF C4 5E 06                 les bx, [bp+0x6]
-00E2 26 FF 5F 5C              call far word [es:bx+0x5c]
-00E6 59                       pop cx
+00DB                          ax = SkillLevel(08)
 00E7 0B C0                    or ax, ax
 00E9 75 20                    jnz 0x10b
-00EB B8 02 00                 mov ax, 0x2
-00EE 50                       push ax
-00EF B8 08 00                 mov ax, 0x8
-00F2 50                       push ax
-00F3 C4 5E 06                 les bx, [bp+0x6]
-00F6 26 FF 5F 60              call far word [es:bx+0x60]
-00FA 59                       pop cx
-00FB 59                       pop cx
-00FC                          ShowMessage(0F5E) [es:bx+0xf8] = You gain the skill of Archery!
+00EB                          SetSkillLevel(08, 02)
+00FC                          ShowMessage(0F5E) = You gain the skill of Archery!
 0109 EB 0D                    jmp 0x118
-010B                          ShowMessage(0F7D) [es:bx+0xf8] = The waters are refreshing, but not enlightening!
+010B                          ShowMessage(0F7D) = The waters are refreshing, but not enlightening!
 0118                          RETURN
 
 CSTLENCA_2C:
 0000                          BEGIN
-0003                          AddEncounter(17, 01) [es:bx+0xd4]
-0015                          AddEncounter(17, 02) [es:bx+0xd4]
-0027                          AddEncounter(20, 04) [es:bx+0xd4]
-0039                          AddEncounter(17, 05) [es:bx+0xd4]
-004B                          AddEncounter(17, 06) [es:bx+0xd4]
+0003                          AddEncounter(17, 01)
+0015                          AddEncounter(17, 02)
+0027                          AddEncounter(20, 04)
+0039                          AddEncounter(17, 05)
+004B                          AddEncounter(17, 06)
 005D                          RETURN
 
 CSTLENCB_2D:
 0000                          BEGIN
-0003                          AddEncounter(1D, 01) [es:bx+0xd4]
-0015                          AddEncounter(1D, 02) [es:bx+0xd4]
-0027                          AddEncounter(1D, 04) [es:bx+0xd4]
-0039                          AddEncounter(1D, 06) [es:bx+0xd4]
+0003                          AddEncounter(1D, 01)
+0015                          AddEncounter(1D, 02)
+0027                          AddEncounter(1D, 04)
+0039                          AddEncounter(1D, 06)
 004B                          RETURN
 
 CSTLENCC_2E:
 0000                          BEGIN
-0003                          AddEncounter(18, 01) [es:bx+0xd4]
-0015                          AddEncounter(18, 02) [es:bx+0xd4]
-0027                          AddEncounter(22, 03) [es:bx+0xd4]
-0039                          AddEncounter(22, 04) [es:bx+0xd4]
+0003                          AddEncounter(18, 01)
+0015                          AddEncounter(18, 02)
+0027                          AddEncounter(22, 03)
+0039                          AddEncounter(22, 04)
 004B                          RETURN
 
 CSTLENCD_2F:
 0000                          BEGIN
-0003                          AddEncounter(1D, 01) [es:bx+0xd4]
-0015                          AddEncounter(1D, 02) [es:bx+0xd4]
-0027                          AddEncounter(1D, 04) [es:bx+0xd4]
-0039                          AddEncounter(18, 05) [es:bx+0xd4]
-004B                          AddEncounter(18, 06) [es:bx+0xd4]
+0003                          AddEncounter(1D, 01)
+0015                          AddEncounter(1D, 02)
+0027                          AddEncounter(1D, 04)
+0039                          AddEncounter(18, 05)
+004B                          AddEncounter(18, 06)
 005D                          RETURN
 
 CSTLENCE_30:
 0000                          BEGIN
-0003                          AddEncounter(21, 01) [es:bx+0xd4]
-0015                          AddEncounter(21, 02) [es:bx+0xd4]
-0027                          AddEncounter(21, 04) [es:bx+0xd4]
-0039                          AddEncounter(0A, 05) [es:bx+0xd4]
-004B                          AddEncounter(21, 06) [es:bx+0xd4]
+0003                          AddEncounter(21, 01)
+0015                          AddEncounter(21, 02)
+0027                          AddEncounter(21, 04)
+0039                          AddEncounter(0A, 05)
+004B                          AddEncounter(21, 06)
 005D                          RETURN
 
 TXTCSTLA_35:
 0000                          BEGIN
-0003                          ShowMessage(0FAE) [es:bx+0xf8] = A message is etched on wall...
-0010                          ShowMessage(0FCD) [es:bx+0xf8] = 'The runes seem to spell names.  That is the way to Arnakkian.'
+0003                          ShowMessage(0FAE) = A message is etched on wall...
+0010                          ShowMessage(0FCD) = 'The runes seem to spell names.  That is the way to Arnakkian.'
 001D                          RETURN
 
 TXTCSTLB_36:
 0000                          BEGIN
-0003                          ShowPortrait(0016) [es:bx+0xfc]
-0010                          ShowMessage(100D) [es:bx+0xf8] = A Human Barbarian belches, then looks up at you.
-001D                          ShowMessage(103E) [es:bx+0xf8] = 'Andreas built a great pit. Two.'
-002A                          ShowMessage(1060) [es:bx+0xf8] = Holding up three fingers, he repeats...
-0037                          ShowMessage(1088) [es:bx+0xf8] = 'Two.  Must need two to cross.'
+0003                          ShowPortrait(0016)
+0010                          ShowMessage(100D) = A Human Barbarian belches, then looks up at you.
+001D                          ShowMessage(103E) = 'Andreas built a great pit. Two.'
+002A                          ShowMessage(1060) = Holding up three fingers, he repeats...
+0037                          ShowMessage(1088) = 'Two.  Must need two to cross.'
 0044                          RETURN
 
 FNTNHEAL_37:
 0000                          BEGIN
-0003                          ax = GetHits() [es:bx+0x74]
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 9F 94 00           call far word [es:bx+0x94]
-0013 59                       pop cx
-0014                          ShowPortrait(0042) [es:bx+0xfc]
-0021                          ShowMessage(10A8) [es:bx+0xf8] = DayFrost Fountain restores your Health.
+0003                          ax = GetMaxHits()
+000A                          AddHealth(ax)
+0014                          ShowPortrait(0042)
+0021                          ShowMessage(10A8) = DayFrost Fountain restores your Health.
 002E                          RETURN
 
 FNTNMANA_38:
@@ -553,27 +419,25 @@ FNTNMANA_38:
 0007 C4 5E 06                 les bx, [bp+0x6]
 000A 26 FF 9F B4 00           call far word [es:bx+0xb4]
 000F 59                       pop cx
-0010                          ShowPortrait(0042) [es:bx+0xfc]
-001D                          ShowMessage(10D0) [es:bx+0xf8] = NightFrost Fountain renews your Mana.
+0010                          ShowPortrait(0042)
+001D                          ShowMessage(10D0) = NightFrost Fountain renews your Mana.
 002A                          RETURN
 
 TXTCSTLC_3B:
 0000                          BEGIN
-0003                          ShowPortrait(0011) [es:bx+0xfc]
-0010                          ShowMessage(10F6) [es:bx+0xf8] = A Phantasm appears...
-001D                          ShowMessage(110C) [es:bx+0xf8] = 'Dare time?  Yes?  Ah, adventurers should not challenge En-Li-Kil!'
-002A                          ShowMessage(1150) [es:bx+0xf8] = The Phantasm drains your life energies.
-0037 C4 5E 06                 les bx, [bp+0x6]
-003A 26 FF 5F 70              call far word [es:bx+0x70]
+0003                          ShowPortrait(0011)
+0010                          ShowMessage(10F6) = A Phantasm appears...
+001D                          ShowMessage(110C) = 'Dare time?  Yes?  Ah, adventurers should not challenge En-Li-Kil!'
+002A                          ShowMessage(1150) = The Phantasm drains your life energies.
+0037                          ax = GetCurrentHits()
 003E BB 02 00                 mov bx, 0x2
 0041 99                       cwd
 0042 F7 FB                    idiv bx
-0044                          DoDamage(ax) [es:bx+0x90]
-004E C4 5E 06                 les bx, [bp+0x6]
-0051 26 FF 5F 70              call far word [es:bx+0x70]
+0044                          DoDamage(ax)
+004E                          ax = GetCurrentHits()
 0055 0B C0                    or ax, ax
 0057 77 0D                    ja 0x66
-0059                          ShowMessage(1178) [es:bx+0xf8] = You have died.
+0059                          ShowMessage(1178) = You have died.
 0066                          RETURN
 
 03FC: You stumble into the lava river and die.

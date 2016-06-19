@@ -1,682 +1,576 @@
 TOCORDOR_01:
 0000                          BEGIN
-0003                          GoMap(01, 08, 03, 03) [es:bx+0xbc]
+0003                          GoMap(01, 08, 03, 03)
 001E                          RETURN
 
 TELEPORT_02:
 0000                          BEGIN
-0003                          ax = CheckLevel(001E) [es:bx+0x44]
+0003                          ax = CheckLevel(001E)
 0011 74 1D                    jz 0x30
-0013                          GoMap(02, 7A, 01, 38) [es:bx+0xbc]
+0013                          GoMap(02, 7A, 01, 38)
 002E EB 37                    jmp 0x67
-0030                          ShowMessage(03FC) [es:bx+0xf8] = A note reads -
-003D                          ShowMessage(040B) [es:bx+0xf8] = 'Only heroes of the thirtieth level or higher may pass this door.'
-004A                          ax = SetExitability(00) [es:bx+0x24]
+0030                          ShowMessage(03FC) = A note reads -
+003D                          ShowMessage(040B) = 'Only heroes of the thirtieth level or higher may pass this door.'
+004A                          Push(00)
+004D                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0054 50                       push ax
-0055 C4 5E 06                 les bx, [bp+0x6]
-0058 26 FF 5F 20              call far word [es:bx+0x20]
+0055                          ax = GetNextTile()
 005C 50                       push ax
-005D C4 5E 06                 les bx, [bp+0x6]
-0060 26 FF 5F 2C              call far word [es:bx+0x2c]
-0064 83 C4 06                 add sp, 0x6
+005D                          Move(stk[0], stk[1], stk[2])
 0067                          RETURN
 
 TELEPORT_03:
 0000                          BEGIN
-0003                          GoMap(02, 20, 04, 01) [es:bx+0xbc]
+0003                          GoMap(02, 20, 04, 01)
 001E                          RETURN
 
 HIDNDOOR_04:
 0000                          BEGIN
-0003                          ax = HasItem(D4) [es:bx+0x50]
+0003                          ax = HasItem(D4)
 0011 74 46                    jz 0x59
-0013                          ax = SetExitability(01) [es:bx+0x24]
+0013                          Push(01)
+0017                          ax = SetExitability(ax) // ax is usually 0 following equality check
 001E 50                       push ax
-001F C4 5E 06                 les bx, [bp+0x6]
-0022 26 FF 5F 20              call far word [es:bx+0x20]
+001F                          ax = GetNextTile()
 0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 5F 2C              call far word [es:bx+0x2c]
-002E 83 C4 06                 add sp, 0x6
-0031 33 C0                    xor ax, ax
-0033 50                       push ax
-0034 C4 5E 06                 les bx, [bp+0x6]
-0037 26 FF 5F 20              call far word [es:bx+0x20]
+0027                          Move(stk[0], stk[1], stk[2])
+0031                          Push(00)
+0034                          ax = GetNextTile()
 003B 50                       push ax
-003C B8 01 00                 mov ax, 0x1
-003F 50                       push ax
-0040 C4 5E 06                 les bx, [bp+0x6]
-0043 26 FF 5F 30              call far word [es:bx+0x30]
-0047 83 C4 06                 add sp, 0x6
-004A                          ShowMessage(044E) [es:bx+0xf8] = The Sunbeam Key reveals a hidden door to the Dwarf Kingdom!
+003C                          Push(01)
+0040                          SetUnblocked()
+004A                          ShowMessage(044E) = The Sunbeam Key reveals a hidden door to the Dwarf Kingdom!
 0057 EB 1D                    jmp 0x76
-0059                          ax = SetExitability(00) [es:bx+0x24]
+0059                          Push(00)
+005C                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0063 50                       push ax
-0064 C4 5E 06                 les bx, [bp+0x6]
-0067 26 FF 5F 20              call far word [es:bx+0x20]
+0064                          ax = GetNextTile()
 006B 50                       push ax
-006C C4 5E 06                 les bx, [bp+0x6]
-006F 26 FF 5F 2C              call far word [es:bx+0x2c]
-0073 83 C4 06                 add sp, 0x6
+006C                          Move(stk[0], stk[1], stk[2])
 0076                          RETURN
 
 LKPKDOOR_05:
 0000                          BEGIN
-0003 B8 C4 00                 mov ax, 0xc4
-0006 50                       push ax
-0007 B8 C2 00                 mov ax, 0xc2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 54              call far word [es:bx+0x54]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = UsedItem(C2, C4)
 0016 75 11                    jnz 0x29
-0018 B8 0E 00                 mov ax, 0xe
-001B 50                       push ax
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 5F 58              call far word [es:bx+0x58]
-0023 59                       pop cx
-0024 3D 08 00                 cmp ax, 0x8
+0018                          ax = UsedSkill(0E, 08) // returns 0 if did not use, compares to 2nd op if did use
 0027 72 4B                    jb 0x74
-0029                          ax = SetExitability(01) [es:bx+0x24]
+0029                          Push(01)
+002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0034 50                       push ax
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 5F 20              call far word [es:bx+0x20]
+0035                          ax = GetNextTile()
 003C 50                       push ax
-003D C4 5E 06                 les bx, [bp+0x6]
-0040 26 FF 5F 2C              call far word [es:bx+0x2c]
-0044 83 C4 06                 add sp, 0x6
-0047                          ax = SetExitability(ax) [es:bx+0x24]
+003D                          Move(stk[0], stk[1], stk[2])
+0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
 004E 50                       push ax
-004F C4 5E 06                 les bx, [bp+0x6]
-0052 26 FF 5F 20              call far word [es:bx+0x20]
+004F                          ax = GetNextTile()
 0056 50                       push ax
-0057 B8 01 00                 mov ax, 0x1
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 5F 30              call far word [es:bx+0x30]
-0062 83 C4 06                 add sp, 0x6
-0065                          ShowMessage(048A) [es:bx+0xf8] = You skillfully pick the door lock.
+0057                          Push(01)
+005B                          SetUnblocked()
+0065                          ShowMessage(048A) = You skillfully pick the door lock.
 0072 EB 2A                    jmp 0x9e
-0074                          ax = SetExitability(00) [es:bx+0x24]
+0074                          Push(00)
+0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
 007E 50                       push ax
-007F C4 5E 06                 les bx, [bp+0x6]
-0082 26 FF 5F 20              call far word [es:bx+0x20]
+007F                          ax = GetNextTile()
 0086 50                       push ax
-0087 C4 5E 06                 les bx, [bp+0x6]
-008A 26 FF 5F 2C              call far word [es:bx+0x2c]
-008E 83 C4 06                 add sp, 0x6
-0091                          ShowMessage(04AD) [es:bx+0xf8] = The door is locked.
+0087                          Move(stk[0], stk[1], stk[2])
+0091                          ShowMessage(04AD) = The door is locked.
 009E                          RETURN
 
 CRWNNICH_06:
 0000                          BEGIN
-0003                          ax = HasItem(69) [es:bx+0x50]
+0003                          ax = HasItem(69)
 0011 75 15                    jnz 0x28
-0013                          ax = CheckState2(01, 01) [es:bx+0x8]
+0013                          ax = CheckState2(01, 01)
 0026 74 4A                    jz 0x72
-0028                          RemoveItem(69) [es:bx+0x4c]
-0034                          SetState(01, 01, 01) [es:bx]
-0049                          ShowMessage(04C1) [es:bx+0xf8] = Invisible hands take Cleowyn's Crown and place it in a niche in the wall.
-0056                          ShowMessage(050B) [es:bx+0xf8] = The niche disappears.
-0063                          ShowMessage(0521) [es:bx+0xf8] = You hear a rumbling sound in the distance
+0028                          RemoveItem(69)
+0034                          SetState(01, 01, 01)
+0049                          ShowMessage(04C1) = Invisible hands take Cleowyn's Crown and place it in a niche in the wall.
+0056                          ShowMessage(050B) = The niche disappears.
+0063                          ShowMessage(0521) = You hear a rumbling sound in the distance
 0070 EB 0D                    jmp 0x7f
-0072                          ShowMessage(054B) [es:bx+0xf8] = There is a niche in the wall which seems designed to hold a crown.
+0072                          ShowMessage(054B) = There is a niche in the wall which seems designed to hold a crown.
 007F                          RETURN
 
 CRWNDOOR_07:
 0000                          BEGIN
-0003                          ax = CheckState(01, 01, 01) [es:bx+0x4]
+0003                          ax = CheckState(01, 01, 01)
 0017 75 4B                    jnz 0x64
-0019                          ax = SetExitability(01) [es:bx+0x24]
+0019                          Push(01)
+001D                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0024 50                       push ax
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 5F 20              call far word [es:bx+0x20]
+0025                          ax = GetNextTile()
 002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 5F 2C              call far word [es:bx+0x2c]
-0034 83 C4 06                 add sp, 0x6
-0037                          ax = SetExitability(ax) [es:bx+0x24]
+002D                          Move(stk[0], stk[1], stk[2])
+0037                          ax = SetExitability(ax) // ax is usually 0 following equality check
 003E 50                       push ax
-003F C4 5E 06                 les bx, [bp+0x6]
-0042 26 FF 5F 20              call far word [es:bx+0x20]
+003F                          ax = GetNextTile()
 0046 50                       push ax
-0047 B8 01 00                 mov ax, 0x1
-004A 50                       push ax
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 30              call far word [es:bx+0x30]
-0052 83 C4 06                 add sp, 0x6
-0055                          ShowMessage(058E) [es:bx+0xf8] = Returning the Crown of Cleowyn reveals a secret door in the west wall!
+0047                          Push(01)
+004B                          SetUnblocked()
+0055                          ShowMessage(058E) = Returning the Crown of Cleowyn reveals a secret door in the west wall!
 0062 EB 1D                    jmp 0x81
-0064                          ax = SetExitability(00) [es:bx+0x24]
+0064                          Push(00)
+0067                          ax = SetExitability(ax) // ax is usually 0 following equality check
 006E 50                       push ax
-006F C4 5E 06                 les bx, [bp+0x6]
-0072 26 FF 5F 20              call far word [es:bx+0x20]
+006F                          ax = GetNextTile()
 0076 50                       push ax
-0077 C4 5E 06                 les bx, [bp+0x6]
-007A 26 FF 5F 2C              call far word [es:bx+0x2c]
-007E 83 C4 06                 add sp, 0x6
+0077                          Move(stk[0], stk[1], stk[2])
 0081                          RETURN
 
 ROBENICH_08:
 0000                          BEGIN
-0003                          ax = HasItem(78) [es:bx+0x50]
+0003                          ax = HasItem(78)
 0011 74 16                    jz 0x29
-0013                          ax = CheckState(01, 01, 01) [es:bx+0x4]
+0013                          ax = CheckState(01, 01, 01)
 0027 74 15                    jz 0x3e
-0029                          ax = CheckState2(01, 02) [es:bx+0x8]
+0029                          ax = CheckState2(01, 02)
 003C 74 4A                    jz 0x88
-003E                          RemoveItem(78) [es:bx+0x4c]
-004A                          SetState(01, 02, 01) [es:bx]
-005F                          ShowMessage(05D5) [es:bx+0xf8] = Cleowyn's Robe flies out of your hands and into a niche in the wall.
-006C                          ShowMessage(061A) [es:bx+0xf8] = The niche disappears.
-0079                          ShowMessage(0630) [es:bx+0xf8] = You hear a rumbling sound in the distance.
+003E                          RemoveItem(78)
+004A                          SetState(01, 02, 01)
+005F                          ShowMessage(05D5) = Cleowyn's Robe flies out of your hands and into a niche in the wall.
+006C                          ShowMessage(061A) = The niche disappears.
+0079                          ShowMessage(0630) = You hear a rumbling sound in the distance.
 0086 EB 26                    jmp 0xae
-0088 33 C0                    xor ax, ax
-008A 50                       push ax
-008B B8 02 00                 mov ax, 0x2
-008E 50                       push ax
-008F C4 5E 06                 les bx, [bp+0x6]
-0092 26 FF 5F 20              call far word [es:bx+0x20]
+0088                          Push(00)
+008B                          Push(02)
+008F                          ax = GetNextTile()
 0096 50                       push ax
-0097 C4 5E 06                 les bx, [bp+0x6]
-009A 26 FF 5F 2C              call far word [es:bx+0x2c]
-009E 83 C4 06                 add sp, 0x6
-00A1                          ShowMessage(065B) [es:bx+0xf8] = There is a niche in the wall which seems designed to hold a robe.
+0097                          Move(stk[0], stk[1], stk[2])
+00A1                          ShowMessage(065B) = There is a niche in the wall which seems designed to hold a robe.
 00AE                          RETURN
 
 ROBEDOOR_09:
 0000                          BEGIN
-0003                          ax = CheckState(01, 02, 01) [es:bx+0x4]
+0003                          ax = CheckState(01, 02, 01)
 0017 75 43                    jnz 0x5c
-0019 B8 01 00                 mov ax, 0x1
-001C 50                       push ax
-001D B8 02 00                 mov ax, 0x2
-0020 50                       push ax
-0021 C4 5E 06                 les bx, [bp+0x6]
-0024 26 FF 5F 20              call far word [es:bx+0x20]
+0019                          Push(01)
+001D                          Push(02)
+0021                          ax = GetNextTile()
 0028 50                       push ax
-0029 C4 5E 06                 les bx, [bp+0x6]
-002C 26 FF 5F 2C              call far word [es:bx+0x2c]
-0030 83 C4 06                 add sp, 0x6
-0033 B8 02 00                 mov ax, 0x2
-0036 50                       push ax
-0037 C4 5E 06                 les bx, [bp+0x6]
-003A 26 FF 5F 20              call far word [es:bx+0x20]
+0029                          Move(stk[0], stk[1], stk[2])
+0033                          Push(02)
+0037                          ax = GetNextTile()
 003E 50                       push ax
-003F B8 01 00                 mov ax, 0x1
-0042 50                       push ax
-0043 C4 5E 06                 les bx, [bp+0x6]
-0046 26 FF 5F 30              call far word [es:bx+0x30]
-004A 83 C4 06                 add sp, 0x6
-004D                          ShowMessage(069D) [es:bx+0xf8] = Returning the Robe of Cleowyn reveals a secret door in the east wall.
+003F                          Push(01)
+0043                          SetUnblocked()
+004D                          ShowMessage(069D) = Returning the Robe of Cleowyn reveals a secret door in the east wall.
 005A EB 1D                    jmp 0x79
-005C                          ax = SetExitability(00) [es:bx+0x24]
+005C                          Push(00)
+005F                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0066 50                       push ax
-0067 C4 5E 06                 les bx, [bp+0x6]
-006A 26 FF 5F 20              call far word [es:bx+0x20]
+0067                          ax = GetNextTile()
 006E 50                       push ax
-006F C4 5E 06                 les bx, [bp+0x6]
-0072 26 FF 5F 2C              call far word [es:bx+0x2c]
-0076 83 C4 06                 add sp, 0x6
+006F                          Move(stk[0], stk[1], stk[2])
 0079                          RETURN
 
 SCEPNICH_0A:
 0000                          BEGIN
-0003                          ax = HasItem(E3) [es:bx+0x50]
+0003                          ax = HasItem(E3)
 0011 74 2A                    jz 0x3d
-0013                          ax = CheckState2(01, 01) [es:bx+0x8]
+0013                          ax = CheckState2(01, 01)
 0026 74 15                    jz 0x3d
-0028                          ax = CheckState2(01, 02) [es:bx+0x8]
+0028                          ax = CheckState2(01, 02)
 003B 75 18                    jnz 0x55
-003D                          ax = CheckState2(01, 03) [es:bx+0x8]
+003D                          ax = CheckState2(01, 03)
 0050 75 03                    jnz 0x55
 0052 E9 8B 00                 jmp 0xe0
-0055                          RemoveItem(E3) [es:bx+0x4c]
-0061                          SetState(01, 03, 01) [es:bx]
-0076 B8 01 00                 mov ax, 0x1
-0079 50                       push ax
-007A B8 03 00                 mov ax, 0x3
-007D 50                       push ax
-007E C4 5E 06                 les bx, [bp+0x6]
-0081 26 FF 5F 20              call far word [es:bx+0x20]
+0055                          RemoveItem(E3)
+0061                          SetState(01, 03, 01)
+0076                          Push(01)
+007A                          Push(03)
+007E                          ax = GetNextTile()
 0085 50                       push ax
-0086 C4 5E 06                 les bx, [bp+0x6]
-0089 26 FF 5F 2C              call far word [es:bx+0x2c]
-008D 83 C4 06                 add sp, 0x6
-0090 B8 03 00                 mov ax, 0x3
-0093 50                       push ax
-0094 C4 5E 06                 les bx, [bp+0x6]
-0097 26 FF 5F 20              call far word [es:bx+0x20]
+0086                          Move(stk[0], stk[1], stk[2])
+0090                          Push(03)
+0094                          ax = GetNextTile()
 009B 50                       push ax
-009C B8 01 00                 mov ax, 0x1
-009F 50                       push ax
-00A0 C4 5E 06                 les bx, [bp+0x6]
-00A3 26 FF 5F 30              call far word [es:bx+0x30]
-00A7 83 C4 06                 add sp, 0x6
-00AA                          ShowMessage(06E3) [es:bx+0xf8] = Cleowyn's Scepter is taken from you by spectral hands and is placed in a niche in the wall.
-00B7                          ShowMessage(073F) [es:bx+0xf8] = The spirit of King Cleowyn whispers -
-00C4                          ShowMessage(0765) [es:bx+0xf8] = 'Well done!  The reward is yours for the taking, if you dare claim it.
-00D1                          ShowMessage(07AC) [es:bx+0xf8] = The door to the tomb opens.
+009C                          Push(01)
+00A0                          SetUnblocked()
+00AA                          ShowMessage(06E3) = Cleowyn's Scepter is taken from you by spectral hands and is placed in a niche in the wall.
+00B7                          ShowMessage(073F) = The spirit of King Cleowyn whispers -
+00C4                          ShowMessage(0765) = 'Well done!  The reward is yours for the taking, if you dare claim it.
+00D1                          ShowMessage(07AC) = The door to the tomb opens.
 00DE EB 26                    jmp 0x106
-00E0 33 C0                    xor ax, ax
-00E2 50                       push ax
-00E3 B8 03 00                 mov ax, 0x3
-00E6 50                       push ax
-00E7 C4 5E 06                 les bx, [bp+0x6]
-00EA 26 FF 5F 20              call far word [es:bx+0x20]
+00E0                          Push(00)
+00E3                          Push(03)
+00E7                          ax = GetNextTile()
 00EE 50                       push ax
-00EF C4 5E 06                 les bx, [bp+0x6]
-00F2 26 FF 5F 2C              call far word [es:bx+0x2c]
-00F6 83 C4 06                 add sp, 0x6
-00F9                          ShowMessage(07C8) [es:bx+0xf8] = There is a niche in the wall which seems designed to hold a scepter.
+00EF                          Move(stk[0], stk[1], stk[2])
+00F9                          ShowMessage(07C8) = There is a niche in the wall which seems designed to hold a scepter.
 0106                          RETURN
 
 GOLDAENC_0C:
 0000                          BEGIN
-0003                          ax = CheckState(02, 2C, 01) [es:bx+0x4]
+0003                          ax = CheckState(02, 2C, 01)
 0017 75 2F                    jnz 0x48
-0019                          ShowMessage(080D) [es:bx+0xf8] = The room you enter is cold as ice.
-0026                          AddTreasure(008C, 00, 00, 00, A9, CC) [es:bx+0xd8]
+0019                          ShowMessage(080D) = The room you enter is cold as ice.
+0026                          AddTreasure(008C, 00, 00, 00, A9, CC)
 0046 EB 43                    jmp 0x8b
-0048                          AddTreasure(0FA0, 00, 00, CD, B7, D0) [es:bx+0xd8]
-0069                          SetState(02, 2C, 01) [es:bx]
-007E                          ShowMessage(0830) [es:bx+0xf8] = An Ice Lion stands over a torn bag of gold.
-008B                          ax = PartyCountIs(01) [es:bx+0xf0]
+0048                          AddTreasure(0FA0, 00, 00, CD, B7, D0)
+0069                          SetState(02, 2C, 01)
+007E                          ShowMessage(0830) = An Ice Lion stands over a torn bag of gold.
+008B                          ax = PartyCountIs(01)
 0096 75 27                    jnz 0xbf
-0098                          AddEncounter(19, 01) [es:bx+0xd4]
-00AA                          AddEncounter(19, 02) [es:bx+0xd4]
+0098                          AddEncounter(19, 01)
+00AA                          AddEncounter(19, 02)
 00BC E9 C3 00                 jmp 0x182
-00BF                          ax = PartyCountIs(02) [es:bx+0xf0]
+00BF                          ax = PartyCountIs(02)
 00CA 75 4A                    jnz 0x116
-00CC                          AddEncounter(19, 01) [es:bx+0xd4]
-00DE                          AddEncounter(19, 02) [es:bx+0xd4]
-00F0                          AddEncounter(1A, 03) [es:bx+0xd4]
-0102                          AddEncounter(1A, 04) [es:bx+0xd4]
+00CC                          AddEncounter(19, 01)
+00DE                          AddEncounter(19, 02)
+00F0                          AddEncounter(1A, 03)
+0102                          AddEncounter(1A, 04)
 0114 EB 6C                    jmp 0x182
-0116                          AddEncounter(1A, 01) [es:bx+0xd4]
-0128                          AddEncounter(1A, 02) [es:bx+0xd4]
-013A                          AddEncounter(1A, 03) [es:bx+0xd4]
-014C                          AddEncounter(1A, 04) [es:bx+0xd4]
-015E                          AddEncounter(19, 05) [es:bx+0xd4]
-0170                          AddEncounter(19, 06) [es:bx+0xd4]
+0116                          AddEncounter(1A, 01)
+0128                          AddEncounter(1A, 02)
+013A                          AddEncounter(1A, 03)
+014C                          AddEncounter(1A, 04)
+015E                          AddEncounter(19, 05)
+0170                          AddEncounter(19, 06)
 0182                          RETURN
 
 GOLDBENC_0D:
 0000                          BEGIN
-0003                          ax = CheckState(02, 2D, 01) [es:bx+0x4]
+0003                          ax = CheckState(02, 2D, 01)
 0017 75 2F                    jnz 0x48
-0019                          ShowMessage(085C) [es:bx+0xf8] = The room stinks of rotten meat.
-0026                          AddTreasure(00B4, 00, 00, 00, B6, CF) [es:bx+0xd8]
+0019                          ShowMessage(085C) = The room stinks of rotten meat.
+0026                          AddTreasure(00B4, 00, 00, 00, B6, CF)
 0046 EB 42                    jmp 0x8a
-0048                          AddTreasure(0BB8, 00, 00, 00, D0, AA) [es:bx+0xd8]
-0068                          SetState(02, 2D, 01) [es:bx]
-007D                          ShowMessage(087C) [es:bx+0xf8] = Something kicks gold across the floor as it charges you.
-008A                          ax = PartyCountIs(01) [es:bx+0xf0]
+0048                          AddTreasure(0BB8, 00, 00, 00, D0, AA)
+0068                          SetState(02, 2D, 01)
+007D                          ShowMessage(087C) = Something kicks gold across the floor as it charges you.
+008A                          ax = PartyCountIs(01)
 0095 74 0D                    jz 0xa4
-0097                          ax = PartyCountIs(02) [es:bx+0xf0]
+0097                          ax = PartyCountIs(02)
 00A2 75 27                    jnz 0xcb
-00A4                          AddEncounter(23, 01) [es:bx+0xd4]
-00B6                          AddEncounter(24, 02) [es:bx+0xd4]
+00A4                          AddEncounter(23, 01)
+00B6                          AddEncounter(24, 02)
 00C8 E9 8D 00                 jmp 0x158
-00CB                          ax = PartyCountIs(03) [es:bx+0xf0]
+00CB                          ax = PartyCountIs(03)
 00D6 75 38                    jnz 0x110
-00D8                          AddEncounter(23, 01) [es:bx+0xd4]
-00EA                          AddEncounter(23, 02) [es:bx+0xd4]
-00FC                          AddEncounter(23, 03) [es:bx+0xd4]
+00D8                          AddEncounter(23, 01)
+00EA                          AddEncounter(23, 02)
+00FC                          AddEncounter(23, 03)
 010E EB 48                    jmp 0x158
-0110                          AddEncounter(23, 01) [es:bx+0xd4]
-0122                          AddEncounter(24, 02) [es:bx+0xd4]
-0134                          AddEncounter(24, 03) [es:bx+0xd4]
-0146                          AddEncounter(23, 04) [es:bx+0xd4]
+0110                          AddEncounter(23, 01)
+0122                          AddEncounter(24, 02)
+0134                          AddEncounter(24, 03)
+0146                          AddEncounter(23, 04)
 0158                          RETURN
 
 SPCMONSA_0E:
 0000                          BEGIN
-0003                          ShowMessage(08B5) [es:bx+0xf8] = Lizardites guard this area.
-0010                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ShowMessage(08B5) = Lizardites guard this area.
+0010                          ax = PartyCountIs(01)
 001B 75 27                    jnz 0x44
-001D                          AddEncounter(1E, 01) [es:bx+0xd4]
-002F                          AddEncounter(1E, 02) [es:bx+0xd4]
+001D                          AddEncounter(1E, 01)
+002F                          AddEncounter(1E, 02)
 0041 E9 C3 00                 jmp 0x107
-0044                          ax = PartyCountIs(02) [es:bx+0xf0]
+0044                          ax = PartyCountIs(02)
 004F 75 4A                    jnz 0x9b
-0051                          AddEncounter(1E, 01) [es:bx+0xd4]
-0063                          AddEncounter(1E, 02) [es:bx+0xd4]
-0075                          AddEncounter(1E, 03) [es:bx+0xd4]
-0087                          AddEncounter(1E, 04) [es:bx+0xd4]
+0051                          AddEncounter(1E, 01)
+0063                          AddEncounter(1E, 02)
+0075                          AddEncounter(1E, 03)
+0087                          AddEncounter(1E, 04)
 0099 EB 6C                    jmp 0x107
-009B                          AddEncounter(1E, 01) [es:bx+0xd4]
-00AD                          AddEncounter(1E, 02) [es:bx+0xd4]
-00BF                          AddEncounter(1E, 03) [es:bx+0xd4]
-00D1                          AddEncounter(1E, 04) [es:bx+0xd4]
-00E3                          AddEncounter(1E, 05) [es:bx+0xd4]
-00F5                          AddEncounter(1E, 06) [es:bx+0xd4]
+009B                          AddEncounter(1E, 01)
+00AD                          AddEncounter(1E, 02)
+00BF                          AddEncounter(1E, 03)
+00D1                          AddEncounter(1E, 04)
+00E3                          AddEncounter(1E, 05)
+00F5                          AddEncounter(1E, 06)
 0107                          RETURN
 
 SPCMONSB_0F:
 0000                          BEGIN
-0003                          ShowMessage(08D1) [es:bx+0xf8] = Giants guard the corridor.
-0010                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ShowMessage(08D1) = Giants guard the corridor.
+0010                          ax = PartyCountIs(01)
 001B 75 15                    jnz 0x32
-001D                          AddEncounter(25, 01) [es:bx+0xd4]
+001D                          AddEncounter(25, 01)
 002F E9 D0 00                 jmp 0x102
-0032                          ax = PartyCountIs(02) [es:bx+0xf0]
+0032                          ax = PartyCountIs(02)
 003D 74 0D                    jz 0x4c
-003F                          ax = PartyCountIs(03) [es:bx+0xf0]
+003F                          ax = PartyCountIs(03)
 004A 75 4A                    jnz 0x96
-004C                          AddEncounter(25, 01) [es:bx+0xd4]
-005E                          AddEncounter(25, 02) [es:bx+0xd4]
-0070                          AddEncounter(25, 03) [es:bx+0xd4]
-0082                          AddEncounter(25, 05) [es:bx+0xd4]
+004C                          AddEncounter(25, 01)
+005E                          AddEncounter(25, 02)
+0070                          AddEncounter(25, 03)
+0082                          AddEncounter(25, 05)
 0094 EB 6C                    jmp 0x102
-0096                          AddEncounter(25, 01) [es:bx+0xd4]
-00A8                          AddEncounter(25, 02) [es:bx+0xd4]
-00BA                          AddEncounter(25, 03) [es:bx+0xd4]
-00CC                          AddEncounter(25, 04) [es:bx+0xd4]
-00DE                          AddEncounter(25, 05) [es:bx+0xd4]
-00F0                          AddEncounter(25, 06) [es:bx+0xd4]
+0096                          AddEncounter(25, 01)
+00A8                          AddEncounter(25, 02)
+00BA                          AddEncounter(25, 03)
+00CC                          AddEncounter(25, 04)
+00DE                          AddEncounter(25, 05)
+00F0                          AddEncounter(25, 06)
 0102                          RETURN
 
 SPCMONSC_10:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ax = PartyCountIs(01)
 000E 75 27                    jnz 0x37
-0010                          AddEncounter(27, 01) [es:bx+0xd4]
-0022                          AddEncounter(28, 05) [es:bx+0xd4]
+0010                          AddEncounter(27, 01)
+0022                          AddEncounter(28, 05)
 0034 E9 3F 01                 jmp 0x176
-0037                          ax = PartyCountIs(02) [es:bx+0xf0]
+0037                          ax = PartyCountIs(02)
 0042 75 4B                    jnz 0x8f
-0044                          AddEncounter(27, 01) [es:bx+0xd4]
-0056                          AddEncounter(27, 02) [es:bx+0xd4]
-0068                          AddEncounter(28, 05) [es:bx+0xd4]
-007A                          AddEncounter(28, 06) [es:bx+0xd4]
+0044                          AddEncounter(27, 01)
+0056                          AddEncounter(27, 02)
+0068                          AddEncounter(28, 05)
+007A                          AddEncounter(28, 06)
 008C E9 E7 00                 jmp 0x176
-008F                          ax = PartyCountIs(03) [es:bx+0xf0]
+008F                          ax = PartyCountIs(03)
 009A 75 6E                    jnz 0x10a
-009C                          AddEncounter(27, 01) [es:bx+0xd4]
-00AE                          AddEncounter(27, 02) [es:bx+0xd4]
-00C0                          AddEncounter(27, 03) [es:bx+0xd4]
-00D2                          AddEncounter(27, 04) [es:bx+0xd4]
-00E4                          AddEncounter(28, 05) [es:bx+0xd4]
-00F6                          AddEncounter(28, 06) [es:bx+0xd4]
+009C                          AddEncounter(27, 01)
+00AE                          AddEncounter(27, 02)
+00C0                          AddEncounter(27, 03)
+00D2                          AddEncounter(27, 04)
+00E4                          AddEncounter(28, 05)
+00F6                          AddEncounter(28, 06)
 0108 EB 6C                    jmp 0x176
-010A                          AddEncounter(27, 01) [es:bx+0xd4]
-011C                          AddEncounter(27, 02) [es:bx+0xd4]
-012E                          AddEncounter(28, 03) [es:bx+0xd4]
-0140                          AddEncounter(28, 04) [es:bx+0xd4]
-0152                          AddEncounter(28, 05) [es:bx+0xd4]
-0164                          AddEncounter(28, 06) [es:bx+0xd4]
+010A                          AddEncounter(27, 01)
+011C                          AddEncounter(27, 02)
+012E                          AddEncounter(28, 03)
+0140                          AddEncounter(28, 04)
+0152                          AddEncounter(28, 05)
+0164                          AddEncounter(28, 06)
 0176                          RETURN
 
 PAYOFENC_11:
 0000                          BEGIN
-0003                          ax = CheckState(02, 37, 02) [es:bx+0x4]
+0003                          ax = CheckState(02, 37, 02)
 0017 75 10                    jnz 0x29
-0019                          ShowMessage(08EC) [es:bx+0xf8] = There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
+0019                          ShowMessage(08EC) = There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
 0026 E9 F4 00                 jmp 0x11d
-0029                          ax = CheckState(02, 37, 01) [es:bx+0x4]
+0029                          ax = CheckState(02, 37, 01)
 003D 75 7A                    jnz 0xb9
-003F                          ax = HasItem(FA) [es:bx+0x50]
+003F                          ax = HasItem(FA)
 004D 74 5B                    jz 0xaa
-004F                          RemoveItem(FA) [es:bx+0x4c]
-005B B8 96 00                 mov ax, 0x96
-005E 50                       push ax
-005F C4 5E 06                 les bx, [bp+0x6]
-0062 26 FF 5F 48              call far word [es:bx+0x48]
-0066 59                       pop cx
-0067                          SetState(02, 37, 02) [es:bx]
-007C B8 0B 00                 mov ax, 0xb
-007F BA B0 71                 mov dx, 0x71b0
-0082 50                       push ax
-0083 52                       push dx
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 9F 98 00           call far word [es:bx+0x98]
-008C 59                       pop cx
-008D 59                       pop cx
-008E                          ShowMessage(09BA) [es:bx+0xf8] = As you place Cleowyn's bones in the crypt, Cleowyn's spirit whispers to you -
-009B                          ShowMessage(0A08) [es:bx+0xf8] = 'My thanks to you. You certainly took your time finding my bones. Here is the Netherworld Medallion. Now go away and don't bother me again.'
+004F                          RemoveItem(FA)
+005B                          GiveItem(96)
+0067                          SetState(02, 37, 02)
+007C                          AddExperience(000B71B0)
+008E                          ShowMessage(09BA) = As you place Cleowyn's bones in the crypt, Cleowyn's spirit whispers to you -
+009B                          ShowMessage(0A08) = 'My thanks to you. You certainly took your time finding my bones. Here is the Netherworld Medallion. Now go away and don't bother me again.'
 00A8 EB 0D                    jmp 0xb7
-00AA                          ShowMessage(0A95) [es:bx+0xf8] = There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
+00AA                          ShowMessage(0A95) = There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
 00B7 EB 64                    jmp 0x11d
-00B9                          SetState(02, 37, 01) [es:bx]
-00CE B8 0A 00                 mov ax, 0xa
-00D1 50                       push ax
-00D2 C4 5E 06                 les bx, [bp+0x6]
-00D5 26 FF 5F 48              call far word [es:bx+0x48]
-00D9 59                       pop cx
-00DA B8 21 00                 mov ax, 0x21
-00DD 50                       push ax
-00DE C4 5E 06                 les bx, [bp+0x6]
-00E1 26 FF 5F 48              call far word [es:bx+0x48]
-00E5 59                       pop cx
-00E6 B8 48 00                 mov ax, 0x48
-00E9 50                       push ax
-00EA C4 5E 06                 les bx, [bp+0x6]
-00ED 26 FF 5F 48              call far word [es:bx+0x48]
-00F1 59                       pop cx
-00F2 B8 7C 00                 mov ax, 0x7c
-00F5 50                       push ax
-00F6 C4 5E 06                 les bx, [bp+0x6]
-00F9 26 FF 5F 48              call far word [es:bx+0x48]
-00FD 59                       pop cx
-00FE B8 03 00                 mov ax, 0x3
-0101 BA 90 D0                 mov dx, 0xd090
-0104 50                       push ax
-0105 52                       push dx
-0106 C4 5E 06                 les bx, [bp+0x6]
-0109 26 FF 9F 98 00           call far word [es:bx+0x98]
-010E 59                       pop cx
-010F 59                       pop cx
-0110                          ShowMessage(0B63) [es:bx+0xf8] = You find the Crypt of King Cleowyn and open it. Inside is the Sword of the Crypt, the Mourning Star, the Bow of Sorrow, and Galabryan Chainmail.
+00B9                          SetState(02, 37, 01)
+00CE                          GiveItem(0A)
+00DA                          GiveItem(21)
+00E6                          GiveItem(48)
+00F2                          GiveItem(7C)
+00FE                          AddExperience(0003D090)
+0110                          ShowMessage(0B63) = You find the Crypt of King Cleowyn and open it. Inside is the Sword of the Crypt, the Mourning Star, the Bow of Sorrow, and Galabryan Chainmail.
 011D                          RETURN
 
 ITEMAENC_12:
 0000                          BEGIN
-0003                          ax = CheckState(02, 67, 01) [es:bx+0x4]
+0003                          ax = CheckState(02, 67, 01)
 0017 75 2E                    jnz 0x47
-0019                          ShowMessage(0BF4) [es:bx+0xf8] = Polar Bears wander the empty room.
-0026                          AddTreasure(00C8, 00, 00, 00, 00, B7) [es:bx+0xd8]
+0019                          ShowMessage(0BF4) = Polar Bears wander the empty room.
+0026                          AddTreasure(00C8, 00, 00, 00, 00, B7)
 0045 EB 44                    jmp 0x8b
-0047                          SetState(02, 67, 01) [es:bx]
-005C                          AddTreasure(1B58, 00, D0, B2, AA, B0) [es:bx+0xd8]
-007E                          ShowMessage(0C17) [es:bx+0xf8] = A Polar Bear plays with a pile of stuff.
-008B                          ax = PartyCountIs(01) [es:bx+0xf0]
+0047                          SetState(02, 67, 01)
+005C                          AddTreasure(1B58, 00, D0, B2, AA, B0)
+007E                          ShowMessage(0C17) = A Polar Bear plays with a pile of stuff.
+008B                          ax = PartyCountIs(01)
 0096 74 0D                    jz 0xa5
-0098                          ax = PartyCountIs(02) [es:bx+0xf0]
+0098                          ax = PartyCountIs(02)
 00A3 75 26                    jnz 0xcb
-00A5                          AddEncounter(1B, 01) [es:bx+0xd4]
-00B7                          AddEncounter(1B, 02) [es:bx+0xd4]
+00A5                          AddEncounter(1B, 01)
+00B7                          AddEncounter(1B, 02)
 00C9 EB 48                    jmp 0x113
-00CB                          AddEncounter(1B, 01) [es:bx+0xd4]
-00DD                          AddEncounter(1B, 02) [es:bx+0xd4]
-00EF                          AddEncounter(1B, 03) [es:bx+0xd4]
-0101                          AddEncounter(1B, 04) [es:bx+0xd4]
+00CB                          AddEncounter(1B, 01)
+00DD                          AddEncounter(1B, 02)
+00EF                          AddEncounter(1B, 03)
+0101                          AddEncounter(1B, 04)
 0113                          RETURN
 
 ITEMBENC_13:
 0000                          BEGIN
-0003                          ax = HasItem(A1) [es:bx+0x50]
+0003                          ax = HasItem(A1)
 0011 74 2E                    jz 0x41
-0013                          ShowMessage(0C40) [es:bx+0xf8] = Hell Wolves snarl at you.
-0020                          AddTreasure(012C, 00, 00, 00, 00, B7) [es:bx+0xd8]
+0013                          ShowMessage(0C40) = Hell Wolves snarl at you.
+0020                          AddTreasure(012C, 00, 00, 00, 00, B7)
 003F EB 2D                    jmp 0x6e
-0041                          AddTreasure(1388, 00, 00, 00, D0, A1) [es:bx+0xd8]
-0061                          ShowMessage(0C5A) [es:bx+0xf8] = A Hell Wolf kicks an object aside as it leaps at you.
-006E                          ax = PartyCountIs(01) [es:bx+0xf0]
+0041                          AddTreasure(1388, 00, 00, 00, D0, A1)
+0061                          ShowMessage(0C5A) = A Hell Wolf kicks an object aside as it leaps at you.
+006E                          ax = PartyCountIs(01)
 0079 74 0D                    jz 0x88
-007B                          ax = PartyCountIs(02) [es:bx+0xf0]
+007B                          ax = PartyCountIs(02)
 0086 75 26                    jnz 0xae
-0088                          AddEncounter(1F, 01) [es:bx+0xd4]
-009A                          AddEncounter(1F, 02) [es:bx+0xd4]
+0088                          AddEncounter(1F, 01)
+009A                          AddEncounter(1F, 02)
 00AC EB 48                    jmp 0xf6
-00AE                          AddEncounter(1F, 01) [es:bx+0xd4]
-00C0                          AddEncounter(1F, 02) [es:bx+0xd4]
-00D2                          AddEncounter(1F, 03) [es:bx+0xd4]
-00E4                          AddEncounter(1F, 04) [es:bx+0xd4]
+00AE                          AddEncounter(1F, 01)
+00C0                          AddEncounter(1F, 02)
+00D2                          AddEncounter(1F, 03)
+00E4                          AddEncounter(1F, 04)
 00F6                          RETURN
 
 BADMNSTR_14:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ax = PartyCountIs(01)
 000E 75 27                    jnz 0x37
-0010                          AddEncounter(1C, 01) [es:bx+0xd4]
-0022                          AddEncounter(1E, 02) [es:bx+0xd4]
+0010                          AddEncounter(1C, 01)
+0022                          AddEncounter(1E, 02)
 0034 E9 3F 01                 jmp 0x176
-0037                          ax = PartyCountIs(02) [es:bx+0xf0]
+0037                          ax = PartyCountIs(02)
 0042 75 4B                    jnz 0x8f
-0044                          AddEncounter(1D, 01) [es:bx+0xd4]
-0056                          AddEncounter(1D, 02) [es:bx+0xd4]
-0068                          AddEncounter(1E, 03) [es:bx+0xd4]
-007A                          AddEncounter(1E, 04) [es:bx+0xd4]
+0044                          AddEncounter(1D, 01)
+0056                          AddEncounter(1D, 02)
+0068                          AddEncounter(1E, 03)
+007A                          AddEncounter(1E, 04)
 008C E9 E7 00                 jmp 0x176
-008F                          ax = PartyCountIs(03) [es:bx+0xf0]
+008F                          ax = PartyCountIs(03)
 009A 75 6E                    jnz 0x10a
-009C                          AddEncounter(1C, 01) [es:bx+0xd4]
-00AE                          AddEncounter(1C, 02) [es:bx+0xd4]
-00C0                          AddEncounter(1D, 03) [es:bx+0xd4]
-00D2                          AddEncounter(1D, 04) [es:bx+0xd4]
-00E4                          AddEncounter(1E, 05) [es:bx+0xd4]
-00F6                          AddEncounter(1E, 06) [es:bx+0xd4]
+009C                          AddEncounter(1C, 01)
+00AE                          AddEncounter(1C, 02)
+00C0                          AddEncounter(1D, 03)
+00D2                          AddEncounter(1D, 04)
+00E4                          AddEncounter(1E, 05)
+00F6                          AddEncounter(1E, 06)
 0108 EB 6C                    jmp 0x176
-010A                          AddEncounter(1E, 01) [es:bx+0xd4]
-011C                          AddEncounter(1E, 02) [es:bx+0xd4]
-012E                          AddEncounter(1E, 03) [es:bx+0xd4]
-0140                          AddEncounter(1E, 04) [es:bx+0xd4]
-0152                          AddEncounter(1D, 05) [es:bx+0xd4]
-0164                          AddEncounter(1D, 06) [es:bx+0xd4]
+010A                          AddEncounter(1E, 01)
+011C                          AddEncounter(1E, 02)
+012E                          AddEncounter(1E, 03)
+0140                          AddEncounter(1E, 04)
+0152                          AddEncounter(1D, 05)
+0164                          AddEncounter(1D, 06)
 0176                          RETURN
 
 TERMNSTR_15:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ax = PartyCountIs(01)
 000E 75 27                    jnz 0x37
-0010                          AddEncounter(1F, 01) [es:bx+0xd4]
-0022                          AddEncounter(22, 02) [es:bx+0xd4]
+0010                          AddEncounter(1F, 01)
+0022                          AddEncounter(22, 02)
 0034 E9 51 01                 jmp 0x188
-0037                          ax = PartyCountIs(02) [es:bx+0xf0]
+0037                          ax = PartyCountIs(02)
 0042 75 5D                    jnz 0xa1
-0044                          AddEncounter(20, 01) [es:bx+0xd4]
-0056                          AddEncounter(22, 02) [es:bx+0xd4]
-0068                          AddEncounter(20, 03) [es:bx+0xd4]
-007A                          AddEncounter(22, 04) [es:bx+0xd4]
-008C                          AddEncounter(21, 05) [es:bx+0xd4]
+0044                          AddEncounter(20, 01)
+0056                          AddEncounter(22, 02)
+0068                          AddEncounter(20, 03)
+007A                          AddEncounter(22, 04)
+008C                          AddEncounter(21, 05)
 009E E9 E7 00                 jmp 0x188
-00A1                          ax = PartyCountIs(03) [es:bx+0xf0]
+00A1                          ax = PartyCountIs(03)
 00AC 75 6E                    jnz 0x11c
-00AE                          AddEncounter(21, 01) [es:bx+0xd4]
-00C0                          AddEncounter(22, 02) [es:bx+0xd4]
-00D2                          AddEncounter(21, 03) [es:bx+0xd4]
-00E4                          AddEncounter(22, 04) [es:bx+0xd4]
-00F6                          AddEncounter(21, 05) [es:bx+0xd4]
-0108                          AddEncounter(22, 06) [es:bx+0xd4]
+00AE                          AddEncounter(21, 01)
+00C0                          AddEncounter(22, 02)
+00D2                          AddEncounter(21, 03)
+00E4                          AddEncounter(22, 04)
+00F6                          AddEncounter(21, 05)
+0108                          AddEncounter(22, 06)
 011A EB 6C                    jmp 0x188
-011C                          AddEncounter(22, 01) [es:bx+0xd4]
-012E                          AddEncounter(22, 02) [es:bx+0xd4]
-0140                          AddEncounter(22, 03) [es:bx+0xd4]
-0152                          AddEncounter(22, 04) [es:bx+0xd4]
-0164                          AddEncounter(21, 05) [es:bx+0xd4]
-0176                          AddEncounter(21, 06) [es:bx+0xd4]
+011C                          AddEncounter(22, 01)
+012E                          AddEncounter(22, 02)
+0140                          AddEncounter(22, 03)
+0152                          AddEncounter(22, 04)
+0164                          AddEncounter(21, 05)
+0176                          AddEncounter(21, 06)
 0188                          RETURN
 
 GATEMESS_16:
 0000                          BEGIN
-0003                          ShowMessage(0C90) [es:bx+0xf8] = This gateway leads to THE GREAT CORRIDOR.
+0003                          ShowMessage(0C90) = This gateway leads to THE GREAT CORRIDOR.
 0010                          RETURN
 
 TELEMESA_17:
 0000                          BEGIN
-0003                          ShowMessage(0CBA) [es:bx+0xf8] = There is a teleport in the east wall.
+0003                          ShowMessage(0CBA) = There is a teleport in the east wall.
 0010                          RETURN
 
 TELEMESB_18:
 0000                          BEGIN
-0003                          TileIsNoJoinArea() [es:bx+0xe0]
-000B                          ShowMessage(0CE0) [es:bx+0xf8] = There is a teleport in the west wall.
+0003                          TileIsNoJoinArea()
+000B                          ShowMessage(0CE0) = There is a teleport in the west wall.
 0018                          RETURN
 
 NPCCHATA_19:
 0000                          BEGIN
-0003                          ShowMessage(0D06) [es:bx+0xf8] = You encounter a Gremlin Cleric.
-0010                          ShowPortrait(002A) [es:bx+0xfc]
-001D                          UnknownFunction(000F) [es:bx+0xec]
+0003                          ShowMessage(0D06) = You encounter a Gremlin Cleric.
+0010                          ShowPortrait(002A)
+001D                          UnknownFunction(000F)
 002A 3D 0D 00                 cmp ax, 0xd
 002D 77 36                    ja 0x65
-002F                          ShowMessage(0D26) [es:bx+0xf8] = Listen carefully, friend. Be careful where you place the possessions Cleowyn demands. Use Crown before Robe before Scepter.
-003C                          ShowMessage(0DA2) [es:bx+0xf8] = Someone in your group must always remain in the Mausoleum until all three items are placed and the tomb is opened.
-0049                          ShowMessage(0E15) [es:bx+0xf8] = Otherwise, imps will steal the treasures away and hide them again.  They love to torment adventurers and Cleowyn's spirit.
-0056                          ShowMessage(0E90) [es:bx+0xf8] = Remember to leave one person at all times and to reform your group before continuing your quest.
+002F                          ShowMessage(0D26) = Listen carefully, friend. Be careful where you place the possessions Cleowyn demands. Use Crown before Robe before Scepter.
+003C                          ShowMessage(0DA2) = Someone in your group must always remain in the Mausoleum until all three items are placed and the tomb is opened.
+0049                          ShowMessage(0E15) = Otherwise, imps will steal the treasures away and hide them again.  They love to torment adventurers and Cleowyn's spirit.
+0056                          ShowMessage(0E90) = Remember to leave one person at all times and to reform your group before continuing your quest.
 0063 EB 0D                    jmp 0x72
-0065                          ShowMessage(0EF1) [es:bx+0xf8] = The Gremlin Cleric turns away as you approach her.
+0065                          ShowMessage(0EF1) = The Gremlin Cleric turns away as you approach her.
 0072                          RETURN
 
 NPCCHATB_1A:
 0000                          BEGIN
-0003                          ShowMessage(0F24) [es:bx+0xf8] = You encounter a Halfling Knight.
-0010                          ShowPortrait(001D) [es:bx+0xfc]
-001D                          UnknownFunction(000F) [es:bx+0xec]
+0003                          ShowMessage(0F24) = You encounter a Halfling Knight.
+0010                          ShowPortrait(001D)
+001D                          UnknownFunction(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0F45) [es:bx+0xf8] = The longest routes through this Mausoleum are the least rewarding.
+002F                          ShowMessage(0F45) = The longest routes through this Mausoleum are the least rewarding.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0F88) [es:bx+0xf8] = The Halfling Knight looks at you once and then continues polishing her shield.
+003E                          ShowMessage(0F88) = The Halfling Knight looks at you once and then continues polishing her shield.
 004B                          RETURN
 
 NPCCHATC_1B:
 0000                          BEGIN
-0003                          ShowMessage(0FD7) [es:bx+0xf8] = You encounter an Elf Ranger.
-0010                          ShowPortrait(001F) [es:bx+0xfc]
-001D                          UnknownFunction(000F) [es:bx+0xec]
+0003                          ShowMessage(0FD7) = You encounter an Elf Ranger.
+0010                          ShowPortrait(001F)
+001D                          UnknownFunction(000F)
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(0FF4) [es:bx+0xf8] = The night the volcano erupted, the wizard Arnakkian Slowfoot threw a great feast. All who attended died in the eruption. They died at their games of cards and gambling. Some, it is said, were transformed into the monsters who inhabit the dungeon.
+002F                          ShowMessage(0FF4) = The night the volcano erupted, the wizard Arnakkian Slowfoot threw a great feast. All who attended died in the eruption. They died at their games of cards and gambling. Some, it is said, were transformed into the monsters who inhabit the dungeon.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(10EB) [es:bx+0xf8] = The Elf Ranger abruptly walks away.
+003E                          ShowMessage(10EB) = The Elf Ranger abruptly walks away.
 004B                          RETURN
 
 NPCCHATD_1C:
 0000                          BEGIN
-0003                          ShowMessage(110F) [es:bx+0xf8] = You encounter a Gnome Barbarian.
-0010                          ShowPortrait(0019) [es:bx+0xfc]
-001D                          UnknownFunction(000F) [es:bx+0xec]
+0003                          ShowMessage(110F) = You encounter a Gnome Barbarian.
+0010                          ShowPortrait(0019)
+001D                          UnknownFunction(000F)
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(1130) [es:bx+0xf8] = Cleowyn's bones are guarded by the Snow Elves, I have heard. Whether or not it is worth returning the king's bones to the Mausoleum is much debated, for the imps will seize them again and return them to the elves.
+002F                          ShowMessage(1130) = Cleowyn's bones are guarded by the Snow Elves, I have heard. Whether or not it is worth returning the king's bones to the Mausoleum is much debated, for the imps will seize them again and return them to the elves.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(1206) [es:bx+0xf8] = The Gnome Barbarian opens his mouth to speak, but he forgets what he planned to say.
+003E                          ShowMessage(1206) = The Gnome Barbarian opens his mouth to speak, but he forgets what he planned to say.
 004B                          RETURN
 
 NPCCHATE_1D:
 0000                          BEGIN
-0003                          ShowMessage(125B) [es:bx+0xf8] = You encounter a Human Thief.
-0010                          ShowPortrait(0022) [es:bx+0xfc]
-001D                          UnknownFunction(000F) [es:bx+0xec]
+0003                          ShowMessage(125B) = You encounter a Human Thief.
+0010                          ShowPortrait(0022)
+001D                          UnknownFunction(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(1278) [es:bx+0xf8] = If you find King Cleowyn's quarters, you will find a shortcut back to his Palace. Be careful where you tread, lest you leave his quarters unrewarded.
+002F                          ShowMessage(1278) = If you find King Cleowyn's quarters, you will find a shortcut back to his Palace. Be careful where you tread, lest you leave his quarters unrewarded.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(130E) [es:bx+0xf8] = The Human Thief darts away as you approach.
+003E                          ShowMessage(130E) = The Human Thief darts away as you approach.
 004B                          RETURN
 
 MINOTAUR_1E:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ax = PartyCountIs(01)
 000E 75 15                    jnz 0x25
-0010                          AddEncounter(26, 01) [es:bx+0xd4]
+0010                          AddEncounter(26, 01)
 0022 E9 B1 00                 jmp 0xd6
-0025                          ax = PartyCountIs(02) [es:bx+0xf0]
+0025                          ax = PartyCountIs(02)
 0030 75 38                    jnz 0x6a
-0032                          AddEncounter(26, 01) [es:bx+0xd4]
-0044                          AddEncounter(26, 02) [es:bx+0xd4]
-0056                          AddEncounter(26, 03) [es:bx+0xd4]
+0032                          AddEncounter(26, 01)
+0044                          AddEncounter(26, 02)
+0056                          AddEncounter(26, 03)
 0068 EB 6C                    jmp 0xd6
-006A                          AddEncounter(26, 01) [es:bx+0xd4]
-007C                          AddEncounter(26, 02) [es:bx+0xd4]
-008E                          AddEncounter(26, 03) [es:bx+0xd4]
-00A0                          AddEncounter(26, 04) [es:bx+0xd4]
-00B2                          AddEncounter(26, 05) [es:bx+0xd4]
-00C4                          AddEncounter(26, 06) [es:bx+0xd4]
+006A                          AddEncounter(26, 01)
+007C                          AddEncounter(26, 02)
+008E                          AddEncounter(26, 03)
+00A0                          AddEncounter(26, 04)
+00B2                          AddEncounter(26, 05)
+00C4                          AddEncounter(26, 06)
 00D6                          RETURN
 
 03FC: A note reads -

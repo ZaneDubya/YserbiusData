@@ -1,356 +1,133 @@
 ALDBORA_01:
-0000                          BEGIN
-0003 56                       push si
-0004 B8 01 00                 mov ax, 0x1
-0007 50                       push ax
-0008 B8 01 00                 mov ax, 0x1
-000B 50                       push ax
+0000                          BEGIN (saving si)
+0004                          Push(01)
+0008                          Push(01)
 000C C4 5E 06                 les bx, [bp+0x6]
 000F 26 FF 5F 04              call far word [es:bx+0x4]
 0013 59                       pop cx
 0014 59                       pop cx
 0015 8B F0                    mov si, ax
-0017 B8 E8 00                 mov ax, 0xe8
-001A 50                       push ax
-001B B8 E8 00                 mov ax, 0xe8
-001E 50                       push ax
-001F C4 5E 06                 les bx, [bp+0x6]
-0022 26 FF 5F 54              call far word [es:bx+0x54]
-0026 59                       pop cx
-0027 59                       pop cx
-0028 0B C0                    or ax, ax
+0017                          ax = UsedItem(E8, E8)
 002A 75 03                    jnz 0x2f
 002C E9 E5 03                 jmp 0x414
 002F 83 FE 04                 cmp si, 0x4
 0032 74 03                    jz 0x37
 0034 E9 DD 03                 jmp 0x414
-0037                          ax = HasItem(E9) [es:bx+0x50]
+0037                          ax = HasItem(E9)
 0045 75 03                    jnz 0x4a
 0047 E9 CA 03                 jmp 0x414
-004A                          ShowMessage(03FC) [es:bx+0xf8] = The AldBora Tree bears... 
-0057                          RemoveItem(E8) [es:bx+0x4c]
-0063                          RemoveItem(E9) [es:bx+0x4c]
-006F 33 C0                    xor ax, ax
-0071 50                       push ax
+004A                          ShowMessage(03FC) = The AldBora Tree bears... 
+0057                          RemoveItem(E8)
+0063                          RemoveItem(E9)
+006F                          Push(00)
 0072 C4 5E 06                 les bx, [bp+0x6]
 0075 26 FF 5F 5C              call far word [es:bx+0x5c]
 0079 59                       pop cx
 007A 0B C0                    or ax, ax
 007C 75 1D                    jnz 0x9b
-007E B8 02 00                 mov ax, 0x2
-0081 50                       push ax
-0082 33 C0                    xor ax, ax
-0084 50                       push ax
+007E                          Push(02)
+0082                          Push(00)
 0085 C4 5E 06                 les bx, [bp+0x6]
 0088 26 FF 5F 60              call far word [es:bx+0x60]
 008C 59                       pop cx
 008D 59                       pop cx
-008E                          ShowMessage(0417) [es:bx+0xf8] = the knowledge of Athletics!
-009B B8 01 00                 mov ax, 0x1
-009E 50                       push ax
-009F C4 5E 06                 les bx, [bp+0x6]
-00A2 26 FF 5F 5C              call far word [es:bx+0x5c]
-00A6 59                       pop cx
+008E                          ShowMessage(0417) = the knowledge of Athletics!
+009B                          ax = SkillLevel(01)
 00A7 0B C0                    or ax, ax
 00A9 75 1E                    jnz 0xc9
-00AB B8 02 00                 mov ax, 0x2
-00AE 50                       push ax
-00AF B8 01 00                 mov ax, 0x1
-00B2 50                       push ax
-00B3 C4 5E 06                 les bx, [bp+0x6]
-00B6 26 FF 5F 60              call far word [es:bx+0x60]
-00BA 59                       pop cx
-00BB 59                       pop cx
-00BC                          ShowMessage(0433) [es:bx+0xf8] = the knowledge of Clubs and Axes!
-00C9 B8 02 00                 mov ax, 0x2
-00CC 50                       push ax
-00CD C4 5E 06                 les bx, [bp+0x6]
-00D0 26 FF 5F 5C              call far word [es:bx+0x5c]
-00D4 59                       pop cx
+00AB                          SetSkillLevel(01, 02)
+00BC                          ShowMessage(0433) = the knowledge of Clubs and Axes!
+00C9                          ax = SkillLevel(02)
 00D5 0B C0                    or ax, ax
 00D7 75 1E                    jnz 0xf7
-00D9 B8 02 00                 mov ax, 0x2
-00DC 50                       push ax
-00DD B8 02 00                 mov ax, 0x2
-00E0 50                       push ax
-00E1 C4 5E 06                 les bx, [bp+0x6]
-00E4 26 FF 5F 60              call far word [es:bx+0x60]
-00E8 59                       pop cx
-00E9 59                       pop cx
-00EA                          ShowMessage(0454) [es:bx+0xf8] = the knowledge of Berserker!
-00F7 B8 03 00                 mov ax, 0x3
-00FA 50                       push ax
-00FB C4 5E 06                 les bx, [bp+0x6]
-00FE 26 FF 5F 5C              call far word [es:bx+0x5c]
-0102 59                       pop cx
+00D9                          SetSkillLevel(02, 02)
+00EA                          ShowMessage(0454) = the knowledge of Berserker!
+00F7                          ax = SkillLevel(03)
 0103 0B C0                    or ax, ax
 0105 75 1E                    jnz 0x125
-0107 B8 02 00                 mov ax, 0x2
-010A 50                       push ax
-010B B8 03 00                 mov ax, 0x3
-010E 50                       push ax
-010F C4 5E 06                 les bx, [bp+0x6]
-0112 26 FF 5F 60              call far word [es:bx+0x60]
-0116 59                       pop cx
-0117 59                       pop cx
-0118                          ShowMessage(0470) [es:bx+0xf8] = the knowledge of Pursuit!
-0125 B8 04 00                 mov ax, 0x4
-0128 50                       push ax
-0129 C4 5E 06                 les bx, [bp+0x6]
-012C 26 FF 5F 5C              call far word [es:bx+0x5c]
-0130 59                       pop cx
+0107                          SetSkillLevel(03, 02)
+0118                          ShowMessage(0470) = the knowledge of Pursuit!
+0125                          ax = SkillLevel(04)
 0131 0B C0                    or ax, ax
 0133 75 1E                    jnz 0x153
-0135 B8 02 00                 mov ax, 0x2
-0138 50                       push ax
-0139 B8 04 00                 mov ax, 0x4
-013C 50                       push ax
-013D C4 5E 06                 les bx, [bp+0x6]
-0140 26 FF 5F 60              call far word [es:bx+0x60]
-0144 59                       pop cx
-0145 59                       pop cx
-0146                          ShowMessage(048A) [es:bx+0xf8] = the knowledge of Leadership!
-0153 B8 05 00                 mov ax, 0x5
-0156 50                       push ax
-0157 C4 5E 06                 les bx, [bp+0x6]
-015A 26 FF 5F 5C              call far word [es:bx+0x5c]
-015E 59                       pop cx
+0135                          SetSkillLevel(04, 02)
+0146                          ShowMessage(048A) = the knowledge of Leadership!
+0153                          ax = SkillLevel(05)
 015F 0B C0                    or ax, ax
 0161 75 1E                    jnz 0x181
-0163 B8 02 00                 mov ax, 0x2
-0166 50                       push ax
-0167 B8 05 00                 mov ax, 0x5
-016A 50                       push ax
-016B C4 5E 06                 les bx, [bp+0x6]
-016E 26 FF 5F 60              call far word [es:bx+0x60]
-0172 59                       pop cx
-0173 59                       pop cx
-0174                          ShowMessage(04A7) [es:bx+0xf8] = the knowledge of Fencing!
-0181 B8 06 00                 mov ax, 0x6
-0184 50                       push ax
-0185 C4 5E 06                 les bx, [bp+0x6]
-0188 26 FF 5F 5C              call far word [es:bx+0x5c]
-018C 59                       pop cx
+0163                          SetSkillLevel(05, 02)
+0174                          ShowMessage(04A7) = the knowledge of Fencing!
+0181                          ax = SkillLevel(06)
 018D 0B C0                    or ax, ax
 018F 75 1E                    jnz 0x1af
-0191 B8 02 00                 mov ax, 0x2
-0194 50                       push ax
-0195 B8 06 00                 mov ax, 0x6
-0198 50                       push ax
-0199 C4 5E 06                 les bx, [bp+0x6]
-019C 26 FF 5F 60              call far word [es:bx+0x60]
-01A0 59                       pop cx
-01A1 59                       pop cx
-01A2                          ShowMessage(04C1) [es:bx+0xf8] = the knowledge of Binding!
-01AF B8 07 00                 mov ax, 0x7
-01B2 50                       push ax
-01B3 C4 5E 06                 les bx, [bp+0x6]
-01B6 26 FF 5F 5C              call far word [es:bx+0x5c]
-01BA 59                       pop cx
+0191                          SetSkillLevel(06, 02)
+01A2                          ShowMessage(04C1) = the knowledge of Binding!
+01AF                          ax = SkillLevel(07)
 01BB 0B C0                    or ax, ax
 01BD 75 1E                    jnz 0x1dd
-01BF B8 02 00                 mov ax, 0x2
-01C2 50                       push ax
-01C3 B8 07 00                 mov ax, 0x7
-01C6 50                       push ax
-01C7 C4 5E 06                 les bx, [bp+0x6]
-01CA 26 FF 5F 60              call far word [es:bx+0x60]
-01CE 59                       pop cx
-01CF 59                       pop cx
-01D0                          ShowMessage(04DB) [es:bx+0xf8] = the knowledge of Intimidation!
-01DD B8 08 00                 mov ax, 0x8
-01E0 50                       push ax
-01E1 C4 5E 06                 les bx, [bp+0x6]
-01E4 26 FF 5F 5C              call far word [es:bx+0x5c]
-01E8 59                       pop cx
+01BF                          SetSkillLevel(07, 02)
+01D0                          ShowMessage(04DB) = the knowledge of Intimidation!
+01DD                          ax = SkillLevel(08)
 01E9 0B C0                    or ax, ax
 01EB 75 1E                    jnz 0x20b
-01ED B8 02 00                 mov ax, 0x2
-01F0 50                       push ax
-01F1 B8 08 00                 mov ax, 0x8
-01F4 50                       push ax
-01F5 C4 5E 06                 les bx, [bp+0x6]
-01F8 26 FF 5F 60              call far word [es:bx+0x60]
-01FC 59                       pop cx
-01FD 59                       pop cx
-01FE                          ShowMessage(04FA) [es:bx+0xf8] = the knowledge of Archery!
-020B B8 09 00                 mov ax, 0x9
-020E 50                       push ax
-020F C4 5E 06                 les bx, [bp+0x6]
-0212 26 FF 5F 5C              call far word [es:bx+0x5c]
-0216 59                       pop cx
+01ED                          SetSkillLevel(08, 02)
+01FE                          ShowMessage(04FA) = the knowledge of Archery!
+020B                          ax = SkillLevel(09)
 0217 0B C0                    or ax, ax
 0219 75 1E                    jnz 0x239
-021B B8 02 00                 mov ax, 0x2
-021E 50                       push ax
-021F B8 09 00                 mov ax, 0x9
-0222 50                       push ax
-0223 C4 5E 06                 les bx, [bp+0x6]
-0226 26 FF 5F 60              call far word [es:bx+0x60]
-022A 59                       pop cx
-022B 59                       pop cx
-022C                          ShowMessage(0514) [es:bx+0xf8] = the knowledge of Stamina!
-0239 B8 0A 00                 mov ax, 0xa
-023C 50                       push ax
-023D C4 5E 06                 les bx, [bp+0x6]
-0240 26 FF 5F 5C              call far word [es:bx+0x5c]
-0244 59                       pop cx
+021B                          SetSkillLevel(09, 02)
+022C                          ShowMessage(0514) = the knowledge of Stamina!
+0239                          ax = SkillLevel(0A)
 0245 0B C0                    or ax, ax
 0247 75 1E                    jnz 0x267
-0249 B8 02 00                 mov ax, 0x2
-024C 50                       push ax
-024D B8 0A 00                 mov ax, 0xa
-0250 50                       push ax
-0251 C4 5E 06                 les bx, [bp+0x6]
-0254 26 FF 5F 60              call far word [es:bx+0x60]
-0258 59                       pop cx
-0259 59                       pop cx
-025A                          ShowMessage(052E) [es:bx+0xf8] = the knowledge of Furtiveness!
-0267 B8 0B 00                 mov ax, 0xb
-026A 50                       push ax
-026B C4 5E 06                 les bx, [bp+0x6]
-026E 26 FF 5F 5C              call far word [es:bx+0x5c]
-0272 59                       pop cx
+0249                          SetSkillLevel(0A, 02)
+025A                          ShowMessage(052E) = the knowledge of Furtiveness!
+0267                          ax = SkillLevel(0B)
 0273 0B C0                    or ax, ax
 0275 75 1E                    jnz 0x295
-0277 B8 02 00                 mov ax, 0x2
-027A 50                       push ax
-027B B8 0B 00                 mov ax, 0xb
-027E 50                       push ax
-027F C4 5E 06                 les bx, [bp+0x6]
-0282 26 FF 5F 60              call far word [es:bx+0x60]
-0286 59                       pop cx
-0287 59                       pop cx
-0288                          ShowMessage(054C) [es:bx+0xf8] = the knowledge of Reading Tracks!
-0295 B8 10 00                 mov ax, 0x10
-0298 50                       push ax
-0299 C4 5E 06                 les bx, [bp+0x6]
-029C 26 FF 5F 5C              call far word [es:bx+0x5c]
-02A0 59                       pop cx
+0277                          SetSkillLevel(0B, 02)
+0288                          ShowMessage(054C) = the knowledge of Reading Tracks!
+0295                          ax = SkillLevel(10)
 02A1 0B C0                    or ax, ax
 02A3 75 1E                    jnz 0x2c3
-02A5 B8 02 00                 mov ax, 0x2
-02A8 50                       push ax
-02A9 B8 10 00                 mov ax, 0x10
-02AC 50                       push ax
-02AD C4 5E 06                 les bx, [bp+0x6]
-02B0 26 FF 5F 60              call far word [es:bx+0x60]
-02B4 59                       pop cx
-02B5 59                       pop cx
-02B6                          ShowMessage(056D) [es:bx+0xf8] = the knowledge of Martial Arts!
-02C3 B8 11 00                 mov ax, 0x11
-02C6 50                       push ax
-02C7 C4 5E 06                 les bx, [bp+0x6]
-02CA 26 FF 5F 5C              call far word [es:bx+0x5c]
-02CE 59                       pop cx
+02A5                          SetSkillLevel(10, 02)
+02B6                          ShowMessage(056D) = the knowledge of Martial Arts!
+02C3                          ax = SkillLevel(11)
 02CF 0B C0                    or ax, ax
 02D1 75 1E                    jnz 0x2f1
-02D3 B8 02 00                 mov ax, 0x2
-02D6 50                       push ax
-02D7 B8 11 00                 mov ax, 0x11
-02DA 50                       push ax
-02DB C4 5E 06                 les bx, [bp+0x6]
-02DE 26 FF 5F 60              call far word [es:bx+0x60]
-02E2 59                       pop cx
-02E3 59                       pop cx
-02E4                          ShowMessage(058C) [es:bx+0xf8] = the knowledge of Deflect Magic!
-02F1 B8 12 00                 mov ax, 0x12
-02F4 50                       push ax
-02F5 C4 5E 06                 les bx, [bp+0x6]
-02F8 26 FF 5F 5C              call far word [es:bx+0x5c]
-02FC 59                       pop cx
+02D3                          SetSkillLevel(11, 02)
+02E4                          ShowMessage(058C) = the knowledge of Deflect Magic!
+02F1                          ax = SkillLevel(12)
 02FD 0B C0                    or ax, ax
 02FF 75 1E                    jnz 0x31f
-0301 B8 02 00                 mov ax, 0x2
-0304 50                       push ax
-0305 B8 12 00                 mov ax, 0x12
-0308 50                       push ax
-0309 C4 5E 06                 les bx, [bp+0x6]
-030C 26 FF 5F 60              call far word [es:bx+0x60]
-0310 59                       pop cx
-0311 59                       pop cx
-0312                          ShowMessage(05AC) [es:bx+0xf8] = the knowledge of Medic!
-031F B8 13 00                 mov ax, 0x13
-0322 50                       push ax
-0323 C4 5E 06                 les bx, [bp+0x6]
-0326 26 FF 5F 5C              call far word [es:bx+0x5c]
-032A 59                       pop cx
+0301                          SetSkillLevel(12, 02)
+0312                          ShowMessage(05AC) = the knowledge of Medic!
+031F                          ax = SkillLevel(13)
 032B 0B C0                    or ax, ax
 032D 75 1E                    jnz 0x34d
-032F B8 02 00                 mov ax, 0x2
-0332 50                       push ax
-0333 B8 13 00                 mov ax, 0x13
-0336 50                       push ax
-0337 C4 5E 06                 les bx, [bp+0x6]
-033A 26 FF 5F 60              call far word [es:bx+0x60]
-033E 59                       pop cx
-033F 59                       pop cx
-0340                          ShowMessage(05C4) [es:bx+0xf8] = the knowledge of Reverie!
-034D B8 14 00                 mov ax, 0x14
-0350 50                       push ax
-0351 C4 5E 06                 les bx, [bp+0x6]
-0354 26 FF 5F 5C              call far word [es:bx+0x5c]
-0358 59                       pop cx
+032F                          SetSkillLevel(13, 02)
+0340                          ShowMessage(05C4) = the knowledge of Reverie!
+034D                          ax = SkillLevel(14)
 0359 0B C0                    or ax, ax
 035B 75 1E                    jnz 0x37b
-035D B8 02 00                 mov ax, 0x2
-0360 50                       push ax
-0361 B8 14 00                 mov ax, 0x14
-0364 50                       push ax
-0365 C4 5E 06                 les bx, [bp+0x6]
-0368 26 FF 5F 60              call far word [es:bx+0x60]
-036C 59                       pop cx
-036D 59                       pop cx
-036E                          ShowMessage(05DE) [es:bx+0xf8] = the knowledge of Rune Reading!
-037B B8 15 00                 mov ax, 0x15
-037E 50                       push ax
-037F C4 5E 06                 les bx, [bp+0x6]
-0382 26 FF 5F 5C              call far word [es:bx+0x5c]
-0386 59                       pop cx
+035D                          SetSkillLevel(14, 02)
+036E                          ShowMessage(05DE) = the knowledge of Rune Reading!
+037B                          ax = SkillLevel(15)
 0387 0B C0                    or ax, ax
 0389 75 1E                    jnz 0x3a9
-038B B8 02 00                 mov ax, 0x2
-038E 50                       push ax
-038F B8 15 00                 mov ax, 0x15
-0392 50                       push ax
-0393 C4 5E 06                 les bx, [bp+0x6]
-0396 26 FF 5F 60              call far word [es:bx+0x60]
-039A 59                       pop cx
-039B 59                       pop cx
-039C                          ShowMessage(05FD) [es:bx+0xf8] = the knowledge of Staff!
-03A9 B8 16 00                 mov ax, 0x16
-03AC 50                       push ax
-03AD C4 5E 06                 les bx, [bp+0x6]
-03B0 26 FF 5F 5C              call far word [es:bx+0x5c]
-03B4 59                       pop cx
+038B                          SetSkillLevel(15, 02)
+039C                          ShowMessage(05FD) = the knowledge of Staff!
+03A9                          ax = SkillLevel(16)
 03B5 0B C0                    or ax, ax
 03B7 75 1E                    jnz 0x3d7
-03B9 B8 02 00                 mov ax, 0x2
-03BC 50                       push ax
-03BD B8 16 00                 mov ax, 0x16
-03C0 50                       push ax
-03C1 C4 5E 06                 les bx, [bp+0x6]
-03C4 26 FF 5F 60              call far word [es:bx+0x60]
-03C8 59                       pop cx
-03C9 59                       pop cx
-03CA                          ShowMessage(0615) [es:bx+0xf8] = the knowledge of Channeling!
-03D7 B8 17 00                 mov ax, 0x17
-03DA 50                       push ax
-03DB C4 5E 06                 les bx, [bp+0x6]
-03DE 26 FF 5F 5C              call far word [es:bx+0x5c]
-03E2 59                       pop cx
+03B9                          SetSkillLevel(16, 02)
+03CA                          ShowMessage(0615) = the knowledge of Channeling!
+03D7                          ax = SkillLevel(17)
 03E3 0B C0                    or ax, ax
 03E5 75 1E                    jnz 0x405
-03E7 B8 02 00                 mov ax, 0x2
-03EA 50                       push ax
-03EB B8 17 00                 mov ax, 0x17
-03EE 50                       push ax
-03EF C4 5E 06                 les bx, [bp+0x6]
-03F2 26 FF 5F 60              call far word [es:bx+0x60]
-03F6 59                       pop cx
-03F7 59                       pop cx
-03F8                          ShowMessage(0632) [es:bx+0xf8] = the knowledge of Deep Trance!
-0405                          ShowMessage(0650) [es:bx+0xf8] = The leaves whisper, 'Defeat my enemies the four winds, South, North, East and West, and you will find a precious gem as green as my foliage.'
+03E7                          SetSkillLevel(17, 02)
+03F8                          ShowMessage(0632) = the knowledge of Deep Trance!
+0405                          ShowMessage(0650) = The leaves whisper, 'Defeat my enemies the four winds, South, North, East and West, and you will find a precious gem as green as my foliage.'
 0412 EB 4B                    jmp 0x45f
 0414 8B DE                    mov bx, si
 0416 4B                       dec bx
@@ -358,16 +135,15 @@ ALDBORA_01:
 041A 77 43                    ja 0x45f
 041C D1 E3                    shl bx, 1
 041E 2E FF A7 6D 04           jmp word [cs:bx+0x46d]
-0423                          ShowMessage(06DE) [es:bx+0xf8] = Spring flowers and new leaves appear on the magical Aldbora Tree.
+0423                          ShowMessage(06DE) = Spring flowers and new leaves appear on the magical Aldbora Tree.
 0430 EB 2D                    jmp 0x45f
-0432                          ShowMessage(0720) [es:bx+0xf8] = The Aldbora Tree proudly displays its summer foliage.
+0432                          ShowMessage(0720) = The Aldbora Tree proudly displays its summer foliage.
 043F EB 1E                    jmp 0x45f
-0441                          ShowMessage(0756) [es:bx+0xf8] = Golden Autumn leaves fall from the Aldbora Tree.
+0441                          ShowMessage(0756) = Golden Autumn leaves fall from the Aldbora Tree.
 044E EB 0F                    jmp 0x45f
-0450                          ShowMessage(0787) [es:bx+0xf8] = In the Winter, the Aldbora Tree shows its age.  The fruits of Knowledge are now ripe.
+0450                          ShowMessage(0787) = In the Winter, the Aldbora Tree shows its age.  The fruits of Knowledge are now ripe.
 045D EB 00                    jmp 0x45f
-045F 5E                       pop si
-0460                          RETURN
+045F                          RETURN (restoring si)
 0462 2E 04 3D                 add al, 0x3d
 0465 04 4C                    add al, 0x4c
 0467 04 5B                    add al, 0x5b
@@ -375,199 +151,164 @@ ALDBORA_01:
 
 ENCA_02:
 0000                          BEGIN
-0003                          ShowMessage(07DD) [es:bx+0xf8] = Dwarven Knights attempt an ambush.
-0010                          AddEncounter(20, 01) [es:bx+0xd4]
-0022                          AddEncounter(20, 02) [es:bx+0xd4]
-0034                          AddEncounter(22, 05) [es:bx+0xd4]
-0046                          AddEncounter(22, 06) [es:bx+0xd4]
+0003                          ShowMessage(07DD) = Dwarven Knights attempt an ambush.
+0010                          AddEncounter(20, 01)
+0022                          AddEncounter(20, 02)
+0034                          AddEncounter(22, 05)
+0046                          AddEncounter(22, 06)
 0058                          RETURN
 
 ENCB_03:
 0000                          BEGIN
-0003                          AddEncounter(1F, 01) [es:bx+0xd4]
-0015                          AddEncounter(1E, 02) [es:bx+0xd4]
-0027                          AddEncounter(1D, 03) [es:bx+0xd4]
-0039                          AddEncounter(1B, 04) [es:bx+0xd4]
-004B                          AddEncounter(23, 05) [es:bx+0xd4]
-005D                          AddEncounter(23, 06) [es:bx+0xd4]
+0003                          AddEncounter(1F, 01)
+0015                          AddEncounter(1E, 02)
+0027                          AddEncounter(1D, 03)
+0039                          AddEncounter(1B, 04)
+004B                          AddEncounter(23, 05)
+005D                          AddEncounter(23, 06)
 006F                          RETURN
 
 ENCC_04:
 0000                          BEGIN
-0003                          AddEncounter(1F, 01) [es:bx+0xd4]
-0015                          AddEncounter(1F, 02) [es:bx+0xd4]
-0027                          AddEncounter(24, 03) [es:bx+0xd4]
-0039                          AddEncounter(19, 04) [es:bx+0xd4]
+0003                          AddEncounter(1F, 01)
+0015                          AddEncounter(1F, 02)
+0027                          AddEncounter(24, 03)
+0039                          AddEncounter(19, 04)
 004B                          RETURN
 
 ENCD_05:
 0000                          BEGIN
-0003                          AddEncounter(18, 01) [es:bx+0xd4]
-0015                          AddEncounter(1A, 02) [es:bx+0xd4]
-0027                          AddEncounter(26, 03) [es:bx+0xd4]
-0039                          AddEncounter(26, 04) [es:bx+0xd4]
-004B                          AddEncounter(22, 05) [es:bx+0xd4]
-005D                          AddEncounter(22, 06) [es:bx+0xd4]
+0003                          AddEncounter(18, 01)
+0015                          AddEncounter(1A, 02)
+0027                          AddEncounter(26, 03)
+0039                          AddEncounter(26, 04)
+004B                          AddEncounter(22, 05)
+005D                          AddEncounter(22, 06)
 006F                          RETURN
 
 ENCE_06:
 0000                          BEGIN
-0003                          AddEncounter(14, 01) [es:bx+0xd4]
-0015                          AddEncounter(16, 02) [es:bx+0xd4]
-0027                          AddEncounter(26, 03) [es:bx+0xd4]
-0039                          AddEncounter(27, 04) [es:bx+0xd4]
+0003                          AddEncounter(14, 01)
+0015                          AddEncounter(16, 02)
+0027                          AddEncounter(26, 03)
+0039                          AddEncounter(27, 04)
 004B                          RETURN
 
 ENCF_07:
 0000                          BEGIN
-0003                          ax = HasItem(FA) [es:bx+0x50]
+0003                          ax = HasItem(FA)
 0011 74 21                    jz 0x34
-0013                          AddTreasure(012C, 00, 00, 00, 00, CE) [es:bx+0xd8]
+0013                          AddTreasure(012C, 00, 00, 00, 00, CE)
 0032 EB 2D                    jmp 0x61
-0034                          AddTreasure(012C, 00, 00, 00, D0, FA) [es:bx+0xd8]
-0054                          ShowMessage(0800) [es:bx+0xf8] = You see scattered bones and a bag under a Dragon.
-0061                          AddEncounter(1B, 01) [es:bx+0xd4]
-0073                          AddEncounter(1B, 02) [es:bx+0xd4]
-0085                          AddEncounter(19, 03) [es:bx+0xd4]
-0097                          AddEncounter(19, 04) [es:bx+0xd4]
+0034                          AddTreasure(012C, 00, 00, 00, D0, FA)
+0054                          ShowMessage(0800) = You see scattered bones and a bag under a Dragon.
+0061                          AddEncounter(1B, 01)
+0073                          AddEncounter(1B, 02)
+0085                          AddEncounter(19, 03)
+0097                          AddEncounter(19, 04)
 00A9                          RETURN
 
 ENCG_08:
 0000                          BEGIN
-0003                          AddEncounter(1A, 01) [es:bx+0xd4]
-0015                          AddEncounter(1A, 02) [es:bx+0xd4]
-0027                          AddEncounter(1B, 03) [es:bx+0xd4]
-0039                          AddEncounter(1B, 04) [es:bx+0xd4]
+0003                          AddEncounter(1A, 01)
+0015                          AddEncounter(1A, 02)
+0027                          AddEncounter(1B, 03)
+0039                          AddEncounter(1B, 04)
 004B                          RETURN
 
 ENCH_09:
 0000                          BEGIN
-0003                          AddEncounter(21, 01) [es:bx+0xd4]
-0015                          AddEncounter(22, 02) [es:bx+0xd4]
-0027                          AddEncounter(26, 05) [es:bx+0xd4]
-0039                          AddEncounter(28, 06) [es:bx+0xd4]
+0003                          AddEncounter(21, 01)
+0015                          AddEncounter(22, 02)
+0027                          AddEncounter(26, 05)
+0039                          AddEncounter(28, 06)
 004B                          RETURN
 
 ENCI_0A:
 0000                          BEGIN
-0003                          AddEncounter(1C, 01) [es:bx+0xd4]
-0015                          AddEncounter(1C, 02) [es:bx+0xd4]
-0027                          AddEncounter(22, 03) [es:bx+0xd4]
-0039                          AddEncounter(22, 04) [es:bx+0xd4]
-004B                          ax = HasItem(F5) [es:bx+0x50]
+0003                          AddEncounter(1C, 01)
+0015                          AddEncounter(1C, 02)
+0027                          AddEncounter(22, 03)
+0039                          AddEncounter(22, 04)
+004B                          ax = HasItem(F5)
 0059 74 22                    jz 0x7d
-005B                          AddTreasure(03E8, 00, 00, 00, CF, C6) [es:bx+0xd8]
+005B                          AddTreasure(03E8, 00, 00, 00, CF, C6)
 007B EB 2E                    jmp 0xab
-007D                          ShowMessage(0832) [es:bx+0xf8] = A glowing yellow gem lights the area.
-008A                          AddTreasure(2710, 00, 00, D0, D0, F5) [es:bx+0xd8]
+007D                          ShowMessage(0832) = A glowing yellow gem lights the area.
+008A                          AddTreasure(2710, 00, 00, D0, D0, F5)
 00AB                          RETURN
 
 CGATE_0B:
 0000                          BEGIN
-0003                          ShowMessage(0858) [es:bx+0xf8] = A path leads up to CASTLEGATE
-0010                          GoMap(01, 74, 01, 36) [es:bx+0xbc]
+0003                          ShowMessage(0858) = A path leads up to CASTLEGATE
+0010                          GoMap(01, 74, 01, 36)
 002B                          RETURN
 
 DWARF_0C:
 0000                          BEGIN
-0003                          ax = CheckLevel(001E) [es:bx+0x44]
+0003                          ax = CheckLevel(001E)
 0011 74 2A                    jz 0x3d
-0013                          ShowMessage(0876) [es:bx+0xf8] = A narrow tunnel appears, leading down to the DWARF KINGDOM.
-0020                          GoMap(02, 7A, 01, 38) [es:bx+0xbc]
+0013                          ShowMessage(0876) = A narrow tunnel appears, leading down to the DWARF KINGDOM.
+0020                          GoMap(02, 7A, 01, 38)
 003B EB 0D                    jmp 0x4a
-003D                          ShowRunes(5008) [es:bx+0xf4] = At level thirty, the entrance to the land of dwarfs will be open to you.
+003D                          ShowRunes(08B2) = At level thirty, the entrance to the land of dwarfs will be open to you.
 004A                          RETURN
 
 NOJOIN_0D:
 0000                          BEGIN
-0003                          TileIsNoJoinArea() [es:bx+0xe0]
+0003                          TileIsNoJoinArea()
 000B                          RETURN
 
 BEECHWD_0E:
 0000                          BEGIN
-0003                          ShowMessage(08FB) [es:bx+0xf8] = Upon a wood sign is written -- 'Wilderness of BeechWood.'
-0010 B8 01 00                 mov ax, 0x1
-0013 50                       push ax
-0014 B8 01 00                 mov ax, 0x1
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 04              call far word [es:bx+0x4]
-001F 59                       pop cx
-0020 59                       pop cx
-0021 0B C0                    or ax, ax
+0003                          ShowMessage(08FB) = Upon a wood sign is written -- 'Wilderness of BeechWood.'
+0010                          ax = CheckState(01, 01, any)
 0023 75 54                    jnz 0x79
-0025                          SetState(01, 03, 01) [es:bx]
-003A                          SetState(01, 02, 02) [es:bx]
-004F                          SetState(01, 01, 03) [es:bx]
-0064                          SetState(01, 04, 04) [es:bx]
+0025                          SetState(01, 03, 01)
+003A                          SetState(01, 02, 02)
+004F                          SetState(01, 01, 03)
+0064                          SetState(01, 04, 04)
 0079                          RETURN
 
 OAKLEAF_0F:
 0000                          BEGIN
-0003                          ShowMessage(0935) [es:bx+0xf8] = A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'
-0010 B8 02 00                 mov ax, 0x2
-0013 50                       push ax
-0014 B8 01 00                 mov ax, 0x1
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 04              call far word [es:bx+0x4]
-001F 59                       pop cx
-0020 59                       pop cx
-0021 0B C0                    or ax, ax
+0003                          ShowMessage(0935) = A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'
+0010                          ax = CheckState(01, 02, any)
 0023 75 54                    jnz 0x79
-0025                          SetState(01, 03, 01) [es:bx]
-003A                          SetState(01, 02, 02) [es:bx]
-004F                          SetState(01, 01, 03) [es:bx]
-0064                          SetState(01, 04, 04) [es:bx]
+0025                          SetState(01, 03, 01)
+003A                          SetState(01, 02, 02)
+004F                          SetState(01, 01, 03)
+0064                          SetState(01, 04, 04)
 0079                          RETURN
 
 MAPLEBRS_10:
 0000                          BEGIN
-0003                          ShowMessage(0978) [es:bx+0xf8] = A sign of ancient wood reads -- 'Wilderness of MapleBrush.'
-0010 B8 03 00                 mov ax, 0x3
-0013 50                       push ax
-0014 B8 01 00                 mov ax, 0x1
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 04              call far word [es:bx+0x4]
-001F 59                       pop cx
-0020 59                       pop cx
-0021 0B C0                    or ax, ax
+0003                          ShowMessage(0978) = A sign of ancient wood reads -- 'Wilderness of MapleBrush.'
+0010                          ax = CheckState(01, 03, any)
 0023 75 54                    jnz 0x79
-0025                          SetState(01, 03, 01) [es:bx]
-003A                          SetState(01, 02, 02) [es:bx]
-004F                          SetState(01, 01, 03) [es:bx]
-0064                          SetState(01, 04, 04) [es:bx]
+0025                          SetState(01, 03, 01)
+003A                          SetState(01, 02, 02)
+004F                          SetState(01, 01, 03)
+0064                          SetState(01, 04, 04)
 0079                          RETURN
 
 PINECONE_11:
 0000                          BEGIN
-0003                          ShowMessage(09B4) [es:bx+0xf8] = In the dust of pine needles is written -- 'Wilderness of PineCone.'
-0010 B8 04 00                 mov ax, 0x4
-0013 50                       push ax
-0014 B8 01 00                 mov ax, 0x1
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 04              call far word [es:bx+0x4]
-001F 59                       pop cx
-0020 59                       pop cx
-0021 0B C0                    or ax, ax
+0003                          ShowMessage(09B4) = In the dust of pine needles is written -- 'Wilderness of PineCone.'
+0010                          ax = CheckState(01, 04, any)
 0023 75 54                    jnz 0x79
-0025                          SetState(01, 03, 01) [es:bx]
-003A                          SetState(01, 02, 02) [es:bx]
-004F                          SetState(01, 01, 03) [es:bx]
-0064                          SetState(01, 04, 04) [es:bx]
+0025                          SetState(01, 03, 01)
+003A                          SetState(01, 02, 02)
+004F                          SetState(01, 01, 03)
+0064                          SetState(01, 04, 04)
 0079                          RETURN
 
 BWACTOR_12:
-0000                          BEGIN
-0003 56                       push si
-0004                          ShowMessage(09F8) [es:bx+0xf8] = We are the Wise Ones of Beechwood who serve the Seasons.
-0011                          ShowPortrait(0027) [es:bx+0xfc]
-001E B8 01 00                 mov ax, 0x1
-0021 50                       push ax
-0022 B8 01 00                 mov ax, 0x1
-0025 50                       push ax
+0000                          BEGIN (saving si)
+0004                          ShowMessage(09F8) = We are the Wise Ones of Beechwood who serve the Seasons.
+0011                          ShowPortrait(0027)
+001E                          Push(01)
+0022                          Push(01)
 0026 C4 5E 06                 les bx, [bp+0x6]
 0029 26 FF 5F 04              call far word [es:bx+0x4]
 002D 59                       pop cx
@@ -580,141 +321,89 @@ BWACTOR_12:
 0039 E9 AC 00                 jmp 0xe8
 003C D1 E3                    shl bx, 1
 003E 2E FF A7 B3 0D           jmp word [cs:bx+0xdb3]
-0043                          ShowMessage(0A31) [es:bx+0xf8] = I am Lobard, and the Season I serve is gentle Spring.
-0050                          ShowMessage(0A67) [es:bx+0xf8] = The soft breezes of Spring warned me of your coming.
-005D                          ShowMessage(0A9C) [es:bx+0xf8] = Wise are they who know how to please my master.
+0043                          ShowMessage(0A31) = I am Lobard, and the Season I serve is gentle Spring.
+0050                          ShowMessage(0A67) = The soft breezes of Spring warned me of your coming.
+005D                          ShowMessage(0A9C) = Wise are they who know how to please my master.
 006A EB 7C                    jmp 0xe8
 006C 90                       nop
-006D                          ShowMessage(0ACC) [es:bx+0xf8] = My name is Shushian, servant to vibrant Summer.
-007A                          ShowMessage(0AFC) [es:bx+0xf8] = The Summer gently warms those who serve it and parches those who anger it.
-0087                          ShowMessage(0B47) [es:bx+0xf8] = Why have you come to me in these sultry days of Summer?
+006D                          ShowMessage(0ACC) = My name is Shushian, servant to vibrant Summer.
+007A                          ShowMessage(0AFC) = The Summer gently warms those who serve it and parches those who anger it.
+0087                          ShowMessage(0B47) = Why have you come to me in these sultry days of Summer?
 0094 EB 52                    jmp 0xe8
-0096                          ShowMessage(0B7F) [es:bx+0xf8] = Distly Bombak, the vassal of Autumn, greets you.
-00A3                          ShowMessage(0BB0) [es:bx+0xf8] = Lovely Autumn in its varicolored foliage urges you to gather in your harvest before harsh Winter comes.
-00B0                          ShowMessage(0C18) [es:bx+0xf8] = Autumn begins to fade, and so asks why you have come.
+0096                          ShowMessage(0B7F) = Distly Bombak, the vassal of Autumn, greets you.
+00A3                          ShowMessage(0BB0) = Lovely Autumn in its varicolored foliage urges you to gather in your harvest before harsh Winter comes.
+00B0                          ShowMessage(0C18) = Autumn begins to fade, and so asks why you have come.
 00BD EB 29                    jmp 0xe8
-00BF                          ShowMessage(0C4E) [es:bx+0xf8] = You may call me Karakiar, since that is my name. My liege is Winter.
-00CC                          ShowMessage(0C93) [es:bx+0xf8] = The bracing sting of Winter's winds refresh those who love its white wonderland.
-00D9                          ShowMessage(0CE4) [es:bx+0xf8] = Winter would know why you are here.
+00BF                          ShowMessage(0C4E) = You may call me Karakiar, since that is my name. My liege is Winter.
+00CC                          ShowMessage(0C93) = The bracing sting of Winter's winds refresh those who love its white wonderland.
+00D9                          ShowMessage(0CE4) = Winter would know why you are here.
 00E6 EB 00                    jmp 0xe8
-00E8 B8 E5 00                 mov ax, 0xe5
-00EB 50                       push ax
-00EC B8 E5 00                 mov ax, 0xe5
-00EF 50                       push ax
-00F0 C4 5E 06                 les bx, [bp+0x6]
-00F3 26 FF 5F 54              call far word [es:bx+0x54]
-00F7 59                       pop cx
-00F8 59                       pop cx
-00F9 0B C0                    or ax, ax
+00E8                          ax = UsedItem(E5, E5)
 00FB 74 6B                    jz 0x168
 00FD 83 FE 01                 cmp si, 0x1
 0100 75 56                    jnz 0x158
-0102                          RemoveItem(E5) [es:bx+0x4c]
-010E B8 E8 00                 mov ax, 0xe8
-0111 50                       push ax
-0112 C4 5E 06                 les bx, [bp+0x6]
-0115 26 FF 5F 48              call far word [es:bx+0x48]
-0119 59                       pop cx
-011A                          SetState(01, 01, 02) [es:bx]
-012F                          ShowMessage(0D08) [es:bx+0xf8] = Spring thanks you for the Winter Waters.
-013C                          ShowMessage(0D31) [es:bx+0xf8] = See how soft Spring transforms into vibrant Summer!
-0149                          ShowMessage(0D65) [es:bx+0xf8] = Take this Summer Radiance for your troubles.
+0102                          RemoveItem(E5)
+010E                          GiveItem(E8)
+011A                          SetState(01, 01, 02)
+012F                          ShowMessage(0D08) = Spring thanks you for the Winter Waters.
+013C                          ShowMessage(0D31) = See how soft Spring transforms into vibrant Summer!
+0149                          ShowMessage(0D65) = Take this Summer Radiance for your troubles.
 0156 EB 0D                    jmp 0x165
-0158                          ShowMessage(0D92) [es:bx+0xf8] = You dishonor Spring with your false gift.
+0158                          ShowMessage(0D92) = You dishonor Spring with your false gift.
 0165 E9 99 01                 jmp 0x301
-0168 B8 E6 00                 mov ax, 0xe6
-016B 50                       push ax
-016C B8 E6 00                 mov ax, 0xe6
-016F 50                       push ax
-0170 C4 5E 06                 les bx, [bp+0x6]
-0173 26 FF 5F 54              call far word [es:bx+0x54]
-0177 59                       pop cx
-0178 59                       pop cx
-0179 0B C0                    or ax, ax
+0168                          ax = UsedItem(E6, E6)
 017B 74 6B                    jz 0x1e8
 017D 83 FE 02                 cmp si, 0x2
 0180 75 56                    jnz 0x1d8
-0182                          RemoveItem(E6) [es:bx+0x4c]
-018E B8 E4 00                 mov ax, 0xe4
-0191 50                       push ax
-0192 C4 5E 06                 les bx, [bp+0x6]
-0195 26 FF 5F 48              call far word [es:bx+0x48]
-0199 59                       pop cx
-019A                          SetState(01, 01, 03) [es:bx]
-01AF                          ShowMessage(0DBC) [es:bx+0xf8] = Summer rejoices in the wondrous Harvest Horn.
-01BC                          ShowMessage(0DEA) [es:bx+0xf8] = Behold!  Summer ripens into mature Autumn!
-01C9                          ShowMessage(0E15) [es:bx+0xf8] = The golden Autumn Seeds are ample reward for your generosity.
+0182                          RemoveItem(E6)
+018E                          GiveItem(E4)
+019A                          SetState(01, 01, 03)
+01AF                          ShowMessage(0DBC) = Summer rejoices in the wondrous Harvest Horn.
+01BC                          ShowMessage(0DEA) = Behold!  Summer ripens into mature Autumn!
+01C9                          ShowMessage(0E15) = The golden Autumn Seeds are ample reward for your generosity.
 01D6 EB 0D                    jmp 0x1e5
-01D8                          ShowMessage(0E53) [es:bx+0xf8] = Summer burns in anger at your false gift.  Begone!
+01D8                          ShowMessage(0E53) = Summer burns in anger at your false gift.  Begone!
 01E5 E9 19 01                 jmp 0x301
-01E8 B8 E7 00                 mov ax, 0xe7
-01EB 50                       push ax
-01EC B8 E7 00                 mov ax, 0xe7
-01EF 50                       push ax
-01F0 C4 5E 06                 les bx, [bp+0x6]
-01F3 26 FF 5F 54              call far word [es:bx+0x54]
-01F7 59                       pop cx
-01F8 59                       pop cx
-01F9 0B C0                    or ax, ax
+01E8                          ax = UsedItem(E7, E7)
 01FB 74 6B                    jz 0x268
 01FD 83 FE 03                 cmp si, 0x3
 0200 75 56                    jnz 0x258
-0202                          RemoveItem(E7) [es:bx+0x4c]
-020E B8 E5 00                 mov ax, 0xe5
-0211 50                       push ax
-0212 C4 5E 06                 les bx, [bp+0x6]
-0215 26 FF 5F 48              call far word [es:bx+0x48]
-0219 59                       pop cx
-021A                          SetState(01, 01, 04) [es:bx]
-022F                          ShowMessage(0E86) [es:bx+0xf8] = Autumn gladly accepts the Spring Renewal.
-023C                          ShowMessage(0EB0) [es:bx+0xf8] = Lo!  Golden Autumn pales to white Winter and now sleeps under snowy blankets.
-0249                          ShowMessage(0EFE) [es:bx+0xf8] = These icy Winter Waters are a present to you.
+0202                          RemoveItem(E7)
+020E                          GiveItem(E5)
+021A                          SetState(01, 01, 04)
+022F                          ShowMessage(0E86) = Autumn gladly accepts the Spring Renewal.
+023C                          ShowMessage(0EB0) = Lo!  Golden Autumn pales to white Winter and now sleeps under snowy blankets.
+0249                          ShowMessage(0EFE) = These icy Winter Waters are a present to you.
 0256 EB 0D                    jmp 0x265
-0258                          ShowMessage(0F2C) [es:bx+0xf8] = Autumn is angry that you mock it with a false gift.
+0258                          ShowMessage(0F2C) = Autumn is angry that you mock it with a false gift.
 0265 E9 99 00                 jmp 0x301
-0268 B8 E4 00                 mov ax, 0xe4
-026B 50                       push ax
-026C B8 E4 00                 mov ax, 0xe4
-026F 50                       push ax
-0270 C4 5E 06                 les bx, [bp+0x6]
-0273 26 FF 5F 54              call far word [es:bx+0x54]
-0277 59                       pop cx
-0278 59                       pop cx
-0279 0B C0                    or ax, ax
+0268                          ax = UsedItem(E4, E4)
 027B 74 77                    jz 0x2f4
 027D 83 FE 04                 cmp si, 0x4
 0280 75 56                    jnz 0x2d8
-0282                          RemoveItem(E4) [es:bx+0x4c]
-028E B8 E7 00                 mov ax, 0xe7
-0291 50                       push ax
-0292 C4 5E 06                 les bx, [bp+0x6]
-0295 26 FF 5F 48              call far word [es:bx+0x48]
-0299 59                       pop cx
-029A                          SetState(01, 01, 01) [es:bx]
-02AF                          ShowMessage(0F60) [es:bx+0xf8] = These Autumn Seeds are wonderful, indeed!
-02BC                          ShowMessage(0F8A) [es:bx+0xf8] = See sleeping Winter blossom with new life!
-02C9                          ShowMessage(0FB5) [es:bx+0xf8] = You now receive the glory of Spring Renewal.  It is a priceless gift!
+0282                          RemoveItem(E4)
+028E                          GiveItem(E7)
+029A                          SetState(01, 01, 01)
+02AF                          ShowMessage(0F60) = These Autumn Seeds are wonderful, indeed!
+02BC                          ShowMessage(0F8A) = See sleeping Winter blossom with new life!
+02C9                          ShowMessage(0FB5) = You now receive the glory of Spring Renewal.  It is a priceless gift!
 02D6 EB 1A                    jmp 0x2f2
-02D8                          ShowMessage(0FFB) [es:bx+0xf8] = Winter turns a cold back on your poor gift.
-02E5                          ShowMessage(1027) [es:bx+0xf8] = Leave before Winter blasts you!
+02D8                          ShowMessage(0FFB) = Winter turns a cold back on your poor gift.
+02E5                          ShowMessage(1027) = Leave before Winter blasts you!
 02F2 EB 0D                    jmp 0x301
-02F4                          ShowMessage(1047) [es:bx+0xf8] = That item is of no interest to my master.
-0301 5E                       pop si
-0302                          RETURN
+02F4                          ShowMessage(1047) = That item is of no interest to my master.
+0301                          RETURN (restoring si)
 0304 F2 0A 1C                 repne or bl, [si]
 0307 0B 45 0B                 or ax, [di+0xb]
 030A 6E                       outsb
 030B 0B                       invalid
 
 OLACTOR_13:
-0000                          BEGIN
-0003 56                       push si
-0004                          ShowMessage(1071) [es:bx+0xf8] = We are the Clerics of Oakleaf who comfort the Seasons.
-0011                          ShowPortrait(0027) [es:bx+0xfc]
-001E B8 02 00                 mov ax, 0x2
-0021 50                       push ax
-0022 B8 01 00                 mov ax, 0x1
-0025 50                       push ax
+0000                          BEGIN (saving si)
+0004                          ShowMessage(1071) = We are the Clerics of Oakleaf who comfort the Seasons.
+0011                          ShowPortrait(0027)
+001E                          Push(02)
+0022                          Push(01)
 0026 C4 5E 06                 les bx, [bp+0x6]
 0029 26 FF 5F 04              call far word [es:bx+0x4]
 002D 59                       pop cx
@@ -727,139 +416,87 @@ OLACTOR_13:
 0039 E9 AC 00                 jmp 0xe8
 003C D1 E3                    shl bx, 1
 003E 2E FF A7 B2 10           jmp word [cs:bx+0x10b2]
-0043                          ShowMessage(10A8) [es:bx+0xf8] = Call me Donbard.  I ease the distress of gentle Spring.
-0050                          ShowMessage(10E0) [es:bx+0xf8] = Spring quakes in fear at your coming.
-005D                          ShowMessage(1106) [es:bx+0xf8] = Why have you come to Spring's home?
+0043                          ShowMessage(10A8) = Call me Donbard.  I ease the distress of gentle Spring.
+0050                          ShowMessage(10E0) = Spring quakes in fear at your coming.
+005D                          ShowMessage(1106) = Why have you come to Spring's home?
 006A EB 7C                    jmp 0xe8
 006C 90                       nop
-006D                          ShowMessage(112A) [es:bx+0xf8] = I am Shashamia, friend to the temperate Summer.
-007A                          ShowMessage(115A) [es:bx+0xf8] = Sullen summer is nervous around mortals.
-0087                          ShowMessage(1183) [es:bx+0xf8] = Do you have some business with Summer?
+006D                          ShowMessage(112A) = I am Shashamia, friend to the temperate Summer.
+007A                          ShowMessage(115A) = Sullen summer is nervous around mortals.
+0087                          ShowMessage(1183) = Do you have some business with Summer?
 0094 EB 52                    jmp 0xe8
-0096                          ShowMessage(11AA) [es:bx+0xf8] = Dindly Bindiak is my name.  Autumn is my friend.
-00A3                          ShowMessage(11DB) [es:bx+0xf8] = Russet-clad Autumn welcomes you if you are true friends of the Seasons.
-00B0                          ShowMessage(1223) [es:bx+0xf8] = Autumn will fade away unless you tell me why you have come.
+0096                          ShowMessage(11AA) = Dindly Bindiak is my name.  Autumn is my friend.
+00A3                          ShowMessage(11DB) = Russet-clad Autumn welcomes you if you are true friends of the Seasons.
+00B0                          ShowMessage(1223) = Autumn will fade away unless you tell me why you have come.
 00BD EB 29                    jmp 0xe8
-00BF                          ShowMessage(125F) [es:bx+0xf8] = I am called Kalakial, and I help poor Winter.
-00CC                          ShowMessage(128D) [es:bx+0xf8] = Wistful Winter is too shy to speak to you directly.
-00D9                          ShowMessage(12C1) [es:bx+0xf8] = Winter wishes you to leave, so do quickly what you came to do.
+00BF                          ShowMessage(125F) = I am called Kalakial, and I help poor Winter.
+00CC                          ShowMessage(128D) = Wistful Winter is too shy to speak to you directly.
+00D9                          ShowMessage(12C1) = Winter wishes you to leave, so do quickly what you came to do.
 00E6 EB 00                    jmp 0xe8
-00E8 B8 E5 00                 mov ax, 0xe5
-00EB 50                       push ax
-00EC B8 E5 00                 mov ax, 0xe5
-00EF 50                       push ax
-00F0 C4 5E 06                 les bx, [bp+0x6]
-00F3 26 FF 5F 54              call far word [es:bx+0x54]
-00F7 59                       pop cx
-00F8 59                       pop cx
-00F9 0B C0                    or ax, ax
+00E8                          ax = UsedItem(E5, E5)
 00FB 74 6B                    jz 0x168
 00FD 83 FE 01                 cmp si, 0x1
 0100 75 56                    jnz 0x158
-0102                          RemoveItem(E5) [es:bx+0x4c]
-010E B8 E8 00                 mov ax, 0xe8
-0111 50                       push ax
-0112 C4 5E 06                 les bx, [bp+0x6]
-0115 26 FF 5F 48              call far word [es:bx+0x48]
-0119 59                       pop cx
-011A                          SetState(01, 02, 02) [es:bx]
-012F                          ShowMessage(1300) [es:bx+0xf8] = Spring accepts the Winter Waters.
-013C                          ShowMessage(1322) [es:bx+0xf8] = Spring sings sweetly of its transformation into Summer!
-0149                          ShowMessage(135A) [es:bx+0xf8] = Summer Radiance is yours as happy reward.
+0102                          RemoveItem(E5)
+010E                          GiveItem(E8)
+011A                          SetState(01, 02, 02)
+012F                          ShowMessage(1300) = Spring accepts the Winter Waters.
+013C                          ShowMessage(1322) = Spring sings sweetly of its transformation into Summer!
+0149                          ShowMessage(135A) = Summer Radiance is yours as happy reward.
 0156 EB 0D                    jmp 0x165
-0158                          ShowMessage(1384) [es:bx+0xf8] = Spring departs at the sight of your poor gift.
+0158                          ShowMessage(1384) = Spring departs at the sight of your poor gift.
 0165 E9 8C 01                 jmp 0x2f4
-0168 B8 E6 00                 mov ax, 0xe6
-016B 50                       push ax
-016C B8 E6 00                 mov ax, 0xe6
-016F 50                       push ax
-0170 C4 5E 06                 les bx, [bp+0x6]
-0173 26 FF 5F 54              call far word [es:bx+0x54]
-0177 59                       pop cx
-0178 59                       pop cx
-0179 0B C0                    or ax, ax
+0168                          ax = UsedItem(E6, E6)
 017B 74 6B                    jz 0x1e8
 017D 83 FE 02                 cmp si, 0x2
 0180 75 56                    jnz 0x1d8
-0182                          RemoveItem(E6) [es:bx+0x4c]
-018E B8 E4 00                 mov ax, 0xe4
-0191 50                       push ax
-0192 C4 5E 06                 les bx, [bp+0x6]
-0195 26 FF 5F 48              call far word [es:bx+0x48]
-0199 59                       pop cx
-019A                          SetState(01, 02, 03) [es:bx]
-01AF                          ShowMessage(13B3) [es:bx+0xf8] = Summer accepts the Harvest Horn.
-01BC                          ShowMessage(13D4) [es:bx+0xf8] = Summer mellows by the sweet music and is now Autumn!
-01C9                          ShowMessage(1409) [es:bx+0xf8] = Autumn Seeds are now yours to enjoy.
+0182                          RemoveItem(E6)
+018E                          GiveItem(E4)
+019A                          SetState(01, 02, 03)
+01AF                          ShowMessage(13B3) = Summer accepts the Harvest Horn.
+01BC                          ShowMessage(13D4) = Summer mellows by the sweet music and is now Autumn!
+01C9                          ShowMessage(1409) = Autumn Seeds are now yours to enjoy.
 01D6 EB 0D                    jmp 0x1e5
-01D8                          ShowMessage(142E) [es:bx+0xf8] = Summer shies away from your pitiful gift.
+01D8                          ShowMessage(142E) = Summer shies away from your pitiful gift.
 01E5 E9 0C 01                 jmp 0x2f4
-01E8 B8 E7 00                 mov ax, 0xe7
-01EB 50                       push ax
-01EC B8 E7 00                 mov ax, 0xe7
-01EF 50                       push ax
-01F0 C4 5E 06                 les bx, [bp+0x6]
-01F3 26 FF 5F 54              call far word [es:bx+0x54]
-01F7 59                       pop cx
-01F8 59                       pop cx
-01F9 0B C0                    or ax, ax
+01E8                          ax = UsedItem(E7, E7)
 01FB 74 6B                    jz 0x268
 01FD 83 FE 03                 cmp si, 0x3
 0200 75 56                    jnz 0x258
-0202                          RemoveItem(E7) [es:bx+0x4c]
-020E B8 E5 00                 mov ax, 0xe5
-0211 50                       push ax
-0212 C4 5E 06                 les bx, [bp+0x6]
-0215 26 FF 5F 48              call far word [es:bx+0x48]
-0219 59                       pop cx
-021A                          SetState(01, 02, 04) [es:bx]
-022F                          ShowMessage(1458) [es:bx+0xf8] = Autumn shyly receives the Spring Renewal.
-023C                          ShowMessage(1482) [es:bx+0xf8] = Now Autumn turns to Winter, still clutching the hope of vernal renewal.
-0249                          ShowMessage(14CA) [es:bx+0xf8] = Winter Waters are yours, my friends.
+0202                          RemoveItem(E7)
+020E                          GiveItem(E5)
+021A                          SetState(01, 02, 04)
+022F                          ShowMessage(1458) = Autumn shyly receives the Spring Renewal.
+023C                          ShowMessage(1482) = Now Autumn turns to Winter, still clutching the hope of vernal renewal.
+0249                          ShowMessage(14CA) = Winter Waters are yours, my friends.
 0256 EB 0D                    jmp 0x265
-0258                          ShowMessage(14EF) [es:bx+0xf8] = Autumn rejects your horrid gift.
+0258                          ShowMessage(14EF) = Autumn rejects your horrid gift.
 0265 E9 8C 00                 jmp 0x2f4
-0268 B8 E4 00                 mov ax, 0xe4
-026B 50                       push ax
-026C B8 E4 00                 mov ax, 0xe4
-026F 50                       push ax
-0270 C4 5E 06                 les bx, [bp+0x6]
-0273 26 FF 5F 54              call far word [es:bx+0x54]
-0277 59                       pop cx
-0278 59                       pop cx
-0279 0B C0                    or ax, ax
+0268                          ax = UsedItem(E4, E4)
 027B 74 6A                    jz 0x2e7
 027D 83 FE 04                 cmp si, 0x4
 0280 75 56                    jnz 0x2d8
-0282                          RemoveItem(E4) [es:bx+0x4c]
-028E B8 E7 00                 mov ax, 0xe7
-0291 50                       push ax
-0292 C4 5E 06                 les bx, [bp+0x6]
-0295 26 FF 5F 48              call far word [es:bx+0x48]
-0299 59                       pop cx
-029A                          SetState(01, 02, 01) [es:bx]
-02AF                          ShowMessage(1510) [es:bx+0xf8] = Autumn Seeds hold the germ of life!
-02BC                          ShowMessage(1534) [es:bx+0xf8] = Cold Winter is become warm Spring.  Rejoice!
-02C9                          ShowMessage(1561) [es:bx+0xf8] = The magnificent Spring Renewal is your just reward.
+0282                          RemoveItem(E4)
+028E                          GiveItem(E7)
+029A                          SetState(01, 02, 01)
+02AF                          ShowMessage(1510) = Autumn Seeds hold the germ of life!
+02BC                          ShowMessage(1534) = Cold Winter is become warm Spring.  Rejoice!
+02C9                          ShowMessage(1561) = The magnificent Spring Renewal is your just reward.
 02D6 EB 0D                    jmp 0x2e5
-02D8                          ShowMessage(1595) [es:bx+0xf8] = Winter weeps at your cruelty.
+02D8                          ShowMessage(1595) = Winter weeps at your cruelty.
 02E5 EB 0D                    jmp 0x2f4
-02E7                          ShowMessage(15B3) [es:bx+0xf8] = No season is interested in the item you offer.
-02F4 5E                       pop si
-02F5                          RETURN
+02E7                          ShowMessage(15B3) = No season is interested in the item you offer.
+02F4                          RETURN (restoring si)
 02F7 FE 0D                    dec byte [di]
 02F9 28 0E 51 0E              sub [0xe51], cl
 02FD 7A 0E                    jp 0x30d
 
 MBACTOR_14:
-0000                          BEGIN
-0003 56                       push si
-0004                          ShowMessage(15E2) [es:bx+0xf8] = We are the Wardens of Maplebrush and hold the Seasons.
-0011                          ShowPortrait(0027) [es:bx+0xfc]
-001E B8 03 00                 mov ax, 0x3
-0021 50                       push ax
-0022 B8 01 00                 mov ax, 0x1
-0025 50                       push ax
+0000                          BEGIN (saving si)
+0004                          ShowMessage(15E2) = We are the Wardens of Maplebrush and hold the Seasons.
+0011                          ShowPortrait(0027)
+001E                          Push(03)
+0022                          Push(01)
 0026 C4 5E 06                 les bx, [bp+0x6]
 0029 26 FF 5F 04              call far word [es:bx+0x4]
 002D 59                       pop cx
@@ -873,131 +510,79 @@ MBACTOR_14:
 003B 90                       nop
 003C D1 E3                    shl bx, 1
 003E 2E FF A7 48 13           jmp word [cs:bx+0x1348]
-0043                          ShowMessage(1619) [es:bx+0xf8] = You may not know my name.
-0050                          ShowMessage(1633) [es:bx+0xf8] = It is Spring.  That is all you need know.
+0043                          ShowMessage(1619) = You may not know my name.
+0050                          ShowMessage(1633) = It is Spring.  That is all you need know.
 005D EB 54                    jmp 0xb3
-005F                          ShowMessage(165D) [es:bx+0xf8] = My name is my secret.
-006C                          ShowMessage(1673) [es:bx+0xf8] = It is Summer. That is all I'll say.
+005F                          ShowMessage(165D) = My name is my secret.
+006C                          ShowMessage(1673) = It is Summer. That is all I'll say.
 0079 EB 38                    jmp 0xb3
-007B                          ShowMessage(1697) [es:bx+0xf8] = Never mind what my name is.
-0088                          ShowMessage(16B3) [es:bx+0xf8] = It is Autumn.  That is enough for now.
+007B                          ShowMessage(1697) = Never mind what my name is.
+0088                          ShowMessage(16B3) = It is Autumn.  That is enough for now.
 0095 EB 1C                    jmp 0xb3
-0097                          ShowMessage(16DA) [es:bx+0xf8] = Not even I know my true name.
-00A4                          ShowMessage(16F8) [es:bx+0xf8] = It is Winter.  I may say no more.
+0097                          ShowMessage(16DA) = Not even I know my true name.
+00A4                          ShowMessage(16F8) = It is Winter.  I may say no more.
 00B1 EB 00                    jmp 0xb3
-00B3 B8 E5 00                 mov ax, 0xe5
-00B6 50                       push ax
-00B7 B8 E5 00                 mov ax, 0xe5
-00BA 50                       push ax
-00BB C4 5E 06                 les bx, [bp+0x6]
-00BE 26 FF 5F 54              call far word [es:bx+0x54]
-00C2 59                       pop cx
-00C3 59                       pop cx
-00C4 0B C0                    or ax, ax
+00B3                          ax = UsedItem(E5, E5)
 00C6 74 5E                    jz 0x126
 00C8 83 FE 01                 cmp si, 0x1
 00CB 75 49                    jnz 0x116
-00CD                          RemoveItem(E5) [es:bx+0x4c]
-00D9 B8 E8 00                 mov ax, 0xe8
-00DC 50                       push ax
-00DD C4 5E 06                 les bx, [bp+0x6]
-00E0 26 FF 5F 48              call far word [es:bx+0x48]
-00E4 59                       pop cx
-00E5                          SetState(01, 03, 02) [es:bx]
-00FA                          ShowMessage(171A) [es:bx+0xf8] = From Winter Waters comes the change of Spring to Summer.
-0107                          ShowMessage(1753) [es:bx+0xf8] = You are rewarded.
+00CD                          RemoveItem(E5)
+00D9                          GiveItem(E8)
+00E5                          SetState(01, 03, 02)
+00FA                          ShowMessage(171A) = From Winter Waters comes the change of Spring to Summer.
+0107                          ShowMessage(1753) = You are rewarded.
 0114 EB 0D                    jmp 0x123
-0116                          ShowMessage(1765) [es:bx+0xf8] = Wrong gift, mortal!
+0116                          ShowMessage(1765) = Wrong gift, mortal!
 0123 E9 65 01                 jmp 0x28b
-0126 B8 E6 00                 mov ax, 0xe6
-0129 50                       push ax
-012A B8 E6 00                 mov ax, 0xe6
-012D 50                       push ax
-012E C4 5E 06                 les bx, [bp+0x6]
-0131 26 FF 5F 54              call far word [es:bx+0x54]
-0135 59                       pop cx
-0136 59                       pop cx
-0137 0B C0                    or ax, ax
+0126                          ax = UsedItem(E6, E6)
 0139 74 5E                    jz 0x199
 013B 83 FE 02                 cmp si, 0x2
 013E 75 49                    jnz 0x189
-0140                          RemoveItem(E6) [es:bx+0x4c]
-014C B8 E4 00                 mov ax, 0xe4
-014F 50                       push ax
-0150 C4 5E 06                 les bx, [bp+0x6]
-0153 26 FF 5F 48              call far word [es:bx+0x48]
-0157 59                       pop cx
-0158                          SetState(01, 03, 03) [es:bx]
-016D                          ShowMessage(1779) [es:bx+0xf8] = The Harvest Horn blows Summer into Autumn.
-017A                          ShowMessage(17A4) [es:bx+0xf8] = A reward is yours.
+0140                          RemoveItem(E6)
+014C                          GiveItem(E4)
+0158                          SetState(01, 03, 03)
+016D                          ShowMessage(1779) = The Harvest Horn blows Summer into Autumn.
+017A                          ShowMessage(17A4) = A reward is yours.
 0187 EB 0D                    jmp 0x196
-0189                          ShowMessage(17B7) [es:bx+0xf8] = Wrong present, mortal!
+0189                          ShowMessage(17B7) = Wrong present, mortal!
 0196 E9 F2 00                 jmp 0x28b
-0199 B8 E7 00                 mov ax, 0xe7
-019C 50                       push ax
-019D B8 E7 00                 mov ax, 0xe7
-01A0 50                       push ax
-01A1 C4 5E 06                 les bx, [bp+0x6]
-01A4 26 FF 5F 54              call far word [es:bx+0x54]
-01A8 59                       pop cx
-01A9 59                       pop cx
-01AA 0B C0                    or ax, ax
+0199                          ax = UsedItem(E7, E7)
 01AC 74 5E                    jz 0x20c
 01AE 83 FE 03                 cmp si, 0x3
 01B1 75 49                    jnz 0x1fc
-01B3                          RemoveItem(E7) [es:bx+0x4c]
-01BF B8 E5 00                 mov ax, 0xe5
-01C2 50                       push ax
-01C3 C4 5E 06                 les bx, [bp+0x6]
-01C6 26 FF 5F 48              call far word [es:bx+0x48]
-01CA 59                       pop cx
-01CB                          SetState(01, 03, 04) [es:bx]
-01E0                          ShowMessage(17CE) [es:bx+0xf8] = The Spring Renewal eases Autumn's slide into Winter.
-01ED                          ShowMessage(1803) [es:bx+0xf8] = Enjoy your reward.
+01B3                          RemoveItem(E7)
+01BF                          GiveItem(E5)
+01CB                          SetState(01, 03, 04)
+01E0                          ShowMessage(17CE) = The Spring Renewal eases Autumn's slide into Winter.
+01ED                          ShowMessage(1803) = Enjoy your reward.
 01FA EB 0D                    jmp 0x209
-01FC                          ShowMessage(1816) [es:bx+0xf8] = Not even close, mortal!
+01FC                          ShowMessage(1816) = Not even close, mortal!
 0209 E9 7F 00                 jmp 0x28b
-020C B8 E4 00                 mov ax, 0xe4
-020F 50                       push ax
-0210 B8 E4 00                 mov ax, 0xe4
-0213 50                       push ax
-0214 C4 5E 06                 les bx, [bp+0x6]
-0217 26 FF 5F 54              call far word [es:bx+0x54]
-021B 59                       pop cx
-021C 59                       pop cx
-021D 0B C0                    or ax, ax
+020C                          ax = UsedItem(E4, E4)
 021F 74 5D                    jz 0x27e
 0221 83 FE 04                 cmp si, 0x4
 0224 75 49                    jnz 0x26f
-0226                          RemoveItem(E4) [es:bx+0x4c]
-0232 B8 E7 00                 mov ax, 0xe7
-0235 50                       push ax
-0236 C4 5E 06                 les bx, [bp+0x6]
-0239 26 FF 5F 48              call far word [es:bx+0x48]
-023D 59                       pop cx
-023E                          SetState(01, 03, 01) [es:bx]
-0253                          ShowMessage(182E) [es:bx+0xf8] = Winter devours the Autumn Seeds and becomes Spring.
-0260                          ShowMessage(1862) [es:bx+0xf8] = You are well rewarded.
+0226                          RemoveItem(E4)
+0232                          GiveItem(E7)
+023E                          SetState(01, 03, 01)
+0253                          ShowMessage(182E) = Winter devours the Autumn Seeds and becomes Spring.
+0260                          ShowMessage(1862) = You are well rewarded.
 026D EB 0D                    jmp 0x27c
-026F                          ShowMessage(1879) [es:bx+0xf8] = Wrong, wrong, wrong, mortal!
+026F                          ShowMessage(1879) = Wrong, wrong, wrong, mortal!
 027C EB 0D                    jmp 0x28b
-027E                          ShowMessage(1896) [es:bx+0xf8] = Why do you offer the seasons such a thing?
-028B 5E                       pop si
-028C                          RETURN
+027E                          ShowMessage(1896) = Why do you offer the seasons such a thing?
+028B                          RETURN (restoring si)
 028E FD                       std
 028F 10 19                    adc [bx+di], bl
 0291 11 35                    adc [di], si
 0293 11 51 11                 adc [bx+di+0x11], dx
 
 PCACTOR_15:
-0000                          BEGIN
-0003 56                       push si
-0004                          ShowMessage(18C1) [es:bx+0xf8] = We are the Seasons incarnate in mortal form.
-0011                          ShowPortrait(0027) [es:bx+0xfc]
-001E B8 04 00                 mov ax, 0x4
-0021 50                       push ax
-0022 B8 01 00                 mov ax, 0x1
-0025 50                       push ax
+0000                          BEGIN (saving si)
+0004                          ShowMessage(18C1) = We are the Seasons incarnate in mortal form.
+0011                          ShowPortrait(0027)
+001E                          Push(04)
+0022                          Push(01)
 0026 C4 5E 06                 les bx, [bp+0x6]
 0029 26 FF 5F 04              call far word [es:bx+0x4]
 002D 59                       pop cx
@@ -1009,186 +594,119 @@ PCACTOR_15:
 0037 77 43                    ja 0x7c
 0039 D1 E3                    shl bx, 1
 003B 2E FF A7 DB 15           jmp word [cs:bx+0x15db]
-0040                          ShowMessage(18EE) [es:bx+0xf8] = I am Spring
+0040                          ShowMessage(18EE) = I am Spring
 004D EB 2D                    jmp 0x7c
-004F                          ShowMessage(18FA) [es:bx+0xf8] = I am Summer
+004F                          ShowMessage(18FA) = I am Summer
 005C EB 1E                    jmp 0x7c
-005E                          ShowMessage(1906) [es:bx+0xf8] = I am Autumn
+005E                          ShowMessage(1906) = I am Autumn
 006B EB 0F                    jmp 0x7c
-006D                          ShowMessage(1912) [es:bx+0xf8] = I am Winter
+006D                          ShowMessage(1912) = I am Winter
 007A EB 00                    jmp 0x7c
-007C B8 E5 00                 mov ax, 0xe5
-007F 50                       push ax
-0080 B8 E5 00                 mov ax, 0xe5
-0083 50                       push ax
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 5F 54              call far word [es:bx+0x54]
-008B 59                       pop cx
-008C 59                       pop cx
-008D 0B C0                    or ax, ax
+007C                          ax = UsedItem(E5, E5)
 008F 74 6B                    jz 0xfc
 0091 83 FE 01                 cmp si, 0x1
 0094 75 56                    jnz 0xec
-0096                          RemoveItem(E5) [es:bx+0x4c]
-00A2 B8 E8 00                 mov ax, 0xe8
-00A5 50                       push ax
-00A6 C4 5E 06                 les bx, [bp+0x6]
-00A9 26 FF 5F 48              call far word [es:bx+0x48]
-00AD 59                       pop cx
-00AE                          SetState(01, 04, 02) [es:bx]
-00C3                          ShowMessage(191E) [es:bx+0xf8] = The Winter Waters you offer quench my thirst.
-00D0                          ShowMessage(194C) [es:bx+0xf8] = Look how I have become Summer!
-00DD                          ShowMessage(196B) [es:bx+0xf8] = Take my new Summer Radiance.
+0096                          RemoveItem(E5)
+00A2                          GiveItem(E8)
+00AE                          SetState(01, 04, 02)
+00C3                          ShowMessage(191E) = The Winter Waters you offer quench my thirst.
+00D0                          ShowMessage(194C) = Look how I have become Summer!
+00DD                          ShowMessage(196B) = Take my new Summer Radiance.
 00EA EB 0D                    jmp 0xf9
-00EC                          ShowMessage(1988) [es:bx+0xf8] = I have no need for that item.
+00EC                          ShowMessage(1988) = I have no need for that item.
 00F9 E9 8C 01                 jmp 0x288
-00FC B8 E6 00                 mov ax, 0xe6
-00FF 50                       push ax
-0100 B8 E6 00                 mov ax, 0xe6
-0103 50                       push ax
-0104 C4 5E 06                 les bx, [bp+0x6]
-0107 26 FF 5F 54              call far word [es:bx+0x54]
-010B 59                       pop cx
-010C 59                       pop cx
-010D 0B C0                    or ax, ax
+00FC                          ax = UsedItem(E6, E6)
 010F 74 6B                    jz 0x17c
 0111 83 FE 02                 cmp si, 0x2
 0114 75 56                    jnz 0x16c
-0116                          RemoveItem(E6) [es:bx+0x4c]
-0122 B8 E4 00                 mov ax, 0xe4
-0125 50                       push ax
-0126 C4 5E 06                 les bx, [bp+0x6]
-0129 26 FF 5F 48              call far word [es:bx+0x48]
-012D 59                       pop cx
-012E                          SetState(01, 04, 03) [es:bx]
-0143                          ShowMessage(19A6) [es:bx+0xf8] = I blow the Harvest Horn you give me...
-0150                          ShowMessage(19CD) [es:bx+0xf8] = ...and I change to Autumn!
-015D                          ShowMessage(19E8) [es:bx+0xf8] = Have some of my Autumn Seeds as thanks.
+0116                          RemoveItem(E6)
+0122                          GiveItem(E4)
+012E                          SetState(01, 04, 03)
+0143                          ShowMessage(19A6) = I blow the Harvest Horn you give me...
+0150                          ShowMessage(19CD) = ...and I change to Autumn!
+015D                          ShowMessage(19E8) = Have some of my Autumn Seeds as thanks.
 016A EB 0D                    jmp 0x179
-016C                          ShowMessage(1A10) [es:bx+0xf8] = The present you offer I must reject.
+016C                          ShowMessage(1A10) = The present you offer I must reject.
 0179 E9 0C 01                 jmp 0x288
-017C B8 E7 00                 mov ax, 0xe7
-017F 50                       push ax
-0180 B8 E7 00                 mov ax, 0xe7
-0183 50                       push ax
-0184 C4 5E 06                 les bx, [bp+0x6]
-0187 26 FF 5F 54              call far word [es:bx+0x54]
-018B 59                       pop cx
-018C 59                       pop cx
-018D 0B C0                    or ax, ax
+017C                          ax = UsedItem(E7, E7)
 018F 74 6B                    jz 0x1fc
 0191 83 FE 03                 cmp si, 0x3
 0194 75 56                    jnz 0x1ec
-0196                          RemoveItem(E7) [es:bx+0x4c]
-01A2 B8 E5 00                 mov ax, 0xe5
-01A5 50                       push ax
-01A6 C4 5E 06                 les bx, [bp+0x6]
-01A9 26 FF 5F 48              call far word [es:bx+0x48]
-01AD 59                       pop cx
-01AE                          SetState(01, 04, 04) [es:bx]
-01C3                          ShowMessage(1A35) [es:bx+0xf8] = Because you give me Spring Renewal...
-01D0                          ShowMessage(1A5B) [es:bx+0xf8] = ...I can safely transform into Winter and still survive.
-01DD                          ShowMessage(1A94) [es:bx+0xf8] = May my Winter Waters refresh you.
+0196                          RemoveItem(E7)
+01A2                          GiveItem(E5)
+01AE                          SetState(01, 04, 04)
+01C3                          ShowMessage(1A35) = Because you give me Spring Renewal...
+01D0                          ShowMessage(1A5B) = ...I can safely transform into Winter and still survive.
+01DD                          ShowMessage(1A94) = May my Winter Waters refresh you.
 01EA EB 0D                    jmp 0x1f9
-01EC                          ShowMessage(1AB6) [es:bx+0xf8] = I cannot accept your present.
+01EC                          ShowMessage(1AB6) = I cannot accept your present.
 01F9 E9 8C 00                 jmp 0x288
-01FC B8 E4 00                 mov ax, 0xe4
-01FF 50                       push ax
-0200 B8 E4 00                 mov ax, 0xe4
-0203 50                       push ax
-0204 C4 5E 06                 les bx, [bp+0x6]
-0207 26 FF 5F 54              call far word [es:bx+0x54]
-020B 59                       pop cx
-020C 59                       pop cx
-020D 0B C0                    or ax, ax
+01FC                          ax = UsedItem(E4, E4)
 020F 74 6A                    jz 0x27b
 0211 83 FE 04                 cmp si, 0x4
 0214 75 56                    jnz 0x26c
-0216                          RemoveItem(E4) [es:bx+0x4c]
-0222 B8 E7 00                 mov ax, 0xe7
-0225 50                       push ax
-0226 C4 5E 06                 les bx, [bp+0x6]
-0229 26 FF 5F 48              call far word [es:bx+0x48]
-022D 59                       pop cx
-022E                          SetState(01, 04, 01) [es:bx]
-0243                          ShowMessage(1AD4) [es:bx+0xf8] = The Autumn Seeds awaken me from my long hibernation.
-0250                          ShowMessage(1B09) [es:bx+0xf8] = I am Spring again!
-025D                          ShowMessage(1B1C) [es:bx+0xf8] = Take the Renewal of Spring and rejoice with me!
+0216                          RemoveItem(E4)
+0222                          GiveItem(E7)
+022E                          SetState(01, 04, 01)
+0243                          ShowMessage(1AD4) = The Autumn Seeds awaken me from my long hibernation.
+0250                          ShowMessage(1B09) = I am Spring again!
+025D                          ShowMessage(1B1C) = Take the Renewal of Spring and rejoice with me!
 026A EB 0D                    jmp 0x279
-026C                          ShowMessage(1B4C) [es:bx+0xf8] = I have no use for what you offer.
+026C                          ShowMessage(1B4C) = I have no use for what you offer.
 0279 EB 0D                    jmp 0x288
-027B                          ShowMessage(1B6E) [es:bx+0xf8] = We Seasons cannot use the item you offer.
-0288 5E                       pop si
-0289                          RETURN
+027B                          ShowMessage(1B6E) = We Seasons cannot use the item you offer.
+0288                          RETURN (restoring si)
 028B 90                       nop
 028C 13 9F 13 AE              adc bx, [bx-0x51ed]
 0290 13 BD 13                 invalid
 
 INFO_16:
 0000                          BEGIN
-0003                          ShowPortrait(001F) [es:bx+0xfc]
-0010                          ShowMessage(1B98) [es:bx+0xf8] = 'Welcome, Adventurer.  I am Varstad, counselor to the Elf King.
-001D                          ShowMessage(1BD8) [es:bx+0xf8] = The magic Aldbora requires Summer Radiance to shed its knowledge fruit.'
+0003                          ShowPortrait(001F)
+0010                          ShowMessage(1B98) = 'Welcome, Adventurer.  I am Varstad, counselor to the Elf King.
+001D                          ShowMessage(1BD8) = The magic Aldbora requires Summer Radiance to shed its knowledge fruit.'
 002A                          RETURN
 
 INFO_17:
 0000                          BEGIN
-0003                          ShowPortrait(0027) [es:bx+0xfc]
-0010                          ShowMessage(1C21) [es:bx+0xf8] = The storyteller Sorshian honors your arrival.
-001D                          ShowMessage(1C4F) [es:bx+0xf8] = 'Only when the season is winter will the Aldbora shed its fruit.'
+0003                          ShowPortrait(0027)
+0010                          ShowMessage(1C21) = The storyteller Sorshian honors your arrival.
+001D                          ShowMessage(1C4F) = 'Only when the season is winter will the Aldbora shed its fruit.'
 002A                          RETURN
 
 CAVEDOOR_18:
 0000                          BEGIN
-0003                          ShowMessage(1C91) [es:bx+0xf8] = A wooden sign says, 'To the cave of NeedleWood.'
-0010 B8 D8 00                 mov ax, 0xd8
-0013 50                       push ax
-0014 B8 D8 00                 mov ax, 0xd8
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 54              call far word [es:bx+0x54]
-001F 59                       pop cx
-0020 59                       pop cx
-0021 0B C0                    or ax, ax
+0003                          ShowMessage(1C91) = A wooden sign says, 'To the cave of NeedleWood.'
+0010                          ax = UsedItem(D8, D8)
 0023 74 41                    jz 0x66
-0025                          ShowMessage(1CC2) [es:bx+0xf8] = The door unlocks.
-0032 B8 01 00                 mov ax, 0x1
-0035 50                       push ax
-0036 B8 03 00                 mov ax, 0x3
-0039 50                       push ax
-003A C4 5E 06                 les bx, [bp+0x6]
-003D 26 FF 5F 20              call far word [es:bx+0x20]
+0025                          ShowMessage(1CC2) = The door unlocks.
+0032                          Push(01)
+0036                          Push(03)
+003A                          ax = GetNextTile()
 0041 50                       push ax
-0042 C4 5E 06                 les bx, [bp+0x6]
-0045 26 FF 5F 2C              call far word [es:bx+0x2c]
-0049 83 C4 06                 add sp, 0x6
-004C B8 03 00                 mov ax, 0x3
-004F 50                       push ax
-0050 C4 5E 06                 les bx, [bp+0x6]
-0053 26 FF 5F 20              call far word [es:bx+0x20]
+0042                          Move(stk[0], stk[1], stk[2])
+004C                          Push(03)
+0050                          ax = GetNextTile()
 0057 50                       push ax
-0058 B8 01 00                 mov ax, 0x1
-005B 50                       push ax
-005C C4 5E 06                 les bx, [bp+0x6]
-005F 26 FF 5F 30              call far word [es:bx+0x30]
-0063 83 C4 06                 add sp, 0x6
+0058                          Push(01)
+005C                          SetUnblocked()
 0066                          RETURN
 
 ELFHOME_19:
 0000                          BEGIN
-0003                          ShowMessage(1CD4) [es:bx+0xf8] = Young elves scurry and hide when you enter this elf home.
+0003                          ShowMessage(1CD4) = Young elves scurry and hide when you enter this elf home.
 0010                          RETURN
 
 ELFHOME_1A:
 0000                          BEGIN
-0003                          ShowMessage(1D0E) [es:bx+0xf8] = Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.
+0003                          ShowMessage(1D0E) = Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.
 0010                          RETURN
 
 INFO_1B:
 0000                          BEGIN
-0003                          ShowPortrait(001F) [es:bx+0xfc]
-0010                          ShowMessage(1D79) [es:bx+0xf8] = 'I am Fernank, Hunter to the Elf King.
-001D                          ShowMessage(1DA0) [es:bx+0xf8] = It is known in the trees that Nature's Robe must be used for the harvest.'
+0003                          ShowPortrait(001F)
+0010                          ShowMessage(1D79) = 'I am Fernank, Hunter to the Elf King.
+001D                          ShowMessage(1DA0) = It is known in the trees that Nature's Robe must be used for the harvest.'
 002A                          RETURN
 
 03FC: The AldBora Tree bears... 

@@ -1,356 +1,336 @@
 ATELEA_01:
 0000                          BEGIN
-0003                          ShowMessage(03FC) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5004) [es:bx+0xf4] = Alchemy
-001D                          GoMap(02, 8A, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(03FC) = Runes on magic wall --
+0010                          ShowRunes(0413) = Alchemy
+001D                          GoMap(02, 8A, 02, 34)
 0038                          RETURN
 
 RTELEB_02:
 0000                          BEGIN
-0003                          ShowMessage(041B) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5004) [es:bx+0xf4] = Reverie
-001D                          GoMap(03, 38, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(041B) = Runes on magic wall --
+0010                          ShowRunes(0432) = Reverie
+001D                          GoMap(03, 38, 02, 34)
 0038                          RETURN
 
 NTELEC_03:
 0000                          BEGIN
-0003                          ShowMessage(043A) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5004) [es:bx+0xf4] = Netherworld
-001D                          SetState(02, 49, 02) [es:bx]
-0032                          GoMap(02, E0, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(043A) = Runes on magic wall --
+0010                          ShowRunes(0451) = Netherworld
+001D                          SetState(02, 49, 02)
+0032                          GoMap(02, E0, 02, 34)
 004D                          RETURN
 
 ATELED_04:
 0000                          BEGIN
-0003                          ShowMessage(045D) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5004) [es:bx+0xf4] = Arcane
-001D                          GoMap(00, F2, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(045D) = Runes on magic wall --
+0010                          ShowRunes(0474) = Arcane
+001D                          GoMap(00, F2, 02, 34)
 0037                          RETURN
 
 KTELEE_05:
 0000                          BEGIN
-0003                          ShowMessage(047B) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5004) [es:bx+0xf4] = Karma
-001D                          GoMap(03, F5, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(047B) = Runes on magic wall --
+0010                          ShowRunes(0492) = Karma
+001D                          GoMap(03, F5, 02, 34)
 0038                          RETURN
 
 KTELEF_06:
 0000                          BEGIN
-0003                          ShowMessage(0498) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5004) [es:bx+0xf4] = Karma
-001D                          GoMap(02, E3, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0498) = Runes on magic wall --
+0010                          ShowRunes(04AF) = Karma
+001D                          GoMap(02, E3, 02, 34)
 0038                          RETURN
 
 ITELEG_07:
 0000                          BEGIN
-0003                          ShowMessage(04B5) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5004) [es:bx+0xf4] = Incantation
-001D                          GoMap(02, CC, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(04B5) = Runes on magic wall --
+0010                          ShowRunes(04CC) = Incantation
+001D                          GoMap(02, CC, 02, 34)
 0038                          RETURN
 
 ATELEH_08:
 0000                          BEGIN
-0003                          ax = CheckState(02, 49, 02) [es:bx+0x4]
+0003                          ax = CheckState(02, 49, 02)
 0017 75 35                    jnz 0x4e
-0019                          ShowMessage(04D8) [es:bx+0xf8] = Runes on magic wall --
-0026                          ShowRunes(5004) [es:bx+0xf4] = Archaic
-0033                          GoMap(02, FA, 02, 34) [es:bx+0xbc]
+0019                          ShowMessage(04D8) = Runes on magic wall --
+0026                          ShowRunes(04EF) = Archaic
+0033                          GoMap(02, FA, 02, 34)
 004E                          RETURN
 
 NTELEI_09:
 0000                          BEGIN
-0003                          ShowMessage(04F7) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5005) [es:bx+0xf4] = Netherworld
-001D                          GoMap(00, 88, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(04F7) = Runes on magic wall --
+0010                          ShowRunes(050E) = Netherworld
+001D                          GoMap(00, 88, 02, 34)
 0037                          RETURN
 
 ARNKENCA_0A:
 0000                          BEGIN
-0003                          SetState(02, 52, 01) [es:bx]
-0018                          ShowMessage(051A) [es:bx+0xf8] = Secrets follow when you spell that which powers time.
-0025                          AddEncounter(19, 01) [es:bx+0xd4]
-0037                          AddEncounter(19, 02) [es:bx+0xd4]
-0049                          AddEncounter(19, 03) [es:bx+0xd4]
-005B                          AddEncounter(12, 05) [es:bx+0xd4]
-006D                          AddEncounter(12, 06) [es:bx+0xd4]
-007F                          AddTreasure(01F4, 00, CF, CF, C6, C9) [es:bx+0xd8]
+0003                          SetState(02, 52, 01)
+0018                          ShowMessage(051A) = Secrets follow when you spell that which powers time.
+0025                          AddEncounter(19, 01)
+0037                          AddEncounter(19, 02)
+0049                          AddEncounter(19, 03)
+005B                          AddEncounter(12, 05)
+006D                          AddEncounter(12, 06)
+007F                          AddTreasure(01F4, 00, CF, CF, C6, C9)
 00A1                          RETURN
 
 TOENTRY_0C:
 0000                          BEGIN
-0003                          ShowMessage(0550) [es:bx+0xf8] = The gate takes you back to the Labyrinth.
-0010                          GoMap(02, 30, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0550) = The gate takes you back to the Labyrinth.
+0010                          GoMap(02, 30, 02, 34)
 002B                          RETURN
 
 ETELEJ_0D:
 0000                          BEGIN
-0003                          ShowMessage(057A) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5005) [es:bx+0xf4] = Ethereal
-001D                          GoMap(02, BB, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(057A) = Runes on magic wall --
+0010                          ShowRunes(0591) = Ethereal
+001D                          GoMap(02, BB, 02, 34)
 0038                          RETURN
 
 NTELEK_0E:
 0000                          BEGIN
-0003                          ShowMessage(059A) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5005) [es:bx+0xf4] = Netherworld
-001D                          GoMap(02, DA, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(059A) = Runes on magic wall --
+0010                          ShowRunes(05B1) = Netherworld
+001D                          GoMap(02, DA, 02, 34)
 0038                          RETURN
 
 LTELEL_0F:
 0000                          BEGIN
-0003                          SetState(02, 49, 03) [es:bx]
-0018                          ShowMessage(05BD) [es:bx+0xf8] = Runes on magic wall --
-0025                          ShowRunes(5005) [es:bx+0xf4] = Luck
-0032                          GoMap(02, B9, 02, 34) [es:bx+0xbc]
+0003                          SetState(02, 49, 03)
+0018                          ShowMessage(05BD) = Runes on magic wall --
+0025                          ShowRunes(05D4) = Luck
+0032                          GoMap(02, B9, 02, 34)
 004D                          RETURN
 
 ITELEG_10:
 0000                          BEGIN
-0003                          ax = CheckState(02, 49, 03) [es:bx+0x4]
+0003                          ax = CheckState(02, 49, 03)
 0017 75 37                    jnz 0x50
-0019                          ShowMessage(05D9) [es:bx+0xf8] = Runes on magic wall --
-0026                          ShowRunes(5005) [es:bx+0xf4] = Illusion
-0033                          GoMap(02, CC, 02, 34) [es:bx+0xbc]
+0019                          ShowMessage(05D9) = Runes on magic wall --
+0026                          ShowRunes(05F0) = Illusion
+0033                          GoMap(02, CC, 02, 34)
 004E EB 4B                    jmp 0x9b
-0050                          ax = CheckState(02, 49, 04) [es:bx+0x4]
+0050                          ax = CheckState(02, 49, 04)
 0064 75 35                    jnz 0x9b
-0066                          ShowMessage(05F9) [es:bx+0xf8] = Runes on magic wall --
-0073                          ShowRunes(5006) [es:bx+0xf4] = Invulnerable
-0080                          GoMap(02, D8, 02, 34) [es:bx+0xbc]
+0066                          ShowMessage(05F9) = Runes on magic wall --
+0073                          ShowRunes(0610) = Invulnerable
+0080                          GoMap(02, D8, 02, 34)
 009B                          RETURN
 
 KTELEL_11:
 0000                          BEGIN
-0003                          SetState(02, 49, 04) [es:bx]
-0018                          ShowMessage(061D) [es:bx+0xf8] = Runes on magic wall --
-0025                          ShowRunes(5006) [es:bx+0xf4] = Karma
-0032                          GoMap(02, B9, 02, 34) [es:bx+0xbc]
+0003                          SetState(02, 49, 04)
+0018                          ShowMessage(061D) = Runes on magic wall --
+0025                          ShowRunes(0634) = Karma
+0032                          GoMap(02, B9, 02, 34)
 004D                          RETURN
 
 LTELEN_12:
 0000                          BEGIN
-0003                          ShowMessage(063A) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5006) [es:bx+0xf4] = Luminous
-001D                          GoMap(02, 6A, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(063A) = Runes on magic wall --
+0010                          ShowRunes(0651) = Luminous
+001D                          GoMap(02, 6A, 02, 34)
 0038                          RETURN
 
 ENLKENCA_13:
 0000                          BEGIN
-0003                          SetState(02, 53, 01) [es:bx]
-0018                          ShowMessage(065A) [es:bx+0xf8] = Those which haunt this castle must be spelled to find their master.
-0025                          AddEncounter(19, 01) [es:bx+0xd4]
-0037                          AddEncounter(19, 02) [es:bx+0xd4]
-0049                          AddEncounter(19, 03) [es:bx+0xd4]
-005B                          AddEncounter(19, 04) [es:bx+0xd4]
-006D                          AddEncounter(19, 05) [es:bx+0xd4]
-007F                          AddTreasure(0064, 00, 00, 00, CF, D0) [es:bx+0xd8]
+0003                          SetState(02, 53, 01)
+0018                          ShowMessage(065A) = Those which haunt this castle must be spelled to find their master.
+0025                          AddEncounter(19, 01)
+0037                          AddEncounter(19, 02)
+0049                          AddEncounter(19, 03)
+005B                          AddEncounter(19, 04)
+006D                          AddEncounter(19, 05)
+007F                          AddTreasure(0064, 00, 00, 00, CF, D0)
 009F                          RETURN
 
 DTELEO_15:
 0000                          BEGIN
-0003                          SetState(02, 49, 05) [es:bx]
-0018                          ShowMessage(069E) [es:bx+0xf8] = Runes on magic wall --
-0025                          ShowRunes(5006) [es:bx+0xf4] = Dust
-0032                          GoMap(02, B7, 02, 34) [es:bx+0xbc]
+0003                          SetState(02, 49, 05)
+0018                          ShowMessage(069E) = Runes on magic wall --
+0025                          ShowRunes(06B5) = Dust
+0032                          GoMap(02, B7, 02, 34)
 004D                          RETURN
 
 ETELEP_16:
 0000                          BEGIN
-0003                          ShowMessage(06BA) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5006) [es:bx+0xf4] = Enchant
-001D                          GoMap(02, D6, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(06BA) = Runes on magic wall --
+0010                          ShowRunes(06D1) = Enchant
+001D                          GoMap(02, D6, 02, 34)
 0038                          RETURN
 
 RTELEQ_17:
 0000                          BEGIN
-0003                          ShowMessage(06D9) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5006) [es:bx+0xf4] = Magic
-001D                          GoMap(03, D0, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(06D9) = Runes on magic wall --
+0010                          ShowRunes(06F0) = Magic
+001D                          GoMap(03, D0, 02, 34)
 0038                          RETURN
 
 GTELER_18:
 0000                          BEGIN
-0003                          ShowMessage(06F6) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5007) [es:bx+0xf4] = Ghouls
-001D                          GoMap(00, 68, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(06F6) = Runes on magic wall --
+0010                          ShowRunes(070D) = Ghouls
+001D                          GoMap(00, 68, 02, 34)
 0037                          RETURN
 
 HTELES_19:
 0000                          BEGIN
-0003                          ShowMessage(0714) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5007) [es:bx+0xf4] = Hex
-001D                          GoMap(02, AD, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0714) = Runes on magic wall --
+0010                          ShowRunes(072B) = Hex
+001D                          GoMap(02, AD, 02, 34)
 0038                          RETURN
 
 OTELET_1A:
 0000                          BEGIN
-0003                          ShowMessage(072F) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5007) [es:bx+0xf4] = Obsession
-001D                          GoMap(00, 7E, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(072F) = Runes on magic wall --
+0010                          ShowRunes(0746) = Obsession
+001D                          GoMap(00, 7E, 02, 34)
 0037                          RETURN
 
 STELEU_1B:
 0000                          BEGIN
-0003                          ShowMessage(0750) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5007) [es:bx+0xf4] = Sorcery
-001D                          GoMap(00, 5E, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0750) = Runes on magic wall --
+0010                          ShowRunes(0767) = Sorcery
+001D                          GoMap(00, 5E, 02, 34)
 0037                          RETURN
 
 TTELEV_1C:
 0000                          BEGIN
-0003                          ShowMessage(076F) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5007) [es:bx+0xf4] = Talisman
-001D                          GoMap(02, C2, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(076F) = Runes on magic wall --
+0010                          ShowRunes(0786) = Talisman
+001D                          GoMap(02, C2, 02, 34)
 0038                          RETURN
 
 ARNAKEND_1D:
 0000                          BEGIN
-0003 B8 52 00                 mov ax, 0x52
-0006 50                       push ax
-0007 B8 02 00                 mov ax, 0x2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState(02, 52, any)
 0016 74 4C                    jz 0x64
-0018 B8 53 00                 mov ax, 0x53
-001B 50                       push ax
-001C B8 02 00                 mov ax, 0x2
-001F 50                       push ax
-0020 C4 5E 06                 les bx, [bp+0x6]
-0023 26 FF 5F 04              call far word [es:bx+0x4]
-0027 59                       pop cx
-0028 59                       pop cx
-0029 0B C0                    or ax, ax
+0018                          ax = CheckState(02, 53, any)
 002B 74 37                    jz 0x64
-002D                          ShowMessage(078F) [es:bx+0xf8] = Both Arnakkian and Enlikil have been identified.
-003A                          ShowMessage(07C0) [es:bx+0xf8] = The Ghost takes you to the Guardians.
-0047                          GoMap(02, 56, 02, 33) [es:bx+0xbc]
+002D                          ShowMessage(078F) = Both Arnakkian and Enlikil have been identified.
+003A                          ShowMessage(07C0) = The Ghost takes you to the Guardians.
+0047                          GoMap(02, 56, 02, 33)
 0062 EB 0D                    jmp 0x71
-0064                          ShowMessage(07E6) [es:bx+0xf8] = The master of this castle must be identified before the ghost may take you to him.
+0064                          ShowMessage(07E6) = The master of this castle must be identified before the ghost may take you to him.
 0071                          RETURN
 
 DTELEX_1E:
 0000                          BEGIN
-0003                          ShowMessage(0839) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5008) [es:bx+0xf4] = Druid
-001D                          GoMap(02, 36, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0839) = Runes on magic wall --
+0010                          ShowRunes(0850) = Druid
+001D                          GoMap(02, 36, 02, 34)
 0038                          RETURN
 
 RTELEY_1F:
 0000                          BEGIN
-0003                          ShowMessage(0856) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5008) [es:bx+0xf4] = Runes
-001D                          GoMap(00, 3B, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0856) = Runes on magic wall --
+0010                          ShowRunes(086D) = Runes
+001D                          GoMap(00, 3B, 02, 34)
 0037                          RETURN
 
 ATELEZ_20:
 0000                          BEGIN
-0003                          ShowMessage(0873) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5008) [es:bx+0xf4] = Alchemist
-001D                          GoMap(00, 2C, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0873) = Runes on magic wall --
+0010                          ShowRunes(088A) = Alchemist
+001D                          GoMap(00, 2C, 02, 34)
 0037                          RETURN
 
 GTELEAA_21:
 0000                          BEGIN
-0003                          ShowMessage(0894) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5008) [es:bx+0xf4] = Ghost
-001D                          GoMap(03, 3E, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0894) = Runes on magic wall --
+0010                          ShowRunes(08AB) = Ghost
+001D                          GoMap(03, 3E, 02, 34)
 0038                          RETURN
 
 OTELEBB_22:
 0000                          BEGIN
-0003                          ShowMessage(08B1) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5008) [es:bx+0xf4] = Orb
-001D                          GoMap(00, 8E, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(08B1) = Runes on magic wall --
+0010                          ShowRunes(08C8) = Orb
+001D                          GoMap(00, 8E, 02, 34)
 0037                          RETURN
 
 NTELECC_23:
 0000                          BEGIN
-0003                          ShowMessage(08CC) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5008) [es:bx+0xf4] = Nexus
-001D                          GoMap(02, FD, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(08CC) = Runes on magic wall --
+0010                          ShowRunes(08E3) = Nexus
+001D                          GoMap(02, FD, 02, 34)
 0038                          RETURN
 
 DRAGENCA_24:
 0000                          BEGIN
-0003                          AddEncounter(1A, 01) [es:bx+0xd4]
-0015                          AddEncounter(1A, 02) [es:bx+0xd4]
-0027                          AddEncounter(1A, 03) [es:bx+0xd4]
-0039                          AddEncounter(1A, 04) [es:bx+0xd4]
-004B                          AddEncounter(1B, 05) [es:bx+0xd4]
-005D                          AddTreasure(0FA0, 00, 00, D0, C8, C6) [es:bx+0xd8]
+0003                          AddEncounter(1A, 01)
+0015                          AddEncounter(1A, 02)
+0027                          AddEncounter(1A, 03)
+0039                          AddEncounter(1A, 04)
+004B                          AddEncounter(1B, 05)
+005D                          AddTreasure(0FA0, 00, 00, D0, C8, C6)
 007E                          RETURN
 
 DRAGENCB_25:
 0000                          BEGIN
-0003                          AddEncounter(1C, 01) [es:bx+0xd4]
-0015                          AddEncounter(1C, 02) [es:bx+0xd4]
-0027                          AddEncounter(1C, 03) [es:bx+0xd4]
-0039                          AddEncounter(07, 05) [es:bx+0xd4]
-004B                          AddEncounter(09, 06) [es:bx+0xd4]
-005D                          AddTreasure(1F40, 00, CF, CF, BC, C7) [es:bx+0xd8]
+0003                          AddEncounter(1C, 01)
+0015                          AddEncounter(1C, 02)
+0027                          AddEncounter(1C, 03)
+0039                          AddEncounter(07, 05)
+004B                          AddEncounter(09, 06)
+005D                          AddTreasure(1F40, 00, CF, CF, BC, C7)
 007F                          RETURN
 
 ZTELEDD_26:
 0000                          BEGIN
-0003                          ShowMessage(08E9) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5009) [es:bx+0xf4] = Zzyzx
-001D                          SetState(02, 49, 01) [es:bx]
-0032                          GoMap(02, 27, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(08E9) = Runes on magic wall --
+0010                          ShowRunes(0900) = Zzyzx
+001D                          SetState(02, 49, 01)
+0032                          GoMap(02, 27, 02, 34)
 004D                          RETURN
 
 ITELEG_27:
 0000                          BEGIN
-0003                          ShowMessage(0906) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5009) [es:bx+0xf4] = Illusive
-001D                          GoMap(02, CC, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0906) = Runes on magic wall --
+0010                          ShowRunes(091D) = Illusive
+001D                          GoMap(02, CC, 02, 34)
 0038                          RETURN
 
 WTELEEE_28:
 0000                          BEGIN
-0003                          ax = CheckState(02, 49, 01) [es:bx+0x4]
+0003                          ax = CheckState(02, 49, 01)
 0017 75 35                    jnz 0x4e
-0019                          ShowMessage(0926) [es:bx+0xf8] = Runes on magic wall --
-0026                          ShowRunes(5009) [es:bx+0xf4] = Wizard
-0033                          GoMap(02, E6, 02, 34) [es:bx+0xbc]
+0019                          ShowMessage(0926) = Runes on magic wall --
+0026                          ShowRunes(093D) = Wizard
+0033                          GoMap(02, E6, 02, 34)
 004E                          RETURN
 
 VTELEWW_29:
 0000                          BEGIN
-0003                          ShowMessage(0944) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5009) [es:bx+0xf4] = Vision
-001D                          GoMap(01, 07, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0944) = Runes on magic wall --
+0010                          ShowRunes(095B) = Vision
+001D                          GoMap(01, 07, 02, 34)
 0038                          RETURN
 
 BTELEXX_2A:
 0000                          BEGIN
-0003                          ShowMessage(0962) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5009) [es:bx+0xf4] = Bewitch
-001D                          GoMap(00, 1D, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0962) = Runes on magic wall --
+0010                          ShowRunes(0979) = Bewitch
+001D                          GoMap(00, 1D, 02, 34)
 0037                          RETURN
 
 CTELEYY_2B:
 0000                          BEGIN
-0003                          ShowMessage(0981) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5009) [es:bx+0xf4] = Conjure
-001D                          GoMap(02, BD, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0981) = Runes on magic wall --
+0010                          ShowRunes(0998) = Conjure
+001D                          GoMap(02, BD, 02, 34)
 0038                          RETURN
 
 PTELEZZ_2C:
 0000                          BEGIN
-0003                          ShowMessage(09A0) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5009) [es:bx+0xf4] = Powerful
-001D B8 01 00                 mov ax, 0x1
-0020 50                       push ax
-0021 33 C0                    xor ax, ax
-0023 50                       push ax
-0024 B8 02 00                 mov ax, 0x2
-0027 50                       push ax
-0028 B8 34 00                 mov ax, 0x34
-002B 50                       push ax
+0003                          ShowMessage(09A0) = Runes on magic wall --
+0010                          ShowRunes(09B7) = Powerful
+001D                          Push(01)
+0021                          Push(00)
+0024                          Push(02)
+0028                          Push(34)
 002C C4 5E 06                 les bx, [bp+0x6]
 002F 26 FF 9F BC 00           call far word [es:bx+0xbc]
 0034 83 C4 08                 add sp, 0x8
@@ -358,44 +338,40 @@ PTELEZZ_2C:
 
 MTELEXX_2D:
 0000                          BEGIN
-0003                          ShowMessage(09C0) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5009) [es:bx+0xf4] = Magus
-001D                          GoMap(00, 1D, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(09C0) = Runes on magic wall --
+0010                          ShowRunes(09D7) = Magus
+001D                          GoMap(00, 1D, 02, 34)
 0037                          RETURN
 
 JTELEYY_2E:
 0000                          BEGIN
-0003                          ShowMessage(09DD) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(5009) [es:bx+0xf4] = Jinx
-001D                          GoMap(02, BD, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(09DD) = Runes on magic wall --
+0010                          ShowRunes(09F4) = Jinx
+001D                          GoMap(02, BD, 02, 34)
 0038                          RETURN
 
 UTELEWW_2F:
 0000                          BEGIN
-0003                          ShowMessage(09F9) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(500A) [es:bx+0xf4] = Unspeller
-001D                          GoMap(01, 07, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(09F9) = Runes on magic wall --
+0010                          ShowRunes(0A10) = Unspeller
+001D                          GoMap(01, 07, 02, 34)
 0038                          RETURN
 
 XTELEWW_30:
 0000                          BEGIN
-0003                          ShowMessage(0A1A) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(500A) [es:bx+0xf4] = XxxX
-001D                          GoMap(01, 07, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0A1A) = Runes on magic wall --
+0010                          ShowRunes(0A31) = XxxX
+001D                          GoMap(01, 07, 02, 34)
 0038                          RETURN
 
 YTELEZZ_31:
 0000                          BEGIN
-0003                          ShowMessage(0A36) [es:bx+0xf8] = Runes on magic wall --
-0010                          ShowRunes(500A) [es:bx+0xf4] = Youth
-001D B8 01 00                 mov ax, 0x1
-0020 50                       push ax
-0021 33 C0                    xor ax, ax
-0023 50                       push ax
-0024 B8 02 00                 mov ax, 0x2
-0027 50                       push ax
-0028 B8 34 00                 mov ax, 0x34
-002B 50                       push ax
+0003                          ShowMessage(0A36) = Runes on magic wall --
+0010                          ShowRunes(0A4D) = Youth
+001D                          Push(01)
+0021                          Push(00)
+0024                          Push(02)
+0028                          Push(34)
 002C C4 5E 06                 les bx, [bp+0x6]
 002F 26 FF 9F BC 00           call far word [es:bx+0xbc]
 0034 83 C4 08                 add sp, 0x8
@@ -403,399 +379,254 @@ YTELEZZ_31:
 
 IENCA_32:
 0000                          BEGIN
-0003                          AddEncounter(18, 01) [es:bx+0xd4]
-0015                          AddEncounter(18, 02) [es:bx+0xd4]
-0027                          AddEncounter(1E, 03) [es:bx+0xd4]
-0039                          AddEncounter(21, 05) [es:bx+0xd4]
+0003                          AddEncounter(18, 01)
+0015                          AddEncounter(18, 02)
+0027                          AddEncounter(1E, 03)
+0039                          AddEncounter(21, 05)
 004B                          RETURN
 
 WIZENCA_34:
 0000                          BEGIN
-0003                          AddEncounter(1E, 01) [es:bx+0xd4]
-0015                          AddEncounter(1E, 02) [es:bx+0xd4]
-0027                          AddEncounter(18, 03) [es:bx+0xd4]
-0039                          AddEncounter(18, 04) [es:bx+0xd4]
-004B                          AddEncounter(21, 05) [es:bx+0xd4]
-005D                          AddEncounter(21, 06) [es:bx+0xd4]
-006F                          AddTreasure(0064, 00, 00, 00, CF, B4) [es:bx+0xd8]
+0003                          AddEncounter(1E, 01)
+0015                          AddEncounter(1E, 02)
+0027                          AddEncounter(18, 03)
+0039                          AddEncounter(18, 04)
+004B                          AddEncounter(21, 05)
+005D                          AddEncounter(21, 06)
+006F                          AddTreasure(0064, 00, 00, 00, CF, B4)
 008F                          RETURN
 
 WIZENCB_35:
 0000                          BEGIN
-0003                          AddEncounter(1D, 01) [es:bx+0xd4]
-0015                          AddEncounter(1D, 02) [es:bx+0xd4]
-0027                          AddEncounter(1D, 03) [es:bx+0xd4]
-0039                          AddEncounter(1D, 04) [es:bx+0xd4]
-004B                          AddEncounter(18, 05) [es:bx+0xd4]
-005D                          AddEncounter(18, 06) [es:bx+0xd4]
-006F                          AddTreasure(0064, 00, 00, 00, CF, C6) [es:bx+0xd8]
+0003                          AddEncounter(1D, 01)
+0015                          AddEncounter(1D, 02)
+0027                          AddEncounter(1D, 03)
+0039                          AddEncounter(1D, 04)
+004B                          AddEncounter(18, 05)
+005D                          AddEncounter(18, 06)
+006F                          AddTreasure(0064, 00, 00, 00, CF, C6)
 008F                          RETURN
 
 WIZENCC_36:
 0000                          BEGIN
-0003                          AddEncounter(1E, 01) [es:bx+0xd4]
-0015                          AddEncounter(1E, 02) [es:bx+0xd4]
-0027                          AddEncounter(18, 05) [es:bx+0xd4]
-0039                          AddTreasure(0064, 00, 00, 00, CF, C8) [es:bx+0xd8]
+0003                          AddEncounter(1E, 01)
+0015                          AddEncounter(1E, 02)
+0027                          AddEncounter(18, 05)
+0039                          AddTreasure(0064, 00, 00, 00, CF, C8)
 0059                          RETURN
 
 PIT_37:
 0000                          BEGIN
-0003                          ShowMessage(0A53) [es:bx+0xf8] = You fall into the pit and die.
-0010                          ax = GetHits() [es:bx+0x74]
-0017                          DoDamage(ax) [es:bx+0x90]
+0003                          ShowMessage(0A53) = You fall into the pit and die.
+0010                          ax = GetMaxHits()
+0017                          DoDamage(ax)
 0021                          RETURN
 
 GHOSENCA_38:
 0000                          BEGIN
-0003                          AddEncounter(20, 01) [es:bx+0xd4]
-0015                          AddEncounter(20, 02) [es:bx+0xd4]
-0027                          AddEncounter(1F, 03) [es:bx+0xd4]
-0039                          AddEncounter(1F, 04) [es:bx+0xd4]
-004B                          AddEncounter(20, 06) [es:bx+0xd4]
-005D                          AddTreasure(0064, 00, 00, 00, D1, CF) [es:bx+0xd8]
+0003                          AddEncounter(20, 01)
+0015                          AddEncounter(20, 02)
+0027                          AddEncounter(1F, 03)
+0039                          AddEncounter(1F, 04)
+004B                          AddEncounter(20, 06)
+005D                          AddTreasure(0064, 00, 00, 00, D1, CF)
 007D                          RETURN
 
 TXTGHOSB_3B:
 0000                          BEGIN
-0003                          ShowMessage(0A72) [es:bx+0xf8] = A message is written on a scroll.
-0010                          ShowMessage(0A94) [es:bx+0xf8] = 'To gain access to Arnakkian's Chamber, you must defeat his lich apprentices.'
+0003                          ShowMessage(0A72) = A message is written on a scroll.
+0010                          ShowMessage(0A94) = 'To gain access to Arnakkian's Chamber, you must defeat his lich apprentices.'
 001D                          RETURN
 
 TXTGHOST_3D:
 0000                          BEGIN
-0003                          ShowPortrait(0029) [es:bx+0xfc]
-0010                          ShowMessage(0AE3) [es:bx+0xf8] = A Cleric appears..
-001D                          ShowMessage(0AF6) [es:bx+0xf8] = 'Beyond the words lies the power of the earth.'
+0003                          ShowPortrait(0029)
+0010                          ShowMessage(0AE3) = A Cleric appears..
+001D                          ShowMessage(0AF6) = 'Beyond the words lies the power of the earth.'
 002A                          RETURN
 
 ENDRENCA_3E:
 0000                          BEGIN
-0003                          AddEncounter(1F, 01) [es:bx+0xd4]
-0015                          AddEncounter(20, 02) [es:bx+0xd4]
-0027                          AddEncounter(1F, 04) [es:bx+0xd4]
-0039                          AddEncounter(02, 05) [es:bx+0xd4]
-004B                          AddEncounter(02, 06) [es:bx+0xd4]
-005D                          AddTreasure(0064, 00, CF, CF, D0, D0) [es:bx+0xd8]
+0003                          AddEncounter(1F, 01)
+0015                          AddEncounter(20, 02)
+0027                          AddEncounter(1F, 04)
+0039                          AddEncounter(02, 05)
+004B                          AddEncounter(02, 06)
+005D                          AddTreasure(0064, 00, CF, CF, D0, D0)
 007F                          RETURN
 
 BADEXIT_41:
 0000                          BEGIN
-0003                          AddEncounter(1E, 01) [es:bx+0xd4]
-0015                          AddEncounter(1E, 02) [es:bx+0xd4]
-0027                          AddEncounter(1E, 03) [es:bx+0xd4]
-0039                          AddEncounter(18, 04) [es:bx+0xd4]
-004B                          AddEncounter(19, 05) [es:bx+0xd4]
-005D                          AddEncounter(19, 06) [es:bx+0xd4]
+0003                          AddEncounter(1E, 01)
+0015                          AddEncounter(1E, 02)
+0027                          AddEncounter(1E, 03)
+0039                          AddEncounter(18, 04)
+004B                          AddEncounter(19, 05)
+005D                          AddEncounter(19, 06)
 006F                          RETURN
 
 ENTRENCA_45:
 0000                          BEGIN
-0003                          AddEncounter(24, 01) [es:bx+0xd4]
-0015                          AddEncounter(25, 02) [es:bx+0xd4]
-0027                          AddEncounter(22, 03) [es:bx+0xd4]
-0039                          AddEncounter(23, 06) [es:bx+0xd4]
+0003                          AddEncounter(24, 01)
+0015                          AddEncounter(25, 02)
+0027                          AddEncounter(22, 03)
+0039                          AddEncounter(23, 06)
 004B                          RETURN
 
 LICHDOOR_47:
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState(01, 01, any)
 0016 75 03                    jnz 0x1b
 0018 E9 8A 00                 jmp 0xa5
-001B B8 02 00                 mov ax, 0x2
-001E 50                       push ax
-001F B8 01 00                 mov ax, 0x1
-0022 50                       push ax
-0023 C4 5E 06                 les bx, [bp+0x6]
-0026 26 FF 5F 04              call far word [es:bx+0x4]
-002A 59                       pop cx
-002B 59                       pop cx
-002C 0B C0                    or ax, ax
+001B                          ax = CheckState(01, 02, any)
 002E 74 75                    jz 0xa5
-0030 B8 03 00                 mov ax, 0x3
-0033 50                       push ax
-0034 B8 01 00                 mov ax, 0x1
-0037 50                       push ax
-0038 C4 5E 06                 les bx, [bp+0x6]
-003B 26 FF 5F 04              call far word [es:bx+0x4]
-003F 59                       pop cx
-0040 59                       pop cx
-0041 0B C0                    or ax, ax
+0030                          ax = CheckState(01, 03, any)
 0043 74 60                    jz 0xa5
-0045 B8 04 00                 mov ax, 0x4
-0048 50                       push ax
-0049 B8 01 00                 mov ax, 0x1
-004C 50                       push ax
-004D C4 5E 06                 les bx, [bp+0x6]
-0050 26 FF 5F 04              call far word [es:bx+0x4]
-0054 59                       pop cx
-0055 59                       pop cx
-0056 0B C0                    or ax, ax
+0045                          ax = CheckState(01, 04, any)
 0058 74 4B                    jz 0xa5
-005A                          ax = SetExitability(01) [es:bx+0x24]
+005A                          Push(01)
+005E                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0065 50                       push ax
-0066 C4 5E 06                 les bx, [bp+0x6]
-0069 26 FF 5F 20              call far word [es:bx+0x20]
+0066                          ax = GetNextTile()
 006D 50                       push ax
-006E C4 5E 06                 les bx, [bp+0x6]
-0071 26 FF 5F 2C              call far word [es:bx+0x2c]
-0075 83 C4 06                 add sp, 0x6
-0078                          ax = SetExitability(ax) [es:bx+0x24]
+006E                          Move(stk[0], stk[1], stk[2])
+0078                          ax = SetExitability(ax) // ax is usually 0 following equality check
 007F 50                       push ax
-0080 C4 5E 06                 les bx, [bp+0x6]
-0083 26 FF 5F 20              call far word [es:bx+0x20]
+0080                          ax = GetNextTile()
 0087 50                       push ax
-0088 B8 01 00                 mov ax, 0x1
-008B 50                       push ax
-008C C4 5E 06                 les bx, [bp+0x6]
-008F 26 FF 5F 30              call far word [es:bx+0x30]
-0093 83 C4 06                 add sp, 0x6
-0096                          ShowMessage(0B26) [es:bx+0xf8] = The Wizard Door opens.
+0088                          Push(01)
+008C                          SetUnblocked()
+0096                          ShowMessage(0B26) = The Wizard Door opens.
 00A3 EB 0D                    jmp 0xb2
-00A5                          ShowMessage(0B3D) [es:bx+0xf8] = The symbol of the Four Corners magically radiates from this door.
+00A5                          ShowMessage(0B3D) = The symbol of the Four Corners magically radiates from this door.
 00B2                          RETURN
 
 ENTRENCD_48:
 0000                          BEGIN
-0003                          AddEncounter(19, 01) [es:bx+0xd4]
-0015                          AddEncounter(19, 02) [es:bx+0xd4]
-0027                          AddEncounter(18, 03) [es:bx+0xd4]
-0039                          AddEncounter(18, 04) [es:bx+0xd4]
-004B                          AddEncounter(19, 05) [es:bx+0xd4]
-005D                          AddEncounter(19, 06) [es:bx+0xd4]
+0003                          AddEncounter(19, 01)
+0015                          AddEncounter(19, 02)
+0027                          AddEncounter(18, 03)
+0039                          AddEncounter(18, 04)
+004B                          AddEncounter(19, 05)
+005D                          AddEncounter(19, 06)
 006F                          RETURN
 
 LICHA_49:
 0000                          BEGIN
-0003                          AddEncounter(19, 01) [es:bx+0xd4]
-0015                          AddEncounter(19, 02) [es:bx+0xd4]
-0027                          AddEncounter(27, 05) [es:bx+0xd4]
-0039 B8 8B 00                 mov ax, 0x8b
-003C 50                       push ax
-003D B8 02 00                 mov ax, 0x2
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 04              call far word [es:bx+0x4]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0003                          AddEncounter(19, 01)
+0015                          AddEncounter(19, 02)
+0027                          AddEncounter(27, 05)
+0039                          ax = CheckState(02, 8B, any)
 004C 74 20                    jz 0x6e
-004E                          AddTreasure(0000, 00, 00, 00, 00, CF) [es:bx+0xd8]
+004E                          AddTreasure(0000, 00, 00, 00, 00, CF)
 006C EB 45                    jmp 0xb3
-006E                          SetState(02, 8B, 01) [es:bx]
-0083                          AddTreasure(0000, 00, 00, 00, B7, D0) [es:bx+0xd8]
-00A2 33 C0                    xor ax, ax
-00A4 BA 10 27                 mov dx, 0x2710
-00A7 50                       push ax
-00A8 52                       push dx
-00A9 C4 5E 06                 les bx, [bp+0x6]
-00AC 26 FF 9F 98 00           call far word [es:bx+0x98]
-00B1 59                       pop cx
-00B2 59                       pop cx
+006E                          SetState(02, 8B, 01)
+0083                          AddTreasure(0000, 00, 00, 00, B7, D0)
+00A2                          AddExperience(00002710)
 00B3                          RETURN
 
 LICHB_4A:
 0000                          BEGIN
-0003                          AddEncounter(19, 01) [es:bx+0xd4]
-0015                          AddEncounter(19, 02) [es:bx+0xd4]
-0027                          AddEncounter(27, 05) [es:bx+0xd4]
-0039 B8 8C 00                 mov ax, 0x8c
-003C 50                       push ax
-003D B8 02 00                 mov ax, 0x2
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 04              call far word [es:bx+0x4]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0003                          AddEncounter(19, 01)
+0015                          AddEncounter(19, 02)
+0027                          AddEncounter(27, 05)
+0039                          ax = CheckState(02, 8C, any)
 004C 74 20                    jz 0x6e
-004E                          AddTreasure(0000, 00, 00, 00, 00, C6) [es:bx+0xd8]
+004E                          AddTreasure(0000, 00, 00, 00, 00, C6)
 006C EB 45                    jmp 0xb3
-006E                          SetState(02, 8C, 01) [es:bx]
-0083                          AddTreasure(0000, 00, 00, 00, CD, BD) [es:bx+0xd8]
-00A2 33 C0                    xor ax, ax
-00A4 BA 10 27                 mov dx, 0x2710
-00A7 50                       push ax
-00A8 52                       push dx
-00A9 C4 5E 06                 les bx, [bp+0x6]
-00AC 26 FF 9F 98 00           call far word [es:bx+0x98]
-00B1 59                       pop cx
-00B2 59                       pop cx
+006E                          SetState(02, 8C, 01)
+0083                          AddTreasure(0000, 00, 00, 00, CD, BD)
+00A2                          AddExperience(00002710)
 00B3                          RETURN
 
 LICHC_4B:
 0000                          BEGIN
-0003                          AddEncounter(19, 01) [es:bx+0xd4]
-0015                          AddEncounter(19, 02) [es:bx+0xd4]
-0027                          AddEncounter(27, 05) [es:bx+0xd4]
-0039 B8 8D 00                 mov ax, 0x8d
-003C 50                       push ax
-003D B8 02 00                 mov ax, 0x2
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 04              call far word [es:bx+0x4]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0003                          AddEncounter(19, 01)
+0015                          AddEncounter(19, 02)
+0027                          AddEncounter(27, 05)
+0039                          ax = CheckState(02, 8D, any)
 004C 74 20                    jz 0x6e
-004E                          AddTreasure(0000, 00, 00, 00, 00, D1) [es:bx+0xd8]
+004E                          AddTreasure(0000, 00, 00, 00, 00, D1)
 006C EB 45                    jmp 0xb3
-006E                          SetState(02, 8D, 01) [es:bx]
-0083                          AddTreasure(0000, 00, 00, 00, C7, B2) [es:bx+0xd8]
-00A2 33 C0                    xor ax, ax
-00A4 BA 10 27                 mov dx, 0x2710
-00A7 50                       push ax
-00A8 52                       push dx
-00A9 C4 5E 06                 les bx, [bp+0x6]
-00AC 26 FF 9F 98 00           call far word [es:bx+0x98]
-00B1 59                       pop cx
-00B2 59                       pop cx
+006E                          SetState(02, 8D, 01)
+0083                          AddTreasure(0000, 00, 00, 00, C7, B2)
+00A2                          AddExperience(00002710)
 00B3                          RETURN
 
 LICHD_4C:
 0000                          BEGIN
-0003                          AddEncounter(19, 01) [es:bx+0xd4]
-0015                          AddEncounter(19, 02) [es:bx+0xd4]
-0027                          AddEncounter(27, 05) [es:bx+0xd4]
-0039 B8 8E 00                 mov ax, 0x8e
-003C 50                       push ax
-003D B8 02 00                 mov ax, 0x2
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 04              call far word [es:bx+0x4]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0003                          AddEncounter(19, 01)
+0015                          AddEncounter(19, 02)
+0027                          AddEncounter(27, 05)
+0039                          ax = CheckState(02, 8E, any)
 004C 74 20                    jz 0x6e
-004E                          AddTreasure(0000, 00, 00, 00, 00, D0) [es:bx+0xd8]
+004E                          AddTreasure(0000, 00, 00, 00, 00, D0)
 006C EB 45                    jmp 0xb3
-006E                          SetState(02, 8E, 01) [es:bx]
-0083                          AddTreasure(0000, 00, 00, 00, AC, B7) [es:bx+0xd8]
-00A2 33 C0                    xor ax, ax
-00A4 BA 10 27                 mov dx, 0x2710
-00A7 50                       push ax
-00A8 52                       push dx
-00A9 C4 5E 06                 les bx, [bp+0x6]
-00AC 26 FF 9F 98 00           call far word [es:bx+0x98]
-00B1 59                       pop cx
-00B2 59                       pop cx
+006E                          SetState(02, 8E, 01)
+0083                          AddTreasure(0000, 00, 00, 00, AC, B7)
+00A2                          AddExperience(00002710)
 00B3                          RETURN
 
 LICHMAIN_4D:
 0000                          BEGIN
-0003                          ShowMessage(0B7F) [es:bx+0xf8] = The spirit of Arnakkian Slowfoot appears.
-0010                          AddEncounter(27, 01) [es:bx+0xd4]
-0022                          AddEncounter(27, 02) [es:bx+0xd4]
-0034                          AddEncounter(27, 03) [es:bx+0xd4]
-0046                          AddEncounter(27, 04) [es:bx+0xd4]
-0058                          AddEncounter(28, 05) [es:bx+0xd4]
-006A                          ax = HasItem(F7) [es:bx+0x50]
+0003                          ShowMessage(0B7F) = The spirit of Arnakkian Slowfoot appears.
+0010                          AddEncounter(27, 01)
+0022                          AddEncounter(27, 02)
+0034                          AddEncounter(27, 03)
+0046                          AddEncounter(27, 04)
+0058                          AddEncounter(28, 05)
+006A                          ax = HasItem(F7)
 0078 74 20                    jz 0x9a
-007A                          AddTreasure(0000, 00, 00, 00, 00, CF) [es:bx+0xd8]
+007A                          AddTreasure(0000, 00, 00, 00, 00, CF)
 0098 EB 5C                    jmp 0xf6
-009A                          AddTreasure(0000, 00, 00, 50, 50, 2D) [es:bx+0xd8]
-00BA B8 89 00                 mov ax, 0x89
-00BD 50                       push ax
-00BE B8 02 00                 mov ax, 0x2
-00C1 50                       push ax
-00C2 C4 5E 06                 les bx, [bp+0x6]
-00C5 26 FF 5F 04              call far word [es:bx+0x4]
-00C9 59                       pop cx
-00CA 59                       pop cx
-00CB 0B C0                    or ax, ax
+009A                          AddTreasure(0000, 00, 00, 50, 50, 2D)
+00BA                          ax = CheckState(02, 89, any)
 00CD 75 27                    jnz 0xf6
-00CF                          SetState(02, 89, 01) [es:bx]
-00E4 B8 0B 00                 mov ax, 0xb
-00E7 BA B0 71                 mov dx, 0x71b0
-00EA 50                       push ax
-00EB 52                       push dx
-00EC C4 5E 06                 les bx, [bp+0x6]
-00EF 26 FF 9F 98 00           call far word [es:bx+0x98]
-00F4 59                       pop cx
-00F5 59                       pop cx
+00CF                          SetState(02, 89, 01)
+00E4                          AddExperience(000B71B0)
 00F6                          RETURN
 
 TXTLICH_4E:
 0000                          BEGIN
-0003                          ShowMessage(0BA9) [es:bx+0xf8] = Apprentices of Arnakkian roam these passageways.
+0003                          ShowMessage(0BA9) = Apprentices of Arnakkian roam these passageways.
 0010                          RETURN
 
 LABY_4F:
 0000                          BEGIN
-0003                          GoMap(00, 3F, 01, 34) [es:bx+0xbc]
+0003                          GoMap(00, 3F, 01, 34)
 001D                          RETURN
 
 TXTLABY_50:
 0000                          BEGIN
-0003                          ShowMessage(0BDA) [es:bx+0xf8] = This gate returns you to MAGE'S OVERLOOK.
+0003                          ShowMessage(0BDA) = This gate returns you to MAGE'S OVERLOOK.
 0010                          RETURN
 
 SETLICHA_51:
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState(01, 01, any)
 0016 75 15                    jnz 0x2d
-0018                          SetState(01, 01, 01) [es:bx]
+0018                          SetState(01, 01, 01)
 002D                          RETURN
 
 SETLICHB_52:
 0000                          BEGIN
-0003 B8 02 00                 mov ax, 0x2
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState(01, 02, any)
 0016 75 15                    jnz 0x2d
-0018                          SetState(01, 02, 01) [es:bx]
+0018                          SetState(01, 02, 01)
 002D                          RETURN
 
 SETLICHC_53:
 0000                          BEGIN
-0003 B8 03 00                 mov ax, 0x3
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState(01, 03, any)
 0016 75 15                    jnz 0x2d
-0018                          SetState(01, 03, 01) [es:bx]
+0018                          SetState(01, 03, 01)
 002D                          RETURN
 
 SETLICHD_54:
 0000                          BEGIN
-0003 B8 04 00                 mov ax, 0x4
-0006 50                       push ax
-0007 B8 01 00                 mov ax, 0x1
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 04              call far word [es:bx+0x4]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState(01, 04, any)
 0016 75 15                    jnz 0x2d
-0018                          SetState(01, 04, 01) [es:bx]
+0018                          SetState(01, 04, 01)
 002D                          RETURN
 
 03FC: Runes on magic wall --

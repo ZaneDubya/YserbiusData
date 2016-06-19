@@ -1,420 +1,324 @@
 DROP_01:
 0000                          BEGIN
-0003                          ShowMessage(03FC) [es:bx+0xf8] = Other pits in the Labyrinth provide access to hidden areas...
-0010                          ShowMessage(043A) [es:bx+0xf8] = This pit, however, sends you to the gates of Death.
-001D                          ax = GetHits() [es:bx+0x74]
-0024                          DoDamage(ax) [es:bx+0x90]
+0003                          ShowMessage(03FC) = Other pits in the Labyrinth provide access to hidden areas...
+0010                          ShowMessage(043A) = This pit, however, sends you to the gates of Death.
+001D                          ax = GetMaxHits()
+0024                          DoDamage(ax)
 002E                          RETURN
 
 XOVER_02:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 20              call far word [es:bx+0x20]
+0003                          ax = GetNextTile()
 000A 3D 47 00                 cmp ax, 0x47
 000D 75 61                    jnz 0x70
-000F B8 01 00                 mov ax, 0x1
-0012 50                       push ax
-0013 B8 01 00                 mov ax, 0x1
-0016 50                       push ax
-0017 C4 5E 06                 les bx, [bp+0x6]
-001A 26 FF 5F 04              call far word [es:bx+0x4]
-001E 59                       pop cx
-001F 59                       pop cx
-0020 0B C0                    or ax, ax
+000F                          ax = CheckState(01, 01, any)
 0022 74 1F                    jz 0x43
-0024 B8 47 00                 mov ax, 0x47
-0027 50                       push ax
-0028 33 C0                    xor ax, ax
-002A 50                       push ax
-002B C4 5E 06                 les bx, [bp+0x6]
-002E 26 FF 5F 38              call far word [es:bx+0x38]
+0024                          SetTileFloor(47, 00)
 0032 59                       pop cx
 0033 59                       pop cx
-0034                          ShowMessage(046E) [es:bx+0xf8] = A magical platform forms a bridge across the abyss.
+0034                          ShowMessage(046E) = A magical platform forms a bridge across the abyss.
 0041 EB 2B                    jmp 0x6e
-0043                          ShowMessage(04A2) [es:bx+0xf8] = You fall into the abyss and die.
-0050                          ShowMessage(04C3) [es:bx+0xf8] = With help, you might have been able to cross here.
-005D                          ax = GetHits() [es:bx+0x74]
-0064                          DoDamage(ax) [es:bx+0x90]
+0043                          ShowMessage(04A2) = You fall into the abyss and die.
+0050                          ShowMessage(04C3) = With help, you might have been able to cross here.
+005D                          ax = GetMaxHits()
+0064                          DoDamage(ax)
 006E EB 38                    jmp 0xa8
-0070 B8 01 00                 mov ax, 0x1
-0073 50                       push ax
-0074 B8 01 00                 mov ax, 0x1
-0077 50                       push ax
-0078 C4 5E 06                 les bx, [bp+0x6]
-007B 26 FF 5F 04              call far word [es:bx+0x4]
-007F 59                       pop cx
-0080 59                       pop cx
-0081 0B C0                    or ax, ax
+0070                          ax = CheckState(01, 01, any)
 0083 74 12                    jz 0x97
-0085 B8 47 00                 mov ax, 0x47
-0088 50                       push ax
-0089 33 C0                    xor ax, ax
-008B 50                       push ax
-008C C4 5E 06                 les bx, [bp+0x6]
-008F 26 FF 5F 38              call far word [es:bx+0x38]
+0085                          SetTileFloor(47, 00)
 0093 59                       pop cx
 0094 59                       pop cx
 0095 EB 11                    jmp 0xa8
-0097 B8 47 00                 mov ax, 0x47
-009A 50                       push ax
-009B B8 01 00                 mov ax, 0x1
-009E 50                       push ax
-009F C4 5E 06                 les bx, [bp+0x6]
-00A2 26 FF 5F 38              call far word [es:bx+0x38]
-00A6 59                       pop cx
-00A7 59                       pop cx
+0097                          SetTileFloor(47, 01)
 00A8                          RETURN
 
 XOVERON_03:
 0000                          BEGIN
-0003                          SetState(01, 01, 01) [es:bx]
-0018 B8 47 00                 mov ax, 0x47
-001B 50                       push ax
-001C 33 C0                    xor ax, ax
-001E 50                       push ax
-001F C4 5E 06                 les bx, [bp+0x6]
-0022 26 FF 5F 38              call far word [es:bx+0x38]
+0003                          SetState(01, 01, 01)
+0018                          SetTileFloor(47, 00)
 0026 59                       pop cx
 0027 59                       pop cx
-0028                          ShowMessage(04F6) [es:bx+0xf8] = Something strange happens!
-0035                          ShowMessage(0511) [es:bx+0xf8] = When you step onto the stone, a magical platform appears nearby.
+0028                          ShowMessage(04F6) = Something strange happens!
+0035                          ShowMessage(0511) = When you step onto the stone, a magical platform appears nearby.
 0042                          RETURN
 
 BAZAAR_04:
 0000                          BEGIN
-0003                          ShowMessage(0552) [es:bx+0xf8] = You do not suffer the death found in other pits in the Labyrinth.  Instead you are rewarded with a trip to CASTLEGATE BAZAAR.
-0010                          GoMap(03, 12, 01, 36) [es:bx+0xbc]
+0003                          ShowMessage(0552) = You do not suffer the death found in other pits in the Labyrinth.  Instead you are rewarded with a trip to CASTLEGATE BAZAAR.
+0010                          GoMap(03, 12, 01, 36)
 002B                          RETURN
 
 HEAVENS_05:
 0000                          BEGIN
-0003                          ShowMessage(05D0) [es:bx+0xf8] = The Dark Dwarf Voranti tricked the Lords of Harmony many moons ago.
-0010                          ShowMessage(0614) [es:bx+0xf8] = He stole the secrets of the Winds from the Lords and has used them for his own purposes every since.
-001D                          ShowMessage(0679) [es:bx+0xf8] = The Lords' Harmonic Shrine has now become the raging passageway known as HEAVEN'S FURY.
-002A                          GoMap(02, A3, 01, 35) [es:bx+0xbc]
+0003                          ShowMessage(05D0) = The Dark Dwarf Voranti tricked the Lords of Harmony many moons ago.
+0010                          ShowMessage(0614) = He stole the secrets of the Winds from the Lords and has used them for his own purposes every since.
+001D                          ShowMessage(0679) = The Lords' Harmonic Shrine has now become the raging passageway known as HEAVEN'S FURY.
+002A                          GoMap(02, A3, 01, 35)
 0045                          RETURN
 
 EXODUS_06:
 0000                          BEGIN
-0003                          ShowMessage(06D1) [es:bx+0xf8] = The survivors of the cataclysm named this place EXODUS.
-0010                          ShowMessage(0709) [es:bx+0xf8] = It is here they escaped the horrors of Arnakkian's Castle and began their new subterranean life.
-001D                          GoMap(02, 75, 01, 35) [es:bx+0xbc]
+0003                          ShowMessage(06D1) = The survivors of the cataclysm named this place EXODUS.
+0010                          ShowMessage(0709) = It is here they escaped the horrors of Arnakkian's Castle and began their new subterranean life.
+001D                          GoMap(02, 75, 01, 35)
 0038                          RETURN
 
 WINDHOLO_07:
 0000                          BEGIN
-0003                          ShowMessage(076A) [es:bx+0xf8] = No adventurer dares camp in WIND HOLLOW.  At night the howling wind makes one deaf to the dangers.
-0010                          GoMap(03, 8A, 01, 35) [es:bx+0xbc]
+0003                          ShowMessage(076A) = No adventurer dares camp in WIND HOLLOW.  At night the howling wind makes one deaf to the dangers.
+0010                          GoMap(03, 8A, 01, 35)
 002B                          RETURN
 
 TEMPEST_08:
 0000                          BEGIN
-0003                          ShowMessage(07CD) [es:bx+0xf8] = TEMPEST dares all to explore the magic rooms along her narrow corridor.
-0010                          GoMap(01, 9B, 01, 35) [es:bx+0xbc]
+0003                          ShowMessage(07CD) = TEMPEST dares all to explore the magic rooms along her narrow corridor.
+0010                          GoMap(01, 9B, 01, 35)
 002B                          RETURN
 
 WINDHOLO_09:
 0000                          BEGIN
-0003                          ShowMessage(0815) [es:bx+0xf8] = The barren rocks are swept clean by the violent winds that race through WIND HOLLOW.
-0010                          GoMap(00, 7D, 01, 35) [es:bx+0xbc]
+0003                          ShowMessage(0815) = The barren rocks are swept clean by the violent winds that race through WIND HOLLOW.
+0010                          GoMap(00, 7D, 01, 35)
 002A                          RETURN
 
 BACKALLY_0A:
 0000                          BEGIN
-0003                          ShowMessage(086A) [es:bx+0xf8] = 'Beware!  Those who enter the Labyrinth BACK ALLEY must guard against all!'
-0010                          GoMap(00, 4D, 01, 35) [es:bx+0xbc]
+0003                          ShowMessage(086A) = 'Beware!  Those who enter the Labyrinth BACK ALLEY must guard against all!'
+0010                          GoMap(00, 4D, 01, 35)
 002A                          RETURN
 
 HEAVENS_0B:
 0000                          BEGIN
-0003                          ShowMessage(08B6) [es:bx+0xf8] = Enter HEAVEN'S FURY if you must.  Here is where Voranti cursed the winds.
-0010                          GoMap(02, F3, 01, 35) [es:bx+0xbc]
+0003                          ShowMessage(08B6) = Enter HEAVEN'S FURY if you must.  Here is where Voranti cursed the winds.
+0010                          GoMap(02, F3, 01, 35)
 002B                          RETURN
 
 LABYATIC_0C:
 0000                          BEGIN
-0003                          ShowMessage(0900) [es:bx+0xf8] = The gates of LABYRINTH ATTIC are a welcome sight.
-0010                          GoMap(02, C3, 01, 33) [es:bx+0xbc]
+0003                          ShowMessage(0900) = The gates of LABYRINTH ATTIC are a welcome sight.
+0010                          GoMap(02, C3, 01, 33)
 002B                          RETURN
 
 WINDHOLO_0D:
 0000                          BEGIN
-0003                          ShowMessage(0932) [es:bx+0xf8] = The door leads to WYN SANCTUARY.
-0010                          GoMap(00, 6D, 01, 33) [es:bx+0xbc]
+0003                          ShowMessage(0932) = The door leads to WYN SANCTUARY.
+0010                          GoMap(00, 6D, 01, 33)
 002A                          RETURN
 
 THVTRESR_0E:
 0000                          BEGIN
-0003                          ShowMessage(0953) [es:bx+0xf8] = The gateway opens, revealing the secret chambers of the Labyrinth Thieves.
-0010                          GoMap(02, 6E, 01, 33) [es:bx+0xbc]
+0003                          ShowMessage(0953) = The gateway opens, revealing the secret chambers of the Labyrinth Thieves.
+0010                          GoMap(02, 6E, 01, 33)
 002B                          RETURN
 
 LAVA_0F:
 0000                          BEGIN
-0003                          ShowMessage(099E) [es:bx+0xf8] = You stumble into the lava pools.  You die.
-0010                          ax = GetHits() [es:bx+0x74]
-0017                          DoDamage(ax) [es:bx+0x90]
+0003                          ShowMessage(099E) = You stumble into the lava pools.  You die.
+0010                          ax = GetMaxHits()
+0017                          DoDamage(ax)
 0021                          RETURN
 
 DRTOBALY_10:
 0000                          BEGIN
-0003                          ShowMessage(09C9) [es:bx+0xf8] = This door locks out all except those who have the alley key.
-0010 B8 E0 00                 mov ax, 0xe0
-0013 50                       push ax
-0014 B8 E0 00                 mov ax, 0xe0
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 54              call far word [es:bx+0x54]
-001F 59                       pop cx
-0020 59                       pop cx
-0021 0B C0                    or ax, ax
+0003                          ShowMessage(09C9) = This door locks out all except those who have the alley key.
+0010                          ax = UsedItem(E0, E0)
 0023 74 41                    jz 0x66
-0025 B8 01 00                 mov ax, 0x1
-0028 50                       push ax
-0029 B8 03 00                 mov ax, 0x3
-002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 5F 20              call far word [es:bx+0x20]
+0025                          Push(01)
+0029                          Push(03)
+002D                          ax = GetNextTile()
 0034 50                       push ax
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 5F 2C              call far word [es:bx+0x2c]
-003C 83 C4 06                 add sp, 0x6
-003F B8 03 00                 mov ax, 0x3
-0042 50                       push ax
-0043 C4 5E 06                 les bx, [bp+0x6]
-0046 26 FF 5F 20              call far word [es:bx+0x20]
+0035                          Move(stk[0], stk[1], stk[2])
+003F                          Push(03)
+0043                          ax = GetNextTile()
 004A 50                       push ax
-004B B8 01 00                 mov ax, 0x1
-004E 50                       push ax
-004F C4 5E 06                 les bx, [bp+0x6]
-0052 26 FF 5F 30              call far word [es:bx+0x30]
-0056 83 C4 06                 add sp, 0x6
-0059                          ShowMessage(0A06) [es:bx+0xf8] = Your key unlocks the door.
+004B                          Push(01)
+004F                          SetUnblocked()
+0059                          ShowMessage(0A06) = Your key unlocks the door.
 0066                          RETURN
 
 LABYATIC_14:
 0000                          BEGIN
-0003                          ShowMessage(0A21) [es:bx+0xf8] = You return to LABYRINTH ATTIC through a one-way tunnel.
-0010                          GoMap(02, 59, 01, 33) [es:bx+0xbc]
+0003                          ShowMessage(0A21) = You return to LABYRINTH ATTIC through a one-way tunnel.
+0010                          GoMap(02, 59, 01, 33)
 002B                          RETURN
 
 WINDHOLO_15:
 0000                          BEGIN
-0003                          ShowMessage(0A59) [es:bx+0xf8] = The door to WIND HOLLOW bursts open with terrible force, throwing all adventurers against the rocks...
-0010                          ShowMessage(0AC0) [es:bx+0xf8] = ...and inflicting heavy damage.
-001D                          DoDamage(00C8) [es:bx+0x90]
-002A C4 5E 06                 les bx, [bp+0x6]
-002D 26 FF 5F 70              call far word [es:bx+0x70]
+0003                          ShowMessage(0A59) = The door to WIND HOLLOW bursts open with terrible force, throwing all adventurers against the rocks...
+0010                          ShowMessage(0AC0) = ...and inflicting heavy damage.
+001D                          DoDamage(00C8)
+002A                          ax = GetCurrentHits()
 0031 0B C0                    or ax, ax
 0033 77 0D                    ja 0x42
-0035                          ShowMessage(0AE0) [es:bx+0xf8] = You have died.
-0042                          GoMap(03, BC, 01, 35) [es:bx+0xbc]
+0035                          ShowMessage(0AE0) = You have died.
+0042                          GoMap(03, BC, 01, 35)
 005D                          RETURN
 
 MAGICRMS_16:
 0000                          BEGIN
-0003                          ShowMessage(0AEF) [es:bx+0xf8] = Runes can be the most powerful of weapons in the hands of an adept Wizard.
-0010                          ShowMessage(0B3A) [es:bx+0xf8] = Here, the runes also protect the great mage's magical possessions against the unwanted.
-001D                          GoMap(02, 30, 02, 34) [es:bx+0xbc]
+0003                          ShowMessage(0AEF) = Runes can be the most powerful of weapons in the hands of an adept Wizard.
+0010                          ShowMessage(0B3A) = Here, the runes also protect the great mage's magical possessions against the unwanted.
+001D                          GoMap(02, 30, 02, 34)
 0038                          RETURN
 
 ZEPHENCA_18:
 0000                          BEGIN
-0003                          AddEncounter(16, 01) [es:bx+0xd4]
-0015                          AddEncounter(16, 02) [es:bx+0xd4]
-0027                          AddEncounter(19, 05) [es:bx+0xd4]
-0039                          AddEncounter(19, 06) [es:bx+0xd4]
-004B                          ax = HasItem(B4) [es:bx+0x50]
+0003                          AddEncounter(16, 01)
+0015                          AddEncounter(16, 02)
+0027                          AddEncounter(19, 05)
+0039                          AddEncounter(19, 06)
+004B                          ax = HasItem(B4)
 0059 74 21                    jz 0x7c
-005B                          AddTreasure(03E8, 00, 00, 00, 00, D1) [es:bx+0xd8]
+005B                          AddTreasure(03E8, 00, 00, 00, 00, D1)
 007A EB 21                    jmp 0x9d
-007C                          AddTreasure(07D0, 00, 00, C8, B4, D0) [es:bx+0xd8]
+007C                          AddTreasure(07D0, 00, 00, C8, B4, D0)
 009D                          RETURN
 
 ZEPHENCB_19:
 0000                          BEGIN
-0003                          ax = CheckState2(02, 79) [es:bx+0x8]
+0003                          ax = CheckState2(02, 79)
 0016 74 63                    jz 0x7b
-0018                          ax = HasItem(09) [es:bx+0x50]
+0018                          ax = HasItem(09)
 0026 75 10                    jnz 0x38
-0028                          ax = HasItem(F0) [es:bx+0x50]
+0028                          ax = HasItem(F0)
 0036 74 22                    jz 0x5a
-0038                          AddTreasure(1388, 00, 00, 00, B3, D0) [es:bx+0xd8]
+0038                          AddTreasure(1388, 00, 00, 00, B3, D0)
 0058 EB 1F                    jmp 0x79
-005A                          AddTreasure(2710, 00, 00, 00, 00, F0) [es:bx+0xd8]
+005A                          AddTreasure(2710, 00, 00, 00, 00, F0)
 0079 EB 6F                    jmp 0xea
-007B                          ax = HasItem(E6) [es:bx+0x50]
+007B                          ax = HasItem(E6)
 0089 74 5F                    jz 0xea
-008B                          RemoveItem(E6) [es:bx+0x4c]
-0097                          SetState(02, 79, 01) [es:bx]
-00AC                          AddTreasure(2710, 00, 00, 00, 00, F0) [es:bx+0xd8]
-00CB B8 03 00                 mov ax, 0x3
-00CE BA 90 D0                 mov dx, 0xd090
-00D1 50                       push ax
-00D2 52                       push dx
-00D3 C4 5E 06                 les bx, [bp+0x6]
-00D6 26 FF 9F 98 00           call far word [es:bx+0x98]
-00DB 59                       pop cx
-00DC 59                       pop cx
-00DD                          ShowMessage(0B92) [es:bx+0xf8] = The Zephyr Wind whispers, 'I have taken the Harvest Horn, and I give you something to help defeat the Wind Elemental'.
-00EA                          AddEncounter(10, 01) [es:bx+0xd4]
-00FC                          AddEncounter(10, 02) [es:bx+0xd4]
-010E                          AddEncounter(0F, 05) [es:bx+0xd4]
-0120                          AddEncounter(0F, 06) [es:bx+0xd4]
+008B                          RemoveItem(E6)
+0097                          SetState(02, 79, 01)
+00AC                          AddTreasure(2710, 00, 00, 00, 00, F0)
+00CB                          AddExperience(0003D090)
+00DD                          ShowMessage(0B92) = The Zephyr Wind whispers, 'I have taken the Harvest Horn, and I give you something to help defeat the Wind Elemental'.
+00EA                          AddEncounter(10, 01)
+00FC                          AddEncounter(10, 02)
+010E                          AddEncounter(0F, 05)
+0120                          AddEncounter(0F, 06)
 0132                          RETURN
 
 TXTZEPHR_1B:
 0000                          BEGIN
-0003                          ShowMessage(0C09) [es:bx+0xf8] = The Zephyr Wind whistles 'No harm was intended, but I am sworn to serve the Wind Elemental.  Return the Harvest Horn to my Wyverns to release my bonds.'
+0003                          ShowMessage(0C09) = The Zephyr Wind whistles 'No harm was intended, but I am sworn to serve the Wind Elemental.  Return the Harvest Horn to my Wyverns to release my bonds.'
 0010                          RETURN
 
 XOVEROFF_1C:
 0000                          BEGIN
-0003                          SetState(01, 01, 00) [es:bx]
-0017 B8 47 00                 mov ax, 0x47
-001A 50                       push ax
-001B B8 01 00                 mov ax, 0x1
-001E 50                       push ax
-001F C4 5E 06                 les bx, [bp+0x6]
-0022 26 FF 5F 38              call far word [es:bx+0x38]
-0026 59                       pop cx
-0027 59                       pop cx
-0028                          ShowMessage(0CA2) [es:bx+0xf8] = A magical platform nearby seems to disappear.
+0003                          SetState(01, 01, 00)
+0017                          SetTileFloor(47, 01)
+0028                          ShowMessage(0CA2) = A magical platform nearby seems to disappear.
 0035                          RETURN
 
 ZEPHBLOW_1D:
 0000                          BEGIN
-0003                          ShowMessage(0CD0) [es:bx+0xf8] = The Zephyr Wind gusts in fury, causing damage!
-0010                          ax = GetHits() [es:bx+0x74]
+0003                          ShowMessage(0CD0) = The Zephyr Wind gusts in fury, causing damage!
+0010                          ax = GetMaxHits()
 0017 BB 03 00                 mov bx, 0x3
 001A 99                       cwd
 001B F7 FB                    idiv bx
-001D                          DoDamage(ax) [es:bx+0x90]
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 5F 70              call far word [es:bx+0x70]
+001D                          DoDamage(ax)
+0027                          ax = GetCurrentHits()
 002E 0B C0                    or ax, ax
 0030 77 0D                    ja 0x3f
-0032                          ShowMessage(0CFF) [es:bx+0xf8] = You have died.
+0032                          ShowMessage(0CFF) = You have died.
 003F                          RETURN
 
 DRLPENCA_1E:
 0000                          BEGIN
-0003                          ShowMessage(0D0E) [es:bx+0xf8] = Wafts of reddish smoke eminate from the rooms ahead.
-0010                          AddEncounter(19, 01) [es:bx+0xd4]
-0022                          AddEncounter(19, 02) [es:bx+0xd4]
-0034                          AddEncounter(0F, 05) [es:bx+0xd4]
-0046                          AddEncounter(0F, 06) [es:bx+0xd4]
+0003                          ShowMessage(0D0E) = Wafts of reddish smoke eminate from the rooms ahead.
+0010                          AddEncounter(19, 01)
+0022                          AddEncounter(19, 02)
+0034                          AddEncounter(0F, 05)
+0046                          AddEncounter(0F, 06)
 0058                          RETURN
 
 DRLPENCB_1F:
 0000                          BEGIN
-0003                          ShowMessage(0D43) [es:bx+0xf8] = An acrid odor fills these chambers.
-0010                          AddEncounter(0F, 01) [es:bx+0xd4]
-0022                          AddEncounter(0F, 02) [es:bx+0xd4]
-0034                          AddEncounter(1B, 05) [es:bx+0xd4]
-0046                          AddEncounter(1B, 06) [es:bx+0xd4]
+0003                          ShowMessage(0D43) = An acrid odor fills these chambers.
+0010                          AddEncounter(0F, 01)
+0022                          AddEncounter(0F, 02)
+0034                          AddEncounter(1B, 05)
+0046                          AddEncounter(1B, 06)
 0058                          RETURN
 
 DRLPENCC_20:
 0000                          BEGIN
-0003                          ShowMessage(0D67) [es:bx+0xf8] = The fiery eyes of Ancient Dragons blaze through the thick clouds that fill the chamber.
-0010                          AddEncounter(1C, 01) [es:bx+0xd4]
-0022                          AddEncounter(1C, 02) [es:bx+0xd4]
-0034                          AddEncounter(1C, 03) [es:bx+0xd4]
-0046                          AddEncounter(1C, 04) [es:bx+0xd4]
-0058                          AddEncounter(1A, 05) [es:bx+0xd4]
-006A                          AddEncounter(1A, 06) [es:bx+0xd4]
-007C                          ax = HasItem(DF) [es:bx+0x50]
+0003                          ShowMessage(0D67) = The fiery eyes of Ancient Dragons blaze through the thick clouds that fill the chamber.
+0010                          AddEncounter(1C, 01)
+0022                          AddEncounter(1C, 02)
+0034                          AddEncounter(1C, 03)
+0046                          AddEncounter(1C, 04)
+0058                          AddEncounter(1A, 05)
+006A                          AddEncounter(1A, 06)
+007C                          ax = HasItem(DF)
 008A 74 21                    jz 0xad
-008C                          AddTreasure(03E8, 00, 00, 00, 00, D1) [es:bx+0xd8]
+008C                          AddTreasure(03E8, 00, 00, 00, 00, D1)
 00AB EB 21                    jmp 0xce
-00AD                          AddTreasure(4E20, 00, 00, DF, 46, 6E) [es:bx+0xd8]
+00AD                          AddTreasure(4E20, 00, 00, DF, 46, 6E)
 00CE                          RETURN
 
 ZZYZENCA_21:
 0000                          BEGIN
-0003                          AddEncounter(1E, 01) [es:bx+0xd4]
-0015                          AddEncounter(1E, 02) [es:bx+0xd4]
-0027                          AddEncounter(1E, 03) [es:bx+0xd4]
-0039                          AddEncounter(1E, 04) [es:bx+0xd4]
-004B                          AddEncounter(1D, 05) [es:bx+0xd4]
-005D                          AddEncounter(1D, 06) [es:bx+0xd4]
-006F                          AddTreasure(1388, 00, 00, 17, 08, 6C) [es:bx+0xd8]
+0003                          AddEncounter(1E, 01)
+0015                          AddEncounter(1E, 02)
+0027                          AddEncounter(1E, 03)
+0039                          AddEncounter(1E, 04)
+004B                          AddEncounter(1D, 05)
+005D                          AddEncounter(1D, 06)
+006F                          AddTreasure(1388, 00, 00, 17, 08, 6C)
 0090                          RETURN
 
 SDRZZYZA_23:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0B 00                 cmp ax, 0xb
+0003                          ax = UsedSkill(0D, 0B) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 25                    jae 0x39
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 15                    jnz 0x39
-0024 B8 BE 00                 mov ax, 0xbe
-0027 50                       push ax
-0028 B8 BE 00                 mov ax, 0xbe
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(BE, BE)
 0037 74 49                    jz 0x82
-0039                          ShowMessage(0DBF) [es:bx+0xf8] = You detect a secret door in the wall.
-0046                          ax = SetExitability(01) [es:bx+0x24]
+0039                          ShowMessage(0DBF) = You detect a secret door in the wall.
+0046                          Push(01)
+004A                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0051 50                       push ax
-0052 C4 5E 06                 les bx, [bp+0x6]
-0055 26 FF 5F 20              call far word [es:bx+0x20]
+0052                          ax = GetNextTile()
 0059 50                       push ax
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 5F 2C              call far word [es:bx+0x2c]
-0061 83 C4 06                 add sp, 0x6
-0064                          ax = SetExitability(ax) [es:bx+0x24]
+005A                          Move(stk[0], stk[1], stk[2])
+0064                          ax = SetExitability(ax) // ax is usually 0 following equality check
 006B 50                       push ax
-006C C4 5E 06                 les bx, [bp+0x6]
-006F 26 FF 5F 20              call far word [es:bx+0x20]
+006C                          ax = GetNextTile()
 0073 50                       push ax
-0074 B8 01 00                 mov ax, 0x1
-0077 50                       push ax
-0078 C4 5E 06                 les bx, [bp+0x6]
-007B 26 FF 5F 30              call far word [es:bx+0x30]
-007F 83 C4 06                 add sp, 0x6
+0074                          Push(01)
+0078                          SetUnblocked()
 0082                          RETURN
 
 ZZYZENCC_24:
 0000                          BEGIN
-0003                          AddEncounter(10, 01) [es:bx+0xd4]
-0015                          AddEncounter(10, 02) [es:bx+0xd4]
-0027                          AddEncounter(1D, 03) [es:bx+0xd4]
-0039                          AddEncounter(1D, 04) [es:bx+0xd4]
+0003                          AddEncounter(10, 01)
+0015                          AddEncounter(10, 02)
+0027                          AddEncounter(1D, 03)
+0039                          AddEncounter(1D, 04)
 004B                          RETURN
 
 MGOVENCA_25:
 0000                          BEGIN
-0003                          ShowMessage(0DE5) [es:bx+0xf8] = A stash of wizard items is being raided.
-0010                          AddEncounter(1F, 01) [es:bx+0xd4]
-0022                          AddEncounter(1F, 02) [es:bx+0xd4]
-0034                          AddEncounter(20, 03) [es:bx+0xd4]
-0046                          AddEncounter(20, 04) [es:bx+0xd4]
-0058                          AddTreasure(03E8, 00, 00, CA, B2, B1) [es:bx+0xd8]
+0003                          ShowMessage(0DE5) = A stash of wizard items is being raided.
+0010                          AddEncounter(1F, 01)
+0022                          AddEncounter(1F, 02)
+0034                          AddEncounter(20, 03)
+0046                          AddEncounter(20, 04)
+0058                          AddTreasure(03E8, 00, 00, CA, B2, B1)
 0079                          RETURN
 
 MGOVENCB_26:
 0000                          BEGIN
-0003                          AddEncounter(1F, 01) [es:bx+0xd4]
-0015                          AddEncounter(1F, 02) [es:bx+0xd4]
-0027                          AddEncounter(1F, 03) [es:bx+0xd4]
-0039                          AddEncounter(19, 04) [es:bx+0xd4]
-004B                          AddEncounter(05, 05) [es:bx+0xd4]
+0003                          AddEncounter(1F, 01)
+0015                          AddEncounter(1F, 02)
+0027                          AddEncounter(1F, 03)
+0039                          AddEncounter(19, 04)
+004B                          AddEncounter(05, 05)
 005D                          RETURN
 
 SDRMGOVA_28:
@@ -424,398 +328,279 @@ SDRMGOVA_28:
 000A 3D 05 00                 cmp ax, 0x5
 000D 74 03                    jz 0x12
 000F E9 7F 00                 jmp 0x91
-0012 B8 0D 00                 mov ax, 0xd
-0015 50                       push ax
-0016 C4 5E 06                 les bx, [bp+0x6]
-0019 26 FF 5F 58              call far word [es:bx+0x58]
-001D 59                       pop cx
-001E 3D 0C 00                 cmp ax, 0xc
+0012                          ax = UsedSkill(0D, 0C) // returns 0 if did not use, compares to 2nd op if did use
 0021 73 25                    jae 0x48
-0023 B8 17 00                 mov ax, 0x17
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 5F 64              call far word [es:bx+0x64]
-002E 59                       pop cx
+0023                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 002F 0B C0                    or ax, ax
 0031 75 15                    jnz 0x48
-0033 B8 BE 00                 mov ax, 0xbe
-0036 50                       push ax
-0037 B8 BE 00                 mov ax, 0xbe
-003A 50                       push ax
-003B C4 5E 06                 les bx, [bp+0x6]
-003E 26 FF 5F 54              call far word [es:bx+0x54]
-0042 59                       pop cx
-0043 59                       pop cx
-0044 0B C0                    or ax, ax
+0033                          ax = UsedItem(BE, BE)
 0046 74 49                    jz 0x91
-0048                          ShowMessage(0E0E) [es:bx+0xf8] = You locate a hidden door in the wall.
-0055                          ax = SetExitability(01) [es:bx+0x24]
+0048                          ShowMessage(0E0E) = You locate a hidden door in the wall.
+0055                          Push(01)
+0059                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0060 50                       push ax
-0061 C4 5E 06                 les bx, [bp+0x6]
-0064 26 FF 5F 20              call far word [es:bx+0x20]
+0061                          ax = GetNextTile()
 0068 50                       push ax
-0069 C4 5E 06                 les bx, [bp+0x6]
-006C 26 FF 5F 2C              call far word [es:bx+0x2c]
-0070 83 C4 06                 add sp, 0x6
-0073                          ax = SetExitability(ax) [es:bx+0x24]
+0069                          Move(stk[0], stk[1], stk[2])
+0073                          ax = SetExitability(ax) // ax is usually 0 following equality check
 007A 50                       push ax
-007B C4 5E 06                 les bx, [bp+0x6]
-007E 26 FF 5F 20              call far word [es:bx+0x20]
+007B                          ax = GetNextTile()
 0082 50                       push ax
-0083 B8 01 00                 mov ax, 0x1
-0086 50                       push ax
-0087 C4 5E 06                 les bx, [bp+0x6]
-008A 26 FF 5F 30              call far word [es:bx+0x30]
-008E 83 C4 06                 add sp, 0x6
+0083                          Push(01)
+0087                          SetUnblocked()
 0091                          RETURN
 
 VORAENCA_29:
 0000                          BEGIN
-0003                          AddEncounter(22, 01) [es:bx+0xd4]
-0015                          AddEncounter(22, 02) [es:bx+0xd4]
-0027                          AddEncounter(10, 03) [es:bx+0xd4]
-0039                          AddEncounter(10, 04) [es:bx+0xd4]
+0003                          AddEncounter(22, 01)
+0015                          AddEncounter(22, 02)
+0027                          AddEncounter(10, 03)
+0039                          AddEncounter(10, 04)
 004B                          RETURN
 
 VORAENCB_2A:
 0000                          BEGIN
-0003                          AddEncounter(22, 01) [es:bx+0xd4]
-0015                          AddEncounter(22, 02) [es:bx+0xd4]
-0027                          AddEncounter(15, 03) [es:bx+0xd4]
-0039                          AddEncounter(12, 04) [es:bx+0xd4]
+0003                          AddEncounter(22, 01)
+0015                          AddEncounter(22, 02)
+0027                          AddEncounter(15, 03)
+0039                          AddEncounter(12, 04)
 004B                          RETURN
 
 VORAENCV_30:
 0000                          BEGIN
-0003                          ShowMessage(0E34) [es:bx+0xf8] = A powerful Dwarf Thief stands before you. 'I am Voranti, Lord of Dwarf Thieves!  Fight me if you must, but you shall not find my secret treasure!  Do not fear, for I will provide decent burial when I am finished.'
+0003                          ShowMessage(0E34) = A powerful Dwarf Thief stands before you. 'I am Voranti, Lord of Dwarf Thieves!  Fight me if you must, but you shall not find my secret treasure!  Do not fear, for I will provide decent burial when I am finished.'
 0010 C4 5E 06                 les bx, [bp+0x6]
 0013 26 FF 5F 78              call far word [es:bx+0x78]
 0017 3D 02 00                 cmp ax, 0x2
 001A 75 0D                    jnz 0x29
-001C                          ShowMessage(0F0A) [es:bx+0xf8] = Voranti's dark eyes glow bright with hatred. 'As for you, miserable Elf, my pet gargoyles will pick your bones clean.'
+001C                          ShowMessage(0F0A) = Voranti's dark eyes glow bright with hatred. 'As for you, miserable Elf, my pet gargoyles will pick your bones clean.'
 0029 C4 5E 06                 les bx, [bp+0x6]
 002C 26 FF 5F 78              call far word [es:bx+0x78]
 0030 3D 04 00                 cmp ax, 0x4
 0033 75 0D                    jnz 0x42
-0035                          ShowMessage(0F81) [es:bx+0xf8] = Voranti smiles sadly. 'It saddens me that I must kill a fellow dwarf, but you have brought death upon yourself.'
-0042                          AddEncounter(1C, 01) [es:bx+0xd4]
-0054                          AddEncounter(21, 05) [es:bx+0xd4]
-0066                          ax = HasItem(ED) [es:bx+0x50]
+0035                          ShowMessage(0F81) = Voranti smiles sadly. 'It saddens me that I must kill a fellow dwarf, but you have brought death upon yourself.'
+0042                          AddEncounter(1C, 01)
+0054                          AddEncounter(21, 05)
+0066                          ax = HasItem(ED)
 0074 74 21                    jz 0x97
-0076                          AddTreasure(1388, 00, 00, 00, 00, CC) [es:bx+0xd8]
+0076                          AddTreasure(1388, 00, 00, 00, 00, CC)
 0095 EB 1F                    jmp 0xb6
-0097                          AddTreasure(2710, 00, 00, 00, 00, ED) [es:bx+0xd8]
+0097                          AddTreasure(2710, 00, 00, 00, 00, ED)
 00B6                          RETURN
 
 SDRVORDW_31:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0B 00                 cmp ax, 0xb
+0003                          ax = UsedSkill(0D, 0B) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 25                    jae 0x39
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 15                    jnz 0x39
-0024 B8 BE 00                 mov ax, 0xbe
-0027 50                       push ax
-0028 B8 BE 00                 mov ax, 0xbe
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(BE, BE)
 0037 74 49                    jz 0x82
-0039                          ShowMessage(0FF2) [es:bx+0xf8] = You find a secret door in the wall.
-0046                          ax = SetExitability(ax) [es:bx+0x24]
+0039                          ShowMessage(0FF2) = You find a secret door in the wall.
+0046                          ax = SetExitability(ax) // ax is usually 0 following equality check
 004D 50                       push ax
-004E C4 5E 06                 les bx, [bp+0x6]
-0051 26 FF 5F 20              call far word [es:bx+0x20]
+004E                          ax = GetNextTile()
 0055 50                       push ax
-0056 B8 01 00                 mov ax, 0x1
-0059 50                       push ax
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 5F 30              call far word [es:bx+0x30]
-0061 83 C4 06                 add sp, 0x6
-0064                          ax = SetExitability(01) [es:bx+0x24]
+0056                          Push(01)
+005A                          SetUnblocked()
+0064                          Push(01)
+0068                          ax = SetExitability(ax) // ax is usually 0 following equality check
 006F 50                       push ax
-0070 C4 5E 06                 les bx, [bp+0x6]
-0073 26 FF 5F 20              call far word [es:bx+0x20]
+0070                          ax = GetNextTile()
 0077 50                       push ax
-0078 C4 5E 06                 les bx, [bp+0x6]
-007B 26 FF 5F 2C              call far word [es:bx+0x2c]
-007F 83 C4 06                 add sp, 0x6
+0078                          Move(stk[0], stk[1], stk[2])
 0082                          RETURN
 
 MOONENCA_32:
 0000                          BEGIN
-0003                          AddEncounter(0A, 01) [es:bx+0xd4]
-0015                          AddEncounter(0A, 02) [es:bx+0xd4]
-0027                          AddEncounter(24, 03) [es:bx+0xd4]
-0039                          AddEncounter(24, 04) [es:bx+0xd4]
-004B                          ax = HasItem(BE) [es:bx+0x50]
+0003                          AddEncounter(0A, 01)
+0015                          AddEncounter(0A, 02)
+0027                          AddEncounter(24, 03)
+0039                          AddEncounter(24, 04)
+004B                          ax = HasItem(BE)
 0059 74 22                    jz 0x7d
-005B                          AddTreasure(07D0, 00, 00, 00, D0, B7) [es:bx+0xd8]
+005B                          AddTreasure(07D0, 00, 00, 00, D0, B7)
 007B EB 21                    jmp 0x9e
-007D                          AddTreasure(1388, 00, 00, C6, D1, BE) [es:bx+0xd8]
+007D                          AddTreasure(1388, 00, 00, C6, D1, BE)
 009E                          RETURN
 
 MOONENCB_33:
 0000                          BEGIN
-0003                          AddEncounter(26, 01) [es:bx+0xd4]
-0015                          AddEncounter(26, 02) [es:bx+0xd4]
-0027                          AddEncounter(25, 03) [es:bx+0xd4]
-0039                          AddEncounter(26, 05) [es:bx+0xd4]
-004B                          AddEncounter(26, 06) [es:bx+0xd4]
-005D                          AddTreasure(1B58, 00, 00, 00, 59, 13) [es:bx+0xd8]
+0003                          AddEncounter(26, 01)
+0015                          AddEncounter(26, 02)
+0027                          AddEncounter(25, 03)
+0039                          AddEncounter(26, 05)
+004B                          AddEncounter(26, 06)
+005D                          AddTreasure(1B58, 00, 00, 00, 59, 13)
 007D                          RETURN
 
 MOONENCC_34:
 0000                          BEGIN
-0003                          AddEncounter(0E, 01) [es:bx+0xd4]
-0015                          AddEncounter(0E, 02) [es:bx+0xd4]
-0027                          AddEncounter(1C, 03) [es:bx+0xd4]
-0039                          AddEncounter(1C, 04) [es:bx+0xd4]
-004B                          AddEncounter(1B, 05) [es:bx+0xd4]
-005D                          AddEncounter(1B, 06) [es:bx+0xd4]
-006F                          AddTreasure(2710, 00, 00, 00, 83, 10) [es:bx+0xd8]
+0003                          AddEncounter(0E, 01)
+0015                          AddEncounter(0E, 02)
+0027                          AddEncounter(1C, 03)
+0039                          AddEncounter(1C, 04)
+004B                          AddEncounter(1B, 05)
+005D                          AddEncounter(1B, 06)
+006F                          AddTreasure(2710, 00, 00, 00, 83, 10)
 008F                          RETURN
 
 MOONENCD_35:
 0000                          BEGIN
-0003                          AddEncounter(24, 01) [es:bx+0xd4]
-0015                          AddEncounter(24, 02) [es:bx+0xd4]
-0027                          AddEncounter(24, 03) [es:bx+0xd4]
-0039                          AddEncounter(24, 04) [es:bx+0xd4]
+0003                          AddEncounter(24, 01)
+0015                          AddEncounter(24, 02)
+0027                          AddEncounter(24, 03)
+0039                          AddEncounter(24, 04)
 004B                          RETURN
 
 MOONENCE_36:
 0000                          BEGIN
-0003                          ShowMessage(1016) [es:bx+0xf8] = A nest of young dragons!
-0010                          AddEncounter(0E, 01) [es:bx+0xd4]
-0022                          AddEncounter(0E, 02) [es:bx+0xd4]
-0034                          AddEncounter(0F, 03) [es:bx+0xd4]
-0046                          AddEncounter(1C, 04) [es:bx+0xd4]
+0003                          ShowMessage(1016) = A nest of young dragons!
+0010                          AddEncounter(0E, 01)
+0022                          AddEncounter(0E, 02)
+0034                          AddEncounter(0F, 03)
+0046                          AddEncounter(1C, 04)
 0058                          RETURN
 
 MOONENCF_37:
 0000                          BEGIN
-0003                          AddEncounter(24, 01) [es:bx+0xd4]
-0015                          AddEncounter(24, 02) [es:bx+0xd4]
-0027                          AddEncounter(24, 05) [es:bx+0xd4]
+0003                          AddEncounter(24, 01)
+0015                          AddEncounter(24, 02)
+0027                          AddEncounter(24, 05)
 0039                          RETURN
 
 MOONENCG_38:
 0000                          BEGIN
-0003                          ShowMessage(102F) [es:bx+0xf8] = A yellowed piece of paper  --
-0010                          ShowMessage(104D) [es:bx+0xf8] = 'Help! My brother Orilon has been bitten by bears and is transformed.'  - signed Margery
-001D                          AddEncounter(28, 01) [es:bx+0xd4]
-002F                          AddEncounter(28, 02) [es:bx+0xd4]
-0041                          AddEncounter(28, 03) [es:bx+0xd4]
-0053                          AddEncounter(24, 05) [es:bx+0xd4]
-0065                          AddEncounter(24, 06) [es:bx+0xd4]
-0077                          ax = HasItem(EA) [es:bx+0x50]
+0003                          ShowMessage(102F) = A yellowed piece of paper  --
+0010                          ShowMessage(104D) = 'Help! My brother Orilon has been bitten by bears and is transformed.'  - signed Margery
+001D                          AddEncounter(28, 01)
+002F                          AddEncounter(28, 02)
+0041                          AddEncounter(28, 03)
+0053                          AddEncounter(24, 05)
+0065                          AddEncounter(24, 06)
+0077                          ax = HasItem(EA)
 0085 74 21                    jz 0xa8
-0087                          AddTreasure(2328, 00, 00, 00, 00, BB) [es:bx+0xd8]
+0087                          AddTreasure(2328, 00, 00, 00, 00, BB)
 00A6 EB 20                    jmp 0xc8
-00A8                          AddTreasure(1388, 00, 00, 00, EA, 85) [es:bx+0xd8]
+00A8                          AddTreasure(1388, 00, 00, 00, EA, 85)
 00C8                          RETURN
 
 TXTMOONB_3A:
 0000                          BEGIN
-0003                          ShowMessage(10A6) [es:bx+0xf8] = A note -- 'Only past the Darkside will you find En-Li-Kil himself.'
+0003                          ShowMessage(10A6) = A note -- 'Only past the Darkside will you find En-Li-Kil himself.'
 0010                          RETURN
 
 MOONENCJ_3B:
 0000                          BEGIN
-0003                          AddEncounter(12, 01) [es:bx+0xd4]
-0015                          AddEncounter(12, 02) [es:bx+0xd4]
-0027                          AddEncounter(1E, 03) [es:bx+0xd4]
-0039                          AddEncounter(1E, 04) [es:bx+0xd4]
+0003                          AddEncounter(12, 01)
+0015                          AddEncounter(12, 02)
+0027                          AddEncounter(1E, 03)
+0039                          AddEncounter(1E, 04)
 004B                          RETURN
 
 MOONENCK_3C:
 0000                          BEGIN
-0003                          AddEncounter(26, 01) [es:bx+0xd4]
-0015                          AddEncounter(26, 02) [es:bx+0xd4]
-0027                          AddEncounter(26, 03) [es:bx+0xd4]
-0039                          AddEncounter(25, 05) [es:bx+0xd4]
-004B                          AddEncounter(25, 06) [es:bx+0xd4]
+0003                          AddEncounter(26, 01)
+0015                          AddEncounter(26, 02)
+0027                          AddEncounter(26, 03)
+0039                          AddEncounter(25, 05)
+004B                          AddEncounter(25, 06)
 005D                          RETURN
 
 BDRMOONB_3E:
 0000                          BEGIN
-0003                          ShowMessage(10EA) [es:bx+0xf8] = This door requires immense strength to open.
-0010                          CheckStrength(15) [es:bx+0xa4]
+0003                          ShowMessage(10EA) = This door requires immense strength to open.
+0010                          CheckStrength(15)
 001F 72 49                    jb 0x6a
-0021                          ShowMessage(1117) [es:bx+0xf8] = You push against the door and barely manage to open it.
-002E                          ax = SetExitability(ax) [es:bx+0x24]
+0021                          ShowMessage(1117) = You push against the door and barely manage to open it.
+002E                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0035 50                       push ax
-0036 C4 5E 06                 les bx, [bp+0x6]
-0039 26 FF 5F 20              call far word [es:bx+0x20]
+0036                          ax = GetNextTile()
 003D 50                       push ax
-003E B8 01 00                 mov ax, 0x1
-0041 50                       push ax
-0042 C4 5E 06                 les bx, [bp+0x6]
-0045 26 FF 5F 30              call far word [es:bx+0x30]
-0049 83 C4 06                 add sp, 0x6
-004C                          ax = SetExitability(01) [es:bx+0x24]
+003E                          Push(01)
+0042                          SetUnblocked()
+004C                          Push(01)
+0050                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0057 50                       push ax
-0058 C4 5E 06                 les bx, [bp+0x6]
-005B 26 FF 5F 20              call far word [es:bx+0x20]
+0058                          ax = GetNextTile()
 005F 50                       push ax
-0060 C4 5E 06                 les bx, [bp+0x6]
-0063 26 FF 5F 2C              call far word [es:bx+0x2c]
-0067 83 C4 06                 add sp, 0x6
+0060                          Move(stk[0], stk[1], stk[2])
 006A                          RETURN
 
 SDRMOONC_3F:
 0000                          BEGIN
-0003 B8 F2 00                 mov ax, 0xf2
-0006 50                       push ax
-0007 B8 F2 00                 mov ax, 0xf2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 54              call far word [es:bx+0x54]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = UsedItem(F2, F2)
 0016 74 49                    jz 0x61
-0018                          ShowMessage(114F) [es:bx+0xf8] = Your Moon Prism reveals a secret door!
-0025                          ax = SetExitability(ax) [es:bx+0x24]
+0018                          ShowMessage(114F) = Your Moon Prism reveals a secret door!
+0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
 002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 5F 20              call far word [es:bx+0x20]
+002D                          ax = GetNextTile()
 0034 50                       push ax
-0035 B8 01 00                 mov ax, 0x1
-0038 50                       push ax
-0039 C4 5E 06                 les bx, [bp+0x6]
-003C 26 FF 5F 30              call far word [es:bx+0x30]
-0040 83 C4 06                 add sp, 0x6
-0043                          ax = SetExitability(01) [es:bx+0x24]
+0035                          Push(01)
+0039                          SetUnblocked()
+0043                          Push(01)
+0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
 004E 50                       push ax
-004F C4 5E 06                 les bx, [bp+0x6]
-0052 26 FF 5F 20              call far word [es:bx+0x20]
+004F                          ax = GetNextTile()
 0056 50                       push ax
-0057 C4 5E 06                 les bx, [bp+0x6]
-005A 26 FF 5F 2C              call far word [es:bx+0x2c]
-005E 83 C4 06                 add sp, 0x6
+0057                          Move(stk[0], stk[1], stk[2])
 0061                          RETURN
 
 SDRMOOND_40:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 0B 00                 cmp ax, 0xb
+0003                          ax = UsedSkill(0D, 0B) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 3A                    jae 0x4e
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 2A                    jnz 0x4e
-0024 B8 A2 00                 mov ax, 0xa2
-0027 50                       push ax
-0028 B8 A2 00                 mov ax, 0xa2
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(A2, A2)
 0037 75 15                    jnz 0x4e
-0039 B8 BE 00                 mov ax, 0xbe
-003C 50                       push ax
-003D B8 BE 00                 mov ax, 0xbe
-0040 50                       push ax
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 5F 54              call far word [es:bx+0x54]
-0048 59                       pop cx
-0049 59                       pop cx
-004A 0B C0                    or ax, ax
+0039                          ax = UsedItem(BE, BE)
 004C 74 49                    jz 0x97
-004E                          ShowMessage(1176) [es:bx+0xf8] = You find a door hidden in the wall.
-005B                          ax = SetExitability(ax) [es:bx+0x24]
+004E                          ShowMessage(1176) = You find a door hidden in the wall.
+005B                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0062 50                       push ax
-0063 C4 5E 06                 les bx, [bp+0x6]
-0066 26 FF 5F 20              call far word [es:bx+0x20]
+0063                          ax = GetNextTile()
 006A 50                       push ax
-006B B8 01 00                 mov ax, 0x1
-006E 50                       push ax
-006F C4 5E 06                 les bx, [bp+0x6]
-0072 26 FF 5F 30              call far word [es:bx+0x30]
-0076 83 C4 06                 add sp, 0x6
-0079                          ax = SetExitability(01) [es:bx+0x24]
+006B                          Push(01)
+006F                          SetUnblocked()
+0079                          Push(01)
+007D                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0084 50                       push ax
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 5F 20              call far word [es:bx+0x20]
+0085                          ax = GetNextTile()
 008C 50                       push ax
-008D C4 5E 06                 les bx, [bp+0x6]
-0090 26 FF 5F 2C              call far word [es:bx+0x2c]
-0094 83 C4 06                 add sp, 0x6
+008D                          Move(stk[0], stk[1], stk[2])
 0097                          RETURN
 
 SDRMOONE_41:
 0000                          BEGIN
-0003                          ShowMessage(119A) [es:bx+0xf8] = The signature of the spectrum appears on the wall.
-0010 B8 BD 00                 mov ax, 0xbd
-0013 50                       push ax
-0014 B8 BD 00                 mov ax, 0xbd
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 54              call far word [es:bx+0x54]
-001F 59                       pop cx
-0020 59                       pop cx
-0021 0B C0                    or ax, ax
+0003                          ShowMessage(119A) = The signature of the spectrum appears on the wall.
+0010                          ax = UsedItem(BD, BD)
 0023 75 15                    jnz 0x3a
-0025 B8 BE 00                 mov ax, 0xbe
-0028 50                       push ax
-0029 B8 BE 00                 mov ax, 0xbe
-002C 50                       push ax
-002D C4 5E 06                 les bx, [bp+0x6]
-0030 26 FF 5F 54              call far word [es:bx+0x54]
-0034 59                       pop cx
-0035 59                       pop cx
-0036 0B C0                    or ax, ax
+0025                          ax = UsedItem(BE, BE)
 0038 74 49                    jz 0x83
-003A                          ShowMessage(11CD) [es:bx+0xf8] = In the wall is a secret door.
-0047                          ax = SetExitability(ax) [es:bx+0x24]
+003A                          ShowMessage(11CD) = In the wall is a secret door.
+0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
 004E 50                       push ax
-004F C4 5E 06                 les bx, [bp+0x6]
-0052 26 FF 5F 20              call far word [es:bx+0x20]
+004F                          ax = GetNextTile()
 0056 50                       push ax
-0057 B8 01 00                 mov ax, 0x1
-005A 50                       push ax
-005B C4 5E 06                 les bx, [bp+0x6]
-005E 26 FF 5F 30              call far word [es:bx+0x30]
-0062 83 C4 06                 add sp, 0x6
-0065                          ax = SetExitability(01) [es:bx+0x24]
+0057                          Push(01)
+005B                          SetUnblocked()
+0065                          Push(01)
+0069                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0070 50                       push ax
-0071 C4 5E 06                 les bx, [bp+0x6]
-0074 26 FF 5F 20              call far word [es:bx+0x20]
+0071                          ax = GetNextTile()
 0078 50                       push ax
-0079 C4 5E 06                 les bx, [bp+0x6]
-007C 26 FF 5F 2C              call far word [es:bx+0x2c]
-0080 83 C4 06                 add sp, 0x6
+0079                          Move(stk[0], stk[1], stk[2])
 0083                          RETURN
 
 MOONENCM_42:
 0000                          BEGIN
-0003                          AddEncounter(26, 01) [es:bx+0xd4]
-0015                          AddEncounter(26, 02) [es:bx+0xd4]
-0027                          AddEncounter(25, 03) [es:bx+0xd4]
-0039                          AddEncounter(25, 04) [es:bx+0xd4]
+0003                          AddEncounter(26, 01)
+0015                          AddEncounter(26, 02)
+0027                          AddEncounter(25, 03)
+0039                          AddEncounter(25, 04)
 004B                          RETURN
 
 SDRMOONF_43:
@@ -825,49 +610,26 @@ SDRMOONF_43:
 000A 3D 02 00                 cmp ax, 0x2
 000D 74 03                    jz 0x12
 000F E9 7F 00                 jmp 0x91
-0012 B8 0D 00                 mov ax, 0xd
-0015 50                       push ax
-0016 C4 5E 06                 les bx, [bp+0x6]
-0019 26 FF 5F 58              call far word [es:bx+0x58]
-001D 59                       pop cx
-001E 3D 0A 00                 cmp ax, 0xa
+0012                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0021 73 25                    jae 0x48
-0023 B8 17 00                 mov ax, 0x17
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 5F 64              call far word [es:bx+0x64]
-002E 59                       pop cx
+0023                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 002F 0B C0                    or ax, ax
 0031 75 15                    jnz 0x48
-0033 B8 BE 00                 mov ax, 0xbe
-0036 50                       push ax
-0037 B8 BE 00                 mov ax, 0xbe
-003A 50                       push ax
-003B C4 5E 06                 les bx, [bp+0x6]
-003E 26 FF 5F 54              call far word [es:bx+0x54]
-0042 59                       pop cx
-0043 59                       pop cx
-0044 0B C0                    or ax, ax
+0033                          ax = UsedItem(BE, BE)
 0046 74 49                    jz 0x91
-0048                          ShowMessage(11EB) [es:bx+0xf8] = Your Ranger skills help you locate a door hidden in the wall.
-0055                          ax = SetExitability(ax) [es:bx+0x24]
+0048                          ShowMessage(11EB) = Your Ranger skills help you locate a door hidden in the wall.
+0055                          ax = SetExitability(ax) // ax is usually 0 following equality check
 005C 50                       push ax
-005D C4 5E 06                 les bx, [bp+0x6]
-0060 26 FF 5F 20              call far word [es:bx+0x20]
+005D                          ax = GetNextTile()
 0064 50                       push ax
-0065 B8 01 00                 mov ax, 0x1
-0068 50                       push ax
-0069 C4 5E 06                 les bx, [bp+0x6]
-006C 26 FF 5F 30              call far word [es:bx+0x30]
-0070 83 C4 06                 add sp, 0x6
-0073                          ax = SetExitability(01) [es:bx+0x24]
+0065                          Push(01)
+0069                          SetUnblocked()
+0073                          Push(01)
+0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
 007E 50                       push ax
-007F C4 5E 06                 les bx, [bp+0x6]
-0082 26 FF 5F 20              call far word [es:bx+0x20]
+007F                          ax = GetNextTile()
 0086 50                       push ax
-0087 C4 5E 06                 les bx, [bp+0x6]
-008A 26 FF 5F 2C              call far word [es:bx+0x2c]
-008E 83 C4 06                 add sp, 0x6
+0087                          Move(stk[0], stk[1], stk[2])
 0091                          RETURN
 
 SDRMOONJ_44:
@@ -877,364 +639,214 @@ SDRMOONJ_44:
 000A 3D 04 00                 cmp ax, 0x4
 000D 74 03                    jz 0x12
 000F E9 7F 00                 jmp 0x91
-0012 B8 0D 00                 mov ax, 0xd
-0015 50                       push ax
-0016 C4 5E 06                 les bx, [bp+0x6]
-0019 26 FF 5F 58              call far word [es:bx+0x58]
-001D 59                       pop cx
-001E 3D 0A 00                 cmp ax, 0xa
+0012                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
 0021 73 25                    jae 0x48
-0023 B8 17 00                 mov ax, 0x17
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 5F 64              call far word [es:bx+0x64]
-002E 59                       pop cx
+0023                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 002F 0B C0                    or ax, ax
 0031 75 15                    jnz 0x48
-0033 B8 BE 00                 mov ax, 0xbe
-0036 50                       push ax
-0037 B8 BE 00                 mov ax, 0xbe
-003A 50                       push ax
-003B C4 5E 06                 les bx, [bp+0x6]
-003E 26 FF 5F 54              call far word [es:bx+0x54]
-0042 59                       pop cx
-0043 59                       pop cx
-0044 0B C0                    or ax, ax
+0033                          ax = UsedItem(BE, BE)
 0046 74 49                    jz 0x91
-0048                          ShowMessage(1229) [es:bx+0xf8] = Your holy calling allows you find a door hidden in the wall.
-0055                          ax = SetExitability(ax) [es:bx+0x24]
+0048                          ShowMessage(1229) = Your holy calling allows you find a door hidden in the wall.
+0055                          ax = SetExitability(ax) // ax is usually 0 following equality check
 005C 50                       push ax
-005D C4 5E 06                 les bx, [bp+0x6]
-0060 26 FF 5F 20              call far word [es:bx+0x20]
+005D                          ax = GetNextTile()
 0064 50                       push ax
-0065 B8 01 00                 mov ax, 0x1
-0068 50                       push ax
-0069 C4 5E 06                 les bx, [bp+0x6]
-006C 26 FF 5F 30              call far word [es:bx+0x30]
-0070 83 C4 06                 add sp, 0x6
-0073                          ax = SetExitability(01) [es:bx+0x24]
+0065                          Push(01)
+0069                          SetUnblocked()
+0073                          Push(01)
+0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
 007E 50                       push ax
-007F C4 5E 06                 les bx, [bp+0x6]
-0082 26 FF 5F 20              call far word [es:bx+0x20]
+007F                          ax = GetNextTile()
 0086 50                       push ax
-0087 C4 5E 06                 les bx, [bp+0x6]
-008A 26 FF 5F 2C              call far word [es:bx+0x2c]
-008E 83 C4 06                 add sp, 0x6
+0087                          Move(stk[0], stk[1], stk[2])
 0091                          RETURN
 
 BDRMOONK_45:
 0000                          BEGIN
-0003                          CheckStrength(14) [es:bx+0xa4]
+0003                          CheckStrength(14)
 0012 72 4B                    jb 0x5f
-0014                          ShowMessage(1266) [es:bx+0xf8] = You barely manage to force open the door.
-0021                          ax = SetExitability(ax) [es:bx+0x24]
+0014                          ShowMessage(1266) = You barely manage to force open the door.
+0021                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0028 50                       push ax
-0029 C4 5E 06                 les bx, [bp+0x6]
-002C 26 FF 5F 20              call far word [es:bx+0x20]
+0029                          ax = GetNextTile()
 0030 50                       push ax
-0031 B8 01 00                 mov ax, 0x1
-0034 50                       push ax
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 5F 30              call far word [es:bx+0x30]
-003C 83 C4 06                 add sp, 0x6
-003F                          ax = SetExitability(01) [es:bx+0x24]
+0031                          Push(01)
+0035                          SetUnblocked()
+003F                          Push(01)
+0043                          ax = SetExitability(ax) // ax is usually 0 following equality check
 004A 50                       push ax
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 20              call far word [es:bx+0x20]
+004B                          ax = GetNextTile()
 0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 5F 2C              call far word [es:bx+0x2c]
-005A 83 C4 06                 add sp, 0x6
+0053                          Move(stk[0], stk[1], stk[2])
 005D EB 48                    jmp 0xa7
-005F                          ShowMessage(1290) [es:bx+0xf8] = The door is stuck shut.
-006C                          ax = SetExitability(ax) [es:bx+0x24]
+005F                          ShowMessage(1290) = The door is stuck shut.
+006C                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0073 50                       push ax
-0074 C4 5E 06                 les bx, [bp+0x6]
-0077 26 FF 5F 20              call far word [es:bx+0x20]
+0074                          ax = GetNextTile()
 007B 50                       push ax
-007C B8 01 00                 mov ax, 0x1
-007F 50                       push ax
-0080 C4 5E 06                 les bx, [bp+0x6]
-0083 26 FF 5F 30              call far word [es:bx+0x30]
-0087 83 C4 06                 add sp, 0x6
-008A                          ax = SetExitability(00) [es:bx+0x24]
+007C                          Push(01)
+0080                          SetUnblocked()
+008A                          Push(00)
+008D                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0094 50                       push ax
-0095 C4 5E 06                 les bx, [bp+0x6]
-0098 26 FF 5F 20              call far word [es:bx+0x20]
+0095                          ax = GetNextTile()
 009C 50                       push ax
-009D C4 5E 06                 les bx, [bp+0x6]
-00A0 26 FF 5F 2C              call far word [es:bx+0x2c]
-00A4 83 C4 06                 add sp, 0x6
+009D                          Move(stk[0], stk[1], stk[2])
 00A7                          RETURN
 
 SDRMOONM_46:
 0000                          BEGIN
-0003 B8 0D 00                 mov ax, 0xd
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 5F 58              call far word [es:bx+0x58]
-000E 59                       pop cx
-000F 3D 08 00                 cmp ax, 0x8
+0003                          ax = UsedSkill(0D, 08) // returns 0 if did not use, compares to 2nd op if did use
 0012 73 25                    jae 0x39
-0014 B8 17 00                 mov ax, 0x17
-0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 64              call far word [es:bx+0x64]
-001F 59                       pop cx
+0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
 0022 75 15                    jnz 0x39
-0024 B8 BE 00                 mov ax, 0xbe
-0027 50                       push ax
-0028 B8 BE 00                 mov ax, 0xbe
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 54              call far word [es:bx+0x54]
-0033 59                       pop cx
-0034 59                       pop cx
-0035 0B C0                    or ax, ax
+0024                          ax = UsedItem(BE, BE)
 0037 74 49                    jz 0x82
-0039                          ShowMessage(12A8) [es:bx+0xf8] = Your training helps you find a secret door in the wall.
-0046                          ax = SetExitability(01) [es:bx+0x24]
+0039                          ShowMessage(12A8) = Your training helps you find a secret door in the wall.
+0046                          Push(01)
+004A                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0051 50                       push ax
-0052 C4 5E 06                 les bx, [bp+0x6]
-0055 26 FF 5F 20              call far word [es:bx+0x20]
+0052                          ax = GetNextTile()
 0059 50                       push ax
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 5F 2C              call far word [es:bx+0x2c]
-0061 83 C4 06                 add sp, 0x6
-0064                          ax = SetExitability(ax) [es:bx+0x24]
+005A                          Move(stk[0], stk[1], stk[2])
+0064                          ax = SetExitability(ax) // ax is usually 0 following equality check
 006B 50                       push ax
-006C C4 5E 06                 les bx, [bp+0x6]
-006F 26 FF 5F 20              call far word [es:bx+0x20]
+006C                          ax = GetNextTile()
 0073 50                       push ax
-0074 B8 01 00                 mov ax, 0x1
-0077 50                       push ax
-0078 C4 5E 06                 les bx, [bp+0x6]
-007B 26 FF 5F 30              call far word [es:bx+0x30]
-007F 83 C4 06                 add sp, 0x6
+0074                          Push(01)
+0078                          SetUnblocked()
 0082                          RETURN
 
 SDRMOONN_47:
 0000                          BEGIN
-0003                          ShowMessage(12E0) [es:bx+0xf8] = You detect a door cleverly hidden in the wall.
-0010                          ax = SetExitability(ax) [es:bx+0x24]
+0003                          ShowMessage(12E0) = You detect a door cleverly hidden in the wall.
+0010                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0017 50                       push ax
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 20              call far word [es:bx+0x20]
+0018                          ax = GetNextTile()
 001F 50                       push ax
-0020 B8 01 00                 mov ax, 0x1
-0023 50                       push ax
-0024 C4 5E 06                 les bx, [bp+0x6]
-0027 26 FF 5F 30              call far word [es:bx+0x30]
-002B 83 C4 06                 add sp, 0x6
-002E                          ax = SetExitability(01) [es:bx+0x24]
+0020                          Push(01)
+0024                          SetUnblocked()
+002E                          Push(01)
+0032                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0039 50                       push ax
-003A C4 5E 06                 les bx, [bp+0x6]
-003D 26 FF 5F 20              call far word [es:bx+0x20]
+003A                          ax = GetNextTile()
 0041 50                       push ax
-0042 C4 5E 06                 les bx, [bp+0x6]
-0045 26 FF 5F 2C              call far word [es:bx+0x2c]
-0049 83 C4 06                 add sp, 0x6
+0042                          Move(stk[0], stk[1], stk[2])
 004C                          RETURN
 
 MOONTRSA_48:
 0000                          BEGIN
-0003                          ax = HasItem(F2) [es:bx+0x50]
+0003                          ax = HasItem(F2)
 0011 74 0F                    jz 0x22
-0013                          ShowMessage(130F) [es:bx+0xf8] = Piles of dirt cover the floor.
+0013                          ShowMessage(130F) = Piles of dirt cover the floor.
 0020 EB 2E                    jmp 0x50
-0022 B8 F2 00                 mov ax, 0xf2
-0025 50                       push ax
-0026 C4 5E 06                 les bx, [bp+0x6]
-0029 26 FF 5F 48              call far word [es:bx+0x48]
-002D 59                       pop cx
-002E                          SetState(02, 46, 01) [es:bx]
-0043                          ShowMessage(132E) [es:bx+0xf8] = You find a Moon Prism on the floor.
+0022                          GiveItem(F2)
+002E                          SetState(02, 46, 01)
+0043                          ShowMessage(132E) = You find a Moon Prism on the floor.
 0050                          RETURN
 
 MOONTRSB_49:
 0000                          BEGIN
-0003                          ax = CheckState(02, 47, 01) [es:bx+0x4]
+0003                          ax = CheckState(02, 47, 01)
 0017 75 0F                    jnz 0x28
-0019                          ShowMessage(1352) [es:bx+0xf8] = The floor is bare.
+0019                          ShowMessage(1352) = The floor is bare.
 0026 EB 2E                    jmp 0x56
-0028 B8 37 00                 mov ax, 0x37
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 48              call far word [es:bx+0x48]
-0033 59                       pop cx
-0034                          SetState(02, 47, 01) [es:bx]
-0049                          ShowMessage(1365) [es:bx+0xf8] = You find the Ranger Spear on the floor.
+0028                          GiveItem(37)
+0034                          SetState(02, 47, 01)
+0049                          ShowMessage(1365) = You find the Ranger Spear on the floor.
 0056                          RETURN
 
 MOONTRSC_4A:
 0000                          BEGIN
-0003                          ax = CheckState(02, 48, 01) [es:bx+0x4]
+0003                          ax = CheckState(02, 48, 01)
 0017 75 0F                    jnz 0x28
-0019                          ShowMessage(138D) [es:bx+0xf8] = There is nothing of interest in this area.
+0019                          ShowMessage(138D) = There is nothing of interest in this area.
 0026 EB 2E                    jmp 0x56
-0028 B8 3D 00                 mov ax, 0x3d
-002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 48              call far word [es:bx+0x48]
-0033 59                       pop cx
-0034                          SetState(02, 48, 01) [es:bx]
-0049                          ShowMessage(13B8) [es:bx+0xf8] = You find a Holy Halberd lying on the floor.
+0028                          GiveItem(3D)
+0034                          SetState(02, 48, 01)
+0049                          ShowMessage(13B8) = You find a Holy Halberd lying on the floor.
 0056                          RETURN
 
 TORBFOUN_4B:
 0000                          BEGIN
-0003                          ShowPortrait(0042) [es:bx+0xfc]
-0010                          ShowMessage(13E4) [es:bx+0xf8] = Pictorials of War are painted on the walls surrounding Torbriar's Fountain.
-001D B8 63 00                 mov ax, 0x63
-0020 50                       push ax
-0021 B8 02 00                 mov ax, 0x2
-0024 50                       push ax
-0025 C4 5E 06                 les bx, [bp+0x6]
-0028 26 FF 5F 04              call far word [es:bx+0x4]
-002C 59                       pop cx
-002D 59                       pop cx
-002E 0B C0                    or ax, ax
+0003                          ShowPortrait(0042)
+0010                          ShowMessage(13E4) = Pictorials of War are painted on the walls surrounding Torbriar's Fountain.
+001D                          ax = CheckState(02, 63, any)
 0030 74 03                    jz 0x35
 0032 E9 47 01                 jmp 0x17c
-0035                          SetState(02, 63, 01) [es:bx]
-004A B8 08 00                 mov ax, 0x8
-004D 50                       push ax
-004E C4 5E 06                 les bx, [bp+0x6]
-0051 26 FF 5F 5C              call far word [es:bx+0x5c]
-0055 59                       pop cx
+0035                          SetState(02, 63, 01)
+004A                          ax = SkillLevel(08)
 0056 0B C0                    or ax, ax
 0058 75 21                    jnz 0x7b
-005A B8 02 00                 mov ax, 0x2
-005D 50                       push ax
-005E B8 08 00                 mov ax, 0x8
-0061 50                       push ax
-0062 C4 5E 06                 les bx, [bp+0x6]
-0065 26 FF 5F 60              call far word [es:bx+0x60]
-0069 59                       pop cx
-006A 59                       pop cx
-006B                          ShowMessage(1430) [es:bx+0xf8] = You gain the skill of Archery!
+005A                          SetSkillLevel(08, 02)
+006B                          ShowMessage(1430) = You gain the skill of Archery!
 0078 E9 FF 00                 jmp 0x17a
-007B B8 01 00                 mov ax, 0x1
-007E 50                       push ax
-007F C4 5E 06                 les bx, [bp+0x6]
-0082 26 FF 5F 5C              call far word [es:bx+0x5c]
-0086 59                       pop cx
+007B                          ax = SkillLevel(01)
 0087 0B C0                    or ax, ax
 0089 75 21                    jnz 0xac
-008B B8 02 00                 mov ax, 0x2
-008E 50                       push ax
-008F B8 01 00                 mov ax, 0x1
-0092 50                       push ax
-0093 C4 5E 06                 les bx, [bp+0x6]
-0096 26 FF 5F 60              call far word [es:bx+0x60]
-009A 59                       pop cx
-009B 59                       pop cx
-009C                          ShowMessage(144F) [es:bx+0xf8] = You gain the skill of Clubs and Axes!
+008B                          SetSkillLevel(01, 02)
+009C                          ShowMessage(144F) = You gain the skill of Clubs and Axes!
 00A9 E9 CE 00                 jmp 0x17a
-00AC B8 05 00                 mov ax, 0x5
-00AF 50                       push ax
-00B0 C4 5E 06                 les bx, [bp+0x6]
-00B3 26 FF 5F 5C              call far word [es:bx+0x5c]
-00B7 59                       pop cx
+00AC                          ax = SkillLevel(05)
 00B8 0B C0                    or ax, ax
 00BA 75 21                    jnz 0xdd
-00BC B8 02 00                 mov ax, 0x2
-00BF 50                       push ax
-00C0 B8 05 00                 mov ax, 0x5
-00C3 50                       push ax
-00C4 C4 5E 06                 les bx, [bp+0x6]
-00C7 26 FF 5F 60              call far word [es:bx+0x60]
-00CB 59                       pop cx
-00CC 59                       pop cx
-00CD                          ShowMessage(1475) [es:bx+0xf8] = You gain the skill of Swordsmanship!
+00BC                          SetSkillLevel(05, 02)
+00CD                          ShowMessage(1475) = You gain the skill of Swordsmanship!
 00DA E9 9D 00                 jmp 0x17a
-00DD B8 0C 00                 mov ax, 0xc
-00E0 50                       push ax
-00E1 C4 5E 06                 les bx, [bp+0x6]
-00E4 26 FF 5F 5C              call far word [es:bx+0x5c]
-00E8 59                       pop cx
+00DD                          ax = SkillLevel(0C)
 00E9 0B C0                    or ax, ax
 00EB 75 20                    jnz 0x10d
-00ED B8 02 00                 mov ax, 0x2
-00F0 50                       push ax
-00F1 B8 0C 00                 mov ax, 0xc
-00F4 50                       push ax
-00F5 C4 5E 06                 les bx, [bp+0x6]
-00F8 26 FF 5F 60              call far word [es:bx+0x60]
-00FC 59                       pop cx
-00FD 59                       pop cx
-00FE                          ShowMessage(149A) [es:bx+0xf8] = You gain the Bard skill!
+00ED                          SetSkillLevel(0C, 02)
+00FE                          ShowMessage(149A) = You gain the Bard skill!
 010B EB 6D                    jmp 0x17a
-010D B8 10 00                 mov ax, 0x10
-0110 50                       push ax
-0111 C4 5E 06                 les bx, [bp+0x6]
-0114 26 FF 5F 5C              call far word [es:bx+0x5c]
-0118 59                       pop cx
+010D                          ax = SkillLevel(10)
 0119 0B C0                    or ax, ax
 011B 75 20                    jnz 0x13d
-011D B8 02 00                 mov ax, 0x2
-0120 50                       push ax
-0121 B8 10 00                 mov ax, 0x10
-0124 50                       push ax
-0125 C4 5E 06                 les bx, [bp+0x6]
-0128 26 FF 5F 60              call far word [es:bx+0x60]
-012C 59                       pop cx
-012D 59                       pop cx
-012E                          ShowMessage(14B3) [es:bx+0xf8] = You gain the skill of Martial Arts!
+011D                          SetSkillLevel(10, 02)
+012E                          ShowMessage(14B3) = You gain the skill of Martial Arts!
 013B EB 3D                    jmp 0x17a
-013D B8 16 00                 mov ax, 0x16
-0140 50                       push ax
-0141 C4 5E 06                 les bx, [bp+0x6]
-0144 26 FF 5F 5C              call far word [es:bx+0x5c]
-0148 59                       pop cx
+013D                          ax = SkillLevel(16)
 0149 0B C0                    or ax, ax
 014B 75 20                    jnz 0x16d
-014D B8 02 00                 mov ax, 0x2
-0150 50                       push ax
-0151 B8 16 00                 mov ax, 0x16
-0154 50                       push ax
-0155 C4 5E 06                 les bx, [bp+0x6]
-0158 26 FF 5F 60              call far word [es:bx+0x60]
-015C 59                       pop cx
-015D 59                       pop cx
-015E                          ShowMessage(14D7) [es:bx+0xf8] = You gain the Channel skill!
+014D                          SetSkillLevel(16, 02)
+015E                          ShowMessage(14D7) = You gain the Channel skill!
 016B EB 0D                    jmp 0x17a
-016D                          ShowMessage(14F3) [es:bx+0xf8] = The waters have no effect.
+016D                          ShowMessage(14F3) = The waters have no effect.
 017A EB 0D                    jmp 0x189
-017C                          ShowMessage(150E) [es:bx+0xf8] = Dust fills the fountain basin.
+017C                          ShowMessage(150E) = Dust fills the fountain basin.
 0189                          RETURN
 
 TORBENCB_4C:
 0000                          BEGIN
-0003                          AddEncounter(28, 01) [es:bx+0xd4]
-0015                          AddEncounter(28, 02) [es:bx+0xd4]
-0027                          AddEncounter(27, 04) [es:bx+0xd4]
-0039                          AddEncounter(15, 05) [es:bx+0xd4]
-004B                          AddEncounter(15, 06) [es:bx+0xd4]
+0003                          AddEncounter(28, 01)
+0015                          AddEncounter(28, 02)
+0027                          AddEncounter(27, 04)
+0039                          AddEncounter(15, 05)
+004B                          AddEncounter(15, 06)
 005D C4 5E 06                 les bx, [bp+0x6]
 0060 26 FF 5F 7C              call far word [es:bx+0x7c]
 0064 0B C0                    or ax, ax
 0066 75 1F                    jnz 0x87
-0068                          AddTreasure(03E8, 00, 00, 00, 00, 18) [es:bx+0xd8]
+0068                          AddTreasure(03E8, 00, 00, 00, 00, 18)
 0087 C4 5E 06                 les bx, [bp+0x6]
 008A 26 FF 5F 7C              call far word [es:bx+0x7c]
 008E 3D 01 00                 cmp ax, 0x1
 0091 75 1F                    jnz 0xb2
-0093                          AddTreasure(03E8, 00, 00, 00, 00, 11) [es:bx+0xd8]
+0093                          AddTreasure(03E8, 00, 00, 00, 00, 11)
 00B2                          RETURN
 
 TORBENCC_4D:
 0000                          BEGIN
-0003                          AddEncounter(28, 01) [es:bx+0xd4]
-0015                          AddEncounter(28, 02) [es:bx+0xd4]
-0027                          AddEncounter(15, 03) [es:bx+0xd4]
-0039                          AddEncounter(15, 04) [es:bx+0xd4]
+0003                          AddEncounter(28, 01)
+0015                          AddEncounter(28, 02)
+0027                          AddEncounter(15, 03)
+0039                          AddEncounter(15, 04)
 004B                          RETURN
 
 TXTTORB_52:
 0000                          BEGIN
-0003                          ShowMessage(152D) [es:bx+0xf8] = A bard's scroll sings a simple song of how someday bands of adventurers will form an invisible bridge across a deadly chasm.
+0003                          ShowMessage(152D) = A bard's scroll sings a simple song of how someday bands of adventurers will form an invisible bridge across a deadly chasm.
 0010                          RETURN
 
 SDRTORBA_53:
@@ -1244,49 +856,26 @@ SDRTORBA_53:
 000A 3D 01 00                 cmp ax, 0x1
 000D 74 03                    jz 0x12
 000F E9 7F 00                 jmp 0x91
-0012 B8 0D 00                 mov ax, 0xd
-0015 50                       push ax
-0016 C4 5E 06                 les bx, [bp+0x6]
-0019 26 FF 5F 58              call far word [es:bx+0x58]
-001D 59                       pop cx
-001E 3D 08 00                 cmp ax, 0x8
+0012                          ax = UsedSkill(0D, 08) // returns 0 if did not use, compares to 2nd op if did use
 0021 73 25                    jae 0x48
-0023 B8 17 00                 mov ax, 0x17
-0026 50                       push ax
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 5F 64              call far word [es:bx+0x64]
-002E 59                       pop cx
+0023                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 002F 0B C0                    or ax, ax
 0031 75 15                    jnz 0x48
-0033 B8 BE 00                 mov ax, 0xbe
-0036 50                       push ax
-0037 B8 BE 00                 mov ax, 0xbe
-003A 50                       push ax
-003B C4 5E 06                 les bx, [bp+0x6]
-003E 26 FF 5F 54              call far word [es:bx+0x54]
-0042 59                       pop cx
-0043 59                       pop cx
-0044 0B C0                    or ax, ax
+0033                          ax = UsedItem(BE, BE)
 0046 74 49                    jz 0x91
-0048                          ShowMessage(15AA) [es:bx+0xf8] = A secret door visible only to knights appears in the wall .
-0055                          ax = SetExitability(01) [es:bx+0x24]
+0048                          ShowMessage(15AA) = A secret door visible only to knights appears in the wall .
+0055                          Push(01)
+0059                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0060 50                       push ax
-0061 C4 5E 06                 les bx, [bp+0x6]
-0064 26 FF 5F 20              call far word [es:bx+0x20]
+0061                          ax = GetNextTile()
 0068 50                       push ax
-0069 C4 5E 06                 les bx, [bp+0x6]
-006C 26 FF 5F 2C              call far word [es:bx+0x2c]
-0070 83 C4 06                 add sp, 0x6
-0073                          ax = SetExitability(ax) [es:bx+0x24]
+0069                          Move(stk[0], stk[1], stk[2])
+0073                          ax = SetExitability(ax) // ax is usually 0 following equality check
 007A 50                       push ax
-007B C4 5E 06                 les bx, [bp+0x6]
-007E 26 FF 5F 20              call far word [es:bx+0x20]
+007B                          ax = GetNextTile()
 0082 50                       push ax
-0083 B8 01 00                 mov ax, 0x1
-0086 50                       push ax
-0087 C4 5E 06                 les bx, [bp+0x6]
-008A 26 FF 5F 30              call far word [es:bx+0x30]
-008E 83 C4 06                 add sp, 0x6
+0083                          Push(01)
+0087                          SetUnblocked()
 0091                          RETURN
 
 SDRTORBB_54:
@@ -1296,65 +885,41 @@ SDRTORBB_54:
 000A 0B C0                    or ax, ax
 000C 74 03                    jz 0x11
 000E E9 7F 00                 jmp 0x90
-0011 B8 0D 00                 mov ax, 0xd
-0014 50                       push ax
-0015 C4 5E 06                 les bx, [bp+0x6]
-0018 26 FF 5F 58              call far word [es:bx+0x58]
-001C 59                       pop cx
-001D 3D 08 00                 cmp ax, 0x8
+0011                          ax = UsedSkill(0D, 08) // returns 0 if did not use, compares to 2nd op if did use
 0020 73 25                    jae 0x47
-0022 B8 17 00                 mov ax, 0x17
-0025 50                       push ax
-0026 C4 5E 06                 les bx, [bp+0x6]
-0029 26 FF 5F 64              call far word [es:bx+0x64]
-002D 59                       pop cx
+0022                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 002E 0B C0                    or ax, ax
 0030 75 15                    jnz 0x47
-0032 B8 BE 00                 mov ax, 0xbe
-0035 50                       push ax
-0036 B8 BE 00                 mov ax, 0xbe
-0039 50                       push ax
-003A C4 5E 06                 les bx, [bp+0x6]
-003D 26 FF 5F 54              call far word [es:bx+0x54]
-0041 59                       pop cx
-0042 59                       pop cx
-0043 0B C0                    or ax, ax
+0032                          ax = UsedItem(BE, BE)
 0045 74 49                    jz 0x90
-0047                          ShowMessage(15E6) [es:bx+0xf8] = In the wall you find a hidden door.
-0054                          ax = SetExitability(01) [es:bx+0x24]
+0047                          ShowMessage(15E6) = In the wall you find a hidden door.
+0054                          Push(01)
+0058                          ax = SetExitability(ax) // ax is usually 0 following equality check
 005F 50                       push ax
-0060 C4 5E 06                 les bx, [bp+0x6]
-0063 26 FF 5F 20              call far word [es:bx+0x20]
+0060                          ax = GetNextTile()
 0067 50                       push ax
-0068 C4 5E 06                 les bx, [bp+0x6]
-006B 26 FF 5F 2C              call far word [es:bx+0x2c]
-006F 83 C4 06                 add sp, 0x6
-0072                          ax = SetExitability(ax) [es:bx+0x24]
+0068                          Move(stk[0], stk[1], stk[2])
+0072                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0079 50                       push ax
-007A C4 5E 06                 les bx, [bp+0x6]
-007D 26 FF 5F 20              call far word [es:bx+0x20]
+007A                          ax = GetNextTile()
 0081 50                       push ax
-0082 B8 01 00                 mov ax, 0x1
-0085 50                       push ax
-0086 C4 5E 06                 les bx, [bp+0x6]
-0089 26 FF 5F 30              call far word [es:bx+0x30]
-008D 83 C4 06                 add sp, 0x6
+0082                          Push(01)
+0086                          SetUnblocked()
 0090                          RETURN
 
 TORBWIND_55:
 0000                          BEGIN
-0003                          ShowMessage(160A) [es:bx+0xf8] = The wind is nasty here!  You take 100 damage.
-0010                          DoDamage(0064) [es:bx+0x90]
-001D C4 5E 06                 les bx, [bp+0x6]
-0020 26 FF 5F 70              call far word [es:bx+0x70]
+0003                          ShowMessage(160A) = The wind is nasty here!  You take 100 damage.
+0010                          DoDamage(0064)
+001D                          ax = GetCurrentHits()
 0024 0B C0                    or ax, ax
 0026 77 0D                    ja 0x35
-0028                          ShowMessage(1638) [es:bx+0xf8] = You have died.
+0028                          ShowMessage(1638) = You have died.
 0035                          RETURN
 
 MOONWIND_56:
 0000                          BEGIN
-0003                          ShowMessage(1647) [es:bx+0xf8] = The Moon Hollow winds steals 300 Mana!
+0003                          ShowMessage(1647) = The Moon Hollow winds steals 300 Mana!
 0010 B8 D4 FE                 mov ax, 0xfed4
 0013 50                       push ax
 0014 C4 5E 06                 les bx, [bp+0x6]
@@ -1364,18 +929,16 @@ MOONWIND_56:
 
 VORAWIND_57:
 0000                          BEGIN
-0003                          ShowMessage(166E) [es:bx+0xf8] = A violent whirlwind pounds you, taking half your health!
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 70              call far word [es:bx+0x70]
+0003                          ShowMessage(166E) = A violent whirlwind pounds you, taking half your health!
+0010                          ax = GetCurrentHits()
 0017 BB 02 00                 mov bx, 0x2
 001A 99                       cwd
 001B F7 FB                    idiv bx
-001D                          DoDamage(ax) [es:bx+0x90]
-0027 C4 5E 06                 les bx, [bp+0x6]
-002A 26 FF 5F 70              call far word [es:bx+0x70]
+001D                          DoDamage(ax)
+0027                          ax = GetCurrentHits()
 002E 0B C0                    or ax, ax
 0030 77 0D                    ja 0x3f
-0032                          ShowMessage(16A7) [es:bx+0xf8] = You have died.
+0032                          ShowMessage(16A7) = You have died.
 003F                          RETURN
 
 03FC: Other pits in the Labyrinth provide access to hidden areas...

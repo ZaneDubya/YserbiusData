@@ -1,13 +1,9 @@
 TELEPORT_01:
 0000                          BEGIN
-0003 B8 01 00                 mov ax, 0x1
-0006 50                       push ax
-0007 33 C0                    xor ax, ax
-0009 50                       push ax
-000A B8 02 00                 mov ax, 0x2
-000D 50                       push ax
-000E B8 05 00                 mov ax, 0x5
-0011 50                       push ax
+0003                          Push(01)
+0007                          Push(00)
+000A                          Push(02)
+000E                          Push(05)
 0012 C4 5E 06                 les bx, [bp+0x6]
 0015 26 FF 9F BC 00           call far word [es:bx+0xbc]
 001A 83 C4 08                 add sp, 0x8
@@ -15,225 +11,197 @@ TELEPORT_01:
 
 TELEMESS_02:
 0000                          BEGIN
-0003                          ShowMessage(03FC) [es:bx+0xf8] = There is a teleport in the west wall.
+0003                          ShowMessage(03FC) = There is a teleport in the west wall.
 0010                          RETURN
 
 FOUNBLES_03:
 0000                          BEGIN
-0003                          ax = CheckState(02, 3D, 01) [es:bx+0x4]
+0003                          ax = CheckState(02, 3D, 01)
 0017 75 1C                    jnz 0x35
-0019                          ShowPortrait(0042) [es:bx+0xfc]
-0026                          ShowMessage(0422) [es:bx+0xf8] = You sip from the Fountain of Restoration, but nothing happens.
+0019                          ShowPortrait(0042)
+0026                          ShowMessage(0422) = You sip from the Fountain of Restoration, but nothing happens.
 0033 EB 4B                    jmp 0x80
-0035                          SetState(02, 3D, 01) [es:bx]
-004A                          ShowPortrait(0042) [es:bx+0xfc]
-0057                          ax = GetHits() [es:bx+0x74]
+0035                          SetState(02, 3D, 01)
+004A                          ShowPortrait(0042)
+0057                          ax = GetMaxHits()
 005E 50                       push ax
-005F C4 5E 06                 les bx, [bp+0x6]
-0062 26 FF 5F 70              call far word [es:bx+0x70]
+005F                          ax = GetCurrentHits()
 0066 5A                       pop dx
 0067 2B D0                    sub dx, ax
-0069 52                       push dx
-006A C4 5E 06                 les bx, [bp+0x6]
-006D 26 FF 9F 94 00           call far word [es:bx+0x94]
-0072 59                       pop cx
-0073                          ShowMessage(0461) [es:bx+0xf8] = You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.
+0069                          AddHealth(dx)
+0073                          ShowMessage(0461) = You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.
 0080                          RETURN
 
 QUESTENC_04:
 0000                          BEGIN
-0003                          ax = HasItem(81) [es:bx+0x50]
+0003                          ax = HasItem(81)
 0011 74 30                    jz 0x43
-0013                          AddTreasure(01F4, 00, 00, BD, A5, CD) [es:bx+0xd8]
-0034                          ShowMessage(04BD) [es:bx+0xf8] = Monsters attack you.
+0013                          AddTreasure(01F4, 00, 00, BD, A5, CD)
+0034                          ShowMessage(04BD) = Monsters attack you.
 0041 EB 2E                    jmp 0x71
-0043                          AddTreasure(03E8, 00, 00, A2, D0, 81) [es:bx+0xd8]
-0064                          ShowMessage(04D2) [es:bx+0xf8] = Among a horde of Nightmares and Cockatrices you spot armor and other items on the floor.
-0071                          ax = PartyCountIs(01) [es:bx+0xf0]
+0043                          AddTreasure(03E8, 00, 00, A2, D0, 81)
+0064                          ShowMessage(04D2) = Among a horde of Nightmares and Cockatrices you spot armor and other items on the floor.
+0071                          ax = PartyCountIs(01)
 007C 75 39                    jnz 0xb7
-007E                          AddEncounter(26, 01) [es:bx+0xd4]
-0090                          AddEncounter(26, 02) [es:bx+0xd4]
-00A2                          AddEncounter(23, 06) [es:bx+0xd4]
+007E                          AddEncounter(26, 01)
+0090                          AddEncounter(26, 02)
+00A2                          AddEncounter(23, 06)
 00B4 E9 2D 01                 jmp 0x1e4
-00B7                          ax = PartyCountIs(02) [es:bx+0xf0]
+00B7                          ax = PartyCountIs(02)
 00C2 75 4B                    jnz 0x10f
-00C4                          AddEncounter(27, 01) [es:bx+0xd4]
-00D6                          AddEncounter(27, 02) [es:bx+0xd4]
-00E8                          AddEncounter(24, 05) [es:bx+0xd4]
-00FA                          AddEncounter(24, 06) [es:bx+0xd4]
+00C4                          AddEncounter(27, 01)
+00D6                          AddEncounter(27, 02)
+00E8                          AddEncounter(24, 05)
+00FA                          AddEncounter(24, 06)
 010C E9 D5 00                 jmp 0x1e4
-010F                          ax = PartyCountIs(03) [es:bx+0xf0]
+010F                          ax = PartyCountIs(03)
 011A 75 5C                    jnz 0x178
-011C                          AddEncounter(26, 01) [es:bx+0xd4]
-012E                          AddEncounter(27, 02) [es:bx+0xd4]
-0140                          AddEncounter(28, 03) [es:bx+0xd4]
-0152                          AddEncounter(23, 04) [es:bx+0xd4]
-0164                          AddEncounter(24, 05) [es:bx+0xd4]
+011C                          AddEncounter(26, 01)
+012E                          AddEncounter(27, 02)
+0140                          AddEncounter(28, 03)
+0152                          AddEncounter(23, 04)
+0164                          AddEncounter(24, 05)
 0176 EB 6C                    jmp 0x1e4
-0178                          AddEncounter(23, 01) [es:bx+0xd4]
-018A                          AddEncounter(26, 02) [es:bx+0xd4]
-019C                          AddEncounter(24, 03) [es:bx+0xd4]
-01AE                          AddEncounter(27, 04) [es:bx+0xd4]
-01C0                          AddEncounter(25, 05) [es:bx+0xd4]
-01D2                          AddEncounter(28, 06) [es:bx+0xd4]
+0178                          AddEncounter(23, 01)
+018A                          AddEncounter(26, 02)
+019C                          AddEncounter(24, 03)
+01AE                          AddEncounter(27, 04)
+01C0                          AddEncounter(25, 05)
+01D2                          AddEncounter(28, 06)
 01E4                          RETURN
 
 LKPKDORZ_05:
 0000                          BEGIN
-0003 B8 E2 00                 mov ax, 0xe2
-0006 50                       push ax
-0007 B8 E2 00                 mov ax, 0xe2
-000A 50                       push ax
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 54              call far word [es:bx+0x54]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = UsedItem(E2, E2)
 0016 74 4B                    jz 0x63
-0018                          ax = SetExitability(01) [es:bx+0x24]
+0018                          Push(01)
+001C                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0023 50                       push ax
-0024 C4 5E 06                 les bx, [bp+0x6]
-0027 26 FF 5F 20              call far word [es:bx+0x20]
+0024                          ax = GetNextTile()
 002B 50                       push ax
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 5F 2C              call far word [es:bx+0x2c]
-0033 83 C4 06                 add sp, 0x6
-0036                          ax = SetExitability(ax) [es:bx+0x24]
+002C                          Move(stk[0], stk[1], stk[2])
+0036                          ax = SetExitability(ax) // ax is usually 0 following equality check
 003D 50                       push ax
-003E C4 5E 06                 les bx, [bp+0x6]
-0041 26 FF 5F 20              call far word [es:bx+0x20]
+003E                          ax = GetNextTile()
 0045 50                       push ax
-0046 B8 01 00                 mov ax, 0x1
-0049 50                       push ax
-004A C4 5E 06                 les bx, [bp+0x6]
-004D 26 FF 5F 30              call far word [es:bx+0x30]
-0051 83 C4 06                 add sp, 0x6
-0054                          ShowMessage(052B) [es:bx+0xf8] = The door opens easily when you use the Lava Key.
+0046                          Push(01)
+004A                          SetUnblocked()
+0054                          ShowMessage(052B) = The door opens easily when you use the Lava Key.
 0061 EB 2A                    jmp 0x8d
-0063                          ax = SetExitability(00) [es:bx+0x24]
+0063                          Push(00)
+0066                          ax = SetExitability(ax) // ax is usually 0 following equality check
 006D 50                       push ax
-006E C4 5E 06                 les bx, [bp+0x6]
-0071 26 FF 5F 20              call far word [es:bx+0x20]
+006E                          ax = GetNextTile()
 0075 50                       push ax
-0076 C4 5E 06                 les bx, [bp+0x6]
-0079 26 FF 5F 2C              call far word [es:bx+0x2c]
-007D 83 C4 06                 add sp, 0x6
-0080                          ShowMessage(055C) [es:bx+0xf8] = This door cannot be unlocked without the Lava Key.
+0076                          Move(stk[0], stk[1], stk[2])
+0080                          ShowMessage(055C) = This door cannot be unlocked without the Lava Key.
 008D                          RETURN
 
 STRDOOR_06:
 0000                          BEGIN
-0003                          CheckStrength(0E) [es:bx+0xa4]
+0003                          CheckStrength(0E)
 0012 72 4B                    jb 0x5f
-0014                          ShowMessage(058F) [es:bx+0xf8] = You manage to force the door open.
-0021                          ax = SetExitability(ax) [es:bx+0x24]
+0014                          ShowMessage(058F) = You manage to force the door open.
+0021                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0028 50                       push ax
-0029 C4 5E 06                 les bx, [bp+0x6]
-002C 26 FF 5F 20              call far word [es:bx+0x20]
+0029                          ax = GetNextTile()
 0030 50                       push ax
-0031 B8 01 00                 mov ax, 0x1
-0034 50                       push ax
-0035 C4 5E 06                 les bx, [bp+0x6]
-0038 26 FF 5F 30              call far word [es:bx+0x30]
-003C 83 C4 06                 add sp, 0x6
-003F                          ax = SetExitability(01) [es:bx+0x24]
+0031                          Push(01)
+0035                          SetUnblocked()
+003F                          Push(01)
+0043                          ax = SetExitability(ax) // ax is usually 0 following equality check
 004A 50                       push ax
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 5F 20              call far word [es:bx+0x20]
+004B                          ax = GetNextTile()
 0052 50                       push ax
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 5F 2C              call far word [es:bx+0x2c]
-005A 83 C4 06                 add sp, 0x6
+0053                          Move(stk[0], stk[1], stk[2])
 005D EB 2A                    jmp 0x89
-005F                          ShowMessage(05B2) [es:bx+0xf8] = The door is stuck.
-006C                          ax = SetExitability(00) [es:bx+0x24]
+005F                          ShowMessage(05B2) = The door is stuck.
+006C                          Push(00)
+006F                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0076 50                       push ax
-0077 C4 5E 06                 les bx, [bp+0x6]
-007A 26 FF 5F 20              call far word [es:bx+0x20]
+0077                          ax = GetNextTile()
 007E 50                       push ax
-007F C4 5E 06                 les bx, [bp+0x6]
-0082 26 FF 5F 2C              call far word [es:bx+0x2c]
-0086 83 C4 06                 add sp, 0x6
+007F                          Move(stk[0], stk[1], stk[2])
 0089                          RETURN
 
 AVEMNSTR_0B:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ax = PartyCountIs(01)
 000E 75 15                    jnz 0x25
-0010                          AddEncounter(1B, 02) [es:bx+0xd4]
+0010                          AddEncounter(1B, 02)
 0022 E9 09 01                 jmp 0x12e
-0025                          ax = PartyCountIs(02) [es:bx+0xf0]
+0025                          ax = PartyCountIs(02)
 0030 75 39                    jnz 0x6b
-0032                          AddEncounter(1C, 01) [es:bx+0xd4]
-0044                          AddEncounter(19, 02) [es:bx+0xd4]
-0056                          AddEncounter(18, 03) [es:bx+0xd4]
+0032                          AddEncounter(1C, 01)
+0044                          AddEncounter(19, 02)
+0056                          AddEncounter(18, 03)
 0068 E9 C3 00                 jmp 0x12e
-006B                          ax = PartyCountIs(03) [es:bx+0xf0]
+006B                          ax = PartyCountIs(03)
 0076 75 4A                    jnz 0xc2
-0078                          AddEncounter(1B, 01) [es:bx+0xd4]
-008A                          AddEncounter(1C, 02) [es:bx+0xd4]
-009C                          AddEncounter(1A, 03) [es:bx+0xd4]
-00AE                          AddEncounter(19, 04) [es:bx+0xd4]
+0078                          AddEncounter(1B, 01)
+008A                          AddEncounter(1C, 02)
+009C                          AddEncounter(1A, 03)
+00AE                          AddEncounter(19, 04)
 00C0 EB 6C                    jmp 0x12e
-00C2                          AddEncounter(1A, 01) [es:bx+0xd4]
-00D4                          AddEncounter(1C, 02) [es:bx+0xd4]
-00E6                          AddEncounter(19, 03) [es:bx+0xd4]
-00F8                          AddEncounter(1B, 04) [es:bx+0xd4]
-010A                          AddEncounter(1D, 05) [es:bx+0xd4]
-011C                          AddEncounter(1A, 06) [es:bx+0xd4]
+00C2                          AddEncounter(1A, 01)
+00D4                          AddEncounter(1C, 02)
+00E6                          AddEncounter(19, 03)
+00F8                          AddEncounter(1B, 04)
+010A                          AddEncounter(1D, 05)
+011C                          AddEncounter(1A, 06)
 012E                          RETURN
 
 STRMNSTR_0C:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01) [es:bx+0xf0]
+0003                          ax = PartyCountIs(01)
 000E 75 27                    jnz 0x37
-0010                          AddEncounter(1E, 01) [es:bx+0xd4]
-0022                          AddEncounter(20, 02) [es:bx+0xd4]
+0010                          AddEncounter(1E, 01)
+0022                          AddEncounter(20, 02)
 0034 E9 1B 01                 jmp 0x152
-0037                          ax = PartyCountIs(02) [es:bx+0xf0]
+0037                          ax = PartyCountIs(02)
 0042 75 39                    jnz 0x7d
-0044                          AddEncounter(1E, 01) [es:bx+0xd4]
-0056                          AddEncounter(20, 02) [es:bx+0xd4]
-0068                          AddEncounter(20, 03) [es:bx+0xd4]
+0044                          AddEncounter(1E, 01)
+0056                          AddEncounter(20, 02)
+0068                          AddEncounter(20, 03)
 007A E9 D5 00                 jmp 0x152
-007D                          ax = PartyCountIs(03) [es:bx+0xf0]
+007D                          ax = PartyCountIs(03)
 0088 75 5C                    jnz 0xe6
-008A                          AddEncounter(1E, 01) [es:bx+0xd4]
-009C                          AddEncounter(1E, 02) [es:bx+0xd4]
-00AE                          AddEncounter(20, 03) [es:bx+0xd4]
-00C0                          AddEncounter(20, 04) [es:bx+0xd4]
-00D2                          AddEncounter(1F, 05) [es:bx+0xd4]
+008A                          AddEncounter(1E, 01)
+009C                          AddEncounter(1E, 02)
+00AE                          AddEncounter(20, 03)
+00C0                          AddEncounter(20, 04)
+00D2                          AddEncounter(1F, 05)
 00E4 EB 6C                    jmp 0x152
-00E6                          AddEncounter(1E, 01) [es:bx+0xd4]
-00F8                          AddEncounter(1E, 02) [es:bx+0xd4]
-010A                          AddEncounter(1F, 03) [es:bx+0xd4]
-011C                          AddEncounter(1F, 04) [es:bx+0xd4]
-012E                          AddEncounter(20, 05) [es:bx+0xd4]
-0140                          AddEncounter(20, 06) [es:bx+0xd4]
+00E6                          AddEncounter(1E, 01)
+00F8                          AddEncounter(1E, 02)
+010A                          AddEncounter(1F, 03)
+011C                          AddEncounter(1F, 04)
+012E                          AddEncounter(20, 05)
+0140                          AddEncounter(20, 06)
 0152                          RETURN
 
 NPCCHATA_0E:
 0000                          BEGIN
-0003                          ShowMessage(05C5) [es:bx+0xf8] = You encounter a Human Thief.
-0010                          ShowPortrait(0022) [es:bx+0xfc]
-001D                          UnknownFunction(000F) [es:bx+0xec]
+0003                          ShowMessage(05C5) = You encounter a Human Thief.
+0010                          ShowPortrait(0022)
+001D                          UnknownFunction(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(05E2) [es:bx+0xf8] = Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
+002F                          ShowMessage(05E2) = Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0632) [es:bx+0xf8] = The Human Thief cringes in terror and wraps herself up in a tight ball.
+003E                          ShowMessage(0632) = The Human Thief cringes in terror and wraps herself up in a tight ball.
 004B                          RETURN
 
 NPCCHATB_0F:
 0000                          BEGIN
-0003                          ShowMessage(067A) [es:bx+0xf8] = You encounter an Elf Barbarian.
-0010                          ShowPortrait(0018) [es:bx+0xfc]
-001D                          UnknownFunction(000F) [es:bx+0xec]
+0003                          ShowMessage(067A) = You encounter an Elf Barbarian.
+0010                          ShowPortrait(0018)
+001D                          UnknownFunction(000F)
 002A 3D 04 00                 cmp ax, 0x4
 002D 77 0F                    ja 0x3e
-002F                          ShowMessage(069A) [es:bx+0xf8] = A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.
+002F                          ShowMessage(069A) = A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.
 003C EB 0D                    jmp 0x4b
-003E                          ShowMessage(0733) [es:bx+0xf8] = The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.
+003E                          ShowMessage(0733) = The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.
 004B                          RETURN
 
 03FC: There is a teleport in the west wall.
