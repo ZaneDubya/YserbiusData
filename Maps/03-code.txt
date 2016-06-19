@@ -172,7 +172,7 @@ TELEPORT_0C:
 LOWMNSTR_0D:
 0000                          BEGIN
 0003                          ShowMessage(06A9) = You encounter Rogues.
-0010                          UnknownFunction(000F)
+0010                          ax = UnknownFunction(000F)
 001D 3D 06 00                 cmp ax, 0x6
 0020 77 2E                    ja 0x50
 0022                          AddTreasure(01F4, 00, 00, 00, 00, B5)
@@ -326,7 +326,7 @@ NPCCHATA_17:
 0000                          BEGIN
 0003                          ShowMessage(0851) = You encounter an Elf Ranger.
 0010                          ShowPortrait(001F)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(086E) = You must solve the mystery of the linked Vestibule doors to continue farther down into the dungeon.
@@ -338,7 +338,7 @@ NPCCHATB_18:
 0000                          BEGIN
 0003                          ShowMessage(0914) = You encounter a Human Wizard.
 0010                          ShowPortrait(002B)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0932) = Centuries ago, Twinion was a thriving port town, ruled by the Galabryan dynasty. The kings welcomed all races and Guilds to the island. When the volcano Yserbius erupted, it almost buried Twinion under lava. If only we could find some way off this island!
@@ -350,7 +350,7 @@ NPCCHATC_19:
 0000                          BEGIN
 0003                          ShowMessage(0A71) = You encounter a Gremlin Thief.
 0010                          ShowPortrait(0026)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0A90) = King Cleowyn created a clever maze of squares to discourage thieves and invaders. Mind you, no invaders ever thought Twinion rich enough to be worth their effort.
@@ -362,7 +362,7 @@ NPCCHATD_1A:
 0000                          BEGIN
 0003                          ShowMessage(0B69) = You encounter an Orc Knight.
 0010                          ShowPortrait(001A)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0B86) = The richness of fine armor and weapons in this dungeon baffles me. I've heard rumors that skilled dwarfs once crafted such armory, but the rogue dwarfs you encounter nowadays have no talent for such expert metallurgy.
@@ -374,7 +374,7 @@ NPCCHATE_1B:
 0000                          BEGIN
 0003                          ShowMessage(0C93) = You encounter an Elf Cleric.
 0010                          ShowPortrait(0027)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0CB0) = I have visited King Cleowyn's throne room, and what a disappointment it was. Not much treasure there and too many dead things. Perhaps I missed something.

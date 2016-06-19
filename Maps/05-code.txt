@@ -22,7 +22,7 @@ NPCCHATA_05:
 0000                          BEGIN
 0003                          ShowMessage(0464) = You encounter a Human Thief.
 0010                          ShowPortrait(0022)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(0481) = King Cleowyn long sought the buried secrets of a great wizard whose castle lies buried inside this mountain. 
@@ -36,7 +36,7 @@ NPCCHATB_06:
 0000                          BEGIN
 0003                          ShowMessage(05F0) = You encounter an Elf Barbarian.
 0010                          ShowPortrait(0018)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0610) = Two levels down is a most strange area. Six small rooms are accessible to anyone, but there is a large area I have not been able to reach. A wizard told me I should study my runes to solve the mystery of this area.

@@ -184,7 +184,7 @@ NPCCHATA_0E:
 0000                          BEGIN
 0003                          ShowMessage(05C5) = You encounter a Human Thief.
 0010                          ShowPortrait(0022)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(05E2) = Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
@@ -196,7 +196,7 @@ NPCCHATB_0F:
 0000                          BEGIN
 0003                          ShowMessage(067A) = You encounter an Elf Barbarian.
 0010                          ShowPortrait(0018)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 04 00                 cmp ax, 0x4
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(069A) = A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.

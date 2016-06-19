@@ -197,7 +197,7 @@ NPCCHATA_10:
 0000                          BEGIN
 0003                          ShowMessage(066F) = You encounter a Dwarf Thief.
 0010                          ShowPortrait(0023)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(068C) = The palace doors are locked. Somewhere on the first level is the object that will open these doors.
@@ -209,7 +209,7 @@ NPCCHATB_11:
 0000                          BEGIN
 0003                          ShowMessage(0742) = You encounter a Halfling Ranger.
 0010                          ShowPortrait(0021)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0763) = I know there are three secret areas on this level, but they cannot be entered from this corridor.
@@ -221,7 +221,7 @@ NPCCHATC_12:
 0000                          BEGIN
 0003                          ShowMessage(07F6) = You encounter a Dwarf Wizard.
 0010                          ShowPortrait(002C)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0814) = Not all traps should be by-passed. I fell through one and, after some nosing around and polishing off some bothersome rogues and monsters, found a most useful key.
@@ -233,7 +233,7 @@ NPCCHATD_13:
 0000                          BEGIN
 0003                          ShowMessage(08E8) = You encounter an Orc Knight.
 0010                          ShowPortrait(001A)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0905) = King Cleowyn's Palace is an evil place, filled with the spirits of the tormented dead.  A cleric told me to look for an asymmetry in the Palace if I wished to learn the truth about the dead king.
@@ -255,7 +255,7 @@ NPCCHATE_16:
 0000                          BEGIN
 0003                          ShowMessage(09F2) = You encounter a Halfling Cleric.
 0010                          ShowPortrait(0029)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0D 00                 cmp ax, 0xd
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(0A13) = On the next level down you will find a dwarf by the name of Deldwinn.  He guards the entrance to King Cleowyn's Apartments.

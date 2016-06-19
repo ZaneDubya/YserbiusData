@@ -32,11 +32,7 @@ PLATA_04:
 0010                          ShowMessage(04A1) = SageCross Fountain revives your Health and Mana
 001D                          ax = GetMaxHits()
 0024                          AddHealth(ax)
-002E B8 E0 2E                 mov ax, 0x2ee0
-0031 50                       push ax
-0032 C4 5E 06                 les bx, [bp+0x6]
-0035 26 FF 9F B4 00           call far word [es:bx+0xb4]
-003A 59                       pop cx
+002E                          AddMana(2EE0)
 003B                          RETURN
 
 PLATB_05:
@@ -78,11 +74,7 @@ PLATCTOA_06:
 0010                          ShowMessage(050E) = Minotaur Fountain revives your Health and Mana
 001D                          ax = GetMaxHits()
 0024                          AddHealth(ax)
-002E B8 E0 2E                 mov ax, 0x2ee0
-0031 50                       push ax
-0032 C4 5E 06                 les bx, [bp+0x6]
-0035 26 FF 9F B4 00           call far word [es:bx+0xb4]
-003A 59                       pop cx
+002E                          AddMana(2EE0)
 003B                          RETURN
 
 PLATDTOB_07:

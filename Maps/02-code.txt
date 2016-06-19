@@ -97,7 +97,7 @@ LKPKDOOR_06:
 LOWROGUE_07:
 0000                          BEGIN
 0003                          ShowMessage(0528) = You encounter Rogues.
-0010                          UnknownFunction(000F)
+0010                          ax = UnknownFunction(000F)
 001D 3D 05 00                 cmp ax, 0x5
 0020 77 0F                    ja 0x31
 0022                          ShowMessage(053E) = To reach the next level of the dungeon, you need a special key. The key is rumored to be somewhere on this level.
@@ -263,7 +263,7 @@ TOVEST_0D:
 MODMNSTR_0E:
 0000                          BEGIN
 0003                          ShowMessage(081E) = You encounter Rogues.
-0010                          UnknownFunction(000F)
+0010                          ax = UnknownFunction(000F)
 001D 3D 07 00                 cmp ax, 0x7
 0020 77 2E                    ja 0x50
 0022                          ShowMessage(0834) = The imps that haunt the dungeon frequently return gold and lost items to their original places.
@@ -294,19 +294,15 @@ HRDMONST_0F:
 0004 BE 01 00                 mov si, 0x1
 0007 EB 10                    jmp 0x19
 0009                          Push(13)
-000D                          Push(si)
-000D                          Push(si)
-000D                          Push(si)
-000D                          Push(si)
-000D                          Push(si)
-000D                          Push(si)
-000D                          Push(si)
-000D                          Push(si)
-000D                          Push(si)
-000D                          Push(si)
-000D                          Push(si)
-000D                          Push(si)
-000D                          Push(si)
+000D 56                       push si
+000E C4 5E 06                 les bx, [bp+0x6]
+0011 26 FF 9F D4 00           call far word [es:bx+0xd4]
+0016 59                       pop cx
+0017 59                       pop cx
+0018 46                       inc si
+0019                          ax = PartyCountIs(si)
+0023 73 E4                    jae 0x9
+0025                          RETURN (restoring si)
 
 WEAPENC_10:
 0000                          BEGIN
@@ -484,7 +480,7 @@ NPCCHATA_19:
 0000                          BEGIN
 0003                          ShowMessage(0E75) = You encounter an Orc Ranger.
 0010                          ShowPortrait(001E)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0E92) = King Cleowyn had a special lockpick which opened a set of doors in the Vestibule, leading to his Palace. He was the king of thieves, or so my father told me.
@@ -496,7 +492,7 @@ NPCCHATB_1A:
 0000                          BEGIN
 0003                          ShowMessage(0F5C) = You encounter a Human Wizard.
 0010                          ShowPortrait(002B)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 04 00                 cmp ax, 0x4
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0F7A) = The lone adventurer is often at a disadvantage in this cursed dungeon. Those deeper levels...oh, they are very dangerous, indeed.
@@ -508,7 +504,7 @@ NPCCHATC_1B:
 0000                          BEGIN
 0003                          ShowMessage(1024) = You encounter a Dwarf Knight.
 0010                          ShowPortrait(001C)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(1042) = There are rumors of a fantastic treasury which King Cleowyn visited each night to count his ill-gotten tax revenues.
@@ -520,7 +516,7 @@ NPCCHATD_1C:
 0000                          BEGIN
 0003                          ShowMessage(10F2) = You encounter a Troll Cleric.
 0010                          ShowPortrait(0028)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(1110) = Being able to detect hidden traps and doors is important for any party of adventurers wandering this dungeon.
@@ -534,7 +530,7 @@ NPCCHATE_1D:
 0000                          BEGIN
 0003                          ShowMessage(1245) = You encounter a Human Thief.
 0010                          ShowPortrait(0022)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(1262) = The upper levels of this dungeon make up the Palace of King Cleowyn. He was a cruel ruler and was hated by all.
@@ -547,7 +543,7 @@ NPCCHATF_1E:
 0000                          BEGIN
 0003                          ShowMessage(1382) = You encounter an Elf Barbarian.
 0010                          ShowPortrait(0018)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(13A2) = Beware the pit to be found at the heart of the mine. Only the very strongest can survive the fall into the deep abyss.

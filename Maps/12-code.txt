@@ -749,7 +749,7 @@ NPCCHATA_2D:
 0000                          BEGIN
 0003                          ShowMessage(0F68) = You encounter an Elf Ranger.
 0010                          ShowPortrait(001F)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0D 00                 cmp ax, 0xd
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0F85) = The ghost of King Cleowyn appears at his throne on special occasions. Once the king appears, he will not appear again until all mortals have left the Palace.
@@ -761,7 +761,7 @@ NPCCHATB_2E:
 0000                          BEGIN
 0003                          ShowMessage(106C) = You encounter a Gremlin Thief.
 0010                          ShowPortrait(0026)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(108B) = The pit is pitiless. Do not go near it. The traps are dangerous, but they may aid you.
@@ -773,7 +773,7 @@ NPCCHATC_2F:
 0000                          BEGIN
 0003                          ShowMessage(1115) = You encounter a Dwarf Knight.
 0010                          ShowPortrait(001C)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(1133) = Obey the king. Return his cherished possessions and you will be blessed. Keep them and you will die.

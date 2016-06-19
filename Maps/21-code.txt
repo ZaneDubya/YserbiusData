@@ -107,38 +107,18 @@ FLGWINDN_0D:
 0048                          ax = CheckState(01, 04, any)
 005B 74 01                    jz 0x5e
 005D 46                       inc si
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
+005E 56                       push si
+005F                          Push(01)
+0063                          Push(01)
+0067 C4 5E 06                 les bx, [bp+0x6]
+006A 26 FF 1F                 call far word [es:bx]
+006D 83 C4 06                 add sp, 0x6
+0070                          ax = CheckState(01, 01, 01)
+0084 74 02                    jz 0x88
+0086 EB 0D                    jmp 0x95
+0088                          ShowMessage(082D) = The North Wind is the first to be defeated.
+0095                          ShowMessage(0859) = The North Wind has been quieted.
+00A2                          RETURN (restoring si)
 
 FLGWINDE_0E:
 0000                          BEGIN (saving si)
@@ -154,38 +134,18 @@ FLGWINDE_0E:
 0048                          ax = CheckState(01, 04, any)
 005B 74 01                    jz 0x5e
 005D 46                       inc si
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
+005E 56                       push si
+005F                          Push(02)
+0063                          Push(01)
+0067 C4 5E 06                 les bx, [bp+0x6]
+006A 26 FF 1F                 call far word [es:bx]
+006D 83 C4 06                 add sp, 0x6
+0070                          ax = CheckState(01, 02, 01)
+0084 74 02                    jz 0x88
+0086 EB 0D                    jmp 0x95
+0088                          ShowMessage(087A) = The East Wind is the first to be defeated.
+0095                          ShowMessage(08A5) = The East Wind has been quieted.
+00A2                          RETURN (restoring si)
 
 FLGWINDS_0F:
 0000                          BEGIN (saving si)
@@ -201,38 +161,18 @@ FLGWINDS_0F:
 0048                          ax = CheckState(01, 04, any)
 005B 74 01                    jz 0x5e
 005D 46                       inc si
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
+005E 56                       push si
+005F                          Push(03)
+0063                          Push(01)
+0067 C4 5E 06                 les bx, [bp+0x6]
+006A 26 FF 1F                 call far word [es:bx]
+006D 83 C4 06                 add sp, 0x6
+0070                          ax = CheckState(01, 03, 01)
+0084 74 02                    jz 0x88
+0086 EB 0D                    jmp 0x95
+0088                          ShowMessage(08C5) = The South Wind is the first to be defeated.
+0095                          ShowMessage(08F1) = The South Wind has been quieted.
+00A2                          RETURN (restoring si)
 
 FLGWINDW_10:
 0000                          BEGIN (saving si)
@@ -248,38 +188,18 @@ FLGWINDW_10:
 0048                          ax = CheckState(01, 03, any)
 005B 74 01                    jz 0x5e
 005D 46                       inc si
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
-005E                          Push(si)
+005E 56                       push si
+005F                          Push(04)
+0063                          Push(01)
+0067 C4 5E 06                 les bx, [bp+0x6]
+006A 26 FF 1F                 call far word [es:bx]
+006D 83 C4 06                 add sp, 0x6
+0070                          ax = CheckState(01, 04, 01)
+0084 74 02                    jz 0x88
+0086 EB 0D                    jmp 0x95
+0088                          ShowMessage(0912) = The West Wind is the first to be defeated.
+0095                          ShowMessage(093D) = The West Wind has been quieted.
+00A2                          RETURN (restoring si)
 
 EXPRESS_11:
 0000                          BEGIN
@@ -472,17 +392,14 @@ WKTENCC_20:
 00C3 50                       push ax
 00C4                          Push(00)
 00C7                          Push(00)
-00CA                          Push(si)
-00CA                          Push(si)
-00CA                          Push(si)
-00CA                          Push(si)
-00CA                          Push(si)
-00CA                          Push(si)
-00CA                          Push(si)
-00CA                          Push(si)
-00CA                          Push(si)
-00CA                          Push(si)
-00CA                          Push(si)
+00CA 56                       push si
+00CB 57                       push di
+00CC                          Push(CF)
+00D0 C4 5E 06                 les bx, [bp+0x6]
+00D3 26 FF 9F D8 00           call far word [es:bx+0xd8]
+00D8 83 C4 0C                 add sp, 0xc
+00DB 5F                       pop di
+00DC                          RETURN (restoring si)
 
 WKTENCD_21:
 0000                          BEGIN (saving si)
@@ -506,17 +423,14 @@ WKTENCD_21:
 009F 50                       push ax
 00A0                          Push(00)
 00A3                          Push(00)
-00A6                          Push(si)
-00A6                          Push(si)
-00A6                          Push(si)
-00A6                          Push(si)
-00A6                          Push(si)
-00A6                          Push(si)
-00A6                          Push(si)
-00A6                          Push(si)
-00A6                          Push(si)
-00A6                          Push(si)
-00A6                          Push(si)
+00A6 56                       push si
+00A7 57                       push di
+00A8                          Push(CF)
+00AC C4 5E 06                 les bx, [bp+0x6]
+00AF 26 FF 9F D8 00           call far word [es:bx+0xd8]
+00B4 83 C4 0C                 add sp, 0xc
+00B7 5F                       pop di
+00B8                          RETURN (restoring si)
 
 WKTENCE_22:
 0000                          BEGIN (saving si)
@@ -548,17 +462,14 @@ WKTENCE_22:
 0109 50                       push ax
 010A                          Push(00)
 010D                          Push(00)
-0110                          Push(si)
-0110                          Push(si)
-0110                          Push(si)
-0110                          Push(si)
-0110                          Push(si)
-0110                          Push(si)
-0110                          Push(si)
-0110                          Push(si)
-0110                          Push(si)
-0110                          Push(si)
-0110                          Push(si)
+0110 56                       push si
+0111 57                       push di
+0112                          Push(CF)
+0116 C4 5E 06                 les bx, [bp+0x6]
+0119 26 FF 9F D8 00           call far word [es:bx+0xd8]
+011E 83 C4 0C                 add sp, 0xc
+0121 5F                       pop di
+0122                          RETURN (restoring si)
 
 WKTENCF_23:
 0000                          BEGIN (saving si)
@@ -583,17 +494,14 @@ WKTENCF_23:
 00B1 50                       push ax
 00B2                          Push(00)
 00B5                          Push(00)
-00B8                          Push(si)
-00B8                          Push(si)
-00B8                          Push(si)
-00B8                          Push(si)
-00B8                          Push(si)
-00B8                          Push(si)
-00B8                          Push(si)
-00B8                          Push(si)
-00B8                          Push(si)
-00B8                          Push(si)
-00B8                          Push(si)
+00B8 56                       push si
+00B9 57                       push di
+00BA                          Push(CF)
+00BE C4 5E 06                 les bx, [bp+0x6]
+00C1 26 FF 9F D8 00           call far word [es:bx+0xd8]
+00C6 83 C4 0C                 add sp, 0xc
+00C9 5F                       pop di
+00CA                          RETURN (restoring si)
 
 WKTENCG_24:
 0000                          BEGIN
@@ -788,11 +696,7 @@ FNTNHEAL_37:
 
 FNTNMANA_38:
 0000                          BEGIN
-0003 B8 2C 01                 mov ax, 0x12c
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F B4 00           call far word [es:bx+0xb4]
-000F 59                       pop cx
+0003                          AddMana(012C)
 0010                          ShowPortrait(0042)
 001D                          ShowMessage(163F) = The mystic waters of the NightWillow Fountain restore your Mana level.
 002A                          RETURN

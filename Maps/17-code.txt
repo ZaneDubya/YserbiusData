@@ -1389,7 +1389,7 @@ NPCCHATA_3B:
 0000                          BEGIN
 0003                          ShowMessage(0CC0) = You encounter a Human Wizard.
 0010                          ShowPortrait(002B)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0CDE) = This is the lowest level of Cleowyn's Palace, yet you are merely at the beginning of the dungeon proper.
@@ -1401,7 +1401,7 @@ NPCCHATB_3C:
 0000                          BEGIN
 0003                          ShowMessage(0D69) = You encounter a Gnome Thief.
 0010                          ShowPortrait(0024)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0D86) = In the king's quarters is an elevator that will lift you up to the King's Palace. Cleowyn used this elevator to  by-pass the traps around his throne.
@@ -1413,7 +1413,7 @@ NPCCHATC_3D:
 0000                          BEGIN
 0003                          ShowMessage(0E4B) = You encounter a Gnome Barbarian.
 0010                          ShowPortrait(0019)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 05 00                 cmp ax, 0x5
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0E6C) = The name of the Elemental bound by the wizard Arnakkian is En-li-kil. This Elemental commands Time itself.

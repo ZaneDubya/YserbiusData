@@ -329,11 +329,7 @@ FNTNHEAL_24:
 FNTNMANA_25:
 0000                          BEGIN
 0003                          ShowPortrait(0042)
-0010 B8 10 27                 mov ax, 0x2710
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F B4 00           call far word [es:bx+0xb4]
-001C 59                       pop cx
+0010                          AddMana(2710)
 001D                          ShowMessage(0BA5) = The mystic waters of the Infinity Fountain restore your Mana.
 002A                          RETURN
 

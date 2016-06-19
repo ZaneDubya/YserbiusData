@@ -93,29 +93,17 @@ CHESLITE_01:
 0157 7F 1E                    jg 0x177
 0159                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0160 50                       push ax
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
+0161 56                       push si
+0162                          Push(02)
+0166                          Push(35)
+016A C4 5E 06                 les bx, [bp+0x6]
+016D 26 FF 9F BC 00           call far word [es:bx+0xbc]
+0172 83 C4 08                 add sp, 0x8
+0175 EB 0D                    jmp 0x184
+0177                          ShowMessage(042F) = A knight move here would place you off the chessboard!
+0184 EB 0D                    jmp 0x193
+0186                          ShowMessage(0466) = With a chess piece you may step across the chessboard.
+0193                          RETURN (restoring si)
 
 CHESDARK_02:
 0000                          BEGIN (saving si)
@@ -212,29 +200,17 @@ CHESDARK_02:
 0157 7F 1E                    jg 0x177
 0159                          ax = SetExitability(ax) // ax is usually 0 following equality check
 0160 50                       push ax
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
-0161                          Push(si)
+0161 56                       push si
+0162                          Push(02)
+0166                          Push(35)
+016A C4 5E 06                 les bx, [bp+0x6]
+016D 26 FF 9F BC 00           call far word [es:bx+0xbc]
+0172 83 C4 08                 add sp, 0x8
+0175 EB 0D                    jmp 0x184
+0177                          ShowMessage(04D0) = A knight move here would place you off the chessboard!
+0184 EB 0D                    jmp 0x193
+0186                          ShowMessage(0507) = With a chess piece you may step across the chessboard.
+0193                          RETURN (restoring si)
 
 VOID_03:
 0000                          BEGIN
@@ -433,11 +409,7 @@ CRIBFOUN_14:
 0061 26 FF 9F A8 00           call far word [es:bx+0xa8]
 0066 59                       pop cx
 0067 59                       pop cx
-0068 B8 B8 0B                 mov ax, 0xbb8
-006B 50                       push ax
-006C C4 5E 06                 les bx, [bp+0x6]
-006F 26 FF 9F B4 00           call far word [es:bx+0xb4]
-0074 59                       pop cx
+0068                          AddMana(0BB8)
 0075                          ShowMessage(0BBE) = A puff of steam from the fountain blows in your face.
 0082                          ShowMessage(0BF4) = Your Mana is restored and you feel readier to fight.
 008F                          ShowMessage(0C29) = A voice whispers -

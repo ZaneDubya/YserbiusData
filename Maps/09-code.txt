@@ -249,7 +249,7 @@ NPCCHATA_0B:
 0000                          BEGIN
 0003                          ShowMessage(06B2) = A Human Wizard teleports into the room you occupy.
 0010                          ShowPortrait(002B)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 29                    ja 0x58
 002F                          ShowMessage(06E5) = Be careful when you find the way to open the door that leads to the nether depths of this dungeon.
@@ -263,7 +263,7 @@ NPCCHATB_0C:
 0000                          BEGIN
 0003                          ShowMessage(0830) = You encounter a sleepy Troll Knight.
 0010                          ShowPortrait(001B)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(0855) = The Galabryan kings brought the great wizard Arnakkian Slowfoot to Twinion. The island grew famous and rich thanks to this wizard.

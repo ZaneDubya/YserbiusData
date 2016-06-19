@@ -499,7 +499,7 @@ NPCCHATA_1C:
 0000                          BEGIN
 0003                          ShowMessage(0766) = You encounter a Gnome Thief.
 0010                          ShowPortrait(0024)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 01 00                 cmp ax, 0x1
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0783) = There is more to this basement than first meets the eye. Someday I will learn the secret of what lies behind the thick, silent walls that line this corridor.
@@ -511,7 +511,7 @@ NPCCHATB_1D:
 0000                          BEGIN
 0003                          ShowMessage(0862) = You encounter a Human Barbarian.
 0010                          ShowPortrait(0016)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0883) = As much as I despise orcs, I sometimes find it useful to have them in my party. Indeed, you will frequently have to work with races and Guilds you would otherwise ignore, if you wish to solve the many mysteries of this dungeon.
@@ -524,7 +524,7 @@ NPCCHATC_1E:
 0000                          BEGIN
 0003                          ShowMessage(09A4) = You encounter an Orc Knight.
 0010                          ShowPortrait(001A)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 06 00                 cmp ax, 0x6
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(09C1) = A colleague told me he encountered a strange elfin race far down in the dungeon. He would not say much else, other than that he knew why cold-loving creatures were to be found inside a volcano.
@@ -536,7 +536,7 @@ NPCCHATD_1F:
 0000                          BEGIN
 0003                          ShowMessage(0AB2) = You encounter an Elf Cleric.
 0010                          ShowPortrait(0027)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0ACF) = I stumbled over a marble block not long ago. On it were the words - Arnakkian Slowfoot, Wizard to the King.
@@ -548,7 +548,7 @@ NPCCHATE_20:
 0000                          BEGIN
 0003                          ShowMessage(0B77) = You encounter a Human Thief.
 0010                          ShowPortrait(0022)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(0B94) = To the east of the Rune Room on level three can be found the Wizards' Challenge. It is quite a challenge, too.

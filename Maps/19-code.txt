@@ -104,8 +104,7 @@ FOUNHLTH_15:
 0019                          ShowPortrait(0042)
 0026                          ShowMessage(04DB) = You sip from the Fountain of Hot Ice, but nothing happens.
 0033 EB 3C                    jmp 0x71
-0035 B8 D0 07                 mov ax, 0x7d0
-0038                          AddHealth(ax)
+0035                          AddHealth(07D0)
 0042                          SetState(01, 01, 01)
 0057                          ShowPortrait(0042)
 0064                          ShowMessage(0516) = You sip from the Fountain of Hot Ice and feel your Health restored.
@@ -446,7 +445,7 @@ NPCCHATA_2A:
 0000                          BEGIN
 0003                          ShowMessage(08EA) = You encounter a Troll Knight.
 0010                          ShowPortrait(001B)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0908) = The only way to get out of this basement area is to go through the lava field. Touching the lava is deadly, as you might expect. However, even if you pass safely through the lava field, the great heat of the lava will sap your strength.
@@ -458,7 +457,7 @@ NPCCHATB_2B:
 0000                          BEGIN
 0003                          ShowMessage(0A36) = You encounter a Dwarf Thief.
 0010                          ShowPortrait(0023)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0A53) = I know there is a short cut through the lava field. If you can find the correct key, you will be able to use the short cut. The key also will lead you to riches.
@@ -470,7 +469,7 @@ NPCCHATC_2C:
 0000                          BEGIN
 0003                          ShowMessage(0B10) = You encounter a Halfling Ranger.
 0010                          ShowPortrait(0021)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0B31) = The dwarves who built Cleowyn's Palace transported precious metals and building blocks up to the top level by means of a teleport. I believe the teleport is somewhere in this area.
@@ -482,7 +481,7 @@ NPCCHATD_2D:
 0000                          BEGIN
 0003                          ShowMessage(0C13) = You encounter a Gremlin Cleric.
 0010                          ShowPortrait(002A)
-001D                          UnknownFunction(000F)
+001D                          ax = UnknownFunction(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0C33) = Deep in the dungeon are the Pillow Labyrinths. They were formed from pillow lava that spilled into the sea. The labyrinth is formed from the hollow interior of the lava.

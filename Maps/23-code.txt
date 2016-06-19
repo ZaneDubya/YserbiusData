@@ -920,11 +920,7 @@ TORBWIND_55:
 MOONWIND_56:
 0000                          BEGIN
 0003                          ShowMessage(1647) = The Moon Hollow winds steals 300 Mana!
-0010 B8 D4 FE                 mov ax, 0xfed4
-0013 50                       push ax
-0014 C4 5E 06                 les bx, [bp+0x6]
-0017 26 FF 9F B4 00           call far word [es:bx+0xb4]
-001C 59                       pop cx
+0010                          AddMana(FED4)
 001D                          RETURN
 
 VORAWIND_57:

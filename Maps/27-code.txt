@@ -414,11 +414,7 @@ FNTNHEAL_37:
 
 FNTNMANA_38:
 0000                          BEGIN
-0003 B8 10 27                 mov ax, 0x2710
-0006 50                       push ax
-0007 C4 5E 06                 les bx, [bp+0x6]
-000A 26 FF 9F B4 00           call far word [es:bx+0xb4]
-000F 59                       pop cx
+0003                          AddMana(2710)
 0010                          ShowPortrait(0042)
 001D                          ShowMessage(10D0) = NightFrost Fountain renews your Mana.
 002A                          RETURN
