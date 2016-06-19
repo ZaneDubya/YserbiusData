@@ -359,8 +359,7 @@ WKTTEXT_1F:
 0037                          RETURN
 
 WKTENCC_20:
-0000                          BEGIN (saving si)
-0004 57                       push di
+0000                          BEGIN (saving si, di)
 0005 33 FF                    xor di, di
 0007 33 F6                    xor si, si
 0009                          AddEncounter(15, 01)
@@ -377,23 +376,11 @@ WKTENCC_20:
 00A4 BE 5B 00                 mov si, 0x5b
 00A7                          ax = CheckState(01, 03, 02)
 00BB 75 03                    jnz 0xc0
-00BD BE 6F 00                 mov si, 0x6f
-00C0 B8 D0 07                 mov ax, 0x7d0
-00C3 50                       push ax
-00C4                          Push(00)
-00C7                          Push(00)
-00CA 56                       push si
-00CB 57                       push di
-00CC                          Push(CF)
-00D0 C4 5E 06                 les bx, [bp+0x6]
-00D3 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00D8 83 C4 0C                 add sp, 0xc
-00DB 5F                       pop di
-00DC                          RETURN (restoring si)
+00BD                          AddTreasure(07D0, 00, 00, 6F, di, CF)
+00DB                          RETURN (restoring si, di)
 
 WKTENCD_21:
-0000                          BEGIN (saving si)
-0004 57                       push di
+0000                          BEGIN (saving si, di)
 0005 33 FF                    xor di, di
 0007 33 F6                    xor si, si
 0009                          AddEncounter(1E, 01)
@@ -408,23 +395,11 @@ WKTENCD_21:
 0080 BE 58 00                 mov si, 0x58
 0083                          ax = CheckState(01, 03, 04)
 0097 75 03                    jnz 0x9c
-0099 BE 6D 00                 mov si, 0x6d
-009C B8 D0 07                 mov ax, 0x7d0
-009F 50                       push ax
-00A0                          Push(00)
-00A3                          Push(00)
-00A6 56                       push si
-00A7 57                       push di
-00A8                          Push(CF)
-00AC C4 5E 06                 les bx, [bp+0x6]
-00AF 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00B4 83 C4 0C                 add sp, 0xc
-00B7 5F                       pop di
-00B8                          RETURN (restoring si)
+0099                          AddTreasure(07D0, 00, 00, 6D, di, CF)
+00B7                          RETURN (restoring si, di)
 
 WKTENCE_22:
-0000                          BEGIN (saving si)
-0004 57                       push di
+0000                          BEGIN (saving si, di)
 0005 33 FF                    xor di, di
 0007 33 F6                    xor si, si
 0009                          ShowMessage(102A) = The Four Winds gather strength once again as they throw skeletal bones against the wall.
@@ -447,23 +422,11 @@ WKTENCE_22:
 00EB 75 19                    jnz 0x106
 00ED                          ax = CheckState(01, 02, 03)
 0101 75 03                    jnz 0x106
-0103 BE F6 00                 mov si, 0xf6
-0106 B8 D0 07                 mov ax, 0x7d0
-0109 50                       push ax
-010A                          Push(00)
-010D                          Push(00)
-0110 56                       push si
-0111 57                       push di
-0112                          Push(CF)
-0116 C4 5E 06                 les bx, [bp+0x6]
-0119 26 FF 9F D8 00           call far word [es:bx+0xd8]
-011E 83 C4 0C                 add sp, 0xc
-0121 5F                       pop di
-0122                          RETURN (restoring si)
+0103                          AddTreasure(07D0, 00, 00, F6, di, CF)
+0121                          RETURN (restoring si, di)
 
 WKTENCF_23:
-0000                          BEGIN (saving si)
-0004 57                       push di
+0000                          BEGIN (saving si, di)
 0005 33 FF                    xor di, di
 0007 33 F6                    xor si, si
 0009                          AddEncounter(1E, 01)
@@ -479,19 +442,8 @@ WKTENCF_23:
 0092 BE 5A 00                 mov si, 0x5a
 0095                          ax = CheckState(01, 03, 03)
 00A9 75 03                    jnz 0xae
-00AB BE 68 00                 mov si, 0x68
-00AE B8 D0 07                 mov ax, 0x7d0
-00B1 50                       push ax
-00B2                          Push(00)
-00B5                          Push(00)
-00B8 56                       push si
-00B9 57                       push di
-00BA                          Push(CF)
-00BE C4 5E 06                 les bx, [bp+0x6]
-00C1 26 FF 9F D8 00           call far word [es:bx+0xd8]
-00C6 83 C4 0C                 add sp, 0xc
-00C9 5F                       pop di
-00CA                          RETURN (restoring si)
+00AB                          AddTreasure(07D0, 00, 00, 68, di, CF)
+00C9                          RETURN (restoring si, di)
 
 WKTENCG_24:
 0000                          BEGIN
