@@ -264,10 +264,7 @@ MOONSW_07:
 001C                          Push(BF)
 0020                          Push(01)
 0024                          SetUnblocked()
-002E                          Push(01)
-0032                          Push(03)
-0036                          Push(BF)
-003A                          Move(stk[0], stk[1], stk[2])
+002E                          Move(01, 03, BF)
 0044                          ShowMessage(074A) = The door proclaims,  'You shot the Moon!'
 0051 EB 0D                    jmp 0x60
 0053                          ShowMessage(0774) = A small button, shaped like the crescent moon, lies just out of reach.
@@ -281,10 +278,7 @@ BLAKJAK_08:
 001C                          Push(8D)
 0020                          Push(01)
 0024                          SetUnblocked()
-002E                          Push(01)
-0032                          Push(01)
-0036                          Push(8D)
-003A                          Move(stk[0], stk[1], stk[2])
+002E                          Move(01, 01, 8D)
 0044                          ShowMessage(07BB) = The Ace is played as eleven points, scoring the BlackJack!
 0051                          ShowMessage(07F6) = A door unlocks...
 005E EB 1A                    jmp 0x7a
@@ -305,10 +299,7 @@ CRIB_0A:
 001C                          Push(7D)
 0020                          Push(01)
 0024                          SetUnblocked()
-002E                          Push(01)
-0032                          Push(03)
-0036                          Push(7D)
-003A                          Move(stk[0], stk[1], stk[2])
+002E                          Move(01, 03, 7D)
 0044                          ShowMessage(08BE) = The Jack scores the hand 22.  Cribbage is the game.
 0051                          ShowMessage(08F2) = A door unlocks...
 005E EB 27                    jmp 0x87
@@ -378,12 +369,7 @@ BLJKFOUN_13:
 0028                          SetState(02, 7E, 01)
 003D                          RemoveItem(EA)
 0049                          ShowPortrait(0042)
-0056                          Push(03)
-005A                          Push(02)
-005E C4 5E 06                 les bx, [bp+0x6]
-0061 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0066 59                       pop cx
-0067 59                       pop cx
+0056                          ModifyAttribute(02, 0003)
 0068                          ax = GetMaxHits()
 006F                          AddHealth(ax)
 0079                          ShowMessage(0AC6) = Still water fills the basin.
@@ -403,12 +389,7 @@ CRIBFOUN_14:
 0028                          SetState(02, 7F, 01)
 003D                          ShowPortrait(0042)
 004A                          RemoveItem(ED)
-0056                          Push(03)
-005A                          Push(03)
-005E C4 5E 06                 les bx, [bp+0x6]
-0061 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0066 59                       pop cx
-0067 59                       pop cx
+0056                          ModifyAttribute(03, 0003)
 0068                          AddMana(0BB8)
 0075                          ShowMessage(0BBE) = A puff of steam from the fountain blows in your face.
 0082                          ShowMessage(0BF4) = Your Mana is restored and you feel readier to fight.

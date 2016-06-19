@@ -323,8 +323,7 @@ MGOVENCB_26:
 
 SDRMGOVA_28:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 7C              call far word [es:bx+0x7c]
+0003                          ax = GetGuild()
 000A 3D 05 00                 cmp ax, 0x5
 000D 74 03                    jz 0x12
 000F E9 7F 00                 jmp 0x91
@@ -369,13 +368,11 @@ VORAENCB_2A:
 VORAENCV_30:
 0000                          BEGIN
 0003                          ShowMessage(0E34) = A powerful Dwarf Thief stands before you. 'I am Voranti, Lord of Dwarf Thieves!  Fight me if you must, but you shall not find my secret treasure!  Do not fear, for I will provide decent burial when I am finished.'
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 78              call far word [es:bx+0x78]
+0010                          ax = GetRace()
 0017 3D 02 00                 cmp ax, 0x2
 001A 75 0D                    jnz 0x29
 001C                          ShowMessage(0F0A) = Voranti's dark eyes glow bright with hatred. 'As for you, miserable Elf, my pet gargoyles will pick your bones clean.'
-0029 C4 5E 06                 les bx, [bp+0x6]
-002C 26 FF 5F 78              call far word [es:bx+0x78]
+0029                          ax = GetRace()
 0030 3D 04 00                 cmp ax, 0x4
 0033 75 0D                    jnz 0x42
 0035                          ShowMessage(0F81) = Voranti smiles sadly. 'It saddens me that I must kill a fellow dwarf, but you have brought death upon yourself.'
@@ -605,8 +602,7 @@ MOONENCM_42:
 
 SDRMOONF_43:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 7C              call far word [es:bx+0x7c]
+0003                          ax = GetGuild()
 000A 3D 02 00                 cmp ax, 0x2
 000D 74 03                    jz 0x12
 000F E9 7F 00                 jmp 0x91
@@ -634,8 +630,7 @@ SDRMOONF_43:
 
 SDRMOONJ_44:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 7C              call far word [es:bx+0x7c]
+0003                          ax = GetGuild()
 000A 3D 04 00                 cmp ax, 0x4
 000D 74 03                    jz 0x12
 000F E9 7F 00                 jmp 0x91
@@ -824,13 +819,11 @@ TORBENCB_4C:
 0027                          AddEncounter(27, 04)
 0039                          AddEncounter(15, 05)
 004B                          AddEncounter(15, 06)
-005D C4 5E 06                 les bx, [bp+0x6]
-0060 26 FF 5F 7C              call far word [es:bx+0x7c]
+005D                          ax = GetGuild()
 0064 0B C0                    or ax, ax
 0066 75 1F                    jnz 0x87
 0068                          AddTreasure(03E8, 00, 00, 00, 00, 18)
-0087 C4 5E 06                 les bx, [bp+0x6]
-008A 26 FF 5F 7C              call far word [es:bx+0x7c]
+0087                          ax = GetGuild()
 008E 3D 01 00                 cmp ax, 0x1
 0091 75 1F                    jnz 0xb2
 0093                          AddTreasure(03E8, 00, 00, 00, 00, 11)
@@ -851,8 +844,7 @@ TXTTORB_52:
 
 SDRTORBA_53:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 7C              call far word [es:bx+0x7c]
+0003                          ax = GetGuild()
 000A 3D 01 00                 cmp ax, 0x1
 000D 74 03                    jz 0x12
 000F E9 7F 00                 jmp 0x91
@@ -880,8 +872,7 @@ SDRTORBA_53:
 
 SDRTORBB_54:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 7C              call far word [es:bx+0x7c]
+0003                          ax = GetGuild()
 000A 0B C0                    or ax, ax
 000C 74 03                    jz 0x11
 000E E9 7F 00                 jmp 0x90

@@ -208,12 +208,7 @@ EXPRESS_11:
 0018                          ShowMessage(095D) = This wall is the teleport to CASTLEGATE.
 0025                          Push(03)
 0029                          ax = GetNextTile()
-0030 50                       push ax
-0031                          Push(01)
-0035                          Push(36)
-0039 C4 5E 06                 les bx, [bp+0x6]
-003C 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0041 83 C4 08                 add sp, 0x8
+0030                          GoMap(stk[0], ax, 01, 36)
 0044 EB 0D                    jmp 0x53
 0046                          ShowMessage(0986) = There is something strange about this wall.
 0053                          RETURN
@@ -231,12 +226,7 @@ WSTRES_13:
 0023 75 5D                    jnz 0x82
 0025                          SetState(02, 58, 01)
 003A                          ShowPortrait(0042)
-0047                          Push(03)
-004B                          Push(03)
-004F C4 5E 06                 les bx, [bp+0x6]
-0052 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0057 59                       pop cx
-0058 59                       pop cx
+0047                          ModifyAttribute(03, 0003)
 0059                          ShowMessage(0A3B) = A small puddle of magic water sits at the bottom.
 0066                          ShowMessage(0A6D) = It seems to instantly evaporate into a large steam cloud.
 0073                          ShowMessage(0AA7) = You feel you may be quicker in a fight.

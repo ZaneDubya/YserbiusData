@@ -177,10 +177,7 @@ KEYDOOR_0A:
 0000                          BEGIN
 0003                          ax = UsedItem(D3, D3)
 0016 74 3D                    jz 0x55
-0018                          Push(01)
-001C                          Push(00)
-001F                          Push(04)
-0023                          Move(stk[0], stk[1], stk[2])
+0018                          Move(01, 00, 00)
 002D                          Push(00)
 0030                          ax = GetNextTile()
 0037 50                       push ax
@@ -293,12 +290,7 @@ HRDMONST_0F:
 0000                          BEGIN (saving si)
 0004 BE 01 00                 mov si, 0x1
 0007 EB 10                    jmp 0x19
-0009                          Push(13)
-000D 56                       push si
-000E C4 5E 06                 les bx, [bp+0x6]
-0011 26 FF 9F D4 00           call far word [es:bx+0xd4]
-0016 59                       pop cx
-0017 59                       pop cx
+0009                          AddEncounter(13, si)
 0018 46                       inc si
 0019                          ax = PartyCountIs(si)
 0023 73 E4                    jae 0x9
@@ -376,10 +368,7 @@ SECDOOR_12:
 0074                          Push(ED)
 0078                          Push(01)
 007C                          SetUnblocked()
-0086                          Push(01)
-008A                          Push(02)
-008E                          Push(ED)
-0092                          Move(stk[0], stk[1], stk[2])
+0086                          Move(01, 02, ED)
 009C EB 22                    jmp 0xc0
 009E                          ShowMessage(0A99) = You see a blank wall.
 00AB                          Push(00)

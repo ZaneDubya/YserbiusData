@@ -42,30 +42,10 @@ PLATB_05:
 0018                          SetState(02, 84, 01)
 002D                          ShowPortrait(0042)
 003A                          ShowMessage(04D1) = DragonBreath Fountain empowers you with improved attributes.
-0047                          Push(01)
-004B                          Push(00)
-004E C4 5E 06                 les bx, [bp+0x6]
-0051 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0056 59                       pop cx
-0057 59                       pop cx
-0058                          Push(01)
-005C                          Push(01)
-0060 C4 5E 06                 les bx, [bp+0x6]
-0063 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0068 59                       pop cx
-0069 59                       pop cx
-006A                          Push(01)
-006E                          Push(02)
-0072 C4 5E 06                 les bx, [bp+0x6]
-0075 26 FF 9F A8 00           call far word [es:bx+0xa8]
-007A 59                       pop cx
-007B 59                       pop cx
-007C                          Push(01)
-0080                          Push(03)
-0084 C4 5E 06                 les bx, [bp+0x6]
-0087 26 FF 9F A8 00           call far word [es:bx+0xa8]
-008C 59                       pop cx
-008D 59                       pop cx
+0047                          ModifyAttribute(00, 0001)
+0058                          ModifyAttribute(01, 0001)
+006A                          ModifyAttribute(02, 0001)
+007C                          ModifyAttribute(03, 0001)
 008E                          RETURN
 
 PLATCTOA_06:

@@ -30,16 +30,8 @@ NDORSWCH_06:
 0025                          SetState(01, 02, 00)
 0039                          SetState(01, 03, 00)
 004D                          SetState(01, 04, 00)
-0061                          Push(01)
-0065                          Push(01)
-0069                          Push(77)
-006D                          Move(stk[0], stk[1], stk[2])
-0077                          Push(01)
-007B                          Push(01)
-007F                          Push(77)
-0083 C4 5E 06                 les bx, [bp+0x6]
-0086 26 FF 5F 28              call far word [es:bx+0x28]
-008A 83 C4 06                 add sp, 0x6
+0061                          Move(01, 01, 77)
+0077                          Move2(01, 01, 77)
 008D                          RETURN
 
 EDORSWCH_07:
@@ -49,16 +41,8 @@ EDORSWCH_07:
 0024                          SetState(01, 02, 00)
 0038                          SetState(01, 03, 01)
 004D                          SetState(01, 04, 00)
-0061                          Push(01)
-0065                          Push(00)
-0068                          Push(77)
-006C                          Move(stk[0], stk[1], stk[2])
-0076                          Push(01)
-007A                          Push(00)
-007D                          Push(77)
-0081 C4 5E 06                 les bx, [bp+0x6]
-0084 26 FF 5F 28              call far word [es:bx+0x28]
-0088 83 C4 06                 add sp, 0x6
+0061                          Move(01, 00, 00)
+0076                          Move2(01, 00, 00)
 008B                          RETURN
 
 EDORSWCH_08:
@@ -68,16 +52,8 @@ EDORSWCH_08:
 0024                          SetState(01, 02, 01)
 0039                          SetState(01, 03, 00)
 004D                          SetState(01, 04, 00)
-0061                          Push(01)
-0065                          Push(03)
-0069                          Push(77)
-006D                          Move(stk[0], stk[1], stk[2])
-0077                          Push(01)
-007B                          Push(03)
-007F                          Push(77)
-0083 C4 5E 06                 les bx, [bp+0x6]
-0086 26 FF 5F 28              call far word [es:bx+0x28]
-008A 83 C4 06                 add sp, 0x6
+0061                          Move(01, 03, 77)
+0077                          Move2(01, 03, 77)
 008D                          RETURN
 
 WDORSWCH_09:
@@ -87,16 +63,8 @@ WDORSWCH_09:
 0024                          SetState(01, 02, 00)
 0038                          SetState(01, 03, 00)
 004C                          SetState(01, 04, 01)
-0061                          Push(01)
-0065                          Push(02)
-0069                          Push(77)
-006D                          Move(stk[0], stk[1], stk[2])
-0077                          Push(01)
-007B                          Push(02)
-007F                          Push(77)
-0083 C4 5E 06                 les bx, [bp+0x6]
-0086 26 FF 5F 28              call far word [es:bx+0x28]
-008A 83 C4 06                 add sp, 0x6
+0061                          Move(01, 02, 77)
+0077                          Move2(01, 02, 77)
 008D                          RETURN
 
 NSWCHDOR_0A:

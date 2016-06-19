@@ -427,8 +427,7 @@ CYCLKEY_20:
 
 SECDOORC_21:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 78              call far word [es:bx+0x78]
+0003                          ax = GetRace()
 000A 3D 04 00                 cmp ax, 0x4
 000D 74 03                    jz 0x12
 000F E9 B6 00                 jmp 0xc8
@@ -499,18 +498,8 @@ FNTNATTR_25:
 0016 75 54                    jnz 0x6c
 0018                          SetState(02, 56, 01)
 002D                          ShowPortrait(0042)
-003A                          Push(02)
-003E                          Push(00)
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0049 59                       pop cx
-004A 59                       pop cx
-004B                          Push(01)
-004F                          Push(01)
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F A8 00           call far word [es:bx+0xa8]
-005B 59                       pop cx
-005C 59                       pop cx
+003A                          ModifyAttribute(00, 0002)
+004B                          ModifyAttribute(01, 0001)
 005D                          ShowMessage(1623) = You drink from the Fountain of Attributes and feel your powers greatly increase.
 006A EB 1A                    jmp 0x86
 006C                          ShowPortrait(0042)

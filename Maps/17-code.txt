@@ -39,7 +39,7 @@ TRAPDORA_07:
 0037 75 29                    jnz 0x62
 0039                          ax = UsedItem(BE, BE)
 004C 75 14                    jnz 0x62
-004E                          ax = CheckState2(00, 01) ? 1 : 0
+004E                          ax = CheckState2(00, 01)
 0060 74 23                    jz 0x85
 0062                          ShowMessage(03FC) = You found a trapdoor.
 006F                          SetState(00, 01, 01)
@@ -59,7 +59,7 @@ TRAPDORB_08:
 0037 75 29                    jnz 0x62
 0039                          ax = UsedItem(BE, BE)
 004C 75 14                    jnz 0x62
-004E                          ax = CheckState2(00, 01) ? 1 : 0
+004E                          ax = CheckState2(00, 01)
 0060 74 23                    jz 0x85
 0062                          ShowMessage(042F) = You spot a trapdoor.
 006F                          SetState(00, 01, 01)
@@ -79,7 +79,7 @@ TRAPDORC_09:
 0037 75 29                    jnz 0x62
 0039                          ax = UsedItem(BE, BE)
 004C 75 14                    jnz 0x62
-004E                          ax = CheckState2(00, 01) ? 1 : 0
+004E                          ax = CheckState2(00, 01)
 0060 74 23                    jz 0x85
 0062                          ShowMessage(0461) = You detect a trapdoor.
 006F                          SetState(00, 01, 01)
@@ -99,7 +99,7 @@ TRAPDORD_0A:
 0037 75 29                    jnz 0x62
 0039                          ax = UsedItem(BE, BE)
 004C 75 14                    jnz 0x62
-004E                          ax = CheckState2(00, 01) ? 1 : 0
+004E                          ax = CheckState2(00, 01)
 0060 74 23                    jz 0x85
 0062                          ShowMessage(0495) = You escape a trapdoor.
 006F                          SetState(00, 01, 01)
@@ -119,7 +119,7 @@ TRAPDORE_0B:
 0037 75 29                    jnz 0x62
 0039                          ax = UsedItem(BE, BE)
 004C 75 14                    jnz 0x62
-004E                          ax = CheckState2(00, 01) ? 1 : 0
+004E                          ax = CheckState2(00, 01)
 0060 74 23                    jz 0x85
 0062                          ShowMessage(04C9) = You notice a trapdoor.
 006F                          SetState(00, 01, 01)
@@ -139,7 +139,7 @@ TRAPDORF_0C:
 0037 75 29                    jnz 0x62
 0039                          ax = UsedItem(BE, BE)
 004C 75 14                    jnz 0x62
-004E                          ax = CheckState2(00, 01) ? 1 : 0
+004E                          ax = CheckState2(00, 01)
 0060 74 23                    jz 0x85
 0062                          ShowMessage(04FD) = There is a trapdoor in the floor.
 006F                          SetState(00, 01, 01)
@@ -159,7 +159,7 @@ TRAPDORG_0D:
 0037 75 29                    jnz 0x62
 0039                          ax = UsedItem(BE, BE)
 004C 75 14                    jnz 0x62
-004E                          ax = CheckState2(00, 01) ? 1 : 0
+004E                          ax = CheckState2(00, 01)
 0060 74 23                    jz 0x85
 0062                          ShowMessage(053C) = You discover a trapdoor.
 006F                          SetState(00, 01, 01)
@@ -179,7 +179,7 @@ TRAPDORH_0E:
 0037 75 29                    jnz 0x62
 0039                          ax = UsedItem(BE, BE)
 004C 75 14                    jnz 0x62
-004E                          ax = CheckState2(00, 01) ? 1 : 0
+004E                          ax = CheckState2(00, 01)
 0060 74 23                    jz 0x85
 0062                          ShowMessage(0572) = You detect a trapdoor.
 006F                          SetState(00, 01, 01)
@@ -199,7 +199,7 @@ TRAPDORI_0F:
 0037 75 29                    jnz 0x62
 0039                          ax = UsedItem(BE, BE)
 004C 75 14                    jnz 0x62
-004E                          ax = CheckState2(00, 01) ? 1 : 0
+004E                          ax = CheckState2(00, 01)
 0060 74 23                    jz 0x85
 0062                          ShowMessage(05A6) = You spot a trapdoor.
 006F                          SetState(00, 01, 01)
@@ -219,7 +219,7 @@ TRAPDORJ_10:
 0037 75 29                    jnz 0x62
 0039                          ax = UsedItem(BE, BE)
 004C 75 14                    jnz 0x62
-004E                          ax = CheckState2(00, 01) ? 1 : 0
+004E                          ax = CheckState2(00, 01)
 0060 74 23                    jz 0x85
 0062                          ShowMessage(05D8) = You detect a trapdoor.
 006F                          SetState(00, 01, 01)
@@ -239,7 +239,7 @@ TRAPDORK_11:
 0037 75 29                    jnz 0x62
 0039                          ax = UsedItem(BE, BE)
 004C 75 14                    jnz 0x62
-004E                          ax = CheckState2(00, 01) ? 1 : 0
+004E                          ax = CheckState2(00, 01)
 0060 74 23                    jz 0x85
 0062                          ShowMessage(060C) = A trapdoor is in this room.
 006F                          SetState(00, 01, 01)
@@ -259,7 +259,7 @@ TRAPDORL_12:
 0037 75 29                    jnz 0x62
 0039                          ax = UsedItem(BE, BE)
 004C 75 14                    jnz 0x62
-004E                          ax = CheckState2(00, 01) ? 1 : 0
+004E                          ax = CheckState2(00, 01)
 0060 74 23                    jz 0x85
 0062                          ShowMessage(0645) = You sidestep a trapdoor.
 006F                          SetState(00, 01, 01)
@@ -279,7 +279,7 @@ TRAPDORM_13:
 0037 75 29                    jnz 0x62
 0039                          ax = UsedItem(BE, BE)
 004C 75 14                    jnz 0x62
-004E                          ax = CheckState2(00, 01) ? 1 : 0
+004E                          ax = CheckState2(00, 01)
 0060 74 23                    jz 0x85
 0062                          ShowMessage(067B) = You avoid a trapdoor.
 006F                          SetState(00, 01, 01)
@@ -584,13 +584,7 @@ DETCTDOR_1D:
 
 LFTROTA_1E:
 0000                          BEGIN
-0003                          Push(02)
-0007                          Push(00)
-000A C4 5E 06                 les bx, [bp+0x6]
-000D 26 FF 5F 0C              call far word [es:bx+0xc]
-0011 59                       pop cx
-0012 59                       pop cx
-0013 0B C0                    or ax, ax
+0003                          ax = CheckState3(00, 02)
 0015 75 03                    jnz 0x1a
 0017 E9 AF 00                 jmp 0xc9
 001A                          SetState(00, 02, 01)
@@ -603,39 +597,19 @@ LFTROTA_1E:
 0041 2E FF A7 CB 10           jmp word [cs:bx+0x10cb]
 0046                          Push(00)
 0049                          ax = GetNextTile()
-0050 50                       push ax
-0051                          Push(01)
-0055                          Push(04)
-0059 C4 5E 06                 les bx, [bp+0x6]
-005C 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0061 83 C4 08                 add sp, 0x8
+0050                          GoMap(stk[0], ax, 01, 04)
 0064 EB 63                    jmp 0xc9
 0066                          Push(02)
 006A                          ax = GetNextTile()
-0071 50                       push ax
-0072                          Push(01)
-0076                          Push(04)
-007A C4 5E 06                 les bx, [bp+0x6]
-007D 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0082 83 C4 08                 add sp, 0x8
+0071                          GoMap(stk[0], ax, 01, 04)
 0085 EB 42                    jmp 0xc9
 0087                          Push(03)
 008B                          ax = GetNextTile()
-0092 50                       push ax
-0093                          Push(01)
-0097                          Push(04)
-009B C4 5E 06                 les bx, [bp+0x6]
-009E 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00A3 83 C4 08                 add sp, 0x8
+0092                          GoMap(stk[0], ax, 01, 04)
 00A6 EB 21                    jmp 0xc9
 00A8                          Push(01)
 00AC                          ax = GetNextTile()
-00B3 50                       push ax
-00B4                          Push(01)
-00B8                          Push(04)
-00BC C4 5E 06                 les bx, [bp+0x6]
-00BF 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00C4 83 C4 08                 add sp, 0x8
+00B3                          GoMap(stk[0], ax, 01, 04)
 00C7 EB 00                    jmp 0xc9
 00C9                          RETURN
 00CB A8 10                    test al, 0x10
@@ -644,13 +618,7 @@ LFTROTA_1E:
 
 LFTROTB_1F:
 0000                          BEGIN
-0003                          Push(02)
-0007                          Push(00)
-000A C4 5E 06                 les bx, [bp+0x6]
-000D 26 FF 5F 0C              call far word [es:bx+0xc]
-0011 59                       pop cx
-0012 59                       pop cx
-0013 0B C0                    or ax, ax
+0003                          ax = CheckState3(00, 02)
 0015 75 03                    jnz 0x1a
 0017 E9 D5 00                 jmp 0xef
 001A                          SetState(00, 02, 01)
@@ -663,49 +631,24 @@ LFTROTB_1F:
 0041 2E FF A7 C4 11           jmp word [cs:bx+0x11c4]
 0046                          Push(02)
 004A                          ax = GetNextTile()
-0051 50                       push ax
-0052                          Push(01)
-0056                          Push(04)
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0062 83 C4 08                 add sp, 0x8
+0051                          GoMap(stk[0], ax, 01, 04)
 0065 E9 87 00                 jmp 0xef
 0068                          Push(00)
 006B                          ax = GetNextTile()
-0072 50                       push ax
-0073                          Push(01)
-0077                          Push(04)
-007B C4 5E 06                 les bx, [bp+0x6]
-007E 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0083 83 C4 08                 add sp, 0x8
+0072                          GoMap(stk[0], ax, 01, 04)
 0086 EB 67                    jmp 0xef
 0088                          Push(01)
 008C                          ax = GetNextTile()
-0093 50                       push ax
-0094                          Push(01)
-0098                          Push(04)
-009C C4 5E 06                 les bx, [bp+0x6]
-009F 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00A4 83 C4 08                 add sp, 0x8
+0093                          GoMap(stk[0], ax, 01, 04)
 00A7 EB 46                    jmp 0xef
 00A9                          Push(03)
 00AD                          ax = GetNextTile()
-00B4 50                       push ax
-00B5                          Push(01)
-00B9                          Push(04)
-00BD C4 5E 06                 les bx, [bp+0x6]
-00C0 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00C5 83 C4 08                 add sp, 0x8
+00B4                          GoMap(stk[0], ax, 01, 04)
 00C8 EB 25                    jmp 0xef
 00CA                          ax = SetExitability(ax) // ax is usually 0 following equality check
 00D1 50                       push ax
 00D2                          ax = GetNextTile()
-00D9 50                       push ax
-00DA                          Push(01)
-00DE                          Push(04)
-00E2 C4 5E 06                 les bx, [bp+0x6]
-00E5 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00EA 83 C4 08                 add sp, 0x8
+00D9                          GoMap(stk[0], ax, 01, 04)
 00ED EB 00                    jmp 0xef
 00EF                          RETURN
 00F1 7C 11                    jl 0x104
@@ -716,13 +659,7 @@ LFTROTB_1F:
 
 BACKROTL_20:
 0000                          BEGIN
-0003                          Push(02)
-0007                          Push(00)
-000A C4 5E 06                 les bx, [bp+0x6]
-000D 26 FF 5F 0C              call far word [es:bx+0xc]
-0011 59                       pop cx
-0012 59                       pop cx
-0013 0B C0                    or ax, ax
+0003                          ax = CheckState3(00, 02)
 0015 75 03                    jnz 0x1a
 0017 E9 D5 00                 jmp 0xef
 001A                          SetState(00, 02, 01)
@@ -735,49 +672,24 @@ BACKROTL_20:
 0041 2E FF A7 BD 12           jmp word [cs:bx+0x12bd]
 0046                          Push(01)
 004A                          ax = GetNextTile()
-0051 50                       push ax
-0052                          Push(01)
-0056                          Push(04)
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0062 83 C4 08                 add sp, 0x8
+0051                          GoMap(stk[0], ax, 01, 04)
 0065 E9 87 00                 jmp 0xef
 0068                          Push(03)
 006C                          ax = GetNextTile()
-0073 50                       push ax
-0074                          Push(01)
-0078                          Push(04)
-007C C4 5E 06                 les bx, [bp+0x6]
-007F 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0084 83 C4 08                 add sp, 0x8
+0073                          GoMap(stk[0], ax, 01, 04)
 0087 EB 66                    jmp 0xef
 0089                          Push(00)
 008C                          ax = GetNextTile()
-0093 50                       push ax
-0094                          Push(01)
-0098                          Push(04)
-009C C4 5E 06                 les bx, [bp+0x6]
-009F 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00A4 83 C4 08                 add sp, 0x8
+0093                          GoMap(stk[0], ax, 01, 04)
 00A7 EB 46                    jmp 0xef
 00A9                          Push(02)
 00AD                          ax = GetNextTile()
-00B4 50                       push ax
-00B5                          Push(01)
-00B9                          Push(04)
-00BD C4 5E 06                 les bx, [bp+0x6]
-00C0 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00C5 83 C4 08                 add sp, 0x8
+00B4                          GoMap(stk[0], ax, 01, 04)
 00C8 EB 25                    jmp 0xef
 00CA                          ax = SetExitability(ax) // ax is usually 0 following equality check
 00D1 50                       push ax
 00D2                          ax = GetNextTile()
-00D9 50                       push ax
-00DA                          Push(01)
-00DE                          Push(04)
-00E2 C4 5E 06                 les bx, [bp+0x6]
-00E5 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00EA 83 C4 08                 add sp, 0x8
+00D9                          GoMap(stk[0], ax, 01, 04)
 00ED EB 00                    jmp 0xef
 00EF                          RETURN
 00F1 75 12                    jnz 0x105
@@ -788,13 +700,7 @@ BACKROTL_20:
 
 RTROTA_21:
 0000                          BEGIN
-0003                          Push(02)
-0007                          Push(00)
-000A C4 5E 06                 les bx, [bp+0x6]
-000D 26 FF 5F 0C              call far word [es:bx+0xc]
-0011 59                       pop cx
-0012 59                       pop cx
-0013 0B C0                    or ax, ax
+0003                          ax = CheckState3(00, 02)
 0015 75 03                    jnz 0x1a
 0017 E9 D5 00                 jmp 0xef
 001A                          SetState(00, 02, 01)
@@ -807,49 +713,24 @@ RTROTA_21:
 0041 2E FF A7 B6 13           jmp word [cs:bx+0x13b6]
 0046                          Push(02)
 004A                          ax = GetNextTile()
-0051 50                       push ax
-0052                          Push(01)
-0056                          Push(04)
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0062 83 C4 08                 add sp, 0x8
+0051                          GoMap(stk[0], ax, 01, 04)
 0065 E9 87 00                 jmp 0xef
 0068                          Push(00)
 006B                          ax = GetNextTile()
-0072 50                       push ax
-0073                          Push(01)
-0077                          Push(04)
-007B C4 5E 06                 les bx, [bp+0x6]
-007E 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0083 83 C4 08                 add sp, 0x8
+0072                          GoMap(stk[0], ax, 01, 04)
 0086 EB 67                    jmp 0xef
 0088                          Push(01)
 008C                          ax = GetNextTile()
-0093 50                       push ax
-0094                          Push(01)
-0098                          Push(04)
-009C C4 5E 06                 les bx, [bp+0x6]
-009F 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00A4 83 C4 08                 add sp, 0x8
+0093                          GoMap(stk[0], ax, 01, 04)
 00A7 EB 46                    jmp 0xef
 00A9                          Push(03)
 00AD                          ax = GetNextTile()
-00B4 50                       push ax
-00B5                          Push(01)
-00B9                          Push(04)
-00BD C4 5E 06                 les bx, [bp+0x6]
-00C0 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00C5 83 C4 08                 add sp, 0x8
+00B4                          GoMap(stk[0], ax, 01, 04)
 00C8 EB 25                    jmp 0xef
 00CA                          ax = SetExitability(ax) // ax is usually 0 following equality check
 00D1 50                       push ax
 00D2                          ax = GetNextTile()
-00D9 50                       push ax
-00DA                          Push(01)
-00DE                          Push(04)
-00E2 C4 5E 06                 les bx, [bp+0x6]
-00E5 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00EA 83 C4 08                 add sp, 0x8
+00D9                          GoMap(stk[0], ax, 01, 04)
 00ED EB 00                    jmp 0xef
 00EF                          RETURN
 00F1 6E                       outsb
@@ -859,13 +740,7 @@ RTROTA_21:
 
 RTROTB_22:
 0000                          BEGIN
-0003                          Push(02)
-0007                          Push(00)
-000A C4 5E 06                 les bx, [bp+0x6]
-000D 26 FF 5F 0C              call far word [es:bx+0xc]
-0011 59                       pop cx
-0012 59                       pop cx
-0013 0B C0                    or ax, ax
+0003                          ax = CheckState3(00, 02)
 0015 75 03                    jnz 0x1a
 0017 E9 D5 00                 jmp 0xef
 001A                          SetState(00, 02, 01)
@@ -878,49 +753,24 @@ RTROTB_22:
 0041 2E FF A7 AF 14           jmp word [cs:bx+0x14af]
 0046                          Push(00)
 0049                          ax = GetNextTile()
-0050 50                       push ax
-0051                          Push(01)
-0055                          Push(04)
-0059 C4 5E 06                 les bx, [bp+0x6]
-005C 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0061 83 C4 08                 add sp, 0x8
+0050                          GoMap(stk[0], ax, 01, 04)
 0064 E9 88 00                 jmp 0xef
 0067                          Push(02)
 006B                          ax = GetNextTile()
-0072 50                       push ax
-0073                          Push(01)
-0077                          Push(04)
-007B C4 5E 06                 les bx, [bp+0x6]
-007E 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0083 83 C4 08                 add sp, 0x8
+0072                          GoMap(stk[0], ax, 01, 04)
 0086 EB 67                    jmp 0xef
 0088                          Push(03)
 008C                          ax = GetNextTile()
-0093 50                       push ax
-0094                          Push(01)
-0098                          Push(04)
-009C C4 5E 06                 les bx, [bp+0x6]
-009F 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00A4 83 C4 08                 add sp, 0x8
+0093                          GoMap(stk[0], ax, 01, 04)
 00A7 EB 46                    jmp 0xef
 00A9                          Push(01)
 00AD                          ax = GetNextTile()
-00B4 50                       push ax
-00B5                          Push(01)
-00B9                          Push(04)
-00BD C4 5E 06                 les bx, [bp+0x6]
-00C0 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00C5 83 C4 08                 add sp, 0x8
+00B4                          GoMap(stk[0], ax, 01, 04)
 00C8 EB 25                    jmp 0xef
 00CA                          ax = SetExitability(ax) // ax is usually 0 following equality check
 00D1 50                       push ax
 00D2                          ax = GetNextTile()
-00D9 50                       push ax
-00DA                          Push(01)
-00DE                          Push(04)
-00E2 C4 5E 06                 les bx, [bp+0x6]
-00E5 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00EA 83 C4 08                 add sp, 0x8
+00D9                          GoMap(stk[0], ax, 01, 04)
 00ED EB 00                    jmp 0xef
 00EF                          RETURN
 00F1 67 14 25                 a32 adc al, 0x25
@@ -1295,13 +1145,7 @@ GOLDBENC_35:
 
 BACKROTR_36:
 0000                          BEGIN
-0003                          Push(02)
-0007                          Push(00)
-000A C4 5E 06                 les bx, [bp+0x6]
-000D 26 FF 5F 0C              call far word [es:bx+0xc]
-0011 59                       pop cx
-0012 59                       pop cx
-0013 0B C0                    or ax, ax
+0003                          ax = CheckState3(00, 02)
 0015 75 03                    jnz 0x1a
 0017 E9 D5 00                 jmp 0xef
 001A                          SetState(00, 02, 01)
@@ -1314,49 +1158,24 @@ BACKROTR_36:
 0041 2E FF A7 57 26           jmp word [cs:bx+0x2657]
 0046                          Push(01)
 004A                          ax = GetNextTile()
-0051 50                       push ax
-0052                          Push(01)
-0056                          Push(04)
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0062 83 C4 08                 add sp, 0x8
+0051                          GoMap(stk[0], ax, 01, 04)
 0065 E9 87 00                 jmp 0xef
 0068                          Push(03)
 006C                          ax = GetNextTile()
-0073 50                       push ax
-0074                          Push(01)
-0078                          Push(04)
-007C C4 5E 06                 les bx, [bp+0x6]
-007F 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0084 83 C4 08                 add sp, 0x8
+0073                          GoMap(stk[0], ax, 01, 04)
 0087 EB 66                    jmp 0xef
 0089                          Push(00)
 008C                          ax = GetNextTile()
-0093 50                       push ax
-0094                          Push(01)
-0098                          Push(04)
-009C C4 5E 06                 les bx, [bp+0x6]
-009F 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00A4 83 C4 08                 add sp, 0x8
+0093                          GoMap(stk[0], ax, 01, 04)
 00A7 EB 46                    jmp 0xef
 00A9                          Push(02)
 00AD                          ax = GetNextTile()
-00B4 50                       push ax
-00B5                          Push(01)
-00B9                          Push(04)
-00BD C4 5E 06                 les bx, [bp+0x6]
-00C0 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00C5 83 C4 08                 add sp, 0x8
+00B4                          GoMap(stk[0], ax, 01, 04)
 00C8 EB 25                    jmp 0xef
 00CA                          ax = SetExitability(ax) // ax is usually 0 following equality check
 00D1 50                       push ax
 00D2                          ax = GetNextTile()
-00D9 50                       push ax
-00DA                          Push(01)
-00DE                          Push(04)
-00E2 C4 5E 06                 les bx, [bp+0x6]
-00E5 26 FF 9F BC 00           call far word [es:bx+0xbc]
-00EA 83 C4 08                 add sp, 0x8
+00D9                          GoMap(stk[0], ax, 01, 04)
 00ED EB 00                    jmp 0xef
 00EF                          RETURN
 00F1 0F 26                    invalid

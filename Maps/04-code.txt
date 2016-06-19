@@ -49,10 +49,7 @@ LKPKDOOR_0A:
 0016 75 11                    jnz 0x29
 0018                          ax = UsedSkill(0E, 04) // returns 0 if did not use, compares to 2nd op if did use
 0027 72 3F                    jb 0x68
-0029                          Push(01)
-002D                          Push(03)
-0031                          Push(6F)
-0035                          Move(stk[0], stk[1], stk[2])
+0029                          Move(01, 03, 6F)
 003F                          Push(03)
 0043                          ax = GetNextTile()
 004A 50                       push ax
@@ -78,10 +75,7 @@ LKPKDOOR_0C:
 0016 75 11                    jnz 0x29
 0018                          ax = UsedSkill(0E, 08) // returns 0 if did not use, compares to 2nd op if did use
 0027 72 3F                    jb 0x68
-0029                          Push(01)
-002D                          Push(03)
-0031                          Push(40)
-0035                          Move(stk[0], stk[1], stk[2])
+0029                          Move(01, 03, 40)
 003F                          Push(03)
 0043                          ax = GetNextTile()
 004A 50                       push ax

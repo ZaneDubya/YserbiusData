@@ -31,10 +31,7 @@ HIDNDOOR_05:
 004C 75 15                    jnz 0x63
 004E                          ax = UsedItem(BE, BE)
 0061 74 3D                    jz 0xa0
-0063                          Push(01)
-0067                          Push(02)
-006B                          Push(02)
-006F                          Move(stk[0], stk[1], stk[2])
+0063                          Move(01, 02, 02)
 0079                          Push(02)
 007D                          ax = GetNextTile()
 0084 50                       push ax

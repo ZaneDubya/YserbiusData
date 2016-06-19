@@ -63,12 +63,7 @@ RAPID_10:
 0025                          ShowMessage(05F6) = 'Thanks to the gracious generosity of the Mage Council, the survivors of the Arnakkian disaster hereby proclaim a new teleport to the top.'
 0032                          Push(02)
 0036                          ax = GetNextTile()
-003D 50                       push ax
-003E                          Push(01)
-0042                          Push(33)
-0046 C4 5E 06                 les bx, [bp+0x6]
-0049 26 FF 9F BC 00           call far word [es:bx+0xbc]
-004E 83 C4 08                 add sp, 0x8
+003D                          GoMap(stk[0], ax, 01, 33)
 0051                          RETURN
 
 RIVER_11:
@@ -238,12 +233,7 @@ PHOEREW_21:
 0016 75 4B                    jnz 0x63
 0018                          SetState(02, 5E, 01)
 002D                          SetState(02, 85, 01)
-0042                          Push(C8)
-0046                          Push(04)
-004A C4 5E 06                 les bx, [bp+0x6]
-004D 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0052 59                       pop cx
-0053 59                       pop cx
+0042                          ModifyAttribute(04, 00C8)
 0054                          ShowMessage(0BAD) = You feel a sudden increase in your Dexterity.
 0061 EB 0D                    jmp 0x70
 0063                          ShowMessage(0BDB) = Nothing happens.

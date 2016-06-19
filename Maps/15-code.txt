@@ -136,12 +136,10 @@ TELEPORT_0A:
 
 HUTHDOOR_0B:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 78              call far word [es:bx+0x78]
+0003                          ax = GetRace()
 000A 0B C0                    or ax, ax
 000C 74 0C                    jz 0x1a
-000E C4 5E 06                 les bx, [bp+0x6]
-0011 26 FF 5F 7C              call far word [es:bx+0x7c]
+000E                          ax = GetGuild()
 0015 3D 03 00                 cmp ax, 0x3
 0018 75 4B                    jnz 0x65
 001A                          Push(01)
@@ -169,12 +167,10 @@ HUTHDOOR_0B:
 
 ORCLDOOR_0C:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 78              call far word [es:bx+0x78]
+0003                          ax = GetRace()
 000A 3D 01 00                 cmp ax, 0x1
 000D 74 0C                    jz 0x1b
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 5F 7C              call far word [es:bx+0x7c]
+000F                          ax = GetGuild()
 0016 3D 04 00                 cmp ax, 0x4
 0019 75 4B                    jnz 0x66
 001B                          Push(01)
@@ -202,12 +198,10 @@ ORCLDOOR_0C:
 
 ELBADOOR_0D:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 78              call far word [es:bx+0x78]
+0003                          ax = GetRace()
 000A 3D 02 00                 cmp ax, 0x2
 000D 74 0B                    jz 0x1a
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 5F 7C              call far word [es:bx+0x7c]
+000F                          ax = GetGuild()
 0016 0B C0                    or ax, ax
 0018 75 4B                    jnz 0x65
 001A                          Push(01)
@@ -235,12 +229,10 @@ ELBADOOR_0D:
 
 TRRADOOR_0E:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 78              call far word [es:bx+0x78]
+0003                          ax = GetRace()
 000A 3D 03 00                 cmp ax, 0x3
 000D 74 0C                    jz 0x1b
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 5F 7C              call far word [es:bx+0x7c]
+000F                          ax = GetGuild()
 0016 3D 02 00                 cmp ax, 0x2
 0019 75 4B                    jnz 0x66
 001B                          Push(01)
@@ -268,12 +260,10 @@ TRRADOOR_0E:
 
 DWKNDOOR_0F:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 78              call far word [es:bx+0x78]
+0003                          ax = GetRace()
 000A 3D 04 00                 cmp ax, 0x4
 000D 74 0C                    jz 0x1b
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 5F 7C              call far word [es:bx+0x7c]
+000F                          ax = GetGuild()
 0016 3D 01 00                 cmp ax, 0x1
 0019 75 4B                    jnz 0x66
 001B                          Push(01)
@@ -301,12 +291,10 @@ DWKNDOOR_0F:
 
 GNWIDOOR_10:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 78              call far word [es:bx+0x78]
+0003                          ax = GetRace()
 000A 3D 05 00                 cmp ax, 0x5
 000D 74 0C                    jz 0x1b
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 5F 7C              call far word [es:bx+0x7c]
+000F                          ax = GetGuild()
 0016 3D 05 00                 cmp ax, 0x5
 0019 75 4B                    jnz 0x66
 001B                          Push(01)
@@ -334,8 +322,7 @@ GNWIDOOR_10:
 
 HAITDOOR_11:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 78              call far word [es:bx+0x78]
+0003                          ax = GetRace()
 000A 3D 06 00                 cmp ax, 0x6
 000D 74 10                    jz 0x1f
 000F                          ax = HasItem(D3)
@@ -365,8 +352,7 @@ HAITDOOR_11:
 
 GRITDOOR_12:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 78              call far word [es:bx+0x78]
+0003                          ax = GetRace()
 000A 3D 07 00                 cmp ax, 0x7
 000D 74 10                    jz 0x1f
 000F                          ax = HasItem(D2)
@@ -397,8 +383,7 @@ GRITDOOR_12:
 OTGGDOOR_13:
 0000                          BEGIN
 0003                          ShowMessage(09A9) = A warning is on the door -
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 9F 80 00           call far word [es:bx+0x80]
+0010                          ax = GetAlignment()
 0018 0B C0                    or ax, ax
 001A 75 0F                    jnz 0x2b
 001C                          ShowMessage(09C4) = 'Those honoring Harmony may safely enter.'
@@ -409,8 +394,7 @@ OTGGDOOR_13:
 HEDHDOOR_14:
 0000                          BEGIN
 0003                          ShowMessage(0A2E) = A warning is on the door -
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 9F 80 00           call far word [es:bx+0x80]
+0010                          ax = GetAlignment()
 0018 3D 01 00                 cmp ax, 0x1
 001B 75 0F                    jnz 0x2c
 001D                          ShowMessage(0A49) = 'Those honoring Chaos may safely enter.'
@@ -427,8 +411,7 @@ CHAOSDOR_15:
 001F 50                       push ax
 0020                          Push(01)
 0024                          SetUnblocked()
-002E C4 5E 06                 les bx, [bp+0x6]
-0031 26 FF 9F 80 00           call far word [es:bx+0x80]
+002E                          ax = GetAlignment()
 0036 3D 01 00                 cmp ax, 0x1
 0039 75 2D                    jnz 0x68
 003B                          Push(01)
@@ -440,20 +423,8 @@ CHAOSDOR_15:
 0059                          ShowMessage(0ACB) = The way is clear for members of Chaos.
 0066 EB 60                    jmp 0xc8
 0068                          ModifyGold(FFFF78BA)
-007A B8 FE FF                 mov ax, 0xfffe
-007D 50                       push ax
-007E                          Push(00)
-0081 C4 5E 06                 les bx, [bp+0x6]
-0084 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0089 59                       pop cx
-008A 59                       pop cx
-008B B8 FE FF                 mov ax, 0xfffe
-008E 50                       push ax
-008F                          Push(01)
-0093 C4 5E 06                 les bx, [bp+0x6]
-0096 26 FF 9F A8 00           call far word [es:bx+0xa8]
-009B 59                       pop cx
-009C 59                       pop cx
+007A                          ModifyAttribute(00, FFFE)
+008B                          ModifyAttribute(01, FFFE)
 009D                          Push(01)
 00A1                          ax = SetExitability(ax) // ax is usually 0 following equality check
 00A8 50                       push ax
@@ -472,8 +443,7 @@ HARMDOOR_16:
 001F 50                       push ax
 0020                          Push(01)
 0024                          SetUnblocked()
-002E C4 5E 06                 les bx, [bp+0x6]
-0031 26 FF 9F 80 00           call far word [es:bx+0x80]
+002E                          ax = GetAlignment()
 0036 0B C0                    or ax, ax
 0038 75 2D                    jnz 0x67
 003A                          Push(01)
@@ -485,20 +455,8 @@ HARMDOOR_16:
 0058                          ShowMessage(0B3D) = The way is clear for members of Harmony.
 0065 EB 60                    jmp 0xc7
 0067                          ModifyGold(FFFF78BA)
-0079 B8 FE FF                 mov ax, 0xfffe
-007C 50                       push ax
-007D                          Push(00)
-0080 C4 5E 06                 les bx, [bp+0x6]
-0083 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0088 59                       pop cx
-0089 59                       pop cx
-008A B8 FE FF                 mov ax, 0xfffe
-008D 50                       push ax
-008E                          Push(01)
-0092 C4 5E 06                 les bx, [bp+0x6]
-0095 26 FF 9F A8 00           call far word [es:bx+0xa8]
-009A 59                       pop cx
-009B 59                       pop cx
+0079                          ModifyAttribute(00, FFFE)
+008A                          ModifyAttribute(01, FFFE)
 009C                          Push(01)
 00A0                          ax = SetExitability(ax) // ax is usually 0 following equality check
 00A7 50                       push ax
@@ -512,25 +470,21 @@ PAYAENC_17:
 0000                          BEGIN
 0003                          ax = CheckState(02, 23, 01)
 0017 74 0C                    jz 0x25
-0019 C4 5E 06                 les bx, [bp+0x6]
-001C 26 FF 9F 80 00           call far word [es:bx+0x80]
+0019                          ax = GetAlignment()
 0021 0B C0                    or ax, ax
 0023 75 23                    jnz 0x48
 0025                          AddTreasure(0064, 00, 00, 00, CE, B7)
 0045 E9 99 00                 jmp 0xe1
 0048                          SetState(02, 23, 01)
-005D C4 5E 06                 les bx, [bp+0x6]
-0060 26 FF 5F 7C              call far word [es:bx+0x7c]
+005D                          ax = GetGuild()
 0064 3D 05 00                 cmp ax, 0x5
 0067 74 0C                    jz 0x75
-0069 C4 5E 06                 les bx, [bp+0x6]
-006C 26 FF 5F 7C              call far word [es:bx+0x7c]
+0069                          ax = GetGuild()
 0070 3D 04 00                 cmp ax, 0x4
 0073 75 21                    jnz 0x96
 0075                          AddTreasure(03E8, 00, 00, 00, 00, 0E)
 0094 EB 4B                    jmp 0xe1
-0096 C4 5E 06                 les bx, [bp+0x6]
-0099 26 FF 5F 7C              call far word [es:bx+0x7c]
+0096                          ax = GetGuild()
 009D 0B C0                    or ax, ax
 009F 75 21                    jnz 0xc2
 00A1                          AddTreasure(03E8, 00, 00, 00, 00, 2A)
@@ -563,35 +517,29 @@ PAYBENC_18:
 0000                          BEGIN
 0003                          ax = CheckState(02, 22, 01)
 0017 74 0D                    jz 0x26
-0019 C4 5E 06                 les bx, [bp+0x6]
-001C 26 FF 9F 80 00           call far word [es:bx+0x80]
+0019                          ax = GetAlignment()
 0021 3D 01 00                 cmp ax, 0x1
 0024 75 23                    jnz 0x49
 0026                          AddTreasure(0064, 00, 00, 00, CE, B7)
 0046 E9 D3 00                 jmp 0x11c
 0049                          SetState(02, 22, 01)
-005E C4 5E 06                 les bx, [bp+0x6]
-0061 26 FF 5F 7C              call far word [es:bx+0x7c]
+005E                          ax = GetGuild()
 0065 0B C0                    or ax, ax
 0067 74 0C                    jz 0x75
-0069 C4 5E 06                 les bx, [bp+0x6]
-006C 26 FF 5F 7C              call far word [es:bx+0x7c]
+0069                          ax = GetGuild()
 0070 3D 04 00                 cmp ax, 0x4
 0073 75 22                    jnz 0x97
 0075                          AddTreasure(03E8, 00, 00, 00, 00, 22)
 0094 E9 85 00                 jmp 0x11c
-0097 C4 5E 06                 les bx, [bp+0x6]
-009A 26 FF 5F 7C              call far word [es:bx+0x7c]
+0097                          ax = GetGuild()
 009E 3D 01 00                 cmp ax, 0x1
 00A1 75 21                    jnz 0xc4
 00A3                          AddTreasure(03E8, 00, 00, 00, 00, 10)
 00C2 EB 58                    jmp 0x11c
-00C4 C4 5E 06                 les bx, [bp+0x6]
-00C7 26 FF 5F 7C              call far word [es:bx+0x7c]
+00C4                          ax = GetGuild()
 00CB 3D 02 00                 cmp ax, 0x2
 00CE 74 0C                    jz 0xdc
-00D0 C4 5E 06                 les bx, [bp+0x6]
-00D3 26 FF 5F 7C              call far word [es:bx+0x7c]
+00D0                          ax = GetGuild()
 00D7 3D 03 00                 cmp ax, 0x3
 00DA 75 21                    jnz 0xfd
 00DC                          AddTreasure(03E8, 00, 00, 00, 00, 45)
@@ -622,35 +570,17 @@ PAYBENC_18:
 
 BLESSMES_19:
 0000                          BEGIN
-0003                          Push(2F)
-0007                          Push(02)
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 0C              call far word [es:bx+0xc]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState3(02, 2F)
 0016 74 5E                    jz 0x76
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 78              call far word [es:bx+0x78]
+0018                          ax = GetRace()
 001F 0B C0                    or ax, ax
 0021 74 0C                    jz 0x2f
-0023 C4 5E 06                 les bx, [bp+0x6]
-0026 26 FF 5F 7C              call far word [es:bx+0x7c]
+0023                          ax = GetGuild()
 002A 3D 03 00                 cmp ax, 0x3
 002D 75 47                    jnz 0x76
 002F                          SetState(02, 2F, 01)
-0044                          Push(01)
-0048                          Push(00)
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0053 59                       pop cx
-0054 59                       pop cx
-0055                          Push(01)
-0059                          Push(01)
-005D C4 5E 06                 les bx, [bp+0x6]
-0060 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0065 59                       pop cx
-0066 59                       pop cx
+0044                          ModifyAttribute(00, 0001)
+0055                          ModifyAttribute(01, 0001)
 0067                          ShowMessage(0BD7) = Blessed Human or Thief, you may continue the quest.
 0074 EB 22                    jmp 0x98
 0076                          SetState(02, 2F, 01)
@@ -659,35 +589,17 @@ BLESSMES_19:
 
 BLESSMES_1A:
 0000                          BEGIN
-0003                          Push(30)
-0007                          Push(02)
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 0C              call far word [es:bx+0xc]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState3(02, 30)
 0016 74 5F                    jz 0x77
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 78              call far word [es:bx+0x78]
+0018                          ax = GetRace()
 001F 3D 01 00                 cmp ax, 0x1
 0022 74 0C                    jz 0x30
-0024 C4 5E 06                 les bx, [bp+0x6]
-0027 26 FF 5F 7C              call far word [es:bx+0x7c]
+0024                          ax = GetGuild()
 002B 3D 04 00                 cmp ax, 0x4
 002E 75 47                    jnz 0x77
 0030                          SetState(02, 30, 01)
-0045                          Push(01)
-0049                          Push(00)
-004C C4 5E 06                 les bx, [bp+0x6]
-004F 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0054 59                       pop cx
-0055 59                       pop cx
-0056                          Push(01)
-005A                          Push(01)
-005E C4 5E 06                 les bx, [bp+0x6]
-0061 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0066 59                       pop cx
-0067 59                       pop cx
+0045                          ModifyAttribute(00, 0001)
+0056                          ModifyAttribute(01, 0001)
 0068                          ShowMessage(0C33) = Blessed Orc or Cleric, you may continue the quest.
 0075 EB 22                    jmp 0x99
 0077                          SetState(02, 30, 01)
@@ -696,35 +608,17 @@ BLESSMES_1A:
 
 BLESSMES_1B:
 0000                          BEGIN
-0003                          Push(31)
-0007                          Push(02)
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 0C              call far word [es:bx+0xc]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState3(02, 31)
 0016 74 5E                    jz 0x76
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 78              call far word [es:bx+0x78]
+0018                          ax = GetRace()
 001F 3D 02 00                 cmp ax, 0x2
 0022 74 0B                    jz 0x2f
-0024 C4 5E 06                 les bx, [bp+0x6]
-0027 26 FF 5F 7C              call far word [es:bx+0x7c]
+0024                          ax = GetGuild()
 002B 0B C0                    or ax, ax
 002D 75 47                    jnz 0x76
 002F                          SetState(02, 31, 01)
-0044                          Push(01)
-0048                          Push(00)
-004B C4 5E 06                 les bx, [bp+0x6]
-004E 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0053 59                       pop cx
-0054 59                       pop cx
-0055                          Push(01)
-0059                          Push(01)
-005D C4 5E 06                 les bx, [bp+0x6]
-0060 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0065 59                       pop cx
-0066 59                       pop cx
+0044                          ModifyAttribute(00, 0001)
+0055                          ModifyAttribute(01, 0001)
 0067                          ShowMessage(0C8C) = Blessed Elf or Barbarian, you may continue the quest.
 0074 EB 22                    jmp 0x98
 0076                          SetState(02, 31, 01)
@@ -733,35 +627,17 @@ BLESSMES_1B:
 
 BLESSMES_1C:
 0000                          BEGIN
-0003                          Push(32)
-0007                          Push(02)
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 0C              call far word [es:bx+0xc]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState3(02, 32)
 0016 74 5F                    jz 0x77
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 78              call far word [es:bx+0x78]
+0018                          ax = GetRace()
 001F 3D 03 00                 cmp ax, 0x3
 0022 74 0C                    jz 0x30
-0024 C4 5E 06                 les bx, [bp+0x6]
-0027 26 FF 5F 7C              call far word [es:bx+0x7c]
+0024                          ax = GetGuild()
 002B 3D 02 00                 cmp ax, 0x2
 002E 75 47                    jnz 0x77
 0030                          SetState(02, 32, 01)
-0045                          Push(01)
-0049                          Push(00)
-004C C4 5E 06                 les bx, [bp+0x6]
-004F 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0054 59                       pop cx
-0055 59                       pop cx
-0056                          Push(01)
-005A                          Push(01)
-005E C4 5E 06                 les bx, [bp+0x6]
-0061 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0066 59                       pop cx
-0067 59                       pop cx
+0045                          ModifyAttribute(00, 0001)
+0056                          ModifyAttribute(01, 0001)
 0068                          ShowMessage(0CD9) = Blessed Troll or Ranger, you may continue the quest.
 0075 EB 22                    jmp 0x99
 0077                          SetState(02, 32, 01)
@@ -770,35 +646,17 @@ BLESSMES_1C:
 
 BLESSMES_1D:
 0000                          BEGIN
-0003                          Push(33)
-0007                          Push(02)
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 0C              call far word [es:bx+0xc]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState3(02, 33)
 0016 74 5F                    jz 0x77
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 78              call far word [es:bx+0x78]
+0018                          ax = GetRace()
 001F 3D 04 00                 cmp ax, 0x4
 0022 74 0C                    jz 0x30
-0024 C4 5E 06                 les bx, [bp+0x6]
-0027 26 FF 5F 7C              call far word [es:bx+0x7c]
+0024                          ax = GetGuild()
 002B 3D 01 00                 cmp ax, 0x1
 002E 75 47                    jnz 0x77
 0030                          SetState(02, 33, 01)
-0045                          Push(01)
-0049                          Push(00)
-004C C4 5E 06                 les bx, [bp+0x6]
-004F 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0054 59                       pop cx
-0055 59                       pop cx
-0056                          Push(01)
-005A                          Push(01)
-005E C4 5E 06                 les bx, [bp+0x6]
-0061 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0066 59                       pop cx
-0067 59                       pop cx
+0045                          ModifyAttribute(00, 0001)
+0056                          ModifyAttribute(01, 0001)
 0068                          ShowMessage(0D25) = Blessed Dwarf or Knight, you may continue the quest.
 0075 EB 22                    jmp 0x99
 0077                          SetState(02, 33, 01)
@@ -807,35 +665,17 @@ BLESSMES_1D:
 
 BLESSMES_1E:
 0000                          BEGIN
-0003                          Push(34)
-0007                          Push(02)
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 0C              call far word [es:bx+0xc]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState3(02, 34)
 0016 74 5F                    jz 0x77
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 78              call far word [es:bx+0x78]
+0018                          ax = GetRace()
 001F 3D 05 00                 cmp ax, 0x5
 0022 74 0C                    jz 0x30
-0024 C4 5E 06                 les bx, [bp+0x6]
-0027 26 FF 5F 7C              call far word [es:bx+0x7c]
+0024                          ax = GetGuild()
 002B 3D 05 00                 cmp ax, 0x5
 002E 75 47                    jnz 0x77
 0030                          SetState(02, 34, 01)
-0045                          Push(01)
-0049                          Push(00)
-004C C4 5E 06                 les bx, [bp+0x6]
-004F 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0054 59                       pop cx
-0055 59                       pop cx
-0056                          Push(01)
-005A                          Push(01)
-005E C4 5E 06                 les bx, [bp+0x6]
-0061 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0066 59                       pop cx
-0067 59                       pop cx
+0045                          ModifyAttribute(00, 0001)
+0056                          ModifyAttribute(01, 0001)
 0068                          ShowMessage(0D82) = Blessed Gnome or Wizard, you may continue the quest.
 0075 EB 22                    jmp 0x99
 0077                          SetState(02, 34, 01)
@@ -844,38 +684,20 @@ BLESSMES_1E:
 
 BLESSMES_1F:
 0000                          BEGIN
-0003                          Push(35)
-0007                          Push(02)
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 0C              call far word [es:bx+0xc]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState3(02, 35)
 0016 74 6F                    jz 0x87
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 78              call far word [es:bx+0x78]
+0018                          ax = GetRace()
 001F 3D 06 00                 cmp ax, 0x6
 0022 74 10                    jz 0x34
 0024                          ax = HasItem(D3)
 0032 74 53                    jz 0x87
 0034                          SetState(02, 35, 01)
 0049                          ShowMessage(0DF3) = Blessed Halfling! Blessed Key of Cleowyn! With either, the quest may continue.
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 5F 78              call far word [es:bx+0x78]
+0056                          ax = GetRace()
 005D 3D 06 00                 cmp ax, 0x6
 0060 75 23                    jnz 0x85
-0062                          Push(01)
-0066                          Push(00)
-0069 C4 5E 06                 les bx, [bp+0x6]
-006C 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0071 59                       pop cx
-0072 59                       pop cx
-0073                          Push(01)
-0077                          Push(01)
-007B C4 5E 06                 les bx, [bp+0x6]
-007E 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0083 59                       pop cx
-0084 59                       pop cx
+0062                          ModifyAttribute(00, 0001)
+0073                          ModifyAttribute(01, 0001)
 0085 EB 22                    jmp 0xa9
 0087                          SetState(02, 35, 01)
 009C                          ShowMessage(0E42) = The tapestry is empty.
@@ -883,38 +705,20 @@ BLESSMES_1F:
 
 BLESSMES_20:
 0000                          BEGIN
-0003                          Push(36)
-0007                          Push(02)
-000B C4 5E 06                 les bx, [bp+0x6]
-000E 26 FF 5F 0C              call far word [es:bx+0xc]
-0012 59                       pop cx
-0013 59                       pop cx
-0014 0B C0                    or ax, ax
+0003                          ax = CheckState3(02, 36)
 0016 74 6F                    jz 0x87
-0018 C4 5E 06                 les bx, [bp+0x6]
-001B 26 FF 5F 78              call far word [es:bx+0x78]
+0018                          ax = GetRace()
 001F 3D 07 00                 cmp ax, 0x7
 0022 74 10                    jz 0x34
 0024                          ax = HasItem(D2)
 0032 74 53                    jz 0x87
 0034                          SetState(02, 36, 01)
 0049                          ShowMessage(0E59) = Blessed Gremlin! Blessed Pick of Cleowyn! With either, the quest may continue.
-0056 C4 5E 06                 les bx, [bp+0x6]
-0059 26 FF 5F 78              call far word [es:bx+0x78]
+0056                          ax = GetRace()
 005D 3D 07 00                 cmp ax, 0x7
 0060 75 23                    jnz 0x85
-0062                          Push(01)
-0066                          Push(00)
-0069 C4 5E 06                 les bx, [bp+0x6]
-006C 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0071 59                       pop cx
-0072 59                       pop cx
-0073                          Push(01)
-0077                          Push(01)
-007B C4 5E 06                 les bx, [bp+0x6]
-007E 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0083 59                       pop cx
-0084 59                       pop cx
+0062                          ModifyAttribute(00, 0001)
+0073                          ModifyAttribute(01, 0001)
 0085 EB 22                    jmp 0xa9
 0087                          SetState(02, 36, 01)
 009C                          ShowMessage(0EA8) = The tapestry once held a woven message.

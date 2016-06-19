@@ -76,12 +76,7 @@ VORANTI_09:
 0003                          ShowMessage(0601) = VORANTI'S PASSAGE is home to Voranti, the Dark Dwarf Thief.
 0010                          Push(02)
 0014                          ax = GetNextTile()
-001B 50                       push ax
-001C                          Push(01)
-0020                          Push(34)
-0024 C4 5E 06                 les bx, [bp+0x6]
-0027 26 FF 9F BC 00           call far word [es:bx+0xbc]
-002C 83 C4 08                 add sp, 0x8
+001B                          GoMap(stk[0], ax, 01, 34)
 002F                          RETURN
 
 ZZYZX_0A:
@@ -199,8 +194,7 @@ HEAVENCE_18:
 
 HEAVWIND_1A:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F 80 00           call far word [es:bx+0x80]
+0003                          ax = GetAlignment()
 000B 3D 01 00                 cmp ax, 0x1
 000E 75 3E                    jnz 0x4e
 0010                          ShowMessage(0923) = The fury of Heaven's Wind ripping through the corridor inflicts considerable damage.
@@ -372,96 +366,68 @@ TXTEXOD_29:
 
 WINDENCA_2A:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 78              call far word [es:bx+0x78]
+0003                          ax = GetRace()
 000A 0B C0                    or ax, ax
 000C 74 0C                    jz 0x1a
-000E C4 5E 06                 les bx, [bp+0x6]
-0011 26 FF 5F 78              call far word [es:bx+0x78]
+000E                          ax = GetRace()
 0015 3D 06 00                 cmp ax, 0x6
 0018 75 58                    jnz 0x72
 001A                          ax = CheckState(02, 5A, any)
 002D 75 36                    jnz 0x65
 002F                          SetState(02, 5A, 01)
 0044                          ShowMessage(0D33) = Your initiative in combat improves.
-0051                          Push(03)
-0055                          Push(03)
-0059 C4 5E 06                 les bx, [bp+0x6]
-005C 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0061 59                       pop cx
-0062 59                       pop cx
+0051                          ModifyAttribute(03, 0003)
 0063 EB 0D                    jmp 0x72
 0065                          ShowMessage(0D57) = Nothing happens.
 0072                          RETURN
 
 WINDENCB_2B:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 78              call far word [es:bx+0x78]
+0003                          ax = GetRace()
 000A 3D 02 00                 cmp ax, 0x2
 000D 74 0C                    jz 0x1b
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 5F 78              call far word [es:bx+0x78]
+000F                          ax = GetRace()
 0016 3D 05 00                 cmp ax, 0x5
 0019 75 58                    jnz 0x73
 001B                          ax = CheckState(02, 5B, any)
 002E 75 36                    jnz 0x66
 0030                          SetState(02, 5B, 01)
 0045                          ShowMessage(0D68) = Your agility improves.
-0052                          Push(03)
-0056                          Push(02)
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0062 59                       pop cx
-0063 59                       pop cx
+0052                          ModifyAttribute(02, 0003)
 0064 EB 0D                    jmp 0x73
 0066                          ShowMessage(0D7F) = Nothing happens.
 0073                          RETURN
 
 WINDENCC_2C:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 78              call far word [es:bx+0x78]
+0003                          ax = GetRace()
 000A 3D 01 00                 cmp ax, 0x1
 000D 74 0C                    jz 0x1b
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 5F 78              call far word [es:bx+0x78]
+000F                          ax = GetRace()
 0016 3D 03 00                 cmp ax, 0x3
 0019 75 57                    jnz 0x72
 001B                          ax = CheckState(02, 5C, any)
 002E 75 35                    jnz 0x65
 0030                          SetState(02, 5C, 01)
 0045                          ShowMessage(0D90) = You feel much stronger.
-0052                          Push(03)
-0056                          Push(00)
-0059 C4 5E 06                 les bx, [bp+0x6]
-005C 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0061 59                       pop cx
-0062 59                       pop cx
+0052                          ModifyAttribute(00, 0003)
 0063 EB 0D                    jmp 0x72
 0065                          ShowMessage(0DA8) = Nothing happens.
 0072                          RETURN
 
 WINDENCD_2D:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 5F 78              call far word [es:bx+0x78]
+0003                          ax = GetRace()
 000A 3D 07 00                 cmp ax, 0x7
 000D 74 0C                    jz 0x1b
-000F C4 5E 06                 les bx, [bp+0x6]
-0012 26 FF 5F 78              call far word [es:bx+0x78]
+000F                          ax = GetRace()
 0016 3D 04 00                 cmp ax, 0x4
 0019 75 58                    jnz 0x73
 001B                          ax = CheckState(02, 5D, any)
 002E 75 36                    jnz 0x66
 0030                          SetState(02, 5D, 01)
 0045                          ShowMessage(0DB9) = Your ability to defend yourself in combat improves.
-0052                          Push(03)
-0056                          Push(01)
-005A C4 5E 06                 les bx, [bp+0x6]
-005D 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0062 59                       pop cx
-0063 59                       pop cx
+0052                          ModifyAttribute(01, 0003)
 0064 EB 0D                    jmp 0x73
 0066                          ShowMessage(0DED) = Nothing happens.
 0073                          RETURN
@@ -469,12 +435,10 @@ WINDENCD_2D:
 BDRWINDA_2E:
 0000                          BEGIN
 0003                          ShowMessage(0DFE) = The door is barred to all but Humans and Halflings.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 78              call far word [es:bx+0x78]
+0010                          ax = GetRace()
 0017 0B C0                    or ax, ax
 0019 74 0C                    jz 0x27
-001B C4 5E 06                 les bx, [bp+0x6]
-001E 26 FF 5F 78              call far word [es:bx+0x78]
+001B                          ax = GetRace()
 0022 3D 06 00                 cmp ax, 0x6
 0025 75 2B                    jnz 0x52
 0027                          Push(01)
@@ -489,12 +453,10 @@ BDRWINDA_2E:
 BDRWINDB_2F:
 0000                          BEGIN
 0003                          ShowMessage(0E53) = The door is barred to all but Elves and Gnomes.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 78              call far word [es:bx+0x78]
+0010                          ax = GetRace()
 0017 3D 02 00                 cmp ax, 0x2
 001A 74 0C                    jz 0x28
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 5F 78              call far word [es:bx+0x78]
+001C                          ax = GetRace()
 0023 3D 05 00                 cmp ax, 0x5
 0026 75 2B                    jnz 0x53
 0028                          Push(01)
@@ -509,12 +471,10 @@ BDRWINDB_2F:
 BDRWINDC_30:
 0000                          BEGIN
 0003                          ShowMessage(0EB4) = The door is barred to all but Orcs and Trolls.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 78              call far word [es:bx+0x78]
+0010                          ax = GetRace()
 0017 3D 01 00                 cmp ax, 0x1
 001A 74 0C                    jz 0x28
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 5F 78              call far word [es:bx+0x78]
+001C                          ax = GetRace()
 0023 3D 03 00                 cmp ax, 0x3
 0026 75 2B                    jnz 0x53
 0028                          Push(01)
@@ -529,12 +489,10 @@ BDRWINDC_30:
 BDRWINDD_31:
 0000                          BEGIN
 0003                          ShowMessage(0F10) = The door is barred to all but Gremlins and Dwarves.
-0010 C4 5E 06                 les bx, [bp+0x6]
-0013 26 FF 5F 78              call far word [es:bx+0x78]
+0010                          ax = GetRace()
 0017 3D 04 00                 cmp ax, 0x4
 001A 74 0C                    jz 0x28
-001C C4 5E 06                 les bx, [bp+0x6]
-001F 26 FF 5F 78              call far word [es:bx+0x78]
+001C                          ax = GetRace()
 0023 3D 07 00                 cmp ax, 0x7
 0026 75 2B                    jnz 0x53
 0028                          Push(01)
@@ -591,18 +549,8 @@ FNTNSTRN_38:
 0010                          ax = CheckState(02, 4A, any)
 0023 75 47                    jnz 0x6c
 0025                          SetState(02, 4A, 01)
-003A                          Push(02)
-003E                          Push(00)
-0041 C4 5E 06                 les bx, [bp+0x6]
-0044 26 FF 9F A8 00           call far word [es:bx+0xa8]
-0049 59                       pop cx
-004A 59                       pop cx
-004B                          Push(02)
-004F                          Push(01)
-0053 C4 5E 06                 les bx, [bp+0x6]
-0056 26 FF 9F A8 00           call far word [es:bx+0xa8]
-005B 59                       pop cx
-005C 59                       pop cx
+003A                          ModifyAttribute(00, 0002)
+004B                          ModifyAttribute(01, 0002)
 005D                          ShowMessage(116C) = The turgid water of the Troll Fountain tastes terrible, but it makes you feel stronger.
 006A EB 0D                    jmp 0x79
 006C                          ShowMessage(11C4) = The fountain waters taste awful and make you nauseated.
@@ -768,8 +716,7 @@ FNTNTROL_48:
 
 HELLWIND_49:
 0000                          BEGIN
-0003 C4 5E 06                 les bx, [bp+0x6]
-0006 26 FF 9F 80 00           call far word [es:bx+0x80]
+0003                          ax = GetAlignment()
 000B 0B C0                    or ax, ax
 000D 75 3E                    jnz 0x4d
 000F                          ShowMessage(14E6) = The full fury of Hell's Wind rips through the corridor, causing considerable damage.
