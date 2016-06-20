@@ -1,0 +1,6 @@
+When the game begins a random encounter, it first looks up the monster index in R.036.
+  Wolf: index 42,34932
+  Snake: index 44,35084
+Then it looks up the monster data, based on the index:
+  Wolf: index 0,00000
+  Snake: index 45,02070
