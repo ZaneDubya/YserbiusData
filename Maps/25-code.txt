@@ -10,7 +10,8 @@ XOVER_02:
 0003                          ax = GetNextTile()
 000A 3D 39 00                 cmp ax, 0x39
 000D 75 54                    jnz 0x63
-000F                          ax = CheckState(01, 01, any)
+000F                          ax = CheckState(01, 01)
+0020 0B C0                    or ax, ax
 0022 74 1F                    jz 0x43
 0024                          SetTileFloor(39, 00)
 0032 59                       pop cx
@@ -21,7 +22,8 @@ XOVER_02:
 0050                          ax = GetMaxHits()
 0057                          DoDamage(ax)
 0061 EB 38                    jmp 0x9b
-0063                          ax = CheckState(01, 01, any)
+0063                          ax = CheckState(01, 01)
+0074 0B C0                    or ax, ax
 0076 74 12                    jz 0x8a
 0078                          SetTileFloor(39, 00)
 0086 59                       pop cx
@@ -133,29 +135,30 @@ HEAVFOUN_14:
 0000                          BEGIN
 0003                          ShowPortrait(0042)
 0010                          ShowMessage(082C) = Clerical symbols decorate the marblework of Morgard's Fountain.
-001D                          ax = CheckState(02, 61, any)
+001D                          ax = CheckState(02, 61)
+002E 0B C0                    or ax, ax
 0030 74 03                    jz 0x35
 0032 E9 E5 00                 jmp 0x11a
 0035                          SetState(02, 61, 01)
-004A                          ax = SkillLevel(13)
+004A                          ax = GetSkillLevel(13)
 0056 0B C0                    or ax, ax
 0058 75 21                    jnz 0x7b
 005A                          SetSkillLevel(13, 02)
 006B                          ShowMessage(086C) = You gain the Reverie skill!
 0078 E9 9D 00                 jmp 0x118
-007B                          ax = SkillLevel(11)
+007B                          ax = GetSkillLevel(11)
 0087 0B C0                    or ax, ax
 0089 75 20                    jnz 0xab
 008B                          SetSkillLevel(11, 02)
 009C                          ShowMessage(0888) = You gain the Deflect Magic skill!
 00A9 EB 6D                    jmp 0x118
-00AB                          ax = SkillLevel(12)
+00AB                          ax = GetSkillLevel(12)
 00B7 0B C0                    or ax, ax
 00B9 75 20                    jnz 0xdb
 00BB                          SetSkillLevel(12, 02)
 00CC                          ShowMessage(08AA) = You gain the Medic skill!
 00D9 EB 3D                    jmp 0x118
-00DB                          ax = SkillLevel(10)
+00DB                          ax = GetSkillLevel(10)
 00E7 0B C0                    or ax, ax
 00E9 75 20                    jnz 0x10b
 00EB                          SetSkillLevel(10, 02)
@@ -218,7 +221,8 @@ TXTHEAV_1B:
 
 BDRHEAVA_1C:
 0000                          BEGIN
-0003                          CheckStrength(14)
+0003                          ax = CheckStrength()
+000F 3D 14 00                 cmp ax, 0x14
 0012 72 2D                    jb 0x41
 0014                          ShowMessage(09F7) = You force the massive door open by sheer muscle power.
 0021                          Push(01)
@@ -233,7 +237,8 @@ BDRHEAVA_1C:
 
 SDRHEAVE_1D:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 0C) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 0C 00                 cmp ax, 0xc
 0012 73 25                    jae 0x39
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -372,7 +377,8 @@ WINDENCA_2A:
 000E                          ax = GetRace()
 0015 3D 06 00                 cmp ax, 0x6
 0018 75 58                    jnz 0x72
-001A                          ax = CheckState(02, 5A, any)
+001A                          ax = CheckState(02, 5A)
+002B 0B C0                    or ax, ax
 002D 75 36                    jnz 0x65
 002F                          SetState(02, 5A, 01)
 0044                          ShowMessage(0D33) = Your initiative in combat improves.
@@ -389,7 +395,8 @@ WINDENCB_2B:
 000F                          ax = GetRace()
 0016 3D 05 00                 cmp ax, 0x5
 0019 75 58                    jnz 0x73
-001B                          ax = CheckState(02, 5B, any)
+001B                          ax = CheckState(02, 5B)
+002C 0B C0                    or ax, ax
 002E 75 36                    jnz 0x66
 0030                          SetState(02, 5B, 01)
 0045                          ShowMessage(0D68) = Your agility improves.
@@ -406,7 +413,8 @@ WINDENCC_2C:
 000F                          ax = GetRace()
 0016 3D 03 00                 cmp ax, 0x3
 0019 75 57                    jnz 0x72
-001B                          ax = CheckState(02, 5C, any)
+001B                          ax = CheckState(02, 5C)
+002C 0B C0                    or ax, ax
 002E 75 35                    jnz 0x65
 0030                          SetState(02, 5C, 01)
 0045                          ShowMessage(0D90) = You feel much stronger.
@@ -423,7 +431,8 @@ WINDENCD_2D:
 000F                          ax = GetRace()
 0016 3D 04 00                 cmp ax, 0x4
 0019 75 58                    jnz 0x73
-001B                          ax = CheckState(02, 5D, any)
+001B                          ax = CheckState(02, 5D)
+002C 0B C0                    or ax, ax
 002E 75 36                    jnz 0x66
 0030                          SetState(02, 5D, 01)
 0045                          ShowMessage(0DB9) = Your ability to defend yourself in combat improves.
@@ -546,7 +555,8 @@ TXTTROLB_37:
 FNTNSTRN_38:
 0000                          BEGIN
 0003                          ShowPortrait(0042)
-0010                          ax = CheckState(02, 4A, any)
+0010                          ax = CheckState(02, 4A)
+0021 0B C0                    or ax, ax
 0023 75 47                    jnz 0x6c
 0025                          SetState(02, 4A, 01)
 003A                          ModifyAttribute(00, 0002)
@@ -577,37 +587,30 @@ BACKENCC_3B:
 0000                          BEGIN
 0003                          ShowPortrait(0042)
 0010                          ShowMessage(11FC) = Pictograms of Hunting Expeditions have been carved into the loose rock above StoneGiant Fountain. 
-001D                          ax = CheckState(02, 62, any)
+001D                          ax = CheckState(02, 62)
+002E 0B C0                    or ax, ax
 0030 74 03                    jz 0x35
 0032 E9 E3 00                 jmp 0x118
 0035                          SetState(02, 62, 01)
-004A                          Push(00)
-004D C4 5E 06                 les bx, [bp+0x6]
-0050 26 FF 5F 5C              call far word [es:bx+0x5c]
-0054 59                       pop cx
+004A                          ax = GetSkillLevel(00)
 0055 0B C0                    or ax, ax
 0057 75 20                    jnz 0x79
-0059                          Push(02)
-005D                          Push(00)
-0060 C4 5E 06                 les bx, [bp+0x6]
-0063 26 FF 5F 60              call far word [es:bx+0x60]
-0067 59                       pop cx
-0068 59                       pop cx
+0059                          SetSkillLevel(00, 02)
 0069                          ShowMessage(125F) = You gain the skill of Athletics!
 0076 E9 9D 00                 jmp 0x116
-0079                          ax = SkillLevel(02)
+0079                          ax = GetSkillLevel(02)
 0085 0B C0                    or ax, ax
 0087 75 20                    jnz 0xa9
 0089                          SetSkillLevel(02, 02)
 009A                          ShowMessage(1280) = You gain the Berserker skill!
 00A7 EB 6D                    jmp 0x116
-00A9                          ax = SkillLevel(03)
+00A9                          ax = GetSkillLevel(03)
 00B5 0B C0                    or ax, ax
 00B7 75 20                    jnz 0xd9
 00B9                          SetSkillLevel(03, 02)
 00CA                          ShowMessage(129E) = You gain the skill of Pursuit!
 00D7 EB 3D                    jmp 0x116
-00D9                          ax = SkillLevel(01)
+00D9                          ax = GetSkillLevel(01)
 00E5 0B C0                    or ax, ax
 00E7 75 20                    jnz 0x109
 00E9                          SetSkillLevel(01, 02)
@@ -644,65 +647,66 @@ FNTNTROL_48:
 0000                          BEGIN
 0003                          ShowPortrait(0042)
 0010                          ShowMessage(132C) = You drink from the crystal waters of My My Fountain.
-001D                          ax = CheckState(02, 4B, any)
+001D                          ax = CheckState(02, 4B)
+002E 0B C0                    or ax, ax
 0030 74 03                    jz 0x35
 0032 E9 0B 02                 jmp 0x240
 0035                          SetState(02, 4B, 01)
-004A                          ax = SkillLevel(04)
+004A                          ax = GetSkillLevel(04)
 0056 0B C0                    or ax, ax
 0058 75 21                    jnz 0x7b
 005A                          SetSkillLevel(04, 02)
 006B                          ShowMessage(1361) = You gain the skill of Leadership!
 0078 E9 C3 01                 jmp 0x23e
-007B                          ax = SkillLevel(06)
+007B                          ax = GetSkillLevel(06)
 0087 0B C0                    or ax, ax
 0089 75 21                    jnz 0xac
 008B                          SetSkillLevel(06, 02)
 009C                          ShowMessage(1383) = You gain the skill of Binding!
 00A9 E9 92 01                 jmp 0x23e
-00AC                          ax = SkillLevel(05)
+00AC                          ax = GetSkillLevel(05)
 00B8 0B C0                    or ax, ax
 00BA 75 21                    jnz 0xdd
 00BC                          SetSkillLevel(05, 02)
 00CD                          ShowMessage(13A2) = You gain the skill of Fencing!
 00DA E9 61 01                 jmp 0x23e
-00DD                          ax = SkillLevel(07)
+00DD                          ax = GetSkillLevel(07)
 00E9 0B C0                    or ax, ax
 00EB 75 21                    jnz 0x10e
 00ED                          SetSkillLevel(07, 02)
 00FE                          ShowMessage(13C1) = You gain the skill of Intimidation!
 010B E9 30 01                 jmp 0x23e
-010E                          ax = SkillLevel(02)
+010E                          ax = GetSkillLevel(02)
 011A 0B C0                    or ax, ax
 011C 75 21                    jnz 0x13f
 011E                          SetSkillLevel(02, 02)
 012F                          ShowMessage(13E5) = You gain the Berserker skill!
 013C E9 FF 00                 jmp 0x23e
-013F                          ax = SkillLevel(0A)
+013F                          ax = GetSkillLevel(0A)
 014B 0B C0                    or ax, ax
 014D 75 21                    jnz 0x170
 014F                          SetSkillLevel(0A, 02)
 0160                          ShowMessage(1403) = You gain the skill of Furtiveness!
 016D E9 CE 00                 jmp 0x23e
-0170                          ax = SkillLevel(0E)
+0170                          ax = GetSkillLevel(0E)
 017C 0B C0                    or ax, ax
 017E 75 21                    jnz 0x1a1
 0180                          SetSkillLevel(0E, 02)
 0191                          ShowMessage(1426) = You gain the skill of Lockpicking!
 019E E9 9D 00                 jmp 0x23e
-01A1                          ax = SkillLevel(0F)
+01A1                          ax = GetSkillLevel(0F)
 01AD 0B C0                    or ax, ax
 01AF 75 20                    jnz 0x1d1
 01B1                          SetSkillLevel(0F, 02)
 01C2                          ShowMessage(1449) = You gain the Pickpocket skill!
 01CF EB 6D                    jmp 0x23e
-01D1                          ax = SkillLevel(13)
+01D1                          ax = GetSkillLevel(13)
 01DD 0B C0                    or ax, ax
 01DF 75 20                    jnz 0x201
 01E1                          SetSkillLevel(13, 02)
 01F2                          ShowMessage(1468) = You gain the Reverie skill!
 01FF EB 3D                    jmp 0x23e
-0201                          ax = SkillLevel(17)
+0201                          ax = GetSkillLevel(17)
 020D 0B C0                    or ax, ax
 020F 75 20                    jnz 0x231
 0211                          SetSkillLevel(17, 02)

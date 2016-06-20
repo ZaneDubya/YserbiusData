@@ -1,12 +1,6 @@
 TELEPORT_01:
 0000                          BEGIN
-0003                          Push(01)
-0007                          Push(00)
-000A                          Push(02)
-000E                          Push(05)
-0012 C4 5E 06                 les bx, [bp+0x6]
-0015 26 FF 9F BC 00           call far word [es:bx+0xbc]
-001A 83 C4 08                 add sp, 0x8
+0003                          GoMap(33, 00, 02, 05)
 001D                          RETURN
 
 TELEMESS_02:
@@ -16,7 +10,8 @@ TELEMESS_02:
 
 FOUNBLES_03:
 0000                          BEGIN
-0003                          ax = CheckState(02, 3D, 01)
+0003                          ax = CheckState(02, 3D)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 1C                    jnz 0x35
 0019                          ShowPortrait(0042)
 0026                          ShowMessage(0422) = You sip from the Fountain of Restoration, but nothing happens.
@@ -41,20 +36,23 @@ QUESTENC_04:
 0041 EB 2E                    jmp 0x71
 0043                          AddTreasure(03E8, 00, 00, A2, D0, 81)
 0064                          ShowMessage(04D2) = Among a horde of Nightmares and Cockatrices you spot armor and other items on the floor.
-0071                          ax = PartyCountIs(01)
+0071                          ax = PartyCount()
+0079 3D 01 00                 cmp ax, 0x1
 007C 75 39                    jnz 0xb7
 007E                          AddEncounter(26, 01)
 0090                          AddEncounter(26, 02)
 00A2                          AddEncounter(23, 06)
 00B4 E9 2D 01                 jmp 0x1e4
-00B7                          ax = PartyCountIs(02)
+00B7                          ax = PartyCount()
+00BF 3D 02 00                 cmp ax, 0x2
 00C2 75 4B                    jnz 0x10f
 00C4                          AddEncounter(27, 01)
 00D6                          AddEncounter(27, 02)
 00E8                          AddEncounter(24, 05)
 00FA                          AddEncounter(24, 06)
 010C E9 D5 00                 jmp 0x1e4
-010F                          ax = PartyCountIs(03)
+010F                          ax = PartyCount()
+0117 3D 03 00                 cmp ax, 0x3
 011A 75 5C                    jnz 0x178
 011C                          AddEncounter(26, 01)
 012E                          AddEncounter(27, 02)
@@ -99,7 +97,8 @@ LKPKDORZ_05:
 
 STRDOOR_06:
 0000                          BEGIN
-0003                          CheckStrength(0E)
+0003                          ax = CheckStrength()
+000F 3D 0E 00                 cmp ax, 0xe
 0012 72 4B                    jb 0x5f
 0014                          ShowMessage(058F) = You manage to force the door open.
 0021                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -126,17 +125,20 @@ STRDOOR_06:
 
 AVEMNSTR_0B:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 15                    jnz 0x25
 0010                          AddEncounter(1B, 02)
 0022 E9 09 01                 jmp 0x12e
-0025                          ax = PartyCountIs(02)
+0025                          ax = PartyCount()
+002D 3D 02 00                 cmp ax, 0x2
 0030 75 39                    jnz 0x6b
 0032                          AddEncounter(1C, 01)
 0044                          AddEncounter(19, 02)
 0056                          AddEncounter(18, 03)
 0068 E9 C3 00                 jmp 0x12e
-006B                          ax = PartyCountIs(03)
+006B                          ax = PartyCount()
+0073 3D 03 00                 cmp ax, 0x3
 0076 75 4A                    jnz 0xc2
 0078                          AddEncounter(1B, 01)
 008A                          AddEncounter(1C, 02)
@@ -153,18 +155,21 @@ AVEMNSTR_0B:
 
 STRMNSTR_0C:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 27                    jnz 0x37
 0010                          AddEncounter(1E, 01)
 0022                          AddEncounter(20, 02)
 0034 E9 1B 01                 jmp 0x152
-0037                          ax = PartyCountIs(02)
+0037                          ax = PartyCount()
+003F 3D 02 00                 cmp ax, 0x2
 0042 75 39                    jnz 0x7d
 0044                          AddEncounter(1E, 01)
 0056                          AddEncounter(20, 02)
 0068                          AddEncounter(20, 03)
 007A E9 D5 00                 jmp 0x152
-007D                          ax = PartyCountIs(03)
+007D                          ax = PartyCount()
+0085 3D 03 00                 cmp ax, 0x3
 0088 75 5C                    jnz 0xe6
 008A                          AddEncounter(1E, 01)
 009C                          AddEncounter(1E, 02)
@@ -184,7 +189,7 @@ NPCCHATA_0E:
 0000                          BEGIN
 0003                          ShowMessage(05C5) = You encounter a Human Thief.
 0010                          ShowPortrait(0022)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(05E2) = Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
@@ -196,7 +201,7 @@ NPCCHATB_0F:
 0000                          BEGIN
 0003                          ShowMessage(067A) = You encounter an Elf Barbarian.
 0010                          ShowPortrait(0018)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 04 00                 cmp ax, 0x4
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(069A) = A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.

@@ -50,7 +50,8 @@ ITELEG_07:
 
 ATELEH_08:
 0000                          BEGIN
-0003                          ax = CheckState(02, 49, 02)
+0003                          ax = CheckState(02, 49)
+0014 3D 02 00                 cmp ax, 0x2
 0017 75 35                    jnz 0x4e
 0019                          ShowMessage(04D8) = Runes on magic wall --
 0026                          ShowRunes(04EF) = Archaic
@@ -106,13 +107,15 @@ LTELEL_0F:
 
 ITELEG_10:
 0000                          BEGIN
-0003                          ax = CheckState(02, 49, 03)
+0003                          ax = CheckState(02, 49)
+0014 3D 03 00                 cmp ax, 0x3
 0017 75 37                    jnz 0x50
 0019                          ShowMessage(05D9) = Runes on magic wall --
 0026                          ShowRunes(05F0) = Illusion
 0033                          GoMap(02, CC, 02, 34)
 004E EB 4B                    jmp 0x9b
-0050                          ax = CheckState(02, 49, 04)
+0050                          ax = CheckState(02, 49)
+0061 3D 04 00                 cmp ax, 0x4
 0064 75 35                    jnz 0x9b
 0066                          ShowMessage(05F9) = Runes on magic wall --
 0073                          ShowRunes(0610) = Invulnerable
@@ -205,9 +208,11 @@ TTELEV_1C:
 
 ARNAKEND_1D:
 0000                          BEGIN
-0003                          ax = CheckState(02, 52, any)
+0003                          ax = CheckState(02, 52)
+0014 0B C0                    or ax, ax
 0016 74 4C                    jz 0x64
-0018                          ax = CheckState(02, 53, any)
+0018                          ax = CheckState(02, 53)
+0029 0B C0                    or ax, ax
 002B 74 37                    jz 0x64
 002D                          ShowMessage(078F) = Both Arnakkian and Enlikil have been identified.
 003A                          ShowMessage(07C0) = The Ghost takes you to the Guardians.
@@ -295,7 +300,8 @@ ITELEG_27:
 
 WTELEEE_28:
 0000                          BEGIN
-0003                          ax = CheckState(02, 49, 01)
+0003                          ax = CheckState(02, 49)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 35                    jnz 0x4e
 0019                          ShowMessage(0926) = Runes on magic wall --
 0026                          ShowRunes(093D) = Wizard
@@ -327,13 +333,7 @@ PTELEZZ_2C:
 0000                          BEGIN
 0003                          ShowMessage(09A0) = Runes on magic wall --
 0010                          ShowRunes(09B7) = Powerful
-001D                          Push(01)
-0021                          Push(00)
-0024                          Push(02)
-0028                          Push(34)
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0034 83 C4 08                 add sp, 0x8
+001D                          GoMap(33, 00, 02, 34)
 0037                          RETURN
 
 MTELEXX_2D:
@@ -368,13 +368,7 @@ YTELEZZ_31:
 0000                          BEGIN
 0003                          ShowMessage(0A36) = Runes on magic wall --
 0010                          ShowRunes(0A4D) = Youth
-001D                          Push(01)
-0021                          Push(00)
-0024                          Push(02)
-0028                          Push(34)
-002C C4 5E 06                 les bx, [bp+0x6]
-002F 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0034 83 C4 08                 add sp, 0x8
+001D                          GoMap(33, 00, 02, 34)
 0037                          RETURN
 
 IENCA_32:
@@ -475,14 +469,18 @@ ENTRENCA_45:
 
 LICHDOOR_47:
 0000                          BEGIN
-0003                          ax = CheckState(01, 01, any)
+0003                          ax = CheckState(01, 01)
+0014 0B C0                    or ax, ax
 0016 75 03                    jnz 0x1b
 0018 E9 8A 00                 jmp 0xa5
-001B                          ax = CheckState(01, 02, any)
+001B                          ax = CheckState(01, 02)
+002C 0B C0                    or ax, ax
 002E 74 75                    jz 0xa5
-0030                          ax = CheckState(01, 03, any)
+0030                          ax = CheckState(01, 03)
+0041 0B C0                    or ax, ax
 0043 74 60                    jz 0xa5
-0045                          ax = CheckState(01, 04, any)
+0045                          ax = CheckState(01, 04)
+0056 0B C0                    or ax, ax
 0058 74 4B                    jz 0xa5
 005A                          Push(01)
 005E                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -516,7 +514,8 @@ LICHA_49:
 0003                          AddEncounter(19, 01)
 0015                          AddEncounter(19, 02)
 0027                          AddEncounter(27, 05)
-0039                          ax = CheckState(02, 8B, any)
+0039                          ax = CheckState(02, 8B)
+004A 0B C0                    or ax, ax
 004C 74 20                    jz 0x6e
 004E                          AddTreasure(0000, 00, 00, 00, 00, CF)
 006C EB 45                    jmp 0xb3
@@ -530,7 +529,8 @@ LICHB_4A:
 0003                          AddEncounter(19, 01)
 0015                          AddEncounter(19, 02)
 0027                          AddEncounter(27, 05)
-0039                          ax = CheckState(02, 8C, any)
+0039                          ax = CheckState(02, 8C)
+004A 0B C0                    or ax, ax
 004C 74 20                    jz 0x6e
 004E                          AddTreasure(0000, 00, 00, 00, 00, C6)
 006C EB 45                    jmp 0xb3
@@ -544,7 +544,8 @@ LICHC_4B:
 0003                          AddEncounter(19, 01)
 0015                          AddEncounter(19, 02)
 0027                          AddEncounter(27, 05)
-0039                          ax = CheckState(02, 8D, any)
+0039                          ax = CheckState(02, 8D)
+004A 0B C0                    or ax, ax
 004C 74 20                    jz 0x6e
 004E                          AddTreasure(0000, 00, 00, 00, 00, D1)
 006C EB 45                    jmp 0xb3
@@ -558,7 +559,8 @@ LICHD_4C:
 0003                          AddEncounter(19, 01)
 0015                          AddEncounter(19, 02)
 0027                          AddEncounter(27, 05)
-0039                          ax = CheckState(02, 8E, any)
+0039                          ax = CheckState(02, 8E)
+004A 0B C0                    or ax, ax
 004C 74 20                    jz 0x6e
 004E                          AddTreasure(0000, 00, 00, 00, 00, D0)
 006C EB 45                    jmp 0xb3
@@ -580,7 +582,8 @@ LICHMAIN_4D:
 007A                          AddTreasure(0000, 00, 00, 00, 00, CF)
 0098 EB 5C                    jmp 0xf6
 009A                          AddTreasure(0000, 00, 00, 50, 50, 2D)
-00BA                          ax = CheckState(02, 89, any)
+00BA                          ax = CheckState(02, 89)
+00CB 0B C0                    or ax, ax
 00CD 75 27                    jnz 0xf6
 00CF                          SetState(02, 89, 01)
 00E4                          AddExperience(000B71B0)
@@ -603,28 +606,32 @@ TXTLABY_50:
 
 SETLICHA_51:
 0000                          BEGIN
-0003                          ax = CheckState(01, 01, any)
+0003                          ax = CheckState(01, 01)
+0014 0B C0                    or ax, ax
 0016 75 15                    jnz 0x2d
 0018                          SetState(01, 01, 01)
 002D                          RETURN
 
 SETLICHB_52:
 0000                          BEGIN
-0003                          ax = CheckState(01, 02, any)
+0003                          ax = CheckState(01, 02)
+0014 0B C0                    or ax, ax
 0016 75 15                    jnz 0x2d
 0018                          SetState(01, 02, 01)
 002D                          RETURN
 
 SETLICHC_53:
 0000                          BEGIN
-0003                          ax = CheckState(01, 03, any)
+0003                          ax = CheckState(01, 03)
+0014 0B C0                    or ax, ax
 0016 75 15                    jnz 0x2d
 0018                          SetState(01, 03, 01)
 002D                          RETURN
 
 SETLICHD_54:
 0000                          BEGIN
-0003                          ax = CheckState(01, 04, any)
+0003                          ax = CheckState(01, 04)
+0014 0B C0                    or ax, ax
 0016 75 15                    jnz 0x2d
 0018                          SetState(01, 04, 01)
 002D                          RETURN

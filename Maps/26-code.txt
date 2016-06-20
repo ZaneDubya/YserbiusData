@@ -92,13 +92,7 @@ CHESLITE_01:
 0153 81 FE B9 00              cmp si, 0xb9
 0157 7F 1E                    jg 0x177
 0159                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0160 50                       push ax
-0161 56                       push si
-0162                          Push(02)
-0166                          Push(35)
-016A C4 5E 06                 les bx, [bp+0x6]
-016D 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0172 83 C4 08                 add sp, 0x8
+0160                          GoMap(ax, si, 02, 35)
 0175 EB 0D                    jmp 0x184
 0177                          ShowMessage(042F) = A knight move here would place you off the chessboard!
 0184 EB 0D                    jmp 0x193
@@ -199,13 +193,7 @@ CHESDARK_02:
 0153 81 FE B9 00              cmp si, 0xb9
 0157 7F 1E                    jg 0x177
 0159                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0160 50                       push ax
-0161 56                       push si
-0162                          Push(02)
-0166                          Push(35)
-016A C4 5E 06                 les bx, [bp+0x6]
-016D 26 FF 9F BC 00           call far word [es:bx+0xbc]
-0172 83 C4 08                 add sp, 0x8
+0160                          GoMap(ax, si, 02, 35)
 0175 EB 0D                    jmp 0x184
 0177                          ShowMessage(04D0) = A knight move here would place you off the chessboard!
 0184 EB 0D                    jmp 0x193
@@ -222,7 +210,8 @@ VOID_03:
 POKERBRG_04:
 0000                          BEGIN
 0003                          ShowMessage(0568) = Planks of the Poker Bridge are made from used playing cards.
-0010                          ax = CheckState(01, 01, 01)
+0010                          ax = CheckState(01, 01)
+0021 3D 01 00                 cmp ax, 0x1
 0024 75 30                    jnz 0x56
 0026                          ShowMessage(05A5) = The rickety bridge barely holds your weight.
 0033                          SetTileFloor(DD, 00)
@@ -363,7 +352,8 @@ DICEENCB_12:
 BLJKFOUN_13:
 0000                          BEGIN
 0003                          ShowMessage(0A95) = The Blackjack Fountain is made of playing cards.
-0010                          ax = CheckState(02, 7E, any)
+0010                          ax = CheckState(02, 7E)
+0021 0B C0                    or ax, ax
 0023 74 03                    jz 0x28
 0025 E9 87 00                 jmp 0xaf
 0028                          SetState(02, 7E, 01)
@@ -383,7 +373,8 @@ BLJKFOUN_13:
 CRIBFOUN_14:
 0000                          BEGIN
 0003                          ShowMessage(0B8A) = The Cribbage Fountain is bedecked with golden pegs.
-0010                          ax = CheckState(02, 7F, any)
+0010                          ax = CheckState(02, 7F)
+0021 0B C0                    or ax, ax
 0023 74 03                    jz 0x28
 0025 E9 83 00                 jmp 0xab
 0028                          SetState(02, 7F, 01)

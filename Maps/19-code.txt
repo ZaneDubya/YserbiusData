@@ -70,18 +70,21 @@ KEYENC_14:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(1F40, 00, 00, 00, 00, E2)
 0060                          ShowMessage(049E) = A smirking Barbarian dangles a glowing red key in your face.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 75 27                    jnz 0xa1
 007A                          AddEncounter(27, 01)
 008C                          AddEncounter(28, 05)
 009E E9 1B 01                 jmp 0x1bc
-00A1                          ax = PartyCountIs(02)
+00A1                          ax = PartyCount()
+00A9 3D 02 00                 cmp ax, 0x2
 00AC 75 39                    jnz 0xe7
 00AE                          AddEncounter(26, 01)
 00C0                          AddEncounter(27, 02)
 00D2                          AddEncounter(28, 05)
 00E4 E9 D5 00                 jmp 0x1bc
-00E7                          ax = PartyCountIs(03)
+00E7                          ax = PartyCount()
+00EF 3D 03 00                 cmp ax, 0x3
 00F2 75 5C                    jnz 0x150
 00F4                          AddEncounter(26, 01)
 0106                          AddEncounter(27, 02)
@@ -99,7 +102,8 @@ KEYENC_14:
 
 FOUNHLTH_15:
 0000                          BEGIN
-0003                          ax = CheckState(01, 01, 01)
+0003                          ax = CheckState(01, 01)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 1C                    jnz 0x35
 0019                          ShowPortrait(0042)
 0026                          ShowMessage(04DB) = You sip from the Fountain of Hot Ice, but nothing happens.
@@ -114,7 +118,8 @@ LKPKDOOR_16:
 0000                          BEGIN
 0003                          ax = UsedItem(C2, C4)
 0016 75 11                    jnz 0x29
-0018                          ax = UsedSkill(0E, 08) // returns 0 if did not use, compares to 2nd op if did use
+0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
+0024 3D 08 00                 cmp ax, 0x8
 0027 72 4B                    jb 0x74
 0029                          Push(01)
 002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -141,7 +146,8 @@ LKPKDOOR_16:
 
 GOLDAENC_17:
 0000                          BEGIN
-0003                          ax = CheckState(02, 3B, 01)
+0003                          ax = CheckState(02, 3B)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(058A) = Angry Sabertooth Lions roar at you.
 0026                          AddTreasure(07D0, 00, 00, 00, 00, CF)
@@ -149,16 +155,19 @@ GOLDAENC_17:
 0047                          AddTreasure(2710, 00, 00, B9, D0, D0)
 0068                          SetState(02, 3B, 01)
 007D                          ShowMessage(05AE) = The lion lair you enter is littered with gold.
-008A                          ax = PartyCountIs(01)
+008A                          ax = PartyCount()
+0092 3D 01 00                 cmp ax, 0x1
 0095 75 15                    jnz 0xac
 0097                          AddEncounter(1B, 01)
 00A9 E9 C1 00                 jmp 0x16d
-00AC                          ax = PartyCountIs(02)
+00AC                          ax = PartyCount()
+00B4 3D 02 00                 cmp ax, 0x2
 00B7 75 27                    jnz 0xe0
 00B9                          AddEncounter(1B, 01)
 00CB                          AddEncounter(1B, 02)
 00DD E9 8D 00                 jmp 0x16d
-00E0                          ax = PartyCountIs(03)
+00E0                          ax = PartyCount()
+00E8 3D 03 00                 cmp ax, 0x3
 00EB 75 38                    jnz 0x125
 00ED                          AddEncounter(1B, 01)
 00FF                          AddEncounter(1B, 02)
@@ -172,7 +181,8 @@ GOLDAENC_17:
 
 GOLDBENC_18:
 0000                          BEGIN
-0003                          ax = CheckState(02, 3C, 01)
+0003                          ax = CheckState(02, 3C)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(05DD) = You step into a Wyvern den.
 0026                          AddTreasure(1B58, 00, 00, 00, 00, D0)
@@ -180,16 +190,19 @@ GOLDBENC_18:
 0047                          AddTreasure(2EE0, 00, 00, 00, B9, B4)
 0067                          SetState(02, 3C, 01)
 007C                          ShowMessage(05F9) = Gold coins are stuck to a Wyvern's scales.
-0089                          ax = PartyCountIs(01)
+0089                          ax = PartyCount()
+0091 3D 01 00                 cmp ax, 0x1
 0094 75 15                    jnz 0xab
 0096                          AddEncounter(1F, 01)
 00A8 E9 C1 00                 jmp 0x16c
-00AB                          ax = PartyCountIs(02)
+00AB                          ax = PartyCount()
+00B3 3D 02 00                 cmp ax, 0x2
 00B6 75 27                    jnz 0xdf
 00B8                          AddEncounter(1F, 01)
 00CA                          AddEncounter(1F, 02)
 00DC E9 8D 00                 jmp 0x16c
-00DF                          ax = PartyCountIs(03)
+00DF                          ax = PartyCount()
+00E7 3D 03 00                 cmp ax, 0x3
 00EA 75 38                    jnz 0x124
 00EC                          AddEncounter(1F, 01)
 00FE                          AddEncounter(1F, 02)
@@ -210,16 +223,19 @@ ITEMAENC_19:
 003F EB 2D                    jmp 0x6e
 0041                          AddTreasure(2328, 00, 00, 00, D0, C4)
 0061                          ShowMessage(0647) = A Knight drops a lockpick on the floor.
-006E                          ax = PartyCountIs(01)
+006E                          ax = PartyCount()
+0076 3D 01 00                 cmp ax, 0x1
 0079 75 15                    jnz 0x90
 007B                          AddEncounter(23, 01)
 008D E9 F7 00                 jmp 0x187
-0090                          ax = PartyCountIs(02)
+0090                          ax = PartyCount()
+0098 3D 02 00                 cmp ax, 0x2
 009B 75 27                    jnz 0xc4
 009D                          AddEncounter(23, 01)
 00AF                          AddEncounter(24, 02)
 00C1 E9 C3 00                 jmp 0x187
-00C4                          ax = PartyCountIs(03)
+00C4                          ax = PartyCount()
+00CC 3D 03 00                 cmp ax, 0x3
 00CF 75 4A                    jnz 0x11b
 00D1                          AddEncounter(23, 01)
 00E3                          AddEncounter(23, 02)
@@ -243,16 +259,19 @@ ITEMBENC_1A:
 0040 EB 2D                    jmp 0x6f
 0042                          AddTreasure(2710, 00, 00, 00, CD, C9)
 0062                          ShowMessage(0691) = A Cleric shows off a wand to his associates.
-006F                          ax = PartyCountIs(01)
+006F                          ax = PartyCount()
+0077 3D 01 00                 cmp ax, 0x1
 007A 75 15                    jnz 0x91
 007C                          AddEncounter(25, 01)
 008E E9 F7 00                 jmp 0x188
-0091                          ax = PartyCountIs(02)
+0091                          ax = PartyCount()
+0099 3D 02 00                 cmp ax, 0x2
 009C 75 27                    jnz 0xc5
 009E                          AddEncounter(25, 01)
 00B0                          AddEncounter(25, 02)
 00C2 E9 C3 00                 jmp 0x188
-00C5                          ax = PartyCountIs(03)
+00C5                          ax = PartyCount()
+00CD 3D 03 00                 cmp ax, 0x3
 00D0 75 4A                    jnz 0x11c
 00D2                          AddEncounter(25, 01)
 00E4                          AddEncounter(25, 02)
@@ -276,12 +295,14 @@ ITEMCENC_1B:
 003F EB 2D                    jmp 0x6e
 0041                          AddTreasure(2710, 00, 00, 00, D0, BE)
 0061                          ShowMessage(06E5) = In a snake nest is a shining prism.
-006E                          ax = PartyCountIs(01)
+006E                          ax = PartyCount()
+0076 3D 01 00                 cmp ax, 0x1
 0079 75 27                    jnz 0xa2
 007B                          AddEncounter(1D, 01)
 008D                          AddEncounter(1E, 05)
 009F E9 C3 00                 jmp 0x165
-00A2                          ax = PartyCountIs(02)
+00A2                          ax = PartyCount()
+00AA 3D 02 00                 cmp ax, 0x2
 00AD 75 4A                    jnz 0xf9
 00AF                          AddEncounter(1E, 01)
 00C1                          AddEncounter(1D, 02)
@@ -305,12 +326,14 @@ ARMRAENC_1C:
 0040 EB 2D                    jmp 0x6f
 0042                          AddTreasure(1770, 00, 00, 00, B9, 82)
 0062                          ShowMessage(0729) = The chief Wizard of the coven wears a round breastplate.
-006F                          ax = PartyCountIs(01)
+006F                          ax = PartyCount()
+0077 3D 01 00                 cmp ax, 0x1
 007A 75 27                    jnz 0xa3
 007C                          AddEncounter(28, 01)
 008E                          AddEncounter(28, 02)
 00A0 E9 C3 00                 jmp 0x166
-00A3                          ax = PartyCountIs(02)
+00A3                          ax = PartyCount()
+00AB 3D 02 00                 cmp ax, 0x2
 00AE 75 4A                    jnz 0xfa
 00B0                          AddEncounter(28, 01)
 00C2                          AddEncounter(28, 02)
@@ -334,12 +357,14 @@ MAGICENC_1D:
 0040 EB 2D                    jmp 0x6f
 0042                          AddTreasure(1770, 00, 00, 00, D0, 9E)
 0062                          ShowMessage(078E) = A sly Ranger hides something inside his jacket.
-006F                          ax = PartyCountIs(01)
+006F                          ax = PartyCount()
+0077 3D 01 00                 cmp ax, 0x1
 007A 75 27                    jnz 0xa3
 007C                          AddEncounter(20, 01)
 008E                          AddEncounter(21, 05)
 00A0 E9 C3 00                 jmp 0x166
-00A3                          ax = PartyCountIs(02)
+00A3                          ax = PartyCount()
+00AB 3D 02 00                 cmp ax, 0x2
 00AE 75 4A                    jnz 0xfa
 00B0                          AddEncounter(20, 01)
 00C2                          AddEncounter(21, 02)
@@ -363,12 +388,14 @@ WEAPAENC_1E:
 003F EB 2D                    jmp 0x6e
 0041                          AddTreasure(2328, 00, 00, 00, B7, 29)
 0061                          ShowMessage(07ED) = A Barbarian throws a heavy mace aside to swing at you.
-006E                          ax = PartyCountIs(01)
+006E                          ax = PartyCount()
+0076 3D 01 00                 cmp ax, 0x1
 0079 75 27                    jnz 0xa2
 007B                          AddEncounter(26, 01)
 008D                          AddEncounter(27, 05)
 009F E9 C3 00                 jmp 0x165
-00A2                          ax = PartyCountIs(02)
+00A2                          ax = PartyCount()
+00AA 3D 02 00                 cmp ax, 0x2
 00AD 75 4A                    jnz 0xf9
 00AF                          AddEncounter(27, 01)
 00C1                          AddEncounter(26, 02)
@@ -385,20 +412,23 @@ WEAPAENC_1E:
 
 STRMNSTR_1F:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 39                    jnz 0x49
 0010                          AddEncounter(19, 01)
 0022                          AddEncounter(19, 02)
 0034                          AddEncounter(1A, 03)
 0046 E9 3F 01                 jmp 0x188
-0049                          ax = PartyCountIs(02)
+0049                          ax = PartyCount()
+0051 3D 02 00                 cmp ax, 0x2
 0054 75 4B                    jnz 0xa1
 0056                          AddEncounter(1A, 01)
 0068                          AddEncounter(1A, 02)
 007A                          AddEncounter(19, 03)
 008C                          AddEncounter(19, 04)
 009E E9 E7 00                 jmp 0x188
-00A1                          ax = PartyCountIs(03)
+00A1                          ax = PartyCount()
+00A9 3D 03 00                 cmp ax, 0x3
 00AC 75 6E                    jnz 0x11c
 00AE                          AddEncounter(19, 01)
 00C0                          AddEncounter(1A, 02)
@@ -445,7 +475,7 @@ NPCCHATA_2A:
 0000                          BEGIN
 0003                          ShowMessage(08EA) = You encounter a Troll Knight.
 0010                          ShowPortrait(001B)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0908) = The only way to get out of this basement area is to go through the lava field. Touching the lava is deadly, as you might expect. However, even if you pass safely through the lava field, the great heat of the lava will sap your strength.
@@ -457,7 +487,7 @@ NPCCHATB_2B:
 0000                          BEGIN
 0003                          ShowMessage(0A36) = You encounter a Dwarf Thief.
 0010                          ShowPortrait(0023)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0A53) = I know there is a short cut through the lava field. If you can find the correct key, you will be able to use the short cut. The key also will lead you to riches.
@@ -469,7 +499,7 @@ NPCCHATC_2C:
 0000                          BEGIN
 0003                          ShowMessage(0B10) = You encounter a Halfling Ranger.
 0010                          ShowPortrait(0021)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0B31) = The dwarves who built Cleowyn's Palace transported precious metals and building blocks up to the top level by means of a teleport. I believe the teleport is somewhere in this area.
@@ -481,7 +511,7 @@ NPCCHATD_2D:
 0000                          BEGIN
 0003                          ShowMessage(0C13) = You encounter a Gremlin Cleric.
 0010                          ShowPortrait(002A)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0C33) = Deep in the dungeon are the Pillow Labyrinths. They were formed from pillow lava that spilled into the sea. The labyrinth is formed from the hollow interior of the lava.

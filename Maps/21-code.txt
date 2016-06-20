@@ -96,24 +96,24 @@ ENCWINDW_0C:
 FLGWINDN_0D:
 0000                          BEGIN (saving si)
 0004 BE 01 00                 mov si, 0x1
-0007                          ax = CheckState(01, 01, any)
+0007                          ax = CheckState(01, 01)
+0018 0B C0                    or ax, ax
 001A 75 54                    jnz 0x70
-001C                          ax = CheckState(01, 02, any)
+001C                          ax = CheckState(01, 02)
+002D 0B C0                    or ax, ax
 002F 74 01                    jz 0x32
 0031 46                       inc si
-0032                          ax = CheckState(01, 03, any)
+0032                          ax = CheckState(01, 03)
+0043 0B C0                    or ax, ax
 0045 74 01                    jz 0x48
 0047 46                       inc si
-0048                          ax = CheckState(01, 04, any)
+0048                          ax = CheckState(01, 04)
+0059 0B C0                    or ax, ax
 005B 74 01                    jz 0x5e
 005D 46                       inc si
-005E 56                       push si
-005F                          Push(01)
-0063                          Push(01)
-0067 C4 5E 06                 les bx, [bp+0x6]
-006A 26 FF 1F                 call far word [es:bx]
-006D 83 C4 06                 add sp, 0x6
-0070                          ax = CheckState(01, 01, 01)
+005E                          SetState(C4, B8, si)
+0070                          ax = CheckState(01, 01)
+0081 3D 01 00                 cmp ax, 0x1
 0084 74 02                    jz 0x88
 0086 EB 0D                    jmp 0x95
 0088                          ShowMessage(082D) = The North Wind is the first to be defeated.
@@ -123,24 +123,24 @@ FLGWINDN_0D:
 FLGWINDE_0E:
 0000                          BEGIN (saving si)
 0004 BE 01 00                 mov si, 0x1
-0007                          ax = CheckState(01, 02, any)
+0007                          ax = CheckState(01, 02)
+0018 0B C0                    or ax, ax
 001A 75 54                    jnz 0x70
-001C                          ax = CheckState(01, 01, any)
+001C                          ax = CheckState(01, 01)
+002D 0B C0                    or ax, ax
 002F 74 01                    jz 0x32
 0031 46                       inc si
-0032                          ax = CheckState(01, 03, any)
+0032                          ax = CheckState(01, 03)
+0043 0B C0                    or ax, ax
 0045 74 01                    jz 0x48
 0047 46                       inc si
-0048                          ax = CheckState(01, 04, any)
+0048                          ax = CheckState(01, 04)
+0059 0B C0                    or ax, ax
 005B 74 01                    jz 0x5e
 005D 46                       inc si
-005E 56                       push si
-005F                          Push(02)
-0063                          Push(01)
-0067 C4 5E 06                 les bx, [bp+0x6]
-006A 26 FF 1F                 call far word [es:bx]
-006D 83 C4 06                 add sp, 0x6
-0070                          ax = CheckState(01, 02, 01)
+005E                          SetState(C4, B8, si)
+0070                          ax = CheckState(01, 02)
+0081 3D 01 00                 cmp ax, 0x1
 0084 74 02                    jz 0x88
 0086 EB 0D                    jmp 0x95
 0088                          ShowMessage(087A) = The East Wind is the first to be defeated.
@@ -150,24 +150,24 @@ FLGWINDE_0E:
 FLGWINDS_0F:
 0000                          BEGIN (saving si)
 0004 BE 01 00                 mov si, 0x1
-0007                          ax = CheckState(01, 03, any)
+0007                          ax = CheckState(01, 03)
+0018 0B C0                    or ax, ax
 001A 75 54                    jnz 0x70
-001C                          ax = CheckState(01, 01, any)
+001C                          ax = CheckState(01, 01)
+002D 0B C0                    or ax, ax
 002F 74 01                    jz 0x32
 0031 46                       inc si
-0032                          ax = CheckState(01, 02, any)
+0032                          ax = CheckState(01, 02)
+0043 0B C0                    or ax, ax
 0045 74 01                    jz 0x48
 0047 46                       inc si
-0048                          ax = CheckState(01, 04, any)
+0048                          ax = CheckState(01, 04)
+0059 0B C0                    or ax, ax
 005B 74 01                    jz 0x5e
 005D 46                       inc si
-005E 56                       push si
-005F                          Push(03)
-0063                          Push(01)
-0067 C4 5E 06                 les bx, [bp+0x6]
-006A 26 FF 1F                 call far word [es:bx]
-006D 83 C4 06                 add sp, 0x6
-0070                          ax = CheckState(01, 03, 01)
+005E                          SetState(C4, B8, si)
+0070                          ax = CheckState(01, 03)
+0081 3D 01 00                 cmp ax, 0x1
 0084 74 02                    jz 0x88
 0086 EB 0D                    jmp 0x95
 0088                          ShowMessage(08C5) = The South Wind is the first to be defeated.
@@ -177,24 +177,24 @@ FLGWINDS_0F:
 FLGWINDW_10:
 0000                          BEGIN (saving si)
 0004 BE 01 00                 mov si, 0x1
-0007                          ax = CheckState(01, 04, any)
+0007                          ax = CheckState(01, 04)
+0018 0B C0                    or ax, ax
 001A 75 54                    jnz 0x70
-001C                          ax = CheckState(01, 01, any)
+001C                          ax = CheckState(01, 01)
+002D 0B C0                    or ax, ax
 002F 74 01                    jz 0x32
 0031 46                       inc si
-0032                          ax = CheckState(01, 02, any)
+0032                          ax = CheckState(01, 02)
+0043 0B C0                    or ax, ax
 0045 74 01                    jz 0x48
 0047 46                       inc si
-0048                          ax = CheckState(01, 03, any)
+0048                          ax = CheckState(01, 03)
+0059 0B C0                    or ax, ax
 005B 74 01                    jz 0x5e
 005D 46                       inc si
-005E 56                       push si
-005F                          Push(04)
-0063                          Push(01)
-0067 C4 5E 06                 les bx, [bp+0x6]
-006A 26 FF 1F                 call far word [es:bx]
-006D 83 C4 06                 add sp, 0x6
-0070                          ax = CheckState(01, 04, 01)
+005E                          SetState(C4, B8, si)
+0070                          ax = CheckState(01, 04)
+0081 3D 01 00                 cmp ax, 0x1
 0084 74 02                    jz 0x88
 0086 EB 0D                    jmp 0x95
 0088                          ShowMessage(0912) = The West Wind is the first to be defeated.
@@ -203,7 +203,8 @@ FLGWINDW_10:
 
 EXPRESS_11:
 0000                          BEGIN
-0003                          ax = CheckState(02, 57, any)
+0003                          ax = CheckState(02, 57)
+0014 0B C0                    or ax, ax
 0016 74 2E                    jz 0x46
 0018                          ShowMessage(095D) = This wall is the teleport to CASTLEGATE.
 0025                          Push(03)
@@ -222,7 +223,8 @@ TXTLABY_12:
 WSTRES_13:
 0000                          BEGIN
 0003                          ShowMessage(0A18) = Wyn's Fountain is old and cracked.
-0010                          ax = CheckState(02, 58, any)
+0010                          ax = CheckState(02, 58)
+0021 0B C0                    or ax, ax
 0023 75 5D                    jnz 0x82
 0025                          SetState(02, 58, 01)
 003A                          ShowPortrait(0042)
@@ -236,13 +238,7 @@ WSTRES_13:
 
 MOUNTAIN_14:
 0000                          BEGIN
-0003                          Push(02)
-0007                          Push(00)
-000A                          Push(01)
-000E                          Push(01)
-0012 C4 5E 06                 les bx, [bp+0x6]
-0015 26 FF 9F BC 00           call far word [es:bx+0xbc]
-001A 83 C4 08                 add sp, 0x8
+0003                          GoMap(33, 00, 01, 01)
 001D                          RETURN
 
 TXTMNTN_15:
@@ -272,16 +268,20 @@ ZEPHYRB_18:
 SDOORWKT_19:
 0000                          BEGIN
 0003                          ShowMessage(0BDA) = Skeletal voices echo...
-0010                          ax = CheckState(01, 01, any)
+0010                          ax = CheckState(01, 01)
+0021 0B C0                    or ax, ax
 0023 75 03                    jnz 0x28
 0025 E9 AF 00                 jmp 0xd7
-0028                          ax = CheckState(01, 02, any)
+0028                          ax = CheckState(01, 02)
+0039 0B C0                    or ax, ax
 003B 75 03                    jnz 0x40
 003D E9 97 00                 jmp 0xd7
-0040                          ax = CheckState(01, 03, any)
+0040                          ax = CheckState(01, 03)
+0051 0B C0                    or ax, ax
 0053 75 03                    jnz 0x58
 0055 E9 7F 00                 jmp 0xd7
-0058                          ax = CheckState(01, 04, any)
+0058                          ax = CheckState(01, 04)
+0069 0B C0                    or ax, ax
 006B 74 6A                    jz 0xd7
 006D                          ShowPortrait(000A)
 007A                          ShowMessage(0BF2) = 'The four winds have been defeated!!!!
@@ -368,13 +368,16 @@ WKTENCC_20:
 003F                          AddEncounter(0D, 04)
 0051                          AddEncounter(1E, 05)
 0063                          AddEncounter(1E, 06)
-0075                          ax = CheckState(01, 01, 01)
+0075                          ax = CheckState(01, 01)
+0086 3D 01 00                 cmp ax, 0x1
 0089 75 03                    jnz 0x8e
 008B BF 0E 00                 mov di, 0xe
-008E                          ax = CheckState(01, 02, 02)
+008E                          ax = CheckState(01, 02)
+009F 3D 02 00                 cmp ax, 0x2
 00A2 75 03                    jnz 0xa7
 00A4 BE 5B 00                 mov si, 0x5b
-00A7                          ax = CheckState(01, 03, 02)
+00A7                          ax = CheckState(01, 03)
+00B8 3D 02 00                 cmp ax, 0x2
 00BB 75 03                    jnz 0xc0
 00BD                          AddTreasure(07D0, 00, 00, 6F, di, CF)
 00DB                          RETURN (restoring si, di)
@@ -387,13 +390,16 @@ WKTENCD_21:
 001B                          AddEncounter(1E, 02)
 002D                          AddEncounter(0D, 05)
 003F                          AddEncounter(0D, 06)
-0051                          ax = CheckState(01, 01, 02)
+0051                          ax = CheckState(01, 01)
+0062 3D 02 00                 cmp ax, 0x2
 0065 75 03                    jnz 0x6a
 0067 BF 22 00                 mov di, 0x22
-006A                          ax = CheckState(01, 02, 04)
+006A                          ax = CheckState(01, 02)
+007B 3D 04 00                 cmp ax, 0x4
 007E 75 03                    jnz 0x83
 0080 BE 58 00                 mov si, 0x58
-0083                          ax = CheckState(01, 03, 04)
+0083                          ax = CheckState(01, 03)
+0094 3D 04 00                 cmp ax, 0x4
 0097 75 03                    jnz 0x9c
 0099                          AddTreasure(07D0, 00, 00, 6D, di, CF)
 00B7                          RETURN (restoring si, di)
@@ -410,17 +416,22 @@ WKTENCE_22:
 0059                          AddEncounter(1D, 04)
 006B                          AddEncounter(1E, 05)
 007D                          AddEncounter(1E, 06)
-008F                          ax = CheckState(01, 01, 03)
+008F                          ax = CheckState(01, 01)
+00A0 3D 03 00                 cmp ax, 0x3
 00A3 75 03                    jnz 0xa8
 00A5 BF 29 00                 mov di, 0x29
-00A8                          ax = CheckState(01, 02, 01)
+00A8                          ax = CheckState(01, 02)
+00B9 3D 01 00                 cmp ax, 0x1
 00BC 75 03                    jnz 0xc1
 00BE BE 86 00                 mov si, 0x86
-00C1                          ax = CheckState(01, 03, 01)
+00C1                          ax = CheckState(01, 03)
+00D2 3D 01 00                 cmp ax, 0x1
 00D5 75 2F                    jnz 0x106
-00D7                          ax = CheckState(01, 01, 02)
+00D7                          ax = CheckState(01, 01)
+00E8 3D 02 00                 cmp ax, 0x2
 00EB 75 19                    jnz 0x106
-00ED                          ax = CheckState(01, 02, 03)
+00ED                          ax = CheckState(01, 02)
+00FE 3D 03 00                 cmp ax, 0x3
 0101 75 03                    jnz 0x106
 0103                          AddTreasure(07D0, 00, 00, F6, di, CF)
 0121                          RETURN (restoring si, di)
@@ -434,13 +445,16 @@ WKTENCF_23:
 002D                          AddEncounter(1E, 03)
 003F                          AddEncounter(15, 04)
 0051                          AddEncounter(0C, 05)
-0063                          ax = CheckState(01, 01, 04)
+0063                          ax = CheckState(01, 01)
+0074 3D 04 00                 cmp ax, 0x4
 0077 75 03                    jnz 0x7c
 0079 BF 31 00                 mov di, 0x31
-007C                          ax = CheckState(01, 02, 03)
+007C                          ax = CheckState(01, 02)
+008D 3D 03 00                 cmp ax, 0x3
 0090 75 03                    jnz 0x95
 0092 BE 5A 00                 mov si, 0x5a
-0095                          ax = CheckState(01, 03, 03)
+0095                          ax = CheckState(01, 03)
+00A6 3D 03 00                 cmp ax, 0x3
 00A9 75 03                    jnz 0xae
 00AB                          AddTreasure(07D0, 00, 00, 68, di, CF)
 00C9                          RETURN (restoring si, di)
@@ -481,7 +495,8 @@ SIRFLAG_27:
 
 SIRDOOR_28:
 0000                          BEGIN
-0003                          ax = CheckState(02, 51, any)
+0003                          ax = CheckState(02, 51)
+0014 0B C0                    or ax, ax
 0016 74 43                    jz 0x5b
 0018                          Push(01)
 001C                          Push(01)
@@ -512,7 +527,8 @@ SIROCCO_29:
 
 WSBIGDR_2A:
 0000                          BEGIN
-0003                          CheckStrength(12)
+0003                          ax = CheckStrength()
+000F 3D 12 00                 cmp ax, 0x12
 0012 72 2D                    jb 0x41
 0014                          ShowMessage(1303) = You force the massive door open by sheer muscle power.
 0021                          Push(01)
@@ -598,7 +614,8 @@ WSENCI_33:
 
 SDOORWS_34:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 0A 00                 cmp ax, 0xa
 0012 73 25                    jae 0x39
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -656,7 +673,8 @@ LAENCB_39:
 
 SDOORLTA_3A:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 0A 00                 cmp ax, 0xa
 0012 73 3A                    jae 0x4e
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -676,7 +694,8 @@ SDOORLTA_3A:
 
 SDOORLTB_3B:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 0A 00                 cmp ax, 0xa
 0012 73 3A                    jae 0x4e
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -696,7 +715,8 @@ SDOORLTB_3B:
 
 SDOORLTC_3C:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 0A 00                 cmp ax, 0xa
 0012 73 3A                    jae 0x4e
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -716,7 +736,8 @@ SDOORLTC_3C:
 
 BDOORLTD_3D:
 0000                          BEGIN
-0003                          CheckStrength(10)
+0003                          ax = CheckStrength()
+000F 3D 10 00                 cmp ax, 0x10
 0012 72 2B                    jb 0x3f
 0014                          ShowMessage(1705) = You bash the massive door open.
 0021                          Push(01)
@@ -782,29 +803,30 @@ LTENCG_44:
 LTSKILL_45:
 0000                          BEGIN
 0003                          ShowMessage(1804) = A special thieves' shrine magically glows.
-0010                          ax = CheckState(02, 59, any)
+0010                          ax = CheckState(02, 59)
+0021 0B C0                    or ax, ax
 0023 74 03                    jz 0x28
 0025 E9 E5 00                 jmp 0x10d
 0028                          SetState(02, 59, 01)
-003D                          ax = SkillLevel(0D)
+003D                          ax = GetSkillLevel(0D)
 0049 0B C0                    or ax, ax
 004B 75 21                    jnz 0x6e
 004D                          SetSkillLevel(0D, 01)
 005E                          ShowMessage(182F) = You gain the skill of Detection!
 006B E9 9D 00                 jmp 0x10b
-006E                          ax = SkillLevel(0E)
+006E                          ax = GetSkillLevel(0E)
 007A 0B C0                    or ax, ax
 007C 75 20                    jnz 0x9e
 007E                          SetSkillLevel(0E, 01)
 008F                          ShowMessage(1850) = You gain the skill of Lockpicking!
 009C EB 6D                    jmp 0x10b
-009E                          ax = SkillLevel(0C)
+009E                          ax = GetSkillLevel(0C)
 00AA 0B C0                    or ax, ax
 00AC 75 20                    jnz 0xce
 00AE                          SetSkillLevel(0C, 02)
 00BF                          ShowMessage(1873) = You gain the Bard skill!
 00CC EB 3D                    jmp 0x10b
-00CE                          ax = SkillLevel(0F)
+00CE                          ax = GetSkillLevel(0F)
 00DA 0B C0                    or ax, ax
 00DC 75 20                    jnz 0xfe
 00DE                          SetSkillLevel(0F, 01)

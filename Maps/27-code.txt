@@ -43,7 +43,8 @@ TXTLOOKO_09:
 
 BDOORCGC_0C:
 0000                          BEGIN
-0003                          CheckStrength(14)
+0003                          ax = CheckStrength()
+000F 3D 14 00                 cmp ax, 0x14
 0012 72 2D                    jb 0x41
 0014                          ShowMessage(0586) = With a massive effort, you manage to force the door open.
 0021                          Push(01)
@@ -229,7 +230,8 @@ TXTBAZZD_20:
 
 PHOEREW_21:
 0000                          BEGIN
-0003                          ax = CheckState(02, 5E, any)
+0003                          ax = CheckState(02, 5E)
+0014 0B C0                    or ax, ax
 0016 75 4B                    jnz 0x63
 0018                          SetState(02, 5E, 01)
 002D                          SetState(02, 85, 01)
@@ -250,31 +252,32 @@ MYSTICS_24:
 
 FNTNBAZZ_25:
 0000                          BEGIN
-0003                          ax = CheckState(02, 5F, any)
+0003                          ax = CheckState(02, 5F)
+0014 0B C0                    or ax, ax
 0016 74 03                    jz 0x1b
 0018 E9 FF 00                 jmp 0x11a
 001B                          SetState(02, 5F, 01)
 0030                          ShowPortrait(0042)
 003D                          ShowMessage(0D17) = You sip the cool purple waters of the ElfFoot Fountain
-004A                          ax = SkillLevel(14)
+004A                          ax = GetSkillLevel(14)
 0056 0B C0                    or ax, ax
 0058 75 21                    jnz 0x7b
 005A                          SetSkillLevel(14, 01)
 006B                          ShowMessage(0D4E) = You gain the skill of Rune Reading!
 0078 E9 9D 00                 jmp 0x118
-007B                          ax = SkillLevel(16)
+007B                          ax = GetSkillLevel(16)
 0087 0B C0                    or ax, ax
 0089 75 20                    jnz 0xab
 008B                          SetSkillLevel(16, 01)
 009C                          ShowMessage(0D72) = You gain the Channel skill!
 00A9 EB 6D                    jmp 0x118
-00AB                          ax = SkillLevel(15)
+00AB                          ax = GetSkillLevel(15)
 00B7 0B C0                    or ax, ax
 00B9 75 20                    jnz 0xdb
 00BB                          SetSkillLevel(15, 01)
 00CC                          ShowMessage(0D8E) = You gain the Staff skill!
 00D9 EB 3D                    jmp 0x118
-00DB                          ax = SkillLevel(17)
+00DB                          ax = GetSkillLevel(17)
 00E7 0B C0                    or ax, ax
 00E9 75 20                    jnz 0x10b
 00EB                          SetSkillLevel(17, 01)
@@ -305,29 +308,30 @@ FNTNLOOK_2B:
 0000                          BEGIN
 0003                          ShowPortrait(0042)
 0010                          ShowMessage(0EBC) = Ranger banners decorate the woodwork of Lookout Fountain.
-001D                          ax = CheckState(02, 60, any)
+001D                          ax = CheckState(02, 60)
+002E 0B C0                    or ax, ax
 0030 74 03                    jz 0x35
 0032 E9 E3 00                 jmp 0x118
 0035                          SetState(02, 60, 01)
-004A                          ax = SkillLevel(09)
+004A                          ax = GetSkillLevel(09)
 0056 0B C0                    or ax, ax
 0058 75 21                    jnz 0x7b
 005A                          SetSkillLevel(09, 02)
 006B                          ShowMessage(0EF6) = You gain the skill of Stamina!
 0078 E9 9D 00                 jmp 0x118
-007B                          ax = SkillLevel(0A)
+007B                          ax = GetSkillLevel(0A)
 0087 0B C0                    or ax, ax
 0089 75 20                    jnz 0xab
 008B                          SetSkillLevel(0A, 02)
 009C                          ShowMessage(0F15) = You gain the skill of Furtiveness!
 00A9 EB 6D                    jmp 0x118
-00AB                          ax = SkillLevel(0B)
+00AB                          ax = GetSkillLevel(0B)
 00B7 0B C0                    or ax, ax
 00B9 75 20                    jnz 0xdb
 00BB                          SetSkillLevel(0B, 02)
 00CC                          ShowMessage(0F38) = You gain the skill of Reading Tracks!
 00D9 EB 3D                    jmp 0x118
-00DB                          ax = SkillLevel(08)
+00DB                          ax = GetSkillLevel(08)
 00E7 0B C0                    or ax, ax
 00E9 75 20                    jnz 0x10b
 00EB                          SetSkillLevel(08, 02)

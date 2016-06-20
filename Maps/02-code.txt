@@ -21,9 +21,11 @@ TELEPORT_02:
 
 LOWMNSTR_03:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 74 0D                    jz 0x1d
-0010                          ax = PartyCountIs(02)
+0010                          ax = PartyCount()
+0018 3D 02 00                 cmp ax, 0x2
 001B 75 26                    jnz 0x43
 001D                          AddEncounter(1A, 01)
 002F                          AddEncounter(1A, 02)
@@ -36,7 +38,8 @@ LOWMNSTR_03:
 
 SMALGOLD_04:
 0000                          BEGIN
-0003                          ax = CheckState(02, 02, 01)
+0003                          ax = CheckState(02, 02)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 0F                    jnz 0x28
 0019                          ShowMessage(0456) = The room is bare.
 0026 EB 33                    jmp 0x5b
@@ -47,7 +50,8 @@ SMALGOLD_04:
 
 GOLDENC_05:
 0000                          BEGIN
-0003                          ax = CheckState(02, 03, 01)
+0003                          ax = CheckState(02, 03)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(0495) = The room is empty, except for a few rogues.
 0026                          AddTreasure(0064, 00, 00, 00, 00, B5)
@@ -55,9 +59,11 @@ GOLDENC_05:
 0047                          AddTreasure(03E8, 00, 00, 00, CB, CE)
 0067                          SetState(02, 03, 01)
 007C                          ShowMessage(04C1) = You encounter Rogues counting their gold.
-0089                          ax = PartyCountIs(01)
+0089                          ax = PartyCount()
+0091 3D 01 00                 cmp ax, 0x1
 0094 74 0D                    jz 0xa3
-0096                          ax = PartyCountIs(02)
+0096                          ax = PartyCount()
+009E 3D 02 00                 cmp ax, 0x2
 00A1 75 26                    jnz 0xc9
 00A3                          AddEncounter(13, 01)
 00B5                          AddEncounter(13, 02)
@@ -72,7 +78,8 @@ LKPKDOOR_06:
 0000                          BEGIN
 0003                          ax = UsedItem(C2, C4)
 0016 75 11                    jnz 0x29
-0018                          ax = UsedSkill(0E, 05) // returns 0 if did not use, compares to 2nd op if did use
+0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
+0024 3D 05 00                 cmp ax, 0x5
 0027 72 43                    jb 0x6c
 0029                          Push(01)
 002D                          Push(01)
@@ -97,16 +104,18 @@ LKPKDOOR_06:
 LOWROGUE_07:
 0000                          BEGIN
 0003                          ShowMessage(0528) = You encounter Rogues.
-0010                          ax = UnknownFunction(000F)
+0010                          ax = UnknownFunctionEC(000F)
 001D 3D 05 00                 cmp ax, 0x5
 0020 77 0F                    ja 0x31
 0022                          ShowMessage(053E) = To reach the next level of the dungeon, you need a special key. The key is rumored to be somewhere on this level.
 002F EB 1A                    jmp 0x4b
 0031                          ShowMessage(05B0) = The Rogues refuse to talk.
 003E                          ShowMessage(05CB) = They attack you!
-004B                          ax = PartyCountIs(01)
+004B                          ax = PartyCount()
+0053 3D 01 00                 cmp ax, 0x1
 0056 74 0D                    jz 0x65
-0058                          ax = PartyCountIs(02)
+0058                          ax = PartyCount()
+0060 3D 02 00                 cmp ax, 0x2
 0063 75 26                    jnz 0x8b
 0065                          AddEncounter(1C, 01)
 0077                          AddEncounter(1D, 02)
@@ -120,14 +129,17 @@ LOWROGUE_07:
 
 TUFMNSTR_08:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 27                    jnz 0x37
 0010                          AddEncounter(1F, 01)
 0022                          AddEncounter(20, 02)
 0034 E9 AC 00                 jmp 0xe3
-0037                          ax = PartyCountIs(02)
+0037                          ax = PartyCount()
+003F 3D 02 00                 cmp ax, 0x2
 0042 74 0D                    jz 0x51
-0044                          ax = PartyCountIs(03)
+0044                          ax = PartyCount()
+004C 3D 03 00                 cmp ax, 0x3
 004F 75 4A                    jnz 0x9b
 0051                          AddEncounter(1E, 01)
 0063                          AddEncounter(1F, 02)
@@ -149,17 +161,20 @@ LCPKENC_09:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(012C, 00, 00, 00, 00, D2)
 0060                          ShowMessage(05F6) = You see an interesting lockpick on the floor. On the shaft are the words - Property of King Cleowyn. The Cro-Lizards you see are also interested in the lockpick.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 75 15                    jnz 0x8f
 007A                          AddEncounter(1E, 01)
 008C E9 F7 00                 jmp 0x186
-008F                          ax = PartyCountIs(02)
+008F                          ax = PartyCount()
+0097 3D 02 00                 cmp ax, 0x2
 009A 75 39                    jnz 0xd5
 009C                          AddEncounter(1E, 01)
 00AE                          AddEncounter(1E, 02)
 00C0                          AddEncounter(1E, 04)
 00D2 E9 B1 00                 jmp 0x186
-00D5                          ax = PartyCountIs(03)
+00D5                          ax = PartyCount()
+00DD 3D 03 00                 cmp ax, 0x3
 00E0 75 4A                    jnz 0x12c
 00E2                          AddEncounter(1E, 01)
 00F4                          AddEncounter(1E, 02)
@@ -202,16 +217,19 @@ KEYENC_0B:
 0041                          AddTreasure(00C8, 00, 00, 00, 00, D3)
 0060                          ShowMessage(071B) = On the floor is a key. The grasp bears the Galabryan insignia and the initials KC. It must have belonged to King Cleowyn.  
 006D                          ShowMessage(0797) = Between you and the key are monsters.
-007A                          ax = PartyCountIs(01)
+007A                          ax = PartyCount()
+0082 3D 01 00                 cmp ax, 0x1
 0085 75 15                    jnz 0x9c
 0087                          AddEncounter(1F, 01)
 0099 E9 E5 00                 jmp 0x181
-009C                          ax = PartyCountIs(02)
+009C                          ax = PartyCount()
+00A4 3D 02 00                 cmp ax, 0x2
 00A7 75 27                    jnz 0xd0
 00A9                          AddEncounter(1F, 01)
 00BB                          AddEncounter(20, 02)
 00CD E9 B1 00                 jmp 0x181
-00D0                          ax = PartyCountIs(03)
+00D0                          ax = PartyCount()
+00D8 3D 03 00                 cmp ax, 0x3
 00DB 75 4A                    jnz 0x127
 00DD                          AddEncounter(1F, 01)
 00EF                          AddEncounter(1F, 02)
@@ -227,7 +245,8 @@ KEYENC_0B:
 
 STRDOOR_0C:
 0000                          BEGIN
-0003                          CheckStrength(0A)
+0003                          ax = CheckStrength()
+000F 3D 0A 00                 cmp ax, 0xa
 0012 72 4B                    jb 0x5f
 0014                          ShowMessage(07BD) = You manage to open the door by brute strength.
 0021                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -260,7 +279,7 @@ TOVEST_0D:
 MODMNSTR_0E:
 0000                          BEGIN
 0003                          ShowMessage(081E) = You encounter Rogues.
-0010                          ax = UnknownFunction(000F)
+0010                          ax = UnknownFunctionEC(000F)
 001D 3D 07 00                 cmp ax, 0x7
 0020 77 2E                    ja 0x50
 0022                          ShowMessage(0834) = The imps that haunt the dungeon frequently return gold and lost items to their original places.
@@ -269,16 +288,20 @@ MODMNSTR_0E:
 0050                          ShowMessage(0894) = The Rogues refuse to talk.
 005D                          ShowMessage(08AF) = They charge you!
 006A                          AddTreasure(00C8, 00, 00, 00, 00, 02)
-0089                          ax = PartyCountIs(01)
+0089                          ax = PartyCount()
+0091 3D 01 00                 cmp ax, 0x1
 0094 74 0D                    jz 0xa3
-0096                          ax = PartyCountIs(02)
+0096                          ax = PartyCount()
+009E 3D 02 00                 cmp ax, 0x2
 00A1 75 26                    jnz 0xc9
 00A3                          AddEncounter(23, 01)
 00B5                          AddEncounter(22, 02)
 00C7 EB 62                    jmp 0x12b
-00C9                          ax = PartyCountIs(03)
+00C9                          ax = PartyCount()
+00D1 3D 03 00                 cmp ax, 0x3
 00D4 74 0D                    jz 0xe3
-00D6                          ax = PartyCountIs(04)
+00D6                          ax = PartyCount()
+00DE 3D 04 00                 cmp ax, 0x4
 00E1 75 48                    jnz 0x12b
 00E3                          AddEncounter(22, 01)
 00F5                          AddEncounter(23, 02)
@@ -292,29 +315,34 @@ HRDMONST_0F:
 0007 EB 10                    jmp 0x19
 0009                          AddEncounter(13, si)
 0018 46                       inc si
-0019                          ax = PartyCountIs(si)
+0019                          ax = PartyCount()
+0021 3B C6                    cmp ax, si
 0023 73 E4                    jae 0x9
 0025                          RETURN (restoring si)
 
 WEAPENC_10:
 0000                          BEGIN
-0003                          ax = CheckState(02, 04, 01)
+0003                          ax = CheckState(02, 04)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(08C0) = You find nothing interesting in the room except a vial and some monsters.
 0026                          AddTreasure(00C8, 00, 00, 00, 00, B5)
 0045 EB 2D                    jmp 0x74
 0047                          AddTreasure(00C8, 00, 00, 00, B7, 18)
 0067                          ShowMessage(090A) = You notice an axe and a vial on the floor. You also notice some Bronze Ogres.
-0074                          ax = PartyCountIs(01)
+0074                          ax = PartyCount()
+007C 3D 01 00                 cmp ax, 0x1
 007F 75 15                    jnz 0x96
 0081                          AddEncounter(26, 01)
 0093 E9 C1 00                 jmp 0x157
-0096                          ax = PartyCountIs(02)
+0096                          ax = PartyCount()
+009E 3D 02 00                 cmp ax, 0x2
 00A1 75 27                    jnz 0xca
 00A3                          AddEncounter(26, 01)
 00B5                          AddEncounter(26, 02)
 00C7 E9 8D 00                 jmp 0x157
-00CA                          ax = PartyCountIs(03)
+00CA                          ax = PartyCount()
+00D2 3D 03 00                 cmp ax, 0x3
 00D5 75 38                    jnz 0x10f
 00D7                          AddEncounter(26, 01)
 00E9                          AddEncounter(26, 02)
@@ -336,7 +364,8 @@ PITA_11:
 002A 59                       pop cx
 002B                          ShowMessage(0958) = You fall into a pit.
 0038                          ShowMessage(096D) = You take heavy damage from the long, long fall.
-0045                          ax = PartyCountIs(01)
+0045                          ax = PartyCount()
+004D 3D 01 00                 cmp ax, 0x1
 0050 75 2A                    jnz 0x7c
 0052                          DoDamage(012C)
 005F                          GoMap(03, 11, 03, 05)
@@ -352,7 +381,8 @@ PITA_11:
 
 SECDOOR_12:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 08) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 08 00                 cmp ax, 0x8
 0012 73 4F                    jae 0x63
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -397,7 +427,8 @@ PITB_15:
 002A 59                       pop cx
 002B                          ShowMessage(0AFE) = You fall into a pit.
 0038                          ShowMessage(0B13) = You take heavy damage from the long, long fall.
-0045                          ax = PartyCountIs(01)
+0045                          ax = PartyCount()
+004D 3D 01 00                 cmp ax, 0x1
 0050 75 2A                    jnz 0x7c
 0052                          DoDamage(012C)
 005F                          GoMap(03, 12, 03, 05)
@@ -421,7 +452,8 @@ PITC_16:
 002A 59                       pop cx
 002B                          ShowMessage(0C19) = You fall into a pit.
 0038                          ShowMessage(0C2E) = You take heavy damage from the long, long fall.
-0045                          ax = PartyCountIs(01)
+0045                          ax = PartyCount()
+004D 3D 01 00                 cmp ax, 0x1
 0050 75 2A                    jnz 0x7c
 0052                          DoDamage(012C)
 005F                          GoMap(01, 21, 03, 05)
@@ -445,7 +477,8 @@ PITD_17:
 002A 59                       pop cx
 002B                          ShowMessage(0D34) = You fall into a pit.
 0038                          ShowMessage(0D49) = You take heavy damage from the long, long fall.
-0045                          ax = PartyCountIs(01)
+0045                          ax = PartyCount()
+004D 3D 01 00                 cmp ax, 0x1
 0050 75 29                    jnz 0x7b
 0052                          DoDamage(012C)
 005F                          GoMap(00, 22, 03, 05)
@@ -469,7 +502,7 @@ NPCCHATA_19:
 0000                          BEGIN
 0003                          ShowMessage(0E75) = You encounter an Orc Ranger.
 0010                          ShowPortrait(001E)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0E92) = King Cleowyn had a special lockpick which opened a set of doors in the Vestibule, leading to his Palace. He was the king of thieves, or so my father told me.
@@ -481,7 +514,7 @@ NPCCHATB_1A:
 0000                          BEGIN
 0003                          ShowMessage(0F5C) = You encounter a Human Wizard.
 0010                          ShowPortrait(002B)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 04 00                 cmp ax, 0x4
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0F7A) = The lone adventurer is often at a disadvantage in this cursed dungeon. Those deeper levels...oh, they are very dangerous, indeed.
@@ -493,7 +526,7 @@ NPCCHATC_1B:
 0000                          BEGIN
 0003                          ShowMessage(1024) = You encounter a Dwarf Knight.
 0010                          ShowPortrait(001C)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(1042) = There are rumors of a fantastic treasury which King Cleowyn visited each night to count his ill-gotten tax revenues.
@@ -505,7 +538,7 @@ NPCCHATD_1C:
 0000                          BEGIN
 0003                          ShowMessage(10F2) = You encounter a Troll Cleric.
 0010                          ShowPortrait(0028)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(1110) = Being able to detect hidden traps and doors is important for any party of adventurers wandering this dungeon.
@@ -519,7 +552,7 @@ NPCCHATE_1D:
 0000                          BEGIN
 0003                          ShowMessage(1245) = You encounter a Human Thief.
 0010                          ShowPortrait(0022)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(1262) = The upper levels of this dungeon make up the Palace of King Cleowyn. He was a cruel ruler and was hated by all.
@@ -532,7 +565,7 @@ NPCCHATF_1E:
 0000                          BEGIN
 0003                          ShowMessage(1382) = You encounter an Elf Barbarian.
 0010                          ShowPortrait(0018)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(13A2) = Beware the pit to be found at the heart of the mine. Only the very strongest can survive the fall into the deep abyss.

@@ -22,7 +22,8 @@ SECDOORA_03:
 0000                          BEGIN
 0003                          ax = UsedItem(D4, D4)
 0016 75 15                    jnz 0x2d
-0018                          ax = CheckState(02, 6C, any)
+0018                          ax = CheckState(02, 6C)
+0029 0B C0                    or ax, ax
 002B 74 66                    jz 0x93
 002D                          RemoveItem(D4)
 0039                          SetState(02, 6C, 01)
@@ -49,7 +50,8 @@ LAVA_04:
 
 SECDOORB_05:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 0B) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 0B 00                 cmp ax, 0xb
 0012 73 3A                    jae 0x4e
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -87,9 +89,11 @@ LAVALEDG_06:
 
 LAVAPA_07:
 0000                          BEGIN
-0003                          ax = CheckState(01, 03, 01)
+0003                          ax = CheckState(01, 03)
+0014 3D 01 00                 cmp ax, 0x1
 0017 74 16                    jz 0x2f
-0019                          ax = CheckState(01, 03, 05)
+0019                          ax = CheckState(01, 03)
+002A 3D 05 00                 cmp ax, 0x5
 002D 75 51                    jnz 0x80
 002F                          ShowMessage(0522) = A platform appears beneath your feet..
 003C                          SetTileFloor(A8, 00)
@@ -108,9 +112,11 @@ LAVAPA_07:
 
 LAVAPB_08:
 0000                          BEGIN
-0003                          ax = CheckState(01, 03, 02)
+0003                          ax = CheckState(01, 03)
+0014 3D 02 00                 cmp ax, 0x2
 0017 74 16                    jz 0x2f
-0019                          ax = CheckState(01, 03, 05)
+0019                          ax = CheckState(01, 03)
+002A 3D 05 00                 cmp ax, 0x5
 002D 75 51                    jnz 0x80
 002F                          ShowMessage(056B) = A platform appears beneath your feet..
 003C                          SetTileFloor(98, 00)
@@ -129,9 +135,11 @@ LAVAPB_08:
 
 LAVAPC_09:
 0000                          BEGIN
-0003                          ax = CheckState(01, 03, 03)
+0003                          ax = CheckState(01, 03)
+0014 3D 03 00                 cmp ax, 0x3
 0017 74 16                    jz 0x2f
-0019                          ax = CheckState(01, 03, 05)
+0019                          ax = CheckState(01, 03)
+002A 3D 05 00                 cmp ax, 0x5
 002D 75 51                    jnz 0x80
 002F                          ShowMessage(05B4) = A platform appears beneath your feet..
 003C                          SetTileFloor(88, 00)
@@ -150,9 +158,11 @@ LAVAPC_09:
 
 LAVAPD_0A:
 0000                          BEGIN
-0003                          ax = CheckState(01, 03, 04)
+0003                          ax = CheckState(01, 03)
+0014 3D 04 00                 cmp ax, 0x4
 0017 74 16                    jz 0x2f
-0019                          ax = CheckState(01, 03, 05)
+0019                          ax = CheckState(01, 03)
+002A 3D 05 00                 cmp ax, 0x5
 002D 75 51                    jnz 0x80
 002F                          ShowMessage(05FD) = A platform appears beneath your feet..
 003C                          SetTileFloor(78, 00)
@@ -271,10 +281,12 @@ CYCLQUST_13:
 MNRPLATC_14:
 0000                          BEGIN
 0003                          ShowPortrait(0023)
-0010                          ax = CheckState(02, 6F, any)
+0010                          ax = CheckState(02, 6F)
+0021 0B C0                    or ax, ax
 0023 74 6A                    jz 0x8f
 0025                          ShowMessage(1094) = The dwarf miner greets you with youthful enthusiasm.
-0032                          ax = CheckState(02, 6B, any)
+0032                          ax = CheckState(02, 6B)
+0043 0B C0                    or ax, ax
 0045 75 46                    jnz 0x8d
 0047                          SetState(02, 6B, 01)
 005C                          ShowMessage(10C9) = You show signs of entering my caves!  I thank-you for clearing my mines and repay you with treasure.
@@ -328,7 +340,8 @@ OPENER_16:
 
 OPENEE_17:
 0000                          BEGIN
-0003                          ax = CheckState(01, 03, 05)
+0003                          ax = CheckState(01, 03)
+0014 3D 05 00                 cmp ax, 0x5
 0017 75 34                    jnz 0x4d
 0019                          Push(03)
 001D                          ax = GetNextTile()
@@ -430,7 +443,8 @@ SECDOORC_21:
 000A 3D 04 00                 cmp ax, 0x4
 000D 74 03                    jz 0x12
 000F E9 B6 00                 jmp 0xc8
-0012                          ax = UsedSkill(0D, 08) // returns 0 if did not use, compares to 2nd op if did use
+0012                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+001E 3D 08 00                 cmp ax, 0x8
 0021 73 3A                    jae 0x5d
 0023                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 002F 0B C0                    or ax, ax
@@ -460,7 +474,8 @@ SECDOORC_21:
 00BA 50                       push ax
 00BB                          Move(stk[0], stk[1], stk[2])
 00C5 E9 B3 00                 jmp 0x17b
-00C8                          ax = UsedSkill(0D, 0B) // returns 0 if did not use, compares to 2nd op if did use
+00C8                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+00D4 3D 0B 00                 cmp ax, 0xb
 00D7 73 3A                    jae 0x113
 00D9                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 00E5 0B C0                    or ax, ax
@@ -493,7 +508,8 @@ SECDOORC_21:
 
 FNTNATTR_25:
 0000                          BEGIN
-0003                          ax = CheckState(02, 56, any)
+0003                          ax = CheckState(02, 56)
+0014 0B C0                    or ax, ax
 0016 75 54                    jnz 0x6c
 0018                          SetState(02, 56, 01)
 002D                          ShowPortrait(0042)

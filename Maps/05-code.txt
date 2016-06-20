@@ -22,7 +22,7 @@ NPCCHATA_05:
 0000                          BEGIN
 0003                          ShowMessage(0464) = You encounter a Human Thief.
 0010                          ShowPortrait(0022)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(0481) = King Cleowyn long sought the buried secrets of a great wizard whose castle lies buried inside this mountain. 
@@ -36,7 +36,7 @@ NPCCHATB_06:
 0000                          BEGIN
 0003                          ShowMessage(05F0) = You encounter an Elf Barbarian.
 0010                          ShowPortrait(0018)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0610) = Two levels down is a most strange area. Six small rooms are accessible to anyone, but there is a large area I have not been able to reach. A wizard told me I should study my runes to solve the mystery of this area.
@@ -46,7 +46,8 @@ NPCCHATB_06:
 
 ITEMAENC_07:
 0000                          BEGIN
-0003                          ax = CheckState(02, 12, 01)
+0003                          ax = CheckState(02, 12)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
 0019                          ShowMessage(072A) = Monsters jump out of the shadows.
 0026                          AddTreasure(0064, 00, 00, 00, CE, B5)
@@ -54,9 +55,11 @@ ITEMAENC_07:
 0048                          AddTreasure(1770, 00, 00, CE, 42, 0A)
 0069                          SetState(02, 12, 01)
 007E                          ShowMessage(074C) = Monsters snarl as you approach a pile of weapons.
-008B                          ax = PartyCountIs(01)
+008B                          ax = PartyCount()
+0093 3D 01 00                 cmp ax, 0x1
 0096 74 0D                    jz 0xa5
-0098                          ax = PartyCountIs(02)
+0098                          ax = PartyCount()
+00A0 3D 02 00                 cmp ax, 0x2
 00A3 75 26                    jnz 0xcb
 00A5                          AddEncounter(19, 01)
 00B7                          AddEncounter(1E, 02)
@@ -75,7 +78,8 @@ TELPORTN_08:
 
 ITEMBENC_09:
 0000                          BEGIN
-0003                          ax = CheckState(02, 13, 01)
+0003                          ax = CheckState(02, 13)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
 0019                          ShowMessage(077E) = Unclean spirits shriek as they attack.
 0026                          AddTreasure(0190, 00, 00, 00, B5, CB)
@@ -83,12 +87,14 @@ ITEMBENC_09:
 0048                          AddTreasure(0BB8, 00, 00, 00, 8A, 3B)
 0068                          SetState(02, 13, 01)
 007D                          ShowMessage(07A5) = Incubi surround you as you approach a weapon on the floor.
-008A                          ax = PartyCountIs(01)
+008A                          ax = PartyCount()
+0092 3D 01 00                 cmp ax, 0x1
 0095 75 27                    jnz 0xbe
 0097                          AddEncounter(24, 01)
 00A9                          AddEncounter(24, 02)
 00BB E9 C3 00                 jmp 0x181
-00BE                          ax = PartyCountIs(02)
+00BE                          ax = PartyCount()
+00C6 3D 02 00                 cmp ax, 0x2
 00C9 75 4A                    jnz 0x115
 00CB                          AddEncounter(23, 01)
 00DD                          AddEncounter(23, 02)
@@ -105,7 +111,8 @@ ITEMBENC_09:
 
 ITEMCENC_0A:
 0000                          BEGIN
-0003                          ax = CheckState(02, 14, 01)
+0003                          ax = CheckState(02, 14)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          AddTreasure(0064, 00, 00, 00, 00, CE)
 0038                          ShowMessage(07E0) = Skeletons attack you.
@@ -113,18 +120,21 @@ ITEMCENC_0A:
 0047                          AddTreasure(0BB8, 00, CC, 39, 8C, 1C)
 0069                          SetState(02, 14, 01)
 007E                          ShowMessage(07F6) = Skeletons guard a precious hoard.
-008B                          ax = PartyCountIs(01)
+008B                          ax = PartyCount()
+0093 3D 01 00                 cmp ax, 0x1
 0096 75 27                    jnz 0xbf
 0098                          AddEncounter(03, 01)
 00AA                          AddEncounter(02, 02)
 00BC E9 1B 01                 jmp 0x1da
-00BF                          ax = PartyCountIs(02)
+00BF                          ax = PartyCount()
+00C7 3D 02 00                 cmp ax, 0x2
 00CA 75 39                    jnz 0x105
 00CC                          AddEncounter(03, 01)
 00DE                          AddEncounter(01, 02)
 00F0                          AddEncounter(03, 03)
 0102 E9 D5 00                 jmp 0x1da
-0105                          ax = PartyCountIs(03)
+0105                          ax = PartyCount()
+010D 3D 03 00                 cmp ax, 0x3
 0110 75 5C                    jnz 0x16e
 0112                          AddEncounter(04, 01)
 0124                          AddEncounter(02, 02)
@@ -142,7 +152,8 @@ ITEMCENC_0A:
 
 ITEMDENC_0B:
 0000                          BEGIN
-0003                          ax = CheckState(02, 15, 01)
+0003                          ax = CheckState(02, 15)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(0818) = The dead arise as you draw near.
 0026                          AddTreasure(0096, 00, 00, 00, 00, B6)
@@ -150,12 +161,14 @@ ITEMDENC_0B:
 0047                          AddTreasure(09C4, 00, 00, 00, C2, 76)
 0067                          SetState(02, 15, 01)
 007C                          ShowMessage(0839) = Your movement disturbs the dead who have guarded King Cleowyn's Treasury.
-0089                          ax = PartyCountIs(01)
+0089                          ax = PartyCount()
+0091 3D 01 00                 cmp ax, 0x1
 0094 75 27                    jnz 0xbd
 0096                          AddEncounter(08, 01)
 00A8                          AddEncounter(0D, 02)
 00BA E9 B1 00                 jmp 0x16e
-00BD                          ax = PartyCountIs(02)
+00BD                          ax = PartyCount()
+00C5 3D 02 00                 cmp ax, 0x2
 00C8 75 38                    jnz 0x102
 00CA                          AddEncounter(09, 01)
 00DC                          AddEncounter(0E, 02)
@@ -171,7 +184,8 @@ ITEMDENC_0B:
 
 TRAPDORA_0D:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 05) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 05 00                 cmp ax, 0x5
 0012 73 4F                    jae 0x63
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -191,7 +205,8 @@ TRAPDORA_0D:
 
 TRAPDORB_0E:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 05) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 05 00                 cmp ax, 0x5
 0012 73 4F                    jae 0x63
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -211,7 +226,8 @@ TRAPDORB_0E:
 
 TRAPDORC_0F:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 06) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 06 00                 cmp ax, 0x6
 0012 73 4F                    jae 0x63
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -231,7 +247,8 @@ TRAPDORC_0F:
 
 TRAPDORD_10:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 06) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 06 00                 cmp ax, 0x6
 0012 73 4F                    jae 0x63
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -251,7 +268,8 @@ TRAPDORD_10:
 
 TRAPDORE_11:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 07) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 07 00                 cmp ax, 0x7
 0012 73 3A                    jae 0x4e
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -269,7 +287,8 @@ TRAPDORE_11:
 
 TRAPDORF_12:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 08) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 08 00                 cmp ax, 0x8
 0012 73 3A                    jae 0x4e
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -287,7 +306,8 @@ TRAPDORF_12:
 
 TRAPDORG_13:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 05) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 05 00                 cmp ax, 0x5
 0012 73 4F                    jae 0x63
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -307,7 +327,8 @@ TRAPDORG_13:
 
 TRAPDORH_14:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 09) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 09 00                 cmp ax, 0x9
 0012 73 3A                    jae 0x4e
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -325,7 +346,8 @@ TRAPDORH_14:
 
 TRAPDOR_15:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 06) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 06 00                 cmp ax, 0x6
 0012 73 4F                    jae 0x63
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -345,7 +367,8 @@ TRAPDOR_15:
 
 TRAPDORJ_16:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 0A 00                 cmp ax, 0xa
 0012 73 3A                    jae 0x4e
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -363,7 +386,8 @@ TRAPDORJ_16:
 
 TRAPDORK_17:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 06) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 06 00                 cmp ax, 0x6
 0012 73 4F                    jae 0x63
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -383,7 +407,8 @@ TRAPDORK_17:
 
 TRAPDORL_18:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 0B) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 0B 00                 cmp ax, 0xb
 0012 73 3A                    jae 0x4e
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -401,7 +426,8 @@ TRAPDORL_18:
 
 TRAPDORM_19:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 08) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 08 00                 cmp ax, 0x8
 0012 73 3A                    jae 0x4e
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -419,7 +445,8 @@ TRAPDORM_19:
 
 TRAPDORN_1A:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 0A) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 0A 00                 cmp ax, 0xa
 0012 73 3A                    jae 0x4e
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
 0020 0B C0                    or ax, ax
@@ -437,9 +464,11 @@ TRAPDORN_1A:
 
 TUFMNSTR_1B:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 74 0D                    jz 0x1d
-0010                          ax = PartyCountIs(02)
+0010                          ax = PartyCount()
+0018 3D 02 00                 cmp ax, 0x2
 001B 75 26                    jnz 0x43
 001D                          AddEncounter(1A, 01)
 002F                          AddEncounter(1A, 02)
@@ -453,7 +482,8 @@ TUFMNSTR_1B:
 
 GOLDENCA_1E:
 0000                          BEGIN
-0003                          ax = CheckState(02, 09, 01)
+0003                          ax = CheckState(02, 09)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2D                    jnz 0x46
 0019                          ShowMessage(0E95) = Ghosts haunt the empty room.
 0026                          AddTreasure(0000, 00, 00, 00, 00, 73)
@@ -461,9 +491,11 @@ GOLDENCA_1E:
 0046                          AddTreasure(0FA0, 00, 00, 00, 00, CE)
 0065                          SetState(02, 09, 01)
 007A                          ShowMessage(0EB2) = Spirits of the dead guard King Cleowyn's gold.
-0087                          ax = PartyCountIs(01)
+0087                          ax = PartyCount()
+008F 3D 01 00                 cmp ax, 0x1
 0092 74 0D                    jz 0xa1
-0094                          ax = PartyCountIs(02)
+0094                          ax = PartyCount()
+009C 3D 02 00                 cmp ax, 0x2
 009F 75 26                    jnz 0xc7
 00A1                          AddEncounter(0F, 01)
 00B3                          AddEncounter(10, 02)
@@ -476,7 +508,8 @@ GOLDENCA_1E:
 
 GOLDBENC_1F:
 0000                          BEGIN
-0003                          ax = CheckState(02, 0A, 01)
+0003                          ax = CheckState(02, 0A)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(0EE1) = Bones of dead guards and one-time thieves rise to challenge you.
 0026                          AddTreasure(00FA, 00, 00, 00, 00, B5)
@@ -484,18 +517,21 @@ GOLDBENC_1F:
 0047                          AddTreasure(1388, 00, 00, 00, 00, CB)
 0066                          SetState(02, 0A, 01)
 007B                          ShowMessage(0F22) = Skeletons of dead guards and the thieves they killed stand between you and Cleowyn's gold.
-0088                          ax = PartyCountIs(01)
+0088                          ax = PartyCount()
+0090 3D 01 00                 cmp ax, 0x1
 0093 75 27                    jnz 0xbc
 0095                          AddEncounter(03, 01)
 00A7                          AddEncounter(02, 02)
 00B9 E9 1B 01                 jmp 0x1d7
-00BC                          ax = PartyCountIs(02)
+00BC                          ax = PartyCount()
+00C4 3D 02 00                 cmp ax, 0x2
 00C7 75 39                    jnz 0x102
 00C9                          AddEncounter(03, 01)
 00DB                          AddEncounter(01, 02)
 00ED                          AddEncounter(03, 03)
 00FF E9 D5 00                 jmp 0x1d7
-0102                          ax = PartyCountIs(03)
+0102                          ax = PartyCount()
+010A 3D 03 00                 cmp ax, 0x3
 010D 75 5C                    jnz 0x16b
 010F                          AddEncounter(04, 01)
 0121                          AddEncounter(02, 02)
@@ -513,7 +549,8 @@ GOLDBENC_1F:
 
 GOLDCENC_20:
 0000                          BEGIN
-0003                          ax = CheckState(02, 0B, 01)
+0003                          ax = CheckState(02, 0B)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(0F7D) = Spiders drop from the ceiling.
 0026                          AddTreasure(00C8, 00, 00, 00, 00, CE)
@@ -521,12 +558,14 @@ GOLDCENC_20:
 0047                          AddTreasure(07D0, 00, 00, 00, 00, BD)
 0066                          SetState(02, 0B, 01)
 007B                          ShowMessage(0F9C) = Spider webs envelop a pile of gold pieces on the floor.
-0088                          ax = PartyCountIs(01)
+0088                          ax = PartyCount()
+0090 3D 01 00                 cmp ax, 0x1
 0093 75 27                    jnz 0xbc
 0095                          AddEncounter(16, 01)
 00A7                          AddEncounter(16, 02)
 00B9 E9 9F 00                 jmp 0x15b
-00BC                          ax = PartyCountIs(02)
+00BC                          ax = PartyCount()
+00C4 3D 02 00                 cmp ax, 0x2
 00C7 75 38                    jnz 0x101
 00C9                          AddEncounter(17, 01)
 00DB                          AddEncounter(16, 02)

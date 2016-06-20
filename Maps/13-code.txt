@@ -69,7 +69,8 @@ WDORSWCH_09:
 
 NSWCHDOR_0A:
 0000                          BEGIN
-0003                          ax = CheckState(01, 01, 01)
+0003                          ax = CheckState(01, 01)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 43                    jnz 0x5c
 0019                          ShowMessage(053C) = The door is unlocked.
 0026                          Push(03)
@@ -93,7 +94,8 @@ NSWCHDOR_0A:
 
 ESWCHDOR_0B:
 0000                          BEGIN
-0003                          ax = CheckState(01, 03, 01)
+0003                          ax = CheckState(01, 03)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 43                    jnz 0x5c
 0019                          ShowMessage(058C) = The door is unlocked.
 0026                          Push(02)
@@ -117,7 +119,8 @@ ESWCHDOR_0B:
 
 SSWCHDOR_0C:
 0000                          BEGIN
-0003                          ax = CheckState(01, 02, 01)
+0003                          ax = CheckState(01, 02)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 43                    jnz 0x5c
 0019                          ShowMessage(05DC) = The door is unlocked.
 0026                          Push(01)
@@ -141,7 +144,8 @@ SSWCHDOR_0C:
 
 WSWCHDOR_0D:
 0000                          BEGIN
-0003                          ax = CheckState(01, 04, 01)
+0003                          ax = CheckState(01, 04)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 41                    jnz 0x5a
 0019                          ShowMessage(062C) = The door is unlocked.
 0026                          Push(00)
@@ -199,9 +203,11 @@ WKEYENC_0F:
 003F EB 2D                    jmp 0x6e
 0041                          AddTreasure(03E8, 00, 00, 00, CF, DA)
 0061                          ShowMessage(06B3) = A key dangles from a spider's mandible.
-006E                          ax = PartyCountIs(01)
+006E                          ax = PartyCount()
+0076 3D 01 00                 cmp ax, 0x1
 0079 74 0D                    jz 0x88
-007B                          ax = PartyCountIs(02)
+007B                          ax = PartyCount()
+0083 3D 02 00                 cmp ax, 0x2
 0086 75 4A                    jnz 0xd2
 0088                          AddEncounter(1C, 01)
 009A                          AddEncounter(1C, 02)
@@ -225,9 +231,11 @@ CKEYENC_10:
 003F EB 2E                    jmp 0x6f
 0041                          AddTreasure(05DC, 00, 00, CC, D1, DB)
 0062                          ShowMessage(06F7) = A Silver Ogre plays with an unusual key.
-006F                          ax = PartyCountIs(01)
+006F                          ax = PartyCount()
+0077 3D 01 00                 cmp ax, 0x1
 007A 74 0D                    jz 0x89
-007C                          ax = PartyCountIs(02)
+007C                          ax = PartyCount()
+0084 3D 02 00                 cmp ax, 0x2
 0087 75 26                    jnz 0xaf
 0089                          AddEncounter(21, 01)
 009B                          AddEncounter(21, 02)
@@ -249,9 +257,11 @@ EKEYENC_11:
 003F EB 2D                    jmp 0x6e
 0041                          AddTreasure(07D0, 00, 00, 00, B6, DC)
 0061                          ShowMessage(074B) = A Lizardite holds a key shaped like the rune sign for I.
-006E                          ax = PartyCountIs(01)
+006E                          ax = PartyCount()
+0076 3D 01 00                 cmp ax, 0x1
 0079 74 0D                    jz 0x88
-007B                          ax = PartyCountIs(02)
+007B                          ax = PartyCount()
+0083 3D 02 00                 cmp ax, 0x2
 0086 75 4A                    jnz 0xd2
 0088                          AddEncounter(27, 01)
 009A                          AddEncounter(27, 02)
@@ -280,12 +290,14 @@ CLUEB_13:
 
 TUFMNSTR_14:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 27                    jnz 0x37
 0010                          AddEncounter(1D, 01)
 0022                          AddEncounter(1F, 02)
 0034 E9 3F 01                 jmp 0x176
-0037                          ax = PartyCountIs(02)
+0037                          ax = PartyCount()
+003F 3D 02 00                 cmp ax, 0x2
 0042 75 5D                    jnz 0xa1
 0044                          AddEncounter(1E, 01)
 0056                          AddEncounter(1E, 02)
@@ -293,7 +305,8 @@ TUFMNSTR_14:
 007A                          AddEncounter(1F, 04)
 008C                          AddEncounter(20, 05)
 009E E9 D5 00                 jmp 0x176
-00A1                          ax = PartyCountIs(03)
+00A1                          ax = PartyCount()
+00A9 3D 03 00                 cmp ax, 0x3
 00AC 75 5C                    jnz 0x10a
 00AE                          AddEncounter(1F, 01)
 00C0                          AddEncounter(20, 02)
@@ -311,7 +324,8 @@ TUFMNSTR_14:
 
 GOLDAENC_17:
 0000                          BEGIN
-0003                          ax = CheckState(02, 1F, 01)
+0003                          ax = CheckState(02, 1F)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
 0019                          AddTreasure(0384, 00, 00, 00, B6, D0)
 0039                          ShowMessage(094D) = You encounter Bugbears.
@@ -319,16 +333,19 @@ GOLDAENC_17:
 0048                          AddTreasure(0E10, 00, 00, 00, 00, B7)
 0067                          SetState(02, 1F, 01)
 007C                          ShowMessage(0965) = Bugbears stand near some gold.
-0089                          ax = PartyCountIs(01)
+0089                          ax = PartyCount()
+0091 3D 01 00                 cmp ax, 0x1
 0094 75 15                    jnz 0xab
 0096                          AddEncounter(01, 01)
 00A8 E9 C1 00                 jmp 0x16c
-00AB                          ax = PartyCountIs(02)
+00AB                          ax = PartyCount()
+00B3 3D 02 00                 cmp ax, 0x2
 00B6 75 27                    jnz 0xdf
 00B8                          AddEncounter(01, 01)
 00CA                          AddEncounter(02, 02)
 00DC E9 8D 00                 jmp 0x16c
-00DF                          ax = PartyCountIs(03)
+00DF                          ax = PartyCount()
+00E7 3D 03 00                 cmp ax, 0x3
 00EA 75 38                    jnz 0x124
 00EC                          AddEncounter(01, 01)
 00FE                          AddEncounter(02, 02)
@@ -342,7 +359,8 @@ GOLDAENC_17:
 
 GOLDBENC_18:
 0000                          BEGIN
-0003                          ax = CheckState(02, 20, 01)
+0003                          ax = CheckState(02, 20)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          AddTreasure(0320, 00, 00, 00, 00, B7)
 0038                          ShowMessage(0984) = Dire Wolves scratch the floor impatiently.
@@ -350,9 +368,11 @@ GOLDBENC_18:
 0047                          AddTreasure(0FA0, 00, 00, 00, 00, 8E)
 0066                          SetState(02, 20, 01)
 007B                          ShowMessage(09AF) = A Dire Wolf plays with a coin purse.
-0088                          ax = PartyCountIs(01)
+0088                          ax = PartyCount()
+0090 3D 01 00                 cmp ax, 0x1
 0093 74 0D                    jz 0xa2
-0095                          ax = PartyCountIs(02)
+0095                          ax = PartyCount()
+009D 3D 02 00                 cmp ax, 0x2
 00A0 75 26                    jnz 0xc8
 00A2                          AddEncounter(0E, 01)
 00B4                          AddEncounter(0E, 02)
@@ -365,7 +385,8 @@ GOLDBENC_18:
 
 GOLDCENC_19:
 0000                          BEGIN
-0003                          ax = CheckState(02, 21, 01)
+0003                          ax = CheckState(02, 21)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          AddTreasure(02EE, 00, 00, 00, 00, D1)
 0038                          ShowMessage(09D4) = You suddenly feel nervous.
@@ -373,14 +394,17 @@ GOLDCENC_19:
 0047                          AddTreasure(157C, 00, 00, 00, 00, CC)
 0066                          SetState(02, 21, 01)
 007B                          ShowMessage(09EF) = Hungry lions prowl the area.
-0088                          ax = PartyCountIs(01)
+0088                          ax = PartyCount()
+0090 3D 01 00                 cmp ax, 0x1
 0093 74 0D                    jz 0xa2
-0095                          ax = PartyCountIs(02)
+0095                          ax = PartyCount()
+009D 3D 02 00                 cmp ax, 0x2
 00A0 75 27                    jnz 0xc9
 00A2                          AddEncounter(13, 01)
 00B4                          AddEncounter(14, 02)
 00C6 E9 8D 00                 jmp 0x156
-00C9                          ax = PartyCountIs(03)
+00C9                          ax = PartyCount()
+00D1 3D 03 00                 cmp ax, 0x3
 00D4 75 38                    jnz 0x10e
 00D6                          AddEncounter(14, 01)
 00E8                          AddEncounter(14, 02)
@@ -401,12 +425,14 @@ ITEMCENC_1A:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(03E8, 00, 00, 00, 00, C6)
 0060                          ShowMessage(0A2B) = Leeches swarm over a magic wand.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 75 27                    jnz 0xa1
 007A                          AddEncounter(1B, 01)
 008C                          AddEncounter(1B, 02)
 009E E9 C3 00                 jmp 0x164
-00A1                          ax = PartyCountIs(02)
+00A1                          ax = PartyCount()
+00A9 3D 02 00                 cmp ax, 0x2
 00AC 75 4A                    jnz 0xf8
 00AE                          AddEncounter(1C, 01)
 00C0                          AddEncounter(1C, 02)
@@ -430,11 +456,13 @@ ITEMBENC_1B:
 003E EB 2B                    jmp 0x6b
 0040                          AddTreasure(0000, 00, 00, 00, 00, 96)
 005E                          ShowMessage(0A6A) = A Giant wears a medallion around his neck.
-006B                          ax = PartyCountIs(01)
+006B                          ax = PartyCount()
+0073 3D 01 00                 cmp ax, 0x1
 0076 75 15                    jnz 0x8d
 0078                          AddEncounter(25, 01)
 008A E9 B1 00                 jmp 0x13e
-008D                          ax = PartyCountIs(02)
+008D                          ax = PartyCount()
+0095 3D 02 00                 cmp ax, 0x2
 0098 75 38                    jnz 0xd2
 009A                          AddEncounter(25, 01)
 00AC                          AddEncounter(26, 02)
@@ -457,9 +485,11 @@ ITEMCENC_1C:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(05DC, 00, 00, 00, 00, D1)
 0060                          ShowMessage(0AB8) = You see a vial in a Cockatrice nest.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 74 0D                    jz 0x87
-007A                          ax = PartyCountIs(02)
+007A                          ax = PartyCount()
+0082 3D 02 00                 cmp ax, 0x2
 0085 75 26                    jnz 0xad
 0087                          AddEncounter(08, 01)
 0099                          AddEncounter(07, 02)
@@ -479,14 +509,17 @@ WEAPAENC_1D:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(07D0, 00, 00, 00, 00, 2A)
 0060                          ShowMessage(0B06) = The lead Silver Ogre wields a powerful morningstar.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 74 0D                    jz 0x87
-007A                          ax = PartyCountIs(02)
+007A                          ax = PartyCount()
+0082 3D 02 00                 cmp ax, 0x2
 0085 75 27                    jnz 0xae
 0087                          AddEncounter(21, 01)
 0099                          AddEncounter(22, 02)
 00AB E9 8D 00                 jmp 0x13b
-00AE                          ax = PartyCountIs(03)
+00AE                          ax = PartyCount()
+00B6 3D 03 00                 cmp ax, 0x3
 00B9 75 38                    jnz 0xf3
 00BB                          AddEncounter(21, 01)
 00CD                          AddEncounter(22, 02)
@@ -507,11 +540,13 @@ WEAPBENC_1E:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(03E8, 00, 00, 00, 00, 10)
 0060                          ShowMessage(0B5C) = A gleaming sword lies on the floor between you and a group of Giants.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 75 15                    jnz 0x8f
 007A                          AddEncounter(25, 01)
 008C E9 9F 00                 jmp 0x12e
-008F                          ax = PartyCountIs(02)
+008F                          ax = PartyCount()
+0097 3D 02 00                 cmp ax, 0x2
 009A 75 38                    jnz 0xd4
 009C                          AddEncounter(25, 01)
 00AE                          AddEncounter(26, 02)
@@ -533,12 +568,14 @@ ARMRAENC_1F:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(07D0, 00, 00, 00, 00, 67)
 0060                          ShowMessage(0BC7) = A Bugbear guards some chainmail.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 75 27                    jnz 0xa1
 007A                          AddEncounter(01, 01)
 008C                          AddEncounter(01, 02)
 009E E9 C3 00                 jmp 0x164
-00A1                          ax = PartyCountIs(02)
+00A1                          ax = PartyCount()
+00A9 3D 02 00                 cmp ax, 0x2
 00AC 75 4A                    jnz 0xf8
 00AE                          AddEncounter(02, 01)
 00C0                          AddEncounter(02, 02)
@@ -562,14 +599,17 @@ ARMRBENC_20:
 0040 EB 2C                    jmp 0x6e
 0042                          AddTreasure(0BB8, 00, 00, 00, 00, 7E)
 0061                          ShowMessage(0C13) = In a Cockatrice nest you see luminous chainmail.
-006E                          ax = PartyCountIs(01)
+006E                          ax = PartyCount()
+0076 3D 01 00                 cmp ax, 0x1
 0079 74 0D                    jz 0x88
-007B                          ax = PartyCountIs(02)
+007B                          ax = PartyCount()
+0083 3D 02 00                 cmp ax, 0x2
 0086 75 27                    jnz 0xaf
 0088                          AddEncounter(08, 01)
 009A                          AddEncounter(07, 02)
 00AC E9 8D 00                 jmp 0x13c
-00AF                          ax = PartyCountIs(03)
+00AF                          ax = PartyCount()
+00B7 3D 03 00                 cmp ax, 0x3
 00BA 75 38                    jnz 0xf4
 00BC                          AddEncounter(07, 01)
 00CE                          AddEncounter(08, 02)
@@ -590,9 +630,11 @@ SHLDAENC_21:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(03E8, 00, 00, 00, 00, 59)
 0060                          ShowMessage(0C5E) = Dire Wolves seem fascinated by a shiny shield.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 74 0D                    jz 0x87
-007A                          ax = PartyCountIs(02)
+007A                          ax = PartyCount()
+0082 3D 02 00                 cmp ax, 0x2
 0085 75 38                    jnz 0xbf
 0087                          AddEncounter(0E, 01)
 0099                          AddEncounter(0D, 02)
@@ -614,9 +656,11 @@ SLDBENC_22:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(0384, 00, 00, 00, 00, 81)
 0060                          ShowMessage(0CAE) = Lizardites move between you and a piece of armor on the floor.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 74 0D                    jz 0x87
-007A                          ax = PartyCountIs(02)
+007A                          ax = PartyCount()
+0082 3D 02 00                 cmp ax, 0x2
 0085 75 26                    jnz 0xad
 0087                          AddEncounter(27, 01)
 0099                          AddEncounter(28, 02)
@@ -678,7 +722,7 @@ NPCCHATA_29:
 0000                          BEGIN
 0003                          ShowMessage(0E47) = You encounter a Human Barbarian.
 0010                          ShowPortrait(0016)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(0E68) = The opening and closing of secret doors in this area give me a headache. I simply cannot puzzle out the correct sequence of opening the doors. I wish my map of this area were more complete.
@@ -691,7 +735,7 @@ NPCCHATB_2A:
 0000                          BEGIN
 0003                          ShowMessage(0FC5) = You encounter a Gnome Wizard.
 0010                          ShowPortrait(002D)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0FE3) = Once you find a key in this area, seek the hidden door and follow your destiny. The door appears only when you have the right key. Where it leads I do not know.
@@ -703,7 +747,7 @@ NPCCHATC_2B:
 0000                          BEGIN
 0003                          ShowMessage(10D0) = You encounter an Orc Knight.
 0010                          ShowPortrait(001A)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(10ED) = There are many ways into King Cleowyn's Mausoleum, but few are rewarding. The most direct ways are the most challenging. Do not continue unless you have what the king demands.
@@ -715,7 +759,7 @@ NPCCHATD_2C:
 0000                          BEGIN
 0003                          ShowMessage(11D1) = You encounter a Halfling Thief.
 0010                          ShowPortrait(0025)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(11F1) = Beneath the king's living quarters is an area known as the Thieves' Maze. Only an experienced thief - or a hero who has a thief's skills - will pick his way through this intricate maze.

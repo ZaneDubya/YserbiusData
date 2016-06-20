@@ -39,7 +39,8 @@ SPECDOOR_03:
 
 QUESTDOR_04:
 0000                          BEGIN
-0003                          ax = CheckState(02, 2E, 01)
+0003                          ax = CheckState(02, 2E)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 5F                    jnz 0x78
 0019                          SetState(02, 2E, 00)
 002D                          Push(01)
@@ -104,7 +105,8 @@ QSTCHARA_06:
 
 QSTCHARB_07:
 0000                          BEGIN
-0003                          ax = CheckState(02, 22, 01)
+0003                          ax = CheckState(02, 22)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 1C                    jnz 0x35
 0019                          ShowPortrait(002C)
 0026                          ShowMessage(0578) = You have passed the Trial of Harmony. A great reward is yours, if you but look for it.
@@ -115,7 +117,8 @@ QSTCHARB_07:
 
 QSTCHARC_08:
 0000                          BEGIN
-0003                          ax = CheckState(02, 23, 01)
+0003                          ax = CheckState(02, 23)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 1C                    jnz 0x35
 0019                          ShowPortrait(002D)
 0026                          ShowMessage(0649) = You have passed the Trial of Chaos. A great reward is yours, if you but look for it.
@@ -468,7 +471,8 @@ HARMDOOR_16:
 
 PAYAENC_17:
 0000                          BEGIN
-0003                          ax = CheckState(02, 23, 01)
+0003                          ax = CheckState(02, 23)
+0014 3D 01 00                 cmp ax, 0x1
 0017 74 0C                    jz 0x25
 0019                          ax = GetAlignment()
 0021 0B C0                    or ax, ax
@@ -491,13 +495,15 @@ PAYAENC_17:
 00C0 EB 1F                    jmp 0xe1
 00C2                          AddTreasure(03E8, 00, 00, 00, 00, 4B)
 00E1                          ShowMessage(0B9B) = Rogues bar the way to Chaos.
-00EE                          ax = PartyCountIs(01)
+00EE                          ax = PartyCount()
+00F6 3D 01 00                 cmp ax, 0x1
 00F9 75 39                    jnz 0x134
 00FB                          AddEncounter(26, 01)
 010D                          AddEncounter(1C, 02)
 011F                          AddEncounter(1D, 06)
 0131 E9 D5 00                 jmp 0x209
-0134                          ax = PartyCountIs(02)
+0134                          ax = PartyCount()
+013C 3D 02 00                 cmp ax, 0x2
 013F 75 5C                    jnz 0x19d
 0141                          AddEncounter(26, 01)
 0153                          AddEncounter(24, 02)
@@ -515,7 +521,8 @@ PAYAENC_17:
 
 PAYBENC_18:
 0000                          BEGIN
-0003                          ax = CheckState(02, 22, 01)
+0003                          ax = CheckState(02, 22)
+0014 3D 01 00                 cmp ax, 0x1
 0017 74 0D                    jz 0x26
 0019                          ax = GetAlignment()
 0021 3D 01 00                 cmp ax, 0x1
@@ -546,13 +553,15 @@ PAYBENC_18:
 00FB EB 1F                    jmp 0x11c
 00FD                          AddTreasure(03E8, 00, 00, 00, 00, 06)
 011C                          ShowMessage(0BB8) = Rogues bar the way to Harmony.
-0129                          ax = PartyCountIs(01)
+0129                          ax = PartyCount()
+0131 3D 01 00                 cmp ax, 0x1
 0134 75 39                    jnz 0x16f
 0136                          AddEncounter(26, 01)
 0148                          AddEncounter(1C, 02)
 015A                          AddEncounter(1D, 06)
 016C E9 D5 00                 jmp 0x244
-016F                          ax = PartyCountIs(02)
+016F                          ax = PartyCount()
+0177 3D 02 00                 cmp ax, 0x2
 017A 75 5C                    jnz 0x1d8
 017C                          AddEncounter(26, 01)
 018E                          AddEncounter(24, 02)
@@ -726,9 +735,11 @@ BLESSMES_20:
 
 ENDQSTDR_21:
 0000                          BEGIN
-0003                          ax = CheckState(02, 22, 01)
+0003                          ax = CheckState(02, 22)
+0014 3D 01 00                 cmp ax, 0x1
 0017 74 16                    jz 0x2f
-0019                          ax = CheckState(02, 23, 01)
+0019                          ax = CheckState(02, 23)
+002A 3D 01 00                 cmp ax, 0x1
 002D 75 49                    jnz 0x78
 002F                          Push(01)
 0033                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -754,14 +765,17 @@ QUESTBEN_22:
 003F EB 2C                    jmp 0x6d
 0041                          ShowMessage(0F11) = On the floor is a Chess Piece inscribed with the words - 'Property of Arnakkian Slowfoot.'
 004E                          AddTreasure(0BB8, 00, 00, 00, 00, EE)
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 75 27                    jnz 0xa1
 007A                          AddEncounter(28, 01)
 008C                          AddEncounter(27, 02)
 009E E9 D0 00                 jmp 0x171
-00A1                          ax = PartyCountIs(02)
+00A1                          ax = PartyCount()
+00A9 3D 02 00                 cmp ax, 0x2
 00AC 74 0D                    jz 0xbb
-00AE                          ax = PartyCountIs(03)
+00AE                          ax = PartyCount()
+00B6 3D 03 00                 cmp ax, 0x3
 00B9 75 4A                    jnz 0x105
 00BB                          AddEncounter(27, 01)
 00CD                          AddEncounter(27, 02)
@@ -784,13 +798,16 @@ GOLDAENC_23:
 0037 EB 35                    jmp 0x6e
 0039                          AddTreasure(0BB8, 00, 00, 00, B7, CF)
 0059                          SetState(02, 24, 01)
-006E                          ax = PartyCountIs(01)
+006E                          ax = PartyCount()
+0076 3D 01 00                 cmp ax, 0x1
 0079 75 15                    jnz 0x90
 007B                          AddEncounter(1C, 01)
 008D E9 E2 00                 jmp 0x172
-0090                          ax = PartyCountIs(02)
+0090                          ax = PartyCount()
+0098 3D 02 00                 cmp ax, 0x2
 009B 74 0D                    jz 0xaa
-009D                          ax = PartyCountIs(03)
+009D                          ax = PartyCount()
+00A5 3D 03 00                 cmp ax, 0x3
 00A8 75 5C                    jnz 0x106
 00AA                          AddEncounter(1C, 01)
 00BC                          AddEncounter(1C, 02)
@@ -815,14 +832,17 @@ WEAPAENC_24:
 003A                          AddTreasure(07D0, 00, 00, 00, CC, 0D)
 005A                          SetState(02, 25, 01)
 006F                          ShowMessage(0F6C) = You are challenged to combat.
-007C                          ax = PartyCountIs(01)
+007C                          ax = PartyCount()
+0084 3D 01 00                 cmp ax, 0x1
 0087 75 27                    jnz 0xb0
 0089                          AddEncounter(1D, 01)
 009B                          AddEncounter(1D, 02)
 00AD E9 BE 00                 jmp 0x16e
-00B0                          ax = PartyCountIs(02)
+00B0                          ax = PartyCount()
+00B8 3D 02 00                 cmp ax, 0x2
 00BB 74 0D                    jz 0xca
-00BD                          ax = PartyCountIs(03)
+00BD                          ax = PartyCount()
+00C5 3D 03 00                 cmp ax, 0x3
 00C8 75 4A                    jnz 0x114
 00CA                          AddEncounter(1D, 01)
 00DC                          AddEncounter(1D, 02)
@@ -838,22 +858,26 @@ WEAPAENC_24:
 
 MAGICENC_25:
 0000                          BEGIN
-0003                          ax = CheckState(02, 26, 01)
+0003                          ax = CheckState(02, 26)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 21                    jnz 0x3a
 0019                          AddTreasure(00C8, 00, 00, 00, 00, CF)
 0038 EB 34                    jmp 0x6e
 003A                          AddTreasure(0384, 00, 00, 00, 00, B3)
 0059                          SetState(02, 26, 01)
 006E                          ShowMessage(0F8A) = Ferocious enemies stop you.
-007B                          ax = PartyCountIs(01)
+007B                          ax = PartyCount()
+0083 3D 01 00                 cmp ax, 0x1
 0086 74 0D                    jz 0x95
-0088                          ax = PartyCountIs(02)
+0088                          ax = PartyCount()
+0090 3D 02 00                 cmp ax, 0x2
 0093 75 39                    jnz 0xce
 0095                          AddEncounter(1E, 01)
 00A7                          AddEncounter(1E, 02)
 00B9                          AddEncounter(1E, 03)
 00CB E9 D5 00                 jmp 0x1a3
-00CE                          ax = PartyCountIs(03)
+00CE                          ax = PartyCount()
+00D6 3D 03 00                 cmp ax, 0x3
 00D9 75 5C                    jnz 0x137
 00DB                          AddEncounter(1E, 01)
 00ED                          AddEncounter(1E, 02)
@@ -879,12 +903,14 @@ QUESTAEN_26:
 0041                          AddTreasure(0FA0, 00, 00, 00, 00, F9)
 0060                          AddExperience(000001F4)
 0071                          ShowMessage(0FBD) = An Elf Ranger holds the King's Pass.
-007E                          ax = PartyCountIs(01)
+007E                          ax = PartyCount()
+0086 3D 01 00                 cmp ax, 0x1
 0089 75 27                    jnz 0xb2
 008B                          AddEncounter(1F, 01)
 009D                          AddEncounter(1F, 02)
 00AF E9 D5 00                 jmp 0x187
-00B2                          ax = PartyCountIs(02)
+00B2                          ax = PartyCount()
+00BA 3D 02 00                 cmp ax, 0x2
 00BD 75 5C                    jnz 0x11b
 00BF                          AddEncounter(1F, 01)
 00D1                          AddEncounter(1F, 02)
@@ -902,16 +928,19 @@ QUESTAEN_26:
 
 ITEMAENC_27:
 0000                          BEGIN
-0003                          ax = CheckState(02, 28, 01)
+0003                          ax = CheckState(02, 28)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 21                    jnz 0x3a
 0019                          AddTreasure(012C, 00, 00, 00, 00, B6)
 0038 EB 35                    jmp 0x6f
 003A                          AddTreasure(04B0, 00, 00, 00, CF, AA)
 005A                          SetState(02, 28, 01)
 006F                          ShowMessage(0FE2) = Proud knights dispute your progress.
-007C                          ax = PartyCountIs(01)
+007C                          ax = PartyCount()
+0084 3D 01 00                 cmp ax, 0x1
 0087 74 0D                    jz 0x96
-0089                          ax = PartyCountIs(02)
+0089                          ax = PartyCount()
+0091 3D 02 00                 cmp ax, 0x2
 0094 75 38                    jnz 0xce
 0096                          AddEncounter(20, 01)
 00A8                          AddEncounter(20, 02)
@@ -927,16 +956,19 @@ ITEMAENC_27:
 
 GOLDBENC_28:
 0000                          BEGIN
-0003                          ax = CheckState(02, 29, 01)
+0003                          ax = CheckState(02, 29)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 21                    jnz 0x3a
 0019                          AddTreasure(00C8, 00, 00, 00, 00, CB)
 0038 EB 35                    jmp 0x6f
 003A                          AddTreasure(2710, 00, 00, 00, B0, CD)
 005A                          SetState(02, 29, 01)
 006F                          ShowMessage(1007) = Strong enemies bar your way.
-007C                          ax = PartyCountIs(01)
+007C                          ax = PartyCount()
+0084 3D 01 00                 cmp ax, 0x1
 0087 74 0D                    jz 0x96
-0089                          ax = PartyCountIs(02)
+0089                          ax = PartyCount()
+0091 3D 02 00                 cmp ax, 0x2
 0094 75 4A                    jnz 0xe0
 0096                          AddEncounter(21, 01)
 00A8                          AddEncounter(21, 02)
@@ -961,14 +993,17 @@ DRKEYENC_29:
 0041                          AddTreasure(0000, 00, 00, 50, 50, C3)
 0061                          ShowMessage(1047) = You see a lockpick on the floor.
 006E                          ShowMessage(1068) = Gallants challenge you.
-007B                          ax = PartyCountIs(01)
+007B                          ax = PartyCount()
+0083 3D 01 00                 cmp ax, 0x1
 0086 75 27                    jnz 0xaf
 0088                          AddEncounter(1A, 01)
 009A                          AddEncounter(1B, 02)
 00AC E9 F4 00                 jmp 0x1a3
-00AF                          ax = PartyCountIs(02)
+00AF                          ax = PartyCount()
+00B7 3D 02 00                 cmp ax, 0x2
 00BA 74 0D                    jz 0xc9
-00BC                          ax = PartyCountIs(03)
+00BC                          ax = PartyCount()
+00C4 3D 03 00                 cmp ax, 0x3
 00C7 75 6E                    jnz 0x137
 00C9                          AddEncounter(1B, 01)
 00DB                          AddEncounter(1B, 02)
@@ -1016,22 +1051,26 @@ SPKEYDOO_2A:
 
 ITEMBENC_2C:
 0000                          BEGIN
-0003                          ax = CheckState(02, 2A, 01)
+0003                          ax = CheckState(02, 2A)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 21                    jnz 0x3a
 0019                          AddTreasure(001E, 00, 00, 00, 00, B1)
 0038 EB 35                    jmp 0x6f
 003A                          AddTreasure(01F4, 00, 00, 00, B1, 55)
 005A                          SetState(02, 2A, 01)
 006F                          ShowMessage(10C7) = Fierce opponents bar your way.
-007C                          ax = PartyCountIs(01)
+007C                          ax = PartyCount()
+0084 3D 01 00                 cmp ax, 0x1
 0087 75 39                    jnz 0xc2
 0089                          AddEncounter(25, 01)
 009B                          AddEncounter(26, 02)
 00AD                          AddEncounter(25, 04)
 00BF E9 F4 00                 jmp 0x1b6
-00C2                          ax = PartyCountIs(02)
+00C2                          ax = PartyCount()
+00CA 3D 02 00                 cmp ax, 0x2
 00CD 74 0D                    jz 0xdc
-00CF                          ax = PartyCountIs(03)
+00CF                          ax = PartyCount()
+00D7 3D 03 00                 cmp ax, 0x3
 00DA 75 6E                    jnz 0x14a
 00DC                          AddEncounter(26, 01)
 00EE                          AddEncounter(26, 02)
@@ -1050,7 +1089,8 @@ ITEMBENC_2C:
 
 GOLDPILE_2D:
 0000                          BEGIN
-0003                          ax = CheckState(02, 2B, 01)
+0003                          ax = CheckState(02, 2B)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 0F                    jnz 0x28
 0019                          ShowMessage(10E6) = This area has been looted.
 0026 EB 33                    jmp 0x5b
@@ -1061,14 +1101,17 @@ GOLDPILE_2D:
 
 STRMNSTR_2E:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 27                    jnz 0x37
 0010                          AddEncounter(27, 01)
 0022                          AddEncounter(06, 02)
 0034 E9 E2 00                 jmp 0x119
-0037                          ax = PartyCountIs(02)
+0037                          ax = PartyCount()
+003F 3D 02 00                 cmp ax, 0x2
 0042 74 0D                    jz 0x51
-0044                          ax = PartyCountIs(03)
+0044                          ax = PartyCount()
+004C 3D 03 00                 cmp ax, 0x3
 004F 75 5C                    jnz 0xad
 0051                          AddEncounter(27, 01)
 0063                          AddEncounter(1B, 02)
@@ -1087,9 +1130,11 @@ STRMNSTR_2E:
 TUFMNSTR_2F:
 0000                          BEGIN
 0003                          ShowMessage(112A) = Your way is blocked.
-0010                          ax = PartyCountIs(01)
+0010                          ax = PartyCount()
+0018 3D 01 00                 cmp ax, 0x1
 001B 74 0D                    jz 0x2a
-001D                          ax = PartyCountIs(02)
+001D                          ax = PartyCount()
+0025 3D 02 00                 cmp ax, 0x2
 0028 75 4A                    jnz 0x74
 002A                          AddEncounter(18, 01)
 003C                          AddEncounter(17, 02)

@@ -1,11 +1,6 @@
 ALDBORA_01:
 0000                          BEGIN (saving si)
-0004                          Push(01)
-0008                          Push(01)
-000C C4 5E 06                 les bx, [bp+0x6]
-000F 26 FF 5F 04              call far word [es:bx+0x4]
-0013 59                       pop cx
-0014 59                       pop cx
+0004                          ax = CheckState(01, 01)
 0015 8B F0                    mov si, ax
 0017                          ax = UsedItem(E8, E8)
 002A 75 03                    jnz 0x2f
@@ -19,110 +14,102 @@ ALDBORA_01:
 004A                          ShowMessage(03FC) = The AldBora Tree bears... 
 0057                          RemoveItem(E8)
 0063                          RemoveItem(E9)
-006F                          Push(00)
-0072 C4 5E 06                 les bx, [bp+0x6]
-0075 26 FF 5F 5C              call far word [es:bx+0x5c]
-0079 59                       pop cx
+006F                          ax = GetSkillLevel(00)
 007A 0B C0                    or ax, ax
 007C 75 1D                    jnz 0x9b
-007E                          Push(02)
-0082                          Push(00)
-0085 C4 5E 06                 les bx, [bp+0x6]
-0088 26 FF 5F 60              call far word [es:bx+0x60]
-008C 59                       pop cx
-008D 59                       pop cx
+007E                          SetSkillLevel(00, 02)
 008E                          ShowMessage(0417) = the knowledge of Athletics!
-009B                          ax = SkillLevel(01)
+009B                          ax = GetSkillLevel(01)
 00A7 0B C0                    or ax, ax
 00A9 75 1E                    jnz 0xc9
 00AB                          SetSkillLevel(01, 02)
 00BC                          ShowMessage(0433) = the knowledge of Clubs and Axes!
-00C9                          ax = SkillLevel(02)
+00C9                          ax = GetSkillLevel(02)
 00D5 0B C0                    or ax, ax
 00D7 75 1E                    jnz 0xf7
 00D9                          SetSkillLevel(02, 02)
 00EA                          ShowMessage(0454) = the knowledge of Berserker!
-00F7                          ax = SkillLevel(03)
+00F7                          ax = GetSkillLevel(03)
 0103 0B C0                    or ax, ax
 0105 75 1E                    jnz 0x125
 0107                          SetSkillLevel(03, 02)
 0118                          ShowMessage(0470) = the knowledge of Pursuit!
-0125                          ax = SkillLevel(04)
+0125                          ax = GetSkillLevel(04)
 0131 0B C0                    or ax, ax
 0133 75 1E                    jnz 0x153
 0135                          SetSkillLevel(04, 02)
 0146                          ShowMessage(048A) = the knowledge of Leadership!
-0153                          ax = SkillLevel(05)
+0153                          ax = GetSkillLevel(05)
 015F 0B C0                    or ax, ax
 0161 75 1E                    jnz 0x181
 0163                          SetSkillLevel(05, 02)
 0174                          ShowMessage(04A7) = the knowledge of Fencing!
-0181                          ax = SkillLevel(06)
+0181                          ax = GetSkillLevel(06)
 018D 0B C0                    or ax, ax
 018F 75 1E                    jnz 0x1af
 0191                          SetSkillLevel(06, 02)
 01A2                          ShowMessage(04C1) = the knowledge of Binding!
-01AF                          ax = SkillLevel(07)
+01AF                          ax = GetSkillLevel(07)
 01BB 0B C0                    or ax, ax
 01BD 75 1E                    jnz 0x1dd
 01BF                          SetSkillLevel(07, 02)
 01D0                          ShowMessage(04DB) = the knowledge of Intimidation!
-01DD                          ax = SkillLevel(08)
+01DD                          ax = GetSkillLevel(08)
 01E9 0B C0                    or ax, ax
 01EB 75 1E                    jnz 0x20b
 01ED                          SetSkillLevel(08, 02)
 01FE                          ShowMessage(04FA) = the knowledge of Archery!
-020B                          ax = SkillLevel(09)
+020B                          ax = GetSkillLevel(09)
 0217 0B C0                    or ax, ax
 0219 75 1E                    jnz 0x239
 021B                          SetSkillLevel(09, 02)
 022C                          ShowMessage(0514) = the knowledge of Stamina!
-0239                          ax = SkillLevel(0A)
+0239                          ax = GetSkillLevel(0A)
 0245 0B C0                    or ax, ax
 0247 75 1E                    jnz 0x267
 0249                          SetSkillLevel(0A, 02)
 025A                          ShowMessage(052E) = the knowledge of Furtiveness!
-0267                          ax = SkillLevel(0B)
+0267                          ax = GetSkillLevel(0B)
 0273 0B C0                    or ax, ax
 0275 75 1E                    jnz 0x295
 0277                          SetSkillLevel(0B, 02)
 0288                          ShowMessage(054C) = the knowledge of Reading Tracks!
-0295                          ax = SkillLevel(10)
+0295                          ax = GetSkillLevel(10)
 02A1 0B C0                    or ax, ax
 02A3 75 1E                    jnz 0x2c3
 02A5                          SetSkillLevel(10, 02)
 02B6                          ShowMessage(056D) = the knowledge of Martial Arts!
-02C3                          ax = SkillLevel(11)
+02C3                          ax = GetSkillLevel(11)
 02CF 0B C0                    or ax, ax
 02D1 75 1E                    jnz 0x2f1
 02D3                          SetSkillLevel(11, 02)
 02E4                          ShowMessage(058C) = the knowledge of Deflect Magic!
-02F1                          ax = SkillLevel(12)
+02F1                          ax = GetSkillLevel(12)
 02FD 0B C0                    or ax, ax
 02FF 75 1E                    jnz 0x31f
 0301                          SetSkillLevel(12, 02)
 0312                          ShowMessage(05AC) = the knowledge of Medic!
-031F                          ax = SkillLevel(13)
+031F                          ax = GetSkillLevel(13)
 032B 0B C0                    or ax, ax
 032D 75 1E                    jnz 0x34d
 032F                          SetSkillLevel(13, 02)
 0340                          ShowMessage(05C4) = the knowledge of Reverie!
-034D                          ax = SkillLevel(14)
+034D                          ax = GetSkillLevel(14)
 0359 0B C0                    or ax, ax
 035B 75 1E                    jnz 0x37b
 035D                          SetSkillLevel(14, 02)
 036E                          ShowMessage(05DE) = the knowledge of Rune Reading!
-037B                          ax = SkillLevel(15)
+037B                          ax = GetSkillLevel(15)
 0387 0B C0                    or ax, ax
 0389 75 1E                    jnz 0x3a9
 038B                          SetSkillLevel(15, 02)
 039C                          ShowMessage(05FD) = the knowledge of Staff!
-03A9                          ax = SkillLevel(16)
+03A9                          ax = GetSkillLevel(16)
 03B5 0B C0                    or ax, ax
 03B7 75 1E                    jnz 0x3d7
 03B9                          SetSkillLevel(16, 02)
 03CA                          ShowMessage(0615) = the knowledge of Channeling!
-03D7                          ax = SkillLevel(17)
+03D7                          ax = GetSkillLevel(17)
 03E3 0B C0                    or ax, ax
 03E5 75 1E                    jnz 0x405
 03E7                          SetSkillLevel(17, 02)
@@ -262,7 +249,8 @@ NOJOIN_0D:
 BEECHWD_0E:
 0000                          BEGIN
 0003                          ShowMessage(08FB) = Upon a wood sign is written -- 'Wilderness of BeechWood.'
-0010                          ax = CheckState(01, 01, any)
+0010                          ax = CheckState(01, 01)
+0021 0B C0                    or ax, ax
 0023 75 54                    jnz 0x79
 0025                          SetState(01, 03, 01)
 003A                          SetState(01, 02, 02)
@@ -273,7 +261,8 @@ BEECHWD_0E:
 OAKLEAF_0F:
 0000                          BEGIN
 0003                          ShowMessage(0935) = A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'
-0010                          ax = CheckState(01, 02, any)
+0010                          ax = CheckState(01, 02)
+0021 0B C0                    or ax, ax
 0023 75 54                    jnz 0x79
 0025                          SetState(01, 03, 01)
 003A                          SetState(01, 02, 02)
@@ -284,7 +273,8 @@ OAKLEAF_0F:
 MAPLEBRS_10:
 0000                          BEGIN
 0003                          ShowMessage(0978) = A sign of ancient wood reads -- 'Wilderness of MapleBrush.'
-0010                          ax = CheckState(01, 03, any)
+0010                          ax = CheckState(01, 03)
+0021 0B C0                    or ax, ax
 0023 75 54                    jnz 0x79
 0025                          SetState(01, 03, 01)
 003A                          SetState(01, 02, 02)
@@ -295,7 +285,8 @@ MAPLEBRS_10:
 PINECONE_11:
 0000                          BEGIN
 0003                          ShowMessage(09B4) = In the dust of pine needles is written -- 'Wilderness of PineCone.'
-0010                          ax = CheckState(01, 04, any)
+0010                          ax = CheckState(01, 04)
+0021 0B C0                    or ax, ax
 0023 75 54                    jnz 0x79
 0025                          SetState(01, 03, 01)
 003A                          SetState(01, 02, 02)
@@ -307,12 +298,7 @@ BWACTOR_12:
 0000                          BEGIN (saving si)
 0004                          ShowMessage(09F8) = We are the Wise Ones of Beechwood who serve the Seasons.
 0011                          ShowPortrait(0027)
-001E                          Push(01)
-0022                          Push(01)
-0026 C4 5E 06                 les bx, [bp+0x6]
-0029 26 FF 5F 04              call far word [es:bx+0x4]
-002D 59                       pop cx
-002E 59                       pop cx
+001E                          ax = CheckState(01, 01)
 002F 8B F0                    mov si, ax
 0031 8B DE                    mov bx, si
 0033 4B                       dec bx
@@ -402,12 +388,7 @@ OLACTOR_13:
 0000                          BEGIN (saving si)
 0004                          ShowMessage(1071) = We are the Clerics of Oakleaf who comfort the Seasons.
 0011                          ShowPortrait(0027)
-001E                          Push(02)
-0022                          Push(01)
-0026 C4 5E 06                 les bx, [bp+0x6]
-0029 26 FF 5F 04              call far word [es:bx+0x4]
-002D 59                       pop cx
-002E 59                       pop cx
+001E                          ax = CheckState(01, 02)
 002F 8B F0                    mov si, ax
 0031 8B DE                    mov bx, si
 0033 4B                       dec bx
@@ -495,12 +476,7 @@ MBACTOR_14:
 0000                          BEGIN (saving si)
 0004                          ShowMessage(15E2) = We are the Wardens of Maplebrush and hold the Seasons.
 0011                          ShowPortrait(0027)
-001E                          Push(03)
-0022                          Push(01)
-0026 C4 5E 06                 les bx, [bp+0x6]
-0029 26 FF 5F 04              call far word [es:bx+0x4]
-002D 59                       pop cx
-002E 59                       pop cx
+001E                          ax = CheckState(01, 03)
 002F 8B F0                    mov si, ax
 0031 8B DE                    mov bx, si
 0033 4B                       dec bx
@@ -581,12 +557,7 @@ PCACTOR_15:
 0000                          BEGIN (saving si)
 0004                          ShowMessage(18C1) = We are the Seasons incarnate in mortal form.
 0011                          ShowPortrait(0027)
-001E                          Push(04)
-0022                          Push(01)
-0026 C4 5E 06                 les bx, [bp+0x6]
-0029 26 FF 5F 04              call far word [es:bx+0x4]
-002D 59                       pop cx
-002E 59                       pop cx
+001E                          ax = CheckState(01, 04)
 002F 8B F0                    mov si, ax
 0031 8B DE                    mov bx, si
 0033 4B                       dec bx

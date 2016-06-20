@@ -13,7 +13,8 @@ RIVER_01:
 003A                          ShowMessage(0429) = You have died.
 0047                          ax = HasItem(D5)
 0055 75 15                    jnz 0x6c
-0057                          ax = CheckState(02, 6D, any)
+0057                          ax = CheckState(02, 6D)
+0068 0B C0                    or ax, ax
 006A 74 12                    jz 0x7e
 006C                          SetTileFloor(00, 9C)
 007A 59                       pop cx
@@ -31,7 +32,8 @@ STEPCYCL_03:
 0000                          BEGIN
 0003                          ax = HasItem(D6)
 0011 75 15                    jnz 0x28
-0013                          ax = CheckState(02, 6E, any)
+0013                          ax = CheckState(02, 6E)
+0024 0B C0                    or ax, ax
 0026 74 49                    jz 0x71
 0028                          Push(01)
 002C                          Push(00)
@@ -49,7 +51,8 @@ STEPMINE_04:
 0000                          BEGIN
 0003                          ax = HasItem(D5)
 0011 75 15                    jnz 0x28
-0013                          ax = CheckState(02, 6D, any)
+0013                          ax = CheckState(02, 6D)
+0024 0B C0                    or ax, ax
 0026 74 40                    jz 0x68
 0028                          RemoveItem(D5)
 0034                          SetState(02, 6D, 01)
@@ -65,7 +68,8 @@ STEPHIDE_05:
 0000                          BEGIN
 0003                          ax = HasItem(D7)
 0011 75 15                    jnz 0x28
-0013                          ax = CheckState(02, 6F, any)
+0013                          ax = CheckState(02, 6F)
+0024 0B C0                    or ax, ax
 0026 74 4E                    jz 0x76
 0028                          RemoveItem(D7)
 0034                          SetState(02, 6F, 01)
@@ -97,7 +101,8 @@ ESENDF_0A:
 
 SECDOORA_0C:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 0B) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 0B 00                 cmp ax, 0xb
 0012 73 15                    jae 0x29
 0014                          ax = UsedItem(BE, BE)
 0027 74 49                    jz 0x72
@@ -118,7 +123,8 @@ SECDOORA_0C:
 
 SECDOORB_0D:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 0B) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 0B 00                 cmp ax, 0xb
 0012 73 15                    jae 0x29
 0014                          ax = UsedItem(BE, BE)
 0027 74 49                    jz 0x72
@@ -139,7 +145,8 @@ SECDOORB_0D:
 
 SECDOORC_0E:
 0000                          BEGIN
-0003                          ax = UsedSkill(0D, 0B) // returns 0 if did not use, compares to 2nd op if did use
+0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
+000F 3D 0B 00                 cmp ax, 0xb
 0012 73 15                    jae 0x29
 0014                          ax = UsedItem(BE, BE)
 0027 74 4B                    jz 0x74

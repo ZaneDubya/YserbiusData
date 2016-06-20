@@ -53,7 +53,8 @@ LKPKDOOR_05:
 0000                          BEGIN
 0003                          ax = UsedItem(C2, C4)
 0016 75 11                    jnz 0x29
-0018                          ax = UsedSkill(0E, 08) // returns 0 if did not use, compares to 2nd op if did use
+0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
+0024 3D 08 00                 cmp ax, 0x8
 0027 72 4B                    jb 0x74
 0029                          Push(01)
 002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -95,7 +96,8 @@ CRWNNICH_06:
 
 CRWNDOOR_07:
 0000                          BEGIN
-0003                          ax = CheckState(01, 01, 01)
+0003                          ax = CheckState(01, 01)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 4B                    jnz 0x64
 0019                          Push(01)
 001D                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -123,7 +125,8 @@ ROBENICH_08:
 0000                          BEGIN
 0003                          ax = HasItem(78)
 0011 74 16                    jz 0x29
-0013                          ax = CheckState(01, 01, 01)
+0013                          ax = CheckState(01, 01)
+0024 3D 01 00                 cmp ax, 0x1
 0027 74 15                    jz 0x3e
 0029                          ax = CheckState2(01, 02)
 003C 74 4A                    jz 0x88
@@ -143,7 +146,8 @@ ROBENICH_08:
 
 ROBEDOOR_09:
 0000                          BEGIN
-0003                          ax = CheckState(01, 02, 01)
+0003                          ax = CheckState(01, 02)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 43                    jnz 0x5c
 0019                          Push(01)
 001D                          Push(02)
@@ -203,7 +207,8 @@ SCEPNICH_0A:
 
 GOLDAENC_0C:
 0000                          BEGIN
-0003                          ax = CheckState(02, 2C, 01)
+0003                          ax = CheckState(02, 2C)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
 0019                          ShowMessage(080D) = The room you enter is cold as ice.
 0026                          AddTreasure(008C, 00, 00, 00, A9, CC)
@@ -211,12 +216,14 @@ GOLDAENC_0C:
 0048                          AddTreasure(0FA0, 00, 00, CD, B7, D0)
 0069                          SetState(02, 2C, 01)
 007E                          ShowMessage(0830) = An Ice Lion stands over a torn bag of gold.
-008B                          ax = PartyCountIs(01)
+008B                          ax = PartyCount()
+0093 3D 01 00                 cmp ax, 0x1
 0096 75 27                    jnz 0xbf
 0098                          AddEncounter(19, 01)
 00AA                          AddEncounter(19, 02)
 00BC E9 C3 00                 jmp 0x182
-00BF                          ax = PartyCountIs(02)
+00BF                          ax = PartyCount()
+00C7 3D 02 00                 cmp ax, 0x2
 00CA 75 4A                    jnz 0x116
 00CC                          AddEncounter(19, 01)
 00DE                          AddEncounter(19, 02)
@@ -233,7 +240,8 @@ GOLDAENC_0C:
 
 GOLDBENC_0D:
 0000                          BEGIN
-0003                          ax = CheckState(02, 2D, 01)
+0003                          ax = CheckState(02, 2D)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2F                    jnz 0x48
 0019                          ShowMessage(085C) = The room stinks of rotten meat.
 0026                          AddTreasure(00B4, 00, 00, 00, B6, CF)
@@ -241,14 +249,17 @@ GOLDBENC_0D:
 0048                          AddTreasure(0BB8, 00, 00, 00, D0, AA)
 0068                          SetState(02, 2D, 01)
 007D                          ShowMessage(087C) = Something kicks gold across the floor as it charges you.
-008A                          ax = PartyCountIs(01)
+008A                          ax = PartyCount()
+0092 3D 01 00                 cmp ax, 0x1
 0095 74 0D                    jz 0xa4
-0097                          ax = PartyCountIs(02)
+0097                          ax = PartyCount()
+009F 3D 02 00                 cmp ax, 0x2
 00A2 75 27                    jnz 0xcb
 00A4                          AddEncounter(23, 01)
 00B6                          AddEncounter(24, 02)
 00C8 E9 8D 00                 jmp 0x158
-00CB                          ax = PartyCountIs(03)
+00CB                          ax = PartyCount()
+00D3 3D 03 00                 cmp ax, 0x3
 00D6 75 38                    jnz 0x110
 00D8                          AddEncounter(23, 01)
 00EA                          AddEncounter(23, 02)
@@ -263,12 +274,14 @@ GOLDBENC_0D:
 SPCMONSA_0E:
 0000                          BEGIN
 0003                          ShowMessage(08B5) = Lizardites guard this area.
-0010                          ax = PartyCountIs(01)
+0010                          ax = PartyCount()
+0018 3D 01 00                 cmp ax, 0x1
 001B 75 27                    jnz 0x44
 001D                          AddEncounter(1E, 01)
 002F                          AddEncounter(1E, 02)
 0041 E9 C3 00                 jmp 0x107
-0044                          ax = PartyCountIs(02)
+0044                          ax = PartyCount()
+004C 3D 02 00                 cmp ax, 0x2
 004F 75 4A                    jnz 0x9b
 0051                          AddEncounter(1E, 01)
 0063                          AddEncounter(1E, 02)
@@ -286,13 +299,16 @@ SPCMONSA_0E:
 SPCMONSB_0F:
 0000                          BEGIN
 0003                          ShowMessage(08D1) = Giants guard the corridor.
-0010                          ax = PartyCountIs(01)
+0010                          ax = PartyCount()
+0018 3D 01 00                 cmp ax, 0x1
 001B 75 15                    jnz 0x32
 001D                          AddEncounter(25, 01)
 002F E9 D0 00                 jmp 0x102
-0032                          ax = PartyCountIs(02)
+0032                          ax = PartyCount()
+003A 3D 02 00                 cmp ax, 0x2
 003D 74 0D                    jz 0x4c
-003F                          ax = PartyCountIs(03)
+003F                          ax = PartyCount()
+0047 3D 03 00                 cmp ax, 0x3
 004A 75 4A                    jnz 0x96
 004C                          AddEncounter(25, 01)
 005E                          AddEncounter(25, 02)
@@ -309,19 +325,22 @@ SPCMONSB_0F:
 
 SPCMONSC_10:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 27                    jnz 0x37
 0010                          AddEncounter(27, 01)
 0022                          AddEncounter(28, 05)
 0034 E9 3F 01                 jmp 0x176
-0037                          ax = PartyCountIs(02)
+0037                          ax = PartyCount()
+003F 3D 02 00                 cmp ax, 0x2
 0042 75 4B                    jnz 0x8f
 0044                          AddEncounter(27, 01)
 0056                          AddEncounter(27, 02)
 0068                          AddEncounter(28, 05)
 007A                          AddEncounter(28, 06)
 008C E9 E7 00                 jmp 0x176
-008F                          ax = PartyCountIs(03)
+008F                          ax = PartyCount()
+0097 3D 03 00                 cmp ax, 0x3
 009A 75 6E                    jnz 0x10a
 009C                          AddEncounter(27, 01)
 00AE                          AddEncounter(27, 02)
@@ -340,11 +359,13 @@ SPCMONSC_10:
 
 PAYOFENC_11:
 0000                          BEGIN
-0003                          ax = CheckState(02, 37, 02)
+0003                          ax = CheckState(02, 37)
+0014 3D 02 00                 cmp ax, 0x2
 0017 75 10                    jnz 0x29
 0019                          ShowMessage(08EC) = There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
 0026 E9 F4 00                 jmp 0x11d
-0029                          ax = CheckState(02, 37, 01)
+0029                          ax = CheckState(02, 37)
+003A 3D 01 00                 cmp ax, 0x1
 003D 75 7A                    jnz 0xb9
 003F                          ax = HasItem(FA)
 004D 74 5B                    jz 0xaa
@@ -368,7 +389,8 @@ PAYOFENC_11:
 
 ITEMAENC_12:
 0000                          BEGIN
-0003                          ax = CheckState(02, 67, 01)
+0003                          ax = CheckState(02, 67)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(0BF4) = Polar Bears wander the empty room.
 0026                          AddTreasure(00C8, 00, 00, 00, 00, B7)
@@ -376,9 +398,11 @@ ITEMAENC_12:
 0047                          SetState(02, 67, 01)
 005C                          AddTreasure(1B58, 00, D0, B2, AA, B0)
 007E                          ShowMessage(0C17) = A Polar Bear plays with a pile of stuff.
-008B                          ax = PartyCountIs(01)
+008B                          ax = PartyCount()
+0093 3D 01 00                 cmp ax, 0x1
 0096 74 0D                    jz 0xa5
-0098                          ax = PartyCountIs(02)
+0098                          ax = PartyCount()
+00A0 3D 02 00                 cmp ax, 0x2
 00A3 75 26                    jnz 0xcb
 00A5                          AddEncounter(1B, 01)
 00B7                          AddEncounter(1B, 02)
@@ -398,9 +422,11 @@ ITEMBENC_13:
 003F EB 2D                    jmp 0x6e
 0041                          AddTreasure(1388, 00, 00, 00, D0, A1)
 0061                          ShowMessage(0C5A) = A Hell Wolf kicks an object aside as it leaps at you.
-006E                          ax = PartyCountIs(01)
+006E                          ax = PartyCount()
+0076 3D 01 00                 cmp ax, 0x1
 0079 74 0D                    jz 0x88
-007B                          ax = PartyCountIs(02)
+007B                          ax = PartyCount()
+0083 3D 02 00                 cmp ax, 0x2
 0086 75 26                    jnz 0xae
 0088                          AddEncounter(1F, 01)
 009A                          AddEncounter(1F, 02)
@@ -413,19 +439,22 @@ ITEMBENC_13:
 
 BADMNSTR_14:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 27                    jnz 0x37
 0010                          AddEncounter(1C, 01)
 0022                          AddEncounter(1E, 02)
 0034 E9 3F 01                 jmp 0x176
-0037                          ax = PartyCountIs(02)
+0037                          ax = PartyCount()
+003F 3D 02 00                 cmp ax, 0x2
 0042 75 4B                    jnz 0x8f
 0044                          AddEncounter(1D, 01)
 0056                          AddEncounter(1D, 02)
 0068                          AddEncounter(1E, 03)
 007A                          AddEncounter(1E, 04)
 008C E9 E7 00                 jmp 0x176
-008F                          ax = PartyCountIs(03)
+008F                          ax = PartyCount()
+0097 3D 03 00                 cmp ax, 0x3
 009A 75 6E                    jnz 0x10a
 009C                          AddEncounter(1C, 01)
 00AE                          AddEncounter(1C, 02)
@@ -444,12 +473,14 @@ BADMNSTR_14:
 
 TERMNSTR_15:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 27                    jnz 0x37
 0010                          AddEncounter(1F, 01)
 0022                          AddEncounter(22, 02)
 0034 E9 51 01                 jmp 0x188
-0037                          ax = PartyCountIs(02)
+0037                          ax = PartyCount()
+003F 3D 02 00                 cmp ax, 0x2
 0042 75 5D                    jnz 0xa1
 0044                          AddEncounter(20, 01)
 0056                          AddEncounter(22, 02)
@@ -457,7 +488,8 @@ TERMNSTR_15:
 007A                          AddEncounter(22, 04)
 008C                          AddEncounter(21, 05)
 009E E9 E7 00                 jmp 0x188
-00A1                          ax = PartyCountIs(03)
+00A1                          ax = PartyCount()
+00A9 3D 03 00                 cmp ax, 0x3
 00AC 75 6E                    jnz 0x11c
 00AE                          AddEncounter(21, 01)
 00C0                          AddEncounter(22, 02)
@@ -494,7 +526,7 @@ NPCCHATA_19:
 0000                          BEGIN
 0003                          ShowMessage(0D06) = You encounter a Gremlin Cleric.
 0010                          ShowPortrait(002A)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0D 00                 cmp ax, 0xd
 002D 77 36                    ja 0x65
 002F                          ShowMessage(0D26) = Listen carefully, friend. Be careful where you place the possessions Cleowyn demands. Use Crown before Robe before Scepter.
@@ -509,7 +541,7 @@ NPCCHATB_1A:
 0000                          BEGIN
 0003                          ShowMessage(0F24) = You encounter a Halfling Knight.
 0010                          ShowPortrait(001D)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0F45) = The longest routes through this Mausoleum are the least rewarding.
@@ -521,7 +553,7 @@ NPCCHATC_1B:
 0000                          BEGIN
 0003                          ShowMessage(0FD7) = You encounter an Elf Ranger.
 0010                          ShowPortrait(001F)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0FF4) = The night the volcano erupted, the wizard Arnakkian Slowfoot threw a great feast. All who attended died in the eruption. They died at their games of cards and gambling. Some, it is said, were transformed into the monsters who inhabit the dungeon.
@@ -533,7 +565,7 @@ NPCCHATD_1C:
 0000                          BEGIN
 0003                          ShowMessage(110F) = You encounter a Gnome Barbarian.
 0010                          ShowPortrait(0019)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 07 00                 cmp ax, 0x7
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(1130) = Cleowyn's bones are guarded by the Snow Elves, I have heard. Whether or not it is worth returning the king's bones to the Mausoleum is much debated, for the imps will seize them again and return them to the elves.
@@ -545,7 +577,7 @@ NPCCHATE_1D:
 0000                          BEGIN
 0003                          ShowMessage(125B) = You encounter a Human Thief.
 0010                          ShowPortrait(0022)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(1278) = If you find King Cleowyn's quarters, you will find a shortcut back to his Palace. Be careful where you tread, lest you leave his quarters unrewarded.
@@ -555,11 +587,13 @@ NPCCHATE_1D:
 
 MINOTAUR_1E:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 15                    jnz 0x25
 0010                          AddEncounter(26, 01)
 0022 E9 B1 00                 jmp 0xd6
-0025                          ax = PartyCountIs(02)
+0025                          ax = PartyCount()
+002D 3D 02 00                 cmp ax, 0x2
 0030 75 38                    jnz 0x6a
 0032                          AddEncounter(26, 01)
 0044                          AddEncounter(26, 02)

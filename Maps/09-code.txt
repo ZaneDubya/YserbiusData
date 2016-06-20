@@ -32,7 +32,8 @@ KEYDOOR_02:
 
 GOLDAENC_03:
 0000                          BEGIN
-0003                          ax = CheckState(02, 18, 01)
+0003                          ax = CheckState(02, 18)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(044D) = Skeletons on the floor stir to life.
 0026                          AddTreasure(03E8, 00, 00, 00, 00, B6)
@@ -40,13 +41,16 @@ GOLDAENC_03:
 0047                          AddTreasure(1388, 00, 00, 00, 00, CF)
 0066                          SetState(02, 18, 01)
 007B                          ShowMessage(0472) = Among the bones on the floor are pieces of gold. The bones begin to move.
-0088                          ax = PartyCountIs(01)
+0088                          ax = PartyCount()
+0090 3D 01 00                 cmp ax, 0x1
 0093 75 15                    jnz 0xaa
 0095                          AddEncounter(01, 01)
 00A7 E9 9A 00                 jmp 0x144
-00AA                          ax = PartyCountIs(02)
+00AA                          ax = PartyCount()
+00B2 3D 02 00                 cmp ax, 0x2
 00B5 74 0D                    jz 0xc4
-00B7                          ax = PartyCountIs(03)
+00B7                          ax = PartyCount()
+00BF 3D 03 00                 cmp ax, 0x3
 00C2 75 38                    jnz 0xfc
 00C4                          AddEncounter(02, 01)
 00D6                          AddEncounter(04, 02)
@@ -67,18 +71,21 @@ GOLDBENC_04:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(1770, 00, 00, 00, 00, C6)
 0060                          ShowMessage(04E0) = A Large-Un tosses a piece of wood aside as he and his friends attack.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 75 27                    jnz 0xa1
 007A                          AddEncounter(19, 01)
 008C                          AddEncounter(1A, 02)
 009E E9 F7 00                 jmp 0x198
-00A1                          ax = PartyCountIs(02)
+00A1                          ax = PartyCount()
+00A9 3D 02 00                 cmp ax, 0x2
 00AC 75 39                    jnz 0xe7
 00AE                          AddEncounter(19, 01)
 00C0                          AddEncounter(1A, 02)
 00D2                          AddEncounter(19, 03)
 00E4 E9 B1 00                 jmp 0x198
-00E7                          ax = PartyCountIs(03)
+00E7                          ax = PartyCount()
+00EF 3D 03 00                 cmp ax, 0x3
 00F2 75 4A                    jnz 0x13e
 00F4                          AddEncounter(1A, 01)
 0106                          AddEncounter(1A, 02)
@@ -103,14 +110,17 @@ CROWN_05:
 0061                          RemoveItem(DA)
 006D                          ShowMessage(055A) = As you enter the room, the O Rune Key vanishes.
 007A                          ShowMessage(058A) = You see a Lizardite proudly wearing the Crown of King Cleowyn.
-0087                          ax = PartyCountIs(01)
+0087                          ax = PartyCount()
+008F 3D 01 00                 cmp ax, 0x1
 0092 75 27                    jnz 0xbb
 0094                          AddEncounter(21, 01)
 00A6                          AddEncounter(21, 02)
 00B8 E9 D0 00                 jmp 0x18b
-00BB                          ax = PartyCountIs(02)
+00BB                          ax = PartyCount()
+00C3 3D 02 00                 cmp ax, 0x2
 00C6 74 0D                    jz 0xd5
-00C8                          ax = PartyCountIs(03)
+00C8                          ax = PartyCount()
+00D0 3D 03 00                 cmp ax, 0x3
 00D3 75 4A                    jnz 0x11f
 00D5                          AddEncounter(21, 01)
 00E7                          AddEncounter(21, 02)
@@ -134,13 +144,16 @@ ITEMBENC_06:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(1B58, 00, 00, 00, 00, BB)
 0060                          ShowMessage(0605) = One of the skeletons approaching you holds a piece of paper in its bony hand.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 75 15                    jnz 0x8f
 007A                          AddEncounter(15, 01)
 008C E9 9A 00                 jmp 0x129
-008F                          ax = PartyCountIs(02)
+008F                          ax = PartyCount()
+0097 3D 02 00                 cmp ax, 0x2
 009A 74 0D                    jz 0xa9
-009C                          ax = PartyCountIs(03)
+009C                          ax = PartyCount()
+00A4 3D 03 00                 cmp ax, 0x3
 00A7 75 38                    jnz 0xe1
 00A9                          AddEncounter(15, 01)
 00BB                          AddEncounter(16, 02)
@@ -168,13 +181,16 @@ ITEMCENC_07:
 0094 EB 20                    jmp 0xb6
 0096                          AddTreasure(07D0, 00, 00, 00, 64, 94)
 00B6                          ShowMessage(0653) = Reptilian bodies stir as you draw near.
-00C3                          ax = PartyCountIs(01)
+00C3                          ax = PartyCount()
+00CB 3D 01 00                 cmp ax, 0x1
 00CE 75 15                    jnz 0xe5
 00D0                          AddEncounter(23, 01)
 00E2 E9 9A 00                 jmp 0x17f
-00E5                          ax = PartyCountIs(02)
+00E5                          ax = PartyCount()
+00ED 3D 02 00                 cmp ax, 0x2
 00F0 74 0D                    jz 0xff
-00F2                          ax = PartyCountIs(03)
+00F2                          ax = PartyCount()
+00FA 3D 03 00                 cmp ax, 0x3
 00FD 75 38                    jnz 0x137
 00FF                          AddEncounter(23, 01)
 0111                          AddEncounter(23, 02)
@@ -188,18 +204,21 @@ ITEMCENC_07:
 
 STRMNSTR_08:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 27                    jnz 0x37
 0010                          AddEncounter(19, 01)
 0022                          AddEncounter(1A, 02)
 0034 E9 1B 01                 jmp 0x152
-0037                          ax = PartyCountIs(02)
+0037                          ax = PartyCount()
+003F 3D 02 00                 cmp ax, 0x2
 0042 75 39                    jnz 0x7d
 0044                          AddEncounter(19, 01)
 0056                          AddEncounter(1A, 02)
 0068                          AddEncounter(19, 03)
 007A E9 D5 00                 jmp 0x152
-007D                          ax = PartyCountIs(03)
+007D                          ax = PartyCount()
+0085 3D 03 00                 cmp ax, 0x3
 0088 75 5C                    jnz 0xe6
 008A                          AddEncounter(1A, 01)
 009C                          AddEncounter(1A, 02)
@@ -217,16 +236,19 @@ STRMNSTR_08:
 
 TUFMNSTR_09:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 15                    jnz 0x25
 0010                          AddEncounter(21, 01)
 0022 E9 E5 00                 jmp 0x10a
-0025                          ax = PartyCountIs(02)
+0025                          ax = PartyCount()
+002D 3D 02 00                 cmp ax, 0x2
 0030 75 27                    jnz 0x59
 0032                          AddEncounter(21, 01)
 0044                          AddEncounter(21, 02)
 0056 E9 B1 00                 jmp 0x10a
-0059                          ax = PartyCountIs(03)
+0059                          ax = PartyCount()
+0061 3D 03 00                 cmp ax, 0x3
 0064 75 4A                    jnz 0xb0
 0066                          AddEncounter(21, 01)
 0078                          AddEncounter(21, 02)
@@ -249,7 +271,7 @@ NPCCHATA_0B:
 0000                          BEGIN
 0003                          ShowMessage(06B2) = A Human Wizard teleports into the room you occupy.
 0010                          ShowPortrait(002B)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 29                    ja 0x58
 002F                          ShowMessage(06E5) = Be careful when you find the way to open the door that leads to the nether depths of this dungeon.
@@ -263,7 +285,7 @@ NPCCHATB_0C:
 0000                          BEGIN
 0003                          ShowMessage(0830) = You encounter a sleepy Troll Knight.
 0010                          ShowPortrait(001B)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(0855) = The Galabryan kings brought the great wizard Arnakkian Slowfoot to Twinion. The island grew famous and rich thanks to this wizard.

@@ -15,7 +15,7 @@ NPCCHATA_03:
 0000                          BEGIN
 0003                          ShowMessage(03FC) = You encounter a Troll Cleric.
 0010                          ShowPortrait(0028)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(041A) = I have almost despaired of finding a way out of this prison. Yet there must be an exit of some kind - stairs or teleport. The guards must have had some way of leaving this area.
@@ -28,7 +28,7 @@ NPCCHATB_04:
 0000                          BEGIN
 0003                          ShowMessage(05C7) = You encounter an Orc Ranger.
 0010                          ShowPortrait(001E)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 06 00                 cmp ax, 0x6
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(05E4) = I have heard rumors that some few brave souls have escaped the dungeon. If you can find the Rainbow Bridge, you are near the exit.
@@ -40,7 +40,7 @@ NPCCHATC_05:
 0000                          BEGIN
 0003                          ShowMessage(069A) = You encounter a Halfling Thief.
 0010                          ShowPortrait(0025)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(06BA) = A special challenge awaits the brave. If you dare continue after finding what the guard Deldwinn desires, great rewards await you.
@@ -53,7 +53,7 @@ NPCCHATD_06:
 0000                          BEGIN
 0003                          ShowMessage(07C2) = You encounter a Gnome Barbarian.
 0010                          ShowPortrait(0019)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 1C                    ja 0x4b
 002F                          ShowMessage(07E3) = Two wizards have crafted a Challenge for the brave. The Wizards' Challenge is on this level, but you cannot reach it from this prison area.
@@ -66,7 +66,7 @@ NPCCHATE_07:
 0000                          BEGIN
 0003                          ShowMessage(0929) = You encounter a Dwarf Wizard.
 0010                          ShowPortrait(002C)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0C 00                 cmp ax, 0xc
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0947) = King Cleowyn built his palace inside this volcano because he hoped to unearth the secrets of the wizard Arnakkian. Many of the stones that form Cleowyn's palace were taken from the wizard's castle. No wonder this dungeon is cursed.
@@ -88,12 +88,14 @@ ITEMAENC_09:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(05DC, 00, 00, 00, 00, 77)
 0060                          ShowMessage(0AB3) = As you reach for a jacket lying on the floor, you see Incubi appear in the cell.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 75 27                    jnz 0xa1
 007A                          AddEncounter(25, 01)
 008C                          AddEncounter(25, 02)
 009E E9 B1 00                 jmp 0x152
-00A1                          ax = PartyCountIs(02)
+00A1                          ax = PartyCount()
+00A9 3D 02 00                 cmp ax, 0x2
 00AC 75 38                    jnz 0xe6
 00AE                          AddEncounter(25, 01)
 00C0                          AddEncounter(25, 02)
@@ -116,14 +118,17 @@ ITEMBENC_0A:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(03E8, 00, 00, 00, 00, C1)
 0060                          ShowMessage(0B2F) = Just out of reach behind a mass of Leeches and Black Widows is a lockpick.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 75 27                    jnz 0xa1
 007A                          AddEncounter(19, 01)
 008C                          AddEncounter(1B, 02)
 009E E9 D0 00                 jmp 0x171
-00A1                          ax = PartyCountIs(02)
+00A1                          ax = PartyCount()
+00A9 3D 02 00                 cmp ax, 0x2
 00AC 74 0D                    jz 0xbb
-00AE                          ax = PartyCountIs(03)
+00AE                          ax = PartyCount()
+00B6 3D 03 00                 cmp ax, 0x3
 00B9 75 4A                    jnz 0x105
 00BB                          AddEncounter(19, 01)
 00CD                          AddEncounter(1B, 02)
@@ -147,14 +152,16 @@ ITEMCENC_0B:
 003F EB 2D                    jmp 0x6e
 0041                          AddTreasure(03E8, 00, 00, 00, CF, 20)
 0061                          ShowMessage(0B9A) = A circle of Hell Wolves surrounds you and a mace lying on the floor.
-006E                          ax = PartyCountIs(01)
+006E                          ax = PartyCount()
+0076 3D 01 00                 cmp ax, 0x1
 0079 75 27                    jnz 0xa2
 007B                          AddEncounter(21, 01)
 008D                          AddEncounter(21, 02)
 009F E9 CF 00                 jmp 0x171
-00A2                          ax = PartyCountIs(02)
+00A2                          ax = PartyCount()
+00AA 3D 02 00                 cmp ax, 0x2
 00AD 74 0C                    jz 0xbb
-00AF                          ax = PartyCountIs() // likely a mistake - no passed value
+00AF                          ax = PartyCount()
 00B7 0B C0                    or ax, ax
 00B9 74 4A                    jz 0x105
 00BB                          AddEncounter(21, 01)
@@ -179,14 +186,17 @@ ITEMDENC_0C:
 003F EB 2C                    jmp 0x6d
 0041                          AddTreasure(07D0, 00, 00, 00, 00, 54)
 0060                          ShowMessage(0C04) = Spirits of the dead guard their precious treasure.
-006D                          ax = PartyCountIs(01)
+006D                          ax = PartyCount()
+0075 3D 01 00                 cmp ax, 0x1
 0078 74 0D                    jz 0x87
-007A                          ax = PartyCountIs(02)
+007A                          ax = PartyCount()
+0082 3D 02 00                 cmp ax, 0x2
 0085 75 27                    jnz 0xae
 0087                          AddEncounter(27, 01)
 0099                          AddEncounter(28, 02)
 00AB E9 C3 00                 jmp 0x171
-00AE                          ax = PartyCountIs(03)
+00AE                          ax = PartyCount()
+00B6 3D 03 00                 cmp ax, 0x3
 00B9 75 4A                    jnz 0x105
 00BB                          AddEncounter(27, 01)
 00CD                          AddEncounter(28, 02)
@@ -203,15 +213,18 @@ ITEMDENC_0C:
 
 STRMNSTR_0D:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 74 0D                    jz 0x1d
-0010                          ax = PartyCountIs(02)
+0010                          ax = PartyCount()
+0018 3D 02 00                 cmp ax, 0x2
 001B 75 39                    jnz 0x56
 001D                          AddEncounter(1F, 01)
 002F                          AddEncounter(1F, 02)
 0041                          AddEncounter(1D, 03)
 0053 E9 D5 00                 jmp 0x12b
-0056                          ax = PartyCountIs(03)
+0056                          ax = PartyCount()
+005E 3D 03 00                 cmp ax, 0x3
 0061 75 5C                    jnz 0xbf
 0063                          AddEncounter(1E, 01)
 0075                          AddEncounter(1D, 02)
@@ -229,19 +242,22 @@ STRMNSTR_0D:
 
 AVEMNSTR_0E:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 27                    jnz 0x37
 0010                          AddEncounter(1A, 01)
 0022                          AddEncounter(1B, 02)
 0034 E9 3F 01                 jmp 0x176
-0037                          ax = PartyCountIs(02)
+0037                          ax = PartyCount()
+003F 3D 02 00                 cmp ax, 0x2
 0042 75 4B                    jnz 0x8f
 0044                          AddEncounter(1B, 01)
 0056                          AddEncounter(1B, 02)
 0068                          AddEncounter(19, 03)
 007A                          AddEncounter(19, 04)
 008C E9 E7 00                 jmp 0x176
-008F                          ax = PartyCountIs(03)
+008F                          ax = PartyCount()
+0097 3D 03 00                 cmp ax, 0x3
 009A 75 6E                    jnz 0x10a
 009C                          AddEncounter(1B, 01)
 00AE                          AddEncounter(1B, 02)
@@ -262,7 +278,8 @@ LKPKDORA_0F:
 0000                          BEGIN
 0003                          ax = UsedItem(BF, C4)
 0016 75 11                    jnz 0x29
-0018                          ax = UsedSkill(0E, 02) // returns 0 if did not use, compares to 2nd op if did use
+0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
+0024 3D 02 00                 cmp ax, 0x2
 0027 72 4B                    jb 0x74
 0029                          Push(01)
 002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -291,7 +308,8 @@ LKPKDORB_10:
 0000                          BEGIN
 0003                          ax = UsedItem(C0, C4)
 0016 75 11                    jnz 0x29
-0018                          ax = UsedSkill(0E, 04) // returns 0 if did not use, compares to 2nd op if did use
+0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
+0024 3D 04 00                 cmp ax, 0x4
 0027 72 4B                    jb 0x74
 0029                          Push(01)
 002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -320,7 +338,8 @@ LKPKDORC_11:
 0000                          BEGIN
 0003                          ax = UsedItem(C2, C4)
 0016 75 11                    jnz 0x29
-0018                          ax = UsedSkill(0E, 07) // returns 0 if did not use, compares to 2nd op if did use
+0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
+0024 3D 07 00                 cmp ax, 0x7
 0027 72 4B                    jb 0x74
 0029                          Push(01)
 002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -349,7 +368,8 @@ LKPKDORD_12:
 0000                          BEGIN
 0003                          ax = UsedItem(C3, C4)
 0016 75 11                    jnz 0x29
-0018                          ax = UsedSkill(0E, 09) // returns 0 if did not use, compares to 2nd op if did use
+0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
+0024 3D 09 00                 cmp ax, 0x9
 0027 72 4B                    jb 0x74
 0029                          Push(01)
 002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -376,7 +396,8 @@ LKPKDORD_12:
 
 STRNDORA_13:
 0000                          BEGIN
-0003                          CheckStrength(0C)
+0003                          ax = CheckStrength()
+000F 3D 0C 00                 cmp ax, 0xc
 0012 72 4B                    jb 0x5f
 0014                          ShowMessage(0D46) = You manage to force the door open.
 0021                          Push(01)
@@ -403,7 +424,8 @@ STRNDORA_13:
 
 STRDOORB_14:
 0000                          BEGIN
-0003                          CheckStrength(0F)
+0003                          ax = CheckStrength()
+000F 3D 0F 00                 cmp ax, 0xf
 0012 72 4B                    jb 0x5f
 0014                          ShowMessage(0D81) = The door flies open as you smash against it.
 0021                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -430,7 +452,8 @@ STRDOORB_14:
 
 STRDOORC_15:
 0000                          BEGIN
-0003                          CheckStrength(11)
+0003                          ax = CheckStrength()
+000F 3D 11 00                 cmp ax, 0x11
 0012 72 4B                    jb 0x5f
 0014                          ShowMessage(0DD3) = You push hard on the door and it creaks open.
 0021                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -457,7 +480,8 @@ STRDOORC_15:
 
 STRDOORD_16:
 0000                          BEGIN
-0003                          CheckStrength(14)
+0003                          ax = CheckStrength()
+000F 3D 14 00                 cmp ax, 0x14
 0012 72 4B                    jb 0x5f
 0014                          ShowMessage(0E28) = You manage to open the door by brute strength.
 0021                          ax = SetExitability(ax) // ax is usually 0 following equality check

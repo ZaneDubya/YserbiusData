@@ -10,7 +10,8 @@ TOTREAS_02:
 
 KEYDOOR_03:
 0000                          BEGIN
-0003                          ax = CheckState(02, 00, 01)
+0003                          ax = CheckState(02, 00)
+0013 3D 01 00                 cmp ax, 0x1
 0016 75 4B                    jnz 0x63
 0018                          ShowMessage(03FC) = Cleowyn's Key has unlocked the door.
 0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -43,7 +44,8 @@ KEYMESSG_04:
 
 LKPKDOOR_05:
 0000                          BEGIN
-0003                          ax = CheckState(02, 00, 02)
+0003                          ax = CheckState(02, 00)
+0013 3D 02 00                 cmp ax, 0x2
 0016 75 4B                    jnz 0x63
 0018                          ShowMessage(04B8) = Cleowyn's Lockpick has unlocked the door.
 0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -76,7 +78,8 @@ LKPKMESG_06:
 
 STRDOOR_07:
 0000                          BEGIN
-0003                          ax = CheckState(02, 00, 03)
+0003                          ax = CheckState(02, 00)
+0013 3D 03 00                 cmp ax, 0x3
 0016 75 4B                    jnz 0x63
 0018                          ShowMessage(0546) = The door has been forced open.
 0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -109,7 +112,8 @@ STRMESSG_08:
 
 GOLDENC_09:
 0000                          BEGIN
-0003                          ax = CheckState(02, 05, 01)
+0003                          ax = CheckState(02, 05)
+0014 3D 01 00                 cmp ax, 0x1
 0017 75 2E                    jnz 0x47
 0019                          ShowMessage(05D1) = Aside from angry Rogues, the room is empty.
 0026                          AddTreasure(0014, 00, 00, 00, 00, B5)
@@ -117,9 +121,11 @@ GOLDENC_09:
 0047                          AddTreasure(01F4, 00, 00, 00, 00, CE)
 0066                          SetState(02, 05, 01)
 007B                          ShowMessage(05FD) = A Rogue drops gold coins on the floor as the villains draw their weapons.
-0088                          ax = PartyCountIs(01)
+0088                          ax = PartyCount()
+0090 3D 01 00                 cmp ax, 0x1
 0093 74 0D                    jz 0xa2
-0095                          ax = PartyCountIs(02)
+0095                          ax = PartyCount()
+009D 3D 02 00                 cmp ax, 0x2
 00A0 75 14                    jnz 0xb6
 00A2                          AddEncounter(1A, 01)
 00B4 EB 48                    jmp 0xfe
@@ -143,16 +149,19 @@ PALKEYEN_0B:
 0040 EB 2C                    jmp 0x6e
 0042                          AddTreasure(03E8, 00, 00, 00, 00, D9)
 0061                          ShowMessage(0662) = A Key in the shape of a Palace lies in a corner, if you can get to it.
-006E                          ax = PartyCountIs(01)
+006E                          ax = PartyCount()
+0076 3D 01 00                 cmp ax, 0x1
 0079 75 15                    jnz 0x90
 007B                          AddEncounter(21, 01)
 008D E9 C1 00                 jmp 0x151
-0090                          ax = PartyCountIs(02)
+0090                          ax = PartyCount()
+0098 3D 02 00                 cmp ax, 0x2
 009B 75 27                    jnz 0xc4
 009D                          AddEncounter(25, 01)
 00AF                          AddEncounter(21, 02)
 00C1 E9 8D 00                 jmp 0x151
-00C4                          ax = PartyCountIs(03)
+00C4                          ax = PartyCount()
+00CC 3D 03 00                 cmp ax, 0x3
 00CF 75 38                    jnz 0x109
 00D1                          AddEncounter(21, 01)
 00E3                          AddEncounter(21, 02)
@@ -172,7 +181,7 @@ TELEPORT_0C:
 LOWMNSTR_0D:
 0000                          BEGIN
 0003                          ShowMessage(06A9) = You encounter Rogues.
-0010                          ax = UnknownFunction(000F)
+0010                          ax = UnknownFunctionEC(000F)
 001D 3D 06 00                 cmp ax, 0x6
 0020 77 2E                    ja 0x50
 0022                          AddTreasure(01F4, 00, 00, 00, 00, B5)
@@ -181,9 +190,11 @@ LOWMNSTR_0D:
 0050                          ShowMessage(0728) = The Rogues snarl at you.
 005D                          ShowMessage(0741) = They attack!
 006A                          AddTreasure(03E8, 00, 00, 00, BD, 03)
-008A                          ax = PartyCountIs(01)
+008A                          ax = PartyCount()
+0092 3D 01 00                 cmp ax, 0x1
 0095 74 0D                    jz 0xa4
-0097                          ax = PartyCountIs(02)
+0097                          ax = PartyCount()
+009F 3D 02 00                 cmp ax, 0x2
 00A2 75 26                    jnz 0xca
 00A4                          AddEncounter(1B, 01)
 00B6                          AddEncounter(1A, 02)
@@ -196,11 +207,13 @@ LOWMNSTR_0D:
 
 MODMNSTR_0E:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 14                    jnz 0x24
 0010                          AddEncounter(1D, 01)
 0022 EB 7B                    jmp 0x9f
-0024                          ax = PartyCountIs(02)
+0024                          ax = PartyCount()
+002C 3D 02 00                 cmp ax, 0x2
 002F 75 26                    jnz 0x57
 0031                          AddEncounter(1D, 01)
 0043                          AddEncounter(1E, 02)
@@ -213,16 +226,19 @@ MODMNSTR_0E:
 
 STRMNST_0F:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 15                    jnz 0x25
 0010                          AddEncounter(21, 01)
 0022 E9 E5 00                 jmp 0x10a
-0025                          ax = PartyCountIs(02)
+0025                          ax = PartyCount()
+002D 3D 02 00                 cmp ax, 0x2
 0030 75 27                    jnz 0x59
 0032                          AddEncounter(21, 01)
 0044                          AddEncounter(22, 02)
 0056 E9 B1 00                 jmp 0x10a
-0059                          ax = PartyCountIs(03)
+0059                          ax = PartyCount()
+0061 3D 03 00                 cmp ax, 0x3
 0064 75 4A                    jnz 0xb0
 0066                          AddEncounter(21, 01)
 0078                          AddEncounter(21, 02)
@@ -238,19 +254,22 @@ STRMNST_0F:
 
 BADMNSTR_10:
 0000                          BEGIN
-0003                          ax = PartyCountIs(01)
+0003                          ax = PartyCount()
+000B 3D 01 00                 cmp ax, 0x1
 000E 75 27                    jnz 0x37
 0010                          AddEncounter(26, 01)
 0022                          AddEncounter(26, 02)
 0034 E9 2D 01                 jmp 0x164
-0037                          ax = PartyCountIs(02)
+0037                          ax = PartyCount()
+003F 3D 02 00                 cmp ax, 0x2
 0042 75 4B                    jnz 0x8f
 0044                          AddEncounter(25, 01)
 0056                          AddEncounter(25, 02)
 0068                          AddEncounter(27, 03)
 007A                          AddEncounter(27, 04)
 008C E9 D5 00                 jmp 0x164
-008F                          ax = PartyCountIs(03)
+008F                          ax = PartyCount()
+0097 3D 03 00                 cmp ax, 0x3
 009A 75 5C                    jnz 0xf8
 009C                          AddEncounter(26, 01)
 00AE                          AddEncounter(26, 02)
@@ -297,7 +316,8 @@ STRSTLPT_15:
 
 REGDOOR_16:
 0000                          BEGIN
-0003                          ax = CheckState(02, 00, 04)
+0003                          ax = CheckState(02, 00)
+0013 3D 04 00                 cmp ax, 0x4
 0016 75 4B                    jnz 0x63
 0018                          ShowMessage(07EC) = As you open the door, you hear locks click throughout the dungeon.
 0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
@@ -326,7 +346,7 @@ NPCCHATA_17:
 0000                          BEGIN
 0003                          ShowMessage(0851) = You encounter an Elf Ranger.
 0010                          ShowPortrait(001F)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0B 00                 cmp ax, 0xb
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(086E) = You must solve the mystery of the linked Vestibule doors to continue farther down into the dungeon.
@@ -338,7 +358,7 @@ NPCCHATB_18:
 0000                          BEGIN
 0003                          ShowMessage(0914) = You encounter a Human Wizard.
 0010                          ShowPortrait(002B)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 09 00                 cmp ax, 0x9
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0932) = Centuries ago, Twinion was a thriving port town, ruled by the Galabryan dynasty. The kings welcomed all races and Guilds to the island. When the volcano Yserbius erupted, it almost buried Twinion under lava. If only we could find some way off this island!
@@ -350,7 +370,7 @@ NPCCHATC_19:
 0000                          BEGIN
 0003                          ShowMessage(0A71) = You encounter a Gremlin Thief.
 0010                          ShowPortrait(0026)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 0A 00                 cmp ax, 0xa
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0A90) = King Cleowyn created a clever maze of squares to discourage thieves and invaders. Mind you, no invaders ever thought Twinion rich enough to be worth their effort.
@@ -362,7 +382,7 @@ NPCCHATD_1A:
 0000                          BEGIN
 0003                          ShowMessage(0B69) = You encounter an Orc Knight.
 0010                          ShowPortrait(001A)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0B86) = The richness of fine armor and weapons in this dungeon baffles me. I've heard rumors that skilled dwarfs once crafted such armory, but the rogue dwarfs you encounter nowadays have no talent for such expert metallurgy.
@@ -374,7 +394,7 @@ NPCCHATE_1B:
 0000                          BEGIN
 0003                          ShowMessage(0C93) = You encounter an Elf Cleric.
 0010                          ShowPortrait(0027)
-001D                          ax = UnknownFunction(000F)
+001D                          ax = UnknownFunctionEC(000F)
 002A 3D 08 00                 cmp ax, 0x8
 002D 77 0F                    ja 0x3e
 002F                          ShowMessage(0CB0) = I have visited King Cleowyn's throne room, and what a disappointment it was. Not much treasure there and too many dead things. Perhaps I missed something.
@@ -440,7 +460,8 @@ LKPKDRA_1D:
 
 STRNGDRA_1E:
 0000                          BEGIN
-0003                          CheckStrength(12)
+0003                          ax = CheckStrength()
+000F 3D 12 00                 cmp ax, 0x12
 0012 72 5F                    jb 0x73
 0014                          SetState(02, 00, 03)
 0028                          ShowMessage(0E3C) = You manage to force open the door.
@@ -468,9 +489,11 @@ STRNGDRA_1E:
 
 REGDORA_1F:
 0000                          BEGIN
-0003                          ax = CheckState(02, 00, any)
+0003                          ax = CheckState(02, 00)
+0013 0B C0                    or ax, ax
 0015 74 15                    jz 0x2c
-0017                          ax = CheckState(02, 00, 04)
+0017                          ax = CheckState(02, 00)
+0027 3D 04 00                 cmp ax, 0x4
 002A 75 5F                    jnz 0x8b
 002C                          SetState(02, 00, 04)
 0040                          ShowMessage(0E81) = As you open the door, you hear locks click throughout the dungeon.
