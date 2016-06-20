@@ -11,7 +11,7 @@ HELP.DAT        Text[255]   Yes
 IMAGES.DAT      Image       Yes
 MAIN.TSU        Image       Yes
 PALETTE.DAT     Palette     Yes
-RESOURCE.035    Map         Yes             12th map data plane seems to be ununsed?
+RESOURCE.035    Map         Yes             12th map data plane contains data but seems to be unused.
 RESOURCE.036    Encounter   Partial         690x46b         
                 Mnstr names Partial         1359x76b@31740  
                 ????        Partial         2252b@135024    
@@ -128,18 +128,18 @@ RESOURCE.032
 RESOURCE.033      
 RESOURCE.034      34 - The Unknown
 RESOURCE.041      Copy of RESOURCE.006 with slight difference in map script.
-RESOURCE.042      Copy of RESOURCE.012 with slight difference in map script.
-RESOURCE.043      Copy of 
-RESOURCE.044      Copy of 
-RESOURCE.045      Copy of 
-RESOURCE.046      Copy of 
-RESOURCE.047      Copy of 
-RESOURCE.048      Copy of 
-RESOURCE.049      Copy of 
-RESOURCE.050      Copy of 
-RESOURCE.051      Copy of 
-RESOURCE.052      Copy of 
-RESOURCE.053      Copy of 
+RESOURCE.042      Copy of RESOURCE.012 ""
+RESOURCE.043      Copy of RESOURCE.015 ""
+RESOURCE.044      Copy of RESOURCE.019 ""
+RESOURCE.045      Copy of RESOURCE.022 ""
+RESOURCE.046      Copy of RESOURCE.023 ""
+RESOURCE.047      Copy of RESOURCE.025 ""
+RESOURCE.048      Copy of RESOURCE.026 ""
+RESOURCE.049      Copy of RESOURCE.027 ""
+RESOURCE.050      Copy of RESOURCE.030 ""
+RESOURCE.051      Copy of RESOURCE.031 ""
+RESOURCE.052      Copy of RESOURCE.033 ""
+RESOURCE.053      Copy of RESOURCE.034 ""
 
 === EXECUTABLE FILES =========================================================
 Filename        Type        Deciphered?     Notes
