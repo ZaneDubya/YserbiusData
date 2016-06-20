@@ -1,6 +1,18 @@
 When the game begins a random encounter, it first looks up the monster index in R.036.
-  Wolf: index 42,34932
-  Snake: index 44,35084
+  Wolfx1:   index 0029,34856
+  Wolfx2:   index 002A,34932
+  Snake:    index 002C,35084
+  MtnLion:  index 0031,35464
+  Spider:   index 0035,35768
+  SklThf:   index 0037,35920
+  OrcRgrx1* index 003A,36148 - set piece orc ranger, called from enc 05 map 002, index should be 13  
+  Wolfx2*   index 0041,36680 - set piece wolves, called from enc 03 in map 002, index should be 1A
+  The monster index's last two 2b variables are xp and gold. There are 8 preceding 1b variables, not sure what they mean.
+  
 Then it looks up the monster data, based on the index:
-  Wolf: index 0,00000
-  Snake: index 45,02070
+  Wolf:     index 0000,00000
+  MtnLion:  index 000F,00690
+  Snake:    index 002D,02070
+  Spider:   index 006A,04876
+  SklTh:    index 0079,05566
+  OrcRgr:   index 01B3,20010
