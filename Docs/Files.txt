@@ -13,7 +13,7 @@ MAIN.TSU        Image       Yes
 PALETTE.DAT     Palette     Yes
 RESOURCE.035    Map data    Partial     
 RESOURCE.036    ????        No              690x46b structs + 1359x76b@31740 structs + 2252b@135024
-RESOURCE.037    ????        No              300x6b structs + 313x8b structs. Could be portraits!
+RESOURCE.037    ????        No              300x6b structs + 313x8b structs. Could be portraits! Scrambling is shl6.
 RESOURCE.038    Items       Partial         256 x 46b Item entries
 RESOURCE.039    ????        No              156x18b structs
                 ????        No              48x18b structs
