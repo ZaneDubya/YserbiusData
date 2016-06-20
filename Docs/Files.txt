@@ -11,7 +11,7 @@ HELP.DAT        Text[255]   Yes
 IMAGES.DAT      Image       Yes
 MAIN.TSU        Image       Yes
 PALETTE.DAT     Palette     Yes
-RESOURCE.035    Map         Yes             Not sure what 12th map data field is used for.     
+RESOURCE.035    Map         Yes             12th map data plane seems to be ununsed?
 RESOURCE.036    Encounter   Partial         690x46b         
                 Mnstr names Partial         1359x76b@31740  
                 ????        Partial         2252b@135024    
