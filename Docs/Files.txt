@@ -11,13 +11,13 @@ HELP.DAT        Text[255]   Yes
 IMAGES.DAT      Image       Yes
 MAIN.TSU        Image       Yes
 PALETTE.DAT     Palette     Yes
-RESOURCE.035    Map data    Partial     
+RESOURCE.035    Map data    Yes             Not sure what 12th map data field is used for.     
 RESOURCE.036    ????        No              690x46b structs + 1359x76b@31740 structs + 2252b@135024
 RESOURCE.037    ????        No              300x6b structs + 313x8b structs. Could be portraits! Scrambling is shl6.
 RESOURCE.038    Items       Partial         256 x 46b Item entries
-RESOURCE.039    ????        No              156x18b structs
+RESOURCE.039    Progression Partial         156x18b char progression data (per guild, first 26 levels, shl4 scrambling).
                 ????        No              48x18b structs
-                Prices      Yes             256 x (2b buy price, 2b sale price)
+                Prices      Yes             256 x (2b buy price, 2b sale price, shl4 scrambling)
 RESOURCE.040    Text[127]   Yes
 RESOURCE.054    ????        No              Same structure as RESOURCE.039, VERY similar but not identical data
 RESOURCE.099    ????        No
