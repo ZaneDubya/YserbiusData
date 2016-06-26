@@ -18,8 +18,8 @@ RESOURCE.036    Encounter   Partial         690x46b
 RESOURCE.037    ????        No              300x6b structs. Could be portraits? SHL5.
                 Spells      Partial         288x8b spell data. 2b mana cost, 2b flags/type, 2x2b offsets.
 RESOURCE.038    Items       Partial         256x46b Item entries.
-RESOURCE.039    Progression Partial         156x18b char progression data (per guild, first 26 levels, SHL4.
-                ????        No              48x18b structs
+RESOURCE.039    Progression Partial         156x18b char progression data (per guild, first 25+1 levels).
+                Progression Partial         48x18b structs - initial char stats
                 Prices      Yes             256 x (2b buy price, 2b sale price, shl4 scrambling)
 RESOURCE.040    Text[127]   Yes
 RESOURCE.054    Progression Partial         Same structure as RESOURCE.039, VERY similar but not identical data
