@@ -1,4 +1,4 @@
-Desc.,Str,Data1,Def,Data3,Data4,Data5,Data6,Agi,Data8,Ini,DataA,DataB,DataC,DataD,DataE,DataF,Data10,Data11
+Desc.,Str,Data1,Def,Data3,Dex,Data5,Data6,Agi,Data8,Ini,DataA,Health,DataC,DataD,DataE,DataF,Data10,Data11
 Hum Brb,11,27,9,20,4,15,39,2,8,3,12,30,15,39,8,15,39,0
 Orc Brb,12,28,10,21,4,15,39,2,8,3,12,50,15,39,8,15,39,0
 Elf Brb,10,26,9,20,5,15,39,3,9,3,12,25,15,39,8,15,39,0
