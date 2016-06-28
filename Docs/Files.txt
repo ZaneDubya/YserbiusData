@@ -15,8 +15,8 @@ RESOURCE.035    Map         Yes             12th map data plane contains data bu
 RESOURCE.036    Encounter   Partial         690x46b         
                 Mnstr names Partial         1360x76b@31740  
                 RandomEncs  Partial         34x64b@135100 - not indexes. always increasing. probabilities?
-RESOURCE.037    ????        No              300x6b structs. Could be portraits? SHL5.
-                Spells      Partial         288x8b spell data. 2b mana cost, 2b flags/type, 2x2b offsets.
+RESOURCE.037    Skills      No              25x12x6b skill data. 25 skills. Whaaaaaat.
+                Spells      Partial         24x12x8b spell data. 2b mana cost, 2b flags/type, 2x2b offsets.
 RESOURCE.038    Items       Partial         256x46b Item entries.
 RESOURCE.039    Progression Yes             156x18b char progression data (per guild, first 25+1 levels).
                 Progression Yes             48x18b structs - initial char stats
