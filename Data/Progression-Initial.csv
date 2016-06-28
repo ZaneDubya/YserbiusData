@@ -1,4 +1,4 @@
-Desc.,Str,StrOffset,Def,DefOffset,Dex,Const0,Agi,Data8,Ini,DataA,Health,Const1,Mana,Const2,Const3
+Desc.,Str,StrMod,Def,DefMod,Dex,Const0,Agi,AgiMod,Ini,IniMod,Health,Const1,Mana,Const2,Const3
 Hum Brb,11,27,9,20,4,9999,2,8,3,12,30,9999,8,9999,0
 Orc Brb,12,28,10,21,4,9999,2,8,3,12,50,9999,8,9999,0
 Elf Brb,10,26,9,20,5,9999,3,9,3,12,25,9999,8,9999,0
