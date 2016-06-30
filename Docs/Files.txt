@@ -146,7 +146,9 @@ RESOURCE.053      Copy of RESOURCE.034 ""
 Filename        Type        Deciphered?     Notes
 CGENN.EXE       Exe         No
 DARKSTRT.EXE    Exe         No
-TITLE.EXE       Exe         No
+TITLE.EXE       Exe         Partial         66400 = ident?
+                                            66432 = 48+3-5? x 8b
+                                            80188-82908 = Font data
 YSBOX.EXE       Exe         No
 YSERBIUS.EXE    Exe         No
 YSGENN.EXE      Exe         No
