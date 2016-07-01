@@ -147,8 +147,8 @@ Filename        Type        Deciphered?     Notes
 CGENN.EXE       Exe         No
 DARKSTRT.EXE    Exe         No
 TITLE.EXE       Exe         Partial         66400 = ident?
-                                            66432 = 48+3-5? x 8b
+                                            66432 = 8b structs
                                             80188-82908 = Font data
-YSBOX.EXE       Exe         No
+YSBOX.EXE       Exe         No              141776 = 8b structs
 YSERBIUS.EXE    Exe         No
 YSGENN.EXE      Exe         No
