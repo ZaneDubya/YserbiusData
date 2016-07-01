@@ -1,1361 +1,1361 @@
-NameSingle,NamePlural,Portrait,Data1,Data2,Data1,Data3,Data4,Data5,Data6,Data7,Data8,Data9,DataA
-Wolf,Wolves,1,1,0,1,1,4,0,0,0,0,0,0
-Lion,Lions,2,1,0,1,1,4,0,0,0,0,0,0
-Bear,Bears,3,1,0,1,1,4,0,0,0,0,0,0
-Snake,Snakes,4,1,0,1,1,4,0,0,0,0,0,0
-Dinosaur,Dinosaurs,5,1,0,1,1,4,0,0,0,0,0,0
-Scorpion,Scorpions,6,1,0,1,1,4,0,0,0,0,0,0
-Leech,Leeches,7,1,0,1,1,4,0,0,0,0,0,0
-Spider,Spiders,8,1,0,1,1,4,0,0,0,0,0,0
-Skeleton,Skeletons,9,1,0,1,1,4,0,0,0,0,0,0
-Ghost,Ghosts,10,1,0,1,1,4,0,0,0,0,0,0
-Undead,Undeads,11,1,0,1,1,4,0,0,0,0,0,0
-Bugbear,Bugbears,12,1,0,1,1,4,0,0,0,0,0,0
-Minotaur,Minotaurs,13,1,1,1,1,4,0,0,0,0,0,0
-Gargoyle,Gargoyles,14,1,1,1,1,4,0,0,0,0,0,0
-Dragon,Dragons,15,1,1,1,1,4,0,0,0,0,0,0
-Imp,Imps,16,1,1,1,1,4,0,0,0,0,0,0
-Phantasm,Phantasms,17,1,1,1,1,4,0,0,0,0,0,0
-Giant,Giants,18,1,1,1,1,4,0,0,0,0,0,0
-Ogre,Ogres,19,1,1,1,1,4,0,0,0,0,0,0
-Lizard Man,Lizard Men,20,1,1,1,1,4,0,0,0,0,0,0
-Goblin,Goblins,21,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,22,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,23,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,24,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,25,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,26,1,1,1,1,4,0,0,0,0,0,0
-En-Li-Kil,En-Li-Kil,47,1,1,1,0,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,0,0,0,0
-Wolf,Wolves,1,1,0,1,0,4,0,0,8,0,30,0
-Wolf,Wolves,1,1,0,1,1,4,0,0,8,0,30,0
-Wolf,Wolves,1,1,0,2,0,6,0,0,8,0,30,0
-Snake,Snakes,4,1,0,1,0,6,0,0,10,0,20,0
-Snake,Snakes,4,1,0,1,1,6,0,0,10,0,20,0
-Coelus,Coeluses,5,1,0,1,0,6,0,0,15,0,30,0
-Coelus,Coeluses,5,1,0,1,1,6,0,0,15,0,30,0
-Scorpion,Scorpions,6,1,0,1,0,6,0,0,25,0,30,0
-Scorpion,Scorpions,6,1,0,1,1,6,0,0,25,0,30,0
-Mountain Lion,Mountain Lions,2,1,0,1,0,4,0,0,20,0,20,0
-Copper Ogre,Copper Ogres,19,1,0,1,1,6,0,30,20,0,40,0
-Goblin,Goblins,21,1,1,1,0,5,0,25,20,0,30,0
-Giant Spider,Giant Spiders,8,1,0,1,1,8,0,0,30,0,40,0
-Giant Spider,Giant Spiders,8,1,1,1,0,8,0,0,30,0,40,0
-Skeletal Thief,Skeletal Thieves,9,1,0,1,1,10,0,25,20,0,40,0
-Skeletal Thief,Skeletal Thieves,9,1,1,1,0,10,0,25,20,0,40,0
-Imp,Imps,16,1,0,1,0,10,15,20,60,0,100,0
-Imp,Imps,16,1,0,1,1,10,15,20,60,0,100,0
-Orc Ranger,Orc Rangers,30,1,0,1,0,12,0,25,40,0,50,0
-Halfling Thief,Halfling Thieves,37,1,0,1,1,18,10,25,40,0,50,0
-Dwarf Knight,Dwarf Knights,28,1,0,1,0,10,0,25,40,0,50,0
-Human Barbarian,Human Barbarians,22,1,0,1,0,8,0,25,40,0,50,0
-Gremlin Cleric,Gremlin Clerics,42,1,0,1,1,15,20,25,50,0,50,0
-Gnome Wizard,Gnome Wizards,45,1,1,1,0,18,30,25,50,0,75,0
-Mountain Lion,Mountain Lions,2,1,1,1,1,4,0,0,10,0,20,0
-Wolf,Wolves,1,1,1,1,1,4,0,0,10,0,15,0
-Troll Knight,Troll Knights,27,3,1,1,1,5,10,40,45,0,60,0
-Elf Cleric,Elf Clerics,39,3,1,1,1,8,25,40,30,0,45,0
-Gnome Barbarian,Gnome Barbarians,25,2,2,2,1,4,0,40,50,0,75,0
-Cro-Lizard,Cro-Lizards,20,1,2,1,1,6,15,35,60,0,90,0
-Raptor,Raptors,5,4,0,1,1,20,0,0,60,0,70,0
-Leech,Leeches,7,1,2,2,1,15,0,0,50,0,70,0
-Cranky Dwarf Wizard,Cranky Dwarf Wizards,44,4,1,1,1,15,40,40,60,0,100,0
-Ornery Human Thief,Ornery Human Thieves,34,4,2,2,1,15,18,40,45,0,60,0
-Vicious Orc Barbarian,Vicious Orc Barbarians,23,4,0,2,1,15,5,40,90,0,125,0
-Bronze Ogre,Bronze Ogres,19,4,0,3,0,18,0,35,75,0,115,0
-Bronze Ogre,Bronze Ogres,19,4,1,2,0,16,0,35,75,0,115,0
-Bronze Ogre,Bronze Ogres,19,4,1,2,1,16,0,35,75,0,115,0
-Bronze Ogre,Bronze Ogres,19,4,1,2,1,16,0,35,75,0,115,0
-Bronze Ogre,Bronze Ogres,19,4,2,2,1,12,0,35,75,0,115,0
-Wolf,Wolves,1,1,1,1,2,4,0,0,8,0,30,0
-Wolf,Wolves,1,1,2,1,1,6,0,0,8,0,30,0
-Wolf,Wolves,1,2,0,1,1,8,0,0,8,0,30,0
-Snake,Snakes,4,1,0,1,2,6,0,0,10,0,20,0
-Snake,Snakes,4,1,1,1,1,6,0,0,10,0,20,0
-Snake,Snakes,4,2,0,1,2,6,0,0,10,0,25,0
-Elf Ranger,Elf Rangers,31,2,1,1,1,6,0,35,40,0,60,0
-Human Thief,Human Thieves,34,3,0,1,1,8,15,35,50,0,100,0
-Troll Knight,Troll Knights,27,2,1,1,1,5,10,35,50,0,100,0
-Gnome Barbarian,Gnome Barbarians,25,1,1,1,1,3,0,35,40,0,60,0
-Halfling Cleric,Halfling Clerics,41,2,1,1,1,8,25,35,50,0,100,0
-Dwarf Wizard,Dwarf Wizards,44,2,1,1,1,10,45,35,100,0,150,0
-Cave Bear,Cave Bears,3,1,0,1,1,20,0,0,50,0,50,0
-Cave Bear,Cave Bears,3,1,1,1,1,20,0,0,50,0,50,0
-Cave Bear,Cave Bears,3,1,1,2,1,20,0,0,50,0,50,0
-Cave Bear,Cave Bears,3,1,2,1,1,20,0,0,60,0,50,0
-Cave Bear,Cave Bears,3,2,0,1,1,24,0,0,50,0,60,0
-Cave Bear,Cave Bears,3,2,1,1,1,24,0,0,50,0,60,0
-Human Barbarian,Human Barbarians,22,1,1,2,1,10,5,15,50,0,75,0
-Gnome Thief,Gnome Thieves,36,1,2,3,1,15,10,15,40,0,100,0
-Gremlin Wizard,Gremlin Wizards,46,1,1,1,1,12,40,15,100,0,50,0
-Troll Cleric,Troll Clerics,40,1,1,1,2,12,30,15,50,0,75,0
-Halfling Ranger,Halfling Rangers,33,1,1,2,1,12,15,15,50,0,80,0
-Orc Knight,Orc Knights,26,1,1,2,1,12,15,15,60,0,75,0
-Dwarf Knight,Dwarf Knights,28,1,1,2,1,5,5,30,50,0,40,0
-Elf Cleric,Elf Clerics,39,2,0,2,1,8,25,30,80,0,40,0
-Troll Ranger,Troll Rangers,32,1,1,2,1,6,5,30,40,0,40,0
-Orc Barbarian,Orc Barbarians,23,1,1,2,1,4,5,30,50,0,40,0
-Cave Lion,Cave Lions,2,3,0,1,5,20,0,0,20,0,20,0
-Cave Lion,Cave Lions,2,3,1,2,2,18,0,0,24,0,25,0
-Cave Lion,Cave Lions,2,3,1,3,2,18,0,0,24,0,25,0
-Cave Lion,Cave Lions,2,4,0,3,1,15,0,0,26,0,25,0
-Bronze Ogre,Bronze Ogres,19,4,2,3,1,15,0,25,80,0,25,0
-Bronze Ogre,Bronze Ogres,19,5,0,2,1,12,0,25,80,0,36,0
-Bronze Ogre,Bronze Ogres,19,5,1,1,1,12,0,25,80,0,36,0
-Bronze Ogre,Bronze Ogres,19,6,0,1,1,10,0,25,80,0,45,0
-Deinon,Deinons,5,5,0,2,1,25,0,0,200,0,180,0
-Deinon,Deinons,5,5,1,2,1,25,0,0,200,0,190,0
-Deinon,Deinons,5,5,1,1,1,25,0,0,200,0,190,0
-Deinon,Deinons,5,6,0,1,1,20,0,0,225,0,200,0
-Wolf,Wolves,1,1,0,1,0,8,0,0,8,0,30,0
-Wolf,Wolves,1,1,0,1,0,8,0,0,8,0,30,0
-Wolf,Wolves,1,1,0,1,1,8,0,0,8,0,30,0
-Wolf,Wolves,1,1,0,1,1,8,0,0,8,0,30,0
-Wolf,Wolves,1,1,1,1,0,8,0,0,8,0,30,0
-Snake,Snakes,4,1,0,1,0,6,0,0,10,0,20,0
-Snake,Snakes,4,1,0,1,1,6,0,0,10,0,20,0
-Snake,Snakes,4,1,0,2,0,6,0,0,10,0,20,0
-Snake,Snakes,4,1,1,1,0,6,0,0,10,0,20,0
-Snake,Snakes,4,1,1,1,1,6,0,0,10,0,20,0
-Coelus,Coeluses,5,1,0,1,0,9,0,0,15,0,30,0
-Coelus,Coeluses,5,1,0,1,1,9,0,0,15,0,30,0
-Coelus,Coeluses,5,1,0,2,0,9,0,0,15,0,30,0
-Coelus,Coeluses,5,1,1,1,0,9,0,0,15,0,30,0
-Coelus,Coeluses,5,1,1,1,1,9,0,0,15,0,30,0
-Scorpion,Scorpions,6,1,0,1,0,6,0,15,25,0,30,0
-Scorpion,Scorpions,6,1,0,1,1,6,0,15,25,0,30,0
-Scorpion,Scorpions,6,1,0,2,0,6,0,15,25,0,30,0
-Copper Ogre,Copper Ogres,19,1,0,1,1,6,0,30,20,0,40,0
-Goblin,Goblins,21,1,1,1,0,5,0,25,20,0,30,0
-Mountain Lion,Mountain Lions,2,1,0,1,0,8,0,15,20,0,20,0
-Mountain Lion,Mountain Lions,2,1,0,1,1,8,0,15,20,0,20,0
-Mountain Lion,Mountain Lions,2,1,0,2,0,8,0,15,20,0,20,0
-Mountain Lion,Mountain Lions,2,1,1,1,0,8,0,15,20,0,20,0
-Wolf,Wolves,1,1,0,3,2,6,0,0,5,0,15,0
-Wolf,Wolves,1,1,1,2,1,6,0,0,5,0,15,0
-Wolf,Wolves,1,2,0,2,1,10,0,0,10,0,20,0
-Goblin,Goblins,21,1,1,2,2,10,0,15,20,0,30,0
-Goblin,Goblins,21,2,0,2,1,10,0,22,20,0,30,0
-Goblin,Goblins,21,2,1,2,1,10,0,30,40,0,50,0
-Bronze Ogre,Bronze Ogres,19,4,0,3,2,12,0,20,60,0,100,0
-Bronze Ogre,Bronze Ogres,19,4,1,2,3,12,0,25,60,0,100,0
-Bronze Ogre,Bronze Ogres,19,4,2,3,3,12,0,30,60,0,100,0
-Human Thief,Human Thieves,34,3,2,2,2,25,60,50,45,0,60,0
-Vicious Gnome Barbarian,Vicious Gnome Barbarians,25,5,1,2,1,20,15,50,100,0,115,0
-Cranky Gremlin Wizard,Cranky Gremlin Wizards,46,4,2,2,1,25,75,50,150,0,200,0
-Yellow Orc Knight,Yellow Orc Knights,26,4,3,3,1,18,25,50,100,0,19,1
-Hardy Elf Cleric,Hardy Elf Clerics,39,5,2,3,1,30,55,50,125,0,200,0
-Ornery Gremlin Thief,Ornery Gremlin Thieves,38,5,2,3,1,15,60,50,100,0,180,0
-Sly Halfling Ranger,Sly Halfling Rangers,33,6,1,3,1,20,35,50,120,0,44,1
-Skeletal Thief,Skeletal Thieves,9,3,0,4,1,12,0,8,30,0,30,0
-Skeletal Thief,Skeletal Thieves,9,3,0,4,2,12,0,10,30,0,30,0
-Skeletal Warrior,Skeletal Warriors,9,4,0,4,1,15,0,15,40,0,50,0
-Skeletal Warrior,Skeletal Warriors,9,4,1,3,1,15,0,20,40,0,50,0
-Skeletal Warrior,Skeletal Warriors,9,4,2,3,1,18,0,20,40,0,50,0
-Skeletal Warrior,Skeletal Warriors,9,5,2,2,2,18,0,25,50,0,75,0
-Zombie,Zombies,11,1,0,3,1,24,0,10,30,0,50,0
-Zombie,Zombies,11,1,0,3,2,24,0,15,30,0,50,0
-Zombie,Zombies,11,1,1,3,2,28,0,20,30,0,55,0
-Zombie,Zombies,11,1,1,2,2,28,0,20,30,0,60,0
-Zombie,Zombies,11,1,2,1,2,32,0,25,30,0,80,0
-Zombie,Zombies,11,1,2,2,2,32,0,25,30,0,100,0
-Ghost,Ghosts,10,4,0,3,1,14,25,0,30,0,70,0
-Ghost,Ghosts,10,4,0,4,1,14,25,0,30,0,80,0
-Ghost,Ghosts,10,4,1,3,1,16,30,0,40,0,90,0
-Ghost,Ghosts,10,4,1,3,1,16,30,0,40,0,100,0
-Ghost,Ghosts,10,4,2,3,1,20,35,0,50,0,100,0
-Ghost,Ghosts,10,4,2,2,2,20,40,0,50,0,100,0
-Leech,Leeches,7,1,1,1,2,6,0,25,50,0,20,0
-Leech,Leeches,7,1,2,2,2,8,0,40,50,0,20,0
-Leech,Leeches,7,1,1,1,3,5,0,30,50,0,20,0
-Black Widow,Black Widows,8,4,1,1,2,8,0,20,50,0,60,0
-Black Widow,Black Widows,8,4,2,1,3,12,0,25,50,0,65,0
-Black Widow,Black Widows,8,5,0,1,2,18,0,25,60,0,70,0
-Bugbear,Bugbears,12,1,0,4,2,12,0,0,100,0,19,1
-Bugbear,Bugbears,12,1,1,3,1,12,0,0,100,0,19,1
-Bugbear,Bugbears,12,1,1,3,1,12,0,0,100,0,19,1
-Bugbear,Bugbears,12,1,2,3,1,12,0,0,125,0,44,1
-Bugbear,Bugbears,12,1,2,2,3,12,0,0,125,0,44,1
-Cockatrice,Cockatrices,14,1,0,2,1,50,25,0,120,0,100,0
-Cockatrice,Cockatrices,14,1,1,2,1,50,30,0,120,0,100,0
-Cockatrice,Cockatrices,14,1,1,2,1,50,35,0,120,0,125,0
-Cockatrice,Cockatrices,14,2,0,1,2,40,40,0,120,0,150,0
-Cockatrice,Cockatrices,14,2,1,1,1,40,45,0,120,0,175,0
-Incubus,Incubi,16,5,0,3,1,25,30,0,44,1,200,0
-Incubus,Incubi,16,5,0,2,1,25,50,0,44,1,200,0
-Incubus,Incubi,16,5,1,2,1,20,55,0,44,1,200,0
-Incubus,Incubi,16,5,1,2,1,20,60,0,44,1,200,0
-Incubus,Incubi,16,5,2,1,2,15,65,0,144,1,44,1
-Incubus,Incubi,16,5,2,2,1,15,70,0,144,1,44,1
-Wolf,Wolves,1,1,0,1,0,4,0,0,8,0,30,0
-Wolf,Wolves,1,1,0,1,1,6,0,0,8,0,30,0
-Wolf,Wolves,1,1,1,1,0,8,0,0,8,0,30,0
-Snake,Snakes,4,1,0,1,0,6,0,0,10,0,20,0
-Snake,Snakes,4,1,0,1,1,6,0,0,10,0,20,0
-Coelus,Coeluses,5,1,0,1,0,6,0,0,15,0,30,0
-Coelus,Coeluses,5,1,1,1,0,6,0,0,15,0,30,0
-Scorpion,Scorpions,6,1,0,1,0,6,0,0,25,0,30,0
-Scorpion,Scorpions,6,1,0,1,1,6,0,0,25,0,30,0
-Mountain Lion,Mountain Lions,2,1,0,1,0,4,0,0,20,0,20,0
-Mountain Lion,Mountain Lions,2,1,0,1,1,4,0,0,20,0,20,0
-Giant Spider,Giant Spiders,8,1,0,1,0,8,0,0,30,0,40,0
-Copper Ogre,Copper Ogres,19,1,0,1,1,6,0,30,20,0,40,0
-Goblin,Goblins,21,1,1,1,1,5,0,30,20,0,35,0
-Skeletal Thief,Skeletal Thieves,9,1,0,1,1,6,0,10,20,0,40,0
-Giant Spider,Giant Spiders,8,1,1,1,0,8,0,0,30,0,40,0
-Imp,Imps,16,1,0,1,1,10,25,40,60,0,100,0
-Imp,Imps,16,1,1,1,0,10,25,40,60,0,100,0
-Skeletal Thief,Skeletal Thieves,9,1,1,1,1,10,0,10,20,0,40,0
-Coelus,Coeluses,5,1,1,1,1,6,0,0,8,0,30,0
-Skeletal Thief,Skeletal Thieves,9,1,1,1,1,10,0,10,18,0,27,0
-Copper Ogre,Copper Ogres,19,1,0,1,1,6,0,45,20,0,40,0
-Copper Ogre,Copper Ogres,19,1,1,1,1,6,0,45,20,0,40,0
-Copper Ogre,Copper Ogres,19,2,0,1,0,6,0,45,20,0,40,0
-Copper Ogre,Copper Ogres,19,1,1,1,3,6,0,25,20,0,40,0
-Copper Ogre,Copper Ogres,19,1,1,2,1,6,0,25,20,0,40,0
-Copper Ogre,Copper Ogres,19,1,2,3,1,6,0,25,20,0,40,0
-Mountain Lion,Mountain Lions,2,2,2,3,2,4,0,0,10,0,20,0
-Wolf,Wolves,1,3,1,5,2,4,0,0,8,0,30,0
-Coelus,Coeluses,5,1,2,2,1,6,0,0,15,0,30,0
-Troll Ranger,Troll Rangers,32,3,2,3,3,8,0,30,50,0,70,0
-Hardy Halfling Cleric,Hardy Halfling Clerics,41,5,0,2,1,8,30,35,75,0,80,0
-Cranky Human Wizard,Cranky Human Wizards,43,4,1,2,1,10,60,50,100,0,150,0
-Ornery Gnome Thief,Ornery Gnome Thieves,36,4,3,4,1,8,25,50,60,0,100,0
-Vicious Elf Barbarian,Vicious Elf Barbarians,24,4,3,3,2,16,10,50,90,0,125,0
-White Dwarf Knight,White Dwarf Knights,28,4,3,3,1,12,15,50,75,0,115,0
-Bugbear,Bugbears,12,1,2,3,2,12,0,50,100,0,19,1
-Black Widow,Black Widows,8,4,2,2,5,20,0,0,60,0,80,0
-Dire Wolf,Dire Wolves,1,4,2,2,3,15,0,0,50,0,50,0
-Dire Wolf,Dire Wolves,1,5,1,4,4,15,0,0,50,0,50,0
-Cranky Dwarf Wizard,Cranky Dwarf Wizards,44,4,1,3,1,27,50,22,165,0,100,0
-Ornery Human Thief,Ornery Human Thieves,34,6,1,4,1,30,20,22,145,0,60,0
-Vicious Orc Barbarian,Vicious Orc Barbarians,23,5,1,2,1,24,5,22,190,0,125,0
-Hardy Elf Cleric,Hardy Elf Clerics,39,5,1,1,1,25,40,22,165,0,75,0
-White Dwarf Knight,White Dwarf Knights,28,4,2,1,2,25,15,22,175,0,90,0
-Human Barbarian,Human Barbarians,22,2,2,3,2,12,0,22,125,0,30,0
-Orc Ranger,Orc Rangers,30,3,2,3,2,12,10,22,120,0,24,0
-Halfling Thief,Halfling Thieves,37,3,2,2,3,15,15,22,115,0,15,0
-Gremlin Cleric,Gremlin Clerics,42,2,2,3,1,13,30,22,115,0,20,0
-Gnome Wizard,Gnome Wizards,45,2,1,3,2,18,40,22,120,0,24,0
-Vicious Elf Barbarian,Vicious Elf Barbarians,24,5,1,1,1,30,5,22,190,0,120,0
-Ornery Gremlin Thief,Ornery Gremlin Thieves,38,6,0,2,1,40,18,22,145,0,50,0
-Cranky Gremlin Wizard,Cranky Gremlin Wizards,46,4,2,2,1,50,50,22,165,0,90,0
-Hardy Halfling Cleric,Hardy Halfling Clerics,41,5,1,2,1,45,40,22,165,0,70,0
-Sly Troll Ranger,Sly Troll Rangers,32,6,2,2,1,35,15,22,170,0,90,0
-Sly Halfling Ranger,Sly Halfling Rangers,33,6,0,2,1,25,15,22,170,0,80,0
-Red Troll Knight,Red Troll Knights,27,4,2,2,1,35,10,22,175,0,85,0
-Orc Knight,Orc Knights,26,2,1,3,2,10,15,22,120,0,27,0
-Gnome Barbarian,Gnome Barbarians,25,2,1,3,2,8,5,22,120,0,30,0
-Elf Ranger,Elf Rangers,31,3,1,2,3,10,20,22,120,0,24,0
-Gnome Thief,Gnome Thieves,36,3,2,2,3,12,15,22,120,0,15,0
-Troll Cleric,Troll Clerics,40,2,2,2,3,12,45,22,120,0,20,0
-Human Wizard,Human Wizards,43,1,2,2,2,15,50,22,120,0,24,0
-Halfling Knight,Halfling Knights,29,1,2,3,3,9,15,22,120,0,27,0
-Large-Un,Large-Uns,18,1,0,3,1,50,0,10,100,0,20,0
-Large-Un,Large-Uns,18,1,1,2,2,45,0,12,100,0,15,0
-Large-Un,Large-Uns,18,2,1,1,2,40,0,12,145,0,60,0
-Large-Un,Large-Uns,18,3,0,1,1,40,0,15,170,0,75,0
-Vicious Gnome Barbarian,Vicious Gnome Barbarians,25,5,1,3,2,30,5,30,170,0,75,0
-Yellow Orc Knight,Yellow Orc Knights,26,4,2,4,2,45,15,35,180,0,90,0
-Sly Elf Ranger,Sly Elf Rangers,31,5,1,3,3,50,20,25,190,0,110,0
-Vicious Human Barbarian,Vicious Human Barbarians,22,5,1,2,2,35,5,35,170,0,120,0
-Minotaur,Minotaurs,13,1,0,1,1,20,0,50,19,1,26,4
-Minotaur,Minotaurs,13,1,1,2,1,25,0,50,19,1,26,4
-Minotaur,Minotaurs,13,1,2,1,1,25,0,50,44,1,76,4
-Minotaur,Minotaurs,13,1,3,1,2,25,0,50,44,1,76,4
-Hobgoblin,Hobgoblins,21,4,0,2,2,12,0,50,160,0,125,0
-Hobgoblin,Hobgoblins,21,4,1,1,1,12,0,50,160,0,125,0
-Hobgoblin,Hobgoblins,21,4,2,2,1,12,0,50,175,0,150,0
-King Hobgoblin,King Hobgoblins,21,7,0,1,1,12,40,50,144,1,208,7
-Cro-Lizard,Cro-Lizards,20,2,0,2,3,30,20,25,160,0,90,0
-Cro-Lizard,Cro-Lizards,20,2,1,2,2,25,20,25,160,0,90,0
-Cro-Lizard,Cro-Lizards,20,3,0,1,2,20,20,25,175,0,110,0
-Bronze Ogre,Bronze Ogres,19,4,0,2,2,20,0,20,175,0,115,0
-Bronze Ogre,Bronze Ogres,19,4,1,1,3,16,0,20,175,0,115,0
-Bronze Ogre,Bronze Ogres,19,5,0,1,2,12,0,20,190,0,135,0
-Vicious Gnome Barbarian,Vicious Gnome Barbarians,25,4,1,2,1,30,5,18,190,0,120,0
-Ornery Dwarf Thief,Ornery Dwarf Thieves,35,4,1,2,2,40,15,18,145,0,50,0
-Cranky Human Wizard,Cranky Human Wizards,43,4,1,2,2,50,40,18,165,0,90,0
-Hardy Gremlin Cleric,Hardy Gremlin Clerics,42,4,1,1,3,45,30,18,165,0,70,0
-Sly Orc Ranger,Sly Orc Rangers,30,5,0,2,2,35,15,18,170,0,90,0
-Blue Halfling Knight,Blue Halfling Knights,29,4,1,2,2,35,15,18,175,0,85,0
-Black Widow,Black Widows,8,3,0,2,3,20,0,0,145,0,60,0
-Black Widow,Black Widows,8,3,1,2,2,20,0,0,145,0,60,0
-Black Widow,Black Widows,8,4,0,2,1,20,0,0,155,0,70,0
-Black Widow,Black Widows,8,4,1,1,2,20,0,0,165,0,80,0
-Leech,Leeches,7,2,0,2,3,10,0,0,125,0,30,0
-Leech,Leeches,7,2,1,2,2,10,0,0,125,0,30,0
-Leech,Leeches,7,3,0,1,3,10,0,0,135,0,40,0
-Leech,Leeches,7,3,0,2,1,10,0,0,135,0,40,0
-Scorpion,Scorpions,6,1,3,2,2,6,0,0,115,0,85,0
-Scorpion,Scorpions,6,2,2,1,3,6,0,0,120,0,90,0
-Scorpion,Scorpions,6,3,1,2,1,6,0,0,125,0,100,0
-Scorpion,Scorpions,6,4,0,1,2,6,0,0,130,0,115,0
-Dire Wolf,Dire Wolves,1,4,1,2,3,30,0,0,115,0,25,0
-Dire Wolf,Dire Wolves,1,5,0,2,2,25,0,0,120,0,25,0
-Dire Wolf,Dire Wolves,1,5,1,3,1,20,0,0,120,0,30,0
-Dire Wolf,Dire Wolves,1,6,0,2,1,15,0,0,125,0,35,0
-Dire Wolf,Dire Wolves,1,6,0,1,2,15,0,0,120,0,35,0
-Cobra,Cobras,4,3,0,2,2,15,0,0,125,0,35,0
-Cobra,Cobras,4,3,1,2,1,15,0,0,125,0,40,0
-Cobra,Cobras,4,3,1,1,2,15,0,0,125,0,40,0
-Cobra,Cobras,4,4,0,2,1,12,0,0,130,0,50,0
-Cobra,Cobras,4,4,0,1,2,12,0,0,130,0,50,0
-Raptor,Raptors,5,3,0,2,2,25,0,0,140,0,75,0
-Raptor,Raptors,5,3,1,2,2,25,0,0,140,0,75,0
-Raptor,Raptors,5,4,0,2,1,20,0,0,145,0,85,0
-Deinon,Deinons,5,5,0,2,2,20,0,0,170,0,100,0
-Deinon,Deinons,5,5,0,1,3,30,0,0,170,0,100,0
-Deinon,Deinons,5,5,1,1,2,30,0,0,200,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,4,1,4,2,15,0,15,120,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,4,2,3,2,15,0,20,120,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,5,0,3,2,18,0,15,125,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,5,1,2,2,18,0,20,125,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,6,0,2,1,25,0,25,130,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,4,1,3,1,15,0,20,120,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,4,2,2,2,15,0,25,120,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,5,0,2,1,18,0,20,125,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,5,1,1,2,18,0,25,125,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,6,0,1,1,25,0,25,130,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,4,1,2,2,15,0,20,120,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,4,2,2,1,15,0,25,120,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,5,0,1,2,18,0,20,125,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,5,1,1,1,18,0,25,125,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,6,0,1,0,25,0,25,130,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,4,1,3,2,15,0,20,120,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,4,2,2,3,15,0,25,120,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,5,0,2,2,18,0,20,125,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,5,1,1,2,18,0,25,125,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,6,0,1,1,25,0,25,130,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,4,1,2,2,15,0,25,120,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,4,2,2,1,15,0,25,120,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,5,0,1,2,18,0,20,125,0,125,0
-Skeletal Warrior,Skeletal Warriors,9,5,1,1,1,18,0,25,125,0,125,0
-Large-Un,Large-Uns,18,1,1,4,3,30,0,0,170,0,175,0
-Large-Un,Large-Uns,18,1,2,3,3,30,0,0,170,0,175,0
-Large-Un,Large-Uns,18,2,1,3,2,27,0,15,180,0,185,0
-Large-Un,Large-Uns,18,3,0,2,2,25,0,15,190,0,200,0
-Large-Un,Large-Uns,18,1,1,3,3,30,0,0,170,0,175,0
-Large-Un,Large-Uns,18,1,2,2,3,30,0,0,170,0,175,0
-Large-Un,Large-Uns,18,2,1,2,2,27,0,0,180,0,185,0
-Large-Un,Large-Uns,18,3,0,2,2,25,0,0,190,0,200,0
-Lizardite,Lizardites,20,6,0,4,2,30,0,0,175,0,235,0
-Lizardite,Lizardites,20,6,0,3,3,30,0,0,175,0,235,0
-Lizardite,Lizardites,20,6,0,2,4,30,0,0,175,0,235,0
-Lizardite,Lizardites,20,6,0,3,2,30,0,0,175,0,235,0
-Lizardite,Lizardites,20,6,0,2,3,30,0,10,175,0,235,0
-Lizardite,Lizardites,20,6,0,1,4,30,0,10,175,0,235,0
-Lizardite,Lizardites,20,6,0,2,2,30,0,10,175,0,235,0
-Lizardite,Lizardites,20,6,0,1,5,30,0,10,175,0,235,0
-Hobgoblin,Hobgoblins,21,5,0,4,2,60,10,18,160,0,125,0
-Hobgoblin,Hobgoblins,21,5,1,3,2,55,10,18,165,0,130,0
-Hobgoblin,Hobgoblins,21,5,1,2,3,55,10,18,165,0,130,0
-Hobgoblin,Hobgoblins,21,6,0,2,2,50,10,18,175,0,140,0
-Hobgoblin,Hobgoblins,21,5,0,3,3,60,10,18,160,0,125,0
-Hobgoblin,Hobgoblins,21,5,1,2,3,55,10,18,165,0,130,0
-Hobgoblin,Hobgoblins,21,5,1,4,1,55,20,18,165,0,130,0
-Hobgoblin,Hobgoblins,21,6,0,3,1,50,20,18,175,0,140,0
-Hobgoblin,Hobgoblins,21,5,0,5,1,60,20,18,160,0,125,0
-Hobgoblin,Hobgoblins,21,5,1,2,3,55,20,18,165,0,130,0
-Hobgoblin,Hobgoblins,21,5,1,3,1,55,20,18,165,0,130,0
-Hobgoblin,Hobgoblins,21,6,0,1,2,50,20,18,175,0,140,0
-Hobgoblin,Hobgoblins,21,5,0,3,2,60,20,18,160,0,125,0
-Hobgoblin,Hobgoblins,21,5,1,2,3,55,20,18,165,0,130,0
-Hobgoblin,Hobgoblins,21,5,1,3,1,55,20,18,165,0,130,0
-Hobgoblin,Hobgoblins,21,6,0,2,2,50,20,18,175,0,140,0
-Hobgoblin,Hobgoblins,21,5,0,4,2,60,25,18,160,0,125,0
-Hobgoblin,Hobgoblins,21,5,1,3,3,55,25,18,165,0,130,0
-Hobgoblin,Hobgoblins,21,5,1,3,1,55,25,18,165,0,130,0
-Hobgoblin,Hobgoblins,21,6,0,2,2,50,25,18,175,0,140,0
-Hobgoblin,Hobgoblins,21,5,0,3,2,60,25,18,160,0,125,0
-Hobgoblin,Hobgoblins,21,5,1,4,0,55,25,18,165,0,130,0
-Hobgoblin,Hobgoblins,21,5,1,3,1,55,25,18,165,0,130,0
-Hobgoblin,Hobgoblins,21,6,0,3,2,50,25,18,175,0,140,0
-Silver Ogre,Silver Ogres,19,7,0,3,3,50,0,20,150,0,160,0
-Silver Ogre,Silver Ogres,19,7,1,3,2,50,0,20,160,0,170,0
-Silver Ogre,Silver Ogres,19,8,0,2,2,45,0,20,160,0,170,0
-Silver Ogre,Silver Ogres,19,8,1,1,2,45,0,20,170,0,180,0
-Silver Ogre,Silver Ogres,19,9,0,1,1,40,0,20,170,0,175,0
-Spinorpion,Spinorpions,6,5,0,2,3,25,0,0,190,0,200,0
-Spinorpion,Spinorpions,6,5,0,4,1,20,0,0,190,0,200,0
-Spinorpion,Spinorpions,6,5,1,2,2,17,0,0,200,0,225,0
-Spinorpion,Spinorpions,6,5,1,3,1,17,0,0,200,0,225,0
-Spinorpion,Spinorpions,6,6,0,1,2,14,0,0,215,0,250,0
-Pincer Cobra,Pincer Cobras,4,5,0,2,2,10,0,0,24,1,215,0
-Pincer Cobra,Pincer Cobras,4,5,1,3,2,10,0,0,24,1,215,0
-Pincer Cobra,Pincer Cobras,4,5,1,2,1,10,0,0,24,1,215,0
-Pincer Cobra,Pincer Cobras,4,6,0,2,1,10,0,0,24,1,215,0
-Pincer Cobra,Pincer Cobras,4,6,1,1,1,10,0,0,24,1,215,0
-Pincer Cobra,Pincer Cobras,4,6,2,1,1,10,0,0,24,1,215,0
-Minotaur,Minotaurs,13,1,1,3,1,50,0,10,130,0,144,1
-Minotaur,Minotaurs,13,2,0,3,2,45,0,15,145,0,169,1
-Minotaur,Minotaurs,13,2,1,2,2,45,0,20,145,0,169,1
-Minotaur,Minotaurs,13,3,0,2,1,40,0,20,160,0,194,1
-Minotaur,Minotaurs,13,1,1,3,1,50,0,15,130,0,144,1
-Minotaur,Minotaurs,13,2,0,3,2,45,0,15,145,0,169,1
-Minotaur,Minotaurs,13,2,1,2,2,45,0,20,145,0,169,1
-Minotaur,Minotaurs,13,3,0,2,1,40,0,20,160,0,194,1
-Minotaur,Minotaurs,13,1,1,2,1,50,0,15,130,0,144,1
-Minotaur,Minotaurs,13,2,0,3,1,45,0,15,145,0,169,1
-Minotaur,Minotaurs,13,2,1,3,2,45,0,20,145,0,169,1
-Minotaur,Minotaurs,13,3,0,2,2,40,0,20,160,0,194,1
-Minotaur,Minotaurs,13,1,1,2,1,50,0,10,130,0,144,1
-Minotaur,Minotaurs,13,2,0,2,1,45,0,15,145,0,169,1
-Minotaur,Minotaurs,13,2,1,3,1,45,0,20,145,0,169,1
-Minotaur,Minotaurs,13,3,0,3,2,40,0,20,160,0,194,1
-Minotaur,Minotaurs,13,1,1,2,2,50,0,10,130,0,144,1
-Minotaur,Minotaurs,13,2,0,2,1,45,0,15,145,0,169,1
-Minotaur,Minotaurs,13,2,1,2,1,45,0,20,145,0,169,1
-Minotaur,Minotaurs,13,3,0,3,1,40,0,20,160,0,194,1
-Minotaur,Minotaurs,13,1,1,3,2,50,0,15,130,0,144,1
-Minotaur,Minotaurs,13,2,0,2,2,45,0,15,145,0,169,1
-Minotaur,Minotaurs,13,2,1,2,1,45,0,20,145,0,169,1
-Minotaur,Minotaurs,13,3,0,2,2,40,0,20,160,0,194,1
-Black Widow,Black Widows,8,5,0,4,2,30,0,0,150,0,200,0
-Black Widow,Black Widows,8,5,1,3,2,25,0,0,160,0,225,0
-Black Widow,Black Widows,8,6,0,2,3,25,0,0,160,0,225,0
-Black Widow,Black Widows,8,6,1,3,1,20,0,0,170,0,250,0
-Spit Spider,Spit Spiders,8,7,0,2,1,20,0,0,170,0,250,0
-Giant,Giants,18,5,0,3,2,40,0,0,180,0,175,0
-Giant,Giants,18,5,1,3,1,40,0,0,180,0,175,0
-Giant,Giants,18,6,0,2,1,35,0,0,190,0,210,0
-Giant,Giants,18,6,0,2,1,35,0,0,190,0,210,0
-Giant,Giants,18,6,0,1,2,35,0,0,200,0,210,0
-Wyvern,Wyverns,15,1,0,1,1,50,40,50,250,0,88,2
-Wyvern,Wyverns,15,1,0,1,1,50,40,50,250,0,88,2
-Wyvern,Wyverns,15,1,0,1,1,50,40,50,250,0,88,2
-Wyvern,Wyverns,15,1,1,1,1,50,40,50,250,0,118,2
-Wyvern,Wyverns,15,1,1,1,1,50,40,50,250,0,118,2
-Wyvern,Wyverns,15,2,0,1,1,50,40,50,44,1,163,2
-Ghost,Ghosts,10,4,0,5,2,60,90,20,180,0,45,0
-Ghost,Ghosts,10,4,1,4,3,60,60,20,150,0,45,0
-Ghost,Ghosts,10,5,0,4,3,50,60,20,150,0,60,0
-Ghost,Ghosts,10,5,1,3,4,50,60,20,150,0,60,0
-Ghost,Ghosts,10,4,0,5,2,60,60,20,150,0,45,0
-Ghost,Ghosts,10,4,1,4,3,60,60,20,150,0,45,0
-Ghost,Ghosts,10,5,0,4,3,50,60,20,150,0,60,0
-Ghost,Ghosts,10,5,1,3,4,50,60,20,150,0,60,0
-Skeletal Warrior,Skeletal Warriors,9,4,2,4,2,15,0,12,120,0,30,0
-Skeletal Warrior,Skeletal Warriors,9,5,1,3,2,18,0,12,125,0,35,0
-Skeletal Warrior,Skeletal Warriors,9,5,1,2,3,18,0,12,125,0,35,0
-Skeletal Warrior,Skeletal Warriors,9,6,0,1,3,25,0,12,130,0,40,0
-Skeletal Warrior,Skeletal Warriors,9,4,2,2,2,15,0,12,120,0,30,0
-Skeletal Warrior,Skeletal Warriors,9,5,1,3,2,18,0,12,125,0,35,0
-Skeletal Warrior,Skeletal Warriors,9,5,1,2,3,18,0,12,125,0,35,0
-Skeletal Warrior,Skeletal Warriors,9,6,0,2,3,25,0,12,130,0,40,0
-Zombie,Zombies,11,2,0,2,2,30,0,10,130,0,60,0
-Zombie,Zombies,11,2,1,2,3,30,0,10,130,0,60,0
-Zombie,Zombies,11,2,2,1,1,30,0,10,130,0,60,0
-Zombie,Zombies,11,3,1,2,2,20,0,15,140,0,75,0
-Zombie,Zombies,11,2,0,1,2,30,0,10,130,0,60,0
-Zombie,Zombies,11,2,1,1,3,30,0,10,130,0,60,0
-Zombie,Zombies,11,2,2,2,1,30,0,10,130,0,60,0
-Zombie,Zombies,11,3,1,1,2,20,0,15,140,0,75,0
-Black Widow,Black Widows,8,5,0,2,2,50,0,0,140,0,70,0
-Black Widow,Black Widows,8,5,1,2,1,50,0,0,140,0,70,0
-Black Widow,Black Widows,8,6,0,1,2,40,0,0,155,0,90,0
-Black Widow,Black Widows,8,6,0,2,1,40,0,0,155,0,90,0
-Nightmare,Nightmares,12,4,0,2,1,20,0,25,250,0,144,1
-Nightmare,Nightmares,12,4,1,1,2,20,0,25,4,1,169,1
-Nightmare,Nightmares,12,4,1,2,1,20,0,25,4,1,169,1
-Nightmare,Nightmares,12,5,0,1,1,15,0,25,24,1,194,1
-Banshee,Banshees,10,7,0,2,2,20,0,50,175,0,225,0
-Banshee,Banshees,10,7,1,2,1,20,0,50,175,0,225,0
-Banshee,Banshees,10,8,0,3,1,15,0,50,190,0,250,0
-Banshee,Banshees,10,8,1,2,2,15,0,50,190,0,250,0
-King Cleowyn's Ghost,King Cleowyn's Ghost,10,10,0,1,0,0,80,50,208,7,220,5
-King Cleowyn's Ghost,King Cleowyn's Ghost,10,10,0,1,0,0,80,50,208,7,220,5
-King Cleowyn's Ghost,King Cleowyn's Ghost,10,10,0,1,0,0,80,50,208,7,220,5
-King Cleowyn's Ghost,King Cleowyn's Ghost,10,10,0,1,0,0,80,50,208,7,220,5
-Bugbear,Bugbears,12,1,0,2,2,18,0,10,150,0,19,1
-Bugbear,Bugbears,12,1,1,2,1,18,0,10,150,0,19,1
-Bugbear,Bugbears,12,1,2,1,2,18,0,10,175,0,44,1
-Bugbear,Bugbears,12,2,0,1,1,15,0,10,175,0,44,1
-Bugbear,Bugbears,12,2,1,2,0,15,0,10,180,0,69,1
-Bugbear,Bugbears,12,3,0,1,1,12,0,10,180,0,94,1
-Cockatrice,Cockatrices,14,1,1,2,1,50,25,10,180,0,125,0
-Cockatrice,Cockatrices,14,2,0,1,1,40,25,10,180,0,150,0
-Cockatrice,Cockatrices,14,2,1,1,1,40,25,10,180,0,175,0
-Cockatrice,Cockatrices,14,2,2,1,0,35,25,10,190,0,175,0
-Cockatrice,Cockatrices,14,3,0,1,0,30,25,10,200,0,190,0
-Cockatrice,Cockatrices,14,3,0,1,0,30,25,10,210,0,225,0
-Dire Wolf,Dire Wolves,1,4,0,2,2,30,0,0,125,0,90,0
-Dire Wolf,Dire Wolves,1,4,1,1,2,30,0,0,125,0,90,0
-Dire Wolf,Dire Wolves,1,5,0,2,1,16,0,0,125,0,100,0
-Dire Wolf,Dire Wolves,1,5,1,1,1,25,0,0,125,0,100,0
-Dire Wolf,Dire Wolves,1,5,2,1,0,20,0,0,125,0,125,0
-Dire Wolf,Dire Wolves,1,6,0,1,0,15,0,0,125,0,125,0
-Sabertooth Lion,Sabertooth Lions,2,7,0,2,1,40,0,0,125,0,135,0
-Sabertooth Lion,Sabertooth Lions,2,7,0,1,2,40,0,0,125,0,135,0
-Sabertooth Lion,Sabertooth Lions,2,7,1,1,1,35,0,0,150,0,150,0
-Sabertooth Lion,Sabertooth Lions,2,7,1,2,1,35,0,0,150,0,150,0
-Sabertooth Lion,Sabertooth Lions,2,8,0,1,0,30,0,0,150,0,150,0
-Sabertooth Lion,Sabertooth Lions,2,8,0,1,1,30,0,0,150,0,160,0
-Black Widow,Black Widows,8,5,1,2,2,24,0,0,160,0,165,0
-Black Widow,Black Widows,8,6,0,1,2,18,0,0,160,0,165,0
-Lamprey,Lampreys,7,4,0,2,2,20,0,0,150,0,180,0
-Lamprey,Lampreys,7,4,1,1,2,15,0,0,150,0,180,0
-Imp,Imps,16,3,1,3,1,30,25,25,140,0,55,0
-Imp,Imps,16,4,0,2,1,25,25,25,150,0,70,0
-Incubus,Incubi,16,6,1,2,1,20,25,25,210,0,160,0
-Incubus,Incubi,16,7,1,1,1,15,25,25,230,0,185,0
-Silver Ogre,Silver Ogres,19,7,1,1,2,60,0,20,110,0,135,0
-Silver Ogre,Silver Ogres,19,8,0,1,2,50,0,20,115,0,135,0
-Silver Ogre,Silver Ogres,19,8,1,1,1,40,0,20,115,0,135,0
-Silver Ogre,Silver Ogres,19,9,0,1,0,30,0,20,120,0,135,0
-Giant,Giants,18,4,1,2,1,40,0,15,200,0,150,0
-Giant,Giants,18,5,1,1,2,40,0,15,225,0,165,0
-Lizardite,Lizardites,20,5,1,2,2,40,0,15,140,0,100,0
-Lizardite,Lizardites,20,6,0,2,1,40,0,15,150,0,120,0
-Skeletal Ranger,Skeletal Rangers,9,7,0,2,3,35,0,25,185,0,125,0
-Skeletal Ranger,Skeletal Rangers,9,7,0,3,2,35,0,25,185,0,125,0
-Skeletal Ranger,Skeletal Rangers,9,7,0,4,1,35,0,25,185,0,125,0
-Skeletal Ranger,Skeletal Rangers,9,7,0,2,2,35,0,25,185,0,125,0
-Skeletal Ranger,Skeletal Rangers,9,7,1,3,2,45,0,25,195,0,125,0
-Skeletal Ranger,Skeletal Rangers,9,7,1,2,3,45,0,25,195,0,125,0
-Zombie,Zombies,11,1,1,3,2,30,0,10,150,0,115,0
-Zombie,Zombies,11,1,2,2,2,30,0,10,160,0,115,0
-Zombie,Zombies,11,2,1,1,2,20,0,10,185,0,115,0
-Zombie,Zombies,11,2,1,2,1,20,0,10,185,0,115,0
-Zombie,Zombies,11,2,2,1,1,20,0,10,180,0,125,0
-Zombie,Zombies,11,2,2,2,0,20,0,10,180,0,125,0
-Banshee,Banshees,10,7,0,3,2,20,0,30,190,0,225,0
-Banshee,Banshees,10,7,0,2,3,20,0,30,190,0,225,0
-Banshee,Banshees,10,7,1,2,2,15,0,30,190,0,250,0
-Banshee,Banshees,10,7,1,1,2,15,0,30,190,0,250,0
-Banshee,Banshees,10,8,0,2,1,10,0,30,210,0,24,1
-Banshee,Banshees,10,8,1,1,1,10,0,30,210,0,24,1
-Cobra,Cobras,4,3,0,4,2,15,0,0,140,0,100,0
-Cobra,Cobras,4,3,1,3,3,15,0,0,140,0,100,0
-Cobra,Cobras,4,3,1,3,3,15,0,0,140,0,100,0
-Cobra,Cobras,4,4,0,3,2,12,0,0,140,0,100,0
-Cobra,Cobras,4,4,0,2,3,12,0,0,140,0,100,0
-Cobra,Cobras,4,4,0,2,2,12,0,0,140,0,100,0
-Leech,Leeches,7,3,0,3,3,10,0,0,155,0,115,0
-Leech,Leeches,7,3,0,3,2,10,0,0,155,0,115,0
-Black Widow,Black Widows,8,5,1,3,2,24,0,0,155,0,170,0
-Black Widow,Black Widows,8,6,0,2,2,18,0,0,155,0,170,0
-Hobgoblin,Hobgoblins,21,4,1,2,2,60,25,22,170,0,120,0
-Hobgoblin,Hobgoblins,21,5,1,2,1,55,25,22,170,0,130,0
-Silver Ogre,Silver Ogres,19,7,0,3,3,50,0,22,170,0,150,0
-Silver Ogre,Silver Ogres,19,7,2,3,2,40,0,22,170,0,165,0
-Hell Wolf,Hell Wolves,1,7,0,2,3,45,25,25,150,0,240,0
-Hell Wolf,Hell Wolves,1,7,1,3,2,45,25,25,160,0,4,1
-Nightmare,Nightmares,12,4,1,3,2,20,0,25,220,0,169,1
-Nightmare,Nightmares,12,5,1,2,2,15,0,25,230,0,194,1
-Incubus,Incubi,16,7,1,3,2,25,35,50,190,0,185,0
-Incubus,Incubi,16,8,0,2,2,25,35,50,200,0,210,0
-Phantasm,Phantasms,17,1,0,1,1,75,25,50,220,0,119,1
-Phantasm,Phantasms,17,1,1,2,1,75,25,50,250,0,144,1
-Cro-Lizard,Cro-Lizards,20,2,0,3,2,12,20,20,210,0,100,0
-Cro-Lizard,Cro-Lizards,20,2,0,2,3,12,20,20,210,0,100,0
-Cro-Lizard,Cro-Lizards,20,2,1,2,2,12,20,20,210,0,120,0
-Cro-Lizard,Cro-Lizards,20,2,1,3,1,12,20,20,210,0,120,0
-Cro-Lizard,Cro-Lizards,20,3,0,1,2,12,20,20,210,0,140,0
-Cro-Lizard,Cro-Lizards,20,3,0,2,1,12,20,20,210,0,140,0
-Bronze Ogre,Bronze Ogres,19,4,2,2,3,20,0,20,175,0,100,0
-Bronze Ogre,Bronze Ogres,19,5,1,3,2,16,0,20,175,0,115,0
-Bronze Ogre,Bronze Ogres,19,6,0,2,2,12,0,20,175,0,135,0
-Bronze Ogre,Bronze Ogres,19,4,2,1,3,20,0,20,175,0,100,0
-Bronze Ogre,Bronze Ogres,19,5,1,2,3,16,0,20,175,0,115,0
-Bronze Ogre,Bronze Ogres,19,6,0,1,2,12,0,20,175,0,135,0
-Ornery Human Thief,Ornery Human Thieves,34,6,3,3,2,50,18,20,205,0,80,0
-Vicious Elf Barbarian,Vicious Elf Barbarians,24,6,1,3,2,30,5,20,250,0,120,0
-Hardy Elf Cleric,Hardy Elf Clerics,39,6,2,2,3,40,35,20,235,0,90,0
-Cranky Gremlin Wizard,Cranky Gremlin Wizards,46,6,2,2,3,50,40,20,250,0,100,0
-Sly Halfling Ranger,Sly Halfling Rangers,33,6,0,3,2,30,20,20,230,0,80,0
-White Dwarf Knight,White Dwarf Knights,28,6,2,2,3,35,15,20,240,0,95,0
-Ornery Human Thief,Ornery Human Thieves,34,6,3,3,3,50,20,20,205,0,80,0
-Vicious Elf Barbarian,Vicious Elf Barbarians,24,6,1,2,3,30,5,20,250,0,120,0
-Hardy Elf Cleric,Hardy Elf Clerics,39,6,2,3,2,40,40,20,235,0,90,0
-Cranky Gremlin Wizard,Cranky Gremlin Wizards,46,6,2,2,1,50,50,20,250,0,100,0
-Sly Halfling Ranger,Sly Halfling Rangers,33,6,0,2,3,30,20,20,230,0,80,0
-White Dwarf Knight,White Dwarf Knights,28,6,2,2,2,35,10,20,240,0,95,0
-Silver Ogre,Silver Ogres,19,9,0,3,2,30,0,15,130,0,80,0
-Large-Un,Large-Uns,18,3,0,2,2,40,0,15,4,1,75,0
-Pincer Cobra,Pincer Cobras,4,5,1,2,3,35,0,0,175,0,190,0
-Ornery Gnome Thief,Ornery Gnome Thieves,36,8,2,3,3,40,16,12,44,1,130,0
-Hardy Troll Cleric,Hardy Troll Clerics,40,8,3,3,2,45,40,12,84,1,160,0
-Ferocious Orc Barbarian,Ferocious Orc Barbarians,23,9,0,2,3,50,10,12,54,1,200,0
-Sly Elf Ranger,Sly Elf Rangers,31,9,1,3,2,75,20,12,64,1,175,0
-Purple Troll Knight,Purple Troll Knights,27,9,1,3,2,65,15,12,44,1,190,0
-Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,9,0,3,1,90,55,12,69,1,225,0
-Silver Ogre,Silver Ogres,19,9,0,3,3,40,0,12,34,1,120,0
-Skeletal Knight,Skeletal Knight,9,10,0,2,2,50,0,12,19,1,150,0
-Red Orc Knight,Red Orc Knights,26,11,0,3,1,60,10,12,44,1,144,1
-Skeletal Warrior,Skeletal Warriors,9,6,0,4,2,25,0,12,110,0,60,0
-Ferocious Human Barbarian,Ferocious Human Barbarians,22,10,0,3,2,70,5,12,89,1,179,1
-Deinon,Deinons,5,6,0,4,3,25,0,0,190,0,200,0
-Wyvern,Wyvern,15,3,1,2,2,80,50,0,194,1,32,3
-Black Widow,Black Widows,8,5,1,2,2,24,0,0,190,0,165,0
-Black Widow,Black Widows,8,6,0,2,3,18,0,0,190,0,165,0
-Black Widow,Black Widows,8,5,1,2,2,24,0,0,190,0,165,0
-Black Widow,Black Widows,8,6,0,2,1,18,0,0,190,0,165,0
-Black Widow,Black Widows,8,5,1,3,1,24,0,0,190,0,165,0
-Black Widow,Black Widows,8,6,0,1,2,18,0,0,190,0,165,0
-Leech,Leeches,7,2,1,2,2,20,0,0,175,0,155,0
-Leech,Leeches,7,3,0,3,2,15,0,0,175,0,155,0
-Leech,Leeches,7,2,1,2,2,20,0,0,175,0,155,0
-Leech,Leeches,7,3,0,3,2,15,0,0,175,0,155,0
-Leech,Leeches,7,2,1,2,1,20,0,0,175,0,155,0
-Leech,Leeches,7,3,0,2,1,15,0,0,175,0,155,0
-Sabertooth Lion,Sabertooth Lions,2,7,0,3,1,40,0,0,160,0,170,0
-Sabertooth Lion,Sabertooth Lions,2,7,0,2,2,40,0,0,160,0,170,0
-Sabertooth Lion,Sabertooth Lions,2,7,1,2,1,35,0,0,160,0,170,0
-Sabertooth Lion,Sabertooth Lions,2,7,1,1,2,35,0,0,160,0,170,0
-Sabertooth Lion,Sabertooth Lions,2,8,0,1,1,30,0,0,175,0,170,0
-Sabertooth Lion,Sabertooth Lions,2,8,0,2,0,30,0,0,175,0,170,0
-Deinon,Deinons,5,5,1,2,2,25,0,0,170,0,200,0
-Deinon,Deinons,5,6,0,2,2,25,0,0,170,0,200,0
-Deinon,Deinons,5,5,1,1,2,25,0,0,170,0,200,0
-Deinon,Deinons,5,6,0,2,2,25,0,0,170,0,200,0
-Deinon,Deinons,5,5,1,2,1,25,0,0,170,0,200,0
-Deinon,Deinons,5,6,0,1,2,25,0,0,170,0,200,0
-Ice Lion,Ice Lions,2,5,1,2,2,25,0,0,165,0,160,0
-Ice Lion,Ice Lions,2,6,0,1,2,25,0,0,165,0,170,0
-Polar Bear,Polar Bears,3,4,2,3,2,40,0,0,200,0,150,0
-Silver Ogre,Silver Ogres,19,9,0,3,2,30,0,30,225,0,250,0
-Silver Ogre,Silver Ogres,19,9,0,2,3,30,0,30,225,0,250,0
-Lizardite,Lizardites,20,6,0,3,3,40,0,30,190,0,120,0
-Hell Wolf,Hell Wolves,1,7,0,2,2,60,25,25,4,1,240,0
-Hell Wolf,Hell Wolves,1,7,0,2,1,50,30,25,4,1,4,1
-Hell Wolf,Hell Wolves,1,7,1,1,1,45,30,25,4,1,44,1
-Were-Bear,Were-Bears,3,7,0,1,1,60,20,25,94,1,244,1
-Spit Spider,Spit Spiders,8,7,1,2,3,30,0,0,34,1,250,0
-Spinorpion,Spinorpions,6,4,1,2,1,25,0,0,19,1,44,1
-Giant,Giants,18,4,1,2,2,40,0,30,230,0,19,1
-Minotaur,Minotaurs,13,4,0,2,2,40,0,30,200,0,194,1
-Ghoul,Ghouls,11,5,1,2,2,50,0,30,44,1,69,1
-Lich,Liches,10,10,0,1,1,0,100,30,244,1,136,19
-Ornery Dwarf Thief,Ornery Dwarf Thieves,35,7,2,3,3,70,20,25,34,1,110,0
-Vicious Human Barbarian,Vicious Human Barbarians,22,7,1,3,2,50,5,25,250,0,190,0
-Hardy Troll Cleric,Hardy Troll Clerics,40,7,2,3,1,65,35,25,225,0,160,0
-Cranky Gnome Wizard,Cranky Gnome Wizards,45,7,1,2,2,75,45,25,250,0,170,0
-Sly Orc Ranger,Sly Orc Rangers,30,7,2,3,1,55,18,25,210,0,130,0
-Green Halfling Knight,Green Halfling Knights,29,7,0,3,2,60,10,25,220,0,160,0
-Ornery Human Thief,Ornery Human Thieves,34,9,1,2,3,140,18,25,34,1,140,0
-Ferocious Elf Barbarian,Ferocious Elf Barbarians,24,9,0,2,2,100,5,25,24,1,225,0
-Hardy Halfling Cleric,Hardy Halfling Cleric,41,9,1,3,1,130,40,25,250,0,180,0
-Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,9,0,2,1,150,50,25,24,1,200,0
-Sly Troll Ranger,Sly Troll Rangers,32,9,0,3,2,110,15,25,240,0,160,0
-Orange Orc Knight,Orange Orc Knights,26,9,0,2,3,120,10,25,4,1,190,0
-Banshee,Banshees,10,7,0,3,3,40,0,10,225,0,225,0
-Banshee,Banshees,10,7,1,2,3,40,0,10,225,0,225,0
-Banshee,Banshees,10,8,0,2,2,30,0,10,225,0,250,0
-Banshee,Banshees,10,8,1,1,2,30,0,10,225,0,250,0
-Banshee,Banshees,10,9,0,2,0,20,0,10,225,0,24,1
-Banshee,Banshees,10,9,0,1,1,20,0,10,225,0,24,1
-Nightmare,Nightmares,12,4,1,3,2,30,0,25,4,1,169,1
-Nightmare,Nightmares,12,4,2,2,3,30,0,25,4,1,169,1
-Nightmare,Nightmares,12,5,0,1,3,20,0,25,4,1,194,1
-Nightmare,Nightmares,12,5,1,1,2,20,0,25,4,1,194,1
-Nightmare,Nightmares,12,6,0,1,1,15,0,25,4,1,219,1
-Nightmare,Nightmares,12,6,0,2,0,15,0,25,4,1,219,1
-Incubus,Incubi,16,7,1,3,2,40,35,30,200,0,185,0
-Incubus,Incubi,16,8,0,2,2,40,35,30,200,0,210,0
-Phantasm,Phantasms,17,1,1,3,1,75,30,30,19,1,144,1
-Pincer Cobra,Pincer Cobras,4,5,1,3,3,40,0,0,190,0,215,0
-Pincer Cobra,Pincer Cobras,4,6,0,3,2,20,0,0,190,0,240,0
-Deinon,Deinons,5,6,0,5,1,50,0,0,150,0,200,0
-Saurion,Saurions,20,7,0,2,2,80,20,50,19,1,225,0
-Saurion,Saurions,20,7,0,2,1,80,20,50,19,1,225,0
-Saurion,Saurions,20,7,1,1,1,80,20,50,19,1,250,0
-Cantankerous Human Wizard,Cantankerous Human Wizards,43,9,2,2,1,150,50,25,44,1,200,0
-Ferocious Orc Barbarian,Ferocious Orc Barbarians,23,9,2,3,2,100,10,25,44,1,225,0
-Ornery Halfling Thief,Ornery Halfling Thieves,37,10,2,3,3,140,18,25,19,1,190,0
-Hardy Halfling Cleric,Hardy Halfling Cleric,41,10,1,2,1,180,35,25,104,1,240,0
-Blue Troll Knight,Blue Troll Knights,27,10,1,2,2,150,10,25,64,1,220,0
-Sly Elf Ranger,Sly Elf Rangers,31,10,1,2,2,140,15,25,74,1,190,0
-Black Dwarf Knight,Black Dwarf Knights,28,10,1,2,2,150,10,25,69,1,220,0
-Ornery Dwarf Thief,Ornery Dwarf Thieves,35,8,1,4,2,90,15,30,14,1,110,0
-Ornery Human Thief,Ornery Human Thieves,34,8,1,5,2,90,15,30,14,1,110,0
-Ornery Halfling Thief,Ornery Halfling Thieves,37,8,1,4,2,90,15,30,14,1,110,0
-Ornery Gnome Thief,Ornery Gnome Thieves,36,8,1,3,1,90,15,30,14,1,110,0
-Ornery Dwarf Thief,Ornery Dwarf Thieves,35,9,1,3,1,110,18,30,44,1,130,0
-Ornery Human Thief,Ornery Human Thieves,34,9,1,2,2,110,18,30,44,1,130,0
-Ornery Halfling Thief,Ornery Halfling Thieves,37,9,1,3,1,110,18,30,44,1,130,0
-Ornery Gnome Thief,Ornery Gnome Thieves,36,9,1,2,2,110,18,30,44,1,130,0
-Ornery Dwarf Thief,Ornery Dwarf Thieves,35,10,2,1,1,140,10,25,144,1,140,0
-Ornery Human Thief,Ornery Human Thieves,34,10,2,2,0,140,10,25,144,1,140,0
-Ornery Halfling Thief,Ornery Halfling Thieves,37,10,2,2,1,140,10,25,144,1,140,0
-Ornery Gnome Thief,Ornery Gnome Thieves,36,10,2,1,2,140,10,25,144,1,140,0
-Skeletal Ranger,Skeletal Rangers,9,7,2,6,2,15,0,12,220,0,140,0
-Skeletal Ranger,Skeletal Rangers,9,8,0,5,2,18,0,12,225,0,140,0
-Skeletal Ranger,Skeletal Rangers,9,8,0,4,3,18,0,12,225,0,140,0
-Skeletal Ranger,Skeletal Rangers,9,9,0,3,3,25,0,12,230,0,140,0
-Banshee,Banshees,10,8,0,2,4,25,0,0,34,1,160,0
-Banshee,Banshees,10,9,0,3,2,15,0,0,44,1,160,0
-Phantasm,Phantasms,17,2,0,2,2,90,50,0,44,1,160,0
-Phantasm,Phantasms,17,2,1,3,2,75,45,0,44,1,160,0
-Ice Lion,Ice Lions,2,5,0,2,3,25,0,0,240,0,175,0
-Ice Lion,Ice Lions,2,5,1,3,2,25,0,0,245,0,175,0
-Polar Bear,Polar Bears,3,4,2,2,3,60,0,0,19,1,175,0
-Polar Bear,Polar Bears,3,5,1,2,2,40,0,0,34,1,200,0
-Lamprey,Lampreys,7,5,1,1,3,20,0,0,230,0,130,0
-Black Widow,Black Widows,8,5,1,3,2,20,0,0,210,0,120,0
-Spinorpion,Spinorpions,6,5,1,2,3,20,0,0,44,1,225,0
-Ghost,Ghosts,10,5,1,4,2,50,0,20,250,0,60,0
-Ghoul,Ghouls,11,5,1,2,4,50,0,0,150,0,44,1
-Giant,Giants,18,4,1,2,1,100,0,25,240,0,160,0
-Nightmare,Nightmares,12,5,1,1,3,40,0,0,180,0,194,1
-Minotaur,Minotaurs,13,3,1,2,2,45,0,10,160,0,194,1
-Lizardite,Lizardites,20,5,1,3,1,40,0,20,170,0,115,0
-Cockatrice,Cockatrices,14,2,1,2,0,40,35,0,180,0,175,0
-Incubus,Incubi,16,7,1,2,1,40,45,30,190,0,185,0
-Hell Wolf,Hell Wolves,1,7,0,2,1,35,35,0,100,0,84,1
-Dragon,Dragons,15,3,1,1,0,0,45,45,244,1,148,17
-Cantankerous Human Wizard,Cantankerous Human Wizards,43,9,0,1,1,150,30,25,124,1,200,0
-Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,9,0,1,1,150,30,25,124,1,200,0
-Hardy Halfling Cleric,Hardy Halfling Cleric,41,10,0,1,1,180,30,25,210,0,240,0
-Minotaur,Minotaurs,13,1,1,2,3,60,0,15,240,0,144,1
-Minotaur,Minotaurs,13,2,1,2,1,50,0,15,245,0,169,1
-Minotaur,Minotaurs,13,2,1,2,2,50,0,15,245,0,169,1
-Minotaur,Minotaurs,13,3,0,1,2,45,0,15,64,1,194,1
-Minotaur,Minotaurs,13,3,1,1,2,45,0,15,64,1,194,1
-Minotaur,Minotaurs,13,4,0,1,1,40,0,15,54,1,219,1
-Hobgoblin,Hobgoblins,21,4,1,3,2,60,10,25,200,0,125,0
-Hobgoblin,Hobgoblins,21,4,2,3,1,60,10,25,200,0,125,0
-Hobgoblin,Hobgoblins,21,5,0,3,2,55,10,25,210,0,130,0
-Hobgoblin,Hobgoblins,21,5,1,4,1,55,10,25,210,0,130,0
-Hobgoblin,Hobgoblins,21,6,0,3,2,50,15,25,225,0,140,0
-Hobgoblin,Hobgoblins,21,6,0,2,2,50,15,25,225,0,140,0
-Lizardite,Lizardites,20,4,1,3,2,50,0,20,210,0,90,0
-Lizardite,Lizardites,20,4,2,4,1,50,0,20,210,0,90,0
-Lizardite,Lizardites,20,5,0,3,1,40,0,20,240,0,115,0
-Lizardite,Lizardites,20,5,1,2,1,40,0,20,240,0,115,0
-Lizardite,Lizardites,20,6,0,3,2,30,0,20,255,0,135,0
-Lizardite,Lizardites,20,6,0,2,2,30,0,20,255,0,135,0
-Bronze Ogre,Bronze Ogres,19,4,1,3,2,21,0,30,175,0,25,0
-Bronze Ogre,Bronze Ogres,19,4,2,4,2,21,0,30,175,0,25,0
-Bronze Ogre,Bronze Ogres,19,5,0,3,1,16,0,30,190,0,35,0
-Bronze Ogre,Bronze Ogres,19,5,1,2,3,16,0,30,190,0,35,0
-Bronze Ogre,Bronze Ogres,19,6,0,3,1,12,0,30,200,0,50,0
-Bronze Ogre,Bronze Ogres,19,6,0,2,2,12,0,30,200,0,50,0
-Lamprey,Lampreys,7,5,0,2,4,12,0,35,180,0,130,0
-Black Widow,Black Widows,8,6,0,2,2,20,0,35,170,0,120,0
-Sabertooth Lion,Sabertooth Lions,2,8,0,1,3,30,0,0,175,0,144,1
-Hell Wolf,Hell Wolves,1,9,0,3,3,35,30,0,200,0,84,1
-Pincer Cobra,Pincer Cobras,4,5,1,3,3,30,0,50,180,0,215,0
-Pincer Cobra,Pincer Cobras,4,6,0,2,3,20,0,50,4,1,225,0
-Wyvern,Wyverns,15,4,0,1,2,70,35,50,244,1,238,2
-Sly Troll Ranger,Sly Troll Rangers,32,9,0,2,2,110,15,25,84,1,160,0
-Sly Elf Ranger,Sly Elf Rangers,31,8,1,3,4,140,15,25,200,0,130,0
-Ornery Human Thief,Ornery Human Thieves,34,9,0,3,2,150,20,25,220,0,100,0
-Blue Troll Knight,Blue Troll Knights,27,10,0,2,2,150,10,25,34,1,225,0
-Black Dwarf Knight,Black Dwarf Knights,28,10,0,1,3,150,10,25,34,1,225,0
-Hardy Halfling Cleric,Hardy Halfling Cleric,41,10,1,2,1,180,40,25,54,1,240,0
-Ferocious Human Barbarian,Ferocious Human Barbarians,22,11,0,1,1,240,5,25,144,1,69,1
-Ferocious Orc Barbarian,Ferocious Orc Barbarians,23,11,0,1,1,240,5,25,144,1,69,1
-Cantankerous Gremlin Wizard,Cantankerous Gremlin Wizards,46,11,0,1,1,19,60,25,194,1,144,1
-Raptor,Raptors,5,3,0,2,1,20,0,0,20,0,50,0
-Raptor,Raptors,5,3,1,2,1,20,0,0,30,0,60,0
-Raptor,Raptors,5,4,0,1,2,20,0,0,40,0,70,0
-Raptor,Raptors,5,3,0,2,1,20,0,0,20,0,50,0
-Raptor,Raptors,5,3,1,1,1,20,0,0,30,0,60,0
-Raptor,Raptors,5,4,0,1,0,20,0,0,40,0,70,0
-Raptor,Raptors,5,3,0,1,3,20,0,0,20,0,50,0
-Raptor,Raptors,5,3,1,2,2,20,0,0,30,0,60,0
-Raptor,Raptors,5,4,0,2,2,20,0,0,40,0,70,0
-Raptor,Raptors,5,3,0,1,2,20,0,0,20,0,50,0
-Raptor,Raptors,5,3,1,2,1,20,0,0,30,0,60,0
-Raptor,Raptors,5,4,0,1,1,20,0,0,40,0,70,0
-Dire Wolf,Dire Wolves,1,4,0,4,2,24,0,30,15,0,20,0
-Dire Wolf,Dire Wolves,1,4,1,3,2,21,0,30,18,0,25,0
-Dire Wolf,Dire Wolves,1,4,2,3,1,18,0,30,18,0,25,0
-Dire Wolf,Dire Wolves,1,5,0,2,1,15,0,30,21,0,30,0
-Dire Wolf,Dire Wolves,1,5,1,1,3,12,0,30,21,0,30,0
-Dire Wolf,Dire Wolves,1,6,0,2,2,9,0,30,25,0,35,0
-Dire Wolf,Dire Wolves,1,4,1,2,2,24,0,30,15,0,20,0
-Dire Wolf,Dire Wolves,1,4,2,2,1,21,0,30,18,0,25,0
-Dire Wolf,Dire Wolves,1,5,0,1,3,18,0,30,18,0,25,0
-Dire Wolf,Dire Wolves,1,5,1,2,2,15,0,30,21,0,30,0
-Dire Wolf,Dire Wolves,1,5,2,1,2,12,0,30,21,0,30,0
-Dire Wolf,Dire Wolves,1,6,0,1,1,9,0,30,25,0,35,0
-Zombie,Zombies,11,2,1,1,2,30,0,30,30,0,60,0
-Zombie,Zombies,11,2,2,2,1,30,0,30,30,0,60,0
-Skeletal Warrior,Skeletal Warriors,9,4,0,2,1,30,0,30,20,0,30,0
-Skeletal Warrior,Skeletal Warriors,9,4,1,1,1,25,0,30,20,0,30,0
-Skeletal Warrior,Skeletal Warriors,9,4,2,1,1,20,0,30,20,0,30,0
-Large-Un,Large-Uns,18,1,1,2,2,50,0,60,80,0,85,0
-Large-Un,Large-Uns,18,1,2,3,1,40,0,60,80,0,85,0
-Bronze Ogre,Bronze Ogres,19,4,2,3,1,25,0,60,75,0,115,0
-Bronze Ogre,Bronze Ogres,19,4,2,2,2,25,0,60,75,0,115,0
-Bronze Ogre,Bronze Ogres,19,4,2,1,2,25,0,60,75,0,115,0
-Cockatrice,Cockatrices,14,1,1,3,1,60,35,0,60,0,125,0
-Cockatrice,Cockatrices,14,2,0,2,2,50,40,0,75,0,150,0
-Cockatrice,Cockatrices,14,2,1,1,1,40,45,0,80,0,175,0
-Nightmare,Nightmares,12,5,0,1,1,50,0,0,180,0,194,1
-Nightmare,Nightmares,12,5,1,1,1,40,0,0,180,0,194,1
-Nightmare,Nightmares,12,6,0,1,1,30,0,0,200,0,219,1
-Ornery Gnome Thief,Ornery Gnome Thieves,36,7,3,3,3,100,15,30,14,1,110,0
-Ornery Gnome Thief,Ornery Gnome Thieves,36,8,1,3,2,100,18,30,34,1,130,0
-Ornery Gnome Thief,Ornery Gnome Thieves,36,8,2,2,3,100,20,30,34,1,130,0
-Ornery Gnome Thief,Ornery Gnome Thieves,36,8,3,1,2,100,23,30,34,1,150,0
-Ornery Gremlin Thief,Ornery Gremlin Thieves,38,9,0,1,2,110,25,35,34,1,150,0
-Ornery Gremlin Thief,Ornery Gremlin Thieves,38,9,1,2,1,110,25,35,54,1,150,0
-Ornery Gremlin Thief,Ornery Gremlin Thieves,38,9,2,2,0,120,25,35,54,1,150,0
-Ornery Gremlin Thief,Ornery Gremlin Thieves,38,9,3,1,1,130,25,35,94,1,160,0
-Pincer Cobra,Pincer Cobras,4,5,0,3,3,30,0,0,24,1,215,0
-Pincer Cobra,Pincer Cobras,4,5,1,4,2,30,0,0,24,1,215,0
-Pincer Cobra,Pincer Cobras,4,5,1,3,2,20,0,0,44,1,225,0
-Pincer Cobra,Pincer Cobras,4,6,0,2,2,20,0,0,44,1,225,0
-Nightmare,Nightmares,12,5,0,3,2,20,0,25,250,0,194,1
-Nightmare,Nightmares,12,5,1,2,2,20,0,25,250,0,194,1
-Nightmare,Nightmares,12,6,0,1,2,15,0,25,19,1,219,1
-Nightmare,Nightmares,12,6,0,3,2,15,0,25,19,1,219,1
-Minotaur,Minotaurs,13,2,1,2,3,50,0,12,245,0,169,1
-Minotaur,Minotaurs,13,3,0,2,2,45,0,12,250,0,194,1
-Minotaur,Minotaurs,13,3,1,2,3,45,0,12,250,0,194,1
-Minotaur,Minotaurs,13,4,0,1,2,40,0,12,4,1,219,1
-Spit Spider,Spit Spiders,8,8,0,3,2,45,0,0,34,1,225,0
-Spit Spider,Spit Spiders,8,8,1,2,2,40,0,0,34,1,225,0
-Spit Spider,Spit Spiders,8,9,0,1,2,30,0,0,69,1,250,0
-Spit Spider,Spit Spiders,8,9,0,2,1,30,0,0,69,1,250,0
-Phantasm,Phantasms,17,2,1,1,1,75,50,0,69,1,250,0
-Lich,Liches,10,10,1,1,0,0,75,50,188,2,136,19
-Polar Bear,Polar Bears,3,5,1,3,4,40,0,0,200,0,200,0
-Gargoyle,Gargoyles,14,6,1,3,2,40,35,20,4,1,198,2
-Spinorpion,Spinorpions,6,8,0,3,3,15,0,0,14,1,44,1
-Wind Knight,Wind Knights,9,10,0,2,4,40,0,25,24,1,150,0
-Silver Ogre,Silver Ogres,19,8,1,3,3,30,0,30,34,1,180,0
-Gold Ogre,Gold Ogres,19,11,0,2,1,50,0,30,84,1,175,0
-Hell Wolf,Hell Wolves,1,7,0,2,3,35,25,0,44,1,84,1
-Hobgoblin,Hobgoblins,21,6,0,2,3,50,15,30,19,1,140,0
-Shapeshifter,Shapeshifters,12,7,0,3,1,50,0,0,44,1,238,2
-Bronze Ogre,Bronze Ogres,19,6,0,4,2,12,0,30,79,1,150,0
-Mean Dwarf Thief,Mean Dwarf Thieves,35,13,0,3,3,130,18,30,84,1,170,0
-Mean Human Thief,Mean Human Thieves,34,13,1,2,2,130,20,30,84,1,170,0
-Mean Halfling Thief,Mean Halfling Thieves,37,13,1,1,3,130,20,30,84,1,170,0
-Dragon,Dragons,15,5,0,1,0,0,50,40,232,3,172,13
-Tyran,Tyrans,5,7,0,3,5,100,0,0,188,2,107,3
-Tyran,Tyrans,5,7,1,2,4,100,0,0,188,2,107,3
-Tyran,Tyrans,5,7,1,3,3,100,0,0,188,2,107,3
-Tyran,Tyrans,5,8,0,2,3,75,0,0,188,2,107,3
-Saurion,Saurions,20,7,1,3,3,90,25,50,132,3,1,4
-Saurion,Saurions,20,8,0,4,2,80,25,50,132,3,1,4
-Saurion,Saurions,20,8,0,3,3,80,25,50,132,3,1,4
-Saurion,Saurions,20,8,1,3,1,70,25,50,132,3,1,4
-Basilisk,Basilisks,4,7,0,2,3,120,40,30,26,4,20,5
-Basilisk,Basilisks,4,7,0,3,2,120,40,30,26,4,20,5
-Basilisk,Basilisks,4,7,0,2,2,120,40,30,26,4,20,5
-Basilisk,Basilisks,4,7,1,2,1,140,40,30,26,4,20,5
-Basilisk,Basilisks,4,7,1,1,2,140,40,30,26,4,20,5
-Basilisk,Basilisks,4,7,1,2,2,140,40,30,26,4,20,5
-Basilisk,Basilisks,4,8,0,1,3,120,40,30,26,4,20,5
-Basilisk,Basilisks,4,8,0,2,1,120,40,30,26,4,20,5
-Wyvern,Wyverns,15,2,1,2,1,80,60,50,244,1,238,2
-Wyvern,Wyverns,15,3,0,1,2,70,60,50,244,1,238,2
-Wyvern,Wyverns,15,3,0,2,1,70,60,50,244,1,238,2
-Wyvern,Wyverns,15,3,1,1,1,65,60,50,244,1,238,2
-Wyvern,Wyverns,15,3,1,2,0,65,60,50,244,1,238,2
-Wyvern,Wyverns,15,4,0,1,1,50,60,50,244,1,238,2
-Wyvern,Wyverns,15,4,0,1,0,50,60,50,244,1,238,2
-Wyvern,Wyverns,15,4,0,2,0,50,60,50,244,1,238,2
-Imp,Imps,16,3,1,6,2,10,40,0,124,1,94,1
-Imp,Imps,16,4,0,5,2,10,40,0,124,1,94,1
-Incubus,Incubi,16,7,1,3,3,25,50,0,244,1,244,1
-Incubus,Incubi,16,8,0,3,1,25,50,0,244,1,244,1
-Phantasm,Phantasms,17,2,1,2,3,75,60,0,88,2,138,2
-Phantasm,Phantasms,17,3,1,3,2,75,60,0,88,2,138,2
-Dragon,Dragons,15,6,0,1,2,0,50,35,172,13,142,18
-Dragon,Dragons,15,6,0,2,1,0,50,35,172,13,142,18
-Dragon,Dragons,15,6,0,3,0,0,50,35,172,13,142,18
-Manticore,Manticores,2,9,0,1,3,0,50,35,20,5,8,7
-Dragon,Dragons,15,7,1,1,1,0,50,35,172,13,136,19
-Were-Bear,Were-Bears,3,8,0,3,2,80,35,25,232,3,226,4
-Were-Minotaur,Were-Minotaurs,13,5,1,3,4,0,0,30,132,3,26,4
-Manticore,Manticores,2,9,0,4,2,75,40,40,226,4,126,4
-Guardian of Arnakkian,Guardian of Arnakkian,17,4,0,1,0,0,90,60,208,7,212,48
-Earth Elemental,Earth Elemental,17,8,0,1,0,0,85,60,196,9,168,97
-Sly Orc Ranger,Sly Orc Rangers,30,10,1,3,2,140,15,30,114,1,190,0
-Sly Orc Ranger,Sly Orc Rangers,30,10,2,2,3,140,15,30,94,1,210,0
-Sly Orc Ranger,Sly Orc Rangers,30,11,0,3,2,120,15,30,164,1,230,0
-Wily Orc Ranger,Wily Orc Rangers,30,12,0,2,2,100,15,30,164,1,230,0
-Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,11,1,2,2,19,45,30,69,1,119,1
-Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,12,0,1,2,240,45,25,94,1,144,1
-Cantankerous Gnome Wizard,Cantankerous Gnome Wizards,45,11,1,2,2,19,45,25,69,1,119,1
-Cantankerous Gnome Wizard,Cantankerous Gnome Wizards,45,12,0,2,1,240,45,25,94,1,144,1
-Incubus,Incubi,16,6,2,4,1,60,25,30,34,1,185,0
-Incubus,Incubi,16,7,0,3,2,40,25,30,44,1,210,0
-Incubus,Incubi,16,7,1,2,1,40,25,30,44,1,210,0
-Incubus,Incubi,16,8,0,1,2,30,25,30,164,1,240,0
-Wyvern,Wyverns,15,3,0,2,1,65,35,30,214,1,118,2
-Wyvern,Wyverns,15,3,1,1,1,65,35,30,224,1,118,2
-Wyvern,Wyverns,15,4,0,1,1,50,35,30,194,1,163,2
-Basilisk,Basilisks,4,8,0,3,2,120,25,20,244,1,32,3
-Basilisk,Basilisks,4,7,1,2,3,140,25,20,209,1,7,3
-Basilisk,Basilisks,4,7,0,1,3,120,25,20,184,1,238,2
-Manticore,Manticores,2,9,0,3,1,75,30,30,194,1,44,1
-Manticore,Manticores,2,9,0,2,2,75,30,30,204,1,44,1
-Manticore,Manticores,2,9,0,1,2,75,30,30,219,1,44,1
-Gargoyle,Gargoyles,14,5,0,3,1,60,25,40,244,1,138,2
-Gargoyle,Gargoyles,14,5,1,2,2,60,25,40,174,1,168,2
-Gargoyle,Gargoyles,14,6,0,1,2,50,25,40,174,1,168,2
-Saurion,Saurions,20,7,1,3,2,120,10,20,209,1,250,0
-Dragon,Dragons,15,5,2,1,1,0,40,35,188,2,148,17
-Dragon,Dragons,15,6,1,1,1,0,45,35,188,2,142,18
-Dragon,Dragons,15,7,0,1,0,0,50,35,188,2,136,19
-Spinorpion,Spinorpions,6,8,0,2,6,15,0,0,154,1,44,1
-Basilisk,Basilisks,4,7,1,3,2,140,30,30,8,2,7,3
-Hobgoblin,Hobgoblins,21,6,0,6,2,50,15,30,119,1,140,0
-Crafty Dwarf Wizard,Crafty Dwarf Wizards,44,13,0,2,1,240,40,32,38,2,144,1
-Mean Dwarf Thief,Mean Dwarf Thieves,35,13,0,3,1,130,18,35,134,1,170,0
-Black Dwarf Knight,Black Dwarf Knights,28,12,0,4,1,150,15,25,184,1,220,0
-Spit Spider,Spit Spiders,8,9,0,3,6,50,0,0,144,1,250,0
-Were-Bear,Were-Bears,3,8,0,3,2,80,15,25,32,3,38,2
-Cyclops,Cyclops,18,7,0,2,1,0,10,25,32,3,132,3
-Giant,Giants,18,5,1,1,2,100,0,25,188,2,200,0
-Manticore,Manticores,2,9,0,3,3,75,25,40,32,3,44,1
-Nightmare,Nightmares,12,6,0,4,2,15,0,25,188,2,219,1
-Cantankerous Human Wizard,Cantankerous Human Wizards,43,10,0,3,1,19,60,25,132,3,207,3
-Cantankerous Human Wizard,Cantankerous Human Wizards,43,10,1,2,1,19,60,25,132,3,207,3
-Cantankerous Human Wizard,Cantankerous Human Wizards,43,11,0,1,2,240,60,25,132,3,207,3
-Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,12,0,1,1,19,60,25,182,3,1,4
-Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,11,1,1,2,19,60,25,182,3,1,4
-Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,12,0,2,0,240,60,25,182,3,1,4
-Cantankerous Gnome Wizard,Cantankerous Gnome Wizards,45,11,0,2,1,19,60,25,107,3,182,3
-Cantankerous Gnome Wizard,Cantankerous Gnome Wizards,45,11,1,1,2,19,60,25,107,3,182,3
-Cantankerous Gnome Wizard,Cantankerous Gnome Wizards,45,12,0,1,1,240,60,25,107,3,182,3
-Spinorpion,Spinorpions,6,6,2,4,3,25,0,0,244,1,250,0
-Spinorpion,Spinorpions,6,7,0,3,3,20,0,0,244,1,19,1
-Spinorpion,Spinorpions,6,7,1,4,2,20,0,0,244,1,19,1
-Spinorpion,Spinorpions,6,8,0,2,3,15,0,0,244,1,44,1
-Hobgoblin,Hobgoblins,21,5,0,4,3,55,25,30,88,2,144,1
-Hobgoblin,Hobgoblins,21,5,1,2,4,55,25,30,88,2,144,1
-Hobgoblin,Hobgoblins,21,6,0,3,2,50,25,30,88,2,144,1
-King Goblin,King Goblins,21,7,1,2,1,120,60,30,176,4,152,8
-King Goblin,King Goblins,21,8,0,1,1,100,60,30,176,4,96,9
-Manticore,Manticores,2,9,0,3,2,75,40,40,176,4,20,5
-Manticore,Manticores,2,9,0,2,3,75,40,40,176,4,20,5
-Manticore,Manticores,2,9,0,2,2,75,40,40,176,4,20,5
-Manticore,Manticores,2,9,0,1,3,75,40,40,176,4,20,5
-Manticore,Manticores,2,9,0,3,1,75,40,40,176,4,20,5
-Manticore,Manticores,2,9,0,2,1,75,40,40,176,4,20,5
-Basilisk,Basilisks,4,8,0,2,3,120,50,30,226,4,32,3
-Gold Ogre,Gold Ogres,19,11,0,5,2,50,0,35,32,3,238,2
-Dragon,Dragons,15,7,0,1,1,0,60,35,160,15,136,19
-Wyvern,Wyverns,15,4,0,2,1,50,45,35,138,2,226,4
-Nightmare,Nightmares,12,6,0,3,4,15,0,25,144,1,219,1
-Shapeshifter,Shapeshifters,12,7,1,2,4,50,0,0,32,3,226,4
-Banshee,Banshees,10,8,1,3,4,20,0,30,194,1,134,1
-Ghoul,Ghouls,11,6,0,3,4,0,0,0,138,2,188,2
-Crafty Human Wizard,Crafty Human Wizards,43,11,0,3,1,240,65,25,26,4,76,4
-Crafty Dwarf Wizard,Crafty Dwarf Wizards,44,11,0,3,1,240,65,25,26,4,76,4
-Crafty Gnome Wizard,Crafty Gnome Wizards,45,11,0,2,2,240,65,25,26,4,76,4
-Black Dwarf Knight,Black Dwarf Knights,28,11,1,3,3,150,25,25,182,3,182,3
-Venerable Halfling Cleric,Venerable Halfling Clerics,41,11,1,2,2,200,55,35,232,3,26,4
-Lich,Liches,10,10,0,2,1,0,90,50,96,9,136,19
-Lich,Liches,10,10,1,2,1,0,90,50,96,9,136,19
-Arnakkian,Arnakkian,10,13,0,1,0,0,95,50,136,19,16,39
-Orange Orc Knight,Orange Orc Knights,26,10,0,3,3,150,15,35,134,1,225,0
-Orange Orc Knight,Orange Orc Knights,26,10,1,4,2,150,15,35,234,1,225,0
-Orange Orc Knight,Orange Orc Knights,26,11,0,3,1,130,15,35,164,1,250,0
-Red Orc Knight,Red Orc Knights,26,12,0,2,3,110,10,35,214,1,44,1
-Banshee,Banshees,10,7,1,3,3,25,0,30,134,1,250,0
-Banshee,Banshees,10,8,0,2,4,20,0,30,154,1,24,1
-Banshee,Banshees,10,8,1,3,4,20,0,30,154,1,24,1
-Banshee,Banshees,10,9,0,3,3,10,0,30,174,1,54,1
-Skeletal Ranger,Skeletal Rangers,9,7,1,4,4,70,0,20,99,1,160,0
-Skeletal Ranger,Skeletal Rangers,9,8,0,5,3,60,0,20,109,1,180,0
-Skeletal Ranger,Skeletal Rangers,9,8,1,4,2,60,0,20,109,1,180,0
-Skeletal Ranger,Skeletal Rangers,9,9,0,3,3,50,0,20,119,1,100,0
-Skeletal Knight,Skeletal Knights,9,10,0,3,3,40,0,25,224,1,150,0
-Skeletal Knight,Skeletal Knights,9,10,1,2,3,40,0,25,234,1,150,0
-Skeletal Knight,Skeletal Knights,9,11,0,3,2,30,0,25,254,1,180,0
-Ghoul,Ghouls,11,5,0,4,3,0,0,0,184,1,44,1
-Ghoul,Ghouls,11,5,1,2,3,0,0,0,184,1,44,1
-Ghoul,Ghouls,11,6,0,3,4,0,0,0,209,1,69,1
-Shapeshifter,Shapeshifters,12,7,0,2,3,50,0,0,88,2,226,4
-Shapeshifter,Shapeshifters,12,7,1,3,3,50,0,0,88,2,226,4
-Shapeshifter,Shapeshifters,12,8,0,4,1,40,0,0,118,2,20,5
-Minotaur,Minotaurs,13,3,1,3,4,75,0,35,194,1,244,1
-Minotaur,Minotaurs,13,4,0,4,2,65,0,35,194,1,13,2
-Were-Minotaur,Were-Minotaurs,13,5,0,3,4,0,0,35,13,2,26,4
-Gargoyle,Gargoyles,14,7,1,4,3,75,35,40,244,1,188,2
-Giant,Giants,18,5,1,3,3,100,0,25,164,1,50,0
-Cyclops,Cyclops,18,7,1,3,2,0,15,25,88,2,132,3
-Blue Troll Knight,Blue Troll Knights,27,12,1,2,3,130,15,35,194,1,44,1
-Wily Troll Ranger,Wily Troll Rangers,32,12,1,2,2,100,20,35,194,1,230,0
-Venerable Troll Cleric,Venerable Troll Clerics,40,12,1,3,1,200,40,35,254,1,44,1
-Pincer Cobra,Pincer Cobras,4,6,0,5,2,20,0,0,44,1,225,0
-Tyran,Tyrans,5,7,1,4,3,150,0,0,119,1,69,1
-Hell Wolf,Hell Wolves,1,9,0,4,1,30,35,25,134,1,94,1
-Cantankerous Gremlin Wizard,Cantankerous Gremlin Wizards,46,12,1,2,1,240,60,25,108,2,144,1
-Crafty Gremlin Wizard,Crafty Gremlin Wizards,46,13,1,1,2,200,50,25,38,2,88,2
-Nightmare,Nightmares,12,6,0,3,4,15,0,25,144,1,219,1
-Tempest Wind,Tempest Wind,17,6,0,1,0,0,75,0,76,29,136,19
-Manticore,Manticores,2,9,0,3,3,75,30,40,144,1,44,1
-Spinorpion,Spinorpions,6,8,0,4,3,15,0,0,104,1,44,1
-Basilisk,Basilisks,4,8,0,4,4,120,30,30,144,1,32,3
-Ghost,Ghosts,10,4,2,3,5,20,30,0,44,1,19,1
-Ghost,Ghosts,10,5,0,4,4,16,30,0,44,1,19,1
-Ghost,Ghosts,10,5,1,2,4,16,30,0,44,1,19,1
-Ghost,Ghosts,10,6,0,3,3,12,30,0,44,1,19,1
-Banshee,Banshees,10,7,1,4,3,25,0,60,194,1,88,2
-Banshee,Banshees,10,8,0,3,3,20,0,60,194,1,88,2
-Banshee,Banshees,10,8,1,2,4,20,0,60,194,1,88,2
-Banshee,Banshees,10,9,0,3,3,10,0,60,194,1,88,2
-Banshee,Banshees,10,9,0,2,4,10,0,60,194,1,88,2
-Ghoul,Ghouls,11,5,1,3,4,0,0,0,244,1,26,4
-Ghoul,Ghouls,11,6,0,3,5,0,0,0,244,1,26,4
-Ghoul,Ghouls,11,6,1,4,3,0,0,0,244,1,26,4
-Ghoul,Ghouls,11,6,2,4,4,0,0,0,244,1,26,4
-Ghoul,Ghouls,11,7,0,3,3,0,0,0,244,1,26,4
-Shapeshifter,Shapeshifters,12,7,0,3,3,50,0,20,238,2,20,5
-Shapeshifter,Shapeshifters,12,7,1,2,4,50,0,20,238,2,20,5
-Shapeshifter,Shapeshifters,12,8,0,1,4,40,0,20,238,2,20,5
-Shapeshifter,Shapeshifters,12,8,1,2,3,40,0,20,238,2,20,5
-Shapeshifter,Shapeshifters,12,9,0,2,2,30,0,20,238,2,70,5
-Minotaur,Minotaurs,13,4,0,2,3,65,0,60,44,1,13,2
-Minotaur,Minotaurs,13,4,0,3,3,65,0,60,44,1,13,2
-Were-Minotaur,Were-Minotaurs,13,5,0,2,3,0,0,60,88,2,26,4
-Were-Minotaur,Were-Minotaurs,13,5,1,3,2,0,0,60,88,2,26,4
-Were-Minotaur,Were-Minotaurs,13,6,0,2,2,0,0,60,88,2,76,4
-Skeletal Knight,Skeletal Knight,9,10,2,3,4,50,0,0,188,2,32,3
-Lamprey,Lampreys,7,5,1,3,4,40,0,0,150,0,144,1
-Death Leech,Death Leeches,7,8,1,3,3,25,35,0,238,2,132,3
-Chess King,Chess King,17,4,0,1,0,75,50,0,232,3,184,11
-Chess Queen,Chess Queen,16,4,0,1,0,25,35,100,132,3,184,11
-Chess Bishop,Chess Bishops,42,13,0,2,0,200,40,75,32,3,232,3
-Chess Knight,Chess Knights,27,13,0,2,0,150,15,50,238,2,32,3
-Chess Rook,Chess Rooks,18,8,0,2,0,100,0,50,244,1,138,2
-Chess Pawn,Chess Pawns,23,13,0,8,0,200,5,50,44,1,194,1
-Pincer Cobra,Pincer Cobras,4,6,0,3,3,20,0,0,244,1,194,1
-Wyvern,Wyverns,15,4,0,3,2,50,50,75,138,2,120,5
-Dragon,Dragons,15,7,1,2,1,0,60,75,64,6,136,19
-Dragon,Dragons,15,8,0,2,2,0,60,75,64,6,124,21
-Cyclops,Cyclops,18,7,2,3,2,0,15,50,32,3,120,5
-Cyclops,Cyclops,18,7,2,2,2,0,15,50,32,3,120,5
-Cyclops,Cyclops,18,7,2,1,2,0,15,50,32,3,120,5
-Sly Troll Ranger,Sly Troll Rangers,32,10,2,4,2,140,15,25,113,2,186,4
-Sly Troll Ranger,Sly Troll Rangers,32,11,1,3,3,120,15,25,113,2,206,4
-Wily Troll Ranger,Wily Troll Rangers,32,12,0,2,4,100,18,25,188,2,226,4
-Wily Troll Ranger,Wily Troll Rangers,32,12,0,2,3,100,18,25,188,2,226,4
-Sly Halfling Ranger,Sly Halfling Rangers,33,10,1,3,3,140,15,35,113,2,186,4
-Sly Halfling Ranger,Sly Halfling Rangers,33,11,0,2,4,120,15,35,113,2,206,4
-Wily Halfling Ranger,Wily Halfling Rangers,33,12,0,2,3,100,18,35,188,2,226,4
-Wily Halfling Ranger,Wily Halfling Rangers,33,12,1,1,4,100,18,35,188,2,226,4
-Lich,Liches,10,10,0,2,1,0,60,50,20,5,136,19
-Lich,Liches,10,10,1,1,2,0,60,50,20,5,136,19
-Lich,Liches,10,11,0,2,0,0,60,50,20,5,112,23
-Gargoyle,Gargoyles,14,6,0,3,2,50,25,40,32,3,220,5
-Gargoyle,Gargoyles,14,6,1,3,3,40,25,40,32,3,220,5
-Gargoyle,Gargoyles,14,6,2,2,4,40,25,40,32,3,220,5
-Phantasm,Phantasms,17,2,1,3,2,90,20,30,88,2,238,2
-Phantasm,Phantasms,17,3,0,4,1,80,20,30,88,2,238,2
-Phantasm,Phantasms,17,3,1,3,1,70,20,30,88,2,238,2
-Were-Minotaur,Were-Minotaurs,13,5,0,3,4,0,0,30,88,2,26,4
-Were-Minotaur,Were-Minotaurs,13,5,1,3,3,0,0,30,88,2,26,4
-Were-Minotaur,Were-Minotaurs,13,6,1,3,2,0,0,30,88,2,76,4
-Hell Wolf,Hell Wolves,1,7,1,3,2,50,30,40,188,2,32,3
-Hell Wolf,Hell Wolves,1,8,0,2,4,45,30,40,188,2,32,3
-Hell Wolf,Hell Wolves,1,8,1,4,2,45,30,40,188,2,32,3
-Hell Wolf,Hell Wolves,1,9,0,5,1,30,30,40,188,2,32,3
-Tyran,Tyrans,5,7,1,4,3,150,0,0,244,1,238,2
-Tyran,Tyrans,5,8,0,2,5,180,0,0,244,1,238,2
-Blue Troll Knight,Blue Troll Knights,27,12,2,3,3,130,18,35,88,2,20,5
-Blue Troll Knight,Blue Troll Knights,27,13,1,4,2,130,18,35,138,2,20,5
-Shapeshifter,Shapeshifters,12,8,1,4,3,75,0,0,238,2,176,4
-Black Dwarf Knight,Black Dwarf Knights,28,12,2,3,2,130,18,35,88,2,20,5
-Black Dwarf Knight,Black Dwarf Knights,28,13,1,2,3,130,18,35,138,2,20,5
-Ghoul,Ghouls,11,7,1,5,2,0,0,0,163,2,138,2
-Ghoul,Ghouls,11,8,0,4,3,0,0,0,163,2,138,2
-Were-Bear,Were-Bears,3,8,1,4,1,60,20,25,32,3,182,3
-Were-Bear,Were-Bears,3,9,0,2,2,80,20,25,32,3,182,3
-Dragon,Dragons,15,7,1,2,0,0,40,35,40,10,136,19
-Dragon,Dragons,15,8,0,2,0,0,40,35,184,11,136,19
-Phoenix,Phoenix,14,9,0,1,0,0,75,50,16,39,40,35
-Phoenix,Phoenix,14,9,0,1,0,0,75,50,16,39,40,35
-Phoenix,Phoenix,14,9,0,1,0,0,75,50,16,39,40,35
-Hardy Elf Cleric,Hardy Elf Clerics,39,10,0,3,3,180,60,60,82,3,7,3
-Hardy Elf Cleric,Hardy Elf Clerics,39,10,1,2,3,180,60,60,82,3,7,3
-Hardy Elf Cleric,Hardy Elf Clerics,39,11,0,2,2,160,60,60,82,3,7,3
-Hardy Gremlin Cleric,Hardy Gremlin Cleric,42,10,1,2,4,180,60,75,82,3,7,3
-Hardy Gremlin Cleric,Hardy Gremlin Cleric,42,11,0,3,2,160,60,75,82,3,7,3
-Venerable Gremlin Cleric,Venerable Gremlin Clerics,42,12,0,1,3,200,70,75,26,4,132,3
-Bronze Ogre,Bronze Ogres,19,5,1,5,5,30,0,50,125,0,90,0
-Bronze Ogre,Bronze Ogres,19,6,0,4,4,20,0,50,125,0,90,0
-Bronze Ogre,Bronze Ogres,19,6,0,5,3,20,0,50,125,0,90,0
-Silver Ogre,Silver Ogres,19,7,2,4,4,40,0,60,250,0,180,0
-Silver Ogre,Silver Ogres,19,8,1,5,3,30,0,60,250,0,180,0
-Silver Ogre,Silver Ogres,19,9,0,3,4,20,0,60,250,0,180,0
-Phantasm,Phantasms,17,3,0,3,2,80,50,50,138,2,238,2
-Phantasm,Phantasms,17,3,1,2,3,70,50,50,138,2,238,2
-Phantasm,Phantasms,17,4,0,2,2,60,50,50,138,2,238,2
-Dragon,Dragons,15,5,0,2,1,0,60,90,184,11,148,17
-Dragon,Dragons,15,5,1,1,1,0,60,90,184,11,148,17
-Dragon,Dragons,15,6,0,1,0,0,60,90,184,11,142,18
-Were-Bear,Were-Bears,3,8,0,3,3,80,35,50,132,3,220,5
-Were-Bear,Were-Bears,3,8,1,4,2,60,35,50,132,3,220,5
-Were-Bear,Were-Bears,3,9,0,2,3,40,35,50,132,3,220,5
-Hell Wolf,Hell Wolves,1,8,0,3,4,45,45,20,232,3,20,5
-Hell Wolf,Hell Wolves,1,8,1,4,3,45,45,20,232,3,20,5
-Hell Wolf,Hell Wolves,1,9,0,3,3,30,45,20,232,3,20,5
-Deinon,Deinons,5,5,1,7,4,20,0,0,44,1,44,1
-Tyran,Tyrans,5,7,1,3,3,30,0,0,188,2,88,2
-Lizardite,Lizardites,20,5,1,3,4,40,0,60,250,0,150,0
-Saurion,Saurions,20,7,2,2,3,70,30,60,244,1,225,0
-Pincer Cobra,Pincer Cobras,4,5,1,5,2,20,0,0,94,1,240,0
-Dragon,Dragons,15,7,0,1,1,0,65,75,184,11,142,18
-Gold Ogre,Gold Ogres,19,10,0,2,3,60,0,75,32,3,32,3
-Gold Ogre,Gold Ogres,19,11,0,2,2,50,0,75,32,3,32,3
-Hardy Elf Cleric,Hardy Elf Clerics,39,10,1,3,3,180,60,75,32,3,132,3
-Venerable Elf Cleric,Venerable Elf Clerics,39,12,1,2,3,200,65,75,26,4,76,4
-Hardy Troll Cleric,Hardy Troll Clerics,40,10,1,3,3,180,60,75,32,3,132,3
-Venerable Troll Cleric,Venerable Troll Clerics,40,12,1,2,4,200,65,75,26,4,76,4
-Hardy Halfling Cleric,Hardy Halfling Clerics,41,10,1,3,3,180,60,75,32,3,132,3
-Venerable Halfling Cleric,Venerable Halfling Clerics,41,12,1,2,4,200,65,75,26,4,76,4
-Hardy Gremlin Cleric,Hardy Gremlin Cleric,42,11,0,3,3,160,60,75,32,3,132,3
-Venerable Gremlin Cleric,Venerable Gremlin Clerics,42,12,1,2,4,200,65,75,26,4,76,4
-Hobgoblin,Hobgoblins,21,5,0,5,5,55,35,35,138,2,88,2
-Hobgoblin,Hobgoblins,21,5,1,7,3,50,35,35,138,2,88,2
-Hobgoblin,Hobgoblins,21,5,1,6,4,50,35,35,138,2,88,2
-Hobgoblin,Hobgoblins,21,6,0,6,2,4,35,35,138,2,88,2
-Hobgoblin,Hobgoblins,21,6,0,4,4,5,35,35,138,2,88,2
-King Goblin,King Goblins,21,7,0,2,2,120,70,55,64,6,152,8
-King Goblin,King Goblins,21,7,1,3,1,120,70,55,64,6,152,8
-King Goblin,King Goblins,21,8,0,2,2,100,70,55,64,6,96,9
-Ice Lion,Ice Lions,2,5,0,4,3,40,0,0,94,1,244,1
-Ice Lion,Ice Lions,2,5,1,3,3,53,0,0,94,1,244,1
-Ice Lion,Ice Lions,2,5,1,2,4,35,0,0,94,1,244,1
-Ice Lion,Ice Lions,2,6,0,3,2,25,0,0,94,1,244,1
-Ice Lion,Ice Lions,2,6,0,2,3,25,0,0,94,1,244,1
-Polar Bear,Polar Bears,3,5,0,3,3,50,0,0,144,1,188,2
-Polar Bear,Polar Bears,3,5,1,4,2,45,0,0,144,1,188,2
-Polar Bear,Polar Bears,3,5,1,2,4,45,0,0,144,1,188,2
-Polar Bear,Polar Bears,3,6,0,2,2,40,0,0,144,1,188,2
-Polar Bear,Polar Bears,3,6,0,3,3,40,0,0,144,1,188,2
-Shapeshifter,Shapeshifters,12,7,0,4,3,50,0,0,82,3,226,4
-Shapeshifter,Shapeshifters,12,7,1,3,4,50,0,0,82,3,226,4
-Shapeshifter,Shapeshifters,12,8,0,3,3,40,0,0,82,3,20,5
-Shapeshifter,Shapeshifters,12,8,1,2,4,40,0,0,82,3,20,5
-Shapeshifter,Shapeshifters,12,9,0,2,2,30,0,0,82,3,70,5
-Shapeshifter,Shapeshifters,12,9,0,3,1,30,0,0,82,3,70,5
-Dragon,Dragons,15,7,1,1,1,0,65,50,172,13,76,29
-Were-Minotaur,Were-Minotaurs,13,5,1,3,4,0,0,35,13,2,26,4
-Nightmare,Nightmares,12,5,1,3,4,40,0,35,194,1,194,1
-Sabertooth Lion,Sabertooth Lions,2,8,0,4,5,30,0,0,250,0,120,0
-Pincer Cobra,Pincer Cobras,4,6,0,4,4,30,0,0,19,1,225,0
-Spinorpion,Spinorpions,6,8,0,3,4,25,0,0,69,1,44,1
-Death Leech,Death Leeches,7,8,1,4,4,35,35,0,232,3,176,4
-Gray Dwarf Knight,Gray Dwarf Knights,28,11,0,4,3,60,20,35,238,2,20,5
-Black Dwarf Knight,Black Dwarf Knights,28,12,1,3,3,55,20,35,132,3,70,5
-Black Dwarf Knight,Black Dwarf Knights,28,13,1,2,2,50,20,35,132,3,70,5
-Ornery Dwarf Thief,Ornery Dwarf Thieves,35,10,2,3,3,70,35,35,88,2,32,3
-Mean Dwarf Thief,Mean Dwarf Thieves,35,13,0,1,3,60,35,35,32,3,176,4
-Mean Dwarf Thief,Mean Dwarf Thieves,35,13,1,2,1,50,35,35,32,3,176,4
-Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,11,1,3,2,75,70,32,213,2,95,5
-Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,12,1,3,1,65,70,32,213,2,95,5
-Crafty Dwarf Wizard,Crafty Dwarf Wizards,44,13,1,2,2,55,65,32,182,3,145,5
-Hobgoblin,Hobgoblins,21,5,0,7,3,55,30,60,88,2,88,2
-Hobgoblin,Hobgoblins,21,5,1,5,5,50,30,60,88,2,88,2
-Hobgoblin,Hobgoblins,21,5,1,4,6,50,30,60,88,2,88,2
-Hobgoblin,Hobgoblins,21,6,0,3,7,40,30,60,88,2,88,2
-King Goblin,King Goblins,21,7,1,2,3,120,50,60,76,4,152,8
-King Goblin,King Goblins,21,8,0,3,2,100,50,60,76,4,96,9
-Death Leech,Death Leeches,7,7,0,4,3,30,40,0,232,3,232,3
-Death Leech,Death Leeches,7,7,1,3,3,30,40,0,232,3,232,3
-Death Leech,Death Leeches,7,8,0,2,3,25,40,0,232,3,232,3
-Death Leech,Death Leeches,7,8,1,2,2,25,40,0,232,3,232,3
-Were-Bear,Were-Bears,3,7,0,4,3,45,30,0,182,3,176,4
-Were-Bear,Were-Bears,3,7,1,3,3,45,30,0,182,3,176,4
-Were-Bear,Were-Bears,3,8,0,2,4,40,30,0,182,3,176,4
-Were-Bear,Were-Bears,3,8,1,3,2,40,30,0,182,3,176,4
-Basilisk,Basilisks,4,7,0,4,4,140,40,75,226,4,120,5
-Basilisk,Basilisks,4,7,1,3,3,140,40,75,226,4,120,5
-Basilisk,Basilisks,4,8,0,3,2,120,40,75,226,4,120,5
-Basilisk,Basilisks,4,8,0,4,1,120,40,75,226,4,120,5
-Basilisk,Basilisks,4,8,0,2,2,120,40,75,226,4,120,5
-Phantasm,Phantasms,17,3,0,4,3,80,60,80,132,3,32,3
-Phantasm,Phantasms,17,3,1,3,4,70,60,80,132,3,32,3
-Phantasm,Phantasms,17,4,0,3,3,60,60,80,132,3,32,3
-Phantasm,Phantasms,17,4,0,2,4,60,60,80,132,3,32,3
-Phantasm,Phantasms,17,4,0,3,2,60,60,80,132,3,32,3
-Manticore,Manticores,2,9,0,4,4,75,50,80,20,5,132,3
-Dragon,Dragons,15,7,0,2,1,0,50,75,160,15,142,18
-Dragon,Dragons,15,8,0,1,1,0,50,85,160,15,136,19
-Saurion,Saurions,20,9,0,5,4,70,30,100,132,3,251,4
-Gold Ogre,Gold Ogres,19,12,0,3,5,100,0,50,82,3,201,4
-Giant,Giants,18,6,0,4,4,100,0,50,88,2,32,3
-Cyclops,Cyclops,18,7,1,3,3,0,10,50,76,4,208,7
-Cyclops,Cyclops,18,8,0,1,2,0,20,50,76,4,136,19
-Cyclops,Cyclops,18,8,0,1,2,0,20,50,76,4,136,19
-Cyclops,Cyclops,18,8,0,1,2,0,20,50,76,4,136,19
-Cyclops,Cyclops,18,8,0,1,2,0,20,50,76,4,136,19
-Cyclops,Cyclops,18,8,0,1,2,0,20,50,76,4,136,19
-Cyclops,Cyclops,18,8,0,1,2,0,20,50,76,4,136,19
-Cyclops,Cyclops,18,8,0,1,2,0,20,50,76,4,136,19
-Cyclops,Cyclops,18,8,0,1,2,0,20,50,76,4,136,19
-Cyclops,Cyclops,18,8,0,1,2,0,20,50,76,4,136,19
-Orange Orc Knight,Orange Orc Knights,26,11,0,4,6,130,20,75,26,4,232,3
-Red Orc Knight,Red Orc Knights,26,12,2,6,4,110,25,75,176,4,20,5
-Red Orc Knight,Red Orc Knights,26,13,2,5,5,90,25,75,176,4,20,5
-Cantankerous Gremlin Wizard,Cantankerous Gremlin Wizards,46,12,0,2,3,240,65,90,132,3,51,4
-Crafty Gremlin Wizard,Crafty Gremlin Wizards,46,13,2,2,2,220,65,90,26,4,95,5
-Crafty Gremlin Wizard,Crafty Gremlin Wizards,46,14,1,2,1,210,65,90,26,4,95,5
-Gold Ogre,Gold Ogres,19,10,0,6,3,60,0,75,32,3,32,3
-Gold Ogre,Gold Ogres,19,12,0,4,3,40,0,75,32,3,32,3
-Tyran,Tyrans,5,7,1,4,3,30,0,0,188,2,88,2
-Tyran,Tyrans,5,8,0,3,4,30,0,0,188,2,88,2
-Giant,Giants,18,4,2,5,4,80,0,60,244,1,244,1
-Giant,Giants,18,5,1,4,4,70,0,60,244,1,244,1
-Giant,Giants,18,6,0,3,4,60,0,60,244,1,244,1
-Death Leech,Death Leeches,7,8,1,4,3,35,35,0,26,4,132,3
-Death Leech,Death Leeches,7,9,0,3,3,25,35,0,26,4,132,3
-Basilisk,Basilisks,4,8,0,3,4,120,45,75,226,4,26,4
-Basilisk,Basilisks,4,8,0,2,4,120,45,75,226,4,26,4
-Phantasm,Phantasms,17,4,0,3,2,60,50,75,244,1,194,1
-Phantasm,Phantasms,17,4,0,2,3,60,50,75,244,1,194,1
-Dragon,Dragons,15,6,1,2,3,0,65,75,172,13,142,18
-Dragon,Dragons,15,6,2,2,2,0,65,75,172,13,142,18
-Dragon,Dragons,15,7,1,1,2,0,65,75,172,13,136,19
-Manticore,Manticores,2,9,0,3,4,75,60,75,20,5,26,4
-Manticore,Manticores,2,9,0,4,3,75,60,75,20,5,26,4
-Ferocious Elf Barbarian,Ferocious Elf Barbarians,24,13,2,5,5,60,10,75,182,3,238,2
-Berserker Elf Barbarian,Berserker Elf Barbarians,24,13,2,3,4,50,10,75,126,4,26,4
-Sly Elf Ranger,Sly Elf Rangers,31,11,1,4,3,30,25,75,132,3,188,2
-Wily Elf Ranger,Wily Elf Rangers,31,13,2,2,5,20,25,75,76,4,232,3
-Hardy Elf Cleric,Hardy Elf Clerics,39,10,1,3,3,60,65,75,232,3,213,2
-Venerable Elf Cleric,Venerable Elf Clerics,39,13,2,2,3,50,65,75,176,4,1,4
-Giant,Giants,18,5,1,3,4,100,0,50,244,1,244,1
-Giant,Giants,18,6,0,2,4,100,0,50,244,1,244,1
-King Cyclops,King Cyclops,18,10,0,1,0,0,0,50,40,35,226,4
-Incubus,Incubi,16,7,1,4,4,25,50,0,238,2,132,3
-Phantasm,Phantasms,17,4,0,3,4,60,65,50,144,1,194,1
-Hobgoblin,Hobgoblins,21,6,0,5,3,50,30,75,88,2,88,2
-King Goblin,King Goblins,21,8,0,2,2,120,55,75,226,4,208,7
-Gargoyle,Gargoyles,14,7,1,3,3,60,40,80,132,3,132,3
-Lich,Liches,10,10,1,2,2,0,90,90,184,11,136,19
-Were-Bear,Were-Bears,3,9,0,3,4,60,35,60,126,4,32,3
-Gold Ogre,Gold Ogres,19,10,1,4,4,60,0,75,132,3,32,3
-Gold Ogre,Gold Ogres,19,10,2,4,3,60,0,75,132,3,32,3
-Gold Ogre,Gold Ogres,19,11,0,3,3,50,0,75,132,3,32,3
-Gold Ogre,Gold Ogres,19,11,1,2,3,50,0,75,132,3,32,3
-Gold Ogre,Gold Ogres,19,12,0,4,2,40,0,75,132,3,32,3
-Gold Ogre,Gold Ogres,19,12,0,2,4,40,0,75,132,3,32,3
-Spinorpion,Spinorpions,6,7,1,6,3,20,0,0,144,1,19,1
-Spinorpion,Spinorpions,6,8,0,4,5,15,0,0,144,1,44,1
-Spinorpion,Spinorpions,6,8,0,5,4,15,0,0,144,1,44,1
-Death Leech,Death Leeches,7,8,0,7,2,35,50,0,176,4,26,4
-Death Leech,Death Leeches,7,8,1,4,3,35,50,0,176,4,26,4
-Death Leech,Death Leeches,7,9,0,3,3,25,50,0,176,4,26,4
-Death Leech,Death Leeches,7,9,0,2,4,25,50,0,176,4,26,4
-Basilisk,Basilisks,4,8,0,3,3,120,65,50,126,4,232,3
-Basilisk,Basilisks,4,8,0,2,4,120,65,50,126,4,232,3
-Basilisk,Basilisks,4,8,0,4,2,120,65,50,126,4,232,3
-Phantasm,Phantasms,17,4,0,3,5,60,60,60,144,1,194,1
-Phantasm,Phantasms,17,4,0,4,3,60,60,60,144,1,194,1
-Phantasm,Phantasms,17,4,0,3,4,60,60,60,144,1,194,1
-Dragon,Dragons,15,6,1,2,2,0,75,90,160,15,142,18
-Dragon,Dragons,15,7,0,1,2,0,75,90,160,15,136,19
-Dragon,Dragons,15,7,1,1,2,0,75,90,160,15,136,19
-Dragon,Dragons,15,8,0,1,2,0,75,90,160,15,180,20
-Dragon,Dragons,15,8,0,1,2,0,75,90,160,15,180,20
-Ferocious Elf Barbarian,Ferocious Elf Barbarians,24,11,1,4,5,60,15,75,132,3,82,3
-Berserker Elf Barbarian,Berserker Elf Barbarians,24,14,1,5,4,50,15,75,76,4,101,4
-Sly Elf Ranger,Sly Elf Rangers,31,11,1,4,4,30,25,75,182,3,132,3
-Wily Elf Ranger,Wily Elf Rangers,31,13,2,3,4,20,25,75,26,4,226,4
-Hardy Elf Cleric,Hardy Elf Clerics,39,10,1,3,3,60,80,75,232,3,232,3
-Venerable Elf Cleric,Venerable Elf Clerics,39,13,2,2,2,50,80,75,76,4,20,5
-Giant,Giants,18,6,0,4,6,100,0,50,244,1,144,1
-Cyclops,Cyclops,18,8,1,3,3,0,25,50,182,3,232,3
-Incubus,Incubi,16,8,0,4,4,25,65,0,238,2,88,2
-Hell Wolf,Hell Wolves,1,9,0,3,6,30,70,20,176,4,26,4
-Manticore,Manticores,2,9,0,4,4,75,65,75,20,5,176,4
-Were-Bear,Were-Bears,3,8,1,4,3,60,45,60,226,4,176,4
-Were-Minotaur,Were-Minotaurs,13,6,0,3,4,0,0,60,207,3,76,4
-Spit Spider,Spit Spiders,8,9,0,3,4,50,0,0,144,1,94,1
-Shapeshifter,Shapeshifters,12,8,1,4,5,40,0,0,82,3,132,3
-Gargoyle,Gargoyles,14,7,1,3,5,60,65,80,76,4,176,4
-Skeletal Knight,Skeletal Knights,9,10,0,7,3,40,0,50,32,3,238,2
-Skeletal Knight,Skeletal Knights,9,10,1,6,4,40,0,50,32,3,238,2
-Skeletal Knight,Skeletal Knights,9,11,0,5,5,30,0,50,32,3,238,2
-Skeletal Knight,Skeletal Knights,9,11,0,6,4,30,0,50,32,3,238,2
-Skeletal Knight,Skeletal Knights,9,11,1,4,4,30,0,50,32,3,238,2
-Skeletal Knight,Skeletal Knights,9,11,1,5,3,30,0,50,32,3,238,2
-Skeletal Knight,Skeletal Knights,9,12,0,4,3,20,0,50,32,3,238,2
-Skeletal Knight,Skeletal Knights,9,12,0,3,4,20,0,50,32,3,238,2
-Lich,Liches,10,10,0,3,2,0,90,90,208,7,136,19
-Lich,Liches,10,10,1,2,3,0,90,90,208,7,136,19
-Lich,Liches,10,11,0,2,2,0,90,90,208,7,124,21
-Lich,Liches,10,11,0,1,3,0,90,90,208,7,124,21
-Lich,Liches,10,11,1,2,1,0,90,90,208,7,124,21
-Lich,Liches,10,11,1,1,2,0,90,90,208,7,124,21
-Lich,Liches,10,12,0,1,1,0,90,90,208,7,112,23
-Lich,Liches,10,12,0,2,0,0,90,90,208,7,112,23
-Phantasm,Phantasms,17,4,0,4,4,60,60,80,244,1,194,1
-Phantasm,Phantasms,17,4,0,3,5,60,60,80,244,1,194,1
-Phantasm,Phantasms,17,4,0,2,6,60,60,80,244,1,194,1
-Phantasm,Phantasms,17,4,0,5,2,60,60,80,244,1,194,1
-Phantasm,Phantasms,17,4,0,4,3,60,60,80,244,1,194,1
-Phantasm,Phantasms,17,4,0,3,4,60,60,80,244,1,194,1
-Phantasm,Phantasms,17,4,0,2,5,60,60,80,244,1,194,1
-Phantasm,Phantasms,17,4,0,5,3,60,60,80,244,1,194,1
-Elemental,Elementals,17,5,0,1,1,0,70,100,172,13,112,23
-Elemental,Elementals,17,5,1,1,1,0,70,100,172,13,112,23
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,136,19,128,62
-Skeletal Knight,Skeletal Knights,9,10,0,7,3,40,0,50,244,1,138,2
-Skeletal Knight,Skeletal Knights,9,10,1,6,4,40,0,50,244,1,138,2
-Skeletal Knight,Skeletal Knights,9,11,0,8,2,30,0,50,244,1,138,2
-Skeletal Knight,Skeletal Knights,9,11,0,9,1,30,0,50,244,1,138,2
-Skeletal Knight,Skeletal Knights,9,11,1,7,3,30,0,50,244,1,138,2
-Skeletal Knight,Skeletal Knights,9,11,1,8,2,30,0,50,244,1,138,2
-Skeletal Knight,Skeletal Knights,9,12,0,6,4,20,0,50,244,1,138,2
-Skeletal Knight,Skeletal Knights,9,12,0,7,3,20,0,50,244,1,138,2
-Lich,Liches,10,10,0,3,1,0,90,90,176,4,184,11
-Lich,Liches,10,10,1,2,2,0,90,90,176,4,184,11
-Lich,Liches,10,11,0,2,1,0,90,90,176,4,184,11
-Lich,Liches,10,11,0,1,1,0,90,90,176,4,184,11
-Lich,Liches,10,11,1,2,1,0,90,90,176,4,184,11
-Lich,Liches,10,11,1,1,1,0,90,90,176,4,184,11
-Lich,Liches,10,12,0,1,1,0,90,90,176,4,184,11
-Lich,Liches,10,12,0,2,0,0,90,90,176,4,184,11
-Phantasm,Phantasms,17,4,0,4,4,60,60,80,232,3,76,4
-Phantasm,Phantasms,17,4,0,5,3,60,60,80,232,3,76,4
-Phantasm,Phantasms,17,4,0,6,2,60,60,80,232,3,76,4
-Phantasm,Phantasms,17,4,0,3,4,60,60,80,232,3,76,4
-Phantasm,Phantasms,17,4,0,4,3,60,60,80,232,3,76,4
-Phantasm,Phantasms,17,4,0,3,3,60,60,80,232,3,76,4
-Phantasm,Phantasms,17,4,0,2,5,60,60,80,232,3,76,4
-Phantasm,Phantasms,17,4,0,5,2,60,60,80,232,3,76,4
-Manticore,Manticores,2,9,0,3,2,75,40,80,132,3,82,3
-Were-Bear,Were-Bears,3,9,0,3,3,40,35,0,82,3,232,3
-Tyran,Tyrans,5,8,0,6,2,150,0,0,88,2,182,3
-Death Leech,Death Leeches,7,9,0,3,3,25,35,0,138,2,132,3
-Lich,Liches,10,13,0,2,1,0,90,90,176,4,112,23
-Shapeshifter,Shapeshifters,12,8,0,4,2,50,0,0,132,3,226,4
-Were-Minotaur,Were-Minotaurs,13,8,0,4,4,0,0,60,232,3,120,5
-Gargoyle,Gargoyles,14,8,0,3,3,50,50,80,207,3,176,4
-Dragon,Dragons,15,8,0,3,3,0,75,85,64,6,136,19
-Hobgoblin,Hobgoblins,21,6,0,4,3,50,30,60,88,2,88,2
-King Goblin,King Goblins,21,8,0,2,2,100,60,60,232,3,96,9
-Crafty Human Wizard,Crafty Human Wizards,44,15,0,3,3,240,75,65,176,4,64,6
-Crafty Dwarf Wizard,Crafty Dwarf Wizards,44,15,0,2,4,240,75,65,176,4,64,6
-Crafty Gnome Wizard,Crafty Gnome Wizards,44,15,0,3,3,240,75,65,176,4,64,6
-Crafty Gremlin Wizard,Crafty Gremlin Wizards,44,15,0,3,3,240,75,65,176,4,64,6
-En-Li-Kil,En-Li-Kil,47,8,0,1,0,0,100,100,80,195,232,253
+NameSingle,NamePlural,Portrait,Data1,Data2,Data1,Data3,Data4,Data5,Data6,RewardXP,RewardGold
+Wolf,Wolves,1,1,0,1,1,4,0,0,0,0
+Lion,Lions,2,1,0,1,1,4,0,0,0,0
+Bear,Bears,3,1,0,1,1,4,0,0,0,0
+Snake,Snakes,4,1,0,1,1,4,0,0,0,0
+Dinosaur,Dinosaurs,5,1,0,1,1,4,0,0,0,0
+Scorpion,Scorpions,6,1,0,1,1,4,0,0,0,0
+Leech,Leeches,7,1,0,1,1,4,0,0,0,0
+Spider,Spiders,8,1,0,1,1,4,0,0,0,0
+Skeleton,Skeletons,9,1,0,1,1,4,0,0,0,0
+Ghost,Ghosts,10,1,0,1,1,4,0,0,0,0
+Undead,Undeads,11,1,0,1,1,4,0,0,0,0
+Bugbear,Bugbears,12,1,0,1,1,4,0,0,0,0
+Minotaur,Minotaurs,13,1,1,1,1,4,0,0,0,0
+Gargoyle,Gargoyles,14,1,1,1,1,4,0,0,0,0
+Dragon,Dragons,15,1,1,1,1,4,0,0,0,0
+Imp,Imps,16,1,1,1,1,4,0,0,0,0
+Phantasm,Phantasms,17,1,1,1,1,4,0,0,0,0
+Giant,Giants,18,1,1,1,1,4,0,0,0,0
+Ogre,Ogres,19,1,1,1,1,4,0,0,0,0
+Lizard Man,Lizard Men,20,1,1,1,1,4,0,0,0,0
+Goblin,Goblins,21,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,22,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,23,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,24,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,25,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,26,1,1,1,1,4,0,0,0,0
+En-Li-Kil,En-Li-Kil,47,1,1,1,0,4,0,0,0,0
+Wolf,Wolves,1,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,1,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,1,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,1,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,1,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,1,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,1,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,1,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,1,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,1,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,1,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,1,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,1,1,1,1,1,4,0,0,0,0
+Wolf,Wolves,1,1,0,1,0,4,0,0,8,30
+Wolf,Wolves,1,1,0,1,1,4,0,0,8,30
+Wolf,Wolves,1,1,0,2,0,6,0,0,8,30
+Snake,Snakes,4,1,0,1,0,6,0,0,10,20
+Snake,Snakes,4,1,0,1,1,6,0,0,10,20
+Coelus,Coeluses,5,1,0,1,0,6,0,0,15,30
+Coelus,Coeluses,5,1,0,1,1,6,0,0,15,30
+Scorpion,Scorpions,6,1,0,1,0,6,0,0,25,30
+Scorpion,Scorpions,6,1,0,1,1,6,0,0,25,30
+Mountain Lion,Mountain Lions,2,1,0,1,0,4,0,0,20,20
+Copper Ogre,Copper Ogres,19,1,0,1,1,6,0,30,20,40
+Goblin,Goblins,21,1,1,1,0,5,0,25,20,30
+Giant Spider,Giant Spiders,8,1,0,1,1,8,0,0,30,40
+Giant Spider,Giant Spiders,8,1,1,1,0,8,0,0,30,40
+Skeletal Thief,Skeletal Thieves,9,1,0,1,1,10,0,25,20,40
+Skeletal Thief,Skeletal Thieves,9,1,1,1,0,10,0,25,20,40
+Imp,Imps,16,1,0,1,0,10,15,20,60,100
+Imp,Imps,16,1,0,1,1,10,15,20,60,100
+Orc Ranger,Orc Rangers,30,1,0,1,0,12,0,25,40,50
+Halfling Thief,Halfling Thieves,37,1,0,1,1,18,10,25,40,50
+Dwarf Knight,Dwarf Knights,28,1,0,1,0,10,0,25,40,50
+Human Barbarian,Human Barbarians,22,1,0,1,0,8,0,25,40,50
+Gremlin Cleric,Gremlin Clerics,42,1,0,1,1,15,20,25,50,50
+Gnome Wizard,Gnome Wizards,45,1,1,1,0,18,30,25,50,75
+Mountain Lion,Mountain Lions,2,1,1,1,1,4,0,0,10,20
+Wolf,Wolves,1,1,1,1,1,4,0,0,10,15
+Troll Knight,Troll Knights,27,3,1,1,1,5,10,40,45,60
+Elf Cleric,Elf Clerics,39,3,1,1,1,8,25,40,30,45
+Gnome Barbarian,Gnome Barbarians,25,2,2,2,1,4,0,40,50,75
+Cro-Lizard,Cro-Lizards,20,1,2,1,1,6,15,35,60,90
+Raptor,Raptors,5,4,0,1,1,20,0,0,60,70
+Leech,Leeches,7,1,2,2,1,15,0,0,50,70
+Cranky Dwarf Wizard,Cranky Dwarf Wizards,44,4,1,1,1,15,40,40,60,100
+Ornery Human Thief,Ornery Human Thieves,34,4,2,2,1,15,18,40,45,60
+Vicious Orc Barbarian,Vicious Orc Barbarians,23,4,0,2,1,15,5,40,90,125
+Bronze Ogre,Bronze Ogres,19,4,0,3,0,18,0,35,75,115
+Bronze Ogre,Bronze Ogres,19,4,1,2,0,16,0,35,75,115
+Bronze Ogre,Bronze Ogres,19,4,1,2,1,16,0,35,75,115
+Bronze Ogre,Bronze Ogres,19,4,1,2,1,16,0,35,75,115
+Bronze Ogre,Bronze Ogres,19,4,2,2,1,12,0,35,75,115
+Wolf,Wolves,1,1,1,1,2,4,0,0,8,30
+Wolf,Wolves,1,1,2,1,1,6,0,0,8,30
+Wolf,Wolves,1,2,0,1,1,8,0,0,8,30
+Snake,Snakes,4,1,0,1,2,6,0,0,10,20
+Snake,Snakes,4,1,1,1,1,6,0,0,10,20
+Snake,Snakes,4,2,0,1,2,6,0,0,10,25
+Elf Ranger,Elf Rangers,31,2,1,1,1,6,0,35,40,60
+Human Thief,Human Thieves,34,3,0,1,1,8,15,35,50,100
+Troll Knight,Troll Knights,27,2,1,1,1,5,10,35,50,100
+Gnome Barbarian,Gnome Barbarians,25,1,1,1,1,3,0,35,40,60
+Halfling Cleric,Halfling Clerics,41,2,1,1,1,8,25,35,50,100
+Dwarf Wizard,Dwarf Wizards,44,2,1,1,1,10,45,35,100,150
+Cave Bear,Cave Bears,3,1,0,1,1,20,0,0,50,50
+Cave Bear,Cave Bears,3,1,1,1,1,20,0,0,50,50
+Cave Bear,Cave Bears,3,1,1,2,1,20,0,0,50,50
+Cave Bear,Cave Bears,3,1,2,1,1,20,0,0,60,50
+Cave Bear,Cave Bears,3,2,0,1,1,24,0,0,50,60
+Cave Bear,Cave Bears,3,2,1,1,1,24,0,0,50,60
+Human Barbarian,Human Barbarians,22,1,1,2,1,10,5,15,50,75
+Gnome Thief,Gnome Thieves,36,1,2,3,1,15,10,15,40,100
+Gremlin Wizard,Gremlin Wizards,46,1,1,1,1,12,40,15,100,50
+Troll Cleric,Troll Clerics,40,1,1,1,2,12,30,15,50,75
+Halfling Ranger,Halfling Rangers,33,1,1,2,1,12,15,15,50,80
+Orc Knight,Orc Knights,26,1,1,2,1,12,15,15,60,75
+Dwarf Knight,Dwarf Knights,28,1,1,2,1,5,5,30,50,40
+Elf Cleric,Elf Clerics,39,2,0,2,1,8,25,30,80,40
+Troll Ranger,Troll Rangers,32,1,1,2,1,6,5,30,40,40
+Orc Barbarian,Orc Barbarians,23,1,1,2,1,4,5,30,50,40
+Cave Lion,Cave Lions,2,3,0,1,5,20,0,0,20,20
+Cave Lion,Cave Lions,2,3,1,2,2,18,0,0,24,25
+Cave Lion,Cave Lions,2,3,1,3,2,18,0,0,24,25
+Cave Lion,Cave Lions,2,4,0,3,1,15,0,0,26,25
+Bronze Ogre,Bronze Ogres,19,4,2,3,1,15,0,25,80,25
+Bronze Ogre,Bronze Ogres,19,5,0,2,1,12,0,25,80,36
+Bronze Ogre,Bronze Ogres,19,5,1,1,1,12,0,25,80,36
+Bronze Ogre,Bronze Ogres,19,6,0,1,1,10,0,25,80,45
+Deinon,Deinons,5,5,0,2,1,25,0,0,200,180
+Deinon,Deinons,5,5,1,2,1,25,0,0,200,190
+Deinon,Deinons,5,5,1,1,1,25,0,0,200,190
+Deinon,Deinons,5,6,0,1,1,20,0,0,225,200
+Wolf,Wolves,1,1,0,1,0,8,0,0,8,30
+Wolf,Wolves,1,1,0,1,0,8,0,0,8,30
+Wolf,Wolves,1,1,0,1,1,8,0,0,8,30
+Wolf,Wolves,1,1,0,1,1,8,0,0,8,30
+Wolf,Wolves,1,1,1,1,0,8,0,0,8,30
+Snake,Snakes,4,1,0,1,0,6,0,0,10,20
+Snake,Snakes,4,1,0,1,1,6,0,0,10,20
+Snake,Snakes,4,1,0,2,0,6,0,0,10,20
+Snake,Snakes,4,1,1,1,0,6,0,0,10,20
+Snake,Snakes,4,1,1,1,1,6,0,0,10,20
+Coelus,Coeluses,5,1,0,1,0,9,0,0,15,30
+Coelus,Coeluses,5,1,0,1,1,9,0,0,15,30
+Coelus,Coeluses,5,1,0,2,0,9,0,0,15,30
+Coelus,Coeluses,5,1,1,1,0,9,0,0,15,30
+Coelus,Coeluses,5,1,1,1,1,9,0,0,15,30
+Scorpion,Scorpions,6,1,0,1,0,6,0,15,25,30
+Scorpion,Scorpions,6,1,0,1,1,6,0,15,25,30
+Scorpion,Scorpions,6,1,0,2,0,6,0,15,25,30
+Copper Ogre,Copper Ogres,19,1,0,1,1,6,0,30,20,40
+Goblin,Goblins,21,1,1,1,0,5,0,25,20,30
+Mountain Lion,Mountain Lions,2,1,0,1,0,8,0,15,20,20
+Mountain Lion,Mountain Lions,2,1,0,1,1,8,0,15,20,20
+Mountain Lion,Mountain Lions,2,1,0,2,0,8,0,15,20,20
+Mountain Lion,Mountain Lions,2,1,1,1,0,8,0,15,20,20
+Wolf,Wolves,1,1,0,3,2,6,0,0,5,15
+Wolf,Wolves,1,1,1,2,1,6,0,0,5,15
+Wolf,Wolves,1,2,0,2,1,10,0,0,10,20
+Goblin,Goblins,21,1,1,2,2,10,0,15,20,30
+Goblin,Goblins,21,2,0,2,1,10,0,22,20,30
+Goblin,Goblins,21,2,1,2,1,10,0,30,40,50
+Bronze Ogre,Bronze Ogres,19,4,0,3,2,12,0,20,60,100
+Bronze Ogre,Bronze Ogres,19,4,1,2,3,12,0,25,60,100
+Bronze Ogre,Bronze Ogres,19,4,2,3,3,12,0,30,60,100
+Human Thief,Human Thieves,34,3,2,2,2,25,60,50,45,60
+Vicious Gnome Barbarian,Vicious Gnome Barbarians,25,5,1,2,1,20,15,50,100,115
+Cranky Gremlin Wizard,Cranky Gremlin Wizards,46,4,2,2,1,25,75,50,150,200
+Yellow Orc Knight,Yellow Orc Knights,26,4,3,3,1,18,25,50,100,275
+Hardy Elf Cleric,Hardy Elf Clerics,39,5,2,3,1,30,55,50,125,200
+Ornery Gremlin Thief,Ornery Gremlin Thieves,38,5,2,3,1,15,60,50,100,180
+Sly Halfling Ranger,Sly Halfling Rangers,33,6,1,3,1,20,35,50,120,300
+Skeletal Thief,Skeletal Thieves,9,3,0,4,1,12,0,8,30,30
+Skeletal Thief,Skeletal Thieves,9,3,0,4,2,12,0,10,30,30
+Skeletal Warrior,Skeletal Warriors,9,4,0,4,1,15,0,15,40,50
+Skeletal Warrior,Skeletal Warriors,9,4,1,3,1,15,0,20,40,50
+Skeletal Warrior,Skeletal Warriors,9,4,2,3,1,18,0,20,40,50
+Skeletal Warrior,Skeletal Warriors,9,5,2,2,2,18,0,25,50,75
+Zombie,Zombies,11,1,0,3,1,24,0,10,30,50
+Zombie,Zombies,11,1,0,3,2,24,0,15,30,50
+Zombie,Zombies,11,1,1,3,2,28,0,20,30,55
+Zombie,Zombies,11,1,1,2,2,28,0,20,30,60
+Zombie,Zombies,11,1,2,1,2,32,0,25,30,80
+Zombie,Zombies,11,1,2,2,2,32,0,25,30,100
+Ghost,Ghosts,10,4,0,3,1,14,25,0,30,70
+Ghost,Ghosts,10,4,0,4,1,14,25,0,30,80
+Ghost,Ghosts,10,4,1,3,1,16,30,0,40,90
+Ghost,Ghosts,10,4,1,3,1,16,30,0,40,100
+Ghost,Ghosts,10,4,2,3,1,20,35,0,50,100
+Ghost,Ghosts,10,4,2,2,2,20,40,0,50,100
+Leech,Leeches,7,1,1,1,2,6,0,25,50,20
+Leech,Leeches,7,1,2,2,2,8,0,40,50,20
+Leech,Leeches,7,1,1,1,3,5,0,30,50,20
+Black Widow,Black Widows,8,4,1,1,2,8,0,20,50,60
+Black Widow,Black Widows,8,4,2,1,3,12,0,25,50,65
+Black Widow,Black Widows,8,5,0,1,2,18,0,25,60,70
+Bugbear,Bugbears,12,1,0,4,2,12,0,0,100,275
+Bugbear,Bugbears,12,1,1,3,1,12,0,0,100,275
+Bugbear,Bugbears,12,1,1,3,1,12,0,0,100,275
+Bugbear,Bugbears,12,1,2,3,1,12,0,0,125,300
+Bugbear,Bugbears,12,1,2,2,3,12,0,0,125,300
+Cockatrice,Cockatrices,14,1,0,2,1,50,25,0,120,100
+Cockatrice,Cockatrices,14,1,1,2,1,50,30,0,120,100
+Cockatrice,Cockatrices,14,1,1,2,1,50,35,0,120,125
+Cockatrice,Cockatrices,14,2,0,1,2,40,40,0,120,150
+Cockatrice,Cockatrices,14,2,1,1,1,40,45,0,120,175
+Incubus,Incubi,16,5,0,3,1,25,30,0,300,200
+Incubus,Incubi,16,5,0,2,1,25,50,0,300,200
+Incubus,Incubi,16,5,1,2,1,20,55,0,300,200
+Incubus,Incubi,16,5,1,2,1,20,60,0,300,200
+Incubus,Incubi,16,5,2,1,2,15,65,0,400,300
+Incubus,Incubi,16,5,2,2,1,15,70,0,400,300
+Wolf,Wolves,1,1,0,1,0,4,0,0,8,30
+Wolf,Wolves,1,1,0,1,1,6,0,0,8,30
+Wolf,Wolves,1,1,1,1,0,8,0,0,8,30
+Snake,Snakes,4,1,0,1,0,6,0,0,10,20
+Snake,Snakes,4,1,0,1,1,6,0,0,10,20
+Coelus,Coeluses,5,1,0,1,0,6,0,0,15,30
+Coelus,Coeluses,5,1,1,1,0,6,0,0,15,30
+Scorpion,Scorpions,6,1,0,1,0,6,0,0,25,30
+Scorpion,Scorpions,6,1,0,1,1,6,0,0,25,30
+Mountain Lion,Mountain Lions,2,1,0,1,0,4,0,0,20,20
+Mountain Lion,Mountain Lions,2,1,0,1,1,4,0,0,20,20
+Giant Spider,Giant Spiders,8,1,0,1,0,8,0,0,30,40
+Copper Ogre,Copper Ogres,19,1,0,1,1,6,0,30,20,40
+Goblin,Goblins,21,1,1,1,1,5,0,30,20,35
+Skeletal Thief,Skeletal Thieves,9,1,0,1,1,6,0,10,20,40
+Giant Spider,Giant Spiders,8,1,1,1,0,8,0,0,30,40
+Imp,Imps,16,1,0,1,1,10,25,40,60,100
+Imp,Imps,16,1,1,1,0,10,25,40,60,100
+Skeletal Thief,Skeletal Thieves,9,1,1,1,1,10,0,10,20,40
+Coelus,Coeluses,5,1,1,1,1,6,0,0,8,30
+Skeletal Thief,Skeletal Thieves,9,1,1,1,1,10,0,10,18,27
+Copper Ogre,Copper Ogres,19,1,0,1,1,6,0,45,20,40
+Copper Ogre,Copper Ogres,19,1,1,1,1,6,0,45,20,40
+Copper Ogre,Copper Ogres,19,2,0,1,0,6,0,45,20,40
+Copper Ogre,Copper Ogres,19,1,1,1,3,6,0,25,20,40
+Copper Ogre,Copper Ogres,19,1,1,2,1,6,0,25,20,40
+Copper Ogre,Copper Ogres,19,1,2,3,1,6,0,25,20,40
+Mountain Lion,Mountain Lions,2,2,2,3,2,4,0,0,10,20
+Wolf,Wolves,1,3,1,5,2,4,0,0,8,30
+Coelus,Coeluses,5,1,2,2,1,6,0,0,15,30
+Troll Ranger,Troll Rangers,32,3,2,3,3,8,0,30,50,70
+Hardy Halfling Cleric,Hardy Halfling Clerics,41,5,0,2,1,8,30,35,75,80
+Cranky Human Wizard,Cranky Human Wizards,43,4,1,2,1,10,60,50,100,150
+Ornery Gnome Thief,Ornery Gnome Thieves,36,4,3,4,1,8,25,50,60,100
+Vicious Elf Barbarian,Vicious Elf Barbarians,24,4,3,3,2,16,10,50,90,125
+White Dwarf Knight,White Dwarf Knights,28,4,3,3,1,12,15,50,75,115
+Bugbear,Bugbears,12,1,2,3,2,12,0,50,100,275
+Black Widow,Black Widows,8,4,2,2,5,20,0,0,60,80
+Dire Wolf,Dire Wolves,1,4,2,2,3,15,0,0,50,50
+Dire Wolf,Dire Wolves,1,5,1,4,4,15,0,0,50,50
+Cranky Dwarf Wizard,Cranky Dwarf Wizards,44,4,1,3,1,27,50,22,165,100
+Ornery Human Thief,Ornery Human Thieves,34,6,1,4,1,30,20,22,145,60
+Vicious Orc Barbarian,Vicious Orc Barbarians,23,5,1,2,1,24,5,22,190,125
+Hardy Elf Cleric,Hardy Elf Clerics,39,5,1,1,1,25,40,22,165,75
+White Dwarf Knight,White Dwarf Knights,28,4,2,1,2,25,15,22,175,90
+Human Barbarian,Human Barbarians,22,2,2,3,2,12,0,22,125,30
+Orc Ranger,Orc Rangers,30,3,2,3,2,12,10,22,120,24
+Halfling Thief,Halfling Thieves,37,3,2,2,3,15,15,22,115,15
+Gremlin Cleric,Gremlin Clerics,42,2,2,3,1,13,30,22,115,20
+Gnome Wizard,Gnome Wizards,45,2,1,3,2,18,40,22,120,24
+Vicious Elf Barbarian,Vicious Elf Barbarians,24,5,1,1,1,30,5,22,190,120
+Ornery Gremlin Thief,Ornery Gremlin Thieves,38,6,0,2,1,40,18,22,145,50
+Cranky Gremlin Wizard,Cranky Gremlin Wizards,46,4,2,2,1,50,50,22,165,90
+Hardy Halfling Cleric,Hardy Halfling Clerics,41,5,1,2,1,45,40,22,165,70
+Sly Troll Ranger,Sly Troll Rangers,32,6,2,2,1,35,15,22,170,90
+Sly Halfling Ranger,Sly Halfling Rangers,33,6,0,2,1,25,15,22,170,80
+Red Troll Knight,Red Troll Knights,27,4,2,2,1,35,10,22,175,85
+Orc Knight,Orc Knights,26,2,1,3,2,10,15,22,120,27
+Gnome Barbarian,Gnome Barbarians,25,2,1,3,2,8,5,22,120,30
+Elf Ranger,Elf Rangers,31,3,1,2,3,10,20,22,120,24
+Gnome Thief,Gnome Thieves,36,3,2,2,3,12,15,22,120,15
+Troll Cleric,Troll Clerics,40,2,2,2,3,12,45,22,120,20
+Human Wizard,Human Wizards,43,1,2,2,2,15,50,22,120,24
+Halfling Knight,Halfling Knights,29,1,2,3,3,9,15,22,120,27
+Large-Un,Large-Uns,18,1,0,3,1,50,0,10,100,20
+Large-Un,Large-Uns,18,1,1,2,2,45,0,12,100,15
+Large-Un,Large-Uns,18,2,1,1,2,40,0,12,145,60
+Large-Un,Large-Uns,18,3,0,1,1,40,0,15,170,75
+Vicious Gnome Barbarian,Vicious Gnome Barbarians,25,5,1,3,2,30,5,30,170,75
+Yellow Orc Knight,Yellow Orc Knights,26,4,2,4,2,45,15,35,180,90
+Sly Elf Ranger,Sly Elf Rangers,31,5,1,3,3,50,20,25,190,110
+Vicious Human Barbarian,Vicious Human Barbarians,22,5,1,2,2,35,5,35,170,120
+Minotaur,Minotaurs,13,1,0,1,1,20,0,50,275,1050
+Minotaur,Minotaurs,13,1,1,2,1,25,0,50,275,1050
+Minotaur,Minotaurs,13,1,2,1,1,25,0,50,300,1100
+Minotaur,Minotaurs,13,1,3,1,2,25,0,50,300,1100
+Hobgoblin,Hobgoblins,21,4,0,2,2,12,0,50,160,125
+Hobgoblin,Hobgoblins,21,4,1,1,1,12,0,50,160,125
+Hobgoblin,Hobgoblins,21,4,2,2,1,12,0,50,175,150
+King Hobgoblin,King Hobgoblins,21,7,0,1,1,12,40,50,400,2000
+Cro-Lizard,Cro-Lizards,20,2,0,2,3,30,20,25,160,90
+Cro-Lizard,Cro-Lizards,20,2,1,2,2,25,20,25,160,90
+Cro-Lizard,Cro-Lizards,20,3,0,1,2,20,20,25,175,110
+Bronze Ogre,Bronze Ogres,19,4,0,2,2,20,0,20,175,115
+Bronze Ogre,Bronze Ogres,19,4,1,1,3,16,0,20,175,115
+Bronze Ogre,Bronze Ogres,19,5,0,1,2,12,0,20,190,135
+Vicious Gnome Barbarian,Vicious Gnome Barbarians,25,4,1,2,1,30,5,18,190,120
+Ornery Dwarf Thief,Ornery Dwarf Thieves,35,4,1,2,2,40,15,18,145,50
+Cranky Human Wizard,Cranky Human Wizards,43,4,1,2,2,50,40,18,165,90
+Hardy Gremlin Cleric,Hardy Gremlin Clerics,42,4,1,1,3,45,30,18,165,70
+Sly Orc Ranger,Sly Orc Rangers,30,5,0,2,2,35,15,18,170,90
+Blue Halfling Knight,Blue Halfling Knights,29,4,1,2,2,35,15,18,175,85
+Black Widow,Black Widows,8,3,0,2,3,20,0,0,145,60
+Black Widow,Black Widows,8,3,1,2,2,20,0,0,145,60
+Black Widow,Black Widows,8,4,0,2,1,20,0,0,155,70
+Black Widow,Black Widows,8,4,1,1,2,20,0,0,165,80
+Leech,Leeches,7,2,0,2,3,10,0,0,125,30
+Leech,Leeches,7,2,1,2,2,10,0,0,125,30
+Leech,Leeches,7,3,0,1,3,10,0,0,135,40
+Leech,Leeches,7,3,0,2,1,10,0,0,135,40
+Scorpion,Scorpions,6,1,3,2,2,6,0,0,115,85
+Scorpion,Scorpions,6,2,2,1,3,6,0,0,120,90
+Scorpion,Scorpions,6,3,1,2,1,6,0,0,125,100
+Scorpion,Scorpions,6,4,0,1,2,6,0,0,130,115
+Dire Wolf,Dire Wolves,1,4,1,2,3,30,0,0,115,25
+Dire Wolf,Dire Wolves,1,5,0,2,2,25,0,0,120,25
+Dire Wolf,Dire Wolves,1,5,1,3,1,20,0,0,120,30
+Dire Wolf,Dire Wolves,1,6,0,2,1,15,0,0,125,35
+Dire Wolf,Dire Wolves,1,6,0,1,2,15,0,0,120,35
+Cobra,Cobras,4,3,0,2,2,15,0,0,125,35
+Cobra,Cobras,4,3,1,2,1,15,0,0,125,40
+Cobra,Cobras,4,3,1,1,2,15,0,0,125,40
+Cobra,Cobras,4,4,0,2,1,12,0,0,130,50
+Cobra,Cobras,4,4,0,1,2,12,0,0,130,50
+Raptor,Raptors,5,3,0,2,2,25,0,0,140,75
+Raptor,Raptors,5,3,1,2,2,25,0,0,140,75
+Raptor,Raptors,5,4,0,2,1,20,0,0,145,85
+Deinon,Deinons,5,5,0,2,2,20,0,0,170,100
+Deinon,Deinons,5,5,0,1,3,30,0,0,170,100
+Deinon,Deinons,5,5,1,1,2,30,0,0,200,125
+Skeletal Warrior,Skeletal Warriors,9,4,1,4,2,15,0,15,120,125
+Skeletal Warrior,Skeletal Warriors,9,4,2,3,2,15,0,20,120,125
+Skeletal Warrior,Skeletal Warriors,9,5,0,3,2,18,0,15,125,125
+Skeletal Warrior,Skeletal Warriors,9,5,1,2,2,18,0,20,125,125
+Skeletal Warrior,Skeletal Warriors,9,6,0,2,1,25,0,25,130,125
+Skeletal Warrior,Skeletal Warriors,9,4,1,3,1,15,0,20,120,125
+Skeletal Warrior,Skeletal Warriors,9,4,2,2,2,15,0,25,120,125
+Skeletal Warrior,Skeletal Warriors,9,5,0,2,1,18,0,20,125,125
+Skeletal Warrior,Skeletal Warriors,9,5,1,1,2,18,0,25,125,125
+Skeletal Warrior,Skeletal Warriors,9,6,0,1,1,25,0,25,130,125
+Skeletal Warrior,Skeletal Warriors,9,4,1,2,2,15,0,20,120,125
+Skeletal Warrior,Skeletal Warriors,9,4,2,2,1,15,0,25,120,125
+Skeletal Warrior,Skeletal Warriors,9,5,0,1,2,18,0,20,125,125
+Skeletal Warrior,Skeletal Warriors,9,5,1,1,1,18,0,25,125,125
+Skeletal Warrior,Skeletal Warriors,9,6,0,1,0,25,0,25,130,125
+Skeletal Warrior,Skeletal Warriors,9,4,1,3,2,15,0,20,120,125
+Skeletal Warrior,Skeletal Warriors,9,4,2,2,3,15,0,25,120,125
+Skeletal Warrior,Skeletal Warriors,9,5,0,2,2,18,0,20,125,125
+Skeletal Warrior,Skeletal Warriors,9,5,1,1,2,18,0,25,125,125
+Skeletal Warrior,Skeletal Warriors,9,6,0,1,1,25,0,25,130,125
+Skeletal Warrior,Skeletal Warriors,9,4,1,2,2,15,0,25,120,125
+Skeletal Warrior,Skeletal Warriors,9,4,2,2,1,15,0,25,120,125
+Skeletal Warrior,Skeletal Warriors,9,5,0,1,2,18,0,20,125,125
+Skeletal Warrior,Skeletal Warriors,9,5,1,1,1,18,0,25,125,125
+Large-Un,Large-Uns,18,1,1,4,3,30,0,0,170,175
+Large-Un,Large-Uns,18,1,2,3,3,30,0,0,170,175
+Large-Un,Large-Uns,18,2,1,3,2,27,0,15,180,185
+Large-Un,Large-Uns,18,3,0,2,2,25,0,15,190,200
+Large-Un,Large-Uns,18,1,1,3,3,30,0,0,170,175
+Large-Un,Large-Uns,18,1,2,2,3,30,0,0,170,175
+Large-Un,Large-Uns,18,2,1,2,2,27,0,0,180,185
+Large-Un,Large-Uns,18,3,0,2,2,25,0,0,190,200
+Lizardite,Lizardites,20,6,0,4,2,30,0,0,175,235
+Lizardite,Lizardites,20,6,0,3,3,30,0,0,175,235
+Lizardite,Lizardites,20,6,0,2,4,30,0,0,175,235
+Lizardite,Lizardites,20,6,0,3,2,30,0,0,175,235
+Lizardite,Lizardites,20,6,0,2,3,30,0,10,175,235
+Lizardite,Lizardites,20,6,0,1,4,30,0,10,175,235
+Lizardite,Lizardites,20,6,0,2,2,30,0,10,175,235
+Lizardite,Lizardites,20,6,0,1,5,30,0,10,175,235
+Hobgoblin,Hobgoblins,21,5,0,4,2,60,10,18,160,125
+Hobgoblin,Hobgoblins,21,5,1,3,2,55,10,18,165,130
+Hobgoblin,Hobgoblins,21,5,1,2,3,55,10,18,165,130
+Hobgoblin,Hobgoblins,21,6,0,2,2,50,10,18,175,140
+Hobgoblin,Hobgoblins,21,5,0,3,3,60,10,18,160,125
+Hobgoblin,Hobgoblins,21,5,1,2,3,55,10,18,165,130
+Hobgoblin,Hobgoblins,21,5,1,4,1,55,20,18,165,130
+Hobgoblin,Hobgoblins,21,6,0,3,1,50,20,18,175,140
+Hobgoblin,Hobgoblins,21,5,0,5,1,60,20,18,160,125
+Hobgoblin,Hobgoblins,21,5,1,2,3,55,20,18,165,130
+Hobgoblin,Hobgoblins,21,5,1,3,1,55,20,18,165,130
+Hobgoblin,Hobgoblins,21,6,0,1,2,50,20,18,175,140
+Hobgoblin,Hobgoblins,21,5,0,3,2,60,20,18,160,125
+Hobgoblin,Hobgoblins,21,5,1,2,3,55,20,18,165,130
+Hobgoblin,Hobgoblins,21,5,1,3,1,55,20,18,165,130
+Hobgoblin,Hobgoblins,21,6,0,2,2,50,20,18,175,140
+Hobgoblin,Hobgoblins,21,5,0,4,2,60,25,18,160,125
+Hobgoblin,Hobgoblins,21,5,1,3,3,55,25,18,165,130
+Hobgoblin,Hobgoblins,21,5,1,3,1,55,25,18,165,130
+Hobgoblin,Hobgoblins,21,6,0,2,2,50,25,18,175,140
+Hobgoblin,Hobgoblins,21,5,0,3,2,60,25,18,160,125
+Hobgoblin,Hobgoblins,21,5,1,4,0,55,25,18,165,130
+Hobgoblin,Hobgoblins,21,5,1,3,1,55,25,18,165,130
+Hobgoblin,Hobgoblins,21,6,0,3,2,50,25,18,175,140
+Silver Ogre,Silver Ogres,19,7,0,3,3,50,0,20,150,160
+Silver Ogre,Silver Ogres,19,7,1,3,2,50,0,20,160,170
+Silver Ogre,Silver Ogres,19,8,0,2,2,45,0,20,160,170
+Silver Ogre,Silver Ogres,19,8,1,1,2,45,0,20,170,180
+Silver Ogre,Silver Ogres,19,9,0,1,1,40,0,20,170,175
+Spinorpion,Spinorpions,6,5,0,2,3,25,0,0,190,200
+Spinorpion,Spinorpions,6,5,0,4,1,20,0,0,190,200
+Spinorpion,Spinorpions,6,5,1,2,2,17,0,0,200,225
+Spinorpion,Spinorpions,6,5,1,3,1,17,0,0,200,225
+Spinorpion,Spinorpions,6,6,0,1,2,14,0,0,215,250
+Pincer Cobra,Pincer Cobras,4,5,0,2,2,10,0,0,280,215
+Pincer Cobra,Pincer Cobras,4,5,1,3,2,10,0,0,280,215
+Pincer Cobra,Pincer Cobras,4,5,1,2,1,10,0,0,280,215
+Pincer Cobra,Pincer Cobras,4,6,0,2,1,10,0,0,280,215
+Pincer Cobra,Pincer Cobras,4,6,1,1,1,10,0,0,280,215
+Pincer Cobra,Pincer Cobras,4,6,2,1,1,10,0,0,280,215
+Minotaur,Minotaurs,13,1,1,3,1,50,0,10,130,400
+Minotaur,Minotaurs,13,2,0,3,2,45,0,15,145,425
+Minotaur,Minotaurs,13,2,1,2,2,45,0,20,145,425
+Minotaur,Minotaurs,13,3,0,2,1,40,0,20,160,450
+Minotaur,Minotaurs,13,1,1,3,1,50,0,15,130,400
+Minotaur,Minotaurs,13,2,0,3,2,45,0,15,145,425
+Minotaur,Minotaurs,13,2,1,2,2,45,0,20,145,425
+Minotaur,Minotaurs,13,3,0,2,1,40,0,20,160,450
+Minotaur,Minotaurs,13,1,1,2,1,50,0,15,130,400
+Minotaur,Minotaurs,13,2,0,3,1,45,0,15,145,425
+Minotaur,Minotaurs,13,2,1,3,2,45,0,20,145,425
+Minotaur,Minotaurs,13,3,0,2,2,40,0,20,160,450
+Minotaur,Minotaurs,13,1,1,2,1,50,0,10,130,400
+Minotaur,Minotaurs,13,2,0,2,1,45,0,15,145,425
+Minotaur,Minotaurs,13,2,1,3,1,45,0,20,145,425
+Minotaur,Minotaurs,13,3,0,3,2,40,0,20,160,450
+Minotaur,Minotaurs,13,1,1,2,2,50,0,10,130,400
+Minotaur,Minotaurs,13,2,0,2,1,45,0,15,145,425
+Minotaur,Minotaurs,13,2,1,2,1,45,0,20,145,425
+Minotaur,Minotaurs,13,3,0,3,1,40,0,20,160,450
+Minotaur,Minotaurs,13,1,1,3,2,50,0,15,130,400
+Minotaur,Minotaurs,13,2,0,2,2,45,0,15,145,425
+Minotaur,Minotaurs,13,2,1,2,1,45,0,20,145,425
+Minotaur,Minotaurs,13,3,0,2,2,40,0,20,160,450
+Black Widow,Black Widows,8,5,0,4,2,30,0,0,150,200
+Black Widow,Black Widows,8,5,1,3,2,25,0,0,160,225
+Black Widow,Black Widows,8,6,0,2,3,25,0,0,160,225
+Black Widow,Black Widows,8,6,1,3,1,20,0,0,170,250
+Spit Spider,Spit Spiders,8,7,0,2,1,20,0,0,170,250
+Giant,Giants,18,5,0,3,2,40,0,0,180,175
+Giant,Giants,18,5,1,3,1,40,0,0,180,175
+Giant,Giants,18,6,0,2,1,35,0,0,190,210
+Giant,Giants,18,6,0,2,1,35,0,0,190,210
+Giant,Giants,18,6,0,1,2,35,0,0,200,210
+Wyvern,Wyverns,15,1,0,1,1,50,40,50,250,600
+Wyvern,Wyverns,15,1,0,1,1,50,40,50,250,600
+Wyvern,Wyverns,15,1,0,1,1,50,40,50,250,600
+Wyvern,Wyverns,15,1,1,1,1,50,40,50,250,630
+Wyvern,Wyverns,15,1,1,1,1,50,40,50,250,630
+Wyvern,Wyverns,15,2,0,1,1,50,40,50,300,675
+Ghost,Ghosts,10,4,0,5,2,60,90,20,180,45
+Ghost,Ghosts,10,4,1,4,3,60,60,20,150,45
+Ghost,Ghosts,10,5,0,4,3,50,60,20,150,60
+Ghost,Ghosts,10,5,1,3,4,50,60,20,150,60
+Ghost,Ghosts,10,4,0,5,2,60,60,20,150,45
+Ghost,Ghosts,10,4,1,4,3,60,60,20,150,45
+Ghost,Ghosts,10,5,0,4,3,50,60,20,150,60
+Ghost,Ghosts,10,5,1,3,4,50,60,20,150,60
+Skeletal Warrior,Skeletal Warriors,9,4,2,4,2,15,0,12,120,30
+Skeletal Warrior,Skeletal Warriors,9,5,1,3,2,18,0,12,125,35
+Skeletal Warrior,Skeletal Warriors,9,5,1,2,3,18,0,12,125,35
+Skeletal Warrior,Skeletal Warriors,9,6,0,1,3,25,0,12,130,40
+Skeletal Warrior,Skeletal Warriors,9,4,2,2,2,15,0,12,120,30
+Skeletal Warrior,Skeletal Warriors,9,5,1,3,2,18,0,12,125,35
+Skeletal Warrior,Skeletal Warriors,9,5,1,2,3,18,0,12,125,35
+Skeletal Warrior,Skeletal Warriors,9,6,0,2,3,25,0,12,130,40
+Zombie,Zombies,11,2,0,2,2,30,0,10,130,60
+Zombie,Zombies,11,2,1,2,3,30,0,10,130,60
+Zombie,Zombies,11,2,2,1,1,30,0,10,130,60
+Zombie,Zombies,11,3,1,2,2,20,0,15,140,75
+Zombie,Zombies,11,2,0,1,2,30,0,10,130,60
+Zombie,Zombies,11,2,1,1,3,30,0,10,130,60
+Zombie,Zombies,11,2,2,2,1,30,0,10,130,60
+Zombie,Zombies,11,3,1,1,2,20,0,15,140,75
+Black Widow,Black Widows,8,5,0,2,2,50,0,0,140,70
+Black Widow,Black Widows,8,5,1,2,1,50,0,0,140,70
+Black Widow,Black Widows,8,6,0,1,2,40,0,0,155,90
+Black Widow,Black Widows,8,6,0,2,1,40,0,0,155,90
+Nightmare,Nightmares,12,4,0,2,1,20,0,25,250,400
+Nightmare,Nightmares,12,4,1,1,2,20,0,25,260,425
+Nightmare,Nightmares,12,4,1,2,1,20,0,25,260,425
+Nightmare,Nightmares,12,5,0,1,1,15,0,25,280,450
+Banshee,Banshees,10,7,0,2,2,20,0,50,175,225
+Banshee,Banshees,10,7,1,2,1,20,0,50,175,225
+Banshee,Banshees,10,8,0,3,1,15,0,50,190,250
+Banshee,Banshees,10,8,1,2,2,15,0,50,190,250
+King Cleowyn's Ghost,King Cleowyn's Ghost,10,10,0,1,0,0,80,50,2000,1500
+King Cleowyn's Ghost,King Cleowyn's Ghost,10,10,0,1,0,0,80,50,2000,1500
+King Cleowyn's Ghost,King Cleowyn's Ghost,10,10,0,1,0,0,80,50,2000,1500
+King Cleowyn's Ghost,King Cleowyn's Ghost,10,10,0,1,0,0,80,50,2000,1500
+Bugbear,Bugbears,12,1,0,2,2,18,0,10,150,275
+Bugbear,Bugbears,12,1,1,2,1,18,0,10,150,275
+Bugbear,Bugbears,12,1,2,1,2,18,0,10,175,300
+Bugbear,Bugbears,12,2,0,1,1,15,0,10,175,300
+Bugbear,Bugbears,12,2,1,2,0,15,0,10,180,325
+Bugbear,Bugbears,12,3,0,1,1,12,0,10,180,350
+Cockatrice,Cockatrices,14,1,1,2,1,50,25,10,180,125
+Cockatrice,Cockatrices,14,2,0,1,1,40,25,10,180,150
+Cockatrice,Cockatrices,14,2,1,1,1,40,25,10,180,175
+Cockatrice,Cockatrices,14,2,2,1,0,35,25,10,190,175
+Cockatrice,Cockatrices,14,3,0,1,0,30,25,10,200,190
+Cockatrice,Cockatrices,14,3,0,1,0,30,25,10,210,225
+Dire Wolf,Dire Wolves,1,4,0,2,2,30,0,0,125,90
+Dire Wolf,Dire Wolves,1,4,1,1,2,30,0,0,125,90
+Dire Wolf,Dire Wolves,1,5,0,2,1,16,0,0,125,100
+Dire Wolf,Dire Wolves,1,5,1,1,1,25,0,0,125,100
+Dire Wolf,Dire Wolves,1,5,2,1,0,20,0,0,125,125
+Dire Wolf,Dire Wolves,1,6,0,1,0,15,0,0,125,125
+Sabertooth Lion,Sabertooth Lions,2,7,0,2,1,40,0,0,125,135
+Sabertooth Lion,Sabertooth Lions,2,7,0,1,2,40,0,0,125,135
+Sabertooth Lion,Sabertooth Lions,2,7,1,1,1,35,0,0,150,150
+Sabertooth Lion,Sabertooth Lions,2,7,1,2,1,35,0,0,150,150
+Sabertooth Lion,Sabertooth Lions,2,8,0,1,0,30,0,0,150,150
+Sabertooth Lion,Sabertooth Lions,2,8,0,1,1,30,0,0,150,160
+Black Widow,Black Widows,8,5,1,2,2,24,0,0,160,165
+Black Widow,Black Widows,8,6,0,1,2,18,0,0,160,165
+Lamprey,Lampreys,7,4,0,2,2,20,0,0,150,180
+Lamprey,Lampreys,7,4,1,1,2,15,0,0,150,180
+Imp,Imps,16,3,1,3,1,30,25,25,140,55
+Imp,Imps,16,4,0,2,1,25,25,25,150,70
+Incubus,Incubi,16,6,1,2,1,20,25,25,210,160
+Incubus,Incubi,16,7,1,1,1,15,25,25,230,185
+Silver Ogre,Silver Ogres,19,7,1,1,2,60,0,20,110,135
+Silver Ogre,Silver Ogres,19,8,0,1,2,50,0,20,115,135
+Silver Ogre,Silver Ogres,19,8,1,1,1,40,0,20,115,135
+Silver Ogre,Silver Ogres,19,9,0,1,0,30,0,20,120,135
+Giant,Giants,18,4,1,2,1,40,0,15,200,150
+Giant,Giants,18,5,1,1,2,40,0,15,225,165
+Lizardite,Lizardites,20,5,1,2,2,40,0,15,140,100
+Lizardite,Lizardites,20,6,0,2,1,40,0,15,150,120
+Skeletal Ranger,Skeletal Rangers,9,7,0,2,3,35,0,25,185,125
+Skeletal Ranger,Skeletal Rangers,9,7,0,3,2,35,0,25,185,125
+Skeletal Ranger,Skeletal Rangers,9,7,0,4,1,35,0,25,185,125
+Skeletal Ranger,Skeletal Rangers,9,7,0,2,2,35,0,25,185,125
+Skeletal Ranger,Skeletal Rangers,9,7,1,3,2,45,0,25,195,125
+Skeletal Ranger,Skeletal Rangers,9,7,1,2,3,45,0,25,195,125
+Zombie,Zombies,11,1,1,3,2,30,0,10,150,115
+Zombie,Zombies,11,1,2,2,2,30,0,10,160,115
+Zombie,Zombies,11,2,1,1,2,20,0,10,185,115
+Zombie,Zombies,11,2,1,2,1,20,0,10,185,115
+Zombie,Zombies,11,2,2,1,1,20,0,10,180,125
+Zombie,Zombies,11,2,2,2,0,20,0,10,180,125
+Banshee,Banshees,10,7,0,3,2,20,0,30,190,225
+Banshee,Banshees,10,7,0,2,3,20,0,30,190,225
+Banshee,Banshees,10,7,1,2,2,15,0,30,190,250
+Banshee,Banshees,10,7,1,1,2,15,0,30,190,250
+Banshee,Banshees,10,8,0,2,1,10,0,30,210,280
+Banshee,Banshees,10,8,1,1,1,10,0,30,210,280
+Cobra,Cobras,4,3,0,4,2,15,0,0,140,100
+Cobra,Cobras,4,3,1,3,3,15,0,0,140,100
+Cobra,Cobras,4,3,1,3,3,15,0,0,140,100
+Cobra,Cobras,4,4,0,3,2,12,0,0,140,100
+Cobra,Cobras,4,4,0,2,3,12,0,0,140,100
+Cobra,Cobras,4,4,0,2,2,12,0,0,140,100
+Leech,Leeches,7,3,0,3,3,10,0,0,155,115
+Leech,Leeches,7,3,0,3,2,10,0,0,155,115
+Black Widow,Black Widows,8,5,1,3,2,24,0,0,155,170
+Black Widow,Black Widows,8,6,0,2,2,18,0,0,155,170
+Hobgoblin,Hobgoblins,21,4,1,2,2,60,25,22,170,120
+Hobgoblin,Hobgoblins,21,5,1,2,1,55,25,22,170,130
+Silver Ogre,Silver Ogres,19,7,0,3,3,50,0,22,170,150
+Silver Ogre,Silver Ogres,19,7,2,3,2,40,0,22,170,165
+Hell Wolf,Hell Wolves,1,7,0,2,3,45,25,25,150,240
+Hell Wolf,Hell Wolves,1,7,1,3,2,45,25,25,160,260
+Nightmare,Nightmares,12,4,1,3,2,20,0,25,220,425
+Nightmare,Nightmares,12,5,1,2,2,15,0,25,230,450
+Incubus,Incubi,16,7,1,3,2,25,35,50,190,185
+Incubus,Incubi,16,8,0,2,2,25,35,50,200,210
+Phantasm,Phantasms,17,1,0,1,1,75,25,50,220,375
+Phantasm,Phantasms,17,1,1,2,1,75,25,50,250,400
+Cro-Lizard,Cro-Lizards,20,2,0,3,2,12,20,20,210,100
+Cro-Lizard,Cro-Lizards,20,2,0,2,3,12,20,20,210,100
+Cro-Lizard,Cro-Lizards,20,2,1,2,2,12,20,20,210,120
+Cro-Lizard,Cro-Lizards,20,2,1,3,1,12,20,20,210,120
+Cro-Lizard,Cro-Lizards,20,3,0,1,2,12,20,20,210,140
+Cro-Lizard,Cro-Lizards,20,3,0,2,1,12,20,20,210,140
+Bronze Ogre,Bronze Ogres,19,4,2,2,3,20,0,20,175,100
+Bronze Ogre,Bronze Ogres,19,5,1,3,2,16,0,20,175,115
+Bronze Ogre,Bronze Ogres,19,6,0,2,2,12,0,20,175,135
+Bronze Ogre,Bronze Ogres,19,4,2,1,3,20,0,20,175,100
+Bronze Ogre,Bronze Ogres,19,5,1,2,3,16,0,20,175,115
+Bronze Ogre,Bronze Ogres,19,6,0,1,2,12,0,20,175,135
+Ornery Human Thief,Ornery Human Thieves,34,6,3,3,2,50,18,20,205,80
+Vicious Elf Barbarian,Vicious Elf Barbarians,24,6,1,3,2,30,5,20,250,120
+Hardy Elf Cleric,Hardy Elf Clerics,39,6,2,2,3,40,35,20,235,90
+Cranky Gremlin Wizard,Cranky Gremlin Wizards,46,6,2,2,3,50,40,20,250,100
+Sly Halfling Ranger,Sly Halfling Rangers,33,6,0,3,2,30,20,20,230,80
+White Dwarf Knight,White Dwarf Knights,28,6,2,2,3,35,15,20,240,95
+Ornery Human Thief,Ornery Human Thieves,34,6,3,3,3,50,20,20,205,80
+Vicious Elf Barbarian,Vicious Elf Barbarians,24,6,1,2,3,30,5,20,250,120
+Hardy Elf Cleric,Hardy Elf Clerics,39,6,2,3,2,40,40,20,235,90
+Cranky Gremlin Wizard,Cranky Gremlin Wizards,46,6,2,2,1,50,50,20,250,100
+Sly Halfling Ranger,Sly Halfling Rangers,33,6,0,2,3,30,20,20,230,80
+White Dwarf Knight,White Dwarf Knights,28,6,2,2,2,35,10,20,240,95
+Silver Ogre,Silver Ogres,19,9,0,3,2,30,0,15,130,80
+Large-Un,Large-Uns,18,3,0,2,2,40,0,15,260,75
+Pincer Cobra,Pincer Cobras,4,5,1,2,3,35,0,0,175,190
+Ornery Gnome Thief,Ornery Gnome Thieves,36,8,2,3,3,40,16,12,300,130
+Hardy Troll Cleric,Hardy Troll Clerics,40,8,3,3,2,45,40,12,340,160
+Ferocious Orc Barbarian,Ferocious Orc Barbarians,23,9,0,2,3,50,10,12,310,200
+Sly Elf Ranger,Sly Elf Rangers,31,9,1,3,2,75,20,12,320,175
+Purple Troll Knight,Purple Troll Knights,27,9,1,3,2,65,15,12,300,190
+Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,9,0,3,1,90,55,12,325,225
+Silver Ogre,Silver Ogres,19,9,0,3,3,40,0,12,290,120
+Skeletal Knight,Skeletal Knight,9,10,0,2,2,50,0,12,275,150
+Red Orc Knight,Red Orc Knights,26,11,0,3,1,60,10,12,300,400
+Skeletal Warrior,Skeletal Warriors,9,6,0,4,2,25,0,12,110,60
+Ferocious Human Barbarian,Ferocious Human Barbarians,22,10,0,3,2,70,5,12,345,435
+Deinon,Deinons,5,6,0,4,3,25,0,0,190,200
+Wyvern,Wyvern,15,3,1,2,2,80,50,0,450,800
+Black Widow,Black Widows,8,5,1,2,2,24,0,0,190,165
+Black Widow,Black Widows,8,6,0,2,3,18,0,0,190,165
+Black Widow,Black Widows,8,5,1,2,2,24,0,0,190,165
+Black Widow,Black Widows,8,6,0,2,1,18,0,0,190,165
+Black Widow,Black Widows,8,5,1,3,1,24,0,0,190,165
+Black Widow,Black Widows,8,6,0,1,2,18,0,0,190,165
+Leech,Leeches,7,2,1,2,2,20,0,0,175,155
+Leech,Leeches,7,3,0,3,2,15,0,0,175,155
+Leech,Leeches,7,2,1,2,2,20,0,0,175,155
+Leech,Leeches,7,3,0,3,2,15,0,0,175,155
+Leech,Leeches,7,2,1,2,1,20,0,0,175,155
+Leech,Leeches,7,3,0,2,1,15,0,0,175,155
+Sabertooth Lion,Sabertooth Lions,2,7,0,3,1,40,0,0,160,170
+Sabertooth Lion,Sabertooth Lions,2,7,0,2,2,40,0,0,160,170
+Sabertooth Lion,Sabertooth Lions,2,7,1,2,1,35,0,0,160,170
+Sabertooth Lion,Sabertooth Lions,2,7,1,1,2,35,0,0,160,170
+Sabertooth Lion,Sabertooth Lions,2,8,0,1,1,30,0,0,175,170
+Sabertooth Lion,Sabertooth Lions,2,8,0,2,0,30,0,0,175,170
+Deinon,Deinons,5,5,1,2,2,25,0,0,170,200
+Deinon,Deinons,5,6,0,2,2,25,0,0,170,200
+Deinon,Deinons,5,5,1,1,2,25,0,0,170,200
+Deinon,Deinons,5,6,0,2,2,25,0,0,170,200
+Deinon,Deinons,5,5,1,2,1,25,0,0,170,200
+Deinon,Deinons,5,6,0,1,2,25,0,0,170,200
+Ice Lion,Ice Lions,2,5,1,2,2,25,0,0,165,160
+Ice Lion,Ice Lions,2,6,0,1,2,25,0,0,165,170
+Polar Bear,Polar Bears,3,4,2,3,2,40,0,0,200,150
+Silver Ogre,Silver Ogres,19,9,0,3,2,30,0,30,225,250
+Silver Ogre,Silver Ogres,19,9,0,2,3,30,0,30,225,250
+Lizardite,Lizardites,20,6,0,3,3,40,0,30,190,120
+Hell Wolf,Hell Wolves,1,7,0,2,2,60,25,25,260,240
+Hell Wolf,Hell Wolves,1,7,0,2,1,50,30,25,260,260
+Hell Wolf,Hell Wolves,1,7,1,1,1,45,30,25,260,300
+Were-Bear,Were-Bears,3,7,0,1,1,60,20,25,350,500
+Spit Spider,Spit Spiders,8,7,1,2,3,30,0,0,290,250
+Spinorpion,Spinorpions,6,4,1,2,1,25,0,0,275,300
+Giant,Giants,18,4,1,2,2,40,0,30,230,275
+Minotaur,Minotaurs,13,4,0,2,2,40,0,30,200,450
+Ghoul,Ghouls,11,5,1,2,2,50,0,30,300,325
+Lich,Liches,10,10,0,1,1,0,100,30,500,5000
+Ornery Dwarf Thief,Ornery Dwarf Thieves,35,7,2,3,3,70,20,25,290,110
+Vicious Human Barbarian,Vicious Human Barbarians,22,7,1,3,2,50,5,25,250,190
+Hardy Troll Cleric,Hardy Troll Clerics,40,7,2,3,1,65,35,25,225,160
+Cranky Gnome Wizard,Cranky Gnome Wizards,45,7,1,2,2,75,45,25,250,170
+Sly Orc Ranger,Sly Orc Rangers,30,7,2,3,1,55,18,25,210,130
+Green Halfling Knight,Green Halfling Knights,29,7,0,3,2,60,10,25,220,160
+Ornery Human Thief,Ornery Human Thieves,34,9,1,2,3,140,18,25,290,140
+Ferocious Elf Barbarian,Ferocious Elf Barbarians,24,9,0,2,2,100,5,25,280,225
+Hardy Halfling Cleric,Hardy Halfling Cleric,41,9,1,3,1,130,40,25,250,180
+Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,9,0,2,1,150,50,25,280,200
+Sly Troll Ranger,Sly Troll Rangers,32,9,0,3,2,110,15,25,240,160
+Orange Orc Knight,Orange Orc Knights,26,9,0,2,3,120,10,25,260,190
+Banshee,Banshees,10,7,0,3,3,40,0,10,225,225
+Banshee,Banshees,10,7,1,2,3,40,0,10,225,225
+Banshee,Banshees,10,8,0,2,2,30,0,10,225,250
+Banshee,Banshees,10,8,1,1,2,30,0,10,225,250
+Banshee,Banshees,10,9,0,2,0,20,0,10,225,280
+Banshee,Banshees,10,9,0,1,1,20,0,10,225,280
+Nightmare,Nightmares,12,4,1,3,2,30,0,25,260,425
+Nightmare,Nightmares,12,4,2,2,3,30,0,25,260,425
+Nightmare,Nightmares,12,5,0,1,3,20,0,25,260,450
+Nightmare,Nightmares,12,5,1,1,2,20,0,25,260,450
+Nightmare,Nightmares,12,6,0,1,1,15,0,25,260,475
+Nightmare,Nightmares,12,6,0,2,0,15,0,25,260,475
+Incubus,Incubi,16,7,1,3,2,40,35,30,200,185
+Incubus,Incubi,16,8,0,2,2,40,35,30,200,210
+Phantasm,Phantasms,17,1,1,3,1,75,30,30,275,400
+Pincer Cobra,Pincer Cobras,4,5,1,3,3,40,0,0,190,215
+Pincer Cobra,Pincer Cobras,4,6,0,3,2,20,0,0,190,240
+Deinon,Deinons,5,6,0,5,1,50,0,0,150,200
+Saurion,Saurions,20,7,0,2,2,80,20,50,275,225
+Saurion,Saurions,20,7,0,2,1,80,20,50,275,225
+Saurion,Saurions,20,7,1,1,1,80,20,50,275,250
+Cantankerous Human Wizard,Cantankerous Human Wizards,43,9,2,2,1,150,50,25,300,200
+Ferocious Orc Barbarian,Ferocious Orc Barbarians,23,9,2,3,2,100,10,25,300,225
+Ornery Halfling Thief,Ornery Halfling Thieves,37,10,2,3,3,140,18,25,275,190
+Hardy Halfling Cleric,Hardy Halfling Cleric,41,10,1,2,1,180,35,25,360,240
+Blue Troll Knight,Blue Troll Knights,27,10,1,2,2,150,10,25,320,220
+Sly Elf Ranger,Sly Elf Rangers,31,10,1,2,2,140,15,25,330,190
+Black Dwarf Knight,Black Dwarf Knights,28,10,1,2,2,150,10,25,325,220
+Ornery Dwarf Thief,Ornery Dwarf Thieves,35,8,1,4,2,90,15,30,270,110
+Ornery Human Thief,Ornery Human Thieves,34,8,1,5,2,90,15,30,270,110
+Ornery Halfling Thief,Ornery Halfling Thieves,37,8,1,4,2,90,15,30,270,110
+Ornery Gnome Thief,Ornery Gnome Thieves,36,8,1,3,1,90,15,30,270,110
+Ornery Dwarf Thief,Ornery Dwarf Thieves,35,9,1,3,1,110,18,30,300,130
+Ornery Human Thief,Ornery Human Thieves,34,9,1,2,2,110,18,30,300,130
+Ornery Halfling Thief,Ornery Halfling Thieves,37,9,1,3,1,110,18,30,300,130
+Ornery Gnome Thief,Ornery Gnome Thieves,36,9,1,2,2,110,18,30,300,130
+Ornery Dwarf Thief,Ornery Dwarf Thieves,35,10,2,1,1,140,10,25,400,140
+Ornery Human Thief,Ornery Human Thieves,34,10,2,2,0,140,10,25,400,140
+Ornery Halfling Thief,Ornery Halfling Thieves,37,10,2,2,1,140,10,25,400,140
+Ornery Gnome Thief,Ornery Gnome Thieves,36,10,2,1,2,140,10,25,400,140
+Skeletal Ranger,Skeletal Rangers,9,7,2,6,2,15,0,12,220,140
+Skeletal Ranger,Skeletal Rangers,9,8,0,5,2,18,0,12,225,140
+Skeletal Ranger,Skeletal Rangers,9,8,0,4,3,18,0,12,225,140
+Skeletal Ranger,Skeletal Rangers,9,9,0,3,3,25,0,12,230,140
+Banshee,Banshees,10,8,0,2,4,25,0,0,290,160
+Banshee,Banshees,10,9,0,3,2,15,0,0,300,160
+Phantasm,Phantasms,17,2,0,2,2,90,50,0,300,160
+Phantasm,Phantasms,17,2,1,3,2,75,45,0,300,160
+Ice Lion,Ice Lions,2,5,0,2,3,25,0,0,240,175
+Ice Lion,Ice Lions,2,5,1,3,2,25,0,0,245,175
+Polar Bear,Polar Bears,3,4,2,2,3,60,0,0,275,175
+Polar Bear,Polar Bears,3,5,1,2,2,40,0,0,290,200
+Lamprey,Lampreys,7,5,1,1,3,20,0,0,230,130
+Black Widow,Black Widows,8,5,1,3,2,20,0,0,210,120
+Spinorpion,Spinorpions,6,5,1,2,3,20,0,0,300,225
+Ghost,Ghosts,10,5,1,4,2,50,0,20,250,60
+Ghoul,Ghouls,11,5,1,2,4,50,0,0,150,300
+Giant,Giants,18,4,1,2,1,100,0,25,240,160
+Nightmare,Nightmares,12,5,1,1,3,40,0,0,180,450
+Minotaur,Minotaurs,13,3,1,2,2,45,0,10,160,450
+Lizardite,Lizardites,20,5,1,3,1,40,0,20,170,115
+Cockatrice,Cockatrices,14,2,1,2,0,40,35,0,180,175
+Incubus,Incubi,16,7,1,2,1,40,45,30,190,185
+Hell Wolf,Hell Wolves,1,7,0,2,1,35,35,0,100,340
+Dragon,Dragons,15,3,1,1,0,0,45,45,500,4500
+Cantankerous Human Wizard,Cantankerous Human Wizards,43,9,0,1,1,150,30,25,380,200
+Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,9,0,1,1,150,30,25,380,200
+Hardy Halfling Cleric,Hardy Halfling Cleric,41,10,0,1,1,180,30,25,210,240
+Minotaur,Minotaurs,13,1,1,2,3,60,0,15,240,400
+Minotaur,Minotaurs,13,2,1,2,1,50,0,15,245,425
+Minotaur,Minotaurs,13,2,1,2,2,50,0,15,245,425
+Minotaur,Minotaurs,13,3,0,1,2,45,0,15,320,450
+Minotaur,Minotaurs,13,3,1,1,2,45,0,15,320,450
+Minotaur,Minotaurs,13,4,0,1,1,40,0,15,310,475
+Hobgoblin,Hobgoblins,21,4,1,3,2,60,10,25,200,125
+Hobgoblin,Hobgoblins,21,4,2,3,1,60,10,25,200,125
+Hobgoblin,Hobgoblins,21,5,0,3,2,55,10,25,210,130
+Hobgoblin,Hobgoblins,21,5,1,4,1,55,10,25,210,130
+Hobgoblin,Hobgoblins,21,6,0,3,2,50,15,25,225,140
+Hobgoblin,Hobgoblins,21,6,0,2,2,50,15,25,225,140
+Lizardite,Lizardites,20,4,1,3,2,50,0,20,210,90
+Lizardite,Lizardites,20,4,2,4,1,50,0,20,210,90
+Lizardite,Lizardites,20,5,0,3,1,40,0,20,240,115
+Lizardite,Lizardites,20,5,1,2,1,40,0,20,240,115
+Lizardite,Lizardites,20,6,0,3,2,30,0,20,255,135
+Lizardite,Lizardites,20,6,0,2,2,30,0,20,255,135
+Bronze Ogre,Bronze Ogres,19,4,1,3,2,21,0,30,175,25
+Bronze Ogre,Bronze Ogres,19,4,2,4,2,21,0,30,175,25
+Bronze Ogre,Bronze Ogres,19,5,0,3,1,16,0,30,190,35
+Bronze Ogre,Bronze Ogres,19,5,1,2,3,16,0,30,190,35
+Bronze Ogre,Bronze Ogres,19,6,0,3,1,12,0,30,200,50
+Bronze Ogre,Bronze Ogres,19,6,0,2,2,12,0,30,200,50
+Lamprey,Lampreys,7,5,0,2,4,12,0,35,180,130
+Black Widow,Black Widows,8,6,0,2,2,20,0,35,170,120
+Sabertooth Lion,Sabertooth Lions,2,8,0,1,3,30,0,0,175,400
+Hell Wolf,Hell Wolves,1,9,0,3,3,35,30,0,200,340
+Pincer Cobra,Pincer Cobras,4,5,1,3,3,30,0,50,180,215
+Pincer Cobra,Pincer Cobras,4,6,0,2,3,20,0,50,260,225
+Wyvern,Wyverns,15,4,0,1,2,70,35,50,500,750
+Sly Troll Ranger,Sly Troll Rangers,32,9,0,2,2,110,15,25,340,160
+Sly Elf Ranger,Sly Elf Rangers,31,8,1,3,4,140,15,25,200,130
+Ornery Human Thief,Ornery Human Thieves,34,9,0,3,2,150,20,25,220,100
+Blue Troll Knight,Blue Troll Knights,27,10,0,2,2,150,10,25,290,225
+Black Dwarf Knight,Black Dwarf Knights,28,10,0,1,3,150,10,25,290,225
+Hardy Halfling Cleric,Hardy Halfling Cleric,41,10,1,2,1,180,40,25,310,240
+Ferocious Human Barbarian,Ferocious Human Barbarians,22,11,0,1,1,240,5,25,400,325
+Ferocious Orc Barbarian,Ferocious Orc Barbarians,23,11,0,1,1,240,5,25,400,325
+Cantankerous Gremlin Wizard,Cantankerous Gremlin Wizards,46,11,0,1,1,19,60,25,450,400
+Raptor,Raptors,5,3,0,2,1,20,0,0,20,50
+Raptor,Raptors,5,3,1,2,1,20,0,0,30,60
+Raptor,Raptors,5,4,0,1,2,20,0,0,40,70
+Raptor,Raptors,5,3,0,2,1,20,0,0,20,50
+Raptor,Raptors,5,3,1,1,1,20,0,0,30,60
+Raptor,Raptors,5,4,0,1,0,20,0,0,40,70
+Raptor,Raptors,5,3,0,1,3,20,0,0,20,50
+Raptor,Raptors,5,3,1,2,2,20,0,0,30,60
+Raptor,Raptors,5,4,0,2,2,20,0,0,40,70
+Raptor,Raptors,5,3,0,1,2,20,0,0,20,50
+Raptor,Raptors,5,3,1,2,1,20,0,0,30,60
+Raptor,Raptors,5,4,0,1,1,20,0,0,40,70
+Dire Wolf,Dire Wolves,1,4,0,4,2,24,0,30,15,20
+Dire Wolf,Dire Wolves,1,4,1,3,2,21,0,30,18,25
+Dire Wolf,Dire Wolves,1,4,2,3,1,18,0,30,18,25
+Dire Wolf,Dire Wolves,1,5,0,2,1,15,0,30,21,30
+Dire Wolf,Dire Wolves,1,5,1,1,3,12,0,30,21,30
+Dire Wolf,Dire Wolves,1,6,0,2,2,9,0,30,25,35
+Dire Wolf,Dire Wolves,1,4,1,2,2,24,0,30,15,20
+Dire Wolf,Dire Wolves,1,4,2,2,1,21,0,30,18,25
+Dire Wolf,Dire Wolves,1,5,0,1,3,18,0,30,18,25
+Dire Wolf,Dire Wolves,1,5,1,2,2,15,0,30,21,30
+Dire Wolf,Dire Wolves,1,5,2,1,2,12,0,30,21,30
+Dire Wolf,Dire Wolves,1,6,0,1,1,9,0,30,25,35
+Zombie,Zombies,11,2,1,1,2,30,0,30,30,60
+Zombie,Zombies,11,2,2,2,1,30,0,30,30,60
+Skeletal Warrior,Skeletal Warriors,9,4,0,2,1,30,0,30,20,30
+Skeletal Warrior,Skeletal Warriors,9,4,1,1,1,25,0,30,20,30
+Skeletal Warrior,Skeletal Warriors,9,4,2,1,1,20,0,30,20,30
+Large-Un,Large-Uns,18,1,1,2,2,50,0,60,80,85
+Large-Un,Large-Uns,18,1,2,3,1,40,0,60,80,85
+Bronze Ogre,Bronze Ogres,19,4,2,3,1,25,0,60,75,115
+Bronze Ogre,Bronze Ogres,19,4,2,2,2,25,0,60,75,115
+Bronze Ogre,Bronze Ogres,19,4,2,1,2,25,0,60,75,115
+Cockatrice,Cockatrices,14,1,1,3,1,60,35,0,60,125
+Cockatrice,Cockatrices,14,2,0,2,2,50,40,0,75,150
+Cockatrice,Cockatrices,14,2,1,1,1,40,45,0,80,175
+Nightmare,Nightmares,12,5,0,1,1,50,0,0,180,450
+Nightmare,Nightmares,12,5,1,1,1,40,0,0,180,450
+Nightmare,Nightmares,12,6,0,1,1,30,0,0,200,475
+Ornery Gnome Thief,Ornery Gnome Thieves,36,7,3,3,3,100,15,30,270,110
+Ornery Gnome Thief,Ornery Gnome Thieves,36,8,1,3,2,100,18,30,290,130
+Ornery Gnome Thief,Ornery Gnome Thieves,36,8,2,2,3,100,20,30,290,130
+Ornery Gnome Thief,Ornery Gnome Thieves,36,8,3,1,2,100,23,30,290,150
+Ornery Gremlin Thief,Ornery Gremlin Thieves,38,9,0,1,2,110,25,35,290,150
+Ornery Gremlin Thief,Ornery Gremlin Thieves,38,9,1,2,1,110,25,35,310,150
+Ornery Gremlin Thief,Ornery Gremlin Thieves,38,9,2,2,0,120,25,35,310,150
+Ornery Gremlin Thief,Ornery Gremlin Thieves,38,9,3,1,1,130,25,35,350,160
+Pincer Cobra,Pincer Cobras,4,5,0,3,3,30,0,0,280,215
+Pincer Cobra,Pincer Cobras,4,5,1,4,2,30,0,0,280,215
+Pincer Cobra,Pincer Cobras,4,5,1,3,2,20,0,0,300,225
+Pincer Cobra,Pincer Cobras,4,6,0,2,2,20,0,0,300,225
+Nightmare,Nightmares,12,5,0,3,2,20,0,25,250,450
+Nightmare,Nightmares,12,5,1,2,2,20,0,25,250,450
+Nightmare,Nightmares,12,6,0,1,2,15,0,25,275,475
+Nightmare,Nightmares,12,6,0,3,2,15,0,25,275,475
+Minotaur,Minotaurs,13,2,1,2,3,50,0,12,245,425
+Minotaur,Minotaurs,13,3,0,2,2,45,0,12,250,450
+Minotaur,Minotaurs,13,3,1,2,3,45,0,12,250,450
+Minotaur,Minotaurs,13,4,0,1,2,40,0,12,260,475
+Spit Spider,Spit Spiders,8,8,0,3,2,45,0,0,290,225
+Spit Spider,Spit Spiders,8,8,1,2,2,40,0,0,290,225
+Spit Spider,Spit Spiders,8,9,0,1,2,30,0,0,325,250
+Spit Spider,Spit Spiders,8,9,0,2,1,30,0,0,325,250
+Phantasm,Phantasms,17,2,1,1,1,75,50,0,325,250
+Lich,Liches,10,10,1,1,0,0,75,50,700,5000
+Polar Bear,Polar Bears,3,5,1,3,4,40,0,0,200,200
+Gargoyle,Gargoyles,14,6,1,3,2,40,35,20,260,710
+Spinorpion,Spinorpions,6,8,0,3,3,15,0,0,270,300
+Wind Knight,Wind Knights,9,10,0,2,4,40,0,25,280,150
+Silver Ogre,Silver Ogres,19,8,1,3,3,30,0,30,290,180
+Gold Ogre,Gold Ogres,19,11,0,2,1,50,0,30,340,175
+Hell Wolf,Hell Wolves,1,7,0,2,3,35,25,0,300,340
+Hobgoblin,Hobgoblins,21,6,0,2,3,50,15,30,275,140
+Shapeshifter,Shapeshifters,12,7,0,3,1,50,0,0,300,750
+Bronze Ogre,Bronze Ogres,19,6,0,4,2,12,0,30,335,150
+Mean Dwarf Thief,Mean Dwarf Thieves,35,13,0,3,3,130,18,30,340,170
+Mean Human Thief,Mean Human Thieves,34,13,1,2,2,130,20,30,340,170
+Mean Halfling Thief,Mean Halfling Thieves,37,13,1,1,3,130,20,30,340,170
+Dragon,Dragons,15,5,0,1,0,0,50,40,1000,3500
+Tyran,Tyrans,5,7,0,3,5,100,0,0,700,875
+Tyran,Tyrans,5,7,1,2,4,100,0,0,700,875
+Tyran,Tyrans,5,7,1,3,3,100,0,0,700,875
+Tyran,Tyrans,5,8,0,2,3,75,0,0,700,875
+Saurion,Saurions,20,7,1,3,3,90,25,50,900,1025
+Saurion,Saurions,20,8,0,4,2,80,25,50,900,1025
+Saurion,Saurions,20,8,0,3,3,80,25,50,900,1025
+Saurion,Saurions,20,8,1,3,1,70,25,50,900,1025
+Basilisk,Basilisks,4,7,0,2,3,120,40,30,1050,1300
+Basilisk,Basilisks,4,7,0,3,2,120,40,30,1050,1300
+Basilisk,Basilisks,4,7,0,2,2,120,40,30,1050,1300
+Basilisk,Basilisks,4,7,1,2,1,140,40,30,1050,1300
+Basilisk,Basilisks,4,7,1,1,2,140,40,30,1050,1300
+Basilisk,Basilisks,4,7,1,2,2,140,40,30,1050,1300
+Basilisk,Basilisks,4,8,0,1,3,120,40,30,1050,1300
+Basilisk,Basilisks,4,8,0,2,1,120,40,30,1050,1300
+Wyvern,Wyverns,15,2,1,2,1,80,60,50,500,750
+Wyvern,Wyverns,15,3,0,1,2,70,60,50,500,750
+Wyvern,Wyverns,15,3,0,2,1,70,60,50,500,750
+Wyvern,Wyverns,15,3,1,1,1,65,60,50,500,750
+Wyvern,Wyverns,15,3,1,2,0,65,60,50,500,750
+Wyvern,Wyverns,15,4,0,1,1,50,60,50,500,750
+Wyvern,Wyverns,15,4,0,1,0,50,60,50,500,750
+Wyvern,Wyverns,15,4,0,2,0,50,60,50,500,750
+Imp,Imps,16,3,1,6,2,10,40,0,380,350
+Imp,Imps,16,4,0,5,2,10,40,0,380,350
+Incubus,Incubi,16,7,1,3,3,25,50,0,500,500
+Incubus,Incubi,16,8,0,3,1,25,50,0,500,500
+Phantasm,Phantasms,17,2,1,2,3,75,60,0,600,650
+Phantasm,Phantasms,17,3,1,3,2,75,60,0,600,650
+Dragon,Dragons,15,6,0,1,2,0,50,35,3500,4750
+Dragon,Dragons,15,6,0,2,1,0,50,35,3500,4750
+Dragon,Dragons,15,6,0,3,0,0,50,35,3500,4750
+Manticore,Manticores,2,9,0,1,3,0,50,35,1300,1800
+Dragon,Dragons,15,7,1,1,1,0,50,35,3500,5000
+Were-Bear,Were-Bears,3,8,0,3,2,80,35,25,1000,1250
+Were-Minotaur,Were-Minotaurs,13,5,1,3,4,0,0,30,900,1050
+Manticore,Manticores,2,9,0,4,2,75,40,40,1250,1150
+Guardian of Arnakkian,Guardian of Arnakkian,17,4,0,1,0,0,90,60,2000,12500
+Earth Elemental,Earth Elemental,17,8,0,1,0,0,85,60,2500,25000
+Sly Orc Ranger,Sly Orc Rangers,30,10,1,3,2,140,15,30,370,190
+Sly Orc Ranger,Sly Orc Rangers,30,10,2,2,3,140,15,30,350,210
+Sly Orc Ranger,Sly Orc Rangers,30,11,0,3,2,120,15,30,420,230
+Wily Orc Ranger,Wily Orc Rangers,30,12,0,2,2,100,15,30,420,230
+Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,11,1,2,2,19,45,30,325,375
+Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,12,0,1,2,240,45,25,350,400
+Cantankerous Gnome Wizard,Cantankerous Gnome Wizards,45,11,1,2,2,19,45,25,325,375
+Cantankerous Gnome Wizard,Cantankerous Gnome Wizards,45,12,0,2,1,240,45,25,350,400
+Incubus,Incubi,16,6,2,4,1,60,25,30,290,185
+Incubus,Incubi,16,7,0,3,2,40,25,30,300,210
+Incubus,Incubi,16,7,1,2,1,40,25,30,300,210
+Incubus,Incubi,16,8,0,1,2,30,25,30,420,240
+Wyvern,Wyverns,15,3,0,2,1,65,35,30,470,630
+Wyvern,Wyverns,15,3,1,1,1,65,35,30,480,630
+Wyvern,Wyverns,15,4,0,1,1,50,35,30,450,675
+Basilisk,Basilisks,4,8,0,3,2,120,25,20,500,800
+Basilisk,Basilisks,4,7,1,2,3,140,25,20,465,775
+Basilisk,Basilisks,4,7,0,1,3,120,25,20,440,750
+Manticore,Manticores,2,9,0,3,1,75,30,30,450,300
+Manticore,Manticores,2,9,0,2,2,75,30,30,460,300
+Manticore,Manticores,2,9,0,1,2,75,30,30,475,300
+Gargoyle,Gargoyles,14,5,0,3,1,60,25,40,500,650
+Gargoyle,Gargoyles,14,5,1,2,2,60,25,40,430,680
+Gargoyle,Gargoyles,14,6,0,1,2,50,25,40,430,680
+Saurion,Saurions,20,7,1,3,2,120,10,20,465,250
+Dragon,Dragons,15,5,2,1,1,0,40,35,700,4500
+Dragon,Dragons,15,6,1,1,1,0,45,35,700,4750
+Dragon,Dragons,15,7,0,1,0,0,50,35,700,5000
+Spinorpion,Spinorpions,6,8,0,2,6,15,0,0,410,300
+Basilisk,Basilisks,4,7,1,3,2,140,30,30,520,775
+Hobgoblin,Hobgoblins,21,6,0,6,2,50,15,30,375,140
+Crafty Dwarf Wizard,Crafty Dwarf Wizards,44,13,0,2,1,240,40,32,550,400
+Mean Dwarf Thief,Mean Dwarf Thieves,35,13,0,3,1,130,18,35,390,170
+Black Dwarf Knight,Black Dwarf Knights,28,12,0,4,1,150,15,25,440,220
+Spit Spider,Spit Spiders,8,9,0,3,6,50,0,0,400,250
+Were-Bear,Were-Bears,3,8,0,3,2,80,15,25,800,550
+Cyclops,Cyclops,18,7,0,2,1,0,10,25,800,900
+Giant,Giants,18,5,1,1,2,100,0,25,700,200
+Manticore,Manticores,2,9,0,3,3,75,25,40,800,300
+Nightmare,Nightmares,12,6,0,4,2,15,0,25,700,475
+Cantankerous Human Wizard,Cantankerous Human Wizards,43,10,0,3,1,19,60,25,900,975
+Cantankerous Human Wizard,Cantankerous Human Wizards,43,10,1,2,1,19,60,25,900,975
+Cantankerous Human Wizard,Cantankerous Human Wizards,43,11,0,1,2,240,60,25,900,975
+Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,12,0,1,1,19,60,25,950,1025
+Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,11,1,1,2,19,60,25,950,1025
+Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,12,0,2,0,240,60,25,950,1025
+Cantankerous Gnome Wizard,Cantankerous Gnome Wizards,45,11,0,2,1,19,60,25,875,950
+Cantankerous Gnome Wizard,Cantankerous Gnome Wizards,45,11,1,1,2,19,60,25,875,950
+Cantankerous Gnome Wizard,Cantankerous Gnome Wizards,45,12,0,1,1,240,60,25,875,950
+Spinorpion,Spinorpions,6,6,2,4,3,25,0,0,500,250
+Spinorpion,Spinorpions,6,7,0,3,3,20,0,0,500,275
+Spinorpion,Spinorpions,6,7,1,4,2,20,0,0,500,275
+Spinorpion,Spinorpions,6,8,0,2,3,15,0,0,500,300
+Hobgoblin,Hobgoblins,21,5,0,4,3,55,25,30,600,400
+Hobgoblin,Hobgoblins,21,5,1,2,4,55,25,30,600,400
+Hobgoblin,Hobgoblins,21,6,0,3,2,50,25,30,600,400
+King Goblin,King Goblins,21,7,1,2,1,120,60,30,1200,2200
+King Goblin,King Goblins,21,8,0,1,1,100,60,30,1200,2400
+Manticore,Manticores,2,9,0,3,2,75,40,40,1200,1300
+Manticore,Manticores,2,9,0,2,3,75,40,40,1200,1300
+Manticore,Manticores,2,9,0,2,2,75,40,40,1200,1300
+Manticore,Manticores,2,9,0,1,3,75,40,40,1200,1300
+Manticore,Manticores,2,9,0,3,1,75,40,40,1200,1300
+Manticore,Manticores,2,9,0,2,1,75,40,40,1200,1300
+Basilisk,Basilisks,4,8,0,2,3,120,50,30,1250,800
+Gold Ogre,Gold Ogres,19,11,0,5,2,50,0,35,800,750
+Dragon,Dragons,15,7,0,1,1,0,60,35,4000,5000
+Wyvern,Wyverns,15,4,0,2,1,50,45,35,650,1250
+Nightmare,Nightmares,12,6,0,3,4,15,0,25,400,475
+Shapeshifter,Shapeshifters,12,7,1,2,4,50,0,0,800,1250
+Banshee,Banshees,10,8,1,3,4,20,0,30,450,390
+Ghoul,Ghouls,11,6,0,3,4,0,0,0,650,700
+Crafty Human Wizard,Crafty Human Wizards,43,11,0,3,1,240,65,25,1050,1100
+Crafty Dwarf Wizard,Crafty Dwarf Wizards,44,11,0,3,1,240,65,25,1050,1100
+Crafty Gnome Wizard,Crafty Gnome Wizards,45,11,0,2,2,240,65,25,1050,1100
+Black Dwarf Knight,Black Dwarf Knights,28,11,1,3,3,150,25,25,950,950
+Venerable Halfling Cleric,Venerable Halfling Clerics,41,11,1,2,2,200,55,35,1000,1050
+Lich,Liches,10,10,0,2,1,0,90,50,2400,5000
+Lich,Liches,10,10,1,2,1,0,90,50,2400,5000
+Arnakkian,Arnakkian,10,13,0,1,0,0,95,50,5000,10000
+Orange Orc Knight,Orange Orc Knights,26,10,0,3,3,150,15,35,390,225
+Orange Orc Knight,Orange Orc Knights,26,10,1,4,2,150,15,35,490,225
+Orange Orc Knight,Orange Orc Knights,26,11,0,3,1,130,15,35,420,250
+Red Orc Knight,Red Orc Knights,26,12,0,2,3,110,10,35,470,300
+Banshee,Banshees,10,7,1,3,3,25,0,30,390,250
+Banshee,Banshees,10,8,0,2,4,20,0,30,410,280
+Banshee,Banshees,10,8,1,3,4,20,0,30,410,280
+Banshee,Banshees,10,9,0,3,3,10,0,30,430,310
+Skeletal Ranger,Skeletal Rangers,9,7,1,4,4,70,0,20,355,160
+Skeletal Ranger,Skeletal Rangers,9,8,0,5,3,60,0,20,365,180
+Skeletal Ranger,Skeletal Rangers,9,8,1,4,2,60,0,20,365,180
+Skeletal Ranger,Skeletal Rangers,9,9,0,3,3,50,0,20,375,100
+Skeletal Knight,Skeletal Knights,9,10,0,3,3,40,0,25,480,150
+Skeletal Knight,Skeletal Knights,9,10,1,2,3,40,0,25,490,150
+Skeletal Knight,Skeletal Knights,9,11,0,3,2,30,0,25,510,180
+Ghoul,Ghouls,11,5,0,4,3,0,0,0,440,300
+Ghoul,Ghouls,11,5,1,2,3,0,0,0,440,300
+Ghoul,Ghouls,11,6,0,3,4,0,0,0,465,325
+Shapeshifter,Shapeshifters,12,7,0,2,3,50,0,0,600,1250
+Shapeshifter,Shapeshifters,12,7,1,3,3,50,0,0,600,1250
+Shapeshifter,Shapeshifters,12,8,0,4,1,40,0,0,630,1300
+Minotaur,Minotaurs,13,3,1,3,4,75,0,35,450,500
+Minotaur,Minotaurs,13,4,0,4,2,65,0,35,450,525
+Were-Minotaur,Were-Minotaurs,13,5,0,3,4,0,0,35,525,1050
+Gargoyle,Gargoyles,14,7,1,4,3,75,35,40,500,700
+Giant,Giants,18,5,1,3,3,100,0,25,420,50
+Cyclops,Cyclops,18,7,1,3,2,0,15,25,600,900
+Blue Troll Knight,Blue Troll Knights,27,12,1,2,3,130,15,35,450,300
+Wily Troll Ranger,Wily Troll Rangers,32,12,1,2,2,100,20,35,450,230
+Venerable Troll Cleric,Venerable Troll Clerics,40,12,1,3,1,200,40,35,510,300
+Pincer Cobra,Pincer Cobras,4,6,0,5,2,20,0,0,300,225
+Tyran,Tyrans,5,7,1,4,3,150,0,0,375,325
+Hell Wolf,Hell Wolves,1,9,0,4,1,30,35,25,390,350
+Cantankerous Gremlin Wizard,Cantankerous Gremlin Wizards,46,12,1,2,1,240,60,25,620,400
+Crafty Gremlin Wizard,Crafty Gremlin Wizards,46,13,1,1,2,200,50,25,550,600
+Nightmare,Nightmares,12,6,0,3,4,15,0,25,400,475
+Tempest Wind,Tempest Wind,17,6,0,1,0,0,75,0,7500,5000
+Manticore,Manticores,2,9,0,3,3,75,30,40,400,300
+Spinorpion,Spinorpions,6,8,0,4,3,15,0,0,360,300
+Basilisk,Basilisks,4,8,0,4,4,120,30,30,400,800
+Ghost,Ghosts,10,4,2,3,5,20,30,0,300,275
+Ghost,Ghosts,10,5,0,4,4,16,30,0,300,275
+Ghost,Ghosts,10,5,1,2,4,16,30,0,300,275
+Ghost,Ghosts,10,6,0,3,3,12,30,0,300,275
+Banshee,Banshees,10,7,1,4,3,25,0,60,450,600
+Banshee,Banshees,10,8,0,3,3,20,0,60,450,600
+Banshee,Banshees,10,8,1,2,4,20,0,60,450,600
+Banshee,Banshees,10,9,0,3,3,10,0,60,450,600
+Banshee,Banshees,10,9,0,2,4,10,0,60,450,600
+Ghoul,Ghouls,11,5,1,3,4,0,0,0,500,1050
+Ghoul,Ghouls,11,6,0,3,5,0,0,0,500,1050
+Ghoul,Ghouls,11,6,1,4,3,0,0,0,500,1050
+Ghoul,Ghouls,11,6,2,4,4,0,0,0,500,1050
+Ghoul,Ghouls,11,7,0,3,3,0,0,0,500,1050
+Shapeshifter,Shapeshifters,12,7,0,3,3,50,0,20,750,1300
+Shapeshifter,Shapeshifters,12,7,1,2,4,50,0,20,750,1300
+Shapeshifter,Shapeshifters,12,8,0,1,4,40,0,20,750,1300
+Shapeshifter,Shapeshifters,12,8,1,2,3,40,0,20,750,1300
+Shapeshifter,Shapeshifters,12,9,0,2,2,30,0,20,750,1350
+Minotaur,Minotaurs,13,4,0,2,3,65,0,60,300,525
+Minotaur,Minotaurs,13,4,0,3,3,65,0,60,300,525
+Were-Minotaur,Were-Minotaurs,13,5,0,2,3,0,0,60,600,1050
+Were-Minotaur,Were-Minotaurs,13,5,1,3,2,0,0,60,600,1050
+Were-Minotaur,Were-Minotaurs,13,6,0,2,2,0,0,60,600,1100
+Skeletal Knight,Skeletal Knight,9,10,2,3,4,50,0,0,700,800
+Lamprey,Lampreys,7,5,1,3,4,40,0,0,150,400
+Death Leech,Death Leeches,7,8,1,3,3,25,35,0,750,900
+Chess King,Chess King,17,4,0,1,0,75,50,0,1000,3000
+Chess Queen,Chess Queen,16,4,0,1,0,25,35,100,900,3000
+Chess Bishop,Chess Bishops,42,13,0,2,0,200,40,75,800,1000
+Chess Knight,Chess Knights,27,13,0,2,0,150,15,50,750,800
+Chess Rook,Chess Rooks,18,8,0,2,0,100,0,50,500,650
+Chess Pawn,Chess Pawns,23,13,0,8,0,200,5,50,300,450
+Pincer Cobra,Pincer Cobras,4,6,0,3,3,20,0,0,500,450
+Wyvern,Wyverns,15,4,0,3,2,50,50,75,650,1400
+Dragon,Dragons,15,7,1,2,1,0,60,75,1600,5000
+Dragon,Dragons,15,8,0,2,2,0,60,75,1600,5500
+Cyclops,Cyclops,18,7,2,3,2,0,15,50,800,1400
+Cyclops,Cyclops,18,7,2,2,2,0,15,50,800,1400
+Cyclops,Cyclops,18,7,2,1,2,0,15,50,800,1400
+Sly Troll Ranger,Sly Troll Rangers,32,10,2,4,2,140,15,25,625,1210
+Sly Troll Ranger,Sly Troll Rangers,32,11,1,3,3,120,15,25,625,1230
+Wily Troll Ranger,Wily Troll Rangers,32,12,0,2,4,100,18,25,700,1250
+Wily Troll Ranger,Wily Troll Rangers,32,12,0,2,3,100,18,25,700,1250
+Sly Halfling Ranger,Sly Halfling Rangers,33,10,1,3,3,140,15,35,625,1210
+Sly Halfling Ranger,Sly Halfling Rangers,33,11,0,2,4,120,15,35,625,1230
+Wily Halfling Ranger,Wily Halfling Rangers,33,12,0,2,3,100,18,35,700,1250
+Wily Halfling Ranger,Wily Halfling Rangers,33,12,1,1,4,100,18,35,700,1250
+Lich,Liches,10,10,0,2,1,0,60,50,1300,5000
+Lich,Liches,10,10,1,1,2,0,60,50,1300,5000
+Lich,Liches,10,11,0,2,0,0,60,50,1300,6000
+Gargoyle,Gargoyles,14,6,0,3,2,50,25,40,800,1500
+Gargoyle,Gargoyles,14,6,1,3,3,40,25,40,800,1500
+Gargoyle,Gargoyles,14,6,2,2,4,40,25,40,800,1500
+Phantasm,Phantasms,17,2,1,3,2,90,20,30,600,750
+Phantasm,Phantasms,17,3,0,4,1,80,20,30,600,750
+Phantasm,Phantasms,17,3,1,3,1,70,20,30,600,750
+Were-Minotaur,Were-Minotaurs,13,5,0,3,4,0,0,30,600,1050
+Were-Minotaur,Were-Minotaurs,13,5,1,3,3,0,0,30,600,1050
+Were-Minotaur,Were-Minotaurs,13,6,1,3,2,0,0,30,600,1100
+Hell Wolf,Hell Wolves,1,7,1,3,2,50,30,40,700,800
+Hell Wolf,Hell Wolves,1,8,0,2,4,45,30,40,700,800
+Hell Wolf,Hell Wolves,1,8,1,4,2,45,30,40,700,800
+Hell Wolf,Hell Wolves,1,9,0,5,1,30,30,40,700,800
+Tyran,Tyrans,5,7,1,4,3,150,0,0,500,750
+Tyran,Tyrans,5,8,0,2,5,180,0,0,500,750
+Blue Troll Knight,Blue Troll Knights,27,12,2,3,3,130,18,35,600,1300
+Blue Troll Knight,Blue Troll Knights,27,13,1,4,2,130,18,35,650,1300
+Shapeshifter,Shapeshifters,12,8,1,4,3,75,0,0,750,1200
+Black Dwarf Knight,Black Dwarf Knights,28,12,2,3,2,130,18,35,600,1300
+Black Dwarf Knight,Black Dwarf Knights,28,13,1,2,3,130,18,35,650,1300
+Ghoul,Ghouls,11,7,1,5,2,0,0,0,675,650
+Ghoul,Ghouls,11,8,0,4,3,0,0,0,675,650
+Were-Bear,Were-Bears,3,8,1,4,1,60,20,25,800,950
+Were-Bear,Were-Bears,3,9,0,2,2,80,20,25,800,950
+Dragon,Dragons,15,7,1,2,0,0,40,35,2600,5000
+Dragon,Dragons,15,8,0,2,0,0,40,35,3000,5000
+Phoenix,Phoenix,14,9,0,1,0,0,75,50,10000,9000
+Phoenix,Phoenix,14,9,0,1,0,0,75,50,10000,9000
+Phoenix,Phoenix,14,9,0,1,0,0,75,50,10000,9000
+Hardy Elf Cleric,Hardy Elf Clerics,39,10,0,3,3,180,60,60,850,775
+Hardy Elf Cleric,Hardy Elf Clerics,39,10,1,2,3,180,60,60,850,775
+Hardy Elf Cleric,Hardy Elf Clerics,39,11,0,2,2,160,60,60,850,775
+Hardy Gremlin Cleric,Hardy Gremlin Cleric,42,10,1,2,4,180,60,75,850,775
+Hardy Gremlin Cleric,Hardy Gremlin Cleric,42,11,0,3,2,160,60,75,850,775
+Venerable Gremlin Cleric,Venerable Gremlin Clerics,42,12,0,1,3,200,70,75,1050,900
+Bronze Ogre,Bronze Ogres,19,5,1,5,5,30,0,50,125,90
+Bronze Ogre,Bronze Ogres,19,6,0,4,4,20,0,50,125,90
+Bronze Ogre,Bronze Ogres,19,6,0,5,3,20,0,50,125,90
+Silver Ogre,Silver Ogres,19,7,2,4,4,40,0,60,250,180
+Silver Ogre,Silver Ogres,19,8,1,5,3,30,0,60,250,180
+Silver Ogre,Silver Ogres,19,9,0,3,4,20,0,60,250,180
+Phantasm,Phantasms,17,3,0,3,2,80,50,50,650,750
+Phantasm,Phantasms,17,3,1,2,3,70,50,50,650,750
+Phantasm,Phantasms,17,4,0,2,2,60,50,50,650,750
+Dragon,Dragons,15,5,0,2,1,0,60,90,3000,4500
+Dragon,Dragons,15,5,1,1,1,0,60,90,3000,4500
+Dragon,Dragons,15,6,0,1,0,0,60,90,3000,4750
+Were-Bear,Were-Bears,3,8,0,3,3,80,35,50,900,1500
+Were-Bear,Were-Bears,3,8,1,4,2,60,35,50,900,1500
+Were-Bear,Were-Bears,3,9,0,2,3,40,35,50,900,1500
+Hell Wolf,Hell Wolves,1,8,0,3,4,45,45,20,1000,1300
+Hell Wolf,Hell Wolves,1,8,1,4,3,45,45,20,1000,1300
+Hell Wolf,Hell Wolves,1,9,0,3,3,30,45,20,1000,1300
+Deinon,Deinons,5,5,1,7,4,20,0,0,300,300
+Tyran,Tyrans,5,7,1,3,3,30,0,0,700,600
+Lizardite,Lizardites,20,5,1,3,4,40,0,60,250,150
+Saurion,Saurions,20,7,2,2,3,70,30,60,500,225
+Pincer Cobra,Pincer Cobras,4,5,1,5,2,20,0,0,350,240
+Dragon,Dragons,15,7,0,1,1,0,65,75,3000,4750
+Gold Ogre,Gold Ogres,19,10,0,2,3,60,0,75,800,800
+Gold Ogre,Gold Ogres,19,11,0,2,2,50,0,75,800,800
+Hardy Elf Cleric,Hardy Elf Clerics,39,10,1,3,3,180,60,75,800,900
+Venerable Elf Cleric,Venerable Elf Clerics,39,12,1,2,3,200,65,75,1050,1100
+Hardy Troll Cleric,Hardy Troll Clerics,40,10,1,3,3,180,60,75,800,900
+Venerable Troll Cleric,Venerable Troll Clerics,40,12,1,2,4,200,65,75,1050,1100
+Hardy Halfling Cleric,Hardy Halfling Clerics,41,10,1,3,3,180,60,75,800,900
+Venerable Halfling Cleric,Venerable Halfling Clerics,41,12,1,2,4,200,65,75,1050,1100
+Hardy Gremlin Cleric,Hardy Gremlin Cleric,42,11,0,3,3,160,60,75,800,900
+Venerable Gremlin Cleric,Venerable Gremlin Clerics,42,12,1,2,4,200,65,75,1050,1100
+Hobgoblin,Hobgoblins,21,5,0,5,5,55,35,35,650,600
+Hobgoblin,Hobgoblins,21,5,1,7,3,50,35,35,650,600
+Hobgoblin,Hobgoblins,21,5,1,6,4,50,35,35,650,600
+Hobgoblin,Hobgoblins,21,6,0,6,2,4,35,35,650,600
+Hobgoblin,Hobgoblins,21,6,0,4,4,5,35,35,650,600
+King Goblin,King Goblins,21,7,0,2,2,120,70,55,1600,2200
+King Goblin,King Goblins,21,7,1,3,1,120,70,55,1600,2200
+King Goblin,King Goblins,21,8,0,2,2,100,70,55,1600,2400
+Ice Lion,Ice Lions,2,5,0,4,3,40,0,0,350,500
+Ice Lion,Ice Lions,2,5,1,3,3,53,0,0,350,500
+Ice Lion,Ice Lions,2,5,1,2,4,35,0,0,350,500
+Ice Lion,Ice Lions,2,6,0,3,2,25,0,0,350,500
+Ice Lion,Ice Lions,2,6,0,2,3,25,0,0,350,500
+Polar Bear,Polar Bears,3,5,0,3,3,50,0,0,400,700
+Polar Bear,Polar Bears,3,5,1,4,2,45,0,0,400,700
+Polar Bear,Polar Bears,3,5,1,2,4,45,0,0,400,700
+Polar Bear,Polar Bears,3,6,0,2,2,40,0,0,400,700
+Polar Bear,Polar Bears,3,6,0,3,3,40,0,0,400,700
+Shapeshifter,Shapeshifters,12,7,0,4,3,50,0,0,850,1250
+Shapeshifter,Shapeshifters,12,7,1,3,4,50,0,0,850,1250
+Shapeshifter,Shapeshifters,12,8,0,3,3,40,0,0,850,1300
+Shapeshifter,Shapeshifters,12,8,1,2,4,40,0,0,850,1300
+Shapeshifter,Shapeshifters,12,9,0,2,2,30,0,0,850,1350
+Shapeshifter,Shapeshifters,12,9,0,3,1,30,0,0,850,1350
+Dragon,Dragons,15,7,1,1,1,0,65,50,3500,7500
+Were-Minotaur,Were-Minotaurs,13,5,1,3,4,0,0,35,525,1050
+Nightmare,Nightmares,12,5,1,3,4,40,0,35,450,450
+Sabertooth Lion,Sabertooth Lions,2,8,0,4,5,30,0,0,250,120
+Pincer Cobra,Pincer Cobras,4,6,0,4,4,30,0,0,275,225
+Spinorpion,Spinorpions,6,8,0,3,4,25,0,0,325,300
+Death Leech,Death Leeches,7,8,1,4,4,35,35,0,1000,1200
+Gray Dwarf Knight,Gray Dwarf Knights,28,11,0,4,3,60,20,35,750,1300
+Black Dwarf Knight,Black Dwarf Knights,28,12,1,3,3,55,20,35,900,1350
+Black Dwarf Knight,Black Dwarf Knights,28,13,1,2,2,50,20,35,900,1350
+Ornery Dwarf Thief,Ornery Dwarf Thieves,35,10,2,3,3,70,35,35,600,800
+Mean Dwarf Thief,Mean Dwarf Thieves,35,13,0,1,3,60,35,35,800,1200
+Mean Dwarf Thief,Mean Dwarf Thieves,35,13,1,2,1,50,35,35,800,1200
+Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,11,1,3,2,75,70,32,725,1375
+Cantankerous Dwarf Wizard,Cantankerous Dwarf Wizards,44,12,1,3,1,65,70,32,725,1375
+Crafty Dwarf Wizard,Crafty Dwarf Wizards,44,13,1,2,2,55,65,32,950,1425
+Hobgoblin,Hobgoblins,21,5,0,7,3,55,30,60,600,600
+Hobgoblin,Hobgoblins,21,5,1,5,5,50,30,60,600,600
+Hobgoblin,Hobgoblins,21,5,1,4,6,50,30,60,600,600
+Hobgoblin,Hobgoblins,21,6,0,3,7,40,30,60,600,600
+King Goblin,King Goblins,21,7,1,2,3,120,50,60,1100,2200
+King Goblin,King Goblins,21,8,0,3,2,100,50,60,1100,2400
+Death Leech,Death Leeches,7,7,0,4,3,30,40,0,1000,1000
+Death Leech,Death Leeches,7,7,1,3,3,30,40,0,1000,1000
+Death Leech,Death Leeches,7,8,0,2,3,25,40,0,1000,1000
+Death Leech,Death Leeches,7,8,1,2,2,25,40,0,1000,1000
+Were-Bear,Were-Bears,3,7,0,4,3,45,30,0,950,1200
+Were-Bear,Were-Bears,3,7,1,3,3,45,30,0,950,1200
+Were-Bear,Were-Bears,3,8,0,2,4,40,30,0,950,1200
+Were-Bear,Were-Bears,3,8,1,3,2,40,30,0,950,1200
+Basilisk,Basilisks,4,7,0,4,4,140,40,75,1250,1400
+Basilisk,Basilisks,4,7,1,3,3,140,40,75,1250,1400
+Basilisk,Basilisks,4,8,0,3,2,120,40,75,1250,1400
+Basilisk,Basilisks,4,8,0,4,1,120,40,75,1250,1400
+Basilisk,Basilisks,4,8,0,2,2,120,40,75,1250,1400
+Phantasm,Phantasms,17,3,0,4,3,80,60,80,900,800
+Phantasm,Phantasms,17,3,1,3,4,70,60,80,900,800
+Phantasm,Phantasms,17,4,0,3,3,60,60,80,900,800
+Phantasm,Phantasms,17,4,0,2,4,60,60,80,900,800
+Phantasm,Phantasms,17,4,0,3,2,60,60,80,900,800
+Manticore,Manticores,2,9,0,4,4,75,50,80,1300,900
+Dragon,Dragons,15,7,0,2,1,0,50,75,4000,4750
+Dragon,Dragons,15,8,0,1,1,0,50,85,4000,5000
+Saurion,Saurions,20,9,0,5,4,70,30,100,900,1275
+Gold Ogre,Gold Ogres,19,12,0,3,5,100,0,50,850,1225
+Giant,Giants,18,6,0,4,4,100,0,50,600,800
+Cyclops,Cyclops,18,7,1,3,3,0,10,50,1100,2000
+Cyclops,Cyclops,18,8,0,1,2,0,20,50,1100,5000
+Cyclops,Cyclops,18,8,0,1,2,0,20,50,1100,5000
+Cyclops,Cyclops,18,8,0,1,2,0,20,50,1100,5000
+Cyclops,Cyclops,18,8,0,1,2,0,20,50,1100,5000
+Cyclops,Cyclops,18,8,0,1,2,0,20,50,1100,5000
+Cyclops,Cyclops,18,8,0,1,2,0,20,50,1100,5000
+Cyclops,Cyclops,18,8,0,1,2,0,20,50,1100,5000
+Cyclops,Cyclops,18,8,0,1,2,0,20,50,1100,5000
+Cyclops,Cyclops,18,8,0,1,2,0,20,50,1100,5000
+Orange Orc Knight,Orange Orc Knights,26,11,0,4,6,130,20,75,1050,1000
+Red Orc Knight,Red Orc Knights,26,12,2,6,4,110,25,75,1200,1300
+Red Orc Knight,Red Orc Knights,26,13,2,5,5,90,25,75,1200,1300
+Cantankerous Gremlin Wizard,Cantankerous Gremlin Wizards,46,12,0,2,3,240,65,90,900,1075
+Crafty Gremlin Wizard,Crafty Gremlin Wizards,46,13,2,2,2,220,65,90,1050,1375
+Crafty Gremlin Wizard,Crafty Gremlin Wizards,46,14,1,2,1,210,65,90,1050,1375
+Gold Ogre,Gold Ogres,19,10,0,6,3,60,0,75,800,800
+Gold Ogre,Gold Ogres,19,12,0,4,3,40,0,75,800,800
+Tyran,Tyrans,5,7,1,4,3,30,0,0,700,600
+Tyran,Tyrans,5,8,0,3,4,30,0,0,700,600
+Giant,Giants,18,4,2,5,4,80,0,60,500,500
+Giant,Giants,18,5,1,4,4,70,0,60,500,500
+Giant,Giants,18,6,0,3,4,60,0,60,500,500
+Death Leech,Death Leeches,7,8,1,4,3,35,35,0,1050,900
+Death Leech,Death Leeches,7,9,0,3,3,25,35,0,1050,900
+Basilisk,Basilisks,4,8,0,3,4,120,45,75,1250,1050
+Basilisk,Basilisks,4,8,0,2,4,120,45,75,1250,1050
+Phantasm,Phantasms,17,4,0,3,2,60,50,75,500,450
+Phantasm,Phantasms,17,4,0,2,3,60,50,75,500,450
+Dragon,Dragons,15,6,1,2,3,0,65,75,3500,4750
+Dragon,Dragons,15,6,2,2,2,0,65,75,3500,4750
+Dragon,Dragons,15,7,1,1,2,0,65,75,3500,5000
+Manticore,Manticores,2,9,0,3,4,75,60,75,1300,1050
+Manticore,Manticores,2,9,0,4,3,75,60,75,1300,1050
+Ferocious Elf Barbarian,Ferocious Elf Barbarians,24,13,2,5,5,60,10,75,950,750
+Berserker Elf Barbarian,Berserker Elf Barbarians,24,13,2,3,4,50,10,75,1150,1050
+Sly Elf Ranger,Sly Elf Rangers,31,11,1,4,3,30,25,75,900,700
+Wily Elf Ranger,Wily Elf Rangers,31,13,2,2,5,20,25,75,1100,1000
+Hardy Elf Cleric,Hardy Elf Clerics,39,10,1,3,3,60,65,75,1000,725
+Venerable Elf Cleric,Venerable Elf Clerics,39,13,2,2,3,50,65,75,1200,1025
+Giant,Giants,18,5,1,3,4,100,0,50,500,500
+Giant,Giants,18,6,0,2,4,100,0,50,500,500
+King Cyclops,King Cyclops,18,10,0,1,0,0,0,50,9000,1250
+Incubus,Incubi,16,7,1,4,4,25,50,0,750,900
+Phantasm,Phantasms,17,4,0,3,4,60,65,50,400,450
+Hobgoblin,Hobgoblins,21,6,0,5,3,50,30,75,600,600
+King Goblin,King Goblins,21,8,0,2,2,120,55,75,1250,2000
+Gargoyle,Gargoyles,14,7,1,3,3,60,40,80,900,900
+Lich,Liches,10,10,1,2,2,0,90,90,3000,5000
+Were-Bear,Were-Bears,3,9,0,3,4,60,35,60,1150,800
+Gold Ogre,Gold Ogres,19,10,1,4,4,60,0,75,900,800
+Gold Ogre,Gold Ogres,19,10,2,4,3,60,0,75,900,800
+Gold Ogre,Gold Ogres,19,11,0,3,3,50,0,75,900,800
+Gold Ogre,Gold Ogres,19,11,1,2,3,50,0,75,900,800
+Gold Ogre,Gold Ogres,19,12,0,4,2,40,0,75,900,800
+Gold Ogre,Gold Ogres,19,12,0,2,4,40,0,75,900,800
+Spinorpion,Spinorpions,6,7,1,6,3,20,0,0,400,275
+Spinorpion,Spinorpions,6,8,0,4,5,15,0,0,400,300
+Spinorpion,Spinorpions,6,8,0,5,4,15,0,0,400,300
+Death Leech,Death Leeches,7,8,0,7,2,35,50,0,1200,1050
+Death Leech,Death Leeches,7,8,1,4,3,35,50,0,1200,1050
+Death Leech,Death Leeches,7,9,0,3,3,25,50,0,1200,1050
+Death Leech,Death Leeches,7,9,0,2,4,25,50,0,1200,1050
+Basilisk,Basilisks,4,8,0,3,3,120,65,50,1150,1000
+Basilisk,Basilisks,4,8,0,2,4,120,65,50,1150,1000
+Basilisk,Basilisks,4,8,0,4,2,120,65,50,1150,1000
+Phantasm,Phantasms,17,4,0,3,5,60,60,60,400,450
+Phantasm,Phantasms,17,4,0,4,3,60,60,60,400,450
+Phantasm,Phantasms,17,4,0,3,4,60,60,60,400,450
+Dragon,Dragons,15,6,1,2,2,0,75,90,4000,4750
+Dragon,Dragons,15,7,0,1,2,0,75,90,4000,5000
+Dragon,Dragons,15,7,1,1,2,0,75,90,4000,5000
+Dragon,Dragons,15,8,0,1,2,0,75,90,4000,5300
+Dragon,Dragons,15,8,0,1,2,0,75,90,4000,5300
+Ferocious Elf Barbarian,Ferocious Elf Barbarians,24,11,1,4,5,60,15,75,900,850
+Berserker Elf Barbarian,Berserker Elf Barbarians,24,14,1,5,4,50,15,75,1100,1125
+Sly Elf Ranger,Sly Elf Rangers,31,11,1,4,4,30,25,75,950,900
+Wily Elf Ranger,Wily Elf Rangers,31,13,2,3,4,20,25,75,1050,1250
+Hardy Elf Cleric,Hardy Elf Clerics,39,10,1,3,3,60,80,75,1000,1000
+Venerable Elf Cleric,Venerable Elf Clerics,39,13,2,2,2,50,80,75,1100,1300
+Giant,Giants,18,6,0,4,6,100,0,50,500,400
+Cyclops,Cyclops,18,8,1,3,3,0,25,50,950,1000
+Incubus,Incubi,16,8,0,4,4,25,65,0,750,600
+Hell Wolf,Hell Wolves,1,9,0,3,6,30,70,20,1200,1050
+Manticore,Manticores,2,9,0,4,4,75,65,75,1300,1200
+Were-Bear,Were-Bears,3,8,1,4,3,60,45,60,1250,1200
+Were-Minotaur,Were-Minotaurs,13,6,0,3,4,0,0,60,975,1100
+Spit Spider,Spit Spiders,8,9,0,3,4,50,0,0,400,350
+Shapeshifter,Shapeshifters,12,8,1,4,5,40,0,0,850,900
+Gargoyle,Gargoyles,14,7,1,3,5,60,65,80,1100,1200
+Skeletal Knight,Skeletal Knights,9,10,0,7,3,40,0,50,800,750
+Skeletal Knight,Skeletal Knights,9,10,1,6,4,40,0,50,800,750
+Skeletal Knight,Skeletal Knights,9,11,0,5,5,30,0,50,800,750
+Skeletal Knight,Skeletal Knights,9,11,0,6,4,30,0,50,800,750
+Skeletal Knight,Skeletal Knights,9,11,1,4,4,30,0,50,800,750
+Skeletal Knight,Skeletal Knights,9,11,1,5,3,30,0,50,800,750
+Skeletal Knight,Skeletal Knights,9,12,0,4,3,20,0,50,800,750
+Skeletal Knight,Skeletal Knights,9,12,0,3,4,20,0,50,800,750
+Lich,Liches,10,10,0,3,2,0,90,90,2000,5000
+Lich,Liches,10,10,1,2,3,0,90,90,2000,5000
+Lich,Liches,10,11,0,2,2,0,90,90,2000,5500
+Lich,Liches,10,11,0,1,3,0,90,90,2000,5500
+Lich,Liches,10,11,1,2,1,0,90,90,2000,5500
+Lich,Liches,10,11,1,1,2,0,90,90,2000,5500
+Lich,Liches,10,12,0,1,1,0,90,90,2000,6000
+Lich,Liches,10,12,0,2,0,0,90,90,2000,6000
+Phantasm,Phantasms,17,4,0,4,4,60,60,80,500,450
+Phantasm,Phantasms,17,4,0,3,5,60,60,80,500,450
+Phantasm,Phantasms,17,4,0,2,6,60,60,80,500,450
+Phantasm,Phantasms,17,4,0,5,2,60,60,80,500,450
+Phantasm,Phantasms,17,4,0,4,3,60,60,80,500,450
+Phantasm,Phantasms,17,4,0,3,4,60,60,80,500,450
+Phantasm,Phantasms,17,4,0,2,5,60,60,80,500,450
+Phantasm,Phantasms,17,4,0,5,3,60,60,80,500,450
+Elemental,Elementals,17,5,0,1,1,0,70,100,3500,6000
+Elemental,Elementals,17,5,1,1,1,0,70,100,3500,6000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Wind Elemental,Wind Elemental,17,7,0,1,0,0,80,100,5000,16000
+Skeletal Knight,Skeletal Knights,9,10,0,7,3,40,0,50,500,650
+Skeletal Knight,Skeletal Knights,9,10,1,6,4,40,0,50,500,650
+Skeletal Knight,Skeletal Knights,9,11,0,8,2,30,0,50,500,650
+Skeletal Knight,Skeletal Knights,9,11,0,9,1,30,0,50,500,650
+Skeletal Knight,Skeletal Knights,9,11,1,7,3,30,0,50,500,650
+Skeletal Knight,Skeletal Knights,9,11,1,8,2,30,0,50,500,650
+Skeletal Knight,Skeletal Knights,9,12,0,6,4,20,0,50,500,650
+Skeletal Knight,Skeletal Knights,9,12,0,7,3,20,0,50,500,650
+Lich,Liches,10,10,0,3,1,0,90,90,1200,3000
+Lich,Liches,10,10,1,2,2,0,90,90,1200,3000
+Lich,Liches,10,11,0,2,1,0,90,90,1200,3000
+Lich,Liches,10,11,0,1,1,0,90,90,1200,3000
+Lich,Liches,10,11,1,2,1,0,90,90,1200,3000
+Lich,Liches,10,11,1,1,1,0,90,90,1200,3000
+Lich,Liches,10,12,0,1,1,0,90,90,1200,3000
+Lich,Liches,10,12,0,2,0,0,90,90,1200,3000
+Phantasm,Phantasms,17,4,0,4,4,60,60,80,1000,1100
+Phantasm,Phantasms,17,4,0,5,3,60,60,80,1000,1100
+Phantasm,Phantasms,17,4,0,6,2,60,60,80,1000,1100
+Phantasm,Phantasms,17,4,0,3,4,60,60,80,1000,1100
+Phantasm,Phantasms,17,4,0,4,3,60,60,80,1000,1100
+Phantasm,Phantasms,17,4,0,3,3,60,60,80,1000,1100
+Phantasm,Phantasms,17,4,0,2,5,60,60,80,1000,1100
+Phantasm,Phantasms,17,4,0,5,2,60,60,80,1000,1100
+Manticore,Manticores,2,9,0,3,2,75,40,80,900,850
+Were-Bear,Were-Bears,3,9,0,3,3,40,35,0,850,1000
+Tyran,Tyrans,5,8,0,6,2,150,0,0,600,950
+Death Leech,Death Leeches,7,9,0,3,3,25,35,0,650,900
+Lich,Liches,10,13,0,2,1,0,90,90,1200,6000
+Shapeshifter,Shapeshifters,12,8,0,4,2,50,0,0,900,1250
+Were-Minotaur,Were-Minotaurs,13,8,0,4,4,0,0,60,1000,1400
+Gargoyle,Gargoyles,14,8,0,3,3,50,50,80,975,1200
+Dragon,Dragons,15,8,0,3,3,0,75,85,1600,5000
+Hobgoblin,Hobgoblins,21,6,0,4,3,50,30,60,600,600
+King Goblin,King Goblins,21,8,0,2,2,100,60,60,1000,2400
+Crafty Human Wizard,Crafty Human Wizards,44,15,0,3,3,240,75,65,1200,1600
+Crafty Dwarf Wizard,Crafty Dwarf Wizards,44,15,0,2,4,240,75,65,1200,1600
+Crafty Gnome Wizard,Crafty Gnome Wizards,44,15,0,3,3,240,75,65,1200,1600
+Crafty Gremlin Wizard,Crafty Gremlin Wizards,44,15,0,3,3,240,75,65,1200,1600
+En-Li-Kil,En-Li-Kil,47,8,0,1,0,0,100,100,50000,65000
