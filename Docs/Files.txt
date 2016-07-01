@@ -12,8 +12,8 @@ IMAGES.DAT      Image       Yes
 MAIN.TSU        Image       Yes
 PALETTE.DAT     Palette     Yes
 RESOURCE.035    Map         Yes             12th map data plane contains data but seems to be unused.
-RESOURCE.036    Encounter   Partial         690x46b         
-                Mnstr names Partial         1360x76b@31740  
+RESOURCE.036    Encounter   Partial         46 x Monster type dataset, 15 levels per dataset.
+                Mnstr names Partial         34 x Map monster data, 40 monsters per map.
                 RandomEncs  Partial         34x64b@135100 - not indexes. always increasing. probabilities?
 RESOURCE.037    Skills      No              25x12x6b skill data. 25 skills. Whaaaaaat.
                 Spells      Partial         24x12x8b spell data. 2b mana cost, 2b flags/type, 2x2b offsets.
