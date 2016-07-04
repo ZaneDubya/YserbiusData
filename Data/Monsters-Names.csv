@@ -1,4 +1,4 @@
-Map,MapIdx,NameSingle,NamePlural,Typ,TypLvl,?,Count,Adds,?,?,?,RewardXP,RewardGold
+Map,Idx,NameSingle,NamePlural,Typ,Lvl,?,Count,Adds,?,?,?,XP,Gold
 0,0,Wolf,Wolves,1,1,0,1,1,4,0,0,0,0
 0,1,Lion,Lions,2,1,0,1,1,4,0,0,0,0
 0,2,Bear,Bears,3,1,0,1,1,4,0,0,0,0
