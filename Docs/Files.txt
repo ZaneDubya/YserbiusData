@@ -10,8 +10,8 @@ RESOURCE.035    Map         Yes             12th map data plane contains data bu
 RESOURCE.036    Encounter   Partial         46 x Monster type dataset, 15 levels per dataset.
                 Mnstr names Partial         34 x Map monster data, 40 monsters per map.
                 RandomEncs  Partial         34x64b@135100 - not indexes. always increasing. probabilities?
-RESOURCE.037    Skills      No              25x12x6b skill data. 25 skills. Whaaaaaat.
-                Spells      Partial         24x12x8b spell data. 2b mana cost, 2b flags/type, 2x2b offsets.
+RESOURCE.037    Skills      Yes             25x12x6b skill data. Note weird 25th skill
+                Spells      Yes             24x12x8b spell data. 2b mana cost, 2b flags/type, 2x2b offsets.
 RESOURCE.038    Items       Partial         256x46b Item entries.
 RESOURCE.039    Progression Yes             156x18b char progression data (per guild, first 25+1 levels).
                 Progression Yes             48x18b structs - initial char stats
