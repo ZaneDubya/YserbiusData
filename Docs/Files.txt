@@ -22,8 +22,8 @@ RESOURCE.054    Progression Yes             Same structure as RESOURCE.039, VERY
 TITLIMG.DAT     Image       Yes
 TITLPAL.DAT     Palette     Yes
 WALLS.DAT       Image       Yes
-ANIM_SEQ        Animation?  Partial         Animation sequences: 24 x [4 x 43b]. Each 43b is a single animation.
-                                            The first byte is some kind of index which must resolve to the first frame.
+ANIM_SEQ        Animation?  Yes             Animation sequences: 24 x [4 x 43b]. Each 43b is a single animation.
+                                            The first byte is index+505, which is the first frame of the anim in MAIN.TSU.
                                             Next two bytes is x/y draw position of animation.
                                             Followed by 40 offsets to frames from the first.
                                             Likely plays at 5/10/20fps.
