@@ -13,6 +13,8 @@ RESOURCE.036    Encounter   Partial         46 x Monster type dataset, 15 levels
 RESOURCE.037    Skills      Yes             25x12x6b skill data. Note weird 25th skill
                 Spells      Yes             24x12x8b spell data. 2b mana cost, 2b flags/type, 2x2b offsets.
 RESOURCE.038    Items       Partial         256x46b Item entries.
+                                            Unk45 might be a flag for sellable.
+                                            Unk46 might be an order for appearance in the buy/sell lists.
 RESOURCE.039    Progression Yes             156x18b char progression data (per guild, first 25+1 levels).
                 Progression Yes             48x18b structs - initial char stats
                 Prices      Yes             256 x (2b buy price, 2b sale price, shl4 scrambling)
