@@ -1,0 +1,45 @@
+Files: TITLPAL.DAT and PALETTE.DAT
+These are resource files containing up to 256 palettes of 256 RGB colors each.
+
+File structure:
+
+Header (1024 bytes)
+  256 x 4 byte offset to palette entry.
+  An entry can be designated as 'not present' by setting all bits (0xFFFFFFFF).
+Palette entries (768 bytes each)
+  256 x 3 byte color (byte red, byte green, byte blue).
+  At offset equal to the offset in the header + 1024.
+
+TITLPAL.DAT has 1 palette, and is used for the title images only (the marbled title pics).
+
+PALETTE.DAT has 33 palettes, and is used for all in-game images, with indexes as follows:
+  00: Cano landscape scene
+  01-04 ???
+  05: Wolf encounter palette, used with IMAGES.DAT Index 5
+  06: Lion encounter palette, used with IMAGES.DAT Index 6
+  07: Bear encounter palette, used with IMAGES.DAT Index 7
+  08: Snek encounter palette, used with IMAGES.DAT Index 8
+  09: Raptor encounter palette, used with IMAGES.DAT Index 9
+  10: Scorpion encounter palette, used with IMAGES.DAT Index 10
+  11: Leech encounter palette, used with IMAGES.DAT Index 11
+  12: Spider encounter palette, used with IMAGES.DAT Index 12
+  13: Skeleton encounter palette, used with IMAGES.DAT Index 13
+  14: Ghost encounter palette, used with IMAGES.DAT Index 14
+  15: Skeleton Mage encounter palette, used with IMAGES.DAT Index 15
+  16: Bugbear encounter palette, used with IMAGES.DAT Index 16
+  17: Minotaur encounter palette, used with IMAGES.DAT Index 17
+  18: Gargoyle encounter palette, used with IMAGES.DAT Index 18
+  19: Dragon encounter palette, used with IMAGES.DAT Index 19
+  20: Imp encounter palette, used with IMAGES.DAT Index 20
+  21: Minotaur2 encounter palette, used with IMAGES.DAT Index 21
+  22: GreenGiant encounter palette, used with IMAGES.DAT Index 22
+  23: OrangeOgre encounter palette, used with IMAGES.DAT Index 23
+  24: LizardMan encounter palette, used with IMAGES.DAT Index 24
+  25: Goblin encounter palette, used with IMAGES.DAT Index 25
+  26: Dungeon view, wall collection 0
+  27: Dungeon view, wall collection 1
+  28: Dungeon view, wall collection 2
+  29: Dungeon view, wall collection 3
+  30: Dungeon view, wall collection 4
+  31: ???
+  32: En-li-kil encounter palette, used with IMAGES.DAT Index 32
