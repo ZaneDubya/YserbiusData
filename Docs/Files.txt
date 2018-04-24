@@ -1,12 +1,7 @@
 === DATA FILES ===============================================================
 Filename        Type        Deciphered?     Notes
-ANIM_SEQ        Animation?  No              96 * 43b sequences?
-AUTOMAPS.DAT    Map view    No              Seems to be very simple
-AUTOMAPS.NEW    Map view    No              Original copy for Automaps.dat
 BOOKYS1.FLI     Movie       Yes             See http://www.compuphase.com/flic.htm
 ENDBOOK.FLI     Movie       Yes             See http://www.compuphase.com/flic.htm
-Mychars.dat     Characters  No              Encrypted.
-mychars.new     Characters  No              Encrypted.
 HELP.DAT        Text[255]   Yes
 IMAGES.DAT      Image       Yes
 MAIN.TSU        Image       Yes
@@ -22,13 +17,20 @@ RESOURCE.039    Progression Yes             156x18b char progression data (per g
                 Progression Yes             48x18b structs - initial char stats
                 Prices      Yes             256 x (2b buy price, 2b sale price, shl4 scrambling)
 RESOURCE.040    Text[127]   Yes
-RESOURCE.054    Progression Yes             Same structure as RESOURCE.039, VERY similar but not identical data
-RESOURCE.099    ????        No
+RESOURCE.054    Progression Yes             Same structure as RESOURCE.039, VERY similar but not identical data.
+                                            Possibly used for online vs offline data. Guess 54 would be for offline.
 TITLIMG.DAT     Image       Yes
 TITLPAL.DAT     Palette     Yes
 WALLS.DAT       Image       Yes
+ANIM_SEQ        Animation?  No              96 * 43b sequences?
+AUTOMAPS.DAT    Map view    No              Seems to be very simple
+AUTOMAPS.NEW    Map view    No              Original copy for Automaps.dat
+Mychars.dat     Characters  No              Encrypted.
+mychars.new     Characters  No              Encrypted.
+RESOURCE.099    ????        No              Only 42 bytes.
 
 === MUSIC FILES ==============================================================
+* Not deciphered, but XMI should be a fairly standard music format.
 Filename        Type            Deciphered?     Notes
 AD00.XMI        Music           No*
 AD01.XMI        Music           No*
