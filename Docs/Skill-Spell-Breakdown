@@ -1,0 +1,184 @@
+
+Backfire
+  0/1: 4/8: In combat, one enemy, must be mage
+  2: Reduce damage by value
+  4: % Chance to reflect 
+Blast
+  0/1: 4/4 In combat, one enemy.
+  2: low8 damage
+  4: high8 damage (max 1600)
+Control
+  0/1: 4/4-6 In combat, one enemy (1-6) one group (7-10), all (11-12)
+  2: Count turns to control
+Curse
+  0/1: 4-5 In combat, one group
+  2: Count turns?
+  5/6: Negative values, applied to some value?
+Death Darts
+  0/1: 4-6 In combat, all
+  2: low8 damage
+  4: high8 damage (max 450)
+Dissipate
+  0/1: 4-7 In combat, one group, must be undead
+  2: low8 damage
+  4: high8 damage (max 300)
+  5: 0 (1-4), 1 (5-12). Flag to prevent from paralyzing
+Fireball
+  0/1: 4-5 In combat, one group
+  2: low8 damage
+  4: high8 damage (max 600)
+Hail
+  0/1: 4-6 In combat, all enemies
+  2: damage (max 120)
+Lightning
+  0/1: 4-4 In combat, one enemy
+  2: damage (max 200)
+Petrify
+  0/1: 4-4 In combat, one enemy
+  2: turns to petrify
+Poison Cloud
+  0/1: 4-5 In combat, one group
+  2: Damage (max 200)
+  NOTE: continues to poison
+Storm Wind
+  0/1: 4-5 In combat, one group
+  2: Damage (max 150)
+Aura
+  0/1: 4-3 In combat, all allies
+  2: Absorb magic damage (max 150)
+  4: Improve agility (1-3)
+  5: Turns?
+Light Shroud
+  0/1: 4-3 In combat, all allies, defend from undead physical and status effects
+  2: 4 (1-3) 2 (4-8) 1 (9-12)
+  4: 7-5 (count turns?)
+  5: 1,3,7,15 (flags)
+Energy Field
+  0/1: 4-3 In combat, all allies
+  2: Physical damage to absorb
+  4: Turns? 8-6
+Shield
+  0/1: 4-2 In combat, one ally
+  2: physical damage to absorb
+  4: turns? 12-9
+Refresh
+  0/1: 2-3 Any time, all allies
+  2: low8 Health to restore
+  4: high8 Health to restore (max 300)
+Teleport
+  0/1: 3-3 Out of combat, all allies
+  2: Always 100, chance of working??
+Bless
+  0/1: 4-2 In combat, one ally
+  2: increase attribute 5-9
+  4: increase attribute 1-6
+  5: increase attribute 1-6
+Cure
+  0/1: 2-2 Any time, one ally
+  2: chance to heal poison (50-90)
+  4: flags healed (1,3,7,15,47) <poison, paralysis, and petrification, confusion, control?>
+Heal
+  0/1: 2-2 Any time, one ally
+  2: low8 health
+  4: high8 health (max 1000)
+Resist
+  0/1: 4-2 In combat, one ally
+  2: Resist damage
+  4: Increase agility
+  5: Prevents debilitating states (6,7,8,9??? Does not accord with Cure or Light Shroud)
+Rescuscitate
+  0/1: 2-2 Any time, one ally
+  2: low8 health restored
+  4: high8 health restored (max 500)
+  5: mana restored
+True Seeing
+  0/1: 3-2 Out of combat, one ally
+  2: Range of effect
+  
+Athletics
+  0/1: 1-1 Self, Not usable
+  2: +Agi
+  3: +Ini
+Clubs/Axes
+  0/1: 1-1 Self, Not usable
+  2: +Str
+  3: +Dmg
+Berseker
+  0/1: 1-4 Self, In Combat
+  2-5: Has something to do with do more damage, take more damage, more effective, less protective
+Pursuit
+  0/1: 5-4 One group(5) or All (6), In combat
+  2: Reduce chance of fleeing
+Leadership
+  0/1: 3-2 All allies, Any time
+  2: +Str
+  3: +Def
+  4: +Ini
+Fencing
+  0/1: 1-1 Self, Not usable
+  2: +Str
+  3: +Dmg
+Binding
+  0/1: 2-4 In combat, one ally
+  2: Heal amount
+Intimidate
+  0/1: 6-4 In combat, all enemies
+  2: +Ini (negative values)
+  3: +Chance to flee
+Archery
+  0/1: 1-1 Self, not usable
+  2: +Str
+  3: +Dmg
+Stamina
+  0/1: 1-1 Self, not usable
+  2: -Dmg taken (negative values)
+Furtiveness
+  0/1: 1-4 Self, In combat
+  2: +Str
+  3: +Dmg
+  NOTE: Allows attack against back row, str/dmg only applies to these attacks
+Read Tracks
+  0/1: 3-3 All allies, out of combat
+  2: Range
+Bard
+  0/1: 5-4 one group, in combat
+  2: +Ini (negative values)
+  3: +Chance to flee
+Detect
+  0/1: 3-3 all allies, out of combat
+Lockpick
+  0/1: 3-3 all allies, out of combat
+Pickpocket
+  0/1: 5-4 one group, in combat
+  2: Chance to get item from enemy
+Martial Arts
+  0/1: 1-1 Self, Not usable
+  2: +Str
+  3: +Dmg
+Deflect Magic
+  0/1: 1-4 Self, In combat; 3-3 All allies, In combat
+  2: +Agi
+  3: -Magic Dmg (positive values)
+Medic
+  0/1: 2-2 Any time, one ally
+  2: Cure poison
+  3: Cure paralysis
+  4: Cure petrification
+  5: Cure confusion
+Reverie
+  0/1: 1-4 Self, In combat
+  2/3: 16-bit inc in mana
+  4: Lowers ini
+Rune Reading
+  0/1: 1-1 Self, not usable
+Staff
+  0/1: 1-1 Self, not usable
+  2: +Str
+  3: +Dmg
+Channel
+  0/1: 4-4 In combat, one enemy
+  2: Reduce magic resist
+  3: Inc magic damage done
+Deep Trance
+  0/1: 1-4 Passive, In combat
+  2: Mana gained
