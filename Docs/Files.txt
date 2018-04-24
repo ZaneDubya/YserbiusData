@@ -22,7 +22,11 @@ RESOURCE.054    Progression Yes             Same structure as RESOURCE.039, VERY
 TITLIMG.DAT     Image       Yes
 TITLPAL.DAT     Palette     Yes
 WALLS.DAT       Image       Yes
-ANIM_SEQ        Animation?  No              96 * 43b sequences?
+ANIM_SEQ        Animation?  Partial         Animation sequences: 24 x [4 x 43b]. Each 43b is a single animation.
+                                            The first byte is some kind of index which must resolve to the first frame.
+                                            Next two bytes is x/y draw position of animation.
+                                            Followed by 40 offsets to frames from the first.
+                                            Likely plays at 5/10/20fps.
 AUTOMAPS.DAT    Map view    No              Seems to be very simple
 AUTOMAPS.NEW    Map view    No              Original copy for Automaps.dat
 Mychars.dat     Characters  No              Encrypted.
