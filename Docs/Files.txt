@@ -29,11 +29,11 @@ ANIM_SEQ        Animation?  Yes             Animation sequences: 24 x [4 x 43b].
                                             Next two bytes is x/y draw position of animation.
                                             Followed by 40 offsets to frames from the first.
                                             Likely plays at 5/10/20fps.
-AUTOMAPS.DAT    Map view    No              Seems to be very simple
-AUTOMAPS.NEW    Map view    No              Original copy for Automaps.dat
-Mychars.dat     Characters  No              Encrypted.
-mychars.new     Characters  No              Encrypted.
-RESOURCE.099    ????        No              Only 42 bytes.
+AUTOMAPS.DAT    Map view    No/unneeded     Seems to be very simple
+AUTOMAPS.NEW    Map view    No/unneeded     Original copy for Automaps.dat
+Mychars.dat     Characters  No/unneeded     Encrypted.
+mychars.new     Characters  No/unneeded     Encrypted.
+RESOURCE.099    Unknown     No/unneeded     Only 42 bytes.
 
 === MUSIC FILES ==============================================================
 * Not deciphered, but XMI should be a fairly standard music format.
