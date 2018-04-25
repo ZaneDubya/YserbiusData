@@ -11,3 +11,22 @@ ImageDescs
 ImageData
     Each image is an uncompressed array of bytes of size ImageDesc.Width x
     ImageDesc.Height, and is located at ImageDesc.Offset+512.
+    
+Images      Pal     Descriptions
+000-026     02      Dungeon ui elements
+027-042     02      Dungeon view brown door
+043-058     02      Dungeon view white door
+059-074     02      Dungeon view wall scroll
+075-234     26-30   Dungeon view floors (5 standard + lava + water)
+235-258     02      Keep buy/sell ui elements
+259-272     02      Dungeon/Combat ui elements
+273-367     02      Hero paper doll
+368-446     02      Item icons
+447-481     02      Hero/monster card icons
+482-487     02      Status effect icons
+488-490     02      Dungeon view other party
+491-493     02      Dungeon view column
+494         02      Combat blood splat
+495-498     02      Combat green magic splat
+499-504     02      Combat multicolor magic splat
+505-760     **      Animations. These use the palette of the currently loaded screen.
