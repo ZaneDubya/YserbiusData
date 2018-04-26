@@ -1,0 +1,38 @@
+If I was to use the existing Yserbius resource files to bootstrap a new Cano
+Client/Server, I would use these files:
+
+Files                       Desc                          Use?
+ANIM_SEQ                    Animation Sequence            Yes
+HELP.DAT                    Strings                       Yes
+Images.dat                  Textures                      Yes
+Main.tsu                    Textures                      Yes
+Palette.dat                 Palette                       Yes
+TITLIMG.DAT,TITLPAL.DAT     Textures,Palette              Yes
+Walls.dat                   Textures                      Yes
+RESOURCE.001-RESOURCE.034   Online map scripts            Yes
+RESOURCE.035                Map layouts                   Yes
+RESOURCE.036                Encounter/Monster/Randoms     Yes
+RESOURCE.037                Skills/Spells                 Yes
+RESOURCE.038                Items                         Yes
+RESOURCE.039                Progression                   Yes
+RESOURCE.049                Text                          YES
+RESOURCE.041-RESOURCE.053   Offline map scripts           Yes
+RESOURCE.054                Progression offline           YES  
+CGENN.EXE                   Gallery/Keep                  Strings only
+DARKSTRT.EXE                TSN Main exe                  Strings only
+Title.exe                   Exe                           Strings only
+YSBOX.EXE                   Exe                           Strings only
+YSERBIUS.EXE                Exe                           Strings only
+YSGENN.EXE                  Exe                           Strings only 
+AD00.XMI-AD26.XMI           Music                         No
+MT00.XMI-MT26.XMI           Music                         No
+TSN.XMI                     Music                         No
+XMS00.XMO,XSS00.XMI         Music                         No
+ADLIB.ADV,ADTIMBRE.GTL      Drivers                       No
+AUTOMAPS.DAT,AUTOMAPS.NEW   Automap file/template         No
+Bookys1.fli,Endbook.fli     Animations                    No
+DEFAULT.XMI                 Main theme music              No
+MT32MPU.ADV                 Music drivers                 No
+Mycharts.dat,Mychars.new    Char files                    No    
+Sample.ad                   Noise samples                 No
+SBDM.ADV                    Drivers                       No
