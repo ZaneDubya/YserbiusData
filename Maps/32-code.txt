@@ -3,13 +3,12 @@ RIVER_01:
 0003                          ShowMessage(03FC) = The River of Eternity taps your life energy.
 0010                          UnknownFunctionC4()
 0018                          ax = GetMaxHits()
-001F BB 04 00                 mov bx, 0x4
-0022 99                       cwd
-0023 F7 FB                    idiv bx
+001F                          bx = 0004
+0022                          ax = ax / bx (signed, dx = quotient)
 0025                          DoDamage(ax)
 002F                          ax = GetCurrentHits()
-0036 0B C0                    or ax, ax
-0038 77 0D                    ja 0x47
+0036                          RefreshCompareFlags(ax)
+0038                          If (result.greaterthan) value jump to 0047
 003A                          ShowMessage(0429) = You have died.
 0047                          RETURN
 
@@ -37,8 +36,8 @@ PLATA_04:
 PLATB_05:
 0000                          BEGIN
 0003                          ax = CheckState(02, 84)
-0014 0B C0                    or ax, ax
-0016 75 76                    jnz 0x8e
+0014                          RefreshCompareFlags(ax)
+0016                          If (result.notequal) value jump to 008E
 0018                          SetState(02, 84, 01)
 002D                          ShowPortrait(0042)
 003A                          ShowMessage(04D1) = DragonBreath Fountain empowers you with improved attributes.
@@ -66,20 +65,20 @@ PLATDTOB_07:
 TAPMOONS_0C:
 0000                          BEGIN
 0003                          ax = UsedItem(F2, F2)
-0016 74 47                    jz 0x5f
+0016                          If (result.equal) value jump to 005F
 0018                          Push(02)
 001C                          ax = GetNextTile()
-0023 50                       push ax
+0023                          Push(ax)
 0024                          Push(01)
 0028                          SetUnblocked()
 0032                          Push(01)
 0036                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003D 50                       push ax
+003D                          Push(ax)
 003E                          ax = GetNextTile()
-0045 50                       push ax
+0045                          Push(ax)
 0046                          Move(stk[0], stk[1], stk[2])
 0050                          ShowMessage(059B) = A magical door appears where the tapestry used to be.
-005D EB 0D                    jmp 0x6c
+005D                          Jump to 006C
 005F                          ShowMessage(05D1) = A brilliant tapestry depicting moons decorates this room.
 006C                          RETURN
 
@@ -106,32 +105,32 @@ RAINBOW_14:
 RAINRED_15:
 0000                          BEGIN
 0003                          ax = UsedItem(F4, F4)
-0016 75 03                    jnz 0x1b
-0018 E9 9A 00                 jmp 0xb5
+0016                          If (result.notequal) value jump to 001B
+0018                          Jump to 00B5
 001B                          ShowMessage(07DD) = A beam of red arcs over the Ageless Void.
 0028                          SetState(02, 80, 01)
 003D                          ax = CheckState(02, 80)
-004E 0B C0                    or ax, ax
-0050 74 61                    jz 0xb3
+004E                          RefreshCompareFlags(ax)
+0050                          If (result.equal) value jump to 00B3
 0052                          ax = CheckState(02, 81)
-0063 0B C0                    or ax, ax
-0065 74 4C                    jz 0xb3
+0063                          RefreshCompareFlags(ax)
+0065                          If (result.equal) value jump to 00B3
 0067                          ax = CheckState(02, 82)
-0078 0B C0                    or ax, ax
-007A 74 37                    jz 0xb3
+0078                          RefreshCompareFlags(ax)
+007A                          If (result.equal) value jump to 00B3
 007C                          ax = CheckState(02, 83)
-008D 0B C0                    or ax, ax
-008F 74 22                    jz 0xb3
+008D                          RefreshCompareFlags(ax)
+008F                          If (result.equal) value jump to 00B3
 0091                          SetState(01, 01, 01)
 00A6                          ShowMessage(0807) = A vibrant rainbow of color forms.
-00B3 EB 0D                    jmp 0xc2
+00B3                          Jump to 00C2
 00B5                          ShowMessage(0829) = A golden statue appears to be capable of holding a gem.
 00C2                          ax = UsedItem(F3, F3)
-00D5 75 03                    jnz 0xda
-00D7 E9 80 00                 jmp 0x15a
+00D5                          If (result.notequal) value jump to 00DA
+00D7                          Jump to 015A
 00DA                          ax = CheckState(01, 01)
-00EB 0B C0                    or ax, ax
-00ED 74 6B                    jz 0x15a
+00EB                          RefreshCompareFlags(ax)
+00ED                          If (result.equal) value jump to 015A
 00EF                          SetState(01, 01, 01)
 0104                          SetTileFloor(75, 42)
 0115                          SetTileFloor(85, 42)
@@ -144,30 +143,30 @@ RAINRED_15:
 RAINYEL_16:
 0000                          BEGIN
 0003                          ax = UsedItem(F5, F5)
-0016 75 03                    jnz 0x1b
-0018 E9 98 00                 jmp 0xb3
+0016                          If (result.notequal) value jump to 001B
+0018                          Jump to 00B3
 001B                          ShowMessage(0995) = A beam of yellow arcs over the Ageless Void.
 0028                          SetState(02, 81, 01)
 003D                          ax = CheckState(02, 80)
-004E 0B C0                    or ax, ax
-0050 74 61                    jz 0xb3
+004E                          RefreshCompareFlags(ax)
+0050                          If (result.equal) value jump to 00B3
 0052                          ax = CheckState(02, 81)
-0063 0B C0                    or ax, ax
-0065 74 4C                    jz 0xb3
+0063                          RefreshCompareFlags(ax)
+0065                          If (result.equal) value jump to 00B3
 0067                          ax = CheckState(02, 82)
-0078 0B C0                    or ax, ax
-007A 74 37                    jz 0xb3
+0078                          RefreshCompareFlags(ax)
+007A                          If (result.equal) value jump to 00B3
 007C                          ax = CheckState(02, 83)
-008D 0B C0                    or ax, ax
-008F 74 22                    jz 0xb3
+008D                          RefreshCompareFlags(ax)
+008F                          If (result.equal) value jump to 00B3
 0091                          SetState(01, 01, 01)
 00A6                          ShowMessage(09C2) = A vibrant rainbow of color forms.
 00B3                          ax = UsedItem(F3, F3)
-00C6 75 03                    jnz 0xcb
-00C8 E9 80 00                 jmp 0x14b
+00C6                          If (result.notequal) value jump to 00CB
+00C8                          Jump to 014B
 00CB                          ax = CheckState(01, 01)
-00DC 0B C0                    or ax, ax
-00DE 74 6B                    jz 0x14b
+00DC                          RefreshCompareFlags(ax)
+00DE                          If (result.equal) value jump to 014B
 00E0                          SetState(01, 01, 01)
 00F5                          SetTileFloor(75, 42)
 0106                          SetTileFloor(85, 42)
@@ -180,30 +179,30 @@ RAINYEL_16:
 RAINGRN_17:
 0000                          BEGIN
 0003                          ax = UsedItem(F6, F6)
-0016 75 03                    jnz 0x1b
-0018 E9 98 00                 jmp 0xb3
+0016                          If (result.notequal) value jump to 001B
+0018                          Jump to 00B3
 001B                          ShowMessage(0B18) = A beam of green arcs over the Ageless Void.
 0028                          SetState(02, 82, 01)
 003D                          ax = CheckState(02, 80)
-004E 0B C0                    or ax, ax
-0050 74 61                    jz 0xb3
+004E                          RefreshCompareFlags(ax)
+0050                          If (result.equal) value jump to 00B3
 0052                          ax = CheckState(02, 81)
-0063 0B C0                    or ax, ax
-0065 74 4C                    jz 0xb3
+0063                          RefreshCompareFlags(ax)
+0065                          If (result.equal) value jump to 00B3
 0067                          ax = CheckState(02, 82)
-0078 0B C0                    or ax, ax
-007A 74 37                    jz 0xb3
+0078                          RefreshCompareFlags(ax)
+007A                          If (result.equal) value jump to 00B3
 007C                          ax = CheckState(02, 83)
-008D 0B C0                    or ax, ax
-008F 74 22                    jz 0xb3
+008D                          RefreshCompareFlags(ax)
+008F                          If (result.equal) value jump to 00B3
 0091                          SetState(01, 01, 01)
 00A6                          ShowMessage(0B44) = A vibrant rainbow of color forms.
 00B3                          ax = UsedItem(F3, F3)
-00C6 75 03                    jnz 0xcb
-00C8 E9 80 00                 jmp 0x14b
+00C6                          If (result.notequal) value jump to 00CB
+00C8                          Jump to 014B
 00CB                          ax = CheckState(01, 01)
-00DC 0B C0                    or ax, ax
-00DE 74 6B                    jz 0x14b
+00DC                          RefreshCompareFlags(ax)
+00DE                          If (result.equal) value jump to 014B
 00E0                          SetState(01, 01, 01)
 00F5                          SetTileFloor(75, 42)
 0106                          SetTileFloor(85, 42)
@@ -216,30 +215,30 @@ RAINGRN_17:
 RAINBLU_18:
 0000                          BEGIN
 0003                          ax = UsedItem(F7, F7)
-0016 75 03                    jnz 0x1b
-0018 E9 98 00                 jmp 0xb3
+0016                          If (result.notequal) value jump to 001B
+0018                          Jump to 00B3
 001B                          ShowMessage(0C9A) = A beam of blue arcs over the Ageless Void.
 0028                          SetState(02, 83, 01)
 003D                          ax = CheckState(02, 80)
-004E 0B C0                    or ax, ax
-0050 74 61                    jz 0xb3
+004E                          RefreshCompareFlags(ax)
+0050                          If (result.equal) value jump to 00B3
 0052                          ax = CheckState(02, 81)
-0063 0B C0                    or ax, ax
-0065 74 4C                    jz 0xb3
+0063                          RefreshCompareFlags(ax)
+0065                          If (result.equal) value jump to 00B3
 0067                          ax = CheckState(02, 82)
-0078 0B C0                    or ax, ax
-007A 74 37                    jz 0xb3
+0078                          RefreshCompareFlags(ax)
+007A                          If (result.equal) value jump to 00B3
 007C                          ax = CheckState(02, 83)
-008D 0B C0                    or ax, ax
-008F 74 22                    jz 0xb3
+008D                          RefreshCompareFlags(ax)
+008F                          If (result.equal) value jump to 00B3
 0091                          SetState(01, 01, 01)
 00A6                          ShowMessage(0CC5) = A vibrant rainbow of color forms.
 00B3                          ax = UsedItem(F3, F3)
-00C6 75 03                    jnz 0xcb
-00C8 E9 80 00                 jmp 0x14b
+00C6                          If (result.notequal) value jump to 00CB
+00C8                          Jump to 014B
 00CB                          ax = CheckState(01, 01)
-00DC 0B C0                    or ax, ax
-00DE 74 6B                    jz 0x14b
+00DC                          RefreshCompareFlags(ax)
+00DE                          If (result.equal) value jump to 014B
 00E0                          SetState(01, 01, 01)
 00F5                          SetTileFloor(75, 42)
 0106                          SetTileFloor(85, 42)
@@ -305,15 +304,15 @@ TAPECLUE_1E:
 BOAT_1F:
 0000                          BEGIN
 0003                          ax = CheckState(01, 01)
-0014 0B C0                    or ax, ax
-0016 74 5D                    jz 0x75
+0014                          RefreshCompareFlags(ax)
+0016                          If (result.equal) value jump to 0075
 0018                          ShowMessage(0F59) = You step across the platform and into the Golden Boat.
 0025                          ShowMessage(0F90) = The Zephyr Wind blows the lightest of breezes from the east and the Golden Boat sets sail west across the Rainbow.
 0032                          ShowMessage(1003) = In the moments that follow the Zephyr tells you only the FlexSword can remain in your hands when you encounter the Wind Elemental.
 003F                          ShowMessage(1086) = Destroy him and the way to En-li-kil's Domain will be clear.
 004C                          ShowMessage(10C3) = You arrive at an island in the center of the Ageless Void.
 0059                          GoMap(00, 4B, 04, 38)
-0073 EB 1E                    jmp 0x93
+0073                          Jump to 0093
 0075                          ShowMessage(10FE) = The Ageless Void swallows you whole.
 0082                          ax = GetMaxHits()
 0089                          DoDamage(ax)

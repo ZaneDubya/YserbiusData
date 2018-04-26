@@ -3,13 +3,12 @@ RIVER_01:
 0003                          ShowMessage(03FC) = The River of Eternity taps your life energy.
 0010                          UnknownFunctionC4()
 0018                          ax = GetMaxHits()
-001F BB 04 00                 mov bx, 0x4
-0022 99                       cwd
-0023 F7 FB                    idiv bx
+001F                          bx = 0004
+0022                          ax = ax / bx (signed, dx = quotient)
 0025                          DoDamage(ax)
 002F                          ax = GetCurrentHits()
-0036 0B C0                    or ax, ax
-0038 77 0D                    ja 0x47
+0036                          RefreshCompareFlags(ax)
+0038                          If (result.greaterthan) value jump to 0047
 003A                          ShowMessage(0429) = You have died.
 0047                          RETURN
 
@@ -21,21 +20,21 @@ RIVRBANK_02:
 SECDOORA_03:
 0000                          BEGIN
 0003                          ax = UsedItem(D4, D4)
-0016 75 15                    jnz 0x2d
+0016                          If (result.notequal) value jump to 002D
 0018                          ax = CheckState(02, 6C)
-0029 0B C0                    or ax, ax
-002B 74 66                    jz 0x93
+0029                          RefreshCompareFlags(ax)
+002B                          If (result.equal) value jump to 0093
 002D                          RemoveItem(D4)
 0039                          SetState(02, 6C, 01)
 004E                          Push(01)
 0052                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0059 50                       push ax
+0059                          Push(ax)
 005A                          ax = GetNextTile()
-0061 50                       push ax
+0061                          Push(ax)
 0062                          Move(stk[0], stk[1], stk[2])
 006C                          Push(01)
 0070                          ax = GetNextTile()
-0077 50                       push ax
+0077                          Push(ax)
 0078                          Push(01)
 007C                          SetUnblocked()
 0086                          ShowMessage(0497) = A great dwarven door appears in the wall.
@@ -51,34 +50,34 @@ LAVA_04:
 SECDOORB_05:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0B 00                 cmp ax, 0xb
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000B)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 4B                    jz 0x99
+004C                          If (result.equal) value jump to 0099
 004E                          Push(01)
 0052                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0059 50                       push ax
+0059                          Push(ax)
 005A                          ax = GetNextTile()
-0061 50                       push ax
+0061                          Push(ax)
 0062                          Move(stk[0], stk[1], stk[2])
 006C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0073 50                       push ax
+0073                          Push(ax)
 0074                          ax = GetNextTile()
-007B 50                       push ax
+007B                          Push(ax)
 007C                          Push(01)
 0080                          SetUnblocked()
 008A                          ShowMessage(04DF) = You locate a hidden door!
-0097 EB 1D                    jmp 0xb6
+0097                          Jump to 00B6
 0099                          Push(00)
 009C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00A3 50                       push ax
+00A3                          Push(ax)
 00A4                          ax = GetNextTile()
-00AB 50                       push ax
+00AB                          Push(ax)
 00AC                          Move(stk[0], stk[1], stk[2])
 00B6                          RETURN
 
@@ -90,21 +89,21 @@ LAVALEDG_06:
 LAVAPA_07:
 0000                          BEGIN
 0003                          ax = CheckState(01, 03)
-0014 3D 01 00                 cmp ax, 0x1
-0017 74 16                    jz 0x2f
+0014                          compare(ax, 0001)
+0017                          If (result.equal) value jump to 002F
 0019                          ax = CheckState(01, 03)
-002A 3D 05 00                 cmp ax, 0x5
-002D 75 51                    jnz 0x80
+002A                          compare(ax, 0005)
+002D                          If (result.notequal) value jump to 0080
 002F                          ShowMessage(0522) = A platform appears beneath your feet..
 003C                          SetTileFloor(A8, 00)
-004A 59                       pop cx
-004B 59                       pop cx
+004A                          cx = Pop()
+004B                          cx = Pop()
 004C                          Move(01, A8)
 005D                          SetTileFloor(79, 00)
-006B 59                       pop cx
-006C 59                       pop cx
+006B                          cx = Pop()
+006C                          cx = Pop()
 006D                          Move(01, 79)
-007E EB 1E                    jmp 0x9e
+007E                          Jump to 009E
 0080                          ShowMessage(0549) = You step into a lava pit and die!
 008D                          ax = GetMaxHits()
 0094                          DoDamage(ax)
@@ -113,21 +112,21 @@ LAVAPA_07:
 LAVAPB_08:
 0000                          BEGIN
 0003                          ax = CheckState(01, 03)
-0014 3D 02 00                 cmp ax, 0x2
-0017 74 16                    jz 0x2f
+0014                          compare(ax, 0002)
+0017                          If (result.equal) value jump to 002F
 0019                          ax = CheckState(01, 03)
-002A 3D 05 00                 cmp ax, 0x5
-002D 75 51                    jnz 0x80
+002A                          compare(ax, 0005)
+002D                          If (result.notequal) value jump to 0080
 002F                          ShowMessage(056B) = A platform appears beneath your feet..
 003C                          SetTileFloor(98, 00)
-004A 59                       pop cx
-004B 59                       pop cx
+004A                          cx = Pop()
+004B                          cx = Pop()
 004C                          Move(01, 98)
 005D                          SetTileFloor(89, 00)
-006B 59                       pop cx
-006C 59                       pop cx
+006B                          cx = Pop()
+006C                          cx = Pop()
 006D                          Move(01, 89)
-007E EB 1E                    jmp 0x9e
+007E                          Jump to 009E
 0080                          ShowMessage(0592) = You step into a lava pit and die!
 008D                          ax = GetMaxHits()
 0094                          DoDamage(ax)
@@ -136,21 +135,21 @@ LAVAPB_08:
 LAVAPC_09:
 0000                          BEGIN
 0003                          ax = CheckState(01, 03)
-0014 3D 03 00                 cmp ax, 0x3
-0017 74 16                    jz 0x2f
+0014                          compare(ax, 0003)
+0017                          If (result.equal) value jump to 002F
 0019                          ax = CheckState(01, 03)
-002A 3D 05 00                 cmp ax, 0x5
-002D 75 51                    jnz 0x80
+002A                          compare(ax, 0005)
+002D                          If (result.notequal) value jump to 0080
 002F                          ShowMessage(05B4) = A platform appears beneath your feet..
 003C                          SetTileFloor(88, 00)
-004A 59                       pop cx
-004B 59                       pop cx
+004A                          cx = Pop()
+004B                          cx = Pop()
 004C                          Move(01, 88)
 005D                          SetTileFloor(99, 00)
-006B 59                       pop cx
-006C 59                       pop cx
+006B                          cx = Pop()
+006C                          cx = Pop()
 006D                          Move(01, 99)
-007E EB 1E                    jmp 0x9e
+007E                          Jump to 009E
 0080                          ShowMessage(05DB) = You step into a lava pit and die!
 008D                          ax = GetMaxHits()
 0094                          DoDamage(ax)
@@ -159,21 +158,21 @@ LAVAPC_09:
 LAVAPD_0A:
 0000                          BEGIN
 0003                          ax = CheckState(01, 03)
-0014 3D 04 00                 cmp ax, 0x4
-0017 74 16                    jz 0x2f
+0014                          compare(ax, 0004)
+0017                          If (result.equal) value jump to 002F
 0019                          ax = CheckState(01, 03)
-002A 3D 05 00                 cmp ax, 0x5
-002D 75 51                    jnz 0x80
+002A                          compare(ax, 0005)
+002D                          If (result.notequal) value jump to 0080
 002F                          ShowMessage(05FD) = A platform appears beneath your feet..
 003C                          SetTileFloor(78, 00)
-004A 59                       pop cx
-004B 59                       pop cx
+004A                          cx = Pop()
+004B                          cx = Pop()
 004C                          Move(01, 78)
 005D                          SetTileFloor(A9, 00)
-006B 59                       pop cx
-006C 59                       pop cx
+006B                          cx = Pop()
+006C                          cx = Pop()
 006D                          Move(01, A9)
-007E EB 1E                    jmp 0x9e
+007E                          Jump to 009E
 0080                          ShowMessage(0624) = You step into a lava pit and die!
 008D                          ax = GetMaxHits()
 0094                          DoDamage(ax)
@@ -217,7 +216,7 @@ KINGROOM_0F:
 DWARKING_10:
 0000                          BEGIN
 0003                          ax = HasItem(F4)
-0011 75 4E                    jnz 0x61
+0011                          If (result.notequal) value jump to 0061
 0013                          ShowPortrait(001C)
 0020                          ShowMessage(085A) = The Dwarf King nods.
 002D                          ShowMessage(086F) = 'Welcome strangers! 
@@ -230,18 +229,18 @@ FLEXSWOR_11:
 0000                          BEGIN
 0003                          ShowPortrait(002C)
 0010                          ax = HasItem(09)
-001E 75 6D                    jnz 0x8d
+001E                          If (result.notequal) value jump to 008D
 0020                          ax = HasItem(F0)
-002E 74 41                    jz 0x71
+002E                          If (result.equal) value jump to 0071
 0030                          ShowMessage(0995) = The dwarf takes the Flex Metal and smiles broadly. 'No greater pleasure can a dwarf blacksmith have than to test the powers of a new metal.'
 003D                          ShowMessage(0A22) = After a few hours working the metal, she holds up a brilliant blue sword.
 004A                          ShowMessage(0A6C) = 'There!  My finest weapon, made from your Flex Metal.  I dub it The Wind Sword!  May it destroy your enemies at first blow!'
 0057                          RemoveItem(F0)
 0063                          GiveItem(09)
-006F EB 1A                    jmp 0x8b
+006F                          Jump to 008B
 0071                          ShowMessage(0AE9) = The dwarf blacksmith cuts down the furnace, then turns to greet you. 
 007E                          ShowMessage(0B2F) = 'I am a wizard swordmaker, ready to make the finest weapons from your valuable metals.  What may I build for you?'
-008B EB 34                    jmp 0xc1
+008B                          Jump to 00C1
 008D                          ShowMessage(0BA2) = The dwarf blacksmith pauses briefly from her work.
 009A                          ShowMessage(0BD5) = 'I see you have returned!'  An expression of worry crosses her face.  'Oh, I hope The Wind Sword has given you no trouble.'
 00A7                          ShowMessage(0C51) = She then notices the great blue sword.  'Ah, it's in fine shape!
@@ -258,10 +257,10 @@ CYCLQUST_13:
 0000                          BEGIN
 0003                          ShowPortrait(002C)
 0010                          ax = HasItem(F3)
-001E 74 03                    jz 0x23
-0020 E9 BA 00                 jmp 0xdd
+001E                          If (result.equal) value jump to 0023
+0020                          Jump to 00DD
 0023                          ax = HasItem(F1)
-0031 74 66                    jz 0x99
+0031                          If (result.equal) value jump to 0099
 0033                          ShowMessage(0D66) = A mean, twisted smile appears across the face of the dwarf blacksmith.
 0040                          ShowMessage(0DAD) = 'You have killed the cyclop!  My gold caves are won!
 004D                          ShowMessage(0DE2) = Hmmph.  It is my debt to repay you.  And I shall!'
@@ -271,7 +270,7 @@ CYCLQUST_13:
 0081                          RemoveItem(F1)
 008D                          GiveItem(F3)
 0099                          ax = HasItem(F1)
-00A7 75 34                    jnz 0xdd
+00A7                          If (result.notequal) value jump to 00DD
 00A9                          ShowMessage(0F08) = The old dwarf blacksmith at first does not hear you approach. Then she senses your presence and wheels on you. 
 00B6                          ShowMessage(0F78) = 'A mean trick you play on a wise one!  No matter.  No doubt you're looking for another golden trinket of mine.
 00C3                          ShowMessage(0FE7) = Well, I will not give you any of my creations.  Never!
@@ -282,23 +281,23 @@ MNRPLATC_14:
 0000                          BEGIN
 0003                          ShowPortrait(0023)
 0010                          ax = CheckState(02, 6F)
-0021 0B C0                    or ax, ax
-0023 74 6A                    jz 0x8f
+0021                          RefreshCompareFlags(ax)
+0023                          If (result.equal) value jump to 008F
 0025                          ShowMessage(1094) = The dwarf miner greets you with youthful enthusiasm.
 0032                          ax = CheckState(02, 6B)
-0043 0B C0                    or ax, ax
-0045 75 46                    jnz 0x8d
+0043                          RefreshCompareFlags(ax)
+0045                          If (result.notequal) value jump to 008D
 0047                          SetState(02, 6B, 01)
 005C                          ShowMessage(10C9) = You show signs of entering my caves!  I thank-you for clearing my mines and repay you with treasure.
 0069                          GiveItem(BA)
 0075                          GiveItem(BA)
 0081                          GiveItem(BA)
-008D EB 6C                    jmp 0xfb
+008D                          Jump to 00FB
 008F                          ax = HasItem(D7)
-009D 74 1C                    jz 0xbb
+009D                          If (result.equal) value jump to 00BB
 009F                          ShowMessage(112E) = The dwarf miner smiles as you approach.
 00AC                          ShowMessage(1156) = 'Have you found my cave yet?  It is by the water's edge.'
-00B9 EB 40                    jmp 0xfb
+00B9                          Jump to 00FB
 00BB                          ShowMessage(1190) = An apprentice dwarf miner notices your arrival.
 00C8                          ShowMessage(11C0) = 'Adventurers!  At last!  I've heard tales from the elders about your deeds.  I, too, have a cave, well hidden beyond the edges of the waters.
 00D5                          ShowMessage(124E) = Monsters have forced me from my home. I am not strong enough to fight them.
@@ -321,37 +320,37 @@ OPENER_16:
 0003                          SetState(01, 03, 05)
 0018                          ShowMessage(1308) = All the east side platforms appear to be up.
 0025                          SetTileFloor(A9, 00)
-0033 59                       pop cx
-0034 59                       pop cx
+0033                          cx = Pop()
+0034                          cx = Pop()
 0035                          Move(01, A9)
 0046                          SetTileFloor(99, 00)
-0054 59                       pop cx
-0055 59                       pop cx
+0054                          cx = Pop()
+0055                          cx = Pop()
 0056                          Move(01, 99)
 0067                          SetTileFloor(89, 00)
-0075 59                       pop cx
-0076 59                       pop cx
+0075                          cx = Pop()
+0076                          cx = Pop()
 0077                          Move(01, 89)
 0088                          SetTileFloor(79, 00)
-0096 59                       pop cx
-0097 59                       pop cx
+0096                          cx = Pop()
+0097                          cx = Pop()
 0098                          Move(01, 79)
 00A9                          RETURN
 
 OPENEE_17:
 0000                          BEGIN
 0003                          ax = CheckState(01, 03)
-0014 3D 05 00                 cmp ax, 0x5
-0017 75 34                    jnz 0x4d
+0014                          compare(ax, 0005)
+0017                          If (result.notequal) value jump to 004D
 0019                          Push(03)
 001D                          ax = GetNextTile()
-0024 50                       push ax
+0024                          Push(ax)
 0025                          Push(01)
 0029                          SetUnblocked()
 0033                          Push(01)
 0037                          Push(03)
 003B                          ax = GetNextTile()
-0042 50                       push ax
+0042                          Push(ax)
 0043                          Move(stk[0], stk[1], stk[2])
 004D                          RETURN
 
@@ -394,9 +393,9 @@ DRAGON_1B:
 004B                          AddEncounter(1B, 05)
 005D                          AddEncounter(13, 06)
 006F                          ax = HasItem(F4)
-007D 74 22                    jz 0xa1
+007D                          If (result.equal) value jump to 00A1
 007F                          AddTreasure(07D0, 00, 00, 00, C6, B7)
-009F EB 2F                    jmp 0xd0
+009F                          Jump to 00D0
 00A1                          ShowMessage(1335) = A glowing red gem casts a beam from under the dragon's lair.
 00AE                          AddTreasure(2328, 00, 14, D0, D0, F4)
 00D0                          RETURN
@@ -430,9 +429,9 @@ GATEA_1F:
 CYCLKEY_20:
 0000                          BEGIN
 0003                          ax = HasItem(D6)
-0011 74 0F                    jz 0x22
+0011                          If (result.equal) value jump to 0022
 0013                          ShowMessage(15A4) = The room has been emptied.
-0020 EB 19                    jmp 0x3b
+0020                          Jump to 003B
 0022                          GiveItem(D6)
 002E                          ShowMessage(15BF) = You find a key to the Cyclop's Mine on the floor.
 003B                          RETURN
@@ -440,83 +439,83 @@ CYCLKEY_20:
 SECDOORC_21:
 0000                          BEGIN
 0003                          ax = GetRace()
-000A 3D 04 00                 cmp ax, 0x4
-000D 74 03                    jz 0x12
-000F E9 B6 00                 jmp 0xc8
+000A                          compare(ax, 0004)
+000D                          If (result.equal) value jump to 0012
+000F                          Jump to 00C8
 0012                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-001E 3D 08 00                 cmp ax, 0x8
-0021 73 3A                    jae 0x5d
+001E                          compare(ax, 0008)
+0021                          If (result.greaterthan or result.equal) jump to 005D
 0023                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-002F 0B C0                    or ax, ax
-0031 75 2A                    jnz 0x5d
+002F                          RefreshCompareFlags(ax)
+0031                          If (result.notequal) value jump to 005D
 0033                          ax = UsedItem(A2, A2)
-0046 75 15                    jnz 0x5d
+0046                          If (result.notequal) value jump to 005D
 0048                          ax = UsedItem(BE, BE)
-005B 74 4B                    jz 0xa8
+005B                          If (result.equal) value jump to 00A8
 005D                          Push(01)
 0061                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0068 50                       push ax
+0068                          Push(ax)
 0069                          ax = GetNextTile()
-0070 50                       push ax
+0070                          Push(ax)
 0071                          Move(stk[0], stk[1], stk[2])
 007B                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0082 50                       push ax
+0082                          Push(ax)
 0083                          ax = GetNextTile()
-008A 50                       push ax
+008A                          Push(ax)
 008B                          Push(01)
 008F                          SetUnblocked()
 0099                          ShowMessage(15F1) = You found a hidden door!
-00A6 EB 1D                    jmp 0xc5
+00A6                          Jump to 00C5
 00A8                          Push(00)
 00AB                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00B2 50                       push ax
+00B2                          Push(ax)
 00B3                          ax = GetNextTile()
-00BA 50                       push ax
+00BA                          Push(ax)
 00BB                          Move(stk[0], stk[1], stk[2])
-00C5 E9 B3 00                 jmp 0x17b
+00C5                          Jump to 017B
 00C8                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-00D4 3D 0B 00                 cmp ax, 0xb
-00D7 73 3A                    jae 0x113
+00D4                          compare(ax, 000B)
+00D7                          If (result.greaterthan or result.equal) jump to 0113
 00D9                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-00E5 0B C0                    or ax, ax
-00E7 75 2A                    jnz 0x113
+00E5                          RefreshCompareFlags(ax)
+00E7                          If (result.notequal) value jump to 0113
 00E9                          ax = UsedItem(A2, A2)
-00FC 75 15                    jnz 0x113
+00FC                          If (result.notequal) value jump to 0113
 00FE                          ax = UsedItem(BE, BE)
-0111 74 4B                    jz 0x15e
+0111                          If (result.equal) value jump to 015E
 0113                          Push(01)
 0117                          ax = SetExitability(ax) // ax is usually 0 following equality check
-011E 50                       push ax
+011E                          Push(ax)
 011F                          ax = GetNextTile()
-0126 50                       push ax
+0126                          Push(ax)
 0127                          Move(stk[0], stk[1], stk[2])
 0131                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0138 50                       push ax
+0138                          Push(ax)
 0139                          ax = GetNextTile()
-0140 50                       push ax
+0140                          Push(ax)
 0141                          Push(01)
 0145                          SetUnblocked()
 014F                          ShowMessage(160A) = You found a hidden door!
-015C EB 1D                    jmp 0x17b
+015C                          Jump to 017B
 015E                          Push(00)
 0161                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0168 50                       push ax
+0168                          Push(ax)
 0169                          ax = GetNextTile()
-0170 50                       push ax
+0170                          Push(ax)
 0171                          Move(stk[0], stk[1], stk[2])
 017B                          RETURN
 
 FNTNATTR_25:
 0000                          BEGIN
 0003                          ax = CheckState(02, 56)
-0014 0B C0                    or ax, ax
-0016 75 54                    jnz 0x6c
+0014                          RefreshCompareFlags(ax)
+0016                          If (result.notequal) value jump to 006C
 0018                          SetState(02, 56, 01)
 002D                          ShowPortrait(0042)
 003A                          ModifyAttribute(00, 0002)
 004B                          ModifyAttribute(01, 0001)
 005D                          ShowMessage(1623) = You drink from the Fountain of Attributes and feel your powers greatly increase.
-006A EB 1A                    jmp 0x86
+006A                          Jump to 0086
 006C                          ShowPortrait(0042)
 0079                          ShowMessage(1674) = The waters of the Fountain of Attributes quench your thirst but do not otherwise affect you.
 0086                          RETURN

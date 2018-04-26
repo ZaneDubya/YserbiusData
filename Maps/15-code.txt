@@ -11,28 +11,28 @@ TOMAUS_02:
 SPECDOOR_03:
 0000                          BEGIN
 0003                          ax = UsedItem(D2, D2)
-0016 75 10                    jnz 0x28
+0016                          If (result.notequal) value jump to 0028
 0018                          ax = HasItem(F8)
-0026 74 4B                    jz 0x73
+0026                          If (result.equal) value jump to 0073
 0028                          Push(01)
 002C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0033 50                       push ax
+0033                          Push(ax)
 0034                          ax = GetNextTile()
-003B 50                       push ax
+003B                          Push(ax)
 003C                          Move(stk[0], stk[1], stk[2])
 0046                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004D 50                       push ax
+004D                          Push(ax)
 004E                          ax = GetNextTile()
-0055 50                       push ax
+0055                          Push(ax)
 0056                          Push(01)
 005A                          SetUnblocked()
 0064                          ShowMessage(03FC) = The door opens.
-0071 EB 2A                    jmp 0x9d
+0071                          Jump to 009D
 0073                          Push(00)
 0076                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007D 50                       push ax
+007D                          Push(ax)
 007E                          ax = GetNextTile()
-0085 50                       push ax
+0085                          Push(ax)
 0086                          Move(stk[0], stk[1], stk[2])
 0090                          ShowMessage(040C) = This door is locked.
 009D                          RETURN
@@ -40,28 +40,28 @@ SPECDOOR_03:
 QUESTDOR_04:
 0000                          BEGIN
 0003                          ax = CheckState(02, 2E)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 5F                    jnz 0x78
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0078
 0019                          SetState(02, 2E, 00)
 002D                          Push(01)
 0031                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0038 50                       push ax
+0038                          Push(ax)
 0039                          ax = GetNextTile()
-0040 50                       push ax
+0040                          Push(ax)
 0041                          Move(stk[0], stk[1], stk[2])
 004B                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0052 50                       push ax
+0052                          Push(ax)
 0053                          ax = GetNextTile()
-005A 50                       push ax
+005A                          Push(ax)
 005B                          Push(01)
 005F                          SetUnblocked()
 0069                          ShowMessage(0421) = The door magically opens!
-0076 EB 2A                    jmp 0xa2
+0076                          Jump to 00A2
 0078                          Push(00)
 007B                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0082 50                       push ax
+0082                          Push(ax)
 0083                          ax = GetNextTile()
-008A 50                       push ax
+008A                          Push(ax)
 008B                          Move(stk[0], stk[1], stk[2])
 0095                          ShowMessage(043B) = This door will not open.
 00A2                          RETURN
@@ -74,29 +74,29 @@ STRSTELE_05:
 QSTCHARA_06:
 0000                          BEGIN
 0003                          ax = HasItem(F9)
-0011 74 79                    jz 0x8c
+0011                          If (result.equal) value jump to 008C
 0013                          Push(01)
 0017                          ax = SetExitability(ax) // ax is usually 0 following equality check
-001E 50                       push ax
+001E                          Push(ax)
 001F                          ax = GetNextTile()
-0026 50                       push ax
+0026                          Push(ax)
 0027                          Move(stk[0], stk[1], stk[2])
 0031                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0038 50                       push ax
+0038                          Push(ax)
 0039                          ax = GetNextTile()
-0040 50                       push ax
+0040                          Push(ax)
 0041                          Push(01)
 0045                          SetUnblocked()
 004F                          SetState(02, 2E, 01)
 0064                          ShowPortrait(001C)
 0071                          RemoveItem(F9)
 007D                          ShowMessage(0454) = That is indeed the King's Pass. You may continue. If you ever return, I'll need to see another pass.
-008A EB 44                    jmp 0xd0
+008A                          Jump to 00D0
 008C                          Push(00)
 008F                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0096 50                       push ax
+0096                          Push(ax)
 0097                          ax = GetNextTile()
-009E 50                       push ax
+009E                          Push(ax)
 009F                          Move(stk[0], stk[1], stk[2])
 00A9                          ShowPortrait(001C)
 00B6                          ShowMessage(04B9) = None may pass. I am pledged to guard King Cleowyn's Apartments for eternity. Of course, if you had the King's Pass, I could let you through.
@@ -106,11 +106,11 @@ QSTCHARA_06:
 QSTCHARB_07:
 0000                          BEGIN
 0003                          ax = CheckState(02, 22)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 1C                    jnz 0x35
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0035
 0019                          ShowPortrait(002C)
 0026                          ShowMessage(0578) = You have passed the Trial of Harmony. A great reward is yours, if you but look for it.
-0033 EB 1A                    jmp 0x4f
+0033                          Jump to 004F
 0035                          ShowPortrait(002C)
 0042                          ShowMessage(05CF) = You have mastered our Challenge. Congratulations! Behold the door of Harmony. Only those pledged to Harmony should enter.
 004F                          RETURN
@@ -118,11 +118,11 @@ QSTCHARB_07:
 QSTCHARC_08:
 0000                          BEGIN
 0003                          ax = CheckState(02, 23)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 1C                    jnz 0x35
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0035
 0019                          ShowPortrait(002D)
 0026                          ShowMessage(0649) = You have passed the Trial of Chaos. A great reward is yours, if you but look for it.
-0033 EB 1A                    jmp 0x4f
+0033                          Jump to 004F
 0035                          ShowPortrait(002D)
 0042                          ShowMessage(069E) = You have mastered our Challenge. Congratulations! Behold the door of Chaos. Only those pledged to Chaos should enter.
 004F                          RETURN
@@ -140,30 +140,30 @@ TELEPORT_0A:
 HUTHDOOR_0B:
 0000                          BEGIN
 0003                          ax = GetRace()
-000A 0B C0                    or ax, ax
-000C 74 0C                    jz 0x1a
+000A                          RefreshCompareFlags(ax)
+000C                          If (result.equal) value jump to 001A
 000E                          ax = GetGuild()
-0015 3D 03 00                 cmp ax, 0x3
-0018 75 4B                    jnz 0x65
+0015                          compare(ax, 0003)
+0018                          If (result.notequal) value jump to 0065
 001A                          Push(01)
 001E                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0025 50                       push ax
+0025                          Push(ax)
 0026                          ax = GetNextTile()
-002D 50                       push ax
+002D                          Push(ax)
 002E                          Move(stk[0], stk[1], stk[2])
 0038                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003F 50                       push ax
+003F                          Push(ax)
 0040                          ax = GetNextTile()
-0047 50                       push ax
+0047                          Push(ax)
 0048                          Push(01)
 004C                          SetUnblocked()
 0056                          ShowMessage(0714) = The door is opened
-0063 EB 2A                    jmp 0x8f
+0063                          Jump to 008F
 0065                          Push(00)
 0068                          ax = SetExitability(ax) // ax is usually 0 following equality check
-006F 50                       push ax
+006F                          Push(ax)
 0070                          ax = GetNextTile()
-0077 50                       push ax
+0077                          Push(ax)
 0078                          Move(stk[0], stk[1], stk[2])
 0082                          ShowMessage(0727) = The door can be opened only by a Human or Thief.
 008F                          RETURN
@@ -171,30 +171,30 @@ HUTHDOOR_0B:
 ORCLDOOR_0C:
 0000                          BEGIN
 0003                          ax = GetRace()
-000A 3D 01 00                 cmp ax, 0x1
-000D 74 0C                    jz 0x1b
+000A                          compare(ax, 0001)
+000D                          If (result.equal) value jump to 001B
 000F                          ax = GetGuild()
-0016 3D 04 00                 cmp ax, 0x4
-0019 75 4B                    jnz 0x66
+0016                          compare(ax, 0004)
+0019                          If (result.notequal) value jump to 0066
 001B                          Push(01)
 001F                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0026 50                       push ax
+0026                          Push(ax)
 0027                          ax = GetNextTile()
-002E 50                       push ax
+002E                          Push(ax)
 002F                          Move(stk[0], stk[1], stk[2])
 0039                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0040 50                       push ax
+0040                          Push(ax)
 0041                          ax = GetNextTile()
-0048 50                       push ax
+0048                          Push(ax)
 0049                          Push(01)
 004D                          SetUnblocked()
 0057                          ShowMessage(0758) = The lock of the door opens as you step forward.
-0064 EB 2A                    jmp 0x90
+0064                          Jump to 0090
 0066                          Push(00)
 0069                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0070 50                       push ax
+0070                          Push(ax)
 0071                          ax = GetNextTile()
-0078 50                       push ax
+0078                          Push(ax)
 0079                          Move(stk[0], stk[1], stk[2])
 0083                          ShowMessage(0788) = The door can be opened only by an Orc or Cleric.
 0090                          RETURN
@@ -202,30 +202,30 @@ ORCLDOOR_0C:
 ELBADOOR_0D:
 0000                          BEGIN
 0003                          ax = GetRace()
-000A 3D 02 00                 cmp ax, 0x2
-000D 74 0B                    jz 0x1a
+000A                          compare(ax, 0002)
+000D                          If (result.equal) value jump to 001A
 000F                          ax = GetGuild()
-0016 0B C0                    or ax, ax
-0018 75 4B                    jnz 0x65
+0016                          RefreshCompareFlags(ax)
+0018                          If (result.notequal) value jump to 0065
 001A                          Push(01)
 001E                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0025 50                       push ax
+0025                          Push(ax)
 0026                          ax = GetNextTile()
-002D 50                       push ax
+002D                          Push(ax)
 002E                          Move(stk[0], stk[1], stk[2])
 0038                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003F 50                       push ax
+003F                          Push(ax)
 0040                          ax = GetNextTile()
-0047 50                       push ax
+0047                          Push(ax)
 0048                          Push(01)
 004C                          SetUnblocked()
 0056                          ShowMessage(07B9) = The lock opens as you approach.
-0063 EB 2A                    jmp 0x8f
+0063                          Jump to 008F
 0065                          Push(00)
 0068                          ax = SetExitability(ax) // ax is usually 0 following equality check
-006F 50                       push ax
+006F                          Push(ax)
 0070                          ax = GetNextTile()
-0077 50                       push ax
+0077                          Push(ax)
 0078                          Move(stk[0], stk[1], stk[2])
 0082                          ShowMessage(07D9) = The door can be opened only by an Elf or Barbarian.
 008F                          RETURN
@@ -233,30 +233,30 @@ ELBADOOR_0D:
 TRRADOOR_0E:
 0000                          BEGIN
 0003                          ax = GetRace()
-000A 3D 03 00                 cmp ax, 0x3
-000D 74 0C                    jz 0x1b
+000A                          compare(ax, 0003)
+000D                          If (result.equal) value jump to 001B
 000F                          ax = GetGuild()
-0016 3D 02 00                 cmp ax, 0x2
-0019 75 4B                    jnz 0x66
+0016                          compare(ax, 0002)
+0019                          If (result.notequal) value jump to 0066
 001B                          Push(01)
 001F                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0026 50                       push ax
+0026                          Push(ax)
 0027                          ax = GetNextTile()
-002E 50                       push ax
+002E                          Push(ax)
 002F                          Move(stk[0], stk[1], stk[2])
 0039                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0040 50                       push ax
+0040                          Push(ax)
 0041                          ax = GetNextTile()
-0048 50                       push ax
+0048                          Push(ax)
 0049                          Push(01)
 004D                          SetUnblocked()
 0057                          ShowMessage(080D) = The door unlocks when you test it.
-0064 EB 2A                    jmp 0x90
+0064                          Jump to 0090
 0066                          Push(00)
 0069                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0070 50                       push ax
+0070                          Push(ax)
 0071                          ax = GetNextTile()
-0078 50                       push ax
+0078                          Push(ax)
 0079                          Move(stk[0], stk[1], stk[2])
 0083                          ShowMessage(0830) = The door can be opened only by a Troll or Ranger.
 0090                          RETURN
@@ -264,30 +264,30 @@ TRRADOOR_0E:
 DWKNDOOR_0F:
 0000                          BEGIN
 0003                          ax = GetRace()
-000A 3D 04 00                 cmp ax, 0x4
-000D 74 0C                    jz 0x1b
+000A                          compare(ax, 0004)
+000D                          If (result.equal) value jump to 001B
 000F                          ax = GetGuild()
-0016 3D 01 00                 cmp ax, 0x1
-0019 75 4B                    jnz 0x66
+0016                          compare(ax, 0001)
+0019                          If (result.notequal) value jump to 0066
 001B                          Push(01)
 001F                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0026 50                       push ax
+0026                          Push(ax)
 0027                          ax = GetNextTile()
-002E 50                       push ax
+002E                          Push(ax)
 002F                          Move(stk[0], stk[1], stk[2])
 0039                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0040 50                       push ax
+0040                          Push(ax)
 0041                          ax = GetNextTile()
-0048 50                       push ax
+0048                          Push(ax)
 0049                          Push(01)
 004D                          SetUnblocked()
 0057                          ShowMessage(0862) = The door opens as you advance.
-0064 EB 2A                    jmp 0x90
+0064                          Jump to 0090
 0066                          Push(00)
 0069                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0070 50                       push ax
+0070                          Push(ax)
 0071                          ax = GetNextTile()
-0078 50                       push ax
+0078                          Push(ax)
 0079                          Move(stk[0], stk[1], stk[2])
 0083                          ShowMessage(0881) = The door can be opened only by a Dwarf or Knight.
 0090                          RETURN
@@ -295,30 +295,30 @@ DWKNDOOR_0F:
 GNWIDOOR_10:
 0000                          BEGIN
 0003                          ax = GetRace()
-000A 3D 05 00                 cmp ax, 0x5
-000D 74 0C                    jz 0x1b
+000A                          compare(ax, 0005)
+000D                          If (result.equal) value jump to 001B
 000F                          ax = GetGuild()
-0016 3D 05 00                 cmp ax, 0x5
-0019 75 4B                    jnz 0x66
+0016                          compare(ax, 0005)
+0019                          If (result.notequal) value jump to 0066
 001B                          Push(01)
 001F                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0026 50                       push ax
+0026                          Push(ax)
 0027                          ax = GetNextTile()
-002E 50                       push ax
+002E                          Push(ax)
 002F                          Move(stk[0], stk[1], stk[2])
 0039                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0040 50                       push ax
+0040                          Push(ax)
 0041                          ax = GetNextTile()
-0048 50                       push ax
+0048                          Push(ax)
 0049                          Push(01)
 004D                          SetUnblocked()
 0057                          ShowMessage(08B3) = The door is opened.
-0064 EB 2A                    jmp 0x90
+0064                          Jump to 0090
 0066                          Push(00)
 0069                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0070 50                       push ax
+0070                          Push(ax)
 0071                          ax = GetNextTile()
-0078 50                       push ax
+0078                          Push(ax)
 0079                          Move(stk[0], stk[1], stk[2])
 0083                          ShowMessage(08C7) = The door can be opened only by a Gnome or Wizard.
 0090                          RETURN
@@ -326,29 +326,29 @@ GNWIDOOR_10:
 HAITDOOR_11:
 0000                          BEGIN
 0003                          ax = GetRace()
-000A 3D 06 00                 cmp ax, 0x6
-000D 74 10                    jz 0x1f
+000A                          compare(ax, 0006)
+000D                          If (result.equal) value jump to 001F
 000F                          ax = HasItem(D3)
-001D 74 4B                    jz 0x6a
+001D                          If (result.equal) value jump to 006A
 001F                          Push(01)
 0023                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002A 50                       push ax
+002A                          Push(ax)
 002B                          ax = GetNextTile()
-0032 50                       push ax
+0032                          Push(ax)
 0033                          Move(stk[0], stk[1], stk[2])
 003D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0044 50                       push ax
+0044                          Push(ax)
 0045                          ax = GetNextTile()
-004C 50                       push ax
+004C                          Push(ax)
 004D                          Push(01)
 0051                          SetUnblocked()
 005B                          ShowMessage(08F9) = The door clicks open.
-0068 EB 2A                    jmp 0x94
+0068                          Jump to 0094
 006A                          Push(00)
 006D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0074 50                       push ax
+0074                          Push(ax)
 0075                          ax = GetNextTile()
-007C 50                       push ax
+007C                          Push(ax)
 007D                          Move(stk[0], stk[1], stk[2])
 0087                          ShowMessage(090F) = The door can be opened only by a Halfling or by Cleowyn's Key.
 0094                          RETURN
@@ -356,29 +356,29 @@ HAITDOOR_11:
 GRITDOOR_12:
 0000                          BEGIN
 0003                          ax = GetRace()
-000A 3D 07 00                 cmp ax, 0x7
-000D 74 10                    jz 0x1f
+000A                          compare(ax, 0007)
+000D                          If (result.equal) value jump to 001F
 000F                          ax = HasItem(D2)
-001D 74 4B                    jz 0x6a
+001D                          If (result.equal) value jump to 006A
 001F                          Push(01)
 0023                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002A 50                       push ax
+002A                          Push(ax)
 002B                          ax = GetNextTile()
-0032 50                       push ax
+0032                          Push(ax)
 0033                          Move(stk[0], stk[1], stk[2])
 003D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0044 50                       push ax
+0044                          Push(ax)
 0045                          ax = GetNextTile()
-004C 50                       push ax
+004C                          Push(ax)
 004D                          Push(01)
 0051                          SetUnblocked()
 005B                          ShowMessage(094E) = The lock opens for you.
-0068 EB 2A                    jmp 0x94
+0068                          Jump to 0094
 006A                          Push(00)
 006D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0074 50                       push ax
+0074                          Push(ax)
 0075                          ax = GetNextTile()
-007C 50                       push ax
+007C                          Push(ax)
 007D                          Move(stk[0], stk[1], stk[2])
 0087                          ShowMessage(0966) = The door can be opened only by a Gremlin or by Cleowyn's Lockpick.
 0094                          RETURN
@@ -387,10 +387,10 @@ OTGGDOOR_13:
 0000                          BEGIN
 0003                          ShowMessage(09A9) = A warning is on the door -
 0010                          ax = GetAlignment()
-0018 0B C0                    or ax, ax
-001A 75 0F                    jnz 0x2b
+0018                          RefreshCompareFlags(ax)
+001A                          If (result.notequal) value jump to 002B
 001C                          ShowMessage(09C4) = 'Those honoring Harmony may safely enter.'
-0029 EB 0D                    jmp 0x38
+0029                          Jump to 0038
 002B                          ShowMessage(09EF) = 'Woe to you who serve Chaos, if you dare cross the threshold.'
 0038                          RETURN
 
@@ -398,10 +398,10 @@ HEDHDOOR_14:
 0000                          BEGIN
 0003                          ShowMessage(0A2E) = A warning is on the door -
 0010                          ax = GetAlignment()
-0018 3D 01 00                 cmp ax, 0x1
-001B 75 0F                    jnz 0x2c
+0018                          compare(ax, 0001)
+001B                          If (result.notequal) value jump to 002C
 001D                          ShowMessage(0A49) = 'Those honoring Chaos may safely enter.'
-002A EB 0D                    jmp 0x39
+002A                          Jump to 0039
 002C                          ShowMessage(0A72) = 'Woe to you who serve Harmony, if you dare cross the threshold.'
 0039                          RETURN
 
@@ -409,30 +409,30 @@ CHAOSDOR_15:
 0000                          BEGIN
 0003                          ShowMessage(0AB3) = A sign is on the door -
 0010                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0017 50                       push ax
+0017                          Push(ax)
 0018                          ax = GetNextTile()
-001F 50                       push ax
+001F                          Push(ax)
 0020                          Push(01)
 0024                          SetUnblocked()
 002E                          ax = GetAlignment()
-0036 3D 01 00                 cmp ax, 0x1
-0039 75 2D                    jnz 0x68
+0036                          compare(ax, 0001)
+0039                          If (result.notequal) value jump to 0068
 003B                          Push(01)
 003F                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0046 50                       push ax
+0046                          Push(ax)
 0047                          ax = GetNextTile()
-004E 50                       push ax
+004E                          Push(ax)
 004F                          Move(stk[0], stk[1], stk[2])
 0059                          ShowMessage(0ACB) = The way is clear for members of Chaos.
-0066 EB 60                    jmp 0xc8
+0066                          Jump to 00C8
 0068                          ModifyGold(FFFF78BA)
 007A                          ModifyAttribute(00, FFFE)
 008B                          ModifyAttribute(01, FFFE)
 009D                          Push(01)
 00A1                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00A8 50                       push ax
+00A8                          Push(ax)
 00A9                          ax = GetNextTile()
-00B0 50                       push ax
+00B0                          Push(ax)
 00B1                          Move(stk[0], stk[1], stk[2])
 00BB                          ShowMessage(0AF2) = Those not sworn to Chaos have been duly chastised.
 00C8                          RETURN
@@ -441,30 +441,30 @@ HARMDOOR_16:
 0000                          BEGIN
 0003                          ShowMessage(0B25) = A sign is on the door -
 0010                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0017 50                       push ax
+0017                          Push(ax)
 0018                          ax = GetNextTile()
-001F 50                       push ax
+001F                          Push(ax)
 0020                          Push(01)
 0024                          SetUnblocked()
 002E                          ax = GetAlignment()
-0036 0B C0                    or ax, ax
-0038 75 2D                    jnz 0x67
+0036                          RefreshCompareFlags(ax)
+0038                          If (result.notequal) value jump to 0067
 003A                          Push(01)
 003E                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0045 50                       push ax
+0045                          Push(ax)
 0046                          ax = GetNextTile()
-004D 50                       push ax
+004D                          Push(ax)
 004E                          Move(stk[0], stk[1], stk[2])
 0058                          ShowMessage(0B3D) = The way is clear for members of Harmony.
-0065 EB 60                    jmp 0xc7
+0065                          Jump to 00C7
 0067                          ModifyGold(FFFF78BA)
 0079                          ModifyAttribute(00, FFFE)
 008A                          ModifyAttribute(01, FFFE)
 009C                          Push(01)
 00A0                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00A7 50                       push ax
+00A7                          Push(ax)
 00A8                          ax = GetNextTile()
-00AF 50                       push ax
+00AF                          Push(ax)
 00B0                          Move(stk[0], stk[1], stk[2])
 00BA                          ShowMessage(0B66) = Those not sworn to Harmony have been duly chastised.
 00C7                          RETURN
@@ -472,45 +472,45 @@ HARMDOOR_16:
 PAYAENC_17:
 0000                          BEGIN
 0003                          ax = CheckState(02, 23)
-0014 3D 01 00                 cmp ax, 0x1
-0017 74 0C                    jz 0x25
+0014                          compare(ax, 0001)
+0017                          If (result.equal) value jump to 0025
 0019                          ax = GetAlignment()
-0021 0B C0                    or ax, ax
-0023 75 23                    jnz 0x48
+0021                          RefreshCompareFlags(ax)
+0023                          If (result.notequal) value jump to 0048
 0025                          AddTreasure(0064, 00, 00, 00, CE, B7)
-0045 E9 99 00                 jmp 0xe1
+0045                          Jump to 00E1
 0048                          SetState(02, 23, 01)
 005D                          ax = GetGuild()
-0064 3D 05 00                 cmp ax, 0x5
-0067 74 0C                    jz 0x75
+0064                          compare(ax, 0005)
+0067                          If (result.equal) value jump to 0075
 0069                          ax = GetGuild()
-0070 3D 04 00                 cmp ax, 0x4
-0073 75 21                    jnz 0x96
+0070                          compare(ax, 0004)
+0073                          If (result.notequal) value jump to 0096
 0075                          AddTreasure(03E8, 00, 00, 00, 00, 0E)
-0094 EB 4B                    jmp 0xe1
+0094                          Jump to 00E1
 0096                          ax = GetGuild()
-009D 0B C0                    or ax, ax
-009F 75 21                    jnz 0xc2
+009D                          RefreshCompareFlags(ax)
+009F                          If (result.notequal) value jump to 00C2
 00A1                          AddTreasure(03E8, 00, 00, 00, 00, 2A)
-00C0 EB 1F                    jmp 0xe1
+00C0                          Jump to 00E1
 00C2                          AddTreasure(03E8, 00, 00, 00, 00, 4B)
 00E1                          ShowMessage(0B9B) = Rogues bar the way to Chaos.
 00EE                          ax = PartyCount()
-00F6 3D 01 00                 cmp ax, 0x1
-00F9 75 39                    jnz 0x134
+00F6                          compare(ax, 0001)
+00F9                          If (result.notequal) value jump to 0134
 00FB                          AddEncounter(26, 01)
 010D                          AddEncounter(1C, 02)
 011F                          AddEncounter(1D, 06)
-0131 E9 D5 00                 jmp 0x209
+0131                          Jump to 0209
 0134                          ax = PartyCount()
-013C 3D 02 00                 cmp ax, 0x2
-013F 75 5C                    jnz 0x19d
+013C                          compare(ax, 0002)
+013F                          If (result.notequal) value jump to 019D
 0141                          AddEncounter(26, 01)
 0153                          AddEncounter(24, 02)
 0165                          AddEncounter(1F, 03)
 0177                          AddEncounter(1C, 04)
 0189                          AddEncounter(1D, 05)
-019B EB 6C                    jmp 0x209
+019B                          Jump to 0209
 019D                          AddEncounter(26, 01)
 01AF                          AddEncounter(26, 02)
 01C1                          AddEncounter(24, 03)
@@ -522,53 +522,53 @@ PAYAENC_17:
 PAYBENC_18:
 0000                          BEGIN
 0003                          ax = CheckState(02, 22)
-0014 3D 01 00                 cmp ax, 0x1
-0017 74 0D                    jz 0x26
+0014                          compare(ax, 0001)
+0017                          If (result.equal) value jump to 0026
 0019                          ax = GetAlignment()
-0021 3D 01 00                 cmp ax, 0x1
-0024 75 23                    jnz 0x49
+0021                          compare(ax, 0001)
+0024                          If (result.notequal) value jump to 0049
 0026                          AddTreasure(0064, 00, 00, 00, CE, B7)
-0046 E9 D3 00                 jmp 0x11c
+0046                          Jump to 011C
 0049                          SetState(02, 22, 01)
 005E                          ax = GetGuild()
-0065 0B C0                    or ax, ax
-0067 74 0C                    jz 0x75
+0065                          RefreshCompareFlags(ax)
+0067                          If (result.equal) value jump to 0075
 0069                          ax = GetGuild()
-0070 3D 04 00                 cmp ax, 0x4
-0073 75 22                    jnz 0x97
+0070                          compare(ax, 0004)
+0073                          If (result.notequal) value jump to 0097
 0075                          AddTreasure(03E8, 00, 00, 00, 00, 22)
-0094 E9 85 00                 jmp 0x11c
+0094                          Jump to 011C
 0097                          ax = GetGuild()
-009E 3D 01 00                 cmp ax, 0x1
-00A1 75 21                    jnz 0xc4
+009E                          compare(ax, 0001)
+00A1                          If (result.notequal) value jump to 00C4
 00A3                          AddTreasure(03E8, 00, 00, 00, 00, 10)
-00C2 EB 58                    jmp 0x11c
+00C2                          Jump to 011C
 00C4                          ax = GetGuild()
-00CB 3D 02 00                 cmp ax, 0x2
-00CE 74 0C                    jz 0xdc
+00CB                          compare(ax, 0002)
+00CE                          If (result.equal) value jump to 00DC
 00D0                          ax = GetGuild()
-00D7 3D 03 00                 cmp ax, 0x3
-00DA 75 21                    jnz 0xfd
+00D7                          compare(ax, 0003)
+00DA                          If (result.notequal) value jump to 00FD
 00DC                          AddTreasure(03E8, 00, 00, 00, 00, 45)
-00FB EB 1F                    jmp 0x11c
+00FB                          Jump to 011C
 00FD                          AddTreasure(03E8, 00, 00, 00, 00, 06)
 011C                          ShowMessage(0BB8) = Rogues bar the way to Harmony.
 0129                          ax = PartyCount()
-0131 3D 01 00                 cmp ax, 0x1
-0134 75 39                    jnz 0x16f
+0131                          compare(ax, 0001)
+0134                          If (result.notequal) value jump to 016F
 0136                          AddEncounter(26, 01)
 0148                          AddEncounter(1C, 02)
 015A                          AddEncounter(1D, 06)
-016C E9 D5 00                 jmp 0x244
+016C                          Jump to 0244
 016F                          ax = PartyCount()
-0177 3D 02 00                 cmp ax, 0x2
-017A 75 5C                    jnz 0x1d8
+0177                          compare(ax, 0002)
+017A                          If (result.notequal) value jump to 01D8
 017C                          AddEncounter(26, 01)
 018E                          AddEncounter(24, 02)
 01A0                          AddEncounter(1F, 03)
 01B2                          AddEncounter(1C, 04)
 01C4                          AddEncounter(1D, 05)
-01D6 EB 6C                    jmp 0x244
+01D6                          Jump to 0244
 01D8                          AddEncounter(26, 01)
 01EA                          AddEncounter(26, 02)
 01FC                          AddEncounter(24, 03)
@@ -580,18 +580,18 @@ PAYBENC_18:
 BLESSMES_19:
 0000                          BEGIN
 0003                          ax = CheckState3(02, 2F)
-0016 74 5E                    jz 0x76
+0016                          If (result.equal) value jump to 0076
 0018                          ax = GetRace()
-001F 0B C0                    or ax, ax
-0021 74 0C                    jz 0x2f
+001F                          RefreshCompareFlags(ax)
+0021                          If (result.equal) value jump to 002F
 0023                          ax = GetGuild()
-002A 3D 03 00                 cmp ax, 0x3
-002D 75 47                    jnz 0x76
+002A                          compare(ax, 0003)
+002D                          If (result.notequal) value jump to 0076
 002F                          SetState(02, 2F, 01)
 0044                          ModifyAttribute(00, 0001)
 0055                          ModifyAttribute(01, 0001)
 0067                          ShowMessage(0BD7) = Blessed Human or Thief, you may continue the quest.
-0074 EB 22                    jmp 0x98
+0074                          Jump to 0098
 0076                          SetState(02, 2F, 01)
 008B                          ShowMessage(0C0B) = The tapestry shows nothing of interest.
 0098                          RETURN
@@ -599,18 +599,18 @@ BLESSMES_19:
 BLESSMES_1A:
 0000                          BEGIN
 0003                          ax = CheckState3(02, 30)
-0016 74 5F                    jz 0x77
+0016                          If (result.equal) value jump to 0077
 0018                          ax = GetRace()
-001F 3D 01 00                 cmp ax, 0x1
-0022 74 0C                    jz 0x30
+001F                          compare(ax, 0001)
+0022                          If (result.equal) value jump to 0030
 0024                          ax = GetGuild()
-002B 3D 04 00                 cmp ax, 0x4
-002E 75 47                    jnz 0x77
+002B                          compare(ax, 0004)
+002E                          If (result.notequal) value jump to 0077
 0030                          SetState(02, 30, 01)
 0045                          ModifyAttribute(00, 0001)
 0056                          ModifyAttribute(01, 0001)
 0068                          ShowMessage(0C33) = Blessed Orc or Cleric, you may continue the quest.
-0075 EB 22                    jmp 0x99
+0075                          Jump to 0099
 0077                          SetState(02, 30, 01)
 008C                          ShowMessage(0C66) = The tapestry shows a jumble of runes.
 0099                          RETURN
@@ -618,18 +618,18 @@ BLESSMES_1A:
 BLESSMES_1B:
 0000                          BEGIN
 0003                          ax = CheckState3(02, 31)
-0016 74 5E                    jz 0x76
+0016                          If (result.equal) value jump to 0076
 0018                          ax = GetRace()
-001F 3D 02 00                 cmp ax, 0x2
-0022 74 0B                    jz 0x2f
+001F                          compare(ax, 0002)
+0022                          If (result.equal) value jump to 002F
 0024                          ax = GetGuild()
-002B 0B C0                    or ax, ax
-002D 75 47                    jnz 0x76
+002B                          RefreshCompareFlags(ax)
+002D                          If (result.notequal) value jump to 0076
 002F                          SetState(02, 31, 01)
 0044                          ModifyAttribute(00, 0001)
 0055                          ModifyAttribute(01, 0001)
 0067                          ShowMessage(0C8C) = Blessed Elf or Barbarian, you may continue the quest.
-0074 EB 22                    jmp 0x98
+0074                          Jump to 0098
 0076                          SetState(02, 31, 01)
 008B                          ShowMessage(0CC2) = The tapestry is blank.
 0098                          RETURN
@@ -637,18 +637,18 @@ BLESSMES_1B:
 BLESSMES_1C:
 0000                          BEGIN
 0003                          ax = CheckState3(02, 32)
-0016 74 5F                    jz 0x77
+0016                          If (result.equal) value jump to 0077
 0018                          ax = GetRace()
-001F 3D 03 00                 cmp ax, 0x3
-0022 74 0C                    jz 0x30
+001F                          compare(ax, 0003)
+0022                          If (result.equal) value jump to 0030
 0024                          ax = GetGuild()
-002B 3D 02 00                 cmp ax, 0x2
-002E 75 47                    jnz 0x77
+002B                          compare(ax, 0002)
+002E                          If (result.notequal) value jump to 0077
 0030                          SetState(02, 32, 01)
 0045                          ModifyAttribute(00, 0001)
 0056                          ModifyAttribute(01, 0001)
 0068                          ShowMessage(0CD9) = Blessed Troll or Ranger, you may continue the quest.
-0075 EB 22                    jmp 0x99
+0075                          Jump to 0099
 0077                          SetState(02, 32, 01)
 008C                          ShowMessage(0D0E) = The tapestry is blank.
 0099                          RETURN
@@ -656,18 +656,18 @@ BLESSMES_1C:
 BLESSMES_1D:
 0000                          BEGIN
 0003                          ax = CheckState3(02, 33)
-0016 74 5F                    jz 0x77
+0016                          If (result.equal) value jump to 0077
 0018                          ax = GetRace()
-001F 3D 04 00                 cmp ax, 0x4
-0022 74 0C                    jz 0x30
+001F                          compare(ax, 0004)
+0022                          If (result.equal) value jump to 0030
 0024                          ax = GetGuild()
-002B 3D 01 00                 cmp ax, 0x1
-002E 75 47                    jnz 0x77
+002B                          compare(ax, 0001)
+002E                          If (result.notequal) value jump to 0077
 0030                          SetState(02, 33, 01)
 0045                          ModifyAttribute(00, 0001)
 0056                          ModifyAttribute(01, 0001)
 0068                          ShowMessage(0D25) = Blessed Dwarf or Knight, you may continue the quest.
-0075 EB 22                    jmp 0x99
+0075                          Jump to 0099
 0077                          SetState(02, 33, 01)
 008C                          ShowMessage(0D5A) = It is too dark to read the inscription.
 0099                          RETURN
@@ -675,18 +675,18 @@ BLESSMES_1D:
 BLESSMES_1E:
 0000                          BEGIN
 0003                          ax = CheckState3(02, 34)
-0016 74 5F                    jz 0x77
+0016                          If (result.equal) value jump to 0077
 0018                          ax = GetRace()
-001F 3D 05 00                 cmp ax, 0x5
-0022 74 0C                    jz 0x30
+001F                          compare(ax, 0005)
+0022                          If (result.equal) value jump to 0030
 0024                          ax = GetGuild()
-002B 3D 05 00                 cmp ax, 0x5
-002E 75 47                    jnz 0x77
+002B                          compare(ax, 0005)
+002E                          If (result.notequal) value jump to 0077
 0030                          SetState(02, 34, 01)
 0045                          ModifyAttribute(00, 0001)
 0056                          ModifyAttribute(01, 0001)
 0068                          ShowMessage(0D82) = Blessed Gnome or Wizard, you may continue the quest.
-0075 EB 22                    jmp 0x99
+0075                          Jump to 0099
 0077                          SetState(02, 34, 01)
 008C                          ShowMessage(0DB7) = An inscription on the tapestry fades away as you draw near.
 0099                          RETURN
@@ -694,20 +694,20 @@ BLESSMES_1E:
 BLESSMES_1F:
 0000                          BEGIN
 0003                          ax = CheckState3(02, 35)
-0016 74 6F                    jz 0x87
+0016                          If (result.equal) value jump to 0087
 0018                          ax = GetRace()
-001F 3D 06 00                 cmp ax, 0x6
-0022 74 10                    jz 0x34
+001F                          compare(ax, 0006)
+0022                          If (result.equal) value jump to 0034
 0024                          ax = HasItem(D3)
-0032 74 53                    jz 0x87
+0032                          If (result.equal) value jump to 0087
 0034                          SetState(02, 35, 01)
 0049                          ShowMessage(0DF3) = Blessed Halfling! Blessed Key of Cleowyn! With either, the quest may continue.
 0056                          ax = GetRace()
-005D 3D 06 00                 cmp ax, 0x6
-0060 75 23                    jnz 0x85
+005D                          compare(ax, 0006)
+0060                          If (result.notequal) value jump to 0085
 0062                          ModifyAttribute(00, 0001)
 0073                          ModifyAttribute(01, 0001)
-0085 EB 22                    jmp 0xa9
+0085                          Jump to 00A9
 0087                          SetState(02, 35, 01)
 009C                          ShowMessage(0E42) = The tapestry is empty.
 00A9                          RETURN
@@ -715,20 +715,20 @@ BLESSMES_1F:
 BLESSMES_20:
 0000                          BEGIN
 0003                          ax = CheckState3(02, 36)
-0016 74 6F                    jz 0x87
+0016                          If (result.equal) value jump to 0087
 0018                          ax = GetRace()
-001F 3D 07 00                 cmp ax, 0x7
-0022 74 10                    jz 0x34
+001F                          compare(ax, 0007)
+0022                          If (result.equal) value jump to 0034
 0024                          ax = HasItem(D2)
-0032 74 53                    jz 0x87
+0032                          If (result.equal) value jump to 0087
 0034                          SetState(02, 36, 01)
 0049                          ShowMessage(0E59) = Blessed Gremlin! Blessed Pick of Cleowyn! With either, the quest may continue.
 0056                          ax = GetRace()
-005D 3D 07 00                 cmp ax, 0x7
-0060 75 23                    jnz 0x85
+005D                          compare(ax, 0007)
+0060                          If (result.notequal) value jump to 0085
 0062                          ModifyAttribute(00, 0001)
 0073                          ModifyAttribute(01, 0001)
-0085 EB 22                    jmp 0xa9
+0085                          Jump to 00A9
 0087                          SetState(02, 36, 01)
 009C                          ShowMessage(0EA8) = The tapestry once held a woven message.
 00A9                          RETURN
@@ -736,21 +736,21 @@ BLESSMES_20:
 ENDQSTDR_21:
 0000                          BEGIN
 0003                          ax = CheckState(02, 22)
-0014 3D 01 00                 cmp ax, 0x1
-0017 74 16                    jz 0x2f
+0014                          compare(ax, 0001)
+0017                          If (result.equal) value jump to 002F
 0019                          ax = CheckState(02, 23)
-002A 3D 01 00                 cmp ax, 0x1
-002D 75 49                    jnz 0x78
+002A                          compare(ax, 0001)
+002D                          If (result.notequal) value jump to 0078
 002F                          Push(01)
 0033                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003A 50                       push ax
+003A                          Push(ax)
 003B                          ax = GetNextTile()
-0042 50                       push ax
+0042                          Push(ax)
 0043                          Move(stk[0], stk[1], stk[2])
 004D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0054 50                       push ax
+0054                          Push(ax)
 0055                          ax = GetNextTile()
-005C 50                       push ax
+005C                          Push(ax)
 005D                          Push(01)
 0061                          SetUnblocked()
 006B                          ShowMessage(0ED0) = You found a secret door!
@@ -760,28 +760,28 @@ QUESTBEN_22:
 0000                          BEGIN
 0003                          ShowMessage(0EE9) = Reptilian bodies rise from the shadows.
 0010                          ax = HasItem(EE)
-001E 74 21                    jz 0x41
+001E                          If (result.equal) value jump to 0041
 0020                          AddTreasure(00C8, 00, 00, 00, 00, CF)
-003F EB 2C                    jmp 0x6d
+003F                          Jump to 006D
 0041                          ShowMessage(0F11) = On the floor is a Chess Piece inscribed with the words - 'Property of Arnakkian Slowfoot.'
 004E                          AddTreasure(0BB8, 00, 00, 00, 00, EE)
 006D                          ax = PartyCount()
-0075 3D 01 00                 cmp ax, 0x1
-0078 75 27                    jnz 0xa1
+0075                          compare(ax, 0001)
+0078                          If (result.notequal) value jump to 00A1
 007A                          AddEncounter(28, 01)
 008C                          AddEncounter(27, 02)
-009E E9 D0 00                 jmp 0x171
+009E                          Jump to 0171
 00A1                          ax = PartyCount()
-00A9 3D 02 00                 cmp ax, 0x2
-00AC 74 0D                    jz 0xbb
+00A9                          compare(ax, 0002)
+00AC                          If (result.equal) value jump to 00BB
 00AE                          ax = PartyCount()
-00B6 3D 03 00                 cmp ax, 0x3
-00B9 75 4A                    jnz 0x105
+00B6                          compare(ax, 0003)
+00B9                          If (result.notequal) value jump to 0105
 00BB                          AddEncounter(27, 01)
 00CD                          AddEncounter(27, 02)
 00DF                          AddEncounter(28, 05)
 00F1                          AddEncounter(28, 06)
-0103 EB 6C                    jmp 0x171
+0103                          Jump to 0171
 0105                          AddEncounter(27, 01)
 0117                          AddEncounter(27, 02)
 0129                          AddEncounter(27, 03)
@@ -793,28 +793,28 @@ QUESTBEN_22:
 GOLDAENC_23:
 0000                          BEGIN
 0003                          ax = CheckState2(02, 24)
-0016 74 21                    jz 0x39
+0016                          If (result.equal) value jump to 0039
 0018                          AddTreasure(0064, 00, 00, 00, 00, D1)
-0037 EB 35                    jmp 0x6e
+0037                          Jump to 006E
 0039                          AddTreasure(0BB8, 00, 00, 00, B7, CF)
 0059                          SetState(02, 24, 01)
 006E                          ax = PartyCount()
-0076 3D 01 00                 cmp ax, 0x1
-0079 75 15                    jnz 0x90
+0076                          compare(ax, 0001)
+0079                          If (result.notequal) value jump to 0090
 007B                          AddEncounter(1C, 01)
-008D E9 E2 00                 jmp 0x172
+008D                          Jump to 0172
 0090                          ax = PartyCount()
-0098 3D 02 00                 cmp ax, 0x2
-009B 74 0D                    jz 0xaa
+0098                          compare(ax, 0002)
+009B                          If (result.equal) value jump to 00AA
 009D                          ax = PartyCount()
-00A5 3D 03 00                 cmp ax, 0x3
-00A8 75 5C                    jnz 0x106
+00A5                          compare(ax, 0003)
+00A8                          If (result.notequal) value jump to 0106
 00AA                          AddEncounter(1C, 01)
 00BC                          AddEncounter(1C, 02)
 00CE                          AddEncounter(1C, 03)
 00E0                          AddEncounter(1C, 04)
 00F2                          AddEncounter(1C, 05)
-0104 EB 6C                    jmp 0x172
+0104                          Jump to 0172
 0106                          AddEncounter(1C, 01)
 0118                          AddEncounter(1C, 02)
 012A                          AddEncounter(1C, 03)
@@ -826,29 +826,29 @@ GOLDAENC_23:
 WEAPAENC_24:
 0000                          BEGIN
 0003                          ax = CheckState2(02, 25)
-0016 74 22                    jz 0x3a
+0016                          If (result.equal) value jump to 003A
 0018                          AddTreasure(0064, 00, 00, 00, CC, CE)
-0038 EB 35                    jmp 0x6f
+0038                          Jump to 006F
 003A                          AddTreasure(07D0, 00, 00, 00, CC, 0D)
 005A                          SetState(02, 25, 01)
 006F                          ShowMessage(0F6C) = You are challenged to combat.
 007C                          ax = PartyCount()
-0084 3D 01 00                 cmp ax, 0x1
-0087 75 27                    jnz 0xb0
+0084                          compare(ax, 0001)
+0087                          If (result.notequal) value jump to 00B0
 0089                          AddEncounter(1D, 01)
 009B                          AddEncounter(1D, 02)
-00AD E9 BE 00                 jmp 0x16e
+00AD                          Jump to 016E
 00B0                          ax = PartyCount()
-00B8 3D 02 00                 cmp ax, 0x2
-00BB 74 0D                    jz 0xca
+00B8                          compare(ax, 0002)
+00BB                          If (result.equal) value jump to 00CA
 00BD                          ax = PartyCount()
-00C5 3D 03 00                 cmp ax, 0x3
-00C8 75 4A                    jnz 0x114
+00C5                          compare(ax, 0003)
+00C8                          If (result.notequal) value jump to 0114
 00CA                          AddEncounter(1D, 01)
 00DC                          AddEncounter(1D, 02)
 00EE                          AddEncounter(1D, 03)
 0100                          AddEncounter(1D, 04)
-0112 EB 5A                    jmp 0x16e
+0112                          Jump to 016E
 0114                          AddEncounter(1D, 01)
 0126                          AddEncounter(1D, 02)
 0138                          AddEncounter(1D, 03)
@@ -859,32 +859,32 @@ WEAPAENC_24:
 MAGICENC_25:
 0000                          BEGIN
 0003                          ax = CheckState(02, 26)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 21                    jnz 0x3a
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 003A
 0019                          AddTreasure(00C8, 00, 00, 00, 00, CF)
-0038 EB 34                    jmp 0x6e
+0038                          Jump to 006E
 003A                          AddTreasure(0384, 00, 00, 00, 00, B3)
 0059                          SetState(02, 26, 01)
 006E                          ShowMessage(0F8A) = Ferocious enemies stop you.
 007B                          ax = PartyCount()
-0083 3D 01 00                 cmp ax, 0x1
-0086 74 0D                    jz 0x95
+0083                          compare(ax, 0001)
+0086                          If (result.equal) value jump to 0095
 0088                          ax = PartyCount()
-0090 3D 02 00                 cmp ax, 0x2
-0093 75 39                    jnz 0xce
+0090                          compare(ax, 0002)
+0093                          If (result.notequal) value jump to 00CE
 0095                          AddEncounter(1E, 01)
 00A7                          AddEncounter(1E, 02)
 00B9                          AddEncounter(1E, 03)
-00CB E9 D5 00                 jmp 0x1a3
+00CB                          Jump to 01A3
 00CE                          ax = PartyCount()
-00D6 3D 03 00                 cmp ax, 0x3
-00D9 75 5C                    jnz 0x137
+00D6                          compare(ax, 0003)
+00D9                          If (result.notequal) value jump to 0137
 00DB                          AddEncounter(1E, 01)
 00ED                          AddEncounter(1E, 02)
 00FF                          AddEncounter(1E, 03)
 0111                          AddEncounter(1E, 04)
 0123                          AddEncounter(1E, 05)
-0135 EB 6C                    jmp 0x1a3
+0135                          Jump to 01A3
 0137                          AddEncounter(1E, 01)
 0149                          AddEncounter(1E, 02)
 015B                          AddEncounter(1E, 03)
@@ -896,28 +896,28 @@ MAGICENC_25:
 QUESTAEN_26:
 0000                          BEGIN
 0003                          ax = HasItem(F9)
-0011 74 2E                    jz 0x41
+0011                          If (result.equal) value jump to 0041
 0013                          AddTreasure(0384, 00, 00, 00, 00, B0)
 0032                          ShowMessage(0FA6) = Elf Rangers await you.
-003F EB 3D                    jmp 0x7e
+003F                          Jump to 007E
 0041                          AddTreasure(0FA0, 00, 00, 00, 00, F9)
 0060                          AddExperience(000001F4)
 0071                          ShowMessage(0FBD) = An Elf Ranger holds the King's Pass.
 007E                          ax = PartyCount()
-0086 3D 01 00                 cmp ax, 0x1
-0089 75 27                    jnz 0xb2
+0086                          compare(ax, 0001)
+0089                          If (result.notequal) value jump to 00B2
 008B                          AddEncounter(1F, 01)
 009D                          AddEncounter(1F, 02)
-00AF E9 D5 00                 jmp 0x187
+00AF                          Jump to 0187
 00B2                          ax = PartyCount()
-00BA 3D 02 00                 cmp ax, 0x2
-00BD 75 5C                    jnz 0x11b
+00BA                          compare(ax, 0002)
+00BD                          If (result.notequal) value jump to 011B
 00BF                          AddEncounter(1F, 01)
 00D1                          AddEncounter(1F, 02)
 00E3                          AddEncounter(1F, 03)
 00F5                          AddEncounter(1F, 04)
 0107                          AddEncounter(1F, 05)
-0119 EB 6C                    jmp 0x187
+0119                          Jump to 0187
 011B                          AddEncounter(1F, 01)
 012D                          AddEncounter(1F, 02)
 013F                          AddEncounter(1F, 03)
@@ -929,23 +929,23 @@ QUESTAEN_26:
 ITEMAENC_27:
 0000                          BEGIN
 0003                          ax = CheckState(02, 28)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 21                    jnz 0x3a
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 003A
 0019                          AddTreasure(012C, 00, 00, 00, 00, B6)
-0038 EB 35                    jmp 0x6f
+0038                          Jump to 006F
 003A                          AddTreasure(04B0, 00, 00, 00, CF, AA)
 005A                          SetState(02, 28, 01)
 006F                          ShowMessage(0FE2) = Proud knights dispute your progress.
 007C                          ax = PartyCount()
-0084 3D 01 00                 cmp ax, 0x1
-0087 74 0D                    jz 0x96
+0084                          compare(ax, 0001)
+0087                          If (result.equal) value jump to 0096
 0089                          ax = PartyCount()
-0091 3D 02 00                 cmp ax, 0x2
-0094 75 38                    jnz 0xce
+0091                          compare(ax, 0002)
+0094                          If (result.notequal) value jump to 00CE
 0096                          AddEncounter(20, 01)
 00A8                          AddEncounter(20, 02)
 00BA                          AddEncounter(20, 03)
-00CC EB 6C                    jmp 0x13a
+00CC                          Jump to 013A
 00CE                          AddEncounter(20, 01)
 00E0                          AddEncounter(20, 02)
 00F2                          AddEncounter(20, 03)
@@ -957,24 +957,24 @@ ITEMAENC_27:
 GOLDBENC_28:
 0000                          BEGIN
 0003                          ax = CheckState(02, 29)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 21                    jnz 0x3a
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 003A
 0019                          AddTreasure(00C8, 00, 00, 00, 00, CB)
-0038 EB 35                    jmp 0x6f
+0038                          Jump to 006F
 003A                          AddTreasure(2710, 00, 00, 00, B0, CD)
 005A                          SetState(02, 29, 01)
 006F                          ShowMessage(1007) = Strong enemies bar your way.
 007C                          ax = PartyCount()
-0084 3D 01 00                 cmp ax, 0x1
-0087 74 0D                    jz 0x96
+0084                          compare(ax, 0001)
+0087                          If (result.equal) value jump to 0096
 0089                          ax = PartyCount()
-0091 3D 02 00                 cmp ax, 0x2
-0094 75 4A                    jnz 0xe0
+0091                          compare(ax, 0002)
+0094                          If (result.notequal) value jump to 00E0
 0096                          AddEncounter(21, 01)
 00A8                          AddEncounter(21, 02)
 00BA                          AddEncounter(21, 03)
 00CC                          AddEncounter(21, 04)
-00DE EB 6C                    jmp 0x14c
+00DE                          Jump to 014C
 00E0                          AddEncounter(22, 01)
 00F2                          AddEncounter(22, 02)
 0104                          AddEncounter(22, 03)
@@ -986,32 +986,32 @@ GOLDBENC_28:
 DRKEYENC_29:
 0000                          BEGIN
 0003                          ax = HasItem(C3)
-0011 74 2E                    jz 0x41
+0011                          If (result.equal) value jump to 0041
 0013                          AddTreasure(0320, 00, 00, 00, 00, B5)
 0032                          ShowMessage(1024) = There is nothing of interest here.
-003F EB 2D                    jmp 0x6e
+003F                          Jump to 006E
 0041                          AddTreasure(0000, 00, 00, 50, 50, C3)
 0061                          ShowMessage(1047) = You see a lockpick on the floor.
 006E                          ShowMessage(1068) = Gallants challenge you.
 007B                          ax = PartyCount()
-0083 3D 01 00                 cmp ax, 0x1
-0086 75 27                    jnz 0xaf
+0083                          compare(ax, 0001)
+0086                          If (result.notequal) value jump to 00AF
 0088                          AddEncounter(1A, 01)
 009A                          AddEncounter(1B, 02)
-00AC E9 F4 00                 jmp 0x1a3
+00AC                          Jump to 01A3
 00AF                          ax = PartyCount()
-00B7 3D 02 00                 cmp ax, 0x2
-00BA 74 0D                    jz 0xc9
+00B7                          compare(ax, 0002)
+00BA                          If (result.equal) value jump to 00C9
 00BC                          ax = PartyCount()
-00C4 3D 03 00                 cmp ax, 0x3
-00C7 75 6E                    jnz 0x137
+00C4                          compare(ax, 0003)
+00C7                          If (result.notequal) value jump to 0137
 00C9                          AddEncounter(1B, 01)
 00DB                          AddEncounter(1B, 02)
 00ED                          AddEncounter(1B, 03)
 00FF                          AddEncounter(1B, 04)
 0111                          AddEncounter(1A, 05)
 0123                          AddEncounter(1A, 06)
-0135 EB 6C                    jmp 0x1a3
+0135                          Jump to 01A3
 0137                          AddEncounter(1C, 01)
 0149                          AddEncounter(1C, 02)
 015B                          AddEncounter(1A, 03)
@@ -1023,28 +1023,28 @@ DRKEYENC_29:
 SPKEYDOO_2A:
 0000                          BEGIN
 0003                          ax = UsedItem(E1, E1)
-0016 75 15                    jnz 0x2d
+0016                          If (result.notequal) value jump to 002D
 0018                          ax = UsedItem(E2, E2)
-002B 74 4B                    jz 0x78
+002B                          If (result.equal) value jump to 0078
 002D                          Push(01)
 0031                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0038 50                       push ax
+0038                          Push(ax)
 0039                          ax = GetNextTile()
-0040 50                       push ax
+0040                          Push(ax)
 0041                          Move(stk[0], stk[1], stk[2])
 004B                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0052 50                       push ax
+0052                          Push(ax)
 0053                          ax = GetNextTile()
-005A 50                       push ax
+005A                          Push(ax)
 005B                          Push(01)
 005F                          SetUnblocked()
 0069                          ShowMessage(1080) = The key opens the door.
-0076 EB 2A                    jmp 0xa2
+0076                          Jump to 00A2
 0078                          Push(00)
 007B                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0082 50                       push ax
+0082                          Push(ax)
 0083                          ax = GetNextTile()
-008A 50                       push ax
+008A                          Push(ax)
 008B                          Move(stk[0], stk[1], stk[2])
 0095                          ShowMessage(1098) = The door is locked and requires a special key.
 00A2                          RETURN
@@ -1052,33 +1052,33 @@ SPKEYDOO_2A:
 ITEMBENC_2C:
 0000                          BEGIN
 0003                          ax = CheckState(02, 2A)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 21                    jnz 0x3a
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 003A
 0019                          AddTreasure(001E, 00, 00, 00, 00, B1)
-0038 EB 35                    jmp 0x6f
+0038                          Jump to 006F
 003A                          AddTreasure(01F4, 00, 00, 00, B1, 55)
 005A                          SetState(02, 2A, 01)
 006F                          ShowMessage(10C7) = Fierce opponents bar your way.
 007C                          ax = PartyCount()
-0084 3D 01 00                 cmp ax, 0x1
-0087 75 39                    jnz 0xc2
+0084                          compare(ax, 0001)
+0087                          If (result.notequal) value jump to 00C2
 0089                          AddEncounter(25, 01)
 009B                          AddEncounter(26, 02)
 00AD                          AddEncounter(25, 04)
-00BF E9 F4 00                 jmp 0x1b6
+00BF                          Jump to 01B6
 00C2                          ax = PartyCount()
-00CA 3D 02 00                 cmp ax, 0x2
-00CD 74 0D                    jz 0xdc
+00CA                          compare(ax, 0002)
+00CD                          If (result.equal) value jump to 00DC
 00CF                          ax = PartyCount()
-00D7 3D 03 00                 cmp ax, 0x3
-00DA 75 6E                    jnz 0x14a
+00D7                          compare(ax, 0003)
+00DA                          If (result.notequal) value jump to 014A
 00DC                          AddEncounter(26, 01)
 00EE                          AddEncounter(26, 02)
 0100                          AddEncounter(25, 03)
 0112                          AddEncounter(25, 04)
 0124                          AddEncounter(26, 05)
 0136                          AddEncounter(26, 06)
-0148 EB 6C                    jmp 0x1b6
+0148                          Jump to 01B6
 014A                          AddEncounter(26, 01)
 015C                          AddEncounter(26, 02)
 016E                          AddEncounter(26, 03)
@@ -1090,10 +1090,10 @@ ITEMBENC_2C:
 GOLDPILE_2D:
 0000                          BEGIN
 0003                          ax = CheckState(02, 2B)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 0F                    jnz 0x28
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0028
 0019                          ShowMessage(10E6) = This area has been looted.
-0026 EB 33                    jmp 0x5b
+0026                          Jump to 005B
 0028                          ModifyGold(2EE0)
 0039                          SetState(02, 2B, 01)
 004E                          ShowMessage(1101) = You find 12000 Gold Pieces on the floor.
@@ -1102,23 +1102,23 @@ GOLDPILE_2D:
 STRMNSTR_2E:
 0000                          BEGIN
 0003                          ax = PartyCount()
-000B 3D 01 00                 cmp ax, 0x1
-000E 75 27                    jnz 0x37
+000B                          compare(ax, 0001)
+000E                          If (result.notequal) value jump to 0037
 0010                          AddEncounter(27, 01)
 0022                          AddEncounter(06, 02)
-0034 E9 E2 00                 jmp 0x119
+0034                          Jump to 0119
 0037                          ax = PartyCount()
-003F 3D 02 00                 cmp ax, 0x2
-0042 74 0D                    jz 0x51
+003F                          compare(ax, 0002)
+0042                          If (result.equal) value jump to 0051
 0044                          ax = PartyCount()
-004C 3D 03 00                 cmp ax, 0x3
-004F 75 5C                    jnz 0xad
+004C                          compare(ax, 0003)
+004F                          If (result.notequal) value jump to 00AD
 0051                          AddEncounter(27, 01)
 0063                          AddEncounter(1B, 02)
 0075                          AddEncounter(27, 03)
 0087                          AddEncounter(1B, 04)
 0099                          AddEncounter(06, 05)
-00AB EB 6C                    jmp 0x119
+00AB                          Jump to 0119
 00AD                          AddEncounter(27, 01)
 00BF                          AddEncounter(27, 02)
 00D1                          AddEncounter(1B, 03)
@@ -1131,16 +1131,16 @@ TUFMNSTR_2F:
 0000                          BEGIN
 0003                          ShowMessage(112A) = Your way is blocked.
 0010                          ax = PartyCount()
-0018 3D 01 00                 cmp ax, 0x1
-001B 74 0D                    jz 0x2a
+0018                          compare(ax, 0001)
+001B                          If (result.equal) value jump to 002A
 001D                          ax = PartyCount()
-0025 3D 02 00                 cmp ax, 0x2
-0028 75 4A                    jnz 0x74
+0025                          compare(ax, 0002)
+0028                          If (result.notequal) value jump to 0074
 002A                          AddEncounter(18, 01)
 003C                          AddEncounter(17, 02)
 004E                          AddEncounter(17, 03)
 0060                          AddEncounter(18, 04)
-0072 EB 6C                    jmp 0xe0
+0072                          Jump to 00E0
 0074                          AddEncounter(18, 01)
 0086                          AddEncounter(18, 02)
 0098                          AddEncounter(17, 03)

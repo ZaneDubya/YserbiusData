@@ -44,16 +44,16 @@ TXTLOOKO_09:
 BDOORCGC_0C:
 0000                          BEGIN
 0003                          ax = CheckStrength()
-000F 3D 14 00                 cmp ax, 0x14
-0012 72 2D                    jb 0x41
+000F                          compare(ax, 0014)
+0012                          If (result.lessthan) jump to 0041
 0014                          ShowMessage(0586) = With a massive effort, you manage to force the door open.
 0021                          Push(01)
 0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002C 50                       push ax
+002C                          Push(ax)
 002D                          ax = GetNextTile()
-0034 50                       push ax
+0034                          Push(ax)
 0035                          Move(stk[0], stk[1], stk[2])
-003F EB 0D                    jmp 0x4e
+003F                          Jump to 004E
 0041                          ShowMessage(05C0) = The door is stuck and will not open.
 004E                          RETURN
 
@@ -71,37 +71,36 @@ RIVER_11:
 0000                          BEGIN
 0003                          ShowMessage(0682) = Fighting the raging River of Eternity taps your life energy.
 0010                          ax = GetMaxHits()
-0017 BB 04 00                 mov bx, 0x4
-001A 99                       cwd
-001B F7 FB                    idiv bx
+0017                          bx = 0004
+001A                          ax = ax / bx (signed, dx = quotient)
 001D                          DoDamage(ax)
 0027                          ax = GetCurrentHits()
-002E 0B C0                    or ax, ax
-0030 77 0D                    ja 0x3f
+002E                          RefreshCompareFlags(ax)
+0030                          If (result.greaterthan) value jump to 003F
 0032                          ShowMessage(06BF) = You have died.
 003F                          RETURN
 
 TXTPHNX_12:
 0000                          BEGIN
 0003                          ax = CheckState2(02, 85)
-0016 74 10                    jz 0x28
+0016                          If (result.equal) value jump to 0028
 0018                          ShowMessage(06CE) = The Phoenix is being reborn and may not be disturbed.
-0025 E9 7F 00                 jmp 0xa7
+0025                          Jump to 00A7
 0028                          ax = CheckState2(02, 86)
-003B 74 50                    jz 0x8d
+003B                          If (result.equal) value jump to 008D
 003D                          ShowMessage(0704) = Ahead, bound by the River of Eternity, is the shadow of the Phoenix Firebird. 
 004A                          ShowMessage(0753) = The raging waters of the river look daunting.
 0057                          Push(01)
 005B                          Push(02)
 005F                          ax = GetNextTile()
-0066 50                       push ax
+0066                          Push(ax)
 0067                          Move(stk[0], stk[1], stk[2])
 0071                          Push(02)
 0075                          ax = GetNextTile()
-007C 50                       push ax
+007C                          Push(ax)
 007D                          Push(01)
 0081                          SetUnblocked()
-008B EB 1A                    jmp 0xa7
+008B                          Jump to 00A7
 008D                          ShowMessage(0781) = You hear the sound of rushing water behind the wall.
 009A                          ShowMessage(07B6) = You also hear muffled roars.
 00A7                          RETURN
@@ -172,9 +171,9 @@ BAZZENCC_1A:
 0027                          AddEncounter(11, 03)
 0039                          AddEncounter(1C, 04)
 004B                          ax = HasItem(EF)
-0059 74 21                    jz 0x7c
+0059                          If (result.equal) value jump to 007C
 005B                          AddTreasure(03E8, 00, 00, 00, 00, D0)
-007A EB 1F                    jmp 0x9b
+007A                          Jump to 009B
 007C                          AddTreasure(1388, 00, 00, 00, 00, EF)
 009B                          RETURN
 
@@ -189,10 +188,10 @@ PHOEGURD_1C:
 0003                          ShowPortrait(002D)
 0010                          ShowMessage(0810) = A Gnome Wizard greets you.
 001D                          ax = CheckState2(02, 85)
-0030 74 1C                    jz 0x4e
+0030                          If (result.equal) value jump to 004E
 0032                          ShowMessage(082B) = 'Thank you for helping my master the Phoenix be reborn.
 003F                          ShowMessage(0863) = The Phoenix may no longer be disturbed.'
-004C EB 49                    jmp 0x97
+004C                          Jump to 0097
 004E                          ShowMessage(088C) = 'I am the Guardian of the Phoenix.  That you have passed my Dragon Guards is proof of your courage.
 005B                          ShowMessage(08F0) = The way is now clear for you to meet the Phoenix.
 0068                          ShowMessage(0922) = It is time for the Phoenix to die and so be reborn from its own ashes.
@@ -231,13 +230,13 @@ TXTBAZZD_20:
 PHOEREW_21:
 0000                          BEGIN
 0003                          ax = CheckState(02, 5E)
-0014 0B C0                    or ax, ax
-0016 75 4B                    jnz 0x63
+0014                          RefreshCompareFlags(ax)
+0016                          If (result.notequal) value jump to 0063
 0018                          SetState(02, 5E, 01)
 002D                          SetState(02, 85, 01)
 0042                          ModifyAttribute(04, 00C8)
 0054                          ShowMessage(0BAD) = You feel a sudden increase in your Dexterity.
-0061 EB 0D                    jmp 0x70
+0061                          Jump to 0070
 0063                          ShowMessage(0BDB) = Nothing happens.
 0070                          RETURN
 
@@ -253,38 +252,38 @@ MYSTICS_24:
 FNTNBAZZ_25:
 0000                          BEGIN
 0003                          ax = CheckState(02, 5F)
-0014 0B C0                    or ax, ax
-0016 74 03                    jz 0x1b
-0018 E9 FF 00                 jmp 0x11a
+0014                          RefreshCompareFlags(ax)
+0016                          If (result.equal) value jump to 001B
+0018                          Jump to 011A
 001B                          SetState(02, 5F, 01)
 0030                          ShowPortrait(0042)
 003D                          ShowMessage(0D17) = You sip the cool purple waters of the ElfFoot Fountain
 004A                          ax = GetSkillLevel(14)
-0056 0B C0                    or ax, ax
-0058 75 21                    jnz 0x7b
+0056                          RefreshCompareFlags(ax)
+0058                          If (result.notequal) value jump to 007B
 005A                          SetSkillLevel(14, 01)
 006B                          ShowMessage(0D4E) = You gain the skill of Rune Reading!
-0078 E9 9D 00                 jmp 0x118
+0078                          Jump to 0118
 007B                          ax = GetSkillLevel(16)
-0087 0B C0                    or ax, ax
-0089 75 20                    jnz 0xab
+0087                          RefreshCompareFlags(ax)
+0089                          If (result.notequal) value jump to 00AB
 008B                          SetSkillLevel(16, 01)
 009C                          ShowMessage(0D72) = You gain the Channel skill!
-00A9 EB 6D                    jmp 0x118
+00A9                          Jump to 0118
 00AB                          ax = GetSkillLevel(15)
-00B7 0B C0                    or ax, ax
-00B9 75 20                    jnz 0xdb
+00B7                          RefreshCompareFlags(ax)
+00B9                          If (result.notequal) value jump to 00DB
 00BB                          SetSkillLevel(15, 01)
 00CC                          ShowMessage(0D8E) = You gain the Staff skill!
-00D9 EB 3D                    jmp 0x118
+00D9                          Jump to 0118
 00DB                          ax = GetSkillLevel(17)
-00E7 0B C0                    or ax, ax
-00E9 75 20                    jnz 0x10b
+00E7                          RefreshCompareFlags(ax)
+00E9                          If (result.notequal) value jump to 010B
 00EB                          SetSkillLevel(17, 01)
 00FC                          ShowMessage(0DA8) = You gain the Deep Trance skill!
-0109 EB 0D                    jmp 0x118
+0109                          Jump to 0118
 010B                          ShowMessage(0DC8) = Nothing happens.
-0118 EB 0D                    jmp 0x127
+0118                          Jump to 0127
 011A                          ShowMessage(0DD9) = The purple waters of the ElfFoot Fountain slip through your fingers before you can wet your lips.
 0127                          RETURN
 
@@ -309,34 +308,34 @@ FNTNLOOK_2B:
 0003                          ShowPortrait(0042)
 0010                          ShowMessage(0EBC) = Ranger banners decorate the woodwork of Lookout Fountain.
 001D                          ax = CheckState(02, 60)
-002E 0B C0                    or ax, ax
-0030 74 03                    jz 0x35
-0032 E9 E3 00                 jmp 0x118
+002E                          RefreshCompareFlags(ax)
+0030                          If (result.equal) value jump to 0035
+0032                          Jump to 0118
 0035                          SetState(02, 60, 01)
 004A                          ax = GetSkillLevel(09)
-0056 0B C0                    or ax, ax
-0058 75 21                    jnz 0x7b
+0056                          RefreshCompareFlags(ax)
+0058                          If (result.notequal) value jump to 007B
 005A                          SetSkillLevel(09, 02)
 006B                          ShowMessage(0EF6) = You gain the skill of Stamina!
-0078 E9 9D 00                 jmp 0x118
+0078                          Jump to 0118
 007B                          ax = GetSkillLevel(0A)
-0087 0B C0                    or ax, ax
-0089 75 20                    jnz 0xab
+0087                          RefreshCompareFlags(ax)
+0089                          If (result.notequal) value jump to 00AB
 008B                          SetSkillLevel(0A, 02)
 009C                          ShowMessage(0F15) = You gain the skill of Furtiveness!
-00A9 EB 6D                    jmp 0x118
+00A9                          Jump to 0118
 00AB                          ax = GetSkillLevel(0B)
-00B7 0B C0                    or ax, ax
-00B9 75 20                    jnz 0xdb
+00B7                          RefreshCompareFlags(ax)
+00B9                          If (result.notequal) value jump to 00DB
 00BB                          SetSkillLevel(0B, 02)
 00CC                          ShowMessage(0F38) = You gain the skill of Reading Tracks!
-00D9 EB 3D                    jmp 0x118
+00D9                          Jump to 0118
 00DB                          ax = GetSkillLevel(08)
-00E7 0B C0                    or ax, ax
-00E9 75 20                    jnz 0x10b
+00E7                          RefreshCompareFlags(ax)
+00E9                          If (result.notequal) value jump to 010B
 00EB                          SetSkillLevel(08, 02)
 00FC                          ShowMessage(0F5E) = You gain the skill of Archery!
-0109 EB 0D                    jmp 0x118
+0109                          Jump to 0118
 010B                          ShowMessage(0F7D) = The waters are refreshing, but not enlightening!
 0118                          RETURN
 
@@ -420,13 +419,12 @@ TXTCSTLC_3B:
 001D                          ShowMessage(110C) = 'Dare time?  Yes?  Ah, adventurers should not challenge En-Li-Kil!'
 002A                          ShowMessage(1150) = The Phantasm drains your life energies.
 0037                          ax = GetCurrentHits()
-003E BB 02 00                 mov bx, 0x2
-0041 99                       cwd
-0042 F7 FB                    idiv bx
+003E                          bx = 0002
+0041                          ax = ax / bx (signed, dx = quotient)
 0044                          DoDamage(ax)
 004E                          ax = GetCurrentHits()
-0055 0B C0                    or ax, ax
-0057 77 0D                    ja 0x66
+0055                          RefreshCompareFlags(ax)
+0057                          If (result.greaterthan) value jump to 0066
 0059                          ShowMessage(1178) = You have died.
 0066                          RETURN
 

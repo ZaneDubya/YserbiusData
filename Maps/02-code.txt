@@ -6,30 +6,30 @@ TOEXIT_01:
 TELEPORT_02:
 0000                          BEGIN
 0003                          ax = CheckLevel(0014)
-0011 74 2A                    jz 0x3d
+0011                          If (result.equal) value jump to 003D
 0013                          ShowMessage(03FC) = You may enter.
 0020                          GoMap(01, 8D, 01, 05)
-003B EB 2B                    jmp 0x68
+003B                          Jump to 0068
 003D                          ShowMessage(040B) = Only heroes of the twentieth level or higher may venture beyond this door.
 004A                          Push(01)
 004E                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0055 50                       push ax
+0055                          Push(ax)
 0056                          ax = GetNextTile()
-005D 50                       push ax
+005D                          Push(ax)
 005E                          Move(stk[0], stk[1], stk[2])
 0068                          RETURN
 
 LOWMNSTR_03:
 0000                          BEGIN
 0003                          ax = PartyCount()
-000B 3D 01 00                 cmp ax, 0x1
-000E 74 0D                    jz 0x1d
+000B                          compare(ax, 0001)
+000E                          If (result.equal) value jump to 001D
 0010                          ax = PartyCount()
-0018 3D 02 00                 cmp ax, 0x2
-001B 75 26                    jnz 0x43
+0018                          compare(ax, 0002)
+001B                          If (result.notequal) value jump to 0043
 001D                          AddEncounter(1A, 01)
 002F                          AddEncounter(1A, 02)
-0041 EB 48                    jmp 0x8b
+0041                          Jump to 008B
 0043                          AddEncounter(1A, 01)
 0055                          AddEncounter(1A, 02)
 0067                          AddEncounter(19, 03)
@@ -39,10 +39,10 @@ LOWMNSTR_03:
 SMALGOLD_04:
 0000                          BEGIN
 0003                          ax = CheckState(02, 02)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 0F                    jnz 0x28
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0028
 0019                          ShowMessage(0456) = The room is bare.
-0026 EB 33                    jmp 0x5b
+0026                          Jump to 005B
 0028                          ModifyGold(0064)
 0039                          ShowMessage(0468) = You find 100 Gold Pieces lying on the floor.
 0046                          SetState(02, 02, 01)
@@ -51,23 +51,23 @@ SMALGOLD_04:
 GOLDENC_05:
 0000                          BEGIN
 0003                          ax = CheckState(02, 03)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 2E                    jnz 0x47
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0047
 0019                          ShowMessage(0495) = The room is empty, except for a few rogues.
 0026                          AddTreasure(0064, 00, 00, 00, 00, B5)
-0045 EB 42                    jmp 0x89
+0045                          Jump to 0089
 0047                          AddTreasure(03E8, 00, 00, 00, CB, CE)
 0067                          SetState(02, 03, 01)
 007C                          ShowMessage(04C1) = You encounter Rogues counting their gold.
 0089                          ax = PartyCount()
-0091 3D 01 00                 cmp ax, 0x1
-0094 74 0D                    jz 0xa3
+0091                          compare(ax, 0001)
+0094                          If (result.equal) value jump to 00A3
 0096                          ax = PartyCount()
-009E 3D 02 00                 cmp ax, 0x2
-00A1 75 26                    jnz 0xc9
+009E                          compare(ax, 0002)
+00A1                          If (result.notequal) value jump to 00C9
 00A3                          AddEncounter(13, 01)
 00B5                          AddEncounter(13, 02)
-00C7 EB 48                    jmp 0x111
+00C7                          Jump to 0111
 00C9                          AddEncounter(13, 01)
 00DB                          AddEncounter(13, 02)
 00ED                          AddEncounter(14, 03)
@@ -77,26 +77,26 @@ GOLDENC_05:
 LKPKDOOR_06:
 0000                          BEGIN
 0003                          ax = UsedItem(C2, C4)
-0016 75 11                    jnz 0x29
+0016                          If (result.notequal) value jump to 0029
 0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-0024 3D 05 00                 cmp ax, 0x5
-0027 72 43                    jb 0x6c
+0024                          compare(ax, 0005)
+0027                          If (result.lessthan) jump to 006C
 0029                          Push(01)
 002D                          Push(01)
 0031                          ax = GetNextTile()
-0038 50                       push ax
+0038                          Push(ax)
 0039                          Move(stk[0], stk[1], stk[2])
 0043                          Push(01)
 0047                          ax = GetNextTile()
-004E 50                       push ax
+004E                          Push(ax)
 004F                          Push(01)
 0053                          SetUnblocked()
 005D                          ShowMessage(04EB) = You successfully picked the locked door.
-006A EB 26                    jmp 0x92
+006A                          Jump to 0092
 006C                          Push(00)
 006F                          Push(01)
 0073                          ax = GetNextTile()
-007A 50                       push ax
+007A                          Push(ax)
 007B                          Move(stk[0], stk[1], stk[2])
 0085                          ShowMessage(0514) = The door is locked.
 0092                          RETURN
@@ -105,21 +105,21 @@ LOWROGUE_07:
 0000                          BEGIN
 0003                          ShowMessage(0528) = You encounter Rogues.
 0010                          ax = UnknownFunctionEC(000F)
-001D 3D 05 00                 cmp ax, 0x5
-0020 77 0F                    ja 0x31
+001D                          compare(ax, 0005)
+0020                          If (result.greaterthan) value jump to 0031
 0022                          ShowMessage(053E) = To reach the next level of the dungeon, you need a special key. The key is rumored to be somewhere on this level.
-002F EB 1A                    jmp 0x4b
+002F                          Jump to 004B
 0031                          ShowMessage(05B0) = The Rogues refuse to talk.
 003E                          ShowMessage(05CB) = They attack you!
 004B                          ax = PartyCount()
-0053 3D 01 00                 cmp ax, 0x1
-0056 74 0D                    jz 0x65
+0053                          compare(ax, 0001)
+0056                          If (result.equal) value jump to 0065
 0058                          ax = PartyCount()
-0060 3D 02 00                 cmp ax, 0x2
-0063 75 26                    jnz 0x8b
+0060                          compare(ax, 0002)
+0063                          If (result.notequal) value jump to 008B
 0065                          AddEncounter(1C, 01)
 0077                          AddEncounter(1D, 02)
-0089 EB 5A                    jmp 0xe5
+0089                          Jump to 00E5
 008B                          AddEncounter(1D, 01)
 009D                          AddEncounter(1D, 02)
 00AF                          AddEncounter(1B, 03)
@@ -130,22 +130,22 @@ LOWROGUE_07:
 TUFMNSTR_08:
 0000                          BEGIN
 0003                          ax = PartyCount()
-000B 3D 01 00                 cmp ax, 0x1
-000E 75 27                    jnz 0x37
+000B                          compare(ax, 0001)
+000E                          If (result.notequal) value jump to 0037
 0010                          AddEncounter(1F, 01)
 0022                          AddEncounter(20, 02)
-0034 E9 AC 00                 jmp 0xe3
+0034                          Jump to 00E3
 0037                          ax = PartyCount()
-003F 3D 02 00                 cmp ax, 0x2
-0042 74 0D                    jz 0x51
+003F                          compare(ax, 0002)
+0042                          If (result.equal) value jump to 0051
 0044                          ax = PartyCount()
-004C 3D 03 00                 cmp ax, 0x3
-004F 75 4A                    jnz 0x9b
+004C                          compare(ax, 0003)
+004F                          If (result.notequal) value jump to 009B
 0051                          AddEncounter(1E, 01)
 0063                          AddEncounter(1F, 02)
 0075                          AddEncounter(1E, 03)
 0087                          AddEncounter(1F, 04)
-0099 EB 48                    jmp 0xe3
+0099                          Jump to 00E3
 009B                          AddEncounter(1E, 01)
 00AD                          AddEncounter(20, 02)
 00BF                          AddEncounter(20, 03)
@@ -155,32 +155,32 @@ TUFMNSTR_08:
 LCPKENC_09:
 0000                          BEGIN
 0003                          ax = HasItem(D2)
-0011 74 2E                    jz 0x41
+0011                          If (result.equal) value jump to 0041
 0013                          ShowMessage(05DC) = Cro-Lizards snarl at you.
 0020                          AddTreasure(012C, 00, 00, 00, 00, CE)
-003F EB 2C                    jmp 0x6d
+003F                          Jump to 006D
 0041                          AddTreasure(012C, 00, 00, 00, 00, D2)
 0060                          ShowMessage(05F6) = You see an interesting lockpick on the floor. On the shaft are the words - Property of King Cleowyn. The Cro-Lizards you see are also interested in the lockpick.
 006D                          ax = PartyCount()
-0075 3D 01 00                 cmp ax, 0x1
-0078 75 15                    jnz 0x8f
+0075                          compare(ax, 0001)
+0078                          If (result.notequal) value jump to 008F
 007A                          AddEncounter(1E, 01)
-008C E9 F7 00                 jmp 0x186
+008C                          Jump to 0186
 008F                          ax = PartyCount()
-0097 3D 02 00                 cmp ax, 0x2
-009A 75 39                    jnz 0xd5
+0097                          compare(ax, 0002)
+009A                          If (result.notequal) value jump to 00D5
 009C                          AddEncounter(1E, 01)
 00AE                          AddEncounter(1E, 02)
 00C0                          AddEncounter(1E, 04)
-00D2 E9 B1 00                 jmp 0x186
+00D2                          Jump to 0186
 00D5                          ax = PartyCount()
-00DD 3D 03 00                 cmp ax, 0x3
-00E0 75 4A                    jnz 0x12c
+00DD                          compare(ax, 0003)
+00E0                          If (result.notequal) value jump to 012C
 00E2                          AddEncounter(1E, 01)
 00F4                          AddEncounter(1E, 02)
 0106                          AddEncounter(1E, 03)
 0118                          AddEncounter(1E, 04)
-012A EB 5A                    jmp 0x186
+012A                          Jump to 0186
 012C                          AddEncounter(1E, 01)
 013E                          AddEncounter(1E, 02)
 0150                          AddEncounter(1E, 03)
@@ -191,15 +191,15 @@ LCPKENC_09:
 KEYDOOR_0A:
 0000                          BEGIN
 0003                          ax = UsedItem(D3, D3)
-0016 74 3D                    jz 0x55
+0016                          If (result.equal) value jump to 0055
 0018                          Move(01, 00, 00)
 002D                          Push(00)
 0030                          ax = GetNextTile()
-0037 50                       push ax
+0037                          Push(ax)
 0038                          Push(01)
 003C                          SetUnblocked()
 0046                          ShowMessage(0698) = King Cleowyn's Key unlocks the door.
-0053 EB 21                    jmp 0x76
+0053                          Jump to 0076
 0055                          ShowMessage(06BD) = The door is locked.  A special key opens this door.
 0062                          Push(00)
 0065                          Push(00)
@@ -210,32 +210,32 @@ KEYDOOR_0A:
 KEYENC_0B:
 0000                          BEGIN
 0003                          ax = HasItem(D3)
-0011 74 2E                    jz 0x41
+0011                          If (result.equal) value jump to 0041
 0013                          AddTreasure(00C8, 00, 00, 00, 00, B5)
 0032                          ShowMessage(06F1) = Some rather nasty monsters hang out here.
-003F EB 39                    jmp 0x7a
+003F                          Jump to 007A
 0041                          AddTreasure(00C8, 00, 00, 00, 00, D3)
 0060                          ShowMessage(071B) = On the floor is a key. The grasp bears the Galabryan insignia and the initials KC. It must have belonged to King Cleowyn.  
 006D                          ShowMessage(0797) = Between you and the key are monsters.
 007A                          ax = PartyCount()
-0082 3D 01 00                 cmp ax, 0x1
-0085 75 15                    jnz 0x9c
+0082                          compare(ax, 0001)
+0085                          If (result.notequal) value jump to 009C
 0087                          AddEncounter(1F, 01)
-0099 E9 E5 00                 jmp 0x181
+0099                          Jump to 0181
 009C                          ax = PartyCount()
-00A4 3D 02 00                 cmp ax, 0x2
-00A7 75 27                    jnz 0xd0
+00A4                          compare(ax, 0002)
+00A7                          If (result.notequal) value jump to 00D0
 00A9                          AddEncounter(1F, 01)
 00BB                          AddEncounter(20, 02)
-00CD E9 B1 00                 jmp 0x181
+00CD                          Jump to 0181
 00D0                          ax = PartyCount()
-00D8 3D 03 00                 cmp ax, 0x3
-00DB 75 4A                    jnz 0x127
+00D8                          compare(ax, 0003)
+00DB                          If (result.notequal) value jump to 0127
 00DD                          AddEncounter(1F, 01)
 00EF                          AddEncounter(1F, 02)
 0101                          AddEncounter(20, 03)
 0113                          AddEncounter(20, 04)
-0125 EB 5A                    jmp 0x181
+0125                          Jump to 0181
 0127                          AddEncounter(20, 01)
 0139                          AddEncounter(20, 02)
 014B                          AddEncounter(1F, 03)
@@ -246,28 +246,28 @@ KEYENC_0B:
 STRDOOR_0C:
 0000                          BEGIN
 0003                          ax = CheckStrength()
-000F 3D 0A 00                 cmp ax, 0xa
-0012 72 4B                    jb 0x5f
+000F                          compare(ax, 000A)
+0012                          If (result.lessthan) jump to 005F
 0014                          ShowMessage(07BD) = You manage to open the door by brute strength.
 0021                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0028 50                       push ax
+0028                          Push(ax)
 0029                          ax = GetNextTile()
-0030 50                       push ax
+0030                          Push(ax)
 0031                          Push(01)
 0035                          SetUnblocked()
 003F                          Push(01)
 0043                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004A 50                       push ax
+004A                          Push(ax)
 004B                          ax = GetNextTile()
-0052 50                       push ax
+0052                          Push(ax)
 0053                          Move(stk[0], stk[1], stk[2])
-005D EB 2A                    jmp 0x89
+005D                          Jump to 0089
 005F                          ShowMessage(07EC) = You are not strong enough to force the door open.
 006C                          Push(00)
 006F                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0076 50                       push ax
+0076                          Push(ax)
 0077                          ax = GetNextTile()
-007E 50                       push ax
+007E                          Push(ax)
 007F                          Move(stk[0], stk[1], stk[2])
 0089                          RETURN
 
@@ -280,29 +280,29 @@ MODMNSTR_0E:
 0000                          BEGIN
 0003                          ShowMessage(081E) = You encounter Rogues.
 0010                          ax = UnknownFunctionEC(000F)
-001D 3D 07 00                 cmp ax, 0x7
-0020 77 2E                    ja 0x50
+001D                          compare(ax, 0007)
+0020                          If (result.greaterthan) value jump to 0050
 0022                          ShowMessage(0834) = The imps that haunt the dungeon frequently return gold and lost items to their original places.
 002F                          AddTreasure(00C8, 00, 00, 00, 00, B5)
-004E EB 39                    jmp 0x89
+004E                          Jump to 0089
 0050                          ShowMessage(0894) = The Rogues refuse to talk.
 005D                          ShowMessage(08AF) = They charge you!
 006A                          AddTreasure(00C8, 00, 00, 00, 00, 02)
 0089                          ax = PartyCount()
-0091 3D 01 00                 cmp ax, 0x1
-0094 74 0D                    jz 0xa3
+0091                          compare(ax, 0001)
+0094                          If (result.equal) value jump to 00A3
 0096                          ax = PartyCount()
-009E 3D 02 00                 cmp ax, 0x2
-00A1 75 26                    jnz 0xc9
+009E                          compare(ax, 0002)
+00A1                          If (result.notequal) value jump to 00C9
 00A3                          AddEncounter(23, 01)
 00B5                          AddEncounter(22, 02)
-00C7 EB 62                    jmp 0x12b
+00C7                          Jump to 012B
 00C9                          ax = PartyCount()
-00D1 3D 03 00                 cmp ax, 0x3
-00D4 74 0D                    jz 0xe3
+00D1                          compare(ax, 0003)
+00D4                          If (result.equal) value jump to 00E3
 00D6                          ax = PartyCount()
-00DE 3D 04 00                 cmp ax, 0x4
-00E1 75 48                    jnz 0x12b
+00DE                          compare(ax, 0004)
+00E1                          If (result.notequal) value jump to 012B
 00E3                          AddEncounter(22, 01)
 00F5                          AddEncounter(23, 02)
 0107                          AddEncounter(23, 03)
@@ -311,43 +311,43 @@ MODMNSTR_0E:
 
 HRDMONST_0F:
 0000                          BEGIN (saving si)
-0004 BE 01 00                 mov si, 0x1
-0007 EB 10                    jmp 0x19
+0004                          si = 0001
+0007                          Jump to 0019
 0009                          AddEncounter(13, si)
-0018 46                       inc si
+0018                          si = si + 1
 0019                          ax = PartyCount()
-0021 3B C6                    cmp ax, si
-0023 73 E4                    jae 0x9
+0021                          compare(ax, si)
+0023                          If (result.greaterthan or result.equal) jump to 0109
 0025                          RETURN (restoring si)
 
 WEAPENC_10:
 0000                          BEGIN
 0003                          ax = CheckState(02, 04)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 2E                    jnz 0x47
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0047
 0019                          ShowMessage(08C0) = You find nothing interesting in the room except a vial and some monsters.
 0026                          AddTreasure(00C8, 00, 00, 00, 00, B5)
-0045 EB 2D                    jmp 0x74
+0045                          Jump to 0074
 0047                          AddTreasure(00C8, 00, 00, 00, B7, 18)
 0067                          ShowMessage(090A) = You notice an axe and a vial on the floor. You also notice some Bronze Ogres.
 0074                          ax = PartyCount()
-007C 3D 01 00                 cmp ax, 0x1
-007F 75 15                    jnz 0x96
+007C                          compare(ax, 0001)
+007F                          If (result.notequal) value jump to 0096
 0081                          AddEncounter(26, 01)
-0093 E9 C1 00                 jmp 0x157
+0093                          Jump to 0157
 0096                          ax = PartyCount()
-009E 3D 02 00                 cmp ax, 0x2
-00A1 75 27                    jnz 0xca
+009E                          compare(ax, 0002)
+00A1                          If (result.notequal) value jump to 00CA
 00A3                          AddEncounter(26, 01)
 00B5                          AddEncounter(26, 02)
-00C7 E9 8D 00                 jmp 0x157
+00C7                          Jump to 0157
 00CA                          ax = PartyCount()
-00D2 3D 03 00                 cmp ax, 0x3
-00D5 75 38                    jnz 0x10f
+00D2                          compare(ax, 0003)
+00D5                          If (result.notequal) value jump to 010F
 00D7                          AddEncounter(26, 01)
 00E9                          AddEncounter(26, 02)
 00FB                          AddEncounter(26, 03)
-010D EB 48                    jmp 0x157
+010D                          Jump to 0157
 010F                          AddEncounter(26, 01)
 0121                          AddEncounter(26, 02)
 0133                          AddEncounter(26, 03)
@@ -357,23 +357,23 @@ WEAPENC_10:
 PITA_11:
 0000                          BEGIN
 0003                          ax = CheckLevel(000F)
-0011 75 03                    jnz 0x16
-0013 E9 9D 00                 jmp 0xb3
+0011                          If (result.notequal) value jump to 0016
+0013                          Jump to 00B3
 0016                          ax = GetNextTile()
 001D                          SetTileFloor(ax, 01)
-002A 59                       pop cx
+002A                          cx = Pop()
 002B                          ShowMessage(0958) = You fall into a pit.
 0038                          ShowMessage(096D) = You take heavy damage from the long, long fall.
 0045                          ax = PartyCount()
-004D 3D 01 00                 cmp ax, 0x1
-0050 75 2A                    jnz 0x7c
+004D                          compare(ax, 0001)
+0050                          If (result.notequal) value jump to 007C
 0052                          DoDamage(012C)
 005F                          GoMap(03, 11, 03, 05)
-007A EB 35                    jmp 0xb1
+007A                          Jump to 00B1
 007C                          ShowMessage(099D) = Since you are the first to land, your body provides a soft mattress for the rest of your party.
 0089                          DoDamage(01C2)
 0096                          GoMap(03, 11, 03, 05)
-00B1 EB 35                    jmp 0xe8
+00B1                          Jump to 00E8
 00B3                          ShowMessage(09FD) = A kindly spirit rescues you from falling to your death.
 00C0                          ShowMessage(0A35) = It warns you to stay away from danger until you are stronger.
 00CD                          GoMap(01, 67, 02, 01)
@@ -382,24 +382,24 @@ PITA_11:
 SECDOOR_12:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 08 00                 cmp ax, 0x8
-0012 73 4F                    jae 0x63
+000F                          compare(ax, 0008)
+0012                          If (result.greaterthan or result.equal) jump to 0063
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 3F                    jnz 0x63
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 0063
 0024                          ax = UsedItem(A2, A2)
-0037 75 2A                    jnz 0x63
+0037                          If (result.notequal) value jump to 0063
 0039                          ax = UsedItem(BD, BD)
-004C 75 15                    jnz 0x63
+004C                          If (result.notequal) value jump to 0063
 004E                          ax = UsedItem(BE, BE)
-0061 74 3B                    jz 0x9e
+0061                          If (result.equal) value jump to 009E
 0063                          ShowMessage(0A73) = You detect a secret door in the wall.
 0070                          Push(02)
 0074                          Push(ED)
 0078                          Push(01)
 007C                          SetUnblocked()
 0086                          Move(01, 02, ED)
-009C EB 22                    jmp 0xc0
+009C                          Jump to 00C0
 009E                          ShowMessage(0A99) = You see a blank wall.
 00AB                          Push(00)
 00AE                          Push(02)
@@ -420,23 +420,23 @@ _14:
 PITB_15:
 0000                          BEGIN
 0003                          ax = CheckLevel(000F)
-0011 75 03                    jnz 0x16
-0013 E9 9D 00                 jmp 0xb3
+0011                          If (result.notequal) value jump to 0016
+0013                          Jump to 00B3
 0016                          ax = GetNextTile()
 001D                          SetTileFloor(ax, 01)
-002A 59                       pop cx
+002A                          cx = Pop()
 002B                          ShowMessage(0AFE) = You fall into a pit.
 0038                          ShowMessage(0B13) = You take heavy damage from the long, long fall.
 0045                          ax = PartyCount()
-004D 3D 01 00                 cmp ax, 0x1
-0050 75 2A                    jnz 0x7c
+004D                          compare(ax, 0001)
+0050                          If (result.notequal) value jump to 007C
 0052                          DoDamage(012C)
 005F                          GoMap(03, 12, 03, 05)
-007A EB 35                    jmp 0xb1
+007A                          Jump to 00B1
 007C                          ShowMessage(0B43) = Since you are the first to land, your body provides a soft mattress for the rest of your party.
 0089                          DoDamage(01C2)
 0096                          GoMap(03, 12, 03, 05)
-00B1 EB 34                    jmp 0xe7
+00B1                          Jump to 00E7
 00B3                          ShowMessage(0BA3) = A kindly spirit rescues you from falling to your death.
 00C0                          ShowMessage(0BDB) = It warns you to stay away from danger until you are stronger.
 00CD                          GoMap(00, 69, 02, 01)
@@ -445,23 +445,23 @@ PITB_15:
 PITC_16:
 0000                          BEGIN
 0003                          ax = CheckLevel(000F)
-0011 75 03                    jnz 0x16
-0013 E9 9D 00                 jmp 0xb3
+0011                          If (result.notequal) value jump to 0016
+0013                          Jump to 00B3
 0016                          ax = GetNextTile()
 001D                          SetTileFloor(ax, 01)
-002A 59                       pop cx
+002A                          cx = Pop()
 002B                          ShowMessage(0C19) = You fall into a pit.
 0038                          ShowMessage(0C2E) = You take heavy damage from the long, long fall.
 0045                          ax = PartyCount()
-004D 3D 01 00                 cmp ax, 0x1
-0050 75 2A                    jnz 0x7c
+004D                          compare(ax, 0001)
+0050                          If (result.notequal) value jump to 007C
 0052                          DoDamage(012C)
 005F                          GoMap(01, 21, 03, 05)
-007A EB 35                    jmp 0xb1
+007A                          Jump to 00B1
 007C                          ShowMessage(0C5E) = Since you are the first to land, your body provides a soft mattress for the rest of your party.
 0089                          DoDamage(01C2)
 0096                          GoMap(01, 21, 03, 05)
-00B1 EB 35                    jmp 0xe8
+00B1                          Jump to 00E8
 00B3                          ShowMessage(0CBE) = A kindly spirit rescues you from falling to your death.
 00C0                          ShowMessage(0CF6) = It warns you to stay away from danger until you are stronger.
 00CD                          GoMap(02, 76, 02, 01)
@@ -470,23 +470,23 @@ PITC_16:
 PITD_17:
 0000                          BEGIN
 0003                          ax = CheckLevel(000F)
-0011 75 03                    jnz 0x16
-0013 E9 9B 00                 jmp 0xb1
+0011                          If (result.notequal) value jump to 0016
+0013                          Jump to 00B1
 0016                          ax = GetNextTile()
 001D                          SetTileFloor(ax, 01)
-002A 59                       pop cx
+002A                          cx = Pop()
 002B                          ShowMessage(0D34) = You fall into a pit.
 0038                          ShowMessage(0D49) = You take heavy damage from the long, long fall.
 0045                          ax = PartyCount()
-004D 3D 01 00                 cmp ax, 0x1
-0050 75 29                    jnz 0x7b
+004D                          compare(ax, 0001)
+0050                          If (result.notequal) value jump to 007B
 0052                          DoDamage(012C)
 005F                          GoMap(00, 22, 03, 05)
-0079 EB 34                    jmp 0xaf
+0079                          Jump to 00AF
 007B                          ShowMessage(0D79) = Since you are the first to land, your body provides a soft mattress for the rest of your party.
 0088                          DoDamage(01C2)
 0095                          GoMap(00, 22, 03, 05)
-00AF EB 34                    jmp 0xe5
+00AF                          Jump to 00E5
 00B1                          ShowMessage(0DD9) = A kindly spirit rescues you from falling to your death.
 00BE                          ShowMessage(0E11) = It warns you to stay away from danger until you are stronger.
 00CB                          GoMap(00, 79, 02, 01)
@@ -503,10 +503,10 @@ NPCCHATA_19:
 0003                          ShowMessage(0E75) = You encounter an Orc Ranger.
 0010                          ShowPortrait(001E)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 09 00                 cmp ax, 0x9
-002D 77 0F                    ja 0x3e
+002A                          compare(ax, 0009)
+002D                          If (result.greaterthan) value jump to 003E
 002F                          ShowMessage(0E92) = King Cleowyn had a special lockpick which opened a set of doors in the Vestibule, leading to his Palace. He was the king of thieves, or so my father told me.
-003C EB 0D                    jmp 0x4b
+003C                          Jump to 004B
 003E                          ShowMessage(0F30) = The Orc Ranger ignores you and wanders off.
 004B                          RETURN
 
@@ -515,10 +515,10 @@ NPCCHATB_1A:
 0003                          ShowMessage(0F5C) = You encounter a Human Wizard.
 0010                          ShowPortrait(002B)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 04 00                 cmp ax, 0x4
-002D 77 0F                    ja 0x3e
+002A                          compare(ax, 0004)
+002D                          If (result.greaterthan) value jump to 003E
 002F                          ShowMessage(0F7A) = The lone adventurer is often at a disadvantage in this cursed dungeon. Those deeper levels...oh, they are very dangerous, indeed.
-003C EB 0D                    jmp 0x4b
+003C                          Jump to 004B
 003E                          ShowMessage(0FFC) = The Human Wizard turns his back on you.
 004B                          RETURN
 
@@ -527,10 +527,10 @@ NPCCHATC_1B:
 0003                          ShowMessage(1024) = You encounter a Dwarf Knight.
 0010                          ShowPortrait(001C)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 0A 00                 cmp ax, 0xa
-002D 77 0F                    ja 0x3e
+002A                          compare(ax, 000A)
+002D                          If (result.greaterthan) value jump to 003E
 002F                          ShowMessage(1042) = There are rumors of a fantastic treasury which King Cleowyn visited each night to count his ill-gotten tax revenues.
-003C EB 0D                    jmp 0x4b
+003C                          Jump to 004B
 003E                          ShowMessage(10B7) = The Dwarf Knight seems uninterested in you and turns away.
 004B                          RETURN
 
@@ -539,11 +539,11 @@ NPCCHATD_1C:
 0003                          ShowMessage(10F2) = You encounter a Troll Cleric.
 0010                          ShowPortrait(0028)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 0C 00                 cmp ax, 0xc
-002D 77 1C                    ja 0x4b
+002A                          compare(ax, 000C)
+002D                          If (result.greaterthan) value jump to 004B
 002F                          ShowMessage(1110) = Being able to detect hidden traps and doors is important for any party of adventurers wandering this dungeon.
 003C                          ShowMessage(117E) = Also, keep an eye open for better lockpicks. They will open doors to new wonders.
-0049 EB 1A                    jmp 0x65
+0049                          Jump to 0065
 004B                          ShowMessage(11D0) = The Troll Cleric is annoyed that you disturbed her reverie. She raps you on the head with her staff and marches off.
 0058                          DoDamage(0003)
 0065                          RETURN
@@ -553,11 +553,11 @@ NPCCHATE_1D:
 0003                          ShowMessage(1245) = You encounter a Human Thief.
 0010                          ShowPortrait(0022)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 0B 00                 cmp ax, 0xb
-002D 77 1C                    ja 0x4b
+002A                          compare(ax, 000B)
+002D                          If (result.greaterthan) value jump to 004B
 002F                          ShowMessage(1262) = The upper levels of this dungeon make up the Palace of King Cleowyn. He was a cruel ruler and was hated by all.
 003C                          ShowMessage(12D2) = Beware of the many traps and pitfalls in and around the Palace. Not even the most clever thief can escape Cleowyn's traps.
-0049 EB 0D                    jmp 0x58
+0049                          Jump to 0058
 004B                          ShowMessage(134D) = The Human Thief slithers away without saying a word.
 0058                          RETURN
 
@@ -566,10 +566,10 @@ NPCCHATF_1E:
 0003                          ShowMessage(1382) = You encounter an Elf Barbarian.
 0010                          ShowPortrait(0018)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 0C 00                 cmp ax, 0xc
-002D 77 0F                    ja 0x3e
+002A                          compare(ax, 000C)
+002D                          If (result.greaterthan) value jump to 003E
 002F                          ShowMessage(13A2) = Beware the pit to be found at the heart of the mine. Only the very strongest can survive the fall into the deep abyss.
-003C EB 0D                    jmp 0x4b
+003C                          Jump to 004B
 003E                          ShowMessage(1419) = The Elf Barbarian trudges off to kill some monsters.
 004B                          RETURN
 

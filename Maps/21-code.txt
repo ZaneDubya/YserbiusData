@@ -95,108 +95,108 @@ ENCWINDW_0C:
 
 FLGWINDN_0D:
 0000                          BEGIN (saving si)
-0004 BE 01 00                 mov si, 0x1
+0004                          si = 0001
 0007                          ax = CheckState(01, 01)
-0018 0B C0                    or ax, ax
-001A 75 54                    jnz 0x70
+0018                          RefreshCompareFlags(ax)
+001A                          If (result.notequal) value jump to 0070
 001C                          ax = CheckState(01, 02)
-002D 0B C0                    or ax, ax
-002F 74 01                    jz 0x32
-0031 46                       inc si
+002D                          RefreshCompareFlags(ax)
+002F                          If (result.equal) value jump to 0032
+0031                          si = si + 1
 0032                          ax = CheckState(01, 03)
-0043 0B C0                    or ax, ax
-0045 74 01                    jz 0x48
-0047 46                       inc si
+0043                          RefreshCompareFlags(ax)
+0045                          If (result.equal) value jump to 0048
+0047                          si = si + 1
 0048                          ax = CheckState(01, 04)
-0059 0B C0                    or ax, ax
-005B 74 01                    jz 0x5e
-005D 46                       inc si
+0059                          RefreshCompareFlags(ax)
+005B                          If (result.equal) value jump to 005E
+005D                          si = si + 1
 005E                          SetState(C4, B8, si)
 0070                          ax = CheckState(01, 01)
-0081 3D 01 00                 cmp ax, 0x1
-0084 74 02                    jz 0x88
-0086 EB 0D                    jmp 0x95
+0081                          compare(ax, 0001)
+0084                          If (result.equal) value jump to 0088
+0086                          Jump to 0095
 0088                          ShowMessage(082D) = The North Wind is the first to be defeated.
 0095                          ShowMessage(0859) = The North Wind has been quieted.
 00A2                          RETURN (restoring si)
 
 FLGWINDE_0E:
 0000                          BEGIN (saving si)
-0004 BE 01 00                 mov si, 0x1
+0004                          si = 0001
 0007                          ax = CheckState(01, 02)
-0018 0B C0                    or ax, ax
-001A 75 54                    jnz 0x70
+0018                          RefreshCompareFlags(ax)
+001A                          If (result.notequal) value jump to 0070
 001C                          ax = CheckState(01, 01)
-002D 0B C0                    or ax, ax
-002F 74 01                    jz 0x32
-0031 46                       inc si
+002D                          RefreshCompareFlags(ax)
+002F                          If (result.equal) value jump to 0032
+0031                          si = si + 1
 0032                          ax = CheckState(01, 03)
-0043 0B C0                    or ax, ax
-0045 74 01                    jz 0x48
-0047 46                       inc si
+0043                          RefreshCompareFlags(ax)
+0045                          If (result.equal) value jump to 0048
+0047                          si = si + 1
 0048                          ax = CheckState(01, 04)
-0059 0B C0                    or ax, ax
-005B 74 01                    jz 0x5e
-005D 46                       inc si
+0059                          RefreshCompareFlags(ax)
+005B                          If (result.equal) value jump to 005E
+005D                          si = si + 1
 005E                          SetState(C4, B8, si)
 0070                          ax = CheckState(01, 02)
-0081 3D 01 00                 cmp ax, 0x1
-0084 74 02                    jz 0x88
-0086 EB 0D                    jmp 0x95
+0081                          compare(ax, 0001)
+0084                          If (result.equal) value jump to 0088
+0086                          Jump to 0095
 0088                          ShowMessage(087A) = The East Wind is the first to be defeated.
 0095                          ShowMessage(08A5) = The East Wind has been quieted.
 00A2                          RETURN (restoring si)
 
 FLGWINDS_0F:
 0000                          BEGIN (saving si)
-0004 BE 01 00                 mov si, 0x1
+0004                          si = 0001
 0007                          ax = CheckState(01, 03)
-0018 0B C0                    or ax, ax
-001A 75 54                    jnz 0x70
+0018                          RefreshCompareFlags(ax)
+001A                          If (result.notequal) value jump to 0070
 001C                          ax = CheckState(01, 01)
-002D 0B C0                    or ax, ax
-002F 74 01                    jz 0x32
-0031 46                       inc si
+002D                          RefreshCompareFlags(ax)
+002F                          If (result.equal) value jump to 0032
+0031                          si = si + 1
 0032                          ax = CheckState(01, 02)
-0043 0B C0                    or ax, ax
-0045 74 01                    jz 0x48
-0047 46                       inc si
+0043                          RefreshCompareFlags(ax)
+0045                          If (result.equal) value jump to 0048
+0047                          si = si + 1
 0048                          ax = CheckState(01, 04)
-0059 0B C0                    or ax, ax
-005B 74 01                    jz 0x5e
-005D 46                       inc si
+0059                          RefreshCompareFlags(ax)
+005B                          If (result.equal) value jump to 005E
+005D                          si = si + 1
 005E                          SetState(C4, B8, si)
 0070                          ax = CheckState(01, 03)
-0081 3D 01 00                 cmp ax, 0x1
-0084 74 02                    jz 0x88
-0086 EB 0D                    jmp 0x95
+0081                          compare(ax, 0001)
+0084                          If (result.equal) value jump to 0088
+0086                          Jump to 0095
 0088                          ShowMessage(08C5) = The South Wind is the first to be defeated.
 0095                          ShowMessage(08F1) = The South Wind has been quieted.
 00A2                          RETURN (restoring si)
 
 FLGWINDW_10:
 0000                          BEGIN (saving si)
-0004 BE 01 00                 mov si, 0x1
+0004                          si = 0001
 0007                          ax = CheckState(01, 04)
-0018 0B C0                    or ax, ax
-001A 75 54                    jnz 0x70
+0018                          RefreshCompareFlags(ax)
+001A                          If (result.notequal) value jump to 0070
 001C                          ax = CheckState(01, 01)
-002D 0B C0                    or ax, ax
-002F 74 01                    jz 0x32
-0031 46                       inc si
+002D                          RefreshCompareFlags(ax)
+002F                          If (result.equal) value jump to 0032
+0031                          si = si + 1
 0032                          ax = CheckState(01, 02)
-0043 0B C0                    or ax, ax
-0045 74 01                    jz 0x48
-0047 46                       inc si
+0043                          RefreshCompareFlags(ax)
+0045                          If (result.equal) value jump to 0048
+0047                          si = si + 1
 0048                          ax = CheckState(01, 03)
-0059 0B C0                    or ax, ax
-005B 74 01                    jz 0x5e
-005D 46                       inc si
+0059                          RefreshCompareFlags(ax)
+005B                          If (result.equal) value jump to 005E
+005D                          si = si + 1
 005E                          SetState(C4, B8, si)
 0070                          ax = CheckState(01, 04)
-0081 3D 01 00                 cmp ax, 0x1
-0084 74 02                    jz 0x88
-0086 EB 0D                    jmp 0x95
+0081                          compare(ax, 0001)
+0084                          If (result.equal) value jump to 0088
+0086                          Jump to 0095
 0088                          ShowMessage(0912) = The West Wind is the first to be defeated.
 0095                          ShowMessage(093D) = The West Wind has been quieted.
 00A2                          RETURN (restoring si)
@@ -204,13 +204,13 @@ FLGWINDW_10:
 EXPRESS_11:
 0000                          BEGIN
 0003                          ax = CheckState(02, 57)
-0014 0B C0                    or ax, ax
-0016 74 2E                    jz 0x46
+0014                          RefreshCompareFlags(ax)
+0016                          If (result.equal) value jump to 0046
 0018                          ShowMessage(095D) = This wall is the teleport to CASTLEGATE.
 0025                          Push(03)
 0029                          ax = GetNextTile()
 0030                          GoMap(stk[0], ax, 01, 36)
-0044 EB 0D                    jmp 0x53
+0044                          Jump to 0053
 0046                          ShowMessage(0986) = There is something strange about this wall.
 0053                          RETURN
 
@@ -224,15 +224,15 @@ WSTRES_13:
 0000                          BEGIN
 0003                          ShowMessage(0A18) = Wyn's Fountain is old and cracked.
 0010                          ax = CheckState(02, 58)
-0021 0B C0                    or ax, ax
-0023 75 5D                    jnz 0x82
+0021                          RefreshCompareFlags(ax)
+0023                          If (result.notequal) value jump to 0082
 0025                          SetState(02, 58, 01)
 003A                          ShowPortrait(0042)
 0047                          ModifyAttribute(03, 0003)
 0059                          ShowMessage(0A3B) = A small puddle of magic water sits at the bottom.
 0066                          ShowMessage(0A6D) = It seems to instantly evaporate into a large steam cloud.
 0073                          ShowMessage(0AA7) = You feel you may be quicker in a fight.
-0080 EB 0D                    jmp 0x8f
+0080                          Jump to 008F
 0082                          ShowMessage(0ACF) = The basin is dust dry.
 008F                          RETURN
 
@@ -269,20 +269,20 @@ SDOORWKT_19:
 0000                          BEGIN
 0003                          ShowMessage(0BDA) = Skeletal voices echo...
 0010                          ax = CheckState(01, 01)
-0021 0B C0                    or ax, ax
-0023 75 03                    jnz 0x28
-0025 E9 AF 00                 jmp 0xd7
+0021                          RefreshCompareFlags(ax)
+0023                          If (result.notequal) value jump to 0028
+0025                          Jump to 00D7
 0028                          ax = CheckState(01, 02)
-0039 0B C0                    or ax, ax
-003B 75 03                    jnz 0x40
-003D E9 97 00                 jmp 0xd7
+0039                          RefreshCompareFlags(ax)
+003B                          If (result.notequal) value jump to 0040
+003D                          Jump to 00D7
 0040                          ax = CheckState(01, 03)
-0051 0B C0                    or ax, ax
-0053 75 03                    jnz 0x58
-0055 E9 7F 00                 jmp 0xd7
+0051                          RefreshCompareFlags(ax)
+0053                          If (result.notequal) value jump to 0058
+0055                          Jump to 00D7
 0058                          ax = CheckState(01, 04)
-0069 0B C0                    or ax, ax
-006B 74 6A                    jz 0xd7
+0069                          RefreshCompareFlags(ax)
+006B                          If (result.equal) value jump to 00D7
 006D                          ShowPortrait(000A)
 007A                          ShowMessage(0BF2) = 'The four winds have been defeated!!!!
 0087                          ShowMessage(0C19) = ARGGG!  We cannot hold you back.  You are indeed a powerful force!!
@@ -290,14 +290,14 @@ SDOORWKT_19:
 00A1                          Push(01)
 00A5                          Push(03)
 00A9                          ax = GetNextTile()
-00B0 50                       push ax
+00B0                          Push(ax)
 00B1                          Move(stk[0], stk[1], stk[2])
 00BB                          Push(03)
 00BF                          ax = GetNextTile()
-00C6 50                       push ax
+00C6                          Push(ax)
 00C7                          Push(01)
 00CB                          SetUnblocked()
-00D5 EB 0D                    jmp 0xe4
+00D5                          Jump to 00E4
 00D7                          ShowMessage(0CBD) = 'Only Forces more powerful than all four winds can open this door!'
 00E4                          RETURN
 
@@ -312,20 +312,20 @@ TXTCAMP_1A:
 KEYDOORW_1B:
 0000                          BEGIN
 0003                          ax = UsedItem(DD, DD)
-0016 74 4E                    jz 0x66
+0016                          If (result.equal) value jump to 0066
 0018                          Push(01)
 001C                          Push(00)
 001F                          ax = GetNextTile()
-0026 50                       push ax
+0026                          Push(ax)
 0027                          Move(stk[0], stk[1], stk[2])
 0031                          Push(00)
 0034                          ax = GetNextTile()
-003B 50                       push ax
+003B                          Push(ax)
 003C                          Push(01)
 0040                          SetUnblocked()
 004A                          ShowMessage(0DA1) = The door is unlocked.
 0057                          ShowMessage(0DB7) = The soft breezes seem to whisper - 'Beware, those who seek the treasure of WIND KNIGHTS' TOMB.'
-0064 EB 0D                    jmp 0x73
+0064                          Jump to 0073
 0066                          ShowMessage(0E17) = Winds pound furiously at the door.
 0073                          RETURN
 
@@ -360,8 +360,8 @@ WKTTEXT_1F:
 
 WKTENCC_20:
 0000                          BEGIN (saving si, di)
-0005 33 FF                    xor di, di
-0007 33 F6                    xor si, si
+0005                          di = 0
+0007                          si = 0
 0009                          AddEncounter(15, 01)
 001B                          AddEncounter(15, 02)
 002D                          AddEncounter(0D, 03)
@@ -369,45 +369,45 @@ WKTENCC_20:
 0051                          AddEncounter(1E, 05)
 0063                          AddEncounter(1E, 06)
 0075                          ax = CheckState(01, 01)
-0086 3D 01 00                 cmp ax, 0x1
-0089 75 03                    jnz 0x8e
-008B BF 0E 00                 mov di, 0xe
+0086                          compare(ax, 0001)
+0089                          If (result.notequal) value jump to 008E
+008B                          di = 000E
 008E                          ax = CheckState(01, 02)
-009F 3D 02 00                 cmp ax, 0x2
-00A2 75 03                    jnz 0xa7
-00A4 BE 5B 00                 mov si, 0x5b
+009F                          compare(ax, 0002)
+00A2                          If (result.notequal) value jump to 00A7
+00A4                          si = 005B
 00A7                          ax = CheckState(01, 03)
-00B8 3D 02 00                 cmp ax, 0x2
-00BB 75 03                    jnz 0xc0
+00B8                          compare(ax, 0002)
+00BB                          If (result.notequal) value jump to 00C0
 00BD                          AddTreasure(07D0, 00, 00, 6F, di, CF)
 00DB                          RETURN (restoring si, di)
 
 WKTENCD_21:
 0000                          BEGIN (saving si, di)
-0005 33 FF                    xor di, di
-0007 33 F6                    xor si, si
+0005                          di = 0
+0007                          si = 0
 0009                          AddEncounter(1E, 01)
 001B                          AddEncounter(1E, 02)
 002D                          AddEncounter(0D, 05)
 003F                          AddEncounter(0D, 06)
 0051                          ax = CheckState(01, 01)
-0062 3D 02 00                 cmp ax, 0x2
-0065 75 03                    jnz 0x6a
-0067 BF 22 00                 mov di, 0x22
+0062                          compare(ax, 0002)
+0065                          If (result.notequal) value jump to 006A
+0067                          di = 0022
 006A                          ax = CheckState(01, 02)
-007B 3D 04 00                 cmp ax, 0x4
-007E 75 03                    jnz 0x83
-0080 BE 58 00                 mov si, 0x58
+007B                          compare(ax, 0004)
+007E                          If (result.notequal) value jump to 0083
+0080                          si = 0058
 0083                          ax = CheckState(01, 03)
-0094 3D 04 00                 cmp ax, 0x4
-0097 75 03                    jnz 0x9c
+0094                          compare(ax, 0004)
+0097                          If (result.notequal) value jump to 009C
 0099                          AddTreasure(07D0, 00, 00, 6D, di, CF)
 00B7                          RETURN (restoring si, di)
 
 WKTENCE_22:
 0000                          BEGIN (saving si, di)
-0005 33 FF                    xor di, di
-0007 33 F6                    xor si, si
+0005                          di = 0
+0007                          si = 0
 0009                          ShowMessage(102A) = The Four Winds gather strength once again as they throw skeletal bones against the wall.
 0016                          ShowMessage(1083) = Monsters form out of the dust and winds.
 0023                          AddEncounter(14, 01)
@@ -417,45 +417,45 @@ WKTENCE_22:
 006B                          AddEncounter(1E, 05)
 007D                          AddEncounter(1E, 06)
 008F                          ax = CheckState(01, 01)
-00A0 3D 03 00                 cmp ax, 0x3
-00A3 75 03                    jnz 0xa8
-00A5 BF 29 00                 mov di, 0x29
+00A0                          compare(ax, 0003)
+00A3                          If (result.notequal) value jump to 00A8
+00A5                          di = 0029
 00A8                          ax = CheckState(01, 02)
-00B9 3D 01 00                 cmp ax, 0x1
-00BC 75 03                    jnz 0xc1
-00BE BE 86 00                 mov si, 0x86
+00B9                          compare(ax, 0001)
+00BC                          If (result.notequal) value jump to 00C1
+00BE                          si = 0086
 00C1                          ax = CheckState(01, 03)
-00D2 3D 01 00                 cmp ax, 0x1
-00D5 75 2F                    jnz 0x106
+00D2                          compare(ax, 0001)
+00D5                          If (result.notequal) value jump to 0106
 00D7                          ax = CheckState(01, 01)
-00E8 3D 02 00                 cmp ax, 0x2
-00EB 75 19                    jnz 0x106
+00E8                          compare(ax, 0002)
+00EB                          If (result.notequal) value jump to 0106
 00ED                          ax = CheckState(01, 02)
-00FE 3D 03 00                 cmp ax, 0x3
-0101 75 03                    jnz 0x106
+00FE                          compare(ax, 0003)
+0101                          If (result.notequal) value jump to 0106
 0103                          AddTreasure(07D0, 00, 00, F6, di, CF)
 0121                          RETURN (restoring si, di)
 
 WKTENCF_23:
 0000                          BEGIN (saving si, di)
-0005 33 FF                    xor di, di
-0007 33 F6                    xor si, si
+0005                          di = 0
+0007                          si = 0
 0009                          AddEncounter(1E, 01)
 001B                          AddEncounter(1E, 02)
 002D                          AddEncounter(1E, 03)
 003F                          AddEncounter(15, 04)
 0051                          AddEncounter(0C, 05)
 0063                          ax = CheckState(01, 01)
-0074 3D 04 00                 cmp ax, 0x4
-0077 75 03                    jnz 0x7c
-0079 BF 31 00                 mov di, 0x31
+0074                          compare(ax, 0004)
+0077                          If (result.notequal) value jump to 007C
+0079                          di = 0031
 007C                          ax = CheckState(01, 02)
-008D 3D 03 00                 cmp ax, 0x3
-0090 75 03                    jnz 0x95
-0092 BE 5A 00                 mov si, 0x5a
+008D                          compare(ax, 0003)
+0090                          If (result.notequal) value jump to 0095
+0092                          si = 005A
 0095                          ax = CheckState(01, 03)
-00A6 3D 03 00                 cmp ax, 0x3
-00A9 75 03                    jnz 0xae
+00A6                          compare(ax, 0003)
+00A9                          If (result.notequal) value jump to 00AE
 00AB                          AddTreasure(07D0, 00, 00, 68, di, CF)
 00C9                          RETURN (restoring si, di)
 
@@ -496,20 +496,20 @@ SIRFLAG_27:
 SIRDOOR_28:
 0000                          BEGIN
 0003                          ax = CheckState(02, 51)
-0014 0B C0                    or ax, ax
-0016 74 43                    jz 0x5b
+0014                          RefreshCompareFlags(ax)
+0016                          If (result.equal) value jump to 005B
 0018                          Push(01)
 001C                          Push(01)
 0020                          ax = GetNextTile()
-0027 50                       push ax
+0027                          Push(ax)
 0028                          Move(stk[0], stk[1], stk[2])
 0032                          Push(01)
 0036                          ax = GetNextTile()
-003D 50                       push ax
+003D                          Push(ax)
 003E                          Push(01)
 0042                          SetUnblocked()
 004C                          ShowMessage(11FA) = Sirocco's powers no longer hold this door.  It is open.
-0059 EB 1A                    jmp 0x75
+0059                          Jump to 0075
 005B                          ShowMessage(1232) = Sirocco's Door does not open.  In the distance, a wizard laughs aloud.
 0068                          ShowMessage(1279) = 'It is I, Sirocco, who bars your way!'
 0075                          RETURN
@@ -528,22 +528,22 @@ SIROCCO_29:
 WSBIGDR_2A:
 0000                          BEGIN
 0003                          ax = CheckStrength()
-000F 3D 12 00                 cmp ax, 0x12
-0012 72 2D                    jb 0x41
+000F                          compare(ax, 0012)
+0012                          If (result.lessthan) jump to 0041
 0014                          ShowMessage(1303) = You force the massive door open by sheer muscle power.
 0021                          Push(01)
 0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002C 50                       push ax
+002C                          Push(ax)
 002D                          ax = GetNextTile()
-0034 50                       push ax
+0034                          Push(ax)
 0035                          Move(stk[0], stk[1], stk[2])
-003F EB 2A                    jmp 0x6b
+003F                          Jump to 006B
 0041                          ShowMessage(133A) = The door is stuck. You are not strong enough to force it open.
 004E                          Push(00)
 0051                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0058 50                       push ax
+0058                          Push(ax)
 0059                          ax = GetNextTile()
-0060 50                       push ax
+0060                          Push(ax)
 0061                          Move(stk[0], stk[1], stk[2])
 006B                          RETURN
 
@@ -615,18 +615,18 @@ WSENCI_33:
 SDOORWS_34:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 25                    jae 0x39
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 0039
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 15                    jnz 0x39
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 0039
 0024                          ax = UsedItem(BE, BE)
-0037 74 2B                    jz 0x64
+0037                          If (result.equal) value jump to 0064
 0039                          Push(01)
 003D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0044 50                       push ax
+0044                          Push(ax)
 0045                          ax = GetNextTile()
-004C 50                       push ax
+004C                          Push(ax)
 004D                          Move(stk[0], stk[1], stk[2])
 0057                          ShowMessage(1521) = You found a secret door!
 0064                          RETURN
@@ -674,20 +674,20 @@ LAENCB_39:
 SDOORLTA_3A:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2B                    jz 0x79
+004C                          If (result.equal) value jump to 0079
 004E                          Push(01)
 0052                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0059 50                       push ax
+0059                          Push(ax)
 005A                          ax = GetNextTile()
-0061 50                       push ax
+0061                          Push(ax)
 0062                          Move(stk[0], stk[1], stk[2])
 006C                          ShowMessage(16B0) = You found a secret door!
 0079                          RETURN
@@ -695,20 +695,20 @@ SDOORLTA_3A:
 SDOORLTB_3B:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2B                    jz 0x79
+004C                          If (result.equal) value jump to 0079
 004E                          Push(01)
 0052                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0059 50                       push ax
+0059                          Push(ax)
 005A                          ax = GetNextTile()
-0061 50                       push ax
+0061                          Push(ax)
 0062                          Move(stk[0], stk[1], stk[2])
 006C                          ShowMessage(16C9) = You discover a secret door!
 0079                          RETURN
@@ -716,20 +716,20 @@ SDOORLTB_3B:
 SDOORLTC_3C:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2B                    jz 0x79
+004C                          If (result.equal) value jump to 0079
 004E                          Push(01)
 0052                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0059 50                       push ax
+0059                          Push(ax)
 005A                          ax = GetNextTile()
-0061 50                       push ax
+0061                          Push(ax)
 0062                          Move(stk[0], stk[1], stk[2])
 006C                          ShowMessage(16E5) = A secret door suddenly appears!
 0079                          RETURN
@@ -737,14 +737,14 @@ SDOORLTC_3C:
 BDOORLTD_3D:
 0000                          BEGIN
 0003                          ax = CheckStrength()
-000F 3D 10 00                 cmp ax, 0x10
-0012 72 2B                    jb 0x3f
+000F                          compare(ax, 0010)
+0012                          If (result.lessthan) jump to 003F
 0014                          ShowMessage(1705) = You bash the massive door open.
 0021                          Push(01)
 0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002C 50                       push ax
+002C                          Push(ax)
 002D                          ax = GetNextTile()
-0034 50                       push ax
+0034                          Push(ax)
 0035                          Move(stk[0], stk[1], stk[2])
 003F                          RETURN
 
@@ -804,36 +804,36 @@ LTSKILL_45:
 0000                          BEGIN
 0003                          ShowMessage(1804) = A special thieves' shrine magically glows.
 0010                          ax = CheckState(02, 59)
-0021 0B C0                    or ax, ax
-0023 74 03                    jz 0x28
-0025 E9 E5 00                 jmp 0x10d
+0021                          RefreshCompareFlags(ax)
+0023                          If (result.equal) value jump to 0028
+0025                          Jump to 010D
 0028                          SetState(02, 59, 01)
 003D                          ax = GetSkillLevel(0D)
-0049 0B C0                    or ax, ax
-004B 75 21                    jnz 0x6e
+0049                          RefreshCompareFlags(ax)
+004B                          If (result.notequal) value jump to 006E
 004D                          SetSkillLevel(0D, 01)
 005E                          ShowMessage(182F) = You gain the skill of Detection!
-006B E9 9D 00                 jmp 0x10b
+006B                          Jump to 010B
 006E                          ax = GetSkillLevel(0E)
-007A 0B C0                    or ax, ax
-007C 75 20                    jnz 0x9e
+007A                          RefreshCompareFlags(ax)
+007C                          If (result.notequal) value jump to 009E
 007E                          SetSkillLevel(0E, 01)
 008F                          ShowMessage(1850) = You gain the skill of Lockpicking!
-009C EB 6D                    jmp 0x10b
+009C                          Jump to 010B
 009E                          ax = GetSkillLevel(0C)
-00AA 0B C0                    or ax, ax
-00AC 75 20                    jnz 0xce
+00AA                          RefreshCompareFlags(ax)
+00AC                          If (result.notequal) value jump to 00CE
 00AE                          SetSkillLevel(0C, 02)
 00BF                          ShowMessage(1873) = You gain the Bard skill!
-00CC EB 3D                    jmp 0x10b
+00CC                          Jump to 010B
 00CE                          ax = GetSkillLevel(0F)
-00DA 0B C0                    or ax, ax
-00DC 75 20                    jnz 0xfe
+00DA                          RefreshCompareFlags(ax)
+00DC                          If (result.notequal) value jump to 00FE
 00DE                          SetSkillLevel(0F, 01)
 00EF                          ShowMessage(188C) = You gain the Pickpocketing skill!
-00FC EB 0D                    jmp 0x10b
+00FC                          Jump to 010B
 00FE                          ShowMessage(18AE) = Nothing happens.
-010B EB 0D                    jmp 0x11a
+010B                          Jump to 011A
 010D                          ShowMessage(18BF) = The shrines does nothing.
 011A                          RETURN
 
@@ -866,9 +866,9 @@ LTENCK_48:
 0058                          AddEncounter(02, 05)
 006A                          AddEncounter(02, 06)
 007C                          ax = HasItem(DD)
-008A 74 21                    jz 0xad
+008A                          If (result.equal) value jump to 00AD
 008C                          AddTreasure(07D0, 00, 00, 00, 00, CF)
-00AB EB 2E                    jmp 0xdb
+00AB                          Jump to 00DB
 00AD                          ShowMessage(1931) = Light sparks off a key tied to the neck of the leader.
 00BA                          AddTreasure(3A98, 00, 00, 46, 61, DD)
 00DB                          RETURN

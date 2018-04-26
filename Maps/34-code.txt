@@ -15,122 +15,122 @@ LIFE_02:
 
 TIMEA_03:
 0000                          BEGIN
-0003 4C                       dec sp
-0004 4C                       dec sp
+0003                          sp = sp - 1
+0004                          sp = sp - 1
 0005                          SetState(02, 7B, 01)
 001A                          ShowMessage(04C0) = The wall sparkles with phantasmal light.
 0027                          ax = CheckState(02, 7B)
-0038 50                       push ax
+0038                          Push(ax)
 0039                          ax = CheckState(02, 7C)
-004A 5A                       pop dx
-004B 03 D0                    add dx, ax
-004D 52                       push dx
+004A                          dx = Pop()
+004B                          dx = dx + ax
+004D                          Push(dx)
 004E                          ax = CheckState(02, 7D)
-005F 5A                       pop dx
-0060 03 D0                    add dx, ax
-0062 89 56 FE                 mov [bp-0x2], dx
-0065 8B 46 FE                 mov ax, [bp-0x2]
-0068 3D 01 00                 cmp ax, 0x1
-006B 74 0C                    jz 0x79
-006D 3D 02 00                 cmp ax, 0x2
-0070 74 34                    jz 0xa6
-0072 3D 03 00                 cmp ax, 0x3
-0075 74 4F                    jz 0xc6
-0077 EB 6C                    jmp 0xe5
+005F                          dx = Pop()
+0060                          dx = dx + ax
+0062                          tmp = dx
+0065                          ax = tmp
+0068                          compare(ax, 0001)
+006B                          If (result.equal) value jump to 0079
+006D                          compare(ax, 0002)
+0070                          If (result.equal) value jump to 00A6
+0072                          compare(ax, 0003)
+0075                          If (result.equal) value jump to 00C6
+0077                          Jump to 00E5
 0079                          ShowMessage(04E9) = A Timeswitch has been set.
 0086                          ShowMessage(0504) = Two other Timeswitches must be set to reveal the platform.
 0093                          SetTileFloor(A8, 03)
-00A4 EB 3F                    jmp 0xe5
+00A4                          Jump to 00E5
 00A6                          ShowMessage(053F) = The second Timeswitch has been set.
 00B3                          SetTileFloor(A8, 03)
-00C4 EB 1F                    jmp 0xe5
+00C4                          Jump to 00E5
 00C6                          ShowMessage(0563) = The third and final Timeswitch has been set.
 00D3                          SetTileFloor(A8, 00)
-00E1 59                       pop cx
-00E2 59                       pop cx
-00E3 EB 00                    jmp 0xe5
+00E1                          cx = Pop()
+00E2                          cx = Pop()
+00E3                          Jump to 00E5
 00E5                          ShowMessage(0590) = All is deathly quiet near the Fountain of Life.
-00F2 8B E5                    mov sp, bp
+00F2                          sp = bp
 00F4                          RETURN
 
 TIMEB_04:
 0000                          BEGIN
-0003 4C                       dec sp
-0004 4C                       dec sp
+0003                          sp = sp - 1
+0004                          sp = sp - 1
 0005                          SetState(02, 7C, 01)
 001A                          ShowMessage(05C0) = The wall sparkles with phantasmal light.
 0027                          ax = CheckState(02, 7B)
-0038 50                       push ax
+0038                          Push(ax)
 0039                          ax = CheckState(02, 7C)
-004A 5A                       pop dx
-004B 03 D0                    add dx, ax
-004D 52                       push dx
+004A                          dx = Pop()
+004B                          dx = dx + ax
+004D                          Push(dx)
 004E                          ax = CheckState(02, 7D)
-005F 5A                       pop dx
-0060 03 D0                    add dx, ax
-0062 89 56 FE                 mov [bp-0x2], dx
-0065 8B 46 FE                 mov ax, [bp-0x2]
-0068 3D 01 00                 cmp ax, 0x1
-006B 74 0C                    jz 0x79
-006D 3D 02 00                 cmp ax, 0x2
-0070 74 34                    jz 0xa6
-0072 3D 03 00                 cmp ax, 0x3
-0075 74 4F                    jz 0xc6
-0077 EB 6C                    jmp 0xe5
+005F                          dx = Pop()
+0060                          dx = dx + ax
+0062                          tmp = dx
+0065                          ax = tmp
+0068                          compare(ax, 0001)
+006B                          If (result.equal) value jump to 0079
+006D                          compare(ax, 0002)
+0070                          If (result.equal) value jump to 00A6
+0072                          compare(ax, 0003)
+0075                          If (result.equal) value jump to 00C6
+0077                          Jump to 00E5
 0079                          ShowMessage(05E9) = A Timeswitch has been set.
 0086                          ShowMessage(0604) = Two other Timeswitches must be set to reveal the platform.
 0093                          SetTileFloor(A8, 03)
-00A4 EB 3F                    jmp 0xe5
+00A4                          Jump to 00E5
 00A6                          ShowMessage(063F) = The second Timeswitch has been set.
 00B3                          SetTileFloor(A8, 03)
-00C4 EB 1F                    jmp 0xe5
+00C4                          Jump to 00E5
 00C6                          ShowMessage(0663) = The third and final Timeswitch has been set.
 00D3                          SetTileFloor(A8, 00)
-00E1 59                       pop cx
-00E2 59                       pop cx
-00E3 EB 00                    jmp 0xe5
+00E1                          cx = Pop()
+00E2                          cx = Pop()
+00E3                          Jump to 00E5
 00E5                          ShowMessage(0690) = All is deathly quiet near the Fountain of Life.
-00F2 8B E5                    mov sp, bp
+00F2                          sp = bp
 00F4                          RETURN
 
 TIMEC_05:
 0000                          BEGIN
-0003 4C                       dec sp
-0004 4C                       dec sp
+0003                          sp = sp - 1
+0004                          sp = sp - 1
 0005                          SetState(02, 7D, 01)
 001A                          ShowMessage(06C0) = The wall sparkles with phantasmal light.
 0027                          ax = CheckState(02, 7B)
-0038 50                       push ax
+0038                          Push(ax)
 0039                          ax = CheckState(02, 7C)
-004A 5A                       pop dx
-004B 03 D0                    add dx, ax
-004D 52                       push dx
+004A                          dx = Pop()
+004B                          dx = dx + ax
+004D                          Push(dx)
 004E                          ax = CheckState(02, 7D)
-005F 5A                       pop dx
-0060 03 D0                    add dx, ax
-0062 89 56 FE                 mov [bp-0x2], dx
-0065 8B 46 FE                 mov ax, [bp-0x2]
-0068 3D 01 00                 cmp ax, 0x1
-006B 74 0C                    jz 0x79
-006D 3D 02 00                 cmp ax, 0x2
-0070 74 34                    jz 0xa6
-0072 3D 03 00                 cmp ax, 0x3
-0075 74 4F                    jz 0xc6
-0077 EB 6C                    jmp 0xe5
+005F                          dx = Pop()
+0060                          dx = dx + ax
+0062                          tmp = dx
+0065                          ax = tmp
+0068                          compare(ax, 0001)
+006B                          If (result.equal) value jump to 0079
+006D                          compare(ax, 0002)
+0070                          If (result.equal) value jump to 00A6
+0072                          compare(ax, 0003)
+0075                          If (result.equal) value jump to 00C6
+0077                          Jump to 00E5
 0079                          ShowMessage(06E9) = A Timeswitch has been set.
 0086                          ShowMessage(0704) = Two other Timeswitches must be set to reveal the platform.
 0093                          SetTileFloor(A8, 03)
-00A4 EB 3F                    jmp 0xe5
+00A4                          Jump to 00E5
 00A6                          ShowMessage(073F) = The second Timeswitch has been set.
 00B3                          SetTileFloor(A8, 03)
-00C4 EB 1F                    jmp 0xe5
+00C4                          Jump to 00E5
 00C6                          ShowMessage(0763) = The third and final Timeswitch has been set.
 00D3                          SetTileFloor(A8, 00)
-00E1 59                       pop cx
-00E2 59                       pop cx
-00E3 EB 00                    jmp 0xe5
+00E1                          cx = Pop()
+00E2                          cx = Pop()
+00E3                          Jump to 00E5
 00E5                          ShowMessage(0790) = All is deathly quiet near the Fountain of Life.
-00F2 8B E5                    mov sp, bp
+00F2                          sp = bp
 00F4                          RETURN
 
 TIMEELEM_06:
@@ -155,21 +155,21 @@ TIMEELEM_06:
 TIMEPLAT_07:
 0000                          BEGIN
 0003                          ax = CheckState(01, 00)
-0013 0B C0                    or ax, ax
-0015 74 63                    jz 0x7a
+0013                          RefreshCompareFlags(ax)
+0015                          If (result.equal) value jump to 007A
 0017                          ax = CheckState(01, 01)
-0028 0B C0                    or ax, ax
-002A 74 4E                    jz 0x7a
+0028                          RefreshCompareFlags(ax)
+002A                          If (result.equal) value jump to 007A
 002C                          ax = CheckState(01, 02)
-003D 0B C0                    or ax, ax
-003F 74 39                    jz 0x7a
+003D                          RefreshCompareFlags(ax)
+003F                          If (result.equal) value jump to 007A
 0041                          SetTileFloor(A8, 00)
-004F 59                       pop cx
-0050 59                       pop cx
+004F                          cx = Pop()
+0050                          cx = Pop()
 0051                          ShowMessage(090F) = You cross the Waters of Death safely.
 005E                          ShowMessage(0935) = En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
 006B                          ShowPortrait(0042)
-0078 EB 2F                    jmp 0xa9
+0078                          Jump to 00A9
 007A                          SetTileFloor(A8, 03)
 008B                          ShowMessage(09AD) = You are dragged into the Waters of Death. Your death agonies are mercifully short.
 0098                          ax = GetMaxHits()
@@ -184,11 +184,11 @@ GOAL_08:
 0027                          RemoveItem(F7)
 0033                          RemoveItem(F3)
 003F                          ax = CheckState2(02, 6A)
-0052 74 2A                    jz 0x7e
+0052                          If (result.equal) value jump to 007E
 0054                          ShowMessage(0A00) = You have found the Fountain of Life, but the waters are drained.
 0061                          ShowMessage(0A41) = The Rainbow Gems and Golden Boat dissolve into dust.
 006E                          ShowMessage(0A76) = Humiliating En-Li-Kil a second time is reward enough.
-007B E9 AC 00                 jmp 0x12a
+007B                          Jump to 012A
 007E                          ShowMessage(0AAC) = You stand on the Fountain of Life.
 008B                          ShowMessage(0ACF) = The Rainbow Gems and Golden Boat dissolve in the golden water.
 0098                          ShowMessage(0B0E) = You have defeated the Time Elemental En-Li-Kil.
@@ -197,8 +197,8 @@ GOAL_08:
 00BF                          ShowMessage(0BA8) = Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
 00CC                          ShowMessage(0BFF) = Farewell...this ending is just the beginning!!!
 00D9                          ax = CheckState(02, 69)
-00EA 0B C0                    or ax, ax
-00EC 75 3C                    jnz 0x12a
+00EA                          RefreshCompareFlags(ax)
+00EC                          If (result.notequal) value jump to 012A
 00EE                          SetState(02, 69, 01)
 0103                          SetState(02, 6A, 01)
 0118                          AddExperience(004C4B40)
@@ -239,17 +239,17 @@ ENCC_0B:
 ENCD_0C:
 0000                          BEGIN
 0003                          ax = CheckState(01, 7B)
-0014 0B C0                    or ax, ax
-0016 74 3A                    jz 0x52
+0014                          RefreshCompareFlags(ax)
+0016                          If (result.equal) value jump to 0052
 0018                          ax = CheckState(01, 7C)
-0029 0B C0                    or ax, ax
-002B 74 25                    jz 0x52
+0029                          RefreshCompareFlags(ax)
+002B                          If (result.equal) value jump to 0052
 002D                          ax = CheckState(01, 7D)
-003E 0B C0                    or ax, ax
-0040 74 10                    jz 0x52
+003E                          RefreshCompareFlags(ax)
+0040                          If (result.equal) value jump to 0052
 0042                          SetTileFloor(A8, 00)
-0050 59                       pop cx
-0051 59                       pop cx
+0050                          cx = Pop()
+0051                          cx = Pop()
 0052                          AddEncounter(19, 01)
 0064                          AddEncounter(19, 02)
 0076                          AddEncounter(1C, 03)
@@ -281,52 +281,52 @@ ENCF_0E:
 CROSSOVR_0F:
 0000                          BEGIN
 0003                          ax = CheckState(01, 00)
-0013 0B C0                    or ax, ax
-0015 74 3C                    jz 0x53
+0013                          RefreshCompareFlags(ax)
+0015                          If (result.equal) value jump to 0053
 0017                          ax = CheckState(01, 01)
-0028 0B C0                    or ax, ax
-002A 74 27                    jz 0x53
+0028                          RefreshCompareFlags(ax)
+002A                          If (result.equal) value jump to 0053
 002C                          ax = CheckState(01, 02)
-003D 0B C0                    or ax, ax
-003F 74 12                    jz 0x53
+003D                          RefreshCompareFlags(ax)
+003F                          If (result.equal) value jump to 0053
 0041                          SetTileFloor(A8, 00)
-004F 59                       pop cx
-0050 59                       pop cx
-0051 EB 11                    jmp 0x64
+004F                          cx = Pop()
+0050                          cx = Pop()
+0051                          Jump to 0064
 0053                          SetTileFloor(A8, 03)
 0064                          RETURN
 
 MAPCONV_10:
 0000                          BEGIN
-0003 4C                       dec sp
-0004 4C                       dec sp
+0003                          sp = sp - 1
+0004                          sp = sp - 1
 0005                          ax = CheckState2(02, 7B)
-0018 74 14                    jz 0x2e
+0018                          If (result.equal) value jump to 002E
 001A                          SetState(01, 00, 01)
 002E                          ax = CheckState2(02, 7C)
-0041 74 15                    jz 0x58
+0041                          If (result.equal) value jump to 0058
 0043                          SetState(01, 01, 01)
 0058                          ax = CheckState2(02, 7D)
-006B 74 15                    jz 0x82
+006B                          If (result.equal) value jump to 0082
 006D                          SetState(01, 02, 01)
 0082                          ax = CheckState(01, 00)
-0092 50                       push ax
+0092                          Push(ax)
 0093                          ax = CheckState(01, 01)
-00A4 5A                       pop dx
-00A5 03 D0                    add dx, ax
-00A7 52                       push dx
+00A4                          dx = Pop()
+00A5                          dx = dx + ax
+00A7                          Push(dx)
 00A8                          ax = CheckState(01, 02)
-00B9 5A                       pop dx
-00BA 03 D0                    add dx, ax
-00BC 89 56 FE                 mov [bp-0x2], dx
-00BF 83 7E FE 03              cmp word [bp-0x2], 0x3
-00C3 75 12                    jnz 0xd7
+00B9                          dx = Pop()
+00BA                          dx = dx + ax
+00BC                          tmp = dx
+00BF                          compare(tmp, FE)
+00C3                          If (result.notequal) value jump to 00D7
 00C5                          SetTileFloor(A8, 00)
-00D3 59                       pop cx
-00D4 59                       pop cx
-00D5 EB 11                    jmp 0xe8
+00D3                          cx = Pop()
+00D4                          cx = Pop()
+00D5                          Jump to 00E8
 00D7                          SetTileFloor(A8, 03)
-00E8 8B E5                    mov sp, bp
+00E8                          sp = bp
 00EA                          RETURN
 
 TELEBACK_12:

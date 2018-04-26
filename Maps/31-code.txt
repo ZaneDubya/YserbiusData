@@ -3,23 +3,22 @@ RIVER_01:
 0003                          ShowMessage(03FC) = The River of Eternity taps your life energy.
 0010                          UnknownFunctionC4()
 0018                          ax = GetMaxHits()
-001F BB 04 00                 mov bx, 0x4
-0022 99                       cwd
-0023 F7 FB                    idiv bx
+001F                          bx = 0004
+0022                          ax = ax / bx (signed, dx = quotient)
 0025                          DoDamage(ax)
 002F                          ax = GetCurrentHits()
-0036 0B C0                    or ax, ax
-0038 77 0D                    ja 0x47
+0036                          RefreshCompareFlags(ax)
+0038                          If (result.greaterthan) value jump to 0047
 003A                          ShowMessage(0429) = You have died.
 0047                          ax = HasItem(D5)
-0055 75 15                    jnz 0x6c
+0055                          If (result.notequal) value jump to 006C
 0057                          ax = CheckState(02, 6D)
-0068 0B C0                    or ax, ax
-006A 74 12                    jz 0x7e
+0068                          RefreshCompareFlags(ax)
+006A                          If (result.equal) value jump to 007E
 006C                          SetTileFloor(00, 9C)
-007A 59                       pop cx
-007B 59                       pop cx
-007C EB 11                    jmp 0x8f
+007A                          cx = Pop()
+007B                          cx = Pop()
+007C                          Jump to 008F
 007E                          SetTileFloor(03, 9C)
 008F                          RETURN
 
@@ -31,56 +30,56 @@ RIVRBANK_02:
 STEPCYCL_03:
 0000                          BEGIN
 0003                          ax = HasItem(D6)
-0011 75 15                    jnz 0x28
+0011                          If (result.notequal) value jump to 0028
 0013                          ax = CheckState(02, 6E)
-0024 0B C0                    or ax, ax
-0026 74 49                    jz 0x71
+0024                          RefreshCompareFlags(ax)
+0026                          If (result.equal) value jump to 0071
 0028                          Push(01)
 002C                          Push(00)
 002F                          ax = GetNextTile()
-0036 50                       push ax
+0036                          Push(ax)
 0037                          Move(stk[0], stk[1], stk[2])
 0041                          RemoveItem(D6)
 004D                          SetState(02, 6E, 01)
 0062                          ShowMessage(047C) = Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
-006F EB 0D                    jmp 0x7e
+006F                          Jump to 007E
 0071                          ShowMessage(04DC) = The tapestry glows with the image of a Cyclops.
 007E                          RETURN
 
 STEPMINE_04:
 0000                          BEGIN
 0003                          ax = HasItem(D5)
-0011 75 15                    jnz 0x28
+0011                          If (result.notequal) value jump to 0028
 0013                          ax = CheckState(02, 6D)
-0024 0B C0                    or ax, ax
-0026 74 40                    jz 0x68
+0024                          RefreshCompareFlags(ax)
+0026                          If (result.equal) value jump to 0068
 0028                          RemoveItem(D5)
 0034                          SetState(02, 6D, 01)
 0049                          SetTileFloor(00, 9C)
-0057 59                       pop cx
-0058 59                       pop cx
+0057                          cx = Pop()
+0058                          cx = Pop()
 0059                          ShowMessage(050C) = Your Dwarf Mine Key activated this platform.
-0066 EB 11                    jmp 0x79
+0066                          Jump to 0079
 0068                          SetTileFloor(03, 9C)
 0079                          RETURN
 
 STEPHIDE_05:
 0000                          BEGIN
 0003                          ax = HasItem(D7)
-0011 75 15                    jnz 0x28
+0011                          If (result.notequal) value jump to 0028
 0013                          ax = CheckState(02, 6F)
-0024 0B C0                    or ax, ax
-0026 74 4E                    jz 0x76
+0024                          RefreshCompareFlags(ax)
+0026                          If (result.equal) value jump to 0076
 0028                          RemoveItem(D7)
 0034                          SetState(02, 6F, 01)
 0049                          Push(01)
 004D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0054 50                       push ax
+0054                          Push(ax)
 0055                          ax = GetNextTile()
-005C 50                       push ax
+005C                          Push(ax)
 005D                          Move(stk[0], stk[1], stk[2])
 0067                          ShowMessage(0539) = Your Hidden Mine Key makes the wall become transparent.
-0074 EB 0D                    jmp 0x83
+0074                          Jump to 0083
 0076                          ShowMessage(0571) = There is something strange about this wall.
 0083                          RETURN
 
@@ -102,73 +101,73 @@ ESENDF_0A:
 SECDOORA_0C:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0B 00                 cmp ax, 0xb
-0012 73 15                    jae 0x29
+000F                          compare(ax, 000B)
+0012                          If (result.greaterthan or result.equal) jump to 0029
 0014                          ax = UsedItem(BE, BE)
-0027 74 49                    jz 0x72
+0027                          If (result.equal) value jump to 0072
 0029                          ShowMessage(059D) = You locate a hidden door in the wall.
 0036                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003D 50                       push ax
+003D                          Push(ax)
 003E                          ax = GetNextTile()
-0045 50                       push ax
+0045                          Push(ax)
 0046                          Push(01)
 004A                          SetUnblocked()
 0054                          Push(01)
 0058                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005F 50                       push ax
+005F                          Push(ax)
 0060                          ax = GetNextTile()
-0067 50                       push ax
+0067                          Push(ax)
 0068                          Move(stk[0], stk[1], stk[2])
 0072                          RETURN
 
 SECDOORB_0D:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0B 00                 cmp ax, 0xb
-0012 73 15                    jae 0x29
+000F                          compare(ax, 000B)
+0012                          If (result.greaterthan or result.equal) jump to 0029
 0014                          ax = UsedItem(BE, BE)
-0027 74 49                    jz 0x72
+0027                          If (result.equal) value jump to 0072
 0029                          ShowMessage(05C3) = You locate a hidden door in the wall.
 0036                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003D 50                       push ax
+003D                          Push(ax)
 003E                          ax = GetNextTile()
-0045 50                       push ax
+0045                          Push(ax)
 0046                          Push(01)
 004A                          SetUnblocked()
 0054                          Push(01)
 0058                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005F 50                       push ax
+005F                          Push(ax)
 0060                          ax = GetNextTile()
-0067 50                       push ax
+0067                          Push(ax)
 0068                          Move(stk[0], stk[1], stk[2])
 0072                          RETURN
 
 SECDOORC_0E:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0B 00                 cmp ax, 0xb
-0012 73 15                    jae 0x29
+000F                          compare(ax, 000B)
+0012                          If (result.greaterthan or result.equal) jump to 0029
 0014                          ax = UsedItem(BE, BE)
-0027 74 4B                    jz 0x74
+0027                          If (result.equal) value jump to 0074
 0029                          ShowMessage(05E9) = You locate a hidden door in the wall.
 0036                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003D 50                       push ax
+003D                          Push(ax)
 003E                          ax = GetNextTile()
-0045 50                       push ax
+0045                          Push(ax)
 0046                          Push(01)
 004A                          SetUnblocked()
 0054                          Push(01)
 0058                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005F 50                       push ax
+005F                          Push(ax)
 0060                          ax = GetNextTile()
-0067 50                       push ax
+0067                          Push(ax)
 0068                          Move(stk[0], stk[1], stk[2])
-0072 EB 1D                    jmp 0x91
+0072                          Jump to 0091
 0074                          Push(00)
 0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007E 50                       push ax
+007E                          Push(ax)
 007F                          ax = GetNextTile()
-0086 50                       push ax
+0086                          Push(ax)
 0087                          Move(stk[0], stk[1], stk[2])
 0091                          RETURN
 
@@ -185,7 +184,7 @@ ISENDJ_11:
 SUNBEAM_14:
 0000                          BEGIN
 0003                          ax = HasItem(EF)
-0011 74 68                    jz 0x7b
+0011                          If (result.equal) value jump to 007B
 0013                          ShowPortrait(001C)
 0020                          ShowMessage(060F) = A band of dwarves moves out of the shadows.
 002D                          ShowMessage(063B) = The leader steps forward, his eyes fixed on the blue metal.
@@ -194,7 +193,7 @@ SUNBEAM_14:
 0054                          ShowMessage(072B) = 'We offer you this key to our kingdom in return.'
 0061                          RemoveItem(EF)
 006D                          GiveItem(D4)
-0079 EB 0D                    jmp 0x88
+0079                          Jump to 0088
 007B                          ShowMessage(075D) = A beam of bluish sunshine filters down from the surface above and reflects on a ceremonial dwarven rock.
 0088                          RETURN
 
@@ -299,9 +298,9 @@ ENCH_1F:
 0022                          AddEncounter(0E, 02)
 0034                          AddEncounter(21, 03)
 0046                          ax = HasItem(F1)
-0054 74 22                    jz 0x78
+0054                          If (result.equal) value jump to 0078
 0056                          AddTreasure(09C4, 00, 00, 00, D0, C6)
-0076 EB 1F                    jmp 0x97
+0076                          Jump to 0097
 0078                          AddTreasure(2710, 00, 00, 00, 00, F1)
 0097                          RETURN
 
@@ -360,9 +359,9 @@ ENCN_25:
 0039                          AddEncounter(12, 04)
 004B                          AddEncounter(22, 05)
 005D                          ax = HasItem(D5)
-006B 74 22                    jz 0x8f
+006B                          If (result.equal) value jump to 008F
 006D                          AddTreasure(07D0, 00, 00, 00, B7, 98)
-008D EB 2C                    jmp 0xbb
+008D                          Jump to 00BB
 008F                          ShowMessage(097B) = Creatures fight over a stone key.
 009C                          AddTreasure(2710, 00, 00, 00, 00, D5)
 00BB                          RETURN
@@ -375,9 +374,9 @@ ENCO_26:
 0039                          AddEncounter(12, 04)
 004B                          AddEncounter(22, 05)
 005D                          ax = HasItem(D8)
-006B 74 21                    jz 0x8e
+006B                          If (result.equal) value jump to 008E
 006D                          AddTreasure(07D0, 00, 00, 00, 00, D0)
-008C EB 2C                    jmp 0xba
+008C                          Jump to 00BA
 008E                          ShowMessage(099D) = Creatures fight over a green tree-shaped key
 009B                          AddTreasure(2328, 00, 00, 00, 00, D8)
 00BA                          RETURN

@@ -24,22 +24,22 @@ PASSCOLM_04:
 TAPESTRY_05:
 0000                          BEGIN
 0003                          ax = HasItem(F8)
-0011 74 1C                    jz 0x2f
+0011                          If (result.equal) value jump to 002F
 0013                          ShowMessage(0456) = Runes appear on the tapestry...
 0020                          ShowRunes(0476) = Imps have hidden the Crown, Robe and Scepter. Only a master of the runes may find them. Two-faced Y is at the center of the quest. From Y, open O and E and I. When a rune key is used correctly, it will disappear.
-002D EB 0D                    jmp 0x3c
+002D                          Jump to 003C
 002F                          ShowMessage(054B) = You see an ornate tapestry. The middle of the tapestry is blank.
 003C                          RETURN
 
 KNGGHST_06:
 0000                          BEGIN
 0003                          ax = HasItem(F8)
-0011 74 48                    jz 0x5b
+0011                          If (result.equal) value jump to 005B
 0013                          ShowMessage(058C) = King Cleowyn's angry spirit appears.
 0020                          ShowMessage(05B1) = He tears the Key to the Palace away from you as he and his courtiers attack.
 002D                          AddTreasure(03E8, 00, 00, 00, B7, CF)
 004D                          RemoveItem(D9)
-0059 EB 2E                    jmp 0x89
+0059                          Jump to 0089
 005B                          ShowMessage(05FE) = King Cleowyn and his dead courtiers appear to challenge you.
 0068                          AddTreasure(3A98, 00, 00, F8, B7, CF)
 0089                          AddEncounter(25, 05)
@@ -51,14 +51,14 @@ PIT_07:
 0000                          BEGIN
 0003                          ax = GetNextTile()
 000A                          SetTileFloor(ax, 01)
-0017 59                       pop cx
+0017                          cx = Pop()
 0018                          ShowMessage(063B) = You fall into a deep, deep pit.
 0025                          ax = PartyCount()
-002D 3D 01 00                 cmp ax, 0x1
-0030 75 2A                    jnz 0x5c
+002D                          compare(ax, 0001)
+0030                          If (result.notequal) value jump to 005C
 0032                          DoDamage(00FA)
 003F                          GoMap(02, E0, 01, 04)
-005A EB 35                    jmp 0x91
+005A                          Jump to 0091
 005C                          ShowMessage(065B) = Your body provides a soft landing pad for the rest of your party.
 0069                          DoDamage(0190)
 0076                          GoMap(02, E0, 01, 04)
@@ -67,25 +67,25 @@ PIT_07:
 AVRMNSTR_08:
 0000                          BEGIN
 0003                          ax = PartyCount()
-000B 3D 01 00                 cmp ax, 0x1
-000E 75 39                    jnz 0x49
+000B                          compare(ax, 0001)
+000E                          If (result.notequal) value jump to 0049
 0010                          AddEncounter(19, 01)
 0022                          AddEncounter(1A, 02)
 0034                          AddEncounter(19, 03)
-0046 E9 F4 00                 jmp 0x13d
+0046                          Jump to 013D
 0049                          ax = PartyCount()
-0051 3D 02 00                 cmp ax, 0x2
-0054 74 0D                    jz 0x63
+0051                          compare(ax, 0002)
+0054                          If (result.equal) value jump to 0063
 0056                          ax = PartyCount()
-005E 3D 03 00                 cmp ax, 0x3
-0061 75 6E                    jnz 0xd1
+005E                          compare(ax, 0003)
+0061                          If (result.notequal) value jump to 00D1
 0063                          AddEncounter(1C, 01)
 0075                          AddEncounter(1C, 02)
 0087                          AddEncounter(1C, 03)
 0099                          AddEncounter(1C, 04)
 00AB                          AddEncounter(1B, 05)
 00BD                          AddEncounter(1B, 06)
-00CF EB 6C                    jmp 0x13d
+00CF                          Jump to 013D
 00D1                          AddEncounter(1B, 01)
 00E3                          AddEncounter(1B, 02)
 00F5                          AddEncounter(1B, 03)
@@ -97,22 +97,22 @@ AVRMNSTR_08:
 STRMNSTR_09:
 0000                          BEGIN
 0003                          ax = PartyCount()
-000B 3D 01 00                 cmp ax, 0x1
-000E 74 0D                    jz 0x1d
+000B                          compare(ax, 0001)
+000E                          If (result.equal) value jump to 001D
 0010                          ax = PartyCount()
-0018 3D 02 00                 cmp ax, 0x2
-001B 75 27                    jnz 0x44
+0018                          compare(ax, 0002)
+001B                          If (result.notequal) value jump to 0044
 001D                          AddEncounter(1F, 01)
 002F                          AddEncounter(1F, 02)
-0041 E9 B1 00                 jmp 0xf5
+0041                          Jump to 00F5
 0044                          ax = PartyCount()
-004C 3D 03 00                 cmp ax, 0x3
-004F 75 4A                    jnz 0x9b
+004C                          compare(ax, 0003)
+004F                          If (result.notequal) value jump to 009B
 0051                          AddEncounter(20, 01)
 0063                          AddEncounter(20, 02)
 0075                          AddEncounter(1E, 03)
 0087                          AddEncounter(1E, 04)
-0099 EB 5A                    jmp 0xf5
+0099                          Jump to 00F5
 009B                          AddEncounter(1F, 01)
 00AD                          AddEncounter(1F, 02)
 00BF                          AddEncounter(1F, 03)
@@ -123,27 +123,27 @@ STRMNSTR_09:
 TUFMNSTR_0A:
 0000                          BEGIN
 0003                          ax = PartyCount()
-000B 3D 01 00                 cmp ax, 0x1
-000E 75 27                    jnz 0x37
+000B                          compare(ax, 0001)
+000E                          If (result.notequal) value jump to 0037
 0010                          AddEncounter(22, 01)
 0022                          AddEncounter(22, 01)
-0034 E9 1B 01                 jmp 0x152
+0034                          Jump to 0152
 0037                          ax = PartyCount()
-003F 3D 02 00                 cmp ax, 0x2
-0042 75 39                    jnz 0x7d
+003F                          compare(ax, 0002)
+0042                          If (result.notequal) value jump to 007D
 0044                          AddEncounter(23, 01)
 0056                          AddEncounter(21, 02)
 0068                          AddEncounter(21, 03)
-007A E9 D5 00                 jmp 0x152
+007A                          Jump to 0152
 007D                          ax = PartyCount()
-0085 3D 03 00                 cmp ax, 0x3
-0088 75 5C                    jnz 0xe6
+0085                          compare(ax, 0003)
+0088                          If (result.notequal) value jump to 00E6
 008A                          AddEncounter(21, 01)
 009C                          AddEncounter(21, 02)
 00AE                          AddEncounter(24, 03)
 00C0                          AddEncounter(24, 04)
 00D2                          AddEncounter(23, 05)
-00E4 EB 6C                    jmp 0x152
+00E4                          Jump to 0152
 00E6                          AddEncounter(23, 01)
 00F8                          AddEncounter(23, 02)
 010A                          AddEncounter(23, 03)
@@ -155,28 +155,28 @@ TUFMNSTR_0A:
 WEAPBENC_0C:
 0000                          BEGIN
 0003                          ax = HasItem(35)
-0011 74 2E                    jz 0x41
+0011                          If (result.equal) value jump to 0041
 0013                          ShowMessage(069D) = You feel the tickle of cobwebs on your neck.
 0020                          AddTreasure(012C, 00, 00, 00, 00, B6)
-003F EB 2D                    jmp 0x6e
+003F                          Jump to 006E
 0041                          AddTreasure(03E8, 00, 00, 00, CF, 35)
 0061                          ShowMessage(06CA) = Spiders are using a spear in the middle of the floor as a support for their webs.
 006E                          ax = PartyCount()
-0076 3D 01 00                 cmp ax, 0x1
-0079 74 0D                    jz 0x88
+0076                          compare(ax, 0001)
+0079                          If (result.equal) value jump to 0088
 007B                          ax = PartyCount()
-0083 3D 02 00                 cmp ax, 0x2
-0086 75 27                    jnz 0xaf
+0083                          compare(ax, 0002)
+0086                          If (result.notequal) value jump to 00AF
 0088                          AddEncounter(19, 01)
 009A                          AddEncounter(1A, 02)
-00AC E9 8D 00                 jmp 0x13c
+00AC                          Jump to 013C
 00AF                          ax = PartyCount()
-00B7 3D 03 00                 cmp ax, 0x3
-00BA 75 38                    jnz 0xf4
+00B7                          compare(ax, 0003)
+00BA                          If (result.notequal) value jump to 00F4
 00BC                          AddEncounter(19, 01)
 00CE                          AddEncounter(19, 02)
 00E0                          AddEncounter(1A, 03)
-00F2 EB 48                    jmp 0x13c
+00F2                          Jump to 013C
 00F4                          AddEncounter(19, 01)
 0106                          AddEncounter(1A, 02)
 0118                          AddEncounter(1B, 03)
@@ -188,24 +188,24 @@ WEAPAENC_0D:
 0003                          AddTreasure(1964, 00, 00, 00, 00, 3B)
 0022                          ShowMessage(071C) = You see a weapon on the floor and step forward. Banshees sense your presence and gather to attack.
 002F                          ax = PartyCount()
-0037 3D 01 00                 cmp ax, 0x1
-003A 74 0D                    jz 0x49
+0037                          compare(ax, 0001)
+003A                          If (result.equal) value jump to 0049
 003C                          ax = PartyCount()
-0044 3D 02 00                 cmp ax, 0x2
-0047 75 39                    jnz 0x82
+0044                          compare(ax, 0002)
+0047                          If (result.notequal) value jump to 0082
 0049                          AddEncounter(21, 01)
 005B                          AddEncounter(22, 02)
 006D                          AddEncounter(21, 03)
-007F E9 D5 00                 jmp 0x157
+007F                          Jump to 0157
 0082                          ax = PartyCount()
-008A 3D 03 00                 cmp ax, 0x3
-008D 75 5C                    jnz 0xeb
+008A                          compare(ax, 0003)
+008D                          If (result.notequal) value jump to 00EB
 008F                          AddEncounter(22, 01)
 00A1                          AddEncounter(22, 02)
 00B3                          AddEncounter(21, 03)
 00C5                          AddEncounter(24, 04)
 00D7                          AddEncounter(23, 05)
-00E9 EB 6C                    jmp 0x157
+00E9                          Jump to 0157
 00EB                          AddEncounter(23, 01)
 00FD                          AddEncounter(23, 02)
 010F                          AddEncounter(21, 03)
@@ -217,31 +217,31 @@ WEAPAENC_0D:
 WEAPCENC_0E:
 0000                          BEGIN
 0003                          ax = HasItem(16)
-0011 74 2E                    jz 0x41
+0011                          If (result.equal) value jump to 0041
 0013                          ShowMessage(077F) = Nightmares emerge from the shadows.
 0020                          AddTreasure(00C8, 00, 00, 00, 00, CE)
-003F EB 2D                    jmp 0x6e
+003F                          Jump to 006E
 0041                          AddTreasure(0BB8, 00, 00, 00, CF, 16)
 0061                          ShowMessage(07A3) = A group of Nightmares claw at an axe on the floor.
 006E                          ax = PartyCount()
-0076 3D 01 00                 cmp ax, 0x1
-0079 74 0D                    jz 0x88
+0076                          compare(ax, 0001)
+0079                          If (result.equal) value jump to 0088
 007B                          ax = PartyCount()
-0083 3D 02 00                 cmp ax, 0x2
-0086 75 39                    jnz 0xc1
+0083                          compare(ax, 0002)
+0086                          If (result.notequal) value jump to 00C1
 0088                          AddEncounter(1E, 01)
 009A                          AddEncounter(1E, 02)
 00AC                          AddEncounter(1D, 03)
-00BE E9 D5 00                 jmp 0x196
+00BE                          Jump to 0196
 00C1                          ax = PartyCount()
-00C9 3D 03 00                 cmp ax, 0x3
-00CC 75 5C                    jnz 0x12a
+00C9                          compare(ax, 0003)
+00CC                          If (result.notequal) value jump to 012A
 00CE                          AddEncounter(1F, 01)
 00E0                          AddEncounter(20, 02)
 00F2                          AddEncounter(1E, 03)
 0104                          AddEncounter(1D, 04)
 0116                          AddEncounter(1F, 05)
-0128 EB 6C                    jmp 0x196
+0128                          Jump to 0196
 012A                          AddEncounter(1F, 01)
 013C                          AddEncounter(1F, 02)
 014E                          AddEncounter(20, 03)
@@ -253,33 +253,33 @@ WEAPCENC_0E:
 SHLDENC_0F:
 0000                          BEGIN
 0003                          ax = HasItem(4E)
-0011 74 2F                    jz 0x42
+0011                          If (result.equal) value jump to 0042
 0013                          ShowMessage(07D6) = You stumble upon some Zombies, eating the remains of a former adventurer.
 0020                          AddTreasure(0190, 00, 00, 00, B5, CE)
-0040 EB 2D                    jmp 0x6f
+0040                          Jump to 006F
 0042                          AddTreasure(0E74, 00, 00, 00, B5, 4E)
 0062                          ShowMessage(0820) = The shuffle of heavy feet put you on your guard. One of the things kicks a shield out of its way.
 006F                          ax = PartyCount()
-0077 3D 01 00                 cmp ax, 0x1
-007A 74 0D                    jz 0x89
+0077                          compare(ax, 0001)
+007A                          If (result.equal) value jump to 0089
 007C                          ax = PartyCount()
-0084 3D 02 00                 cmp ax, 0x2
-0087 75 4B                    jnz 0xd4
+0084                          compare(ax, 0002)
+0087                          If (result.notequal) value jump to 00D4
 0089                          AddEncounter(11, 01)
 009B                          AddEncounter(12, 02)
 00AD                          AddEncounter(12, 03)
 00BF                          AddEncounter(12, 04)
-00D1 E9 E7 00                 jmp 0x1bb
+00D1                          Jump to 01BB
 00D4                          ax = PartyCount()
-00DC 3D 03 00                 cmp ax, 0x3
-00DF 75 6E                    jnz 0x14f
+00DC                          compare(ax, 0003)
+00DF                          If (result.notequal) value jump to 014F
 00E1                          AddEncounter(12, 01)
 00F3                          AddEncounter(12, 02)
 0105                          AddEncounter(13, 03)
 0117                          AddEncounter(13, 04)
 0129                          AddEncounter(11, 05)
 013B                          AddEncounter(11, 06)
-014D EB 6C                    jmp 0x1bb
+014D                          Jump to 01BB
 014F                          AddEncounter(14, 01)
 0161                          AddEncounter(14, 02)
 0173                          AddEncounter(13, 03)
@@ -291,28 +291,28 @@ SHLDENC_0F:
 JACKTENC_10:
 0000                          BEGIN
 0003                          ax = HasItem(7A)
-0011 74 2F                    jz 0x42
+0011                          If (result.equal) value jump to 0042
 0013                          ShowMessage(0882) = Ghosts rise from the floor to haunt you.
 0020                          AddTreasure(0064, 00, 00, 00, B6, CE)
-0040 EB 2D                    jmp 0x6f
+0040                          Jump to 006F
 0042                          AddTreasure(0FA0, 00, 00, 00, CE, 7A)
 0062                          ShowMessage(08AB) = Ghosts are gathered around a jacket on the floor. They seem to be pondering its purpose.
 006F                          ax = PartyCount()
-0077 3D 01 00                 cmp ax, 0x1
-007A 74 0D                    jz 0x89
+0077                          compare(ax, 0001)
+007A                          If (result.equal) value jump to 0089
 007C                          ax = PartyCount()
-0084 3D 02 00                 cmp ax, 0x2
-0087 75 27                    jnz 0xb0
+0084                          compare(ax, 0002)
+0087                          If (result.notequal) value jump to 00B0
 0089                          AddEncounter(03, 01)
 009B                          AddEncounter(02, 02)
-00AD E9 8D 00                 jmp 0x13d
+00AD                          Jump to 013D
 00B0                          ax = PartyCount()
-00B8 3D 03 00                 cmp ax, 0x3
-00BB 75 38                    jnz 0xf5
+00B8                          compare(ax, 0003)
+00BB                          If (result.notequal) value jump to 00F5
 00BD                          AddEncounter(03, 01)
 00CF                          AddEncounter(01, 02)
 00E1                          AddEncounter(04, 03)
-00F3 EB 48                    jmp 0x13d
+00F3                          Jump to 013D
 00F5                          AddEncounter(01, 01)
 0107                          AddEncounter(03, 02)
 0119                          AddEncounter(02, 03)
@@ -322,31 +322,31 @@ JACKTENC_10:
 ARMRBENC_11:
 0000                          BEGIN
 0003                          ax = HasItem(76)
-0011 74 2E                    jz 0x41
+0011                          If (result.equal) value jump to 0041
 0013                          ShowMessage(0904) = Skeletons of King Cleowyn's elite palace guard advance on you.
 0020                          AddTreasure(004B, 00, 00, 00, 00, CE)
-003F EB 2D                    jmp 0x6e
+003F                          Jump to 006E
 0041                          AddTreasure(07D0, 00, 00, 00, CE, 76)
 0061                          ShowMessage(0943) = The leader of the dead palace guards that surrounds you wears rusty chainmail.
 006E                          ax = PartyCount()
-0076 3D 01 00                 cmp ax, 0x1
-0079 74 0D                    jz 0x88
+0076                          compare(ax, 0001)
+0079                          If (result.equal) value jump to 0088
 007B                          ax = PartyCount()
-0083 3D 02 00                 cmp ax, 0x2
-0086 75 39                    jnz 0xc1
+0083                          compare(ax, 0002)
+0086                          If (result.notequal) value jump to 00C1
 0088                          AddEncounter(09, 01)
 009A                          AddEncounter(0A, 02)
 00AC                          AddEncounter(09, 03)
-00BE E9 D5 00                 jmp 0x196
+00BE                          Jump to 0196
 00C1                          ax = PartyCount()
-00C9 3D 03 00                 cmp ax, 0x3
-00CC 75 5C                    jnz 0x12a
+00C9                          compare(ax, 0003)
+00CC                          If (result.notequal) value jump to 012A
 00CE                          AddEncounter(0A, 01)
 00E0                          AddEncounter(0A, 02)
 00F2                          AddEncounter(0B, 03)
 0104                          AddEncounter(09, 04)
 0116                          AddEncounter(09, 05)
-0128 EB 6C                    jmp 0x196
+0128                          Jump to 0196
 012A                          AddEncounter(0A, 01)
 013C                          AddEncounter(0A, 02)
 014E                          AddEncounter(0B, 03)
@@ -364,29 +364,29 @@ RUNES_12:
 LKPKDOOR_15:
 0000                          BEGIN
 0003                          ax = UsedItem(C1, C4)
-0016 75 11                    jnz 0x29
+0016                          If (result.notequal) value jump to 0029
 0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-0024 3D 05 00                 cmp ax, 0x5
-0027 72 4B                    jb 0x74
+0024                          compare(ax, 0005)
+0027                          If (result.lessthan) jump to 0074
 0029                          Push(01)
 002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0034 50                       push ax
+0034                          Push(ax)
 0035                          ax = GetNextTile()
-003C 50                       push ax
+003C                          Push(ax)
 003D                          Move(stk[0], stk[1], stk[2])
 0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004E 50                       push ax
+004E                          Push(ax)
 004F                          ax = GetNextTile()
-0056 50                       push ax
+0056                          Push(ax)
 0057                          Push(01)
 005B                          SetUnblocked()
 0065                          ShowMessage(09DA) = You successfully picked the locked door.
-0072 EB 2A                    jmp 0x9e
+0072                          Jump to 009E
 0074                          Push(00)
 0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007E 50                       push ax
+007E                          Push(ax)
 007F                          ax = GetNextTile()
-0086 50                       push ax
+0086                          Push(ax)
 0087                          Move(stk[0], stk[1], stk[2])
 0091                          ShowMessage(0A03) = The door is locked.
 009E                          RETURN
@@ -394,57 +394,57 @@ LKPKDOOR_15:
 STRDOOR_16:
 0000                          BEGIN
 0003                          ax = CheckStrength()
-000F 3D 0C 00                 cmp ax, 0xc
-0012 72 4B                    jb 0x5f
+000F                          compare(ax, 000C)
+0012                          If (result.lessthan) jump to 005F
 0014                          ShowMessage(0A17) = You manage to open the door by brute force.
 0021                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0028 50                       push ax
+0028                          Push(ax)
 0029                          ax = GetNextTile()
-0030 50                       push ax
+0030                          Push(ax)
 0031                          Push(01)
 0035                          SetUnblocked()
 003F                          Push(01)
 0043                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004A 50                       push ax
+004A                          Push(ax)
 004B                          ax = GetNextTile()
-0052 50                       push ax
+0052                          Push(ax)
 0053                          Move(stk[0], stk[1], stk[2])
-005D EB 2A                    jmp 0x89
+005D                          Jump to 0089
 005F                          ShowMessage(0A43) = You are not strong enough to force the door open.
 006C                          Push(00)
 006F                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0076 50                       push ax
+0076                          Push(ax)
 0077                          ax = GetNextTile()
-007E 50                       push ax
+007E                          Push(ax)
 007F                          Move(stk[0], stk[1], stk[2])
 0089                          RETURN
 
 LKPKDOOR_17:
 0000                          BEGIN
 0003                          ax = UsedItem(C2, C4)
-0016 75 11                    jnz 0x29
+0016                          If (result.notequal) value jump to 0029
 0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-0024 3D 08 00                 cmp ax, 0x8
-0027 72 4B                    jb 0x74
+0024                          compare(ax, 0008)
+0027                          If (result.lessthan) jump to 0074
 0029                          Push(01)
 002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0034 50                       push ax
+0034                          Push(ax)
 0035                          ax = GetNextTile()
-003C 50                       push ax
+003C                          Push(ax)
 003D                          Move(stk[0], stk[1], stk[2])
 0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004E 50                       push ax
+004E                          Push(ax)
 004F                          ax = GetNextTile()
-0056 50                       push ax
+0056                          Push(ax)
 0057                          Push(01)
 005B                          SetUnblocked()
 0065                          ShowMessage(0A75) = You picked the lock of the door successfully.
-0072 EB 2A                    jmp 0x9e
+0072                          Jump to 009E
 0074                          Push(00)
 0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007E 50                       push ax
+007E                          Push(ax)
 007F                          ax = GetNextTile()
-0086 50                       push ax
+0086                          Push(ax)
 0087                          Move(stk[0], stk[1], stk[2])
 0091                          ShowMessage(0AA3) = The door is locked.
 009E                          RETURN
@@ -452,18 +452,18 @@ LKPKDOOR_17:
 TRAPDORA_18:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0AB7) = You found a trapdoor on the floor.
 005B                          GoMap(01, 82, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0ADA) = You fall through a trapdoor.
 0085                          GoMap(01, 82, 02, 03)
 00A0                          RETURN
@@ -471,18 +471,18 @@ TRAPDORA_18:
 TRAPDORB_19:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0AF7) = You found a trapdoor on the floor.
 005B                          GoMap(01, 86, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0B1A) = You fall through a trapdoor.
 0085                          GoMap(01, 86, 02, 03)
 00A0                          RETURN
@@ -490,18 +490,18 @@ TRAPDORB_19:
 TRAPDORC_1A:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0B37) = You found a trapdoor on the floor.
 005B                          GoMap(03, A0, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0B5A) = You fall through a trapdoor.
 0085                          GoMap(03, A0, 02, 03)
 00A0                          RETURN
@@ -509,18 +509,18 @@ TRAPDORC_1A:
 TRAPDORD_1B:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0B77) = You found a trapdoor on the floor.
 005B                          GoMap(03, A8, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0B9A) = You fall through a trapdoor.
 0085                          GoMap(03, A8, 02, 03)
 00A0                          RETURN
@@ -528,18 +528,18 @@ TRAPDORD_1B:
 TRAPDORE_1C:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 29                    jz 0x77
+004C                          If (result.equal) value jump to 0077
 004E                          ShowMessage(0BB7) = You found a trapdoor on the floor.
 005B                          GoMap(00, B3, 02, 03)
-0075 EB 27                    jmp 0x9e
+0075                          Jump to 009E
 0077                          ShowMessage(0BDA) = You fall through a trapdoor.
 0084                          GoMap(00, B3, 02, 03)
 009E                          RETURN
@@ -547,18 +547,18 @@ TRAPDORE_1C:
 TRAPDORF_1D:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0BF7) = You found a trapdoor on the floor.
 005B                          GoMap(02, B5, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0C1A) = You fall through a trapdoor.
 0085                          GoMap(02, B5, 02, 03)
 00A0                          RETURN
@@ -566,18 +566,18 @@ TRAPDORF_1D:
 TRAPDORG_1E:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 29                    jz 0x77
+004C                          If (result.equal) value jump to 0077
 004E                          ShowMessage(0C37) = You found a trapdoor on the floor.
 005B                          GoMap(00, C2, 02, 03)
-0075 EB 27                    jmp 0x9e
+0075                          Jump to 009E
 0077                          ShowMessage(0C5A) = You fall through a trapdoor.
 0084                          GoMap(00, C2, 02, 03)
 009E                          RETURN
@@ -585,18 +585,18 @@ TRAPDORG_1E:
 TRAPDORH_1F:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0C77) = You found a trapdoor on the floor.
 005B                          GoMap(02, C6, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0C9A) = You fall through a trapdoor.
 0085                          GoMap(02, C6, 02, 03)
 00A0                          RETURN
@@ -604,18 +604,18 @@ TRAPDORH_1F:
 TRAPDORI_20:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 29                    jz 0x77
+004C                          If (result.equal) value jump to 0077
 004E                          ShowMessage(0CB7) = You found a trapdoor on the floor.
 005B                          GoMap(00, D3, 02, 03)
-0075 EB 27                    jmp 0x9e
+0075                          Jump to 009E
 0077                          ShowMessage(0CDA) = You fall through a trapdoor.
 0084                          GoMap(00, D3, 02, 03)
 009E                          RETURN
@@ -623,18 +623,18 @@ TRAPDORI_20:
 TRAPDORJ_21:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0CF7) = You found a trapdoor on the floor.
 005B                          GoMap(01, D4, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0D1A) = You fall through a trapdoor.
 0085                          GoMap(01, D4, 02, 03)
 00A0                          RETURN
@@ -642,18 +642,18 @@ TRAPDORJ_21:
 TRAPDORK_22:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0D37) = You found a trapdoor on the floor.
 005B                          GoMap(02, D5, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0D5A) = You fall through a trapdoor.
 0085                          GoMap(02, D5, 02, 03)
 00A0                          RETURN
@@ -661,18 +661,18 @@ TRAPDORK_22:
 TRAPDORL_23:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0D77) = You found a trapdoor on the floor.
 005B                          GoMap(01, E0, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0D9A) = You fall through a trapdoor.
 0085                          GoMap(01, E0, 02, 03)
 00A0                          RETURN
@@ -680,18 +680,18 @@ TRAPDORL_23:
 TRAPDORM_24:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0DB7) = You found a trapdoor on the floor.
 005B                          GoMap(01, E2, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0DDA) = You fall through a trapdoor.
 0085                          GoMap(01, E2, 02, 03)
 00A0                          RETURN
@@ -699,18 +699,18 @@ TRAPDORM_24:
 TRAPDORN_25:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0DF7) = You found a trapdoor on the floor.
 005B                          GoMap(01, E3, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0E1A) = You fall through a trapdoor.
 0085                          GoMap(01, E3, 02, 03)
 00A0                          RETURN
@@ -718,18 +718,18 @@ TRAPDORN_25:
 TRAPDORO_26:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0E37) = You found a trapdoor on the floor.
 005B                          GoMap(01, E5, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0E5A) = You fall through a trapdoor.
 0085                          GoMap(01, E5, 02, 03)
 00A0                          RETURN
@@ -737,18 +737,18 @@ TRAPDORO_26:
 TRAPDORP_27:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0E77) = You found a trapdoor on the floor.
 005B                          GoMap(01, E6, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0E9A) = You fall through a trapdoor.
 0085                          GoMap(01, E6, 02, 03)
 00A0                          RETURN
@@ -756,18 +756,18 @@ TRAPDORP_27:
 TRAPDORQ_28:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 2A                    jz 0x78
+004C                          If (result.equal) value jump to 0078
 004E                          ShowMessage(0EB7) = You found a trapdoor on the floor.
 005B                          GoMap(01, E8, 02, 03)
-0076 EB 28                    jmp 0xa0
+0076                          Jump to 00A0
 0078                          ShowMessage(0EDA) = You fall through a trapdoor.
 0085                          GoMap(01, E8, 02, 03)
 00A0                          RETURN
@@ -798,10 +798,10 @@ NPCCHATA_2D:
 0003                          ShowMessage(0F68) = You encounter an Elf Ranger.
 0010                          ShowPortrait(001F)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 0D 00                 cmp ax, 0xd
-002D 77 0F                    ja 0x3e
+002A                          compare(ax, 000D)
+002D                          If (result.greaterthan) value jump to 003E
 002F                          ShowMessage(0F85) = The ghost of King Cleowyn appears at his throne on special occasions. Once the king appears, he will not appear again until all mortals have left the Palace.
-003C EB 0D                    jmp 0x4b
+003C                          Jump to 004B
 003E                          ShowMessage(1023) = The Elf Ranger ignores you as he wanders the room, rapping on the walls.
 004B                          RETURN
 
@@ -810,10 +810,10 @@ NPCCHATB_2E:
 0003                          ShowMessage(106C) = You encounter a Gremlin Thief.
 0010                          ShowPortrait(0026)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 0C 00                 cmp ax, 0xc
-002D 77 0F                    ja 0x3e
+002A                          compare(ax, 000C)
+002D                          If (result.greaterthan) value jump to 003E
 002F                          ShowMessage(108B) = The pit is pitiless. Do not go near it. The traps are dangerous, but they may aid you.
-003C EB 0D                    jmp 0x4b
+003C                          Jump to 004B
 003E                          ShowMessage(10E2) = The Gremlin Thief runs away when you approach him.
 004B                          RETURN
 
@@ -822,18 +822,18 @@ NPCCHATC_2F:
 0003                          ShowMessage(1115) = You encounter a Dwarf Knight.
 0010                          ShowPortrait(001C)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 0A 00                 cmp ax, 0xa
-002D 77 0F                    ja 0x3e
+002A                          compare(ax, 000A)
+002D                          If (result.greaterthan) value jump to 003E
 002F                          ShowMessage(1133) = Obey the king. Return his cherished possessions and you will be blessed. Keep them and you will die.
-003C EB 0D                    jmp 0x4b
+003C                          Jump to 004B
 003E                          ShowMessage(1198) = The Dwarf Knight snubs you and wanders off in search of adventure.
 004B                          RETURN
 
 KINGMSG_30:
 0000                          BEGIN
 0003                          ax = HasItem(F8)
-0011 75 03                    jnz 0x16
-0013 E9 B2 00                 jmp 0xc8
+0011                          If (result.notequal) value jump to 0016
+0013                          Jump to 00C8
 0016                          ShowPortrait(000A)
 0023                          ShowMessage(11DB) = Very good, heroes. You have proven your strength in battle. Know that I am the spirit of King Cleowyn, called the Cruel. I set you a quest.
 0030                          ShowMessage(1267) = The imps who serve Arnakkian have stolen my Crown, Robe, and Scepter. I want them back. Return them to their proper places in my mausoleum, and I shall reward you.
@@ -844,11 +844,11 @@ KINGMSG_30:
 0071                          ShowMessage(147C) = But first you must return my possessions to me. Then I shall let you continue your journeys.
 007E                          ShowMessage(14D9) = Take my ring as seal of your promise. Go, heroes! Find the tapestry and read. Start your quest.
 008B                          ax = CheckState(02, 8F)
-009C 0B C0                    or ax, ax
-009E 75 26                    jnz 0xc6
+009C                          RefreshCompareFlags(ax)
+009E                          If (result.notequal) value jump to 00C6
 00A0                          SetState(02, 8F, 01)
 00B5                          AddExperience(000061A8)
-00C6 EB 0D                    jmp 0xd5
+00C6                          Jump to 00D5
 00C8                          ShowMessage(1539) = Echoes of ghostly laughter mock you.
 00D5                          RETURN
 

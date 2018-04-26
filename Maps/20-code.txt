@@ -11,18 +11,18 @@ TELEMESS_02:
 FOUNBLES_03:
 0000                          BEGIN
 0003                          ax = CheckState(02, 3D)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 1C                    jnz 0x35
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0035
 0019                          ShowPortrait(0042)
 0026                          ShowMessage(0422) = You sip from the Fountain of Restoration, but nothing happens.
-0033 EB 4B                    jmp 0x80
+0033                          Jump to 0080
 0035                          SetState(02, 3D, 01)
 004A                          ShowPortrait(0042)
 0057                          ax = GetMaxHits()
-005E 50                       push ax
+005E                          Push(ax)
 005F                          ax = GetCurrentHits()
-0066 5A                       pop dx
-0067 2B D0                    sub dx, ax
+0066                          dx = Pop()
+0067                          dx = dx - ax
 0069                          AddHealth(dx)
 0073                          ShowMessage(0461) = You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.
 0080                          RETURN
@@ -30,36 +30,36 @@ FOUNBLES_03:
 QUESTENC_04:
 0000                          BEGIN
 0003                          ax = HasItem(81)
-0011 74 30                    jz 0x43
+0011                          If (result.equal) value jump to 0043
 0013                          AddTreasure(01F4, 00, 00, BD, A5, CD)
 0034                          ShowMessage(04BD) = Monsters attack you.
-0041 EB 2E                    jmp 0x71
+0041                          Jump to 0071
 0043                          AddTreasure(03E8, 00, 00, A2, D0, 81)
 0064                          ShowMessage(04D2) = Among a horde of Nightmares and Cockatrices you spot armor and other items on the floor.
 0071                          ax = PartyCount()
-0079 3D 01 00                 cmp ax, 0x1
-007C 75 39                    jnz 0xb7
+0079                          compare(ax, 0001)
+007C                          If (result.notequal) value jump to 00B7
 007E                          AddEncounter(26, 01)
 0090                          AddEncounter(26, 02)
 00A2                          AddEncounter(23, 06)
-00B4 E9 2D 01                 jmp 0x1e4
+00B4                          Jump to 01E4
 00B7                          ax = PartyCount()
-00BF 3D 02 00                 cmp ax, 0x2
-00C2 75 4B                    jnz 0x10f
+00BF                          compare(ax, 0002)
+00C2                          If (result.notequal) value jump to 010F
 00C4                          AddEncounter(27, 01)
 00D6                          AddEncounter(27, 02)
 00E8                          AddEncounter(24, 05)
 00FA                          AddEncounter(24, 06)
-010C E9 D5 00                 jmp 0x1e4
+010C                          Jump to 01E4
 010F                          ax = PartyCount()
-0117 3D 03 00                 cmp ax, 0x3
-011A 75 5C                    jnz 0x178
+0117                          compare(ax, 0003)
+011A                          If (result.notequal) value jump to 0178
 011C                          AddEncounter(26, 01)
 012E                          AddEncounter(27, 02)
 0140                          AddEncounter(28, 03)
 0152                          AddEncounter(23, 04)
 0164                          AddEncounter(24, 05)
-0176 EB 6C                    jmp 0x1e4
+0176                          Jump to 01E4
 0178                          AddEncounter(23, 01)
 018A                          AddEncounter(26, 02)
 019C                          AddEncounter(24, 03)
@@ -71,26 +71,26 @@ QUESTENC_04:
 LKPKDORZ_05:
 0000                          BEGIN
 0003                          ax = UsedItem(E2, E2)
-0016 74 4B                    jz 0x63
+0016                          If (result.equal) value jump to 0063
 0018                          Push(01)
 001C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0023 50                       push ax
+0023                          Push(ax)
 0024                          ax = GetNextTile()
-002B 50                       push ax
+002B                          Push(ax)
 002C                          Move(stk[0], stk[1], stk[2])
 0036                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003D 50                       push ax
+003D                          Push(ax)
 003E                          ax = GetNextTile()
-0045 50                       push ax
+0045                          Push(ax)
 0046                          Push(01)
 004A                          SetUnblocked()
 0054                          ShowMessage(052B) = The door opens easily when you use the Lava Key.
-0061 EB 2A                    jmp 0x8d
+0061                          Jump to 008D
 0063                          Push(00)
 0066                          ax = SetExitability(ax) // ax is usually 0 following equality check
-006D 50                       push ax
+006D                          Push(ax)
 006E                          ax = GetNextTile()
-0075 50                       push ax
+0075                          Push(ax)
 0076                          Move(stk[0], stk[1], stk[2])
 0080                          ShowMessage(055C) = This door cannot be unlocked without the Lava Key.
 008D                          RETURN
@@ -98,53 +98,53 @@ LKPKDORZ_05:
 STRDOOR_06:
 0000                          BEGIN
 0003                          ax = CheckStrength()
-000F 3D 0E 00                 cmp ax, 0xe
-0012 72 4B                    jb 0x5f
+000F                          compare(ax, 000E)
+0012                          If (result.lessthan) jump to 005F
 0014                          ShowMessage(058F) = You manage to force the door open.
 0021                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0028 50                       push ax
+0028                          Push(ax)
 0029                          ax = GetNextTile()
-0030 50                       push ax
+0030                          Push(ax)
 0031                          Push(01)
 0035                          SetUnblocked()
 003F                          Push(01)
 0043                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004A 50                       push ax
+004A                          Push(ax)
 004B                          ax = GetNextTile()
-0052 50                       push ax
+0052                          Push(ax)
 0053                          Move(stk[0], stk[1], stk[2])
-005D EB 2A                    jmp 0x89
+005D                          Jump to 0089
 005F                          ShowMessage(05B2) = The door is stuck.
 006C                          Push(00)
 006F                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0076 50                       push ax
+0076                          Push(ax)
 0077                          ax = GetNextTile()
-007E 50                       push ax
+007E                          Push(ax)
 007F                          Move(stk[0], stk[1], stk[2])
 0089                          RETURN
 
 AVEMNSTR_0B:
 0000                          BEGIN
 0003                          ax = PartyCount()
-000B 3D 01 00                 cmp ax, 0x1
-000E 75 15                    jnz 0x25
+000B                          compare(ax, 0001)
+000E                          If (result.notequal) value jump to 0025
 0010                          AddEncounter(1B, 02)
-0022 E9 09 01                 jmp 0x12e
+0022                          Jump to 012E
 0025                          ax = PartyCount()
-002D 3D 02 00                 cmp ax, 0x2
-0030 75 39                    jnz 0x6b
+002D                          compare(ax, 0002)
+0030                          If (result.notequal) value jump to 006B
 0032                          AddEncounter(1C, 01)
 0044                          AddEncounter(19, 02)
 0056                          AddEncounter(18, 03)
-0068 E9 C3 00                 jmp 0x12e
+0068                          Jump to 012E
 006B                          ax = PartyCount()
-0073 3D 03 00                 cmp ax, 0x3
-0076 75 4A                    jnz 0xc2
+0073                          compare(ax, 0003)
+0076                          If (result.notequal) value jump to 00C2
 0078                          AddEncounter(1B, 01)
 008A                          AddEncounter(1C, 02)
 009C                          AddEncounter(1A, 03)
 00AE                          AddEncounter(19, 04)
-00C0 EB 6C                    jmp 0x12e
+00C0                          Jump to 012E
 00C2                          AddEncounter(1A, 01)
 00D4                          AddEncounter(1C, 02)
 00E6                          AddEncounter(19, 03)
@@ -156,27 +156,27 @@ AVEMNSTR_0B:
 STRMNSTR_0C:
 0000                          BEGIN
 0003                          ax = PartyCount()
-000B 3D 01 00                 cmp ax, 0x1
-000E 75 27                    jnz 0x37
+000B                          compare(ax, 0001)
+000E                          If (result.notequal) value jump to 0037
 0010                          AddEncounter(1E, 01)
 0022                          AddEncounter(20, 02)
-0034 E9 1B 01                 jmp 0x152
+0034                          Jump to 0152
 0037                          ax = PartyCount()
-003F 3D 02 00                 cmp ax, 0x2
-0042 75 39                    jnz 0x7d
+003F                          compare(ax, 0002)
+0042                          If (result.notequal) value jump to 007D
 0044                          AddEncounter(1E, 01)
 0056                          AddEncounter(20, 02)
 0068                          AddEncounter(20, 03)
-007A E9 D5 00                 jmp 0x152
+007A                          Jump to 0152
 007D                          ax = PartyCount()
-0085 3D 03 00                 cmp ax, 0x3
-0088 75 5C                    jnz 0xe6
+0085                          compare(ax, 0003)
+0088                          If (result.notequal) value jump to 00E6
 008A                          AddEncounter(1E, 01)
 009C                          AddEncounter(1E, 02)
 00AE                          AddEncounter(20, 03)
 00C0                          AddEncounter(20, 04)
 00D2                          AddEncounter(1F, 05)
-00E4 EB 6C                    jmp 0x152
+00E4                          Jump to 0152
 00E6                          AddEncounter(1E, 01)
 00F8                          AddEncounter(1E, 02)
 010A                          AddEncounter(1F, 03)
@@ -190,10 +190,10 @@ NPCCHATA_0E:
 0003                          ShowMessage(05C5) = You encounter a Human Thief.
 0010                          ShowPortrait(0022)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 0C 00                 cmp ax, 0xc
-002D 77 0F                    ja 0x3e
+002A                          compare(ax, 000C)
+002D                          If (result.greaterthan) value jump to 003E
 002F                          ShowMessage(05E2) = Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
-003C EB 0D                    jmp 0x4b
+003C                          Jump to 004B
 003E                          ShowMessage(0632) = The Human Thief cringes in terror and wraps herself up in a tight ball.
 004B                          RETURN
 
@@ -202,10 +202,10 @@ NPCCHATB_0F:
 0003                          ShowMessage(067A) = You encounter an Elf Barbarian.
 0010                          ShowPortrait(0018)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 04 00                 cmp ax, 0x4
-002D 77 0F                    ja 0x3e
+002A                          compare(ax, 0004)
+002D                          If (result.greaterthan) value jump to 003E
 002F                          ShowMessage(069A) = A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.
-003C EB 0D                    jmp 0x4b
+003C                          Jump to 004B
 003E                          ShowMessage(0733) = The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.
 004B                          RETURN
 

@@ -14,8 +14,8 @@ ENCGUARD_02:
 0046                          AddEncounter(27, 04)
 0058                          AddEncounter(27, 05)
 006A                          ax = CheckState(02, 88)
-007B 0B C0                    or ax, ax
-007D 75 27                    jnz 0xa6
+007B                          RefreshCompareFlags(ax)
+007D                          If (result.notequal) value jump to 00A6
 007F                          SetState(02, 88, 01)
 0094                          AddExperience(0007A120)
 00A6                          RETURN
@@ -23,9 +23,9 @@ ENCGUARD_02:
 ENCEARTH_03:
 0000                          BEGIN
 0003                          ax = CheckState(01, 01)
-0014 0B C0                    or ax, ax
-0016 74 03                    jz 0x1b
-0018 E9 08 01                 jmp 0x123
+0014                          RefreshCompareFlags(ax)
+0016                          If (result.equal) value jump to 001B
+0018                          Jump to 0123
 001B                          ShowMessage(0460) = Earth Elemental Andreas rises from his mountainous perch.
 0028                          AddEncounter(04, 01)
 003A                          AddEncounter(04, 02)
@@ -34,13 +34,13 @@ ENCEARTH_03:
 0070                          AddEncounter(23, 05)
 0082                          AddEncounter(28, 06)
 0094                          ax = HasItem(E9)
-00A2 74 22                    jz 0xc6
+00A2                          If (result.equal) value jump to 00C6
 00A4                          AddTreasure(0000, 00, 00, 50, 50, D0)
-00C4 EB 5D                    jmp 0x123
+00C4                          Jump to 0123
 00C6                          AddTreasure(03E8, 00, 00, 88, 1D, E9)
 00E7                          ax = CheckState(02, 8A)
-00F8 0B C0                    or ax, ax
-00FA 75 27                    jnz 0x123
+00F8                          RefreshCompareFlags(ax)
+00FA                          If (result.notequal) value jump to 0123
 00FC                          SetState(02, 8A, 01)
 0111                          AddExperience(0003D090)
 0123                          RETURN
@@ -53,8 +53,8 @@ GUARDIAN_04:
 EARTHELE_05:
 0000                          BEGIN
 0003                          ax = CheckState(01, 01)
-0014 0B C0                    or ax, ax
-0016 75 0D                    jnz 0x25
+0014                          RefreshCompareFlags(ax)
+0016                          If (result.notequal) value jump to 0025
 0018                          ShowMessage(04EA) = The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
 0025                          RETURN
 
@@ -150,13 +150,13 @@ XBOXM_14:
 PITAJ_15:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 04 00                 cmp ax, 0x4
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0004)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0708) = Your decision on where to step next saves you.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0737) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -165,13 +165,13 @@ PITAJ_15:
 PITAK_16:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 05 00                 cmp ax, 0x5
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0005)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0761) = You selected your next move wisely.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0785) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -180,13 +180,13 @@ PITAK_16:
 PITAL_17:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 06 00                 cmp ax, 0x6
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0006)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(07AF) = Your next step is a safe one.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(07CD) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -195,13 +195,13 @@ PITAL_17:
 PITAM_18:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 07 00                 cmp ax, 0x7
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0007)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(07F7) = The step you take is wisely chosen.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(081B) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -210,13 +210,13 @@ PITAM_18:
 PITBG_19:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 02 00                 cmp ax, 0x2
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0002)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 01 00                 cmp ax, 0x1
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0001)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0845) = You take one good step forward.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0865) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -225,13 +225,13 @@ PITBG_19:
 PITBI_1A:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 02 00                 cmp ax, 0x2
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0002)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 03 00                 cmp ax, 0x3
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0003)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(088F) = You safely step forward.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(08A8) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -240,13 +240,13 @@ PITBI_1A:
 PITBJ_1B:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 02 00                 cmp ax, 0x2
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0002)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 04 00                 cmp ax, 0x4
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0004)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(08D2) = You take a step in the right direction,
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(08FA) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -255,13 +255,13 @@ PITBJ_1B:
 PITBK_1C:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 02 00                 cmp ax, 0x2
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0002)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 05 00                 cmp ax, 0x5
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0005)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0924) = Your move is wise.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0937) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -270,13 +270,13 @@ PITBK_1C:
 PITBL_1D:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 02 00                 cmp ax, 0x2
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0002)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 06 00                 cmp ax, 0x6
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0006)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0961) = You select your next move wisely.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0983) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -285,13 +285,13 @@ PITBL_1D:
 PITBM_1E:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 02 00                 cmp ax, 0x2
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0002)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 07 00                 cmp ax, 0x7
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0007)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(09AD) = You move forward with confidence.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(09CF) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -300,13 +300,13 @@ PITBM_1E:
 PITCG_1F:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 03 00                 cmp ax, 0x3
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0003)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 01 00                 cmp ax, 0x1
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0001)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(09F9) = Your next step is a good one.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0A17) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -315,13 +315,13 @@ PITCG_1F:
 PITCH_20:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 03 00                 cmp ax, 0x3
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0003)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 02 00                 cmp ax, 0x2
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0002)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0A41) = You move ahead assuredly.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0A5B) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -330,13 +330,13 @@ PITCH_20:
 PITCI_21:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 03 00                 cmp ax, 0x3
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0003)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 03 00                 cmp ax, 0x3
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0003)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0A85) = You choose your next step correctly.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0AAA) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -345,13 +345,13 @@ PITCI_21:
 PITCJ_22:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 03 00                 cmp ax, 0x3
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0003)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 04 00                 cmp ax, 0x4
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0004)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0AD4) = Your choice of movement saves you.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0AF7) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -360,13 +360,13 @@ PITCJ_22:
 PITCK_23:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 03 00                 cmp ax, 0x3
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0003)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 05 00                 cmp ax, 0x5
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0005)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0B21) = You step in the right direction.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0B42) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -375,13 +375,13 @@ PITCK_23:
 PITCL_24:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 03 00                 cmp ax, 0x3
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0003)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 06 00                 cmp ax, 0x6
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0006)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0B6C) = You select your next step wisely.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0B8E) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -390,13 +390,13 @@ PITCL_24:
 PITCM_25:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 03 00                 cmp ax, 0x3
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0003)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 07 00                 cmp ax, 0x7
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0007)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0BB8) = Your next step is sagely chosen.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0BD9) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -405,13 +405,13 @@ PITCM_25:
 PITDG_26:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 04 00                 cmp ax, 0x4
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0004)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 01 00                 cmp ax, 0x1
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0001)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0C03) = You take a wise step forward.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0C21) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -420,13 +420,13 @@ PITDG_26:
 PITDH_27:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 04 00                 cmp ax, 0x4
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0004)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 02 00                 cmp ax, 0x2
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0002)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0C4B) = You move forward wisely.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0C64) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -435,13 +435,13 @@ PITDH_27:
 PITDI_28:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 04 00                 cmp ax, 0x4
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0004)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 03 00                 cmp ax, 0x3
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0003)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0C8E) = Your next step is wisely decided.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0CB0) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -450,13 +450,13 @@ PITDI_28:
 PITDJ_29:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 04 00                 cmp ax, 0x4
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0004)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 04 00                 cmp ax, 0x4
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0004)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0CDA) = You step ahead with confidence.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0CFA) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -465,13 +465,13 @@ PITDJ_29:
 PITDK_2A:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 04 00                 cmp ax, 0x4
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0004)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 05 00                 cmp ax, 0x5
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0005)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0D24) = You move forward carefully.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0D40) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -480,13 +480,13 @@ PITDK_2A:
 PITDL_2B:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 04 00                 cmp ax, 0x4
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0004)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 06 00                 cmp ax, 0x6
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0006)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0D6A) = You move ahead.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0D7A) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -495,13 +495,13 @@ PITDL_2B:
 PITDM_2C:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 04 00                 cmp ax, 0x4
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0004)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 07 00                 cmp ax, 0x7
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0007)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0DA4) = Your step is wisely selected.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0DC2) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -510,13 +510,13 @@ PITDM_2C:
 PITEG_2D:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 05 00                 cmp ax, 0x5
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0005)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 01 00                 cmp ax, 0x1
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0001)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0DEC) = You forge ahead.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0DFD) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -525,13 +525,13 @@ PITEG_2D:
 PITEH_2E:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 05 00                 cmp ax, 0x5
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0005)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 02 00                 cmp ax, 0x2
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0002)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0E27) = You select your next move wisely.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0E49) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -540,13 +540,13 @@ PITEH_2E:
 PITEI_2F:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 05 00                 cmp ax, 0x5
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0005)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 03 00                 cmp ax, 0x3
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0003)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0E73) = Good sense guides your feet.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0E90) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -555,13 +555,13 @@ PITEI_2F:
 PITEJ_30:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 05 00                 cmp ax, 0x5
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0005)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 04 00                 cmp ax, 0x4
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0004)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0EBA) = You walk ahead.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0ECA) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -570,13 +570,13 @@ PITEJ_30:
 PITEK_31:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 05 00                 cmp ax, 0x5
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0005)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 05 00                 cmp ax, 0x5
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0005)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0EF4) = Your next step is assuredly taken.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0F17) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -585,13 +585,13 @@ PITEK_31:
 PITFG_32:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 06 00                 cmp ax, 0x6
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0006)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 01 00                 cmp ax, 0x1
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0001)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0F41) = The next step is an intelligent one.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0F66) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -600,13 +600,13 @@ PITFG_32:
 PITFH_33:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 06 00                 cmp ax, 0x6
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0006)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 02 00                 cmp ax, 0x2
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0002)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0F90) = You move safely ahead.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0FA7) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -615,13 +615,13 @@ PITFH_33:
 PITFI_34:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 06 00                 cmp ax, 0x6
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0006)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 03 00                 cmp ax, 0x3
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0003)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(0FD1) = Your movement decision was correct.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(0FF5) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -630,13 +630,13 @@ PITFI_34:
 PITFJ_35:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 06 00                 cmp ax, 0x6
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0006)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 04 00                 cmp ax, 0x4
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0004)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(101F) = You move forward with confidence.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(1041) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -645,13 +645,13 @@ PITFJ_35:
 PITFK_36:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 06 00                 cmp ax, 0x6
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0006)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 05 00                 cmp ax, 0x5
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0005)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(106B) = You carefully selected your next step.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(1092) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -660,13 +660,13 @@ PITFK_36:
 PITFL_37:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 06 00                 cmp ax, 0x6
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0006)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 06 00                 cmp ax, 0x6
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0006)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(10BC) = You make a sage choice.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(10D4) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -675,13 +675,13 @@ PITFL_37:
 PITFM_38:
 0000                          BEGIN
 0003                          ax = CheckState(01, 02)
-0014 3D 06 00                 cmp ax, 0x6
-0017 75 25                    jnz 0x3e
+0014                          compare(ax, 0006)
+0017                          If (result.notequal) value jump to 003E
 0019                          ax = CheckState(01, 03)
-002A 3D 07 00                 cmp ax, 0x7
-002D 75 0F                    jnz 0x3e
+002A                          compare(ax, 0007)
+002D                          If (result.notequal) value jump to 003E
 002F                          ShowMessage(10FE) = You have made a wise decision.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ShowMessage(111D) = You step over the edge and into oblivion.
 004B                          ax = GetMaxHits()
 0052                          DoDamage(ax)
@@ -726,20 +726,20 @@ PITENCBL_3C:
 DOORARNK_3D:
 0000                          BEGIN
 0003                          ax = CheckState(01, 01)
-0014 0B C0                    or ax, ax
-0016 74 43                    jz 0x5b
+0014                          RefreshCompareFlags(ax)
+0016                          If (result.equal) value jump to 005B
 0018                          Push(01)
 001C                          Push(03)
 0020                          ax = GetNextTile()
-0027 50                       push ax
+0027                          Push(ax)
 0028                          Move(stk[0], stk[1], stk[2])
 0032                          Push(03)
 0036                          ax = GetNextTile()
-003D 50                       push ax
+003D                          Push(ax)
 003E                          Push(01)
 0042                          SetUnblocked()
 004C                          ShowMessage(1147) = Andreas no longer defends this door.
-0059 EB 0D                    jmp 0x68
+0059                          Jump to 0068
 005B                          ShowMessage(116C) = The Earth Elemental holds power over this door.
 0068                          RETURN
 

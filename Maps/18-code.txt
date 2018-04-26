@@ -1,14 +1,14 @@
 STARSADN_01:
 0000                          BEGIN
 0003                          ax = CheckLevel(0014)
-0011 74 1C                    jz 0x2f
+0011                          If (result.equal) value jump to 002F
 0013                          GoMap(00, 4D, 01, 33)
-002D EB 2A                    jmp 0x59
+002D                          Jump to 0059
 002F                          Push(00)
 0032                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0039 50                       push ax
+0039                          Push(ax)
 003A                          ax = GetNextTile()
-0041 50                       push ax
+0041                          Push(ax)
 0042                          Move(stk[0], stk[1], stk[2])
 004C                          ShowMessage(03FC) = Heroes of level 20 or more may go on.
 0059                          RETURN
@@ -32,14 +32,14 @@ TELEMESS_04:
 TELETAVR_05:
 0000                          BEGIN
 0003                          ax = CheckLevel(0014)
-0011 74 1D                    jz 0x30
+0011                          If (result.equal) value jump to 0030
 0013                          GoMap(02, 4D, 01, 33)
-002E EB 2A                    jmp 0x5a
+002E                          Jump to 005A
 0030                          Push(00)
 0033                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003A 50                       push ax
+003A                          Push(ax)
 003B                          ax = GetNextTile()
-0042 50                       push ax
+0042                          Push(ax)
 0043                          Move(stk[0], stk[1], stk[2])
 004D                          ShowMessage(0470) = Heroes of level 20 or more may enter.
 005A                          RETURN
@@ -63,16 +63,16 @@ TAVERN_08:
 SPECIALD_09:
 0000                          BEGIN
 0003                          ax = CheckState(02, 42)
-0014 3D 05 00                 cmp ax, 0x5
-0017 75 0F                    jnz 0x28
+0014                          compare(ax, 0005)
+0017                          If (result.notequal) value jump to 0028
 0019                          ShowMessage(04E7) = You have used up the supplies in the Infirmary.
-0026 EB 3E                    jmp 0x66
+0026                          Jump to 0066
 0028                          SetState(02, 42, 43)
 003D                          ax = GetMaxHits()
-0044 50                       push ax
+0044                          Push(ax)
 0045                          ax = GetCurrentHits()
-004C 5A                       pop dx
-004D 2B D0                    sub dx, ax
+004C                          dx = Pop()
+004D                          dx = dx - ax
 004F                          AddHealth(dx)
 0059                          ShowMessage(0517) = You have discovered the Thieves' Infirmary.  All your wounds have been cured!
 0066                          RETURN
@@ -99,15 +99,15 @@ MONENCC_0C:
 0000                          BEGIN
 0003                          ShowMessage(05B7) = A group of restless undead surprise you!
 0010                          ax = PartyCount()
-0018 3D 01 00                 cmp ax, 0x1
-001B 74 0D                    jz 0x2a
+0018                          compare(ax, 0001)
+001B                          If (result.equal) value jump to 002A
 001D                          ax = PartyCount()
-0025 3D 02 00                 cmp ax, 0x2
-0028 75 38                    jnz 0x62
+0025                          compare(ax, 0002)
+0028                          If (result.notequal) value jump to 0062
 002A                          AddEncounter(1C, 01)
 003C                          AddEncounter(1F, 02)
 004E                          AddEncounter(1D, 03)
-0060 EB 5A                    jmp 0xbc
+0060                          Jump to 00BC
 0062                          AddEncounter(1C, 01)
 0074                          AddEncounter(1C, 02)
 0086                          AddEncounter(1D, 03)
@@ -118,9 +118,9 @@ MONENCC_0C:
 MONENCE_0E:
 0000                          BEGIN
 0003                          ax = HasItem(BE)
-0011 74 22                    jz 0x35
+0011                          If (result.equal) value jump to 0035
 0013                          AddTreasure(06D6, 00, 00, 00, BB, C6)
-0033 EB 20                    jmp 0x55
+0033                          Jump to 0055
 0035                          AddTreasure(0BB8, 00, 00, 00, BB, BE)
 0055                          ShowMessage(05E0) = You are attacked by Mages of the Thieves' Guild out walking their pets!
 0062                          AddEncounter(25, 01)
@@ -131,10 +131,10 @@ MONENCE_0E:
 MONENCF_0F:
 0000                          BEGIN
 0003                          ax = HasItem(68)
-0011 74 2E                    jz 0x41
+0011                          If (result.equal) value jump to 0041
 0013                          AddTreasure(01F4, 00, 00, 00, 00, B6)
 0032                          ShowMessage(0628) = You stumble upon mean animals out foraging!
-003F EB 2C                    jmp 0x6d
+003F                          Jump to 006D
 0041                          AddTreasure(2EE0, 00, 00, 00, 00, 68)
 0060                          ShowMessage(0654) = You stumble upon foraging animals! They found something shiny!
 006D                          AddEncounter(19, 01)
@@ -145,10 +145,10 @@ MONENCF_0F:
 FLSPECA_10:
 0000                          BEGIN
 0003                          ax = CheckState(02, 41)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 0F                    jnz 0x28
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0028
 0019                          ShowMessage(0693) = The storage room has been emptied by other adventurers.
-0026 EB 57                    jmp 0x7f
+0026                          Jump to 007F
 0028                          GiveItem(59)
 0034                          GiveItem(48)
 0040                          GiveItem(BD)
@@ -160,10 +160,10 @@ FLSPECA_10:
 FLSPECB_11:
 0000                          BEGIN
 0003                          ax = CheckState(02, 3E)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 0F                    jnz 0x28
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0028
 0019                          ShowMessage(0727) = Thieves have emptied this room.
-0026 EB 6F                    jmp 0x97
+0026                          Jump to 0097
 0028                          GiveItem(B0)
 0034                          GiveItem(B0)
 0040                          GiveItem(B4)
@@ -177,11 +177,11 @@ FLSPECB_11:
 FLSPECC_12:
 0000                          BEGIN
 0003                          ax = CheckState(02, 43)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 20                    jnz 0x39
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0039
 0019                          ModifyGold(0001)
 002A                          ShowMessage(0794) = You find 1 gold piece in an empty safe.
-0037 EB 57                    jmp 0x90
+0037                          Jump to 0090
 0039                          GiveItem(7F)
 0045                          GiveItem(B1)
 0051                          GiveItem(6B)
@@ -193,13 +193,13 @@ FLSPECC_12:
 FLSPECD_13:
 0000                          BEGIN
 0003                          ax = HasItem(FB)
-0011 74 10                    jz 0x23
+0011                          If (result.equal) value jump to 0023
 0013                          ShowMessage(07F8) = The room has been ransacked!
-0020 E9 2D 01                 jmp 0x150
+0020                          Jump to 0150
 0023                          ax = GetGuild()
-002A 3D 03 00                 cmp ax, 0x3
-002D 74 03                    jz 0x32
-002F E9 7F 00                 jmp 0xb1
+002A                          compare(ax, 0003)
+002D                          If (result.equal) value jump to 0032
+002F                          Jump to 00B1
 0032                          SetState(02, 3F, 01)
 0047                          ShowMessage(0815) = Your familiarity with thieving helps you avoid a vicious trap!
 0054                          ShowMessage(0854) = You find some items and 5000 pieces of gold.
@@ -209,7 +209,7 @@ FLSPECD_13:
 0085                          GiveItem(C9)
 0091                          GiveItem(B7)
 009D                          ModifyGold(1388)
-00AE E9 9F 00                 jmp 0x150
+00AE                          Jump to 0150
 00B1                          ShowMessage(0881) = You find several items and 5000 pieces of gold.
 00BE                          ShowMessage(08B1) = Unfortunately, you overlook the cleverly hidden trap that protects the treasure.
 00CB                          GiveItem(FB)
@@ -220,9 +220,8 @@ FLSPECD_13:
 0107                          ModifyGold(1388)
 0118                          ax = UnknownFunction1C(01)
 0124                          ax = GetCurrentHits()
-012B BB 02 00                 mov bx, 0x2
-012E 99                       cwd
-012F F7 FB                    idiv bx
+012B                          bx = 0002
+012E                          ax = ax / bx (signed, dx = quotient)
 0131                          DoDamage(ax)
 013B                          SetState(02, 3F, 01)
 0150                          RETURN
@@ -230,10 +229,10 @@ FLSPECD_13:
 FLSPECE_14:
 0000                          BEGIN
 0003                          ax = CheckState(02, 44)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 0F                    jnz 0x28
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0028
 0019                          ShowMessage(0902) = You found a sleeping thief who cannot be roused from deep slumber.
-0026 EB 33                    jmp 0x5b
+0026                          Jump to 005B
 0028                          AddExperience(00003A98)
 0039                          SetState(02, 44, 01)
 004E                          ShowMessage(0945) = A wise old thief bends your ear with stories of his exploits.  His story is very helpful.
@@ -244,28 +243,28 @@ FLSPECF_15:
 0003                          ShowPortrait(0022)
 0010                          ShowMessage(099F) = The Club and Axe Training Center.  All who lack this skill gain enlightenment and training.
 001D                          ax = GetSkillLevel(01)
-0029 0B C0                    or ax, ax
-002B 75 20                    jnz 0x4d
+0029                          RefreshCompareFlags(ax)
+002B                          If (result.notequal) value jump to 004D
 002D                          SetSkillLevel(01, 02)
 003E                          ShowMessage(09FB) = Thieves provide you with training in Clubs and Axes!
-004B EB 0D                    jmp 0x5a
+004B                          Jump to 005A
 004D                          ShowMessage(0A30) = You have already trained in this skill. The thieves cannot help you any further.
 005A                          RETURN
 
 FLSPECG_16:
 0000                          BEGIN
 0003                          ax = CheckState3(02, 45)
-0016 74 62                    jz 0x7a
+0016                          If (result.equal) value jump to 007A
 0018                          ShowPortrait(0023)
 0025                          ShowMessage(0A81) = A wise old thief will teach you the Bard Skill!
 0032                          SetState(02, 45, 01)
 0047                          ax = GetSkillLevel(0C)
-0053 3D 0C 00                 cmp ax, 0xc
-0056 77 13                    ja 0x6b
+0053                          compare(ax, 000C)
+0056                          If (result.greaterthan) value jump to 006B
 0058                          SetSkillLevel(0C, 02)
-0069 EB 0D                    jmp 0x78
+0069                          Jump to 0078
 006B                          ShowMessage(0AB1) = You are already pretty good at Barding, and he cannot help you further.
-0078 EB 1A                    jmp 0x94
+0078                          Jump to 0094
 007A                          ShowPortrait(0023)
 0087                          ShowMessage(0AF9) = The wise old thief has already taught you all he knows.
 0094                          RETURN
@@ -275,28 +274,28 @@ FLSPECH_17:
 0003                          ShowPortrait(0026)
 0010                          ShowMessage(0B31) = The Fencing Training Center.  All who lack this skill gain enlightenment and training.
 001D                          ax = GetSkillLevel(05)
-0029 0B C0                    or ax, ax
-002B 75 20                    jnz 0x4d
+0029                          RefreshCompareFlags(ax)
+002B                          If (result.notequal) value jump to 004D
 002D                          SetSkillLevel(05, 02)
 003E                          ShowMessage(0B88) = Thieves provide you with training in the use of Swords!
-004B EB 0D                    jmp 0x5a
+004B                          Jump to 005A
 004D                          ShowMessage(0BC0) = You have already trained in this skill. The thieves cannot help you any further.
 005A                          RETURN
 
 FLSPECI_18:
 0000                          BEGIN
 0003                          ax = CheckState3(02, 64)
-0016 74 62                    jz 0x7a
+0016                          If (result.equal) value jump to 007A
 0018                          ShowPortrait(0024)
 0025                          ShowMessage(0C11) = A wise young thief will teach you the Detect Skill!
 0032                          SetState(02, 64, 01)
 0047                          ax = GetSkillLevel(0D)
-0053 3D 0C 00                 cmp ax, 0xc
-0056 77 13                    ja 0x6b
+0053                          compare(ax, 000C)
+0056                          If (result.greaterthan) value jump to 006B
 0058                          SetSkillLevel(0D, 02)
-0069 EB 0D                    jmp 0x78
+0069                          Jump to 0078
 006B                          ShowMessage(0C45) = You are already pretty good at detection, and she cannot help you further.
-0078 EB 1A                    jmp 0x94
+0078                          Jump to 0094
 007A                          ShowPortrait(0024)
 0087                          ShowMessage(0C90) = The young thief has already taught you all she knows.
 0094                          RETURN
@@ -305,12 +304,12 @@ FLSPECJ_19:
 0000                          BEGIN
 0003                          ShowMessage(0CC6) = The Staff Training Center.  All who lack this skill gain enlightenment and training.
 0010                          ax = GetSkillLevel(15)
-001C 0B C0                    or ax, ax
-001E 75 2D                    jnz 0x4d
+001C                          RefreshCompareFlags(ax)
+001E                          If (result.notequal) value jump to 004D
 0020                          SetSkillLevel(15, 02)
 0031                          ShowPortrait(0023)
 003E                          ShowMessage(0D1B) = Thieves provide you with training in the use of Staves!
-004B EB 1A                    jmp 0x67
+004B                          Jump to 0067
 004D                          ShowPortrait(0023)
 005A                          ShowMessage(0D53) = You have already trained in this skill. The thieves cannot help you any further.
 0067                          RETURN
@@ -318,17 +317,17 @@ FLSPECJ_19:
 FLSPECK_1A:
 0000                          BEGIN
 0003                          ax = CheckState3(02, 65)
-0016 74 62                    jz 0x7a
+0016                          If (result.equal) value jump to 007A
 0018                          ShowPortrait(0025)
 0025                          ShowMessage(0DA4) = A wise old thief will teach you the Lockpick Skill!
 0032                          SetState(02, 65, 01)
 0047                          ax = GetSkillLevel(0E)
-0053 3D 0C 00                 cmp ax, 0xc
-0056 77 13                    ja 0x6b
+0053                          compare(ax, 000C)
+0056                          If (result.greaterthan) value jump to 006B
 0058                          SetSkillLevel(0E, 02)
-0069 EB 0D                    jmp 0x78
+0069                          Jump to 0078
 006B                          ShowMessage(0DD8) = You are already pretty good at picking locks, and he cannot help you further.
-0078 EB 1A                    jmp 0x94
+0078                          Jump to 0094
 007A                          ShowPortrait(0025)
 0087                          ShowMessage(0E26) = The old thief has already taught you all he knows.
 0094                          RETURN
@@ -336,17 +335,17 @@ FLSPECK_1A:
 FLSPECL_1B:
 0000                          BEGIN
 0003                          ax = CheckState2(02, 68)
-0016 74 1C                    jz 0x34
+0016                          If (result.equal) value jump to 0034
 0018                          ShowPortrait(0042)
 0025                          ShowMessage(0E59) = The waters from Sinestra's Fountain are invigorating, but have no further effect.
-0032 EB 5C                    jmp 0x90
+0032                          Jump to 0090
 0034                          SetState(02, 68, 01)
 0049                          ShowPortrait(0042)
 0056                          ax = GetMaxHits()
-005D 50                       push ax
+005D                          Push(ax)
 005E                          ax = GetCurrentHits()
-0065 5A                       pop dx
-0066 2B D0                    sub dx, ax
+0065                          dx = Pop()
+0066                          dx = dx - ax
 0068                          AddHealth(dx)
 0072                          AddExperience(00003A98)
 0083                          ShowMessage(0EAB) = You have discovered Sinestra's Fountain.  You feel healthier and more experienced after drinking the waters!
@@ -357,11 +356,11 @@ FLSPECN_1D:
 0003                          ShowPortrait(0026)
 0010                          ShowMessage(0F18) = The Archery Training Center.  All who lack this skill gain enlightenment and training.
 001D                          ax = GetSkillLevel(08)
-0029 0B C0                    or ax, ax
-002B 75 20                    jnz 0x4d
+0029                          RefreshCompareFlags(ax)
+002B                          If (result.notequal) value jump to 004D
 002D                          SetSkillLevel(08, 02)
 003E                          ShowMessage(0F6F) = Thieves provide you with training in Archery!
-004B EB 0D                    jmp 0x5a
+004B                          Jump to 005A
 004D                          ShowMessage(0F9D) = You have already trained in this skill. The thieves cannot help you any further.
 005A                          RETURN
 
@@ -369,35 +368,35 @@ HIDEDOOR_1E:
 0000                          BEGIN
 0003                          Push(01)
 0007                          ax = SetExitability(ax) // ax is usually 0 following equality check
-000E 50                       push ax
+000E                          Push(ax)
 000F                          ax = GetNextTile()
-0016 50                       push ax
+0016                          Push(ax)
 0017                          Move(stk[0], stk[1], stk[2])
 0021                          RETURN
 
 HIDDORG_24:
 0000                          BEGIN
 0003                          ax = UsedItem(FB, FB)
-0016 74 4B                    jz 0x63
+0016                          If (result.equal) value jump to 0063
 0018                          Push(01)
 001C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0023 50                       push ax
+0023                          Push(ax)
 0024                          ax = GetNextTile()
-002B 50                       push ax
+002B                          Push(ax)
 002C                          Move(stk[0], stk[1], stk[2])
 0036                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003D 50                       push ax
+003D                          Push(ax)
 003E                          ax = GetNextTile()
-0045 50                       push ax
+0045                          Push(ax)
 0046                          Push(01)
 004A                          SetUnblocked()
 0054                          ShowMessage(0FEE) = The Thieves' Key unlocks the door!
-0061 EB 2A                    jmp 0x8d
+0061                          Jump to 008D
 0063                          Push(00)
 0066                          ax = SetExitability(ax) // ax is usually 0 following equality check
-006D 50                       push ax
+006D                          Push(ax)
 006E                          ax = GetNextTile()
-0075 50                       push ax
+0075                          Push(ax)
 0076                          Move(stk[0], stk[1], stk[2])
 0080                          ShowMessage(1011) = The door is locked.  You need a special key.
 008D                          RETURN
@@ -405,29 +404,29 @@ HIDDORG_24:
 HIDDORH_25:
 0000                          BEGIN
 0003                          ax = UsedItem(C2, C4)
-0016 75 11                    jnz 0x29
+0016                          If (result.notequal) value jump to 0029
 0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-0024 3D 0A 00                 cmp ax, 0xa
-0027 72 4B                    jb 0x74
+0024                          compare(ax, 000A)
+0027                          If (result.lessthan) jump to 0074
 0029                          Push(01)
 002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0034 50                       push ax
+0034                          Push(ax)
 0035                          ax = GetNextTile()
-003C 50                       push ax
+003C                          Push(ax)
 003D                          Move(stk[0], stk[1], stk[2])
 0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004E 50                       push ax
+004E                          Push(ax)
 004F                          ax = GetNextTile()
-0056 50                       push ax
+0056                          Push(ax)
 0057                          Push(01)
 005B                          SetUnblocked()
 0065                          ShowMessage(103E) = The wall springs open.  A musky odor fills the room.
-0072 EB 2A                    jmp 0x9e
+0072                          Jump to 009E
 0074                          Push(00)
 0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007E 50                       push ax
+007E                          Push(ax)
 007F                          ax = GetNextTile()
-0086 50                       push ax
+0086                          Push(ax)
 0087                          Move(stk[0], stk[1], stk[2])
 0091                          ShowMessage(1073) = Cracks in the wall reveal what could be a doorway. If only you could open it...
 009E                          RETURN
@@ -435,383 +434,383 @@ HIDDORH_25:
 HIDDORI_26:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0C 00                 cmp ax, 0xc
-0012 73 66                    jae 0x7a
+000F                          compare(ax, 000C)
+0012                          If (result.greaterthan or result.equal) jump to 007A
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 56                    jnz 0x7a
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 007A
 0024                          ax = UsedItem(A2, A2)
-0037 75 41                    jnz 0x7a
+0037                          If (result.notequal) value jump to 007A
 0039                          ax = UsedItem(BD, BD)
-004C 75 2C                    jnz 0x7a
+004C                          If (result.notequal) value jump to 007A
 004E                          ax = UsedItem(BE, BE)
-0061 75 17                    jnz 0x7a
+0061                          If (result.notequal) value jump to 007A
 0063                          ax = CheckState2(00, 01)
-0075 75 03                    jnz 0x7a
-0077 E9 CF 00                 jmp 0x149
+0075                          If (result.notequal) value jump to 007A
+0077                          Jump to 0149
 007A                          SetState(00, 01, 01)
 008E                          ax = UsedItem(C3, C4)
-00A1 75 11                    jnz 0xb4
+00A1                          If (result.notequal) value jump to 00B4
 00A3                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-00AF 3D 0C 00                 cmp ax, 0xc
-00B2 72 4B                    jb 0xff
+00AF                          compare(ax, 000C)
+00B2                          If (result.lessthan) jump to 00FF
 00B4                          Push(01)
 00B8                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00BF 50                       push ax
+00BF                          Push(ax)
 00C0                          ax = GetNextTile()
-00C7 50                       push ax
+00C7                          Push(ax)
 00C8                          Move(stk[0], stk[1], stk[2])
 00D2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00D9 50                       push ax
+00D9                          Push(ax)
 00DA                          ax = GetNextTile()
-00E1 50                       push ax
+00E1                          Push(ax)
 00E2                          Push(01)
 00E6                          SetUnblocked()
 00F0                          ShowMessage(10C3) = You skillfully open the entrance to a passage!
-00FD EB 48                    jmp 0x147
+00FD                          Jump to 0147
 00FF                          Push(00)
 0102                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0109 50                       push ax
+0109                          Push(ax)
 010A                          ax = GetNextTile()
-0111 50                       push ax
+0111                          Push(ax)
 0112                          Move(stk[0], stk[1], stk[2])
 011C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0123 50                       push ax
+0123                          Push(ax)
 0124                          ax = GetNextTile()
-012B 50                       push ax
+012B                          Push(ax)
 012C                          Push(01)
 0130                          SetUnblocked()
 013A                          ShowMessage(10F2) = You found a very well-hidden entrance to what might be a passage.  Unfortunately, it seems to be locked.
-0147 EB 1D                    jmp 0x166
+0147                          Jump to 0166
 0149                          Push(00)
 014C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0153 50                       push ax
+0153                          Push(ax)
 0154                          ax = GetNextTile()
-015B 50                       push ax
+015B                          Push(ax)
 015C                          Move(stk[0], stk[1], stk[2])
 0166                          RETURN
 
 HIDDORJ_27:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 66                    jae 0x7a
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 007A
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 56                    jnz 0x7a
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 007A
 0024                          ax = UsedItem(A2, A2)
-0037 75 41                    jnz 0x7a
+0037                          If (result.notequal) value jump to 007A
 0039                          ax = UsedItem(BD, BD)
-004C 75 2C                    jnz 0x7a
+004C                          If (result.notequal) value jump to 007A
 004E                          ax = UsedItem(BE, BE)
-0061 75 17                    jnz 0x7a
+0061                          If (result.notequal) value jump to 007A
 0063                          ax = CheckState2(00, 01)
-0075 75 03                    jnz 0x7a
-0077 E9 CF 00                 jmp 0x149
+0075                          If (result.notequal) value jump to 007A
+0077                          Jump to 0149
 007A                          SetState(00, 01, 01)
 008E                          ax = UsedItem(C3, C4)
-00A1 75 11                    jnz 0xb4
+00A1                          If (result.notequal) value jump to 00B4
 00A3                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-00AF 3D 0A 00                 cmp ax, 0xa
-00B2 72 4B                    jb 0xff
+00AF                          compare(ax, 000A)
+00B2                          If (result.lessthan) jump to 00FF
 00B4                          Push(01)
 00B8                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00BF 50                       push ax
+00BF                          Push(ax)
 00C0                          ax = GetNextTile()
-00C7 50                       push ax
+00C7                          Push(ax)
 00C8                          Move(stk[0], stk[1], stk[2])
 00D2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00D9 50                       push ax
+00D9                          Push(ax)
 00DA                          ax = GetNextTile()
-00E1 50                       push ax
+00E1                          Push(ax)
 00E2                          Push(01)
 00E6                          SetUnblocked()
 00F0                          ShowMessage(115B) = You release the stonework, revealing a secret passage!
-00FD EB 48                    jmp 0x147
+00FD                          Jump to 0147
 00FF                          Push(00)
 0102                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0109 50                       push ax
+0109                          Push(ax)
 010A                          ax = GetNextTile()
-0111 50                       push ax
+0111                          Push(ax)
 0112                          Move(stk[0], stk[1], stk[2])
 011C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0123 50                       push ax
+0123                          Push(ax)
 0124                          ax = GetNextTile()
-012B 50                       push ax
+012B                          Push(ax)
 012C                          Push(01)
 0130                          SetUnblocked()
 013A                          ShowMessage(1192) = A piece of stonework looks like it could be moved, if you can pick the mechanism.
-0147 EB 1D                    jmp 0x166
+0147                          Jump to 0166
 0149                          Push(00)
 014C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0153 50                       push ax
+0153                          Push(ax)
 0154                          ax = GetNextTile()
-015B 50                       push ax
+015B                          Push(ax)
 015C                          Move(stk[0], stk[1], stk[2])
 0166                          RETURN
 
 HIDDORK_28:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 09 00                 cmp ax, 0x9
-0012 73 66                    jae 0x7a
+000F                          compare(ax, 0009)
+0012                          If (result.greaterthan or result.equal) jump to 007A
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 56                    jnz 0x7a
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 007A
 0024                          ax = UsedItem(A2, A2)
-0037 75 41                    jnz 0x7a
+0037                          If (result.notequal) value jump to 007A
 0039                          ax = UsedItem(BD, BD)
-004C 75 2C                    jnz 0x7a
+004C                          If (result.notequal) value jump to 007A
 004E                          ax = UsedItem(BE, BE)
-0061 75 17                    jnz 0x7a
+0061                          If (result.notequal) value jump to 007A
 0063                          ax = CheckState2(00, 01)
-0075 75 03                    jnz 0x7a
-0077 E9 CF 00                 jmp 0x149
+0075                          If (result.notequal) value jump to 007A
+0077                          Jump to 0149
 007A                          SetState(00, 01, 01)
 008E                          ax = UsedItem(C3, C4)
-00A1 75 11                    jnz 0xb4
+00A1                          If (result.notequal) value jump to 00B4
 00A3                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-00AF 3D 09 00                 cmp ax, 0x9
-00B2 72 4B                    jb 0xff
+00AF                          compare(ax, 0009)
+00B2                          If (result.lessthan) jump to 00FF
 00B4                          Push(01)
 00B8                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00BF 50                       push ax
+00BF                          Push(ax)
 00C0                          ax = GetNextTile()
-00C7 50                       push ax
+00C7                          Push(ax)
 00C8                          Move(stk[0], stk[1], stk[2])
 00D2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00D9 50                       push ax
+00D9                          Push(ax)
 00DA                          ax = GetNextTile()
-00E1 50                       push ax
+00E1                          Push(ax)
 00E2                          Push(01)
 00E6                          SetUnblocked()
 00F0                          ShowMessage(11E4) = The wall slides open.
-00FD EB 48                    jmp 0x147
+00FD                          Jump to 0147
 00FF                          Push(00)
 0102                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0109 50                       push ax
+0109                          Push(ax)
 010A                          ax = GetNextTile()
-0111 50                       push ax
+0111                          Push(ax)
 0112                          Move(stk[0], stk[1], stk[2])
 011C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0123 50                       push ax
+0123                          Push(ax)
 0124                          ax = GetNextTile()
-012B 50                       push ax
+012B                          Push(ax)
 012C                          Push(01)
 0130                          SetUnblocked()
 013A                          ShowMessage(11FA) = You located a sliding door which must be picked to be opened. Curious sounds can be heard through the stonework.
-0147 EB 1D                    jmp 0x166
+0147                          Jump to 0166
 0149                          Push(00)
 014C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0153 50                       push ax
+0153                          Push(ax)
 0154                          ax = GetNextTile()
-015B 50                       push ax
+015B                          Push(ax)
 015C                          Move(stk[0], stk[1], stk[2])
 0166                          RETURN
 
 HIDDORL_29:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 08 00                 cmp ax, 0x8
-0012 73 66                    jae 0x7a
+000F                          compare(ax, 0008)
+0012                          If (result.greaterthan or result.equal) jump to 007A
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 56                    jnz 0x7a
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 007A
 0024                          ax = UsedItem(A2, A2)
-0037 75 41                    jnz 0x7a
+0037                          If (result.notequal) value jump to 007A
 0039                          ax = UsedItem(BD, BD)
-004C 75 2C                    jnz 0x7a
+004C                          If (result.notequal) value jump to 007A
 004E                          ax = UsedItem(BE, BE)
-0061 75 17                    jnz 0x7a
+0061                          If (result.notequal) value jump to 007A
 0063                          ax = CheckState2(00, 01)
-0075 75 03                    jnz 0x7a
-0077 E9 CF 00                 jmp 0x149
+0075                          If (result.notequal) value jump to 007A
+0077                          Jump to 0149
 007A                          SetState(00, 01, 01)
 008E                          ax = UsedItem(C2, C4)
-00A1 75 11                    jnz 0xb4
+00A1                          If (result.notequal) value jump to 00B4
 00A3                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-00AF 3D 08 00                 cmp ax, 0x8
-00B2 72 4B                    jb 0xff
+00AF                          compare(ax, 0008)
+00B2                          If (result.lessthan) jump to 00FF
 00B4                          Push(01)
 00B8                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00BF 50                       push ax
+00BF                          Push(ax)
 00C0                          ax = GetNextTile()
-00C7 50                       push ax
+00C7                          Push(ax)
 00C8                          Move(stk[0], stk[1], stk[2])
 00D2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00D9 50                       push ax
+00D9                          Push(ax)
 00DA                          ax = GetNextTile()
-00E1 50                       push ax
+00E1                          Push(ax)
 00E2                          Push(01)
 00E6                          SetUnblocked()
 00F0                          ShowMessage(126B) = You successfully opened the locked door.
-00FD EB 48                    jmp 0x147
+00FD                          Jump to 0147
 00FF                          Push(00)
 0102                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0109 50                       push ax
+0109                          Push(ax)
 010A                          ax = GetNextTile()
-0111 50                       push ax
+0111                          Push(ax)
 0112                          Move(stk[0], stk[1], stk[2])
 011C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0123 50                       push ax
+0123                          Push(ax)
 0124                          ax = GetNextTile()
-012B 50                       push ax
+012B                          Push(ax)
 012C                          Push(01)
 0130                          SetUnblocked()
 013A                          ShowMessage(1294) = You found a secret door, but it's locked.
-0147 EB 1D                    jmp 0x166
+0147                          Jump to 0166
 0149                          Push(00)
 014C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0153 50                       push ax
+0153                          Push(ax)
 0154                          ax = GetNextTile()
-015B 50                       push ax
+015B                          Push(ax)
 015C                          Move(stk[0], stk[1], stk[2])
 0166                          RETURN
 
 HIDDORM_2A:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0C 00                 cmp ax, 0xc
-0012 73 66                    jae 0x7a
+000F                          compare(ax, 000C)
+0012                          If (result.greaterthan or result.equal) jump to 007A
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 56                    jnz 0x7a
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 007A
 0024                          ax = UsedItem(A2, A2)
-0037 75 41                    jnz 0x7a
+0037                          If (result.notequal) value jump to 007A
 0039                          ax = UsedItem(BD, BD)
-004C 75 2C                    jnz 0x7a
+004C                          If (result.notequal) value jump to 007A
 004E                          ax = UsedItem(BE, BE)
-0061 75 17                    jnz 0x7a
+0061                          If (result.notequal) value jump to 007A
 0063                          ax = CheckState2(00, 01)
-0075 75 03                    jnz 0x7a
-0077 E9 CF 00                 jmp 0x149
+0075                          If (result.notequal) value jump to 007A
+0077                          Jump to 0149
 007A                          SetState(00, 01, 01)
 008E                          ax = UsedItem(C4, C4)
-00A1 75 11                    jnz 0xb4
+00A1                          If (result.notequal) value jump to 00B4
 00A3                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-00AF 3D 0C 00                 cmp ax, 0xc
-00B2 72 4B                    jb 0xff
+00AF                          compare(ax, 000C)
+00B2                          If (result.lessthan) jump to 00FF
 00B4                          Push(01)
 00B8                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00BF 50                       push ax
+00BF                          Push(ax)
 00C0                          ax = GetNextTile()
-00C7 50                       push ax
+00C7                          Push(ax)
 00C8                          Move(stk[0], stk[1], stk[2])
 00D2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00D9 50                       push ax
+00D9                          Push(ax)
 00DA                          ax = GetNextTile()
-00E1 50                       push ax
+00E1                          Push(ax)
 00E2                          Push(01)
 00E6                          SetUnblocked()
 00F0                          ShowMessage(12BE) = You successfully opened the locked door.
-00FD EB 48                    jmp 0x147
+00FD                          Jump to 0147
 00FF                          Push(00)
 0102                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0109 50                       push ax
+0109                          Push(ax)
 010A                          ax = GetNextTile()
-0111 50                       push ax
+0111                          Push(ax)
 0112                          Move(stk[0], stk[1], stk[2])
 011C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0123 50                       push ax
+0123                          Push(ax)
 0124                          ax = GetNextTile()
-012B 50                       push ax
+012B                          Push(ax)
 012C                          Push(01)
 0130                          SetUnblocked()
 013A                          ShowMessage(12E7) = You found a secret door.
-0147 EB 1D                    jmp 0x166
+0147                          Jump to 0166
 0149                          Push(00)
 014C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0153 50                       push ax
+0153                          Push(ax)
 0154                          ax = GetNextTile()
-015B 50                       push ax
+015B                          Push(ax)
 015C                          Move(stk[0], stk[1], stk[2])
 0166                          RETURN
 
 HIDDORN_2B:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0C 00                 cmp ax, 0xc
-0012 73 66                    jae 0x7a
+000F                          compare(ax, 000C)
+0012                          If (result.greaterthan or result.equal) jump to 007A
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 56                    jnz 0x7a
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 007A
 0024                          ax = UsedItem(A2, A2)
-0037 75 41                    jnz 0x7a
+0037                          If (result.notequal) value jump to 007A
 0039                          ax = UsedItem(BD, BD)
-004C 75 2C                    jnz 0x7a
+004C                          If (result.notequal) value jump to 007A
 004E                          ax = UsedItem(BE, BE)
-0061 75 17                    jnz 0x7a
+0061                          If (result.notequal) value jump to 007A
 0063                          ax = CheckState2(00, 01)
-0075 75 03                    jnz 0x7a
-0077 E9 CF 00                 jmp 0x149
+0075                          If (result.notequal) value jump to 007A
+0077                          Jump to 0149
 007A                          SetState(00, 01, 01)
 008E                          ax = UsedItem(C4, C4)
-00A1 75 11                    jnz 0xb4
+00A1                          If (result.notequal) value jump to 00B4
 00A3                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-00AF 3D 0C 00                 cmp ax, 0xc
-00B2 72 4B                    jb 0xff
+00AF                          compare(ax, 000C)
+00B2                          If (result.lessthan) jump to 00FF
 00B4                          Push(01)
 00B8                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00BF 50                       push ax
+00BF                          Push(ax)
 00C0                          ax = GetNextTile()
-00C7 50                       push ax
+00C7                          Push(ax)
 00C8                          Move(stk[0], stk[1], stk[2])
 00D2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00D9 50                       push ax
+00D9                          Push(ax)
 00DA                          ax = GetNextTile()
-00E1 50                       push ax
+00E1                          Push(ax)
 00E2                          Push(01)
 00E6                          SetUnblocked()
 00F0                          ShowMessage(1300) = You successfully opened the locked door.
-00FD EB 48                    jmp 0x147
+00FD                          Jump to 0147
 00FF                          Push(00)
 0102                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0109 50                       push ax
+0109                          Push(ax)
 010A                          ax = GetNextTile()
-0111 50                       push ax
+0111                          Push(ax)
 0112                          Move(stk[0], stk[1], stk[2])
 011C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0123 50                       push ax
+0123                          Push(ax)
 0124                          ax = GetNextTile()
-012B 50                       push ax
+012B                          Push(ax)
 012C                          Push(01)
 0130                          SetUnblocked()
 013A                          ShowMessage(1329) = You spot a well hidden secret door. It's locked.
-0147 EB 1D                    jmp 0x166
+0147                          Jump to 0166
 0149                          Push(00)
 014C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0153 50                       push ax
+0153                          Push(ax)
 0154                          ax = GetNextTile()
-015B 50                       push ax
+015B                          Push(ax)
 015C                          Move(stk[0], stk[1], stk[2])
 0166                          RETURN
 
 HIDDORQ_2E:
 0000                          BEGIN
 0003                          ax = UsedItem(C2, C4)
-0016 75 11                    jnz 0x29
+0016                          If (result.notequal) value jump to 0029
 0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-0024 3D 08 00                 cmp ax, 0x8
-0027 72 4B                    jb 0x74
+0024                          compare(ax, 0008)
+0027                          If (result.lessthan) jump to 0074
 0029                          Push(01)
 002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0034 50                       push ax
+0034                          Push(ax)
 0035                          ax = GetNextTile()
-003C 50                       push ax
+003C                          Push(ax)
 003D                          Move(stk[0], stk[1], stk[2])
 0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004E 50                       push ax
+004E                          Push(ax)
 004F                          ax = GetNextTile()
-0056 50                       push ax
+0056                          Push(ax)
 0057                          Push(01)
 005B                          SetUnblocked()
 0065                          ShowMessage(135A) = You skillfully pick the door lock.
-0072 EB 2A                    jmp 0x9e
+0072                          Jump to 009E
 0074                          Push(00)
 0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007E 50                       push ax
+007E                          Push(ax)
 007F                          ax = GetNextTile()
-0086 50                       push ax
+0086                          Push(ax)
 0087                          Move(stk[0], stk[1], stk[2])
 0091                          ShowMessage(137D) = The door is locked.
 009E                          RETURN
@@ -819,83 +818,83 @@ HIDDORQ_2E:
 HIDDORT_31:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 06 00                 cmp ax, 0x6
-0012 73 10                    jae 0x24
+000F                          compare(ax, 0006)
+0012                          If (result.greaterthan or result.equal) jump to 0024
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 74 2D                    jz 0x51
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.equal) value jump to 0051
 0024                          Push(01)
 0028                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002F 50                       push ax
+002F                          Push(ax)
 0030                          ax = GetNextTile()
-0037 50                       push ax
+0037                          Push(ax)
 0038                          Move(stk[0], stk[1], stk[2])
 0042                          ShowMessage(1391) = You found a hidden door!
-004F EB 1D                    jmp 0x6e
+004F                          Jump to 006E
 0051                          Push(00)
 0054                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005B 50                       push ax
+005B                          Push(ax)
 005C                          ax = GetNextTile()
-0063 50                       push ax
+0063                          Push(ax)
 0064                          Move(stk[0], stk[1], stk[2])
 006E                          RETURN
 
 HIDDORU_32:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 08 00                 cmp ax, 0x8
-0012 73 66                    jae 0x7a
+000F                          compare(ax, 0008)
+0012                          If (result.greaterthan or result.equal) jump to 007A
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 56                    jnz 0x7a
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 007A
 0024                          ax = UsedItem(A2, A2)
-0037 75 41                    jnz 0x7a
+0037                          If (result.notequal) value jump to 007A
 0039                          ax = UsedItem(BD, BD)
-004C 75 2C                    jnz 0x7a
+004C                          If (result.notequal) value jump to 007A
 004E                          ax = UsedItem(BE, BE)
-0061 75 17                    jnz 0x7a
+0061                          If (result.notequal) value jump to 007A
 0063                          ax = CheckState2(00, 01)
-0075 75 03                    jnz 0x7a
-0077 E9 CF 00                 jmp 0x149
+0075                          If (result.notequal) value jump to 007A
+0077                          Jump to 0149
 007A                          SetState(00, 01, 01)
 008E                          ax = UsedItem(C2, C4)
-00A1 75 11                    jnz 0xb4
+00A1                          If (result.notequal) value jump to 00B4
 00A3                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-00AF 3D 08 00                 cmp ax, 0x8
-00B2 72 4B                    jb 0xff
+00AF                          compare(ax, 0008)
+00B2                          If (result.lessthan) jump to 00FF
 00B4                          Push(01)
 00B8                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00BF 50                       push ax
+00BF                          Push(ax)
 00C0                          ax = GetNextTile()
-00C7 50                       push ax
+00C7                          Push(ax)
 00C8                          Move(stk[0], stk[1], stk[2])
 00D2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00D9 50                       push ax
+00D9                          Push(ax)
 00DA                          ax = GetNextTile()
-00E1 50                       push ax
+00E1                          Push(ax)
 00E2                          Push(01)
 00E6                          SetUnblocked()
 00F0                          ShowMessage(13AA) = You successfully opened the locked door.
-00FD EB 48                    jmp 0x147
+00FD                          Jump to 0147
 00FF                          Push(00)
 0102                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0109 50                       push ax
+0109                          Push(ax)
 010A                          ax = GetNextTile()
-0111 50                       push ax
+0111                          Push(ax)
 0112                          Move(stk[0], stk[1], stk[2])
 011C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0123 50                       push ax
+0123                          Push(ax)
 0124                          ax = GetNextTile()
-012B 50                       push ax
+012B                          Push(ax)
 012C                          Push(01)
 0130                          SetUnblocked()
 013A                          ShowMessage(13D3) = You found a secret door, but it's locked.
-0147 EB 1D                    jmp 0x166
+0147                          Jump to 0166
 0149                          Push(00)
 014C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0153 50                       push ax
+0153                          Push(ax)
 0154                          ax = GetNextTile()
-015B 50                       push ax
+015B                          Push(ax)
 015C                          Move(stk[0], stk[1], stk[2])
 0166                          RETURN
 
@@ -903,9 +902,9 @@ HIDDORV_33:
 0000                          BEGIN
 0003                          Push(01)
 0007                          ax = SetExitability(ax) // ax is usually 0 following equality check
-000E 50                       push ax
+000E                          Push(ax)
 000F                          ax = GetNextTile()
-0016 50                       push ax
+0016                          Push(ax)
 0017                          Move(stk[0], stk[1], stk[2])
 0021                          RETURN
 
@@ -913,90 +912,90 @@ HIDDORX_35:
 0000                          BEGIN
 0003                          Push(01)
 0007                          ax = SetExitability(ax) // ax is usually 0 following equality check
-000E 50                       push ax
+000E                          Push(ax)
 000F                          ax = GetNextTile()
-0016 50                       push ax
+0016                          Push(ax)
 0017                          Move(stk[0], stk[1], stk[2])
 0021                          RETURN
 
 HIDDORY_36:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0A 00                 cmp ax, 0xa
-0012 73 66                    jae 0x7a
+000F                          compare(ax, 000A)
+0012                          If (result.greaterthan or result.equal) jump to 007A
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 56                    jnz 0x7a
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 007A
 0024                          ax = UsedItem(A2, A2)
-0037 75 41                    jnz 0x7a
+0037                          If (result.notequal) value jump to 007A
 0039                          ax = UsedItem(BD, BD)
-004C 75 2C                    jnz 0x7a
+004C                          If (result.notequal) value jump to 007A
 004E                          ax = UsedItem(BE, BE)
-0061 75 17                    jnz 0x7a
+0061                          If (result.notequal) value jump to 007A
 0063                          ax = CheckState2(00, 01)
-0075 75 03                    jnz 0x7a
-0077 E9 CF 00                 jmp 0x149
+0075                          If (result.notequal) value jump to 007A
+0077                          Jump to 0149
 007A                          SetState(00, 01, 01)
 008E                          ax = UsedItem(C3, C4)
-00A1 75 11                    jnz 0xb4
+00A1                          If (result.notequal) value jump to 00B4
 00A3                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-00AF 3D 0A 00                 cmp ax, 0xa
-00B2 72 4B                    jb 0xff
+00AF                          compare(ax, 000A)
+00B2                          If (result.lessthan) jump to 00FF
 00B4                          Push(01)
 00B8                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00BF 50                       push ax
+00BF                          Push(ax)
 00C0                          ax = GetNextTile()
-00C7 50                       push ax
+00C7                          Push(ax)
 00C8                          Move(stk[0], stk[1], stk[2])
 00D2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00D9 50                       push ax
+00D9                          Push(ax)
 00DA                          ax = GetNextTile()
-00E1 50                       push ax
+00E1                          Push(ax)
 00E2                          Push(01)
 00E6                          SetUnblocked()
 00F0                          ShowMessage(13FD) = You successfully opened the locked door.
-00FD EB 48                    jmp 0x147
+00FD                          Jump to 0147
 00FF                          Push(00)
 0102                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0109 50                       push ax
+0109                          Push(ax)
 010A                          ax = GetNextTile()
-0111 50                       push ax
+0111                          Push(ax)
 0112                          Move(stk[0], stk[1], stk[2])
 011C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0123 50                       push ax
+0123                          Push(ax)
 0124                          ax = GetNextTile()
-012B 50                       push ax
+012B                          Push(ax)
 012C                          Push(01)
 0130                          SetUnblocked()
 013A                          ShowMessage(1426) = You found a locked door. You hear strange noises on the other side of the door.
-0147 EB 1D                    jmp 0x166
+0147                          Jump to 0166
 0149                          Push(00)
 014C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0153 50                       push ax
+0153                          Push(ax)
 0154                          ax = GetNextTile()
-015B 50                       push ax
+015B                          Push(ax)
 015C                          Move(stk[0], stk[1], stk[2])
 0166                          RETURN
 
 HIDDORZ_37:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 08 00                 cmp ax, 0x8
-0012 73 4F                    jae 0x63
+000F                          compare(ax, 0008)
+0012                          If (result.greaterthan or result.equal) jump to 0063
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 3F                    jnz 0x63
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 0063
 0024                          ax = UsedItem(A2, A2)
-0037 75 2A                    jnz 0x63
+0037                          If (result.notequal) value jump to 0063
 0039                          ax = UsedItem(BD, BD)
-004C 75 15                    jnz 0x63
+004C                          If (result.notequal) value jump to 0063
 004E                          ax = UsedItem(BE, BE)
-0061 74 2B                    jz 0x8e
+0061                          If (result.equal) value jump to 008E
 0063                          Push(01)
 0067                          ax = SetExitability(ax) // ax is usually 0 following equality check
-006E 50                       push ax
+006E                          Push(ax)
 006F                          ax = GetNextTile()
-0076 50                       push ax
+0076                          Push(ax)
 0077                          Move(stk[0], stk[1], stk[2])
 0081                          ShowMessage(1476) = You found a hidden door!
 008E                          RETURN
@@ -1005,156 +1004,156 @@ HIDDORAA_38:
 0000                          BEGIN
 0003                          Push(01)
 0007                          ax = SetExitability(ax) // ax is usually 0 following equality check
-000E 50                       push ax
+000E                          Push(ax)
 000F                          ax = GetNextTile()
-0016 50                       push ax
+0016                          Push(ax)
 0017                          Move(stk[0], stk[1], stk[2])
 0021                          RETURN
 
 HIDDORBB_39:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 09 00                 cmp ax, 0x9
-0012 73 66                    jae 0x7a
+000F                          compare(ax, 0009)
+0012                          If (result.greaterthan or result.equal) jump to 007A
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 56                    jnz 0x7a
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 007A
 0024                          ax = UsedItem(A2, A2)
-0037 75 41                    jnz 0x7a
+0037                          If (result.notequal) value jump to 007A
 0039                          ax = UsedItem(BD, BD)
-004C 75 2C                    jnz 0x7a
+004C                          If (result.notequal) value jump to 007A
 004E                          ax = UsedItem(BE, BE)
-0061 75 17                    jnz 0x7a
+0061                          If (result.notequal) value jump to 007A
 0063                          ax = CheckState2(00, 01)
-0075 75 03                    jnz 0x7a
-0077 E9 CF 00                 jmp 0x149
+0075                          If (result.notequal) value jump to 007A
+0077                          Jump to 0149
 007A                          SetState(00, 01, 01)
 008E                          ax = UsedItem(C3, C4)
-00A1 75 11                    jnz 0xb4
+00A1                          If (result.notequal) value jump to 00B4
 00A3                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-00AF 3D 09 00                 cmp ax, 0x9
-00B2 72 4B                    jb 0xff
+00AF                          compare(ax, 0009)
+00B2                          If (result.lessthan) jump to 00FF
 00B4                          Push(01)
 00B8                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00BF 50                       push ax
+00BF                          Push(ax)
 00C0                          ax = GetNextTile()
-00C7 50                       push ax
+00C7                          Push(ax)
 00C8                          Move(stk[0], stk[1], stk[2])
 00D2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00D9 50                       push ax
+00D9                          Push(ax)
 00DA                          ax = GetNextTile()
-00E1 50                       push ax
+00E1                          Push(ax)
 00E2                          Push(01)
 00E6                          SetUnblocked()
 00F0                          ShowMessage(148F) = You successfully opened the locked door. You also feel a cool breeze.
-00FD EB 48                    jmp 0x147
+00FD                          Jump to 0147
 00FF                          Push(00)
 0102                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0109 50                       push ax
+0109                          Push(ax)
 010A                          ax = GetNextTile()
-0111 50                       push ax
+0111                          Push(ax)
 0112                          Move(stk[0], stk[1], stk[2])
 011C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0123 50                       push ax
+0123                          Push(ax)
 0124                          ax = GetNextTile()
-012B 50                       push ax
+012B                          Push(ax)
 012C                          Push(01)
 0130                          SetUnblocked()
 013A                          ShowMessage(14D5) = You found a secret door, but it's locked.
-0147 EB 1D                    jmp 0x166
+0147                          Jump to 0166
 0149                          Push(00)
 014C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0153 50                       push ax
+0153                          Push(ax)
 0154                          ax = GetNextTile()
-015B 50                       push ax
+015B                          Push(ax)
 015C                          Move(stk[0], stk[1], stk[2])
 0166                          RETURN
 
 HIDDORCC_3A:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 08 00                 cmp ax, 0x8
-0012 73 66                    jae 0x7a
+000F                          compare(ax, 0008)
+0012                          If (result.greaterthan or result.equal) jump to 007A
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 56                    jnz 0x7a
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 007A
 0024                          ax = UsedItem(A2, A2)
-0037 75 41                    jnz 0x7a
+0037                          If (result.notequal) value jump to 007A
 0039                          ax = UsedItem(BD, BD)
-004C 75 2C                    jnz 0x7a
+004C                          If (result.notequal) value jump to 007A
 004E                          ax = UsedItem(BE, BE)
-0061 75 17                    jnz 0x7a
+0061                          If (result.notequal) value jump to 007A
 0063                          ax = CheckState2(00, 01)
-0075 75 03                    jnz 0x7a
-0077 E9 CF 00                 jmp 0x149
+0075                          If (result.notequal) value jump to 007A
+0077                          Jump to 0149
 007A                          SetState(00, 01, 01)
 008E                          ax = UsedItem(C2, C4)
-00A1 75 11                    jnz 0xb4
+00A1                          If (result.notequal) value jump to 00B4
 00A3                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-00AF 3D 09 00                 cmp ax, 0x9
-00B2 72 4B                    jb 0xff
+00AF                          compare(ax, 0009)
+00B2                          If (result.lessthan) jump to 00FF
 00B4                          Push(01)
 00B8                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00BF 50                       push ax
+00BF                          Push(ax)
 00C0                          ax = GetNextTile()
-00C7 50                       push ax
+00C7                          Push(ax)
 00C8                          Move(stk[0], stk[1], stk[2])
 00D2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00D9 50                       push ax
+00D9                          Push(ax)
 00DA                          ax = GetNextTile()
-00E1 50                       push ax
+00E1                          Push(ax)
 00E2                          Push(01)
 00E6                          SetUnblocked()
 00F0                          ShowMessage(14FF) = You opened the locked chamber door.
-00FD EB 48                    jmp 0x147
+00FD                          Jump to 0147
 00FF                          Push(00)
 0102                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0109 50                       push ax
+0109                          Push(ax)
 010A                          ax = GetNextTile()
-0111 50                       push ax
+0111                          Push(ax)
 0112                          Move(stk[0], stk[1], stk[2])
 011C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0123 50                       push ax
+0123                          Push(ax)
 0124                          ax = GetNextTile()
-012B 50                       push ax
+012B                          Push(ax)
 012C                          Push(01)
 0130                          SetUnblocked()
 013A                          ShowMessage(1523) = You found a hidden chamber door, but it's locked.
-0147 EB 1D                    jmp 0x166
+0147                          Jump to 0166
 0149                          Push(00)
 014C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0153 50                       push ax
+0153                          Push(ax)
 0154                          ax = GetNextTile()
-015B 50                       push ax
+015B                          Push(ax)
 015C                          Move(stk[0], stk[1], stk[2])
 0166                          RETURN
 
 HIDDORFF_3D:
 0000                          BEGIN
 0003                          ax = UsedItem(C4, C4)
-0016 75 11                    jnz 0x29
+0016                          If (result.notequal) value jump to 0029
 0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-0024 3D 0C 00                 cmp ax, 0xc
-0027 72 4B                    jb 0x74
+0024                          compare(ax, 000C)
+0027                          If (result.lessthan) jump to 0074
 0029                          Push(01)
 002D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0034 50                       push ax
+0034                          Push(ax)
 0035                          ax = GetNextTile()
-003C 50                       push ax
+003C                          Push(ax)
 003D                          Move(stk[0], stk[1], stk[2])
 0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004E 50                       push ax
+004E                          Push(ax)
 004F                          ax = GetNextTile()
-0056 50                       push ax
+0056                          Push(ax)
 0057                          Push(01)
 005B                          SetUnblocked()
 0065                          ShowMessage(1555) = With great effort, you unlock the door.
-0072 EB 2A                    jmp 0x9e
+0072                          Jump to 009E
 0074                          Push(00)
 0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007E 50                       push ax
+007E                          Push(ax)
 007F                          ax = GetNextTile()
-0086 50                       push ax
+0086                          Push(ax)
 0087                          Move(stk[0], stk[1], stk[2])
 0091                          ShowMessage(157D) = This door has a nasty looking lock on it.
 009E                          RETURN
@@ -1162,59 +1161,59 @@ HIDDORFF_3D:
 HIDDORII_40:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 06 00                 cmp ax, 0x6
-0012 73 66                    jae 0x7a
+000F                          compare(ax, 0006)
+0012                          If (result.greaterthan or result.equal) jump to 007A
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 56                    jnz 0x7a
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 007A
 0024                          ax = UsedItem(A2, A2)
-0037 75 41                    jnz 0x7a
+0037                          If (result.notequal) value jump to 007A
 0039                          ax = UsedItem(BD, BD)
-004C 75 2C                    jnz 0x7a
+004C                          If (result.notequal) value jump to 007A
 004E                          ax = UsedItem(BE, BE)
-0061 75 17                    jnz 0x7a
+0061                          If (result.notequal) value jump to 007A
 0063                          ax = CheckState2(00, 01)
-0075 75 03                    jnz 0x7a
-0077 E9 CF 00                 jmp 0x149
+0075                          If (result.notequal) value jump to 007A
+0077                          Jump to 0149
 007A                          SetState(00, 01, 01)
 008E                          ax = UsedItem(C3, C4)
-00A1 75 11                    jnz 0xb4
+00A1                          If (result.notequal) value jump to 00B4
 00A3                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-00AF 3D 09 00                 cmp ax, 0x9
-00B2 72 4B                    jb 0xff
+00AF                          compare(ax, 0009)
+00B2                          If (result.lessthan) jump to 00FF
 00B4                          Push(01)
 00B8                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00BF 50                       push ax
+00BF                          Push(ax)
 00C0                          ax = GetNextTile()
-00C7 50                       push ax
+00C7                          Push(ax)
 00C8                          Move(stk[0], stk[1], stk[2])
 00D2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00D9 50                       push ax
+00D9                          Push(ax)
 00DA                          ax = GetNextTile()
-00E1 50                       push ax
+00E1                          Push(ax)
 00E2                          Push(01)
 00E6                          SetUnblocked()
 00F0                          ShowMessage(15A7) = The door is opened with a lot of effort.
-00FD EB 48                    jmp 0x147
+00FD                          Jump to 0147
 00FF                          Push(00)
 0102                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0109 50                       push ax
+0109                          Push(ax)
 010A                          ax = GetNextTile()
-0111 50                       push ax
+0111                          Push(ax)
 0112                          Move(stk[0], stk[1], stk[2])
 011C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0123 50                       push ax
+0123                          Push(ax)
 0124                          ax = GetNextTile()
-012B 50                       push ax
+012B                          Push(ax)
 012C                          Push(01)
 0130                          SetUnblocked()
 013A                          ShowMessage(15D0) = You found another secret door, but it is locked.
-0147 EB 1D                    jmp 0x166
+0147                          Jump to 0166
 0149                          Push(00)
 014C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0153 50                       push ax
+0153                          Push(ax)
 0154                          ax = GetNextTile()
-015B 50                       push ax
+015B                          Push(ax)
 015C                          Move(stk[0], stk[1], stk[2])
 0166                          RETURN
 
@@ -1231,9 +1230,9 @@ STRTMSG_42:
 GOODYA_43:
 0000                          BEGIN
 0003                          ax = HasItem(C3)
-0011 74 0F                    jz 0x22
+0011                          If (result.equal) value jump to 0022
 0013                          ShowMessage(166B) = You find an empty chest.
-0020 EB 2A                    jmp 0x4c
+0020                          Jump to 004C
 0022                          GiveItem(C3)
 002E                          ModifyGold(04E2)
 003F                          ShowMessage(1684) = You find a Purple Lockpick and 1250 gold inside a small chest.

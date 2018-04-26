@@ -9,28 +9,28 @@ DROP_01:
 XOVER_02:
 0000                          BEGIN
 0003                          ax = GetNextTile()
-000A 3D 47 00                 cmp ax, 0x47
-000D 75 61                    jnz 0x70
+000A                          compare(ax, 0047)
+000D                          If (result.notequal) value jump to 0070
 000F                          ax = CheckState(01, 01)
-0020 0B C0                    or ax, ax
-0022 74 1F                    jz 0x43
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.equal) value jump to 0043
 0024                          SetTileFloor(47, 00)
-0032 59                       pop cx
-0033 59                       pop cx
+0032                          cx = Pop()
+0033                          cx = Pop()
 0034                          ShowMessage(046E) = A magical platform forms a bridge across the abyss.
-0041 EB 2B                    jmp 0x6e
+0041                          Jump to 006E
 0043                          ShowMessage(04A2) = You fall into the abyss and die.
 0050                          ShowMessage(04C3) = With help, you might have been able to cross here.
 005D                          ax = GetMaxHits()
 0064                          DoDamage(ax)
-006E EB 38                    jmp 0xa8
+006E                          Jump to 00A8
 0070                          ax = CheckState(01, 01)
-0081 0B C0                    or ax, ax
-0083 74 12                    jz 0x97
+0081                          RefreshCompareFlags(ax)
+0083                          If (result.equal) value jump to 0097
 0085                          SetTileFloor(47, 00)
-0093 59                       pop cx
-0094 59                       pop cx
-0095 EB 11                    jmp 0xa8
+0093                          cx = Pop()
+0094                          cx = Pop()
+0095                          Jump to 00A8
 0097                          SetTileFloor(47, 01)
 00A8                          RETURN
 
@@ -38,8 +38,8 @@ XOVERON_03:
 0000                          BEGIN
 0003                          SetState(01, 01, 01)
 0018                          SetTileFloor(47, 00)
-0026 59                       pop cx
-0027 59                       pop cx
+0026                          cx = Pop()
+0027                          cx = Pop()
 0028                          ShowMessage(04F6) = Something strange happens!
 0035                          ShowMessage(0511) = When you step onto the stone, a magical platform appears nearby.
 0042                          RETURN
@@ -124,15 +124,15 @@ DRTOBALY_10:
 0000                          BEGIN
 0003                          ShowMessage(09C9) = This door locks out all except those who have the alley key.
 0010                          ax = UsedItem(E0, E0)
-0023 74 41                    jz 0x66
+0023                          If (result.equal) value jump to 0066
 0025                          Push(01)
 0029                          Push(03)
 002D                          ax = GetNextTile()
-0034 50                       push ax
+0034                          Push(ax)
 0035                          Move(stk[0], stk[1], stk[2])
 003F                          Push(03)
 0043                          ax = GetNextTile()
-004A 50                       push ax
+004A                          Push(ax)
 004B                          Push(01)
 004F                          SetUnblocked()
 0059                          ShowMessage(0A06) = Your key unlocks the door.
@@ -150,8 +150,8 @@ WINDHOLO_15:
 0010                          ShowMessage(0AC0) = ...and inflicting heavy damage.
 001D                          DoDamage(00C8)
 002A                          ax = GetCurrentHits()
-0031 0B C0                    or ax, ax
-0033 77 0D                    ja 0x42
+0031                          RefreshCompareFlags(ax)
+0033                          If (result.greaterthan) value jump to 0042
 0035                          ShowMessage(0AE0) = You have died.
 0042                          GoMap(03, BC, 01, 35)
 005D                          RETURN
@@ -170,26 +170,26 @@ ZEPHENCA_18:
 0027                          AddEncounter(19, 05)
 0039                          AddEncounter(19, 06)
 004B                          ax = HasItem(B4)
-0059 74 21                    jz 0x7c
+0059                          If (result.equal) value jump to 007C
 005B                          AddTreasure(03E8, 00, 00, 00, 00, D1)
-007A EB 21                    jmp 0x9d
+007A                          Jump to 009D
 007C                          AddTreasure(07D0, 00, 00, C8, B4, D0)
 009D                          RETURN
 
 ZEPHENCB_19:
 0000                          BEGIN
 0003                          ax = CheckState2(02, 79)
-0016 74 63                    jz 0x7b
+0016                          If (result.equal) value jump to 007B
 0018                          ax = HasItem(09)
-0026 75 10                    jnz 0x38
+0026                          If (result.notequal) value jump to 0038
 0028                          ax = HasItem(F0)
-0036 74 22                    jz 0x5a
+0036                          If (result.equal) value jump to 005A
 0038                          AddTreasure(1388, 00, 00, 00, B3, D0)
-0058 EB 1F                    jmp 0x79
+0058                          Jump to 0079
 005A                          AddTreasure(2710, 00, 00, 00, 00, F0)
-0079 EB 6F                    jmp 0xea
+0079                          Jump to 00EA
 007B                          ax = HasItem(E6)
-0089 74 5F                    jz 0xea
+0089                          If (result.equal) value jump to 00EA
 008B                          RemoveItem(E6)
 0097                          SetState(02, 79, 01)
 00AC                          AddTreasure(2710, 00, 00, 00, 00, F0)
@@ -217,13 +217,12 @@ ZEPHBLOW_1D:
 0000                          BEGIN
 0003                          ShowMessage(0CD0) = The Zephyr Wind gusts in fury, causing damage!
 0010                          ax = GetMaxHits()
-0017 BB 03 00                 mov bx, 0x3
-001A 99                       cwd
-001B F7 FB                    idiv bx
+0017                          bx = 0003
+001A                          ax = ax / bx (signed, dx = quotient)
 001D                          DoDamage(ax)
 0027                          ax = GetCurrentHits()
-002E 0B C0                    or ax, ax
-0030 77 0D                    ja 0x3f
+002E                          RefreshCompareFlags(ax)
+0030                          If (result.greaterthan) value jump to 003F
 0032                          ShowMessage(0CFF) = You have died.
 003F                          RETURN
 
@@ -255,9 +254,9 @@ DRLPENCC_20:
 0058                          AddEncounter(1A, 05)
 006A                          AddEncounter(1A, 06)
 007C                          ax = HasItem(DF)
-008A 74 21                    jz 0xad
+008A                          If (result.equal) value jump to 00AD
 008C                          AddTreasure(03E8, 00, 00, 00, 00, D1)
-00AB EB 21                    jmp 0xce
+00AB                          Jump to 00CE
 00AD                          AddTreasure(4E20, 00, 00, DF, 46, 6E)
 00CE                          RETURN
 
@@ -275,24 +274,24 @@ ZZYZENCA_21:
 SDRZZYZA_23:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0B 00                 cmp ax, 0xb
-0012 73 25                    jae 0x39
+000F                          compare(ax, 000B)
+0012                          If (result.greaterthan or result.equal) jump to 0039
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 15                    jnz 0x39
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 0039
 0024                          ax = UsedItem(BE, BE)
-0037 74 49                    jz 0x82
+0037                          If (result.equal) value jump to 0082
 0039                          ShowMessage(0DBF) = You detect a secret door in the wall.
 0046                          Push(01)
 004A                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0051 50                       push ax
+0051                          Push(ax)
 0052                          ax = GetNextTile()
-0059 50                       push ax
+0059                          Push(ax)
 005A                          Move(stk[0], stk[1], stk[2])
 0064                          ax = SetExitability(ax) // ax is usually 0 following equality check
-006B 50                       push ax
+006B                          Push(ax)
 006C                          ax = GetNextTile()
-0073 50                       push ax
+0073                          Push(ax)
 0074                          Push(01)
 0078                          SetUnblocked()
 0082                          RETURN
@@ -327,28 +326,28 @@ MGOVENCB_26:
 SDRMGOVA_28:
 0000                          BEGIN
 0003                          ax = GetGuild()
-000A 3D 05 00                 cmp ax, 0x5
-000D 74 03                    jz 0x12
-000F E9 7F 00                 jmp 0x91
+000A                          compare(ax, 0005)
+000D                          If (result.equal) value jump to 0012
+000F                          Jump to 0091
 0012                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-001E 3D 0C 00                 cmp ax, 0xc
-0021 73 25                    jae 0x48
+001E                          compare(ax, 000C)
+0021                          If (result.greaterthan or result.equal) jump to 0048
 0023                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-002F 0B C0                    or ax, ax
-0031 75 15                    jnz 0x48
+002F                          RefreshCompareFlags(ax)
+0031                          If (result.notequal) value jump to 0048
 0033                          ax = UsedItem(BE, BE)
-0046 74 49                    jz 0x91
+0046                          If (result.equal) value jump to 0091
 0048                          ShowMessage(0E0E) = You locate a hidden door in the wall.
 0055                          Push(01)
 0059                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0060 50                       push ax
+0060                          Push(ax)
 0061                          ax = GetNextTile()
-0068 50                       push ax
+0068                          Push(ax)
 0069                          Move(stk[0], stk[1], stk[2])
 0073                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007A 50                       push ax
+007A                          Push(ax)
 007B                          ax = GetNextTile()
-0082 50                       push ax
+0082                          Push(ax)
 0083                          Push(01)
 0087                          SetUnblocked()
 0091                          RETURN
@@ -373,44 +372,44 @@ VORAENCV_30:
 0000                          BEGIN
 0003                          ShowMessage(0E34) = A powerful Dwarf Thief stands before you. 'I am Voranti, Lord of Dwarf Thieves!  Fight me if you must, but you shall not find my secret treasure!  Do not fear, for I will provide decent burial when I am finished.'
 0010                          ax = GetRace()
-0017 3D 02 00                 cmp ax, 0x2
-001A 75 0D                    jnz 0x29
+0017                          compare(ax, 0002)
+001A                          If (result.notequal) value jump to 0029
 001C                          ShowMessage(0F0A) = Voranti's dark eyes glow bright with hatred. 'As for you, miserable Elf, my pet gargoyles will pick your bones clean.'
 0029                          ax = GetRace()
-0030 3D 04 00                 cmp ax, 0x4
-0033 75 0D                    jnz 0x42
+0030                          compare(ax, 0004)
+0033                          If (result.notequal) value jump to 0042
 0035                          ShowMessage(0F81) = Voranti smiles sadly. 'It saddens me that I must kill a fellow dwarf, but you have brought death upon yourself.'
 0042                          AddEncounter(1C, 01)
 0054                          AddEncounter(21, 05)
 0066                          ax = HasItem(ED)
-0074 74 21                    jz 0x97
+0074                          If (result.equal) value jump to 0097
 0076                          AddTreasure(1388, 00, 00, 00, 00, CC)
-0095 EB 1F                    jmp 0xb6
+0095                          Jump to 00B6
 0097                          AddTreasure(2710, 00, 00, 00, 00, ED)
 00B6                          RETURN
 
 SDRVORDW_31:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0B 00                 cmp ax, 0xb
-0012 73 25                    jae 0x39
+000F                          compare(ax, 000B)
+0012                          If (result.greaterthan or result.equal) jump to 0039
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 15                    jnz 0x39
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 0039
 0024                          ax = UsedItem(BE, BE)
-0037 74 49                    jz 0x82
+0037                          If (result.equal) value jump to 0082
 0039                          ShowMessage(0FF2) = You find a secret door in the wall.
 0046                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004D 50                       push ax
+004D                          Push(ax)
 004E                          ax = GetNextTile()
-0055 50                       push ax
+0055                          Push(ax)
 0056                          Push(01)
 005A                          SetUnblocked()
 0064                          Push(01)
 0068                          ax = SetExitability(ax) // ax is usually 0 following equality check
-006F 50                       push ax
+006F                          Push(ax)
 0070                          ax = GetNextTile()
-0077 50                       push ax
+0077                          Push(ax)
 0078                          Move(stk[0], stk[1], stk[2])
 0082                          RETURN
 
@@ -421,9 +420,9 @@ MOONENCA_32:
 0027                          AddEncounter(24, 03)
 0039                          AddEncounter(24, 04)
 004B                          ax = HasItem(BE)
-0059 74 22                    jz 0x7d
+0059                          If (result.equal) value jump to 007D
 005B                          AddTreasure(07D0, 00, 00, 00, D0, B7)
-007B EB 21                    jmp 0x9e
+007B                          Jump to 009E
 007D                          AddTreasure(1388, 00, 00, C6, D1, BE)
 009E                          RETURN
 
@@ -482,9 +481,9 @@ MOONENCG_38:
 0053                          AddEncounter(24, 05)
 0065                          AddEncounter(24, 06)
 0077                          ax = HasItem(EA)
-0085 74 21                    jz 0xa8
+0085                          If (result.equal) value jump to 00A8
 0087                          AddTreasure(2328, 00, 00, 00, 00, BB)
-00A6 EB 20                    jmp 0xc8
+00A6                          Jump to 00C8
 00A8                          AddTreasure(1388, 00, 00, 00, EA, 85)
 00C8                          RETURN
 
@@ -514,66 +513,66 @@ BDRMOONB_3E:
 0000                          BEGIN
 0003                          ShowMessage(10EA) = This door requires immense strength to open.
 0010                          ax = CheckStrength()
-001C 3D 15 00                 cmp ax, 0x15
-001F 72 49                    jb 0x6a
+001C                          compare(ax, 0015)
+001F                          If (result.lessthan) jump to 006A
 0021                          ShowMessage(1117) = You push against the door and barely manage to open it.
 002E                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0035 50                       push ax
+0035                          Push(ax)
 0036                          ax = GetNextTile()
-003D 50                       push ax
+003D                          Push(ax)
 003E                          Push(01)
 0042                          SetUnblocked()
 004C                          Push(01)
 0050                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0057 50                       push ax
+0057                          Push(ax)
 0058                          ax = GetNextTile()
-005F 50                       push ax
+005F                          Push(ax)
 0060                          Move(stk[0], stk[1], stk[2])
 006A                          RETURN
 
 SDRMOONC_3F:
 0000                          BEGIN
 0003                          ax = UsedItem(F2, F2)
-0016 74 49                    jz 0x61
+0016                          If (result.equal) value jump to 0061
 0018                          ShowMessage(114F) = Your Moon Prism reveals a secret door!
 0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002C 50                       push ax
+002C                          Push(ax)
 002D                          ax = GetNextTile()
-0034 50                       push ax
+0034                          Push(ax)
 0035                          Push(01)
 0039                          SetUnblocked()
 0043                          Push(01)
 0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004E 50                       push ax
+004E                          Push(ax)
 004F                          ax = GetNextTile()
-0056 50                       push ax
+0056                          Push(ax)
 0057                          Move(stk[0], stk[1], stk[2])
 0061                          RETURN
 
 SDRMOOND_40:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 0B 00                 cmp ax, 0xb
-0012 73 3A                    jae 0x4e
+000F                          compare(ax, 000B)
+0012                          If (result.greaterthan or result.equal) jump to 004E
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 2A                    jnz 0x4e
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 004E
 0024                          ax = UsedItem(A2, A2)
-0037 75 15                    jnz 0x4e
+0037                          If (result.notequal) value jump to 004E
 0039                          ax = UsedItem(BE, BE)
-004C 74 49                    jz 0x97
+004C                          If (result.equal) value jump to 0097
 004E                          ShowMessage(1176) = You find a door hidden in the wall.
 005B                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0062 50                       push ax
+0062                          Push(ax)
 0063                          ax = GetNextTile()
-006A 50                       push ax
+006A                          Push(ax)
 006B                          Push(01)
 006F                          SetUnblocked()
 0079                          Push(01)
 007D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0084 50                       push ax
+0084                          Push(ax)
 0085                          ax = GetNextTile()
-008C 50                       push ax
+008C                          Push(ax)
 008D                          Move(stk[0], stk[1], stk[2])
 0097                          RETURN
 
@@ -581,21 +580,21 @@ SDRMOONE_41:
 0000                          BEGIN
 0003                          ShowMessage(119A) = The signature of the spectrum appears on the wall.
 0010                          ax = UsedItem(BD, BD)
-0023 75 15                    jnz 0x3a
+0023                          If (result.notequal) value jump to 003A
 0025                          ax = UsedItem(BE, BE)
-0038 74 49                    jz 0x83
+0038                          If (result.equal) value jump to 0083
 003A                          ShowMessage(11CD) = In the wall is a secret door.
 0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004E 50                       push ax
+004E                          Push(ax)
 004F                          ax = GetNextTile()
-0056 50                       push ax
+0056                          Push(ax)
 0057                          Push(01)
 005B                          SetUnblocked()
 0065                          Push(01)
 0069                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0070 50                       push ax
+0070                          Push(ax)
 0071                          ax = GetNextTile()
-0078 50                       push ax
+0078                          Push(ax)
 0079                          Move(stk[0], stk[1], stk[2])
 0083                          RETURN
 
@@ -610,116 +609,116 @@ MOONENCM_42:
 SDRMOONF_43:
 0000                          BEGIN
 0003                          ax = GetGuild()
-000A 3D 02 00                 cmp ax, 0x2
-000D 74 03                    jz 0x12
-000F E9 7F 00                 jmp 0x91
+000A                          compare(ax, 0002)
+000D                          If (result.equal) value jump to 0012
+000F                          Jump to 0091
 0012                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-001E 3D 0A 00                 cmp ax, 0xa
-0021 73 25                    jae 0x48
+001E                          compare(ax, 000A)
+0021                          If (result.greaterthan or result.equal) jump to 0048
 0023                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-002F 0B C0                    or ax, ax
-0031 75 15                    jnz 0x48
+002F                          RefreshCompareFlags(ax)
+0031                          If (result.notequal) value jump to 0048
 0033                          ax = UsedItem(BE, BE)
-0046 74 49                    jz 0x91
+0046                          If (result.equal) value jump to 0091
 0048                          ShowMessage(11EB) = Your Ranger skills help you locate a door hidden in the wall.
 0055                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005C 50                       push ax
+005C                          Push(ax)
 005D                          ax = GetNextTile()
-0064 50                       push ax
+0064                          Push(ax)
 0065                          Push(01)
 0069                          SetUnblocked()
 0073                          Push(01)
 0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007E 50                       push ax
+007E                          Push(ax)
 007F                          ax = GetNextTile()
-0086 50                       push ax
+0086                          Push(ax)
 0087                          Move(stk[0], stk[1], stk[2])
 0091                          RETURN
 
 SDRMOONJ_44:
 0000                          BEGIN
 0003                          ax = GetGuild()
-000A 3D 04 00                 cmp ax, 0x4
-000D 74 03                    jz 0x12
-000F E9 7F 00                 jmp 0x91
+000A                          compare(ax, 0004)
+000D                          If (result.equal) value jump to 0012
+000F                          Jump to 0091
 0012                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-001E 3D 0A 00                 cmp ax, 0xa
-0021 73 25                    jae 0x48
+001E                          compare(ax, 000A)
+0021                          If (result.greaterthan or result.equal) jump to 0048
 0023                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-002F 0B C0                    or ax, ax
-0031 75 15                    jnz 0x48
+002F                          RefreshCompareFlags(ax)
+0031                          If (result.notequal) value jump to 0048
 0033                          ax = UsedItem(BE, BE)
-0046 74 49                    jz 0x91
+0046                          If (result.equal) value jump to 0091
 0048                          ShowMessage(1229) = Your holy calling allows you find a door hidden in the wall.
 0055                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005C 50                       push ax
+005C                          Push(ax)
 005D                          ax = GetNextTile()
-0064 50                       push ax
+0064                          Push(ax)
 0065                          Push(01)
 0069                          SetUnblocked()
 0073                          Push(01)
 0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007E 50                       push ax
+007E                          Push(ax)
 007F                          ax = GetNextTile()
-0086 50                       push ax
+0086                          Push(ax)
 0087                          Move(stk[0], stk[1], stk[2])
 0091                          RETURN
 
 BDRMOONK_45:
 0000                          BEGIN
 0003                          ax = CheckStrength()
-000F 3D 14 00                 cmp ax, 0x14
-0012 72 4B                    jb 0x5f
+000F                          compare(ax, 0014)
+0012                          If (result.lessthan) jump to 005F
 0014                          ShowMessage(1266) = You barely manage to force open the door.
 0021                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0028 50                       push ax
+0028                          Push(ax)
 0029                          ax = GetNextTile()
-0030 50                       push ax
+0030                          Push(ax)
 0031                          Push(01)
 0035                          SetUnblocked()
 003F                          Push(01)
 0043                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004A 50                       push ax
+004A                          Push(ax)
 004B                          ax = GetNextTile()
-0052 50                       push ax
+0052                          Push(ax)
 0053                          Move(stk[0], stk[1], stk[2])
-005D EB 48                    jmp 0xa7
+005D                          Jump to 00A7
 005F                          ShowMessage(1290) = The door is stuck shut.
 006C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0073 50                       push ax
+0073                          Push(ax)
 0074                          ax = GetNextTile()
-007B 50                       push ax
+007B                          Push(ax)
 007C                          Push(01)
 0080                          SetUnblocked()
 008A                          Push(00)
 008D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0094 50                       push ax
+0094                          Push(ax)
 0095                          ax = GetNextTile()
-009C 50                       push ax
+009C                          Push(ax)
 009D                          Move(stk[0], stk[1], stk[2])
 00A7                          RETURN
 
 SDRMOONM_46:
 0000                          BEGIN
 0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F 3D 08 00                 cmp ax, 0x8
-0012 73 25                    jae 0x39
+000F                          compare(ax, 0008)
+0012                          If (result.greaterthan or result.equal) jump to 0039
 0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020 0B C0                    or ax, ax
-0022 75 15                    jnz 0x39
+0020                          RefreshCompareFlags(ax)
+0022                          If (result.notequal) value jump to 0039
 0024                          ax = UsedItem(BE, BE)
-0037 74 49                    jz 0x82
+0037                          If (result.equal) value jump to 0082
 0039                          ShowMessage(12A8) = Your training helps you find a secret door in the wall.
 0046                          Push(01)
 004A                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0051 50                       push ax
+0051                          Push(ax)
 0052                          ax = GetNextTile()
-0059 50                       push ax
+0059                          Push(ax)
 005A                          Move(stk[0], stk[1], stk[2])
 0064                          ax = SetExitability(ax) // ax is usually 0 following equality check
-006B 50                       push ax
+006B                          Push(ax)
 006C                          ax = GetNextTile()
-0073 50                       push ax
+0073                          Push(ax)
 0074                          Push(01)
 0078                          SetUnblocked()
 0082                          RETURN
@@ -728,25 +727,25 @@ SDRMOONN_47:
 0000                          BEGIN
 0003                          ShowMessage(12E0) = You detect a door cleverly hidden in the wall.
 0010                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0017 50                       push ax
+0017                          Push(ax)
 0018                          ax = GetNextTile()
-001F 50                       push ax
+001F                          Push(ax)
 0020                          Push(01)
 0024                          SetUnblocked()
 002E                          Push(01)
 0032                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0039 50                       push ax
+0039                          Push(ax)
 003A                          ax = GetNextTile()
-0041 50                       push ax
+0041                          Push(ax)
 0042                          Move(stk[0], stk[1], stk[2])
 004C                          RETURN
 
 MOONTRSA_48:
 0000                          BEGIN
 0003                          ax = HasItem(F2)
-0011 74 0F                    jz 0x22
+0011                          If (result.equal) value jump to 0022
 0013                          ShowMessage(130F) = Piles of dirt cover the floor.
-0020 EB 2E                    jmp 0x50
+0020                          Jump to 0050
 0022                          GiveItem(F2)
 002E                          SetState(02, 46, 01)
 0043                          ShowMessage(132E) = You find a Moon Prism on the floor.
@@ -755,10 +754,10 @@ MOONTRSA_48:
 MOONTRSB_49:
 0000                          BEGIN
 0003                          ax = CheckState(02, 47)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 0F                    jnz 0x28
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0028
 0019                          ShowMessage(1352) = The floor is bare.
-0026 EB 2E                    jmp 0x56
+0026                          Jump to 0056
 0028                          GiveItem(37)
 0034                          SetState(02, 47, 01)
 0049                          ShowMessage(1365) = You find the Ranger Spear on the floor.
@@ -767,10 +766,10 @@ MOONTRSB_49:
 MOONTRSC_4A:
 0000                          BEGIN
 0003                          ax = CheckState(02, 48)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 0F                    jnz 0x28
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0028
 0019                          ShowMessage(138D) = There is nothing of interest in this area.
-0026 EB 2E                    jmp 0x56
+0026                          Jump to 0056
 0028                          GiveItem(3D)
 0034                          SetState(02, 48, 01)
 0049                          ShowMessage(13B8) = You find a Holy Halberd lying on the floor.
@@ -781,48 +780,48 @@ TORBFOUN_4B:
 0003                          ShowPortrait(0042)
 0010                          ShowMessage(13E4) = Pictorials of War are painted on the walls surrounding Torbriar's Fountain.
 001D                          ax = CheckState(02, 63)
-002E 0B C0                    or ax, ax
-0030 74 03                    jz 0x35
-0032 E9 47 01                 jmp 0x17c
+002E                          RefreshCompareFlags(ax)
+0030                          If (result.equal) value jump to 0035
+0032                          Jump to 017C
 0035                          SetState(02, 63, 01)
 004A                          ax = GetSkillLevel(08)
-0056 0B C0                    or ax, ax
-0058 75 21                    jnz 0x7b
+0056                          RefreshCompareFlags(ax)
+0058                          If (result.notequal) value jump to 007B
 005A                          SetSkillLevel(08, 02)
 006B                          ShowMessage(1430) = You gain the skill of Archery!
-0078 E9 FF 00                 jmp 0x17a
+0078                          Jump to 017A
 007B                          ax = GetSkillLevel(01)
-0087 0B C0                    or ax, ax
-0089 75 21                    jnz 0xac
+0087                          RefreshCompareFlags(ax)
+0089                          If (result.notequal) value jump to 00AC
 008B                          SetSkillLevel(01, 02)
 009C                          ShowMessage(144F) = You gain the skill of Clubs and Axes!
-00A9 E9 CE 00                 jmp 0x17a
+00A9                          Jump to 017A
 00AC                          ax = GetSkillLevel(05)
-00B8 0B C0                    or ax, ax
-00BA 75 21                    jnz 0xdd
+00B8                          RefreshCompareFlags(ax)
+00BA                          If (result.notequal) value jump to 00DD
 00BC                          SetSkillLevel(05, 02)
 00CD                          ShowMessage(1475) = You gain the skill of Swordsmanship!
-00DA E9 9D 00                 jmp 0x17a
+00DA                          Jump to 017A
 00DD                          ax = GetSkillLevel(0C)
-00E9 0B C0                    or ax, ax
-00EB 75 20                    jnz 0x10d
+00E9                          RefreshCompareFlags(ax)
+00EB                          If (result.notequal) value jump to 010D
 00ED                          SetSkillLevel(0C, 02)
 00FE                          ShowMessage(149A) = You gain the Bard skill!
-010B EB 6D                    jmp 0x17a
+010B                          Jump to 017A
 010D                          ax = GetSkillLevel(10)
-0119 0B C0                    or ax, ax
-011B 75 20                    jnz 0x13d
+0119                          RefreshCompareFlags(ax)
+011B                          If (result.notequal) value jump to 013D
 011D                          SetSkillLevel(10, 02)
 012E                          ShowMessage(14B3) = You gain the skill of Martial Arts!
-013B EB 3D                    jmp 0x17a
+013B                          Jump to 017A
 013D                          ax = GetSkillLevel(16)
-0149 0B C0                    or ax, ax
-014B 75 20                    jnz 0x16d
+0149                          RefreshCompareFlags(ax)
+014B                          If (result.notequal) value jump to 016D
 014D                          SetSkillLevel(16, 02)
 015E                          ShowMessage(14D7) = You gain the Channel skill!
-016B EB 0D                    jmp 0x17a
+016B                          Jump to 017A
 016D                          ShowMessage(14F3) = The waters have no effect.
-017A EB 0D                    jmp 0x189
+017A                          Jump to 0189
 017C                          ShowMessage(150E) = Dust fills the fountain basin.
 0189                          RETURN
 
@@ -834,12 +833,12 @@ TORBENCB_4C:
 0039                          AddEncounter(15, 05)
 004B                          AddEncounter(15, 06)
 005D                          ax = GetGuild()
-0064 0B C0                    or ax, ax
-0066 75 1F                    jnz 0x87
+0064                          RefreshCompareFlags(ax)
+0066                          If (result.notequal) value jump to 0087
 0068                          AddTreasure(03E8, 00, 00, 00, 00, 18)
 0087                          ax = GetGuild()
-008E 3D 01 00                 cmp ax, 0x1
-0091 75 1F                    jnz 0xb2
+008E                          compare(ax, 0001)
+0091                          If (result.notequal) value jump to 00B2
 0093                          AddTreasure(03E8, 00, 00, 00, 00, 11)
 00B2                          RETURN
 
@@ -859,28 +858,28 @@ TXTTORB_52:
 SDRTORBA_53:
 0000                          BEGIN
 0003                          ax = GetGuild()
-000A 3D 01 00                 cmp ax, 0x1
-000D 74 03                    jz 0x12
-000F E9 7F 00                 jmp 0x91
+000A                          compare(ax, 0001)
+000D                          If (result.equal) value jump to 0012
+000F                          Jump to 0091
 0012                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-001E 3D 08 00                 cmp ax, 0x8
-0021 73 25                    jae 0x48
+001E                          compare(ax, 0008)
+0021                          If (result.greaterthan or result.equal) jump to 0048
 0023                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-002F 0B C0                    or ax, ax
-0031 75 15                    jnz 0x48
+002F                          RefreshCompareFlags(ax)
+0031                          If (result.notequal) value jump to 0048
 0033                          ax = UsedItem(BE, BE)
-0046 74 49                    jz 0x91
+0046                          If (result.equal) value jump to 0091
 0048                          ShowMessage(15AA) = A secret door visible only to knights appears in the wall .
 0055                          Push(01)
 0059                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0060 50                       push ax
+0060                          Push(ax)
 0061                          ax = GetNextTile()
-0068 50                       push ax
+0068                          Push(ax)
 0069                          Move(stk[0], stk[1], stk[2])
 0073                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007A 50                       push ax
+007A                          Push(ax)
 007B                          ax = GetNextTile()
-0082 50                       push ax
+0082                          Push(ax)
 0083                          Push(01)
 0087                          SetUnblocked()
 0091                          RETURN
@@ -888,28 +887,28 @@ SDRTORBA_53:
 SDRTORBB_54:
 0000                          BEGIN
 0003                          ax = GetGuild()
-000A 0B C0                    or ax, ax
-000C 74 03                    jz 0x11
-000E E9 7F 00                 jmp 0x90
+000A                          RefreshCompareFlags(ax)
+000C                          If (result.equal) value jump to 0011
+000E                          Jump to 0090
 0011                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-001D 3D 08 00                 cmp ax, 0x8
-0020 73 25                    jae 0x47
+001D                          compare(ax, 0008)
+0020                          If (result.greaterthan or result.equal) jump to 0047
 0022                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-002E 0B C0                    or ax, ax
-0030 75 15                    jnz 0x47
+002E                          RefreshCompareFlags(ax)
+0030                          If (result.notequal) value jump to 0047
 0032                          ax = UsedItem(BE, BE)
-0045 74 49                    jz 0x90
+0045                          If (result.equal) value jump to 0090
 0047                          ShowMessage(15E6) = In the wall you find a hidden door.
 0054                          Push(01)
 0058                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005F 50                       push ax
+005F                          Push(ax)
 0060                          ax = GetNextTile()
-0067 50                       push ax
+0067                          Push(ax)
 0068                          Move(stk[0], stk[1], stk[2])
 0072                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0079 50                       push ax
+0079                          Push(ax)
 007A                          ax = GetNextTile()
-0081 50                       push ax
+0081                          Push(ax)
 0082                          Push(01)
 0086                          SetUnblocked()
 0090                          RETURN
@@ -919,8 +918,8 @@ TORBWIND_55:
 0003                          ShowMessage(160A) = The wind is nasty here!  You take 100 damage.
 0010                          DoDamage(0064)
 001D                          ax = GetCurrentHits()
-0024 0B C0                    or ax, ax
-0026 77 0D                    ja 0x35
+0024                          RefreshCompareFlags(ax)
+0026                          If (result.greaterthan) value jump to 0035
 0028                          ShowMessage(1638) = You have died.
 0035                          RETURN
 
@@ -934,13 +933,12 @@ VORAWIND_57:
 0000                          BEGIN
 0003                          ShowMessage(166E) = A violent whirlwind pounds you, taking half your health!
 0010                          ax = GetCurrentHits()
-0017 BB 02 00                 mov bx, 0x2
-001A 99                       cwd
-001B F7 FB                    idiv bx
+0017                          bx = 0002
+001A                          ax = ax / bx (signed, dx = quotient)
 001D                          DoDamage(ax)
 0027                          ax = GetCurrentHits()
-002E 0B C0                    or ax, ax
-0030 77 0D                    ja 0x3f
+002E                          RefreshCompareFlags(ax)
+0030                          If (result.greaterthan) value jump to 003F
 0032                          ShowMessage(16A7) = You have died.
 003F                          RETURN
 

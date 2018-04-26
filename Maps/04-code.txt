@@ -46,18 +46,18 @@ STAIRSDN_09:
 LKPKDOOR_0A:
 0000                          BEGIN
 0003                          ax = UsedItem(C0, C4)
-0016 75 11                    jnz 0x29
+0016                          If (result.notequal) value jump to 0029
 0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-0024 3D 04 00                 cmp ax, 0x4
-0027 72 3F                    jb 0x68
+0024                          compare(ax, 0004)
+0027                          If (result.lessthan) jump to 0068
 0029                          Move(01, 03, 6F)
 003F                          Push(03)
 0043                          ax = GetNextTile()
-004A 50                       push ax
+004A                          Push(ax)
 004B                          Push(01)
 004F                          SetUnblocked()
 0059                          ShowMessage(046F) = You successfully picked the locked door.
-0066 EB 22                    jmp 0x8a
+0066                          Jump to 008A
 0068                          Push(00)
 006B                          Push(03)
 006F                          Push(6F)
@@ -73,18 +73,18 @@ TELEPORT_0B:
 LKPKDOOR_0C:
 0000                          BEGIN
 0003                          ax = UsedItem(C2, C4)
-0016 75 11                    jnz 0x29
+0016                          If (result.notequal) value jump to 0029
 0018                          ax = UsedSkill(0E) // returns 0 if did not use, compares to 2nd op if did use
-0024 3D 08 00                 cmp ax, 0x8
-0027 72 3F                    jb 0x68
+0024                          compare(ax, 0008)
+0027                          If (result.lessthan) jump to 0068
 0029                          Move(01, 03, 40)
 003F                          Push(03)
 0043                          ax = GetNextTile()
-004A 50                       push ax
+004A                          Push(ax)
 004B                          Push(01)
 004F                          SetUnblocked()
 0059                          ShowMessage(04AC) = You successfully picked the locked door.
-0066 EB 22                    jmp 0x8a
+0066                          Jump to 008A
 0068                          Push(00)
 006B                          Push(03)
 006F                          Push(40)
@@ -122,11 +122,11 @@ NPCCHATA_12:
 0003                          ShowMessage(05B3) = You encounter a Gnome Barbarian.
 0010                          ShowPortrait(0019)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 08 00                 cmp ax, 0x8
-002D 77 1C                    ja 0x4b
+002A                          compare(ax, 0008)
+002D                          If (result.greaterthan) value jump to 004B
 002F                          ShowMessage(05D4) = My father told me an ancient story. A Galabryan king once brought a powerful wizard to Twinion. This wizard did something very bad and caused the volcano to erupt.
 003C                          ShowMessage(0678) = Supposedly the wizard's castle is buried deep in the bowels of this mountain. It is his anguished spirit that keeps the volcano active.
-0049 EB 0D                    jmp 0x58
+0049                          Jump to 0058
 004B                          ShowMessage(0700) = The Gnome Barbarian ignores you as he tries to remember his own name.
 0058                          RETURN
 
@@ -135,10 +135,10 @@ NPCCHATB_13:
 0003                          ShowMessage(0746) = You encounter a Dwarf Wizard.
 0010                          ShowPortrait(002C)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 0C 00                 cmp ax, 0xc
-002D 77 0F                    ja 0x3e
+002A                          compare(ax, 000C)
+002D                          If (result.greaterthan) value jump to 003E
 002F                          ShowMessage(0764) = Powerful magic once existed here. I've found scrolls and amulets and other magic charms that contain powerful spells. The Mana in these items is soon exhausted.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          TeachSpell(12, 01)
 004F                          ShowMessage(0805) = The Dwarf Wizard offers to teach you the Bless spell since you didn't hurt her.
 005C                          RETURN
@@ -148,10 +148,10 @@ NPCCHATC_14:
 0003                          ShowMessage(0855) = You encounter a Halfling Ranger.
 0010                          ShowPortrait(0021)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 0D 00                 cmp ax, 0xd
-002D 77 0F                    ja 0x3e
+002A                          compare(ax, 000D)
+002D                          If (result.greaterthan) value jump to 003E
 002F                          ShowMessage(0876) = This place is called the Hall of Doors. Most doors lead nowhere. Others lead to wonders.
-003C EB 0D                    jmp 0x4b
+003C                          Jump to 004B
 003E                          ShowMessage(08CF) = The Halfling Ranger wanders off in pursuit of friends.
 004B                          RETURN
 
@@ -160,10 +160,10 @@ NPCCHATD_15:
 0003                          ShowMessage(0906) = You encounter a Troll Cleric.
 0010                          ShowPortrait(0028)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 06 00                 cmp ax, 0x6
-002D 77 0F                    ja 0x3e
+002A                          compare(ax, 0006)
+002D                          If (result.greaterthan) value jump to 003E
 002F                          ShowMessage(0924) = Someone left a rune message on the floor. It said that to reach the King's Apartments, you must take a turn for the worse. I wonder if it means that you must be sick to find his quarters.
-003C EB 0D                    jmp 0x4b
+003C                          Jump to 004B
 003E                          ShowMessage(09E0) = The Troll Cleric is too busy counting her blessings to speak to you.
 004B                          RETURN
 
@@ -172,10 +172,10 @@ NPCCHATE_16:
 0003                          ShowMessage(0A25) = You encounter a Troll Knight.
 0010                          ShowPortrait(001B)
 001D                          ax = UnknownFunctionEC(000F)
-002A 3D 0B 00                 cmp ax, 0xb
-002D 77 0F                    ja 0x3e
+002A                          compare(ax, 000B)
+002D                          If (result.greaterthan) value jump to 003E
 002F                          ShowMessage(0A43) = A wise leader knows how to organize a party. Keep your fighters in front and your magicians safely in the rear. And as much as thieves are despised in general, they can serve you well, for their skills are impressive.
-003C EB 1E                    jmp 0x5c
+003C                          Jump to 005C
 003E                          ModifyGold(000A)
 004F                          ShowMessage(0B1D) = The Troll Knight gives you 10 Gold Pieces and departs in peace.
 005C                          RETURN
@@ -183,14 +183,14 @@ NPCCHATE_16:
 LOWMNSTR_17:
 0000                          BEGIN
 0003                          ax = PartyCount()
-000B 3D 01 00                 cmp ax, 0x1
-000E 74 0D                    jz 0x1d
+000B                          compare(ax, 0001)
+000E                          If (result.equal) value jump to 001D
 0010                          ax = PartyCount()
-0018 3D 02 00                 cmp ax, 0x2
-001B 75 26                    jnz 0x43
+0018                          compare(ax, 0002)
+001B                          If (result.notequal) value jump to 0043
 001D                          AddEncounter(1A, 01)
 002F                          AddEncounter(1A, 02)
-0041 EB 48                    jmp 0x8b
+0041                          Jump to 008B
 0043                          AddEncounter(1A, 01)
 0055                          AddEncounter(1A, 02)
 0067                          AddEncounter(1B, 03)
@@ -201,25 +201,25 @@ LWRMNSTR_18:
 0000                          BEGIN
 0003                          ShowMessage(0B5D) = You encounter Goblins.
 0010                          ax = UnknownFunctionEC(000F)
-001D 3D 04 00                 cmp ax, 0x4
-0020 77 0F                    ja 0x31
+001D                          compare(ax, 0004)
+0020                          If (result.greaterthan) value jump to 0031
 0022                          ShowMessage(0B74) = You should be gracious to us Goblins, or we will tell our masters the Goblin Kings that you are cruel and deserve to die most horribly.
-002F EB 1A                    jmp 0x4b
+002F                          Jump to 004B
 0031                          ShowMessage(0BFC) = The Goblins refuse to talk.
 003E                          ShowMessage(0C18) = They draw their weapons and attack!
 004B                          ax = PartyCount()
-0053 3D 01 00                 cmp ax, 0x1
-0056 75 27                    jnz 0x7f
+0053                          compare(ax, 0001)
+0056                          If (result.notequal) value jump to 007F
 0058                          AddEncounter(1C, 01)
 006A                          AddEncounter(1C, 02)
-007C E9 9F 00                 jmp 0x11e
+007C                          Jump to 011E
 007F                          ax = PartyCount()
-0087 3D 02 00                 cmp ax, 0x2
-008A 75 38                    jnz 0xc4
+0087                          compare(ax, 0002)
+008A                          If (result.notequal) value jump to 00C4
 008C                          AddEncounter(1D, 01)
 009E                          AddEncounter(1C, 02)
 00B0                          AddEncounter(1C, 03)
-00C2 EB 5A                    jmp 0x11e
+00C2                          Jump to 011E
 00C4                          AddEncounter(1E, 01)
 00D6                          AddEncounter(1E, 02)
 00E8                          AddEncounter(1D, 03)
@@ -230,15 +230,15 @@ LWRMNSTR_18:
 OGREENC_19:
 0000                          BEGIN
 0003                          ax = PartyCount()
-000B 3D 01 00                 cmp ax, 0x1
-000E 74 0D                    jz 0x1d
+000B                          compare(ax, 0001)
+000E                          If (result.equal) value jump to 001D
 0010                          ax = PartyCount()
-0018 3D 02 00                 cmp ax, 0x2
-001B 75 38                    jnz 0x55
+0018                          compare(ax, 0002)
+001B                          If (result.notequal) value jump to 0055
 001D                          AddEncounter(21, 01)
 002F                          AddEncounter(28, 02)
 0041                          AddEncounter(23, 03)
-0053 EB 6C                    jmp 0xc1
+0053                          Jump to 00C1
 0055                          AddEncounter(1F, 01)
 0067                          AddEncounter(20, 02)
 0079                          AddEncounter(21, 03)
@@ -251,23 +251,23 @@ TUFMNSTR_1A:
 0000                          BEGIN
 0003                          ShowMessage(0C3C) = You encounter Rogues.
 0010                          ax = UnknownFunctionEC(000F)
-001D 3D 03 00                 cmp ax, 0x3
-0020 77 0F                    ja 0x31
+001D                          compare(ax, 0003)
+0020                          If (result.greaterthan) value jump to 0031
 0022                          ShowMessage(0C52) = Bizarre creatures haunt this dungeon. Many know magic. A great evil must exist somewhere in the dungeon to spawn such a neverending host of monsters.
-002F EB 1A                    jmp 0x4b
+002F                          Jump to 004B
 0031                          ShowMessage(0CE8) = The Rogues refuse to talk.
 003E                          ShowMessage(0D03) = They charge at you!
 004B                          ax = PartyCount()
-0053 3D 01 00                 cmp ax, 0x1
-0056 75 14                    jnz 0x6c
+0053                          compare(ax, 0001)
+0056                          If (result.notequal) value jump to 006C
 0058                          AddEncounter(22, 01)
-006A EB 7B                    jmp 0xe7
+006A                          Jump to 00E7
 006C                          ax = PartyCount()
-0074 3D 02 00                 cmp ax, 0x2
-0077 75 26                    jnz 0x9f
+0074                          compare(ax, 0002)
+0077                          If (result.notequal) value jump to 009F
 0079                          AddEncounter(23, 01)
 008B                          AddEncounter(23, 02)
-009D EB 48                    jmp 0xe7
+009D                          Jump to 00E7
 009F                          AddEncounter(24, 01)
 00B1                          AddEncounter(24, 02)
 00C3                          AddEncounter(23, 03)
@@ -279,16 +279,16 @@ STRMNSTR_1B:
 0003                          ShowMessage(0D17) = You encounter Rogues!
 0010                          ShowMessage(0D2D) = The Rogues scowl at you and attack!
 001D                          ax = PartyCount()
-0025 3D 01 00                 cmp ax, 0x1
-0028 75 14                    jnz 0x3e
+0025                          compare(ax, 0001)
+0028                          If (result.notequal) value jump to 003E
 002A                          AddEncounter(28, 01)
-003C EB 7B                    jmp 0xb9
+003C                          Jump to 00B9
 003E                          ax = PartyCount()
-0046 3D 02 00                 cmp ax, 0x2
-0049 75 26                    jnz 0x71
+0046                          compare(ax, 0002)
+0049                          If (result.notequal) value jump to 0071
 004B                          AddEncounter(25, 01)
 005D                          AddEncounter(27, 02)
-006F EB 48                    jmp 0xb9
+006F                          Jump to 00B9
 0071                          AddEncounter(27, 01)
 0083                          AddEncounter(25, 02)
 0095                          AddEncounter(28, 03)
@@ -298,32 +298,32 @@ STRMNSTR_1B:
 WEAPENC_1C:
 0000                          BEGIN
 0003                          ax = CheckState(02, 06)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 2E                    jnz 0x47
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0047
 0019                          AddTreasure(0190, 00, 00, 00, 00, CE)
 0038                          ShowMessage(0D51) = It looks like the Rogues you encounter have already looted the room.
-0045 EB 42                    jmp 0x89
+0045                          Jump to 0089
 0047                          AddTreasure(05DC, 00, 00, 00, 0C, 05)
 0067                          SetState(02, 06, 01)
 007C                          ShowMessage(0D96) = Rogues covet the Sword of the Flames and Sword of Decision you see lying on the floor.
 0089                          ax = PartyCount()
-0091 3D 01 00                 cmp ax, 0x1
-0094 75 15                    jnz 0xab
+0091                          compare(ax, 0001)
+0094                          If (result.notequal) value jump to 00AB
 0096                          AddEncounter(26, 01)
-00A8 E9 D3 00                 jmp 0x17e
+00A8                          Jump to 017E
 00AB                          ax = PartyCount()
-00B3 3D 02 00                 cmp ax, 0x2
-00B6 75 27                    jnz 0xdf
+00B3                          compare(ax, 0002)
+00B6                          If (result.notequal) value jump to 00DF
 00B8                          AddEncounter(25, 01)
 00CA                          AddEncounter(26, 02)
-00DC E9 9F 00                 jmp 0x17e
+00DC                          Jump to 017E
 00DF                          ax = PartyCount()
-00E7 3D 03 00                 cmp ax, 0x3
-00EA 75 38                    jnz 0x124
+00E7                          compare(ax, 0003)
+00EA                          If (result.notequal) value jump to 0124
 00EC                          AddEncounter(28, 01)
 00FE                          AddEncounter(24, 02)
 0110                          AddEncounter(25, 03)
-0122 EB 5A                    jmp 0x17e
+0122                          Jump to 017E
 0124                          AddEncounter(25, 01)
 0136                          AddEncounter(27, 02)
 0148                          AddEncounter(26, 03)
@@ -334,23 +334,23 @@ WEAPENC_1C:
 GOLDENC_1D:
 0000                          BEGIN
 0003                          ax = CheckState(02, 07)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 2E                    jnz 0x47
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0047
 0019                          AddTreasure(0064, 00, 00, 00, 00, CB)
 0038                          ShowMessage(0DED) = Goblins grab their weapons as you enter the room.
-0045 EB 42                    jmp 0x89
+0045                          Jump to 0089
 0047                          AddTreasure(03E8, 00, 00, 00, CB, B5)
 0067                          SetState(02, 07, 01)
 007C                          ShowMessage(0E1F) = Goblins are pitching Gold Pieces against the wall.
 0089                          ax = PartyCount()
-0091 3D 01 00                 cmp ax, 0x1
-0094 74 0D                    jz 0xa3
+0091                          compare(ax, 0001)
+0094                          If (result.equal) value jump to 00A3
 0096                          ax = PartyCount()
-009E 3D 02 00                 cmp ax, 0x2
-00A1 75 26                    jnz 0xc9
+009E                          compare(ax, 0002)
+00A1                          If (result.notequal) value jump to 00C9
 00A3                          AddEncounter(1D, 01)
 00B5                          AddEncounter(1C, 02)
-00C7 EB 48                    jmp 0x111
+00C7                          Jump to 0111
 00C9                          AddEncounter(1C, 01)
 00DB                          AddEncounter(1C, 02)
 00ED                          AddEncounter(1D, 03)
@@ -360,32 +360,32 @@ GOLDENC_1D:
 MAGICENC_1E:
 0000                          BEGIN
 0003                          ax = CheckState(02, 08)
-0014 3D 01 00                 cmp ax, 0x1
-0017 75 2F                    jnz 0x48
+0014                          compare(ax, 0001)
+0017                          If (result.notequal) value jump to 0048
 0019                          AddTreasure(0078, 00, 00, 00, CB, B5)
 0039                          ShowMessage(0E52) = Ogres grimace in pleasure as you walk into their ambush.
-0046 EB 43                    jmp 0x8b
+0046                          Jump to 008B
 0048                          AddTreasure(1388, 00, 00, C5, 8A, 8E)
 0069                          SetState(02, 08, 01)
 007E                          ShowMessage(0E8B) = Ogres are playing with items you identify as the Ring of Vigor, a Cudgel Insignia, and the Wand of Radiance.
 008B                          ax = PartyCount()
-0093 3D 01 00                 cmp ax, 0x1
-0096 75 15                    jnz 0xad
+0093                          compare(ax, 0001)
+0096                          If (result.notequal) value jump to 00AD
 0098                          AddEncounter(1F, 01)
-00AA E9 D3 00                 jmp 0x180
+00AA                          Jump to 0180
 00AD                          ax = PartyCount()
-00B5 3D 02 00                 cmp ax, 0x2
-00B8 75 27                    jnz 0xe1
+00B5                          compare(ax, 0002)
+00B8                          If (result.notequal) value jump to 00E1
 00BA                          AddEncounter(21, 01)
 00CC                          AddEncounter(20, 02)
-00DE E9 9F 00                 jmp 0x180
+00DE                          Jump to 0180
 00E1                          ax = PartyCount()
-00E9 3D 03 00                 cmp ax, 0x3
-00EC 75 38                    jnz 0x126
+00E9                          compare(ax, 0003)
+00EC                          If (result.notequal) value jump to 0126
 00EE                          AddEncounter(1F, 01)
 0100                          AddEncounter(20, 02)
 0112                          AddEncounter(21, 03)
-0124 EB 5A                    jmp 0x180
+0124                          Jump to 0180
 0126                          AddEncounter(1F, 01)
 0138                          AddEncounter(1F, 02)
 014A                          AddEncounter(20, 03)

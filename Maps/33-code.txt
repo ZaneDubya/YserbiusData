@@ -29,12 +29,12 @@ ENCWINTR_04:
 001D                          ShowMessage(0583) = The sky above you darkens and dark clouds mass together. Tornadoes swirl around you.  Hurricane winds beat against you.  The clouds shine with the endless flash of lightning.
 002A                          ShowMessage(0632) = The winds rip at your weapons.
 0037                          ax = GetWeapon()
-003F 3D 09 00                 cmp ax, 0x9
-0042 74 20                    jz 0x64
+003F                          compare(ax, 0009)
+0042                          If (result.equal) value jump to 0064
 0044                          ShowMessage(0651) = Your weapon snaps in the wind!  It is gone.
 0051                          ax = GetWeapon()
 0059                          RemoveItem(ax)
-0062 EB 0D                    jmp 0x71
+0062                          Jump to 0071
 0064                          ShowMessage(067D) = The Wind Sword resists the winds!  It will indeed be a good fight!
 0071                          ShowMessage(06C0) = You notice En-Li-Kil, the Time Elemental, vanish.
 007E                          AddEncounter(19, 01)
