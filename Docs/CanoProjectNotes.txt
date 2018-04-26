@@ -1,23 +1,23 @@
 If I was to use the existing Yserbius resource files to bootstrap a new Cano
 Client/Server, I would use these files:
 
-Files                       Desc                          Use?
-ANIM_SEQ                    Animation Sequence            Yes
-HELP.DAT                    Strings                       Yes
-Images.dat                  Textures                      Yes
-Main.tsu                    Textures                      Yes
-Palette.dat                 Palette                       Yes
-TITLIMG.DAT,TITLPAL.DAT     Textures,Palette              Yes
-Walls.dat                   Textures                      Yes
-RESOURCE.001-RESOURCE.034   Online map scripts            Yes
-RESOURCE.035                Map layouts                   Yes
-RESOURCE.036                Encounter/Monster/Randoms     Yes
-RESOURCE.037                Skills/Spells                 Yes
-RESOURCE.038                Items                         Yes
-RESOURCE.039                Progression                   Yes
-RESOURCE.049                Text                          YES
-RESOURCE.041-RESOURCE.053   Offline map scripts           Yes
-RESOURCE.054                Progression offline           YES  
+Files                       Desc                          Include
+ANIM_SEQ                    Animation Sequence            As is
+HELP.DAT                    Strings                       As is
+Images.dat                  Textures                      As is
+Main.tsu                    Textures                      As is
+Palette.dat                 Palette                       As is
+TITLIMG.DAT,TITLPAL.DAT     Textures,Palette              As is
+Walls.dat                   Textures                      As is
+RESOURCE.001-RESOURCE.034   Online map scripts            Reinterpret scripts
+RESOURCE.035                Map layouts                   As is
+RESOURCE.036                Encounter/Monster/Randoms     As is
+RESOURCE.037                Skills/Spells                 As is
+RESOURCE.038                Items                         As is
+RESOURCE.039                Progression                   As is
+RESOURCE.049                Text                          As is
+RESOURCE.041-RESOURCE.053   Offline map scripts           Reinterpret scripts
+RESOURCE.054                Progression offline           As is
 CGENN.EXE                   Gallery/Keep                  Strings only
 DARKSTRT.EXE                TSN Main exe                  Strings only
 Title.exe                   Exe                           Strings only
