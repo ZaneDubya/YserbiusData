@@ -1,107 +1,834 @@
 VOID_01:
-0000                          BEGIN
-0003                          ShowMessage(03FC) = The Ageless Void swallows you whole.
-0010                          ShowMessage(0421) = Time freezes forever in your mind.  To the rest of the world, you are dead.
-001D                          ax = GetMaxHits()
-0024                          DoDamage(ax)
-002E                          RETURN
+0008  0000        BEGIN
+000B  0003        ShowMessage(0x03FC) = The Ageless Void swallows you whole.
+0018  0010        ShowMessage(0x0421) = Time freezes forever in your mind.  To the rest of the world, you are dead.
+0025  001D        ax = GetMaxHits()
+002C  0024        DoDamage(ax)
+0036  002E        RETURN
 
 ISLEETRN_02:
-0000                          BEGIN
-0003                          ShowMessage(046D) = The Island of Eternity sits at the edge of time.
-0010                          ShowMessage(049E) = Along its edge is the Ageless Void, a vastness where time does not exist.
-001D                          RETURN
+0038  0000        BEGIN
+003B  0003        ShowMessage(0x046D) = The Island of Eternity sits at the edge of time.
+0048  0010        ShowMessage(0x049E) = Along its edge is the Ageless Void, a vastness where time does not exist.
+0055  001D        RETURN
 
 ENCSELF_03:
-0000                          BEGIN
-0003                          AddEncounter(19, 01)
-0015                          AddEncounter(19, 02)
-0027                          AddEncounter(19, 03)
-0039                          AddEncounter(19, 04)
-004B                          AddEncounter(1A, 05)
-005D                          AddEncounter(1A, 06)
-006F                          RETURN
+0057  0000        BEGIN
+005A  0003        AddEncounter(0x19, 0x01)
+006C  0015        AddEncounter(0x19, 0x02)
+007E  0027        AddEncounter(0x19, 0x03)
+0090  0039        AddEncounter(0x19, 0x04)
+00A2  004B        AddEncounter(0x1A, 0x05)
+00B4  005D        AddEncounter(0x1A, 0x06)
+00C6  006F        RETURN
 
 ENCWINTR_04:
-0000                          BEGIN
-0003                          ShowMessage(04E8) = A titanic Elemental appears!
-0010                          ShowMessage(0505) = 'You have gotten past Zephyr, Tempest, ZZyzx, Heaven's Fury, and all other winds.  But now you face your greatest challenge!'
-001D                          ShowMessage(0583) = The sky above you darkens and dark clouds mass together. Tornadoes swirl around you.  Hurricane winds beat against you.  The clouds shine with the endless flash of lightning.
-002A                          ShowMessage(0632) = The winds rip at your weapons.
-0037                          ax = GetWeapon()
-003F                          compare(ax, 0009)
-0042                          If (result.equal) value jump to 0064
-0044                          ShowMessage(0651) = Your weapon snaps in the wind!  It is gone.
-0051                          ax = GetWeapon()
-0059                          RemoveItem(ax)
-0062                          Jump to 0071
-0064                          ShowMessage(067D) = The Wind Sword resists the winds!  It will indeed be a good fight!
-0071                          ShowMessage(06C0) = You notice En-Li-Kil, the Time Elemental, vanish.
-007E                          AddEncounter(19, 01)
-0090                          AddEncounter(19, 02)
-00A2                          AddEncounter(19, 03)
-00B4                          AddEncounter(19, 04)
-00C6                          AddEncounter(1B, 06)
-00D8                          RETURN
+00C8  0000        BEGIN
+00CB  0003        ShowMessage(0x04E8) = A titanic Elemental appears!
+00D8  0010        ShowMessage(0x0505) = 'You have gotten past Zephyr, Tempest, ZZyzx, Heaven's Fury, and all other winds.  But now you face your greatest challenge!'
+00E5  001D        ShowMessage(0x0583) = The sky above you darkens and dark clouds mass together. Tornadoes swirl around you.  Hurricane winds beat against you.  The clouds shine with the endless flash of lightning.
+00F2  002A        ShowMessage(0x0632) = The winds rip at your weapons.
+00FF  0037        ax = GetWeapon()
+0107  003F        compare(ax, 0x0009)
+010A  0042        If (result.equal) jump to 0064
+010C  0044        ShowMessage(0x0651) = Your weapon snaps in the wind!  It is gone.
+0119  0051        ax = GetWeapon()
+0121  0059        RemoveItem(ax)
+012A  0062        Jump to 0071
+012C  0064        ShowMessage(0x067D) = The Wind Sword resists the winds!  It will indeed be a good fight!
+0139  0071        ShowMessage(0x06C0) = You notice En-Li-Kil, the Time Elemental, vanish.
+0146  007E        AddEncounter(0x19, 0x01)
+0158  0090        AddEncounter(0x19, 0x02)
+016A  00A2        AddEncounter(0x19, 0x03)
+017C  00B4        AddEncounter(0x19, 0x04)
+018E  00C6        AddEncounter(0x1B, 0x06)
+01A0  00D8        RETURN
 
 RAINRED_05:
-0000                          BEGIN
-0003                          ShowMessage(06F2) = A streak of Red crosses the Ageless Void.
-0010                          GoMap(02, 97, 03, 38)
-002B                          RETURN
+01A2  0000        BEGIN
+01A5  0003        ShowMessage(0x06F2) = A streak of Red crosses the Ageless Void.
+01B2  0010        GoMap(0x02, 0x97, 0x03, 0x38)
+01CD  002B        RETURN
 
 RAINYEL_06:
-0000                          BEGIN
-0003                          ShowMessage(071C) = A streak of Yellow crosses the Ageless Void.
-0010                          GoMap(02, 87, 03, 38)
-002B                          RETURN
+01CF  0000        BEGIN
+01D2  0003        ShowMessage(0x071C) = A streak of Yellow crosses the Ageless Void.
+01DF  0010        GoMap(0x02, 0x87, 0x03, 0x38)
+01FA  002B        RETURN
 
 RAINGRN_07:
-0000                          BEGIN
-0003                          ShowMessage(0749) = A streak of Green crosses the Ageless Void.
-0010                          GoMap(02, 77, 03, 38)
-002B                          RETURN
+01FC  0000        BEGIN
+01FF  0003        ShowMessage(0x0749) = A streak of Green crosses the Ageless Void.
+020C  0010        GoMap(0x02, 0x77, 0x03, 0x38)
+0227  002B        RETURN
 
 RAINBLU_08:
-0000                          BEGIN
-0003                          ShowMessage(0775) = A streak of Blue crosses the Ageless Void.
-0010                          GoMap(02, 67, 03, 38)
-002B                          RETURN
+0229  0000        BEGIN
+022C  0003        ShowMessage(0x0775) = A streak of Blue crosses the Ageless Void.
+0239  0010        GoMap(0x02, 0x67, 0x03, 0x38)
+0254  002B        RETURN
 
 ENCTIME_09:
-0000                          BEGIN
-0003                          ShowMessage(07A0) = Threads of blinding light appear from all directions, bending and weaving into a tight spiral before you.
-0010                          ShowMessage(080A) = From within the luminary vortex, an ageless elemental appears.
-001D                          ShowMessage(0849) = 'I am Time, I am En-Li-Kil.  I have seen the birth of the universe and I will mark its death.'
-002A                          ShowMessage(08A8) = His face turns with age, then glows bright red.
-0037                          ShowMessage(08D8) = 'Arnakkian summoned me to this realm -- to watch over his soul -- to make him immortal.  He lost his body and his castle for his lust.
-0044                          ShowMessage(095F) = Mortal!  You have no business in the affairs of Time. I waste myself no more, my Wind Elemental will deal with you.'
-0051                          RETURN
+0256  0000        BEGIN
+0259  0003        ShowMessage(0x07A0) = Threads of blinding light appear from all directions, bending and weaving into a tight spiral before you.
+0266  0010        ShowMessage(0x080A) = From within the luminary vortex, an ageless elemental appears.
+0273  001D        ShowMessage(0x0849) = 'I am Time, I am En-Li-Kil.  I have seen the birth of the universe and I will mark its death.'
+0280  002A        ShowMessage(0x08A8) = His face turns with age, then glows bright red.
+028D  0037        ShowMessage(0x08D8) = 'Arnakkian summoned me to this realm -- to watch over his soul -- to make him immortal.  He lost his body and his castle for his lust.
+029A  0044        ShowMessage(0x095F) = Mortal!  You have no business in the affairs of Time. I waste myself no more, my Wind Elemental will deal with you.'
+02A7  0051        RETURN
 
 TELENW_0A:
-0000                          BEGIN
-0003                          ShowMessage(09D4) = You enter another dimension.
-0010                          GoMap(01, 54, 01, 39)
-002B                          RETURN
+02A9  0000        BEGIN
+02AC  0003        ShowMessage(0x09D4) = You enter another dimension.
+02B9  0010        GoMap(0x01, 0x54, 0x01, 0x39)
+02D4  002B        RETURN
 
 TELENE_0B:
-0000                          BEGIN
-0003                          ShowMessage(09F1) = You enter another dimension.
-0010                          GoMap(00, 4A, 01, 39)
-002A                          RETURN
+02D6  0000        BEGIN
+02D9  0003        ShowMessage(0x09F1) = You enter another dimension.
+02E6  0010        GoMap(00, 0x4A, 0x01, 0x39)
+0300  002A        RETURN
 
 TELESE_0C:
-0000                          BEGIN
-0003                          ShowMessage(0A0E) = You enter another dimension.
-0010                          GoMap(03, AB, 01, 39)
-002B                          RETURN
+0302  0000        BEGIN
+0305  0003        ShowMessage(0x0A0E) = You enter another dimension.
+0312  0010        GoMap(0x03, 0xAB, 0x01, 0x39)
+032D  002B        RETURN
 
 TELESW_0D:
-0000                          BEGIN
-0003                          ShowMessage(0A2B) = You enter another dimension.
-0010                          GoMap(02, B5, 01, 39)
-002B                          RETURN
+032F  0000        BEGIN
+0332  0003        ShowMessage(0x0A2B) = You enter another dimension.
+033F  0010        GoMap(0x02, 0xB5, 0x01, 0x39)
+035A  002B        RETURN
 
+EMPTY:
+035C  0000        <Empty Function>
+
+EMPTY:
+0361  0000        <Empty Function>
+
+EMPTY:
+0366  0000        <Empty Function>
+
+EMPTY:
+036B  0000        <Empty Function>
+
+EMPTY:
+0370  0000        <Empty Function>
+
+EMPTY:
+0375  0000        <Empty Function>
+
+EMPTY:
+037A  0000        <Empty Function>
+
+EMPTY:
+037F  0000        <Empty Function>
+
+EMPTY:
+0384  0000        <Empty Function>
+
+EMPTY:
+0389  0000        <Empty Function>
+
+EMPTY:
+038E  0000        <Empty Function>
+
+EMPTY:
+0393  0000        <Empty Function>
+
+EMPTY:
+0398  0000        <Empty Function>
+
+EMPTY:
+039D  0000        <Empty Function>
+
+EMPTY:
+03A2  0000        <Empty Function>
+
+EMPTY:
+03A7  0000        <Empty Function>
+
+EMPTY:
+03AC  0000        <Empty Function>
+
+EMPTY:
+03B1  0000        <Empty Function>
+
+EMPTY:
+03B6  0000        <Empty Function>
+
+EMPTY:
+03BB  0000        <Empty Function>
+
+EMPTY:
+03C0  0000        <Empty Function>
+
+EMPTY:
+03C5  0000        <Empty Function>
+
+EMPTY:
+03CA  0000        <Empty Function>
+
+EMPTY:
+03CF  0000        <Empty Function>
+
+EMPTY:
+03D4  0000        <Empty Function>
+
+EMPTY:
+03D9  0000        <Empty Function>
+
+EMPTY:
+03DE  0000        <Empty Function>
+
+EMPTY:
+03E3  0000        <Empty Function>
+
+EMPTY:
+03E8  0000        <Empty Function>
+
+EMPTY:
+03ED  0000        <Empty Function>
+
+EMPTY:
+03F2  0000        <Empty Function>
+
+EMPTY:
+03F7  0000        <Empty Function>
+
+EMPTY:
+03FC  0000        <Empty Function>
+
+EMPTY:
+0401  0000        <Empty Function>
+
+EMPTY:
+0406  0000        <Empty Function>
+
+EMPTY:
+040B  0000        <Empty Function>
+
+EMPTY:
+0410  0000        <Empty Function>
+
+EMPTY:
+0415  0000        <Empty Function>
+
+EMPTY:
+041A  0000        <Empty Function>
+
+EMPTY:
+041F  0000        <Empty Function>
+
+EMPTY:
+0424  0000        <Empty Function>
+
+EMPTY:
+0429  0000        <Empty Function>
+
+EMPTY:
+042E  0000        <Empty Function>
+
+EMPTY:
+0433  0000        <Empty Function>
+
+EMPTY:
+0438  0000        <Empty Function>
+
+EMPTY:
+043D  0000        <Empty Function>
+
+EMPTY:
+0442  0000        <Empty Function>
+
+EMPTY:
+0447  0000        <Empty Function>
+
+EMPTY:
+044C  0000        <Empty Function>
+
+EMPTY:
+0451  0000        <Empty Function>
+
+EMPTY:
+0456  0000        <Empty Function>
+
+EMPTY:
+045B  0000        <Empty Function>
+
+EMPTY:
+0460  0000        <Empty Function>
+
+EMPTY:
+0465  0000        <Empty Function>
+
+EMPTY:
+046A  0000        <Empty Function>
+
+EMPTY:
+046F  0000        <Empty Function>
+
+EMPTY:
+0474  0000        <Empty Function>
+
+EMPTY:
+0479  0000        <Empty Function>
+
+EMPTY:
+047E  0000        <Empty Function>
+
+EMPTY:
+0483  0000        <Empty Function>
+
+EMPTY:
+0488  0000        <Empty Function>
+
+EMPTY:
+048D  0000        <Empty Function>
+
+EMPTY:
+0492  0000        <Empty Function>
+
+EMPTY:
+0497  0000        <Empty Function>
+
+EMPTY:
+049C  0000        <Empty Function>
+
+EMPTY:
+04A1  0000        <Empty Function>
+
+EMPTY:
+04A6  0000        <Empty Function>
+
+EMPTY:
+04AB  0000        <Empty Function>
+
+EMPTY:
+04B0  0000        <Empty Function>
+
+EMPTY:
+04B5  0000        <Empty Function>
+
+EMPTY:
+04BA  0000        <Empty Function>
+
+EMPTY:
+04BF  0000        <Empty Function>
+
+EMPTY:
+04C4  0000        <Empty Function>
+
+EMPTY:
+04C9  0000        <Empty Function>
+
+EMPTY:
+04CE  0000        <Empty Function>
+
+EMPTY:
+04D3  0000        <Empty Function>
+
+EMPTY:
+04D8  0000        <Empty Function>
+
+EMPTY:
+04DD  0000        <Empty Function>
+
+EMPTY:
+04E2  0000        <Empty Function>
+
+EMPTY:
+04E7  0000        <Empty Function>
+
+EMPTY:
+04EC  0000        <Empty Function>
+
+EMPTY:
+04F1  0000        <Empty Function>
+
+EMPTY:
+04F6  0000        <Empty Function>
+
+EMPTY:
+04FB  0000        <Empty Function>
+
+EMPTY:
+0500  0000        <Empty Function>
+
+EMPTY:
+0505  0000        <Empty Function>
+
+EMPTY:
+050A  0000        <Empty Function>
+
+EMPTY:
+050F  0000        <Empty Function>
+
+EMPTY:
+0514  0000        <Empty Function>
+
+EMPTY:
+0519  0000        <Empty Function>
+
+EMPTY:
+051E  0000        <Empty Function>
+
+EMPTY:
+0523  0000        <Empty Function>
+
+EMPTY:
+0528  0000        <Empty Function>
+
+EMPTY:
+052D  0000        <Empty Function>
+
+EMPTY:
+0532  0000        <Empty Function>
+
+EMPTY:
+0537  0000        <Empty Function>
+
+EMPTY:
+053C  0000        <Empty Function>
+
+EMPTY:
+0541  0000        <Empty Function>
+
+EMPTY:
+0546  0000        <Empty Function>
+
+EMPTY:
+054B  0000        <Empty Function>
+
+EMPTY:
+0550  0000        <Empty Function>
+
+EMPTY:
+0555  0000        <Empty Function>
+
+EMPTY:
+055A  0000        <Empty Function>
+
+EMPTY:
+055F  0000        <Empty Function>
+
+EMPTY:
+0564  0000        <Empty Function>
+
+EMPTY:
+0569  0000        <Empty Function>
+
+EMPTY:
+056E  0000        <Empty Function>
+
+EMPTY:
+0573  0000        <Empty Function>
+
+EMPTY:
+0578  0000        <Empty Function>
+
+EMPTY:
+057D  0000        <Empty Function>
+
+EMPTY:
+0582  0000        <Empty Function>
+
+EMPTY:
+0587  0000        <Empty Function>
+
+EMPTY:
+058C  0000        <Empty Function>
+
+EMPTY:
+0591  0000        <Empty Function>
+
+EMPTY:
+0596  0000        <Empty Function>
+
+EMPTY:
+059B  0000        <Empty Function>
+
+EMPTY:
+05A0  0000        <Empty Function>
+
+EMPTY:
+05A5  0000        <Empty Function>
+
+EMPTY:
+05AA  0000        <Empty Function>
+
+EMPTY:
+05AF  0000        <Empty Function>
+
+EMPTY:
+05B4  0000        <Empty Function>
+
+EMPTY:
+05B9  0000        <Empty Function>
+
+EMPTY:
+05BE  0000        <Empty Function>
+
+EMPTY:
+05C3  0000        <Empty Function>
+
+EMPTY:
+05C8  0000        <Empty Function>
+
+EMPTY:
+05CD  0000        <Empty Function>
+
+EMPTY:
+05D2  0000        <Empty Function>
+
+EMPTY:
+05D7  0000        <Empty Function>
+
+EMPTY:
+05DC  0000        <Empty Function>
+
+EMPTY:
+05E1  0000        <Empty Function>
+
+EMPTY:
+05E6  0000        <Empty Function>
+
+EMPTY:
+05EB  0000        <Empty Function>
+
+EMPTY:
+05F0  0000        <Empty Function>
+
+EMPTY:
+05F5  0000        <Empty Function>
+
+EMPTY:
+05FA  0000        <Empty Function>
+
+EMPTY:
+05FF  0000        <Empty Function>
+
+EMPTY:
+0604  0000        <Empty Function>
+
+EMPTY:
+0609  0000        <Empty Function>
+
+EMPTY:
+060E  0000        <Empty Function>
+
+EMPTY:
+0613  0000        <Empty Function>
+
+EMPTY:
+0618  0000        <Empty Function>
+
+EMPTY:
+061D  0000        <Empty Function>
+
+EMPTY:
+0622  0000        <Empty Function>
+
+EMPTY:
+0627  0000        <Empty Function>
+
+EMPTY:
+062C  0000        <Empty Function>
+
+EMPTY:
+0631  0000        <Empty Function>
+
+EMPTY:
+0636  0000        <Empty Function>
+
+EMPTY:
+063B  0000        <Empty Function>
+
+EMPTY:
+0640  0000        <Empty Function>
+
+EMPTY:
+0645  0000        <Empty Function>
+
+EMPTY:
+064A  0000        <Empty Function>
+
+EMPTY:
+064F  0000        <Empty Function>
+
+EMPTY:
+0654  0000        <Empty Function>
+
+EMPTY:
+0659  0000        <Empty Function>
+
+EMPTY:
+065E  0000        <Empty Function>
+
+EMPTY:
+0663  0000        <Empty Function>
+
+EMPTY:
+0668  0000        <Empty Function>
+
+EMPTY:
+066D  0000        <Empty Function>
+
+EMPTY:
+0672  0000        <Empty Function>
+
+EMPTY:
+0677  0000        <Empty Function>
+
+EMPTY:
+067C  0000        <Empty Function>
+
+EMPTY:
+0681  0000        <Empty Function>
+
+EMPTY:
+0686  0000        <Empty Function>
+
+EMPTY:
+068B  0000        <Empty Function>
+
+EMPTY:
+0690  0000        <Empty Function>
+
+EMPTY:
+0695  0000        <Empty Function>
+
+EMPTY:
+069A  0000        <Empty Function>
+
+EMPTY:
+069F  0000        <Empty Function>
+
+EMPTY:
+06A4  0000        <Empty Function>
+
+EMPTY:
+06A9  0000        <Empty Function>
+
+EMPTY:
+06AE  0000        <Empty Function>
+
+EMPTY:
+06B3  0000        <Empty Function>
+
+EMPTY:
+06B8  0000        <Empty Function>
+
+EMPTY:
+06BD  0000        <Empty Function>
+
+EMPTY:
+06C2  0000        <Empty Function>
+
+EMPTY:
+06C7  0000        <Empty Function>
+
+EMPTY:
+06CC  0000        <Empty Function>
+
+EMPTY:
+06D1  0000        <Empty Function>
+
+EMPTY:
+06D6  0000        <Empty Function>
+
+EMPTY:
+06DB  0000        <Empty Function>
+
+EMPTY:
+06E0  0000        <Empty Function>
+
+EMPTY:
+06E5  0000        <Empty Function>
+
+EMPTY:
+06EA  0000        <Empty Function>
+
+EMPTY:
+06EF  0000        <Empty Function>
+
+EMPTY:
+06F4  0000        <Empty Function>
+
+EMPTY:
+06F9  0000        <Empty Function>
+
+EMPTY:
+06FE  0000        <Empty Function>
+
+EMPTY:
+0703  0000        <Empty Function>
+
+EMPTY:
+0708  0000        <Empty Function>
+
+EMPTY:
+070D  0000        <Empty Function>
+
+EMPTY:
+0712  0000        <Empty Function>
+
+EMPTY:
+0717  0000        <Empty Function>
+
+EMPTY:
+071C  0000        <Empty Function>
+
+EMPTY:
+0721  0000        <Empty Function>
+
+EMPTY:
+0726  0000        <Empty Function>
+
+EMPTY:
+072B  0000        <Empty Function>
+
+EMPTY:
+0730  0000        <Empty Function>
+
+EMPTY:
+0735  0000        <Empty Function>
+
+EMPTY:
+073A  0000        <Empty Function>
+
+EMPTY:
+073F  0000        <Empty Function>
+
+EMPTY:
+0744  0000        <Empty Function>
+
+EMPTY:
+0749  0000        <Empty Function>
+
+EMPTY:
+074E  0000        <Empty Function>
+
+EMPTY:
+0753  0000        <Empty Function>
+
+EMPTY:
+0758  0000        <Empty Function>
+
+EMPTY:
+075D  0000        <Empty Function>
+
+EMPTY:
+0762  0000        <Empty Function>
+
+EMPTY:
+0767  0000        <Empty Function>
+
+EMPTY:
+076C  0000        <Empty Function>
+
+EMPTY:
+0771  0000        <Empty Function>
+
+EMPTY:
+0776  0000        <Empty Function>
+
+EMPTY:
+077B  0000        <Empty Function>
+
+EMPTY:
+0780  0000        <Empty Function>
+
+EMPTY:
+0785  0000        <Empty Function>
+
+EMPTY:
+078A  0000        <Empty Function>
+
+EMPTY:
+078F  0000        <Empty Function>
+
+EMPTY:
+0794  0000        <Empty Function>
+
+EMPTY:
+0799  0000        <Empty Function>
+
+EMPTY:
+079E  0000        <Empty Function>
+
+EMPTY:
+07A3  0000        <Empty Function>
+
+EMPTY:
+07A8  0000        <Empty Function>
+
+EMPTY:
+07AD  0000        <Empty Function>
+
+EMPTY:
+07B2  0000        <Empty Function>
+
+EMPTY:
+07B7  0000        <Empty Function>
+
+EMPTY:
+07BC  0000        <Empty Function>
+
+EMPTY:
+07C1  0000        <Empty Function>
+
+EMPTY:
+07C6  0000        <Empty Function>
+
+EMPTY:
+07CB  0000        <Empty Function>
+
+EMPTY:
+07D0  0000        <Empty Function>
+
+EMPTY:
+07D5  0000        <Empty Function>
+
+EMPTY:
+07DA  0000        <Empty Function>
+
+EMPTY:
+07DF  0000        <Empty Function>
+
+EMPTY:
+07E4  0000        <Empty Function>
+
+EMPTY:
+07E9  0000        <Empty Function>
+
+EMPTY:
+07EE  0000        <Empty Function>
+
+EMPTY:
+07F3  0000        <Empty Function>
+
+EMPTY:
+07F8  0000        <Empty Function>
+
+EMPTY:
+07FD  0000        <Empty Function>
+
+EMPTY:
+0802  0000        <Empty Function>
+
+EMPTY:
+0807  0000        <Empty Function>
+
+EMPTY:
+080C  0000        <Empty Function>
+
+EMPTY:
+0811  0000        <Empty Function>
+
+STRINGS:
 03FC: The Ageless Void swallows you whole.
 0421: Time freezes forever in your mind.  To the rest of the world, you are dead.
 046D: The Island of Eternity sits at the edge of time.

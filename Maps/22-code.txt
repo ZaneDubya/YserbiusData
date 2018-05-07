@@ -1,759 +1,1336 @@
 PIT_01:
-0000                          BEGIN
-0003                          ShowMessage(03FC) = You step into a bottomless pit and die.
-0010                          ax = GetMaxHits()
-0017                          DoDamage(ax)
-0021                          RETURN
+0007  0000        BEGIN
+000A  0003        ShowMessage(0x03FC) = You step into a bottomless pit and die.
+0017  0010        ax = GetMaxHits()
+001E  0017        DoDamage(ax)
+0028  0021        RETURN
 
 ENCGUARD_02:
-0000                          BEGIN
-0003                          ShowMessage(0424) = Guardians stand ready.  'We are sworn to defend Arnakkian.'
-0010                          AddEncounter(27, 01)
-0022                          AddEncounter(27, 02)
-0034                          AddEncounter(27, 03)
-0046                          AddEncounter(27, 04)
-0058                          AddEncounter(27, 05)
-006A                          ax = CheckState(02, 88)
-007B                          RefreshCompareFlags(ax)
-007D                          If (result.notequal) value jump to 00A6
-007F                          SetState(02, 88, 01)
-0094                          AddExperience(0007A120)
-00A6                          RETURN
+002A  0000        BEGIN
+002D  0003        ShowMessage(0x0424) = Guardians stand ready.  'We are sworn to defend Arnakkian.'
+003A  0010        AddEncounter(0x27, 0x01)
+004C  0022        AddEncounter(0x27, 0x02)
+005E  0034        AddEncounter(0x27, 0x03)
+0070  0046        AddEncounter(0x27, 0x04)
+0082  0058        AddEncounter(0x27, 0x05)
+0094  006A        ax = CheckState(0x02, 0x88)
+00A5  007B        RefreshCompareFlags(ax)
+00A7  007D        If (result.notequal) jump to 00A6
+00A9  007F        SetState(0x02, 0x88, 0x01)
+00BE  0094        AddExperience(0x0007A120)
+00D0  00A6        RETURN
 
 ENCEARTH_03:
-0000                          BEGIN
-0003                          ax = CheckState(01, 01)
-0014                          RefreshCompareFlags(ax)
-0016                          If (result.equal) value jump to 001B
-0018                          Jump to 0123
-001B                          ShowMessage(0460) = Earth Elemental Andreas rises from his mountainous perch.
-0028                          AddEncounter(04, 01)
-003A                          AddEncounter(04, 02)
-004C                          AddEncounter(22, 03)
-005E                          AddEncounter(0F, 04)
-0070                          AddEncounter(23, 05)
-0082                          AddEncounter(28, 06)
-0094                          ax = HasItem(E9)
-00A2                          If (result.equal) value jump to 00C6
-00A4                          AddTreasure(0000, 00, 00, 50, 50, D0)
-00C4                          Jump to 0123
-00C6                          AddTreasure(03E8, 00, 00, 88, 1D, E9)
-00E7                          ax = CheckState(02, 8A)
-00F8                          RefreshCompareFlags(ax)
-00FA                          If (result.notequal) value jump to 0123
-00FC                          SetState(02, 8A, 01)
-0111                          AddExperience(0003D090)
-0123                          RETURN
+00D2  0000        BEGIN
+00D5  0003        ax = CheckState(0x01, 0x01)
+00E6  0014        RefreshCompareFlags(ax)
+00E8  0016        If (result.equal) jump to 001B
+00EA  0018        Jump to 0123
+00ED  001B        ShowMessage(0x0460) = Earth Elemental Andreas rises from his mountainous perch.
+00FA  0028        AddEncounter(0x04, 0x01)
+010C  003A        AddEncounter(0x04, 0x02)
+011E  004C        AddEncounter(0x22, 0x03)
+0130  005E        AddEncounter(0x0F, 0x04)
+0142  0070        AddEncounter(0x23, 0x05)
+0154  0082        AddEncounter(0x28, 0x06)
+0166  0094        ax = HasItem(0xE9)
+0174  00A2        If (result.equal) jump to 00C6
+0176  00A4        AddTreasure(0x0000, 0x00, 0x00, 0x50, 0x50, 0xD0)
+0196  00C4        Jump to 0123
+0198  00C6        AddTreasure(0x03E8, 0x00, 0x00, 0x88, 0x1D, 0xE9)
+01B9  00E7        ax = CheckState(0x02, 0x8A)
+01CA  00F8        RefreshCompareFlags(ax)
+01CC  00FA        If (result.notequal) jump to 0123
+01CE  00FC        SetState(0x02, 0x8A, 0x01)
+01E3  0111        AddExperience(0x0003D090)
+01F5  0123        RETURN
 
 GUARDIAN_04:
-0000                          BEGIN
-0003                          ShowMessage(049A) = Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
-0010                          RETURN
+01F7  0000        BEGIN
+01FA  0003        ShowMessage(0x049A) = Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
+0207  0010        RETURN
 
 EARTHELE_05:
-0000                          BEGIN
-0003                          ax = CheckState(01, 01)
-0014                          RefreshCompareFlags(ax)
-0016                          If (result.notequal) value jump to 0025
-0018                          ShowMessage(04EA) = The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
-0025                          RETURN
+0209  0000        BEGIN
+020C  0003        ax = CheckState(0x01, 0x01)
+021D  0014        RefreshCompareFlags(ax)
+021F  0016        If (result.notequal) jump to 0025
+0221  0018        ShowMessage(0x04EA) = The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
+022E  0025        RETURN
 
 PLATA_06:
-0000                          BEGIN
-0003                          ShowMessage(0555) = The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
-0010                          ShowMessage(05B8) = A voice whispers 'Only true friendship can bridge the gap of time.'
-001D                          RETURN
+0230  0000        BEGIN
+0233  0003        ShowMessage(0x0555) = The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
+0240  0010        ShowMessage(0x05B8) = A voice whispers 'Only true friendship can bridge the gap of time.'
+024D  001D        RETURN
 
 PLATB_07:
-0000                          BEGIN
-0003                          ShowMessage(05FC) = Quiet solitude fills the chasm.  You are on the other side.
-0010                          RETURN
+024F  0000        BEGIN
+0252  0003        ShowMessage(0x05FC) = Quiet solitude fills the chasm.  You are on the other side.
+025F  0010        RETURN
 
 YBOXA_08:
-0000                          BEGIN
-0003                          ShowMessage(0638) = The wall glows.
-0010                          SetState(01, 02, 01)
-0025                          RETURN
+0261  0000        BEGIN
+0264  0003        ShowMessage(0x0638) = The wall glows.
+0271  0010        SetState(0x01, 0x02, 0x01)
+0286  0025        RETURN
 
 YBOXB_09:
-0000                          BEGIN
-0003                          ShowMessage(0648) = The wall glows.
-0010                          SetState(01, 02, 02)
-0025                          RETURN
+0288  0000        BEGIN
+028B  0003        ShowMessage(0x0648) = The wall glows.
+0298  0010        SetState(0x01, 0x02, 0x02)
+02AD  0025        RETURN
 
 YBOXC_0A:
-0000                          BEGIN
-0003                          ShowMessage(0658) = The wall glows.
-0010                          SetState(01, 02, 03)
-0025                          RETURN
+02AF  0000        BEGIN
+02B2  0003        ShowMessage(0x0658) = The wall glows.
+02BF  0010        SetState(0x01, 0x02, 0x03)
+02D4  0025        RETURN
 
 YBOXD_0B:
-0000                          BEGIN
-0003                          ShowMessage(0668) = The wall glows.
-0010                          SetState(01, 02, 04)
-0025                          RETURN
+02D6  0000        BEGIN
+02D9  0003        ShowMessage(0x0668) = The wall glows.
+02E6  0010        SetState(0x01, 0x02, 0x04)
+02FB  0025        RETURN
 
 YBOXE_0C:
-0000                          BEGIN
-0003                          ShowMessage(0678) = The wall glows.
-0010                          SetState(01, 02, 05)
-0025                          RETURN
+02FD  0000        BEGIN
+0300  0003        ShowMessage(0x0678) = The wall glows.
+030D  0010        SetState(0x01, 0x02, 0x05)
+0322  0025        RETURN
 
 YBOXF_0D:
-0000                          BEGIN
-0003                          ShowMessage(0688) = The wall glows.
-0010                          SetState(01, 02, 06)
-0025                          RETURN
+0324  0000        BEGIN
+0327  0003        ShowMessage(0x0688) = The wall glows.
+0334  0010        SetState(0x01, 0x02, 0x06)
+0349  0025        RETURN
 
 XBOXG_0E:
-0000                          BEGIN
-0003                          ShowMessage(0698) = The wall glows.
-0010                          SetState(01, 03, 01)
-0025                          RETURN
+034B  0000        BEGIN
+034E  0003        ShowMessage(0x0698) = The wall glows.
+035B  0010        SetState(0x01, 0x03, 0x01)
+0370  0025        RETURN
 
 XBOXH_0F:
-0000                          BEGIN
-0003                          ShowMessage(06A8) = The wall glows.
-0010                          SetState(01, 03, 02)
-0025                          RETURN
+0372  0000        BEGIN
+0375  0003        ShowMessage(0x06A8) = The wall glows.
+0382  0010        SetState(0x01, 0x03, 0x02)
+0397  0025        RETURN
 
 XBOXI_10:
-0000                          BEGIN
-0003                          ShowMessage(06B8) = The wall glows.
-0010                          SetState(01, 03, 03)
-0025                          RETURN
+0399  0000        BEGIN
+039C  0003        ShowMessage(0x06B8) = The wall glows.
+03A9  0010        SetState(0x01, 0x03, 0x03)
+03BE  0025        RETURN
 
 XBOXJ_11:
-0000                          BEGIN
-0003                          ShowMessage(06C8) = The wall glows.
-0010                          SetState(01, 03, 04)
-0025                          RETURN
+03C0  0000        BEGIN
+03C3  0003        ShowMessage(0x06C8) = The wall glows.
+03D0  0010        SetState(0x01, 0x03, 0x04)
+03E5  0025        RETURN
 
 XBOXK_12:
-0000                          BEGIN
-0003                          ShowMessage(06D8) = The wall glows.
-0010                          SetState(01, 03, 05)
-0025                          RETURN
+03E7  0000        BEGIN
+03EA  0003        ShowMessage(0x06D8) = The wall glows.
+03F7  0010        SetState(0x01, 0x03, 0x05)
+040C  0025        RETURN
 
 XBOXL_13:
-0000                          BEGIN
-0003                          ShowMessage(06E8) = The wall glows.
-0010                          SetState(01, 03, 06)
-0025                          RETURN
+040E  0000        BEGIN
+0411  0003        ShowMessage(0x06E8) = The wall glows.
+041E  0010        SetState(0x01, 0x03, 0x06)
+0433  0025        RETURN
 
 XBOXM_14:
-0000                          BEGIN
-0003                          ShowMessage(06F8) = The wall glows.
-0010                          SetState(01, 03, 07)
-0025                          RETURN
+0435  0000        BEGIN
+0438  0003        ShowMessage(0x06F8) = The wall glows.
+0445  0010        SetState(0x01, 0x03, 0x07)
+045A  0025        RETURN
 
 PITAJ_15:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0001)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0004)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0708) = Your decision on where to step next saves you.
-003C                          Jump to 005C
-003E                          ShowMessage(0737) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+045C  0000        BEGIN
+045F  0003        ax = CheckState(0x01, 0x02)
+0470  0014        compare(ax, 0x0001)
+0473  0017        If (result.notequal) jump to 003E
+0475  0019        ax = CheckState(0x01, 0x03)
+0486  002A        compare(ax, 0x0004)
+0489  002D        If (result.notequal) jump to 003E
+048B  002F        ShowMessage(0x0708) = Your decision on where to step next saves you.
+0498  003C        Jump to 005C
+049A  003E        ShowMessage(0x0737) = You step over the edge and into oblivion.
+04A7  004B        ax = GetMaxHits()
+04AE  0052        DoDamage(ax)
+04B8  005C        RETURN
 
 PITAK_16:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0001)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0005)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0761) = You selected your next move wisely.
-003C                          Jump to 005C
-003E                          ShowMessage(0785) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+04BA  0000        BEGIN
+04BD  0003        ax = CheckState(0x01, 0x02)
+04CE  0014        compare(ax, 0x0001)
+04D1  0017        If (result.notequal) jump to 003E
+04D3  0019        ax = CheckState(0x01, 0x03)
+04E4  002A        compare(ax, 0x0005)
+04E7  002D        If (result.notequal) jump to 003E
+04E9  002F        ShowMessage(0x0761) = You selected your next move wisely.
+04F6  003C        Jump to 005C
+04F8  003E        ShowMessage(0x0785) = You step over the edge and into oblivion.
+0505  004B        ax = GetMaxHits()
+050C  0052        DoDamage(ax)
+0516  005C        RETURN
 
 PITAL_17:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0001)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0006)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(07AF) = Your next step is a safe one.
-003C                          Jump to 005C
-003E                          ShowMessage(07CD) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0518  0000        BEGIN
+051B  0003        ax = CheckState(0x01, 0x02)
+052C  0014        compare(ax, 0x0001)
+052F  0017        If (result.notequal) jump to 003E
+0531  0019        ax = CheckState(0x01, 0x03)
+0542  002A        compare(ax, 0x0006)
+0545  002D        If (result.notequal) jump to 003E
+0547  002F        ShowMessage(0x07AF) = Your next step is a safe one.
+0554  003C        Jump to 005C
+0556  003E        ShowMessage(0x07CD) = You step over the edge and into oblivion.
+0563  004B        ax = GetMaxHits()
+056A  0052        DoDamage(ax)
+0574  005C        RETURN
 
 PITAM_18:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0001)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0007)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(07F7) = The step you take is wisely chosen.
-003C                          Jump to 005C
-003E                          ShowMessage(081B) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0576  0000        BEGIN
+0579  0003        ax = CheckState(0x01, 0x02)
+058A  0014        compare(ax, 0x0001)
+058D  0017        If (result.notequal) jump to 003E
+058F  0019        ax = CheckState(0x01, 0x03)
+05A0  002A        compare(ax, 0x0007)
+05A3  002D        If (result.notequal) jump to 003E
+05A5  002F        ShowMessage(0x07F7) = The step you take is wisely chosen.
+05B2  003C        Jump to 005C
+05B4  003E        ShowMessage(0x081B) = You step over the edge and into oblivion.
+05C1  004B        ax = GetMaxHits()
+05C8  0052        DoDamage(ax)
+05D2  005C        RETURN
 
 PITBG_19:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0002)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0001)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0845) = You take one good step forward.
-003C                          Jump to 005C
-003E                          ShowMessage(0865) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+05D4  0000        BEGIN
+05D7  0003        ax = CheckState(0x01, 0x02)
+05E8  0014        compare(ax, 0x0002)
+05EB  0017        If (result.notequal) jump to 003E
+05ED  0019        ax = CheckState(0x01, 0x03)
+05FE  002A        compare(ax, 0x0001)
+0601  002D        If (result.notequal) jump to 003E
+0603  002F        ShowMessage(0x0845) = You take one good step forward.
+0610  003C        Jump to 005C
+0612  003E        ShowMessage(0x0865) = You step over the edge and into oblivion.
+061F  004B        ax = GetMaxHits()
+0626  0052        DoDamage(ax)
+0630  005C        RETURN
 
 PITBI_1A:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0002)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0003)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(088F) = You safely step forward.
-003C                          Jump to 005C
-003E                          ShowMessage(08A8) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0632  0000        BEGIN
+0635  0003        ax = CheckState(0x01, 0x02)
+0646  0014        compare(ax, 0x0002)
+0649  0017        If (result.notequal) jump to 003E
+064B  0019        ax = CheckState(0x01, 0x03)
+065C  002A        compare(ax, 0x0003)
+065F  002D        If (result.notequal) jump to 003E
+0661  002F        ShowMessage(0x088F) = You safely step forward.
+066E  003C        Jump to 005C
+0670  003E        ShowMessage(0x08A8) = You step over the edge and into oblivion.
+067D  004B        ax = GetMaxHits()
+0684  0052        DoDamage(ax)
+068E  005C        RETURN
 
 PITBJ_1B:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0002)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0004)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(08D2) = You take a step in the right direction,
-003C                          Jump to 005C
-003E                          ShowMessage(08FA) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0690  0000        BEGIN
+0693  0003        ax = CheckState(0x01, 0x02)
+06A4  0014        compare(ax, 0x0002)
+06A7  0017        If (result.notequal) jump to 003E
+06A9  0019        ax = CheckState(0x01, 0x03)
+06BA  002A        compare(ax, 0x0004)
+06BD  002D        If (result.notequal) jump to 003E
+06BF  002F        ShowMessage(0x08D2) = You take a step in the right direction,
+06CC  003C        Jump to 005C
+06CE  003E        ShowMessage(0x08FA) = You step over the edge and into oblivion.
+06DB  004B        ax = GetMaxHits()
+06E2  0052        DoDamage(ax)
+06EC  005C        RETURN
 
 PITBK_1C:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0002)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0005)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0924) = Your move is wise.
-003C                          Jump to 005C
-003E                          ShowMessage(0937) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+06EE  0000        BEGIN
+06F1  0003        ax = CheckState(0x01, 0x02)
+0702  0014        compare(ax, 0x0002)
+0705  0017        If (result.notequal) jump to 003E
+0707  0019        ax = CheckState(0x01, 0x03)
+0718  002A        compare(ax, 0x0005)
+071B  002D        If (result.notequal) jump to 003E
+071D  002F        ShowMessage(0x0924) = Your move is wise.
+072A  003C        Jump to 005C
+072C  003E        ShowMessage(0x0937) = You step over the edge and into oblivion.
+0739  004B        ax = GetMaxHits()
+0740  0052        DoDamage(ax)
+074A  005C        RETURN
 
 PITBL_1D:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0002)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0006)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0961) = You select your next move wisely.
-003C                          Jump to 005C
-003E                          ShowMessage(0983) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+074C  0000        BEGIN
+074F  0003        ax = CheckState(0x01, 0x02)
+0760  0014        compare(ax, 0x0002)
+0763  0017        If (result.notequal) jump to 003E
+0765  0019        ax = CheckState(0x01, 0x03)
+0776  002A        compare(ax, 0x0006)
+0779  002D        If (result.notequal) jump to 003E
+077B  002F        ShowMessage(0x0961) = You select your next move wisely.
+0788  003C        Jump to 005C
+078A  003E        ShowMessage(0x0983) = You step over the edge and into oblivion.
+0797  004B        ax = GetMaxHits()
+079E  0052        DoDamage(ax)
+07A8  005C        RETURN
 
 PITBM_1E:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0002)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0007)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(09AD) = You move forward with confidence.
-003C                          Jump to 005C
-003E                          ShowMessage(09CF) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+07AA  0000        BEGIN
+07AD  0003        ax = CheckState(0x01, 0x02)
+07BE  0014        compare(ax, 0x0002)
+07C1  0017        If (result.notequal) jump to 003E
+07C3  0019        ax = CheckState(0x01, 0x03)
+07D4  002A        compare(ax, 0x0007)
+07D7  002D        If (result.notequal) jump to 003E
+07D9  002F        ShowMessage(0x09AD) = You move forward with confidence.
+07E6  003C        Jump to 005C
+07E8  003E        ShowMessage(0x09CF) = You step over the edge and into oblivion.
+07F5  004B        ax = GetMaxHits()
+07FC  0052        DoDamage(ax)
+0806  005C        RETURN
 
 PITCG_1F:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0003)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0001)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(09F9) = Your next step is a good one.
-003C                          Jump to 005C
-003E                          ShowMessage(0A17) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0808  0000        BEGIN
+080B  0003        ax = CheckState(0x01, 0x02)
+081C  0014        compare(ax, 0x0003)
+081F  0017        If (result.notequal) jump to 003E
+0821  0019        ax = CheckState(0x01, 0x03)
+0832  002A        compare(ax, 0x0001)
+0835  002D        If (result.notequal) jump to 003E
+0837  002F        ShowMessage(0x09F9) = Your next step is a good one.
+0844  003C        Jump to 005C
+0846  003E        ShowMessage(0x0A17) = You step over the edge and into oblivion.
+0853  004B        ax = GetMaxHits()
+085A  0052        DoDamage(ax)
+0864  005C        RETURN
 
 PITCH_20:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0003)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0002)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0A41) = You move ahead assuredly.
-003C                          Jump to 005C
-003E                          ShowMessage(0A5B) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0866  0000        BEGIN
+0869  0003        ax = CheckState(0x01, 0x02)
+087A  0014        compare(ax, 0x0003)
+087D  0017        If (result.notequal) jump to 003E
+087F  0019        ax = CheckState(0x01, 0x03)
+0890  002A        compare(ax, 0x0002)
+0893  002D        If (result.notequal) jump to 003E
+0895  002F        ShowMessage(0x0A41) = You move ahead assuredly.
+08A2  003C        Jump to 005C
+08A4  003E        ShowMessage(0x0A5B) = You step over the edge and into oblivion.
+08B1  004B        ax = GetMaxHits()
+08B8  0052        DoDamage(ax)
+08C2  005C        RETURN
 
 PITCI_21:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0003)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0003)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0A85) = You choose your next step correctly.
-003C                          Jump to 005C
-003E                          ShowMessage(0AAA) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+08C4  0000        BEGIN
+08C7  0003        ax = CheckState(0x01, 0x02)
+08D8  0014        compare(ax, 0x0003)
+08DB  0017        If (result.notequal) jump to 003E
+08DD  0019        ax = CheckState(0x01, 0x03)
+08EE  002A        compare(ax, 0x0003)
+08F1  002D        If (result.notequal) jump to 003E
+08F3  002F        ShowMessage(0x0A85) = You choose your next step correctly.
+0900  003C        Jump to 005C
+0902  003E        ShowMessage(0x0AAA) = You step over the edge and into oblivion.
+090F  004B        ax = GetMaxHits()
+0916  0052        DoDamage(ax)
+0920  005C        RETURN
 
 PITCJ_22:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0003)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0004)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0AD4) = Your choice of movement saves you.
-003C                          Jump to 005C
-003E                          ShowMessage(0AF7) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0922  0000        BEGIN
+0925  0003        ax = CheckState(0x01, 0x02)
+0936  0014        compare(ax, 0x0003)
+0939  0017        If (result.notequal) jump to 003E
+093B  0019        ax = CheckState(0x01, 0x03)
+094C  002A        compare(ax, 0x0004)
+094F  002D        If (result.notequal) jump to 003E
+0951  002F        ShowMessage(0x0AD4) = Your choice of movement saves you.
+095E  003C        Jump to 005C
+0960  003E        ShowMessage(0x0AF7) = You step over the edge and into oblivion.
+096D  004B        ax = GetMaxHits()
+0974  0052        DoDamage(ax)
+097E  005C        RETURN
 
 PITCK_23:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0003)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0005)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0B21) = You step in the right direction.
-003C                          Jump to 005C
-003E                          ShowMessage(0B42) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0980  0000        BEGIN
+0983  0003        ax = CheckState(0x01, 0x02)
+0994  0014        compare(ax, 0x0003)
+0997  0017        If (result.notequal) jump to 003E
+0999  0019        ax = CheckState(0x01, 0x03)
+09AA  002A        compare(ax, 0x0005)
+09AD  002D        If (result.notequal) jump to 003E
+09AF  002F        ShowMessage(0x0B21) = You step in the right direction.
+09BC  003C        Jump to 005C
+09BE  003E        ShowMessage(0x0B42) = You step over the edge and into oblivion.
+09CB  004B        ax = GetMaxHits()
+09D2  0052        DoDamage(ax)
+09DC  005C        RETURN
 
 PITCL_24:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0003)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0006)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0B6C) = You select your next step wisely.
-003C                          Jump to 005C
-003E                          ShowMessage(0B8E) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+09DE  0000        BEGIN
+09E1  0003        ax = CheckState(0x01, 0x02)
+09F2  0014        compare(ax, 0x0003)
+09F5  0017        If (result.notequal) jump to 003E
+09F7  0019        ax = CheckState(0x01, 0x03)
+0A08  002A        compare(ax, 0x0006)
+0A0B  002D        If (result.notequal) jump to 003E
+0A0D  002F        ShowMessage(0x0B6C) = You select your next step wisely.
+0A1A  003C        Jump to 005C
+0A1C  003E        ShowMessage(0x0B8E) = You step over the edge and into oblivion.
+0A29  004B        ax = GetMaxHits()
+0A30  0052        DoDamage(ax)
+0A3A  005C        RETURN
 
 PITCM_25:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0003)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0007)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0BB8) = Your next step is sagely chosen.
-003C                          Jump to 005C
-003E                          ShowMessage(0BD9) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0A3C  0000        BEGIN
+0A3F  0003        ax = CheckState(0x01, 0x02)
+0A50  0014        compare(ax, 0x0003)
+0A53  0017        If (result.notequal) jump to 003E
+0A55  0019        ax = CheckState(0x01, 0x03)
+0A66  002A        compare(ax, 0x0007)
+0A69  002D        If (result.notequal) jump to 003E
+0A6B  002F        ShowMessage(0x0BB8) = Your next step is sagely chosen.
+0A78  003C        Jump to 005C
+0A7A  003E        ShowMessage(0x0BD9) = You step over the edge and into oblivion.
+0A87  004B        ax = GetMaxHits()
+0A8E  0052        DoDamage(ax)
+0A98  005C        RETURN
 
 PITDG_26:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0004)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0001)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0C03) = You take a wise step forward.
-003C                          Jump to 005C
-003E                          ShowMessage(0C21) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0A9A  0000        BEGIN
+0A9D  0003        ax = CheckState(0x01, 0x02)
+0AAE  0014        compare(ax, 0x0004)
+0AB1  0017        If (result.notequal) jump to 003E
+0AB3  0019        ax = CheckState(0x01, 0x03)
+0AC4  002A        compare(ax, 0x0001)
+0AC7  002D        If (result.notequal) jump to 003E
+0AC9  002F        ShowMessage(0x0C03) = You take a wise step forward.
+0AD6  003C        Jump to 005C
+0AD8  003E        ShowMessage(0x0C21) = You step over the edge and into oblivion.
+0AE5  004B        ax = GetMaxHits()
+0AEC  0052        DoDamage(ax)
+0AF6  005C        RETURN
 
 PITDH_27:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0004)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0002)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0C4B) = You move forward wisely.
-003C                          Jump to 005C
-003E                          ShowMessage(0C64) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0AF8  0000        BEGIN
+0AFB  0003        ax = CheckState(0x01, 0x02)
+0B0C  0014        compare(ax, 0x0004)
+0B0F  0017        If (result.notequal) jump to 003E
+0B11  0019        ax = CheckState(0x01, 0x03)
+0B22  002A        compare(ax, 0x0002)
+0B25  002D        If (result.notequal) jump to 003E
+0B27  002F        ShowMessage(0x0C4B) = You move forward wisely.
+0B34  003C        Jump to 005C
+0B36  003E        ShowMessage(0x0C64) = You step over the edge and into oblivion.
+0B43  004B        ax = GetMaxHits()
+0B4A  0052        DoDamage(ax)
+0B54  005C        RETURN
 
 PITDI_28:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0004)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0003)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0C8E) = Your next step is wisely decided.
-003C                          Jump to 005C
-003E                          ShowMessage(0CB0) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0B56  0000        BEGIN
+0B59  0003        ax = CheckState(0x01, 0x02)
+0B6A  0014        compare(ax, 0x0004)
+0B6D  0017        If (result.notequal) jump to 003E
+0B6F  0019        ax = CheckState(0x01, 0x03)
+0B80  002A        compare(ax, 0x0003)
+0B83  002D        If (result.notequal) jump to 003E
+0B85  002F        ShowMessage(0x0C8E) = Your next step is wisely decided.
+0B92  003C        Jump to 005C
+0B94  003E        ShowMessage(0x0CB0) = You step over the edge and into oblivion.
+0BA1  004B        ax = GetMaxHits()
+0BA8  0052        DoDamage(ax)
+0BB2  005C        RETURN
 
 PITDJ_29:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0004)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0004)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0CDA) = You step ahead with confidence.
-003C                          Jump to 005C
-003E                          ShowMessage(0CFA) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0BB4  0000        BEGIN
+0BB7  0003        ax = CheckState(0x01, 0x02)
+0BC8  0014        compare(ax, 0x0004)
+0BCB  0017        If (result.notequal) jump to 003E
+0BCD  0019        ax = CheckState(0x01, 0x03)
+0BDE  002A        compare(ax, 0x0004)
+0BE1  002D        If (result.notequal) jump to 003E
+0BE3  002F        ShowMessage(0x0CDA) = You step ahead with confidence.
+0BF0  003C        Jump to 005C
+0BF2  003E        ShowMessage(0x0CFA) = You step over the edge and into oblivion.
+0BFF  004B        ax = GetMaxHits()
+0C06  0052        DoDamage(ax)
+0C10  005C        RETURN
 
 PITDK_2A:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0004)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0005)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0D24) = You move forward carefully.
-003C                          Jump to 005C
-003E                          ShowMessage(0D40) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0C12  0000        BEGIN
+0C15  0003        ax = CheckState(0x01, 0x02)
+0C26  0014        compare(ax, 0x0004)
+0C29  0017        If (result.notequal) jump to 003E
+0C2B  0019        ax = CheckState(0x01, 0x03)
+0C3C  002A        compare(ax, 0x0005)
+0C3F  002D        If (result.notequal) jump to 003E
+0C41  002F        ShowMessage(0x0D24) = You move forward carefully.
+0C4E  003C        Jump to 005C
+0C50  003E        ShowMessage(0x0D40) = You step over the edge and into oblivion.
+0C5D  004B        ax = GetMaxHits()
+0C64  0052        DoDamage(ax)
+0C6E  005C        RETURN
 
 PITDL_2B:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0004)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0006)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0D6A) = You move ahead.
-003C                          Jump to 005C
-003E                          ShowMessage(0D7A) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0C70  0000        BEGIN
+0C73  0003        ax = CheckState(0x01, 0x02)
+0C84  0014        compare(ax, 0x0004)
+0C87  0017        If (result.notequal) jump to 003E
+0C89  0019        ax = CheckState(0x01, 0x03)
+0C9A  002A        compare(ax, 0x0006)
+0C9D  002D        If (result.notequal) jump to 003E
+0C9F  002F        ShowMessage(0x0D6A) = You move ahead.
+0CAC  003C        Jump to 005C
+0CAE  003E        ShowMessage(0x0D7A) = You step over the edge and into oblivion.
+0CBB  004B        ax = GetMaxHits()
+0CC2  0052        DoDamage(ax)
+0CCC  005C        RETURN
 
 PITDM_2C:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0004)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0007)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0DA4) = Your step is wisely selected.
-003C                          Jump to 005C
-003E                          ShowMessage(0DC2) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0CCE  0000        BEGIN
+0CD1  0003        ax = CheckState(0x01, 0x02)
+0CE2  0014        compare(ax, 0x0004)
+0CE5  0017        If (result.notequal) jump to 003E
+0CE7  0019        ax = CheckState(0x01, 0x03)
+0CF8  002A        compare(ax, 0x0007)
+0CFB  002D        If (result.notequal) jump to 003E
+0CFD  002F        ShowMessage(0x0DA4) = Your step is wisely selected.
+0D0A  003C        Jump to 005C
+0D0C  003E        ShowMessage(0x0DC2) = You step over the edge and into oblivion.
+0D19  004B        ax = GetMaxHits()
+0D20  0052        DoDamage(ax)
+0D2A  005C        RETURN
 
 PITEG_2D:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0005)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0001)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0DEC) = You forge ahead.
-003C                          Jump to 005C
-003E                          ShowMessage(0DFD) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0D2C  0000        BEGIN
+0D2F  0003        ax = CheckState(0x01, 0x02)
+0D40  0014        compare(ax, 0x0005)
+0D43  0017        If (result.notequal) jump to 003E
+0D45  0019        ax = CheckState(0x01, 0x03)
+0D56  002A        compare(ax, 0x0001)
+0D59  002D        If (result.notequal) jump to 003E
+0D5B  002F        ShowMessage(0x0DEC) = You forge ahead.
+0D68  003C        Jump to 005C
+0D6A  003E        ShowMessage(0x0DFD) = You step over the edge and into oblivion.
+0D77  004B        ax = GetMaxHits()
+0D7E  0052        DoDamage(ax)
+0D88  005C        RETURN
 
 PITEH_2E:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0005)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0002)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0E27) = You select your next move wisely.
-003C                          Jump to 005C
-003E                          ShowMessage(0E49) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0D8A  0000        BEGIN
+0D8D  0003        ax = CheckState(0x01, 0x02)
+0D9E  0014        compare(ax, 0x0005)
+0DA1  0017        If (result.notequal) jump to 003E
+0DA3  0019        ax = CheckState(0x01, 0x03)
+0DB4  002A        compare(ax, 0x0002)
+0DB7  002D        If (result.notequal) jump to 003E
+0DB9  002F        ShowMessage(0x0E27) = You select your next move wisely.
+0DC6  003C        Jump to 005C
+0DC8  003E        ShowMessage(0x0E49) = You step over the edge and into oblivion.
+0DD5  004B        ax = GetMaxHits()
+0DDC  0052        DoDamage(ax)
+0DE6  005C        RETURN
 
 PITEI_2F:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0005)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0003)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0E73) = Good sense guides your feet.
-003C                          Jump to 005C
-003E                          ShowMessage(0E90) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0DE8  0000        BEGIN
+0DEB  0003        ax = CheckState(0x01, 0x02)
+0DFC  0014        compare(ax, 0x0005)
+0DFF  0017        If (result.notequal) jump to 003E
+0E01  0019        ax = CheckState(0x01, 0x03)
+0E12  002A        compare(ax, 0x0003)
+0E15  002D        If (result.notequal) jump to 003E
+0E17  002F        ShowMessage(0x0E73) = Good sense guides your feet.
+0E24  003C        Jump to 005C
+0E26  003E        ShowMessage(0x0E90) = You step over the edge and into oblivion.
+0E33  004B        ax = GetMaxHits()
+0E3A  0052        DoDamage(ax)
+0E44  005C        RETURN
 
 PITEJ_30:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0005)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0004)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0EBA) = You walk ahead.
-003C                          Jump to 005C
-003E                          ShowMessage(0ECA) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0E46  0000        BEGIN
+0E49  0003        ax = CheckState(0x01, 0x02)
+0E5A  0014        compare(ax, 0x0005)
+0E5D  0017        If (result.notequal) jump to 003E
+0E5F  0019        ax = CheckState(0x01, 0x03)
+0E70  002A        compare(ax, 0x0004)
+0E73  002D        If (result.notequal) jump to 003E
+0E75  002F        ShowMessage(0x0EBA) = You walk ahead.
+0E82  003C        Jump to 005C
+0E84  003E        ShowMessage(0x0ECA) = You step over the edge and into oblivion.
+0E91  004B        ax = GetMaxHits()
+0E98  0052        DoDamage(ax)
+0EA2  005C        RETURN
 
 PITEK_31:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0005)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0005)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0EF4) = Your next step is assuredly taken.
-003C                          Jump to 005C
-003E                          ShowMessage(0F17) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0EA4  0000        BEGIN
+0EA7  0003        ax = CheckState(0x01, 0x02)
+0EB8  0014        compare(ax, 0x0005)
+0EBB  0017        If (result.notequal) jump to 003E
+0EBD  0019        ax = CheckState(0x01, 0x03)
+0ECE  002A        compare(ax, 0x0005)
+0ED1  002D        If (result.notequal) jump to 003E
+0ED3  002F        ShowMessage(0x0EF4) = Your next step is assuredly taken.
+0EE0  003C        Jump to 005C
+0EE2  003E        ShowMessage(0x0F17) = You step over the edge and into oblivion.
+0EEF  004B        ax = GetMaxHits()
+0EF6  0052        DoDamage(ax)
+0F00  005C        RETURN
 
 PITFG_32:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0006)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0001)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0F41) = The next step is an intelligent one.
-003C                          Jump to 005C
-003E                          ShowMessage(0F66) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0F02  0000        BEGIN
+0F05  0003        ax = CheckState(0x01, 0x02)
+0F16  0014        compare(ax, 0x0006)
+0F19  0017        If (result.notequal) jump to 003E
+0F1B  0019        ax = CheckState(0x01, 0x03)
+0F2C  002A        compare(ax, 0x0001)
+0F2F  002D        If (result.notequal) jump to 003E
+0F31  002F        ShowMessage(0x0F41) = The next step is an intelligent one.
+0F3E  003C        Jump to 005C
+0F40  003E        ShowMessage(0x0F66) = You step over the edge and into oblivion.
+0F4D  004B        ax = GetMaxHits()
+0F54  0052        DoDamage(ax)
+0F5E  005C        RETURN
 
 PITFH_33:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0006)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0002)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0F90) = You move safely ahead.
-003C                          Jump to 005C
-003E                          ShowMessage(0FA7) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0F60  0000        BEGIN
+0F63  0003        ax = CheckState(0x01, 0x02)
+0F74  0014        compare(ax, 0x0006)
+0F77  0017        If (result.notequal) jump to 003E
+0F79  0019        ax = CheckState(0x01, 0x03)
+0F8A  002A        compare(ax, 0x0002)
+0F8D  002D        If (result.notequal) jump to 003E
+0F8F  002F        ShowMessage(0x0F90) = You move safely ahead.
+0F9C  003C        Jump to 005C
+0F9E  003E        ShowMessage(0x0FA7) = You step over the edge and into oblivion.
+0FAB  004B        ax = GetMaxHits()
+0FB2  0052        DoDamage(ax)
+0FBC  005C        RETURN
 
 PITFI_34:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0006)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0003)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(0FD1) = Your movement decision was correct.
-003C                          Jump to 005C
-003E                          ShowMessage(0FF5) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+0FBE  0000        BEGIN
+0FC1  0003        ax = CheckState(0x01, 0x02)
+0FD2  0014        compare(ax, 0x0006)
+0FD5  0017        If (result.notequal) jump to 003E
+0FD7  0019        ax = CheckState(0x01, 0x03)
+0FE8  002A        compare(ax, 0x0003)
+0FEB  002D        If (result.notequal) jump to 003E
+0FED  002F        ShowMessage(0x0FD1) = Your movement decision was correct.
+0FFA  003C        Jump to 005C
+0FFC  003E        ShowMessage(0x0FF5) = You step over the edge and into oblivion.
+1009  004B        ax = GetMaxHits()
+1010  0052        DoDamage(ax)
+101A  005C        RETURN
 
 PITFJ_35:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0006)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0004)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(101F) = You move forward with confidence.
-003C                          Jump to 005C
-003E                          ShowMessage(1041) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+101C  0000        BEGIN
+101F  0003        ax = CheckState(0x01, 0x02)
+1030  0014        compare(ax, 0x0006)
+1033  0017        If (result.notequal) jump to 003E
+1035  0019        ax = CheckState(0x01, 0x03)
+1046  002A        compare(ax, 0x0004)
+1049  002D        If (result.notequal) jump to 003E
+104B  002F        ShowMessage(0x101F) = You move forward with confidence.
+1058  003C        Jump to 005C
+105A  003E        ShowMessage(0x1041) = You step over the edge and into oblivion.
+1067  004B        ax = GetMaxHits()
+106E  0052        DoDamage(ax)
+1078  005C        RETURN
 
 PITFK_36:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0006)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0005)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(106B) = You carefully selected your next step.
-003C                          Jump to 005C
-003E                          ShowMessage(1092) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+107A  0000        BEGIN
+107D  0003        ax = CheckState(0x01, 0x02)
+108E  0014        compare(ax, 0x0006)
+1091  0017        If (result.notequal) jump to 003E
+1093  0019        ax = CheckState(0x01, 0x03)
+10A4  002A        compare(ax, 0x0005)
+10A7  002D        If (result.notequal) jump to 003E
+10A9  002F        ShowMessage(0x106B) = You carefully selected your next step.
+10B6  003C        Jump to 005C
+10B8  003E        ShowMessage(0x1092) = You step over the edge and into oblivion.
+10C5  004B        ax = GetMaxHits()
+10CC  0052        DoDamage(ax)
+10D6  005C        RETURN
 
 PITFL_37:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0006)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0006)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(10BC) = You make a sage choice.
-003C                          Jump to 005C
-003E                          ShowMessage(10D4) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+10D8  0000        BEGIN
+10DB  0003        ax = CheckState(0x01, 0x02)
+10EC  0014        compare(ax, 0x0006)
+10EF  0017        If (result.notequal) jump to 003E
+10F1  0019        ax = CheckState(0x01, 0x03)
+1102  002A        compare(ax, 0x0006)
+1105  002D        If (result.notequal) jump to 003E
+1107  002F        ShowMessage(0x10BC) = You make a sage choice.
+1114  003C        Jump to 005C
+1116  003E        ShowMessage(0x10D4) = You step over the edge and into oblivion.
+1123  004B        ax = GetMaxHits()
+112A  0052        DoDamage(ax)
+1134  005C        RETURN
 
 PITFM_38:
-0000                          BEGIN
-0003                          ax = CheckState(01, 02)
-0014                          compare(ax, 0006)
-0017                          If (result.notequal) value jump to 003E
-0019                          ax = CheckState(01, 03)
-002A                          compare(ax, 0007)
-002D                          If (result.notequal) value jump to 003E
-002F                          ShowMessage(10FE) = You have made a wise decision.
-003C                          Jump to 005C
-003E                          ShowMessage(111D) = You step over the edge and into oblivion.
-004B                          ax = GetMaxHits()
-0052                          DoDamage(ax)
-005C                          RETURN
+1136  0000        BEGIN
+1139  0003        ax = CheckState(0x01, 0x02)
+114A  0014        compare(ax, 0x0006)
+114D  0017        If (result.notequal) jump to 003E
+114F  0019        ax = CheckState(0x01, 0x03)
+1160  002A        compare(ax, 0x0007)
+1163  002D        If (result.notequal) jump to 003E
+1165  002F        ShowMessage(0x10FE) = You have made a wise decision.
+1172  003C        Jump to 005C
+1174  003E        ShowMessage(0x111D) = You step over the edge and into oblivion.
+1181  004B        ax = GetMaxHits()
+1188  0052        DoDamage(ax)
+1192  005C        RETURN
 
 ENCPITBJ_39:
-0000                          BEGIN
-0003                          AddEncounter(19, 01)
-0015                          AddEncounter(1A, 02)
-0027                          AddEncounter(1A, 03)
-0039                          AddEncounter(1B, 04)
-004B                          AddEncounter(1C, 05)
-005D                          RETURN
+1194  0000        BEGIN
+1197  0003        AddEncounter(0x19, 0x01)
+11A9  0015        AddEncounter(0x1A, 0x02)
+11BB  0027        AddEncounter(0x1A, 0x03)
+11CD  0039        AddEncounter(0x1B, 0x04)
+11DF  004B        AddEncounter(0x1C, 0x05)
+11F1  005D        RETURN
 
 ENCPITDI_3A:
-0000                          BEGIN
-0003                          AddEncounter(1F, 01)
-0015                          AddEncounter(1F, 02)
-0027                          AddEncounter(20, 03)
-0039                          AddEncounter(20, 04)
-004B                          RETURN
+11F3  0000        BEGIN
+11F6  0003        AddEncounter(0x1F, 0x01)
+1208  0015        AddEncounter(0x1F, 0x02)
+121A  0027        AddEncounter(0x20, 0x03)
+122C  0039        AddEncounter(0x20, 0x04)
+123E  004B        RETURN
 
 PITENCDK_3B:
-0000                          BEGIN
-0003                          AddEncounter(1B, 01)
-0015                          AddEncounter(1B, 02)
-0027                          AddEncounter(19, 03)
-0039                          AddEncounter(19, 04)
-004B                          AddEncounter(1B, 05)
-005D                          AddEncounter(1B, 06)
-006F                          RETURN
+1240  0000        BEGIN
+1243  0003        AddEncounter(0x1B, 0x01)
+1255  0015        AddEncounter(0x1B, 0x02)
+1267  0027        AddEncounter(0x19, 0x03)
+1279  0039        AddEncounter(0x19, 0x04)
+128B  004B        AddEncounter(0x1B, 0x05)
+129D  005D        AddEncounter(0x1B, 0x06)
+12AF  006F        RETURN
 
 PITENCBL_3C:
-0000                          BEGIN
-0003                          AddEncounter(24, 01)
-0015                          AddEncounter(24, 02)
-0027                          AddEncounter(24, 03)
-0039                          AddEncounter(25, 04)
-004B                          AddEncounter(26, 05)
-005D                          RETURN
+12B1  0000        BEGIN
+12B4  0003        AddEncounter(0x24, 0x01)
+12C6  0015        AddEncounter(0x24, 0x02)
+12D8  0027        AddEncounter(0x24, 0x03)
+12EA  0039        AddEncounter(0x25, 0x04)
+12FC  004B        AddEncounter(0x26, 0x05)
+130E  005D        RETURN
 
 DOORARNK_3D:
-0000                          BEGIN
-0003                          ax = CheckState(01, 01)
-0014                          RefreshCompareFlags(ax)
-0016                          If (result.equal) value jump to 005B
-0018                          Push(01)
-001C                          Push(03)
-0020                          ax = GetNextTile()
-0027                          Push(ax)
-0028                          Move(stk[0], stk[1], stk[2])
-0032                          Push(03)
-0036                          ax = GetNextTile()
-003D                          Push(ax)
-003E                          Push(01)
-0042                          SetUnblocked()
-004C                          ShowMessage(1147) = Andreas no longer defends this door.
-0059                          Jump to 0068
-005B                          ShowMessage(116C) = The Earth Elemental holds power over this door.
-0068                          RETURN
+1310  0000        BEGIN
+1313  0003        ax = CheckState(0x01, 0x01)
+1324  0014        RefreshCompareFlags(ax)
+1326  0016        If (result.equal) jump to 005B
+1328  0018        Push(01)
+132C  001C        Push(03)
+1330  0020        ax = GetNextTile()
+1337  0027        Push(ax)
+1338  0028        Move(stk[0], stk[1], stk[2])
+1342  0032        Push(03)
+1346  0036        ax = GetNextTile()
+134D  003D        Push(ax)
+134E  003E        Push(01)
+1352  0042        SetUnblocked()
+135C  004C        ShowMessage(0x1147) = Andreas no longer defends this door.
+1369  0059        Jump to 0068
+136B  005B        ShowMessage(0x116C) = The Earth Elemental holds power over this door.
+1378  0068        RETURN
 
 TELEARNK_3E:
-0000                          BEGIN
-0003                          ShowMessage(119C) = A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
-0010                          GoMap(03, 76, 02, 34)
-002B                          RETURN
+137A  0000        BEGIN
+137D  0003        ShowMessage(0x119C) = A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
+138A  0010        GoMap(0x03, 0x76, 0x02, 0x34)
+13A5  002B        RETURN
 
 SETEKILL_3F:
-0000                          BEGIN
-0003                          SetState(01, 01, 01)
-0018                          RETURN
+13A7  0000        BEGIN
+13AA  0003        SetState(0x01, 0x01, 0x01)
+13BF  0018        RETURN
 
+EMPTY:
+13C1  0000        <Empty Function>
+
+EMPTY:
+13C6  0000        <Empty Function>
+
+EMPTY:
+13CB  0000        <Empty Function>
+
+EMPTY:
+13D0  0000        <Empty Function>
+
+EMPTY:
+13D5  0000        <Empty Function>
+
+EMPTY:
+13DA  0000        <Empty Function>
+
+EMPTY:
+13DF  0000        <Empty Function>
+
+EMPTY:
+13E4  0000        <Empty Function>
+
+EMPTY:
+13E9  0000        <Empty Function>
+
+EMPTY:
+13EE  0000        <Empty Function>
+
+EMPTY:
+13F3  0000        <Empty Function>
+
+EMPTY:
+13F8  0000        <Empty Function>
+
+EMPTY:
+13FD  0000        <Empty Function>
+
+EMPTY:
+1402  0000        <Empty Function>
+
+EMPTY:
+1407  0000        <Empty Function>
+
+EMPTY:
+140C  0000        <Empty Function>
+
+EMPTY:
+1411  0000        <Empty Function>
+
+EMPTY:
+1416  0000        <Empty Function>
+
+EMPTY:
+141B  0000        <Empty Function>
+
+EMPTY:
+1420  0000        <Empty Function>
+
+EMPTY:
+1425  0000        <Empty Function>
+
+EMPTY:
+142A  0000        <Empty Function>
+
+EMPTY:
+142F  0000        <Empty Function>
+
+EMPTY:
+1434  0000        <Empty Function>
+
+EMPTY:
+1439  0000        <Empty Function>
+
+EMPTY:
+143E  0000        <Empty Function>
+
+EMPTY:
+1443  0000        <Empty Function>
+
+EMPTY:
+1448  0000        <Empty Function>
+
+EMPTY:
+144D  0000        <Empty Function>
+
+EMPTY:
+1452  0000        <Empty Function>
+
+EMPTY:
+1457  0000        <Empty Function>
+
+EMPTY:
+145C  0000        <Empty Function>
+
+EMPTY:
+1461  0000        <Empty Function>
+
+EMPTY:
+1466  0000        <Empty Function>
+
+EMPTY:
+146B  0000        <Empty Function>
+
+EMPTY:
+1470  0000        <Empty Function>
+
+EMPTY:
+1475  0000        <Empty Function>
+
+EMPTY:
+147A  0000        <Empty Function>
+
+EMPTY:
+147F  0000        <Empty Function>
+
+EMPTY:
+1484  0000        <Empty Function>
+
+EMPTY:
+1489  0000        <Empty Function>
+
+EMPTY:
+148E  0000        <Empty Function>
+
+EMPTY:
+1493  0000        <Empty Function>
+
+EMPTY:
+1498  0000        <Empty Function>
+
+EMPTY:
+149D  0000        <Empty Function>
+
+EMPTY:
+14A2  0000        <Empty Function>
+
+EMPTY:
+14A7  0000        <Empty Function>
+
+EMPTY:
+14AC  0000        <Empty Function>
+
+EMPTY:
+14B1  0000        <Empty Function>
+
+EMPTY:
+14B6  0000        <Empty Function>
+
+EMPTY:
+14BB  0000        <Empty Function>
+
+EMPTY:
+14C0  0000        <Empty Function>
+
+EMPTY:
+14C5  0000        <Empty Function>
+
+EMPTY:
+14CA  0000        <Empty Function>
+
+EMPTY:
+14CF  0000        <Empty Function>
+
+EMPTY:
+14D4  0000        <Empty Function>
+
+EMPTY:
+14D9  0000        <Empty Function>
+
+EMPTY:
+14DE  0000        <Empty Function>
+
+EMPTY:
+14E3  0000        <Empty Function>
+
+EMPTY:
+14E8  0000        <Empty Function>
+
+EMPTY:
+14ED  0000        <Empty Function>
+
+EMPTY:
+14F2  0000        <Empty Function>
+
+EMPTY:
+14F7  0000        <Empty Function>
+
+EMPTY:
+14FC  0000        <Empty Function>
+
+EMPTY:
+1501  0000        <Empty Function>
+
+EMPTY:
+1506  0000        <Empty Function>
+
+EMPTY:
+150B  0000        <Empty Function>
+
+EMPTY:
+1510  0000        <Empty Function>
+
+EMPTY:
+1515  0000        <Empty Function>
+
+EMPTY:
+151A  0000        <Empty Function>
+
+EMPTY:
+151F  0000        <Empty Function>
+
+EMPTY:
+1524  0000        <Empty Function>
+
+EMPTY:
+1529  0000        <Empty Function>
+
+EMPTY:
+152E  0000        <Empty Function>
+
+EMPTY:
+1533  0000        <Empty Function>
+
+EMPTY:
+1538  0000        <Empty Function>
+
+EMPTY:
+153D  0000        <Empty Function>
+
+EMPTY:
+1542  0000        <Empty Function>
+
+EMPTY:
+1547  0000        <Empty Function>
+
+EMPTY:
+154C  0000        <Empty Function>
+
+EMPTY:
+1551  0000        <Empty Function>
+
+EMPTY:
+1556  0000        <Empty Function>
+
+EMPTY:
+155B  0000        <Empty Function>
+
+EMPTY:
+1560  0000        <Empty Function>
+
+EMPTY:
+1565  0000        <Empty Function>
+
+EMPTY:
+156A  0000        <Empty Function>
+
+EMPTY:
+156F  0000        <Empty Function>
+
+EMPTY:
+1574  0000        <Empty Function>
+
+EMPTY:
+1579  0000        <Empty Function>
+
+EMPTY:
+157E  0000        <Empty Function>
+
+EMPTY:
+1583  0000        <Empty Function>
+
+EMPTY:
+1588  0000        <Empty Function>
+
+EMPTY:
+158D  0000        <Empty Function>
+
+EMPTY:
+1592  0000        <Empty Function>
+
+EMPTY:
+1597  0000        <Empty Function>
+
+EMPTY:
+159C  0000        <Empty Function>
+
+EMPTY:
+15A1  0000        <Empty Function>
+
+EMPTY:
+15A6  0000        <Empty Function>
+
+EMPTY:
+15AB  0000        <Empty Function>
+
+EMPTY:
+15B0  0000        <Empty Function>
+
+EMPTY:
+15B5  0000        <Empty Function>
+
+EMPTY:
+15BA  0000        <Empty Function>
+
+EMPTY:
+15BF  0000        <Empty Function>
+
+EMPTY:
+15C4  0000        <Empty Function>
+
+EMPTY:
+15C9  0000        <Empty Function>
+
+EMPTY:
+15CE  0000        <Empty Function>
+
+EMPTY:
+15D3  0000        <Empty Function>
+
+EMPTY:
+15D8  0000        <Empty Function>
+
+EMPTY:
+15DD  0000        <Empty Function>
+
+EMPTY:
+15E2  0000        <Empty Function>
+
+EMPTY:
+15E7  0000        <Empty Function>
+
+EMPTY:
+15EC  0000        <Empty Function>
+
+EMPTY:
+15F1  0000        <Empty Function>
+
+EMPTY:
+15F6  0000        <Empty Function>
+
+EMPTY:
+15FB  0000        <Empty Function>
+
+EMPTY:
+1600  0000        <Empty Function>
+
+EMPTY:
+1605  0000        <Empty Function>
+
+EMPTY:
+160A  0000        <Empty Function>
+
+EMPTY:
+160F  0000        <Empty Function>
+
+EMPTY:
+1614  0000        <Empty Function>
+
+EMPTY:
+1619  0000        <Empty Function>
+
+EMPTY:
+161E  0000        <Empty Function>
+
+EMPTY:
+1623  0000        <Empty Function>
+
+EMPTY:
+1628  0000        <Empty Function>
+
+EMPTY:
+162D  0000        <Empty Function>
+
+EMPTY:
+1632  0000        <Empty Function>
+
+EMPTY:
+1637  0000        <Empty Function>
+
+EMPTY:
+163C  0000        <Empty Function>
+
+EMPTY:
+1641  0000        <Empty Function>
+
+EMPTY:
+1646  0000        <Empty Function>
+
+EMPTY:
+164B  0000        <Empty Function>
+
+EMPTY:
+1650  0000        <Empty Function>
+
+EMPTY:
+1655  0000        <Empty Function>
+
+EMPTY:
+165A  0000        <Empty Function>
+
+EMPTY:
+165F  0000        <Empty Function>
+
+EMPTY:
+1664  0000        <Empty Function>
+
+EMPTY:
+1669  0000        <Empty Function>
+
+EMPTY:
+166E  0000        <Empty Function>
+
+EMPTY:
+1673  0000        <Empty Function>
+
+EMPTY:
+1678  0000        <Empty Function>
+
+EMPTY:
+167D  0000        <Empty Function>
+
+EMPTY:
+1682  0000        <Empty Function>
+
+EMPTY:
+1687  0000        <Empty Function>
+
+EMPTY:
+168C  0000        <Empty Function>
+
+EMPTY:
+1691  0000        <Empty Function>
+
+EMPTY:
+1696  0000        <Empty Function>
+
+EMPTY:
+169B  0000        <Empty Function>
+
+EMPTY:
+16A0  0000        <Empty Function>
+
+EMPTY:
+16A5  0000        <Empty Function>
+
+EMPTY:
+16AA  0000        <Empty Function>
+
+EMPTY:
+16AF  0000        <Empty Function>
+
+EMPTY:
+16B4  0000        <Empty Function>
+
+EMPTY:
+16B9  0000        <Empty Function>
+
+EMPTY:
+16BE  0000        <Empty Function>
+
+EMPTY:
+16C3  0000        <Empty Function>
+
+EMPTY:
+16C8  0000        <Empty Function>
+
+EMPTY:
+16CD  0000        <Empty Function>
+
+EMPTY:
+16D2  0000        <Empty Function>
+
+EMPTY:
+16D7  0000        <Empty Function>
+
+EMPTY:
+16DC  0000        <Empty Function>
+
+EMPTY:
+16E1  0000        <Empty Function>
+
+EMPTY:
+16E6  0000        <Empty Function>
+
+EMPTY:
+16EB  0000        <Empty Function>
+
+EMPTY:
+16F0  0000        <Empty Function>
+
+EMPTY:
+16F5  0000        <Empty Function>
+
+EMPTY:
+16FA  0000        <Empty Function>
+
+EMPTY:
+16FF  0000        <Empty Function>
+
+EMPTY:
+1704  0000        <Empty Function>
+
+EMPTY:
+1709  0000        <Empty Function>
+
+EMPTY:
+170E  0000        <Empty Function>
+
+EMPTY:
+1713  0000        <Empty Function>
+
+EMPTY:
+1718  0000        <Empty Function>
+
+EMPTY:
+171D  0000        <Empty Function>
+
+EMPTY:
+1722  0000        <Empty Function>
+
+EMPTY:
+1727  0000        <Empty Function>
+
+EMPTY:
+172C  0000        <Empty Function>
+
+EMPTY:
+1731  0000        <Empty Function>
+
+EMPTY:
+1736  0000        <Empty Function>
+
+EMPTY:
+173B  0000        <Empty Function>
+
+EMPTY:
+1740  0000        <Empty Function>
+
+EMPTY:
+1745  0000        <Empty Function>
+
+EMPTY:
+174A  0000        <Empty Function>
+
+EMPTY:
+174F  0000        <Empty Function>
+
+EMPTY:
+1754  0000        <Empty Function>
+
+EMPTY:
+1759  0000        <Empty Function>
+
+EMPTY:
+175E  0000        <Empty Function>
+
+EMPTY:
+1763  0000        <Empty Function>
+
+EMPTY:
+1768  0000        <Empty Function>
+
+EMPTY:
+176D  0000        <Empty Function>
+
+EMPTY:
+1772  0000        <Empty Function>
+
+EMPTY:
+1777  0000        <Empty Function>
+
+EMPTY:
+177C  0000        <Empty Function>
+
+STRINGS:
 03FC: You step into a bottomless pit and die.
 0424: Guardians stand ready.  'We are sworn to defend Arnakkian.'
 0460: Earth Elemental Andreas rises from his mountainous perch.

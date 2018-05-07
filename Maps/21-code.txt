@@ -1,888 +1,1444 @@
 VOID_01:
-0000                          BEGIN
-0003                          ShowMessage(03FC) = You step into nothingness...
-0010                          ShowMessage(0419) =                                          ...and die!
-001D                          ax = GetMaxHits()
-0024                          DoDamage(ax)
-002E                          RETURN
+000A  0000        BEGIN
+000D  0003        ShowMessage(0x03FC) = You step into nothingness...
+001A  0010        ShowMessage(0x0419) =                                          ...and die!
+0027  001D        ax = GetMaxHits()
+002E  0024        DoDamage(ax)
+0038  002E        RETURN
 
 MOONHOLO_02:
-0000                          BEGIN
-0003                          ShowMessage(044E) = Cast in shadowy blue light, the tunnels of MOON HOLLOW are a nexus to more dangerous locations.
-0010                          GoMap(01, 03, 01, 34)
-002B                          RETURN
+003A  0000        BEGIN
+003D  0003        ShowMessage(0x044E) = Cast in shadowy blue light, the tunnels of MOON HOLLOW are a nexus to more dangerous locations.
+004A  0010        GoMap(0x01, 0x03, 0x01, 0x34)
+0065  002B        RETURN
 
 ZEPHYR_03:
-0000                          BEGIN
-0003                          ShowMessage(04AE) = Well worn trails greet those who dare travel the corridors of the ZEPHYR.
-0010                          GoMap(03, C3, 01, 34)
-002B                          RETURN
+0067  0000        BEGIN
+006A  0003        ShowMessage(0x04AE) = Well worn trails greet those who dare travel the corridors of the ZEPHYR.
+0077  0010        GoMap(0x03, 0xC3, 0x01, 0x34)
+0092  002B        RETURN
 
 ZZYZX_04:
-0000                          BEGIN
-0003                          ShowMessage(04F8) = Dry desert winds parch your throat as you peer down the winding passages leading to ZZYZX.
-0010                          GoMap(00, 6D, 01, 34)
-002A                          RETURN
+0094  0000        BEGIN
+0097  0003        ShowMessage(0x04F8) = Dry desert winds parch your throat as you peer down the winding passages leading to ZZYZX.
+00A4  0010        GoMap(00, 0x6D, 0x01, 0x34)
+00BE  002A        RETURN
 
 DRGNLEAP_05:
-0000                          BEGIN
-0003                          ShowMessage(0553) = A brave step..
-0010                          ShowMessage(0562) = Death does not greet you now, but it will perhaps when you meet the DRAGONS OF THE LEAP.
-001D                          GoMap(01, CB, 01, 34)
-0038                          RETURN
+00C0  0000        BEGIN
+00C3  0003        ShowMessage(0x0553) = A brave step..
+00D0  0010        ShowMessage(0x0562) = Death does not greet you now, but it will perhaps when you meet the DRAGONS OF THE LEAP.
+00DD  001D        GoMap(0x01, 0xCB, 0x01, 0x34)
+00F8  0038        RETURN
 
 TORBRIAR_06:
-0000                          BEGIN
-0003                          ShowMessage(05BB) = You drop into TORBRIAR'S TREASURE.
-0010                          ShowMessage(05DE) = An inscription on the wall reads...
-001D                          ShowMessage(0602) = 'We, the Knights of Torbriar, build this shrine to celebrate WarMaster Torbriar's stunning victory over the armies of Ogres and Trolls.'
-002A                          GoMap(02, 35, 01, 34)
-0045                          RETURN
+00FA  0000        BEGIN
+00FD  0003        ShowMessage(0x05BB) = You drop into TORBRIAR'S TREASURE.
+010A  0010        ShowMessage(0x05DE) = An inscription on the wall reads...
+0117  001D        ShowMessage(0x0602) = 'We, the Knights of Torbriar, build this shrine to celebrate WarMaster Torbriar's stunning victory over the armies of Ogres and Trolls.'
+0124  002A        GoMap(0x02, 0x35, 0x01, 0x34)
+013F  0045        RETURN
 
 MOONHOLO_07:
-0000                          BEGIN
-0003                          ShowMessage(068B) = You land squarely in the center of MOON HOLLOW!
-0010                          ShowMessage(06BB) = The howling of winds screams harsh against the blue light of a fool moon.
-001D                          GoMap(02, 73, 01, 34)
-0038                          RETURN
+0141  0000        BEGIN
+0144  0003        ShowMessage(0x068B) = You land squarely in the center of MOON HOLLOW!
+0151  0010        ShowMessage(0x06BB) = The howling of winds screams harsh against the blue light of a fool moon.
+015E  001D        GoMap(0x02, 0x73, 0x01, 0x34)
+0179  0038        RETURN
 
 MAGEOVRL_08:
-0000                          BEGIN
-0003                          ShowMessage(0705) = You drop into MAGES OVERLOOK.
-0010                          ShowMessage(0723) = Mages found this plateau useful for looking out over the labyrinth denizens following the great cataclysm.
-001D                          GoMap(03, 7A, 01, 34)
-0038                          RETURN
+017B  0000        BEGIN
+017E  0003        ShowMessage(0x0705) = You drop into MAGES OVERLOOK.
+018B  0010        ShowMessage(0x0723) = Mages found this plateau useful for looking out over the labyrinth denizens following the great cataclysm.
+0198  001D        GoMap(0x03, 0x7A, 0x01, 0x34)
+01B3  0038        RETURN
 
 ENCWINDN_09:
-0000                          BEGIN
-0003                          ShowMessage(078E) = The North Wind blows a wintry chill.
-0010                          AddEncounter(1B, 01)
-0022                          AddEncounter(1B, 02)
-0034                          AddEncounter(1B, 03)
-0046                          AddEncounter(19, 05)
-0058                          AddEncounter(1A, 06)
-006A                          RETURN
+01B5  0000        BEGIN
+01B8  0003        ShowMessage(0x078E) = The North Wind blows a wintry chill.
+01C5  0010        AddEncounter(0x1B, 0x01)
+01D7  0022        AddEncounter(0x1B, 0x02)
+01E9  0034        AddEncounter(0x1B, 0x03)
+01FB  0046        AddEncounter(0x19, 0x05)
+020D  0058        AddEncounter(0x1A, 0x06)
+021F  006A        RETURN
 
 ENCWINDE_0A:
-0000                          BEGIN
-0003                          ShowMessage(07B3) = Warriors of the East Wind challenge you.
-0010                          AddEncounter(11, 01)
-0022                          AddEncounter(11, 02)
-0034                          AddEncounter(11, 04)
-0046                          AddEncounter(19, 05)
-0058                          AddEncounter(1A, 06)
-006A                          RETURN
+0221  0000        BEGIN
+0224  0003        ShowMessage(0x07B3) = Warriors of the East Wind challenge you.
+0231  0010        AddEncounter(0x11, 0x01)
+0243  0022        AddEncounter(0x11, 0x02)
+0255  0034        AddEncounter(0x11, 0x04)
+0267  0046        AddEncounter(0x19, 0x05)
+0279  0058        AddEncounter(0x1A, 0x06)
+028B  006A        RETURN
 
 ENCWINDS_0B:
-0000                          BEGIN
-0003                          ShowMessage(07DC) = Monsters materialize from the South Wind.
-0010                          AddEncounter(1C, 01)
-0022                          AddEncounter(1C, 02)
-0034                          AddEncounter(1C, 03)
-0046                          AddEncounter(19, 05)
-0058                          AddEncounter(1A, 06)
-006A                          RETURN
+028D  0000        BEGIN
+0290  0003        ShowMessage(0x07DC) = Monsters materialize from the South Wind.
+029D  0010        AddEncounter(0x1C, 0x01)
+02AF  0022        AddEncounter(0x1C, 0x02)
+02C1  0034        AddEncounter(0x1C, 0x03)
+02D3  0046        AddEncounter(0x19, 0x05)
+02E5  0058        AddEncounter(0x1A, 0x06)
+02F7  006A        RETURN
 
 ENCWINDW_0C:
-0000                          BEGIN
-0003                          ShowMessage(0806) = The fury of the West Wind is upon you.
-0010                          AddEncounter(1D, 01)
-0022                          AddEncounter(1D, 02)
-0034                          AddEncounter(1D, 04)
-0046                          AddEncounter(1A, 05)
-0058                          AddEncounter(19, 06)
-006A                          RETURN
+02F9  0000        BEGIN
+02FC  0003        ShowMessage(0x0806) = The fury of the West Wind is upon you.
+0309  0010        AddEncounter(0x1D, 0x01)
+031B  0022        AddEncounter(0x1D, 0x02)
+032D  0034        AddEncounter(0x1D, 0x04)
+033F  0046        AddEncounter(0x1A, 0x05)
+0351  0058        AddEncounter(0x19, 0x06)
+0363  006A        RETURN
 
 FLGWINDN_0D:
-0000                          BEGIN (saving si)
-0004                          si = 0001
-0007                          ax = CheckState(01, 01)
-0018                          RefreshCompareFlags(ax)
-001A                          If (result.notequal) value jump to 0070
-001C                          ax = CheckState(01, 02)
-002D                          RefreshCompareFlags(ax)
-002F                          If (result.equal) value jump to 0032
-0031                          si = si + 1
-0032                          ax = CheckState(01, 03)
-0043                          RefreshCompareFlags(ax)
-0045                          If (result.equal) value jump to 0048
-0047                          si = si + 1
-0048                          ax = CheckState(01, 04)
-0059                          RefreshCompareFlags(ax)
-005B                          If (result.equal) value jump to 005E
-005D                          si = si + 1
-005E                          SetState(C4, B8, si)
-0070                          ax = CheckState(01, 01)
-0081                          compare(ax, 0001)
-0084                          If (result.equal) value jump to 0088
-0086                          Jump to 0095
-0088                          ShowMessage(082D) = The North Wind is the first to be defeated.
-0095                          ShowMessage(0859) = The North Wind has been quieted.
-00A2                          RETURN (restoring si)
+0365  0000        BEGIN (saving si)
+0369  0004        si = 0x0001
+036C  0007        ax = CheckState(0x01, 0x01)
+037D  0018        RefreshCompareFlags(ax)
+037F  001A        If (result.notequal) jump to 0070
+0381  001C        ax = CheckState(0x01, 0x02)
+0392  002D        RefreshCompareFlags(ax)
+0394  002F        If (result.equal) jump to 0032
+0396  0031        si = si + 1
+0397  0032        ax = CheckState(0x01, 0x03)
+03A8  0043        RefreshCompareFlags(ax)
+03AA  0045        If (result.equal) jump to 0048
+03AC  0047        si = si + 1
+03AD  0048        ax = CheckState(0x01, 0x04)
+03BE  0059        RefreshCompareFlags(ax)
+03C0  005B        If (result.equal) jump to 005E
+03C2  005D        si = si + 1
+03C3  005E        SetState(0xC4, 0xB8, si)
+03D5  0070        ax = CheckState(0x01, 0x01)
+03E6  0081        compare(ax, 0x0001)
+03E9  0084        If (result.equal) jump to 0088
+03EB  0086        Jump to 0095
+03ED  0088        ShowMessage(0x082D) = The North Wind is the first to be defeated.
+03FA  0095        ShowMessage(0x0859) = The North Wind has been quieted.
+0407  00A2        RETURN (restoring si)
 
 FLGWINDE_0E:
-0000                          BEGIN (saving si)
-0004                          si = 0001
-0007                          ax = CheckState(01, 02)
-0018                          RefreshCompareFlags(ax)
-001A                          If (result.notequal) value jump to 0070
-001C                          ax = CheckState(01, 01)
-002D                          RefreshCompareFlags(ax)
-002F                          If (result.equal) value jump to 0032
-0031                          si = si + 1
-0032                          ax = CheckState(01, 03)
-0043                          RefreshCompareFlags(ax)
-0045                          If (result.equal) value jump to 0048
-0047                          si = si + 1
-0048                          ax = CheckState(01, 04)
-0059                          RefreshCompareFlags(ax)
-005B                          If (result.equal) value jump to 005E
-005D                          si = si + 1
-005E                          SetState(C4, B8, si)
-0070                          ax = CheckState(01, 02)
-0081                          compare(ax, 0001)
-0084                          If (result.equal) value jump to 0088
-0086                          Jump to 0095
-0088                          ShowMessage(087A) = The East Wind is the first to be defeated.
-0095                          ShowMessage(08A5) = The East Wind has been quieted.
-00A2                          RETURN (restoring si)
+040A  0000        BEGIN (saving si)
+040E  0004        si = 0x0001
+0411  0007        ax = CheckState(0x01, 0x02)
+0422  0018        RefreshCompareFlags(ax)
+0424  001A        If (result.notequal) jump to 0070
+0426  001C        ax = CheckState(0x01, 0x01)
+0437  002D        RefreshCompareFlags(ax)
+0439  002F        If (result.equal) jump to 0032
+043B  0031        si = si + 1
+043C  0032        ax = CheckState(0x01, 0x03)
+044D  0043        RefreshCompareFlags(ax)
+044F  0045        If (result.equal) jump to 0048
+0451  0047        si = si + 1
+0452  0048        ax = CheckState(0x01, 0x04)
+0463  0059        RefreshCompareFlags(ax)
+0465  005B        If (result.equal) jump to 005E
+0467  005D        si = si + 1
+0468  005E        SetState(0xC4, 0xB8, si)
+047A  0070        ax = CheckState(0x01, 0x02)
+048B  0081        compare(ax, 0x0001)
+048E  0084        If (result.equal) jump to 0088
+0490  0086        Jump to 0095
+0492  0088        ShowMessage(0x087A) = The East Wind is the first to be defeated.
+049F  0095        ShowMessage(0x08A5) = The East Wind has been quieted.
+04AC  00A2        RETURN (restoring si)
 
 FLGWINDS_0F:
-0000                          BEGIN (saving si)
-0004                          si = 0001
-0007                          ax = CheckState(01, 03)
-0018                          RefreshCompareFlags(ax)
-001A                          If (result.notequal) value jump to 0070
-001C                          ax = CheckState(01, 01)
-002D                          RefreshCompareFlags(ax)
-002F                          If (result.equal) value jump to 0032
-0031                          si = si + 1
-0032                          ax = CheckState(01, 02)
-0043                          RefreshCompareFlags(ax)
-0045                          If (result.equal) value jump to 0048
-0047                          si = si + 1
-0048                          ax = CheckState(01, 04)
-0059                          RefreshCompareFlags(ax)
-005B                          If (result.equal) value jump to 005E
-005D                          si = si + 1
-005E                          SetState(C4, B8, si)
-0070                          ax = CheckState(01, 03)
-0081                          compare(ax, 0001)
-0084                          If (result.equal) value jump to 0088
-0086                          Jump to 0095
-0088                          ShowMessage(08C5) = The South Wind is the first to be defeated.
-0095                          ShowMessage(08F1) = The South Wind has been quieted.
-00A2                          RETURN (restoring si)
+04AF  0000        BEGIN (saving si)
+04B3  0004        si = 0x0001
+04B6  0007        ax = CheckState(0x01, 0x03)
+04C7  0018        RefreshCompareFlags(ax)
+04C9  001A        If (result.notequal) jump to 0070
+04CB  001C        ax = CheckState(0x01, 0x01)
+04DC  002D        RefreshCompareFlags(ax)
+04DE  002F        If (result.equal) jump to 0032
+04E0  0031        si = si + 1
+04E1  0032        ax = CheckState(0x01, 0x02)
+04F2  0043        RefreshCompareFlags(ax)
+04F4  0045        If (result.equal) jump to 0048
+04F6  0047        si = si + 1
+04F7  0048        ax = CheckState(0x01, 0x04)
+0508  0059        RefreshCompareFlags(ax)
+050A  005B        If (result.equal) jump to 005E
+050C  005D        si = si + 1
+050D  005E        SetState(0xC4, 0xB8, si)
+051F  0070        ax = CheckState(0x01, 0x03)
+0530  0081        compare(ax, 0x0001)
+0533  0084        If (result.equal) jump to 0088
+0535  0086        Jump to 0095
+0537  0088        ShowMessage(0x08C5) = The South Wind is the first to be defeated.
+0544  0095        ShowMessage(0x08F1) = The South Wind has been quieted.
+0551  00A2        RETURN (restoring si)
 
 FLGWINDW_10:
-0000                          BEGIN (saving si)
-0004                          si = 0001
-0007                          ax = CheckState(01, 04)
-0018                          RefreshCompareFlags(ax)
-001A                          If (result.notequal) value jump to 0070
-001C                          ax = CheckState(01, 01)
-002D                          RefreshCompareFlags(ax)
-002F                          If (result.equal) value jump to 0032
-0031                          si = si + 1
-0032                          ax = CheckState(01, 02)
-0043                          RefreshCompareFlags(ax)
-0045                          If (result.equal) value jump to 0048
-0047                          si = si + 1
-0048                          ax = CheckState(01, 03)
-0059                          RefreshCompareFlags(ax)
-005B                          If (result.equal) value jump to 005E
-005D                          si = si + 1
-005E                          SetState(C4, B8, si)
-0070                          ax = CheckState(01, 04)
-0081                          compare(ax, 0001)
-0084                          If (result.equal) value jump to 0088
-0086                          Jump to 0095
-0088                          ShowMessage(0912) = The West Wind is the first to be defeated.
-0095                          ShowMessage(093D) = The West Wind has been quieted.
-00A2                          RETURN (restoring si)
+0554  0000        BEGIN (saving si)
+0558  0004        si = 0x0001
+055B  0007        ax = CheckState(0x01, 0x04)
+056C  0018        RefreshCompareFlags(ax)
+056E  001A        If (result.notequal) jump to 0070
+0570  001C        ax = CheckState(0x01, 0x01)
+0581  002D        RefreshCompareFlags(ax)
+0583  002F        If (result.equal) jump to 0032
+0585  0031        si = si + 1
+0586  0032        ax = CheckState(0x01, 0x02)
+0597  0043        RefreshCompareFlags(ax)
+0599  0045        If (result.equal) jump to 0048
+059B  0047        si = si + 1
+059C  0048        ax = CheckState(0x01, 0x03)
+05AD  0059        RefreshCompareFlags(ax)
+05AF  005B        If (result.equal) jump to 005E
+05B1  005D        si = si + 1
+05B2  005E        SetState(0xC4, 0xB8, si)
+05C4  0070        ax = CheckState(0x01, 0x04)
+05D5  0081        compare(ax, 0x0001)
+05D8  0084        If (result.equal) jump to 0088
+05DA  0086        Jump to 0095
+05DC  0088        ShowMessage(0x0912) = The West Wind is the first to be defeated.
+05E9  0095        ShowMessage(0x093D) = The West Wind has been quieted.
+05F6  00A2        RETURN (restoring si)
 
 EXPRESS_11:
-0000                          BEGIN
-0003                          ax = CheckState(02, 57)
-0014                          RefreshCompareFlags(ax)
-0016                          If (result.equal) value jump to 0046
-0018                          ShowMessage(095D) = This wall is the teleport to CASTLEGATE.
-0025                          Push(03)
-0029                          ax = GetNextTile()
-0030                          GoMap(stk[0], ax, 01, 36)
-0044                          Jump to 0053
-0046                          ShowMessage(0986) = There is something strange about this wall.
-0053                          RETURN
+05F9  0000        BEGIN
+05FC  0003        ax = CheckState(0x02, 0x57)
+060D  0014        RefreshCompareFlags(ax)
+060F  0016        If (result.equal) jump to 0046
+0611  0018        ShowMessage(0x095D) = This wall is the teleport to CASTLEGATE.
+061E  0025        Push(03)
+0622  0029        ax = GetNextTile()
+0629  0030        GoMap(stk[0], ax, 0x01, 0x36)
+063D  0044        Jump to 0053
+063F  0046        ShowMessage(0x0986) = There is something strange about this wall.
+064C  0053        RETURN
 
 TXTLABY_12:
-0000                          BEGIN
-0003                          ShowMessage(09B2) = You enter the Labyrinths of the Winds.
-0010                          ShowMessage(09D9) = A network of tunnels seems to wind its way past pits and lava.
-001D                          RETURN
+064E  0000        BEGIN
+0651  0003        ShowMessage(0x09B2) = You enter the Labyrinths of the Winds.
+065E  0010        ShowMessage(0x09D9) = A network of tunnels seems to wind its way past pits and lava.
+066B  001D        RETURN
 
 WSTRES_13:
-0000                          BEGIN
-0003                          ShowMessage(0A18) = Wyn's Fountain is old and cracked.
-0010                          ax = CheckState(02, 58)
-0021                          RefreshCompareFlags(ax)
-0023                          If (result.notequal) value jump to 0082
-0025                          SetState(02, 58, 01)
-003A                          ShowPortrait(0042)
-0047                          ModifyAttribute(03, 0003)
-0059                          ShowMessage(0A3B) = A small puddle of magic water sits at the bottom.
-0066                          ShowMessage(0A6D) = It seems to instantly evaporate into a large steam cloud.
-0073                          ShowMessage(0AA7) = You feel you may be quicker in a fight.
-0080                          Jump to 008F
-0082                          ShowMessage(0ACF) = The basin is dust dry.
-008F                          RETURN
+066D  0000        BEGIN
+0670  0003        ShowMessage(0x0A18) = Wyn's Fountain is old and cracked.
+067D  0010        ax = CheckState(0x02, 0x58)
+068E  0021        RefreshCompareFlags(ax)
+0690  0023        If (result.notequal) jump to 0082
+0692  0025        SetState(0x02, 0x58, 0x01)
+06A7  003A        ShowPortrait(0x0042)
+06B4  0047        ModifyAttribute(0x03, 0x0003)
+06C6  0059        ShowMessage(0x0A3B) = A small puddle of magic water sits at the bottom.
+06D3  0066        ShowMessage(0x0A6D) = It seems to instantly evaporate into a large steam cloud.
+06E0  0073        ShowMessage(0x0AA7) = You feel you may be quicker in a fight.
+06ED  0080        Jump to 008F
+06EF  0082        ShowMessage(0x0ACF) = The basin is dust dry.
+06FC  008F        RETURN
 
 MOUNTAIN_14:
-0000                          BEGIN
-0003                          GoMap(33, 00, 01, 01)
-001D                          RETURN
+06FE  0000        BEGIN
+0701  0003        GoMap(0x33, 0x00, 0x01, 0x01)
+071B  001D        RETURN
 
 TXTMNTN_15:
-0000                          BEGIN
-0003                          ShowMessage(0AE6) = A twisting passage to the east offers a quick way to the entrance.
-0010                          RETURN
+071D  0000        BEGIN
+0720  0003        ShowMessage(0x0AE6) = A twisting passage to the east offers a quick way to the entrance.
+072D  0010        RETURN
 
 THIEVMAZ_16:
-0000                          BEGIN
-0003                          ShowMessage(0B29) = You discover the back entrance to the THIEVES' DEN.
-0010                          GoMap(01, BE, 01, 05)
-002B                          RETURN
+072F  0000        BEGIN
+0732  0003        ShowMessage(0x0B29) = You discover the back entrance to the THIEVES' DEN.
+073F  0010        GoMap(0x01, 0xBE, 0x01, 0x05)
+075A  002B        RETURN
 
 LAVA_17:
-0000                          BEGIN
-0003                          ShowMessage(0B5D) = You stumble into the lava pools and die.
-0010                          ax = GetMaxHits()
-0017                          DoDamage(ax)
-0021                          RETURN
+075C  0000        BEGIN
+075F  0003        ShowMessage(0x0B5D) = You stumble into the lava pools and die.
+076C  0010        ax = GetMaxHits()
+0773  0017        DoDamage(ax)
+077D  0021        RETURN
 
 ZEPHYRB_18:
-0000                          BEGIN
-0003                          ShowMessage(0B86) = Well worn trails greet those who dare travel the windswept corridors of the ZEPHYR.
-0010                          GoMap(01, 6E, 01, 34)
-002B                          RETURN
+077F  0000        BEGIN
+0782  0003        ShowMessage(0x0B86) = Well worn trails greet those who dare travel the windswept corridors of the ZEPHYR.
+078F  0010        GoMap(0x01, 0x6E, 0x01, 0x34)
+07AA  002B        RETURN
 
 SDOORWKT_19:
-0000                          BEGIN
-0003                          ShowMessage(0BDA) = Skeletal voices echo...
-0010                          ax = CheckState(01, 01)
-0021                          RefreshCompareFlags(ax)
-0023                          If (result.notequal) value jump to 0028
-0025                          Jump to 00D7
-0028                          ax = CheckState(01, 02)
-0039                          RefreshCompareFlags(ax)
-003B                          If (result.notequal) value jump to 0040
-003D                          Jump to 00D7
-0040                          ax = CheckState(01, 03)
-0051                          RefreshCompareFlags(ax)
-0053                          If (result.notequal) value jump to 0058
-0055                          Jump to 00D7
-0058                          ax = CheckState(01, 04)
-0069                          RefreshCompareFlags(ax)
-006B                          If (result.equal) value jump to 00D7
-006D                          ShowPortrait(000A)
-007A                          ShowMessage(0BF2) = 'The four winds have been defeated!!!!
-0087                          ShowMessage(0C19) = ARGGG!  We cannot hold you back.  You are indeed a powerful force!!
-0094                          ShowMessage(0C5D) = Enter the WIND KNIGHTS' TOMB if you dare, but if you have any honor, do not disturb our bones.'
-00A1                          Push(01)
-00A5                          Push(03)
-00A9                          ax = GetNextTile()
-00B0                          Push(ax)
-00B1                          Move(stk[0], stk[1], stk[2])
-00BB                          Push(03)
-00BF                          ax = GetNextTile()
-00C6                          Push(ax)
-00C7                          Push(01)
-00CB                          SetUnblocked()
-00D5                          Jump to 00E4
-00D7                          ShowMessage(0CBD) = 'Only Forces more powerful than all four winds can open this door!'
-00E4                          RETURN
+07AC  0000        BEGIN
+07AF  0003        ShowMessage(0x0BDA) = Skeletal voices echo...
+07BC  0010        ax = CheckState(0x01, 0x01)
+07CD  0021        RefreshCompareFlags(ax)
+07CF  0023        If (result.notequal) jump to 0028
+07D1  0025        Jump to 00D7
+07D4  0028        ax = CheckState(0x01, 0x02)
+07E5  0039        RefreshCompareFlags(ax)
+07E7  003B        If (result.notequal) jump to 0040
+07E9  003D        Jump to 00D7
+07EC  0040        ax = CheckState(0x01, 0x03)
+07FD  0051        RefreshCompareFlags(ax)
+07FF  0053        If (result.notequal) jump to 0058
+0801  0055        Jump to 00D7
+0804  0058        ax = CheckState(0x01, 0x04)
+0815  0069        RefreshCompareFlags(ax)
+0817  006B        If (result.equal) jump to 00D7
+0819  006D        ShowPortrait(0x000A)
+0826  007A        ShowMessage(0x0BF2) = 'The four winds have been defeated!!!!
+0833  0087        ShowMessage(0x0C19) = ARGGG!  We cannot hold you back.  You are indeed a powerful force!!
+0840  0094        ShowMessage(0x0C5D) = Enter the WIND KNIGHTS' TOMB if you dare, but if you have any honor, do not disturb our bones.'
+084D  00A1        Push(01)
+0851  00A5        Push(03)
+0855  00A9        ax = GetNextTile()
+085C  00B0        Push(ax)
+085D  00B1        Move(stk[0], stk[1], stk[2])
+0867  00BB        Push(03)
+086B  00BF        ax = GetNextTile()
+0872  00C6        Push(ax)
+0873  00C7        Push(01)
+0877  00CB        SetUnblocked()
+0881  00D5        Jump to 00E4
+0883  00D7        ShowMessage(0x0CBD) = 'Only Forces more powerful than all four winds can open this door!'
+0890  00E4        RETURN
 
 TXTCAMP_1A:
-0000                          BEGIN
-0003                          ShowPortrait(0028)
-0010                          ShowMessage(0D01) = Welcome to LABYRINTH ATTIC!
-001D                          ShowMessage(0D1D) = Refresh yourself in the fountains nearby.  But do not take long!
-002A                          ShowMessage(0D5E) = Bands of travelers rest here before exploring the Wind Labyrinths.
-0037                          RETURN
+0892  0000        BEGIN
+0895  0003        ShowPortrait(0x0028)
+08A2  0010        ShowMessage(0x0D01) = Welcome to LABYRINTH ATTIC!
+08AF  001D        ShowMessage(0x0D1D) = Refresh yourself in the fountains nearby.  But do not take long!
+08BC  002A        ShowMessage(0x0D5E) = Bands of travelers rest here before exploring the Wind Labyrinths.
+08C9  0037        RETURN
 
 KEYDOORW_1B:
-0000                          BEGIN
-0003                          ax = UsedItem(DD, DD)
-0016                          If (result.equal) value jump to 0066
-0018                          Push(01)
-001C                          Push(00)
-001F                          ax = GetNextTile()
-0026                          Push(ax)
-0027                          Move(stk[0], stk[1], stk[2])
-0031                          Push(00)
-0034                          ax = GetNextTile()
-003B                          Push(ax)
-003C                          Push(01)
-0040                          SetUnblocked()
-004A                          ShowMessage(0DA1) = The door is unlocked.
-0057                          ShowMessage(0DB7) = The soft breezes seem to whisper - 'Beware, those who seek the treasure of WIND KNIGHTS' TOMB.'
-0064                          Jump to 0073
-0066                          ShowMessage(0E17) = Winds pound furiously at the door.
-0073                          RETURN
+08CB  0000        BEGIN
+08CE  0003        ax = UsedItem(0xDD, 0xDD)
+08E1  0016        If (result.equal) jump to 0066
+08E3  0018        Push(01)
+08E7  001C        Push(00)
+08EA  001F        ax = GetNextTile()
+08F1  0026        Push(ax)
+08F2  0027        Move(stk[0], stk[1], stk[2])
+08FC  0031        Push(00)
+08FF  0034        ax = GetNextTile()
+0906  003B        Push(ax)
+0907  003C        Push(01)
+090B  0040        SetUnblocked()
+0915  004A        ShowMessage(0x0DA1) = The door is unlocked.
+0922  0057        ShowMessage(0x0DB7) = The soft breezes seem to whisper - 'Beware, those who seek the treasure of WIND KNIGHTS' TOMB.'
+092F  0064        Jump to 0073
+0931  0066        ShowMessage(0x0E17) = Winds pound furiously at the door.
+093E  0073        RETURN
 
 TXTWYNS_1C:
-0000                          BEGIN
-0003                          ShowMessage(0E3A) = The feeble survivors of Arnakkian's Experiment harbored hatred toward those who found home in the WYN SANCTUARY.
-0010                          RETURN
+0940  0000        BEGIN
+0943  0003        ShowMessage(0x0E3A) = The feeble survivors of Arnakkian's Experiment harbored hatred toward those who found home in the WYN SANCTUARY.
+0950  0010        RETURN
 
 PITINFO_1D:
-0000                          BEGIN
-0003                          ShowPortrait(002A)
-0010                          ShowMessage(0EAB) = A Gremlin Cleric Appears
-001D                          ShowMessage(0EC4) = 'Take my advice - Jump only into the pits with floors beneath them.
-002A                          ShowMessage(0F08) = That is the way of the Labyrinth.'
-0037                          RETURN
+0952  0000        BEGIN
+0955  0003        ShowPortrait(0x002A)
+0962  0010        ShowMessage(0x0EAB) = A Gremlin Cleric Appears
+096F  001D        ShowMessage(0x0EC4) = 'Take my advice - Jump only into the pits with floors beneath them.
+097C  002A        ShowMessage(0x0F08) = That is the way of the Labyrinth.'
+0989  0037        RETURN
 
 WKTENCA_1E:
-0000                          BEGIN
-0003                          AddEncounter(15, 01)
-0015                          AddEncounter(15, 02)
-0027                          AddEncounter(1E, 05)
-0039                          AddEncounter(1E, 06)
-004B                          RETURN
+098B  0000        BEGIN
+098E  0003        AddEncounter(0x15, 0x01)
+09A0  0015        AddEncounter(0x15, 0x02)
+09B2  0027        AddEncounter(0x1E, 0x05)
+09C4  0039        AddEncounter(0x1E, 0x06)
+09D6  004B        RETURN
 
 WKTTEXT_1F:
-0000                          BEGIN
-0003                          ShowMessage(0F2B) = A message is etched in stone -- 
-0010                          ShowMessage(0F4C) = 'The last of Arnakkian's Knights have been buried.  
-001D                          ShowMessage(0F81) = At last I can tell my secret!  I watched as Arnakkian challenged the Time Elemental En-Li-Kil and lost.
-002A                          ShowMessage(0FE9) = His greed for immortality cursed us all.' -- Morgard, ArchCleric
-0037                          RETURN
+09D8  0000        BEGIN
+09DB  0003        ShowMessage(0x0F2B) = A message is etched in stone -- 
+09E8  0010        ShowMessage(0x0F4C) = 'The last of Arnakkian's Knights have been buried.  
+09F5  001D        ShowMessage(0x0F81) = At last I can tell my secret!  I watched as Arnakkian challenged the Time Elemental En-Li-Kil and lost.
+0A02  002A        ShowMessage(0x0FE9) = His greed for immortality cursed us all.' -- Morgard, ArchCleric
+0A0F  0037        RETURN
 
 WKTENCC_20:
-0000                          BEGIN (saving si, di)
-0005                          di = 0
-0007                          si = 0
-0009                          AddEncounter(15, 01)
-001B                          AddEncounter(15, 02)
-002D                          AddEncounter(0D, 03)
-003F                          AddEncounter(0D, 04)
-0051                          AddEncounter(1E, 05)
-0063                          AddEncounter(1E, 06)
-0075                          ax = CheckState(01, 01)
-0086                          compare(ax, 0001)
-0089                          If (result.notequal) value jump to 008E
-008B                          di = 000E
-008E                          ax = CheckState(01, 02)
-009F                          compare(ax, 0002)
-00A2                          If (result.notequal) value jump to 00A7
-00A4                          si = 005B
-00A7                          ax = CheckState(01, 03)
-00B8                          compare(ax, 0002)
-00BB                          If (result.notequal) value jump to 00C0
-00BD                          AddTreasure(07D0, 00, 00, 6F, di, CF)
-00DB                          RETURN (restoring si, di)
+0A11  0000        BEGIN (saving si, di)
+0A16  0005        di = 0
+0A18  0007        si = 0
+0A1A  0009        AddEncounter(0x15, 0x01)
+0A2C  001B        AddEncounter(0x15, 0x02)
+0A3E  002D        AddEncounter(0x0D, 0x03)
+0A50  003F        AddEncounter(0x0D, 0x04)
+0A62  0051        AddEncounter(0x1E, 0x05)
+0A74  0063        AddEncounter(0x1E, 0x06)
+0A86  0075        ax = CheckState(0x01, 0x01)
+0A97  0086        compare(ax, 0x0001)
+0A9A  0089        If (result.notequal) jump to 008E
+0A9C  008B        di = 0x000E
+0A9F  008E        ax = CheckState(0x01, 0x02)
+0AB0  009F        compare(ax, 0x0002)
+0AB3  00A2        If (result.notequal) jump to 00A7
+0AB5  00A4        si = 0x005B
+0AB8  00A7        ax = CheckState(0x01, 0x03)
+0AC9  00B8        compare(ax, 0x0002)
+0ACC  00BB        If (result.notequal) jump to 00C0
+0ACE  00BD        AddTreasure(0x07D0, 0x00, 0x00, 0x6F, di, 0xCF)
+0AEC  00DB        RETURN (restoring si, di)
 
 WKTENCD_21:
-0000                          BEGIN (saving si, di)
-0005                          di = 0
-0007                          si = 0
-0009                          AddEncounter(1E, 01)
-001B                          AddEncounter(1E, 02)
-002D                          AddEncounter(0D, 05)
-003F                          AddEncounter(0D, 06)
-0051                          ax = CheckState(01, 01)
-0062                          compare(ax, 0002)
-0065                          If (result.notequal) value jump to 006A
-0067                          di = 0022
-006A                          ax = CheckState(01, 02)
-007B                          compare(ax, 0004)
-007E                          If (result.notequal) value jump to 0083
-0080                          si = 0058
-0083                          ax = CheckState(01, 03)
-0094                          compare(ax, 0004)
-0097                          If (result.notequal) value jump to 009C
-0099                          AddTreasure(07D0, 00, 00, 6D, di, CF)
-00B7                          RETURN (restoring si, di)
+0AF0  0000        BEGIN (saving si, di)
+0AF5  0005        di = 0
+0AF7  0007        si = 0
+0AF9  0009        AddEncounter(0x1E, 0x01)
+0B0B  001B        AddEncounter(0x1E, 0x02)
+0B1D  002D        AddEncounter(0x0D, 0x05)
+0B2F  003F        AddEncounter(0x0D, 0x06)
+0B41  0051        ax = CheckState(0x01, 0x01)
+0B52  0062        compare(ax, 0x0002)
+0B55  0065        If (result.notequal) jump to 006A
+0B57  0067        di = 0x0022
+0B5A  006A        ax = CheckState(0x01, 0x02)
+0B6B  007B        compare(ax, 0x0004)
+0B6E  007E        If (result.notequal) jump to 0083
+0B70  0080        si = 0x0058
+0B73  0083        ax = CheckState(0x01, 0x03)
+0B84  0094        compare(ax, 0x0004)
+0B87  0097        If (result.notequal) jump to 009C
+0B89  0099        AddTreasure(0x07D0, 0x00, 0x00, 0x6D, di, 0xCF)
+0BA7  00B7        RETURN (restoring si, di)
 
 WKTENCE_22:
-0000                          BEGIN (saving si, di)
-0005                          di = 0
-0007                          si = 0
-0009                          ShowMessage(102A) = The Four Winds gather strength once again as they throw skeletal bones against the wall.
-0016                          ShowMessage(1083) = Monsters form out of the dust and winds.
-0023                          AddEncounter(14, 01)
-0035                          AddEncounter(1B, 02)
-0047                          AddEncounter(1C, 03)
-0059                          AddEncounter(1D, 04)
-006B                          AddEncounter(1E, 05)
-007D                          AddEncounter(1E, 06)
-008F                          ax = CheckState(01, 01)
-00A0                          compare(ax, 0003)
-00A3                          If (result.notequal) value jump to 00A8
-00A5                          di = 0029
-00A8                          ax = CheckState(01, 02)
-00B9                          compare(ax, 0001)
-00BC                          If (result.notequal) value jump to 00C1
-00BE                          si = 0086
-00C1                          ax = CheckState(01, 03)
-00D2                          compare(ax, 0001)
-00D5                          If (result.notequal) value jump to 0106
-00D7                          ax = CheckState(01, 01)
-00E8                          compare(ax, 0002)
-00EB                          If (result.notequal) value jump to 0106
-00ED                          ax = CheckState(01, 02)
-00FE                          compare(ax, 0003)
-0101                          If (result.notequal) value jump to 0106
-0103                          AddTreasure(07D0, 00, 00, F6, di, CF)
-0121                          RETURN (restoring si, di)
+0BAB  0000        BEGIN (saving si, di)
+0BB0  0005        di = 0
+0BB2  0007        si = 0
+0BB4  0009        ShowMessage(0x102A) = The Four Winds gather strength once again as they throw skeletal bones against the wall.
+0BC1  0016        ShowMessage(0x1083) = Monsters form out of the dust and winds.
+0BCE  0023        AddEncounter(0x14, 0x01)
+0BE0  0035        AddEncounter(0x1B, 0x02)
+0BF2  0047        AddEncounter(0x1C, 0x03)
+0C04  0059        AddEncounter(0x1D, 0x04)
+0C16  006B        AddEncounter(0x1E, 0x05)
+0C28  007D        AddEncounter(0x1E, 0x06)
+0C3A  008F        ax = CheckState(0x01, 0x01)
+0C4B  00A0        compare(ax, 0x0003)
+0C4E  00A3        If (result.notequal) jump to 00A8
+0C50  00A5        di = 0x0029
+0C53  00A8        ax = CheckState(0x01, 0x02)
+0C64  00B9        compare(ax, 0x0001)
+0C67  00BC        If (result.notequal) jump to 00C1
+0C69  00BE        si = 0x0086
+0C6C  00C1        ax = CheckState(0x01, 0x03)
+0C7D  00D2        compare(ax, 0x0001)
+0C80  00D5        If (result.notequal) jump to 0106
+0C82  00D7        ax = CheckState(0x01, 0x01)
+0C93  00E8        compare(ax, 0x0002)
+0C96  00EB        If (result.notequal) jump to 0106
+0C98  00ED        ax = CheckState(0x01, 0x02)
+0CA9  00FE        compare(ax, 0x0003)
+0CAC  0101        If (result.notequal) jump to 0106
+0CAE  0103        AddTreasure(0x07D0, 0x00, 0x00, 0xF6, di, 0xCF)
+0CCC  0121        RETURN (restoring si, di)
 
 WKTENCF_23:
-0000                          BEGIN (saving si, di)
-0005                          di = 0
-0007                          si = 0
-0009                          AddEncounter(1E, 01)
-001B                          AddEncounter(1E, 02)
-002D                          AddEncounter(1E, 03)
-003F                          AddEncounter(15, 04)
-0051                          AddEncounter(0C, 05)
-0063                          ax = CheckState(01, 01)
-0074                          compare(ax, 0004)
-0077                          If (result.notequal) value jump to 007C
-0079                          di = 0031
-007C                          ax = CheckState(01, 02)
-008D                          compare(ax, 0003)
-0090                          If (result.notequal) value jump to 0095
-0092                          si = 005A
-0095                          ax = CheckState(01, 03)
-00A6                          compare(ax, 0003)
-00A9                          If (result.notequal) value jump to 00AE
-00AB                          AddTreasure(07D0, 00, 00, 68, di, CF)
-00C9                          RETURN (restoring si, di)
+0CD0  0000        BEGIN (saving si, di)
+0CD5  0005        di = 0
+0CD7  0007        si = 0
+0CD9  0009        AddEncounter(0x1E, 0x01)
+0CEB  001B        AddEncounter(0x1E, 0x02)
+0CFD  002D        AddEncounter(0x1E, 0x03)
+0D0F  003F        AddEncounter(0x15, 0x04)
+0D21  0051        AddEncounter(0x0C, 0x05)
+0D33  0063        ax = CheckState(0x01, 0x01)
+0D44  0074        compare(ax, 0x0004)
+0D47  0077        If (result.notequal) jump to 007C
+0D49  0079        di = 0x0031
+0D4C  007C        ax = CheckState(0x01, 0x02)
+0D5D  008D        compare(ax, 0x0003)
+0D60  0090        If (result.notequal) jump to 0095
+0D62  0092        si = 0x005A
+0D65  0095        ax = CheckState(0x01, 0x03)
+0D76  00A6        compare(ax, 0x0003)
+0D79  00A9        If (result.notequal) jump to 00AE
+0D7B  00AB        AddTreasure(0x07D0, 0x00, 0x00, 0x68, di, 0xCF)
+0D99  00C9        RETURN (restoring si, di)
 
 WKTENCG_24:
-0000                          BEGIN
-0003                          ShowMessage(10AC) = In the midst of sleeping Hobgoblins, a small tempest swirls.  It whispers that one's treasure comes from the directions of the winds.
-0010                          ShowMessage(1132) = Then the tempest roars into a nightmare and wakens the hobgoblins.
-001D                          AddEncounter(22, 01)
-002F                          AddEncounter(22, 02)
-0041                          AddEncounter(0D, 05)
-0053                          AddEncounter(0D, 06)
-0065                          RETURN
+0D9D  0000        BEGIN
+0DA0  0003        ShowMessage(0x10AC) = In the midst of sleeping Hobgoblins, a small tempest swirls.  It whispers that one's treasure comes from the directions of the winds.
+0DAD  0010        ShowMessage(0x1132) = Then the tempest roars into a nightmare and wakens the hobgoblins.
+0DBA  001D        AddEncounter(0x22, 0x01)
+0DCC  002F        AddEncounter(0x22, 0x02)
+0DDE  0041        AddEncounter(0x0D, 0x05)
+0DF0  0053        AddEncounter(0x0D, 0x06)
+0E02  0065        RETURN
 
 WKTENCH_25:
-0000                          BEGIN
-0003                          ShowMessage(1175) = Sleeping adventurers are disturbed.
-0010                          AddEncounter(25, 01)
-0022                          AddEncounter(26, 02)
-0034                          AddEncounter(02, 05)
-0046                          AddEncounter(03, 06)
-0058                          RETURN
+0E04  0000        BEGIN
+0E07  0003        ShowMessage(0x1175) = Sleeping adventurers are disturbed.
+0E14  0010        AddEncounter(0x25, 0x01)
+0E26  0022        AddEncounter(0x26, 0x02)
+0E38  0034        AddEncounter(0x02, 0x05)
+0E4A  0046        AddEncounter(0x03, 0x06)
+0E5C  0058        RETURN
 
 WKTENCI_26:
-0000                          BEGIN
-0003                          ShowMessage(1199) = A dark corner hides an unlikely mix of beasts.
-0010                          AddEncounter(1B, 01)
-0022                          AddEncounter(1B, 02)
-0034                          AddEncounter(21, 05)
-0046                          AddEncounter(21, 06)
-0058                          RETURN
+0E5E  0000        BEGIN
+0E61  0003        ShowMessage(0x1199) = A dark corner hides an unlikely mix of beasts.
+0E6E  0010        AddEncounter(0x1B, 0x01)
+0E80  0022        AddEncounter(0x1B, 0x02)
+0E92  0034        AddEncounter(0x21, 0x05)
+0EA4  0046        AddEncounter(0x21, 0x06)
+0EB6  0058        RETURN
 
 SIRFLAG_27:
-0000                          BEGIN
-0003                          ShowMessage(11C8) = Sirocco's powers no longer hold the Sirocco Door.
-0010                          SetState(02, 51, 01)
-0025                          RETURN
+0EB8  0000        BEGIN
+0EBB  0003        ShowMessage(0x11C8) = Sirocco's powers no longer hold the Sirocco Door.
+0EC8  0010        SetState(0x02, 0x51, 0x01)
+0EDD  0025        RETURN
 
 SIRDOOR_28:
-0000                          BEGIN
-0003                          ax = CheckState(02, 51)
-0014                          RefreshCompareFlags(ax)
-0016                          If (result.equal) value jump to 005B
-0018                          Push(01)
-001C                          Push(01)
-0020                          ax = GetNextTile()
-0027                          Push(ax)
-0028                          Move(stk[0], stk[1], stk[2])
-0032                          Push(01)
-0036                          ax = GetNextTile()
-003D                          Push(ax)
-003E                          Push(01)
-0042                          SetUnblocked()
-004C                          ShowMessage(11FA) = Sirocco's powers no longer hold this door.  It is open.
-0059                          Jump to 0075
-005B                          ShowMessage(1232) = Sirocco's Door does not open.  In the distance, a wizard laughs aloud.
-0068                          ShowMessage(1279) = 'It is I, Sirocco, who bars your way!'
-0075                          RETURN
+0EDF  0000        BEGIN
+0EE2  0003        ax = CheckState(0x02, 0x51)
+0EF3  0014        RefreshCompareFlags(ax)
+0EF5  0016        If (result.equal) jump to 005B
+0EF7  0018        Push(01)
+0EFB  001C        Push(01)
+0EFF  0020        ax = GetNextTile()
+0F06  0027        Push(ax)
+0F07  0028        Move(stk[0], stk[1], stk[2])
+0F11  0032        Push(01)
+0F15  0036        ax = GetNextTile()
+0F1C  003D        Push(ax)
+0F1D  003E        Push(01)
+0F21  0042        SetUnblocked()
+0F2B  004C        ShowMessage(0x11FA) = Sirocco's powers no longer hold this door.  It is open.
+0F38  0059        Jump to 0075
+0F3A  005B        ShowMessage(0x1232) = Sirocco's Door does not open.  In the distance, a wizard laughs aloud.
+0F47  0068        ShowMessage(0x1279) = 'It is I, Sirocco, who bars your way!'
+0F54  0075        RETURN
 
 SIROCCO_29:
-0000                          BEGIN
-0003                          ShowMessage(12A0) = Sirocco, the wind labyrinth doorkeeper, materializes in the room.
-0010                          ShowMessage(12E2) = 'You dare challenge the winds??!
-001D                          AddEncounter(1F, 01)
-002F                          AddEncounter(1F, 02)
-0041                          AddEncounter(1F, 03)
-0053                          AddEncounter(1F, 04)
-0065                          AddEncounter(1A, 05)
-0077                          RETURN
+0F56  0000        BEGIN
+0F59  0003        ShowMessage(0x12A0) = Sirocco, the wind labyrinth doorkeeper, materializes in the room.
+0F66  0010        ShowMessage(0x12E2) = 'You dare challenge the winds??!
+0F73  001D        AddEncounter(0x1F, 0x01)
+0F85  002F        AddEncounter(0x1F, 0x02)
+0F97  0041        AddEncounter(0x1F, 0x03)
+0FA9  0053        AddEncounter(0x1F, 0x04)
+0FBB  0065        AddEncounter(0x1A, 0x05)
+0FCD  0077        RETURN
 
 WSBIGDR_2A:
-0000                          BEGIN
-0003                          ax = CheckStrength()
-000F                          compare(ax, 0012)
-0012                          If (result.lessthan) jump to 0041
-0014                          ShowMessage(1303) = You force the massive door open by sheer muscle power.
-0021                          Push(01)
-0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002C                          Push(ax)
-002D                          ax = GetNextTile()
-0034                          Push(ax)
-0035                          Move(stk[0], stk[1], stk[2])
-003F                          Jump to 006B
-0041                          ShowMessage(133A) = The door is stuck. You are not strong enough to force it open.
-004E                          Push(00)
-0051                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0058                          Push(ax)
-0059                          ax = GetNextTile()
-0060                          Push(ax)
-0061                          Move(stk[0], stk[1], stk[2])
-006B                          RETURN
+0FCF  0000        BEGIN
+0FD2  0003        ax = CheckStrength()
+0FDE  000F        compare(ax, 0x0012)
+0FE1  0012        If (result.below) jump to 0041
+0FE3  0014        ShowMessage(0x1303) = You force the massive door open by sheer muscle power.
+0FF0  0021        Push(01)
+0FF4  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+0FFB  002C        Push(ax)
+0FFC  002D        ax = GetNextTile()
+1003  0034        Push(ax)
+1004  0035        Move(stk[0], stk[1], stk[2])
+100E  003F        Jump to 006B
+1010  0041        ShowMessage(0x133A) = The door is stuck. You are not strong enough to force it open.
+101D  004E        Push(00)
+1020  0051        ax = SetExitability(ax) // ax is usually 0 following equality check
+1027  0058        Push(ax)
+1028  0059        ax = GetNextTile()
+102F  0060        Push(ax)
+1030  0061        Move(stk[0], stk[1], stk[2])
+103A  006B        RETURN
 
 WSENCA_2B:
-0000                          BEGIN
-0003                          ShowMessage(1379) = A nest of dragons sneers at you. 'The Sanctuary belongs to us!'
-0010                          AddEncounter(20, 01)
-0022                          AddEncounter(20, 02)
-0034                          AddEncounter(28, 05)
-0046                          AddEncounter(28, 06)
-0058                          RETURN
+103C  0000        BEGIN
+103F  0003        ShowMessage(0x1379) = A nest of dragons sneers at you. 'The Sanctuary belongs to us!'
+104C  0010        AddEncounter(0x20, 0x01)
+105E  0022        AddEncounter(0x20, 0x02)
+1070  0034        AddEncounter(0x28, 0x05)
+1082  0046        AddEncounter(0x28, 0x06)
+1094  0058        RETURN
 
 WSENCB_2C:
-0000                          BEGIN
-0003                          ShowMessage(13B9) = A band of sanctuary guards are alerted.
-0010                          AddEncounter(1F, 01)
-0022                          AddEncounter(1F, 02)
-0034                          AddEncounter(21, 03)
-0046                          AddEncounter(20, 05)
-0058                          AddEncounter(20, 06)
-006A                          RETURN
+1096  0000        BEGIN
+1099  0003        ShowMessage(0x13B9) = A band of sanctuary guards are alerted.
+10A6  0010        AddEncounter(0x1F, 0x01)
+10B8  0022        AddEncounter(0x1F, 0x02)
+10CA  0034        AddEncounter(0x21, 0x03)
+10DC  0046        AddEncounter(0x20, 0x05)
+10EE  0058        AddEncounter(0x20, 0x06)
+1100  006A        RETURN
 
 WSENCC_2D:
-0000                          BEGIN
-0003                          ShowMessage(13E1) = Your path is blocked.
-0010                          AddEncounter(24, 01)
-0022                          AddEncounter(24, 02)
-0034                          AddEncounter(23, 03)
-0046                          AddEncounter(1F, 04)
-0058                          AddEncounter(1C, 05)
-006A                          AddEncounter(20, 06)
-007C                          RETURN
+1102  0000        BEGIN
+1105  0003        ShowMessage(0x13E1) = Your path is blocked.
+1112  0010        AddEncounter(0x24, 0x01)
+1124  0022        AddEncounter(0x24, 0x02)
+1136  0034        AddEncounter(0x23, 0x03)
+1148  0046        AddEncounter(0x1F, 0x04)
+115A  0058        AddEncounter(0x1C, 0x05)
+116C  006A        AddEncounter(0x20, 0x06)
+117E  007C        RETURN
+
+EMPTY:
+1180  0000        <Empty Function>
+
+EMPTY:
+1185  0000        <Empty Function>
 
 WSENCF_30:
-0000                          BEGIN
-0003                          ShowMessage(13F7) = Adventurers are disturbed.  'We are cursed to kill those who have seen our fate.'
-0010                          AddEncounter(11, 01)
-0022                          AddEncounter(1E, 02)
-0034                          AddEncounter(1C, 03)
-0046                          AddEncounter(13, 04)
-0058                          RETURN
+118A  0000        BEGIN
+118D  0003        ShowMessage(0x13F7) = Adventurers are disturbed.  'We are cursed to kill those who have seen our fate.'
+119A  0010        AddEncounter(0x11, 0x01)
+11AC  0022        AddEncounter(0x1E, 0x02)
+11BE  0034        AddEncounter(0x1C, 0x03)
+11D0  0046        AddEncounter(0x13, 0x04)
+11E2  0058        RETURN
 
 WSENCG_31:
-0000                          BEGIN
-0003                          AddEncounter(1F, 01)
-0015                          AddEncounter(1F, 02)
-0027                          AddEncounter(20, 05)
-0039                          AddEncounter(20, 06)
-004B                          RETURN
+11E4  0000        BEGIN
+11E7  0003        AddEncounter(0x1F, 0x01)
+11F9  0015        AddEncounter(0x1F, 0x02)
+120B  0027        AddEncounter(0x20, 0x05)
+121D  0039        AddEncounter(0x20, 0x06)
+122F  004B        RETURN
 
 WSNOTE_32:
-0000                          BEGIN
-0003                          ShowMessage(1449) = Stuffed behind a rock, you find a magical note that reads... 
-0010                          ShowRunes(1487) = 'Red, Yellow, Green and Blue.  That is the order of the gems.'
-001D                          ShowMessage(14C6) = -- signed last Wyn Survivor, Kanasgwyn.
-002A                          RETURN
+1231  0000        BEGIN
+1234  0003        ShowMessage(0x1449) = Stuffed behind a rock, you find a magical note that reads... 
+1241  0010        ShowRunes(0x1487) = 'Red, Yellow, Green and Blue.  That is the order of the gems.'
+124E  001D        ShowMessage(0x14C6) = -- signed last Wyn Survivor, Kanasgwyn.
+125B  002A        RETURN
 
 WSENCI_33:
-0000                          BEGIN
-0003                          ShowMessage(14EE) = Commanders of the Wyn Ogres have set up camp here.
-0010                          AddEncounter(1F, 01)
-0022                          AddEncounter(1F, 02)
-0034                          AddEncounter(23, 03)
-0046                          AddEncounter(23, 04)
-0058                          AddEncounter(20, 05)
-006A                          AddEncounter(20, 06)
-007C                          RETURN
+125D  0000        BEGIN
+1260  0003        ShowMessage(0x14EE) = Commanders of the Wyn Ogres have set up camp here.
+126D  0010        AddEncounter(0x1F, 0x01)
+127F  0022        AddEncounter(0x1F, 0x02)
+1291  0034        AddEncounter(0x23, 0x03)
+12A3  0046        AddEncounter(0x23, 0x04)
+12B5  0058        AddEncounter(0x20, 0x05)
+12C7  006A        AddEncounter(0x20, 0x06)
+12D9  007C        RETURN
 
 SDOORWS_34:
-0000                          BEGIN
-0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F                          compare(ax, 000A)
-0012                          If (result.greaterthan or result.equal) jump to 0039
-0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020                          RefreshCompareFlags(ax)
-0022                          If (result.notequal) value jump to 0039
-0024                          ax = UsedItem(BE, BE)
-0037                          If (result.equal) value jump to 0064
-0039                          Push(01)
-003D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0044                          Push(ax)
-0045                          ax = GetNextTile()
-004C                          Push(ax)
-004D                          Move(stk[0], stk[1], stk[2])
-0057                          ShowMessage(1521) = You found a secret door!
-0064                          RETURN
+12DB  0000        BEGIN
+12DE  0003        ax = UsedSkill(0x0D) // returns 0 if did not use, compares to 2nd op if did use
+12EA  000F        compare(ax, 0x000A)
+12ED  0012        If (result.above or result.equal) jump to 0039
+12EF  0014        ax = UsedSpell(0x17) // returns 0 if did not use on map, level if used
+12FB  0020        RefreshCompareFlags(ax)
+12FD  0022        If (result.notequal) jump to 0039
+12FF  0024        ax = UsedItem(0xBE, 0xBE)
+1312  0037        If (result.equal) jump to 0064
+1314  0039        Push(01)
+1318  003D        ax = SetExitability(ax) // ax is usually 0 following equality check
+131F  0044        Push(ax)
+1320  0045        ax = GetNextTile()
+1327  004C        Push(ax)
+1328  004D        Move(stk[0], stk[1], stk[2])
+1332  0057        ShowMessage(0x1521) = You found a secret door!
+133F  0064        RETURN
 
 ARKARCH_35:
-0000                          BEGIN
-0003                          ShowMessage(153A) = A message is inscribed on stone -- 
-0010                          ShowMessage(155E) = 'Labyrinth and lower levels first explored by Arkarch of the Snow Elves.'
-001D                          RETURN
+1341  0000        BEGIN
+1344  0003        ShowMessage(0x153A) = A message is inscribed on stone -- 
+1351  0010        ShowMessage(0x155E) = 'Labyrinth and lower levels first explored by Arkarch of the Snow Elves.'
+135E  001D        RETURN
 
 LAENCA_36:
-0000                          BEGIN
-0003                          ShowMessage(15A8) = Apprentice thieves jump you!  'We must earn our dues!'
-0010                          AddEncounter(26, 01)
-0022                          AddEncounter(25, 02)
-0034                          AddEncounter(27, 03)
-0046                          RETURN
+1360  0000        BEGIN
+1363  0003        ShowMessage(0x15A8) = Apprentice thieves jump you!  'We must earn our dues!'
+1370  0010        AddEncounter(0x26, 0x01)
+1382  0022        AddEncounter(0x25, 0x02)
+1394  0034        AddEncounter(0x27, 0x03)
+13A6  0046        RETURN
 
 FNTNHEAL_37:
-0000                          BEGIN
-0003                          ax = GetMaxHits()
-000A                          AddHealth(ax)
-0014                          ShowPortrait(0042)
-0021                          ShowMessage(15DF) = Your many wounds and lingering diseases are removed by the sweet waters of WindyBless Fountain.
-002E                          RETURN
+13A8  0000        BEGIN
+13AB  0003        ax = GetMaxHits()
+13B2  000A        AddHealth(ax)
+13BC  0014        ShowPortrait(0x0042)
+13C9  0021        ShowMessage(0x15DF) = Your many wounds and lingering diseases are removed by the sweet waters of WindyBless Fountain.
+13D6  002E        RETURN
 
 FNTNMANA_38:
-0000                          BEGIN
-0003                          AddMana(012C)
-0010                          ShowPortrait(0042)
-001D                          ShowMessage(163F) = The mystic waters of the NightWillow Fountain restore your Mana level.
-002A                          RETURN
+13D8  0000        BEGIN
+13DB  0003        AddMana(0x012C)
+13E8  0010        ShowPortrait(0x0042)
+13F5  001D        ShowMessage(0x163F) = The mystic waters of the NightWillow Fountain restore your Mana level.
+1402  002A        RETURN
 
 LAENCB_39:
-0000                          BEGIN
-0003                          ShowMessage(1686) = You stumble into a den of angry monsters.
-0010                          AddEncounter(21, 01)
-0022                          AddEncounter(21, 02)
-0034                          AddEncounter(1C, 03)
-0046                          AddEncounter(1C, 04)
-0058                          AddEncounter(28, 05)
-006A                          AddEncounter(28, 06)
-007C                          RETURN
+1404  0000        BEGIN
+1407  0003        ShowMessage(0x1686) = You stumble into a den of angry monsters.
+1414  0010        AddEncounter(0x21, 0x01)
+1426  0022        AddEncounter(0x21, 0x02)
+1438  0034        AddEncounter(0x1C, 0x03)
+144A  0046        AddEncounter(0x1C, 0x04)
+145C  0058        AddEncounter(0x28, 0x05)
+146E  006A        AddEncounter(0x28, 0x06)
+1480  007C        RETURN
 
 SDOORLTA_3A:
-0000                          BEGIN
-0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F                          compare(ax, 000A)
-0012                          If (result.greaterthan or result.equal) jump to 004E
-0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020                          RefreshCompareFlags(ax)
-0022                          If (result.notequal) value jump to 004E
-0024                          ax = UsedItem(A2, A2)
-0037                          If (result.notequal) value jump to 004E
-0039                          ax = UsedItem(BE, BE)
-004C                          If (result.equal) value jump to 0079
-004E                          Push(01)
-0052                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0059                          Push(ax)
-005A                          ax = GetNextTile()
-0061                          Push(ax)
-0062                          Move(stk[0], stk[1], stk[2])
-006C                          ShowMessage(16B0) = You found a secret door!
-0079                          RETURN
+1482  0000        BEGIN
+1485  0003        ax = UsedSkill(0x0D) // returns 0 if did not use, compares to 2nd op if did use
+1491  000F        compare(ax, 0x000A)
+1494  0012        If (result.above or result.equal) jump to 004E
+1496  0014        ax = UsedSpell(0x17) // returns 0 if did not use on map, level if used
+14A2  0020        RefreshCompareFlags(ax)
+14A4  0022        If (result.notequal) jump to 004E
+14A6  0024        ax = UsedItem(0xA2, 0xA2)
+14B9  0037        If (result.notequal) jump to 004E
+14BB  0039        ax = UsedItem(0xBE, 0xBE)
+14CE  004C        If (result.equal) jump to 0079
+14D0  004E        Push(01)
+14D4  0052        ax = SetExitability(ax) // ax is usually 0 following equality check
+14DB  0059        Push(ax)
+14DC  005A        ax = GetNextTile()
+14E3  0061        Push(ax)
+14E4  0062        Move(stk[0], stk[1], stk[2])
+14EE  006C        ShowMessage(0x16B0) = You found a secret door!
+14FB  0079        RETURN
 
 SDOORLTB_3B:
-0000                          BEGIN
-0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F                          compare(ax, 000A)
-0012                          If (result.greaterthan or result.equal) jump to 004E
-0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020                          RefreshCompareFlags(ax)
-0022                          If (result.notequal) value jump to 004E
-0024                          ax = UsedItem(A2, A2)
-0037                          If (result.notequal) value jump to 004E
-0039                          ax = UsedItem(BE, BE)
-004C                          If (result.equal) value jump to 0079
-004E                          Push(01)
-0052                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0059                          Push(ax)
-005A                          ax = GetNextTile()
-0061                          Push(ax)
-0062                          Move(stk[0], stk[1], stk[2])
-006C                          ShowMessage(16C9) = You discover a secret door!
-0079                          RETURN
+14FD  0000        BEGIN
+1500  0003        ax = UsedSkill(0x0D) // returns 0 if did not use, compares to 2nd op if did use
+150C  000F        compare(ax, 0x000A)
+150F  0012        If (result.above or result.equal) jump to 004E
+1511  0014        ax = UsedSpell(0x17) // returns 0 if did not use on map, level if used
+151D  0020        RefreshCompareFlags(ax)
+151F  0022        If (result.notequal) jump to 004E
+1521  0024        ax = UsedItem(0xA2, 0xA2)
+1534  0037        If (result.notequal) jump to 004E
+1536  0039        ax = UsedItem(0xBE, 0xBE)
+1549  004C        If (result.equal) jump to 0079
+154B  004E        Push(01)
+154F  0052        ax = SetExitability(ax) // ax is usually 0 following equality check
+1556  0059        Push(ax)
+1557  005A        ax = GetNextTile()
+155E  0061        Push(ax)
+155F  0062        Move(stk[0], stk[1], stk[2])
+1569  006C        ShowMessage(0x16C9) = You discover a secret door!
+1576  0079        RETURN
 
 SDOORLTC_3C:
-0000                          BEGIN
-0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F                          compare(ax, 000A)
-0012                          If (result.greaterthan or result.equal) jump to 004E
-0014                          ax = UsedSpell(17) // returns 0 if did not use on map, level if used
-0020                          RefreshCompareFlags(ax)
-0022                          If (result.notequal) value jump to 004E
-0024                          ax = UsedItem(A2, A2)
-0037                          If (result.notequal) value jump to 004E
-0039                          ax = UsedItem(BE, BE)
-004C                          If (result.equal) value jump to 0079
-004E                          Push(01)
-0052                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0059                          Push(ax)
-005A                          ax = GetNextTile()
-0061                          Push(ax)
-0062                          Move(stk[0], stk[1], stk[2])
-006C                          ShowMessage(16E5) = A secret door suddenly appears!
-0079                          RETURN
+1578  0000        BEGIN
+157B  0003        ax = UsedSkill(0x0D) // returns 0 if did not use, compares to 2nd op if did use
+1587  000F        compare(ax, 0x000A)
+158A  0012        If (result.above or result.equal) jump to 004E
+158C  0014        ax = UsedSpell(0x17) // returns 0 if did not use on map, level if used
+1598  0020        RefreshCompareFlags(ax)
+159A  0022        If (result.notequal) jump to 004E
+159C  0024        ax = UsedItem(0xA2, 0xA2)
+15AF  0037        If (result.notequal) jump to 004E
+15B1  0039        ax = UsedItem(0xBE, 0xBE)
+15C4  004C        If (result.equal) jump to 0079
+15C6  004E        Push(01)
+15CA  0052        ax = SetExitability(ax) // ax is usually 0 following equality check
+15D1  0059        Push(ax)
+15D2  005A        ax = GetNextTile()
+15D9  0061        Push(ax)
+15DA  0062        Move(stk[0], stk[1], stk[2])
+15E4  006C        ShowMessage(0x16E5) = A secret door suddenly appears!
+15F1  0079        RETURN
 
 BDOORLTD_3D:
-0000                          BEGIN
-0003                          ax = CheckStrength()
-000F                          compare(ax, 0010)
-0012                          If (result.lessthan) jump to 003F
-0014                          ShowMessage(1705) = You bash the massive door open.
-0021                          Push(01)
-0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002C                          Push(ax)
-002D                          ax = GetNextTile()
-0034                          Push(ax)
-0035                          Move(stk[0], stk[1], stk[2])
-003F                          RETURN
+15F3  0000        BEGIN
+15F6  0003        ax = CheckStrength()
+1602  000F        compare(ax, 0x0010)
+1605  0012        If (result.below) jump to 003F
+1607  0014        ShowMessage(0x1705) = You bash the massive door open.
+1614  0021        Push(01)
+1618  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+161F  002C        Push(ax)
+1620  002D        ax = GetNextTile()
+1627  0034        Push(ax)
+1628  0035        Move(stk[0], stk[1], stk[2])
+1632  003F        RETURN
 
 LTENCA_3E:
-0000                          BEGIN
-0003                          AddEncounter(0F, 01)
-0015                          AddEncounter(10, 02)
-0027                          AddEncounter(22, 05)
-0039                          AddEncounter(25, 06)
-004B                          RETURN
+1634  0000        BEGIN
+1637  0003        AddEncounter(0x0F, 0x01)
+1649  0015        AddEncounter(0x10, 0x02)
+165B  0027        AddEncounter(0x22, 0x05)
+166D  0039        AddEncounter(0x25, 0x06)
+167F  004B        RETURN
 
 LTENCB_3F:
-0000                          BEGIN
-0003                          ShowMessage(1725) = A note -- 'The Runes suggest a path to Arnakkian's Treasure Room.'
-0010                          AddEncounter(23, 01)
-0022                          AddEncounter(22, 02)
-0034                          AddEncounter(25, 05)
-0046                          AddEncounter(26, 06)
-0058                          RETURN
+1681  0000        BEGIN
+1684  0003        ShowMessage(0x1725) = A note -- 'The Runes suggest a path to Arnakkian's Treasure Room.'
+1691  0010        AddEncounter(0x23, 0x01)
+16A3  0022        AddEncounter(0x22, 0x02)
+16B5  0034        AddEncounter(0x25, 0x05)
+16C7  0046        AddEncounter(0x26, 0x06)
+16D9  0058        RETURN
 
 LTENCC_40:
-0000                          BEGIN
-0003                          ShowMessage(1768) = Upon the wall you see a message -- 
-0010                          ShowMessage(178C) = 'Beneath each pit is a floor or another pit.  Fall to the floors to find more passages.'
-001D                          AddEncounter(22, 01)
-002F                          AddEncounter(22, 02)
-0041                          AddEncounter(25, 05)
-0053                          AddEncounter(27, 06)
-0065                          RETURN
+16DB  0000        BEGIN
+16DE  0003        ShowMessage(0x1768) = Upon the wall you see a message -- 
+16EB  0010        ShowMessage(0x178C) = 'Beneath each pit is a floor or another pit.  Fall to the floors to find more passages.'
+16F8  001D        AddEncounter(0x22, 0x01)
+170A  002F        AddEncounter(0x22, 0x02)
+171C  0041        AddEncounter(0x25, 0x05)
+172E  0053        AddEncounter(0x27, 0x06)
+1740  0065        RETURN
 
 LTENCD_41:
-0000                          BEGIN
-0003                          AddEncounter(0F, 01)
-0015                          AddEncounter(0F, 02)
-0027                          AddEncounter(26, 05)
-0039                          AddEncounter(27, 06)
-004B                          RETURN
+1742  0000        BEGIN
+1745  0003        AddEncounter(0x0F, 0x01)
+1757  0015        AddEncounter(0x0F, 0x02)
+1769  0027        AddEncounter(0x26, 0x05)
+177B  0039        AddEncounter(0x27, 0x06)
+178D  004B        RETURN
 
 LTENCE_42:
-0000                          BEGIN
-0003                          AddEncounter(0D, 01)
-0015                          AddEncounter(23, 02)
-0027                          AddEncounter(24, 05)
-0039                          AddEncounter(18, 06)
-004B                          RETURN
+178F  0000        BEGIN
+1792  0003        AddEncounter(0x0D, 0x01)
+17A4  0015        AddEncounter(0x23, 0x02)
+17B6  0027        AddEncounter(0x24, 0x05)
+17C8  0039        AddEncounter(0x18, 0x06)
+17DA  004B        RETURN
+
+EMPTY:
+17DC  0000        <Empty Function>
 
 LTENCG_44:
-0000                          BEGIN
-0003                          ShowMessage(17E5) = Hobgoblins smile, then attack.
-0010                          AddEncounter(22, 01)
-0022                          AddEncounter(22, 02)
-0034                          AddEncounter(0F, 03)
-0046                          AddEncounter(0F, 04)
-0058                          RETURN
+17E1  0000        BEGIN
+17E4  0003        ShowMessage(0x17E5) = Hobgoblins smile, then attack.
+17F1  0010        AddEncounter(0x22, 0x01)
+1803  0022        AddEncounter(0x22, 0x02)
+1815  0034        AddEncounter(0x0F, 0x03)
+1827  0046        AddEncounter(0x0F, 0x04)
+1839  0058        RETURN
 
 LTSKILL_45:
-0000                          BEGIN
-0003                          ShowMessage(1804) = A special thieves' shrine magically glows.
-0010                          ax = CheckState(02, 59)
-0021                          RefreshCompareFlags(ax)
-0023                          If (result.equal) value jump to 0028
-0025                          Jump to 010D
-0028                          SetState(02, 59, 01)
-003D                          ax = GetSkillLevel(0D)
-0049                          RefreshCompareFlags(ax)
-004B                          If (result.notequal) value jump to 006E
-004D                          SetSkillLevel(0D, 01)
-005E                          ShowMessage(182F) = You gain the skill of Detection!
-006B                          Jump to 010B
-006E                          ax = GetSkillLevel(0E)
-007A                          RefreshCompareFlags(ax)
-007C                          If (result.notequal) value jump to 009E
-007E                          SetSkillLevel(0E, 01)
-008F                          ShowMessage(1850) = You gain the skill of Lockpicking!
-009C                          Jump to 010B
-009E                          ax = GetSkillLevel(0C)
-00AA                          RefreshCompareFlags(ax)
-00AC                          If (result.notequal) value jump to 00CE
-00AE                          SetSkillLevel(0C, 02)
-00BF                          ShowMessage(1873) = You gain the Bard skill!
-00CC                          Jump to 010B
-00CE                          ax = GetSkillLevel(0F)
-00DA                          RefreshCompareFlags(ax)
-00DC                          If (result.notequal) value jump to 00FE
-00DE                          SetSkillLevel(0F, 01)
-00EF                          ShowMessage(188C) = You gain the Pickpocketing skill!
-00FC                          Jump to 010B
-00FE                          ShowMessage(18AE) = Nothing happens.
-010B                          Jump to 011A
-010D                          ShowMessage(18BF) = The shrines does nothing.
-011A                          RETURN
+183B  0000        BEGIN
+183E  0003        ShowMessage(0x1804) = A special thieves' shrine magically glows.
+184B  0010        ax = CheckState(0x02, 0x59)
+185C  0021        RefreshCompareFlags(ax)
+185E  0023        If (result.equal) jump to 0028
+1860  0025        Jump to 010D
+1863  0028        SetState(0x02, 0x59, 0x01)
+1878  003D        ax = GetSkillLevel(0x0D)
+1884  0049        RefreshCompareFlags(ax)
+1886  004B        If (result.notequal) jump to 006E
+1888  004D        SetSkillLevel(0x0D, 0x01)
+1899  005E        ShowMessage(0x182F) = You gain the skill of Detection!
+18A6  006B        Jump to 010B
+18A9  006E        ax = GetSkillLevel(0x0E)
+18B5  007A        RefreshCompareFlags(ax)
+18B7  007C        If (result.notequal) jump to 009E
+18B9  007E        SetSkillLevel(0x0E, 0x01)
+18CA  008F        ShowMessage(0x1850) = You gain the skill of Lockpicking!
+18D7  009C        Jump to 010B
+18D9  009E        ax = GetSkillLevel(0x0C)
+18E5  00AA        RefreshCompareFlags(ax)
+18E7  00AC        If (result.notequal) jump to 00CE
+18E9  00AE        SetSkillLevel(0x0C, 0x02)
+18FA  00BF        ShowMessage(0x1873) = You gain the Bard skill!
+1907  00CC        Jump to 010B
+1909  00CE        ax = GetSkillLevel(0x0F)
+1915  00DA        RefreshCompareFlags(ax)
+1917  00DC        If (result.notequal) jump to 00FE
+1919  00DE        SetSkillLevel(0x0F, 0x01)
+192A  00EF        ShowMessage(0x188C) = You gain the Pickpocketing skill!
+1937  00FC        Jump to 010B
+1939  00FE        ShowMessage(0x18AE) = Nothing happens.
+1946  010B        Jump to 011A
+1948  010D        ShowMessage(0x18BF) = The shrines does nothing.
+1955  011A        RETURN
 
 LTENCI_46:
-0000                          BEGIN
-0003                          ShowMessage(18D9) = Thieves make a desperate stand.
-0010                          AddEncounter(01, 01)
-0022                          AddEncounter(05, 02)
-0034                          AddEncounter(25, 03)
-0046                          AddEncounter(26, 04)
-0058                          RETURN
+1957  0000        BEGIN
+195A  0003        ShowMessage(0x18D9) = Thieves make a desperate stand.
+1967  0010        AddEncounter(0x01, 0x01)
+1979  0022        AddEncounter(0x05, 0x02)
+198B  0034        AddEncounter(0x25, 0x03)
+199D  0046        AddEncounter(0x26, 0x04)
+19AF  0058        RETURN
 
 LTENCJ_47:
-0000                          BEGIN
-0003                          ShowMessage(18F9) = Master Thieves Attack!
-0010                          AddEncounter(04, 01)
-0022                          AddEncounter(08, 02)
-0034                          AddEncounter(25, 03)
-0046                          AddEncounter(26, 04)
-0058                          AddEncounter(27, 05)
-006A                          RETURN
+19B1  0000        BEGIN
+19B4  0003        ShowMessage(0x18F9) = Master Thieves Attack!
+19C1  0010        AddEncounter(0x04, 0x01)
+19D3  0022        AddEncounter(0x08, 0x02)
+19E5  0034        AddEncounter(0x25, 0x03)
+19F7  0046        AddEncounter(0x26, 0x04)
+1A09  0058        AddEncounter(0x27, 0x05)
+1A1B  006A        RETURN
 
 LTENCK_48:
-0000                          BEGIN
-0003                          ShowMessage(1910) = Master Thieves ready themselves.
-0010                          AddEncounter(25, 01)
-0022                          AddEncounter(26, 02)
-0034                          AddEncounter(10, 03)
-0046                          AddEncounter(10, 04)
-0058                          AddEncounter(02, 05)
-006A                          AddEncounter(02, 06)
-007C                          ax = HasItem(DD)
-008A                          If (result.equal) value jump to 00AD
-008C                          AddTreasure(07D0, 00, 00, 00, 00, CF)
-00AB                          Jump to 00DB
-00AD                          ShowMessage(1931) = Light sparks off a key tied to the neck of the leader.
-00BA                          AddTreasure(3A98, 00, 00, 46, 61, DD)
-00DB                          RETURN
+1A1D  0000        BEGIN
+1A20  0003        ShowMessage(0x1910) = Master Thieves ready themselves.
+1A2D  0010        AddEncounter(0x25, 0x01)
+1A3F  0022        AddEncounter(0x26, 0x02)
+1A51  0034        AddEncounter(0x10, 0x03)
+1A63  0046        AddEncounter(0x10, 0x04)
+1A75  0058        AddEncounter(0x02, 0x05)
+1A87  006A        AddEncounter(0x02, 0x06)
+1A99  007C        ax = HasItem(0xDD)
+1AA7  008A        If (result.equal) jump to 00AD
+1AA9  008C        AddTreasure(0x07D0, 0x00, 0x00, 0x00, 0x00, 0xCF)
+1AC8  00AB        Jump to 00DB
+1ACA  00AD        ShowMessage(0x1931) = Light sparks off a key tied to the neck of the leader.
+1AD7  00BA        AddTreasure(0x3A98, 0x00, 0x00, 0x46, 0x61, 0xDD)
+1AF8  00DB        RETURN
 
 TXTAWIND_49:
-0000                          BEGIN
-0003                          ShowPortrait(000A)
-0010                          ShowMessage(1968) = A voice echoes through the winds...
-001D                          ShowMessage(198C) = 'You have traveled well, fair adventurers!
-002A                          ShowMessage(19B7) = I laughed when you troubled King Cleowyn's ghost!
-0037                          ShowMessage(19E9) = But now you enter my tunnels!  Go back whence you came!
-0044                          ShowMessage(1A21) = The Winds will keep these places clean.'
-0051                          RETURN
+1AFA  0000        BEGIN
+1AFD  0003        ShowPortrait(0x000A)
+1B0A  0010        ShowMessage(0x1968) = A voice echoes through the winds...
+1B17  001D        ShowMessage(0x198C) = 'You have traveled well, fair adventurers!
+1B24  002A        ShowMessage(0x19B7) = I laughed when you troubled King Cleowyn's ghost!
+1B31  0037        ShowMessage(0x19E9) = But now you enter my tunnels!  Go back whence you came!
+1B3E  0044        ShowMessage(0x1A21) = The Winds will keep these places clean.'
+1B4B  0051        RETURN
 
+EMPTY:
+1B4D  0000        <Empty Function>
+
+EMPTY:
+1B52  0000        <Empty Function>
+
+EMPTY:
+1B57  0000        <Empty Function>
+
+EMPTY:
+1B5C  0000        <Empty Function>
+
+EMPTY:
+1B61  0000        <Empty Function>
+
+EMPTY:
+1B66  0000        <Empty Function>
+
+EMPTY:
+1B6B  0000        <Empty Function>
+
+EMPTY:
+1B70  0000        <Empty Function>
+
+EMPTY:
+1B75  0000        <Empty Function>
+
+EMPTY:
+1B7A  0000        <Empty Function>
+
+EMPTY:
+1B7F  0000        <Empty Function>
+
+EMPTY:
+1B84  0000        <Empty Function>
+
+EMPTY:
+1B89  0000        <Empty Function>
+
+EMPTY:
+1B8E  0000        <Empty Function>
+
+EMPTY:
+1B93  0000        <Empty Function>
+
+EMPTY:
+1B98  0000        <Empty Function>
+
+EMPTY:
+1B9D  0000        <Empty Function>
+
+EMPTY:
+1BA2  0000        <Empty Function>
+
+EMPTY:
+1BA7  0000        <Empty Function>
+
+EMPTY:
+1BAC  0000        <Empty Function>
+
+EMPTY:
+1BB1  0000        <Empty Function>
+
+EMPTY:
+1BB6  0000        <Empty Function>
+
+EMPTY:
+1BBB  0000        <Empty Function>
+
+EMPTY:
+1BC0  0000        <Empty Function>
+
+EMPTY:
+1BC5  0000        <Empty Function>
+
+EMPTY:
+1BCA  0000        <Empty Function>
+
+EMPTY:
+1BCF  0000        <Empty Function>
+
+EMPTY:
+1BD4  0000        <Empty Function>
+
+EMPTY:
+1BD9  0000        <Empty Function>
+
+EMPTY:
+1BDE  0000        <Empty Function>
+
+EMPTY:
+1BE3  0000        <Empty Function>
+
+EMPTY:
+1BE8  0000        <Empty Function>
+
+EMPTY:
+1BED  0000        <Empty Function>
+
+EMPTY:
+1BF2  0000        <Empty Function>
+
+EMPTY:
+1BF7  0000        <Empty Function>
+
+EMPTY:
+1BFC  0000        <Empty Function>
+
+EMPTY:
+1C01  0000        <Empty Function>
+
+EMPTY:
+1C06  0000        <Empty Function>
+
+EMPTY:
+1C0B  0000        <Empty Function>
+
+EMPTY:
+1C10  0000        <Empty Function>
+
+EMPTY:
+1C15  0000        <Empty Function>
+
+EMPTY:
+1C1A  0000        <Empty Function>
+
+EMPTY:
+1C1F  0000        <Empty Function>
+
+EMPTY:
+1C24  0000        <Empty Function>
+
+EMPTY:
+1C29  0000        <Empty Function>
+
+EMPTY:
+1C2E  0000        <Empty Function>
+
+EMPTY:
+1C33  0000        <Empty Function>
+
+EMPTY:
+1C38  0000        <Empty Function>
+
+EMPTY:
+1C3D  0000        <Empty Function>
+
+EMPTY:
+1C42  0000        <Empty Function>
+
+EMPTY:
+1C47  0000        <Empty Function>
+
+EMPTY:
+1C4C  0000        <Empty Function>
+
+EMPTY:
+1C51  0000        <Empty Function>
+
+EMPTY:
+1C56  0000        <Empty Function>
+
+EMPTY:
+1C5B  0000        <Empty Function>
+
+EMPTY:
+1C60  0000        <Empty Function>
+
+EMPTY:
+1C65  0000        <Empty Function>
+
+EMPTY:
+1C6A  0000        <Empty Function>
+
+EMPTY:
+1C6F  0000        <Empty Function>
+
+EMPTY:
+1C74  0000        <Empty Function>
+
+EMPTY:
+1C79  0000        <Empty Function>
+
+EMPTY:
+1C7E  0000        <Empty Function>
+
+EMPTY:
+1C83  0000        <Empty Function>
+
+EMPTY:
+1C88  0000        <Empty Function>
+
+EMPTY:
+1C8D  0000        <Empty Function>
+
+EMPTY:
+1C92  0000        <Empty Function>
+
+EMPTY:
+1C97  0000        <Empty Function>
+
+EMPTY:
+1C9C  0000        <Empty Function>
+
+EMPTY:
+1CA1  0000        <Empty Function>
+
+EMPTY:
+1CA6  0000        <Empty Function>
+
+EMPTY:
+1CAB  0000        <Empty Function>
+
+EMPTY:
+1CB0  0000        <Empty Function>
+
+EMPTY:
+1CB5  0000        <Empty Function>
+
+EMPTY:
+1CBA  0000        <Empty Function>
+
+EMPTY:
+1CBF  0000        <Empty Function>
+
+EMPTY:
+1CC4  0000        <Empty Function>
+
+EMPTY:
+1CC9  0000        <Empty Function>
+
+EMPTY:
+1CCE  0000        <Empty Function>
+
+EMPTY:
+1CD3  0000        <Empty Function>
+
+EMPTY:
+1CD8  0000        <Empty Function>
+
+EMPTY:
+1CDD  0000        <Empty Function>
+
+EMPTY:
+1CE2  0000        <Empty Function>
+
+EMPTY:
+1CE7  0000        <Empty Function>
+
+EMPTY:
+1CEC  0000        <Empty Function>
+
+EMPTY:
+1CF1  0000        <Empty Function>
+
+EMPTY:
+1CF6  0000        <Empty Function>
+
+EMPTY:
+1CFB  0000        <Empty Function>
+
+EMPTY:
+1D00  0000        <Empty Function>
+
+EMPTY:
+1D05  0000        <Empty Function>
+
+EMPTY:
+1D0A  0000        <Empty Function>
+
+EMPTY:
+1D0F  0000        <Empty Function>
+
+EMPTY:
+1D14  0000        <Empty Function>
+
+EMPTY:
+1D19  0000        <Empty Function>
+
+EMPTY:
+1D1E  0000        <Empty Function>
+
+EMPTY:
+1D23  0000        <Empty Function>
+
+EMPTY:
+1D28  0000        <Empty Function>
+
+EMPTY:
+1D2D  0000        <Empty Function>
+
+EMPTY:
+1D32  0000        <Empty Function>
+
+EMPTY:
+1D37  0000        <Empty Function>
+
+EMPTY:
+1D3C  0000        <Empty Function>
+
+EMPTY:
+1D41  0000        <Empty Function>
+
+EMPTY:
+1D46  0000        <Empty Function>
+
+EMPTY:
+1D4B  0000        <Empty Function>
+
+EMPTY:
+1D50  0000        <Empty Function>
+
+EMPTY:
+1D55  0000        <Empty Function>
+
+EMPTY:
+1D5A  0000        <Empty Function>
+
+EMPTY:
+1D5F  0000        <Empty Function>
+
+EMPTY:
+1D64  0000        <Empty Function>
+
+EMPTY:
+1D69  0000        <Empty Function>
+
+EMPTY:
+1D6E  0000        <Empty Function>
+
+EMPTY:
+1D73  0000        <Empty Function>
+
+EMPTY:
+1D78  0000        <Empty Function>
+
+EMPTY:
+1D7D  0000        <Empty Function>
+
+EMPTY:
+1D82  0000        <Empty Function>
+
+EMPTY:
+1D87  0000        <Empty Function>
+
+EMPTY:
+1D8C  0000        <Empty Function>
+
+EMPTY:
+1D91  0000        <Empty Function>
+
+EMPTY:
+1D96  0000        <Empty Function>
+
+EMPTY:
+1D9B  0000        <Empty Function>
+
+EMPTY:
+1DA0  0000        <Empty Function>
+
+EMPTY:
+1DA5  0000        <Empty Function>
+
+EMPTY:
+1DAA  0000        <Empty Function>
+
+EMPTY:
+1DAF  0000        <Empty Function>
+
+EMPTY:
+1DB4  0000        <Empty Function>
+
+EMPTY:
+1DB9  0000        <Empty Function>
+
+EMPTY:
+1DBE  0000        <Empty Function>
+
+EMPTY:
+1DC3  0000        <Empty Function>
+
+EMPTY:
+1DC8  0000        <Empty Function>
+
+EMPTY:
+1DCD  0000        <Empty Function>
+
+EMPTY:
+1DD2  0000        <Empty Function>
+
+EMPTY:
+1DD7  0000        <Empty Function>
+
+EMPTY:
+1DDC  0000        <Empty Function>
+
+EMPTY:
+1DE1  0000        <Empty Function>
+
+EMPTY:
+1DE6  0000        <Empty Function>
+
+EMPTY:
+1DEB  0000        <Empty Function>
+
+EMPTY:
+1DF0  0000        <Empty Function>
+
+EMPTY:
+1DF5  0000        <Empty Function>
+
+EMPTY:
+1DFA  0000        <Empty Function>
+
+EMPTY:
+1DFF  0000        <Empty Function>
+
+EMPTY:
+1E04  0000        <Empty Function>
+
+EMPTY:
+1E09  0000        <Empty Function>
+
+EMPTY:
+1E0E  0000        <Empty Function>
+
+EMPTY:
+1E13  0000        <Empty Function>
+
+EMPTY:
+1E18  0000        <Empty Function>
+
+EMPTY:
+1E1D  0000        <Empty Function>
+
+EMPTY:
+1E22  0000        <Empty Function>
+
+EMPTY:
+1E27  0000        <Empty Function>
+
+EMPTY:
+1E2C  0000        <Empty Function>
+
+EMPTY:
+1E31  0000        <Empty Function>
+
+EMPTY:
+1E36  0000        <Empty Function>
+
+EMPTY:
+1E3B  0000        <Empty Function>
+
+EMPTY:
+1E40  0000        <Empty Function>
+
+EMPTY:
+1E45  0000        <Empty Function>
+
+EMPTY:
+1E4A  0000        <Empty Function>
+
+EMPTY:
+1E4F  0000        <Empty Function>
+
+EMPTY:
+1E54  0000        <Empty Function>
+
+EMPTY:
+1E59  0000        <Empty Function>
+
+EMPTY:
+1E5E  0000        <Empty Function>
+
+EMPTY:
+1E63  0000        <Empty Function>
+
+EMPTY:
+1E68  0000        <Empty Function>
+
+EMPTY:
+1E6D  0000        <Empty Function>
+
+EMPTY:
+1E72  0000        <Empty Function>
+
+EMPTY:
+1E77  0000        <Empty Function>
+
+EMPTY:
+1E7C  0000        <Empty Function>
+
+EMPTY:
+1E81  0000        <Empty Function>
+
+EMPTY:
+1E86  0000        <Empty Function>
+
+EMPTY:
+1E8B  0000        <Empty Function>
+
+EMPTY:
+1E90  0000        <Empty Function>
+
+EMPTY:
+1E95  0000        <Empty Function>
+
+EMPTY:
+1E9A  0000        <Empty Function>
+
+EMPTY:
+1E9F  0000        <Empty Function>
+
+EMPTY:
+1EA4  0000        <Empty Function>
+
+EMPTY:
+1EA9  0000        <Empty Function>
+
+EMPTY:
+1EAE  0000        <Empty Function>
+
+EMPTY:
+1EB3  0000        <Empty Function>
+
+EMPTY:
+1EB8  0000        <Empty Function>
+
+EMPTY:
+1EBD  0000        <Empty Function>
+
+EMPTY:
+1EC2  0000        <Empty Function>
+
+EMPTY:
+1EC7  0000        <Empty Function>
+
+EMPTY:
+1ECC  0000        <Empty Function>
+
+EMPTY:
+1ED1  0000        <Empty Function>
+
+EMPTY:
+1ED6  0000        <Empty Function>
+
+STRINGS:
 03FC: You step into nothingness...
 0419:                                          ...and die!
 044E: Cast in shadowy blue light, the tunnels of MOON HOLLOW are a nexus to more dangerous locations.

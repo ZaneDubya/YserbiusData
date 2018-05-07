@@ -1,214 +1,950 @@
 TELEPORT_01:
-0000                          BEGIN
-0003                          GoMap(33, 00, 02, 05)
-001D                          RETURN
+0009  0000        BEGIN
+000C  0003        GoMap(0x33, 0x00, 0x02, 0x05)
+0026  001D        RETURN
 
 TELEMESS_02:
-0000                          BEGIN
-0003                          ShowMessage(03FC) = There is a teleport in the west wall.
-0010                          RETURN
+0028  0000        BEGIN
+002B  0003        ShowMessage(0x03FC) = There is a teleport in the west wall.
+0038  0010        RETURN
 
 FOUNBLES_03:
-0000                          BEGIN
-0003                          ax = CheckState(02, 3D)
-0014                          compare(ax, 0001)
-0017                          If (result.notequal) value jump to 0035
-0019                          ShowPortrait(0042)
-0026                          ShowMessage(0422) = You sip from the Fountain of Restoration, but nothing happens.
-0033                          Jump to 0080
-0035                          SetState(02, 3D, 01)
-004A                          ShowPortrait(0042)
-0057                          ax = GetMaxHits()
-005E                          Push(ax)
-005F                          ax = GetCurrentHits()
-0066                          dx = Pop()
-0067                          dx = dx - ax
-0069                          AddHealth(dx)
-0073                          ShowMessage(0461) = You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.
-0080                          RETURN
+003A  0000        BEGIN
+003D  0003        ax = CheckState(0x02, 0x3D)
+004E  0014        compare(ax, 0x0001)
+0051  0017        If (result.notequal) jump to 0035
+0053  0019        ShowPortrait(0x0042)
+0060  0026        ShowMessage(0x0422) = You sip from the Fountain of Restoration, but nothing happens.
+006D  0033        Jump to 0080
+006F  0035        SetState(0x02, 0x3D, 0x01)
+0084  004A        ShowPortrait(0x0042)
+0091  0057        ax = GetMaxHits()
+0098  005E        Push(ax)
+0099  005F        ax = GetCurrentHits()
+00A0  0066        dx = Pop()
+00A1  0067        dx = dx - ax
+00A3  0069        AddHealth(dx)
+00AD  0073        ShowMessage(0x0461) = You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.
+00BA  0080        RETURN
 
 QUESTENC_04:
-0000                          BEGIN
-0003                          ax = HasItem(81)
-0011                          If (result.equal) value jump to 0043
-0013                          AddTreasure(01F4, 00, 00, BD, A5, CD)
-0034                          ShowMessage(04BD) = Monsters attack you.
-0041                          Jump to 0071
-0043                          AddTreasure(03E8, 00, 00, A2, D0, 81)
-0064                          ShowMessage(04D2) = Among a horde of Nightmares and Cockatrices you spot armor and other items on the floor.
-0071                          ax = PartyCount()
-0079                          compare(ax, 0001)
-007C                          If (result.notequal) value jump to 00B7
-007E                          AddEncounter(26, 01)
-0090                          AddEncounter(26, 02)
-00A2                          AddEncounter(23, 06)
-00B4                          Jump to 01E4
-00B7                          ax = PartyCount()
-00BF                          compare(ax, 0002)
-00C2                          If (result.notequal) value jump to 010F
-00C4                          AddEncounter(27, 01)
-00D6                          AddEncounter(27, 02)
-00E8                          AddEncounter(24, 05)
-00FA                          AddEncounter(24, 06)
-010C                          Jump to 01E4
-010F                          ax = PartyCount()
-0117                          compare(ax, 0003)
-011A                          If (result.notequal) value jump to 0178
-011C                          AddEncounter(26, 01)
-012E                          AddEncounter(27, 02)
-0140                          AddEncounter(28, 03)
-0152                          AddEncounter(23, 04)
-0164                          AddEncounter(24, 05)
-0176                          Jump to 01E4
-0178                          AddEncounter(23, 01)
-018A                          AddEncounter(26, 02)
-019C                          AddEncounter(24, 03)
-01AE                          AddEncounter(27, 04)
-01C0                          AddEncounter(25, 05)
-01D2                          AddEncounter(28, 06)
-01E4                          RETURN
+00BC  0000        BEGIN
+00BF  0003        ax = HasItem(0x81)
+00CD  0011        If (result.equal) jump to 0043
+00CF  0013        AddTreasure(0x01F4, 0x00, 0x00, 0xBD, 0xA5, 0xCD)
+00F0  0034        ShowMessage(0x04BD) = Monsters attack you.
+00FD  0041        Jump to 0071
+00FF  0043        AddTreasure(0x03E8, 0x00, 0x00, 0xA2, 0xD0, 0x81)
+0120  0064        ShowMessage(0x04D2) = Among a horde of Nightmares and Cockatrices you spot armor and other items on the floor.
+012D  0071        ax = PartyCount()
+0135  0079        compare(ax, 0x0001)
+0138  007C        If (result.notequal) jump to 00B7
+013A  007E        AddEncounter(0x26, 0x01)
+014C  0090        AddEncounter(0x26, 0x02)
+015E  00A2        AddEncounter(0x23, 0x06)
+0170  00B4        Jump to 01E4
+0173  00B7        ax = PartyCount()
+017B  00BF        compare(ax, 0x0002)
+017E  00C2        If (result.notequal) jump to 010F
+0180  00C4        AddEncounter(0x27, 0x01)
+0192  00D6        AddEncounter(0x27, 0x02)
+01A4  00E8        AddEncounter(0x24, 0x05)
+01B6  00FA        AddEncounter(0x24, 0x06)
+01C8  010C        Jump to 01E4
+01CB  010F        ax = PartyCount()
+01D3  0117        compare(ax, 0x0003)
+01D6  011A        If (result.notequal) jump to 0178
+01D8  011C        AddEncounter(0x26, 0x01)
+01EA  012E        AddEncounter(0x27, 0x02)
+01FC  0140        AddEncounter(0x28, 0x03)
+020E  0152        AddEncounter(0x23, 0x04)
+0220  0164        AddEncounter(0x24, 0x05)
+0232  0176        Jump to 01E4
+0234  0178        AddEncounter(0x23, 0x01)
+0246  018A        AddEncounter(0x26, 0x02)
+0258  019C        AddEncounter(0x24, 0x03)
+026A  01AE        AddEncounter(0x27, 0x04)
+027C  01C0        AddEncounter(0x25, 0x05)
+028E  01D2        AddEncounter(0x28, 0x06)
+02A0  01E4        RETURN
 
 LKPKDORZ_05:
-0000                          BEGIN
-0003                          ax = UsedItem(E2, E2)
-0016                          If (result.equal) value jump to 0063
-0018                          Push(01)
-001C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0023                          Push(ax)
-0024                          ax = GetNextTile()
-002B                          Push(ax)
-002C                          Move(stk[0], stk[1], stk[2])
-0036                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003D                          Push(ax)
-003E                          ax = GetNextTile()
-0045                          Push(ax)
-0046                          Push(01)
-004A                          SetUnblocked()
-0054                          ShowMessage(052B) = The door opens easily when you use the Lava Key.
-0061                          Jump to 008D
-0063                          Push(00)
-0066                          ax = SetExitability(ax) // ax is usually 0 following equality check
-006D                          Push(ax)
-006E                          ax = GetNextTile()
-0075                          Push(ax)
-0076                          Move(stk[0], stk[1], stk[2])
-0080                          ShowMessage(055C) = This door cannot be unlocked without the Lava Key.
-008D                          RETURN
+02A2  0000        BEGIN
+02A5  0003        ax = UsedItem(0xE2, 0xE2)
+02B8  0016        If (result.equal) jump to 0063
+02BA  0018        Push(01)
+02BE  001C        ax = SetExitability(ax) // ax is usually 0 following equality check
+02C5  0023        Push(ax)
+02C6  0024        ax = GetNextTile()
+02CD  002B        Push(ax)
+02CE  002C        Move(stk[0], stk[1], stk[2])
+02D8  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+02DF  003D        Push(ax)
+02E0  003E        ax = GetNextTile()
+02E7  0045        Push(ax)
+02E8  0046        Push(01)
+02EC  004A        SetUnblocked()
+02F6  0054        ShowMessage(0x052B) = The door opens easily when you use the Lava Key.
+0303  0061        Jump to 008D
+0305  0063        Push(00)
+0308  0066        ax = SetExitability(ax) // ax is usually 0 following equality check
+030F  006D        Push(ax)
+0310  006E        ax = GetNextTile()
+0317  0075        Push(ax)
+0318  0076        Move(stk[0], stk[1], stk[2])
+0322  0080        ShowMessage(0x055C) = This door cannot be unlocked without the Lava Key.
+032F  008D        RETURN
 
 STRDOOR_06:
-0000                          BEGIN
-0003                          ax = CheckStrength()
-000F                          compare(ax, 000E)
-0012                          If (result.lessthan) jump to 005F
-0014                          ShowMessage(058F) = You manage to force the door open.
-0021                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0028                          Push(ax)
-0029                          ax = GetNextTile()
-0030                          Push(ax)
-0031                          Push(01)
-0035                          SetUnblocked()
-003F                          Push(01)
-0043                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004A                          Push(ax)
-004B                          ax = GetNextTile()
-0052                          Push(ax)
-0053                          Move(stk[0], stk[1], stk[2])
-005D                          Jump to 0089
-005F                          ShowMessage(05B2) = The door is stuck.
-006C                          Push(00)
-006F                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0076                          Push(ax)
-0077                          ax = GetNextTile()
-007E                          Push(ax)
-007F                          Move(stk[0], stk[1], stk[2])
-0089                          RETURN
+0331  0000        BEGIN
+0334  0003        ax = CheckStrength()
+0340  000F        compare(ax, 0x000E)
+0343  0012        If (result.below) jump to 005F
+0345  0014        ShowMessage(0x058F) = You manage to force the door open.
+0352  0021        ax = SetExitability(ax) // ax is usually 0 following equality check
+0359  0028        Push(ax)
+035A  0029        ax = GetNextTile()
+0361  0030        Push(ax)
+0362  0031        Push(01)
+0366  0035        SetUnblocked()
+0370  003F        Push(01)
+0374  0043        ax = SetExitability(ax) // ax is usually 0 following equality check
+037B  004A        Push(ax)
+037C  004B        ax = GetNextTile()
+0383  0052        Push(ax)
+0384  0053        Move(stk[0], stk[1], stk[2])
+038E  005D        Jump to 0089
+0390  005F        ShowMessage(0x05B2) = The door is stuck.
+039D  006C        Push(00)
+03A0  006F        ax = SetExitability(ax) // ax is usually 0 following equality check
+03A7  0076        Push(ax)
+03A8  0077        ax = GetNextTile()
+03AF  007E        Push(ax)
+03B0  007F        Move(stk[0], stk[1], stk[2])
+03BA  0089        RETURN
+
+EMPTY:
+03BC  0000        <Empty Function>
+
+EMPTY:
+03C1  0000        <Empty Function>
+
+EMPTY:
+03C6  0000        <Empty Function>
+
+EMPTY:
+03CB  0000        <Empty Function>
 
 AVEMNSTR_0B:
-0000                          BEGIN
-0003                          ax = PartyCount()
-000B                          compare(ax, 0001)
-000E                          If (result.notequal) value jump to 0025
-0010                          AddEncounter(1B, 02)
-0022                          Jump to 012E
-0025                          ax = PartyCount()
-002D                          compare(ax, 0002)
-0030                          If (result.notequal) value jump to 006B
-0032                          AddEncounter(1C, 01)
-0044                          AddEncounter(19, 02)
-0056                          AddEncounter(18, 03)
-0068                          Jump to 012E
-006B                          ax = PartyCount()
-0073                          compare(ax, 0003)
-0076                          If (result.notequal) value jump to 00C2
-0078                          AddEncounter(1B, 01)
-008A                          AddEncounter(1C, 02)
-009C                          AddEncounter(1A, 03)
-00AE                          AddEncounter(19, 04)
-00C0                          Jump to 012E
-00C2                          AddEncounter(1A, 01)
-00D4                          AddEncounter(1C, 02)
-00E6                          AddEncounter(19, 03)
-00F8                          AddEncounter(1B, 04)
-010A                          AddEncounter(1D, 05)
-011C                          AddEncounter(1A, 06)
-012E                          RETURN
+03D0  0000        BEGIN
+03D3  0003        ax = PartyCount()
+03DB  000B        compare(ax, 0x0001)
+03DE  000E        If (result.notequal) jump to 0025
+03E0  0010        AddEncounter(0x1B, 0x02)
+03F2  0022        Jump to 012E
+03F5  0025        ax = PartyCount()
+03FD  002D        compare(ax, 0x0002)
+0400  0030        If (result.notequal) jump to 006B
+0402  0032        AddEncounter(0x1C, 0x01)
+0414  0044        AddEncounter(0x19, 0x02)
+0426  0056        AddEncounter(0x18, 0x03)
+0438  0068        Jump to 012E
+043B  006B        ax = PartyCount()
+0443  0073        compare(ax, 0x0003)
+0446  0076        If (result.notequal) jump to 00C2
+0448  0078        AddEncounter(0x1B, 0x01)
+045A  008A        AddEncounter(0x1C, 0x02)
+046C  009C        AddEncounter(0x1A, 0x03)
+047E  00AE        AddEncounter(0x19, 0x04)
+0490  00C0        Jump to 012E
+0492  00C2        AddEncounter(0x1A, 0x01)
+04A4  00D4        AddEncounter(0x1C, 0x02)
+04B6  00E6        AddEncounter(0x19, 0x03)
+04C8  00F8        AddEncounter(0x1B, 0x04)
+04DA  010A        AddEncounter(0x1D, 0x05)
+04EC  011C        AddEncounter(0x1A, 0x06)
+04FE  012E        RETURN
 
 STRMNSTR_0C:
-0000                          BEGIN
-0003                          ax = PartyCount()
-000B                          compare(ax, 0001)
-000E                          If (result.notequal) value jump to 0037
-0010                          AddEncounter(1E, 01)
-0022                          AddEncounter(20, 02)
-0034                          Jump to 0152
-0037                          ax = PartyCount()
-003F                          compare(ax, 0002)
-0042                          If (result.notequal) value jump to 007D
-0044                          AddEncounter(1E, 01)
-0056                          AddEncounter(20, 02)
-0068                          AddEncounter(20, 03)
-007A                          Jump to 0152
-007D                          ax = PartyCount()
-0085                          compare(ax, 0003)
-0088                          If (result.notequal) value jump to 00E6
-008A                          AddEncounter(1E, 01)
-009C                          AddEncounter(1E, 02)
-00AE                          AddEncounter(20, 03)
-00C0                          AddEncounter(20, 04)
-00D2                          AddEncounter(1F, 05)
-00E4                          Jump to 0152
-00E6                          AddEncounter(1E, 01)
-00F8                          AddEncounter(1E, 02)
-010A                          AddEncounter(1F, 03)
-011C                          AddEncounter(1F, 04)
-012E                          AddEncounter(20, 05)
-0140                          AddEncounter(20, 06)
-0152                          RETURN
+0500  0000        BEGIN
+0503  0003        ax = PartyCount()
+050B  000B        compare(ax, 0x0001)
+050E  000E        If (result.notequal) jump to 0037
+0510  0010        AddEncounter(0x1E, 0x01)
+0522  0022        AddEncounter(0x20, 0x02)
+0534  0034        Jump to 0152
+0537  0037        ax = PartyCount()
+053F  003F        compare(ax, 0x0002)
+0542  0042        If (result.notequal) jump to 007D
+0544  0044        AddEncounter(0x1E, 0x01)
+0556  0056        AddEncounter(0x20, 0x02)
+0568  0068        AddEncounter(0x20, 0x03)
+057A  007A        Jump to 0152
+057D  007D        ax = PartyCount()
+0585  0085        compare(ax, 0x0003)
+0588  0088        If (result.notequal) jump to 00E6
+058A  008A        AddEncounter(0x1E, 0x01)
+059C  009C        AddEncounter(0x1E, 0x02)
+05AE  00AE        AddEncounter(0x20, 0x03)
+05C0  00C0        AddEncounter(0x20, 0x04)
+05D2  00D2        AddEncounter(0x1F, 0x05)
+05E4  00E4        Jump to 0152
+05E6  00E6        AddEncounter(0x1E, 0x01)
+05F8  00F8        AddEncounter(0x1E, 0x02)
+060A  010A        AddEncounter(0x1F, 0x03)
+061C  011C        AddEncounter(0x1F, 0x04)
+062E  012E        AddEncounter(0x20, 0x05)
+0640  0140        AddEncounter(0x20, 0x06)
+0652  0152        RETURN
+
+EMPTY:
+0654  0000        <Empty Function>
 
 NPCCHATA_0E:
-0000                          BEGIN
-0003                          ShowMessage(05C5) = You encounter a Human Thief.
-0010                          ShowPortrait(0022)
-001D                          ax = UnknownFunctionEC(000F)
-002A                          compare(ax, 000C)
-002D                          If (result.greaterthan) value jump to 003E
-002F                          ShowMessage(05E2) = Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
-003C                          Jump to 004B
-003E                          ShowMessage(0632) = The Human Thief cringes in terror and wraps herself up in a tight ball.
-004B                          RETURN
+0659  0000        BEGIN
+065C  0003        ShowMessage(0x05C5) = You encounter a Human Thief.
+0669  0010        ShowPortrait(0x0022)
+0676  001D        ax = UnknownFunctionEC(0x000F)
+0683  002A        compare(ax, 0x000C)
+0686  002D        If (result.above) jump to 003E
+0688  002F        ShowMessage(0x05E2) = Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
+0695  003C        Jump to 004B
+0697  003E        ShowMessage(0x0632) = The Human Thief cringes in terror and wraps herself up in a tight ball.
+06A4  004B        RETURN
 
 NPCCHATB_0F:
-0000                          BEGIN
-0003                          ShowMessage(067A) = You encounter an Elf Barbarian.
-0010                          ShowPortrait(0018)
-001D                          ax = UnknownFunctionEC(000F)
-002A                          compare(ax, 0004)
-002D                          If (result.greaterthan) value jump to 003E
-002F                          ShowMessage(069A) = A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.
-003C                          Jump to 004B
-003E                          ShowMessage(0733) = The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.
-004B                          RETURN
+06A6  0000        BEGIN
+06A9  0003        ShowMessage(0x067A) = You encounter an Elf Barbarian.
+06B6  0010        ShowPortrait(0x0018)
+06C3  001D        ax = UnknownFunctionEC(0x000F)
+06D0  002A        compare(ax, 0x0004)
+06D3  002D        If (result.above) jump to 003E
+06D5  002F        ShowMessage(0x069A) = A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.
+06E2  003C        Jump to 004B
+06E4  003E        ShowMessage(0x0733) = The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.
+06F1  004B        RETURN
 
+EMPTY:
+06F3  0000        <Empty Function>
+
+EMPTY:
+06F8  0000        <Empty Function>
+
+EMPTY:
+06FD  0000        <Empty Function>
+
+EMPTY:
+0702  0000        <Empty Function>
+
+EMPTY:
+0707  0000        <Empty Function>
+
+EMPTY:
+070C  0000        <Empty Function>
+
+EMPTY:
+0711  0000        <Empty Function>
+
+EMPTY:
+0716  0000        <Empty Function>
+
+EMPTY:
+071B  0000        <Empty Function>
+
+EMPTY:
+0720  0000        <Empty Function>
+
+EMPTY:
+0725  0000        <Empty Function>
+
+EMPTY:
+072A  0000        <Empty Function>
+
+EMPTY:
+072F  0000        <Empty Function>
+
+EMPTY:
+0734  0000        <Empty Function>
+
+EMPTY:
+0739  0000        <Empty Function>
+
+EMPTY:
+073E  0000        <Empty Function>
+
+EMPTY:
+0743  0000        <Empty Function>
+
+EMPTY:
+0748  0000        <Empty Function>
+
+EMPTY:
+074D  0000        <Empty Function>
+
+EMPTY:
+0752  0000        <Empty Function>
+
+EMPTY:
+0757  0000        <Empty Function>
+
+EMPTY:
+075C  0000        <Empty Function>
+
+EMPTY:
+0761  0000        <Empty Function>
+
+EMPTY:
+0766  0000        <Empty Function>
+
+EMPTY:
+076B  0000        <Empty Function>
+
+EMPTY:
+0770  0000        <Empty Function>
+
+EMPTY:
+0775  0000        <Empty Function>
+
+EMPTY:
+077A  0000        <Empty Function>
+
+EMPTY:
+077F  0000        <Empty Function>
+
+EMPTY:
+0784  0000        <Empty Function>
+
+EMPTY:
+0789  0000        <Empty Function>
+
+EMPTY:
+078E  0000        <Empty Function>
+
+EMPTY:
+0793  0000        <Empty Function>
+
+EMPTY:
+0798  0000        <Empty Function>
+
+EMPTY:
+079D  0000        <Empty Function>
+
+EMPTY:
+07A2  0000        <Empty Function>
+
+EMPTY:
+07A7  0000        <Empty Function>
+
+EMPTY:
+07AC  0000        <Empty Function>
+
+EMPTY:
+07B1  0000        <Empty Function>
+
+EMPTY:
+07B6  0000        <Empty Function>
+
+EMPTY:
+07BB  0000        <Empty Function>
+
+EMPTY:
+07C0  0000        <Empty Function>
+
+EMPTY:
+07C5  0000        <Empty Function>
+
+EMPTY:
+07CA  0000        <Empty Function>
+
+EMPTY:
+07CF  0000        <Empty Function>
+
+EMPTY:
+07D4  0000        <Empty Function>
+
+EMPTY:
+07D9  0000        <Empty Function>
+
+EMPTY:
+07DE  0000        <Empty Function>
+
+EMPTY:
+07E3  0000        <Empty Function>
+
+EMPTY:
+07E8  0000        <Empty Function>
+
+EMPTY:
+07ED  0000        <Empty Function>
+
+EMPTY:
+07F2  0000        <Empty Function>
+
+EMPTY:
+07F7  0000        <Empty Function>
+
+EMPTY:
+07FC  0000        <Empty Function>
+
+EMPTY:
+0801  0000        <Empty Function>
+
+EMPTY:
+0806  0000        <Empty Function>
+
+EMPTY:
+080B  0000        <Empty Function>
+
+EMPTY:
+0810  0000        <Empty Function>
+
+EMPTY:
+0815  0000        <Empty Function>
+
+EMPTY:
+081A  0000        <Empty Function>
+
+EMPTY:
+081F  0000        <Empty Function>
+
+EMPTY:
+0824  0000        <Empty Function>
+
+EMPTY:
+0829  0000        <Empty Function>
+
+EMPTY:
+082E  0000        <Empty Function>
+
+EMPTY:
+0833  0000        <Empty Function>
+
+EMPTY:
+0838  0000        <Empty Function>
+
+EMPTY:
+083D  0000        <Empty Function>
+
+EMPTY:
+0842  0000        <Empty Function>
+
+EMPTY:
+0847  0000        <Empty Function>
+
+EMPTY:
+084C  0000        <Empty Function>
+
+EMPTY:
+0851  0000        <Empty Function>
+
+EMPTY:
+0856  0000        <Empty Function>
+
+EMPTY:
+085B  0000        <Empty Function>
+
+EMPTY:
+0860  0000        <Empty Function>
+
+EMPTY:
+0865  0000        <Empty Function>
+
+EMPTY:
+086A  0000        <Empty Function>
+
+EMPTY:
+086F  0000        <Empty Function>
+
+EMPTY:
+0874  0000        <Empty Function>
+
+EMPTY:
+0879  0000        <Empty Function>
+
+EMPTY:
+087E  0000        <Empty Function>
+
+EMPTY:
+0883  0000        <Empty Function>
+
+EMPTY:
+0888  0000        <Empty Function>
+
+EMPTY:
+088D  0000        <Empty Function>
+
+EMPTY:
+0892  0000        <Empty Function>
+
+EMPTY:
+0897  0000        <Empty Function>
+
+EMPTY:
+089C  0000        <Empty Function>
+
+EMPTY:
+08A1  0000        <Empty Function>
+
+EMPTY:
+08A6  0000        <Empty Function>
+
+EMPTY:
+08AB  0000        <Empty Function>
+
+EMPTY:
+08B0  0000        <Empty Function>
+
+EMPTY:
+08B5  0000        <Empty Function>
+
+EMPTY:
+08BA  0000        <Empty Function>
+
+EMPTY:
+08BF  0000        <Empty Function>
+
+EMPTY:
+08C4  0000        <Empty Function>
+
+EMPTY:
+08C9  0000        <Empty Function>
+
+EMPTY:
+08CE  0000        <Empty Function>
+
+EMPTY:
+08D3  0000        <Empty Function>
+
+EMPTY:
+08D8  0000        <Empty Function>
+
+EMPTY:
+08DD  0000        <Empty Function>
+
+EMPTY:
+08E2  0000        <Empty Function>
+
+EMPTY:
+08E7  0000        <Empty Function>
+
+EMPTY:
+08EC  0000        <Empty Function>
+
+EMPTY:
+08F1  0000        <Empty Function>
+
+EMPTY:
+08F6  0000        <Empty Function>
+
+EMPTY:
+08FB  0000        <Empty Function>
+
+EMPTY:
+0900  0000        <Empty Function>
+
+EMPTY:
+0905  0000        <Empty Function>
+
+EMPTY:
+090A  0000        <Empty Function>
+
+EMPTY:
+090F  0000        <Empty Function>
+
+EMPTY:
+0914  0000        <Empty Function>
+
+EMPTY:
+0919  0000        <Empty Function>
+
+EMPTY:
+091E  0000        <Empty Function>
+
+EMPTY:
+0923  0000        <Empty Function>
+
+EMPTY:
+0928  0000        <Empty Function>
+
+EMPTY:
+092D  0000        <Empty Function>
+
+EMPTY:
+0932  0000        <Empty Function>
+
+EMPTY:
+0937  0000        <Empty Function>
+
+EMPTY:
+093C  0000        <Empty Function>
+
+EMPTY:
+0941  0000        <Empty Function>
+
+EMPTY:
+0946  0000        <Empty Function>
+
+EMPTY:
+094B  0000        <Empty Function>
+
+EMPTY:
+0950  0000        <Empty Function>
+
+EMPTY:
+0955  0000        <Empty Function>
+
+EMPTY:
+095A  0000        <Empty Function>
+
+EMPTY:
+095F  0000        <Empty Function>
+
+EMPTY:
+0964  0000        <Empty Function>
+
+EMPTY:
+0969  0000        <Empty Function>
+
+EMPTY:
+096E  0000        <Empty Function>
+
+EMPTY:
+0973  0000        <Empty Function>
+
+EMPTY:
+0978  0000        <Empty Function>
+
+EMPTY:
+097D  0000        <Empty Function>
+
+EMPTY:
+0982  0000        <Empty Function>
+
+EMPTY:
+0987  0000        <Empty Function>
+
+EMPTY:
+098C  0000        <Empty Function>
+
+EMPTY:
+0991  0000        <Empty Function>
+
+EMPTY:
+0996  0000        <Empty Function>
+
+EMPTY:
+099B  0000        <Empty Function>
+
+EMPTY:
+09A0  0000        <Empty Function>
+
+EMPTY:
+09A5  0000        <Empty Function>
+
+EMPTY:
+09AA  0000        <Empty Function>
+
+EMPTY:
+09AF  0000        <Empty Function>
+
+EMPTY:
+09B4  0000        <Empty Function>
+
+EMPTY:
+09B9  0000        <Empty Function>
+
+EMPTY:
+09BE  0000        <Empty Function>
+
+EMPTY:
+09C3  0000        <Empty Function>
+
+EMPTY:
+09C8  0000        <Empty Function>
+
+EMPTY:
+09CD  0000        <Empty Function>
+
+EMPTY:
+09D2  0000        <Empty Function>
+
+EMPTY:
+09D7  0000        <Empty Function>
+
+EMPTY:
+09DC  0000        <Empty Function>
+
+EMPTY:
+09E1  0000        <Empty Function>
+
+EMPTY:
+09E6  0000        <Empty Function>
+
+EMPTY:
+09EB  0000        <Empty Function>
+
+EMPTY:
+09F0  0000        <Empty Function>
+
+EMPTY:
+09F5  0000        <Empty Function>
+
+EMPTY:
+09FA  0000        <Empty Function>
+
+EMPTY:
+09FF  0000        <Empty Function>
+
+EMPTY:
+0A04  0000        <Empty Function>
+
+EMPTY:
+0A09  0000        <Empty Function>
+
+EMPTY:
+0A0E  0000        <Empty Function>
+
+EMPTY:
+0A13  0000        <Empty Function>
+
+EMPTY:
+0A18  0000        <Empty Function>
+
+EMPTY:
+0A1D  0000        <Empty Function>
+
+EMPTY:
+0A22  0000        <Empty Function>
+
+EMPTY:
+0A27  0000        <Empty Function>
+
+EMPTY:
+0A2C  0000        <Empty Function>
+
+EMPTY:
+0A31  0000        <Empty Function>
+
+EMPTY:
+0A36  0000        <Empty Function>
+
+EMPTY:
+0A3B  0000        <Empty Function>
+
+EMPTY:
+0A40  0000        <Empty Function>
+
+EMPTY:
+0A45  0000        <Empty Function>
+
+EMPTY:
+0A4A  0000        <Empty Function>
+
+EMPTY:
+0A4F  0000        <Empty Function>
+
+EMPTY:
+0A54  0000        <Empty Function>
+
+EMPTY:
+0A59  0000        <Empty Function>
+
+EMPTY:
+0A5E  0000        <Empty Function>
+
+EMPTY:
+0A63  0000        <Empty Function>
+
+EMPTY:
+0A68  0000        <Empty Function>
+
+EMPTY:
+0A6D  0000        <Empty Function>
+
+EMPTY:
+0A72  0000        <Empty Function>
+
+EMPTY:
+0A77  0000        <Empty Function>
+
+EMPTY:
+0A7C  0000        <Empty Function>
+
+EMPTY:
+0A81  0000        <Empty Function>
+
+EMPTY:
+0A86  0000        <Empty Function>
+
+EMPTY:
+0A8B  0000        <Empty Function>
+
+EMPTY:
+0A90  0000        <Empty Function>
+
+EMPTY:
+0A95  0000        <Empty Function>
+
+EMPTY:
+0A9A  0000        <Empty Function>
+
+EMPTY:
+0A9F  0000        <Empty Function>
+
+EMPTY:
+0AA4  0000        <Empty Function>
+
+EMPTY:
+0AA9  0000        <Empty Function>
+
+EMPTY:
+0AAE  0000        <Empty Function>
+
+EMPTY:
+0AB3  0000        <Empty Function>
+
+EMPTY:
+0AB8  0000        <Empty Function>
+
+EMPTY:
+0ABD  0000        <Empty Function>
+
+EMPTY:
+0AC2  0000        <Empty Function>
+
+EMPTY:
+0AC7  0000        <Empty Function>
+
+EMPTY:
+0ACC  0000        <Empty Function>
+
+EMPTY:
+0AD1  0000        <Empty Function>
+
+EMPTY:
+0AD6  0000        <Empty Function>
+
+EMPTY:
+0ADB  0000        <Empty Function>
+
+EMPTY:
+0AE0  0000        <Empty Function>
+
+EMPTY:
+0AE5  0000        <Empty Function>
+
+EMPTY:
+0AEA  0000        <Empty Function>
+
+EMPTY:
+0AEF  0000        <Empty Function>
+
+EMPTY:
+0AF4  0000        <Empty Function>
+
+EMPTY:
+0AF9  0000        <Empty Function>
+
+EMPTY:
+0AFE  0000        <Empty Function>
+
+EMPTY:
+0B03  0000        <Empty Function>
+
+EMPTY:
+0B08  0000        <Empty Function>
+
+EMPTY:
+0B0D  0000        <Empty Function>
+
+EMPTY:
+0B12  0000        <Empty Function>
+
+EMPTY:
+0B17  0000        <Empty Function>
+
+EMPTY:
+0B1C  0000        <Empty Function>
+
+EMPTY:
+0B21  0000        <Empty Function>
+
+EMPTY:
+0B26  0000        <Empty Function>
+
+EMPTY:
+0B2B  0000        <Empty Function>
+
+EMPTY:
+0B30  0000        <Empty Function>
+
+EMPTY:
+0B35  0000        <Empty Function>
+
+EMPTY:
+0B3A  0000        <Empty Function>
+
+EMPTY:
+0B3F  0000        <Empty Function>
+
+EMPTY:
+0B44  0000        <Empty Function>
+
+EMPTY:
+0B49  0000        <Empty Function>
+
+EMPTY:
+0B4E  0000        <Empty Function>
+
+EMPTY:
+0B53  0000        <Empty Function>
+
+EMPTY:
+0B58  0000        <Empty Function>
+
+EMPTY:
+0B5D  0000        <Empty Function>
+
+EMPTY:
+0B62  0000        <Empty Function>
+
+EMPTY:
+0B67  0000        <Empty Function>
+
+EMPTY:
+0B6C  0000        <Empty Function>
+
+EMPTY:
+0B71  0000        <Empty Function>
+
+EMPTY:
+0B76  0000        <Empty Function>
+
+EMPTY:
+0B7B  0000        <Empty Function>
+
+EMPTY:
+0B80  0000        <Empty Function>
+
+EMPTY:
+0B85  0000        <Empty Function>
+
+EMPTY:
+0B8A  0000        <Empty Function>
+
+EMPTY:
+0B8F  0000        <Empty Function>
+
+EMPTY:
+0B94  0000        <Empty Function>
+
+EMPTY:
+0B99  0000        <Empty Function>
+
+EMPTY:
+0B9E  0000        <Empty Function>
+
+STRINGS:
 03FC: There is a teleport in the west wall.
 0422: You sip from the Fountain of Restoration, but nothing happens.
 0461: You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.

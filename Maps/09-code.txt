@@ -1,299 +1,1029 @@
 STRSTELE_01:
-0000                          BEGIN
-0003                          GoMap(03, C2, 01, 03)
-001E                          RETURN
+0006  0000        BEGIN
+0009  0003        GoMap(0x03, 0xC2, 0x01, 0x03)
+0024  001E        RETURN
 
 KEYDOOR_02:
-0000                          BEGIN
-0003                          ax = UsedItem(DA, DA)
-0016                          If (result.equal) value jump to 0063
-0018                          Push(01)
-001C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0023                          Push(ax)
-0024                          ax = GetNextTile()
-002B                          Push(ax)
-002C                          Move(stk[0], stk[1], stk[2])
-0036                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003D                          Push(ax)
-003E                          ax = GetNextTile()
-0045                          Push(ax)
-0046                          Push(01)
-004A                          SetUnblocked()
-0054                          ShowMessage(03FC) = The O Rune Key unlocked the door.
-0061                          Jump to 008D
-0063                          Push(00)
-0066                          ax = SetExitability(ax) // ax is usually 0 following equality check
-006D                          Push(ax)
-006E                          ax = GetNextTile()
-0075                          Push(ax)
-0076                          Move(stk[0], stk[1], stk[2])
-0080                          ShowMessage(041E) = The door is locked. It requires a special key.
-008D                          RETURN
+0026  0000        BEGIN
+0029  0003        ax = UsedItem(0xDA, 0xDA)
+003C  0016        If (result.equal) jump to 0063
+003E  0018        Push(01)
+0042  001C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0049  0023        Push(ax)
+004A  0024        ax = GetNextTile()
+0051  002B        Push(ax)
+0052  002C        Move(stk[0], stk[1], stk[2])
+005C  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+0063  003D        Push(ax)
+0064  003E        ax = GetNextTile()
+006B  0045        Push(ax)
+006C  0046        Push(01)
+0070  004A        SetUnblocked()
+007A  0054        ShowMessage(0x03FC) = The O Rune Key unlocked the door.
+0087  0061        Jump to 008D
+0089  0063        Push(00)
+008C  0066        ax = SetExitability(ax) // ax is usually 0 following equality check
+0093  006D        Push(ax)
+0094  006E        ax = GetNextTile()
+009B  0075        Push(ax)
+009C  0076        Move(stk[0], stk[1], stk[2])
+00A6  0080        ShowMessage(0x041E) = The door is locked. It requires a special key.
+00B3  008D        RETURN
 
 GOLDAENC_03:
-0000                          BEGIN
-0003                          ax = CheckState(02, 18)
-0014                          compare(ax, 0001)
-0017                          If (result.notequal) value jump to 0047
-0019                          ShowMessage(044D) = Skeletons on the floor stir to life.
-0026                          AddTreasure(03E8, 00, 00, 00, 00, B6)
-0045                          Jump to 0088
-0047                          AddTreasure(1388, 00, 00, 00, 00, CF)
-0066                          SetState(02, 18, 01)
-007B                          ShowMessage(0472) = Among the bones on the floor are pieces of gold. The bones begin to move.
-0088                          ax = PartyCount()
-0090                          compare(ax, 0001)
-0093                          If (result.notequal) value jump to 00AA
-0095                          AddEncounter(01, 01)
-00A7                          Jump to 0144
-00AA                          ax = PartyCount()
-00B2                          compare(ax, 0002)
-00B5                          If (result.equal) value jump to 00C4
-00B7                          ax = PartyCount()
-00BF                          compare(ax, 0003)
-00C2                          If (result.notequal) value jump to 00FC
-00C4                          AddEncounter(02, 01)
-00D6                          AddEncounter(04, 02)
-00E8                          AddEncounter(06, 03)
-00FA                          Jump to 0144
-00FC                          AddEncounter(01, 01)
-010E                          AddEncounter(02, 02)
-0120                          AddEncounter(03, 03)
-0132                          AddEncounter(04, 04)
-0144                          RETURN
+00B5  0000        BEGIN
+00B8  0003        ax = CheckState(0x02, 0x18)
+00C9  0014        compare(ax, 0x0001)
+00CC  0017        If (result.notequal) jump to 0047
+00CE  0019        ShowMessage(0x044D) = Skeletons on the floor stir to life.
+00DB  0026        AddTreasure(0x03E8, 0x00, 0x00, 0x00, 0x00, 0xB6)
+00FA  0045        Jump to 0088
+00FC  0047        AddTreasure(0x1388, 0x00, 0x00, 0x00, 0x00, 0xCF)
+011B  0066        SetState(0x02, 0x18, 0x01)
+0130  007B        ShowMessage(0x0472) = Among the bones on the floor are pieces of gold. The bones begin to move.
+013D  0088        ax = PartyCount()
+0145  0090        compare(ax, 0x0001)
+0148  0093        If (result.notequal) jump to 00AA
+014A  0095        AddEncounter(0x01, 0x01)
+015C  00A7        Jump to 0144
+015F  00AA        ax = PartyCount()
+0167  00B2        compare(ax, 0x0002)
+016A  00B5        If (result.equal) jump to 00C4
+016C  00B7        ax = PartyCount()
+0174  00BF        compare(ax, 0x0003)
+0177  00C2        If (result.notequal) jump to 00FC
+0179  00C4        AddEncounter(0x02, 0x01)
+018B  00D6        AddEncounter(0x04, 0x02)
+019D  00E8        AddEncounter(0x06, 0x03)
+01AF  00FA        Jump to 0144
+01B1  00FC        AddEncounter(0x01, 0x01)
+01C3  010E        AddEncounter(0x02, 0x02)
+01D5  0120        AddEncounter(0x03, 0x03)
+01E7  0132        AddEncounter(0x04, 0x04)
+01F9  0144        RETURN
 
 GOLDBENC_04:
-0000                          BEGIN
-0003                          ax = HasItem(C6)
-0011                          If (result.equal) value jump to 0041
-0013                          ShowMessage(04BC) = A clutch of Large-Uns growl at you.
-0020                          AddTreasure(07D0, 00, 00, 00, 00, D1)
-003F                          Jump to 006D
-0041                          AddTreasure(1770, 00, 00, 00, 00, C6)
-0060                          ShowMessage(04E0) = A Large-Un tosses a piece of wood aside as he and his friends attack.
-006D                          ax = PartyCount()
-0075                          compare(ax, 0001)
-0078                          If (result.notequal) value jump to 00A1
-007A                          AddEncounter(19, 01)
-008C                          AddEncounter(1A, 02)
-009E                          Jump to 0198
-00A1                          ax = PartyCount()
-00A9                          compare(ax, 0002)
-00AC                          If (result.notequal) value jump to 00E7
-00AE                          AddEncounter(19, 01)
-00C0                          AddEncounter(1A, 02)
-00D2                          AddEncounter(19, 03)
-00E4                          Jump to 0198
-00E7                          ax = PartyCount()
-00EF                          compare(ax, 0003)
-00F2                          If (result.notequal) value jump to 013E
-00F4                          AddEncounter(1A, 01)
-0106                          AddEncounter(1A, 02)
-0118                          AddEncounter(1B, 03)
-012A                          AddEncounter(1B, 04)
-013C                          Jump to 0198
-013E                          AddEncounter(1B, 01)
-0150                          AddEncounter(1B, 02)
-0162                          AddEncounter(1B, 03)
-0174                          AddEncounter(1B, 04)
-0186                          AddEncounter(1C, 05)
-0198                          RETURN
+01FB  0000        BEGIN
+01FE  0003        ax = HasItem(0xC6)
+020C  0011        If (result.equal) jump to 0041
+020E  0013        ShowMessage(0x04BC) = A clutch of Large-Uns growl at you.
+021B  0020        AddTreasure(0x07D0, 0x00, 0x00, 0x00, 0x00, 0xD1)
+023A  003F        Jump to 006D
+023C  0041        AddTreasure(0x1770, 0x00, 0x00, 0x00, 0x00, 0xC6)
+025B  0060        ShowMessage(0x04E0) = A Large-Un tosses a piece of wood aside as he and his friends attack.
+0268  006D        ax = PartyCount()
+0270  0075        compare(ax, 0x0001)
+0273  0078        If (result.notequal) jump to 00A1
+0275  007A        AddEncounter(0x19, 0x01)
+0287  008C        AddEncounter(0x1A, 0x02)
+0299  009E        Jump to 0198
+029C  00A1        ax = PartyCount()
+02A4  00A9        compare(ax, 0x0002)
+02A7  00AC        If (result.notequal) jump to 00E7
+02A9  00AE        AddEncounter(0x19, 0x01)
+02BB  00C0        AddEncounter(0x1A, 0x02)
+02CD  00D2        AddEncounter(0x19, 0x03)
+02DF  00E4        Jump to 0198
+02E2  00E7        ax = PartyCount()
+02EA  00EF        compare(ax, 0x0003)
+02ED  00F2        If (result.notequal) jump to 013E
+02EF  00F4        AddEncounter(0x1A, 0x01)
+0301  0106        AddEncounter(0x1A, 0x02)
+0313  0118        AddEncounter(0x1B, 0x03)
+0325  012A        AddEncounter(0x1B, 0x04)
+0337  013C        Jump to 0198
+0339  013E        AddEncounter(0x1B, 0x01)
+034B  0150        AddEncounter(0x1B, 0x02)
+035D  0162        AddEncounter(0x1B, 0x03)
+036F  0174        AddEncounter(0x1B, 0x04)
+0381  0186        AddEncounter(0x1C, 0x05)
+0393  0198        RETURN
 
 CROWN_05:
-0000                          BEGIN
-0003                          ax = HasItem(69)
-0011                          If (result.equal) value jump to 0041
-0013                          ShowMessage(0526) = You have interrupted a Lizardite religious service.
-0020                          AddTreasure(01F4, 00, 00, 00, 00, D0)
-003F                          Jump to 0087
-0041                          AddTreasure(07D0, 00, 00, 00, CF, 69)
-0061                          RemoveItem(DA)
-006D                          ShowMessage(055A) = As you enter the room, the O Rune Key vanishes.
-007A                          ShowMessage(058A) = You see a Lizardite proudly wearing the Crown of King Cleowyn.
-0087                          ax = PartyCount()
-008F                          compare(ax, 0001)
-0092                          If (result.notequal) value jump to 00BB
-0094                          AddEncounter(21, 01)
-00A6                          AddEncounter(21, 02)
-00B8                          Jump to 018B
-00BB                          ax = PartyCount()
-00C3                          compare(ax, 0002)
-00C6                          If (result.equal) value jump to 00D5
-00C8                          ax = PartyCount()
-00D0                          compare(ax, 0003)
-00D3                          If (result.notequal) value jump to 011F
-00D5                          AddEncounter(21, 01)
-00E7                          AddEncounter(21, 02)
-00F9                          AddEncounter(21, 03)
-010B                          AddEncounter(21, 05)
-011D                          Jump to 018B
-011F                          AddEncounter(21, 01)
-0131                          AddEncounter(21, 02)
-0143                          AddEncounter(21, 03)
-0155                          AddEncounter(21, 04)
-0167                          AddEncounter(21, 05)
-0179                          AddEncounter(21, 06)
-018B                          RETURN
+0395  0000        BEGIN
+0398  0003        ax = HasItem(0x69)
+03A6  0011        If (result.equal) jump to 0041
+03A8  0013        ShowMessage(0x0526) = You have interrupted a Lizardite religious service.
+03B5  0020        AddTreasure(0x01F4, 0x00, 0x00, 0x00, 0x00, 0xD0)
+03D4  003F        Jump to 0087
+03D6  0041        AddTreasure(0x07D0, 0x00, 0x00, 0x00, 0xCF, 0x69)
+03F6  0061        RemoveItem(0xDA)
+0402  006D        ShowMessage(0x055A) = As you enter the room, the O Rune Key vanishes.
+040F  007A        ShowMessage(0x058A) = You see a Lizardite proudly wearing the Crown of King Cleowyn.
+041C  0087        ax = PartyCount()
+0424  008F        compare(ax, 0x0001)
+0427  0092        If (result.notequal) jump to 00BB
+0429  0094        AddEncounter(0x21, 0x01)
+043B  00A6        AddEncounter(0x21, 0x02)
+044D  00B8        Jump to 018B
+0450  00BB        ax = PartyCount()
+0458  00C3        compare(ax, 0x0002)
+045B  00C6        If (result.equal) jump to 00D5
+045D  00C8        ax = PartyCount()
+0465  00D0        compare(ax, 0x0003)
+0468  00D3        If (result.notequal) jump to 011F
+046A  00D5        AddEncounter(0x21, 0x01)
+047C  00E7        AddEncounter(0x21, 0x02)
+048E  00F9        AddEncounter(0x21, 0x03)
+04A0  010B        AddEncounter(0x21, 0x05)
+04B2  011D        Jump to 018B
+04B4  011F        AddEncounter(0x21, 0x01)
+04C6  0131        AddEncounter(0x21, 0x02)
+04D8  0143        AddEncounter(0x21, 0x03)
+04EA  0155        AddEncounter(0x21, 0x04)
+04FC  0167        AddEncounter(0x21, 0x05)
+050E  0179        AddEncounter(0x21, 0x06)
+0520  018B        RETURN
 
 ITEMBENC_06:
-0000                          BEGIN
-0003                          ax = HasItem(BB)
-0011                          If (result.equal) value jump to 0041
-0013                          ShowMessage(05C9) = You run into the living skeletons of King Cleowyn's guards.
-0020                          AddTreasure(0320, 00, 00, 00, 00, BC)
-003F                          Jump to 006D
-0041                          AddTreasure(1B58, 00, 00, 00, 00, BB)
-0060                          ShowMessage(0605) = One of the skeletons approaching you holds a piece of paper in its bony hand.
-006D                          ax = PartyCount()
-0075                          compare(ax, 0001)
-0078                          If (result.notequal) value jump to 008F
-007A                          AddEncounter(15, 01)
-008C                          Jump to 0129
-008F                          ax = PartyCount()
-0097                          compare(ax, 0002)
-009A                          If (result.equal) value jump to 00A9
-009C                          ax = PartyCount()
-00A4                          compare(ax, 0003)
-00A7                          If (result.notequal) value jump to 00E1
-00A9                          AddEncounter(15, 01)
-00BB                          AddEncounter(16, 02)
-00CD                          AddEncounter(17, 03)
-00DF                          Jump to 0129
-00E1                          AddEncounter(15, 01)
-00F3                          AddEncounter(17, 02)
-0105                          AddEncounter(16, 03)
-0117                          AddEncounter(18, 04)
-0129                          RETURN
+0522  0000        BEGIN
+0525  0003        ax = HasItem(0xBB)
+0533  0011        If (result.equal) jump to 0041
+0535  0013        ShowMessage(0x05C9) = You run into the living skeletons of King Cleowyn's guards.
+0542  0020        AddTreasure(0x0320, 0x00, 0x00, 0x00, 0x00, 0xBC)
+0561  003F        Jump to 006D
+0563  0041        AddTreasure(0x1B58, 0x00, 0x00, 0x00, 0x00, 0xBB)
+0582  0060        ShowMessage(0x0605) = One of the skeletons approaching you holds a piece of paper in its bony hand.
+058F  006D        ax = PartyCount()
+0597  0075        compare(ax, 0x0001)
+059A  0078        If (result.notequal) jump to 008F
+059C  007A        AddEncounter(0x15, 0x01)
+05AE  008C        Jump to 0129
+05B1  008F        ax = PartyCount()
+05B9  0097        compare(ax, 0x0002)
+05BC  009A        If (result.equal) jump to 00A9
+05BE  009C        ax = PartyCount()
+05C6  00A4        compare(ax, 0x0003)
+05C9  00A7        If (result.notequal) jump to 00E1
+05CB  00A9        AddEncounter(0x15, 0x01)
+05DD  00BB        AddEncounter(0x16, 0x02)
+05EF  00CD        AddEncounter(0x17, 0x03)
+0601  00DF        Jump to 0129
+0603  00E1        AddEncounter(0x15, 0x01)
+0615  00F3        AddEncounter(0x17, 0x02)
+0627  0105        AddEncounter(0x16, 0x03)
+0639  0117        AddEncounter(0x18, 0x04)
+064B  0129        RETURN
 
 ITEMCENC_07:
-0000                          BEGIN
-0003                          ax = HasItem(64)
-0011                          If (result.equal) value jump to 0065
-0013                          ax = HasItem(94)
-0021                          If (result.equal) value jump to 0044
-0023                          AddTreasure(01F4, 00, 00, 00, 00, BD)
-0042                          Jump to 0063
-0044                          AddTreasure(07D0, 00, 00, 00, 00, 94)
-0063                          Jump to 00B6
-0065                          ax = HasItem(94)
-0073                          If (result.equal) value jump to 0096
-0075                          AddTreasure(07D0, 00, 00, 00, 00, 64)
-0094                          Jump to 00B6
-0096                          AddTreasure(07D0, 00, 00, 00, 64, 94)
-00B6                          ShowMessage(0653) = Reptilian bodies stir as you draw near.
-00C3                          ax = PartyCount()
-00CB                          compare(ax, 0001)
-00CE                          If (result.notequal) value jump to 00E5
-00D0                          AddEncounter(23, 01)
-00E2                          Jump to 017F
-00E5                          ax = PartyCount()
-00ED                          compare(ax, 0002)
-00F0                          If (result.equal) value jump to 00FF
-00F2                          ax = PartyCount()
-00FA                          compare(ax, 0003)
-00FD                          If (result.notequal) value jump to 0137
-00FF                          AddEncounter(23, 01)
-0111                          AddEncounter(23, 02)
-0123                          AddEncounter(23, 03)
-0135                          Jump to 017F
-0137                          AddEncounter(23, 01)
-0149                          AddEncounter(23, 02)
-015B                          AddEncounter(23, 03)
-016D                          AddEncounter(23, 04)
-017F                          RETURN
+064D  0000        BEGIN
+0650  0003        ax = HasItem(0x64)
+065E  0011        If (result.equal) jump to 0065
+0660  0013        ax = HasItem(0x94)
+066E  0021        If (result.equal) jump to 0044
+0670  0023        AddTreasure(0x01F4, 0x00, 0x00, 0x00, 0x00, 0xBD)
+068F  0042        Jump to 0063
+0691  0044        AddTreasure(0x07D0, 0x00, 0x00, 0x00, 0x00, 0x94)
+06B0  0063        Jump to 00B6
+06B2  0065        ax = HasItem(0x94)
+06C0  0073        If (result.equal) jump to 0096
+06C2  0075        AddTreasure(0x07D0, 0x00, 0x00, 0x00, 0x00, 0x64)
+06E1  0094        Jump to 00B6
+06E3  0096        AddTreasure(0x07D0, 0x00, 0x00, 0x00, 0x64, 0x94)
+0703  00B6        ShowMessage(0x0653) = Reptilian bodies stir as you draw near.
+0710  00C3        ax = PartyCount()
+0718  00CB        compare(ax, 0x0001)
+071B  00CE        If (result.notequal) jump to 00E5
+071D  00D0        AddEncounter(0x23, 0x01)
+072F  00E2        Jump to 017F
+0732  00E5        ax = PartyCount()
+073A  00ED        compare(ax, 0x0002)
+073D  00F0        If (result.equal) jump to 00FF
+073F  00F2        ax = PartyCount()
+0747  00FA        compare(ax, 0x0003)
+074A  00FD        If (result.notequal) jump to 0137
+074C  00FF        AddEncounter(0x23, 0x01)
+075E  0111        AddEncounter(0x23, 0x02)
+0770  0123        AddEncounter(0x23, 0x03)
+0782  0135        Jump to 017F
+0784  0137        AddEncounter(0x23, 0x01)
+0796  0149        AddEncounter(0x23, 0x02)
+07A8  015B        AddEncounter(0x23, 0x03)
+07BA  016D        AddEncounter(0x23, 0x04)
+07CC  017F        RETURN
 
 STRMNSTR_08:
-0000                          BEGIN
-0003                          ax = PartyCount()
-000B                          compare(ax, 0001)
-000E                          If (result.notequal) value jump to 0037
-0010                          AddEncounter(19, 01)
-0022                          AddEncounter(1A, 02)
-0034                          Jump to 0152
-0037                          ax = PartyCount()
-003F                          compare(ax, 0002)
-0042                          If (result.notequal) value jump to 007D
-0044                          AddEncounter(19, 01)
-0056                          AddEncounter(1A, 02)
-0068                          AddEncounter(19, 03)
-007A                          Jump to 0152
-007D                          ax = PartyCount()
-0085                          compare(ax, 0003)
-0088                          If (result.notequal) value jump to 00E6
-008A                          AddEncounter(1A, 01)
-009C                          AddEncounter(1A, 02)
-00AE                          AddEncounter(1B, 03)
-00C0                          AddEncounter(1B, 04)
-00D2                          AddEncounter(1C, 05)
-00E4                          Jump to 0152
-00E6                          AddEncounter(1B, 01)
-00F8                          AddEncounter(1B, 02)
-010A                          AddEncounter(1B, 03)
-011C                          AddEncounter(1B, 04)
-012E                          AddEncounter(1C, 05)
-0140                          AddEncounter(1C, 06)
-0152                          RETURN
+07CE  0000        BEGIN
+07D1  0003        ax = PartyCount()
+07D9  000B        compare(ax, 0x0001)
+07DC  000E        If (result.notequal) jump to 0037
+07DE  0010        AddEncounter(0x19, 0x01)
+07F0  0022        AddEncounter(0x1A, 0x02)
+0802  0034        Jump to 0152
+0805  0037        ax = PartyCount()
+080D  003F        compare(ax, 0x0002)
+0810  0042        If (result.notequal) jump to 007D
+0812  0044        AddEncounter(0x19, 0x01)
+0824  0056        AddEncounter(0x1A, 0x02)
+0836  0068        AddEncounter(0x19, 0x03)
+0848  007A        Jump to 0152
+084B  007D        ax = PartyCount()
+0853  0085        compare(ax, 0x0003)
+0856  0088        If (result.notequal) jump to 00E6
+0858  008A        AddEncounter(0x1A, 0x01)
+086A  009C        AddEncounter(0x1A, 0x02)
+087C  00AE        AddEncounter(0x1B, 0x03)
+088E  00C0        AddEncounter(0x1B, 0x04)
+08A0  00D2        AddEncounter(0x1C, 0x05)
+08B2  00E4        Jump to 0152
+08B4  00E6        AddEncounter(0x1B, 0x01)
+08C6  00F8        AddEncounter(0x1B, 0x02)
+08D8  010A        AddEncounter(0x1B, 0x03)
+08EA  011C        AddEncounter(0x1B, 0x04)
+08FC  012E        AddEncounter(0x1C, 0x05)
+090E  0140        AddEncounter(0x1C, 0x06)
+0920  0152        RETURN
 
 TUFMNSTR_09:
-0000                          BEGIN
-0003                          ax = PartyCount()
-000B                          compare(ax, 0001)
-000E                          If (result.notequal) value jump to 0025
-0010                          AddEncounter(21, 01)
-0022                          Jump to 010A
-0025                          ax = PartyCount()
-002D                          compare(ax, 0002)
-0030                          If (result.notequal) value jump to 0059
-0032                          AddEncounter(21, 01)
-0044                          AddEncounter(21, 02)
-0056                          Jump to 010A
-0059                          ax = PartyCount()
-0061                          compare(ax, 0003)
-0064                          If (result.notequal) value jump to 00B0
-0066                          AddEncounter(21, 01)
-0078                          AddEncounter(21, 02)
-008A                          AddEncounter(21, 03)
-009C                          AddEncounter(21, 04)
-00AE                          Jump to 010A
-00B0                          AddEncounter(21, 01)
-00C2                          AddEncounter(21, 02)
-00D4                          AddEncounter(21, 03)
-00E6                          AddEncounter(21, 04)
-00F8                          AddEncounter(21, 05)
-010A                          RETURN
+0922  0000        BEGIN
+0925  0003        ax = PartyCount()
+092D  000B        compare(ax, 0x0001)
+0930  000E        If (result.notequal) jump to 0025
+0932  0010        AddEncounter(0x21, 0x01)
+0944  0022        Jump to 010A
+0947  0025        ax = PartyCount()
+094F  002D        compare(ax, 0x0002)
+0952  0030        If (result.notequal) jump to 0059
+0954  0032        AddEncounter(0x21, 0x01)
+0966  0044        AddEncounter(0x21, 0x02)
+0978  0056        Jump to 010A
+097B  0059        ax = PartyCount()
+0983  0061        compare(ax, 0x0003)
+0986  0064        If (result.notequal) jump to 00B0
+0988  0066        AddEncounter(0x21, 0x01)
+099A  0078        AddEncounter(0x21, 0x02)
+09AC  008A        AddEncounter(0x21, 0x03)
+09BE  009C        AddEncounter(0x21, 0x04)
+09D0  00AE        Jump to 010A
+09D2  00B0        AddEncounter(0x21, 0x01)
+09E4  00C2        AddEncounter(0x21, 0x02)
+09F6  00D4        AddEncounter(0x21, 0x03)
+0A08  00E6        AddEncounter(0x21, 0x04)
+0A1A  00F8        AddEncounter(0x21, 0x05)
+0A2C  010A        RETURN
 
 STRSMESS_0A:
-0000                          BEGIN
-0003                          ShowMessage(067B) = The stairs through the west gateway lead down a level.
-0010                          RETURN
+0A2E  0000        BEGIN
+0A31  0003        ShowMessage(0x067B) = The stairs through the west gateway lead down a level.
+0A3E  0010        RETURN
 
 NPCCHATA_0B:
-0000                          BEGIN
-0003                          ShowMessage(06B2) = A Human Wizard teleports into the room you occupy.
-0010                          ShowPortrait(002B)
-001D                          ax = UnknownFunctionEC(000F)
-002A                          compare(ax, 000B)
-002D                          If (result.greaterthan) value jump to 0058
-002F                          ShowMessage(06E5) = Be careful when you find the way to open the door that leads to the nether depths of this dungeon.
-003C                          ShowMessage(0748) = All quest items from Cleowyn's Palace levels will be stripped from you.
-0049                          ShowMessage(0790) = But if you are indeed ready to enter the lower depths, you will no longer need Cleowyn's toys.
-0056                          Jump to 0065
-0058                          ShowMessage(07EF) = The Human Wizard smiles sheepishly and teleports somewhere else.
-0065                          RETURN
+0A40  0000        BEGIN
+0A43  0003        ShowMessage(0x06B2) = A Human Wizard teleports into the room you occupy.
+0A50  0010        ShowPortrait(0x002B)
+0A5D  001D        ax = UnknownFunctionEC(0x000F)
+0A6A  002A        compare(ax, 0x000B)
+0A6D  002D        If (result.above) jump to 0058
+0A6F  002F        ShowMessage(0x06E5) = Be careful when you find the way to open the door that leads to the nether depths of this dungeon.
+0A7C  003C        ShowMessage(0x0748) = All quest items from Cleowyn's Palace levels will be stripped from you.
+0A89  0049        ShowMessage(0x0790) = But if you are indeed ready to enter the lower depths, you will no longer need Cleowyn's toys.
+0A96  0056        Jump to 0065
+0A98  0058        ShowMessage(0x07EF) = The Human Wizard smiles sheepishly and teleports somewhere else.
+0AA5  0065        RETURN
 
 NPCCHATB_0C:
-0000                          BEGIN
-0003                          ShowMessage(0830) = You encounter a sleepy Troll Knight.
-0010                          ShowPortrait(001B)
-001D                          ax = UnknownFunctionEC(000F)
-002A                          compare(ax, 0009)
-002D                          If (result.greaterthan) value jump to 004B
-002F                          ShowMessage(0855) = The Galabryan kings brought the great wizard Arnakkian Slowfoot to Twinion. The island grew famous and rich thanks to this wizard.
-003C                          ShowMessage(08D8) = But the wizard had his own schemes, and soon he and good King Leowyn Galabryan were at loggerheads. Supposedly, the wizard had the king assassinated.
-0049                          Jump to 0058
-004B                          ShowMessage(096E) = The Troll Knight blinks at you dumbly and falls asleep.
-0058                          RETURN
+0AA7  0000        BEGIN
+0AAA  0003        ShowMessage(0x0830) = You encounter a sleepy Troll Knight.
+0AB7  0010        ShowPortrait(0x001B)
+0AC4  001D        ax = UnknownFunctionEC(0x000F)
+0AD1  002A        compare(ax, 0x0009)
+0AD4  002D        If (result.above) jump to 004B
+0AD6  002F        ShowMessage(0x0855) = The Galabryan kings brought the great wizard Arnakkian Slowfoot to Twinion. The island grew famous and rich thanks to this wizard.
+0AE3  003C        ShowMessage(0x08D8) = But the wizard had his own schemes, and soon he and good King Leowyn Galabryan were at loggerheads. Supposedly, the wizard had the king assassinated.
+0AF0  0049        Jump to 0058
+0AF2  004B        ShowMessage(0x096E) = The Troll Knight blinks at you dumbly and falls asleep.
+0AFF  0058        RETURN
 
+EMPTY:
+0B01  0000        <Empty Function>
+
+EMPTY:
+0B06  0000        <Empty Function>
+
+EMPTY:
+0B0B  0000        <Empty Function>
+
+EMPTY:
+0B10  0000        <Empty Function>
+
+EMPTY:
+0B15  0000        <Empty Function>
+
+EMPTY:
+0B1A  0000        <Empty Function>
+
+EMPTY:
+0B1F  0000        <Empty Function>
+
+EMPTY:
+0B24  0000        <Empty Function>
+
+EMPTY:
+0B29  0000        <Empty Function>
+
+EMPTY:
+0B2E  0000        <Empty Function>
+
+EMPTY:
+0B33  0000        <Empty Function>
+
+EMPTY:
+0B38  0000        <Empty Function>
+
+EMPTY:
+0B3D  0000        <Empty Function>
+
+EMPTY:
+0B42  0000        <Empty Function>
+
+EMPTY:
+0B47  0000        <Empty Function>
+
+EMPTY:
+0B4C  0000        <Empty Function>
+
+EMPTY:
+0B51  0000        <Empty Function>
+
+EMPTY:
+0B56  0000        <Empty Function>
+
+EMPTY:
+0B5B  0000        <Empty Function>
+
+EMPTY:
+0B60  0000        <Empty Function>
+
+EMPTY:
+0B65  0000        <Empty Function>
+
+EMPTY:
+0B6A  0000        <Empty Function>
+
+EMPTY:
+0B6F  0000        <Empty Function>
+
+EMPTY:
+0B74  0000        <Empty Function>
+
+EMPTY:
+0B79  0000        <Empty Function>
+
+EMPTY:
+0B7E  0000        <Empty Function>
+
+EMPTY:
+0B83  0000        <Empty Function>
+
+EMPTY:
+0B88  0000        <Empty Function>
+
+EMPTY:
+0B8D  0000        <Empty Function>
+
+EMPTY:
+0B92  0000        <Empty Function>
+
+EMPTY:
+0B97  0000        <Empty Function>
+
+EMPTY:
+0B9C  0000        <Empty Function>
+
+EMPTY:
+0BA1  0000        <Empty Function>
+
+EMPTY:
+0BA6  0000        <Empty Function>
+
+EMPTY:
+0BAB  0000        <Empty Function>
+
+EMPTY:
+0BB0  0000        <Empty Function>
+
+EMPTY:
+0BB5  0000        <Empty Function>
+
+EMPTY:
+0BBA  0000        <Empty Function>
+
+EMPTY:
+0BBF  0000        <Empty Function>
+
+EMPTY:
+0BC4  0000        <Empty Function>
+
+EMPTY:
+0BC9  0000        <Empty Function>
+
+EMPTY:
+0BCE  0000        <Empty Function>
+
+EMPTY:
+0BD3  0000        <Empty Function>
+
+EMPTY:
+0BD8  0000        <Empty Function>
+
+EMPTY:
+0BDD  0000        <Empty Function>
+
+EMPTY:
+0BE2  0000        <Empty Function>
+
+EMPTY:
+0BE7  0000        <Empty Function>
+
+EMPTY:
+0BEC  0000        <Empty Function>
+
+EMPTY:
+0BF1  0000        <Empty Function>
+
+EMPTY:
+0BF6  0000        <Empty Function>
+
+EMPTY:
+0BFB  0000        <Empty Function>
+
+EMPTY:
+0C00  0000        <Empty Function>
+
+EMPTY:
+0C05  0000        <Empty Function>
+
+EMPTY:
+0C0A  0000        <Empty Function>
+
+EMPTY:
+0C0F  0000        <Empty Function>
+
+EMPTY:
+0C14  0000        <Empty Function>
+
+EMPTY:
+0C19  0000        <Empty Function>
+
+EMPTY:
+0C1E  0000        <Empty Function>
+
+EMPTY:
+0C23  0000        <Empty Function>
+
+EMPTY:
+0C28  0000        <Empty Function>
+
+EMPTY:
+0C2D  0000        <Empty Function>
+
+EMPTY:
+0C32  0000        <Empty Function>
+
+EMPTY:
+0C37  0000        <Empty Function>
+
+EMPTY:
+0C3C  0000        <Empty Function>
+
+EMPTY:
+0C41  0000        <Empty Function>
+
+EMPTY:
+0C46  0000        <Empty Function>
+
+EMPTY:
+0C4B  0000        <Empty Function>
+
+EMPTY:
+0C50  0000        <Empty Function>
+
+EMPTY:
+0C55  0000        <Empty Function>
+
+EMPTY:
+0C5A  0000        <Empty Function>
+
+EMPTY:
+0C5F  0000        <Empty Function>
+
+EMPTY:
+0C64  0000        <Empty Function>
+
+EMPTY:
+0C69  0000        <Empty Function>
+
+EMPTY:
+0C6E  0000        <Empty Function>
+
+EMPTY:
+0C73  0000        <Empty Function>
+
+EMPTY:
+0C78  0000        <Empty Function>
+
+EMPTY:
+0C7D  0000        <Empty Function>
+
+EMPTY:
+0C82  0000        <Empty Function>
+
+EMPTY:
+0C87  0000        <Empty Function>
+
+EMPTY:
+0C8C  0000        <Empty Function>
+
+EMPTY:
+0C91  0000        <Empty Function>
+
+EMPTY:
+0C96  0000        <Empty Function>
+
+EMPTY:
+0C9B  0000        <Empty Function>
+
+EMPTY:
+0CA0  0000        <Empty Function>
+
+EMPTY:
+0CA5  0000        <Empty Function>
+
+EMPTY:
+0CAA  0000        <Empty Function>
+
+EMPTY:
+0CAF  0000        <Empty Function>
+
+EMPTY:
+0CB4  0000        <Empty Function>
+
+EMPTY:
+0CB9  0000        <Empty Function>
+
+EMPTY:
+0CBE  0000        <Empty Function>
+
+EMPTY:
+0CC3  0000        <Empty Function>
+
+EMPTY:
+0CC8  0000        <Empty Function>
+
+EMPTY:
+0CCD  0000        <Empty Function>
+
+EMPTY:
+0CD2  0000        <Empty Function>
+
+EMPTY:
+0CD7  0000        <Empty Function>
+
+EMPTY:
+0CDC  0000        <Empty Function>
+
+EMPTY:
+0CE1  0000        <Empty Function>
+
+EMPTY:
+0CE6  0000        <Empty Function>
+
+EMPTY:
+0CEB  0000        <Empty Function>
+
+EMPTY:
+0CF0  0000        <Empty Function>
+
+EMPTY:
+0CF5  0000        <Empty Function>
+
+EMPTY:
+0CFA  0000        <Empty Function>
+
+EMPTY:
+0CFF  0000        <Empty Function>
+
+EMPTY:
+0D04  0000        <Empty Function>
+
+EMPTY:
+0D09  0000        <Empty Function>
+
+EMPTY:
+0D0E  0000        <Empty Function>
+
+EMPTY:
+0D13  0000        <Empty Function>
+
+EMPTY:
+0D18  0000        <Empty Function>
+
+EMPTY:
+0D1D  0000        <Empty Function>
+
+EMPTY:
+0D22  0000        <Empty Function>
+
+EMPTY:
+0D27  0000        <Empty Function>
+
+EMPTY:
+0D2C  0000        <Empty Function>
+
+EMPTY:
+0D31  0000        <Empty Function>
+
+EMPTY:
+0D36  0000        <Empty Function>
+
+EMPTY:
+0D3B  0000        <Empty Function>
+
+EMPTY:
+0D40  0000        <Empty Function>
+
+EMPTY:
+0D45  0000        <Empty Function>
+
+EMPTY:
+0D4A  0000        <Empty Function>
+
+EMPTY:
+0D4F  0000        <Empty Function>
+
+EMPTY:
+0D54  0000        <Empty Function>
+
+EMPTY:
+0D59  0000        <Empty Function>
+
+EMPTY:
+0D5E  0000        <Empty Function>
+
+EMPTY:
+0D63  0000        <Empty Function>
+
+EMPTY:
+0D68  0000        <Empty Function>
+
+EMPTY:
+0D6D  0000        <Empty Function>
+
+EMPTY:
+0D72  0000        <Empty Function>
+
+EMPTY:
+0D77  0000        <Empty Function>
+
+EMPTY:
+0D7C  0000        <Empty Function>
+
+EMPTY:
+0D81  0000        <Empty Function>
+
+EMPTY:
+0D86  0000        <Empty Function>
+
+EMPTY:
+0D8B  0000        <Empty Function>
+
+EMPTY:
+0D90  0000        <Empty Function>
+
+EMPTY:
+0D95  0000        <Empty Function>
+
+EMPTY:
+0D9A  0000        <Empty Function>
+
+EMPTY:
+0D9F  0000        <Empty Function>
+
+EMPTY:
+0DA4  0000        <Empty Function>
+
+EMPTY:
+0DA9  0000        <Empty Function>
+
+EMPTY:
+0DAE  0000        <Empty Function>
+
+EMPTY:
+0DB3  0000        <Empty Function>
+
+EMPTY:
+0DB8  0000        <Empty Function>
+
+EMPTY:
+0DBD  0000        <Empty Function>
+
+EMPTY:
+0DC2  0000        <Empty Function>
+
+EMPTY:
+0DC7  0000        <Empty Function>
+
+EMPTY:
+0DCC  0000        <Empty Function>
+
+EMPTY:
+0DD1  0000        <Empty Function>
+
+EMPTY:
+0DD6  0000        <Empty Function>
+
+EMPTY:
+0DDB  0000        <Empty Function>
+
+EMPTY:
+0DE0  0000        <Empty Function>
+
+EMPTY:
+0DE5  0000        <Empty Function>
+
+EMPTY:
+0DEA  0000        <Empty Function>
+
+EMPTY:
+0DEF  0000        <Empty Function>
+
+EMPTY:
+0DF4  0000        <Empty Function>
+
+EMPTY:
+0DF9  0000        <Empty Function>
+
+EMPTY:
+0DFE  0000        <Empty Function>
+
+EMPTY:
+0E03  0000        <Empty Function>
+
+EMPTY:
+0E08  0000        <Empty Function>
+
+EMPTY:
+0E0D  0000        <Empty Function>
+
+EMPTY:
+0E12  0000        <Empty Function>
+
+EMPTY:
+0E17  0000        <Empty Function>
+
+EMPTY:
+0E1C  0000        <Empty Function>
+
+EMPTY:
+0E21  0000        <Empty Function>
+
+EMPTY:
+0E26  0000        <Empty Function>
+
+EMPTY:
+0E2B  0000        <Empty Function>
+
+EMPTY:
+0E30  0000        <Empty Function>
+
+EMPTY:
+0E35  0000        <Empty Function>
+
+EMPTY:
+0E3A  0000        <Empty Function>
+
+EMPTY:
+0E3F  0000        <Empty Function>
+
+EMPTY:
+0E44  0000        <Empty Function>
+
+EMPTY:
+0E49  0000        <Empty Function>
+
+EMPTY:
+0E4E  0000        <Empty Function>
+
+EMPTY:
+0E53  0000        <Empty Function>
+
+EMPTY:
+0E58  0000        <Empty Function>
+
+EMPTY:
+0E5D  0000        <Empty Function>
+
+EMPTY:
+0E62  0000        <Empty Function>
+
+EMPTY:
+0E67  0000        <Empty Function>
+
+EMPTY:
+0E6C  0000        <Empty Function>
+
+EMPTY:
+0E71  0000        <Empty Function>
+
+EMPTY:
+0E76  0000        <Empty Function>
+
+EMPTY:
+0E7B  0000        <Empty Function>
+
+EMPTY:
+0E80  0000        <Empty Function>
+
+EMPTY:
+0E85  0000        <Empty Function>
+
+EMPTY:
+0E8A  0000        <Empty Function>
+
+EMPTY:
+0E8F  0000        <Empty Function>
+
+EMPTY:
+0E94  0000        <Empty Function>
+
+EMPTY:
+0E99  0000        <Empty Function>
+
+EMPTY:
+0E9E  0000        <Empty Function>
+
+EMPTY:
+0EA3  0000        <Empty Function>
+
+EMPTY:
+0EA8  0000        <Empty Function>
+
+EMPTY:
+0EAD  0000        <Empty Function>
+
+EMPTY:
+0EB2  0000        <Empty Function>
+
+EMPTY:
+0EB7  0000        <Empty Function>
+
+EMPTY:
+0EBC  0000        <Empty Function>
+
+EMPTY:
+0EC1  0000        <Empty Function>
+
+EMPTY:
+0EC6  0000        <Empty Function>
+
+EMPTY:
+0ECB  0000        <Empty Function>
+
+EMPTY:
+0ED0  0000        <Empty Function>
+
+EMPTY:
+0ED5  0000        <Empty Function>
+
+EMPTY:
+0EDA  0000        <Empty Function>
+
+EMPTY:
+0EDF  0000        <Empty Function>
+
+EMPTY:
+0EE4  0000        <Empty Function>
+
+EMPTY:
+0EE9  0000        <Empty Function>
+
+EMPTY:
+0EEE  0000        <Empty Function>
+
+EMPTY:
+0EF3  0000        <Empty Function>
+
+EMPTY:
+0EF8  0000        <Empty Function>
+
+EMPTY:
+0EFD  0000        <Empty Function>
+
+EMPTY:
+0F02  0000        <Empty Function>
+
+EMPTY:
+0F07  0000        <Empty Function>
+
+EMPTY:
+0F0C  0000        <Empty Function>
+
+EMPTY:
+0F11  0000        <Empty Function>
+
+EMPTY:
+0F16  0000        <Empty Function>
+
+EMPTY:
+0F1B  0000        <Empty Function>
+
+EMPTY:
+0F20  0000        <Empty Function>
+
+EMPTY:
+0F25  0000        <Empty Function>
+
+EMPTY:
+0F2A  0000        <Empty Function>
+
+EMPTY:
+0F2F  0000        <Empty Function>
+
+EMPTY:
+0F34  0000        <Empty Function>
+
+EMPTY:
+0F39  0000        <Empty Function>
+
+EMPTY:
+0F3E  0000        <Empty Function>
+
+EMPTY:
+0F43  0000        <Empty Function>
+
+EMPTY:
+0F48  0000        <Empty Function>
+
+EMPTY:
+0F4D  0000        <Empty Function>
+
+EMPTY:
+0F52  0000        <Empty Function>
+
+EMPTY:
+0F57  0000        <Empty Function>
+
+EMPTY:
+0F5C  0000        <Empty Function>
+
+EMPTY:
+0F61  0000        <Empty Function>
+
+EMPTY:
+0F66  0000        <Empty Function>
+
+EMPTY:
+0F6B  0000        <Empty Function>
+
+EMPTY:
+0F70  0000        <Empty Function>
+
+EMPTY:
+0F75  0000        <Empty Function>
+
+EMPTY:
+0F7A  0000        <Empty Function>
+
+EMPTY:
+0F7F  0000        <Empty Function>
+
+EMPTY:
+0F84  0000        <Empty Function>
+
+EMPTY:
+0F89  0000        <Empty Function>
+
+EMPTY:
+0F8E  0000        <Empty Function>
+
+EMPTY:
+0F93  0000        <Empty Function>
+
+EMPTY:
+0F98  0000        <Empty Function>
+
+EMPTY:
+0F9D  0000        <Empty Function>
+
+EMPTY:
+0FA2  0000        <Empty Function>
+
+EMPTY:
+0FA7  0000        <Empty Function>
+
+EMPTY:
+0FAC  0000        <Empty Function>
+
+EMPTY:
+0FB1  0000        <Empty Function>
+
+EMPTY:
+0FB6  0000        <Empty Function>
+
+EMPTY:
+0FBB  0000        <Empty Function>
+
+STRINGS:
 03FC: The O Rune Key unlocked the door.
 041E: The door is locked. It requires a special key.
 044D: Skeletons on the floor stir to life.

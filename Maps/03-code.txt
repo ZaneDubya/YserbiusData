@@ -1,524 +1,1197 @@
 TOMINES_01:
-0000                          BEGIN
-0003                          GoMap(00, 7F, 02, 01)
-001D                          RETURN
+0006  0000        BEGIN
+0009  0003        GoMap(00, 0x7F, 0x02, 0x01)
+0023  001D        RETURN
 
 TOTREAS_02:
-0000                          BEGIN
-0003                          GoMap(01, 05, 04, 01)
-001E                          RETURN
+0025  0000        BEGIN
+0028  0003        GoMap(0x01, 0x05, 0x04, 0x01)
+0043  001E        RETURN
 
 KEYDOOR_03:
-0000                          BEGIN
-0003                          ax = CheckState(02, 00)
-0013                          compare(ax, 0001)
-0016                          If (result.notequal) value jump to 0063
-0018                          ShowMessage(03FC) = Cleowyn's Key has unlocked the door.
-0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002C                          Push(ax)
-002D                          ax = GetNextTile()
-0034                          Push(ax)
-0035                          Push(01)
-0039                          SetUnblocked()
-0043                          Push(01)
-0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004E                          Push(ax)
-004F                          ax = GetNextTile()
-0056                          Push(ax)
-0057                          Move(stk[0], stk[1], stk[2])
-0061                          Jump to 008D
-0063                          ShowMessage(0421) = The door is locked.  Something special is needed to open this door.
-0070                          Push(00)
-0073                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007A                          Push(ax)
-007B                          ax = GetNextTile()
-0082                          Push(ax)
-0083                          Move(stk[0], stk[1], stk[2])
-008D                          RETURN
+0045  0000        BEGIN
+0048  0003        ax = CheckState(0x02, 0x00)
+0058  0013        compare(ax, 0x0001)
+005B  0016        If (result.notequal) jump to 0063
+005D  0018        ShowMessage(0x03FC) = Cleowyn's Key has unlocked the door.
+006A  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+0071  002C        Push(ax)
+0072  002D        ax = GetNextTile()
+0079  0034        Push(ax)
+007A  0035        Push(01)
+007E  0039        SetUnblocked()
+0088  0043        Push(01)
+008C  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+0093  004E        Push(ax)
+0094  004F        ax = GetNextTile()
+009B  0056        Push(ax)
+009C  0057        Move(stk[0], stk[1], stk[2])
+00A6  0061        Jump to 008D
+00A8  0063        ShowMessage(0x0421) = The door is locked.  Something special is needed to open this door.
+00B5  0070        Push(00)
+00B8  0073        ax = SetExitability(ax) // ax is usually 0 following equality check
+00BF  007A        Push(ax)
+00C0  007B        ax = GetNextTile()
+00C7  0082        Push(ax)
+00C8  0083        Move(stk[0], stk[1], stk[2])
+00D2  008D        RETURN
 
 KEYMESSG_04:
-0000                          BEGIN
-0003                          ShowMessage(0465) = The tapestry shows a message in runes...
-0010                          ShowRunes(048E) = A certain Key unlocks my series of doors.
-001D                          RETURN
+00D4  0000        BEGIN
+00D7  0003        ShowMessage(0x0465) = The tapestry shows a message in runes...
+00E4  0010        ShowRunes(0x048E) = A certain Key unlocks my series of doors.
+00F1  001D        RETURN
 
 LKPKDOOR_05:
-0000                          BEGIN
-0003                          ax = CheckState(02, 00)
-0013                          compare(ax, 0002)
-0016                          If (result.notequal) value jump to 0063
-0018                          ShowMessage(04B8) = Cleowyn's Lockpick has unlocked the door.
-0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002C                          Push(ax)
-002D                          ax = GetNextTile()
-0034                          Push(ax)
-0035                          Push(01)
-0039                          SetUnblocked()
-0043                          Push(01)
-0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004E                          Push(ax)
-004F                          ax = GetNextTile()
-0056                          Push(ax)
-0057                          Move(stk[0], stk[1], stk[2])
-0061                          Jump to 008D
-0063                          ShowMessage(04E2) = The door is locked.
-0070                          Push(00)
-0073                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007A                          Push(ax)
-007B                          ax = GetNextTile()
-0082                          Push(ax)
-0083                          Move(stk[0], stk[1], stk[2])
-008D                          RETURN
+00F3  0000        BEGIN
+00F6  0003        ax = CheckState(0x02, 0x00)
+0106  0013        compare(ax, 0x0002)
+0109  0016        If (result.notequal) jump to 0063
+010B  0018        ShowMessage(0x04B8) = Cleowyn's Lockpick has unlocked the door.
+0118  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+011F  002C        Push(ax)
+0120  002D        ax = GetNextTile()
+0127  0034        Push(ax)
+0128  0035        Push(01)
+012C  0039        SetUnblocked()
+0136  0043        Push(01)
+013A  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+0141  004E        Push(ax)
+0142  004F        ax = GetNextTile()
+0149  0056        Push(ax)
+014A  0057        Move(stk[0], stk[1], stk[2])
+0154  0061        Jump to 008D
+0156  0063        ShowMessage(0x04E2) = The door is locked.
+0163  0070        Push(00)
+0166  0073        ax = SetExitability(ax) // ax is usually 0 following equality check
+016D  007A        Push(ax)
+016E  007B        ax = GetNextTile()
+0175  0082        Push(ax)
+0176  0083        Move(stk[0], stk[1], stk[2])
+0180  008D        RETURN
 
 LKPKMESG_06:
-0000                          BEGIN
-0003                          ShowMessage(04F6) = There are runes on the tapestry...
-0010                          ShowRunes(0519) = A certain Lockpick opens my series of doors.
-001D                          RETURN
+0182  0000        BEGIN
+0185  0003        ShowMessage(0x04F6) = There are runes on the tapestry...
+0192  0010        ShowRunes(0x0519) = A certain Lockpick opens my series of doors.
+019F  001D        RETURN
 
 STRDOOR_07:
-0000                          BEGIN
-0003                          ax = CheckState(02, 00)
-0013                          compare(ax, 0003)
-0016                          If (result.notequal) value jump to 0063
-0018                          ShowMessage(0546) = The door has been forced open.
-0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002C                          Push(ax)
-002D                          ax = GetNextTile()
-0034                          Push(ax)
-0035                          Push(01)
-0039                          SetUnblocked()
-0043                          Push(01)
-0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004E                          Push(ax)
-004F                          ax = GetNextTile()
-0056                          Push(ax)
-0057                          Move(stk[0], stk[1], stk[2])
-0061                          Jump to 008D
-0063                          ShowMessage(0565) = The door is currently impassable.
-0070                          Push(00)
-0073                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007A                          Push(ax)
-007B                          ax = GetNextTile()
-0082                          Push(ax)
-0083                          Move(stk[0], stk[1], stk[2])
-008D                          RETURN
+01A1  0000        BEGIN
+01A4  0003        ax = CheckState(0x02, 0x00)
+01B4  0013        compare(ax, 0x0003)
+01B7  0016        If (result.notequal) jump to 0063
+01B9  0018        ShowMessage(0x0546) = The door has been forced open.
+01C6  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+01CD  002C        Push(ax)
+01CE  002D        ax = GetNextTile()
+01D5  0034        Push(ax)
+01D6  0035        Push(01)
+01DA  0039        SetUnblocked()
+01E4  0043        Push(01)
+01E8  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+01EF  004E        Push(ax)
+01F0  004F        ax = GetNextTile()
+01F7  0056        Push(ax)
+01F8  0057        Move(stk[0], stk[1], stk[2])
+0202  0061        Jump to 008D
+0204  0063        ShowMessage(0x0565) = The door is currently impassable.
+0211  0070        Push(00)
+0214  0073        ax = SetExitability(ax) // ax is usually 0 following equality check
+021B  007A        Push(ax)
+021C  007B        ax = GetNextTile()
+0223  0082        Push(ax)
+0224  0083        Move(stk[0], stk[1], stk[2])
+022E  008D        RETURN
 
 STRMESSG_08:
-0000                          BEGIN
-0003                          ShowMessage(0587) = The tapestry has runes...
-0010                          ShowRunes(05A1) = A hero of strength may open my series of doors.
-001D                          RETURN
+0230  0000        BEGIN
+0233  0003        ShowMessage(0x0587) = The tapestry has runes...
+0240  0010        ShowRunes(0x05A1) = A hero of strength may open my series of doors.
+024D  001D        RETURN
 
 GOLDENC_09:
-0000                          BEGIN
-0003                          ax = CheckState(02, 05)
-0014                          compare(ax, 0001)
-0017                          If (result.notequal) value jump to 0047
-0019                          ShowMessage(05D1) = Aside from angry Rogues, the room is empty.
-0026                          AddTreasure(0014, 00, 00, 00, 00, B5)
-0045                          Jump to 0088
-0047                          AddTreasure(01F4, 00, 00, 00, 00, CE)
-0066                          SetState(02, 05, 01)
-007B                          ShowMessage(05FD) = A Rogue drops gold coins on the floor as the villains draw their weapons.
-0088                          ax = PartyCount()
-0090                          compare(ax, 0001)
-0093                          If (result.equal) value jump to 00A2
-0095                          ax = PartyCount()
-009D                          compare(ax, 0002)
-00A0                          If (result.notequal) value jump to 00B6
-00A2                          AddEncounter(1A, 01)
-00B4                          Jump to 00FE
-00B6                          AddEncounter(1C, 01)
-00C8                          AddEncounter(1A, 02)
-00DA                          AddEncounter(19, 03)
-00EC                          AddEncounter(1B, 04)
-00FE                          RETURN
+024F  0000        BEGIN
+0252  0003        ax = CheckState(0x02, 0x05)
+0263  0014        compare(ax, 0x0001)
+0266  0017        If (result.notequal) jump to 0047
+0268  0019        ShowMessage(0x05D1) = Aside from angry Rogues, the room is empty.
+0275  0026        AddTreasure(0x0014, 0x00, 0x00, 0x00, 0x00, 0xB5)
+0294  0045        Jump to 0088
+0296  0047        AddTreasure(0x01F4, 0x00, 0x00, 0x00, 0x00, 0xCE)
+02B5  0066        SetState(0x02, 0x05, 0x01)
+02CA  007B        ShowMessage(0x05FD) = A Rogue drops gold coins on the floor as the villains draw their weapons.
+02D7  0088        ax = PartyCount()
+02DF  0090        compare(ax, 0x0001)
+02E2  0093        If (result.equal) jump to 00A2
+02E4  0095        ax = PartyCount()
+02EC  009D        compare(ax, 0x0002)
+02EF  00A0        If (result.notequal) jump to 00B6
+02F1  00A2        AddEncounter(0x1A, 0x01)
+0303  00B4        Jump to 00FE
+0305  00B6        AddEncounter(0x1C, 0x01)
+0317  00C8        AddEncounter(0x1A, 0x02)
+0329  00DA        AddEncounter(0x19, 0x03)
+033B  00EC        AddEncounter(0x1B, 0x04)
+034D  00FE        RETURN
 
 STAIRS_0A:
-0000                          BEGIN
-0003                          GoMap(02, 01, 02, 02)
-001E                          RETURN
+034F  0000        BEGIN
+0352  0003        GoMap(0x02, 0x01, 0x02, 0x02)
+036D  001E        RETURN
 
 PALKEYEN_0B:
-0000                          BEGIN
-0003                          ax = HasItem(D9)
-0011                          If (result.equal) value jump to 0042
-0013                          AddTreasure(01F4, 00, 00, 00, BC, CE)
-0033                          ShowMessage(0647) = The room is empty. Almost.
-0040                          Jump to 006E
-0042                          AddTreasure(03E8, 00, 00, 00, 00, D9)
-0061                          ShowMessage(0662) = A Key in the shape of a Palace lies in a corner, if you can get to it.
-006E                          ax = PartyCount()
-0076                          compare(ax, 0001)
-0079                          If (result.notequal) value jump to 0090
-007B                          AddEncounter(21, 01)
-008D                          Jump to 0151
-0090                          ax = PartyCount()
-0098                          compare(ax, 0002)
-009B                          If (result.notequal) value jump to 00C4
-009D                          AddEncounter(25, 01)
-00AF                          AddEncounter(21, 02)
-00C1                          Jump to 0151
-00C4                          ax = PartyCount()
-00CC                          compare(ax, 0003)
-00CF                          If (result.notequal) value jump to 0109
-00D1                          AddEncounter(21, 01)
-00E3                          AddEncounter(21, 02)
-00F5                          AddEncounter(25, 04)
-0107                          Jump to 0151
-0109                          AddEncounter(25, 01)
-011B                          AddEncounter(25, 02)
-012D                          AddEncounter(21, 03)
-013F                          AddEncounter(21, 04)
-0151                          RETURN
+036F  0000        BEGIN
+0372  0003        ax = HasItem(0xD9)
+0380  0011        If (result.equal) jump to 0042
+0382  0013        AddTreasure(0x01F4, 0x00, 0x00, 0x00, 0xBC, 0xCE)
+03A2  0033        ShowMessage(0x0647) = The room is empty. Almost.
+03AF  0040        Jump to 006E
+03B1  0042        AddTreasure(0x03E8, 0x00, 0x00, 0x00, 0x00, 0xD9)
+03D0  0061        ShowMessage(0x0662) = A Key in the shape of a Palace lies in a corner, if you can get to it.
+03DD  006E        ax = PartyCount()
+03E5  0076        compare(ax, 0x0001)
+03E8  0079        If (result.notequal) jump to 0090
+03EA  007B        AddEncounter(0x21, 0x01)
+03FC  008D        Jump to 0151
+03FF  0090        ax = PartyCount()
+0407  0098        compare(ax, 0x0002)
+040A  009B        If (result.notequal) jump to 00C4
+040C  009D        AddEncounter(0x25, 0x01)
+041E  00AF        AddEncounter(0x21, 0x02)
+0430  00C1        Jump to 0151
+0433  00C4        ax = PartyCount()
+043B  00CC        compare(ax, 0x0003)
+043E  00CF        If (result.notequal) jump to 0109
+0440  00D1        AddEncounter(0x21, 0x01)
+0452  00E3        AddEncounter(0x21, 0x02)
+0464  00F5        AddEncounter(0x25, 0x04)
+0476  0107        Jump to 0151
+0478  0109        AddEncounter(0x25, 0x01)
+048A  011B        AddEncounter(0x25, 0x02)
+049C  012D        AddEncounter(0x21, 0x03)
+04AE  013F        AddEncounter(0x21, 0x04)
+04C0  0151        RETURN
 
 TELEPORT_0C:
-0000                          BEGIN
-0003                          GoMap(03, F0, 01, 04)
-001E                          RETURN
+04C2  0000        BEGIN
+04C5  0003        GoMap(0x03, 0xF0, 0x01, 0x04)
+04E0  001E        RETURN
 
 LOWMNSTR_0D:
-0000                          BEGIN
-0003                          ShowMessage(06A9) = You encounter Rogues.
-0010                          ax = UnknownFunctionEC(000F)
-001D                          compare(ax, 0006)
-0020                          If (result.greaterthan) value jump to 0050
-0022                          AddTreasure(01F4, 00, 00, 00, 00, B5)
-0041                          ShowMessage(06BF) = If you are skilled enough, you may find teleports that speed your way to various levels of this dungeon.
-004E                          Jump to 008A
-0050                          ShowMessage(0728) = The Rogues snarl at you.
-005D                          ShowMessage(0741) = They attack!
-006A                          AddTreasure(03E8, 00, 00, 00, BD, 03)
-008A                          ax = PartyCount()
-0092                          compare(ax, 0001)
-0095                          If (result.equal) value jump to 00A4
-0097                          ax = PartyCount()
-009F                          compare(ax, 0002)
-00A2                          If (result.notequal) value jump to 00CA
-00A4                          AddEncounter(1B, 01)
-00B6                          AddEncounter(1A, 02)
-00C8                          Jump to 0112
-00CA                          AddEncounter(1C, 01)
-00DC                          AddEncounter(1A, 02)
-00EE                          AddEncounter(19, 03)
-0100                          AddEncounter(1B, 04)
-0112                          RETURN
+04E2  0000        BEGIN
+04E5  0003        ShowMessage(0x06A9) = You encounter Rogues.
+04F2  0010        ax = UnknownFunctionEC(0x000F)
+04FF  001D        compare(ax, 0x0006)
+0502  0020        If (result.above) jump to 0050
+0504  0022        AddTreasure(0x01F4, 0x00, 0x00, 0x00, 0x00, 0xB5)
+0523  0041        ShowMessage(0x06BF) = If you are skilled enough, you may find teleports that speed your way to various levels of this dungeon.
+0530  004E        Jump to 008A
+0532  0050        ShowMessage(0x0728) = The Rogues snarl at you.
+053F  005D        ShowMessage(0x0741) = They attack!
+054C  006A        AddTreasure(0x03E8, 0x00, 0x00, 0x00, 0xBD, 0x03)
+056C  008A        ax = PartyCount()
+0574  0092        compare(ax, 0x0001)
+0577  0095        If (result.equal) jump to 00A4
+0579  0097        ax = PartyCount()
+0581  009F        compare(ax, 0x0002)
+0584  00A2        If (result.notequal) jump to 00CA
+0586  00A4        AddEncounter(0x1B, 0x01)
+0598  00B6        AddEncounter(0x1A, 0x02)
+05AA  00C8        Jump to 0112
+05AC  00CA        AddEncounter(0x1C, 0x01)
+05BE  00DC        AddEncounter(0x1A, 0x02)
+05D0  00EE        AddEncounter(0x19, 0x03)
+05E2  0100        AddEncounter(0x1B, 0x04)
+05F4  0112        RETURN
 
 MODMNSTR_0E:
-0000                          BEGIN
-0003                          ax = PartyCount()
-000B                          compare(ax, 0001)
-000E                          If (result.notequal) value jump to 0024
-0010                          AddEncounter(1D, 01)
-0022                          Jump to 009F
-0024                          ax = PartyCount()
-002C                          compare(ax, 0002)
-002F                          If (result.notequal) value jump to 0057
-0031                          AddEncounter(1D, 01)
-0043                          AddEncounter(1E, 02)
-0055                          Jump to 009F
-0057                          AddEncounter(20, 01)
-0069                          AddEncounter(1F, 02)
-007B                          AddEncounter(1C, 03)
-008D                          AddEncounter(1D, 04)
-009F                          RETURN
+05F6  0000        BEGIN
+05F9  0003        ax = PartyCount()
+0601  000B        compare(ax, 0x0001)
+0604  000E        If (result.notequal) jump to 0024
+0606  0010        AddEncounter(0x1D, 0x01)
+0618  0022        Jump to 009F
+061A  0024        ax = PartyCount()
+0622  002C        compare(ax, 0x0002)
+0625  002F        If (result.notequal) jump to 0057
+0627  0031        AddEncounter(0x1D, 0x01)
+0639  0043        AddEncounter(0x1E, 0x02)
+064B  0055        Jump to 009F
+064D  0057        AddEncounter(0x20, 0x01)
+065F  0069        AddEncounter(0x1F, 0x02)
+0671  007B        AddEncounter(0x1C, 0x03)
+0683  008D        AddEncounter(0x1D, 0x04)
+0695  009F        RETURN
 
 STRMNST_0F:
-0000                          BEGIN
-0003                          ax = PartyCount()
-000B                          compare(ax, 0001)
-000E                          If (result.notequal) value jump to 0025
-0010                          AddEncounter(21, 01)
-0022                          Jump to 010A
-0025                          ax = PartyCount()
-002D                          compare(ax, 0002)
-0030                          If (result.notequal) value jump to 0059
-0032                          AddEncounter(21, 01)
-0044                          AddEncounter(22, 02)
-0056                          Jump to 010A
-0059                          ax = PartyCount()
-0061                          compare(ax, 0003)
-0064                          If (result.notequal) value jump to 00B0
-0066                          AddEncounter(21, 01)
-0078                          AddEncounter(21, 02)
-008A                          AddEncounter(23, 03)
-009C                          AddEncounter(23, 04)
-00AE                          Jump to 010A
-00B0                          AddEncounter(24, 01)
-00C2                          AddEncounter(24, 02)
-00D4                          AddEncounter(23, 03)
-00E6                          AddEncounter(23, 04)
-00F8                          AddEncounter(22, 05)
-010A                          RETURN
+0697  0000        BEGIN
+069A  0003        ax = PartyCount()
+06A2  000B        compare(ax, 0x0001)
+06A5  000E        If (result.notequal) jump to 0025
+06A7  0010        AddEncounter(0x21, 0x01)
+06B9  0022        Jump to 010A
+06BC  0025        ax = PartyCount()
+06C4  002D        compare(ax, 0x0002)
+06C7  0030        If (result.notequal) jump to 0059
+06C9  0032        AddEncounter(0x21, 0x01)
+06DB  0044        AddEncounter(0x22, 0x02)
+06ED  0056        Jump to 010A
+06F0  0059        ax = PartyCount()
+06F8  0061        compare(ax, 0x0003)
+06FB  0064        If (result.notequal) jump to 00B0
+06FD  0066        AddEncounter(0x21, 0x01)
+070F  0078        AddEncounter(0x21, 0x02)
+0721  008A        AddEncounter(0x23, 0x03)
+0733  009C        AddEncounter(0x23, 0x04)
+0745  00AE        Jump to 010A
+0747  00B0        AddEncounter(0x24, 0x01)
+0759  00C2        AddEncounter(0x24, 0x02)
+076B  00D4        AddEncounter(0x23, 0x03)
+077D  00E6        AddEncounter(0x23, 0x04)
+078F  00F8        AddEncounter(0x22, 0x05)
+07A1  010A        RETURN
 
 BADMNSTR_10:
-0000                          BEGIN
-0003                          ax = PartyCount()
-000B                          compare(ax, 0001)
-000E                          If (result.notequal) value jump to 0037
-0010                          AddEncounter(26, 01)
-0022                          AddEncounter(26, 02)
-0034                          Jump to 0164
-0037                          ax = PartyCount()
-003F                          compare(ax, 0002)
-0042                          If (result.notequal) value jump to 008F
-0044                          AddEncounter(25, 01)
-0056                          AddEncounter(25, 02)
-0068                          AddEncounter(27, 03)
-007A                          AddEncounter(27, 04)
-008C                          Jump to 0164
-008F                          ax = PartyCount()
-0097                          compare(ax, 0003)
-009A                          If (result.notequal) value jump to 00F8
-009C                          AddEncounter(26, 01)
-00AE                          AddEncounter(26, 02)
-00C0                          AddEncounter(27, 03)
-00D2                          AddEncounter(27, 04)
-00E4                          AddEncounter(28, 05)
-00F6                          Jump to 0164
-00F8                          AddEncounter(28, 01)
-010A                          AddEncounter(28, 02)
-011C                          AddEncounter(27, 03)
-012E                          AddEncounter(27, 04)
-0140                          AddEncounter(26, 05)
-0152                          AddEncounter(25, 06)
-0164                          RETURN
+07A3  0000        BEGIN
+07A6  0003        ax = PartyCount()
+07AE  000B        compare(ax, 0x0001)
+07B1  000E        If (result.notequal) jump to 0037
+07B3  0010        AddEncounter(0x26, 0x01)
+07C5  0022        AddEncounter(0x26, 0x02)
+07D7  0034        Jump to 0164
+07DA  0037        ax = PartyCount()
+07E2  003F        compare(ax, 0x0002)
+07E5  0042        If (result.notequal) jump to 008F
+07E7  0044        AddEncounter(0x25, 0x01)
+07F9  0056        AddEncounter(0x25, 0x02)
+080B  0068        AddEncounter(0x27, 0x03)
+081D  007A        AddEncounter(0x27, 0x04)
+082F  008C        Jump to 0164
+0832  008F        ax = PartyCount()
+083A  0097        compare(ax, 0x0003)
+083D  009A        If (result.notequal) jump to 00F8
+083F  009C        AddEncounter(0x26, 0x01)
+0851  00AE        AddEncounter(0x26, 0x02)
+0863  00C0        AddEncounter(0x27, 0x03)
+0875  00D2        AddEncounter(0x27, 0x04)
+0887  00E4        AddEncounter(0x28, 0x05)
+0899  00F6        Jump to 0164
+089B  00F8        AddEncounter(0x28, 0x01)
+08AD  010A        AddEncounter(0x28, 0x02)
+08BF  011C        AddEncounter(0x27, 0x03)
+08D1  012E        AddEncounter(0x27, 0x04)
+08E3  0140        AddEncounter(0x26, 0x05)
+08F5  0152        AddEncounter(0x25, 0x06)
+0907  0164        RETURN
 
 MESSAGEA_11:
-0000                          BEGIN
-0003                          SetState(02, 00, 00)
-0016                          ShowMessage(074E) = This gateway leads to THE MINES.
-0023                          RETURN
+0909  0000        BEGIN
+090C  0003        SetState(0x02, 0x00, 0x00)
+091F  0016        ShowMessage(0x074E) = This gateway leads to THE MINES.
+092C  0023        RETURN
 
 MESSAGEB_12:
-0000                          BEGIN
-0003                          SetState(02, 00, 00)
-0016                          ShowMessage(076F) = This gateway leads to THE HALL OF DOORS.
-0023                          RETURN
+092E  0000        BEGIN
+0931  0003        SetState(0x02, 0x00, 0x00)
+0944  0016        ShowMessage(0x076F) = This gateway leads to THE HALL OF DOORS.
+0951  0023        RETURN
 
 TELEMESS_13:
-0000                          BEGIN
-0003                          SetState(02, 00, 03)
-0017                          ShowMessage(0798) = There is a teleport to the north.
-0024                          RETURN
+0953  0000        BEGIN
+0956  0003        SetState(0x02, 0x00, 0x03)
+096A  0017        ShowMessage(0x0798) = There is a teleport to the north.
+0977  0024        RETURN
 
 STRSMESS_14:
-0000                          BEGIN
-0003                          SetState(02, 00, 01)
-0017                          ShowMessage(07BA) = There are stairs to the west through the gateway.
-0024                          RETURN
+0979  0000        BEGIN
+097C  0003        SetState(0x02, 0x00, 0x01)
+0990  0017        ShowMessage(0x07BA) = There are stairs to the west through the gateway.
+099D  0024        RETURN
 
 STRSTLPT_15:
-0000                          BEGIN
-0003                          GoMap(02, 01, 02, 02)
-001E                          RETURN
+099F  0000        BEGIN
+09A2  0003        GoMap(0x02, 0x01, 0x02, 0x02)
+09BD  001E        RETURN
 
 REGDOOR_16:
-0000                          BEGIN
-0003                          ax = CheckState(02, 00)
-0013                          compare(ax, 0004)
-0016                          If (result.notequal) value jump to 0063
-0018                          ShowMessage(07EC) = As you open the door, you hear locks click throughout the dungeon.
-0025                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002C                          Push(ax)
-002D                          ax = GetNextTile()
-0034                          Push(ax)
-0035                          Push(01)
-0039                          SetUnblocked()
-0043                          Push(01)
-0047                          ax = SetExitability(ax) // ax is usually 0 following equality check
-004E                          Push(ax)
-004F                          ax = GetNextTile()
-0056                          Push(ax)
-0057                          Move(stk[0], stk[1], stk[2])
-0061                          Jump to 008D
-0063                          ShowMessage(082F) = The door is currently impassable.
-0070                          Push(00)
-0073                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007A                          Push(ax)
-007B                          ax = GetNextTile()
-0082                          Push(ax)
-0083                          Move(stk[0], stk[1], stk[2])
-008D                          RETURN
+09BF  0000        BEGIN
+09C2  0003        ax = CheckState(0x02, 0x00)
+09D2  0013        compare(ax, 0x0004)
+09D5  0016        If (result.notequal) jump to 0063
+09D7  0018        ShowMessage(0x07EC) = As you open the door, you hear locks click throughout the dungeon.
+09E4  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+09EB  002C        Push(ax)
+09EC  002D        ax = GetNextTile()
+09F3  0034        Push(ax)
+09F4  0035        Push(01)
+09F8  0039        SetUnblocked()
+0A02  0043        Push(01)
+0A06  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+0A0D  004E        Push(ax)
+0A0E  004F        ax = GetNextTile()
+0A15  0056        Push(ax)
+0A16  0057        Move(stk[0], stk[1], stk[2])
+0A20  0061        Jump to 008D
+0A22  0063        ShowMessage(0x082F) = The door is currently impassable.
+0A2F  0070        Push(00)
+0A32  0073        ax = SetExitability(ax) // ax is usually 0 following equality check
+0A39  007A        Push(ax)
+0A3A  007B        ax = GetNextTile()
+0A41  0082        Push(ax)
+0A42  0083        Move(stk[0], stk[1], stk[2])
+0A4C  008D        RETURN
 
 NPCCHATA_17:
-0000                          BEGIN
-0003                          ShowMessage(0851) = You encounter an Elf Ranger.
-0010                          ShowPortrait(001F)
-001D                          ax = UnknownFunctionEC(000F)
-002A                          compare(ax, 000B)
-002D                          If (result.greaterthan) value jump to 003E
-002F                          ShowMessage(086E) = You must solve the mystery of the linked Vestibule doors to continue farther down into the dungeon.
-003C                          Jump to 004B
-003E                          ShowMessage(08D2) = The Elf Ranger decides you are not worthy of his time and leaves.
-004B                          RETURN
+0A4E  0000        BEGIN
+0A51  0003        ShowMessage(0x0851) = You encounter an Elf Ranger.
+0A5E  0010        ShowPortrait(0x001F)
+0A6B  001D        ax = UnknownFunctionEC(0x000F)
+0A78  002A        compare(ax, 0x000B)
+0A7B  002D        If (result.above) jump to 003E
+0A7D  002F        ShowMessage(0x086E) = You must solve the mystery of the linked Vestibule doors to continue farther down into the dungeon.
+0A8A  003C        Jump to 004B
+0A8C  003E        ShowMessage(0x08D2) = The Elf Ranger decides you are not worthy of his time and leaves.
+0A99  004B        RETURN
 
 NPCCHATB_18:
-0000                          BEGIN
-0003                          ShowMessage(0914) = You encounter a Human Wizard.
-0010                          ShowPortrait(002B)
-001D                          ax = UnknownFunctionEC(000F)
-002A                          compare(ax, 0009)
-002D                          If (result.greaterthan) value jump to 003E
-002F                          ShowMessage(0932) = Centuries ago, Twinion was a thriving port town, ruled by the Galabryan dynasty. The kings welcomed all races and Guilds to the island. When the volcano Yserbius erupted, it almost buried Twinion under lava. If only we could find some way off this island!
-003C                          Jump to 004B
-003E                          ShowMessage(0A32) = The Human Wizard falls into a deep trance and refuses to talk.
-004B                          RETURN
+0A9B  0000        BEGIN
+0A9E  0003        ShowMessage(0x0914) = You encounter a Human Wizard.
+0AAB  0010        ShowPortrait(0x002B)
+0AB8  001D        ax = UnknownFunctionEC(0x000F)
+0AC5  002A        compare(ax, 0x0009)
+0AC8  002D        If (result.above) jump to 003E
+0ACA  002F        ShowMessage(0x0932) = Centuries ago, Twinion was a thriving port town, ruled by the Galabryan dynasty. The kings welcomed all races and Guilds to the island. When the volcano Yserbius erupted, it almost buried Twinion under lava. If only we could find some way off this island!
+0AD7  003C        Jump to 004B
+0AD9  003E        ShowMessage(0x0A32) = The Human Wizard falls into a deep trance and refuses to talk.
+0AE6  004B        RETURN
 
 NPCCHATC_19:
-0000                          BEGIN
-0003                          ShowMessage(0A71) = You encounter a Gremlin Thief.
-0010                          ShowPortrait(0026)
-001D                          ax = UnknownFunctionEC(000F)
-002A                          compare(ax, 000A)
-002D                          If (result.greaterthan) value jump to 003E
-002F                          ShowMessage(0A90) = King Cleowyn created a clever maze of squares to discourage thieves and invaders. Mind you, no invaders ever thought Twinion rich enough to be worth their effort.
-003C                          Jump to 004B
-003E                          ShowMessage(0B33) = The Gremlin Thief slips into a shadow and disappears.
-004B                          RETURN
+0AE8  0000        BEGIN
+0AEB  0003        ShowMessage(0x0A71) = You encounter a Gremlin Thief.
+0AF8  0010        ShowPortrait(0x0026)
+0B05  001D        ax = UnknownFunctionEC(0x000F)
+0B12  002A        compare(ax, 0x000A)
+0B15  002D        If (result.above) jump to 003E
+0B17  002F        ShowMessage(0x0A90) = King Cleowyn created a clever maze of squares to discourage thieves and invaders. Mind you, no invaders ever thought Twinion rich enough to be worth their effort.
+0B24  003C        Jump to 004B
+0B26  003E        ShowMessage(0x0B33) = The Gremlin Thief slips into a shadow and disappears.
+0B33  004B        RETURN
 
 NPCCHATD_1A:
-0000                          BEGIN
-0003                          ShowMessage(0B69) = You encounter an Orc Knight.
-0010                          ShowPortrait(001A)
-001D                          ax = UnknownFunctionEC(000F)
-002A                          compare(ax, 0008)
-002D                          If (result.greaterthan) value jump to 003E
-002F                          ShowMessage(0B86) = The richness of fine armor and weapons in this dungeon baffles me. I've heard rumors that skilled dwarfs once crafted such armory, but the rogue dwarfs you encounter nowadays have no talent for such expert metallurgy.
-003C                          Jump to 004B
-003E                          ShowMessage(0C60) = The Orc Knight smiles politely and shoos you away.
-004B                          RETURN
+0B35  0000        BEGIN
+0B38  0003        ShowMessage(0x0B69) = You encounter an Orc Knight.
+0B45  0010        ShowPortrait(0x001A)
+0B52  001D        ax = UnknownFunctionEC(0x000F)
+0B5F  002A        compare(ax, 0x0008)
+0B62  002D        If (result.above) jump to 003E
+0B64  002F        ShowMessage(0x0B86) = The richness of fine armor and weapons in this dungeon baffles me. I've heard rumors that skilled dwarfs once crafted such armory, but the rogue dwarfs you encounter nowadays have no talent for such expert metallurgy.
+0B71  003C        Jump to 004B
+0B73  003E        ShowMessage(0x0C60) = The Orc Knight smiles politely and shoos you away.
+0B80  004B        RETURN
 
 NPCCHATE_1B:
-0000                          BEGIN
-0003                          ShowMessage(0C93) = You encounter an Elf Cleric.
-0010                          ShowPortrait(0027)
-001D                          ax = UnknownFunctionEC(000F)
-002A                          compare(ax, 0008)
-002D                          If (result.greaterthan) value jump to 003E
-002F                          ShowMessage(0CB0) = I have visited King Cleowyn's throne room, and what a disappointment it was. Not much treasure there and too many dead things. Perhaps I missed something.
-003C                          Jump to 004B
-003E                          ShowMessage(0D4B) = The Elf Cleric is too engrossed in his prayers to talk with you.
-004B                          RETURN
+0B82  0000        BEGIN
+0B85  0003        ShowMessage(0x0C93) = You encounter an Elf Cleric.
+0B92  0010        ShowPortrait(0x0027)
+0B9F  001D        ax = UnknownFunctionEC(0x000F)
+0BAC  002A        compare(ax, 0x0008)
+0BAF  002D        If (result.above) jump to 003E
+0BB1  002F        ShowMessage(0x0CB0) = I have visited King Cleowyn's throne room, and what a disappointment it was. Not much treasure there and too many dead things. Perhaps I missed something.
+0BBE  003C        Jump to 004B
+0BC0  003E        ShowMessage(0x0D4B) = The Elf Cleric is too engrossed in his prayers to talk with you.
+0BCD  004B        RETURN
 
 KEYDRA_1C:
-0000                          BEGIN
-0003                          ax = HasItem(D3)
-0011                          If (result.equal) value jump to 0072
-0013                          SetState(02, 00, 01)
-0027                          ShowMessage(0D8C) = Cleowyn's Key unlocks the door.
-0034                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003B                          Push(ax)
-003C                          ax = GetNextTile()
-0043                          Push(ax)
-0044                          Push(01)
-0048                          SetUnblocked()
-0052                          Push(01)
-0056                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005D                          Push(ax)
-005E                          ax = GetNextTile()
-0065                          Push(ax)
-0066                          Move(stk[0], stk[1], stk[2])
-0070                          Jump to 009C
-0072                          ShowMessage(0DAC) = The door is locked.
-007F                          Push(00)
-0082                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0089                          Push(ax)
-008A                          ax = GetNextTile()
-0091                          Push(ax)
-0092                          Move(stk[0], stk[1], stk[2])
-009C                          RETURN
+0BCF  0000        BEGIN
+0BD2  0003        ax = HasItem(0xD3)
+0BE0  0011        If (result.equal) jump to 0072
+0BE2  0013        SetState(0x02, 0x00, 0x01)
+0BF6  0027        ShowMessage(0x0D8C) = Cleowyn's Key unlocks the door.
+0C03  0034        ax = SetExitability(ax) // ax is usually 0 following equality check
+0C0A  003B        Push(ax)
+0C0B  003C        ax = GetNextTile()
+0C12  0043        Push(ax)
+0C13  0044        Push(01)
+0C17  0048        SetUnblocked()
+0C21  0052        Push(01)
+0C25  0056        ax = SetExitability(ax) // ax is usually 0 following equality check
+0C2C  005D        Push(ax)
+0C2D  005E        ax = GetNextTile()
+0C34  0065        Push(ax)
+0C35  0066        Move(stk[0], stk[1], stk[2])
+0C3F  0070        Jump to 009C
+0C41  0072        ShowMessage(0x0DAC) = The door is locked.
+0C4E  007F        Push(00)
+0C51  0082        ax = SetExitability(ax) // ax is usually 0 following equality check
+0C58  0089        Push(ax)
+0C59  008A        ax = GetNextTile()
+0C60  0091        Push(ax)
+0C61  0092        Move(stk[0], stk[1], stk[2])
+0C6B  009C        RETURN
 
 LKPKDRA_1D:
-0000                          BEGIN
-0003                          ax = HasItem(D2)
-0011                          If (result.equal) value jump to 0072
-0013                          SetState(02, 00, 02)
-0027                          ShowMessage(0DC0) = Cleowyn's Lockpick has unlocked the door.
-0034                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003B                          Push(ax)
-003C                          ax = GetNextTile()
-0043                          Push(ax)
-0044                          Push(01)
-0048                          SetUnblocked()
-0052                          Push(01)
-0056                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005D                          Push(ax)
-005E                          ax = GetNextTile()
-0065                          Push(ax)
-0066                          Move(stk[0], stk[1], stk[2])
-0070                          Jump to 009C
-0072                          ShowMessage(0DEA) = The door is locked.  It looks like something special is needed to open this door.
-007F                          Push(00)
-0082                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0089                          Push(ax)
-008A                          ax = GetNextTile()
-0091                          Push(ax)
-0092                          Move(stk[0], stk[1], stk[2])
-009C                          RETURN
+0C6D  0000        BEGIN
+0C70  0003        ax = HasItem(0xD2)
+0C7E  0011        If (result.equal) jump to 0072
+0C80  0013        SetState(0x02, 0x00, 0x02)
+0C94  0027        ShowMessage(0x0DC0) = Cleowyn's Lockpick has unlocked the door.
+0CA1  0034        ax = SetExitability(ax) // ax is usually 0 following equality check
+0CA8  003B        Push(ax)
+0CA9  003C        ax = GetNextTile()
+0CB0  0043        Push(ax)
+0CB1  0044        Push(01)
+0CB5  0048        SetUnblocked()
+0CBF  0052        Push(01)
+0CC3  0056        ax = SetExitability(ax) // ax is usually 0 following equality check
+0CCA  005D        Push(ax)
+0CCB  005E        ax = GetNextTile()
+0CD2  0065        Push(ax)
+0CD3  0066        Move(stk[0], stk[1], stk[2])
+0CDD  0070        Jump to 009C
+0CDF  0072        ShowMessage(0x0DEA) = The door is locked.  It looks like something special is needed to open this door.
+0CEC  007F        Push(00)
+0CEF  0082        ax = SetExitability(ax) // ax is usually 0 following equality check
+0CF6  0089        Push(ax)
+0CF7  008A        ax = GetNextTile()
+0CFE  0091        Push(ax)
+0CFF  0092        Move(stk[0], stk[1], stk[2])
+0D09  009C        RETURN
 
 STRNGDRA_1E:
-0000                          BEGIN
-0003                          ax = CheckStrength()
-000F                          compare(ax, 0012)
-0012                          If (result.lessthan) jump to 0073
-0014                          SetState(02, 00, 03)
-0028                          ShowMessage(0E3C) = You manage to force open the door.
-0035                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003C                          Push(ax)
-003D                          ax = GetNextTile()
-0044                          Push(ax)
-0045                          Push(01)
-0049                          SetUnblocked()
-0053                          Push(01)
-0057                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005E                          Push(ax)
-005F                          ax = GetNextTile()
-0066                          Push(ax)
-0067                          Move(stk[0], stk[1], stk[2])
-0071                          Jump to 009D
-0073                          ShowMessage(0E5F) = The door is currently impassable.
-0080                          Push(00)
-0083                          ax = SetExitability(ax) // ax is usually 0 following equality check
-008A                          Push(ax)
-008B                          ax = GetNextTile()
-0092                          Push(ax)
-0093                          Move(stk[0], stk[1], stk[2])
-009D                          RETURN
+0D0B  0000        BEGIN
+0D0E  0003        ax = CheckStrength()
+0D1A  000F        compare(ax, 0x0012)
+0D1D  0012        If (result.below) jump to 0073
+0D1F  0014        SetState(0x02, 0x00, 0x03)
+0D33  0028        ShowMessage(0x0E3C) = You manage to force open the door.
+0D40  0035        ax = SetExitability(ax) // ax is usually 0 following equality check
+0D47  003C        Push(ax)
+0D48  003D        ax = GetNextTile()
+0D4F  0044        Push(ax)
+0D50  0045        Push(01)
+0D54  0049        SetUnblocked()
+0D5E  0053        Push(01)
+0D62  0057        ax = SetExitability(ax) // ax is usually 0 following equality check
+0D69  005E        Push(ax)
+0D6A  005F        ax = GetNextTile()
+0D71  0066        Push(ax)
+0D72  0067        Move(stk[0], stk[1], stk[2])
+0D7C  0071        Jump to 009D
+0D7E  0073        ShowMessage(0x0E5F) = The door is currently impassable.
+0D8B  0080        Push(00)
+0D8E  0083        ax = SetExitability(ax) // ax is usually 0 following equality check
+0D95  008A        Push(ax)
+0D96  008B        ax = GetNextTile()
+0D9D  0092        Push(ax)
+0D9E  0093        Move(stk[0], stk[1], stk[2])
+0DA8  009D        RETURN
 
 REGDORA_1F:
-0000                          BEGIN
-0003                          ax = CheckState(02, 00)
-0013                          RefreshCompareFlags(ax)
-0015                          If (result.equal) value jump to 002C
-0017                          ax = CheckState(02, 00)
-0027                          compare(ax, 0004)
-002A                          If (result.notequal) value jump to 008B
-002C                          SetState(02, 00, 04)
-0040                          ShowMessage(0E81) = As you open the door, you hear locks click throughout the dungeon.
-004D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0054                          Push(ax)
-0055                          ax = GetNextTile()
-005C                          Push(ax)
-005D                          Push(01)
-0061                          SetUnblocked()
-006B                          Push(01)
-006F                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0076                          Push(ax)
-0077                          ax = GetNextTile()
-007E                          Push(ax)
-007F                          Move(stk[0], stk[1], stk[2])
-0089                          Jump to 00B5
-008B                          ShowMessage(0EC4) = The door is currently impassable.
-0098                          Push(00)
-009B                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00A2                          Push(ax)
-00A3                          ax = GetNextTile()
-00AA                          Push(ax)
-00AB                          Move(stk[0], stk[1], stk[2])
-00B5                          RETURN
+0DAA  0000        BEGIN
+0DAD  0003        ax = CheckState(0x02, 0x00)
+0DBD  0013        RefreshCompareFlags(ax)
+0DBF  0015        If (result.equal) jump to 002C
+0DC1  0017        ax = CheckState(0x02, 0x00)
+0DD1  0027        compare(ax, 0x0004)
+0DD4  002A        If (result.notequal) jump to 008B
+0DD6  002C        SetState(0x02, 0x00, 0x04)
+0DEA  0040        ShowMessage(0x0E81) = As you open the door, you hear locks click throughout the dungeon.
+0DF7  004D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0DFE  0054        Push(ax)
+0DFF  0055        ax = GetNextTile()
+0E06  005C        Push(ax)
+0E07  005D        Push(01)
+0E0B  0061        SetUnblocked()
+0E15  006B        Push(01)
+0E19  006F        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E20  0076        Push(ax)
+0E21  0077        ax = GetNextTile()
+0E28  007E        Push(ax)
+0E29  007F        Move(stk[0], stk[1], stk[2])
+0E33  0089        Jump to 00B5
+0E35  008B        ShowMessage(0x0EC4) = The door is currently impassable.
+0E42  0098        Push(00)
+0E45  009B        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E4C  00A2        Push(ax)
+0E4D  00A3        ax = GetNextTile()
+0E54  00AA        Push(ax)
+0E55  00AB        Move(stk[0], stk[1], stk[2])
+0E5F  00B5        RETURN
 
+EMPTY:
+0E61  0000        <Empty Function>
+
+EMPTY:
+0E66  0000        <Empty Function>
+
+EMPTY:
+0E6B  0000        <Empty Function>
+
+EMPTY:
+0E70  0000        <Empty Function>
+
+EMPTY:
+0E75  0000        <Empty Function>
+
+EMPTY:
+0E7A  0000        <Empty Function>
+
+EMPTY:
+0E7F  0000        <Empty Function>
+
+EMPTY:
+0E84  0000        <Empty Function>
+
+EMPTY:
+0E89  0000        <Empty Function>
+
+EMPTY:
+0E8E  0000        <Empty Function>
+
+EMPTY:
+0E93  0000        <Empty Function>
+
+EMPTY:
+0E98  0000        <Empty Function>
+
+EMPTY:
+0E9D  0000        <Empty Function>
+
+EMPTY:
+0EA2  0000        <Empty Function>
+
+EMPTY:
+0EA7  0000        <Empty Function>
+
+EMPTY:
+0EAC  0000        <Empty Function>
+
+EMPTY:
+0EB1  0000        <Empty Function>
+
+EMPTY:
+0EB6  0000        <Empty Function>
+
+EMPTY:
+0EBB  0000        <Empty Function>
+
+EMPTY:
+0EC0  0000        <Empty Function>
+
+EMPTY:
+0EC5  0000        <Empty Function>
+
+EMPTY:
+0ECA  0000        <Empty Function>
+
+EMPTY:
+0ECF  0000        <Empty Function>
+
+EMPTY:
+0ED4  0000        <Empty Function>
+
+EMPTY:
+0ED9  0000        <Empty Function>
+
+EMPTY:
+0EDE  0000        <Empty Function>
+
+EMPTY:
+0EE3  0000        <Empty Function>
+
+EMPTY:
+0EE8  0000        <Empty Function>
+
+EMPTY:
+0EED  0000        <Empty Function>
+
+EMPTY:
+0EF2  0000        <Empty Function>
+
+EMPTY:
+0EF7  0000        <Empty Function>
+
+EMPTY:
+0EFC  0000        <Empty Function>
+
+EMPTY:
+0F01  0000        <Empty Function>
+
+EMPTY:
+0F06  0000        <Empty Function>
+
+EMPTY:
+0F0B  0000        <Empty Function>
+
+EMPTY:
+0F10  0000        <Empty Function>
+
+EMPTY:
+0F15  0000        <Empty Function>
+
+EMPTY:
+0F1A  0000        <Empty Function>
+
+EMPTY:
+0F1F  0000        <Empty Function>
+
+EMPTY:
+0F24  0000        <Empty Function>
+
+EMPTY:
+0F29  0000        <Empty Function>
+
+EMPTY:
+0F2E  0000        <Empty Function>
+
+EMPTY:
+0F33  0000        <Empty Function>
+
+EMPTY:
+0F38  0000        <Empty Function>
+
+EMPTY:
+0F3D  0000        <Empty Function>
+
+EMPTY:
+0F42  0000        <Empty Function>
+
+EMPTY:
+0F47  0000        <Empty Function>
+
+EMPTY:
+0F4C  0000        <Empty Function>
+
+EMPTY:
+0F51  0000        <Empty Function>
+
+EMPTY:
+0F56  0000        <Empty Function>
+
+EMPTY:
+0F5B  0000        <Empty Function>
+
+EMPTY:
+0F60  0000        <Empty Function>
+
+EMPTY:
+0F65  0000        <Empty Function>
+
+EMPTY:
+0F6A  0000        <Empty Function>
+
+EMPTY:
+0F6F  0000        <Empty Function>
+
+EMPTY:
+0F74  0000        <Empty Function>
+
+EMPTY:
+0F79  0000        <Empty Function>
+
+EMPTY:
+0F7E  0000        <Empty Function>
+
+EMPTY:
+0F83  0000        <Empty Function>
+
+EMPTY:
+0F88  0000        <Empty Function>
+
+EMPTY:
+0F8D  0000        <Empty Function>
+
+EMPTY:
+0F92  0000        <Empty Function>
+
+EMPTY:
+0F97  0000        <Empty Function>
+
+EMPTY:
+0F9C  0000        <Empty Function>
+
+EMPTY:
+0FA1  0000        <Empty Function>
+
+EMPTY:
+0FA6  0000        <Empty Function>
+
+EMPTY:
+0FAB  0000        <Empty Function>
+
+EMPTY:
+0FB0  0000        <Empty Function>
+
+EMPTY:
+0FB5  0000        <Empty Function>
+
+EMPTY:
+0FBA  0000        <Empty Function>
+
+EMPTY:
+0FBF  0000        <Empty Function>
+
+EMPTY:
+0FC4  0000        <Empty Function>
+
+EMPTY:
+0FC9  0000        <Empty Function>
+
+EMPTY:
+0FCE  0000        <Empty Function>
+
+EMPTY:
+0FD3  0000        <Empty Function>
+
+EMPTY:
+0FD8  0000        <Empty Function>
+
+EMPTY:
+0FDD  0000        <Empty Function>
+
+EMPTY:
+0FE2  0000        <Empty Function>
+
+EMPTY:
+0FE7  0000        <Empty Function>
+
+EMPTY:
+0FEC  0000        <Empty Function>
+
+EMPTY:
+0FF1  0000        <Empty Function>
+
+EMPTY:
+0FF6  0000        <Empty Function>
+
+EMPTY:
+0FFB  0000        <Empty Function>
+
+EMPTY:
+1000  0000        <Empty Function>
+
+EMPTY:
+1005  0000        <Empty Function>
+
+EMPTY:
+100A  0000        <Empty Function>
+
+EMPTY:
+100F  0000        <Empty Function>
+
+EMPTY:
+1014  0000        <Empty Function>
+
+EMPTY:
+1019  0000        <Empty Function>
+
+EMPTY:
+101E  0000        <Empty Function>
+
+EMPTY:
+1023  0000        <Empty Function>
+
+EMPTY:
+1028  0000        <Empty Function>
+
+EMPTY:
+102D  0000        <Empty Function>
+
+EMPTY:
+1032  0000        <Empty Function>
+
+EMPTY:
+1037  0000        <Empty Function>
+
+EMPTY:
+103C  0000        <Empty Function>
+
+EMPTY:
+1041  0000        <Empty Function>
+
+EMPTY:
+1046  0000        <Empty Function>
+
+EMPTY:
+104B  0000        <Empty Function>
+
+EMPTY:
+1050  0000        <Empty Function>
+
+EMPTY:
+1055  0000        <Empty Function>
+
+EMPTY:
+105A  0000        <Empty Function>
+
+EMPTY:
+105F  0000        <Empty Function>
+
+EMPTY:
+1064  0000        <Empty Function>
+
+EMPTY:
+1069  0000        <Empty Function>
+
+EMPTY:
+106E  0000        <Empty Function>
+
+EMPTY:
+1073  0000        <Empty Function>
+
+EMPTY:
+1078  0000        <Empty Function>
+
+EMPTY:
+107D  0000        <Empty Function>
+
+EMPTY:
+1082  0000        <Empty Function>
+
+EMPTY:
+1087  0000        <Empty Function>
+
+EMPTY:
+108C  0000        <Empty Function>
+
+EMPTY:
+1091  0000        <Empty Function>
+
+EMPTY:
+1096  0000        <Empty Function>
+
+EMPTY:
+109B  0000        <Empty Function>
+
+EMPTY:
+10A0  0000        <Empty Function>
+
+EMPTY:
+10A5  0000        <Empty Function>
+
+EMPTY:
+10AA  0000        <Empty Function>
+
+EMPTY:
+10AF  0000        <Empty Function>
+
+EMPTY:
+10B4  0000        <Empty Function>
+
+EMPTY:
+10B9  0000        <Empty Function>
+
+EMPTY:
+10BE  0000        <Empty Function>
+
+EMPTY:
+10C3  0000        <Empty Function>
+
+EMPTY:
+10C8  0000        <Empty Function>
+
+EMPTY:
+10CD  0000        <Empty Function>
+
+EMPTY:
+10D2  0000        <Empty Function>
+
+EMPTY:
+10D7  0000        <Empty Function>
+
+EMPTY:
+10DC  0000        <Empty Function>
+
+EMPTY:
+10E1  0000        <Empty Function>
+
+EMPTY:
+10E6  0000        <Empty Function>
+
+EMPTY:
+10EB  0000        <Empty Function>
+
+EMPTY:
+10F0  0000        <Empty Function>
+
+EMPTY:
+10F5  0000        <Empty Function>
+
+EMPTY:
+10FA  0000        <Empty Function>
+
+EMPTY:
+10FF  0000        <Empty Function>
+
+EMPTY:
+1104  0000        <Empty Function>
+
+EMPTY:
+1109  0000        <Empty Function>
+
+EMPTY:
+110E  0000        <Empty Function>
+
+EMPTY:
+1113  0000        <Empty Function>
+
+EMPTY:
+1118  0000        <Empty Function>
+
+EMPTY:
+111D  0000        <Empty Function>
+
+EMPTY:
+1122  0000        <Empty Function>
+
+EMPTY:
+1127  0000        <Empty Function>
+
+EMPTY:
+112C  0000        <Empty Function>
+
+EMPTY:
+1131  0000        <Empty Function>
+
+EMPTY:
+1136  0000        <Empty Function>
+
+EMPTY:
+113B  0000        <Empty Function>
+
+EMPTY:
+1140  0000        <Empty Function>
+
+EMPTY:
+1145  0000        <Empty Function>
+
+EMPTY:
+114A  0000        <Empty Function>
+
+EMPTY:
+114F  0000        <Empty Function>
+
+EMPTY:
+1154  0000        <Empty Function>
+
+EMPTY:
+1159  0000        <Empty Function>
+
+EMPTY:
+115E  0000        <Empty Function>
+
+EMPTY:
+1163  0000        <Empty Function>
+
+EMPTY:
+1168  0000        <Empty Function>
+
+EMPTY:
+116D  0000        <Empty Function>
+
+EMPTY:
+1172  0000        <Empty Function>
+
+EMPTY:
+1177  0000        <Empty Function>
+
+EMPTY:
+117C  0000        <Empty Function>
+
+EMPTY:
+1181  0000        <Empty Function>
+
+EMPTY:
+1186  0000        <Empty Function>
+
+EMPTY:
+118B  0000        <Empty Function>
+
+EMPTY:
+1190  0000        <Empty Function>
+
+EMPTY:
+1195  0000        <Empty Function>
+
+EMPTY:
+119A  0000        <Empty Function>
+
+EMPTY:
+119F  0000        <Empty Function>
+
+EMPTY:
+11A4  0000        <Empty Function>
+
+EMPTY:
+11A9  0000        <Empty Function>
+
+EMPTY:
+11AE  0000        <Empty Function>
+
+EMPTY:
+11B3  0000        <Empty Function>
+
+EMPTY:
+11B8  0000        <Empty Function>
+
+EMPTY:
+11BD  0000        <Empty Function>
+
+EMPTY:
+11C2  0000        <Empty Function>
+
+EMPTY:
+11C7  0000        <Empty Function>
+
+EMPTY:
+11CC  0000        <Empty Function>
+
+EMPTY:
+11D1  0000        <Empty Function>
+
+EMPTY:
+11D6  0000        <Empty Function>
+
+EMPTY:
+11DB  0000        <Empty Function>
+
+EMPTY:
+11E0  0000        <Empty Function>
+
+EMPTY:
+11E5  0000        <Empty Function>
+
+EMPTY:
+11EA  0000        <Empty Function>
+
+EMPTY:
+11EF  0000        <Empty Function>
+
+EMPTY:
+11F4  0000        <Empty Function>
+
+EMPTY:
+11F9  0000        <Empty Function>
+
+EMPTY:
+11FE  0000        <Empty Function>
+
+EMPTY:
+1203  0000        <Empty Function>
+
+EMPTY:
+1208  0000        <Empty Function>
+
+EMPTY:
+120D  0000        <Empty Function>
+
+EMPTY:
+1212  0000        <Empty Function>
+
+EMPTY:
+1217  0000        <Empty Function>
+
+EMPTY:
+121C  0000        <Empty Function>
+
+EMPTY:
+1221  0000        <Empty Function>
+
+EMPTY:
+1226  0000        <Empty Function>
+
+EMPTY:
+122B  0000        <Empty Function>
+
+EMPTY:
+1230  0000        <Empty Function>
+
+EMPTY:
+1235  0000        <Empty Function>
+
+EMPTY:
+123A  0000        <Empty Function>
+
+EMPTY:
+123F  0000        <Empty Function>
+
+EMPTY:
+1244  0000        <Empty Function>
+
+EMPTY:
+1249  0000        <Empty Function>
+
+EMPTY:
+124E  0000        <Empty Function>
+
+EMPTY:
+1253  0000        <Empty Function>
+
+EMPTY:
+1258  0000        <Empty Function>
+
+EMPTY:
+125D  0000        <Empty Function>
+
+EMPTY:
+1262  0000        <Empty Function>
+
+EMPTY:
+1267  0000        <Empty Function>
+
+EMPTY:
+126C  0000        <Empty Function>
+
+EMPTY:
+1271  0000        <Empty Function>
+
+EMPTY:
+1276  0000        <Empty Function>
+
+EMPTY:
+127B  0000        <Empty Function>
+
+EMPTY:
+1280  0000        <Empty Function>
+
+EMPTY:
+1285  0000        <Empty Function>
+
+EMPTY:
+128A  0000        <Empty Function>
+
+EMPTY:
+128F  0000        <Empty Function>
+
+EMPTY:
+1294  0000        <Empty Function>
+
+EMPTY:
+1299  0000        <Empty Function>
+
+EMPTY:
+129E  0000        <Empty Function>
+
+EMPTY:
+12A3  0000        <Empty Function>
+
+EMPTY:
+12A8  0000        <Empty Function>
+
+EMPTY:
+12AD  0000        <Empty Function>
+
+EMPTY:
+12B2  0000        <Empty Function>
+
+EMPTY:
+12B7  0000        <Empty Function>
+
+EMPTY:
+12BC  0000        <Empty Function>
+
+STRINGS:
 03FC: Cleowyn's Key has unlocked the door.
 0421: The door is locked.  Something special is needed to open this door.
 0465: The tapestry shows a message in runes...

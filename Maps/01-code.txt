@@ -1,120 +1,847 @@
 TOMINES_01:
-0000                          BEGIN
-0003                          GoMap(03, FD, 02, 01)
-001E                          RETURN
+000B  0000        BEGIN
+000E  0003        GoMap(0x03, 0xFD, 0x02, 0x01)
+0029  001E        RETURN
 
 TOTREAS_02:
-0000                          BEGIN
-0003                          GoMap(02, 10, 04, 01)
-001E                          RETURN
+002B  0000        BEGIN
+002E  0003        GoMap(0x02, 0x10, 0x04, 0x01)
+0049  001E        RETURN
 
 TOSOLDQU_03:
-0000                          BEGIN
-0003                          GoMap(01, 0F, 06, 01)
-001E                          RETURN
+004B  0000        BEGIN
+004E  0003        GoMap(0x01, 0x0F, 0x06, 0x01)
+0069  001E        RETURN
 
 EXITDUNG_04:
-0000                          BEGIN
-0003                          ExitDungeon()
-000B                          RETURN
+006B  0000        BEGIN
+006E  0003        ExitDungeon()
+0076  000B        RETURN
 
 DOORMESA_05:
-0000                          BEGIN
-0003                          ShowMessage(03FC) = The gateway leads to THE MINES.
-0010                          RETURN
+0078  0000        BEGIN
+007B  0003        ShowMessage(0x03FC) = The gateway leads to THE MINES.
+0088  0010        RETURN
 
 DOORMESB_06:
-0000                          BEGIN
-0003                          ShowMessage(041C) = The gateway leads to THE HALL OF DOORS.
-0010                          RETURN
+008A  0000        BEGIN
+008D  0003        ShowMessage(0x041C) = The gateway leads to THE HALL OF DOORS.
+009A  0010        RETURN
 
 DOORMESC_07:
-0000                          BEGIN
-0003                          ShowMessage(0444) = The gateway leads to THE SOLDIERS  QUARTERS.
-0010                          RETURN
+009C  0000        BEGIN
+009F  0003        ShowMessage(0x0444) = The gateway leads to THE SOLDIERS  QUARTERS.
+00AC  0010        RETURN
 
 DOORMESD_08:
-0000                          BEGIN
-0003                          ShowMessage(0471) = The gateway is the DUNGEON EXIT.
-0010                          ax = CheckState2(02, 6A)
-0023                          If (result.equal) value jump to 003F
-0025                          ShowMessage(0492) = Hail, conquering HERO OF YSERBIUS!
-0032                          ShowMessage(04B5) = All of Twinion bows to your prominence!!
-003F                          RETURN
+00AE  0000        BEGIN
+00B1  0003        ShowMessage(0x0471) = The gateway is the DUNGEON EXIT.
+00BE  0010        ax = CheckState2(0x02, 0x6A)
+00D1  0023        If (result.equal) jump to 003F
+00D3  0025        ShowMessage(0x0492) = Hail, conquering HERO OF YSERBIUS!
+00E0  0032        ShowMessage(0x04B5) = All of Twinion bows to your prominence!!
+00ED  003F        RETURN
 
 TELEPORT_09:
-0000                          BEGIN
-0003                          GoMap(00, 5D, 01, 33)
-001D                          RETURN
+00EF  0000        BEGIN
+00F2  0003        GoMap(00, 0x5D, 0x01, 0x33)
+010C  001D        RETURN
 
 TELEMESS_0A:
-0000                          BEGIN
-0003                          ShowMessage(04DE) = There is a teleport in the west wall.
-0010                          RETURN
+010E  0000        BEGIN
+0111  0003        ShowMessage(0x04DE) = There is a teleport in the west wall.
+011E  0010        RETURN
 
 DOORMESS_0B:
-0000                          BEGIN
-0003                          ax = CheckLevel(0014)
-0011                          If (result.notequal) value jump to 0016
-0013                          Jump to 011F
-0016                          ax = CheckState(02, 78)
-0027                          compare(ax, 0001)
-002A                          If (result.notequal) value jump to 005A
-002C                          ShowMessage(0504) = This room contains the gateway to the Labyrinth.
-0039                          Push(01)
-003D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0044                          Push(ax)
-0045                          ax = GetNextTile()
-004C                          Push(ax)
-004D                          Move(stk[0], stk[1], stk[2])
-0057                          Jump to 011D
-005A                          ax = HasItem(FB)
-0068                          If (result.notequal) value jump to 006D
-006A                          Jump to 0110
-006D                          ShowMessage(0535) = The Thieves' Key unlocks this door!
-007A                          ShowMessage(0559) = This room contains the gateway to the Labyrinth.
-0087                          SetState(02, 78, 01)
-009C                          RemoveItem(FB)
-00A8                          RemoveItem(D2)
-00B4                          RemoveItem(D3)
-00C0                          RemoveItem(D9)
-00CC                          RemoveItem(E1)
-00D8                          RemoveItem(E2)
-00E4                          RemoveItem(F8)
-00F0                          Push(01)
-00F4                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00FB                          Push(ax)
-00FC                          ax = GetNextTile()
-0103                          Push(ax)
-0104                          Move(stk[0], stk[1], stk[2])
-010E                          Jump to 011D
-0110                          ShowMessage(058A) = The Thieves' Key is needed to unlock this door.
-011D                          Jump to 0156
-011F                          ShowMessage(05BA) = The Thieves' Key is needed to unlock this door.
-012C                          ShowMessage(05EA) = Only heroes of the twentieth level or higher may venture beyond this door.
-0139                          Push(00)
-013C                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0143                          Push(ax)
-0144                          ax = GetNextTile()
-014B                          Push(ax)
-014C                          Move(stk[0], stk[1], stk[2])
-0156                          RETURN
+0120  0000        BEGIN
+0123  0003        ax = CheckLevel(0x0014)
+0131  0011        If (result.notequal) jump to 0016
+0133  0013        Jump to 011F
+0136  0016        ax = CheckState(0x02, 0x78)
+0147  0027        compare(ax, 0x0001)
+014A  002A        If (result.notequal) jump to 005A
+014C  002C        ShowMessage(0x0504) = This room contains the gateway to the Labyrinth.
+0159  0039        Push(01)
+015D  003D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0164  0044        Push(ax)
+0165  0045        ax = GetNextTile()
+016C  004C        Push(ax)
+016D  004D        Move(stk[0], stk[1], stk[2])
+0177  0057        Jump to 011D
+017A  005A        ax = HasItem(0xFB)
+0188  0068        If (result.notequal) jump to 006D
+018A  006A        Jump to 0110
+018D  006D        ShowMessage(0x0535) = The Thieves' Key unlocks this door!
+019A  007A        ShowMessage(0x0559) = This room contains the gateway to the Labyrinth.
+01A7  0087        SetState(0x02, 0x78, 0x01)
+01BC  009C        RemoveItem(0xFB)
+01C8  00A8        RemoveItem(0xD2)
+01D4  00B4        RemoveItem(0xD3)
+01E0  00C0        RemoveItem(0xD9)
+01EC  00CC        RemoveItem(0xE1)
+01F8  00D8        RemoveItem(0xE2)
+0204  00E4        RemoveItem(0xF8)
+0210  00F0        Push(01)
+0214  00F4        ax = SetExitability(ax) // ax is usually 0 following equality check
+021B  00FB        Push(ax)
+021C  00FC        ax = GetNextTile()
+0223  0103        Push(ax)
+0224  0104        Move(stk[0], stk[1], stk[2])
+022E  010E        Jump to 011D
+0230  0110        ShowMessage(0x058A) = The Thieves' Key is needed to unlock this door.
+023D  011D        Jump to 0156
+023F  011F        ShowMessage(0x05BA) = The Thieves' Key is needed to unlock this door.
+024C  012C        ShowMessage(0x05EA) = Only heroes of the twentieth level or higher may venture beyond this door.
+0259  0139        Push(00)
+025C  013C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0263  0143        Push(ax)
+0264  0144        ax = GetNextTile()
+026B  014B        Push(ax)
+026C  014C        Move(stk[0], stk[1], stk[2])
+0276  0156        RETURN
 
 PRTYPORT_0C:
-0000                          BEGIN
-0003                          ax = CheckLevel(0014)
-0011                          If (result.equal) value jump to 0022
-0013                          ShowMessage(0635) = Good Journeys, brave hero.
-0020                          Jump to 0049
-0022                          ShowMessage(0650) = Only heroes of the twentieth level or higher may venture beyond this door.
-002F                          GoMap(00, 02, 01, 01)
-0049                          RETURN
+0278  0000        BEGIN
+027B  0003        ax = CheckLevel(0x0014)
+0289  0011        If (result.equal) jump to 0022
+028B  0013        ShowMessage(0x0635) = Good Journeys, brave hero.
+0298  0020        Jump to 0049
+029A  0022        ShowMessage(0x0650) = Only heroes of the twentieth level or higher may venture beyond this door.
+02A7  002F        GoMap(00, 0x02, 0x01, 0x01)
+02C1  0049        RETURN
 
 NOJOIN_0D:
-0000                          BEGIN
-0003                          TileIsNoJoinArea()
-000B                          RETURN
+02C3  0000        BEGIN
+02C6  0003        TileIsNoJoinArea()
+02CE  000B        RETURN
 
+EMPTY:
+02D0  0000        <Empty Function>
+
+EMPTY:
+02D5  0000        <Empty Function>
+
+EMPTY:
+02DA  0000        <Empty Function>
+
+EMPTY:
+02DF  0000        <Empty Function>
+
+EMPTY:
+02E4  0000        <Empty Function>
+
+EMPTY:
+02E9  0000        <Empty Function>
+
+EMPTY:
+02EE  0000        <Empty Function>
+
+EMPTY:
+02F3  0000        <Empty Function>
+
+EMPTY:
+02F8  0000        <Empty Function>
+
+EMPTY:
+02FD  0000        <Empty Function>
+
+EMPTY:
+0302  0000        <Empty Function>
+
+EMPTY:
+0307  0000        <Empty Function>
+
+EMPTY:
+030C  0000        <Empty Function>
+
+EMPTY:
+0311  0000        <Empty Function>
+
+EMPTY:
+0316  0000        <Empty Function>
+
+EMPTY:
+031B  0000        <Empty Function>
+
+EMPTY:
+0320  0000        <Empty Function>
+
+EMPTY:
+0325  0000        <Empty Function>
+
+EMPTY:
+032A  0000        <Empty Function>
+
+EMPTY:
+032F  0000        <Empty Function>
+
+EMPTY:
+0334  0000        <Empty Function>
+
+EMPTY:
+0339  0000        <Empty Function>
+
+EMPTY:
+033E  0000        <Empty Function>
+
+EMPTY:
+0343  0000        <Empty Function>
+
+EMPTY:
+0348  0000        <Empty Function>
+
+EMPTY:
+034D  0000        <Empty Function>
+
+EMPTY:
+0352  0000        <Empty Function>
+
+EMPTY:
+0357  0000        <Empty Function>
+
+EMPTY:
+035C  0000        <Empty Function>
+
+EMPTY:
+0361  0000        <Empty Function>
+
+EMPTY:
+0366  0000        <Empty Function>
+
+EMPTY:
+036B  0000        <Empty Function>
+
+EMPTY:
+0370  0000        <Empty Function>
+
+EMPTY:
+0375  0000        <Empty Function>
+
+EMPTY:
+037A  0000        <Empty Function>
+
+EMPTY:
+037F  0000        <Empty Function>
+
+EMPTY:
+0384  0000        <Empty Function>
+
+EMPTY:
+0389  0000        <Empty Function>
+
+EMPTY:
+038E  0000        <Empty Function>
+
+EMPTY:
+0393  0000        <Empty Function>
+
+EMPTY:
+0398  0000        <Empty Function>
+
+EMPTY:
+039D  0000        <Empty Function>
+
+EMPTY:
+03A2  0000        <Empty Function>
+
+EMPTY:
+03A7  0000        <Empty Function>
+
+EMPTY:
+03AC  0000        <Empty Function>
+
+EMPTY:
+03B1  0000        <Empty Function>
+
+EMPTY:
+03B6  0000        <Empty Function>
+
+EMPTY:
+03BB  0000        <Empty Function>
+
+EMPTY:
+03C0  0000        <Empty Function>
+
+EMPTY:
+03C5  0000        <Empty Function>
+
+EMPTY:
+03CA  0000        <Empty Function>
+
+EMPTY:
+03CF  0000        <Empty Function>
+
+EMPTY:
+03D4  0000        <Empty Function>
+
+EMPTY:
+03D9  0000        <Empty Function>
+
+EMPTY:
+03DE  0000        <Empty Function>
+
+EMPTY:
+03E3  0000        <Empty Function>
+
+EMPTY:
+03E8  0000        <Empty Function>
+
+EMPTY:
+03ED  0000        <Empty Function>
+
+EMPTY:
+03F2  0000        <Empty Function>
+
+EMPTY:
+03F7  0000        <Empty Function>
+
+EMPTY:
+03FC  0000        <Empty Function>
+
+EMPTY:
+0401  0000        <Empty Function>
+
+EMPTY:
+0406  0000        <Empty Function>
+
+EMPTY:
+040B  0000        <Empty Function>
+
+EMPTY:
+0410  0000        <Empty Function>
+
+EMPTY:
+0415  0000        <Empty Function>
+
+EMPTY:
+041A  0000        <Empty Function>
+
+EMPTY:
+041F  0000        <Empty Function>
+
+EMPTY:
+0424  0000        <Empty Function>
+
+EMPTY:
+0429  0000        <Empty Function>
+
+EMPTY:
+042E  0000        <Empty Function>
+
+EMPTY:
+0433  0000        <Empty Function>
+
+EMPTY:
+0438  0000        <Empty Function>
+
+EMPTY:
+043D  0000        <Empty Function>
+
+EMPTY:
+0442  0000        <Empty Function>
+
+EMPTY:
+0447  0000        <Empty Function>
+
+EMPTY:
+044C  0000        <Empty Function>
+
+EMPTY:
+0451  0000        <Empty Function>
+
+EMPTY:
+0456  0000        <Empty Function>
+
+EMPTY:
+045B  0000        <Empty Function>
+
+EMPTY:
+0460  0000        <Empty Function>
+
+EMPTY:
+0465  0000        <Empty Function>
+
+EMPTY:
+046A  0000        <Empty Function>
+
+EMPTY:
+046F  0000        <Empty Function>
+
+EMPTY:
+0474  0000        <Empty Function>
+
+EMPTY:
+0479  0000        <Empty Function>
+
+EMPTY:
+047E  0000        <Empty Function>
+
+EMPTY:
+0483  0000        <Empty Function>
+
+EMPTY:
+0488  0000        <Empty Function>
+
+EMPTY:
+048D  0000        <Empty Function>
+
+EMPTY:
+0492  0000        <Empty Function>
+
+EMPTY:
+0497  0000        <Empty Function>
+
+EMPTY:
+049C  0000        <Empty Function>
+
+EMPTY:
+04A1  0000        <Empty Function>
+
+EMPTY:
+04A6  0000        <Empty Function>
+
+EMPTY:
+04AB  0000        <Empty Function>
+
+EMPTY:
+04B0  0000        <Empty Function>
+
+EMPTY:
+04B5  0000        <Empty Function>
+
+EMPTY:
+04BA  0000        <Empty Function>
+
+EMPTY:
+04BF  0000        <Empty Function>
+
+EMPTY:
+04C4  0000        <Empty Function>
+
+EMPTY:
+04C9  0000        <Empty Function>
+
+EMPTY:
+04CE  0000        <Empty Function>
+
+EMPTY:
+04D3  0000        <Empty Function>
+
+EMPTY:
+04D8  0000        <Empty Function>
+
+EMPTY:
+04DD  0000        <Empty Function>
+
+EMPTY:
+04E2  0000        <Empty Function>
+
+EMPTY:
+04E7  0000        <Empty Function>
+
+EMPTY:
+04EC  0000        <Empty Function>
+
+EMPTY:
+04F1  0000        <Empty Function>
+
+EMPTY:
+04F6  0000        <Empty Function>
+
+EMPTY:
+04FB  0000        <Empty Function>
+
+EMPTY:
+0500  0000        <Empty Function>
+
+EMPTY:
+0505  0000        <Empty Function>
+
+EMPTY:
+050A  0000        <Empty Function>
+
+EMPTY:
+050F  0000        <Empty Function>
+
+EMPTY:
+0514  0000        <Empty Function>
+
+EMPTY:
+0519  0000        <Empty Function>
+
+EMPTY:
+051E  0000        <Empty Function>
+
+EMPTY:
+0523  0000        <Empty Function>
+
+EMPTY:
+0528  0000        <Empty Function>
+
+EMPTY:
+052D  0000        <Empty Function>
+
+EMPTY:
+0532  0000        <Empty Function>
+
+EMPTY:
+0537  0000        <Empty Function>
+
+EMPTY:
+053C  0000        <Empty Function>
+
+EMPTY:
+0541  0000        <Empty Function>
+
+EMPTY:
+0546  0000        <Empty Function>
+
+EMPTY:
+054B  0000        <Empty Function>
+
+EMPTY:
+0550  0000        <Empty Function>
+
+EMPTY:
+0555  0000        <Empty Function>
+
+EMPTY:
+055A  0000        <Empty Function>
+
+EMPTY:
+055F  0000        <Empty Function>
+
+EMPTY:
+0564  0000        <Empty Function>
+
+EMPTY:
+0569  0000        <Empty Function>
+
+EMPTY:
+056E  0000        <Empty Function>
+
+EMPTY:
+0573  0000        <Empty Function>
+
+EMPTY:
+0578  0000        <Empty Function>
+
+EMPTY:
+057D  0000        <Empty Function>
+
+EMPTY:
+0582  0000        <Empty Function>
+
+EMPTY:
+0587  0000        <Empty Function>
+
+EMPTY:
+058C  0000        <Empty Function>
+
+EMPTY:
+0591  0000        <Empty Function>
+
+EMPTY:
+0596  0000        <Empty Function>
+
+EMPTY:
+059B  0000        <Empty Function>
+
+EMPTY:
+05A0  0000        <Empty Function>
+
+EMPTY:
+05A5  0000        <Empty Function>
+
+EMPTY:
+05AA  0000        <Empty Function>
+
+EMPTY:
+05AF  0000        <Empty Function>
+
+EMPTY:
+05B4  0000        <Empty Function>
+
+EMPTY:
+05B9  0000        <Empty Function>
+
+EMPTY:
+05BE  0000        <Empty Function>
+
+EMPTY:
+05C3  0000        <Empty Function>
+
+EMPTY:
+05C8  0000        <Empty Function>
+
+EMPTY:
+05CD  0000        <Empty Function>
+
+EMPTY:
+05D2  0000        <Empty Function>
+
+EMPTY:
+05D7  0000        <Empty Function>
+
+EMPTY:
+05DC  0000        <Empty Function>
+
+EMPTY:
+05E1  0000        <Empty Function>
+
+EMPTY:
+05E6  0000        <Empty Function>
+
+EMPTY:
+05EB  0000        <Empty Function>
+
+EMPTY:
+05F0  0000        <Empty Function>
+
+EMPTY:
+05F5  0000        <Empty Function>
+
+EMPTY:
+05FA  0000        <Empty Function>
+
+EMPTY:
+05FF  0000        <Empty Function>
+
+EMPTY:
+0604  0000        <Empty Function>
+
+EMPTY:
+0609  0000        <Empty Function>
+
+EMPTY:
+060E  0000        <Empty Function>
+
+EMPTY:
+0613  0000        <Empty Function>
+
+EMPTY:
+0618  0000        <Empty Function>
+
+EMPTY:
+061D  0000        <Empty Function>
+
+EMPTY:
+0622  0000        <Empty Function>
+
+EMPTY:
+0627  0000        <Empty Function>
+
+EMPTY:
+062C  0000        <Empty Function>
+
+EMPTY:
+0631  0000        <Empty Function>
+
+EMPTY:
+0636  0000        <Empty Function>
+
+EMPTY:
+063B  0000        <Empty Function>
+
+EMPTY:
+0640  0000        <Empty Function>
+
+EMPTY:
+0645  0000        <Empty Function>
+
+EMPTY:
+064A  0000        <Empty Function>
+
+EMPTY:
+064F  0000        <Empty Function>
+
+EMPTY:
+0654  0000        <Empty Function>
+
+EMPTY:
+0659  0000        <Empty Function>
+
+EMPTY:
+065E  0000        <Empty Function>
+
+EMPTY:
+0663  0000        <Empty Function>
+
+EMPTY:
+0668  0000        <Empty Function>
+
+EMPTY:
+066D  0000        <Empty Function>
+
+EMPTY:
+0672  0000        <Empty Function>
+
+EMPTY:
+0677  0000        <Empty Function>
+
+EMPTY:
+067C  0000        <Empty Function>
+
+EMPTY:
+0681  0000        <Empty Function>
+
+EMPTY:
+0686  0000        <Empty Function>
+
+EMPTY:
+068B  0000        <Empty Function>
+
+EMPTY:
+0690  0000        <Empty Function>
+
+EMPTY:
+0695  0000        <Empty Function>
+
+EMPTY:
+069A  0000        <Empty Function>
+
+EMPTY:
+069F  0000        <Empty Function>
+
+EMPTY:
+06A4  0000        <Empty Function>
+
+EMPTY:
+06A9  0000        <Empty Function>
+
+EMPTY:
+06AE  0000        <Empty Function>
+
+EMPTY:
+06B3  0000        <Empty Function>
+
+EMPTY:
+06B8  0000        <Empty Function>
+
+EMPTY:
+06BD  0000        <Empty Function>
+
+EMPTY:
+06C2  0000        <Empty Function>
+
+EMPTY:
+06C7  0000        <Empty Function>
+
+EMPTY:
+06CC  0000        <Empty Function>
+
+EMPTY:
+06D1  0000        <Empty Function>
+
+EMPTY:
+06D6  0000        <Empty Function>
+
+EMPTY:
+06DB  0000        <Empty Function>
+
+EMPTY:
+06E0  0000        <Empty Function>
+
+EMPTY:
+06E5  0000        <Empty Function>
+
+EMPTY:
+06EA  0000        <Empty Function>
+
+EMPTY:
+06EF  0000        <Empty Function>
+
+EMPTY:
+06F4  0000        <Empty Function>
+
+EMPTY:
+06F9  0000        <Empty Function>
+
+EMPTY:
+06FE  0000        <Empty Function>
+
+EMPTY:
+0703  0000        <Empty Function>
+
+EMPTY:
+0708  0000        <Empty Function>
+
+EMPTY:
+070D  0000        <Empty Function>
+
+EMPTY:
+0712  0000        <Empty Function>
+
+EMPTY:
+0717  0000        <Empty Function>
+
+EMPTY:
+071C  0000        <Empty Function>
+
+EMPTY:
+0721  0000        <Empty Function>
+
+EMPTY:
+0726  0000        <Empty Function>
+
+EMPTY:
+072B  0000        <Empty Function>
+
+EMPTY:
+0730  0000        <Empty Function>
+
+EMPTY:
+0735  0000        <Empty Function>
+
+EMPTY:
+073A  0000        <Empty Function>
+
+EMPTY:
+073F  0000        <Empty Function>
+
+EMPTY:
+0744  0000        <Empty Function>
+
+EMPTY:
+0749  0000        <Empty Function>
+
+EMPTY:
+074E  0000        <Empty Function>
+
+EMPTY:
+0753  0000        <Empty Function>
+
+EMPTY:
+0758  0000        <Empty Function>
+
+EMPTY:
+075D  0000        <Empty Function>
+
+EMPTY:
+0762  0000        <Empty Function>
+
+EMPTY:
+0767  0000        <Empty Function>
+
+EMPTY:
+076C  0000        <Empty Function>
+
+EMPTY:
+0771  0000        <Empty Function>
+
+EMPTY:
+0776  0000        <Empty Function>
+
+EMPTY:
+077B  0000        <Empty Function>
+
+EMPTY:
+0780  0000        <Empty Function>
+
+EMPTY:
+0785  0000        <Empty Function>
+
+STRINGS:
 03FC: The gateway leads to THE MINES.
 041C: The gateway leads to THE HALL OF DOORS.
 0444: The gateway leads to THE SOLDIERS  QUARTERS.

@@ -1,454 +1,1094 @@
 RIVER_01:
-0000                          BEGIN
-0003                          ShowMessage(03FC) = The River of Eternity taps your life energy.
-0010                          UnknownFunctionC4()
-0018                          ax = GetMaxHits()
-001F                          bx = 0004
-0022                          ax = ax / bx (signed, dx = quotient)
-0025                          DoDamage(ax)
-002F                          ax = GetCurrentHits()
-0036                          RefreshCompareFlags(ax)
-0038                          If (result.greaterthan) value jump to 0047
-003A                          ShowMessage(0429) = You have died.
-0047                          ax = HasItem(D5)
-0055                          If (result.notequal) value jump to 006C
-0057                          ax = CheckState(02, 6D)
-0068                          RefreshCompareFlags(ax)
-006A                          If (result.equal) value jump to 007E
-006C                          SetTileFloor(00, 9C)
-007A                          cx = Pop()
-007B                          cx = Pop()
-007C                          Jump to 008F
-007E                          SetTileFloor(03, 9C)
-008F                          RETURN
+0008  0000        BEGIN
+000B  0003        ShowMessage(0x03FC) = The River of Eternity taps your life energy.
+0018  0010        UnknownFunctionC4()
+0020  0018        ax = GetMaxHits()
+0027  001F        bx = 0x0004
+002A  0022        ax = ax / bx (signed, dx = quotient)
+002D  0025        DoDamage(ax)
+0037  002F        ax = GetCurrentHits()
+003E  0036        RefreshCompareFlags(ax)
+0040  0038        If (result.above) jump to 0047
+0042  003A        ShowMessage(0x0429) = You have died.
+004F  0047        ax = HasItem(0xD5)
+005D  0055        If (result.notequal) jump to 006C
+005F  0057        ax = CheckState(0x02, 0x6D)
+0070  0068        RefreshCompareFlags(ax)
+0072  006A        If (result.equal) jump to 007E
+0074  006C        SetTileFloor(0x00, 0x9C)
+0082  007A        cx = Pop()
+0083  007B        cx = Pop()
+0084  007C        Jump to 008F
+0086  007E        SetTileFloor(0x03, 0x9C)
+0097  008F        RETURN
 
 RIVRBANK_02:
-0000                          BEGIN
-0003                          ShowMessage(0438) = Only the bravest adventurers explore the River for hidden passages.
-0010                          RETURN
+0099  0000        BEGIN
+009C  0003        ShowMessage(0x0438) = Only the bravest adventurers explore the River for hidden passages.
+00A9  0010        RETURN
 
 STEPCYCL_03:
-0000                          BEGIN
-0003                          ax = HasItem(D6)
-0011                          If (result.notequal) value jump to 0028
-0013                          ax = CheckState(02, 6E)
-0024                          RefreshCompareFlags(ax)
-0026                          If (result.equal) value jump to 0071
-0028                          Push(01)
-002C                          Push(00)
-002F                          ax = GetNextTile()
-0036                          Push(ax)
-0037                          Move(stk[0], stk[1], stk[2])
-0041                          RemoveItem(D6)
-004D                          SetState(02, 6E, 01)
-0062                          ShowMessage(047C) = Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
-006F                          Jump to 007E
-0071                          ShowMessage(04DC) = The tapestry glows with the image of a Cyclops.
-007E                          RETURN
+00AB  0000        BEGIN
+00AE  0003        ax = HasItem(0xD6)
+00BC  0011        If (result.notequal) jump to 0028
+00BE  0013        ax = CheckState(0x02, 0x6E)
+00CF  0024        RefreshCompareFlags(ax)
+00D1  0026        If (result.equal) jump to 0071
+00D3  0028        Push(01)
+00D7  002C        Push(00)
+00DA  002F        ax = GetNextTile()
+00E1  0036        Push(ax)
+00E2  0037        Move(stk[0], stk[1], stk[2])
+00EC  0041        RemoveItem(0xD6)
+00F8  004D        SetState(0x02, 0x6E, 0x01)
+010D  0062        ShowMessage(0x047C) = Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
+011A  006F        Jump to 007E
+011C  0071        ShowMessage(0x04DC) = The tapestry glows with the image of a Cyclops.
+0129  007E        RETURN
 
 STEPMINE_04:
-0000                          BEGIN
-0003                          ax = HasItem(D5)
-0011                          If (result.notequal) value jump to 0028
-0013                          ax = CheckState(02, 6D)
-0024                          RefreshCompareFlags(ax)
-0026                          If (result.equal) value jump to 0068
-0028                          RemoveItem(D5)
-0034                          SetState(02, 6D, 01)
-0049                          SetTileFloor(00, 9C)
-0057                          cx = Pop()
-0058                          cx = Pop()
-0059                          ShowMessage(050C) = Your Dwarf Mine Key activated this platform.
-0066                          Jump to 0079
-0068                          SetTileFloor(03, 9C)
-0079                          RETURN
+012B  0000        BEGIN
+012E  0003        ax = HasItem(0xD5)
+013C  0011        If (result.notequal) jump to 0028
+013E  0013        ax = CheckState(0x02, 0x6D)
+014F  0024        RefreshCompareFlags(ax)
+0151  0026        If (result.equal) jump to 0068
+0153  0028        RemoveItem(0xD5)
+015F  0034        SetState(0x02, 0x6D, 0x01)
+0174  0049        SetTileFloor(0x00, 0x9C)
+0182  0057        cx = Pop()
+0183  0058        cx = Pop()
+0184  0059        ShowMessage(0x050C) = Your Dwarf Mine Key activated this platform.
+0191  0066        Jump to 0079
+0193  0068        SetTileFloor(0x03, 0x9C)
+01A4  0079        RETURN
 
 STEPHIDE_05:
-0000                          BEGIN
-0003                          ax = HasItem(D7)
-0011                          If (result.notequal) value jump to 0028
-0013                          ax = CheckState(02, 6F)
-0024                          RefreshCompareFlags(ax)
-0026                          If (result.equal) value jump to 0076
-0028                          RemoveItem(D7)
-0034                          SetState(02, 6F, 01)
-0049                          Push(01)
-004D                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0054                          Push(ax)
-0055                          ax = GetNextTile()
-005C                          Push(ax)
-005D                          Move(stk[0], stk[1], stk[2])
-0067                          ShowMessage(0539) = Your Hidden Mine Key makes the wall become transparent.
-0074                          Jump to 0083
-0076                          ShowMessage(0571) = There is something strange about this wall.
-0083                          RETURN
+01A6  0000        BEGIN
+01A9  0003        ax = HasItem(0xD7)
+01B7  0011        If (result.notequal) jump to 0028
+01B9  0013        ax = CheckState(0x02, 0x6F)
+01CA  0024        RefreshCompareFlags(ax)
+01CC  0026        If (result.equal) jump to 0076
+01CE  0028        RemoveItem(0xD7)
+01DA  0034        SetState(0x02, 0x6F, 0x01)
+01EF  0049        Push(01)
+01F3  004D        ax = SetExitability(ax) // ax is usually 0 following equality check
+01FA  0054        Push(ax)
+01FB  0055        ax = GetNextTile()
+0202  005C        Push(ax)
+0203  005D        Move(stk[0], stk[1], stk[2])
+020D  0067        ShowMessage(0x0539) = Your Hidden Mine Key makes the wall become transparent.
+021A  0074        Jump to 0083
+021C  0076        ShowMessage(0x0571) = There is something strange about this wall.
+0229  0083        RETURN
 
 ASENDB_06:
-0000                          BEGIN
-0003                          GoMap(02, CC, 02, 38)
-001E                          RETURN
+022B  0000        BEGIN
+022E  0003        GoMap(0x02, 0xCC, 0x02, 0x38)
+0249  001E        RETURN
+
+EMPTY:
+024B  0000        <Empty Function>
+
+EMPTY:
+0250  0000        <Empty Function>
 
 DSENDC_09:
-0000                          BEGIN
-0003                          GoMap(00, E1, 02, 38)
-001D                          RETURN
+0255  0000        BEGIN
+0258  0003        GoMap(00, 0xE1, 0x02, 0x38)
+0272  001D        RETURN
 
 ESENDF_0A:
-0000                          BEGIN
-0003                          GoMap(00, FD, 02, 38)
-001D                          RETURN
+0274  0000        BEGIN
+0277  0003        GoMap(00, 0xFD, 0x02, 0x38)
+0291  001D        RETURN
+
+EMPTY:
+0293  0000        <Empty Function>
 
 SECDOORA_0C:
-0000                          BEGIN
-0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F                          compare(ax, 000B)
-0012                          If (result.greaterthan or result.equal) jump to 0029
-0014                          ax = UsedItem(BE, BE)
-0027                          If (result.equal) value jump to 0072
-0029                          ShowMessage(059D) = You locate a hidden door in the wall.
-0036                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003D                          Push(ax)
-003E                          ax = GetNextTile()
-0045                          Push(ax)
-0046                          Push(01)
-004A                          SetUnblocked()
-0054                          Push(01)
-0058                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005F                          Push(ax)
-0060                          ax = GetNextTile()
-0067                          Push(ax)
-0068                          Move(stk[0], stk[1], stk[2])
-0072                          RETURN
+0298  0000        BEGIN
+029B  0003        ax = UsedSkill(0x0D) // returns 0 if did not use, compares to 2nd op if did use
+02A7  000F        compare(ax, 0x000B)
+02AA  0012        If (result.above or result.equal) jump to 0029
+02AC  0014        ax = UsedItem(0xBE, 0xBE)
+02BF  0027        If (result.equal) jump to 0072
+02C1  0029        ShowMessage(0x059D) = You locate a hidden door in the wall.
+02CE  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+02D5  003D        Push(ax)
+02D6  003E        ax = GetNextTile()
+02DD  0045        Push(ax)
+02DE  0046        Push(01)
+02E2  004A        SetUnblocked()
+02EC  0054        Push(01)
+02F0  0058        ax = SetExitability(ax) // ax is usually 0 following equality check
+02F7  005F        Push(ax)
+02F8  0060        ax = GetNextTile()
+02FF  0067        Push(ax)
+0300  0068        Move(stk[0], stk[1], stk[2])
+030A  0072        RETURN
 
 SECDOORB_0D:
-0000                          BEGIN
-0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F                          compare(ax, 000B)
-0012                          If (result.greaterthan or result.equal) jump to 0029
-0014                          ax = UsedItem(BE, BE)
-0027                          If (result.equal) value jump to 0072
-0029                          ShowMessage(05C3) = You locate a hidden door in the wall.
-0036                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003D                          Push(ax)
-003E                          ax = GetNextTile()
-0045                          Push(ax)
-0046                          Push(01)
-004A                          SetUnblocked()
-0054                          Push(01)
-0058                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005F                          Push(ax)
-0060                          ax = GetNextTile()
-0067                          Push(ax)
-0068                          Move(stk[0], stk[1], stk[2])
-0072                          RETURN
+030C  0000        BEGIN
+030F  0003        ax = UsedSkill(0x0D) // returns 0 if did not use, compares to 2nd op if did use
+031B  000F        compare(ax, 0x000B)
+031E  0012        If (result.above or result.equal) jump to 0029
+0320  0014        ax = UsedItem(0xBE, 0xBE)
+0333  0027        If (result.equal) jump to 0072
+0335  0029        ShowMessage(0x05C3) = You locate a hidden door in the wall.
+0342  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+0349  003D        Push(ax)
+034A  003E        ax = GetNextTile()
+0351  0045        Push(ax)
+0352  0046        Push(01)
+0356  004A        SetUnblocked()
+0360  0054        Push(01)
+0364  0058        ax = SetExitability(ax) // ax is usually 0 following equality check
+036B  005F        Push(ax)
+036C  0060        ax = GetNextTile()
+0373  0067        Push(ax)
+0374  0068        Move(stk[0], stk[1], stk[2])
+037E  0072        RETURN
 
 SECDOORC_0E:
-0000                          BEGIN
-0003                          ax = UsedSkill(0D) // returns 0 if did not use, compares to 2nd op if did use
-000F                          compare(ax, 000B)
-0012                          If (result.greaterthan or result.equal) jump to 0029
-0014                          ax = UsedItem(BE, BE)
-0027                          If (result.equal) value jump to 0074
-0029                          ShowMessage(05E9) = You locate a hidden door in the wall.
-0036                          ax = SetExitability(ax) // ax is usually 0 following equality check
-003D                          Push(ax)
-003E                          ax = GetNextTile()
-0045                          Push(ax)
-0046                          Push(01)
-004A                          SetUnblocked()
-0054                          Push(01)
-0058                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005F                          Push(ax)
-0060                          ax = GetNextTile()
-0067                          Push(ax)
-0068                          Move(stk[0], stk[1], stk[2])
-0072                          Jump to 0091
-0074                          Push(00)
-0077                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007E                          Push(ax)
-007F                          ax = GetNextTile()
-0086                          Push(ax)
-0087                          Move(stk[0], stk[1], stk[2])
-0091                          RETURN
+0380  0000        BEGIN
+0383  0003        ax = UsedSkill(0x0D) // returns 0 if did not use, compares to 2nd op if did use
+038F  000F        compare(ax, 0x000B)
+0392  0012        If (result.above or result.equal) jump to 0029
+0394  0014        ax = UsedItem(0xBE, 0xBE)
+03A7  0027        If (result.equal) jump to 0074
+03A9  0029        ShowMessage(0x05E9) = You locate a hidden door in the wall.
+03B6  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+03BD  003D        Push(ax)
+03BE  003E        ax = GetNextTile()
+03C5  0045        Push(ax)
+03C6  0046        Push(01)
+03CA  004A        SetUnblocked()
+03D4  0054        Push(01)
+03D8  0058        ax = SetExitability(ax) // ax is usually 0 following equality check
+03DF  005F        Push(ax)
+03E0  0060        ax = GetNextTile()
+03E7  0067        Push(ax)
+03E8  0068        Move(stk[0], stk[1], stk[2])
+03F2  0072        Jump to 0091
+03F4  0074        Push(00)
+03F7  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+03FE  007E        Push(ax)
+03FF  007F        ax = GetNextTile()
+0406  0086        Push(ax)
+0407  0087        Move(stk[0], stk[1], stk[2])
+0411  0091        RETURN
 
 GSENDH_0F:
-0000                          BEGIN
-0003                          GoMap(00, 02, 02, 38)
-001D                          RETURN
+0413  0000        BEGIN
+0416  0003        GoMap(00, 0x02, 0x02, 0x38)
+0430  001D        RETURN
+
+EMPTY:
+0432  0000        <Empty Function>
 
 ISENDJ_11:
-0000                          BEGIN
-0003                          GoMap(02, 60, 02, 38)
-001E                          RETURN
+0437  0000        BEGIN
+043A  0003        GoMap(0x02, 0x60, 0x02, 0x38)
+0455  001E        RETURN
+
+EMPTY:
+0457  0000        <Empty Function>
+
+EMPTY:
+045C  0000        <Empty Function>
 
 SUNBEAM_14:
-0000                          BEGIN
-0003                          ax = HasItem(EF)
-0011                          If (result.equal) value jump to 007B
-0013                          ShowPortrait(001C)
-0020                          ShowMessage(060F) = A band of dwarves moves out of the shadows.
-002D                          ShowMessage(063B) = The leader steps forward, his eyes fixed on the blue metal.
-003A                          ShowMessage(0677) = 'This magnificent blue treasure you hold can certainly do YOU no good.  Perhaps we may offer you a TRADE to remove this rock from your hands.'
-0047                          ShowMessage(0706) = A key appears from beneath his pack.
-0054                          ShowMessage(072B) = 'We offer you this key to our kingdom in return.'
-0061                          RemoveItem(EF)
-006D                          GiveItem(D4)
-0079                          Jump to 0088
-007B                          ShowMessage(075D) = A beam of bluish sunshine filters down from the surface above and reflects on a ceremonial dwarven rock.
-0088                          RETURN
+0461  0000        BEGIN
+0464  0003        ax = HasItem(0xEF)
+0472  0011        If (result.equal) jump to 007B
+0474  0013        ShowPortrait(0x001C)
+0481  0020        ShowMessage(0x060F) = A band of dwarves moves out of the shadows.
+048E  002D        ShowMessage(0x063B) = The leader steps forward, his eyes fixed on the blue metal.
+049B  003A        ShowMessage(0x0677) = 'This magnificent blue treasure you hold can certainly do YOU no good.  Perhaps we may offer you a TRADE to remove this rock from your hands.'
+04A8  0047        ShowMessage(0x0706) = A key appears from beneath his pack.
+04B5  0054        ShowMessage(0x072B) = 'We offer you this key to our kingdom in return.'
+04C2  0061        RemoveItem(0xEF)
+04CE  006D        GiveItem(0xD4)
+04DA  0079        Jump to 0088
+04DC  007B        ShowMessage(0x075D) = A beam of bluish sunshine filters down from the surface above and reflects on a ceremonial dwarven rock.
+04E9  0088        RETURN
 
 LAVA_15:
-0000                          BEGIN
-0003                          ShowMessage(07C6) = You fall into a lava pit and die.
-0010                          ax = GetMaxHits()
-0017                          DoDamage(ax)
-0021                          RETURN
+04EB  0000        BEGIN
+04EE  0003        ShowMessage(0x07C6) = You fall into a lava pit and die.
+04FB  0010        ax = GetMaxHits()
+0502  0017        DoDamage(ax)
+050C  0021        RETURN
 
 GATEA_16:
-0000                          BEGIN
-0003                          ShowMessage(07E8) = This gate leads to DWARF KINGDOM.
-0010                          GoMap(00, 3F, 01, 38)
-002A                          RETURN
+050E  0000        BEGIN
+0511  0003        ShowMessage(0x07E8) = This gate leads to DWARF KINGDOM.
+051E  0010        GoMap(00, 0x3F, 0x01, 0x38)
+0538  002A        RETURN
 
 GATEB_17:
-0000                          BEGIN
-0003                          ShowMessage(080A) = This gate leads to RIVERS END.
-0010                          GoMap(00, 0B, 03, 38)
-002A                          RETURN
+053A  0000        BEGIN
+053D  0003        ShowMessage(0x080A) = This gate leads to RIVERS END.
+054A  0010        GoMap(00, 0x0B, 0x03, 0x38)
+0564  002A        RETURN
 
 _18:
-0000                          BEGIN
-0003                          ShowMessage(0829) = Hobgoblins appear from the surrounding walls.
-0010                          AddEncounter(24, 01)
-0022                          AddEncounter(24, 02)
-0034                          AddEncounter(0E, 03)
-0046                          AddEncounter(0E, 04)
-0058                          AddEncounter(25, 05)
-006A                          AddEncounter(25, 06)
-007C                          RETURN
+0566  0000        BEGIN
+0569  0003        ShowMessage(0x0829) = Hobgoblins appear from the surrounding walls.
+0576  0010        AddEncounter(0x24, 0x01)
+0588  0022        AddEncounter(0x24, 0x02)
+059A  0034        AddEncounter(0x0E, 0x03)
+05AC  0046        AddEncounter(0x0E, 0x04)
+05BE  0058        AddEncounter(0x25, 0x05)
+05D0  006A        AddEncounter(0x25, 0x06)
+05E2  007C        RETURN
 
 ENCB_19:
-0000                          BEGIN
-0003                          ShowMessage(0857) = The air is heavy with the scent of burnt flesh.
-0010                          AddEncounter(12, 01)
-0022                          AddEncounter(12, 02)
-0034                          AddEncounter(28, 03)
-0046                          AddEncounter(28, 04)
-0058                          AddEncounter(15, 05)
-006A                          AddEncounter(15, 06)
-007C                          RETURN
+05E4  0000        BEGIN
+05E7  0003        ShowMessage(0x0857) = The air is heavy with the scent of burnt flesh.
+05F4  0010        AddEncounter(0x12, 0x01)
+0606  0022        AddEncounter(0x12, 0x02)
+0618  0034        AddEncounter(0x28, 0x03)
+062A  0046        AddEncounter(0x28, 0x04)
+063C  0058        AddEncounter(0x15, 0x05)
+064E  006A        AddEncounter(0x15, 0x06)
+0660  007C        RETURN
 
 ENCC_1A:
-0000                          BEGIN
-0003                          ShowMessage(0887) = You wander into a renegade adventurer camp.
-0010                          AddEncounter(1E, 01)
-0022                          AddEncounter(19, 02)
-0034                          AddEncounter(1C, 03)
-0046                          AddEncounter(05, 04)
-0058                          AddEncounter(03, 05)
-006A                          AddEncounter(03, 06)
-007C                          RETURN
+0662  0000        BEGIN
+0665  0003        ShowMessage(0x0887) = You wander into a renegade adventurer camp.
+0672  0010        AddEncounter(0x1E, 0x01)
+0684  0022        AddEncounter(0x19, 0x02)
+0696  0034        AddEncounter(0x1C, 0x03)
+06A8  0046        AddEncounter(0x05, 0x04)
+06BA  0058        AddEncounter(0x03, 0x05)
+06CC  006A        AddEncounter(0x03, 0x06)
+06DE  007C        RETURN
 
 ENCD_1B:
-0000                          BEGIN
-0003                          ShowMessage(08B3) = A den of manticores is disturbed.
-0010                          AddEncounter(18, 01)
-0022                          AddEncounter(18, 02)
-0034                          AddEncounter(19, 03)
-0046                          AddEncounter(19, 04)
-0058                          AddEncounter(1A, 05)
-006A                          AddEncounter(04, 06)
-007C                          RETURN
+06E0  0000        BEGIN
+06E3  0003        ShowMessage(0x08B3) = A den of manticores is disturbed.
+06F0  0010        AddEncounter(0x18, 0x01)
+0702  0022        AddEncounter(0x18, 0x02)
+0714  0034        AddEncounter(0x19, 0x03)
+0726  0046        AddEncounter(0x19, 0x04)
+0738  0058        AddEncounter(0x1A, 0x05)
+074A  006A        AddEncounter(0x04, 0x06)
+075C  007C        RETURN
 
 ENCE_1C:
-0000                          BEGIN
-0003                          ShowMessage(08D5) = Stone fragments litter the floor.
-0010                          AddEncounter(11, 01)
-0022                          AddEncounter(11, 02)
-0034                          AddEncounter(10, 03)
-0046                          AddEncounter(10, 04)
-0058                          AddEncounter(16, 05)
-006A                          AddEncounter(22, 06)
-007C                          RETURN
+075E  0000        BEGIN
+0761  0003        ShowMessage(0x08D5) = Stone fragments litter the floor.
+076E  0010        AddEncounter(0x11, 0x01)
+0780  0022        AddEncounter(0x11, 0x02)
+0792  0034        AddEncounter(0x10, 0x03)
+07A4  0046        AddEncounter(0x10, 0x04)
+07B6  0058        AddEncounter(0x16, 0x05)
+07C8  006A        AddEncounter(0x22, 0x06)
+07DA  007C        RETURN
 
 ENCF_1D:
-0000                          BEGIN
-0003                          AddEncounter(0B, 01)
-0015                          AddEncounter(0B, 02)
-0027                          AddEncounter(0C, 03)
-0039                          AddEncounter(0C, 04)
-004B                          AddEncounter(1F, 05)
-005D                          AddEncounter(1F, 05)
-006F                          RETURN
+07DC  0000        BEGIN
+07DF  0003        AddEncounter(0x0B, 0x01)
+07F1  0015        AddEncounter(0x0B, 0x02)
+0803  0027        AddEncounter(0x0C, 0x03)
+0815  0039        AddEncounter(0x0C, 0x04)
+0827  004B        AddEncounter(0x1F, 0x05)
+0839  005D        AddEncounter(0x1F, 0x05)
+084B  006F        RETURN
 
 ENCG_1E:
-0000                          BEGIN
-0003                          AddEncounter(0F, 01)
-0015                          AddEncounter(10, 02)
-0027                          AddEncounter(26, 03)
-0039                          AddEncounter(18, 04)
-004B                          AddEncounter(27, 05)
-005D                          AddEncounter(28, 06)
-006F                          RETURN
+084D  0000        BEGIN
+0850  0003        AddEncounter(0x0F, 0x01)
+0862  0015        AddEncounter(0x10, 0x02)
+0874  0027        AddEncounter(0x26, 0x03)
+0886  0039        AddEncounter(0x18, 0x04)
+0898  004B        AddEncounter(0x27, 0x05)
+08AA  005D        AddEncounter(0x28, 0x06)
+08BC  006F        RETURN
 
 ENCH_1F:
-0000                          BEGIN
-0003                          ShowMessage(08F7) = A huge Cyclops appears from behind large boulders.
-0010                          AddEncounter(0E, 01)
-0022                          AddEncounter(0E, 02)
-0034                          AddEncounter(21, 03)
-0046                          ax = HasItem(F1)
-0054                          If (result.equal) value jump to 0078
-0056                          AddTreasure(09C4, 00, 00, 00, D0, C6)
-0076                          Jump to 0097
-0078                          AddTreasure(2710, 00, 00, 00, 00, F1)
-0097                          RETURN
+08BE  0000        BEGIN
+08C1  0003        ShowMessage(0x08F7) = A huge Cyclops appears from behind large boulders.
+08CE  0010        AddEncounter(0x0E, 0x01)
+08E0  0022        AddEncounter(0x0E, 0x02)
+08F2  0034        AddEncounter(0x21, 0x03)
+0904  0046        ax = HasItem(0xF1)
+0912  0054        If (result.equal) jump to 0078
+0914  0056        AddTreasure(0x09C4, 0x00, 0x00, 0x00, 0xD0, 0xC6)
+0934  0076        Jump to 0097
+0936  0078        AddTreasure(0x2710, 0x00, 0x00, 0x00, 0x00, 0xF1)
+0955  0097        RETURN
 
 ENCI_20:
-0000                          BEGIN
-0003                          AddEncounter(17, 01)
-0015                          AddEncounter(17, 02)
-0027                          AddEncounter(14, 05)
-0039                          AddEncounter(14, 06)
-004B                          RETURN
+0957  0000        BEGIN
+095A  0003        AddEncounter(0x17, 0x01)
+096C  0015        AddEncounter(0x17, 0x02)
+097E  0027        AddEncounter(0x14, 0x05)
+0990  0039        AddEncounter(0x14, 0x06)
+09A2  004B        RETURN
 
 ENCJ_21:
-0000                          BEGIN
-0003                          AddEncounter(23, 01)
-0015                          AddEncounter(23, 02)
-0027                          AddEncounter(1F, 03)
-0039                          AddEncounter(1F, 04)
-004B                          AddEncounter(14, 05)
-005D                          AddEncounter(14, 06)
-006F                          RETURN
+09A4  0000        BEGIN
+09A7  0003        AddEncounter(0x23, 0x01)
+09B9  0015        AddEncounter(0x23, 0x02)
+09CB  0027        AddEncounter(0x1F, 0x03)
+09DD  0039        AddEncounter(0x1F, 0x04)
+09EF  004B        AddEncounter(0x14, 0x05)
+0A01  005D        AddEncounter(0x14, 0x06)
+0A13  006F        RETURN
 
 ENCK_22:
-0000                          BEGIN
-0003                          AddEncounter(18, 01)
-0015                          AddEncounter(18, 02)
-0027                          AddEncounter(22, 03)
-0039                          AddEncounter(26, 04)
-004B                          RETURN
+0A15  0000        BEGIN
+0A18  0003        AddEncounter(0x18, 0x01)
+0A2A  0015        AddEncounter(0x18, 0x02)
+0A3C  0027        AddEncounter(0x22, 0x03)
+0A4E  0039        AddEncounter(0x26, 0x04)
+0A60  004B        RETURN
 
 ENCL_23:
-0000                          BEGIN
-0003                          AddEncounter(1F, 01)
-0015                          AddEncounter(1F, 02)
-0027                          AddEncounter(0A, 03)
-0039                          AddEncounter(0A, 04)
-004B                          AddEncounter(16, 05)
-005D                          AddEncounter(16, 05)
-006F                          RETURN
+0A62  0000        BEGIN
+0A65  0003        AddEncounter(0x1F, 0x01)
+0A77  0015        AddEncounter(0x1F, 0x02)
+0A89  0027        AddEncounter(0x0A, 0x03)
+0A9B  0039        AddEncounter(0x0A, 0x04)
+0AAD  004B        AddEncounter(0x16, 0x05)
+0ABF  005D        AddEncounter(0x16, 0x05)
+0AD1  006F        RETURN
 
 ENCM_24:
-0000                          BEGIN
-0003                          ShowMessage(092A) = You encounter adventurers slaying a dragon.  They do not welcome your intrusion.
-0010                          AddEncounter(19, 01)
-0022                          AddEncounter(1B, 02)
-0034                          AddEncounter(1D, 03)
-0046                          AddEncounter(03, 04)
-0058                          AddEncounter(05, 05)
-006A                          AddEncounter(16, 05)
-007C                          RETURN
+0AD3  0000        BEGIN
+0AD6  0003        ShowMessage(0x092A) = You encounter adventurers slaying a dragon.  They do not welcome your intrusion.
+0AE3  0010        AddEncounter(0x19, 0x01)
+0AF5  0022        AddEncounter(0x1B, 0x02)
+0B07  0034        AddEncounter(0x1D, 0x03)
+0B19  0046        AddEncounter(0x03, 0x04)
+0B2B  0058        AddEncounter(0x05, 0x05)
+0B3D  006A        AddEncounter(0x16, 0x05)
+0B4F  007C        RETURN
 
 ENCN_25:
-0000                          BEGIN
-0003                          AddEncounter(23, 01)
-0015                          AddEncounter(23, 02)
-0027                          AddEncounter(12, 03)
-0039                          AddEncounter(12, 04)
-004B                          AddEncounter(22, 05)
-005D                          ax = HasItem(D5)
-006B                          If (result.equal) value jump to 008F
-006D                          AddTreasure(07D0, 00, 00, 00, B7, 98)
-008D                          Jump to 00BB
-008F                          ShowMessage(097B) = Creatures fight over a stone key.
-009C                          AddTreasure(2710, 00, 00, 00, 00, D5)
-00BB                          RETURN
+0B51  0000        BEGIN
+0B54  0003        AddEncounter(0x23, 0x01)
+0B66  0015        AddEncounter(0x23, 0x02)
+0B78  0027        AddEncounter(0x12, 0x03)
+0B8A  0039        AddEncounter(0x12, 0x04)
+0B9C  004B        AddEncounter(0x22, 0x05)
+0BAE  005D        ax = HasItem(0xD5)
+0BBC  006B        If (result.equal) jump to 008F
+0BBE  006D        AddTreasure(0x07D0, 0x00, 0x00, 0x00, 0xB7, 0x98)
+0BDE  008D        Jump to 00BB
+0BE0  008F        ShowMessage(0x097B) = Creatures fight over a stone key.
+0BED  009C        AddTreasure(0x2710, 0x00, 0x00, 0x00, 0x00, 0xD5)
+0C0C  00BB        RETURN
 
 ENCO_26:
-0000                          BEGIN
-0003                          AddEncounter(23, 01)
-0015                          AddEncounter(23, 02)
-0027                          AddEncounter(12, 03)
-0039                          AddEncounter(12, 04)
-004B                          AddEncounter(22, 05)
-005D                          ax = HasItem(D8)
-006B                          If (result.equal) value jump to 008E
-006D                          AddTreasure(07D0, 00, 00, 00, 00, D0)
-008C                          Jump to 00BA
-008E                          ShowMessage(099D) = Creatures fight over a green tree-shaped key
-009B                          AddTreasure(2328, 00, 00, 00, 00, D8)
-00BA                          RETURN
+0C0E  0000        BEGIN
+0C11  0003        AddEncounter(0x23, 0x01)
+0C23  0015        AddEncounter(0x23, 0x02)
+0C35  0027        AddEncounter(0x12, 0x03)
+0C47  0039        AddEncounter(0x12, 0x04)
+0C59  004B        AddEncounter(0x22, 0x05)
+0C6B  005D        ax = HasItem(0xD8)
+0C79  006B        If (result.equal) jump to 008E
+0C7B  006D        AddTreasure(0x07D0, 0x00, 0x00, 0x00, 0x00, 0xD0)
+0C9A  008C        Jump to 00BA
+0C9C  008E        ShowMessage(0x099D) = Creatures fight over a green tree-shaped key
+0CA9  009B        AddTreasure(0x2328, 0x00, 0x00, 0x00, 0x00, 0xD8)
+0CC8  00BA        RETURN
 
 HEALFA_27:
-0000                          BEGIN
-0003                          ShowPortrait(0042)
-0010                          ax = GetMaxHits()
-0017                          AddHealth(ax)
-0021                          ShowMessage(09CA) = Your full health is restored by the ancient waters of RoundBrook Fountain.
-002E                          RETURN
+0CCA  0000        BEGIN
+0CCD  0003        ShowPortrait(0x0042)
+0CDA  0010        ax = GetMaxHits()
+0CE1  0017        AddHealth(ax)
+0CEB  0021        ShowMessage(0x09CA) = Your full health is restored by the ancient waters of RoundBrook Fountain.
+0CF8  002E        RETURN
 
 HEALFB_28:
-0000                          BEGIN
-0003                          ShowPortrait(0042)
-0010                          ax = GetMaxHits()
-0017                          AddHealth(ax)
-0021                          ShowMessage(0A15) = You feel all your health restored after sipping from JasperStone Fountain.
-002E                          RETURN
+0CFA  0000        BEGIN
+0CFD  0003        ShowPortrait(0x0042)
+0D0A  0010        ax = GetMaxHits()
+0D11  0017        AddHealth(ax)
+0D1B  0021        ShowMessage(0x0A15) = You feel all your health restored after sipping from JasperStone Fountain.
+0D28  002E        RETURN
 
 HEALFC_29:
-0000                          BEGIN
-0003                          ShowPortrait(0042)
-0010                          ax = GetMaxHits()
-0017                          AddHealth(ax)
-0021                          ShowMessage(0A60) = The waters of RockyFlat Fountain restores your health.
-002E                          RETURN
+0D2A  0000        BEGIN
+0D2D  0003        ShowPortrait(0x0042)
+0D3A  0010        ax = GetMaxHits()
+0D41  0017        AddHealth(ax)
+0D4B  0021        ShowMessage(0x0A60) = The waters of RockyFlat Fountain restores your health.
+0D58  002E        RETURN
 
 MANAFA_2A:
-0000                          BEGIN
-0003                          ShowPortrait(0042)
-0010                          AddMana(07D0)
-001D                          ShowMessage(0A97) = Your mana is recharged by drinking the magical waters of Omar Fountain.
-002A                          RETURN
+0D5A  0000        BEGIN
+0D5D  0003        ShowPortrait(0x0042)
+0D6A  0010        AddMana(0x07D0)
+0D77  001D        ShowMessage(0x0A97) = Your mana is recharged by drinking the magical waters of Omar Fountain.
+0D84  002A        RETURN
 
 MANAFB_2B:
-0000                          BEGIN
-0003                          AddMana(07D0)
-0010                          ShowMessage(0ADF) = Your magical powers are recharged by the heated steams of Venivor Geyser.
-001D                          RETURN
+0D86  0000        BEGIN
+0D89  0003        AddMana(0x07D0)
+0D96  0010        ShowMessage(0x0ADF) = Your magical powers are recharged by the heated steams of Venivor Geyser.
+0DA3  001D        RETURN
 
 MANAFC_2C:
-0000                          BEGIN
-0003                          AddMana(07D0)
-0010                          ShowMessage(0B29) = Your mana is increased in a whirlpool at the edge of the river.
-001D                          RETURN
+0DA5  0000        BEGIN
+0DA8  0003        AddMana(0x07D0)
+0DB5  0010        ShowMessage(0x0B29) = Your mana is increased in a whirlpool at the edge of the river.
+0DC2  001D        RETURN
 
 CLUEA_2D:
-0000                          BEGIN
-0003                          ShowMessage(0B69) = A message is inscribed on the wall -- 
-0010                          ShowRunes(0B90) = The Tapestry of the Moons requires a spectrum of color to open.
-001D                          RETURN
+0DC4  0000        BEGIN
+0DC7  0003        ShowMessage(0x0B69) = A message is inscribed on the wall -- 
+0DD4  0010        ShowRunes(0x0B90) = The Tapestry of the Moons requires a spectrum of color to open.
+0DE1  001D        RETURN
 
 CLUEB_2E:
-0000                          BEGIN
-0003                          ShowMessage(0BD0) = A gust of wind from caverns above catches your attention.
-0010                          ShowMessage(0C0A) = 'I am Zephyr.  
-001D                          ShowMessage(0C1A) = 'Only the FlexSword can bend against the Wind Elemental's gail.'
-002A                          RETURN
+0DE3  0000        BEGIN
+0DE6  0003        ShowMessage(0x0BD0) = A gust of wind from caverns above catches your attention.
+0DF3  0010        ShowMessage(0x0C0A) = 'I am Zephyr.  
+0E00  001D        ShowMessage(0x0C1A) = 'Only the FlexSword can bend against the Wind Elemental's gail.'
+0E0D  002A        RETURN
 
 CLUEC_2F:
-0000                          BEGIN
-0003                          ShowMessage(0C5B) = A collection of runes reveals a message -- 
-0010                          ShowRunes(0C87) = It is said that the Dwarves can build magnificent creations and vessels out of golden threads.
-001D                          RETURN
+0E0F  0000        BEGIN
+0E12  0003        ShowMessage(0x0C5B) = A collection of runes reveals a message -- 
+0E1F  0010        ShowRunes(0x0C87) = It is said that the Dwarves can build magnificent creations and vessels out of golden threads.
+0E2C  001D        RETURN
 
 CLUED_30:
-0000                          BEGIN
-0003                          ShowMessage(0CE6) = Written in blood on the wall is the message -- 
-0010                          ShowRunes(0D16) = Acquire the Sunbeam Key at the Dwarf Ceremonial Rock to access the Dwarf Kingdom.
-001D                          RETURN
+0E2E  0000        BEGIN
+0E31  0003        ShowMessage(0x0CE6) = Written in blood on the wall is the message -- 
+0E3E  0010        ShowRunes(0x0D16) = Acquire the Sunbeam Key at the Dwarf Ceremonial Rock to access the Dwarf Kingdom.
+0E4B  001D        RETURN
 
+EMPTY:
+0E4D  0000        <Empty Function>
+
+EMPTY:
+0E52  0000        <Empty Function>
+
+EMPTY:
+0E57  0000        <Empty Function>
+
+EMPTY:
+0E5C  0000        <Empty Function>
+
+EMPTY:
+0E61  0000        <Empty Function>
+
+EMPTY:
+0E66  0000        <Empty Function>
+
+EMPTY:
+0E6B  0000        <Empty Function>
+
+EMPTY:
+0E70  0000        <Empty Function>
+
+EMPTY:
+0E75  0000        <Empty Function>
+
+EMPTY:
+0E7A  0000        <Empty Function>
+
+EMPTY:
+0E7F  0000        <Empty Function>
+
+EMPTY:
+0E84  0000        <Empty Function>
+
+EMPTY:
+0E89  0000        <Empty Function>
+
+EMPTY:
+0E8E  0000        <Empty Function>
+
+EMPTY:
+0E93  0000        <Empty Function>
+
+EMPTY:
+0E98  0000        <Empty Function>
+
+EMPTY:
+0E9D  0000        <Empty Function>
+
+EMPTY:
+0EA2  0000        <Empty Function>
+
+EMPTY:
+0EA7  0000        <Empty Function>
+
+EMPTY:
+0EAC  0000        <Empty Function>
+
+EMPTY:
+0EB1  0000        <Empty Function>
+
+EMPTY:
+0EB6  0000        <Empty Function>
+
+EMPTY:
+0EBB  0000        <Empty Function>
+
+EMPTY:
+0EC0  0000        <Empty Function>
+
+EMPTY:
+0EC5  0000        <Empty Function>
+
+EMPTY:
+0ECA  0000        <Empty Function>
+
+EMPTY:
+0ECF  0000        <Empty Function>
+
+EMPTY:
+0ED4  0000        <Empty Function>
+
+EMPTY:
+0ED9  0000        <Empty Function>
+
+EMPTY:
+0EDE  0000        <Empty Function>
+
+EMPTY:
+0EE3  0000        <Empty Function>
+
+EMPTY:
+0EE8  0000        <Empty Function>
+
+EMPTY:
+0EED  0000        <Empty Function>
+
+EMPTY:
+0EF2  0000        <Empty Function>
+
+EMPTY:
+0EF7  0000        <Empty Function>
+
+EMPTY:
+0EFC  0000        <Empty Function>
+
+EMPTY:
+0F01  0000        <Empty Function>
+
+EMPTY:
+0F06  0000        <Empty Function>
+
+EMPTY:
+0F0B  0000        <Empty Function>
+
+EMPTY:
+0F10  0000        <Empty Function>
+
+EMPTY:
+0F15  0000        <Empty Function>
+
+EMPTY:
+0F1A  0000        <Empty Function>
+
+EMPTY:
+0F1F  0000        <Empty Function>
+
+EMPTY:
+0F24  0000        <Empty Function>
+
+EMPTY:
+0F29  0000        <Empty Function>
+
+EMPTY:
+0F2E  0000        <Empty Function>
+
+EMPTY:
+0F33  0000        <Empty Function>
+
+EMPTY:
+0F38  0000        <Empty Function>
+
+EMPTY:
+0F3D  0000        <Empty Function>
+
+EMPTY:
+0F42  0000        <Empty Function>
+
+EMPTY:
+0F47  0000        <Empty Function>
+
+EMPTY:
+0F4C  0000        <Empty Function>
+
+EMPTY:
+0F51  0000        <Empty Function>
+
+EMPTY:
+0F56  0000        <Empty Function>
+
+EMPTY:
+0F5B  0000        <Empty Function>
+
+EMPTY:
+0F60  0000        <Empty Function>
+
+EMPTY:
+0F65  0000        <Empty Function>
+
+EMPTY:
+0F6A  0000        <Empty Function>
+
+EMPTY:
+0F6F  0000        <Empty Function>
+
+EMPTY:
+0F74  0000        <Empty Function>
+
+EMPTY:
+0F79  0000        <Empty Function>
+
+EMPTY:
+0F7E  0000        <Empty Function>
+
+EMPTY:
+0F83  0000        <Empty Function>
+
+EMPTY:
+0F88  0000        <Empty Function>
+
+EMPTY:
+0F8D  0000        <Empty Function>
+
+EMPTY:
+0F92  0000        <Empty Function>
+
+EMPTY:
+0F97  0000        <Empty Function>
+
+EMPTY:
+0F9C  0000        <Empty Function>
+
+EMPTY:
+0FA1  0000        <Empty Function>
+
+EMPTY:
+0FA6  0000        <Empty Function>
+
+EMPTY:
+0FAB  0000        <Empty Function>
+
+EMPTY:
+0FB0  0000        <Empty Function>
+
+EMPTY:
+0FB5  0000        <Empty Function>
+
+EMPTY:
+0FBA  0000        <Empty Function>
+
+EMPTY:
+0FBF  0000        <Empty Function>
+
+EMPTY:
+0FC4  0000        <Empty Function>
+
+EMPTY:
+0FC9  0000        <Empty Function>
+
+EMPTY:
+0FCE  0000        <Empty Function>
+
+EMPTY:
+0FD3  0000        <Empty Function>
+
+EMPTY:
+0FD8  0000        <Empty Function>
+
+EMPTY:
+0FDD  0000        <Empty Function>
+
+EMPTY:
+0FE2  0000        <Empty Function>
+
+EMPTY:
+0FE7  0000        <Empty Function>
+
+EMPTY:
+0FEC  0000        <Empty Function>
+
+EMPTY:
+0FF1  0000        <Empty Function>
+
+EMPTY:
+0FF6  0000        <Empty Function>
+
+EMPTY:
+0FFB  0000        <Empty Function>
+
+EMPTY:
+1000  0000        <Empty Function>
+
+EMPTY:
+1005  0000        <Empty Function>
+
+EMPTY:
+100A  0000        <Empty Function>
+
+EMPTY:
+100F  0000        <Empty Function>
+
+EMPTY:
+1014  0000        <Empty Function>
+
+EMPTY:
+1019  0000        <Empty Function>
+
+EMPTY:
+101E  0000        <Empty Function>
+
+EMPTY:
+1023  0000        <Empty Function>
+
+EMPTY:
+1028  0000        <Empty Function>
+
+EMPTY:
+102D  0000        <Empty Function>
+
+EMPTY:
+1032  0000        <Empty Function>
+
+EMPTY:
+1037  0000        <Empty Function>
+
+EMPTY:
+103C  0000        <Empty Function>
+
+EMPTY:
+1041  0000        <Empty Function>
+
+EMPTY:
+1046  0000        <Empty Function>
+
+EMPTY:
+104B  0000        <Empty Function>
+
+EMPTY:
+1050  0000        <Empty Function>
+
+EMPTY:
+1055  0000        <Empty Function>
+
+EMPTY:
+105A  0000        <Empty Function>
+
+EMPTY:
+105F  0000        <Empty Function>
+
+EMPTY:
+1064  0000        <Empty Function>
+
+EMPTY:
+1069  0000        <Empty Function>
+
+EMPTY:
+106E  0000        <Empty Function>
+
+EMPTY:
+1073  0000        <Empty Function>
+
+EMPTY:
+1078  0000        <Empty Function>
+
+EMPTY:
+107D  0000        <Empty Function>
+
+EMPTY:
+1082  0000        <Empty Function>
+
+EMPTY:
+1087  0000        <Empty Function>
+
+EMPTY:
+108C  0000        <Empty Function>
+
+EMPTY:
+1091  0000        <Empty Function>
+
+EMPTY:
+1096  0000        <Empty Function>
+
+EMPTY:
+109B  0000        <Empty Function>
+
+EMPTY:
+10A0  0000        <Empty Function>
+
+EMPTY:
+10A5  0000        <Empty Function>
+
+EMPTY:
+10AA  0000        <Empty Function>
+
+EMPTY:
+10AF  0000        <Empty Function>
+
+EMPTY:
+10B4  0000        <Empty Function>
+
+EMPTY:
+10B9  0000        <Empty Function>
+
+EMPTY:
+10BE  0000        <Empty Function>
+
+EMPTY:
+10C3  0000        <Empty Function>
+
+EMPTY:
+10C8  0000        <Empty Function>
+
+EMPTY:
+10CD  0000        <Empty Function>
+
+EMPTY:
+10D2  0000        <Empty Function>
+
+EMPTY:
+10D7  0000        <Empty Function>
+
+EMPTY:
+10DC  0000        <Empty Function>
+
+EMPTY:
+10E1  0000        <Empty Function>
+
+EMPTY:
+10E6  0000        <Empty Function>
+
+EMPTY:
+10EB  0000        <Empty Function>
+
+EMPTY:
+10F0  0000        <Empty Function>
+
+EMPTY:
+10F5  0000        <Empty Function>
+
+EMPTY:
+10FA  0000        <Empty Function>
+
+EMPTY:
+10FF  0000        <Empty Function>
+
+EMPTY:
+1104  0000        <Empty Function>
+
+EMPTY:
+1109  0000        <Empty Function>
+
+EMPTY:
+110E  0000        <Empty Function>
+
+EMPTY:
+1113  0000        <Empty Function>
+
+EMPTY:
+1118  0000        <Empty Function>
+
+EMPTY:
+111D  0000        <Empty Function>
+
+EMPTY:
+1122  0000        <Empty Function>
+
+EMPTY:
+1127  0000        <Empty Function>
+
+EMPTY:
+112C  0000        <Empty Function>
+
+EMPTY:
+1131  0000        <Empty Function>
+
+EMPTY:
+1136  0000        <Empty Function>
+
+EMPTY:
+113B  0000        <Empty Function>
+
+EMPTY:
+1140  0000        <Empty Function>
+
+EMPTY:
+1145  0000        <Empty Function>
+
+EMPTY:
+114A  0000        <Empty Function>
+
+EMPTY:
+114F  0000        <Empty Function>
+
+EMPTY:
+1154  0000        <Empty Function>
+
+EMPTY:
+1159  0000        <Empty Function>
+
+EMPTY:
+115E  0000        <Empty Function>
+
+EMPTY:
+1163  0000        <Empty Function>
+
+EMPTY:
+1168  0000        <Empty Function>
+
+EMPTY:
+116D  0000        <Empty Function>
+
+EMPTY:
+1172  0000        <Empty Function>
+
+EMPTY:
+1177  0000        <Empty Function>
+
+EMPTY:
+117C  0000        <Empty Function>
+
+EMPTY:
+1181  0000        <Empty Function>
+
+EMPTY:
+1186  0000        <Empty Function>
+
+EMPTY:
+118B  0000        <Empty Function>
+
+EMPTY:
+1190  0000        <Empty Function>
+
+EMPTY:
+1195  0000        <Empty Function>
+
+EMPTY:
+119A  0000        <Empty Function>
+
+EMPTY:
+119F  0000        <Empty Function>
+
+EMPTY:
+11A4  0000        <Empty Function>
+
+EMPTY:
+11A9  0000        <Empty Function>
+
+EMPTY:
+11AE  0000        <Empty Function>
+
+EMPTY:
+11B3  0000        <Empty Function>
+
+EMPTY:
+11B8  0000        <Empty Function>
+
+EMPTY:
+11BD  0000        <Empty Function>
+
+EMPTY:
+11C2  0000        <Empty Function>
+
+EMPTY:
+11C7  0000        <Empty Function>
+
+EMPTY:
+11CC  0000        <Empty Function>
+
+EMPTY:
+11D1  0000        <Empty Function>
+
+EMPTY:
+11D6  0000        <Empty Function>
+
+EMPTY:
+11DB  0000        <Empty Function>
+
+EMPTY:
+11E0  0000        <Empty Function>
+
+EMPTY:
+11E5  0000        <Empty Function>
+
+EMPTY:
+11EA  0000        <Empty Function>
+
+EMPTY:
+11EF  0000        <Empty Function>
+
+EMPTY:
+11F4  0000        <Empty Function>
+
+EMPTY:
+11F9  0000        <Empty Function>
+
+EMPTY:
+11FE  0000        <Empty Function>
+
+EMPTY:
+1203  0000        <Empty Function>
+
+EMPTY:
+1208  0000        <Empty Function>
+
+EMPTY:
+120D  0000        <Empty Function>
+
+EMPTY:
+1212  0000        <Empty Function>
+
+EMPTY:
+1217  0000        <Empty Function>
+
+EMPTY:
+121C  0000        <Empty Function>
+
+EMPTY:
+1221  0000        <Empty Function>
+
+EMPTY:
+1226  0000        <Empty Function>
+
+EMPTY:
+122B  0000        <Empty Function>
+
+EMPTY:
+1230  0000        <Empty Function>
+
+EMPTY:
+1235  0000        <Empty Function>
+
+EMPTY:
+123A  0000        <Empty Function>
+
+EMPTY:
+123F  0000        <Empty Function>
+
+EMPTY:
+1244  0000        <Empty Function>
+
+EMPTY:
+1249  0000        <Empty Function>
+
+EMPTY:
+124E  0000        <Empty Function>
+
+EMPTY:
+1253  0000        <Empty Function>
+
+STRINGS:
 03FC: The River of Eternity taps your life energy.
 0429: You have died.
 0438: Only the bravest adventurers explore the River for hidden passages.

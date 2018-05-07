@@ -1,665 +1,1275 @@
 CHESLITE_01:
-0000                          BEGIN (saving si)
-0004                          ax = GetNextTile()
-000B                          compare(ax, 0062)
-000E                          If (result.notequal) value jump to 001B
-0010                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0017                          RefreshCompareFlags(ax)
-0019                          If (result.equal) value jump to 0062
-001B                          ax = GetNextTile()
-0022                          compare(ax, 0069)
-0025                          If (result.notequal) value jump to 0033
-0027                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002E                          compare(ax, 0002)
-0031                          If (result.equal) value jump to 0062
-0033                          ax = GetNextTile()
-003A                          compare(ax, 0092)
-003D                          If (result.notequal) value jump to 004A
-003F                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0046                          RefreshCompareFlags(ax)
-0048                          If (result.equal) value jump to 0062
-004A                          ax = GetNextTile()
-0051                          compare(ax, 0099)
-0054                          If (result.notequal) value jump to 0072
-0056                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005D                          compare(ax, 0002)
-0060                          If (result.notequal) value jump to 0072
-0062                          ShowMessage(03FC) = You may leave the chessboard through this opening.
-006F                          Jump to 0193
-0072                          Push(00)
-0075                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007C                          Push(ax)
-007D                          ax = GetNextTile()
-0084                          Push(ax)
-0085                          Move(stk[0], stk[1], stk[2])
-008F                          ax = HasItem(EE)
-009D                          If (result.notequal) value jump to 00A2
-009F                          Jump to 0186
-00A2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00A9                          compare(ax, 0003)
-00AC                          If (result.notequal) value jump to 00BA
-00AE                          ax = GetNextTile()
-00B5                          ax = ax + FFE1
-00B8                          si = ax
-00BA                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00C1                          compare(ax, 0002)
-00C4                          If (result.notequal) value jump to 00D2
-00C6                          ax = GetNextTile()
-00CD                          ax = ax + 0012
-00D0                          si = ax
-00D2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00D9                          compare(ax, 0001)
-00DC                          If (result.notequal) value jump to 00EA
-00DE                          ax = GetNextTile()
-00E5                          ax = ax + 001F
-00E8                          si = ax
-00EA                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00F1                          RefreshCompareFlags(ax)
-00F3                          If (result.notequal) value jump to 0101
-00F5                          ax = GetNextTile()
-00FC                          ax = ax + FFEE
-00FF                          si = ax
-0101                          compare(si, 42)
-0104 7C 05                    jl 0x10b
-0106                          compare(si, 49)
-0109 7E 4E                    jle 0x159
-010B                          compare(si, 52)
-010E 7C 05                    jl 0x115
-0110                          compare(si, 59)
-0113 7E 44                    jle 0x159
-0115                          compare(si, 62)
-0118 7C 05                    jl 0x11f
-011A                          compare(si, 69)
-011D 7E 3A                    jle 0x159
-011F                          compare(si, 72)
-0122 7C 05                    jl 0x129
-0124                          compare(si, 79)
-0127 7E 30                    jle 0x159
-0129 81 FE 82 00              cmp si, 0x82
-012D 7C 06                    jl 0x135
-012F 81 FE 89 00              cmp si, 0x89
-0133 7E 24                    jle 0x159
-0135 81 FE 92 00              cmp si, 0x92
-0139 7C 06                    jl 0x141
-013B 81 FE 99 00              cmp si, 0x99
-013F 7E 18                    jle 0x159
-0141 81 FE A2 00              cmp si, 0xa2
-0145 7C 06                    jl 0x14d
-0147 81 FE A9 00              cmp si, 0xa9
-014B 7E 0C                    jle 0x159
-014D 81 FE B2 00              cmp si, 0xb2
-0151 7C 24                    jl 0x177
-0153 81 FE B9 00              cmp si, 0xb9
-0157 7F 1E                    jg 0x177
-0159                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0160                          GoMap(ax, si, 02, 35)
-0175                          Jump to 0184
-0177                          ShowMessage(042F) = A knight move here would place you off the chessboard!
-0184                          Jump to 0193
-0186                          ShowMessage(0466) = With a chess piece you may step across the chessboard.
-0193                          RETURN (restoring si)
+0002  0000        BEGIN (saving si)
+0006  0004        ax = GetNextTile()
+000D  000B        compare(ax, 0x0062)
+0010  000E        If (result.notequal) jump to 001B
+0012  0010        ax = SetExitability(ax) // ax is usually 0 following equality check
+0019  0017        RefreshCompareFlags(ax)
+001B  0019        If (result.equal) jump to 0062
+001D  001B        ax = GetNextTile()
+0024  0022        compare(ax, 0x0069)
+0027  0025        If (result.notequal) jump to 0033
+0029  0027        ax = SetExitability(ax) // ax is usually 0 following equality check
+0030  002E        compare(ax, 0x0002)
+0033  0031        If (result.equal) jump to 0062
+0035  0033        ax = GetNextTile()
+003C  003A        compare(ax, 0x0092)
+003F  003D        If (result.notequal) jump to 004A
+0041  003F        ax = SetExitability(ax) // ax is usually 0 following equality check
+0048  0046        RefreshCompareFlags(ax)
+004A  0048        If (result.equal) jump to 0062
+004C  004A        ax = GetNextTile()
+0053  0051        compare(ax, 0x0099)
+0056  0054        If (result.notequal) jump to 0072
+0058  0056        ax = SetExitability(ax) // ax is usually 0 following equality check
+005F  005D        compare(ax, 0x0002)
+0062  0060        If (result.notequal) jump to 0072
+0064  0062        ShowMessage(0x03FC) = You may leave the chessboard through this opening.
+0071  006F        Jump to 0193
+0074  0072        Push(00)
+0077  0075        ax = SetExitability(ax) // ax is usually 0 following equality check
+007E  007C        Push(ax)
+007F  007D        ax = GetNextTile()
+0086  0084        Push(ax)
+0087  0085        Move(stk[0], stk[1], stk[2])
+0091  008F        ax = HasItem(0xEE)
+009F  009D        If (result.notequal) jump to 00A2
+00A1  009F        Jump to 0186
+00A4  00A2        ax = SetExitability(ax) // ax is usually 0 following equality check
+00AB  00A9        compare(ax, 0x0003)
+00AE  00AC        If (result.notequal) jump to 00BA
+00B0  00AE        ax = GetNextTile()
+00B7  00B5        ax = ax + 0xFFE1
+00BA  00B8        si = ax
+00BC  00BA        ax = SetExitability(ax) // ax is usually 0 following equality check
+00C3  00C1        compare(ax, 0x0002)
+00C6  00C4        If (result.notequal) jump to 00D2
+00C8  00C6        ax = GetNextTile()
+00CF  00CD        ax = ax + 0x0012
+00D2  00D0        si = ax
+00D4  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+00DB  00D9        compare(ax, 0x0001)
+00DE  00DC        If (result.notequal) jump to 00EA
+00E0  00DE        ax = GetNextTile()
+00E7  00E5        ax = ax + 0x001F
+00EA  00E8        si = ax
+00EC  00EA        ax = SetExitability(ax) // ax is usually 0 following equality check
+00F3  00F1        RefreshCompareFlags(ax)
+00F5  00F3        If (result.notequal) jump to 0101
+00F7  00F5        ax = GetNextTile()
+00FE  00FC        ax = ax + 0xFFEE
+0101  00FF        si = ax
+0103  0101        compare(si, 0x42)
+0106  0104        If (result.less) jump to 010B
+0108  0106        compare(si, 0x49)
+010B  0109        If (result.notgreater) jump to 0159
+010D  010B        compare(si, 0x52)
+0110  010E        If (result.less) jump to 0115
+0112  0110        compare(si, 0x59)
+0115  0113        If (result.notgreater) jump to 0159
+0117  0115        compare(si, 0x62)
+011A  0118        If (result.less) jump to 011F
+011C  011A        compare(si, 0x69)
+011F  011D        If (result.notgreater) jump to 0159
+0121  011F        compare(si, 0x72)
+0124  0122        If (result.less) jump to 0129
+0126  0124        compare(si, 0x79)
+0129  0127        If (result.notgreater) jump to 0159
+012B  0129        compare(si, 0x0082)
+012F  012D        If (result.less) jump to 0135
+0131  012F        compare(si, 0x0089)
+0135  0133        If (result.notgreater) jump to 0159
+0137  0135        compare(si, 0x0092)
+013B  0139        If (result.less) jump to 0141
+013D  013B        compare(si, 0x0099)
+0141  013F        If (result.notgreater) jump to 0159
+0143  0141        compare(si, 0x00A2)
+0147  0145        If (result.less) jump to 014D
+0149  0147        compare(si, 0x00A9)
+014D  014B        If (result.notgreater) jump to 0159
+014F  014D        compare(si, 0x00B2)
+0153  0151        If (result.less) jump to 0177
+0155  0153        compare(si, 0x00B9)
+0159  0157        If (result.greater) jump to 0177
+015B  0159        ax = SetExitability(ax) // ax is usually 0 following equality check
+0162  0160        GoMap(ax, si, 0x02, 0x35)
+0177  0175        Jump to 0184
+0179  0177        ShowMessage(0x042F) = A knight move here would place you off the chessboard!
+0186  0184        Jump to 0193
+0188  0186        ShowMessage(0x0466) = With a chess piece you may step across the chessboard.
+0195  0193        RETURN (restoring si)
 
 CHESDARK_02:
-0000                          BEGIN (saving si)
-0004                          ax = GetNextTile()
-000B                          compare(ax, 0062)
-000E                          If (result.notequal) value jump to 001B
-0010                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0017                          RefreshCompareFlags(ax)
-0019                          If (result.equal) value jump to 0062
-001B                          ax = GetNextTile()
-0022                          compare(ax, 0069)
-0025                          If (result.notequal) value jump to 0033
-0027                          ax = SetExitability(ax) // ax is usually 0 following equality check
-002E                          compare(ax, 0002)
-0031                          If (result.equal) value jump to 0062
-0033                          ax = GetNextTile()
-003A                          compare(ax, 0092)
-003D                          If (result.notequal) value jump to 004A
-003F                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0046                          RefreshCompareFlags(ax)
-0048                          If (result.equal) value jump to 0062
-004A                          ax = GetNextTile()
-0051                          compare(ax, 0099)
-0054                          If (result.notequal) value jump to 0072
-0056                          ax = SetExitability(ax) // ax is usually 0 following equality check
-005D                          compare(ax, 0002)
-0060                          If (result.notequal) value jump to 0072
-0062                          ShowMessage(049D) = You may leave the chessboard through this opening.
-006F                          Jump to 0193
-0072                          Push(00)
-0075                          ax = SetExitability(ax) // ax is usually 0 following equality check
-007C                          Push(ax)
-007D                          ax = GetNextTile()
-0084                          Push(ax)
-0085                          Move(stk[0], stk[1], stk[2])
-008F                          ax = HasItem(EE)
-009D                          If (result.notequal) value jump to 00A2
-009F                          Jump to 0186
-00A2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00A9                          compare(ax, 0003)
-00AC                          If (result.notequal) value jump to 00BA
-00AE                          ax = GetNextTile()
-00B5                          ax = ax + FFDF
-00B8                          si = ax
-00BA                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00C1                          compare(ax, 0002)
-00C4                          If (result.notequal) value jump to 00D2
-00C6                          ax = GetNextTile()
-00CD                          ax = ax + FFF2
-00D0                          si = ax
-00D2                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00D9                          compare(ax, 0001)
-00DC                          If (result.notequal) value jump to 00EA
-00DE                          ax = GetNextTile()
-00E5                          ax = ax + 0021
-00E8                          si = ax
-00EA                          ax = SetExitability(ax) // ax is usually 0 following equality check
-00F1                          RefreshCompareFlags(ax)
-00F3                          If (result.notequal) value jump to 0101
-00F5                          ax = GetNextTile()
-00FC                          ax = ax + 000E
-00FF                          si = ax
-0101                          compare(si, 42)
-0104 7C 05                    jl 0x10b
-0106                          compare(si, 49)
-0109 7E 4E                    jle 0x159
-010B                          compare(si, 52)
-010E 7C 05                    jl 0x115
-0110                          compare(si, 59)
-0113 7E 44                    jle 0x159
-0115                          compare(si, 62)
-0118 7C 05                    jl 0x11f
-011A                          compare(si, 69)
-011D 7E 3A                    jle 0x159
-011F                          compare(si, 72)
-0122 7C 05                    jl 0x129
-0124                          compare(si, 79)
-0127 7E 30                    jle 0x159
-0129 81 FE 82 00              cmp si, 0x82
-012D 7C 06                    jl 0x135
-012F 81 FE 89 00              cmp si, 0x89
-0133 7E 24                    jle 0x159
-0135 81 FE 92 00              cmp si, 0x92
-0139 7C 06                    jl 0x141
-013B 81 FE 99 00              cmp si, 0x99
-013F 7E 18                    jle 0x159
-0141 81 FE A2 00              cmp si, 0xa2
-0145 7C 06                    jl 0x14d
-0147 81 FE A9 00              cmp si, 0xa9
-014B 7E 0C                    jle 0x159
-014D 81 FE B2 00              cmp si, 0xb2
-0151 7C 24                    jl 0x177
-0153 81 FE B9 00              cmp si, 0xb9
-0157 7F 1E                    jg 0x177
-0159                          ax = SetExitability(ax) // ax is usually 0 following equality check
-0160                          GoMap(ax, si, 02, 35)
-0175                          Jump to 0184
-0177                          ShowMessage(04D0) = A knight move here would place you off the chessboard!
-0184                          Jump to 0193
-0186                          ShowMessage(0507) = With a chess piece you may step across the chessboard.
-0193                          RETURN (restoring si)
+0198  0000        BEGIN (saving si)
+019C  0004        ax = GetNextTile()
+01A3  000B        compare(ax, 0x0062)
+01A6  000E        If (result.notequal) jump to 001B
+01A8  0010        ax = SetExitability(ax) // ax is usually 0 following equality check
+01AF  0017        RefreshCompareFlags(ax)
+01B1  0019        If (result.equal) jump to 0062
+01B3  001B        ax = GetNextTile()
+01BA  0022        compare(ax, 0x0069)
+01BD  0025        If (result.notequal) jump to 0033
+01BF  0027        ax = SetExitability(ax) // ax is usually 0 following equality check
+01C6  002E        compare(ax, 0x0002)
+01C9  0031        If (result.equal) jump to 0062
+01CB  0033        ax = GetNextTile()
+01D2  003A        compare(ax, 0x0092)
+01D5  003D        If (result.notequal) jump to 004A
+01D7  003F        ax = SetExitability(ax) // ax is usually 0 following equality check
+01DE  0046        RefreshCompareFlags(ax)
+01E0  0048        If (result.equal) jump to 0062
+01E2  004A        ax = GetNextTile()
+01E9  0051        compare(ax, 0x0099)
+01EC  0054        If (result.notequal) jump to 0072
+01EE  0056        ax = SetExitability(ax) // ax is usually 0 following equality check
+01F5  005D        compare(ax, 0x0002)
+01F8  0060        If (result.notequal) jump to 0072
+01FA  0062        ShowMessage(0x049D) = You may leave the chessboard through this opening.
+0207  006F        Jump to 0193
+020A  0072        Push(00)
+020D  0075        ax = SetExitability(ax) // ax is usually 0 following equality check
+0214  007C        Push(ax)
+0215  007D        ax = GetNextTile()
+021C  0084        Push(ax)
+021D  0085        Move(stk[0], stk[1], stk[2])
+0227  008F        ax = HasItem(0xEE)
+0235  009D        If (result.notequal) jump to 00A2
+0237  009F        Jump to 0186
+023A  00A2        ax = SetExitability(ax) // ax is usually 0 following equality check
+0241  00A9        compare(ax, 0x0003)
+0244  00AC        If (result.notequal) jump to 00BA
+0246  00AE        ax = GetNextTile()
+024D  00B5        ax = ax + 0xFFDF
+0250  00B8        si = ax
+0252  00BA        ax = SetExitability(ax) // ax is usually 0 following equality check
+0259  00C1        compare(ax, 0x0002)
+025C  00C4        If (result.notequal) jump to 00D2
+025E  00C6        ax = GetNextTile()
+0265  00CD        ax = ax + 0xFFF2
+0268  00D0        si = ax
+026A  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+0271  00D9        compare(ax, 0x0001)
+0274  00DC        If (result.notequal) jump to 00EA
+0276  00DE        ax = GetNextTile()
+027D  00E5        ax = ax + 0x0021
+0280  00E8        si = ax
+0282  00EA        ax = SetExitability(ax) // ax is usually 0 following equality check
+0289  00F1        RefreshCompareFlags(ax)
+028B  00F3        If (result.notequal) jump to 0101
+028D  00F5        ax = GetNextTile()
+0294  00FC        ax = ax + 0x000E
+0297  00FF        si = ax
+0299  0101        compare(si, 0x42)
+029C  0104        If (result.less) jump to 010B
+029E  0106        compare(si, 0x49)
+02A1  0109        If (result.notgreater) jump to 0159
+02A3  010B        compare(si, 0x52)
+02A6  010E        If (result.less) jump to 0115
+02A8  0110        compare(si, 0x59)
+02AB  0113        If (result.notgreater) jump to 0159
+02AD  0115        compare(si, 0x62)
+02B0  0118        If (result.less) jump to 011F
+02B2  011A        compare(si, 0x69)
+02B5  011D        If (result.notgreater) jump to 0159
+02B7  011F        compare(si, 0x72)
+02BA  0122        If (result.less) jump to 0129
+02BC  0124        compare(si, 0x79)
+02BF  0127        If (result.notgreater) jump to 0159
+02C1  0129        compare(si, 0x0082)
+02C5  012D        If (result.less) jump to 0135
+02C7  012F        compare(si, 0x0089)
+02CB  0133        If (result.notgreater) jump to 0159
+02CD  0135        compare(si, 0x0092)
+02D1  0139        If (result.less) jump to 0141
+02D3  013B        compare(si, 0x0099)
+02D7  013F        If (result.notgreater) jump to 0159
+02D9  0141        compare(si, 0x00A2)
+02DD  0145        If (result.less) jump to 014D
+02DF  0147        compare(si, 0x00A9)
+02E3  014B        If (result.notgreater) jump to 0159
+02E5  014D        compare(si, 0x00B2)
+02E9  0151        If (result.less) jump to 0177
+02EB  0153        compare(si, 0x00B9)
+02EF  0157        If (result.greater) jump to 0177
+02F1  0159        ax = SetExitability(ax) // ax is usually 0 following equality check
+02F8  0160        GoMap(ax, si, 0x02, 0x35)
+030D  0175        Jump to 0184
+030F  0177        ShowMessage(0x04D0) = A knight move here would place you off the chessboard!
+031C  0184        Jump to 0193
+031E  0186        ShowMessage(0x0507) = With a chess piece you may step across the chessboard.
+032B  0193        RETURN (restoring si)
 
 VOID_03:
-0000                          BEGIN
-0003                          ShowMessage(053E) = You fall to your death in the lava below!
-0010                          ax = GetMaxHits()
-0017                          DoDamage(ax)
-0021                          RETURN
+032E  0000        BEGIN
+0331  0003        ShowMessage(0x053E) = You fall to your death in the lava below!
+033E  0010        ax = GetMaxHits()
+0345  0017        DoDamage(ax)
+034F  0021        RETURN
 
 POKERBRG_04:
-0000                          BEGIN
-0003                          ShowMessage(0568) = Planks of the Poker Bridge are made from used playing cards.
-0010                          ax = CheckState(01, 01)
-0021                          compare(ax, 0001)
-0024                          If (result.notequal) value jump to 0056
-0026                          ShowMessage(05A5) = The rickety bridge barely holds your weight.
-0033                          SetTileFloor(DD, 00)
-0041                          cx = Pop()
-0042                          cx = Pop()
-0043                          Move(01, DD)
-0054                          Jump to 0081
-0056                          ShowMessage(05D2) = The bridge collapses as you step on it, sending you to your death.
-0063                          ShowMessage(0615) = The King laughs at his clever ruse.
-0070                          ax = GetMaxHits()
-0077                          DoDamage(ax)
-0081                          RETURN
+0351  0000        BEGIN
+0354  0003        ShowMessage(0x0568) = Planks of the Poker Bridge are made from used playing cards.
+0361  0010        ax = CheckState(0x01, 0x01)
+0372  0021        compare(ax, 0x0001)
+0375  0024        If (result.notequal) jump to 0056
+0377  0026        ShowMessage(0x05A5) = The rickety bridge barely holds your weight.
+0384  0033        SetTileFloor(0xDD, 00)
+0392  0041        cx = Pop()
+0393  0042        cx = Pop()
+0394  0043        Move(0x01, 0xDD)
+03A5  0054        Jump to 0081
+03A7  0056        ShowMessage(0x05D2) = The bridge collapses as you step on it, sending you to your death.
+03B4  0063        ShowMessage(0x0615) = The King laughs at his clever ruse.
+03C1  0070        ax = GetMaxHits()
+03C8  0077        DoDamage(ax)
+03D2  0081        RETURN
 
 POKERSW_05:
-0000                          BEGIN
-0003                          ax = UsedItem(EC, EC)
-0016                          If (result.equal) value jump to 005D
-0018                          SetState(01, 01, 01)
-002D                          SetTileFloor(DD, 00)
-003B                          cx = Pop()
-003C                          cx = Pop()
-003D                          Move(01, DD)
-004E                          ShowMessage(0639) = The royal flush beats the Joker!  A bridge forms across the pit.
-005B                          Jump to 0077
-005D                          ShowMessage(067A) = A bottomless pit lies before you, and a broken bridge spans the pit.
-006A                          ShowMessage(06BF) = Upon each board are the symbols for 10, Jack, Queen and Ace.  A voice proclaims, 'I call your bluff'.
-0077                          RETURN
+03D4  0000        BEGIN
+03D7  0003        ax = UsedItem(0xEC, 0xEC)
+03EA  0016        If (result.equal) jump to 005D
+03EC  0018        SetState(0x01, 0x01, 0x01)
+0401  002D        SetTileFloor(0xDD, 00)
+040F  003B        cx = Pop()
+0410  003C        cx = Pop()
+0411  003D        Move(0x01, 0xDD)
+0422  004E        ShowMessage(0x0639) = The royal flush beats the Joker!  A bridge forms across the pit.
+042F  005B        Jump to 0077
+0431  005D        ShowMessage(0x067A) = A bottomless pit lies before you, and a broken bridge spans the pit.
+043E  006A        ShowMessage(0x06BF) = Upon each board are the symbols for 10, Jack, Queen and Ace.  A voice proclaims, 'I call your bluff'.
+044B  0077        RETURN
 
 HEARTSDR_06:
-0000                          BEGIN
-0003                          ShowMessage(0725) = The door bellows, 'I am all hearts!'
-0010                          RETURN
+044D  0000        BEGIN
+0450  0003        ShowMessage(0x0725) = The door bellows, 'I am all hearts!'
+045D  0010        RETURN
 
 MOONSW_07:
-0000                          BEGIN
-0003                          ax = UsedItem(EB, EB)
-0016                          If (result.equal) value jump to 0053
-0018                          Push(03)
-001C                          Push(BF)
-0020                          Push(01)
-0024                          SetUnblocked()
-002E                          Move(01, 03, BF)
-0044                          ShowMessage(074A) = The door proclaims,  'You shot the Moon!'
-0051                          Jump to 0060
-0053                          ShowMessage(0774) = A small button, shaped like the crescent moon, lies just out of reach.
-0060                          RETURN
+045F  0000        BEGIN
+0462  0003        ax = UsedItem(0xEB, 0xEB)
+0475  0016        If (result.equal) jump to 0053
+0477  0018        Push(03)
+047B  001C        Push(BF)
+047F  0020        Push(01)
+0483  0024        SetUnblocked()
+048D  002E        Move(0x01, 0x03, 0xBF)
+04A3  0044        ShowMessage(0x074A) = The door proclaims,  'You shot the Moon!'
+04B0  0051        Jump to 0060
+04B2  0053        ShowMessage(0x0774) = A small button, shaped like the crescent moon, lies just out of reach.
+04BF  0060        RETURN
 
 BLAKJAK_08:
-0000                          BEGIN
-0003                          ax = UsedItem(ED, ED)
-0016                          If (result.equal) value jump to 0060
-0018                          Push(01)
-001C                          Push(8D)
-0020                          Push(01)
-0024                          SetUnblocked()
-002E                          Move(01, 01, 8D)
-0044                          ShowMessage(07BB) = The Ace is played as eleven points, scoring the BlackJack!
-0051                          ShowMessage(07F6) = A door unlocks...
-005E                          Jump to 007A
-0060                          ShowMessage(0808) = You enter a treasure room without any treasure.
-006D                          ShowMessage(0838) = A dwarf thief voice menacingly orders, 'The Kings guard their treasure.  Only one can find it.'
-007A                          RETURN
+04C1  0000        BEGIN
+04C4  0003        ax = UsedItem(0xED, 0xED)
+04D7  0016        If (result.equal) jump to 0060
+04D9  0018        Push(01)
+04DD  001C        Push(8D)
+04E1  0020        Push(01)
+04E5  0024        SetUnblocked()
+04EF  002E        Move(0x01, 0x01, 0x8D)
+0505  0044        ShowMessage(0x07BB) = The Ace is played as eleven points, scoring the BlackJack!
+0512  0051        ShowMessage(0x07F6) = A door unlocks...
+051F  005E        Jump to 007A
+0521  0060        ShowMessage(0x0808) = You enter a treasure room without any treasure.
+052E  006D        ShowMessage(0x0838) = A dwarf thief voice menacingly orders, 'The Kings guard their treasure.  Only one can find it.'
+053B  007A        RETURN
 
 BLAKJAKK_09:
-0000                          BEGIN
-0003                          ShowMessage(0898) = Stand back!  A King guards this wall!
-0010                          RETURN
+053D  0000        BEGIN
+0540  0003        ShowMessage(0x0898) = Stand back!  A King guards this wall!
+054D  0010        RETURN
 
 CRIB_0A:
-0000                          BEGIN
-0003                          ax = UsedItem(EA, EA)
-0016                          If (result.equal) value jump to 0060
-0018                          Push(03)
-001C                          Push(7D)
-0020                          Push(01)
-0024                          SetUnblocked()
-002E                          Move(01, 03, 7D)
-0044                          ShowMessage(08BE) = The Jack scores the hand 22.  Cribbage is the game.
-0051                          ShowMessage(08F2) = A door unlocks...
-005E                          Jump to 0087
-0060                          ShowMessage(0904) = The 22nd room of this fine castle...
-006D                          ShowMessage(0929) = On the floor is a five, on two walls are fives, and the third wall holds a Jack.
-007A                          ShowMessage(097A) = A voice laughs, 'You stand on face up!'
-0087                          RETURN
+054F  0000        BEGIN
+0552  0003        ax = UsedItem(0xEA, 0xEA)
+0565  0016        If (result.equal) jump to 0060
+0567  0018        Push(03)
+056B  001C        Push(7D)
+056F  0020        Push(01)
+0573  0024        SetUnblocked()
+057D  002E        Move(0x01, 0x03, 0x7D)
+0593  0044        ShowMessage(0x08BE) = The Jack scores the hand 22.  Cribbage is the game.
+05A0  0051        ShowMessage(0x08F2) = A door unlocks...
+05AD  005E        Jump to 0087
+05AF  0060        ShowMessage(0x0904) = The 22nd room of this fine castle...
+05BC  006D        ShowMessage(0x0929) = On the floor is a five, on two walls are fives, and the third wall holds a Jack.
+05C9  007A        ShowMessage(0x097A) = A voice laughs, 'You stand on face up!'
+05D6  0087        RETURN
 
 CRIBJACK_0B:
-0000                          BEGIN
-0003                          ShowMessage(09A2) = I, the Jack, throw dust in your general direction.
-0010                          RETURN
+05D8  0000        BEGIN
+05DB  0003        ShowMessage(0x09A2) = I, the Jack, throw dust in your general direction.
+05E8  0010        RETURN
 
 CRIBFIVE_0C:
-0000                          BEGIN
-0003                          ShowMessage(09D5) = The 5 card smiles back.
-0010                          RETURN
+05EA  0000        BEGIN
+05ED  0003        ShowMessage(0x09D5) = The 5 card smiles back.
+05FA  0010        RETURN
 
 BRDGFALL_0D:
-0000                          BEGIN
-0003                          ShowMessage(09ED) = The Poker Bridge behind you collapses.
-0010                          SetState(01, 01, 00)
-0024                          SetTileFloor(DD, 01)
-0035                          RETURN
+05FC  0000        BEGIN
+05FF  0003        ShowMessage(0x09ED) = The Poker Bridge behind you collapses.
+060C  0010        SetState(0x01, 0x01, 0x00)
+0620  0024        SetTileFloor(0xDD, 0x01)
+0631  0035        RETURN
 
 DICEPASS_0E:
-0000                          BEGIN
-0003                          ShowMessage(0A14) = Lucky Sevens! Lucky Sevens on the first roll!
-0010                          RETURN
+0633  0000        BEGIN
+0636  0003        ShowMessage(0x0A14) = Lucky Sevens! Lucky Sevens on the first roll!
+0643  0010        RETURN
 
 DICESNAK_0F:
-0000                          BEGIN
-0003                          ShowMessage(0A42) = The door says, 'Snake eyes' ...
-0010                          RETURN
+0645  0000        BEGIN
+0648  0003        ShowMessage(0x0A42) = The door says, 'Snake eyes' ...
+0655  0010        RETURN
 
 DICEBOXC_10:
-0000                          BEGIN
-0003                          ShowMessage(0A62) = The door shows two squares of six.  'Box Cars' ...
-0010                          RETURN
+0657  0000        BEGIN
+065A  0003        ShowMessage(0x0A62) = The door shows two squares of six.  'Box Cars' ...
+0667  0010        RETURN
 
 DICEENCA_11:
-0000                          BEGIN
-0003                          AddEncounter(0A, 01)
-0015                          AddEncounter(0A, 02)
-0027                          AddEncounter(0A, 03)
-0039                          AddEncounter(0A, 04)
-004B                          AddEncounter(04, 05)
-005D                          AddEncounter(04, 06)
-006F                          RETURN
+0669  0000        BEGIN
+066C  0003        AddEncounter(0x0A, 0x01)
+067E  0015        AddEncounter(0x0A, 0x02)
+0690  0027        AddEncounter(0x0A, 0x03)
+06A2  0039        AddEncounter(0x0A, 0x04)
+06B4  004B        AddEncounter(0x04, 0x05)
+06C6  005D        AddEncounter(0x04, 0x06)
+06D8  006F        RETURN
 
 DICEENCB_12:
-0000                          BEGIN
-0003                          AddEncounter(0A, 01)
-0015                          AddEncounter(0A, 02)
-0027                          AddEncounter(0A, 03)
-0039                          AddEncounter(0A, 04)
-004B                          AddEncounter(0A, 05)
-005D                          AddEncounter(0A, 06)
-006F                          RETURN
+06DA  0000        BEGIN
+06DD  0003        AddEncounter(0x0A, 0x01)
+06EF  0015        AddEncounter(0x0A, 0x02)
+0701  0027        AddEncounter(0x0A, 0x03)
+0713  0039        AddEncounter(0x0A, 0x04)
+0725  004B        AddEncounter(0x0A, 0x05)
+0737  005D        AddEncounter(0x0A, 0x06)
+0749  006F        RETURN
 
 BLJKFOUN_13:
-0000                          BEGIN
-0003                          ShowMessage(0A95) = The Blackjack Fountain is made of playing cards.
-0010                          ax = CheckState(02, 7E)
-0021                          RefreshCompareFlags(ax)
-0023                          If (result.equal) value jump to 0028
-0025                          Jump to 00AF
-0028                          SetState(02, 7E, 01)
-003D                          RemoveItem(EA)
-0049                          ShowPortrait(0042)
-0056                          ModifyAttribute(02, 0003)
-0068                          ax = GetMaxHits()
-006F                          AddHealth(ax)
-0079                          ShowMessage(0AC6) = Still water fills the basin.
-0086                          ShowMessage(0AE3) = A sip of it makes you feel healthier and more agile.
-0093                          ShowMessage(0B18) = As you sip, a voice whispers -
-00A0                          ShowMessage(0B37) = 'The Jack has come home.  Thank you for your help.'
-00AD                          Jump to 00BC
-00AF                          ShowMessage(0B6B) = The fountain is dry as a bone.
-00BC                          RETURN
+074B  0000        BEGIN
+074E  0003        ShowMessage(0x0A95) = The Blackjack Fountain is made of playing cards.
+075B  0010        ax = CheckState(0x02, 0x7E)
+076C  0021        RefreshCompareFlags(ax)
+076E  0023        If (result.equal) jump to 0028
+0770  0025        Jump to 00AF
+0773  0028        SetState(0x02, 0x7E, 0x01)
+0788  003D        RemoveItem(0xEA)
+0794  0049        ShowPortrait(0x0042)
+07A1  0056        ModifyAttribute(0x02, 0x0003)
+07B3  0068        ax = GetMaxHits()
+07BA  006F        AddHealth(ax)
+07C4  0079        ShowMessage(0x0AC6) = Still water fills the basin.
+07D1  0086        ShowMessage(0x0AE3) = A sip of it makes you feel healthier and more agile.
+07DE  0093        ShowMessage(0x0B18) = As you sip, a voice whispers -
+07EB  00A0        ShowMessage(0x0B37) = 'The Jack has come home.  Thank you for your help.'
+07F8  00AD        Jump to 00BC
+07FA  00AF        ShowMessage(0x0B6B) = The fountain is dry as a bone.
+0807  00BC        RETURN
 
 CRIBFOUN_14:
-0000                          BEGIN
-0003                          ShowMessage(0B8A) = The Cribbage Fountain is bedecked with golden pegs.
-0010                          ax = CheckState(02, 7F)
-0021                          RefreshCompareFlags(ax)
-0023                          If (result.equal) value jump to 0028
-0025                          Jump to 00AB
-0028                          SetState(02, 7F, 01)
-003D                          ShowPortrait(0042)
-004A                          RemoveItem(ED)
-0056                          ModifyAttribute(03, 0003)
-0068                          AddMana(0BB8)
-0075                          ShowMessage(0BBE) = A puff of steam from the fountain blows in your face.
-0082                          ShowMessage(0BF4) = Your Mana is restored and you feel readier to fight.
-008F                          ShowMessage(0C29) = A voice whispers -
-009C                          ShowMessage(0C3C) = 'The Ace has returned.  Three points for you.'
-00A9                          Jump to 00B8
-00AB                          ShowMessage(0C6B) = The basin is empty.
-00B8                          RETURN
+0809  0000        BEGIN
+080C  0003        ShowMessage(0x0B8A) = The Cribbage Fountain is bedecked with golden pegs.
+0819  0010        ax = CheckState(0x02, 0x7F)
+082A  0021        RefreshCompareFlags(ax)
+082C  0023        If (result.equal) jump to 0028
+082E  0025        Jump to 00AB
+0831  0028        SetState(0x02, 0x7F, 0x01)
+0846  003D        ShowPortrait(0x0042)
+0853  004A        RemoveItem(0xED)
+085F  0056        ModifyAttribute(0x03, 0x0003)
+0871  0068        AddMana(0x0BB8)
+087E  0075        ShowMessage(0x0BBE) = A puff of steam from the fountain blows in your face.
+088B  0082        ShowMessage(0x0BF4) = Your Mana is restored and you feel readier to fight.
+0898  008F        ShowMessage(0x0C29) = A voice whispers -
+08A5  009C        ShowMessage(0x0C3C) = 'The Ace has returned.  Three points for you.'
+08B2  00A9        Jump to 00B8
+08B4  00AB        ShowMessage(0x0C6B) = The basin is empty.
+08C1  00B8        RETURN
 
 DICETRSA_15:
-0000                          BEGIN
-0003                          ShowMessage(0C7F) = A message is inscribed on a wall -- 
-0010                          ShowRunes(0CA4) = 'The Waters of Winter are needed to transform Spring into Summer.
-001D                          ShowRunes(0CE6) = In return for your deeds, you will receive the Radiance of Summer.'
-002A                          RETURN
+08C3  0000        BEGIN
+08C6  0003        ShowMessage(0x0C7F) = A message is inscribed on a wall -- 
+08D3  0010        ShowRunes(0x0CA4) = 'The Waters of Winter are needed to transform Spring into Summer.
+08E0  001D        ShowRunes(0x0CE6) = In return for your deeds, you will receive the Radiance of Summer.'
+08ED  002A        RETURN
 
 DICETRSB_16:
-0000                          BEGIN
-0003                          ShowMessage(0D2A) = A note is inscribed on a wall -- 
-0010                          ShowRunes(0D4C) = 'To reach En-Li-Kil, you must defeat his Wind Elemental.
-001D                          ShowRunes(0D85) = Remember to use weapons that do not break when the Wind Elemental attacks.
-002A                          RETURN
+08EF  0000        BEGIN
+08F2  0003        ShowMessage(0x0D2A) = A note is inscribed on a wall -- 
+08FF  0010        ShowRunes(0x0D4C) = 'To reach En-Li-Kil, you must defeat his Wind Elemental.
+090C  001D        ShowRunes(0x0D85) = Remember to use weapons that do not break when the Wind Elemental attacks.
+0919  002A        RETURN
 
 DICETRSC_17:
-0000                          BEGIN
-0003                          ShowMessage(0DD0) = A message is written in blood on a wall -- 
-0010                          ShowRunes(0DFC) = 'Be careful in the River of Eternity.
-001D                          ShowRunes(0E22) = The river takes one fourth of your full health every step you take with no opportunity to heal.
-002A                          ShowRunes(0E82) = 'A safe fourth square must be found to cross the Rivers of Eternity.'
-0037                          RETURN
+091B  0000        BEGIN
+091E  0003        ShowMessage(0x0DD0) = A message is written in blood on a wall -- 
+092B  0010        ShowRunes(0x0DFC) = 'Be careful in the River of Eternity.
+0938  001D        ShowRunes(0x0E22) = The river takes one fourth of your full health every step you take with no opportunity to heal.
+0945  002A        ShowRunes(0x0E82) = 'A safe fourth square must be found to cross the Rivers of Eternity.'
+0952  0037        RETURN
 
 DICETRSD_18:
-0000                          BEGIN
-0003                          ShowMessage(0EC8) = A message is written on a wall -- 
-0010                          ShowRunes(0EEB) = 'Use the outer walls to set the location of another's next step in the Parapet Chasm.
-001D                          ShowRunes(0F41) = Once across, encounter Andreas to gain access to Arnakkian.'
-002A                          RETURN
+0954  0000        BEGIN
+0957  0003        ShowMessage(0x0EC8) = A message is written on a wall -- 
+0964  0010        ShowRunes(0x0EEB) = 'Use the outer walls to set the location of another's next step in the Parapet Chasm.
+0971  001D        ShowRunes(0x0F41) = Once across, encounter Andreas to gain access to Arnakkian.'
+097E  002A        RETURN
 
 DICETRSE_19:
-0000                          BEGIN
-0003                          ShowMessage(0F7E) = A message is written on a wall -- 
-0010                          ShowRunes(0FA1) = 'The Promise of Spring Renewal must be sworn to convert Autumn to Winter.
-001D                          ShowRunes(0FEB) = In return you will receive the cold Waters of Winter.'
-002A                          RETURN
+0980  0000        BEGIN
+0983  0003        ShowMessage(0x0F7E) = A message is written on a wall -- 
+0990  0010        ShowRunes(0x0FA1) = 'The Promise of Spring Renewal must be sworn to convert Autumn to Winter.
+099D  001D        ShowRunes(0x0FEB) = In return you will receive the cold Waters of Winter.'
+09AA  002A        RETURN
 
 DICETRSF_1A:
-0000                          BEGIN
-0003                          ShowPortrait(001F)
-0010                          ShowMessage(1022) = An Elf Ranger appears.
-001D                          ShowMessage(1039) = 'In levels below the labyrinth, Snow Elves hide from the curses 
-002A                          ShowMessage(107A) = of Arnakkian and await the day they may return to their faraway land.
-0037                          ShowMessage(10C0) = A proud tree may be found in their caves.
-0044                          ShowMessage(10EA) = The Snow Elves call this grand tree the Aldbora.
-0051                          ShowMessage(111B) = The Aldbora bears the fruit of knowledge to all adventurers during the season of winter.
-005E                          ShowMessage(1174) = It lies dormant now, unable to ripen its fruit without the change of seasons and the Radiance of Summer.'
-006B                          RETURN
+09AC  0000        BEGIN
+09AF  0003        ShowPortrait(0x001F)
+09BC  0010        ShowMessage(0x1022) = An Elf Ranger appears.
+09C9  001D        ShowMessage(0x1039) = 'In levels below the labyrinth, Snow Elves hide from the curses 
+09D6  002A        ShowMessage(0x107A) = of Arnakkian and await the day they may return to their faraway land.
+09E3  0037        ShowMessage(0x10C0) = A proud tree may be found in their caves.
+09F0  0044        ShowMessage(0x10EA) = The Snow Elves call this grand tree the Aldbora.
+09FD  0051        ShowMessage(0x111B) = The Aldbora bears the fruit of knowledge to all adventurers during the season of winter.
+0A0A  005E        ShowMessage(0x1174) = It lies dormant now, unable to ripen its fruit without the change of seasons and the Radiance of Summer.'
+0A17  006B        RETURN
 
 DICETRSG_1B:
-0000                          BEGIN
-0003                          ShowMessage(11DE) = A message is scrawled on a wall -- 
-0010                          ShowRunes(1202) = 'Use the Autumn Seeds to transform Winter into flowering Spring.
-001D                          ShowRunes(1243) = The promise of Spring Renewal for another year will be given in return.'
-002A                          RETURN
+0A19  0000        BEGIN
+0A1C  0003        ShowMessage(0x11DE) = A message is scrawled on a wall -- 
+0A29  0010        ShowRunes(0x1202) = 'Use the Autumn Seeds to transform Winter into flowering Spring.
+0A36  001D        ShowRunes(0x1243) = The promise of Spring Renewal for another year will be given in return.'
+0A43  002A        RETURN
 
 DICETRSH_1C:
-0000                          BEGIN
-0003                          ShowMessage(128C) = A message is carved in the floor -- 
-0010                          ShowRunes(12B1) = 'The bones of a past king may be found in the Elven Caves.'
-001D                          RETURN
+0A45  0000        BEGIN
+0A48  0003        ShowMessage(0x128C) = A message is carved in the floor -- 
+0A55  0010        ShowRunes(0x12B1) = 'The bones of a past king may be found in the Elven Caves.'
+0A62  001D        RETURN
 
 DICETRSI_1D:
-0000                          BEGIN
-0003                          ShowMessage(12ED) = A message is scribbled on a wall -- 
-0010                          ShowRunes(1312) = 'The trumpet sound of the Harvest Horn will announce Summer's conversion to Autumn.
-001D                          ShowRunes(1366) = From the conversion you will receive the seeds of Autumn.'
-002A                          RETURN
+0A64  0000        BEGIN
+0A67  0003        ShowMessage(0x12ED) = A message is scribbled on a wall -- 
+0A74  0010        ShowRunes(0x1312) = 'The trumpet sound of the Harvest Horn will announce Summer's conversion to Autumn.
+0A81  001D        ShowRunes(0x1366) = From the conversion you will receive the seeds of Autumn.'
+0A8E  002A        RETURN
+
+EMPTY:
+0A90  0000        <Empty Function>
+
+EMPTY:
+0A95  0000        <Empty Function>
+
+EMPTY:
+0A9A  0000        <Empty Function>
+
+EMPTY:
+0A9F  0000        <Empty Function>
 
 BARD_22:
-0000                          BEGIN
-0003                          ShowMessage(13A1) = A ghost elf bard sings a tale of how four colored magical gems placed side by side can form a rainbow to a far away island.
-0010                          RETURN
+0AA4  0000        BEGIN
+0AA7  0003        ShowMessage(0x13A1) = A ghost elf bard sings a tale of how four colored magical gems placed side by side can form a rainbow to a far away island.
+0AB4  0010        RETURN
 
 APPLES_23:
-0000                          BEGIN
-0003                          ShowMessage(141D) = The spirit of a beautiful wench appears. She hold a wooden bucket filled wtih floating apples.
-0010                          ShowMessage(147C) = 'Step forward and honor me with your kindness!  Bob for apples and win a prize.'
-001D                          RETURN
+0AB6  0000        BEGIN
+0AB9  0003        ShowMessage(0x141D) = The spirit of a beautiful wench appears. She hold a wooden bucket filled wtih floating apples.
+0AC6  0010        ShowMessage(0x147C) = 'Step forward and honor me with your kindness!  Bob for apples and win a prize.'
+0AD3  001D        RETURN
 
 APPLEENC_24:
-0000                          BEGIN
-0003                          ShowMessage(14CD) = You have accepted the ghost's challenge.
-0010                          ShowMessage(14F6) = You close your eyes and dunk your head into the wood bucket.
-001D                          ShowMessage(1533) = The ripe apples are rotten and filled with Leeches!
-002A                          AddEncounter(1A, 01)
-003C                          AddEncounter(1A, 02)
-004E                          AddEncounter(1B, 03)
-0060                          AddEncounter(1B, 04)
-0072                          AddEncounter(1A, 05)
-0084                          AddEncounter(1A, 06)
-0096                          RETURN
+0AD5  0000        BEGIN
+0AD8  0003        ShowMessage(0x14CD) = You have accepted the ghost's challenge.
+0AE5  0010        ShowMessage(0x14F6) = You close your eyes and dunk your head into the wood bucket.
+0AF2  001D        ShowMessage(0x1533) = The ripe apples are rotten and filled with Leeches!
+0AFF  002A        AddEncounter(0x1A, 0x01)
+0B11  003C        AddEncounter(0x1A, 0x02)
+0B23  004E        AddEncounter(0x1B, 0x03)
+0B35  0060        AddEncounter(0x1B, 0x04)
+0B47  0072        AddEncounter(0x1A, 0x05)
+0B59  0084        AddEncounter(0x1A, 0x06)
+0B6B  0096        RETURN
 
 CHESENCA_25:
-0000                          BEGIN
-0003                          AddEncounter(1C, 01)
-0015                          AddEncounter(1D, 02)
-0027                          AddEncounter(1E, 03)
-0039                          AddEncounter(1F, 04)
-004B                          AddEncounter(20, 05)
-005D                          AddEncounter(21, 06)
-006F                          RETURN
+0B6D  0000        BEGIN
+0B70  0003        AddEncounter(0x1C, 0x01)
+0B82  0015        AddEncounter(0x1D, 0x02)
+0B94  0027        AddEncounter(0x1E, 0x03)
+0BA6  0039        AddEncounter(0x1F, 0x04)
+0BB8  004B        AddEncounter(0x20, 0x05)
+0BCA  005D        AddEncounter(0x21, 0x06)
+0BDC  006F        RETURN
 
 CHESENCB_26:
-0000                          BEGIN
-0003                          AddEncounter(1E, 01)
-0015                          AddEncounter(1E, 02)
-0027                          AddEncounter(1E, 03)
-0039                          AddEncounter(1E, 04)
-004B                          AddEncounter(1E, 05)
-005D                          AddEncounter(1E, 06)
-006F                          RETURN
+0BDE  0000        BEGIN
+0BE1  0003        AddEncounter(0x1E, 0x01)
+0BF3  0015        AddEncounter(0x1E, 0x02)
+0C05  0027        AddEncounter(0x1E, 0x03)
+0C17  0039        AddEncounter(0x1E, 0x04)
+0C29  004B        AddEncounter(0x1E, 0x05)
+0C3B  005D        AddEncounter(0x1E, 0x06)
+0C4D  006F        RETURN
 
 CHESENCC_27:
-0000                          BEGIN
-0003                          AddEncounter(1F, 01)
-0015                          AddEncounter(1F, 02)
-0027                          AddEncounter(1F, 03)
-0039                          AddEncounter(1F, 04)
-004B                          AddEncounter(1F, 05)
-005D                          AddEncounter(1F, 06)
-006F                          RETURN
+0C4F  0000        BEGIN
+0C52  0003        AddEncounter(0x1F, 0x01)
+0C64  0015        AddEncounter(0x1F, 0x02)
+0C76  0027        AddEncounter(0x1F, 0x03)
+0C88  0039        AddEncounter(0x1F, 0x04)
+0C9A  004B        AddEncounter(0x1F, 0x05)
+0CAC  005D        AddEncounter(0x1F, 0x06)
+0CBE  006F        RETURN
 
 CHESENCD_28:
-0000                          BEGIN
-0003                          AddEncounter(20, 01)
-0015                          AddEncounter(20, 02)
-0027                          AddEncounter(20, 03)
-0039                          AddEncounter(20, 04)
-004B                          AddEncounter(26, 05)
-005D                          AddEncounter(26, 06)
-006F                          RETURN
+0CC0  0000        BEGIN
+0CC3  0003        AddEncounter(0x20, 0x01)
+0CD5  0015        AddEncounter(0x20, 0x02)
+0CE7  0027        AddEncounter(0x20, 0x03)
+0CF9  0039        AddEncounter(0x20, 0x04)
+0D0B  004B        AddEncounter(0x26, 0x05)
+0D1D  005D        AddEncounter(0x26, 0x06)
+0D2F  006F        RETURN
 
 CHESENCE_29:
-0000                          BEGIN
-0003                          AddEncounter(22, 01)
-0015                          AddEncounter(22, 02)
-0027                          AddEncounter(22, 03)
-0039                          AddEncounter(22, 04)
-004B                          AddEncounter(22, 05)
-005D                          AddEncounter(1D, 06)
-006F                          ax = HasItem(EB)
-007D                          If (result.equal) value jump to 00A0
-007F                          AddTreasure(0000, 00, 00, 00, 90, AF)
-009E                          Jump to 00C0
-00A0                          AddTreasure(03E8, 00, 00, 00, EB, D0)
-00C0                          RETURN
+0D31  0000        BEGIN
+0D34  0003        AddEncounter(0x22, 0x01)
+0D46  0015        AddEncounter(0x22, 0x02)
+0D58  0027        AddEncounter(0x22, 0x03)
+0D6A  0039        AddEncounter(0x22, 0x04)
+0D7C  004B        AddEncounter(0x22, 0x05)
+0D8E  005D        AddEncounter(0x1D, 0x06)
+0DA0  006F        ax = HasItem(0xEB)
+0DAE  007D        If (result.equal) jump to 00A0
+0DB0  007F        AddTreasure(0x0000, 0x00, 0x00, 0x00, 0x90, 0xAF)
+0DCF  009E        Jump to 00C0
+0DD1  00A0        AddTreasure(0x03E8, 0x00, 0x00, 0x00, 0xEB, 0xD0)
+0DF1  00C0        RETURN
 
 CHESENCF_2A:
-0000                          BEGIN
-0003                          AddEncounter(18, 01)
-0015                          AddEncounter(18, 02)
-0027                          AddEncounter(15, 03)
-0039                          AddEncounter(18, 04)
-004B                          AddEncounter(15, 05)
-005D                          AddEncounter(1C, 06)
-006F                          ax = HasItem(EC)
-007D                          If (result.equal) value jump to 00A0
-007F                          AddTreasure(0000, 00, 00, 00, 8D, CF)
-009E                          Jump to 00C0
-00A0                          AddTreasure(03E8, 00, 00, 00, EC, D0)
-00C0                          RETURN
+0DF3  0000        BEGIN
+0DF6  0003        AddEncounter(0x18, 0x01)
+0E08  0015        AddEncounter(0x18, 0x02)
+0E1A  0027        AddEncounter(0x15, 0x03)
+0E2C  0039        AddEncounter(0x18, 0x04)
+0E3E  004B        AddEncounter(0x15, 0x05)
+0E50  005D        AddEncounter(0x1C, 0x06)
+0E62  006F        ax = HasItem(0xEC)
+0E70  007D        If (result.equal) jump to 00A0
+0E72  007F        AddTreasure(0x0000, 0x00, 0x00, 0x00, 0x8D, 0xCF)
+0E91  009E        Jump to 00C0
+0E93  00A0        AddTreasure(0x03E8, 0x00, 0x00, 0x00, 0xEC, 0xD0)
+0EB3  00C0        RETURN
 
 POKRENCA_2B:
-0000                          BEGIN
-0003                          AddEncounter(1F, 01)
-0015                          AddEncounter(1F, 02)
-0027                          AddEncounter(1F, 03)
-0039                          AddEncounter(1F, 04)
-004B                          AddEncounter(1F, 05)
-005D                          AddEncounter(1F, 06)
-006F                          RETURN
+0EB5  0000        BEGIN
+0EB8  0003        AddEncounter(0x1F, 0x01)
+0ECA  0015        AddEncounter(0x1F, 0x02)
+0EDC  0027        AddEncounter(0x1F, 0x03)
+0EEE  0039        AddEncounter(0x1F, 0x04)
+0F00  004B        AddEncounter(0x1F, 0x05)
+0F12  005D        AddEncounter(0x1F, 0x06)
+0F24  006F        RETURN
 
 CRIBENCA_2C:
-0000                          BEGIN
-0003                          AddEncounter(23, 01)
-0015                          AddEncounter(23, 02)
-0027                          AddEncounter(23, 05)
-0039                          AddEncounter(23, 06)
-004B                          AddTreasure(2710, 00, 00, D0, D0, 71)
-006C                          RETURN
+0F26  0000        BEGIN
+0F29  0003        AddEncounter(0x23, 0x01)
+0F3B  0015        AddEncounter(0x23, 0x02)
+0F4D  0027        AddEncounter(0x23, 0x05)
+0F5F  0039        AddEncounter(0x23, 0x06)
+0F71  004B        AddTreasure(0x2710, 0x00, 0x00, 0xD0, 0xD0, 0x71)
+0F92  006C        RETURN
 
 BLJKENCA_2D:
-0000                          BEGIN
-0003                          AddEncounter(26, 01)
-0015                          AddEncounter(26, 02)
-0027                          AddEncounter(26, 03)
-0039                          AddEncounter(26, 04)
-004B                          AddEncounter(26, 05)
-005D                          AddEncounter(26, 06)
-006F                          AddTreasure(2710, 00, 00, 00, D0, 1D)
-008F                          RETURN
+0F94  0000        BEGIN
+0F97  0003        AddEncounter(0x26, 0x01)
+0FA9  0015        AddEncounter(0x26, 0x02)
+0FBB  0027        AddEncounter(0x26, 0x03)
+0FCD  0039        AddEncounter(0x26, 0x04)
+0FDF  004B        AddEncounter(0x26, 0x05)
+0FF1  005D        AddEncounter(0x26, 0x06)
+1003  006F        AddTreasure(0x2710, 0x00, 0x00, 0x00, 0xD0, 0x1D)
+1023  008F        RETURN
 
 BLJKENCB_2E:
-0000                          BEGIN
-0003                          AddEncounter(26, 01)
-0015                          AddEncounter(26, 02)
-0027                          AddEncounter(26, 03)
-0039                          AddEncounter(26, 04)
-004B                          AddEncounter(26, 05)
-005D                          AddEncounter(26, 06)
-006F                          AddTreasure(2710, 00, 00, 00, D0, BE)
-008F                          RETURN
+1025  0000        BEGIN
+1028  0003        AddEncounter(0x26, 0x01)
+103A  0015        AddEncounter(0x26, 0x02)
+104C  0027        AddEncounter(0x26, 0x03)
+105E  0039        AddEncounter(0x26, 0x04)
+1070  004B        AddEncounter(0x26, 0x05)
+1082  005D        AddEncounter(0x26, 0x06)
+1094  006F        AddTreasure(0x2710, 0x00, 0x00, 0x00, 0xD0, 0xBE)
+10B4  008F        RETURN
 
 CRIBENCB_2F:
-0000                          BEGIN
-0003                          ShowMessage(1567) = You are able to dodge several bursts of flame as you enter a Dragon's Lair.
-0010                          AddEncounter(24, 01)
-0022                          AddEncounter(24, 02)
-0034                          AddEncounter(24, 03)
-0046                          AddEncounter(25, 05)
-0058                          AddEncounter(25, 06)
-006A                          AddTreasure(2710, 00, 00, CF, BD, 5C)
-008B                          RETURN
+10B6  0000        BEGIN
+10B9  0003        ShowMessage(0x1567) = You are able to dodge several bursts of flame as you enter a Dragon's Lair.
+10C6  0010        AddEncounter(0x24, 0x01)
+10D8  0022        AddEncounter(0x24, 0x02)
+10EA  0034        AddEncounter(0x24, 0x03)
+10FC  0046        AddEncounter(0x25, 0x05)
+110E  0058        AddEncounter(0x25, 0x06)
+1120  006A        AddTreasure(0x2710, 0x00, 0x00, 0xCF, 0xBD, 0x5C)
+1141  008B        RETURN
 
 VARYENCA_30:
-0000                          BEGIN
-0003                          AddEncounter(04, 01)
-0015                          AddEncounter(04, 02)
-0027                          AddEncounter(04, 04)
-0039                          AddEncounter(04, 05)
-004B                          RETURN
+1143  0000        BEGIN
+1146  0003        AddEncounter(0x04, 0x01)
+1158  0015        AddEncounter(0x04, 0x02)
+116A  0027        AddEncounter(0x04, 0x04)
+117C  0039        AddEncounter(0x04, 0x05)
+118E  004B        RETURN
 
 VARYENCB_31:
-0000                          BEGIN
-0003                          AddEncounter(0E, 01)
-0015                          AddEncounter(0E, 02)
-0027                          AddEncounter(0E, 03)
-0039                          AddEncounter(0D, 05)
-004B                          RETURN
+1190  0000        BEGIN
+1193  0003        AddEncounter(0x0E, 0x01)
+11A5  0015        AddEncounter(0x0E, 0x02)
+11B7  0027        AddEncounter(0x0E, 0x03)
+11C9  0039        AddEncounter(0x0D, 0x05)
+11DB  004B        RETURN
+
+EMPTY:
+11DD  0000        <Empty Function>
+
+EMPTY:
+11E2  0000        <Empty Function>
 
 VARYENCE_34:
-0000                          BEGIN
-0003                          AddEncounter(13, 01)
-0015                          AddEncounter(13, 02)
-0027                          AddEncounter(13, 03)
-0039                          AddEncounter(13, 04)
-004B                          AddEncounter(17, 05)
-005D                          AddEncounter(02, 06)
-006F                          RETURN
+11E7  0000        BEGIN
+11EA  0003        AddEncounter(0x13, 0x01)
+11FC  0015        AddEncounter(0x13, 0x02)
+120E  0027        AddEncounter(0x13, 0x03)
+1220  0039        AddEncounter(0x13, 0x04)
+1232  004B        AddEncounter(0x17, 0x05)
+1244  005D        AddEncounter(0x02, 0x06)
+1256  006F        RETURN
 
 GATEA_35:
-0000                          BEGIN
-0003                          GoMap(00, 3F, 01, 35)
-001D                          RETURN
+1258  0000        BEGIN
+125B  0003        GoMap(00, 0x3F, 0x01, 0x35)
+1275  001D        RETURN
 
 TOLABY_36:
-0000                          BEGIN
-0003                          ShowMessage(15B3) = The gate takes you back to the labyrinth.
-0010                          RETURN
+1277  0000        BEGIN
+127A  0003        ShowMessage(0x15B3) = The gate takes you back to the labyrinth.
+1287  0010        RETURN
 
 TXTCHESL_37:
-0000                          BEGIN
-0003                          ShowMessage(15DD) = Use the red squares and you shall turn clockwise on your mount.
-0010                          RETURN
+1289  0000        BEGIN
+128C  0003        ShowMessage(0x15DD) = Use the red squares and you shall turn clockwise on your mount.
+1299  0010        RETURN
 
 TXTCHESD_38:
-0000                          BEGIN
-0003                          ShowMessage(161D) = The stallion must go counterclockwise on blue squares!
-0010                          RETURN
+129B  0000        BEGIN
+129E  0003        ShowMessage(0x161D) = The stallion must go counterclockwise on blue squares!
+12AB  0010        RETURN
 
 TXTDICEB_39:
-0000                          BEGIN
-0003                          ShowMessage(1654) = To the west you will find a second dice maze.
-0010                          RETURN
+12AD  0000        BEGIN
+12B0  0003        ShowMessage(0x1654) = To the west you will find a second dice maze.
+12BD  0010        RETURN
 
 TXTDICEA_3A:
-0000                          BEGIN
-0003                          ShowMessage(1682) = A maze made out of dice lies just to the north.
-0010                          RETURN
+12BF  0000        BEGIN
+12C2  0003        ShowMessage(0x1682) = A maze made out of dice lies just to the north.
+12CF  0010        RETURN
 
+EMPTY:
+12D1  0000        <Empty Function>
+
+EMPTY:
+12D6  0000        <Empty Function>
+
+EMPTY:
+12DB  0000        <Empty Function>
+
+EMPTY:
+12E0  0000        <Empty Function>
+
+EMPTY:
+12E5  0000        <Empty Function>
+
+EMPTY:
+12EA  0000        <Empty Function>
+
+EMPTY:
+12EF  0000        <Empty Function>
+
+EMPTY:
+12F4  0000        <Empty Function>
+
+EMPTY:
+12F9  0000        <Empty Function>
+
+EMPTY:
+12FE  0000        <Empty Function>
+
+EMPTY:
+1303  0000        <Empty Function>
+
+EMPTY:
+1308  0000        <Empty Function>
+
+EMPTY:
+130D  0000        <Empty Function>
+
+EMPTY:
+1312  0000        <Empty Function>
+
+EMPTY:
+1317  0000        <Empty Function>
+
+EMPTY:
+131C  0000        <Empty Function>
+
+EMPTY:
+1321  0000        <Empty Function>
+
+EMPTY:
+1326  0000        <Empty Function>
+
+EMPTY:
+132B  0000        <Empty Function>
+
+EMPTY:
+1330  0000        <Empty Function>
+
+EMPTY:
+1335  0000        <Empty Function>
+
+EMPTY:
+133A  0000        <Empty Function>
+
+EMPTY:
+133F  0000        <Empty Function>
+
+EMPTY:
+1344  0000        <Empty Function>
+
+EMPTY:
+1349  0000        <Empty Function>
+
+EMPTY:
+134E  0000        <Empty Function>
+
+EMPTY:
+1353  0000        <Empty Function>
+
+EMPTY:
+1358  0000        <Empty Function>
+
+EMPTY:
+135D  0000        <Empty Function>
+
+EMPTY:
+1362  0000        <Empty Function>
+
+EMPTY:
+1367  0000        <Empty Function>
+
+EMPTY:
+136C  0000        <Empty Function>
+
+EMPTY:
+1371  0000        <Empty Function>
+
+EMPTY:
+1376  0000        <Empty Function>
+
+EMPTY:
+137B  0000        <Empty Function>
+
+EMPTY:
+1380  0000        <Empty Function>
+
+EMPTY:
+1385  0000        <Empty Function>
+
+EMPTY:
+138A  0000        <Empty Function>
+
+EMPTY:
+138F  0000        <Empty Function>
+
+EMPTY:
+1394  0000        <Empty Function>
+
+EMPTY:
+1399  0000        <Empty Function>
+
+EMPTY:
+139E  0000        <Empty Function>
+
+EMPTY:
+13A3  0000        <Empty Function>
+
+EMPTY:
+13A8  0000        <Empty Function>
+
+EMPTY:
+13AD  0000        <Empty Function>
+
+EMPTY:
+13B2  0000        <Empty Function>
+
+EMPTY:
+13B7  0000        <Empty Function>
+
+EMPTY:
+13BC  0000        <Empty Function>
+
+EMPTY:
+13C1  0000        <Empty Function>
+
+EMPTY:
+13C6  0000        <Empty Function>
+
+EMPTY:
+13CB  0000        <Empty Function>
+
+EMPTY:
+13D0  0000        <Empty Function>
+
+EMPTY:
+13D5  0000        <Empty Function>
+
+EMPTY:
+13DA  0000        <Empty Function>
+
+EMPTY:
+13DF  0000        <Empty Function>
+
+EMPTY:
+13E4  0000        <Empty Function>
+
+EMPTY:
+13E9  0000        <Empty Function>
+
+EMPTY:
+13EE  0000        <Empty Function>
+
+EMPTY:
+13F3  0000        <Empty Function>
+
+EMPTY:
+13F8  0000        <Empty Function>
+
+EMPTY:
+13FD  0000        <Empty Function>
+
+EMPTY:
+1402  0000        <Empty Function>
+
+EMPTY:
+1407  0000        <Empty Function>
+
+EMPTY:
+140C  0000        <Empty Function>
+
+EMPTY:
+1411  0000        <Empty Function>
+
+EMPTY:
+1416  0000        <Empty Function>
+
+EMPTY:
+141B  0000        <Empty Function>
+
+EMPTY:
+1420  0000        <Empty Function>
+
+EMPTY:
+1425  0000        <Empty Function>
+
+EMPTY:
+142A  0000        <Empty Function>
+
+EMPTY:
+142F  0000        <Empty Function>
+
+EMPTY:
+1434  0000        <Empty Function>
+
+EMPTY:
+1439  0000        <Empty Function>
+
+EMPTY:
+143E  0000        <Empty Function>
+
+EMPTY:
+1443  0000        <Empty Function>
+
+EMPTY:
+1448  0000        <Empty Function>
+
+EMPTY:
+144D  0000        <Empty Function>
+
+EMPTY:
+1452  0000        <Empty Function>
+
+EMPTY:
+1457  0000        <Empty Function>
+
+EMPTY:
+145C  0000        <Empty Function>
+
+EMPTY:
+1461  0000        <Empty Function>
+
+EMPTY:
+1466  0000        <Empty Function>
+
+EMPTY:
+146B  0000        <Empty Function>
+
+EMPTY:
+1470  0000        <Empty Function>
+
+EMPTY:
+1475  0000        <Empty Function>
+
+EMPTY:
+147A  0000        <Empty Function>
+
+EMPTY:
+147F  0000        <Empty Function>
+
+EMPTY:
+1484  0000        <Empty Function>
+
+EMPTY:
+1489  0000        <Empty Function>
+
+EMPTY:
+148E  0000        <Empty Function>
+
+EMPTY:
+1493  0000        <Empty Function>
+
+EMPTY:
+1498  0000        <Empty Function>
+
+EMPTY:
+149D  0000        <Empty Function>
+
+EMPTY:
+14A2  0000        <Empty Function>
+
+EMPTY:
+14A7  0000        <Empty Function>
+
+EMPTY:
+14AC  0000        <Empty Function>
+
+EMPTY:
+14B1  0000        <Empty Function>
+
+EMPTY:
+14B6  0000        <Empty Function>
+
+EMPTY:
+14BB  0000        <Empty Function>
+
+EMPTY:
+14C0  0000        <Empty Function>
+
+EMPTY:
+14C5  0000        <Empty Function>
+
+EMPTY:
+14CA  0000        <Empty Function>
+
+EMPTY:
+14CF  0000        <Empty Function>
+
+EMPTY:
+14D4  0000        <Empty Function>
+
+EMPTY:
+14D9  0000        <Empty Function>
+
+EMPTY:
+14DE  0000        <Empty Function>
+
+EMPTY:
+14E3  0000        <Empty Function>
+
+EMPTY:
+14E8  0000        <Empty Function>
+
+EMPTY:
+14ED  0000        <Empty Function>
+
+EMPTY:
+14F2  0000        <Empty Function>
+
+EMPTY:
+14F7  0000        <Empty Function>
+
+EMPTY:
+14FC  0000        <Empty Function>
+
+EMPTY:
+1501  0000        <Empty Function>
+
+EMPTY:
+1506  0000        <Empty Function>
+
+EMPTY:
+150B  0000        <Empty Function>
+
+EMPTY:
+1510  0000        <Empty Function>
+
+EMPTY:
+1515  0000        <Empty Function>
+
+EMPTY:
+151A  0000        <Empty Function>
+
+EMPTY:
+151F  0000        <Empty Function>
+
+EMPTY:
+1524  0000        <Empty Function>
+
+EMPTY:
+1529  0000        <Empty Function>
+
+EMPTY:
+152E  0000        <Empty Function>
+
+EMPTY:
+1533  0000        <Empty Function>
+
+EMPTY:
+1538  0000        <Empty Function>
+
+EMPTY:
+153D  0000        <Empty Function>
+
+EMPTY:
+1542  0000        <Empty Function>
+
+EMPTY:
+1547  0000        <Empty Function>
+
+EMPTY:
+154C  0000        <Empty Function>
+
+EMPTY:
+1551  0000        <Empty Function>
+
+EMPTY:
+1556  0000        <Empty Function>
+
+EMPTY:
+155B  0000        <Empty Function>
+
+EMPTY:
+1560  0000        <Empty Function>
+
+EMPTY:
+1565  0000        <Empty Function>
+
+EMPTY:
+156A  0000        <Empty Function>
+
+EMPTY:
+156F  0000        <Empty Function>
+
+EMPTY:
+1574  0000        <Empty Function>
+
+EMPTY:
+1579  0000        <Empty Function>
+
+EMPTY:
+157E  0000        <Empty Function>
+
+EMPTY:
+1583  0000        <Empty Function>
+
+EMPTY:
+1588  0000        <Empty Function>
+
+EMPTY:
+158D  0000        <Empty Function>
+
+EMPTY:
+1592  0000        <Empty Function>
+
+EMPTY:
+1597  0000        <Empty Function>
+
+EMPTY:
+159C  0000        <Empty Function>
+
+EMPTY:
+15A1  0000        <Empty Function>
+
+EMPTY:
+15A6  0000        <Empty Function>
+
+EMPTY:
+15AB  0000        <Empty Function>
+
+EMPTY:
+15B0  0000        <Empty Function>
+
+EMPTY:
+15B5  0000        <Empty Function>
+
+EMPTY:
+15BA  0000        <Empty Function>
+
+EMPTY:
+15BF  0000        <Empty Function>
+
+EMPTY:
+15C4  0000        <Empty Function>
+
+EMPTY:
+15C9  0000        <Empty Function>
+
+EMPTY:
+15CE  0000        <Empty Function>
+
+EMPTY:
+15D3  0000        <Empty Function>
+
+EMPTY:
+15D8  0000        <Empty Function>
+
+EMPTY:
+15DD  0000        <Empty Function>
+
+EMPTY:
+15E2  0000        <Empty Function>
+
+EMPTY:
+15E7  0000        <Empty Function>
+
+EMPTY:
+15EC  0000        <Empty Function>
+
+EMPTY:
+15F1  0000        <Empty Function>
+
+EMPTY:
+15F6  0000        <Empty Function>
+
+EMPTY:
+15FB  0000        <Empty Function>
+
+EMPTY:
+1600  0000        <Empty Function>
+
+EMPTY:
+1605  0000        <Empty Function>
+
+EMPTY:
+160A  0000        <Empty Function>
+
+EMPTY:
+160F  0000        <Empty Function>
+
+EMPTY:
+1614  0000        <Empty Function>
+
+EMPTY:
+1619  0000        <Empty Function>
+
+EMPTY:
+161E  0000        <Empty Function>
+
+EMPTY:
+1623  0000        <Empty Function>
+
+EMPTY:
+1628  0000        <Empty Function>
+
+EMPTY:
+162D  0000        <Empty Function>
+
+EMPTY:
+1632  0000        <Empty Function>
+
+EMPTY:
+1637  0000        <Empty Function>
+
+EMPTY:
+163C  0000        <Empty Function>
+
+EMPTY:
+1641  0000        <Empty Function>
+
+EMPTY:
+1646  0000        <Empty Function>
+
+EMPTY:
+164B  0000        <Empty Function>
+
+EMPTY:
+1650  0000        <Empty Function>
+
+EMPTY:
+1655  0000        <Empty Function>
+
+EMPTY:
+165A  0000        <Empty Function>
+
+EMPTY:
+165F  0000        <Empty Function>
+
+EMPTY:
+1664  0000        <Empty Function>
+
+EMPTY:
+1669  0000        <Empty Function>
+
+EMPTY:
+166E  0000        <Empty Function>
+
+EMPTY:
+1673  0000        <Empty Function>
+
+EMPTY:
+1678  0000        <Empty Function>
+
+EMPTY:
+167D  0000        <Empty Function>
+
+EMPTY:
+1682  0000        <Empty Function>
+
+EMPTY:
+1687  0000        <Empty Function>
+
+EMPTY:
+168C  0000        <Empty Function>
+
+EMPTY:
+1691  0000        <Empty Function>
+
+EMPTY:
+1696  0000        <Empty Function>
+
+EMPTY:
+169B  0000        <Empty Function>
+
+EMPTY:
+16A0  0000        <Empty Function>
+
+EMPTY:
+16A5  0000        <Empty Function>
+
+STRINGS:
 03FC: You may leave the chessboard through this opening.
 042F: A knight move here would place you off the chessboard!
 0466: With a chess piece you may step across the chessboard.
