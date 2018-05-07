@@ -291,7 +291,7 @@ NPCCHATA_0C:
 0B03  0010        ShowPortrait(0x001B)
 0B10  001D        ax = UnknownFunctionEC(0x000F)
 0B1D  002A        compare(ax, 0x000A)
-0B20  002D        If (result.above) jump to 003E
+0B20  002D        If (result.unsigned_greater_than) jump to 003E
 0B22  002F        ShowMessage(0x072E) = Cleowyn's Crown is the final treasure needed to placate the dead king's spirit. Return the king's possessions quickly or suffer his eternal wrath.
 0B2F  003C        Jump to 004B
 0B31  003E        ShowMessage(0x07C1) = The Troll Knight tries to say something, but falls unconscious.
@@ -303,7 +303,7 @@ NPCCHATB_0D:
 0B50  0010        ShowPortrait(0x002A)
 0B5D  001D        ax = UnknownFunctionEC(0x000F)
 0B6A  002A        compare(ax, 0x000A)
-0B6D  002D        If (result.above) jump to 003E
+0B6D  002D        If (result.unsigned_greater_than) jump to 003E
 0B6F  002F        ShowMessage(0x0848) = The wizard Arnakkian desired immortality above all else. It is whispered that he trapped one of the Elementals and bade it obey his will and make him live forever. I believe Arnakkian got his wish, but the Elemental buried the wizard's castle under lava in revenge.
 0B7C  003C        Jump to 004B
 0B7E  003E        ShowMessage(0x0952) = The Gremlin Cleric ignores your questions as he becomes engrossed in his book.

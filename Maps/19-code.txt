@@ -531,7 +531,7 @@ NPCCHATA_2A:
 122D  0010        ShowPortrait(0x001B)
 123A  001D        ax = UnknownFunctionEC(0x000F)
 1247  002A        compare(ax, 0x000C)
-124A  002D        If (result.above) jump to 003E
+124A  002D        If (result.unsigned_greater_than) jump to 003E
 124C  002F        ShowMessage(0x0908) = The only way to get out of this basement area is to go through the lava field. Touching the lava is deadly, as you might expect. However, even if you pass safely through the lava field, the great heat of the lava will sap your strength.
 1259  003C        Jump to 004B
 125B  003E        ShowMessage(0x09F5) = The Troll Knight scowls angrily, causing you to leave her alone.
@@ -543,7 +543,7 @@ NPCCHATB_2B:
 127A  0010        ShowPortrait(0x0023)
 1287  001D        ax = UnknownFunctionEC(0x000F)
 1294  002A        compare(ax, 0x0009)
-1297  002D        If (result.above) jump to 003E
+1297  002D        If (result.unsigned_greater_than) jump to 003E
 1299  002F        ShowMessage(0x0A53) = I know there is a short cut through the lava field. If you can find the correct key, you will be able to use the short cut. The key also will lead you to riches.
 12A6  003C        Jump to 004B
 12A8  003E        ShowMessage(0x0AF5) = The Dwarf Thief runs away.
@@ -555,7 +555,7 @@ NPCCHATC_2C:
 12C7  0010        ShowPortrait(0x0021)
 12D4  001D        ax = UnknownFunctionEC(0x000F)
 12E1  002A        compare(ax, 0x0007)
-12E4  002D        If (result.above) jump to 003E
+12E4  002D        If (result.unsigned_greater_than) jump to 003E
 12E6  002F        ShowMessage(0x0B31) = The dwarves who built Cleowyn's Palace transported precious metals and building blocks up to the top level by means of a teleport. I believe the teleport is somewhere in this area.
 12F3  003C        Jump to 004B
 12F5  003E        ShowMessage(0x0BE6) = The Halfling Ranger faints from heat stroke.
@@ -567,7 +567,7 @@ NPCCHATD_2D:
 1314  0010        ShowPortrait(0x002A)
 1321  001D        ax = UnknownFunctionEC(0x000F)
 132E  002A        compare(ax, 0x000C)
-1331  002D        If (result.above) jump to 003E
+1331  002D        If (result.unsigned_greater_than) jump to 003E
 1333  002F        ShowMessage(0x0C33) = Deep in the dungeon are the Pillow Labyrinths. They were formed from pillow lava that spilled into the sea. The labyrinth is formed from the hollow interior of the lava.
 1340  003C        Jump to 004B
 1342  003E        ShowMessage(0x0CDD) = The Gremlin Cleric is deep in meditation and does not answer you.

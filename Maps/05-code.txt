@@ -24,7 +24,7 @@ NPCCHATA_05:
 0077  0010        ShowPortrait(0x0022)
 0084  001D        ax = UnknownFunctionEC(0x000F)
 0091  002A        compare(ax, 0x0009)
-0094  002D        If (result.above) jump to 004B
+0094  002D        If (result.unsigned_greater_than) jump to 004B
 0096  002F        ShowMessage(0x0481) = King Cleowyn long sought the buried secrets of a great wizard whose castle lies buried inside this mountain. 
 00A3  003C        ShowMessage(0x04EF) = The king died most horribly, it is said. His anguished death scream was heard across the island, but no one ever found his body. The dead wizard may have claimed the body, but no one knows for sure.
 00B0  0049        Jump to 006A
@@ -38,7 +38,7 @@ NPCCHATB_06:
 00E3  0010        ShowPortrait(0x0018)
 00F0  001D        ax = UnknownFunctionEC(0x000F)
 00FD  002A        compare(ax, 0x0007)
-0100  002D        If (result.above) jump to 003E
+0100  002D        If (result.unsigned_greater_than) jump to 003E
 0102  002F        ShowMessage(0x0610) = Two levels down is a most strange area. Six small rooms are accessible to anyone, but there is a large area I have not been able to reach. A wizard told me I should study my runes to solve the mystery of this area.
 010F  003C        Jump to 004B
 0111  003E        ShowMessage(0x06E7) = The Elf Barbarian is busy tending her many wounds and ignores you.

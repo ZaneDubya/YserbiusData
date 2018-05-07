@@ -808,7 +808,7 @@ NPCCHATA_2D:
 1B98  0010        ShowPortrait(0x001F)
 1BA5  001D        ax = UnknownFunctionEC(0x000F)
 1BB2  002A        compare(ax, 0x000D)
-1BB5  002D        If (result.above) jump to 003E
+1BB5  002D        If (result.unsigned_greater_than) jump to 003E
 1BB7  002F        ShowMessage(0x0F85) = The ghost of King Cleowyn appears at his throne on special occasions. Once the king appears, he will not appear again until all mortals have left the Palace.
 1BC4  003C        Jump to 004B
 1BC6  003E        ShowMessage(0x1023) = The Elf Ranger ignores you as he wanders the room, rapping on the walls.
@@ -820,7 +820,7 @@ NPCCHATB_2E:
 1BE5  0010        ShowPortrait(0x0026)
 1BF2  001D        ax = UnknownFunctionEC(0x000F)
 1BFF  002A        compare(ax, 0x000C)
-1C02  002D        If (result.above) jump to 003E
+1C02  002D        If (result.unsigned_greater_than) jump to 003E
 1C04  002F        ShowMessage(0x108B) = The pit is pitiless. Do not go near it. The traps are dangerous, but they may aid you.
 1C11  003C        Jump to 004B
 1C13  003E        ShowMessage(0x10E2) = The Gremlin Thief runs away when you approach him.
@@ -832,7 +832,7 @@ NPCCHATC_2F:
 1C32  0010        ShowPortrait(0x001C)
 1C3F  001D        ax = UnknownFunctionEC(0x000F)
 1C4C  002A        compare(ax, 0x000A)
-1C4F  002D        If (result.above) jump to 003E
+1C4F  002D        If (result.unsigned_greater_than) jump to 003E
 1C51  002F        ShowMessage(0x1133) = Obey the king. Return his cherished possessions and you will be blessed. Keep them and you will die.
 1C5E  003C        Jump to 004B
 1C60  003E        ShowMessage(0x1198) = The Dwarf Knight snubs you and wanders off in search of adventure.

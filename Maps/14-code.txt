@@ -17,7 +17,7 @@ NPCCHATA_03:
 006E  0010        ShowPortrait(0x0028)
 007B  001D        ax = UnknownFunctionEC(0x000F)
 0088  002A        compare(ax, 0x000C)
-008B  002D        If (result.above) jump to 004B
+008B  002D        If (result.unsigned_greater_than) jump to 004B
 008D  002F        ShowMessage(0x041A) = I have almost despaired of finding a way out of this prison. Yet there must be an exit of some kind - stairs or teleport. The guards must have had some way of leaving this area.
 009A  003C        ShowMessage(0x04CC) = To the east are the guard's living quarters and the interrogation rooms. The 36 prison cells are empty now, except for the resident spirits of those who perished here.
 00A7  0049        Jump to 0058
@@ -30,7 +30,7 @@ NPCCHATB_04:
 00C8  0010        ShowPortrait(0x001E)
 00D5  001D        ax = UnknownFunctionEC(0x000F)
 00E2  002A        compare(ax, 0x0006)
-00E5  002D        If (result.above) jump to 003E
+00E5  002D        If (result.unsigned_greater_than) jump to 003E
 00E7  002F        ShowMessage(0x05E4) = I have heard rumors that some few brave souls have escaped the dungeon. If you can find the Rainbow Bridge, you are near the exit.
 00F4  003C        Jump to 004B
 00F6  003E        ShowMessage(0x0667) = The Orc Ranger glares at you and refuses to speak.
@@ -42,7 +42,7 @@ NPCCHATC_05:
 0115  0010        ShowPortrait(0x0025)
 0122  001D        ax = UnknownFunctionEC(0x000F)
 012F  002A        compare(ax, 0x000A)
-0132  002D        If (result.above) jump to 004B
+0132  002D        If (result.unsigned_greater_than) jump to 004B
 0134  002F        ShowMessage(0x06BA) = A special challenge awaits the brave. If you dare continue after finding what the guard Deldwinn desires, great rewards await you.
 0141  003C        ShowMessage(0x073D) = Chaos should walk with Chaos and Harmony with Harmony to find the rewards.
 014E  0049        Jump to 0058
@@ -55,7 +55,7 @@ NPCCHATD_06:
 016F  0010        ShowPortrait(0x0019)
 017C  001D        ax = UnknownFunctionEC(0x000F)
 0189  002A        compare(ax, 0x000B)
-018C  002D        If (result.above) jump to 004B
+018C  002D        If (result.unsigned_greater_than) jump to 004B
 018E  002F        ShowMessage(0x07E3) = Two wizards have crafted a Challenge for the brave. The Wizards' Challenge is on this level, but you cannot reach it from this prison area.
 019B  003C        ShowMessage(0x086F) = Know that race and Guild must walk together if the Challenge is to be overcome.
 01A8  0049        Jump to 0058
@@ -68,7 +68,7 @@ NPCCHATE_07:
 01C9  0010        ShowPortrait(0x002C)
 01D6  001D        ax = UnknownFunctionEC(0x000F)
 01E3  002A        compare(ax, 0x000C)
-01E6  002D        If (result.above) jump to 003E
+01E6  002D        If (result.unsigned_greater_than) jump to 003E
 01E8  002F        ShowMessage(0x0947) = King Cleowyn built his palace inside this volcano because he hoped to unearth the secrets of the wizard Arnakkian. Many of the stones that form Cleowyn's palace were taken from the wizard's castle. No wonder this dungeon is cursed.
 01F5  003C        Jump to 004B
 01F7  003E        ShowMessage(0x0A2F) = The Dwarf Wizard smiles kindly, but she refuses to speak.

@@ -160,7 +160,7 @@ WINDHOLO_15:
 041B  001D        DoDamage(0x00C8)
 0428  002A        ax = GetCurrentHits()
 042F  0031        RefreshCompareFlags(ax)
-0431  0033        If (result.above) jump to 0042
+0431  0033        If (result.unsigned_greater_than) jump to 0042
 0433  0035        ShowMessage(0x0AE0) = You have died.
 0440  0042        GoMap(0x03, 0xBC, 0x01, 0x35)
 045B  005D        RETURN
@@ -237,7 +237,7 @@ ZEPHBLOW_1D:
 06DA  001D        DoDamage(ax)
 06E4  0027        ax = GetCurrentHits()
 06EB  002E        RefreshCompareFlags(ax)
-06ED  0030        If (result.above) jump to 003F
+06ED  0030        If (result.unsigned_greater_than) jump to 003F
 06EF  0032        ShowMessage(0x0CFF) = You have died.
 06FC  003F        RETURN
 
@@ -973,7 +973,7 @@ TORBWIND_55:
 1B33  0010        DoDamage(0x0064)
 1B40  001D        ax = GetCurrentHits()
 1B47  0024        RefreshCompareFlags(ax)
-1B49  0026        If (result.above) jump to 0035
+1B49  0026        If (result.unsigned_greater_than) jump to 0035
 1B4B  0028        ShowMessage(0x1638) = You have died.
 1B58  0035        RETURN
 
@@ -992,7 +992,7 @@ VORAWIND_57:
 1B96  001D        DoDamage(ax)
 1BA0  0027        ax = GetCurrentHits()
 1BA7  002E        RefreshCompareFlags(ax)
-1BA9  0030        If (result.above) jump to 003F
+1BA9  0030        If (result.unsigned_greater_than) jump to 003F
 1BAB  0032        ShowMessage(0x16A7) = You have died.
 1BB8  003F        RETURN
 

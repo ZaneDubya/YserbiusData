@@ -273,7 +273,7 @@ NPCCHATA_0B:
 0A50  0010        ShowPortrait(0x002B)
 0A5D  001D        ax = UnknownFunctionEC(0x000F)
 0A6A  002A        compare(ax, 0x000B)
-0A6D  002D        If (result.above) jump to 0058
+0A6D  002D        If (result.unsigned_greater_than) jump to 0058
 0A6F  002F        ShowMessage(0x06E5) = Be careful when you find the way to open the door that leads to the nether depths of this dungeon.
 0A7C  003C        ShowMessage(0x0748) = All quest items from Cleowyn's Palace levels will be stripped from you.
 0A89  0049        ShowMessage(0x0790) = But if you are indeed ready to enter the lower depths, you will no longer need Cleowyn's toys.
@@ -287,7 +287,7 @@ NPCCHATB_0C:
 0AB7  0010        ShowPortrait(0x001B)
 0AC4  001D        ax = UnknownFunctionEC(0x000F)
 0AD1  002A        compare(ax, 0x0009)
-0AD4  002D        If (result.above) jump to 004B
+0AD4  002D        If (result.unsigned_greater_than) jump to 004B
 0AD6  002F        ShowMessage(0x0855) = The Galabryan kings brought the great wizard Arnakkian Slowfoot to Twinion. The island grew famous and rich thanks to this wizard.
 0AE3  003C        ShowMessage(0x08D8) = But the wizard had his own schemes, and soon he and good King Leowyn Galabryan were at loggerheads. Supposedly, the wizard had the king assassinated.
 0AF0  0049        Jump to 0058

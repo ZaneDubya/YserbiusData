@@ -536,7 +536,7 @@ NPCCHATA_1C:
 13F1  0010        ShowPortrait(0x0024)
 13FE  001D        ax = UnknownFunctionEC(0x000F)
 140B  002A        compare(ax, 0x0001)
-140E  002D        If (result.above) jump to 003E
+140E  002D        If (result.unsigned_greater_than) jump to 003E
 1410  002F        ShowMessage(0x0783) = There is more to this basement than first meets the eye. Someday I will learn the secret of what lies behind the thick, silent walls that line this corridor.
 141D  003C        Jump to 004B
 141F  003E        ShowMessage(0x0821) = The Gnome Thief smiles enigmatically and ducks into the shadows.
@@ -548,7 +548,7 @@ NPCCHATB_1D:
 143E  0010        ShowPortrait(0x0016)
 144B  001D        ax = UnknownFunctionEC(0x000F)
 1458  002A        compare(ax, 0x000C)
-145B  002D        If (result.above) jump to 003E
+145B  002D        If (result.unsigned_greater_than) jump to 003E
 145D  002F        ShowMessage(0x0883) = As much as I despise orcs, I sometimes find it useful to have them in my party. Indeed, you will frequently have to work with races and Guilds you would otherwise ignore, if you wish to solve the many mysteries of this dungeon.
 146A  003C        Jump to 0058
 146C  003E        DoDamage(0x000A)
@@ -561,7 +561,7 @@ NPCCHATC_1E:
 1498  0010        ShowPortrait(0x001A)
 14A5  001D        ax = UnknownFunctionEC(0x000F)
 14B2  002A        compare(ax, 0x0006)
-14B5  002D        If (result.above) jump to 003E
+14B5  002D        If (result.unsigned_greater_than) jump to 003E
 14B7  002F        ShowMessage(0x09C1) = A colleague told me he encountered a strange elfin race far down in the dungeon. He would not say much else, other than that he knew why cold-loving creatures were to be found inside a volcano.
 14C4  003C        Jump to 004B
 14C6  003E        ShowMessage(0x0A83) = The Orc Knight bows graciously and walks away.
@@ -573,7 +573,7 @@ NPCCHATD_1F:
 14E5  0010        ShowPortrait(0x0027)
 14F2  001D        ax = UnknownFunctionEC(0x000F)
 14FF  002A        compare(ax, 0x0007)
-1502  002D        If (result.above) jump to 003E
+1502  002D        If (result.unsigned_greater_than) jump to 003E
 1504  002F        ShowMessage(0x0ACF) = I stumbled over a marble block not long ago. On it were the words - Arnakkian Slowfoot, Wizard to the King.
 1511  003C        Jump to 004B
 1513  003E        ShowMessage(0x0B3B) = The Elf Cleric sighs mournfully and massages a stubbed toe.
@@ -585,7 +585,7 @@ NPCCHATE_20:
 1532  0010        ShowPortrait(0x0022)
 153F  001D        ax = UnknownFunctionEC(0x000F)
 154C  002A        compare(ax, 0x0008)
-154F  002D        If (result.above) jump to 004B
+154F  002D        If (result.unsigned_greater_than) jump to 004B
 1551  002F        ShowMessage(0x0B94) = To the east of the Rune Room on level three can be found the Wizards' Challenge. It is quite a challenge, too.
 155E  003C        ShowMessage(0x0C03) = I have found several short cuts in the Wizards' Challenge.
 156B  0049        Jump to 0058

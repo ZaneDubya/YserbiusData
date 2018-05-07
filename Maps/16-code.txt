@@ -531,7 +531,7 @@ NPCCHATA_19:
 11E6  0010        ShowPortrait(0x002A)
 11F3  001D        ax = UnknownFunctionEC(0x000F)
 1200  002A        compare(ax, 0x000D)
-1203  002D        If (result.above) jump to 0065
+1203  002D        If (result.unsigned_greater_than) jump to 0065
 1205  002F        ShowMessage(0x0D26) = Listen carefully, friend. Be careful where you place the possessions Cleowyn demands. Use Crown before Robe before Scepter.
 1212  003C        ShowMessage(0x0DA2) = Someone in your group must always remain in the Mausoleum until all three items are placed and the tomb is opened.
 121F  0049        ShowMessage(0x0E15) = Otherwise, imps will steal the treasures away and hide them again.  They love to torment adventurers and Cleowyn's spirit.
@@ -546,7 +546,7 @@ NPCCHATB_1A:
 125A  0010        ShowPortrait(0x001D)
 1267  001D        ax = UnknownFunctionEC(0x000F)
 1274  002A        compare(ax, 0x000C)
-1277  002D        If (result.above) jump to 003E
+1277  002D        If (result.unsigned_greater_than) jump to 003E
 1279  002F        ShowMessage(0x0F45) = The longest routes through this Mausoleum are the least rewarding.
 1286  003C        Jump to 004B
 1288  003E        ShowMessage(0x0F88) = The Halfling Knight looks at you once and then continues polishing her shield.
@@ -558,7 +558,7 @@ NPCCHATC_1B:
 12A7  0010        ShowPortrait(0x001F)
 12B4  001D        ax = UnknownFunctionEC(0x000F)
 12C1  002A        compare(ax, 0x000B)
-12C4  002D        If (result.above) jump to 003E
+12C4  002D        If (result.unsigned_greater_than) jump to 003E
 12C6  002F        ShowMessage(0x0FF4) = The night the volcano erupted, the wizard Arnakkian Slowfoot threw a great feast. All who attended died in the eruption. They died at their games of cards and gambling. Some, it is said, were transformed into the monsters who inhabit the dungeon.
 12D3  003C        Jump to 004B
 12D5  003E        ShowMessage(0x10EB) = The Elf Ranger abruptly walks away.
@@ -570,7 +570,7 @@ NPCCHATD_1C:
 12F4  0010        ShowPortrait(0x0019)
 1301  001D        ax = UnknownFunctionEC(0x000F)
 130E  002A        compare(ax, 0x0007)
-1311  002D        If (result.above) jump to 003E
+1311  002D        If (result.unsigned_greater_than) jump to 003E
 1313  002F        ShowMessage(0x1130) = Cleowyn's bones are guarded by the Snow Elves, I have heard. Whether or not it is worth returning the king's bones to the Mausoleum is much debated, for the imps will seize them again and return them to the elves.
 1320  003C        Jump to 004B
 1322  003E        ShowMessage(0x1206) = The Gnome Barbarian opens his mouth to speak, but he forgets what he planned to say.
@@ -582,7 +582,7 @@ NPCCHATE_1D:
 1341  0010        ShowPortrait(0x0022)
 134E  001D        ax = UnknownFunctionEC(0x000F)
 135B  002A        compare(ax, 0x0009)
-135E  002D        If (result.above) jump to 003E
+135E  002D        If (result.unsigned_greater_than) jump to 003E
 1360  002F        ShowMessage(0x1278) = If you find King Cleowyn's quarters, you will find a shortcut back to his Palace. Be careful where you tread, lest you leave his quarters unrewarded.
 136D  003C        Jump to 004B
 136F  003E        ShowMessage(0x130E) = The Human Thief darts away as you approach.

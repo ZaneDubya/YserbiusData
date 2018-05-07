@@ -183,7 +183,7 @@ LOWMNSTR_0D:
 04E5  0003        ShowMessage(0x06A9) = You encounter Rogues.
 04F2  0010        ax = UnknownFunctionEC(0x000F)
 04FF  001D        compare(ax, 0x0006)
-0502  0020        If (result.above) jump to 0050
+0502  0020        If (result.unsigned_greater_than) jump to 0050
 0504  0022        AddTreasure(0x01F4, 0x00, 0x00, 0x00, 0x00, 0xB5)
 0523  0041        ShowMessage(0x06BF) = If you are skilled enough, you may find teleports that speed your way to various levels of this dungeon.
 0530  004E        Jump to 008A
@@ -348,7 +348,7 @@ NPCCHATA_17:
 0A5E  0010        ShowPortrait(0x001F)
 0A6B  001D        ax = UnknownFunctionEC(0x000F)
 0A78  002A        compare(ax, 0x000B)
-0A7B  002D        If (result.above) jump to 003E
+0A7B  002D        If (result.unsigned_greater_than) jump to 003E
 0A7D  002F        ShowMessage(0x086E) = You must solve the mystery of the linked Vestibule doors to continue farther down into the dungeon.
 0A8A  003C        Jump to 004B
 0A8C  003E        ShowMessage(0x08D2) = The Elf Ranger decides you are not worthy of his time and leaves.
@@ -360,7 +360,7 @@ NPCCHATB_18:
 0AAB  0010        ShowPortrait(0x002B)
 0AB8  001D        ax = UnknownFunctionEC(0x000F)
 0AC5  002A        compare(ax, 0x0009)
-0AC8  002D        If (result.above) jump to 003E
+0AC8  002D        If (result.unsigned_greater_than) jump to 003E
 0ACA  002F        ShowMessage(0x0932) = Centuries ago, Twinion was a thriving port town, ruled by the Galabryan dynasty. The kings welcomed all races and Guilds to the island. When the volcano Yserbius erupted, it almost buried Twinion under lava. If only we could find some way off this island!
 0AD7  003C        Jump to 004B
 0AD9  003E        ShowMessage(0x0A32) = The Human Wizard falls into a deep trance and refuses to talk.
@@ -372,7 +372,7 @@ NPCCHATC_19:
 0AF8  0010        ShowPortrait(0x0026)
 0B05  001D        ax = UnknownFunctionEC(0x000F)
 0B12  002A        compare(ax, 0x000A)
-0B15  002D        If (result.above) jump to 003E
+0B15  002D        If (result.unsigned_greater_than) jump to 003E
 0B17  002F        ShowMessage(0x0A90) = King Cleowyn created a clever maze of squares to discourage thieves and invaders. Mind you, no invaders ever thought Twinion rich enough to be worth their effort.
 0B24  003C        Jump to 004B
 0B26  003E        ShowMessage(0x0B33) = The Gremlin Thief slips into a shadow and disappears.
@@ -384,7 +384,7 @@ NPCCHATD_1A:
 0B45  0010        ShowPortrait(0x001A)
 0B52  001D        ax = UnknownFunctionEC(0x000F)
 0B5F  002A        compare(ax, 0x0008)
-0B62  002D        If (result.above) jump to 003E
+0B62  002D        If (result.unsigned_greater_than) jump to 003E
 0B64  002F        ShowMessage(0x0B86) = The richness of fine armor and weapons in this dungeon baffles me. I've heard rumors that skilled dwarfs once crafted such armory, but the rogue dwarfs you encounter nowadays have no talent for such expert metallurgy.
 0B71  003C        Jump to 004B
 0B73  003E        ShowMessage(0x0C60) = The Orc Knight smiles politely and shoos you away.
@@ -396,7 +396,7 @@ NPCCHATE_1B:
 0B92  0010        ShowPortrait(0x0027)
 0B9F  001D        ax = UnknownFunctionEC(0x000F)
 0BAC  002A        compare(ax, 0x0008)
-0BAF  002D        If (result.above) jump to 003E
+0BAF  002D        If (result.unsigned_greater_than) jump to 003E
 0BB1  002F        ShowMessage(0x0CB0) = I have visited King Cleowyn's throne room, and what a disappointment it was. Not much treasure there and too many dead things. Perhaps I missed something.
 0BBE  003C        Jump to 004B
 0BC0  003E        ShowMessage(0x0D4B) = The Elf Cleric is too engrossed in his prayers to talk with you.

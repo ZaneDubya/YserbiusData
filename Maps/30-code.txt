@@ -8,7 +8,7 @@ RIVER_01:
 0030  0025        DoDamage(ax)
 003A  002F        ax = GetCurrentHits()
 0041  0036        RefreshCompareFlags(ax)
-0043  0038        If (result.above) jump to 0047
+0043  0038        If (result.unsigned_greater_than) jump to 0047
 0045  003A        ShowMessage(0x0429) = You have died.
 0052  0047        RETURN
 

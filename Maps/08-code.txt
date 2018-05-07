@@ -210,7 +210,7 @@ NPCCHATA_10:
 0616  0010        ShowPortrait(0x0023)
 0623  001D        ax = UnknownFunctionEC(0x000F)
 0630  002A        compare(ax, 0x000B)
-0633  002D        If (result.above) jump to 003E
+0633  002D        If (result.unsigned_greater_than) jump to 003E
 0635  002F        ShowMessage(0x068C) = The palace doors are locked. Somewhere on the first level is the object that will open these doors.
 0642  003C        Jump to 004B
 0644  003E        ShowMessage(0x06F0) = The Dwarf Thief is too busy removing darts from his leather shield to answer you.
@@ -222,7 +222,7 @@ NPCCHATB_11:
 0663  0010        ShowPortrait(0x0021)
 0670  001D        ax = UnknownFunctionEC(0x000F)
 067D  002A        compare(ax, 0x0008)
-0680  002D        If (result.above) jump to 003E
+0680  002D        If (result.unsigned_greater_than) jump to 003E
 0682  002F        ShowMessage(0x0763) = I know there are three secret areas on this level, but they cannot be entered from this corridor.
 068F  003C        Jump to 004B
 0691  003E        ShowMessage(0x07C5) = The Halfling Ranger waves you away in annoyance.
@@ -234,7 +234,7 @@ NPCCHATC_12:
 06B0  0010        ShowPortrait(0x002C)
 06BD  001D        ax = UnknownFunctionEC(0x000F)
 06CA  002A        compare(ax, 0x000C)
-06CD  002D        If (result.above) jump to 003E
+06CD  002D        If (result.unsigned_greater_than) jump to 003E
 06CF  002F        ShowMessage(0x0814) = Not all traps should be by-passed. I fell through one and, after some nosing around and polishing off some bothersome rogues and monsters, found a most useful key.
 06DC  003C        Jump to 004B
 06DE  003E        ShowMessage(0x08B8) = The Dwarf Wizard disappears in a puff of smoke.
@@ -246,7 +246,7 @@ NPCCHATD_13:
 06FD  0010        ShowPortrait(0x001A)
 070A  001D        ax = UnknownFunctionEC(0x000F)
 0717  002A        compare(ax, 0x0007)
-071A  002D        If (result.above) jump to 003E
+071A  002D        If (result.unsigned_greater_than) jump to 003E
 071C  002F        ShowMessage(0x0905) = King Cleowyn's Palace is an evil place, filled with the spirits of the tormented dead.  A cleric told me to look for an asymmetry in the Palace if I wished to learn the truth about the dead king.
 0729  003C        Jump to 004B
 072B  003E        ShowMessage(0x09C9) = The Orc Knight pretends not to hear you.
@@ -268,7 +268,7 @@ NPCCHATE_16:
 078A  0010        ShowPortrait(0x0029)
 0797  001D        ax = UnknownFunctionEC(0x000F)
 07A4  002A        compare(ax, 0x000D)
-07A7  002D        If (result.above) jump to 004B
+07A7  002D        If (result.unsigned_greater_than) jump to 004B
 07A9  002F        ShowMessage(0x0A13) = On the next level down you will find a dwarf by the name of Deldwinn.  He guards the entrance to King Cleowyn's Apartments.
 07B6  003C        ShowMessage(0x0A8F) = Do not try to fight Deldwinn, for he is enchanted and cannot be killed by mortals.
 07C3  0049        Jump to 0058

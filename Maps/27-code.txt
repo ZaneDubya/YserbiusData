@@ -94,7 +94,7 @@ RIVER_11:
 01BD  001D        DoDamage(ax)
 01C7  0027        ax = GetCurrentHits()
 01CE  002E        RefreshCompareFlags(ax)
-01D0  0030        If (result.above) jump to 003F
+01D0  0030        If (result.unsigned_greater_than) jump to 003F
 01D2  0032        ShowMessage(0x06BF) = You have died.
 01DF  003F        RETURN
 
@@ -475,7 +475,7 @@ TXTCSTLC_3B:
 0D86  0044        DoDamage(ax)
 0D90  004E        ax = GetCurrentHits()
 0D97  0055        RefreshCompareFlags(ax)
-0D99  0057        If (result.above) jump to 0066
+0D99  0057        If (result.unsigned_greater_than) jump to 0066
 0D9B  0059        ShowMessage(0x1178) = You have died.
 0DA8  0066        RETURN
 

@@ -315,7 +315,7 @@ NPCCHATA_0C:
 0C4B  0010        ShowPortrait(0x0029)
 0C58  001D        ax = UnknownFunctionEC(0x000F)
 0C65  002A        compare(ax, 0x000C)
-0C68  002D        If (result.above) jump to 003E
+0C68  002D        If (result.unsigned_greater_than) jump to 003E
 0C6A  002F        ShowMessage(0x0663) = You will need Cleowyn's Robe, Crown and Scepter to reach his hidden tomb in the Mausoleum.
 0C77  003C        Jump to 004B
 0C79  003E        ShowMessage(0x06BE) = The Halfling Cleric mumbles something incoherent and creeps back into the shadows.
@@ -327,7 +327,7 @@ NPCCHATB_0D:
 0C98  0010        ShowPortrait(0x0024)
 0CA5  001D        ax = UnknownFunctionEC(0x000F)
 0CB2  002A        compare(ax, 0x000A)
-0CB5  002D        If (result.above) jump to 003E
+0CB5  002D        If (result.unsigned_greater_than) jump to 003E
 0CB7  002F        ShowMessage(0x073E) = The wizard Arnakkian hired his own troops from the Snow Elves. It is said that these strange elves disappeared before the volcano erupted. Where they wound up is anybody's guess.
 0CC4  003C        Jump to 004B
 0CC6  003E        ShowMessage(0x07F1) = The insane Gnome Thief crawls away.

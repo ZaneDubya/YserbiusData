@@ -60,37 +60,37 @@ CHESLITE_01:
 00FE  00FC        ax = ax + 0xFFEE
 0101  00FF        si = ax
 0103  0101        compare(si, 0x42)
-0106  0104        If (result.less) jump to 010B
+0106  0104        If (result.signed_less_than) jump to 010B
 0108  0106        compare(si, 0x49)
-010B  0109        If (result.notgreater) jump to 0159
+010B  0109        If (result.signed_equal_or_less_than) jump to 0159
 010D  010B        compare(si, 0x52)
-0110  010E        If (result.less) jump to 0115
+0110  010E        If (result.signed_less_than) jump to 0115
 0112  0110        compare(si, 0x59)
-0115  0113        If (result.notgreater) jump to 0159
+0115  0113        If (result.signed_equal_or_less_than) jump to 0159
 0117  0115        compare(si, 0x62)
-011A  0118        If (result.less) jump to 011F
+011A  0118        If (result.signed_less_than) jump to 011F
 011C  011A        compare(si, 0x69)
-011F  011D        If (result.notgreater) jump to 0159
+011F  011D        If (result.signed_equal_or_less_than) jump to 0159
 0121  011F        compare(si, 0x72)
-0124  0122        If (result.less) jump to 0129
+0124  0122        If (result.signed_less_than) jump to 0129
 0126  0124        compare(si, 0x79)
-0129  0127        If (result.notgreater) jump to 0159
+0129  0127        If (result.signed_equal_or_less_than) jump to 0159
 012B  0129        compare(si, 0x0082)
-012F  012D        If (result.less) jump to 0135
+012F  012D        If (result.signed_less_than) jump to 0135
 0131  012F        compare(si, 0x0089)
-0135  0133        If (result.notgreater) jump to 0159
+0135  0133        If (result.signed_equal_or_less_than) jump to 0159
 0137  0135        compare(si, 0x0092)
-013B  0139        If (result.less) jump to 0141
+013B  0139        If (result.signed_less_than) jump to 0141
 013D  013B        compare(si, 0x0099)
-0141  013F        If (result.notgreater) jump to 0159
+0141  013F        If (result.signed_equal_or_less_than) jump to 0159
 0143  0141        compare(si, 0x00A2)
-0147  0145        If (result.less) jump to 014D
+0147  0145        If (result.signed_less_than) jump to 014D
 0149  0147        compare(si, 0x00A9)
-014D  014B        If (result.notgreater) jump to 0159
+014D  014B        If (result.signed_equal_or_less_than) jump to 0159
 014F  014D        compare(si, 0x00B2)
-0153  0151        If (result.less) jump to 0177
+0153  0151        If (result.signed_less_than) jump to 0177
 0155  0153        compare(si, 0x00B9)
-0159  0157        If (result.greater) jump to 0177
+0159  0157        If (result.signed_greater_than) jump to 0177
 015B  0159        ax = SetExitability(ax) // ax is usually 0 following equality check
 0162  0160        GoMap(ax, si, 0x02, 0x35)
 0177  0175        Jump to 0184
@@ -161,37 +161,37 @@ CHESDARK_02:
 0294  00FC        ax = ax + 0x000E
 0297  00FF        si = ax
 0299  0101        compare(si, 0x42)
-029C  0104        If (result.less) jump to 010B
+029C  0104        If (result.signed_less_than) jump to 010B
 029E  0106        compare(si, 0x49)
-02A1  0109        If (result.notgreater) jump to 0159
+02A1  0109        If (result.signed_equal_or_less_than) jump to 0159
 02A3  010B        compare(si, 0x52)
-02A6  010E        If (result.less) jump to 0115
+02A6  010E        If (result.signed_less_than) jump to 0115
 02A8  0110        compare(si, 0x59)
-02AB  0113        If (result.notgreater) jump to 0159
+02AB  0113        If (result.signed_equal_or_less_than) jump to 0159
 02AD  0115        compare(si, 0x62)
-02B0  0118        If (result.less) jump to 011F
+02B0  0118        If (result.signed_less_than) jump to 011F
 02B2  011A        compare(si, 0x69)
-02B5  011D        If (result.notgreater) jump to 0159
+02B5  011D        If (result.signed_equal_or_less_than) jump to 0159
 02B7  011F        compare(si, 0x72)
-02BA  0122        If (result.less) jump to 0129
+02BA  0122        If (result.signed_less_than) jump to 0129
 02BC  0124        compare(si, 0x79)
-02BF  0127        If (result.notgreater) jump to 0159
+02BF  0127        If (result.signed_equal_or_less_than) jump to 0159
 02C1  0129        compare(si, 0x0082)
-02C5  012D        If (result.less) jump to 0135
+02C5  012D        If (result.signed_less_than) jump to 0135
 02C7  012F        compare(si, 0x0089)
-02CB  0133        If (result.notgreater) jump to 0159
+02CB  0133        If (result.signed_equal_or_less_than) jump to 0159
 02CD  0135        compare(si, 0x0092)
-02D1  0139        If (result.less) jump to 0141
+02D1  0139        If (result.signed_less_than) jump to 0141
 02D3  013B        compare(si, 0x0099)
-02D7  013F        If (result.notgreater) jump to 0159
+02D7  013F        If (result.signed_equal_or_less_than) jump to 0159
 02D9  0141        compare(si, 0x00A2)
-02DD  0145        If (result.less) jump to 014D
+02DD  0145        If (result.signed_less_than) jump to 014D
 02DF  0147        compare(si, 0x00A9)
-02E3  014B        If (result.notgreater) jump to 0159
+02E3  014B        If (result.signed_equal_or_less_than) jump to 0159
 02E5  014D        compare(si, 0x00B2)
-02E9  0151        If (result.less) jump to 0177
+02E9  0151        If (result.signed_less_than) jump to 0177
 02EB  0153        compare(si, 0x00B9)
-02EF  0157        If (result.greater) jump to 0177
+02EF  0157        If (result.signed_greater_than) jump to 0177
 02F1  0159        ax = SetExitability(ax) // ax is usually 0 following equality check
 02F8  0160        GoMap(ax, si, 0x02, 0x35)
 030D  0175        Jump to 0184

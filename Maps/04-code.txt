@@ -123,7 +123,7 @@ NPCCHATA_12:
 02AC  0010        ShowPortrait(0x0019)
 02B9  001D        ax = UnknownFunctionEC(0x000F)
 02C6  002A        compare(ax, 0x0008)
-02C9  002D        If (result.above) jump to 004B
+02C9  002D        If (result.unsigned_greater_than) jump to 004B
 02CB  002F        ShowMessage(0x05D4) = My father told me an ancient story. A Galabryan king once brought a powerful wizard to Twinion. This wizard did something very bad and caused the volcano to erupt.
 02D8  003C        ShowMessage(0x0678) = Supposedly the wizard's castle is buried deep in the bowels of this mountain. It is his anguished spirit that keeps the volcano active.
 02E5  0049        Jump to 0058
@@ -136,7 +136,7 @@ NPCCHATB_13:
 0306  0010        ShowPortrait(0x002C)
 0313  001D        ax = UnknownFunctionEC(0x000F)
 0320  002A        compare(ax, 0x000C)
-0323  002D        If (result.above) jump to 003E
+0323  002D        If (result.unsigned_greater_than) jump to 003E
 0325  002F        ShowMessage(0x0764) = Powerful magic once existed here. I've found scrolls and amulets and other magic charms that contain powerful spells. The Mana in these items is soon exhausted.
 0332  003C        Jump to 005C
 0334  003E        TeachSpell(0x12, 0x01)
@@ -149,7 +149,7 @@ NPCCHATC_14:
 0364  0010        ShowPortrait(0x0021)
 0371  001D        ax = UnknownFunctionEC(0x000F)
 037E  002A        compare(ax, 0x000D)
-0381  002D        If (result.above) jump to 003E
+0381  002D        If (result.unsigned_greater_than) jump to 003E
 0383  002F        ShowMessage(0x0876) = This place is called the Hall of Doors. Most doors lead nowhere. Others lead to wonders.
 0390  003C        Jump to 004B
 0392  003E        ShowMessage(0x08CF) = The Halfling Ranger wanders off in pursuit of friends.
@@ -161,7 +161,7 @@ NPCCHATD_15:
 03B1  0010        ShowPortrait(0x0028)
 03BE  001D        ax = UnknownFunctionEC(0x000F)
 03CB  002A        compare(ax, 0x0006)
-03CE  002D        If (result.above) jump to 003E
+03CE  002D        If (result.unsigned_greater_than) jump to 003E
 03D0  002F        ShowMessage(0x0924) = Someone left a rune message on the floor. It said that to reach the King's Apartments, you must take a turn for the worse. I wonder if it means that you must be sick to find his quarters.
 03DD  003C        Jump to 004B
 03DF  003E        ShowMessage(0x09E0) = The Troll Cleric is too busy counting her blessings to speak to you.
@@ -173,7 +173,7 @@ NPCCHATE_16:
 03FE  0010        ShowPortrait(0x001B)
 040B  001D        ax = UnknownFunctionEC(0x000F)
 0418  002A        compare(ax, 0x000B)
-041B  002D        If (result.above) jump to 003E
+041B  002D        If (result.unsigned_greater_than) jump to 003E
 041D  002F        ShowMessage(0x0A43) = A wise leader knows how to organize a party. Keep your fighters in front and your magicians safely in the rear. And as much as thieves are despised in general, they can serve you well, for their skills are impressive.
 042A  003C        Jump to 005C
 042C  003E        ModifyGold(0x000A)
@@ -202,7 +202,7 @@ LWRMNSTR_18:
 04DC  0003        ShowMessage(0x0B5D) = You encounter Goblins.
 04E9  0010        ax = UnknownFunctionEC(0x000F)
 04F6  001D        compare(ax, 0x0004)
-04F9  0020        If (result.above) jump to 0031
+04F9  0020        If (result.unsigned_greater_than) jump to 0031
 04FB  0022        ShowMessage(0x0B74) = You should be gracious to us Goblins, or we will tell our masters the Goblin Kings that you are cruel and deserve to die most horribly.
 0508  002F        Jump to 004B
 050A  0031        ShowMessage(0x0BFC) = The Goblins refuse to talk.
@@ -252,7 +252,7 @@ TUFMNSTR_1A:
 06BF  0003        ShowMessage(0x0C3C) = You encounter Rogues.
 06CC  0010        ax = UnknownFunctionEC(0x000F)
 06D9  001D        compare(ax, 0x0003)
-06DC  0020        If (result.above) jump to 0031
+06DC  0020        If (result.unsigned_greater_than) jump to 0031
 06DE  0022        ShowMessage(0x0C52) = Bizarre creatures haunt this dungeon. Many know magic. A great evil must exist somewhere in the dungeon to spawn such a neverending host of monsters.
 06EB  002F        Jump to 004B
 06ED  0031        ShowMessage(0x0CE8) = The Rogues refuse to talk.

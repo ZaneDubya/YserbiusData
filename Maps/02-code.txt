@@ -106,7 +106,7 @@ LOWROGUE_07:
 032C  0003        ShowMessage(0x0528) = You encounter Rogues.
 0339  0010        ax = UnknownFunctionEC(0x000F)
 0346  001D        compare(ax, 0x0005)
-0349  0020        If (result.above) jump to 0031
+0349  0020        If (result.unsigned_greater_than) jump to 0031
 034B  0022        ShowMessage(0x053E) = To reach the next level of the dungeon, you need a special key. The key is rumored to be somewhere on this level.
 0358  002F        Jump to 004B
 035A  0031        ShowMessage(0x05B0) = The Rogues refuse to talk.
@@ -281,7 +281,7 @@ MODMNSTR_0E:
 0926  0003        ShowMessage(0x081E) = You encounter Rogues.
 0933  0010        ax = UnknownFunctionEC(0x000F)
 0940  001D        compare(ax, 0x0007)
-0943  0020        If (result.above) jump to 0050
+0943  0020        If (result.unsigned_greater_than) jump to 0050
 0945  0022        ShowMessage(0x0834) = The imps that haunt the dungeon frequently return gold and lost items to their original places.
 0952  002F        AddTreasure(0x00C8, 0x00, 0x00, 0x00, 0x00, 0xB5)
 0971  004E        Jump to 0089
@@ -504,7 +504,7 @@ NPCCHATA_19:
 1085  0010        ShowPortrait(0x001E)
 1092  001D        ax = UnknownFunctionEC(0x000F)
 109F  002A        compare(ax, 0x0009)
-10A2  002D        If (result.above) jump to 003E
+10A2  002D        If (result.unsigned_greater_than) jump to 003E
 10A4  002F        ShowMessage(0x0E92) = King Cleowyn had a special lockpick which opened a set of doors in the Vestibule, leading to his Palace. He was the king of thieves, or so my father told me.
 10B1  003C        Jump to 004B
 10B3  003E        ShowMessage(0x0F30) = The Orc Ranger ignores you and wanders off.
@@ -516,7 +516,7 @@ NPCCHATB_1A:
 10D2  0010        ShowPortrait(0x002B)
 10DF  001D        ax = UnknownFunctionEC(0x000F)
 10EC  002A        compare(ax, 0x0004)
-10EF  002D        If (result.above) jump to 003E
+10EF  002D        If (result.unsigned_greater_than) jump to 003E
 10F1  002F        ShowMessage(0x0F7A) = The lone adventurer is often at a disadvantage in this cursed dungeon. Those deeper levels...oh, they are very dangerous, indeed.
 10FE  003C        Jump to 004B
 1100  003E        ShowMessage(0x0FFC) = The Human Wizard turns his back on you.
@@ -528,7 +528,7 @@ NPCCHATC_1B:
 111F  0010        ShowPortrait(0x001C)
 112C  001D        ax = UnknownFunctionEC(0x000F)
 1139  002A        compare(ax, 0x000A)
-113C  002D        If (result.above) jump to 003E
+113C  002D        If (result.unsigned_greater_than) jump to 003E
 113E  002F        ShowMessage(0x1042) = There are rumors of a fantastic treasury which King Cleowyn visited each night to count his ill-gotten tax revenues.
 114B  003C        Jump to 004B
 114D  003E        ShowMessage(0x10B7) = The Dwarf Knight seems uninterested in you and turns away.
@@ -540,7 +540,7 @@ NPCCHATD_1C:
 116C  0010        ShowPortrait(0x0028)
 1179  001D        ax = UnknownFunctionEC(0x000F)
 1186  002A        compare(ax, 0x000C)
-1189  002D        If (result.above) jump to 004B
+1189  002D        If (result.unsigned_greater_than) jump to 004B
 118B  002F        ShowMessage(0x1110) = Being able to detect hidden traps and doors is important for any party of adventurers wandering this dungeon.
 1198  003C        ShowMessage(0x117E) = Also, keep an eye open for better lockpicks. They will open doors to new wonders.
 11A5  0049        Jump to 0065
@@ -554,7 +554,7 @@ NPCCHATE_1D:
 11D3  0010        ShowPortrait(0x0022)
 11E0  001D        ax = UnknownFunctionEC(0x000F)
 11ED  002A        compare(ax, 0x000B)
-11F0  002D        If (result.above) jump to 004B
+11F0  002D        If (result.unsigned_greater_than) jump to 004B
 11F2  002F        ShowMessage(0x1262) = The upper levels of this dungeon make up the Palace of King Cleowyn. He was a cruel ruler and was hated by all.
 11FF  003C        ShowMessage(0x12D2) = Beware of the many traps and pitfalls in and around the Palace. Not even the most clever thief can escape Cleowyn's traps.
 120C  0049        Jump to 0058
@@ -567,7 +567,7 @@ NPCCHATF_1E:
 122D  0010        ShowPortrait(0x0018)
 123A  001D        ax = UnknownFunctionEC(0x000F)
 1247  002A        compare(ax, 0x000C)
-124A  002D        If (result.above) jump to 003E
+124A  002D        If (result.unsigned_greater_than) jump to 003E
 124C  002F        ShowMessage(0x13A2) = Beware the pit to be found at the heart of the mine. Only the very strongest can survive the fall into the deep abyss.
 1259  003C        Jump to 004B
 125B  003E        ShowMessage(0x1419) = The Elf Barbarian trudges off to kill some monsters.

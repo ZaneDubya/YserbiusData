@@ -225,7 +225,7 @@ HEAVWIND_1A:
 05E3  002A        DoDamage(ax)
 05ED  0034        ax = GetCurrentHits()
 05F4  003B        RefreshCompareFlags(ax)
-05F6  003D        If (result.above) jump to 004C
+05F6  003D        If (result.unsigned_greater_than) jump to 004C
 05F8  003F        ShowMessage(0x0978) = You have died.
 0605  004C        Jump to 005B
 0607  004E        ShowMessage(0x0987) = A peaceful breeze cools your soul
@@ -330,7 +330,7 @@ TEMPWIND_23:
 091A  002F        DoDamage(0x0064)
 0927  003C        ax = GetCurrentHits()
 092E  0043        RefreshCompareFlags(ax)
-0930  0045        If (result.above) jump to 0054
+0930  0045        If (result.unsigned_greater_than) jump to 0054
 0932  0047        ShowMessage(0x0B53) = You have died.
 093F  0054        RETURN
 
@@ -780,7 +780,7 @@ HELLWIND_49:
 15A1  0029        DoDamage(ax)
 15AB  0033        ax = GetCurrentHits()
 15B2  003A        RefreshCompareFlags(ax)
-15B4  003C        If (result.above) jump to 004B
+15B4  003C        If (result.unsigned_greater_than) jump to 004B
 15B6  003E        ShowMessage(0x153B) = You have died.
 15C3  004B        Jump to 005A
 15C5  004D        ShowMessage(0x154A) = A strengthening, benevolent breeze warms your blood!

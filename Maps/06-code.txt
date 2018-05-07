@@ -302,7 +302,7 @@ TUFMNSTR_13:
 0AFC  0003        ShowMessage(0x06AC) = You encounter Rogues.
 0B09  0010        ax = UnknownFunctionEC(0x000F)
 0B16  001D        compare(ax, 0x0002)
-0B19  0020        If (result.above) jump to 0031
+0B19  0020        If (result.unsigned_greater_than) jump to 0031
 0B1B  0022        ShowMessage(0x06C2) = The rooms in the center of this area once housed the king's soldiers.
 0B28  002F        Jump to 003E
 0B2A  0031        ShowMessage(0x0708) = The Rogues laugh at you and attack.
@@ -497,7 +497,7 @@ NPCCHATA_23:
 10EC  0010        ShowMessage(0x08F1) = You encounter a Human Barbarian.
 10F9  001D        ax = UnknownFunctionEC(0x000F)
 1106  002A        compare(ax, 0x000B)
-1109  002D        If (result.above) jump to 003E
+1109  002D        If (result.unsigned_greater_than) jump to 003E
 110B  002F        ShowMessage(0x0912) = This area is called the Soldiers' Quarters. Why it is so named is beyond me. I've wandered these halls for weeks and have found nothing resembling living quarters, much less any soldiers.
 1118  003C        Jump to 004B
 111A  003E        ShowMessage(0x09CE) = The Human Barbarian is trying to count his fingers and so neglects to answer.
@@ -509,7 +509,7 @@ NPCCHATB_24:
 1139  0010        ShowPortrait(0x002E)
 1146  001D        ax = UnknownFunctionEC(0x000F)
 1153  002A        compare(ax, 0x000A)
-1156  002D        If (result.above) jump to 003E
+1156  002D        If (result.unsigned_greater_than) jump to 003E
 1158  002F        ShowMessage(0x0A3C) = The volcano Yserbius roils the sea and makes it unnavigable. We are doomed to live out our miserable lives, unknown to other peoples. I would give my left eyetooth for a way to escape this dull island.
 1165  003C        Jump to 004B
 1167  003E        ShowMessage(0x0B06) = The Gremlin Wizards squeals in terror and flees.
@@ -521,7 +521,7 @@ NPCCHATC_25:
 1186  0010        ShowPortrait(0x0020)
 1193  001D        ax = UnknownFunctionEC(0x000F)
 11A0  002A        compare(ax, 0x0007)
-11A3  002D        If (result.above) jump to 003E
+11A3  002D        If (result.unsigned_greater_than) jump to 003E
 11A5  002F        ShowMessage(0x0B55) = Unless you have especially sharp eyes for traps, you should heed the sign at the end of the corridor. This bum leg of mine is proof of that sign's warning.
 11B2  003C        Jump to 004B
 11B4  003E        ShowMessage(0x0BF1) = The Troll Ranger snarls a curse at you and limps away.
@@ -533,7 +533,7 @@ NPCCHATD_26:
 11D3  0010        ShowPortrait(0x0027)
 11E0  001D        ax = UnknownFunctionEC(0x000F)
 11ED  002A        compare(ax, 0x000C)
-11F0  002D        If (result.above) jump to 003E
+11F0  002D        If (result.unsigned_greater_than) jump to 003E
 11F2  002F        ShowMessage(0x0C45) = You may think you are limited only to those skills you acquire through your Guild. I know there are places in this dungeon where you may acquire new and different skills.
 11FF  003C        Jump to 005C
 1201  003E        ModifyGold(0x0008)
@@ -546,7 +546,7 @@ NPCCHATE_27:
 1231  0010        ShowPortrait(0x001B)
 123E  001D        ax = UnknownFunctionEC(0x000F)
 124B  002A        compare(ax, 0x0007)
-124E  002D        If (result.above) jump to 003E
+124E  002D        If (result.unsigned_greater_than) jump to 003E
 1250  002F        ShowMessage(0x0D43) = Under Cleowyn's palace is a strange maze. The maze is infested with thieves, and they seem to be the only ones who know how to get through the thing.
 125D  003C        Jump to 004B
 125F  003E        ShowMessage(0x0DD9) = The Troll Knight is lost in thought and does not hear you.
@@ -558,7 +558,7 @@ NPCCHATF_28:
 127E  0010        ShowPortrait(0x0017)
 128B  001D        ax = UnknownFunctionEC(0x000F)
 1298  002A        compare(ax, 0x0009)
-129B  002D        If (result.above) jump to 003E
+129B  002D        If (result.unsigned_greater_than) jump to 003E
 129D  002F        ShowMessage(0x0E34) = A dwarf knight told me he encountered polar bears and ice lions deep in the dungeon. Whoever heard of polar bears and ice lions living inside an active volcano?
 12AA  003C        Jump to 004B
 12AC  003E        ShowMessage(0x0ED5) = The Orc Barbarian watches you impassively, refusing to talk.

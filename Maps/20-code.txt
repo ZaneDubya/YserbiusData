@@ -206,7 +206,7 @@ NPCCHATA_0E:
 0669  0010        ShowPortrait(0x0022)
 0676  001D        ax = UnknownFunctionEC(0x000F)
 0683  002A        compare(ax, 0x000C)
-0686  002D        If (result.above) jump to 003E
+0686  002D        If (result.unsigned_greater_than) jump to 003E
 0688  002F        ShowMessage(0x05E2) = Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
 0695  003C        Jump to 004B
 0697  003E        ShowMessage(0x0632) = The Human Thief cringes in terror and wraps herself up in a tight ball.
@@ -218,7 +218,7 @@ NPCCHATB_0F:
 06B6  0010        ShowPortrait(0x0018)
 06C3  001D        ax = UnknownFunctionEC(0x000F)
 06D0  002A        compare(ax, 0x0004)
-06D3  002D        If (result.above) jump to 003E
+06D3  002D        If (result.unsigned_greater_than) jump to 003E
 06D5  002F        ShowMessage(0x069A) = A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.
 06E2  003C        Jump to 004B
 06E4  003E        ShowMessage(0x0733) = The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.

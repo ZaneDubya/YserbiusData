@@ -263,7 +263,7 @@ FLSPECG_16:
 0854  0032        SetState(0x02, 0x45, 0x01)
 0869  0047        ax = GetSkillLevel(0x0C)
 0875  0053        compare(ax, 0x000C)
-0878  0056        If (result.above) jump to 006B
+0878  0056        If (result.unsigned_greater_than) jump to 006B
 087A  0058        SetSkillLevel(0x0C, 0x02)
 088B  0069        Jump to 0078
 088D  006B        ShowMessage(0x0AB1) = You are already pretty good at Barding, and he cannot help you further.
@@ -294,7 +294,7 @@ FLSPECI_18:
 0946  0032        SetState(0x02, 0x64, 0x01)
 095B  0047        ax = GetSkillLevel(0x0D)
 0967  0053        compare(ax, 0x000C)
-096A  0056        If (result.above) jump to 006B
+096A  0056        If (result.unsigned_greater_than) jump to 006B
 096C  0058        SetSkillLevel(0x0D, 0x02)
 097D  0069        Jump to 0078
 097F  006B        ShowMessage(0x0C45) = You are already pretty good at detection, and she cannot help you further.
@@ -326,7 +326,7 @@ FLSPECK_1A:
 0A45  0032        SetState(0x02, 0x65, 0x01)
 0A5A  0047        ax = GetSkillLevel(0x0E)
 0A66  0053        compare(ax, 0x000C)
-0A69  0056        If (result.above) jump to 006B
+0A69  0056        If (result.unsigned_greater_than) jump to 006B
 0A6B  0058        SetSkillLevel(0x0E, 0x02)
 0A7C  0069        Jump to 0078
 0A7E  006B        ShowMessage(0x0DD8) = You are already pretty good at picking locks, and he cannot help you further.

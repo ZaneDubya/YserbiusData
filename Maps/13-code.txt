@@ -733,7 +733,7 @@ NPCCHATA_29:
 1A61  0010        ShowPortrait(0x0016)
 1A6E  001D        ax = UnknownFunctionEC(0x000F)
 1A7B  002A        compare(ax, 0x000C)
-1A7E  002D        If (result.above) jump to 004B
+1A7E  002D        If (result.unsigned_greater_than) jump to 004B
 1A80  002F        ShowMessage(0x0E68) = The opening and closing of secret doors in this area give me a headache. I simply cannot puzzle out the correct sequence of opening the doors. I wish my map of this area were more complete.
 1A8D  003C        ShowMessage(0x0F26) = By the way, if you don't have the king's ring, you won't get anywhere in this crazy place.
 1A9A  0049        Jump to 0058
@@ -746,7 +746,7 @@ NPCCHATB_2A:
 1ABB  0010        ShowPortrait(0x002D)
 1AC8  001D        ax = UnknownFunctionEC(0x000F)
 1AD5  002A        compare(ax, 0x000A)
-1AD8  002D        If (result.above) jump to 003E
+1AD8  002D        If (result.unsigned_greater_than) jump to 003E
 1ADA  002F        ShowMessage(0x0FE3) = Once you find a key in this area, seek the hidden door and follow your destiny. The door appears only when you have the right key. Where it leads I do not know.
 1AE7  003C        Jump to 004B
 1AE9  003E        ShowMessage(0x1084) = The Gnome Wizard is too intent on drawing runes in the dust to talk to you.
@@ -758,7 +758,7 @@ NPCCHATC_2B:
 1B08  0010        ShowPortrait(0x001A)
 1B15  001D        ax = UnknownFunctionEC(0x000F)
 1B22  002A        compare(ax, 0x0009)
-1B25  002D        If (result.above) jump to 003E
+1B25  002D        If (result.unsigned_greater_than) jump to 003E
 1B27  002F        ShowMessage(0x10ED) = There are many ways into King Cleowyn's Mausoleum, but few are rewarding. The most direct ways are the most challenging. Do not continue unless you have what the king demands.
 1B34  003C        Jump to 004B
 1B36  003E        ShowMessage(0x119D) = The Orc Knight dismisses you as low-level buffoons.
@@ -770,7 +770,7 @@ NPCCHATD_2C:
 1B55  0010        ShowPortrait(0x0025)
 1B62  001D        ax = UnknownFunctionEC(0x000F)
 1B6F  002A        compare(ax, 0x0008)
-1B72  002D        If (result.above) jump to 003E
+1B72  002D        If (result.unsigned_greater_than) jump to 003E
 1B74  002F        ShowMessage(0x11F1) = Beneath the king's living quarters is an area known as the Thieves' Maze. Only an experienced thief - or a hero who has a thief's skills - will pick his way through this intricate maze.
 1B81  003C        Jump to 005D
 1B83  003E        ShowMessage(0x12AB) = The Halfling Thief steals some gold and runs away.

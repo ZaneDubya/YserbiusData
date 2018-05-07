@@ -613,7 +613,7 @@ LFTROTA_1E:
 102E  002E        ax = SetExitability(ax) // ax is usually 0 following equality check
 1035  0035        bx = ax
 1037  0037        compare(bx, 0x03)
-103A  003A        If (result.below or result.equal) jump to 003F
+103A  003A        If (result.unsigned_equal_or_less_than) jump to 003F
 103C  003C        Jump to 00C9
 103F  003F        bx = bx * 2
 1041  0041        Jump to mem[0x10CB+bx]
@@ -645,7 +645,7 @@ LFTROTB_1F:
 1101  002E        ax = SetExitability(ax) // ax is usually 0 following equality check
 1108  0035        bx = ax
 110A  0037        compare(bx, 0x03)
-110D  003A        If (result.below or result.equal) jump to 003F
+110D  003A        If (result.unsigned_equal_or_less_than) jump to 003F
 110F  003C        Jump to 00CA
 1112  003F        bx = bx * 2
 1114  0041        Jump to mem[0x11C4+bx]
@@ -682,7 +682,7 @@ BACKROTL_20:
 11FA  002E        ax = SetExitability(ax) // ax is usually 0 following equality check
 1201  0035        bx = ax
 1203  0037        compare(bx, 0x03)
-1206  003A        If (result.below or result.equal) jump to 003F
+1206  003A        If (result.unsigned_equal_or_less_than) jump to 003F
 1208  003C        Jump to 00CA
 120B  003F        bx = bx * 2
 120D  0041        Jump to mem[0x12BD+bx]
@@ -719,7 +719,7 @@ RTROTA_21:
 12F3  002E        ax = SetExitability(ax) // ax is usually 0 following equality check
 12FA  0035        bx = ax
 12FC  0037        compare(bx, 0x03)
-12FF  003A        If (result.below or result.equal) jump to 003F
+12FF  003A        If (result.unsigned_equal_or_less_than) jump to 003F
 1301  003C        Jump to 00CA
 1304  003F        bx = bx * 2
 1306  0041        Jump to mem[0x13B6+bx]
@@ -756,7 +756,7 @@ RTROTB_22:
 13EC  002E        ax = SetExitability(ax) // ax is usually 0 following equality check
 13F3  0035        bx = ax
 13F5  0037        compare(bx, 0x03)
-13F8  003A        If (result.below or result.equal) jump to 003F
+13F8  003A        If (result.unsigned_equal_or_less_than) jump to 003F
 13FA  003C        Jump to 00CA
 13FD  003F        bx = bx * 2
 13FF  0041        Jump to mem[0x14AF+bx]
@@ -1201,7 +1201,7 @@ BACKROTR_36:
 2594  002E        ax = SetExitability(ax) // ax is usually 0 following equality check
 259B  0035        bx = ax
 259D  0037        compare(bx, 0x03)
-25A0  003A        If (result.below or result.equal) jump to 003F
+25A0  003A        If (result.unsigned_equal_or_less_than) jump to 003F
 25A2  003C        Jump to 00CA
 25A5  003F        bx = bx * 2
 25A7  0041        Jump to mem[0x2657+bx]
@@ -1255,7 +1255,7 @@ NPCCHATA_3B:
 26B7  0010        ShowPortrait(0x002B)
 26C4  001D        ax = UnknownFunctionEC(0x000F)
 26D1  002A        compare(ax, 0x000A)
-26D4  002D        If (result.above) jump to 003E
+26D4  002D        If (result.unsigned_greater_than) jump to 003E
 26D6  002F        ShowMessage(0x0CDE) = This is the lowest level of Cleowyn's Palace, yet you are merely at the beginning of the dungeon proper.
 26E3  003C        Jump to 004B
 26E5  003E        ShowMessage(0x0D47) = The Human Wizard chortles softly.
@@ -1267,7 +1267,7 @@ NPCCHATB_3C:
 2704  0010        ShowPortrait(0x0024)
 2711  001D        ax = UnknownFunctionEC(0x000F)
 271E  002A        compare(ax, 0x0009)
-2721  002D        If (result.above) jump to 003E
+2721  002D        If (result.unsigned_greater_than) jump to 003E
 2723  002F        ShowMessage(0x0D86) = In the king's quarters is an elevator that will lift you up to the King's Palace. Cleowyn used this elevator to  by-pass the traps around his throne.
 2730  003C        Jump to 004B
 2732  003E        ShowMessage(0x0E1C) = The Gnome Thief tiptoes away as you draw near.
@@ -1279,7 +1279,7 @@ NPCCHATC_3D:
 2751  0010        ShowPortrait(0x0019)
 275E  001D        ax = UnknownFunctionEC(0x000F)
 276B  002A        compare(ax, 0x0005)
-276E  002D        If (result.above) jump to 003E
+276E  002D        If (result.unsigned_greater_than) jump to 003E
 2770  002F        ShowMessage(0x0E6C) = The name of the Elemental bound by the wizard Arnakkian is En-li-kil. This Elemental commands Time itself.
 277D  003C        Jump to 0058
 277F  003E        DoDamage(0x004B)
