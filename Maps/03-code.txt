@@ -1,11 +1,11 @@
 TOMINES_01:
 0006  0000        BEGIN
-0009  0003        GoMap(00, 0x7F, 0x02, 0x01)
+0009  0003        SetMoveMap(00, 0x7F, 0x02, 0x01)
 0023  001D        RETURN
 
 TOTREAS_02:
 0025  0000        BEGIN
-0028  0003        GoMap(0x01, 0x05, 0x04, 0x01)
+0028  0003        SetMoveMap(0x01, 0x05, 0x04, 0x01)
 0043  001E        RETURN
 
 KEYDOOR_03:
@@ -14,26 +14,26 @@ KEYDOOR_03:
 0058  0013        compare(ax, 0x0001)
 005B  0016        If (result.notequal) jump to 0063
 005D  0018        ShowMessage(0x03FC) = Cleowyn's Key has unlocked the door.
-006A  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+006A  0025        ax = GetFacing()
 0071  002C        Push(ax)
 0072  002D        ax = GetNextTile()
 0079  0034        Push(ax)
 007A  0035        Push(01)
 007E  0039        SetUnblocked()
 0088  0043        Push(01)
-008C  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+008C  0047        ax = GetFacing()
 0093  004E        Push(ax)
 0094  004F        ax = GetNextTile()
 009B  0056        Push(ax)
-009C  0057        Move(stk[0], stk[1], stk[2])
+009C  0057        SetMove2C(stk[0], stk[1], stk[2])
 00A6  0061        Jump to 008D
 00A8  0063        ShowMessage(0x0421) = The door is locked.  Something special is needed to open this door.
 00B5  0070        Push(00)
-00B8  0073        ax = SetExitability(ax) // ax is usually 0 following equality check
+00B8  0073        ax = GetFacing()
 00BF  007A        Push(ax)
 00C0  007B        ax = GetNextTile()
 00C7  0082        Push(ax)
-00C8  0083        Move(stk[0], stk[1], stk[2])
+00C8  0083        SetMove2C(stk[0], stk[1], stk[2])
 00D2  008D        RETURN
 
 KEYMESSG_04:
@@ -48,26 +48,26 @@ LKPKDOOR_05:
 0106  0013        compare(ax, 0x0002)
 0109  0016        If (result.notequal) jump to 0063
 010B  0018        ShowMessage(0x04B8) = Cleowyn's Lockpick has unlocked the door.
-0118  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+0118  0025        ax = GetFacing()
 011F  002C        Push(ax)
 0120  002D        ax = GetNextTile()
 0127  0034        Push(ax)
 0128  0035        Push(01)
 012C  0039        SetUnblocked()
 0136  0043        Push(01)
-013A  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+013A  0047        ax = GetFacing()
 0141  004E        Push(ax)
 0142  004F        ax = GetNextTile()
 0149  0056        Push(ax)
-014A  0057        Move(stk[0], stk[1], stk[2])
+014A  0057        SetMove2C(stk[0], stk[1], stk[2])
 0154  0061        Jump to 008D
 0156  0063        ShowMessage(0x04E2) = The door is locked.
 0163  0070        Push(00)
-0166  0073        ax = SetExitability(ax) // ax is usually 0 following equality check
+0166  0073        ax = GetFacing()
 016D  007A        Push(ax)
 016E  007B        ax = GetNextTile()
 0175  0082        Push(ax)
-0176  0083        Move(stk[0], stk[1], stk[2])
+0176  0083        SetMove2C(stk[0], stk[1], stk[2])
 0180  008D        RETURN
 
 LKPKMESG_06:
@@ -82,26 +82,26 @@ STRDOOR_07:
 01B4  0013        compare(ax, 0x0003)
 01B7  0016        If (result.notequal) jump to 0063
 01B9  0018        ShowMessage(0x0546) = The door has been forced open.
-01C6  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+01C6  0025        ax = GetFacing()
 01CD  002C        Push(ax)
 01CE  002D        ax = GetNextTile()
 01D5  0034        Push(ax)
 01D6  0035        Push(01)
 01DA  0039        SetUnblocked()
 01E4  0043        Push(01)
-01E8  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+01E8  0047        ax = GetFacing()
 01EF  004E        Push(ax)
 01F0  004F        ax = GetNextTile()
 01F7  0056        Push(ax)
-01F8  0057        Move(stk[0], stk[1], stk[2])
+01F8  0057        SetMove2C(stk[0], stk[1], stk[2])
 0202  0061        Jump to 008D
 0204  0063        ShowMessage(0x0565) = The door is currently impassable.
 0211  0070        Push(00)
-0214  0073        ax = SetExitability(ax) // ax is usually 0 following equality check
+0214  0073        ax = GetFacing()
 021B  007A        Push(ax)
 021C  007B        ax = GetNextTile()
 0223  0082        Push(ax)
-0224  0083        Move(stk[0], stk[1], stk[2])
+0224  0083        SetMove2C(stk[0], stk[1], stk[2])
 022E  008D        RETURN
 
 STRMESSG_08:
@@ -137,7 +137,7 @@ GOLDENC_09:
 
 STAIRS_0A:
 034F  0000        BEGIN
-0352  0003        GoMap(0x02, 0x01, 0x02, 0x02)
+0352  0003        SetMoveMap(0x02, 0x01, 0x02, 0x02)
 036D  001E        RETURN
 
 PALKEYEN_0B:
@@ -175,7 +175,7 @@ PALKEYEN_0B:
 
 TELEPORT_0C:
 04C2  0000        BEGIN
-04C5  0003        GoMap(0x03, 0xF0, 0x01, 0x04)
+04C5  0003        SetMoveMap(0x03, 0xF0, 0x01, 0x04)
 04E0  001E        RETURN
 
 LOWMNSTR_0D:
@@ -311,7 +311,7 @@ STRSMESS_14:
 
 STRSTLPT_15:
 099F  0000        BEGIN
-09A2  0003        GoMap(0x02, 0x01, 0x02, 0x02)
+09A2  0003        SetMoveMap(0x02, 0x01, 0x02, 0x02)
 09BD  001E        RETURN
 
 REGDOOR_16:
@@ -320,26 +320,26 @@ REGDOOR_16:
 09D2  0013        compare(ax, 0x0004)
 09D5  0016        If (result.notequal) jump to 0063
 09D7  0018        ShowMessage(0x07EC) = As you open the door, you hear locks click throughout the dungeon.
-09E4  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+09E4  0025        ax = GetFacing()
 09EB  002C        Push(ax)
 09EC  002D        ax = GetNextTile()
 09F3  0034        Push(ax)
 09F4  0035        Push(01)
 09F8  0039        SetUnblocked()
 0A02  0043        Push(01)
-0A06  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+0A06  0047        ax = GetFacing()
 0A0D  004E        Push(ax)
 0A0E  004F        ax = GetNextTile()
 0A15  0056        Push(ax)
-0A16  0057        Move(stk[0], stk[1], stk[2])
+0A16  0057        SetMove2C(stk[0], stk[1], stk[2])
 0A20  0061        Jump to 008D
 0A22  0063        ShowMessage(0x082F) = The door is currently impassable.
 0A2F  0070        Push(00)
-0A32  0073        ax = SetExitability(ax) // ax is usually 0 following equality check
+0A32  0073        ax = GetFacing()
 0A39  007A        Push(ax)
 0A3A  007B        ax = GetNextTile()
 0A41  0082        Push(ax)
-0A42  0083        Move(stk[0], stk[1], stk[2])
+0A42  0083        SetMove2C(stk[0], stk[1], stk[2])
 0A4C  008D        RETURN
 
 NPCCHATA_17:
@@ -408,26 +408,26 @@ KEYDRA_1C:
 0BE0  0011        If (result.equal) jump to 0072
 0BE2  0013        SetState(0x02, 0x00, 0x01)
 0BF6  0027        ShowMessage(0x0D8C) = Cleowyn's Key unlocks the door.
-0C03  0034        ax = SetExitability(ax) // ax is usually 0 following equality check
+0C03  0034        ax = GetFacing()
 0C0A  003B        Push(ax)
 0C0B  003C        ax = GetNextTile()
 0C12  0043        Push(ax)
 0C13  0044        Push(01)
 0C17  0048        SetUnblocked()
 0C21  0052        Push(01)
-0C25  0056        ax = SetExitability(ax) // ax is usually 0 following equality check
+0C25  0056        ax = GetFacing()
 0C2C  005D        Push(ax)
 0C2D  005E        ax = GetNextTile()
 0C34  0065        Push(ax)
-0C35  0066        Move(stk[0], stk[1], stk[2])
+0C35  0066        SetMove2C(stk[0], stk[1], stk[2])
 0C3F  0070        Jump to 009C
 0C41  0072        ShowMessage(0x0DAC) = The door is locked.
 0C4E  007F        Push(00)
-0C51  0082        ax = SetExitability(ax) // ax is usually 0 following equality check
+0C51  0082        ax = GetFacing()
 0C58  0089        Push(ax)
 0C59  008A        ax = GetNextTile()
 0C60  0091        Push(ax)
-0C61  0092        Move(stk[0], stk[1], stk[2])
+0C61  0092        SetMove2C(stk[0], stk[1], stk[2])
 0C6B  009C        RETURN
 
 LKPKDRA_1D:
@@ -436,26 +436,26 @@ LKPKDRA_1D:
 0C7E  0011        If (result.equal) jump to 0072
 0C80  0013        SetState(0x02, 0x00, 0x02)
 0C94  0027        ShowMessage(0x0DC0) = Cleowyn's Lockpick has unlocked the door.
-0CA1  0034        ax = SetExitability(ax) // ax is usually 0 following equality check
+0CA1  0034        ax = GetFacing()
 0CA8  003B        Push(ax)
 0CA9  003C        ax = GetNextTile()
 0CB0  0043        Push(ax)
 0CB1  0044        Push(01)
 0CB5  0048        SetUnblocked()
 0CBF  0052        Push(01)
-0CC3  0056        ax = SetExitability(ax) // ax is usually 0 following equality check
+0CC3  0056        ax = GetFacing()
 0CCA  005D        Push(ax)
 0CCB  005E        ax = GetNextTile()
 0CD2  0065        Push(ax)
-0CD3  0066        Move(stk[0], stk[1], stk[2])
+0CD3  0066        SetMove2C(stk[0], stk[1], stk[2])
 0CDD  0070        Jump to 009C
 0CDF  0072        ShowMessage(0x0DEA) = The door is locked.  It looks like something special is needed to open this door.
 0CEC  007F        Push(00)
-0CEF  0082        ax = SetExitability(ax) // ax is usually 0 following equality check
+0CEF  0082        ax = GetFacing()
 0CF6  0089        Push(ax)
 0CF7  008A        ax = GetNextTile()
 0CFE  0091        Push(ax)
-0CFF  0092        Move(stk[0], stk[1], stk[2])
+0CFF  0092        SetMove2C(stk[0], stk[1], stk[2])
 0D09  009C        RETURN
 
 STRNGDRA_1E:
@@ -465,26 +465,26 @@ STRNGDRA_1E:
 0D1D  0012        If (result.below) jump to 0073
 0D1F  0014        SetState(0x02, 0x00, 0x03)
 0D33  0028        ShowMessage(0x0E3C) = You manage to force open the door.
-0D40  0035        ax = SetExitability(ax) // ax is usually 0 following equality check
+0D40  0035        ax = GetFacing()
 0D47  003C        Push(ax)
 0D48  003D        ax = GetNextTile()
 0D4F  0044        Push(ax)
 0D50  0045        Push(01)
 0D54  0049        SetUnblocked()
 0D5E  0053        Push(01)
-0D62  0057        ax = SetExitability(ax) // ax is usually 0 following equality check
+0D62  0057        ax = GetFacing()
 0D69  005E        Push(ax)
 0D6A  005F        ax = GetNextTile()
 0D71  0066        Push(ax)
-0D72  0067        Move(stk[0], stk[1], stk[2])
+0D72  0067        SetMove2C(stk[0], stk[1], stk[2])
 0D7C  0071        Jump to 009D
 0D7E  0073        ShowMessage(0x0E5F) = The door is currently impassable.
 0D8B  0080        Push(00)
-0D8E  0083        ax = SetExitability(ax) // ax is usually 0 following equality check
+0D8E  0083        ax = GetFacing()
 0D95  008A        Push(ax)
 0D96  008B        ax = GetNextTile()
 0D9D  0092        Push(ax)
-0D9E  0093        Move(stk[0], stk[1], stk[2])
+0D9E  0093        SetMove2C(stk[0], stk[1], stk[2])
 0DA8  009D        RETURN
 
 REGDORA_1F:
@@ -497,26 +497,26 @@ REGDORA_1F:
 0DD4  002A        If (result.notequal) jump to 008B
 0DD6  002C        SetState(0x02, 0x00, 0x04)
 0DEA  0040        ShowMessage(0x0E81) = As you open the door, you hear locks click throughout the dungeon.
-0DF7  004D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0DF7  004D        ax = GetFacing()
 0DFE  0054        Push(ax)
 0DFF  0055        ax = GetNextTile()
 0E06  005C        Push(ax)
 0E07  005D        Push(01)
 0E0B  0061        SetUnblocked()
 0E15  006B        Push(01)
-0E19  006F        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E19  006F        ax = GetFacing()
 0E20  0076        Push(ax)
 0E21  0077        ax = GetNextTile()
 0E28  007E        Push(ax)
-0E29  007F        Move(stk[0], stk[1], stk[2])
+0E29  007F        SetMove2C(stk[0], stk[1], stk[2])
 0E33  0089        Jump to 00B5
 0E35  008B        ShowMessage(0x0EC4) = The door is currently impassable.
 0E42  0098        Push(00)
-0E45  009B        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E45  009B        ax = GetFacing()
 0E4C  00A2        Push(ax)
 0E4D  00A3        ax = GetNextTile()
 0E54  00AA        Push(ax)
-0E55  00AB        Move(stk[0], stk[1], stk[2])
+0E55  00AB        SetMove2C(stk[0], stk[1], stk[2])
 0E5F  00B5        RETURN
 
 EMPTY:

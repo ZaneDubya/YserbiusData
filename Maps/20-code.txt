@@ -1,6 +1,6 @@
 TELEPORT_01:
 0009  0000        BEGIN
-000C  0003        GoMap(0x33, 0x00, 0x02, 0x05)
+000C  0003        SetMoveMap(0x33, 0x00, 0x02, 0x05)
 0026  001D        RETURN
 
 TELEMESS_02:
@@ -73,12 +73,12 @@ LKPKDORZ_05:
 02A5  0003        ax = UsedItem(0xE2, 0xE2)
 02B8  0016        If (result.equal) jump to 0063
 02BA  0018        Push(01)
-02BE  001C        ax = SetExitability(ax) // ax is usually 0 following equality check
+02BE  001C        ax = GetFacing()
 02C5  0023        Push(ax)
 02C6  0024        ax = GetNextTile()
 02CD  002B        Push(ax)
-02CE  002C        Move(stk[0], stk[1], stk[2])
-02D8  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+02CE  002C        SetMove2C(stk[0], stk[1], stk[2])
+02D8  0036        ax = GetFacing()
 02DF  003D        Push(ax)
 02E0  003E        ax = GetNextTile()
 02E7  0045        Push(ax)
@@ -87,11 +87,11 @@ LKPKDORZ_05:
 02F6  0054        ShowMessage(0x052B) = The door opens easily when you use the Lava Key.
 0303  0061        Jump to 008D
 0305  0063        Push(00)
-0308  0066        ax = SetExitability(ax) // ax is usually 0 following equality check
+0308  0066        ax = GetFacing()
 030F  006D        Push(ax)
 0310  006E        ax = GetNextTile()
 0317  0075        Push(ax)
-0318  0076        Move(stk[0], stk[1], stk[2])
+0318  0076        SetMove2C(stk[0], stk[1], stk[2])
 0322  0080        ShowMessage(0x055C) = This door cannot be unlocked without the Lava Key.
 032F  008D        RETURN
 
@@ -101,26 +101,26 @@ STRDOOR_06:
 0340  000F        compare(ax, 0x000E)
 0343  0012        If (result.below) jump to 005F
 0345  0014        ShowMessage(0x058F) = You manage to force the door open.
-0352  0021        ax = SetExitability(ax) // ax is usually 0 following equality check
+0352  0021        ax = GetFacing()
 0359  0028        Push(ax)
 035A  0029        ax = GetNextTile()
 0361  0030        Push(ax)
 0362  0031        Push(01)
 0366  0035        SetUnblocked()
 0370  003F        Push(01)
-0374  0043        ax = SetExitability(ax) // ax is usually 0 following equality check
+0374  0043        ax = GetFacing()
 037B  004A        Push(ax)
 037C  004B        ax = GetNextTile()
 0383  0052        Push(ax)
-0384  0053        Move(stk[0], stk[1], stk[2])
+0384  0053        SetMove2C(stk[0], stk[1], stk[2])
 038E  005D        Jump to 0089
 0390  005F        ShowMessage(0x05B2) = The door is stuck.
 039D  006C        Push(00)
-03A0  006F        ax = SetExitability(ax) // ax is usually 0 following equality check
+03A0  006F        ax = GetFacing()
 03A7  0076        Push(ax)
 03A8  0077        ax = GetNextTile()
 03AF  007E        Push(ax)
-03B0  007F        Move(stk[0], stk[1], stk[2])
+03B0  007F        SetMove2C(stk[0], stk[1], stk[2])
 03BA  0089        RETURN
 
 EMPTY:

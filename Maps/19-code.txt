@@ -1,28 +1,27 @@
 TELEPORT_01:
 000F  0000        BEGIN
-0012  0003        GoMap(0x02, 0x40, 0x03, 0x05)
+0012  0003        SetMoveMap(0x02, 0x40, 0x03, 0x05)
 002D  001E        RETURN
 
 TELEPORT_02:
 002F  0000        BEGIN
-0032  0003        GoMap(0x01, 0x78, 0x01, 0x04)
+0032  0003        SetMoveMap(0x01, 0x78, 0x01, 0x04)
 004D  001E        RETURN
 
 TELEPORT_03:
 004F  0000        BEGIN
-0052  0003        GoMap(0x03, 0xF1, 0x02, 0x05)
+0052  0003        SetMoveMap(0x03, 0xF1, 0x02, 0x05)
 006D  001E        RETURN
 
 TELEPORT_04:
 006F  0000        BEGIN
-0072  0003        GoMap(00, 0x96, 0x02, 0x05)
+0072  0003        SetMoveMap(00, 0x96, 0x02, 0x05)
 008C  001D        RETURN
 
 LAVA_05:
 008E  0000        BEGIN
 0091  0003        ax = GetNextTile()
-0098  000A        SetTileFloor(ax, 0x02)
-00A5  0017        cx = Pop()
+0098  000A        SetMove38(ax, 0x02)
 00A6  0018        ShowMessage(0x03FC) = You step into molten lava and your flesh burns.
 00B3  0025        ax = GetMaxHits()
 00BA  002C        DoDamage(ax)
@@ -71,32 +70,32 @@ SPKEYDOR_13:
 0107  0000        BEGIN
 010A  0003        ax = UsedItem(0xE2, 0xE2)
 011D  0016        If (result.equal) jump to 0063
-011F  0018        ax = SetExitability(ax) // ax is usually 0 following equality check
+011F  0018        ax = GetFacing()
 0126  001F        Push(ax)
 0127  0020        ax = GetNextTile()
 012E  0027        Push(ax)
 012F  0028        Push(01)
 0133  002C        SetUnblocked()
 013D  0036        Push(01)
-0141  003A        ax = SetExitability(ax) // ax is usually 0 following equality check
+0141  003A        ax = GetFacing()
 0148  0041        Push(ax)
 0149  0042        ax = GetNextTile()
 0150  0049        Push(ax)
-0151  004A        Move(stk[0], stk[1], stk[2])
+0151  004A        SetMove2C(stk[0], stk[1], stk[2])
 015B  0054        ShowMessage(0x042C) = The Lava Key opens the door.
 0168  0061        Jump to 00AB
-016A  0063        ax = SetExitability(ax) // ax is usually 0 following equality check
+016A  0063        ax = GetFacing()
 0171  006A        Push(ax)
 0172  006B        ax = GetNextTile()
 0179  0072        Push(ax)
 017A  0073        Push(01)
 017E  0077        SetUnblocked()
 0188  0081        Push(00)
-018B  0084        ax = SetExitability(ax) // ax is usually 0 following equality check
+018B  0084        ax = GetFacing()
 0192  008B        Push(ax)
 0193  008C        ax = GetNextTile()
 019A  0093        Push(ax)
-019B  0094        Move(stk[0], stk[1], stk[2])
+019B  0094        SetMove2C(stk[0], stk[1], stk[2])
 01A5  009E        ShowMessage(0x0449) = The door is locked. It requires a special key.
 01B2  00AB        RETURN
 
@@ -161,12 +160,12 @@ LKPKDOOR_16:
 0409  0024        compare(ax, 0x0008)
 040C  0027        If (result.below) jump to 0074
 040E  0029        Push(01)
-0412  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0412  002D        ax = GetFacing()
 0419  0034        Push(ax)
 041A  0035        ax = GetNextTile()
 0421  003C        Push(ax)
-0422  003D        Move(stk[0], stk[1], stk[2])
-042C  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+0422  003D        SetMove2C(stk[0], stk[1], stk[2])
+042C  0047        ax = GetFacing()
 0433  004E        Push(ax)
 0434  004F        ax = GetNextTile()
 043B  0056        Push(ax)
@@ -175,11 +174,11 @@ LKPKDOOR_16:
 044A  0065        ShowMessage(0x055A) = The door lock opens easily.
 0457  0072        Jump to 009E
 0459  0074        Push(00)
-045C  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+045C  0077        ax = GetFacing()
 0463  007E        Push(ax)
 0464  007F        ax = GetNextTile()
 046B  0086        Push(ax)
-046C  0087        Move(stk[0], stk[1], stk[2])
+046C  0087        SetMove2C(stk[0], stk[1], stk[2])
 0476  0091        ShowMessage(0x0576) = The door is locked.
 0483  009E        RETURN
 

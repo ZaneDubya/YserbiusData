@@ -59,7 +59,7 @@ PLATCTOA_06:
 PLATDTOB_07:
 0189  0000        BEGIN
 018C  0003        ShowMessage(0x053D) = As you reach the platform, a magical field envelops you and teleports you to a moon tapestry.
-0199  0010        GoMap(0x02, 0xEE, 0x03, 0x38)
+0199  0010        SetMoveMap(0x02, 0xEE, 0x03, 0x38)
 01B4  002B        RETURN
 
 EMPTY:
@@ -84,11 +84,11 @@ TAPMOONS_0C:
 01EE  0024        Push(01)
 01F2  0028        SetUnblocked()
 01FC  0032        Push(01)
-0200  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+0200  0036        ax = GetFacing()
 0207  003D        Push(ax)
 0208  003E        ax = GetNextTile()
 020F  0045        Push(ax)
-0210  0046        Move(stk[0], stk[1], stk[2])
+0210  0046        SetMove2C(stk[0], stk[1], stk[2])
 021A  0050        ShowMessage(0x059B) = A magical door appears where the tapestry used to be.
 0227  005D        Jump to 006C
 0229  005F        ShowMessage(0x05D1) = A brilliant tapestry depicting moons decorates this room.
@@ -159,8 +159,8 @@ RAINRED_15:
 03B3  00EB        RefreshCompareFlags(ax)
 03B5  00ED        If (result.equal) jump to 015A
 03B7  00EF        SetState(0x01, 0x01, 0x01)
-03CC  0104        SetTileFloor(0x75, 0x42)
-03DD  0115        SetTileFloor(0x85, 0x42)
+03CC  0104        SetMove38(0x75, 0x42)
+03DD  0115        SetMove38(0x85, 0x42)
 03EE  0126        ShowMessage(0x0861) = Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
 03FB  0133        ShowMessage(0x08AE) = It intersects the Rainbow and bursts into blinding light.
 0408  0140        ShowMessage(0x08E8) = Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
@@ -195,8 +195,8 @@ RAINYEL_16:
 0500  00DC        RefreshCompareFlags(ax)
 0502  00DE        If (result.equal) jump to 014B
 0504  00E0        SetState(0x01, 0x01, 0x01)
-0519  00F5        SetTileFloor(0x75, 0x42)
-052A  0106        SetTileFloor(0x85, 0x42)
+0519  00F5        SetMove38(0x75, 0x42)
+052A  0106        SetMove38(0x85, 0x42)
 053B  0117        ShowMessage(0x09E4) = Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
 0548  0124        ShowMessage(0x0A31) = It intersects the Rainbow and bursts into blinding light.
 0555  0131        ShowMessage(0x0A6B) = Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
@@ -231,8 +231,8 @@ RAINGRN_17:
 064D  00DC        RefreshCompareFlags(ax)
 064F  00DE        If (result.equal) jump to 014B
 0651  00E0        SetState(0x01, 0x01, 0x01)
-0666  00F5        SetTileFloor(0x75, 0x42)
-0677  0106        SetTileFloor(0x85, 0x42)
+0666  00F5        SetMove38(0x75, 0x42)
+0677  0106        SetMove38(0x85, 0x42)
 0688  0117        ShowMessage(0x0B66) = Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
 0695  0124        ShowMessage(0x0BB3) = It intersects the Rainbow and bursts into blinding light.
 06A2  0131        ShowMessage(0x0BED) = Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
@@ -267,8 +267,8 @@ RAINBLU_18:
 079A  00DC        RefreshCompareFlags(ax)
 079C  00DE        If (result.equal) jump to 014B
 079E  00E0        SetState(0x01, 0x01, 0x01)
-07B3  00F5        SetTileFloor(0x75, 0x42)
-07C4  0106        SetTileFloor(0x85, 0x42)
+07B3  00F5        SetMove38(0x75, 0x42)
+07C4  0106        SetMove38(0x85, 0x42)
 07D5  0117        ShowMessage(0x0CE7) = Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
 07E2  0124        ShowMessage(0x0D34) = It intersects the Rainbow and bursts into blinding light.
 07EF  0131        ShowMessage(0x0D6E) = Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
@@ -278,7 +278,7 @@ RAINBLU_18:
 GATEA_19:
 080B  0000        BEGIN
 080E  0003        ShowMessage(0x0E1B) = This gate leads to the GIANTS' LAND
-081B  0010        GoMap(0x03, 0xFB, 0x02, 0x38)
+081B  0010        SetMoveMap(0x03, 0xFB, 0x02, 0x38)
 0836  002B        RETURN
 
 ENCA_1A:
@@ -338,7 +338,7 @@ BOAT_1F:
 0A4B  0032        ShowMessage(0x1003) = In the moments that follow the Zephyr tells you only the FlexSword can remain in your hands when you encounter the Wind Elemental.
 0A58  003F        ShowMessage(0x1086) = Destroy him and the way to En-li-kil's Domain will be clear.
 0A65  004C        ShowMessage(0x10C3) = You arrive at an island in the center of the Ageless Void.
-0A72  0059        GoMap(00, 0x4B, 0x04, 0x38)
+0A72  0059        SetMoveMap(00, 0x4B, 0x04, 0x38)
 0A8C  0073        Jump to 0093
 0A8E  0075        ShowMessage(0x10FE) = The Ageless Void swallows you whole.
 0A9B  0082        ax = GetMaxHits()

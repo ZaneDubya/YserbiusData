@@ -1,21 +1,21 @@
 STRSTELE_01:
 000A  0000        BEGIN
-000D  0003        GoMap(0x02, 0x01, 0x04, 0x01)
+000D  0003        SetMoveMap(0x02, 0x01, 0x04, 0x01)
 0028  001E        RETURN
 
 STAIRSUP_02:
 002A  0000        BEGIN
-002D  0003        GoMap(0x01, 0x2E, 0x06, 0x01)
+002D  0003        SetMoveMap(0x01, 0x2E, 0x06, 0x01)
 0048  001E        RETURN
 
 TELPORTE_03:
 004A  0000        BEGIN
-004D  0003        GoMap(0x02, 0x07, 0x01, 0x02)
+004D  0003        SetMoveMap(0x02, 0x07, 0x01, 0x02)
 0068  001E        RETURN
 
 TELPORTW_04:
 006A  0000        BEGIN
-006D  0003        GoMap(00, 0x04, 0x01, 0x02)
+006D  0003        SetMoveMap(00, 0x04, 0x01, 0x02)
 0087  001D        RETURN
 
 HIDNDOOR_05:
@@ -32,7 +32,7 @@ HIDNDOOR_05:
 00D5  004C        If (result.notequal) jump to 0063
 00D7  004E        ax = UsedItem(0xBE, 0xBE)
 00EA  0061        If (result.equal) jump to 00A0
-00EC  0063        Move(0x01, 0x02, 0x02)
+00EC  0063        SetMove2C(0x01, 0x02, 0x02)
 0102  0079        Push(02)
 0106  007D        ax = GetNextTile()
 010D  0084        Push(ax)
@@ -104,12 +104,12 @@ LKPKDOOR_08:
 0391  0024        compare(ax, 0x0006)
 0394  0027        If (result.below) jump to 0074
 0396  0029        Push(01)
-039A  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+039A  002D        ax = GetFacing()
 03A1  0034        Push(ax)
 03A2  0035        ax = GetNextTile()
 03A9  003C        Push(ax)
-03AA  003D        Move(stk[0], stk[1], stk[2])
-03B4  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+03AA  003D        SetMove2C(stk[0], stk[1], stk[2])
+03B4  0047        ax = GetFacing()
 03BB  004E        Push(ax)
 03BC  004F        ax = GetNextTile()
 03C3  0056        Push(ax)
@@ -118,11 +118,11 @@ LKPKDOOR_08:
 03D2  0065        ShowMessage(0x04DE) = You skillfully pick the door lock.
 03DF  0072        Jump to 009E
 03E1  0074        Push(00)
-03E4  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+03E4  0077        ax = GetFacing()
 03EB  007E        Push(ax)
 03EC  007F        ax = GetNextTile()
 03F3  0086        Push(ax)
-03F4  0087        Move(stk[0], stk[1], stk[2])
+03F4  0087        SetMove2C(stk[0], stk[1], stk[2])
 03FE  0091        ShowMessage(0x0501) = The door is locked.
 040B  009E        RETURN
 
@@ -487,7 +487,7 @@ ITEMCENC_12:
 
 TELEPORT_13:
 1324  0000        BEGIN
-1327  0003        GoMap(0x03, 0x54, 0x04, 0x01)
+1327  0003        SetMoveMap(0x03, 0x54, 0x04, 0x01)
 1342  001E        RETURN
 
 STRSMESS_14:
@@ -522,7 +522,7 @@ TELEMESS_19:
 
 TELEPORT_1A:
 13B0  0000        BEGIN
-13B3  0003        GoMap(00, 0xDD, 0x03, 0x03)
+13B3  0003        SetMoveMap(00, 0xDD, 0x03, 0x03)
 13CD  001D        RETURN
 
 TELEMESS_1B:

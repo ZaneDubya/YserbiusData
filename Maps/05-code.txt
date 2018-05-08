@@ -1,6 +1,6 @@
 TELPORTN_01:
 0004  0000        BEGIN
-0007  0003        GoMap(0x01, 0x5F, 0x04, 0x01)
+0007  0003        SetMoveMap(0x01, 0x5F, 0x04, 0x01)
 0022  001E        RETURN
 
 TELEMESG_02:
@@ -10,7 +10,7 @@ TELEMESG_02:
 
 TOSOLDQU_03:
 0036  0000        BEGIN
-0039  0003        GoMap(00, 0x4F, 0x06, 0x01)
+0039  0003        SetMoveMap(00, 0x4F, 0x06, 0x01)
 0053  001D        RETURN
 
 GATEMESG_04:
@@ -73,7 +73,7 @@ ITEMAENC_07:
 
 TELPORTN_08:
 0247  0000        BEGIN
-024A  0003        GoMap(0x01, 0x5F, 0x04, 0x01)
+024A  0003        SetMoveMap(0x01, 0x5F, 0x04, 0x01)
 0265  001E        RETURN
 
 ITEMBENC_09:
@@ -200,10 +200,10 @@ TRAPDORA_0D:
 0789  004E        ax = UsedItem(0xBE, 0xBE)
 079C  0061        If (result.equal) jump to 008D
 079E  0063        ShowMessage(0x0883) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-07AB  0070        GoMap(0x01, 0x85, 0x01, 0x02)
+07AB  0070        SetMoveMap(0x01, 0x85, 0x01, 0x02)
 07C6  008B        Jump to 00B5
 07C8  008D        ShowMessage(0x08D3) = A trapdoor in the floor opens.
-07D5  009A        GoMap(0x01, 0x85, 0x01, 0x02)
+07D5  009A        SetMoveMap(0x01, 0x85, 0x01, 0x02)
 07F0  00B5        RETURN
 
 TRAPDORB_0E:
@@ -221,10 +221,10 @@ TRAPDORB_0E:
 0840  004E        ax = UsedItem(0xBE, 0xBE)
 0853  0061        If (result.equal) jump to 008D
 0855  0063        ShowMessage(0x08F2) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0862  0070        GoMap(0x01, 0x86, 0x01, 0x02)
+0862  0070        SetMoveMap(0x01, 0x86, 0x01, 0x02)
 087D  008B        Jump to 00B5
 087F  008D        ShowMessage(0x0942) = A trapdoor in the floor opens.
-088C  009A        GoMap(0x01, 0x86, 0x01, 0x02)
+088C  009A        SetMoveMap(0x01, 0x86, 0x01, 0x02)
 08A7  00B5        RETURN
 
 TRAPDORC_0F:
@@ -242,10 +242,10 @@ TRAPDORC_0F:
 08F7  004E        ax = UsedItem(0xBE, 0xBE)
 090A  0061        If (result.equal) jump to 008D
 090C  0063        ShowMessage(0x0961) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0919  0070        GoMap(0x02, 0x98, 0x01, 0x02)
+0919  0070        SetMoveMap(0x02, 0x98, 0x01, 0x02)
 0934  008B        Jump to 00B5
 0936  008D        ShowMessage(0x09B1) = A trapdoor in the floor opens.
-0943  009A        GoMap(0x02, 0x98, 0x01, 0x02)
+0943  009A        SetMoveMap(0x02, 0x98, 0x01, 0x02)
 095E  00B5        RETURN
 
 TRAPDORD_10:
@@ -263,10 +263,10 @@ TRAPDORD_10:
 09AE  004E        ax = UsedItem(0xBE, 0xBE)
 09C1  0061        If (result.equal) jump to 008C
 09C3  0063        ShowMessage(0x09D0) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-09D0  0070        GoMap(00, 0xA6, 0x01, 0x02)
+09D0  0070        SetMoveMap(00, 0xA6, 0x01, 0x02)
 09EA  008A        Jump to 00B3
 09EC  008C        ShowMessage(0x0A20) = A trapdoor in the floor opens.
-09F9  0099        GoMap(00, 0xA6, 0x01, 0x02)
+09F9  0099        SetMoveMap(00, 0xA6, 0x01, 0x02)
 0A13  00B3        RETURN
 
 TRAPDORE_11:
@@ -282,10 +282,10 @@ TRAPDORE_11:
 0A4E  0039        ax = UsedItem(0xBE, 0xBE)
 0A61  004C        If (result.equal) jump to 0077
 0A63  004E        ShowMessage(0x0A3F) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0A70  005B        GoMap(00, 0xA8, 0x01, 0x02)
+0A70  005B        SetMoveMap(00, 0xA8, 0x01, 0x02)
 0A8A  0075        Jump to 009E
 0A8C  0077        ShowMessage(0x0A8F) = A trapdoor in the floor opens.
-0A99  0084        GoMap(00, 0xA8, 0x01, 0x02)
+0A99  0084        SetMoveMap(00, 0xA8, 0x01, 0x02)
 0AB3  009E        RETURN
 
 TRAPDORF_12:
@@ -301,10 +301,10 @@ TRAPDORF_12:
 0AEE  0039        ax = UsedItem(0xBE, 0xBE)
 0B01  004C        If (result.equal) jump to 0078
 0B03  004E        ShowMessage(0x0AAE) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0B10  005B        GoMap(0x02, 0xB5, 0x01, 0x02)
+0B10  005B        SetMoveMap(0x02, 0xB5, 0x01, 0x02)
 0B2B  0076        Jump to 00A0
 0B2D  0078        ShowMessage(0x0AFE) = A trapdoor in the floor opens.
-0B3A  0085        GoMap(0x02, 0xB5, 0x01, 0x02)
+0B3A  0085        SetMoveMap(0x02, 0xB5, 0x01, 0x02)
 0B55  00A0        RETURN
 
 TRAPDORG_13:
@@ -322,10 +322,10 @@ TRAPDORG_13:
 0BA5  004E        ax = UsedItem(0xBE, 0xBE)
 0BB8  0061        If (result.equal) jump to 008D
 0BBA  0063        ShowMessage(0x0B1D) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0BC7  0070        GoMap(0x01, 0xC7, 0x01, 0x02)
+0BC7  0070        SetMoveMap(0x01, 0xC7, 0x01, 0x02)
 0BE2  008B        Jump to 00B5
 0BE4  008D        ShowMessage(0x0B6D) = A trapdoor in the floor opens.
-0BF1  009A        GoMap(0x01, 0xC7, 0x01, 0x02)
+0BF1  009A        SetMoveMap(0x01, 0xC7, 0x01, 0x02)
 0C0C  00B5        RETURN
 
 TRAPDORH_14:
@@ -341,10 +341,10 @@ TRAPDORH_14:
 0C47  0039        ax = UsedItem(0xBE, 0xBE)
 0C5A  004C        If (result.equal) jump to 0077
 0C5C  004E        ShowMessage(0x0B8C) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0C69  005B        GoMap(00, 0xCF, 0x01, 0x02)
+0C69  005B        SetMoveMap(00, 0xCF, 0x01, 0x02)
 0C83  0075        Jump to 009E
 0C85  0077        ShowMessage(0x0BDC) = A trapdoor in the floor opens.
-0C92  0084        GoMap(00, 0xCF, 0x01, 0x02)
+0C92  0084        SetMoveMap(00, 0xCF, 0x01, 0x02)
 0CAC  009E        RETURN
 
 TRAPDOR_15:
@@ -362,10 +362,10 @@ TRAPDOR_15:
 0CFC  004E        ax = UsedItem(0xBE, 0xBE)
 0D0F  0061        If (result.equal) jump to 008C
 0D11  0063        ShowMessage(0x0BFB) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0D1E  0070        GoMap(00, 0xD6, 0x01, 0x02)
+0D1E  0070        SetMoveMap(00, 0xD6, 0x01, 0x02)
 0D38  008A        Jump to 00B3
 0D3A  008C        ShowMessage(0x0C4B) = A trapdoor in the floor opens.
-0D47  0099        GoMap(00, 0xD6, 0x01, 0x02)
+0D47  0099        SetMoveMap(00, 0xD6, 0x01, 0x02)
 0D61  00B3        RETURN
 
 TRAPDORJ_16:
@@ -381,10 +381,10 @@ TRAPDORJ_16:
 0D9C  0039        ax = UsedItem(0xBE, 0xBE)
 0DAF  004C        If (result.equal) jump to 0078
 0DB1  004E        ShowMessage(0x0C6A) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0DBE  005B        GoMap(0x03, 0xD8, 0x01, 0x02)
+0DBE  005B        SetMoveMap(0x03, 0xD8, 0x01, 0x02)
 0DD9  0076        Jump to 00A0
 0DDB  0078        ShowMessage(0x0CBA) = A trapdoor in the floor opens.
-0DE8  0085        GoMap(0x03, 0xD8, 0x01, 0x02)
+0DE8  0085        SetMoveMap(0x03, 0xD8, 0x01, 0x02)
 0E03  00A0        RETURN
 
 TRAPDORK_17:
@@ -402,10 +402,10 @@ TRAPDORK_17:
 0E53  004E        ax = UsedItem(0xBE, 0xBE)
 0E66  0061        If (result.equal) jump to 008D
 0E68  0063        ShowMessage(0x0CD9) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0E75  0070        GoMap(0x03, 0xE9, 0x01, 0x02)
+0E75  0070        SetMoveMap(0x03, 0xE9, 0x01, 0x02)
 0E90  008B        Jump to 00B5
 0E92  008D        ShowMessage(0x0D29) = A trapdoor in the floor opens.
-0E9F  009A        GoMap(0x03, 0xE9, 0x01, 0x02)
+0E9F  009A        SetMoveMap(0x03, 0xE9, 0x01, 0x02)
 0EBA  00B5        RETURN
 
 TRAPDORL_18:
@@ -421,10 +421,10 @@ TRAPDORL_18:
 0EF5  0039        ax = UsedItem(0xBE, 0xBE)
 0F08  004C        If (result.equal) jump to 0077
 0F0A  004E        ShowMessage(0x0D48) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0F17  005B        GoMap(00, 0xEB, 0x01, 0x02)
+0F17  005B        SetMoveMap(00, 0xEB, 0x01, 0x02)
 0F31  0075        Jump to 009E
 0F33  0077        ShowMessage(0x0D98) = A trapdoor in the floor opens.
-0F40  0084        GoMap(00, 0xEB, 0x01, 0x02)
+0F40  0084        SetMoveMap(00, 0xEB, 0x01, 0x02)
 0F5A  009E        RETURN
 
 TRAPDORM_19:
@@ -440,10 +440,10 @@ TRAPDORM_19:
 0F95  0039        ax = UsedItem(0xBE, 0xBE)
 0FA8  004C        If (result.equal) jump to 0077
 0FAA  004E        ShowMessage(0x0DB7) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-0FB7  005B        GoMap(00, 0xF5, 0x01, 0x02)
+0FB7  005B        SetMoveMap(00, 0xF5, 0x01, 0x02)
 0FD1  0075        Jump to 009E
 0FD3  0077        ShowMessage(0x0E07) = A trapdoor in the floor opens.
-0FE0  0084        GoMap(00, 0xF5, 0x01, 0x02)
+0FE0  0084        SetMoveMap(00, 0xF5, 0x01, 0x02)
 0FFA  009E        RETURN
 
 TRAPDORN_1A:
@@ -459,10 +459,10 @@ TRAPDORN_1A:
 1035  0039        ax = UsedItem(0xBE, 0xBE)
 1048  004C        If (result.equal) jump to 0078
 104A  004E        ShowMessage(0x0E26) = You detect a trapdoor in the floor, but not in time to prevent falling through!
-1057  005B        GoMap(0x02, 0xF7, 0x01, 0x02)
+1057  005B        SetMoveMap(0x02, 0xF7, 0x01, 0x02)
 1072  0076        Jump to 00A0
 1074  0078        ShowMessage(0x0E76) = A trapdoor in the floor opens.
-1081  0085        GoMap(0x02, 0xF7, 0x01, 0x02)
+1081  0085        SetMoveMap(0x02, 0xF7, 0x01, 0x02)
 109C  00A0        RETURN
 
 TUFMNSTR_1B:

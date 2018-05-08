@@ -39,15 +39,13 @@ TIMEA_03:
 00D1  0077        Jump to 00E5
 00D3  0079        ShowMessage(0x04E9) = A Timeswitch has been set.
 00E0  0086        ShowMessage(0x0504) = Two other Timeswitches must be set to reveal the platform.
-00ED  0093        SetTileFloor(0xA8, 0x03)
+00ED  0093        SetMove38(0xA8, 0x03)
 00FE  00A4        Jump to 00E5
 0100  00A6        ShowMessage(0x053F) = The second Timeswitch has been set.
-010D  00B3        SetTileFloor(0xA8, 0x03)
+010D  00B3        SetMove38(0xA8, 0x03)
 011E  00C4        Jump to 00E5
 0120  00C6        ShowMessage(0x0563) = The third and final Timeswitch has been set.
-012D  00D3        SetTileFloor(0xA8, 00)
-013B  00E1        cx = Pop()
-013C  00E2        cx = Pop()
+012D  00D3        SetMove38(0xA8, 0x00)
 013D  00E3        Jump to 00E5
 013F  00E5        ShowMessage(0x0590) = All is deathly quiet near the Fountain of Life.
 014C  00F2        sp = bp
@@ -79,15 +77,13 @@ TIMEB_04:
 01C7  0077        Jump to 00E5
 01C9  0079        ShowMessage(0x05E9) = A Timeswitch has been set.
 01D6  0086        ShowMessage(0x0604) = Two other Timeswitches must be set to reveal the platform.
-01E3  0093        SetTileFloor(0xA8, 0x03)
+01E3  0093        SetMove38(0xA8, 0x03)
 01F4  00A4        Jump to 00E5
 01F6  00A6        ShowMessage(0x063F) = The second Timeswitch has been set.
-0203  00B3        SetTileFloor(0xA8, 0x03)
+0203  00B3        SetMove38(0xA8, 0x03)
 0214  00C4        Jump to 00E5
 0216  00C6        ShowMessage(0x0663) = The third and final Timeswitch has been set.
-0223  00D3        SetTileFloor(0xA8, 00)
-0231  00E1        cx = Pop()
-0232  00E2        cx = Pop()
+0223  00D3        SetMove38(0xA8, 0x00)
 0233  00E3        Jump to 00E5
 0235  00E5        ShowMessage(0x0690) = All is deathly quiet near the Fountain of Life.
 0242  00F2        sp = bp
@@ -119,15 +115,13 @@ TIMEC_05:
 02BD  0077        Jump to 00E5
 02BF  0079        ShowMessage(0x06E9) = A Timeswitch has been set.
 02CC  0086        ShowMessage(0x0704) = Two other Timeswitches must be set to reveal the platform.
-02D9  0093        SetTileFloor(0xA8, 0x03)
+02D9  0093        SetMove38(0xA8, 0x03)
 02EA  00A4        Jump to 00E5
 02EC  00A6        ShowMessage(0x073F) = The second Timeswitch has been set.
-02F9  00B3        SetTileFloor(0xA8, 0x03)
+02F9  00B3        SetMove38(0xA8, 0x03)
 030A  00C4        Jump to 00E5
 030C  00C6        ShowMessage(0x0763) = The third and final Timeswitch has been set.
-0319  00D3        SetTileFloor(0xA8, 00)
-0327  00E1        cx = Pop()
-0328  00E2        cx = Pop()
+0319  00D3        SetMove38(0xA8, 0x00)
 0329  00E3        Jump to 00E5
 032B  00E5        ShowMessage(0x0790) = All is deathly quiet near the Fountain of Life.
 0338  00F2        sp = bp
@@ -163,14 +157,12 @@ TIMEPLAT_07:
 045E  002C        ax = CheckState(0x01, 0x02)
 046F  003D        RefreshCompareFlags(ax)
 0471  003F        If (result.equal) jump to 007A
-0473  0041        SetTileFloor(0xA8, 00)
-0481  004F        cx = Pop()
-0482  0050        cx = Pop()
+0473  0041        SetMove38(0xA8, 0x00)
 0483  0051        ShowMessage(0x090F) = You cross the Waters of Death safely.
 0490  005E        ShowMessage(0x0935) = En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
 049D  006B        ShowPortrait(0x0042)
 04AA  0078        Jump to 00A9
-04AC  007A        SetTileFloor(0xA8, 0x03)
+04AC  007A        SetMove38(0xA8, 0x03)
 04BD  008B        ShowMessage(0x09AD) = You are dragged into the Waters of Death. Your death agonies are mercifully short.
 04CA  0098        ax = GetMaxHits()
 04D1  009F        DoDamage(ax)
@@ -247,9 +239,7 @@ ENCD_0C:
 07A3  002D        ax = CheckState(0x01, 0x7D)
 07B4  003E        RefreshCompareFlags(ax)
 07B6  0040        If (result.equal) jump to 0052
-07B8  0042        SetTileFloor(0xA8, 00)
-07C6  0050        cx = Pop()
-07C7  0051        cx = Pop()
+07B8  0042        SetMove38(0xA8, 0x00)
 07C8  0052        AddEncounter(0x19, 0x01)
 07DA  0064        AddEncounter(0x19, 0x02)
 07EC  0076        AddEncounter(0x1C, 0x03)
@@ -289,11 +279,9 @@ CROSSOVR_0F:
 0944  002C        ax = CheckState(0x01, 0x02)
 0955  003D        RefreshCompareFlags(ax)
 0957  003F        If (result.equal) jump to 0053
-0959  0041        SetTileFloor(0xA8, 00)
-0967  004F        cx = Pop()
-0968  0050        cx = Pop()
+0959  0041        SetMove38(0xA8, 0x00)
 0969  0051        Jump to 0064
-096B  0053        SetTileFloor(0xA8, 0x03)
+096B  0053        SetMove38(0xA8, 0x03)
 097C  0064        RETURN
 
 MAPCONV_10:
@@ -321,11 +309,9 @@ MAPCONV_10:
 0A3A  00BC        tmp = dx
 0A3D  00BF        compare(tmp, 0xFE)
 0A41  00C3        If (result.notequal) jump to 00D7
-0A43  00C5        SetTileFloor(0xA8, 00)
-0A51  00D3        cx = Pop()
-0A52  00D4        cx = Pop()
+0A43  00C5        SetMove38(0xA8, 0x00)
 0A53  00D5        Jump to 00E8
-0A55  00D7        SetTileFloor(0xA8, 0x03)
+0A55  00D7        SetMove38(0xA8, 0x03)
 0A66  00E8        sp = bp
 0A68  00EA        RETURN
 
@@ -335,7 +321,7 @@ EMPTY:
 TELEBACK_12:
 0A6F  0000        BEGIN
 0A72  0003        ShowMessage(0x0CA5) = You leave this dimension and re-enter your world.
-0A7F  0010        GoMap(0x02, 0x88, 0x04, 0x38)
+0A7F  0010        SetMoveMap(0x02, 0x88, 0x04, 0x38)
 0A9A  002B        RETURN
 
 EMPTY:

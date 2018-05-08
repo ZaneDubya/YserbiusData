@@ -1,16 +1,16 @@
 TOMINES_01:
 000B  0000        BEGIN
-000E  0003        GoMap(0x03, 0xFD, 0x02, 0x01)
+000E  0003        SetMoveMap(0x03, 0xFD, 0x02, 0x01)
 0029  001E        RETURN
 
 TOTREAS_02:
 002B  0000        BEGIN
-002E  0003        GoMap(0x02, 0x10, 0x04, 0x01)
+002E  0003        SetMoveMap(0x02, 0x10, 0x04, 0x01)
 0049  001E        RETURN
 
 TOSOLDQU_03:
 004B  0000        BEGIN
-004E  0003        GoMap(0x01, 0x0F, 0x06, 0x01)
+004E  0003        SetMoveMap(0x01, 0x0F, 0x06, 0x01)
 0069  001E        RETURN
 
 EXITDUNG_04:
@@ -44,7 +44,7 @@ DOORMESD_08:
 
 TELEPORT_09:
 00EF  0000        BEGIN
-00F2  0003        GoMap(00, 0x5D, 0x01, 0x33)
+00F2  0003        SetMoveMap(00, 0x5D, 0x01, 0x33)
 010C  001D        RETURN
 
 TELEMESS_0A:
@@ -62,11 +62,11 @@ DOORMESS_0B:
 014A  002A        If (result.notequal) jump to 005A
 014C  002C        ShowMessage(0x0504) = This room contains the gateway to the Labyrinth.
 0159  0039        Push(01)
-015D  003D        ax = SetExitability(ax) // ax is usually 0 following equality check
+015D  003D        ax = GetFacing()
 0164  0044        Push(ax)
 0165  0045        ax = GetNextTile()
 016C  004C        Push(ax)
-016D  004D        Move(stk[0], stk[1], stk[2])
+016D  004D        SetMove2C(stk[0], stk[1], stk[2])
 0177  0057        Jump to 011D
 017A  005A        ax = HasItem(0xFB)
 0188  0068        If (result.notequal) jump to 006D
@@ -82,22 +82,22 @@ DOORMESS_0B:
 01F8  00D8        RemoveItem(0xE2)
 0204  00E4        RemoveItem(0xF8)
 0210  00F0        Push(01)
-0214  00F4        ax = SetExitability(ax) // ax is usually 0 following equality check
+0214  00F4        ax = GetFacing()
 021B  00FB        Push(ax)
 021C  00FC        ax = GetNextTile()
 0223  0103        Push(ax)
-0224  0104        Move(stk[0], stk[1], stk[2])
+0224  0104        SetMove2C(stk[0], stk[1], stk[2])
 022E  010E        Jump to 011D
 0230  0110        ShowMessage(0x058A) = The Thieves' Key is needed to unlock this door.
 023D  011D        Jump to 0156
 023F  011F        ShowMessage(0x05BA) = The Thieves' Key is needed to unlock this door.
 024C  012C        ShowMessage(0x05EA) = Only heroes of the twentieth level or higher may venture beyond this door.
 0259  0139        Push(00)
-025C  013C        ax = SetExitability(ax) // ax is usually 0 following equality check
+025C  013C        ax = GetFacing()
 0263  0143        Push(ax)
 0264  0144        ax = GetNextTile()
 026B  014B        Push(ax)
-026C  014C        Move(stk[0], stk[1], stk[2])
+026C  014C        SetMove2C(stk[0], stk[1], stk[2])
 0276  0156        RETURN
 
 PRTYPORT_0C:
@@ -107,7 +107,7 @@ PRTYPORT_0C:
 028B  0013        ShowMessage(0x0635) = Good Journeys, brave hero.
 0298  0020        Jump to 0049
 029A  0022        ShowMessage(0x0650) = Only heroes of the twentieth level or higher may venture beyond this door.
-02A7  002F        GoMap(00, 0x02, 0x01, 0x01)
+02A7  002F        SetMoveMap(00, 0x02, 0x01, 0x01)
 02C1  0049        RETURN
 
 NOJOIN_0D:

@@ -2,14 +2,14 @@ ATELEA_01:
 0004  0000        BEGIN
 0007  0003        ShowMessage(0x03FC) = Runes on magic wall --
 0014  0010        ShowRunes(0x0413) = Alchemy
-0021  001D        GoMap(0x02, 0x8A, 0x02, 0x34)
+0021  001D        SetMoveMap(0x02, 0x8A, 0x02, 0x34)
 003C  0038        RETURN
 
 RTELEB_02:
 003E  0000        BEGIN
 0041  0003        ShowMessage(0x041B) = Runes on magic wall --
 004E  0010        ShowRunes(0x0432) = Reverie
-005B  001D        GoMap(0x03, 0x38, 0x02, 0x34)
+005B  001D        SetMoveMap(0x03, 0x38, 0x02, 0x34)
 0076  0038        RETURN
 
 NTELEC_03:
@@ -17,35 +17,35 @@ NTELEC_03:
 007B  0003        ShowMessage(0x043A) = Runes on magic wall --
 0088  0010        ShowRunes(0x0451) = Netherworld
 0095  001D        SetState(0x02, 0x49, 0x02)
-00AA  0032        GoMap(0x02, 0xE0, 0x02, 0x34)
+00AA  0032        SetMoveMap(0x02, 0xE0, 0x02, 0x34)
 00C5  004D        RETURN
 
 ATELED_04:
 00C7  0000        BEGIN
 00CA  0003        ShowMessage(0x045D) = Runes on magic wall --
 00D7  0010        ShowRunes(0x0474) = Arcane
-00E4  001D        GoMap(00, 0xF2, 0x02, 0x34)
+00E4  001D        SetMoveMap(00, 0xF2, 0x02, 0x34)
 00FE  0037        RETURN
 
 KTELEE_05:
 0100  0000        BEGIN
 0103  0003        ShowMessage(0x047B) = Runes on magic wall --
 0110  0010        ShowRunes(0x0492) = Karma
-011D  001D        GoMap(0x03, 0xF5, 0x02, 0x34)
+011D  001D        SetMoveMap(0x03, 0xF5, 0x02, 0x34)
 0138  0038        RETURN
 
 KTELEF_06:
 013A  0000        BEGIN
 013D  0003        ShowMessage(0x0498) = Runes on magic wall --
 014A  0010        ShowRunes(0x04AF) = Karma
-0157  001D        GoMap(0x02, 0xE3, 0x02, 0x34)
+0157  001D        SetMoveMap(0x02, 0xE3, 0x02, 0x34)
 0172  0038        RETURN
 
 ITELEG_07:
 0174  0000        BEGIN
 0177  0003        ShowMessage(0x04B5) = Runes on magic wall --
 0184  0010        ShowRunes(0x04CC) = Incantation
-0191  001D        GoMap(0x02, 0xCC, 0x02, 0x34)
+0191  001D        SetMoveMap(0x02, 0xCC, 0x02, 0x34)
 01AC  0038        RETURN
 
 ATELEH_08:
@@ -55,14 +55,14 @@ ATELEH_08:
 01C5  0017        If (result.notequal) jump to 004E
 01C7  0019        ShowMessage(0x04D8) = Runes on magic wall --
 01D4  0026        ShowRunes(0x04EF) = Archaic
-01E1  0033        GoMap(0x02, 0xFA, 0x02, 0x34)
+01E1  0033        SetMoveMap(0x02, 0xFA, 0x02, 0x34)
 01FC  004E        RETURN
 
 NTELEI_09:
 01FE  0000        BEGIN
 0201  0003        ShowMessage(0x04F7) = Runes on magic wall --
 020E  0010        ShowRunes(0x050E) = Netherworld
-021B  001D        GoMap(00, 0x88, 0x02, 0x34)
+021B  001D        SetMoveMap(00, 0x88, 0x02, 0x34)
 0235  0037        RETURN
 
 ARNKENCA_0A:
@@ -83,21 +83,21 @@ EMPTY:
 TOENTRY_0C:
 02DF  0000        BEGIN
 02E2  0003        ShowMessage(0x0550) = The gate takes you back to the Labyrinth.
-02EF  0010        GoMap(0x02, 0x30, 0x02, 0x34)
+02EF  0010        SetMoveMap(0x02, 0x30, 0x02, 0x34)
 030A  002B        RETURN
 
 ETELEJ_0D:
 030C  0000        BEGIN
 030F  0003        ShowMessage(0x057A) = Runes on magic wall --
 031C  0010        ShowRunes(0x0591) = Ethereal
-0329  001D        GoMap(0x02, 0xBB, 0x02, 0x34)
+0329  001D        SetMoveMap(0x02, 0xBB, 0x02, 0x34)
 0344  0038        RETURN
 
 NTELEK_0E:
 0346  0000        BEGIN
 0349  0003        ShowMessage(0x059A) = Runes on magic wall --
 0356  0010        ShowRunes(0x05B1) = Netherworld
-0363  001D        GoMap(0x02, 0xDA, 0x02, 0x34)
+0363  001D        SetMoveMap(0x02, 0xDA, 0x02, 0x34)
 037E  0038        RETURN
 
 LTELEL_0F:
@@ -105,7 +105,7 @@ LTELEL_0F:
 0383  0003        SetState(0x02, 0x49, 0x03)
 0398  0018        ShowMessage(0x05BD) = Runes on magic wall --
 03A5  0025        ShowRunes(0x05D4) = Luck
-03B2  0032        GoMap(0x02, 0xB9, 0x02, 0x34)
+03B2  0032        SetMoveMap(0x02, 0xB9, 0x02, 0x34)
 03CD  004D        RETURN
 
 ITELEG_10:
@@ -115,14 +115,14 @@ ITELEG_10:
 03E6  0017        If (result.notequal) jump to 0050
 03E8  0019        ShowMessage(0x05D9) = Runes on magic wall --
 03F5  0026        ShowRunes(0x05F0) = Illusion
-0402  0033        GoMap(0x02, 0xCC, 0x02, 0x34)
+0402  0033        SetMoveMap(0x02, 0xCC, 0x02, 0x34)
 041D  004E        Jump to 009B
 041F  0050        ax = CheckState(0x02, 0x49)
 0430  0061        compare(ax, 0x0004)
 0433  0064        If (result.notequal) jump to 009B
 0435  0066        ShowMessage(0x05F9) = Runes on magic wall --
 0442  0073        ShowRunes(0x0610) = Invulnerable
-044F  0080        GoMap(0x02, 0xD8, 0x02, 0x34)
+044F  0080        SetMoveMap(0x02, 0xD8, 0x02, 0x34)
 046A  009B        RETURN
 
 KTELEL_11:
@@ -130,14 +130,14 @@ KTELEL_11:
 046F  0003        SetState(0x02, 0x49, 0x04)
 0484  0018        ShowMessage(0x061D) = Runes on magic wall --
 0491  0025        ShowRunes(0x0634) = Karma
-049E  0032        GoMap(0x02, 0xB9, 0x02, 0x34)
+049E  0032        SetMoveMap(0x02, 0xB9, 0x02, 0x34)
 04B9  004D        RETURN
 
 LTELEN_12:
 04BB  0000        BEGIN
 04BE  0003        ShowMessage(0x063A) = Runes on magic wall --
 04CB  0010        ShowRunes(0x0651) = Luminous
-04D8  001D        GoMap(0x02, 0x6A, 0x02, 0x34)
+04D8  001D        SetMoveMap(0x02, 0x6A, 0x02, 0x34)
 04F3  0038        RETURN
 
 ENLKENCA_13:
@@ -160,56 +160,56 @@ DTELEO_15:
 059E  0003        SetState(0x02, 0x49, 0x05)
 05B3  0018        ShowMessage(0x069E) = Runes on magic wall --
 05C0  0025        ShowRunes(0x06B5) = Dust
-05CD  0032        GoMap(0x02, 0xB7, 0x02, 0x34)
+05CD  0032        SetMoveMap(0x02, 0xB7, 0x02, 0x34)
 05E8  004D        RETURN
 
 ETELEP_16:
 05EA  0000        BEGIN
 05ED  0003        ShowMessage(0x06BA) = Runes on magic wall --
 05FA  0010        ShowRunes(0x06D1) = Enchant
-0607  001D        GoMap(0x02, 0xD6, 0x02, 0x34)
+0607  001D        SetMoveMap(0x02, 0xD6, 0x02, 0x34)
 0622  0038        RETURN
 
 RTELEQ_17:
 0624  0000        BEGIN
 0627  0003        ShowMessage(0x06D9) = Runes on magic wall --
 0634  0010        ShowRunes(0x06F0) = Magic
-0641  001D        GoMap(0x03, 0xD0, 0x02, 0x34)
+0641  001D        SetMoveMap(0x03, 0xD0, 0x02, 0x34)
 065C  0038        RETURN
 
 GTELER_18:
 065E  0000        BEGIN
 0661  0003        ShowMessage(0x06F6) = Runes on magic wall --
 066E  0010        ShowRunes(0x070D) = Ghouls
-067B  001D        GoMap(00, 0x68, 0x02, 0x34)
+067B  001D        SetMoveMap(00, 0x68, 0x02, 0x34)
 0695  0037        RETURN
 
 HTELES_19:
 0697  0000        BEGIN
 069A  0003        ShowMessage(0x0714) = Runes on magic wall --
 06A7  0010        ShowRunes(0x072B) = Hex
-06B4  001D        GoMap(0x02, 0xAD, 0x02, 0x34)
+06B4  001D        SetMoveMap(0x02, 0xAD, 0x02, 0x34)
 06CF  0038        RETURN
 
 OTELET_1A:
 06D1  0000        BEGIN
 06D4  0003        ShowMessage(0x072F) = Runes on magic wall --
 06E1  0010        ShowRunes(0x0746) = Obsession
-06EE  001D        GoMap(00, 0x7E, 0x02, 0x34)
+06EE  001D        SetMoveMap(00, 0x7E, 0x02, 0x34)
 0708  0037        RETURN
 
 STELEU_1B:
 070A  0000        BEGIN
 070D  0003        ShowMessage(0x0750) = Runes on magic wall --
 071A  0010        ShowRunes(0x0767) = Sorcery
-0727  001D        GoMap(00, 0x5E, 0x02, 0x34)
+0727  001D        SetMoveMap(00, 0x5E, 0x02, 0x34)
 0741  0037        RETURN
 
 TTELEV_1C:
 0743  0000        BEGIN
 0746  0003        ShowMessage(0x076F) = Runes on magic wall --
 0753  0010        ShowRunes(0x0786) = Talisman
-0760  001D        GoMap(0x02, 0xC2, 0x02, 0x34)
+0760  001D        SetMoveMap(0x02, 0xC2, 0x02, 0x34)
 077B  0038        RETURN
 
 ARNAKEND_1D:
@@ -222,7 +222,7 @@ ARNAKEND_1D:
 07A8  002B        If (result.equal) jump to 0064
 07AA  002D        ShowMessage(0x078F) = Both Arnakkian and Enlikil have been identified.
 07B7  003A        ShowMessage(0x07C0) = The Ghost takes you to the Guardians.
-07C4  0047        GoMap(0x02, 0x56, 0x02, 0x33)
+07C4  0047        SetMoveMap(0x02, 0x56, 0x02, 0x33)
 07DF  0062        Jump to 0071
 07E1  0064        ShowMessage(0x07E6) = The master of this castle must be identified before the ghost may take you to him.
 07EE  0071        RETURN
@@ -231,42 +231,42 @@ DTELEX_1E:
 07F0  0000        BEGIN
 07F3  0003        ShowMessage(0x0839) = Runes on magic wall --
 0800  0010        ShowRunes(0x0850) = Druid
-080D  001D        GoMap(0x02, 0x36, 0x02, 0x34)
+080D  001D        SetMoveMap(0x02, 0x36, 0x02, 0x34)
 0828  0038        RETURN
 
 RTELEY_1F:
 082A  0000        BEGIN
 082D  0003        ShowMessage(0x0856) = Runes on magic wall --
 083A  0010        ShowRunes(0x086D) = Runes
-0847  001D        GoMap(00, 0x3B, 0x02, 0x34)
+0847  001D        SetMoveMap(00, 0x3B, 0x02, 0x34)
 0861  0037        RETURN
 
 ATELEZ_20:
 0863  0000        BEGIN
 0866  0003        ShowMessage(0x0873) = Runes on magic wall --
 0873  0010        ShowRunes(0x088A) = Alchemist
-0880  001D        GoMap(00, 0x2C, 0x02, 0x34)
+0880  001D        SetMoveMap(00, 0x2C, 0x02, 0x34)
 089A  0037        RETURN
 
 GTELEAA_21:
 089C  0000        BEGIN
 089F  0003        ShowMessage(0x0894) = Runes on magic wall --
 08AC  0010        ShowRunes(0x08AB) = Ghost
-08B9  001D        GoMap(0x03, 0x3E, 0x02, 0x34)
+08B9  001D        SetMoveMap(0x03, 0x3E, 0x02, 0x34)
 08D4  0038        RETURN
 
 OTELEBB_22:
 08D6  0000        BEGIN
 08D9  0003        ShowMessage(0x08B1) = Runes on magic wall --
 08E6  0010        ShowRunes(0x08C8) = Orb
-08F3  001D        GoMap(00, 0x8E, 0x02, 0x34)
+08F3  001D        SetMoveMap(00, 0x8E, 0x02, 0x34)
 090D  0037        RETURN
 
 NTELECC_23:
 090F  0000        BEGIN
 0912  0003        ShowMessage(0x08CC) = Runes on magic wall --
 091F  0010        ShowRunes(0x08E3) = Nexus
-092C  001D        GoMap(0x02, 0xFD, 0x02, 0x34)
+092C  001D        SetMoveMap(0x02, 0xFD, 0x02, 0x34)
 0947  0038        RETURN
 
 DRAGENCA_24:
@@ -294,14 +294,14 @@ ZTELEDD_26:
 0A4D  0003        ShowMessage(0x08E9) = Runes on magic wall --
 0A5A  0010        ShowRunes(0x0900) = Zzyzx
 0A67  001D        SetState(0x02, 0x49, 0x01)
-0A7C  0032        GoMap(0x02, 0x27, 0x02, 0x34)
+0A7C  0032        SetMoveMap(0x02, 0x27, 0x02, 0x34)
 0A97  004D        RETURN
 
 ITELEG_27:
 0A99  0000        BEGIN
 0A9C  0003        ShowMessage(0x0906) = Runes on magic wall --
 0AA9  0010        ShowRunes(0x091D) = Illusive
-0AB6  001D        GoMap(0x02, 0xCC, 0x02, 0x34)
+0AB6  001D        SetMoveMap(0x02, 0xCC, 0x02, 0x34)
 0AD1  0038        RETURN
 
 WTELEEE_28:
@@ -311,70 +311,70 @@ WTELEEE_28:
 0AEA  0017        If (result.notequal) jump to 004E
 0AEC  0019        ShowMessage(0x0926) = Runes on magic wall --
 0AF9  0026        ShowRunes(0x093D) = Wizard
-0B06  0033        GoMap(0x02, 0xE6, 0x02, 0x34)
+0B06  0033        SetMoveMap(0x02, 0xE6, 0x02, 0x34)
 0B21  004E        RETURN
 
 VTELEWW_29:
 0B23  0000        BEGIN
 0B26  0003        ShowMessage(0x0944) = Runes on magic wall --
 0B33  0010        ShowRunes(0x095B) = Vision
-0B40  001D        GoMap(0x01, 0x07, 0x02, 0x34)
+0B40  001D        SetMoveMap(0x01, 0x07, 0x02, 0x34)
 0B5B  0038        RETURN
 
 BTELEXX_2A:
 0B5D  0000        BEGIN
 0B60  0003        ShowMessage(0x0962) = Runes on magic wall --
 0B6D  0010        ShowRunes(0x0979) = Bewitch
-0B7A  001D        GoMap(00, 0x1D, 0x02, 0x34)
+0B7A  001D        SetMoveMap(00, 0x1D, 0x02, 0x34)
 0B94  0037        RETURN
 
 CTELEYY_2B:
 0B96  0000        BEGIN
 0B99  0003        ShowMessage(0x0981) = Runes on magic wall --
 0BA6  0010        ShowRunes(0x0998) = Conjure
-0BB3  001D        GoMap(0x02, 0xBD, 0x02, 0x34)
+0BB3  001D        SetMoveMap(0x02, 0xBD, 0x02, 0x34)
 0BCE  0038        RETURN
 
 PTELEZZ_2C:
 0BD0  0000        BEGIN
 0BD3  0003        ShowMessage(0x09A0) = Runes on magic wall --
 0BE0  0010        ShowRunes(0x09B7) = Powerful
-0BED  001D        GoMap(0x33, 0x00, 0x02, 0x34)
+0BED  001D        SetMoveMap(0x33, 0x00, 0x02, 0x34)
 0C07  0037        RETURN
 
 MTELEXX_2D:
 0C09  0000        BEGIN
 0C0C  0003        ShowMessage(0x09C0) = Runes on magic wall --
 0C19  0010        ShowRunes(0x09D7) = Magus
-0C26  001D        GoMap(00, 0x1D, 0x02, 0x34)
+0C26  001D        SetMoveMap(00, 0x1D, 0x02, 0x34)
 0C40  0037        RETURN
 
 JTELEYY_2E:
 0C42  0000        BEGIN
 0C45  0003        ShowMessage(0x09DD) = Runes on magic wall --
 0C52  0010        ShowRunes(0x09F4) = Jinx
-0C5F  001D        GoMap(0x02, 0xBD, 0x02, 0x34)
+0C5F  001D        SetMoveMap(0x02, 0xBD, 0x02, 0x34)
 0C7A  0038        RETURN
 
 UTELEWW_2F:
 0C7C  0000        BEGIN
 0C7F  0003        ShowMessage(0x09F9) = Runes on magic wall --
 0C8C  0010        ShowRunes(0x0A10) = Unspeller
-0C99  001D        GoMap(0x01, 0x07, 0x02, 0x34)
+0C99  001D        SetMoveMap(0x01, 0x07, 0x02, 0x34)
 0CB4  0038        RETURN
 
 XTELEWW_30:
 0CB6  0000        BEGIN
 0CB9  0003        ShowMessage(0x0A1A) = Runes on magic wall --
 0CC6  0010        ShowRunes(0x0A31) = XxxX
-0CD3  001D        GoMap(0x01, 0x07, 0x02, 0x34)
+0CD3  001D        SetMoveMap(0x01, 0x07, 0x02, 0x34)
 0CEE  0038        RETURN
 
 YTELEZZ_31:
 0CF0  0000        BEGIN
 0CF3  0003        ShowMessage(0x0A36) = Runes on magic wall --
 0D00  0010        ShowRunes(0x0A4D) = Youth
-0D0D  001D        GoMap(0x33, 0x00, 0x02, 0x34)
+0D0D  001D        SetMoveMap(0x33, 0x00, 0x02, 0x34)
 0D27  0037        RETURN
 
 IENCA_32:
@@ -519,12 +519,12 @@ LICHDOOR_47:
 11A7  0056        RefreshCompareFlags(ax)
 11A9  0058        If (result.equal) jump to 00A5
 11AB  005A        Push(01)
-11AF  005E        ax = SetExitability(ax) // ax is usually 0 following equality check
+11AF  005E        ax = GetFacing()
 11B6  0065        Push(ax)
 11B7  0066        ax = GetNextTile()
 11BE  006D        Push(ax)
-11BF  006E        Move(stk[0], stk[1], stk[2])
-11C9  0078        ax = SetExitability(ax) // ax is usually 0 following equality check
+11BF  006E        SetMove2C(stk[0], stk[1], stk[2])
+11C9  0078        ax = GetFacing()
 11D0  007F        Push(ax)
 11D1  0080        ax = GetNextTile()
 11D8  0087        Push(ax)
@@ -632,7 +632,7 @@ TXTLICH_4E:
 
 LABY_4F:
 1654  0000        BEGIN
-1657  0003        GoMap(00, 0x3F, 0x01, 0x34)
+1657  0003        SetMoveMap(00, 0x3F, 0x01, 0x34)
 1671  001D        RETURN
 
 TXTLABY_50:

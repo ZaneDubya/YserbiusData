@@ -1,31 +1,31 @@
 STRSTELE_01:
 0003  0000        BEGIN
-0006  0003        GoMap(0x03, 0xE0, 0x03, 0x03)
+0006  0003        SetMoveMap(0x03, 0xE0, 0x03, 0x03)
 0021  001E        RETURN
 
 STRSTELE_02:
 0023  0000        BEGIN
-0026  0003        GoMap(0x02, 0x8D, 0x01, 0x05)
+0026  0003        SetMoveMap(0x02, 0x8D, 0x01, 0x05)
 0041  001E        RETURN
 
 PLATFMUP_03:
 0043  0000        BEGIN
-0046  0003        GoMap(0x03, 0xB4, 0x06, 0x02)
+0046  0003        SetMoveMap(0x03, 0xB4, 0x06, 0x02)
 0061  001E        RETURN
 
 TELPORTA_04:
 0063  0000        BEGIN
-0066  0003        GoMap(0x01, 0x68, 0x03, 0x01)
+0066  0003        SetMoveMap(0x01, 0x68, 0x03, 0x01)
 0081  001E        RETURN
 
 TELEPORT_05:
 0083  0000        BEGIN
-0086  0003        GoMap(0x02, 0x24, 0x03, 0x03)
+0086  0003        SetMoveMap(0x02, 0x24, 0x03, 0x03)
 00A1  001E        RETURN
 
 TELPORTC_06:
 00A3  0000        BEGIN
-00A6  0003        GoMap(0x03, 0xAF, 0x02, 0x05)
+00A6  0003        SetMoveMap(0x03, 0xAF, 0x02, 0x05)
 00C1  001E        RETURN
 
 TRAPDORA_07:
@@ -45,7 +45,7 @@ TRAPDORA_07:
 0125  0062        ShowMessage(0x03FC) = You found a trapdoor.
 0132  006F        SetState(0x00, 0x01, 0x01)
 0146  0083        Jump to 00AC
-0148  0085        GoMap(00, 0x89, 0x02, 0x05)
+0148  0085        SetMoveMap(00, 0x89, 0x02, 0x05)
 0162  009F        ShowMessage(0x0412) = You fall through a trapdoor.
 016F  00AC        RETURN
 
@@ -66,7 +66,7 @@ TRAPDORB_08:
 01D3  0062        ShowMessage(0x042F) = You spot a trapdoor.
 01E0  006F        SetState(0x00, 0x01, 0x01)
 01F4  0083        Jump to 00AD
-01F6  0085        GoMap(0x01, 0x8C, 0x02, 0x05)
+01F6  0085        SetMoveMap(0x01, 0x8C, 0x02, 0x05)
 0211  00A0        ShowMessage(0x0444) = You fall through a trapdoor.
 021E  00AD        RETURN
 
@@ -87,7 +87,7 @@ TRAPDORC_09:
 0282  0062        ShowMessage(0x0461) = You detect a trapdoor.
 028F  006F        SetState(0x00, 0x01, 0x01)
 02A3  0083        Jump to 00AD
-02A5  0085        GoMap(0x03, 0x91, 0x02, 0x05)
+02A5  0085        SetMoveMap(0x03, 0x91, 0x02, 0x05)
 02C0  00A0        ShowMessage(0x0478) = You fall through a trapdoor.
 02CD  00AD        RETURN
 
@@ -108,7 +108,7 @@ TRAPDORD_0A:
 0331  0062        ShowMessage(0x0495) = You escape a trapdoor.
 033E  006F        SetState(0x00, 0x01, 0x01)
 0352  0083        Jump to 00AD
-0354  0085        GoMap(0x03, 0x9D, 0x02, 0x05)
+0354  0085        SetMoveMap(0x03, 0x9D, 0x02, 0x05)
 036F  00A0        ShowMessage(0x04AC) = You fall through a trapdoor.
 037C  00AD        RETURN
 
@@ -129,7 +129,7 @@ TRAPDORE_0B:
 03E0  0062        ShowMessage(0x04C9) = You notice a trapdoor.
 03ED  006F        SetState(0x00, 0x01, 0x01)
 0401  0083        Jump to 00AD
-0403  0085        GoMap(0x03, 0xAB, 0x02, 0x05)
+0403  0085        SetMoveMap(0x03, 0xAB, 0x02, 0x05)
 041E  00A0        ShowMessage(0x04E0) = You fall through a trapdoor.
 042B  00AD        RETURN
 
@@ -150,7 +150,7 @@ TRAPDORF_0C:
 048F  0062        ShowMessage(0x04FD) = There is a trapdoor in the floor.
 049C  006F        SetState(0x00, 0x01, 0x01)
 04B0  0083        Jump to 00AD
-04B2  0085        GoMap(0x02, 0xBA, 0x02, 0x05)
+04B2  0085        SetMoveMap(0x02, 0xBA, 0x02, 0x05)
 04CD  00A0        ShowMessage(0x051F) = You fall through a trapdoor.
 04DA  00AD        RETURN
 
@@ -171,7 +171,7 @@ TRAPDORG_0D:
 053E  0062        ShowMessage(0x053C) = You discover a trapdoor.
 054B  006F        SetState(0x00, 0x01, 0x01)
 055F  0083        Jump to 00AD
-0561  0085        GoMap(0x01, 0xBF, 0x02, 0x05)
+0561  0085        SetMoveMap(0x01, 0xBF, 0x02, 0x05)
 057C  00A0        ShowMessage(0x0555) = You fall through a trapdoor.
 0589  00AD        RETURN
 
@@ -192,7 +192,7 @@ TRAPDORH_0E:
 05ED  0062        ShowMessage(0x0572) = You detect a trapdoor.
 05FA  006F        SetState(0x00, 0x01, 0x01)
 060E  0083        Jump to 00AD
-0610  0085        GoMap(0x02, 0xCA, 0x02, 0x05)
+0610  0085        SetMoveMap(0x02, 0xCA, 0x02, 0x05)
 062B  00A0        ShowMessage(0x0589) = You fall through a trapdoor.
 0638  00AD        RETURN
 
@@ -213,7 +213,7 @@ TRAPDORI_0F:
 069C  0062        ShowMessage(0x05A6) = You spot a trapdoor.
 06A9  006F        SetState(0x00, 0x01, 0x01)
 06BD  0083        Jump to 00AD
-06BF  0085        GoMap(0x01, 0xD6, 0x02, 0x05)
+06BF  0085        SetMoveMap(0x01, 0xD6, 0x02, 0x05)
 06DA  00A0        ShowMessage(0x05BB) = You fall through a trapdoor.
 06E7  00AD        RETURN
 
@@ -234,7 +234,7 @@ TRAPDORJ_10:
 074B  0062        ShowMessage(0x05D8) = You detect a trapdoor.
 0758  006F        SetState(0x00, 0x01, 0x01)
 076C  0083        Jump to 00AD
-076E  0085        GoMap(0x03, 0xD9, 0x02, 0x05)
+076E  0085        SetMoveMap(0x03, 0xD9, 0x02, 0x05)
 0789  00A0        ShowMessage(0x05EF) = You fall through a trapdoor.
 0796  00AD        RETURN
 
@@ -255,7 +255,7 @@ TRAPDORK_11:
 07FA  0062        ShowMessage(0x060C) = A trapdoor is in this room.
 0807  006F        SetState(0x00, 0x01, 0x01)
 081B  0083        Jump to 00AD
-081D  0085        GoMap(0x01, 0xEC, 0x02, 0x05)
+081D  0085        SetMoveMap(0x01, 0xEC, 0x02, 0x05)
 0838  00A0        ShowMessage(0x0628) = You fall through a trapdoor.
 0845  00AD        RETURN
 
@@ -276,7 +276,7 @@ TRAPDORL_12:
 08A9  0062        ShowMessage(0x0645) = You sidestep a trapdoor.
 08B6  006F        SetState(0x00, 0x01, 0x01)
 08CA  0083        Jump to 00AC
-08CC  0085        GoMap(00, 0xF4, 0x02, 0x05)
+08CC  0085        SetMoveMap(00, 0xF4, 0x02, 0x05)
 08E6  009F        ShowMessage(0x065E) = You fall through a trapdoor.
 08F3  00AC        RETURN
 
@@ -297,7 +297,7 @@ TRAPDORM_13:
 0957  0062        ShowMessage(0x067B) = You avoid a trapdoor.
 0964  006F        SetState(0x00, 0x01, 0x01)
 0978  0083        Jump to 00AD
-097A  0085        GoMap(0x02, 0xFD, 0x02, 0x05)
+097A  0085        SetMoveMap(0x02, 0xFD, 0x02, 0x05)
 0995  00A0        ShowMessage(0x0691) = You fall through a trapdoor.
 09A2  00AD        RETURN
 
@@ -309,12 +309,12 @@ LKPKDORA_14:
 09C8  0024        compare(ax, 0x0006)
 09CB  0027        If (result.below) jump to 0074
 09CD  0029        Push(01)
-09D1  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+09D1  002D        ax = GetFacing()
 09D8  0034        Push(ax)
 09D9  0035        ax = GetNextTile()
 09E0  003C        Push(ax)
-09E1  003D        Move(stk[0], stk[1], stk[2])
-09EB  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+09E1  003D        SetMove2C(stk[0], stk[1], stk[2])
+09EB  0047        ax = GetFacing()
 09F2  004E        Push(ax)
 09F3  004F        ax = GetNextTile()
 09FA  0056        Push(ax)
@@ -323,11 +323,11 @@ LKPKDORA_14:
 0A09  0065        ShowMessage(0x06AE) = You soon have the door unlocked.
 0A16  0072        Jump to 009E
 0A18  0074        Push(00)
-0A1B  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+0A1B  0077        ax = GetFacing()
 0A22  007E        Push(ax)
 0A23  007F        ax = GetNextTile()
 0A2A  0086        Push(ax)
-0A2B  0087        Move(stk[0], stk[1], stk[2])
+0A2B  0087        SetMove2C(stk[0], stk[1], stk[2])
 0A35  0091        ShowMessage(0x06CF) = The door is locked.
 0A42  009E        RETURN
 
@@ -339,12 +339,12 @@ LKPKDORB_15:
 0A68  0024        compare(ax, 0x0007)
 0A6B  0027        If (result.below) jump to 0074
 0A6D  0029        Push(01)
-0A71  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0A71  002D        ax = GetFacing()
 0A78  0034        Push(ax)
 0A79  0035        ax = GetNextTile()
 0A80  003C        Push(ax)
-0A81  003D        Move(stk[0], stk[1], stk[2])
-0A8B  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+0A81  003D        SetMove2C(stk[0], stk[1], stk[2])
+0A8B  0047        ax = GetFacing()
 0A92  004E        Push(ax)
 0A93  004F        ax = GetNextTile()
 0A9A  0056        Push(ax)
@@ -353,11 +353,11 @@ LKPKDORB_15:
 0AA9  0065        ShowMessage(0x06E3) = Your aptitude at opening locks pays off.
 0AB6  0072        Jump to 009E
 0AB8  0074        Push(00)
-0ABB  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+0ABB  0077        ax = GetFacing()
 0AC2  007E        Push(ax)
 0AC3  007F        ax = GetNextTile()
 0ACA  0086        Push(ax)
-0ACB  0087        Move(stk[0], stk[1], stk[2])
+0ACB  0087        SetMove2C(stk[0], stk[1], stk[2])
 0AD5  0091        ShowMessage(0x070C) = The door is locked.
 0AE2  009E        RETURN
 
@@ -369,12 +369,12 @@ LKPKDORC_16:
 0B08  0024        compare(ax, 0x0009)
 0B0B  0027        If (result.below) jump to 0074
 0B0D  0029        Push(01)
-0B11  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0B11  002D        ax = GetFacing()
 0B18  0034        Push(ax)
 0B19  0035        ax = GetNextTile()
 0B20  003C        Push(ax)
-0B21  003D        Move(stk[0], stk[1], stk[2])
-0B2B  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+0B21  003D        SetMove2C(stk[0], stk[1], stk[2])
+0B2B  0047        ax = GetFacing()
 0B32  004E        Push(ax)
 0B33  004F        ax = GetNextTile()
 0B3A  0056        Push(ax)
@@ -383,11 +383,11 @@ LKPKDORC_16:
 0B49  0065        ShowMessage(0x0720) = You succeed at picking the door lock.
 0B56  0072        Jump to 009E
 0B58  0074        Push(00)
-0B5B  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+0B5B  0077        ax = GetFacing()
 0B62  007E        Push(ax)
 0B63  007F        ax = GetNextTile()
 0B6A  0086        Push(ax)
-0B6B  0087        Move(stk[0], stk[1], stk[2])
+0B6B  0087        SetMove2C(stk[0], stk[1], stk[2])
 0B75  0091        ShowMessage(0x0746) = The door is locked.
 0B82  009E        RETURN
 
@@ -401,12 +401,12 @@ KEYDOORA_17:
 0BBD  0039        compare(ax, 0x000A)
 0BC0  003C        If (result.below) jump to 0089
 0BC2  003E        Push(01)
-0BC6  0042        ax = SetExitability(ax) // ax is usually 0 following equality check
+0BC6  0042        ax = GetFacing()
 0BCD  0049        Push(ax)
 0BCE  004A        ax = GetNextTile()
 0BD5  0051        Push(ax)
-0BD6  0052        Move(stk[0], stk[1], stk[2])
-0BE0  005C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0BD6  0052        SetMove2C(stk[0], stk[1], stk[2])
+0BE0  005C        ax = GetFacing()
 0BE7  0063        Push(ax)
 0BE8  0064        ax = GetNextTile()
 0BEF  006B        Push(ax)
@@ -415,11 +415,11 @@ KEYDOORA_17:
 0BFE  007A        ShowMessage(0x075A) = The door lock is no match for your skills.
 0C0B  0087        Jump to 00B3
 0C0D  0089        Push(00)
-0C10  008C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0C10  008C        ax = GetFacing()
 0C17  0093        Push(ax)
 0C18  0094        ax = GetNextTile()
 0C1F  009B        Push(ax)
-0C20  009C        Move(stk[0], stk[1], stk[2])
+0C20  009C        SetMove2C(stk[0], stk[1], stk[2])
 0C2A  00A6        ShowMessage(0x0785) = The door is locked.
 0C37  00B3        RETURN
 
@@ -433,12 +433,12 @@ KEYDOORB_18:
 0C72  0039        compare(ax, 0x000B)
 0C75  003C        If (result.below) jump to 0089
 0C77  003E        Push(01)
-0C7B  0042        ax = SetExitability(ax) // ax is usually 0 following equality check
+0C7B  0042        ax = GetFacing()
 0C82  0049        Push(ax)
 0C83  004A        ax = GetNextTile()
 0C8A  0051        Push(ax)
-0C8B  0052        Move(stk[0], stk[1], stk[2])
-0C95  005C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0C8B  0052        SetMove2C(stk[0], stk[1], stk[2])
+0C95  005C        ax = GetFacing()
 0C9C  0063        Push(ax)
 0C9D  0064        ax = GetNextTile()
 0CA4  006B        Push(ax)
@@ -447,11 +447,11 @@ KEYDOORB_18:
 0CB3  007A        ShowMessage(0x0799) = You deftly trip the door lock.
 0CC0  0087        Jump to 00B3
 0CC2  0089        Push(00)
-0CC5  008C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0CC5  008C        ax = GetFacing()
 0CCC  0093        Push(ax)
 0CCD  0094        ax = GetNextTile()
 0CD4  009B        Push(ax)
-0CD5  009C        Move(stk[0], stk[1], stk[2])
+0CD5  009C        SetMove2C(stk[0], stk[1], stk[2])
 0CDF  00A6        ShowMessage(0x07B8) = The door is locked.
 0CEC  00B3        RETURN
 
@@ -465,12 +465,12 @@ KEYDOORC_19:
 0D27  0039        compare(ax, 0x000C)
 0D2A  003C        If (result.below) jump to 0089
 0D2C  003E        Push(01)
-0D30  0042        ax = SetExitability(ax) // ax is usually 0 following equality check
+0D30  0042        ax = GetFacing()
 0D37  0049        Push(ax)
 0D38  004A        ax = GetNextTile()
 0D3F  0051        Push(ax)
-0D40  0052        Move(stk[0], stk[1], stk[2])
-0D4A  005C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0D40  0052        SetMove2C(stk[0], stk[1], stk[2])
+0D4A  005C        ax = GetFacing()
 0D51  0063        Push(ax)
 0D52  0064        ax = GetNextTile()
 0D59  006B        Push(ax)
@@ -479,11 +479,11 @@ KEYDOORC_19:
 0D68  007A        ShowMessage(0x07CC) = You quickly have the door open.
 0D75  0087        Jump to 00B3
 0D77  0089        Push(00)
-0D7A  008C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0D7A  008C        ax = GetFacing()
 0D81  0093        Push(ax)
 0D82  0094        ax = GetNextTile()
 0D89  009B        Push(ax)
-0D8A  009C        Move(stk[0], stk[1], stk[2])
+0D8A  009C        SetMove2C(stk[0], stk[1], stk[2])
 0D94  00A6        ShowMessage(0x07EC) = The door is locked.
 0DA1  00B3        RETURN
 
@@ -493,26 +493,26 @@ STRDOORA_1A:
 0DB2  000F        compare(ax, 0x000E)
 0DB5  0012        If (result.below) jump to 005F
 0DB7  0014        ShowMessage(0x0800) = You push on the door and open it.
-0DC4  0021        ax = SetExitability(ax) // ax is usually 0 following equality check
+0DC4  0021        ax = GetFacing()
 0DCB  0028        Push(ax)
 0DCC  0029        ax = GetNextTile()
 0DD3  0030        Push(ax)
 0DD4  0031        Push(01)
 0DD8  0035        SetUnblocked()
 0DE2  003F        Push(01)
-0DE6  0043        ax = SetExitability(ax) // ax is usually 0 following equality check
+0DE6  0043        ax = GetFacing()
 0DED  004A        Push(ax)
 0DEE  004B        ax = GetNextTile()
 0DF5  0052        Push(ax)
-0DF6  0053        Move(stk[0], stk[1], stk[2])
+0DF6  0053        SetMove2C(stk[0], stk[1], stk[2])
 0E00  005D        Jump to 0089
 0E02  005F        ShowMessage(0x0822) = The door is stuck shut.
 0E0F  006C        Push(00)
-0E12  006F        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E12  006F        ax = GetFacing()
 0E19  0076        Push(ax)
 0E1A  0077        ax = GetNextTile()
 0E21  007E        Push(ax)
-0E22  007F        Move(stk[0], stk[1], stk[2])
+0E22  007F        SetMove2C(stk[0], stk[1], stk[2])
 0E2C  0089        RETURN
 
 STRDOORB_1B:
@@ -521,26 +521,26 @@ STRDOORB_1B:
 0E3D  000F        compare(ax, 0x0010)
 0E40  0012        If (result.below) jump to 005F
 0E42  0014        ShowMessage(0x083A) = You force the door open by muscle power.
-0E4F  0021        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E4F  0021        ax = GetFacing()
 0E56  0028        Push(ax)
 0E57  0029        ax = GetNextTile()
 0E5E  0030        Push(ax)
 0E5F  0031        Push(01)
 0E63  0035        SetUnblocked()
 0E6D  003F        Push(01)
-0E71  0043        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E71  0043        ax = GetFacing()
 0E78  004A        Push(ax)
 0E79  004B        ax = GetNextTile()
 0E80  0052        Push(ax)
-0E81  0053        Move(stk[0], stk[1], stk[2])
+0E81  0053        SetMove2C(stk[0], stk[1], stk[2])
 0E8B  005D        Jump to 0089
 0E8D  005F        ShowMessage(0x0863) = The door is stuck shut.
 0E9A  006C        Push(00)
-0E9D  006F        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E9D  006F        ax = GetFacing()
 0EA4  0076        Push(ax)
 0EA5  0077        ax = GetNextTile()
 0EAC  007E        Push(ax)
-0EAD  007F        Move(stk[0], stk[1], stk[2])
+0EAD  007F        SetMove2C(stk[0], stk[1], stk[2])
 0EB7  0089        RETURN
 
 ITMDOORA_1C:
@@ -548,12 +548,12 @@ ITMDOORA_1C:
 0EBC  0003        ax = UsedItem(0xE1, 0xE1)
 0ECF  0016        If (result.equal) jump to 0063
 0ED1  0018        Push(01)
-0ED5  001C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0ED5  001C        ax = GetFacing()
 0EDC  0023        Push(ax)
 0EDD  0024        ax = GetNextTile()
 0EE4  002B        Push(ax)
-0EE5  002C        Move(stk[0], stk[1], stk[2])
-0EEF  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+0EE5  002C        SetMove2C(stk[0], stk[1], stk[2])
+0EEF  0036        ax = GetFacing()
 0EF6  003D        Push(ax)
 0EF7  003E        ax = GetNextTile()
 0EFE  0045        Push(ax)
@@ -562,11 +562,11 @@ ITMDOORA_1C:
 0F0D  0054        ShowMessage(0x087B) = The Domicile Key opens the door!
 0F1A  0061        Jump to 008D
 0F1C  0063        Push(00)
-0F1F  0066        ax = SetExitability(ax) // ax is usually 0 following equality check
+0F1F  0066        ax = GetFacing()
 0F26  006D        Push(ax)
 0F27  006E        ax = GetNextTile()
 0F2E  0075        Push(ax)
-0F2F  0076        Move(stk[0], stk[1], stk[2])
+0F2F  0076        SetMove2C(stk[0], stk[1], stk[2])
 0F39  0080        ShowMessage(0x089C) = The door is locked.
 0F46  008D        RETURN
 
@@ -583,25 +583,25 @@ DETCTDOR_1D:
 0F81  0039        ax = UsedItem(0xBE, 0xBE)
 0F94  004C        If (result.equal) jump to 0099
 0F96  004E        ShowMessage(0x08B0) = You have spotted a secret door!
-0FA3  005B        ax = SetExitability(ax) // ax is usually 0 following equality check
+0FA3  005B        ax = GetFacing()
 0FAA  0062        Push(ax)
 0FAB  0063        ax = GetNextTile()
 0FB2  006A        Push(ax)
 0FB3  006B        Push(01)
 0FB7  006F        SetUnblocked()
 0FC1  0079        Push(01)
-0FC5  007D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0FC5  007D        ax = GetFacing()
 0FCC  0084        Push(ax)
 0FCD  0085        ax = GetNextTile()
 0FD4  008C        Push(ax)
-0FD5  008D        Move(stk[0], stk[1], stk[2])
+0FD5  008D        SetMove2C(stk[0], stk[1], stk[2])
 0FDF  0097        Jump to 00B6
 0FE1  0099        Push(00)
-0FE4  009C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0FE4  009C        ax = GetFacing()
 0FEB  00A3        Push(ax)
 0FEC  00A4        ax = GetNextTile()
 0FF3  00AB        Push(ax)
-0FF4  00AC        Move(stk[0], stk[1], stk[2])
+0FF4  00AC        SetMove2C(stk[0], stk[1], stk[2])
 0FFE  00B6        RETURN
 
 LFTROTA_1E:
@@ -610,7 +610,7 @@ LFTROTA_1E:
 1015  0015        If (result.notequal) jump to 001A
 1017  0017        Jump to 00C9
 101A  001A        SetState(0x00, 0x02, 0x01)
-102E  002E        ax = SetExitability(ax) // ax is usually 0 following equality check
+102E  002E        ax = GetFacing()
 1035  0035        bx = ax
 1037  0037        compare(bx, 0x03)
 103A  003A        If (result.unsigned_equal_or_less_than) jump to 003F
@@ -619,19 +619,19 @@ LFTROTA_1E:
 1041  0041        Jump to mem[0x10CB+bx]
 1046  0046        Push(00)
 1049  0049        ax = GetNextTile()
-1050  0050        GoMap(stk[0], ax, 0x01, 0x04)
+1050  0050        SetMoveMap(stk[0], ax, 0x01, 0x04)
 1064  0064        Jump to 00C9
 1066  0066        Push(02)
 106A  006A        ax = GetNextTile()
-1071  0071        GoMap(stk[0], ax, 0x01, 0x04)
+1071  0071        SetMoveMap(stk[0], ax, 0x01, 0x04)
 1085  0085        Jump to 00C9
 1087  0087        Push(03)
 108B  008B        ax = GetNextTile()
-1092  0092        GoMap(stk[0], ax, 0x01, 0x04)
+1092  0092        SetMoveMap(stk[0], ax, 0x01, 0x04)
 10A6  00A6        Jump to 00C9
 10A8  00A8        Push(01)
 10AC  00AC        ax = GetNextTile()
-10B3  00B3        GoMap(stk[0], ax, 0x01, 0x04)
+10B3  00B3        SetMoveMap(stk[0], ax, 0x01, 0x04)
 10C7  00C7        Jump to 00C9
 10C9  00C9        RETURN
 10CB  00CB        A8 10 66 10 87 10 46 10 
@@ -642,7 +642,7 @@ LFTROTB_1F:
 10E8  0015        If (result.notequal) jump to 001A
 10EA  0017        Jump to 00EF
 10ED  001A        SetState(0x00, 0x02, 0x01)
-1101  002E        ax = SetExitability(ax) // ax is usually 0 following equality check
+1101  002E        ax = GetFacing()
 1108  0035        bx = ax
 110A  0037        compare(bx, 0x03)
 110D  003A        If (result.unsigned_equal_or_less_than) jump to 003F
@@ -651,24 +651,24 @@ LFTROTB_1F:
 1114  0041        Jump to mem[0x11C4+bx]
 1119  0046        Push(02)
 111D  004A        ax = GetNextTile()
-1124  0051        GoMap(stk[0], ax, 0x01, 0x04)
+1124  0051        SetMoveMap(stk[0], ax, 0x01, 0x04)
 1138  0065        Jump to 00EF
 113B  0068        Push(00)
 113E  006B        ax = GetNextTile()
-1145  0072        GoMap(stk[0], ax, 0x01, 0x04)
+1145  0072        SetMoveMap(stk[0], ax, 0x01, 0x04)
 1159  0086        Jump to 00EF
 115B  0088        Push(01)
 115F  008C        ax = GetNextTile()
-1166  0093        GoMap(stk[0], ax, 0x01, 0x04)
+1166  0093        SetMoveMap(stk[0], ax, 0x01, 0x04)
 117A  00A7        Jump to 00EF
 117C  00A9        Push(03)
 1180  00AD        ax = GetNextTile()
-1187  00B4        GoMap(stk[0], ax, 0x01, 0x04)
+1187  00B4        SetMoveMap(stk[0], ax, 0x01, 0x04)
 119B  00C8        Jump to 00EF
-119D  00CA        ax = SetExitability(ax) // ax is usually 0 following equality check
+119D  00CA        ax = GetFacing()
 11A4  00D1        Push(ax)
 11A5  00D2        ax = GetNextTile()
-11AC  00D9        GoMap(stk[0], ax, 0x01, 0x04)
+11AC  00D9        SetMoveMap(stk[0], ax, 0x01, 0x04)
 11C0  00ED        Jump to 00EF
 11C2  00EF        RETURN
 11C4  00F1        7C 11 3B 11 5B 11 19 11 
@@ -679,7 +679,7 @@ BACKROTL_20:
 11E1  0015        If (result.notequal) jump to 001A
 11E3  0017        Jump to 00EF
 11E6  001A        SetState(0x00, 0x02, 0x01)
-11FA  002E        ax = SetExitability(ax) // ax is usually 0 following equality check
+11FA  002E        ax = GetFacing()
 1201  0035        bx = ax
 1203  0037        compare(bx, 0x03)
 1206  003A        If (result.unsigned_equal_or_less_than) jump to 003F
@@ -688,24 +688,24 @@ BACKROTL_20:
 120D  0041        Jump to mem[0x12BD+bx]
 1212  0046        Push(01)
 1216  004A        ax = GetNextTile()
-121D  0051        GoMap(stk[0], ax, 0x01, 0x04)
+121D  0051        SetMoveMap(stk[0], ax, 0x01, 0x04)
 1231  0065        Jump to 00EF
 1234  0068        Push(03)
 1238  006C        ax = GetNextTile()
-123F  0073        GoMap(stk[0], ax, 0x01, 0x04)
+123F  0073        SetMoveMap(stk[0], ax, 0x01, 0x04)
 1253  0087        Jump to 00EF
 1255  0089        Push(00)
 1258  008C        ax = GetNextTile()
-125F  0093        GoMap(stk[0], ax, 0x01, 0x04)
+125F  0093        SetMoveMap(stk[0], ax, 0x01, 0x04)
 1273  00A7        Jump to 00EF
 1275  00A9        Push(02)
 1279  00AD        ax = GetNextTile()
-1280  00B4        GoMap(stk[0], ax, 0x01, 0x04)
+1280  00B4        SetMoveMap(stk[0], ax, 0x01, 0x04)
 1294  00C8        Jump to 00EF
-1296  00CA        ax = SetExitability(ax) // ax is usually 0 following equality check
+1296  00CA        ax = GetFacing()
 129D  00D1        Push(ax)
 129E  00D2        ax = GetNextTile()
-12A5  00D9        GoMap(stk[0], ax, 0x01, 0x04)
+12A5  00D9        SetMoveMap(stk[0], ax, 0x01, 0x04)
 12B9  00ED        Jump to 00EF
 12BB  00EF        RETURN
 12BD  00F1        75 12 34 12 55 12 12 12 
@@ -716,7 +716,7 @@ RTROTA_21:
 12DA  0015        If (result.notequal) jump to 001A
 12DC  0017        Jump to 00EF
 12DF  001A        SetState(0x00, 0x02, 0x01)
-12F3  002E        ax = SetExitability(ax) // ax is usually 0 following equality check
+12F3  002E        ax = GetFacing()
 12FA  0035        bx = ax
 12FC  0037        compare(bx, 0x03)
 12FF  003A        If (result.unsigned_equal_or_less_than) jump to 003F
@@ -725,24 +725,24 @@ RTROTA_21:
 1306  0041        Jump to mem[0x13B6+bx]
 130B  0046        Push(02)
 130F  004A        ax = GetNextTile()
-1316  0051        GoMap(stk[0], ax, 0x01, 0x04)
+1316  0051        SetMoveMap(stk[0], ax, 0x01, 0x04)
 132A  0065        Jump to 00EF
 132D  0068        Push(00)
 1330  006B        ax = GetNextTile()
-1337  0072        GoMap(stk[0], ax, 0x01, 0x04)
+1337  0072        SetMoveMap(stk[0], ax, 0x01, 0x04)
 134B  0086        Jump to 00EF
 134D  0088        Push(01)
 1351  008C        ax = GetNextTile()
-1358  0093        GoMap(stk[0], ax, 0x01, 0x04)
+1358  0093        SetMoveMap(stk[0], ax, 0x01, 0x04)
 136C  00A7        Jump to 00EF
 136E  00A9        Push(03)
 1372  00AD        ax = GetNextTile()
-1379  00B4        GoMap(stk[0], ax, 0x01, 0x04)
+1379  00B4        SetMoveMap(stk[0], ax, 0x01, 0x04)
 138D  00C8        Jump to 00EF
-138F  00CA        ax = SetExitability(ax) // ax is usually 0 following equality check
+138F  00CA        ax = GetFacing()
 1396  00D1        Push(ax)
 1397  00D2        ax = GetNextTile()
-139E  00D9        GoMap(stk[0], ax, 0x01, 0x04)
+139E  00D9        SetMoveMap(stk[0], ax, 0x01, 0x04)
 13B2  00ED        Jump to 00EF
 13B4  00EF        RETURN
 13B6  00F1        6E 13 2D 13 4D 13 0B 13 
@@ -753,7 +753,7 @@ RTROTB_22:
 13D3  0015        If (result.notequal) jump to 001A
 13D5  0017        Jump to 00EF
 13D8  001A        SetState(0x00, 0x02, 0x01)
-13EC  002E        ax = SetExitability(ax) // ax is usually 0 following equality check
+13EC  002E        ax = GetFacing()
 13F3  0035        bx = ax
 13F5  0037        compare(bx, 0x03)
 13F8  003A        If (result.unsigned_equal_or_less_than) jump to 003F
@@ -762,24 +762,24 @@ RTROTB_22:
 13FF  0041        Jump to mem[0x14AF+bx]
 1404  0046        Push(00)
 1407  0049        ax = GetNextTile()
-140E  0050        GoMap(stk[0], ax, 0x01, 0x04)
+140E  0050        SetMoveMap(stk[0], ax, 0x01, 0x04)
 1422  0064        Jump to 00EF
 1425  0067        Push(02)
 1429  006B        ax = GetNextTile()
-1430  0072        GoMap(stk[0], ax, 0x01, 0x04)
+1430  0072        SetMoveMap(stk[0], ax, 0x01, 0x04)
 1444  0086        Jump to 00EF
 1446  0088        Push(03)
 144A  008C        ax = GetNextTile()
-1451  0093        GoMap(stk[0], ax, 0x01, 0x04)
+1451  0093        SetMoveMap(stk[0], ax, 0x01, 0x04)
 1465  00A7        Jump to 00EF
 1467  00A9        Push(01)
 146B  00AD        ax = GetNextTile()
-1472  00B4        GoMap(stk[0], ax, 0x01, 0x04)
+1472  00B4        SetMoveMap(stk[0], ax, 0x01, 0x04)
 1486  00C8        Jump to 00EF
-1488  00CA        ax = SetExitability(ax) // ax is usually 0 following equality check
+1488  00CA        ax = GetFacing()
 148F  00D1        Push(ax)
 1490  00D2        ax = GetNextTile()
-1497  00D9        GoMap(stk[0], ax, 0x01, 0x04)
+1497  00D9        SetMoveMap(stk[0], ax, 0x01, 0x04)
 14AB  00ED        Jump to 00EF
 14AD  00EF        RETURN
 14AF  00F1        67 14 25 14 46 14 04 14 
@@ -1198,7 +1198,7 @@ BACKROTR_36:
 257B  0015        If (result.notequal) jump to 001A
 257D  0017        Jump to 00EF
 2580  001A        SetState(0x00, 0x02, 0x01)
-2594  002E        ax = SetExitability(ax) // ax is usually 0 following equality check
+2594  002E        ax = GetFacing()
 259B  0035        bx = ax
 259D  0037        compare(bx, 0x03)
 25A0  003A        If (result.unsigned_equal_or_less_than) jump to 003F
@@ -1207,24 +1207,24 @@ BACKROTR_36:
 25A7  0041        Jump to mem[0x2657+bx]
 25AC  0046        Push(01)
 25B0  004A        ax = GetNextTile()
-25B7  0051        GoMap(stk[0], ax, 0x01, 0x04)
+25B7  0051        SetMoveMap(stk[0], ax, 0x01, 0x04)
 25CB  0065        Jump to 00EF
 25CE  0068        Push(03)
 25D2  006C        ax = GetNextTile()
-25D9  0073        GoMap(stk[0], ax, 0x01, 0x04)
+25D9  0073        SetMoveMap(stk[0], ax, 0x01, 0x04)
 25ED  0087        Jump to 00EF
 25EF  0089        Push(00)
 25F2  008C        ax = GetNextTile()
-25F9  0093        GoMap(stk[0], ax, 0x01, 0x04)
+25F9  0093        SetMoveMap(stk[0], ax, 0x01, 0x04)
 260D  00A7        Jump to 00EF
 260F  00A9        Push(02)
 2613  00AD        ax = GetNextTile()
-261A  00B4        GoMap(stk[0], ax, 0x01, 0x04)
+261A  00B4        SetMoveMap(stk[0], ax, 0x01, 0x04)
 262E  00C8        Jump to 00EF
-2630  00CA        ax = SetExitability(ax) // ax is usually 0 following equality check
+2630  00CA        ax = GetFacing()
 2637  00D1        Push(ax)
 2638  00D2        ax = GetNextTile()
-263F  00D9        GoMap(stk[0], ax, 0x01, 0x04)
+263F  00D9        SetMoveMap(stk[0], ax, 0x01, 0x04)
 2653  00ED        Jump to 00EF
 2655  00EF        RETURN
 2657  00F1        0F 26 CE 25 EF 25 AC 25 
@@ -1288,7 +1288,7 @@ NPCCHATC_3D:
 
 STRSTELE_3E:
 279B  0000        BEGIN
-279E  0003        GoMap(0x03, 0xE0, 0x03, 0x03)
+279E  0003        SetMoveMap(0x03, 0xE0, 0x03, 0x03)
 27B9  001E        RETURN
 
 EMPTY:

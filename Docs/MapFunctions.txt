@@ -41,17 +41,34 @@ TeachSpell              Sets character.spell(param0) == param1
 == Movement Functions ==
 Fn Name_____            Notes____
 ExitDungeon             Leaves dungeon from upper entrance.
-GoMap                   Param0=Facing (S = 1, E = 2, N = 3, W = 0?)
-                        Param1=Tile (Y << 4) | (X)
-                        Param2=MapIndex
-                        Param3=MapLevel.
-                        MapIndex and MapLevel combine to get the map the player should move to.
-GetNextTile
-Move
-Move2
-SetExitability
-SetUnblocked
-TileIsNoJoinArea
+GetFacing               Get byte facing (S = 1, E = 2, N = 3, W = 0?)
+GetNextTile             Get byte next tile, based on facing:  (Y << 4) | (X)
+SetMove28               Sets parameters for next move action:
+                            Only seen in 13-code.
+                            Always follows SetMove2C, same params.
+                            Ignore?
+SetMove2C               Sets parameters for next move action:
+                            Param0=0 if will fail, 1 if will succeed.
+                            Param1=Direction (S = 1, E = 2, N = 3, W = 0?)
+                            Param2=Encoded byte tile to move to.
+SetMove34               Sets ability to move into this tile from any facing:
+                            Only two params: Succeed, NextTile.
+SetMove38               Sets floor tile:
+                            Param0: FloorType;
+                                    0 = stone
+                                    1 = pit
+                                    2 = lava
+                                    3 = water
+                            Param1: NextTile
+SetMoveMap              Sets paramter for next move action; moving to map:
+                            Param0=Facing (S = 1, E = 2, N = 3, W = 0?)
+                            Param1=Tile (Y << 4) | (X)
+                            Param2=MapIndex
+                            Param3=MapLevel.
+                            MapIndex and MapLevel combine to get the map the player should move to.
+SetUnblocked            Sets whether a move is possible.
+TileIsNoJoinArea        For whatever reason, no one can join after this event
+                        is fired, until the party moves again.
 
 == Interaction Functions ==
 Fn Name_____            Notes____

@@ -1,6 +1,6 @@
 STRSTELE_01:
 0005  0000        BEGIN
-0008  0003        GoMap(0x01, 0xD7, 0x01, 0x03)
+0008  0003        SetMoveMap(0x01, 0xD7, 0x01, 0x03)
 0023  001E        RETURN
 
 KEYDOOR_02:
@@ -8,12 +8,12 @@ KEYDOOR_02:
 0028  0003        ax = UsedItem(0xDB, 0xDB)
 003B  0016        If (result.equal) jump to 0063
 003D  0018        Push(01)
-0041  001C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0041  001C        ax = GetFacing()
 0048  0023        Push(ax)
 0049  0024        ax = GetNextTile()
 0050  002B        Push(ax)
-0051  002C        Move(stk[0], stk[1], stk[2])
-005B  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+0051  002C        SetMove2C(stk[0], stk[1], stk[2])
+005B  0036        ax = GetFacing()
 0062  003D        Push(ax)
 0063  003E        ax = GetNextTile()
 006A  0045        Push(ax)
@@ -22,11 +22,11 @@ KEYDOOR_02:
 0079  0054        ShowMessage(0x03FC) = The E Rune Key unlocked the thick door.
 0086  0061        Jump to 008D
 0088  0063        Push(00)
-008B  0066        ax = SetExitability(ax) // ax is usually 0 following equality check
+008B  0066        ax = GetFacing()
 0092  006D        Push(ax)
 0093  006E        ax = GetNextTile()
 009A  0075        Push(ax)
-009B  0076        Move(stk[0], stk[1], stk[2])
+009B  0076        SetMove2C(stk[0], stk[1], stk[2])
 00A5  0080        ShowMessage(0x0424) = The door is locked.  You need a special key.
 00B2  008D        RETURN
 

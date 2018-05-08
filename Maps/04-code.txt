@@ -1,11 +1,11 @@
 TOEXIT_01:
 0008  0000        BEGIN
-000B  0003        GoMap(00, 0x3A, 0x01, 0x01)
+000B  0003        SetMoveMap(00, 0x3A, 0x01, 0x01)
 0025  001D        RETURN
 
 TOVEST_02:
 0027  0000        BEGIN
-002A  0003        GoMap(0x03, 0xF5, 0x03, 0x01)
+002A  0003        SetMoveMap(0x03, 0xF5, 0x03, 0x01)
 0045  001E        RETURN
 
 GATEMSGA_03:
@@ -15,22 +15,22 @@ GATEMSGA_03:
 
 TELEPORT_04:
 0059  0000        BEGIN
-005C  0003        GoMap(00, 0xF7, 0x04, 0x03)
+005C  0003        SetMoveMap(00, 0xF7, 0x04, 0x03)
 0076  001D        RETURN
 
 TELPORTW_05:
 0078  0000        BEGIN
-007B  0003        GoMap(0x02, 0x57, 0x04, 0x01)
+007B  0003        SetMoveMap(0x02, 0x57, 0x04, 0x01)
 0096  001E        RETURN
 
 TELPORTE_06:
 0098  0000        BEGIN
-009B  0003        GoMap(0x03, 0x4F, 0x04, 0x01)
+009B  0003        SetMoveMap(0x03, 0x4F, 0x04, 0x01)
 00B6  001E        RETURN
 
 TELPORTS_07:
 00B8  0000        BEGIN
-00BB  0003        GoMap(0x01, 0x8F, 0x05, 0x01)
+00BB  0003        SetMoveMap(0x01, 0x8F, 0x05, 0x01)
 00D6  001E        RETURN
 
 STAIRMSG_08:
@@ -40,7 +40,7 @@ STAIRMSG_08:
 
 STAIRSDN_09:
 00EA  0000        BEGIN
-00ED  0003        GoMap(0x01, 0x05, 0x01, 0x02)
+00ED  0003        SetMoveMap(0x01, 0x05, 0x01, 0x02)
 0108  001E        RETURN
 
 LKPKDOOR_0A:
@@ -50,7 +50,7 @@ LKPKDOOR_0A:
 0122  0018        ax = UsedSkill(0x0E) // returns 0 if did not use, compares to 2nd op if did use
 012E  0024        compare(ax, 0x0004)
 0131  0027        If (result.below) jump to 0068
-0133  0029        Move(0x01, 0x03, 0x6F)
+0133  0029        SetMove2C(0x01, 0x03, 0x6F)
 0149  003F        Push(03)
 014D  0043        ax = GetNextTile()
 0154  004A        Push(ax)
@@ -61,13 +61,13 @@ LKPKDOOR_0A:
 0172  0068        Push(00)
 0175  006B        Push(03)
 0179  006F        Push(6F)
-017D  0073        Move(stk[0], stk[1], stk[2])
+017D  0073        SetMove2C(stk[0], stk[1], stk[2])
 0187  007D        ShowMessage(0x0498) = The door is locked.
 0194  008A        RETURN
 
 TELEPORT_0B:
 0196  0000        BEGIN
-0199  0003        GoMap(0x02, 0x0E, 0x01, 0x02)
+0199  0003        SetMoveMap(0x02, 0x0E, 0x01, 0x02)
 01B4  001E        RETURN
 
 LKPKDOOR_0C:
@@ -77,7 +77,7 @@ LKPKDOOR_0C:
 01CE  0018        ax = UsedSkill(0x0E) // returns 0 if did not use, compares to 2nd op if did use
 01DA  0024        compare(ax, 0x0008)
 01DD  0027        If (result.below) jump to 0068
-01DF  0029        Move(0x01, 0x03, 0x40)
+01DF  0029        SetMove2C(0x01, 0x03, 0x40)
 01F5  003F        Push(03)
 01F9  0043        ax = GetNextTile()
 0200  004A        Push(ax)
@@ -88,7 +88,7 @@ LKPKDOOR_0C:
 021E  0068        Push(00)
 0221  006B        Push(03)
 0225  006F        Push(40)
-0229  0073        Move(stk[0], stk[1], stk[2])
+0229  0073        SetMove2C(stk[0], stk[1], stk[2])
 0233  007D        ShowMessage(0x04D5) = The door is locked.
 0240  008A        RETURN
 

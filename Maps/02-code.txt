@@ -1,6 +1,6 @@
 TOEXIT_01:
 000E  0000        BEGIN
-0011  0003        GoMap(0x01, 0x04, 0x01, 0x01)
+0011  0003        SetMoveMap(0x01, 0x04, 0x01, 0x01)
 002C  001E        RETURN
 
 TELEPORT_02:
@@ -8,15 +8,15 @@ TELEPORT_02:
 0031  0003        ax = CheckLevel(0x0014)
 003F  0011        If (result.equal) jump to 003D
 0041  0013        ShowMessage(0x03FC) = You may enter.
-004E  0020        GoMap(0x01, 0x8D, 0x01, 0x05)
+004E  0020        SetMoveMap(0x01, 0x8D, 0x01, 0x05)
 0069  003B        Jump to 0068
 006B  003D        ShowMessage(0x040B) = Only heroes of the twentieth level or higher may venture beyond this door.
 0078  004A        Push(01)
-007C  004E        ax = SetExitability(ax) // ax is usually 0 following equality check
+007C  004E        ax = GetFacing()
 0083  0055        Push(ax)
 0084  0056        ax = GetNextTile()
 008B  005D        Push(ax)
-008C  005E        Move(stk[0], stk[1], stk[2])
+008C  005E        SetMove2C(stk[0], stk[1], stk[2])
 0096  0068        RETURN
 
 LOWMNSTR_03:
@@ -85,7 +85,7 @@ LKPKDOOR_06:
 02C2  002D        Push(01)
 02C6  0031        ax = GetNextTile()
 02CD  0038        Push(ax)
-02CE  0039        Move(stk[0], stk[1], stk[2])
+02CE  0039        SetMove2C(stk[0], stk[1], stk[2])
 02D8  0043        Push(01)
 02DC  0047        ax = GetNextTile()
 02E3  004E        Push(ax)
@@ -97,7 +97,7 @@ LKPKDOOR_06:
 0304  006F        Push(01)
 0308  0073        ax = GetNextTile()
 030F  007A        Push(ax)
-0310  007B        Move(stk[0], stk[1], stk[2])
+0310  007B        SetMove2C(stk[0], stk[1], stk[2])
 031A  0085        ShowMessage(0x0514) = The door is locked.
 0327  0092        RETURN
 
@@ -192,7 +192,7 @@ KEYDOOR_0A:
 067D  0000        BEGIN
 0680  0003        ax = UsedItem(0xD3, 0xD3)
 0693  0016        If (result.equal) jump to 0055
-0695  0018        Move(0x01, 0x00, 0x00)
+0695  0018        SetMove2C(0x01, 0x00, 0x00)
 06AA  002D        Push(00)
 06AD  0030        ax = GetNextTile()
 06B4  0037        Push(ax)
@@ -204,7 +204,7 @@ KEYDOOR_0A:
 06DF  0062        Push(00)
 06E2  0065        Push(00)
 06E5  0068        Push(04)
-06E9  006C        Move(stk[0], stk[1], stk[2])
+06E9  006C        SetMove2C(stk[0], stk[1], stk[2])
 06F3  0076        RETURN
 
 KEYENC_0B:
@@ -249,31 +249,31 @@ STRDOOR_0C:
 0887  000F        compare(ax, 0x000A)
 088A  0012        If (result.below) jump to 005F
 088C  0014        ShowMessage(0x07BD) = You manage to open the door by brute strength.
-0899  0021        ax = SetExitability(ax) // ax is usually 0 following equality check
+0899  0021        ax = GetFacing()
 08A0  0028        Push(ax)
 08A1  0029        ax = GetNextTile()
 08A8  0030        Push(ax)
 08A9  0031        Push(01)
 08AD  0035        SetUnblocked()
 08B7  003F        Push(01)
-08BB  0043        ax = SetExitability(ax) // ax is usually 0 following equality check
+08BB  0043        ax = GetFacing()
 08C2  004A        Push(ax)
 08C3  004B        ax = GetNextTile()
 08CA  0052        Push(ax)
-08CB  0053        Move(stk[0], stk[1], stk[2])
+08CB  0053        SetMove2C(stk[0], stk[1], stk[2])
 08D5  005D        Jump to 0089
 08D7  005F        ShowMessage(0x07EC) = You are not strong enough to force the door open.
 08E4  006C        Push(00)
-08E7  006F        ax = SetExitability(ax) // ax is usually 0 following equality check
+08E7  006F        ax = GetFacing()
 08EE  0076        Push(ax)
 08EF  0077        ax = GetNextTile()
 08F6  007E        Push(ax)
-08F7  007F        Move(stk[0], stk[1], stk[2])
+08F7  007F        SetMove2C(stk[0], stk[1], stk[2])
 0901  0089        RETURN
 
 TOVEST_0D:
 0903  0000        BEGIN
-0906  0003        GoMap(0x02, 0x70, 0x03, 0x01)
+0906  0003        SetMoveMap(0x02, 0x70, 0x03, 0x01)
 0921  001E        RETURN
 
 MODMNSTR_0E:
@@ -360,23 +360,22 @@ PITA_11:
 0BE2  0011        If (result.notequal) jump to 0016
 0BE4  0013        Jump to 00B3
 0BE7  0016        ax = GetNextTile()
-0BEE  001D        SetTileFloor(ax, 0x01)
-0BFB  002A        cx = Pop()
+0BEE  001D        SetMove38(ax, 0x01)
 0BFC  002B        ShowMessage(0x0958) = You fall into a pit.
 0C09  0038        ShowMessage(0x096D) = You take heavy damage from the long, long fall.
 0C16  0045        ax = PartyCount()
 0C1E  004D        compare(ax, 0x0001)
 0C21  0050        If (result.notequal) jump to 007C
 0C23  0052        DoDamage(0x012C)
-0C30  005F        GoMap(0x03, 0x11, 0x03, 0x05)
+0C30  005F        SetMoveMap(0x03, 0x11, 0x03, 0x05)
 0C4B  007A        Jump to 00B1
 0C4D  007C        ShowMessage(0x099D) = Since you are the first to land, your body provides a soft mattress for the rest of your party.
 0C5A  0089        DoDamage(0x01C2)
-0C67  0096        GoMap(0x03, 0x11, 0x03, 0x05)
+0C67  0096        SetMoveMap(0x03, 0x11, 0x03, 0x05)
 0C82  00B1        Jump to 00E8
 0C84  00B3        ShowMessage(0x09FD) = A kindly spirit rescues you from falling to your death.
 0C91  00C0        ShowMessage(0x0A35) = It warns you to stay away from danger until you are stronger.
-0C9E  00CD        GoMap(0x01, 0x67, 0x02, 0x01)
+0C9E  00CD        SetMoveMap(0x01, 0x67, 0x02, 0x01)
 0CB9  00E8        RETURN
 
 SECDOOR_12:
@@ -398,13 +397,13 @@ SECDOOR_12:
 0D2F  0074        Push(ED)
 0D33  0078        Push(01)
 0D37  007C        SetUnblocked()
-0D41  0086        Move(0x01, 0x02, 0xED)
+0D41  0086        SetMove2C(0x01, 0x02, 0xED)
 0D57  009C        Jump to 00C0
 0D59  009E        ShowMessage(0x0A99) = You see a blank wall.
 0D66  00AB        Push(00)
 0D69  00AE        Push(02)
 0D6D  00B2        Push(ED)
-0D71  00B6        Move(stk[0], stk[1], stk[2])
+0D71  00B6        SetMove2C(stk[0], stk[1], stk[2])
 0D7B  00C0        RETURN
 
 _13:
@@ -423,23 +422,22 @@ PITB_15:
 0DB2  0011        If (result.notequal) jump to 0016
 0DB4  0013        Jump to 00B3
 0DB7  0016        ax = GetNextTile()
-0DBE  001D        SetTileFloor(ax, 0x01)
-0DCB  002A        cx = Pop()
+0DBE  001D        SetMove38(ax, 0x01)
 0DCC  002B        ShowMessage(0x0AFE) = You fall into a pit.
 0DD9  0038        ShowMessage(0x0B13) = You take heavy damage from the long, long fall.
 0DE6  0045        ax = PartyCount()
 0DEE  004D        compare(ax, 0x0001)
 0DF1  0050        If (result.notequal) jump to 007C
 0DF3  0052        DoDamage(0x012C)
-0E00  005F        GoMap(0x03, 0x12, 0x03, 0x05)
+0E00  005F        SetMoveMap(0x03, 0x12, 0x03, 0x05)
 0E1B  007A        Jump to 00B1
 0E1D  007C        ShowMessage(0x0B43) = Since you are the first to land, your body provides a soft mattress for the rest of your party.
 0E2A  0089        DoDamage(0x01C2)
-0E37  0096        GoMap(0x03, 0x12, 0x03, 0x05)
+0E37  0096        SetMoveMap(0x03, 0x12, 0x03, 0x05)
 0E52  00B1        Jump to 00E7
 0E54  00B3        ShowMessage(0x0BA3) = A kindly spirit rescues you from falling to your death.
 0E61  00C0        ShowMessage(0x0BDB) = It warns you to stay away from danger until you are stronger.
-0E6E  00CD        GoMap(00, 0x69, 0x02, 0x01)
+0E6E  00CD        SetMoveMap(00, 0x69, 0x02, 0x01)
 0E88  00E7        RETURN
 
 PITC_16:
@@ -448,23 +446,22 @@ PITC_16:
 0E9B  0011        If (result.notequal) jump to 0016
 0E9D  0013        Jump to 00B3
 0EA0  0016        ax = GetNextTile()
-0EA7  001D        SetTileFloor(ax, 0x01)
-0EB4  002A        cx = Pop()
+0EA7  001D        SetMove38(ax, 0x01)
 0EB5  002B        ShowMessage(0x0C19) = You fall into a pit.
 0EC2  0038        ShowMessage(0x0C2E) = You take heavy damage from the long, long fall.
 0ECF  0045        ax = PartyCount()
 0ED7  004D        compare(ax, 0x0001)
 0EDA  0050        If (result.notequal) jump to 007C
 0EDC  0052        DoDamage(0x012C)
-0EE9  005F        GoMap(0x01, 0x21, 0x03, 0x05)
+0EE9  005F        SetMoveMap(0x01, 0x21, 0x03, 0x05)
 0F04  007A        Jump to 00B1
 0F06  007C        ShowMessage(0x0C5E) = Since you are the first to land, your body provides a soft mattress for the rest of your party.
 0F13  0089        DoDamage(0x01C2)
-0F20  0096        GoMap(0x01, 0x21, 0x03, 0x05)
+0F20  0096        SetMoveMap(0x01, 0x21, 0x03, 0x05)
 0F3B  00B1        Jump to 00E8
 0F3D  00B3        ShowMessage(0x0CBE) = A kindly spirit rescues you from falling to your death.
 0F4A  00C0        ShowMessage(0x0CF6) = It warns you to stay away from danger until you are stronger.
-0F57  00CD        GoMap(0x02, 0x76, 0x02, 0x01)
+0F57  00CD        SetMoveMap(0x02, 0x76, 0x02, 0x01)
 0F72  00E8        RETURN
 
 PITD_17:
@@ -473,23 +470,22 @@ PITD_17:
 0F85  0011        If (result.notequal) jump to 0016
 0F87  0013        Jump to 00B1
 0F8A  0016        ax = GetNextTile()
-0F91  001D        SetTileFloor(ax, 0x01)
-0F9E  002A        cx = Pop()
+0F91  001D        SetMove38(ax, 0x01)
 0F9F  002B        ShowMessage(0x0D34) = You fall into a pit.
 0FAC  0038        ShowMessage(0x0D49) = You take heavy damage from the long, long fall.
 0FB9  0045        ax = PartyCount()
 0FC1  004D        compare(ax, 0x0001)
 0FC4  0050        If (result.notequal) jump to 007B
 0FC6  0052        DoDamage(0x012C)
-0FD3  005F        GoMap(00, 0x22, 0x03, 0x05)
+0FD3  005F        SetMoveMap(00, 0x22, 0x03, 0x05)
 0FED  0079        Jump to 00AF
 0FEF  007B        ShowMessage(0x0D79) = Since you are the first to land, your body provides a soft mattress for the rest of your party.
 0FFC  0088        DoDamage(0x01C2)
-1009  0095        GoMap(00, 0x22, 0x03, 0x05)
+1009  0095        SetMoveMap(00, 0x22, 0x03, 0x05)
 1023  00AF        Jump to 00E5
 1025  00B1        ShowMessage(0x0DD9) = A kindly spirit rescues you from falling to your death.
 1032  00BE        ShowMessage(0x0E11) = It warns you to stay away from danger until you are stronger.
-103F  00CB        GoMap(00, 0x79, 0x02, 0x01)
+103F  00CB        SetMoveMap(00, 0x79, 0x02, 0x01)
 1059  00E5        RETURN
 
 TELEMESA_18:

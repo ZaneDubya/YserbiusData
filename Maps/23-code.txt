@@ -14,9 +14,7 @@ XOVER_02:
 0045  000F        ax = CheckState(0x01, 0x01)
 0056  0020        RefreshCompareFlags(ax)
 0058  0022        If (result.equal) jump to 0043
-005A  0024        SetTileFloor(0x47, 00)
-0068  0032        cx = Pop()
-0069  0033        cx = Pop()
+005A  0024        SetMove38(0x47, 0x00)
 006A  0034        ShowMessage(0x046E) = A magical platform forms a bridge across the abyss.
 0077  0041        Jump to 006E
 0079  0043        ShowMessage(0x04A2) = You fall into the abyss and die.
@@ -27,19 +25,15 @@ XOVER_02:
 00A6  0070        ax = CheckState(0x01, 0x01)
 00B7  0081        RefreshCompareFlags(ax)
 00B9  0083        If (result.equal) jump to 0097
-00BB  0085        SetTileFloor(0x47, 00)
-00C9  0093        cx = Pop()
-00CA  0094        cx = Pop()
+00BB  0085        SetMove38(0x47, 0x00)
 00CB  0095        Jump to 00A8
-00CD  0097        SetTileFloor(0x47, 0x01)
+00CD  0097        SetMove38(0x47, 0x01)
 00DE  00A8        RETURN
 
 XOVERON_03:
 00E0  0000        BEGIN
 00E3  0003        SetState(0x01, 0x01, 0x01)
-00F8  0018        SetTileFloor(0x47, 00)
-0106  0026        cx = Pop()
-0107  0027        cx = Pop()
+00F8  0018        SetMove38(0x47, 0x00)
 0108  0028        ShowMessage(0x04F6) = Something strange happens!
 0115  0035        ShowMessage(0x0511) = When you step onto the stone, a magical platform appears nearby.
 0122  0042        RETURN
@@ -47,7 +41,7 @@ XOVERON_03:
 BAZAAR_04:
 0124  0000        BEGIN
 0127  0003        ShowMessage(0x0552) = You do not suffer the death found in other pits in the Labyrinth.  Instead you are rewarded with a trip to CASTLEGATE BAZAAR.
-0134  0010        GoMap(0x03, 0x12, 0x01, 0x36)
+0134  0010        SetMoveMap(0x03, 0x12, 0x01, 0x36)
 014F  002B        RETURN
 
 HEAVENS_05:
@@ -55,62 +49,62 @@ HEAVENS_05:
 0154  0003        ShowMessage(0x05D0) = The Dark Dwarf Voranti tricked the Lords of Harmony many moons ago.
 0161  0010        ShowMessage(0x0614) = He stole the secrets of the Winds from the Lords and has used them for his own purposes every since.
 016E  001D        ShowMessage(0x0679) = The Lords' Harmonic Shrine has now become the raging passageway known as HEAVEN'S FURY.
-017B  002A        GoMap(0x02, 0xA3, 0x01, 0x35)
+017B  002A        SetMoveMap(0x02, 0xA3, 0x01, 0x35)
 0196  0045        RETURN
 
 EXODUS_06:
 0198  0000        BEGIN
 019B  0003        ShowMessage(0x06D1) = The survivors of the cataclysm named this place EXODUS.
 01A8  0010        ShowMessage(0x0709) = It is here they escaped the horrors of Arnakkian's Castle and began their new subterranean life.
-01B5  001D        GoMap(0x02, 0x75, 0x01, 0x35)
+01B5  001D        SetMoveMap(0x02, 0x75, 0x01, 0x35)
 01D0  0038        RETURN
 
 WINDHOLO_07:
 01D2  0000        BEGIN
 01D5  0003        ShowMessage(0x076A) = No adventurer dares camp in WIND HOLLOW.  At night the howling wind makes one deaf to the dangers.
-01E2  0010        GoMap(0x03, 0x8A, 0x01, 0x35)
+01E2  0010        SetMoveMap(0x03, 0x8A, 0x01, 0x35)
 01FD  002B        RETURN
 
 TEMPEST_08:
 01FF  0000        BEGIN
 0202  0003        ShowMessage(0x07CD) = TEMPEST dares all to explore the magic rooms along her narrow corridor.
-020F  0010        GoMap(0x01, 0x9B, 0x01, 0x35)
+020F  0010        SetMoveMap(0x01, 0x9B, 0x01, 0x35)
 022A  002B        RETURN
 
 WINDHOLO_09:
 022C  0000        BEGIN
 022F  0003        ShowMessage(0x0815) = The barren rocks are swept clean by the violent winds that race through WIND HOLLOW.
-023C  0010        GoMap(00, 0x7D, 0x01, 0x35)
+023C  0010        SetMoveMap(00, 0x7D, 0x01, 0x35)
 0256  002A        RETURN
 
 BACKALLY_0A:
 0258  0000        BEGIN
 025B  0003        ShowMessage(0x086A) = 'Beware!  Those who enter the Labyrinth BACK ALLEY must guard against all!'
-0268  0010        GoMap(00, 0x4D, 0x01, 0x35)
+0268  0010        SetMoveMap(00, 0x4D, 0x01, 0x35)
 0282  002A        RETURN
 
 HEAVENS_0B:
 0284  0000        BEGIN
 0287  0003        ShowMessage(0x08B6) = Enter HEAVEN'S FURY if you must.  Here is where Voranti cursed the winds.
-0294  0010        GoMap(0x02, 0xF3, 0x01, 0x35)
+0294  0010        SetMoveMap(0x02, 0xF3, 0x01, 0x35)
 02AF  002B        RETURN
 
 LABYATIC_0C:
 02B1  0000        BEGIN
 02B4  0003        ShowMessage(0x0900) = The gates of LABYRINTH ATTIC are a welcome sight.
-02C1  0010        GoMap(0x02, 0xC3, 0x01, 0x33)
+02C1  0010        SetMoveMap(0x02, 0xC3, 0x01, 0x33)
 02DC  002B        RETURN
 
 WINDHOLO_0D:
 02DE  0000        BEGIN
 02E1  0003        ShowMessage(0x0932) = The door leads to WYN SANCTUARY.
-02EE  0010        GoMap(00, 0x6D, 0x01, 0x33)
+02EE  0010        SetMoveMap(00, 0x6D, 0x01, 0x33)
 0308  002A        RETURN
 
 THVTRESR_0E:
 030A  0000        BEGIN
 030D  0003        ShowMessage(0x0953) = The gateway opens, revealing the secret chambers of the Labyrinth Thieves.
-031A  0010        GoMap(0x02, 0x6E, 0x01, 0x33)
+031A  0010        SetMoveMap(0x02, 0x6E, 0x01, 0x33)
 0335  002B        RETURN
 
 LAVA_0F:
@@ -129,7 +123,7 @@ DRTOBALY_10:
 0383  0029        Push(03)
 0387  002D        ax = GetNextTile()
 038E  0034        Push(ax)
-038F  0035        Move(stk[0], stk[1], stk[2])
+038F  0035        SetMove2C(stk[0], stk[1], stk[2])
 0399  003F        Push(03)
 039D  0043        ax = GetNextTile()
 03A4  004A        Push(ax)
@@ -150,7 +144,7 @@ EMPTY:
 LABYATIC_14:
 03D1  0000        BEGIN
 03D4  0003        ShowMessage(0x0A21) = You return to LABYRINTH ATTIC through a one-way tunnel.
-03E1  0010        GoMap(0x02, 0x59, 0x01, 0x33)
+03E1  0010        SetMoveMap(0x02, 0x59, 0x01, 0x33)
 03FC  002B        RETURN
 
 WINDHOLO_15:
@@ -162,14 +156,14 @@ WINDHOLO_15:
 042F  0031        RefreshCompareFlags(ax)
 0431  0033        If (result.unsigned_greater_than) jump to 0042
 0433  0035        ShowMessage(0x0AE0) = You have died.
-0440  0042        GoMap(0x03, 0xBC, 0x01, 0x35)
+0440  0042        SetMoveMap(0x03, 0xBC, 0x01, 0x35)
 045B  005D        RETURN
 
 MAGICRMS_16:
 045D  0000        BEGIN
 0460  0003        ShowMessage(0x0AEF) = Runes can be the most powerful of weapons in the hands of an adept Wizard.
 046D  0010        ShowMessage(0x0B3A) = Here, the runes also protect the great mage's magical possessions against the unwanted.
-047A  001D        GoMap(0x02, 0x30, 0x02, 0x34)
+047A  001D        SetMoveMap(0x02, 0x30, 0x02, 0x34)
 0495  0038        RETURN
 
 EMPTY:
@@ -224,7 +218,7 @@ TXTZEPHR_1B:
 XOVEROFF_1C:
 0686  0000        BEGIN
 0689  0003        SetState(0x01, 0x01, 0x00)
-069D  0017        SetTileFloor(0x47, 0x01)
+069D  0017        SetMove38(0x47, 0x01)
 06AE  0028        ShowMessage(0x0CA2) = A magical platform nearby seems to disappear.
 06BB  0035        RETURN
 
@@ -301,12 +295,12 @@ SDRZZYZA_23:
 0950  0037        If (result.equal) jump to 0082
 0952  0039        ShowMessage(0x0DBF) = You detect a secret door in the wall.
 095F  0046        Push(01)
-0963  004A        ax = SetExitability(ax) // ax is usually 0 following equality check
+0963  004A        ax = GetFacing()
 096A  0051        Push(ax)
 096B  0052        ax = GetNextTile()
 0972  0059        Push(ax)
-0973  005A        Move(stk[0], stk[1], stk[2])
-097D  0064        ax = SetExitability(ax) // ax is usually 0 following equality check
+0973  005A        SetMove2C(stk[0], stk[1], stk[2])
+097D  0064        ax = GetFacing()
 0984  006B        Push(ax)
 0985  006C        ax = GetNextTile()
 098C  0073        Push(ax)
@@ -360,12 +354,12 @@ SDRMGOVA_28:
 0B0F  0046        If (result.equal) jump to 0091
 0B11  0048        ShowMessage(0x0E0E) = You locate a hidden door in the wall.
 0B1E  0055        Push(01)
-0B22  0059        ax = SetExitability(ax) // ax is usually 0 following equality check
+0B22  0059        ax = GetFacing()
 0B29  0060        Push(ax)
 0B2A  0061        ax = GetNextTile()
 0B31  0068        Push(ax)
-0B32  0069        Move(stk[0], stk[1], stk[2])
-0B3C  0073        ax = SetExitability(ax) // ax is usually 0 following equality check
+0B32  0069        SetMove2C(stk[0], stk[1], stk[2])
+0B3C  0073        ax = GetFacing()
 0B43  007A        Push(ax)
 0B44  007B        ax = GetNextTile()
 0B4B  0082        Push(ax)
@@ -435,18 +429,18 @@ SDRVORDW_31:
 0CEB  0024        ax = UsedItem(0xBE, 0xBE)
 0CFE  0037        If (result.equal) jump to 0082
 0D00  0039        ShowMessage(0x0FF2) = You find a secret door in the wall.
-0D0D  0046        ax = SetExitability(ax) // ax is usually 0 following equality check
+0D0D  0046        ax = GetFacing()
 0D14  004D        Push(ax)
 0D15  004E        ax = GetNextTile()
 0D1C  0055        Push(ax)
 0D1D  0056        Push(01)
 0D21  005A        SetUnblocked()
 0D2B  0064        Push(01)
-0D2F  0068        ax = SetExitability(ax) // ax is usually 0 following equality check
+0D2F  0068        ax = GetFacing()
 0D36  006F        Push(ax)
 0D37  0070        ax = GetNextTile()
 0D3E  0077        Push(ax)
-0D3F  0078        Move(stk[0], stk[1], stk[2])
+0D3F  0078        SetMove2C(stk[0], stk[1], stk[2])
 0D49  0082        RETURN
 
 MOONENCA_32:
@@ -558,18 +552,18 @@ BDRMOONB_3E:
 118B  001C        compare(ax, 0x0015)
 118E  001F        If (result.below) jump to 006A
 1190  0021        ShowMessage(0x1117) = You push against the door and barely manage to open it.
-119D  002E        ax = SetExitability(ax) // ax is usually 0 following equality check
+119D  002E        ax = GetFacing()
 11A4  0035        Push(ax)
 11A5  0036        ax = GetNextTile()
 11AC  003D        Push(ax)
 11AD  003E        Push(01)
 11B1  0042        SetUnblocked()
 11BB  004C        Push(01)
-11BF  0050        ax = SetExitability(ax) // ax is usually 0 following equality check
+11BF  0050        ax = GetFacing()
 11C6  0057        Push(ax)
 11C7  0058        ax = GetNextTile()
 11CE  005F        Push(ax)
-11CF  0060        Move(stk[0], stk[1], stk[2])
+11CF  0060        SetMove2C(stk[0], stk[1], stk[2])
 11D9  006A        RETURN
 
 SDRMOONC_3F:
@@ -577,18 +571,18 @@ SDRMOONC_3F:
 11DE  0003        ax = UsedItem(0xF2, 0xF2)
 11F1  0016        If (result.equal) jump to 0061
 11F3  0018        ShowMessage(0x114F) = Your Moon Prism reveals a secret door!
-1200  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+1200  0025        ax = GetFacing()
 1207  002C        Push(ax)
 1208  002D        ax = GetNextTile()
 120F  0034        Push(ax)
 1210  0035        Push(01)
 1214  0039        SetUnblocked()
 121E  0043        Push(01)
-1222  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+1222  0047        ax = GetFacing()
 1229  004E        Push(ax)
 122A  004F        ax = GetNextTile()
 1231  0056        Push(ax)
-1232  0057        Move(stk[0], stk[1], stk[2])
+1232  0057        SetMove2C(stk[0], stk[1], stk[2])
 123C  0061        RETURN
 
 SDRMOOND_40:
@@ -604,18 +598,18 @@ SDRMOOND_40:
 1277  0039        ax = UsedItem(0xBE, 0xBE)
 128A  004C        If (result.equal) jump to 0097
 128C  004E        ShowMessage(0x1176) = You find a door hidden in the wall.
-1299  005B        ax = SetExitability(ax) // ax is usually 0 following equality check
+1299  005B        ax = GetFacing()
 12A0  0062        Push(ax)
 12A1  0063        ax = GetNextTile()
 12A8  006A        Push(ax)
 12A9  006B        Push(01)
 12AD  006F        SetUnblocked()
 12B7  0079        Push(01)
-12BB  007D        ax = SetExitability(ax) // ax is usually 0 following equality check
+12BB  007D        ax = GetFacing()
 12C2  0084        Push(ax)
 12C3  0085        ax = GetNextTile()
 12CA  008C        Push(ax)
-12CB  008D        Move(stk[0], stk[1], stk[2])
+12CB  008D        SetMove2C(stk[0], stk[1], stk[2])
 12D5  0097        RETURN
 
 SDRMOONE_41:
@@ -626,18 +620,18 @@ SDRMOONE_41:
 12FC  0025        ax = UsedItem(0xBE, 0xBE)
 130F  0038        If (result.equal) jump to 0083
 1311  003A        ShowMessage(0x11CD) = In the wall is a secret door.
-131E  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+131E  0047        ax = GetFacing()
 1325  004E        Push(ax)
 1326  004F        ax = GetNextTile()
 132D  0056        Push(ax)
 132E  0057        Push(01)
 1332  005B        SetUnblocked()
 133C  0065        Push(01)
-1340  0069        ax = SetExitability(ax) // ax is usually 0 following equality check
+1340  0069        ax = GetFacing()
 1347  0070        Push(ax)
 1348  0071        ax = GetNextTile()
 134F  0078        Push(ax)
-1350  0079        Move(stk[0], stk[1], stk[2])
+1350  0079        SetMove2C(stk[0], stk[1], stk[2])
 135A  0083        RETURN
 
 MOONENCM_42:
@@ -663,18 +657,18 @@ SDRMOONF_43:
 13DC  0033        ax = UsedItem(0xBE, 0xBE)
 13EF  0046        If (result.equal) jump to 0091
 13F1  0048        ShowMessage(0x11EB) = Your Ranger skills help you locate a door hidden in the wall.
-13FE  0055        ax = SetExitability(ax) // ax is usually 0 following equality check
+13FE  0055        ax = GetFacing()
 1405  005C        Push(ax)
 1406  005D        ax = GetNextTile()
 140D  0064        Push(ax)
 140E  0065        Push(01)
 1412  0069        SetUnblocked()
 141C  0073        Push(01)
-1420  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+1420  0077        ax = GetFacing()
 1427  007E        Push(ax)
 1428  007F        ax = GetNextTile()
 142F  0086        Push(ax)
-1430  0087        Move(stk[0], stk[1], stk[2])
+1430  0087        SetMove2C(stk[0], stk[1], stk[2])
 143A  0091        RETURN
 
 SDRMOONJ_44:
@@ -692,18 +686,18 @@ SDRMOONJ_44:
 146F  0033        ax = UsedItem(0xBE, 0xBE)
 1482  0046        If (result.equal) jump to 0091
 1484  0048        ShowMessage(0x1229) = Your holy calling allows you find a door hidden in the wall.
-1491  0055        ax = SetExitability(ax) // ax is usually 0 following equality check
+1491  0055        ax = GetFacing()
 1498  005C        Push(ax)
 1499  005D        ax = GetNextTile()
 14A0  0064        Push(ax)
 14A1  0065        Push(01)
 14A5  0069        SetUnblocked()
 14AF  0073        Push(01)
-14B3  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+14B3  0077        ax = GetFacing()
 14BA  007E        Push(ax)
 14BB  007F        ax = GetNextTile()
 14C2  0086        Push(ax)
-14C3  0087        Move(stk[0], stk[1], stk[2])
+14C3  0087        SetMove2C(stk[0], stk[1], stk[2])
 14CD  0091        RETURN
 
 BDRMOONK_45:
@@ -712,32 +706,32 @@ BDRMOONK_45:
 14DE  000F        compare(ax, 0x0014)
 14E1  0012        If (result.below) jump to 005F
 14E3  0014        ShowMessage(0x1266) = You barely manage to force open the door.
-14F0  0021        ax = SetExitability(ax) // ax is usually 0 following equality check
+14F0  0021        ax = GetFacing()
 14F7  0028        Push(ax)
 14F8  0029        ax = GetNextTile()
 14FF  0030        Push(ax)
 1500  0031        Push(01)
 1504  0035        SetUnblocked()
 150E  003F        Push(01)
-1512  0043        ax = SetExitability(ax) // ax is usually 0 following equality check
+1512  0043        ax = GetFacing()
 1519  004A        Push(ax)
 151A  004B        ax = GetNextTile()
 1521  0052        Push(ax)
-1522  0053        Move(stk[0], stk[1], stk[2])
+1522  0053        SetMove2C(stk[0], stk[1], stk[2])
 152C  005D        Jump to 00A7
 152E  005F        ShowMessage(0x1290) = The door is stuck shut.
-153B  006C        ax = SetExitability(ax) // ax is usually 0 following equality check
+153B  006C        ax = GetFacing()
 1542  0073        Push(ax)
 1543  0074        ax = GetNextTile()
 154A  007B        Push(ax)
 154B  007C        Push(01)
 154F  0080        SetUnblocked()
 1559  008A        Push(00)
-155C  008D        ax = SetExitability(ax) // ax is usually 0 following equality check
+155C  008D        ax = GetFacing()
 1563  0094        Push(ax)
 1564  0095        ax = GetNextTile()
 156B  009C        Push(ax)
-156C  009D        Move(stk[0], stk[1], stk[2])
+156C  009D        SetMove2C(stk[0], stk[1], stk[2])
 1576  00A7        RETURN
 
 SDRMOONM_46:
@@ -752,12 +746,12 @@ SDRMOONM_46:
 15AF  0037        If (result.equal) jump to 0082
 15B1  0039        ShowMessage(0x12A8) = Your training helps you find a secret door in the wall.
 15BE  0046        Push(01)
-15C2  004A        ax = SetExitability(ax) // ax is usually 0 following equality check
+15C2  004A        ax = GetFacing()
 15C9  0051        Push(ax)
 15CA  0052        ax = GetNextTile()
 15D1  0059        Push(ax)
-15D2  005A        Move(stk[0], stk[1], stk[2])
-15DC  0064        ax = SetExitability(ax) // ax is usually 0 following equality check
+15D2  005A        SetMove2C(stk[0], stk[1], stk[2])
+15DC  0064        ax = GetFacing()
 15E3  006B        Push(ax)
 15E4  006C        ax = GetNextTile()
 15EB  0073        Push(ax)
@@ -768,18 +762,18 @@ SDRMOONM_46:
 SDRMOONN_47:
 15FC  0000        BEGIN
 15FF  0003        ShowMessage(0x12E0) = You detect a door cleverly hidden in the wall.
-160C  0010        ax = SetExitability(ax) // ax is usually 0 following equality check
+160C  0010        ax = GetFacing()
 1613  0017        Push(ax)
 1614  0018        ax = GetNextTile()
 161B  001F        Push(ax)
 161C  0020        Push(01)
 1620  0024        SetUnblocked()
 162A  002E        Push(01)
-162E  0032        ax = SetExitability(ax) // ax is usually 0 following equality check
+162E  0032        ax = GetFacing()
 1635  0039        Push(ax)
 1636  003A        ax = GetNextTile()
 163D  0041        Push(ax)
-163E  0042        Move(stk[0], stk[1], stk[2])
+163E  0042        SetMove2C(stk[0], stk[1], stk[2])
 1648  004C        RETURN
 
 MOONTRSA_48:
@@ -925,12 +919,12 @@ SDRTORBA_53:
 1A44  0046        If (result.equal) jump to 0091
 1A46  0048        ShowMessage(0x15AA) = A secret door visible only to knights appears in the wall .
 1A53  0055        Push(01)
-1A57  0059        ax = SetExitability(ax) // ax is usually 0 following equality check
+1A57  0059        ax = GetFacing()
 1A5E  0060        Push(ax)
 1A5F  0061        ax = GetNextTile()
 1A66  0068        Push(ax)
-1A67  0069        Move(stk[0], stk[1], stk[2])
-1A71  0073        ax = SetExitability(ax) // ax is usually 0 following equality check
+1A67  0069        SetMove2C(stk[0], stk[1], stk[2])
+1A71  0073        ax = GetFacing()
 1A78  007A        Push(ax)
 1A79  007B        ax = GetNextTile()
 1A80  0082        Push(ax)
@@ -954,12 +948,12 @@ SDRTORBB_54:
 1AD6  0045        If (result.equal) jump to 0090
 1AD8  0047        ShowMessage(0x15E6) = In the wall you find a hidden door.
 1AE5  0054        Push(01)
-1AE9  0058        ax = SetExitability(ax) // ax is usually 0 following equality check
+1AE9  0058        ax = GetFacing()
 1AF0  005F        Push(ax)
 1AF1  0060        ax = GetNextTile()
 1AF8  0067        Push(ax)
-1AF9  0068        Move(stk[0], stk[1], stk[2])
-1B03  0072        ax = SetExitability(ax) // ax is usually 0 following equality check
+1AF9  0068        SetMove2C(stk[0], stk[1], stk[2])
+1B03  0072        ax = GetFacing()
 1B0A  0079        Push(ax)
 1B0B  007A        ax = GetNextTile()
 1B12  0081        Push(ax)

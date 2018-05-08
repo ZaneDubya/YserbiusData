@@ -225,7 +225,7 @@ ENCI_0A:
 CGATE_0B:
 083D  0000        BEGIN
 0840  0003        ShowMessage(0x0858) = A path leads up to CASTLEGATE
-084D  0010        GoMap(0x01, 0x74, 0x01, 0x36)
+084D  0010        SetMoveMap(0x01, 0x74, 0x01, 0x36)
 0868  002B        RETURN
 
 DWARF_0C:
@@ -233,7 +233,7 @@ DWARF_0C:
 086D  0003        ax = CheckLevel(0x001E)
 087B  0011        If (result.equal) jump to 003D
 087D  0013        ShowMessage(0x0876) = A narrow tunnel appears, leading down to the DWARF KINGDOM.
-088A  0020        GoMap(0x02, 0x7A, 0x01, 0x38)
+088A  0020        SetMoveMap(0x02, 0x7A, 0x01, 0x38)
 08A5  003B        Jump to 004A
 08A7  003D        ShowRunes(0x08B2) = At level thirty, the entrance to the land of dwarfs will be open to you.
 08B4  004A        RETURN
@@ -642,7 +642,7 @@ CAVEDOOR_18:
 1671  0036        Push(03)
 1675  003A        ax = GetNextTile()
 167C  0041        Push(ax)
-167D  0042        Move(stk[0], stk[1], stk[2])
+167D  0042        SetMove2C(stk[0], stk[1], stk[2])
 1687  004C        Push(03)
 168B  0050        ax = GetNextTile()
 1692  0057        Push(ax)

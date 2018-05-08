@@ -47,25 +47,25 @@ ENCWINTR_04:
 RAINRED_05:
 01A2  0000        BEGIN
 01A5  0003        ShowMessage(0x06F2) = A streak of Red crosses the Ageless Void.
-01B2  0010        GoMap(0x02, 0x97, 0x03, 0x38)
+01B2  0010        SetMoveMap(0x02, 0x97, 0x03, 0x38)
 01CD  002B        RETURN
 
 RAINYEL_06:
 01CF  0000        BEGIN
 01D2  0003        ShowMessage(0x071C) = A streak of Yellow crosses the Ageless Void.
-01DF  0010        GoMap(0x02, 0x87, 0x03, 0x38)
+01DF  0010        SetMoveMap(0x02, 0x87, 0x03, 0x38)
 01FA  002B        RETURN
 
 RAINGRN_07:
 01FC  0000        BEGIN
 01FF  0003        ShowMessage(0x0749) = A streak of Green crosses the Ageless Void.
-020C  0010        GoMap(0x02, 0x77, 0x03, 0x38)
+020C  0010        SetMoveMap(0x02, 0x77, 0x03, 0x38)
 0227  002B        RETURN
 
 RAINBLU_08:
 0229  0000        BEGIN
 022C  0003        ShowMessage(0x0775) = A streak of Blue crosses the Ageless Void.
-0239  0010        GoMap(0x02, 0x67, 0x03, 0x38)
+0239  0010        SetMoveMap(0x02, 0x67, 0x03, 0x38)
 0254  002B        RETURN
 
 ENCTIME_09:
@@ -81,25 +81,25 @@ ENCTIME_09:
 TELENW_0A:
 02A9  0000        BEGIN
 02AC  0003        ShowMessage(0x09D4) = You enter another dimension.
-02B9  0010        GoMap(0x01, 0x54, 0x01, 0x39)
+02B9  0010        SetMoveMap(0x01, 0x54, 0x01, 0x39)
 02D4  002B        RETURN
 
 TELENE_0B:
 02D6  0000        BEGIN
 02D9  0003        ShowMessage(0x09F1) = You enter another dimension.
-02E6  0010        GoMap(00, 0x4A, 0x01, 0x39)
+02E6  0010        SetMoveMap(00, 0x4A, 0x01, 0x39)
 0300  002A        RETURN
 
 TELESE_0C:
 0302  0000        BEGIN
 0305  0003        ShowMessage(0x0A0E) = You enter another dimension.
-0312  0010        GoMap(0x03, 0xAB, 0x01, 0x39)
+0312  0010        SetMoveMap(0x03, 0xAB, 0x01, 0x39)
 032D  002B        RETURN
 
 TELESW_0D:
 032F  0000        BEGIN
 0332  0003        ShowMessage(0x0A2B) = You enter another dimension.
-033F  0010        GoMap(0x02, 0xB5, 0x01, 0x39)
+033F  0010        SetMoveMap(0x02, 0xB5, 0x01, 0x39)
 035A  002B        RETURN
 
 EMPTY:

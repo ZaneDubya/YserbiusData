@@ -9,26 +9,26 @@ VOID_01:
 MOONHOLO_02:
 003A  0000        BEGIN
 003D  0003        ShowMessage(0x044E) = Cast in shadowy blue light, the tunnels of MOON HOLLOW are a nexus to more dangerous locations.
-004A  0010        GoMap(0x01, 0x03, 0x01, 0x34)
+004A  0010        SetMoveMap(0x01, 0x03, 0x01, 0x34)
 0065  002B        RETURN
 
 ZEPHYR_03:
 0067  0000        BEGIN
 006A  0003        ShowMessage(0x04AE) = Well worn trails greet those who dare travel the corridors of the ZEPHYR.
-0077  0010        GoMap(0x03, 0xC3, 0x01, 0x34)
+0077  0010        SetMoveMap(0x03, 0xC3, 0x01, 0x34)
 0092  002B        RETURN
 
 ZZYZX_04:
 0094  0000        BEGIN
 0097  0003        ShowMessage(0x04F8) = Dry desert winds parch your throat as you peer down the winding passages leading to ZZYZX.
-00A4  0010        GoMap(00, 0x6D, 0x01, 0x34)
+00A4  0010        SetMoveMap(00, 0x6D, 0x01, 0x34)
 00BE  002A        RETURN
 
 DRGNLEAP_05:
 00C0  0000        BEGIN
 00C3  0003        ShowMessage(0x0553) = A brave step..
 00D0  0010        ShowMessage(0x0562) = Death does not greet you now, but it will perhaps when you meet the DRAGONS OF THE LEAP.
-00DD  001D        GoMap(0x01, 0xCB, 0x01, 0x34)
+00DD  001D        SetMoveMap(0x01, 0xCB, 0x01, 0x34)
 00F8  0038        RETURN
 
 TORBRIAR_06:
@@ -36,21 +36,21 @@ TORBRIAR_06:
 00FD  0003        ShowMessage(0x05BB) = You drop into TORBRIAR'S TREASURE.
 010A  0010        ShowMessage(0x05DE) = An inscription on the wall reads...
 0117  001D        ShowMessage(0x0602) = 'We, the Knights of Torbriar, build this shrine to celebrate WarMaster Torbriar's stunning victory over the armies of Ogres and Trolls.'
-0124  002A        GoMap(0x02, 0x35, 0x01, 0x34)
+0124  002A        SetMoveMap(0x02, 0x35, 0x01, 0x34)
 013F  0045        RETURN
 
 MOONHOLO_07:
 0141  0000        BEGIN
 0144  0003        ShowMessage(0x068B) = You land squarely in the center of MOON HOLLOW!
 0151  0010        ShowMessage(0x06BB) = The howling of winds screams harsh against the blue light of a fool moon.
-015E  001D        GoMap(0x02, 0x73, 0x01, 0x34)
+015E  001D        SetMoveMap(0x02, 0x73, 0x01, 0x34)
 0179  0038        RETURN
 
 MAGEOVRL_08:
 017B  0000        BEGIN
 017E  0003        ShowMessage(0x0705) = You drop into MAGES OVERLOOK.
 018B  0010        ShowMessage(0x0723) = Mages found this plateau useful for looking out over the labyrinth denizens following the great cataclysm.
-0198  001D        GoMap(0x03, 0x7A, 0x01, 0x34)
+0198  001D        SetMoveMap(0x03, 0x7A, 0x01, 0x34)
 01B3  0038        RETURN
 
 ENCWINDN_09:
@@ -209,7 +209,7 @@ EXPRESS_11:
 0611  0018        ShowMessage(0x095D) = This wall is the teleport to CASTLEGATE.
 061E  0025        Push(03)
 0622  0029        ax = GetNextTile()
-0629  0030        GoMap(stk[0], ax, 0x01, 0x36)
+0629  0030        SetMoveMap(stk[0], ax, 0x01, 0x36)
 063D  0044        Jump to 0053
 063F  0046        ShowMessage(0x0986) = There is something strange about this wall.
 064C  0053        RETURN
@@ -238,7 +238,7 @@ WSTRES_13:
 
 MOUNTAIN_14:
 06FE  0000        BEGIN
-0701  0003        GoMap(0x33, 0x00, 0x01, 0x01)
+0701  0003        SetMoveMap(0x33, 0x00, 0x01, 0x01)
 071B  001D        RETURN
 
 TXTMNTN_15:
@@ -249,7 +249,7 @@ TXTMNTN_15:
 THIEVMAZ_16:
 072F  0000        BEGIN
 0732  0003        ShowMessage(0x0B29) = You discover the back entrance to the THIEVES' DEN.
-073F  0010        GoMap(0x01, 0xBE, 0x01, 0x05)
+073F  0010        SetMoveMap(0x01, 0xBE, 0x01, 0x05)
 075A  002B        RETURN
 
 LAVA_17:
@@ -262,7 +262,7 @@ LAVA_17:
 ZEPHYRB_18:
 077F  0000        BEGIN
 0782  0003        ShowMessage(0x0B86) = Well worn trails greet those who dare travel the windswept corridors of the ZEPHYR.
-078F  0010        GoMap(0x01, 0x6E, 0x01, 0x34)
+078F  0010        SetMoveMap(0x01, 0x6E, 0x01, 0x34)
 07AA  002B        RETURN
 
 SDOORWKT_19:
@@ -291,7 +291,7 @@ SDOORWKT_19:
 0851  00A5        Push(03)
 0855  00A9        ax = GetNextTile()
 085C  00B0        Push(ax)
-085D  00B1        Move(stk[0], stk[1], stk[2])
+085D  00B1        SetMove2C(stk[0], stk[1], stk[2])
 0867  00BB        Push(03)
 086B  00BF        ax = GetNextTile()
 0872  00C6        Push(ax)
@@ -317,7 +317,7 @@ KEYDOORW_1B:
 08E7  001C        Push(00)
 08EA  001F        ax = GetNextTile()
 08F1  0026        Push(ax)
-08F2  0027        Move(stk[0], stk[1], stk[2])
+08F2  0027        SetMove2C(stk[0], stk[1], stk[2])
 08FC  0031        Push(00)
 08FF  0034        ax = GetNextTile()
 0906  003B        Push(ax)
@@ -502,7 +502,7 @@ SIRDOOR_28:
 0EFB  001C        Push(01)
 0EFF  0020        ax = GetNextTile()
 0F06  0027        Push(ax)
-0F07  0028        Move(stk[0], stk[1], stk[2])
+0F07  0028        SetMove2C(stk[0], stk[1], stk[2])
 0F11  0032        Push(01)
 0F15  0036        ax = GetNextTile()
 0F1C  003D        Push(ax)
@@ -532,19 +532,19 @@ WSBIGDR_2A:
 0FE1  0012        If (result.below) jump to 0041
 0FE3  0014        ShowMessage(0x1303) = You force the massive door open by sheer muscle power.
 0FF0  0021        Push(01)
-0FF4  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+0FF4  0025        ax = GetFacing()
 0FFB  002C        Push(ax)
 0FFC  002D        ax = GetNextTile()
 1003  0034        Push(ax)
-1004  0035        Move(stk[0], stk[1], stk[2])
+1004  0035        SetMove2C(stk[0], stk[1], stk[2])
 100E  003F        Jump to 006B
 1010  0041        ShowMessage(0x133A) = The door is stuck. You are not strong enough to force it open.
 101D  004E        Push(00)
-1020  0051        ax = SetExitability(ax) // ax is usually 0 following equality check
+1020  0051        ax = GetFacing()
 1027  0058        Push(ax)
 1028  0059        ax = GetNextTile()
 102F  0060        Push(ax)
-1030  0061        Move(stk[0], stk[1], stk[2])
+1030  0061        SetMove2C(stk[0], stk[1], stk[2])
 103A  006B        RETURN
 
 WSENCA_2B:
@@ -629,11 +629,11 @@ SDOORWS_34:
 12FF  0024        ax = UsedItem(0xBE, 0xBE)
 1312  0037        If (result.equal) jump to 0064
 1314  0039        Push(01)
-1318  003D        ax = SetExitability(ax) // ax is usually 0 following equality check
+1318  003D        ax = GetFacing()
 131F  0044        Push(ax)
 1320  0045        ax = GetNextTile()
 1327  004C        Push(ax)
-1328  004D        Move(stk[0], stk[1], stk[2])
+1328  004D        SetMove2C(stk[0], stk[1], stk[2])
 1332  0057        ShowMessage(0x1521) = You found a secret door!
 133F  0064        RETURN
 
@@ -690,11 +690,11 @@ SDOORLTA_3A:
 14BB  0039        ax = UsedItem(0xBE, 0xBE)
 14CE  004C        If (result.equal) jump to 0079
 14D0  004E        Push(01)
-14D4  0052        ax = SetExitability(ax) // ax is usually 0 following equality check
+14D4  0052        ax = GetFacing()
 14DB  0059        Push(ax)
 14DC  005A        ax = GetNextTile()
 14E3  0061        Push(ax)
-14E4  0062        Move(stk[0], stk[1], stk[2])
+14E4  0062        SetMove2C(stk[0], stk[1], stk[2])
 14EE  006C        ShowMessage(0x16B0) = You found a secret door!
 14FB  0079        RETURN
 
@@ -711,11 +711,11 @@ SDOORLTB_3B:
 1536  0039        ax = UsedItem(0xBE, 0xBE)
 1549  004C        If (result.equal) jump to 0079
 154B  004E        Push(01)
-154F  0052        ax = SetExitability(ax) // ax is usually 0 following equality check
+154F  0052        ax = GetFacing()
 1556  0059        Push(ax)
 1557  005A        ax = GetNextTile()
 155E  0061        Push(ax)
-155F  0062        Move(stk[0], stk[1], stk[2])
+155F  0062        SetMove2C(stk[0], stk[1], stk[2])
 1569  006C        ShowMessage(0x16C9) = You discover a secret door!
 1576  0079        RETURN
 
@@ -732,11 +732,11 @@ SDOORLTC_3C:
 15B1  0039        ax = UsedItem(0xBE, 0xBE)
 15C4  004C        If (result.equal) jump to 0079
 15C6  004E        Push(01)
-15CA  0052        ax = SetExitability(ax) // ax is usually 0 following equality check
+15CA  0052        ax = GetFacing()
 15D1  0059        Push(ax)
 15D2  005A        ax = GetNextTile()
 15D9  0061        Push(ax)
-15DA  0062        Move(stk[0], stk[1], stk[2])
+15DA  0062        SetMove2C(stk[0], stk[1], stk[2])
 15E4  006C        ShowMessage(0x16E5) = A secret door suddenly appears!
 15F1  0079        RETURN
 
@@ -747,11 +747,11 @@ BDOORLTD_3D:
 1605  0012        If (result.below) jump to 003F
 1607  0014        ShowMessage(0x1705) = You bash the massive door open.
 1614  0021        Push(01)
-1618  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+1618  0025        ax = GetFacing()
 161F  002C        Push(ax)
 1620  002D        ax = GetNextTile()
 1627  0034        Push(ax)
-1628  0035        Move(stk[0], stk[1], stk[2])
+1628  0035        SetMove2C(stk[0], stk[1], stk[2])
 1632  003F        RETURN
 
 LTENCA_3E:

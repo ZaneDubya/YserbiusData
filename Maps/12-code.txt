@@ -1,24 +1,25 @@
 TOCORRA_01:
 000E  0000        BEGIN
-0011  0003        GoMap(0x03, 0xF0, 0x02, 0x02)
+0011  0003        SetMoveMap(0x03, 0xF0, 0x02, 0x02)
 002C  001E        RETURN
 
 IMPILLAR_02:
 002E  0000        BEGIN
 0031  0003        Push(00)
 0034  0006        ax = GetNextTile()
-003B  000D        Move(stk[0], ax) // fails if stk[0] == 0
+003B  000D        SetMove34(stk[0], ax)
+0045  0017        RETURN
 
 ILPILLAR_03:
 0047  0000        BEGIN
 004A  0003        ShowMessage(0x03FC) = As you step forward, the column slides away.
-0057  0010        Move(0x01, 0x7F)
+0057  0010        SetMove34(0x01, 0x7F)
 0068  0021        RETURN
 
 PASSCOLM_04:
 006A  0000        BEGIN
 006D  0003        ShowMessage(0x0429) = As you step forward, the column slides away.
-007A  0010        Move(0x01, 0xF5)
+007A  0010        SetMove34(0x01, 0xF5)
 008B  0021        RETURN
 
 TAPESTRY_05:
@@ -50,18 +51,17 @@ KNGGHST_06:
 PIT_07:
 018C  0000        BEGIN
 018F  0003        ax = GetNextTile()
-0196  000A        SetTileFloor(ax, 0x01)
-01A3  0017        cx = Pop()
+0196  000A        SetMove38(ax, 0x01)
 01A4  0018        ShowMessage(0x063B) = You fall into a deep, deep pit.
 01B1  0025        ax = PartyCount()
 01B9  002D        compare(ax, 0x0001)
 01BC  0030        If (result.notequal) jump to 005C
 01BE  0032        DoDamage(0x00FA)
-01CB  003F        GoMap(0x02, 0xE0, 0x01, 0x04)
+01CB  003F        SetMoveMap(0x02, 0xE0, 0x01, 0x04)
 01E6  005A        Jump to 0091
 01E8  005C        ShowMessage(0x065B) = Your body provides a soft landing pad for the rest of your party.
 01F5  0069        DoDamage(0x0190)
-0202  0076        GoMap(0x02, 0xE0, 0x01, 0x04)
+0202  0076        SetMoveMap(0x02, 0xE0, 0x01, 0x04)
 021D  0091        RETURN
 
 AVRMNSTR_08:
@@ -378,12 +378,12 @@ LKPKDOOR_15:
 0EBE  0024        compare(ax, 0x0005)
 0EC1  0027        If (result.below) jump to 0074
 0EC3  0029        Push(01)
-0EC7  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0EC7  002D        ax = GetFacing()
 0ECE  0034        Push(ax)
 0ECF  0035        ax = GetNextTile()
 0ED6  003C        Push(ax)
-0ED7  003D        Move(stk[0], stk[1], stk[2])
-0EE1  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+0ED7  003D        SetMove2C(stk[0], stk[1], stk[2])
+0EE1  0047        ax = GetFacing()
 0EE8  004E        Push(ax)
 0EE9  004F        ax = GetNextTile()
 0EF0  0056        Push(ax)
@@ -392,11 +392,11 @@ LKPKDOOR_15:
 0EFF  0065        ShowMessage(0x09DA) = You successfully picked the locked door.
 0F0C  0072        Jump to 009E
 0F0E  0074        Push(00)
-0F11  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+0F11  0077        ax = GetFacing()
 0F18  007E        Push(ax)
 0F19  007F        ax = GetNextTile()
 0F20  0086        Push(ax)
-0F21  0087        Move(stk[0], stk[1], stk[2])
+0F21  0087        SetMove2C(stk[0], stk[1], stk[2])
 0F2B  0091        ShowMessage(0x0A03) = The door is locked.
 0F38  009E        RETURN
 
@@ -406,26 +406,26 @@ STRDOOR_16:
 0F49  000F        compare(ax, 0x000C)
 0F4C  0012        If (result.below) jump to 005F
 0F4E  0014        ShowMessage(0x0A17) = You manage to open the door by brute force.
-0F5B  0021        ax = SetExitability(ax) // ax is usually 0 following equality check
+0F5B  0021        ax = GetFacing()
 0F62  0028        Push(ax)
 0F63  0029        ax = GetNextTile()
 0F6A  0030        Push(ax)
 0F6B  0031        Push(01)
 0F6F  0035        SetUnblocked()
 0F79  003F        Push(01)
-0F7D  0043        ax = SetExitability(ax) // ax is usually 0 following equality check
+0F7D  0043        ax = GetFacing()
 0F84  004A        Push(ax)
 0F85  004B        ax = GetNextTile()
 0F8C  0052        Push(ax)
-0F8D  0053        Move(stk[0], stk[1], stk[2])
+0F8D  0053        SetMove2C(stk[0], stk[1], stk[2])
 0F97  005D        Jump to 0089
 0F99  005F        ShowMessage(0x0A43) = You are not strong enough to force the door open.
 0FA6  006C        Push(00)
-0FA9  006F        ax = SetExitability(ax) // ax is usually 0 following equality check
+0FA9  006F        ax = GetFacing()
 0FB0  0076        Push(ax)
 0FB1  0077        ax = GetNextTile()
 0FB8  007E        Push(ax)
-0FB9  007F        Move(stk[0], stk[1], stk[2])
+0FB9  007F        SetMove2C(stk[0], stk[1], stk[2])
 0FC3  0089        RETURN
 
 LKPKDOOR_17:
@@ -436,12 +436,12 @@ LKPKDOOR_17:
 0FE9  0024        compare(ax, 0x0008)
 0FEC  0027        If (result.below) jump to 0074
 0FEE  0029        Push(01)
-0FF2  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0FF2  002D        ax = GetFacing()
 0FF9  0034        Push(ax)
 0FFA  0035        ax = GetNextTile()
 1001  003C        Push(ax)
-1002  003D        Move(stk[0], stk[1], stk[2])
-100C  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+1002  003D        SetMove2C(stk[0], stk[1], stk[2])
+100C  0047        ax = GetFacing()
 1013  004E        Push(ax)
 1014  004F        ax = GetNextTile()
 101B  0056        Push(ax)
@@ -450,11 +450,11 @@ LKPKDOOR_17:
 102A  0065        ShowMessage(0x0A75) = You picked the lock of the door successfully.
 1037  0072        Jump to 009E
 1039  0074        Push(00)
-103C  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+103C  0077        ax = GetFacing()
 1043  007E        Push(ax)
 1044  007F        ax = GetNextTile()
 104B  0086        Push(ax)
-104C  0087        Move(stk[0], stk[1], stk[2])
+104C  0087        SetMove2C(stk[0], stk[1], stk[2])
 1056  0091        ShowMessage(0x0AA3) = The door is locked.
 1063  009E        RETURN
 
@@ -471,10 +471,10 @@ TRAPDORA_18:
 109E  0039        ax = UsedItem(0xBE, 0xBE)
 10B1  004C        If (result.equal) jump to 0078
 10B3  004E        ShowMessage(0x0AB7) = You found a trapdoor on the floor.
-10C0  005B        GoMap(0x01, 0x82, 0x02, 0x03)
+10C0  005B        SetMoveMap(0x01, 0x82, 0x02, 0x03)
 10DB  0076        Jump to 00A0
 10DD  0078        ShowMessage(0x0ADA) = You fall through a trapdoor.
-10EA  0085        GoMap(0x01, 0x82, 0x02, 0x03)
+10EA  0085        SetMoveMap(0x01, 0x82, 0x02, 0x03)
 1105  00A0        RETURN
 
 TRAPDORB_19:
@@ -490,10 +490,10 @@ TRAPDORB_19:
 1140  0039        ax = UsedItem(0xBE, 0xBE)
 1153  004C        If (result.equal) jump to 0078
 1155  004E        ShowMessage(0x0AF7) = You found a trapdoor on the floor.
-1162  005B        GoMap(0x01, 0x86, 0x02, 0x03)
+1162  005B        SetMoveMap(0x01, 0x86, 0x02, 0x03)
 117D  0076        Jump to 00A0
 117F  0078        ShowMessage(0x0B1A) = You fall through a trapdoor.
-118C  0085        GoMap(0x01, 0x86, 0x02, 0x03)
+118C  0085        SetMoveMap(0x01, 0x86, 0x02, 0x03)
 11A7  00A0        RETURN
 
 TRAPDORC_1A:
@@ -509,10 +509,10 @@ TRAPDORC_1A:
 11E2  0039        ax = UsedItem(0xBE, 0xBE)
 11F5  004C        If (result.equal) jump to 0078
 11F7  004E        ShowMessage(0x0B37) = You found a trapdoor on the floor.
-1204  005B        GoMap(0x03, 0xA0, 0x02, 0x03)
+1204  005B        SetMoveMap(0x03, 0xA0, 0x02, 0x03)
 121F  0076        Jump to 00A0
 1221  0078        ShowMessage(0x0B5A) = You fall through a trapdoor.
-122E  0085        GoMap(0x03, 0xA0, 0x02, 0x03)
+122E  0085        SetMoveMap(0x03, 0xA0, 0x02, 0x03)
 1249  00A0        RETURN
 
 TRAPDORD_1B:
@@ -528,10 +528,10 @@ TRAPDORD_1B:
 1284  0039        ax = UsedItem(0xBE, 0xBE)
 1297  004C        If (result.equal) jump to 0078
 1299  004E        ShowMessage(0x0B77) = You found a trapdoor on the floor.
-12A6  005B        GoMap(0x03, 0xA8, 0x02, 0x03)
+12A6  005B        SetMoveMap(0x03, 0xA8, 0x02, 0x03)
 12C1  0076        Jump to 00A0
 12C3  0078        ShowMessage(0x0B9A) = You fall through a trapdoor.
-12D0  0085        GoMap(0x03, 0xA8, 0x02, 0x03)
+12D0  0085        SetMoveMap(0x03, 0xA8, 0x02, 0x03)
 12EB  00A0        RETURN
 
 TRAPDORE_1C:
@@ -547,10 +547,10 @@ TRAPDORE_1C:
 1326  0039        ax = UsedItem(0xBE, 0xBE)
 1339  004C        If (result.equal) jump to 0077
 133B  004E        ShowMessage(0x0BB7) = You found a trapdoor on the floor.
-1348  005B        GoMap(00, 0xB3, 0x02, 0x03)
+1348  005B        SetMoveMap(00, 0xB3, 0x02, 0x03)
 1362  0075        Jump to 009E
 1364  0077        ShowMessage(0x0BDA) = You fall through a trapdoor.
-1371  0084        GoMap(00, 0xB3, 0x02, 0x03)
+1371  0084        SetMoveMap(00, 0xB3, 0x02, 0x03)
 138B  009E        RETURN
 
 TRAPDORF_1D:
@@ -566,10 +566,10 @@ TRAPDORF_1D:
 13C6  0039        ax = UsedItem(0xBE, 0xBE)
 13D9  004C        If (result.equal) jump to 0078
 13DB  004E        ShowMessage(0x0BF7) = You found a trapdoor on the floor.
-13E8  005B        GoMap(0x02, 0xB5, 0x02, 0x03)
+13E8  005B        SetMoveMap(0x02, 0xB5, 0x02, 0x03)
 1403  0076        Jump to 00A0
 1405  0078        ShowMessage(0x0C1A) = You fall through a trapdoor.
-1412  0085        GoMap(0x02, 0xB5, 0x02, 0x03)
+1412  0085        SetMoveMap(0x02, 0xB5, 0x02, 0x03)
 142D  00A0        RETURN
 
 TRAPDORG_1E:
@@ -585,10 +585,10 @@ TRAPDORG_1E:
 1468  0039        ax = UsedItem(0xBE, 0xBE)
 147B  004C        If (result.equal) jump to 0077
 147D  004E        ShowMessage(0x0C37) = You found a trapdoor on the floor.
-148A  005B        GoMap(00, 0xC2, 0x02, 0x03)
+148A  005B        SetMoveMap(00, 0xC2, 0x02, 0x03)
 14A4  0075        Jump to 009E
 14A6  0077        ShowMessage(0x0C5A) = You fall through a trapdoor.
-14B3  0084        GoMap(00, 0xC2, 0x02, 0x03)
+14B3  0084        SetMoveMap(00, 0xC2, 0x02, 0x03)
 14CD  009E        RETURN
 
 TRAPDORH_1F:
@@ -604,10 +604,10 @@ TRAPDORH_1F:
 1508  0039        ax = UsedItem(0xBE, 0xBE)
 151B  004C        If (result.equal) jump to 0078
 151D  004E        ShowMessage(0x0C77) = You found a trapdoor on the floor.
-152A  005B        GoMap(0x02, 0xC6, 0x02, 0x03)
+152A  005B        SetMoveMap(0x02, 0xC6, 0x02, 0x03)
 1545  0076        Jump to 00A0
 1547  0078        ShowMessage(0x0C9A) = You fall through a trapdoor.
-1554  0085        GoMap(0x02, 0xC6, 0x02, 0x03)
+1554  0085        SetMoveMap(0x02, 0xC6, 0x02, 0x03)
 156F  00A0        RETURN
 
 TRAPDORI_20:
@@ -623,10 +623,10 @@ TRAPDORI_20:
 15AA  0039        ax = UsedItem(0xBE, 0xBE)
 15BD  004C        If (result.equal) jump to 0077
 15BF  004E        ShowMessage(0x0CB7) = You found a trapdoor on the floor.
-15CC  005B        GoMap(00, 0xD3, 0x02, 0x03)
+15CC  005B        SetMoveMap(00, 0xD3, 0x02, 0x03)
 15E6  0075        Jump to 009E
 15E8  0077        ShowMessage(0x0CDA) = You fall through a trapdoor.
-15F5  0084        GoMap(00, 0xD3, 0x02, 0x03)
+15F5  0084        SetMoveMap(00, 0xD3, 0x02, 0x03)
 160F  009E        RETURN
 
 TRAPDORJ_21:
@@ -642,10 +642,10 @@ TRAPDORJ_21:
 164A  0039        ax = UsedItem(0xBE, 0xBE)
 165D  004C        If (result.equal) jump to 0078
 165F  004E        ShowMessage(0x0CF7) = You found a trapdoor on the floor.
-166C  005B        GoMap(0x01, 0xD4, 0x02, 0x03)
+166C  005B        SetMoveMap(0x01, 0xD4, 0x02, 0x03)
 1687  0076        Jump to 00A0
 1689  0078        ShowMessage(0x0D1A) = You fall through a trapdoor.
-1696  0085        GoMap(0x01, 0xD4, 0x02, 0x03)
+1696  0085        SetMoveMap(0x01, 0xD4, 0x02, 0x03)
 16B1  00A0        RETURN
 
 TRAPDORK_22:
@@ -661,10 +661,10 @@ TRAPDORK_22:
 16EC  0039        ax = UsedItem(0xBE, 0xBE)
 16FF  004C        If (result.equal) jump to 0078
 1701  004E        ShowMessage(0x0D37) = You found a trapdoor on the floor.
-170E  005B        GoMap(0x02, 0xD5, 0x02, 0x03)
+170E  005B        SetMoveMap(0x02, 0xD5, 0x02, 0x03)
 1729  0076        Jump to 00A0
 172B  0078        ShowMessage(0x0D5A) = You fall through a trapdoor.
-1738  0085        GoMap(0x02, 0xD5, 0x02, 0x03)
+1738  0085        SetMoveMap(0x02, 0xD5, 0x02, 0x03)
 1753  00A0        RETURN
 
 TRAPDORL_23:
@@ -680,10 +680,10 @@ TRAPDORL_23:
 178E  0039        ax = UsedItem(0xBE, 0xBE)
 17A1  004C        If (result.equal) jump to 0078
 17A3  004E        ShowMessage(0x0D77) = You found a trapdoor on the floor.
-17B0  005B        GoMap(0x01, 0xE0, 0x02, 0x03)
+17B0  005B        SetMoveMap(0x01, 0xE0, 0x02, 0x03)
 17CB  0076        Jump to 00A0
 17CD  0078        ShowMessage(0x0D9A) = You fall through a trapdoor.
-17DA  0085        GoMap(0x01, 0xE0, 0x02, 0x03)
+17DA  0085        SetMoveMap(0x01, 0xE0, 0x02, 0x03)
 17F5  00A0        RETURN
 
 TRAPDORM_24:
@@ -699,10 +699,10 @@ TRAPDORM_24:
 1830  0039        ax = UsedItem(0xBE, 0xBE)
 1843  004C        If (result.equal) jump to 0078
 1845  004E        ShowMessage(0x0DB7) = You found a trapdoor on the floor.
-1852  005B        GoMap(0x01, 0xE2, 0x02, 0x03)
+1852  005B        SetMoveMap(0x01, 0xE2, 0x02, 0x03)
 186D  0076        Jump to 00A0
 186F  0078        ShowMessage(0x0DDA) = You fall through a trapdoor.
-187C  0085        GoMap(0x01, 0xE2, 0x02, 0x03)
+187C  0085        SetMoveMap(0x01, 0xE2, 0x02, 0x03)
 1897  00A0        RETURN
 
 TRAPDORN_25:
@@ -718,10 +718,10 @@ TRAPDORN_25:
 18D2  0039        ax = UsedItem(0xBE, 0xBE)
 18E5  004C        If (result.equal) jump to 0078
 18E7  004E        ShowMessage(0x0DF7) = You found a trapdoor on the floor.
-18F4  005B        GoMap(0x01, 0xE3, 0x02, 0x03)
+18F4  005B        SetMoveMap(0x01, 0xE3, 0x02, 0x03)
 190F  0076        Jump to 00A0
 1911  0078        ShowMessage(0x0E1A) = You fall through a trapdoor.
-191E  0085        GoMap(0x01, 0xE3, 0x02, 0x03)
+191E  0085        SetMoveMap(0x01, 0xE3, 0x02, 0x03)
 1939  00A0        RETURN
 
 TRAPDORO_26:
@@ -737,10 +737,10 @@ TRAPDORO_26:
 1974  0039        ax = UsedItem(0xBE, 0xBE)
 1987  004C        If (result.equal) jump to 0078
 1989  004E        ShowMessage(0x0E37) = You found a trapdoor on the floor.
-1996  005B        GoMap(0x01, 0xE5, 0x02, 0x03)
+1996  005B        SetMoveMap(0x01, 0xE5, 0x02, 0x03)
 19B1  0076        Jump to 00A0
 19B3  0078        ShowMessage(0x0E5A) = You fall through a trapdoor.
-19C0  0085        GoMap(0x01, 0xE5, 0x02, 0x03)
+19C0  0085        SetMoveMap(0x01, 0xE5, 0x02, 0x03)
 19DB  00A0        RETURN
 
 TRAPDORP_27:
@@ -756,10 +756,10 @@ TRAPDORP_27:
 1A16  0039        ax = UsedItem(0xBE, 0xBE)
 1A29  004C        If (result.equal) jump to 0078
 1A2B  004E        ShowMessage(0x0E77) = You found a trapdoor on the floor.
-1A38  005B        GoMap(0x01, 0xE6, 0x02, 0x03)
+1A38  005B        SetMoveMap(0x01, 0xE6, 0x02, 0x03)
 1A53  0076        Jump to 00A0
 1A55  0078        ShowMessage(0x0E9A) = You fall through a trapdoor.
-1A62  0085        GoMap(0x01, 0xE6, 0x02, 0x03)
+1A62  0085        SetMoveMap(0x01, 0xE6, 0x02, 0x03)
 1A7D  00A0        RETURN
 
 TRAPDORQ_28:
@@ -775,15 +775,15 @@ TRAPDORQ_28:
 1AB8  0039        ax = UsedItem(0xBE, 0xBE)
 1ACB  004C        If (result.equal) jump to 0078
 1ACD  004E        ShowMessage(0x0EB7) = You found a trapdoor on the floor.
-1ADA  005B        GoMap(0x01, 0xE8, 0x02, 0x03)
+1ADA  005B        SetMoveMap(0x01, 0xE8, 0x02, 0x03)
 1AF5  0076        Jump to 00A0
 1AF7  0078        ShowMessage(0x0EDA) = You fall through a trapdoor.
-1B04  0085        GoMap(0x01, 0xE8, 0x02, 0x03)
+1B04  0085        SetMoveMap(0x01, 0xE8, 0x02, 0x03)
 1B1F  00A0        RETURN
 
 TOCORRB_29:
 1B21  0000        BEGIN
-1B24  0003        GoMap(0x03, 0xF1, 0x02, 0x02)
+1B24  0003        SetMoveMap(0x03, 0xF1, 0x02, 0x02)
 1B3F  001E        RETURN
 
 GATEMESS_2A:
@@ -794,7 +794,7 @@ GATEMESS_2A:
 PASSCOLM_2B:
 1B53  0000        BEGIN
 1B56  0003        ShowMessage(0x0F21) = As you step forward, the column slides away.
-1B63  0010        Move(0x01, 0xF7)
+1B63  0010        SetMove34(0x01, 0xF7)
 1B74  0021        RETURN
 
 _2C:

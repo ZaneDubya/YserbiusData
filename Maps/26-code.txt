@@ -3,57 +3,57 @@ CHESLITE_01:
 0006  0004        ax = GetNextTile()
 000D  000B        compare(ax, 0x0062)
 0010  000E        If (result.notequal) jump to 001B
-0012  0010        ax = SetExitability(ax) // ax is usually 0 following equality check
+0012  0010        ax = GetFacing()
 0019  0017        RefreshCompareFlags(ax)
 001B  0019        If (result.equal) jump to 0062
 001D  001B        ax = GetNextTile()
 0024  0022        compare(ax, 0x0069)
 0027  0025        If (result.notequal) jump to 0033
-0029  0027        ax = SetExitability(ax) // ax is usually 0 following equality check
+0029  0027        ax = GetFacing()
 0030  002E        compare(ax, 0x0002)
 0033  0031        If (result.equal) jump to 0062
 0035  0033        ax = GetNextTile()
 003C  003A        compare(ax, 0x0092)
 003F  003D        If (result.notequal) jump to 004A
-0041  003F        ax = SetExitability(ax) // ax is usually 0 following equality check
+0041  003F        ax = GetFacing()
 0048  0046        RefreshCompareFlags(ax)
 004A  0048        If (result.equal) jump to 0062
 004C  004A        ax = GetNextTile()
 0053  0051        compare(ax, 0x0099)
 0056  0054        If (result.notequal) jump to 0072
-0058  0056        ax = SetExitability(ax) // ax is usually 0 following equality check
+0058  0056        ax = GetFacing()
 005F  005D        compare(ax, 0x0002)
 0062  0060        If (result.notequal) jump to 0072
 0064  0062        ShowMessage(0x03FC) = You may leave the chessboard through this opening.
 0071  006F        Jump to 0193
 0074  0072        Push(00)
-0077  0075        ax = SetExitability(ax) // ax is usually 0 following equality check
+0077  0075        ax = GetFacing()
 007E  007C        Push(ax)
 007F  007D        ax = GetNextTile()
 0086  0084        Push(ax)
-0087  0085        Move(stk[0], stk[1], stk[2])
+0087  0085        SetMove2C(stk[0], stk[1], stk[2])
 0091  008F        ax = HasItem(0xEE)
 009F  009D        If (result.notequal) jump to 00A2
 00A1  009F        Jump to 0186
-00A4  00A2        ax = SetExitability(ax) // ax is usually 0 following equality check
+00A4  00A2        ax = GetFacing()
 00AB  00A9        compare(ax, 0x0003)
 00AE  00AC        If (result.notequal) jump to 00BA
 00B0  00AE        ax = GetNextTile()
 00B7  00B5        ax = ax + 0xFFE1
 00BA  00B8        si = ax
-00BC  00BA        ax = SetExitability(ax) // ax is usually 0 following equality check
+00BC  00BA        ax = GetFacing()
 00C3  00C1        compare(ax, 0x0002)
 00C6  00C4        If (result.notequal) jump to 00D2
 00C8  00C6        ax = GetNextTile()
 00CF  00CD        ax = ax + 0x0012
 00D2  00D0        si = ax
-00D4  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+00D4  00D2        ax = GetFacing()
 00DB  00D9        compare(ax, 0x0001)
 00DE  00DC        If (result.notequal) jump to 00EA
 00E0  00DE        ax = GetNextTile()
 00E7  00E5        ax = ax + 0x001F
 00EA  00E8        si = ax
-00EC  00EA        ax = SetExitability(ax) // ax is usually 0 following equality check
+00EC  00EA        ax = GetFacing()
 00F3  00F1        RefreshCompareFlags(ax)
 00F5  00F3        If (result.notequal) jump to 0101
 00F7  00F5        ax = GetNextTile()
@@ -91,8 +91,8 @@ CHESLITE_01:
 0153  0151        If (result.signed_less_than) jump to 0177
 0155  0153        compare(si, 0x00B9)
 0159  0157        If (result.signed_greater_than) jump to 0177
-015B  0159        ax = SetExitability(ax) // ax is usually 0 following equality check
-0162  0160        GoMap(ax, si, 0x02, 0x35)
+015B  0159        ax = GetFacing()
+0162  0160        SetMoveMap(ax, si, 0x02, 0x35)
 0177  0175        Jump to 0184
 0179  0177        ShowMessage(0x042F) = A knight move here would place you off the chessboard!
 0186  0184        Jump to 0193
@@ -104,57 +104,57 @@ CHESDARK_02:
 019C  0004        ax = GetNextTile()
 01A3  000B        compare(ax, 0x0062)
 01A6  000E        If (result.notequal) jump to 001B
-01A8  0010        ax = SetExitability(ax) // ax is usually 0 following equality check
+01A8  0010        ax = GetFacing()
 01AF  0017        RefreshCompareFlags(ax)
 01B1  0019        If (result.equal) jump to 0062
 01B3  001B        ax = GetNextTile()
 01BA  0022        compare(ax, 0x0069)
 01BD  0025        If (result.notequal) jump to 0033
-01BF  0027        ax = SetExitability(ax) // ax is usually 0 following equality check
+01BF  0027        ax = GetFacing()
 01C6  002E        compare(ax, 0x0002)
 01C9  0031        If (result.equal) jump to 0062
 01CB  0033        ax = GetNextTile()
 01D2  003A        compare(ax, 0x0092)
 01D5  003D        If (result.notequal) jump to 004A
-01D7  003F        ax = SetExitability(ax) // ax is usually 0 following equality check
+01D7  003F        ax = GetFacing()
 01DE  0046        RefreshCompareFlags(ax)
 01E0  0048        If (result.equal) jump to 0062
 01E2  004A        ax = GetNextTile()
 01E9  0051        compare(ax, 0x0099)
 01EC  0054        If (result.notequal) jump to 0072
-01EE  0056        ax = SetExitability(ax) // ax is usually 0 following equality check
+01EE  0056        ax = GetFacing()
 01F5  005D        compare(ax, 0x0002)
 01F8  0060        If (result.notequal) jump to 0072
 01FA  0062        ShowMessage(0x049D) = You may leave the chessboard through this opening.
 0207  006F        Jump to 0193
 020A  0072        Push(00)
-020D  0075        ax = SetExitability(ax) // ax is usually 0 following equality check
+020D  0075        ax = GetFacing()
 0214  007C        Push(ax)
 0215  007D        ax = GetNextTile()
 021C  0084        Push(ax)
-021D  0085        Move(stk[0], stk[1], stk[2])
+021D  0085        SetMove2C(stk[0], stk[1], stk[2])
 0227  008F        ax = HasItem(0xEE)
 0235  009D        If (result.notequal) jump to 00A2
 0237  009F        Jump to 0186
-023A  00A2        ax = SetExitability(ax) // ax is usually 0 following equality check
+023A  00A2        ax = GetFacing()
 0241  00A9        compare(ax, 0x0003)
 0244  00AC        If (result.notequal) jump to 00BA
 0246  00AE        ax = GetNextTile()
 024D  00B5        ax = ax + 0xFFDF
 0250  00B8        si = ax
-0252  00BA        ax = SetExitability(ax) // ax is usually 0 following equality check
+0252  00BA        ax = GetFacing()
 0259  00C1        compare(ax, 0x0002)
 025C  00C4        If (result.notequal) jump to 00D2
 025E  00C6        ax = GetNextTile()
 0265  00CD        ax = ax + 0xFFF2
 0268  00D0        si = ax
-026A  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+026A  00D2        ax = GetFacing()
 0271  00D9        compare(ax, 0x0001)
 0274  00DC        If (result.notequal) jump to 00EA
 0276  00DE        ax = GetNextTile()
 027D  00E5        ax = ax + 0x0021
 0280  00E8        si = ax
-0282  00EA        ax = SetExitability(ax) // ax is usually 0 following equality check
+0282  00EA        ax = GetFacing()
 0289  00F1        RefreshCompareFlags(ax)
 028B  00F3        If (result.notequal) jump to 0101
 028D  00F5        ax = GetNextTile()
@@ -192,8 +192,8 @@ CHESDARK_02:
 02E9  0151        If (result.signed_less_than) jump to 0177
 02EB  0153        compare(si, 0x00B9)
 02EF  0157        If (result.signed_greater_than) jump to 0177
-02F1  0159        ax = SetExitability(ax) // ax is usually 0 following equality check
-02F8  0160        GoMap(ax, si, 0x02, 0x35)
+02F1  0159        ax = GetFacing()
+02F8  0160        SetMoveMap(ax, si, 0x02, 0x35)
 030D  0175        Jump to 0184
 030F  0177        ShowMessage(0x04D0) = A knight move here would place you off the chessboard!
 031C  0184        Jump to 0193
@@ -214,10 +214,8 @@ POKERBRG_04:
 0372  0021        compare(ax, 0x0001)
 0375  0024        If (result.notequal) jump to 0056
 0377  0026        ShowMessage(0x05A5) = The rickety bridge barely holds your weight.
-0384  0033        SetTileFloor(0xDD, 00)
-0392  0041        cx = Pop()
-0393  0042        cx = Pop()
-0394  0043        Move(0x01, 0xDD)
+0384  0033        SetMove38(0xDD, 0x00)
+0394  0043        SetMove34(0x01, 0xDD)
 03A5  0054        Jump to 0081
 03A7  0056        ShowMessage(0x05D2) = The bridge collapses as you step on it, sending you to your death.
 03B4  0063        ShowMessage(0x0615) = The King laughs at his clever ruse.
@@ -230,10 +228,8 @@ POKERSW_05:
 03D7  0003        ax = UsedItem(0xEC, 0xEC)
 03EA  0016        If (result.equal) jump to 005D
 03EC  0018        SetState(0x01, 0x01, 0x01)
-0401  002D        SetTileFloor(0xDD, 00)
-040F  003B        cx = Pop()
-0410  003C        cx = Pop()
-0411  003D        Move(0x01, 0xDD)
+0401  002D        SetMove38(0xDD, 0x00)
+0411  003D        SetMove34(0x01, 0xDD)
 0422  004E        ShowMessage(0x0639) = The royal flush beats the Joker!  A bridge forms across the pit.
 042F  005B        Jump to 0077
 0431  005D        ShowMessage(0x067A) = A bottomless pit lies before you, and a broken bridge spans the pit.
@@ -253,7 +249,7 @@ MOONSW_07:
 047B  001C        Push(BF)
 047F  0020        Push(01)
 0483  0024        SetUnblocked()
-048D  002E        Move(0x01, 0x03, 0xBF)
+048D  002E        SetMove2C(0x01, 0x03, 0xBF)
 04A3  0044        ShowMessage(0x074A) = The door proclaims,  'You shot the Moon!'
 04B0  0051        Jump to 0060
 04B2  0053        ShowMessage(0x0774) = A small button, shaped like the crescent moon, lies just out of reach.
@@ -267,7 +263,7 @@ BLAKJAK_08:
 04DD  001C        Push(8D)
 04E1  0020        Push(01)
 04E5  0024        SetUnblocked()
-04EF  002E        Move(0x01, 0x01, 0x8D)
+04EF  002E        SetMove2C(0x01, 0x01, 0x8D)
 0505  0044        ShowMessage(0x07BB) = The Ace is played as eleven points, scoring the BlackJack!
 0512  0051        ShowMessage(0x07F6) = A door unlocks...
 051F  005E        Jump to 007A
@@ -288,7 +284,7 @@ CRIB_0A:
 056B  001C        Push(7D)
 056F  0020        Push(01)
 0573  0024        SetUnblocked()
-057D  002E        Move(0x01, 0x03, 0x7D)
+057D  002E        SetMove2C(0x01, 0x03, 0x7D)
 0593  0044        ShowMessage(0x08BE) = The Jack scores the hand 22.  Cribbage is the game.
 05A0  0051        ShowMessage(0x08F2) = A door unlocks...
 05AD  005E        Jump to 0087
@@ -311,7 +307,7 @@ BRDGFALL_0D:
 05FC  0000        BEGIN
 05FF  0003        ShowMessage(0x09ED) = The Poker Bridge behind you collapses.
 060C  0010        SetState(0x01, 0x01, 0x00)
-0620  0024        SetTileFloor(0xDD, 0x01)
+0620  0024        SetMove38(0xDD, 0x01)
 0631  0035        RETURN
 
 DICEPASS_0E:
@@ -650,7 +646,7 @@ VARYENCE_34:
 
 GATEA_35:
 1258  0000        BEGIN
-125B  0003        GoMap(00, 0x3F, 0x01, 0x35)
+125B  0003        SetMoveMap(00, 0x3F, 0x01, 0x35)
 1275  001D        RETURN
 
 TOLABY_36:

@@ -1,11 +1,11 @@
 STRSTELE_01:
 000B  0000        BEGIN
-000E  0003        GoMap(0x02, 0x97, 0x03, 0x01)
+000E  0003        SetMoveMap(0x02, 0x97, 0x03, 0x01)
 0029  001E        RETURN
 
 STRSTELE_02:
 002B  0000        BEGIN
-002E  0003        GoMap(0x01, 0x1F, 0x01, 0x03)
+002E  0003        SetMoveMap(0x01, 0x1F, 0x01, 0x03)
 0049  001E        RETURN
 
 LKPKDOOR_03:
@@ -16,12 +16,12 @@ LKPKDOOR_03:
 006F  0024        compare(ax, 0x0006)
 0072  0027        If (result.below) jump to 0074
 0074  0029        Push(01)
-0078  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0078  002D        ax = GetFacing()
 007F  0034        Push(ax)
 0080  0035        ax = GetNextTile()
 0087  003C        Push(ax)
-0088  003D        Move(stk[0], stk[1], stk[2])
-0092  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+0088  003D        SetMove2C(stk[0], stk[1], stk[2])
+0092  0047        ax = GetFacing()
 0099  004E        Push(ax)
 009A  004F        ax = GetNextTile()
 00A1  0056        Push(ax)
@@ -30,11 +30,11 @@ LKPKDOOR_03:
 00B0  0065        ShowMessage(0x03FC) = You succeeded at opening the locked door.
 00BD  0072        Jump to 009E
 00BF  0074        Push(00)
-00C2  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+00C2  0077        ax = GetFacing()
 00C9  007E        Push(ax)
 00CA  007F        ax = GetNextTile()
 00D1  0086        Push(ax)
-00D2  0087        Move(stk[0], stk[1], stk[2])
+00D2  0087        SetMove2C(stk[0], stk[1], stk[2])
 00DC  0091        ShowMessage(0x0426) = The door is locked.
 00E9  009E        RETURN
 
@@ -51,12 +51,12 @@ LKPKDOOR_04:
 0131  0046        ax = UsedItem(0xD9, 0xD9)
 0144  0059        If (result.equal) jump to 00A6
 0146  005B        Push(01)
-014A  005F        ax = SetExitability(ax) // ax is usually 0 following equality check
+014A  005F        ax = GetFacing()
 0151  0066        Push(ax)
 0152  0067        ax = GetNextTile()
 0159  006E        Push(ax)
-015A  006F        Move(stk[0], stk[1], stk[2])
-0164  0079        ax = SetExitability(ax) // ax is usually 0 following equality check
+015A  006F        SetMove2C(stk[0], stk[1], stk[2])
+0164  0079        ax = GetFacing()
 016B  0080        Push(ax)
 016C  0081        ax = GetNextTile()
 0173  0088        Push(ax)
@@ -65,11 +65,11 @@ LKPKDOOR_04:
 0182  0097        ShowMessage(0x0484) = The key unlocked the massive door, bypassing a well hidden trap.
 018F  00A4        Jump to 00D0
 0191  00A6        Push(00)
-0194  00A9        ax = SetExitability(ax) // ax is usually 0 following equality check
+0194  00A9        ax = GetFacing()
 019B  00B0        Push(ax)
 019C  00B1        ax = GetNextTile()
 01A3  00B8        Push(ax)
-01A4  00B9        Move(stk[0], stk[1], stk[2])
+01A4  00B9        SetMove2C(stk[0], stk[1], stk[2])
 01AE  00C3        ShowMessage(0x04C5) = The Palace doors are locked.  Only the Palace key will open these doors.
 01BB  00D0        RETURN
 
@@ -81,7 +81,7 @@ RUNESIGN_05:
 
 TOPALACA_06:
 01DC  0000        BEGIN
-01DF  0003        GoMap(0x01, 0x03, 0x06, 0x02)
+01DF  0003        SetMoveMap(0x01, 0x03, 0x06, 0x02)
 01FA  001E        RETURN
 
 LOWMNSTR_07:
@@ -201,7 +201,7 @@ GATEMESS_0E:
 
 TOPALACB_0F:
 05E6  0000        BEGIN
-05E9  0003        GoMap(0x01, 0x04, 0x06, 0x02)
+05E9  0003        SetMoveMap(0x01, 0x04, 0x06, 0x02)
 0604  001E        RETURN
 
 NPCCHATA_10:
@@ -254,12 +254,12 @@ NPCCHATD_13:
 
 STRSTELE_14:
 073A  0000        BEGIN
-073D  0003        GoMap(0x02, 0x97, 0x03, 0x01)
+073D  0003        SetMoveMap(0x02, 0x97, 0x03, 0x01)
 0758  001E        RETURN
 
 STRSTELE_15:
 075A  0000        BEGIN
-075D  0003        GoMap(0x01, 0x1F, 0x01, 0x03)
+075D  0003        SetMoveMap(0x01, 0x1F, 0x01, 0x03)
 0778  001E        RETURN
 
 NPCCHATE_16:

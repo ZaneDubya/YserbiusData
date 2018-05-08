@@ -1,27 +1,27 @@
 TOCORDOR_01:
 000A  0000        BEGIN
-000D  0003        GoMap(0x01, 0x08, 0x03, 0x03)
+000D  0003        SetMoveMap(0x01, 0x08, 0x03, 0x03)
 0028  001E        RETURN
 
 TELEPORT_02:
 002A  0000        BEGIN
 002D  0003        ax = CheckLevel(0x001E)
 003B  0011        If (result.equal) jump to 0030
-003D  0013        GoMap(0x02, 0x7A, 0x01, 0x38)
+003D  0013        SetMoveMap(0x02, 0x7A, 0x01, 0x38)
 0058  002E        Jump to 0067
 005A  0030        ShowMessage(0x03FC) = A note reads -
 0067  003D        ShowMessage(0x040B) = 'Only heroes of the thirtieth level or higher may pass this door.'
 0074  004A        Push(00)
-0077  004D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0077  004D        ax = GetFacing()
 007E  0054        Push(ax)
 007F  0055        ax = GetNextTile()
 0086  005C        Push(ax)
-0087  005D        Move(stk[0], stk[1], stk[2])
+0087  005D        SetMove2C(stk[0], stk[1], stk[2])
 0091  0067        RETURN
 
 TELEPORT_03:
 0093  0000        BEGIN
-0096  0003        GoMap(0x02, 0x20, 0x04, 0x01)
+0096  0003        SetMoveMap(0x02, 0x20, 0x04, 0x01)
 00B1  001E        RETURN
 
 HIDNDOOR_04:
@@ -29,11 +29,11 @@ HIDNDOOR_04:
 00B6  0003        ax = HasItem(0xD4)
 00C4  0011        If (result.equal) jump to 0059
 00C6  0013        Push(01)
-00CA  0017        ax = SetExitability(ax) // ax is usually 0 following equality check
+00CA  0017        ax = GetFacing()
 00D1  001E        Push(ax)
 00D2  001F        ax = GetNextTile()
 00D9  0026        Push(ax)
-00DA  0027        Move(stk[0], stk[1], stk[2])
+00DA  0027        SetMove2C(stk[0], stk[1], stk[2])
 00E4  0031        Push(00)
 00E7  0034        ax = GetNextTile()
 00EE  003B        Push(ax)
@@ -42,11 +42,11 @@ HIDNDOOR_04:
 00FD  004A        ShowMessage(0x044E) = The Sunbeam Key reveals a hidden door to the Dwarf Kingdom!
 010A  0057        Jump to 0076
 010C  0059        Push(00)
-010F  005C        ax = SetExitability(ax) // ax is usually 0 following equality check
+010F  005C        ax = GetFacing()
 0116  0063        Push(ax)
 0117  0064        ax = GetNextTile()
 011E  006B        Push(ax)
-011F  006C        Move(stk[0], stk[1], stk[2])
+011F  006C        SetMove2C(stk[0], stk[1], stk[2])
 0129  0076        RETURN
 
 LKPKDOOR_05:
@@ -57,12 +57,12 @@ LKPKDOOR_05:
 014F  0024        compare(ax, 0x0008)
 0152  0027        If (result.below) jump to 0074
 0154  0029        Push(01)
-0158  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0158  002D        ax = GetFacing()
 015F  0034        Push(ax)
 0160  0035        ax = GetNextTile()
 0167  003C        Push(ax)
-0168  003D        Move(stk[0], stk[1], stk[2])
-0172  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+0168  003D        SetMove2C(stk[0], stk[1], stk[2])
+0172  0047        ax = GetFacing()
 0179  004E        Push(ax)
 017A  004F        ax = GetNextTile()
 0181  0056        Push(ax)
@@ -71,11 +71,11 @@ LKPKDOOR_05:
 0190  0065        ShowMessage(0x048A) = You skillfully pick the door lock.
 019D  0072        Jump to 009E
 019F  0074        Push(00)
-01A2  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+01A2  0077        ax = GetFacing()
 01A9  007E        Push(ax)
 01AA  007F        ax = GetNextTile()
 01B1  0086        Push(ax)
-01B2  0087        Move(stk[0], stk[1], stk[2])
+01B2  0087        SetMove2C(stk[0], stk[1], stk[2])
 01BC  0091        ShowMessage(0x04AD) = The door is locked.
 01C9  009E        RETURN
 
@@ -100,12 +100,12 @@ CRWNDOOR_07:
 0260  0014        compare(ax, 0x0001)
 0263  0017        If (result.notequal) jump to 0064
 0265  0019        Push(01)
-0269  001D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0269  001D        ax = GetFacing()
 0270  0024        Push(ax)
 0271  0025        ax = GetNextTile()
 0278  002C        Push(ax)
-0279  002D        Move(stk[0], stk[1], stk[2])
-0283  0037        ax = SetExitability(ax) // ax is usually 0 following equality check
+0279  002D        SetMove2C(stk[0], stk[1], stk[2])
+0283  0037        ax = GetFacing()
 028A  003E        Push(ax)
 028B  003F        ax = GetNextTile()
 0292  0046        Push(ax)
@@ -114,11 +114,11 @@ CRWNDOOR_07:
 02A1  0055        ShowMessage(0x058E) = Returning the Crown of Cleowyn reveals a secret door in the west wall!
 02AE  0062        Jump to 0081
 02B0  0064        Push(00)
-02B3  0067        ax = SetExitability(ax) // ax is usually 0 following equality check
+02B3  0067        ax = GetFacing()
 02BA  006E        Push(ax)
 02BB  006F        ax = GetNextTile()
 02C2  0076        Push(ax)
-02C3  0077        Move(stk[0], stk[1], stk[2])
+02C3  0077        SetMove2C(stk[0], stk[1], stk[2])
 02CD  0081        RETURN
 
 ROBENICH_08:
@@ -140,7 +140,7 @@ ROBENICH_08:
 035A  008B        Push(02)
 035E  008F        ax = GetNextTile()
 0365  0096        Push(ax)
-0366  0097        Move(stk[0], stk[1], stk[2])
+0366  0097        SetMove2C(stk[0], stk[1], stk[2])
 0370  00A1        ShowMessage(0x065B) = There is a niche in the wall which seems designed to hold a robe.
 037D  00AE        RETURN
 
@@ -153,7 +153,7 @@ ROBEDOOR_09:
 039C  001D        Push(02)
 03A0  0021        ax = GetNextTile()
 03A7  0028        Push(ax)
-03A8  0029        Move(stk[0], stk[1], stk[2])
+03A8  0029        SetMove2C(stk[0], stk[1], stk[2])
 03B2  0033        Push(02)
 03B6  0037        ax = GetNextTile()
 03BD  003E        Push(ax)
@@ -162,11 +162,11 @@ ROBEDOOR_09:
 03CC  004D        ShowMessage(0x069D) = Returning the Robe of Cleowyn reveals a secret door in the east wall.
 03D9  005A        Jump to 0079
 03DB  005C        Push(00)
-03DE  005F        ax = SetExitability(ax) // ax is usually 0 following equality check
+03DE  005F        ax = GetFacing()
 03E5  0066        Push(ax)
 03E6  0067        ax = GetNextTile()
 03ED  006E        Push(ax)
-03EE  006F        Move(stk[0], stk[1], stk[2])
+03EE  006F        SetMove2C(stk[0], stk[1], stk[2])
 03F8  0079        RETURN
 
 SCEPNICH_0A:
@@ -186,7 +186,7 @@ SCEPNICH_0A:
 0474  007A        Push(03)
 0478  007E        ax = GetNextTile()
 047F  0085        Push(ax)
-0480  0086        Move(stk[0], stk[1], stk[2])
+0480  0086        SetMove2C(stk[0], stk[1], stk[2])
 048A  0090        Push(03)
 048E  0094        ax = GetNextTile()
 0495  009B        Push(ax)
@@ -201,7 +201,7 @@ SCEPNICH_0A:
 04DD  00E3        Push(03)
 04E1  00E7        ax = GetNextTile()
 04E8  00EE        Push(ax)
-04E9  00EF        Move(stk[0], stk[1], stk[2])
+04E9  00EF        SetMove2C(stk[0], stk[1], stk[2])
 04F3  00F9        ShowMessage(0x07C8) = There is a niche in the wall which seems designed to hold a scepter.
 0500  0106        RETURN
 

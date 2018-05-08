@@ -1,26 +1,26 @@
 STRSTELE_01:
 000E  0000        BEGIN
-0011  0003        GoMap(0x01, 0x1F, 0x02, 0x02)
+0011  0003        SetMoveMap(0x01, 0x1F, 0x02, 0x02)
 002C  001E        RETURN
 
 TOCORDOR_02:
 002E  0000        BEGIN
-0031  0003        GoMap(0x02, 0x10, 0x03, 0x03)
+0031  0003        SetMoveMap(0x02, 0x10, 0x03, 0x03)
 004C  001E        RETURN
 
 STRSTELE_03:
 004E  0000        BEGIN
-0051  0003        GoMap(0x02, 0xD3, 0x03, 0x02)
+0051  0003        SetMoveMap(0x02, 0xD3, 0x03, 0x02)
 006C  001E        RETURN
 
 STRSTELE_04:
 006E  0000        BEGIN
-0071  0003        GoMap(00, 0xC6, 0x04, 0x02)
+0071  0003        SetMoveMap(00, 0xC6, 0x04, 0x02)
 008B  001D        RETURN
 
 STRSTELE_05:
 008D  0000        BEGIN
-0090  0003        GoMap(0x01, 0xDC, 0x05, 0x02)
+0090  0003        SetMoveMap(0x01, 0xDC, 0x05, 0x02)
 00AB  001E        RETURN
 
 NDORSWCH_06:
@@ -30,8 +30,8 @@ NDORSWCH_06:
 00D2  0025        SetState(0x01, 0x02, 0x00)
 00E6  0039        SetState(0x01, 0x03, 0x00)
 00FA  004D        SetState(0x01, 0x04, 0x00)
-010E  0061        Move(0x01, 0x01, 0x77)
-0124  0077        Move2(0x01, 0x01, 0x77)
+010E  0061        SetMove2C(0x01, 0x01, 0x77)
+0124  0077        SetMove28(0x01, 0x01, 0x77)
 013A  008D        RETURN
 
 EDORSWCH_07:
@@ -41,8 +41,8 @@ EDORSWCH_07:
 0160  0024        SetState(0x01, 0x02, 0x00)
 0174  0038        SetState(0x01, 0x03, 0x01)
 0189  004D        SetState(0x01, 0x04, 0x00)
-019D  0061        Move(0x01, 0x00, 0x00)
-01B2  0076        Move2(0x01, 0x00, 0x00)
+019D  0061        SetMove2C(0x01, 0x00, 0x00)
+01B2  0076        SetMove28(0x01, 0x00, 0x00)
 01C7  008B        RETURN
 
 EDORSWCH_08:
@@ -52,8 +52,8 @@ EDORSWCH_08:
 01ED  0024        SetState(0x01, 0x02, 0x01)
 0202  0039        SetState(0x01, 0x03, 0x00)
 0216  004D        SetState(0x01, 0x04, 0x00)
-022A  0061        Move(0x01, 0x03, 0x77)
-0240  0077        Move2(0x01, 0x03, 0x77)
+022A  0061        SetMove2C(0x01, 0x03, 0x77)
+0240  0077        SetMove28(0x01, 0x03, 0x77)
 0256  008D        RETURN
 
 WDORSWCH_09:
@@ -63,8 +63,8 @@ WDORSWCH_09:
 027C  0024        SetState(0x01, 0x02, 0x00)
 0290  0038        SetState(0x01, 0x03, 0x00)
 02A4  004C        SetState(0x01, 0x04, 0x01)
-02B9  0061        Move(0x01, 0x02, 0x77)
-02CF  0077        Move2(0x01, 0x02, 0x77)
+02B9  0061        SetMove2C(0x01, 0x02, 0x77)
+02CF  0077        SetMove28(0x01, 0x02, 0x77)
 02E5  008D        RETURN
 
 NSWCHDOR_0A:
@@ -82,14 +82,14 @@ NSWCHDOR_0A:
 032B  0044        Push(03)
 032F  0048        ax = GetNextTile()
 0336  004F        Push(ax)
-0337  0050        Move(stk[0], stk[1], stk[2])
+0337  0050        SetMove2C(stk[0], stk[1], stk[2])
 0341  005A        Jump to 0082
 0343  005C        ShowMessage(0x0552) = The door is sealed shut. There is no lock on the outside.
 0350  0069        Push(00)
 0353  006C        Push(03)
 0357  0070        ax = GetNextTile()
 035E  0077        Push(ax)
-035F  0078        Move(stk[0], stk[1], stk[2])
+035F  0078        SetMove2C(stk[0], stk[1], stk[2])
 0369  0082        RETURN
 
 ESWCHDOR_0B:
@@ -107,14 +107,14 @@ ESWCHDOR_0B:
 03AF  0044        Push(02)
 03B3  0048        ax = GetNextTile()
 03BA  004F        Push(ax)
-03BB  0050        Move(stk[0], stk[1], stk[2])
+03BB  0050        SetMove2C(stk[0], stk[1], stk[2])
 03C5  005A        Jump to 0082
 03C7  005C        ShowMessage(0x05A2) = The door is sealed shut. There is no lock on the outside.
 03D4  0069        Push(00)
 03D7  006C        Push(02)
 03DB  0070        ax = GetNextTile()
 03E2  0077        Push(ax)
-03E3  0078        Move(stk[0], stk[1], stk[2])
+03E3  0078        SetMove2C(stk[0], stk[1], stk[2])
 03ED  0082        RETURN
 
 SSWCHDOR_0C:
@@ -132,14 +132,14 @@ SSWCHDOR_0C:
 0433  0044        Push(01)
 0437  0048        ax = GetNextTile()
 043E  004F        Push(ax)
-043F  0050        Move(stk[0], stk[1], stk[2])
+043F  0050        SetMove2C(stk[0], stk[1], stk[2])
 0449  005A        Jump to 0082
 044B  005C        ShowMessage(0x05F2) = The door is sealed shut. There is no lock on the outside.
 0458  0069        Push(00)
 045B  006C        Push(01)
 045F  0070        ax = GetNextTile()
 0466  0077        Push(ax)
-0467  0078        Move(stk[0], stk[1], stk[2])
+0467  0078        SetMove2C(stk[0], stk[1], stk[2])
 0471  0082        RETURN
 
 WSWCHDOR_0D:
@@ -157,14 +157,14 @@ WSWCHDOR_0D:
 04B6  0043        Push(00)
 04B9  0046        ax = GetNextTile()
 04C0  004D        Push(ax)
-04C1  004E        Move(stk[0], stk[1], stk[2])
+04C1  004E        SetMove2C(stk[0], stk[1], stk[2])
 04CB  0058        Jump to 007F
 04CD  005A        ShowMessage(0x0642) = The door is sealed shut. There is no lock on the outside.
 04DA  0067        Push(00)
 04DD  006A        Push(00)
 04E0  006D        ax = GetNextTile()
 04E7  0074        Push(ax)
-04E8  0075        Move(stk[0], stk[1], stk[2])
+04E8  0075        SetMove2C(stk[0], stk[1], stk[2])
 04F2  007F        RETURN
 
 ALLSWDOR_0E:
@@ -185,13 +185,13 @@ ALLSWDOR_0E:
 0552  005E        Push(01)
 0556  0062        ax = GetNextTile()
 055D  0069        Push(ax)
-055E  006A        Move(stk[0], stk[1], stk[2])
+055E  006A        SetMove2C(stk[0], stk[1], stk[2])
 0568  0074        Jump to 008F
 056A  0076        Push(00)
 056D  0079        Push(01)
 0571  007D        ax = GetNextTile()
 0578  0084        Push(ax)
-0579  0085        Move(stk[0], stk[1], stk[2])
+0579  0085        SetMove2C(stk[0], stk[1], stk[2])
 0583  008F        RETURN
 
 WKEYENC_0F:
@@ -682,25 +682,25 @@ KINGDOOR_23:
 197D  0003        ax = HasItem(0xF8)
 198B  0011        If (result.equal) jump to 005E
 198D  0013        ShowMessage(0x0CED) = The door is unlocked.
-199A  0020        ax = SetExitability(ax) // ax is usually 0 following equality check
+199A  0020        ax = GetFacing()
 19A1  0027        Push(ax)
 19A2  0028        ax = GetNextTile()
 19A9  002F        Push(ax)
 19AA  0030        Push(01)
 19AE  0034        SetUnblocked()
 19B8  003E        Push(01)
-19BC  0042        ax = SetExitability(ax) // ax is usually 0 following equality check
+19BC  0042        ax = GetFacing()
 19C3  0049        Push(ax)
 19C4  004A        ax = GetNextTile()
 19CB  0051        Push(ax)
-19CC  0052        Move(stk[0], stk[1], stk[2])
+19CC  0052        SetMove2C(stk[0], stk[1], stk[2])
 19D6  005C        Jump to 0088
 19D8  005E        Push(00)
-19DB  0061        ax = SetExitability(ax) // ax is usually 0 following equality check
+19DB  0061        ax = GetFacing()
 19E2  0068        Push(ax)
 19E3  0069        ax = GetNextTile()
 19EA  0070        Push(ax)
-19EB  0071        Move(stk[0], stk[1], stk[2])
+19EB  0071        SetMove2C(stk[0], stk[1], stk[2])
 19F5  007B        ShowMessage(0x0D03) = The door is sealed shut. You see what appears to be the bas relief of a royal ring 
 1A02  0088        RETURN
 

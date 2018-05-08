@@ -1,42 +1,42 @@
 GATEWAYA_01:
 0004  0000        BEGIN
 0007  0003        ShowMessage(0x03FC) = A Gateway back to the Labyrinth.
-0014  0010        GoMap(00, 0x3F, 0x01, 0x36)
+0014  0010        SetMoveMap(00, 0x3F, 0x01, 0x36)
 002E  002A        RETURN
 
 XOVERA_02:
 0030  0000        BEGIN
-0033  0003        GoMap(0x02, 0x57, 0x02, 0x36)
+0033  0003        SetMoveMap(0x02, 0x57, 0x02, 0x36)
 004E  001E        RETURN
 
 XOVERB_03:
 0050  0000        BEGIN
 0053  0003        ShowMessage(0x041D) = Gate to the entrance of Arnakkian's Arena.
-0060  0010        GoMap(00, 0x51, 0x02, 0x36)
+0060  0010        SetMoveMap(00, 0x51, 0x02, 0x36)
 007A  002A        RETURN
 
 AREAA_04:
 007C  0000        BEGIN
 007F  0003        ShowMessage(0x0448) = Gate to the Red Arena Staging Area.
-008C  0010        GoMap(0x03, 0x33, 0x02, 0x36)
+008C  0010        SetMoveMap(0x03, 0x33, 0x02, 0x36)
 00A7  002B        RETURN
 
 AREAB_05:
 00A9  0000        BEGIN
 00AC  0003        ShowMessage(0x046C) = Gate to the Blue Arena Staging Area.
-00B9  0010        GoMap(0x03, 0xC3, 0x02, 0x36)
+00B9  0010        SetMoveMap(0x03, 0xC3, 0x02, 0x36)
 00D4  002B        RETURN
 
 AREAC_06:
 00D6  0000        BEGIN
 00D9  0003        ShowMessage(0x0491) = Gate to the Green Arena Staging Area.
-00E6  0010        GoMap(0x03, 0xCC, 0x02, 0x36)
+00E6  0010        SetMoveMap(0x03, 0xCC, 0x02, 0x36)
 0101  002B        RETURN
 
 AREAD_07:
 0103  0000        BEGIN
 0106  0003        ShowMessage(0x04B7) = Gate to the Yellow Arena Staging Area.
-0113  0010        GoMap(0x03, 0x3C, 0x02, 0x36)
+0113  0010        SetMoveMap(0x03, 0x3C, 0x02, 0x36)
 012E  002B        RETURN
 
 EMPTY:

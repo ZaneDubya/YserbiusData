@@ -2,14 +2,14 @@ STARSADN_01:
 0003  0000        BEGIN
 0006  0003        ax = CheckLevel(0x0014)
 0014  0011        If (result.equal) jump to 002F
-0016  0013        GoMap(00, 0x4D, 0x01, 0x33)
+0016  0013        SetMoveMap(00, 0x4D, 0x01, 0x33)
 0030  002D        Jump to 0059
 0032  002F        Push(00)
-0035  0032        ax = SetExitability(ax) // ax is usually 0 following equality check
+0035  0032        ax = GetFacing()
 003C  0039        Push(ax)
 003D  003A        ax = GetNextTile()
 0044  0041        Push(ax)
-0045  0042        Move(stk[0], stk[1], stk[2])
+0045  0042        SetMove2C(stk[0], stk[1], stk[2])
 004F  004C        ShowMessage(0x03FC) = Heroes of level 20 or more may go on.
 005C  0059        RETURN
 
@@ -21,7 +21,7 @@ STRSMESA_02:
 
 TELPRTUP_03:
 0078  0000        BEGIN
-007B  0003        GoMap(0x02, 0xD8, 0x01, 0x04)
+007B  0003        SetMoveMap(0x02, 0xD8, 0x01, 0x04)
 0096  001E        RETURN
 
 TELEMESS_04:
@@ -33,14 +33,14 @@ TELETAVR_05:
 00AA  0000        BEGIN
 00AD  0003        ax = CheckLevel(0x0014)
 00BB  0011        If (result.equal) jump to 0030
-00BD  0013        GoMap(0x02, 0x4D, 0x01, 0x33)
+00BD  0013        SetMoveMap(0x02, 0x4D, 0x01, 0x33)
 00D8  002E        Jump to 005A
 00DA  0030        Push(00)
-00DD  0033        ax = SetExitability(ax) // ax is usually 0 following equality check
+00DD  0033        ax = GetFacing()
 00E4  003A        Push(ax)
 00E5  003B        ax = GetNextTile()
 00EC  0042        Push(ax)
-00ED  0043        Move(stk[0], stk[1], stk[2])
+00ED  0043        SetMove2C(stk[0], stk[1], stk[2])
 00F7  004D        ShowMessage(0x0470) = Heroes of level 20 or more may enter.
 0104  005A        RETURN
 
@@ -373,11 +373,11 @@ FLSPECN_1D:
 HIDEDOOR_1E:
 0B9C  0000        BEGIN
 0B9F  0003        Push(01)
-0BA3  0007        ax = SetExitability(ax) // ax is usually 0 following equality check
+0BA3  0007        ax = GetFacing()
 0BAA  000E        Push(ax)
 0BAB  000F        ax = GetNextTile()
 0BB2  0016        Push(ax)
-0BB3  0017        Move(stk[0], stk[1], stk[2])
+0BB3  0017        SetMove2C(stk[0], stk[1], stk[2])
 0BBD  0021        RETURN
 
 EMPTY:
@@ -400,12 +400,12 @@ HIDDORG_24:
 0BDB  0003        ax = UsedItem(0xFB, 0xFB)
 0BEE  0016        If (result.equal) jump to 0063
 0BF0  0018        Push(01)
-0BF4  001C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0BF4  001C        ax = GetFacing()
 0BFB  0023        Push(ax)
 0BFC  0024        ax = GetNextTile()
 0C03  002B        Push(ax)
-0C04  002C        Move(stk[0], stk[1], stk[2])
-0C0E  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+0C04  002C        SetMove2C(stk[0], stk[1], stk[2])
+0C0E  0036        ax = GetFacing()
 0C15  003D        Push(ax)
 0C16  003E        ax = GetNextTile()
 0C1D  0045        Push(ax)
@@ -414,11 +414,11 @@ HIDDORG_24:
 0C2C  0054        ShowMessage(0x0FEE) = The Thieves' Key unlocks the door!
 0C39  0061        Jump to 008D
 0C3B  0063        Push(00)
-0C3E  0066        ax = SetExitability(ax) // ax is usually 0 following equality check
+0C3E  0066        ax = GetFacing()
 0C45  006D        Push(ax)
 0C46  006E        ax = GetNextTile()
 0C4D  0075        Push(ax)
-0C4E  0076        Move(stk[0], stk[1], stk[2])
+0C4E  0076        SetMove2C(stk[0], stk[1], stk[2])
 0C58  0080        ShowMessage(0x1011) = The door is locked.  You need a special key.
 0C65  008D        RETURN
 
@@ -430,12 +430,12 @@ HIDDORH_25:
 0C8B  0024        compare(ax, 0x000A)
 0C8E  0027        If (result.below) jump to 0074
 0C90  0029        Push(01)
-0C94  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0C94  002D        ax = GetFacing()
 0C9B  0034        Push(ax)
 0C9C  0035        ax = GetNextTile()
 0CA3  003C        Push(ax)
-0CA4  003D        Move(stk[0], stk[1], stk[2])
-0CAE  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+0CA4  003D        SetMove2C(stk[0], stk[1], stk[2])
+0CAE  0047        ax = GetFacing()
 0CB5  004E        Push(ax)
 0CB6  004F        ax = GetNextTile()
 0CBD  0056        Push(ax)
@@ -444,11 +444,11 @@ HIDDORH_25:
 0CCC  0065        ShowMessage(0x103E) = The wall springs open.  A musky odor fills the room.
 0CD9  0072        Jump to 009E
 0CDB  0074        Push(00)
-0CDE  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+0CDE  0077        ax = GetFacing()
 0CE5  007E        Push(ax)
 0CE6  007F        ax = GetNextTile()
 0CED  0086        Push(ax)
-0CEE  0087        Move(stk[0], stk[1], stk[2])
+0CEE  0087        SetMove2C(stk[0], stk[1], stk[2])
 0CF8  0091        ShowMessage(0x1073) = Cracks in the wall reveal what could be a doorway. If only you could open it...
 0D05  009E        RETURN
 
@@ -476,12 +476,12 @@ HIDDORI_26:
 0DB6  00AF        compare(ax, 0x000C)
 0DB9  00B2        If (result.below) jump to 00FF
 0DBB  00B4        Push(01)
-0DBF  00B8        ax = SetExitability(ax) // ax is usually 0 following equality check
+0DBF  00B8        ax = GetFacing()
 0DC6  00BF        Push(ax)
 0DC7  00C0        ax = GetNextTile()
 0DCE  00C7        Push(ax)
-0DCF  00C8        Move(stk[0], stk[1], stk[2])
-0DD9  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+0DCF  00C8        SetMove2C(stk[0], stk[1], stk[2])
+0DD9  00D2        ax = GetFacing()
 0DE0  00D9        Push(ax)
 0DE1  00DA        ax = GetNextTile()
 0DE8  00E1        Push(ax)
@@ -490,12 +490,12 @@ HIDDORI_26:
 0DF7  00F0        ShowMessage(0x10C3) = You skillfully open the entrance to a passage!
 0E04  00FD        Jump to 0147
 0E06  00FF        Push(00)
-0E09  0102        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E09  0102        ax = GetFacing()
 0E10  0109        Push(ax)
 0E11  010A        ax = GetNextTile()
 0E18  0111        Push(ax)
-0E19  0112        Move(stk[0], stk[1], stk[2])
-0E23  011C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E19  0112        SetMove2C(stk[0], stk[1], stk[2])
+0E23  011C        ax = GetFacing()
 0E2A  0123        Push(ax)
 0E2B  0124        ax = GetNextTile()
 0E32  012B        Push(ax)
@@ -504,11 +504,11 @@ HIDDORI_26:
 0E41  013A        ShowMessage(0x10F2) = You found a very well-hidden entrance to what might be a passage.  Unfortunately, it seems to be locked.
 0E4E  0147        Jump to 0166
 0E50  0149        Push(00)
-0E53  014C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E53  014C        ax = GetFacing()
 0E5A  0153        Push(ax)
 0E5B  0154        ax = GetNextTile()
 0E62  015B        Push(ax)
-0E63  015C        Move(stk[0], stk[1], stk[2])
+0E63  015C        SetMove2C(stk[0], stk[1], stk[2])
 0E6D  0166        RETURN
 
 HIDDORJ_27:
@@ -535,12 +535,12 @@ HIDDORJ_27:
 0F1E  00AF        compare(ax, 0x000A)
 0F21  00B2        If (result.below) jump to 00FF
 0F23  00B4        Push(01)
-0F27  00B8        ax = SetExitability(ax) // ax is usually 0 following equality check
+0F27  00B8        ax = GetFacing()
 0F2E  00BF        Push(ax)
 0F2F  00C0        ax = GetNextTile()
 0F36  00C7        Push(ax)
-0F37  00C8        Move(stk[0], stk[1], stk[2])
-0F41  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+0F37  00C8        SetMove2C(stk[0], stk[1], stk[2])
+0F41  00D2        ax = GetFacing()
 0F48  00D9        Push(ax)
 0F49  00DA        ax = GetNextTile()
 0F50  00E1        Push(ax)
@@ -549,12 +549,12 @@ HIDDORJ_27:
 0F5F  00F0        ShowMessage(0x115B) = You release the stonework, revealing a secret passage!
 0F6C  00FD        Jump to 0147
 0F6E  00FF        Push(00)
-0F71  0102        ax = SetExitability(ax) // ax is usually 0 following equality check
+0F71  0102        ax = GetFacing()
 0F78  0109        Push(ax)
 0F79  010A        ax = GetNextTile()
 0F80  0111        Push(ax)
-0F81  0112        Move(stk[0], stk[1], stk[2])
-0F8B  011C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0F81  0112        SetMove2C(stk[0], stk[1], stk[2])
+0F8B  011C        ax = GetFacing()
 0F92  0123        Push(ax)
 0F93  0124        ax = GetNextTile()
 0F9A  012B        Push(ax)
@@ -563,11 +563,11 @@ HIDDORJ_27:
 0FA9  013A        ShowMessage(0x1192) = A piece of stonework looks like it could be moved, if you can pick the mechanism.
 0FB6  0147        Jump to 0166
 0FB8  0149        Push(00)
-0FBB  014C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0FBB  014C        ax = GetFacing()
 0FC2  0153        Push(ax)
 0FC3  0154        ax = GetNextTile()
 0FCA  015B        Push(ax)
-0FCB  015C        Move(stk[0], stk[1], stk[2])
+0FCB  015C        SetMove2C(stk[0], stk[1], stk[2])
 0FD5  0166        RETURN
 
 HIDDORK_28:
@@ -594,12 +594,12 @@ HIDDORK_28:
 1086  00AF        compare(ax, 0x0009)
 1089  00B2        If (result.below) jump to 00FF
 108B  00B4        Push(01)
-108F  00B8        ax = SetExitability(ax) // ax is usually 0 following equality check
+108F  00B8        ax = GetFacing()
 1096  00BF        Push(ax)
 1097  00C0        ax = GetNextTile()
 109E  00C7        Push(ax)
-109F  00C8        Move(stk[0], stk[1], stk[2])
-10A9  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+109F  00C8        SetMove2C(stk[0], stk[1], stk[2])
+10A9  00D2        ax = GetFacing()
 10B0  00D9        Push(ax)
 10B1  00DA        ax = GetNextTile()
 10B8  00E1        Push(ax)
@@ -608,12 +608,12 @@ HIDDORK_28:
 10C7  00F0        ShowMessage(0x11E4) = The wall slides open.
 10D4  00FD        Jump to 0147
 10D6  00FF        Push(00)
-10D9  0102        ax = SetExitability(ax) // ax is usually 0 following equality check
+10D9  0102        ax = GetFacing()
 10E0  0109        Push(ax)
 10E1  010A        ax = GetNextTile()
 10E8  0111        Push(ax)
-10E9  0112        Move(stk[0], stk[1], stk[2])
-10F3  011C        ax = SetExitability(ax) // ax is usually 0 following equality check
+10E9  0112        SetMove2C(stk[0], stk[1], stk[2])
+10F3  011C        ax = GetFacing()
 10FA  0123        Push(ax)
 10FB  0124        ax = GetNextTile()
 1102  012B        Push(ax)
@@ -622,11 +622,11 @@ HIDDORK_28:
 1111  013A        ShowMessage(0x11FA) = You located a sliding door which must be picked to be opened. Curious sounds can be heard through the stonework.
 111E  0147        Jump to 0166
 1120  0149        Push(00)
-1123  014C        ax = SetExitability(ax) // ax is usually 0 following equality check
+1123  014C        ax = GetFacing()
 112A  0153        Push(ax)
 112B  0154        ax = GetNextTile()
 1132  015B        Push(ax)
-1133  015C        Move(stk[0], stk[1], stk[2])
+1133  015C        SetMove2C(stk[0], stk[1], stk[2])
 113D  0166        RETURN
 
 HIDDORL_29:
@@ -653,12 +653,12 @@ HIDDORL_29:
 11EE  00AF        compare(ax, 0x0008)
 11F1  00B2        If (result.below) jump to 00FF
 11F3  00B4        Push(01)
-11F7  00B8        ax = SetExitability(ax) // ax is usually 0 following equality check
+11F7  00B8        ax = GetFacing()
 11FE  00BF        Push(ax)
 11FF  00C0        ax = GetNextTile()
 1206  00C7        Push(ax)
-1207  00C8        Move(stk[0], stk[1], stk[2])
-1211  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+1207  00C8        SetMove2C(stk[0], stk[1], stk[2])
+1211  00D2        ax = GetFacing()
 1218  00D9        Push(ax)
 1219  00DA        ax = GetNextTile()
 1220  00E1        Push(ax)
@@ -667,12 +667,12 @@ HIDDORL_29:
 122F  00F0        ShowMessage(0x126B) = You successfully opened the locked door.
 123C  00FD        Jump to 0147
 123E  00FF        Push(00)
-1241  0102        ax = SetExitability(ax) // ax is usually 0 following equality check
+1241  0102        ax = GetFacing()
 1248  0109        Push(ax)
 1249  010A        ax = GetNextTile()
 1250  0111        Push(ax)
-1251  0112        Move(stk[0], stk[1], stk[2])
-125B  011C        ax = SetExitability(ax) // ax is usually 0 following equality check
+1251  0112        SetMove2C(stk[0], stk[1], stk[2])
+125B  011C        ax = GetFacing()
 1262  0123        Push(ax)
 1263  0124        ax = GetNextTile()
 126A  012B        Push(ax)
@@ -681,11 +681,11 @@ HIDDORL_29:
 1279  013A        ShowMessage(0x1294) = You found a secret door, but it's locked.
 1286  0147        Jump to 0166
 1288  0149        Push(00)
-128B  014C        ax = SetExitability(ax) // ax is usually 0 following equality check
+128B  014C        ax = GetFacing()
 1292  0153        Push(ax)
 1293  0154        ax = GetNextTile()
 129A  015B        Push(ax)
-129B  015C        Move(stk[0], stk[1], stk[2])
+129B  015C        SetMove2C(stk[0], stk[1], stk[2])
 12A5  0166        RETURN
 
 HIDDORM_2A:
@@ -712,12 +712,12 @@ HIDDORM_2A:
 1356  00AF        compare(ax, 0x000C)
 1359  00B2        If (result.below) jump to 00FF
 135B  00B4        Push(01)
-135F  00B8        ax = SetExitability(ax) // ax is usually 0 following equality check
+135F  00B8        ax = GetFacing()
 1366  00BF        Push(ax)
 1367  00C0        ax = GetNextTile()
 136E  00C7        Push(ax)
-136F  00C8        Move(stk[0], stk[1], stk[2])
-1379  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+136F  00C8        SetMove2C(stk[0], stk[1], stk[2])
+1379  00D2        ax = GetFacing()
 1380  00D9        Push(ax)
 1381  00DA        ax = GetNextTile()
 1388  00E1        Push(ax)
@@ -726,12 +726,12 @@ HIDDORM_2A:
 1397  00F0        ShowMessage(0x12BE) = You successfully opened the locked door.
 13A4  00FD        Jump to 0147
 13A6  00FF        Push(00)
-13A9  0102        ax = SetExitability(ax) // ax is usually 0 following equality check
+13A9  0102        ax = GetFacing()
 13B0  0109        Push(ax)
 13B1  010A        ax = GetNextTile()
 13B8  0111        Push(ax)
-13B9  0112        Move(stk[0], stk[1], stk[2])
-13C3  011C        ax = SetExitability(ax) // ax is usually 0 following equality check
+13B9  0112        SetMove2C(stk[0], stk[1], stk[2])
+13C3  011C        ax = GetFacing()
 13CA  0123        Push(ax)
 13CB  0124        ax = GetNextTile()
 13D2  012B        Push(ax)
@@ -740,11 +740,11 @@ HIDDORM_2A:
 13E1  013A        ShowMessage(0x12E7) = You found a secret door.
 13EE  0147        Jump to 0166
 13F0  0149        Push(00)
-13F3  014C        ax = SetExitability(ax) // ax is usually 0 following equality check
+13F3  014C        ax = GetFacing()
 13FA  0153        Push(ax)
 13FB  0154        ax = GetNextTile()
 1402  015B        Push(ax)
-1403  015C        Move(stk[0], stk[1], stk[2])
+1403  015C        SetMove2C(stk[0], stk[1], stk[2])
 140D  0166        RETURN
 
 HIDDORN_2B:
@@ -771,12 +771,12 @@ HIDDORN_2B:
 14BE  00AF        compare(ax, 0x000C)
 14C1  00B2        If (result.below) jump to 00FF
 14C3  00B4        Push(01)
-14C7  00B8        ax = SetExitability(ax) // ax is usually 0 following equality check
+14C7  00B8        ax = GetFacing()
 14CE  00BF        Push(ax)
 14CF  00C0        ax = GetNextTile()
 14D6  00C7        Push(ax)
-14D7  00C8        Move(stk[0], stk[1], stk[2])
-14E1  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+14D7  00C8        SetMove2C(stk[0], stk[1], stk[2])
+14E1  00D2        ax = GetFacing()
 14E8  00D9        Push(ax)
 14E9  00DA        ax = GetNextTile()
 14F0  00E1        Push(ax)
@@ -785,12 +785,12 @@ HIDDORN_2B:
 14FF  00F0        ShowMessage(0x1300) = You successfully opened the locked door.
 150C  00FD        Jump to 0147
 150E  00FF        Push(00)
-1511  0102        ax = SetExitability(ax) // ax is usually 0 following equality check
+1511  0102        ax = GetFacing()
 1518  0109        Push(ax)
 1519  010A        ax = GetNextTile()
 1520  0111        Push(ax)
-1521  0112        Move(stk[0], stk[1], stk[2])
-152B  011C        ax = SetExitability(ax) // ax is usually 0 following equality check
+1521  0112        SetMove2C(stk[0], stk[1], stk[2])
+152B  011C        ax = GetFacing()
 1532  0123        Push(ax)
 1533  0124        ax = GetNextTile()
 153A  012B        Push(ax)
@@ -799,11 +799,11 @@ HIDDORN_2B:
 1549  013A        ShowMessage(0x1329) = You spot a well hidden secret door. It's locked.
 1556  0147        Jump to 0166
 1558  0149        Push(00)
-155B  014C        ax = SetExitability(ax) // ax is usually 0 following equality check
+155B  014C        ax = GetFacing()
 1562  0153        Push(ax)
 1563  0154        ax = GetNextTile()
 156A  015B        Push(ax)
-156B  015C        Move(stk[0], stk[1], stk[2])
+156B  015C        SetMove2C(stk[0], stk[1], stk[2])
 1575  0166        RETURN
 
 EMPTY:
@@ -820,12 +820,12 @@ HIDDORQ_2E:
 15A5  0024        compare(ax, 0x0008)
 15A8  0027        If (result.below) jump to 0074
 15AA  0029        Push(01)
-15AE  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+15AE  002D        ax = GetFacing()
 15B5  0034        Push(ax)
 15B6  0035        ax = GetNextTile()
 15BD  003C        Push(ax)
-15BE  003D        Move(stk[0], stk[1], stk[2])
-15C8  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+15BE  003D        SetMove2C(stk[0], stk[1], stk[2])
+15C8  0047        ax = GetFacing()
 15CF  004E        Push(ax)
 15D0  004F        ax = GetNextTile()
 15D7  0056        Push(ax)
@@ -834,11 +834,11 @@ HIDDORQ_2E:
 15E6  0065        ShowMessage(0x135A) = You skillfully pick the door lock.
 15F3  0072        Jump to 009E
 15F5  0074        Push(00)
-15F8  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+15F8  0077        ax = GetFacing()
 15FF  007E        Push(ax)
 1600  007F        ax = GetNextTile()
 1607  0086        Push(ax)
-1608  0087        Move(stk[0], stk[1], stk[2])
+1608  0087        SetMove2C(stk[0], stk[1], stk[2])
 1612  0091        ShowMessage(0x137D) = The door is locked.
 161F  009E        RETURN
 
@@ -857,19 +857,19 @@ HIDDORT_31:
 164B  0020        RefreshCompareFlags(ax)
 164D  0022        If (result.equal) jump to 0051
 164F  0024        Push(01)
-1653  0028        ax = SetExitability(ax) // ax is usually 0 following equality check
+1653  0028        ax = GetFacing()
 165A  002F        Push(ax)
 165B  0030        ax = GetNextTile()
 1662  0037        Push(ax)
-1663  0038        Move(stk[0], stk[1], stk[2])
+1663  0038        SetMove2C(stk[0], stk[1], stk[2])
 166D  0042        ShowMessage(0x1391) = You found a hidden door!
 167A  004F        Jump to 006E
 167C  0051        Push(00)
-167F  0054        ax = SetExitability(ax) // ax is usually 0 following equality check
+167F  0054        ax = GetFacing()
 1686  005B        Push(ax)
 1687  005C        ax = GetNextTile()
 168E  0063        Push(ax)
-168F  0064        Move(stk[0], stk[1], stk[2])
+168F  0064        SetMove2C(stk[0], stk[1], stk[2])
 1699  006E        RETURN
 
 HIDDORU_32:
@@ -896,12 +896,12 @@ HIDDORU_32:
 174A  00AF        compare(ax, 0x0008)
 174D  00B2        If (result.below) jump to 00FF
 174F  00B4        Push(01)
-1753  00B8        ax = SetExitability(ax) // ax is usually 0 following equality check
+1753  00B8        ax = GetFacing()
 175A  00BF        Push(ax)
 175B  00C0        ax = GetNextTile()
 1762  00C7        Push(ax)
-1763  00C8        Move(stk[0], stk[1], stk[2])
-176D  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+1763  00C8        SetMove2C(stk[0], stk[1], stk[2])
+176D  00D2        ax = GetFacing()
 1774  00D9        Push(ax)
 1775  00DA        ax = GetNextTile()
 177C  00E1        Push(ax)
@@ -910,12 +910,12 @@ HIDDORU_32:
 178B  00F0        ShowMessage(0x13AA) = You successfully opened the locked door.
 1798  00FD        Jump to 0147
 179A  00FF        Push(00)
-179D  0102        ax = SetExitability(ax) // ax is usually 0 following equality check
+179D  0102        ax = GetFacing()
 17A4  0109        Push(ax)
 17A5  010A        ax = GetNextTile()
 17AC  0111        Push(ax)
-17AD  0112        Move(stk[0], stk[1], stk[2])
-17B7  011C        ax = SetExitability(ax) // ax is usually 0 following equality check
+17AD  0112        SetMove2C(stk[0], stk[1], stk[2])
+17B7  011C        ax = GetFacing()
 17BE  0123        Push(ax)
 17BF  0124        ax = GetNextTile()
 17C6  012B        Push(ax)
@@ -924,21 +924,21 @@ HIDDORU_32:
 17D5  013A        ShowMessage(0x13D3) = You found a secret door, but it's locked.
 17E2  0147        Jump to 0166
 17E4  0149        Push(00)
-17E7  014C        ax = SetExitability(ax) // ax is usually 0 following equality check
+17E7  014C        ax = GetFacing()
 17EE  0153        Push(ax)
 17EF  0154        ax = GetNextTile()
 17F6  015B        Push(ax)
-17F7  015C        Move(stk[0], stk[1], stk[2])
+17F7  015C        SetMove2C(stk[0], stk[1], stk[2])
 1801  0166        RETURN
 
 HIDDORV_33:
 1803  0000        BEGIN
 1806  0003        Push(01)
-180A  0007        ax = SetExitability(ax) // ax is usually 0 following equality check
+180A  0007        ax = GetFacing()
 1811  000E        Push(ax)
 1812  000F        ax = GetNextTile()
 1819  0016        Push(ax)
-181A  0017        Move(stk[0], stk[1], stk[2])
+181A  0017        SetMove2C(stk[0], stk[1], stk[2])
 1824  0021        RETURN
 
 EMPTY:
@@ -947,11 +947,11 @@ EMPTY:
 HIDDORX_35:
 182B  0000        BEGIN
 182E  0003        Push(01)
-1832  0007        ax = SetExitability(ax) // ax is usually 0 following equality check
+1832  0007        ax = GetFacing()
 1839  000E        Push(ax)
 183A  000F        ax = GetNextTile()
 1841  0016        Push(ax)
-1842  0017        Move(stk[0], stk[1], stk[2])
+1842  0017        SetMove2C(stk[0], stk[1], stk[2])
 184C  0021        RETURN
 
 HIDDORY_36:
@@ -978,12 +978,12 @@ HIDDORY_36:
 18FD  00AF        compare(ax, 0x000A)
 1900  00B2        If (result.below) jump to 00FF
 1902  00B4        Push(01)
-1906  00B8        ax = SetExitability(ax) // ax is usually 0 following equality check
+1906  00B8        ax = GetFacing()
 190D  00BF        Push(ax)
 190E  00C0        ax = GetNextTile()
 1915  00C7        Push(ax)
-1916  00C8        Move(stk[0], stk[1], stk[2])
-1920  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+1916  00C8        SetMove2C(stk[0], stk[1], stk[2])
+1920  00D2        ax = GetFacing()
 1927  00D9        Push(ax)
 1928  00DA        ax = GetNextTile()
 192F  00E1        Push(ax)
@@ -992,12 +992,12 @@ HIDDORY_36:
 193E  00F0        ShowMessage(0x13FD) = You successfully opened the locked door.
 194B  00FD        Jump to 0147
 194D  00FF        Push(00)
-1950  0102        ax = SetExitability(ax) // ax is usually 0 following equality check
+1950  0102        ax = GetFacing()
 1957  0109        Push(ax)
 1958  010A        ax = GetNextTile()
 195F  0111        Push(ax)
-1960  0112        Move(stk[0], stk[1], stk[2])
-196A  011C        ax = SetExitability(ax) // ax is usually 0 following equality check
+1960  0112        SetMove2C(stk[0], stk[1], stk[2])
+196A  011C        ax = GetFacing()
 1971  0123        Push(ax)
 1972  0124        ax = GetNextTile()
 1979  012B        Push(ax)
@@ -1006,11 +1006,11 @@ HIDDORY_36:
 1988  013A        ShowMessage(0x1426) = You found a locked door. You hear strange noises on the other side of the door.
 1995  0147        Jump to 0166
 1997  0149        Push(00)
-199A  014C        ax = SetExitability(ax) // ax is usually 0 following equality check
+199A  014C        ax = GetFacing()
 19A1  0153        Push(ax)
 19A2  0154        ax = GetNextTile()
 19A9  015B        Push(ax)
-19AA  015C        Move(stk[0], stk[1], stk[2])
+19AA  015C        SetMove2C(stk[0], stk[1], stk[2])
 19B4  0166        RETURN
 
 HIDDORZ_37:
@@ -1028,22 +1028,22 @@ HIDDORZ_37:
 1A04  004E        ax = UsedItem(0xBE, 0xBE)
 1A17  0061        If (result.equal) jump to 008E
 1A19  0063        Push(01)
-1A1D  0067        ax = SetExitability(ax) // ax is usually 0 following equality check
+1A1D  0067        ax = GetFacing()
 1A24  006E        Push(ax)
 1A25  006F        ax = GetNextTile()
 1A2C  0076        Push(ax)
-1A2D  0077        Move(stk[0], stk[1], stk[2])
+1A2D  0077        SetMove2C(stk[0], stk[1], stk[2])
 1A37  0081        ShowMessage(0x1476) = You found a hidden door!
 1A44  008E        RETURN
 
 HIDDORAA_38:
 1A46  0000        BEGIN
 1A49  0003        Push(01)
-1A4D  0007        ax = SetExitability(ax) // ax is usually 0 following equality check
+1A4D  0007        ax = GetFacing()
 1A54  000E        Push(ax)
 1A55  000F        ax = GetNextTile()
 1A5C  0016        Push(ax)
-1A5D  0017        Move(stk[0], stk[1], stk[2])
+1A5D  0017        SetMove2C(stk[0], stk[1], stk[2])
 1A67  0021        RETURN
 
 HIDDORBB_39:
@@ -1070,12 +1070,12 @@ HIDDORBB_39:
 1B18  00AF        compare(ax, 0x0009)
 1B1B  00B2        If (result.below) jump to 00FF
 1B1D  00B4        Push(01)
-1B21  00B8        ax = SetExitability(ax) // ax is usually 0 following equality check
+1B21  00B8        ax = GetFacing()
 1B28  00BF        Push(ax)
 1B29  00C0        ax = GetNextTile()
 1B30  00C7        Push(ax)
-1B31  00C8        Move(stk[0], stk[1], stk[2])
-1B3B  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+1B31  00C8        SetMove2C(stk[0], stk[1], stk[2])
+1B3B  00D2        ax = GetFacing()
 1B42  00D9        Push(ax)
 1B43  00DA        ax = GetNextTile()
 1B4A  00E1        Push(ax)
@@ -1084,12 +1084,12 @@ HIDDORBB_39:
 1B59  00F0        ShowMessage(0x148F) = You successfully opened the locked door. You also feel a cool breeze.
 1B66  00FD        Jump to 0147
 1B68  00FF        Push(00)
-1B6B  0102        ax = SetExitability(ax) // ax is usually 0 following equality check
+1B6B  0102        ax = GetFacing()
 1B72  0109        Push(ax)
 1B73  010A        ax = GetNextTile()
 1B7A  0111        Push(ax)
-1B7B  0112        Move(stk[0], stk[1], stk[2])
-1B85  011C        ax = SetExitability(ax) // ax is usually 0 following equality check
+1B7B  0112        SetMove2C(stk[0], stk[1], stk[2])
+1B85  011C        ax = GetFacing()
 1B8C  0123        Push(ax)
 1B8D  0124        ax = GetNextTile()
 1B94  012B        Push(ax)
@@ -1098,11 +1098,11 @@ HIDDORBB_39:
 1BA3  013A        ShowMessage(0x14D5) = You found a secret door, but it's locked.
 1BB0  0147        Jump to 0166
 1BB2  0149        Push(00)
-1BB5  014C        ax = SetExitability(ax) // ax is usually 0 following equality check
+1BB5  014C        ax = GetFacing()
 1BBC  0153        Push(ax)
 1BBD  0154        ax = GetNextTile()
 1BC4  015B        Push(ax)
-1BC5  015C        Move(stk[0], stk[1], stk[2])
+1BC5  015C        SetMove2C(stk[0], stk[1], stk[2])
 1BCF  0166        RETURN
 
 HIDDORCC_3A:
@@ -1129,12 +1129,12 @@ HIDDORCC_3A:
 1C80  00AF        compare(ax, 0x0009)
 1C83  00B2        If (result.below) jump to 00FF
 1C85  00B4        Push(01)
-1C89  00B8        ax = SetExitability(ax) // ax is usually 0 following equality check
+1C89  00B8        ax = GetFacing()
 1C90  00BF        Push(ax)
 1C91  00C0        ax = GetNextTile()
 1C98  00C7        Push(ax)
-1C99  00C8        Move(stk[0], stk[1], stk[2])
-1CA3  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+1C99  00C8        SetMove2C(stk[0], stk[1], stk[2])
+1CA3  00D2        ax = GetFacing()
 1CAA  00D9        Push(ax)
 1CAB  00DA        ax = GetNextTile()
 1CB2  00E1        Push(ax)
@@ -1143,12 +1143,12 @@ HIDDORCC_3A:
 1CC1  00F0        ShowMessage(0x14FF) = You opened the locked chamber door.
 1CCE  00FD        Jump to 0147
 1CD0  00FF        Push(00)
-1CD3  0102        ax = SetExitability(ax) // ax is usually 0 following equality check
+1CD3  0102        ax = GetFacing()
 1CDA  0109        Push(ax)
 1CDB  010A        ax = GetNextTile()
 1CE2  0111        Push(ax)
-1CE3  0112        Move(stk[0], stk[1], stk[2])
-1CED  011C        ax = SetExitability(ax) // ax is usually 0 following equality check
+1CE3  0112        SetMove2C(stk[0], stk[1], stk[2])
+1CED  011C        ax = GetFacing()
 1CF4  0123        Push(ax)
 1CF5  0124        ax = GetNextTile()
 1CFC  012B        Push(ax)
@@ -1157,11 +1157,11 @@ HIDDORCC_3A:
 1D0B  013A        ShowMessage(0x1523) = You found a hidden chamber door, but it's locked.
 1D18  0147        Jump to 0166
 1D1A  0149        Push(00)
-1D1D  014C        ax = SetExitability(ax) // ax is usually 0 following equality check
+1D1D  014C        ax = GetFacing()
 1D24  0153        Push(ax)
 1D25  0154        ax = GetNextTile()
 1D2C  015B        Push(ax)
-1D2D  015C        Move(stk[0], stk[1], stk[2])
+1D2D  015C        SetMove2C(stk[0], stk[1], stk[2])
 1D37  0166        RETURN
 
 EMPTY:
@@ -1178,12 +1178,12 @@ HIDDORFF_3D:
 1D67  0024        compare(ax, 0x000C)
 1D6A  0027        If (result.below) jump to 0074
 1D6C  0029        Push(01)
-1D70  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+1D70  002D        ax = GetFacing()
 1D77  0034        Push(ax)
 1D78  0035        ax = GetNextTile()
 1D7F  003C        Push(ax)
-1D80  003D        Move(stk[0], stk[1], stk[2])
-1D8A  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+1D80  003D        SetMove2C(stk[0], stk[1], stk[2])
+1D8A  0047        ax = GetFacing()
 1D91  004E        Push(ax)
 1D92  004F        ax = GetNextTile()
 1D99  0056        Push(ax)
@@ -1192,11 +1192,11 @@ HIDDORFF_3D:
 1DA8  0065        ShowMessage(0x1555) = With great effort, you unlock the door.
 1DB5  0072        Jump to 009E
 1DB7  0074        Push(00)
-1DBA  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+1DBA  0077        ax = GetFacing()
 1DC1  007E        Push(ax)
 1DC2  007F        ax = GetNextTile()
 1DC9  0086        Push(ax)
-1DCA  0087        Move(stk[0], stk[1], stk[2])
+1DCA  0087        SetMove2C(stk[0], stk[1], stk[2])
 1DD4  0091        ShowMessage(0x157D) = This door has a nasty looking lock on it.
 1DE1  009E        RETURN
 
@@ -1230,12 +1230,12 @@ HIDDORII_40:
 1E9C  00AF        compare(ax, 0x0009)
 1E9F  00B2        If (result.below) jump to 00FF
 1EA1  00B4        Push(01)
-1EA5  00B8        ax = SetExitability(ax) // ax is usually 0 following equality check
+1EA5  00B8        ax = GetFacing()
 1EAC  00BF        Push(ax)
 1EAD  00C0        ax = GetNextTile()
 1EB4  00C7        Push(ax)
-1EB5  00C8        Move(stk[0], stk[1], stk[2])
-1EBF  00D2        ax = SetExitability(ax) // ax is usually 0 following equality check
+1EB5  00C8        SetMove2C(stk[0], stk[1], stk[2])
+1EBF  00D2        ax = GetFacing()
 1EC6  00D9        Push(ax)
 1EC7  00DA        ax = GetNextTile()
 1ECE  00E1        Push(ax)
@@ -1244,12 +1244,12 @@ HIDDORII_40:
 1EDD  00F0        ShowMessage(0x15A7) = The door is opened with a lot of effort.
 1EEA  00FD        Jump to 0147
 1EEC  00FF        Push(00)
-1EEF  0102        ax = SetExitability(ax) // ax is usually 0 following equality check
+1EEF  0102        ax = GetFacing()
 1EF6  0109        Push(ax)
 1EF7  010A        ax = GetNextTile()
 1EFE  0111        Push(ax)
-1EFF  0112        Move(stk[0], stk[1], stk[2])
-1F09  011C        ax = SetExitability(ax) // ax is usually 0 following equality check
+1EFF  0112        SetMove2C(stk[0], stk[1], stk[2])
+1F09  011C        ax = GetFacing()
 1F10  0123        Push(ax)
 1F11  0124        ax = GetNextTile()
 1F18  012B        Push(ax)
@@ -1258,11 +1258,11 @@ HIDDORII_40:
 1F27  013A        ShowMessage(0x15D0) = You found another secret door, but it is locked.
 1F34  0147        Jump to 0166
 1F36  0149        Push(00)
-1F39  014C        ax = SetExitability(ax) // ax is usually 0 following equality check
+1F39  014C        ax = GetFacing()
 1F40  0153        Push(ax)
 1F41  0154        ax = GetNextTile()
 1F48  015B        Push(ax)
-1F49  015C        Move(stk[0], stk[1], stk[2])
+1F49  015C        SetMove2C(stk[0], stk[1], stk[2])
 1F53  0166        RETURN
 
 EXITMSG_41:

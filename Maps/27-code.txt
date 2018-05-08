@@ -7,18 +7,18 @@ LAVA_01:
 
 TEMPEST_02:
 002A  0000        BEGIN
-002D  0003        GoMap(0x01, 0x4F, 0x01, 0x35)
+002D  0003        SetMoveMap(0x01, 0x4F, 0x01, 0x35)
 0048  001E        RETURN
 
 DUNGEON_03:
 004A  0000        BEGIN
 004D  0003        ShowMessage(0x0425) = This gate leads to the entrance of Arnakkian's Arena.
-005A  0010        GoMap(0x02, 0x40, 0x02, 0x36)
+005A  0010        SetMoveMap(0x02, 0x40, 0x02, 0x36)
 0075  002B        RETURN
 
 HEAVENS_04:
 0077  0000        BEGIN
-007A  0003        GoMap(0x02, 0xF6, 0x01, 0x35)
+007A  0003        SetMoveMap(0x02, 0xF6, 0x01, 0x35)
 0095  001E        RETURN
 
 TXTTEMPS_05:
@@ -57,11 +57,11 @@ BDOORCGC_0C:
 0100  0012        If (result.below) jump to 0041
 0102  0014        ShowMessage(0x0586) = With a massive effort, you manage to force the door open.
 010F  0021        Push(01)
-0113  0025        ax = SetExitability(ax) // ax is usually 0 following equality check
+0113  0025        ax = GetFacing()
 011A  002C        Push(ax)
 011B  002D        ax = GetNextTile()
 0122  0034        Push(ax)
-0123  0035        Move(stk[0], stk[1], stk[2])
+0123  0035        SetMove2C(stk[0], stk[1], stk[2])
 012D  003F        Jump to 004E
 012F  0041        ShowMessage(0x05C0) = The door is stuck and will not open.
 013C  004E        RETURN
@@ -82,7 +82,7 @@ RAPID_10:
 0172  0025        ShowMessage(0x05F6) = 'Thanks to the gracious generosity of the Mage Council, the survivors of the Arnakkian disaster hereby proclaim a new teleport to the top.'
 017F  0032        Push(02)
 0183  0036        ax = GetNextTile()
-018A  003D        GoMap(stk[0], ax, 0x01, 0x33)
+018A  003D        SetMoveMap(stk[0], ax, 0x01, 0x33)
 019E  0051        RETURN
 
 RIVER_11:
@@ -112,7 +112,7 @@ TXTPHNX_12:
 023C  005B        Push(02)
 0240  005F        ax = GetNextTile()
 0247  0066        Push(ax)
-0248  0067        Move(stk[0], stk[1], stk[2])
+0248  0067        SetMove2C(stk[0], stk[1], stk[2])
 0252  0071        Push(02)
 0256  0075        ax = GetNextTile()
 025D  007C        Push(ax)
@@ -198,7 +198,7 @@ BAZZENCC_1A:
 TOELVES_1B:
 0592  0000        BEGIN
 0595  0003        ShowMessage(0x07D3) = Loose rocks tumble away, revealing a narrow passageway down.
-05A2  0010        GoMap(0x03, 0x1A, 0x01, 0x37)
+05A2  0010        SetMoveMap(0x03, 0x1A, 0x01, 0x37)
 05BD  002B        RETURN
 
 PHOEGURD_1C:

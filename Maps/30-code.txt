@@ -27,11 +27,11 @@ SECDOORA_03:
 0093  002D        RemoveItem(0xD4)
 009F  0039        SetState(0x02, 0x6C, 0x01)
 00B4  004E        Push(01)
-00B8  0052        ax = SetExitability(ax) // ax is usually 0 following equality check
+00B8  0052        ax = GetFacing()
 00BF  0059        Push(ax)
 00C0  005A        ax = GetNextTile()
 00C7  0061        Push(ax)
-00C8  0062        Move(stk[0], stk[1], stk[2])
+00C8  0062        SetMove2C(stk[0], stk[1], stk[2])
 00D2  006C        Push(01)
 00D6  0070        ax = GetNextTile()
 00DD  0077        Push(ax)
@@ -60,12 +60,12 @@ SECDOORB_05:
 0157  0039        ax = UsedItem(0xBE, 0xBE)
 016A  004C        If (result.equal) jump to 0099
 016C  004E        Push(01)
-0170  0052        ax = SetExitability(ax) // ax is usually 0 following equality check
+0170  0052        ax = GetFacing()
 0177  0059        Push(ax)
 0178  005A        ax = GetNextTile()
 017F  0061        Push(ax)
-0180  0062        Move(stk[0], stk[1], stk[2])
-018A  006C        ax = SetExitability(ax) // ax is usually 0 following equality check
+0180  0062        SetMove2C(stk[0], stk[1], stk[2])
+018A  006C        ax = GetFacing()
 0191  0073        Push(ax)
 0192  0074        ax = GetNextTile()
 0199  007B        Push(ax)
@@ -74,11 +74,11 @@ SECDOORB_05:
 01A8  008A        ShowMessage(0x04DF) = You locate a hidden door!
 01B5  0097        Jump to 00B6
 01B7  0099        Push(00)
-01BA  009C        ax = SetExitability(ax) // ax is usually 0 following equality check
+01BA  009C        ax = GetFacing()
 01C1  00A3        Push(ax)
 01C2  00A4        ax = GetNextTile()
 01C9  00AB        Push(ax)
-01CA  00AC        Move(stk[0], stk[1], stk[2])
+01CA  00AC        SetMove2C(stk[0], stk[1], stk[2])
 01D4  00B6        RETURN
 
 LAVALEDG_06:
@@ -95,14 +95,10 @@ LAVAPA_07:
 0212  002A        compare(ax, 0x0005)
 0215  002D        If (result.notequal) jump to 0080
 0217  002F        ShowMessage(0x0522) = A platform appears beneath your feet..
-0224  003C        SetTileFloor(0xA8, 00)
-0232  004A        cx = Pop()
-0233  004B        cx = Pop()
-0234  004C        Move(0x01, 0xA8)
-0245  005D        SetTileFloor(0x79, 00)
-0253  006B        cx = Pop()
-0254  006C        cx = Pop()
-0255  006D        Move(0x01, 0x79)
+0224  003C        SetMove38(0xA8, 0x00)
+0234  004C        SetMove34(0x01, 0xA8)
+0245  005D        SetMove38(0x79, 0x00)
+0255  006D        SetMove34(0x01, 0x79)
 0266  007E        Jump to 009E
 0268  0080        ShowMessage(0x0549) = You step into a lava pit and die!
 0275  008D        ax = GetMaxHits()
@@ -118,14 +114,10 @@ LAVAPB_08:
 02B2  002A        compare(ax, 0x0005)
 02B5  002D        If (result.notequal) jump to 0080
 02B7  002F        ShowMessage(0x056B) = A platform appears beneath your feet..
-02C4  003C        SetTileFloor(0x98, 00)
-02D2  004A        cx = Pop()
-02D3  004B        cx = Pop()
-02D4  004C        Move(0x01, 0x98)
-02E5  005D        SetTileFloor(0x89, 00)
-02F3  006B        cx = Pop()
-02F4  006C        cx = Pop()
-02F5  006D        Move(0x01, 0x89)
+02C4  003C        SetMove38(0x98, 0x00)
+02D4  004C        SetMove34(0x01, 0x98)
+02E5  005D        SetMove38(0x89, 0x00)
+02F5  006D        SetMove34(0x01, 0x89)
 0306  007E        Jump to 009E
 0308  0080        ShowMessage(0x0592) = You step into a lava pit and die!
 0315  008D        ax = GetMaxHits()
@@ -141,14 +133,10 @@ LAVAPC_09:
 0352  002A        compare(ax, 0x0005)
 0355  002D        If (result.notequal) jump to 0080
 0357  002F        ShowMessage(0x05B4) = A platform appears beneath your feet..
-0364  003C        SetTileFloor(0x88, 00)
-0372  004A        cx = Pop()
-0373  004B        cx = Pop()
-0374  004C        Move(0x01, 0x88)
-0385  005D        SetTileFloor(0x99, 00)
-0393  006B        cx = Pop()
-0394  006C        cx = Pop()
-0395  006D        Move(0x01, 0x99)
+0364  003C        SetMove38(0x88, 0x00)
+0374  004C        SetMove34(0x01, 0x88)
+0385  005D        SetMove38(0x99, 0x00)
+0395  006D        SetMove34(0x01, 0x99)
 03A6  007E        Jump to 009E
 03A8  0080        ShowMessage(0x05DB) = You step into a lava pit and die!
 03B5  008D        ax = GetMaxHits()
@@ -164,14 +152,10 @@ LAVAPD_0A:
 03F2  002A        compare(ax, 0x0005)
 03F5  002D        If (result.notequal) jump to 0080
 03F7  002F        ShowMessage(0x05FD) = A platform appears beneath your feet..
-0404  003C        SetTileFloor(0x78, 00)
-0412  004A        cx = Pop()
-0413  004B        cx = Pop()
-0414  004C        Move(0x01, 0x78)
-0425  005D        SetTileFloor(0xA9, 00)
-0433  006B        cx = Pop()
-0434  006C        cx = Pop()
-0435  006D        Move(0x01, 0xA9)
+0404  003C        SetMove38(0x78, 0x00)
+0414  004C        SetMove34(0x01, 0x78)
+0425  005D        SetMove38(0xA9, 0x00)
+0435  006D        SetMove34(0x01, 0xA9)
 0446  007E        Jump to 009E
 0448  0080        ShowMessage(0x0624) = You step into a lava pit and die!
 0455  008D        ax = GetMaxHits()
@@ -319,22 +303,14 @@ OPENER_16:
 08F6  0000        BEGIN
 08F9  0003        SetState(0x01, 0x03, 0x05)
 090E  0018        ShowMessage(0x1308) = All the east side platforms appear to be up.
-091B  0025        SetTileFloor(0xA9, 00)
-0929  0033        cx = Pop()
-092A  0034        cx = Pop()
-092B  0035        Move(0x01, 0xA9)
-093C  0046        SetTileFloor(0x99, 00)
-094A  0054        cx = Pop()
-094B  0055        cx = Pop()
-094C  0056        Move(0x01, 0x99)
-095D  0067        SetTileFloor(0x89, 00)
-096B  0075        cx = Pop()
-096C  0076        cx = Pop()
-096D  0077        Move(0x01, 0x89)
-097E  0088        SetTileFloor(0x79, 00)
-098C  0096        cx = Pop()
-098D  0097        cx = Pop()
-098E  0098        Move(0x01, 0x79)
+091B  0025        SetMove38(0xA9, 0x00)
+092B  0035        SetMove34(0x01, 0xA9)
+093C  0046        SetMove38(0x99, 0x00)
+094C  0056        SetMove34(0x01, 0x99)
+095D  0067        SetMove38(0x89, 0x00)
+096D  0077        SetMove34(0x01, 0x89)
+097E  0088        SetMove38(0x79, 0x00)
+098E  0098        SetMove34(0x01, 0x79)
 099F  00A9        RETURN
 
 OPENEE_17:
@@ -351,7 +327,7 @@ OPENEE_17:
 09D8  0037        Push(03)
 09DC  003B        ax = GetNextTile()
 09E3  0042        Push(ax)
-09E4  0043        Move(stk[0], stk[1], stk[2])
+09E4  0043        SetMove2C(stk[0], stk[1], stk[2])
 09EE  004D        RETURN
 
 MANTICOR_18:
@@ -423,7 +399,7 @@ KEYCLUEC_1E:
 GATEA_1F:
 0C8C  0000        BEGIN
 0C8F  0003        ShowMessage(0x1564) = Distant bellows from gruesome monsters echo through the cavern.
-0C9C  0010        GoMap(0x02, 0x30, 0x02, 0x38)
+0C9C  0010        SetMoveMap(0x02, 0x30, 0x02, 0x38)
 0CB7  002B        RETURN
 
 CYCLKEY_20:
@@ -453,12 +429,12 @@ SECDOORC_21:
 0D3E  0048        ax = UsedItem(0xBE, 0xBE)
 0D51  005B        If (result.equal) jump to 00A8
 0D53  005D        Push(01)
-0D57  0061        ax = SetExitability(ax) // ax is usually 0 following equality check
+0D57  0061        ax = GetFacing()
 0D5E  0068        Push(ax)
 0D5F  0069        ax = GetNextTile()
 0D66  0070        Push(ax)
-0D67  0071        Move(stk[0], stk[1], stk[2])
-0D71  007B        ax = SetExitability(ax) // ax is usually 0 following equality check
+0D67  0071        SetMove2C(stk[0], stk[1], stk[2])
+0D71  007B        ax = GetFacing()
 0D78  0082        Push(ax)
 0D79  0083        ax = GetNextTile()
 0D80  008A        Push(ax)
@@ -467,11 +443,11 @@ SECDOORC_21:
 0D8F  0099        ShowMessage(0x15F1) = You found a hidden door!
 0D9C  00A6        Jump to 00C5
 0D9E  00A8        Push(00)
-0DA1  00AB        ax = SetExitability(ax) // ax is usually 0 following equality check
+0DA1  00AB        ax = GetFacing()
 0DA8  00B2        Push(ax)
 0DA9  00B3        ax = GetNextTile()
 0DB0  00BA        Push(ax)
-0DB1  00BB        Move(stk[0], stk[1], stk[2])
+0DB1  00BB        SetMove2C(stk[0], stk[1], stk[2])
 0DBB  00C5        Jump to 017B
 0DBE  00C8        ax = UsedSkill(0x0D) // returns 0 if did not use, compares to 2nd op if did use
 0DCA  00D4        compare(ax, 0x000B)
@@ -484,12 +460,12 @@ SECDOORC_21:
 0DF4  00FE        ax = UsedItem(0xBE, 0xBE)
 0E07  0111        If (result.equal) jump to 015E
 0E09  0113        Push(01)
-0E0D  0117        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E0D  0117        ax = GetFacing()
 0E14  011E        Push(ax)
 0E15  011F        ax = GetNextTile()
 0E1C  0126        Push(ax)
-0E1D  0127        Move(stk[0], stk[1], stk[2])
-0E27  0131        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E1D  0127        SetMove2C(stk[0], stk[1], stk[2])
+0E27  0131        ax = GetFacing()
 0E2E  0138        Push(ax)
 0E2F  0139        ax = GetNextTile()
 0E36  0140        Push(ax)
@@ -498,11 +474,11 @@ SECDOORC_21:
 0E45  014F        ShowMessage(0x160A) = You found a hidden door!
 0E52  015C        Jump to 017B
 0E54  015E        Push(00)
-0E57  0161        ax = SetExitability(ax) // ax is usually 0 following equality check
+0E57  0161        ax = GetFacing()
 0E5E  0168        Push(ax)
 0E5F  0169        ax = GetNextTile()
 0E66  0170        Push(ax)
-0E67  0171        Move(stk[0], stk[1], stk[2])
+0E67  0171        SetMove2C(stk[0], stk[1], stk[2])
 0E71  017B        RETURN
 
 EMPTY:
@@ -564,7 +540,7 @@ EMPTY:
 TOELVES_2C:
 1000  0000        BEGIN
 1003  0003        ShowMessage(0x16D1) = A passageway leads up to the elfin lands.
-1010  0010        GoMap(0x01, 0x7F, 0x01, 0x37)
+1010  0010        SetMoveMap(0x01, 0x7F, 0x01, 0x37)
 102B  002B        RETURN
 
 EMPTY:

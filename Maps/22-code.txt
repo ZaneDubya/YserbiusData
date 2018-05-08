@@ -732,7 +732,7 @@ DOORARNK_3D:
 132C  001C        Push(03)
 1330  0020        ax = GetNextTile()
 1337  0027        Push(ax)
-1338  0028        Move(stk[0], stk[1], stk[2])
+1338  0028        SetMove2C(stk[0], stk[1], stk[2])
 1342  0032        Push(03)
 1346  0036        ax = GetNextTile()
 134D  003D        Push(ax)
@@ -746,7 +746,7 @@ DOORARNK_3D:
 TELEARNK_3E:
 137A  0000        BEGIN
 137D  0003        ShowMessage(0x119C) = A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
-138A  0010        GoMap(0x03, 0x76, 0x02, 0x34)
+138A  0010        SetMoveMap(0x03, 0x76, 0x02, 0x34)
 13A5  002B        RETURN
 
 SETEKILL_3F:

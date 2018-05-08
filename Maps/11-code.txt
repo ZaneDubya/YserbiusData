@@ -1,6 +1,6 @@
 STRSTELE_01:
 0001  0000        BEGIN
-0004  0003        GoMap(0x02, 0xCD, 0x01, 0x03)
+0004  0003        SetMoveMap(0x02, 0xCD, 0x01, 0x03)
 001F  001E        RETURN
 
 KEYDOOR_02:
@@ -8,12 +8,12 @@ KEYDOOR_02:
 0024  0003        ax = UsedItem(0xDC, 0xDC)
 0037  0016        If (result.equal) jump to 0063
 0039  0018        Push(01)
-003D  001C        ax = SetExitability(ax) // ax is usually 0 following equality check
+003D  001C        ax = GetFacing()
 0044  0023        Push(ax)
 0045  0024        ax = GetNextTile()
 004C  002B        Push(ax)
-004D  002C        Move(stk[0], stk[1], stk[2])
-0057  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+004D  002C        SetMove2C(stk[0], stk[1], stk[2])
+0057  0036        ax = GetFacing()
 005E  003D        Push(ax)
 005F  003E        ax = GetNextTile()
 0066  0045        Push(ax)
@@ -22,11 +22,11 @@ KEYDOOR_02:
 0075  0054        ShowMessage(0x03FC) = The I Rune Key unlocked the massive door.
 0082  0061        Jump to 008D
 0084  0063        Push(00)
-0087  0066        ax = SetExitability(ax) // ax is usually 0 following equality check
+0087  0066        ax = GetFacing()
 008E  006D        Push(ax)
 008F  006E        ax = GetNextTile()
 0096  0075        Push(ax)
-0097  0076        Move(stk[0], stk[1], stk[2])
+0097  0076        SetMove2C(stk[0], stk[1], stk[2])
 00A1  0080        ShowMessage(0x0426) = The door is locked.  It can be opened by a special key.
 00AE  008D        RETURN
 

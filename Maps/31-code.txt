@@ -15,11 +15,9 @@ RIVER_01:
 005F  0057        ax = CheckState(0x02, 0x6D)
 0070  0068        RefreshCompareFlags(ax)
 0072  006A        If (result.equal) jump to 007E
-0074  006C        SetTileFloor(0x00, 0x9C)
-0082  007A        cx = Pop()
-0083  007B        cx = Pop()
+0074  006C        SetMove38(0x00, 0x9C)
 0084  007C        Jump to 008F
-0086  007E        SetTileFloor(0x03, 0x9C)
+0086  007E        SetMove38(0x03, 0x9C)
 0097  008F        RETURN
 
 RIVRBANK_02:
@@ -38,7 +36,7 @@ STEPCYCL_03:
 00D7  002C        Push(00)
 00DA  002F        ax = GetNextTile()
 00E1  0036        Push(ax)
-00E2  0037        Move(stk[0], stk[1], stk[2])
+00E2  0037        SetMove2C(stk[0], stk[1], stk[2])
 00EC  0041        RemoveItem(0xD6)
 00F8  004D        SetState(0x02, 0x6E, 0x01)
 010D  0062        ShowMessage(0x047C) = Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
@@ -55,12 +53,10 @@ STEPMINE_04:
 0151  0026        If (result.equal) jump to 0068
 0153  0028        RemoveItem(0xD5)
 015F  0034        SetState(0x02, 0x6D, 0x01)
-0174  0049        SetTileFloor(0x00, 0x9C)
-0182  0057        cx = Pop()
-0183  0058        cx = Pop()
+0174  0049        SetMove38(0x00, 0x9C)
 0184  0059        ShowMessage(0x050C) = Your Dwarf Mine Key activated this platform.
 0191  0066        Jump to 0079
-0193  0068        SetTileFloor(0x03, 0x9C)
+0193  0068        SetMove38(0x03, 0x9C)
 01A4  0079        RETURN
 
 STEPHIDE_05:
@@ -73,11 +69,11 @@ STEPHIDE_05:
 01CE  0028        RemoveItem(0xD7)
 01DA  0034        SetState(0x02, 0x6F, 0x01)
 01EF  0049        Push(01)
-01F3  004D        ax = SetExitability(ax) // ax is usually 0 following equality check
+01F3  004D        ax = GetFacing()
 01FA  0054        Push(ax)
 01FB  0055        ax = GetNextTile()
 0202  005C        Push(ax)
-0203  005D        Move(stk[0], stk[1], stk[2])
+0203  005D        SetMove2C(stk[0], stk[1], stk[2])
 020D  0067        ShowMessage(0x0539) = Your Hidden Mine Key makes the wall become transparent.
 021A  0074        Jump to 0083
 021C  0076        ShowMessage(0x0571) = There is something strange about this wall.
@@ -85,7 +81,7 @@ STEPHIDE_05:
 
 ASENDB_06:
 022B  0000        BEGIN
-022E  0003        GoMap(0x02, 0xCC, 0x02, 0x38)
+022E  0003        SetMoveMap(0x02, 0xCC, 0x02, 0x38)
 0249  001E        RETURN
 
 EMPTY:
@@ -96,12 +92,12 @@ EMPTY:
 
 DSENDC_09:
 0255  0000        BEGIN
-0258  0003        GoMap(00, 0xE1, 0x02, 0x38)
+0258  0003        SetMoveMap(00, 0xE1, 0x02, 0x38)
 0272  001D        RETURN
 
 ESENDF_0A:
 0274  0000        BEGIN
-0277  0003        GoMap(00, 0xFD, 0x02, 0x38)
+0277  0003        SetMoveMap(00, 0xFD, 0x02, 0x38)
 0291  001D        RETURN
 
 EMPTY:
@@ -115,18 +111,18 @@ SECDOORA_0C:
 02AC  0014        ax = UsedItem(0xBE, 0xBE)
 02BF  0027        If (result.equal) jump to 0072
 02C1  0029        ShowMessage(0x059D) = You locate a hidden door in the wall.
-02CE  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+02CE  0036        ax = GetFacing()
 02D5  003D        Push(ax)
 02D6  003E        ax = GetNextTile()
 02DD  0045        Push(ax)
 02DE  0046        Push(01)
 02E2  004A        SetUnblocked()
 02EC  0054        Push(01)
-02F0  0058        ax = SetExitability(ax) // ax is usually 0 following equality check
+02F0  0058        ax = GetFacing()
 02F7  005F        Push(ax)
 02F8  0060        ax = GetNextTile()
 02FF  0067        Push(ax)
-0300  0068        Move(stk[0], stk[1], stk[2])
+0300  0068        SetMove2C(stk[0], stk[1], stk[2])
 030A  0072        RETURN
 
 SECDOORB_0D:
@@ -137,18 +133,18 @@ SECDOORB_0D:
 0320  0014        ax = UsedItem(0xBE, 0xBE)
 0333  0027        If (result.equal) jump to 0072
 0335  0029        ShowMessage(0x05C3) = You locate a hidden door in the wall.
-0342  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+0342  0036        ax = GetFacing()
 0349  003D        Push(ax)
 034A  003E        ax = GetNextTile()
 0351  0045        Push(ax)
 0352  0046        Push(01)
 0356  004A        SetUnblocked()
 0360  0054        Push(01)
-0364  0058        ax = SetExitability(ax) // ax is usually 0 following equality check
+0364  0058        ax = GetFacing()
 036B  005F        Push(ax)
 036C  0060        ax = GetNextTile()
 0373  0067        Push(ax)
-0374  0068        Move(stk[0], stk[1], stk[2])
+0374  0068        SetMove2C(stk[0], stk[1], stk[2])
 037E  0072        RETURN
 
 SECDOORC_0E:
@@ -159,30 +155,30 @@ SECDOORC_0E:
 0394  0014        ax = UsedItem(0xBE, 0xBE)
 03A7  0027        If (result.equal) jump to 0074
 03A9  0029        ShowMessage(0x05E9) = You locate a hidden door in the wall.
-03B6  0036        ax = SetExitability(ax) // ax is usually 0 following equality check
+03B6  0036        ax = GetFacing()
 03BD  003D        Push(ax)
 03BE  003E        ax = GetNextTile()
 03C5  0045        Push(ax)
 03C6  0046        Push(01)
 03CA  004A        SetUnblocked()
 03D4  0054        Push(01)
-03D8  0058        ax = SetExitability(ax) // ax is usually 0 following equality check
+03D8  0058        ax = GetFacing()
 03DF  005F        Push(ax)
 03E0  0060        ax = GetNextTile()
 03E7  0067        Push(ax)
-03E8  0068        Move(stk[0], stk[1], stk[2])
+03E8  0068        SetMove2C(stk[0], stk[1], stk[2])
 03F2  0072        Jump to 0091
 03F4  0074        Push(00)
-03F7  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+03F7  0077        ax = GetFacing()
 03FE  007E        Push(ax)
 03FF  007F        ax = GetNextTile()
 0406  0086        Push(ax)
-0407  0087        Move(stk[0], stk[1], stk[2])
+0407  0087        SetMove2C(stk[0], stk[1], stk[2])
 0411  0091        RETURN
 
 GSENDH_0F:
 0413  0000        BEGIN
-0416  0003        GoMap(00, 0x02, 0x02, 0x38)
+0416  0003        SetMoveMap(00, 0x02, 0x02, 0x38)
 0430  001D        RETURN
 
 EMPTY:
@@ -190,7 +186,7 @@ EMPTY:
 
 ISENDJ_11:
 0437  0000        BEGIN
-043A  0003        GoMap(0x02, 0x60, 0x02, 0x38)
+043A  0003        SetMoveMap(0x02, 0x60, 0x02, 0x38)
 0455  001E        RETURN
 
 EMPTY:
@@ -225,13 +221,13 @@ LAVA_15:
 GATEA_16:
 050E  0000        BEGIN
 0511  0003        ShowMessage(0x07E8) = This gate leads to DWARF KINGDOM.
-051E  0010        GoMap(00, 0x3F, 0x01, 0x38)
+051E  0010        SetMoveMap(00, 0x3F, 0x01, 0x38)
 0538  002A        RETURN
 
 GATEB_17:
 053A  0000        BEGIN
 053D  0003        ShowMessage(0x080A) = This gate leads to RIVERS END.
-054A  0010        GoMap(00, 0x0B, 0x03, 0x38)
+054A  0010        SetMoveMap(00, 0x0B, 0x03, 0x38)
 0564  002A        RETURN
 
 _18:

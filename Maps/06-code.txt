@@ -1,41 +1,41 @@
 TOEXIT_01:
 0002  0000        BEGIN
-0005  0003        GoMap(0x03, 0x85, 0x01, 0x01)
+0005  0003        SetMoveMap(0x03, 0x85, 0x01, 0x01)
 0020  001E        RETURN
 
 TOTREAS_02:
 0022  0000        BEGIN
-0025  0003        GoMap(0x02, 0xA0, 0x05, 0x01)
+0025  0003        SetMoveMap(0x02, 0xA0, 0x05, 0x01)
 0040  001E        RETURN
 
 STAIRSD_03:
 0042  0000        BEGIN
-0045  0003        GoMap(0x02, 0x81, 0x01, 0x02)
+0045  0003        SetMoveMap(0x02, 0x81, 0x01, 0x02)
 0060  001E        RETURN
 
 TELPORTS_04:
 0062  0000        BEGIN
-0065  0003        GoMap(0x01, 0xCD, 0x06, 0x01)
+0065  0003        SetMoveMap(0x01, 0xCD, 0x06, 0x01)
 0080  001E        RETURN
 
 TELPORTN_05:
 0082  0000        BEGIN
-0085  0003        GoMap(0x01, 0x3C, 0x06, 0x01)
+0085  0003        SetMoveMap(0x01, 0x3C, 0x06, 0x01)
 00A0  001E        RETURN
 
 TELEPORT_06:
 00A2  0000        BEGIN
-00A5  0003        GoMap(0x02, 0xCA, 0x02, 0x03)
+00A5  0003        SetMoveMap(0x02, 0xCA, 0x02, 0x03)
 00C0  001E        RETURN
 
 TELPORTW_07:
 00C2  0000        BEGIN
-00C5  0003        GoMap(0x01, 0x77, 0x06, 0x01)
+00C5  0003        SetMoveMap(0x01, 0x77, 0x06, 0x01)
 00E0  001E        RETURN
 
 TELPORTE_08:
 00E2  0000        BEGIN
-00E5  0003        GoMap(0x03, 0x9E, 0x06, 0x01)
+00E5  0003        SetMoveMap(0x03, 0x9E, 0x06, 0x01)
 0100  001E        RETURN
 
 LKPKDOOR_09:
@@ -46,12 +46,12 @@ LKPKDOOR_09:
 0126  0024        compare(ax, 0x0005)
 0129  0027        If (result.below) jump to 0074
 012B  0029        Push(01)
-012F  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+012F  002D        ax = GetFacing()
 0136  0034        Push(ax)
 0137  0035        ax = GetNextTile()
 013E  003C        Push(ax)
-013F  003D        Move(stk[0], stk[1], stk[2])
-0149  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+013F  003D        SetMove2C(stk[0], stk[1], stk[2])
+0149  0047        ax = GetFacing()
 0150  004E        Push(ax)
 0151  004F        ax = GetNextTile()
 0158  0056        Push(ax)
@@ -60,11 +60,11 @@ LKPKDOOR_09:
 0167  0065        ShowMessage(0x03FC) = You successfully picked the locked door.
 0174  0072        Jump to 009E
 0176  0074        Push(00)
-0179  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+0179  0077        ax = GetFacing()
 0180  007E        Push(ax)
 0181  007F        ax = GetNextTile()
 0188  0086        Push(ax)
-0189  0087        Move(stk[0], stk[1], stk[2])
+0189  0087        SetMove2C(stk[0], stk[1], stk[2])
 0193  0091        ShowMessage(0x0425) = The door is locked.
 01A0  009E        RETURN
 
@@ -427,12 +427,12 @@ LKPKDOOR_18:
 0FE0  0024        compare(ax, 0x0006)
 0FE3  0027        If (result.below) jump to 0074
 0FE5  0029        Push(01)
-0FE9  002D        ax = SetExitability(ax) // ax is usually 0 following equality check
+0FE9  002D        ax = GetFacing()
 0FF0  0034        Push(ax)
 0FF1  0035        ax = GetNextTile()
 0FF8  003C        Push(ax)
-0FF9  003D        Move(stk[0], stk[1], stk[2])
-1003  0047        ax = SetExitability(ax) // ax is usually 0 following equality check
+0FF9  003D        SetMove2C(stk[0], stk[1], stk[2])
+1003  0047        ax = GetFacing()
 100A  004E        Push(ax)
 100B  004F        ax = GetNextTile()
 1012  0056        Push(ax)
@@ -441,11 +441,11 @@ LKPKDOOR_18:
 1021  0065        ShowMessage(0x0761) = You successfully picked the locked door.
 102E  0072        Jump to 009E
 1030  0074        Push(00)
-1033  0077        ax = SetExitability(ax) // ax is usually 0 following equality check
+1033  0077        ax = GetFacing()
 103A  007E        Push(ax)
 103B  007F        ax = GetNextTile()
 1042  0086        Push(ax)
-1043  0087        Move(stk[0], stk[1], stk[2])
+1043  0087        SetMove2C(stk[0], stk[1], stk[2])
 104D  0091        ShowMessage(0x078A) = The door is locked.
 105A  009E        RETURN
 
