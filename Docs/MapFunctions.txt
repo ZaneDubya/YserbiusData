@@ -60,14 +60,17 @@ AddTreasure             Adds items to loot screen which will follow combat;
 CheckState              Returns state of type, offset. Always followed by compare. Must not set result flags?
 CheckState2             Returns state of type, offset. Seems to automatically set result flags.
 CheckState3             Returns state of type, offset. Seems to automatically set result flags.
-SetState
-SetTileFloor
-ShowRunes
-ShowMessage
-ShowPortrait
-UnknownFunction1C
-UnknownFunctionC4
-UnknownFunctionEC
-UsedItem
-UsedSkill
-UsedSpell
+SetState                Sets state of type param0, index param1, value param2
+SetTileFloor            Sets the floor tile to type param0
+ShowRunes               Shows message param0 (short) in runes. If rune reading has been used, reveals the message
+ShowMessage             Shows message param0 (short).
+ShowPortrait            Shows a portrait of index=param0
+UnknownFunction1C       Used to afflict status of type == param0 on character
+UnknownFunctionC4       Unknown. Only used before the river of eternity taps your life energy (30-code for example).
+UnknownFunctionEC       Unknown. Always passed with short param 0x000f and compared to another short param==2-.
+                        Always used in context of an NPC giving advice or ignoring/attacking you.
+                        I doubt it has anything to do with checking a level.
+UsedItem                Returns 1 if player has used this item on this tile/facing.
+                        Any item between id == param0 and id == param1 are allowed.
+UsedSkill               If player has used character.skill(param0), returns skill level, else 0.
+UsedSpell               If player has used character.spell(param0), returns spell level, else 0.
