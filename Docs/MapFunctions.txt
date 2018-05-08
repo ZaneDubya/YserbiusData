@@ -10,8 +10,8 @@ Compare                 Compares register with value. Value can be byte or short
                         Sets all result flags.
 If (result) Jump        If the indicated sult flag is set, changes the program counter.
 Jump                    Changes the program counter.
-Pop
-Push
+Pop                     Pops one byte from the stack. Used to restore values.
+Push                    Pushes one byte onto the stack. Used to save values and pass params to functions.
 
 == Character Functions ==
 Fn Name_____            Notes____
@@ -25,17 +25,18 @@ GetAlignment            Returns character.alignment
 GetCurrentHits          Returns character.current_hits
 GetGuild                Returns character.guild
 GetMaxHits              Returns character.max_health
-GetRace
-GetSkillLevel
-GetWeapon
-GiveItem
-HasItem
-ModifyAttribute
-ModifyGold
-PartyCount
-RemoveItem
-SetSkillLevel
-TeachSpell
+GetRace                 Returns character.race
+GetSkillLevel           Returns character.skill(param0)
+GetWeapon               Gets the item code of the character's equipped weapon.
+GiveItem                Adds an item with id==param0 to player's inventory.
+HasItem                 Returns 1 if player has any items with id==param0 in equipment/inventory. 0 otherwise.
+ModifyAttribute         Adds a value to the attribute
+                        Param0 is byte attribute index, Param1 is signed short value (can be negative!)
+ModifyGold              Adds a value to character.gold. Param0 is signed int value (can be negative!)
+PartyCount              Returns party.count
+RemoveItem              Removes (one? all?) of the items in the character's equipment/inventory with id==param0.
+SetSkillLevel           Sets character.skill(param0) == param1
+TeachSpell              Sets character.spell(param0) == param1
 
 == Movement Functions ==
 Fn Name_____            Notes____
@@ -53,11 +54,12 @@ TileIsNoJoinArea
 
 == Interaction Functions ==
 Fn Name_____            Notes____
-
-
-CheckState              Returns state of type, offset. Always followed by compare. Must not set result flags.
+AddEncounter            Adds param1 count of param0 monsters, at RETURN, combat starts
+AddTreasure             Adds items to loot screen which will follow combat;
+                        Param0 is short gold, params1-5 are loot items with id==paramX.
+CheckState              Returns state of type, offset. Always followed by compare. Must not set result flags?
 CheckState2             Returns state of type, offset. Seems to automatically set result flags.
-CheckState3
+CheckState3             Returns state of type, offset. Seems to automatically set result flags.
 SetState
 SetTileFloor
 ShowRunes
@@ -69,6 +71,3 @@ UnknownFunctionEC
 UsedItem
 UsedSkill
 UsedSpell
-
-AddEncounter
-AddTreasure
