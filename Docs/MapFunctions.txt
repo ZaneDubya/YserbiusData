@@ -1,49 +1,59 @@
-Fn Name_____        Result
-AddEncounter
-AddExperience
-AddHealth
-AddMana
-AddTreasure
-BEGIN                   Note: can save si, di, both, or neither.
-CheckLevel              Returns character level.
-CheckState              Returns state of type, offset. Always followed by compare. Must not set result flags.
-CheckState2             Returns state of type, offset. Seems to automatically set result flags.
-CheckState3
-CheckStrength
-Compare
-DoDamage
-ExitDungeon
-GetAlignment
-GetCurrentHits
-GetGuild
-GetMaxHits              Returns character max hp.
-GetNextTile
+All parameters to functions are bytes except where noted.
+
+
+
+== Script Functions ==
+Fn Name_____            Notes____
+BEGIN                   Can save si, di, both, or neither.
+RETURN                  Can restore si, di, both, or neither.
+Compare                 Compares register with value. Value can be byte or short.
+                        Sets all result flags.
+If (result) Jump        If the indicated sult flag is set, changes the program counter.
+Jump                    Changes the program counter.
+
+== Character Functions ==
+Fn Name_____            Notes____
+AddExperience           Increments character.experience by value
+AddHealth               Increments character.max_heath by value
+AddMana                 Increments character.max_mana by value
+CheckLevel              Returns character.level
+CheckStrength           Returns character.attribute_strength
+DoDamage                Decrements character.curent_hits by value
+GetAlignment            Returns character.alignment
+GetCurrentHits          Returns character.current_hits
+GetGuild                Returns character.guild
+GetMaxHits              Returns character.max_health
 GetRace
 GetSkillLevel
 GetWeapon
-GiveItem
-GoMap
 HasItem
-If
-Jump
 ModifyAttribute
 ModifyGold
+SetSkillLevel
+TeachSpell
+
+CheckState              Returns state of type, offset. Always followed by compare. Must not set result flags.
+CheckState2             Returns state of type, offset. Seems to automatically set result flags.
+CheckState3
+ExitDungeon             Leaves dungeon from upper entrance.
+GetNextTile
+GoMap                   Params: Facing, Tile, Map, ?
+                                Facing (S = 1, E = 2, N = 3, W = ?)
+                                Tile is (Y << 4) | (X).
+                                Param 4 is always(?) 1.
 Move
 Move2
 PartyCount
 Pop
 Push
 RemoveItem
-RETURN                  Note: can restore si, di, both, or neither.
 SetExitability
-SetSkillLevel
 SetState
 SetTileFloor
 SetUnblocked
 ShowRunes
 ShowMessage
 ShowPortrait
-TeachSpell
 TileIsNoJoinArea
 UnknownFunction1C
 UnknownFunctionC4
@@ -51,3 +61,7 @@ UnknownFunctionEC
 UsedItem
 UsedSkill
 UsedSpell
+
+AddEncounter
+AddTreasure
+GiveItem
