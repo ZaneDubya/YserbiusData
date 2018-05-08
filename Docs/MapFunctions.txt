@@ -10,6 +10,8 @@ Compare                 Compares register with value. Value can be byte or short
                         Sets all result flags.
 If (result) Jump        If the indicated sult flag is set, changes the program counter.
 Jump                    Changes the program counter.
+Pop
+Push
 
 == Character Functions ==
 Fn Name_____            Notes____
@@ -26,35 +28,41 @@ GetMaxHits              Returns character.max_health
 GetRace
 GetSkillLevel
 GetWeapon
+GiveItem
 HasItem
 ModifyAttribute
 ModifyGold
+PartyCount
+RemoveItem
 SetSkillLevel
 TeachSpell
 
-CheckState              Returns state of type, offset. Always followed by compare. Must not set result flags.
-CheckState2             Returns state of type, offset. Seems to automatically set result flags.
-CheckState3
+== Movement Functions ==
+Fn Name_____            Notes____
 ExitDungeon             Leaves dungeon from upper entrance.
-GetNextTile
 GoMap                   Params: Facing, Tile, Map, ?
                                 Facing (S = 1, E = 2, N = 3, W = ?)
                                 Tile is (Y << 4) | (X).
                                 Param 4 is always(?) 1.
+GetNextTile
 Move
 Move2
-PartyCount
-Pop
-Push
-RemoveItem
 SetExitability
+SetUnblocked
+TileIsNoJoinArea
+
+== Interaction Functions ==
+Fn Name_____            Notes____
+
+
+CheckState              Returns state of type, offset. Always followed by compare. Must not set result flags.
+CheckState2             Returns state of type, offset. Seems to automatically set result flags.
+CheckState3
 SetState
 SetTileFloor
-SetUnblocked
 ShowRunes
 ShowMessage
 ShowPortrait
-TileIsNoJoinArea
 UnknownFunction1C
 UnknownFunctionC4
 UnknownFunctionEC
@@ -64,4 +72,3 @@ UsedSpell
 
 AddEncounter
 AddTreasure
-GiveItem
