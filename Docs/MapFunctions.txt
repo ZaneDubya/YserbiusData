@@ -1,0 +1,53 @@
+Fn Name_____        Result
+AddEncounter
+AddExperience
+AddHealth
+AddMana
+AddTreasure
+BEGIN                   Note: can save si, di, both, or neither.
+CheckLevel              Returns character level.
+CheckState              Returns state of type, offset. Always followed by compare. Must not set result flags.
+CheckState2             Returns state of type, offset. Seems to automatically set result flags.
+CheckState3
+CheckStrength
+Compare
+DoDamage
+ExitDungeon
+GetAlignment
+GetCurrentHits
+GetGuild
+GetMaxHits              Returns character max hp.
+GetNextTile
+GetRace
+GetSkillLevel
+GetWeapon
+GiveItem
+GoMap
+HasItem
+If
+Jump
+ModifyAttribute
+ModifyGold
+Move
+Move2
+PartyCount
+Pop
+Push
+RemoveItem
+RETURN                  Note: can restore si, di, both, or neither.
+SetExitability
+SetSkillLevel
+SetState
+SetTileFloor
+SetUnblocked
+ShowRunes
+ShowMessage
+ShowPortrait
+TeachSpell
+TileIsNoJoinArea
+UnknownFunction1C
+UnknownFunctionC4
+UnknownFunctionEC
+UsedItem
+UsedSkill
+UsedSpell
