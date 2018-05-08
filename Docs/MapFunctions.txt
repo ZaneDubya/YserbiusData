@@ -1,6 +1,4 @@
-All parameters to functions are bytes except where noted.
-
-
+All function parameters are bytes except where otherwise noted ("short", etc).
 
 == Script Functions ==
 Fn Name_____            Notes____
@@ -12,6 +10,7 @@ If (result) Jump        If the indicated sult flag is set, changes the program c
 Jump                    Changes the program counter.
 Pop                     Pops one byte from the stack. Used to restore values.
 Push                    Pushes one byte onto the stack. Used to save values and pass params to functions.
+
 
 == Character Functions ==
 Fn Name_____            Notes____
@@ -38,13 +37,15 @@ RemoveItem              Removes (one? all?) of the items in the character's equi
 SetSkillLevel           Sets character.skill(param0) == param1
 TeachSpell              Sets character.spell(param0) == param1
 
+
 == Movement Functions ==
 Fn Name_____            Notes____
 ExitDungeon             Leaves dungeon from upper entrance.
-GoMap                   Params: Facing, Tile, Map, ?
-                                Facing (S = 1, E = 2, N = 3, W = ?)
-                                Tile is (Y << 4) | (X).
-                                Param 4 is always(?) 1.
+GoMap                   Param0=Facing (S = 1, E = 2, N = 3, W = 0?)
+                        Param1=Tile (Y << 4) | (X)
+                        Param2=MapIndex
+                        Param3=MapLevel.
+                        MapIndex and MapLevel combine to get the map the player should move to.
 GetNextTile
 Move
 Move2
