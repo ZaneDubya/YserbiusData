@@ -1,0 +1,1048 @@
+namespace ZCF.Scripts.Maps {
+    class YserMap21 : ACanoMapScript {
+        // === Strings ================================================
+        private const string String03FC = "You step into a bottomless pit and die.";
+        private const string String0424 = "Guardians stand ready.  'We are sworn to defend Arnakkian.'";
+        private const string String0460 = "Earth Elemental Andreas rises from his mountainous perch.";
+        private const string String049A = "Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.";
+        private const string String04EA = "The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.";
+        private const string String0555 = "The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.";
+        private const string String05B8 = "A voice whispers 'Only true friendship can bridge the gap of time.'";
+        private const string String05FC = "Quiet solitude fills the chasm.  You are on the other side.";
+        private const string String0638 = "The wall glows.";
+        private const string String0648 = "The wall glows.";
+        private const string String0658 = "The wall glows.";
+        private const string String0668 = "The wall glows.";
+        private const string String0678 = "The wall glows.";
+        private const string String0688 = "The wall glows.";
+        private const string String0698 = "The wall glows.";
+        private const string String06A8 = "The wall glows.";
+        private const string String06B8 = "The wall glows.";
+        private const string String06C8 = "The wall glows.";
+        private const string String06D8 = "The wall glows.";
+        private const string String06E8 = "The wall glows.";
+        private const string String06F8 = "The wall glows.";
+        private const string String0708 = "Your decision on where to step next saves you.";
+        private const string String0737 = "You step over the edge and into oblivion.";
+        private const string String0761 = "You selected your next move wisely.";
+        private const string String0785 = "You step over the edge and into oblivion.";
+        private const string String07AF = "Your next step is a safe one.";
+        private const string String07CD = "You step over the edge and into oblivion.";
+        private const string String07F7 = "The step you take is wisely chosen.";
+        private const string String081B = "You step over the edge and into oblivion.";
+        private const string String0845 = "You take one good step forward.";
+        private const string String0865 = "You step over the edge and into oblivion.";
+        private const string String088F = "You safely step forward.";
+        private const string String08A8 = "You step over the edge and into oblivion.";
+        private const string String08D2 = "You take a step in the right direction,";
+        private const string String08FA = "You step over the edge and into oblivion.";
+        private const string String0924 = "Your move is wise.";
+        private const string String0937 = "You step over the edge and into oblivion.";
+        private const string String0961 = "You select your next move wisely.";
+        private const string String0983 = "You step over the edge and into oblivion.";
+        private const string String09AD = "You move forward with confidence.";
+        private const string String09CF = "You step over the edge and into oblivion.";
+        private const string String09F9 = "Your next step is a good one.";
+        private const string String0A17 = "You step over the edge and into oblivion.";
+        private const string String0A41 = "You move ahead assuredly.";
+        private const string String0A5B = "You step over the edge and into oblivion.";
+        private const string String0A85 = "You choose your next step correctly.";
+        private const string String0AAA = "You step over the edge and into oblivion.";
+        private const string String0AD4 = "Your choice of movement saves you.";
+        private const string String0AF7 = "You step over the edge and into oblivion.";
+        private const string String0B21 = "You step in the right direction.";
+        private const string String0B42 = "You step over the edge and into oblivion.";
+        private const string String0B6C = "You select your next step wisely.";
+        private const string String0B8E = "You step over the edge and into oblivion.";
+        private const string String0BB8 = "Your next step is sagely chosen.";
+        private const string String0BD9 = "You step over the edge and into oblivion.";
+        private const string String0C03 = "You take a wise step forward.";
+        private const string String0C21 = "You step over the edge and into oblivion.";
+        private const string String0C4B = "You move forward wisely.";
+        private const string String0C64 = "You step over the edge and into oblivion.";
+        private const string String0C8E = "Your next step is wisely decided.";
+        private const string String0CB0 = "You step over the edge and into oblivion.";
+        private const string String0CDA = "You step ahead with confidence.";
+        private const string String0CFA = "You step over the edge and into oblivion.";
+        private const string String0D24 = "You move forward carefully.";
+        private const string String0D40 = "You step over the edge and into oblivion.";
+        private const string String0D6A = "You move ahead.";
+        private const string String0D7A = "You step over the edge and into oblivion.";
+        private const string String0DA4 = "Your step is wisely selected.";
+        private const string String0DC2 = "You step over the edge and into oblivion.";
+        private const string String0DEC = "You forge ahead.";
+        private const string String0DFD = "You step over the edge and into oblivion.";
+        private const string String0E27 = "You select your next move wisely.";
+        private const string String0E49 = "You step over the edge and into oblivion.";
+        private const string String0E73 = "Good sense guides your feet.";
+        private const string String0E90 = "You step over the edge and into oblivion.";
+        private const string String0EBA = "You walk ahead.";
+        private const string String0ECA = "You step over the edge and into oblivion.";
+        private const string String0EF4 = "Your next step is assuredly taken.";
+        private const string String0F17 = "You step over the edge and into oblivion.";
+        private const string String0F41 = "The next step is an intelligent one.";
+        private const string String0F66 = "You step over the edge and into oblivion.";
+        private const string String0F90 = "You move safely ahead.";
+        private const string String0FA7 = "You step over the edge and into oblivion.";
+        private const string String0FD1 = "Your movement decision was correct.";
+        private const string String0FF5 = "You step over the edge and into oblivion.";
+        private const string String101F = "You move forward with confidence.";
+        private const string String1041 = "You step over the edge and into oblivion.";
+        private const string String106B = "You carefully selected your next step.";
+        private const string String1092 = "You step over the edge and into oblivion.";
+        private const string String10BC = "You make a sage choice.";
+        private const string String10D4 = "You step over the edge and into oblivion.";
+        private const string String10FE = "You have made a wise decision.";
+        private const string String111D = "You step over the edge and into oblivion.";
+        private const string String1147 = "Andreas no longer defends this door.";
+        private const string String116C = "The Earth Elemental holds power over this door.";
+        private const string String119C = "A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.";
+        
+        // === Functions ================================================
+        private override MapEventHandler MapEvent01 => PIT_01;
+        private void PIT_01(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String03FC); // You step into a bottomless pit and die.
+            L0010: ax = GetMaxHits74(party);
+            L0017: DoDamage90(party, ax);
+            L0021: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent02 => ENCGUARD_02;
+        private void ENCGUARD_02(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String0424); // Guardians stand ready.  'We are sworn to defend Arnakkian.'
+            L0010: AddEncounter(party, 0x27, 0x01);
+            L0022: AddEncounter(party, 0x27, 0x02);
+            L0034: AddEncounter(party, 0x27, 0x03);
+            L0046: AddEncounter(party, 0x27, 0x04);
+            L0058: AddEncounter(party, 0x27, 0x05);
+            L006A: ax = CheckState04(party, 0x02, 0x88);
+            L007B: RefreshCompareFlags(ax);
+            L007D: if (result.notequal) goto L00A6;
+            L007F: SetState00(party, 0x02, 0x88, 0x01);
+            L0094: AddExperience98(party, 0x0007A120);
+            L00A6: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent03 => ENCEARTH_03;
+        private void ENCEARTH_03(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x01);
+            L0014: RefreshCompareFlags(ax);
+            L0016: if (result.equal) goto L001B;
+            L0018: goto L0123;
+            L001B: ShowMessage(party, String0460); // Earth Elemental Andreas rises from his mountainous perch.
+            L0028: AddEncounter(party, 0x04, 0x01);
+            L003A: AddEncounter(party, 0x04, 0x02);
+            L004C: AddEncounter(party, 0x22, 0x03);
+            L005E: AddEncounter(party, 0x0F, 0x04);
+            L0070: AddEncounter(party, 0x23, 0x05);
+            L0082: AddEncounter(party, 0x28, 0x06);
+            L0094: ax = HasItem50(party, 0xE9);
+            L00A2: if (result.equal) goto L00C6;
+            L00A4: AddTreasure(party, 0x0000, 0x00, 0x00, 0x50, 0x50, 0xD0);
+            L00C4: goto L0123;
+            L00C6: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x88, 0x1D, 0xE9);
+            L00E7: ax = CheckState04(party, 0x02, 0x8A);
+            L00F8: RefreshCompareFlags(ax);
+            L00FA: if (result.notequal) goto L0123;
+            L00FC: SetState00(party, 0x02, 0x8A, 0x01);
+            L0111: AddExperience98(party, 0x0003D090);
+            L0123: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent04 => GUARDIAN_04;
+        private void GUARDIAN_04(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String049A); // Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
+            L0010: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent05 => EARTHELE_05;
+        private void EARTHELE_05(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x01);
+            L0014: RefreshCompareFlags(ax);
+            L0016: if (result.notequal) goto L0025;
+            L0018: ShowMessage(party, String04EA); // The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent06 => PLATA_06;
+        private void PLATA_06(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String0555); // The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
+            L0010: ShowMessage(party, String05B8); // A voice whispers 'Only true friendship can bridge the gap of time.'
+            L001D: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent07 => PLATB_07;
+        private void PLATB_07(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String05FC); // Quiet solitude fills the chasm.  You are on the other side.
+            L0010: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent08 => YBOXA_08;
+        private void YBOXA_08(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String0638); // The wall glows.
+            L0010: SetState00(party, 0x01, 0x02, 0x01);
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent09 => YBOXB_09;
+        private void YBOXB_09(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String0648); // The wall glows.
+            L0010: SetState00(party, 0x01, 0x02, 0x02);
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent0A => YBOXC_0A;
+        private void YBOXC_0A(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String0658); // The wall glows.
+            L0010: SetState00(party, 0x01, 0x02, 0x03);
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent0B => YBOXD_0B;
+        private void YBOXD_0B(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String0668); // The wall glows.
+            L0010: SetState00(party, 0x01, 0x02, 0x04);
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent0C => YBOXE_0C;
+        private void YBOXE_0C(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String0678); // The wall glows.
+            L0010: SetState00(party, 0x01, 0x02, 0x05);
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent0D => YBOXF_0D;
+        private void YBOXF_0D(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String0688); // The wall glows.
+            L0010: SetState00(party, 0x01, 0x02, 0x06);
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent0E => XBOXG_0E;
+        private void XBOXG_0E(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String0698); // The wall glows.
+            L0010: SetState00(party, 0x01, 0x03, 0x01);
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent0F => XBOXH_0F;
+        private void XBOXH_0F(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String06A8); // The wall glows.
+            L0010: SetState00(party, 0x01, 0x03, 0x02);
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent10 => XBOXI_10;
+        private void XBOXI_10(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String06B8); // The wall glows.
+            L0010: SetState00(party, 0x01, 0x03, 0x03);
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent11 => XBOXJ_11;
+        private void XBOXJ_11(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String06C8); // The wall glows.
+            L0010: SetState00(party, 0x01, 0x03, 0x04);
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent12 => XBOXK_12;
+        private void XBOXK_12(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String06D8); // The wall glows.
+            L0010: SetState00(party, 0x01, 0x03, 0x05);
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent13 => XBOXL_13;
+        private void XBOXL_13(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String06E8); // The wall glows.
+            L0010: SetState00(party, 0x01, 0x03, 0x06);
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent14 => XBOXM_14;
+        private void XBOXM_14(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String06F8); // The wall glows.
+            L0010: SetState00(party, 0x01, 0x03, 0x07);
+            L0025: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent15 => PITAJ_15;
+        private void PITAJ_15(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0001);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0004);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0708); // Your decision on where to step next saves you.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0737); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent16 => PITAK_16;
+        private void PITAK_16(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0001);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0005);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0761); // You selected your next move wisely.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0785); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent17 => PITAL_17;
+        private void PITAL_17(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0001);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0006);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String07AF); // Your next step is a safe one.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String07CD); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent18 => PITAM_18;
+        private void PITAM_18(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0001);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0007);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String07F7); // The step you take is wisely chosen.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String081B); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent19 => PITBG_19;
+        private void PITBG_19(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0002);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0001);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0845); // You take one good step forward.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0865); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent1A => PITBI_1A;
+        private void PITBI_1A(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0002);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0003);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String088F); // You safely step forward.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String08A8); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent1B => PITBJ_1B;
+        private void PITBJ_1B(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0002);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0004);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String08D2); // You take a step in the right direction,
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String08FA); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent1C => PITBK_1C;
+        private void PITBK_1C(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0002);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0005);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0924); // Your move is wise.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0937); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent1D => PITBL_1D;
+        private void PITBL_1D(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0002);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0006);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0961); // You select your next move wisely.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0983); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent1E => PITBM_1E;
+        private void PITBM_1E(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0002);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0007);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String09AD); // You move forward with confidence.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String09CF); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent1F => PITCG_1F;
+        private void PITCG_1F(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0003);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0001);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String09F9); // Your next step is a good one.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0A17); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent20 => PITCH_20;
+        private void PITCH_20(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0003);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0002);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0A41); // You move ahead assuredly.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0A5B); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent21 => PITCI_21;
+        private void PITCI_21(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0003);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0003);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0A85); // You choose your next step correctly.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0AAA); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent22 => PITCJ_22;
+        private void PITCJ_22(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0003);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0004);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0AD4); // Your choice of movement saves you.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0AF7); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent23 => PITCK_23;
+        private void PITCK_23(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0003);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0005);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0B21); // You step in the right direction.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0B42); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent24 => PITCL_24;
+        private void PITCL_24(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0003);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0006);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0B6C); // You select your next step wisely.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0B8E); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent25 => PITCM_25;
+        private void PITCM_25(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0003);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0007);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0BB8); // Your next step is sagely chosen.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0BD9); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent26 => PITDG_26;
+        private void PITDG_26(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0004);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0001);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0C03); // You take a wise step forward.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0C21); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent27 => PITDH_27;
+        private void PITDH_27(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0004);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0002);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0C4B); // You move forward wisely.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0C64); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent28 => PITDI_28;
+        private void PITDI_28(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0004);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0003);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0C8E); // Your next step is wisely decided.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0CB0); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent29 => PITDJ_29;
+        private void PITDJ_29(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0004);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0004);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0CDA); // You step ahead with confidence.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0CFA); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent2A => PITDK_2A;
+        private void PITDK_2A(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0004);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0005);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0D24); // You move forward carefully.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0D40); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent2B => PITDL_2B;
+        private void PITDL_2B(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0004);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0006);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0D6A); // You move ahead.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0D7A); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent2C => PITDM_2C;
+        private void PITDM_2C(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0004);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0007);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0DA4); // Your step is wisely selected.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0DC2); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent2D => PITEG_2D;
+        private void PITEG_2D(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0005);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0001);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0DEC); // You forge ahead.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0DFD); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent2E => PITEH_2E;
+        private void PITEH_2E(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0005);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0002);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0E27); // You select your next move wisely.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0E49); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent2F => PITEI_2F;
+        private void PITEI_2F(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0005);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0003);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0E73); // Good sense guides your feet.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0E90); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent30 => PITEJ_30;
+        private void PITEJ_30(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0005);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0004);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0EBA); // You walk ahead.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0ECA); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent31 => PITEK_31;
+        private void PITEK_31(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0005);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0005);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0EF4); // Your next step is assuredly taken.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0F17); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent32 => PITFG_32;
+        private void PITFG_32(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0006);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0001);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0F41); // The next step is an intelligent one.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0F66); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent33 => PITFH_33;
+        private void PITFH_33(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0006);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0002);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0F90); // You move safely ahead.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0FA7); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent34 => PITFI_34;
+        private void PITFI_34(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0006);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0003);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String0FD1); // Your movement decision was correct.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String0FF5); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent35 => PITFJ_35;
+        private void PITFJ_35(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0006);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0004);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String101F); // You move forward with confidence.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String1041); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent36 => PITFK_36;
+        private void PITFK_36(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0006);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0005);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String106B); // You carefully selected your next step.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String1092); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent37 => PITFL_37;
+        private void PITFL_37(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0006);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0006);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String10BC); // You make a sage choice.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String10D4); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent38 => PITFM_38;
+        private void PITFM_38(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0014: compare(ax, 0x0006);
+            L0017: if (result.notequal) goto L003E;
+            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L002A: compare(ax, 0x0007);
+            L002D: if (result.notequal) goto L003E;
+            L002F: ShowMessage(party, String10FE); // You have made a wise decision.
+            L003C: goto L005C;
+            L003E: ShowMessage(party, String111D); // You step over the edge and into oblivion.
+            L004B: ax = GetMaxHits74(party);
+            L0052: DoDamage90(party, ax);
+            L005C: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent39 => ENCPITBJ_39;
+        private void ENCPITBJ_39(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: AddEncounter(party, 0x19, 0x01);
+            L0015: AddEncounter(party, 0x1A, 0x02);
+            L0027: AddEncounter(party, 0x1A, 0x03);
+            L0039: AddEncounter(party, 0x1B, 0x04);
+            L004B: AddEncounter(party, 0x1C, 0x05);
+            L005D: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent3A => ENCPITDI_3A;
+        private void ENCPITDI_3A(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: AddEncounter(party, 0x1F, 0x01);
+            L0015: AddEncounter(party, 0x1F, 0x02);
+            L0027: AddEncounter(party, 0x20, 0x03);
+            L0039: AddEncounter(party, 0x20, 0x04);
+            L004B: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent3B => PITENCDK_3B;
+        private void PITENCDK_3B(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: AddEncounter(party, 0x1B, 0x01);
+            L0015: AddEncounter(party, 0x1B, 0x02);
+            L0027: AddEncounter(party, 0x19, 0x03);
+            L0039: AddEncounter(party, 0x19, 0x04);
+            L004B: AddEncounter(party, 0x1B, 0x05);
+            L005D: AddEncounter(party, 0x1B, 0x06);
+            L006F: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent3C => PITENCBL_3C;
+        private void PITENCBL_3C(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: AddEncounter(party, 0x24, 0x01);
+            L0015: AddEncounter(party, 0x24, 0x02);
+            L0027: AddEncounter(party, 0x24, 0x03);
+            L0039: AddEncounter(party, 0x25, 0x04);
+            L004B: AddEncounter(party, 0x26, 0x05);
+            L005D: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent3D => DOORARNK_3D;
+        private void DOORARNK_3D(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ax = CheckState04(party, 0x01, 0x01);
+            L0014: RefreshCompareFlags(ax);
+            L0016: if (result.equal) goto L005B;
+            L0018: Push(01);
+            L001C: Push(03);
+            L0020: ax = GetNextTile20(party);
+            L0027: PushStack(ax);
+            L0028: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L0032: Push(03);
+            L0036: ax = GetNextTile20(party);
+            L003D: PushStack(ax);
+            L003E: Push(01);
+            L0042: SetUnblocked30(party);
+            L004C: ShowMessage(party, String1147); // Andreas no longer defends this door.
+            L0059: goto L0068;
+            L005B: ShowMessage(party, String116C); // The Earth Elemental holds power over this door.
+            L0068: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent3E => TELEARNK_3E;
+        private void TELEARNK_3E(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: ShowMessage(party, String119C); // A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
+            L0010: SetMoveMap(party, 0x03, 0x76, 0x02, 0x34);
+            L002B: // RETURN;
+        }
+
+        private override MapEventHandler MapEvent3F => SETEKILL_3F;
+        private void SETEKILL_3F(Party party) {
+            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
+            L0000: // BEGIN;
+            L0003: SetState00(party, 0x01, 0x01, 0x01);
+            L0018: // RETURN;
+        }
+
+    }
+}
