@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap19 : AMapScript {
+        protected override int MapIndex => 19;
         // === Strings ================================================
         private const string String03FC = "There is a teleport in the west wall.";
         private const string String0422 = "You sip from the Fountain of Restoration, but nothing happens.";

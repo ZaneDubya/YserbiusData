@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap17 : AMapScript {
+        protected override int MapIndex => 17;
         // === Strings ================================================
         private const string String03FC = "Heroes of level 20 or more may go on.";
         private const string String0422 = "The gate to the North leads down a level.";

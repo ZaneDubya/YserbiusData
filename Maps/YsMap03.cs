@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap03 : AMapScript {
+        protected override int MapIndex => 3;
         // === Strings ================================================
         private const string String03FC = "The gateway leads to THE VESTIBULE.";
         private const string String0420 = "Through the gateway to the west you see stairs leading down to the next level.";

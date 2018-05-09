@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap31 : AMapScript {
+        protected override int MapIndex => 31;
         // === Strings ================================================
         private const string String03FC = "The River of Eternity taps your life energy.";
         private const string String0429 = "You have died.";

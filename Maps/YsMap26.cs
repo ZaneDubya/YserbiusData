@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap26 : AMapScript {
+        protected override int MapIndex => 26;
         // === Strings ================================================
         private const string String03FC = "You stumble into the lava river and die.";
         private const string String0425 = "This gate leads to the entrance of Arnakkian's Arena.";

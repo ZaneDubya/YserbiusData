@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap23 : AMapScript {
+        protected override int MapIndex => 23;
         // === Strings ================================================
         private const string String03FC = "Runes on magic wall --";
         private const string String0413 = "Alchemy";

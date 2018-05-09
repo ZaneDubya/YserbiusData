@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap12 : AMapScript {
+        protected override int MapIndex => 12;
         // === Strings ================================================
         private const string String03FC = "You see a switch on the wall and throw it. You hear the sound of locks opening.";
         private const string String044C = "You see a switch on the wall and throw it. You hear the sound of locks opening.";

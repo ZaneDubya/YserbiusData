@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap25 : AMapScript {
+        protected override int MapIndex => 25;
         // === Strings ================================================
         private const string String03FC = "You may leave the chessboard through this opening.";
         private const string String042F = "A knight move here would place you off the chessboard!";

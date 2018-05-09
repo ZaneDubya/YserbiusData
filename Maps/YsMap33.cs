@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap33 : AMapScript {
+        protected override int MapIndex => 33;
         // === Strings ================================================
         private const string String03FC = "The Ageless Void swallows you whole.";
         private const string String0421 = "Time freezes forever in your mind.  To the rest of the world, you are dead.";

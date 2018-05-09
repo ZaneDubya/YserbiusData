@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap21 : AMapScript {
+        protected override int MapIndex => 21;
         // === Strings ================================================
         private const string String03FC = "You step into a bottomless pit and die.";
         private const string String0424 = "Guardians stand ready.  'We are sworn to defend Arnakkian.'";

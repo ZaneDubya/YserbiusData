@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap11 : AMapScript {
+        protected override int MapIndex => 11;
         // === Strings ================================================
         private const string String03FC = "As you step forward, the column slides away.";
         private const string String0429 = "As you step forward, the column slides away.";

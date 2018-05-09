@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap13 : AMapScript {
+        protected override int MapIndex => 13;
         // === Strings ================================================
         private const string String03FC = "You encounter a Troll Cleric.";
         private const string String041A = "I have almost despaired of finding a way out of this prison. Yet there must be an exit of some kind - stairs or teleport. The guards must have had some way of leaving this area.";

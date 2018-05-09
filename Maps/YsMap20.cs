@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap20 : AMapScript {
+        protected override int MapIndex => 20;
         // === Strings ================================================
         private const string String03FC = "You step into nothingness...";
         private const string String0419 = "                                         ...and die!";

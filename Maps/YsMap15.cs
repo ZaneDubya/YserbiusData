@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap15 : AMapScript {
+        protected override int MapIndex => 15;
         // === Strings ================================================
         private const string String03FC = "A note reads -";
         private const string String040B = "'Only heroes of the thirtieth level or higher may pass this door.'";

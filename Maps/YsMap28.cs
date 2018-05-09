@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap28 : AMapScript {
+        protected override int MapIndex => 28;
         // === Strings ================================================
         private const string String03FC = "The AldBora Tree bears... ";
         private const string String0417 = "the knowledge of Athletics!";

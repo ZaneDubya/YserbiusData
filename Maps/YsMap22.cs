@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap22 : AMapScript {
+        protected override int MapIndex => 22;
         // === Strings ================================================
         private const string String03FC = "Other pits in the Labyrinth provide access to hidden areas...";
         private const string String043A = "This pit, however, sends you to the gates of Death.";

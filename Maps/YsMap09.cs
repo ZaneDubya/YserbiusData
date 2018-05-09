@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap09 : AMapScript {
+        protected override int MapIndex => 9;
         // === Strings ================================================
         private const string String03FC = "The E Rune Key unlocked the thick door.";
         private const string String0424 = "The door is locked.  You need a special key.";

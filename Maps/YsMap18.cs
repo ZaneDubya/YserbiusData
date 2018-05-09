@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap18 : AMapScript {
+        protected override int MapIndex => 18;
         // === Strings ================================================
         private const string String03FC = "You step into molten lava and your flesh burns.";
         private const string String042C = "The Lava Key opens the door.";

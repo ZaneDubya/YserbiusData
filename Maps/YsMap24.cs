@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap24 : AMapScript {
+        protected override int MapIndex => 24;
         // === Strings ================================================
         private const string String03FC = "You fall through the abyss and land in the lava below.";
         private const string String0433 = "A magical platform forms a bridge across the abyss.";

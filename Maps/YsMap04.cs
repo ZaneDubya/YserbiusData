@@ -3,6 +3,7 @@ using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
     class YserMap04 : AMapScript {
+        protected override int MapIndex => 4;
         // === Strings ================================================
         private const string String03FC = "There is a teleport in the north wall to the Hall of Doors.";
         private const string String0438 = "The gateway leads to the SOLDIERS QUARTERS.";
