@@ -66,9 +66,9 @@ namespace ZCF.Scripts.Maps {
             L0057: ax = CheckState04(party, 0x02, 0x6D);
             L0068: RefreshCompareFlags(ax);
             L006A: if (result.equal) goto L007E;
-            L006C: SetMove38(party, 0x00, 0x9C);
+            L006C: SetMove38(party, 0x9C, 0x00);
             L007C: goto L008F;
-            L007E: SetMove38(party, 0x03, 0x9C);
+            L007E: SetMove38(party, 0x9C, 0x03);
             L008F: // RETURN;
         }
 
@@ -89,7 +89,7 @@ namespace ZCF.Scripts.Maps {
             L0013: ax = CheckState04(party, 0x02, 0x6E);
             L0024: RefreshCompareFlags(ax);
             L0026: if (result.equal) goto L0071;
-            L0028: Push(01);
+            L0028: PushStack(01);
             L002C: PushStack(0x00);
             L002F: ax = GetNextTile20(party);
             L0036: PushStack(ax);
@@ -113,10 +113,10 @@ namespace ZCF.Scripts.Maps {
             L0026: if (result.equal) goto L0068;
             L0028: RemoveItem4C(party, 0xD5);
             L0034: SetState00(party, 0x02, 0x6D, 0x01);
-            L0049: SetMove38(party, 0x00, 0x9C);
+            L0049: SetMove38(party, 0x9C, 0x00);
             L0059: ShowMessage(party, String050C); // Your Dwarf Mine Key activated this platform.
             L0066: goto L0079;
-            L0068: SetMove38(party, 0x03, 0x9C);
+            L0068: SetMove38(party, 0x9C, 0x03);
             L0079: // RETURN;
         }
 
@@ -131,7 +131,7 @@ namespace ZCF.Scripts.Maps {
             L0026: if (result.equal) goto L0076;
             L0028: RemoveItem4C(party, 0xD7);
             L0034: SetState00(party, 0x02, 0x6F, 0x01);
-            L0049: Push(01);
+            L0049: PushStack(01);
             L004D: ax = GetFacing24(party);
             L0054: PushStack(ax);
             L0055: ax = GetNextTile20(party);
@@ -147,7 +147,7 @@ namespace ZCF.Scripts.Maps {
         private void FnASENDB_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x02, 0xCC, 0x02, 0x38);
+            L0003: SetMoveMap(party, 0x38, 0x02, 0xCC, 0x02);
             L001E: // RETURN;
         }
 
@@ -155,7 +155,7 @@ namespace ZCF.Scripts.Maps {
         private void FnDSENDC_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x00, 0xE1, 0x02, 0x38);
+            L0003: SetMoveMap(party, 0x38, 0x02, 0xE1, 0x00);
             L001D: // RETURN;
         }
 
@@ -163,7 +163,7 @@ namespace ZCF.Scripts.Maps {
         private void FnESENDF_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x00, 0xFD, 0x02, 0x38);
+            L0003: SetMoveMap(party, 0x38, 0x02, 0xFD, 0x00);
             L001D: // RETURN;
         }
 
@@ -181,9 +181,9 @@ namespace ZCF.Scripts.Maps {
             L003D: PushStack(ax);
             L003E: ax = GetNextTile20(party);
             L0045: PushStack(ax);
-            L0046: Push(01);
+            L0046: PushStack(01);
             L004A: SetUnblocked30(party);
-            L0054: Push(01);
+            L0054: PushStack(01);
             L0058: ax = GetFacing24(party);
             L005F: PushStack(ax);
             L0060: ax = GetNextTile20(party);
@@ -206,9 +206,9 @@ namespace ZCF.Scripts.Maps {
             L003D: PushStack(ax);
             L003E: ax = GetNextTile20(party);
             L0045: PushStack(ax);
-            L0046: Push(01);
+            L0046: PushStack(01);
             L004A: SetUnblocked30(party);
-            L0054: Push(01);
+            L0054: PushStack(01);
             L0058: ax = GetFacing24(party);
             L005F: PushStack(ax);
             L0060: ax = GetNextTile20(party);
@@ -231,9 +231,9 @@ namespace ZCF.Scripts.Maps {
             L003D: PushStack(ax);
             L003E: ax = GetNextTile20(party);
             L0045: PushStack(ax);
-            L0046: Push(01);
+            L0046: PushStack(01);
             L004A: SetUnblocked30(party);
-            L0054: Push(01);
+            L0054: PushStack(01);
             L0058: ax = GetFacing24(party);
             L005F: PushStack(ax);
             L0060: ax = GetNextTile20(party);
@@ -253,7 +253,7 @@ namespace ZCF.Scripts.Maps {
         private void FnGSENDH_0F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x00, 0x02, 0x02, 0x38);
+            L0003: SetMoveMap(party, 0x38, 0x02, 0x02, 0x00);
             L001D: // RETURN;
         }
 
@@ -261,7 +261,7 @@ namespace ZCF.Scripts.Maps {
         private void FnISENDJ_11(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x02, 0x60, 0x02, 0x38);
+            L0003: SetMoveMap(party, 0x38, 0x02, 0x60, 0x02);
             L001E: // RETURN;
         }
 
@@ -299,7 +299,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07E8); // This gate leads to DWARF KINGDOM.
-            L0010: SetMoveMap(party, 0x00, 0x3F, 0x01, 0x38);
+            L0010: SetMoveMap(party, 0x38, 0x01, 0x3F, 0x00);
             L002A: // RETURN;
         }
 
@@ -308,7 +308,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String080A); // This gate leads to RIVERS END.
-            L0010: SetMoveMap(party, 0x00, 0x0B, 0x03, 0x38);
+            L0010: SetMoveMap(party, 0x38, 0x03, 0x0B, 0x00);
             L002A: // RETURN;
         }
 
@@ -317,12 +317,12 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0829); // Hobgoblins appear from the surrounding walls.
-            L0010: AddEncounter(party, 0x24, 0x01);
-            L0022: AddEncounter(party, 0x24, 0x02);
-            L0034: AddEncounter(party, 0x0E, 0x03);
-            L0046: AddEncounter(party, 0x0E, 0x04);
-            L0058: AddEncounter(party, 0x25, 0x05);
-            L006A: AddEncounter(party, 0x25, 0x06);
+            L0010: AddEncounter(party, 0x01, 0x24);
+            L0022: AddEncounter(party, 0x02, 0x24);
+            L0034: AddEncounter(party, 0x03, 0x0E);
+            L0046: AddEncounter(party, 0x04, 0x0E);
+            L0058: AddEncounter(party, 0x05, 0x25);
+            L006A: AddEncounter(party, 0x06, 0x25);
             L007C: // RETURN;
         }
 
@@ -331,12 +331,12 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0857); // The air is heavy with the scent of burnt flesh.
-            L0010: AddEncounter(party, 0x12, 0x01);
-            L0022: AddEncounter(party, 0x12, 0x02);
-            L0034: AddEncounter(party, 0x28, 0x03);
-            L0046: AddEncounter(party, 0x28, 0x04);
-            L0058: AddEncounter(party, 0x15, 0x05);
-            L006A: AddEncounter(party, 0x15, 0x06);
+            L0010: AddEncounter(party, 0x01, 0x12);
+            L0022: AddEncounter(party, 0x02, 0x12);
+            L0034: AddEncounter(party, 0x03, 0x28);
+            L0046: AddEncounter(party, 0x04, 0x28);
+            L0058: AddEncounter(party, 0x05, 0x15);
+            L006A: AddEncounter(party, 0x06, 0x15);
             L007C: // RETURN;
         }
 
@@ -345,12 +345,12 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0887); // You wander into a renegade adventurer camp.
-            L0010: AddEncounter(party, 0x1E, 0x01);
-            L0022: AddEncounter(party, 0x19, 0x02);
-            L0034: AddEncounter(party, 0x1C, 0x03);
-            L0046: AddEncounter(party, 0x05, 0x04);
-            L0058: AddEncounter(party, 0x03, 0x05);
-            L006A: AddEncounter(party, 0x03, 0x06);
+            L0010: AddEncounter(party, 0x01, 0x1E);
+            L0022: AddEncounter(party, 0x02, 0x19);
+            L0034: AddEncounter(party, 0x03, 0x1C);
+            L0046: AddEncounter(party, 0x04, 0x05);
+            L0058: AddEncounter(party, 0x05, 0x03);
+            L006A: AddEncounter(party, 0x06, 0x03);
             L007C: // RETURN;
         }
 
@@ -359,12 +359,12 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08B3); // A den of manticores is disturbed.
-            L0010: AddEncounter(party, 0x18, 0x01);
-            L0022: AddEncounter(party, 0x18, 0x02);
-            L0034: AddEncounter(party, 0x19, 0x03);
-            L0046: AddEncounter(party, 0x19, 0x04);
-            L0058: AddEncounter(party, 0x1A, 0x05);
-            L006A: AddEncounter(party, 0x04, 0x06);
+            L0010: AddEncounter(party, 0x01, 0x18);
+            L0022: AddEncounter(party, 0x02, 0x18);
+            L0034: AddEncounter(party, 0x03, 0x19);
+            L0046: AddEncounter(party, 0x04, 0x19);
+            L0058: AddEncounter(party, 0x05, 0x1A);
+            L006A: AddEncounter(party, 0x06, 0x04);
             L007C: // RETURN;
         }
 
@@ -373,12 +373,12 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08D5); // Stone fragments litter the floor.
-            L0010: AddEncounter(party, 0x11, 0x01);
-            L0022: AddEncounter(party, 0x11, 0x02);
-            L0034: AddEncounter(party, 0x10, 0x03);
-            L0046: AddEncounter(party, 0x10, 0x04);
-            L0058: AddEncounter(party, 0x16, 0x05);
-            L006A: AddEncounter(party, 0x22, 0x06);
+            L0010: AddEncounter(party, 0x01, 0x11);
+            L0022: AddEncounter(party, 0x02, 0x11);
+            L0034: AddEncounter(party, 0x03, 0x10);
+            L0046: AddEncounter(party, 0x04, 0x10);
+            L0058: AddEncounter(party, 0x05, 0x16);
+            L006A: AddEncounter(party, 0x06, 0x22);
             L007C: // RETURN;
         }
 
@@ -386,12 +386,12 @@ namespace ZCF.Scripts.Maps {
         private void FnENCF_1D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x0B, 0x01);
-            L0015: AddEncounter(party, 0x0B, 0x02);
-            L0027: AddEncounter(party, 0x0C, 0x03);
-            L0039: AddEncounter(party, 0x0C, 0x04);
-            L004B: AddEncounter(party, 0x1F, 0x05);
-            L005D: AddEncounter(party, 0x1F, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x0B);
+            L0015: AddEncounter(party, 0x02, 0x0B);
+            L0027: AddEncounter(party, 0x03, 0x0C);
+            L0039: AddEncounter(party, 0x04, 0x0C);
+            L004B: AddEncounter(party, 0x05, 0x1F);
+            L005D: AddEncounter(party, 0x05, 0x1F);
             L006F: // RETURN;
         }
 
@@ -399,12 +399,12 @@ namespace ZCF.Scripts.Maps {
         private void FnENCG_1E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x0F, 0x01);
-            L0015: AddEncounter(party, 0x10, 0x02);
-            L0027: AddEncounter(party, 0x26, 0x03);
-            L0039: AddEncounter(party, 0x18, 0x04);
-            L004B: AddEncounter(party, 0x27, 0x05);
-            L005D: AddEncounter(party, 0x28, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x0F);
+            L0015: AddEncounter(party, 0x02, 0x10);
+            L0027: AddEncounter(party, 0x03, 0x26);
+            L0039: AddEncounter(party, 0x04, 0x18);
+            L004B: AddEncounter(party, 0x05, 0x27);
+            L005D: AddEncounter(party, 0x06, 0x28);
             L006F: // RETURN;
         }
 
@@ -413,9 +413,9 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08F7); // A huge Cyclops appears from behind large boulders.
-            L0010: AddEncounter(party, 0x0E, 0x01);
-            L0022: AddEncounter(party, 0x0E, 0x02);
-            L0034: AddEncounter(party, 0x21, 0x03);
+            L0010: AddEncounter(party, 0x01, 0x0E);
+            L0022: AddEncounter(party, 0x02, 0x0E);
+            L0034: AddEncounter(party, 0x03, 0x21);
             L0046: ax = HasItem50(party, 0xF1);
             L0054: if (result.equal) goto L0078;
             L0056: AddTreasure(party, 0x09C4, 0x00, 0x00, 0x00, 0xD0, 0xC6);
@@ -428,10 +428,10 @@ namespace ZCF.Scripts.Maps {
         private void FnENCI_20(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x17, 0x01);
-            L0015: AddEncounter(party, 0x17, 0x02);
-            L0027: AddEncounter(party, 0x14, 0x05);
-            L0039: AddEncounter(party, 0x14, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x17);
+            L0015: AddEncounter(party, 0x02, 0x17);
+            L0027: AddEncounter(party, 0x05, 0x14);
+            L0039: AddEncounter(party, 0x06, 0x14);
             L004B: // RETURN;
         }
 
@@ -439,12 +439,12 @@ namespace ZCF.Scripts.Maps {
         private void FnENCJ_21(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x23, 0x01);
-            L0015: AddEncounter(party, 0x23, 0x02);
-            L0027: AddEncounter(party, 0x1F, 0x03);
-            L0039: AddEncounter(party, 0x1F, 0x04);
-            L004B: AddEncounter(party, 0x14, 0x05);
-            L005D: AddEncounter(party, 0x14, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x23);
+            L0015: AddEncounter(party, 0x02, 0x23);
+            L0027: AddEncounter(party, 0x03, 0x1F);
+            L0039: AddEncounter(party, 0x04, 0x1F);
+            L004B: AddEncounter(party, 0x05, 0x14);
+            L005D: AddEncounter(party, 0x06, 0x14);
             L006F: // RETURN;
         }
 
@@ -452,10 +452,10 @@ namespace ZCF.Scripts.Maps {
         private void FnENCK_22(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x18, 0x01);
-            L0015: AddEncounter(party, 0x18, 0x02);
-            L0027: AddEncounter(party, 0x22, 0x03);
-            L0039: AddEncounter(party, 0x26, 0x04);
+            L0003: AddEncounter(party, 0x01, 0x18);
+            L0015: AddEncounter(party, 0x02, 0x18);
+            L0027: AddEncounter(party, 0x03, 0x22);
+            L0039: AddEncounter(party, 0x04, 0x26);
             L004B: // RETURN;
         }
 
@@ -463,12 +463,12 @@ namespace ZCF.Scripts.Maps {
         private void FnENCL_23(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1F, 0x01);
-            L0015: AddEncounter(party, 0x1F, 0x02);
-            L0027: AddEncounter(party, 0x0A, 0x03);
-            L0039: AddEncounter(party, 0x0A, 0x04);
-            L004B: AddEncounter(party, 0x16, 0x05);
-            L005D: AddEncounter(party, 0x16, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x1F);
+            L0015: AddEncounter(party, 0x02, 0x1F);
+            L0027: AddEncounter(party, 0x03, 0x0A);
+            L0039: AddEncounter(party, 0x04, 0x0A);
+            L004B: AddEncounter(party, 0x05, 0x16);
+            L005D: AddEncounter(party, 0x05, 0x16);
             L006F: // RETURN;
         }
 
@@ -477,12 +477,12 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String092A); // You encounter adventurers slaying a dragon.  They do not welcome your intrusion.
-            L0010: AddEncounter(party, 0x19, 0x01);
-            L0022: AddEncounter(party, 0x1B, 0x02);
-            L0034: AddEncounter(party, 0x1D, 0x03);
-            L0046: AddEncounter(party, 0x03, 0x04);
+            L0010: AddEncounter(party, 0x01, 0x19);
+            L0022: AddEncounter(party, 0x02, 0x1B);
+            L0034: AddEncounter(party, 0x03, 0x1D);
+            L0046: AddEncounter(party, 0x04, 0x03);
             L0058: AddEncounter(party, 0x05, 0x05);
-            L006A: AddEncounter(party, 0x16, 0x05);
+            L006A: AddEncounter(party, 0x05, 0x16);
             L007C: // RETURN;
         }
 
@@ -490,11 +490,11 @@ namespace ZCF.Scripts.Maps {
         private void FnENCN_25(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x23, 0x01);
-            L0015: AddEncounter(party, 0x23, 0x02);
-            L0027: AddEncounter(party, 0x12, 0x03);
-            L0039: AddEncounter(party, 0x12, 0x04);
-            L004B: AddEncounter(party, 0x22, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x23);
+            L0015: AddEncounter(party, 0x02, 0x23);
+            L0027: AddEncounter(party, 0x03, 0x12);
+            L0039: AddEncounter(party, 0x04, 0x12);
+            L004B: AddEncounter(party, 0x05, 0x22);
             L005D: ax = HasItem50(party, 0xD5);
             L006B: if (result.equal) goto L008F;
             L006D: AddTreasure(party, 0x07D0, 0x00, 0x00, 0x00, 0xB7, 0x98);
@@ -508,11 +508,11 @@ namespace ZCF.Scripts.Maps {
         private void FnENCO_26(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x23, 0x01);
-            L0015: AddEncounter(party, 0x23, 0x02);
-            L0027: AddEncounter(party, 0x12, 0x03);
-            L0039: AddEncounter(party, 0x12, 0x04);
-            L004B: AddEncounter(party, 0x22, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x23);
+            L0015: AddEncounter(party, 0x02, 0x23);
+            L0027: AddEncounter(party, 0x03, 0x12);
+            L0039: AddEncounter(party, 0x04, 0x12);
+            L004B: AddEncounter(party, 0x05, 0x22);
             L005D: ax = HasItem50(party, 0xD8);
             L006B: if (result.equal) goto L008E;
             L006D: AddTreasure(party, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xD0);

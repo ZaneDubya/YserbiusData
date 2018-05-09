@@ -142,7 +142,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String053D); // As you reach the platform, a magical field envelops you and teleports you to a moon tapestry.
-            L0010: SetMoveMap(party, 0x02, 0xEE, 0x03, 0x38);
+            L0010: SetMoveMap(party, 0x38, 0x03, 0xEE, 0x02);
             L002B: // RETURN;
         }
 
@@ -152,12 +152,12 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xF2, 0xF2);
             L0016: if (result.equal) goto L005F;
-            L0018: Push(02);
+            L0018: PushStack(02);
             L001C: ax = GetNextTile20(party);
             L0023: PushStack(ax);
-            L0024: Push(01);
+            L0024: PushStack(01);
             L0028: SetUnblocked30(party);
-            L0032: Push(01);
+            L0032: PushStack(01);
             L0036: ax = GetFacing24(party);
             L003D: PushStack(ax);
             L003E: ax = GetNextTile20(party);
@@ -230,8 +230,8 @@ namespace ZCF.Scripts.Maps {
             L00EB: RefreshCompareFlags(ax);
             L00ED: if (result.equal) goto L015A;
             L00EF: SetState00(party, 0x01, 0x01, 0x01);
-            L0104: SetMove38(party, 0x75, 0x42);
-            L0115: SetMove38(party, 0x85, 0x42);
+            L0104: SetMove38(party, 0x42, 0x75);
+            L0115: SetMove38(party, 0x42, 0x85);
             L0126: ShowMessage(party, String0861); // Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
             L0133: ShowMessage(party, String08AE); // It intersects the Rainbow and bursts into blinding light.
             L0140: ShowMessage(party, String08E8); // Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
@@ -269,8 +269,8 @@ namespace ZCF.Scripts.Maps {
             L00DC: RefreshCompareFlags(ax);
             L00DE: if (result.equal) goto L014B;
             L00E0: SetState00(party, 0x01, 0x01, 0x01);
-            L00F5: SetMove38(party, 0x75, 0x42);
-            L0106: SetMove38(party, 0x85, 0x42);
+            L00F5: SetMove38(party, 0x42, 0x75);
+            L0106: SetMove38(party, 0x42, 0x85);
             L0117: ShowMessage(party, String09E4); // Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
             L0124: ShowMessage(party, String0A31); // It intersects the Rainbow and bursts into blinding light.
             L0131: ShowMessage(party, String0A6B); // Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
@@ -308,8 +308,8 @@ namespace ZCF.Scripts.Maps {
             L00DC: RefreshCompareFlags(ax);
             L00DE: if (result.equal) goto L014B;
             L00E0: SetState00(party, 0x01, 0x01, 0x01);
-            L00F5: SetMove38(party, 0x75, 0x42);
-            L0106: SetMove38(party, 0x85, 0x42);
+            L00F5: SetMove38(party, 0x42, 0x75);
+            L0106: SetMove38(party, 0x42, 0x85);
             L0117: ShowMessage(party, String0B66); // Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
             L0124: ShowMessage(party, String0BB3); // It intersects the Rainbow and bursts into blinding light.
             L0131: ShowMessage(party, String0BED); // Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
@@ -347,8 +347,8 @@ namespace ZCF.Scripts.Maps {
             L00DC: RefreshCompareFlags(ax);
             L00DE: if (result.equal) goto L014B;
             L00E0: SetState00(party, 0x01, 0x01, 0x01);
-            L00F5: SetMove38(party, 0x75, 0x42);
-            L0106: SetMove38(party, 0x85, 0x42);
+            L00F5: SetMove38(party, 0x42, 0x75);
+            L0106: SetMove38(party, 0x42, 0x85);
             L0117: ShowMessage(party, String0CE7); // Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
             L0124: ShowMessage(party, String0D34); // It intersects the Rainbow and bursts into blinding light.
             L0131: ShowMessage(party, String0D6E); // Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
@@ -361,7 +361,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E1B); // This gate leads to the GIANTS' LAND
-            L0010: SetMoveMap(party, 0x03, 0xFB, 0x02, 0x38);
+            L0010: SetMoveMap(party, 0x38, 0x02, 0xFB, 0x03);
             L002B: // RETURN;
         }
 
@@ -370,12 +370,12 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E3F); // A burst of moon light floods the room.
-            L0010: AddEncounter(party, 0x24, 0x01);
-            L0022: AddEncounter(party, 0x24, 0x02);
-            L0034: AddEncounter(party, 0x25, 0x03);
-            L0046: AddEncounter(party, 0x25, 0x04);
-            L0058: AddEncounter(party, 0x22, 0x05);
-            L006A: AddEncounter(party, 0x22, 0x06);
+            L0010: AddEncounter(party, 0x01, 0x24);
+            L0022: AddEncounter(party, 0x02, 0x24);
+            L0034: AddEncounter(party, 0x03, 0x25);
+            L0046: AddEncounter(party, 0x04, 0x25);
+            L0058: AddEncounter(party, 0x05, 0x22);
+            L006A: AddEncounter(party, 0x06, 0x22);
             L007C: // RETURN;
         }
 
@@ -383,11 +383,11 @@ namespace ZCF.Scripts.Maps {
         private void FnENCB_1B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x26, 0x01);
-            L0015: AddEncounter(party, 0x27, 0x02);
-            L0027: AddEncounter(party, 0x1A, 0x03);
-            L0039: AddEncounter(party, 0x1C, 0x04);
-            L004B: AddEncounter(party, 0x1E, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x26);
+            L0015: AddEncounter(party, 0x02, 0x27);
+            L0027: AddEncounter(party, 0x03, 0x1A);
+            L0039: AddEncounter(party, 0x04, 0x1C);
+            L004B: AddEncounter(party, 0x05, 0x1E);
             L005D: // RETURN;
         }
 
@@ -396,10 +396,10 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E66); // Dragons defend their lair.
-            L0010: AddEncounter(party, 0x26, 0x01);
-            L0022: AddEncounter(party, 0x28, 0x02);
-            L0034: AddEncounter(party, 0x17, 0x05);
-            L0046: AddEncounter(party, 0x17, 0x06);
+            L0010: AddEncounter(party, 0x01, 0x26);
+            L0022: AddEncounter(party, 0x02, 0x28);
+            L0034: AddEncounter(party, 0x05, 0x17);
+            L0046: AddEncounter(party, 0x06, 0x17);
             L0058: // RETURN;
         }
 
@@ -407,12 +407,12 @@ namespace ZCF.Scripts.Maps {
         private void FnENCD_1D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x19, 0x01);
-            L0015: AddEncounter(party, 0x19, 0x02);
-            L0027: AddEncounter(party, 0x1B, 0x03);
-            L0039: AddEncounter(party, 0x1B, 0x04);
-            L004B: AddEncounter(party, 0x22, 0x05);
-            L005D: AddEncounter(party, 0x23, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x19);
+            L0015: AddEncounter(party, 0x02, 0x19);
+            L0027: AddEncounter(party, 0x03, 0x1B);
+            L0039: AddEncounter(party, 0x04, 0x1B);
+            L004B: AddEncounter(party, 0x05, 0x22);
+            L005D: AddEncounter(party, 0x06, 0x23);
             L006F: // RETURN;
         }
 
@@ -439,7 +439,7 @@ namespace ZCF.Scripts.Maps {
             L0032: ShowMessage(party, String1003); // In the moments that follow the Zephyr tells you only the FlexSword can remain in your hands when you encounter the Wind Elemental.
             L003F: ShowMessage(party, String1086); // Destroy him and the way to En-li-kil's Domain will be clear.
             L004C: ShowMessage(party, String10C3); // You arrive at an island in the center of the Ageless Void.
-            L0059: SetMoveMap(party, 0x00, 0x4B, 0x04, 0x38);
+            L0059: SetMoveMap(party, 0x38, 0x04, 0x4B, 0x00);
             L0073: goto L0093;
             L0075: ShowMessage(party, String10FE); // The Ageless Void swallows you whole.
             L0082: ax = GetMaxHits74(party);

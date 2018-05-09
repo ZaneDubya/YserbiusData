@@ -73,7 +73,7 @@ namespace ZCF.Scripts.Maps {
         private void FnSTRSTELE_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x1F, 0x02, 0x02);
+            L0003: SetMoveMap(party, 0x02, 0x02, 0x1F, 0x01);
             L001E: // RETURN;
         }
 
@@ -81,7 +81,7 @@ namespace ZCF.Scripts.Maps {
         private void FnTOCORDOR_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x02, 0x10, 0x03, 0x03);
+            L0003: SetMoveMap(party, 0x03, 0x03, 0x10, 0x02);
             L001E: // RETURN;
         }
 
@@ -89,7 +89,7 @@ namespace ZCF.Scripts.Maps {
         private void FnSTRSTELE_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x02, 0xD3, 0x03, 0x02);
+            L0003: SetMoveMap(party, 0x02, 0x03, 0xD3, 0x02);
             L001E: // RETURN;
         }
 
@@ -97,7 +97,7 @@ namespace ZCF.Scripts.Maps {
         private void FnSTRSTELE_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x00, 0xC6, 0x04, 0x02);
+            L0003: SetMoveMap(party, 0x02, 0x04, 0xC6, 0x00);
             L001D: // RETURN;
         }
 
@@ -105,7 +105,7 @@ namespace ZCF.Scripts.Maps {
         private void FnSTRSTELE_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0xDC, 0x05, 0x02);
+            L0003: SetMoveMap(party, 0x02, 0x05, 0xDC, 0x01);
             L001E: // RETURN;
         }
 
@@ -118,8 +118,8 @@ namespace ZCF.Scripts.Maps {
             L0025: SetState00(party, 0x01, 0x02, 0x00);
             L0039: SetState00(party, 0x01, 0x03, 0x00);
             L004D: SetState00(party, 0x01, 0x04, 0x00);
-            L0061: SetMove2C(party, 0x01, 0x01, 0x77);
-            L0077: SetMove28(party, 0x01, 0x01, 0x77);
+            L0061: SetMove2C(party, 0x77, 0x01, 0x01);
+            L0077: SetMove28(party, 0x77, 0x01, 0x01);
             L008D: // RETURN;
         }
 
@@ -132,8 +132,8 @@ namespace ZCF.Scripts.Maps {
             L0024: SetState00(party, 0x01, 0x02, 0x00);
             L0038: SetState00(party, 0x01, 0x03, 0x01);
             L004D: SetState00(party, 0x01, 0x04, 0x00);
-            L0061: SetMove2C(party, 0x01, 0x00, 0x77);
-            L0076: SetMove28(party, 0x01, 0x00, 0x77);
+            L0061: SetMove2C(party, 0x77, 0x00, 0x01);
+            L0076: SetMove28(party, 0x77, 0x00, 0x01);
             L008B: // RETURN;
         }
 
@@ -146,8 +146,8 @@ namespace ZCF.Scripts.Maps {
             L0024: SetState00(party, 0x01, 0x02, 0x01);
             L0039: SetState00(party, 0x01, 0x03, 0x00);
             L004D: SetState00(party, 0x01, 0x04, 0x00);
-            L0061: SetMove2C(party, 0x01, 0x03, 0x77);
-            L0077: SetMove28(party, 0x01, 0x03, 0x77);
+            L0061: SetMove2C(party, 0x77, 0x03, 0x01);
+            L0077: SetMove28(party, 0x77, 0x03, 0x01);
             L008D: // RETURN;
         }
 
@@ -160,8 +160,8 @@ namespace ZCF.Scripts.Maps {
             L0024: SetState00(party, 0x01, 0x02, 0x00);
             L0038: SetState00(party, 0x01, 0x03, 0x00);
             L004C: SetState00(party, 0x01, 0x04, 0x01);
-            L0061: SetMove2C(party, 0x01, 0x02, 0x77);
-            L0077: SetMove28(party, 0x01, 0x02, 0x77);
+            L0061: SetMove2C(party, 0x77, 0x02, 0x01);
+            L0077: SetMove28(party, 0x77, 0x02, 0x01);
             L008D: // RETURN;
         }
 
@@ -173,20 +173,20 @@ namespace ZCF.Scripts.Maps {
             L0014: compare(ax, 0x0001);
             L0017: if (result.notequal) goto L005C;
             L0019: ShowMessage(party, String053C); // The door is unlocked.
-            L0026: Push(03);
+            L0026: PushStack(03);
             L002A: ax = GetNextTile20(party);
             L0031: PushStack(ax);
-            L0032: Push(01);
+            L0032: PushStack(01);
             L0036: SetUnblocked30(party);
-            L0040: Push(01);
-            L0044: Push(03);
+            L0040: PushStack(01);
+            L0044: PushStack(03);
             L0048: ax = GetNextTile20(party);
             L004F: PushStack(ax);
             L0050: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L005A: goto L0082;
             L005C: ShowMessage(party, String0552); // The door is sealed shut. There is no lock on the outside.
             L0069: PushStack(0x00);
-            L006C: Push(03);
+            L006C: PushStack(03);
             L0070: ax = GetNextTile20(party);
             L0077: PushStack(ax);
             L0078: SetMove2C(party, PopStack(), PopStack(), PopStack());
@@ -201,20 +201,20 @@ namespace ZCF.Scripts.Maps {
             L0014: compare(ax, 0x0001);
             L0017: if (result.notequal) goto L005C;
             L0019: ShowMessage(party, String058C); // The door is unlocked.
-            L0026: Push(02);
+            L0026: PushStack(02);
             L002A: ax = GetNextTile20(party);
             L0031: PushStack(ax);
-            L0032: Push(01);
+            L0032: PushStack(01);
             L0036: SetUnblocked30(party);
-            L0040: Push(01);
-            L0044: Push(02);
+            L0040: PushStack(01);
+            L0044: PushStack(02);
             L0048: ax = GetNextTile20(party);
             L004F: PushStack(ax);
             L0050: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L005A: goto L0082;
             L005C: ShowMessage(party, String05A2); // The door is sealed shut. There is no lock on the outside.
             L0069: PushStack(0x00);
-            L006C: Push(02);
+            L006C: PushStack(02);
             L0070: ax = GetNextTile20(party);
             L0077: PushStack(ax);
             L0078: SetMove2C(party, PopStack(), PopStack(), PopStack());
@@ -229,20 +229,20 @@ namespace ZCF.Scripts.Maps {
             L0014: compare(ax, 0x0001);
             L0017: if (result.notequal) goto L005C;
             L0019: ShowMessage(party, String05DC); // The door is unlocked.
-            L0026: Push(01);
+            L0026: PushStack(01);
             L002A: ax = GetNextTile20(party);
             L0031: PushStack(ax);
-            L0032: Push(01);
+            L0032: PushStack(01);
             L0036: SetUnblocked30(party);
-            L0040: Push(01);
-            L0044: Push(01);
+            L0040: PushStack(01);
+            L0044: PushStack(01);
             L0048: ax = GetNextTile20(party);
             L004F: PushStack(ax);
             L0050: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L005A: goto L0082;
             L005C: ShowMessage(party, String05F2); // The door is sealed shut. There is no lock on the outside.
             L0069: PushStack(0x00);
-            L006C: Push(01);
+            L006C: PushStack(01);
             L0070: ax = GetNextTile20(party);
             L0077: PushStack(ax);
             L0078: SetMove2C(party, PopStack(), PopStack(), PopStack());
@@ -260,9 +260,9 @@ namespace ZCF.Scripts.Maps {
             L0026: PushStack(0x00);
             L0029: ax = GetNextTile20(party);
             L0030: PushStack(ax);
-            L0031: Push(01);
+            L0031: PushStack(01);
             L0035: SetUnblocked30(party);
-            L003F: Push(01);
+            L003F: PushStack(01);
             L0043: PushStack(0x00);
             L0046: ax = GetNextTile20(party);
             L004D: PushStack(ax);
@@ -288,19 +288,19 @@ namespace ZCF.Scripts.Maps {
             L0023: ax = HasItem50(party, 0xDC);
             L0031: if (result.equal) goto L0076;
             L0033: ShowMessage(party, String067C); // A door appears in the south wall.
-            L0040: Push(01);
+            L0040: PushStack(01);
             L0044: ax = GetNextTile20(party);
             L004B: PushStack(ax);
-            L004C: Push(01);
+            L004C: PushStack(01);
             L0050: SetUnblocked30(party);
-            L005A: Push(01);
-            L005E: Push(01);
+            L005A: PushStack(01);
+            L005E: PushStack(01);
             L0062: ax = GetNextTile20(party);
             L0069: PushStack(ax);
             L006A: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L0074: goto L008F;
             L0076: PushStack(0x00);
-            L0079: Push(01);
+            L0079: PushStack(01);
             L007D: ax = GetNextTile20(party);
             L0084: PushStack(ax);
             L0085: SetMove2C(party, PopStack(), PopStack(), PopStack());
@@ -324,17 +324,17 @@ namespace ZCF.Scripts.Maps {
             L007B: ax = PartyCount(party);
             L0083: compare(ax, 0x0002);
             L0086: if (result.notequal) goto L00D2;
-            L0088: AddEncounter(party, 0x1C, 0x01);
-            L009A: AddEncounter(party, 0x1C, 0x02);
-            L00AC: AddEncounter(party, 0x19, 0x03);
-            L00BE: AddEncounter(party, 0x19, 0x04);
+            L0088: AddEncounter(party, 0x01, 0x1C);
+            L009A: AddEncounter(party, 0x02, 0x1C);
+            L00AC: AddEncounter(party, 0x03, 0x19);
+            L00BE: AddEncounter(party, 0x04, 0x19);
             L00D0: goto L013E;
-            L00D2: AddEncounter(party, 0x1A, 0x01);
-            L00E4: AddEncounter(party, 0x1A, 0x02);
-            L00F6: AddEncounter(party, 0x1C, 0x03);
-            L0108: AddEncounter(party, 0x1C, 0x04);
-            L011A: AddEncounter(party, 0x1A, 0x05);
-            L012C: AddEncounter(party, 0x1A, 0x06);
+            L00D2: AddEncounter(party, 0x01, 0x1A);
+            L00E4: AddEncounter(party, 0x02, 0x1A);
+            L00F6: AddEncounter(party, 0x03, 0x1C);
+            L0108: AddEncounter(party, 0x04, 0x1C);
+            L011A: AddEncounter(party, 0x05, 0x1A);
+            L012C: AddEncounter(party, 0x06, 0x1A);
             L013E: // RETURN;
         }
 
@@ -355,15 +355,15 @@ namespace ZCF.Scripts.Maps {
             L007C: ax = PartyCount(party);
             L0084: compare(ax, 0x0002);
             L0087: if (result.notequal) goto L00AF;
-            L0089: AddEncounter(party, 0x21, 0x01);
-            L009B: AddEncounter(party, 0x21, 0x02);
+            L0089: AddEncounter(party, 0x01, 0x21);
+            L009B: AddEncounter(party, 0x02, 0x21);
             L00AD: goto L011B;
-            L00AF: AddEncounter(party, 0x23, 0x01);
-            L00C1: AddEncounter(party, 0x23, 0x02);
-            L00D3: AddEncounter(party, 0x24, 0x03);
-            L00E5: AddEncounter(party, 0x24, 0x04);
-            L00F7: AddEncounter(party, 0x22, 0x05);
-            L0109: AddEncounter(party, 0x22, 0x06);
+            L00AF: AddEncounter(party, 0x01, 0x23);
+            L00C1: AddEncounter(party, 0x02, 0x23);
+            L00D3: AddEncounter(party, 0x03, 0x24);
+            L00E5: AddEncounter(party, 0x04, 0x24);
+            L00F7: AddEncounter(party, 0x05, 0x22);
+            L0109: AddEncounter(party, 0x06, 0x22);
             L011B: // RETURN;
         }
 
@@ -384,17 +384,17 @@ namespace ZCF.Scripts.Maps {
             L007B: ax = PartyCount(party);
             L0083: compare(ax, 0x0002);
             L0086: if (result.notequal) goto L00D2;
-            L0088: AddEncounter(party, 0x27, 0x01);
-            L009A: AddEncounter(party, 0x27, 0x02);
-            L00AC: AddEncounter(party, 0x28, 0x03);
-            L00BE: AddEncounter(party, 0x28, 0x04);
+            L0088: AddEncounter(party, 0x01, 0x27);
+            L009A: AddEncounter(party, 0x02, 0x27);
+            L00AC: AddEncounter(party, 0x03, 0x28);
+            L00BE: AddEncounter(party, 0x04, 0x28);
             L00D0: goto L013E;
-            L00D2: AddEncounter(party, 0x28, 0x01);
-            L00E4: AddEncounter(party, 0x28, 0x02);
-            L00F6: AddEncounter(party, 0x27, 0x03);
-            L0108: AddEncounter(party, 0x27, 0x04);
-            L011A: AddEncounter(party, 0x28, 0x05);
-            L012C: AddEncounter(party, 0x28, 0x06);
+            L00D2: AddEncounter(party, 0x01, 0x28);
+            L00E4: AddEncounter(party, 0x02, 0x28);
+            L00F6: AddEncounter(party, 0x03, 0x27);
+            L0108: AddEncounter(party, 0x04, 0x27);
+            L011A: AddEncounter(party, 0x05, 0x28);
+            L012C: AddEncounter(party, 0x06, 0x28);
             L013E: // RETURN;
         }
 
@@ -423,33 +423,33 @@ namespace ZCF.Scripts.Maps {
             L0003: ax = PartyCount(party);
             L000B: compare(ax, 0x0001);
             L000E: if (result.notequal) goto L0037;
-            L0010: AddEncounter(party, 0x1D, 0x01);
-            L0022: AddEncounter(party, 0x1F, 0x02);
+            L0010: AddEncounter(party, 0x01, 0x1D);
+            L0022: AddEncounter(party, 0x02, 0x1F);
             L0034: goto L0176;
             L0037: ax = PartyCount(party);
             L003F: compare(ax, 0x0002);
             L0042: if (result.notequal) goto L00A1;
-            L0044: AddEncounter(party, 0x1E, 0x01);
-            L0056: AddEncounter(party, 0x1E, 0x02);
-            L0068: AddEncounter(party, 0x1F, 0x03);
-            L007A: AddEncounter(party, 0x1F, 0x04);
-            L008C: AddEncounter(party, 0x20, 0x05);
+            L0044: AddEncounter(party, 0x01, 0x1E);
+            L0056: AddEncounter(party, 0x02, 0x1E);
+            L0068: AddEncounter(party, 0x03, 0x1F);
+            L007A: AddEncounter(party, 0x04, 0x1F);
+            L008C: AddEncounter(party, 0x05, 0x20);
             L009E: goto L0176;
             L00A1: ax = PartyCount(party);
             L00A9: compare(ax, 0x0003);
             L00AC: if (result.notequal) goto L010A;
-            L00AE: AddEncounter(party, 0x1F, 0x01);
-            L00C0: AddEncounter(party, 0x20, 0x02);
-            L00D2: AddEncounter(party, 0x1F, 0x03);
-            L00E4: AddEncounter(party, 0x20, 0x04);
-            L00F6: AddEncounter(party, 0x1E, 0x05);
+            L00AE: AddEncounter(party, 0x01, 0x1F);
+            L00C0: AddEncounter(party, 0x02, 0x20);
+            L00D2: AddEncounter(party, 0x03, 0x1F);
+            L00E4: AddEncounter(party, 0x04, 0x20);
+            L00F6: AddEncounter(party, 0x05, 0x1E);
             L0108: goto L0176;
-            L010A: AddEncounter(party, 0x20, 0x01);
-            L011C: AddEncounter(party, 0x20, 0x02);
-            L012E: AddEncounter(party, 0x1F, 0x03);
-            L0140: AddEncounter(party, 0x1F, 0x04);
-            L0152: AddEncounter(party, 0x1F, 0x05);
-            L0164: AddEncounter(party, 0x1F, 0x06);
+            L010A: AddEncounter(party, 0x01, 0x20);
+            L011C: AddEncounter(party, 0x02, 0x20);
+            L012E: AddEncounter(party, 0x03, 0x1F);
+            L0140: AddEncounter(party, 0x04, 0x1F);
+            L0152: AddEncounter(party, 0x05, 0x1F);
+            L0164: AddEncounter(party, 0x06, 0x1F);
             L0176: // RETURN;
         }
 
@@ -484,10 +484,10 @@ namespace ZCF.Scripts.Maps {
             L00FE: AddEncounter(party, 0x02, 0x02);
             L0110: AddEncounter(party, 0x03, 0x03);
             L0122: goto L016C;
-            L0124: AddEncounter(party, 0x02, 0x01);
-            L0136: AddEncounter(party, 0x03, 0x02);
+            L0124: AddEncounter(party, 0x01, 0x02);
+            L0136: AddEncounter(party, 0x02, 0x03);
             L0148: AddEncounter(party, 0x03, 0x03);
-            L015A: AddEncounter(party, 0x02, 0x04);
+            L015A: AddEncounter(party, 0x04, 0x02);
             L016C: // RETURN;
         }
 
@@ -510,13 +510,13 @@ namespace ZCF.Scripts.Maps {
             L0095: ax = PartyCount(party);
             L009D: compare(ax, 0x0002);
             L00A0: if (result.notequal) goto L00C8;
-            L00A2: AddEncounter(party, 0x0E, 0x01);
-            L00B4: AddEncounter(party, 0x0E, 0x02);
+            L00A2: AddEncounter(party, 0x01, 0x0E);
+            L00B4: AddEncounter(party, 0x02, 0x0E);
             L00C6: goto L0110;
-            L00C8: AddEncounter(party, 0x10, 0x01);
-            L00DA: AddEncounter(party, 0x10, 0x02);
-            L00EC: AddEncounter(party, 0x0E, 0x03);
-            L00FE: AddEncounter(party, 0x0F, 0x04);
+            L00C8: AddEncounter(party, 0x01, 0x10);
+            L00DA: AddEncounter(party, 0x02, 0x10);
+            L00EC: AddEncounter(party, 0x03, 0x0E);
+            L00FE: AddEncounter(party, 0x04, 0x0F);
             L0110: // RETURN;
         }
 
@@ -539,20 +539,20 @@ namespace ZCF.Scripts.Maps {
             L0095: ax = PartyCount(party);
             L009D: compare(ax, 0x0002);
             L00A0: if (result.notequal) goto L00C9;
-            L00A2: AddEncounter(party, 0x13, 0x01);
-            L00B4: AddEncounter(party, 0x14, 0x02);
+            L00A2: AddEncounter(party, 0x01, 0x13);
+            L00B4: AddEncounter(party, 0x02, 0x14);
             L00C6: goto L0156;
             L00C9: ax = PartyCount(party);
             L00D1: compare(ax, 0x0003);
             L00D4: if (result.notequal) goto L010E;
-            L00D6: AddEncounter(party, 0x14, 0x01);
-            L00E8: AddEncounter(party, 0x14, 0x02);
-            L00FA: AddEncounter(party, 0x15, 0x03);
+            L00D6: AddEncounter(party, 0x01, 0x14);
+            L00E8: AddEncounter(party, 0x02, 0x14);
+            L00FA: AddEncounter(party, 0x03, 0x15);
             L010C: goto L0156;
-            L010E: AddEncounter(party, 0x15, 0x01);
-            L0120: AddEncounter(party, 0x15, 0x02);
-            L0132: AddEncounter(party, 0x16, 0x03);
-            L0144: AddEncounter(party, 0x16, 0x04);
+            L010E: AddEncounter(party, 0x01, 0x15);
+            L0120: AddEncounter(party, 0x02, 0x15);
+            L0132: AddEncounter(party, 0x03, 0x16);
+            L0144: AddEncounter(party, 0x04, 0x16);
             L0156: // RETURN;
         }
 
@@ -570,23 +570,23 @@ namespace ZCF.Scripts.Maps {
             L006D: ax = PartyCount(party);
             L0075: compare(ax, 0x0001);
             L0078: if (result.notequal) goto L00A1;
-            L007A: AddEncounter(party, 0x1B, 0x01);
-            L008C: AddEncounter(party, 0x1B, 0x02);
+            L007A: AddEncounter(party, 0x01, 0x1B);
+            L008C: AddEncounter(party, 0x02, 0x1B);
             L009E: goto L0164;
             L00A1: ax = PartyCount(party);
             L00A9: compare(ax, 0x0002);
             L00AC: if (result.notequal) goto L00F8;
-            L00AE: AddEncounter(party, 0x1C, 0x01);
-            L00C0: AddEncounter(party, 0x1C, 0x02);
-            L00D2: AddEncounter(party, 0x1B, 0x03);
-            L00E4: AddEncounter(party, 0x1B, 0x04);
+            L00AE: AddEncounter(party, 0x01, 0x1C);
+            L00C0: AddEncounter(party, 0x02, 0x1C);
+            L00D2: AddEncounter(party, 0x03, 0x1B);
+            L00E4: AddEncounter(party, 0x04, 0x1B);
             L00F6: goto L0164;
-            L00F8: AddEncounter(party, 0x16, 0x01);
-            L010A: AddEncounter(party, 0x16, 0x02);
-            L011C: AddEncounter(party, 0x1C, 0x03);
-            L012E: AddEncounter(party, 0x1C, 0x04);
-            L0140: AddEncounter(party, 0x1B, 0x05);
-            L0152: AddEncounter(party, 0x1B, 0x06);
+            L00F8: AddEncounter(party, 0x01, 0x16);
+            L010A: AddEncounter(party, 0x02, 0x16);
+            L011C: AddEncounter(party, 0x03, 0x1C);
+            L012E: AddEncounter(party, 0x04, 0x1C);
+            L0140: AddEncounter(party, 0x05, 0x1B);
+            L0152: AddEncounter(party, 0x06, 0x1B);
             L0164: // RETURN;
         }
 
@@ -604,21 +604,21 @@ namespace ZCF.Scripts.Maps {
             L006B: ax = PartyCount(party);
             L0073: compare(ax, 0x0001);
             L0076: if (result.notequal) goto L008D;
-            L0078: AddEncounter(party, 0x25, 0x01);
+            L0078: AddEncounter(party, 0x01, 0x25);
             L008A: goto L013E;
             L008D: ax = PartyCount(party);
             L0095: compare(ax, 0x0002);
             L0098: if (result.notequal) goto L00D2;
-            L009A: AddEncounter(party, 0x25, 0x01);
-            L00AC: AddEncounter(party, 0x26, 0x02);
-            L00BE: AddEncounter(party, 0x25, 0x03);
+            L009A: AddEncounter(party, 0x01, 0x25);
+            L00AC: AddEncounter(party, 0x02, 0x26);
+            L00BE: AddEncounter(party, 0x03, 0x25);
             L00D0: goto L013E;
-            L00D2: AddEncounter(party, 0x25, 0x01);
-            L00E4: AddEncounter(party, 0x25, 0x02);
-            L00F6: AddEncounter(party, 0x26, 0x03);
-            L0108: AddEncounter(party, 0x26, 0x04);
-            L011A: AddEncounter(party, 0x25, 0x05);
-            L012C: AddEncounter(party, 0x26, 0x06);
+            L00D2: AddEncounter(party, 0x01, 0x25);
+            L00E4: AddEncounter(party, 0x02, 0x25);
+            L00F6: AddEncounter(party, 0x03, 0x26);
+            L0108: AddEncounter(party, 0x04, 0x26);
+            L011A: AddEncounter(party, 0x05, 0x25);
+            L012C: AddEncounter(party, 0x06, 0x26);
             L013E: // RETURN;
         }
 
@@ -639,13 +639,13 @@ namespace ZCF.Scripts.Maps {
             L007A: ax = PartyCount(party);
             L0082: compare(ax, 0x0002);
             L0085: if (result.notequal) goto L00AD;
-            L0087: AddEncounter(party, 0x08, 0x01);
-            L0099: AddEncounter(party, 0x07, 0x02);
+            L0087: AddEncounter(party, 0x01, 0x08);
+            L0099: AddEncounter(party, 0x02, 0x07);
             L00AB: goto L00F5;
-            L00AD: AddEncounter(party, 0x09, 0x01);
-            L00BF: AddEncounter(party, 0x09, 0x02);
-            L00D1: AddEncounter(party, 0x0C, 0x05);
-            L00E3: AddEncounter(party, 0x0A, 0x06);
+            L00AD: AddEncounter(party, 0x01, 0x09);
+            L00BF: AddEncounter(party, 0x02, 0x09);
+            L00D1: AddEncounter(party, 0x05, 0x0C);
+            L00E3: AddEncounter(party, 0x06, 0x0A);
             L00F5: // RETURN;
         }
 
@@ -666,20 +666,20 @@ namespace ZCF.Scripts.Maps {
             L007A: ax = PartyCount(party);
             L0082: compare(ax, 0x0002);
             L0085: if (result.notequal) goto L00AE;
-            L0087: AddEncounter(party, 0x21, 0x01);
-            L0099: AddEncounter(party, 0x22, 0x02);
+            L0087: AddEncounter(party, 0x01, 0x21);
+            L0099: AddEncounter(party, 0x02, 0x22);
             L00AB: goto L013B;
             L00AE: ax = PartyCount(party);
             L00B6: compare(ax, 0x0003);
             L00B9: if (result.notequal) goto L00F3;
-            L00BB: AddEncounter(party, 0x21, 0x01);
-            L00CD: AddEncounter(party, 0x22, 0x02);
-            L00DF: AddEncounter(party, 0x23, 0x03);
+            L00BB: AddEncounter(party, 0x01, 0x21);
+            L00CD: AddEncounter(party, 0x02, 0x22);
+            L00DF: AddEncounter(party, 0x03, 0x23);
             L00F1: goto L013B;
-            L00F3: AddEncounter(party, 0x21, 0x01);
-            L0105: AddEncounter(party, 0x22, 0x02);
-            L0117: AddEncounter(party, 0x23, 0x03);
-            L0129: AddEncounter(party, 0x24, 0x04);
+            L00F3: AddEncounter(party, 0x01, 0x21);
+            L0105: AddEncounter(party, 0x02, 0x22);
+            L0117: AddEncounter(party, 0x03, 0x23);
+            L0129: AddEncounter(party, 0x04, 0x24);
             L013B: // RETURN;
         }
 
@@ -697,20 +697,20 @@ namespace ZCF.Scripts.Maps {
             L006D: ax = PartyCount(party);
             L0075: compare(ax, 0x0001);
             L0078: if (result.notequal) goto L008F;
-            L007A: AddEncounter(party, 0x25, 0x01);
+            L007A: AddEncounter(party, 0x01, 0x25);
             L008C: goto L012E;
             L008F: ax = PartyCount(party);
             L0097: compare(ax, 0x0002);
             L009A: if (result.notequal) goto L00D4;
-            L009C: AddEncounter(party, 0x25, 0x01);
-            L00AE: AddEncounter(party, 0x26, 0x02);
-            L00C0: AddEncounter(party, 0x21, 0x04);
+            L009C: AddEncounter(party, 0x01, 0x25);
+            L00AE: AddEncounter(party, 0x02, 0x26);
+            L00C0: AddEncounter(party, 0x04, 0x21);
             L00D2: goto L012E;
-            L00D4: AddEncounter(party, 0x25, 0x01);
-            L00E6: AddEncounter(party, 0x25, 0x02);
-            L00F8: AddEncounter(party, 0x26, 0x03);
-            L010A: AddEncounter(party, 0x26, 0x04);
-            L011C: AddEncounter(party, 0x25, 0x05);
+            L00D4: AddEncounter(party, 0x01, 0x25);
+            L00E6: AddEncounter(party, 0x02, 0x25);
+            L00F8: AddEncounter(party, 0x03, 0x26);
+            L010A: AddEncounter(party, 0x04, 0x26);
+            L011C: AddEncounter(party, 0x05, 0x25);
             L012E: // RETURN;
         }
 
@@ -729,22 +729,22 @@ namespace ZCF.Scripts.Maps {
             L0075: compare(ax, 0x0001);
             L0078: if (result.notequal) goto L00A1;
             L007A: AddEncounter(party, 0x01, 0x01);
-            L008C: AddEncounter(party, 0x01, 0x02);
+            L008C: AddEncounter(party, 0x02, 0x01);
             L009E: goto L0164;
             L00A1: ax = PartyCount(party);
             L00A9: compare(ax, 0x0002);
             L00AC: if (result.notequal) goto L00F8;
-            L00AE: AddEncounter(party, 0x02, 0x01);
+            L00AE: AddEncounter(party, 0x01, 0x02);
             L00C0: AddEncounter(party, 0x02, 0x02);
             L00D2: AddEncounter(party, 0x03, 0x03);
-            L00E4: AddEncounter(party, 0x03, 0x04);
+            L00E4: AddEncounter(party, 0x04, 0x03);
             L00F6: goto L0164;
-            L00F8: AddEncounter(party, 0x02, 0x01);
-            L010A: AddEncounter(party, 0x03, 0x02);
+            L00F8: AddEncounter(party, 0x01, 0x02);
+            L010A: AddEncounter(party, 0x02, 0x03);
             L011C: AddEncounter(party, 0x03, 0x03);
-            L012E: AddEncounter(party, 0x02, 0x04);
-            L0140: AddEncounter(party, 0x04, 0x05);
-            L0152: AddEncounter(party, 0x05, 0x06);
+            L012E: AddEncounter(party, 0x04, 0x02);
+            L0140: AddEncounter(party, 0x05, 0x04);
+            L0152: AddEncounter(party, 0x06, 0x05);
             L0164: // RETURN;
         }
 
@@ -765,20 +765,20 @@ namespace ZCF.Scripts.Maps {
             L007B: ax = PartyCount(party);
             L0083: compare(ax, 0x0002);
             L0086: if (result.notequal) goto L00AF;
-            L0088: AddEncounter(party, 0x08, 0x01);
-            L009A: AddEncounter(party, 0x07, 0x02);
+            L0088: AddEncounter(party, 0x01, 0x08);
+            L009A: AddEncounter(party, 0x02, 0x07);
             L00AC: goto L013C;
             L00AF: ax = PartyCount(party);
             L00B7: compare(ax, 0x0003);
             L00BA: if (result.notequal) goto L00F4;
-            L00BC: AddEncounter(party, 0x07, 0x01);
-            L00CE: AddEncounter(party, 0x08, 0x02);
-            L00E0: AddEncounter(party, 0x09, 0x05);
+            L00BC: AddEncounter(party, 0x01, 0x07);
+            L00CE: AddEncounter(party, 0x02, 0x08);
+            L00E0: AddEncounter(party, 0x05, 0x09);
             L00F2: goto L013C;
-            L00F4: AddEncounter(party, 0x08, 0x01);
-            L0106: AddEncounter(party, 0x09, 0x02);
-            L0118: AddEncounter(party, 0x0A, 0x05);
-            L012A: AddEncounter(party, 0x0A, 0x06);
+            L00F4: AddEncounter(party, 0x01, 0x08);
+            L0106: AddEncounter(party, 0x02, 0x09);
+            L0118: AddEncounter(party, 0x05, 0x0A);
+            L012A: AddEncounter(party, 0x06, 0x0A);
             L013C: // RETURN;
         }
 
@@ -799,15 +799,15 @@ namespace ZCF.Scripts.Maps {
             L007A: ax = PartyCount(party);
             L0082: compare(ax, 0x0002);
             L0085: if (result.notequal) goto L00BF;
-            L0087: AddEncounter(party, 0x0E, 0x01);
-            L0099: AddEncounter(party, 0x0D, 0x02);
-            L00AB: AddEncounter(party, 0x0F, 0x03);
+            L0087: AddEncounter(party, 0x01, 0x0E);
+            L0099: AddEncounter(party, 0x02, 0x0D);
+            L00AB: AddEncounter(party, 0x03, 0x0F);
             L00BD: goto L0119;
-            L00BF: AddEncounter(party, 0x0F, 0x01);
-            L00D1: AddEncounter(party, 0x10, 0x02);
-            L00E3: AddEncounter(party, 0x10, 0x03);
-            L00F5: AddEncounter(party, 0x0F, 0x04);
-            L0107: AddEncounter(party, 0x11, 0x05);
+            L00BF: AddEncounter(party, 0x01, 0x0F);
+            L00D1: AddEncounter(party, 0x02, 0x10);
+            L00E3: AddEncounter(party, 0x03, 0x10);
+            L00F5: AddEncounter(party, 0x04, 0x0F);
+            L0107: AddEncounter(party, 0x05, 0x11);
             L0119: // RETURN;
         }
 
@@ -828,13 +828,13 @@ namespace ZCF.Scripts.Maps {
             L007A: ax = PartyCount(party);
             L0082: compare(ax, 0x0002);
             L0085: if (result.notequal) goto L00AD;
-            L0087: AddEncounter(party, 0x27, 0x01);
-            L0099: AddEncounter(party, 0x28, 0x02);
+            L0087: AddEncounter(party, 0x01, 0x27);
+            L0099: AddEncounter(party, 0x02, 0x28);
             L00AB: goto L00F5;
-            L00AD: AddEncounter(party, 0x27, 0x01);
-            L00BF: AddEncounter(party, 0x27, 0x02);
-            L00D1: AddEncounter(party, 0x28, 0x03);
-            L00E3: AddEncounter(party, 0x28, 0x04);
+            L00AD: AddEncounter(party, 0x01, 0x27);
+            L00BF: AddEncounter(party, 0x02, 0x27);
+            L00D1: AddEncounter(party, 0x03, 0x28);
+            L00E3: AddEncounter(party, 0x04, 0x28);
             L00F5: // RETURN;
         }
 
@@ -849,9 +849,9 @@ namespace ZCF.Scripts.Maps {
             L0027: PushStack(ax);
             L0028: ax = GetNextTile20(party);
             L002F: PushStack(ax);
-            L0030: Push(01);
+            L0030: PushStack(01);
             L0034: SetUnblocked30(party);
-            L003E: Push(01);
+            L003E: PushStack(01);
             L0042: ax = GetFacing24(party);
             L0049: PushStack(ax);
             L004A: ax = GetNextTile20(party);

@@ -95,13 +95,13 @@ namespace ZCF.Scripts.Maps {
             L0077: goto L00E5;
             L0079: ShowMessage(party, String04E9); // A Timeswitch has been set.
             L0086: ShowMessage(party, String0504); // Two other Timeswitches must be set to reveal the platform.
-            L0093: SetMove38(party, 0xA8, 0x03);
+            L0093: SetMove38(party, 0x03, 0xA8);
             L00A4: goto L00E5;
             L00A6: ShowMessage(party, String053F); // The second Timeswitch has been set.
-            L00B3: SetMove38(party, 0xA8, 0x03);
+            L00B3: SetMove38(party, 0x03, 0xA8);
             L00C4: goto L00E5;
             L00C6: ShowMessage(party, String0563); // The third and final Timeswitch has been set.
-            L00D3: SetMove38(party, 0xA8, 0x00);
+            L00D3: SetMove38(party, 0x00, 0xA8);
             L00E3: goto L00E5;
             L00E5: ShowMessage(party, String0590); // All is deathly quiet near the Fountain of Life.
             L00F2: sp = bp;
@@ -136,13 +136,13 @@ namespace ZCF.Scripts.Maps {
             L0077: goto L00E5;
             L0079: ShowMessage(party, String05E9); // A Timeswitch has been set.
             L0086: ShowMessage(party, String0604); // Two other Timeswitches must be set to reveal the platform.
-            L0093: SetMove38(party, 0xA8, 0x03);
+            L0093: SetMove38(party, 0x03, 0xA8);
             L00A4: goto L00E5;
             L00A6: ShowMessage(party, String063F); // The second Timeswitch has been set.
-            L00B3: SetMove38(party, 0xA8, 0x03);
+            L00B3: SetMove38(party, 0x03, 0xA8);
             L00C4: goto L00E5;
             L00C6: ShowMessage(party, String0663); // The third and final Timeswitch has been set.
-            L00D3: SetMove38(party, 0xA8, 0x00);
+            L00D3: SetMove38(party, 0x00, 0xA8);
             L00E3: goto L00E5;
             L00E5: ShowMessage(party, String0690); // All is deathly quiet near the Fountain of Life.
             L00F2: sp = bp;
@@ -177,13 +177,13 @@ namespace ZCF.Scripts.Maps {
             L0077: goto L00E5;
             L0079: ShowMessage(party, String06E9); // A Timeswitch has been set.
             L0086: ShowMessage(party, String0704); // Two other Timeswitches must be set to reveal the platform.
-            L0093: SetMove38(party, 0xA8, 0x03);
+            L0093: SetMove38(party, 0x03, 0xA8);
             L00A4: goto L00E5;
             L00A6: ShowMessage(party, String073F); // The second Timeswitch has been set.
-            L00B3: SetMove38(party, 0xA8, 0x03);
+            L00B3: SetMove38(party, 0x03, 0xA8);
             L00C4: goto L00E5;
             L00C6: ShowMessage(party, String0763); // The third and final Timeswitch has been set.
-            L00D3: SetMove38(party, 0xA8, 0x00);
+            L00D3: SetMove38(party, 0x00, 0xA8);
             L00E3: goto L00E5;
             L00E5: ShowMessage(party, String0790); // All is deathly quiet near the Fountain of Life.
             L00F2: sp = bp;
@@ -204,11 +204,11 @@ namespace ZCF.Scripts.Maps {
             L005E: SetState00(party, 0x02, 0x7B, 0x00);
             L0072: SetState00(party, 0x02, 0x7C, 0x00);
             L0086: SetState00(party, 0x02, 0x7D, 0x00);
-            L009A: AddEncounter(party, 0x21, 0x01);
-            L00AC: AddEncounter(party, 0x23, 0x02);
-            L00BE: AddEncounter(party, 0x10, 0x03);
-            L00D0: AddEncounter(party, 0x19, 0x04);
-            L00E2: AddEncounter(party, 0x28, 0x06);
+            L009A: AddEncounter(party, 0x01, 0x21);
+            L00AC: AddEncounter(party, 0x02, 0x23);
+            L00BE: AddEncounter(party, 0x03, 0x10);
+            L00D0: AddEncounter(party, 0x04, 0x19);
+            L00E2: AddEncounter(party, 0x06, 0x28);
             L00F4: // RETURN;
         }
 
@@ -225,12 +225,12 @@ namespace ZCF.Scripts.Maps {
             L002C: ax = CheckState04(party, 0x01, 0x02);
             L003D: RefreshCompareFlags(ax);
             L003F: if (result.equal) goto L007A;
-            L0041: SetMove38(party, 0xA8, 0x00);
+            L0041: SetMove38(party, 0x00, 0xA8);
             L0051: ShowMessage(party, String090F); // You cross the Waters of Death safely.
             L005E: ShowMessage(party, String0935); // En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
             L006B: ShowPortrait(party, 0x0042);
             L0078: goto L00A9;
-            L007A: SetMove38(party, 0xA8, 0x03);
+            L007A: SetMove38(party, 0x03, 0xA8);
             L008B: ShowMessage(party, String09AD); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
             L0098: ax = GetMaxHits74(party);
             L009F: DoDamage90(party, ax);
@@ -274,12 +274,12 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0C2F); // Across the Waters of Death at the center of this finite square is the Fountain of Life.
             L0010: ShowMessage(party, String0C87); // The Fountain is well guarded.
-            L001D: AddEncounter(party, 0x19, 0x01);
-            L002F: AddEncounter(party, 0x1B, 0x02);
-            L0041: AddEncounter(party, 0x19, 0x03);
-            L0053: AddEncounter(party, 0x1B, 0x04);
-            L0065: AddEncounter(party, 0x23, 0x05);
-            L0077: AddEncounter(party, 0x1D, 0x06);
+            L001D: AddEncounter(party, 0x01, 0x19);
+            L002F: AddEncounter(party, 0x02, 0x1B);
+            L0041: AddEncounter(party, 0x03, 0x19);
+            L0053: AddEncounter(party, 0x04, 0x1B);
+            L0065: AddEncounter(party, 0x05, 0x23);
+            L0077: AddEncounter(party, 0x06, 0x1D);
             L0089: // RETURN;
         }
 
@@ -287,12 +287,12 @@ namespace ZCF.Scripts.Maps {
         private void FnENCB_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x08, 0x01);
-            L0015: AddEncounter(party, 0x08, 0x02);
-            L0027: AddEncounter(party, 0x24, 0x03);
-            L0039: AddEncounter(party, 0x25, 0x04);
-            L004B: AddEncounter(party, 0x26, 0x05);
-            L005D: AddEncounter(party, 0x27, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x08);
+            L0015: AddEncounter(party, 0x02, 0x08);
+            L0027: AddEncounter(party, 0x03, 0x24);
+            L0039: AddEncounter(party, 0x04, 0x25);
+            L004B: AddEncounter(party, 0x05, 0x26);
+            L005D: AddEncounter(party, 0x06, 0x27);
             L006F: // RETURN;
         }
 
@@ -300,12 +300,12 @@ namespace ZCF.Scripts.Maps {
         private void FnENCC_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1B, 0x01);
-            L0015: AddEncounter(party, 0x1B, 0x02);
-            L0027: AddEncounter(party, 0x1C, 0x03);
-            L0039: AddEncounter(party, 0x1C, 0x04);
-            L004B: AddEncounter(party, 0x1F, 0x05);
-            L005D: AddEncounter(party, 0x1F, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x1B);
+            L0015: AddEncounter(party, 0x02, 0x1B);
+            L0027: AddEncounter(party, 0x03, 0x1C);
+            L0039: AddEncounter(party, 0x04, 0x1C);
+            L004B: AddEncounter(party, 0x05, 0x1F);
+            L005D: AddEncounter(party, 0x06, 0x1F);
             L006F: // RETURN;
         }
 
@@ -322,13 +322,13 @@ namespace ZCF.Scripts.Maps {
             L002D: ax = CheckState04(party, 0x01, 0x7D);
             L003E: RefreshCompareFlags(ax);
             L0040: if (result.equal) goto L0052;
-            L0042: SetMove38(party, 0xA8, 0x00);
-            L0052: AddEncounter(party, 0x19, 0x01);
-            L0064: AddEncounter(party, 0x19, 0x02);
-            L0076: AddEncounter(party, 0x1C, 0x03);
-            L0088: AddEncounter(party, 0x1C, 0x04);
-            L009A: AddEncounter(party, 0x1D, 0x05);
-            L00AC: AddEncounter(party, 0x1D, 0x06);
+            L0042: SetMove38(party, 0x00, 0xA8);
+            L0052: AddEncounter(party, 0x01, 0x19);
+            L0064: AddEncounter(party, 0x02, 0x19);
+            L0076: AddEncounter(party, 0x03, 0x1C);
+            L0088: AddEncounter(party, 0x04, 0x1C);
+            L009A: AddEncounter(party, 0x05, 0x1D);
+            L00AC: AddEncounter(party, 0x06, 0x1D);
             L00BE: // RETURN;
         }
 
@@ -336,12 +336,12 @@ namespace ZCF.Scripts.Maps {
         private void FnENCE_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1E, 0x01);
-            L0015: AddEncounter(party, 0x1E, 0x02);
-            L0027: AddEncounter(party, 0x20, 0x03);
-            L0039: AddEncounter(party, 0x20, 0x04);
-            L004B: AddEncounter(party, 0x18, 0x05);
-            L005D: AddEncounter(party, 0x21, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x1E);
+            L0015: AddEncounter(party, 0x02, 0x1E);
+            L0027: AddEncounter(party, 0x03, 0x20);
+            L0039: AddEncounter(party, 0x04, 0x20);
+            L004B: AddEncounter(party, 0x05, 0x18);
+            L005D: AddEncounter(party, 0x06, 0x21);
             L006F: // RETURN;
         }
 
@@ -349,12 +349,12 @@ namespace ZCF.Scripts.Maps {
         private void FnENCF_0E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x22, 0x01);
-            L0015: AddEncounter(party, 0x22, 0x02);
-            L0027: AddEncounter(party, 0x1F, 0x03);
-            L0039: AddEncounter(party, 0x1F, 0x04);
-            L004B: AddEncounter(party, 0x23, 0x05);
-            L005D: AddEncounter(party, 0x23, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x22);
+            L0015: AddEncounter(party, 0x02, 0x22);
+            L0027: AddEncounter(party, 0x03, 0x1F);
+            L0039: AddEncounter(party, 0x04, 0x1F);
+            L004B: AddEncounter(party, 0x05, 0x23);
+            L005D: AddEncounter(party, 0x06, 0x23);
             L006F: // RETURN;
         }
 
@@ -371,9 +371,9 @@ namespace ZCF.Scripts.Maps {
             L002C: ax = CheckState04(party, 0x01, 0x02);
             L003D: RefreshCompareFlags(ax);
             L003F: if (result.equal) goto L0053;
-            L0041: SetMove38(party, 0xA8, 0x00);
+            L0041: SetMove38(party, 0x00, 0xA8);
             L0051: goto L0064;
-            L0053: SetMove38(party, 0xA8, 0x03);
+            L0053: SetMove38(party, 0x03, 0xA8);
             L0064: // RETURN;
         }
 
@@ -404,9 +404,9 @@ namespace ZCF.Scripts.Maps {
             L00BC: tmp = dx;
             L00BF: compare(tmp, 0xFE);
             L00C3: if (result.notequal) goto L00D7;
-            L00C5: SetMove38(party, 0xA8, 0x00);
+            L00C5: SetMove38(party, 0x00, 0xA8);
             L00D5: goto L00E8;
-            L00D7: SetMove38(party, 0xA8, 0x03);
+            L00D7: SetMove38(party, 0x03, 0xA8);
             L00E8: sp = bp;
             L00EA: // RETURN;
         }
@@ -416,7 +416,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0CA5); // You leave this dimension and re-enter your world.
-            L0010: SetMoveMap(party, 0x02, 0x88, 0x04, 0x38);
+            L0010: SetMoveMap(party, 0x38, 0x04, 0x88, 0x02);
             L002B: // RETURN;
         }
 

@@ -114,11 +114,11 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0424); // Guardians stand ready.  'We are sworn to defend Arnakkian.'
-            L0010: AddEncounter(party, 0x27, 0x01);
-            L0022: AddEncounter(party, 0x27, 0x02);
-            L0034: AddEncounter(party, 0x27, 0x03);
-            L0046: AddEncounter(party, 0x27, 0x04);
-            L0058: AddEncounter(party, 0x27, 0x05);
+            L0010: AddEncounter(party, 0x01, 0x27);
+            L0022: AddEncounter(party, 0x02, 0x27);
+            L0034: AddEncounter(party, 0x03, 0x27);
+            L0046: AddEncounter(party, 0x04, 0x27);
+            L0058: AddEncounter(party, 0x05, 0x27);
             L006A: ax = CheckState04(party, 0x02, 0x88);
             L007B: RefreshCompareFlags(ax);
             L007D: if (result.notequal) goto L00A6;
@@ -136,12 +136,12 @@ namespace ZCF.Scripts.Maps {
             L0016: if (result.equal) goto L001B;
             L0018: goto L0123;
             L001B: ShowMessage(party, String0460); // Earth Elemental Andreas rises from his mountainous perch.
-            L0028: AddEncounter(party, 0x04, 0x01);
-            L003A: AddEncounter(party, 0x04, 0x02);
-            L004C: AddEncounter(party, 0x22, 0x03);
-            L005E: AddEncounter(party, 0x0F, 0x04);
-            L0070: AddEncounter(party, 0x23, 0x05);
-            L0082: AddEncounter(party, 0x28, 0x06);
+            L0028: AddEncounter(party, 0x01, 0x04);
+            L003A: AddEncounter(party, 0x02, 0x04);
+            L004C: AddEncounter(party, 0x03, 0x22);
+            L005E: AddEncounter(party, 0x04, 0x0F);
+            L0070: AddEncounter(party, 0x05, 0x23);
+            L0082: AddEncounter(party, 0x06, 0x28);
             L0094: ax = HasItem50(party, 0xE9);
             L00A2: if (result.equal) goto L00C6;
             L00A4: AddTreasure(party, 0x0000, 0x00, 0x00, 0x50, 0x50, 0xD0);
@@ -960,11 +960,11 @@ namespace ZCF.Scripts.Maps {
         private void FnENCPITBJ_39(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x19, 0x01);
-            L0015: AddEncounter(party, 0x1A, 0x02);
-            L0027: AddEncounter(party, 0x1A, 0x03);
-            L0039: AddEncounter(party, 0x1B, 0x04);
-            L004B: AddEncounter(party, 0x1C, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x19);
+            L0015: AddEncounter(party, 0x02, 0x1A);
+            L0027: AddEncounter(party, 0x03, 0x1A);
+            L0039: AddEncounter(party, 0x04, 0x1B);
+            L004B: AddEncounter(party, 0x05, 0x1C);
             L005D: // RETURN;
         }
 
@@ -972,10 +972,10 @@ namespace ZCF.Scripts.Maps {
         private void FnENCPITDI_3A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1F, 0x01);
-            L0015: AddEncounter(party, 0x1F, 0x02);
-            L0027: AddEncounter(party, 0x20, 0x03);
-            L0039: AddEncounter(party, 0x20, 0x04);
+            L0003: AddEncounter(party, 0x01, 0x1F);
+            L0015: AddEncounter(party, 0x02, 0x1F);
+            L0027: AddEncounter(party, 0x03, 0x20);
+            L0039: AddEncounter(party, 0x04, 0x20);
             L004B: // RETURN;
         }
 
@@ -983,12 +983,12 @@ namespace ZCF.Scripts.Maps {
         private void FnPITENCDK_3B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1B, 0x01);
-            L0015: AddEncounter(party, 0x1B, 0x02);
-            L0027: AddEncounter(party, 0x19, 0x03);
-            L0039: AddEncounter(party, 0x19, 0x04);
-            L004B: AddEncounter(party, 0x1B, 0x05);
-            L005D: AddEncounter(party, 0x1B, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x1B);
+            L0015: AddEncounter(party, 0x02, 0x1B);
+            L0027: AddEncounter(party, 0x03, 0x19);
+            L0039: AddEncounter(party, 0x04, 0x19);
+            L004B: AddEncounter(party, 0x05, 0x1B);
+            L005D: AddEncounter(party, 0x06, 0x1B);
             L006F: // RETURN;
         }
 
@@ -996,11 +996,11 @@ namespace ZCF.Scripts.Maps {
         private void FnPITENCBL_3C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x24, 0x01);
-            L0015: AddEncounter(party, 0x24, 0x02);
-            L0027: AddEncounter(party, 0x24, 0x03);
-            L0039: AddEncounter(party, 0x25, 0x04);
-            L004B: AddEncounter(party, 0x26, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x24);
+            L0015: AddEncounter(party, 0x02, 0x24);
+            L0027: AddEncounter(party, 0x03, 0x24);
+            L0039: AddEncounter(party, 0x04, 0x25);
+            L004B: AddEncounter(party, 0x05, 0x26);
             L005D: // RETURN;
         }
 
@@ -1011,15 +1011,15 @@ namespace ZCF.Scripts.Maps {
             L0003: ax = CheckState04(party, 0x01, 0x01);
             L0014: RefreshCompareFlags(ax);
             L0016: if (result.equal) goto L005B;
-            L0018: Push(01);
-            L001C: Push(03);
+            L0018: PushStack(01);
+            L001C: PushStack(03);
             L0020: ax = GetNextTile20(party);
             L0027: PushStack(ax);
             L0028: SetMove2C(party, PopStack(), PopStack(), PopStack());
-            L0032: Push(03);
+            L0032: PushStack(03);
             L0036: ax = GetNextTile20(party);
             L003D: PushStack(ax);
-            L003E: Push(01);
+            L003E: PushStack(01);
             L0042: SetUnblocked30(party);
             L004C: ShowMessage(party, String1147); // Andreas no longer defends this door.
             L0059: goto L0068;
@@ -1032,7 +1032,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String119C); // A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
-            L0010: SetMoveMap(party, 0x03, 0x76, 0x02, 0x34);
+            L0010: SetMoveMap(party, 0x34, 0x02, 0x76, 0x03);
             L002B: // RETURN;
         }
 

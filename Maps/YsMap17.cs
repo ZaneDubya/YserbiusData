@@ -95,7 +95,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = CheckLevel44(party, 0x0014);
             L0011: if (result.equal) goto L002F;
-            L0013: SetMoveMap(party, 0x00, 0x4D, 0x01, 0x33);
+            L0013: SetMoveMap(party, 0x33, 0x01, 0x4D, 0x00);
             L002D: goto L0059;
             L002F: PushStack(0x00);
             L0032: ax = GetFacing24(party);
@@ -120,7 +120,7 @@ namespace ZCF.Scripts.Maps {
         private void FnTELPRTUP_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x02, 0xD8, 0x01, 0x04);
+            L0003: SetMoveMap(party, 0x04, 0x01, 0xD8, 0x02);
             L001E: // RETURN;
         }
 
@@ -138,7 +138,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = CheckLevel44(party, 0x0014);
             L0011: if (result.equal) goto L0030;
-            L0013: SetMoveMap(party, 0x02, 0x4D, 0x01, 0x33);
+            L0013: SetMoveMap(party, 0x33, 0x01, 0x4D, 0x02);
             L002E: goto L005A;
             L0030: PushStack(0x00);
             L0033: ax = GetFacing24(party);
@@ -200,9 +200,9 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0565); // You surprise creatures eating lunch!
-            L0010: AddEncounter(party, 0x19, 0x01);
-            L0022: AddEncounter(party, 0x1A, 0x02);
-            L0034: AddEncounter(party, 0x1D, 0x03);
+            L0010: AddEncounter(party, 0x01, 0x19);
+            L0022: AddEncounter(party, 0x02, 0x1A);
+            L0034: AddEncounter(party, 0x03, 0x1D);
             L0046: // RETURN;
         }
 
@@ -212,10 +212,10 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String058A); // You stumble upon some rather nasty monsters.
             L0010: AddTreasure(party, 0x1194, 0x00, 0x00, 0x00, 0xB2, 0xCD);
-            L0030: AddEncounter(party, 0x1E, 0x01);
-            L0042: AddEncounter(party, 0x22, 0x02);
-            L0054: AddEncounter(party, 0x1B, 0x03);
-            L0066: AddEncounter(party, 0x25, 0x04);
+            L0030: AddEncounter(party, 0x01, 0x1E);
+            L0042: AddEncounter(party, 0x02, 0x22);
+            L0054: AddEncounter(party, 0x03, 0x1B);
+            L0066: AddEncounter(party, 0x04, 0x25);
             L0078: // RETURN;
         }
 
@@ -230,15 +230,15 @@ namespace ZCF.Scripts.Maps {
             L001D: ax = PartyCount(party);
             L0025: compare(ax, 0x0002);
             L0028: if (result.notequal) goto L0062;
-            L002A: AddEncounter(party, 0x1C, 0x01);
-            L003C: AddEncounter(party, 0x1F, 0x02);
-            L004E: AddEncounter(party, 0x1D, 0x03);
+            L002A: AddEncounter(party, 0x01, 0x1C);
+            L003C: AddEncounter(party, 0x02, 0x1F);
+            L004E: AddEncounter(party, 0x03, 0x1D);
             L0060: goto L00BC;
-            L0062: AddEncounter(party, 0x1C, 0x01);
-            L0074: AddEncounter(party, 0x1C, 0x02);
-            L0086: AddEncounter(party, 0x1D, 0x03);
-            L0098: AddEncounter(party, 0x1D, 0x04);
-            L00AA: AddEncounter(party, 0x1F, 0x05);
+            L0062: AddEncounter(party, 0x01, 0x1C);
+            L0074: AddEncounter(party, 0x02, 0x1C);
+            L0086: AddEncounter(party, 0x03, 0x1D);
+            L0098: AddEncounter(party, 0x04, 0x1D);
+            L00AA: AddEncounter(party, 0x05, 0x1F);
             L00BC: // RETURN;
         }
 
@@ -252,9 +252,9 @@ namespace ZCF.Scripts.Maps {
             L0033: goto L0055;
             L0035: AddTreasure(party, 0x0BB8, 0x00, 0x00, 0x00, 0xBB, 0xBE);
             L0055: ShowMessage(party, String05E0); // You are attacked by Mages of the Thieves' Guild out walking their pets!
-            L0062: AddEncounter(party, 0x25, 0x01);
-            L0074: AddEncounter(party, 0x26, 0x05);
-            L0086: AddEncounter(party, 0x27, 0x06);
+            L0062: AddEncounter(party, 0x01, 0x25);
+            L0074: AddEncounter(party, 0x05, 0x26);
+            L0086: AddEncounter(party, 0x06, 0x27);
             L0098: // RETURN;
         }
 
@@ -269,9 +269,9 @@ namespace ZCF.Scripts.Maps {
             L003F: goto L006D;
             L0041: AddTreasure(party, 0x2EE0, 0x00, 0x00, 0x00, 0x00, 0x68);
             L0060: ShowMessage(party, String0654); // You stumble upon foraging animals! They found something shiny!
-            L006D: AddEncounter(party, 0x19, 0x01);
-            L007F: AddEncounter(party, 0x20, 0x02);
-            L0091: AddEncounter(party, 0x21, 0x05);
+            L006D: AddEncounter(party, 0x01, 0x19);
+            L007F: AddEncounter(party, 0x02, 0x20);
+            L0091: AddEncounter(party, 0x05, 0x21);
             L00A3: // RETURN;
         }
 
@@ -540,7 +540,7 @@ namespace ZCF.Scripts.Maps {
         private void FnHIDEDOOR_1E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Push(01);
+            L0003: PushStack(01);
             L0007: ax = GetFacing24(party);
             L000E: PushStack(ax);
             L000F: ax = GetNextTile20(party);
@@ -555,7 +555,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xFB, 0xFB);
             L0016: if (result.equal) goto L0063;
-            L0018: Push(01);
+            L0018: PushStack(01);
             L001C: ax = GetFacing24(party);
             L0023: PushStack(ax);
             L0024: ax = GetNextTile20(party);
@@ -565,7 +565,7 @@ namespace ZCF.Scripts.Maps {
             L003D: PushStack(ax);
             L003E: ax = GetNextTile20(party);
             L0045: PushStack(ax);
-            L0046: Push(01);
+            L0046: PushStack(01);
             L004A: SetUnblocked30(party);
             L0054: ShowMessage(party, String0FEE); // The Thieves' Key unlocks the door!
             L0061: goto L008D;
@@ -588,7 +588,7 @@ namespace ZCF.Scripts.Maps {
             L0018: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L0024: compare(ax, 0x000A);
             L0027: if (result.below) goto L0074;
-            L0029: Push(01);
+            L0029: PushStack(01);
             L002D: ax = GetFacing24(party);
             L0034: PushStack(ax);
             L0035: ax = GetNextTile20(party);
@@ -598,7 +598,7 @@ namespace ZCF.Scripts.Maps {
             L004E: PushStack(ax);
             L004F: ax = GetNextTile20(party);
             L0056: PushStack(ax);
-            L0057: Push(01);
+            L0057: PushStack(01);
             L005B: SetUnblocked30(party);
             L0065: ShowMessage(party, String103E); // The wall springs open.  A musky odor fills the room.
             L0072: goto L009E;
@@ -637,7 +637,7 @@ namespace ZCF.Scripts.Maps {
             L00A3: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L00AF: compare(ax, 0x000C);
             L00B2: if (result.below) goto L00FF;
-            L00B4: Push(01);
+            L00B4: PushStack(01);
             L00B8: ax = GetFacing24(party);
             L00BF: PushStack(ax);
             L00C0: ax = GetNextTile20(party);
@@ -647,7 +647,7 @@ namespace ZCF.Scripts.Maps {
             L00D9: PushStack(ax);
             L00DA: ax = GetNextTile20(party);
             L00E1: PushStack(ax);
-            L00E2: Push(01);
+            L00E2: PushStack(01);
             L00E6: SetUnblocked30(party);
             L00F0: ShowMessage(party, String10C3); // You skillfully open the entrance to a passage!
             L00FD: goto L0147;
@@ -661,7 +661,7 @@ namespace ZCF.Scripts.Maps {
             L0123: PushStack(ax);
             L0124: ax = GetNextTile20(party);
             L012B: PushStack(ax);
-            L012C: Push(01);
+            L012C: PushStack(01);
             L0130: SetUnblocked30(party);
             L013A: ShowMessage(party, String10F2); // You found a very well-hidden entrance to what might be a passage.  Unfortunately, it seems to be locked.
             L0147: goto L0166;
@@ -699,7 +699,7 @@ namespace ZCF.Scripts.Maps {
             L00A3: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L00AF: compare(ax, 0x000A);
             L00B2: if (result.below) goto L00FF;
-            L00B4: Push(01);
+            L00B4: PushStack(01);
             L00B8: ax = GetFacing24(party);
             L00BF: PushStack(ax);
             L00C0: ax = GetNextTile20(party);
@@ -709,7 +709,7 @@ namespace ZCF.Scripts.Maps {
             L00D9: PushStack(ax);
             L00DA: ax = GetNextTile20(party);
             L00E1: PushStack(ax);
-            L00E2: Push(01);
+            L00E2: PushStack(01);
             L00E6: SetUnblocked30(party);
             L00F0: ShowMessage(party, String115B); // You release the stonework, revealing a secret passage!
             L00FD: goto L0147;
@@ -723,7 +723,7 @@ namespace ZCF.Scripts.Maps {
             L0123: PushStack(ax);
             L0124: ax = GetNextTile20(party);
             L012B: PushStack(ax);
-            L012C: Push(01);
+            L012C: PushStack(01);
             L0130: SetUnblocked30(party);
             L013A: ShowMessage(party, String1192); // A piece of stonework looks like it could be moved, if you can pick the mechanism.
             L0147: goto L0166;
@@ -761,7 +761,7 @@ namespace ZCF.Scripts.Maps {
             L00A3: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L00AF: compare(ax, 0x0009);
             L00B2: if (result.below) goto L00FF;
-            L00B4: Push(01);
+            L00B4: PushStack(01);
             L00B8: ax = GetFacing24(party);
             L00BF: PushStack(ax);
             L00C0: ax = GetNextTile20(party);
@@ -771,7 +771,7 @@ namespace ZCF.Scripts.Maps {
             L00D9: PushStack(ax);
             L00DA: ax = GetNextTile20(party);
             L00E1: PushStack(ax);
-            L00E2: Push(01);
+            L00E2: PushStack(01);
             L00E6: SetUnblocked30(party);
             L00F0: ShowMessage(party, String11E4); // The wall slides open.
             L00FD: goto L0147;
@@ -785,7 +785,7 @@ namespace ZCF.Scripts.Maps {
             L0123: PushStack(ax);
             L0124: ax = GetNextTile20(party);
             L012B: PushStack(ax);
-            L012C: Push(01);
+            L012C: PushStack(01);
             L0130: SetUnblocked30(party);
             L013A: ShowMessage(party, String11FA); // You located a sliding door which must be picked to be opened. Curious sounds can be heard through the stonework.
             L0147: goto L0166;
@@ -823,7 +823,7 @@ namespace ZCF.Scripts.Maps {
             L00A3: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L00AF: compare(ax, 0x0008);
             L00B2: if (result.below) goto L00FF;
-            L00B4: Push(01);
+            L00B4: PushStack(01);
             L00B8: ax = GetFacing24(party);
             L00BF: PushStack(ax);
             L00C0: ax = GetNextTile20(party);
@@ -833,7 +833,7 @@ namespace ZCF.Scripts.Maps {
             L00D9: PushStack(ax);
             L00DA: ax = GetNextTile20(party);
             L00E1: PushStack(ax);
-            L00E2: Push(01);
+            L00E2: PushStack(01);
             L00E6: SetUnblocked30(party);
             L00F0: ShowMessage(party, String126B); // You successfully opened the locked door.
             L00FD: goto L0147;
@@ -847,7 +847,7 @@ namespace ZCF.Scripts.Maps {
             L0123: PushStack(ax);
             L0124: ax = GetNextTile20(party);
             L012B: PushStack(ax);
-            L012C: Push(01);
+            L012C: PushStack(01);
             L0130: SetUnblocked30(party);
             L013A: ShowMessage(party, String1294); // You found a secret door, but it's locked.
             L0147: goto L0166;
@@ -885,7 +885,7 @@ namespace ZCF.Scripts.Maps {
             L00A3: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L00AF: compare(ax, 0x000C);
             L00B2: if (result.below) goto L00FF;
-            L00B4: Push(01);
+            L00B4: PushStack(01);
             L00B8: ax = GetFacing24(party);
             L00BF: PushStack(ax);
             L00C0: ax = GetNextTile20(party);
@@ -895,7 +895,7 @@ namespace ZCF.Scripts.Maps {
             L00D9: PushStack(ax);
             L00DA: ax = GetNextTile20(party);
             L00E1: PushStack(ax);
-            L00E2: Push(01);
+            L00E2: PushStack(01);
             L00E6: SetUnblocked30(party);
             L00F0: ShowMessage(party, String12BE); // You successfully opened the locked door.
             L00FD: goto L0147;
@@ -909,7 +909,7 @@ namespace ZCF.Scripts.Maps {
             L0123: PushStack(ax);
             L0124: ax = GetNextTile20(party);
             L012B: PushStack(ax);
-            L012C: Push(01);
+            L012C: PushStack(01);
             L0130: SetUnblocked30(party);
             L013A: ShowMessage(party, String12E7); // You found a secret door.
             L0147: goto L0166;
@@ -947,7 +947,7 @@ namespace ZCF.Scripts.Maps {
             L00A3: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L00AF: compare(ax, 0x000C);
             L00B2: if (result.below) goto L00FF;
-            L00B4: Push(01);
+            L00B4: PushStack(01);
             L00B8: ax = GetFacing24(party);
             L00BF: PushStack(ax);
             L00C0: ax = GetNextTile20(party);
@@ -957,7 +957,7 @@ namespace ZCF.Scripts.Maps {
             L00D9: PushStack(ax);
             L00DA: ax = GetNextTile20(party);
             L00E1: PushStack(ax);
-            L00E2: Push(01);
+            L00E2: PushStack(01);
             L00E6: SetUnblocked30(party);
             L00F0: ShowMessage(party, String1300); // You successfully opened the locked door.
             L00FD: goto L0147;
@@ -971,7 +971,7 @@ namespace ZCF.Scripts.Maps {
             L0123: PushStack(ax);
             L0124: ax = GetNextTile20(party);
             L012B: PushStack(ax);
-            L012C: Push(01);
+            L012C: PushStack(01);
             L0130: SetUnblocked30(party);
             L013A: ShowMessage(party, String1329); // You spot a well hidden secret door. It's locked.
             L0147: goto L0166;
@@ -993,7 +993,7 @@ namespace ZCF.Scripts.Maps {
             L0018: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L0024: compare(ax, 0x0008);
             L0027: if (result.below) goto L0074;
-            L0029: Push(01);
+            L0029: PushStack(01);
             L002D: ax = GetFacing24(party);
             L0034: PushStack(ax);
             L0035: ax = GetNextTile20(party);
@@ -1003,7 +1003,7 @@ namespace ZCF.Scripts.Maps {
             L004E: PushStack(ax);
             L004F: ax = GetNextTile20(party);
             L0056: PushStack(ax);
-            L0057: Push(01);
+            L0057: PushStack(01);
             L005B: SetUnblocked30(party);
             L0065: ShowMessage(party, String135A); // You skillfully pick the door lock.
             L0072: goto L009E;
@@ -1027,7 +1027,7 @@ namespace ZCF.Scripts.Maps {
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (result.equal) goto L0051;
-            L0024: Push(01);
+            L0024: PushStack(01);
             L0028: ax = GetFacing24(party);
             L002F: PushStack(ax);
             L0030: ax = GetNextTile20(party);
@@ -1069,7 +1069,7 @@ namespace ZCF.Scripts.Maps {
             L00A3: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L00AF: compare(ax, 0x0008);
             L00B2: if (result.below) goto L00FF;
-            L00B4: Push(01);
+            L00B4: PushStack(01);
             L00B8: ax = GetFacing24(party);
             L00BF: PushStack(ax);
             L00C0: ax = GetNextTile20(party);
@@ -1079,7 +1079,7 @@ namespace ZCF.Scripts.Maps {
             L00D9: PushStack(ax);
             L00DA: ax = GetNextTile20(party);
             L00E1: PushStack(ax);
-            L00E2: Push(01);
+            L00E2: PushStack(01);
             L00E6: SetUnblocked30(party);
             L00F0: ShowMessage(party, String13AA); // You successfully opened the locked door.
             L00FD: goto L0147;
@@ -1093,7 +1093,7 @@ namespace ZCF.Scripts.Maps {
             L0123: PushStack(ax);
             L0124: ax = GetNextTile20(party);
             L012B: PushStack(ax);
-            L012C: Push(01);
+            L012C: PushStack(01);
             L0130: SetUnblocked30(party);
             L013A: ShowMessage(party, String13D3); // You found a secret door, but it's locked.
             L0147: goto L0166;
@@ -1110,7 +1110,7 @@ namespace ZCF.Scripts.Maps {
         private void FnHIDDORV_33(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Push(01);
+            L0003: PushStack(01);
             L0007: ax = GetFacing24(party);
             L000E: PushStack(ax);
             L000F: ax = GetNextTile20(party);
@@ -1123,7 +1123,7 @@ namespace ZCF.Scripts.Maps {
         private void FnHIDDORX_35(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Push(01);
+            L0003: PushStack(01);
             L0007: ax = GetFacing24(party);
             L000E: PushStack(ax);
             L000F: ax = GetNextTile20(party);
@@ -1157,7 +1157,7 @@ namespace ZCF.Scripts.Maps {
             L00A3: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L00AF: compare(ax, 0x000A);
             L00B2: if (result.below) goto L00FF;
-            L00B4: Push(01);
+            L00B4: PushStack(01);
             L00B8: ax = GetFacing24(party);
             L00BF: PushStack(ax);
             L00C0: ax = GetNextTile20(party);
@@ -1167,7 +1167,7 @@ namespace ZCF.Scripts.Maps {
             L00D9: PushStack(ax);
             L00DA: ax = GetNextTile20(party);
             L00E1: PushStack(ax);
-            L00E2: Push(01);
+            L00E2: PushStack(01);
             L00E6: SetUnblocked30(party);
             L00F0: ShowMessage(party, String13FD); // You successfully opened the locked door.
             L00FD: goto L0147;
@@ -1181,7 +1181,7 @@ namespace ZCF.Scripts.Maps {
             L0123: PushStack(ax);
             L0124: ax = GetNextTile20(party);
             L012B: PushStack(ax);
-            L012C: Push(01);
+            L012C: PushStack(01);
             L0130: SetUnblocked30(party);
             L013A: ShowMessage(party, String1426); // You found a locked door. You hear strange noises on the other side of the door.
             L0147: goto L0166;
@@ -1210,7 +1210,7 @@ namespace ZCF.Scripts.Maps {
             L004C: if (result.notequal) goto L0063;
             L004E: ax = UsedItem54(party, 0xBE, 0xBE);
             L0061: if (result.equal) goto L008E;
-            L0063: Push(01);
+            L0063: PushStack(01);
             L0067: ax = GetFacing24(party);
             L006E: PushStack(ax);
             L006F: ax = GetNextTile20(party);
@@ -1224,7 +1224,7 @@ namespace ZCF.Scripts.Maps {
         private void FnHIDDORAA_38(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Push(01);
+            L0003: PushStack(01);
             L0007: ax = GetFacing24(party);
             L000E: PushStack(ax);
             L000F: ax = GetNextTile20(party);
@@ -1258,7 +1258,7 @@ namespace ZCF.Scripts.Maps {
             L00A3: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L00AF: compare(ax, 0x0009);
             L00B2: if (result.below) goto L00FF;
-            L00B4: Push(01);
+            L00B4: PushStack(01);
             L00B8: ax = GetFacing24(party);
             L00BF: PushStack(ax);
             L00C0: ax = GetNextTile20(party);
@@ -1268,7 +1268,7 @@ namespace ZCF.Scripts.Maps {
             L00D9: PushStack(ax);
             L00DA: ax = GetNextTile20(party);
             L00E1: PushStack(ax);
-            L00E2: Push(01);
+            L00E2: PushStack(01);
             L00E6: SetUnblocked30(party);
             L00F0: ShowMessage(party, String148F); // You successfully opened the locked door. You also feel a cool breeze.
             L00FD: goto L0147;
@@ -1282,7 +1282,7 @@ namespace ZCF.Scripts.Maps {
             L0123: PushStack(ax);
             L0124: ax = GetNextTile20(party);
             L012B: PushStack(ax);
-            L012C: Push(01);
+            L012C: PushStack(01);
             L0130: SetUnblocked30(party);
             L013A: ShowMessage(party, String14D5); // You found a secret door, but it's locked.
             L0147: goto L0166;
@@ -1320,7 +1320,7 @@ namespace ZCF.Scripts.Maps {
             L00A3: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L00AF: compare(ax, 0x0009);
             L00B2: if (result.below) goto L00FF;
-            L00B4: Push(01);
+            L00B4: PushStack(01);
             L00B8: ax = GetFacing24(party);
             L00BF: PushStack(ax);
             L00C0: ax = GetNextTile20(party);
@@ -1330,7 +1330,7 @@ namespace ZCF.Scripts.Maps {
             L00D9: PushStack(ax);
             L00DA: ax = GetNextTile20(party);
             L00E1: PushStack(ax);
-            L00E2: Push(01);
+            L00E2: PushStack(01);
             L00E6: SetUnblocked30(party);
             L00F0: ShowMessage(party, String14FF); // You opened the locked chamber door.
             L00FD: goto L0147;
@@ -1344,7 +1344,7 @@ namespace ZCF.Scripts.Maps {
             L0123: PushStack(ax);
             L0124: ax = GetNextTile20(party);
             L012B: PushStack(ax);
-            L012C: Push(01);
+            L012C: PushStack(01);
             L0130: SetUnblocked30(party);
             L013A: ShowMessage(party, String1523); // You found a hidden chamber door, but it's locked.
             L0147: goto L0166;
@@ -1366,7 +1366,7 @@ namespace ZCF.Scripts.Maps {
             L0018: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L0024: compare(ax, 0x000C);
             L0027: if (result.below) goto L0074;
-            L0029: Push(01);
+            L0029: PushStack(01);
             L002D: ax = GetFacing24(party);
             L0034: PushStack(ax);
             L0035: ax = GetNextTile20(party);
@@ -1376,7 +1376,7 @@ namespace ZCF.Scripts.Maps {
             L004E: PushStack(ax);
             L004F: ax = GetNextTile20(party);
             L0056: PushStack(ax);
-            L0057: Push(01);
+            L0057: PushStack(01);
             L005B: SetUnblocked30(party);
             L0065: ShowMessage(party, String1555); // With great effort, you unlock the door.
             L0072: goto L009E;
@@ -1415,7 +1415,7 @@ namespace ZCF.Scripts.Maps {
             L00A3: ax = UsedSkill58(party, 0x0E) // returns 0 if did not use, compares to 2nd op if did use;
             L00AF: compare(ax, 0x0009);
             L00B2: if (result.below) goto L00FF;
-            L00B4: Push(01);
+            L00B4: PushStack(01);
             L00B8: ax = GetFacing24(party);
             L00BF: PushStack(ax);
             L00C0: ax = GetNextTile20(party);
@@ -1425,7 +1425,7 @@ namespace ZCF.Scripts.Maps {
             L00D9: PushStack(ax);
             L00DA: ax = GetNextTile20(party);
             L00E1: PushStack(ax);
-            L00E2: Push(01);
+            L00E2: PushStack(01);
             L00E6: SetUnblocked30(party);
             L00F0: ShowMessage(party, String15A7); // The door is opened with a lot of effort.
             L00FD: goto L0147;
@@ -1439,7 +1439,7 @@ namespace ZCF.Scripts.Maps {
             L0123: PushStack(ax);
             L0124: ax = GetNextTile20(party);
             L012B: PushStack(ax);
-            L012C: Push(01);
+            L012C: PushStack(01);
             L0130: SetUnblocked30(party);
             L013A: ShowMessage(party, String15D0); // You found another secret door, but it is locked.
             L0147: goto L0166;

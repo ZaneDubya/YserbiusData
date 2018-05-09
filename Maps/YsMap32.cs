@@ -52,12 +52,12 @@ namespace ZCF.Scripts.Maps {
         private void FnENCSELF_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x19, 0x01);
-            L0015: AddEncounter(party, 0x19, 0x02);
-            L0027: AddEncounter(party, 0x19, 0x03);
-            L0039: AddEncounter(party, 0x19, 0x04);
-            L004B: AddEncounter(party, 0x1A, 0x05);
-            L005D: AddEncounter(party, 0x1A, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x19);
+            L0015: AddEncounter(party, 0x02, 0x19);
+            L0027: AddEncounter(party, 0x03, 0x19);
+            L0039: AddEncounter(party, 0x04, 0x19);
+            L004B: AddEncounter(party, 0x05, 0x1A);
+            L005D: AddEncounter(party, 0x06, 0x1A);
             L006F: // RETURN;
         }
 
@@ -78,11 +78,11 @@ namespace ZCF.Scripts.Maps {
             L0062: goto L0071;
             L0064: ShowMessage(party, String067D); // The Wind Sword resists the winds!  It will indeed be a good fight!
             L0071: ShowMessage(party, String06C0); // You notice En-Li-Kil, the Time Elemental, vanish.
-            L007E: AddEncounter(party, 0x19, 0x01);
-            L0090: AddEncounter(party, 0x19, 0x02);
-            L00A2: AddEncounter(party, 0x19, 0x03);
-            L00B4: AddEncounter(party, 0x19, 0x04);
-            L00C6: AddEncounter(party, 0x1B, 0x06);
+            L007E: AddEncounter(party, 0x01, 0x19);
+            L0090: AddEncounter(party, 0x02, 0x19);
+            L00A2: AddEncounter(party, 0x03, 0x19);
+            L00B4: AddEncounter(party, 0x04, 0x19);
+            L00C6: AddEncounter(party, 0x06, 0x1B);
             L00D8: // RETURN;
         }
 
@@ -91,7 +91,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06F2); // A streak of Red crosses the Ageless Void.
-            L0010: SetMoveMap(party, 0x02, 0x97, 0x03, 0x38);
+            L0010: SetMoveMap(party, 0x38, 0x03, 0x97, 0x02);
             L002B: // RETURN;
         }
 
@@ -100,7 +100,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String071C); // A streak of Yellow crosses the Ageless Void.
-            L0010: SetMoveMap(party, 0x02, 0x87, 0x03, 0x38);
+            L0010: SetMoveMap(party, 0x38, 0x03, 0x87, 0x02);
             L002B: // RETURN;
         }
 
@@ -109,7 +109,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0749); // A streak of Green crosses the Ageless Void.
-            L0010: SetMoveMap(party, 0x02, 0x77, 0x03, 0x38);
+            L0010: SetMoveMap(party, 0x38, 0x03, 0x77, 0x02);
             L002B: // RETURN;
         }
 
@@ -118,7 +118,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0775); // A streak of Blue crosses the Ageless Void.
-            L0010: SetMoveMap(party, 0x02, 0x67, 0x03, 0x38);
+            L0010: SetMoveMap(party, 0x38, 0x03, 0x67, 0x02);
             L002B: // RETURN;
         }
 
@@ -140,7 +140,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09D4); // You enter another dimension.
-            L0010: SetMoveMap(party, 0x01, 0x54, 0x01, 0x39);
+            L0010: SetMoveMap(party, 0x39, 0x01, 0x54, 0x01);
             L002B: // RETURN;
         }
 
@@ -149,7 +149,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09F1); // You enter another dimension.
-            L0010: SetMoveMap(party, 0x00, 0x4A, 0x01, 0x39);
+            L0010: SetMoveMap(party, 0x39, 0x01, 0x4A, 0x00);
             L002A: // RETURN;
         }
 
@@ -158,7 +158,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A0E); // You enter another dimension.
-            L0010: SetMoveMap(party, 0x03, 0xAB, 0x01, 0x39);
+            L0010: SetMoveMap(party, 0x39, 0x01, 0xAB, 0x03);
             L002B: // RETURN;
         }
 
@@ -167,7 +167,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A2B); // You enter another dimension.
-            L0010: SetMoveMap(party, 0x02, 0xB5, 0x01, 0x39);
+            L0010: SetMoveMap(party, 0x39, 0x01, 0xB5, 0x02);
             L002B: // RETURN;
         }
 

@@ -109,7 +109,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // Runes on magic wall --
             L0010: ShowRunes(party, String0413); // Alchemy
-            L001D: SetMoveMap(party, 0x02, 0x8A, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x8A, 0x02);
             L0038: // RETURN;
         }
 
@@ -119,7 +119,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String041B); // Runes on magic wall --
             L0010: ShowRunes(party, String0432); // Reverie
-            L001D: SetMoveMap(party, 0x03, 0x38, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x38, 0x03);
             L0038: // RETURN;
         }
 
@@ -130,7 +130,7 @@ namespace ZCF.Scripts.Maps {
             L0003: ShowMessage(party, String043A); // Runes on magic wall --
             L0010: ShowRunes(party, String0451); // Netherworld
             L001D: SetState00(party, 0x02, 0x49, 0x02);
-            L0032: SetMoveMap(party, 0x02, 0xE0, 0x02, 0x34);
+            L0032: SetMoveMap(party, 0x34, 0x02, 0xE0, 0x02);
             L004D: // RETURN;
         }
 
@@ -140,7 +140,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String045D); // Runes on magic wall --
             L0010: ShowRunes(party, String0474); // Arcane
-            L001D: SetMoveMap(party, 0x00, 0xF2, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xF2, 0x00);
             L0037: // RETURN;
         }
 
@@ -150,7 +150,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String047B); // Runes on magic wall --
             L0010: ShowRunes(party, String0492); // Karma
-            L001D: SetMoveMap(party, 0x03, 0xF5, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xF5, 0x03);
             L0038: // RETURN;
         }
 
@@ -160,7 +160,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0498); // Runes on magic wall --
             L0010: ShowRunes(party, String04AF); // Karma
-            L001D: SetMoveMap(party, 0x02, 0xE3, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xE3, 0x02);
             L0038: // RETURN;
         }
 
@@ -170,7 +170,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04B5); // Runes on magic wall --
             L0010: ShowRunes(party, String04CC); // Incantation
-            L001D: SetMoveMap(party, 0x02, 0xCC, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xCC, 0x02);
             L0038: // RETURN;
         }
 
@@ -183,7 +183,7 @@ namespace ZCF.Scripts.Maps {
             L0017: if (result.notequal) goto L004E;
             L0019: ShowMessage(party, String04D8); // Runes on magic wall --
             L0026: ShowRunes(party, String04EF); // Archaic
-            L0033: SetMoveMap(party, 0x02, 0xFA, 0x02, 0x34);
+            L0033: SetMoveMap(party, 0x34, 0x02, 0xFA, 0x02);
             L004E: // RETURN;
         }
 
@@ -193,7 +193,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04F7); // Runes on magic wall --
             L0010: ShowRunes(party, String050E); // Netherworld
-            L001D: SetMoveMap(party, 0x00, 0x88, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x88, 0x00);
             L0037: // RETURN;
         }
 
@@ -203,11 +203,11 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: SetState00(party, 0x02, 0x52, 0x01);
             L0018: ShowMessage(party, String051A); // Secrets follow when you spell that which powers time.
-            L0025: AddEncounter(party, 0x19, 0x01);
-            L0037: AddEncounter(party, 0x19, 0x02);
-            L0049: AddEncounter(party, 0x19, 0x03);
-            L005B: AddEncounter(party, 0x12, 0x05);
-            L006D: AddEncounter(party, 0x12, 0x06);
+            L0025: AddEncounter(party, 0x01, 0x19);
+            L0037: AddEncounter(party, 0x02, 0x19);
+            L0049: AddEncounter(party, 0x03, 0x19);
+            L005B: AddEncounter(party, 0x05, 0x12);
+            L006D: AddEncounter(party, 0x06, 0x12);
             L007F: AddTreasure(party, 0x01F4, 0x00, 0xCF, 0xCF, 0xC6, 0xC9);
             L00A1: // RETURN;
         }
@@ -217,7 +217,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0550); // The gate takes you back to the Labyrinth.
-            L0010: SetMoveMap(party, 0x02, 0x30, 0x02, 0x34);
+            L0010: SetMoveMap(party, 0x34, 0x02, 0x30, 0x02);
             L002B: // RETURN;
         }
 
@@ -227,7 +227,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String057A); // Runes on magic wall --
             L0010: ShowRunes(party, String0591); // Ethereal
-            L001D: SetMoveMap(party, 0x02, 0xBB, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xBB, 0x02);
             L0038: // RETURN;
         }
 
@@ -237,7 +237,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String059A); // Runes on magic wall --
             L0010: ShowRunes(party, String05B1); // Netherworld
-            L001D: SetMoveMap(party, 0x02, 0xDA, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xDA, 0x02);
             L0038: // RETURN;
         }
 
@@ -248,7 +248,7 @@ namespace ZCF.Scripts.Maps {
             L0003: SetState00(party, 0x02, 0x49, 0x03);
             L0018: ShowMessage(party, String05BD); // Runes on magic wall --
             L0025: ShowRunes(party, String05D4); // Luck
-            L0032: SetMoveMap(party, 0x02, 0xB9, 0x02, 0x34);
+            L0032: SetMoveMap(party, 0x34, 0x02, 0xB9, 0x02);
             L004D: // RETURN;
         }
 
@@ -261,14 +261,14 @@ namespace ZCF.Scripts.Maps {
             L0017: if (result.notequal) goto L0050;
             L0019: ShowMessage(party, String05D9); // Runes on magic wall --
             L0026: ShowRunes(party, String05F0); // Illusion
-            L0033: SetMoveMap(party, 0x02, 0xCC, 0x02, 0x34);
+            L0033: SetMoveMap(party, 0x34, 0x02, 0xCC, 0x02);
             L004E: goto L009B;
             L0050: ax = CheckState04(party, 0x02, 0x49);
             L0061: compare(ax, 0x0004);
             L0064: if (result.notequal) goto L009B;
             L0066: ShowMessage(party, String05F9); // Runes on magic wall --
             L0073: ShowRunes(party, String0610); // Invulnerable
-            L0080: SetMoveMap(party, 0x02, 0xD8, 0x02, 0x34);
+            L0080: SetMoveMap(party, 0x34, 0x02, 0xD8, 0x02);
             L009B: // RETURN;
         }
 
@@ -279,7 +279,7 @@ namespace ZCF.Scripts.Maps {
             L0003: SetState00(party, 0x02, 0x49, 0x04);
             L0018: ShowMessage(party, String061D); // Runes on magic wall --
             L0025: ShowRunes(party, String0634); // Karma
-            L0032: SetMoveMap(party, 0x02, 0xB9, 0x02, 0x34);
+            L0032: SetMoveMap(party, 0x34, 0x02, 0xB9, 0x02);
             L004D: // RETURN;
         }
 
@@ -289,7 +289,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String063A); // Runes on magic wall --
             L0010: ShowRunes(party, String0651); // Luminous
-            L001D: SetMoveMap(party, 0x02, 0x6A, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x6A, 0x02);
             L0038: // RETURN;
         }
 
@@ -299,11 +299,11 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: SetState00(party, 0x02, 0x53, 0x01);
             L0018: ShowMessage(party, String065A); // Those which haunt this castle must be spelled to find their master.
-            L0025: AddEncounter(party, 0x19, 0x01);
-            L0037: AddEncounter(party, 0x19, 0x02);
-            L0049: AddEncounter(party, 0x19, 0x03);
-            L005B: AddEncounter(party, 0x19, 0x04);
-            L006D: AddEncounter(party, 0x19, 0x05);
+            L0025: AddEncounter(party, 0x01, 0x19);
+            L0037: AddEncounter(party, 0x02, 0x19);
+            L0049: AddEncounter(party, 0x03, 0x19);
+            L005B: AddEncounter(party, 0x04, 0x19);
+            L006D: AddEncounter(party, 0x05, 0x19);
             L007F: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xCF, 0xD0);
             L009F: // RETURN;
         }
@@ -315,7 +315,7 @@ namespace ZCF.Scripts.Maps {
             L0003: SetState00(party, 0x02, 0x49, 0x05);
             L0018: ShowMessage(party, String069E); // Runes on magic wall --
             L0025: ShowRunes(party, String06B5); // Dust
-            L0032: SetMoveMap(party, 0x02, 0xB7, 0x02, 0x34);
+            L0032: SetMoveMap(party, 0x34, 0x02, 0xB7, 0x02);
             L004D: // RETURN;
         }
 
@@ -325,7 +325,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06BA); // Runes on magic wall --
             L0010: ShowRunes(party, String06D1); // Enchant
-            L001D: SetMoveMap(party, 0x02, 0xD6, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xD6, 0x02);
             L0038: // RETURN;
         }
 
@@ -335,7 +335,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06D9); // Runes on magic wall --
             L0010: ShowRunes(party, String06F0); // Magic
-            L001D: SetMoveMap(party, 0x03, 0xD0, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xD0, 0x03);
             L0038: // RETURN;
         }
 
@@ -345,7 +345,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06F6); // Runes on magic wall --
             L0010: ShowRunes(party, String070D); // Ghouls
-            L001D: SetMoveMap(party, 0x00, 0x68, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x68, 0x00);
             L0037: // RETURN;
         }
 
@@ -355,7 +355,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0714); // Runes on magic wall --
             L0010: ShowRunes(party, String072B); // Hex
-            L001D: SetMoveMap(party, 0x02, 0xAD, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xAD, 0x02);
             L0038: // RETURN;
         }
 
@@ -365,7 +365,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String072F); // Runes on magic wall --
             L0010: ShowRunes(party, String0746); // Obsession
-            L001D: SetMoveMap(party, 0x00, 0x7E, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x7E, 0x00);
             L0037: // RETURN;
         }
 
@@ -375,7 +375,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0750); // Runes on magic wall --
             L0010: ShowRunes(party, String0767); // Sorcery
-            L001D: SetMoveMap(party, 0x00, 0x5E, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x5E, 0x00);
             L0037: // RETURN;
         }
 
@@ -385,7 +385,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String076F); // Runes on magic wall --
             L0010: ShowRunes(party, String0786); // Talisman
-            L001D: SetMoveMap(party, 0x02, 0xC2, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xC2, 0x02);
             L0038: // RETURN;
         }
 
@@ -401,7 +401,7 @@ namespace ZCF.Scripts.Maps {
             L002B: if (result.equal) goto L0064;
             L002D: ShowMessage(party, String078F); // Both Arnakkian and Enlikil have been identified.
             L003A: ShowMessage(party, String07C0); // The Ghost takes you to the Guardians.
-            L0047: SetMoveMap(party, 0x02, 0x56, 0x02, 0x33);
+            L0047: SetMoveMap(party, 0x33, 0x02, 0x56, 0x02);
             L0062: goto L0071;
             L0064: ShowMessage(party, String07E6); // The master of this castle must be identified before the ghost may take you to him.
             L0071: // RETURN;
@@ -413,7 +413,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0839); // Runes on magic wall --
             L0010: ShowRunes(party, String0850); // Druid
-            L001D: SetMoveMap(party, 0x02, 0x36, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x36, 0x02);
             L0038: // RETURN;
         }
 
@@ -423,7 +423,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0856); // Runes on magic wall --
             L0010: ShowRunes(party, String086D); // Runes
-            L001D: SetMoveMap(party, 0x00, 0x3B, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x3B, 0x00);
             L0037: // RETURN;
         }
 
@@ -433,7 +433,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0873); // Runes on magic wall --
             L0010: ShowRunes(party, String088A); // Alchemist
-            L001D: SetMoveMap(party, 0x00, 0x2C, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x2C, 0x00);
             L0037: // RETURN;
         }
 
@@ -443,7 +443,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0894); // Runes on magic wall --
             L0010: ShowRunes(party, String08AB); // Ghost
-            L001D: SetMoveMap(party, 0x03, 0x3E, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x3E, 0x03);
             L0038: // RETURN;
         }
 
@@ -453,7 +453,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08B1); // Runes on magic wall --
             L0010: ShowRunes(party, String08C8); // Orb
-            L001D: SetMoveMap(party, 0x00, 0x8E, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x8E, 0x00);
             L0037: // RETURN;
         }
 
@@ -463,7 +463,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08CC); // Runes on magic wall --
             L0010: ShowRunes(party, String08E3); // Nexus
-            L001D: SetMoveMap(party, 0x02, 0xFD, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xFD, 0x02);
             L0038: // RETURN;
         }
 
@@ -471,11 +471,11 @@ namespace ZCF.Scripts.Maps {
         private void FnDRAGENCA_24(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1A, 0x01);
-            L0015: AddEncounter(party, 0x1A, 0x02);
-            L0027: AddEncounter(party, 0x1A, 0x03);
-            L0039: AddEncounter(party, 0x1A, 0x04);
-            L004B: AddEncounter(party, 0x1B, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x1A);
+            L0015: AddEncounter(party, 0x02, 0x1A);
+            L0027: AddEncounter(party, 0x03, 0x1A);
+            L0039: AddEncounter(party, 0x04, 0x1A);
+            L004B: AddEncounter(party, 0x05, 0x1B);
             L005D: AddTreasure(party, 0x0FA0, 0x00, 0x00, 0xD0, 0xC8, 0xC6);
             L007E: // RETURN;
         }
@@ -484,11 +484,11 @@ namespace ZCF.Scripts.Maps {
         private void FnDRAGENCB_25(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1C, 0x01);
-            L0015: AddEncounter(party, 0x1C, 0x02);
-            L0027: AddEncounter(party, 0x1C, 0x03);
-            L0039: AddEncounter(party, 0x07, 0x05);
-            L004B: AddEncounter(party, 0x09, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x1C);
+            L0015: AddEncounter(party, 0x02, 0x1C);
+            L0027: AddEncounter(party, 0x03, 0x1C);
+            L0039: AddEncounter(party, 0x05, 0x07);
+            L004B: AddEncounter(party, 0x06, 0x09);
             L005D: AddTreasure(party, 0x1F40, 0x00, 0xCF, 0xCF, 0xBC, 0xC7);
             L007F: // RETURN;
         }
@@ -500,7 +500,7 @@ namespace ZCF.Scripts.Maps {
             L0003: ShowMessage(party, String08E9); // Runes on magic wall --
             L0010: ShowRunes(party, String0900); // Zzyzx
             L001D: SetState00(party, 0x02, 0x49, 0x01);
-            L0032: SetMoveMap(party, 0x02, 0x27, 0x02, 0x34);
+            L0032: SetMoveMap(party, 0x34, 0x02, 0x27, 0x02);
             L004D: // RETURN;
         }
 
@@ -510,7 +510,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0906); // Runes on magic wall --
             L0010: ShowRunes(party, String091D); // Illusive
-            L001D: SetMoveMap(party, 0x02, 0xCC, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xCC, 0x02);
             L0038: // RETURN;
         }
 
@@ -523,7 +523,7 @@ namespace ZCF.Scripts.Maps {
             L0017: if (result.notequal) goto L004E;
             L0019: ShowMessage(party, String0926); // Runes on magic wall --
             L0026: ShowRunes(party, String093D); // Wizard
-            L0033: SetMoveMap(party, 0x02, 0xE6, 0x02, 0x34);
+            L0033: SetMoveMap(party, 0x34, 0x02, 0xE6, 0x02);
             L004E: // RETURN;
         }
 
@@ -533,7 +533,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0944); // Runes on magic wall --
             L0010: ShowRunes(party, String095B); // Vision
-            L001D: SetMoveMap(party, 0x01, 0x07, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x07, 0x01);
             L0038: // RETURN;
         }
 
@@ -543,7 +543,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0962); // Runes on magic wall --
             L0010: ShowRunes(party, String0979); // Bewitch
-            L001D: SetMoveMap(party, 0x00, 0x1D, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x1D, 0x00);
             L0037: // RETURN;
         }
 
@@ -553,7 +553,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0981); // Runes on magic wall --
             L0010: ShowRunes(party, String0998); // Conjure
-            L001D: SetMoveMap(party, 0x02, 0xBD, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xBD, 0x02);
             L0038: // RETURN;
         }
 
@@ -563,7 +563,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09A0); // Runes on magic wall --
             L0010: ShowRunes(party, String09B7); // Powerful
-            L001D: SetMoveMap(party, 0x33, 0x00, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x00, 0x33);
             L0037: // RETURN;
         }
 
@@ -573,7 +573,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09C0); // Runes on magic wall --
             L0010: ShowRunes(party, String09D7); // Magus
-            L001D: SetMoveMap(party, 0x00, 0x1D, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x1D, 0x00);
             L0037: // RETURN;
         }
 
@@ -583,7 +583,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09DD); // Runes on magic wall --
             L0010: ShowRunes(party, String09F4); // Jinx
-            L001D: SetMoveMap(party, 0x02, 0xBD, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0xBD, 0x02);
             L0038: // RETURN;
         }
 
@@ -593,7 +593,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09F9); // Runes on magic wall --
             L0010: ShowRunes(party, String0A10); // Unspeller
-            L001D: SetMoveMap(party, 0x01, 0x07, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x07, 0x01);
             L0038: // RETURN;
         }
 
@@ -603,7 +603,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A1A); // Runes on magic wall --
             L0010: ShowRunes(party, String0A31); // XxxX
-            L001D: SetMoveMap(party, 0x01, 0x07, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x07, 0x01);
             L0038: // RETURN;
         }
 
@@ -613,7 +613,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A36); // Runes on magic wall --
             L0010: ShowRunes(party, String0A4D); // Youth
-            L001D: SetMoveMap(party, 0x33, 0x00, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x00, 0x33);
             L0037: // RETURN;
         }
 
@@ -621,10 +621,10 @@ namespace ZCF.Scripts.Maps {
         private void FnIENCA_32(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x18, 0x01);
-            L0015: AddEncounter(party, 0x18, 0x02);
-            L0027: AddEncounter(party, 0x1E, 0x03);
-            L0039: AddEncounter(party, 0x21, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x18);
+            L0015: AddEncounter(party, 0x02, 0x18);
+            L0027: AddEncounter(party, 0x03, 0x1E);
+            L0039: AddEncounter(party, 0x05, 0x21);
             L004B: // RETURN;
         }
 
@@ -632,12 +632,12 @@ namespace ZCF.Scripts.Maps {
         private void FnWIZENCA_34(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1E, 0x01);
-            L0015: AddEncounter(party, 0x1E, 0x02);
-            L0027: AddEncounter(party, 0x18, 0x03);
-            L0039: AddEncounter(party, 0x18, 0x04);
-            L004B: AddEncounter(party, 0x21, 0x05);
-            L005D: AddEncounter(party, 0x21, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x1E);
+            L0015: AddEncounter(party, 0x02, 0x1E);
+            L0027: AddEncounter(party, 0x03, 0x18);
+            L0039: AddEncounter(party, 0x04, 0x18);
+            L004B: AddEncounter(party, 0x05, 0x21);
+            L005D: AddEncounter(party, 0x06, 0x21);
             L006F: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xCF, 0xB4);
             L008F: // RETURN;
         }
@@ -646,12 +646,12 @@ namespace ZCF.Scripts.Maps {
         private void FnWIZENCB_35(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1D, 0x01);
-            L0015: AddEncounter(party, 0x1D, 0x02);
-            L0027: AddEncounter(party, 0x1D, 0x03);
-            L0039: AddEncounter(party, 0x1D, 0x04);
-            L004B: AddEncounter(party, 0x18, 0x05);
-            L005D: AddEncounter(party, 0x18, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x1D);
+            L0015: AddEncounter(party, 0x02, 0x1D);
+            L0027: AddEncounter(party, 0x03, 0x1D);
+            L0039: AddEncounter(party, 0x04, 0x1D);
+            L004B: AddEncounter(party, 0x05, 0x18);
+            L005D: AddEncounter(party, 0x06, 0x18);
             L006F: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xCF, 0xC6);
             L008F: // RETURN;
         }
@@ -660,9 +660,9 @@ namespace ZCF.Scripts.Maps {
         private void FnWIZENCC_36(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1E, 0x01);
-            L0015: AddEncounter(party, 0x1E, 0x02);
-            L0027: AddEncounter(party, 0x18, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x1E);
+            L0015: AddEncounter(party, 0x02, 0x1E);
+            L0027: AddEncounter(party, 0x05, 0x18);
             L0039: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xCF, 0xC8);
             L0059: // RETURN;
         }
@@ -681,11 +681,11 @@ namespace ZCF.Scripts.Maps {
         private void FnGHOSENCA_38(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x20, 0x01);
-            L0015: AddEncounter(party, 0x20, 0x02);
-            L0027: AddEncounter(party, 0x1F, 0x03);
-            L0039: AddEncounter(party, 0x1F, 0x04);
-            L004B: AddEncounter(party, 0x20, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x20);
+            L0015: AddEncounter(party, 0x02, 0x20);
+            L0027: AddEncounter(party, 0x03, 0x1F);
+            L0039: AddEncounter(party, 0x04, 0x1F);
+            L004B: AddEncounter(party, 0x06, 0x20);
             L005D: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xD1, 0xCF);
             L007D: // RETURN;
         }
@@ -713,11 +713,11 @@ namespace ZCF.Scripts.Maps {
         private void FnENDRENCA_3E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1F, 0x01);
-            L0015: AddEncounter(party, 0x20, 0x02);
-            L0027: AddEncounter(party, 0x1F, 0x04);
-            L0039: AddEncounter(party, 0x02, 0x05);
-            L004B: AddEncounter(party, 0x02, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x1F);
+            L0015: AddEncounter(party, 0x02, 0x20);
+            L0027: AddEncounter(party, 0x04, 0x1F);
+            L0039: AddEncounter(party, 0x05, 0x02);
+            L004B: AddEncounter(party, 0x06, 0x02);
             L005D: AddTreasure(party, 0x0064, 0x00, 0xCF, 0xCF, 0xD0, 0xD0);
             L007F: // RETURN;
         }
@@ -726,12 +726,12 @@ namespace ZCF.Scripts.Maps {
         private void FnBADEXIT_41(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1E, 0x01);
-            L0015: AddEncounter(party, 0x1E, 0x02);
-            L0027: AddEncounter(party, 0x1E, 0x03);
-            L0039: AddEncounter(party, 0x18, 0x04);
-            L004B: AddEncounter(party, 0x19, 0x05);
-            L005D: AddEncounter(party, 0x19, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x1E);
+            L0015: AddEncounter(party, 0x02, 0x1E);
+            L0027: AddEncounter(party, 0x03, 0x1E);
+            L0039: AddEncounter(party, 0x04, 0x18);
+            L004B: AddEncounter(party, 0x05, 0x19);
+            L005D: AddEncounter(party, 0x06, 0x19);
             L006F: // RETURN;
         }
 
@@ -739,10 +739,10 @@ namespace ZCF.Scripts.Maps {
         private void FnENTRENCA_45(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x24, 0x01);
-            L0015: AddEncounter(party, 0x25, 0x02);
-            L0027: AddEncounter(party, 0x22, 0x03);
-            L0039: AddEncounter(party, 0x23, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x24);
+            L0015: AddEncounter(party, 0x02, 0x25);
+            L0027: AddEncounter(party, 0x03, 0x22);
+            L0039: AddEncounter(party, 0x06, 0x23);
             L004B: // RETURN;
         }
 
@@ -763,7 +763,7 @@ namespace ZCF.Scripts.Maps {
             L0045: ax = CheckState04(party, 0x01, 0x04);
             L0056: RefreshCompareFlags(ax);
             L0058: if (result.equal) goto L00A5;
-            L005A: Push(01);
+            L005A: PushStack(01);
             L005E: ax = GetFacing24(party);
             L0065: PushStack(ax);
             L0066: ax = GetNextTile20(party);
@@ -773,7 +773,7 @@ namespace ZCF.Scripts.Maps {
             L007F: PushStack(ax);
             L0080: ax = GetNextTile20(party);
             L0087: PushStack(ax);
-            L0088: Push(01);
+            L0088: PushStack(01);
             L008C: SetUnblocked30(party);
             L0096: ShowMessage(party, String0B26); // The Wizard Door opens.
             L00A3: goto L00B2;
@@ -785,12 +785,12 @@ namespace ZCF.Scripts.Maps {
         private void FnENTRENCD_48(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x19, 0x01);
-            L0015: AddEncounter(party, 0x19, 0x02);
-            L0027: AddEncounter(party, 0x18, 0x03);
-            L0039: AddEncounter(party, 0x18, 0x04);
-            L004B: AddEncounter(party, 0x19, 0x05);
-            L005D: AddEncounter(party, 0x19, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x19);
+            L0015: AddEncounter(party, 0x02, 0x19);
+            L0027: AddEncounter(party, 0x03, 0x18);
+            L0039: AddEncounter(party, 0x04, 0x18);
+            L004B: AddEncounter(party, 0x05, 0x19);
+            L005D: AddEncounter(party, 0x06, 0x19);
             L006F: // RETURN;
         }
 
@@ -798,9 +798,9 @@ namespace ZCF.Scripts.Maps {
         private void FnLICHA_49(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x19, 0x01);
-            L0015: AddEncounter(party, 0x19, 0x02);
-            L0027: AddEncounter(party, 0x27, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x19);
+            L0015: AddEncounter(party, 0x02, 0x19);
+            L0027: AddEncounter(party, 0x05, 0x27);
             L0039: ax = CheckState04(party, 0x02, 0x8B);
             L004A: RefreshCompareFlags(ax);
             L004C: if (result.equal) goto L006E;
@@ -816,9 +816,9 @@ namespace ZCF.Scripts.Maps {
         private void FnLICHB_4A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x19, 0x01);
-            L0015: AddEncounter(party, 0x19, 0x02);
-            L0027: AddEncounter(party, 0x27, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x19);
+            L0015: AddEncounter(party, 0x02, 0x19);
+            L0027: AddEncounter(party, 0x05, 0x27);
             L0039: ax = CheckState04(party, 0x02, 0x8C);
             L004A: RefreshCompareFlags(ax);
             L004C: if (result.equal) goto L006E;
@@ -834,9 +834,9 @@ namespace ZCF.Scripts.Maps {
         private void FnLICHC_4B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x19, 0x01);
-            L0015: AddEncounter(party, 0x19, 0x02);
-            L0027: AddEncounter(party, 0x27, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x19);
+            L0015: AddEncounter(party, 0x02, 0x19);
+            L0027: AddEncounter(party, 0x05, 0x27);
             L0039: ax = CheckState04(party, 0x02, 0x8D);
             L004A: RefreshCompareFlags(ax);
             L004C: if (result.equal) goto L006E;
@@ -852,9 +852,9 @@ namespace ZCF.Scripts.Maps {
         private void FnLICHD_4C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x19, 0x01);
-            L0015: AddEncounter(party, 0x19, 0x02);
-            L0027: AddEncounter(party, 0x27, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x19);
+            L0015: AddEncounter(party, 0x02, 0x19);
+            L0027: AddEncounter(party, 0x05, 0x27);
             L0039: ax = CheckState04(party, 0x02, 0x8E);
             L004A: RefreshCompareFlags(ax);
             L004C: if (result.equal) goto L006E;
@@ -871,11 +871,11 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0B7F); // The spirit of Arnakkian Slowfoot appears.
-            L0010: AddEncounter(party, 0x27, 0x01);
-            L0022: AddEncounter(party, 0x27, 0x02);
-            L0034: AddEncounter(party, 0x27, 0x03);
-            L0046: AddEncounter(party, 0x27, 0x04);
-            L0058: AddEncounter(party, 0x28, 0x05);
+            L0010: AddEncounter(party, 0x01, 0x27);
+            L0022: AddEncounter(party, 0x02, 0x27);
+            L0034: AddEncounter(party, 0x03, 0x27);
+            L0046: AddEncounter(party, 0x04, 0x27);
+            L0058: AddEncounter(party, 0x05, 0x28);
             L006A: ax = HasItem50(party, 0xF7);
             L0078: if (result.equal) goto L009A;
             L007A: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xCF);
@@ -901,7 +901,7 @@ namespace ZCF.Scripts.Maps {
         private void FnLABY_4F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x00, 0x3F, 0x01, 0x34);
+            L0003: SetMoveMap(party, 0x34, 0x01, 0x3F, 0x00);
             L001D: // RETURN;
         }
 

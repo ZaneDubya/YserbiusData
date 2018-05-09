@@ -22,7 +22,7 @@ namespace ZCF.Scripts.Maps {
         private void FnTOMINES_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x03, 0xFD, 0x02, 0x01);
+            L0003: SetMoveMap(party, 0x01, 0x02, 0xFD, 0x03);
             L001E: // RETURN;
         }
 
@@ -30,7 +30,7 @@ namespace ZCF.Scripts.Maps {
         private void FnTOTREAS_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x02, 0x10, 0x04, 0x01);
+            L0003: SetMoveMap(party, 0x01, 0x04, 0x10, 0x02);
             L001E: // RETURN;
         }
 
@@ -38,7 +38,7 @@ namespace ZCF.Scripts.Maps {
         private void FnTOSOLDQU_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x0F, 0x06, 0x01);
+            L0003: SetMoveMap(party, 0x01, 0x06, 0x0F, 0x01);
             L001E: // RETURN;
         }
 
@@ -90,7 +90,7 @@ namespace ZCF.Scripts.Maps {
         private void FnTELEPORT_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x00, 0x5D, 0x01, 0x33);
+            L0003: SetMoveMap(party, 0x33, 0x01, 0x5D, 0x00);
             L001D: // RETURN;
         }
 
@@ -113,7 +113,7 @@ namespace ZCF.Scripts.Maps {
             L0027: compare(ax, 0x0001);
             L002A: if (result.notequal) goto L005A;
             L002C: ShowMessage(party, String0504); // This room contains the gateway to the Labyrinth.
-            L0039: Push(01);
+            L0039: PushStack(01);
             L003D: ax = GetFacing24(party);
             L0044: PushStack(ax);
             L0045: ax = GetNextTile20(party);
@@ -133,7 +133,7 @@ namespace ZCF.Scripts.Maps {
             L00CC: RemoveItem4C(party, 0xE1);
             L00D8: RemoveItem4C(party, 0xE2);
             L00E4: RemoveItem4C(party, 0xF8);
-            L00F0: Push(01);
+            L00F0: PushStack(01);
             L00F4: ax = GetFacing24(party);
             L00FB: PushStack(ax);
             L00FC: ax = GetNextTile20(party);
@@ -162,7 +162,7 @@ namespace ZCF.Scripts.Maps {
             L0013: ShowMessage(party, String0635); // Good Journeys, brave hero.
             L0020: goto L0049;
             L0022: ShowMessage(party, String0650); // Only heroes of the twentieth level or higher may venture beyond this door.
-            L002F: SetMoveMap(party, 0x00, 0x02, 0x01, 0x01);
+            L002F: SetMoveMap(party, 0x01, 0x01, 0x02, 0x00);
             L0049: // RETURN;
         }
 

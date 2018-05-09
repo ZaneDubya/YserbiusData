@@ -108,7 +108,7 @@ namespace ZCF.Scripts.Maps {
             L000F: ax = CheckState04(party, 0x01, 0x01);
             L0020: RefreshCompareFlags(ax);
             L0022: if (result.equal) goto L0043;
-            L0024: SetMove38(party, 0x47, 0x00);
+            L0024: SetMove38(party, 0x00, 0x47);
             L0034: ShowMessage(party, String046E); // A magical platform forms a bridge across the abyss.
             L0041: goto L006E;
             L0043: ShowMessage(party, String04A2); // You fall into the abyss and die.
@@ -119,9 +119,9 @@ namespace ZCF.Scripts.Maps {
             L0070: ax = CheckState04(party, 0x01, 0x01);
             L0081: RefreshCompareFlags(ax);
             L0083: if (result.equal) goto L0097;
-            L0085: SetMove38(party, 0x47, 0x00);
+            L0085: SetMove38(party, 0x00, 0x47);
             L0095: goto L00A8;
-            L0097: SetMove38(party, 0x47, 0x01);
+            L0097: SetMove38(party, 0x01, 0x47);
             L00A8: // RETURN;
         }
 
@@ -130,7 +130,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetState00(party, 0x01, 0x01, 0x01);
-            L0018: SetMove38(party, 0x47, 0x00);
+            L0018: SetMove38(party, 0x00, 0x47);
             L0028: ShowMessage(party, String04F6); // Something strange happens!
             L0035: ShowMessage(party, String0511); // When you step onto the stone, a magical platform appears nearby.
             L0042: // RETURN;
@@ -141,7 +141,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0552); // You do not suffer the death found in other pits in the Labyrinth.  Instead you are rewarded with a trip to CASTLEGATE BAZAAR.
-            L0010: SetMoveMap(party, 0x03, 0x12, 0x01, 0x36);
+            L0010: SetMoveMap(party, 0x36, 0x01, 0x12, 0x03);
             L002B: // RETURN;
         }
 
@@ -152,7 +152,7 @@ namespace ZCF.Scripts.Maps {
             L0003: ShowMessage(party, String05D0); // The Dark Dwarf Voranti tricked the Lords of Harmony many moons ago.
             L0010: ShowMessage(party, String0614); // He stole the secrets of the Winds from the Lords and has used them for his own purposes every since.
             L001D: ShowMessage(party, String0679); // The Lords' Harmonic Shrine has now become the raging passageway known as HEAVEN'S FURY.
-            L002A: SetMoveMap(party, 0x02, 0xA3, 0x01, 0x35);
+            L002A: SetMoveMap(party, 0x35, 0x01, 0xA3, 0x02);
             L0045: // RETURN;
         }
 
@@ -162,7 +162,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06D1); // The survivors of the cataclysm named this place EXODUS.
             L0010: ShowMessage(party, String0709); // It is here they escaped the horrors of Arnakkian's Castle and began their new subterranean life.
-            L001D: SetMoveMap(party, 0x02, 0x75, 0x01, 0x35);
+            L001D: SetMoveMap(party, 0x35, 0x01, 0x75, 0x02);
             L0038: // RETURN;
         }
 
@@ -171,7 +171,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String076A); // No adventurer dares camp in WIND HOLLOW.  At night the howling wind makes one deaf to the dangers.
-            L0010: SetMoveMap(party, 0x03, 0x8A, 0x01, 0x35);
+            L0010: SetMoveMap(party, 0x35, 0x01, 0x8A, 0x03);
             L002B: // RETURN;
         }
 
@@ -180,7 +180,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07CD); // TEMPEST dares all to explore the magic rooms along her narrow corridor.
-            L0010: SetMoveMap(party, 0x01, 0x9B, 0x01, 0x35);
+            L0010: SetMoveMap(party, 0x35, 0x01, 0x9B, 0x01);
             L002B: // RETURN;
         }
 
@@ -189,7 +189,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0815); // The barren rocks are swept clean by the violent winds that race through WIND HOLLOW.
-            L0010: SetMoveMap(party, 0x00, 0x7D, 0x01, 0x35);
+            L0010: SetMoveMap(party, 0x35, 0x01, 0x7D, 0x00);
             L002A: // RETURN;
         }
 
@@ -198,7 +198,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String086A); // 'Beware!  Those who enter the Labyrinth BACK ALLEY must guard against all!'
-            L0010: SetMoveMap(party, 0x00, 0x4D, 0x01, 0x35);
+            L0010: SetMoveMap(party, 0x35, 0x01, 0x4D, 0x00);
             L002A: // RETURN;
         }
 
@@ -207,7 +207,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08B6); // Enter HEAVEN'S FURY if you must.  Here is where Voranti cursed the winds.
-            L0010: SetMoveMap(party, 0x02, 0xF3, 0x01, 0x35);
+            L0010: SetMoveMap(party, 0x35, 0x01, 0xF3, 0x02);
             L002B: // RETURN;
         }
 
@@ -216,7 +216,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0900); // The gates of LABYRINTH ATTIC are a welcome sight.
-            L0010: SetMoveMap(party, 0x02, 0xC3, 0x01, 0x33);
+            L0010: SetMoveMap(party, 0x33, 0x01, 0xC3, 0x02);
             L002B: // RETURN;
         }
 
@@ -225,7 +225,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0932); // The door leads to WYN SANCTUARY.
-            L0010: SetMoveMap(party, 0x00, 0x6D, 0x01, 0x33);
+            L0010: SetMoveMap(party, 0x33, 0x01, 0x6D, 0x00);
             L002A: // RETURN;
         }
 
@@ -234,7 +234,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0953); // The gateway opens, revealing the secret chambers of the Labyrinth Thieves.
-            L0010: SetMoveMap(party, 0x02, 0x6E, 0x01, 0x33);
+            L0010: SetMoveMap(party, 0x33, 0x01, 0x6E, 0x02);
             L002B: // RETURN;
         }
 
@@ -255,15 +255,15 @@ namespace ZCF.Scripts.Maps {
             L0003: ShowMessage(party, String09C9); // This door locks out all except those who have the alley key.
             L0010: ax = UsedItem54(party, 0xE0, 0xE0);
             L0023: if (result.equal) goto L0066;
-            L0025: Push(01);
-            L0029: Push(03);
+            L0025: PushStack(01);
+            L0029: PushStack(03);
             L002D: ax = GetNextTile20(party);
             L0034: PushStack(ax);
             L0035: SetMove2C(party, PopStack(), PopStack(), PopStack());
-            L003F: Push(03);
+            L003F: PushStack(03);
             L0043: ax = GetNextTile20(party);
             L004A: PushStack(ax);
-            L004B: Push(01);
+            L004B: PushStack(01);
             L004F: SetUnblocked30(party);
             L0059: ShowMessage(party, String0A06); // Your key unlocks the door.
             L0066: // RETURN;
@@ -274,7 +274,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A21); // You return to LABYRINTH ATTIC through a one-way tunnel.
-            L0010: SetMoveMap(party, 0x02, 0x59, 0x01, 0x33);
+            L0010: SetMoveMap(party, 0x33, 0x01, 0x59, 0x02);
             L002B: // RETURN;
         }
 
@@ -289,7 +289,7 @@ namespace ZCF.Scripts.Maps {
             L0031: RefreshCompareFlags(ax);
             L0033: if (result.unsigned_greater_than) goto L0042;
             L0035: ShowMessage(party, String0AE0); // You have died.
-            L0042: SetMoveMap(party, 0x03, 0xBC, 0x01, 0x35);
+            L0042: SetMoveMap(party, 0x35, 0x01, 0xBC, 0x03);
             L005D: // RETURN;
         }
 
@@ -299,7 +299,7 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0AEF); // Runes can be the most powerful of weapons in the hands of an adept Wizard.
             L0010: ShowMessage(party, String0B3A); // Here, the runes also protect the great mage's magical possessions against the unwanted.
-            L001D: SetMoveMap(party, 0x02, 0x30, 0x02, 0x34);
+            L001D: SetMoveMap(party, 0x34, 0x02, 0x30, 0x02);
             L0038: // RETURN;
         }
 
@@ -307,10 +307,10 @@ namespace ZCF.Scripts.Maps {
         private void FnZEPHENCA_18(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x16, 0x01);
-            L0015: AddEncounter(party, 0x16, 0x02);
-            L0027: AddEncounter(party, 0x19, 0x05);
-            L0039: AddEncounter(party, 0x19, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x16);
+            L0015: AddEncounter(party, 0x02, 0x16);
+            L0027: AddEncounter(party, 0x05, 0x19);
+            L0039: AddEncounter(party, 0x06, 0x19);
             L004B: ax = HasItem50(party, 0xB4);
             L0059: if (result.equal) goto L007C;
             L005B: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0xD1);
@@ -340,10 +340,10 @@ namespace ZCF.Scripts.Maps {
             L00AC: AddTreasure(party, 0x2710, 0x00, 0x00, 0x00, 0x00, 0xF0);
             L00CB: AddExperience98(party, 0x0003D090);
             L00DD: ShowMessage(party, String0B92); // The Zephyr Wind whispers, 'I have taken the Harvest Horn, and I give you something to help defeat the Wind Elemental'.
-            L00EA: AddEncounter(party, 0x10, 0x01);
-            L00FC: AddEncounter(party, 0x10, 0x02);
-            L010E: AddEncounter(party, 0x0F, 0x05);
-            L0120: AddEncounter(party, 0x0F, 0x06);
+            L00EA: AddEncounter(party, 0x01, 0x10);
+            L00FC: AddEncounter(party, 0x02, 0x10);
+            L010E: AddEncounter(party, 0x05, 0x0F);
+            L0120: AddEncounter(party, 0x06, 0x0F);
             L0132: // RETURN;
         }
 
@@ -360,7 +360,7 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetState00(party, 0x01, 0x01, 0x00);
-            L0017: SetMove38(party, 0x47, 0x01);
+            L0017: SetMove38(party, 0x01, 0x47);
             L0028: ShowMessage(party, String0CA2); // A magical platform nearby seems to disappear.
             L0035: // RETURN;
         }
@@ -386,10 +386,10 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0D0E); // Wafts of reddish smoke eminate from the rooms ahead.
-            L0010: AddEncounter(party, 0x19, 0x01);
-            L0022: AddEncounter(party, 0x19, 0x02);
-            L0034: AddEncounter(party, 0x0F, 0x05);
-            L0046: AddEncounter(party, 0x0F, 0x06);
+            L0010: AddEncounter(party, 0x01, 0x19);
+            L0022: AddEncounter(party, 0x02, 0x19);
+            L0034: AddEncounter(party, 0x05, 0x0F);
+            L0046: AddEncounter(party, 0x06, 0x0F);
             L0058: // RETURN;
         }
 
@@ -398,10 +398,10 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0D43); // An acrid odor fills these chambers.
-            L0010: AddEncounter(party, 0x0F, 0x01);
-            L0022: AddEncounter(party, 0x0F, 0x02);
-            L0034: AddEncounter(party, 0x1B, 0x05);
-            L0046: AddEncounter(party, 0x1B, 0x06);
+            L0010: AddEncounter(party, 0x01, 0x0F);
+            L0022: AddEncounter(party, 0x02, 0x0F);
+            L0034: AddEncounter(party, 0x05, 0x1B);
+            L0046: AddEncounter(party, 0x06, 0x1B);
             L0058: // RETURN;
         }
 
@@ -410,12 +410,12 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0D67); // The fiery eyes of Ancient Dragons blaze through the thick clouds that fill the chamber.
-            L0010: AddEncounter(party, 0x1C, 0x01);
-            L0022: AddEncounter(party, 0x1C, 0x02);
-            L0034: AddEncounter(party, 0x1C, 0x03);
-            L0046: AddEncounter(party, 0x1C, 0x04);
-            L0058: AddEncounter(party, 0x1A, 0x05);
-            L006A: AddEncounter(party, 0x1A, 0x06);
+            L0010: AddEncounter(party, 0x01, 0x1C);
+            L0022: AddEncounter(party, 0x02, 0x1C);
+            L0034: AddEncounter(party, 0x03, 0x1C);
+            L0046: AddEncounter(party, 0x04, 0x1C);
+            L0058: AddEncounter(party, 0x05, 0x1A);
+            L006A: AddEncounter(party, 0x06, 0x1A);
             L007C: ax = HasItem50(party, 0xDF);
             L008A: if (result.equal) goto L00AD;
             L008C: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0xD1);
@@ -428,12 +428,12 @@ namespace ZCF.Scripts.Maps {
         private void FnZZYZENCA_21(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1E, 0x01);
-            L0015: AddEncounter(party, 0x1E, 0x02);
-            L0027: AddEncounter(party, 0x1E, 0x03);
-            L0039: AddEncounter(party, 0x1E, 0x04);
-            L004B: AddEncounter(party, 0x1D, 0x05);
-            L005D: AddEncounter(party, 0x1D, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x1E);
+            L0015: AddEncounter(party, 0x02, 0x1E);
+            L0027: AddEncounter(party, 0x03, 0x1E);
+            L0039: AddEncounter(party, 0x04, 0x1E);
+            L004B: AddEncounter(party, 0x05, 0x1D);
+            L005D: AddEncounter(party, 0x06, 0x1D);
             L006F: AddTreasure(party, 0x1388, 0x00, 0x00, 0x17, 0x08, 0x6C);
             L0090: // RETURN;
         }
@@ -451,7 +451,7 @@ namespace ZCF.Scripts.Maps {
             L0024: ax = UsedItem54(party, 0xBE, 0xBE);
             L0037: if (result.equal) goto L0082;
             L0039: ShowMessage(party, String0DBF); // You detect a secret door in the wall.
-            L0046: Push(01);
+            L0046: PushStack(01);
             L004A: ax = GetFacing24(party);
             L0051: PushStack(ax);
             L0052: ax = GetNextTile20(party);
@@ -461,7 +461,7 @@ namespace ZCF.Scripts.Maps {
             L006B: PushStack(ax);
             L006C: ax = GetNextTile20(party);
             L0073: PushStack(ax);
-            L0074: Push(01);
+            L0074: PushStack(01);
             L0078: SetUnblocked30(party);
             L0082: // RETURN;
         }
@@ -470,10 +470,10 @@ namespace ZCF.Scripts.Maps {
         private void FnZZYZENCC_24(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x10, 0x01);
-            L0015: AddEncounter(party, 0x10, 0x02);
-            L0027: AddEncounter(party, 0x1D, 0x03);
-            L0039: AddEncounter(party, 0x1D, 0x04);
+            L0003: AddEncounter(party, 0x01, 0x10);
+            L0015: AddEncounter(party, 0x02, 0x10);
+            L0027: AddEncounter(party, 0x03, 0x1D);
+            L0039: AddEncounter(party, 0x04, 0x1D);
             L004B: // RETURN;
         }
 
@@ -482,10 +482,10 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0DE5); // A stash of wizard items is being raided.
-            L0010: AddEncounter(party, 0x1F, 0x01);
-            L0022: AddEncounter(party, 0x1F, 0x02);
-            L0034: AddEncounter(party, 0x20, 0x03);
-            L0046: AddEncounter(party, 0x20, 0x04);
+            L0010: AddEncounter(party, 0x01, 0x1F);
+            L0022: AddEncounter(party, 0x02, 0x1F);
+            L0034: AddEncounter(party, 0x03, 0x20);
+            L0046: AddEncounter(party, 0x04, 0x20);
             L0058: AddTreasure(party, 0x03E8, 0x00, 0x00, 0xCA, 0xB2, 0xB1);
             L0079: // RETURN;
         }
@@ -494,10 +494,10 @@ namespace ZCF.Scripts.Maps {
         private void FnMGOVENCB_26(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x1F, 0x01);
-            L0015: AddEncounter(party, 0x1F, 0x02);
-            L0027: AddEncounter(party, 0x1F, 0x03);
-            L0039: AddEncounter(party, 0x19, 0x04);
+            L0003: AddEncounter(party, 0x01, 0x1F);
+            L0015: AddEncounter(party, 0x02, 0x1F);
+            L0027: AddEncounter(party, 0x03, 0x1F);
+            L0039: AddEncounter(party, 0x04, 0x19);
             L004B: AddEncounter(party, 0x05, 0x05);
             L005D: // RETURN;
         }
@@ -519,7 +519,7 @@ namespace ZCF.Scripts.Maps {
             L0033: ax = UsedItem54(party, 0xBE, 0xBE);
             L0046: if (result.equal) goto L0091;
             L0048: ShowMessage(party, String0E0E); // You locate a hidden door in the wall.
-            L0055: Push(01);
+            L0055: PushStack(01);
             L0059: ax = GetFacing24(party);
             L0060: PushStack(ax);
             L0061: ax = GetNextTile20(party);
@@ -529,7 +529,7 @@ namespace ZCF.Scripts.Maps {
             L007A: PushStack(ax);
             L007B: ax = GetNextTile20(party);
             L0082: PushStack(ax);
-            L0083: Push(01);
+            L0083: PushStack(01);
             L0087: SetUnblocked30(party);
             L0091: // RETURN;
         }
@@ -538,10 +538,10 @@ namespace ZCF.Scripts.Maps {
         private void FnVORAENCA_29(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x22, 0x01);
-            L0015: AddEncounter(party, 0x22, 0x02);
-            L0027: AddEncounter(party, 0x10, 0x03);
-            L0039: AddEncounter(party, 0x10, 0x04);
+            L0003: AddEncounter(party, 0x01, 0x22);
+            L0015: AddEncounter(party, 0x02, 0x22);
+            L0027: AddEncounter(party, 0x03, 0x10);
+            L0039: AddEncounter(party, 0x04, 0x10);
             L004B: // RETURN;
         }
 
@@ -549,10 +549,10 @@ namespace ZCF.Scripts.Maps {
         private void FnVORAENCB_2A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x22, 0x01);
-            L0015: AddEncounter(party, 0x22, 0x02);
-            L0027: AddEncounter(party, 0x15, 0x03);
-            L0039: AddEncounter(party, 0x12, 0x04);
+            L0003: AddEncounter(party, 0x01, 0x22);
+            L0015: AddEncounter(party, 0x02, 0x22);
+            L0027: AddEncounter(party, 0x03, 0x15);
+            L0039: AddEncounter(party, 0x04, 0x12);
             L004B: // RETURN;
         }
 
@@ -569,8 +569,8 @@ namespace ZCF.Scripts.Maps {
             L0030: compare(ax, 0x0004);
             L0033: if (result.notequal) goto L0042;
             L0035: ShowMessage(party, String0F81); // Voranti smiles sadly. 'It saddens me that I must kill a fellow dwarf, but you have brought death upon yourself.'
-            L0042: AddEncounter(party, 0x1C, 0x01);
-            L0054: AddEncounter(party, 0x21, 0x05);
+            L0042: AddEncounter(party, 0x01, 0x1C);
+            L0054: AddEncounter(party, 0x05, 0x21);
             L0066: ax = HasItem50(party, 0xED);
             L0074: if (result.equal) goto L0097;
             L0076: AddTreasure(party, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xCC);
@@ -596,9 +596,9 @@ namespace ZCF.Scripts.Maps {
             L004D: PushStack(ax);
             L004E: ax = GetNextTile20(party);
             L0055: PushStack(ax);
-            L0056: Push(01);
+            L0056: PushStack(01);
             L005A: SetUnblocked30(party);
-            L0064: Push(01);
+            L0064: PushStack(01);
             L0068: ax = GetFacing24(party);
             L006F: PushStack(ax);
             L0070: ax = GetNextTile20(party);
@@ -611,10 +611,10 @@ namespace ZCF.Scripts.Maps {
         private void FnMOONENCA_32(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x0A, 0x01);
-            L0015: AddEncounter(party, 0x0A, 0x02);
-            L0027: AddEncounter(party, 0x24, 0x03);
-            L0039: AddEncounter(party, 0x24, 0x04);
+            L0003: AddEncounter(party, 0x01, 0x0A);
+            L0015: AddEncounter(party, 0x02, 0x0A);
+            L0027: AddEncounter(party, 0x03, 0x24);
+            L0039: AddEncounter(party, 0x04, 0x24);
             L004B: ax = HasItem50(party, 0xBE);
             L0059: if (result.equal) goto L007D;
             L005B: AddTreasure(party, 0x07D0, 0x00, 0x00, 0x00, 0xD0, 0xB7);
@@ -627,11 +627,11 @@ namespace ZCF.Scripts.Maps {
         private void FnMOONENCB_33(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x26, 0x01);
-            L0015: AddEncounter(party, 0x26, 0x02);
-            L0027: AddEncounter(party, 0x25, 0x03);
-            L0039: AddEncounter(party, 0x26, 0x05);
-            L004B: AddEncounter(party, 0x26, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x26);
+            L0015: AddEncounter(party, 0x02, 0x26);
+            L0027: AddEncounter(party, 0x03, 0x25);
+            L0039: AddEncounter(party, 0x05, 0x26);
+            L004B: AddEncounter(party, 0x06, 0x26);
             L005D: AddTreasure(party, 0x1B58, 0x00, 0x00, 0x00, 0x59, 0x13);
             L007D: // RETURN;
         }
@@ -640,12 +640,12 @@ namespace ZCF.Scripts.Maps {
         private void FnMOONENCC_34(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x0E, 0x01);
-            L0015: AddEncounter(party, 0x0E, 0x02);
-            L0027: AddEncounter(party, 0x1C, 0x03);
-            L0039: AddEncounter(party, 0x1C, 0x04);
-            L004B: AddEncounter(party, 0x1B, 0x05);
-            L005D: AddEncounter(party, 0x1B, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x0E);
+            L0015: AddEncounter(party, 0x02, 0x0E);
+            L0027: AddEncounter(party, 0x03, 0x1C);
+            L0039: AddEncounter(party, 0x04, 0x1C);
+            L004B: AddEncounter(party, 0x05, 0x1B);
+            L005D: AddEncounter(party, 0x06, 0x1B);
             L006F: AddTreasure(party, 0x2710, 0x00, 0x00, 0x00, 0x83, 0x10);
             L008F: // RETURN;
         }
@@ -654,10 +654,10 @@ namespace ZCF.Scripts.Maps {
         private void FnMOONENCD_35(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x24, 0x01);
-            L0015: AddEncounter(party, 0x24, 0x02);
-            L0027: AddEncounter(party, 0x24, 0x03);
-            L0039: AddEncounter(party, 0x24, 0x04);
+            L0003: AddEncounter(party, 0x01, 0x24);
+            L0015: AddEncounter(party, 0x02, 0x24);
+            L0027: AddEncounter(party, 0x03, 0x24);
+            L0039: AddEncounter(party, 0x04, 0x24);
             L004B: // RETURN;
         }
 
@@ -666,10 +666,10 @@ namespace ZCF.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1016); // A nest of young dragons!
-            L0010: AddEncounter(party, 0x0E, 0x01);
-            L0022: AddEncounter(party, 0x0E, 0x02);
-            L0034: AddEncounter(party, 0x0F, 0x03);
-            L0046: AddEncounter(party, 0x1C, 0x04);
+            L0010: AddEncounter(party, 0x01, 0x0E);
+            L0022: AddEncounter(party, 0x02, 0x0E);
+            L0034: AddEncounter(party, 0x03, 0x0F);
+            L0046: AddEncounter(party, 0x04, 0x1C);
             L0058: // RETURN;
         }
 
@@ -677,9 +677,9 @@ namespace ZCF.Scripts.Maps {
         private void FnMOONENCF_37(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x24, 0x01);
-            L0015: AddEncounter(party, 0x24, 0x02);
-            L0027: AddEncounter(party, 0x24, 0x05);
+            L0003: AddEncounter(party, 0x01, 0x24);
+            L0015: AddEncounter(party, 0x02, 0x24);
+            L0027: AddEncounter(party, 0x05, 0x24);
             L0039: // RETURN;
         }
 
@@ -689,11 +689,11 @@ namespace ZCF.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String102F); // A yellowed piece of paper  --
             L0010: ShowMessage(party, String104D); // 'Help! My brother Orilon has been bitten by bears and is transformed.'  - signed Margery
-            L001D: AddEncounter(party, 0x28, 0x01);
-            L002F: AddEncounter(party, 0x28, 0x02);
-            L0041: AddEncounter(party, 0x28, 0x03);
-            L0053: AddEncounter(party, 0x24, 0x05);
-            L0065: AddEncounter(party, 0x24, 0x06);
+            L001D: AddEncounter(party, 0x01, 0x28);
+            L002F: AddEncounter(party, 0x02, 0x28);
+            L0041: AddEncounter(party, 0x03, 0x28);
+            L0053: AddEncounter(party, 0x05, 0x24);
+            L0065: AddEncounter(party, 0x06, 0x24);
             L0077: ax = HasItem50(party, 0xEA);
             L0085: if (result.equal) goto L00A8;
             L0087: AddTreasure(party, 0x2328, 0x00, 0x00, 0x00, 0x00, 0xBB);
@@ -714,10 +714,10 @@ namespace ZCF.Scripts.Maps {
         private void FnMOONENCJ_3B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x12, 0x01);
-            L0015: AddEncounter(party, 0x12, 0x02);
-            L0027: AddEncounter(party, 0x1E, 0x03);
-            L0039: AddEncounter(party, 0x1E, 0x04);
+            L0003: AddEncounter(party, 0x01, 0x12);
+            L0015: AddEncounter(party, 0x02, 0x12);
+            L0027: AddEncounter(party, 0x03, 0x1E);
+            L0039: AddEncounter(party, 0x04, 0x1E);
             L004B: // RETURN;
         }
 
@@ -725,11 +725,11 @@ namespace ZCF.Scripts.Maps {
         private void FnMOONENCK_3C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x26, 0x01);
-            L0015: AddEncounter(party, 0x26, 0x02);
-            L0027: AddEncounter(party, 0x26, 0x03);
-            L0039: AddEncounter(party, 0x25, 0x05);
-            L004B: AddEncounter(party, 0x25, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x26);
+            L0015: AddEncounter(party, 0x02, 0x26);
+            L0027: AddEncounter(party, 0x03, 0x26);
+            L0039: AddEncounter(party, 0x05, 0x25);
+            L004B: AddEncounter(party, 0x06, 0x25);
             L005D: // RETURN;
         }
 
@@ -746,9 +746,9 @@ namespace ZCF.Scripts.Maps {
             L0035: PushStack(ax);
             L0036: ax = GetNextTile20(party);
             L003D: PushStack(ax);
-            L003E: Push(01);
+            L003E: PushStack(01);
             L0042: SetUnblocked30(party);
-            L004C: Push(01);
+            L004C: PushStack(01);
             L0050: ax = GetFacing24(party);
             L0057: PushStack(ax);
             L0058: ax = GetNextTile20(party);
@@ -768,9 +768,9 @@ namespace ZCF.Scripts.Maps {
             L002C: PushStack(ax);
             L002D: ax = GetNextTile20(party);
             L0034: PushStack(ax);
-            L0035: Push(01);
+            L0035: PushStack(01);
             L0039: SetUnblocked30(party);
-            L0043: Push(01);
+            L0043: PushStack(01);
             L0047: ax = GetFacing24(party);
             L004E: PushStack(ax);
             L004F: ax = GetNextTile20(party);
@@ -798,9 +798,9 @@ namespace ZCF.Scripts.Maps {
             L0062: PushStack(ax);
             L0063: ax = GetNextTile20(party);
             L006A: PushStack(ax);
-            L006B: Push(01);
+            L006B: PushStack(01);
             L006F: SetUnblocked30(party);
-            L0079: Push(01);
+            L0079: PushStack(01);
             L007D: ax = GetFacing24(party);
             L0084: PushStack(ax);
             L0085: ax = GetNextTile20(party);
@@ -823,9 +823,9 @@ namespace ZCF.Scripts.Maps {
             L004E: PushStack(ax);
             L004F: ax = GetNextTile20(party);
             L0056: PushStack(ax);
-            L0057: Push(01);
+            L0057: PushStack(01);
             L005B: SetUnblocked30(party);
-            L0065: Push(01);
+            L0065: PushStack(01);
             L0069: ax = GetFacing24(party);
             L0070: PushStack(ax);
             L0071: ax = GetNextTile20(party);
@@ -838,10 +838,10 @@ namespace ZCF.Scripts.Maps {
         private void FnMOONENCM_42(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x26, 0x01);
-            L0015: AddEncounter(party, 0x26, 0x02);
-            L0027: AddEncounter(party, 0x25, 0x03);
-            L0039: AddEncounter(party, 0x25, 0x04);
+            L0003: AddEncounter(party, 0x01, 0x26);
+            L0015: AddEncounter(party, 0x02, 0x26);
+            L0027: AddEncounter(party, 0x03, 0x25);
+            L0039: AddEncounter(party, 0x04, 0x25);
             L004B: // RETURN;
         }
 
@@ -866,9 +866,9 @@ namespace ZCF.Scripts.Maps {
             L005C: PushStack(ax);
             L005D: ax = GetNextTile20(party);
             L0064: PushStack(ax);
-            L0065: Push(01);
+            L0065: PushStack(01);
             L0069: SetUnblocked30(party);
-            L0073: Push(01);
+            L0073: PushStack(01);
             L0077: ax = GetFacing24(party);
             L007E: PushStack(ax);
             L007F: ax = GetNextTile20(party);
@@ -898,9 +898,9 @@ namespace ZCF.Scripts.Maps {
             L005C: PushStack(ax);
             L005D: ax = GetNextTile20(party);
             L0064: PushStack(ax);
-            L0065: Push(01);
+            L0065: PushStack(01);
             L0069: SetUnblocked30(party);
-            L0073: Push(01);
+            L0073: PushStack(01);
             L0077: ax = GetFacing24(party);
             L007E: PushStack(ax);
             L007F: ax = GetNextTile20(party);
@@ -921,9 +921,9 @@ namespace ZCF.Scripts.Maps {
             L0028: PushStack(ax);
             L0029: ax = GetNextTile20(party);
             L0030: PushStack(ax);
-            L0031: Push(01);
+            L0031: PushStack(01);
             L0035: SetUnblocked30(party);
-            L003F: Push(01);
+            L003F: PushStack(01);
             L0043: ax = GetFacing24(party);
             L004A: PushStack(ax);
             L004B: ax = GetNextTile20(party);
@@ -935,7 +935,7 @@ namespace ZCF.Scripts.Maps {
             L0073: PushStack(ax);
             L0074: ax = GetNextTile20(party);
             L007B: PushStack(ax);
-            L007C: Push(01);
+            L007C: PushStack(01);
             L0080: SetUnblocked30(party);
             L008A: PushStack(0x00);
             L008D: ax = GetFacing24(party);
@@ -959,7 +959,7 @@ namespace ZCF.Scripts.Maps {
             L0024: ax = UsedItem54(party, 0xBE, 0xBE);
             L0037: if (result.equal) goto L0082;
             L0039: ShowMessage(party, String12A8); // Your training helps you find a secret door in the wall.
-            L0046: Push(01);
+            L0046: PushStack(01);
             L004A: ax = GetFacing24(party);
             L0051: PushStack(ax);
             L0052: ax = GetNextTile20(party);
@@ -969,7 +969,7 @@ namespace ZCF.Scripts.Maps {
             L006B: PushStack(ax);
             L006C: ax = GetNextTile20(party);
             L0073: PushStack(ax);
-            L0074: Push(01);
+            L0074: PushStack(01);
             L0078: SetUnblocked30(party);
             L0082: // RETURN;
         }
@@ -983,9 +983,9 @@ namespace ZCF.Scripts.Maps {
             L0017: PushStack(ax);
             L0018: ax = GetNextTile20(party);
             L001F: PushStack(ax);
-            L0020: Push(01);
+            L0020: PushStack(01);
             L0024: SetUnblocked30(party);
-            L002E: Push(01);
+            L002E: PushStack(01);
             L0032: ax = GetFacing24(party);
             L0039: PushStack(ax);
             L003A: ax = GetNextTile20(party);
@@ -1095,11 +1095,11 @@ namespace ZCF.Scripts.Maps {
         private void FnTORBENCB_4C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x28, 0x01);
-            L0015: AddEncounter(party, 0x28, 0x02);
-            L0027: AddEncounter(party, 0x27, 0x04);
-            L0039: AddEncounter(party, 0x15, 0x05);
-            L004B: AddEncounter(party, 0x15, 0x06);
+            L0003: AddEncounter(party, 0x01, 0x28);
+            L0015: AddEncounter(party, 0x02, 0x28);
+            L0027: AddEncounter(party, 0x04, 0x27);
+            L0039: AddEncounter(party, 0x05, 0x15);
+            L004B: AddEncounter(party, 0x06, 0x15);
             L005D: ax = GetGuild7C(party);
             L0064: RefreshCompareFlags(ax);
             L0066: if (result.notequal) goto L0087;
@@ -1115,10 +1115,10 @@ namespace ZCF.Scripts.Maps {
         private void FnTORBENCC_4D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: AddEncounter(party, 0x28, 0x01);
-            L0015: AddEncounter(party, 0x28, 0x02);
-            L0027: AddEncounter(party, 0x15, 0x03);
-            L0039: AddEncounter(party, 0x15, 0x04);
+            L0003: AddEncounter(party, 0x01, 0x28);
+            L0015: AddEncounter(party, 0x02, 0x28);
+            L0027: AddEncounter(party, 0x03, 0x15);
+            L0039: AddEncounter(party, 0x04, 0x15);
             L004B: // RETURN;
         }
 
@@ -1147,7 +1147,7 @@ namespace ZCF.Scripts.Maps {
             L0033: ax = UsedItem54(party, 0xBE, 0xBE);
             L0046: if (result.equal) goto L0091;
             L0048: ShowMessage(party, String15AA); // A secret door visible only to knights appears in the wall .
-            L0055: Push(01);
+            L0055: PushStack(01);
             L0059: ax = GetFacing24(party);
             L0060: PushStack(ax);
             L0061: ax = GetNextTile20(party);
@@ -1157,7 +1157,7 @@ namespace ZCF.Scripts.Maps {
             L007A: PushStack(ax);
             L007B: ax = GetNextTile20(party);
             L0082: PushStack(ax);
-            L0083: Push(01);
+            L0083: PushStack(01);
             L0087: SetUnblocked30(party);
             L0091: // RETURN;
         }
@@ -1179,7 +1179,7 @@ namespace ZCF.Scripts.Maps {
             L0032: ax = UsedItem54(party, 0xBE, 0xBE);
             L0045: if (result.equal) goto L0090;
             L0047: ShowMessage(party, String15E6); // In the wall you find a hidden door.
-            L0054: Push(01);
+            L0054: PushStack(01);
             L0058: ax = GetFacing24(party);
             L005F: PushStack(ax);
             L0060: ax = GetNextTile20(party);
@@ -1189,7 +1189,7 @@ namespace ZCF.Scripts.Maps {
             L0079: PushStack(ax);
             L007A: ax = GetNextTile20(party);
             L0081: PushStack(ax);
-            L0082: Push(01);
+            L0082: PushStack(01);
             L0086: SetUnblocked30(party);
             L0090: // RETURN;
         }
