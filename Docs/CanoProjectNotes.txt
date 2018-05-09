@@ -37,15 +37,5 @@ Mycharts.dat,Mychars.new    Char files                    No
 Sample.ad                   Noise samples                 No
 SBDM.ADV                    Drivers                       No
 
-CanoMapScripts:
-Header:
-  uint magic
-  uint ScriptCode byte length
-  uint function offset x 256.
-ScriptCode:
-  Byte[] data, opcodes + parameters.
-  The CanoScriptVM interprets opcodes.
-  Each opcode represents a single command.
-  Yserbius has 46 commands. ScriptCode will need 16 more for math, program flow, and register swapping.
-  Each Opcode has zero or one or more following parameters. The number of parameters is constant for each command type.
-  Parameters are encoded by a leading byte Type.
+The original Yserbius map scripts are available as 16-bit x86 assembly. I will
+transpile these to C# code, which will be loaded by the server at runtime.
