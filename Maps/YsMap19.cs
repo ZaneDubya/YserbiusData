@@ -1,5 +1,5 @@
 #pragma warning disable
-using ZCF.WorldData;
+using XPT.WorldData;
 
 namespace ZCF.Scripts.Maps {
     class YserMap19 : AMapScript {
