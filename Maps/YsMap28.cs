@@ -281,8 +281,16 @@ namespace ZCF.Scripts.Maps {
             L0416: bx = bx - 1;
             L0417: Compare(bx, 0x03);
             L041A: if (CompareResultUnsignedGreaterThan) goto L045F;
-            L041C: bx = bx * 2;
-            L041E: goto mem[0x046D+bx];
+            L041C: switch (bx) {
+                case 0:
+                    goto L0423;
+                case 1:
+                    goto L0432;
+                case 2:
+                    goto L0441;
+                case 3:
+                    goto L0450;
+            }
             L0423: ShowMessage(party, String06DE); // Spring flowers and new leaves appear on the magical Aldbora Tree.
             L0430: goto L045F;
             L0432: ShowMessage(party, String0720); // The Aldbora Tree proudly displays its summer foliage.
@@ -292,7 +300,6 @@ namespace ZCF.Scripts.Maps {
             L0450: ShowMessage(party, String0787); // In the Winter, the Aldbora Tree shows its age.  The fruits of Knowledge are now ripe.
             L045D: goto L045F;
             L045F: return; // RETURN (restoring si);
-046D  0462        2E 04 3D 04 4C 04 5B 04 
         }
 
         protected override MapEventHandler MapEvent02 => FnENCA_02;
@@ -514,8 +521,16 @@ namespace ZCF.Scripts.Maps {
             L0034: Compare(bx, 0x03);
             L0037: if (CompareResultEqual || CompareResultUnsignedLessThan) goto L003C;
             L0039: goto L00E8;
-            L003C: bx = bx * 2;
-            L003E: goto mem[0x0DB3+bx];
+            L003C: switch (bx) {
+                case 0:
+                    goto L0043;
+                case 1:
+                    goto L006D;
+                case 2:
+                    goto L0096;
+                case 3:
+                    goto L00BF;
+            }
             L0043: ShowMessage(party, String0A31); // I am Lobard, and the Season I serve is gentle Spring.
             L0050: ShowMessage(party, String0A67); // The soft breezes of Spring warned me of your coming.
             L005D: ShowMessage(party, String0A9C); // Wise are they who know how to please my master.
@@ -588,7 +603,6 @@ namespace ZCF.Scripts.Maps {
             L02F2: goto L0301;
             L02F4: ShowMessage(party, String1047); // That item is of no interest to my master.
             L0301: return; // RETURN (restoring si);
-0DB3  0304        F2 0A 1C 0B 45 0B 6E 0B 
         }
 
         protected override MapEventHandler MapEvent13 => FnOLACTOR_13;
@@ -604,8 +618,16 @@ namespace ZCF.Scripts.Maps {
             L0034: Compare(bx, 0x03);
             L0037: if (CompareResultEqual || CompareResultUnsignedLessThan) goto L003C;
             L0039: goto L00E8;
-            L003C: bx = bx * 2;
-            L003E: goto mem[0x10B2+bx];
+            L003C: switch (bx) {
+                case 0:
+                    goto L0043;
+                case 1:
+                    goto L006D;
+                case 2:
+                    goto L0096;
+                case 3:
+                    goto L00BF;
+            }
             L0043: ShowMessage(party, String10A8); // Call me Donbard.  I ease the distress of gentle Spring.
             L0050: ShowMessage(party, String10E0); // Spring quakes in fear at your coming.
             L005D: ShowMessage(party, String1106); // Why have you come to Spring's home?
@@ -677,7 +699,6 @@ namespace ZCF.Scripts.Maps {
             L02E5: goto L02F4;
             L02E7: ShowMessage(party, String15B3); // No season is interested in the item you offer.
             L02F4: return; // RETURN (restoring si);
-10B2  02F7        FE 0D 28 0E 51 0E 7A 0E 
         }
 
         protected override MapEventHandler MapEvent14 => FnMBACTOR_14;
@@ -694,8 +715,16 @@ namespace ZCF.Scripts.Maps {
             L0037: if (CompareResultEqual || CompareResultUnsignedLessThan) goto L003C;
             L0039: goto L00B3;
             L003B: // NOP
-            L003C: bx = bx * 2;
-            L003E: goto mem[0x1348+bx];
+            L003C: switch (bx) {
+                case 0:
+                    goto L0043;
+                case 1:
+                    goto L005F;
+                case 2:
+                    goto L007B;
+                case 3:
+                    goto L0097;
+            }
             L0043: ShowMessage(party, String1619); // You may not know my name.
             L0050: ShowMessage(party, String1633); // It is Spring.  That is all you need know.
             L005D: goto L00B3;
@@ -758,7 +787,6 @@ namespace ZCF.Scripts.Maps {
             L027C: goto L028B;
             L027E: ShowMessage(party, String1896); // Why do you offer the seasons such a thing?
             L028B: return; // RETURN (restoring si);
-1348  028E        FD 10 19 11 35 11 51 11 
         }
 
         protected override MapEventHandler MapEvent15 => FnPCACTOR_15;
@@ -773,8 +801,16 @@ namespace ZCF.Scripts.Maps {
             L0033: bx = bx - 1;
             L0034: Compare(bx, 0x03);
             L0037: if (CompareResultUnsignedGreaterThan) goto L007C;
-            L0039: bx = bx * 2;
-            L003B: goto mem[0x15DB+bx];
+            L0039: switch (bx) {
+                case 0:
+                    goto L0040;
+                case 1:
+                    goto L004F;
+                case 2:
+                    goto L005E;
+                case 3:
+                    goto L006D;
+            }
             L0040: ShowMessage(party, String18EE); // I am Spring
             L004D: goto L007C;
             L004F: ShowMessage(party, String18FA); // I am Summer
@@ -837,7 +873,6 @@ namespace ZCF.Scripts.Maps {
             L0279: goto L0288;
             L027B: ShowMessage(party, String1B6E); // We Seasons cannot use the item you offer.
             L0288: return; // RETURN (restoring si);
-15DB  028B        90 13 9F 13 AE 13 BD 13 
         }
 
         protected override MapEventHandler MapEvent16 => FnINFO_16;

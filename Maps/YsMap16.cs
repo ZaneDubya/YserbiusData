@@ -793,8 +793,16 @@ namespace ZCF.Scripts.Maps {
             L0037: Compare(bx, 0x03);
             L003A: if (CompareResultEqual || CompareResultUnsignedLessThan) goto L003F;
             L003C: goto L00C9;
-            L003F: bx = bx * 2;
-            L0041: goto mem[0x10CB+bx];
+            L003F: switch (bx) {
+                case 0:
+                    goto L00A8;
+                case 1:
+                    goto L0066;
+                case 2:
+                    goto L0087;
+                case 3:
+                    goto L0046;
+            }
             L0046: PushStack(0x00);
             L0049: ax = GetNextTile20(party);
             L0050: SetMoveMap(party, 0x04, 0x01, ax, PopStack());
@@ -812,7 +820,6 @@ namespace ZCF.Scripts.Maps {
             L00B3: SetMoveMap(party, 0x04, 0x01, ax, PopStack());
             L00C7: goto L00C9;
             L00C9: return; // RETURN;
-10CB  00CB        A8 10 66 10 87 10 46 10 
         }
 
         protected override MapEventHandler MapEvent1F => FnLFTROTB_1F;
@@ -828,8 +835,16 @@ namespace ZCF.Scripts.Maps {
             L0037: Compare(bx, 0x03);
             L003A: if (CompareResultEqual || CompareResultUnsignedLessThan) goto L003F;
             L003C: goto L00CA;
-            L003F: bx = bx * 2;
-            L0041: goto mem[0x11C4+bx];
+            L003F: switch (bx) {
+                case 0:
+                    goto L00A9;
+                case 1:
+                    goto L0068;
+                case 2:
+                    goto L0088;
+                case 3:
+                    goto L0046;
+            }
             L0046: PushStack(0x02);
             L004A: ax = GetNextTile20(party);
             L0051: SetMoveMap(party, 0x04, 0x01, ax, PopStack());
@@ -852,7 +867,6 @@ namespace ZCF.Scripts.Maps {
             L00D9: SetMoveMap(party, 0x04, 0x01, ax, PopStack());
             L00ED: goto L00EF;
             L00EF: return; // RETURN;
-11C4  00F1        7C 11 3B 11 5B 11 19 11 
         }
 
         protected override MapEventHandler MapEvent20 => FnBACKROTL_20;
@@ -868,8 +882,16 @@ namespace ZCF.Scripts.Maps {
             L0037: Compare(bx, 0x03);
             L003A: if (CompareResultEqual || CompareResultUnsignedLessThan) goto L003F;
             L003C: goto L00CA;
-            L003F: bx = bx * 2;
-            L0041: goto mem[0x12BD+bx];
+            L003F: switch (bx) {
+                case 0:
+                    goto L00A9;
+                case 1:
+                    goto L0068;
+                case 2:
+                    goto L0089;
+                case 3:
+                    goto L0046;
+            }
             L0046: PushStack(0x01);
             L004A: ax = GetNextTile20(party);
             L0051: SetMoveMap(party, 0x04, 0x01, ax, PopStack());
@@ -892,7 +914,6 @@ namespace ZCF.Scripts.Maps {
             L00D9: SetMoveMap(party, 0x04, 0x01, ax, PopStack());
             L00ED: goto L00EF;
             L00EF: return; // RETURN;
-12BD  00F1        75 12 34 12 55 12 12 12 
         }
 
         protected override MapEventHandler MapEvent21 => FnRTROTA_21;
@@ -908,8 +929,16 @@ namespace ZCF.Scripts.Maps {
             L0037: Compare(bx, 0x03);
             L003A: if (CompareResultEqual || CompareResultUnsignedLessThan) goto L003F;
             L003C: goto L00CA;
-            L003F: bx = bx * 2;
-            L0041: goto mem[0x13B6+bx];
+            L003F: switch (bx) {
+                case 0:
+                    goto L00A9;
+                case 1:
+                    goto L0068;
+                case 2:
+                    goto L0088;
+                case 3:
+                    goto L0046;
+            }
             L0046: PushStack(0x02);
             L004A: ax = GetNextTile20(party);
             L0051: SetMoveMap(party, 0x04, 0x01, ax, PopStack());
@@ -932,7 +961,6 @@ namespace ZCF.Scripts.Maps {
             L00D9: SetMoveMap(party, 0x04, 0x01, ax, PopStack());
             L00ED: goto L00EF;
             L00EF: return; // RETURN;
-13B6  00F1        6E 13 2D 13 4D 13 0B 13 
         }
 
         protected override MapEventHandler MapEvent22 => FnRTROTB_22;
@@ -948,8 +976,16 @@ namespace ZCF.Scripts.Maps {
             L0037: Compare(bx, 0x03);
             L003A: if (CompareResultEqual || CompareResultUnsignedLessThan) goto L003F;
             L003C: goto L00CA;
-            L003F: bx = bx * 2;
-            L0041: goto mem[0x14AF+bx];
+            L003F: switch (bx) {
+                case 0:
+                    goto L00A9;
+                case 1:
+                    goto L0067;
+                case 2:
+                    goto L0088;
+                case 3:
+                    goto L0046;
+            }
             L0046: PushStack(0x00);
             L0049: ax = GetNextTile20(party);
             L0050: SetMoveMap(party, 0x04, 0x01, ax, PopStack());
@@ -972,7 +1008,6 @@ namespace ZCF.Scripts.Maps {
             L00D9: SetMoveMap(party, 0x04, 0x01, ax, PopStack());
             L00ED: goto L00EF;
             L00EF: return; // RETURN;
-14AF  00F1        67 14 25 14 46 14 04 14 
         }
 
         protected override MapEventHandler MapEvent25 => FnBADMNSTR_25;
@@ -1429,8 +1464,16 @@ namespace ZCF.Scripts.Maps {
             L0037: Compare(bx, 0x03);
             L003A: if (CompareResultEqual || CompareResultUnsignedLessThan) goto L003F;
             L003C: goto L00CA;
-            L003F: bx = bx * 2;
-            L0041: goto mem[0x2657+bx];
+            L003F: switch (bx) {
+                case 0:
+                    goto L00A9;
+                case 1:
+                    goto L0068;
+                case 2:
+                    goto L0089;
+                case 3:
+                    goto L0046;
+            }
             L0046: PushStack(0x01);
             L004A: ax = GetNextTile20(party);
             L0051: SetMoveMap(party, 0x04, 0x01, ax, PopStack());
@@ -1453,7 +1496,6 @@ namespace ZCF.Scripts.Maps {
             L00D9: SetMoveMap(party, 0x04, 0x01, ax, PopStack());
             L00ED: goto L00EF;
             L00EF: return; // RETURN;
-2657  00F1        0F 26 CE 25 EF 25 AC 25 
         }
 
         protected override MapEventHandler MapEvent37 => FnSTRSMESA_37;

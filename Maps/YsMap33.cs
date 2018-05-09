@@ -74,8 +74,7 @@ namespace ZCF.Scripts.Maps {
         private void FnTIMEA_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: sp = sp - 1;
-            L0004: sp = sp - 1;
+            L0003: // make space for tmp on stack: sp -= 2
             L0005: SetState00(party, 0x02, 0x7B, 0x01);
             L001A: ShowMessage(party, String04C0); // The wall sparkles with phantasmal light.
             L0027: ax = CheckState04(party, 0x02, 0x7B);
@@ -107,7 +106,7 @@ namespace ZCF.Scripts.Maps {
             L00D3: SetMove38(party, 0x00, 0xA8);
             L00E3: goto L00E5;
             L00E5: ShowMessage(party, String0590); // All is deathly quiet near the Fountain of Life.
-            L00F2: sp = bp;
+            L00F2: // restore stack ptr: sp = bp;
             L00F4: return; // RETURN;
         }
 
@@ -115,8 +114,7 @@ namespace ZCF.Scripts.Maps {
         private void FnTIMEB_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: sp = sp - 1;
-            L0004: sp = sp - 1;
+            L0003: // make space for tmp on stack: sp -= 2
             L0005: SetState00(party, 0x02, 0x7C, 0x01);
             L001A: ShowMessage(party, String05C0); // The wall sparkles with phantasmal light.
             L0027: ax = CheckState04(party, 0x02, 0x7B);
@@ -148,7 +146,7 @@ namespace ZCF.Scripts.Maps {
             L00D3: SetMove38(party, 0x00, 0xA8);
             L00E3: goto L00E5;
             L00E5: ShowMessage(party, String0690); // All is deathly quiet near the Fountain of Life.
-            L00F2: sp = bp;
+            L00F2: // restore stack ptr: sp = bp;
             L00F4: return; // RETURN;
         }
 
@@ -156,8 +154,7 @@ namespace ZCF.Scripts.Maps {
         private void FnTIMEC_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: sp = sp - 1;
-            L0004: sp = sp - 1;
+            L0003: // make space for tmp on stack: sp -= 2
             L0005: SetState00(party, 0x02, 0x7D, 0x01);
             L001A: ShowMessage(party, String06C0); // The wall sparkles with phantasmal light.
             L0027: ax = CheckState04(party, 0x02, 0x7B);
@@ -189,7 +186,7 @@ namespace ZCF.Scripts.Maps {
             L00D3: SetMove38(party, 0x00, 0xA8);
             L00E3: goto L00E5;
             L00E5: ShowMessage(party, String0790); // All is deathly quiet near the Fountain of Life.
-            L00F2: sp = bp;
+            L00F2: // restore stack ptr: sp = bp;
             L00F4: return; // RETURN;
         }
 
@@ -384,8 +381,7 @@ namespace ZCF.Scripts.Maps {
         private void FnMAPCONV_10(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: sp = sp - 1;
-            L0004: sp = sp - 1;
+            L0003: // make space for tmp on stack: sp -= 2
             L0005: ax = CheckState08(party, 0x02, 0x7B);
             L0018: if (CompareResultEqual) goto L002E;
             L001A: SetState00(party, 0x01, 0x00, 0x01);
@@ -410,7 +406,7 @@ namespace ZCF.Scripts.Maps {
             L00C5: SetMove38(party, 0x00, 0xA8);
             L00D5: goto L00E8;
             L00D7: SetMove38(party, 0x03, 0xA8);
-            L00E8: sp = bp;
+            L00E8: // restore stack ptr: sp = bp;
             L00EA: return; // RETURN;
         }
 

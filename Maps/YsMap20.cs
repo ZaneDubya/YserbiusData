@@ -593,8 +593,9 @@ namespace ZCF.Scripts.Maps {
             L00A7: ax = CheckState04(party, 0x01, 0x03);
             L00B8: Compare(ax, 0x0002);
             L00BB: if (!CompareResultEqual) goto L00C0;
-            L00BD: AddTreasure(party, 0x07D0, 0x00, 0x00, 0x6F, di, 0xCF);
-            L00DB: return; // RETURN (restoring si, di);
+            L00BD: si = 0x006F;
+            L00C0: AddTreasure(party, 0x07D0, 0x00, 0x00, si, di, 0xCF);
+            L00DC: return; // RETURN (restoring si);
         }
 
         protected override MapEventHandler MapEvent21 => FnWKTENCD_21;
@@ -618,8 +619,9 @@ namespace ZCF.Scripts.Maps {
             L0083: ax = CheckState04(party, 0x01, 0x03);
             L0094: Compare(ax, 0x0004);
             L0097: if (!CompareResultEqual) goto L009C;
-            L0099: AddTreasure(party, 0x07D0, 0x00, 0x00, 0x6D, di, 0xCF);
-            L00B7: return; // RETURN (restoring si, di);
+            L0099: si = 0x006D;
+            L009C: AddTreasure(party, 0x07D0, 0x00, 0x00, si, di, 0xCF);
+            L00B8: return; // RETURN (restoring si);
         }
 
         protected override MapEventHandler MapEvent22 => FnWKTENCE_22;
@@ -653,8 +655,9 @@ namespace ZCF.Scripts.Maps {
             L00ED: ax = CheckState04(party, 0x01, 0x02);
             L00FE: Compare(ax, 0x0003);
             L0101: if (!CompareResultEqual) goto L0106;
-            L0103: AddTreasure(party, 0x07D0, 0x00, 0x00, 0xF6, di, 0xCF);
-            L0121: return; // RETURN (restoring si, di);
+            L0103: si = 0x00F6;
+            L0106: AddTreasure(party, 0x07D0, 0x00, 0x00, si, di, 0xCF);
+            L0122: return; // RETURN (restoring si);
         }
 
         protected override MapEventHandler MapEvent23 => FnWKTENCF_23;
@@ -679,8 +682,9 @@ namespace ZCF.Scripts.Maps {
             L0095: ax = CheckState04(party, 0x01, 0x03);
             L00A6: Compare(ax, 0x0003);
             L00A9: if (!CompareResultEqual) goto L00AE;
-            L00AB: AddTreasure(party, 0x07D0, 0x00, 0x00, 0x68, di, 0xCF);
-            L00C9: return; // RETURN (restoring si, di);
+            L00AB: si = 0x0068;
+            L00AE: AddTreasure(party, 0x07D0, 0x00, 0x00, si, di, 0xCF);
+            L00CA: return; // RETURN (restoring si);
         }
 
         protected override MapEventHandler MapEvent24 => FnWKTENCG_24;
