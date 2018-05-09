@@ -62,12 +62,12 @@ TAVERN_08:
 
 SPECIALD_09:
 013F  0000        BEGIN
-0142  0003        ax = CheckState(0x02, 0x42)
+0142  0003        ax = CheckState04(0x02, 0x42)
 0153  0014        compare(ax, 0x0005)
 0156  0017        If (result.notequal) jump to 0028
 0158  0019        ShowMessage(0x04E7) = You have used up the supplies in the Infirmary.
 0165  0026        Jump to 0066
-0167  0028        SetState(0x02, 0x42, 0x43)
+0167  0028        SetState00(0x02, 0x42, 0x43)
 017C  003D        ax = GetMaxHits()
 0183  0044        Push(ax)
 0184  0045        ax = GetCurrentHits()
@@ -147,7 +147,7 @@ MONENCF_0F:
 
 FLSPECA_10:
 046B  0000        BEGIN
-046E  0003        ax = CheckState(0x02, 0x41)
+046E  0003        ax = CheckState04(0x02, 0x41)
 047F  0014        compare(ax, 0x0001)
 0482  0017        If (result.notequal) jump to 0028
 0484  0019        ShowMessage(0x0693) = The storage room has been emptied by other adventurers.
@@ -156,13 +156,13 @@ FLSPECA_10:
 049F  0034        GiveItem(0x48)
 04AB  0040        GiveItem(0xBD)
 04B7  004C        ModifyGold(0x2710)
-04C8  005D        SetState(0x02, 0x41, 0x01)
+04C8  005D        SetState00(0x02, 0x41, 0x01)
 04DD  0072        ShowMessage(0x06CB) = You found a storage room.  Most items are worthless, but in the refuse are a few treasures.
 04EA  007F        RETURN
 
 FLSPECB_11:
 04EC  0000        BEGIN
-04EF  0003        ax = CheckState(0x02, 0x3E)
+04EF  0003        ax = CheckState04(0x02, 0x3E)
 0500  0014        compare(ax, 0x0001)
 0503  0017        If (result.notequal) jump to 0028
 0505  0019        ShowMessage(0x0727) = Thieves have emptied this room.
@@ -173,13 +173,13 @@ FLSPECB_11:
 0538  004C        GiveItem(0xCD)
 0544  0058        GiveItem(0xD0)
 0550  0064        ModifyGold(0x3A98)
-0561  0075        SetState(0x02, 0x3E, 0x01)
+0561  0075        SetState00(0x02, 0x3E, 0x01)
 0576  008A        ShowMessage(0x0747) = In a cabinet are some scrolls and potions, and 15,000 Gold Pieces in a sack.
 0583  0097        RETURN
 
 FLSPECC_12:
 0585  0000        BEGIN
-0588  0003        ax = CheckState(0x02, 0x43)
+0588  0003        ax = CheckState04(0x02, 0x43)
 0599  0014        compare(ax, 0x0001)
 059C  0017        If (result.notequal) jump to 0039
 059E  0019        ModifyGold(0x0001)
@@ -189,7 +189,7 @@ FLSPECC_12:
 05CA  0045        GiveItem(0xB1)
 05D6  0051        GiveItem(0x6B)
 05E2  005D        ModifyGold(0x61A8)
-05F3  006E        SetState(0x02, 0x43, 0x01)
+05F3  006E        SetState00(0x02, 0x43, 0x01)
 0608  0083        ShowMessage(0x07BC) = The safe contains several treasures and 25,000 gold pieces!
 0615  0090        RETURN
 
@@ -203,7 +203,7 @@ FLSPECD_13:
 0641  002A        compare(ax, 0x0003)
 0644  002D        If (result.equal) jump to 0032
 0646  002F        Jump to 00B1
-0649  0032        SetState(0x02, 0x3F, 0x01)
+0649  0032        SetState00(0x02, 0x3F, 0x01)
 065E  0047        ShowMessage(0x0815) = Your familiarity with thieving helps you avoid a vicious trap!
 066B  0054        ShowMessage(0x0854) = You find some items and 5000 pieces of gold.
 0678  0061        GiveItem(0xFB)
@@ -221,23 +221,23 @@ FLSPECD_13:
 0706  00EF        GiveItem(0xC9)
 0712  00FB        GiveItem(0xB7)
 071E  0107        ModifyGold(0x1388)
-072F  0118        ax = UnknownFunction1C(01)
+072F  0118        ax = AddStatus(01)
 073B  0124        ax = GetCurrentHits()
 0742  012B        bx = 0x0002
 0745  012E        ax = ax / bx (signed, dx = quotient)
 0748  0131        DoDamage(ax)
-0752  013B        SetState(0x02, 0x3F, 0x01)
+0752  013B        SetState00(0x02, 0x3F, 0x01)
 0767  0150        RETURN
 
 FLSPECE_14:
 0769  0000        BEGIN
-076C  0003        ax = CheckState(0x02, 0x44)
+076C  0003        ax = CheckState04(0x02, 0x44)
 077D  0014        compare(ax, 0x0001)
 0780  0017        If (result.notequal) jump to 0028
 0782  0019        ShowMessage(0x0902) = You found a sleeping thief who cannot be roused from deep slumber.
 078F  0026        Jump to 005B
 0791  0028        AddExperience(0x00003A98)
-07A2  0039        SetState(0x02, 0x44, 0x01)
+07A2  0039        SetState00(0x02, 0x44, 0x01)
 07B7  004E        ShowMessage(0x0945) = A wise old thief bends your ear with stories of his exploits.  His story is very helpful.
 07C4  005B        RETURN
 
@@ -256,11 +256,11 @@ FLSPECF_15:
 
 FLSPECG_16:
 0822  0000        BEGIN
-0825  0003        ax = CheckState3(0x02, 0x45)
+0825  0003        ax = CheckState0C(0x02, 0x45)
 0838  0016        If (result.equal) jump to 007A
 083A  0018        ShowPortrait(0x0023)
 0847  0025        ShowMessage(0x0A81) = A wise old thief will teach you the Bard Skill!
-0854  0032        SetState(0x02, 0x45, 0x01)
+0854  0032        SetState00(0x02, 0x45, 0x01)
 0869  0047        ax = GetSkillLevel(0x0C)
 0875  0053        compare(ax, 0x000C)
 0878  0056        If (result.unsigned_greater_than) jump to 006B
@@ -287,11 +287,11 @@ FLSPECH_17:
 
 FLSPECI_18:
 0914  0000        BEGIN
-0917  0003        ax = CheckState3(0x02, 0x64)
+0917  0003        ax = CheckState0C(0x02, 0x64)
 092A  0016        If (result.equal) jump to 007A
 092C  0018        ShowPortrait(0x0024)
 0939  0025        ShowMessage(0x0C11) = A wise young thief will teach you the Detect Skill!
-0946  0032        SetState(0x02, 0x64, 0x01)
+0946  0032        SetState00(0x02, 0x64, 0x01)
 095B  0047        ax = GetSkillLevel(0x0D)
 0967  0053        compare(ax, 0x000C)
 096A  0056        If (result.unsigned_greater_than) jump to 006B
@@ -319,11 +319,11 @@ FLSPECJ_19:
 
 FLSPECK_1A:
 0A13  0000        BEGIN
-0A16  0003        ax = CheckState3(0x02, 0x65)
+0A16  0003        ax = CheckState0C(0x02, 0x65)
 0A29  0016        If (result.equal) jump to 007A
 0A2B  0018        ShowPortrait(0x0025)
 0A38  0025        ShowMessage(0x0DA4) = A wise old thief will teach you the Lockpick Skill!
-0A45  0032        SetState(0x02, 0x65, 0x01)
+0A45  0032        SetState00(0x02, 0x65, 0x01)
 0A5A  0047        ax = GetSkillLevel(0x0E)
 0A66  0053        compare(ax, 0x000C)
 0A69  0056        If (result.unsigned_greater_than) jump to 006B
@@ -337,12 +337,12 @@ FLSPECK_1A:
 
 FLSPECL_1B:
 0AA9  0000        BEGIN
-0AAC  0003        ax = CheckState2(0x02, 0x68)
+0AAC  0003        ax = CheckState08(0x02, 0x68)
 0ABF  0016        If (result.equal) jump to 0034
 0AC1  0018        ShowPortrait(0x0042)
 0ACE  0025        ShowMessage(0x0E59) = The waters from Sinestra's Fountain are invigorating, but have no further effect.
 0ADB  0032        Jump to 0090
-0ADD  0034        SetState(0x02, 0x68, 0x01)
+0ADD  0034        SetState00(0x02, 0x68, 0x01)
 0AF2  0049        ShowPortrait(0x0042)
 0AFF  0056        ax = GetMaxHits()
 0B06  005D        Push(ax)
@@ -466,10 +466,10 @@ HIDDORI_26:
 0D53  004C        If (result.notequal) jump to 007A
 0D55  004E        ax = UsedItem(0xBE, 0xBE)
 0D68  0061        If (result.notequal) jump to 007A
-0D6A  0063        ax = CheckState2(0x00, 0x01)
+0D6A  0063        ax = CheckState08(0x00, 0x01)
 0D7C  0075        If (result.notequal) jump to 007A
 0D7E  0077        Jump to 0149
-0D81  007A        SetState(0x00, 0x01, 0x01)
+0D81  007A        SetState00(0x00, 0x01, 0x01)
 0D95  008E        ax = UsedItem(0xC3, 0xC4)
 0DA8  00A1        If (result.notequal) jump to 00B4
 0DAA  00A3        ax = UsedSkill(0x0E) // returns 0 if did not use, compares to 2nd op if did use
@@ -525,10 +525,10 @@ HIDDORJ_27:
 0EBB  004C        If (result.notequal) jump to 007A
 0EBD  004E        ax = UsedItem(0xBE, 0xBE)
 0ED0  0061        If (result.notequal) jump to 007A
-0ED2  0063        ax = CheckState2(0x00, 0x01)
+0ED2  0063        ax = CheckState08(0x00, 0x01)
 0EE4  0075        If (result.notequal) jump to 007A
 0EE6  0077        Jump to 0149
-0EE9  007A        SetState(0x00, 0x01, 0x01)
+0EE9  007A        SetState00(0x00, 0x01, 0x01)
 0EFD  008E        ax = UsedItem(0xC3, 0xC4)
 0F10  00A1        If (result.notequal) jump to 00B4
 0F12  00A3        ax = UsedSkill(0x0E) // returns 0 if did not use, compares to 2nd op if did use
@@ -584,10 +584,10 @@ HIDDORK_28:
 1023  004C        If (result.notequal) jump to 007A
 1025  004E        ax = UsedItem(0xBE, 0xBE)
 1038  0061        If (result.notequal) jump to 007A
-103A  0063        ax = CheckState2(0x00, 0x01)
+103A  0063        ax = CheckState08(0x00, 0x01)
 104C  0075        If (result.notequal) jump to 007A
 104E  0077        Jump to 0149
-1051  007A        SetState(0x00, 0x01, 0x01)
+1051  007A        SetState00(0x00, 0x01, 0x01)
 1065  008E        ax = UsedItem(0xC3, 0xC4)
 1078  00A1        If (result.notequal) jump to 00B4
 107A  00A3        ax = UsedSkill(0x0E) // returns 0 if did not use, compares to 2nd op if did use
@@ -643,10 +643,10 @@ HIDDORL_29:
 118B  004C        If (result.notequal) jump to 007A
 118D  004E        ax = UsedItem(0xBE, 0xBE)
 11A0  0061        If (result.notequal) jump to 007A
-11A2  0063        ax = CheckState2(0x00, 0x01)
+11A2  0063        ax = CheckState08(0x00, 0x01)
 11B4  0075        If (result.notequal) jump to 007A
 11B6  0077        Jump to 0149
-11B9  007A        SetState(0x00, 0x01, 0x01)
+11B9  007A        SetState00(0x00, 0x01, 0x01)
 11CD  008E        ax = UsedItem(0xC2, 0xC4)
 11E0  00A1        If (result.notequal) jump to 00B4
 11E2  00A3        ax = UsedSkill(0x0E) // returns 0 if did not use, compares to 2nd op if did use
@@ -702,10 +702,10 @@ HIDDORM_2A:
 12F3  004C        If (result.notequal) jump to 007A
 12F5  004E        ax = UsedItem(0xBE, 0xBE)
 1308  0061        If (result.notequal) jump to 007A
-130A  0063        ax = CheckState2(0x00, 0x01)
+130A  0063        ax = CheckState08(0x00, 0x01)
 131C  0075        If (result.notequal) jump to 007A
 131E  0077        Jump to 0149
-1321  007A        SetState(0x00, 0x01, 0x01)
+1321  007A        SetState00(0x00, 0x01, 0x01)
 1335  008E        ax = UsedItem(0xC4, 0xC4)
 1348  00A1        If (result.notequal) jump to 00B4
 134A  00A3        ax = UsedSkill(0x0E) // returns 0 if did not use, compares to 2nd op if did use
@@ -761,10 +761,10 @@ HIDDORN_2B:
 145B  004C        If (result.notequal) jump to 007A
 145D  004E        ax = UsedItem(0xBE, 0xBE)
 1470  0061        If (result.notequal) jump to 007A
-1472  0063        ax = CheckState2(0x00, 0x01)
+1472  0063        ax = CheckState08(0x00, 0x01)
 1484  0075        If (result.notequal) jump to 007A
 1486  0077        Jump to 0149
-1489  007A        SetState(0x00, 0x01, 0x01)
+1489  007A        SetState00(0x00, 0x01, 0x01)
 149D  008E        ax = UsedItem(0xC4, 0xC4)
 14B0  00A1        If (result.notequal) jump to 00B4
 14B2  00A3        ax = UsedSkill(0x0E) // returns 0 if did not use, compares to 2nd op if did use
@@ -886,10 +886,10 @@ HIDDORU_32:
 16E7  004C        If (result.notequal) jump to 007A
 16E9  004E        ax = UsedItem(0xBE, 0xBE)
 16FC  0061        If (result.notequal) jump to 007A
-16FE  0063        ax = CheckState2(0x00, 0x01)
+16FE  0063        ax = CheckState08(0x00, 0x01)
 1710  0075        If (result.notequal) jump to 007A
 1712  0077        Jump to 0149
-1715  007A        SetState(0x00, 0x01, 0x01)
+1715  007A        SetState00(0x00, 0x01, 0x01)
 1729  008E        ax = UsedItem(0xC2, 0xC4)
 173C  00A1        If (result.notequal) jump to 00B4
 173E  00A3        ax = UsedSkill(0x0E) // returns 0 if did not use, compares to 2nd op if did use
@@ -968,10 +968,10 @@ HIDDORY_36:
 189A  004C        If (result.notequal) jump to 007A
 189C  004E        ax = UsedItem(0xBE, 0xBE)
 18AF  0061        If (result.notequal) jump to 007A
-18B1  0063        ax = CheckState2(0x00, 0x01)
+18B1  0063        ax = CheckState08(0x00, 0x01)
 18C3  0075        If (result.notequal) jump to 007A
 18C5  0077        Jump to 0149
-18C8  007A        SetState(0x00, 0x01, 0x01)
+18C8  007A        SetState00(0x00, 0x01, 0x01)
 18DC  008E        ax = UsedItem(0xC3, 0xC4)
 18EF  00A1        If (result.notequal) jump to 00B4
 18F1  00A3        ax = UsedSkill(0x0E) // returns 0 if did not use, compares to 2nd op if did use
@@ -1060,10 +1060,10 @@ HIDDORBB_39:
 1AB5  004C        If (result.notequal) jump to 007A
 1AB7  004E        ax = UsedItem(0xBE, 0xBE)
 1ACA  0061        If (result.notequal) jump to 007A
-1ACC  0063        ax = CheckState2(0x00, 0x01)
+1ACC  0063        ax = CheckState08(0x00, 0x01)
 1ADE  0075        If (result.notequal) jump to 007A
 1AE0  0077        Jump to 0149
-1AE3  007A        SetState(0x00, 0x01, 0x01)
+1AE3  007A        SetState00(0x00, 0x01, 0x01)
 1AF7  008E        ax = UsedItem(0xC3, 0xC4)
 1B0A  00A1        If (result.notequal) jump to 00B4
 1B0C  00A3        ax = UsedSkill(0x0E) // returns 0 if did not use, compares to 2nd op if did use
@@ -1119,10 +1119,10 @@ HIDDORCC_3A:
 1C1D  004C        If (result.notequal) jump to 007A
 1C1F  004E        ax = UsedItem(0xBE, 0xBE)
 1C32  0061        If (result.notequal) jump to 007A
-1C34  0063        ax = CheckState2(0x00, 0x01)
+1C34  0063        ax = CheckState08(0x00, 0x01)
 1C46  0075        If (result.notequal) jump to 007A
 1C48  0077        Jump to 0149
-1C4B  007A        SetState(0x00, 0x01, 0x01)
+1C4B  007A        SetState00(0x00, 0x01, 0x01)
 1C5F  008E        ax = UsedItem(0xC2, 0xC4)
 1C72  00A1        If (result.notequal) jump to 00B4
 1C74  00A3        ax = UsedSkill(0x0E) // returns 0 if did not use, compares to 2nd op if did use
@@ -1220,10 +1220,10 @@ HIDDORII_40:
 1E39  004C        If (result.notequal) jump to 007A
 1E3B  004E        ax = UsedItem(0xBE, 0xBE)
 1E4E  0061        If (result.notequal) jump to 007A
-1E50  0063        ax = CheckState2(0x00, 0x01)
+1E50  0063        ax = CheckState08(0x00, 0x01)
 1E62  0075        If (result.notequal) jump to 007A
 1E64  0077        Jump to 0149
-1E67  007A        SetState(0x00, 0x01, 0x01)
+1E67  007A        SetState00(0x00, 0x01, 0x01)
 1E7B  008E        ax = UsedItem(0xC3, 0xC4)
 1E8E  00A1        If (result.notequal) jump to 00B4
 1E90  00A3        ax = UsedSkill(0x0E) // returns 0 if did not use, compares to 2nd op if did use

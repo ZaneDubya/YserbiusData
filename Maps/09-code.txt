@@ -32,14 +32,14 @@ KEYDOOR_02:
 
 GOLDAENC_03:
 00B5  0000        BEGIN
-00B8  0003        ax = CheckState(0x02, 0x18)
+00B8  0003        ax = CheckState04(0x02, 0x18)
 00C9  0014        compare(ax, 0x0001)
 00CC  0017        If (result.notequal) jump to 0047
 00CE  0019        ShowMessage(0x044D) = Skeletons on the floor stir to life.
 00DB  0026        AddTreasure(0x03E8, 0x00, 0x00, 0x00, 0x00, 0xB6)
 00FA  0045        Jump to 0088
 00FC  0047        AddTreasure(0x1388, 0x00, 0x00, 0x00, 0x00, 0xCF)
-011B  0066        SetState(0x02, 0x18, 0x01)
+011B  0066        SetState00(0x02, 0x18, 0x01)
 0130  007B        ShowMessage(0x0472) = Among the bones on the floor are pieces of gold. The bones begin to move.
 013D  0088        ax = PartyCount()
 0145  0090        compare(ax, 0x0001)

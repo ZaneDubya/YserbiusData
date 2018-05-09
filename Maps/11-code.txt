@@ -131,14 +131,14 @@ ITEMCENC_05:
 
 GOLDAENC_06:
 04C9  0000        BEGIN
-04CC  0003        ax = CheckState(0x02, 0x1C)
+04CC  0003        ax = CheckState04(0x02, 0x1C)
 04DD  0014        compare(ax, 0x0001)
 04E0  0017        If (result.notequal) jump to 0047
 04E2  0019        AddTreasure(0x00AF, 0x00, 0x00, 0x00, 0x00, 0xB6)
 0501  0038        ShowMessage(0x0603) = Black Widows unweave an empty sack.
 050E  0045        Jump to 0088
 0510  0047        AddTreasure(0x1770, 0x00, 0x00, 0x00, 0x00, 0xB7)
-052F  0066        SetState(0x02, 0x1C, 0x01)
+052F  0066        SetState00(0x02, 0x1C, 0x01)
 0544  007B        ShowMessage(0x0627) = As you reach down to take a coin purse on the ground, you become entangled in a sticky web.
 0551  0088        ax = PartyCount()
 0559  0090        compare(ax, 0x0001)
@@ -164,13 +164,13 @@ GOLDAENC_06:
 
 GOLDBENC_07:
 0621  0000        BEGIN
-0624  0003        ax = CheckState(0x02, 0x1D)
+0624  0003        ax = CheckState04(0x02, 0x1D)
 0635  0014        compare(ax, 0x0001)
 0638  0017        If (result.notequal) jump to 003A
 063A  0019        AddTreasure(0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCF)
 0659  0038        Jump to 006E
 065B  003A        AddTreasure(0x2134, 0x00, 0x00, 0x00, 0x00, 0xCF)
-067A  0059        SetState(0x02, 0x1D, 0x01)
+067A  0059        SetState00(0x02, 0x1D, 0x01)
 068F  006E        ShowMessage(0x0683) = King Cleowyn's favorite pets still guard his secrets long after their master has died.
 069C  007B        ax = PartyCount()
 06A4  0083        compare(ax, 0x0001)

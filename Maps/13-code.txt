@@ -26,10 +26,10 @@ STRSTELE_05:
 NDORSWCH_06:
 00AD  0000        BEGIN
 00B0  0003        ShowMessage(0x03FC) = You see a switch on the wall and throw it. You hear the sound of locks opening.
-00BD  0010        SetState(0x01, 0x01, 0x01)
-00D2  0025        SetState(0x01, 0x02, 0x00)
-00E6  0039        SetState(0x01, 0x03, 0x00)
-00FA  004D        SetState(0x01, 0x04, 0x00)
+00BD  0010        SetState00(0x01, 0x01, 0x01)
+00D2  0025        SetState00(0x01, 0x02, 0x00)
+00E6  0039        SetState00(0x01, 0x03, 0x00)
+00FA  004D        SetState00(0x01, 0x04, 0x00)
 010E  0061        SetMove2C(0x01, 0x01, 0x77)
 0124  0077        SetMove28(0x01, 0x01, 0x77)
 013A  008D        RETURN
@@ -37,21 +37,21 @@ NDORSWCH_06:
 EDORSWCH_07:
 013C  0000        BEGIN
 013F  0003        ShowMessage(0x044C) = You see a switch on the wall and throw it. You hear the sound of locks opening.
-014C  0010        SetState(0x01, 0x01, 0x00)
-0160  0024        SetState(0x01, 0x02, 0x00)
-0174  0038        SetState(0x01, 0x03, 0x01)
-0189  004D        SetState(0x01, 0x04, 0x00)
-019D  0061        SetMove2C(0x01, 0x00, 0x00)
-01B2  0076        SetMove28(0x01, 0x00, 0x00)
+014C  0010        SetState00(0x01, 0x01, 0x00)
+0160  0024        SetState00(0x01, 0x02, 0x00)
+0174  0038        SetState00(0x01, 0x03, 0x01)
+0189  004D        SetState00(0x01, 0x04, 0x00)
+019D  0061        SetMove2C(0x01, 0x00, 0x77)
+01B2  0076        SetMove28(0x01, 0x00, 0x77)
 01C7  008B        RETURN
 
 EDORSWCH_08:
 01C9  0000        BEGIN
 01CC  0003        ShowMessage(0x049C) = You see a switch on the wall and throw it. You hear the sound of locks opening.
-01D9  0010        SetState(0x01, 0x01, 0x00)
-01ED  0024        SetState(0x01, 0x02, 0x01)
-0202  0039        SetState(0x01, 0x03, 0x00)
-0216  004D        SetState(0x01, 0x04, 0x00)
+01D9  0010        SetState00(0x01, 0x01, 0x00)
+01ED  0024        SetState00(0x01, 0x02, 0x01)
+0202  0039        SetState00(0x01, 0x03, 0x00)
+0216  004D        SetState00(0x01, 0x04, 0x00)
 022A  0061        SetMove2C(0x01, 0x03, 0x77)
 0240  0077        SetMove28(0x01, 0x03, 0x77)
 0256  008D        RETURN
@@ -59,17 +59,17 @@ EDORSWCH_08:
 WDORSWCH_09:
 0258  0000        BEGIN
 025B  0003        ShowMessage(0x04EC) = You see a switch on the wall and throw it. You hear the sound of locks opening.
-0268  0010        SetState(0x01, 0x01, 0x00)
-027C  0024        SetState(0x01, 0x02, 0x00)
-0290  0038        SetState(0x01, 0x03, 0x00)
-02A4  004C        SetState(0x01, 0x04, 0x01)
+0268  0010        SetState00(0x01, 0x01, 0x00)
+027C  0024        SetState00(0x01, 0x02, 0x00)
+0290  0038        SetState00(0x01, 0x03, 0x00)
+02A4  004C        SetState00(0x01, 0x04, 0x01)
 02B9  0061        SetMove2C(0x01, 0x02, 0x77)
 02CF  0077        SetMove28(0x01, 0x02, 0x77)
 02E5  008D        RETURN
 
 NSWCHDOR_0A:
 02E7  0000        BEGIN
-02EA  0003        ax = CheckState(0x01, 0x01)
+02EA  0003        ax = CheckState04(0x01, 0x01)
 02FB  0014        compare(ax, 0x0001)
 02FE  0017        If (result.notequal) jump to 005C
 0300  0019        ShowMessage(0x053C) = The door is unlocked.
@@ -94,7 +94,7 @@ NSWCHDOR_0A:
 
 ESWCHDOR_0B:
 036B  0000        BEGIN
-036E  0003        ax = CheckState(0x01, 0x03)
+036E  0003        ax = CheckState04(0x01, 0x03)
 037F  0014        compare(ax, 0x0001)
 0382  0017        If (result.notequal) jump to 005C
 0384  0019        ShowMessage(0x058C) = The door is unlocked.
@@ -119,7 +119,7 @@ ESWCHDOR_0B:
 
 SSWCHDOR_0C:
 03EF  0000        BEGIN
-03F2  0003        ax = CheckState(0x01, 0x02)
+03F2  0003        ax = CheckState04(0x01, 0x02)
 0403  0014        compare(ax, 0x0001)
 0406  0017        If (result.notequal) jump to 005C
 0408  0019        ShowMessage(0x05DC) = The door is unlocked.
@@ -144,7 +144,7 @@ SSWCHDOR_0C:
 
 WSWCHDOR_0D:
 0473  0000        BEGIN
-0476  0003        ax = CheckState(0x01, 0x04)
+0476  0003        ax = CheckState04(0x01, 0x04)
 0487  0014        compare(ax, 0x0001)
 048A  0017        If (result.notequal) jump to 005A
 048C  0019        ShowMessage(0x062C) = The door is unlocked.
@@ -330,14 +330,14 @@ EMPTY:
 
 GOLDAENC_17:
 0AE2  0000        BEGIN
-0AE5  0003        ax = CheckState(0x02, 0x1F)
+0AE5  0003        ax = CheckState04(0x02, 0x1F)
 0AF6  0014        compare(ax, 0x0001)
 0AF9  0017        If (result.notequal) jump to 0048
 0AFB  0019        AddTreasure(0x0384, 0x00, 0x00, 0x00, 0xB6, 0xD0)
 0B1B  0039        ShowMessage(0x094D) = You encounter Bugbears.
 0B28  0046        Jump to 0089
 0B2A  0048        AddTreasure(0x0E10, 0x00, 0x00, 0x00, 0x00, 0xB7)
-0B49  0067        SetState(0x02, 0x1F, 0x01)
+0B49  0067        SetState00(0x02, 0x1F, 0x01)
 0B5E  007C        ShowMessage(0x0965) = Bugbears stand near some gold.
 0B6B  0089        ax = PartyCount()
 0B73  0091        compare(ax, 0x0001)
@@ -365,14 +365,14 @@ GOLDAENC_17:
 
 GOLDBENC_18:
 0C50  0000        BEGIN
-0C53  0003        ax = CheckState(0x02, 0x20)
+0C53  0003        ax = CheckState04(0x02, 0x20)
 0C64  0014        compare(ax, 0x0001)
 0C67  0017        If (result.notequal) jump to 0047
 0C69  0019        AddTreasure(0x0320, 0x00, 0x00, 0x00, 0x00, 0xB7)
 0C88  0038        ShowMessage(0x0984) = Dire Wolves scratch the floor impatiently.
 0C95  0045        Jump to 0088
 0C97  0047        AddTreasure(0x0FA0, 0x00, 0x00, 0x00, 0x00, 0x8E)
-0CB6  0066        SetState(0x02, 0x20, 0x01)
+0CB6  0066        SetState00(0x02, 0x20, 0x01)
 0CCB  007B        ShowMessage(0x09AF) = A Dire Wolf plays with a coin purse.
 0CD8  0088        ax = PartyCount()
 0CE0  0090        compare(ax, 0x0001)
@@ -391,14 +391,14 @@ GOLDBENC_18:
 
 GOLDCENC_19:
 0D62  0000        BEGIN
-0D65  0003        ax = CheckState(0x02, 0x21)
+0D65  0003        ax = CheckState04(0x02, 0x21)
 0D76  0014        compare(ax, 0x0001)
 0D79  0017        If (result.notequal) jump to 0047
 0D7B  0019        AddTreasure(0x02EE, 0x00, 0x00, 0x00, 0x00, 0xD1)
 0D9A  0038        ShowMessage(0x09D4) = You suddenly feel nervous.
 0DA7  0045        Jump to 0088
 0DA9  0047        AddTreasure(0x157C, 0x00, 0x00, 0x00, 0x00, 0xCC)
-0DC8  0066        SetState(0x02, 0x21, 0x01)
+0DC8  0066        SetState00(0x02, 0x21, 0x01)
 0DDD  007B        ShowMessage(0x09EF) = Hungry lions prowl the area.
 0DEA  0088        ax = PartyCount()
 0DF2  0090        compare(ax, 0x0001)

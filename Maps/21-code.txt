@@ -96,23 +96,23 @@ ENCWINDW_0C:
 FLGWINDN_0D:
 0365  0000        BEGIN (saving si)
 0369  0004        si = 0x0001
-036C  0007        ax = CheckState(0x01, 0x01)
+036C  0007        ax = CheckState04(0x01, 0x01)
 037D  0018        RefreshCompareFlags(ax)
 037F  001A        If (result.notequal) jump to 0070
-0381  001C        ax = CheckState(0x01, 0x02)
+0381  001C        ax = CheckState04(0x01, 0x02)
 0392  002D        RefreshCompareFlags(ax)
 0394  002F        If (result.equal) jump to 0032
 0396  0031        si = si + 1
-0397  0032        ax = CheckState(0x01, 0x03)
+0397  0032        ax = CheckState04(0x01, 0x03)
 03A8  0043        RefreshCompareFlags(ax)
 03AA  0045        If (result.equal) jump to 0048
 03AC  0047        si = si + 1
-03AD  0048        ax = CheckState(0x01, 0x04)
+03AD  0048        ax = CheckState04(0x01, 0x04)
 03BE  0059        RefreshCompareFlags(ax)
 03C0  005B        If (result.equal) jump to 005E
 03C2  005D        si = si + 1
-03C3  005E        SetState(0xC4, 0xB8, si)
-03D5  0070        ax = CheckState(0x01, 0x01)
+03C3  005E        SetState00(0xC4, 0xB8, si)
+03D5  0070        ax = CheckState04(0x01, 0x01)
 03E6  0081        compare(ax, 0x0001)
 03E9  0084        If (result.equal) jump to 0088
 03EB  0086        Jump to 0095
@@ -123,23 +123,23 @@ FLGWINDN_0D:
 FLGWINDE_0E:
 040A  0000        BEGIN (saving si)
 040E  0004        si = 0x0001
-0411  0007        ax = CheckState(0x01, 0x02)
+0411  0007        ax = CheckState04(0x01, 0x02)
 0422  0018        RefreshCompareFlags(ax)
 0424  001A        If (result.notequal) jump to 0070
-0426  001C        ax = CheckState(0x01, 0x01)
+0426  001C        ax = CheckState04(0x01, 0x01)
 0437  002D        RefreshCompareFlags(ax)
 0439  002F        If (result.equal) jump to 0032
 043B  0031        si = si + 1
-043C  0032        ax = CheckState(0x01, 0x03)
+043C  0032        ax = CheckState04(0x01, 0x03)
 044D  0043        RefreshCompareFlags(ax)
 044F  0045        If (result.equal) jump to 0048
 0451  0047        si = si + 1
-0452  0048        ax = CheckState(0x01, 0x04)
+0452  0048        ax = CheckState04(0x01, 0x04)
 0463  0059        RefreshCompareFlags(ax)
 0465  005B        If (result.equal) jump to 005E
 0467  005D        si = si + 1
-0468  005E        SetState(0xC4, 0xB8, si)
-047A  0070        ax = CheckState(0x01, 0x02)
+0468  005E        SetState00(0xC4, 0xB8, si)
+047A  0070        ax = CheckState04(0x01, 0x02)
 048B  0081        compare(ax, 0x0001)
 048E  0084        If (result.equal) jump to 0088
 0490  0086        Jump to 0095
@@ -150,23 +150,23 @@ FLGWINDE_0E:
 FLGWINDS_0F:
 04AF  0000        BEGIN (saving si)
 04B3  0004        si = 0x0001
-04B6  0007        ax = CheckState(0x01, 0x03)
+04B6  0007        ax = CheckState04(0x01, 0x03)
 04C7  0018        RefreshCompareFlags(ax)
 04C9  001A        If (result.notequal) jump to 0070
-04CB  001C        ax = CheckState(0x01, 0x01)
+04CB  001C        ax = CheckState04(0x01, 0x01)
 04DC  002D        RefreshCompareFlags(ax)
 04DE  002F        If (result.equal) jump to 0032
 04E0  0031        si = si + 1
-04E1  0032        ax = CheckState(0x01, 0x02)
+04E1  0032        ax = CheckState04(0x01, 0x02)
 04F2  0043        RefreshCompareFlags(ax)
 04F4  0045        If (result.equal) jump to 0048
 04F6  0047        si = si + 1
-04F7  0048        ax = CheckState(0x01, 0x04)
+04F7  0048        ax = CheckState04(0x01, 0x04)
 0508  0059        RefreshCompareFlags(ax)
 050A  005B        If (result.equal) jump to 005E
 050C  005D        si = si + 1
-050D  005E        SetState(0xC4, 0xB8, si)
-051F  0070        ax = CheckState(0x01, 0x03)
+050D  005E        SetState00(0xC4, 0xB8, si)
+051F  0070        ax = CheckState04(0x01, 0x03)
 0530  0081        compare(ax, 0x0001)
 0533  0084        If (result.equal) jump to 0088
 0535  0086        Jump to 0095
@@ -177,23 +177,23 @@ FLGWINDS_0F:
 FLGWINDW_10:
 0554  0000        BEGIN (saving si)
 0558  0004        si = 0x0001
-055B  0007        ax = CheckState(0x01, 0x04)
+055B  0007        ax = CheckState04(0x01, 0x04)
 056C  0018        RefreshCompareFlags(ax)
 056E  001A        If (result.notequal) jump to 0070
-0570  001C        ax = CheckState(0x01, 0x01)
+0570  001C        ax = CheckState04(0x01, 0x01)
 0581  002D        RefreshCompareFlags(ax)
 0583  002F        If (result.equal) jump to 0032
 0585  0031        si = si + 1
-0586  0032        ax = CheckState(0x01, 0x02)
+0586  0032        ax = CheckState04(0x01, 0x02)
 0597  0043        RefreshCompareFlags(ax)
 0599  0045        If (result.equal) jump to 0048
 059B  0047        si = si + 1
-059C  0048        ax = CheckState(0x01, 0x03)
+059C  0048        ax = CheckState04(0x01, 0x03)
 05AD  0059        RefreshCompareFlags(ax)
 05AF  005B        If (result.equal) jump to 005E
 05B1  005D        si = si + 1
-05B2  005E        SetState(0xC4, 0xB8, si)
-05C4  0070        ax = CheckState(0x01, 0x04)
+05B2  005E        SetState00(0xC4, 0xB8, si)
+05C4  0070        ax = CheckState04(0x01, 0x04)
 05D5  0081        compare(ax, 0x0001)
 05D8  0084        If (result.equal) jump to 0088
 05DA  0086        Jump to 0095
@@ -203,7 +203,7 @@ FLGWINDW_10:
 
 EXPRESS_11:
 05F9  0000        BEGIN
-05FC  0003        ax = CheckState(0x02, 0x57)
+05FC  0003        ax = CheckState04(0x02, 0x57)
 060D  0014        RefreshCompareFlags(ax)
 060F  0016        If (result.equal) jump to 0046
 0611  0018        ShowMessage(0x095D) = This wall is the teleport to CASTLEGATE.
@@ -223,10 +223,10 @@ TXTLABY_12:
 WSTRES_13:
 066D  0000        BEGIN
 0670  0003        ShowMessage(0x0A18) = Wyn's Fountain is old and cracked.
-067D  0010        ax = CheckState(0x02, 0x58)
+067D  0010        ax = CheckState04(0x02, 0x58)
 068E  0021        RefreshCompareFlags(ax)
 0690  0023        If (result.notequal) jump to 0082
-0692  0025        SetState(0x02, 0x58, 0x01)
+0692  0025        SetState00(0x02, 0x58, 0x01)
 06A7  003A        ShowPortrait(0x0042)
 06B4  0047        ModifyAttribute(0x03, 0x0003)
 06C6  0059        ShowMessage(0x0A3B) = A small puddle of magic water sits at the bottom.
@@ -268,19 +268,19 @@ ZEPHYRB_18:
 SDOORWKT_19:
 07AC  0000        BEGIN
 07AF  0003        ShowMessage(0x0BDA) = Skeletal voices echo...
-07BC  0010        ax = CheckState(0x01, 0x01)
+07BC  0010        ax = CheckState04(0x01, 0x01)
 07CD  0021        RefreshCompareFlags(ax)
 07CF  0023        If (result.notequal) jump to 0028
 07D1  0025        Jump to 00D7
-07D4  0028        ax = CheckState(0x01, 0x02)
+07D4  0028        ax = CheckState04(0x01, 0x02)
 07E5  0039        RefreshCompareFlags(ax)
 07E7  003B        If (result.notequal) jump to 0040
 07E9  003D        Jump to 00D7
-07EC  0040        ax = CheckState(0x01, 0x03)
+07EC  0040        ax = CheckState04(0x01, 0x03)
 07FD  0051        RefreshCompareFlags(ax)
 07FF  0053        If (result.notequal) jump to 0058
 0801  0055        Jump to 00D7
-0804  0058        ax = CheckState(0x01, 0x04)
+0804  0058        ax = CheckState04(0x01, 0x04)
 0815  0069        RefreshCompareFlags(ax)
 0817  006B        If (result.equal) jump to 00D7
 0819  006D        ShowPortrait(0x000A)
@@ -368,15 +368,15 @@ WKTENCC_20:
 0A50  003F        AddEncounter(0x0D, 0x04)
 0A62  0051        AddEncounter(0x1E, 0x05)
 0A74  0063        AddEncounter(0x1E, 0x06)
-0A86  0075        ax = CheckState(0x01, 0x01)
+0A86  0075        ax = CheckState04(0x01, 0x01)
 0A97  0086        compare(ax, 0x0001)
 0A9A  0089        If (result.notequal) jump to 008E
 0A9C  008B        di = 0x000E
-0A9F  008E        ax = CheckState(0x01, 0x02)
+0A9F  008E        ax = CheckState04(0x01, 0x02)
 0AB0  009F        compare(ax, 0x0002)
 0AB3  00A2        If (result.notequal) jump to 00A7
 0AB5  00A4        si = 0x005B
-0AB8  00A7        ax = CheckState(0x01, 0x03)
+0AB8  00A7        ax = CheckState04(0x01, 0x03)
 0AC9  00B8        compare(ax, 0x0002)
 0ACC  00BB        If (result.notequal) jump to 00C0
 0ACE  00BD        AddTreasure(0x07D0, 0x00, 0x00, 0x6F, di, 0xCF)
@@ -390,15 +390,15 @@ WKTENCD_21:
 0B0B  001B        AddEncounter(0x1E, 0x02)
 0B1D  002D        AddEncounter(0x0D, 0x05)
 0B2F  003F        AddEncounter(0x0D, 0x06)
-0B41  0051        ax = CheckState(0x01, 0x01)
+0B41  0051        ax = CheckState04(0x01, 0x01)
 0B52  0062        compare(ax, 0x0002)
 0B55  0065        If (result.notequal) jump to 006A
 0B57  0067        di = 0x0022
-0B5A  006A        ax = CheckState(0x01, 0x02)
+0B5A  006A        ax = CheckState04(0x01, 0x02)
 0B6B  007B        compare(ax, 0x0004)
 0B6E  007E        If (result.notequal) jump to 0083
 0B70  0080        si = 0x0058
-0B73  0083        ax = CheckState(0x01, 0x03)
+0B73  0083        ax = CheckState04(0x01, 0x03)
 0B84  0094        compare(ax, 0x0004)
 0B87  0097        If (result.notequal) jump to 009C
 0B89  0099        AddTreasure(0x07D0, 0x00, 0x00, 0x6D, di, 0xCF)
@@ -416,21 +416,21 @@ WKTENCE_22:
 0C04  0059        AddEncounter(0x1D, 0x04)
 0C16  006B        AddEncounter(0x1E, 0x05)
 0C28  007D        AddEncounter(0x1E, 0x06)
-0C3A  008F        ax = CheckState(0x01, 0x01)
+0C3A  008F        ax = CheckState04(0x01, 0x01)
 0C4B  00A0        compare(ax, 0x0003)
 0C4E  00A3        If (result.notequal) jump to 00A8
 0C50  00A5        di = 0x0029
-0C53  00A8        ax = CheckState(0x01, 0x02)
+0C53  00A8        ax = CheckState04(0x01, 0x02)
 0C64  00B9        compare(ax, 0x0001)
 0C67  00BC        If (result.notequal) jump to 00C1
 0C69  00BE        si = 0x0086
-0C6C  00C1        ax = CheckState(0x01, 0x03)
+0C6C  00C1        ax = CheckState04(0x01, 0x03)
 0C7D  00D2        compare(ax, 0x0001)
 0C80  00D5        If (result.notequal) jump to 0106
-0C82  00D7        ax = CheckState(0x01, 0x01)
+0C82  00D7        ax = CheckState04(0x01, 0x01)
 0C93  00E8        compare(ax, 0x0002)
 0C96  00EB        If (result.notequal) jump to 0106
-0C98  00ED        ax = CheckState(0x01, 0x02)
+0C98  00ED        ax = CheckState04(0x01, 0x02)
 0CA9  00FE        compare(ax, 0x0003)
 0CAC  0101        If (result.notequal) jump to 0106
 0CAE  0103        AddTreasure(0x07D0, 0x00, 0x00, 0xF6, di, 0xCF)
@@ -445,15 +445,15 @@ WKTENCF_23:
 0CFD  002D        AddEncounter(0x1E, 0x03)
 0D0F  003F        AddEncounter(0x15, 0x04)
 0D21  0051        AddEncounter(0x0C, 0x05)
-0D33  0063        ax = CheckState(0x01, 0x01)
+0D33  0063        ax = CheckState04(0x01, 0x01)
 0D44  0074        compare(ax, 0x0004)
 0D47  0077        If (result.notequal) jump to 007C
 0D49  0079        di = 0x0031
-0D4C  007C        ax = CheckState(0x01, 0x02)
+0D4C  007C        ax = CheckState04(0x01, 0x02)
 0D5D  008D        compare(ax, 0x0003)
 0D60  0090        If (result.notequal) jump to 0095
 0D62  0092        si = 0x005A
-0D65  0095        ax = CheckState(0x01, 0x03)
+0D65  0095        ax = CheckState04(0x01, 0x03)
 0D76  00A6        compare(ax, 0x0003)
 0D79  00A9        If (result.notequal) jump to 00AE
 0D7B  00AB        AddTreasure(0x07D0, 0x00, 0x00, 0x68, di, 0xCF)
@@ -490,12 +490,12 @@ WKTENCI_26:
 SIRFLAG_27:
 0EB8  0000        BEGIN
 0EBB  0003        ShowMessage(0x11C8) = Sirocco's powers no longer hold the Sirocco Door.
-0EC8  0010        SetState(0x02, 0x51, 0x01)
+0EC8  0010        SetState00(0x02, 0x51, 0x01)
 0EDD  0025        RETURN
 
 SIRDOOR_28:
 0EDF  0000        BEGIN
-0EE2  0003        ax = CheckState(0x02, 0x51)
+0EE2  0003        ax = CheckState04(0x02, 0x51)
 0EF3  0014        RefreshCompareFlags(ax)
 0EF5  0016        If (result.equal) jump to 005B
 0EF7  0018        Push(01)
@@ -812,11 +812,11 @@ LTENCG_44:
 LTSKILL_45:
 183B  0000        BEGIN
 183E  0003        ShowMessage(0x1804) = A special thieves' shrine magically glows.
-184B  0010        ax = CheckState(0x02, 0x59)
+184B  0010        ax = CheckState04(0x02, 0x59)
 185C  0021        RefreshCompareFlags(ax)
 185E  0023        If (result.equal) jump to 0028
 1860  0025        Jump to 010D
-1863  0028        SetState(0x02, 0x59, 0x01)
+1863  0028        SetState00(0x02, 0x59, 0x01)
 1878  003D        ax = GetSkillLevel(0x0D)
 1884  0049        RefreshCompareFlags(ax)
 1886  004B        If (result.notequal) jump to 006E

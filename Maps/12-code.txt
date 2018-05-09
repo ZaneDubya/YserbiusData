@@ -852,10 +852,10 @@ KINGMSG_30:
 1CD3  0064        ShowMessage(0x1406) = I would be grateful if you can find my body and place it in my mausoleum. Then, perhaps, my spirit can rest in peace.
 1CE0  0071        ShowMessage(0x147C) = But first you must return my possessions to me. Then I shall let you continue your journeys.
 1CED  007E        ShowMessage(0x14D9) = Take my ring as seal of your promise. Go, heroes! Find the tapestry and read. Start your quest.
-1CFA  008B        ax = CheckState(0x02, 0x8F)
+1CFA  008B        ax = CheckState04(0x02, 0x8F)
 1D0B  009C        RefreshCompareFlags(ax)
 1D0D  009E        If (result.notequal) jump to 00C6
-1D0F  00A0        SetState(0x02, 0x8F, 0x01)
+1D0F  00A0        SetState00(0x02, 0x8F, 0x01)
 1D24  00B5        AddExperience(0x000061A8)
 1D35  00C6        Jump to 00D5
 1D37  00C8        ShowMessage(0x1539) = Echoes of ghostly laughter mock you.

@@ -32,13 +32,13 @@ KEYDOOR_02:
 
 GOLDAENC_03:
 00B4  0000        BEGIN
-00B7  0003        ax = CheckState(0x02, 0x19)
+00B7  0003        ax = CheckState04(0x02, 0x19)
 00C8  0014        compare(ax, 0x0001)
 00CB  0017        If (result.notequal) jump to 003A
 00CD  0019        AddTreasure(0x01F4, 0x00, 0x00, 0x00, 0x00, 0xAD)
 00EC  0038        Jump to 006E
 00EE  003A        AddTreasure(0x1388, 0x00, 0x00, 0x00, 0x00, 0xCF)
-010D  0059        SetState(0x02, 0x19, 0x01)
+010D  0059        SetState00(0x02, 0x19, 0x01)
 0122  006E        ShowMessage(0x0451) = The room is crawling with Spinorpions.
 012F  007B        ax = PartyCount()
 0137  0083        compare(ax, 0x0001)
@@ -63,14 +63,14 @@ GOLDAENC_03:
 
 GOLDBENC_04:
 01ED  0000        BEGIN
-01F0  0003        ax = CheckState(0x02, 0x1A)
+01F0  0003        ax = CheckState04(0x02, 0x1A)
 0201  0014        compare(ax, 0x0001)
 0204  0017        If (result.notequal) jump to 0047
 0206  0019        ShowMessage(0x0478) = You are trapped by angry Ogres.
 0213  0026        AddTreasure(0x01F4, 0x00, 0x00, 0x00, 0x00, 0xCE)
 0232  0045        Jump to 0088
 0234  0047        AddTreasure(0x1388, 0x00, 0x00, 0x00, 0x00, 0xCF)
-0253  0066        SetState(0x02, 0x1A, 0x01)
+0253  0066        SetState00(0x02, 0x1A, 0x01)
 0268  007B        ShowMessage(0x0498) = Nasty Ogres contemptuously flick gold coins at you.
 0275  0088        ax = PartyCount()
 027D  0090        compare(ax, 0x0001)
@@ -139,14 +139,14 @@ CROWNENC_05:
 
 ITEMBENC_06:
 0541  0000        BEGIN
-0544  0003        ax = CheckState(0x02, 0x1B)
+0544  0003        ax = CheckState04(0x02, 0x1B)
 0555  0014        compare(ax, 0x0001)
 0558  0017        If (result.notequal) jump to 0047
 055A  0019        ShowMessage(0x057F) = Hobgoblins are waiting for you.
 0567  0026        AddTreasure(0x00C8, 0x00, 0x00, 0x00, 0x00, 0xB6)
 0586  0045        Jump to 0089
 0588  0047        AddTreasure(0x03E8, 0x00, 0x00, 0x00, 0xB6, 0x3D)
-05A8  0067        SetState(0x02, 0x1B, 0x01)
+05A8  0067        SetState00(0x02, 0x1B, 0x01)
 05BD  007C        ShowMessage(0x059F) = Hobgoblins throw items aside so they can attack you.
 05CA  0089        ax = PartyCount()
 05D2  0091        compare(ax, 0x0001)

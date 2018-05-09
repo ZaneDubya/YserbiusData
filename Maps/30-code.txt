@@ -21,11 +21,11 @@ SECDOORA_03:
 0066  0000        BEGIN
 0069  0003        ax = UsedItem(0xD4, 0xD4)
 007C  0016        If (result.notequal) jump to 002D
-007E  0018        ax = CheckState(0x02, 0x6C)
+007E  0018        ax = CheckState04(0x02, 0x6C)
 008F  0029        RefreshCompareFlags(ax)
 0091  002B        If (result.equal) jump to 0093
 0093  002D        RemoveItem(0xD4)
-009F  0039        SetState(0x02, 0x6C, 0x01)
+009F  0039        SetState00(0x02, 0x6C, 0x01)
 00B4  004E        Push(01)
 00B8  0052        ax = GetFacing()
 00BF  0059        Push(ax)
@@ -88,10 +88,10 @@ LAVALEDG_06:
 
 LAVAPA_07:
 01E8  0000        BEGIN
-01EB  0003        ax = CheckState(0x01, 0x03)
+01EB  0003        ax = CheckState04(0x01, 0x03)
 01FC  0014        compare(ax, 0x0001)
 01FF  0017        If (result.equal) jump to 002F
-0201  0019        ax = CheckState(0x01, 0x03)
+0201  0019        ax = CheckState04(0x01, 0x03)
 0212  002A        compare(ax, 0x0005)
 0215  002D        If (result.notequal) jump to 0080
 0217  002F        ShowMessage(0x0522) = A platform appears beneath your feet..
@@ -107,10 +107,10 @@ LAVAPA_07:
 
 LAVAPB_08:
 0288  0000        BEGIN
-028B  0003        ax = CheckState(0x01, 0x03)
+028B  0003        ax = CheckState04(0x01, 0x03)
 029C  0014        compare(ax, 0x0002)
 029F  0017        If (result.equal) jump to 002F
-02A1  0019        ax = CheckState(0x01, 0x03)
+02A1  0019        ax = CheckState04(0x01, 0x03)
 02B2  002A        compare(ax, 0x0005)
 02B5  002D        If (result.notequal) jump to 0080
 02B7  002F        ShowMessage(0x056B) = A platform appears beneath your feet..
@@ -126,10 +126,10 @@ LAVAPB_08:
 
 LAVAPC_09:
 0328  0000        BEGIN
-032B  0003        ax = CheckState(0x01, 0x03)
+032B  0003        ax = CheckState04(0x01, 0x03)
 033C  0014        compare(ax, 0x0003)
 033F  0017        If (result.equal) jump to 002F
-0341  0019        ax = CheckState(0x01, 0x03)
+0341  0019        ax = CheckState04(0x01, 0x03)
 0352  002A        compare(ax, 0x0005)
 0355  002D        If (result.notequal) jump to 0080
 0357  002F        ShowMessage(0x05B4) = A platform appears beneath your feet..
@@ -145,10 +145,10 @@ LAVAPC_09:
 
 LAVAPD_0A:
 03C8  0000        BEGIN
-03CB  0003        ax = CheckState(0x01, 0x03)
+03CB  0003        ax = CheckState04(0x01, 0x03)
 03DC  0014        compare(ax, 0x0004)
 03DF  0017        If (result.equal) jump to 002F
-03E1  0019        ax = CheckState(0x01, 0x03)
+03E1  0019        ax = CheckState04(0x01, 0x03)
 03F2  002A        compare(ax, 0x0005)
 03F5  002D        If (result.notequal) jump to 0080
 03F7  002F        ShowMessage(0x05FD) = A platform appears beneath your feet..
@@ -166,21 +166,21 @@ LAVASWA_0B:
 0468  0000        BEGIN
 046B  0003        ShowMessage(0x0646) = The wall bursts with color!
 0478  0010        ShowMessage(0x0662) = In the distance you hear a platform moving.
-0485  001D        SetState(0x01, 0x03, 0x01)
+0485  001D        SetState00(0x01, 0x03, 0x01)
 049A  0032        RETURN
 
 LAVASWB_0C:
 049C  0000        BEGIN
 049F  0003        ShowMessage(0x068E) = The wall bursts with color!
 04AC  0010        ShowMessage(0x06AA) = In the distance you hear a platform moving.
-04B9  001D        SetState(0x01, 0x03, 0x02)
+04B9  001D        SetState00(0x01, 0x03, 0x02)
 04CE  0032        RETURN
 
 LAVASWC_0D:
 04D0  0000        BEGIN
 04D3  0003        ShowMessage(0x06D6) = The wall bursts with color!
 04E0  0010        ShowMessage(0x06F2) = In the distance you hear a platform moving.
-04ED  001D        SetState(0x01, 0x03, 0x03)
+04ED  001D        SetState00(0x01, 0x03, 0x03)
 0502  0032        RETURN
 
 LAVASWD_0E:
@@ -188,7 +188,7 @@ LAVASWD_0E:
 0507  0003        ShowMessage(0x071E) = The wall bursts with color!
 0514  0010        ShowMessage(0x073A) = In the distance you hear a platform moving.
 0521  001D        ShowMessage(0x0766) = Perhaps there is a way for you to join your party.
-052E  002A        SetState(0x01, 0x03, 0x04)
+052E  002A        SetState00(0x01, 0x03, 0x04)
 0543  003F        RETURN
 
 KINGROOM_0F:
@@ -264,14 +264,14 @@ CYCLQUST_13:
 MNRPLATC_14:
 0788  0000        BEGIN
 078B  0003        ShowPortrait(0x0023)
-0798  0010        ax = CheckState(0x02, 0x6F)
+0798  0010        ax = CheckState04(0x02, 0x6F)
 07A9  0021        RefreshCompareFlags(ax)
 07AB  0023        If (result.equal) jump to 008F
 07AD  0025        ShowMessage(0x1094) = The dwarf miner greets you with youthful enthusiasm.
-07BA  0032        ax = CheckState(0x02, 0x6B)
+07BA  0032        ax = CheckState04(0x02, 0x6B)
 07CB  0043        RefreshCompareFlags(ax)
 07CD  0045        If (result.notequal) jump to 008D
-07CF  0047        SetState(0x02, 0x6B, 0x01)
+07CF  0047        SetState00(0x02, 0x6B, 0x01)
 07E4  005C        ShowMessage(0x10C9) = You show signs of entering my caves!  I thank-you for clearing my mines and repay you with treasure.
 07F1  0069        GiveItem(0xBA)
 07FD  0075        GiveItem(0xBA)
@@ -301,7 +301,7 @@ NSTYOGRE_15:
 
 OPENER_16:
 08F6  0000        BEGIN
-08F9  0003        SetState(0x01, 0x03, 0x05)
+08F9  0003        SetState00(0x01, 0x03, 0x05)
 090E  0018        ShowMessage(0x1308) = All the east side platforms appear to be up.
 091B  0025        SetMove38(0xA9, 0x00)
 092B  0035        SetMove34(0x01, 0xA9)
@@ -315,7 +315,7 @@ OPENER_16:
 
 OPENEE_17:
 09A1  0000        BEGIN
-09A4  0003        ax = CheckState(0x01, 0x03)
+09A4  0003        ax = CheckState04(0x01, 0x03)
 09B5  0014        compare(ax, 0x0005)
 09B8  0017        If (result.notequal) jump to 004D
 09BA  0019        Push(03)
@@ -492,10 +492,10 @@ EMPTY:
 
 FNTNATTR_25:
 0E82  0000        BEGIN
-0E85  0003        ax = CheckState(0x02, 0x56)
+0E85  0003        ax = CheckState04(0x02, 0x56)
 0E96  0014        RefreshCompareFlags(ax)
 0E98  0016        If (result.notequal) jump to 006C
-0E9A  0018        SetState(0x02, 0x56, 0x01)
+0E9A  0018        SetState00(0x02, 0x56, 0x01)
 0EAF  002D        ShowPortrait(0x0042)
 0EBC  003A        ModifyAttribute(0x00, 0x0002)
 0ECD  004B        ModifyAttribute(0x01, 0x0001)

@@ -83,10 +83,10 @@ CRWNNICH_06:
 01CB  0000        BEGIN
 01CE  0003        ax = HasItem(0x69)
 01DC  0011        If (result.notequal) jump to 0028
-01DE  0013        ax = CheckState2(0x01, 0x01)
+01DE  0013        ax = CheckState08(0x01, 0x01)
 01F1  0026        If (result.equal) jump to 0072
 01F3  0028        RemoveItem(0x69)
-01FF  0034        SetState(0x01, 0x01, 0x01)
+01FF  0034        SetState00(0x01, 0x01, 0x01)
 0214  0049        ShowMessage(0x04C1) = Invisible hands take Cleowyn's Crown and place it in a niche in the wall.
 0221  0056        ShowMessage(0x050B) = The niche disappears.
 022E  0063        ShowMessage(0x0521) = You hear a rumbling sound in the distance
@@ -96,7 +96,7 @@ CRWNNICH_06:
 
 CRWNDOOR_07:
 024C  0000        BEGIN
-024F  0003        ax = CheckState(0x01, 0x01)
+024F  0003        ax = CheckState04(0x01, 0x01)
 0260  0014        compare(ax, 0x0001)
 0263  0017        If (result.notequal) jump to 0064
 0265  0019        Push(01)
@@ -125,13 +125,13 @@ ROBENICH_08:
 02CF  0000        BEGIN
 02D2  0003        ax = HasItem(0x78)
 02E0  0011        If (result.equal) jump to 0029
-02E2  0013        ax = CheckState(0x01, 0x01)
+02E2  0013        ax = CheckState04(0x01, 0x01)
 02F3  0024        compare(ax, 0x0001)
 02F6  0027        If (result.equal) jump to 003E
-02F8  0029        ax = CheckState2(0x01, 0x02)
+02F8  0029        ax = CheckState08(0x01, 0x02)
 030B  003C        If (result.equal) jump to 0088
 030D  003E        RemoveItem(0x78)
-0319  004A        SetState(0x01, 0x02, 0x01)
+0319  004A        SetState00(0x01, 0x02, 0x01)
 032E  005F        ShowMessage(0x05D5) = Cleowyn's Robe flies out of your hands and into a niche in the wall.
 033B  006C        ShowMessage(0x061A) = The niche disappears.
 0348  0079        ShowMessage(0x0630) = You hear a rumbling sound in the distance.
@@ -146,7 +146,7 @@ ROBENICH_08:
 
 ROBEDOOR_09:
 037F  0000        BEGIN
-0382  0003        ax = CheckState(0x01, 0x02)
+0382  0003        ax = CheckState04(0x01, 0x02)
 0393  0014        compare(ax, 0x0001)
 0396  0017        If (result.notequal) jump to 005C
 0398  0019        Push(01)
@@ -173,15 +173,15 @@ SCEPNICH_0A:
 03FA  0000        BEGIN
 03FD  0003        ax = HasItem(0xE3)
 040B  0011        If (result.equal) jump to 003D
-040D  0013        ax = CheckState2(0x01, 0x01)
+040D  0013        ax = CheckState08(0x01, 0x01)
 0420  0026        If (result.equal) jump to 003D
-0422  0028        ax = CheckState2(0x01, 0x02)
+0422  0028        ax = CheckState08(0x01, 0x02)
 0435  003B        If (result.notequal) jump to 0055
-0437  003D        ax = CheckState2(0x01, 0x03)
+0437  003D        ax = CheckState08(0x01, 0x03)
 044A  0050        If (result.notequal) jump to 0055
 044C  0052        Jump to 00E0
 044F  0055        RemoveItem(0xE3)
-045B  0061        SetState(0x01, 0x03, 0x01)
+045B  0061        SetState00(0x01, 0x03, 0x01)
 0470  0076        Push(01)
 0474  007A        Push(03)
 0478  007E        ax = GetNextTile()
@@ -210,14 +210,14 @@ EMPTY:
 
 GOLDAENC_0C:
 0507  0000        BEGIN
-050A  0003        ax = CheckState(0x02, 0x2C)
+050A  0003        ax = CheckState04(0x02, 0x2C)
 051B  0014        compare(ax, 0x0001)
 051E  0017        If (result.notequal) jump to 0048
 0520  0019        ShowMessage(0x080D) = The room you enter is cold as ice.
 052D  0026        AddTreasure(0x008C, 0x00, 0x00, 0x00, 0xA9, 0xCC)
 054D  0046        Jump to 008B
 054F  0048        AddTreasure(0x0FA0, 0x00, 0x00, 0xCD, 0xB7, 0xD0)
-0570  0069        SetState(0x02, 0x2C, 0x01)
+0570  0069        SetState00(0x02, 0x2C, 0x01)
 0585  007E        ShowMessage(0x0830) = An Ice Lion stands over a torn bag of gold.
 0592  008B        ax = PartyCount()
 059A  0093        compare(ax, 0x0001)
@@ -243,14 +243,14 @@ GOLDAENC_0C:
 
 GOLDBENC_0D:
 068B  0000        BEGIN
-068E  0003        ax = CheckState(0x02, 0x2D)
+068E  0003        ax = CheckState04(0x02, 0x2D)
 069F  0014        compare(ax, 0x0001)
 06A2  0017        If (result.notequal) jump to 0048
 06A4  0019        ShowMessage(0x085C) = The room stinks of rotten meat.
 06B1  0026        AddTreasure(0x00B4, 0x00, 0x00, 0x00, 0xB6, 0xCF)
 06D1  0046        Jump to 008A
 06D3  0048        AddTreasure(0x0BB8, 0x00, 0x00, 0x00, 0xD0, 0xAA)
-06F3  0068        SetState(0x02, 0x2D, 0x01)
+06F3  0068        SetState00(0x02, 0x2D, 0x01)
 0708  007D        ShowMessage(0x087C) = Something kicks gold across the floor as it charges you.
 0715  008A        ax = PartyCount()
 071D  0092        compare(ax, 0x0001)
@@ -362,26 +362,26 @@ SPCMONSC_10:
 
 PAYOFENC_11:
 0B6A  0000        BEGIN
-0B6D  0003        ax = CheckState(0x02, 0x37)
+0B6D  0003        ax = CheckState04(0x02, 0x37)
 0B7E  0014        compare(ax, 0x0002)
 0B81  0017        If (result.notequal) jump to 0029
 0B83  0019        ShowMessage(0x08EC) = There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
 0B90  0026        Jump to 011D
-0B93  0029        ax = CheckState(0x02, 0x37)
+0B93  0029        ax = CheckState04(0x02, 0x37)
 0BA4  003A        compare(ax, 0x0001)
 0BA7  003D        If (result.notequal) jump to 00B9
 0BA9  003F        ax = HasItem(0xFA)
 0BB7  004D        If (result.equal) jump to 00AA
 0BB9  004F        RemoveItem(0xFA)
 0BC5  005B        GiveItem(0x96)
-0BD1  0067        SetState(0x02, 0x37, 0x02)
+0BD1  0067        SetState00(0x02, 0x37, 0x02)
 0BE6  007C        AddExperience(0x000B71B0)
 0BF8  008E        ShowMessage(0x09BA) = As you place Cleowyn's bones in the crypt, Cleowyn's spirit whispers to you -
 0C05  009B        ShowMessage(0x0A08) = 'My thanks to you. You certainly took your time finding my bones. Here is the Netherworld Medallion. Now go away and don't bother me again.'
 0C12  00A8        Jump to 00B7
 0C14  00AA        ShowMessage(0x0A95) = There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
 0C21  00B7        Jump to 011D
-0C23  00B9        SetState(0x02, 0x37, 0x01)
+0C23  00B9        SetState00(0x02, 0x37, 0x01)
 0C38  00CE        GiveItem(0x0A)
 0C44  00DA        GiveItem(0x21)
 0C50  00E6        GiveItem(0x48)
@@ -392,13 +392,13 @@ PAYOFENC_11:
 
 ITEMAENC_12:
 0C89  0000        BEGIN
-0C8C  0003        ax = CheckState(0x02, 0x67)
+0C8C  0003        ax = CheckState04(0x02, 0x67)
 0C9D  0014        compare(ax, 0x0001)
 0CA0  0017        If (result.notequal) jump to 0047
 0CA2  0019        ShowMessage(0x0BF4) = Polar Bears wander the empty room.
 0CAF  0026        AddTreasure(0x00C8, 0x00, 0x00, 0x00, 0x00, 0xB7)
 0CCE  0045        Jump to 008B
-0CD0  0047        SetState(0x02, 0x67, 0x01)
+0CD0  0047        SetState00(0x02, 0x67, 0x01)
 0CE5  005C        AddTreasure(0x1B58, 0x00, 0xD0, 0xB2, 0xAA, 0xB0)
 0D07  007E        ShowMessage(0x0C17) = A Polar Bear plays with a pile of stuff.
 0D14  008B        ax = PartyCount()

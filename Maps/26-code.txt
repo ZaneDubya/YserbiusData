@@ -210,7 +210,7 @@ VOID_03:
 POKERBRG_04:
 0351  0000        BEGIN
 0354  0003        ShowMessage(0x0568) = Planks of the Poker Bridge are made from used playing cards.
-0361  0010        ax = CheckState(0x01, 0x01)
+0361  0010        ax = CheckState04(0x01, 0x01)
 0372  0021        compare(ax, 0x0001)
 0375  0024        If (result.notequal) jump to 0056
 0377  0026        ShowMessage(0x05A5) = The rickety bridge barely holds your weight.
@@ -227,7 +227,7 @@ POKERSW_05:
 03D4  0000        BEGIN
 03D7  0003        ax = UsedItem(0xEC, 0xEC)
 03EA  0016        If (result.equal) jump to 005D
-03EC  0018        SetState(0x01, 0x01, 0x01)
+03EC  0018        SetState00(0x01, 0x01, 0x01)
 0401  002D        SetMove38(0xDD, 0x00)
 0411  003D        SetMove34(0x01, 0xDD)
 0422  004E        ShowMessage(0x0639) = The royal flush beats the Joker!  A bridge forms across the pit.
@@ -306,7 +306,7 @@ CRIBFIVE_0C:
 BRDGFALL_0D:
 05FC  0000        BEGIN
 05FF  0003        ShowMessage(0x09ED) = The Poker Bridge behind you collapses.
-060C  0010        SetState(0x01, 0x01, 0x00)
+060C  0010        SetState00(0x01, 0x01, 0x00)
 0620  0024        SetMove38(0xDD, 0x01)
 0631  0035        RETURN
 
@@ -348,11 +348,11 @@ DICEENCB_12:
 BLJKFOUN_13:
 074B  0000        BEGIN
 074E  0003        ShowMessage(0x0A95) = The Blackjack Fountain is made of playing cards.
-075B  0010        ax = CheckState(0x02, 0x7E)
+075B  0010        ax = CheckState04(0x02, 0x7E)
 076C  0021        RefreshCompareFlags(ax)
 076E  0023        If (result.equal) jump to 0028
 0770  0025        Jump to 00AF
-0773  0028        SetState(0x02, 0x7E, 0x01)
+0773  0028        SetState00(0x02, 0x7E, 0x01)
 0788  003D        RemoveItem(0xEA)
 0794  0049        ShowPortrait(0x0042)
 07A1  0056        ModifyAttribute(0x02, 0x0003)
@@ -369,11 +369,11 @@ BLJKFOUN_13:
 CRIBFOUN_14:
 0809  0000        BEGIN
 080C  0003        ShowMessage(0x0B8A) = The Cribbage Fountain is bedecked with golden pegs.
-0819  0010        ax = CheckState(0x02, 0x7F)
+0819  0010        ax = CheckState04(0x02, 0x7F)
 082A  0021        RefreshCompareFlags(ax)
 082C  0023        If (result.equal) jump to 0028
 082E  0025        Jump to 00AB
-0831  0028        SetState(0x02, 0x7F, 0x01)
+0831  0028        SetState00(0x02, 0x7F, 0x01)
 0846  003D        ShowPortrait(0x0042)
 0853  004A        RemoveItem(0xED)
 085F  0056        ModifyAttribute(0x03, 0x0003)

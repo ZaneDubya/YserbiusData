@@ -140,14 +140,14 @@ KEYENC_14:
 
 FOUNHLTH_15:
 0372  0000        BEGIN
-0375  0003        ax = CheckState(0x01, 0x01)
+0375  0003        ax = CheckState04(0x01, 0x01)
 0386  0014        compare(ax, 0x0001)
 0389  0017        If (result.notequal) jump to 0035
 038B  0019        ShowPortrait(0x0042)
 0398  0026        ShowMessage(0x04DB) = You sip from the Fountain of Hot Ice, but nothing happens.
 03A5  0033        Jump to 0071
 03A7  0035        AddHealth(0x07D0)
-03B4  0042        SetState(0x01, 0x01, 0x01)
+03B4  0042        SetState00(0x01, 0x01, 0x01)
 03C9  0057        ShowPortrait(0x0042)
 03D6  0064        ShowMessage(0x0516) = You sip from the Fountain of Hot Ice and feel your Health restored.
 03E3  0071        RETURN
@@ -184,14 +184,14 @@ LKPKDOOR_16:
 
 GOLDAENC_17:
 0485  0000        BEGIN
-0488  0003        ax = CheckState(0x02, 0x3B)
+0488  0003        ax = CheckState04(0x02, 0x3B)
 0499  0014        compare(ax, 0x0001)
 049C  0017        If (result.notequal) jump to 0047
 049E  0019        ShowMessage(0x058A) = Angry Sabertooth Lions roar at you.
 04AB  0026        AddTreasure(0x07D0, 0x00, 0x00, 0x00, 0x00, 0xCF)
 04CA  0045        Jump to 008A
 04CC  0047        AddTreasure(0x2710, 0x00, 0x00, 0xB9, 0xD0, 0xD0)
-04ED  0068        SetState(0x02, 0x3B, 0x01)
+04ED  0068        SetState00(0x02, 0x3B, 0x01)
 0502  007D        ShowMessage(0x05AE) = The lion lair you enter is littered with gold.
 050F  008A        ax = PartyCount()
 0517  0092        compare(ax, 0x0001)
@@ -219,14 +219,14 @@ GOLDAENC_17:
 
 GOLDBENC_18:
 05F4  0000        BEGIN
-05F7  0003        ax = CheckState(0x02, 0x3C)
+05F7  0003        ax = CheckState04(0x02, 0x3C)
 0608  0014        compare(ax, 0x0001)
 060B  0017        If (result.notequal) jump to 0047
 060D  0019        ShowMessage(0x05DD) = You step into a Wyvern den.
 061A  0026        AddTreasure(0x1B58, 0x00, 0x00, 0x00, 0x00, 0xD0)
 0639  0045        Jump to 0089
 063B  0047        AddTreasure(0x2EE0, 0x00, 0x00, 0x00, 0xB9, 0xB4)
-065B  0067        SetState(0x02, 0x3C, 0x01)
+065B  0067        SetState00(0x02, 0x3C, 0x01)
 0670  007C        ShowMessage(0x05F9) = Gold coins are stuck to a Wyvern's scales.
 067D  0089        ax = PartyCount()
 0685  0091        compare(ax, 0x0001)

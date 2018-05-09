@@ -36,7 +36,7 @@ DOORMESC_07:
 DOORMESD_08:
 00AE  0000        BEGIN
 00B1  0003        ShowMessage(0x0471) = The gateway is the DUNGEON EXIT.
-00BE  0010        ax = CheckState2(0x02, 0x6A)
+00BE  0010        ax = CheckState08(0x02, 0x6A)
 00D1  0023        If (result.equal) jump to 003F
 00D3  0025        ShowMessage(0x0492) = Hail, conquering HERO OF YSERBIUS!
 00E0  0032        ShowMessage(0x04B5) = All of Twinion bows to your prominence!!
@@ -57,7 +57,7 @@ DOORMESS_0B:
 0123  0003        ax = CheckLevel(0x0014)
 0131  0011        If (result.notequal) jump to 0016
 0133  0013        Jump to 011F
-0136  0016        ax = CheckState(0x02, 0x78)
+0136  0016        ax = CheckState04(0x02, 0x78)
 0147  0027        compare(ax, 0x0001)
 014A  002A        If (result.notequal) jump to 005A
 014C  002C        ShowMessage(0x0504) = This room contains the gateway to the Labyrinth.
@@ -73,7 +73,7 @@ DOORMESS_0B:
 018A  006A        Jump to 0110
 018D  006D        ShowMessage(0x0535) = The Thieves' Key unlocks this door!
 019A  007A        ShowMessage(0x0559) = This room contains the gateway to the Labyrinth.
-01A7  0087        SetState(0x02, 0x78, 0x01)
+01A7  0087        SetState00(0x02, 0x78, 0x01)
 01BC  009C        RemoveItem(0xFB)
 01C8  00A8        RemoveItem(0xD2)
 01D4  00B4        RemoveItem(0xD3)

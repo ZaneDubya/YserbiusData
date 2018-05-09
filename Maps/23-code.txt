@@ -11,7 +11,7 @@ XOVER_02:
 0039  0003        ax = GetNextTile()
 0040  000A        compare(ax, 0x0047)
 0043  000D        If (result.notequal) jump to 0070
-0045  000F        ax = CheckState(0x01, 0x01)
+0045  000F        ax = CheckState04(0x01, 0x01)
 0056  0020        RefreshCompareFlags(ax)
 0058  0022        If (result.equal) jump to 0043
 005A  0024        SetMove38(0x47, 0x00)
@@ -22,7 +22,7 @@ XOVER_02:
 0093  005D        ax = GetMaxHits()
 009A  0064        DoDamage(ax)
 00A4  006E        Jump to 00A8
-00A6  0070        ax = CheckState(0x01, 0x01)
+00A6  0070        ax = CheckState04(0x01, 0x01)
 00B7  0081        RefreshCompareFlags(ax)
 00B9  0083        If (result.equal) jump to 0097
 00BB  0085        SetMove38(0x47, 0x00)
@@ -32,7 +32,7 @@ XOVER_02:
 
 XOVERON_03:
 00E0  0000        BEGIN
-00E3  0003        SetState(0x01, 0x01, 0x01)
+00E3  0003        SetState00(0x01, 0x01, 0x01)
 00F8  0018        SetMove38(0x47, 0x00)
 0108  0028        ShowMessage(0x04F6) = Something strange happens!
 0115  0035        ShowMessage(0x0511) = When you step onto the stone, a magical platform appears nearby.
@@ -184,7 +184,7 @@ ZEPHENCA_18:
 
 ZEPHENCB_19:
 053B  0000        BEGIN
-053E  0003        ax = CheckState2(0x02, 0x79)
+053E  0003        ax = CheckState08(0x02, 0x79)
 0551  0016        If (result.equal) jump to 007B
 0553  0018        ax = HasItem(0x09)
 0561  0026        If (result.notequal) jump to 0038
@@ -197,7 +197,7 @@ ZEPHENCB_19:
 05B6  007B        ax = HasItem(0xE6)
 05C4  0089        If (result.equal) jump to 00EA
 05C6  008B        RemoveItem(0xE6)
-05D2  0097        SetState(0x02, 0x79, 0x01)
+05D2  0097        SetState00(0x02, 0x79, 0x01)
 05E7  00AC        AddTreasure(0x2710, 0x00, 0x00, 0x00, 0x00, 0xF0)
 0606  00CB        AddExperience(0x0003D090)
 0618  00DD        ShowMessage(0x0B92) = The Zephyr Wind whispers, 'I have taken the Harvest Horn, and I give you something to help defeat the Wind Elemental'.
@@ -217,7 +217,7 @@ TXTZEPHR_1B:
 
 XOVEROFF_1C:
 0686  0000        BEGIN
-0689  0003        SetState(0x01, 0x01, 0x00)
+0689  0003        SetState00(0x01, 0x01, 0x00)
 069D  0017        SetMove38(0x47, 0x01)
 06AE  0028        ShowMessage(0x0CA2) = A magical platform nearby seems to disappear.
 06BB  0035        RETURN
@@ -783,31 +783,31 @@ MOONTRSA_48:
 165D  0013        ShowMessage(0x130F) = Piles of dirt cover the floor.
 166A  0020        Jump to 0050
 166C  0022        GiveItem(0xF2)
-1678  002E        SetState(0x02, 0x46, 0x01)
+1678  002E        SetState00(0x02, 0x46, 0x01)
 168D  0043        ShowMessage(0x132E) = You find a Moon Prism on the floor.
 169A  0050        RETURN
 
 MOONTRSB_49:
 169C  0000        BEGIN
-169F  0003        ax = CheckState(0x02, 0x47)
+169F  0003        ax = CheckState04(0x02, 0x47)
 16B0  0014        compare(ax, 0x0001)
 16B3  0017        If (result.notequal) jump to 0028
 16B5  0019        ShowMessage(0x1352) = The floor is bare.
 16C2  0026        Jump to 0056
 16C4  0028        GiveItem(0x37)
-16D0  0034        SetState(0x02, 0x47, 0x01)
+16D0  0034        SetState00(0x02, 0x47, 0x01)
 16E5  0049        ShowMessage(0x1365) = You find the Ranger Spear on the floor.
 16F2  0056        RETURN
 
 MOONTRSC_4A:
 16F4  0000        BEGIN
-16F7  0003        ax = CheckState(0x02, 0x48)
+16F7  0003        ax = CheckState04(0x02, 0x48)
 1708  0014        compare(ax, 0x0001)
 170B  0017        If (result.notequal) jump to 0028
 170D  0019        ShowMessage(0x138D) = There is nothing of interest in this area.
 171A  0026        Jump to 0056
 171C  0028        GiveItem(0x3D)
-1728  0034        SetState(0x02, 0x48, 0x01)
+1728  0034        SetState00(0x02, 0x48, 0x01)
 173D  0049        ShowMessage(0x13B8) = You find a Holy Halberd lying on the floor.
 174A  0056        RETURN
 
@@ -815,11 +815,11 @@ TORBFOUN_4B:
 174C  0000        BEGIN
 174F  0003        ShowPortrait(0x0042)
 175C  0010        ShowMessage(0x13E4) = Pictorials of War are painted on the walls surrounding Torbriar's Fountain.
-1769  001D        ax = CheckState(0x02, 0x63)
+1769  001D        ax = CheckState04(0x02, 0x63)
 177A  002E        RefreshCompareFlags(ax)
 177C  0030        If (result.equal) jump to 0035
 177E  0032        Jump to 017C
-1781  0035        SetState(0x02, 0x63, 0x01)
+1781  0035        SetState00(0x02, 0x63, 0x01)
 1796  004A        ax = GetSkillLevel(0x08)
 17A2  0056        RefreshCompareFlags(ax)
 17A4  0058        If (result.notequal) jump to 007B

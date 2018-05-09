@@ -10,7 +10,7 @@ XOVER_02:
 0035  0003        ax = GetNextTile()
 003C  000A        compare(ax, 0x0039)
 003F  000D        If (result.notequal) jump to 0063
-0041  000F        ax = CheckState(0x01, 0x01)
+0041  000F        ax = CheckState04(0x01, 0x01)
 0052  0020        RefreshCompareFlags(ax)
 0054  0022        If (result.equal) jump to 0043
 0056  0024        SetMove38(0x39, 0x00)
@@ -20,7 +20,7 @@ XOVER_02:
 0082  0050        ax = GetMaxHits()
 0089  0057        DoDamage(ax)
 0093  0061        Jump to 009B
-0095  0063        ax = CheckState(0x01, 0x01)
+0095  0063        ax = CheckState04(0x01, 0x01)
 00A6  0074        RefreshCompareFlags(ax)
 00A8  0076        If (result.equal) jump to 008A
 00AA  0078        SetMove38(0x39, 0x00)
@@ -30,7 +30,7 @@ XOVER_02:
 
 XOVERON_03:
 00CF  0000        BEGIN
-00D2  0003        SetState(0x01, 0x01, 0x01)
+00D2  0003        SetState00(0x01, 0x01, 0x01)
 00E7  0018        SetMove38(0x39, 0x00)
 00F7  0028        ShowMessage(0x04A2) = Something strange happens!
 0104  0035        ShowMessage(0x04BD) = When you step onto the stone, a magical platform appears nearby.
@@ -38,7 +38,7 @@ XOVERON_03:
 
 XOVEROFF_04:
 0113  0000        BEGIN
-0116  0003        SetState(0x01, 0x01, 0x00)
+0116  0003        SetState00(0x01, 0x01, 0x00)
 012A  0017        SetMove38(0x39, 0x01)
 013B  0028        ShowMessage(0x04FE) = A magical platform nearby seems to disappear.
 0148  0035        RETURN
@@ -141,11 +141,11 @@ HEAVFOUN_14:
 036D  0000        BEGIN
 0370  0003        ShowPortrait(0x0042)
 037D  0010        ShowMessage(0x082C) = Clerical symbols decorate the marblework of Morgard's Fountain.
-038A  001D        ax = CheckState(0x02, 0x61)
+038A  001D        ax = CheckState04(0x02, 0x61)
 039B  002E        RefreshCompareFlags(ax)
 039D  0030        If (result.equal) jump to 0035
 039F  0032        Jump to 011A
-03A2  0035        SetState(0x02, 0x61, 0x01)
+03A2  0035        SetState00(0x02, 0x61, 0x01)
 03B7  004A        ax = GetSkillLevel(0x13)
 03C3  0056        RefreshCompareFlags(ax)
 03C5  0058        If (result.notequal) jump to 007B
@@ -388,10 +388,10 @@ WINDENCA_2A:
 0AFE  000E        ax = GetRace()
 0B05  0015        compare(ax, 0x0006)
 0B08  0018        If (result.notequal) jump to 0072
-0B0A  001A        ax = CheckState(0x02, 0x5A)
+0B0A  001A        ax = CheckState04(0x02, 0x5A)
 0B1B  002B        RefreshCompareFlags(ax)
 0B1D  002D        If (result.notequal) jump to 0065
-0B1F  002F        SetState(0x02, 0x5A, 0x01)
+0B1F  002F        SetState00(0x02, 0x5A, 0x01)
 0B34  0044        ShowMessage(0x0D33) = Your initiative in combat improves.
 0B41  0051        ModifyAttribute(0x03, 0x0003)
 0B53  0063        Jump to 0072
@@ -406,10 +406,10 @@ WINDENCB_2B:
 0B73  000F        ax = GetRace()
 0B7A  0016        compare(ax, 0x0005)
 0B7D  0019        If (result.notequal) jump to 0073
-0B7F  001B        ax = CheckState(0x02, 0x5B)
+0B7F  001B        ax = CheckState04(0x02, 0x5B)
 0B90  002C        RefreshCompareFlags(ax)
 0B92  002E        If (result.notequal) jump to 0066
-0B94  0030        SetState(0x02, 0x5B, 0x01)
+0B94  0030        SetState00(0x02, 0x5B, 0x01)
 0BA9  0045        ShowMessage(0x0D68) = Your agility improves.
 0BB6  0052        ModifyAttribute(0x02, 0x0003)
 0BC8  0064        Jump to 0073
@@ -424,10 +424,10 @@ WINDENCC_2C:
 0BE8  000F        ax = GetRace()
 0BEF  0016        compare(ax, 0x0003)
 0BF2  0019        If (result.notequal) jump to 0072
-0BF4  001B        ax = CheckState(0x02, 0x5C)
+0BF4  001B        ax = CheckState04(0x02, 0x5C)
 0C05  002C        RefreshCompareFlags(ax)
 0C07  002E        If (result.notequal) jump to 0065
-0C09  0030        SetState(0x02, 0x5C, 0x01)
+0C09  0030        SetState00(0x02, 0x5C, 0x01)
 0C1E  0045        ShowMessage(0x0D90) = You feel much stronger.
 0C2B  0052        ModifyAttribute(0x00, 0x0003)
 0C3C  0063        Jump to 0072
@@ -442,10 +442,10 @@ WINDENCD_2D:
 0C5C  000F        ax = GetRace()
 0C63  0016        compare(ax, 0x0004)
 0C66  0019        If (result.notequal) jump to 0073
-0C68  001B        ax = CheckState(0x02, 0x5D)
+0C68  001B        ax = CheckState04(0x02, 0x5D)
 0C79  002C        RefreshCompareFlags(ax)
 0C7B  002E        If (result.notequal) jump to 0066
-0C7D  0030        SetState(0x02, 0x5D, 0x01)
+0C7D  0030        SetState00(0x02, 0x5D, 0x01)
 0C92  0045        ShowMessage(0x0DB9) = Your ability to defend yourself in combat improves.
 0C9F  0052        ModifyAttribute(0x01, 0x0003)
 0CB1  0064        Jump to 0073
@@ -569,10 +569,10 @@ TXTTROLB_37:
 FNTNSTRN_38:
 0F70  0000        BEGIN
 0F73  0003        ShowPortrait(0x0042)
-0F80  0010        ax = CheckState(0x02, 0x4A)
+0F80  0010        ax = CheckState04(0x02, 0x4A)
 0F91  0021        RefreshCompareFlags(ax)
 0F93  0023        If (result.notequal) jump to 006C
-0F95  0025        SetState(0x02, 0x4A, 0x01)
+0F95  0025        SetState00(0x02, 0x4A, 0x01)
 0FAA  003A        ModifyAttribute(0x00, 0x0002)
 0FBB  004B        ModifyAttribute(0x01, 0x0002)
 0FCD  005D        ShowMessage(0x116C) = The turgid water of the Troll Fountain tastes terrible, but it makes you feel stronger.
@@ -601,11 +601,11 @@ BACKENCC_3B:
 1097  0000        BEGIN
 109A  0003        ShowPortrait(0x0042)
 10A7  0010        ShowMessage(0x11FC) = Pictograms of Hunting Expeditions have been carved into the loose rock above StoneGiant Fountain. 
-10B4  001D        ax = CheckState(0x02, 0x62)
+10B4  001D        ax = CheckState04(0x02, 0x62)
 10C5  002E        RefreshCompareFlags(ax)
 10C7  0030        If (result.equal) jump to 0035
 10C9  0032        Jump to 0118
-10CC  0035        SetState(0x02, 0x62, 0x01)
+10CC  0035        SetState00(0x02, 0x62, 0x01)
 10E1  004A        ax = GetSkillLevel(0x00)
 10EC  0055        RefreshCompareFlags(ax)
 10EE  0057        If (result.notequal) jump to 0079
@@ -691,11 +691,11 @@ FNTNTROL_48:
 1314  0000        BEGIN
 1317  0003        ShowPortrait(0x0042)
 1324  0010        ShowMessage(0x132C) = You drink from the crystal waters of My My Fountain.
-1331  001D        ax = CheckState(0x02, 0x4B)
+1331  001D        ax = CheckState04(0x02, 0x4B)
 1342  002E        RefreshCompareFlags(ax)
 1344  0030        If (result.equal) jump to 0035
 1346  0032        Jump to 0240
-1349  0035        SetState(0x02, 0x4B, 0x01)
+1349  0035        SetState00(0x02, 0x4B, 0x01)
 135E  004A        ax = GetSkillLevel(0x04)
 136A  0056        RefreshCompareFlags(ax)
 136C  0058        If (result.notequal) jump to 007B
@@ -758,7 +758,7 @@ FNTNTROL_48:
 1543  022F        Jump to 023E
 1545  0231        ShowMessage(0x14A4) = Nothing happens.
 1552  023E        Jump to 0262
-1554  0240        SetState(0x02, 0x4B, 0x01)
+1554  0240        SetState00(0x02, 0x4B, 0x01)
 1569  0255        ShowMessage(0x14B5) = The waters are refreshing, but not enlightening!
 1576  0262        RETURN
 

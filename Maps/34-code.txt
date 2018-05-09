@@ -17,15 +17,15 @@ TIMEA_03:
 005A  0000        BEGIN
 005D  0003        sp = sp - 1
 005E  0004        sp = sp - 1
-005F  0005        SetState(0x02, 0x7B, 0x01)
+005F  0005        SetState00(0x02, 0x7B, 0x01)
 0074  001A        ShowMessage(0x04C0) = The wall sparkles with phantasmal light.
-0081  0027        ax = CheckState(0x02, 0x7B)
+0081  0027        ax = CheckState04(0x02, 0x7B)
 0092  0038        Push(ax)
-0093  0039        ax = CheckState(0x02, 0x7C)
+0093  0039        ax = CheckState04(0x02, 0x7C)
 00A4  004A        dx = Pop()
 00A5  004B        dx = dx + ax
 00A7  004D        Push(dx)
-00A8  004E        ax = CheckState(0x02, 0x7D)
+00A8  004E        ax = CheckState04(0x02, 0x7D)
 00B9  005F        dx = Pop()
 00BA  0060        dx = dx + ax
 00BC  0062        tmp = dx
@@ -55,15 +55,15 @@ TIMEB_04:
 0150  0000        BEGIN
 0153  0003        sp = sp - 1
 0154  0004        sp = sp - 1
-0155  0005        SetState(0x02, 0x7C, 0x01)
+0155  0005        SetState00(0x02, 0x7C, 0x01)
 016A  001A        ShowMessage(0x05C0) = The wall sparkles with phantasmal light.
-0177  0027        ax = CheckState(0x02, 0x7B)
+0177  0027        ax = CheckState04(0x02, 0x7B)
 0188  0038        Push(ax)
-0189  0039        ax = CheckState(0x02, 0x7C)
+0189  0039        ax = CheckState04(0x02, 0x7C)
 019A  004A        dx = Pop()
 019B  004B        dx = dx + ax
 019D  004D        Push(dx)
-019E  004E        ax = CheckState(0x02, 0x7D)
+019E  004E        ax = CheckState04(0x02, 0x7D)
 01AF  005F        dx = Pop()
 01B0  0060        dx = dx + ax
 01B2  0062        tmp = dx
@@ -93,15 +93,15 @@ TIMEC_05:
 0246  0000        BEGIN
 0249  0003        sp = sp - 1
 024A  0004        sp = sp - 1
-024B  0005        SetState(0x02, 0x7D, 0x01)
+024B  0005        SetState00(0x02, 0x7D, 0x01)
 0260  001A        ShowMessage(0x06C0) = The wall sparkles with phantasmal light.
-026D  0027        ax = CheckState(0x02, 0x7B)
+026D  0027        ax = CheckState04(0x02, 0x7B)
 027E  0038        Push(ax)
-027F  0039        ax = CheckState(0x02, 0x7C)
+027F  0039        ax = CheckState04(0x02, 0x7C)
 0290  004A        dx = Pop()
 0291  004B        dx = dx + ax
 0293  004D        Push(dx)
-0294  004E        ax = CheckState(0x02, 0x7D)
+0294  004E        ax = CheckState04(0x02, 0x7D)
 02A5  005F        dx = Pop()
 02A6  0060        dx = dx + ax
 02A8  0062        tmp = dx
@@ -136,9 +136,9 @@ TIMEELEM_06:
 0373  0037        ShowMessage(0x085D) = I destroyed that fool Arnakkian Slowfoot, and I shall destroy you as easily.
 0380  0044        ShowMessage(0x08AA) = Then I shall search out all mortals in your world and destroy them!
 038D  0051        ShowMessage(0x08EE) = I am En-Li-Kil!  The immortal!!!
-039A  005E        SetState(0x02, 0x7B, 0x00)
-03AE  0072        SetState(0x02, 0x7C, 0x00)
-03C2  0086        SetState(0x02, 0x7D, 0x00)
+039A  005E        SetState00(0x02, 0x7B, 0x00)
+03AE  0072        SetState00(0x02, 0x7C, 0x00)
+03C2  0086        SetState00(0x02, 0x7D, 0x00)
 03D6  009A        AddEncounter(0x21, 0x01)
 03E8  00AC        AddEncounter(0x23, 0x02)
 03FA  00BE        AddEncounter(0x10, 0x03)
@@ -148,13 +148,13 @@ TIMEELEM_06:
 
 TIMEPLAT_07:
 0432  0000        BEGIN
-0435  0003        ax = CheckState(0x01, 0x00)
+0435  0003        ax = CheckState04(0x01, 0x00)
 0445  0013        RefreshCompareFlags(ax)
 0447  0015        If (result.equal) jump to 007A
-0449  0017        ax = CheckState(0x01, 0x01)
+0449  0017        ax = CheckState04(0x01, 0x01)
 045A  0028        RefreshCompareFlags(ax)
 045C  002A        If (result.equal) jump to 007A
-045E  002C        ax = CheckState(0x01, 0x02)
+045E  002C        ax = CheckState04(0x01, 0x02)
 046F  003D        RefreshCompareFlags(ax)
 0471  003F        If (result.equal) jump to 007A
 0473  0041        SetMove38(0xA8, 0x00)
@@ -175,7 +175,7 @@ GOAL_08:
 04F8  001B        RemoveItem(0xF6)
 0504  0027        RemoveItem(0xF7)
 0510  0033        RemoveItem(0xF3)
-051C  003F        ax = CheckState2(0x02, 0x6A)
+051C  003F        ax = CheckState08(0x02, 0x6A)
 052F  0052        If (result.equal) jump to 007E
 0531  0054        ShowMessage(0x0A00) = You have found the Fountain of Life, but the waters are drained.
 053E  0061        ShowMessage(0x0A41) = The Rainbow Gems and Golden Boat dissolve into dust.
@@ -188,11 +188,11 @@ GOAL_08:
 058F  00B2        ShowMessage(0x0B88) = Return to your home safely now.
 059C  00BF        ShowMessage(0x0BA8) = Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
 05A9  00CC        ShowMessage(0x0BFF) = Farewell...this ending is just the beginning!!!
-05B6  00D9        ax = CheckState(0x02, 0x69)
+05B6  00D9        ax = CheckState04(0x02, 0x69)
 05C7  00EA        RefreshCompareFlags(ax)
 05C9  00EC        If (result.notequal) jump to 012A
-05CB  00EE        SetState(0x02, 0x69, 0x01)
-05E0  0103        SetState(0x02, 0x6A, 0x01)
+05CB  00EE        SetState00(0x02, 0x69, 0x01)
+05E0  0103        SetState00(0x02, 0x6A, 0x01)
 05F5  0118        AddExperience(0x004C4B40)
 0607  012A        RETURN
 
@@ -230,13 +230,13 @@ ENCC_0B:
 
 ENCD_0C:
 0776  0000        BEGIN
-0779  0003        ax = CheckState(0x01, 0x7B)
+0779  0003        ax = CheckState04(0x01, 0x7B)
 078A  0014        RefreshCompareFlags(ax)
 078C  0016        If (result.equal) jump to 0052
-078E  0018        ax = CheckState(0x01, 0x7C)
+078E  0018        ax = CheckState04(0x01, 0x7C)
 079F  0029        RefreshCompareFlags(ax)
 07A1  002B        If (result.equal) jump to 0052
-07A3  002D        ax = CheckState(0x01, 0x7D)
+07A3  002D        ax = CheckState04(0x01, 0x7D)
 07B4  003E        RefreshCompareFlags(ax)
 07B6  0040        If (result.equal) jump to 0052
 07B8  0042        SetMove38(0xA8, 0x00)
@@ -270,13 +270,13 @@ ENCF_0E:
 
 CROSSOVR_0F:
 0918  0000        BEGIN
-091B  0003        ax = CheckState(0x01, 0x00)
+091B  0003        ax = CheckState04(0x01, 0x00)
 092B  0013        RefreshCompareFlags(ax)
 092D  0015        If (result.equal) jump to 0053
-092F  0017        ax = CheckState(0x01, 0x01)
+092F  0017        ax = CheckState04(0x01, 0x01)
 0940  0028        RefreshCompareFlags(ax)
 0942  002A        If (result.equal) jump to 0053
-0944  002C        ax = CheckState(0x01, 0x02)
+0944  002C        ax = CheckState04(0x01, 0x02)
 0955  003D        RefreshCompareFlags(ax)
 0957  003F        If (result.equal) jump to 0053
 0959  0041        SetMove38(0xA8, 0x00)
@@ -288,22 +288,22 @@ MAPCONV_10:
 097E  0000        BEGIN
 0981  0003        sp = sp - 1
 0982  0004        sp = sp - 1
-0983  0005        ax = CheckState2(0x02, 0x7B)
+0983  0005        ax = CheckState08(0x02, 0x7B)
 0996  0018        If (result.equal) jump to 002E
-0998  001A        SetState(0x01, 0x00, 0x01)
-09AC  002E        ax = CheckState2(0x02, 0x7C)
+0998  001A        SetState00(0x01, 0x00, 0x01)
+09AC  002E        ax = CheckState08(0x02, 0x7C)
 09BF  0041        If (result.equal) jump to 0058
-09C1  0043        SetState(0x01, 0x01, 0x01)
-09D6  0058        ax = CheckState2(0x02, 0x7D)
+09C1  0043        SetState00(0x01, 0x01, 0x01)
+09D6  0058        ax = CheckState08(0x02, 0x7D)
 09E9  006B        If (result.equal) jump to 0082
-09EB  006D        SetState(0x01, 0x02, 0x01)
-0A00  0082        ax = CheckState(0x01, 0x00)
+09EB  006D        SetState00(0x01, 0x02, 0x01)
+0A00  0082        ax = CheckState04(0x01, 0x00)
 0A10  0092        Push(ax)
-0A11  0093        ax = CheckState(0x01, 0x01)
+0A11  0093        ax = CheckState04(0x01, 0x01)
 0A22  00A4        dx = Pop()
 0A23  00A5        dx = dx + ax
 0A25  00A7        Push(dx)
-0A26  00A8        ax = CheckState(0x01, 0x02)
+0A26  00A8        ax = CheckState04(0x01, 0x02)
 0A37  00B9        dx = Pop()
 0A38  00BA        dx = dx + ax
 0A3A  00BC        tmp = dx

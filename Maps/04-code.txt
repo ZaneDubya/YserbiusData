@@ -297,14 +297,14 @@ STRMNSTR_1B:
 
 WEAPENC_1C:
 0860  0000        BEGIN
-0863  0003        ax = CheckState(0x02, 0x06)
+0863  0003        ax = CheckState04(0x02, 0x06)
 0874  0014        compare(ax, 0x0001)
 0877  0017        If (result.notequal) jump to 0047
 0879  0019        AddTreasure(0x0190, 0x00, 0x00, 0x00, 0x00, 0xCE)
 0898  0038        ShowMessage(0x0D51) = It looks like the Rogues you encounter have already looted the room.
 08A5  0045        Jump to 0089
 08A7  0047        AddTreasure(0x05DC, 0x00, 0x00, 0x00, 0x0C, 0x05)
-08C7  0067        SetState(0x02, 0x06, 0x01)
+08C7  0067        SetState00(0x02, 0x06, 0x01)
 08DC  007C        ShowMessage(0x0D96) = Rogues covet the Sword of the Flames and Sword of Decision you see lying on the floor.
 08E9  0089        ax = PartyCount()
 08F1  0091        compare(ax, 0x0001)
@@ -333,14 +333,14 @@ WEAPENC_1C:
 
 GOLDENC_1D:
 09E0  0000        BEGIN
-09E3  0003        ax = CheckState(0x02, 0x07)
+09E3  0003        ax = CheckState04(0x02, 0x07)
 09F4  0014        compare(ax, 0x0001)
 09F7  0017        If (result.notequal) jump to 0047
 09F9  0019        AddTreasure(0x0064, 0x00, 0x00, 0x00, 0x00, 0xCB)
 0A18  0038        ShowMessage(0x0DED) = Goblins grab their weapons as you enter the room.
 0A25  0045        Jump to 0089
 0A27  0047        AddTreasure(0x03E8, 0x00, 0x00, 0x00, 0xCB, 0xB5)
-0A47  0067        SetState(0x02, 0x07, 0x01)
+0A47  0067        SetState00(0x02, 0x07, 0x01)
 0A5C  007C        ShowMessage(0x0E1F) = Goblins are pitching Gold Pieces against the wall.
 0A69  0089        ax = PartyCount()
 0A71  0091        compare(ax, 0x0001)
@@ -359,14 +359,14 @@ GOLDENC_1D:
 
 MAGICENC_1E:
 0AF3  0000        BEGIN
-0AF6  0003        ax = CheckState(0x02, 0x08)
+0AF6  0003        ax = CheckState04(0x02, 0x08)
 0B07  0014        compare(ax, 0x0001)
 0B0A  0017        If (result.notequal) jump to 0048
 0B0C  0019        AddTreasure(0x0078, 0x00, 0x00, 0x00, 0xCB, 0xB5)
 0B2C  0039        ShowMessage(0x0E52) = Ogres grimace in pleasure as you walk into their ambush.
 0B39  0046        Jump to 008B
 0B3B  0048        AddTreasure(0x1388, 0x00, 0x00, 0xC5, 0x8A, 0x8E)
-0B5C  0069        SetState(0x02, 0x08, 0x01)
+0B5C  0069        SetState00(0x02, 0x08, 0x01)
 0B71  007E        ShowMessage(0x0E8B) = Ogres are playing with items you identify as the Ring of Vigor, a Cudgel Insignia, and the Wand of Radiance.
 0B7E  008B        ax = PartyCount()
 0B86  0093        compare(ax, 0x0001)

@@ -12,7 +12,7 @@ RIVER_01:
 0042  003A        ShowMessage(0x0429) = You have died.
 004F  0047        ax = HasItem(0xD5)
 005D  0055        If (result.notequal) jump to 006C
-005F  0057        ax = CheckState(0x02, 0x6D)
+005F  0057        ax = CheckState04(0x02, 0x6D)
 0070  0068        RefreshCompareFlags(ax)
 0072  006A        If (result.equal) jump to 007E
 0074  006C        SetMove38(0x00, 0x9C)
@@ -29,7 +29,7 @@ STEPCYCL_03:
 00AB  0000        BEGIN
 00AE  0003        ax = HasItem(0xD6)
 00BC  0011        If (result.notequal) jump to 0028
-00BE  0013        ax = CheckState(0x02, 0x6E)
+00BE  0013        ax = CheckState04(0x02, 0x6E)
 00CF  0024        RefreshCompareFlags(ax)
 00D1  0026        If (result.equal) jump to 0071
 00D3  0028        Push(01)
@@ -38,7 +38,7 @@ STEPCYCL_03:
 00E1  0036        Push(ax)
 00E2  0037        SetMove2C(stk[0], stk[1], stk[2])
 00EC  0041        RemoveItem(0xD6)
-00F8  004D        SetState(0x02, 0x6E, 0x01)
+00F8  004D        SetState00(0x02, 0x6E, 0x01)
 010D  0062        ShowMessage(0x047C) = Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
 011A  006F        Jump to 007E
 011C  0071        ShowMessage(0x04DC) = The tapestry glows with the image of a Cyclops.
@@ -48,11 +48,11 @@ STEPMINE_04:
 012B  0000        BEGIN
 012E  0003        ax = HasItem(0xD5)
 013C  0011        If (result.notequal) jump to 0028
-013E  0013        ax = CheckState(0x02, 0x6D)
+013E  0013        ax = CheckState04(0x02, 0x6D)
 014F  0024        RefreshCompareFlags(ax)
 0151  0026        If (result.equal) jump to 0068
 0153  0028        RemoveItem(0xD5)
-015F  0034        SetState(0x02, 0x6D, 0x01)
+015F  0034        SetState00(0x02, 0x6D, 0x01)
 0174  0049        SetMove38(0x00, 0x9C)
 0184  0059        ShowMessage(0x050C) = Your Dwarf Mine Key activated this platform.
 0191  0066        Jump to 0079
@@ -63,11 +63,11 @@ STEPHIDE_05:
 01A6  0000        BEGIN
 01A9  0003        ax = HasItem(0xD7)
 01B7  0011        If (result.notequal) jump to 0028
-01B9  0013        ax = CheckState(0x02, 0x6F)
+01B9  0013        ax = CheckState04(0x02, 0x6F)
 01CA  0024        RefreshCompareFlags(ax)
 01CC  0026        If (result.equal) jump to 0076
 01CE  0028        RemoveItem(0xD7)
-01DA  0034        SetState(0x02, 0x6F, 0x01)
+01DA  0034        SetState00(0x02, 0x6F, 0x01)
 01EF  0049        Push(01)
 01F3  004D        ax = GetFacing()
 01FA  0054        Push(ax)

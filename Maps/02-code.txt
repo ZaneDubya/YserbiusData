@@ -38,26 +38,26 @@ LOWMNSTR_03:
 
 SMALGOLD_04:
 0125  0000        BEGIN
-0128  0003        ax = CheckState(0x02, 0x02)
+0128  0003        ax = CheckState04(0x02, 0x02)
 0139  0014        compare(ax, 0x0001)
 013C  0017        If (result.notequal) jump to 0028
 013E  0019        ShowMessage(0x0456) = The room is bare.
 014B  0026        Jump to 005B
 014D  0028        ModifyGold(0x0064)
 015E  0039        ShowMessage(0x0468) = You find 100 Gold Pieces lying on the floor.
-016B  0046        SetState(0x02, 0x02, 0x01)
+016B  0046        SetState00(0x02, 0x02, 0x01)
 0180  005B        RETURN
 
 GOLDENC_05:
 0182  0000        BEGIN
-0185  0003        ax = CheckState(0x02, 0x03)
+0185  0003        ax = CheckState04(0x02, 0x03)
 0196  0014        compare(ax, 0x0001)
 0199  0017        If (result.notequal) jump to 0047
 019B  0019        ShowMessage(0x0495) = The room is empty, except for a few rogues.
 01A8  0026        AddTreasure(0x0064, 0x00, 0x00, 0x00, 0x00, 0xB5)
 01C7  0045        Jump to 0089
 01C9  0047        AddTreasure(0x03E8, 0x00, 0x00, 0x00, 0xCB, 0xCE)
-01E9  0067        SetState(0x02, 0x03, 0x01)
+01E9  0067        SetState00(0x02, 0x03, 0x01)
 01FE  007C        ShowMessage(0x04C1) = You encounter Rogues counting their gold.
 020B  0089        ax = PartyCount()
 0213  0091        compare(ax, 0x0001)
@@ -192,7 +192,7 @@ KEYDOOR_0A:
 067D  0000        BEGIN
 0680  0003        ax = UsedItem(0xD3, 0xD3)
 0693  0016        If (result.equal) jump to 0055
-0695  0018        SetMove2C(0x01, 0x00, 0x00)
+0695  0018        SetMove2C(0x01, 0x00, 0x04)
 06AA  002D        Push(00)
 06AD  0030        ax = GetNextTile()
 06B4  0037        Push(ax)
@@ -322,7 +322,7 @@ HRDMONST_0F:
 
 WEAPENC_10:
 0A78  0000        BEGIN
-0A7B  0003        ax = CheckState(0x02, 0x04)
+0A7B  0003        ax = CheckState04(0x02, 0x04)
 0A8C  0014        compare(ax, 0x0001)
 0A8F  0017        If (result.notequal) jump to 0047
 0A91  0019        ShowMessage(0x08C0) = You find nothing interesting in the room except a vial and some monsters.

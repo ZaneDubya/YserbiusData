@@ -39,10 +39,10 @@ SPECDOOR_03:
 
 QUESTDOR_04:
 00EA  0000        BEGIN
-00ED  0003        ax = CheckState(0x02, 0x2E)
+00ED  0003        ax = CheckState04(0x02, 0x2E)
 00FE  0014        compare(ax, 0x0001)
 0101  0017        If (result.notequal) jump to 0078
-0103  0019        SetState(0x02, 0x2E, 0x00)
+0103  0019        SetState00(0x02, 0x2E, 0x00)
 0117  002D        Push(01)
 011B  0031        ax = GetFacing()
 0122  0038        Push(ax)
@@ -87,7 +87,7 @@ QSTCHARA_06:
 01EE  0040        Push(ax)
 01EF  0041        Push(01)
 01F3  0045        SetUnblocked()
-01FD  004F        SetState(0x02, 0x2E, 0x01)
+01FD  004F        SetState00(0x02, 0x2E, 0x01)
 0212  0064        ShowPortrait(0x001C)
 021F  0071        RemoveItem(0xF9)
 022B  007D        ShowMessage(0x0454) = That is indeed the King's Pass. You may continue. If you ever return, I'll need to see another pass.
@@ -105,7 +105,7 @@ QSTCHARA_06:
 
 QSTCHARB_07:
 0280  0000        BEGIN
-0283  0003        ax = CheckState(0x02, 0x22)
+0283  0003        ax = CheckState04(0x02, 0x22)
 0294  0014        compare(ax, 0x0001)
 0297  0017        If (result.notequal) jump to 0035
 0299  0019        ShowPortrait(0x002C)
@@ -117,7 +117,7 @@ QSTCHARB_07:
 
 QSTCHARC_08:
 02D1  0000        BEGIN
-02D4  0003        ax = CheckState(0x02, 0x23)
+02D4  0003        ax = CheckState04(0x02, 0x23)
 02E5  0014        compare(ax, 0x0001)
 02E8  0017        If (result.notequal) jump to 0035
 02EA  0019        ShowPortrait(0x002D)
@@ -471,7 +471,7 @@ HARMDOOR_16:
 
 PAYAENC_17:
 0A00  0000        BEGIN
-0A03  0003        ax = CheckState(0x02, 0x23)
+0A03  0003        ax = CheckState04(0x02, 0x23)
 0A14  0014        compare(ax, 0x0001)
 0A17  0017        If (result.equal) jump to 0025
 0A19  0019        ax = GetAlignment()
@@ -479,7 +479,7 @@ PAYAENC_17:
 0A23  0023        If (result.notequal) jump to 0048
 0A25  0025        AddTreasure(0x0064, 0x00, 0x00, 0x00, 0xCE, 0xB7)
 0A45  0045        Jump to 00E1
-0A48  0048        SetState(0x02, 0x23, 0x01)
+0A48  0048        SetState00(0x02, 0x23, 0x01)
 0A5D  005D        ax = GetGuild()
 0A64  0064        compare(ax, 0x0005)
 0A67  0067        If (result.equal) jump to 0075
@@ -521,7 +521,7 @@ PAYAENC_17:
 
 PAYBENC_18:
 0C0B  0000        BEGIN
-0C0E  0003        ax = CheckState(0x02, 0x22)
+0C0E  0003        ax = CheckState04(0x02, 0x22)
 0C1F  0014        compare(ax, 0x0001)
 0C22  0017        If (result.equal) jump to 0026
 0C24  0019        ax = GetAlignment()
@@ -529,7 +529,7 @@ PAYBENC_18:
 0C2F  0024        If (result.notequal) jump to 0049
 0C31  0026        AddTreasure(0x0064, 0x00, 0x00, 0x00, 0xCE, 0xB7)
 0C51  0046        Jump to 011C
-0C54  0049        SetState(0x02, 0x22, 0x01)
+0C54  0049        SetState00(0x02, 0x22, 0x01)
 0C69  005E        ax = GetGuild()
 0C70  0065        RefreshCompareFlags(ax)
 0C72  0067        If (result.equal) jump to 0075
@@ -579,7 +579,7 @@ PAYBENC_18:
 
 BLESSMES_19:
 0E51  0000        BEGIN
-0E54  0003        ax = CheckState3(0x02, 0x2F)
+0E54  0003        ax = CheckState0C(0x02, 0x2F)
 0E67  0016        If (result.equal) jump to 0076
 0E69  0018        ax = GetRace()
 0E70  001F        RefreshCompareFlags(ax)
@@ -587,18 +587,18 @@ BLESSMES_19:
 0E74  0023        ax = GetGuild()
 0E7B  002A        compare(ax, 0x0003)
 0E7E  002D        If (result.notequal) jump to 0076
-0E80  002F        SetState(0x02, 0x2F, 0x01)
+0E80  002F        SetState00(0x02, 0x2F, 0x01)
 0E95  0044        ModifyAttribute(0x00, 0x0001)
 0EA6  0055        ModifyAttribute(0x01, 0x0001)
 0EB8  0067        ShowMessage(0x0BD7) = Blessed Human or Thief, you may continue the quest.
 0EC5  0074        Jump to 0098
-0EC7  0076        SetState(0x02, 0x2F, 0x01)
+0EC7  0076        SetState00(0x02, 0x2F, 0x01)
 0EDC  008B        ShowMessage(0x0C0B) = The tapestry shows nothing of interest.
 0EE9  0098        RETURN
 
 BLESSMES_1A:
 0EEB  0000        BEGIN
-0EEE  0003        ax = CheckState3(0x02, 0x30)
+0EEE  0003        ax = CheckState0C(0x02, 0x30)
 0F01  0016        If (result.equal) jump to 0077
 0F03  0018        ax = GetRace()
 0F0A  001F        compare(ax, 0x0001)
@@ -606,18 +606,18 @@ BLESSMES_1A:
 0F0F  0024        ax = GetGuild()
 0F16  002B        compare(ax, 0x0004)
 0F19  002E        If (result.notequal) jump to 0077
-0F1B  0030        SetState(0x02, 0x30, 0x01)
+0F1B  0030        SetState00(0x02, 0x30, 0x01)
 0F30  0045        ModifyAttribute(0x00, 0x0001)
 0F41  0056        ModifyAttribute(0x01, 0x0001)
 0F53  0068        ShowMessage(0x0C33) = Blessed Orc or Cleric, you may continue the quest.
 0F60  0075        Jump to 0099
-0F62  0077        SetState(0x02, 0x30, 0x01)
+0F62  0077        SetState00(0x02, 0x30, 0x01)
 0F77  008C        ShowMessage(0x0C66) = The tapestry shows a jumble of runes.
 0F84  0099        RETURN
 
 BLESSMES_1B:
 0F86  0000        BEGIN
-0F89  0003        ax = CheckState3(0x02, 0x31)
+0F89  0003        ax = CheckState0C(0x02, 0x31)
 0F9C  0016        If (result.equal) jump to 0076
 0F9E  0018        ax = GetRace()
 0FA5  001F        compare(ax, 0x0002)
@@ -625,18 +625,18 @@ BLESSMES_1B:
 0FAA  0024        ax = GetGuild()
 0FB1  002B        RefreshCompareFlags(ax)
 0FB3  002D        If (result.notequal) jump to 0076
-0FB5  002F        SetState(0x02, 0x31, 0x01)
+0FB5  002F        SetState00(0x02, 0x31, 0x01)
 0FCA  0044        ModifyAttribute(0x00, 0x0001)
 0FDB  0055        ModifyAttribute(0x01, 0x0001)
 0FED  0067        ShowMessage(0x0C8C) = Blessed Elf or Barbarian, you may continue the quest.
 0FFA  0074        Jump to 0098
-0FFC  0076        SetState(0x02, 0x31, 0x01)
+0FFC  0076        SetState00(0x02, 0x31, 0x01)
 1011  008B        ShowMessage(0x0CC2) = The tapestry is blank.
 101E  0098        RETURN
 
 BLESSMES_1C:
 1020  0000        BEGIN
-1023  0003        ax = CheckState3(0x02, 0x32)
+1023  0003        ax = CheckState0C(0x02, 0x32)
 1036  0016        If (result.equal) jump to 0077
 1038  0018        ax = GetRace()
 103F  001F        compare(ax, 0x0003)
@@ -644,18 +644,18 @@ BLESSMES_1C:
 1044  0024        ax = GetGuild()
 104B  002B        compare(ax, 0x0002)
 104E  002E        If (result.notequal) jump to 0077
-1050  0030        SetState(0x02, 0x32, 0x01)
+1050  0030        SetState00(0x02, 0x32, 0x01)
 1065  0045        ModifyAttribute(0x00, 0x0001)
 1076  0056        ModifyAttribute(0x01, 0x0001)
 1088  0068        ShowMessage(0x0CD9) = Blessed Troll or Ranger, you may continue the quest.
 1095  0075        Jump to 0099
-1097  0077        SetState(0x02, 0x32, 0x01)
+1097  0077        SetState00(0x02, 0x32, 0x01)
 10AC  008C        ShowMessage(0x0D0E) = The tapestry is blank.
 10B9  0099        RETURN
 
 BLESSMES_1D:
 10BB  0000        BEGIN
-10BE  0003        ax = CheckState3(0x02, 0x33)
+10BE  0003        ax = CheckState0C(0x02, 0x33)
 10D1  0016        If (result.equal) jump to 0077
 10D3  0018        ax = GetRace()
 10DA  001F        compare(ax, 0x0004)
@@ -663,18 +663,18 @@ BLESSMES_1D:
 10DF  0024        ax = GetGuild()
 10E6  002B        compare(ax, 0x0001)
 10E9  002E        If (result.notequal) jump to 0077
-10EB  0030        SetState(0x02, 0x33, 0x01)
+10EB  0030        SetState00(0x02, 0x33, 0x01)
 1100  0045        ModifyAttribute(0x00, 0x0001)
 1111  0056        ModifyAttribute(0x01, 0x0001)
 1123  0068        ShowMessage(0x0D25) = Blessed Dwarf or Knight, you may continue the quest.
 1130  0075        Jump to 0099
-1132  0077        SetState(0x02, 0x33, 0x01)
+1132  0077        SetState00(0x02, 0x33, 0x01)
 1147  008C        ShowMessage(0x0D5A) = It is too dark to read the inscription.
 1154  0099        RETURN
 
 BLESSMES_1E:
 1156  0000        BEGIN
-1159  0003        ax = CheckState3(0x02, 0x34)
+1159  0003        ax = CheckState0C(0x02, 0x34)
 116C  0016        If (result.equal) jump to 0077
 116E  0018        ax = GetRace()
 1175  001F        compare(ax, 0x0005)
@@ -682,25 +682,25 @@ BLESSMES_1E:
 117A  0024        ax = GetGuild()
 1181  002B        compare(ax, 0x0005)
 1184  002E        If (result.notequal) jump to 0077
-1186  0030        SetState(0x02, 0x34, 0x01)
+1186  0030        SetState00(0x02, 0x34, 0x01)
 119B  0045        ModifyAttribute(0x00, 0x0001)
 11AC  0056        ModifyAttribute(0x01, 0x0001)
 11BE  0068        ShowMessage(0x0D82) = Blessed Gnome or Wizard, you may continue the quest.
 11CB  0075        Jump to 0099
-11CD  0077        SetState(0x02, 0x34, 0x01)
+11CD  0077        SetState00(0x02, 0x34, 0x01)
 11E2  008C        ShowMessage(0x0DB7) = An inscription on the tapestry fades away as you draw near.
 11EF  0099        RETURN
 
 BLESSMES_1F:
 11F1  0000        BEGIN
-11F4  0003        ax = CheckState3(0x02, 0x35)
+11F4  0003        ax = CheckState0C(0x02, 0x35)
 1207  0016        If (result.equal) jump to 0087
 1209  0018        ax = GetRace()
 1210  001F        compare(ax, 0x0006)
 1213  0022        If (result.equal) jump to 0034
 1215  0024        ax = HasItem(0xD3)
 1223  0032        If (result.equal) jump to 0087
-1225  0034        SetState(0x02, 0x35, 0x01)
+1225  0034        SetState00(0x02, 0x35, 0x01)
 123A  0049        ShowMessage(0x0DF3) = Blessed Halfling! Blessed Key of Cleowyn! With either, the quest may continue.
 1247  0056        ax = GetRace()
 124E  005D        compare(ax, 0x0006)
@@ -708,20 +708,20 @@ BLESSMES_1F:
 1253  0062        ModifyAttribute(0x00, 0x0001)
 1264  0073        ModifyAttribute(0x01, 0x0001)
 1276  0085        Jump to 00A9
-1278  0087        SetState(0x02, 0x35, 0x01)
+1278  0087        SetState00(0x02, 0x35, 0x01)
 128D  009C        ShowMessage(0x0E42) = The tapestry is empty.
 129A  00A9        RETURN
 
 BLESSMES_20:
 129C  0000        BEGIN
-129F  0003        ax = CheckState3(0x02, 0x36)
+129F  0003        ax = CheckState0C(0x02, 0x36)
 12B2  0016        If (result.equal) jump to 0087
 12B4  0018        ax = GetRace()
 12BB  001F        compare(ax, 0x0007)
 12BE  0022        If (result.equal) jump to 0034
 12C0  0024        ax = HasItem(0xD2)
 12CE  0032        If (result.equal) jump to 0087
-12D0  0034        SetState(0x02, 0x36, 0x01)
+12D0  0034        SetState00(0x02, 0x36, 0x01)
 12E5  0049        ShowMessage(0x0E59) = Blessed Gremlin! Blessed Pick of Cleowyn! With either, the quest may continue.
 12F2  0056        ax = GetRace()
 12F9  005D        compare(ax, 0x0007)
@@ -729,16 +729,16 @@ BLESSMES_20:
 12FE  0062        ModifyAttribute(0x00, 0x0001)
 130F  0073        ModifyAttribute(0x01, 0x0001)
 1321  0085        Jump to 00A9
-1323  0087        SetState(0x02, 0x36, 0x01)
+1323  0087        SetState00(0x02, 0x36, 0x01)
 1338  009C        ShowMessage(0x0EA8) = The tapestry once held a woven message.
 1345  00A9        RETURN
 
 ENDQSTDR_21:
 1347  0000        BEGIN
-134A  0003        ax = CheckState(0x02, 0x22)
+134A  0003        ax = CheckState04(0x02, 0x22)
 135B  0014        compare(ax, 0x0001)
 135E  0017        If (result.equal) jump to 002F
-1360  0019        ax = CheckState(0x02, 0x23)
+1360  0019        ax = CheckState04(0x02, 0x23)
 1371  002A        compare(ax, 0x0001)
 1374  002D        If (result.notequal) jump to 0078
 1376  002F        Push(01)
@@ -792,12 +792,12 @@ QUESTBEN_22:
 
 GOLDAENC_23:
 1534  0000        BEGIN
-1537  0003        ax = CheckState2(0x02, 0x24)
+1537  0003        ax = CheckState08(0x02, 0x24)
 154A  0016        If (result.equal) jump to 0039
 154C  0018        AddTreasure(0x0064, 0x00, 0x00, 0x00, 0x00, 0xD1)
 156B  0037        Jump to 006E
 156D  0039        AddTreasure(0x0BB8, 0x00, 0x00, 0x00, 0xB7, 0xCF)
-158D  0059        SetState(0x02, 0x24, 0x01)
+158D  0059        SetState00(0x02, 0x24, 0x01)
 15A2  006E        ax = PartyCount()
 15AA  0076        compare(ax, 0x0001)
 15AD  0079        If (result.notequal) jump to 0090
@@ -825,12 +825,12 @@ GOLDAENC_23:
 
 WEAPAENC_24:
 16A8  0000        BEGIN
-16AB  0003        ax = CheckState2(0x02, 0x25)
+16AB  0003        ax = CheckState08(0x02, 0x25)
 16BE  0016        If (result.equal) jump to 003A
 16C0  0018        AddTreasure(0x0064, 0x00, 0x00, 0x00, 0xCC, 0xCE)
 16E0  0038        Jump to 006F
 16E2  003A        AddTreasure(0x07D0, 0x00, 0x00, 0x00, 0xCC, 0x0D)
-1702  005A        SetState(0x02, 0x25, 0x01)
+1702  005A        SetState00(0x02, 0x25, 0x01)
 1717  006F        ShowMessage(0x0F6C) = You are challenged to combat.
 1724  007C        ax = PartyCount()
 172C  0084        compare(ax, 0x0001)
@@ -858,13 +858,13 @@ WEAPAENC_24:
 
 MAGICENC_25:
 1818  0000        BEGIN
-181B  0003        ax = CheckState(0x02, 0x26)
+181B  0003        ax = CheckState04(0x02, 0x26)
 182C  0014        compare(ax, 0x0001)
 182F  0017        If (result.notequal) jump to 003A
 1831  0019        AddTreasure(0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCF)
 1850  0038        Jump to 006E
 1852  003A        AddTreasure(0x0384, 0x00, 0x00, 0x00, 0x00, 0xB3)
-1871  0059        SetState(0x02, 0x26, 0x01)
+1871  0059        SetState00(0x02, 0x26, 0x01)
 1886  006E        ShowMessage(0x0F8A) = Ferocious enemies stop you.
 1893  007B        ax = PartyCount()
 189B  0083        compare(ax, 0x0001)
@@ -928,13 +928,13 @@ QUESTAEN_26:
 
 ITEMAENC_27:
 1B46  0000        BEGIN
-1B49  0003        ax = CheckState(0x02, 0x28)
+1B49  0003        ax = CheckState04(0x02, 0x28)
 1B5A  0014        compare(ax, 0x0001)
 1B5D  0017        If (result.notequal) jump to 003A
 1B5F  0019        AddTreasure(0x012C, 0x00, 0x00, 0x00, 0x00, 0xB6)
 1B7E  0038        Jump to 006F
 1B80  003A        AddTreasure(0x04B0, 0x00, 0x00, 0x00, 0xCF, 0xAA)
-1BA0  005A        SetState(0x02, 0x28, 0x01)
+1BA0  005A        SetState00(0x02, 0x28, 0x01)
 1BB5  006F        ShowMessage(0x0FE2) = Proud knights dispute your progress.
 1BC2  007C        ax = PartyCount()
 1BCA  0084        compare(ax, 0x0001)
@@ -956,13 +956,13 @@ ITEMAENC_27:
 
 GOLDBENC_28:
 1C82  0000        BEGIN
-1C85  0003        ax = CheckState(0x02, 0x29)
+1C85  0003        ax = CheckState04(0x02, 0x29)
 1C96  0014        compare(ax, 0x0001)
 1C99  0017        If (result.notequal) jump to 003A
 1C9B  0019        AddTreasure(0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCB)
 1CBA  0038        Jump to 006F
 1CBC  003A        AddTreasure(0x2710, 0x00, 0x00, 0x00, 0xB0, 0xCD)
-1CDC  005A        SetState(0x02, 0x29, 0x01)
+1CDC  005A        SetState00(0x02, 0x29, 0x01)
 1CF1  006F        ShowMessage(0x1007) = Strong enemies bar your way.
 1CFE  007C        ax = PartyCount()
 1D06  0084        compare(ax, 0x0001)
@@ -1054,13 +1054,13 @@ EMPTY:
 
 ITEMBENC_2C:
 201E  0000        BEGIN
-2021  0003        ax = CheckState(0x02, 0x2A)
+2021  0003        ax = CheckState04(0x02, 0x2A)
 2032  0014        compare(ax, 0x0001)
 2035  0017        If (result.notequal) jump to 003A
 2037  0019        AddTreasure(0x001E, 0x00, 0x00, 0x00, 0x00, 0xB1)
 2056  0038        Jump to 006F
 2058  003A        AddTreasure(0x01F4, 0x00, 0x00, 0x00, 0xB1, 0x55)
-2078  005A        SetState(0x02, 0x2A, 0x01)
+2078  005A        SetState00(0x02, 0x2A, 0x01)
 208D  006F        ShowMessage(0x10C7) = Fierce opponents bar your way.
 209A  007C        ax = PartyCount()
 20A2  0084        compare(ax, 0x0001)
@@ -1092,13 +1092,13 @@ ITEMBENC_2C:
 
 GOLDPILE_2D:
 21D6  0000        BEGIN
-21D9  0003        ax = CheckState(0x02, 0x2B)
+21D9  0003        ax = CheckState04(0x02, 0x2B)
 21EA  0014        compare(ax, 0x0001)
 21ED  0017        If (result.notequal) jump to 0028
 21EF  0019        ShowMessage(0x10E6) = This area has been looted.
 21FC  0026        Jump to 005B
 21FE  0028        ModifyGold(0x2EE0)
-220F  0039        SetState(0x02, 0x2B, 0x01)
+220F  0039        SetState00(0x02, 0x2B, 0x01)
 2224  004E        ShowMessage(0x1101) = You find 12000 Gold Pieces on the floor.
 2231  005B        RETURN
 

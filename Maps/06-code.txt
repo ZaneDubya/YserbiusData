@@ -92,7 +92,7 @@ ITEMCENC_0A:
 
 GOLDAENC_0B:
 0275  0000        BEGIN
-0278  0003        ax = CheckState(0x02, 0x0C)
+0278  0003        ax = CheckState04(0x02, 0x0C)
 0289  0014        compare(ax, 0x0001)
 028C  0017        If (result.notequal) jump to 0048
 028E  0019        ShowMessage(0x047F) = Copper Ogres are huddled around a small fire.
@@ -100,7 +100,7 @@ GOLDAENC_0B:
 02BB  0046        Jump to 0089
 02BD  0048        AddTreasure(0x07D0, 0x00, 0x00, 0x00, 0x00, 0xB5)
 02DC  0067        ShowMessage(0x04AD) = Copper Ogres are counting gold they have stolen.
-02E9  0074        SetState(0x02, 0x0C, 0x01)
+02E9  0074        SetState00(0x02, 0x0C, 0x01)
 02FE  0089        ax = PartyCount()
 0306  0091        compare(ax, 0x0001)
 0309  0094        If (result.notequal) jump to 00AB
@@ -127,7 +127,7 @@ GOLDAENC_0B:
 
 GOLDBENC_0C:
 03E3  0000        BEGIN
-03E6  0003        ax = CheckState(0x02, 0x0D)
+03E6  0003        ax = CheckState04(0x02, 0x0D)
 03F7  0014        compare(ax, 0x0001)
 03FA  0017        If (result.notequal) jump to 0047
 03FC  0019        ShowMessage(0x04DE) = This room is the lair of Mountain Lions.
@@ -135,7 +135,7 @@ GOLDBENC_0C:
 0428  0045        Jump to 0088
 042A  0047        AddTreasure(0x01F4, 0x00, 0x00, 0x00, 0x00, 0xB5)
 0449  0066        ShowMessage(0x0507) = Mountain Lions chew on a small bag.
-0456  0073        SetState(0x02, 0x0D, 0x01)
+0456  0073        SetState00(0x02, 0x0D, 0x01)
 046B  0088        ax = PartyCount()
 0473  0090        compare(ax, 0x0001)
 0476  0093        If (result.notequal) jump to 00AA
@@ -164,7 +164,7 @@ GOLDBENC_0C:
 
 GOLDCENC_0D:
 0574  0000        BEGIN
-0577  0003        ax = CheckState(0x02, 0x0E)
+0577  0003        ax = CheckState04(0x02, 0x0E)
 0588  0014        compare(ax, 0x0001)
 058B  0017        If (result.notequal) jump to 0047
 058D  0019        ShowMessage(0x052B) = You hear the angry snapping of pincers.
@@ -172,7 +172,7 @@ GOLDCENC_0D:
 05B9  0045        Jump to 0088
 05BB  0047        AddTreasure(0x02EE, 0x00, 0x00, 0x00, 0x00, 0xCE)
 05DA  0066        ShowMessage(0x0553) = As you step forward to pick up some gold on the floor...
-05E7  0073        SetState(0x02, 0x0E, 0x01)
+05E7  0073        SetState00(0x02, 0x0E, 0x01)
 05FC  0088        ax = PartyCount()
 0604  0090        compare(ax, 0x0001)
 0607  0093        If (result.notequal) jump to 00A9
@@ -192,7 +192,7 @@ GOLDCENC_0D:
 
 GOLDDENC_0E:
 069A  0000        BEGIN
-069D  0003        ax = CheckState(0x02, 0x0F)
+069D  0003        ax = CheckState04(0x02, 0x0F)
 06AE  0014        compare(ax, 0x0001)
 06B1  0017        If (result.notequal) jump to 0047
 06B3  0019        ShowMessage(0x058C) = Imps spring an ambush on you.
@@ -200,7 +200,7 @@ GOLDDENC_0E:
 06DF  0045        Jump to 0088
 06E1  0047        AddTreasure(0x04B0, 0x00, 0x00, 0x00, 0x00, 0xCE)
 0700  0066        ShowMessage(0x05AA) = You see gold on the floor and something hiding in the shadows.
-070D  0073        SetState(0x02, 0x0F, 0x01)
+070D  0073        SetState00(0x02, 0x0F, 0x01)
 0722  0088        ax = PartyCount()
 072A  0090        compare(ax, 0x0001)
 072D  0093        If (result.notequal) jump to 00BC
@@ -227,7 +227,7 @@ GOLDDENC_0E:
 
 GOLDEENC_0F:
 0816  0000        BEGIN
-0819  0003        ax = CheckState(0x02, 0x10)
+0819  0003        ax = CheckState04(0x02, 0x10)
 082A  0014        compare(ax, 0x0001)
 082D  0017        If (result.notequal) jump to 0047
 082F  0019        ShowMessage(0x05E9) = You turn as you hear bones rattling.
@@ -235,7 +235,7 @@ GOLDEENC_0F:
 085B  0045        Jump to 0088
 085D  0047        AddTreasure(0x0FA0, 0x00, 0x00, 0x00, 0x00, 0xD1)
 087C  0066        ShowMessage(0x060E) = A skeleton has a coin bag tied to its belt.
-0889  0073        SetState(0x02, 0x10, 0x01)
+0889  0073        SetState00(0x02, 0x10, 0x01)
 089E  0088        ax = PartyCount()
 08A6  0090        compare(ax, 0x0001)
 08A9  0093        If (result.notequal) jump to 00BC
@@ -266,7 +266,7 @@ GOLDEENC_0F:
 
 GOLDFENC_10:
 09CB  0000        BEGIN
-09CE  0003        ax = CheckState(0x02, 0x11)
+09CE  0003        ax = CheckState04(0x02, 0x11)
 09DF  0014        compare(ax, 0x0001)
 09E2  0017        If (result.notequal) jump to 0047
 09E4  0019        ShowMessage(0x063A) = You stumble upon an almost empty nesting area.
@@ -274,7 +274,7 @@ GOLDFENC_10:
 0A0F  0044        Jump to 0122
 0A12  0047        AddTreasure(0x05DC, 0x00, 0x00, 0x00, 0x00, 0xCB)
 0A31  0066        ShowMessage(0x0669) = Angry hissing distracts you as you reach down for some gold coins.
-0A3E  0073        SetState(0x02, 0x11, 0x01)
+0A3E  0073        SetState00(0x02, 0x11, 0x01)
 0A53  0088        ax = PartyCount()
 0A5B  0090        compare(ax, 0x0001)
 0A5E  0093        If (result.equal) jump to 00A2

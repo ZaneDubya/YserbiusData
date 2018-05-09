@@ -77,7 +77,7 @@ EMPTY:
 
 RAPID_10:
 014D  0000        BEGIN
-0150  0003        SetState(0x02, 0x57, 0x01)
+0150  0003        SetState00(0x02, 0x57, 0x01)
 0165  0018        ShowMessage(0x05E5) = A plaque reads..
 0172  0025        ShowMessage(0x05F6) = 'Thanks to the gracious generosity of the Mage Council, the survivors of the Arnakkian disaster hereby proclaim a new teleport to the top.'
 017F  0032        Push(02)
@@ -100,11 +100,11 @@ RIVER_11:
 
 TXTPHNX_12:
 01E1  0000        BEGIN
-01E4  0003        ax = CheckState2(0x02, 0x85)
+01E4  0003        ax = CheckState08(0x02, 0x85)
 01F7  0016        If (result.equal) jump to 0028
 01F9  0018        ShowMessage(0x06CE) = The Phoenix is being reborn and may not be disturbed.
 0206  0025        Jump to 00A7
-0209  0028        ax = CheckState2(0x02, 0x86)
+0209  0028        ax = CheckState08(0x02, 0x86)
 021C  003B        If (result.equal) jump to 008D
 021E  003D        ShowMessage(0x0704) = Ahead, bound by the River of Eternity, is the shadow of the Phoenix Firebird. 
 022B  004A        ShowMessage(0x0753) = The raging waters of the river look daunting.
@@ -205,7 +205,7 @@ PHOEGURD_1C:
 05BF  0000        BEGIN
 05C2  0003        ShowPortrait(0x002D)
 05CF  0010        ShowMessage(0x0810) = A Gnome Wizard greets you.
-05DC  001D        ax = CheckState2(0x02, 0x85)
+05DC  001D        ax = CheckState08(0x02, 0x85)
 05EF  0030        If (result.equal) jump to 004E
 05F1  0032        ShowMessage(0x082B) = 'Thank you for helping my master the Phoenix be reborn.
 05FE  003F        ShowMessage(0x0863) = The Phoenix may no longer be disturbed.'
@@ -214,7 +214,7 @@ PHOEGURD_1C:
 061A  005B        ShowMessage(0x08F0) = The way is now clear for you to meet the Phoenix.
 0627  0068        ShowMessage(0x0922) = It is time for the Phoenix to die and so be reborn from its own ashes.
 0634  0075        ShowMessage(0x0969) = Go!  Let the glorious Phoenix die and be renewed!'
-0641  0082        SetState(0x02, 0x86, 0x01)
+0641  0082        SetState00(0x02, 0x86, 0x01)
 0656  0097        RETURN
 
 TXTBAZZA_1D:
@@ -247,11 +247,11 @@ TXTBAZZD_20:
 
 PHOEREW_21:
 0708  0000        BEGIN
-070B  0003        ax = CheckState(0x02, 0x5E)
+070B  0003        ax = CheckState04(0x02, 0x5E)
 071C  0014        RefreshCompareFlags(ax)
 071E  0016        If (result.notequal) jump to 0063
-0720  0018        SetState(0x02, 0x5E, 0x01)
-0735  002D        SetState(0x02, 0x85, 0x01)
+0720  0018        SetState00(0x02, 0x5E, 0x01)
+0735  002D        SetState00(0x02, 0x85, 0x01)
 074A  0042        ModifyAttribute(0x04, 0x00C8)
 075C  0054        ShowMessage(0x0BAD) = You feel a sudden increase in your Dexterity.
 0769  0061        Jump to 0070
@@ -275,11 +275,11 @@ MYSTICS_24:
 
 FNTNBAZZ_25:
 07CA  0000        BEGIN
-07CD  0003        ax = CheckState(0x02, 0x5F)
+07CD  0003        ax = CheckState04(0x02, 0x5F)
 07DE  0014        RefreshCompareFlags(ax)
 07E0  0016        If (result.equal) jump to 001B
 07E2  0018        Jump to 011A
-07E5  001B        SetState(0x02, 0x5F, 0x01)
+07E5  001B        SetState00(0x02, 0x5F, 0x01)
 07FA  0030        ShowPortrait(0x0042)
 0807  003D        ShowMessage(0x0D17) = You sip the cool purple waters of the ElfFoot Fountain
 0814  004A        ax = GetSkillLevel(0x14)
@@ -340,11 +340,11 @@ FNTNLOOK_2B:
 0992  0000        BEGIN
 0995  0003        ShowPortrait(0x0042)
 09A2  0010        ShowMessage(0x0EBC) = Ranger banners decorate the woodwork of Lookout Fountain.
-09AF  001D        ax = CheckState(0x02, 0x60)
+09AF  001D        ax = CheckState04(0x02, 0x60)
 09C0  002E        RefreshCompareFlags(ax)
 09C2  0030        If (result.equal) jump to 0035
 09C4  0032        Jump to 0118
-09C7  0035        SetState(0x02, 0x60, 0x01)
+09C7  0035        SetState00(0x02, 0x60, 0x01)
 09DC  004A        ax = GetSkillLevel(0x09)
 09E8  0056        RefreshCompareFlags(ax)
 09EA  0058        If (result.notequal) jump to 007B

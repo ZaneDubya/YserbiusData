@@ -1,6 +1,6 @@
 ALDBORA_01:
 000B  0000        BEGIN (saving si)
-000F  0004        ax = CheckState(0x01, 0x01)
+000F  0004        ax = CheckState04(0x01, 0x01)
 0020  0015        si = ax
 0022  0017        ax = UsedItem(0xE8, 0xE8)
 0035  002A        If (result.notequal) jump to 002F
@@ -246,56 +246,56 @@ NOJOIN_0D:
 BEECHWD_0E:
 08C3  0000        BEGIN
 08C6  0003        ShowMessage(0x08FB) = Upon a wood sign is written -- 'Wilderness of BeechWood.'
-08D3  0010        ax = CheckState(0x01, 0x01)
+08D3  0010        ax = CheckState04(0x01, 0x01)
 08E4  0021        RefreshCompareFlags(ax)
 08E6  0023        If (result.notequal) jump to 0079
-08E8  0025        SetState(0x01, 0x03, 0x01)
-08FD  003A        SetState(0x01, 0x02, 0x02)
-0912  004F        SetState(0x01, 0x01, 0x03)
-0927  0064        SetState(0x01, 0x04, 0x04)
+08E8  0025        SetState00(0x01, 0x03, 0x01)
+08FD  003A        SetState00(0x01, 0x02, 0x02)
+0912  004F        SetState00(0x01, 0x01, 0x03)
+0927  0064        SetState00(0x01, 0x04, 0x04)
 093C  0079        RETURN
 
 OAKLEAF_0F:
 093E  0000        BEGIN
 0941  0003        ShowMessage(0x0935) = A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'
-094E  0010        ax = CheckState(0x01, 0x02)
+094E  0010        ax = CheckState04(0x01, 0x02)
 095F  0021        RefreshCompareFlags(ax)
 0961  0023        If (result.notequal) jump to 0079
-0963  0025        SetState(0x01, 0x03, 0x01)
-0978  003A        SetState(0x01, 0x02, 0x02)
-098D  004F        SetState(0x01, 0x01, 0x03)
-09A2  0064        SetState(0x01, 0x04, 0x04)
+0963  0025        SetState00(0x01, 0x03, 0x01)
+0978  003A        SetState00(0x01, 0x02, 0x02)
+098D  004F        SetState00(0x01, 0x01, 0x03)
+09A2  0064        SetState00(0x01, 0x04, 0x04)
 09B7  0079        RETURN
 
 MAPLEBRS_10:
 09B9  0000        BEGIN
 09BC  0003        ShowMessage(0x0978) = A sign of ancient wood reads -- 'Wilderness of MapleBrush.'
-09C9  0010        ax = CheckState(0x01, 0x03)
+09C9  0010        ax = CheckState04(0x01, 0x03)
 09DA  0021        RefreshCompareFlags(ax)
 09DC  0023        If (result.notequal) jump to 0079
-09DE  0025        SetState(0x01, 0x03, 0x01)
-09F3  003A        SetState(0x01, 0x02, 0x02)
-0A08  004F        SetState(0x01, 0x01, 0x03)
-0A1D  0064        SetState(0x01, 0x04, 0x04)
+09DE  0025        SetState00(0x01, 0x03, 0x01)
+09F3  003A        SetState00(0x01, 0x02, 0x02)
+0A08  004F        SetState00(0x01, 0x01, 0x03)
+0A1D  0064        SetState00(0x01, 0x04, 0x04)
 0A32  0079        RETURN
 
 PINECONE_11:
 0A34  0000        BEGIN
 0A37  0003        ShowMessage(0x09B4) = In the dust of pine needles is written -- 'Wilderness of PineCone.'
-0A44  0010        ax = CheckState(0x01, 0x04)
+0A44  0010        ax = CheckState04(0x01, 0x04)
 0A55  0021        RefreshCompareFlags(ax)
 0A57  0023        If (result.notequal) jump to 0079
-0A59  0025        SetState(0x01, 0x03, 0x01)
-0A6E  003A        SetState(0x01, 0x02, 0x02)
-0A83  004F        SetState(0x01, 0x01, 0x03)
-0A98  0064        SetState(0x01, 0x04, 0x04)
+0A59  0025        SetState00(0x01, 0x03, 0x01)
+0A6E  003A        SetState00(0x01, 0x02, 0x02)
+0A83  004F        SetState00(0x01, 0x01, 0x03)
+0A98  0064        SetState00(0x01, 0x04, 0x04)
 0AAD  0079        RETURN
 
 BWACTOR_12:
 0AAF  0000        BEGIN (saving si)
 0AB3  0004        ShowMessage(0x09F8) = We are the Wise Ones of Beechwood who serve the Seasons.
 0AC0  0011        ShowPortrait(0x0027)
-0ACD  001E        ax = CheckState(0x01, 0x01)
+0ACD  001E        ax = CheckState04(0x01, 0x01)
 0ADE  002F        si = ax
 0AE0  0031        bx = si
 0AE2  0033        bx = bx - 1
@@ -327,7 +327,7 @@ BWACTOR_12:
 0BAF  0100        If (result.notequal) jump to 0158
 0BB1  0102        RemoveItem(0xE5)
 0BBD  010E        GiveItem(0xE8)
-0BC9  011A        SetState(0x01, 0x01, 0x02)
+0BC9  011A        SetState00(0x01, 0x01, 0x02)
 0BDE  012F        ShowMessage(0x0D08) = Spring thanks you for the Winter Waters.
 0BEB  013C        ShowMessage(0x0D31) = See how soft Spring transforms into vibrant Summer!
 0BF8  0149        ShowMessage(0x0D65) = Take this Summer Radiance for your troubles.
@@ -340,7 +340,7 @@ BWACTOR_12:
 0C2F  0180        If (result.notequal) jump to 01D8
 0C31  0182        RemoveItem(0xE6)
 0C3D  018E        GiveItem(0xE4)
-0C49  019A        SetState(0x01, 0x01, 0x03)
+0C49  019A        SetState00(0x01, 0x01, 0x03)
 0C5E  01AF        ShowMessage(0x0DBC) = Summer rejoices in the wondrous Harvest Horn.
 0C6B  01BC        ShowMessage(0x0DEA) = Behold!  Summer ripens into mature Autumn!
 0C78  01C9        ShowMessage(0x0E15) = The golden Autumn Seeds are ample reward for your generosity.
@@ -353,7 +353,7 @@ BWACTOR_12:
 0CAF  0200        If (result.notequal) jump to 0258
 0CB1  0202        RemoveItem(0xE7)
 0CBD  020E        GiveItem(0xE5)
-0CC9  021A        SetState(0x01, 0x01, 0x04)
+0CC9  021A        SetState00(0x01, 0x01, 0x04)
 0CDE  022F        ShowMessage(0x0E86) = Autumn gladly accepts the Spring Renewal.
 0CEB  023C        ShowMessage(0x0EB0) = Lo!  Golden Autumn pales to white Winter and now sleeps under snowy blankets.
 0CF8  0249        ShowMessage(0x0EFE) = These icy Winter Waters are a present to you.
@@ -366,7 +366,7 @@ BWACTOR_12:
 0D2F  0280        If (result.notequal) jump to 02D8
 0D31  0282        RemoveItem(0xE4)
 0D3D  028E        GiveItem(0xE7)
-0D49  029A        SetState(0x01, 0x01, 0x01)
+0D49  029A        SetState00(0x01, 0x01, 0x01)
 0D5E  02AF        ShowMessage(0x0F60) = These Autumn Seeds are wonderful, indeed!
 0D6B  02BC        ShowMessage(0x0F8A) = See sleeping Winter blossom with new life!
 0D78  02C9        ShowMessage(0x0FB5) = You now receive the glory of Spring Renewal.  It is a priceless gift!
@@ -382,7 +382,7 @@ OLACTOR_13:
 0DBB  0000        BEGIN (saving si)
 0DBF  0004        ShowMessage(0x1071) = We are the Clerics of Oakleaf who comfort the Seasons.
 0DCC  0011        ShowPortrait(0x0027)
-0DD9  001E        ax = CheckState(0x01, 0x02)
+0DD9  001E        ax = CheckState04(0x01, 0x02)
 0DEA  002F        si = ax
 0DEC  0031        bx = si
 0DEE  0033        bx = bx - 1
@@ -414,7 +414,7 @@ OLACTOR_13:
 0EBB  0100        If (result.notequal) jump to 0158
 0EBD  0102        RemoveItem(0xE5)
 0EC9  010E        GiveItem(0xE8)
-0ED5  011A        SetState(0x01, 0x02, 0x02)
+0ED5  011A        SetState00(0x01, 0x02, 0x02)
 0EEA  012F        ShowMessage(0x1300) = Spring accepts the Winter Waters.
 0EF7  013C        ShowMessage(0x1322) = Spring sings sweetly of its transformation into Summer!
 0F04  0149        ShowMessage(0x135A) = Summer Radiance is yours as happy reward.
@@ -427,7 +427,7 @@ OLACTOR_13:
 0F3B  0180        If (result.notequal) jump to 01D8
 0F3D  0182        RemoveItem(0xE6)
 0F49  018E        GiveItem(0xE4)
-0F55  019A        SetState(0x01, 0x02, 0x03)
+0F55  019A        SetState00(0x01, 0x02, 0x03)
 0F6A  01AF        ShowMessage(0x13B3) = Summer accepts the Harvest Horn.
 0F77  01BC        ShowMessage(0x13D4) = Summer mellows by the sweet music and is now Autumn!
 0F84  01C9        ShowMessage(0x1409) = Autumn Seeds are now yours to enjoy.
@@ -440,7 +440,7 @@ OLACTOR_13:
 0FBB  0200        If (result.notequal) jump to 0258
 0FBD  0202        RemoveItem(0xE7)
 0FC9  020E        GiveItem(0xE5)
-0FD5  021A        SetState(0x01, 0x02, 0x04)
+0FD5  021A        SetState00(0x01, 0x02, 0x04)
 0FEA  022F        ShowMessage(0x1458) = Autumn shyly receives the Spring Renewal.
 0FF7  023C        ShowMessage(0x1482) = Now Autumn turns to Winter, still clutching the hope of vernal renewal.
 1004  0249        ShowMessage(0x14CA) = Winter Waters are yours, my friends.
@@ -453,7 +453,7 @@ OLACTOR_13:
 103B  0280        If (result.notequal) jump to 02D8
 103D  0282        RemoveItem(0xE4)
 1049  028E        GiveItem(0xE7)
-1055  029A        SetState(0x01, 0x02, 0x01)
+1055  029A        SetState00(0x01, 0x02, 0x01)
 106A  02AF        ShowMessage(0x1510) = Autumn Seeds hold the germ of life!
 1077  02BC        ShowMessage(0x1534) = Cold Winter is become warm Spring.  Rejoice!
 1084  02C9        ShowMessage(0x1561) = The magnificent Spring Renewal is your just reward.
@@ -468,7 +468,7 @@ MBACTOR_14:
 10BA  0000        BEGIN (saving si)
 10BE  0004        ShowMessage(0x15E2) = We are the Wardens of Maplebrush and hold the Seasons.
 10CB  0011        ShowPortrait(0x0027)
-10D8  001E        ax = CheckState(0x01, 0x03)
+10D8  001E        ax = CheckState04(0x01, 0x03)
 10E9  002F        si = ax
 10EB  0031        bx = si
 10ED  0033        bx = bx - 1
@@ -496,7 +496,7 @@ MBACTOR_14:
 1185  00CB        If (result.notequal) jump to 0116
 1187  00CD        RemoveItem(0xE5)
 1193  00D9        GiveItem(0xE8)
-119F  00E5        SetState(0x01, 0x03, 0x02)
+119F  00E5        SetState00(0x01, 0x03, 0x02)
 11B4  00FA        ShowMessage(0x171A) = From Winter Waters comes the change of Spring to Summer.
 11C1  0107        ShowMessage(0x1753) = You are rewarded.
 11CE  0114        Jump to 0123
@@ -508,7 +508,7 @@ MBACTOR_14:
 11F8  013E        If (result.notequal) jump to 0189
 11FA  0140        RemoveItem(0xE6)
 1206  014C        GiveItem(0xE4)
-1212  0158        SetState(0x01, 0x03, 0x03)
+1212  0158        SetState00(0x01, 0x03, 0x03)
 1227  016D        ShowMessage(0x1779) = The Harvest Horn blows Summer into Autumn.
 1234  017A        ShowMessage(0x17A4) = A reward is yours.
 1241  0187        Jump to 0196
@@ -520,7 +520,7 @@ MBACTOR_14:
 126B  01B1        If (result.notequal) jump to 01FC
 126D  01B3        RemoveItem(0xE7)
 1279  01BF        GiveItem(0xE5)
-1285  01CB        SetState(0x01, 0x03, 0x04)
+1285  01CB        SetState00(0x01, 0x03, 0x04)
 129A  01E0        ShowMessage(0x17CE) = The Spring Renewal eases Autumn's slide into Winter.
 12A7  01ED        ShowMessage(0x1803) = Enjoy your reward.
 12B4  01FA        Jump to 0209
@@ -532,7 +532,7 @@ MBACTOR_14:
 12DE  0224        If (result.notequal) jump to 026F
 12E0  0226        RemoveItem(0xE4)
 12EC  0232        GiveItem(0xE7)
-12F8  023E        SetState(0x01, 0x03, 0x01)
+12F8  023E        SetState00(0x01, 0x03, 0x01)
 130D  0253        ShowMessage(0x182E) = Winter devours the Autumn Seeds and becomes Spring.
 131A  0260        ShowMessage(0x1862) = You are well rewarded.
 1327  026D        Jump to 027C
@@ -546,7 +546,7 @@ PCACTOR_15:
 1350  0000        BEGIN (saving si)
 1354  0004        ShowMessage(0x18C1) = We are the Seasons incarnate in mortal form.
 1361  0011        ShowPortrait(0x0027)
-136E  001E        ax = CheckState(0x01, 0x04)
+136E  001E        ax = CheckState04(0x01, 0x04)
 137F  002F        si = ax
 1381  0031        bx = si
 1383  0033        bx = bx - 1
@@ -568,7 +568,7 @@ PCACTOR_15:
 13E4  0094        If (result.notequal) jump to 00EC
 13E6  0096        RemoveItem(0xE5)
 13F2  00A2        GiveItem(0xE8)
-13FE  00AE        SetState(0x01, 0x04, 0x02)
+13FE  00AE        SetState00(0x01, 0x04, 0x02)
 1413  00C3        ShowMessage(0x191E) = The Winter Waters you offer quench my thirst.
 1420  00D0        ShowMessage(0x194C) = Look how I have become Summer!
 142D  00DD        ShowMessage(0x196B) = Take my new Summer Radiance.
@@ -581,7 +581,7 @@ PCACTOR_15:
 1464  0114        If (result.notequal) jump to 016C
 1466  0116        RemoveItem(0xE6)
 1472  0122        GiveItem(0xE4)
-147E  012E        SetState(0x01, 0x04, 0x03)
+147E  012E        SetState00(0x01, 0x04, 0x03)
 1493  0143        ShowMessage(0x19A6) = I blow the Harvest Horn you give me...
 14A0  0150        ShowMessage(0x19CD) = ...and I change to Autumn!
 14AD  015D        ShowMessage(0x19E8) = Have some of my Autumn Seeds as thanks.
@@ -594,7 +594,7 @@ PCACTOR_15:
 14E4  0194        If (result.notequal) jump to 01EC
 14E6  0196        RemoveItem(0xE7)
 14F2  01A2        GiveItem(0xE5)
-14FE  01AE        SetState(0x01, 0x04, 0x04)
+14FE  01AE        SetState00(0x01, 0x04, 0x04)
 1513  01C3        ShowMessage(0x1A35) = Because you give me Spring Renewal...
 1520  01D0        ShowMessage(0x1A5B) = ...I can safely transform into Winter and still survive.
 152D  01DD        ShowMessage(0x1A94) = May my Winter Waters refresh you.
@@ -607,7 +607,7 @@ PCACTOR_15:
 1564  0214        If (result.notequal) jump to 026C
 1566  0216        RemoveItem(0xE4)
 1572  0222        GiveItem(0xE7)
-157E  022E        SetState(0x01, 0x04, 0x01)
+157E  022E        SetState00(0x01, 0x04, 0x01)
 1593  0243        ShowMessage(0x1AD4) = The Autumn Seeds awaken me from my long hibernation.
 15A0  0250        ShowMessage(0x1B09) = I am Spring again!
 15AD  025D        ShowMessage(0x1B1C) = Take the Renewal of Spring and rejoice with me!

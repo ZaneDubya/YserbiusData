@@ -46,14 +46,14 @@ NPCCHATB_06:
 
 ITEMAENC_07:
 0120  0000        BEGIN
-0123  0003        ax = CheckState(0x02, 0x12)
+0123  0003        ax = CheckState04(0x02, 0x12)
 0134  0014        compare(ax, 0x0001)
 0137  0017        If (result.notequal) jump to 0048
 0139  0019        ShowMessage(0x072A) = Monsters jump out of the shadows.
 0146  0026        AddTreasure(0x0064, 0x00, 0x00, 0x00, 0xCE, 0xB5)
 0166  0046        Jump to 008B
 0168  0048        AddTreasure(0x1770, 0x00, 0x00, 0xCE, 0x42, 0x0A)
-0189  0069        SetState(0x02, 0x12, 0x01)
+0189  0069        SetState00(0x02, 0x12, 0x01)
 019E  007E        ShowMessage(0x074C) = Monsters snarl as you approach a pile of weapons.
 01AB  008B        ax = PartyCount()
 01B3  0093        compare(ax, 0x0001)
@@ -78,14 +78,14 @@ TELPORTN_08:
 
 ITEMBENC_09:
 0267  0000        BEGIN
-026A  0003        ax = CheckState(0x02, 0x13)
+026A  0003        ax = CheckState04(0x02, 0x13)
 027B  0014        compare(ax, 0x0001)
 027E  0017        If (result.notequal) jump to 0048
 0280  0019        ShowMessage(0x077E) = Unclean spirits shriek as they attack.
 028D  0026        AddTreasure(0x0190, 0x00, 0x00, 0x00, 0xB5, 0xCB)
 02AD  0046        Jump to 008A
 02AF  0048        AddTreasure(0x0BB8, 0x00, 0x00, 0x00, 0x8A, 0x3B)
-02CF  0068        SetState(0x02, 0x13, 0x01)
+02CF  0068        SetState00(0x02, 0x13, 0x01)
 02E4  007D        ShowMessage(0x07A5) = Incubi surround you as you approach a weapon on the floor.
 02F1  008A        ax = PartyCount()
 02F9  0092        compare(ax, 0x0001)
@@ -111,14 +111,14 @@ ITEMBENC_09:
 
 ITEMCENC_0A:
 03EA  0000        BEGIN
-03ED  0003        ax = CheckState(0x02, 0x14)
+03ED  0003        ax = CheckState04(0x02, 0x14)
 03FE  0014        compare(ax, 0x0001)
 0401  0017        If (result.notequal) jump to 0047
 0403  0019        AddTreasure(0x0064, 0x00, 0x00, 0x00, 0x00, 0xCE)
 0422  0038        ShowMessage(0x07E0) = Skeletons attack you.
 042F  0045        Jump to 008B
 0431  0047        AddTreasure(0x0BB8, 0x00, 0xCC, 0x39, 0x8C, 0x1C)
-0453  0069        SetState(0x02, 0x14, 0x01)
+0453  0069        SetState00(0x02, 0x14, 0x01)
 0468  007E        ShowMessage(0x07F6) = Skeletons guard a precious hoard.
 0475  008B        ax = PartyCount()
 047D  0093        compare(ax, 0x0001)
@@ -152,14 +152,14 @@ ITEMCENC_0A:
 
 ITEMDENC_0B:
 05C6  0000        BEGIN
-05C9  0003        ax = CheckState(0x02, 0x15)
+05C9  0003        ax = CheckState04(0x02, 0x15)
 05DA  0014        compare(ax, 0x0001)
 05DD  0017        If (result.notequal) jump to 0047
 05DF  0019        ShowMessage(0x0818) = The dead arise as you draw near.
 05EC  0026        AddTreasure(0x0096, 0x00, 0x00, 0x00, 0x00, 0xB6)
 060B  0045        Jump to 0089
 060D  0047        AddTreasure(0x09C4, 0x00, 0x00, 0x00, 0xC2, 0x76)
-062D  0067        SetState(0x02, 0x15, 0x01)
+062D  0067        SetState00(0x02, 0x15, 0x01)
 0642  007C        ShowMessage(0x0839) = Your movement disturbs the dead who have guarded King Cleowyn's Treasury.
 064F  0089        ax = PartyCount()
 0657  0091        compare(ax, 0x0001)
@@ -491,14 +491,14 @@ EMPTY:
 
 GOLDENCA_1E:
 1147  0000        BEGIN
-114A  0003        ax = CheckState(0x02, 0x09)
+114A  0003        ax = CheckState04(0x02, 0x09)
 115B  0014        compare(ax, 0x0001)
 115E  0017        If (result.notequal) jump to 0046
 1160  0019        ShowMessage(0x0E95) = Ghosts haunt the empty room.
 116D  0026        AddTreasure(0x0000, 0x00, 0x00, 0x00, 0x00, 0x73)
 118B  0044        Jump to 0087
 118D  0046        AddTreasure(0x0FA0, 0x00, 0x00, 0x00, 0x00, 0xCE)
-11AC  0065        SetState(0x02, 0x09, 0x01)
+11AC  0065        SetState00(0x02, 0x09, 0x01)
 11C1  007A        ShowMessage(0x0EB2) = Spirits of the dead guard King Cleowyn's gold.
 11CE  0087        ax = PartyCount()
 11D6  008F        compare(ax, 0x0001)
@@ -517,14 +517,14 @@ GOLDENCA_1E:
 
 GOLDBENC_1F:
 1258  0000        BEGIN
-125B  0003        ax = CheckState(0x02, 0x0A)
+125B  0003        ax = CheckState04(0x02, 0x0A)
 126C  0014        compare(ax, 0x0001)
 126F  0017        If (result.notequal) jump to 0047
 1271  0019        ShowMessage(0x0EE1) = Bones of dead guards and one-time thieves rise to challenge you.
 127E  0026        AddTreasure(0x00FA, 0x00, 0x00, 0x00, 0x00, 0xB5)
 129D  0045        Jump to 0088
 129F  0047        AddTreasure(0x1388, 0x00, 0x00, 0x00, 0x00, 0xCB)
-12BE  0066        SetState(0x02, 0x0A, 0x01)
+12BE  0066        SetState00(0x02, 0x0A, 0x01)
 12D3  007B        ShowMessage(0x0F22) = Skeletons of dead guards and the thieves they killed stand between you and Cleowyn's gold.
 12E0  0088        ax = PartyCount()
 12E8  0090        compare(ax, 0x0001)
@@ -558,14 +558,14 @@ GOLDBENC_1F:
 
 GOLDCENC_20:
 1431  0000        BEGIN
-1434  0003        ax = CheckState(0x02, 0x0B)
+1434  0003        ax = CheckState04(0x02, 0x0B)
 1445  0014        compare(ax, 0x0001)
 1448  0017        If (result.notequal) jump to 0047
 144A  0019        ShowMessage(0x0F7D) = Spiders drop from the ceiling.
 1457  0026        AddTreasure(0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCE)
 1476  0045        Jump to 0088
 1478  0047        AddTreasure(0x07D0, 0x00, 0x00, 0x00, 0x00, 0xBD)
-1497  0066        SetState(0x02, 0x0B, 0x01)
+1497  0066        SetState00(0x02, 0x0B, 0x01)
 14AC  007B        ShowMessage(0x0F9C) = Spider webs envelop a pile of gold pieces on the floor.
 14B9  0088        ax = PartyCount()
 14C1  0090        compare(ax, 0x0001)

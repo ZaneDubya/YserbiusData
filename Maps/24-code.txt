@@ -16,7 +16,7 @@ NTELEC_03:
 0078  0000        BEGIN
 007B  0003        ShowMessage(0x043A) = Runes on magic wall --
 0088  0010        ShowRunes(0x0451) = Netherworld
-0095  001D        SetState(0x02, 0x49, 0x02)
+0095  001D        SetState00(0x02, 0x49, 0x02)
 00AA  0032        SetMoveMap(0x02, 0xE0, 0x02, 0x34)
 00C5  004D        RETURN
 
@@ -50,7 +50,7 @@ ITELEG_07:
 
 ATELEH_08:
 01AE  0000        BEGIN
-01B1  0003        ax = CheckState(0x02, 0x49)
+01B1  0003        ax = CheckState04(0x02, 0x49)
 01C2  0014        compare(ax, 0x0002)
 01C5  0017        If (result.notequal) jump to 004E
 01C7  0019        ShowMessage(0x04D8) = Runes on magic wall --
@@ -67,7 +67,7 @@ NTELEI_09:
 
 ARNKENCA_0A:
 0237  0000        BEGIN
-023A  0003        SetState(0x02, 0x52, 0x01)
+023A  0003        SetState00(0x02, 0x52, 0x01)
 024F  0018        ShowMessage(0x051A) = Secrets follow when you spell that which powers time.
 025C  0025        AddEncounter(0x19, 0x01)
 026E  0037        AddEncounter(0x19, 0x02)
@@ -102,7 +102,7 @@ NTELEK_0E:
 
 LTELEL_0F:
 0380  0000        BEGIN
-0383  0003        SetState(0x02, 0x49, 0x03)
+0383  0003        SetState00(0x02, 0x49, 0x03)
 0398  0018        ShowMessage(0x05BD) = Runes on magic wall --
 03A5  0025        ShowRunes(0x05D4) = Luck
 03B2  0032        SetMoveMap(0x02, 0xB9, 0x02, 0x34)
@@ -110,14 +110,14 @@ LTELEL_0F:
 
 ITELEG_10:
 03CF  0000        BEGIN
-03D2  0003        ax = CheckState(0x02, 0x49)
+03D2  0003        ax = CheckState04(0x02, 0x49)
 03E3  0014        compare(ax, 0x0003)
 03E6  0017        If (result.notequal) jump to 0050
 03E8  0019        ShowMessage(0x05D9) = Runes on magic wall --
 03F5  0026        ShowRunes(0x05F0) = Illusion
 0402  0033        SetMoveMap(0x02, 0xCC, 0x02, 0x34)
 041D  004E        Jump to 009B
-041F  0050        ax = CheckState(0x02, 0x49)
+041F  0050        ax = CheckState04(0x02, 0x49)
 0430  0061        compare(ax, 0x0004)
 0433  0064        If (result.notequal) jump to 009B
 0435  0066        ShowMessage(0x05F9) = Runes on magic wall --
@@ -127,7 +127,7 @@ ITELEG_10:
 
 KTELEL_11:
 046C  0000        BEGIN
-046F  0003        SetState(0x02, 0x49, 0x04)
+046F  0003        SetState00(0x02, 0x49, 0x04)
 0484  0018        ShowMessage(0x061D) = Runes on magic wall --
 0491  0025        ShowRunes(0x0634) = Karma
 049E  0032        SetMoveMap(0x02, 0xB9, 0x02, 0x34)
@@ -142,7 +142,7 @@ LTELEN_12:
 
 ENLKENCA_13:
 04F5  0000        BEGIN
-04F8  0003        SetState(0x02, 0x53, 0x01)
+04F8  0003        SetState00(0x02, 0x53, 0x01)
 050D  0018        ShowMessage(0x065A) = Those which haunt this castle must be spelled to find their master.
 051A  0025        AddEncounter(0x19, 0x01)
 052C  0037        AddEncounter(0x19, 0x02)
@@ -157,7 +157,7 @@ EMPTY:
 
 DTELEO_15:
 059B  0000        BEGIN
-059E  0003        SetState(0x02, 0x49, 0x05)
+059E  0003        SetState00(0x02, 0x49, 0x05)
 05B3  0018        ShowMessage(0x069E) = Runes on magic wall --
 05C0  0025        ShowRunes(0x06B5) = Dust
 05CD  0032        SetMoveMap(0x02, 0xB7, 0x02, 0x34)
@@ -214,10 +214,10 @@ TTELEV_1C:
 
 ARNAKEND_1D:
 077D  0000        BEGIN
-0780  0003        ax = CheckState(0x02, 0x52)
+0780  0003        ax = CheckState04(0x02, 0x52)
 0791  0014        RefreshCompareFlags(ax)
 0793  0016        If (result.equal) jump to 0064
-0795  0018        ax = CheckState(0x02, 0x53)
+0795  0018        ax = CheckState04(0x02, 0x53)
 07A6  0029        RefreshCompareFlags(ax)
 07A8  002B        If (result.equal) jump to 0064
 07AA  002D        ShowMessage(0x078F) = Both Arnakkian and Enlikil have been identified.
@@ -293,7 +293,7 @@ ZTELEDD_26:
 0A4A  0000        BEGIN
 0A4D  0003        ShowMessage(0x08E9) = Runes on magic wall --
 0A5A  0010        ShowRunes(0x0900) = Zzyzx
-0A67  001D        SetState(0x02, 0x49, 0x01)
+0A67  001D        SetState00(0x02, 0x49, 0x01)
 0A7C  0032        SetMoveMap(0x02, 0x27, 0x02, 0x34)
 0A97  004D        RETURN
 
@@ -306,7 +306,7 @@ ITELEG_27:
 
 WTELEEE_28:
 0AD3  0000        BEGIN
-0AD6  0003        ax = CheckState(0x02, 0x49)
+0AD6  0003        ax = CheckState04(0x02, 0x49)
 0AE7  0014        compare(ax, 0x0001)
 0AEA  0017        If (result.notequal) jump to 004E
 0AEC  0019        ShowMessage(0x0926) = Runes on magic wall --
@@ -505,17 +505,17 @@ EMPTY:
 
 LICHDOOR_47:
 1151  0000        BEGIN
-1154  0003        ax = CheckState(0x01, 0x01)
+1154  0003        ax = CheckState04(0x01, 0x01)
 1165  0014        RefreshCompareFlags(ax)
 1167  0016        If (result.notequal) jump to 001B
 1169  0018        Jump to 00A5
-116C  001B        ax = CheckState(0x01, 0x02)
+116C  001B        ax = CheckState04(0x01, 0x02)
 117D  002C        RefreshCompareFlags(ax)
 117F  002E        If (result.equal) jump to 00A5
-1181  0030        ax = CheckState(0x01, 0x03)
+1181  0030        ax = CheckState04(0x01, 0x03)
 1192  0041        RefreshCompareFlags(ax)
 1194  0043        If (result.equal) jump to 00A5
-1196  0045        ax = CheckState(0x01, 0x04)
+1196  0045        ax = CheckState04(0x01, 0x04)
 11A7  0056        RefreshCompareFlags(ax)
 11A9  0058        If (result.equal) jump to 00A5
 11AB  005A        Push(01)
@@ -550,12 +550,12 @@ LICHA_49:
 1279  0003        AddEncounter(0x19, 0x01)
 128B  0015        AddEncounter(0x19, 0x02)
 129D  0027        AddEncounter(0x27, 0x05)
-12AF  0039        ax = CheckState(0x02, 0x8B)
+12AF  0039        ax = CheckState04(0x02, 0x8B)
 12C0  004A        RefreshCompareFlags(ax)
 12C2  004C        If (result.equal) jump to 006E
 12C4  004E        AddTreasure(0x0000, 0x00, 0x00, 0x00, 0x00, 0xCF)
 12E2  006C        Jump to 00B3
-12E4  006E        SetState(0x02, 0x8B, 0x01)
+12E4  006E        SetState00(0x02, 0x8B, 0x01)
 12F9  0083        AddTreasure(0x0000, 0x00, 0x00, 0x00, 0xB7, 0xD0)
 1318  00A2        AddExperience(0x00002710)
 1329  00B3        RETURN
@@ -565,12 +565,12 @@ LICHB_4A:
 132E  0003        AddEncounter(0x19, 0x01)
 1340  0015        AddEncounter(0x19, 0x02)
 1352  0027        AddEncounter(0x27, 0x05)
-1364  0039        ax = CheckState(0x02, 0x8C)
+1364  0039        ax = CheckState04(0x02, 0x8C)
 1375  004A        RefreshCompareFlags(ax)
 1377  004C        If (result.equal) jump to 006E
 1379  004E        AddTreasure(0x0000, 0x00, 0x00, 0x00, 0x00, 0xC6)
 1397  006C        Jump to 00B3
-1399  006E        SetState(0x02, 0x8C, 0x01)
+1399  006E        SetState00(0x02, 0x8C, 0x01)
 13AE  0083        AddTreasure(0x0000, 0x00, 0x00, 0x00, 0xCD, 0xBD)
 13CD  00A2        AddExperience(0x00002710)
 13DE  00B3        RETURN
@@ -580,12 +580,12 @@ LICHC_4B:
 13E3  0003        AddEncounter(0x19, 0x01)
 13F5  0015        AddEncounter(0x19, 0x02)
 1407  0027        AddEncounter(0x27, 0x05)
-1419  0039        ax = CheckState(0x02, 0x8D)
+1419  0039        ax = CheckState04(0x02, 0x8D)
 142A  004A        RefreshCompareFlags(ax)
 142C  004C        If (result.equal) jump to 006E
 142E  004E        AddTreasure(0x0000, 0x00, 0x00, 0x00, 0x00, 0xD1)
 144C  006C        Jump to 00B3
-144E  006E        SetState(0x02, 0x8D, 0x01)
+144E  006E        SetState00(0x02, 0x8D, 0x01)
 1463  0083        AddTreasure(0x0000, 0x00, 0x00, 0x00, 0xC7, 0xB2)
 1482  00A2        AddExperience(0x00002710)
 1493  00B3        RETURN
@@ -595,12 +595,12 @@ LICHD_4C:
 1498  0003        AddEncounter(0x19, 0x01)
 14AA  0015        AddEncounter(0x19, 0x02)
 14BC  0027        AddEncounter(0x27, 0x05)
-14CE  0039        ax = CheckState(0x02, 0x8E)
+14CE  0039        ax = CheckState04(0x02, 0x8E)
 14DF  004A        RefreshCompareFlags(ax)
 14E1  004C        If (result.equal) jump to 006E
 14E3  004E        AddTreasure(0x0000, 0x00, 0x00, 0x00, 0x00, 0xD0)
 1501  006C        Jump to 00B3
-1503  006E        SetState(0x02, 0x8E, 0x01)
+1503  006E        SetState00(0x02, 0x8E, 0x01)
 1518  0083        AddTreasure(0x0000, 0x00, 0x00, 0x00, 0xAC, 0xB7)
 1537  00A2        AddExperience(0x00002710)
 1548  00B3        RETURN
@@ -618,10 +618,10 @@ LICHMAIN_4D:
 15C4  007A        AddTreasure(0x0000, 0x00, 0x00, 0x00, 0x00, 0xCF)
 15E2  0098        Jump to 00F6
 15E4  009A        AddTreasure(0x0000, 0x00, 0x00, 0x50, 0x50, 0x2D)
-1604  00BA        ax = CheckState(0x02, 0x89)
+1604  00BA        ax = CheckState04(0x02, 0x89)
 1615  00CB        RefreshCompareFlags(ax)
 1617  00CD        If (result.notequal) jump to 00F6
-1619  00CF        SetState(0x02, 0x89, 0x01)
+1619  00CF        SetState00(0x02, 0x89, 0x01)
 162E  00E4        AddExperience(0x000B71B0)
 1640  00F6        RETURN
 
@@ -642,34 +642,34 @@ TXTLABY_50:
 
 SETLICHA_51:
 1685  0000        BEGIN
-1688  0003        ax = CheckState(0x01, 0x01)
+1688  0003        ax = CheckState04(0x01, 0x01)
 1699  0014        RefreshCompareFlags(ax)
 169B  0016        If (result.notequal) jump to 002D
-169D  0018        SetState(0x01, 0x01, 0x01)
+169D  0018        SetState00(0x01, 0x01, 0x01)
 16B2  002D        RETURN
 
 SETLICHB_52:
 16B4  0000        BEGIN
-16B7  0003        ax = CheckState(0x01, 0x02)
+16B7  0003        ax = CheckState04(0x01, 0x02)
 16C8  0014        RefreshCompareFlags(ax)
 16CA  0016        If (result.notequal) jump to 002D
-16CC  0018        SetState(0x01, 0x02, 0x01)
+16CC  0018        SetState00(0x01, 0x02, 0x01)
 16E1  002D        RETURN
 
 SETLICHC_53:
 16E3  0000        BEGIN
-16E6  0003        ax = CheckState(0x01, 0x03)
+16E6  0003        ax = CheckState04(0x01, 0x03)
 16F7  0014        RefreshCompareFlags(ax)
 16F9  0016        If (result.notequal) jump to 002D
-16FB  0018        SetState(0x01, 0x03, 0x01)
+16FB  0018        SetState00(0x01, 0x03, 0x01)
 1710  002D        RETURN
 
 SETLICHD_54:
 1712  0000        BEGIN
-1715  0003        ax = CheckState(0x01, 0x04)
+1715  0003        ax = CheckState04(0x01, 0x04)
 1726  0014        RefreshCompareFlags(ax)
 1728  0016        If (result.notequal) jump to 002D
-172A  0018        SetState(0x01, 0x04, 0x01)
+172A  0018        SetState00(0x01, 0x04, 0x01)
 173F  002D        RETURN
 
 EMPTY:

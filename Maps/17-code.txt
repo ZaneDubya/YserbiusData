@@ -40,10 +40,10 @@ TRAPDORA_07:
 00FA  0037        If (result.notequal) jump to 0062
 00FC  0039        ax = UsedItem(0xBE, 0xBE)
 010F  004C        If (result.notequal) jump to 0062
-0111  004E        ax = CheckState2(0x00, 0x01)
+0111  004E        ax = CheckState08(0x00, 0x01)
 0123  0060        If (result.equal) jump to 0085
 0125  0062        ShowMessage(0x03FC) = You found a trapdoor.
-0132  006F        SetState(0x00, 0x01, 0x01)
+0132  006F        SetState00(0x00, 0x01, 0x01)
 0146  0083        Jump to 00AC
 0148  0085        SetMoveMap(00, 0x89, 0x02, 0x05)
 0162  009F        ShowMessage(0x0412) = You fall through a trapdoor.
@@ -61,10 +61,10 @@ TRAPDORB_08:
 01A8  0037        If (result.notequal) jump to 0062
 01AA  0039        ax = UsedItem(0xBE, 0xBE)
 01BD  004C        If (result.notequal) jump to 0062
-01BF  004E        ax = CheckState2(0x00, 0x01)
+01BF  004E        ax = CheckState08(0x00, 0x01)
 01D1  0060        If (result.equal) jump to 0085
 01D3  0062        ShowMessage(0x042F) = You spot a trapdoor.
-01E0  006F        SetState(0x00, 0x01, 0x01)
+01E0  006F        SetState00(0x00, 0x01, 0x01)
 01F4  0083        Jump to 00AD
 01F6  0085        SetMoveMap(0x01, 0x8C, 0x02, 0x05)
 0211  00A0        ShowMessage(0x0444) = You fall through a trapdoor.
@@ -82,10 +82,10 @@ TRAPDORC_09:
 0257  0037        If (result.notequal) jump to 0062
 0259  0039        ax = UsedItem(0xBE, 0xBE)
 026C  004C        If (result.notequal) jump to 0062
-026E  004E        ax = CheckState2(0x00, 0x01)
+026E  004E        ax = CheckState08(0x00, 0x01)
 0280  0060        If (result.equal) jump to 0085
 0282  0062        ShowMessage(0x0461) = You detect a trapdoor.
-028F  006F        SetState(0x00, 0x01, 0x01)
+028F  006F        SetState00(0x00, 0x01, 0x01)
 02A3  0083        Jump to 00AD
 02A5  0085        SetMoveMap(0x03, 0x91, 0x02, 0x05)
 02C0  00A0        ShowMessage(0x0478) = You fall through a trapdoor.
@@ -103,10 +103,10 @@ TRAPDORD_0A:
 0306  0037        If (result.notequal) jump to 0062
 0308  0039        ax = UsedItem(0xBE, 0xBE)
 031B  004C        If (result.notequal) jump to 0062
-031D  004E        ax = CheckState2(0x00, 0x01)
+031D  004E        ax = CheckState08(0x00, 0x01)
 032F  0060        If (result.equal) jump to 0085
 0331  0062        ShowMessage(0x0495) = You escape a trapdoor.
-033E  006F        SetState(0x00, 0x01, 0x01)
+033E  006F        SetState00(0x00, 0x01, 0x01)
 0352  0083        Jump to 00AD
 0354  0085        SetMoveMap(0x03, 0x9D, 0x02, 0x05)
 036F  00A0        ShowMessage(0x04AC) = You fall through a trapdoor.
@@ -124,10 +124,10 @@ TRAPDORE_0B:
 03B5  0037        If (result.notequal) jump to 0062
 03B7  0039        ax = UsedItem(0xBE, 0xBE)
 03CA  004C        If (result.notequal) jump to 0062
-03CC  004E        ax = CheckState2(0x00, 0x01)
+03CC  004E        ax = CheckState08(0x00, 0x01)
 03DE  0060        If (result.equal) jump to 0085
 03E0  0062        ShowMessage(0x04C9) = You notice a trapdoor.
-03ED  006F        SetState(0x00, 0x01, 0x01)
+03ED  006F        SetState00(0x00, 0x01, 0x01)
 0401  0083        Jump to 00AD
 0403  0085        SetMoveMap(0x03, 0xAB, 0x02, 0x05)
 041E  00A0        ShowMessage(0x04E0) = You fall through a trapdoor.
@@ -145,10 +145,10 @@ TRAPDORF_0C:
 0464  0037        If (result.notequal) jump to 0062
 0466  0039        ax = UsedItem(0xBE, 0xBE)
 0479  004C        If (result.notequal) jump to 0062
-047B  004E        ax = CheckState2(0x00, 0x01)
+047B  004E        ax = CheckState08(0x00, 0x01)
 048D  0060        If (result.equal) jump to 0085
 048F  0062        ShowMessage(0x04FD) = There is a trapdoor in the floor.
-049C  006F        SetState(0x00, 0x01, 0x01)
+049C  006F        SetState00(0x00, 0x01, 0x01)
 04B0  0083        Jump to 00AD
 04B2  0085        SetMoveMap(0x02, 0xBA, 0x02, 0x05)
 04CD  00A0        ShowMessage(0x051F) = You fall through a trapdoor.
@@ -166,10 +166,10 @@ TRAPDORG_0D:
 0513  0037        If (result.notequal) jump to 0062
 0515  0039        ax = UsedItem(0xBE, 0xBE)
 0528  004C        If (result.notequal) jump to 0062
-052A  004E        ax = CheckState2(0x00, 0x01)
+052A  004E        ax = CheckState08(0x00, 0x01)
 053C  0060        If (result.equal) jump to 0085
 053E  0062        ShowMessage(0x053C) = You discover a trapdoor.
-054B  006F        SetState(0x00, 0x01, 0x01)
+054B  006F        SetState00(0x00, 0x01, 0x01)
 055F  0083        Jump to 00AD
 0561  0085        SetMoveMap(0x01, 0xBF, 0x02, 0x05)
 057C  00A0        ShowMessage(0x0555) = You fall through a trapdoor.
@@ -187,10 +187,10 @@ TRAPDORH_0E:
 05C2  0037        If (result.notequal) jump to 0062
 05C4  0039        ax = UsedItem(0xBE, 0xBE)
 05D7  004C        If (result.notequal) jump to 0062
-05D9  004E        ax = CheckState2(0x00, 0x01)
+05D9  004E        ax = CheckState08(0x00, 0x01)
 05EB  0060        If (result.equal) jump to 0085
 05ED  0062        ShowMessage(0x0572) = You detect a trapdoor.
-05FA  006F        SetState(0x00, 0x01, 0x01)
+05FA  006F        SetState00(0x00, 0x01, 0x01)
 060E  0083        Jump to 00AD
 0610  0085        SetMoveMap(0x02, 0xCA, 0x02, 0x05)
 062B  00A0        ShowMessage(0x0589) = You fall through a trapdoor.
@@ -208,10 +208,10 @@ TRAPDORI_0F:
 0671  0037        If (result.notequal) jump to 0062
 0673  0039        ax = UsedItem(0xBE, 0xBE)
 0686  004C        If (result.notequal) jump to 0062
-0688  004E        ax = CheckState2(0x00, 0x01)
+0688  004E        ax = CheckState08(0x00, 0x01)
 069A  0060        If (result.equal) jump to 0085
 069C  0062        ShowMessage(0x05A6) = You spot a trapdoor.
-06A9  006F        SetState(0x00, 0x01, 0x01)
+06A9  006F        SetState00(0x00, 0x01, 0x01)
 06BD  0083        Jump to 00AD
 06BF  0085        SetMoveMap(0x01, 0xD6, 0x02, 0x05)
 06DA  00A0        ShowMessage(0x05BB) = You fall through a trapdoor.
@@ -229,10 +229,10 @@ TRAPDORJ_10:
 0720  0037        If (result.notequal) jump to 0062
 0722  0039        ax = UsedItem(0xBE, 0xBE)
 0735  004C        If (result.notequal) jump to 0062
-0737  004E        ax = CheckState2(0x00, 0x01)
+0737  004E        ax = CheckState08(0x00, 0x01)
 0749  0060        If (result.equal) jump to 0085
 074B  0062        ShowMessage(0x05D8) = You detect a trapdoor.
-0758  006F        SetState(0x00, 0x01, 0x01)
+0758  006F        SetState00(0x00, 0x01, 0x01)
 076C  0083        Jump to 00AD
 076E  0085        SetMoveMap(0x03, 0xD9, 0x02, 0x05)
 0789  00A0        ShowMessage(0x05EF) = You fall through a trapdoor.
@@ -250,10 +250,10 @@ TRAPDORK_11:
 07CF  0037        If (result.notequal) jump to 0062
 07D1  0039        ax = UsedItem(0xBE, 0xBE)
 07E4  004C        If (result.notequal) jump to 0062
-07E6  004E        ax = CheckState2(0x00, 0x01)
+07E6  004E        ax = CheckState08(0x00, 0x01)
 07F8  0060        If (result.equal) jump to 0085
 07FA  0062        ShowMessage(0x060C) = A trapdoor is in this room.
-0807  006F        SetState(0x00, 0x01, 0x01)
+0807  006F        SetState00(0x00, 0x01, 0x01)
 081B  0083        Jump to 00AD
 081D  0085        SetMoveMap(0x01, 0xEC, 0x02, 0x05)
 0838  00A0        ShowMessage(0x0628) = You fall through a trapdoor.
@@ -271,10 +271,10 @@ TRAPDORL_12:
 087E  0037        If (result.notequal) jump to 0062
 0880  0039        ax = UsedItem(0xBE, 0xBE)
 0893  004C        If (result.notequal) jump to 0062
-0895  004E        ax = CheckState2(0x00, 0x01)
+0895  004E        ax = CheckState08(0x00, 0x01)
 08A7  0060        If (result.equal) jump to 0085
 08A9  0062        ShowMessage(0x0645) = You sidestep a trapdoor.
-08B6  006F        SetState(0x00, 0x01, 0x01)
+08B6  006F        SetState00(0x00, 0x01, 0x01)
 08CA  0083        Jump to 00AC
 08CC  0085        SetMoveMap(00, 0xF4, 0x02, 0x05)
 08E6  009F        ShowMessage(0x065E) = You fall through a trapdoor.
@@ -292,10 +292,10 @@ TRAPDORM_13:
 092C  0037        If (result.notequal) jump to 0062
 092E  0039        ax = UsedItem(0xBE, 0xBE)
 0941  004C        If (result.notequal) jump to 0062
-0943  004E        ax = CheckState2(0x00, 0x01)
+0943  004E        ax = CheckState08(0x00, 0x01)
 0955  0060        If (result.equal) jump to 0085
 0957  0062        ShowMessage(0x067B) = You avoid a trapdoor.
-0964  006F        SetState(0x00, 0x01, 0x01)
+0964  006F        SetState00(0x00, 0x01, 0x01)
 0978  0083        Jump to 00AD
 097A  0085        SetMoveMap(0x02, 0xFD, 0x02, 0x05)
 0995  00A0        ShowMessage(0x0691) = You fall through a trapdoor.
@@ -606,10 +606,10 @@ DETCTDOR_1D:
 
 LFTROTA_1E:
 1000  0000        BEGIN
-1003  0003        ax = CheckState3(0x00, 0x02)
+1003  0003        ax = CheckState0C(0x00, 0x02)
 1015  0015        If (result.notequal) jump to 001A
 1017  0017        Jump to 00C9
-101A  001A        SetState(0x00, 0x02, 0x01)
+101A  001A        SetState00(0x00, 0x02, 0x01)
 102E  002E        ax = GetFacing()
 1035  0035        bx = ax
 1037  0037        compare(bx, 0x03)
@@ -638,10 +638,10 @@ LFTROTA_1E:
 
 LFTROTB_1F:
 10D3  0000        BEGIN
-10D6  0003        ax = CheckState3(0x00, 0x02)
+10D6  0003        ax = CheckState0C(0x00, 0x02)
 10E8  0015        If (result.notequal) jump to 001A
 10EA  0017        Jump to 00EF
-10ED  001A        SetState(0x00, 0x02, 0x01)
+10ED  001A        SetState00(0x00, 0x02, 0x01)
 1101  002E        ax = GetFacing()
 1108  0035        bx = ax
 110A  0037        compare(bx, 0x03)
@@ -675,10 +675,10 @@ LFTROTB_1F:
 
 BACKROTL_20:
 11CC  0000        BEGIN
-11CF  0003        ax = CheckState3(0x00, 0x02)
+11CF  0003        ax = CheckState0C(0x00, 0x02)
 11E1  0015        If (result.notequal) jump to 001A
 11E3  0017        Jump to 00EF
-11E6  001A        SetState(0x00, 0x02, 0x01)
+11E6  001A        SetState00(0x00, 0x02, 0x01)
 11FA  002E        ax = GetFacing()
 1201  0035        bx = ax
 1203  0037        compare(bx, 0x03)
@@ -712,10 +712,10 @@ BACKROTL_20:
 
 RTROTA_21:
 12C5  0000        BEGIN
-12C8  0003        ax = CheckState3(0x00, 0x02)
+12C8  0003        ax = CheckState0C(0x00, 0x02)
 12DA  0015        If (result.notequal) jump to 001A
 12DC  0017        Jump to 00EF
-12DF  001A        SetState(0x00, 0x02, 0x01)
+12DF  001A        SetState00(0x00, 0x02, 0x01)
 12F3  002E        ax = GetFacing()
 12FA  0035        bx = ax
 12FC  0037        compare(bx, 0x03)
@@ -749,10 +749,10 @@ RTROTA_21:
 
 RTROTB_22:
 13BE  0000        BEGIN
-13C1  0003        ax = CheckState3(0x00, 0x02)
+13C1  0003        ax = CheckState0C(0x00, 0x02)
 13D3  0015        If (result.notequal) jump to 001A
 13D5  0017        Jump to 00EF
-13D8  001A        SetState(0x00, 0x02, 0x01)
+13D8  001A        SetState00(0x00, 0x02, 0x01)
 13EC  002E        ax = GetFacing()
 13F3  0035        bx = ax
 13F5  0037        compare(bx, 0x03)
@@ -1131,13 +1131,13 @@ TELMESSC_33:
 
 GOLDAENC_34:
 22C6  0000        BEGIN
-22C9  0003        ax = CheckState(0x02, 0x38)
+22C9  0003        ax = CheckState04(0x02, 0x38)
 22DA  0014        compare(ax, 0x0001)
 22DD  0017        If (result.notequal) jump to 003A
 22DF  0019        AddTreasure(0x01F4, 0x00, 0x00, 0x00, 0x00, 0xB5)
 22FE  0038        Jump to 006F
 2300  003A        AddTreasure(0x1388, 0x00, 0x00, 0x00, 0xAB, 0xA8)
-2320  005A        SetState(0x02, 0x1F, 0x01)
+2320  005A        SetState00(0x02, 0x1F, 0x01)
 2335  006F        ShowMessage(0x0BCD) = Banshees haunt this room.
 2342  007C        ax = PartyCount()
 234A  0084        compare(ax, 0x0001)
@@ -1161,13 +1161,13 @@ GOLDAENC_34:
 GOLDBENC_35:
 2405  0000        BEGIN
 2408  0003        ShowMessage(0x0BE7) = Deinons protect a chest.
-2415  0010        ax = CheckState(0x02, 0x39)
+2415  0010        ax = CheckState04(0x02, 0x39)
 2426  0021        compare(ax, 0x0001)
 2429  0024        If (result.notequal) jump to 0047
 242B  0026        AddTreasure(0x00C8, 0x00, 0x00, 0x00, 0x00, 0x04)
 244A  0045        Jump to 007C
 244C  0047        AddTreasure(0x1770, 0x00, 0x00, 0x00, 0xB6, 0xCE)
-246C  0067        SetState(0x02, 0x20, 0x01)
+246C  0067        SetState00(0x02, 0x20, 0x01)
 2481  007C        ax = PartyCount()
 2489  0084        compare(ax, 0x0001)
 248C  0087        If (result.notequal) jump to 009E
@@ -1194,10 +1194,10 @@ GOLDBENC_35:
 
 BACKROTR_36:
 2566  0000        BEGIN
-2569  0003        ax = CheckState3(0x00, 0x02)
+2569  0003        ax = CheckState0C(0x00, 0x02)
 257B  0015        If (result.notequal) jump to 001A
 257D  0017        Jump to 00EF
-2580  001A        SetState(0x00, 0x02, 0x01)
+2580  001A        SetState00(0x00, 0x02, 0x01)
 2594  002E        ax = GetFacing()
 259B  0035        bx = ax
 259D  0037        compare(bx, 0x03)

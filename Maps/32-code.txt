@@ -35,10 +35,10 @@ PLATA_04:
 
 PLATB_05:
 00BC  0000        BEGIN
-00BF  0003        ax = CheckState(0x02, 0x84)
+00BF  0003        ax = CheckState04(0x02, 0x84)
 00D0  0014        RefreshCompareFlags(ax)
 00D2  0016        If (result.notequal) jump to 008E
-00D4  0018        SetState(0x02, 0x84, 0x01)
+00D4  0018        SetState00(0x02, 0x84, 0x01)
 00E9  002D        ShowPortrait(0x0042)
 00F6  003A        ShowMessage(0x04D1) = DragonBreath Fountain empowers you with improved attributes.
 0103  0047        ModifyAttribute(0x00, 0x0001)
@@ -135,30 +135,30 @@ RAINRED_15:
 02DE  0016        If (result.notequal) jump to 001B
 02E0  0018        Jump to 00B5
 02E3  001B        ShowMessage(0x07DD) = A beam of red arcs over the Ageless Void.
-02F0  0028        SetState(0x02, 0x80, 0x01)
-0305  003D        ax = CheckState(0x02, 0x80)
+02F0  0028        SetState00(0x02, 0x80, 0x01)
+0305  003D        ax = CheckState04(0x02, 0x80)
 0316  004E        RefreshCompareFlags(ax)
 0318  0050        If (result.equal) jump to 00B3
-031A  0052        ax = CheckState(0x02, 0x81)
+031A  0052        ax = CheckState04(0x02, 0x81)
 032B  0063        RefreshCompareFlags(ax)
 032D  0065        If (result.equal) jump to 00B3
-032F  0067        ax = CheckState(0x02, 0x82)
+032F  0067        ax = CheckState04(0x02, 0x82)
 0340  0078        RefreshCompareFlags(ax)
 0342  007A        If (result.equal) jump to 00B3
-0344  007C        ax = CheckState(0x02, 0x83)
+0344  007C        ax = CheckState04(0x02, 0x83)
 0355  008D        RefreshCompareFlags(ax)
 0357  008F        If (result.equal) jump to 00B3
-0359  0091        SetState(0x01, 0x01, 0x01)
+0359  0091        SetState00(0x01, 0x01, 0x01)
 036E  00A6        ShowMessage(0x0807) = A vibrant rainbow of color forms.
 037B  00B3        Jump to 00C2
 037D  00B5        ShowMessage(0x0829) = A golden statue appears to be capable of holding a gem.
 038A  00C2        ax = UsedItem(0xF3, 0xF3)
 039D  00D5        If (result.notequal) jump to 00DA
 039F  00D7        Jump to 015A
-03A2  00DA        ax = CheckState(0x01, 0x01)
+03A2  00DA        ax = CheckState04(0x01, 0x01)
 03B3  00EB        RefreshCompareFlags(ax)
 03B5  00ED        If (result.equal) jump to 015A
-03B7  00EF        SetState(0x01, 0x01, 0x01)
+03B7  00EF        SetState00(0x01, 0x01, 0x01)
 03CC  0104        SetMove38(0x75, 0x42)
 03DD  0115        SetMove38(0x85, 0x42)
 03EE  0126        ShowMessage(0x0861) = Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
@@ -173,28 +173,28 @@ RAINYEL_16:
 043A  0016        If (result.notequal) jump to 001B
 043C  0018        Jump to 00B3
 043F  001B        ShowMessage(0x0995) = A beam of yellow arcs over the Ageless Void.
-044C  0028        SetState(0x02, 0x81, 0x01)
-0461  003D        ax = CheckState(0x02, 0x80)
+044C  0028        SetState00(0x02, 0x81, 0x01)
+0461  003D        ax = CheckState04(0x02, 0x80)
 0472  004E        RefreshCompareFlags(ax)
 0474  0050        If (result.equal) jump to 00B3
-0476  0052        ax = CheckState(0x02, 0x81)
+0476  0052        ax = CheckState04(0x02, 0x81)
 0487  0063        RefreshCompareFlags(ax)
 0489  0065        If (result.equal) jump to 00B3
-048B  0067        ax = CheckState(0x02, 0x82)
+048B  0067        ax = CheckState04(0x02, 0x82)
 049C  0078        RefreshCompareFlags(ax)
 049E  007A        If (result.equal) jump to 00B3
-04A0  007C        ax = CheckState(0x02, 0x83)
+04A0  007C        ax = CheckState04(0x02, 0x83)
 04B1  008D        RefreshCompareFlags(ax)
 04B3  008F        If (result.equal) jump to 00B3
-04B5  0091        SetState(0x01, 0x01, 0x01)
+04B5  0091        SetState00(0x01, 0x01, 0x01)
 04CA  00A6        ShowMessage(0x09C2) = A vibrant rainbow of color forms.
 04D7  00B3        ax = UsedItem(0xF3, 0xF3)
 04EA  00C6        If (result.notequal) jump to 00CB
 04EC  00C8        Jump to 014B
-04EF  00CB        ax = CheckState(0x01, 0x01)
+04EF  00CB        ax = CheckState04(0x01, 0x01)
 0500  00DC        RefreshCompareFlags(ax)
 0502  00DE        If (result.equal) jump to 014B
-0504  00E0        SetState(0x01, 0x01, 0x01)
+0504  00E0        SetState00(0x01, 0x01, 0x01)
 0519  00F5        SetMove38(0x75, 0x42)
 052A  0106        SetMove38(0x85, 0x42)
 053B  0117        ShowMessage(0x09E4) = Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
@@ -209,28 +209,28 @@ RAINGRN_17:
 0587  0016        If (result.notequal) jump to 001B
 0589  0018        Jump to 00B3
 058C  001B        ShowMessage(0x0B18) = A beam of green arcs over the Ageless Void.
-0599  0028        SetState(0x02, 0x82, 0x01)
-05AE  003D        ax = CheckState(0x02, 0x80)
+0599  0028        SetState00(0x02, 0x82, 0x01)
+05AE  003D        ax = CheckState04(0x02, 0x80)
 05BF  004E        RefreshCompareFlags(ax)
 05C1  0050        If (result.equal) jump to 00B3
-05C3  0052        ax = CheckState(0x02, 0x81)
+05C3  0052        ax = CheckState04(0x02, 0x81)
 05D4  0063        RefreshCompareFlags(ax)
 05D6  0065        If (result.equal) jump to 00B3
-05D8  0067        ax = CheckState(0x02, 0x82)
+05D8  0067        ax = CheckState04(0x02, 0x82)
 05E9  0078        RefreshCompareFlags(ax)
 05EB  007A        If (result.equal) jump to 00B3
-05ED  007C        ax = CheckState(0x02, 0x83)
+05ED  007C        ax = CheckState04(0x02, 0x83)
 05FE  008D        RefreshCompareFlags(ax)
 0600  008F        If (result.equal) jump to 00B3
-0602  0091        SetState(0x01, 0x01, 0x01)
+0602  0091        SetState00(0x01, 0x01, 0x01)
 0617  00A6        ShowMessage(0x0B44) = A vibrant rainbow of color forms.
 0624  00B3        ax = UsedItem(0xF3, 0xF3)
 0637  00C6        If (result.notequal) jump to 00CB
 0639  00C8        Jump to 014B
-063C  00CB        ax = CheckState(0x01, 0x01)
+063C  00CB        ax = CheckState04(0x01, 0x01)
 064D  00DC        RefreshCompareFlags(ax)
 064F  00DE        If (result.equal) jump to 014B
-0651  00E0        SetState(0x01, 0x01, 0x01)
+0651  00E0        SetState00(0x01, 0x01, 0x01)
 0666  00F5        SetMove38(0x75, 0x42)
 0677  0106        SetMove38(0x85, 0x42)
 0688  0117        ShowMessage(0x0B66) = Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
@@ -245,28 +245,28 @@ RAINBLU_18:
 06D4  0016        If (result.notequal) jump to 001B
 06D6  0018        Jump to 00B3
 06D9  001B        ShowMessage(0x0C9A) = A beam of blue arcs over the Ageless Void.
-06E6  0028        SetState(0x02, 0x83, 0x01)
-06FB  003D        ax = CheckState(0x02, 0x80)
+06E6  0028        SetState00(0x02, 0x83, 0x01)
+06FB  003D        ax = CheckState04(0x02, 0x80)
 070C  004E        RefreshCompareFlags(ax)
 070E  0050        If (result.equal) jump to 00B3
-0710  0052        ax = CheckState(0x02, 0x81)
+0710  0052        ax = CheckState04(0x02, 0x81)
 0721  0063        RefreshCompareFlags(ax)
 0723  0065        If (result.equal) jump to 00B3
-0725  0067        ax = CheckState(0x02, 0x82)
+0725  0067        ax = CheckState04(0x02, 0x82)
 0736  0078        RefreshCompareFlags(ax)
 0738  007A        If (result.equal) jump to 00B3
-073A  007C        ax = CheckState(0x02, 0x83)
+073A  007C        ax = CheckState04(0x02, 0x83)
 074B  008D        RefreshCompareFlags(ax)
 074D  008F        If (result.equal) jump to 00B3
-074F  0091        SetState(0x01, 0x01, 0x01)
+074F  0091        SetState00(0x01, 0x01, 0x01)
 0764  00A6        ShowMessage(0x0CC5) = A vibrant rainbow of color forms.
 0771  00B3        ax = UsedItem(0xF3, 0xF3)
 0784  00C6        If (result.notequal) jump to 00CB
 0786  00C8        Jump to 014B
-0789  00CB        ax = CheckState(0x01, 0x01)
+0789  00CB        ax = CheckState04(0x01, 0x01)
 079A  00DC        RefreshCompareFlags(ax)
 079C  00DE        If (result.equal) jump to 014B
-079E  00E0        SetState(0x01, 0x01, 0x01)
+079E  00E0        SetState00(0x01, 0x01, 0x01)
 07B3  00F5        SetMove38(0x75, 0x42)
 07C4  0106        SetMove38(0x85, 0x42)
 07D5  0117        ShowMessage(0x0CE7) = Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
@@ -330,7 +330,7 @@ TAPECLUE_1E:
 
 BOAT_1F:
 0A19  0000        BEGIN
-0A1C  0003        ax = CheckState(0x01, 0x01)
+0A1C  0003        ax = CheckState04(0x01, 0x01)
 0A2D  0014        RefreshCompareFlags(ax)
 0A2F  0016        If (result.equal) jump to 0075
 0A31  0018        ShowMessage(0x0F59) = You step across the platform and into the Golden Boat.

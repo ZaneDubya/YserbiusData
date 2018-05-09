@@ -73,6 +73,7 @@ TileIsNoJoinArea        For whatever reason, no one can join after this event
 == Interaction Functions ==
 Fn Name_____            Notes____
 AddEncounter            Adds param1 count of param0 monsters, at RETURN, combat starts
+AddStatus               Used to afflict status of type == param0 on character
 AddTreasure             Adds items to loot screen which will follow combat;
                         Param0 is short gold, params1-5 are loot items with id==paramX.
 CheckState              Returns state of type, offset. Always followed by compare. Must not set result flags?
@@ -83,7 +84,6 @@ SetTileFloor            Sets the floor tile to type param0
 ShowRunes               Shows message param0 (short) in runes. If rune reading has been used, reveals the message
 ShowMessage             Shows message param0 (short).
 ShowPortrait            Shows a portrait of index=param0
-UnknownFunction1C       Used to afflict status of type == param0 on character
 UnknownFunctionC4       Unknown. Only used before the river of eternity taps your life energy (30-code for example).
 UnknownFunctionEC       Unknown. Always passed with short param 0x000f and compared to another param (value from 2-15).
                         Always used in context of an NPC giving advice or ignoring/attacking you.

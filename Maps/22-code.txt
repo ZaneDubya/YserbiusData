@@ -13,16 +13,16 @@ ENCGUARD_02:
 005E  0034        AddEncounter(0x27, 0x03)
 0070  0046        AddEncounter(0x27, 0x04)
 0082  0058        AddEncounter(0x27, 0x05)
-0094  006A        ax = CheckState(0x02, 0x88)
+0094  006A        ax = CheckState04(0x02, 0x88)
 00A5  007B        RefreshCompareFlags(ax)
 00A7  007D        If (result.notequal) jump to 00A6
-00A9  007F        SetState(0x02, 0x88, 0x01)
+00A9  007F        SetState00(0x02, 0x88, 0x01)
 00BE  0094        AddExperience(0x0007A120)
 00D0  00A6        RETURN
 
 ENCEARTH_03:
 00D2  0000        BEGIN
-00D5  0003        ax = CheckState(0x01, 0x01)
+00D5  0003        ax = CheckState04(0x01, 0x01)
 00E6  0014        RefreshCompareFlags(ax)
 00E8  0016        If (result.equal) jump to 001B
 00EA  0018        Jump to 0123
@@ -38,10 +38,10 @@ ENCEARTH_03:
 0176  00A4        AddTreasure(0x0000, 0x00, 0x00, 0x50, 0x50, 0xD0)
 0196  00C4        Jump to 0123
 0198  00C6        AddTreasure(0x03E8, 0x00, 0x00, 0x88, 0x1D, 0xE9)
-01B9  00E7        ax = CheckState(0x02, 0x8A)
+01B9  00E7        ax = CheckState04(0x02, 0x8A)
 01CA  00F8        RefreshCompareFlags(ax)
 01CC  00FA        If (result.notequal) jump to 0123
-01CE  00FC        SetState(0x02, 0x8A, 0x01)
+01CE  00FC        SetState00(0x02, 0x8A, 0x01)
 01E3  0111        AddExperience(0x0003D090)
 01F5  0123        RETURN
 
@@ -52,7 +52,7 @@ GUARDIAN_04:
 
 EARTHELE_05:
 0209  0000        BEGIN
-020C  0003        ax = CheckState(0x01, 0x01)
+020C  0003        ax = CheckState04(0x01, 0x01)
 021D  0014        RefreshCompareFlags(ax)
 021F  0016        If (result.notequal) jump to 0025
 0221  0018        ShowMessage(0x04EA) = The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
@@ -72,87 +72,87 @@ PLATB_07:
 YBOXA_08:
 0261  0000        BEGIN
 0264  0003        ShowMessage(0x0638) = The wall glows.
-0271  0010        SetState(0x01, 0x02, 0x01)
+0271  0010        SetState00(0x01, 0x02, 0x01)
 0286  0025        RETURN
 
 YBOXB_09:
 0288  0000        BEGIN
 028B  0003        ShowMessage(0x0648) = The wall glows.
-0298  0010        SetState(0x01, 0x02, 0x02)
+0298  0010        SetState00(0x01, 0x02, 0x02)
 02AD  0025        RETURN
 
 YBOXC_0A:
 02AF  0000        BEGIN
 02B2  0003        ShowMessage(0x0658) = The wall glows.
-02BF  0010        SetState(0x01, 0x02, 0x03)
+02BF  0010        SetState00(0x01, 0x02, 0x03)
 02D4  0025        RETURN
 
 YBOXD_0B:
 02D6  0000        BEGIN
 02D9  0003        ShowMessage(0x0668) = The wall glows.
-02E6  0010        SetState(0x01, 0x02, 0x04)
+02E6  0010        SetState00(0x01, 0x02, 0x04)
 02FB  0025        RETURN
 
 YBOXE_0C:
 02FD  0000        BEGIN
 0300  0003        ShowMessage(0x0678) = The wall glows.
-030D  0010        SetState(0x01, 0x02, 0x05)
+030D  0010        SetState00(0x01, 0x02, 0x05)
 0322  0025        RETURN
 
 YBOXF_0D:
 0324  0000        BEGIN
 0327  0003        ShowMessage(0x0688) = The wall glows.
-0334  0010        SetState(0x01, 0x02, 0x06)
+0334  0010        SetState00(0x01, 0x02, 0x06)
 0349  0025        RETURN
 
 XBOXG_0E:
 034B  0000        BEGIN
 034E  0003        ShowMessage(0x0698) = The wall glows.
-035B  0010        SetState(0x01, 0x03, 0x01)
+035B  0010        SetState00(0x01, 0x03, 0x01)
 0370  0025        RETURN
 
 XBOXH_0F:
 0372  0000        BEGIN
 0375  0003        ShowMessage(0x06A8) = The wall glows.
-0382  0010        SetState(0x01, 0x03, 0x02)
+0382  0010        SetState00(0x01, 0x03, 0x02)
 0397  0025        RETURN
 
 XBOXI_10:
 0399  0000        BEGIN
 039C  0003        ShowMessage(0x06B8) = The wall glows.
-03A9  0010        SetState(0x01, 0x03, 0x03)
+03A9  0010        SetState00(0x01, 0x03, 0x03)
 03BE  0025        RETURN
 
 XBOXJ_11:
 03C0  0000        BEGIN
 03C3  0003        ShowMessage(0x06C8) = The wall glows.
-03D0  0010        SetState(0x01, 0x03, 0x04)
+03D0  0010        SetState00(0x01, 0x03, 0x04)
 03E5  0025        RETURN
 
 XBOXK_12:
 03E7  0000        BEGIN
 03EA  0003        ShowMessage(0x06D8) = The wall glows.
-03F7  0010        SetState(0x01, 0x03, 0x05)
+03F7  0010        SetState00(0x01, 0x03, 0x05)
 040C  0025        RETURN
 
 XBOXL_13:
 040E  0000        BEGIN
 0411  0003        ShowMessage(0x06E8) = The wall glows.
-041E  0010        SetState(0x01, 0x03, 0x06)
+041E  0010        SetState00(0x01, 0x03, 0x06)
 0433  0025        RETURN
 
 XBOXM_14:
 0435  0000        BEGIN
 0438  0003        ShowMessage(0x06F8) = The wall glows.
-0445  0010        SetState(0x01, 0x03, 0x07)
+0445  0010        SetState00(0x01, 0x03, 0x07)
 045A  0025        RETURN
 
 PITAJ_15:
 045C  0000        BEGIN
-045F  0003        ax = CheckState(0x01, 0x02)
+045F  0003        ax = CheckState04(0x01, 0x02)
 0470  0014        compare(ax, 0x0001)
 0473  0017        If (result.notequal) jump to 003E
-0475  0019        ax = CheckState(0x01, 0x03)
+0475  0019        ax = CheckState04(0x01, 0x03)
 0486  002A        compare(ax, 0x0004)
 0489  002D        If (result.notequal) jump to 003E
 048B  002F        ShowMessage(0x0708) = Your decision on where to step next saves you.
@@ -164,10 +164,10 @@ PITAJ_15:
 
 PITAK_16:
 04BA  0000        BEGIN
-04BD  0003        ax = CheckState(0x01, 0x02)
+04BD  0003        ax = CheckState04(0x01, 0x02)
 04CE  0014        compare(ax, 0x0001)
 04D1  0017        If (result.notequal) jump to 003E
-04D3  0019        ax = CheckState(0x01, 0x03)
+04D3  0019        ax = CheckState04(0x01, 0x03)
 04E4  002A        compare(ax, 0x0005)
 04E7  002D        If (result.notequal) jump to 003E
 04E9  002F        ShowMessage(0x0761) = You selected your next move wisely.
@@ -179,10 +179,10 @@ PITAK_16:
 
 PITAL_17:
 0518  0000        BEGIN
-051B  0003        ax = CheckState(0x01, 0x02)
+051B  0003        ax = CheckState04(0x01, 0x02)
 052C  0014        compare(ax, 0x0001)
 052F  0017        If (result.notequal) jump to 003E
-0531  0019        ax = CheckState(0x01, 0x03)
+0531  0019        ax = CheckState04(0x01, 0x03)
 0542  002A        compare(ax, 0x0006)
 0545  002D        If (result.notequal) jump to 003E
 0547  002F        ShowMessage(0x07AF) = Your next step is a safe one.
@@ -194,10 +194,10 @@ PITAL_17:
 
 PITAM_18:
 0576  0000        BEGIN
-0579  0003        ax = CheckState(0x01, 0x02)
+0579  0003        ax = CheckState04(0x01, 0x02)
 058A  0014        compare(ax, 0x0001)
 058D  0017        If (result.notequal) jump to 003E
-058F  0019        ax = CheckState(0x01, 0x03)
+058F  0019        ax = CheckState04(0x01, 0x03)
 05A0  002A        compare(ax, 0x0007)
 05A3  002D        If (result.notequal) jump to 003E
 05A5  002F        ShowMessage(0x07F7) = The step you take is wisely chosen.
@@ -209,10 +209,10 @@ PITAM_18:
 
 PITBG_19:
 05D4  0000        BEGIN
-05D7  0003        ax = CheckState(0x01, 0x02)
+05D7  0003        ax = CheckState04(0x01, 0x02)
 05E8  0014        compare(ax, 0x0002)
 05EB  0017        If (result.notequal) jump to 003E
-05ED  0019        ax = CheckState(0x01, 0x03)
+05ED  0019        ax = CheckState04(0x01, 0x03)
 05FE  002A        compare(ax, 0x0001)
 0601  002D        If (result.notequal) jump to 003E
 0603  002F        ShowMessage(0x0845) = You take one good step forward.
@@ -224,10 +224,10 @@ PITBG_19:
 
 PITBI_1A:
 0632  0000        BEGIN
-0635  0003        ax = CheckState(0x01, 0x02)
+0635  0003        ax = CheckState04(0x01, 0x02)
 0646  0014        compare(ax, 0x0002)
 0649  0017        If (result.notequal) jump to 003E
-064B  0019        ax = CheckState(0x01, 0x03)
+064B  0019        ax = CheckState04(0x01, 0x03)
 065C  002A        compare(ax, 0x0003)
 065F  002D        If (result.notequal) jump to 003E
 0661  002F        ShowMessage(0x088F) = You safely step forward.
@@ -239,10 +239,10 @@ PITBI_1A:
 
 PITBJ_1B:
 0690  0000        BEGIN
-0693  0003        ax = CheckState(0x01, 0x02)
+0693  0003        ax = CheckState04(0x01, 0x02)
 06A4  0014        compare(ax, 0x0002)
 06A7  0017        If (result.notequal) jump to 003E
-06A9  0019        ax = CheckState(0x01, 0x03)
+06A9  0019        ax = CheckState04(0x01, 0x03)
 06BA  002A        compare(ax, 0x0004)
 06BD  002D        If (result.notequal) jump to 003E
 06BF  002F        ShowMessage(0x08D2) = You take a step in the right direction,
@@ -254,10 +254,10 @@ PITBJ_1B:
 
 PITBK_1C:
 06EE  0000        BEGIN
-06F1  0003        ax = CheckState(0x01, 0x02)
+06F1  0003        ax = CheckState04(0x01, 0x02)
 0702  0014        compare(ax, 0x0002)
 0705  0017        If (result.notequal) jump to 003E
-0707  0019        ax = CheckState(0x01, 0x03)
+0707  0019        ax = CheckState04(0x01, 0x03)
 0718  002A        compare(ax, 0x0005)
 071B  002D        If (result.notequal) jump to 003E
 071D  002F        ShowMessage(0x0924) = Your move is wise.
@@ -269,10 +269,10 @@ PITBK_1C:
 
 PITBL_1D:
 074C  0000        BEGIN
-074F  0003        ax = CheckState(0x01, 0x02)
+074F  0003        ax = CheckState04(0x01, 0x02)
 0760  0014        compare(ax, 0x0002)
 0763  0017        If (result.notequal) jump to 003E
-0765  0019        ax = CheckState(0x01, 0x03)
+0765  0019        ax = CheckState04(0x01, 0x03)
 0776  002A        compare(ax, 0x0006)
 0779  002D        If (result.notequal) jump to 003E
 077B  002F        ShowMessage(0x0961) = You select your next move wisely.
@@ -284,10 +284,10 @@ PITBL_1D:
 
 PITBM_1E:
 07AA  0000        BEGIN
-07AD  0003        ax = CheckState(0x01, 0x02)
+07AD  0003        ax = CheckState04(0x01, 0x02)
 07BE  0014        compare(ax, 0x0002)
 07C1  0017        If (result.notequal) jump to 003E
-07C3  0019        ax = CheckState(0x01, 0x03)
+07C3  0019        ax = CheckState04(0x01, 0x03)
 07D4  002A        compare(ax, 0x0007)
 07D7  002D        If (result.notequal) jump to 003E
 07D9  002F        ShowMessage(0x09AD) = You move forward with confidence.
@@ -299,10 +299,10 @@ PITBM_1E:
 
 PITCG_1F:
 0808  0000        BEGIN
-080B  0003        ax = CheckState(0x01, 0x02)
+080B  0003        ax = CheckState04(0x01, 0x02)
 081C  0014        compare(ax, 0x0003)
 081F  0017        If (result.notequal) jump to 003E
-0821  0019        ax = CheckState(0x01, 0x03)
+0821  0019        ax = CheckState04(0x01, 0x03)
 0832  002A        compare(ax, 0x0001)
 0835  002D        If (result.notequal) jump to 003E
 0837  002F        ShowMessage(0x09F9) = Your next step is a good one.
@@ -314,10 +314,10 @@ PITCG_1F:
 
 PITCH_20:
 0866  0000        BEGIN
-0869  0003        ax = CheckState(0x01, 0x02)
+0869  0003        ax = CheckState04(0x01, 0x02)
 087A  0014        compare(ax, 0x0003)
 087D  0017        If (result.notequal) jump to 003E
-087F  0019        ax = CheckState(0x01, 0x03)
+087F  0019        ax = CheckState04(0x01, 0x03)
 0890  002A        compare(ax, 0x0002)
 0893  002D        If (result.notequal) jump to 003E
 0895  002F        ShowMessage(0x0A41) = You move ahead assuredly.
@@ -329,10 +329,10 @@ PITCH_20:
 
 PITCI_21:
 08C4  0000        BEGIN
-08C7  0003        ax = CheckState(0x01, 0x02)
+08C7  0003        ax = CheckState04(0x01, 0x02)
 08D8  0014        compare(ax, 0x0003)
 08DB  0017        If (result.notequal) jump to 003E
-08DD  0019        ax = CheckState(0x01, 0x03)
+08DD  0019        ax = CheckState04(0x01, 0x03)
 08EE  002A        compare(ax, 0x0003)
 08F1  002D        If (result.notequal) jump to 003E
 08F3  002F        ShowMessage(0x0A85) = You choose your next step correctly.
@@ -344,10 +344,10 @@ PITCI_21:
 
 PITCJ_22:
 0922  0000        BEGIN
-0925  0003        ax = CheckState(0x01, 0x02)
+0925  0003        ax = CheckState04(0x01, 0x02)
 0936  0014        compare(ax, 0x0003)
 0939  0017        If (result.notequal) jump to 003E
-093B  0019        ax = CheckState(0x01, 0x03)
+093B  0019        ax = CheckState04(0x01, 0x03)
 094C  002A        compare(ax, 0x0004)
 094F  002D        If (result.notequal) jump to 003E
 0951  002F        ShowMessage(0x0AD4) = Your choice of movement saves you.
@@ -359,10 +359,10 @@ PITCJ_22:
 
 PITCK_23:
 0980  0000        BEGIN
-0983  0003        ax = CheckState(0x01, 0x02)
+0983  0003        ax = CheckState04(0x01, 0x02)
 0994  0014        compare(ax, 0x0003)
 0997  0017        If (result.notequal) jump to 003E
-0999  0019        ax = CheckState(0x01, 0x03)
+0999  0019        ax = CheckState04(0x01, 0x03)
 09AA  002A        compare(ax, 0x0005)
 09AD  002D        If (result.notequal) jump to 003E
 09AF  002F        ShowMessage(0x0B21) = You step in the right direction.
@@ -374,10 +374,10 @@ PITCK_23:
 
 PITCL_24:
 09DE  0000        BEGIN
-09E1  0003        ax = CheckState(0x01, 0x02)
+09E1  0003        ax = CheckState04(0x01, 0x02)
 09F2  0014        compare(ax, 0x0003)
 09F5  0017        If (result.notequal) jump to 003E
-09F7  0019        ax = CheckState(0x01, 0x03)
+09F7  0019        ax = CheckState04(0x01, 0x03)
 0A08  002A        compare(ax, 0x0006)
 0A0B  002D        If (result.notequal) jump to 003E
 0A0D  002F        ShowMessage(0x0B6C) = You select your next step wisely.
@@ -389,10 +389,10 @@ PITCL_24:
 
 PITCM_25:
 0A3C  0000        BEGIN
-0A3F  0003        ax = CheckState(0x01, 0x02)
+0A3F  0003        ax = CheckState04(0x01, 0x02)
 0A50  0014        compare(ax, 0x0003)
 0A53  0017        If (result.notequal) jump to 003E
-0A55  0019        ax = CheckState(0x01, 0x03)
+0A55  0019        ax = CheckState04(0x01, 0x03)
 0A66  002A        compare(ax, 0x0007)
 0A69  002D        If (result.notequal) jump to 003E
 0A6B  002F        ShowMessage(0x0BB8) = Your next step is sagely chosen.
@@ -404,10 +404,10 @@ PITCM_25:
 
 PITDG_26:
 0A9A  0000        BEGIN
-0A9D  0003        ax = CheckState(0x01, 0x02)
+0A9D  0003        ax = CheckState04(0x01, 0x02)
 0AAE  0014        compare(ax, 0x0004)
 0AB1  0017        If (result.notequal) jump to 003E
-0AB3  0019        ax = CheckState(0x01, 0x03)
+0AB3  0019        ax = CheckState04(0x01, 0x03)
 0AC4  002A        compare(ax, 0x0001)
 0AC7  002D        If (result.notequal) jump to 003E
 0AC9  002F        ShowMessage(0x0C03) = You take a wise step forward.
@@ -419,10 +419,10 @@ PITDG_26:
 
 PITDH_27:
 0AF8  0000        BEGIN
-0AFB  0003        ax = CheckState(0x01, 0x02)
+0AFB  0003        ax = CheckState04(0x01, 0x02)
 0B0C  0014        compare(ax, 0x0004)
 0B0F  0017        If (result.notequal) jump to 003E
-0B11  0019        ax = CheckState(0x01, 0x03)
+0B11  0019        ax = CheckState04(0x01, 0x03)
 0B22  002A        compare(ax, 0x0002)
 0B25  002D        If (result.notequal) jump to 003E
 0B27  002F        ShowMessage(0x0C4B) = You move forward wisely.
@@ -434,10 +434,10 @@ PITDH_27:
 
 PITDI_28:
 0B56  0000        BEGIN
-0B59  0003        ax = CheckState(0x01, 0x02)
+0B59  0003        ax = CheckState04(0x01, 0x02)
 0B6A  0014        compare(ax, 0x0004)
 0B6D  0017        If (result.notequal) jump to 003E
-0B6F  0019        ax = CheckState(0x01, 0x03)
+0B6F  0019        ax = CheckState04(0x01, 0x03)
 0B80  002A        compare(ax, 0x0003)
 0B83  002D        If (result.notequal) jump to 003E
 0B85  002F        ShowMessage(0x0C8E) = Your next step is wisely decided.
@@ -449,10 +449,10 @@ PITDI_28:
 
 PITDJ_29:
 0BB4  0000        BEGIN
-0BB7  0003        ax = CheckState(0x01, 0x02)
+0BB7  0003        ax = CheckState04(0x01, 0x02)
 0BC8  0014        compare(ax, 0x0004)
 0BCB  0017        If (result.notequal) jump to 003E
-0BCD  0019        ax = CheckState(0x01, 0x03)
+0BCD  0019        ax = CheckState04(0x01, 0x03)
 0BDE  002A        compare(ax, 0x0004)
 0BE1  002D        If (result.notequal) jump to 003E
 0BE3  002F        ShowMessage(0x0CDA) = You step ahead with confidence.
@@ -464,10 +464,10 @@ PITDJ_29:
 
 PITDK_2A:
 0C12  0000        BEGIN
-0C15  0003        ax = CheckState(0x01, 0x02)
+0C15  0003        ax = CheckState04(0x01, 0x02)
 0C26  0014        compare(ax, 0x0004)
 0C29  0017        If (result.notequal) jump to 003E
-0C2B  0019        ax = CheckState(0x01, 0x03)
+0C2B  0019        ax = CheckState04(0x01, 0x03)
 0C3C  002A        compare(ax, 0x0005)
 0C3F  002D        If (result.notequal) jump to 003E
 0C41  002F        ShowMessage(0x0D24) = You move forward carefully.
@@ -479,10 +479,10 @@ PITDK_2A:
 
 PITDL_2B:
 0C70  0000        BEGIN
-0C73  0003        ax = CheckState(0x01, 0x02)
+0C73  0003        ax = CheckState04(0x01, 0x02)
 0C84  0014        compare(ax, 0x0004)
 0C87  0017        If (result.notequal) jump to 003E
-0C89  0019        ax = CheckState(0x01, 0x03)
+0C89  0019        ax = CheckState04(0x01, 0x03)
 0C9A  002A        compare(ax, 0x0006)
 0C9D  002D        If (result.notequal) jump to 003E
 0C9F  002F        ShowMessage(0x0D6A) = You move ahead.
@@ -494,10 +494,10 @@ PITDL_2B:
 
 PITDM_2C:
 0CCE  0000        BEGIN
-0CD1  0003        ax = CheckState(0x01, 0x02)
+0CD1  0003        ax = CheckState04(0x01, 0x02)
 0CE2  0014        compare(ax, 0x0004)
 0CE5  0017        If (result.notequal) jump to 003E
-0CE7  0019        ax = CheckState(0x01, 0x03)
+0CE7  0019        ax = CheckState04(0x01, 0x03)
 0CF8  002A        compare(ax, 0x0007)
 0CFB  002D        If (result.notequal) jump to 003E
 0CFD  002F        ShowMessage(0x0DA4) = Your step is wisely selected.
@@ -509,10 +509,10 @@ PITDM_2C:
 
 PITEG_2D:
 0D2C  0000        BEGIN
-0D2F  0003        ax = CheckState(0x01, 0x02)
+0D2F  0003        ax = CheckState04(0x01, 0x02)
 0D40  0014        compare(ax, 0x0005)
 0D43  0017        If (result.notequal) jump to 003E
-0D45  0019        ax = CheckState(0x01, 0x03)
+0D45  0019        ax = CheckState04(0x01, 0x03)
 0D56  002A        compare(ax, 0x0001)
 0D59  002D        If (result.notequal) jump to 003E
 0D5B  002F        ShowMessage(0x0DEC) = You forge ahead.
@@ -524,10 +524,10 @@ PITEG_2D:
 
 PITEH_2E:
 0D8A  0000        BEGIN
-0D8D  0003        ax = CheckState(0x01, 0x02)
+0D8D  0003        ax = CheckState04(0x01, 0x02)
 0D9E  0014        compare(ax, 0x0005)
 0DA1  0017        If (result.notequal) jump to 003E
-0DA3  0019        ax = CheckState(0x01, 0x03)
+0DA3  0019        ax = CheckState04(0x01, 0x03)
 0DB4  002A        compare(ax, 0x0002)
 0DB7  002D        If (result.notequal) jump to 003E
 0DB9  002F        ShowMessage(0x0E27) = You select your next move wisely.
@@ -539,10 +539,10 @@ PITEH_2E:
 
 PITEI_2F:
 0DE8  0000        BEGIN
-0DEB  0003        ax = CheckState(0x01, 0x02)
+0DEB  0003        ax = CheckState04(0x01, 0x02)
 0DFC  0014        compare(ax, 0x0005)
 0DFF  0017        If (result.notequal) jump to 003E
-0E01  0019        ax = CheckState(0x01, 0x03)
+0E01  0019        ax = CheckState04(0x01, 0x03)
 0E12  002A        compare(ax, 0x0003)
 0E15  002D        If (result.notequal) jump to 003E
 0E17  002F        ShowMessage(0x0E73) = Good sense guides your feet.
@@ -554,10 +554,10 @@ PITEI_2F:
 
 PITEJ_30:
 0E46  0000        BEGIN
-0E49  0003        ax = CheckState(0x01, 0x02)
+0E49  0003        ax = CheckState04(0x01, 0x02)
 0E5A  0014        compare(ax, 0x0005)
 0E5D  0017        If (result.notequal) jump to 003E
-0E5F  0019        ax = CheckState(0x01, 0x03)
+0E5F  0019        ax = CheckState04(0x01, 0x03)
 0E70  002A        compare(ax, 0x0004)
 0E73  002D        If (result.notequal) jump to 003E
 0E75  002F        ShowMessage(0x0EBA) = You walk ahead.
@@ -569,10 +569,10 @@ PITEJ_30:
 
 PITEK_31:
 0EA4  0000        BEGIN
-0EA7  0003        ax = CheckState(0x01, 0x02)
+0EA7  0003        ax = CheckState04(0x01, 0x02)
 0EB8  0014        compare(ax, 0x0005)
 0EBB  0017        If (result.notequal) jump to 003E
-0EBD  0019        ax = CheckState(0x01, 0x03)
+0EBD  0019        ax = CheckState04(0x01, 0x03)
 0ECE  002A        compare(ax, 0x0005)
 0ED1  002D        If (result.notequal) jump to 003E
 0ED3  002F        ShowMessage(0x0EF4) = Your next step is assuredly taken.
@@ -584,10 +584,10 @@ PITEK_31:
 
 PITFG_32:
 0F02  0000        BEGIN
-0F05  0003        ax = CheckState(0x01, 0x02)
+0F05  0003        ax = CheckState04(0x01, 0x02)
 0F16  0014        compare(ax, 0x0006)
 0F19  0017        If (result.notequal) jump to 003E
-0F1B  0019        ax = CheckState(0x01, 0x03)
+0F1B  0019        ax = CheckState04(0x01, 0x03)
 0F2C  002A        compare(ax, 0x0001)
 0F2F  002D        If (result.notequal) jump to 003E
 0F31  002F        ShowMessage(0x0F41) = The next step is an intelligent one.
@@ -599,10 +599,10 @@ PITFG_32:
 
 PITFH_33:
 0F60  0000        BEGIN
-0F63  0003        ax = CheckState(0x01, 0x02)
+0F63  0003        ax = CheckState04(0x01, 0x02)
 0F74  0014        compare(ax, 0x0006)
 0F77  0017        If (result.notequal) jump to 003E
-0F79  0019        ax = CheckState(0x01, 0x03)
+0F79  0019        ax = CheckState04(0x01, 0x03)
 0F8A  002A        compare(ax, 0x0002)
 0F8D  002D        If (result.notequal) jump to 003E
 0F8F  002F        ShowMessage(0x0F90) = You move safely ahead.
@@ -614,10 +614,10 @@ PITFH_33:
 
 PITFI_34:
 0FBE  0000        BEGIN
-0FC1  0003        ax = CheckState(0x01, 0x02)
+0FC1  0003        ax = CheckState04(0x01, 0x02)
 0FD2  0014        compare(ax, 0x0006)
 0FD5  0017        If (result.notequal) jump to 003E
-0FD7  0019        ax = CheckState(0x01, 0x03)
+0FD7  0019        ax = CheckState04(0x01, 0x03)
 0FE8  002A        compare(ax, 0x0003)
 0FEB  002D        If (result.notequal) jump to 003E
 0FED  002F        ShowMessage(0x0FD1) = Your movement decision was correct.
@@ -629,10 +629,10 @@ PITFI_34:
 
 PITFJ_35:
 101C  0000        BEGIN
-101F  0003        ax = CheckState(0x01, 0x02)
+101F  0003        ax = CheckState04(0x01, 0x02)
 1030  0014        compare(ax, 0x0006)
 1033  0017        If (result.notequal) jump to 003E
-1035  0019        ax = CheckState(0x01, 0x03)
+1035  0019        ax = CheckState04(0x01, 0x03)
 1046  002A        compare(ax, 0x0004)
 1049  002D        If (result.notequal) jump to 003E
 104B  002F        ShowMessage(0x101F) = You move forward with confidence.
@@ -644,10 +644,10 @@ PITFJ_35:
 
 PITFK_36:
 107A  0000        BEGIN
-107D  0003        ax = CheckState(0x01, 0x02)
+107D  0003        ax = CheckState04(0x01, 0x02)
 108E  0014        compare(ax, 0x0006)
 1091  0017        If (result.notequal) jump to 003E
-1093  0019        ax = CheckState(0x01, 0x03)
+1093  0019        ax = CheckState04(0x01, 0x03)
 10A4  002A        compare(ax, 0x0005)
 10A7  002D        If (result.notequal) jump to 003E
 10A9  002F        ShowMessage(0x106B) = You carefully selected your next step.
@@ -659,10 +659,10 @@ PITFK_36:
 
 PITFL_37:
 10D8  0000        BEGIN
-10DB  0003        ax = CheckState(0x01, 0x02)
+10DB  0003        ax = CheckState04(0x01, 0x02)
 10EC  0014        compare(ax, 0x0006)
 10EF  0017        If (result.notequal) jump to 003E
-10F1  0019        ax = CheckState(0x01, 0x03)
+10F1  0019        ax = CheckState04(0x01, 0x03)
 1102  002A        compare(ax, 0x0006)
 1105  002D        If (result.notequal) jump to 003E
 1107  002F        ShowMessage(0x10BC) = You make a sage choice.
@@ -674,10 +674,10 @@ PITFL_37:
 
 PITFM_38:
 1136  0000        BEGIN
-1139  0003        ax = CheckState(0x01, 0x02)
+1139  0003        ax = CheckState04(0x01, 0x02)
 114A  0014        compare(ax, 0x0006)
 114D  0017        If (result.notequal) jump to 003E
-114F  0019        ax = CheckState(0x01, 0x03)
+114F  0019        ax = CheckState04(0x01, 0x03)
 1160  002A        compare(ax, 0x0007)
 1163  002D        If (result.notequal) jump to 003E
 1165  002F        ShowMessage(0x10FE) = You have made a wise decision.
@@ -725,7 +725,7 @@ PITENCBL_3C:
 
 DOORARNK_3D:
 1310  0000        BEGIN
-1313  0003        ax = CheckState(0x01, 0x01)
+1313  0003        ax = CheckState04(0x01, 0x01)
 1324  0014        RefreshCompareFlags(ax)
 1326  0016        If (result.equal) jump to 005B
 1328  0018        Push(01)
@@ -751,7 +751,7 @@ TELEARNK_3E:
 
 SETEKILL_3F:
 13A7  0000        BEGIN
-13AA  0003        SetState(0x01, 0x01, 0x01)
+13AA  0003        SetState00(0x01, 0x01, 0x01)
 13BF  0018        RETURN
 
 EMPTY:

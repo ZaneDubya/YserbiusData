@@ -43,13 +43,13 @@ HIDNDOOR_05:
 
 GOLDAENC_06:
 012B  0000        BEGIN
-012E  0003        ax = CheckState(0x02, 0x16)
+012E  0003        ax = CheckState04(0x02, 0x16)
 013F  0014        RefreshCompareFlags(ax)
 0141  0016        If (result.notequal) jump to 0039
 0143  0018        AddTreasure(0x00C8, 0x00, 0x00, 0x00, 0x00, 0xB5)
 0162  0037        Jump to 007A
 0164  0039        AddTreasure(0x0FA0, 0x00, 0x00, 0x00, 0x00, 0xCF)
-0183  0058        SetState(0x02, 0x16, 0x01)
+0183  0058        SetState00(0x02, 0x16, 0x01)
 0198  006D        ShowMessage(0x0426) = Rogues are splitting up some gold they stole.
 01A5  007A        ax = PartyCount()
 01AD  0082        compare(ax, 0x0001)
@@ -83,7 +83,7 @@ GOLDAENC_06:
 
 FOUNTAIN_07:
 02F6  0000        BEGIN
-02F9  0003        ax = CheckState(0x02, 0x1E)
+02F9  0003        ax = CheckState04(0x02, 0x1E)
 030A  0014        compare(ax, 0x0001)
 030D  0017        If (result.notequal) jump to 0035
 030F  0019        ShowPortrait(0x0042)
@@ -91,7 +91,7 @@ FOUNTAIN_07:
 0329  0033        Jump to 0075
 032B  0035        ax = GetMaxHits()
 0332  003C        AddHealth(ax)
-033C  0046        SetState(0x02, 0x1E, 0x01)
+033C  0046        SetState00(0x02, 0x1E, 0x01)
 0351  005B        ShowPortrait(0x0042)
 035E  0068        ShowMessage(0x048B) = You take a sip from the Healing Fountain and feel your Health improve quite a bit.
 036B  0075        RETURN
@@ -250,14 +250,14 @@ BADMNSTR_0C:
 
 GOLDBENC_0D:
 08F1  0000        BEGIN
-08F4  0003        ax = CheckState(0x02, 0x17)
+08F4  0003        ax = CheckState04(0x02, 0x17)
 0905  0014        compare(ax, 0x0001)
 0908  0017        If (result.notequal) jump to 0047
 090A  0019        ShowMessage(0x0515) = Minotaurs charge you.
 0917  0026        AddTreasure(0x03E8, 0x00, 0x00, 0x00, 0x00, 0xCE)
 0936  0045        Jump to 0088
 0938  0047        AddTreasure(0x1388, 0x00, 0x00, 0x00, 0x00, 0xB5)
-0957  0066        SetState(0x02, 0x17, 0x01)
+0957  0066        SetState00(0x02, 0x17, 0x01)
 096C  007B        ShowMessage(0x052B) = A Minotaur teases you by holding a bag of gold just out of reach.
 0979  0088        ax = PartyCount()
 0981  0090        compare(ax, 0x0001)
