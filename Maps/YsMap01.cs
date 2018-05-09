@@ -441,7 +441,7 @@ namespace ZCF.Scripts.Maps {
             L0018: si = si + 1;
             L0019: ax = PartyCount(party);
             L0021: Compare(ax, si);
-            L0023: if (CompareResultAbove || CompareResultEqual) goto L0109;
+            L0023: if (CompareResultAbove || CompareResultEqual) goto L0009;
             L0025: return; // RETURN (restoring si);
         }
 
