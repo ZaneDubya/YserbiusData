@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace ZCF.Scripts.Maps {
+namespace XPT.Scripts.Maps {
     class YserMap32 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "The Ageless Void swallows you whole.";

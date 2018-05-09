@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace ZCF.Scripts.Maps {
+namespace XPT.Scripts.Maps {
     class YserMap26 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "You stumble into the lava river and die.";

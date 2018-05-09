@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace ZCF.Scripts.Maps {
+namespace XPT.Scripts.Maps {
     class YserMap12 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "You see a switch on the wall and throw it. You hear the sound of locks opening.";

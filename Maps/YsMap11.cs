@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace ZCF.Scripts.Maps {
+namespace XPT.Scripts.Maps {
     class YserMap11 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "As you step forward, the column slides away.";

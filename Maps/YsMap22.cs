@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace ZCF.Scripts.Maps {
+namespace XPT.Scripts.Maps {
     class YserMap22 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "Other pits in the Labyrinth provide access to hidden areas...";

@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace ZCF.Scripts.Maps {
+namespace XPT.Scripts.Maps {
     class YserMap17 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "Heroes of level 20 or more may go on.";

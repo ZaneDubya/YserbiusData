@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace ZCF.Scripts.Maps {
+namespace XPT.Scripts.Maps {
     class YserMap30 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "The River of Eternity taps your life energy.";

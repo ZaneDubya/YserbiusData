@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace ZCF.Scripts.Maps {
+namespace XPT.Scripts.Maps {
     class YserMap24 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "You fall through the abyss and land in the lava below.";

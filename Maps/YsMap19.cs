@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace ZCF.Scripts.Maps {
+namespace XPT.Scripts.Maps {
     class YserMap19 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "There is a teleport in the west wall.";

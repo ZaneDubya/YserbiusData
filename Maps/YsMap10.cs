@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace ZCF.Scripts.Maps {
+namespace XPT.Scripts.Maps {
     class YserMap10 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "The I Rune Key unlocked the massive door.";
