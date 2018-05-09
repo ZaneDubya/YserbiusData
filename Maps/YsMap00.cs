@@ -18,64 +18,64 @@ namespace ZCF.Scripts.Maps {
         private const string String0650 = "Only heroes of the twentieth level or higher may venture beyond this door.";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => TOMINES_01;
-        private void TOMINES_01(Party party) {
+        private override MapEventHandler MapEvent01 => FnTOMINES_01;
+        private void FnTOMINES_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x03, 0xFD, 0x02, 0x01);
             L001E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent02 => TOTREAS_02;
-        private void TOTREAS_02(Party party) {
+        private override MapEventHandler MapEvent02 => FnTOTREAS_02;
+        private void FnTOTREAS_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x02, 0x10, 0x04, 0x01);
             L001E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent03 => TOSOLDQU_03;
-        private void TOSOLDQU_03(Party party) {
+        private override MapEventHandler MapEvent03 => FnTOSOLDQU_03;
+        private void FnTOSOLDQU_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x01, 0x0F, 0x06, 0x01);
             L001E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => EXITDUNG_04;
-        private void EXITDUNG_04(Party party) {
+        private override MapEventHandler MapEvent04 => FnEXITDUNG_04;
+        private void FnEXITDUNG_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ExitDungeon(party);
             L000B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => DOORMESA_05;
-        private void DOORMESA_05(Party party) {
+        private override MapEventHandler MapEvent05 => FnDOORMESA_05;
+        private void FnDOORMESA_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The gateway leads to THE MINES.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => DOORMESB_06;
-        private void DOORMESB_06(Party party) {
+        private override MapEventHandler MapEvent06 => FnDOORMESB_06;
+        private void FnDOORMESB_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String041C); // The gateway leads to THE HALL OF DOORS.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent07 => DOORMESC_07;
-        private void DOORMESC_07(Party party) {
+        private override MapEventHandler MapEvent07 => FnDOORMESC_07;
+        private void FnDOORMESC_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0444); // The gateway leads to THE SOLDIERS  QUARTERS.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent08 => DOORMESD_08;
-        private void DOORMESD_08(Party party) {
+        private override MapEventHandler MapEvent08 => FnDOORMESD_08;
+        private void FnDOORMESD_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0471); // The gateway is the DUNGEON EXIT.
@@ -86,24 +86,24 @@ namespace ZCF.Scripts.Maps {
             L003F: // RETURN;
         }
 
-        private override MapEventHandler MapEvent09 => TELEPORT_09;
-        private void TELEPORT_09(Party party) {
+        private override MapEventHandler MapEvent09 => FnTELEPORT_09;
+        private void FnTELEPORT_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x00, 0x5D, 0x01, 0x33);
             L001D: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0A => TELEMESS_0A;
-        private void TELEMESS_0A(Party party) {
+        private override MapEventHandler MapEvent0A => FnTELEMESS_0A;
+        private void FnTELEMESS_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04DE); // There is a teleport in the west wall.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0B => DOORMESS_0B;
-        private void DOORMESS_0B(Party party) {
+        private override MapEventHandler MapEvent0B => FnDOORMESS_0B;
+        private void FnDOORMESS_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel44(party, 0x0014);
@@ -153,8 +153,8 @@ namespace ZCF.Scripts.Maps {
             L0156: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0C => PRTYPORT_0C;
-        private void PRTYPORT_0C(Party party) {
+        private override MapEventHandler MapEvent0C => FnPRTYPORT_0C;
+        private void FnPRTYPORT_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel44(party, 0x0014);
@@ -166,8 +166,8 @@ namespace ZCF.Scripts.Maps {
             L0049: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0D => NOJOIN_0D;
-        private void NOJOIN_0D(Party party) {
+        private override MapEventHandler MapEvent0D => FnNOJOIN_0D;
+        private void FnNOJOIN_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TileIsNoJoinArea(party);

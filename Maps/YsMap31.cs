@@ -61,8 +61,8 @@ namespace ZCF.Scripts.Maps {
         private const string String117F = "You stand upon a platform in the center of the River of Eternity.";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => RIVER_01;
-        private void RIVER_01(Party party) {
+        private override MapEventHandler MapEvent01 => FnRIVER_01;
+        private void FnRIVER_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The River of Eternity taps your life energy.
@@ -78,16 +78,16 @@ namespace ZCF.Scripts.Maps {
             L0047: // RETURN;
         }
 
-        private override MapEventHandler MapEvent02 => RIVRBANK_02;
-        private void RIVRBANK_02(Party party) {
+        private override MapEventHandler MapEvent02 => FnRIVRBANK_02;
+        private void FnRIVRBANK_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0438); // Only the bravest adventurers explore the River for hidden passages.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent03 => VOID_03;
-        private void VOID_03(Party party) {
+        private override MapEventHandler MapEvent03 => FnVOID_03;
+        private void FnVOID_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String047C); // The Ageless Void swallows you whole.
@@ -96,8 +96,8 @@ namespace ZCF.Scripts.Maps {
             L0021: // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => PLATA_04;
-        private void PLATA_04(Party party) {
+        private override MapEventHandler MapEvent04 => FnPLATA_04;
+        private void FnPLATA_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
@@ -108,8 +108,8 @@ namespace ZCF.Scripts.Maps {
             L003B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => PLATB_05;
-        private void PLATB_05(Party party) {
+        private override MapEventHandler MapEvent05 => FnPLATB_05;
+        private void FnPLATB_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x84);
@@ -125,8 +125,8 @@ namespace ZCF.Scripts.Maps {
             L008E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => PLATCTOA_06;
-        private void PLATCTOA_06(Party party) {
+        private override MapEventHandler MapEvent06 => FnPLATCTOA_06;
+        private void FnPLATCTOA_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
@@ -137,8 +137,8 @@ namespace ZCF.Scripts.Maps {
             L003B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent07 => PLATDTOB_07;
-        private void PLATDTOB_07(Party party) {
+        private override MapEventHandler MapEvent07 => FnPLATDTOB_07;
+        private void FnPLATDTOB_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String053D); // As you reach the platform, a magical field envelops you and teleports you to a moon tapestry.
@@ -146,8 +146,8 @@ namespace ZCF.Scripts.Maps {
             L002B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0C => TAPMOONS_0C;
-        private void TAPMOONS_0C(Party party) {
+        private override MapEventHandler MapEvent0C => FnTAPMOONS_0C;
+        private void FnTAPMOONS_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xF2, 0xF2);
@@ -169,8 +169,8 @@ namespace ZCF.Scripts.Maps {
             L006C: // RETURN;
         }
 
-        private override MapEventHandler MapEvent12 => THEFCLUE_12;
-        private void THEFCLUE_12(Party party) {
+        private override MapEventHandler MapEvent12 => FnTHEFCLUE_12;
+        private void FnTHEFCLUE_12(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0024);
@@ -182,24 +182,24 @@ namespace ZCF.Scripts.Maps {
             L0051: // RETURN;
         }
 
-        private override MapEventHandler MapEvent13 => THIEVES_13;
-        private void THIEVES_13(Party party) {
+        private override MapEventHandler MapEvent13 => FnTHIEVES_13;
+        private void FnTHIEVES_13(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0751); // A doorway is marked -- 'Voranti's Treasure'
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent14 => RAINBOW_14;
-        private void RAINBOW_14(Party party) {
+        private override MapEventHandler MapEvent14 => FnRAINBOW_14;
+        private void FnRAINBOW_14(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String077D); // Various golden objects appear to be standing to the west, just at the edge of the Ageless Void.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent15 => RAINRED_15;
-        private void RAINRED_15(Party party) {
+        private override MapEventHandler MapEvent15 => FnRAINRED_15;
+        private void FnRAINRED_15(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xF4, 0xF4);
@@ -239,8 +239,8 @@ namespace ZCF.Scripts.Maps {
             L015A: // RETURN;
         }
 
-        private override MapEventHandler MapEvent16 => RAINYEL_16;
-        private void RAINYEL_16(Party party) {
+        private override MapEventHandler MapEvent16 => FnRAINYEL_16;
+        private void FnRAINYEL_16(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xF5, 0xF5);
@@ -278,8 +278,8 @@ namespace ZCF.Scripts.Maps {
             L014B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent17 => RAINGRN_17;
-        private void RAINGRN_17(Party party) {
+        private override MapEventHandler MapEvent17 => FnRAINGRN_17;
+        private void FnRAINGRN_17(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xF6, 0xF6);
@@ -317,8 +317,8 @@ namespace ZCF.Scripts.Maps {
             L014B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent18 => RAINBLU_18;
-        private void RAINBLU_18(Party party) {
+        private override MapEventHandler MapEvent18 => FnRAINBLU_18;
+        private void FnRAINBLU_18(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xF7, 0xF7);
@@ -356,8 +356,8 @@ namespace ZCF.Scripts.Maps {
             L014B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent19 => GATEA_19;
-        private void GATEA_19(Party party) {
+        private override MapEventHandler MapEvent19 => FnGATEA_19;
+        private void FnGATEA_19(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E1B); // This gate leads to the GIANTS' LAND
@@ -365,8 +365,8 @@ namespace ZCF.Scripts.Maps {
             L002B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent1A => ENCA_1A;
-        private void ENCA_1A(Party party) {
+        private override MapEventHandler MapEvent1A => FnENCA_1A;
+        private void FnENCA_1A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E3F); // A burst of moon light floods the room.
@@ -379,8 +379,8 @@ namespace ZCF.Scripts.Maps {
             L007C: // RETURN;
         }
 
-        private override MapEventHandler MapEvent1B => ENCB_1B;
-        private void ENCB_1B(Party party) {
+        private override MapEventHandler MapEvent1B => FnENCB_1B;
+        private void FnENCB_1B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x26, 0x01);
@@ -391,8 +391,8 @@ namespace ZCF.Scripts.Maps {
             L005D: // RETURN;
         }
 
-        private override MapEventHandler MapEvent1C => ENCC_1C;
-        private void ENCC_1C(Party party) {
+        private override MapEventHandler MapEvent1C => FnENCC_1C;
+        private void FnENCC_1C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E66); // Dragons defend their lair.
@@ -403,8 +403,8 @@ namespace ZCF.Scripts.Maps {
             L0058: // RETURN;
         }
 
-        private override MapEventHandler MapEvent1D => ENCD_1D;
-        private void ENCD_1D(Party party) {
+        private override MapEventHandler MapEvent1D => FnENCD_1D;
+        private void FnENCD_1D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x19, 0x01);
@@ -416,8 +416,8 @@ namespace ZCF.Scripts.Maps {
             L006F: // RETURN;
         }
 
-        private override MapEventHandler MapEvent1E => TAPECLUE_1E;
-        private void TAPECLUE_1E(Party party) {
+        private override MapEventHandler MapEvent1E => FnTAPECLUE_1E;
+        private void FnTAPECLUE_1E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E81); // Rune symbols decorate the tapestry -- 
@@ -427,8 +427,8 @@ namespace ZCF.Scripts.Maps {
             L0037: // RETURN;
         }
 
-        private override MapEventHandler MapEvent1F => BOAT_1F;
-        private void BOAT_1F(Party party) {
+        private override MapEventHandler MapEvent1F => FnBOAT_1F;
+        private void FnBOAT_1F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x01, 0x01);
@@ -447,24 +447,24 @@ namespace ZCF.Scripts.Maps {
             L0093: // RETURN;
         }
 
-        private override MapEventHandler MapEvent20 => DOORWARN_20;
-        private void DOORWARN_20(Party party) {
+        private override MapEventHandler MapEvent20 => FnDOORWARN_20;
+        private void FnDOORWARN_20(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1123); // This door leads the way back to the Land of Giants.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent24 => NOLIGHT_24;
-        private void NOLIGHT_24(Party party) {
+        private override MapEventHandler MapEvent24 => FnNOLIGHT_24;
+        private void FnNOLIGHT_24(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1157); // This side of the tapestry appears dark.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent25 => PLATFORM_25;
-        private void PLATFORM_25(Party party) {
+        private override MapEventHandler MapEvent25 => FnPLATFORM_25;
+        private void FnPLATFORM_25(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String117F); // You stand upon a platform in the center of the River of Eternity.

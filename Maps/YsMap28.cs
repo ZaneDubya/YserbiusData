@@ -154,8 +154,8 @@ namespace ZCF.Scripts.Maps {
         private const string String1DA0 = "It is known in the trees that Nature's Robe must be used for the harvest.'";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => ALDBORA_01;
-        private void ALDBORA_01(Party party) {
+        private override MapEventHandler MapEvent01 => FnALDBORA_01;
+        private void FnALDBORA_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ax = CheckState04(party, 0x01, 0x01);
@@ -292,8 +292,8 @@ namespace ZCF.Scripts.Maps {
 046D  0462        2E 04 3D 04 4C 04 5B 04 
         }
 
-        private override MapEventHandler MapEvent02 => ENCA_02;
-        private void ENCA_02(Party party) {
+        private override MapEventHandler MapEvent02 => FnENCA_02;
+        private void FnENCA_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07DD); // Dwarven Knights attempt an ambush.
@@ -304,8 +304,8 @@ namespace ZCF.Scripts.Maps {
             L0058: // RETURN;
         }
 
-        private override MapEventHandler MapEvent03 => ENCB_03;
-        private void ENCB_03(Party party) {
+        private override MapEventHandler MapEvent03 => FnENCB_03;
+        private void FnENCB_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x1F, 0x01);
@@ -317,8 +317,8 @@ namespace ZCF.Scripts.Maps {
             L006F: // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => ENCC_04;
-        private void ENCC_04(Party party) {
+        private override MapEventHandler MapEvent04 => FnENCC_04;
+        private void FnENCC_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x1F, 0x01);
@@ -328,8 +328,8 @@ namespace ZCF.Scripts.Maps {
             L004B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => ENCD_05;
-        private void ENCD_05(Party party) {
+        private override MapEventHandler MapEvent05 => FnENCD_05;
+        private void FnENCD_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x18, 0x01);
@@ -341,8 +341,8 @@ namespace ZCF.Scripts.Maps {
             L006F: // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => ENCE_06;
-        private void ENCE_06(Party party) {
+        private override MapEventHandler MapEvent06 => FnENCE_06;
+        private void FnENCE_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x14, 0x01);
@@ -352,8 +352,8 @@ namespace ZCF.Scripts.Maps {
             L004B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent07 => ENCF_07;
-        private void ENCF_07(Party party) {
+        private override MapEventHandler MapEvent07 => FnENCF_07;
+        private void FnENCF_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xFA);
@@ -369,8 +369,8 @@ namespace ZCF.Scripts.Maps {
             L00A9: // RETURN;
         }
 
-        private override MapEventHandler MapEvent08 => ENCG_08;
-        private void ENCG_08(Party party) {
+        private override MapEventHandler MapEvent08 => FnENCG_08;
+        private void FnENCG_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x1A, 0x01);
@@ -380,8 +380,8 @@ namespace ZCF.Scripts.Maps {
             L004B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent09 => ENCH_09;
-        private void ENCH_09(Party party) {
+        private override MapEventHandler MapEvent09 => FnENCH_09;
+        private void FnENCH_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x21, 0x01);
@@ -391,8 +391,8 @@ namespace ZCF.Scripts.Maps {
             L004B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0A => ENCI_0A;
-        private void ENCI_0A(Party party) {
+        private override MapEventHandler MapEvent0A => FnENCI_0A;
+        private void FnENCI_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x1C, 0x01);
@@ -408,8 +408,8 @@ namespace ZCF.Scripts.Maps {
             L00AB: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0B => CGATE_0B;
-        private void CGATE_0B(Party party) {
+        private override MapEventHandler MapEvent0B => FnCGATE_0B;
+        private void FnCGATE_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0858); // A path leads up to CASTLEGATE
@@ -417,8 +417,8 @@ namespace ZCF.Scripts.Maps {
             L002B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0C => DWARF_0C;
-        private void DWARF_0C(Party party) {
+        private override MapEventHandler MapEvent0C => FnDWARF_0C;
+        private void FnDWARF_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel44(party, 0x001E);
@@ -430,16 +430,16 @@ namespace ZCF.Scripts.Maps {
             L004A: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0D => NOJOIN_0D;
-        private void NOJOIN_0D(Party party) {
+        private override MapEventHandler MapEvent0D => FnNOJOIN_0D;
+        private void FnNOJOIN_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TileIsNoJoinArea(party);
             L000B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0E => BEECHWD_0E;
-        private void BEECHWD_0E(Party party) {
+        private override MapEventHandler MapEvent0E => FnBEECHWD_0E;
+        private void FnBEECHWD_0E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08FB); // Upon a wood sign is written -- 'Wilderness of BeechWood.'
@@ -453,8 +453,8 @@ namespace ZCF.Scripts.Maps {
             L0079: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0F => OAKLEAF_0F;
-        private void OAKLEAF_0F(Party party) {
+        private override MapEventHandler MapEvent0F => FnOAKLEAF_0F;
+        private void FnOAKLEAF_0F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0935); // A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'
@@ -468,8 +468,8 @@ namespace ZCF.Scripts.Maps {
             L0079: // RETURN;
         }
 
-        private override MapEventHandler MapEvent10 => MAPLEBRS_10;
-        private void MAPLEBRS_10(Party party) {
+        private override MapEventHandler MapEvent10 => FnMAPLEBRS_10;
+        private void FnMAPLEBRS_10(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0978); // A sign of ancient wood reads -- 'Wilderness of MapleBrush.'
@@ -483,8 +483,8 @@ namespace ZCF.Scripts.Maps {
             L0079: // RETURN;
         }
 
-        private override MapEventHandler MapEvent11 => PINECONE_11;
-        private void PINECONE_11(Party party) {
+        private override MapEventHandler MapEvent11 => FnPINECONE_11;
+        private void FnPINECONE_11(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09B4); // In the dust of pine needles is written -- 'Wilderness of PineCone.'
@@ -498,8 +498,8 @@ namespace ZCF.Scripts.Maps {
             L0079: // RETURN;
         }
 
-        private override MapEventHandler MapEvent12 => BWACTOR_12;
-        private void BWACTOR_12(Party party) {
+        private override MapEventHandler MapEvent12 => FnBWACTOR_12;
+        private void FnBWACTOR_12(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String09F8); // We are the Wise Ones of Beechwood who serve the Seasons.
@@ -588,8 +588,8 @@ namespace ZCF.Scripts.Maps {
 0DB3  0304        F2 0A 1C 0B 45 0B 6E 0B 
         }
 
-        private override MapEventHandler MapEvent13 => OLACTOR_13;
-        private void OLACTOR_13(Party party) {
+        private override MapEventHandler MapEvent13 => FnOLACTOR_13;
+        private void FnOLACTOR_13(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String1071); // We are the Clerics of Oakleaf who comfort the Seasons.
@@ -677,8 +677,8 @@ namespace ZCF.Scripts.Maps {
 10B2  02F7        FE 0D 28 0E 51 0E 7A 0E 
         }
 
-        private override MapEventHandler MapEvent14 => MBACTOR_14;
-        private void MBACTOR_14(Party party) {
+        private override MapEventHandler MapEvent14 => FnMBACTOR_14;
+        private void FnMBACTOR_14(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String15E2); // We are the Wardens of Maplebrush and hold the Seasons.
@@ -758,8 +758,8 @@ namespace ZCF.Scripts.Maps {
 1348  028E        FD 10 19 11 35 11 51 11 
         }
 
-        private override MapEventHandler MapEvent15 => PCACTOR_15;
-        private void PCACTOR_15(Party party) {
+        private override MapEventHandler MapEvent15 => FnPCACTOR_15;
+        private void FnPCACTOR_15(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String18C1); // We are the Seasons incarnate in mortal form.
@@ -837,8 +837,8 @@ namespace ZCF.Scripts.Maps {
 15DB  028B        90 13 9F 13 AE 13 BD 13 
         }
 
-        private override MapEventHandler MapEvent16 => INFO_16;
-        private void INFO_16(Party party) {
+        private override MapEventHandler MapEvent16 => FnINFO_16;
+        private void FnINFO_16(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x001F);
@@ -847,8 +847,8 @@ namespace ZCF.Scripts.Maps {
             L002A: // RETURN;
         }
 
-        private override MapEventHandler MapEvent17 => INFO_17;
-        private void INFO_17(Party party) {
+        private override MapEventHandler MapEvent17 => FnINFO_17;
+        private void FnINFO_17(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0027);
@@ -857,8 +857,8 @@ namespace ZCF.Scripts.Maps {
             L002A: // RETURN;
         }
 
-        private override MapEventHandler MapEvent18 => CAVEDOOR_18;
-        private void CAVEDOOR_18(Party party) {
+        private override MapEventHandler MapEvent18 => FnCAVEDOOR_18;
+        private void FnCAVEDOOR_18(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1C91); // A wooden sign says, 'To the cave of NeedleWood.'
@@ -878,24 +878,24 @@ namespace ZCF.Scripts.Maps {
             L0066: // RETURN;
         }
 
-        private override MapEventHandler MapEvent19 => ELFHOME_19;
-        private void ELFHOME_19(Party party) {
+        private override MapEventHandler MapEvent19 => FnELFHOME_19;
+        private void FnELFHOME_19(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1CD4); // Young elves scurry and hide when you enter this elf home.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent1A => ELFHOME_1A;
-        private void ELFHOME_1A(Party party) {
+        private override MapEventHandler MapEvent1A => FnELFHOME_1A;
+        private void FnELFHOME_1A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1D0E); // Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent1B => INFO_1B;
-        private void INFO_1B(Party party) {
+        private override MapEventHandler MapEvent1B => FnINFO_1B;
+        private void FnINFO_1B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x001F);

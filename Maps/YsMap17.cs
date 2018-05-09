@@ -89,8 +89,8 @@ namespace ZCF.Scripts.Maps {
         private const string String1684 = "You find a Purple Lockpick and 1250 gold inside a small chest.";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => STARSADN_01;
-        private void STARSADN_01(Party party) {
+        private override MapEventHandler MapEvent01 => FnSTARSADN_01;
+        private void FnSTARSADN_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel44(party, 0x0014);
@@ -107,8 +107,8 @@ namespace ZCF.Scripts.Maps {
             L0059: // RETURN;
         }
 
-        private override MapEventHandler MapEvent02 => STRSMESA_02;
-        private void STRSMESA_02(Party party) {
+        private override MapEventHandler MapEvent02 => FnSTRSMESA_02;
+        private void FnSTRSMESA_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TileIsNoJoinArea(party);
@@ -116,24 +116,24 @@ namespace ZCF.Scripts.Maps {
             L0018: // RETURN;
         }
 
-        private override MapEventHandler MapEvent03 => TELPRTUP_03;
-        private void TELPRTUP_03(Party party) {
+        private override MapEventHandler MapEvent03 => FnTELPRTUP_03;
+        private void FnTELPRTUP_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x02, 0xD8, 0x01, 0x04);
             L001E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => TELEMESS_04;
-        private void TELEMESS_04(Party party) {
+        private override MapEventHandler MapEvent04 => FnTELEMESS_04;
+        private void FnTELEMESS_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String044C); // The gate to the North leads upward.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => TELETAVR_05;
-        private void TELETAVR_05(Party party) {
+        private override MapEventHandler MapEvent05 => FnTELETAVR_05;
+        private void FnTELETAVR_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel44(party, 0x0014);
@@ -150,8 +150,8 @@ namespace ZCF.Scripts.Maps {
             L005A: // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => TELPRTMS_06;
-        private void TELPRTMS_06(Party party) {
+        private override MapEventHandler MapEvent06 => FnTELPRTMS_06;
+        private void FnTELPRTMS_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TileIsNoJoinArea(party);
@@ -159,24 +159,24 @@ namespace ZCF.Scripts.Maps {
             L0018: // RETURN;
         }
 
-        private override MapEventHandler MapEvent07 => STAIRMSS_07;
-        private void STAIRMSS_07(Party party) {
+        private override MapEventHandler MapEvent07 => FnSTAIRMSS_07;
+        private void FnSTAIRMSS_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04BC); // The stairs to the south lead to the Tavern
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent08 => TAVERN_08;
-        private void TAVERN_08(Party party) {
+        private override MapEventHandler MapEvent08 => FnTAVERN_08;
+        private void FnTAVERN_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ExitDungeon(party);
             L000B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent09 => SPECIALD_09;
-        private void SPECIALD_09(Party party) {
+        private override MapEventHandler MapEvent09 => FnSPECIALD_09;
+        private void FnSPECIALD_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x42);
@@ -195,8 +195,8 @@ namespace ZCF.Scripts.Maps {
             L0066: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0A => MONENCA_0A;
-        private void MONENCA_0A(Party party) {
+        private override MapEventHandler MapEvent0A => FnMONENCA_0A;
+        private void FnMONENCA_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0565); // You surprise creatures eating lunch!
@@ -206,8 +206,8 @@ namespace ZCF.Scripts.Maps {
             L0046: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0B => MONENCB_0B;
-        private void MONENCB_0B(Party party) {
+        private override MapEventHandler MapEvent0B => FnMONENCB_0B;
+        private void FnMONENCB_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String058A); // You stumble upon some rather nasty monsters.
@@ -219,8 +219,8 @@ namespace ZCF.Scripts.Maps {
             L0078: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0C => MONENCC_0C;
-        private void MONENCC_0C(Party party) {
+        private override MapEventHandler MapEvent0C => FnMONENCC_0C;
+        private void FnMONENCC_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05B7); // A group of restless undead surprise you!
@@ -242,8 +242,8 @@ namespace ZCF.Scripts.Maps {
             L00BC: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0E => MONENCE_0E;
-        private void MONENCE_0E(Party party) {
+        private override MapEventHandler MapEvent0E => FnMONENCE_0E;
+        private void FnMONENCE_0E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xBE);
@@ -258,8 +258,8 @@ namespace ZCF.Scripts.Maps {
             L0098: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0F => MONENCF_0F;
-        private void MONENCF_0F(Party party) {
+        private override MapEventHandler MapEvent0F => FnMONENCF_0F;
+        private void FnMONENCF_0F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0x68);
@@ -275,8 +275,8 @@ namespace ZCF.Scripts.Maps {
             L00A3: // RETURN;
         }
 
-        private override MapEventHandler MapEvent10 => FLSPECA_10;
-        private void FLSPECA_10(Party party) {
+        private override MapEventHandler MapEvent10 => FnFLSPECA_10;
+        private void FnFLSPECA_10(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x41);
@@ -293,8 +293,8 @@ namespace ZCF.Scripts.Maps {
             L007F: // RETURN;
         }
 
-        private override MapEventHandler MapEvent11 => FLSPECB_11;
-        private void FLSPECB_11(Party party) {
+        private override MapEventHandler MapEvent11 => FnFLSPECB_11;
+        private void FnFLSPECB_11(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x3E);
@@ -313,8 +313,8 @@ namespace ZCF.Scripts.Maps {
             L0097: // RETURN;
         }
 
-        private override MapEventHandler MapEvent12 => FLSPECC_12;
-        private void FLSPECC_12(Party party) {
+        private override MapEventHandler MapEvent12 => FnFLSPECC_12;
+        private void FnFLSPECC_12(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x43);
@@ -332,8 +332,8 @@ namespace ZCF.Scripts.Maps {
             L0090: // RETURN;
         }
 
-        private override MapEventHandler MapEvent13 => FLSPECD_13;
-        private void FLSPECD_13(Party party) {
+        private override MapEventHandler MapEvent13 => FnFLSPECD_13;
+        private void FnFLSPECD_13(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xFB);
@@ -371,8 +371,8 @@ namespace ZCF.Scripts.Maps {
             L0150: // RETURN;
         }
 
-        private override MapEventHandler MapEvent14 => FLSPECE_14;
-        private void FLSPECE_14(Party party) {
+        private override MapEventHandler MapEvent14 => FnFLSPECE_14;
+        private void FnFLSPECE_14(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x44);
@@ -386,8 +386,8 @@ namespace ZCF.Scripts.Maps {
             L005B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent15 => FLSPECF_15;
-        private void FLSPECF_15(Party party) {
+        private override MapEventHandler MapEvent15 => FnFLSPECF_15;
+        private void FnFLSPECF_15(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0022);
@@ -402,8 +402,8 @@ namespace ZCF.Scripts.Maps {
             L005A: // RETURN;
         }
 
-        private override MapEventHandler MapEvent16 => FLSPECG_16;
-        private void FLSPECG_16(Party party) {
+        private override MapEventHandler MapEvent16 => FnFLSPECG_16;
+        private void FnFLSPECG_16(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState0C(party, 0x02, 0x45);
@@ -423,8 +423,8 @@ namespace ZCF.Scripts.Maps {
             L0094: // RETURN;
         }
 
-        private override MapEventHandler MapEvent17 => FLSPECH_17;
-        private void FLSPECH_17(Party party) {
+        private override MapEventHandler MapEvent17 => FnFLSPECH_17;
+        private void FnFLSPECH_17(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0026);
@@ -439,8 +439,8 @@ namespace ZCF.Scripts.Maps {
             L005A: // RETURN;
         }
 
-        private override MapEventHandler MapEvent18 => FLSPECI_18;
-        private void FLSPECI_18(Party party) {
+        private override MapEventHandler MapEvent18 => FnFLSPECI_18;
+        private void FnFLSPECI_18(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState0C(party, 0x02, 0x64);
@@ -460,8 +460,8 @@ namespace ZCF.Scripts.Maps {
             L0094: // RETURN;
         }
 
-        private override MapEventHandler MapEvent19 => FLSPECJ_19;
-        private void FLSPECJ_19(Party party) {
+        private override MapEventHandler MapEvent19 => FnFLSPECJ_19;
+        private void FnFLSPECJ_19(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0CC6); // The Staff Training Center.  All who lack this skill gain enlightenment and training.
@@ -477,8 +477,8 @@ namespace ZCF.Scripts.Maps {
             L0067: // RETURN;
         }
 
-        private override MapEventHandler MapEvent1A => FLSPECK_1A;
-        private void FLSPECK_1A(Party party) {
+        private override MapEventHandler MapEvent1A => FnFLSPECK_1A;
+        private void FnFLSPECK_1A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState0C(party, 0x02, 0x65);
@@ -498,8 +498,8 @@ namespace ZCF.Scripts.Maps {
             L0094: // RETURN;
         }
 
-        private override MapEventHandler MapEvent1B => FLSPECL_1B;
-        private void FLSPECL_1B(Party party) {
+        private override MapEventHandler MapEvent1B => FnFLSPECL_1B;
+        private void FnFLSPECL_1B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState08(party, 0x02, 0x68);
@@ -520,8 +520,8 @@ namespace ZCF.Scripts.Maps {
             L0090: // RETURN;
         }
 
-        private override MapEventHandler MapEvent1D => FLSPECN_1D;
-        private void FLSPECN_1D(Party party) {
+        private override MapEventHandler MapEvent1D => FnFLSPECN_1D;
+        private void FnFLSPECN_1D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0026);
@@ -536,8 +536,8 @@ namespace ZCF.Scripts.Maps {
             L005A: // RETURN;
         }
 
-        private override MapEventHandler MapEvent1E => HIDEDOOR_1E;
-        private void HIDEDOOR_1E(Party party) {
+        private override MapEventHandler MapEvent1E => FnHIDEDOOR_1E;
+        private void FnHIDEDOOR_1E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Push(01);
@@ -549,8 +549,8 @@ namespace ZCF.Scripts.Maps {
             L0021: // RETURN;
         }
 
-        private override MapEventHandler MapEvent24 => HIDDORG_24;
-        private void HIDDORG_24(Party party) {
+        private override MapEventHandler MapEvent24 => FnHIDDORG_24;
+        private void FnHIDDORG_24(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xFB, 0xFB);
@@ -579,8 +579,8 @@ namespace ZCF.Scripts.Maps {
             L008D: // RETURN;
         }
 
-        private override MapEventHandler MapEvent25 => HIDDORH_25;
-        private void HIDDORH_25(Party party) {
+        private override MapEventHandler MapEvent25 => FnHIDDORH_25;
+        private void FnHIDDORH_25(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xC2, 0xC4);
@@ -612,8 +612,8 @@ namespace ZCF.Scripts.Maps {
             L009E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent26 => HIDDORI_26;
-        private void HIDDORI_26(Party party) {
+        private override MapEventHandler MapEvent26 => FnHIDDORI_26;
+        private void FnHIDDORI_26(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D) // returns 0 if did not use, compares to 2nd op if did use;
@@ -674,8 +674,8 @@ namespace ZCF.Scripts.Maps {
             L0166: // RETURN;
         }
 
-        private override MapEventHandler MapEvent27 => HIDDORJ_27;
-        private void HIDDORJ_27(Party party) {
+        private override MapEventHandler MapEvent27 => FnHIDDORJ_27;
+        private void FnHIDDORJ_27(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D) // returns 0 if did not use, compares to 2nd op if did use;
@@ -736,8 +736,8 @@ namespace ZCF.Scripts.Maps {
             L0166: // RETURN;
         }
 
-        private override MapEventHandler MapEvent28 => HIDDORK_28;
-        private void HIDDORK_28(Party party) {
+        private override MapEventHandler MapEvent28 => FnHIDDORK_28;
+        private void FnHIDDORK_28(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D) // returns 0 if did not use, compares to 2nd op if did use;
@@ -798,8 +798,8 @@ namespace ZCF.Scripts.Maps {
             L0166: // RETURN;
         }
 
-        private override MapEventHandler MapEvent29 => HIDDORL_29;
-        private void HIDDORL_29(Party party) {
+        private override MapEventHandler MapEvent29 => FnHIDDORL_29;
+        private void FnHIDDORL_29(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D) // returns 0 if did not use, compares to 2nd op if did use;
@@ -860,8 +860,8 @@ namespace ZCF.Scripts.Maps {
             L0166: // RETURN;
         }
 
-        private override MapEventHandler MapEvent2A => HIDDORM_2A;
-        private void HIDDORM_2A(Party party) {
+        private override MapEventHandler MapEvent2A => FnHIDDORM_2A;
+        private void FnHIDDORM_2A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D) // returns 0 if did not use, compares to 2nd op if did use;
@@ -922,8 +922,8 @@ namespace ZCF.Scripts.Maps {
             L0166: // RETURN;
         }
 
-        private override MapEventHandler MapEvent2B => HIDDORN_2B;
-        private void HIDDORN_2B(Party party) {
+        private override MapEventHandler MapEvent2B => FnHIDDORN_2B;
+        private void FnHIDDORN_2B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D) // returns 0 if did not use, compares to 2nd op if did use;
@@ -984,8 +984,8 @@ namespace ZCF.Scripts.Maps {
             L0166: // RETURN;
         }
 
-        private override MapEventHandler MapEvent2E => HIDDORQ_2E;
-        private void HIDDORQ_2E(Party party) {
+        private override MapEventHandler MapEvent2E => FnHIDDORQ_2E;
+        private void FnHIDDORQ_2E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xC2, 0xC4);
@@ -1017,8 +1017,8 @@ namespace ZCF.Scripts.Maps {
             L009E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent31 => HIDDORT_31;
-        private void HIDDORT_31(Party party) {
+        private override MapEventHandler MapEvent31 => FnHIDDORT_31;
+        private void FnHIDDORT_31(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D) // returns 0 if did not use, compares to 2nd op if did use;
@@ -1044,8 +1044,8 @@ namespace ZCF.Scripts.Maps {
             L006E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent32 => HIDDORU_32;
-        private void HIDDORU_32(Party party) {
+        private override MapEventHandler MapEvent32 => FnHIDDORU_32;
+        private void FnHIDDORU_32(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D) // returns 0 if did not use, compares to 2nd op if did use;
@@ -1106,8 +1106,8 @@ namespace ZCF.Scripts.Maps {
             L0166: // RETURN;
         }
 
-        private override MapEventHandler MapEvent33 => HIDDORV_33;
-        private void HIDDORV_33(Party party) {
+        private override MapEventHandler MapEvent33 => FnHIDDORV_33;
+        private void FnHIDDORV_33(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Push(01);
@@ -1119,8 +1119,8 @@ namespace ZCF.Scripts.Maps {
             L0021: // RETURN;
         }
 
-        private override MapEventHandler MapEvent35 => HIDDORX_35;
-        private void HIDDORX_35(Party party) {
+        private override MapEventHandler MapEvent35 => FnHIDDORX_35;
+        private void FnHIDDORX_35(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Push(01);
@@ -1132,8 +1132,8 @@ namespace ZCF.Scripts.Maps {
             L0021: // RETURN;
         }
 
-        private override MapEventHandler MapEvent36 => HIDDORY_36;
-        private void HIDDORY_36(Party party) {
+        private override MapEventHandler MapEvent36 => FnHIDDORY_36;
+        private void FnHIDDORY_36(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D) // returns 0 if did not use, compares to 2nd op if did use;
@@ -1194,8 +1194,8 @@ namespace ZCF.Scripts.Maps {
             L0166: // RETURN;
         }
 
-        private override MapEventHandler MapEvent37 => HIDDORZ_37;
-        private void HIDDORZ_37(Party party) {
+        private override MapEventHandler MapEvent37 => FnHIDDORZ_37;
+        private void FnHIDDORZ_37(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D) // returns 0 if did not use, compares to 2nd op if did use;
@@ -1220,8 +1220,8 @@ namespace ZCF.Scripts.Maps {
             L008E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent38 => HIDDORAA_38;
-        private void HIDDORAA_38(Party party) {
+        private override MapEventHandler MapEvent38 => FnHIDDORAA_38;
+        private void FnHIDDORAA_38(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Push(01);
@@ -1233,8 +1233,8 @@ namespace ZCF.Scripts.Maps {
             L0021: // RETURN;
         }
 
-        private override MapEventHandler MapEvent39 => HIDDORBB_39;
-        private void HIDDORBB_39(Party party) {
+        private override MapEventHandler MapEvent39 => FnHIDDORBB_39;
+        private void FnHIDDORBB_39(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D) // returns 0 if did not use, compares to 2nd op if did use;
@@ -1295,8 +1295,8 @@ namespace ZCF.Scripts.Maps {
             L0166: // RETURN;
         }
 
-        private override MapEventHandler MapEvent3A => HIDDORCC_3A;
-        private void HIDDORCC_3A(Party party) {
+        private override MapEventHandler MapEvent3A => FnHIDDORCC_3A;
+        private void FnHIDDORCC_3A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D) // returns 0 if did not use, compares to 2nd op if did use;
@@ -1357,8 +1357,8 @@ namespace ZCF.Scripts.Maps {
             L0166: // RETURN;
         }
 
-        private override MapEventHandler MapEvent3D => HIDDORFF_3D;
-        private void HIDDORFF_3D(Party party) {
+        private override MapEventHandler MapEvent3D => FnHIDDORFF_3D;
+        private void FnHIDDORFF_3D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xC4, 0xC4);
@@ -1390,8 +1390,8 @@ namespace ZCF.Scripts.Maps {
             L009E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent40 => HIDDORII_40;
-        private void HIDDORII_40(Party party) {
+        private override MapEventHandler MapEvent40 => FnHIDDORII_40;
+        private void FnHIDDORII_40(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D) // returns 0 if did not use, compares to 2nd op if did use;
@@ -1452,24 +1452,24 @@ namespace ZCF.Scripts.Maps {
             L0166: // RETURN;
         }
 
-        private override MapEventHandler MapEvent41 => EXITMSG_41;
-        private void EXITMSG_41(Party party) {
+        private override MapEventHandler MapEvent41 => FnEXITMSG_41;
+        private void FnEXITMSG_41(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1601); // Can't take any more?  The door is marked 'Exit!'
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent42 => STRTMSG_42;
-        private void STRTMSG_42(Party party) {
+        private override MapEventHandler MapEvent42 => FnSTRTMSG_42;
+        private void FnSTRTMSG_42(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1632); // A message on the wall:  'Welcome to the Den of Thieves!'
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent43 => GOODYA_43;
-        private void GOODYA_43(Party party) {
+        private override MapEventHandler MapEvent43 => FnGOODYA_43;
+        private void FnGOODYA_43(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xC3);

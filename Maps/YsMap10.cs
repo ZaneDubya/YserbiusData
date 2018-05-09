@@ -22,16 +22,16 @@ namespace ZCF.Scripts.Maps {
         private const string String0952 = "The Gremlin Cleric ignores your questions as he becomes engrossed in his book.";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => STRSTELE_01;
-        private void STRSTELE_01(Party party) {
+        private override MapEventHandler MapEvent01 => FnSTRSTELE_01;
+        private void FnSTRSTELE_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x02, 0xCD, 0x01, 0x03);
             L001E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent02 => KEYDOOR_02;
-        private void KEYDOOR_02(Party party) {
+        private override MapEventHandler MapEvent02 => FnKEYDOOR_02;
+        private void FnKEYDOOR_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xDC, 0xDC);
@@ -60,8 +60,8 @@ namespace ZCF.Scripts.Maps {
             L008D: // RETURN;
         }
 
-        private override MapEventHandler MapEvent03 => SCEPTENC_03;
-        private void SCEPTENC_03(Party party) {
+        private override MapEventHandler MapEvent03 => FnSCEPTENC_03;
+        private void FnSCEPTENC_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xE3);
@@ -100,8 +100,8 @@ namespace ZCF.Scripts.Maps {
             L019C: // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => ITEMBENC_04;
-        private void ITEMBENC_04(Party party) {
+        private override MapEventHandler MapEvent04 => FnITEMBENC_04;
+        private void FnITEMBENC_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xBD);
@@ -134,8 +134,8 @@ namespace ZCF.Scripts.Maps {
             L013C: // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => ITEMCENC_05;
-        private void ITEMCENC_05(Party party) {
+        private override MapEventHandler MapEvent05 => FnITEMCENC_05;
+        private void FnITEMCENC_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0x56);
@@ -168,8 +168,8 @@ namespace ZCF.Scripts.Maps {
             L013B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => GOLDAENC_06;
-        private void GOLDAENC_06(Party party) {
+        private override MapEventHandler MapEvent06 => FnGOLDAENC_06;
+        private void FnGOLDAENC_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x1C);
@@ -204,8 +204,8 @@ namespace ZCF.Scripts.Maps {
             L0156: // RETURN;
         }
 
-        private override MapEventHandler MapEvent07 => GOLDBENC_07;
-        private void GOLDBENC_07(Party party) {
+        private override MapEventHandler MapEvent07 => FnGOLDBENC_07;
+        private void FnGOLDBENC_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x1D);
@@ -240,8 +240,8 @@ namespace ZCF.Scripts.Maps {
             L015B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent08 => STRMNSTR_08;
-        private void STRMNSTR_08(Party party) {
+        private override MapEventHandler MapEvent08 => FnSTRMNSTR_08;
+        private void FnSTRMNSTR_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -271,8 +271,8 @@ namespace ZCF.Scripts.Maps {
             L0119: // RETURN;
         }
 
-        private override MapEventHandler MapEvent09 => TUFMNSTR_09;
-        private void TUFMNSTR_09(Party party) {
+        private override MapEventHandler MapEvent09 => FnTUFMNSTR_09;
+        private void FnTUFMNSTR_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -305,8 +305,8 @@ namespace ZCF.Scripts.Maps {
             L014F: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0A => VTFMNSTR_0A;
-        private void VTFMNSTR_0A(Party party) {
+        private override MapEventHandler MapEvent0A => FnVTFMNSTR_0A;
+        private void FnVTFMNSTR_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -334,16 +334,16 @@ namespace ZCF.Scripts.Maps {
             L00F5: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0B => STRSMESS_0B;
-        private void STRSMESS_0B(Party party) {
+        private override MapEventHandler MapEvent0B => FnSTRSMESS_0B;
+        private void FnSTRSMESS_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06DA); // There are stairs through the north gateway.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0C => NPCCHATA_0C;
-        private void NPCCHATA_0C(Party party) {
+        private override MapEventHandler MapEvent0C => FnNPCCHATA_0C;
+        private void FnNPCCHATA_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0706); // A dying Troll Knight lies on the floor.
@@ -357,8 +357,8 @@ namespace ZCF.Scripts.Maps {
             L004B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0D => NPCCHATB_0D;
-        private void NPCCHATB_0D(Party party) {
+        private override MapEventHandler MapEvent0D => FnNPCCHATB_0D;
+        private void FnNPCCHATB_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0801); // A Gremlin Cleric sits on the floor, holding a thick book in her hands.

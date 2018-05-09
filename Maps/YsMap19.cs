@@ -18,24 +18,24 @@ namespace ZCF.Scripts.Maps {
         private const string String0733 = "The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => TELEPORT_01;
-        private void TELEPORT_01(Party party) {
+        private override MapEventHandler MapEvent01 => FnTELEPORT_01;
+        private void FnTELEPORT_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x33, 0x00, 0x02, 0x05);
             L001D: // RETURN;
         }
 
-        private override MapEventHandler MapEvent02 => TELEMESS_02;
-        private void TELEMESS_02(Party party) {
+        private override MapEventHandler MapEvent02 => FnTELEMESS_02;
+        private void FnTELEMESS_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // There is a teleport in the west wall.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent03 => FOUNBLES_03;
-        private void FOUNBLES_03(Party party) {
+        private override MapEventHandler MapEvent03 => FnFOUNBLES_03;
+        private void FnFOUNBLES_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x3D);
@@ -56,8 +56,8 @@ namespace ZCF.Scripts.Maps {
             L0080: // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => QUESTENC_04;
-        private void QUESTENC_04(Party party) {
+        private override MapEventHandler MapEvent04 => FnQUESTENC_04;
+        private void FnQUESTENC_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0x81);
@@ -100,8 +100,8 @@ namespace ZCF.Scripts.Maps {
             L01E4: // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => LKPKDORZ_05;
-        private void LKPKDORZ_05(Party party) {
+        private override MapEventHandler MapEvent05 => FnLKPKDORZ_05;
+        private void FnLKPKDORZ_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xE2, 0xE2);
@@ -130,8 +130,8 @@ namespace ZCF.Scripts.Maps {
             L008D: // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => STRDOOR_06;
-        private void STRDOOR_06(Party party) {
+        private override MapEventHandler MapEvent06 => FnSTRDOOR_06;
+        private void FnSTRDOOR_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckStrengthA4(party);
@@ -161,8 +161,8 @@ namespace ZCF.Scripts.Maps {
             L0089: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0B => AVEMNSTR_0B;
-        private void AVEMNSTR_0B(Party party) {
+        private override MapEventHandler MapEvent0B => FnAVEMNSTR_0B;
+        private void FnAVEMNSTR_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -194,8 +194,8 @@ namespace ZCF.Scripts.Maps {
             L012E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0C => STRMNSTR_0C;
-        private void STRMNSTR_0C(Party party) {
+        private override MapEventHandler MapEvent0C => FnSTRMNSTR_0C;
+        private void FnSTRMNSTR_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -229,8 +229,8 @@ namespace ZCF.Scripts.Maps {
             L0152: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0E => NPCCHATA_0E;
-        private void NPCCHATA_0E(Party party) {
+        private override MapEventHandler MapEvent0E => FnNPCCHATA_0E;
+        private void FnNPCCHATA_0E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05C5); // You encounter a Human Thief.
@@ -244,8 +244,8 @@ namespace ZCF.Scripts.Maps {
             L004B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0F => NPCCHATB_0F;
-        private void NPCCHATB_0F(Party party) {
+        private override MapEventHandler MapEvent0F => FnNPCCHATB_0F;
+        private void FnNPCCHATB_0F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String067A); // You encounter an Elf Barbarian.

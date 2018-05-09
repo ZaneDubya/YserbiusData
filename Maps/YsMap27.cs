@@ -12,8 +12,8 @@ namespace ZCF.Scripts.Maps {
         private const string String05DC = "Carved on a recessed stone, you find a roster from a Arnakkian-era private guild.  None of the names are recognizable. ";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => GATEWAYA_01;
-        private void GATEWAYA_01(Party party) {
+        private override MapEventHandler MapEvent01 => FnGATEWAYA_01;
+        private void FnGATEWAYA_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // A Gateway back to the Labyrinth.
@@ -21,16 +21,16 @@ namespace ZCF.Scripts.Maps {
             L002A: // RETURN;
         }
 
-        private override MapEventHandler MapEvent02 => XOVERA_02;
-        private void XOVERA_02(Party party) {
+        private override MapEventHandler MapEvent02 => FnXOVERA_02;
+        private void FnXOVERA_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x02, 0x57, 0x02, 0x36);
             L001E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent03 => XOVERB_03;
-        private void XOVERB_03(Party party) {
+        private override MapEventHandler MapEvent03 => FnXOVERB_03;
+        private void FnXOVERB_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String041D); // Gate to the entrance of Arnakkian's Arena.
@@ -38,8 +38,8 @@ namespace ZCF.Scripts.Maps {
             L002A: // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => AREAA_04;
-        private void AREAA_04(Party party) {
+        private override MapEventHandler MapEvent04 => FnAREAA_04;
+        private void FnAREAA_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0448); // Gate to the Red Arena Staging Area.
@@ -47,8 +47,8 @@ namespace ZCF.Scripts.Maps {
             L002B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => AREAB_05;
-        private void AREAB_05(Party party) {
+        private override MapEventHandler MapEvent05 => FnAREAB_05;
+        private void FnAREAB_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String046C); // Gate to the Blue Arena Staging Area.
@@ -56,8 +56,8 @@ namespace ZCF.Scripts.Maps {
             L002B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => AREAC_06;
-        private void AREAC_06(Party party) {
+        private override MapEventHandler MapEvent06 => FnAREAC_06;
+        private void FnAREAC_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0491); // Gate to the Green Arena Staging Area.
@@ -65,8 +65,8 @@ namespace ZCF.Scripts.Maps {
             L002B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent07 => AREAD_07;
-        private void AREAD_07(Party party) {
+        private override MapEventHandler MapEvent07 => FnAREAD_07;
+        private void FnAREAD_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04B7); // Gate to the Yellow Arena Staging Area.
@@ -74,8 +74,8 @@ namespace ZCF.Scripts.Maps {
             L002B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent09 => ARENTEXT_09;
-        private void ARENTEXT_09(Party party) {
+        private override MapEventHandler MapEvent09 => FnARENTEXT_09;
+        private void FnARENTEXT_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04DE); // In the time when Arnakkian bestrode the land of Twinion, a Great Arena was built where the bravest warriors and wisest mages could challenge each other in deadly battle.
@@ -83,8 +83,8 @@ namespace ZCF.Scripts.Maps {
             L001D: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0A => WAITTEXT_0A;
-        private void WAITTEXT_0A(Party party) {
+        private override MapEventHandler MapEvent0A => FnWAITTEXT_0A;
+        private void FnWAITTEXT_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05DC); // Carved on a recessed stone, you find a roster from a Arnakkian-era private guild.  None of the names are recognizable. 

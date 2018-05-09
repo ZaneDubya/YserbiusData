@@ -28,8 +28,8 @@ namespace ZCF.Scripts.Maps {
         private const string String0A2B = "You enter another dimension.";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => VOID_01;
-        private void VOID_01(Party party) {
+        private override MapEventHandler MapEvent01 => FnVOID_01;
+        private void FnVOID_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The Ageless Void swallows you whole.
@@ -39,8 +39,8 @@ namespace ZCF.Scripts.Maps {
             L002E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent02 => ISLEETRN_02;
-        private void ISLEETRN_02(Party party) {
+        private override MapEventHandler MapEvent02 => FnISLEETRN_02;
+        private void FnISLEETRN_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String046D); // The Island of Eternity sits at the edge of time.
@@ -48,8 +48,8 @@ namespace ZCF.Scripts.Maps {
             L001D: // RETURN;
         }
 
-        private override MapEventHandler MapEvent03 => ENCSELF_03;
-        private void ENCSELF_03(Party party) {
+        private override MapEventHandler MapEvent03 => FnENCSELF_03;
+        private void FnENCSELF_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x19, 0x01);
@@ -61,8 +61,8 @@ namespace ZCF.Scripts.Maps {
             L006F: // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => ENCWINTR_04;
-        private void ENCWINTR_04(Party party) {
+        private override MapEventHandler MapEvent04 => FnENCWINTR_04;
+        private void FnENCWINTR_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04E8); // A titanic Elemental appears!
@@ -86,8 +86,8 @@ namespace ZCF.Scripts.Maps {
             L00D8: // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => RAINRED_05;
-        private void RAINRED_05(Party party) {
+        private override MapEventHandler MapEvent05 => FnRAINRED_05;
+        private void FnRAINRED_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06F2); // A streak of Red crosses the Ageless Void.
@@ -95,8 +95,8 @@ namespace ZCF.Scripts.Maps {
             L002B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => RAINYEL_06;
-        private void RAINYEL_06(Party party) {
+        private override MapEventHandler MapEvent06 => FnRAINYEL_06;
+        private void FnRAINYEL_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String071C); // A streak of Yellow crosses the Ageless Void.
@@ -104,8 +104,8 @@ namespace ZCF.Scripts.Maps {
             L002B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent07 => RAINGRN_07;
-        private void RAINGRN_07(Party party) {
+        private override MapEventHandler MapEvent07 => FnRAINGRN_07;
+        private void FnRAINGRN_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0749); // A streak of Green crosses the Ageless Void.
@@ -113,8 +113,8 @@ namespace ZCF.Scripts.Maps {
             L002B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent08 => RAINBLU_08;
-        private void RAINBLU_08(Party party) {
+        private override MapEventHandler MapEvent08 => FnRAINBLU_08;
+        private void FnRAINBLU_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0775); // A streak of Blue crosses the Ageless Void.
@@ -122,8 +122,8 @@ namespace ZCF.Scripts.Maps {
             L002B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent09 => ENCTIME_09;
-        private void ENCTIME_09(Party party) {
+        private override MapEventHandler MapEvent09 => FnENCTIME_09;
+        private void FnENCTIME_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07A0); // Threads of blinding light appear from all directions, bending and weaving into a tight spiral before you.
@@ -135,8 +135,8 @@ namespace ZCF.Scripts.Maps {
             L0051: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0A => TELENW_0A;
-        private void TELENW_0A(Party party) {
+        private override MapEventHandler MapEvent0A => FnTELENW_0A;
+        private void FnTELENW_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09D4); // You enter another dimension.
@@ -144,8 +144,8 @@ namespace ZCF.Scripts.Maps {
             L002B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0B => TELENE_0B;
-        private void TELENE_0B(Party party) {
+        private override MapEventHandler MapEvent0B => FnTELENE_0B;
+        private void FnTELENE_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09F1); // You enter another dimension.
@@ -153,8 +153,8 @@ namespace ZCF.Scripts.Maps {
             L002A: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0C => TELESE_0C;
-        private void TELESE_0C(Party party) {
+        private override MapEventHandler MapEvent0C => FnTELESE_0C;
+        private void FnTELESE_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A0E); // You enter another dimension.
@@ -162,8 +162,8 @@ namespace ZCF.Scripts.Maps {
             L002B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0D => TELESW_0D;
-        private void TELESW_0D(Party party) {
+        private override MapEventHandler MapEvent0D => FnTELESW_0D;
+        private void FnTELESW_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A2B); // You enter another dimension.

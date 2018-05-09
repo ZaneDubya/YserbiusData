@@ -46,8 +46,8 @@ namespace ZCF.Scripts.Maps {
         private const string String0CA5 = "You leave this dimension and re-enter your world.";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => VOID_01;
-        private void VOID_01(Party party) {
+        private override MapEventHandler MapEvent01 => FnVOID_01;
+        private void FnVOID_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The Ageless Void swallows you whole.
@@ -57,8 +57,8 @@ namespace ZCF.Scripts.Maps {
             L002E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent02 => LIFE_02;
-        private void LIFE_02(Party party) {
+        private override MapEventHandler MapEvent02 => FnLIFE_02;
+        private void FnLIFE_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String046D); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
@@ -67,8 +67,8 @@ namespace ZCF.Scripts.Maps {
             L0021: // RETURN;
         }
 
-        private override MapEventHandler MapEvent03 => TIMEA_03;
-        private void TIMEA_03(Party party) {
+        private override MapEventHandler MapEvent03 => FnTIMEA_03;
+        private void FnTIMEA_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: sp = sp - 1;
@@ -108,8 +108,8 @@ namespace ZCF.Scripts.Maps {
             L00F4: // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => TIMEB_04;
-        private void TIMEB_04(Party party) {
+        private override MapEventHandler MapEvent04 => FnTIMEB_04;
+        private void FnTIMEB_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: sp = sp - 1;
@@ -149,8 +149,8 @@ namespace ZCF.Scripts.Maps {
             L00F4: // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => TIMEC_05;
-        private void TIMEC_05(Party party) {
+        private override MapEventHandler MapEvent05 => FnTIMEC_05;
+        private void FnTIMEC_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: sp = sp - 1;
@@ -190,8 +190,8 @@ namespace ZCF.Scripts.Maps {
             L00F4: // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => TIMEELEM_06;
-        private void TIMEELEM_06(Party party) {
+        private override MapEventHandler MapEvent06 => FnTIMEELEM_06;
+        private void FnTIMEELEM_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0011);
@@ -212,8 +212,8 @@ namespace ZCF.Scripts.Maps {
             L00F4: // RETURN;
         }
 
-        private override MapEventHandler MapEvent07 => TIMEPLAT_07;
-        private void TIMEPLAT_07(Party party) {
+        private override MapEventHandler MapEvent07 => FnTIMEPLAT_07;
+        private void FnTIMEPLAT_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x01, 0x00);
@@ -237,8 +237,8 @@ namespace ZCF.Scripts.Maps {
             L00A9: // RETURN;
         }
 
-        private override MapEventHandler MapEvent08 => GOAL_08;
-        private void GOAL_08(Party party) {
+        private override MapEventHandler MapEvent08 => FnGOAL_08;
+        private void FnGOAL_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RemoveItem4C(party, 0xF4);
@@ -268,8 +268,8 @@ namespace ZCF.Scripts.Maps {
             L012A: // RETURN;
         }
 
-        private override MapEventHandler MapEvent09 => ENCA_09;
-        private void ENCA_09(Party party) {
+        private override MapEventHandler MapEvent09 => FnENCA_09;
+        private void FnENCA_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0C2F); // Across the Waters of Death at the center of this finite square is the Fountain of Life.
@@ -283,8 +283,8 @@ namespace ZCF.Scripts.Maps {
             L0089: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0A => ENCB_0A;
-        private void ENCB_0A(Party party) {
+        private override MapEventHandler MapEvent0A => FnENCB_0A;
+        private void FnENCB_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x08, 0x01);
@@ -296,8 +296,8 @@ namespace ZCF.Scripts.Maps {
             L006F: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0B => ENCC_0B;
-        private void ENCC_0B(Party party) {
+        private override MapEventHandler MapEvent0B => FnENCC_0B;
+        private void FnENCC_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x1B, 0x01);
@@ -309,8 +309,8 @@ namespace ZCF.Scripts.Maps {
             L006F: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0C => ENCD_0C;
-        private void ENCD_0C(Party party) {
+        private override MapEventHandler MapEvent0C => FnENCD_0C;
+        private void FnENCD_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x01, 0x7B);
@@ -332,8 +332,8 @@ namespace ZCF.Scripts.Maps {
             L00BE: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0D => ENCE_0D;
-        private void ENCE_0D(Party party) {
+        private override MapEventHandler MapEvent0D => FnENCE_0D;
+        private void FnENCE_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x1E, 0x01);
@@ -345,8 +345,8 @@ namespace ZCF.Scripts.Maps {
             L006F: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0E => ENCF_0E;
-        private void ENCF_0E(Party party) {
+        private override MapEventHandler MapEvent0E => FnENCF_0E;
+        private void FnENCF_0E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x22, 0x01);
@@ -358,8 +358,8 @@ namespace ZCF.Scripts.Maps {
             L006F: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0F => CROSSOVR_0F;
-        private void CROSSOVR_0F(Party party) {
+        private override MapEventHandler MapEvent0F => FnCROSSOVR_0F;
+        private void FnCROSSOVR_0F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x01, 0x00);
@@ -377,8 +377,8 @@ namespace ZCF.Scripts.Maps {
             L0064: // RETURN;
         }
 
-        private override MapEventHandler MapEvent10 => MAPCONV_10;
-        private void MAPCONV_10(Party party) {
+        private override MapEventHandler MapEvent10 => FnMAPCONV_10;
+        private void FnMAPCONV_10(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: sp = sp - 1;
@@ -411,8 +411,8 @@ namespace ZCF.Scripts.Maps {
             L00EA: // RETURN;
         }
 
-        private override MapEventHandler MapEvent12 => TELEBACK_12;
-        private void TELEBACK_12(Party party) {
+        private override MapEventHandler MapEvent12 => FnTELEBACK_12;
+        private void FnTELEBACK_12(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0CA5); // You leave this dimension and re-enter your world.

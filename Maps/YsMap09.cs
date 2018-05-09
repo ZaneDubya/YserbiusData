@@ -21,16 +21,16 @@ namespace ZCF.Scripts.Maps {
         private const string String07F1 = "The insane Gnome Thief crawls away.";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => STRSTELE_01;
-        private void STRSTELE_01(Party party) {
+        private override MapEventHandler MapEvent01 => FnSTRSTELE_01;
+        private void FnSTRSTELE_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x01, 0xD7, 0x01, 0x03);
             L001E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent02 => KEYDOOR_02;
-        private void KEYDOOR_02(Party party) {
+        private override MapEventHandler MapEvent02 => FnKEYDOOR_02;
+        private void FnKEYDOOR_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xDB, 0xDB);
@@ -59,8 +59,8 @@ namespace ZCF.Scripts.Maps {
             L008D: // RETURN;
         }
 
-        private override MapEventHandler MapEvent03 => GOLDAENC_03;
-        private void GOLDAENC_03(Party party) {
+        private override MapEventHandler MapEvent03 => FnGOLDAENC_03;
+        private void FnGOLDAENC_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x19);
@@ -93,8 +93,8 @@ namespace ZCF.Scripts.Maps {
             L0137: // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => GOLDBENC_04;
-        private void GOLDBENC_04(Party party) {
+        private override MapEventHandler MapEvent04 => FnGOLDBENC_04;
+        private void FnGOLDBENC_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x1A);
@@ -130,8 +130,8 @@ namespace ZCF.Scripts.Maps {
             L0168: // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => CROWNENC_05;
-        private void CROWNENC_05(Party party) {
+        private override MapEventHandler MapEvent05 => FnCROWNENC_05;
+        private void FnCROWNENC_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0x78);
@@ -175,8 +175,8 @@ namespace ZCF.Scripts.Maps {
             L01E8: // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => ITEMBENC_06;
-        private void ITEMBENC_06(Party party) {
+        private override MapEventHandler MapEvent06 => FnITEMBENC_06;
+        private void FnITEMBENC_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x1B);
@@ -220,8 +220,8 @@ namespace ZCF.Scripts.Maps {
             L01EA: // RETURN;
         }
 
-        private override MapEventHandler MapEvent07 => ITEMCENC_07;
-        private void ITEMCENC_07(Party party) {
+        private override MapEventHandler MapEvent07 => FnITEMCENC_07;
+        private void FnITEMCENC_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0x07);
@@ -260,8 +260,8 @@ namespace ZCF.Scripts.Maps {
             L017F: // RETURN;
         }
 
-        private override MapEventHandler MapEvent08 => STRMNSTR_08;
-        private void STRMNSTR_08(Party party) {
+        private override MapEventHandler MapEvent08 => FnSTRMNSTR_08;
+        private void FnSTRMNSTR_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -296,8 +296,8 @@ namespace ZCF.Scripts.Maps {
             L0164: // RETURN;
         }
 
-        private override MapEventHandler MapEvent09 => TUFMNSTR_09;
-        private void TUFMNSTR_09(Party party) {
+        private override MapEventHandler MapEvent09 => FnTUFMNSTR_09;
+        private void FnTUFMNSTR_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -324,8 +324,8 @@ namespace ZCF.Scripts.Maps {
             L00E3: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0A => VTFMNSTR_0A;
-        private void VTFMNSTR_0A(Party party) {
+        private override MapEventHandler MapEvent0A => FnVTFMNSTR_0A;
+        private void FnVTFMNSTR_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -357,16 +357,16 @@ namespace ZCF.Scripts.Maps {
             L012E: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0B => STRSMESS_0B;
-        private void STRSMESS_0B(Party party) {
+        private override MapEventHandler MapEvent0B => FnSTRSMESS_0B;
+        private void FnSTRSMESS_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05FF); // East past the gateway are stairs leading down a level.
             L0010: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0C => NPCCHATA_0C;
-        private void NPCCHATA_0C(Party party) {
+        private override MapEventHandler MapEvent0C => FnNPCCHATA_0C;
+        private void FnNPCCHATA_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0636); // A Halfling Cleric creeps out of the shadows.
@@ -380,8 +380,8 @@ namespace ZCF.Scripts.Maps {
             L004B: // RETURN;
         }
 
-        private override MapEventHandler MapEvent0D => NPCCHATB_0D;
-        private void NPCCHATB_0D(Party party) {
+        private override MapEventHandler MapEvent0D => FnNPCCHATB_0D;
+        private void FnNPCCHATB_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0711); // A half-mad Gnome Thief crawls into the room.
