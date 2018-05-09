@@ -1,5 +1,8 @@
+#pragma warning disable
+using ZCF.WorldData;
+
 namespace ZCF.Scripts.Maps {
-    class YserMap14 : ACanoMapScript {
+    class YserMap14 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "The door opens.";
         private const string String040C = "This door is locked.";
@@ -83,31 +86,31 @@ namespace ZCF.Scripts.Maps {
         private const string String11D6 = "There is a teleport in the west wall.";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => FnTORUNERM_01;
+        protected override MapEventHandler MapEvent01 => FnTORUNERM_01;
         private void FnTORUNERM_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x03, 0x01, 0x1F, 0x00);
-            L001D: // RETURN;
+            L001D: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent02 => FnTOMAUS_02;
+        protected override MapEventHandler MapEvent02 => FnTOMAUS_02;
         private void FnTOMAUS_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x03, 0x04, 0xF8, 0x03);
-            L001E: // RETURN;
+            L001E: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent03 => FnSPECDOOR_03;
+        protected override MapEventHandler MapEvent03 => FnSPECDOOR_03;
         private void FnSPECDOOR_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xD2, 0xD2);
-            L0016: if (result.notequal) goto L0028;
+            L0016: if (!CompareResultEqual) goto L0028;
             L0018: ax = HasItem50(party, 0xF8);
-            L0026: if (result.equal) goto L0073;
-            L0028: PushStack(01);
+            L0026: if (CompareResultEqual) goto L0073;
+            L0028: PushStack(0x01);
             L002C: ax = GetFacing24(party);
             L0033: PushStack(ax);
             L0034: ax = GetNextTile20(party);
@@ -117,7 +120,7 @@ namespace ZCF.Scripts.Maps {
             L004D: PushStack(ax);
             L004E: ax = GetNextTile20(party);
             L0055: PushStack(ax);
-            L0056: PushStack(01);
+            L0056: PushStack(0x01);
             L005A: SetUnblocked30(party);
             L0064: ShowMessage(party, String03FC); // The door opens.
             L0071: goto L009D;
@@ -128,18 +131,18 @@ namespace ZCF.Scripts.Maps {
             L0085: PushStack(ax);
             L0086: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L0090: ShowMessage(party, String040C); // This door is locked.
-            L009D: // RETURN;
+            L009D: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => FnQUESTDOR_04;
+        protected override MapEventHandler MapEvent04 => FnQUESTDOR_04;
         private void FnQUESTDOR_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x2E);
-            L0014: compare(ax, 0x0001);
-            L0017: if (result.notequal) goto L0078;
+            L0014: Compare(ax, 0x0001);
+            L0017: if (!CompareResultEqual) goto L0078;
             L0019: SetState00(party, 0x02, 0x2E, 0x00);
-            L002D: PushStack(01);
+            L002D: PushStack(0x01);
             L0031: ax = GetFacing24(party);
             L0038: PushStack(ax);
             L0039: ax = GetNextTile20(party);
@@ -149,7 +152,7 @@ namespace ZCF.Scripts.Maps {
             L0052: PushStack(ax);
             L0053: ax = GetNextTile20(party);
             L005A: PushStack(ax);
-            L005B: PushStack(01);
+            L005B: PushStack(0x01);
             L005F: SetUnblocked30(party);
             L0069: ShowMessage(party, String0421); // The door magically opens!
             L0076: goto L00A2;
@@ -160,24 +163,24 @@ namespace ZCF.Scripts.Maps {
             L008A: PushStack(ax);
             L008B: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L0095: ShowMessage(party, String043B); // This door will not open.
-            L00A2: // RETURN;
+            L00A2: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => FnSTRSTELE_05;
+        protected override MapEventHandler MapEvent05 => FnSTRSTELE_05;
         private void FnSTRSTELE_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x04, 0x01, 0x1F, 0x01);
-            L001E: // RETURN;
+            L001E: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => FnQSTCHARA_06;
+        protected override MapEventHandler MapEvent06 => FnQSTCHARA_06;
         private void FnQSTCHARA_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xF9);
-            L0011: if (result.equal) goto L008C;
-            L0013: PushStack(01);
+            L0011: if (CompareResultEqual) goto L008C;
+            L0013: PushStack(0x01);
             L0017: ax = GetFacing24(party);
             L001E: PushStack(ax);
             L001F: ax = GetNextTile20(party);
@@ -187,7 +190,7 @@ namespace ZCF.Scripts.Maps {
             L0038: PushStack(ax);
             L0039: ax = GetNextTile20(party);
             L0040: PushStack(ax);
-            L0041: PushStack(01);
+            L0041: PushStack(0x01);
             L0045: SetUnblocked30(party);
             L004F: SetState00(party, 0x02, 0x2E, 0x01);
             L0064: ShowPortrait(party, 0x001C);
@@ -203,66 +206,66 @@ namespace ZCF.Scripts.Maps {
             L00A9: ShowPortrait(party, 0x001C);
             L00B6: ShowMessage(party, String04B9); // None may pass. I am pledged to guard King Cleowyn's Apartments for eternity. Of course, if you had the King's Pass, I could let you through.
             L00C3: ShowMessage(party, String0546); // Seek the Pass where Ranger and Troll are blessed.
-            L00D0: // RETURN;
+            L00D0: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent07 => FnQSTCHARB_07;
+        protected override MapEventHandler MapEvent07 => FnQSTCHARB_07;
         private void FnQSTCHARB_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x22);
-            L0014: compare(ax, 0x0001);
-            L0017: if (result.notequal) goto L0035;
+            L0014: Compare(ax, 0x0001);
+            L0017: if (!CompareResultEqual) goto L0035;
             L0019: ShowPortrait(party, 0x002C);
             L0026: ShowMessage(party, String0578); // You have passed the Trial of Harmony. A great reward is yours, if you but look for it.
             L0033: goto L004F;
             L0035: ShowPortrait(party, 0x002C);
             L0042: ShowMessage(party, String05CF); // You have mastered our Challenge. Congratulations! Behold the door of Harmony. Only those pledged to Harmony should enter.
-            L004F: // RETURN;
+            L004F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent08 => FnQSTCHARC_08;
+        protected override MapEventHandler MapEvent08 => FnQSTCHARC_08;
         private void FnQSTCHARC_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x23);
-            L0014: compare(ax, 0x0001);
-            L0017: if (result.notequal) goto L0035;
+            L0014: Compare(ax, 0x0001);
+            L0017: if (!CompareResultEqual) goto L0035;
             L0019: ShowPortrait(party, 0x002D);
             L0026: ShowMessage(party, String0649); // You have passed the Trial of Chaos. A great reward is yours, if you but look for it.
             L0033: goto L004F;
             L0035: ShowPortrait(party, 0x002D);
             L0042: ShowMessage(party, String069E); // You have mastered our Challenge. Congratulations! Behold the door of Chaos. Only those pledged to Chaos should enter.
-            L004F: // RETURN;
+            L004F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent09 => FnTELEPORT_09;
+        protected override MapEventHandler MapEvent09 => FnTELEPORT_09;
         private void FnTELEPORT_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x02, 0x01, 0xF0, 0x02);
-            L001E: // RETURN;
+            L001E: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0A => FnTELEPORT_0A;
+        protected override MapEventHandler MapEvent0A => FnTELEPORT_0A;
         private void FnTELEPORT_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x04, 0x01, 0x87, 0x02);
-            L001E: // RETURN;
+            L001E: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0B => FnHUTHDOOR_0B;
+        protected override MapEventHandler MapEvent0B => FnHUTHDOOR_0B;
         private void FnHUTHDOOR_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetRace78(party);
             L000A: RefreshCompareFlags(ax);
-            L000C: if (result.equal) goto L001A;
+            L000C: if (CompareResultEqual) goto L001A;
             L000E: ax = GetGuild7C(party);
-            L0015: compare(ax, 0x0003);
-            L0018: if (result.notequal) goto L0065;
-            L001A: PushStack(01);
+            L0015: Compare(ax, 0x0003);
+            L0018: if (!CompareResultEqual) goto L0065;
+            L001A: PushStack(0x01);
             L001E: ax = GetFacing24(party);
             L0025: PushStack(ax);
             L0026: ax = GetNextTile20(party);
@@ -272,7 +275,7 @@ namespace ZCF.Scripts.Maps {
             L003F: PushStack(ax);
             L0040: ax = GetNextTile20(party);
             L0047: PushStack(ax);
-            L0048: PushStack(01);
+            L0048: PushStack(0x01);
             L004C: SetUnblocked30(party);
             L0056: ShowMessage(party, String0714); // The door is opened
             L0063: goto L008F;
@@ -283,20 +286,20 @@ namespace ZCF.Scripts.Maps {
             L0077: PushStack(ax);
             L0078: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L0082: ShowMessage(party, String0727); // The door can be opened only by a Human or Thief.
-            L008F: // RETURN;
+            L008F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0C => FnORCLDOOR_0C;
+        protected override MapEventHandler MapEvent0C => FnORCLDOOR_0C;
         private void FnORCLDOOR_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetRace78(party);
-            L000A: compare(ax, 0x0001);
-            L000D: if (result.equal) goto L001B;
+            L000A: Compare(ax, 0x0001);
+            L000D: if (CompareResultEqual) goto L001B;
             L000F: ax = GetGuild7C(party);
-            L0016: compare(ax, 0x0004);
-            L0019: if (result.notequal) goto L0066;
-            L001B: PushStack(01);
+            L0016: Compare(ax, 0x0004);
+            L0019: if (!CompareResultEqual) goto L0066;
+            L001B: PushStack(0x01);
             L001F: ax = GetFacing24(party);
             L0026: PushStack(ax);
             L0027: ax = GetNextTile20(party);
@@ -306,7 +309,7 @@ namespace ZCF.Scripts.Maps {
             L0040: PushStack(ax);
             L0041: ax = GetNextTile20(party);
             L0048: PushStack(ax);
-            L0049: PushStack(01);
+            L0049: PushStack(0x01);
             L004D: SetUnblocked30(party);
             L0057: ShowMessage(party, String0758); // The lock of the door opens as you step forward.
             L0064: goto L0090;
@@ -317,20 +320,20 @@ namespace ZCF.Scripts.Maps {
             L0078: PushStack(ax);
             L0079: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L0083: ShowMessage(party, String0788); // The door can be opened only by an Orc or Cleric.
-            L0090: // RETURN;
+            L0090: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0D => FnELBADOOR_0D;
+        protected override MapEventHandler MapEvent0D => FnELBADOOR_0D;
         private void FnELBADOOR_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetRace78(party);
-            L000A: compare(ax, 0x0002);
-            L000D: if (result.equal) goto L001A;
+            L000A: Compare(ax, 0x0002);
+            L000D: if (CompareResultEqual) goto L001A;
             L000F: ax = GetGuild7C(party);
             L0016: RefreshCompareFlags(ax);
-            L0018: if (result.notequal) goto L0065;
-            L001A: PushStack(01);
+            L0018: if (!CompareResultEqual) goto L0065;
+            L001A: PushStack(0x01);
             L001E: ax = GetFacing24(party);
             L0025: PushStack(ax);
             L0026: ax = GetNextTile20(party);
@@ -340,7 +343,7 @@ namespace ZCF.Scripts.Maps {
             L003F: PushStack(ax);
             L0040: ax = GetNextTile20(party);
             L0047: PushStack(ax);
-            L0048: PushStack(01);
+            L0048: PushStack(0x01);
             L004C: SetUnblocked30(party);
             L0056: ShowMessage(party, String07B9); // The lock opens as you approach.
             L0063: goto L008F;
@@ -351,20 +354,20 @@ namespace ZCF.Scripts.Maps {
             L0077: PushStack(ax);
             L0078: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L0082: ShowMessage(party, String07D9); // The door can be opened only by an Elf or Barbarian.
-            L008F: // RETURN;
+            L008F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0E => FnTRRADOOR_0E;
+        protected override MapEventHandler MapEvent0E => FnTRRADOOR_0E;
         private void FnTRRADOOR_0E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetRace78(party);
-            L000A: compare(ax, 0x0003);
-            L000D: if (result.equal) goto L001B;
+            L000A: Compare(ax, 0x0003);
+            L000D: if (CompareResultEqual) goto L001B;
             L000F: ax = GetGuild7C(party);
-            L0016: compare(ax, 0x0002);
-            L0019: if (result.notequal) goto L0066;
-            L001B: PushStack(01);
+            L0016: Compare(ax, 0x0002);
+            L0019: if (!CompareResultEqual) goto L0066;
+            L001B: PushStack(0x01);
             L001F: ax = GetFacing24(party);
             L0026: PushStack(ax);
             L0027: ax = GetNextTile20(party);
@@ -374,7 +377,7 @@ namespace ZCF.Scripts.Maps {
             L0040: PushStack(ax);
             L0041: ax = GetNextTile20(party);
             L0048: PushStack(ax);
-            L0049: PushStack(01);
+            L0049: PushStack(0x01);
             L004D: SetUnblocked30(party);
             L0057: ShowMessage(party, String080D); // The door unlocks when you test it.
             L0064: goto L0090;
@@ -385,20 +388,20 @@ namespace ZCF.Scripts.Maps {
             L0078: PushStack(ax);
             L0079: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L0083: ShowMessage(party, String0830); // The door can be opened only by a Troll or Ranger.
-            L0090: // RETURN;
+            L0090: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0F => FnDWKNDOOR_0F;
+        protected override MapEventHandler MapEvent0F => FnDWKNDOOR_0F;
         private void FnDWKNDOOR_0F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetRace78(party);
-            L000A: compare(ax, 0x0004);
-            L000D: if (result.equal) goto L001B;
+            L000A: Compare(ax, 0x0004);
+            L000D: if (CompareResultEqual) goto L001B;
             L000F: ax = GetGuild7C(party);
-            L0016: compare(ax, 0x0001);
-            L0019: if (result.notequal) goto L0066;
-            L001B: PushStack(01);
+            L0016: Compare(ax, 0x0001);
+            L0019: if (!CompareResultEqual) goto L0066;
+            L001B: PushStack(0x01);
             L001F: ax = GetFacing24(party);
             L0026: PushStack(ax);
             L0027: ax = GetNextTile20(party);
@@ -408,7 +411,7 @@ namespace ZCF.Scripts.Maps {
             L0040: PushStack(ax);
             L0041: ax = GetNextTile20(party);
             L0048: PushStack(ax);
-            L0049: PushStack(01);
+            L0049: PushStack(0x01);
             L004D: SetUnblocked30(party);
             L0057: ShowMessage(party, String0862); // The door opens as you advance.
             L0064: goto L0090;
@@ -419,20 +422,20 @@ namespace ZCF.Scripts.Maps {
             L0078: PushStack(ax);
             L0079: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L0083: ShowMessage(party, String0881); // The door can be opened only by a Dwarf or Knight.
-            L0090: // RETURN;
+            L0090: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent10 => FnGNWIDOOR_10;
+        protected override MapEventHandler MapEvent10 => FnGNWIDOOR_10;
         private void FnGNWIDOOR_10(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetRace78(party);
-            L000A: compare(ax, 0x0005);
-            L000D: if (result.equal) goto L001B;
+            L000A: Compare(ax, 0x0005);
+            L000D: if (CompareResultEqual) goto L001B;
             L000F: ax = GetGuild7C(party);
-            L0016: compare(ax, 0x0005);
-            L0019: if (result.notequal) goto L0066;
-            L001B: PushStack(01);
+            L0016: Compare(ax, 0x0005);
+            L0019: if (!CompareResultEqual) goto L0066;
+            L001B: PushStack(0x01);
             L001F: ax = GetFacing24(party);
             L0026: PushStack(ax);
             L0027: ax = GetNextTile20(party);
@@ -442,7 +445,7 @@ namespace ZCF.Scripts.Maps {
             L0040: PushStack(ax);
             L0041: ax = GetNextTile20(party);
             L0048: PushStack(ax);
-            L0049: PushStack(01);
+            L0049: PushStack(0x01);
             L004D: SetUnblocked30(party);
             L0057: ShowMessage(party, String08B3); // The door is opened.
             L0064: goto L0090;
@@ -453,19 +456,19 @@ namespace ZCF.Scripts.Maps {
             L0078: PushStack(ax);
             L0079: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L0083: ShowMessage(party, String08C7); // The door can be opened only by a Gnome or Wizard.
-            L0090: // RETURN;
+            L0090: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent11 => FnHAITDOOR_11;
+        protected override MapEventHandler MapEvent11 => FnHAITDOOR_11;
         private void FnHAITDOOR_11(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetRace78(party);
-            L000A: compare(ax, 0x0006);
-            L000D: if (result.equal) goto L001F;
+            L000A: Compare(ax, 0x0006);
+            L000D: if (CompareResultEqual) goto L001F;
             L000F: ax = HasItem50(party, 0xD3);
-            L001D: if (result.equal) goto L006A;
-            L001F: PushStack(01);
+            L001D: if (CompareResultEqual) goto L006A;
+            L001F: PushStack(0x01);
             L0023: ax = GetFacing24(party);
             L002A: PushStack(ax);
             L002B: ax = GetNextTile20(party);
@@ -475,7 +478,7 @@ namespace ZCF.Scripts.Maps {
             L0044: PushStack(ax);
             L0045: ax = GetNextTile20(party);
             L004C: PushStack(ax);
-            L004D: PushStack(01);
+            L004D: PushStack(0x01);
             L0051: SetUnblocked30(party);
             L005B: ShowMessage(party, String08F9); // The door clicks open.
             L0068: goto L0094;
@@ -486,19 +489,19 @@ namespace ZCF.Scripts.Maps {
             L007C: PushStack(ax);
             L007D: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L0087: ShowMessage(party, String090F); // The door can be opened only by a Halfling or by Cleowyn's Key.
-            L0094: // RETURN;
+            L0094: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent12 => FnGRITDOOR_12;
+        protected override MapEventHandler MapEvent12 => FnGRITDOOR_12;
         private void FnGRITDOOR_12(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetRace78(party);
-            L000A: compare(ax, 0x0007);
-            L000D: if (result.equal) goto L001F;
+            L000A: Compare(ax, 0x0007);
+            L000D: if (CompareResultEqual) goto L001F;
             L000F: ax = HasItem50(party, 0xD2);
-            L001D: if (result.equal) goto L006A;
-            L001F: PushStack(01);
+            L001D: if (CompareResultEqual) goto L006A;
+            L001F: PushStack(0x01);
             L0023: ax = GetFacing24(party);
             L002A: PushStack(ax);
             L002B: ax = GetNextTile20(party);
@@ -508,7 +511,7 @@ namespace ZCF.Scripts.Maps {
             L0044: PushStack(ax);
             L0045: ax = GetNextTile20(party);
             L004C: PushStack(ax);
-            L004D: PushStack(01);
+            L004D: PushStack(0x01);
             L0051: SetUnblocked30(party);
             L005B: ShowMessage(party, String094E); // The lock opens for you.
             L0068: goto L0094;
@@ -519,38 +522,38 @@ namespace ZCF.Scripts.Maps {
             L007C: PushStack(ax);
             L007D: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L0087: ShowMessage(party, String0966); // The door can be opened only by a Gremlin or by Cleowyn's Lockpick.
-            L0094: // RETURN;
+            L0094: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent13 => FnOTGGDOOR_13;
+        protected override MapEventHandler MapEvent13 => FnOTGGDOOR_13;
         private void FnOTGGDOOR_13(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09A9); // A warning is on the door -
             L0010: ax = GetAlignment80(party);
             L0018: RefreshCompareFlags(ax);
-            L001A: if (result.notequal) goto L002B;
+            L001A: if (!CompareResultEqual) goto L002B;
             L001C: ShowMessage(party, String09C4); // 'Those honoring Harmony may safely enter.'
             L0029: goto L0038;
             L002B: ShowMessage(party, String09EF); // 'Woe to you who serve Chaos, if you dare cross the threshold.'
-            L0038: // RETURN;
+            L0038: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent14 => FnHEDHDOOR_14;
+        protected override MapEventHandler MapEvent14 => FnHEDHDOOR_14;
         private void FnHEDHDOOR_14(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A2E); // A warning is on the door -
             L0010: ax = GetAlignment80(party);
-            L0018: compare(ax, 0x0001);
-            L001B: if (result.notequal) goto L002C;
+            L0018: Compare(ax, 0x0001);
+            L001B: if (!CompareResultEqual) goto L002C;
             L001D: ShowMessage(party, String0A49); // 'Those honoring Chaos may safely enter.'
             L002A: goto L0039;
             L002C: ShowMessage(party, String0A72); // 'Woe to you who serve Harmony, if you dare cross the threshold.'
-            L0039: // RETURN;
+            L0039: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent15 => FnCHAOSDOR_15;
+        protected override MapEventHandler MapEvent15 => FnCHAOSDOR_15;
         private void FnCHAOSDOR_15(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -559,12 +562,12 @@ namespace ZCF.Scripts.Maps {
             L0017: PushStack(ax);
             L0018: ax = GetNextTile20(party);
             L001F: PushStack(ax);
-            L0020: PushStack(01);
+            L0020: PushStack(0x01);
             L0024: SetUnblocked30(party);
             L002E: ax = GetAlignment80(party);
-            L0036: compare(ax, 0x0001);
-            L0039: if (result.notequal) goto L0068;
-            L003B: PushStack(01);
+            L0036: Compare(ax, 0x0001);
+            L0039: if (!CompareResultEqual) goto L0068;
+            L003B: PushStack(0x01);
             L003F: ax = GetFacing24(party);
             L0046: PushStack(ax);
             L0047: ax = GetNextTile20(party);
@@ -575,17 +578,17 @@ namespace ZCF.Scripts.Maps {
             L0068: ModifyGold(party, 0xFFFF78BA);
             L007A: ModifyAttributeA8(party, 0x00, 0xFFFE);
             L008B: ModifyAttributeA8(party, 0x01, 0xFFFE);
-            L009D: PushStack(01);
+            L009D: PushStack(0x01);
             L00A1: ax = GetFacing24(party);
             L00A8: PushStack(ax);
             L00A9: ax = GetNextTile20(party);
             L00B0: PushStack(ax);
             L00B1: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L00BB: ShowMessage(party, String0AF2); // Those not sworn to Chaos have been duly chastised.
-            L00C8: // RETURN;
+            L00C8: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent16 => FnHARMDOOR_16;
+        protected override MapEventHandler MapEvent16 => FnHARMDOOR_16;
         private void FnHARMDOOR_16(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -594,12 +597,12 @@ namespace ZCF.Scripts.Maps {
             L0017: PushStack(ax);
             L0018: ax = GetNextTile20(party);
             L001F: PushStack(ax);
-            L0020: PushStack(01);
+            L0020: PushStack(0x01);
             L0024: SetUnblocked30(party);
             L002E: ax = GetAlignment80(party);
             L0036: RefreshCompareFlags(ax);
-            L0038: if (result.notequal) goto L0067;
-            L003A: PushStack(01);
+            L0038: if (!CompareResultEqual) goto L0067;
+            L003A: PushStack(0x01);
             L003E: ax = GetFacing24(party);
             L0045: PushStack(ax);
             L0046: ax = GetNextTile20(party);
@@ -610,54 +613,54 @@ namespace ZCF.Scripts.Maps {
             L0067: ModifyGold(party, 0xFFFF78BA);
             L0079: ModifyAttributeA8(party, 0x00, 0xFFFE);
             L008A: ModifyAttributeA8(party, 0x01, 0xFFFE);
-            L009C: PushStack(01);
+            L009C: PushStack(0x01);
             L00A0: ax = GetFacing24(party);
             L00A7: PushStack(ax);
             L00A8: ax = GetNextTile20(party);
             L00AF: PushStack(ax);
             L00B0: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L00BA: ShowMessage(party, String0B66); // Those not sworn to Harmony have been duly chastised.
-            L00C7: // RETURN;
+            L00C7: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent17 => FnPAYAENC_17;
+        protected override MapEventHandler MapEvent17 => FnPAYAENC_17;
         private void FnPAYAENC_17(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x23);
-            L0014: compare(ax, 0x0001);
-            L0017: if (result.equal) goto L0025;
+            L0014: Compare(ax, 0x0001);
+            L0017: if (CompareResultEqual) goto L0025;
             L0019: ax = GetAlignment80(party);
             L0021: RefreshCompareFlags(ax);
-            L0023: if (result.notequal) goto L0048;
+            L0023: if (!CompareResultEqual) goto L0048;
             L0025: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xCE, 0xB7);
             L0045: goto L00E1;
             L0048: SetState00(party, 0x02, 0x23, 0x01);
             L005D: ax = GetGuild7C(party);
-            L0064: compare(ax, 0x0005);
-            L0067: if (result.equal) goto L0075;
+            L0064: Compare(ax, 0x0005);
+            L0067: if (CompareResultEqual) goto L0075;
             L0069: ax = GetGuild7C(party);
-            L0070: compare(ax, 0x0004);
-            L0073: if (result.notequal) goto L0096;
+            L0070: Compare(ax, 0x0004);
+            L0073: if (!CompareResultEqual) goto L0096;
             L0075: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x0E);
             L0094: goto L00E1;
             L0096: ax = GetGuild7C(party);
             L009D: RefreshCompareFlags(ax);
-            L009F: if (result.notequal) goto L00C2;
+            L009F: if (!CompareResultEqual) goto L00C2;
             L00A1: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x2A);
             L00C0: goto L00E1;
             L00C2: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x4B);
             L00E1: ShowMessage(party, String0B9B); // Rogues bar the way to Chaos.
             L00EE: ax = PartyCount(party);
-            L00F6: compare(ax, 0x0001);
-            L00F9: if (result.notequal) goto L0134;
+            L00F6: Compare(ax, 0x0001);
+            L00F9: if (!CompareResultEqual) goto L0134;
             L00FB: AddEncounter(party, 0x01, 0x26);
             L010D: AddEncounter(party, 0x02, 0x1C);
             L011F: AddEncounter(party, 0x06, 0x1D);
             L0131: goto L0209;
             L0134: ax = PartyCount(party);
-            L013C: compare(ax, 0x0002);
-            L013F: if (result.notequal) goto L019D;
+            L013C: Compare(ax, 0x0002);
+            L013F: if (!CompareResultEqual) goto L019D;
             L0141: AddEncounter(party, 0x01, 0x26);
             L0153: AddEncounter(party, 0x02, 0x24);
             L0165: AddEncounter(party, 0x03, 0x1F);
@@ -670,55 +673,55 @@ namespace ZCF.Scripts.Maps {
             L01D3: AddEncounter(party, 0x04, 0x24);
             L01E5: AddEncounter(party, 0x05, 0x21);
             L01F7: AddEncounter(party, 0x06, 0x1D);
-            L0209: // RETURN;
+            L0209: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent18 => FnPAYBENC_18;
+        protected override MapEventHandler MapEvent18 => FnPAYBENC_18;
         private void FnPAYBENC_18(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x22);
-            L0014: compare(ax, 0x0001);
-            L0017: if (result.equal) goto L0026;
+            L0014: Compare(ax, 0x0001);
+            L0017: if (CompareResultEqual) goto L0026;
             L0019: ax = GetAlignment80(party);
-            L0021: compare(ax, 0x0001);
-            L0024: if (result.notequal) goto L0049;
+            L0021: Compare(ax, 0x0001);
+            L0024: if (!CompareResultEqual) goto L0049;
             L0026: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xCE, 0xB7);
             L0046: goto L011C;
             L0049: SetState00(party, 0x02, 0x22, 0x01);
             L005E: ax = GetGuild7C(party);
             L0065: RefreshCompareFlags(ax);
-            L0067: if (result.equal) goto L0075;
+            L0067: if (CompareResultEqual) goto L0075;
             L0069: ax = GetGuild7C(party);
-            L0070: compare(ax, 0x0004);
-            L0073: if (result.notequal) goto L0097;
+            L0070: Compare(ax, 0x0004);
+            L0073: if (!CompareResultEqual) goto L0097;
             L0075: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x22);
             L0094: goto L011C;
             L0097: ax = GetGuild7C(party);
-            L009E: compare(ax, 0x0001);
-            L00A1: if (result.notequal) goto L00C4;
+            L009E: Compare(ax, 0x0001);
+            L00A1: if (!CompareResultEqual) goto L00C4;
             L00A3: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x10);
             L00C2: goto L011C;
             L00C4: ax = GetGuild7C(party);
-            L00CB: compare(ax, 0x0002);
-            L00CE: if (result.equal) goto L00DC;
+            L00CB: Compare(ax, 0x0002);
+            L00CE: if (CompareResultEqual) goto L00DC;
             L00D0: ax = GetGuild7C(party);
-            L00D7: compare(ax, 0x0003);
-            L00DA: if (result.notequal) goto L00FD;
+            L00D7: Compare(ax, 0x0003);
+            L00DA: if (!CompareResultEqual) goto L00FD;
             L00DC: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x45);
             L00FB: goto L011C;
             L00FD: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x06);
             L011C: ShowMessage(party, String0BB8); // Rogues bar the way to Harmony.
             L0129: ax = PartyCount(party);
-            L0131: compare(ax, 0x0001);
-            L0134: if (result.notequal) goto L016F;
+            L0131: Compare(ax, 0x0001);
+            L0134: if (!CompareResultEqual) goto L016F;
             L0136: AddEncounter(party, 0x01, 0x26);
             L0148: AddEncounter(party, 0x02, 0x1C);
             L015A: AddEncounter(party, 0x06, 0x1D);
             L016C: goto L0244;
             L016F: ax = PartyCount(party);
-            L0177: compare(ax, 0x0002);
-            L017A: if (result.notequal) goto L01D8;
+            L0177: Compare(ax, 0x0002);
+            L017A: if (!CompareResultEqual) goto L01D8;
             L017C: AddEncounter(party, 0x01, 0x26);
             L018E: AddEncounter(party, 0x02, 0x24);
             L01A0: AddEncounter(party, 0x03, 0x1F);
@@ -731,21 +734,21 @@ namespace ZCF.Scripts.Maps {
             L020E: AddEncounter(party, 0x04, 0x24);
             L0220: AddEncounter(party, 0x05, 0x21);
             L0232: AddEncounter(party, 0x06, 0x1D);
-            L0244: // RETURN;
+            L0244: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent19 => FnBLESSMES_19;
+        protected override MapEventHandler MapEvent19 => FnBLESSMES_19;
         private void FnBLESSMES_19(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState0C(party, 0x02, 0x2F);
-            L0016: if (result.equal) goto L0076;
+            L0016: if (CompareResultEqual) goto L0076;
             L0018: ax = GetRace78(party);
             L001F: RefreshCompareFlags(ax);
-            L0021: if (result.equal) goto L002F;
+            L0021: if (CompareResultEqual) goto L002F;
             L0023: ax = GetGuild7C(party);
-            L002A: compare(ax, 0x0003);
-            L002D: if (result.notequal) goto L0076;
+            L002A: Compare(ax, 0x0003);
+            L002D: if (!CompareResultEqual) goto L0076;
             L002F: SetState00(party, 0x02, 0x2F, 0x01);
             L0044: ModifyAttributeA8(party, 0x00, 0x0001);
             L0055: ModifyAttributeA8(party, 0x01, 0x0001);
@@ -753,21 +756,21 @@ namespace ZCF.Scripts.Maps {
             L0074: goto L0098;
             L0076: SetState00(party, 0x02, 0x2F, 0x01);
             L008B: ShowMessage(party, String0C0B); // The tapestry shows nothing of interest.
-            L0098: // RETURN;
+            L0098: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent1A => FnBLESSMES_1A;
+        protected override MapEventHandler MapEvent1A => FnBLESSMES_1A;
         private void FnBLESSMES_1A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState0C(party, 0x02, 0x30);
-            L0016: if (result.equal) goto L0077;
+            L0016: if (CompareResultEqual) goto L0077;
             L0018: ax = GetRace78(party);
-            L001F: compare(ax, 0x0001);
-            L0022: if (result.equal) goto L0030;
+            L001F: Compare(ax, 0x0001);
+            L0022: if (CompareResultEqual) goto L0030;
             L0024: ax = GetGuild7C(party);
-            L002B: compare(ax, 0x0004);
-            L002E: if (result.notequal) goto L0077;
+            L002B: Compare(ax, 0x0004);
+            L002E: if (!CompareResultEqual) goto L0077;
             L0030: SetState00(party, 0x02, 0x30, 0x01);
             L0045: ModifyAttributeA8(party, 0x00, 0x0001);
             L0056: ModifyAttributeA8(party, 0x01, 0x0001);
@@ -775,21 +778,21 @@ namespace ZCF.Scripts.Maps {
             L0075: goto L0099;
             L0077: SetState00(party, 0x02, 0x30, 0x01);
             L008C: ShowMessage(party, String0C66); // The tapestry shows a jumble of runes.
-            L0099: // RETURN;
+            L0099: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent1B => FnBLESSMES_1B;
+        protected override MapEventHandler MapEvent1B => FnBLESSMES_1B;
         private void FnBLESSMES_1B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState0C(party, 0x02, 0x31);
-            L0016: if (result.equal) goto L0076;
+            L0016: if (CompareResultEqual) goto L0076;
             L0018: ax = GetRace78(party);
-            L001F: compare(ax, 0x0002);
-            L0022: if (result.equal) goto L002F;
+            L001F: Compare(ax, 0x0002);
+            L0022: if (CompareResultEqual) goto L002F;
             L0024: ax = GetGuild7C(party);
             L002B: RefreshCompareFlags(ax);
-            L002D: if (result.notequal) goto L0076;
+            L002D: if (!CompareResultEqual) goto L0076;
             L002F: SetState00(party, 0x02, 0x31, 0x01);
             L0044: ModifyAttributeA8(party, 0x00, 0x0001);
             L0055: ModifyAttributeA8(party, 0x01, 0x0001);
@@ -797,21 +800,21 @@ namespace ZCF.Scripts.Maps {
             L0074: goto L0098;
             L0076: SetState00(party, 0x02, 0x31, 0x01);
             L008B: ShowMessage(party, String0CC2); // The tapestry is blank.
-            L0098: // RETURN;
+            L0098: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent1C => FnBLESSMES_1C;
+        protected override MapEventHandler MapEvent1C => FnBLESSMES_1C;
         private void FnBLESSMES_1C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState0C(party, 0x02, 0x32);
-            L0016: if (result.equal) goto L0077;
+            L0016: if (CompareResultEqual) goto L0077;
             L0018: ax = GetRace78(party);
-            L001F: compare(ax, 0x0003);
-            L0022: if (result.equal) goto L0030;
+            L001F: Compare(ax, 0x0003);
+            L0022: if (CompareResultEqual) goto L0030;
             L0024: ax = GetGuild7C(party);
-            L002B: compare(ax, 0x0002);
-            L002E: if (result.notequal) goto L0077;
+            L002B: Compare(ax, 0x0002);
+            L002E: if (!CompareResultEqual) goto L0077;
             L0030: SetState00(party, 0x02, 0x32, 0x01);
             L0045: ModifyAttributeA8(party, 0x00, 0x0001);
             L0056: ModifyAttributeA8(party, 0x01, 0x0001);
@@ -819,21 +822,21 @@ namespace ZCF.Scripts.Maps {
             L0075: goto L0099;
             L0077: SetState00(party, 0x02, 0x32, 0x01);
             L008C: ShowMessage(party, String0D0E); // The tapestry is blank.
-            L0099: // RETURN;
+            L0099: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent1D => FnBLESSMES_1D;
+        protected override MapEventHandler MapEvent1D => FnBLESSMES_1D;
         private void FnBLESSMES_1D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState0C(party, 0x02, 0x33);
-            L0016: if (result.equal) goto L0077;
+            L0016: if (CompareResultEqual) goto L0077;
             L0018: ax = GetRace78(party);
-            L001F: compare(ax, 0x0004);
-            L0022: if (result.equal) goto L0030;
+            L001F: Compare(ax, 0x0004);
+            L0022: if (CompareResultEqual) goto L0030;
             L0024: ax = GetGuild7C(party);
-            L002B: compare(ax, 0x0001);
-            L002E: if (result.notequal) goto L0077;
+            L002B: Compare(ax, 0x0001);
+            L002E: if (!CompareResultEqual) goto L0077;
             L0030: SetState00(party, 0x02, 0x33, 0x01);
             L0045: ModifyAttributeA8(party, 0x00, 0x0001);
             L0056: ModifyAttributeA8(party, 0x01, 0x0001);
@@ -841,21 +844,21 @@ namespace ZCF.Scripts.Maps {
             L0075: goto L0099;
             L0077: SetState00(party, 0x02, 0x33, 0x01);
             L008C: ShowMessage(party, String0D5A); // It is too dark to read the inscription.
-            L0099: // RETURN;
+            L0099: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent1E => FnBLESSMES_1E;
+        protected override MapEventHandler MapEvent1E => FnBLESSMES_1E;
         private void FnBLESSMES_1E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState0C(party, 0x02, 0x34);
-            L0016: if (result.equal) goto L0077;
+            L0016: if (CompareResultEqual) goto L0077;
             L0018: ax = GetRace78(party);
-            L001F: compare(ax, 0x0005);
-            L0022: if (result.equal) goto L0030;
+            L001F: Compare(ax, 0x0005);
+            L0022: if (CompareResultEqual) goto L0030;
             L0024: ax = GetGuild7C(party);
-            L002B: compare(ax, 0x0005);
-            L002E: if (result.notequal) goto L0077;
+            L002B: Compare(ax, 0x0005);
+            L002E: if (!CompareResultEqual) goto L0077;
             L0030: SetState00(party, 0x02, 0x34, 0x01);
             L0045: ModifyAttributeA8(party, 0x00, 0x0001);
             L0056: ModifyAttributeA8(party, 0x01, 0x0001);
@@ -863,68 +866,68 @@ namespace ZCF.Scripts.Maps {
             L0075: goto L0099;
             L0077: SetState00(party, 0x02, 0x34, 0x01);
             L008C: ShowMessage(party, String0DB7); // An inscription on the tapestry fades away as you draw near.
-            L0099: // RETURN;
+            L0099: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent1F => FnBLESSMES_1F;
+        protected override MapEventHandler MapEvent1F => FnBLESSMES_1F;
         private void FnBLESSMES_1F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState0C(party, 0x02, 0x35);
-            L0016: if (result.equal) goto L0087;
+            L0016: if (CompareResultEqual) goto L0087;
             L0018: ax = GetRace78(party);
-            L001F: compare(ax, 0x0006);
-            L0022: if (result.equal) goto L0034;
+            L001F: Compare(ax, 0x0006);
+            L0022: if (CompareResultEqual) goto L0034;
             L0024: ax = HasItem50(party, 0xD3);
-            L0032: if (result.equal) goto L0087;
+            L0032: if (CompareResultEqual) goto L0087;
             L0034: SetState00(party, 0x02, 0x35, 0x01);
             L0049: ShowMessage(party, String0DF3); // Blessed Halfling! Blessed Key of Cleowyn! With either, the quest may continue.
             L0056: ax = GetRace78(party);
-            L005D: compare(ax, 0x0006);
-            L0060: if (result.notequal) goto L0085;
+            L005D: Compare(ax, 0x0006);
+            L0060: if (!CompareResultEqual) goto L0085;
             L0062: ModifyAttributeA8(party, 0x00, 0x0001);
             L0073: ModifyAttributeA8(party, 0x01, 0x0001);
             L0085: goto L00A9;
             L0087: SetState00(party, 0x02, 0x35, 0x01);
             L009C: ShowMessage(party, String0E42); // The tapestry is empty.
-            L00A9: // RETURN;
+            L00A9: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent20 => FnBLESSMES_20;
+        protected override MapEventHandler MapEvent20 => FnBLESSMES_20;
         private void FnBLESSMES_20(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState0C(party, 0x02, 0x36);
-            L0016: if (result.equal) goto L0087;
+            L0016: if (CompareResultEqual) goto L0087;
             L0018: ax = GetRace78(party);
-            L001F: compare(ax, 0x0007);
-            L0022: if (result.equal) goto L0034;
+            L001F: Compare(ax, 0x0007);
+            L0022: if (CompareResultEqual) goto L0034;
             L0024: ax = HasItem50(party, 0xD2);
-            L0032: if (result.equal) goto L0087;
+            L0032: if (CompareResultEqual) goto L0087;
             L0034: SetState00(party, 0x02, 0x36, 0x01);
             L0049: ShowMessage(party, String0E59); // Blessed Gremlin! Blessed Pick of Cleowyn! With either, the quest may continue.
             L0056: ax = GetRace78(party);
-            L005D: compare(ax, 0x0007);
-            L0060: if (result.notequal) goto L0085;
+            L005D: Compare(ax, 0x0007);
+            L0060: if (!CompareResultEqual) goto L0085;
             L0062: ModifyAttributeA8(party, 0x00, 0x0001);
             L0073: ModifyAttributeA8(party, 0x01, 0x0001);
             L0085: goto L00A9;
             L0087: SetState00(party, 0x02, 0x36, 0x01);
             L009C: ShowMessage(party, String0EA8); // The tapestry once held a woven message.
-            L00A9: // RETURN;
+            L00A9: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent21 => FnENDQSTDR_21;
+        protected override MapEventHandler MapEvent21 => FnENDQSTDR_21;
         private void FnENDQSTDR_21(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x22);
-            L0014: compare(ax, 0x0001);
-            L0017: if (result.equal) goto L002F;
+            L0014: Compare(ax, 0x0001);
+            L0017: if (CompareResultEqual) goto L002F;
             L0019: ax = CheckState04(party, 0x02, 0x23);
-            L002A: compare(ax, 0x0001);
-            L002D: if (result.notequal) goto L0078;
-            L002F: PushStack(01);
+            L002A: Compare(ax, 0x0001);
+            L002D: if (!CompareResultEqual) goto L0078;
+            L002F: PushStack(0x01);
             L0033: ax = GetFacing24(party);
             L003A: PushStack(ax);
             L003B: ax = GetNextTile20(party);
@@ -934,35 +937,35 @@ namespace ZCF.Scripts.Maps {
             L0054: PushStack(ax);
             L0055: ax = GetNextTile20(party);
             L005C: PushStack(ax);
-            L005D: PushStack(01);
+            L005D: PushStack(0x01);
             L0061: SetUnblocked30(party);
             L006B: ShowMessage(party, String0ED0); // You found a secret door!
-            L0078: // RETURN;
+            L0078: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent22 => FnQUESTBEN_22;
+        protected override MapEventHandler MapEvent22 => FnQUESTBEN_22;
         private void FnQUESTBEN_22(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0EE9); // Reptilian bodies rise from the shadows.
             L0010: ax = HasItem50(party, 0xEE);
-            L001E: if (result.equal) goto L0041;
+            L001E: if (CompareResultEqual) goto L0041;
             L0020: AddTreasure(party, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L003F: goto L006D;
             L0041: ShowMessage(party, String0F11); // On the floor is a Chess Piece inscribed with the words - 'Property of Arnakkian Slowfoot.'
             L004E: AddTreasure(party, 0x0BB8, 0x00, 0x00, 0x00, 0x00, 0xEE);
             L006D: ax = PartyCount(party);
-            L0075: compare(ax, 0x0001);
-            L0078: if (result.notequal) goto L00A1;
+            L0075: Compare(ax, 0x0001);
+            L0078: if (!CompareResultEqual) goto L00A1;
             L007A: AddEncounter(party, 0x01, 0x28);
             L008C: AddEncounter(party, 0x02, 0x27);
             L009E: goto L0171;
             L00A1: ax = PartyCount(party);
-            L00A9: compare(ax, 0x0002);
-            L00AC: if (result.equal) goto L00BB;
+            L00A9: Compare(ax, 0x0002);
+            L00AC: if (CompareResultEqual) goto L00BB;
             L00AE: ax = PartyCount(party);
-            L00B6: compare(ax, 0x0003);
-            L00B9: if (result.notequal) goto L0105;
+            L00B6: Compare(ax, 0x0003);
+            L00B9: if (!CompareResultEqual) goto L0105;
             L00BB: AddEncounter(party, 0x01, 0x27);
             L00CD: AddEncounter(party, 0x02, 0x27);
             L00DF: AddEncounter(party, 0x05, 0x28);
@@ -974,30 +977,30 @@ namespace ZCF.Scripts.Maps {
             L013B: AddEncounter(party, 0x04, 0x27);
             L014D: AddEncounter(party, 0x05, 0x28);
             L015F: AddEncounter(party, 0x06, 0x28);
-            L0171: // RETURN;
+            L0171: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent23 => FnGOLDAENC_23;
+        protected override MapEventHandler MapEvent23 => FnGOLDAENC_23;
         private void FnGOLDAENC_23(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState08(party, 0x02, 0x24);
-            L0016: if (result.equal) goto L0039;
+            L0016: if (CompareResultEqual) goto L0039;
             L0018: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0x00, 0xD1);
             L0037: goto L006E;
             L0039: AddTreasure(party, 0x0BB8, 0x00, 0x00, 0x00, 0xB7, 0xCF);
             L0059: SetState00(party, 0x02, 0x24, 0x01);
             L006E: ax = PartyCount(party);
-            L0076: compare(ax, 0x0001);
-            L0079: if (result.notequal) goto L0090;
+            L0076: Compare(ax, 0x0001);
+            L0079: if (!CompareResultEqual) goto L0090;
             L007B: AddEncounter(party, 0x01, 0x1C);
             L008D: goto L0172;
             L0090: ax = PartyCount(party);
-            L0098: compare(ax, 0x0002);
-            L009B: if (result.equal) goto L00AA;
+            L0098: Compare(ax, 0x0002);
+            L009B: if (CompareResultEqual) goto L00AA;
             L009D: ax = PartyCount(party);
-            L00A5: compare(ax, 0x0003);
-            L00A8: if (result.notequal) goto L0106;
+            L00A5: Compare(ax, 0x0003);
+            L00A8: if (!CompareResultEqual) goto L0106;
             L00AA: AddEncounter(party, 0x01, 0x1C);
             L00BC: AddEncounter(party, 0x02, 0x1C);
             L00CE: AddEncounter(party, 0x03, 0x1C);
@@ -1010,32 +1013,32 @@ namespace ZCF.Scripts.Maps {
             L013C: AddEncounter(party, 0x04, 0x1C);
             L014E: AddEncounter(party, 0x05, 0x1C);
             L0160: AddEncounter(party, 0x06, 0x1C);
-            L0172: // RETURN;
+            L0172: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent24 => FnWEAPAENC_24;
+        protected override MapEventHandler MapEvent24 => FnWEAPAENC_24;
         private void FnWEAPAENC_24(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState08(party, 0x02, 0x25);
-            L0016: if (result.equal) goto L003A;
+            L0016: if (CompareResultEqual) goto L003A;
             L0018: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xCC, 0xCE);
             L0038: goto L006F;
             L003A: AddTreasure(party, 0x07D0, 0x00, 0x00, 0x00, 0xCC, 0x0D);
             L005A: SetState00(party, 0x02, 0x25, 0x01);
             L006F: ShowMessage(party, String0F6C); // You are challenged to combat.
             L007C: ax = PartyCount(party);
-            L0084: compare(ax, 0x0001);
-            L0087: if (result.notequal) goto L00B0;
+            L0084: Compare(ax, 0x0001);
+            L0087: if (!CompareResultEqual) goto L00B0;
             L0089: AddEncounter(party, 0x01, 0x1D);
             L009B: AddEncounter(party, 0x02, 0x1D);
             L00AD: goto L016E;
             L00B0: ax = PartyCount(party);
-            L00B8: compare(ax, 0x0002);
-            L00BB: if (result.equal) goto L00CA;
+            L00B8: Compare(ax, 0x0002);
+            L00BB: if (CompareResultEqual) goto L00CA;
             L00BD: ax = PartyCount(party);
-            L00C5: compare(ax, 0x0003);
-            L00C8: if (result.notequal) goto L0114;
+            L00C5: Compare(ax, 0x0003);
+            L00C8: if (!CompareResultEqual) goto L0114;
             L00CA: AddEncounter(party, 0x01, 0x1D);
             L00DC: AddEncounter(party, 0x02, 0x1D);
             L00EE: AddEncounter(party, 0x03, 0x1D);
@@ -1046,34 +1049,34 @@ namespace ZCF.Scripts.Maps {
             L0138: AddEncounter(party, 0x03, 0x1D);
             L014A: AddEncounter(party, 0x04, 0x1D);
             L015C: AddEncounter(party, 0x05, 0x1D);
-            L016E: // RETURN;
+            L016E: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent25 => FnMAGICENC_25;
+        protected override MapEventHandler MapEvent25 => FnMAGICENC_25;
         private void FnMAGICENC_25(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x26);
-            L0014: compare(ax, 0x0001);
-            L0017: if (result.notequal) goto L003A;
+            L0014: Compare(ax, 0x0001);
+            L0017: if (!CompareResultEqual) goto L003A;
             L0019: AddTreasure(party, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L0038: goto L006E;
             L003A: AddTreasure(party, 0x0384, 0x00, 0x00, 0x00, 0x00, 0xB3);
             L0059: SetState00(party, 0x02, 0x26, 0x01);
             L006E: ShowMessage(party, String0F8A); // Ferocious enemies stop you.
             L007B: ax = PartyCount(party);
-            L0083: compare(ax, 0x0001);
-            L0086: if (result.equal) goto L0095;
+            L0083: Compare(ax, 0x0001);
+            L0086: if (CompareResultEqual) goto L0095;
             L0088: ax = PartyCount(party);
-            L0090: compare(ax, 0x0002);
-            L0093: if (result.notequal) goto L00CE;
+            L0090: Compare(ax, 0x0002);
+            L0093: if (!CompareResultEqual) goto L00CE;
             L0095: AddEncounter(party, 0x01, 0x1E);
             L00A7: AddEncounter(party, 0x02, 0x1E);
             L00B9: AddEncounter(party, 0x03, 0x1E);
             L00CB: goto L01A3;
             L00CE: ax = PartyCount(party);
-            L00D6: compare(ax, 0x0003);
-            L00D9: if (result.notequal) goto L0137;
+            L00D6: Compare(ax, 0x0003);
+            L00D9: if (!CompareResultEqual) goto L0137;
             L00DB: AddEncounter(party, 0x01, 0x1E);
             L00ED: AddEncounter(party, 0x02, 0x1E);
             L00FF: AddEncounter(party, 0x03, 0x1E);
@@ -1086,15 +1089,15 @@ namespace ZCF.Scripts.Maps {
             L016D: AddEncounter(party, 0x04, 0x1E);
             L017F: AddEncounter(party, 0x05, 0x1E);
             L0191: AddEncounter(party, 0x06, 0x1E);
-            L01A3: // RETURN;
+            L01A3: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent26 => FnQUESTAEN_26;
+        protected override MapEventHandler MapEvent26 => FnQUESTAEN_26;
         private void FnQUESTAEN_26(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xF9);
-            L0011: if (result.equal) goto L0041;
+            L0011: if (CompareResultEqual) goto L0041;
             L0013: AddTreasure(party, 0x0384, 0x00, 0x00, 0x00, 0x00, 0xB0);
             L0032: ShowMessage(party, String0FA6); // Elf Rangers await you.
             L003F: goto L007E;
@@ -1102,14 +1105,14 @@ namespace ZCF.Scripts.Maps {
             L0060: AddExperience98(party, 0x000001F4);
             L0071: ShowMessage(party, String0FBD); // An Elf Ranger holds the King's Pass.
             L007E: ax = PartyCount(party);
-            L0086: compare(ax, 0x0001);
-            L0089: if (result.notequal) goto L00B2;
+            L0086: Compare(ax, 0x0001);
+            L0089: if (!CompareResultEqual) goto L00B2;
             L008B: AddEncounter(party, 0x01, 0x1F);
             L009D: AddEncounter(party, 0x02, 0x1F);
             L00AF: goto L0187;
             L00B2: ax = PartyCount(party);
-            L00BA: compare(ax, 0x0002);
-            L00BD: if (result.notequal) goto L011B;
+            L00BA: Compare(ax, 0x0002);
+            L00BD: if (!CompareResultEqual) goto L011B;
             L00BF: AddEncounter(party, 0x01, 0x1F);
             L00D1: AddEncounter(party, 0x02, 0x1F);
             L00E3: AddEncounter(party, 0x03, 0x1F);
@@ -1122,27 +1125,27 @@ namespace ZCF.Scripts.Maps {
             L0151: AddEncounter(party, 0x04, 0x1F);
             L0163: AddEncounter(party, 0x05, 0x1F);
             L0175: AddEncounter(party, 0x06, 0x1F);
-            L0187: // RETURN;
+            L0187: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent27 => FnITEMAENC_27;
+        protected override MapEventHandler MapEvent27 => FnITEMAENC_27;
         private void FnITEMAENC_27(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x28);
-            L0014: compare(ax, 0x0001);
-            L0017: if (result.notequal) goto L003A;
+            L0014: Compare(ax, 0x0001);
+            L0017: if (!CompareResultEqual) goto L003A;
             L0019: AddTreasure(party, 0x012C, 0x00, 0x00, 0x00, 0x00, 0xB6);
             L0038: goto L006F;
             L003A: AddTreasure(party, 0x04B0, 0x00, 0x00, 0x00, 0xCF, 0xAA);
             L005A: SetState00(party, 0x02, 0x28, 0x01);
             L006F: ShowMessage(party, String0FE2); // Proud knights dispute your progress.
             L007C: ax = PartyCount(party);
-            L0084: compare(ax, 0x0001);
-            L0087: if (result.equal) goto L0096;
+            L0084: Compare(ax, 0x0001);
+            L0087: if (CompareResultEqual) goto L0096;
             L0089: ax = PartyCount(party);
-            L0091: compare(ax, 0x0002);
-            L0094: if (result.notequal) goto L00CE;
+            L0091: Compare(ax, 0x0002);
+            L0094: if (!CompareResultEqual) goto L00CE;
             L0096: AddEncounter(party, 0x01, 0x20);
             L00A8: AddEncounter(party, 0x02, 0x20);
             L00BA: AddEncounter(party, 0x03, 0x20);
@@ -1153,27 +1156,27 @@ namespace ZCF.Scripts.Maps {
             L0104: AddEncounter(party, 0x04, 0x20);
             L0116: AddEncounter(party, 0x05, 0x20);
             L0128: AddEncounter(party, 0x06, 0x20);
-            L013A: // RETURN;
+            L013A: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent28 => FnGOLDBENC_28;
+        protected override MapEventHandler MapEvent28 => FnGOLDBENC_28;
         private void FnGOLDBENC_28(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x29);
-            L0014: compare(ax, 0x0001);
-            L0017: if (result.notequal) goto L003A;
+            L0014: Compare(ax, 0x0001);
+            L0017: if (!CompareResultEqual) goto L003A;
             L0019: AddTreasure(party, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCB);
             L0038: goto L006F;
             L003A: AddTreasure(party, 0x2710, 0x00, 0x00, 0x00, 0xB0, 0xCD);
             L005A: SetState00(party, 0x02, 0x29, 0x01);
             L006F: ShowMessage(party, String1007); // Strong enemies bar your way.
             L007C: ax = PartyCount(party);
-            L0084: compare(ax, 0x0001);
-            L0087: if (result.equal) goto L0096;
+            L0084: Compare(ax, 0x0001);
+            L0087: if (CompareResultEqual) goto L0096;
             L0089: ax = PartyCount(party);
-            L0091: compare(ax, 0x0002);
-            L0094: if (result.notequal) goto L00E0;
+            L0091: Compare(ax, 0x0002);
+            L0094: if (!CompareResultEqual) goto L00E0;
             L0096: AddEncounter(party, 0x01, 0x21);
             L00A8: AddEncounter(party, 0x02, 0x21);
             L00BA: AddEncounter(party, 0x03, 0x21);
@@ -1185,15 +1188,15 @@ namespace ZCF.Scripts.Maps {
             L0116: AddEncounter(party, 0x04, 0x22);
             L0128: AddEncounter(party, 0x05, 0x21);
             L013A: AddEncounter(party, 0x06, 0x21);
-            L014C: // RETURN;
+            L014C: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent29 => FnDRKEYENC_29;
+        protected override MapEventHandler MapEvent29 => FnDRKEYENC_29;
         private void FnDRKEYENC_29(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xC3);
-            L0011: if (result.equal) goto L0041;
+            L0011: if (CompareResultEqual) goto L0041;
             L0013: AddTreasure(party, 0x0320, 0x00, 0x00, 0x00, 0x00, 0xB5);
             L0032: ShowMessage(party, String1024); // There is nothing of interest here.
             L003F: goto L006E;
@@ -1201,17 +1204,17 @@ namespace ZCF.Scripts.Maps {
             L0061: ShowMessage(party, String1047); // You see a lockpick on the floor.
             L006E: ShowMessage(party, String1068); // Gallants challenge you.
             L007B: ax = PartyCount(party);
-            L0083: compare(ax, 0x0001);
-            L0086: if (result.notequal) goto L00AF;
+            L0083: Compare(ax, 0x0001);
+            L0086: if (!CompareResultEqual) goto L00AF;
             L0088: AddEncounter(party, 0x01, 0x1A);
             L009A: AddEncounter(party, 0x02, 0x1B);
             L00AC: goto L01A3;
             L00AF: ax = PartyCount(party);
-            L00B7: compare(ax, 0x0002);
-            L00BA: if (result.equal) goto L00C9;
+            L00B7: Compare(ax, 0x0002);
+            L00BA: if (CompareResultEqual) goto L00C9;
             L00BC: ax = PartyCount(party);
-            L00C4: compare(ax, 0x0003);
-            L00C7: if (result.notequal) goto L0137;
+            L00C4: Compare(ax, 0x0003);
+            L00C7: if (!CompareResultEqual) goto L0137;
             L00C9: AddEncounter(party, 0x01, 0x1B);
             L00DB: AddEncounter(party, 0x02, 0x1B);
             L00ED: AddEncounter(party, 0x03, 0x1B);
@@ -1225,18 +1228,18 @@ namespace ZCF.Scripts.Maps {
             L016D: AddEncounter(party, 0x04, 0x1A);
             L017F: AddEncounter(party, 0x05, 0x1C);
             L0191: AddEncounter(party, 0x06, 0x1C);
-            L01A3: // RETURN;
+            L01A3: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent2A => FnSPKEYDOO_2A;
+        protected override MapEventHandler MapEvent2A => FnSPKEYDOO_2A;
         private void FnSPKEYDOO_2A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xE1, 0xE1);
-            L0016: if (result.notequal) goto L002D;
+            L0016: if (!CompareResultEqual) goto L002D;
             L0018: ax = UsedItem54(party, 0xE2, 0xE2);
-            L002B: if (result.equal) goto L0078;
-            L002D: PushStack(01);
+            L002B: if (CompareResultEqual) goto L0078;
+            L002D: PushStack(0x01);
             L0031: ax = GetFacing24(party);
             L0038: PushStack(ax);
             L0039: ax = GetNextTile20(party);
@@ -1246,7 +1249,7 @@ namespace ZCF.Scripts.Maps {
             L0052: PushStack(ax);
             L0053: ax = GetNextTile20(party);
             L005A: PushStack(ax);
-            L005B: PushStack(01);
+            L005B: PushStack(0x01);
             L005F: SetUnblocked30(party);
             L0069: ShowMessage(party, String1080); // The key opens the door.
             L0076: goto L00A2;
@@ -1257,34 +1260,34 @@ namespace ZCF.Scripts.Maps {
             L008A: PushStack(ax);
             L008B: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L0095: ShowMessage(party, String1098); // The door is locked and requires a special key.
-            L00A2: // RETURN;
+            L00A2: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent2C => FnITEMBENC_2C;
+        protected override MapEventHandler MapEvent2C => FnITEMBENC_2C;
         private void FnITEMBENC_2C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x2A);
-            L0014: compare(ax, 0x0001);
-            L0017: if (result.notequal) goto L003A;
+            L0014: Compare(ax, 0x0001);
+            L0017: if (!CompareResultEqual) goto L003A;
             L0019: AddTreasure(party, 0x001E, 0x00, 0x00, 0x00, 0x00, 0xB1);
             L0038: goto L006F;
             L003A: AddTreasure(party, 0x01F4, 0x00, 0x00, 0x00, 0xB1, 0x55);
             L005A: SetState00(party, 0x02, 0x2A, 0x01);
             L006F: ShowMessage(party, String10C7); // Fierce opponents bar your way.
             L007C: ax = PartyCount(party);
-            L0084: compare(ax, 0x0001);
-            L0087: if (result.notequal) goto L00C2;
+            L0084: Compare(ax, 0x0001);
+            L0087: if (!CompareResultEqual) goto L00C2;
             L0089: AddEncounter(party, 0x01, 0x25);
             L009B: AddEncounter(party, 0x02, 0x26);
             L00AD: AddEncounter(party, 0x04, 0x25);
             L00BF: goto L01B6;
             L00C2: ax = PartyCount(party);
-            L00CA: compare(ax, 0x0002);
-            L00CD: if (result.equal) goto L00DC;
+            L00CA: Compare(ax, 0x0002);
+            L00CD: if (CompareResultEqual) goto L00DC;
             L00CF: ax = PartyCount(party);
-            L00D7: compare(ax, 0x0003);
-            L00DA: if (result.notequal) goto L014A;
+            L00D7: Compare(ax, 0x0003);
+            L00DA: if (!CompareResultEqual) goto L014A;
             L00DC: AddEncounter(party, 0x01, 0x26);
             L00EE: AddEncounter(party, 0x02, 0x26);
             L0100: AddEncounter(party, 0x03, 0x25);
@@ -1298,40 +1301,40 @@ namespace ZCF.Scripts.Maps {
             L0180: AddEncounter(party, 0x04, 0x26);
             L0192: AddEncounter(party, 0x05, 0x25);
             L01A4: AddEncounter(party, 0x06, 0x25);
-            L01B6: // RETURN;
+            L01B6: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent2D => FnGOLDPILE_2D;
+        protected override MapEventHandler MapEvent2D => FnGOLDPILE_2D;
         private void FnGOLDPILE_2D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckState04(party, 0x02, 0x2B);
-            L0014: compare(ax, 0x0001);
-            L0017: if (result.notequal) goto L0028;
+            L0014: Compare(ax, 0x0001);
+            L0017: if (!CompareResultEqual) goto L0028;
             L0019: ShowMessage(party, String10E6); // This area has been looted.
             L0026: goto L005B;
             L0028: ModifyGold(party, 0x2EE0);
             L0039: SetState00(party, 0x02, 0x2B, 0x01);
             L004E: ShowMessage(party, String1101); // You find 12000 Gold Pieces on the floor.
-            L005B: // RETURN;
+            L005B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent2E => FnSTRMNSTR_2E;
+        protected override MapEventHandler MapEvent2E => FnSTRMNSTR_2E;
         private void FnSTRMNSTR_2E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
-            L000B: compare(ax, 0x0001);
-            L000E: if (result.notequal) goto L0037;
+            L000B: Compare(ax, 0x0001);
+            L000E: if (!CompareResultEqual) goto L0037;
             L0010: AddEncounter(party, 0x01, 0x27);
             L0022: AddEncounter(party, 0x02, 0x06);
             L0034: goto L0119;
             L0037: ax = PartyCount(party);
-            L003F: compare(ax, 0x0002);
-            L0042: if (result.equal) goto L0051;
+            L003F: Compare(ax, 0x0002);
+            L0042: if (CompareResultEqual) goto L0051;
             L0044: ax = PartyCount(party);
-            L004C: compare(ax, 0x0003);
-            L004F: if (result.notequal) goto L00AD;
+            L004C: Compare(ax, 0x0003);
+            L004F: if (!CompareResultEqual) goto L00AD;
             L0051: AddEncounter(party, 0x01, 0x27);
             L0063: AddEncounter(party, 0x02, 0x1B);
             L0075: AddEncounter(party, 0x03, 0x27);
@@ -1344,20 +1347,20 @@ namespace ZCF.Scripts.Maps {
             L00E3: AddEncounter(party, 0x04, 0x1B);
             L00F5: AddEncounter(party, 0x05, 0x06);
             L0107: AddEncounter(party, 0x06, 0x06);
-            L0119: // RETURN;
+            L0119: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent2F => FnTUFMNSTR_2F;
+        protected override MapEventHandler MapEvent2F => FnTUFMNSTR_2F;
         private void FnTUFMNSTR_2F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String112A); // Your way is blocked.
             L0010: ax = PartyCount(party);
-            L0018: compare(ax, 0x0001);
-            L001B: if (result.equal) goto L002A;
+            L0018: Compare(ax, 0x0001);
+            L001B: if (CompareResultEqual) goto L002A;
             L001D: ax = PartyCount(party);
-            L0025: compare(ax, 0x0002);
-            L0028: if (result.notequal) goto L0074;
+            L0025: Compare(ax, 0x0002);
+            L0028: if (!CompareResultEqual) goto L0074;
             L002A: AddEncounter(party, 0x01, 0x18);
             L003C: AddEncounter(party, 0x02, 0x17);
             L004E: AddEncounter(party, 0x03, 0x17);
@@ -1369,47 +1372,47 @@ namespace ZCF.Scripts.Maps {
             L00AA: AddEncounter(party, 0x04, 0x17);
             L00BC: AddEncounter(party, 0x05, 0x18);
             L00CE: AddEncounter(party, 0x06, 0x18);
-            L00E0: // RETURN;
+            L00E0: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent3A => FnGATEMESA_3A;
+        protected override MapEventHandler MapEvent3A => FnGATEMESA_3A;
         private void FnGATEMESA_3A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String113F); // The gateway leads to THE RUNE ROOM.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent3B => FnGATEMESB_3B;
+        protected override MapEventHandler MapEvent3B => FnGATEMESB_3B;
         private void FnGATEMESB_3B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1163); // The gateway leads to THE MAUSOLEUM.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent3C => FnSTRSMESS_3C;
+        protected override MapEventHandler MapEvent3C => FnSTRSMESS_3C;
         private void FnSTRSMESS_3C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1187); // Stairs past the south gateway lead down.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent3D => FnTELEMESA_3D;
+        protected override MapEventHandler MapEvent3D => FnTELEMESA_3D;
         private void FnTELEMESA_3D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String11B0); // There is a teleport in the east wall.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent3E => FnTELEMESB_3E;
+        protected override MapEventHandler MapEvent3E => FnTELEMESB_3E;
         private void FnTELEMESB_3E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String11D6); // There is a teleport in the west wall.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
     }

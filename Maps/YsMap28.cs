@@ -1,5 +1,8 @@
+#pragma warning disable
+using ZCF.WorldData;
+
 namespace ZCF.Scripts.Maps {
-    class YserMap28 : ACanoMapScript {
+    class YserMap28 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "The AldBora Tree bears... ";
         private const string String0417 = "the knowledge of Athletics!";
@@ -154,130 +157,130 @@ namespace ZCF.Scripts.Maps {
         private const string String1DA0 = "It is known in the trees that Nature's Robe must be used for the harvest.'";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => FnALDBORA_01;
+        protected override MapEventHandler MapEvent01 => FnALDBORA_01;
         private void FnALDBORA_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ax = CheckState04(party, 0x01, 0x01);
             L0015: si = ax;
             L0017: ax = UsedItem54(party, 0xE8, 0xE8);
-            L002A: if (result.notequal) goto L002F;
+            L002A: if (!CompareResultEqual) goto L002F;
             L002C: goto L0414;
-            L002F: compare(si, 0x04);
-            L0032: if (result.equal) goto L0037;
+            L002F: Compare(si, 0x04);
+            L0032: if (CompareResultEqual) goto L0037;
             L0034: goto L0414;
             L0037: ax = HasItem50(party, 0xE9);
-            L0045: if (result.notequal) goto L004A;
+            L0045: if (!CompareResultEqual) goto L004A;
             L0047: goto L0414;
             L004A: ShowMessage(party, String03FC); // The AldBora Tree bears... 
             L0057: RemoveItem4C(party, 0xE8);
             L0063: RemoveItem4C(party, 0xE9);
             L006F: ax = GetSkillLevel5C(party, 0x00);
             L007A: RefreshCompareFlags(ax);
-            L007C: if (result.notequal) goto L009B;
+            L007C: if (!CompareResultEqual) goto L009B;
             L007E: SetSkillLevel60(party, 0x00, 0x02);
             L008E: ShowMessage(party, String0417); // the knowledge of Athletics!
             L009B: ax = GetSkillLevel5C(party, 0x01);
             L00A7: RefreshCompareFlags(ax);
-            L00A9: if (result.notequal) goto L00C9;
+            L00A9: if (!CompareResultEqual) goto L00C9;
             L00AB: SetSkillLevel60(party, 0x01, 0x02);
             L00BC: ShowMessage(party, String0433); // the knowledge of Clubs and Axes!
             L00C9: ax = GetSkillLevel5C(party, 0x02);
             L00D5: RefreshCompareFlags(ax);
-            L00D7: if (result.notequal) goto L00F7;
+            L00D7: if (!CompareResultEqual) goto L00F7;
             L00D9: SetSkillLevel60(party, 0x02, 0x02);
             L00EA: ShowMessage(party, String0454); // the knowledge of Berserker!
             L00F7: ax = GetSkillLevel5C(party, 0x03);
             L0103: RefreshCompareFlags(ax);
-            L0105: if (result.notequal) goto L0125;
+            L0105: if (!CompareResultEqual) goto L0125;
             L0107: SetSkillLevel60(party, 0x03, 0x02);
             L0118: ShowMessage(party, String0470); // the knowledge of Pursuit!
             L0125: ax = GetSkillLevel5C(party, 0x04);
             L0131: RefreshCompareFlags(ax);
-            L0133: if (result.notequal) goto L0153;
+            L0133: if (!CompareResultEqual) goto L0153;
             L0135: SetSkillLevel60(party, 0x04, 0x02);
             L0146: ShowMessage(party, String048A); // the knowledge of Leadership!
             L0153: ax = GetSkillLevel5C(party, 0x05);
             L015F: RefreshCompareFlags(ax);
-            L0161: if (result.notequal) goto L0181;
+            L0161: if (!CompareResultEqual) goto L0181;
             L0163: SetSkillLevel60(party, 0x05, 0x02);
             L0174: ShowMessage(party, String04A7); // the knowledge of Fencing!
             L0181: ax = GetSkillLevel5C(party, 0x06);
             L018D: RefreshCompareFlags(ax);
-            L018F: if (result.notequal) goto L01AF;
+            L018F: if (!CompareResultEqual) goto L01AF;
             L0191: SetSkillLevel60(party, 0x06, 0x02);
             L01A2: ShowMessage(party, String04C1); // the knowledge of Binding!
             L01AF: ax = GetSkillLevel5C(party, 0x07);
             L01BB: RefreshCompareFlags(ax);
-            L01BD: if (result.notequal) goto L01DD;
+            L01BD: if (!CompareResultEqual) goto L01DD;
             L01BF: SetSkillLevel60(party, 0x07, 0x02);
             L01D0: ShowMessage(party, String04DB); // the knowledge of Intimidation!
             L01DD: ax = GetSkillLevel5C(party, 0x08);
             L01E9: RefreshCompareFlags(ax);
-            L01EB: if (result.notequal) goto L020B;
+            L01EB: if (!CompareResultEqual) goto L020B;
             L01ED: SetSkillLevel60(party, 0x08, 0x02);
             L01FE: ShowMessage(party, String04FA); // the knowledge of Archery!
             L020B: ax = GetSkillLevel5C(party, 0x09);
             L0217: RefreshCompareFlags(ax);
-            L0219: if (result.notequal) goto L0239;
+            L0219: if (!CompareResultEqual) goto L0239;
             L021B: SetSkillLevel60(party, 0x09, 0x02);
             L022C: ShowMessage(party, String0514); // the knowledge of Stamina!
             L0239: ax = GetSkillLevel5C(party, 0x0A);
             L0245: RefreshCompareFlags(ax);
-            L0247: if (result.notequal) goto L0267;
+            L0247: if (!CompareResultEqual) goto L0267;
             L0249: SetSkillLevel60(party, 0x0A, 0x02);
             L025A: ShowMessage(party, String052E); // the knowledge of Furtiveness!
             L0267: ax = GetSkillLevel5C(party, 0x0B);
             L0273: RefreshCompareFlags(ax);
-            L0275: if (result.notequal) goto L0295;
+            L0275: if (!CompareResultEqual) goto L0295;
             L0277: SetSkillLevel60(party, 0x0B, 0x02);
             L0288: ShowMessage(party, String054C); // the knowledge of Reading Tracks!
             L0295: ax = GetSkillLevel5C(party, 0x10);
             L02A1: RefreshCompareFlags(ax);
-            L02A3: if (result.notequal) goto L02C3;
+            L02A3: if (!CompareResultEqual) goto L02C3;
             L02A5: SetSkillLevel60(party, 0x10, 0x02);
             L02B6: ShowMessage(party, String056D); // the knowledge of Martial Arts!
             L02C3: ax = GetSkillLevel5C(party, 0x11);
             L02CF: RefreshCompareFlags(ax);
-            L02D1: if (result.notequal) goto L02F1;
+            L02D1: if (!CompareResultEqual) goto L02F1;
             L02D3: SetSkillLevel60(party, 0x11, 0x02);
             L02E4: ShowMessage(party, String058C); // the knowledge of Deflect Magic!
             L02F1: ax = GetSkillLevel5C(party, 0x12);
             L02FD: RefreshCompareFlags(ax);
-            L02FF: if (result.notequal) goto L031F;
+            L02FF: if (!CompareResultEqual) goto L031F;
             L0301: SetSkillLevel60(party, 0x12, 0x02);
             L0312: ShowMessage(party, String05AC); // the knowledge of Medic!
             L031F: ax = GetSkillLevel5C(party, 0x13);
             L032B: RefreshCompareFlags(ax);
-            L032D: if (result.notequal) goto L034D;
+            L032D: if (!CompareResultEqual) goto L034D;
             L032F: SetSkillLevel60(party, 0x13, 0x02);
             L0340: ShowMessage(party, String05C4); // the knowledge of Reverie!
             L034D: ax = GetSkillLevel5C(party, 0x14);
             L0359: RefreshCompareFlags(ax);
-            L035B: if (result.notequal) goto L037B;
+            L035B: if (!CompareResultEqual) goto L037B;
             L035D: SetSkillLevel60(party, 0x14, 0x02);
             L036E: ShowMessage(party, String05DE); // the knowledge of Rune Reading!
             L037B: ax = GetSkillLevel5C(party, 0x15);
             L0387: RefreshCompareFlags(ax);
-            L0389: if (result.notequal) goto L03A9;
+            L0389: if (!CompareResultEqual) goto L03A9;
             L038B: SetSkillLevel60(party, 0x15, 0x02);
             L039C: ShowMessage(party, String05FD); // the knowledge of Staff!
             L03A9: ax = GetSkillLevel5C(party, 0x16);
             L03B5: RefreshCompareFlags(ax);
-            L03B7: if (result.notequal) goto L03D7;
+            L03B7: if (!CompareResultEqual) goto L03D7;
             L03B9: SetSkillLevel60(party, 0x16, 0x02);
             L03CA: ShowMessage(party, String0615); // the knowledge of Channeling!
             L03D7: ax = GetSkillLevel5C(party, 0x17);
             L03E3: RefreshCompareFlags(ax);
-            L03E5: if (result.notequal) goto L0405;
+            L03E5: if (!CompareResultEqual) goto L0405;
             L03E7: SetSkillLevel60(party, 0x17, 0x02);
             L03F8: ShowMessage(party, String0632); // the knowledge of Deep Trance!
             L0405: ShowMessage(party, String0650); // The leaves whisper, 'Defeat my enemies the four winds, South, North, East and West, and you will find a precious gem as green as my foliage.'
             L0412: goto L045F;
             L0414: bx = si;
             L0416: bx = bx - 1;
-            L0417: compare(bx, 0x03);
-            L041A: if (result.unsigned_greater_than) goto L045F;
+            L0417: Compare(bx, 0x03);
+            L041A: if (CompareResultUnsignedGreaterThan) goto L045F;
             L041C: bx = bx * 2;
             L041E: goto mem[0x046D+bx];
             L0423: ShowMessage(party, String06DE); // Spring flowers and new leaves appear on the magical Aldbora Tree.
@@ -288,11 +291,11 @@ namespace ZCF.Scripts.Maps {
             L044E: goto L045F;
             L0450: ShowMessage(party, String0787); // In the Winter, the Aldbora Tree shows its age.  The fruits of Knowledge are now ripe.
             L045D: goto L045F;
-            L045F: // RETURN (restoring si);
+            L045F: return; // RETURN (restoring si);
 046D  0462        2E 04 3D 04 4C 04 5B 04 
         }
 
-        private override MapEventHandler MapEvent02 => FnENCA_02;
+        protected override MapEventHandler MapEvent02 => FnENCA_02;
         private void FnENCA_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -301,10 +304,10 @@ namespace ZCF.Scripts.Maps {
             L0022: AddEncounter(party, 0x02, 0x20);
             L0034: AddEncounter(party, 0x05, 0x22);
             L0046: AddEncounter(party, 0x06, 0x22);
-            L0058: // RETURN;
+            L0058: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent03 => FnENCB_03;
+        protected override MapEventHandler MapEvent03 => FnENCB_03;
         private void FnENCB_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -314,10 +317,10 @@ namespace ZCF.Scripts.Maps {
             L0039: AddEncounter(party, 0x04, 0x1B);
             L004B: AddEncounter(party, 0x05, 0x23);
             L005D: AddEncounter(party, 0x06, 0x23);
-            L006F: // RETURN;
+            L006F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => FnENCC_04;
+        protected override MapEventHandler MapEvent04 => FnENCC_04;
         private void FnENCC_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -325,10 +328,10 @@ namespace ZCF.Scripts.Maps {
             L0015: AddEncounter(party, 0x02, 0x1F);
             L0027: AddEncounter(party, 0x03, 0x24);
             L0039: AddEncounter(party, 0x04, 0x19);
-            L004B: // RETURN;
+            L004B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => FnENCD_05;
+        protected override MapEventHandler MapEvent05 => FnENCD_05;
         private void FnENCD_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -338,10 +341,10 @@ namespace ZCF.Scripts.Maps {
             L0039: AddEncounter(party, 0x04, 0x26);
             L004B: AddEncounter(party, 0x05, 0x22);
             L005D: AddEncounter(party, 0x06, 0x22);
-            L006F: // RETURN;
+            L006F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => FnENCE_06;
+        protected override MapEventHandler MapEvent06 => FnENCE_06;
         private void FnENCE_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -349,15 +352,15 @@ namespace ZCF.Scripts.Maps {
             L0015: AddEncounter(party, 0x02, 0x16);
             L0027: AddEncounter(party, 0x03, 0x26);
             L0039: AddEncounter(party, 0x04, 0x27);
-            L004B: // RETURN;
+            L004B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent07 => FnENCF_07;
+        protected override MapEventHandler MapEvent07 => FnENCF_07;
         private void FnENCF_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xFA);
-            L0011: if (result.equal) goto L0034;
+            L0011: if (CompareResultEqual) goto L0034;
             L0013: AddTreasure(party, 0x012C, 0x00, 0x00, 0x00, 0x00, 0xCE);
             L0032: goto L0061;
             L0034: AddTreasure(party, 0x012C, 0x00, 0x00, 0x00, 0xD0, 0xFA);
@@ -366,10 +369,10 @@ namespace ZCF.Scripts.Maps {
             L0073: AddEncounter(party, 0x02, 0x1B);
             L0085: AddEncounter(party, 0x03, 0x19);
             L0097: AddEncounter(party, 0x04, 0x19);
-            L00A9: // RETURN;
+            L00A9: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent08 => FnENCG_08;
+        protected override MapEventHandler MapEvent08 => FnENCG_08;
         private void FnENCG_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -377,10 +380,10 @@ namespace ZCF.Scripts.Maps {
             L0015: AddEncounter(party, 0x02, 0x1A);
             L0027: AddEncounter(party, 0x03, 0x1B);
             L0039: AddEncounter(party, 0x04, 0x1B);
-            L004B: // RETURN;
+            L004B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent09 => FnENCH_09;
+        protected override MapEventHandler MapEvent09 => FnENCH_09;
         private void FnENCH_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -388,10 +391,10 @@ namespace ZCF.Scripts.Maps {
             L0015: AddEncounter(party, 0x02, 0x22);
             L0027: AddEncounter(party, 0x05, 0x26);
             L0039: AddEncounter(party, 0x06, 0x28);
-            L004B: // RETURN;
+            L004B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0A => FnENCI_0A;
+        protected override MapEventHandler MapEvent0A => FnENCI_0A;
         private void FnENCI_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -400,105 +403,105 @@ namespace ZCF.Scripts.Maps {
             L0027: AddEncounter(party, 0x03, 0x22);
             L0039: AddEncounter(party, 0x04, 0x22);
             L004B: ax = HasItem50(party, 0xF5);
-            L0059: if (result.equal) goto L007D;
+            L0059: if (CompareResultEqual) goto L007D;
             L005B: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0xCF, 0xC6);
             L007B: goto L00AB;
             L007D: ShowMessage(party, String0832); // A glowing yellow gem lights the area.
             L008A: AddTreasure(party, 0x2710, 0x00, 0x00, 0xD0, 0xD0, 0xF5);
-            L00AB: // RETURN;
+            L00AB: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0B => FnCGATE_0B;
+        protected override MapEventHandler MapEvent0B => FnCGATE_0B;
         private void FnCGATE_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0858); // A path leads up to CASTLEGATE
             L0010: SetMoveMap(party, 0x36, 0x01, 0x74, 0x01);
-            L002B: // RETURN;
+            L002B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0C => FnDWARF_0C;
+        protected override MapEventHandler MapEvent0C => FnDWARF_0C;
         private void FnDWARF_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel44(party, 0x001E);
-            L0011: if (result.equal) goto L003D;
+            L0011: if (CompareResultEqual) goto L003D;
             L0013: ShowMessage(party, String0876); // A narrow tunnel appears, leading down to the DWARF KINGDOM.
             L0020: SetMoveMap(party, 0x38, 0x01, 0x7A, 0x02);
             L003B: goto L004A;
             L003D: ShowRunes(party, String08B2); // At level thirty, the entrance to the land of dwarfs will be open to you.
-            L004A: // RETURN;
+            L004A: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0D => FnNOJOIN_0D;
+        protected override MapEventHandler MapEvent0D => FnNOJOIN_0D;
         private void FnNOJOIN_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TileIsNoJoinArea(party);
-            L000B: // RETURN;
+            L000B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0E => FnBEECHWD_0E;
+        protected override MapEventHandler MapEvent0E => FnBEECHWD_0E;
         private void FnBEECHWD_0E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08FB); // Upon a wood sign is written -- 'Wilderness of BeechWood.'
             L0010: ax = CheckState04(party, 0x01, 0x01);
             L0021: RefreshCompareFlags(ax);
-            L0023: if (result.notequal) goto L0079;
+            L0023: if (!CompareResultEqual) goto L0079;
             L0025: SetState00(party, 0x01, 0x03, 0x01);
             L003A: SetState00(party, 0x01, 0x02, 0x02);
             L004F: SetState00(party, 0x01, 0x01, 0x03);
             L0064: SetState00(party, 0x01, 0x04, 0x04);
-            L0079: // RETURN;
+            L0079: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0F => FnOAKLEAF_0F;
+        protected override MapEventHandler MapEvent0F => FnOAKLEAF_0F;
         private void FnOAKLEAF_0F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0935); // A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'
             L0010: ax = CheckState04(party, 0x01, 0x02);
             L0021: RefreshCompareFlags(ax);
-            L0023: if (result.notequal) goto L0079;
+            L0023: if (!CompareResultEqual) goto L0079;
             L0025: SetState00(party, 0x01, 0x03, 0x01);
             L003A: SetState00(party, 0x01, 0x02, 0x02);
             L004F: SetState00(party, 0x01, 0x01, 0x03);
             L0064: SetState00(party, 0x01, 0x04, 0x04);
-            L0079: // RETURN;
+            L0079: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent10 => FnMAPLEBRS_10;
+        protected override MapEventHandler MapEvent10 => FnMAPLEBRS_10;
         private void FnMAPLEBRS_10(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0978); // A sign of ancient wood reads -- 'Wilderness of MapleBrush.'
             L0010: ax = CheckState04(party, 0x01, 0x03);
             L0021: RefreshCompareFlags(ax);
-            L0023: if (result.notequal) goto L0079;
+            L0023: if (!CompareResultEqual) goto L0079;
             L0025: SetState00(party, 0x01, 0x03, 0x01);
             L003A: SetState00(party, 0x01, 0x02, 0x02);
             L004F: SetState00(party, 0x01, 0x01, 0x03);
             L0064: SetState00(party, 0x01, 0x04, 0x04);
-            L0079: // RETURN;
+            L0079: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent11 => FnPINECONE_11;
+        protected override MapEventHandler MapEvent11 => FnPINECONE_11;
         private void FnPINECONE_11(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09B4); // In the dust of pine needles is written -- 'Wilderness of PineCone.'
             L0010: ax = CheckState04(party, 0x01, 0x04);
             L0021: RefreshCompareFlags(ax);
-            L0023: if (result.notequal) goto L0079;
+            L0023: if (!CompareResultEqual) goto L0079;
             L0025: SetState00(party, 0x01, 0x03, 0x01);
             L003A: SetState00(party, 0x01, 0x02, 0x02);
             L004F: SetState00(party, 0x01, 0x01, 0x03);
             L0064: SetState00(party, 0x01, 0x04, 0x04);
-            L0079: // RETURN;
+            L0079: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent12 => FnBWACTOR_12;
+        protected override MapEventHandler MapEvent12 => FnBWACTOR_12;
         private void FnBWACTOR_12(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
@@ -508,8 +511,8 @@ namespace ZCF.Scripts.Maps {
             L002F: si = ax;
             L0031: bx = si;
             L0033: bx = bx - 1;
-            L0034: compare(bx, 0x03);
-            L0037: if (result.unsigned_equal_or_less_than) goto L003C;
+            L0034: Compare(bx, 0x03);
+            L0037: if (CompareResultEqual || CompareResultUnsignedLessThan) goto L003C;
             L0039: goto L00E8;
             L003C: bx = bx * 2;
             L003E: goto mem[0x0DB3+bx];
@@ -531,9 +534,9 @@ namespace ZCF.Scripts.Maps {
             L00D9: ShowMessage(party, String0CE4); // Winter would know why you are here.
             L00E6: goto L00E8;
             L00E8: ax = UsedItem54(party, 0xE5, 0xE5);
-            L00FB: if (result.equal) goto L0168;
-            L00FD: compare(si, 0x01);
-            L0100: if (result.notequal) goto L0158;
+            L00FB: if (CompareResultEqual) goto L0168;
+            L00FD: Compare(si, 0x01);
+            L0100: if (!CompareResultEqual) goto L0158;
             L0102: RemoveItem4C(party, 0xE5);
             L010E: GiveItem48(party, 0xE8);
             L011A: SetState00(party, 0x01, 0x01, 0x02);
@@ -544,9 +547,9 @@ namespace ZCF.Scripts.Maps {
             L0158: ShowMessage(party, String0D92); // You dishonor Spring with your false gift.
             L0165: goto L0301;
             L0168: ax = UsedItem54(party, 0xE6, 0xE6);
-            L017B: if (result.equal) goto L01E8;
-            L017D: compare(si, 0x02);
-            L0180: if (result.notequal) goto L01D8;
+            L017B: if (CompareResultEqual) goto L01E8;
+            L017D: Compare(si, 0x02);
+            L0180: if (!CompareResultEqual) goto L01D8;
             L0182: RemoveItem4C(party, 0xE6);
             L018E: GiveItem48(party, 0xE4);
             L019A: SetState00(party, 0x01, 0x01, 0x03);
@@ -557,9 +560,9 @@ namespace ZCF.Scripts.Maps {
             L01D8: ShowMessage(party, String0E53); // Summer burns in anger at your false gift.  Begone!
             L01E5: goto L0301;
             L01E8: ax = UsedItem54(party, 0xE7, 0xE7);
-            L01FB: if (result.equal) goto L0268;
-            L01FD: compare(si, 0x03);
-            L0200: if (result.notequal) goto L0258;
+            L01FB: if (CompareResultEqual) goto L0268;
+            L01FD: Compare(si, 0x03);
+            L0200: if (!CompareResultEqual) goto L0258;
             L0202: RemoveItem4C(party, 0xE7);
             L020E: GiveItem48(party, 0xE5);
             L021A: SetState00(party, 0x01, 0x01, 0x04);
@@ -570,9 +573,9 @@ namespace ZCF.Scripts.Maps {
             L0258: ShowMessage(party, String0F2C); // Autumn is angry that you mock it with a false gift.
             L0265: goto L0301;
             L0268: ax = UsedItem54(party, 0xE4, 0xE4);
-            L027B: if (result.equal) goto L02F4;
-            L027D: compare(si, 0x04);
-            L0280: if (result.notequal) goto L02D8;
+            L027B: if (CompareResultEqual) goto L02F4;
+            L027D: Compare(si, 0x04);
+            L0280: if (!CompareResultEqual) goto L02D8;
             L0282: RemoveItem4C(party, 0xE4);
             L028E: GiveItem48(party, 0xE7);
             L029A: SetState00(party, 0x01, 0x01, 0x01);
@@ -584,11 +587,11 @@ namespace ZCF.Scripts.Maps {
             L02E5: ShowMessage(party, String1027); // Leave before Winter blasts you!
             L02F2: goto L0301;
             L02F4: ShowMessage(party, String1047); // That item is of no interest to my master.
-            L0301: // RETURN (restoring si);
+            L0301: return; // RETURN (restoring si);
 0DB3  0304        F2 0A 1C 0B 45 0B 6E 0B 
         }
 
-        private override MapEventHandler MapEvent13 => FnOLACTOR_13;
+        protected override MapEventHandler MapEvent13 => FnOLACTOR_13;
         private void FnOLACTOR_13(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
@@ -598,8 +601,8 @@ namespace ZCF.Scripts.Maps {
             L002F: si = ax;
             L0031: bx = si;
             L0033: bx = bx - 1;
-            L0034: compare(bx, 0x03);
-            L0037: if (result.unsigned_equal_or_less_than) goto L003C;
+            L0034: Compare(bx, 0x03);
+            L0037: if (CompareResultEqual || CompareResultUnsignedLessThan) goto L003C;
             L0039: goto L00E8;
             L003C: bx = bx * 2;
             L003E: goto mem[0x10B2+bx];
@@ -621,9 +624,9 @@ namespace ZCF.Scripts.Maps {
             L00D9: ShowMessage(party, String12C1); // Winter wishes you to leave, so do quickly what you came to do.
             L00E6: goto L00E8;
             L00E8: ax = UsedItem54(party, 0xE5, 0xE5);
-            L00FB: if (result.equal) goto L0168;
-            L00FD: compare(si, 0x01);
-            L0100: if (result.notequal) goto L0158;
+            L00FB: if (CompareResultEqual) goto L0168;
+            L00FD: Compare(si, 0x01);
+            L0100: if (!CompareResultEqual) goto L0158;
             L0102: RemoveItem4C(party, 0xE5);
             L010E: GiveItem48(party, 0xE8);
             L011A: SetState00(party, 0x01, 0x02, 0x02);
@@ -634,9 +637,9 @@ namespace ZCF.Scripts.Maps {
             L0158: ShowMessage(party, String1384); // Spring departs at the sight of your poor gift.
             L0165: goto L02F4;
             L0168: ax = UsedItem54(party, 0xE6, 0xE6);
-            L017B: if (result.equal) goto L01E8;
-            L017D: compare(si, 0x02);
-            L0180: if (result.notequal) goto L01D8;
+            L017B: if (CompareResultEqual) goto L01E8;
+            L017D: Compare(si, 0x02);
+            L0180: if (!CompareResultEqual) goto L01D8;
             L0182: RemoveItem4C(party, 0xE6);
             L018E: GiveItem48(party, 0xE4);
             L019A: SetState00(party, 0x01, 0x02, 0x03);
@@ -647,9 +650,9 @@ namespace ZCF.Scripts.Maps {
             L01D8: ShowMessage(party, String142E); // Summer shies away from your pitiful gift.
             L01E5: goto L02F4;
             L01E8: ax = UsedItem54(party, 0xE7, 0xE7);
-            L01FB: if (result.equal) goto L0268;
-            L01FD: compare(si, 0x03);
-            L0200: if (result.notequal) goto L0258;
+            L01FB: if (CompareResultEqual) goto L0268;
+            L01FD: Compare(si, 0x03);
+            L0200: if (!CompareResultEqual) goto L0258;
             L0202: RemoveItem4C(party, 0xE7);
             L020E: GiveItem48(party, 0xE5);
             L021A: SetState00(party, 0x01, 0x02, 0x04);
@@ -660,9 +663,9 @@ namespace ZCF.Scripts.Maps {
             L0258: ShowMessage(party, String14EF); // Autumn rejects your horrid gift.
             L0265: goto L02F4;
             L0268: ax = UsedItem54(party, 0xE4, 0xE4);
-            L027B: if (result.equal) goto L02E7;
-            L027D: compare(si, 0x04);
-            L0280: if (result.notequal) goto L02D8;
+            L027B: if (CompareResultEqual) goto L02E7;
+            L027D: Compare(si, 0x04);
+            L0280: if (!CompareResultEqual) goto L02D8;
             L0282: RemoveItem4C(party, 0xE4);
             L028E: GiveItem48(party, 0xE7);
             L029A: SetState00(party, 0x01, 0x02, 0x01);
@@ -673,11 +676,11 @@ namespace ZCF.Scripts.Maps {
             L02D8: ShowMessage(party, String1595); // Winter weeps at your cruelty.
             L02E5: goto L02F4;
             L02E7: ShowMessage(party, String15B3); // No season is interested in the item you offer.
-            L02F4: // RETURN (restoring si);
+            L02F4: return; // RETURN (restoring si);
 10B2  02F7        FE 0D 28 0E 51 0E 7A 0E 
         }
 
-        private override MapEventHandler MapEvent14 => FnMBACTOR_14;
+        protected override MapEventHandler MapEvent14 => FnMBACTOR_14;
         private void FnMBACTOR_14(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
@@ -687,8 +690,8 @@ namespace ZCF.Scripts.Maps {
             L002F: si = ax;
             L0031: bx = si;
             L0033: bx = bx - 1;
-            L0034: compare(bx, 0x03);
-            L0037: if (result.unsigned_equal_or_less_than) goto L003C;
+            L0034: Compare(bx, 0x03);
+            L0037: if (CompareResultEqual || CompareResultUnsignedLessThan) goto L003C;
             L0039: goto L00B3;
             L003B: // NOP
             L003C: bx = bx * 2;
@@ -706,9 +709,9 @@ namespace ZCF.Scripts.Maps {
             L00A4: ShowMessage(party, String16F8); // It is Winter.  I may say no more.
             L00B1: goto L00B3;
             L00B3: ax = UsedItem54(party, 0xE5, 0xE5);
-            L00C6: if (result.equal) goto L0126;
-            L00C8: compare(si, 0x01);
-            L00CB: if (result.notequal) goto L0116;
+            L00C6: if (CompareResultEqual) goto L0126;
+            L00C8: Compare(si, 0x01);
+            L00CB: if (!CompareResultEqual) goto L0116;
             L00CD: RemoveItem4C(party, 0xE5);
             L00D9: GiveItem48(party, 0xE8);
             L00E5: SetState00(party, 0x01, 0x03, 0x02);
@@ -718,9 +721,9 @@ namespace ZCF.Scripts.Maps {
             L0116: ShowMessage(party, String1765); // Wrong gift, mortal!
             L0123: goto L028B;
             L0126: ax = UsedItem54(party, 0xE6, 0xE6);
-            L0139: if (result.equal) goto L0199;
-            L013B: compare(si, 0x02);
-            L013E: if (result.notequal) goto L0189;
+            L0139: if (CompareResultEqual) goto L0199;
+            L013B: Compare(si, 0x02);
+            L013E: if (!CompareResultEqual) goto L0189;
             L0140: RemoveItem4C(party, 0xE6);
             L014C: GiveItem48(party, 0xE4);
             L0158: SetState00(party, 0x01, 0x03, 0x03);
@@ -730,9 +733,9 @@ namespace ZCF.Scripts.Maps {
             L0189: ShowMessage(party, String17B7); // Wrong present, mortal!
             L0196: goto L028B;
             L0199: ax = UsedItem54(party, 0xE7, 0xE7);
-            L01AC: if (result.equal) goto L020C;
-            L01AE: compare(si, 0x03);
-            L01B1: if (result.notequal) goto L01FC;
+            L01AC: if (CompareResultEqual) goto L020C;
+            L01AE: Compare(si, 0x03);
+            L01B1: if (!CompareResultEqual) goto L01FC;
             L01B3: RemoveItem4C(party, 0xE7);
             L01BF: GiveItem48(party, 0xE5);
             L01CB: SetState00(party, 0x01, 0x03, 0x04);
@@ -742,9 +745,9 @@ namespace ZCF.Scripts.Maps {
             L01FC: ShowMessage(party, String1816); // Not even close, mortal!
             L0209: goto L028B;
             L020C: ax = UsedItem54(party, 0xE4, 0xE4);
-            L021F: if (result.equal) goto L027E;
-            L0221: compare(si, 0x04);
-            L0224: if (result.notequal) goto L026F;
+            L021F: if (CompareResultEqual) goto L027E;
+            L0221: Compare(si, 0x04);
+            L0224: if (!CompareResultEqual) goto L026F;
             L0226: RemoveItem4C(party, 0xE4);
             L0232: GiveItem48(party, 0xE7);
             L023E: SetState00(party, 0x01, 0x03, 0x01);
@@ -754,11 +757,11 @@ namespace ZCF.Scripts.Maps {
             L026F: ShowMessage(party, String1879); // Wrong, wrong, wrong, mortal!
             L027C: goto L028B;
             L027E: ShowMessage(party, String1896); // Why do you offer the seasons such a thing?
-            L028B: // RETURN (restoring si);
+            L028B: return; // RETURN (restoring si);
 1348  028E        FD 10 19 11 35 11 51 11 
         }
 
-        private override MapEventHandler MapEvent15 => FnPCACTOR_15;
+        protected override MapEventHandler MapEvent15 => FnPCACTOR_15;
         private void FnPCACTOR_15(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
@@ -768,8 +771,8 @@ namespace ZCF.Scripts.Maps {
             L002F: si = ax;
             L0031: bx = si;
             L0033: bx = bx - 1;
-            L0034: compare(bx, 0x03);
-            L0037: if (result.unsigned_greater_than) goto L007C;
+            L0034: Compare(bx, 0x03);
+            L0037: if (CompareResultUnsignedGreaterThan) goto L007C;
             L0039: bx = bx * 2;
             L003B: goto mem[0x15DB+bx];
             L0040: ShowMessage(party, String18EE); // I am Spring
@@ -781,9 +784,9 @@ namespace ZCF.Scripts.Maps {
             L006D: ShowMessage(party, String1912); // I am Winter
             L007A: goto L007C;
             L007C: ax = UsedItem54(party, 0xE5, 0xE5);
-            L008F: if (result.equal) goto L00FC;
-            L0091: compare(si, 0x01);
-            L0094: if (result.notequal) goto L00EC;
+            L008F: if (CompareResultEqual) goto L00FC;
+            L0091: Compare(si, 0x01);
+            L0094: if (!CompareResultEqual) goto L00EC;
             L0096: RemoveItem4C(party, 0xE5);
             L00A2: GiveItem48(party, 0xE8);
             L00AE: SetState00(party, 0x01, 0x04, 0x02);
@@ -794,9 +797,9 @@ namespace ZCF.Scripts.Maps {
             L00EC: ShowMessage(party, String1988); // I have no need for that item.
             L00F9: goto L0288;
             L00FC: ax = UsedItem54(party, 0xE6, 0xE6);
-            L010F: if (result.equal) goto L017C;
-            L0111: compare(si, 0x02);
-            L0114: if (result.notequal) goto L016C;
+            L010F: if (CompareResultEqual) goto L017C;
+            L0111: Compare(si, 0x02);
+            L0114: if (!CompareResultEqual) goto L016C;
             L0116: RemoveItem4C(party, 0xE6);
             L0122: GiveItem48(party, 0xE4);
             L012E: SetState00(party, 0x01, 0x04, 0x03);
@@ -807,9 +810,9 @@ namespace ZCF.Scripts.Maps {
             L016C: ShowMessage(party, String1A10); // The present you offer I must reject.
             L0179: goto L0288;
             L017C: ax = UsedItem54(party, 0xE7, 0xE7);
-            L018F: if (result.equal) goto L01FC;
-            L0191: compare(si, 0x03);
-            L0194: if (result.notequal) goto L01EC;
+            L018F: if (CompareResultEqual) goto L01FC;
+            L0191: Compare(si, 0x03);
+            L0194: if (!CompareResultEqual) goto L01EC;
             L0196: RemoveItem4C(party, 0xE7);
             L01A2: GiveItem48(party, 0xE5);
             L01AE: SetState00(party, 0x01, 0x04, 0x04);
@@ -820,9 +823,9 @@ namespace ZCF.Scripts.Maps {
             L01EC: ShowMessage(party, String1AB6); // I cannot accept your present.
             L01F9: goto L0288;
             L01FC: ax = UsedItem54(party, 0xE4, 0xE4);
-            L020F: if (result.equal) goto L027B;
-            L0211: compare(si, 0x04);
-            L0214: if (result.notequal) goto L026C;
+            L020F: if (CompareResultEqual) goto L027B;
+            L0211: Compare(si, 0x04);
+            L0214: if (!CompareResultEqual) goto L026C;
             L0216: RemoveItem4C(party, 0xE4);
             L0222: GiveItem48(party, 0xE7);
             L022E: SetState00(party, 0x01, 0x04, 0x01);
@@ -833,75 +836,75 @@ namespace ZCF.Scripts.Maps {
             L026C: ShowMessage(party, String1B4C); // I have no use for what you offer.
             L0279: goto L0288;
             L027B: ShowMessage(party, String1B6E); // We Seasons cannot use the item you offer.
-            L0288: // RETURN (restoring si);
+            L0288: return; // RETURN (restoring si);
 15DB  028B        90 13 9F 13 AE 13 BD 13 
         }
 
-        private override MapEventHandler MapEvent16 => FnINFO_16;
+        protected override MapEventHandler MapEvent16 => FnINFO_16;
         private void FnINFO_16(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x001F);
             L0010: ShowMessage(party, String1B98); // 'Welcome, Adventurer.  I am Varstad, counselor to the Elf King.
             L001D: ShowMessage(party, String1BD8); // The magic Aldbora requires Summer Radiance to shed its knowledge fruit.'
-            L002A: // RETURN;
+            L002A: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent17 => FnINFO_17;
+        protected override MapEventHandler MapEvent17 => FnINFO_17;
         private void FnINFO_17(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0027);
             L0010: ShowMessage(party, String1C21); // The storyteller Sorshian honors your arrival.
             L001D: ShowMessage(party, String1C4F); // 'Only when the season is winter will the Aldbora shed its fruit.'
-            L002A: // RETURN;
+            L002A: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent18 => FnCAVEDOOR_18;
+        protected override MapEventHandler MapEvent18 => FnCAVEDOOR_18;
         private void FnCAVEDOOR_18(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1C91); // A wooden sign says, 'To the cave of NeedleWood.'
             L0010: ax = UsedItem54(party, 0xD8, 0xD8);
-            L0023: if (result.equal) goto L0066;
+            L0023: if (CompareResultEqual) goto L0066;
             L0025: ShowMessage(party, String1CC2); // The door unlocks.
-            L0032: PushStack(01);
-            L0036: PushStack(03);
+            L0032: PushStack(0x01);
+            L0036: PushStack(0x03);
             L003A: ax = GetNextTile20(party);
             L0041: PushStack(ax);
             L0042: SetMove2C(party, PopStack(), PopStack(), PopStack());
-            L004C: PushStack(03);
+            L004C: PushStack(0x03);
             L0050: ax = GetNextTile20(party);
             L0057: PushStack(ax);
-            L0058: PushStack(01);
+            L0058: PushStack(0x01);
             L005C: SetUnblocked30(party);
-            L0066: // RETURN;
+            L0066: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent19 => FnELFHOME_19;
+        protected override MapEventHandler MapEvent19 => FnELFHOME_19;
         private void FnELFHOME_19(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1CD4); // Young elves scurry and hide when you enter this elf home.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent1A => FnELFHOME_1A;
+        protected override MapEventHandler MapEvent1A => FnELFHOME_1A;
         private void FnELFHOME_1A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1D0E); // Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent1B => FnINFO_1B;
+        protected override MapEventHandler MapEvent1B => FnINFO_1B;
         private void FnINFO_1B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x001F);
             L0010: ShowMessage(party, String1D79); // 'I am Fernank, Hunter to the Elf King.
             L001D: ShowMessage(party, String1DA0); // It is known in the trees that Nature's Robe must be used for the harvest.'
-            L002A: // RETURN;
+            L002A: return; // RETURN;
         }
 
     }

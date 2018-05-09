@@ -1,5 +1,8 @@
+#pragma warning disable
+using ZCF.WorldData;
+
 namespace ZCF.Scripts.Maps {
-    class YserMap25 : ACanoMapScript {
+    class YserMap25 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "You may leave the chessboard through this opening.";
         private const string String042F = "A knight move here would place you off the chessboard!";
@@ -91,34 +94,34 @@ namespace ZCF.Scripts.Maps {
         private const string String1682 = "A maze made out of dice lies just to the north.";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => FnCHESLITE_01;
+        protected override MapEventHandler MapEvent01 => FnCHESLITE_01;
         private void FnCHESLITE_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ax = GetNextTile20(party);
-            L000B: compare(ax, 0x0062);
-            L000E: if (result.notequal) goto L001B;
+            L000B: Compare(ax, 0x0062);
+            L000E: if (!CompareResultEqual) goto L001B;
             L0010: ax = GetFacing24(party);
             L0017: RefreshCompareFlags(ax);
-            L0019: if (result.equal) goto L0062;
+            L0019: if (CompareResultEqual) goto L0062;
             L001B: ax = GetNextTile20(party);
-            L0022: compare(ax, 0x0069);
-            L0025: if (result.notequal) goto L0033;
+            L0022: Compare(ax, 0x0069);
+            L0025: if (!CompareResultEqual) goto L0033;
             L0027: ax = GetFacing24(party);
-            L002E: compare(ax, 0x0002);
-            L0031: if (result.equal) goto L0062;
+            L002E: Compare(ax, 0x0002);
+            L0031: if (CompareResultEqual) goto L0062;
             L0033: ax = GetNextTile20(party);
-            L003A: compare(ax, 0x0092);
-            L003D: if (result.notequal) goto L004A;
+            L003A: Compare(ax, 0x0092);
+            L003D: if (!CompareResultEqual) goto L004A;
             L003F: ax = GetFacing24(party);
             L0046: RefreshCompareFlags(ax);
-            L0048: if (result.equal) goto L0062;
+            L0048: if (CompareResultEqual) goto L0062;
             L004A: ax = GetNextTile20(party);
-            L0051: compare(ax, 0x0099);
-            L0054: if (result.notequal) goto L0072;
+            L0051: Compare(ax, 0x0099);
+            L0054: if (!CompareResultEqual) goto L0072;
             L0056: ax = GetFacing24(party);
-            L005D: compare(ax, 0x0002);
-            L0060: if (result.notequal) goto L0072;
+            L005D: Compare(ax, 0x0002);
+            L0060: if (!CompareResultEqual) goto L0072;
             L0062: ShowMessage(party, String03FC); // You may leave the chessboard through this opening.
             L006F: goto L0193;
             L0072: PushStack(0x00);
@@ -128,101 +131,101 @@ namespace ZCF.Scripts.Maps {
             L0084: PushStack(ax);
             L0085: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L008F: ax = HasItem50(party, 0xEE);
-            L009D: if (result.notequal) goto L00A2;
+            L009D: if (!CompareResultEqual) goto L00A2;
             L009F: goto L0186;
             L00A2: ax = GetFacing24(party);
-            L00A9: compare(ax, 0x0003);
-            L00AC: if (result.notequal) goto L00BA;
+            L00A9: Compare(ax, 0x0003);
+            L00AC: if (!CompareResultEqual) goto L00BA;
             L00AE: ax = GetNextTile20(party);
             L00B5: ax = ax + 0xFFE1;
             L00B8: si = ax;
             L00BA: ax = GetFacing24(party);
-            L00C1: compare(ax, 0x0002);
-            L00C4: if (result.notequal) goto L00D2;
+            L00C1: Compare(ax, 0x0002);
+            L00C4: if (!CompareResultEqual) goto L00D2;
             L00C6: ax = GetNextTile20(party);
             L00CD: ax = ax + 0x0012;
             L00D0: si = ax;
             L00D2: ax = GetFacing24(party);
-            L00D9: compare(ax, 0x0001);
-            L00DC: if (result.notequal) goto L00EA;
+            L00D9: Compare(ax, 0x0001);
+            L00DC: if (!CompareResultEqual) goto L00EA;
             L00DE: ax = GetNextTile20(party);
             L00E5: ax = ax + 0x001F;
             L00E8: si = ax;
             L00EA: ax = GetFacing24(party);
             L00F1: RefreshCompareFlags(ax);
-            L00F3: if (result.notequal) goto L0101;
+            L00F3: if (!CompareResultEqual) goto L0101;
             L00F5: ax = GetNextTile20(party);
             L00FC: ax = ax + 0xFFEE;
             L00FF: si = ax;
-            L0101: compare(si, 0x42);
-            L0104: if (result.signed_less_than) goto L010B;
-            L0106: compare(si, 0x49);
-            L0109: if (result.signed_equal_or_less_than) goto L0159;
-            L010B: compare(si, 0x52);
-            L010E: if (result.signed_less_than) goto L0115;
-            L0110: compare(si, 0x59);
-            L0113: if (result.signed_equal_or_less_than) goto L0159;
-            L0115: compare(si, 0x62);
-            L0118: if (result.signed_less_than) goto L011F;
-            L011A: compare(si, 0x69);
-            L011D: if (result.signed_equal_or_less_than) goto L0159;
-            L011F: compare(si, 0x72);
-            L0122: if (result.signed_less_than) goto L0129;
-            L0124: compare(si, 0x79);
-            L0127: if (result.signed_equal_or_less_than) goto L0159;
-            L0129: compare(si, 0x0082);
-            L012D: if (result.signed_less_than) goto L0135;
-            L012F: compare(si, 0x0089);
-            L0133: if (result.signed_equal_or_less_than) goto L0159;
-            L0135: compare(si, 0x0092);
-            L0139: if (result.signed_less_than) goto L0141;
-            L013B: compare(si, 0x0099);
-            L013F: if (result.signed_equal_or_less_than) goto L0159;
-            L0141: compare(si, 0x00A2);
-            L0145: if (result.signed_less_than) goto L014D;
-            L0147: compare(si, 0x00A9);
-            L014B: if (result.signed_equal_or_less_than) goto L0159;
-            L014D: compare(si, 0x00B2);
-            L0151: if (result.signed_less_than) goto L0177;
-            L0153: compare(si, 0x00B9);
-            L0157: if (result.signed_greater_than) goto L0177;
+            L0101: Compare(si, 0x42);
+            L0104: if (CompareResultSignedLessThan) goto L010B;
+            L0106: Compare(si, 0x49);
+            L0109: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L010B: Compare(si, 0x52);
+            L010E: if (CompareResultSignedLessThan) goto L0115;
+            L0110: Compare(si, 0x59);
+            L0113: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L0115: Compare(si, 0x62);
+            L0118: if (CompareResultSignedLessThan) goto L011F;
+            L011A: Compare(si, 0x69);
+            L011D: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L011F: Compare(si, 0x72);
+            L0122: if (CompareResultSignedLessThan) goto L0129;
+            L0124: Compare(si, 0x79);
+            L0127: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L0129: Compare(si, 0x0082);
+            L012D: if (CompareResultSignedLessThan) goto L0135;
+            L012F: Compare(si, 0x0089);
+            L0133: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L0135: Compare(si, 0x0092);
+            L0139: if (CompareResultSignedLessThan) goto L0141;
+            L013B: Compare(si, 0x0099);
+            L013F: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L0141: Compare(si, 0x00A2);
+            L0145: if (CompareResultSignedLessThan) goto L014D;
+            L0147: Compare(si, 0x00A9);
+            L014B: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L014D: Compare(si, 0x00B2);
+            L0151: if (CompareResultSignedLessThan) goto L0177;
+            L0153: Compare(si, 0x00B9);
+            L0157: if (CompareResultSignedGreaterThan) goto L0177;
             L0159: ax = GetFacing24(party);
             L0160: SetMoveMap(party, 0x35, 0x02, si, ax);
             L0175: goto L0184;
             L0177: ShowMessage(party, String042F); // A knight move here would place you off the chessboard!
             L0184: goto L0193;
             L0186: ShowMessage(party, String0466); // With a chess piece you may step across the chessboard.
-            L0193: // RETURN (restoring si);
+            L0193: return; // RETURN (restoring si);
         }
 
-        private override MapEventHandler MapEvent02 => FnCHESDARK_02;
+        protected override MapEventHandler MapEvent02 => FnCHESDARK_02;
         private void FnCHESDARK_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ax = GetNextTile20(party);
-            L000B: compare(ax, 0x0062);
-            L000E: if (result.notequal) goto L001B;
+            L000B: Compare(ax, 0x0062);
+            L000E: if (!CompareResultEqual) goto L001B;
             L0010: ax = GetFacing24(party);
             L0017: RefreshCompareFlags(ax);
-            L0019: if (result.equal) goto L0062;
+            L0019: if (CompareResultEqual) goto L0062;
             L001B: ax = GetNextTile20(party);
-            L0022: compare(ax, 0x0069);
-            L0025: if (result.notequal) goto L0033;
+            L0022: Compare(ax, 0x0069);
+            L0025: if (!CompareResultEqual) goto L0033;
             L0027: ax = GetFacing24(party);
-            L002E: compare(ax, 0x0002);
-            L0031: if (result.equal) goto L0062;
+            L002E: Compare(ax, 0x0002);
+            L0031: if (CompareResultEqual) goto L0062;
             L0033: ax = GetNextTile20(party);
-            L003A: compare(ax, 0x0092);
-            L003D: if (result.notequal) goto L004A;
+            L003A: Compare(ax, 0x0092);
+            L003D: if (!CompareResultEqual) goto L004A;
             L003F: ax = GetFacing24(party);
             L0046: RefreshCompareFlags(ax);
-            L0048: if (result.equal) goto L0062;
+            L0048: if (CompareResultEqual) goto L0062;
             L004A: ax = GetNextTile20(party);
-            L0051: compare(ax, 0x0099);
-            L0054: if (result.notequal) goto L0072;
+            L0051: Compare(ax, 0x0099);
+            L0054: if (!CompareResultEqual) goto L0072;
             L0056: ax = GetFacing24(party);
-            L005D: compare(ax, 0x0002);
-            L0060: if (result.notequal) goto L0072;
+            L005D: Compare(ax, 0x0002);
+            L0060: if (!CompareResultEqual) goto L0072;
             L0062: ShowMessage(party, String049D); // You may leave the chessboard through this opening.
             L006F: goto L0193;
             L0072: PushStack(0x00);
@@ -232,91 +235,91 @@ namespace ZCF.Scripts.Maps {
             L0084: PushStack(ax);
             L0085: SetMove2C(party, PopStack(), PopStack(), PopStack());
             L008F: ax = HasItem50(party, 0xEE);
-            L009D: if (result.notequal) goto L00A2;
+            L009D: if (!CompareResultEqual) goto L00A2;
             L009F: goto L0186;
             L00A2: ax = GetFacing24(party);
-            L00A9: compare(ax, 0x0003);
-            L00AC: if (result.notequal) goto L00BA;
+            L00A9: Compare(ax, 0x0003);
+            L00AC: if (!CompareResultEqual) goto L00BA;
             L00AE: ax = GetNextTile20(party);
             L00B5: ax = ax + 0xFFDF;
             L00B8: si = ax;
             L00BA: ax = GetFacing24(party);
-            L00C1: compare(ax, 0x0002);
-            L00C4: if (result.notequal) goto L00D2;
+            L00C1: Compare(ax, 0x0002);
+            L00C4: if (!CompareResultEqual) goto L00D2;
             L00C6: ax = GetNextTile20(party);
             L00CD: ax = ax + 0xFFF2;
             L00D0: si = ax;
             L00D2: ax = GetFacing24(party);
-            L00D9: compare(ax, 0x0001);
-            L00DC: if (result.notequal) goto L00EA;
+            L00D9: Compare(ax, 0x0001);
+            L00DC: if (!CompareResultEqual) goto L00EA;
             L00DE: ax = GetNextTile20(party);
             L00E5: ax = ax + 0x0021;
             L00E8: si = ax;
             L00EA: ax = GetFacing24(party);
             L00F1: RefreshCompareFlags(ax);
-            L00F3: if (result.notequal) goto L0101;
+            L00F3: if (!CompareResultEqual) goto L0101;
             L00F5: ax = GetNextTile20(party);
             L00FC: ax = ax + 0x000E;
             L00FF: si = ax;
-            L0101: compare(si, 0x42);
-            L0104: if (result.signed_less_than) goto L010B;
-            L0106: compare(si, 0x49);
-            L0109: if (result.signed_equal_or_less_than) goto L0159;
-            L010B: compare(si, 0x52);
-            L010E: if (result.signed_less_than) goto L0115;
-            L0110: compare(si, 0x59);
-            L0113: if (result.signed_equal_or_less_than) goto L0159;
-            L0115: compare(si, 0x62);
-            L0118: if (result.signed_less_than) goto L011F;
-            L011A: compare(si, 0x69);
-            L011D: if (result.signed_equal_or_less_than) goto L0159;
-            L011F: compare(si, 0x72);
-            L0122: if (result.signed_less_than) goto L0129;
-            L0124: compare(si, 0x79);
-            L0127: if (result.signed_equal_or_less_than) goto L0159;
-            L0129: compare(si, 0x0082);
-            L012D: if (result.signed_less_than) goto L0135;
-            L012F: compare(si, 0x0089);
-            L0133: if (result.signed_equal_or_less_than) goto L0159;
-            L0135: compare(si, 0x0092);
-            L0139: if (result.signed_less_than) goto L0141;
-            L013B: compare(si, 0x0099);
-            L013F: if (result.signed_equal_or_less_than) goto L0159;
-            L0141: compare(si, 0x00A2);
-            L0145: if (result.signed_less_than) goto L014D;
-            L0147: compare(si, 0x00A9);
-            L014B: if (result.signed_equal_or_less_than) goto L0159;
-            L014D: compare(si, 0x00B2);
-            L0151: if (result.signed_less_than) goto L0177;
-            L0153: compare(si, 0x00B9);
-            L0157: if (result.signed_greater_than) goto L0177;
+            L0101: Compare(si, 0x42);
+            L0104: if (CompareResultSignedLessThan) goto L010B;
+            L0106: Compare(si, 0x49);
+            L0109: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L010B: Compare(si, 0x52);
+            L010E: if (CompareResultSignedLessThan) goto L0115;
+            L0110: Compare(si, 0x59);
+            L0113: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L0115: Compare(si, 0x62);
+            L0118: if (CompareResultSignedLessThan) goto L011F;
+            L011A: Compare(si, 0x69);
+            L011D: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L011F: Compare(si, 0x72);
+            L0122: if (CompareResultSignedLessThan) goto L0129;
+            L0124: Compare(si, 0x79);
+            L0127: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L0129: Compare(si, 0x0082);
+            L012D: if (CompareResultSignedLessThan) goto L0135;
+            L012F: Compare(si, 0x0089);
+            L0133: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L0135: Compare(si, 0x0092);
+            L0139: if (CompareResultSignedLessThan) goto L0141;
+            L013B: Compare(si, 0x0099);
+            L013F: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L0141: Compare(si, 0x00A2);
+            L0145: if (CompareResultSignedLessThan) goto L014D;
+            L0147: Compare(si, 0x00A9);
+            L014B: if (CompareResultEqual || CompareResultSignedLessThan) goto L0159;
+            L014D: Compare(si, 0x00B2);
+            L0151: if (CompareResultSignedLessThan) goto L0177;
+            L0153: Compare(si, 0x00B9);
+            L0157: if (CompareResultSignedGreaterThan) goto L0177;
             L0159: ax = GetFacing24(party);
             L0160: SetMoveMap(party, 0x35, 0x02, si, ax);
             L0175: goto L0184;
             L0177: ShowMessage(party, String04D0); // A knight move here would place you off the chessboard!
             L0184: goto L0193;
             L0186: ShowMessage(party, String0507); // With a chess piece you may step across the chessboard.
-            L0193: // RETURN (restoring si);
+            L0193: return; // RETURN (restoring si);
         }
 
-        private override MapEventHandler MapEvent03 => FnVOID_03;
+        protected override MapEventHandler MapEvent03 => FnVOID_03;
         private void FnVOID_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String053E); // You fall to your death in the lava below!
             L0010: ax = GetMaxHits74(party);
             L0017: DoDamage90(party, ax);
-            L0021: // RETURN;
+            L0021: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => FnPOKERBRG_04;
+        protected override MapEventHandler MapEvent04 => FnPOKERBRG_04;
         private void FnPOKERBRG_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0568); // Planks of the Poker Bridge are made from used playing cards.
             L0010: ax = CheckState04(party, 0x01, 0x01);
-            L0021: compare(ax, 0x0001);
-            L0024: if (result.notequal) goto L0056;
+            L0021: Compare(ax, 0x0001);
+            L0024: if (!CompareResultEqual) goto L0056;
             L0026: ShowMessage(party, String05A5); // The rickety bridge barely holds your weight.
             L0033: SetMove38(party, 0x00, 0xDD);
             L0043: SetMove34(party, 0xDD, 0x01);
@@ -325,15 +328,15 @@ namespace ZCF.Scripts.Maps {
             L0063: ShowMessage(party, String0615); // The King laughs at his clever ruse.
             L0070: ax = GetMaxHits74(party);
             L0077: DoDamage90(party, ax);
-            L0081: // RETURN;
+            L0081: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => FnPOKERSW_05;
+        protected override MapEventHandler MapEvent05 => FnPOKERSW_05;
         private void FnPOKERSW_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xEC, 0xEC);
-            L0016: if (result.equal) goto L005D;
+            L0016: if (CompareResultEqual) goto L005D;
             L0018: SetState00(party, 0x01, 0x01, 0x01);
             L002D: SetMove38(party, 0x00, 0xDD);
             L003D: SetMove34(party, 0xDD, 0x01);
@@ -341,43 +344,43 @@ namespace ZCF.Scripts.Maps {
             L005B: goto L0077;
             L005D: ShowMessage(party, String067A); // A bottomless pit lies before you, and a broken bridge spans the pit.
             L006A: ShowMessage(party, String06BF); // Upon each board are the symbols for 10, Jack, Queen and Ace.  A voice proclaims, 'I call your bluff'.
-            L0077: // RETURN;
+            L0077: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => FnHEARTSDR_06;
+        protected override MapEventHandler MapEvent06 => FnHEARTSDR_06;
         private void FnHEARTSDR_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0725); // The door bellows, 'I am all hearts!'
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent07 => FnMOONSW_07;
+        protected override MapEventHandler MapEvent07 => FnMOONSW_07;
         private void FnMOONSW_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xEB, 0xEB);
-            L0016: if (result.equal) goto L0053;
-            L0018: PushStack(03);
-            L001C: PushStack(BF);
-            L0020: PushStack(01);
+            L0016: if (CompareResultEqual) goto L0053;
+            L0018: PushStack(0x03);
+            L001C: PushStack(0xBF);
+            L0020: PushStack(0x01);
             L0024: SetUnblocked30(party);
             L002E: SetMove2C(party, 0xBF, 0x03, 0x01);
             L0044: ShowMessage(party, String074A); // The door proclaims,  'You shot the Moon!'
             L0051: goto L0060;
             L0053: ShowMessage(party, String0774); // A small button, shaped like the crescent moon, lies just out of reach.
-            L0060: // RETURN;
+            L0060: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent08 => FnBLAKJAK_08;
+        protected override MapEventHandler MapEvent08 => FnBLAKJAK_08;
         private void FnBLAKJAK_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xED, 0xED);
-            L0016: if (result.equal) goto L0060;
-            L0018: PushStack(01);
-            L001C: PushStack(8D);
-            L0020: PushStack(01);
+            L0016: if (CompareResultEqual) goto L0060;
+            L0018: PushStack(0x01);
+            L001C: PushStack(0x8D);
+            L0020: PushStack(0x01);
             L0024: SetUnblocked30(party);
             L002E: SetMove2C(party, 0x8D, 0x01, 0x01);
             L0044: ShowMessage(party, String07BB); // The Ace is played as eleven points, scoring the BlackJack!
@@ -385,26 +388,26 @@ namespace ZCF.Scripts.Maps {
             L005E: goto L007A;
             L0060: ShowMessage(party, String0808); // You enter a treasure room without any treasure.
             L006D: ShowMessage(party, String0838); // A dwarf thief voice menacingly orders, 'The Kings guard their treasure.  Only one can find it.'
-            L007A: // RETURN;
+            L007A: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent09 => FnBLAKJAKK_09;
+        protected override MapEventHandler MapEvent09 => FnBLAKJAKK_09;
         private void FnBLAKJAKK_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0898); // Stand back!  A King guards this wall!
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0A => FnCRIB_0A;
+        protected override MapEventHandler MapEvent0A => FnCRIB_0A;
         private void FnCRIB_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xEA, 0xEA);
-            L0016: if (result.equal) goto L0060;
-            L0018: PushStack(03);
-            L001C: PushStack(7D);
-            L0020: PushStack(01);
+            L0016: if (CompareResultEqual) goto L0060;
+            L0018: PushStack(0x03);
+            L001C: PushStack(0x7D);
+            L0020: PushStack(0x01);
             L0024: SetUnblocked30(party);
             L002E: SetMove2C(party, 0x7D, 0x03, 0x01);
             L0044: ShowMessage(party, String08BE); // The Jack scores the hand 22.  Cribbage is the game.
@@ -413,60 +416,60 @@ namespace ZCF.Scripts.Maps {
             L0060: ShowMessage(party, String0904); // The 22nd room of this fine castle...
             L006D: ShowMessage(party, String0929); // On the floor is a five, on two walls are fives, and the third wall holds a Jack.
             L007A: ShowMessage(party, String097A); // A voice laughs, 'You stand on face up!'
-            L0087: // RETURN;
+            L0087: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0B => FnCRIBJACK_0B;
+        protected override MapEventHandler MapEvent0B => FnCRIBJACK_0B;
         private void FnCRIBJACK_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09A2); // I, the Jack, throw dust in your general direction.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0C => FnCRIBFIVE_0C;
+        protected override MapEventHandler MapEvent0C => FnCRIBFIVE_0C;
         private void FnCRIBFIVE_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09D5); // The 5 card smiles back.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0D => FnBRDGFALL_0D;
+        protected override MapEventHandler MapEvent0D => FnBRDGFALL_0D;
         private void FnBRDGFALL_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09ED); // The Poker Bridge behind you collapses.
             L0010: SetState00(party, 0x01, 0x01, 0x00);
             L0024: SetMove38(party, 0x01, 0xDD);
-            L0035: // RETURN;
+            L0035: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0E => FnDICEPASS_0E;
+        protected override MapEventHandler MapEvent0E => FnDICEPASS_0E;
         private void FnDICEPASS_0E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A14); // Lucky Sevens! Lucky Sevens on the first roll!
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0F => FnDICESNAK_0F;
+        protected override MapEventHandler MapEvent0F => FnDICESNAK_0F;
         private void FnDICESNAK_0F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A42); // The door says, 'Snake eyes' ...
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent10 => FnDICEBOXC_10;
+        protected override MapEventHandler MapEvent10 => FnDICEBOXC_10;
         private void FnDICEBOXC_10(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A62); // The door shows two squares of six.  'Box Cars' ...
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent11 => FnDICEENCA_11;
+        protected override MapEventHandler MapEvent11 => FnDICEENCA_11;
         private void FnDICEENCA_11(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -476,10 +479,10 @@ namespace ZCF.Scripts.Maps {
             L0039: AddEncounter(party, 0x04, 0x0A);
             L004B: AddEncounter(party, 0x05, 0x04);
             L005D: AddEncounter(party, 0x06, 0x04);
-            L006F: // RETURN;
+            L006F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent12 => FnDICEENCB_12;
+        protected override MapEventHandler MapEvent12 => FnDICEENCB_12;
         private void FnDICEENCB_12(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -489,17 +492,17 @@ namespace ZCF.Scripts.Maps {
             L0039: AddEncounter(party, 0x04, 0x0A);
             L004B: AddEncounter(party, 0x05, 0x0A);
             L005D: AddEncounter(party, 0x06, 0x0A);
-            L006F: // RETURN;
+            L006F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent13 => FnBLJKFOUN_13;
+        protected override MapEventHandler MapEvent13 => FnBLJKFOUN_13;
         private void FnBLJKFOUN_13(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A95); // The Blackjack Fountain is made of playing cards.
             L0010: ax = CheckState04(party, 0x02, 0x7E);
             L0021: RefreshCompareFlags(ax);
-            L0023: if (result.equal) goto L0028;
+            L0023: if (CompareResultEqual) goto L0028;
             L0025: goto L00AF;
             L0028: SetState00(party, 0x02, 0x7E, 0x01);
             L003D: RemoveItem4C(party, 0xEA);
@@ -513,17 +516,17 @@ namespace ZCF.Scripts.Maps {
             L00A0: ShowMessage(party, String0B37); // 'The Jack has come home.  Thank you for your help.'
             L00AD: goto L00BC;
             L00AF: ShowMessage(party, String0B6B); // The fountain is dry as a bone.
-            L00BC: // RETURN;
+            L00BC: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent14 => FnCRIBFOUN_14;
+        protected override MapEventHandler MapEvent14 => FnCRIBFOUN_14;
         private void FnCRIBFOUN_14(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0B8A); // The Cribbage Fountain is bedecked with golden pegs.
             L0010: ax = CheckState04(party, 0x02, 0x7F);
             L0021: RefreshCompareFlags(ax);
-            L0023: if (result.equal) goto L0028;
+            L0023: if (CompareResultEqual) goto L0028;
             L0025: goto L00AB;
             L0028: SetState00(party, 0x02, 0x7F, 0x01);
             L003D: ShowPortrait(party, 0x0042);
@@ -536,30 +539,30 @@ namespace ZCF.Scripts.Maps {
             L009C: ShowMessage(party, String0C3C); // 'The Ace has returned.  Three points for you.'
             L00A9: goto L00B8;
             L00AB: ShowMessage(party, String0C6B); // The basin is empty.
-            L00B8: // RETURN;
+            L00B8: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent15 => FnDICETRSA_15;
+        protected override MapEventHandler MapEvent15 => FnDICETRSA_15;
         private void FnDICETRSA_15(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0C7F); // A message is inscribed on a wall -- 
             L0010: ShowRunes(party, String0CA4); // 'The Waters of Winter are needed to transform Spring into Summer.
             L001D: ShowRunes(party, String0CE6); // In return for your deeds, you will receive the Radiance of Summer.'
-            L002A: // RETURN;
+            L002A: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent16 => FnDICETRSB_16;
+        protected override MapEventHandler MapEvent16 => FnDICETRSB_16;
         private void FnDICETRSB_16(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0D2A); // A note is inscribed on a wall -- 
             L0010: ShowRunes(party, String0D4C); // 'To reach En-Li-Kil, you must defeat his Wind Elemental.
             L001D: ShowRunes(party, String0D85); // Remember to use weapons that do not break when the Wind Elemental attacks.
-            L002A: // RETURN;
+            L002A: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent17 => FnDICETRSC_17;
+        protected override MapEventHandler MapEvent17 => FnDICETRSC_17;
         private void FnDICETRSC_17(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -567,30 +570,30 @@ namespace ZCF.Scripts.Maps {
             L0010: ShowRunes(party, String0DFC); // 'Be careful in the River of Eternity.
             L001D: ShowRunes(party, String0E22); // The river takes one fourth of your full health every step you take with no opportunity to heal.
             L002A: ShowRunes(party, String0E82); // 'A safe fourth square must be found to cross the Rivers of Eternity.'
-            L0037: // RETURN;
+            L0037: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent18 => FnDICETRSD_18;
+        protected override MapEventHandler MapEvent18 => FnDICETRSD_18;
         private void FnDICETRSD_18(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0EC8); // A message is written on a wall -- 
             L0010: ShowRunes(party, String0EEB); // 'Use the outer walls to set the location of another's next step in the Parapet Chasm.
             L001D: ShowRunes(party, String0F41); // Once across, encounter Andreas to gain access to Arnakkian.'
-            L002A: // RETURN;
+            L002A: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent19 => FnDICETRSE_19;
+        protected override MapEventHandler MapEvent19 => FnDICETRSE_19;
         private void FnDICETRSE_19(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0F7E); // A message is written on a wall -- 
             L0010: ShowRunes(party, String0FA1); // 'The Promise of Spring Renewal must be sworn to convert Autumn to Winter.
             L001D: ShowRunes(party, String0FEB); // In return you will receive the cold Waters of Winter.'
-            L002A: // RETURN;
+            L002A: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent1A => FnDICETRSF_1A;
+        protected override MapEventHandler MapEvent1A => FnDICETRSF_1A;
         private void FnDICETRSF_1A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -602,56 +605,56 @@ namespace ZCF.Scripts.Maps {
             L0044: ShowMessage(party, String10EA); // The Snow Elves call this grand tree the Aldbora.
             L0051: ShowMessage(party, String111B); // The Aldbora bears the fruit of knowledge to all adventurers during the season of winter.
             L005E: ShowMessage(party, String1174); // It lies dormant now, unable to ripen its fruit without the change of seasons and the Radiance of Summer.'
-            L006B: // RETURN;
+            L006B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent1B => FnDICETRSG_1B;
+        protected override MapEventHandler MapEvent1B => FnDICETRSG_1B;
         private void FnDICETRSG_1B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String11DE); // A message is scrawled on a wall -- 
             L0010: ShowRunes(party, String1202); // 'Use the Autumn Seeds to transform Winter into flowering Spring.
             L001D: ShowRunes(party, String1243); // The promise of Spring Renewal for another year will be given in return.'
-            L002A: // RETURN;
+            L002A: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent1C => FnDICETRSH_1C;
+        protected override MapEventHandler MapEvent1C => FnDICETRSH_1C;
         private void FnDICETRSH_1C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String128C); // A message is carved in the floor -- 
             L0010: ShowRunes(party, String12B1); // 'The bones of a past king may be found in the Elven Caves.'
-            L001D: // RETURN;
+            L001D: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent1D => FnDICETRSI_1D;
+        protected override MapEventHandler MapEvent1D => FnDICETRSI_1D;
         private void FnDICETRSI_1D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String12ED); // A message is scribbled on a wall -- 
             L0010: ShowRunes(party, String1312); // 'The trumpet sound of the Harvest Horn will announce Summer's conversion to Autumn.
             L001D: ShowRunes(party, String1366); // From the conversion you will receive the seeds of Autumn.'
-            L002A: // RETURN;
+            L002A: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent22 => FnBARD_22;
+        protected override MapEventHandler MapEvent22 => FnBARD_22;
         private void FnBARD_22(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String13A1); // A ghost elf bard sings a tale of how four colored magical gems placed side by side can form a rainbow to a far away island.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent23 => FnAPPLES_23;
+        protected override MapEventHandler MapEvent23 => FnAPPLES_23;
         private void FnAPPLES_23(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String141D); // The spirit of a beautiful wench appears. She hold a wooden bucket filled wtih floating apples.
             L0010: ShowMessage(party, String147C); // 'Step forward and honor me with your kindness!  Bob for apples and win a prize.'
-            L001D: // RETURN;
+            L001D: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent24 => FnAPPLEENC_24;
+        protected override MapEventHandler MapEvent24 => FnAPPLEENC_24;
         private void FnAPPLEENC_24(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -664,10 +667,10 @@ namespace ZCF.Scripts.Maps {
             L0060: AddEncounter(party, 0x04, 0x1B);
             L0072: AddEncounter(party, 0x05, 0x1A);
             L0084: AddEncounter(party, 0x06, 0x1A);
-            L0096: // RETURN;
+            L0096: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent25 => FnCHESENCA_25;
+        protected override MapEventHandler MapEvent25 => FnCHESENCA_25;
         private void FnCHESENCA_25(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -677,10 +680,10 @@ namespace ZCF.Scripts.Maps {
             L0039: AddEncounter(party, 0x04, 0x1F);
             L004B: AddEncounter(party, 0x05, 0x20);
             L005D: AddEncounter(party, 0x06, 0x21);
-            L006F: // RETURN;
+            L006F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent26 => FnCHESENCB_26;
+        protected override MapEventHandler MapEvent26 => FnCHESENCB_26;
         private void FnCHESENCB_26(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -690,10 +693,10 @@ namespace ZCF.Scripts.Maps {
             L0039: AddEncounter(party, 0x04, 0x1E);
             L004B: AddEncounter(party, 0x05, 0x1E);
             L005D: AddEncounter(party, 0x06, 0x1E);
-            L006F: // RETURN;
+            L006F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent27 => FnCHESENCC_27;
+        protected override MapEventHandler MapEvent27 => FnCHESENCC_27;
         private void FnCHESENCC_27(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -703,10 +706,10 @@ namespace ZCF.Scripts.Maps {
             L0039: AddEncounter(party, 0x04, 0x1F);
             L004B: AddEncounter(party, 0x05, 0x1F);
             L005D: AddEncounter(party, 0x06, 0x1F);
-            L006F: // RETURN;
+            L006F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent28 => FnCHESENCD_28;
+        protected override MapEventHandler MapEvent28 => FnCHESENCD_28;
         private void FnCHESENCD_28(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -716,10 +719,10 @@ namespace ZCF.Scripts.Maps {
             L0039: AddEncounter(party, 0x04, 0x20);
             L004B: AddEncounter(party, 0x05, 0x26);
             L005D: AddEncounter(party, 0x06, 0x26);
-            L006F: // RETURN;
+            L006F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent29 => FnCHESENCE_29;
+        protected override MapEventHandler MapEvent29 => FnCHESENCE_29;
         private void FnCHESENCE_29(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -730,14 +733,14 @@ namespace ZCF.Scripts.Maps {
             L004B: AddEncounter(party, 0x05, 0x22);
             L005D: AddEncounter(party, 0x06, 0x1D);
             L006F: ax = HasItem50(party, 0xEB);
-            L007D: if (result.equal) goto L00A0;
+            L007D: if (CompareResultEqual) goto L00A0;
             L007F: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x90, 0xAF);
             L009E: goto L00C0;
             L00A0: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0xEB, 0xD0);
-            L00C0: // RETURN;
+            L00C0: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent2A => FnCHESENCF_2A;
+        protected override MapEventHandler MapEvent2A => FnCHESENCF_2A;
         private void FnCHESENCF_2A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -748,14 +751,14 @@ namespace ZCF.Scripts.Maps {
             L004B: AddEncounter(party, 0x05, 0x15);
             L005D: AddEncounter(party, 0x06, 0x1C);
             L006F: ax = HasItem50(party, 0xEC);
-            L007D: if (result.equal) goto L00A0;
+            L007D: if (CompareResultEqual) goto L00A0;
             L007F: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x8D, 0xCF);
             L009E: goto L00C0;
             L00A0: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0xEC, 0xD0);
-            L00C0: // RETURN;
+            L00C0: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent2B => FnPOKRENCA_2B;
+        protected override MapEventHandler MapEvent2B => FnPOKRENCA_2B;
         private void FnPOKRENCA_2B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -765,10 +768,10 @@ namespace ZCF.Scripts.Maps {
             L0039: AddEncounter(party, 0x04, 0x1F);
             L004B: AddEncounter(party, 0x05, 0x1F);
             L005D: AddEncounter(party, 0x06, 0x1F);
-            L006F: // RETURN;
+            L006F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent2C => FnCRIBENCA_2C;
+        protected override MapEventHandler MapEvent2C => FnCRIBENCA_2C;
         private void FnCRIBENCA_2C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -777,10 +780,10 @@ namespace ZCF.Scripts.Maps {
             L0027: AddEncounter(party, 0x05, 0x23);
             L0039: AddEncounter(party, 0x06, 0x23);
             L004B: AddTreasure(party, 0x2710, 0x00, 0x00, 0xD0, 0xD0, 0x71);
-            L006C: // RETURN;
+            L006C: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent2D => FnBLJKENCA_2D;
+        protected override MapEventHandler MapEvent2D => FnBLJKENCA_2D;
         private void FnBLJKENCA_2D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -791,10 +794,10 @@ namespace ZCF.Scripts.Maps {
             L004B: AddEncounter(party, 0x05, 0x26);
             L005D: AddEncounter(party, 0x06, 0x26);
             L006F: AddTreasure(party, 0x2710, 0x00, 0x00, 0x00, 0xD0, 0x1D);
-            L008F: // RETURN;
+            L008F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent2E => FnBLJKENCB_2E;
+        protected override MapEventHandler MapEvent2E => FnBLJKENCB_2E;
         private void FnBLJKENCB_2E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -805,10 +808,10 @@ namespace ZCF.Scripts.Maps {
             L004B: AddEncounter(party, 0x05, 0x26);
             L005D: AddEncounter(party, 0x06, 0x26);
             L006F: AddTreasure(party, 0x2710, 0x00, 0x00, 0x00, 0xD0, 0xBE);
-            L008F: // RETURN;
+            L008F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent2F => FnCRIBENCB_2F;
+        protected override MapEventHandler MapEvent2F => FnCRIBENCB_2F;
         private void FnCRIBENCB_2F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -819,10 +822,10 @@ namespace ZCF.Scripts.Maps {
             L0046: AddEncounter(party, 0x05, 0x25);
             L0058: AddEncounter(party, 0x06, 0x25);
             L006A: AddTreasure(party, 0x2710, 0x00, 0x00, 0xCF, 0xBD, 0x5C);
-            L008B: // RETURN;
+            L008B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent30 => FnVARYENCA_30;
+        protected override MapEventHandler MapEvent30 => FnVARYENCA_30;
         private void FnVARYENCA_30(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -830,10 +833,10 @@ namespace ZCF.Scripts.Maps {
             L0015: AddEncounter(party, 0x02, 0x04);
             L0027: AddEncounter(party, 0x04, 0x04);
             L0039: AddEncounter(party, 0x05, 0x04);
-            L004B: // RETURN;
+            L004B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent31 => FnVARYENCB_31;
+        protected override MapEventHandler MapEvent31 => FnVARYENCB_31;
         private void FnVARYENCB_31(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -841,10 +844,10 @@ namespace ZCF.Scripts.Maps {
             L0015: AddEncounter(party, 0x02, 0x0E);
             L0027: AddEncounter(party, 0x03, 0x0E);
             L0039: AddEncounter(party, 0x05, 0x0D);
-            L004B: // RETURN;
+            L004B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent34 => FnVARYENCE_34;
+        protected override MapEventHandler MapEvent34 => FnVARYENCE_34;
         private void FnVARYENCE_34(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -854,55 +857,55 @@ namespace ZCF.Scripts.Maps {
             L0039: AddEncounter(party, 0x04, 0x13);
             L004B: AddEncounter(party, 0x05, 0x17);
             L005D: AddEncounter(party, 0x06, 0x02);
-            L006F: // RETURN;
+            L006F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent35 => FnGATEA_35;
+        protected override MapEventHandler MapEvent35 => FnGATEA_35;
         private void FnGATEA_35(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetMoveMap(party, 0x35, 0x01, 0x3F, 0x00);
-            L001D: // RETURN;
+            L001D: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent36 => FnTOLABY_36;
+        protected override MapEventHandler MapEvent36 => FnTOLABY_36;
         private void FnTOLABY_36(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String15B3); // The gate takes you back to the labyrinth.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent37 => FnTXTCHESL_37;
+        protected override MapEventHandler MapEvent37 => FnTXTCHESL_37;
         private void FnTXTCHESL_37(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String15DD); // Use the red squares and you shall turn clockwise on your mount.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent38 => FnTXTCHESD_38;
+        protected override MapEventHandler MapEvent38 => FnTXTCHESD_38;
         private void FnTXTCHESD_38(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String161D); // The stallion must go counterclockwise on blue squares!
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent39 => FnTXTDICEB_39;
+        protected override MapEventHandler MapEvent39 => FnTXTDICEB_39;
         private void FnTXTDICEB_39(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1654); // To the west you will find a second dice maze.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent3A => FnTXTDICEA_3A;
+        protected override MapEventHandler MapEvent3A => FnTXTDICEA_3A;
         private void FnTXTDICEA_3A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1682); // A maze made out of dice lies just to the north.
-            L0010: // RETURN;
+            L0010: return; // RETURN;
         }
 
     }

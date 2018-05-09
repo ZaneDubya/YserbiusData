@@ -1,5 +1,8 @@
+#pragma warning disable
+using ZCF.WorldData;
+
 namespace ZCF.Scripts.Maps {
-    class YserMap32 : ACanoMapScript {
+    class YserMap32 : AMapScript {
         // === Strings ================================================
         private const string String03FC = "The Ageless Void swallows you whole.";
         private const string String0421 = "Time freezes forever in your mind.  To the rest of the world, you are dead.";
@@ -28,7 +31,7 @@ namespace ZCF.Scripts.Maps {
         private const string String0A2B = "You enter another dimension.";
         
         // === Functions ================================================
-        private override MapEventHandler MapEvent01 => FnVOID_01;
+        protected override MapEventHandler MapEvent01 => FnVOID_01;
         private void FnVOID_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -36,19 +39,19 @@ namespace ZCF.Scripts.Maps {
             L0010: ShowMessage(party, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
             L001D: ax = GetMaxHits74(party);
             L0024: DoDamage90(party, ax);
-            L002E: // RETURN;
+            L002E: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent02 => FnISLEETRN_02;
+        protected override MapEventHandler MapEvent02 => FnISLEETRN_02;
         private void FnISLEETRN_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String046D); // The Island of Eternity sits at the edge of time.
             L0010: ShowMessage(party, String049E); // Along its edge is the Ageless Void, a vastness where time does not exist.
-            L001D: // RETURN;
+            L001D: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent03 => FnENCSELF_03;
+        protected override MapEventHandler MapEvent03 => FnENCSELF_03;
         private void FnENCSELF_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -58,10 +61,10 @@ namespace ZCF.Scripts.Maps {
             L0039: AddEncounter(party, 0x04, 0x19);
             L004B: AddEncounter(party, 0x05, 0x1A);
             L005D: AddEncounter(party, 0x06, 0x1A);
-            L006F: // RETURN;
+            L006F: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent04 => FnENCWINTR_04;
+        protected override MapEventHandler MapEvent04 => FnENCWINTR_04;
         private void FnENCWINTR_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -70,8 +73,8 @@ namespace ZCF.Scripts.Maps {
             L001D: ShowMessage(party, String0583); // The sky above you darkens and dark clouds mass together. Tornadoes swirl around you.  Hurricane winds beat against you.  The clouds shine with the endless flash of lightning.
             L002A: ShowMessage(party, String0632); // The winds rip at your weapons.
             L0037: ax = GetWeapon88(party);
-            L003F: compare(ax, 0x0009);
-            L0042: if (result.equal) goto L0064;
+            L003F: Compare(ax, 0x0009);
+            L0042: if (CompareResultEqual) goto L0064;
             L0044: ShowMessage(party, String0651); // Your weapon snaps in the wind!  It is gone.
             L0051: ax = GetWeapon88(party);
             L0059: RemoveItem4C(party, ax);
@@ -83,46 +86,46 @@ namespace ZCF.Scripts.Maps {
             L00A2: AddEncounter(party, 0x03, 0x19);
             L00B4: AddEncounter(party, 0x04, 0x19);
             L00C6: AddEncounter(party, 0x06, 0x1B);
-            L00D8: // RETURN;
+            L00D8: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent05 => FnRAINRED_05;
+        protected override MapEventHandler MapEvent05 => FnRAINRED_05;
         private void FnRAINRED_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06F2); // A streak of Red crosses the Ageless Void.
             L0010: SetMoveMap(party, 0x38, 0x03, 0x97, 0x02);
-            L002B: // RETURN;
+            L002B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent06 => FnRAINYEL_06;
+        protected override MapEventHandler MapEvent06 => FnRAINYEL_06;
         private void FnRAINYEL_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String071C); // A streak of Yellow crosses the Ageless Void.
             L0010: SetMoveMap(party, 0x38, 0x03, 0x87, 0x02);
-            L002B: // RETURN;
+            L002B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent07 => FnRAINGRN_07;
+        protected override MapEventHandler MapEvent07 => FnRAINGRN_07;
         private void FnRAINGRN_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0749); // A streak of Green crosses the Ageless Void.
             L0010: SetMoveMap(party, 0x38, 0x03, 0x77, 0x02);
-            L002B: // RETURN;
+            L002B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent08 => FnRAINBLU_08;
+        protected override MapEventHandler MapEvent08 => FnRAINBLU_08;
         private void FnRAINBLU_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0775); // A streak of Blue crosses the Ageless Void.
             L0010: SetMoveMap(party, 0x38, 0x03, 0x67, 0x02);
-            L002B: // RETURN;
+            L002B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent09 => FnENCTIME_09;
+        protected override MapEventHandler MapEvent09 => FnENCTIME_09;
         private void FnENCTIME_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -132,43 +135,43 @@ namespace ZCF.Scripts.Maps {
             L002A: ShowMessage(party, String08A8); // His face turns with age, then glows bright red.
             L0037: ShowMessage(party, String08D8); // 'Arnakkian summoned me to this realm -- to watch over his soul -- to make him immortal.  He lost his body and his castle for his lust.
             L0044: ShowMessage(party, String095F); // Mortal!  You have no business in the affairs of Time. I waste myself no more, my Wind Elemental will deal with you.'
-            L0051: // RETURN;
+            L0051: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0A => FnTELENW_0A;
+        protected override MapEventHandler MapEvent0A => FnTELENW_0A;
         private void FnTELENW_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09D4); // You enter another dimension.
             L0010: SetMoveMap(party, 0x39, 0x01, 0x54, 0x01);
-            L002B: // RETURN;
+            L002B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0B => FnTELENE_0B;
+        protected override MapEventHandler MapEvent0B => FnTELENE_0B;
         private void FnTELENE_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09F1); // You enter another dimension.
             L0010: SetMoveMap(party, 0x39, 0x01, 0x4A, 0x00);
-            L002A: // RETURN;
+            L002A: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0C => FnTELESE_0C;
+        protected override MapEventHandler MapEvent0C => FnTELESE_0C;
         private void FnTELESE_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A0E); // You enter another dimension.
             L0010: SetMoveMap(party, 0x39, 0x01, 0xAB, 0x03);
-            L002B: // RETURN;
+            L002B: return; // RETURN;
         }
 
-        private override MapEventHandler MapEvent0D => FnTELESW_0D;
+        protected override MapEventHandler MapEvent0D => FnTELESW_0D;
         private void FnTELESW_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A2B); // You enter another dimension.
             L0010: SetMoveMap(party, 0x39, 0x01, 0xB5, 0x02);
-            L002B: // RETURN;
+            L002B: return; // RETURN;
         }
 
     }
