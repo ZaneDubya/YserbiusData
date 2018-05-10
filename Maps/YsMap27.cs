@@ -4,6 +4,19 @@ using XPT.WorldData;
 namespace XPT.Scripts.Maps {
     class YserMap27 : AMapScript {
         protected override int MapIndex => 27;
+        
+        public YserMap27() {
+            MapEvent01 = FnGATEWAYA_01;
+            MapEvent02 = FnXOVERA_02;
+            MapEvent03 = FnXOVERB_03;
+            MapEvent04 = FnAREAA_04;
+            MapEvent05 = FnAREAB_05;
+            MapEvent06 = FnAREAC_06;
+            MapEvent07 = FnAREAD_07;
+            MapEvent09 = FnARENTEXT_09;
+            MapEvent0A = FnWAITTEXT_0A;
+        }
+        
         // === Strings ================================================
         private const string String03FC = "A Gateway back to the Labyrinth.";
         private const string String041D = "Gate to the entrance of Arnakkian's Arena.";
@@ -16,7 +29,6 @@ namespace XPT.Scripts.Maps {
         private const string String05DC = "Carved on a recessed stone, you find a roster from a Arnakkian-era private guild.  None of the names are recognizable. ";
         
         // === Functions ================================================
-        protected override MapEventHandler MapEvent01 => FnGATEWAYA_01;
         private void FnGATEWAYA_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -25,7 +37,6 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent02 => FnXOVERA_02;
         private void FnXOVERA_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -33,7 +44,6 @@ namespace XPT.Scripts.Maps {
             L001E: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent03 => FnXOVERB_03;
         private void FnXOVERB_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -42,7 +52,6 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent04 => FnAREAA_04;
         private void FnAREAA_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -51,7 +60,6 @@ namespace XPT.Scripts.Maps {
             L002B: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent05 => FnAREAB_05;
         private void FnAREAB_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -60,7 +68,6 @@ namespace XPT.Scripts.Maps {
             L002B: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent06 => FnAREAC_06;
         private void FnAREAC_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -69,7 +76,6 @@ namespace XPT.Scripts.Maps {
             L002B: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent07 => FnAREAD_07;
         private void FnAREAD_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -78,7 +84,6 @@ namespace XPT.Scripts.Maps {
             L002B: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent09 => FnARENTEXT_09;
         private void FnARENTEXT_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -87,7 +92,6 @@ namespace XPT.Scripts.Maps {
             L001D: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent0A => FnWAITTEXT_0A;
         private void FnWAITTEXT_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;

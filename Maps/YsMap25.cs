@@ -4,6 +4,62 @@ using XPT.WorldData;
 namespace XPT.Scripts.Maps {
     class YserMap25 : AMapScript {
         protected override int MapIndex => 25;
+        
+        public YserMap25() {
+            MapEvent01 = FnCHESLITE_01;
+            MapEvent02 = FnCHESDARK_02;
+            MapEvent03 = FnVOID_03;
+            MapEvent04 = FnPOKERBRG_04;
+            MapEvent05 = FnPOKERSW_05;
+            MapEvent06 = FnHEARTSDR_06;
+            MapEvent07 = FnMOONSW_07;
+            MapEvent08 = FnBLAKJAK_08;
+            MapEvent09 = FnBLAKJAKK_09;
+            MapEvent0A = FnCRIB_0A;
+            MapEvent0B = FnCRIBJACK_0B;
+            MapEvent0C = FnCRIBFIVE_0C;
+            MapEvent0D = FnBRDGFALL_0D;
+            MapEvent0E = FnDICEPASS_0E;
+            MapEvent0F = FnDICESNAK_0F;
+            MapEvent10 = FnDICEBOXC_10;
+            MapEvent11 = FnDICEENCA_11;
+            MapEvent12 = FnDICEENCB_12;
+            MapEvent13 = FnBLJKFOUN_13;
+            MapEvent14 = FnCRIBFOUN_14;
+            MapEvent15 = FnDICETRSA_15;
+            MapEvent16 = FnDICETRSB_16;
+            MapEvent17 = FnDICETRSC_17;
+            MapEvent18 = FnDICETRSD_18;
+            MapEvent19 = FnDICETRSE_19;
+            MapEvent1A = FnDICETRSF_1A;
+            MapEvent1B = FnDICETRSG_1B;
+            MapEvent1C = FnDICETRSH_1C;
+            MapEvent1D = FnDICETRSI_1D;
+            MapEvent22 = FnBARD_22;
+            MapEvent23 = FnAPPLES_23;
+            MapEvent24 = FnAPPLEENC_24;
+            MapEvent25 = FnCHESENCA_25;
+            MapEvent26 = FnCHESENCB_26;
+            MapEvent27 = FnCHESENCC_27;
+            MapEvent28 = FnCHESENCD_28;
+            MapEvent29 = FnCHESENCE_29;
+            MapEvent2A = FnCHESENCF_2A;
+            MapEvent2B = FnPOKRENCA_2B;
+            MapEvent2C = FnCRIBENCA_2C;
+            MapEvent2D = FnBLJKENCA_2D;
+            MapEvent2E = FnBLJKENCB_2E;
+            MapEvent2F = FnCRIBENCB_2F;
+            MapEvent30 = FnVARYENCA_30;
+            MapEvent31 = FnVARYENCB_31;
+            MapEvent34 = FnVARYENCE_34;
+            MapEvent35 = FnGATEA_35;
+            MapEvent36 = FnTOLABY_36;
+            MapEvent37 = FnTXTCHESL_37;
+            MapEvent38 = FnTXTCHESD_38;
+            MapEvent39 = FnTXTDICEB_39;
+            MapEvent3A = FnTXTDICEA_3A;
+        }
+        
         // === Strings ================================================
         private const string String03FC = "You may leave the chessboard through this opening.";
         private const string String042F = "A knight move here would place you off the chessboard!";
@@ -95,7 +151,6 @@ namespace XPT.Scripts.Maps {
         private const string String1682 = "A maze made out of dice lies just to the north.";
         
         // === Functions ================================================
-        protected override MapEventHandler MapEvent01 => FnCHESLITE_01;
         private void FnCHESLITE_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
@@ -199,7 +254,6 @@ namespace XPT.Scripts.Maps {
             L0193: return; // RETURN (restoring si);
         }
 
-        protected override MapEventHandler MapEvent02 => FnCHESDARK_02;
         private void FnCHESDARK_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
@@ -303,7 +357,6 @@ namespace XPT.Scripts.Maps {
             L0193: return; // RETURN (restoring si);
         }
 
-        protected override MapEventHandler MapEvent03 => FnVOID_03;
         private void FnVOID_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -313,7 +366,6 @@ namespace XPT.Scripts.Maps {
             L0021: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent04 => FnPOKERBRG_04;
         private void FnPOKERBRG_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -332,7 +384,6 @@ namespace XPT.Scripts.Maps {
             L0081: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent05 => FnPOKERSW_05;
         private void FnPOKERSW_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -348,7 +399,6 @@ namespace XPT.Scripts.Maps {
             L0077: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent06 => FnHEARTSDR_06;
         private void FnHEARTSDR_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -356,7 +406,6 @@ namespace XPT.Scripts.Maps {
             L0010: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent07 => FnMOONSW_07;
         private void FnMOONSW_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -373,7 +422,6 @@ namespace XPT.Scripts.Maps {
             L0060: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent08 => FnBLAKJAK_08;
         private void FnBLAKJAK_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -392,7 +440,6 @@ namespace XPT.Scripts.Maps {
             L007A: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent09 => FnBLAKJAKK_09;
         private void FnBLAKJAKK_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -400,7 +447,6 @@ namespace XPT.Scripts.Maps {
             L0010: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent0A => FnCRIB_0A;
         private void FnCRIB_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -420,7 +466,6 @@ namespace XPT.Scripts.Maps {
             L0087: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent0B => FnCRIBJACK_0B;
         private void FnCRIBJACK_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -428,7 +473,6 @@ namespace XPT.Scripts.Maps {
             L0010: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent0C => FnCRIBFIVE_0C;
         private void FnCRIBFIVE_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -436,7 +480,6 @@ namespace XPT.Scripts.Maps {
             L0010: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent0D => FnBRDGFALL_0D;
         private void FnBRDGFALL_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -446,7 +489,6 @@ namespace XPT.Scripts.Maps {
             L0035: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent0E => FnDICEPASS_0E;
         private void FnDICEPASS_0E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -454,7 +496,6 @@ namespace XPT.Scripts.Maps {
             L0010: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent0F => FnDICESNAK_0F;
         private void FnDICESNAK_0F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -462,7 +503,6 @@ namespace XPT.Scripts.Maps {
             L0010: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent10 => FnDICEBOXC_10;
         private void FnDICEBOXC_10(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -470,7 +510,6 @@ namespace XPT.Scripts.Maps {
             L0010: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent11 => FnDICEENCA_11;
         private void FnDICEENCA_11(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -483,7 +522,6 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent12 => FnDICEENCB_12;
         private void FnDICEENCB_12(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -496,7 +534,6 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent13 => FnBLJKFOUN_13;
         private void FnBLJKFOUN_13(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -520,7 +557,6 @@ namespace XPT.Scripts.Maps {
             L00BC: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent14 => FnCRIBFOUN_14;
         private void FnCRIBFOUN_14(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -543,7 +579,6 @@ namespace XPT.Scripts.Maps {
             L00B8: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent15 => FnDICETRSA_15;
         private void FnDICETRSA_15(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -553,7 +588,6 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent16 => FnDICETRSB_16;
         private void FnDICETRSB_16(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -563,7 +597,6 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent17 => FnDICETRSC_17;
         private void FnDICETRSC_17(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -574,7 +607,6 @@ namespace XPT.Scripts.Maps {
             L0037: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent18 => FnDICETRSD_18;
         private void FnDICETRSD_18(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -584,7 +616,6 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent19 => FnDICETRSE_19;
         private void FnDICETRSE_19(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -594,7 +625,6 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent1A => FnDICETRSF_1A;
         private void FnDICETRSF_1A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -609,7 +639,6 @@ namespace XPT.Scripts.Maps {
             L006B: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent1B => FnDICETRSG_1B;
         private void FnDICETRSG_1B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -619,7 +648,6 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent1C => FnDICETRSH_1C;
         private void FnDICETRSH_1C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -628,7 +656,6 @@ namespace XPT.Scripts.Maps {
             L001D: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent1D => FnDICETRSI_1D;
         private void FnDICETRSI_1D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -638,7 +665,6 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent22 => FnBARD_22;
         private void FnBARD_22(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -646,7 +672,6 @@ namespace XPT.Scripts.Maps {
             L0010: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent23 => FnAPPLES_23;
         private void FnAPPLES_23(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -655,7 +680,6 @@ namespace XPT.Scripts.Maps {
             L001D: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent24 => FnAPPLEENC_24;
         private void FnAPPLEENC_24(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -671,7 +695,6 @@ namespace XPT.Scripts.Maps {
             L0096: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent25 => FnCHESENCA_25;
         private void FnCHESENCA_25(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -684,7 +707,6 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent26 => FnCHESENCB_26;
         private void FnCHESENCB_26(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -697,7 +719,6 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent27 => FnCHESENCC_27;
         private void FnCHESENCC_27(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -710,7 +731,6 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent28 => FnCHESENCD_28;
         private void FnCHESENCD_28(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -723,7 +743,6 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent29 => FnCHESENCE_29;
         private void FnCHESENCE_29(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -741,7 +760,6 @@ namespace XPT.Scripts.Maps {
             L00C0: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent2A => FnCHESENCF_2A;
         private void FnCHESENCF_2A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -759,7 +777,6 @@ namespace XPT.Scripts.Maps {
             L00C0: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent2B => FnPOKRENCA_2B;
         private void FnPOKRENCA_2B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -772,7 +789,6 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent2C => FnCRIBENCA_2C;
         private void FnCRIBENCA_2C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -784,7 +800,6 @@ namespace XPT.Scripts.Maps {
             L006C: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent2D => FnBLJKENCA_2D;
         private void FnBLJKENCA_2D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -798,7 +813,6 @@ namespace XPT.Scripts.Maps {
             L008F: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent2E => FnBLJKENCB_2E;
         private void FnBLJKENCB_2E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -812,7 +826,6 @@ namespace XPT.Scripts.Maps {
             L008F: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent2F => FnCRIBENCB_2F;
         private void FnCRIBENCB_2F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -826,7 +839,6 @@ namespace XPT.Scripts.Maps {
             L008B: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent30 => FnVARYENCA_30;
         private void FnVARYENCA_30(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -837,7 +849,6 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent31 => FnVARYENCB_31;
         private void FnVARYENCB_31(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -848,7 +859,6 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent34 => FnVARYENCE_34;
         private void FnVARYENCE_34(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -861,7 +871,6 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent35 => FnGATEA_35;
         private void FnGATEA_35(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -869,7 +878,6 @@ namespace XPT.Scripts.Maps {
             L001D: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent36 => FnTOLABY_36;
         private void FnTOLABY_36(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -877,7 +885,6 @@ namespace XPT.Scripts.Maps {
             L0010: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent37 => FnTXTCHESL_37;
         private void FnTXTCHESL_37(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -885,7 +892,6 @@ namespace XPT.Scripts.Maps {
             L0010: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent38 => FnTXTCHESD_38;
         private void FnTXTCHESD_38(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -893,7 +899,6 @@ namespace XPT.Scripts.Maps {
             L0010: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent39 => FnTXTDICEB_39;
         private void FnTXTDICEB_39(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
@@ -901,7 +906,6 @@ namespace XPT.Scripts.Maps {
             L0010: return; // RETURN;
         }
 
-        protected override MapEventHandler MapEvent3A => FnTXTDICEA_3A;
         private void FnTXTDICEA_3A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
