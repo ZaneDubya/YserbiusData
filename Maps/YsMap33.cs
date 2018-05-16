@@ -94,25 +94,25 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: // make space for tmp on stack: sp -= 2
-            L0005: SetState00(party, 0x02, 0x7B, 0x01);
+            L0005: SetState(party, 0x02, 0x7B, 0x01);
             L001A: ShowMessage(party, String04C0); // The wall sparkles with phantasmal light.
-            L0027: ax = CheckState04(party, 0x02, 0x7B);
-            L0038: PushStack(ax);
-            L0039: ax = CheckState04(party, 0x02, 0x7C);
-            L004A: dx = PopStack();
+            L0027: ax = GetState(party, 0x02, 0x7B);
+            L0038: PushStack(party, ax);
+            L0039: ax = GetState(party, 0x02, 0x7C);
+            L004A: dx = PopStack(party);
             L004B: dx = dx + ax;
-            L004D: PushStack(dx);
-            L004E: ax = CheckState04(party, 0x02, 0x7D);
-            L005F: dx = PopStack();
+            L004D: PushStack(party, dx);
+            L004E: ax = GetState(party, 0x02, 0x7D);
+            L005F: dx = PopStack(party);
             L0060: dx = dx + ax;
             L0062: tmp = dx;
             L0065: ax = tmp;
             L0068: Compare(ax, 0x0001);
-            L006B: if (CompareResultEqual) goto L0079;
+            L006B: if (JumpEqual) goto L0079;
             L006D: Compare(ax, 0x0002);
-            L0070: if (CompareResultEqual) goto L00A6;
+            L0070: if (JumpEqual) goto L00A6;
             L0072: Compare(ax, 0x0003);
-            L0075: if (CompareResultEqual) goto L00C6;
+            L0075: if (JumpEqual) goto L00C6;
             L0077: goto L00E5;
             L0079: ShowMessage(party, String04E9); // A Timeswitch has been set.
             L0086: ShowMessage(party, String0504); // Two other Timeswitches must be set to reveal the platform.
@@ -133,25 +133,25 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: // make space for tmp on stack: sp -= 2
-            L0005: SetState00(party, 0x02, 0x7C, 0x01);
+            L0005: SetState(party, 0x02, 0x7C, 0x01);
             L001A: ShowMessage(party, String05C0); // The wall sparkles with phantasmal light.
-            L0027: ax = CheckState04(party, 0x02, 0x7B);
-            L0038: PushStack(ax);
-            L0039: ax = CheckState04(party, 0x02, 0x7C);
-            L004A: dx = PopStack();
+            L0027: ax = GetState(party, 0x02, 0x7B);
+            L0038: PushStack(party, ax);
+            L0039: ax = GetState(party, 0x02, 0x7C);
+            L004A: dx = PopStack(party);
             L004B: dx = dx + ax;
-            L004D: PushStack(dx);
-            L004E: ax = CheckState04(party, 0x02, 0x7D);
-            L005F: dx = PopStack();
+            L004D: PushStack(party, dx);
+            L004E: ax = GetState(party, 0x02, 0x7D);
+            L005F: dx = PopStack(party);
             L0060: dx = dx + ax;
             L0062: tmp = dx;
             L0065: ax = tmp;
             L0068: Compare(ax, 0x0001);
-            L006B: if (CompareResultEqual) goto L0079;
+            L006B: if (JumpEqual) goto L0079;
             L006D: Compare(ax, 0x0002);
-            L0070: if (CompareResultEqual) goto L00A6;
+            L0070: if (JumpEqual) goto L00A6;
             L0072: Compare(ax, 0x0003);
-            L0075: if (CompareResultEqual) goto L00C6;
+            L0075: if (JumpEqual) goto L00C6;
             L0077: goto L00E5;
             L0079: ShowMessage(party, String05E9); // A Timeswitch has been set.
             L0086: ShowMessage(party, String0604); // Two other Timeswitches must be set to reveal the platform.
@@ -172,25 +172,25 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: // make space for tmp on stack: sp -= 2
-            L0005: SetState00(party, 0x02, 0x7D, 0x01);
+            L0005: SetState(party, 0x02, 0x7D, 0x01);
             L001A: ShowMessage(party, String06C0); // The wall sparkles with phantasmal light.
-            L0027: ax = CheckState04(party, 0x02, 0x7B);
-            L0038: PushStack(ax);
-            L0039: ax = CheckState04(party, 0x02, 0x7C);
-            L004A: dx = PopStack();
+            L0027: ax = GetState(party, 0x02, 0x7B);
+            L0038: PushStack(party, ax);
+            L0039: ax = GetState(party, 0x02, 0x7C);
+            L004A: dx = PopStack(party);
             L004B: dx = dx + ax;
-            L004D: PushStack(dx);
-            L004E: ax = CheckState04(party, 0x02, 0x7D);
-            L005F: dx = PopStack();
+            L004D: PushStack(party, dx);
+            L004E: ax = GetState(party, 0x02, 0x7D);
+            L005F: dx = PopStack(party);
             L0060: dx = dx + ax;
             L0062: tmp = dx;
             L0065: ax = tmp;
             L0068: Compare(ax, 0x0001);
-            L006B: if (CompareResultEqual) goto L0079;
+            L006B: if (JumpEqual) goto L0079;
             L006D: Compare(ax, 0x0002);
-            L0070: if (CompareResultEqual) goto L00A6;
+            L0070: if (JumpEqual) goto L00A6;
             L0072: Compare(ax, 0x0003);
-            L0075: if (CompareResultEqual) goto L00C6;
+            L0075: if (JumpEqual) goto L00C6;
             L0077: goto L00E5;
             L0079: ShowMessage(party, String06E9); // A Timeswitch has been set.
             L0086: ShowMessage(party, String0704); // Two other Timeswitches must be set to reveal the platform.
@@ -217,9 +217,9 @@ namespace XPT.Scripts.Maps {
             L0037: ShowMessage(party, String085D); // I destroyed that fool Arnakkian Slowfoot, and I shall destroy you as easily.
             L0044: ShowMessage(party, String08AA); // Then I shall search out all mortals in your world and destroy them!
             L0051: ShowMessage(party, String08EE); // I am En-Li-Kil!  The immortal!!!
-            L005E: SetState00(party, 0x02, 0x7B, 0x00);
-            L0072: SetState00(party, 0x02, 0x7C, 0x00);
-            L0086: SetState00(party, 0x02, 0x7D, 0x00);
+            L005E: SetState(party, 0x02, 0x7B, 0x00);
+            L0072: SetState(party, 0x02, 0x7C, 0x00);
+            L0086: SetState(party, 0x02, 0x7D, 0x00);
             L009A: AddEncounter(party, 0x01, 0x21);
             L00AC: AddEncounter(party, 0x02, 0x23);
             L00BE: AddEncounter(party, 0x03, 0x10);
@@ -231,15 +231,15 @@ namespace XPT.Scripts.Maps {
         private void FnTIMEPLAT_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x00);
+            L0003: ax = GetState(party, 0x01, 0x00);
             L0013: RefreshCompareFlags(ax);
-            L0015: if (CompareResultEqual) goto L007A;
-            L0017: ax = CheckState04(party, 0x01, 0x01);
+            L0015: if (JumpEqual) goto L007A;
+            L0017: ax = GetState(party, 0x01, 0x01);
             L0028: RefreshCompareFlags(ax);
-            L002A: if (CompareResultEqual) goto L007A;
-            L002C: ax = CheckState04(party, 0x01, 0x02);
+            L002A: if (JumpEqual) goto L007A;
+            L002C: ax = GetState(party, 0x01, 0x02);
             L003D: RefreshCompareFlags(ax);
-            L003F: if (CompareResultEqual) goto L007A;
+            L003F: if (JumpEqual) goto L007A;
             L0041: SetMove38(party, 0x00, 0xA8);
             L0051: ShowMessage(party, String090F); // You cross the Waters of Death safely.
             L005E: ShowMessage(party, String0935); // En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
@@ -260,8 +260,8 @@ namespace XPT.Scripts.Maps {
             L001B: RemoveItem4C(party, 0xF6);
             L0027: RemoveItem4C(party, 0xF7);
             L0033: RemoveItem4C(party, 0xF3);
-            L003F: ax = CheckState08(party, 0x02, 0x6A);
-            L0052: if (CompareResultEqual) goto L007E;
+            L003F: ax = GetState08(party, 0x02, 0x6A);
+            L0052: if (JumpEqual) goto L007E;
             L0054: ShowMessage(party, String0A00); // You have found the Fountain of Life, but the waters are drained.
             L0061: ShowMessage(party, String0A41); // The Rainbow Gems and Golden Boat dissolve into dust.
             L006E: ShowMessage(party, String0A76); // Humiliating En-Li-Kil a second time is reward enough.
@@ -273,11 +273,11 @@ namespace XPT.Scripts.Maps {
             L00B2: ShowMessage(party, String0B88); // Return to your home safely now.
             L00BF: ShowMessage(party, String0BA8); // Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
             L00CC: ShowMessage(party, String0BFF); // Farewell...this ending is just the beginning!!!
-            L00D9: ax = CheckState04(party, 0x02, 0x69);
+            L00D9: ax = GetState(party, 0x02, 0x69);
             L00EA: RefreshCompareFlags(ax);
-            L00EC: if (!CompareResultEqual) goto L012A;
-            L00EE: SetState00(party, 0x02, 0x69, 0x01);
-            L0103: SetState00(party, 0x02, 0x6A, 0x01);
+            L00EC: if (JumpNotEqual) goto L012A;
+            L00EE: SetState(party, 0x02, 0x69, 0x01);
+            L0103: SetState(party, 0x02, 0x6A, 0x01);
             L0118: AddExperience98(party, 0x004C4B40);
             L012A: return; // RETURN;
         }
@@ -323,15 +323,15 @@ namespace XPT.Scripts.Maps {
         private void FnENCD_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x7B);
+            L0003: ax = GetState(party, 0x01, 0x7B);
             L0014: RefreshCompareFlags(ax);
-            L0016: if (CompareResultEqual) goto L0052;
-            L0018: ax = CheckState04(party, 0x01, 0x7C);
+            L0016: if (JumpEqual) goto L0052;
+            L0018: ax = GetState(party, 0x01, 0x7C);
             L0029: RefreshCompareFlags(ax);
-            L002B: if (CompareResultEqual) goto L0052;
-            L002D: ax = CheckState04(party, 0x01, 0x7D);
+            L002B: if (JumpEqual) goto L0052;
+            L002D: ax = GetState(party, 0x01, 0x7D);
             L003E: RefreshCompareFlags(ax);
-            L0040: if (CompareResultEqual) goto L0052;
+            L0040: if (JumpEqual) goto L0052;
             L0042: SetMove38(party, 0x00, 0xA8);
             L0052: AddEncounter(party, 0x01, 0x19);
             L0064: AddEncounter(party, 0x02, 0x19);
@@ -369,15 +369,15 @@ namespace XPT.Scripts.Maps {
         private void FnCROSSOVR_0F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x00);
+            L0003: ax = GetState(party, 0x01, 0x00);
             L0013: RefreshCompareFlags(ax);
-            L0015: if (CompareResultEqual) goto L0053;
-            L0017: ax = CheckState04(party, 0x01, 0x01);
+            L0015: if (JumpEqual) goto L0053;
+            L0017: ax = GetState(party, 0x01, 0x01);
             L0028: RefreshCompareFlags(ax);
-            L002A: if (CompareResultEqual) goto L0053;
-            L002C: ax = CheckState04(party, 0x01, 0x02);
+            L002A: if (JumpEqual) goto L0053;
+            L002C: ax = GetState(party, 0x01, 0x02);
             L003D: RefreshCompareFlags(ax);
-            L003F: if (CompareResultEqual) goto L0053;
+            L003F: if (JumpEqual) goto L0053;
             L0041: SetMove38(party, 0x00, 0xA8);
             L0051: goto L0064;
             L0053: SetMove38(party, 0x03, 0xA8);
@@ -388,27 +388,27 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: // make space for tmp on stack: sp -= 2
-            L0005: ax = CheckState08(party, 0x02, 0x7B);
-            L0018: if (CompareResultEqual) goto L002E;
-            L001A: SetState00(party, 0x01, 0x00, 0x01);
-            L002E: ax = CheckState08(party, 0x02, 0x7C);
-            L0041: if (CompareResultEqual) goto L0058;
-            L0043: SetState00(party, 0x01, 0x01, 0x01);
-            L0058: ax = CheckState08(party, 0x02, 0x7D);
-            L006B: if (CompareResultEqual) goto L0082;
-            L006D: SetState00(party, 0x01, 0x02, 0x01);
-            L0082: ax = CheckState04(party, 0x01, 0x00);
-            L0092: PushStack(ax);
-            L0093: ax = CheckState04(party, 0x01, 0x01);
-            L00A4: dx = PopStack();
+            L0005: ax = GetState08(party, 0x02, 0x7B);
+            L0018: if (JumpEqual) goto L002E;
+            L001A: SetState(party, 0x01, 0x00, 0x01);
+            L002E: ax = GetState08(party, 0x02, 0x7C);
+            L0041: if (JumpEqual) goto L0058;
+            L0043: SetState(party, 0x01, 0x01, 0x01);
+            L0058: ax = GetState08(party, 0x02, 0x7D);
+            L006B: if (JumpEqual) goto L0082;
+            L006D: SetState(party, 0x01, 0x02, 0x01);
+            L0082: ax = GetState(party, 0x01, 0x00);
+            L0092: PushStack(party, ax);
+            L0093: ax = GetState(party, 0x01, 0x01);
+            L00A4: dx = PopStack(party);
             L00A5: dx = dx + ax;
-            L00A7: PushStack(dx);
-            L00A8: ax = CheckState04(party, 0x01, 0x02);
-            L00B9: dx = PopStack();
+            L00A7: PushStack(party, dx);
+            L00A8: ax = GetState(party, 0x01, 0x02);
+            L00B9: dx = PopStack(party);
             L00BA: dx = dx + ax;
             L00BC: tmp = dx;
             L00BF: Compare(tmp, 0xFE);
-            L00C3: if (!CompareResultEqual) goto L00D7;
+            L00C3: if (JumpNotEqual) goto L00D7;
             L00C5: SetMove38(party, 0x00, 0xA8);
             L00D5: goto L00E8;
             L00D7: SetMove38(party, 0x03, 0xA8);

@@ -137,7 +137,7 @@ namespace XPT.Scripts.Maps {
             L0025: DoDamage90(party, ax);
             L002F: ax = GetCurrentHits70(party);
             L0036: RefreshCompareFlags(ax);
-            L0038: if (CompareResultUnsignedGreaterThan) goto L0047;
+            L0038: if (JumpAbove) goto L0047;
             L003A: ShowMessage(party, String0429); // You have died.
             L0047: return; // RETURN;
         }
@@ -153,23 +153,23 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xD4, 0xD4);
-            L0016: if (!CompareResultEqual) goto L002D;
-            L0018: ax = CheckState04(party, 0x02, 0x6C);
+            L0016: if (JumpNotEqual) goto L002D;
+            L0018: ax = GetState(party, 0x02, 0x6C);
             L0029: RefreshCompareFlags(ax);
-            L002B: if (CompareResultEqual) goto L0093;
+            L002B: if (JumpEqual) goto L0093;
             L002D: RemoveItem4C(party, 0xD4);
-            L0039: SetState00(party, 0x02, 0x6C, 0x01);
-            L004E: PushStack(0x01);
+            L0039: SetState(party, 0x02, 0x6C, 0x01);
+            L004E: PushStack(party, 0x01);
             L0052: ax = GetFacing24(party);
-            L0059: PushStack(ax);
+            L0059: PushStack(party, ax);
             L005A: ax = GetNextTile20(party);
-            L0061: PushStack(ax);
-            L0062: SetMove2C(party, PopStack(), PopStack(), PopStack());
-            L006C: PushStack(0x01);
+            L0061: PushStack(party, ax);
+            L0062: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L006C: PushStack(party, 0x01);
             L0070: ax = GetNextTile20(party);
-            L0077: PushStack(ax);
-            L0078: PushStack(0x01);
-            L007C: SetUnblocked30(party);
+            L0077: PushStack(party, ax);
+            L0078: PushStack(party, 0x01);
+            L007C: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
             L0086: ShowMessage(party, String0497); // A great dwarven door appears in the wall.
             L0093: return; // RETURN;
         }
@@ -188,34 +188,34 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x000B);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L004E;
+            L0012: if (JumpNotBelow) goto L004E;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L004E;
+            L0022: if (JumpNotEqual) goto L004E;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L004E;
+            L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
-            L004C: if (CompareResultEqual) goto L0099;
-            L004E: PushStack(0x01);
+            L004C: if (JumpEqual) goto L0099;
+            L004E: PushStack(party, 0x01);
             L0052: ax = GetFacing24(party);
-            L0059: PushStack(ax);
+            L0059: PushStack(party, ax);
             L005A: ax = GetNextTile20(party);
-            L0061: PushStack(ax);
-            L0062: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L0061: PushStack(party, ax);
+            L0062: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L006C: ax = GetFacing24(party);
-            L0073: PushStack(ax);
+            L0073: PushStack(party, ax);
             L0074: ax = GetNextTile20(party);
-            L007B: PushStack(ax);
-            L007C: PushStack(0x01);
-            L0080: SetUnblocked30(party);
+            L007B: PushStack(party, ax);
+            L007C: PushStack(party, 0x01);
+            L0080: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
             L008A: ShowMessage(party, String04DF); // You locate a hidden door!
             L0097: goto L00B6;
-            L0099: PushStack(0x00);
+            L0099: PushStack(party, 0x00);
             L009C: ax = GetFacing24(party);
-            L00A3: PushStack(ax);
+            L00A3: PushStack(party, ax);
             L00A4: ax = GetNextTile20(party);
-            L00AB: PushStack(ax);
-            L00AC: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L00AB: PushStack(party, ax);
+            L00AC: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L00B6: return; // RETURN;
         }
 
@@ -229,12 +229,12 @@ namespace XPT.Scripts.Maps {
         private void FnLAVAPA_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x03);
+            L0003: ax = GetState(party, 0x01, 0x03);
             L0014: Compare(ax, 0x0001);
-            L0017: if (CompareResultEqual) goto L002F;
-            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L0017: if (JumpEqual) goto L002F;
+            L0019: ax = GetState(party, 0x01, 0x03);
             L002A: Compare(ax, 0x0005);
-            L002D: if (!CompareResultEqual) goto L0080;
+            L002D: if (JumpNotEqual) goto L0080;
             L002F: ShowMessage(party, String0522); // A platform appears beneath your feet..
             L003C: SetMove38(party, 0x00, 0xA8);
             L004C: SetMove34(party, 0xA8, 0x01);
@@ -250,12 +250,12 @@ namespace XPT.Scripts.Maps {
         private void FnLAVAPB_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x03);
+            L0003: ax = GetState(party, 0x01, 0x03);
             L0014: Compare(ax, 0x0002);
-            L0017: if (CompareResultEqual) goto L002F;
-            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L0017: if (JumpEqual) goto L002F;
+            L0019: ax = GetState(party, 0x01, 0x03);
             L002A: Compare(ax, 0x0005);
-            L002D: if (!CompareResultEqual) goto L0080;
+            L002D: if (JumpNotEqual) goto L0080;
             L002F: ShowMessage(party, String056B); // A platform appears beneath your feet..
             L003C: SetMove38(party, 0x00, 0x98);
             L004C: SetMove34(party, 0x98, 0x01);
@@ -271,12 +271,12 @@ namespace XPT.Scripts.Maps {
         private void FnLAVAPC_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x03);
+            L0003: ax = GetState(party, 0x01, 0x03);
             L0014: Compare(ax, 0x0003);
-            L0017: if (CompareResultEqual) goto L002F;
-            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L0017: if (JumpEqual) goto L002F;
+            L0019: ax = GetState(party, 0x01, 0x03);
             L002A: Compare(ax, 0x0005);
-            L002D: if (!CompareResultEqual) goto L0080;
+            L002D: if (JumpNotEqual) goto L0080;
             L002F: ShowMessage(party, String05B4); // A platform appears beneath your feet..
             L003C: SetMove38(party, 0x00, 0x88);
             L004C: SetMove34(party, 0x88, 0x01);
@@ -292,12 +292,12 @@ namespace XPT.Scripts.Maps {
         private void FnLAVAPD_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x03);
+            L0003: ax = GetState(party, 0x01, 0x03);
             L0014: Compare(ax, 0x0004);
-            L0017: if (CompareResultEqual) goto L002F;
-            L0019: ax = CheckState04(party, 0x01, 0x03);
+            L0017: if (JumpEqual) goto L002F;
+            L0019: ax = GetState(party, 0x01, 0x03);
             L002A: Compare(ax, 0x0005);
-            L002D: if (!CompareResultEqual) goto L0080;
+            L002D: if (JumpNotEqual) goto L0080;
             L002F: ShowMessage(party, String05FD); // A platform appears beneath your feet..
             L003C: SetMove38(party, 0x00, 0x78);
             L004C: SetMove34(party, 0x78, 0x01);
@@ -315,7 +315,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0646); // The wall bursts with color!
             L0010: ShowMessage(party, String0662); // In the distance you hear a platform moving.
-            L001D: SetState00(party, 0x01, 0x03, 0x01);
+            L001D: SetState(party, 0x01, 0x03, 0x01);
             L0032: return; // RETURN;
         }
 
@@ -324,7 +324,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String068E); // The wall bursts with color!
             L0010: ShowMessage(party, String06AA); // In the distance you hear a platform moving.
-            L001D: SetState00(party, 0x01, 0x03, 0x02);
+            L001D: SetState(party, 0x01, 0x03, 0x02);
             L0032: return; // RETURN;
         }
 
@@ -333,7 +333,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06D6); // The wall bursts with color!
             L0010: ShowMessage(party, String06F2); // In the distance you hear a platform moving.
-            L001D: SetState00(party, 0x01, 0x03, 0x03);
+            L001D: SetState(party, 0x01, 0x03, 0x03);
             L0032: return; // RETURN;
         }
 
@@ -343,7 +343,7 @@ namespace XPT.Scripts.Maps {
             L0003: ShowMessage(party, String071E); // The wall bursts with color!
             L0010: ShowMessage(party, String073A); // In the distance you hear a platform moving.
             L001D: ShowMessage(party, String0766); // Perhaps there is a way for you to join your party.
-            L002A: SetState00(party, 0x01, 0x03, 0x04);
+            L002A: SetState(party, 0x01, 0x03, 0x04);
             L003F: return; // RETURN;
         }
 
@@ -359,7 +359,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xF4);
-            L0011: if (!CompareResultEqual) goto L0061;
+            L0011: if (JumpNotEqual) goto L0061;
             L0013: ShowPortrait(party, 0x001C);
             L0020: ShowMessage(party, String085A); // The Dwarf King nods.
             L002D: ShowMessage(party, String086F); // 'Welcome strangers! 
@@ -374,9 +374,9 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x002C);
             L0010: ax = HasItem50(party, 0x09);
-            L001E: if (!CompareResultEqual) goto L008D;
+            L001E: if (JumpNotEqual) goto L008D;
             L0020: ax = HasItem50(party, 0xF0);
-            L002E: if (CompareResultEqual) goto L0071;
+            L002E: if (JumpEqual) goto L0071;
             L0030: ShowMessage(party, String0995); // The dwarf takes the Flex Metal and smiles broadly. 'No greater pleasure can a dwarf blacksmith have than to test the powers of a new metal.'
             L003D: ShowMessage(party, String0A22); // After a few hours working the metal, she holds up a brilliant blue sword.
             L004A: ShowMessage(party, String0A6C); // 'There!  My finest weapon, made from your Flex Metal.  I dub it The Wind Sword!  May it destroy your enemies at first blow!'
@@ -406,10 +406,10 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x002C);
             L0010: ax = HasItem50(party, 0xF3);
-            L001E: if (CompareResultEqual) goto L0023;
+            L001E: if (JumpEqual) goto L0023;
             L0020: goto L00DD;
             L0023: ax = HasItem50(party, 0xF1);
-            L0031: if (CompareResultEqual) goto L0099;
+            L0031: if (JumpEqual) goto L0099;
             L0033: ShowMessage(party, String0D66); // A mean, twisted smile appears across the face of the dwarf blacksmith.
             L0040: ShowMessage(party, String0DAD); // 'You have killed the cyclop!  My gold caves are won!
             L004D: ShowMessage(party, String0DE2); // Hmmph.  It is my debt to repay you.  And I shall!'
@@ -419,7 +419,7 @@ namespace XPT.Scripts.Maps {
             L0081: RemoveItem4C(party, 0xF1);
             L008D: GiveItem48(party, 0xF3);
             L0099: ax = HasItem50(party, 0xF1);
-            L00A7: if (!CompareResultEqual) goto L00DD;
+            L00A7: if (JumpNotEqual) goto L00DD;
             L00A9: ShowMessage(party, String0F08); // The old dwarf blacksmith at first does not hear you approach. Then she senses your presence and wheels on you. 
             L00B6: ShowMessage(party, String0F78); // 'A mean trick you play on a wise one!  No matter.  No doubt you're looking for another golden trinket of mine.
             L00C3: ShowMessage(party, String0FE7); // Well, I will not give you any of my creations.  Never!
@@ -431,21 +431,21 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0023);
-            L0010: ax = CheckState04(party, 0x02, 0x6F);
+            L0010: ax = GetState(party, 0x02, 0x6F);
             L0021: RefreshCompareFlags(ax);
-            L0023: if (CompareResultEqual) goto L008F;
+            L0023: if (JumpEqual) goto L008F;
             L0025: ShowMessage(party, String1094); // The dwarf miner greets you with youthful enthusiasm.
-            L0032: ax = CheckState04(party, 0x02, 0x6B);
+            L0032: ax = GetState(party, 0x02, 0x6B);
             L0043: RefreshCompareFlags(ax);
-            L0045: if (!CompareResultEqual) goto L008D;
-            L0047: SetState00(party, 0x02, 0x6B, 0x01);
+            L0045: if (JumpNotEqual) goto L008D;
+            L0047: SetState(party, 0x02, 0x6B, 0x01);
             L005C: ShowMessage(party, String10C9); // You show signs of entering my caves!  I thank-you for clearing my mines and repay you with treasure.
             L0069: GiveItem48(party, 0xBA);
             L0075: GiveItem48(party, 0xBA);
             L0081: GiveItem48(party, 0xBA);
             L008D: goto L00FB;
             L008F: ax = HasItem50(party, 0xD7);
-            L009D: if (CompareResultEqual) goto L00BB;
+            L009D: if (JumpEqual) goto L00BB;
             L009F: ShowMessage(party, String112E); // The dwarf miner smiles as you approach.
             L00AC: ShowMessage(party, String1156); // 'Have you found my cave yet?  It is by the water's edge.'
             L00B9: goto L00FB;
@@ -472,7 +472,7 @@ namespace XPT.Scripts.Maps {
         private void FnOPENER_16(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetState00(party, 0x01, 0x03, 0x05);
+            L0003: SetState(party, 0x01, 0x03, 0x05);
             L0018: ShowMessage(party, String1308); // All the east side platforms appear to be up.
             L0025: SetMove38(party, 0x00, 0xA9);
             L0035: SetMove34(party, 0xA9, 0x01);
@@ -488,19 +488,19 @@ namespace XPT.Scripts.Maps {
         private void FnOPENEE_17(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x03);
+            L0003: ax = GetState(party, 0x01, 0x03);
             L0014: Compare(ax, 0x0005);
-            L0017: if (!CompareResultEqual) goto L004D;
-            L0019: PushStack(0x03);
+            L0017: if (JumpNotEqual) goto L004D;
+            L0019: PushStack(party, 0x03);
             L001D: ax = GetNextTile20(party);
-            L0024: PushStack(ax);
-            L0025: PushStack(0x01);
-            L0029: SetUnblocked30(party);
-            L0033: PushStack(0x01);
-            L0037: PushStack(0x03);
+            L0024: PushStack(party, ax);
+            L0025: PushStack(party, 0x01);
+            L0029: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0033: PushStack(party, 0x01);
+            L0037: PushStack(party, 0x03);
             L003B: ax = GetNextTile20(party);
-            L0042: PushStack(ax);
-            L0043: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L0042: PushStack(party, ax);
+            L0043: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L004D: return; // RETURN;
         }
 
@@ -550,7 +550,7 @@ namespace XPT.Scripts.Maps {
             L004B: AddEncounter(party, 0x05, 0x1B);
             L005D: AddEncounter(party, 0x06, 0x13);
             L006F: ax = HasItem50(party, 0xF4);
-            L007D: if (CompareResultEqual) goto L00A1;
+            L007D: if (JumpEqual) goto L00A1;
             L007F: AddTreasure(party, 0x07D0, 0x00, 0x00, 0x00, 0xC6, 0xB7);
             L009F: goto L00D0;
             L00A1: ShowMessage(party, String1335); // A glowing red gem casts a beam from under the dragon's lair.
@@ -596,7 +596,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xD6);
-            L0011: if (CompareResultEqual) goto L0022;
+            L0011: if (JumpEqual) goto L0022;
             L0013: ShowMessage(party, String15A4); // The room has been emptied.
             L0020: goto L003B;
             L0022: GiveItem48(party, 0xD6);
@@ -609,79 +609,79 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = GetRace78(party);
             L000A: Compare(ax, 0x0004);
-            L000D: if (CompareResultEqual) goto L0012;
+            L000D: if (JumpEqual) goto L0012;
             L000F: goto L00C8;
             L0012: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L001E: Compare(ax, 0x0008);
-            L0021: if (CompareResultAbove || CompareResultEqual) goto L005D;
+            L0021: if (JumpNotBelow) goto L005D;
             L0023: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L002F: RefreshCompareFlags(ax);
-            L0031: if (!CompareResultEqual) goto L005D;
+            L0031: if (JumpNotEqual) goto L005D;
             L0033: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0046: if (!CompareResultEqual) goto L005D;
+            L0046: if (JumpNotEqual) goto L005D;
             L0048: ax = UsedItem54(party, 0xBE, 0xBE);
-            L005B: if (CompareResultEqual) goto L00A8;
-            L005D: PushStack(0x01);
+            L005B: if (JumpEqual) goto L00A8;
+            L005D: PushStack(party, 0x01);
             L0061: ax = GetFacing24(party);
-            L0068: PushStack(ax);
+            L0068: PushStack(party, ax);
             L0069: ax = GetNextTile20(party);
-            L0070: PushStack(ax);
-            L0071: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L0070: PushStack(party, ax);
+            L0071: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L007B: ax = GetFacing24(party);
-            L0082: PushStack(ax);
+            L0082: PushStack(party, ax);
             L0083: ax = GetNextTile20(party);
-            L008A: PushStack(ax);
-            L008B: PushStack(0x01);
-            L008F: SetUnblocked30(party);
+            L008A: PushStack(party, ax);
+            L008B: PushStack(party, 0x01);
+            L008F: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
             L0099: ShowMessage(party, String15F1); // You found a hidden door!
             L00A6: goto L00C5;
-            L00A8: PushStack(0x00);
+            L00A8: PushStack(party, 0x00);
             L00AB: ax = GetFacing24(party);
-            L00B2: PushStack(ax);
+            L00B2: PushStack(party, ax);
             L00B3: ax = GetNextTile20(party);
-            L00BA: PushStack(ax);
-            L00BB: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L00BA: PushStack(party, ax);
+            L00BB: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L00C5: goto L017B;
             L00C8: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L00D4: Compare(ax, 0x000B);
-            L00D7: if (CompareResultAbove || CompareResultEqual) goto L0113;
+            L00D7: if (JumpNotBelow) goto L0113;
             L00D9: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L00E5: RefreshCompareFlags(ax);
-            L00E7: if (!CompareResultEqual) goto L0113;
+            L00E7: if (JumpNotEqual) goto L0113;
             L00E9: ax = UsedItem54(party, 0xA2, 0xA2);
-            L00FC: if (!CompareResultEqual) goto L0113;
+            L00FC: if (JumpNotEqual) goto L0113;
             L00FE: ax = UsedItem54(party, 0xBE, 0xBE);
-            L0111: if (CompareResultEqual) goto L015E;
-            L0113: PushStack(0x01);
+            L0111: if (JumpEqual) goto L015E;
+            L0113: PushStack(party, 0x01);
             L0117: ax = GetFacing24(party);
-            L011E: PushStack(ax);
+            L011E: PushStack(party, ax);
             L011F: ax = GetNextTile20(party);
-            L0126: PushStack(ax);
-            L0127: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L0126: PushStack(party, ax);
+            L0127: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0131: ax = GetFacing24(party);
-            L0138: PushStack(ax);
+            L0138: PushStack(party, ax);
             L0139: ax = GetNextTile20(party);
-            L0140: PushStack(ax);
-            L0141: PushStack(0x01);
-            L0145: SetUnblocked30(party);
+            L0140: PushStack(party, ax);
+            L0141: PushStack(party, 0x01);
+            L0145: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
             L014F: ShowMessage(party, String160A); // You found a hidden door!
             L015C: goto L017B;
-            L015E: PushStack(0x00);
+            L015E: PushStack(party, 0x00);
             L0161: ax = GetFacing24(party);
-            L0168: PushStack(ax);
+            L0168: PushStack(party, ax);
             L0169: ax = GetNextTile20(party);
-            L0170: PushStack(ax);
-            L0171: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L0170: PushStack(party, ax);
+            L0171: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L017B: return; // RETURN;
         }
 
         private void FnFNTNATTR_25(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x56);
+            L0003: ax = GetState(party, 0x02, 0x56);
             L0014: RefreshCompareFlags(ax);
-            L0016: if (!CompareResultEqual) goto L006C;
-            L0018: SetState00(party, 0x02, 0x56, 0x01);
+            L0016: if (JumpNotEqual) goto L006C;
+            L0018: SetState(party, 0x02, 0x56, 0x01);
             L002D: ShowPortrait(party, 0x0042);
             L003A: ModifyAttributeA8(party, 0x00, 0x0002);
             L004B: ModifyAttributeA8(party, 0x01, 0x0001);

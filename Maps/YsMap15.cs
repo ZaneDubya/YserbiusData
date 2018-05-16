@@ -107,17 +107,17 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel44(party, 0x001E);
-            L0011: if (CompareResultEqual) goto L0030;
+            L0011: if (JumpEqual) goto L0030;
             L0013: SetMoveMap(party, 0x38, 0x01, 0x7A, 0x02);
             L002E: goto L0067;
             L0030: ShowMessage(party, String03FC); // A note reads -
             L003D: ShowMessage(party, String040B); // 'Only heroes of the thirtieth level or higher may pass this door.'
-            L004A: PushStack(0x00);
+            L004A: PushStack(party, 0x00);
             L004D: ax = GetFacing24(party);
-            L0054: PushStack(ax);
+            L0054: PushStack(party, ax);
             L0055: ax = GetNextTile20(party);
-            L005C: PushStack(ax);
-            L005D: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L005C: PushStack(party, ax);
+            L005D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0067: return; // RETURN;
         }
 
@@ -132,26 +132,26 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xD4);
-            L0011: if (CompareResultEqual) goto L0059;
-            L0013: PushStack(0x01);
+            L0011: if (JumpEqual) goto L0059;
+            L0013: PushStack(party, 0x01);
             L0017: ax = GetFacing24(party);
-            L001E: PushStack(ax);
+            L001E: PushStack(party, ax);
             L001F: ax = GetNextTile20(party);
-            L0026: PushStack(ax);
-            L0027: SetMove2C(party, PopStack(), PopStack(), PopStack());
-            L0031: PushStack(0x00);
+            L0026: PushStack(party, ax);
+            L0027: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0031: PushStack(party, 0x00);
             L0034: ax = GetNextTile20(party);
-            L003B: PushStack(ax);
-            L003C: PushStack(0x01);
-            L0040: SetUnblocked30(party);
+            L003B: PushStack(party, ax);
+            L003C: PushStack(party, 0x01);
+            L0040: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
             L004A: ShowMessage(party, String044E); // The Sunbeam Key reveals a hidden door to the Dwarf Kingdom!
             L0057: goto L0076;
-            L0059: PushStack(0x00);
+            L0059: PushStack(party, 0x00);
             L005C: ax = GetFacing24(party);
-            L0063: PushStack(ax);
+            L0063: PushStack(party, ax);
             L0064: ax = GetNextTile20(party);
-            L006B: PushStack(ax);
-            L006C: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L006B: PushStack(party, ax);
+            L006C: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0076: return; // RETURN;
         }
 
@@ -159,30 +159,30 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xC2, 0xC4);
-            L0016: if (!CompareResultEqual) goto L0029;
+            L0016: if (JumpNotEqual) goto L0029;
             L0018: ax = UsedSkill58(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
             L0024: Compare(ax, 0x0008);
-            L0027: if (CompareResultBelow) goto L0074;
-            L0029: PushStack(0x01);
+            L0027: if (JumpBelow) goto L0074;
+            L0029: PushStack(party, 0x01);
             L002D: ax = GetFacing24(party);
-            L0034: PushStack(ax);
+            L0034: PushStack(party, ax);
             L0035: ax = GetNextTile20(party);
-            L003C: PushStack(ax);
-            L003D: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L003C: PushStack(party, ax);
+            L003D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0047: ax = GetFacing24(party);
-            L004E: PushStack(ax);
+            L004E: PushStack(party, ax);
             L004F: ax = GetNextTile20(party);
-            L0056: PushStack(ax);
-            L0057: PushStack(0x01);
-            L005B: SetUnblocked30(party);
+            L0056: PushStack(party, ax);
+            L0057: PushStack(party, 0x01);
+            L005B: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
             L0065: ShowMessage(party, String048A); // You skillfully pick the door lock.
             L0072: goto L009E;
-            L0074: PushStack(0x00);
+            L0074: PushStack(party, 0x00);
             L0077: ax = GetFacing24(party);
-            L007E: PushStack(ax);
+            L007E: PushStack(party, ax);
             L007F: ax = GetNextTile20(party);
-            L0086: PushStack(ax);
-            L0087: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L0086: PushStack(party, ax);
+            L0087: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0091: ShowMessage(party, String04AD); // The door is locked.
             L009E: return; // RETURN;
         }
@@ -191,11 +191,11 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0x69);
-            L0011: if (!CompareResultEqual) goto L0028;
-            L0013: ax = CheckState08(party, 0x01, 0x01);
-            L0026: if (CompareResultEqual) goto L0072;
+            L0011: if (JumpNotEqual) goto L0028;
+            L0013: ax = GetState08(party, 0x01, 0x01);
+            L0026: if (JumpEqual) goto L0072;
             L0028: RemoveItem4C(party, 0x69);
-            L0034: SetState00(party, 0x01, 0x01, 0x01);
+            L0034: SetState(party, 0x01, 0x01, 0x01);
             L0049: ShowMessage(party, String04C1); // Invisible hands take Cleowyn's Crown and place it in a niche in the wall.
             L0056: ShowMessage(party, String050B); // The niche disappears.
             L0063: ShowMessage(party, String0521); // You hear a rumbling sound in the distance
@@ -207,29 +207,29 @@ namespace XPT.Scripts.Maps {
         private void FnCRWNDOOR_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x01);
+            L0003: ax = GetState(party, 0x01, 0x01);
             L0014: Compare(ax, 0x0001);
-            L0017: if (!CompareResultEqual) goto L0064;
-            L0019: PushStack(0x01);
+            L0017: if (JumpNotEqual) goto L0064;
+            L0019: PushStack(party, 0x01);
             L001D: ax = GetFacing24(party);
-            L0024: PushStack(ax);
+            L0024: PushStack(party, ax);
             L0025: ax = GetNextTile20(party);
-            L002C: PushStack(ax);
-            L002D: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L002C: PushStack(party, ax);
+            L002D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0037: ax = GetFacing24(party);
-            L003E: PushStack(ax);
+            L003E: PushStack(party, ax);
             L003F: ax = GetNextTile20(party);
-            L0046: PushStack(ax);
-            L0047: PushStack(0x01);
-            L004B: SetUnblocked30(party);
+            L0046: PushStack(party, ax);
+            L0047: PushStack(party, 0x01);
+            L004B: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
             L0055: ShowMessage(party, String058E); // Returning the Crown of Cleowyn reveals a secret door in the west wall!
             L0062: goto L0081;
-            L0064: PushStack(0x00);
+            L0064: PushStack(party, 0x00);
             L0067: ax = GetFacing24(party);
-            L006E: PushStack(ax);
+            L006E: PushStack(party, ax);
             L006F: ax = GetNextTile20(party);
-            L0076: PushStack(ax);
-            L0077: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L0076: PushStack(party, ax);
+            L0077: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0081: return; // RETURN;
         }
 
@@ -237,23 +237,23 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0x78);
-            L0011: if (CompareResultEqual) goto L0029;
-            L0013: ax = CheckState04(party, 0x01, 0x01);
+            L0011: if (JumpEqual) goto L0029;
+            L0013: ax = GetState(party, 0x01, 0x01);
             L0024: Compare(ax, 0x0001);
-            L0027: if (CompareResultEqual) goto L003E;
-            L0029: ax = CheckState08(party, 0x01, 0x02);
-            L003C: if (CompareResultEqual) goto L0088;
+            L0027: if (JumpEqual) goto L003E;
+            L0029: ax = GetState08(party, 0x01, 0x02);
+            L003C: if (JumpEqual) goto L0088;
             L003E: RemoveItem4C(party, 0x78);
-            L004A: SetState00(party, 0x01, 0x02, 0x01);
+            L004A: SetState(party, 0x01, 0x02, 0x01);
             L005F: ShowMessage(party, String05D5); // Cleowyn's Robe flies out of your hands and into a niche in the wall.
             L006C: ShowMessage(party, String061A); // The niche disappears.
             L0079: ShowMessage(party, String0630); // You hear a rumbling sound in the distance.
             L0086: goto L00AE;
-            L0088: PushStack(0x00);
-            L008B: PushStack(0x02);
+            L0088: PushStack(party, 0x00);
+            L008B: PushStack(party, 0x02);
             L008F: ax = GetNextTile20(party);
-            L0096: PushStack(ax);
-            L0097: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L0096: PushStack(party, ax);
+            L0097: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L00A1: ShowMessage(party, String065B); // There is a niche in the wall which seems designed to hold a robe.
             L00AE: return; // RETURN;
         }
@@ -261,27 +261,27 @@ namespace XPT.Scripts.Maps {
         private void FnROBEDOOR_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0003: ax = GetState(party, 0x01, 0x02);
             L0014: Compare(ax, 0x0001);
-            L0017: if (!CompareResultEqual) goto L005C;
-            L0019: PushStack(0x01);
-            L001D: PushStack(0x02);
+            L0017: if (JumpNotEqual) goto L005C;
+            L0019: PushStack(party, 0x01);
+            L001D: PushStack(party, 0x02);
             L0021: ax = GetNextTile20(party);
-            L0028: PushStack(ax);
-            L0029: SetMove2C(party, PopStack(), PopStack(), PopStack());
-            L0033: PushStack(0x02);
+            L0028: PushStack(party, ax);
+            L0029: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0033: PushStack(party, 0x02);
             L0037: ax = GetNextTile20(party);
-            L003E: PushStack(ax);
-            L003F: PushStack(0x01);
-            L0043: SetUnblocked30(party);
+            L003E: PushStack(party, ax);
+            L003F: PushStack(party, 0x01);
+            L0043: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
             L004D: ShowMessage(party, String069D); // Returning the Robe of Cleowyn reveals a secret door in the east wall.
             L005A: goto L0079;
-            L005C: PushStack(0x00);
+            L005C: PushStack(party, 0x00);
             L005F: ax = GetFacing24(party);
-            L0066: PushStack(ax);
+            L0066: PushStack(party, ax);
             L0067: ax = GetNextTile20(party);
-            L006E: PushStack(ax);
-            L006F: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L006E: PushStack(party, ax);
+            L006F: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0079: return; // RETURN;
         }
 
@@ -289,36 +289,36 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xE3);
-            L0011: if (CompareResultEqual) goto L003D;
-            L0013: ax = CheckState08(party, 0x01, 0x01);
-            L0026: if (CompareResultEqual) goto L003D;
-            L0028: ax = CheckState08(party, 0x01, 0x02);
-            L003B: if (!CompareResultEqual) goto L0055;
-            L003D: ax = CheckState08(party, 0x01, 0x03);
-            L0050: if (!CompareResultEqual) goto L0055;
+            L0011: if (JumpEqual) goto L003D;
+            L0013: ax = GetState08(party, 0x01, 0x01);
+            L0026: if (JumpEqual) goto L003D;
+            L0028: ax = GetState08(party, 0x01, 0x02);
+            L003B: if (JumpNotEqual) goto L0055;
+            L003D: ax = GetState08(party, 0x01, 0x03);
+            L0050: if (JumpNotEqual) goto L0055;
             L0052: goto L00E0;
             L0055: RemoveItem4C(party, 0xE3);
-            L0061: SetState00(party, 0x01, 0x03, 0x01);
-            L0076: PushStack(0x01);
-            L007A: PushStack(0x03);
+            L0061: SetState(party, 0x01, 0x03, 0x01);
+            L0076: PushStack(party, 0x01);
+            L007A: PushStack(party, 0x03);
             L007E: ax = GetNextTile20(party);
-            L0085: PushStack(ax);
-            L0086: SetMove2C(party, PopStack(), PopStack(), PopStack());
-            L0090: PushStack(0x03);
+            L0085: PushStack(party, ax);
+            L0086: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0090: PushStack(party, 0x03);
             L0094: ax = GetNextTile20(party);
-            L009B: PushStack(ax);
-            L009C: PushStack(0x01);
-            L00A0: SetUnblocked30(party);
+            L009B: PushStack(party, ax);
+            L009C: PushStack(party, 0x01);
+            L00A0: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
             L00AA: ShowMessage(party, String06E3); // Cleowyn's Scepter is taken from you by spectral hands and is placed in a niche in the wall.
             L00B7: ShowMessage(party, String073F); // The spirit of King Cleowyn whispers -
             L00C4: ShowMessage(party, String0765); // 'Well done!  The reward is yours for the taking, if you dare claim it.
             L00D1: ShowMessage(party, String07AC); // The door to the tomb opens.
             L00DE: goto L0106;
-            L00E0: PushStack(0x00);
-            L00E3: PushStack(0x03);
+            L00E0: PushStack(party, 0x00);
+            L00E3: PushStack(party, 0x03);
             L00E7: ax = GetNextTile20(party);
-            L00EE: PushStack(ax);
-            L00EF: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L00EE: PushStack(party, ax);
+            L00EF: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L00F9: ShowMessage(party, String07C8); // There is a niche in the wall which seems designed to hold a scepter.
             L0106: return; // RETURN;
         }
@@ -326,24 +326,24 @@ namespace XPT.Scripts.Maps {
         private void FnGOLDAENC_0C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x2C);
+            L0003: ax = GetState(party, 0x02, 0x2C);
             L0014: Compare(ax, 0x0001);
-            L0017: if (!CompareResultEqual) goto L0048;
+            L0017: if (JumpNotEqual) goto L0048;
             L0019: ShowMessage(party, String080D); // The room you enter is cold as ice.
             L0026: AddTreasure(party, 0x008C, 0x00, 0x00, 0x00, 0xA9, 0xCC);
             L0046: goto L008B;
             L0048: AddTreasure(party, 0x0FA0, 0x00, 0x00, 0xCD, 0xB7, 0xD0);
-            L0069: SetState00(party, 0x02, 0x2C, 0x01);
+            L0069: SetState(party, 0x02, 0x2C, 0x01);
             L007E: ShowMessage(party, String0830); // An Ice Lion stands over a torn bag of gold.
             L008B: ax = PartyCount(party);
             L0093: Compare(ax, 0x0001);
-            L0096: if (!CompareResultEqual) goto L00BF;
+            L0096: if (JumpNotEqual) goto L00BF;
             L0098: AddEncounter(party, 0x01, 0x19);
             L00AA: AddEncounter(party, 0x02, 0x19);
             L00BC: goto L0182;
             L00BF: ax = PartyCount(party);
             L00C7: Compare(ax, 0x0002);
-            L00CA: if (!CompareResultEqual) goto L0116;
+            L00CA: if (JumpNotEqual) goto L0116;
             L00CC: AddEncounter(party, 0x01, 0x19);
             L00DE: AddEncounter(party, 0x02, 0x19);
             L00F0: AddEncounter(party, 0x03, 0x1A);
@@ -361,27 +361,27 @@ namespace XPT.Scripts.Maps {
         private void FnGOLDBENC_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x2D);
+            L0003: ax = GetState(party, 0x02, 0x2D);
             L0014: Compare(ax, 0x0001);
-            L0017: if (!CompareResultEqual) goto L0048;
+            L0017: if (JumpNotEqual) goto L0048;
             L0019: ShowMessage(party, String085C); // The room stinks of rotten meat.
             L0026: AddTreasure(party, 0x00B4, 0x00, 0x00, 0x00, 0xB6, 0xCF);
             L0046: goto L008A;
             L0048: AddTreasure(party, 0x0BB8, 0x00, 0x00, 0x00, 0xD0, 0xAA);
-            L0068: SetState00(party, 0x02, 0x2D, 0x01);
+            L0068: SetState(party, 0x02, 0x2D, 0x01);
             L007D: ShowMessage(party, String087C); // Something kicks gold across the floor as it charges you.
             L008A: ax = PartyCount(party);
             L0092: Compare(ax, 0x0001);
-            L0095: if (CompareResultEqual) goto L00A4;
+            L0095: if (JumpEqual) goto L00A4;
             L0097: ax = PartyCount(party);
             L009F: Compare(ax, 0x0002);
-            L00A2: if (!CompareResultEqual) goto L00CB;
+            L00A2: if (JumpNotEqual) goto L00CB;
             L00A4: AddEncounter(party, 0x01, 0x23);
             L00B6: AddEncounter(party, 0x02, 0x24);
             L00C8: goto L0158;
             L00CB: ax = PartyCount(party);
             L00D3: Compare(ax, 0x0003);
-            L00D6: if (!CompareResultEqual) goto L0110;
+            L00D6: if (JumpNotEqual) goto L0110;
             L00D8: AddEncounter(party, 0x01, 0x23);
             L00EA: AddEncounter(party, 0x02, 0x23);
             L00FC: AddEncounter(party, 0x03, 0x23);
@@ -399,13 +399,13 @@ namespace XPT.Scripts.Maps {
             L0003: ShowMessage(party, String08B5); // Lizardites guard this area.
             L0010: ax = PartyCount(party);
             L0018: Compare(ax, 0x0001);
-            L001B: if (!CompareResultEqual) goto L0044;
+            L001B: if (JumpNotEqual) goto L0044;
             L001D: AddEncounter(party, 0x01, 0x1E);
             L002F: AddEncounter(party, 0x02, 0x1E);
             L0041: goto L0107;
             L0044: ax = PartyCount(party);
             L004C: Compare(ax, 0x0002);
-            L004F: if (!CompareResultEqual) goto L009B;
+            L004F: if (JumpNotEqual) goto L009B;
             L0051: AddEncounter(party, 0x01, 0x1E);
             L0063: AddEncounter(party, 0x02, 0x1E);
             L0075: AddEncounter(party, 0x03, 0x1E);
@@ -426,15 +426,15 @@ namespace XPT.Scripts.Maps {
             L0003: ShowMessage(party, String08D1); // Giants guard the corridor.
             L0010: ax = PartyCount(party);
             L0018: Compare(ax, 0x0001);
-            L001B: if (!CompareResultEqual) goto L0032;
+            L001B: if (JumpNotEqual) goto L0032;
             L001D: AddEncounter(party, 0x01, 0x25);
             L002F: goto L0102;
             L0032: ax = PartyCount(party);
             L003A: Compare(ax, 0x0002);
-            L003D: if (CompareResultEqual) goto L004C;
+            L003D: if (JumpEqual) goto L004C;
             L003F: ax = PartyCount(party);
             L0047: Compare(ax, 0x0003);
-            L004A: if (!CompareResultEqual) goto L0096;
+            L004A: if (JumpNotEqual) goto L0096;
             L004C: AddEncounter(party, 0x01, 0x25);
             L005E: AddEncounter(party, 0x02, 0x25);
             L0070: AddEncounter(party, 0x03, 0x25);
@@ -454,13 +454,13 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
             L000B: Compare(ax, 0x0001);
-            L000E: if (!CompareResultEqual) goto L0037;
+            L000E: if (JumpNotEqual) goto L0037;
             L0010: AddEncounter(party, 0x01, 0x27);
             L0022: AddEncounter(party, 0x05, 0x28);
             L0034: goto L0176;
             L0037: ax = PartyCount(party);
             L003F: Compare(ax, 0x0002);
-            L0042: if (!CompareResultEqual) goto L008F;
+            L0042: if (JumpNotEqual) goto L008F;
             L0044: AddEncounter(party, 0x01, 0x27);
             L0056: AddEncounter(party, 0x02, 0x27);
             L0068: AddEncounter(party, 0x05, 0x28);
@@ -468,7 +468,7 @@ namespace XPT.Scripts.Maps {
             L008C: goto L0176;
             L008F: ax = PartyCount(party);
             L0097: Compare(ax, 0x0003);
-            L009A: if (!CompareResultEqual) goto L010A;
+            L009A: if (JumpNotEqual) goto L010A;
             L009C: AddEncounter(party, 0x01, 0x27);
             L00AE: AddEncounter(party, 0x02, 0x27);
             L00C0: AddEncounter(party, 0x03, 0x27);
@@ -488,26 +488,26 @@ namespace XPT.Scripts.Maps {
         private void FnPAYOFENC_11(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x37);
+            L0003: ax = GetState(party, 0x02, 0x37);
             L0014: Compare(ax, 0x0002);
-            L0017: if (!CompareResultEqual) goto L0029;
+            L0017: if (JumpNotEqual) goto L0029;
             L0019: ShowMessage(party, String08EC); // There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
             L0026: goto L011D;
-            L0029: ax = CheckState04(party, 0x02, 0x37);
+            L0029: ax = GetState(party, 0x02, 0x37);
             L003A: Compare(ax, 0x0001);
-            L003D: if (!CompareResultEqual) goto L00B9;
+            L003D: if (JumpNotEqual) goto L00B9;
             L003F: ax = HasItem50(party, 0xFA);
-            L004D: if (CompareResultEqual) goto L00AA;
+            L004D: if (JumpEqual) goto L00AA;
             L004F: RemoveItem4C(party, 0xFA);
             L005B: GiveItem48(party, 0x96);
-            L0067: SetState00(party, 0x02, 0x37, 0x02);
+            L0067: SetState(party, 0x02, 0x37, 0x02);
             L007C: AddExperience98(party, 0x000B71B0);
             L008E: ShowMessage(party, String09BA); // As you place Cleowyn's bones in the crypt, Cleowyn's spirit whispers to you -
             L009B: ShowMessage(party, String0A08); // 'My thanks to you. You certainly took your time finding my bones. Here is the Netherworld Medallion. Now go away and don't bother me again.'
             L00A8: goto L00B7;
             L00AA: ShowMessage(party, String0A95); // There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
             L00B7: goto L011D;
-            L00B9: SetState00(party, 0x02, 0x37, 0x01);
+            L00B9: SetState(party, 0x02, 0x37, 0x01);
             L00CE: GiveItem48(party, 0x0A);
             L00DA: GiveItem48(party, 0x21);
             L00E6: GiveItem48(party, 0x48);
@@ -520,21 +520,21 @@ namespace XPT.Scripts.Maps {
         private void FnITEMAENC_12(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x67);
+            L0003: ax = GetState(party, 0x02, 0x67);
             L0014: Compare(ax, 0x0001);
-            L0017: if (!CompareResultEqual) goto L0047;
+            L0017: if (JumpNotEqual) goto L0047;
             L0019: ShowMessage(party, String0BF4); // Polar Bears wander the empty room.
             L0026: AddTreasure(party, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xB7);
             L0045: goto L008B;
-            L0047: SetState00(party, 0x02, 0x67, 0x01);
+            L0047: SetState(party, 0x02, 0x67, 0x01);
             L005C: AddTreasure(party, 0x1B58, 0x00, 0xD0, 0xB2, 0xAA, 0xB0);
             L007E: ShowMessage(party, String0C17); // A Polar Bear plays with a pile of stuff.
             L008B: ax = PartyCount(party);
             L0093: Compare(ax, 0x0001);
-            L0096: if (CompareResultEqual) goto L00A5;
+            L0096: if (JumpEqual) goto L00A5;
             L0098: ax = PartyCount(party);
             L00A0: Compare(ax, 0x0002);
-            L00A3: if (!CompareResultEqual) goto L00CB;
+            L00A3: if (JumpNotEqual) goto L00CB;
             L00A5: AddEncounter(party, 0x01, 0x1B);
             L00B7: AddEncounter(party, 0x02, 0x1B);
             L00C9: goto L0113;
@@ -549,7 +549,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xA1);
-            L0011: if (CompareResultEqual) goto L0041;
+            L0011: if (JumpEqual) goto L0041;
             L0013: ShowMessage(party, String0C40); // Hell Wolves snarl at you.
             L0020: AddTreasure(party, 0x012C, 0x00, 0x00, 0x00, 0x00, 0xB7);
             L003F: goto L006E;
@@ -557,10 +557,10 @@ namespace XPT.Scripts.Maps {
             L0061: ShowMessage(party, String0C5A); // A Hell Wolf kicks an object aside as it leaps at you.
             L006E: ax = PartyCount(party);
             L0076: Compare(ax, 0x0001);
-            L0079: if (CompareResultEqual) goto L0088;
+            L0079: if (JumpEqual) goto L0088;
             L007B: ax = PartyCount(party);
             L0083: Compare(ax, 0x0002);
-            L0086: if (!CompareResultEqual) goto L00AE;
+            L0086: if (JumpNotEqual) goto L00AE;
             L0088: AddEncounter(party, 0x01, 0x1F);
             L009A: AddEncounter(party, 0x02, 0x1F);
             L00AC: goto L00F6;
@@ -576,13 +576,13 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
             L000B: Compare(ax, 0x0001);
-            L000E: if (!CompareResultEqual) goto L0037;
+            L000E: if (JumpNotEqual) goto L0037;
             L0010: AddEncounter(party, 0x01, 0x1C);
             L0022: AddEncounter(party, 0x02, 0x1E);
             L0034: goto L0176;
             L0037: ax = PartyCount(party);
             L003F: Compare(ax, 0x0002);
-            L0042: if (!CompareResultEqual) goto L008F;
+            L0042: if (JumpNotEqual) goto L008F;
             L0044: AddEncounter(party, 0x01, 0x1D);
             L0056: AddEncounter(party, 0x02, 0x1D);
             L0068: AddEncounter(party, 0x03, 0x1E);
@@ -590,7 +590,7 @@ namespace XPT.Scripts.Maps {
             L008C: goto L0176;
             L008F: ax = PartyCount(party);
             L0097: Compare(ax, 0x0003);
-            L009A: if (!CompareResultEqual) goto L010A;
+            L009A: if (JumpNotEqual) goto L010A;
             L009C: AddEncounter(party, 0x01, 0x1C);
             L00AE: AddEncounter(party, 0x02, 0x1C);
             L00C0: AddEncounter(party, 0x03, 0x1D);
@@ -612,13 +612,13 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
             L000B: Compare(ax, 0x0001);
-            L000E: if (!CompareResultEqual) goto L0037;
+            L000E: if (JumpNotEqual) goto L0037;
             L0010: AddEncounter(party, 0x01, 0x1F);
             L0022: AddEncounter(party, 0x02, 0x22);
             L0034: goto L0188;
             L0037: ax = PartyCount(party);
             L003F: Compare(ax, 0x0002);
-            L0042: if (!CompareResultEqual) goto L00A1;
+            L0042: if (JumpNotEqual) goto L00A1;
             L0044: AddEncounter(party, 0x01, 0x20);
             L0056: AddEncounter(party, 0x02, 0x22);
             L0068: AddEncounter(party, 0x03, 0x20);
@@ -627,7 +627,7 @@ namespace XPT.Scripts.Maps {
             L009E: goto L0188;
             L00A1: ax = PartyCount(party);
             L00A9: Compare(ax, 0x0003);
-            L00AC: if (!CompareResultEqual) goto L011C;
+            L00AC: if (JumpNotEqual) goto L011C;
             L00AE: AddEncounter(party, 0x01, 0x21);
             L00C0: AddEncounter(party, 0x02, 0x22);
             L00D2: AddEncounter(party, 0x03, 0x21);
@@ -673,7 +673,7 @@ namespace XPT.Scripts.Maps {
             L0010: ShowPortrait(party, 0x002A);
             L001D: ax = UnknownFunctionEC(party, 0x000F);
             L002A: Compare(ax, 0x000D);
-            L002D: if (CompareResultUnsignedGreaterThan) goto L0065;
+            L002D: if (JumpAbove) goto L0065;
             L002F: ShowMessage(party, String0D26); // Listen carefully, friend. Be careful where you place the possessions Cleowyn demands. Use Crown before Robe before Scepter.
             L003C: ShowMessage(party, String0DA2); // Someone in your group must always remain in the Mausoleum until all three items are placed and the tomb is opened.
             L0049: ShowMessage(party, String0E15); // Otherwise, imps will steal the treasures away and hide them again.  They love to torment adventurers and Cleowyn's spirit.
@@ -690,7 +690,7 @@ namespace XPT.Scripts.Maps {
             L0010: ShowPortrait(party, 0x001D);
             L001D: ax = UnknownFunctionEC(party, 0x000F);
             L002A: Compare(ax, 0x000C);
-            L002D: if (CompareResultUnsignedGreaterThan) goto L003E;
+            L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0F45); // The longest routes through this Mausoleum are the least rewarding.
             L003C: goto L004B;
             L003E: ShowMessage(party, String0F88); // The Halfling Knight looks at you once and then continues polishing her shield.
@@ -704,7 +704,7 @@ namespace XPT.Scripts.Maps {
             L0010: ShowPortrait(party, 0x001F);
             L001D: ax = UnknownFunctionEC(party, 0x000F);
             L002A: Compare(ax, 0x000B);
-            L002D: if (CompareResultUnsignedGreaterThan) goto L003E;
+            L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0FF4); // The night the volcano erupted, the wizard Arnakkian Slowfoot threw a great feast. All who attended died in the eruption. They died at their games of cards and gambling. Some, it is said, were transformed into the monsters who inhabit the dungeon.
             L003C: goto L004B;
             L003E: ShowMessage(party, String10EB); // The Elf Ranger abruptly walks away.
@@ -718,7 +718,7 @@ namespace XPT.Scripts.Maps {
             L0010: ShowPortrait(party, 0x0019);
             L001D: ax = UnknownFunctionEC(party, 0x000F);
             L002A: Compare(ax, 0x0007);
-            L002D: if (CompareResultUnsignedGreaterThan) goto L003E;
+            L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String1130); // Cleowyn's bones are guarded by the Snow Elves, I have heard. Whether or not it is worth returning the king's bones to the Mausoleum is much debated, for the imps will seize them again and return them to the elves.
             L003C: goto L004B;
             L003E: ShowMessage(party, String1206); // The Gnome Barbarian opens his mouth to speak, but he forgets what he planned to say.
@@ -732,7 +732,7 @@ namespace XPT.Scripts.Maps {
             L0010: ShowPortrait(party, 0x0022);
             L001D: ax = UnknownFunctionEC(party, 0x000F);
             L002A: Compare(ax, 0x0009);
-            L002D: if (CompareResultUnsignedGreaterThan) goto L003E;
+            L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String1278); // If you find King Cleowyn's quarters, you will find a shortcut back to his Palace. Be careful where you tread, lest you leave his quarters unrewarded.
             L003C: goto L004B;
             L003E: ShowMessage(party, String130E); // The Human Thief darts away as you approach.
@@ -744,12 +744,12 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
             L000B: Compare(ax, 0x0001);
-            L000E: if (!CompareResultEqual) goto L0025;
+            L000E: if (JumpNotEqual) goto L0025;
             L0010: AddEncounter(party, 0x01, 0x26);
             L0022: goto L00D6;
             L0025: ax = PartyCount(party);
             L002D: Compare(ax, 0x0002);
-            L0030: if (!CompareResultEqual) goto L006A;
+            L0030: if (JumpNotEqual) goto L006A;
             L0032: AddEncounter(party, 0x01, 0x26);
             L0044: AddEncounter(party, 0x02, 0x26);
             L0056: AddEncounter(party, 0x03, 0x26);

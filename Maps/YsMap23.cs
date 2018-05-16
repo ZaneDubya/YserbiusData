@@ -206,7 +206,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String043A); // Runes on magic wall --
             L0010: ShowRunes(party, String0451); // Netherworld
-            L001D: SetState00(party, 0x02, 0x49, 0x02);
+            L001D: SetState(party, 0x02, 0x49, 0x02);
             L0032: SetMoveMap(party, 0x34, 0x02, 0xE0, 0x02);
             L004D: return; // RETURN;
         }
@@ -250,9 +250,9 @@ namespace XPT.Scripts.Maps {
         private void FnATELEH_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x49);
+            L0003: ax = GetState(party, 0x02, 0x49);
             L0014: Compare(ax, 0x0002);
-            L0017: if (!CompareResultEqual) goto L004E;
+            L0017: if (JumpNotEqual) goto L004E;
             L0019: ShowMessage(party, String04D8); // Runes on magic wall --
             L0026: ShowRunes(party, String04EF); // Archaic
             L0033: SetMoveMap(party, 0x34, 0x02, 0xFA, 0x02);
@@ -271,7 +271,7 @@ namespace XPT.Scripts.Maps {
         private void FnARNKENCA_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetState00(party, 0x02, 0x52, 0x01);
+            L0003: SetState(party, 0x02, 0x52, 0x01);
             L0018: ShowMessage(party, String051A); // Secrets follow when you spell that which powers time.
             L0025: AddEncounter(party, 0x01, 0x19);
             L0037: AddEncounter(party, 0x02, 0x19);
@@ -311,7 +311,7 @@ namespace XPT.Scripts.Maps {
         private void FnLTELEL_0F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetState00(party, 0x02, 0x49, 0x03);
+            L0003: SetState(party, 0x02, 0x49, 0x03);
             L0018: ShowMessage(party, String05BD); // Runes on magic wall --
             L0025: ShowRunes(party, String05D4); // Luck
             L0032: SetMoveMap(party, 0x34, 0x02, 0xB9, 0x02);
@@ -321,16 +321,16 @@ namespace XPT.Scripts.Maps {
         private void FnITELEG_10(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x49);
+            L0003: ax = GetState(party, 0x02, 0x49);
             L0014: Compare(ax, 0x0003);
-            L0017: if (!CompareResultEqual) goto L0050;
+            L0017: if (JumpNotEqual) goto L0050;
             L0019: ShowMessage(party, String05D9); // Runes on magic wall --
             L0026: ShowRunes(party, String05F0); // Illusion
             L0033: SetMoveMap(party, 0x34, 0x02, 0xCC, 0x02);
             L004E: goto L009B;
-            L0050: ax = CheckState04(party, 0x02, 0x49);
+            L0050: ax = GetState(party, 0x02, 0x49);
             L0061: Compare(ax, 0x0004);
-            L0064: if (!CompareResultEqual) goto L009B;
+            L0064: if (JumpNotEqual) goto L009B;
             L0066: ShowMessage(party, String05F9); // Runes on magic wall --
             L0073: ShowRunes(party, String0610); // Invulnerable
             L0080: SetMoveMap(party, 0x34, 0x02, 0xD8, 0x02);
@@ -340,7 +340,7 @@ namespace XPT.Scripts.Maps {
         private void FnKTELEL_11(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetState00(party, 0x02, 0x49, 0x04);
+            L0003: SetState(party, 0x02, 0x49, 0x04);
             L0018: ShowMessage(party, String061D); // Runes on magic wall --
             L0025: ShowRunes(party, String0634); // Karma
             L0032: SetMoveMap(party, 0x34, 0x02, 0xB9, 0x02);
@@ -359,7 +359,7 @@ namespace XPT.Scripts.Maps {
         private void FnENLKENCA_13(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetState00(party, 0x02, 0x53, 0x01);
+            L0003: SetState(party, 0x02, 0x53, 0x01);
             L0018: ShowMessage(party, String065A); // Those which haunt this castle must be spelled to find their master.
             L0025: AddEncounter(party, 0x01, 0x19);
             L0037: AddEncounter(party, 0x02, 0x19);
@@ -373,7 +373,7 @@ namespace XPT.Scripts.Maps {
         private void FnDTELEO_15(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetState00(party, 0x02, 0x49, 0x05);
+            L0003: SetState(party, 0x02, 0x49, 0x05);
             L0018: ShowMessage(party, String069E); // Runes on magic wall --
             L0025: ShowRunes(party, String06B5); // Dust
             L0032: SetMoveMap(party, 0x34, 0x02, 0xB7, 0x02);
@@ -446,12 +446,12 @@ namespace XPT.Scripts.Maps {
         private void FnARNAKEND_1D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x52);
+            L0003: ax = GetState(party, 0x02, 0x52);
             L0014: RefreshCompareFlags(ax);
-            L0016: if (CompareResultEqual) goto L0064;
-            L0018: ax = CheckState04(party, 0x02, 0x53);
+            L0016: if (JumpEqual) goto L0064;
+            L0018: ax = GetState(party, 0x02, 0x53);
             L0029: RefreshCompareFlags(ax);
-            L002B: if (CompareResultEqual) goto L0064;
+            L002B: if (JumpEqual) goto L0064;
             L002D: ShowMessage(party, String078F); // Both Arnakkian and Enlikil have been identified.
             L003A: ShowMessage(party, String07C0); // The Ghost takes you to the Guardians.
             L0047: SetMoveMap(party, 0x33, 0x02, 0x56, 0x02);
@@ -543,7 +543,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08E9); // Runes on magic wall --
             L0010: ShowRunes(party, String0900); // Zzyzx
-            L001D: SetState00(party, 0x02, 0x49, 0x01);
+            L001D: SetState(party, 0x02, 0x49, 0x01);
             L0032: SetMoveMap(party, 0x34, 0x02, 0x27, 0x02);
             L004D: return; // RETURN;
         }
@@ -560,9 +560,9 @@ namespace XPT.Scripts.Maps {
         private void FnWTELEEE_28(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x49);
+            L0003: ax = GetState(party, 0x02, 0x49);
             L0014: Compare(ax, 0x0001);
-            L0017: if (!CompareResultEqual) goto L004E;
+            L0017: if (JumpNotEqual) goto L004E;
             L0019: ShowMessage(party, String0926); // Runes on magic wall --
             L0026: ShowRunes(party, String093D); // Wizard
             L0033: SetMoveMap(party, 0x34, 0x02, 0xE6, 0x02);
@@ -771,31 +771,31 @@ namespace XPT.Scripts.Maps {
         private void FnLICHDOOR_47(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x01);
+            L0003: ax = GetState(party, 0x01, 0x01);
             L0014: RefreshCompareFlags(ax);
-            L0016: if (!CompareResultEqual) goto L001B;
+            L0016: if (JumpNotEqual) goto L001B;
             L0018: goto L00A5;
-            L001B: ax = CheckState04(party, 0x01, 0x02);
+            L001B: ax = GetState(party, 0x01, 0x02);
             L002C: RefreshCompareFlags(ax);
-            L002E: if (CompareResultEqual) goto L00A5;
-            L0030: ax = CheckState04(party, 0x01, 0x03);
+            L002E: if (JumpEqual) goto L00A5;
+            L0030: ax = GetState(party, 0x01, 0x03);
             L0041: RefreshCompareFlags(ax);
-            L0043: if (CompareResultEqual) goto L00A5;
-            L0045: ax = CheckState04(party, 0x01, 0x04);
+            L0043: if (JumpEqual) goto L00A5;
+            L0045: ax = GetState(party, 0x01, 0x04);
             L0056: RefreshCompareFlags(ax);
-            L0058: if (CompareResultEqual) goto L00A5;
-            L005A: PushStack(0x01);
+            L0058: if (JumpEqual) goto L00A5;
+            L005A: PushStack(party, 0x01);
             L005E: ax = GetFacing24(party);
-            L0065: PushStack(ax);
+            L0065: PushStack(party, ax);
             L0066: ax = GetNextTile20(party);
-            L006D: PushStack(ax);
-            L006E: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L006D: PushStack(party, ax);
+            L006E: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0078: ax = GetFacing24(party);
-            L007F: PushStack(ax);
+            L007F: PushStack(party, ax);
             L0080: ax = GetNextTile20(party);
-            L0087: PushStack(ax);
-            L0088: PushStack(0x01);
-            L008C: SetUnblocked30(party);
+            L0087: PushStack(party, ax);
+            L0088: PushStack(party, 0x01);
+            L008C: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
             L0096: ShowMessage(party, String0B26); // The Wizard Door opens.
             L00A3: goto L00B2;
             L00A5: ShowMessage(party, String0B3D); // The symbol of the Four Corners magically radiates from this door.
@@ -820,12 +820,12 @@ namespace XPT.Scripts.Maps {
             L0003: AddEncounter(party, 0x01, 0x19);
             L0015: AddEncounter(party, 0x02, 0x19);
             L0027: AddEncounter(party, 0x05, 0x27);
-            L0039: ax = CheckState04(party, 0x02, 0x8B);
+            L0039: ax = GetState(party, 0x02, 0x8B);
             L004A: RefreshCompareFlags(ax);
-            L004C: if (CompareResultEqual) goto L006E;
+            L004C: if (JumpEqual) goto L006E;
             L004E: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L006C: goto L00B3;
-            L006E: SetState00(party, 0x02, 0x8B, 0x01);
+            L006E: SetState(party, 0x02, 0x8B, 0x01);
             L0083: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0xB7, 0xD0);
             L00A2: AddExperience98(party, 0x00002710);
             L00B3: return; // RETURN;
@@ -837,12 +837,12 @@ namespace XPT.Scripts.Maps {
             L0003: AddEncounter(party, 0x01, 0x19);
             L0015: AddEncounter(party, 0x02, 0x19);
             L0027: AddEncounter(party, 0x05, 0x27);
-            L0039: ax = CheckState04(party, 0x02, 0x8C);
+            L0039: ax = GetState(party, 0x02, 0x8C);
             L004A: RefreshCompareFlags(ax);
-            L004C: if (CompareResultEqual) goto L006E;
+            L004C: if (JumpEqual) goto L006E;
             L004E: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xC6);
             L006C: goto L00B3;
-            L006E: SetState00(party, 0x02, 0x8C, 0x01);
+            L006E: SetState(party, 0x02, 0x8C, 0x01);
             L0083: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0xCD, 0xBD);
             L00A2: AddExperience98(party, 0x00002710);
             L00B3: return; // RETURN;
@@ -854,12 +854,12 @@ namespace XPT.Scripts.Maps {
             L0003: AddEncounter(party, 0x01, 0x19);
             L0015: AddEncounter(party, 0x02, 0x19);
             L0027: AddEncounter(party, 0x05, 0x27);
-            L0039: ax = CheckState04(party, 0x02, 0x8D);
+            L0039: ax = GetState(party, 0x02, 0x8D);
             L004A: RefreshCompareFlags(ax);
-            L004C: if (CompareResultEqual) goto L006E;
+            L004C: if (JumpEqual) goto L006E;
             L004E: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xD1);
             L006C: goto L00B3;
-            L006E: SetState00(party, 0x02, 0x8D, 0x01);
+            L006E: SetState(party, 0x02, 0x8D, 0x01);
             L0083: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0xC7, 0xB2);
             L00A2: AddExperience98(party, 0x00002710);
             L00B3: return; // RETURN;
@@ -871,12 +871,12 @@ namespace XPT.Scripts.Maps {
             L0003: AddEncounter(party, 0x01, 0x19);
             L0015: AddEncounter(party, 0x02, 0x19);
             L0027: AddEncounter(party, 0x05, 0x27);
-            L0039: ax = CheckState04(party, 0x02, 0x8E);
+            L0039: ax = GetState(party, 0x02, 0x8E);
             L004A: RefreshCompareFlags(ax);
-            L004C: if (CompareResultEqual) goto L006E;
+            L004C: if (JumpEqual) goto L006E;
             L004E: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xD0);
             L006C: goto L00B3;
-            L006E: SetState00(party, 0x02, 0x8E, 0x01);
+            L006E: SetState(party, 0x02, 0x8E, 0x01);
             L0083: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0xAC, 0xB7);
             L00A2: AddExperience98(party, 0x00002710);
             L00B3: return; // RETURN;
@@ -892,14 +892,14 @@ namespace XPT.Scripts.Maps {
             L0046: AddEncounter(party, 0x04, 0x27);
             L0058: AddEncounter(party, 0x05, 0x28);
             L006A: ax = HasItem50(party, 0xF7);
-            L0078: if (CompareResultEqual) goto L009A;
+            L0078: if (JumpEqual) goto L009A;
             L007A: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L0098: goto L00F6;
             L009A: AddTreasure(party, 0x0000, 0x00, 0x00, 0x50, 0x50, 0x2D);
-            L00BA: ax = CheckState04(party, 0x02, 0x89);
+            L00BA: ax = GetState(party, 0x02, 0x89);
             L00CB: RefreshCompareFlags(ax);
-            L00CD: if (!CompareResultEqual) goto L00F6;
-            L00CF: SetState00(party, 0x02, 0x89, 0x01);
+            L00CD: if (JumpNotEqual) goto L00F6;
+            L00CF: SetState(party, 0x02, 0x89, 0x01);
             L00E4: AddExperience98(party, 0x000B71B0);
             L00F6: return; // RETURN;
         }
@@ -928,40 +928,40 @@ namespace XPT.Scripts.Maps {
         private void FnSETLICHA_51(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x01);
+            L0003: ax = GetState(party, 0x01, 0x01);
             L0014: RefreshCompareFlags(ax);
-            L0016: if (!CompareResultEqual) goto L002D;
-            L0018: SetState00(party, 0x01, 0x01, 0x01);
+            L0016: if (JumpNotEqual) goto L002D;
+            L0018: SetState(party, 0x01, 0x01, 0x01);
             L002D: return; // RETURN;
         }
 
         private void FnSETLICHB_52(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x02);
+            L0003: ax = GetState(party, 0x01, 0x02);
             L0014: RefreshCompareFlags(ax);
-            L0016: if (!CompareResultEqual) goto L002D;
-            L0018: SetState00(party, 0x01, 0x02, 0x01);
+            L0016: if (JumpNotEqual) goto L002D;
+            L0018: SetState(party, 0x01, 0x02, 0x01);
             L002D: return; // RETURN;
         }
 
         private void FnSETLICHC_53(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x03);
+            L0003: ax = GetState(party, 0x01, 0x03);
             L0014: RefreshCompareFlags(ax);
-            L0016: if (!CompareResultEqual) goto L002D;
-            L0018: SetState00(party, 0x01, 0x03, 0x01);
+            L0016: if (JumpNotEqual) goto L002D;
+            L0018: SetState(party, 0x01, 0x03, 0x01);
             L002D: return; // RETURN;
         }
 
         private void FnSETLICHD_54(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x01, 0x04);
+            L0003: ax = GetState(party, 0x01, 0x04);
             L0014: RefreshCompareFlags(ax);
-            L0016: if (!CompareResultEqual) goto L002D;
-            L0018: SetState00(party, 0x01, 0x04, 0x01);
+            L0016: if (JumpNotEqual) goto L002D;
+            L0018: SetState(party, 0x01, 0x04, 0x01);
             L002D: return; // RETURN;
         }
 

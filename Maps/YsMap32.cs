@@ -88,7 +88,7 @@ namespace XPT.Scripts.Maps {
             L002A: ShowMessage(party, String0632); // The winds rip at your weapons.
             L0037: ax = GetWeapon88(party);
             L003F: Compare(ax, 0x0009);
-            L0042: if (CompareResultEqual) goto L0064;
+            L0042: if (JumpEqual) goto L0064;
             L0044: ShowMessage(party, String0651); // Your weapon snaps in the wind!  It is gone.
             L0051: ax = GetWeapon88(party);
             L0059: RemoveItem4C(party, ax);

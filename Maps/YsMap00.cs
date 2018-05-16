@@ -63,7 +63,7 @@ namespace XPT.Scripts.Maps {
         private void FnEXITDUNG_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ExitDungeon(party);
+            L0003: SetExitDungeon(party);
             L000B: return; // RETURN;
         }
 
@@ -92,8 +92,8 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0471); // The gateway is the DUNGEON EXIT.
-            L0010: ax = CheckState08(party, 0x02, 0x6A);
-            L0023: if (CompareResultEqual) goto L003F;
+            L0010: ax = GetState08(party, 0x02, 0x6A);
+            L0023: if (JumpEqual) goto L003F;
             L0025: ShowMessage(party, String0492); // Hail, conquering HERO OF YSERBIUS!
             L0032: ShowMessage(party, String04B5); // All of Twinion bows to your prominence!!
             L003F: return; // RETURN;
@@ -117,25 +117,25 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel44(party, 0x0014);
-            L0011: if (!CompareResultEqual) goto L0016;
+            L0011: if (JumpNotEqual) goto L0016;
             L0013: goto L011F;
-            L0016: ax = CheckState04(party, 0x02, 0x78);
+            L0016: ax = GetState(party, 0x02, 0x78);
             L0027: Compare(ax, 0x0001);
-            L002A: if (!CompareResultEqual) goto L005A;
+            L002A: if (JumpNotEqual) goto L005A;
             L002C: ShowMessage(party, String0504); // This room contains the gateway to the Labyrinth.
-            L0039: PushStack(0x01);
+            L0039: PushStack(party, 0x01);
             L003D: ax = GetFacing24(party);
-            L0044: PushStack(ax);
+            L0044: PushStack(party, ax);
             L0045: ax = GetNextTile20(party);
-            L004C: PushStack(ax);
-            L004D: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L004C: PushStack(party, ax);
+            L004D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0057: goto L011D;
             L005A: ax = HasItem50(party, 0xFB);
-            L0068: if (!CompareResultEqual) goto L006D;
+            L0068: if (JumpNotEqual) goto L006D;
             L006A: goto L0110;
             L006D: ShowMessage(party, String0535); // The Thieves' Key unlocks this door!
             L007A: ShowMessage(party, String0559); // This room contains the gateway to the Labyrinth.
-            L0087: SetState00(party, 0x02, 0x78, 0x01);
+            L0087: SetState(party, 0x02, 0x78, 0x01);
             L009C: RemoveItem4C(party, 0xFB);
             L00A8: RemoveItem4C(party, 0xD2);
             L00B4: RemoveItem4C(party, 0xD3);
@@ -143,23 +143,23 @@ namespace XPT.Scripts.Maps {
             L00CC: RemoveItem4C(party, 0xE1);
             L00D8: RemoveItem4C(party, 0xE2);
             L00E4: RemoveItem4C(party, 0xF8);
-            L00F0: PushStack(0x01);
+            L00F0: PushStack(party, 0x01);
             L00F4: ax = GetFacing24(party);
-            L00FB: PushStack(ax);
+            L00FB: PushStack(party, ax);
             L00FC: ax = GetNextTile20(party);
-            L0103: PushStack(ax);
-            L0104: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L0103: PushStack(party, ax);
+            L0104: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L010E: goto L011D;
             L0110: ShowMessage(party, String058A); // The Thieves' Key is needed to unlock this door.
             L011D: goto L0156;
             L011F: ShowMessage(party, String05BA); // The Thieves' Key is needed to unlock this door.
             L012C: ShowMessage(party, String05EA); // Only heroes of the twentieth level or higher may venture beyond this door.
-            L0139: PushStack(0x00);
+            L0139: PushStack(party, 0x00);
             L013C: ax = GetFacing24(party);
-            L0143: PushStack(ax);
+            L0143: PushStack(party, ax);
             L0144: ax = GetNextTile20(party);
-            L014B: PushStack(ax);
-            L014C: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L014B: PushStack(party, ax);
+            L014C: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0156: return; // RETURN;
         }
 
@@ -167,7 +167,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel44(party, 0x0014);
-            L0011: if (CompareResultEqual) goto L0022;
+            L0011: if (JumpEqual) goto L0022;
             L0013: ShowMessage(party, String0635); // Good Journeys, brave hero.
             L0020: goto L0049;
             L0022: ShowMessage(party, String0650); // Only heroes of the twentieth level or higher may venture beyond this door.

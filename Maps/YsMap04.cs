@@ -126,7 +126,7 @@ namespace XPT.Scripts.Maps {
             L0010: ShowPortrait(party, 0x0022);
             L001D: ax = UnknownFunctionEC(party, 0x000F);
             L002A: Compare(ax, 0x0009);
-            L002D: if (CompareResultUnsignedGreaterThan) goto L004B;
+            L002D: if (JumpAbove) goto L004B;
             L002F: ShowMessage(party, String0481); // King Cleowyn long sought the buried secrets of a great wizard whose castle lies buried inside this mountain. 
             L003C: ShowMessage(party, String04EF); // The king died most horribly, it is said. His anguished death scream was heard across the island, but no one ever found his body. The dead wizard may have claimed the body, but no one knows for sure.
             L0049: goto L006A;
@@ -142,7 +142,7 @@ namespace XPT.Scripts.Maps {
             L0010: ShowPortrait(party, 0x0018);
             L001D: ax = UnknownFunctionEC(party, 0x000F);
             L002A: Compare(ax, 0x0007);
-            L002D: if (CompareResultUnsignedGreaterThan) goto L003E;
+            L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0610); // Two levels down is a most strange area. Six small rooms are accessible to anyone, but there is a large area I have not been able to reach. A wizard told me I should study my runes to solve the mystery of this area.
             L003C: goto L004B;
             L003E: ShowMessage(party, String06E7); // The Elf Barbarian is busy tending her many wounds and ignores you.
@@ -152,21 +152,21 @@ namespace XPT.Scripts.Maps {
         private void FnITEMAENC_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x12);
+            L0003: ax = GetState(party, 0x02, 0x12);
             L0014: Compare(ax, 0x0001);
-            L0017: if (!CompareResultEqual) goto L0048;
+            L0017: if (JumpNotEqual) goto L0048;
             L0019: ShowMessage(party, String072A); // Monsters jump out of the shadows.
             L0026: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xCE, 0xB5);
             L0046: goto L008B;
             L0048: AddTreasure(party, 0x1770, 0x00, 0x00, 0xCE, 0x42, 0x0A);
-            L0069: SetState00(party, 0x02, 0x12, 0x01);
+            L0069: SetState(party, 0x02, 0x12, 0x01);
             L007E: ShowMessage(party, String074C); // Monsters snarl as you approach a pile of weapons.
             L008B: ax = PartyCount(party);
             L0093: Compare(ax, 0x0001);
-            L0096: if (CompareResultEqual) goto L00A5;
+            L0096: if (JumpEqual) goto L00A5;
             L0098: ax = PartyCount(party);
             L00A0: Compare(ax, 0x0002);
-            L00A3: if (!CompareResultEqual) goto L00CB;
+            L00A3: if (JumpNotEqual) goto L00CB;
             L00A5: AddEncounter(party, 0x01, 0x19);
             L00B7: AddEncounter(party, 0x02, 0x1E);
             L00C9: goto L0125;
@@ -188,24 +188,24 @@ namespace XPT.Scripts.Maps {
         private void FnITEMBENC_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x13);
+            L0003: ax = GetState(party, 0x02, 0x13);
             L0014: Compare(ax, 0x0001);
-            L0017: if (!CompareResultEqual) goto L0048;
+            L0017: if (JumpNotEqual) goto L0048;
             L0019: ShowMessage(party, String077E); // Unclean spirits shriek as they attack.
             L0026: AddTreasure(party, 0x0190, 0x00, 0x00, 0x00, 0xB5, 0xCB);
             L0046: goto L008A;
             L0048: AddTreasure(party, 0x0BB8, 0x00, 0x00, 0x00, 0x8A, 0x3B);
-            L0068: SetState00(party, 0x02, 0x13, 0x01);
+            L0068: SetState(party, 0x02, 0x13, 0x01);
             L007D: ShowMessage(party, String07A5); // Incubi surround you as you approach a weapon on the floor.
             L008A: ax = PartyCount(party);
             L0092: Compare(ax, 0x0001);
-            L0095: if (!CompareResultEqual) goto L00BE;
+            L0095: if (JumpNotEqual) goto L00BE;
             L0097: AddEncounter(party, 0x01, 0x24);
             L00A9: AddEncounter(party, 0x02, 0x24);
             L00BB: goto L0181;
             L00BE: ax = PartyCount(party);
             L00C6: Compare(ax, 0x0002);
-            L00C9: if (!CompareResultEqual) goto L0115;
+            L00C9: if (JumpNotEqual) goto L0115;
             L00CB: AddEncounter(party, 0x01, 0x23);
             L00DD: AddEncounter(party, 0x02, 0x23);
             L00EF: AddEncounter(party, 0x03, 0x23);
@@ -223,31 +223,31 @@ namespace XPT.Scripts.Maps {
         private void FnITEMCENC_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x14);
+            L0003: ax = GetState(party, 0x02, 0x14);
             L0014: Compare(ax, 0x0001);
-            L0017: if (!CompareResultEqual) goto L0047;
+            L0017: if (JumpNotEqual) goto L0047;
             L0019: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0x00, 0xCE);
             L0038: ShowMessage(party, String07E0); // Skeletons attack you.
             L0045: goto L008B;
             L0047: AddTreasure(party, 0x0BB8, 0x00, 0xCC, 0x39, 0x8C, 0x1C);
-            L0069: SetState00(party, 0x02, 0x14, 0x01);
+            L0069: SetState(party, 0x02, 0x14, 0x01);
             L007E: ShowMessage(party, String07F6); // Skeletons guard a precious hoard.
             L008B: ax = PartyCount(party);
             L0093: Compare(ax, 0x0001);
-            L0096: if (!CompareResultEqual) goto L00BF;
+            L0096: if (JumpNotEqual) goto L00BF;
             L0098: AddEncounter(party, 0x01, 0x03);
             L00AA: AddEncounter(party, 0x02, 0x02);
             L00BC: goto L01DA;
             L00BF: ax = PartyCount(party);
             L00C7: Compare(ax, 0x0002);
-            L00CA: if (!CompareResultEqual) goto L0105;
+            L00CA: if (JumpNotEqual) goto L0105;
             L00CC: AddEncounter(party, 0x01, 0x03);
             L00DE: AddEncounter(party, 0x02, 0x01);
             L00F0: AddEncounter(party, 0x03, 0x03);
             L0102: goto L01DA;
             L0105: ax = PartyCount(party);
             L010D: Compare(ax, 0x0003);
-            L0110: if (!CompareResultEqual) goto L016E;
+            L0110: if (JumpNotEqual) goto L016E;
             L0112: AddEncounter(party, 0x01, 0x04);
             L0124: AddEncounter(party, 0x02, 0x02);
             L0136: AddEncounter(party, 0x03, 0x04);
@@ -266,24 +266,24 @@ namespace XPT.Scripts.Maps {
         private void FnITEMDENC_0B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x15);
+            L0003: ax = GetState(party, 0x02, 0x15);
             L0014: Compare(ax, 0x0001);
-            L0017: if (!CompareResultEqual) goto L0047;
+            L0017: if (JumpNotEqual) goto L0047;
             L0019: ShowMessage(party, String0818); // The dead arise as you draw near.
             L0026: AddTreasure(party, 0x0096, 0x00, 0x00, 0x00, 0x00, 0xB6);
             L0045: goto L0089;
             L0047: AddTreasure(party, 0x09C4, 0x00, 0x00, 0x00, 0xC2, 0x76);
-            L0067: SetState00(party, 0x02, 0x15, 0x01);
+            L0067: SetState(party, 0x02, 0x15, 0x01);
             L007C: ShowMessage(party, String0839); // Your movement disturbs the dead who have guarded King Cleowyn's Treasury.
             L0089: ax = PartyCount(party);
             L0091: Compare(ax, 0x0001);
-            L0094: if (!CompareResultEqual) goto L00BD;
+            L0094: if (JumpNotEqual) goto L00BD;
             L0096: AddEncounter(party, 0x01, 0x08);
             L00A8: AddEncounter(party, 0x02, 0x0D);
             L00BA: goto L016E;
             L00BD: ax = PartyCount(party);
             L00C5: Compare(ax, 0x0002);
-            L00C8: if (!CompareResultEqual) goto L0102;
+            L00C8: if (JumpNotEqual) goto L0102;
             L00CA: AddEncounter(party, 0x01, 0x09);
             L00DC: AddEncounter(party, 0x02, 0x0E);
             L00EE: AddEncounter(party, 0x03, 0x06);
@@ -302,16 +302,16 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0005);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L0063;
+            L0012: if (JumpNotBelow) goto L0063;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L0063;
+            L0022: if (JumpNotEqual) goto L0063;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L0063;
+            L0037: if (JumpNotEqual) goto L0063;
             L0039: ax = UsedItem54(party, 0xBD, 0xBD);
-            L004C: if (!CompareResultEqual) goto L0063;
+            L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = UsedItem54(party, 0xBE, 0xBE);
-            L0061: if (CompareResultEqual) goto L008D;
+            L0061: if (JumpEqual) goto L008D;
             L0063: ShowMessage(party, String0883); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: SetMoveMap(party, 0x02, 0x01, 0x85, 0x01);
             L008B: goto L00B5;
@@ -325,16 +325,16 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0005);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L0063;
+            L0012: if (JumpNotBelow) goto L0063;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L0063;
+            L0022: if (JumpNotEqual) goto L0063;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L0063;
+            L0037: if (JumpNotEqual) goto L0063;
             L0039: ax = UsedItem54(party, 0xBD, 0xBD);
-            L004C: if (!CompareResultEqual) goto L0063;
+            L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = UsedItem54(party, 0xBE, 0xBE);
-            L0061: if (CompareResultEqual) goto L008D;
+            L0061: if (JumpEqual) goto L008D;
             L0063: ShowMessage(party, String08F2); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: SetMoveMap(party, 0x02, 0x01, 0x86, 0x01);
             L008B: goto L00B5;
@@ -348,16 +348,16 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0006);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L0063;
+            L0012: if (JumpNotBelow) goto L0063;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L0063;
+            L0022: if (JumpNotEqual) goto L0063;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L0063;
+            L0037: if (JumpNotEqual) goto L0063;
             L0039: ax = UsedItem54(party, 0xBD, 0xBD);
-            L004C: if (!CompareResultEqual) goto L0063;
+            L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = UsedItem54(party, 0xBE, 0xBE);
-            L0061: if (CompareResultEqual) goto L008D;
+            L0061: if (JumpEqual) goto L008D;
             L0063: ShowMessage(party, String0961); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: SetMoveMap(party, 0x02, 0x01, 0x98, 0x02);
             L008B: goto L00B5;
@@ -371,16 +371,16 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0006);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L0063;
+            L0012: if (JumpNotBelow) goto L0063;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L0063;
+            L0022: if (JumpNotEqual) goto L0063;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L0063;
+            L0037: if (JumpNotEqual) goto L0063;
             L0039: ax = UsedItem54(party, 0xBD, 0xBD);
-            L004C: if (!CompareResultEqual) goto L0063;
+            L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = UsedItem54(party, 0xBE, 0xBE);
-            L0061: if (CompareResultEqual) goto L008C;
+            L0061: if (JumpEqual) goto L008C;
             L0063: ShowMessage(party, String09D0); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: SetMoveMap(party, 0x02, 0x01, 0xA6, 0x00);
             L008A: goto L00B3;
@@ -394,14 +394,14 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0007);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L004E;
+            L0012: if (JumpNotBelow) goto L004E;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L004E;
+            L0022: if (JumpNotEqual) goto L004E;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L004E;
+            L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
-            L004C: if (CompareResultEqual) goto L0077;
+            L004C: if (JumpEqual) goto L0077;
             L004E: ShowMessage(party, String0A3F); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: SetMoveMap(party, 0x02, 0x01, 0xA8, 0x00);
             L0075: goto L009E;
@@ -415,14 +415,14 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0008);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L004E;
+            L0012: if (JumpNotBelow) goto L004E;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L004E;
+            L0022: if (JumpNotEqual) goto L004E;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L004E;
+            L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
-            L004C: if (CompareResultEqual) goto L0078;
+            L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0AAE); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: SetMoveMap(party, 0x02, 0x01, 0xB5, 0x02);
             L0076: goto L00A0;
@@ -436,16 +436,16 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0005);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L0063;
+            L0012: if (JumpNotBelow) goto L0063;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L0063;
+            L0022: if (JumpNotEqual) goto L0063;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L0063;
+            L0037: if (JumpNotEqual) goto L0063;
             L0039: ax = UsedItem54(party, 0xBD, 0xBD);
-            L004C: if (!CompareResultEqual) goto L0063;
+            L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = UsedItem54(party, 0xBE, 0xBE);
-            L0061: if (CompareResultEqual) goto L008D;
+            L0061: if (JumpEqual) goto L008D;
             L0063: ShowMessage(party, String0B1D); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: SetMoveMap(party, 0x02, 0x01, 0xC7, 0x01);
             L008B: goto L00B5;
@@ -459,14 +459,14 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0009);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L004E;
+            L0012: if (JumpNotBelow) goto L004E;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L004E;
+            L0022: if (JumpNotEqual) goto L004E;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L004E;
+            L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
-            L004C: if (CompareResultEqual) goto L0077;
+            L004C: if (JumpEqual) goto L0077;
             L004E: ShowMessage(party, String0B8C); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: SetMoveMap(party, 0x02, 0x01, 0xCF, 0x00);
             L0075: goto L009E;
@@ -480,16 +480,16 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0006);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L0063;
+            L0012: if (JumpNotBelow) goto L0063;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L0063;
+            L0022: if (JumpNotEqual) goto L0063;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L0063;
+            L0037: if (JumpNotEqual) goto L0063;
             L0039: ax = UsedItem54(party, 0xBD, 0xBD);
-            L004C: if (!CompareResultEqual) goto L0063;
+            L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = UsedItem54(party, 0xBE, 0xBE);
-            L0061: if (CompareResultEqual) goto L008C;
+            L0061: if (JumpEqual) goto L008C;
             L0063: ShowMessage(party, String0BFB); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: SetMoveMap(party, 0x02, 0x01, 0xD6, 0x00);
             L008A: goto L00B3;
@@ -503,14 +503,14 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x000A);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L004E;
+            L0012: if (JumpNotBelow) goto L004E;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L004E;
+            L0022: if (JumpNotEqual) goto L004E;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L004E;
+            L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
-            L004C: if (CompareResultEqual) goto L0078;
+            L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0C6A); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: SetMoveMap(party, 0x02, 0x01, 0xD8, 0x03);
             L0076: goto L00A0;
@@ -524,16 +524,16 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0006);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L0063;
+            L0012: if (JumpNotBelow) goto L0063;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L0063;
+            L0022: if (JumpNotEqual) goto L0063;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L0063;
+            L0037: if (JumpNotEqual) goto L0063;
             L0039: ax = UsedItem54(party, 0xBD, 0xBD);
-            L004C: if (!CompareResultEqual) goto L0063;
+            L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = UsedItem54(party, 0xBE, 0xBE);
-            L0061: if (CompareResultEqual) goto L008D;
+            L0061: if (JumpEqual) goto L008D;
             L0063: ShowMessage(party, String0CD9); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: SetMoveMap(party, 0x02, 0x01, 0xE9, 0x03);
             L008B: goto L00B5;
@@ -547,14 +547,14 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x000B);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L004E;
+            L0012: if (JumpNotBelow) goto L004E;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L004E;
+            L0022: if (JumpNotEqual) goto L004E;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L004E;
+            L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
-            L004C: if (CompareResultEqual) goto L0077;
+            L004C: if (JumpEqual) goto L0077;
             L004E: ShowMessage(party, String0D48); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: SetMoveMap(party, 0x02, 0x01, 0xEB, 0x00);
             L0075: goto L009E;
@@ -568,14 +568,14 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0008);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L004E;
+            L0012: if (JumpNotBelow) goto L004E;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L004E;
+            L0022: if (JumpNotEqual) goto L004E;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L004E;
+            L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
-            L004C: if (CompareResultEqual) goto L0077;
+            L004C: if (JumpEqual) goto L0077;
             L004E: ShowMessage(party, String0DB7); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: SetMoveMap(party, 0x02, 0x01, 0xF5, 0x00);
             L0075: goto L009E;
@@ -589,14 +589,14 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x000A);
-            L0012: if (CompareResultAbove || CompareResultEqual) goto L004E;
+            L0012: if (JumpNotBelow) goto L004E;
             L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
-            L0022: if (!CompareResultEqual) goto L004E;
+            L0022: if (JumpNotEqual) goto L004E;
             L0024: ax = UsedItem54(party, 0xA2, 0xA2);
-            L0037: if (!CompareResultEqual) goto L004E;
+            L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
-            L004C: if (CompareResultEqual) goto L0078;
+            L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0E26); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: SetMoveMap(party, 0x02, 0x01, 0xF7, 0x02);
             L0076: goto L00A0;
@@ -610,10 +610,10 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
             L000B: Compare(ax, 0x0001);
-            L000E: if (CompareResultEqual) goto L001D;
+            L000E: if (JumpEqual) goto L001D;
             L0010: ax = PartyCount(party);
             L0018: Compare(ax, 0x0002);
-            L001B: if (!CompareResultEqual) goto L0043;
+            L001B: if (JumpNotEqual) goto L0043;
             L001D: AddEncounter(party, 0x01, 0x1A);
             L002F: AddEncounter(party, 0x02, 0x1A);
             L0041: goto L009D;
@@ -628,21 +628,21 @@ namespace XPT.Scripts.Maps {
         private void FnGOLDENCA_1E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x09);
+            L0003: ax = GetState(party, 0x02, 0x09);
             L0014: Compare(ax, 0x0001);
-            L0017: if (!CompareResultEqual) goto L0046;
+            L0017: if (JumpNotEqual) goto L0046;
             L0019: ShowMessage(party, String0E95); // Ghosts haunt the empty room.
             L0026: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x00, 0x73);
             L0044: goto L0087;
             L0046: AddTreasure(party, 0x0FA0, 0x00, 0x00, 0x00, 0x00, 0xCE);
-            L0065: SetState00(party, 0x02, 0x09, 0x01);
+            L0065: SetState(party, 0x02, 0x09, 0x01);
             L007A: ShowMessage(party, String0EB2); // Spirits of the dead guard King Cleowyn's gold.
             L0087: ax = PartyCount(party);
             L008F: Compare(ax, 0x0001);
-            L0092: if (CompareResultEqual) goto L00A1;
+            L0092: if (JumpEqual) goto L00A1;
             L0094: ax = PartyCount(party);
             L009C: Compare(ax, 0x0002);
-            L009F: if (!CompareResultEqual) goto L00C7;
+            L009F: if (JumpNotEqual) goto L00C7;
             L00A1: AddEncounter(party, 0x01, 0x0F);
             L00B3: AddEncounter(party, 0x02, 0x10);
             L00C5: goto L010F;
@@ -656,31 +656,31 @@ namespace XPT.Scripts.Maps {
         private void FnGOLDBENC_1F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x0A);
+            L0003: ax = GetState(party, 0x02, 0x0A);
             L0014: Compare(ax, 0x0001);
-            L0017: if (!CompareResultEqual) goto L0047;
+            L0017: if (JumpNotEqual) goto L0047;
             L0019: ShowMessage(party, String0EE1); // Bones of dead guards and one-time thieves rise to challenge you.
             L0026: AddTreasure(party, 0x00FA, 0x00, 0x00, 0x00, 0x00, 0xB5);
             L0045: goto L0088;
             L0047: AddTreasure(party, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xCB);
-            L0066: SetState00(party, 0x02, 0x0A, 0x01);
+            L0066: SetState(party, 0x02, 0x0A, 0x01);
             L007B: ShowMessage(party, String0F22); // Skeletons of dead guards and the thieves they killed stand between you and Cleowyn's gold.
             L0088: ax = PartyCount(party);
             L0090: Compare(ax, 0x0001);
-            L0093: if (!CompareResultEqual) goto L00BC;
+            L0093: if (JumpNotEqual) goto L00BC;
             L0095: AddEncounter(party, 0x01, 0x03);
             L00A7: AddEncounter(party, 0x02, 0x02);
             L00B9: goto L01D7;
             L00BC: ax = PartyCount(party);
             L00C4: Compare(ax, 0x0002);
-            L00C7: if (!CompareResultEqual) goto L0102;
+            L00C7: if (JumpNotEqual) goto L0102;
             L00C9: AddEncounter(party, 0x01, 0x03);
             L00DB: AddEncounter(party, 0x02, 0x01);
             L00ED: AddEncounter(party, 0x03, 0x03);
             L00FF: goto L01D7;
             L0102: ax = PartyCount(party);
             L010A: Compare(ax, 0x0003);
-            L010D: if (!CompareResultEqual) goto L016B;
+            L010D: if (JumpNotEqual) goto L016B;
             L010F: AddEncounter(party, 0x01, 0x04);
             L0121: AddEncounter(party, 0x02, 0x02);
             L0133: AddEncounter(party, 0x03, 0x04);
@@ -699,24 +699,24 @@ namespace XPT.Scripts.Maps {
         private void FnGOLDCENC_20(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x0B);
+            L0003: ax = GetState(party, 0x02, 0x0B);
             L0014: Compare(ax, 0x0001);
-            L0017: if (!CompareResultEqual) goto L0047;
+            L0017: if (JumpNotEqual) goto L0047;
             L0019: ShowMessage(party, String0F7D); // Spiders drop from the ceiling.
             L0026: AddTreasure(party, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCE);
             L0045: goto L0088;
             L0047: AddTreasure(party, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xBD);
-            L0066: SetState00(party, 0x02, 0x0B, 0x01);
+            L0066: SetState(party, 0x02, 0x0B, 0x01);
             L007B: ShowMessage(party, String0F9C); // Spider webs envelop a pile of gold pieces on the floor.
             L0088: ax = PartyCount(party);
             L0090: Compare(ax, 0x0001);
-            L0093: if (!CompareResultEqual) goto L00BC;
+            L0093: if (JumpNotEqual) goto L00BC;
             L0095: AddEncounter(party, 0x01, 0x16);
             L00A7: AddEncounter(party, 0x02, 0x16);
             L00B9: goto L015B;
             L00BC: ax = PartyCount(party);
             L00C4: Compare(ax, 0x0002);
-            L00C7: if (!CompareResultEqual) goto L0101;
+            L00C7: if (JumpNotEqual) goto L0101;
             L00C9: AddEncounter(party, 0x01, 0x17);
             L00DB: AddEncounter(party, 0x02, 0x16);
             L00ED: AddEncounter(party, 0x03, 0x17);

@@ -183,14 +183,14 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = CheckStrengthA4(party);
             L000F: Compare(ax, 0x0014);
-            L0012: if (CompareResultBelow) goto L0041;
+            L0012: if (JumpBelow) goto L0041;
             L0014: ShowMessage(party, String0586); // With a massive effort, you manage to force the door open.
-            L0021: PushStack(0x01);
+            L0021: PushStack(party, 0x01);
             L0025: ax = GetFacing24(party);
-            L002C: PushStack(ax);
+            L002C: PushStack(party, ax);
             L002D: ax = GetNextTile20(party);
-            L0034: PushStack(ax);
-            L0035: SetMove2C(party, PopStack(), PopStack(), PopStack());
+            L0034: PushStack(party, ax);
+            L0035: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
             L003F: goto L004E;
             L0041: ShowMessage(party, String05C0); // The door is stuck and will not open.
             L004E: return; // RETURN;
@@ -199,12 +199,12 @@ namespace XPT.Scripts.Maps {
         private void FnRAPID_10(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetState00(party, 0x02, 0x57, 0x01);
+            L0003: SetState(party, 0x02, 0x57, 0x01);
             L0018: ShowMessage(party, String05E5); // A plaque reads..
             L0025: ShowMessage(party, String05F6); // 'Thanks to the gracious generosity of the Mage Council, the survivors of the Arnakkian disaster hereby proclaim a new teleport to the top.'
-            L0032: PushStack(0x02);
+            L0032: PushStack(party, 0x02);
             L0036: ax = GetNextTile20(party);
-            L003D: SetMoveMap(party, 0x33, 0x01, ax, PopStack());
+            L003D: SetMoveMap(party, 0x33, 0x01, ax, PopStack(party));
             L0051: return; // RETURN;
         }
 
@@ -218,7 +218,7 @@ namespace XPT.Scripts.Maps {
             L001D: DoDamage90(party, ax);
             L0027: ax = GetCurrentHits70(party);
             L002E: RefreshCompareFlags(ax);
-            L0030: if (CompareResultUnsignedGreaterThan) goto L003F;
+            L0030: if (JumpAbove) goto L003F;
             L0032: ShowMessage(party, String06BF); // You have died.
             L003F: return; // RETURN;
         }
@@ -226,24 +226,24 @@ namespace XPT.Scripts.Maps {
         private void FnTXTPHNX_12(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState08(party, 0x02, 0x85);
-            L0016: if (CompareResultEqual) goto L0028;
+            L0003: ax = GetState08(party, 0x02, 0x85);
+            L0016: if (JumpEqual) goto L0028;
             L0018: ShowMessage(party, String06CE); // The Phoenix is being reborn and may not be disturbed.
             L0025: goto L00A7;
-            L0028: ax = CheckState08(party, 0x02, 0x86);
-            L003B: if (CompareResultEqual) goto L008D;
+            L0028: ax = GetState08(party, 0x02, 0x86);
+            L003B: if (JumpEqual) goto L008D;
             L003D: ShowMessage(party, String0704); // Ahead, bound by the River of Eternity, is the shadow of the Phoenix Firebird. 
             L004A: ShowMessage(party, String0753); // The raging waters of the river look daunting.
-            L0057: PushStack(0x01);
-            L005B: PushStack(0x02);
+            L0057: PushStack(party, 0x01);
+            L005B: PushStack(party, 0x02);
             L005F: ax = GetNextTile20(party);
-            L0066: PushStack(ax);
-            L0067: SetMove2C(party, PopStack(), PopStack(), PopStack());
-            L0071: PushStack(0x02);
+            L0066: PushStack(party, ax);
+            L0067: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0071: PushStack(party, 0x02);
             L0075: ax = GetNextTile20(party);
-            L007C: PushStack(ax);
-            L007D: PushStack(0x01);
-            L0081: SetUnblocked30(party);
+            L007C: PushStack(party, ax);
+            L007D: PushStack(party, 0x01);
+            L0081: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
             L008B: goto L00A7;
             L008D: ShowMessage(party, String0781); // You hear the sound of rushing water behind the wall.
             L009A: ShowMessage(party, String07B6); // You also hear muffled roars.
@@ -331,7 +331,7 @@ namespace XPT.Scripts.Maps {
             L0027: AddEncounter(party, 0x03, 0x11);
             L0039: AddEncounter(party, 0x04, 0x1C);
             L004B: ax = HasItem50(party, 0xEF);
-            L0059: if (CompareResultEqual) goto L007C;
+            L0059: if (JumpEqual) goto L007C;
             L005B: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0xD0);
             L007A: goto L009B;
             L007C: AddTreasure(party, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xEF);
@@ -351,8 +351,8 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x002D);
             L0010: ShowMessage(party, String0810); // A Gnome Wizard greets you.
-            L001D: ax = CheckState08(party, 0x02, 0x85);
-            L0030: if (CompareResultEqual) goto L004E;
+            L001D: ax = GetState08(party, 0x02, 0x85);
+            L0030: if (JumpEqual) goto L004E;
             L0032: ShowMessage(party, String082B); // 'Thank you for helping my master the Phoenix be reborn.
             L003F: ShowMessage(party, String0863); // The Phoenix may no longer be disturbed.'
             L004C: goto L0097;
@@ -360,7 +360,7 @@ namespace XPT.Scripts.Maps {
             L005B: ShowMessage(party, String08F0); // The way is now clear for you to meet the Phoenix.
             L0068: ShowMessage(party, String0922); // It is time for the Phoenix to die and so be reborn from its own ashes.
             L0075: ShowMessage(party, String0969); // Go!  Let the glorious Phoenix die and be renewed!'
-            L0082: SetState00(party, 0x02, 0x86, 0x01);
+            L0082: SetState(party, 0x02, 0x86, 0x01);
             L0097: return; // RETURN;
         }
 
@@ -403,11 +403,11 @@ namespace XPT.Scripts.Maps {
         private void FnPHOEREW_21(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x5E);
+            L0003: ax = GetState(party, 0x02, 0x5E);
             L0014: RefreshCompareFlags(ax);
-            L0016: if (!CompareResultEqual) goto L0063;
-            L0018: SetState00(party, 0x02, 0x5E, 0x01);
-            L002D: SetState00(party, 0x02, 0x85, 0x01);
+            L0016: if (JumpNotEqual) goto L0063;
+            L0018: SetState(party, 0x02, 0x5E, 0x01);
+            L002D: SetState(party, 0x02, 0x85, 0x01);
             L0042: ModifyAttributeA8(party, 0x04, 0x00C8);
             L0054: ShowMessage(party, String0BAD); // You feel a sudden increase in your Dexterity.
             L0061: goto L0070;
@@ -429,34 +429,34 @@ namespace XPT.Scripts.Maps {
         private void FnFNTNBAZZ_25(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckState04(party, 0x02, 0x5F);
+            L0003: ax = GetState(party, 0x02, 0x5F);
             L0014: RefreshCompareFlags(ax);
-            L0016: if (CompareResultEqual) goto L001B;
+            L0016: if (JumpEqual) goto L001B;
             L0018: goto L011A;
-            L001B: SetState00(party, 0x02, 0x5F, 0x01);
+            L001B: SetState(party, 0x02, 0x5F, 0x01);
             L0030: ShowPortrait(party, 0x0042);
             L003D: ShowMessage(party, String0D17); // You sip the cool purple waters of the ElfFoot Fountain
             L004A: ax = GetSkillLevel5C(party, 0x14);
             L0056: RefreshCompareFlags(ax);
-            L0058: if (!CompareResultEqual) goto L007B;
+            L0058: if (JumpNotEqual) goto L007B;
             L005A: SetSkillLevel60(party, 0x14, 0x01);
             L006B: ShowMessage(party, String0D4E); // You gain the skill of Rune Reading!
             L0078: goto L0118;
             L007B: ax = GetSkillLevel5C(party, 0x16);
             L0087: RefreshCompareFlags(ax);
-            L0089: if (!CompareResultEqual) goto L00AB;
+            L0089: if (JumpNotEqual) goto L00AB;
             L008B: SetSkillLevel60(party, 0x16, 0x01);
             L009C: ShowMessage(party, String0D72); // You gain the Channel skill!
             L00A9: goto L0118;
             L00AB: ax = GetSkillLevel5C(party, 0x15);
             L00B7: RefreshCompareFlags(ax);
-            L00B9: if (!CompareResultEqual) goto L00DB;
+            L00B9: if (JumpNotEqual) goto L00DB;
             L00BB: SetSkillLevel60(party, 0x15, 0x01);
             L00CC: ShowMessage(party, String0D8E); // You gain the Staff skill!
             L00D9: goto L0118;
             L00DB: ax = GetSkillLevel5C(party, 0x17);
             L00E7: RefreshCompareFlags(ax);
-            L00E9: if (!CompareResultEqual) goto L010B;
+            L00E9: if (JumpNotEqual) goto L010B;
             L00EB: SetSkillLevel60(party, 0x17, 0x01);
             L00FC: ShowMessage(party, String0DA8); // You gain the Deep Trance skill!
             L0109: goto L0118;
@@ -491,32 +491,32 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
             L0010: ShowMessage(party, String0EBC); // Ranger banners decorate the woodwork of Lookout Fountain.
-            L001D: ax = CheckState04(party, 0x02, 0x60);
+            L001D: ax = GetState(party, 0x02, 0x60);
             L002E: RefreshCompareFlags(ax);
-            L0030: if (CompareResultEqual) goto L0035;
+            L0030: if (JumpEqual) goto L0035;
             L0032: goto L0118;
-            L0035: SetState00(party, 0x02, 0x60, 0x01);
+            L0035: SetState(party, 0x02, 0x60, 0x01);
             L004A: ax = GetSkillLevel5C(party, 0x09);
             L0056: RefreshCompareFlags(ax);
-            L0058: if (!CompareResultEqual) goto L007B;
+            L0058: if (JumpNotEqual) goto L007B;
             L005A: SetSkillLevel60(party, 0x09, 0x02);
             L006B: ShowMessage(party, String0EF6); // You gain the skill of Stamina!
             L0078: goto L0118;
             L007B: ax = GetSkillLevel5C(party, 0x0A);
             L0087: RefreshCompareFlags(ax);
-            L0089: if (!CompareResultEqual) goto L00AB;
+            L0089: if (JumpNotEqual) goto L00AB;
             L008B: SetSkillLevel60(party, 0x0A, 0x02);
             L009C: ShowMessage(party, String0F15); // You gain the skill of Furtiveness!
             L00A9: goto L0118;
             L00AB: ax = GetSkillLevel5C(party, 0x0B);
             L00B7: RefreshCompareFlags(ax);
-            L00B9: if (!CompareResultEqual) goto L00DB;
+            L00B9: if (JumpNotEqual) goto L00DB;
             L00BB: SetSkillLevel60(party, 0x0B, 0x02);
             L00CC: ShowMessage(party, String0F38); // You gain the skill of Reading Tracks!
             L00D9: goto L0118;
             L00DB: ax = GetSkillLevel5C(party, 0x08);
             L00E7: RefreshCompareFlags(ax);
-            L00E9: if (!CompareResultEqual) goto L010B;
+            L00E9: if (JumpNotEqual) goto L010B;
             L00EB: SetSkillLevel60(party, 0x08, 0x02);
             L00FC: ShowMessage(party, String0F5E); // You gain the skill of Archery!
             L0109: goto L0118;
@@ -628,7 +628,7 @@ namespace XPT.Scripts.Maps {
             L0044: DoDamage90(party, ax);
             L004E: ax = GetCurrentHits70(party);
             L0055: RefreshCompareFlags(ax);
-            L0057: if (CompareResultUnsignedGreaterThan) goto L0066;
+            L0057: if (JumpAbove) goto L0066;
             L0059: ShowMessage(party, String1178); // You have died.
             L0066: return; // RETURN;
         }
