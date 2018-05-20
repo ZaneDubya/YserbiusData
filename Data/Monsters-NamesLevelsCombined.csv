@@ -1,4 +1,4 @@
-Map,MapIndex,NameSingle,NamePlural,a0,Count,Adds,a1,PAR,MAR,XP,Gold,b0,b1,b2,Str,Def,Dex,HP,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,sp0,sl0,sp1,sl1,sp2,sl2,sp3,sl3,sp4,sl4,sp5,sl5,sp6,sl6,sp7,sl7,sp8,sl8,sp9,sl9
+Map,MapIndex,NameSingle,NamePlural,a0,Count,Adds,a1,PAR,MAR,XP,Gold,Agi,Ini,x0,Str,Def,Dex,HP,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,sp0,sl0,sp1,sl1,sp2,sl2,sp3,sl3,sp4,sl4,sp5,sl5,sp6,sl6,sp7,sl7,sp8,sl8,sp9,sl9
 0,0,Wolf,Wolves,0,1,1,4,0,0,0,0,3,2,1,12,7,4,16,0,2,3,6,1,0,0,0,2,1,0,0,2,2,255,0,255,0,255,0,255,0,255,0,255,0,255,0,255,0,255,0,255,0,255,0
 0,1,Lion,Lions,0,1,1,4,0,0,0,0,3,2,1,12,6,10,16,1,1,0,8,1,0,0,0,2,255,1,0,2,254,2,0,255,0,255,0,255,0,255,0,255,0,255,0,255,0,255,0,255,0,255,0
 0,2,Bear,Bears,0,1,1,4,0,0,0,0,3,4,1,14,10,12,50,2,1,4,6,1,0,255,0,2,3,254,0,2,0,0,0,255,0,255,0,255,0,255,0,255,0,255,0,255,0,255,0,255,0,255,0
