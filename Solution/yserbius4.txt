@@ -1,0 +1,161 @@
+         Shadows of Yserbius - Sierra (Part 4)
+
+                Walkthrough by Sue
+
+@~Continued from last issue
+
+This issue I'll cover Levels 4 and 5, because 4 is a very small
+(though tough) level. The maps are in the Hints Section.
+
+Level 4
+
+1) King's Domicile
+
+This level is a swine to put it mildly. Check it out with True
+Seeing and you'll see a checkerboard of yellow. The place is
+riddled with spinners and trapdoors. All the trapdoors lead to
+Level 5, the Lava Cellar, and I got sick to the back teeth of
+dropping down to there, trudging back, being spun and then falling
+through another trapdoor. To be brief, they are just a pain and a
+time waster.
+
+Two bits of info from NPCs. One tells you that the elemental bound
+by the wizard is En-li-Kil and he commands time itself. Another
+says that in the King's Quarters is an elevator that will take you
+to the Palace.  King Cleowyn used to use it to bypass the traps
+around his throne. (That is through the door at B2 which is opened
+using the King's Domicile Key. What? You haven't got that yet?
+Okay, I'll tell you where it is, you fight for it at C14).
+
+Stairs lead to the Great Corridor Level 3 at P16 and there's a
+teleport to Level 1 The Vestibule at A1. You arrive from the
+King's Palace via the pit there to B1 and the elevator is at C1.
+A blue lockpick opens most locked doors here. There are many
+square rooms arranged regularly around this area. Some have one
+way doors which can be a bind as they force you to drop through a
+trapdoor when you leave.
+
+The central room contains two teleports. One from The Great
+Corridor Level 3 is at H8 and one on the opposite side of the room,
+I9, leads to the Lava Cellar on Level 5.  This is the way you will
+return after falling through a trapdoor. To leave this room and
+enter the area proper, cast Detect facing the south wall at H9 and
+you'll find a secret door. Stairs to Level 5, The Thieves' Den, go
+down from C8.
+
+One NPC at N16 tells you that this is the lowest level of
+Cleowyn's Palace but merely the beginning of the dungeon proper.
+We still have a long way to go ...
+
+Level 5
+
+1) The Lava Cellar
+
+With the traps in the King's Domicile, you will get very familiar
+with the routes through this area. You can also reach it by
+teleport from the King's Domicile, arriving at F16 and returning
+that way after falling through a trapdoor.
+
+You'll learn from one NPC that the only way to get out of this
+basement area is through the lava field. It is deadly to touch (I
+didn't test this out!) and its great heat will sap your strength.
+(Yes, you lose 5HP/step). Another says there is a short cut
+through the lava field. If you can find the correct key, you'll be
+able to use the short cut. The key will also lead you to riches.
+(The key needed is the lava key which you find after a fight at
+O7. This is reached by passing through a series of one-way doors
+and having a lot of fights on the way.)
+
+The Lava Key opens several doors. There is a Fountain of Hot Ice
+to restore your health at J2 behind the door at J3.  It also
+unlocks doors at L7 and K8.  K8 leads to the short cut (the 'long
+cut' is via a door at M8). Visit L8 too for a lucrative fight with
+wyverns which is the one the NPC was talking about.
+
+A teleport to Level 5 The Pit Bottom is at P1. To enter the bottom
+left corner, you'll need to use the teleport at G7 to get to A2.
+Several one way routes (doors and walls) round here. The bottom
+right area, which is large but mostly empty, can only be dropped
+into from the King's Domicile.  One NPC tells you there is a
+teleport to the top somewhere round here.  Another says the pillow
+labyrinths are deep in the dungeon.  The labyrinth is the hollow
+part of the lava.
+
+2) Pit Bottom
+
+Once strong enough, you can drop into here from the pit in The
+Mines, level 1.  But you can also get here by teleport from The
+Lava Cellar Level 5, arriving at D1. You'll need the Lava Key to
+unlock the door at C4 and a Fountain of Restoration restores your
+health at H8.  Other than that, not much here. One NPC tells you
+to find the Fountain of Tranquillity if you are battle weary, and
+if you can.  Another says a thief told him of a wondrous world of
+four seasons deep in the heart of the dungeon.  There's something
+to look forward to! Or not, as it turns out ...
+
+3) The Thieves' Den
+
+This is reached in two ways; from a door in the hidden area in
+Level 1, The Mines, or from the King's Domicile. It leads back to
+the latter. A sign at F15 welcomes you to The Thieves' Den and not
+only is it full of various thieves but also magic users, undead,
+odd wyverns, polar bears and many other creatures. Some encounters
+have four different groups of monsters! An exit at J14 leads back
+to the Inn. Later you'll find stairs down at E15 and N14 which
+both lead to L6 The Labyrinth I.
+
+There are secret doors to find using Detect and also walls to walk
+through.  This held me up for several days. I knew from True
+Seeing and Read Tracks that there was more to explore but couldn't
+find it. Detect didn't help. All you need to do is walk through
+the wall at M16 - simple when you know how! Then through another
+at P14. Thanks to Maureen Barton for helping me out there.
+
+There are a series of hidden rooms along the top, each accessed by
+walk-through walls. Tough fights in here but good treasure too,
+especially at P8 (I got a sensor prism, beastly shield and bow of
+sorrow) and P9 (a cabinet holds various scrolls and potions plus
+there is 15000GP in a sack). P11 isn't bad either (a purple
+lockpick and 1250GP in my case)
+
+If you come to a dead end, start backtracking, checking walls
+using Detect and trying to walk through them.  Sometimes you'll
+find a hidden door which is locked too.  Use a lockpick - I struck
+to my trusty blue lockpick. To return, sometimes you walk back
+through the wall, other times a door appears. A blue lockpick is
+the only one that will unlock the door at A1 - behind it is
+Sinestra's Fountain which makes you feel more healthy and
+experienced when you drink from it.
+
+Back on Level 1 The Soldiers' Quarters, an NPC told us we could
+learn new skills in the dungeon and this is the place. Thieves
+will teach you various skills ... Detect at E5, Bard Skill at J9,
+use of staves at the Staff Training Centre (ho, ho) at C2, Archery
+at A7, Lockpick at C5, Fencing Training Centre at H13 and The Axe
+and Club Training Centre at M6. The Thieves Infirmary where all
+your wounds will be cured is at N8.
+
+There is a secret door (locked, use your blue lockpick) at N12 and
+a tough fight beyond. The north wall here also has a locked secret
+door and behind THAT is oodles of treasure - well, 5000GP, plus
+several goodies and the Thieves' Key. Very handy. The locked door
+at P15 opens using it. Behind a door at K10 a wise old thief tells
+you some useful tales, you're told, but what use they are I have
+no idea! If you return, he is asleep and can't be woken.
+
+@~To be continued next issue.
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              - o -
+
