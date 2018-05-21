@@ -1,292 +1,292 @@
 #YSGENN.EXE, 291 strings
-00021888,"Test"
-00027DA4,"Borland C++ - Copyright 1991 Borland Intl."
-00027F70,"Heap has been corrupted!"
-00027F89,"resource.054"
-00027F96,"Heap has been corrupted!"
-00027FAF,"ysbox"
-00027FBA,"mychars.dat"
-00027FC6,"mychars.dat"
-00027FD2,"mychars.dat"
-00027FDE,"mychars.dat"
-000283C4,"Barbarian"
-000283CE,"Knight"
-000283D5,"Ranger"
-000283DC,"Thief"
-000283E2,"Cleric"
-000283E9,"Wizard"
-000283F0,"Male"
-000283F5,"Female"
-000283FC,"Human"
-0002840A,"Troll"
-00028410,"Dwarf"
-00028416,"Gnome"
-0002841C,"Halfling"
-00028425,"Gremlin"
-0002842D,"Harmony"
-00028435,"Chaos"
-0002843B,"Backfire"
-00028444,"Blast"
-0002844A,"Control"
-00028452,"Curse"
-00028458,"Death Darts"
-00028464,"Dissipate"
-0002846E,"Fireball"
-00028477,"Hail"
-0002847C,"Lightning"
-00028486,"Petrify"
-0002848E,"Poison Cloud"
-0002849B,"Storm Wind"
-000284A6,"Aura"
-000284AB,"Light Shroud"
-000284B8,"Energy Field"
-000284C5,"Shield"
-000284CC,"Refresh"
-000284D4,"Teleport"
-000284DD,"Bless"
-000284E3,"Cure"
-000284E8,"Heal"
-000284ED,"Resist"
-000284F4,"Resuscitate"
-00028500,"True Seeing"
-0002850C,"Athletics"
-00028516,"Clubs/Axes"
-00028521,"Berserker"
-0002852B,"Pursuit"
-00028533,"Leadership"
-0002853E,"Fencing"
-00028546,"Binding"
-0002854E,"Intimidate"
-00028559,"Archery"
-00028561,"Stamina"
-00028569,"Furtiveness"
-00028575,"Read Tracks"
-00028581,"Bard"
-00028586,"Detect"
-0002858D,"Lockpick"
-00028596,"Pickpocket"
-000285A1,"Martial Arts"
-000285AE,"Deflect Magic"
-000285BC,"Medic"
-000285C2,"Reverie"
-000285CA,"Rune Reading"
-000285D7,"Staff"
-000285DD,"Channel"
-000285E5,"Deep Trance"
-000285F2,"DONE"
-000285F7,"GETTING STARTED"
-00028607,"GETTING STARTED"
-000287E6,"resource.054"
-000287F3,"resource.054"
-00028800,"ATTRIBUTES"
-0002880B,"STRENGTH"
-00028814,"DEFENSE"
-0002881C,"AGILITY"
-00028824,"INITIATIVE"
-0002882F,"DEXTERITY"
-00028839,"HEALTH"
-00028840,"MANA"
-00028845,"POINTS"
-0002884C,"REMAINING"
-000288AD,"!NEXT"
-000288B3,"PREVIOUS"
-000288BC,"CANCEL"
-000288C3,"DONE"
-000289CF,"!SPELLS"
-000289D7,"POINTS"
-000289DE,"REMAINING"
-00028A3F,"!SKILLS"
-00028A47,"POINTS"
-00028A4E,"REMAINING"
-00028B13,"IDENTITY"
-00028B1C,"NAME"
-00028B21,"EPITHET"
-00028B29,"RACE"
-00028B32,"GUILD"
-00028B38,"ALIGNMENT"
-00028B42,"Unnamed"
-00028B4A,"Unnamed"
-00028C01,"!APPEARANCE"
-00028C0D,"FACE"
-00028C12,"HEAD COVER"
-00028C1D,"COSTUME"
-00028C25,"NOSE"
-00028C2A,"EYE COLOR"
-00028C34,"FACIAL HAIR"
-00028C40,"FACIAL VEIL"
-00028CA3,"!resource.040"
-00028CB4,"Unnamed"
-00028CBD,"automaps.dat"
-00028D21,"!This is the Yserbius Gallery.  Use the left and right arrows to select a character.  Press Replace to create a character of your own design, Delete to remove the current character, Play to enter Yserbius, or Quit to return to the Waiting Room."
-00028E16,"mychars.dat"
-00028E22,"mychars.dat"
-00028E2E,"GALLERY"
-00028E36,"Slot %d: Vacant"
-00028E48,"Level "
-00028E51,"mychars.dat"
-00028E5D,"mychars.dat"
-00028E69,"mychars.dat"
-00028E75,"mychars.dat"
-00028EDA,"REPLACE"
-00028EE2,"DELETE"
-00028EE9,"PLAY"
-00028EEE,"HELP"
-00028EF3,"QUIT"
-00028F58,"OFF-LINE"
-00028F61,"OKAY"
-00028F66,"CANCEL"
-00028FD5,"Application Orphaned."
-00028FEB,"TSN Net Connect Failure."
-00029004,"TSN Net Maintenance Failure."
-00029021,"c:hostcomm.cpp"
-00029030,"Application Orphaned."
-00029046,"c:hostcomm.cpp"
-00029055,"TSN_NetSend() failed on command %d"
-00029078,"c:hostcomm.cpp"
-00029087,"TSN_NetSend() failed on command %d"
-000290AA,"c:hostcomm.cpp"
-000290B9,"TSN_NetSend() failed on command %d"
-000290DC,"c:hostcomm.cpp"
-000290EB,"TSN_NetSend() failed on command %d"
-0002910E,"c:hostcomm.cpp"
-0002911D,"TSN_NetSend() failed on command %d"
-00029140,"c:hostcomm.cpp"
-0002914F,"TSN_NetSend() failed on command %d"
-00029172,"c:hostcomm.cpp"
-00029181,"TSN_NetSend() failed on command %d"
-000291A4,"c:hostcomm.cpp"
-000291B3,"TSN_NetSend() failed on command %d"
-000291D6,"c:hostcomm.cpp"
-000291E5,"TSN_NetSend() failed on command %d"
-00029208,"c:hostcomm.cpp"
-00029217,"TSN_NetSend() failed on command %d"
-0002923A,"c:hostcomm.cpp"
-00029249,"TSN_NetSend() failed on command %d"
-0002926C,"c:hostcomm.cpp"
-0002927B,"TSN_NetSend() failed on command %d"
-0002929E,"c:hostcomm.cpp"
-000292AD,"TSN_NetSend() failed on command %d"
-000292D0,"c:hostcomm.cpp"
-000292DF,"TSN_NetSend() failed on command %d"
-00029302,"c:hostcomm.cpp"
-00029311,"TSN_NetSend() failed on command %d"
-00029334,"c:hostcomm.cpp"
-00029343,"TSN_NetSend() failed on command %d"
-00029366,"c:hostcomm.cpp"
-00029375,"TSN_NetSend() failed on command %d"
-00029398,"c:hostcomm.cpp"
-000293A7,"TSN_NetSend() failed on command %d"
-000293CA,"c:hostcomm.cpp"
-000293D9,"TSN_NetSend() failed on command %d"
-000293FC,"BBS Server offline."
-00029410,"TSN NAK Error."
-00029455,"Message : "
-00029463,"Press 'ENTER' to exit: "
-0002947B,"c:hostcomm.cpp"
-0002948A,"cannot farmalloc %u bytes"
-000294A4,"c:hostcomm.cpp"
-000294B3,"NewHandle cannot alloc %d bytes, free = %d, largest = %d"
-00029755,"[Unknown]"
-0002975F,"TSN Timeout... Waiting."
-00029777,"Unable To Join Map!"
-0002978B,"Can't join; being joined."
-000297A5,"Can't join; leading party."
-000297C0,"You cannot join a party here!"
-000297DE,"Attempting to Join "
-000297F2,"Unable to Join. No Response."
-0002980F,"Received OK to Join"
-00029823,"Unable to Join."
-00029833,"Now Following "
-00029844,"Unable to Join Party here."
-0002985F,"Unable to join."
-0002986F,"Leaving Party..."
-00029880,"Now Playing Solo."
-00029892,"No Challenge during Join."
-000298AC,"You are already in a Challenge combat!"
-000298D3,"Unable to Challenge."
-000298E8,"Unable to Challenge.  Player may be in battle."
-00029917,"Unable To Join Land!"
-0002992C,"Invalid Land Group."
-00029940,"Land Place Full.  Try another Place."
-00029965,"Invalid Land Object."
-0002997A,"Land Group Locked."
-0002998D,"No Rights to Land."
-000299A0,"Incompatible Land Version."
-000299BB,"Unable To Create Map Group!"
-000299D7,"Unable To Create Player Object!"
-000299F7,"Unable To Create Personal Party!"
-00029A18,"TSN Code 1"
-00029A23,"TSN Code 2"
-00029A2E,"TSN Code 3"
-00029A39,"TSN Code 4"
-00029A44,"TSN Code 5"
-00029A4F,"TSN Code 6"
-00029A5A,"rpgcomms.cpp"
-00029A67,"TSN_NetSend() failed on command %d"
-00029A8A," has joined your party."
-00029AA2," has left your party."
-00029AB8," joining your party..."
-00029ACF,"rpgbbs.cpp"
-00029ADA,"TSN_NetSend() failed on command %d"
-00029BEE,"$ADLIB.ADV"
-00029BF9,"ADLIB.ADV"
-00029C03,"ADLIB.ADV"
-00029C0D,"MT32MPU.ADV"
-00029C19,"SBFM.ADV"
-00029C22,"AD99.XMI"
-00029C2B,"ADTIMBRE.GTL"
-00029C38,"SBDIG.ADV"
-00029C42,"Bad or Missing LSCI.CFG."
-00029C5B,"Low Memory. Not loading Sound."
-00029C7A,"Error Loading XMIDI Driver."
-00029C99,"XMIDI Driver NOT Compatible"
-00029CB5,"Driver NOT XMIDI."
-00029CC7,"Could NOT find Sound Hardware."
-00029CE6,"Error loading digital driver."
-00029D04,"Digital driver NOT compatible."
-00029D23,"Digital driver not DSP."
-00029D3B,"Could NOT find digital sound hardware."
-00029D62,"SFX01.VOC"
-00029D6C,"Error loading wooddoor."
-00029D84,"SFX03.VOC"
-00029D8E,"Error loading footstep."
-00029DA6,"SFX05.VOC"
-00029DB0,"Error loading hitwall."
-00029DC7,"SFX10.VOC"
-00029DD1,"Error loading spell."
-00029DE6,"SFX12.VOC"
-00029DF0,"Error loading footstep."
-00029E08,"SFX13.VOC"
-00029E12,"Error loading teleport."
-00029E2A,"SFX15.VOC"
-00029E34,"Error loading footstep."
-00029E4C,"THE DUNGEON CLOSES..."
-00029E62,"Error loading XMI file."
-00029E7D,"Could NOT find a Timbre."
-00029EA5,"music"
-00029EAD,"TANDYXL.DRV"
-00029EB9,"ADL.DRV"
-00029EC1,"MT32.DRV"
-00029ECA,"SNDBLAST.DRV"
-0002A002,"0123456789ABCDEF"
-0002D81B,"vrhd`VRHD@"
-0002D89A,"$)48CHSXchr"
-0002D8CD,"****.TSU"
-0002DD01,"$IMAGES.DAT"
-0002DD0D,"PALETTE.DAT"
-0002DD1D,"help.dat"
-0002DD26,"help.dat"
-0002DD2F,"Press Any Key To Exit"
-0002DD45,"Memory Allocation Error"
-0002DD5D,"Illegal Sprite Value"
-0002DD72,"Attempt To Dispose Null Ptr (MEMMGR)"
-0002DD97,"Attempt To Dispose Non-Allocated Ptr (MEMMGR)"
-0002DDC5,"Attempt To Dispose Non-Linked Ptr (MEMMGR)"
-0002DDF0,"Memory Allocation Error (MEMMGR)"
-0002DE11,"Unable to Obtain New Handle (MEMMGR)"
-0002DE36,"Illegal Sprite Parameters"
-0002DE50,"Version Control Error"
-0002DE66,"Unable To Find File : "
-0002DE9B,"palette.dat"
-0002E19B,"COMPAQ"
-0002E200,"PATH"
+Test
+Borland C++ - Copyright 1991 Borland Intl.
+Heap has been corrupted!
+resource.054
+Heap has been corrupted!
+ysbox
+mychars.dat
+mychars.dat
+mychars.dat
+mychars.dat
+Barbarian
+Knight
+Ranger
+Thief
+Cleric
+Wizard
+Male
+Female
+Human
+Troll
+Dwarf
+Gnome
+Halfling
+Gremlin
+Harmony
+Chaos
+Backfire
+Blast
+Control
+Curse
+Death Darts
+Dissipate
+Fireball
+Hail
+Lightning
+Petrify
+Poison Cloud
+Storm Wind
+Aura
+Light Shroud
+Energy Field
+Shield
+Refresh
+Teleport
+Bless
+Cure
+Heal
+Resist
+Resuscitate
+True Seeing
+Athletics
+Clubs/Axes
+Berserker
+Pursuit
+Leadership
+Fencing
+Binding
+Intimidate
+Archery
+Stamina
+Furtiveness
+Read Tracks
+Bard
+Detect
+Lockpick
+Pickpocket
+Martial Arts
+Deflect Magic
+Medic
+Reverie
+Rune Reading
+Staff
+Channel
+Deep Trance
+DONE
+GETTING STARTED
+GETTING STARTED
+resource.054
+resource.054
+ATTRIBUTES
+STRENGTH
+DEFENSE
+AGILITY
+INITIATIVE
+DEXTERITY
+HEALTH
+MANA
+POINTS
+REMAINING
+!NEXT
+PREVIOUS
+CANCEL
+DONE
+!SPELLS
+POINTS
+REMAINING
+!SKILLS
+POINTS
+REMAINING
+IDENTITY
+NAME
+EPITHET
+RACE
+GUILD
+ALIGNMENT
+Unnamed
+Unnamed
+!APPEARANCE
+FACE
+HEAD COVER
+COSTUME
+NOSE
+EYE COLOR
+FACIAL HAIR
+FACIAL VEIL
+!resource.040
+Unnamed
+automaps.dat
+!This is the Yserbius Gallery.  Use the left and right arrows to select a character.  Press Replace to create a character of your own design, Delete to remove the current character, Play to enter Yserbius, or Quit to return to the Waiting Room.
+mychars.dat
+mychars.dat
+GALLERY
+Slot %d: Vacant
+Level 
+mychars.dat
+mychars.dat
+mychars.dat
+mychars.dat
+REPLACE
+DELETE
+PLAY
+HELP
+QUIT
+OFF-LINE
+OKAY
+CANCEL
+Application Orphaned.
+TSN Net Connect Failure.
+TSN Net Maintenance Failure.
+c:hostcomm.cpp
+Application Orphaned.
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+BBS Server offline.
+TSN NAK Error.
+Message : 
+Press 'ENTER' to exit: 
+c:hostcomm.cpp
+cannot farmalloc %u bytes
+c:hostcomm.cpp
+NewHandle cannot alloc %d bytes, free = %d, largest = %d
+[Unknown]
+TSN Timeout... Waiting.
+Unable To Join Map!
+Can't join; being joined.
+Can't join; leading party.
+You cannot join a party here!
+Attempting to Join 
+Unable to Join. No Response.
+Received OK to Join
+Unable to Join.
+Now Following 
+Unable to Join Party here.
+Unable to join.
+Leaving Party...
+Now Playing Solo.
+No Challenge during Join.
+You are already in a Challenge combat!
+Unable to Challenge.
+Unable to Challenge.  Player may be in battle.
+Unable To Join Land!
+Invalid Land Group.
+Land Place Full.  Try another Place.
+Invalid Land Object.
+Land Group Locked.
+No Rights to Land.
+Incompatible Land Version.
+Unable To Create Map Group!
+Unable To Create Player Object!
+Unable To Create Personal Party!
+TSN Code 1
+TSN Code 2
+TSN Code 3
+TSN Code 4
+TSN Code 5
+TSN Code 6
+rpgcomms.cpp
+TSN_NetSend() failed on command %d
+ has joined your party.
+ has left your party.
+ joining your party...
+rpgbbs.cpp
+TSN_NetSend() failed on command %d
+$ADLIB.ADV
+ADLIB.ADV
+ADLIB.ADV
+MT32MPU.ADV
+SBFM.ADV
+AD99.XMI
+ADTIMBRE.GTL
+SBDIG.ADV
+Bad or Missing LSCI.CFG.
+Low Memory. Not loading Sound.
+Error Loading XMIDI Driver.
+XMIDI Driver NOT Compatible
+Driver NOT XMIDI.
+Could NOT find Sound Hardware.
+Error loading digital driver.
+Digital driver NOT compatible.
+Digital driver not DSP.
+Could NOT find digital sound hardware.
+SFX01.VOC
+Error loading wooddoor.
+SFX03.VOC
+Error loading footstep.
+SFX05.VOC
+Error loading hitwall.
+SFX10.VOC
+Error loading spell.
+SFX12.VOC
+Error loading footstep.
+SFX13.VOC
+Error loading teleport.
+SFX15.VOC
+Error loading footstep.
+THE DUNGEON CLOSES...
+Error loading XMI file.
+Could NOT find a Timbre.
+music
+TANDYXL.DRV
+ADL.DRV
+MT32.DRV
+SNDBLAST.DRV
+0123456789ABCDEF
+vrhd`VRHD@
+$)48CHSXchr
+****.TSU
+$IMAGES.DAT
+PALETTE.DAT
+help.dat
+help.dat
+Press Any Key To Exit
+Memory Allocation Error
+Illegal Sprite Value
+Attempt To Dispose Null Ptr (MEMMGR)
+Attempt To Dispose Non-Allocated Ptr (MEMMGR)
+Attempt To Dispose Non-Linked Ptr (MEMMGR)
+Memory Allocation Error (MEMMGR)
+Unable to Obtain New Handle (MEMMGR)
+Illegal Sprite Parameters
+Version Control Error
+Unable To Find File : 
+palette.dat
+COMPAQ
+PATH

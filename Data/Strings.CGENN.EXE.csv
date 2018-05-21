@@ -1,241 +1,241 @@
 #CGENN.EXE, 240 strings
-00020A3C,"Test"
-00026F54,"Borland C++ - Copyright 1991 Borland Intl."
-000270AD,"Heap has been corrupted!"
-000270C6,"resource.039"
-000270D3,"YSERBA"
-000270DA,"DEFAULT"
-000270E2,"mychars.dat"
-00027490,"Barbarian"
-0002749A,"Knight"
-000274A1,"Ranger"
-000274A8,"Thief"
-000274AE,"Cleric"
-000274B5,"Wizard"
-000274BC,"Male"
-000274C1,"Female"
-000274C8,"Human"
-000274D6,"Troll"
-000274DC,"Dwarf"
-000274E2,"Gnome"
-000274E8,"Halfling"
-000274F1,"Gremlin"
-000274F9,"Harmony"
-00027501,"Chaos"
-00027507,"Backfire"
-00027510,"Blast"
-00027516,"Control"
-0002751E,"Curse"
-00027524,"Death Darts"
-00027530,"Dissipate"
-0002753A,"Fireball"
-00027543,"Hail"
-00027548,"Lightning"
-00027552,"Petrify"
-0002755A,"Poison Cloud"
-00027567,"Storm Wind"
-00027572,"Aura"
-00027577,"Light Shroud"
-00027584,"Energy Field"
-00027591,"Shield"
-00027598,"Refresh"
-000275A0,"Teleport"
-000275A9,"Bless"
-000275AF,"Cure"
-000275B4,"Heal"
-000275B9,"Resist"
-000275C0,"Resuscitate"
-000275CC,"True Seeing"
-000275D8,"Athletics"
-000275E2,"Clubs/Axes"
-000275ED,"Berserker"
-000275F7,"Pursuit"
-000275FF,"Leadership"
-0002760A,"Fencing"
-00027612,"Binding"
-0002761A,"Intimidate"
-00027625,"Archery"
-0002762D,"Stamina"
-00027635,"Furtiveness"
-00027641,"Read Tracks"
-0002764D,"Bard"
-00027652,"Detect"
-00027659,"Lockpick"
-00027662,"Pickpocket"
-0002766D,"Martial Arts"
-0002767A,"Deflect Magic"
-00027688,"Medic"
-0002768E,"Reverie"
-00027696,"Rune Reading"
-000276A3,"Staff"
-000276A9,"Channel"
-000276B1,"Deep Trance"
-000276BE,"DONE"
-000276C3,"GETTING STARTED"
-000276D3,"GETTING STARTED"
-000278B2,"resource.039"
-000278BF,"ATTRIBUTES"
-000278CA,"STRENGTH"
-000278D3,"DEFENSE"
-000278DB,"AGILITY"
-000278E3,"INITIATIVE"
-000278EE,"DEXTERITY"
-000278F8,"HEALTH"
-000278FF,"MANA"
-00027904,"POINTS"
-0002790B,"REMAINING"
-0002796E,"NEXT"
-00027973,"PREVIOUS"
-0002797C,"CANCEL"
-00027983,"DONE"
-00027A8F," SPELLS"
-00027A97,"POINTS"
-00027A9E,"REMAINING"
-00027AFF," SKILLS"
-00027B07,"POINTS"
-00027B0E,"REMAINING"
-00027BD3,"IDENTITY"
-00027BDC,"NAME"
-00027BE1,"EPITHET"
-00027BE9,"RACE"
-00027BF2,"GUILD"
-00027BF8,"ALIGNMENT"
-00027C02,"Unnamed"
-00027CB9," APPEARANCE"
-00027CC5,"FACE"
-00027CCA,"HEAD COVER"
-00027CD5,"COSTUME"
-00027CDD,"NOSE"
-00027CE2,"EYE COLOR"
-00027CEC,"FACIAL HAIR"
-00027CF8,"FACIAL VEIL"
-00027D5B," resource.040"
-00027D6C,"Unnamed"
-00027D74,"automaps.dat"
-00027DDA,"This is the Yserbius Gallery.  Use the left and right arrows to select a character.  Press Replace to create a character of your own design, Delete to remove the current character, Play to enter Yserbius, or Quit to return to the Waiting Room."
-00027ECE,"mychars.dat"
-00027EDA,"GALLERY"
-00027EE2,"Slot %d: Vacant"
-00027EF4,"Level "
-00027F54,"REPLACE"
-00027F5C,"DELETE"
-00027F63,"PLAY"
-00027F68,"HELP"
-00027F6D,"QUIT"
-00027FC9," ON-LINE"
-00027FD2,"OFF-LINE"
-00027FDB,"OKAY"
-00027FE0,"CANCEL"
-00028049,"Application Orphaned."
-0002805F,"TSN Net Connect Failure."
-00028078,"TSN Net Maintenance Failure."
-00028095,"c:hostcomm.cpp"
-000280A4,"TSN_NetSend() failed on command %d"
-000280C7,"BBS Server offline."
-000280DB,"TSN NAK Error."
-00028120,"Message : "
-0002812B,"Press 'ENTER' to exit: "
-00028143,"cannot farmalloc %u bytes"
-0002815D,"NewHandle cannot alloc %d bytes, free = %d, largest = %d"
-000283FF,"[Unknown]"
-00028409,"TSN Timeout... Waiting."
-00028421,"Unable To Join Map!"
-00028435,"Can't join; being joined."
-0002844F,"Can't join; leading party."
-0002846A,"You cannot join a party here!"
-00028488,"Attempting to Join "
-0002849C,"Unable to Join. No Response."
-000284B9,"Received OK to Join"
-000284CD,"Unable to Join."
-000284DD,"Now Following "
-000284EC,"Unable to Join Party here."
-00028507,"Unable to join."
-00028517,"Leaving Party..."
-00028528,"Now Playing Solo."
-0002853A,"No Challenge during Join."
-00028554,"You are already in a Challenge combat!"
-0002857B,"Unable to Challenge."
-00028590,"Unable to Challenge.  Player may be in battle."
-000285BF,"Unable To Join Land!"
-000285D4,"Invalid Land Group."
-000285E8,"Land Place Full.  Try another Place."
-0002860D,"Invalid Land Object."
-00028622,"Land Group Locked."
-00028635,"No Rights to Land."
-00028648,"Incompatible Land Version."
-00028663,"Unable To Create Map Group!"
-0002867F,"Unable To Create Player Object!"
-0002869F,"Unable To Create Personal Party!"
-000286C0,"TSN Code 1"
-000286CB,"TSN Code 2"
-000286D6,"TSN Code 3"
-000286E1,"TSN Code 4"
-000286EC,"TSN Code 5"
-000286F7,"TSN Code 6"
-00028702,"rpgcomms.cpp"
-0002870F,"TSN_NetSend() failed on command %d"
-00028732," has joined your party."
-0002874A," has left your party."
-00028760," joining your party..."
-00028777,"Joining another player."
-0002878F,"In combat."
-0002879A,"Not party leader."
-000287AC,"Has a full party."
-000287BE,"Refuses followers."
-000287D1,"rpgbbs.cpp"
-000288CE,"#ADLIB.ADV"
-000288D9,"MT32MPU.ADV"
-000288E5,"SBFM.ADV"
-000288EE,"AD99.XMI"
-000288F7,"ADTIMBRE.GTL"
-00028904,"SBDIG.ADV"
-0002890E,"Bad or Missing LSCI.CFG."
-00028927,"Low Memory. Not loading Sound."
-00028946,"Error Loading XMIDI Driver."
-00028965,"XMIDI Driver NOT Compatible"
-00028981,"Driver NOT XMIDI."
-00028993,"Could NOT find Sound Hardware."
-000289B2,"Error loading digital driver."
-000289D0,"Digital driver NOT compatible."
-000289EF,"Digital driver not DSP."
-00028A07,"Could NOT find digital sound hardware."
-00028A2E,"SFX01.VOC"
-00028A38,"Error loading wooddoor."
-00028A50,"SFX03.VOC"
-00028A5A,"Error loading footstep."
-00028A72,"SFX05.VOC"
-00028A7C,"Error loading hitwall."
-00028A93,"SFX10.VOC"
-00028A9D,"Error loading spell."
-00028AB2,"SFX12.VOC"
-00028ABC,"SFX13.VOC"
-00028AC6,"Error loading teleport."
-00028ADE,"SFX15.VOC"
-00028AE8,"THE DUNGEON CLOSES..."
-00028AFE,"Error loading XMI file."
-00028B19,"Could NOT find a Timbre."
-00028B41,"music"
-00028B49,"TANDYXL.DRV"
-00028B55,"ADL.DRV"
-00028B5D,"MT32.DRV"
-00028B66,"SNDBLAST.DRV"
-00028C9E,"0123456789ABCDEF"
-0002C4B7,"vrhd`VRHD@"
-0002C536,"$)48CHSXchr"
-0002C569,"****.TSU"
-0002C99D,"#IMAGES.DAT"
-0002C9A9,"PALETTE.DAT"
-0002C9B9,"help.dat"
-0002C9C2,"Press Any Key To Exit"
-0002C9D8,"Memory Allocation Error"
-0002C9F0,"Illegal Sprite Value"
-0002CA05,"Attempt To Dispose Null Ptr (MEMMGR)"
-0002CA2A,"Attempt To Dispose Non-Allocated Ptr (MEMMGR)"
-0002CA58,"Attempt To Dispose Non-Linked Ptr (MEMMGR)"
-0002CA83,"Memory Allocation Error (MEMMGR)"
-0002CAA4,"Unable to Obtain New Handle (MEMMGR)"
-0002CAC9,"Illegal Sprite Parameters"
-0002CAE3,"Version Control Error"
-0002CAF9,"Unable To Find File : "
-0002CB2A,"palette.dat"
-0002CE29,"COMPAQ"
+Test
+Borland C++ - Copyright 1991 Borland Intl.
+Heap has been corrupted!
+resource.039
+YSERBA
+DEFAULT
+mychars.dat
+Barbarian
+Knight
+Ranger
+Thief
+Cleric
+Wizard
+Male
+Female
+Human
+Troll
+Dwarf
+Gnome
+Halfling
+Gremlin
+Harmony
+Chaos
+Backfire
+Blast
+Control
+Curse
+Death Darts
+Dissipate
+Fireball
+Hail
+Lightning
+Petrify
+Poison Cloud
+Storm Wind
+Aura
+Light Shroud
+Energy Field
+Shield
+Refresh
+Teleport
+Bless
+Cure
+Heal
+Resist
+Resuscitate
+True Seeing
+Athletics
+Clubs/Axes
+Berserker
+Pursuit
+Leadership
+Fencing
+Binding
+Intimidate
+Archery
+Stamina
+Furtiveness
+Read Tracks
+Bard
+Detect
+Lockpick
+Pickpocket
+Martial Arts
+Deflect Magic
+Medic
+Reverie
+Rune Reading
+Staff
+Channel
+Deep Trance
+DONE
+GETTING STARTED
+GETTING STARTED
+resource.039
+ATTRIBUTES
+STRENGTH
+DEFENSE
+AGILITY
+INITIATIVE
+DEXTERITY
+HEALTH
+MANA
+POINTS
+REMAINING
+NEXT
+PREVIOUS
+CANCEL
+DONE
+ SPELLS
+POINTS
+REMAINING
+ SKILLS
+POINTS
+REMAINING
+IDENTITY
+NAME
+EPITHET
+RACE
+GUILD
+ALIGNMENT
+Unnamed
+ APPEARANCE
+FACE
+HEAD COVER
+COSTUME
+NOSE
+EYE COLOR
+FACIAL HAIR
+FACIAL VEIL
+ resource.040
+Unnamed
+automaps.dat
+This is the Yserbius Gallery.  Use the left and right arrows to select a character.  Press Replace to create a character of your own design, Delete to remove the current character, Play to enter Yserbius, or Quit to return to the Waiting Room.
+mychars.dat
+GALLERY
+Slot %d: Vacant
+Level 
+REPLACE
+DELETE
+PLAY
+HELP
+QUIT
+ ON-LINE
+OFF-LINE
+OKAY
+CANCEL
+Application Orphaned.
+TSN Net Connect Failure.
+TSN Net Maintenance Failure.
+c:hostcomm.cpp
+TSN_NetSend() failed on command %d
+BBS Server offline.
+TSN NAK Error.
+Message : 
+Press 'ENTER' to exit: 
+cannot farmalloc %u bytes
+NewHandle cannot alloc %d bytes, free = %d, largest = %d
+[Unknown]
+TSN Timeout... Waiting.
+Unable To Join Map!
+Can't join; being joined.
+Can't join; leading party.
+You cannot join a party here!
+Attempting to Join 
+Unable to Join. No Response.
+Received OK to Join
+Unable to Join.
+Now Following 
+Unable to Join Party here.
+Unable to join.
+Leaving Party...
+Now Playing Solo.
+No Challenge during Join.
+You are already in a Challenge combat!
+Unable to Challenge.
+Unable to Challenge.  Player may be in battle.
+Unable To Join Land!
+Invalid Land Group.
+Land Place Full.  Try another Place.
+Invalid Land Object.
+Land Group Locked.
+No Rights to Land.
+Incompatible Land Version.
+Unable To Create Map Group!
+Unable To Create Player Object!
+Unable To Create Personal Party!
+TSN Code 1
+TSN Code 2
+TSN Code 3
+TSN Code 4
+TSN Code 5
+TSN Code 6
+rpgcomms.cpp
+TSN_NetSend() failed on command %d
+ has joined your party.
+ has left your party.
+ joining your party...
+Joining another player.
+In combat.
+Not party leader.
+Has a full party.
+Refuses followers.
+rpgbbs.cpp
+#ADLIB.ADV
+MT32MPU.ADV
+SBFM.ADV
+AD99.XMI
+ADTIMBRE.GTL
+SBDIG.ADV
+Bad or Missing LSCI.CFG.
+Low Memory. Not loading Sound.
+Error Loading XMIDI Driver.
+XMIDI Driver NOT Compatible
+Driver NOT XMIDI.
+Could NOT find Sound Hardware.
+Error loading digital driver.
+Digital driver NOT compatible.
+Digital driver not DSP.
+Could NOT find digital sound hardware.
+SFX01.VOC
+Error loading wooddoor.
+SFX03.VOC
+Error loading footstep.
+SFX05.VOC
+Error loading hitwall.
+SFX10.VOC
+Error loading spell.
+SFX12.VOC
+SFX13.VOC
+Error loading teleport.
+SFX15.VOC
+THE DUNGEON CLOSES...
+Error loading XMI file.
+Could NOT find a Timbre.
+music
+TANDYXL.DRV
+ADL.DRV
+MT32.DRV
+SNDBLAST.DRV
+0123456789ABCDEF
+vrhd`VRHD@
+$)48CHSXchr
+****.TSU
+#IMAGES.DAT
+PALETTE.DAT
+help.dat
+Press Any Key To Exit
+Memory Allocation Error
+Illegal Sprite Value
+Attempt To Dispose Null Ptr (MEMMGR)
+Attempt To Dispose Non-Allocated Ptr (MEMMGR)
+Attempt To Dispose Non-Linked Ptr (MEMMGR)
+Memory Allocation Error (MEMMGR)
+Unable to Obtain New Handle (MEMMGR)
+Illegal Sprite Parameters
+Version Control Error
+Unable To Find File : 
+palette.dat
+COMPAQ

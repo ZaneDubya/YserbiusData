@@ -1,56 +1,56 @@
 #YSERBIUS.EXE, 55 strings
-00005C0E,"Test"
-00007884,"Borland C++ - Copyright 1991 Borland Intl."
-00007912,"bookys1.FLI"
-0000791E,"resource.099"
-0000792F,"title.exe"
-0000793D,"endbook.fli"
-00007949,"Not a VGA/MCGA display"
-00007960,"%s not in directory"
-00007974,"TITLE.EXE not found in directory"
-000079A4,"music"
-000079AC,"TANDYXL.DRV"
-000079B8,"ADL.DRV"
-000079C0,"MT32.DRV"
-000079C9,"SNDBLAST.DRV"
-000079ED,"DX##.VOC"
-000079F6,"MX##.XMI"
-000079FF,"X#S##.XMI"
-00007A09,"No room for timbre"
-00007A1F,"Could not open a file."
-00007A36,"Buffer not large enough for infile."
-00007A5A,"Could not read file."
-00007A6F,"Error loading sound driver."
-00007A8B,"Sound driver is not compatible with linked API version."
-00007AC3,"Error: driver is not XMIDI."
-00007ADF,"Cannot find midi-sound hardware."
-00007B00,"No memory for timbre cache."
-00007B1C,"MIDI_DRIVER could not be started."
-00007B3E,"SAMPLE.AD"
-00007B48,"Could not open timbre library"
-00007B66,"Could not find a Timbre."
-00007B7F,"Error: driver is not DSP."
-00007B99,"Cannot find digital-sound hardware."
-00007BBD,"DIGI_DRIVER could not be started."
-00007BDF,"Could not load digital sound effect."
-00007C04,"Could not load midi sound effect."
-00007C26,"Error reading XMI."
-00007C39,"Unable to EnsureTimbres."
-00007C52,"ADLIB.ADV"
-00007C5C,"MT32MPU.ADV"
-00007C68,"SBFM.ADV"
-00007C71,"Unrecognized soundcard specification."
-00007CB8,"0123456789ABCDEF"
-00007CF6,"Everything seems ok"
-00007D0A,"Unknown error"
-00007D18,"Out of memory"
-00007D26,"Can't find file"
-00007D36,"Can't make file (disk write-protected?)"
-00007D5E,"Not correct type of file"
-00007D77,"File internally damaged"
-00007D8F,"Wrong resolution, not 320x200"
-00007DAD,"File too short"
-00007DBC,"Unable to write all of file"
-00007DD8,"Error during seek"
-00007DEA,"Can't find %ld bytes"
-00008456,"PATH"
+Test
+Borland C++ - Copyright 1991 Borland Intl.
+bookys1.FLI
+resource.099
+title.exe
+endbook.fli
+Not a VGA/MCGA display
+%s not in directory
+TITLE.EXE not found in directory
+music
+TANDYXL.DRV
+ADL.DRV
+MT32.DRV
+SNDBLAST.DRV
+DX##.VOC
+MX##.XMI
+X#S##.XMI
+No room for timbre
+Could not open a file.
+Buffer not large enough for infile.
+Could not read file.
+Error loading sound driver.
+Sound driver is not compatible with linked API version.
+Error: driver is not XMIDI.
+Cannot find midi-sound hardware.
+No memory for timbre cache.
+MIDI_DRIVER could not be started.
+SAMPLE.AD
+Could not open timbre library
+Could not find a Timbre.
+Error: driver is not DSP.
+Cannot find digital-sound hardware.
+DIGI_DRIVER could not be started.
+Could not load digital sound effect.
+Could not load midi sound effect.
+Error reading XMI.
+Unable to EnsureTimbres.
+ADLIB.ADV
+MT32MPU.ADV
+SBFM.ADV
+Unrecognized soundcard specification.
+0123456789ABCDEF
+Everything seems ok
+Unknown error
+Out of memory
+Can't find file
+Can't make file (disk write-protected?)
+Not correct type of file
+File internally damaged
+Wrong resolution, not 320x200
+File too short
+Unable to write all of file
+Error during seek
+Can't find %ld bytes
+PATH
