@@ -1,4 +1,4 @@
-Name,Icon,Type,Charges,Guilds,HPMod,PAMod,MAMod,StrMod,DexMod,DefMod,DmgMod,IniMod,Spell,SpellLvl,Skill,SkillLvl,AgiMod,CanUse,CanSell,InfoMsg,BuyAt,SellAt
+Name,Icon,Type,Charges,Guilds,HPMod,PAMod,MAMod,StrMod,DexMod,DefMod,PAR,MAR,Spell,SpellLvl,Skill,SkillLvl,AgiMod,CanUse,CanSell,InfoMsg,BuyAt,SellAt
 Null Item,0,0,0,0,0,0,0,0,0,0,0,0,255,0,255,0,0,0,0,0,0,0
 Short Sword,1,1,0,0,0,0,0,0,1,0,0,0,255,0,5,255,0,0,1,20,25,10
 Broadsword,1,1,0,12,0,0,0,1,4,0,0,0,255,0,5,255,0,0,1,20,125,60
