@@ -98,11 +98,11 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The River of Eternity taps your life energy.
-            L0010: UnknownFunctionC4(party);
+            L0010: SetNoHealZoneC4(party);
             L0018: ax = GetMaxHits74(party);
             L001F: bx = 0x0004;
             L0022: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
-            L0025: DoDamage90(party, ax);
+            L0025: DamagePlayer90(party, ax);
             L002F: ax = GetCurrentHits70(party);
             L0036: RefreshCompareFlags(ax);
             L0038: if (JumpAbove) goto L0047;
@@ -122,7 +122,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String047C); // The Ageless Void swallows you whole.
             L0010: ax = GetMaxHits74(party);
-            L0017: DoDamage90(party, ax);
+            L0017: DamagePlayer90(party, ax);
             L0021: return; // RETURN;
         }
 
@@ -132,7 +132,7 @@ namespace XPT.Scripts.Maps {
             L0003: ShowPortrait(party, 0x0042);
             L0010: ShowMessage(party, String04A1); // SageCross Fountain revives your Health and Mana
             L001D: ax = GetMaxHits74(party);
-            L0024: AddHealth94(party, ax);
+            L0024: HealPlayer94(party, ax);
             L002E: AddMana(party, 0x2EE0);
             L003B: return; // RETURN;
         }
@@ -159,7 +159,7 @@ namespace XPT.Scripts.Maps {
             L0003: ShowPortrait(party, 0x0042);
             L0010: ShowMessage(party, String050E); // Minotaur Fountain revives your Health and Mana
             L001D: ax = GetMaxHits74(party);
-            L0024: AddHealth94(party, ax);
+            L0024: HealPlayer94(party, ax);
             L002E: AddMana(party, 0x2EE0);
             L003B: return; // RETURN;
         }
@@ -168,7 +168,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String053D); // As you reach the platform, a magical field envelops you and teleports you to a moon tapestry.
-            L0010: SetMoveMap(party, 0x38, 0x03, 0xEE, 0x02);
+            L0010: TeleportPartyBC(party, 0x38, 0x03, 0xEE, 0x02);
             L002B: return; // RETURN;
         }
 
@@ -178,16 +178,16 @@ namespace XPT.Scripts.Maps {
             L0003: ax = UsedItem54(party, 0xF2, 0xF2);
             L0016: if (JumpEqual) goto L005F;
             L0018: PushStack(party, 0x02);
-            L001C: ax = GetNextTile20(party);
+            L001C: ax = GetCurrentTile20(party);
             L0023: PushStack(party, ax);
             L0024: PushStack(party, 0x01);
-            L0028: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0028: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0032: PushStack(party, 0x01);
             L0036: ax = GetFacing24(party);
             L003D: PushStack(party, ax);
-            L003E: ax = GetNextTile20(party);
+            L003E: ax = GetCurrentTile20(party);
             L0045: PushStack(party, ax);
-            L0046: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0046: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0050: ShowMessage(party, String059B); // A magical door appears where the tapestry used to be.
             L005D: goto L006C;
             L005F: ShowMessage(party, String05D1); // A brilliant tapestry depicting moons decorates this room.
@@ -251,8 +251,8 @@ namespace XPT.Scripts.Maps {
             L00EB: RefreshCompareFlags(ax);
             L00ED: if (JumpEqual) goto L015A;
             L00EF: SetState(party, 0x01, 0x01, 0x01);
-            L0104: SetMove38(party, 0x42, 0x75);
-            L0115: SetMove38(party, 0x42, 0x85);
+            L0104: SetFloorObject38(party, 0x42, 0x75);
+            L0115: SetFloorObject38(party, 0x42, 0x85);
             L0126: ShowMessage(party, String0861); // Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
             L0133: ShowMessage(party, String08AE); // It intersects the Rainbow and bursts into blinding light.
             L0140: ShowMessage(party, String08E8); // Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
@@ -289,8 +289,8 @@ namespace XPT.Scripts.Maps {
             L00DC: RefreshCompareFlags(ax);
             L00DE: if (JumpEqual) goto L014B;
             L00E0: SetState(party, 0x01, 0x01, 0x01);
-            L00F5: SetMove38(party, 0x42, 0x75);
-            L0106: SetMove38(party, 0x42, 0x85);
+            L00F5: SetFloorObject38(party, 0x42, 0x75);
+            L0106: SetFloorObject38(party, 0x42, 0x85);
             L0117: ShowMessage(party, String09E4); // Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
             L0124: ShowMessage(party, String0A31); // It intersects the Rainbow and bursts into blinding light.
             L0131: ShowMessage(party, String0A6B); // Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
@@ -327,8 +327,8 @@ namespace XPT.Scripts.Maps {
             L00DC: RefreshCompareFlags(ax);
             L00DE: if (JumpEqual) goto L014B;
             L00E0: SetState(party, 0x01, 0x01, 0x01);
-            L00F5: SetMove38(party, 0x42, 0x75);
-            L0106: SetMove38(party, 0x42, 0x85);
+            L00F5: SetFloorObject38(party, 0x42, 0x75);
+            L0106: SetFloorObject38(party, 0x42, 0x85);
             L0117: ShowMessage(party, String0B66); // Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
             L0124: ShowMessage(party, String0BB3); // It intersects the Rainbow and bursts into blinding light.
             L0131: ShowMessage(party, String0BED); // Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
@@ -365,8 +365,8 @@ namespace XPT.Scripts.Maps {
             L00DC: RefreshCompareFlags(ax);
             L00DE: if (JumpEqual) goto L014B;
             L00E0: SetState(party, 0x01, 0x01, 0x01);
-            L00F5: SetMove38(party, 0x42, 0x75);
-            L0106: SetMove38(party, 0x42, 0x85);
+            L00F5: SetFloorObject38(party, 0x42, 0x75);
+            L0106: SetFloorObject38(party, 0x42, 0x85);
             L0117: ShowMessage(party, String0CE7); // Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
             L0124: ShowMessage(party, String0D34); // It intersects the Rainbow and bursts into blinding light.
             L0131: ShowMessage(party, String0D6E); // Once your eyes adjust, you see an enormous Golden Boat bedecked with the rarest jewels and finest carvings.
@@ -378,7 +378,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E1B); // This gate leads to the GIANTS' LAND
-            L0010: SetMoveMap(party, 0x38, 0x02, 0xFB, 0x03);
+            L0010: TeleportPartyBC(party, 0x38, 0x02, 0xFB, 0x03);
             L002B: return; // RETURN;
         }
 
@@ -450,11 +450,11 @@ namespace XPT.Scripts.Maps {
             L0032: ShowMessage(party, String1003); // In the moments that follow the Zephyr tells you only the FlexSword can remain in your hands when you encounter the Wind Elemental.
             L003F: ShowMessage(party, String1086); // Destroy him and the way to En-li-kil's Domain will be clear.
             L004C: ShowMessage(party, String10C3); // You arrive at an island in the center of the Ageless Void.
-            L0059: SetMoveMap(party, 0x38, 0x04, 0x4B, 0x00);
+            L0059: TeleportPartyBC(party, 0x38, 0x04, 0x4B, 0x00);
             L0073: goto L0093;
             L0075: ShowMessage(party, String10FE); // The Ageless Void swallows you whole.
             L0082: ax = GetMaxHits74(party);
-            L0089: DoDamage90(party, ax);
+            L0089: DamagePlayer90(party, ax);
             L0093: return; // RETURN;
         }
 

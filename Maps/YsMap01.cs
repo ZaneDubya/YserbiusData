@@ -116,7 +116,7 @@ namespace XPT.Scripts.Maps {
         private void FnTOEXIT_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x01, 0x04, 0x01);
+            L0003: TeleportPartyBC(party, 0x01, 0x01, 0x04, 0x01);
             L001E: return; // RETURN;
         }
 
@@ -126,15 +126,15 @@ namespace XPT.Scripts.Maps {
             L0003: ax = CheckLevel44(party, 0x0014);
             L0011: if (JumpEqual) goto L003D;
             L0013: ShowMessage(party, String03FC); // You may enter.
-            L0020: SetMoveMap(party, 0x05, 0x01, 0x8D, 0x01);
+            L0020: TeleportPartyBC(party, 0x05, 0x01, 0x8D, 0x01);
             L003B: goto L0068;
             L003D: ShowMessage(party, String040B); // Only heroes of the twentieth level or higher may venture beyond this door.
             L004A: PushStack(party, 0x01);
             L004E: ax = GetFacing24(party);
             L0055: PushStack(party, ax);
-            L0056: ax = GetNextTile20(party);
+            L0056: ax = GetCurrentTile20(party);
             L005D: PushStack(party, ax);
-            L005E: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L005E: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0068: return; // RETURN;
         }
 
@@ -209,21 +209,21 @@ namespace XPT.Scripts.Maps {
             L0027: if (JumpBelow) goto L006C;
             L0029: PushStack(party, 0x01);
             L002D: PushStack(party, 0x01);
-            L0031: ax = GetNextTile20(party);
+            L0031: ax = GetCurrentTile20(party);
             L0038: PushStack(party, ax);
-            L0039: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0039: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0043: PushStack(party, 0x01);
-            L0047: ax = GetNextTile20(party);
+            L0047: ax = GetCurrentTile20(party);
             L004E: PushStack(party, ax);
             L004F: PushStack(party, 0x01);
-            L0053: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0053: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L005D: ShowMessage(party, String04EB); // You successfully picked the locked door.
             L006A: goto L0092;
             L006C: PushStack(party, 0x00);
             L006F: PushStack(party, 0x01);
-            L0073: ax = GetNextTile20(party);
+            L0073: ax = GetCurrentTile20(party);
             L007A: PushStack(party, ax);
-            L007B: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L007B: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0085: ShowMessage(party, String0514); // The door is locked.
             L0092: return; // RETURN;
         }
@@ -232,7 +232,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0528); // You encounter Rogues.
-            L0010: ax = UnknownFunctionEC(party, 0x000F);
+            L0010: ax = GetRandom(party, 0x000F);
             L001D: Compare(ax, 0x0005);
             L0020: if (JumpAbove) goto L0031;
             L0022: ShowMessage(party, String053E); // To reach the next level of the dungeon, you need a special key. The key is rumored to be somewhere on this level.
@@ -326,19 +326,19 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = UsedItem54(party, 0xD3, 0xD3);
             L0016: if (JumpEqual) goto L0055;
-            L0018: SetMove2C(party, 0x04, 0x00, 0x01);
+            L0018: SetWallPassable2C(party, 0x04, 0x00, 0x01);
             L002D: PushStack(party, 0x00);
-            L0030: ax = GetNextTile20(party);
+            L0030: ax = GetCurrentTile20(party);
             L0037: PushStack(party, ax);
             L0038: PushStack(party, 0x01);
-            L003C: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L003C: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0046: ShowMessage(party, String0698); // King Cleowyn's Key unlocks the door.
             L0053: goto L0076;
             L0055: ShowMessage(party, String06BD); // The door is locked.  A special key opens this door.
             L0062: PushStack(party, 0x00);
             L0065: PushStack(party, 0x00);
             L0068: PushStack(party, 0x04);
-            L006C: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L006C: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0076: return; // RETURN;
         }
 
@@ -389,31 +389,31 @@ namespace XPT.Scripts.Maps {
             L0014: ShowMessage(party, String07BD); // You manage to open the door by brute strength.
             L0021: ax = GetFacing24(party);
             L0028: PushStack(party, ax);
-            L0029: ax = GetNextTile20(party);
+            L0029: ax = GetCurrentTile20(party);
             L0030: PushStack(party, ax);
             L0031: PushStack(party, 0x01);
-            L0035: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0035: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L003F: PushStack(party, 0x01);
             L0043: ax = GetFacing24(party);
             L004A: PushStack(party, ax);
-            L004B: ax = GetNextTile20(party);
+            L004B: ax = GetCurrentTile20(party);
             L0052: PushStack(party, ax);
-            L0053: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0053: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L005D: goto L0089;
             L005F: ShowMessage(party, String07EC); // You are not strong enough to force the door open.
             L006C: PushStack(party, 0x00);
             L006F: ax = GetFacing24(party);
             L0076: PushStack(party, ax);
-            L0077: ax = GetNextTile20(party);
+            L0077: ax = GetCurrentTile20(party);
             L007E: PushStack(party, ax);
-            L007F: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L007F: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0089: return; // RETURN;
         }
 
         private void FnTOVEST_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x03, 0x70, 0x02);
+            L0003: TeleportPartyBC(party, 0x01, 0x03, 0x70, 0x02);
             L001E: return; // RETURN;
         }
 
@@ -421,7 +421,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String081E); // You encounter Rogues.
-            L0010: ax = UnknownFunctionEC(party, 0x000F);
+            L0010: ax = GetRandom(party, 0x000F);
             L001D: Compare(ax, 0x0007);
             L0020: if (JumpAbove) goto L0050;
             L0022: ShowMessage(party, String0834); // The imps that haunt the dungeon frequently return gold and lost items to their original places.
@@ -507,23 +507,23 @@ namespace XPT.Scripts.Maps {
             L0003: ax = CheckLevel44(party, 0x000F);
             L0011: if (JumpNotEqual) goto L0016;
             L0013: goto L00B3;
-            L0016: ax = GetNextTile20(party);
-            L001D: SetMove38(party, 0x01, ax);
+            L0016: ax = GetCurrentTile20(party);
+            L001D: SetFloorObject38(party, 0x01, ax);
             L002B: ShowMessage(party, String0958); // You fall into a pit.
             L0038: ShowMessage(party, String096D); // You take heavy damage from the long, long fall.
             L0045: ax = PartyCount(party);
             L004D: Compare(ax, 0x0001);
             L0050: if (JumpNotEqual) goto L007C;
-            L0052: DoDamage90(party, 0x012C);
-            L005F: SetMoveMap(party, 0x05, 0x03, 0x11, 0x03);
+            L0052: DamagePlayer90(party, 0x012C);
+            L005F: TeleportPartyBC(party, 0x05, 0x03, 0x11, 0x03);
             L007A: goto L00B1;
             L007C: ShowMessage(party, String099D); // Since you are the first to land, your body provides a soft mattress for the rest of your party.
-            L0089: DoDamage90(party, 0x01C2);
-            L0096: SetMoveMap(party, 0x05, 0x03, 0x11, 0x03);
+            L0089: DamagePlayer90(party, 0x01C2);
+            L0096: TeleportPartyBC(party, 0x05, 0x03, 0x11, 0x03);
             L00B1: goto L00E8;
             L00B3: ShowMessage(party, String09FD); // A kindly spirit rescues you from falling to your death.
             L00C0: ShowMessage(party, String0A35); // It warns you to stay away from danger until you are stronger.
-            L00CD: SetMoveMap(party, 0x01, 0x02, 0x67, 0x01);
+            L00CD: TeleportPartyBC(party, 0x01, 0x02, 0x67, 0x01);
             L00E8: return; // RETURN;
         }
 
@@ -546,14 +546,14 @@ namespace XPT.Scripts.Maps {
             L0070: PushStack(party, 0x02);
             L0074: PushStack(party, 0xED);
             L0078: PushStack(party, 0x01);
-            L007C: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
-            L0086: SetMove2C(party, 0xED, 0x02, 0x01);
+            L007C: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0086: SetWallPassable2C(party, 0xED, 0x02, 0x01);
             L009C: goto L00C0;
             L009E: ShowMessage(party, String0A99); // You see a blank wall.
             L00AB: PushStack(party, 0x00);
             L00AE: PushStack(party, 0x02);
             L00B2: PushStack(party, 0xED);
-            L00B6: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L00B6: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L00C0: return; // RETURN;
         }
 
@@ -577,23 +577,23 @@ namespace XPT.Scripts.Maps {
             L0003: ax = CheckLevel44(party, 0x000F);
             L0011: if (JumpNotEqual) goto L0016;
             L0013: goto L00B3;
-            L0016: ax = GetNextTile20(party);
-            L001D: SetMove38(party, 0x01, ax);
+            L0016: ax = GetCurrentTile20(party);
+            L001D: SetFloorObject38(party, 0x01, ax);
             L002B: ShowMessage(party, String0AFE); // You fall into a pit.
             L0038: ShowMessage(party, String0B13); // You take heavy damage from the long, long fall.
             L0045: ax = PartyCount(party);
             L004D: Compare(ax, 0x0001);
             L0050: if (JumpNotEqual) goto L007C;
-            L0052: DoDamage90(party, 0x012C);
-            L005F: SetMoveMap(party, 0x05, 0x03, 0x12, 0x03);
+            L0052: DamagePlayer90(party, 0x012C);
+            L005F: TeleportPartyBC(party, 0x05, 0x03, 0x12, 0x03);
             L007A: goto L00B1;
             L007C: ShowMessage(party, String0B43); // Since you are the first to land, your body provides a soft mattress for the rest of your party.
-            L0089: DoDamage90(party, 0x01C2);
-            L0096: SetMoveMap(party, 0x05, 0x03, 0x12, 0x03);
+            L0089: DamagePlayer90(party, 0x01C2);
+            L0096: TeleportPartyBC(party, 0x05, 0x03, 0x12, 0x03);
             L00B1: goto L00E7;
             L00B3: ShowMessage(party, String0BA3); // A kindly spirit rescues you from falling to your death.
             L00C0: ShowMessage(party, String0BDB); // It warns you to stay away from danger until you are stronger.
-            L00CD: SetMoveMap(party, 0x01, 0x02, 0x69, 0x00);
+            L00CD: TeleportPartyBC(party, 0x01, 0x02, 0x69, 0x00);
             L00E7: return; // RETURN;
         }
 
@@ -603,23 +603,23 @@ namespace XPT.Scripts.Maps {
             L0003: ax = CheckLevel44(party, 0x000F);
             L0011: if (JumpNotEqual) goto L0016;
             L0013: goto L00B3;
-            L0016: ax = GetNextTile20(party);
-            L001D: SetMove38(party, 0x01, ax);
+            L0016: ax = GetCurrentTile20(party);
+            L001D: SetFloorObject38(party, 0x01, ax);
             L002B: ShowMessage(party, String0C19); // You fall into a pit.
             L0038: ShowMessage(party, String0C2E); // You take heavy damage from the long, long fall.
             L0045: ax = PartyCount(party);
             L004D: Compare(ax, 0x0001);
             L0050: if (JumpNotEqual) goto L007C;
-            L0052: DoDamage90(party, 0x012C);
-            L005F: SetMoveMap(party, 0x05, 0x03, 0x21, 0x01);
+            L0052: DamagePlayer90(party, 0x012C);
+            L005F: TeleportPartyBC(party, 0x05, 0x03, 0x21, 0x01);
             L007A: goto L00B1;
             L007C: ShowMessage(party, String0C5E); // Since you are the first to land, your body provides a soft mattress for the rest of your party.
-            L0089: DoDamage90(party, 0x01C2);
-            L0096: SetMoveMap(party, 0x05, 0x03, 0x21, 0x01);
+            L0089: DamagePlayer90(party, 0x01C2);
+            L0096: TeleportPartyBC(party, 0x05, 0x03, 0x21, 0x01);
             L00B1: goto L00E8;
             L00B3: ShowMessage(party, String0CBE); // A kindly spirit rescues you from falling to your death.
             L00C0: ShowMessage(party, String0CF6); // It warns you to stay away from danger until you are stronger.
-            L00CD: SetMoveMap(party, 0x01, 0x02, 0x76, 0x02);
+            L00CD: TeleportPartyBC(party, 0x01, 0x02, 0x76, 0x02);
             L00E8: return; // RETURN;
         }
 
@@ -629,30 +629,30 @@ namespace XPT.Scripts.Maps {
             L0003: ax = CheckLevel44(party, 0x000F);
             L0011: if (JumpNotEqual) goto L0016;
             L0013: goto L00B1;
-            L0016: ax = GetNextTile20(party);
-            L001D: SetMove38(party, 0x01, ax);
+            L0016: ax = GetCurrentTile20(party);
+            L001D: SetFloorObject38(party, 0x01, ax);
             L002B: ShowMessage(party, String0D34); // You fall into a pit.
             L0038: ShowMessage(party, String0D49); // You take heavy damage from the long, long fall.
             L0045: ax = PartyCount(party);
             L004D: Compare(ax, 0x0001);
             L0050: if (JumpNotEqual) goto L007B;
-            L0052: DoDamage90(party, 0x012C);
-            L005F: SetMoveMap(party, 0x05, 0x03, 0x22, 0x00);
+            L0052: DamagePlayer90(party, 0x012C);
+            L005F: TeleportPartyBC(party, 0x05, 0x03, 0x22, 0x00);
             L0079: goto L00AF;
             L007B: ShowMessage(party, String0D79); // Since you are the first to land, your body provides a soft mattress for the rest of your party.
-            L0088: DoDamage90(party, 0x01C2);
-            L0095: SetMoveMap(party, 0x05, 0x03, 0x22, 0x00);
+            L0088: DamagePlayer90(party, 0x01C2);
+            L0095: TeleportPartyBC(party, 0x05, 0x03, 0x22, 0x00);
             L00AF: goto L00E5;
             L00B1: ShowMessage(party, String0DD9); // A kindly spirit rescues you from falling to your death.
             L00BE: ShowMessage(party, String0E11); // It warns you to stay away from danger until you are stronger.
-            L00CB: SetMoveMap(party, 0x01, 0x02, 0x79, 0x00);
+            L00CB: TeleportPartyBC(party, 0x01, 0x02, 0x79, 0x00);
             L00E5: return; // RETURN;
         }
 
         private void FnTELEMESA_18(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TileIsNoJoinArea(party);
+            L0003: SetNoJoinArea(party);
             L000B: ShowMessage(party, String0E4F); // There is a teleport in the west wall.
             L0018: return; // RETURN;
         }
@@ -662,7 +662,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E75); // You encounter an Orc Ranger.
             L0010: ShowPortrait(party, 0x001E);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x0009);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0E92); // King Cleowyn had a special lockpick which opened a set of doors in the Vestibule, leading to his Palace. He was the king of thieves, or so my father told me.
@@ -676,7 +676,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0F5C); // You encounter a Human Wizard.
             L0010: ShowPortrait(party, 0x002B);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x0004);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0F7A); // The lone adventurer is often at a disadvantage in this cursed dungeon. Those deeper levels...oh, they are very dangerous, indeed.
@@ -690,7 +690,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1024); // You encounter a Dwarf Knight.
             L0010: ShowPortrait(party, 0x001C);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000A);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String1042); // There are rumors of a fantastic treasury which King Cleowyn visited each night to count his ill-gotten tax revenues.
@@ -704,14 +704,14 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String10F2); // You encounter a Troll Cleric.
             L0010: ShowPortrait(party, 0x0028);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000C);
             L002D: if (JumpAbove) goto L004B;
             L002F: ShowMessage(party, String1110); // Being able to detect hidden traps and doors is important for any party of adventurers wandering this dungeon.
             L003C: ShowMessage(party, String117E); // Also, keep an eye open for better lockpicks. They will open doors to new wonders.
             L0049: goto L0065;
             L004B: ShowMessage(party, String11D0); // The Troll Cleric is annoyed that you disturbed her reverie. She raps you on the head with her staff and marches off.
-            L0058: DoDamage90(party, 0x0003);
+            L0058: DamagePlayer90(party, 0x0003);
             L0065: return; // RETURN;
         }
 
@@ -720,7 +720,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1245); // You encounter a Human Thief.
             L0010: ShowPortrait(party, 0x0022);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000B);
             L002D: if (JumpAbove) goto L004B;
             L002F: ShowMessage(party, String1262); // The upper levels of this dungeon make up the Palace of King Cleowyn. He was a cruel ruler and was hated by all.
@@ -735,7 +735,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1382); // You encounter an Elf Barbarian.
             L0010: ShowPortrait(party, 0x0018);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String13A2); // Beware the pit to be found at the heart of the mine. Only the very strongest can survive the fall into the deep abyss.

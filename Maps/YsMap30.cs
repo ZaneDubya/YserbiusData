@@ -101,11 +101,11 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The River of Eternity taps your life energy.
-            L0010: UnknownFunctionC4(party);
+            L0010: SetNoHealZoneC4(party);
             L0018: ax = GetMaxHits74(party);
             L001F: bx = 0x0004;
             L0022: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
-            L0025: DoDamage90(party, ax);
+            L0025: DamagePlayer90(party, ax);
             L002F: ax = GetCurrentHits70(party);
             L0036: RefreshCompareFlags(ax);
             L0038: if (JumpAbove) goto L0047;
@@ -115,9 +115,9 @@ namespace XPT.Scripts.Maps {
             L0057: ax = GetState(party, 0x02, 0x6D);
             L0068: RefreshCompareFlags(ax);
             L006A: if (JumpEqual) goto L007E;
-            L006C: SetMove38(party, 0x9C, 0x00);
+            L006C: SetFloorObject38(party, 0x9C, 0x00);
             L007C: goto L008F;
-            L007E: SetMove38(party, 0x9C, 0x03);
+            L007E: SetFloorObject38(party, 0x9C, 0x03);
             L008F: return; // RETURN;
         }
 
@@ -138,9 +138,9 @@ namespace XPT.Scripts.Maps {
             L0026: if (JumpEqual) goto L0071;
             L0028: PushStack(party, 0x01);
             L002C: PushStack(party, 0x00);
-            L002F: ax = GetNextTile20(party);
+            L002F: ax = GetCurrentTile20(party);
             L0036: PushStack(party, ax);
-            L0037: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0037: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0041: RemoveItem4C(party, 0xD6);
             L004D: SetState(party, 0x02, 0x6E, 0x01);
             L0062: ShowMessage(party, String047C); // Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
@@ -159,10 +159,10 @@ namespace XPT.Scripts.Maps {
             L0026: if (JumpEqual) goto L0068;
             L0028: RemoveItem4C(party, 0xD5);
             L0034: SetState(party, 0x02, 0x6D, 0x01);
-            L0049: SetMove38(party, 0x9C, 0x00);
+            L0049: SetFloorObject38(party, 0x9C, 0x00);
             L0059: ShowMessage(party, String050C); // Your Dwarf Mine Key activated this platform.
             L0066: goto L0079;
-            L0068: SetMove38(party, 0x9C, 0x03);
+            L0068: SetFloorObject38(party, 0x9C, 0x03);
             L0079: return; // RETURN;
         }
 
@@ -179,9 +179,9 @@ namespace XPT.Scripts.Maps {
             L0049: PushStack(party, 0x01);
             L004D: ax = GetFacing24(party);
             L0054: PushStack(party, ax);
-            L0055: ax = GetNextTile20(party);
+            L0055: ax = GetCurrentTile20(party);
             L005C: PushStack(party, ax);
-            L005D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L005D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0067: ShowMessage(party, String0539); // Your Hidden Mine Key makes the wall become transparent.
             L0074: goto L0083;
             L0076: ShowMessage(party, String0571); // There is something strange about this wall.
@@ -191,21 +191,21 @@ namespace XPT.Scripts.Maps {
         private void FnASENDB_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x38, 0x02, 0xCC, 0x02);
+            L0003: TeleportPartyBC(party, 0x38, 0x02, 0xCC, 0x02);
             L001E: return; // RETURN;
         }
 
         private void FnDSENDC_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x38, 0x02, 0xE1, 0x00);
+            L0003: TeleportPartyBC(party, 0x38, 0x02, 0xE1, 0x00);
             L001D: return; // RETURN;
         }
 
         private void FnESENDF_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x38, 0x02, 0xFD, 0x00);
+            L0003: TeleportPartyBC(party, 0x38, 0x02, 0xFD, 0x00);
             L001D: return; // RETURN;
         }
 
@@ -220,16 +220,16 @@ namespace XPT.Scripts.Maps {
             L0029: ShowMessage(party, String059D); // You locate a hidden door in the wall.
             L0036: ax = GetFacing24(party);
             L003D: PushStack(party, ax);
-            L003E: ax = GetNextTile20(party);
+            L003E: ax = GetCurrentTile20(party);
             L0045: PushStack(party, ax);
             L0046: PushStack(party, 0x01);
-            L004A: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004A: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0054: PushStack(party, 0x01);
             L0058: ax = GetFacing24(party);
             L005F: PushStack(party, ax);
-            L0060: ax = GetNextTile20(party);
+            L0060: ax = GetCurrentTile20(party);
             L0067: PushStack(party, ax);
-            L0068: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0068: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0072: return; // RETURN;
         }
 
@@ -244,16 +244,16 @@ namespace XPT.Scripts.Maps {
             L0029: ShowMessage(party, String05C3); // You locate a hidden door in the wall.
             L0036: ax = GetFacing24(party);
             L003D: PushStack(party, ax);
-            L003E: ax = GetNextTile20(party);
+            L003E: ax = GetCurrentTile20(party);
             L0045: PushStack(party, ax);
             L0046: PushStack(party, 0x01);
-            L004A: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004A: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0054: PushStack(party, 0x01);
             L0058: ax = GetFacing24(party);
             L005F: PushStack(party, ax);
-            L0060: ax = GetNextTile20(party);
+            L0060: ax = GetCurrentTile20(party);
             L0067: PushStack(party, ax);
-            L0068: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0068: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0072: return; // RETURN;
         }
 
@@ -268,37 +268,37 @@ namespace XPT.Scripts.Maps {
             L0029: ShowMessage(party, String05E9); // You locate a hidden door in the wall.
             L0036: ax = GetFacing24(party);
             L003D: PushStack(party, ax);
-            L003E: ax = GetNextTile20(party);
+            L003E: ax = GetCurrentTile20(party);
             L0045: PushStack(party, ax);
             L0046: PushStack(party, 0x01);
-            L004A: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004A: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0054: PushStack(party, 0x01);
             L0058: ax = GetFacing24(party);
             L005F: PushStack(party, ax);
-            L0060: ax = GetNextTile20(party);
+            L0060: ax = GetCurrentTile20(party);
             L0067: PushStack(party, ax);
-            L0068: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0068: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0072: goto L0091;
             L0074: PushStack(party, 0x00);
             L0077: ax = GetFacing24(party);
             L007E: PushStack(party, ax);
-            L007F: ax = GetNextTile20(party);
+            L007F: ax = GetCurrentTile20(party);
             L0086: PushStack(party, ax);
-            L0087: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0087: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0091: return; // RETURN;
         }
 
         private void FnGSENDH_0F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x38, 0x02, 0x02, 0x00);
+            L0003: TeleportPartyBC(party, 0x38, 0x02, 0x02, 0x00);
             L001D: return; // RETURN;
         }
 
         private void FnISENDJ_11(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x38, 0x02, 0x60, 0x02);
+            L0003: TeleportPartyBC(party, 0x38, 0x02, 0x60, 0x02);
             L001E: return; // RETURN;
         }
 
@@ -325,7 +325,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07C6); // You fall into a lava pit and die.
             L0010: ax = GetMaxHits74(party);
-            L0017: DoDamage90(party, ax);
+            L0017: DamagePlayer90(party, ax);
             L0021: return; // RETURN;
         }
 
@@ -333,7 +333,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07E8); // This gate leads to DWARF KINGDOM.
-            L0010: SetMoveMap(party, 0x38, 0x01, 0x3F, 0x00);
+            L0010: TeleportPartyBC(party, 0x38, 0x01, 0x3F, 0x00);
             L002A: return; // RETURN;
         }
 
@@ -341,7 +341,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String080A); // This gate leads to RIVERS END.
-            L0010: SetMoveMap(party, 0x38, 0x03, 0x0B, 0x00);
+            L0010: TeleportPartyBC(party, 0x38, 0x03, 0x0B, 0x00);
             L002A: return; // RETURN;
         }
 
@@ -545,7 +545,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
             L0010: ax = GetMaxHits74(party);
-            L0017: AddHealth94(party, ax);
+            L0017: HealPlayer94(party, ax);
             L0021: ShowMessage(party, String09CA); // Your full health is restored by the ancient waters of RoundBrook Fountain.
             L002E: return; // RETURN;
         }
@@ -555,7 +555,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
             L0010: ax = GetMaxHits74(party);
-            L0017: AddHealth94(party, ax);
+            L0017: HealPlayer94(party, ax);
             L0021: ShowMessage(party, String0A15); // You feel all your health restored after sipping from JasperStone Fountain.
             L002E: return; // RETURN;
         }
@@ -565,7 +565,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
             L0010: ax = GetMaxHits74(party);
-            L0017: AddHealth94(party, ax);
+            L0017: HealPlayer94(party, ax);
             L0021: ShowMessage(party, String0A60); // The waters of RockyFlat Fountain restores your health.
             L002E: return; // RETURN;
         }

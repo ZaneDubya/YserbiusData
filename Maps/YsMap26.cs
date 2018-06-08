@@ -124,14 +124,14 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // You stumble into the lava river and die.
             L0010: ax = GetMaxHits74(party);
-            L0017: DoDamage90(party, ax);
+            L0017: DamagePlayer90(party, ax);
             L0021: return; // RETURN;
         }
 
         private void FnTEMPEST_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x35, 0x01, 0x4F, 0x01);
+            L0003: TeleportPartyBC(party, 0x35, 0x01, 0x4F, 0x01);
             L001E: return; // RETURN;
         }
 
@@ -139,14 +139,14 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0425); // This gate leads to the entrance of Arnakkian's Arena.
-            L0010: SetMoveMap(party, 0x36, 0x02, 0x40, 0x02);
+            L0010: TeleportPartyBC(party, 0x36, 0x02, 0x40, 0x02);
             L002B: return; // RETURN;
         }
 
         private void FnHEAVENS_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x35, 0x01, 0xF6, 0x02);
+            L0003: TeleportPartyBC(party, 0x35, 0x01, 0xF6, 0x02);
             L001E: return; // RETURN;
         }
 
@@ -188,9 +188,9 @@ namespace XPT.Scripts.Maps {
             L0021: PushStack(party, 0x01);
             L0025: ax = GetFacing24(party);
             L002C: PushStack(party, ax);
-            L002D: ax = GetNextTile20(party);
+            L002D: ax = GetCurrentTile20(party);
             L0034: PushStack(party, ax);
-            L0035: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0035: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L003F: goto L004E;
             L0041: ShowMessage(party, String05C0); // The door is stuck and will not open.
             L004E: return; // RETURN;
@@ -203,8 +203,8 @@ namespace XPT.Scripts.Maps {
             L0018: ShowMessage(party, String05E5); // A plaque reads..
             L0025: ShowMessage(party, String05F6); // 'Thanks to the gracious generosity of the Mage Council, the survivors of the Arnakkian disaster hereby proclaim a new teleport to the top.'
             L0032: PushStack(party, 0x02);
-            L0036: ax = GetNextTile20(party);
-            L003D: SetMoveMap(party, 0x33, 0x01, ax, PopStack(party));
+            L0036: ax = GetCurrentTile20(party);
+            L003D: TeleportPartyBC(party, 0x33, 0x01, ax, PopStack(party));
             L0051: return; // RETURN;
         }
 
@@ -215,7 +215,7 @@ namespace XPT.Scripts.Maps {
             L0010: ax = GetMaxHits74(party);
             L0017: bx = 0x0004;
             L001A: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
-            L001D: DoDamage90(party, ax);
+            L001D: DamagePlayer90(party, ax);
             L0027: ax = GetCurrentHits70(party);
             L002E: RefreshCompareFlags(ax);
             L0030: if (JumpAbove) goto L003F;
@@ -226,24 +226,24 @@ namespace XPT.Scripts.Maps {
         private void FnTXTPHNX_12(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState08(party, 0x02, 0x85);
+            L0003: ax = IsStateSet(party, 0x02, 0x85);
             L0016: if (JumpEqual) goto L0028;
             L0018: ShowMessage(party, String06CE); // The Phoenix is being reborn and may not be disturbed.
             L0025: goto L00A7;
-            L0028: ax = GetState08(party, 0x02, 0x86);
+            L0028: ax = IsStateSet(party, 0x02, 0x86);
             L003B: if (JumpEqual) goto L008D;
             L003D: ShowMessage(party, String0704); // Ahead, bound by the River of Eternity, is the shadow of the Phoenix Firebird. 
             L004A: ShowMessage(party, String0753); // The raging waters of the river look daunting.
             L0057: PushStack(party, 0x01);
             L005B: PushStack(party, 0x02);
-            L005F: ax = GetNextTile20(party);
+            L005F: ax = GetCurrentTile20(party);
             L0066: PushStack(party, ax);
-            L0067: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0067: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0071: PushStack(party, 0x02);
-            L0075: ax = GetNextTile20(party);
+            L0075: ax = GetCurrentTile20(party);
             L007C: PushStack(party, ax);
             L007D: PushStack(party, 0x01);
-            L0081: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0081: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L008B: goto L00A7;
             L008D: ShowMessage(party, String0781); // You hear the sound of rushing water behind the wall.
             L009A: ShowMessage(party, String07B6); // You also hear muffled roars.
@@ -342,7 +342,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07D3); // Loose rocks tumble away, revealing a narrow passageway down.
-            L0010: SetMoveMap(party, 0x37, 0x01, 0x1A, 0x03);
+            L0010: TeleportPartyBC(party, 0x37, 0x01, 0x1A, 0x03);
             L002B: return; // RETURN;
         }
 
@@ -351,7 +351,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x002D);
             L0010: ShowMessage(party, String0810); // A Gnome Wizard greets you.
-            L001D: ax = GetState08(party, 0x02, 0x85);
+            L001D: ax = IsStateSet(party, 0x02, 0x85);
             L0030: if (JumpEqual) goto L004E;
             L0032: ShowMessage(party, String082B); // 'Thank you for helping my master the Phoenix be reborn.
             L003F: ShowMessage(party, String0863); // The Phoenix may no longer be disturbed.'
@@ -600,7 +600,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetMaxHits74(party);
-            L000A: AddHealth94(party, ax);
+            L000A: HealPlayer94(party, ax);
             L0014: ShowPortrait(party, 0x0042);
             L0021: ShowMessage(party, String10A8); // DayFrost Fountain restores your Health.
             L002E: return; // RETURN;
@@ -625,7 +625,7 @@ namespace XPT.Scripts.Maps {
             L0037: ax = GetCurrentHits70(party);
             L003E: bx = 0x0002;
             L0041: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
-            L0044: DoDamage90(party, ax);
+            L0044: DamagePlayer90(party, ax);
             L004E: ax = GetCurrentHits70(party);
             L0055: RefreshCompareFlags(ax);
             L0057: if (JumpAbove) goto L0066;

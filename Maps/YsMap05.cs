@@ -93,56 +93,56 @@ namespace XPT.Scripts.Maps {
         private void FnTOEXIT_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x01, 0x85, 0x03);
+            L0003: TeleportPartyBC(party, 0x01, 0x01, 0x85, 0x03);
             L001E: return; // RETURN;
         }
 
         private void FnTOTREAS_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x05, 0xA0, 0x02);
+            L0003: TeleportPartyBC(party, 0x01, 0x05, 0xA0, 0x02);
             L001E: return; // RETURN;
         }
 
         private void FnSTAIRSD_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x02, 0x01, 0x81, 0x02);
+            L0003: TeleportPartyBC(party, 0x02, 0x01, 0x81, 0x02);
             L001E: return; // RETURN;
         }
 
         private void FnTELPORTS_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x06, 0xCD, 0x01);
+            L0003: TeleportPartyBC(party, 0x01, 0x06, 0xCD, 0x01);
             L001E: return; // RETURN;
         }
 
         private void FnTELPORTN_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x06, 0x3C, 0x01);
+            L0003: TeleportPartyBC(party, 0x01, 0x06, 0x3C, 0x01);
             L001E: return; // RETURN;
         }
 
         private void FnTELEPORT_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x03, 0x02, 0xCA, 0x02);
+            L0003: TeleportPartyBC(party, 0x03, 0x02, 0xCA, 0x02);
             L001E: return; // RETURN;
         }
 
         private void FnTELPORTW_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x06, 0x77, 0x01);
+            L0003: TeleportPartyBC(party, 0x01, 0x06, 0x77, 0x01);
             L001E: return; // RETURN;
         }
 
         private void FnTELPORTE_08(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x06, 0x9E, 0x03);
+            L0003: TeleportPartyBC(party, 0x01, 0x06, 0x9E, 0x03);
             L001E: return; // RETURN;
         }
 
@@ -157,23 +157,23 @@ namespace XPT.Scripts.Maps {
             L0029: PushStack(party, 0x01);
             L002D: ax = GetFacing24(party);
             L0034: PushStack(party, ax);
-            L0035: ax = GetNextTile20(party);
+            L0035: ax = GetCurrentTile20(party);
             L003C: PushStack(party, ax);
-            L003D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L003D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0047: ax = GetFacing24(party);
             L004E: PushStack(party, ax);
-            L004F: ax = GetNextTile20(party);
+            L004F: ax = GetCurrentTile20(party);
             L0056: PushStack(party, ax);
             L0057: PushStack(party, 0x01);
-            L005B: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L005B: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0065: ShowMessage(party, String03FC); // You successfully picked the locked door.
             L0072: goto L009E;
             L0074: PushStack(party, 0x00);
             L0077: ax = GetFacing24(party);
             L007E: PushStack(party, ax);
-            L007F: ax = GetNextTile20(party);
+            L007F: ax = GetCurrentTile20(party);
             L0086: PushStack(party, ax);
-            L0087: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0087: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0091: ShowMessage(party, String0425); // The door is locked.
             L009E: return; // RETURN;
         }
@@ -419,7 +419,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06AC); // You encounter Rogues.
-            L0010: ax = UnknownFunctionEC(party, 0x000F);
+            L0010: ax = GetRandom(party, 0x000F);
             L001D: Compare(ax, 0x0002);
             L0020: if (JumpAbove) goto L0031;
             L0022: ShowMessage(party, String06C2); // The rooms in the center of this area once housed the king's soldiers.
@@ -548,23 +548,23 @@ namespace XPT.Scripts.Maps {
             L0029: PushStack(party, 0x01);
             L002D: ax = GetFacing24(party);
             L0034: PushStack(party, ax);
-            L0035: ax = GetNextTile20(party);
+            L0035: ax = GetCurrentTile20(party);
             L003C: PushStack(party, ax);
-            L003D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L003D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0047: ax = GetFacing24(party);
             L004E: PushStack(party, ax);
-            L004F: ax = GetNextTile20(party);
+            L004F: ax = GetCurrentTile20(party);
             L0056: PushStack(party, ax);
             L0057: PushStack(party, 0x01);
-            L005B: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L005B: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0065: ShowMessage(party, String0761); // You successfully picked the locked door.
             L0072: goto L009E;
             L0074: PushStack(party, 0x00);
             L0077: ax = GetFacing24(party);
             L007E: PushStack(party, ax);
-            L007F: ax = GetNextTile20(party);
+            L007F: ax = GetCurrentTile20(party);
             L0086: PushStack(party, ax);
-            L0087: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0087: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0091: ShowMessage(party, String078A); // The door is locked.
             L009E: return; // RETURN;
         }
@@ -616,7 +616,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0016);
             L0010: ShowMessage(party, String08F1); // You encounter a Human Barbarian.
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000B);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0912); // This area is called the Soldiers' Quarters. Why it is so named is beyond me. I've wandered these halls for weeks and have found nothing resembling living quarters, much less any soldiers.
@@ -630,7 +630,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A1C); // You encounter a Gremlin Wizard.
             L0010: ShowPortrait(party, 0x002E);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000A);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0A3C); // The volcano Yserbius roils the sea and makes it unnavigable. We are doomed to live out our miserable lives, unknown to other peoples. I would give my left eyetooth for a way to escape this dull island.
@@ -644,7 +644,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0B37); // You encounter a Troll Ranger.
             L0010: ShowPortrait(party, 0x0020);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x0007);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0B55); // Unless you have especially sharp eyes for traps, you should heed the sign at the end of the corridor. This bum leg of mine is proof of that sign's warning.
@@ -658,7 +658,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0C28); // You encounter an Elf Cleric.
             L0010: ShowPortrait(party, 0x0027);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0C45); // You may think you are limited only to those skills you acquire through your Guild. I know there are places in this dungeon where you may acquire new and different skills.
@@ -673,7 +673,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0D25); // You encounter a Troll Knight.
             L0010: ShowPortrait(party, 0x001B);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x0007);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0D43); // Under Cleowyn's palace is a strange maze. The maze is infested with thieves, and they seem to be the only ones who know how to get through the thing.
@@ -687,7 +687,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E14); // You encounter an Orc Barbarian.
             L0010: ShowPortrait(party, 0x0017);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x0009);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0E34); // A dwarf knight told me he encountered polar bears and ice lions deep in the dungeon. Whoever heard of polar bears and ice lions living inside an active volcano?

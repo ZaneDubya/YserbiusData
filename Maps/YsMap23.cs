@@ -188,7 +188,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // Runes on magic wall --
             L0010: ShowRunes(party, String0413); // Alchemy
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x8A, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x8A, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -197,7 +197,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String041B); // Runes on magic wall --
             L0010: ShowRunes(party, String0432); // Reverie
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x38, 0x03);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x38, 0x03);
             L0038: return; // RETURN;
         }
 
@@ -207,7 +207,7 @@ namespace XPT.Scripts.Maps {
             L0003: ShowMessage(party, String043A); // Runes on magic wall --
             L0010: ShowRunes(party, String0451); // Netherworld
             L001D: SetState(party, 0x02, 0x49, 0x02);
-            L0032: SetMoveMap(party, 0x34, 0x02, 0xE0, 0x02);
+            L0032: TeleportPartyBC(party, 0x34, 0x02, 0xE0, 0x02);
             L004D: return; // RETURN;
         }
 
@@ -216,7 +216,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String045D); // Runes on magic wall --
             L0010: ShowRunes(party, String0474); // Arcane
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xF2, 0x00);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xF2, 0x00);
             L0037: return; // RETURN;
         }
 
@@ -225,7 +225,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String047B); // Runes on magic wall --
             L0010: ShowRunes(party, String0492); // Karma
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xF5, 0x03);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xF5, 0x03);
             L0038: return; // RETURN;
         }
 
@@ -234,7 +234,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0498); // Runes on magic wall --
             L0010: ShowRunes(party, String04AF); // Karma
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xE3, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xE3, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -243,7 +243,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04B5); // Runes on magic wall --
             L0010: ShowRunes(party, String04CC); // Incantation
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xCC, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xCC, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -255,7 +255,7 @@ namespace XPT.Scripts.Maps {
             L0017: if (JumpNotEqual) goto L004E;
             L0019: ShowMessage(party, String04D8); // Runes on magic wall --
             L0026: ShowRunes(party, String04EF); // Archaic
-            L0033: SetMoveMap(party, 0x34, 0x02, 0xFA, 0x02);
+            L0033: TeleportPartyBC(party, 0x34, 0x02, 0xFA, 0x02);
             L004E: return; // RETURN;
         }
 
@@ -264,7 +264,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04F7); // Runes on magic wall --
             L0010: ShowRunes(party, String050E); // Netherworld
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x88, 0x00);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x88, 0x00);
             L0037: return; // RETURN;
         }
 
@@ -286,7 +286,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0550); // The gate takes you back to the Labyrinth.
-            L0010: SetMoveMap(party, 0x34, 0x02, 0x30, 0x02);
+            L0010: TeleportPartyBC(party, 0x34, 0x02, 0x30, 0x02);
             L002B: return; // RETURN;
         }
 
@@ -295,7 +295,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String057A); // Runes on magic wall --
             L0010: ShowRunes(party, String0591); // Ethereal
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xBB, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xBB, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -304,7 +304,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String059A); // Runes on magic wall --
             L0010: ShowRunes(party, String05B1); // Netherworld
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xDA, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xDA, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -314,7 +314,7 @@ namespace XPT.Scripts.Maps {
             L0003: SetState(party, 0x02, 0x49, 0x03);
             L0018: ShowMessage(party, String05BD); // Runes on magic wall --
             L0025: ShowRunes(party, String05D4); // Luck
-            L0032: SetMoveMap(party, 0x34, 0x02, 0xB9, 0x02);
+            L0032: TeleportPartyBC(party, 0x34, 0x02, 0xB9, 0x02);
             L004D: return; // RETURN;
         }
 
@@ -326,14 +326,14 @@ namespace XPT.Scripts.Maps {
             L0017: if (JumpNotEqual) goto L0050;
             L0019: ShowMessage(party, String05D9); // Runes on magic wall --
             L0026: ShowRunes(party, String05F0); // Illusion
-            L0033: SetMoveMap(party, 0x34, 0x02, 0xCC, 0x02);
+            L0033: TeleportPartyBC(party, 0x34, 0x02, 0xCC, 0x02);
             L004E: goto L009B;
             L0050: ax = GetState(party, 0x02, 0x49);
             L0061: Compare(ax, 0x0004);
             L0064: if (JumpNotEqual) goto L009B;
             L0066: ShowMessage(party, String05F9); // Runes on magic wall --
             L0073: ShowRunes(party, String0610); // Invulnerable
-            L0080: SetMoveMap(party, 0x34, 0x02, 0xD8, 0x02);
+            L0080: TeleportPartyBC(party, 0x34, 0x02, 0xD8, 0x02);
             L009B: return; // RETURN;
         }
 
@@ -343,7 +343,7 @@ namespace XPT.Scripts.Maps {
             L0003: SetState(party, 0x02, 0x49, 0x04);
             L0018: ShowMessage(party, String061D); // Runes on magic wall --
             L0025: ShowRunes(party, String0634); // Karma
-            L0032: SetMoveMap(party, 0x34, 0x02, 0xB9, 0x02);
+            L0032: TeleportPartyBC(party, 0x34, 0x02, 0xB9, 0x02);
             L004D: return; // RETURN;
         }
 
@@ -352,7 +352,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String063A); // Runes on magic wall --
             L0010: ShowRunes(party, String0651); // Luminous
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x6A, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x6A, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -376,7 +376,7 @@ namespace XPT.Scripts.Maps {
             L0003: SetState(party, 0x02, 0x49, 0x05);
             L0018: ShowMessage(party, String069E); // Runes on magic wall --
             L0025: ShowRunes(party, String06B5); // Dust
-            L0032: SetMoveMap(party, 0x34, 0x02, 0xB7, 0x02);
+            L0032: TeleportPartyBC(party, 0x34, 0x02, 0xB7, 0x02);
             L004D: return; // RETURN;
         }
 
@@ -385,7 +385,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06BA); // Runes on magic wall --
             L0010: ShowRunes(party, String06D1); // Enchant
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xD6, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xD6, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -394,7 +394,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06D9); // Runes on magic wall --
             L0010: ShowRunes(party, String06F0); // Magic
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xD0, 0x03);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xD0, 0x03);
             L0038: return; // RETURN;
         }
 
@@ -403,7 +403,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06F6); // Runes on magic wall --
             L0010: ShowRunes(party, String070D); // Ghouls
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x68, 0x00);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x68, 0x00);
             L0037: return; // RETURN;
         }
 
@@ -412,7 +412,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0714); // Runes on magic wall --
             L0010: ShowRunes(party, String072B); // Hex
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xAD, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xAD, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -421,7 +421,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String072F); // Runes on magic wall --
             L0010: ShowRunes(party, String0746); // Obsession
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x7E, 0x00);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x7E, 0x00);
             L0037: return; // RETURN;
         }
 
@@ -430,7 +430,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0750); // Runes on magic wall --
             L0010: ShowRunes(party, String0767); // Sorcery
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x5E, 0x00);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x5E, 0x00);
             L0037: return; // RETURN;
         }
 
@@ -439,7 +439,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String076F); // Runes on magic wall --
             L0010: ShowRunes(party, String0786); // Talisman
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xC2, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xC2, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -454,7 +454,7 @@ namespace XPT.Scripts.Maps {
             L002B: if (JumpEqual) goto L0064;
             L002D: ShowMessage(party, String078F); // Both Arnakkian and Enlikil have been identified.
             L003A: ShowMessage(party, String07C0); // The Ghost takes you to the Guardians.
-            L0047: SetMoveMap(party, 0x33, 0x02, 0x56, 0x02);
+            L0047: TeleportPartyBC(party, 0x33, 0x02, 0x56, 0x02);
             L0062: goto L0071;
             L0064: ShowMessage(party, String07E6); // The master of this castle must be identified before the ghost may take you to him.
             L0071: return; // RETURN;
@@ -465,7 +465,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0839); // Runes on magic wall --
             L0010: ShowRunes(party, String0850); // Druid
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x36, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x36, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -474,7 +474,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0856); // Runes on magic wall --
             L0010: ShowRunes(party, String086D); // Runes
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x3B, 0x00);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x3B, 0x00);
             L0037: return; // RETURN;
         }
 
@@ -483,7 +483,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0873); // Runes on magic wall --
             L0010: ShowRunes(party, String088A); // Alchemist
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x2C, 0x00);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x2C, 0x00);
             L0037: return; // RETURN;
         }
 
@@ -492,7 +492,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0894); // Runes on magic wall --
             L0010: ShowRunes(party, String08AB); // Ghost
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x3E, 0x03);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x3E, 0x03);
             L0038: return; // RETURN;
         }
 
@@ -501,7 +501,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08B1); // Runes on magic wall --
             L0010: ShowRunes(party, String08C8); // Orb
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x8E, 0x00);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x8E, 0x00);
             L0037: return; // RETURN;
         }
 
@@ -510,7 +510,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08CC); // Runes on magic wall --
             L0010: ShowRunes(party, String08E3); // Nexus
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xFD, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xFD, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -544,7 +544,7 @@ namespace XPT.Scripts.Maps {
             L0003: ShowMessage(party, String08E9); // Runes on magic wall --
             L0010: ShowRunes(party, String0900); // Zzyzx
             L001D: SetState(party, 0x02, 0x49, 0x01);
-            L0032: SetMoveMap(party, 0x34, 0x02, 0x27, 0x02);
+            L0032: TeleportPartyBC(party, 0x34, 0x02, 0x27, 0x02);
             L004D: return; // RETURN;
         }
 
@@ -553,7 +553,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0906); // Runes on magic wall --
             L0010: ShowRunes(party, String091D); // Illusive
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xCC, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xCC, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -565,7 +565,7 @@ namespace XPT.Scripts.Maps {
             L0017: if (JumpNotEqual) goto L004E;
             L0019: ShowMessage(party, String0926); // Runes on magic wall --
             L0026: ShowRunes(party, String093D); // Wizard
-            L0033: SetMoveMap(party, 0x34, 0x02, 0xE6, 0x02);
+            L0033: TeleportPartyBC(party, 0x34, 0x02, 0xE6, 0x02);
             L004E: return; // RETURN;
         }
 
@@ -574,7 +574,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0944); // Runes on magic wall --
             L0010: ShowRunes(party, String095B); // Vision
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x07, 0x01);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x07, 0x01);
             L0038: return; // RETURN;
         }
 
@@ -583,7 +583,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0962); // Runes on magic wall --
             L0010: ShowRunes(party, String0979); // Bewitch
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x1D, 0x00);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x1D, 0x00);
             L0037: return; // RETURN;
         }
 
@@ -592,7 +592,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0981); // Runes on magic wall --
             L0010: ShowRunes(party, String0998); // Conjure
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xBD, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xBD, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -601,7 +601,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09A0); // Runes on magic wall --
             L0010: ShowRunes(party, String09B7); // Powerful
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x00, 0x33);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x00, 0x33);
             L0037: return; // RETURN;
         }
 
@@ -610,7 +610,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09C0); // Runes on magic wall --
             L0010: ShowRunes(party, String09D7); // Magus
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x1D, 0x00);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x1D, 0x00);
             L0037: return; // RETURN;
         }
 
@@ -619,7 +619,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09DD); // Runes on magic wall --
             L0010: ShowRunes(party, String09F4); // Jinx
-            L001D: SetMoveMap(party, 0x34, 0x02, 0xBD, 0x02);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xBD, 0x02);
             L0038: return; // RETURN;
         }
 
@@ -628,7 +628,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09F9); // Runes on magic wall --
             L0010: ShowRunes(party, String0A10); // Unspeller
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x07, 0x01);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x07, 0x01);
             L0038: return; // RETURN;
         }
 
@@ -637,7 +637,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A1A); // Runes on magic wall --
             L0010: ShowRunes(party, String0A31); // XxxX
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x07, 0x01);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x07, 0x01);
             L0038: return; // RETURN;
         }
 
@@ -646,7 +646,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A36); // Runes on magic wall --
             L0010: ShowRunes(party, String0A4D); // Youth
-            L001D: SetMoveMap(party, 0x34, 0x02, 0x00, 0x33);
+            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x00, 0x33);
             L0037: return; // RETURN;
         }
 
@@ -701,7 +701,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A53); // You fall into the pit and die.
             L0010: ax = GetMaxHits74(party);
-            L0017: DoDamage90(party, ax);
+            L0017: DamagePlayer90(party, ax);
             L0021: return; // RETURN;
         }
 
@@ -787,15 +787,15 @@ namespace XPT.Scripts.Maps {
             L005A: PushStack(party, 0x01);
             L005E: ax = GetFacing24(party);
             L0065: PushStack(party, ax);
-            L0066: ax = GetNextTile20(party);
+            L0066: ax = GetCurrentTile20(party);
             L006D: PushStack(party, ax);
-            L006E: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L006E: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0078: ax = GetFacing24(party);
             L007F: PushStack(party, ax);
-            L0080: ax = GetNextTile20(party);
+            L0080: ax = GetCurrentTile20(party);
             L0087: PushStack(party, ax);
             L0088: PushStack(party, 0x01);
-            L008C: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L008C: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0096: ShowMessage(party, String0B26); // The Wizard Door opens.
             L00A3: goto L00B2;
             L00A5: ShowMessage(party, String0B3D); // The symbol of the Four Corners magically radiates from this door.
@@ -914,7 +914,7 @@ namespace XPT.Scripts.Maps {
         private void FnLABY_4F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x34, 0x01, 0x3F, 0x00);
+            L0003: TeleportPartyBC(party, 0x34, 0x01, 0x3F, 0x00);
             L001D: return; // RETURN;
         }
 

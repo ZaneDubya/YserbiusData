@@ -444,7 +444,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0858); // A path leads up to CASTLEGATE
-            L0010: SetMoveMap(party, 0x36, 0x01, 0x74, 0x01);
+            L0010: TeleportPartyBC(party, 0x36, 0x01, 0x74, 0x01);
             L002B: return; // RETURN;
         }
 
@@ -454,7 +454,7 @@ namespace XPT.Scripts.Maps {
             L0003: ax = CheckLevel44(party, 0x001E);
             L0011: if (JumpEqual) goto L003D;
             L0013: ShowMessage(party, String0876); // A narrow tunnel appears, leading down to the DWARF KINGDOM.
-            L0020: SetMoveMap(party, 0x38, 0x01, 0x7A, 0x02);
+            L0020: TeleportPartyBC(party, 0x38, 0x01, 0x7A, 0x02);
             L003B: goto L004A;
             L003D: ShowRunes(party, String08B2); // At level thirty, the entrance to the land of dwarfs will be open to you.
             L004A: return; // RETURN;
@@ -463,7 +463,7 @@ namespace XPT.Scripts.Maps {
         private void FnNOJOIN_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TileIsNoJoinArea(party);
+            L0003: SetNoJoinArea(party);
             L000B: return; // RETURN;
         }
 
@@ -913,14 +913,14 @@ namespace XPT.Scripts.Maps {
             L0025: ShowMessage(party, String1CC2); // The door unlocks.
             L0032: PushStack(party, 0x01);
             L0036: PushStack(party, 0x03);
-            L003A: ax = GetNextTile20(party);
+            L003A: ax = GetCurrentTile20(party);
             L0041: PushStack(party, ax);
-            L0042: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0042: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L004C: PushStack(party, 0x03);
-            L0050: ax = GetNextTile20(party);
+            L0050: ax = GetCurrentTile20(party);
             L0057: PushStack(party, ax);
             L0058: PushStack(party, 0x01);
-            L005C: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L005C: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0066: return; // RETURN;
         }
 

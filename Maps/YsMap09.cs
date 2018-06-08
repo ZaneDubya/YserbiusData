@@ -45,7 +45,7 @@ namespace XPT.Scripts.Maps {
         private void FnSTRSTELE_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x03, 0x01, 0xD7, 0x01);
+            L0003: TeleportPartyBC(party, 0x03, 0x01, 0xD7, 0x01);
             L001E: return; // RETURN;
         }
 
@@ -57,23 +57,23 @@ namespace XPT.Scripts.Maps {
             L0018: PushStack(party, 0x01);
             L001C: ax = GetFacing24(party);
             L0023: PushStack(party, ax);
-            L0024: ax = GetNextTile20(party);
+            L0024: ax = GetCurrentTile20(party);
             L002B: PushStack(party, ax);
-            L002C: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L002C: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0036: ax = GetFacing24(party);
             L003D: PushStack(party, ax);
-            L003E: ax = GetNextTile20(party);
+            L003E: ax = GetCurrentTile20(party);
             L0045: PushStack(party, ax);
             L0046: PushStack(party, 0x01);
-            L004A: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004A: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0054: ShowMessage(party, String03FC); // The E Rune Key unlocked the thick door.
             L0061: goto L008D;
             L0063: PushStack(party, 0x00);
             L0066: ax = GetFacing24(party);
             L006D: PushStack(party, ax);
-            L006E: ax = GetNextTile20(party);
+            L006E: ax = GetCurrentTile20(party);
             L0075: PushStack(party, ax);
-            L0076: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0076: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0080: ShowMessage(party, String0424); // The door is locked.  You need a special key.
             L008D: return; // RETURN;
         }
@@ -380,7 +380,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0636); // A Halfling Cleric creeps out of the shadows.
             L0010: ShowPortrait(party, 0x0029);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0663); // You will need Cleowyn's Robe, Crown and Scepter to reach his hidden tomb in the Mausoleum.
@@ -394,7 +394,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0711); // A half-mad Gnome Thief crawls into the room.
             L0010: ShowPortrait(party, 0x0024);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000A);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String073E); // The wizard Arnakkian hired his own troops from the Snow Elves. It is said that these strange elves disappeared before the volcano erupted. Where they wound up is anybody's guess.

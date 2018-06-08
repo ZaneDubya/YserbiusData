@@ -99,7 +99,7 @@ namespace XPT.Scripts.Maps {
         private void FnTOCORDOR_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x03, 0x03, 0x08, 0x01);
+            L0003: TeleportPartyBC(party, 0x03, 0x03, 0x08, 0x01);
             L001E: return; // RETURN;
         }
 
@@ -108,23 +108,23 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = CheckLevel44(party, 0x001E);
             L0011: if (JumpEqual) goto L0030;
-            L0013: SetMoveMap(party, 0x38, 0x01, 0x7A, 0x02);
+            L0013: TeleportPartyBC(party, 0x38, 0x01, 0x7A, 0x02);
             L002E: goto L0067;
             L0030: ShowMessage(party, String03FC); // A note reads -
             L003D: ShowMessage(party, String040B); // 'Only heroes of the thirtieth level or higher may pass this door.'
             L004A: PushStack(party, 0x00);
             L004D: ax = GetFacing24(party);
             L0054: PushStack(party, ax);
-            L0055: ax = GetNextTile20(party);
+            L0055: ax = GetCurrentTile20(party);
             L005C: PushStack(party, ax);
-            L005D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L005D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0067: return; // RETURN;
         }
 
         private void FnTELEPORT_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x04, 0x20, 0x02);
+            L0003: TeleportPartyBC(party, 0x01, 0x04, 0x20, 0x02);
             L001E: return; // RETURN;
         }
 
@@ -136,22 +136,22 @@ namespace XPT.Scripts.Maps {
             L0013: PushStack(party, 0x01);
             L0017: ax = GetFacing24(party);
             L001E: PushStack(party, ax);
-            L001F: ax = GetNextTile20(party);
+            L001F: ax = GetCurrentTile20(party);
             L0026: PushStack(party, ax);
-            L0027: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0027: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0031: PushStack(party, 0x00);
-            L0034: ax = GetNextTile20(party);
+            L0034: ax = GetCurrentTile20(party);
             L003B: PushStack(party, ax);
             L003C: PushStack(party, 0x01);
-            L0040: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0040: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L004A: ShowMessage(party, String044E); // The Sunbeam Key reveals a hidden door to the Dwarf Kingdom!
             L0057: goto L0076;
             L0059: PushStack(party, 0x00);
             L005C: ax = GetFacing24(party);
             L0063: PushStack(party, ax);
-            L0064: ax = GetNextTile20(party);
+            L0064: ax = GetCurrentTile20(party);
             L006B: PushStack(party, ax);
-            L006C: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L006C: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0076: return; // RETURN;
         }
 
@@ -166,23 +166,23 @@ namespace XPT.Scripts.Maps {
             L0029: PushStack(party, 0x01);
             L002D: ax = GetFacing24(party);
             L0034: PushStack(party, ax);
-            L0035: ax = GetNextTile20(party);
+            L0035: ax = GetCurrentTile20(party);
             L003C: PushStack(party, ax);
-            L003D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L003D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0047: ax = GetFacing24(party);
             L004E: PushStack(party, ax);
-            L004F: ax = GetNextTile20(party);
+            L004F: ax = GetCurrentTile20(party);
             L0056: PushStack(party, ax);
             L0057: PushStack(party, 0x01);
-            L005B: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L005B: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0065: ShowMessage(party, String048A); // You skillfully pick the door lock.
             L0072: goto L009E;
             L0074: PushStack(party, 0x00);
             L0077: ax = GetFacing24(party);
             L007E: PushStack(party, ax);
-            L007F: ax = GetNextTile20(party);
+            L007F: ax = GetCurrentTile20(party);
             L0086: PushStack(party, ax);
-            L0087: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0087: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0091: ShowMessage(party, String04AD); // The door is locked.
             L009E: return; // RETURN;
         }
@@ -192,7 +192,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0x69);
             L0011: if (JumpNotEqual) goto L0028;
-            L0013: ax = GetState08(party, 0x01, 0x01);
+            L0013: ax = IsStateSet(party, 0x01, 0x01);
             L0026: if (JumpEqual) goto L0072;
             L0028: RemoveItem4C(party, 0x69);
             L0034: SetState(party, 0x01, 0x01, 0x01);
@@ -213,23 +213,23 @@ namespace XPT.Scripts.Maps {
             L0019: PushStack(party, 0x01);
             L001D: ax = GetFacing24(party);
             L0024: PushStack(party, ax);
-            L0025: ax = GetNextTile20(party);
+            L0025: ax = GetCurrentTile20(party);
             L002C: PushStack(party, ax);
-            L002D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L002D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0037: ax = GetFacing24(party);
             L003E: PushStack(party, ax);
-            L003F: ax = GetNextTile20(party);
+            L003F: ax = GetCurrentTile20(party);
             L0046: PushStack(party, ax);
             L0047: PushStack(party, 0x01);
-            L004B: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004B: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0055: ShowMessage(party, String058E); // Returning the Crown of Cleowyn reveals a secret door in the west wall!
             L0062: goto L0081;
             L0064: PushStack(party, 0x00);
             L0067: ax = GetFacing24(party);
             L006E: PushStack(party, ax);
-            L006F: ax = GetNextTile20(party);
+            L006F: ax = GetCurrentTile20(party);
             L0076: PushStack(party, ax);
-            L0077: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0077: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0081: return; // RETURN;
         }
 
@@ -241,7 +241,7 @@ namespace XPT.Scripts.Maps {
             L0013: ax = GetState(party, 0x01, 0x01);
             L0024: Compare(ax, 0x0001);
             L0027: if (JumpEqual) goto L003E;
-            L0029: ax = GetState08(party, 0x01, 0x02);
+            L0029: ax = IsStateSet(party, 0x01, 0x02);
             L003C: if (JumpEqual) goto L0088;
             L003E: RemoveItem4C(party, 0x78);
             L004A: SetState(party, 0x01, 0x02, 0x01);
@@ -251,9 +251,9 @@ namespace XPT.Scripts.Maps {
             L0086: goto L00AE;
             L0088: PushStack(party, 0x00);
             L008B: PushStack(party, 0x02);
-            L008F: ax = GetNextTile20(party);
+            L008F: ax = GetCurrentTile20(party);
             L0096: PushStack(party, ax);
-            L0097: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0097: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L00A1: ShowMessage(party, String065B); // There is a niche in the wall which seems designed to hold a robe.
             L00AE: return; // RETURN;
         }
@@ -266,22 +266,22 @@ namespace XPT.Scripts.Maps {
             L0017: if (JumpNotEqual) goto L005C;
             L0019: PushStack(party, 0x01);
             L001D: PushStack(party, 0x02);
-            L0021: ax = GetNextTile20(party);
+            L0021: ax = GetCurrentTile20(party);
             L0028: PushStack(party, ax);
-            L0029: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0029: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0033: PushStack(party, 0x02);
-            L0037: ax = GetNextTile20(party);
+            L0037: ax = GetCurrentTile20(party);
             L003E: PushStack(party, ax);
             L003F: PushStack(party, 0x01);
-            L0043: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0043: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L004D: ShowMessage(party, String069D); // Returning the Robe of Cleowyn reveals a secret door in the east wall.
             L005A: goto L0079;
             L005C: PushStack(party, 0x00);
             L005F: ax = GetFacing24(party);
             L0066: PushStack(party, ax);
-            L0067: ax = GetNextTile20(party);
+            L0067: ax = GetCurrentTile20(party);
             L006E: PushStack(party, ax);
-            L006F: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L006F: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0079: return; // RETURN;
         }
 
@@ -290,25 +290,25 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ax = HasItem50(party, 0xE3);
             L0011: if (JumpEqual) goto L003D;
-            L0013: ax = GetState08(party, 0x01, 0x01);
+            L0013: ax = IsStateSet(party, 0x01, 0x01);
             L0026: if (JumpEqual) goto L003D;
-            L0028: ax = GetState08(party, 0x01, 0x02);
+            L0028: ax = IsStateSet(party, 0x01, 0x02);
             L003B: if (JumpNotEqual) goto L0055;
-            L003D: ax = GetState08(party, 0x01, 0x03);
+            L003D: ax = IsStateSet(party, 0x01, 0x03);
             L0050: if (JumpNotEqual) goto L0055;
             L0052: goto L00E0;
             L0055: RemoveItem4C(party, 0xE3);
             L0061: SetState(party, 0x01, 0x03, 0x01);
             L0076: PushStack(party, 0x01);
             L007A: PushStack(party, 0x03);
-            L007E: ax = GetNextTile20(party);
+            L007E: ax = GetCurrentTile20(party);
             L0085: PushStack(party, ax);
-            L0086: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0086: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0090: PushStack(party, 0x03);
-            L0094: ax = GetNextTile20(party);
+            L0094: ax = GetCurrentTile20(party);
             L009B: PushStack(party, ax);
             L009C: PushStack(party, 0x01);
-            L00A0: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L00A0: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L00AA: ShowMessage(party, String06E3); // Cleowyn's Scepter is taken from you by spectral hands and is placed in a niche in the wall.
             L00B7: ShowMessage(party, String073F); // The spirit of King Cleowyn whispers -
             L00C4: ShowMessage(party, String0765); // 'Well done!  The reward is yours for the taking, if you dare claim it.
@@ -316,9 +316,9 @@ namespace XPT.Scripts.Maps {
             L00DE: goto L0106;
             L00E0: PushStack(party, 0x00);
             L00E3: PushStack(party, 0x03);
-            L00E7: ax = GetNextTile20(party);
+            L00E7: ax = GetCurrentTile20(party);
             L00EE: PushStack(party, ax);
-            L00EF: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L00EF: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L00F9: ShowMessage(party, String07C8); // There is a niche in the wall which seems designed to hold a scepter.
             L0106: return; // RETURN;
         }
@@ -661,7 +661,7 @@ namespace XPT.Scripts.Maps {
         private void FnTELEMESB_18(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TileIsNoJoinArea(party);
+            L0003: SetNoJoinArea(party);
             L000B: ShowMessage(party, String0CE0); // There is a teleport in the west wall.
             L0018: return; // RETURN;
         }
@@ -671,7 +671,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0D06); // You encounter a Gremlin Cleric.
             L0010: ShowPortrait(party, 0x002A);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000D);
             L002D: if (JumpAbove) goto L0065;
             L002F: ShowMessage(party, String0D26); // Listen carefully, friend. Be careful where you place the possessions Cleowyn demands. Use Crown before Robe before Scepter.
@@ -688,7 +688,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0F24); // You encounter a Halfling Knight.
             L0010: ShowPortrait(party, 0x001D);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0F45); // The longest routes through this Mausoleum are the least rewarding.
@@ -702,7 +702,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0FD7); // You encounter an Elf Ranger.
             L0010: ShowPortrait(party, 0x001F);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000B);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0FF4); // The night the volcano erupted, the wizard Arnakkian Slowfoot threw a great feast. All who attended died in the eruption. They died at their games of cards and gambling. Some, it is said, were transformed into the monsters who inhabit the dungeon.
@@ -716,7 +716,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String110F); // You encounter a Gnome Barbarian.
             L0010: ShowPortrait(party, 0x0019);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x0007);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String1130); // Cleowyn's bones are guarded by the Snow Elves, I have heard. Whether or not it is worth returning the king's bones to the Mausoleum is much debated, for the imps will seize them again and return them to the elves.
@@ -730,7 +730,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String125B); // You encounter a Human Thief.
             L0010: ShowPortrait(party, 0x0022);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x0009);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String1278); // If you find King Cleowyn's quarters, you will find a shortcut back to his Palace. Be careful where you tread, lest you leave his quarters unrewarded.

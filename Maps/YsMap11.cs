@@ -143,7 +143,7 @@ namespace XPT.Scripts.Maps {
         private void FnTOCORRA_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x02, 0x02, 0xF0, 0x03);
+            L0003: TeleportPartyBC(party, 0x02, 0x02, 0xF0, 0x03);
             L001E: return; // RETURN;
         }
 
@@ -151,8 +151,8 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: PushStack(party, 0x00);
-            L0006: ax = GetNextTile20(party);
-            L000D: SetMove34(party, PopStack(party), ax);
+            L0006: ax = GetCurrentTile20(party);
+            L000D: SetFloorPassable34(party, PopStack(party), ax);
             L0017: return; // RETURN;
         }
 
@@ -160,7 +160,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // As you step forward, the column slides away.
-            L0010: SetMove34(party, 0x7F, 0x01);
+            L0010: SetFloorPassable34(party, 0x7F, 0x01);
             L0021: return; // RETURN;
         }
 
@@ -168,7 +168,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0429); // As you step forward, the column slides away.
-            L0010: SetMove34(party, 0xF5, 0x01);
+            L0010: SetFloorPassable34(party, 0xF5, 0x01);
             L0021: return; // RETURN;
         }
 
@@ -205,18 +205,18 @@ namespace XPT.Scripts.Maps {
         private void FnPIT_07(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetNextTile20(party);
-            L000A: SetMove38(party, 0x01, ax);
+            L0003: ax = GetCurrentTile20(party);
+            L000A: SetFloorObject38(party, 0x01, ax);
             L0018: ShowMessage(party, String063B); // You fall into a deep, deep pit.
             L0025: ax = PartyCount(party);
             L002D: Compare(ax, 0x0001);
             L0030: if (JumpNotEqual) goto L005C;
-            L0032: DoDamage90(party, 0x00FA);
-            L003F: SetMoveMap(party, 0x04, 0x01, 0xE0, 0x02);
+            L0032: DamagePlayer90(party, 0x00FA);
+            L003F: TeleportPartyBC(party, 0x04, 0x01, 0xE0, 0x02);
             L005A: goto L0091;
             L005C: ShowMessage(party, String065B); // Your body provides a soft landing pad for the rest of your party.
-            L0069: DoDamage90(party, 0x0190);
-            L0076: SetMoveMap(party, 0x04, 0x01, 0xE0, 0x02);
+            L0069: DamagePlayer90(party, 0x0190);
+            L0076: TeleportPartyBC(party, 0x04, 0x01, 0xE0, 0x02);
             L0091: return; // RETURN;
         }
 
@@ -548,23 +548,23 @@ namespace XPT.Scripts.Maps {
             L0029: PushStack(party, 0x01);
             L002D: ax = GetFacing24(party);
             L0034: PushStack(party, ax);
-            L0035: ax = GetNextTile20(party);
+            L0035: ax = GetCurrentTile20(party);
             L003C: PushStack(party, ax);
-            L003D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L003D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0047: ax = GetFacing24(party);
             L004E: PushStack(party, ax);
-            L004F: ax = GetNextTile20(party);
+            L004F: ax = GetCurrentTile20(party);
             L0056: PushStack(party, ax);
             L0057: PushStack(party, 0x01);
-            L005B: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L005B: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0065: ShowMessage(party, String09DA); // You successfully picked the locked door.
             L0072: goto L009E;
             L0074: PushStack(party, 0x00);
             L0077: ax = GetFacing24(party);
             L007E: PushStack(party, ax);
-            L007F: ax = GetNextTile20(party);
+            L007F: ax = GetCurrentTile20(party);
             L0086: PushStack(party, ax);
-            L0087: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0087: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0091: ShowMessage(party, String0A03); // The door is locked.
             L009E: return; // RETURN;
         }
@@ -578,24 +578,24 @@ namespace XPT.Scripts.Maps {
             L0014: ShowMessage(party, String0A17); // You manage to open the door by brute force.
             L0021: ax = GetFacing24(party);
             L0028: PushStack(party, ax);
-            L0029: ax = GetNextTile20(party);
+            L0029: ax = GetCurrentTile20(party);
             L0030: PushStack(party, ax);
             L0031: PushStack(party, 0x01);
-            L0035: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0035: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L003F: PushStack(party, 0x01);
             L0043: ax = GetFacing24(party);
             L004A: PushStack(party, ax);
-            L004B: ax = GetNextTile20(party);
+            L004B: ax = GetCurrentTile20(party);
             L0052: PushStack(party, ax);
-            L0053: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0053: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L005D: goto L0089;
             L005F: ShowMessage(party, String0A43); // You are not strong enough to force the door open.
             L006C: PushStack(party, 0x00);
             L006F: ax = GetFacing24(party);
             L0076: PushStack(party, ax);
-            L0077: ax = GetNextTile20(party);
+            L0077: ax = GetCurrentTile20(party);
             L007E: PushStack(party, ax);
-            L007F: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L007F: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0089: return; // RETURN;
         }
 
@@ -610,23 +610,23 @@ namespace XPT.Scripts.Maps {
             L0029: PushStack(party, 0x01);
             L002D: ax = GetFacing24(party);
             L0034: PushStack(party, ax);
-            L0035: ax = GetNextTile20(party);
+            L0035: ax = GetCurrentTile20(party);
             L003C: PushStack(party, ax);
-            L003D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L003D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0047: ax = GetFacing24(party);
             L004E: PushStack(party, ax);
-            L004F: ax = GetNextTile20(party);
+            L004F: ax = GetCurrentTile20(party);
             L0056: PushStack(party, ax);
             L0057: PushStack(party, 0x01);
-            L005B: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L005B: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0065: ShowMessage(party, String0A75); // You picked the lock of the door successfully.
             L0072: goto L009E;
             L0074: PushStack(party, 0x00);
             L0077: ax = GetFacing24(party);
             L007E: PushStack(party, ax);
-            L007F: ax = GetNextTile20(party);
+            L007F: ax = GetCurrentTile20(party);
             L0086: PushStack(party, ax);
-            L0087: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0087: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0091: ShowMessage(party, String0AA3); // The door is locked.
             L009E: return; // RETURN;
         }
@@ -645,10 +645,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0AB7); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0x82, 0x01);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0x82, 0x01);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0ADA); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0x82, 0x01);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0x82, 0x01);
             L00A0: return; // RETURN;
         }
 
@@ -666,10 +666,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0AF7); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0x86, 0x01);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0x86, 0x01);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0B1A); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0x86, 0x01);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0x86, 0x01);
             L00A0: return; // RETURN;
         }
 
@@ -687,10 +687,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0B37); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xA0, 0x03);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xA0, 0x03);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0B5A); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0xA0, 0x03);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0xA0, 0x03);
             L00A0: return; // RETURN;
         }
 
@@ -708,10 +708,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0B77); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xA8, 0x03);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xA8, 0x03);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0B9A); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0xA8, 0x03);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0xA8, 0x03);
             L00A0: return; // RETURN;
         }
 
@@ -729,10 +729,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0077;
             L004E: ShowMessage(party, String0BB7); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xB3, 0x00);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xB3, 0x00);
             L0075: goto L009E;
             L0077: ShowMessage(party, String0BDA); // You fall through a trapdoor.
-            L0084: SetMoveMap(party, 0x03, 0x02, 0xB3, 0x00);
+            L0084: TeleportPartyBC(party, 0x03, 0x02, 0xB3, 0x00);
             L009E: return; // RETURN;
         }
 
@@ -750,10 +750,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0BF7); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xB5, 0x02);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xB5, 0x02);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0C1A); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0xB5, 0x02);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0xB5, 0x02);
             L00A0: return; // RETURN;
         }
 
@@ -771,10 +771,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0077;
             L004E: ShowMessage(party, String0C37); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xC2, 0x00);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xC2, 0x00);
             L0075: goto L009E;
             L0077: ShowMessage(party, String0C5A); // You fall through a trapdoor.
-            L0084: SetMoveMap(party, 0x03, 0x02, 0xC2, 0x00);
+            L0084: TeleportPartyBC(party, 0x03, 0x02, 0xC2, 0x00);
             L009E: return; // RETURN;
         }
 
@@ -792,10 +792,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0C77); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xC6, 0x02);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xC6, 0x02);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0C9A); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0xC6, 0x02);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0xC6, 0x02);
             L00A0: return; // RETURN;
         }
 
@@ -813,10 +813,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0077;
             L004E: ShowMessage(party, String0CB7); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xD3, 0x00);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xD3, 0x00);
             L0075: goto L009E;
             L0077: ShowMessage(party, String0CDA); // You fall through a trapdoor.
-            L0084: SetMoveMap(party, 0x03, 0x02, 0xD3, 0x00);
+            L0084: TeleportPartyBC(party, 0x03, 0x02, 0xD3, 0x00);
             L009E: return; // RETURN;
         }
 
@@ -834,10 +834,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0CF7); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xD4, 0x01);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xD4, 0x01);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0D1A); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0xD4, 0x01);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0xD4, 0x01);
             L00A0: return; // RETURN;
         }
 
@@ -855,10 +855,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0D37); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xD5, 0x02);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xD5, 0x02);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0D5A); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0xD5, 0x02);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0xD5, 0x02);
             L00A0: return; // RETURN;
         }
 
@@ -876,10 +876,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0D77); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xE0, 0x01);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xE0, 0x01);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0D9A); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0xE0, 0x01);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0xE0, 0x01);
             L00A0: return; // RETURN;
         }
 
@@ -897,10 +897,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0DB7); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xE2, 0x01);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xE2, 0x01);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0DDA); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0xE2, 0x01);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0xE2, 0x01);
             L00A0: return; // RETURN;
         }
 
@@ -918,10 +918,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0DF7); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xE3, 0x01);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xE3, 0x01);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0E1A); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0xE3, 0x01);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0xE3, 0x01);
             L00A0: return; // RETURN;
         }
 
@@ -939,10 +939,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0E37); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xE5, 0x01);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xE5, 0x01);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0E5A); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0xE5, 0x01);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0xE5, 0x01);
             L00A0: return; // RETURN;
         }
 
@@ -960,10 +960,10 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0E77); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xE6, 0x01);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xE6, 0x01);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0E9A); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0xE6, 0x01);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0xE6, 0x01);
             L00A0: return; // RETURN;
         }
 
@@ -981,17 +981,17 @@ namespace XPT.Scripts.Maps {
             L0039: ax = UsedItem54(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0EB7); // You found a trapdoor on the floor.
-            L005B: SetMoveMap(party, 0x03, 0x02, 0xE8, 0x01);
+            L005B: TeleportPartyBC(party, 0x03, 0x02, 0xE8, 0x01);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0EDA); // You fall through a trapdoor.
-            L0085: SetMoveMap(party, 0x03, 0x02, 0xE8, 0x01);
+            L0085: TeleportPartyBC(party, 0x03, 0x02, 0xE8, 0x01);
             L00A0: return; // RETURN;
         }
 
         private void FnTOCORRB_29(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x02, 0x02, 0xF1, 0x03);
+            L0003: TeleportPartyBC(party, 0x02, 0x02, 0xF1, 0x03);
             L001E: return; // RETURN;
         }
 
@@ -1006,7 +1006,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0F21); // As you step forward, the column slides away.
-            L0010: SetMove34(party, 0xF7, 0x01);
+            L0010: SetFloorPassable34(party, 0xF7, 0x01);
             L0021: return; // RETURN;
         }
 
@@ -1022,7 +1022,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0F68); // You encounter an Elf Ranger.
             L0010: ShowPortrait(party, 0x001F);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000D);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0F85); // The ghost of King Cleowyn appears at his throne on special occasions. Once the king appears, he will not appear again until all mortals have left the Palace.
@@ -1036,7 +1036,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String106C); // You encounter a Gremlin Thief.
             L0010: ShowPortrait(party, 0x0026);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String108B); // The pit is pitiless. Do not go near it. The traps are dangerous, but they may aid you.
@@ -1050,7 +1050,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1115); // You encounter a Dwarf Knight.
             L0010: ShowPortrait(party, 0x001C);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000A);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String1133); // Obey the king. Return his cherished possessions and you will be blessed. Keep them and you will die.

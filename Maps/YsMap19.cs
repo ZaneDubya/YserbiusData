@@ -39,7 +39,7 @@ namespace XPT.Scripts.Maps {
         private void FnTELEPORT_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x05, 0x02, 0x00, 0x33);
+            L0003: TeleportPartyBC(party, 0x05, 0x02, 0x00, 0x33);
             L001D: return; // RETURN;
         }
 
@@ -66,7 +66,7 @@ namespace XPT.Scripts.Maps {
             L005F: ax = GetCurrentHits70(party);
             L0066: dx = PopStack(party);
             L0067: dx = dx - ax;
-            L0069: AddHealth94(party, dx);
+            L0069: HealPlayer94(party, dx);
             L0073: ShowMessage(party, String0461); // You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.
             L0080: return; // RETURN;
         }
@@ -122,23 +122,23 @@ namespace XPT.Scripts.Maps {
             L0018: PushStack(party, 0x01);
             L001C: ax = GetFacing24(party);
             L0023: PushStack(party, ax);
-            L0024: ax = GetNextTile20(party);
+            L0024: ax = GetCurrentTile20(party);
             L002B: PushStack(party, ax);
-            L002C: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L002C: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0036: ax = GetFacing24(party);
             L003D: PushStack(party, ax);
-            L003E: ax = GetNextTile20(party);
+            L003E: ax = GetCurrentTile20(party);
             L0045: PushStack(party, ax);
             L0046: PushStack(party, 0x01);
-            L004A: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004A: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0054: ShowMessage(party, String052B); // The door opens easily when you use the Lava Key.
             L0061: goto L008D;
             L0063: PushStack(party, 0x00);
             L0066: ax = GetFacing24(party);
             L006D: PushStack(party, ax);
-            L006E: ax = GetNextTile20(party);
+            L006E: ax = GetCurrentTile20(party);
             L0075: PushStack(party, ax);
-            L0076: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0076: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0080: ShowMessage(party, String055C); // This door cannot be unlocked without the Lava Key.
             L008D: return; // RETURN;
         }
@@ -152,24 +152,24 @@ namespace XPT.Scripts.Maps {
             L0014: ShowMessage(party, String058F); // You manage to force the door open.
             L0021: ax = GetFacing24(party);
             L0028: PushStack(party, ax);
-            L0029: ax = GetNextTile20(party);
+            L0029: ax = GetCurrentTile20(party);
             L0030: PushStack(party, ax);
             L0031: PushStack(party, 0x01);
-            L0035: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0035: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L003F: PushStack(party, 0x01);
             L0043: ax = GetFacing24(party);
             L004A: PushStack(party, ax);
-            L004B: ax = GetNextTile20(party);
+            L004B: ax = GetCurrentTile20(party);
             L0052: PushStack(party, ax);
-            L0053: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0053: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L005D: goto L0089;
             L005F: ShowMessage(party, String05B2); // The door is stuck.
             L006C: PushStack(party, 0x00);
             L006F: ax = GetFacing24(party);
             L0076: PushStack(party, ax);
-            L0077: ax = GetNextTile20(party);
+            L0077: ax = GetCurrentTile20(party);
             L007E: PushStack(party, ax);
-            L007F: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L007F: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0089: return; // RETURN;
         }
 
@@ -244,7 +244,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05C5); // You encounter a Human Thief.
             L0010: ShowPortrait(party, 0x0022);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String05E2); // Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
@@ -258,7 +258,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String067A); // You encounter an Elf Barbarian.
             L0010: ShowPortrait(party, 0x0018);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x0004);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String069A); // A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.

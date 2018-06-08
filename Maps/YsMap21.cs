@@ -175,7 +175,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // You step into a bottomless pit and die.
             L0010: ax = GetMaxHits74(party);
-            L0017: DoDamage90(party, ax);
+            L0017: DamagePlayer90(party, ax);
             L0021: return; // RETURN;
         }
 
@@ -372,7 +372,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0737); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -389,7 +389,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0785); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -406,7 +406,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String07CD); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -423,7 +423,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String081B); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -440,7 +440,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0865); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -457,7 +457,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String08A8); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -474,7 +474,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String08FA); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -491,7 +491,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0937); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -508,7 +508,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0983); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -525,7 +525,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String09CF); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -542,7 +542,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0A17); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -559,7 +559,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0A5B); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -576,7 +576,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0AAA); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -593,7 +593,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0AF7); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -610,7 +610,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0B42); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -627,7 +627,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0B8E); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -644,7 +644,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0BD9); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -661,7 +661,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0C21); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -678,7 +678,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0C64); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -695,7 +695,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0CB0); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -712,7 +712,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0CFA); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -729,7 +729,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0D40); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -746,7 +746,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0D7A); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -763,7 +763,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0DC2); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -780,7 +780,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0DFD); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -797,7 +797,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0E49); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -814,7 +814,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0E90); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -831,7 +831,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0ECA); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -848,7 +848,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0F17); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -865,7 +865,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0F66); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -882,7 +882,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0FA7); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -899,7 +899,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String0FF5); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -916,7 +916,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String1041); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -933,7 +933,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String1092); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -950,7 +950,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String10D4); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -967,7 +967,7 @@ namespace XPT.Scripts.Maps {
             L003C: goto L005C;
             L003E: ShowMessage(party, String111D); // You step over the edge and into oblivion.
             L004B: ax = GetMaxHits74(party);
-            L0052: DoDamage90(party, ax);
+            L0052: DamagePlayer90(party, ax);
             L005C: return; // RETURN;
         }
 
@@ -1023,14 +1023,14 @@ namespace XPT.Scripts.Maps {
             L0016: if (JumpEqual) goto L005B;
             L0018: PushStack(party, 0x01);
             L001C: PushStack(party, 0x03);
-            L0020: ax = GetNextTile20(party);
+            L0020: ax = GetCurrentTile20(party);
             L0027: PushStack(party, ax);
-            L0028: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0028: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0032: PushStack(party, 0x03);
-            L0036: ax = GetNextTile20(party);
+            L0036: ax = GetCurrentTile20(party);
             L003D: PushStack(party, ax);
             L003E: PushStack(party, 0x01);
-            L0042: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0042: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L004C: ShowMessage(party, String1147); // Andreas no longer defends this door.
             L0059: goto L0068;
             L005B: ShowMessage(party, String116C); // The Earth Elemental holds power over this door.
@@ -1041,7 +1041,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String119C); // A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
-            L0010: SetMoveMap(party, 0x34, 0x02, 0x76, 0x03);
+            L0010: TeleportPartyBC(party, 0x34, 0x02, 0x76, 0x03);
             L002B: return; // RETURN;
         }
 

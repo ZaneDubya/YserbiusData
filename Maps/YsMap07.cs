@@ -64,14 +64,14 @@ namespace XPT.Scripts.Maps {
         private void FnSTRSTELE_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x03, 0x97, 0x02);
+            L0003: TeleportPartyBC(party, 0x01, 0x03, 0x97, 0x02);
             L001E: return; // RETURN;
         }
 
         private void FnSTRSTELE_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x03, 0x01, 0x1F, 0x01);
+            L0003: TeleportPartyBC(party, 0x03, 0x01, 0x1F, 0x01);
             L001E: return; // RETURN;
         }
 
@@ -86,23 +86,23 @@ namespace XPT.Scripts.Maps {
             L0029: PushStack(party, 0x01);
             L002D: ax = GetFacing24(party);
             L0034: PushStack(party, ax);
-            L0035: ax = GetNextTile20(party);
+            L0035: ax = GetCurrentTile20(party);
             L003C: PushStack(party, ax);
-            L003D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L003D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0047: ax = GetFacing24(party);
             L004E: PushStack(party, ax);
-            L004F: ax = GetNextTile20(party);
+            L004F: ax = GetCurrentTile20(party);
             L0056: PushStack(party, ax);
             L0057: PushStack(party, 0x01);
-            L005B: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L005B: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0065: ShowMessage(party, String03FC); // You succeeded at opening the locked door.
             L0072: goto L009E;
             L0074: PushStack(party, 0x00);
             L0077: ax = GetFacing24(party);
             L007E: PushStack(party, ax);
-            L007F: ax = GetNextTile20(party);
+            L007F: ax = GetCurrentTile20(party);
             L0086: PushStack(party, ax);
-            L0087: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0087: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0091: ShowMessage(party, String0426); // The door is locked.
             L009E: return; // RETURN;
         }
@@ -115,7 +115,7 @@ namespace XPT.Scripts.Maps {
             L0018: ax = UsedSkill58(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
             L0024: Compare(ax, 0x0001);
             L0027: if (JumpBelow) goto L0046;
-            L0029: DoDamage90(party, 0x0096);
+            L0029: DamagePlayer90(party, 0x0096);
             L0036: ShowMessage(party, String043A); // Your attempt to open the door springs a trap. Dozens of darts attack you.
             L0043: goto L00D0;
             L0046: ax = UsedItem54(party, 0xD9, 0xD9);
@@ -123,23 +123,23 @@ namespace XPT.Scripts.Maps {
             L005B: PushStack(party, 0x01);
             L005F: ax = GetFacing24(party);
             L0066: PushStack(party, ax);
-            L0067: ax = GetNextTile20(party);
+            L0067: ax = GetCurrentTile20(party);
             L006E: PushStack(party, ax);
-            L006F: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L006F: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0079: ax = GetFacing24(party);
             L0080: PushStack(party, ax);
-            L0081: ax = GetNextTile20(party);
+            L0081: ax = GetCurrentTile20(party);
             L0088: PushStack(party, ax);
             L0089: PushStack(party, 0x01);
-            L008D: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L008D: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0097: ShowMessage(party, String0484); // The key unlocked the massive door, bypassing a well hidden trap.
             L00A4: goto L00D0;
             L00A6: PushStack(party, 0x00);
             L00A9: ax = GetFacing24(party);
             L00B0: PushStack(party, ax);
-            L00B1: ax = GetNextTile20(party);
+            L00B1: ax = GetCurrentTile20(party);
             L00B8: PushStack(party, ax);
-            L00B9: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L00B9: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L00C3: ShowMessage(party, String04C5); // The Palace doors are locked.  Only the Palace key will open these doors.
             L00D0: return; // RETURN;
         }
@@ -155,7 +155,7 @@ namespace XPT.Scripts.Maps {
         private void FnTOPALACA_06(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x02, 0x06, 0x03, 0x01);
+            L0003: TeleportPartyBC(party, 0x02, 0x06, 0x03, 0x01);
             L001E: return; // RETURN;
         }
 
@@ -293,7 +293,7 @@ namespace XPT.Scripts.Maps {
         private void FnTOPALACB_0F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x02, 0x06, 0x04, 0x01);
+            L0003: TeleportPartyBC(party, 0x02, 0x06, 0x04, 0x01);
             L001E: return; // RETURN;
         }
 
@@ -302,7 +302,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String066F); // You encounter a Dwarf Thief.
             L0010: ShowPortrait(party, 0x0023);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000B);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String068C); // The palace doors are locked. Somewhere on the first level is the object that will open these doors.
@@ -316,7 +316,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0742); // You encounter a Halfling Ranger.
             L0010: ShowPortrait(party, 0x0021);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x0008);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0763); // I know there are three secret areas on this level, but they cannot be entered from this corridor.
@@ -330,7 +330,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07F6); // You encounter a Dwarf Wizard.
             L0010: ShowPortrait(party, 0x002C);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0814); // Not all traps should be by-passed. I fell through one and, after some nosing around and polishing off some bothersome rogues and monsters, found a most useful key.
@@ -344,7 +344,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08E8); // You encounter an Orc Knight.
             L0010: ShowPortrait(party, 0x001A);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x0007);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0905); // King Cleowyn's Palace is an evil place, filled with the spirits of the tormented dead.  A cleric told me to look for an asymmetry in the Palace if I wished to learn the truth about the dead king.
@@ -356,14 +356,14 @@ namespace XPT.Scripts.Maps {
         private void FnSTRSTELE_14(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x03, 0x97, 0x02);
+            L0003: TeleportPartyBC(party, 0x01, 0x03, 0x97, 0x02);
             L001E: return; // RETURN;
         }
 
         private void FnSTRSTELE_15(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x03, 0x01, 0x1F, 0x01);
+            L0003: TeleportPartyBC(party, 0x03, 0x01, 0x1F, 0x01);
             L001E: return; // RETURN;
         }
 
@@ -372,7 +372,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09F2); // You encounter a Halfling Cleric.
             L0010: ShowPortrait(party, 0x0029);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000D);
             L002D: if (JumpAbove) goto L004B;
             L002F: ShowMessage(party, String0A13); // On the next level down you will find a dwarf by the name of Deldwinn.  He guards the entrance to King Cleowyn's Apartments.

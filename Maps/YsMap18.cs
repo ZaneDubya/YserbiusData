@@ -83,39 +83,39 @@ namespace XPT.Scripts.Maps {
         private void FnTELEPORT_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x05, 0x03, 0x40, 0x02);
+            L0003: TeleportPartyBC(party, 0x05, 0x03, 0x40, 0x02);
             L001E: return; // RETURN;
         }
 
         private void FnTELEPORT_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x04, 0x01, 0x78, 0x01);
+            L0003: TeleportPartyBC(party, 0x04, 0x01, 0x78, 0x01);
             L001E: return; // RETURN;
         }
 
         private void FnTELEPORT_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x05, 0x02, 0xF1, 0x03);
+            L0003: TeleportPartyBC(party, 0x05, 0x02, 0xF1, 0x03);
             L001E: return; // RETURN;
         }
 
         private void FnTELEPORT_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x05, 0x02, 0x96, 0x00);
+            L0003: TeleportPartyBC(party, 0x05, 0x02, 0x96, 0x00);
             L001D: return; // RETURN;
         }
 
         private void FnLAVA_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetNextTile20(party);
-            L000A: SetMove38(party, 0x02, ax);
+            L0003: ax = GetCurrentTile20(party);
+            L000A: SetFloorObject38(party, 0x02, ax);
             L0018: ShowMessage(party, String03FC); // You step into molten lava and your flesh burns.
             L0025: ax = GetMaxHits74(party);
-            L002C: DoDamage90(party, ax);
+            L002C: DamagePlayer90(party, ax);
             L0036: return; // RETURN;
         }
 
@@ -126,30 +126,30 @@ namespace XPT.Scripts.Maps {
             L0016: if (JumpEqual) goto L0063;
             L0018: ax = GetFacing24(party);
             L001F: PushStack(party, ax);
-            L0020: ax = GetNextTile20(party);
+            L0020: ax = GetCurrentTile20(party);
             L0027: PushStack(party, ax);
             L0028: PushStack(party, 0x01);
-            L002C: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L002C: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0036: PushStack(party, 0x01);
             L003A: ax = GetFacing24(party);
             L0041: PushStack(party, ax);
-            L0042: ax = GetNextTile20(party);
+            L0042: ax = GetCurrentTile20(party);
             L0049: PushStack(party, ax);
-            L004A: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L004A: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0054: ShowMessage(party, String042C); // The Lava Key opens the door.
             L0061: goto L00AB;
             L0063: ax = GetFacing24(party);
             L006A: PushStack(party, ax);
-            L006B: ax = GetNextTile20(party);
+            L006B: ax = GetCurrentTile20(party);
             L0072: PushStack(party, ax);
             L0073: PushStack(party, 0x01);
-            L0077: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0077: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0081: PushStack(party, 0x00);
             L0084: ax = GetFacing24(party);
             L008B: PushStack(party, ax);
-            L008C: ax = GetNextTile20(party);
+            L008C: ax = GetCurrentTile20(party);
             L0093: PushStack(party, ax);
-            L0094: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0094: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L009E: ShowMessage(party, String0449); // The door is locked. It requires a special key.
             L00AB: return; // RETURN;
         }
@@ -204,7 +204,7 @@ namespace XPT.Scripts.Maps {
             L0019: ShowPortrait(party, 0x0042);
             L0026: ShowMessage(party, String04DB); // You sip from the Fountain of Hot Ice, but nothing happens.
             L0033: goto L0071;
-            L0035: AddHealth94(party, 0x07D0);
+            L0035: HealPlayer94(party, 0x07D0);
             L0042: SetState(party, 0x01, 0x01, 0x01);
             L0057: ShowPortrait(party, 0x0042);
             L0064: ShowMessage(party, String0516); // You sip from the Fountain of Hot Ice and feel your Health restored.
@@ -222,23 +222,23 @@ namespace XPT.Scripts.Maps {
             L0029: PushStack(party, 0x01);
             L002D: ax = GetFacing24(party);
             L0034: PushStack(party, ax);
-            L0035: ax = GetNextTile20(party);
+            L0035: ax = GetCurrentTile20(party);
             L003C: PushStack(party, ax);
-            L003D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L003D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0047: ax = GetFacing24(party);
             L004E: PushStack(party, ax);
-            L004F: ax = GetNextTile20(party);
+            L004F: ax = GetCurrentTile20(party);
             L0056: PushStack(party, ax);
             L0057: PushStack(party, 0x01);
-            L005B: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L005B: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0065: ShowMessage(party, String055A); // The door lock opens easily.
             L0072: goto L009E;
             L0074: PushStack(party, 0x00);
             L0077: ax = GetFacing24(party);
             L007E: PushStack(party, ax);
-            L007F: ax = GetNextTile20(party);
+            L007F: ax = GetCurrentTile20(party);
             L0086: PushStack(party, ax);
-            L0087: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0087: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0091: ShowMessage(party, String0576); // The door is locked.
             L009E: return; // RETURN;
         }
@@ -594,7 +594,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08BF); // The heat of the adjacent lava weakens you.
-            L0010: DoDamage90(party, 0x0005);
+            L0010: DamagePlayer90(party, 0x0005);
             L001D: return; // RETURN;
         }
 
@@ -603,7 +603,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08EA); // You encounter a Troll Knight.
             L0010: ShowPortrait(party, 0x001B);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0908); // The only way to get out of this basement area is to go through the lava field. Touching the lava is deadly, as you might expect. However, even if you pass safely through the lava field, the great heat of the lava will sap your strength.
@@ -617,7 +617,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A36); // You encounter a Dwarf Thief.
             L0010: ShowPortrait(party, 0x0023);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x0009);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0A53); // I know there is a short cut through the lava field. If you can find the correct key, you will be able to use the short cut. The key also will lead you to riches.
@@ -631,7 +631,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0B10); // You encounter a Halfling Ranger.
             L0010: ShowPortrait(party, 0x0021);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x0007);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0B31); // The dwarves who built Cleowyn's Palace transported precious metals and building blocks up to the top level by means of a teleport. I believe the teleport is somewhere in this area.
@@ -645,7 +645,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0C13); // You encounter a Gremlin Cleric.
             L0010: ShowPortrait(party, 0x002A);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0C33); // Deep in the dungeon are the Pillow Labyrinths. They were formed from pillow lava that spilled into the sea. The labyrinth is formed from the hollow interior of the lava.

@@ -42,28 +42,28 @@ namespace XPT.Scripts.Maps {
         private void FnTOMINES_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x02, 0xFD, 0x03);
+            L0003: TeleportPartyBC(party, 0x01, 0x02, 0xFD, 0x03);
             L001E: return; // RETURN;
         }
 
         private void FnTOTREAS_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x04, 0x10, 0x02);
+            L0003: TeleportPartyBC(party, 0x01, 0x04, 0x10, 0x02);
             L001E: return; // RETURN;
         }
 
         private void FnTOSOLDQU_03(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x01, 0x06, 0x0F, 0x01);
+            L0003: TeleportPartyBC(party, 0x01, 0x06, 0x0F, 0x01);
             L001E: return; // RETURN;
         }
 
         private void FnEXITDUNG_04(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetExitDungeon(party);
+            L0003: ExitDungeon(party);
             L000B: return; // RETURN;
         }
 
@@ -92,7 +92,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0471); // The gateway is the DUNGEON EXIT.
-            L0010: ax = GetState08(party, 0x02, 0x6A);
+            L0010: ax = IsStateSet(party, 0x02, 0x6A);
             L0023: if (JumpEqual) goto L003F;
             L0025: ShowMessage(party, String0492); // Hail, conquering HERO OF YSERBIUS!
             L0032: ShowMessage(party, String04B5); // All of Twinion bows to your prominence!!
@@ -102,7 +102,7 @@ namespace XPT.Scripts.Maps {
         private void FnTELEPORT_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x33, 0x01, 0x5D, 0x00);
+            L0003: TeleportPartyBC(party, 0x33, 0x01, 0x5D, 0x00);
             L001D: return; // RETURN;
         }
 
@@ -126,9 +126,9 @@ namespace XPT.Scripts.Maps {
             L0039: PushStack(party, 0x01);
             L003D: ax = GetFacing24(party);
             L0044: PushStack(party, ax);
-            L0045: ax = GetNextTile20(party);
+            L0045: ax = GetCurrentTile20(party);
             L004C: PushStack(party, ax);
-            L004D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L004D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0057: goto L011D;
             L005A: ax = HasItem50(party, 0xFB);
             L0068: if (JumpNotEqual) goto L006D;
@@ -146,9 +146,9 @@ namespace XPT.Scripts.Maps {
             L00F0: PushStack(party, 0x01);
             L00F4: ax = GetFacing24(party);
             L00FB: PushStack(party, ax);
-            L00FC: ax = GetNextTile20(party);
+            L00FC: ax = GetCurrentTile20(party);
             L0103: PushStack(party, ax);
-            L0104: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0104: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L010E: goto L011D;
             L0110: ShowMessage(party, String058A); // The Thieves' Key is needed to unlock this door.
             L011D: goto L0156;
@@ -157,9 +157,9 @@ namespace XPT.Scripts.Maps {
             L0139: PushStack(party, 0x00);
             L013C: ax = GetFacing24(party);
             L0143: PushStack(party, ax);
-            L0144: ax = GetNextTile20(party);
+            L0144: ax = GetCurrentTile20(party);
             L014B: PushStack(party, ax);
-            L014C: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L014C: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0156: return; // RETURN;
         }
 
@@ -171,14 +171,14 @@ namespace XPT.Scripts.Maps {
             L0013: ShowMessage(party, String0635); // Good Journeys, brave hero.
             L0020: goto L0049;
             L0022: ShowMessage(party, String0650); // Only heroes of the twentieth level or higher may venture beyond this door.
-            L002F: SetMoveMap(party, 0x01, 0x01, 0x02, 0x00);
+            L002F: TeleportPartyBC(party, 0x01, 0x01, 0x02, 0x00);
             L0049: return; // RETURN;
         }
 
         private void FnNOJOIN_0D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TileIsNoJoinArea(party);
+            L0003: SetNoJoinArea(party);
             L000B: return; // RETURN;
         }
 

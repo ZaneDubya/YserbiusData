@@ -46,7 +46,7 @@ namespace XPT.Scripts.Maps {
         private void FnSTRSTELE_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x03, 0x01, 0xCD, 0x02);
+            L0003: TeleportPartyBC(party, 0x03, 0x01, 0xCD, 0x02);
             L001E: return; // RETURN;
         }
 
@@ -58,23 +58,23 @@ namespace XPT.Scripts.Maps {
             L0018: PushStack(party, 0x01);
             L001C: ax = GetFacing24(party);
             L0023: PushStack(party, ax);
-            L0024: ax = GetNextTile20(party);
+            L0024: ax = GetCurrentTile20(party);
             L002B: PushStack(party, ax);
-            L002C: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L002C: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0036: ax = GetFacing24(party);
             L003D: PushStack(party, ax);
-            L003E: ax = GetNextTile20(party);
+            L003E: ax = GetCurrentTile20(party);
             L0045: PushStack(party, ax);
             L0046: PushStack(party, 0x01);
-            L004A: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004A: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0054: ShowMessage(party, String03FC); // The I Rune Key unlocked the massive door.
             L0061: goto L008D;
             L0063: PushStack(party, 0x00);
             L0066: ax = GetFacing24(party);
             L006D: PushStack(party, ax);
-            L006E: ax = GetNextTile20(party);
+            L006E: ax = GetCurrentTile20(party);
             L0075: PushStack(party, ax);
-            L0076: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0076: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0080: ShowMessage(party, String0426); // The door is locked.  It can be opened by a special key.
             L008D: return; // RETURN;
         }
@@ -357,7 +357,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0706); // A dying Troll Knight lies on the floor.
             L0010: ShowPortrait(party, 0x001B);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000A);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String072E); // Cleowyn's Crown is the final treasure needed to placate the dead king's spirit. Return the king's possessions quickly or suffer his eternal wrath.
@@ -371,7 +371,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0801); // A Gremlin Cleric sits on the floor, holding a thick book in her hands.
             L0010: ShowPortrait(party, 0x002A);
-            L001D: ax = UnknownFunctionEC(party, 0x000F);
+            L001D: ax = GetRandom(party, 0x000F);
             L002A: Compare(ax, 0x000A);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0848); // The wizard Arnakkian desired immortality above all else. It is whispered that he trapped one of the Elementals and bade it obey his will and make him live forever. I believe Arnakkian got his wish, but the Elemental buried the wizard's castle under lava in revenge.

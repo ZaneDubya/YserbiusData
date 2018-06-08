@@ -77,7 +77,7 @@ namespace XPT.Scripts.Maps {
             L0003: ShowMessage(party, String03FC); // The Ageless Void swallows you whole.
             L0010: ShowMessage(party, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
             L001D: ax = GetMaxHits74(party);
-            L0024: DoDamage90(party, ax);
+            L0024: DamagePlayer90(party, ax);
             L002E: return; // RETURN;
         }
 
@@ -86,7 +86,7 @@ namespace XPT.Scripts.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String046D); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
             L0010: ax = GetMaxHits74(party);
-            L0017: DoDamage90(party, ax);
+            L0017: DamagePlayer90(party, ax);
             L0021: return; // RETURN;
         }
 
@@ -116,13 +116,13 @@ namespace XPT.Scripts.Maps {
             L0077: goto L00E5;
             L0079: ShowMessage(party, String04E9); // A Timeswitch has been set.
             L0086: ShowMessage(party, String0504); // Two other Timeswitches must be set to reveal the platform.
-            L0093: SetMove38(party, 0x03, 0xA8);
+            L0093: SetFloorObject38(party, 0x03, 0xA8);
             L00A4: goto L00E5;
             L00A6: ShowMessage(party, String053F); // The second Timeswitch has been set.
-            L00B3: SetMove38(party, 0x03, 0xA8);
+            L00B3: SetFloorObject38(party, 0x03, 0xA8);
             L00C4: goto L00E5;
             L00C6: ShowMessage(party, String0563); // The third and final Timeswitch has been set.
-            L00D3: SetMove38(party, 0x00, 0xA8);
+            L00D3: SetFloorObject38(party, 0x00, 0xA8);
             L00E3: goto L00E5;
             L00E5: ShowMessage(party, String0590); // All is deathly quiet near the Fountain of Life.
             L00F2: // restore stack ptr: sp = bp;
@@ -155,13 +155,13 @@ namespace XPT.Scripts.Maps {
             L0077: goto L00E5;
             L0079: ShowMessage(party, String05E9); // A Timeswitch has been set.
             L0086: ShowMessage(party, String0604); // Two other Timeswitches must be set to reveal the platform.
-            L0093: SetMove38(party, 0x03, 0xA8);
+            L0093: SetFloorObject38(party, 0x03, 0xA8);
             L00A4: goto L00E5;
             L00A6: ShowMessage(party, String063F); // The second Timeswitch has been set.
-            L00B3: SetMove38(party, 0x03, 0xA8);
+            L00B3: SetFloorObject38(party, 0x03, 0xA8);
             L00C4: goto L00E5;
             L00C6: ShowMessage(party, String0663); // The third and final Timeswitch has been set.
-            L00D3: SetMove38(party, 0x00, 0xA8);
+            L00D3: SetFloorObject38(party, 0x00, 0xA8);
             L00E3: goto L00E5;
             L00E5: ShowMessage(party, String0690); // All is deathly quiet near the Fountain of Life.
             L00F2: // restore stack ptr: sp = bp;
@@ -194,13 +194,13 @@ namespace XPT.Scripts.Maps {
             L0077: goto L00E5;
             L0079: ShowMessage(party, String06E9); // A Timeswitch has been set.
             L0086: ShowMessage(party, String0704); // Two other Timeswitches must be set to reveal the platform.
-            L0093: SetMove38(party, 0x03, 0xA8);
+            L0093: SetFloorObject38(party, 0x03, 0xA8);
             L00A4: goto L00E5;
             L00A6: ShowMessage(party, String073F); // The second Timeswitch has been set.
-            L00B3: SetMove38(party, 0x03, 0xA8);
+            L00B3: SetFloorObject38(party, 0x03, 0xA8);
             L00C4: goto L00E5;
             L00C6: ShowMessage(party, String0763); // The third and final Timeswitch has been set.
-            L00D3: SetMove38(party, 0x00, 0xA8);
+            L00D3: SetFloorObject38(party, 0x00, 0xA8);
             L00E3: goto L00E5;
             L00E5: ShowMessage(party, String0790); // All is deathly quiet near the Fountain of Life.
             L00F2: // restore stack ptr: sp = bp;
@@ -240,15 +240,15 @@ namespace XPT.Scripts.Maps {
             L002C: ax = GetState(party, 0x01, 0x02);
             L003D: RefreshCompareFlags(ax);
             L003F: if (JumpEqual) goto L007A;
-            L0041: SetMove38(party, 0x00, 0xA8);
+            L0041: SetFloorObject38(party, 0x00, 0xA8);
             L0051: ShowMessage(party, String090F); // You cross the Waters of Death safely.
             L005E: ShowMessage(party, String0935); // En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
             L006B: ShowPortrait(party, 0x0042);
             L0078: goto L00A9;
-            L007A: SetMove38(party, 0x03, 0xA8);
+            L007A: SetFloorObject38(party, 0x03, 0xA8);
             L008B: ShowMessage(party, String09AD); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
             L0098: ax = GetMaxHits74(party);
-            L009F: DoDamage90(party, ax);
+            L009F: DamagePlayer90(party, ax);
             L00A9: return; // RETURN;
         }
 
@@ -260,7 +260,7 @@ namespace XPT.Scripts.Maps {
             L001B: RemoveItem4C(party, 0xF6);
             L0027: RemoveItem4C(party, 0xF7);
             L0033: RemoveItem4C(party, 0xF3);
-            L003F: ax = GetState08(party, 0x02, 0x6A);
+            L003F: ax = IsStateSet(party, 0x02, 0x6A);
             L0052: if (JumpEqual) goto L007E;
             L0054: ShowMessage(party, String0A00); // You have found the Fountain of Life, but the waters are drained.
             L0061: ShowMessage(party, String0A41); // The Rainbow Gems and Golden Boat dissolve into dust.
@@ -332,7 +332,7 @@ namespace XPT.Scripts.Maps {
             L002D: ax = GetState(party, 0x01, 0x7D);
             L003E: RefreshCompareFlags(ax);
             L0040: if (JumpEqual) goto L0052;
-            L0042: SetMove38(party, 0x00, 0xA8);
+            L0042: SetFloorObject38(party, 0x00, 0xA8);
             L0052: AddEncounter(party, 0x01, 0x19);
             L0064: AddEncounter(party, 0x02, 0x19);
             L0076: AddEncounter(party, 0x03, 0x1C);
@@ -378,9 +378,9 @@ namespace XPT.Scripts.Maps {
             L002C: ax = GetState(party, 0x01, 0x02);
             L003D: RefreshCompareFlags(ax);
             L003F: if (JumpEqual) goto L0053;
-            L0041: SetMove38(party, 0x00, 0xA8);
+            L0041: SetFloorObject38(party, 0x00, 0xA8);
             L0051: goto L0064;
-            L0053: SetMove38(party, 0x03, 0xA8);
+            L0053: SetFloorObject38(party, 0x03, 0xA8);
             L0064: return; // RETURN;
         }
 
@@ -388,13 +388,13 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: // make space for tmp on stack: sp -= 2
-            L0005: ax = GetState08(party, 0x02, 0x7B);
+            L0005: ax = IsStateSet(party, 0x02, 0x7B);
             L0018: if (JumpEqual) goto L002E;
             L001A: SetState(party, 0x01, 0x00, 0x01);
-            L002E: ax = GetState08(party, 0x02, 0x7C);
+            L002E: ax = IsStateSet(party, 0x02, 0x7C);
             L0041: if (JumpEqual) goto L0058;
             L0043: SetState(party, 0x01, 0x01, 0x01);
-            L0058: ax = GetState08(party, 0x02, 0x7D);
+            L0058: ax = IsStateSet(party, 0x02, 0x7D);
             L006B: if (JumpEqual) goto L0082;
             L006D: SetState(party, 0x01, 0x02, 0x01);
             L0082: ax = GetState(party, 0x01, 0x00);
@@ -409,9 +409,9 @@ namespace XPT.Scripts.Maps {
             L00BC: tmp = dx;
             L00BF: Compare(tmp, 0xFE);
             L00C3: if (JumpNotEqual) goto L00D7;
-            L00C5: SetMove38(party, 0x00, 0xA8);
+            L00C5: SetFloorObject38(party, 0x00, 0xA8);
             L00D5: goto L00E8;
-            L00D7: SetMove38(party, 0x03, 0xA8);
+            L00D7: SetFloorObject38(party, 0x03, 0xA8);
             L00E8: // restore stack ptr: sp = bp;
             L00EA: return; // RETURN;
         }
@@ -420,7 +420,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0CA5); // You leave this dimension and re-enter your world.
-            L0010: SetMoveMap(party, 0x38, 0x04, 0x88, 0x02);
+            L0010: TeleportPartyBC(party, 0x38, 0x04, 0x88, 0x02);
             L002B: return; // RETURN;
         }
 

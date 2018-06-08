@@ -55,7 +55,7 @@ namespace XPT.Scripts.Maps {
             L0003: ShowMessage(party, String03FC); // The Ageless Void swallows you whole.
             L0010: ShowMessage(party, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
             L001D: ax = GetMaxHits74(party);
-            L0024: DoDamage90(party, ax);
+            L0024: DamagePlayer90(party, ax);
             L002E: return; // RETURN;
         }
 
@@ -107,7 +107,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06F2); // A streak of Red crosses the Ageless Void.
-            L0010: SetMoveMap(party, 0x38, 0x03, 0x97, 0x02);
+            L0010: TeleportPartyBC(party, 0x38, 0x03, 0x97, 0x02);
             L002B: return; // RETURN;
         }
 
@@ -115,7 +115,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String071C); // A streak of Yellow crosses the Ageless Void.
-            L0010: SetMoveMap(party, 0x38, 0x03, 0x87, 0x02);
+            L0010: TeleportPartyBC(party, 0x38, 0x03, 0x87, 0x02);
             L002B: return; // RETURN;
         }
 
@@ -123,7 +123,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0749); // A streak of Green crosses the Ageless Void.
-            L0010: SetMoveMap(party, 0x38, 0x03, 0x77, 0x02);
+            L0010: TeleportPartyBC(party, 0x38, 0x03, 0x77, 0x02);
             L002B: return; // RETURN;
         }
 
@@ -131,7 +131,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0775); // A streak of Blue crosses the Ageless Void.
-            L0010: SetMoveMap(party, 0x38, 0x03, 0x67, 0x02);
+            L0010: TeleportPartyBC(party, 0x38, 0x03, 0x67, 0x02);
             L002B: return; // RETURN;
         }
 
@@ -151,7 +151,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09D4); // You enter another dimension.
-            L0010: SetMoveMap(party, 0x39, 0x01, 0x54, 0x01);
+            L0010: TeleportPartyBC(party, 0x39, 0x01, 0x54, 0x01);
             L002B: return; // RETURN;
         }
 
@@ -159,7 +159,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09F1); // You enter another dimension.
-            L0010: SetMoveMap(party, 0x39, 0x01, 0x4A, 0x00);
+            L0010: TeleportPartyBC(party, 0x39, 0x01, 0x4A, 0x00);
             L002A: return; // RETURN;
         }
 
@@ -167,7 +167,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A0E); // You enter another dimension.
-            L0010: SetMoveMap(party, 0x39, 0x01, 0xAB, 0x03);
+            L0010: TeleportPartyBC(party, 0x39, 0x01, 0xAB, 0x03);
             L002B: return; // RETURN;
         }
 
@@ -175,7 +175,7 @@ namespace XPT.Scripts.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A2B); // You enter another dimension.
-            L0010: SetMoveMap(party, 0x39, 0x01, 0xB5, 0x02);
+            L0010: TeleportPartyBC(party, 0x39, 0x01, 0xB5, 0x02);
             L002B: return; // RETURN;
         }
 

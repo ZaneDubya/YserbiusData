@@ -145,14 +145,14 @@ namespace XPT.Scripts.Maps {
         private void FnTORUNERM_01(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x03, 0x01, 0x1F, 0x00);
+            L0003: TeleportPartyBC(party, 0x03, 0x01, 0x1F, 0x00);
             L001D: return; // RETURN;
         }
 
         private void FnTOMAUS_02(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x03, 0x04, 0xF8, 0x03);
+            L0003: TeleportPartyBC(party, 0x03, 0x04, 0xF8, 0x03);
             L001E: return; // RETURN;
         }
 
@@ -166,23 +166,23 @@ namespace XPT.Scripts.Maps {
             L0028: PushStack(party, 0x01);
             L002C: ax = GetFacing24(party);
             L0033: PushStack(party, ax);
-            L0034: ax = GetNextTile20(party);
+            L0034: ax = GetCurrentTile20(party);
             L003B: PushStack(party, ax);
-            L003C: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L003C: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0046: ax = GetFacing24(party);
             L004D: PushStack(party, ax);
-            L004E: ax = GetNextTile20(party);
+            L004E: ax = GetCurrentTile20(party);
             L0055: PushStack(party, ax);
             L0056: PushStack(party, 0x01);
-            L005A: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L005A: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0064: ShowMessage(party, String03FC); // The door opens.
             L0071: goto L009D;
             L0073: PushStack(party, 0x00);
             L0076: ax = GetFacing24(party);
             L007D: PushStack(party, ax);
-            L007E: ax = GetNextTile20(party);
+            L007E: ax = GetCurrentTile20(party);
             L0085: PushStack(party, ax);
-            L0086: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0086: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0090: ShowMessage(party, String040C); // This door is locked.
             L009D: return; // RETURN;
         }
@@ -197,23 +197,23 @@ namespace XPT.Scripts.Maps {
             L002D: PushStack(party, 0x01);
             L0031: ax = GetFacing24(party);
             L0038: PushStack(party, ax);
-            L0039: ax = GetNextTile20(party);
+            L0039: ax = GetCurrentTile20(party);
             L0040: PushStack(party, ax);
-            L0041: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0041: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L004B: ax = GetFacing24(party);
             L0052: PushStack(party, ax);
-            L0053: ax = GetNextTile20(party);
+            L0053: ax = GetCurrentTile20(party);
             L005A: PushStack(party, ax);
             L005B: PushStack(party, 0x01);
-            L005F: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L005F: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0069: ShowMessage(party, String0421); // The door magically opens!
             L0076: goto L00A2;
             L0078: PushStack(party, 0x00);
             L007B: ax = GetFacing24(party);
             L0082: PushStack(party, ax);
-            L0083: ax = GetNextTile20(party);
+            L0083: ax = GetCurrentTile20(party);
             L008A: PushStack(party, ax);
-            L008B: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L008B: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0095: ShowMessage(party, String043B); // This door will not open.
             L00A2: return; // RETURN;
         }
@@ -221,7 +221,7 @@ namespace XPT.Scripts.Maps {
         private void FnSTRSTELE_05(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x04, 0x01, 0x1F, 0x01);
+            L0003: TeleportPartyBC(party, 0x04, 0x01, 0x1F, 0x01);
             L001E: return; // RETURN;
         }
 
@@ -233,15 +233,15 @@ namespace XPT.Scripts.Maps {
             L0013: PushStack(party, 0x01);
             L0017: ax = GetFacing24(party);
             L001E: PushStack(party, ax);
-            L001F: ax = GetNextTile20(party);
+            L001F: ax = GetCurrentTile20(party);
             L0026: PushStack(party, ax);
-            L0027: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0027: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0031: ax = GetFacing24(party);
             L0038: PushStack(party, ax);
-            L0039: ax = GetNextTile20(party);
+            L0039: ax = GetCurrentTile20(party);
             L0040: PushStack(party, ax);
             L0041: PushStack(party, 0x01);
-            L0045: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0045: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L004F: SetState(party, 0x02, 0x2E, 0x01);
             L0064: ShowPortrait(party, 0x001C);
             L0071: RemoveItem4C(party, 0xF9);
@@ -250,9 +250,9 @@ namespace XPT.Scripts.Maps {
             L008C: PushStack(party, 0x00);
             L008F: ax = GetFacing24(party);
             L0096: PushStack(party, ax);
-            L0097: ax = GetNextTile20(party);
+            L0097: ax = GetCurrentTile20(party);
             L009E: PushStack(party, ax);
-            L009F: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L009F: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L00A9: ShowPortrait(party, 0x001C);
             L00B6: ShowMessage(party, String04B9); // None may pass. I am pledged to guard King Cleowyn's Apartments for eternity. Of course, if you had the King's Pass, I could let you through.
             L00C3: ShowMessage(party, String0546); // Seek the Pass where Ranger and Troll are blessed.
@@ -290,14 +290,14 @@ namespace XPT.Scripts.Maps {
         private void FnTELEPORT_09(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x02, 0x01, 0xF0, 0x02);
+            L0003: TeleportPartyBC(party, 0x02, 0x01, 0xF0, 0x02);
             L001E: return; // RETURN;
         }
 
         private void FnTELEPORT_0A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetMoveMap(party, 0x04, 0x01, 0x87, 0x02);
+            L0003: TeleportPartyBC(party, 0x04, 0x01, 0x87, 0x02);
             L001E: return; // RETURN;
         }
 
@@ -313,23 +313,23 @@ namespace XPT.Scripts.Maps {
             L001A: PushStack(party, 0x01);
             L001E: ax = GetFacing24(party);
             L0025: PushStack(party, ax);
-            L0026: ax = GetNextTile20(party);
+            L0026: ax = GetCurrentTile20(party);
             L002D: PushStack(party, ax);
-            L002E: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L002E: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0038: ax = GetFacing24(party);
             L003F: PushStack(party, ax);
-            L0040: ax = GetNextTile20(party);
+            L0040: ax = GetCurrentTile20(party);
             L0047: PushStack(party, ax);
             L0048: PushStack(party, 0x01);
-            L004C: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004C: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0056: ShowMessage(party, String0714); // The door is opened
             L0063: goto L008F;
             L0065: PushStack(party, 0x00);
             L0068: ax = GetFacing24(party);
             L006F: PushStack(party, ax);
-            L0070: ax = GetNextTile20(party);
+            L0070: ax = GetCurrentTile20(party);
             L0077: PushStack(party, ax);
-            L0078: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0078: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0082: ShowMessage(party, String0727); // The door can be opened only by a Human or Thief.
             L008F: return; // RETURN;
         }
@@ -346,23 +346,23 @@ namespace XPT.Scripts.Maps {
             L001B: PushStack(party, 0x01);
             L001F: ax = GetFacing24(party);
             L0026: PushStack(party, ax);
-            L0027: ax = GetNextTile20(party);
+            L0027: ax = GetCurrentTile20(party);
             L002E: PushStack(party, ax);
-            L002F: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L002F: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0039: ax = GetFacing24(party);
             L0040: PushStack(party, ax);
-            L0041: ax = GetNextTile20(party);
+            L0041: ax = GetCurrentTile20(party);
             L0048: PushStack(party, ax);
             L0049: PushStack(party, 0x01);
-            L004D: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004D: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0057: ShowMessage(party, String0758); // The lock of the door opens as you step forward.
             L0064: goto L0090;
             L0066: PushStack(party, 0x00);
             L0069: ax = GetFacing24(party);
             L0070: PushStack(party, ax);
-            L0071: ax = GetNextTile20(party);
+            L0071: ax = GetCurrentTile20(party);
             L0078: PushStack(party, ax);
-            L0079: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0079: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0083: ShowMessage(party, String0788); // The door can be opened only by an Orc or Cleric.
             L0090: return; // RETURN;
         }
@@ -379,23 +379,23 @@ namespace XPT.Scripts.Maps {
             L001A: PushStack(party, 0x01);
             L001E: ax = GetFacing24(party);
             L0025: PushStack(party, ax);
-            L0026: ax = GetNextTile20(party);
+            L0026: ax = GetCurrentTile20(party);
             L002D: PushStack(party, ax);
-            L002E: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L002E: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0038: ax = GetFacing24(party);
             L003F: PushStack(party, ax);
-            L0040: ax = GetNextTile20(party);
+            L0040: ax = GetCurrentTile20(party);
             L0047: PushStack(party, ax);
             L0048: PushStack(party, 0x01);
-            L004C: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004C: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0056: ShowMessage(party, String07B9); // The lock opens as you approach.
             L0063: goto L008F;
             L0065: PushStack(party, 0x00);
             L0068: ax = GetFacing24(party);
             L006F: PushStack(party, ax);
-            L0070: ax = GetNextTile20(party);
+            L0070: ax = GetCurrentTile20(party);
             L0077: PushStack(party, ax);
-            L0078: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0078: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0082: ShowMessage(party, String07D9); // The door can be opened only by an Elf or Barbarian.
             L008F: return; // RETURN;
         }
@@ -412,23 +412,23 @@ namespace XPT.Scripts.Maps {
             L001B: PushStack(party, 0x01);
             L001F: ax = GetFacing24(party);
             L0026: PushStack(party, ax);
-            L0027: ax = GetNextTile20(party);
+            L0027: ax = GetCurrentTile20(party);
             L002E: PushStack(party, ax);
-            L002F: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L002F: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0039: ax = GetFacing24(party);
             L0040: PushStack(party, ax);
-            L0041: ax = GetNextTile20(party);
+            L0041: ax = GetCurrentTile20(party);
             L0048: PushStack(party, ax);
             L0049: PushStack(party, 0x01);
-            L004D: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004D: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0057: ShowMessage(party, String080D); // The door unlocks when you test it.
             L0064: goto L0090;
             L0066: PushStack(party, 0x00);
             L0069: ax = GetFacing24(party);
             L0070: PushStack(party, ax);
-            L0071: ax = GetNextTile20(party);
+            L0071: ax = GetCurrentTile20(party);
             L0078: PushStack(party, ax);
-            L0079: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0079: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0083: ShowMessage(party, String0830); // The door can be opened only by a Troll or Ranger.
             L0090: return; // RETURN;
         }
@@ -445,23 +445,23 @@ namespace XPT.Scripts.Maps {
             L001B: PushStack(party, 0x01);
             L001F: ax = GetFacing24(party);
             L0026: PushStack(party, ax);
-            L0027: ax = GetNextTile20(party);
+            L0027: ax = GetCurrentTile20(party);
             L002E: PushStack(party, ax);
-            L002F: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L002F: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0039: ax = GetFacing24(party);
             L0040: PushStack(party, ax);
-            L0041: ax = GetNextTile20(party);
+            L0041: ax = GetCurrentTile20(party);
             L0048: PushStack(party, ax);
             L0049: PushStack(party, 0x01);
-            L004D: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004D: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0057: ShowMessage(party, String0862); // The door opens as you advance.
             L0064: goto L0090;
             L0066: PushStack(party, 0x00);
             L0069: ax = GetFacing24(party);
             L0070: PushStack(party, ax);
-            L0071: ax = GetNextTile20(party);
+            L0071: ax = GetCurrentTile20(party);
             L0078: PushStack(party, ax);
-            L0079: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0079: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0083: ShowMessage(party, String0881); // The door can be opened only by a Dwarf or Knight.
             L0090: return; // RETURN;
         }
@@ -478,23 +478,23 @@ namespace XPT.Scripts.Maps {
             L001B: PushStack(party, 0x01);
             L001F: ax = GetFacing24(party);
             L0026: PushStack(party, ax);
-            L0027: ax = GetNextTile20(party);
+            L0027: ax = GetCurrentTile20(party);
             L002E: PushStack(party, ax);
-            L002F: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L002F: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0039: ax = GetFacing24(party);
             L0040: PushStack(party, ax);
-            L0041: ax = GetNextTile20(party);
+            L0041: ax = GetCurrentTile20(party);
             L0048: PushStack(party, ax);
             L0049: PushStack(party, 0x01);
-            L004D: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004D: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0057: ShowMessage(party, String08B3); // The door is opened.
             L0064: goto L0090;
             L0066: PushStack(party, 0x00);
             L0069: ax = GetFacing24(party);
             L0070: PushStack(party, ax);
-            L0071: ax = GetNextTile20(party);
+            L0071: ax = GetCurrentTile20(party);
             L0078: PushStack(party, ax);
-            L0079: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0079: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0083: ShowMessage(party, String08C7); // The door can be opened only by a Gnome or Wizard.
             L0090: return; // RETURN;
         }
@@ -510,23 +510,23 @@ namespace XPT.Scripts.Maps {
             L001F: PushStack(party, 0x01);
             L0023: ax = GetFacing24(party);
             L002A: PushStack(party, ax);
-            L002B: ax = GetNextTile20(party);
+            L002B: ax = GetCurrentTile20(party);
             L0032: PushStack(party, ax);
-            L0033: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0033: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L003D: ax = GetFacing24(party);
             L0044: PushStack(party, ax);
-            L0045: ax = GetNextTile20(party);
+            L0045: ax = GetCurrentTile20(party);
             L004C: PushStack(party, ax);
             L004D: PushStack(party, 0x01);
-            L0051: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0051: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L005B: ShowMessage(party, String08F9); // The door clicks open.
             L0068: goto L0094;
             L006A: PushStack(party, 0x00);
             L006D: ax = GetFacing24(party);
             L0074: PushStack(party, ax);
-            L0075: ax = GetNextTile20(party);
+            L0075: ax = GetCurrentTile20(party);
             L007C: PushStack(party, ax);
-            L007D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L007D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0087: ShowMessage(party, String090F); // The door can be opened only by a Halfling or by Cleowyn's Key.
             L0094: return; // RETURN;
         }
@@ -542,23 +542,23 @@ namespace XPT.Scripts.Maps {
             L001F: PushStack(party, 0x01);
             L0023: ax = GetFacing24(party);
             L002A: PushStack(party, ax);
-            L002B: ax = GetNextTile20(party);
+            L002B: ax = GetCurrentTile20(party);
             L0032: PushStack(party, ax);
-            L0033: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0033: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L003D: ax = GetFacing24(party);
             L0044: PushStack(party, ax);
-            L0045: ax = GetNextTile20(party);
+            L0045: ax = GetCurrentTile20(party);
             L004C: PushStack(party, ax);
             L004D: PushStack(party, 0x01);
-            L0051: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0051: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L005B: ShowMessage(party, String094E); // The lock opens for you.
             L0068: goto L0094;
             L006A: PushStack(party, 0x00);
             L006D: ax = GetFacing24(party);
             L0074: PushStack(party, ax);
-            L0075: ax = GetNextTile20(party);
+            L0075: ax = GetCurrentTile20(party);
             L007C: PushStack(party, ax);
-            L007D: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L007D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0087: ShowMessage(party, String0966); // The door can be opened only by a Gremlin or by Cleowyn's Lockpick.
             L0094: return; // RETURN;
         }
@@ -595,19 +595,19 @@ namespace XPT.Scripts.Maps {
             L0003: ShowMessage(party, String0AB3); // A sign is on the door -
             L0010: ax = GetFacing24(party);
             L0017: PushStack(party, ax);
-            L0018: ax = GetNextTile20(party);
+            L0018: ax = GetCurrentTile20(party);
             L001F: PushStack(party, ax);
             L0020: PushStack(party, 0x01);
-            L0024: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0024: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L002E: ax = GetAlignment80(party);
             L0036: Compare(ax, 0x0001);
             L0039: if (JumpNotEqual) goto L0068;
             L003B: PushStack(party, 0x01);
             L003F: ax = GetFacing24(party);
             L0046: PushStack(party, ax);
-            L0047: ax = GetNextTile20(party);
+            L0047: ax = GetCurrentTile20(party);
             L004E: PushStack(party, ax);
-            L004F: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L004F: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0059: ShowMessage(party, String0ACB); // The way is clear for members of Chaos.
             L0066: goto L00C8;
             L0068: ModifyGold(party, 0xFFFF78BA);
@@ -616,9 +616,9 @@ namespace XPT.Scripts.Maps {
             L009D: PushStack(party, 0x01);
             L00A1: ax = GetFacing24(party);
             L00A8: PushStack(party, ax);
-            L00A9: ax = GetNextTile20(party);
+            L00A9: ax = GetCurrentTile20(party);
             L00B0: PushStack(party, ax);
-            L00B1: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L00B1: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L00BB: ShowMessage(party, String0AF2); // Those not sworn to Chaos have been duly chastised.
             L00C8: return; // RETURN;
         }
@@ -629,19 +629,19 @@ namespace XPT.Scripts.Maps {
             L0003: ShowMessage(party, String0B25); // A sign is on the door -
             L0010: ax = GetFacing24(party);
             L0017: PushStack(party, ax);
-            L0018: ax = GetNextTile20(party);
+            L0018: ax = GetCurrentTile20(party);
             L001F: PushStack(party, ax);
             L0020: PushStack(party, 0x01);
-            L0024: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0024: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L002E: ax = GetAlignment80(party);
             L0036: RefreshCompareFlags(ax);
             L0038: if (JumpNotEqual) goto L0067;
             L003A: PushStack(party, 0x01);
             L003E: ax = GetFacing24(party);
             L0045: PushStack(party, ax);
-            L0046: ax = GetNextTile20(party);
+            L0046: ax = GetCurrentTile20(party);
             L004D: PushStack(party, ax);
-            L004E: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L004E: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0058: ShowMessage(party, String0B3D); // The way is clear for members of Harmony.
             L0065: goto L00C7;
             L0067: ModifyGold(party, 0xFFFF78BA);
@@ -650,9 +650,9 @@ namespace XPT.Scripts.Maps {
             L009C: PushStack(party, 0x01);
             L00A0: ax = GetFacing24(party);
             L00A7: PushStack(party, ax);
-            L00A8: ax = GetNextTile20(party);
+            L00A8: ax = GetCurrentTile20(party);
             L00AF: PushStack(party, ax);
-            L00B0: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L00B0: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L00BA: ShowMessage(party, String0B66); // Those not sworn to Harmony have been duly chastised.
             L00C7: return; // RETURN;
         }
@@ -772,7 +772,7 @@ namespace XPT.Scripts.Maps {
         private void FnBLESSMES_19(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState0C(party, 0x02, 0x2F);
+            L0003: ax = IsStateUnset(party, 0x02, 0x2F);
             L0016: if (JumpEqual) goto L0076;
             L0018: ax = GetRace78(party);
             L001F: RefreshCompareFlags(ax);
@@ -793,7 +793,7 @@ namespace XPT.Scripts.Maps {
         private void FnBLESSMES_1A(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState0C(party, 0x02, 0x30);
+            L0003: ax = IsStateUnset(party, 0x02, 0x30);
             L0016: if (JumpEqual) goto L0077;
             L0018: ax = GetRace78(party);
             L001F: Compare(ax, 0x0001);
@@ -814,7 +814,7 @@ namespace XPT.Scripts.Maps {
         private void FnBLESSMES_1B(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState0C(party, 0x02, 0x31);
+            L0003: ax = IsStateUnset(party, 0x02, 0x31);
             L0016: if (JumpEqual) goto L0076;
             L0018: ax = GetRace78(party);
             L001F: Compare(ax, 0x0002);
@@ -835,7 +835,7 @@ namespace XPT.Scripts.Maps {
         private void FnBLESSMES_1C(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState0C(party, 0x02, 0x32);
+            L0003: ax = IsStateUnset(party, 0x02, 0x32);
             L0016: if (JumpEqual) goto L0077;
             L0018: ax = GetRace78(party);
             L001F: Compare(ax, 0x0003);
@@ -856,7 +856,7 @@ namespace XPT.Scripts.Maps {
         private void FnBLESSMES_1D(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState0C(party, 0x02, 0x33);
+            L0003: ax = IsStateUnset(party, 0x02, 0x33);
             L0016: if (JumpEqual) goto L0077;
             L0018: ax = GetRace78(party);
             L001F: Compare(ax, 0x0004);
@@ -877,7 +877,7 @@ namespace XPT.Scripts.Maps {
         private void FnBLESSMES_1E(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState0C(party, 0x02, 0x34);
+            L0003: ax = IsStateUnset(party, 0x02, 0x34);
             L0016: if (JumpEqual) goto L0077;
             L0018: ax = GetRace78(party);
             L001F: Compare(ax, 0x0005);
@@ -898,7 +898,7 @@ namespace XPT.Scripts.Maps {
         private void FnBLESSMES_1F(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState0C(party, 0x02, 0x35);
+            L0003: ax = IsStateUnset(party, 0x02, 0x35);
             L0016: if (JumpEqual) goto L0087;
             L0018: ax = GetRace78(party);
             L001F: Compare(ax, 0x0006);
@@ -921,7 +921,7 @@ namespace XPT.Scripts.Maps {
         private void FnBLESSMES_20(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState0C(party, 0x02, 0x36);
+            L0003: ax = IsStateUnset(party, 0x02, 0x36);
             L0016: if (JumpEqual) goto L0087;
             L0018: ax = GetRace78(party);
             L001F: Compare(ax, 0x0007);
@@ -953,15 +953,15 @@ namespace XPT.Scripts.Maps {
             L002F: PushStack(party, 0x01);
             L0033: ax = GetFacing24(party);
             L003A: PushStack(party, ax);
-            L003B: ax = GetNextTile20(party);
+            L003B: ax = GetCurrentTile20(party);
             L0042: PushStack(party, ax);
-            L0043: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0043: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L004D: ax = GetFacing24(party);
             L0054: PushStack(party, ax);
-            L0055: ax = GetNextTile20(party);
+            L0055: ax = GetCurrentTile20(party);
             L005C: PushStack(party, ax);
             L005D: PushStack(party, 0x01);
-            L0061: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0061: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L006B: ShowMessage(party, String0ED0); // You found a secret door!
             L0078: return; // RETURN;
         }
@@ -1005,7 +1005,7 @@ namespace XPT.Scripts.Maps {
         private void FnGOLDAENC_23(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState08(party, 0x02, 0x24);
+            L0003: ax = IsStateSet(party, 0x02, 0x24);
             L0016: if (JumpEqual) goto L0039;
             L0018: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0x00, 0xD1);
             L0037: goto L006E;
@@ -1040,7 +1040,7 @@ namespace XPT.Scripts.Maps {
         private void FnWEAPAENC_24(Party party) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState08(party, 0x02, 0x25);
+            L0003: ax = IsStateSet(party, 0x02, 0x25);
             L0016: if (JumpEqual) goto L003A;
             L0018: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xCC, 0xCE);
             L0038: goto L006F;
@@ -1256,23 +1256,23 @@ namespace XPT.Scripts.Maps {
             L002D: PushStack(party, 0x01);
             L0031: ax = GetFacing24(party);
             L0038: PushStack(party, ax);
-            L0039: ax = GetNextTile20(party);
+            L0039: ax = GetCurrentTile20(party);
             L0040: PushStack(party, ax);
-            L0041: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0041: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L004B: ax = GetFacing24(party);
             L0052: PushStack(party, ax);
-            L0053: ax = GetNextTile20(party);
+            L0053: ax = GetCurrentTile20(party);
             L005A: PushStack(party, ax);
             L005B: PushStack(party, 0x01);
-            L005F: SetMove30(party, PopStack(party), PopStack(party), PopStack(party));
+            L005F: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
             L0069: ShowMessage(party, String1080); // The key opens the door.
             L0076: goto L00A2;
             L0078: PushStack(party, 0x00);
             L007B: ax = GetFacing24(party);
             L0082: PushStack(party, ax);
-            L0083: ax = GetNextTile20(party);
+            L0083: ax = GetCurrentTile20(party);
             L008A: PushStack(party, ax);
-            L008B: SetMove2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L008B: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
             L0095: ShowMessage(party, String1098); // The door is locked and requires a special key.
             L00A2: return; // RETURN;
         }
