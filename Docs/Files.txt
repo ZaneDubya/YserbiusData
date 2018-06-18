@@ -153,7 +153,8 @@ RESOURCE.053      Copy of RESOURCE.034 ""
 === EXECUTABLE FILES =========================================================
 Filename        Type        Deciphered?     Notes
 CGENN.EXE       Exe         No
-DARKSTRT.EXE    Exe         No
+DARKSTRT.EXE    Exe         No              0x23366 = 35[u16] map indexes
+                                            0x2327E = 25 * 8[u8] rogue pictures
 TITLE.EXE       Exe         Partial         66400 = ident?
                                             66432 = 8b structs
                                             80188-82908 = Font data
