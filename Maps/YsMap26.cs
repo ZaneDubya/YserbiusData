@@ -2,7 +2,7 @@
 using XPT.WorldData;
 
 namespace XPT.Scripts.Maps {
-    class YserMap26 : AMapScript {
+    class YserMap26 : AMapScripted {
         protected override int MapIndex => 26;
         
         public YserMap26() {
