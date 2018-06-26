@@ -689,8 +689,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A7: goto L00EF;
             L00A9: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), 0x03, isForwardMove);
             L00C8: goto L00EF;
-            L00CA: PushStack(party, GetFacing(party));
-            L00D2: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), PopStack(party), isForwardMove);
+            L00CA: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), GetFacing(party), isForwardMove);
             L00ED: goto L00EF;
             L00EF: return; // RETURN;
         }
@@ -724,8 +723,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A7: goto L00EF;
             L00A9: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), 0x02, isForwardMove);
             L00C8: goto L00EF;
-            L00CA: PushStack(party, GetFacing(party));
-            L00D2: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), PopStack(party), isForwardMove);
+            L00CA: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), GetFacing(party), isForwardMove);
             L00ED: goto L00EF;
             L00EF: return; // RETURN;
         }
@@ -759,8 +757,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A7: goto L00EF;
             L00A9: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), 0x03, isForwardMove);
             L00C8: goto L00EF;
-            L00CA: PushStack(party, GetFacing(party));
-            L00D2: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), PopStack(party), isForwardMove);
+            L00CA: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), GetFacing(party), isForwardMove);
             L00ED: goto L00EF;
             L00EF: return; // RETURN;
         }
@@ -794,8 +791,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A7: goto L00EF;
             L00A9: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), 0x01, isForwardMove);
             L00C8: goto L00EF;
-            L00CA: PushStack(party, GetFacing(party));
-            L00D2: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), PopStack(party), isForwardMove);
+            L00CA: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), GetFacing(party), isForwardMove);
             L00ED: goto L00EF;
             L00EF: return; // RETURN;
         }
@@ -1224,8 +1220,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A7: goto L00EF;
             L00A9: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), 0x02, isForwardMove);
             L00C8: goto L00EF;
-            L00CA: PushStack(party, GetFacing(party));
-            L00D2: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), PopStack(party), isForwardMove);
+            L00CA: TeleportParty(party, 0x04, 0x01, GetCurrentTile(party), GetFacing(party), isForwardMove);
             L00ED: goto L00EF;
             L00EF: return; // RETURN;
         }
