@@ -60,10 +60,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0033: goto L0080;
             L0035: SetState(party, 0x02, 0x3D, 0x01);
             L004A: ShowPortrait(party, 0x0042);
-            L0057: PushStack(party, GetMaxHits(party));
-            L005F: ax = GetCurrentHits(party);
-            L0066: dx = PopStack(party);
-            L0067: dx = dx - ax;
+            L0057: dx = GetMaxHits(party) - GetCurrentHits(party);
             L0069: HealPlayer(party, dx);
             L0073: ShowMessage(party, String0461); // You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.
             L0080: return; // RETURN;

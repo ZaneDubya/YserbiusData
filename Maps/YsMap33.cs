@@ -94,14 +94,8 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0003: // make space for tmp on stack: sp -= 2
             L0005: SetState(party, 0x02, 0x7B, 0x01);
             L001A: ShowMessage(party, String04C0); // The wall sparkles with phantasmal light.
-            L0027: PushStack(party, GetState(party, 0x02, 0x7B));
-            L0039: ax = GetState(party, 0x02, 0x7C);
-            L004A: dx = PopStack(party);
-            L004B: dx = dx + ax;
-            L004D: PushStack(party, dx);
-            L004E: ax = GetState(party, 0x02, 0x7D);
-            L005F: dx = PopStack(party);
-            L0060: dx = dx + ax;
+            L0027: dx = GetState(party, 0x02, 0x7B) + GetState(party, 0x02, 0x7C);
+            L004D: dx = dx + GetState(party, 0x02, 0x7D);
             L0062: tmp = dx;
             L0065: Compare(tmp, 0x0001);
             L006B: if (JumpEqual) goto L0079;
@@ -131,14 +125,8 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0003: // make space for tmp on stack: sp -= 2
             L0005: SetState(party, 0x02, 0x7C, 0x01);
             L001A: ShowMessage(party, String05C0); // The wall sparkles with phantasmal light.
-            L0027: PushStack(party, GetState(party, 0x02, 0x7B));
-            L0039: ax = GetState(party, 0x02, 0x7C);
-            L004A: dx = PopStack(party);
-            L004B: dx = dx + ax;
-            L004D: PushStack(party, dx);
-            L004E: ax = GetState(party, 0x02, 0x7D);
-            L005F: dx = PopStack(party);
-            L0060: dx = dx + ax;
+            L0027: dx = GetState(party, 0x02, 0x7B) + GetState(party, 0x02, 0x7C);
+            L004D: dx = dx + GetState(party, 0x02, 0x7D);
             L0062: tmp = dx;
             L0065: Compare(tmp, 0x0001);
             L006B: if (JumpEqual) goto L0079;
@@ -168,14 +156,8 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0003: // make space for tmp on stack: sp -= 2
             L0005: SetState(party, 0x02, 0x7D, 0x01);
             L001A: ShowMessage(party, String06C0); // The wall sparkles with phantasmal light.
-            L0027: PushStack(party, GetState(party, 0x02, 0x7B));
-            L0039: ax = GetState(party, 0x02, 0x7C);
-            L004A: dx = PopStack(party);
-            L004B: dx = dx + ax;
-            L004D: PushStack(party, dx);
-            L004E: ax = GetState(party, 0x02, 0x7D);
-            L005F: dx = PopStack(party);
-            L0060: dx = dx + ax;
+            L0027: dx = GetState(party, 0x02, 0x7B) + GetState(party, 0x02, 0x7C);
+            L004D: dx = dx + GetState(party, 0x02, 0x7D);
             L0062: tmp = dx;
             L0065: Compare(tmp, 0x0001);
             L006B: if (JumpEqual) goto L0079;
@@ -378,14 +360,8 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0058: ax = IsStateSet(party, 0x02, 0x7D);
             L006B: if (JumpEqual) goto L0082;
             L006D: SetState(party, 0x01, 0x02, 0x01);
-            L0082: PushStack(party, GetState(party, 0x01, 0x00));
-            L0093: ax = GetState(party, 0x01, 0x01);
-            L00A4: dx = PopStack(party);
-            L00A5: dx = dx + ax;
-            L00A7: PushStack(party, dx);
-            L00A8: ax = GetState(party, 0x01, 0x02);
-            L00B9: dx = PopStack(party);
-            L00BA: dx = dx + ax;
+            L0082: dx = GetState(party, 0x01, 0x00) + GetState(party, 0x01, 0x01);
+            L00A7: dx = dx + GetState(party, 0x01, 0x02);
             L00BC: tmp = dx;
             L00BF: Compare(tmp, 0xFE);
             L00C3: if (JumpNotEqual) goto L00D7;

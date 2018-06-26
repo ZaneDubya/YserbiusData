@@ -224,10 +224,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0019: ShowMessage(party, String04E7); // You have used up the supplies in the Infirmary.
             L0026: goto L0066;
             L0028: SetState(party, 0x02, 0x42, 0x43);
-            L003D: PushStack(party, GetMaxHits(party));
-            L0045: ax = GetCurrentHits(party);
-            L004C: dx = PopStack(party);
-            L004D: dx = dx - ax;
+            L003D: dx = GetMaxHits(party) - GetCurrentHits(party);
             L004F: HealPlayer(party, dx);
             L0059: ShowMessage(party, String0517); // You have discovered the Thieves' Infirmary.  All your wounds have been cured!
             L0066: return; // RETURN;
@@ -517,10 +514,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0032: goto L0090;
             L0034: SetState(party, 0x02, 0x68, 0x01);
             L0049: ShowPortrait(party, 0x0042);
-            L0056: PushStack(party, GetMaxHits(party));
-            L005E: ax = GetCurrentHits(party);
-            L0065: dx = PopStack(party);
-            L0066: dx = dx - ax;
+            L0056: dx = GetMaxHits(party) - GetCurrentHits(party);
             L0068: HealPlayer(party, dx);
             L0072: AddExperience(party, 0x00003A98);
             L0083: ShowMessage(party, String0EAB); // You have discovered Sinestra's Fountain.  You feel healthier and more experienced after drinking the waters!
