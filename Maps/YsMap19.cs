@@ -119,26 +119,11 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xE2, 0xE2);
             L0016: if (JumpEqual) goto L0063;
-            L0018: PushStack(party, 0x01);
-            L001C: ax = GetFacing(party);
-            L0023: PushStack(party, ax);
-            L0024: ax = GetCurrentTile(party);
-            L002B: PushStack(party, ax);
-            L002C: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
-            L0036: ax = GetFacing(party);
-            L003D: PushStack(party, ax);
-            L003E: ax = GetCurrentTile(party);
-            L0045: PushStack(party, ax);
-            L0046: PushStack(party, 0x01);
-            L004A: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L0018: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
+            L0036: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
             L0054: ShowMessage(party, String052B); // The door opens easily when you use the Lava Key.
             L0061: goto L008D;
-            L0063: PushStack(party, 0x00);
-            L0066: ax = GetFacing(party);
-            L006D: PushStack(party, ax);
-            L006E: ax = GetCurrentTile(party);
-            L0075: PushStack(party, ax);
-            L0076: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0063: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x00);
             L0080: ShowMessage(party, String055C); // This door cannot be unlocked without the Lava Key.
             L008D: return; // RETURN;
         }
@@ -150,26 +135,11 @@ namespace XPT.Scripts.Yserbius.Maps {
             L000F: Compare(ax, 0x000E);
             L0012: if (JumpBelow) goto L005F;
             L0014: ShowMessage(party, String058F); // You manage to force the door open.
-            L0021: ax = GetFacing(party);
-            L0028: PushStack(party, ax);
-            L0029: ax = GetCurrentTile(party);
-            L0030: PushStack(party, ax);
-            L0031: PushStack(party, 0x01);
-            L0035: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
-            L003F: PushStack(party, 0x01);
-            L0043: ax = GetFacing(party);
-            L004A: PushStack(party, ax);
-            L004B: ax = GetCurrentTile(party);
-            L0052: PushStack(party, ax);
-            L0053: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0021: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
+            L003F: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L005D: goto L0089;
             L005F: ShowMessage(party, String05B2); // The door is stuck.
-            L006C: PushStack(party, 0x00);
-            L006F: ax = GetFacing(party);
-            L0076: PushStack(party, ax);
-            L0077: ax = GetCurrentTile(party);
-            L007E: PushStack(party, ax);
-            L007F: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L006C: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x00);
             L0089: return; // RETURN;
         }
 

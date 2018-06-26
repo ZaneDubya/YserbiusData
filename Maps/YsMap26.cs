@@ -185,12 +185,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L000F: Compare(ax, 0x0014);
             L0012: if (JumpBelow) goto L0041;
             L0014: ShowMessage(party, String0586); // With a massive effort, you manage to force the door open.
-            L0021: PushStack(party, 0x01);
-            L0025: ax = GetFacing(party);
-            L002C: PushStack(party, ax);
-            L002D: ax = GetCurrentTile(party);
-            L0034: PushStack(party, ax);
-            L0035: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0021: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L003F: goto L004E;
             L0041: ShowMessage(party, String05C0); // The door is stuck and will not open.
             L004E: return; // RETURN;
@@ -234,16 +229,8 @@ namespace XPT.Scripts.Yserbius.Maps {
             L003B: if (JumpEqual) goto L008D;
             L003D: ShowMessage(party, String0704); // Ahead, bound by the River of Eternity, is the shadow of the Phoenix Firebird. 
             L004A: ShowMessage(party, String0753); // The raging waters of the river look daunting.
-            L0057: PushStack(party, 0x01);
-            L005B: PushStack(party, 0x02);
-            L005F: ax = GetCurrentTile(party);
-            L0066: PushStack(party, ax);
-            L0067: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
-            L0071: PushStack(party, 0x02);
-            L0075: ax = GetCurrentTile(party);
-            L007C: PushStack(party, ax);
-            L007D: PushStack(party, 0x01);
-            L0081: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L0057: SetWallPassable(party, GetCurrentTile(party), 0x02, 0x01);
+            L0071: SetWallObject(party, 0x01, GetCurrentTile(party), 0x02);
             L008B: goto L00A7;
             L008D: ShowMessage(party, String0781); // You hear the sound of rushing water behind the wall.
             L009A: ShowMessage(party, String07B6); // You also hear muffled roars.

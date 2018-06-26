@@ -180,12 +180,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0060: if (JumpNotEqual) goto L0072;
             L0062: ShowMessage(party, String03FC); // You may leave the chessboard through this opening.
             L006F: goto L0193;
-            L0072: PushStack(party, 0x00);
-            L0075: ax = GetFacing(party);
-            L007C: PushStack(party, ax);
-            L007D: ax = GetCurrentTile(party);
-            L0084: PushStack(party, ax);
-            L0085: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0072: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x00);
             L008F: ax = HasItem(party, 0xEE);
             L009D: if (JumpNotEqual) goto L00A2;
             L009F: goto L0186;
@@ -283,12 +278,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0060: if (JumpNotEqual) goto L0072;
             L0062: ShowMessage(party, String049D); // You may leave the chessboard through this opening.
             L006F: goto L0193;
-            L0072: PushStack(party, 0x00);
-            L0075: ax = GetFacing(party);
-            L007C: PushStack(party, ax);
-            L007D: ax = GetCurrentTile(party);
-            L0084: PushStack(party, ax);
-            L0085: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0072: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x00);
             L008F: ax = HasItem(party, 0xEE);
             L009D: if (JumpNotEqual) goto L00A2;
             L009F: goto L0186;
@@ -411,10 +401,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xEB, 0xEB);
             L0016: if (JumpEqual) goto L0053;
-            L0018: PushStack(party, 0x03);
-            L001C: PushStack(party, 0xBF);
-            L0020: PushStack(party, 0x01);
-            L0024: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L0018: SetWallObject(party, 0x01, 0xBF, 0x03);
             L002E: SetWallPassable(party, 0xBF, 0x03, 0x01);
             L0044: ShowMessage(party, String074A); // The door proclaims,  'You shot the Moon!'
             L0051: goto L0060;
@@ -427,10 +414,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xED, 0xED);
             L0016: if (JumpEqual) goto L0060;
-            L0018: PushStack(party, 0x01);
-            L001C: PushStack(party, 0x8D);
-            L0020: PushStack(party, 0x01);
-            L0024: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L0018: SetWallObject(party, 0x01, 0x8D, 0x01);
             L002E: SetWallPassable(party, 0x8D, 0x01, 0x01);
             L0044: ShowMessage(party, String07BB); // The Ace is played as eleven points, scoring the BlackJack!
             L0051: ShowMessage(party, String07F6); // A door unlocks...
@@ -452,10 +436,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xEA, 0xEA);
             L0016: if (JumpEqual) goto L0060;
-            L0018: PushStack(party, 0x03);
-            L001C: PushStack(party, 0x7D);
-            L0020: PushStack(party, 0x01);
-            L0024: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L0018: SetWallObject(party, 0x01, 0x7D, 0x03);
             L002E: SetWallPassable(party, 0x7D, 0x03, 0x01);
             L0044: ShowMessage(party, String08BE); // The Jack scores the hand 22.  Cribbage is the game.
             L0051: ShowMessage(party, String08F2); // A door unlocks...

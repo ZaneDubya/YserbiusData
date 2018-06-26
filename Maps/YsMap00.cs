@@ -124,12 +124,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0027: Compare(ax, 0x0001);
             L002A: if (JumpNotEqual) goto L005A;
             L002C: ShowMessage(party, String0504); // This room contains the gateway to the Labyrinth.
-            L0039: PushStack(party, 0x01);
-            L003D: ax = GetFacing(party);
-            L0044: PushStack(party, ax);
-            L0045: ax = GetCurrentTile(party);
-            L004C: PushStack(party, ax);
-            L004D: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0039: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0057: goto L011D;
             L005A: ax = HasItem(party, 0xFB);
             L0068: if (JumpNotEqual) goto L006D;
@@ -144,23 +139,13 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00CC: RemoveItem(party, 0xE1);
             L00D8: RemoveItem(party, 0xE2);
             L00E4: RemoveItem(party, 0xF8);
-            L00F0: PushStack(party, 0x01);
-            L00F4: ax = GetFacing(party);
-            L00FB: PushStack(party, ax);
-            L00FC: ax = GetCurrentTile(party);
-            L0103: PushStack(party, ax);
-            L0104: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L00F0: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L010E: goto L011D;
             L0110: ShowMessage(party, String058A); // The Thieves' Key is needed to unlock this door.
             L011D: goto L0156;
             L011F: ShowMessage(party, String05BA); // The Thieves' Key is needed to unlock this door.
             L012C: ShowMessage(party, String05EA); // Only heroes of the twentieth level or higher may venture beyond this door.
-            L0139: PushStack(party, 0x00);
-            L013C: ax = GetFacing(party);
-            L0143: PushStack(party, ax);
-            L0144: ax = GetCurrentTile(party);
-            L014B: PushStack(party, ax);
-            L014C: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0139: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x00);
             L0156: return; // RETURN;
         }
 

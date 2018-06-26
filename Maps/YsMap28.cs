@@ -911,16 +911,8 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0010: ax = HasUsedItem(party, 0xD8, 0xD8);
             L0023: if (JumpEqual) goto L0066;
             L0025: ShowMessage(party, String1CC2); // The door unlocks.
-            L0032: PushStack(party, 0x01);
-            L0036: PushStack(party, 0x03);
-            L003A: ax = GetCurrentTile(party);
-            L0041: PushStack(party, ax);
-            L0042: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
-            L004C: PushStack(party, 0x03);
-            L0050: ax = GetCurrentTile(party);
-            L0057: PushStack(party, ax);
-            L0058: PushStack(party, 0x01);
-            L005C: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L0032: SetWallPassable(party, GetCurrentTile(party), 0x03, 0x01);
+            L004C: SetWallObject(party, 0x01, GetCurrentTile(party), 0x03);
             L0066: return; // RETURN;
         }
 

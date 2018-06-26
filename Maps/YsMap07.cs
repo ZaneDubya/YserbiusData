@@ -83,26 +83,11 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0018: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
             L0024: Compare(ax, 0x0006);
             L0027: if (JumpBelow) goto L0074;
-            L0029: PushStack(party, 0x01);
-            L002D: ax = GetFacing(party);
-            L0034: PushStack(party, ax);
-            L0035: ax = GetCurrentTile(party);
-            L003C: PushStack(party, ax);
-            L003D: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
-            L0047: ax = GetFacing(party);
-            L004E: PushStack(party, ax);
-            L004F: ax = GetCurrentTile(party);
-            L0056: PushStack(party, ax);
-            L0057: PushStack(party, 0x01);
-            L005B: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L0029: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
+            L0047: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
             L0065: ShowMessage(party, String03FC); // You succeeded at opening the locked door.
             L0072: goto L009E;
-            L0074: PushStack(party, 0x00);
-            L0077: ax = GetFacing(party);
-            L007E: PushStack(party, ax);
-            L007F: ax = GetCurrentTile(party);
-            L0086: PushStack(party, ax);
-            L0087: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0074: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x00);
             L0091: ShowMessage(party, String0426); // The door is locked.
             L009E: return; // RETURN;
         }
@@ -120,26 +105,11 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0043: goto L00D0;
             L0046: ax = HasUsedItem(party, 0xD9, 0xD9);
             L0059: if (JumpEqual) goto L00A6;
-            L005B: PushStack(party, 0x01);
-            L005F: ax = GetFacing(party);
-            L0066: PushStack(party, ax);
-            L0067: ax = GetCurrentTile(party);
-            L006E: PushStack(party, ax);
-            L006F: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
-            L0079: ax = GetFacing(party);
-            L0080: PushStack(party, ax);
-            L0081: ax = GetCurrentTile(party);
-            L0088: PushStack(party, ax);
-            L0089: PushStack(party, 0x01);
-            L008D: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L005B: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
+            L0079: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
             L0097: ShowMessage(party, String0484); // The key unlocked the massive door, bypassing a well hidden trap.
             L00A4: goto L00D0;
-            L00A6: PushStack(party, 0x00);
-            L00A9: ax = GetFacing(party);
-            L00B0: PushStack(party, ax);
-            L00B1: ax = GetCurrentTile(party);
-            L00B8: PushStack(party, ax);
-            L00B9: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L00A6: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x00);
             L00C3: ShowMessage(party, String04C5); // The Palace doors are locked.  Only the Palace key will open these doors.
             L00D0: return; // RETURN;
         }

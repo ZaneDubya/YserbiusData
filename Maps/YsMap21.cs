@@ -1021,16 +1021,8 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0003: ax = GetState(party, 0x01, 0x01);
             L0014: RefreshCompareFlags(ax);
             L0016: if (JumpEqual) goto L005B;
-            L0018: PushStack(party, 0x01);
-            L001C: PushStack(party, 0x03);
-            L0020: ax = GetCurrentTile(party);
-            L0027: PushStack(party, ax);
-            L0028: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
-            L0032: PushStack(party, 0x03);
-            L0036: ax = GetCurrentTile(party);
-            L003D: PushStack(party, ax);
-            L003E: PushStack(party, 0x01);
-            L0042: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L0018: SetWallPassable(party, GetCurrentTile(party), 0x03, 0x01);
+            L0032: SetWallObject(party, 0x01, GetCurrentTile(party), 0x03);
             L004C: ShowMessage(party, String1147); // Andreas no longer defends this door.
             L0059: goto L0068;
             L005B: ShowMessage(party, String116C); // The Earth Elemental holds power over this door.

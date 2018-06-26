@@ -784,18 +784,8 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0045: ax = GetState(party, 0x01, 0x04);
             L0056: RefreshCompareFlags(ax);
             L0058: if (JumpEqual) goto L00A5;
-            L005A: PushStack(party, 0x01);
-            L005E: ax = GetFacing(party);
-            L0065: PushStack(party, ax);
-            L0066: ax = GetCurrentTile(party);
-            L006D: PushStack(party, ax);
-            L006E: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
-            L0078: ax = GetFacing(party);
-            L007F: PushStack(party, ax);
-            L0080: ax = GetCurrentTile(party);
-            L0087: PushStack(party, ax);
-            L0088: PushStack(party, 0x01);
-            L008C: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L005A: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
+            L0078: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
             L0096: ShowMessage(party, String0B26); // The Wizard Door opens.
             L00A3: goto L00B2;
             L00A5: ShowMessage(party, String0B3D); // The symbol of the Four Corners magically radiates from this door.

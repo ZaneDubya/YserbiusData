@@ -300,18 +300,8 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0010: ax = HasUsedItem(party, 0xDF, 0xDF);
             L0023: if (JumpEqual) goto L006E;
             L0025: ShowMessage(party, String0817); // You unlock the door.
-            L0032: PushStack(party, 0x01);
-            L0036: ax = GetFacing(party);
-            L003D: PushStack(party, ax);
-            L003E: ax = GetCurrentTile(party);
-            L0045: PushStack(party, ax);
-            L0046: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
-            L0050: ax = GetFacing(party);
-            L0057: PushStack(party, ax);
-            L0058: ax = GetCurrentTile(party);
-            L005F: PushStack(party, ax);
-            L0060: PushStack(party, 0x01);
-            L0064: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L0032: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
+            L0050: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
             L006E: return; // RETURN;
         }
 
@@ -421,12 +411,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L000F: Compare(ax, 0x0014);
             L0012: if (JumpBelow) goto L0041;
             L0014: ShowMessage(party, String09F7); // You force the massive door open by sheer muscle power.
-            L0021: PushStack(party, 0x01);
-            L0025: ax = GetFacing(party);
-            L002C: PushStack(party, ax);
-            L002D: ax = GetCurrentTile(party);
-            L0034: PushStack(party, ax);
-            L0035: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0021: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L003F: goto L004E;
             L0041: ShowMessage(party, String0A2E); // The door is stuck. You cannot force it open.
             L004E: return; // RETURN;
@@ -443,12 +428,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0022: if (JumpNotEqual) goto L0039;
             L0024: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0037: if (JumpEqual) goto L0064;
-            L0039: PushStack(party, 0x01);
-            L003D: ax = GetFacing(party);
-            L0044: PushStack(party, ax);
-            L0045: ax = GetCurrentTile(party);
-            L004C: PushStack(party, ax);
-            L004D: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0039: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0057: ShowMessage(party, String0A5B); // You discover a secret door!
             L0064: return; // RETURN;
         }
@@ -682,12 +662,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L001B: ax = GetRace(party);
             L0022: Compare(ax, 0x0006);
             L0025: if (JumpNotEqual) goto L0052;
-            L0027: PushStack(party, 0x01);
-            L002B: ax = GetFacing(party);
-            L0032: PushStack(party, ax);
-            L0033: ax = GetCurrentTile(party);
-            L003A: PushStack(party, ax);
-            L003B: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0027: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0045: ShowMessage(party, String0E32); // The enormous door opens for you.
             L0052: return; // RETURN;
         }
@@ -702,12 +677,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L001C: ax = GetRace(party);
             L0023: Compare(ax, 0x0005);
             L0026: if (JumpNotEqual) goto L0053;
-            L0028: PushStack(party, 0x01);
-            L002C: ax = GetFacing(party);
-            L0033: PushStack(party, ax);
-            L0034: ax = GetCurrentTile(party);
-            L003B: PushStack(party, ax);
-            L003C: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0028: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0046: ShowMessage(party, String0E83); // The tremendous door swings open as you approach.
             L0053: return; // RETURN;
         }
@@ -722,12 +692,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L001C: ax = GetRace(party);
             L0023: Compare(ax, 0x0003);
             L0026: if (JumpNotEqual) goto L0053;
-            L0028: PushStack(party, 0x01);
-            L002C: ax = GetFacing(party);
-            L0033: PushStack(party, ax);
-            L0034: ax = GetCurrentTile(party);
-            L003B: PushStack(party, ax);
-            L003C: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0028: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0046: ShowMessage(party, String0EE3); // The heavy door creaks open as you draw near.
             L0053: return; // RETURN;
         }
@@ -742,12 +707,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L001C: ax = GetRace(party);
             L0023: Compare(ax, 0x0007);
             L0026: if (JumpNotEqual) goto L0053;
-            L0028: PushStack(party, 0x01);
-            L002C: ax = GetFacing(party);
-            L0033: PushStack(party, ax);
-            L0034: ax = GetCurrentTile(party);
-            L003B: PushStack(party, ax);
-            L003C: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0028: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0046: ShowMessage(party, String0F44); // The sealed door opens at your command.
             L0053: return; // RETURN;
         }

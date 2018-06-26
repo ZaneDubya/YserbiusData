@@ -177,17 +177,8 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xF2, 0xF2);
             L0016: if (JumpEqual) goto L005F;
-            L0018: PushStack(party, 0x02);
-            L001C: ax = GetCurrentTile(party);
-            L0023: PushStack(party, ax);
-            L0024: PushStack(party, 0x01);
-            L0028: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
-            L0032: PushStack(party, 0x01);
-            L0036: ax = GetFacing(party);
-            L003D: PushStack(party, ax);
-            L003E: ax = GetCurrentTile(party);
-            L0045: PushStack(party, ax);
-            L0046: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0018: SetWallObject(party, 0x01, GetCurrentTile(party), 0x02);
+            L0032: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0050: ShowMessage(party, String059B); // A magical door appears where the tapestry used to be.
             L005D: goto L006C;
             L005F: ShowMessage(party, String05D1); // A brilliant tapestry depicting moons decorates this room.

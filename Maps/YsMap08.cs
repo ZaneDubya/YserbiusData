@@ -57,26 +57,11 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xDA, 0xDA);
             L0016: if (JumpEqual) goto L0063;
-            L0018: PushStack(party, 0x01);
-            L001C: ax = GetFacing(party);
-            L0023: PushStack(party, ax);
-            L0024: ax = GetCurrentTile(party);
-            L002B: PushStack(party, ax);
-            L002C: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
-            L0036: ax = GetFacing(party);
-            L003D: PushStack(party, ax);
-            L003E: ax = GetCurrentTile(party);
-            L0045: PushStack(party, ax);
-            L0046: PushStack(party, 0x01);
-            L004A: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L0018: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
+            L0036: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
             L0054: ShowMessage(party, String03FC); // The O Rune Key unlocked the door.
             L0061: goto L008D;
-            L0063: PushStack(party, 0x00);
-            L0066: ax = GetFacing(party);
-            L006D: PushStack(party, ax);
-            L006E: ax = GetCurrentTile(party);
-            L0075: PushStack(party, ax);
-            L0076: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0063: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x00);
             L0080: ShowMessage(party, String041E); // The door is locked. It requires a special key.
             L008D: return; // RETURN;
         }

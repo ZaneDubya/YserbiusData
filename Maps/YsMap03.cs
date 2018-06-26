@@ -156,17 +156,10 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0024: Compare(ax, 0x0004);
             L0027: if (JumpBelow) goto L0068;
             L0029: SetWallPassable(party, 0x6F, 0x03, 0x01);
-            L003F: PushStack(party, 0x03);
-            L0043: ax = GetCurrentTile(party);
-            L004A: PushStack(party, ax);
-            L004B: PushStack(party, 0x01);
-            L004F: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L003F: SetWallObject(party, 0x01, GetCurrentTile(party), 0x03);
             L0059: ShowMessage(party, String046F); // You successfully picked the locked door.
             L0066: goto L008A;
-            L0068: PushStack(party, 0x00);
-            L006B: PushStack(party, 0x03);
-            L006F: PushStack(party, 0x6F);
-            L0073: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0068: SetWallPassable(party, 0x6F, 0x03, 0x00);
             L007D: ShowMessage(party, String0498); // The door is locked.
             L008A: return; // RETURN;
         }
@@ -187,17 +180,10 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0024: Compare(ax, 0x0008);
             L0027: if (JumpBelow) goto L0068;
             L0029: SetWallPassable(party, 0x40, 0x03, 0x01);
-            L003F: PushStack(party, 0x03);
-            L0043: ax = GetCurrentTile(party);
-            L004A: PushStack(party, ax);
-            L004B: PushStack(party, 0x01);
-            L004F: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L003F: SetWallObject(party, 0x01, GetCurrentTile(party), 0x03);
             L0059: ShowMessage(party, String04AC); // You successfully picked the locked door.
             L0066: goto L008A;
-            L0068: PushStack(party, 0x00);
-            L006B: PushStack(party, 0x03);
-            L006F: PushStack(party, 0x40);
-            L0073: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0068: SetWallPassable(party, 0x40, 0x03, 0x00);
             L007D: ShowMessage(party, String04D5); // The door is locked.
             L008A: return; // RETURN;
         }
