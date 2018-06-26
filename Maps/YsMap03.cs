@@ -152,8 +152,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xC0, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L0024: Compare(ax, 0x0004);
+            L0018: Compare(HasUsedSkill(party, 0x0E), 0x0004);
             L0027: if (JumpBelow) goto L0068;
             L0029: SetWallPassable(party, 0x6F, 0x03, 0x01);
             L003F: SetWallObject(party, 0x01, GetCurrentTile(party), 0x03);
@@ -176,8 +175,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xC2, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L0024: Compare(ax, 0x0008);
+            L0018: Compare(HasUsedSkill(party, 0x0E), 0x0008);
             L0027: if (JumpBelow) goto L0068;
             L0029: SetWallPassable(party, 0x40, 0x03, 0x01);
             L003F: SetWallObject(party, 0x01, GetCurrentTile(party), 0x03);
@@ -228,8 +226,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05B3); // You encounter a Gnome Barbarian.
             L0010: ShowPortrait(party, 0x0019);
-            L001D: ax = GetRandom(party, 0x000F);
-            L002A: Compare(ax, 0x0008);
+            L001D: Compare(GetRandom(party, 0x000F), 0x0008);
             L002D: if (JumpAbove) goto L004B;
             L002F: ShowMessage(party, String05D4); // My father told me an ancient story. A Galabryan king once brought a powerful wizard to Twinion. This wizard did something very bad and caused the volcano to erupt.
             L003C: ShowMessage(party, String0678); // Supposedly the wizard's castle is buried deep in the bowels of this mountain. It is his anguished spirit that keeps the volcano active.
@@ -243,8 +240,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0746); // You encounter a Dwarf Wizard.
             L0010: ShowPortrait(party, 0x002C);
-            L001D: ax = GetRandom(party, 0x000F);
-            L002A: Compare(ax, 0x000C);
+            L001D: Compare(GetRandom(party, 0x000F), 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0764); // Powerful magic once existed here. I've found scrolls and amulets and other magic charms that contain powerful spells. The Mana in these items is soon exhausted.
             L003C: goto L005C;
@@ -258,8 +254,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0855); // You encounter a Halfling Ranger.
             L0010: ShowPortrait(party, 0x0021);
-            L001D: ax = GetRandom(party, 0x000F);
-            L002A: Compare(ax, 0x000D);
+            L001D: Compare(GetRandom(party, 0x000F), 0x000D);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0876); // This place is called the Hall of Doors. Most doors lead nowhere. Others lead to wonders.
             L003C: goto L004B;
@@ -272,8 +267,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0906); // You encounter a Troll Cleric.
             L0010: ShowPortrait(party, 0x0028);
-            L001D: ax = GetRandom(party, 0x000F);
-            L002A: Compare(ax, 0x0006);
+            L001D: Compare(GetRandom(party, 0x000F), 0x0006);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0924); // Someone left a rune message on the floor. It said that to reach the King's Apartments, you must take a turn for the worse. I wonder if it means that you must be sick to find his quarters.
             L003C: goto L004B;
@@ -286,8 +280,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A25); // You encounter a Troll Knight.
             L0010: ShowPortrait(party, 0x001B);
-            L001D: ax = GetRandom(party, 0x000F);
-            L002A: Compare(ax, 0x000B);
+            L001D: Compare(GetRandom(party, 0x000F), 0x000B);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0A43); // A wise leader knows how to organize a party. Keep your fighters in front and your magicians safely in the rear. And as much as thieves are despised in general, they can serve you well, for their skills are impressive.
             L003C: goto L005C;
@@ -299,11 +292,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnLOWMNSTR_17(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = PartyCount(party);
-            L000B: Compare(ax, 0x0001);
+            L0003: Compare(PartyCount(party), 0x0001);
             L000E: if (JumpEqual) goto L001D;
-            L0010: ax = PartyCount(party);
-            L0018: Compare(ax, 0x0002);
+            L0010: Compare(PartyCount(party), 0x0002);
             L001B: if (JumpNotEqual) goto L0043;
             L001D: AddEncounter(party, 0x01, 0x1A);
             L002F: AddEncounter(party, 0x02, 0x1A);
@@ -319,21 +310,18 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0B5D); // You encounter Goblins.
-            L0010: ax = GetRandom(party, 0x000F);
-            L001D: Compare(ax, 0x0004);
+            L0010: Compare(GetRandom(party, 0x000F), 0x0004);
             L0020: if (JumpAbove) goto L0031;
             L0022: ShowMessage(party, String0B74); // You should be gracious to us Goblins, or we will tell our masters the Goblin Kings that you are cruel and deserve to die most horribly.
             L002F: goto L004B;
             L0031: ShowMessage(party, String0BFC); // The Goblins refuse to talk.
             L003E: ShowMessage(party, String0C18); // They draw their weapons and attack!
-            L004B: ax = PartyCount(party);
-            L0053: Compare(ax, 0x0001);
+            L004B: Compare(PartyCount(party), 0x0001);
             L0056: if (JumpNotEqual) goto L007F;
             L0058: AddEncounter(party, 0x01, 0x1C);
             L006A: AddEncounter(party, 0x02, 0x1C);
             L007C: goto L011E;
-            L007F: ax = PartyCount(party);
-            L0087: Compare(ax, 0x0002);
+            L007F: Compare(PartyCount(party), 0x0002);
             L008A: if (JumpNotEqual) goto L00C4;
             L008C: AddEncounter(party, 0x01, 0x1D);
             L009E: AddEncounter(party, 0x02, 0x1C);
@@ -350,11 +338,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnOGREENC_19(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = PartyCount(party);
-            L000B: Compare(ax, 0x0001);
+            L0003: Compare(PartyCount(party), 0x0001);
             L000E: if (JumpEqual) goto L001D;
-            L0010: ax = PartyCount(party);
-            L0018: Compare(ax, 0x0002);
+            L0010: Compare(PartyCount(party), 0x0002);
             L001B: if (JumpNotEqual) goto L0055;
             L001D: AddEncounter(party, 0x01, 0x21);
             L002F: AddEncounter(party, 0x02, 0x28);
@@ -373,20 +359,17 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0C3C); // You encounter Rogues.
-            L0010: ax = GetRandom(party, 0x000F);
-            L001D: Compare(ax, 0x0003);
+            L0010: Compare(GetRandom(party, 0x000F), 0x0003);
             L0020: if (JumpAbove) goto L0031;
             L0022: ShowMessage(party, String0C52); // Bizarre creatures haunt this dungeon. Many know magic. A great evil must exist somewhere in the dungeon to spawn such a neverending host of monsters.
             L002F: goto L004B;
             L0031: ShowMessage(party, String0CE8); // The Rogues refuse to talk.
             L003E: ShowMessage(party, String0D03); // They charge at you!
-            L004B: ax = PartyCount(party);
-            L0053: Compare(ax, 0x0001);
+            L004B: Compare(PartyCount(party), 0x0001);
             L0056: if (JumpNotEqual) goto L006C;
             L0058: AddEncounter(party, 0x01, 0x22);
             L006A: goto L00E7;
-            L006C: ax = PartyCount(party);
-            L0074: Compare(ax, 0x0002);
+            L006C: Compare(PartyCount(party), 0x0002);
             L0077: if (JumpNotEqual) goto L009F;
             L0079: AddEncounter(party, 0x01, 0x23);
             L008B: AddEncounter(party, 0x02, 0x23);
@@ -403,13 +386,11 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0D17); // You encounter Rogues!
             L0010: ShowMessage(party, String0D2D); // The Rogues scowl at you and attack!
-            L001D: ax = PartyCount(party);
-            L0025: Compare(ax, 0x0001);
+            L001D: Compare(PartyCount(party), 0x0001);
             L0028: if (JumpNotEqual) goto L003E;
             L002A: AddEncounter(party, 0x01, 0x28);
             L003C: goto L00B9;
-            L003E: ax = PartyCount(party);
-            L0046: Compare(ax, 0x0002);
+            L003E: Compare(PartyCount(party), 0x0002);
             L0049: if (JumpNotEqual) goto L0071;
             L004B: AddEncounter(party, 0x01, 0x25);
             L005D: AddEncounter(party, 0x02, 0x27);
@@ -424,8 +405,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnWEAPENC_1C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x02, 0x06);
-            L0014: Compare(ax, 0x0001);
+            L0003: Compare(GetState(party, 0x02, 0x06), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: AddTreasure(party, 0x0190, 0x00, 0x00, 0x00, 0x00, 0xCE);
             L0038: ShowMessage(party, String0D51); // It looks like the Rogues you encounter have already looted the room.
@@ -433,19 +413,16 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0047: AddTreasure(party, 0x05DC, 0x00, 0x00, 0x00, 0x0C, 0x05);
             L0067: SetState(party, 0x02, 0x06, 0x01);
             L007C: ShowMessage(party, String0D96); // Rogues covet the Sword of the Flames and Sword of Decision you see lying on the floor.
-            L0089: ax = PartyCount(party);
-            L0091: Compare(ax, 0x0001);
+            L0089: Compare(PartyCount(party), 0x0001);
             L0094: if (JumpNotEqual) goto L00AB;
             L0096: AddEncounter(party, 0x01, 0x26);
             L00A8: goto L017E;
-            L00AB: ax = PartyCount(party);
-            L00B3: Compare(ax, 0x0002);
+            L00AB: Compare(PartyCount(party), 0x0002);
             L00B6: if (JumpNotEqual) goto L00DF;
             L00B8: AddEncounter(party, 0x01, 0x25);
             L00CA: AddEncounter(party, 0x02, 0x26);
             L00DC: goto L017E;
-            L00DF: ax = PartyCount(party);
-            L00E7: Compare(ax, 0x0003);
+            L00DF: Compare(PartyCount(party), 0x0003);
             L00EA: if (JumpNotEqual) goto L0124;
             L00EC: AddEncounter(party, 0x01, 0x28);
             L00FE: AddEncounter(party, 0x02, 0x24);
@@ -462,8 +439,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnGOLDENC_1D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x02, 0x07);
-            L0014: Compare(ax, 0x0001);
+            L0003: Compare(GetState(party, 0x02, 0x07), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0x00, 0xCB);
             L0038: ShowMessage(party, String0DED); // Goblins grab their weapons as you enter the room.
@@ -471,11 +447,9 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0047: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0xCB, 0xB5);
             L0067: SetState(party, 0x02, 0x07, 0x01);
             L007C: ShowMessage(party, String0E1F); // Goblins are pitching Gold Pieces against the wall.
-            L0089: ax = PartyCount(party);
-            L0091: Compare(ax, 0x0001);
+            L0089: Compare(PartyCount(party), 0x0001);
             L0094: if (JumpEqual) goto L00A3;
-            L0096: ax = PartyCount(party);
-            L009E: Compare(ax, 0x0002);
+            L0096: Compare(PartyCount(party), 0x0002);
             L00A1: if (JumpNotEqual) goto L00C9;
             L00A3: AddEncounter(party, 0x01, 0x1D);
             L00B5: AddEncounter(party, 0x02, 0x1C);
@@ -490,8 +464,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnMAGICENC_1E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x02, 0x08);
-            L0014: Compare(ax, 0x0001);
+            L0003: Compare(GetState(party, 0x02, 0x08), 0x0001);
             L0017: if (JumpNotEqual) goto L0048;
             L0019: AddTreasure(party, 0x0078, 0x00, 0x00, 0x00, 0xCB, 0xB5);
             L0039: ShowMessage(party, String0E52); // Ogres grimace in pleasure as you walk into their ambush.
@@ -499,19 +472,16 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0048: AddTreasure(party, 0x1388, 0x00, 0x00, 0xC5, 0x8A, 0x8E);
             L0069: SetState(party, 0x02, 0x08, 0x01);
             L007E: ShowMessage(party, String0E8B); // Ogres are playing with items you identify as the Ring of Vigor, a Cudgel Insignia, and the Wand of Radiance.
-            L008B: ax = PartyCount(party);
-            L0093: Compare(ax, 0x0001);
+            L008B: Compare(PartyCount(party), 0x0001);
             L0096: if (JumpNotEqual) goto L00AD;
             L0098: AddEncounter(party, 0x01, 0x1F);
             L00AA: goto L0180;
-            L00AD: ax = PartyCount(party);
-            L00B5: Compare(ax, 0x0002);
+            L00AD: Compare(PartyCount(party), 0x0002);
             L00B8: if (JumpNotEqual) goto L00E1;
             L00BA: AddEncounter(party, 0x01, 0x21);
             L00CC: AddEncounter(party, 0x02, 0x20);
             L00DE: goto L0180;
-            L00E1: ax = PartyCount(party);
-            L00E9: Compare(ax, 0x0003);
+            L00E1: Compare(PartyCount(party), 0x0003);
             L00EC: if (JumpNotEqual) goto L0126;
             L00EE: AddEncounter(party, 0x01, 0x1F);
             L0100: AddEncounter(party, 0x02, 0x20);

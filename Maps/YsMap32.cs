@@ -54,8 +54,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The Ageless Void swallows you whole.
             L0010: ShowMessage(party, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
-            L001D: ax = GetMaxHits(party);
-            L0024: DamagePlayer(party, ax);
+            L001D: DamagePlayer(party, GetMaxHits(party));
             L002E: return; // RETURN;
         }
 
@@ -86,12 +85,10 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0010: ShowMessage(party, String0505); // 'You have gotten past Zephyr, Tempest, ZZyzx, Heaven's Fury, and all other winds.  But now you face your greatest challenge!'
             L001D: ShowMessage(party, String0583); // The sky above you darkens and dark clouds mass together. Tornadoes swirl around you.  Hurricane winds beat against you.  The clouds shine with the endless flash of lightning.
             L002A: ShowMessage(party, String0632); // The winds rip at your weapons.
-            L0037: ax = GetEquippedWeapon(party);
-            L003F: Compare(ax, 0x0009);
+            L0037: Compare(GetEquippedWeapon(party), 0x0009);
             L0042: if (JumpEqual) goto L0064;
             L0044: ShowMessage(party, String0651); // Your weapon snaps in the wind!  It is gone.
-            L0051: ax = GetEquippedWeapon(party);
-            L0059: RemoveItem(party, ax);
+            L0051: RemoveItem(party, GetEquippedWeapon(party));
             L0062: goto L0071;
             L0064: ShowMessage(party, String067D); // The Wind Sword resists the winds!  It will indeed be a good fight!
             L0071: ShowMessage(party, String06C0); // You notice En-Li-Kil, the Time Elemental, vanish.

@@ -80,8 +80,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xC1, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L0024: Compare(ax, 0x0006);
+            L0018: Compare(HasUsedSkill(party, 0x0E), 0x0006);
             L0027: if (JumpBelow) goto L0074;
             L0029: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0047: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -97,8 +96,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xBF, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L0024: Compare(ax, 0x0001);
+            L0018: Compare(HasUsedSkill(party, 0x0E), 0x0001);
             L0027: if (JumpBelow) goto L0046;
             L0029: DamagePlayer(party, 0x0096);
             L0036: ShowMessage(party, String043A); // Your attempt to open the door springs a trap. Dozens of darts attack you.
@@ -132,19 +130,16 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnLOWMNSTR_07(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = PartyCount(party);
-            L000B: Compare(ax, 0x0001);
+            L0003: Compare(PartyCount(party), 0x0001);
             L000E: if (JumpNotEqual) goto L0025;
             L0010: AddEncounter(party, 0x01, 0x19);
             L0022: goto L00E6;
-            L0025: ax = PartyCount(party);
-            L002D: Compare(ax, 0x0002);
+            L0025: Compare(PartyCount(party), 0x0002);
             L0030: if (JumpNotEqual) goto L0059;
             L0032: AddEncounter(party, 0x01, 0x1A);
             L0044: AddEncounter(party, 0x02, 0x1C);
             L0056: goto L00E6;
-            L0059: ax = PartyCount(party);
-            L0061: Compare(ax, 0x0003);
+            L0059: Compare(PartyCount(party), 0x0003);
             L0064: if (JumpNotEqual) goto L009E;
             L0066: AddEncounter(party, 0x01, 0x1A);
             L0078: AddEncounter(party, 0x02, 0x1A);
@@ -160,22 +155,19 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnMEDMNSTR_08(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = PartyCount(party);
-            L000B: Compare(ax, 0x0001);
+            L0003: Compare(PartyCount(party), 0x0001);
             L000E: if (JumpNotEqual) goto L0037;
             L0010: AddEncounter(party, 0x01, 0x1E);
             L0022: AddEncounter(party, 0x02, 0x20);
             L0034: goto L0176;
-            L0037: ax = PartyCount(party);
-            L003F: Compare(ax, 0x0002);
+            L0037: Compare(PartyCount(party), 0x0002);
             L0042: if (JumpNotEqual) goto L008F;
             L0044: AddEncounter(party, 0x01, 0x1F);
             L0056: AddEncounter(party, 0x02, 0x1F);
             L0068: AddEncounter(party, 0x03, 0x1E);
             L007A: AddEncounter(party, 0x04, 0x21);
             L008C: goto L0176;
-            L008F: ax = PartyCount(party);
-            L0097: Compare(ax, 0x0003);
+            L008F: Compare(PartyCount(party), 0x0003);
             L009A: if (JumpNotEqual) goto L010A;
             L009C: AddEncounter(party, 0x01, 0x1E);
             L00AE: AddEncounter(party, 0x02, 0x1F);
@@ -196,19 +188,16 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSTRMNSTR_09(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = PartyCount(party);
-            L000B: Compare(ax, 0x0001);
+            L0003: Compare(PartyCount(party), 0x0001);
             L000E: if (JumpNotEqual) goto L0025;
             L0010: AddEncounter(party, 0x01, 0x23);
             L0022: goto L012E;
-            L0025: ax = PartyCount(party);
-            L002D: Compare(ax, 0x0002);
+            L0025: Compare(PartyCount(party), 0x0002);
             L0030: if (JumpNotEqual) goto L0059;
             L0032: AddEncounter(party, 0x01, 0x24);
             L0044: AddEncounter(party, 0x02, 0x24);
             L0056: goto L012E;
-            L0059: ax = PartyCount(party);
-            L0061: Compare(ax, 0x0003);
+            L0059: Compare(PartyCount(party), 0x0003);
             L0064: if (JumpNotEqual) goto L00C2;
             L0066: AddEncounter(party, 0x01, 0x24);
             L0078: AddEncounter(party, 0x02, 0x24);
@@ -272,8 +261,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String066F); // You encounter a Dwarf Thief.
             L0010: ShowPortrait(party, 0x0023);
-            L001D: ax = GetRandom(party, 0x000F);
-            L002A: Compare(ax, 0x000B);
+            L001D: Compare(GetRandom(party, 0x000F), 0x000B);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String068C); // The palace doors are locked. Somewhere on the first level is the object that will open these doors.
             L003C: goto L004B;
@@ -286,8 +274,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0742); // You encounter a Halfling Ranger.
             L0010: ShowPortrait(party, 0x0021);
-            L001D: ax = GetRandom(party, 0x000F);
-            L002A: Compare(ax, 0x0008);
+            L001D: Compare(GetRandom(party, 0x000F), 0x0008);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0763); // I know there are three secret areas on this level, but they cannot be entered from this corridor.
             L003C: goto L004B;
@@ -300,8 +287,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07F6); // You encounter a Dwarf Wizard.
             L0010: ShowPortrait(party, 0x002C);
-            L001D: ax = GetRandom(party, 0x000F);
-            L002A: Compare(ax, 0x000C);
+            L001D: Compare(GetRandom(party, 0x000F), 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0814); // Not all traps should be by-passed. I fell through one and, after some nosing around and polishing off some bothersome rogues and monsters, found a most useful key.
             L003C: goto L004B;
@@ -314,8 +300,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08E8); // You encounter an Orc Knight.
             L0010: ShowPortrait(party, 0x001A);
-            L001D: ax = GetRandom(party, 0x000F);
-            L002A: Compare(ax, 0x0007);
+            L001D: Compare(GetRandom(party, 0x000F), 0x0007);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0905); // King Cleowyn's Palace is an evil place, filled with the spirits of the tormented dead.  A cleric told me to look for an asymmetry in the Palace if I wished to learn the truth about the dead king.
             L003C: goto L004B;
@@ -342,8 +327,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09F2); // You encounter a Halfling Cleric.
             L0010: ShowPortrait(party, 0x0029);
-            L001D: ax = GetRandom(party, 0x000F);
-            L002A: Compare(ax, 0x000D);
+            L001D: Compare(GetRandom(party, 0x000F), 0x000D);
             L002D: if (JumpAbove) goto L004B;
             L002F: ShowMessage(party, String0A13); // On the next level down you will find a dwarf by the name of Deldwinn.  He guards the entrance to King Cleowyn's Apartments.
             L003C: ShowMessage(party, String0A8F); // Do not try to fight Deldwinn, for he is enchanted and cannot be killed by mortals.

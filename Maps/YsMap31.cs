@@ -101,10 +101,9 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0010: SetNoHealZone(party);
             L0018: ax = GetMaxHits(party);
             L001F: bx = 0x0004;
-            L0022: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
+            L0022: dx = ax % bx; ax = ax / bx;
             L0025: DamagePlayer(party, ax);
-            L002F: ax = GetCurrentHits(party);
-            L0036: RefreshCompareFlags(ax);
+            L002F: RefreshCompareFlags(GetCurrentHits(party));
             L0038: if (JumpAbove) goto L0047;
             L003A: ShowMessage(party, String0429); // You have died.
             L0047: return; // RETURN;
@@ -121,8 +120,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String047C); // The Ageless Void swallows you whole.
-            L0010: ax = GetMaxHits(party);
-            L0017: DamagePlayer(party, ax);
+            L0010: DamagePlayer(party, GetMaxHits(party));
             L0021: return; // RETURN;
         }
 
@@ -131,8 +129,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
             L0010: ShowMessage(party, String04A1); // SageCross Fountain revives your Health and Mana
-            L001D: ax = GetMaxHits(party);
-            L0024: HealPlayer(party, ax);
+            L001D: HealPlayer(party, GetMaxHits(party));
             L002E: AddMana(party, 0x2EE0);
             L003B: return; // RETURN;
         }
@@ -140,8 +137,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnPLATB_05(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x02, 0x84);
-            L0014: RefreshCompareFlags(ax);
+            L0003: RefreshCompareFlags(GetState(party, 0x02, 0x84));
             L0016: if (JumpNotEqual) goto L008E;
             L0018: SetState(party, 0x02, 0x84, 0x01);
             L002D: ShowPortrait(party, 0x0042);
@@ -158,8 +154,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
             L0010: ShowMessage(party, String050E); // Minotaur Fountain revives your Health and Mana
-            L001D: ax = GetMaxHits(party);
-            L0024: HealPlayer(party, ax);
+            L001D: HealPlayer(party, GetMaxHits(party));
             L002E: AddMana(party, 0x2EE0);
             L003B: return; // RETURN;
         }
@@ -219,17 +214,13 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0018: goto L00B5;
             L001B: ShowMessage(party, String07DD); // A beam of red arcs over the Ageless Void.
             L0028: SetState(party, 0x02, 0x80, 0x01);
-            L003D: ax = GetState(party, 0x02, 0x80);
-            L004E: RefreshCompareFlags(ax);
+            L003D: RefreshCompareFlags(GetState(party, 0x02, 0x80));
             L0050: if (JumpEqual) goto L00B3;
-            L0052: ax = GetState(party, 0x02, 0x81);
-            L0063: RefreshCompareFlags(ax);
+            L0052: RefreshCompareFlags(GetState(party, 0x02, 0x81));
             L0065: if (JumpEqual) goto L00B3;
-            L0067: ax = GetState(party, 0x02, 0x82);
-            L0078: RefreshCompareFlags(ax);
+            L0067: RefreshCompareFlags(GetState(party, 0x02, 0x82));
             L007A: if (JumpEqual) goto L00B3;
-            L007C: ax = GetState(party, 0x02, 0x83);
-            L008D: RefreshCompareFlags(ax);
+            L007C: RefreshCompareFlags(GetState(party, 0x02, 0x83));
             L008F: if (JumpEqual) goto L00B3;
             L0091: SetState(party, 0x01, 0x01, 0x01);
             L00A6: ShowMessage(party, String0807); // A vibrant rainbow of color forms.
@@ -238,8 +229,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00C2: ax = HasUsedItem(party, 0xF3, 0xF3);
             L00D5: if (JumpNotEqual) goto L00DA;
             L00D7: goto L015A;
-            L00DA: ax = GetState(party, 0x01, 0x01);
-            L00EB: RefreshCompareFlags(ax);
+            L00DA: RefreshCompareFlags(GetState(party, 0x01, 0x01));
             L00ED: if (JumpEqual) goto L015A;
             L00EF: SetState(party, 0x01, 0x01, 0x01);
             L0104: SetFloorObject(party, 0x42, 0x75);
@@ -259,25 +249,20 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0018: goto L00B3;
             L001B: ShowMessage(party, String0995); // A beam of yellow arcs over the Ageless Void.
             L0028: SetState(party, 0x02, 0x81, 0x01);
-            L003D: ax = GetState(party, 0x02, 0x80);
-            L004E: RefreshCompareFlags(ax);
+            L003D: RefreshCompareFlags(GetState(party, 0x02, 0x80));
             L0050: if (JumpEqual) goto L00B3;
-            L0052: ax = GetState(party, 0x02, 0x81);
-            L0063: RefreshCompareFlags(ax);
+            L0052: RefreshCompareFlags(GetState(party, 0x02, 0x81));
             L0065: if (JumpEqual) goto L00B3;
-            L0067: ax = GetState(party, 0x02, 0x82);
-            L0078: RefreshCompareFlags(ax);
+            L0067: RefreshCompareFlags(GetState(party, 0x02, 0x82));
             L007A: if (JumpEqual) goto L00B3;
-            L007C: ax = GetState(party, 0x02, 0x83);
-            L008D: RefreshCompareFlags(ax);
+            L007C: RefreshCompareFlags(GetState(party, 0x02, 0x83));
             L008F: if (JumpEqual) goto L00B3;
             L0091: SetState(party, 0x01, 0x01, 0x01);
             L00A6: ShowMessage(party, String09C2); // A vibrant rainbow of color forms.
             L00B3: ax = HasUsedItem(party, 0xF3, 0xF3);
             L00C6: if (JumpNotEqual) goto L00CB;
             L00C8: goto L014B;
-            L00CB: ax = GetState(party, 0x01, 0x01);
-            L00DC: RefreshCompareFlags(ax);
+            L00CB: RefreshCompareFlags(GetState(party, 0x01, 0x01));
             L00DE: if (JumpEqual) goto L014B;
             L00E0: SetState(party, 0x01, 0x01, 0x01);
             L00F5: SetFloorObject(party, 0x42, 0x75);
@@ -297,25 +282,20 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0018: goto L00B3;
             L001B: ShowMessage(party, String0B18); // A beam of green arcs over the Ageless Void.
             L0028: SetState(party, 0x02, 0x82, 0x01);
-            L003D: ax = GetState(party, 0x02, 0x80);
-            L004E: RefreshCompareFlags(ax);
+            L003D: RefreshCompareFlags(GetState(party, 0x02, 0x80));
             L0050: if (JumpEqual) goto L00B3;
-            L0052: ax = GetState(party, 0x02, 0x81);
-            L0063: RefreshCompareFlags(ax);
+            L0052: RefreshCompareFlags(GetState(party, 0x02, 0x81));
             L0065: if (JumpEqual) goto L00B3;
-            L0067: ax = GetState(party, 0x02, 0x82);
-            L0078: RefreshCompareFlags(ax);
+            L0067: RefreshCompareFlags(GetState(party, 0x02, 0x82));
             L007A: if (JumpEqual) goto L00B3;
-            L007C: ax = GetState(party, 0x02, 0x83);
-            L008D: RefreshCompareFlags(ax);
+            L007C: RefreshCompareFlags(GetState(party, 0x02, 0x83));
             L008F: if (JumpEqual) goto L00B3;
             L0091: SetState(party, 0x01, 0x01, 0x01);
             L00A6: ShowMessage(party, String0B44); // A vibrant rainbow of color forms.
             L00B3: ax = HasUsedItem(party, 0xF3, 0xF3);
             L00C6: if (JumpNotEqual) goto L00CB;
             L00C8: goto L014B;
-            L00CB: ax = GetState(party, 0x01, 0x01);
-            L00DC: RefreshCompareFlags(ax);
+            L00CB: RefreshCompareFlags(GetState(party, 0x01, 0x01));
             L00DE: if (JumpEqual) goto L014B;
             L00E0: SetState(party, 0x01, 0x01, 0x01);
             L00F5: SetFloorObject(party, 0x42, 0x75);
@@ -335,25 +315,20 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0018: goto L00B3;
             L001B: ShowMessage(party, String0C9A); // A beam of blue arcs over the Ageless Void.
             L0028: SetState(party, 0x02, 0x83, 0x01);
-            L003D: ax = GetState(party, 0x02, 0x80);
-            L004E: RefreshCompareFlags(ax);
+            L003D: RefreshCompareFlags(GetState(party, 0x02, 0x80));
             L0050: if (JumpEqual) goto L00B3;
-            L0052: ax = GetState(party, 0x02, 0x81);
-            L0063: RefreshCompareFlags(ax);
+            L0052: RefreshCompareFlags(GetState(party, 0x02, 0x81));
             L0065: if (JumpEqual) goto L00B3;
-            L0067: ax = GetState(party, 0x02, 0x82);
-            L0078: RefreshCompareFlags(ax);
+            L0067: RefreshCompareFlags(GetState(party, 0x02, 0x82));
             L007A: if (JumpEqual) goto L00B3;
-            L007C: ax = GetState(party, 0x02, 0x83);
-            L008D: RefreshCompareFlags(ax);
+            L007C: RefreshCompareFlags(GetState(party, 0x02, 0x83));
             L008F: if (JumpEqual) goto L00B3;
             L0091: SetState(party, 0x01, 0x01, 0x01);
             L00A6: ShowMessage(party, String0CC5); // A vibrant rainbow of color forms.
             L00B3: ax = HasUsedItem(party, 0xF3, 0xF3);
             L00C6: if (JumpNotEqual) goto L00CB;
             L00C8: goto L014B;
-            L00CB: ax = GetState(party, 0x01, 0x01);
-            L00DC: RefreshCompareFlags(ax);
+            L00CB: RefreshCompareFlags(GetState(party, 0x01, 0x01));
             L00DE: if (JumpEqual) goto L014B;
             L00E0: SetState(party, 0x01, 0x01, 0x01);
             L00F5: SetFloorObject(party, 0x42, 0x75);
@@ -433,8 +408,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnBOAT_1F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x01, 0x01);
-            L0014: RefreshCompareFlags(ax);
+            L0003: RefreshCompareFlags(GetState(party, 0x01, 0x01));
             L0016: if (JumpEqual) goto L0075;
             L0018: ShowMessage(party, String0F59); // You step across the platform and into the Golden Boat.
             L0025: ShowMessage(party, String0F90); // The Zephyr Wind blows the lightest of breezes from the east and the Golden Boat sets sail west across the Rainbow.
@@ -444,8 +418,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0059: TeleportParty(party, 0x38, 0x04, 0x4B, 0x00, isForwardMove);
             L0073: goto L0093;
             L0075: ShowMessage(party, String10FE); // The Ageless Void swallows you whole.
-            L0082: ax = GetMaxHits(party);
-            L0089: DamagePlayer(party, ax);
+            L0082: DamagePlayer(party, GetMaxHits(party));
             L0093: return; // RETURN;
         }
 

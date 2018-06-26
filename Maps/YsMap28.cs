@@ -192,8 +192,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnALDBORA_01(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
-            L0004: ax = GetState(party, 0x01, 0x01);
-            L0015: si = ax;
+            L0004: si = GetState(party, 0x01, 0x01);
             L0017: ax = HasUsedItem(party, 0xE8, 0xE8);
             L002A: if (JumpNotEqual) goto L002F;
             L002C: goto L0414;
@@ -206,103 +205,83 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004A: ShowMessage(party, String03FC); // The AldBora Tree bears... 
             L0057: RemoveItem(party, 0xE8);
             L0063: RemoveItem(party, 0xE9);
-            L006F: ax = GetSkillLevel(party, 0x00);
-            L007A: RefreshCompareFlags(ax);
+            L006F: RefreshCompareFlags(GetSkillLevel(party, 0x00));
             L007C: if (JumpNotEqual) goto L009B;
             L007E: SetSkillLevel(party, 0x00, 0x02);
             L008E: ShowMessage(party, String0417); // the knowledge of Athletics!
-            L009B: ax = GetSkillLevel(party, 0x01);
-            L00A7: RefreshCompareFlags(ax);
+            L009B: RefreshCompareFlags(GetSkillLevel(party, 0x01));
             L00A9: if (JumpNotEqual) goto L00C9;
             L00AB: SetSkillLevel(party, 0x01, 0x02);
             L00BC: ShowMessage(party, String0433); // the knowledge of Clubs and Axes!
-            L00C9: ax = GetSkillLevel(party, 0x02);
-            L00D5: RefreshCompareFlags(ax);
+            L00C9: RefreshCompareFlags(GetSkillLevel(party, 0x02));
             L00D7: if (JumpNotEqual) goto L00F7;
             L00D9: SetSkillLevel(party, 0x02, 0x02);
             L00EA: ShowMessage(party, String0454); // the knowledge of Berserker!
-            L00F7: ax = GetSkillLevel(party, 0x03);
-            L0103: RefreshCompareFlags(ax);
+            L00F7: RefreshCompareFlags(GetSkillLevel(party, 0x03));
             L0105: if (JumpNotEqual) goto L0125;
             L0107: SetSkillLevel(party, 0x03, 0x02);
             L0118: ShowMessage(party, String0470); // the knowledge of Pursuit!
-            L0125: ax = GetSkillLevel(party, 0x04);
-            L0131: RefreshCompareFlags(ax);
+            L0125: RefreshCompareFlags(GetSkillLevel(party, 0x04));
             L0133: if (JumpNotEqual) goto L0153;
             L0135: SetSkillLevel(party, 0x04, 0x02);
             L0146: ShowMessage(party, String048A); // the knowledge of Leadership!
-            L0153: ax = GetSkillLevel(party, 0x05);
-            L015F: RefreshCompareFlags(ax);
+            L0153: RefreshCompareFlags(GetSkillLevel(party, 0x05));
             L0161: if (JumpNotEqual) goto L0181;
             L0163: SetSkillLevel(party, 0x05, 0x02);
             L0174: ShowMessage(party, String04A7); // the knowledge of Fencing!
-            L0181: ax = GetSkillLevel(party, 0x06);
-            L018D: RefreshCompareFlags(ax);
+            L0181: RefreshCompareFlags(GetSkillLevel(party, 0x06));
             L018F: if (JumpNotEqual) goto L01AF;
             L0191: SetSkillLevel(party, 0x06, 0x02);
             L01A2: ShowMessage(party, String04C1); // the knowledge of Binding!
-            L01AF: ax = GetSkillLevel(party, 0x07);
-            L01BB: RefreshCompareFlags(ax);
+            L01AF: RefreshCompareFlags(GetSkillLevel(party, 0x07));
             L01BD: if (JumpNotEqual) goto L01DD;
             L01BF: SetSkillLevel(party, 0x07, 0x02);
             L01D0: ShowMessage(party, String04DB); // the knowledge of Intimidation!
-            L01DD: ax = GetSkillLevel(party, 0x08);
-            L01E9: RefreshCompareFlags(ax);
+            L01DD: RefreshCompareFlags(GetSkillLevel(party, 0x08));
             L01EB: if (JumpNotEqual) goto L020B;
             L01ED: SetSkillLevel(party, 0x08, 0x02);
             L01FE: ShowMessage(party, String04FA); // the knowledge of Archery!
-            L020B: ax = GetSkillLevel(party, 0x09);
-            L0217: RefreshCompareFlags(ax);
+            L020B: RefreshCompareFlags(GetSkillLevel(party, 0x09));
             L0219: if (JumpNotEqual) goto L0239;
             L021B: SetSkillLevel(party, 0x09, 0x02);
             L022C: ShowMessage(party, String0514); // the knowledge of Stamina!
-            L0239: ax = GetSkillLevel(party, 0x0A);
-            L0245: RefreshCompareFlags(ax);
+            L0239: RefreshCompareFlags(GetSkillLevel(party, 0x0A));
             L0247: if (JumpNotEqual) goto L0267;
             L0249: SetSkillLevel(party, 0x0A, 0x02);
             L025A: ShowMessage(party, String052E); // the knowledge of Furtiveness!
-            L0267: ax = GetSkillLevel(party, 0x0B);
-            L0273: RefreshCompareFlags(ax);
+            L0267: RefreshCompareFlags(GetSkillLevel(party, 0x0B));
             L0275: if (JumpNotEqual) goto L0295;
             L0277: SetSkillLevel(party, 0x0B, 0x02);
             L0288: ShowMessage(party, String054C); // the knowledge of Reading Tracks!
-            L0295: ax = GetSkillLevel(party, 0x10);
-            L02A1: RefreshCompareFlags(ax);
+            L0295: RefreshCompareFlags(GetSkillLevel(party, 0x10));
             L02A3: if (JumpNotEqual) goto L02C3;
             L02A5: SetSkillLevel(party, 0x10, 0x02);
             L02B6: ShowMessage(party, String056D); // the knowledge of Martial Arts!
-            L02C3: ax = GetSkillLevel(party, 0x11);
-            L02CF: RefreshCompareFlags(ax);
+            L02C3: RefreshCompareFlags(GetSkillLevel(party, 0x11));
             L02D1: if (JumpNotEqual) goto L02F1;
             L02D3: SetSkillLevel(party, 0x11, 0x02);
             L02E4: ShowMessage(party, String058C); // the knowledge of Deflect Magic!
-            L02F1: ax = GetSkillLevel(party, 0x12);
-            L02FD: RefreshCompareFlags(ax);
+            L02F1: RefreshCompareFlags(GetSkillLevel(party, 0x12));
             L02FF: if (JumpNotEqual) goto L031F;
             L0301: SetSkillLevel(party, 0x12, 0x02);
             L0312: ShowMessage(party, String05AC); // the knowledge of Medic!
-            L031F: ax = GetSkillLevel(party, 0x13);
-            L032B: RefreshCompareFlags(ax);
+            L031F: RefreshCompareFlags(GetSkillLevel(party, 0x13));
             L032D: if (JumpNotEqual) goto L034D;
             L032F: SetSkillLevel(party, 0x13, 0x02);
             L0340: ShowMessage(party, String05C4); // the knowledge of Reverie!
-            L034D: ax = GetSkillLevel(party, 0x14);
-            L0359: RefreshCompareFlags(ax);
+            L034D: RefreshCompareFlags(GetSkillLevel(party, 0x14));
             L035B: if (JumpNotEqual) goto L037B;
             L035D: SetSkillLevel(party, 0x14, 0x02);
             L036E: ShowMessage(party, String05DE); // the knowledge of Rune Reading!
-            L037B: ax = GetSkillLevel(party, 0x15);
-            L0387: RefreshCompareFlags(ax);
+            L037B: RefreshCompareFlags(GetSkillLevel(party, 0x15));
             L0389: if (JumpNotEqual) goto L03A9;
             L038B: SetSkillLevel(party, 0x15, 0x02);
             L039C: ShowMessage(party, String05FD); // the knowledge of Staff!
-            L03A9: ax = GetSkillLevel(party, 0x16);
-            L03B5: RefreshCompareFlags(ax);
+            L03A9: RefreshCompareFlags(GetSkillLevel(party, 0x16));
             L03B7: if (JumpNotEqual) goto L03D7;
             L03B9: SetSkillLevel(party, 0x16, 0x02);
             L03CA: ShowMessage(party, String0615); // the knowledge of Channeling!
-            L03D7: ax = GetSkillLevel(party, 0x17);
-            L03E3: RefreshCompareFlags(ax);
+            L03D7: RefreshCompareFlags(GetSkillLevel(party, 0x17));
             L03E5: if (JumpNotEqual) goto L0405;
             L03E7: SetSkillLevel(party, 0x17, 0x02);
             L03F8: ShowMessage(party, String0632); // the knowledge of Deep Trance!
@@ -471,8 +450,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08FB); // Upon a wood sign is written -- 'Wilderness of BeechWood.'
-            L0010: ax = GetState(party, 0x01, 0x01);
-            L0021: RefreshCompareFlags(ax);
+            L0010: RefreshCompareFlags(GetState(party, 0x01, 0x01));
             L0023: if (JumpNotEqual) goto L0079;
             L0025: SetState(party, 0x01, 0x03, 0x01);
             L003A: SetState(party, 0x01, 0x02, 0x02);
@@ -485,8 +463,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0935); // A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'
-            L0010: ax = GetState(party, 0x01, 0x02);
-            L0021: RefreshCompareFlags(ax);
+            L0010: RefreshCompareFlags(GetState(party, 0x01, 0x02));
             L0023: if (JumpNotEqual) goto L0079;
             L0025: SetState(party, 0x01, 0x03, 0x01);
             L003A: SetState(party, 0x01, 0x02, 0x02);
@@ -499,8 +476,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0978); // A sign of ancient wood reads -- 'Wilderness of MapleBrush.'
-            L0010: ax = GetState(party, 0x01, 0x03);
-            L0021: RefreshCompareFlags(ax);
+            L0010: RefreshCompareFlags(GetState(party, 0x01, 0x03));
             L0023: if (JumpNotEqual) goto L0079;
             L0025: SetState(party, 0x01, 0x03, 0x01);
             L003A: SetState(party, 0x01, 0x02, 0x02);
@@ -513,8 +489,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09B4); // In the dust of pine needles is written -- 'Wilderness of PineCone.'
-            L0010: ax = GetState(party, 0x01, 0x04);
-            L0021: RefreshCompareFlags(ax);
+            L0010: RefreshCompareFlags(GetState(party, 0x01, 0x04));
             L0023: if (JumpNotEqual) goto L0079;
             L0025: SetState(party, 0x01, 0x03, 0x01);
             L003A: SetState(party, 0x01, 0x02, 0x02);
@@ -528,8 +503,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String09F8); // We are the Wise Ones of Beechwood who serve the Seasons.
             L0011: ShowPortrait(party, 0x0027);
-            L001E: ax = GetState(party, 0x01, 0x01);
-            L002F: si = ax;
+            L001E: si = GetState(party, 0x01, 0x01);
             L0031: bx = si;
             L0033: bx = bx - 1;
             L0034: Compare(bx, 0x03);
@@ -624,8 +598,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String1071); // We are the Clerics of Oakleaf who comfort the Seasons.
             L0011: ShowPortrait(party, 0x0027);
-            L001E: ax = GetState(party, 0x01, 0x02);
-            L002F: si = ax;
+            L001E: si = GetState(party, 0x01, 0x02);
             L0031: bx = si;
             L0033: bx = bx - 1;
             L0034: Compare(bx, 0x03);
@@ -719,8 +692,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String15E2); // We are the Wardens of Maplebrush and hold the Seasons.
             L0011: ShowPortrait(party, 0x0027);
-            L001E: ax = GetState(party, 0x01, 0x03);
-            L002F: si = ax;
+            L001E: si = GetState(party, 0x01, 0x03);
             L0031: bx = si;
             L0033: bx = bx - 1;
             L0034: Compare(bx, 0x03);
@@ -806,8 +778,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String18C1); // We are the Seasons incarnate in mortal form.
             L0011: ShowPortrait(party, 0x0027);
-            L001E: ax = GetState(party, 0x01, 0x04);
-            L002F: si = ax;
+            L001E: si = GetState(party, 0x01, 0x04);
             L0031: bx = si;
             L0033: bx = bx - 1;
             L0034: Compare(bx, 0x03);

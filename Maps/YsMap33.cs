@@ -76,8 +76,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The Ageless Void swallows you whole.
             L0010: ShowMessage(party, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
-            L001D: ax = GetMaxHits(party);
-            L0024: DamagePlayer(party, ax);
+            L001D: DamagePlayer(party, GetMaxHits(party));
             L002E: return; // RETURN;
         }
 
@@ -85,8 +84,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String046D); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
-            L0010: ax = GetMaxHits(party);
-            L0017: DamagePlayer(party, ax);
+            L0010: DamagePlayer(party, GetMaxHits(party));
             L0021: return; // RETURN;
         }
 
@@ -96,8 +94,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0003: // make space for tmp on stack: sp -= 2
             L0005: SetState(party, 0x02, 0x7B, 0x01);
             L001A: ShowMessage(party, String04C0); // The wall sparkles with phantasmal light.
-            L0027: ax = GetState(party, 0x02, 0x7B);
-            L0038: PushStack(party, ax);
+            L0027: PushStack(party, GetState(party, 0x02, 0x7B));
             L0039: ax = GetState(party, 0x02, 0x7C);
             L004A: dx = PopStack(party);
             L004B: dx = dx + ax;
@@ -106,8 +103,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005F: dx = PopStack(party);
             L0060: dx = dx + ax;
             L0062: tmp = dx;
-            L0065: ax = tmp;
-            L0068: Compare(ax, 0x0001);
+            L0065: Compare(tmp, 0x0001);
             L006B: if (JumpEqual) goto L0079;
             L006D: Compare(ax, 0x0002);
             L0070: if (JumpEqual) goto L00A6;
@@ -135,8 +131,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0003: // make space for tmp on stack: sp -= 2
             L0005: SetState(party, 0x02, 0x7C, 0x01);
             L001A: ShowMessage(party, String05C0); // The wall sparkles with phantasmal light.
-            L0027: ax = GetState(party, 0x02, 0x7B);
-            L0038: PushStack(party, ax);
+            L0027: PushStack(party, GetState(party, 0x02, 0x7B));
             L0039: ax = GetState(party, 0x02, 0x7C);
             L004A: dx = PopStack(party);
             L004B: dx = dx + ax;
@@ -145,8 +140,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005F: dx = PopStack(party);
             L0060: dx = dx + ax;
             L0062: tmp = dx;
-            L0065: ax = tmp;
-            L0068: Compare(ax, 0x0001);
+            L0065: Compare(tmp, 0x0001);
             L006B: if (JumpEqual) goto L0079;
             L006D: Compare(ax, 0x0002);
             L0070: if (JumpEqual) goto L00A6;
@@ -174,8 +168,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0003: // make space for tmp on stack: sp -= 2
             L0005: SetState(party, 0x02, 0x7D, 0x01);
             L001A: ShowMessage(party, String06C0); // The wall sparkles with phantasmal light.
-            L0027: ax = GetState(party, 0x02, 0x7B);
-            L0038: PushStack(party, ax);
+            L0027: PushStack(party, GetState(party, 0x02, 0x7B));
             L0039: ax = GetState(party, 0x02, 0x7C);
             L004A: dx = PopStack(party);
             L004B: dx = dx + ax;
@@ -184,8 +177,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005F: dx = PopStack(party);
             L0060: dx = dx + ax;
             L0062: tmp = dx;
-            L0065: ax = tmp;
-            L0068: Compare(ax, 0x0001);
+            L0065: Compare(tmp, 0x0001);
             L006B: if (JumpEqual) goto L0079;
             L006D: Compare(ax, 0x0002);
             L0070: if (JumpEqual) goto L00A6;
@@ -231,14 +223,11 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnTIMEPLAT_07(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x01, 0x00);
-            L0013: RefreshCompareFlags(ax);
+            L0003: RefreshCompareFlags(GetState(party, 0x01, 0x00));
             L0015: if (JumpEqual) goto L007A;
-            L0017: ax = GetState(party, 0x01, 0x01);
-            L0028: RefreshCompareFlags(ax);
+            L0017: RefreshCompareFlags(GetState(party, 0x01, 0x01));
             L002A: if (JumpEqual) goto L007A;
-            L002C: ax = GetState(party, 0x01, 0x02);
-            L003D: RefreshCompareFlags(ax);
+            L002C: RefreshCompareFlags(GetState(party, 0x01, 0x02));
             L003F: if (JumpEqual) goto L007A;
             L0041: SetFloorObject(party, 0x00, 0xA8);
             L0051: ShowMessage(party, String090F); // You cross the Waters of Death safely.
@@ -247,8 +236,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0078: goto L00A9;
             L007A: SetFloorObject(party, 0x03, 0xA8);
             L008B: ShowMessage(party, String09AD); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
-            L0098: ax = GetMaxHits(party);
-            L009F: DamagePlayer(party, ax);
+            L0098: DamagePlayer(party, GetMaxHits(party));
             L00A9: return; // RETURN;
         }
 
@@ -273,8 +261,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00B2: ShowMessage(party, String0B88); // Return to your home safely now.
             L00BF: ShowMessage(party, String0BA8); // Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
             L00CC: ShowMessage(party, String0BFF); // Farewell...this ending is just the beginning!!!
-            L00D9: ax = GetState(party, 0x02, 0x69);
-            L00EA: RefreshCompareFlags(ax);
+            L00D9: RefreshCompareFlags(GetState(party, 0x02, 0x69));
             L00EC: if (JumpNotEqual) goto L012A;
             L00EE: SetState(party, 0x02, 0x69, 0x01);
             L0103: SetState(party, 0x02, 0x6A, 0x01);
@@ -323,14 +310,11 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnENCD_0C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x01, 0x7B);
-            L0014: RefreshCompareFlags(ax);
+            L0003: RefreshCompareFlags(GetState(party, 0x01, 0x7B));
             L0016: if (JumpEqual) goto L0052;
-            L0018: ax = GetState(party, 0x01, 0x7C);
-            L0029: RefreshCompareFlags(ax);
+            L0018: RefreshCompareFlags(GetState(party, 0x01, 0x7C));
             L002B: if (JumpEqual) goto L0052;
-            L002D: ax = GetState(party, 0x01, 0x7D);
-            L003E: RefreshCompareFlags(ax);
+            L002D: RefreshCompareFlags(GetState(party, 0x01, 0x7D));
             L0040: if (JumpEqual) goto L0052;
             L0042: SetFloorObject(party, 0x00, 0xA8);
             L0052: AddEncounter(party, 0x01, 0x19);
@@ -369,14 +353,11 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnCROSSOVR_0F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x01, 0x00);
-            L0013: RefreshCompareFlags(ax);
+            L0003: RefreshCompareFlags(GetState(party, 0x01, 0x00));
             L0015: if (JumpEqual) goto L0053;
-            L0017: ax = GetState(party, 0x01, 0x01);
-            L0028: RefreshCompareFlags(ax);
+            L0017: RefreshCompareFlags(GetState(party, 0x01, 0x01));
             L002A: if (JumpEqual) goto L0053;
-            L002C: ax = GetState(party, 0x01, 0x02);
-            L003D: RefreshCompareFlags(ax);
+            L002C: RefreshCompareFlags(GetState(party, 0x01, 0x02));
             L003F: if (JumpEqual) goto L0053;
             L0041: SetFloorObject(party, 0x00, 0xA8);
             L0051: goto L0064;
@@ -397,8 +378,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0058: ax = IsStateSet(party, 0x02, 0x7D);
             L006B: if (JumpEqual) goto L0082;
             L006D: SetState(party, 0x01, 0x02, 0x01);
-            L0082: ax = GetState(party, 0x01, 0x00);
-            L0092: PushStack(party, ax);
+            L0082: PushStack(party, GetState(party, 0x01, 0x00));
             L0093: ax = GetState(party, 0x01, 0x01);
             L00A4: dx = PopStack(party);
             L00A5: dx = dx + ax;

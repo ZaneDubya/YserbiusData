@@ -169,30 +169,25 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // Other pits in the Labyrinth provide access to hidden areas...
             L0010: ShowMessage(party, String043A); // This pit, however, sends you to the gates of Death.
-            L001D: ax = GetMaxHits(party);
-            L0024: DamagePlayer(party, ax);
+            L001D: DamagePlayer(party, GetMaxHits(party));
             L002E: return; // RETURN;
         }
 
         private void FnXOVER_02(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetCurrentTile(party);
-            L000A: Compare(ax, 0x0047);
+            L0003: Compare(GetCurrentTile(party), 0x0047);
             L000D: if (JumpNotEqual) goto L0070;
-            L000F: ax = GetState(party, 0x01, 0x01);
-            L0020: RefreshCompareFlags(ax);
+            L000F: RefreshCompareFlags(GetState(party, 0x01, 0x01));
             L0022: if (JumpEqual) goto L0043;
             L0024: SetFloorObject(party, 0x00, 0x47);
             L0034: ShowMessage(party, String046E); // A magical platform forms a bridge across the abyss.
             L0041: goto L006E;
             L0043: ShowMessage(party, String04A2); // You fall into the abyss and die.
             L0050: ShowMessage(party, String04C3); // With help, you might have been able to cross here.
-            L005D: ax = GetMaxHits(party);
-            L0064: DamagePlayer(party, ax);
+            L005D: DamagePlayer(party, GetMaxHits(party));
             L006E: goto L00A8;
-            L0070: ax = GetState(party, 0x01, 0x01);
-            L0081: RefreshCompareFlags(ax);
+            L0070: RefreshCompareFlags(GetState(party, 0x01, 0x01));
             L0083: if (JumpEqual) goto L0097;
             L0085: SetFloorObject(party, 0x00, 0x47);
             L0095: goto L00A8;
@@ -305,8 +300,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String099E); // You stumble into the lava pools.  You die.
-            L0010: ax = GetMaxHits(party);
-            L0017: DamagePlayer(party, ax);
+            L0010: DamagePlayer(party, GetMaxHits(party));
             L0021: return; // RETURN;
         }
 
@@ -336,8 +330,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0003: ShowMessage(party, String0A59); // The door to WIND HOLLOW bursts open with terrible force, throwing all adventurers against the rocks...
             L0010: ShowMessage(party, String0AC0); // ...and inflicting heavy damage.
             L001D: DamagePlayer(party, 0x00C8);
-            L002A: ax = GetCurrentHits(party);
-            L0031: RefreshCompareFlags(ax);
+            L002A: RefreshCompareFlags(GetCurrentHits(party));
             L0033: if (JumpAbove) goto L0042;
             L0035: ShowMessage(party, String0AE0); // You have died.
             L0042: TeleportParty(party, 0x35, 0x01, 0xBC, 0x03, isForwardMove);
@@ -417,10 +410,9 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0003: ShowMessage(party, String0CD0); // The Zephyr Wind gusts in fury, causing damage!
             L0010: ax = GetMaxHits(party);
             L0017: bx = 0x0003;
-            L001A: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
+            L001A: dx = ax % bx; ax = ax / bx;
             L001D: DamagePlayer(party, ax);
-            L0027: ax = GetCurrentHits(party);
-            L002E: RefreshCompareFlags(ax);
+            L0027: RefreshCompareFlags(GetCurrentHits(party));
             L0030: if (JumpAbove) goto L003F;
             L0032: ShowMessage(party, String0CFF); // You have died.
             L003F: return; // RETURN;
@@ -482,11 +474,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSDRZZYZA_23(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x000B);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x000B);
             L0012: if (JumpNotBelow) goto L0039;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L0039;
             L0024: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0037: if (JumpEqual) goto L0082;
@@ -532,15 +522,12 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSDRMGOVA_28(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetGuild(party);
-            L000A: Compare(ax, 0x0005);
+            L0003: Compare(GetGuild(party), 0x0005);
             L000D: if (JumpEqual) goto L0012;
             L000F: goto L0091;
-            L0012: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L001E: Compare(ax, 0x000C);
+            L0012: Compare(HasUsedSkill(party, 0x0D), 0x000C);
             L0021: if (JumpNotBelow) goto L0048;
-            L0023: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L002F: RefreshCompareFlags(ax);
+            L0023: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0031: if (JumpNotEqual) goto L0048;
             L0033: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0046: if (JumpEqual) goto L0091;
@@ -574,12 +561,10 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E34); // A powerful Dwarf Thief stands before you. 'I am Voranti, Lord of Dwarf Thieves!  Fight me if you must, but you shall not find my secret treasure!  Do not fear, for I will provide decent burial when I am finished.'
-            L0010: ax = GetRace(party);
-            L0017: Compare(ax, 0x0002);
+            L0010: Compare(GetRace(party), 0x0002);
             L001A: if (JumpNotEqual) goto L0029;
             L001C: ShowMessage(party, String0F0A); // Voranti's dark eyes glow bright with hatred. 'As for you, miserable Elf, my pet gargoyles will pick your bones clean.'
-            L0029: ax = GetRace(party);
-            L0030: Compare(ax, 0x0004);
+            L0029: Compare(GetRace(party), 0x0004);
             L0033: if (JumpNotEqual) goto L0042;
             L0035: ShowMessage(party, String0F81); // Voranti smiles sadly. 'It saddens me that I must kill a fellow dwarf, but you have brought death upon yourself.'
             L0042: AddEncounter(party, 0x01, 0x1C);
@@ -595,11 +580,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSDRVORDW_31(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x000B);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x000B);
             L0012: if (JumpNotBelow) goto L0039;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L0039;
             L0024: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0037: if (JumpEqual) goto L0082;
@@ -729,8 +712,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String10EA); // This door requires immense strength to open.
-            L0010: ax = CheckStrength(party);
-            L001C: Compare(ax, 0x0015);
+            L0010: Compare(CheckStrength(party), 0x0015);
             L001F: if (JumpBelow) goto L006A;
             L0021: ShowMessage(party, String1117); // You push against the door and barely manage to open it.
             L002E: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -752,11 +734,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSDRMOOND_40(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x000B);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x000B);
             L0012: if (JumpNotBelow) goto L004E;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L004E;
             L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L004E;
@@ -795,15 +775,12 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSDRMOONF_43(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetGuild(party);
-            L000A: Compare(ax, 0x0002);
+            L0003: Compare(GetGuild(party), 0x0002);
             L000D: if (JumpEqual) goto L0012;
             L000F: goto L0091;
-            L0012: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L001E: Compare(ax, 0x000A);
+            L0012: Compare(HasUsedSkill(party, 0x0D), 0x000A);
             L0021: if (JumpNotBelow) goto L0048;
-            L0023: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L002F: RefreshCompareFlags(ax);
+            L0023: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0031: if (JumpNotEqual) goto L0048;
             L0033: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0046: if (JumpEqual) goto L0091;
@@ -816,15 +793,12 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSDRMOONJ_44(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetGuild(party);
-            L000A: Compare(ax, 0x0004);
+            L0003: Compare(GetGuild(party), 0x0004);
             L000D: if (JumpEqual) goto L0012;
             L000F: goto L0091;
-            L0012: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L001E: Compare(ax, 0x000A);
+            L0012: Compare(HasUsedSkill(party, 0x0D), 0x000A);
             L0021: if (JumpNotBelow) goto L0048;
-            L0023: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L002F: RefreshCompareFlags(ax);
+            L0023: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0031: if (JumpNotEqual) goto L0048;
             L0033: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0046: if (JumpEqual) goto L0091;
@@ -837,8 +811,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnBDRMOONK_45(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckStrength(party);
-            L000F: Compare(ax, 0x0014);
+            L0003: Compare(CheckStrength(party), 0x0014);
             L0012: if (JumpBelow) goto L005F;
             L0014: ShowMessage(party, String1266); // You barely manage to force open the door.
             L0021: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -853,11 +826,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSDRMOONM_46(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x0008);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x0008);
             L0012: if (JumpNotBelow) goto L0039;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L0039;
             L0024: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0037: if (JumpEqual) goto L0082;
@@ -892,8 +863,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnMOONTRSB_49(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x02, 0x47);
-            L0014: Compare(ax, 0x0001);
+            L0003: Compare(GetState(party, 0x02, 0x47), 0x0001);
             L0017: if (JumpNotEqual) goto L0028;
             L0019: ShowMessage(party, String1352); // The floor is bare.
             L0026: goto L0056;
@@ -906,8 +876,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnMOONTRSC_4A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x02, 0x48);
-            L0014: Compare(ax, 0x0001);
+            L0003: Compare(GetState(party, 0x02, 0x48), 0x0001);
             L0017: if (JumpNotEqual) goto L0028;
             L0019: ShowMessage(party, String138D); // There is nothing of interest in this area.
             L0026: goto L0056;
@@ -922,43 +891,36 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
             L0010: ShowMessage(party, String13E4); // Pictorials of War are painted on the walls surrounding Torbriar's Fountain.
-            L001D: ax = GetState(party, 0x02, 0x63);
-            L002E: RefreshCompareFlags(ax);
+            L001D: RefreshCompareFlags(GetState(party, 0x02, 0x63));
             L0030: if (JumpEqual) goto L0035;
             L0032: goto L017C;
             L0035: SetState(party, 0x02, 0x63, 0x01);
-            L004A: ax = GetSkillLevel(party, 0x08);
-            L0056: RefreshCompareFlags(ax);
+            L004A: RefreshCompareFlags(GetSkillLevel(party, 0x08));
             L0058: if (JumpNotEqual) goto L007B;
             L005A: SetSkillLevel(party, 0x08, 0x02);
             L006B: ShowMessage(party, String1430); // You gain the skill of Archery!
             L0078: goto L017A;
-            L007B: ax = GetSkillLevel(party, 0x01);
-            L0087: RefreshCompareFlags(ax);
+            L007B: RefreshCompareFlags(GetSkillLevel(party, 0x01));
             L0089: if (JumpNotEqual) goto L00AC;
             L008B: SetSkillLevel(party, 0x01, 0x02);
             L009C: ShowMessage(party, String144F); // You gain the skill of Clubs and Axes!
             L00A9: goto L017A;
-            L00AC: ax = GetSkillLevel(party, 0x05);
-            L00B8: RefreshCompareFlags(ax);
+            L00AC: RefreshCompareFlags(GetSkillLevel(party, 0x05));
             L00BA: if (JumpNotEqual) goto L00DD;
             L00BC: SetSkillLevel(party, 0x05, 0x02);
             L00CD: ShowMessage(party, String1475); // You gain the skill of Swordsmanship!
             L00DA: goto L017A;
-            L00DD: ax = GetSkillLevel(party, 0x0C);
-            L00E9: RefreshCompareFlags(ax);
+            L00DD: RefreshCompareFlags(GetSkillLevel(party, 0x0C));
             L00EB: if (JumpNotEqual) goto L010D;
             L00ED: SetSkillLevel(party, 0x0C, 0x02);
             L00FE: ShowMessage(party, String149A); // You gain the Bard skill!
             L010B: goto L017A;
-            L010D: ax = GetSkillLevel(party, 0x10);
-            L0119: RefreshCompareFlags(ax);
+            L010D: RefreshCompareFlags(GetSkillLevel(party, 0x10));
             L011B: if (JumpNotEqual) goto L013D;
             L011D: SetSkillLevel(party, 0x10, 0x02);
             L012E: ShowMessage(party, String14B3); // You gain the skill of Martial Arts!
             L013B: goto L017A;
-            L013D: ax = GetSkillLevel(party, 0x16);
-            L0149: RefreshCompareFlags(ax);
+            L013D: RefreshCompareFlags(GetSkillLevel(party, 0x16));
             L014B: if (JumpNotEqual) goto L016D;
             L014D: SetSkillLevel(party, 0x16, 0x02);
             L015E: ShowMessage(party, String14D7); // You gain the Channel skill!
@@ -977,12 +939,10 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0027: AddEncounter(party, 0x04, 0x27);
             L0039: AddEncounter(party, 0x05, 0x15);
             L004B: AddEncounter(party, 0x06, 0x15);
-            L005D: ax = GetGuild(party);
-            L0064: RefreshCompareFlags(ax);
+            L005D: RefreshCompareFlags(GetGuild(party));
             L0066: if (JumpNotEqual) goto L0087;
             L0068: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x18);
-            L0087: ax = GetGuild(party);
-            L008E: Compare(ax, 0x0001);
+            L0087: Compare(GetGuild(party), 0x0001);
             L0091: if (JumpNotEqual) goto L00B2;
             L0093: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x11);
             L00B2: return; // RETURN;
@@ -1008,15 +968,12 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSDRTORBA_53(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetGuild(party);
-            L000A: Compare(ax, 0x0001);
+            L0003: Compare(GetGuild(party), 0x0001);
             L000D: if (JumpEqual) goto L0012;
             L000F: goto L0091;
-            L0012: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L001E: Compare(ax, 0x0008);
+            L0012: Compare(HasUsedSkill(party, 0x0D), 0x0008);
             L0021: if (JumpNotBelow) goto L0048;
-            L0023: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L002F: RefreshCompareFlags(ax);
+            L0023: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0031: if (JumpNotEqual) goto L0048;
             L0033: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0046: if (JumpEqual) goto L0091;
@@ -1029,15 +986,12 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSDRTORBB_54(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetGuild(party);
-            L000A: RefreshCompareFlags(ax);
+            L0003: RefreshCompareFlags(GetGuild(party));
             L000C: if (JumpEqual) goto L0011;
             L000E: goto L0090;
-            L0011: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L001D: Compare(ax, 0x0008);
+            L0011: Compare(HasUsedSkill(party, 0x0D), 0x0008);
             L0020: if (JumpNotBelow) goto L0047;
-            L0022: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L002E: RefreshCompareFlags(ax);
+            L0022: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0030: if (JumpNotEqual) goto L0047;
             L0032: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0045: if (JumpEqual) goto L0090;
@@ -1052,8 +1006,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(party, String160A); // The wind is nasty here!  You take 100 damage.
             L0010: DamagePlayer(party, 0x0064);
-            L001D: ax = GetCurrentHits(party);
-            L0024: RefreshCompareFlags(ax);
+            L001D: RefreshCompareFlags(GetCurrentHits(party));
             L0026: if (JumpAbove) goto L0035;
             L0028: ShowMessage(party, String1638); // You have died.
             L0035: return; // RETURN;
@@ -1073,10 +1026,9 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0003: ShowMessage(party, String166E); // A violent whirlwind pounds you, taking half your health!
             L0010: ax = GetCurrentHits(party);
             L0017: bx = 0x0002;
-            L001A: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
+            L001A: dx = ax % bx; ax = ax / bx;
             L001D: DamagePlayer(party, ax);
-            L0027: ax = GetCurrentHits(party);
-            L002E: RefreshCompareFlags(ax);
+            L0027: RefreshCompareFlags(GetCurrentHits(party));
             L0030: if (JumpAbove) goto L003F;
             L0032: ShowMessage(party, String16A7); // You have died.
             L003F: return; // RETURN;

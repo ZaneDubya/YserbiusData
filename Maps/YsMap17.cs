@@ -219,14 +219,12 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSPECIALD_09(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x02, 0x42);
-            L0014: Compare(ax, 0x0005);
+            L0003: Compare(GetState(party, 0x02, 0x42), 0x0005);
             L0017: if (JumpNotEqual) goto L0028;
             L0019: ShowMessage(party, String04E7); // You have used up the supplies in the Infirmary.
             L0026: goto L0066;
             L0028: SetState(party, 0x02, 0x42, 0x43);
-            L003D: ax = GetMaxHits(party);
-            L0044: PushStack(party, ax);
+            L003D: PushStack(party, GetMaxHits(party));
             L0045: ax = GetCurrentHits(party);
             L004C: dx = PopStack(party);
             L004D: dx = dx - ax;
@@ -261,11 +259,9 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05B7); // A group of restless undead surprise you!
-            L0010: ax = PartyCount(party);
-            L0018: Compare(ax, 0x0001);
+            L0010: Compare(PartyCount(party), 0x0001);
             L001B: if (JumpEqual) goto L002A;
-            L001D: ax = PartyCount(party);
-            L0025: Compare(ax, 0x0002);
+            L001D: Compare(PartyCount(party), 0x0002);
             L0028: if (JumpNotEqual) goto L0062;
             L002A: AddEncounter(party, 0x01, 0x1C);
             L003C: AddEncounter(party, 0x02, 0x1F);
@@ -313,8 +309,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnFLSPECA_10(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x02, 0x41);
-            L0014: Compare(ax, 0x0001);
+            L0003: Compare(GetState(party, 0x02, 0x41), 0x0001);
             L0017: if (JumpNotEqual) goto L0028;
             L0019: ShowMessage(party, String0693); // The storage room has been emptied by other adventurers.
             L0026: goto L007F;
@@ -330,8 +325,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnFLSPECB_11(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x02, 0x3E);
-            L0014: Compare(ax, 0x0001);
+            L0003: Compare(GetState(party, 0x02, 0x3E), 0x0001);
             L0017: if (JumpNotEqual) goto L0028;
             L0019: ShowMessage(party, String0727); // Thieves have emptied this room.
             L0026: goto L0097;
@@ -349,8 +343,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnFLSPECC_12(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x02, 0x43);
-            L0014: Compare(ax, 0x0001);
+            L0003: Compare(GetState(party, 0x02, 0x43), 0x0001);
             L0017: if (JumpNotEqual) goto L0039;
             L0019: ModifyGold(party, 0x0001);
             L002A: ShowMessage(party, String0794); // You find 1 gold piece in an empty safe.
@@ -371,8 +364,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0011: if (JumpEqual) goto L0023;
             L0013: ShowMessage(party, String07F8); // The room has been ransacked!
             L0020: goto L0150;
-            L0023: ax = GetGuild(party);
-            L002A: Compare(ax, 0x0003);
+            L0023: Compare(GetGuild(party), 0x0003);
             L002D: if (JumpEqual) goto L0032;
             L002F: goto L00B1;
             L0032: SetState(party, 0x02, 0x3F, 0x01);
@@ -396,7 +388,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0118: SetTileState(party, 01);
             L0124: ax = GetCurrentHits(party);
             L012B: bx = 0x0002;
-            L012E: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
+            L012E: dx = ax % bx; ax = ax / bx;
             L0131: DamagePlayer(party, ax);
             L013B: SetState(party, 0x02, 0x3F, 0x01);
             L0150: return; // RETURN;
@@ -405,8 +397,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnFLSPECE_14(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x02, 0x44);
-            L0014: Compare(ax, 0x0001);
+            L0003: Compare(GetState(party, 0x02, 0x44), 0x0001);
             L0017: if (JumpNotEqual) goto L0028;
             L0019: ShowMessage(party, String0902); // You found a sleeping thief who cannot be roused from deep slumber.
             L0026: goto L005B;
@@ -421,8 +412,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0022);
             L0010: ShowMessage(party, String099F); // The Club and Axe Training Center.  All who lack this skill gain enlightenment and training.
-            L001D: ax = GetSkillLevel(party, 0x01);
-            L0029: RefreshCompareFlags(ax);
+            L001D: RefreshCompareFlags(GetSkillLevel(party, 0x01));
             L002B: if (JumpNotEqual) goto L004D;
             L002D: SetSkillLevel(party, 0x01, 0x02);
             L003E: ShowMessage(party, String09FB); // Thieves provide you with training in Clubs and Axes!
@@ -439,8 +429,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0018: ShowPortrait(party, 0x0023);
             L0025: ShowMessage(party, String0A81); // A wise old thief will teach you the Bard Skill!
             L0032: SetState(party, 0x02, 0x45, 0x01);
-            L0047: ax = GetSkillLevel(party, 0x0C);
-            L0053: Compare(ax, 0x000C);
+            L0047: Compare(GetSkillLevel(party, 0x0C), 0x000C);
             L0056: if (JumpAbove) goto L006B;
             L0058: SetSkillLevel(party, 0x0C, 0x02);
             L0069: goto L0078;
@@ -456,8 +445,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0026);
             L0010: ShowMessage(party, String0B31); // The Fencing Training Center.  All who lack this skill gain enlightenment and training.
-            L001D: ax = GetSkillLevel(party, 0x05);
-            L0029: RefreshCompareFlags(ax);
+            L001D: RefreshCompareFlags(GetSkillLevel(party, 0x05));
             L002B: if (JumpNotEqual) goto L004D;
             L002D: SetSkillLevel(party, 0x05, 0x02);
             L003E: ShowMessage(party, String0B88); // Thieves provide you with training in the use of Swords!
@@ -474,8 +462,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0018: ShowPortrait(party, 0x0024);
             L0025: ShowMessage(party, String0C11); // A wise young thief will teach you the Detect Skill!
             L0032: SetState(party, 0x02, 0x64, 0x01);
-            L0047: ax = GetSkillLevel(party, 0x0D);
-            L0053: Compare(ax, 0x000C);
+            L0047: Compare(GetSkillLevel(party, 0x0D), 0x000C);
             L0056: if (JumpAbove) goto L006B;
             L0058: SetSkillLevel(party, 0x0D, 0x02);
             L0069: goto L0078;
@@ -490,8 +477,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0CC6); // The Staff Training Center.  All who lack this skill gain enlightenment and training.
-            L0010: ax = GetSkillLevel(party, 0x15);
-            L001C: RefreshCompareFlags(ax);
+            L0010: RefreshCompareFlags(GetSkillLevel(party, 0x15));
             L001E: if (JumpNotEqual) goto L004D;
             L0020: SetSkillLevel(party, 0x15, 0x02);
             L0031: ShowPortrait(party, 0x0023);
@@ -510,8 +496,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0018: ShowPortrait(party, 0x0025);
             L0025: ShowMessage(party, String0DA4); // A wise old thief will teach you the Lockpick Skill!
             L0032: SetState(party, 0x02, 0x65, 0x01);
-            L0047: ax = GetSkillLevel(party, 0x0E);
-            L0053: Compare(ax, 0x000C);
+            L0047: Compare(GetSkillLevel(party, 0x0E), 0x000C);
             L0056: if (JumpAbove) goto L006B;
             L0058: SetSkillLevel(party, 0x0E, 0x02);
             L0069: goto L0078;
@@ -532,8 +517,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0032: goto L0090;
             L0034: SetState(party, 0x02, 0x68, 0x01);
             L0049: ShowPortrait(party, 0x0042);
-            L0056: ax = GetMaxHits(party);
-            L005D: PushStack(party, ax);
+            L0056: PushStack(party, GetMaxHits(party));
             L005E: ax = GetCurrentHits(party);
             L0065: dx = PopStack(party);
             L0066: dx = dx - ax;
@@ -548,8 +532,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0026);
             L0010: ShowMessage(party, String0F18); // The Archery Training Center.  All who lack this skill gain enlightenment and training.
-            L001D: ax = GetSkillLevel(party, 0x08);
-            L0029: RefreshCompareFlags(ax);
+            L001D: RefreshCompareFlags(GetSkillLevel(party, 0x08));
             L002B: if (JumpNotEqual) goto L004D;
             L002D: SetSkillLevel(party, 0x08, 0x02);
             L003E: ShowMessage(party, String0F6F); // Thieves provide you with training in Archery!
@@ -584,8 +567,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xC2, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L0024: Compare(ax, 0x000A);
+            L0018: Compare(HasUsedSkill(party, 0x0E), 0x000A);
             L0027: if (JumpBelow) goto L0074;
             L0029: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0047: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -599,11 +581,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnHIDDORI_26(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x000C);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x000C);
             L0012: if (JumpNotBelow) goto L007A;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L007A;
             L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L007A;
@@ -617,8 +597,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L007A: SetState(party, 0x00, 0x01, 0x01);
             L008E: ax = HasUsedItem(party, 0xC3, 0xC4);
             L00A1: if (JumpNotEqual) goto L00B4;
-            L00A3: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L00AF: Compare(ax, 0x000C);
+            L00A3: Compare(HasUsedSkill(party, 0x0E), 0x000C);
             L00B2: if (JumpBelow) goto L00FF;
             L00B4: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L00D2: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -635,11 +614,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnHIDDORJ_27(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x000A);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
             L0012: if (JumpNotBelow) goto L007A;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L007A;
             L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L007A;
@@ -653,8 +630,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L007A: SetState(party, 0x00, 0x01, 0x01);
             L008E: ax = HasUsedItem(party, 0xC3, 0xC4);
             L00A1: if (JumpNotEqual) goto L00B4;
-            L00A3: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L00AF: Compare(ax, 0x000A);
+            L00A3: Compare(HasUsedSkill(party, 0x0E), 0x000A);
             L00B2: if (JumpBelow) goto L00FF;
             L00B4: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L00D2: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -671,11 +647,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnHIDDORK_28(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x0009);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x0009);
             L0012: if (JumpNotBelow) goto L007A;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L007A;
             L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L007A;
@@ -689,8 +663,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L007A: SetState(party, 0x00, 0x01, 0x01);
             L008E: ax = HasUsedItem(party, 0xC3, 0xC4);
             L00A1: if (JumpNotEqual) goto L00B4;
-            L00A3: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L00AF: Compare(ax, 0x0009);
+            L00A3: Compare(HasUsedSkill(party, 0x0E), 0x0009);
             L00B2: if (JumpBelow) goto L00FF;
             L00B4: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L00D2: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -707,11 +680,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnHIDDORL_29(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x0008);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x0008);
             L0012: if (JumpNotBelow) goto L007A;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L007A;
             L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L007A;
@@ -725,8 +696,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L007A: SetState(party, 0x00, 0x01, 0x01);
             L008E: ax = HasUsedItem(party, 0xC2, 0xC4);
             L00A1: if (JumpNotEqual) goto L00B4;
-            L00A3: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L00AF: Compare(ax, 0x0008);
+            L00A3: Compare(HasUsedSkill(party, 0x0E), 0x0008);
             L00B2: if (JumpBelow) goto L00FF;
             L00B4: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L00D2: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -743,11 +713,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnHIDDORM_2A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x000C);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x000C);
             L0012: if (JumpNotBelow) goto L007A;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L007A;
             L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L007A;
@@ -761,8 +729,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L007A: SetState(party, 0x00, 0x01, 0x01);
             L008E: ax = HasUsedItem(party, 0xC4, 0xC4);
             L00A1: if (JumpNotEqual) goto L00B4;
-            L00A3: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L00AF: Compare(ax, 0x000C);
+            L00A3: Compare(HasUsedSkill(party, 0x0E), 0x000C);
             L00B2: if (JumpBelow) goto L00FF;
             L00B4: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L00D2: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -779,11 +746,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnHIDDORN_2B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x000C);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x000C);
             L0012: if (JumpNotBelow) goto L007A;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L007A;
             L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L007A;
@@ -797,8 +762,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L007A: SetState(party, 0x00, 0x01, 0x01);
             L008E: ax = HasUsedItem(party, 0xC4, 0xC4);
             L00A1: if (JumpNotEqual) goto L00B4;
-            L00A3: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L00AF: Compare(ax, 0x000C);
+            L00A3: Compare(HasUsedSkill(party, 0x0E), 0x000C);
             L00B2: if (JumpBelow) goto L00FF;
             L00B4: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L00D2: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -817,8 +781,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xC2, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L0024: Compare(ax, 0x0008);
+            L0018: Compare(HasUsedSkill(party, 0x0E), 0x0008);
             L0027: if (JumpBelow) goto L0074;
             L0029: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0047: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -832,11 +795,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnHIDDORT_31(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x0006);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x0006);
             L0012: if (JumpNotBelow) goto L0024;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpEqual) goto L0051;
             L0024: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0042: ShowMessage(party, String1391); // You found a hidden door!
@@ -848,11 +809,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnHIDDORU_32(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x0008);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x0008);
             L0012: if (JumpNotBelow) goto L007A;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L007A;
             L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L007A;
@@ -866,8 +825,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L007A: SetState(party, 0x00, 0x01, 0x01);
             L008E: ax = HasUsedItem(party, 0xC2, 0xC4);
             L00A1: if (JumpNotEqual) goto L00B4;
-            L00A3: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L00AF: Compare(ax, 0x0008);
+            L00A3: Compare(HasUsedSkill(party, 0x0E), 0x0008);
             L00B2: if (JumpBelow) goto L00FF;
             L00B4: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L00D2: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -898,11 +856,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnHIDDORY_36(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x000A);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
             L0012: if (JumpNotBelow) goto L007A;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L007A;
             L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L007A;
@@ -916,8 +872,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L007A: SetState(party, 0x00, 0x01, 0x01);
             L008E: ax = HasUsedItem(party, 0xC3, 0xC4);
             L00A1: if (JumpNotEqual) goto L00B4;
-            L00A3: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L00AF: Compare(ax, 0x000A);
+            L00A3: Compare(HasUsedSkill(party, 0x0E), 0x000A);
             L00B2: if (JumpBelow) goto L00FF;
             L00B4: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L00D2: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -934,11 +889,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnHIDDORZ_37(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x0008);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x0008);
             L0012: if (JumpNotBelow) goto L0063;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L0063;
             L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L0063;
@@ -961,11 +914,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnHIDDORBB_39(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x0009);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x0009);
             L0012: if (JumpNotBelow) goto L007A;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L007A;
             L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L007A;
@@ -979,8 +930,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L007A: SetState(party, 0x00, 0x01, 0x01);
             L008E: ax = HasUsedItem(party, 0xC3, 0xC4);
             L00A1: if (JumpNotEqual) goto L00B4;
-            L00A3: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L00AF: Compare(ax, 0x0009);
+            L00A3: Compare(HasUsedSkill(party, 0x0E), 0x0009);
             L00B2: if (JumpBelow) goto L00FF;
             L00B4: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L00D2: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -997,11 +947,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnHIDDORCC_3A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x0008);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x0008);
             L0012: if (JumpNotBelow) goto L007A;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L007A;
             L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L007A;
@@ -1015,8 +963,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L007A: SetState(party, 0x00, 0x01, 0x01);
             L008E: ax = HasUsedItem(party, 0xC2, 0xC4);
             L00A1: if (JumpNotEqual) goto L00B4;
-            L00A3: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L00AF: Compare(ax, 0x0009);
+            L00A3: Compare(HasUsedSkill(party, 0x0E), 0x0009);
             L00B2: if (JumpBelow) goto L00FF;
             L00B4: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L00D2: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -1035,8 +982,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xC4, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L0024: Compare(ax, 0x000C);
+            L0018: Compare(HasUsedSkill(party, 0x0E), 0x000C);
             L0027: if (JumpBelow) goto L0074;
             L0029: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0047: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -1050,11 +996,9 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnHIDDORII_40(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x0006);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x0006);
             L0012: if (JumpNotBelow) goto L007A;
-            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
-            L0020: RefreshCompareFlags(ax);
+            L0014: RefreshCompareFlags(HasUsedSpell(party, 0x17));
             L0022: if (JumpNotEqual) goto L007A;
             L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L007A;
@@ -1068,8 +1012,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L007A: SetState(party, 0x00, 0x01, 0x01);
             L008E: ax = HasUsedItem(party, 0xC3, 0xC4);
             L00A1: if (JumpNotEqual) goto L00B4;
-            L00A3: ax = HasUsedSkill(party, 0x0E); // returns 0 if did not use, compares to 2nd op if did use;
-            L00AF: Compare(ax, 0x0009);
+            L00A3: Compare(HasUsedSkill(party, 0x0E), 0x0009);
             L00B2: if (JumpBelow) goto L00FF;
             L00B4: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L00D2: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));

@@ -104,16 +104,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0010: SetNoHealZone(party);
             L0018: ax = GetMaxHits(party);
             L001F: bx = 0x0004;
-            L0022: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
+            L0022: dx = ax % bx; ax = ax / bx;
             L0025: DamagePlayer(party, ax);
-            L002F: ax = GetCurrentHits(party);
-            L0036: RefreshCompareFlags(ax);
+            L002F: RefreshCompareFlags(GetCurrentHits(party));
             L0038: if (JumpAbove) goto L0047;
             L003A: ShowMessage(party, String0429); // You have died.
             L0047: ax = HasItem(party, 0xD5);
             L0055: if (JumpNotEqual) goto L006C;
-            L0057: ax = GetState(party, 0x02, 0x6D);
-            L0068: RefreshCompareFlags(ax);
+            L0057: RefreshCompareFlags(GetState(party, 0x02, 0x6D));
             L006A: if (JumpEqual) goto L007E;
             L006C: SetFloorObject(party, 0x9C, 0x00);
             L007C: goto L008F;
@@ -133,8 +131,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xD6);
             L0011: if (JumpNotEqual) goto L0028;
-            L0013: ax = GetState(party, 0x02, 0x6E);
-            L0024: RefreshCompareFlags(ax);
+            L0013: RefreshCompareFlags(GetState(party, 0x02, 0x6E));
             L0026: if (JumpEqual) goto L0071;
             L0028: SetWallPassable(party, GetCurrentTile(party), 0x00, 0x01);
             L0041: RemoveItem(party, 0xD6);
@@ -150,8 +147,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xD5);
             L0011: if (JumpNotEqual) goto L0028;
-            L0013: ax = GetState(party, 0x02, 0x6D);
-            L0024: RefreshCompareFlags(ax);
+            L0013: RefreshCompareFlags(GetState(party, 0x02, 0x6D));
             L0026: if (JumpEqual) goto L0068;
             L0028: RemoveItem(party, 0xD5);
             L0034: SetState(party, 0x02, 0x6D, 0x01);
@@ -167,8 +163,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xD7);
             L0011: if (JumpNotEqual) goto L0028;
-            L0013: ax = GetState(party, 0x02, 0x6F);
-            L0024: RefreshCompareFlags(ax);
+            L0013: RefreshCompareFlags(GetState(party, 0x02, 0x6F));
             L0026: if (JumpEqual) goto L0076;
             L0028: RemoveItem(party, 0xD7);
             L0034: SetState(party, 0x02, 0x6F, 0x01);
@@ -203,8 +198,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSECDOORA_0C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x000B);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x000B);
             L0012: if (JumpNotBelow) goto L0029;
             L0014: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0027: if (JumpEqual) goto L0072;
@@ -217,8 +211,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSECDOORB_0D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x000B);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x000B);
             L0012: if (JumpNotBelow) goto L0029;
             L0014: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0027: if (JumpEqual) goto L0072;
@@ -231,8 +224,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnSECDOORC_0E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
-            L000F: Compare(ax, 0x000B);
+            L0003: Compare(HasUsedSkill(party, 0x0D), 0x000B);
             L0012: if (JumpNotBelow) goto L0029;
             L0014: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0027: if (JumpEqual) goto L0074;
@@ -280,8 +272,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07C6); // You fall into a lava pit and die.
-            L0010: ax = GetMaxHits(party);
-            L0017: DamagePlayer(party, ax);
+            L0010: DamagePlayer(party, GetMaxHits(party));
             L0021: return; // RETURN;
         }
 
@@ -500,8 +491,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
-            L0010: ax = GetMaxHits(party);
-            L0017: HealPlayer(party, ax);
+            L0010: HealPlayer(party, GetMaxHits(party));
             L0021: ShowMessage(party, String09CA); // Your full health is restored by the ancient waters of RoundBrook Fountain.
             L002E: return; // RETURN;
         }
@@ -510,8 +500,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
-            L0010: ax = GetMaxHits(party);
-            L0017: HealPlayer(party, ax);
+            L0010: HealPlayer(party, GetMaxHits(party));
             L0021: ShowMessage(party, String0A15); // You feel all your health restored after sipping from JasperStone Fountain.
             L002E: return; // RETURN;
         }
@@ -520,8 +509,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
-            L0010: ax = GetMaxHits(party);
-            L0017: HealPlayer(party, ax);
+            L0010: HealPlayer(party, GetMaxHits(party));
             L0021: ShowMessage(party, String0A60); // The waters of RockyFlat Fountain restores your health.
             L002E: return; // RETURN;
         }

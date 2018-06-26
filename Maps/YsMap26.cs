@@ -123,8 +123,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // You stumble into the lava river and die.
-            L0010: ax = GetMaxHits(party);
-            L0017: DamagePlayer(party, ax);
+            L0010: DamagePlayer(party, GetMaxHits(party));
             L0021: return; // RETURN;
         }
 
@@ -181,8 +180,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnBDOORCGC_0C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckStrength(party);
-            L000F: Compare(ax, 0x0014);
+            L0003: Compare(CheckStrength(party), 0x0014);
             L0012: if (JumpBelow) goto L0041;
             L0014: ShowMessage(party, String0586); // With a massive effort, you manage to force the door open.
             L0021: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
@@ -197,9 +195,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0003: SetState(party, 0x02, 0x57, 0x01);
             L0018: ShowMessage(party, String05E5); // A plaque reads..
             L0025: ShowMessage(party, String05F6); // 'Thanks to the gracious generosity of the Mage Council, the survivors of the Arnakkian disaster hereby proclaim a new teleport to the top.'
-            L0032: PushStack(party, 0x02);
-            L0036: ax = GetCurrentTile(party);
-            L003D: TeleportParty(party, 0x33, 0x01, ax, PopStack(party), isForwardMove);
+            L0032: TeleportParty(party, 0x33, 0x01, GetCurrentTile(party), 0x02, isForwardMove);
             L0051: return; // RETURN;
         }
 
@@ -209,10 +205,9 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0003: ShowMessage(party, String0682); // Fighting the raging River of Eternity taps your life energy.
             L0010: ax = GetMaxHits(party);
             L0017: bx = 0x0004;
-            L001A: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
+            L001A: dx = ax % bx; ax = ax / bx;
             L001D: DamagePlayer(party, ax);
-            L0027: ax = GetCurrentHits(party);
-            L002E: RefreshCompareFlags(ax);
+            L0027: RefreshCompareFlags(GetCurrentHits(party));
             L0030: if (JumpAbove) goto L003F;
             L0032: ShowMessage(party, String06BF); // You have died.
             L003F: return; // RETURN;
@@ -390,8 +385,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnPHOEREW_21(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x02, 0x5E);
-            L0014: RefreshCompareFlags(ax);
+            L0003: RefreshCompareFlags(GetState(party, 0x02, 0x5E));
             L0016: if (JumpNotEqual) goto L0063;
             L0018: SetState(party, 0x02, 0x5E, 0x01);
             L002D: SetState(party, 0x02, 0x85, 0x01);
@@ -416,33 +410,28 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnFNTNBAZZ_25(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetState(party, 0x02, 0x5F);
-            L0014: RefreshCompareFlags(ax);
+            L0003: RefreshCompareFlags(GetState(party, 0x02, 0x5F));
             L0016: if (JumpEqual) goto L001B;
             L0018: goto L011A;
             L001B: SetState(party, 0x02, 0x5F, 0x01);
             L0030: ShowPortrait(party, 0x0042);
             L003D: ShowMessage(party, String0D17); // You sip the cool purple waters of the ElfFoot Fountain
-            L004A: ax = GetSkillLevel(party, 0x14);
-            L0056: RefreshCompareFlags(ax);
+            L004A: RefreshCompareFlags(GetSkillLevel(party, 0x14));
             L0058: if (JumpNotEqual) goto L007B;
             L005A: SetSkillLevel(party, 0x14, 0x01);
             L006B: ShowMessage(party, String0D4E); // You gain the skill of Rune Reading!
             L0078: goto L0118;
-            L007B: ax = GetSkillLevel(party, 0x16);
-            L0087: RefreshCompareFlags(ax);
+            L007B: RefreshCompareFlags(GetSkillLevel(party, 0x16));
             L0089: if (JumpNotEqual) goto L00AB;
             L008B: SetSkillLevel(party, 0x16, 0x01);
             L009C: ShowMessage(party, String0D72); // You gain the Channel skill!
             L00A9: goto L0118;
-            L00AB: ax = GetSkillLevel(party, 0x15);
-            L00B7: RefreshCompareFlags(ax);
+            L00AB: RefreshCompareFlags(GetSkillLevel(party, 0x15));
             L00B9: if (JumpNotEqual) goto L00DB;
             L00BB: SetSkillLevel(party, 0x15, 0x01);
             L00CC: ShowMessage(party, String0D8E); // You gain the Staff skill!
             L00D9: goto L0118;
-            L00DB: ax = GetSkillLevel(party, 0x17);
-            L00E7: RefreshCompareFlags(ax);
+            L00DB: RefreshCompareFlags(GetSkillLevel(party, 0x17));
             L00E9: if (JumpNotEqual) goto L010B;
             L00EB: SetSkillLevel(party, 0x17, 0x01);
             L00FC: ShowMessage(party, String0DA8); // You gain the Deep Trance skill!
@@ -478,31 +467,26 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
             L0010: ShowMessage(party, String0EBC); // Ranger banners decorate the woodwork of Lookout Fountain.
-            L001D: ax = GetState(party, 0x02, 0x60);
-            L002E: RefreshCompareFlags(ax);
+            L001D: RefreshCompareFlags(GetState(party, 0x02, 0x60));
             L0030: if (JumpEqual) goto L0035;
             L0032: goto L0118;
             L0035: SetState(party, 0x02, 0x60, 0x01);
-            L004A: ax = GetSkillLevel(party, 0x09);
-            L0056: RefreshCompareFlags(ax);
+            L004A: RefreshCompareFlags(GetSkillLevel(party, 0x09));
             L0058: if (JumpNotEqual) goto L007B;
             L005A: SetSkillLevel(party, 0x09, 0x02);
             L006B: ShowMessage(party, String0EF6); // You gain the skill of Stamina!
             L0078: goto L0118;
-            L007B: ax = GetSkillLevel(party, 0x0A);
-            L0087: RefreshCompareFlags(ax);
+            L007B: RefreshCompareFlags(GetSkillLevel(party, 0x0A));
             L0089: if (JumpNotEqual) goto L00AB;
             L008B: SetSkillLevel(party, 0x0A, 0x02);
             L009C: ShowMessage(party, String0F15); // You gain the skill of Furtiveness!
             L00A9: goto L0118;
-            L00AB: ax = GetSkillLevel(party, 0x0B);
-            L00B7: RefreshCompareFlags(ax);
+            L00AB: RefreshCompareFlags(GetSkillLevel(party, 0x0B));
             L00B9: if (JumpNotEqual) goto L00DB;
             L00BB: SetSkillLevel(party, 0x0B, 0x02);
             L00CC: ShowMessage(party, String0F38); // You gain the skill of Reading Tracks!
             L00D9: goto L0118;
-            L00DB: ax = GetSkillLevel(party, 0x08);
-            L00E7: RefreshCompareFlags(ax);
+            L00DB: RefreshCompareFlags(GetSkillLevel(party, 0x08));
             L00E9: if (JumpNotEqual) goto L010B;
             L00EB: SetSkillLevel(party, 0x08, 0x02);
             L00FC: ShowMessage(party, String0F5E); // You gain the skill of Archery!
@@ -586,8 +570,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnFNTNHEAL_37(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetMaxHits(party);
-            L000A: HealPlayer(party, ax);
+            L0003: HealPlayer(party, GetMaxHits(party));
             L0014: ShowPortrait(party, 0x0042);
             L0021: ShowMessage(party, String10A8); // DayFrost Fountain restores your Health.
             L002E: return; // RETURN;
@@ -611,10 +594,9 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002A: ShowMessage(party, String1150); // The Phantasm drains your life energies.
             L0037: ax = GetCurrentHits(party);
             L003E: bx = 0x0002;
-            L0041: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
+            L0041: dx = ax % bx; ax = ax / bx;
             L0044: DamagePlayer(party, ax);
-            L004E: ax = GetCurrentHits(party);
-            L0055: RefreshCompareFlags(ax);
+            L004E: RefreshCompareFlags(GetCurrentHits(party));
             L0057: if (JumpAbove) goto L0066;
             L0059: ShowMessage(party, String1178); // You have died.
             L0066: return; // RETURN;

@@ -120,8 +120,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0003: ax = CheckLevel(party, 0x0014);
             L0011: if (JumpNotEqual) goto L0016;
             L0013: goto L011F;
-            L0016: ax = GetState(party, 0x02, 0x78);
-            L0027: Compare(ax, 0x0001);
+            L0016: Compare(GetState(party, 0x02, 0x78), 0x0001);
             L002A: if (JumpNotEqual) goto L005A;
             L002C: ShowMessage(party, String0504); // This room contains the gateway to the Labyrinth.
             L0039: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);

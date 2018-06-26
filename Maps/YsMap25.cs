@@ -154,29 +154,21 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnCHESLITE_01(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
-            L0004: ax = GetCurrentTile(party);
-            L000B: Compare(ax, 0x0062);
+            L0004: Compare(GetCurrentTile(party), 0x0062);
             L000E: if (JumpNotEqual) goto L001B;
-            L0010: ax = GetFacing(party);
-            L0017: RefreshCompareFlags(ax);
+            L0010: RefreshCompareFlags(GetFacing(party));
             L0019: if (JumpEqual) goto L0062;
-            L001B: ax = GetCurrentTile(party);
-            L0022: Compare(ax, 0x0069);
+            L001B: Compare(GetCurrentTile(party), 0x0069);
             L0025: if (JumpNotEqual) goto L0033;
-            L0027: ax = GetFacing(party);
-            L002E: Compare(ax, 0x0002);
+            L0027: Compare(GetFacing(party), 0x0002);
             L0031: if (JumpEqual) goto L0062;
-            L0033: ax = GetCurrentTile(party);
-            L003A: Compare(ax, 0x0092);
+            L0033: Compare(GetCurrentTile(party), 0x0092);
             L003D: if (JumpNotEqual) goto L004A;
-            L003F: ax = GetFacing(party);
-            L0046: RefreshCompareFlags(ax);
+            L003F: RefreshCompareFlags(GetFacing(party));
             L0048: if (JumpEqual) goto L0062;
-            L004A: ax = GetCurrentTile(party);
-            L0051: Compare(ax, 0x0099);
+            L004A: Compare(GetCurrentTile(party), 0x0099);
             L0054: if (JumpNotEqual) goto L0072;
-            L0056: ax = GetFacing(party);
-            L005D: Compare(ax, 0x0002);
+            L0056: Compare(GetFacing(party), 0x0002);
             L0060: if (JumpNotEqual) goto L0072;
             L0062: ShowMessage(party, String03FC); // You may leave the chessboard through this opening.
             L006F: goto L0193;
@@ -184,29 +176,21 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008F: ax = HasItem(party, 0xEE);
             L009D: if (JumpNotEqual) goto L00A2;
             L009F: goto L0186;
-            L00A2: ax = GetFacing(party);
-            L00A9: Compare(ax, 0x0003);
+            L00A2: Compare(GetFacing(party), 0x0003);
             L00AC: if (JumpNotEqual) goto L00BA;
-            L00AE: ax = GetCurrentTile(party);
-            L00B5: ax = ax + 0xFFE1;
+            L00AE: GetCurrentTile(party) = ax + 0xFFE1;
             L00B8: si = ax;
-            L00BA: ax = GetFacing(party);
-            L00C1: Compare(ax, 0x0002);
+            L00BA: Compare(GetFacing(party), 0x0002);
             L00C4: if (JumpNotEqual) goto L00D2;
-            L00C6: ax = GetCurrentTile(party);
-            L00CD: ax = ax + 0x0012;
+            L00C6: GetCurrentTile(party) = ax + 0x0012;
             L00D0: si = ax;
-            L00D2: ax = GetFacing(party);
-            L00D9: Compare(ax, 0x0001);
+            L00D2: Compare(GetFacing(party), 0x0001);
             L00DC: if (JumpNotEqual) goto L00EA;
-            L00DE: ax = GetCurrentTile(party);
-            L00E5: ax = ax + 0x001F;
+            L00DE: GetCurrentTile(party) = ax + 0x001F;
             L00E8: si = ax;
-            L00EA: ax = GetFacing(party);
-            L00F1: RefreshCompareFlags(ax);
+            L00EA: RefreshCompareFlags(GetFacing(party));
             L00F3: if (JumpNotEqual) goto L0101;
-            L00F5: ax = GetCurrentTile(party);
-            L00FC: ax = ax + 0xFFEE;
+            L00F5: GetCurrentTile(party) = ax + 0xFFEE;
             L00FF: si = ax;
             L0101: Compare(si, 0x42);
             L0104: if (JumpLess) goto L010B;
@@ -240,8 +224,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0151: if (JumpLess) goto L0177;
             L0153: Compare(si, 0x00B9);
             L0157: if (JumpGreater) goto L0177;
-            L0159: ax = GetFacing(party);
-            L0160: TeleportParty(party, 0x35, 0x02, si, ax, isForwardMove);
+            L0159: TeleportParty(party, 0x35, 0x02, si, GetFacing(party), isForwardMove);
             L0175: goto L0184;
             L0177: ShowMessage(party, String042F); // A knight move here would place you off the chessboard!
             L0184: goto L0193;
@@ -252,29 +235,21 @@ namespace XPT.Scripts.Yserbius.Maps {
         private void FnCHESDARK_02(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
-            L0004: ax = GetCurrentTile(party);
-            L000B: Compare(ax, 0x0062);
+            L0004: Compare(GetCurrentTile(party), 0x0062);
             L000E: if (JumpNotEqual) goto L001B;
-            L0010: ax = GetFacing(party);
-            L0017: RefreshCompareFlags(ax);
+            L0010: RefreshCompareFlags(GetFacing(party));
             L0019: if (JumpEqual) goto L0062;
-            L001B: ax = GetCurrentTile(party);
-            L0022: Compare(ax, 0x0069);
+            L001B: Compare(GetCurrentTile(party), 0x0069);
             L0025: if (JumpNotEqual) goto L0033;
-            L0027: ax = GetFacing(party);
-            L002E: Compare(ax, 0x0002);
+            L0027: Compare(GetFacing(party), 0x0002);
             L0031: if (JumpEqual) goto L0062;
-            L0033: ax = GetCurrentTile(party);
-            L003A: Compare(ax, 0x0092);
+            L0033: Compare(GetCurrentTile(party), 0x0092);
             L003D: if (JumpNotEqual) goto L004A;
-            L003F: ax = GetFacing(party);
-            L0046: RefreshCompareFlags(ax);
+            L003F: RefreshCompareFlags(GetFacing(party));
             L0048: if (JumpEqual) goto L0062;
-            L004A: ax = GetCurrentTile(party);
-            L0051: Compare(ax, 0x0099);
+            L004A: Compare(GetCurrentTile(party), 0x0099);
             L0054: if (JumpNotEqual) goto L0072;
-            L0056: ax = GetFacing(party);
-            L005D: Compare(ax, 0x0002);
+            L0056: Compare(GetFacing(party), 0x0002);
             L0060: if (JumpNotEqual) goto L0072;
             L0062: ShowMessage(party, String049D); // You may leave the chessboard through this opening.
             L006F: goto L0193;
@@ -282,29 +257,21 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008F: ax = HasItem(party, 0xEE);
             L009D: if (JumpNotEqual) goto L00A2;
             L009F: goto L0186;
-            L00A2: ax = GetFacing(party);
-            L00A9: Compare(ax, 0x0003);
+            L00A2: Compare(GetFacing(party), 0x0003);
             L00AC: if (JumpNotEqual) goto L00BA;
-            L00AE: ax = GetCurrentTile(party);
-            L00B5: ax = ax + 0xFFDF;
+            L00AE: GetCurrentTile(party) = ax + 0xFFDF;
             L00B8: si = ax;
-            L00BA: ax = GetFacing(party);
-            L00C1: Compare(ax, 0x0002);
+            L00BA: Compare(GetFacing(party), 0x0002);
             L00C4: if (JumpNotEqual) goto L00D2;
-            L00C6: ax = GetCurrentTile(party);
-            L00CD: ax = ax + 0xFFF2;
+            L00C6: GetCurrentTile(party) = ax + 0xFFF2;
             L00D0: si = ax;
-            L00D2: ax = GetFacing(party);
-            L00D9: Compare(ax, 0x0001);
+            L00D2: Compare(GetFacing(party), 0x0001);
             L00DC: if (JumpNotEqual) goto L00EA;
-            L00DE: ax = GetCurrentTile(party);
-            L00E5: ax = ax + 0x0021;
+            L00DE: GetCurrentTile(party) = ax + 0x0021;
             L00E8: si = ax;
-            L00EA: ax = GetFacing(party);
-            L00F1: RefreshCompareFlags(ax);
+            L00EA: RefreshCompareFlags(GetFacing(party));
             L00F3: if (JumpNotEqual) goto L0101;
-            L00F5: ax = GetCurrentTile(party);
-            L00FC: ax = ax + 0x000E;
+            L00F5: GetCurrentTile(party) = ax + 0x000E;
             L00FF: si = ax;
             L0101: Compare(si, 0x42);
             L0104: if (JumpLess) goto L010B;
@@ -338,8 +305,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0151: if (JumpLess) goto L0177;
             L0153: Compare(si, 0x00B9);
             L0157: if (JumpGreater) goto L0177;
-            L0159: ax = GetFacing(party);
-            L0160: TeleportParty(party, 0x35, 0x02, si, ax, isForwardMove);
+            L0159: TeleportParty(party, 0x35, 0x02, si, GetFacing(party), isForwardMove);
             L0175: goto L0184;
             L0177: ShowMessage(party, String04D0); // A knight move here would place you off the chessboard!
             L0184: goto L0193;
@@ -351,8 +317,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String053E); // You fall to your death in the lava below!
-            L0010: ax = GetMaxHits(party);
-            L0017: DamagePlayer(party, ax);
+            L0010: DamagePlayer(party, GetMaxHits(party));
             L0021: return; // RETURN;
         }
 
@@ -360,8 +325,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0568); // Planks of the Poker Bridge are made from used playing cards.
-            L0010: ax = GetState(party, 0x01, 0x01);
-            L0021: Compare(ax, 0x0001);
+            L0010: Compare(GetState(party, 0x01, 0x01), 0x0001);
             L0024: if (JumpNotEqual) goto L0056;
             L0026: ShowMessage(party, String05A5); // The rickety bridge barely holds your weight.
             L0033: SetFloorObject(party, 0x00, 0xDD);
@@ -369,8 +333,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0054: goto L0081;
             L0056: ShowMessage(party, String05D2); // The bridge collapses as you step on it, sending you to your death.
             L0063: ShowMessage(party, String0615); // The King laughs at his clever ruse.
-            L0070: ax = GetMaxHits(party);
-            L0077: DamagePlayer(party, ax);
+            L0070: DamagePlayer(party, GetMaxHits(party));
             L0081: return; // RETURN;
         }
 
@@ -519,16 +482,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A95); // The Blackjack Fountain is made of playing cards.
-            L0010: ax = GetState(party, 0x02, 0x7E);
-            L0021: RefreshCompareFlags(ax);
+            L0010: RefreshCompareFlags(GetState(party, 0x02, 0x7E));
             L0023: if (JumpEqual) goto L0028;
             L0025: goto L00AF;
             L0028: SetState(party, 0x02, 0x7E, 0x01);
             L003D: RemoveItem(party, 0xEA);
             L0049: ShowPortrait(party, 0x0042);
             L0056: ModifyAttribute(party, 0x02, 0x0003);
-            L0068: ax = GetMaxHits(party);
-            L006F: HealPlayer(party, ax);
+            L0068: HealPlayer(party, GetMaxHits(party));
             L0079: ShowMessage(party, String0AC6); // Still water fills the basin.
             L0086: ShowMessage(party, String0AE3); // A sip of it makes you feel healthier and more agile.
             L0093: ShowMessage(party, String0B18); // As you sip, a voice whispers -
@@ -542,8 +503,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0B8A); // The Cribbage Fountain is bedecked with golden pegs.
-            L0010: ax = GetState(party, 0x02, 0x7F);
-            L0021: RefreshCompareFlags(ax);
+            L0010: RefreshCompareFlags(GetState(party, 0x02, 0x7F));
             L0023: if (JumpEqual) goto L0028;
             L0025: goto L00AB;
             L0028: SetState(party, 0x02, 0x7F, 0x01);
