@@ -1,8 +1,8 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace XPT.Scripts.Maps {
-    class YserMap09 : AMapScript {
+namespace XPT.Scripts.Yserbius.Maps {
+    class YserMap09 : AMapScripted {
         protected override int MapIndex => 9;
         
         public YserMap09() {
@@ -42,43 +42,43 @@ namespace XPT.Scripts.Maps {
         private const string String07F1 = "The insane Gnome Thief crawls away.";
         
         // === Functions ================================================
-        private void FnSTRSTELE_01(Party party) {
+        private void FnSTRSTELE_01(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportPartyBC(party, 0x03, 0x01, 0xD7, 0x01);
+            L0003: TeleportParty(party, 0x03, 0x01, 0xD7, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnKEYDOOR_02(Party party) {
+        private void FnKEYDOOR_02(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedItem54(party, 0xDB, 0xDB);
+            L0003: ax = HasUsedItem(party, 0xDB, 0xDB);
             L0016: if (JumpEqual) goto L0063;
             L0018: PushStack(party, 0x01);
-            L001C: ax = GetFacing24(party);
+            L001C: ax = GetFacing(party);
             L0023: PushStack(party, ax);
-            L0024: ax = GetCurrentTile20(party);
+            L0024: ax = GetCurrentTile(party);
             L002B: PushStack(party, ax);
-            L002C: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
-            L0036: ax = GetFacing24(party);
+            L002C: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0036: ax = GetFacing(party);
             L003D: PushStack(party, ax);
-            L003E: ax = GetCurrentTile20(party);
+            L003E: ax = GetCurrentTile(party);
             L0045: PushStack(party, ax);
             L0046: PushStack(party, 0x01);
-            L004A: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004A: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
             L0054: ShowMessage(party, String03FC); // The E Rune Key unlocked the thick door.
             L0061: goto L008D;
             L0063: PushStack(party, 0x00);
-            L0066: ax = GetFacing24(party);
+            L0066: ax = GetFacing(party);
             L006D: PushStack(party, ax);
-            L006E: ax = GetCurrentTile20(party);
+            L006E: ax = GetCurrentTile(party);
             L0075: PushStack(party, ax);
-            L0076: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0076: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
             L0080: ShowMessage(party, String0424); // The door is locked.  You need a special key.
             L008D: return; // RETURN;
         }
 
-        private void FnGOLDAENC_03(Party party) {
+        private void FnGOLDAENC_03(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x19);
@@ -111,7 +111,7 @@ namespace XPT.Scripts.Maps {
             L0137: return; // RETURN;
         }
 
-        private void FnGOLDBENC_04(Party party) {
+        private void FnGOLDBENC_04(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x1A);
@@ -147,16 +147,16 @@ namespace XPT.Scripts.Maps {
             L0168: return; // RETURN;
         }
 
-        private void FnCROWNENC_05(Party party) {
+        private void FnCROWNENC_05(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem50(party, 0x78);
+            L0003: ax = HasItem(party, 0x78);
             L0011: if (JumpEqual) goto L0041;
             L0013: AddTreasure(party, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xB7);
             L0032: ShowMessage(party, String04CC); // A painful nip at your ankle warns you of great danger.
             L003F: goto L0087;
             L0041: AddTreasure(party, 0x07D0, 0x00, 0x00, 0x00, 0xCF, 0x78);
-            L0061: RemoveItem4C(party, 0xDB);
+            L0061: RemoveItem(party, 0xDB);
             L006D: ShowMessage(party, String0503); // The E Vowel Key fades away when you enter the room.
             L007A: ShowMessage(party, String0537); // Behind a writhing mass of ill-tempered snakes lies King Cleowyn's Robe.
             L0087: ax = PartyCount(party);
@@ -191,7 +191,7 @@ namespace XPT.Scripts.Maps {
             L01E8: return; // RETURN;
         }
 
-        private void FnITEMBENC_06(Party party) {
+        private void FnITEMBENC_06(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x1B);
@@ -235,18 +235,18 @@ namespace XPT.Scripts.Maps {
             L01EA: return; // RETURN;
         }
 
-        private void FnITEMCENC_07(Party party) {
+        private void FnITEMCENC_07(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem50(party, 0x07);
+            L0003: ax = HasItem(party, 0x07);
             L0011: if (JumpEqual) goto L0065;
-            L0013: ax = HasItem50(party, 0x90);
+            L0013: ax = HasItem(party, 0x90);
             L0021: if (JumpEqual) goto L0044;
             L0023: AddTreasure(party, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xD1);
             L0042: goto L0063;
             L0044: AddTreasure(party, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0x90);
             L0063: goto L00B6;
-            L0065: ax = HasItem50(party, 0x90);
+            L0065: ax = HasItem(party, 0x90);
             L0073: if (JumpEqual) goto L0096;
             L0075: AddTreasure(party, 0x0BB8, 0x00, 0x00, 0x00, 0x00, 0x07);
             L0094: goto L00B6;
@@ -274,7 +274,7 @@ namespace XPT.Scripts.Maps {
             L017F: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_08(Party party) {
+        private void FnSTRMNSTR_08(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -309,7 +309,7 @@ namespace XPT.Scripts.Maps {
             L0164: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_09(Party party) {
+        private void FnTUFMNSTR_09(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -336,7 +336,7 @@ namespace XPT.Scripts.Maps {
             L00E3: return; // RETURN;
         }
 
-        private void FnVTFMNSTR_0A(Party party) {
+        private void FnVTFMNSTR_0A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -368,14 +368,14 @@ namespace XPT.Scripts.Maps {
             L012E: return; // RETURN;
         }
 
-        private void FnSTRSMESS_0B(Party party) {
+        private void FnSTRSMESS_0B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05FF); // East past the gateway are stairs leading down a level.
             L0010: return; // RETURN;
         }
 
-        private void FnNPCCHATA_0C(Party party) {
+        private void FnNPCCHATA_0C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0636); // A Halfling Cleric creeps out of the shadows.
@@ -389,7 +389,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_0D(Party party) {
+        private void FnNPCCHATB_0D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0711); // A half-mad Gnome Thief crawls into the room.

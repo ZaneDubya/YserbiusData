@@ -1,8 +1,8 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace XPT.Scripts.Maps {
-    class YserMap32 : AMapScript {
+namespace XPT.Scripts.Yserbius.Maps {
+    class YserMap32 : AMapScripted {
         protected override int MapIndex => 32;
         
         public YserMap32() {
@@ -49,17 +49,17 @@ namespace XPT.Scripts.Maps {
         private const string String0A2B = "You enter another dimension.";
         
         // === Functions ================================================
-        private void FnVOID_01(Party party) {
+        private void FnVOID_01(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The Ageless Void swallows you whole.
             L0010: ShowMessage(party, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
-            L001D: ax = GetMaxHits74(party);
-            L0024: DamagePlayer90(party, ax);
+            L001D: ax = GetMaxHits(party);
+            L0024: DamagePlayer(party, ax);
             L002E: return; // RETURN;
         }
 
-        private void FnISLEETRN_02(Party party) {
+        private void FnISLEETRN_02(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String046D); // The Island of Eternity sits at the edge of time.
@@ -67,7 +67,7 @@ namespace XPT.Scripts.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnENCSELF_03(Party party) {
+        private void FnENCSELF_03(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x19);
@@ -79,19 +79,19 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCWINTR_04(Party party) {
+        private void FnENCWINTR_04(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04E8); // A titanic Elemental appears!
             L0010: ShowMessage(party, String0505); // 'You have gotten past Zephyr, Tempest, ZZyzx, Heaven's Fury, and all other winds.  But now you face your greatest challenge!'
             L001D: ShowMessage(party, String0583); // The sky above you darkens and dark clouds mass together. Tornadoes swirl around you.  Hurricane winds beat against you.  The clouds shine with the endless flash of lightning.
             L002A: ShowMessage(party, String0632); // The winds rip at your weapons.
-            L0037: ax = GetWeapon88(party);
+            L0037: ax = GetEquippedWeapon(party);
             L003F: Compare(ax, 0x0009);
             L0042: if (JumpEqual) goto L0064;
             L0044: ShowMessage(party, String0651); // Your weapon snaps in the wind!  It is gone.
-            L0051: ax = GetWeapon88(party);
-            L0059: RemoveItem4C(party, ax);
+            L0051: ax = GetEquippedWeapon(party);
+            L0059: RemoveItem(party, ax);
             L0062: goto L0071;
             L0064: ShowMessage(party, String067D); // The Wind Sword resists the winds!  It will indeed be a good fight!
             L0071: ShowMessage(party, String06C0); // You notice En-Li-Kil, the Time Elemental, vanish.
@@ -103,39 +103,39 @@ namespace XPT.Scripts.Maps {
             L00D8: return; // RETURN;
         }
 
-        private void FnRAINRED_05(Party party) {
+        private void FnRAINRED_05(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06F2); // A streak of Red crosses the Ageless Void.
-            L0010: TeleportPartyBC(party, 0x38, 0x03, 0x97, 0x02);
+            L0010: TeleportParty(party, 0x38, 0x03, 0x97, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
 
-        private void FnRAINYEL_06(Party party) {
+        private void FnRAINYEL_06(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String071C); // A streak of Yellow crosses the Ageless Void.
-            L0010: TeleportPartyBC(party, 0x38, 0x03, 0x87, 0x02);
+            L0010: TeleportParty(party, 0x38, 0x03, 0x87, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
 
-        private void FnRAINGRN_07(Party party) {
+        private void FnRAINGRN_07(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0749); // A streak of Green crosses the Ageless Void.
-            L0010: TeleportPartyBC(party, 0x38, 0x03, 0x77, 0x02);
+            L0010: TeleportParty(party, 0x38, 0x03, 0x77, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
 
-        private void FnRAINBLU_08(Party party) {
+        private void FnRAINBLU_08(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0775); // A streak of Blue crosses the Ageless Void.
-            L0010: TeleportPartyBC(party, 0x38, 0x03, 0x67, 0x02);
+            L0010: TeleportParty(party, 0x38, 0x03, 0x67, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
 
-        private void FnENCTIME_09(Party party) {
+        private void FnENCTIME_09(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07A0); // Threads of blinding light appear from all directions, bending and weaving into a tight spiral before you.
@@ -147,35 +147,35 @@ namespace XPT.Scripts.Maps {
             L0051: return; // RETURN;
         }
 
-        private void FnTELENW_0A(Party party) {
+        private void FnTELENW_0A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09D4); // You enter another dimension.
-            L0010: TeleportPartyBC(party, 0x39, 0x01, 0x54, 0x01);
+            L0010: TeleportParty(party, 0x39, 0x01, 0x54, 0x01, isForwardMove);
             L002B: return; // RETURN;
         }
 
-        private void FnTELENE_0B(Party party) {
+        private void FnTELENE_0B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09F1); // You enter another dimension.
-            L0010: TeleportPartyBC(party, 0x39, 0x01, 0x4A, 0x00);
+            L0010: TeleportParty(party, 0x39, 0x01, 0x4A, 0x00, isForwardMove);
             L002A: return; // RETURN;
         }
 
-        private void FnTELESE_0C(Party party) {
+        private void FnTELESE_0C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A0E); // You enter another dimension.
-            L0010: TeleportPartyBC(party, 0x39, 0x01, 0xAB, 0x03);
+            L0010: TeleportParty(party, 0x39, 0x01, 0xAB, 0x03, isForwardMove);
             L002B: return; // RETURN;
         }
 
-        private void FnTELESW_0D(Party party) {
+        private void FnTELESW_0D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A2B); // You enter another dimension.
-            L0010: TeleportPartyBC(party, 0x39, 0x01, 0xB5, 0x02);
+            L0010: TeleportParty(party, 0x39, 0x01, 0xB5, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
 

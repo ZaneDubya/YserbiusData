@@ -1,8 +1,8 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace XPT.Scripts.Maps {
-    class YserMap19 : AMapScript {
+namespace XPT.Scripts.Yserbius.Maps {
+    class YserMap19 : AMapScripted {
         protected override int MapIndex => 19;
         
         public YserMap19() {
@@ -36,21 +36,21 @@ namespace XPT.Scripts.Maps {
         private const string String0733 = "The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.";
         
         // === Functions ================================================
-        private void FnTELEPORT_01(Party party) {
+        private void FnTELEPORT_01(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportPartyBC(party, 0x05, 0x02, 0x00, 0x33);
+            L0003: TeleportParty(party, 0x05, 0x02, 0x00, 0x33, isForwardMove);
             L001D: return; // RETURN;
         }
 
-        private void FnTELEMESS_02(Party party) {
+        private void FnTELEMESS_02(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
-        private void FnFOUNBLES_03(Party party) {
+        private void FnFOUNBLES_03(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x3D);
@@ -61,20 +61,20 @@ namespace XPT.Scripts.Maps {
             L0033: goto L0080;
             L0035: SetState(party, 0x02, 0x3D, 0x01);
             L004A: ShowPortrait(party, 0x0042);
-            L0057: ax = GetMaxHits74(party);
+            L0057: ax = GetMaxHits(party);
             L005E: PushStack(party, ax);
-            L005F: ax = GetCurrentHits70(party);
+            L005F: ax = GetCurrentHits(party);
             L0066: dx = PopStack(party);
             L0067: dx = dx - ax;
-            L0069: HealPlayer94(party, dx);
+            L0069: HealPlayer(party, dx);
             L0073: ShowMessage(party, String0461); // You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.
             L0080: return; // RETURN;
         }
 
-        private void FnQUESTENC_04(Party party) {
+        private void FnQUESTENC_04(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem50(party, 0x81);
+            L0003: ax = HasItem(party, 0x81);
             L0011: if (JumpEqual) goto L0043;
             L0013: AddTreasure(party, 0x01F4, 0x00, 0x00, 0xBD, 0xA5, 0xCD);
             L0034: ShowMessage(party, String04BD); // Monsters attack you.
@@ -114,66 +114,66 @@ namespace XPT.Scripts.Maps {
             L01E4: return; // RETURN;
         }
 
-        private void FnLKPKDORZ_05(Party party) {
+        private void FnLKPKDORZ_05(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedItem54(party, 0xE2, 0xE2);
+            L0003: ax = HasUsedItem(party, 0xE2, 0xE2);
             L0016: if (JumpEqual) goto L0063;
             L0018: PushStack(party, 0x01);
-            L001C: ax = GetFacing24(party);
+            L001C: ax = GetFacing(party);
             L0023: PushStack(party, ax);
-            L0024: ax = GetCurrentTile20(party);
+            L0024: ax = GetCurrentTile(party);
             L002B: PushStack(party, ax);
-            L002C: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
-            L0036: ax = GetFacing24(party);
+            L002C: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L0036: ax = GetFacing(party);
             L003D: PushStack(party, ax);
-            L003E: ax = GetCurrentTile20(party);
+            L003E: ax = GetCurrentTile(party);
             L0045: PushStack(party, ax);
             L0046: PushStack(party, 0x01);
-            L004A: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
+            L004A: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
             L0054: ShowMessage(party, String052B); // The door opens easily when you use the Lava Key.
             L0061: goto L008D;
             L0063: PushStack(party, 0x00);
-            L0066: ax = GetFacing24(party);
+            L0066: ax = GetFacing(party);
             L006D: PushStack(party, ax);
-            L006E: ax = GetCurrentTile20(party);
+            L006E: ax = GetCurrentTile(party);
             L0075: PushStack(party, ax);
-            L0076: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0076: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
             L0080: ShowMessage(party, String055C); // This door cannot be unlocked without the Lava Key.
             L008D: return; // RETURN;
         }
 
-        private void FnSTRDOOR_06(Party party) {
+        private void FnSTRDOOR_06(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckStrengthA4(party);
+            L0003: ax = CheckStrength(party);
             L000F: Compare(ax, 0x000E);
             L0012: if (JumpBelow) goto L005F;
             L0014: ShowMessage(party, String058F); // You manage to force the door open.
-            L0021: ax = GetFacing24(party);
+            L0021: ax = GetFacing(party);
             L0028: PushStack(party, ax);
-            L0029: ax = GetCurrentTile20(party);
+            L0029: ax = GetCurrentTile(party);
             L0030: PushStack(party, ax);
             L0031: PushStack(party, 0x01);
-            L0035: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0035: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
             L003F: PushStack(party, 0x01);
-            L0043: ax = GetFacing24(party);
+            L0043: ax = GetFacing(party);
             L004A: PushStack(party, ax);
-            L004B: ax = GetCurrentTile20(party);
+            L004B: ax = GetCurrentTile(party);
             L0052: PushStack(party, ax);
-            L0053: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0053: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
             L005D: goto L0089;
             L005F: ShowMessage(party, String05B2); // The door is stuck.
             L006C: PushStack(party, 0x00);
-            L006F: ax = GetFacing24(party);
+            L006F: ax = GetFacing(party);
             L0076: PushStack(party, ax);
-            L0077: ax = GetCurrentTile20(party);
+            L0077: ax = GetCurrentTile(party);
             L007E: PushStack(party, ax);
-            L007F: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L007F: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
             L0089: return; // RETURN;
         }
 
-        private void FnAVEMNSTR_0B(Party party) {
+        private void FnAVEMNSTR_0B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -205,7 +205,7 @@ namespace XPT.Scripts.Maps {
             L012E: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_0C(Party party) {
+        private void FnSTRMNSTR_0C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -239,7 +239,7 @@ namespace XPT.Scripts.Maps {
             L0152: return; // RETURN;
         }
 
-        private void FnNPCCHATA_0E(Party party) {
+        private void FnNPCCHATA_0E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05C5); // You encounter a Human Thief.
@@ -253,7 +253,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_0F(Party party) {
+        private void FnNPCCHATB_0F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String067A); // You encounter an Elf Barbarian.

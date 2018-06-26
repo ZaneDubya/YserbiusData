@@ -1,8 +1,8 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace XPT.Scripts.Maps {
-    class YserMap25 : AMapScript {
+namespace XPT.Scripts.Yserbius.Maps {
+    class YserMap25 : AMapScripted {
         protected override int MapIndex => 25;
         
         public YserMap25() {
@@ -151,66 +151,66 @@ namespace XPT.Scripts.Maps {
         private const string String1682 = "A maze made out of dice lies just to the north.";
         
         // === Functions ================================================
-        private void FnCHESLITE_01(Party party) {
+        private void FnCHESLITE_01(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
-            L0004: ax = GetCurrentTile20(party);
+            L0004: ax = GetCurrentTile(party);
             L000B: Compare(ax, 0x0062);
             L000E: if (JumpNotEqual) goto L001B;
-            L0010: ax = GetFacing24(party);
+            L0010: ax = GetFacing(party);
             L0017: RefreshCompareFlags(ax);
             L0019: if (JumpEqual) goto L0062;
-            L001B: ax = GetCurrentTile20(party);
+            L001B: ax = GetCurrentTile(party);
             L0022: Compare(ax, 0x0069);
             L0025: if (JumpNotEqual) goto L0033;
-            L0027: ax = GetFacing24(party);
+            L0027: ax = GetFacing(party);
             L002E: Compare(ax, 0x0002);
             L0031: if (JumpEqual) goto L0062;
-            L0033: ax = GetCurrentTile20(party);
+            L0033: ax = GetCurrentTile(party);
             L003A: Compare(ax, 0x0092);
             L003D: if (JumpNotEqual) goto L004A;
-            L003F: ax = GetFacing24(party);
+            L003F: ax = GetFacing(party);
             L0046: RefreshCompareFlags(ax);
             L0048: if (JumpEqual) goto L0062;
-            L004A: ax = GetCurrentTile20(party);
+            L004A: ax = GetCurrentTile(party);
             L0051: Compare(ax, 0x0099);
             L0054: if (JumpNotEqual) goto L0072;
-            L0056: ax = GetFacing24(party);
+            L0056: ax = GetFacing(party);
             L005D: Compare(ax, 0x0002);
             L0060: if (JumpNotEqual) goto L0072;
             L0062: ShowMessage(party, String03FC); // You may leave the chessboard through this opening.
             L006F: goto L0193;
             L0072: PushStack(party, 0x00);
-            L0075: ax = GetFacing24(party);
+            L0075: ax = GetFacing(party);
             L007C: PushStack(party, ax);
-            L007D: ax = GetCurrentTile20(party);
+            L007D: ax = GetCurrentTile(party);
             L0084: PushStack(party, ax);
-            L0085: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
-            L008F: ax = HasItem50(party, 0xEE);
+            L0085: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L008F: ax = HasItem(party, 0xEE);
             L009D: if (JumpNotEqual) goto L00A2;
             L009F: goto L0186;
-            L00A2: ax = GetFacing24(party);
+            L00A2: ax = GetFacing(party);
             L00A9: Compare(ax, 0x0003);
             L00AC: if (JumpNotEqual) goto L00BA;
-            L00AE: ax = GetCurrentTile20(party);
+            L00AE: ax = GetCurrentTile(party);
             L00B5: ax = ax + 0xFFE1;
             L00B8: si = ax;
-            L00BA: ax = GetFacing24(party);
+            L00BA: ax = GetFacing(party);
             L00C1: Compare(ax, 0x0002);
             L00C4: if (JumpNotEqual) goto L00D2;
-            L00C6: ax = GetCurrentTile20(party);
+            L00C6: ax = GetCurrentTile(party);
             L00CD: ax = ax + 0x0012;
             L00D0: si = ax;
-            L00D2: ax = GetFacing24(party);
+            L00D2: ax = GetFacing(party);
             L00D9: Compare(ax, 0x0001);
             L00DC: if (JumpNotEqual) goto L00EA;
-            L00DE: ax = GetCurrentTile20(party);
+            L00DE: ax = GetCurrentTile(party);
             L00E5: ax = ax + 0x001F;
             L00E8: si = ax;
-            L00EA: ax = GetFacing24(party);
+            L00EA: ax = GetFacing(party);
             L00F1: RefreshCompareFlags(ax);
             L00F3: if (JumpNotEqual) goto L0101;
-            L00F5: ax = GetCurrentTile20(party);
+            L00F5: ax = GetCurrentTile(party);
             L00FC: ax = ax + 0xFFEE;
             L00FF: si = ax;
             L0101: Compare(si, 0x42);
@@ -245,8 +245,8 @@ namespace XPT.Scripts.Maps {
             L0151: if (JumpLess) goto L0177;
             L0153: Compare(si, 0x00B9);
             L0157: if (JumpGreater) goto L0177;
-            L0159: ax = GetFacing24(party);
-            L0160: TeleportPartyBC(party, 0x35, 0x02, si, ax);
+            L0159: ax = GetFacing(party);
+            L0160: TeleportParty(party, 0x35, 0x02, si, ax, isForwardMove);
             L0175: goto L0184;
             L0177: ShowMessage(party, String042F); // A knight move here would place you off the chessboard!
             L0184: goto L0193;
@@ -254,66 +254,66 @@ namespace XPT.Scripts.Maps {
             L0193: return; // RETURN (restoring si);
         }
 
-        private void FnCHESDARK_02(Party party) {
+        private void FnCHESDARK_02(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
-            L0004: ax = GetCurrentTile20(party);
+            L0004: ax = GetCurrentTile(party);
             L000B: Compare(ax, 0x0062);
             L000E: if (JumpNotEqual) goto L001B;
-            L0010: ax = GetFacing24(party);
+            L0010: ax = GetFacing(party);
             L0017: RefreshCompareFlags(ax);
             L0019: if (JumpEqual) goto L0062;
-            L001B: ax = GetCurrentTile20(party);
+            L001B: ax = GetCurrentTile(party);
             L0022: Compare(ax, 0x0069);
             L0025: if (JumpNotEqual) goto L0033;
-            L0027: ax = GetFacing24(party);
+            L0027: ax = GetFacing(party);
             L002E: Compare(ax, 0x0002);
             L0031: if (JumpEqual) goto L0062;
-            L0033: ax = GetCurrentTile20(party);
+            L0033: ax = GetCurrentTile(party);
             L003A: Compare(ax, 0x0092);
             L003D: if (JumpNotEqual) goto L004A;
-            L003F: ax = GetFacing24(party);
+            L003F: ax = GetFacing(party);
             L0046: RefreshCompareFlags(ax);
             L0048: if (JumpEqual) goto L0062;
-            L004A: ax = GetCurrentTile20(party);
+            L004A: ax = GetCurrentTile(party);
             L0051: Compare(ax, 0x0099);
             L0054: if (JumpNotEqual) goto L0072;
-            L0056: ax = GetFacing24(party);
+            L0056: ax = GetFacing(party);
             L005D: Compare(ax, 0x0002);
             L0060: if (JumpNotEqual) goto L0072;
             L0062: ShowMessage(party, String049D); // You may leave the chessboard through this opening.
             L006F: goto L0193;
             L0072: PushStack(party, 0x00);
-            L0075: ax = GetFacing24(party);
+            L0075: ax = GetFacing(party);
             L007C: PushStack(party, ax);
-            L007D: ax = GetCurrentTile20(party);
+            L007D: ax = GetCurrentTile(party);
             L0084: PushStack(party, ax);
-            L0085: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
-            L008F: ax = HasItem50(party, 0xEE);
+            L0085: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
+            L008F: ax = HasItem(party, 0xEE);
             L009D: if (JumpNotEqual) goto L00A2;
             L009F: goto L0186;
-            L00A2: ax = GetFacing24(party);
+            L00A2: ax = GetFacing(party);
             L00A9: Compare(ax, 0x0003);
             L00AC: if (JumpNotEqual) goto L00BA;
-            L00AE: ax = GetCurrentTile20(party);
+            L00AE: ax = GetCurrentTile(party);
             L00B5: ax = ax + 0xFFDF;
             L00B8: si = ax;
-            L00BA: ax = GetFacing24(party);
+            L00BA: ax = GetFacing(party);
             L00C1: Compare(ax, 0x0002);
             L00C4: if (JumpNotEqual) goto L00D2;
-            L00C6: ax = GetCurrentTile20(party);
+            L00C6: ax = GetCurrentTile(party);
             L00CD: ax = ax + 0xFFF2;
             L00D0: si = ax;
-            L00D2: ax = GetFacing24(party);
+            L00D2: ax = GetFacing(party);
             L00D9: Compare(ax, 0x0001);
             L00DC: if (JumpNotEqual) goto L00EA;
-            L00DE: ax = GetCurrentTile20(party);
+            L00DE: ax = GetCurrentTile(party);
             L00E5: ax = ax + 0x0021;
             L00E8: si = ax;
-            L00EA: ax = GetFacing24(party);
+            L00EA: ax = GetFacing(party);
             L00F1: RefreshCompareFlags(ax);
             L00F3: if (JumpNotEqual) goto L0101;
-            L00F5: ax = GetCurrentTile20(party);
+            L00F5: ax = GetCurrentTile(party);
             L00FC: ax = ax + 0x000E;
             L00FF: si = ax;
             L0101: Compare(si, 0x42);
@@ -348,8 +348,8 @@ namespace XPT.Scripts.Maps {
             L0151: if (JumpLess) goto L0177;
             L0153: Compare(si, 0x00B9);
             L0157: if (JumpGreater) goto L0177;
-            L0159: ax = GetFacing24(party);
-            L0160: TeleportPartyBC(party, 0x35, 0x02, si, ax);
+            L0159: ax = GetFacing(party);
+            L0160: TeleportParty(party, 0x35, 0x02, si, ax, isForwardMove);
             L0175: goto L0184;
             L0177: ShowMessage(party, String04D0); // A knight move here would place you off the chessboard!
             L0184: goto L0193;
@@ -357,16 +357,16 @@ namespace XPT.Scripts.Maps {
             L0193: return; // RETURN (restoring si);
         }
 
-        private void FnVOID_03(Party party) {
+        private void FnVOID_03(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String053E); // You fall to your death in the lava below!
-            L0010: ax = GetMaxHits74(party);
-            L0017: DamagePlayer90(party, ax);
+            L0010: ax = GetMaxHits(party);
+            L0017: DamagePlayer(party, ax);
             L0021: return; // RETURN;
         }
 
-        private void FnPOKERBRG_04(Party party) {
+        private void FnPOKERBRG_04(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0568); // Planks of the Poker Bridge are made from used playing cards.
@@ -374,24 +374,24 @@ namespace XPT.Scripts.Maps {
             L0021: Compare(ax, 0x0001);
             L0024: if (JumpNotEqual) goto L0056;
             L0026: ShowMessage(party, String05A5); // The rickety bridge barely holds your weight.
-            L0033: SetFloorObject38(party, 0x00, 0xDD);
-            L0043: SetFloorPassable34(party, 0xDD, 0x01);
+            L0033: SetFloorObject(party, 0x00, 0xDD);
+            L0043: SetFloorPassable(party, 0xDD, 0x01);
             L0054: goto L0081;
             L0056: ShowMessage(party, String05D2); // The bridge collapses as you step on it, sending you to your death.
             L0063: ShowMessage(party, String0615); // The King laughs at his clever ruse.
-            L0070: ax = GetMaxHits74(party);
-            L0077: DamagePlayer90(party, ax);
+            L0070: ax = GetMaxHits(party);
+            L0077: DamagePlayer(party, ax);
             L0081: return; // RETURN;
         }
 
-        private void FnPOKERSW_05(Party party) {
+        private void FnPOKERSW_05(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedItem54(party, 0xEC, 0xEC);
+            L0003: ax = HasUsedItem(party, 0xEC, 0xEC);
             L0016: if (JumpEqual) goto L005D;
             L0018: SetState(party, 0x01, 0x01, 0x01);
-            L002D: SetFloorObject38(party, 0x00, 0xDD);
-            L003D: SetFloorPassable34(party, 0xDD, 0x01);
+            L002D: SetFloorObject(party, 0x00, 0xDD);
+            L003D: SetFloorPassable(party, 0xDD, 0x01);
             L004E: ShowMessage(party, String0639); // The royal flush beats the Joker!  A bridge forms across the pit.
             L005B: goto L0077;
             L005D: ShowMessage(party, String067A); // A bottomless pit lies before you, and a broken bridge spans the pit.
@@ -399,39 +399,39 @@ namespace XPT.Scripts.Maps {
             L0077: return; // RETURN;
         }
 
-        private void FnHEARTSDR_06(Party party) {
+        private void FnHEARTSDR_06(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0725); // The door bellows, 'I am all hearts!'
             L0010: return; // RETURN;
         }
 
-        private void FnMOONSW_07(Party party) {
+        private void FnMOONSW_07(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedItem54(party, 0xEB, 0xEB);
+            L0003: ax = HasUsedItem(party, 0xEB, 0xEB);
             L0016: if (JumpEqual) goto L0053;
             L0018: PushStack(party, 0x03);
             L001C: PushStack(party, 0xBF);
             L0020: PushStack(party, 0x01);
-            L0024: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
-            L002E: SetWallPassable2C(party, 0xBF, 0x03, 0x01);
+            L0024: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L002E: SetWallPassable(party, 0xBF, 0x03, 0x01);
             L0044: ShowMessage(party, String074A); // The door proclaims,  'You shot the Moon!'
             L0051: goto L0060;
             L0053: ShowMessage(party, String0774); // A small button, shaped like the crescent moon, lies just out of reach.
             L0060: return; // RETURN;
         }
 
-        private void FnBLAKJAK_08(Party party) {
+        private void FnBLAKJAK_08(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedItem54(party, 0xED, 0xED);
+            L0003: ax = HasUsedItem(party, 0xED, 0xED);
             L0016: if (JumpEqual) goto L0060;
             L0018: PushStack(party, 0x01);
             L001C: PushStack(party, 0x8D);
             L0020: PushStack(party, 0x01);
-            L0024: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
-            L002E: SetWallPassable2C(party, 0x8D, 0x01, 0x01);
+            L0024: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L002E: SetWallPassable(party, 0x8D, 0x01, 0x01);
             L0044: ShowMessage(party, String07BB); // The Ace is played as eleven points, scoring the BlackJack!
             L0051: ShowMessage(party, String07F6); // A door unlocks...
             L005E: goto L007A;
@@ -440,23 +440,23 @@ namespace XPT.Scripts.Maps {
             L007A: return; // RETURN;
         }
 
-        private void FnBLAKJAKK_09(Party party) {
+        private void FnBLAKJAKK_09(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0898); // Stand back!  A King guards this wall!
             L0010: return; // RETURN;
         }
 
-        private void FnCRIB_0A(Party party) {
+        private void FnCRIB_0A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedItem54(party, 0xEA, 0xEA);
+            L0003: ax = HasUsedItem(party, 0xEA, 0xEA);
             L0016: if (JumpEqual) goto L0060;
             L0018: PushStack(party, 0x03);
             L001C: PushStack(party, 0x7D);
             L0020: PushStack(party, 0x01);
-            L0024: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
-            L002E: SetWallPassable2C(party, 0x7D, 0x03, 0x01);
+            L0024: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
+            L002E: SetWallPassable(party, 0x7D, 0x03, 0x01);
             L0044: ShowMessage(party, String08BE); // The Jack scores the hand 22.  Cribbage is the game.
             L0051: ShowMessage(party, String08F2); // A door unlocks...
             L005E: goto L0087;
@@ -466,51 +466,51 @@ namespace XPT.Scripts.Maps {
             L0087: return; // RETURN;
         }
 
-        private void FnCRIBJACK_0B(Party party) {
+        private void FnCRIBJACK_0B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09A2); // I, the Jack, throw dust in your general direction.
             L0010: return; // RETURN;
         }
 
-        private void FnCRIBFIVE_0C(Party party) {
+        private void FnCRIBFIVE_0C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09D5); // The 5 card smiles back.
             L0010: return; // RETURN;
         }
 
-        private void FnBRDGFALL_0D(Party party) {
+        private void FnBRDGFALL_0D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09ED); // The Poker Bridge behind you collapses.
             L0010: SetState(party, 0x01, 0x01, 0x00);
-            L0024: SetFloorObject38(party, 0x01, 0xDD);
+            L0024: SetFloorObject(party, 0x01, 0xDD);
             L0035: return; // RETURN;
         }
 
-        private void FnDICEPASS_0E(Party party) {
+        private void FnDICEPASS_0E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A14); // Lucky Sevens! Lucky Sevens on the first roll!
             L0010: return; // RETURN;
         }
 
-        private void FnDICESNAK_0F(Party party) {
+        private void FnDICESNAK_0F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A42); // The door says, 'Snake eyes' ...
             L0010: return; // RETURN;
         }
 
-        private void FnDICEBOXC_10(Party party) {
+        private void FnDICEBOXC_10(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A62); // The door shows two squares of six.  'Box Cars' ...
             L0010: return; // RETURN;
         }
 
-        private void FnDICEENCA_11(Party party) {
+        private void FnDICEENCA_11(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x0A);
@@ -522,7 +522,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnDICEENCB_12(Party party) {
+        private void FnDICEENCB_12(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x0A);
@@ -534,7 +534,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnBLJKFOUN_13(Party party) {
+        private void FnBLJKFOUN_13(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A95); // The Blackjack Fountain is made of playing cards.
@@ -543,11 +543,11 @@ namespace XPT.Scripts.Maps {
             L0023: if (JumpEqual) goto L0028;
             L0025: goto L00AF;
             L0028: SetState(party, 0x02, 0x7E, 0x01);
-            L003D: RemoveItem4C(party, 0xEA);
+            L003D: RemoveItem(party, 0xEA);
             L0049: ShowPortrait(party, 0x0042);
-            L0056: ModifyAttributeA8(party, 0x02, 0x0003);
-            L0068: ax = GetMaxHits74(party);
-            L006F: HealPlayer94(party, ax);
+            L0056: ModifyAttribute(party, 0x02, 0x0003);
+            L0068: ax = GetMaxHits(party);
+            L006F: HealPlayer(party, ax);
             L0079: ShowMessage(party, String0AC6); // Still water fills the basin.
             L0086: ShowMessage(party, String0AE3); // A sip of it makes you feel healthier and more agile.
             L0093: ShowMessage(party, String0B18); // As you sip, a voice whispers -
@@ -557,7 +557,7 @@ namespace XPT.Scripts.Maps {
             L00BC: return; // RETURN;
         }
 
-        private void FnCRIBFOUN_14(Party party) {
+        private void FnCRIBFOUN_14(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0B8A); // The Cribbage Fountain is bedecked with golden pegs.
@@ -567,8 +567,8 @@ namespace XPT.Scripts.Maps {
             L0025: goto L00AB;
             L0028: SetState(party, 0x02, 0x7F, 0x01);
             L003D: ShowPortrait(party, 0x0042);
-            L004A: RemoveItem4C(party, 0xED);
-            L0056: ModifyAttributeA8(party, 0x03, 0x0003);
+            L004A: RemoveItem(party, 0xED);
+            L0056: ModifyAttribute(party, 0x03, 0x0003);
             L0068: AddMana(party, 0x0BB8);
             L0075: ShowMessage(party, String0BBE); // A puff of steam from the fountain blows in your face.
             L0082: ShowMessage(party, String0BF4); // Your Mana is restored and you feel readier to fight.
@@ -579,7 +579,7 @@ namespace XPT.Scripts.Maps {
             L00B8: return; // RETURN;
         }
 
-        private void FnDICETRSA_15(Party party) {
+        private void FnDICETRSA_15(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0C7F); // A message is inscribed on a wall -- 
@@ -588,7 +588,7 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnDICETRSB_16(Party party) {
+        private void FnDICETRSB_16(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0D2A); // A note is inscribed on a wall -- 
@@ -597,7 +597,7 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnDICETRSC_17(Party party) {
+        private void FnDICETRSC_17(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0DD0); // A message is written in blood on a wall -- 
@@ -607,7 +607,7 @@ namespace XPT.Scripts.Maps {
             L0037: return; // RETURN;
         }
 
-        private void FnDICETRSD_18(Party party) {
+        private void FnDICETRSD_18(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0EC8); // A message is written on a wall -- 
@@ -616,7 +616,7 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnDICETRSE_19(Party party) {
+        private void FnDICETRSE_19(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0F7E); // A message is written on a wall -- 
@@ -625,7 +625,7 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnDICETRSF_1A(Party party) {
+        private void FnDICETRSF_1A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x001F);
@@ -639,7 +639,7 @@ namespace XPT.Scripts.Maps {
             L006B: return; // RETURN;
         }
 
-        private void FnDICETRSG_1B(Party party) {
+        private void FnDICETRSG_1B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String11DE); // A message is scrawled on a wall -- 
@@ -648,7 +648,7 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnDICETRSH_1C(Party party) {
+        private void FnDICETRSH_1C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String128C); // A message is carved in the floor -- 
@@ -656,7 +656,7 @@ namespace XPT.Scripts.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnDICETRSI_1D(Party party) {
+        private void FnDICETRSI_1D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String12ED); // A message is scribbled on a wall -- 
@@ -665,14 +665,14 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnBARD_22(Party party) {
+        private void FnBARD_22(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String13A1); // A ghost elf bard sings a tale of how four colored magical gems placed side by side can form a rainbow to a far away island.
             L0010: return; // RETURN;
         }
 
-        private void FnAPPLES_23(Party party) {
+        private void FnAPPLES_23(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String141D); // The spirit of a beautiful wench appears. She hold a wooden bucket filled wtih floating apples.
@@ -680,7 +680,7 @@ namespace XPT.Scripts.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnAPPLEENC_24(Party party) {
+        private void FnAPPLEENC_24(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String14CD); // You have accepted the ghost's challenge.
@@ -695,7 +695,7 @@ namespace XPT.Scripts.Maps {
             L0096: return; // RETURN;
         }
 
-        private void FnCHESENCA_25(Party party) {
+        private void FnCHESENCA_25(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1C);
@@ -707,7 +707,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnCHESENCB_26(Party party) {
+        private void FnCHESENCB_26(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1E);
@@ -719,7 +719,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnCHESENCC_27(Party party) {
+        private void FnCHESENCC_27(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1F);
@@ -731,7 +731,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnCHESENCD_28(Party party) {
+        private void FnCHESENCD_28(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x20);
@@ -743,7 +743,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnCHESENCE_29(Party party) {
+        private void FnCHESENCE_29(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x22);
@@ -752,7 +752,7 @@ namespace XPT.Scripts.Maps {
             L0039: AddEncounter(party, 0x04, 0x22);
             L004B: AddEncounter(party, 0x05, 0x22);
             L005D: AddEncounter(party, 0x06, 0x1D);
-            L006F: ax = HasItem50(party, 0xEB);
+            L006F: ax = HasItem(party, 0xEB);
             L007D: if (JumpEqual) goto L00A0;
             L007F: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x90, 0xAF);
             L009E: goto L00C0;
@@ -760,7 +760,7 @@ namespace XPT.Scripts.Maps {
             L00C0: return; // RETURN;
         }
 
-        private void FnCHESENCF_2A(Party party) {
+        private void FnCHESENCF_2A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x18);
@@ -769,7 +769,7 @@ namespace XPT.Scripts.Maps {
             L0039: AddEncounter(party, 0x04, 0x18);
             L004B: AddEncounter(party, 0x05, 0x15);
             L005D: AddEncounter(party, 0x06, 0x1C);
-            L006F: ax = HasItem50(party, 0xEC);
+            L006F: ax = HasItem(party, 0xEC);
             L007D: if (JumpEqual) goto L00A0;
             L007F: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x8D, 0xCF);
             L009E: goto L00C0;
@@ -777,7 +777,7 @@ namespace XPT.Scripts.Maps {
             L00C0: return; // RETURN;
         }
 
-        private void FnPOKRENCA_2B(Party party) {
+        private void FnPOKRENCA_2B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1F);
@@ -789,7 +789,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnCRIBENCA_2C(Party party) {
+        private void FnCRIBENCA_2C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x23);
@@ -800,7 +800,7 @@ namespace XPT.Scripts.Maps {
             L006C: return; // RETURN;
         }
 
-        private void FnBLJKENCA_2D(Party party) {
+        private void FnBLJKENCA_2D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x26);
@@ -813,7 +813,7 @@ namespace XPT.Scripts.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnBLJKENCB_2E(Party party) {
+        private void FnBLJKENCB_2E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x26);
@@ -826,7 +826,7 @@ namespace XPT.Scripts.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnCRIBENCB_2F(Party party) {
+        private void FnCRIBENCB_2F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1567); // You are able to dodge several bursts of flame as you enter a Dragon's Lair.
@@ -839,7 +839,7 @@ namespace XPT.Scripts.Maps {
             L008B: return; // RETURN;
         }
 
-        private void FnVARYENCA_30(Party party) {
+        private void FnVARYENCA_30(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x04);
@@ -849,7 +849,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnVARYENCB_31(Party party) {
+        private void FnVARYENCB_31(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x0E);
@@ -859,7 +859,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnVARYENCE_34(Party party) {
+        private void FnVARYENCE_34(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x13);
@@ -871,42 +871,42 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnGATEA_35(Party party) {
+        private void FnGATEA_35(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportPartyBC(party, 0x35, 0x01, 0x3F, 0x00);
+            L0003: TeleportParty(party, 0x35, 0x01, 0x3F, 0x00, isForwardMove);
             L001D: return; // RETURN;
         }
 
-        private void FnTOLABY_36(Party party) {
+        private void FnTOLABY_36(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String15B3); // The gate takes you back to the labyrinth.
             L0010: return; // RETURN;
         }
 
-        private void FnTXTCHESL_37(Party party) {
+        private void FnTXTCHESL_37(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String15DD); // Use the red squares and you shall turn clockwise on your mount.
             L0010: return; // RETURN;
         }
 
-        private void FnTXTCHESD_38(Party party) {
+        private void FnTXTCHESD_38(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String161D); // The stallion must go counterclockwise on blue squares!
             L0010: return; // RETURN;
         }
 
-        private void FnTXTDICEB_39(Party party) {
+        private void FnTXTDICEB_39(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1654); // To the west you will find a second dice maze.
             L0010: return; // RETURN;
         }
 
-        private void FnTXTDICEA_3A(Party party) {
+        private void FnTXTDICEA_3A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1682); // A maze made out of dice lies just to the north.

@@ -1,8 +1,8 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace XPT.Scripts.Maps {
-    class YserMap21 : AMapScript {
+namespace XPT.Scripts.Yserbius.Maps {
+    class YserMap21 : AMapScripted {
         protected override int MapIndex => 21;
         
         public YserMap21() {
@@ -170,16 +170,16 @@ namespace XPT.Scripts.Maps {
         private const string String119C = "A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.";
         
         // === Functions ================================================
-        private void FnPIT_01(Party party) {
+        private void FnPIT_01(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // You step into a bottomless pit and die.
-            L0010: ax = GetMaxHits74(party);
-            L0017: DamagePlayer90(party, ax);
+            L0010: ax = GetMaxHits(party);
+            L0017: DamagePlayer(party, ax);
             L0021: return; // RETURN;
         }
 
-        private void FnENCGUARD_02(Party party) {
+        private void FnENCGUARD_02(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0424); // Guardians stand ready.  'We are sworn to defend Arnakkian.'
@@ -192,11 +192,11 @@ namespace XPT.Scripts.Maps {
             L007B: RefreshCompareFlags(ax);
             L007D: if (JumpNotEqual) goto L00A6;
             L007F: SetState(party, 0x02, 0x88, 0x01);
-            L0094: AddExperience98(party, 0x0007A120);
+            L0094: AddExperience(party, 0x0007A120);
             L00A6: return; // RETURN;
         }
 
-        private void FnENCEARTH_03(Party party) {
+        private void FnENCEARTH_03(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x01);
@@ -210,7 +210,7 @@ namespace XPT.Scripts.Maps {
             L005E: AddEncounter(party, 0x04, 0x0F);
             L0070: AddEncounter(party, 0x05, 0x23);
             L0082: AddEncounter(party, 0x06, 0x28);
-            L0094: ax = HasItem50(party, 0xE9);
+            L0094: ax = HasItem(party, 0xE9);
             L00A2: if (JumpEqual) goto L00C6;
             L00A4: AddTreasure(party, 0x0000, 0x00, 0x00, 0x50, 0x50, 0xD0);
             L00C4: goto L0123;
@@ -219,18 +219,18 @@ namespace XPT.Scripts.Maps {
             L00F8: RefreshCompareFlags(ax);
             L00FA: if (JumpNotEqual) goto L0123;
             L00FC: SetState(party, 0x02, 0x8A, 0x01);
-            L0111: AddExperience98(party, 0x0003D090);
+            L0111: AddExperience(party, 0x0003D090);
             L0123: return; // RETURN;
         }
 
-        private void FnGUARDIAN_04(Party party) {
+        private void FnGUARDIAN_04(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String049A); // Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
             L0010: return; // RETURN;
         }
 
-        private void FnEARTHELE_05(Party party) {
+        private void FnEARTHELE_05(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x01);
@@ -240,7 +240,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnPLATA_06(Party party) {
+        private void FnPLATA_06(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0555); // The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
@@ -248,14 +248,14 @@ namespace XPT.Scripts.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnPLATB_07(Party party) {
+        private void FnPLATB_07(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05FC); // Quiet solitude fills the chasm.  You are on the other side.
             L0010: return; // RETURN;
         }
 
-        private void FnYBOXA_08(Party party) {
+        private void FnYBOXA_08(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0638); // The wall glows.
@@ -263,7 +263,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnYBOXB_09(Party party) {
+        private void FnYBOXB_09(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0648); // The wall glows.
@@ -271,7 +271,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnYBOXC_0A(Party party) {
+        private void FnYBOXC_0A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0658); // The wall glows.
@@ -279,7 +279,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnYBOXD_0B(Party party) {
+        private void FnYBOXD_0B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0668); // The wall glows.
@@ -287,7 +287,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnYBOXE_0C(Party party) {
+        private void FnYBOXE_0C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0678); // The wall glows.
@@ -295,7 +295,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnYBOXF_0D(Party party) {
+        private void FnYBOXF_0D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0688); // The wall glows.
@@ -303,7 +303,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXG_0E(Party party) {
+        private void FnXBOXG_0E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0698); // The wall glows.
@@ -311,7 +311,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXH_0F(Party party) {
+        private void FnXBOXH_0F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06A8); // The wall glows.
@@ -319,7 +319,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXI_10(Party party) {
+        private void FnXBOXI_10(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06B8); // The wall glows.
@@ -327,7 +327,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXJ_11(Party party) {
+        private void FnXBOXJ_11(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06C8); // The wall glows.
@@ -335,7 +335,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXK_12(Party party) {
+        private void FnXBOXK_12(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06D8); // The wall glows.
@@ -343,7 +343,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXL_13(Party party) {
+        private void FnXBOXL_13(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06E8); // The wall glows.
@@ -351,7 +351,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXM_14(Party party) {
+        private void FnXBOXM_14(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06F8); // The wall glows.
@@ -359,7 +359,7 @@ namespace XPT.Scripts.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnPITAJ_15(Party party) {
+        private void FnPITAJ_15(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -371,12 +371,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0708); // Your decision on where to step next saves you.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0737); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITAK_16(Party party) {
+        private void FnPITAK_16(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -388,12 +388,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0761); // You selected your next move wisely.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0785); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITAL_17(Party party) {
+        private void FnPITAL_17(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -405,12 +405,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String07AF); // Your next step is a safe one.
             L003C: goto L005C;
             L003E: ShowMessage(party, String07CD); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITAM_18(Party party) {
+        private void FnPITAM_18(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -422,12 +422,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String07F7); // The step you take is wisely chosen.
             L003C: goto L005C;
             L003E: ShowMessage(party, String081B); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITBG_19(Party party) {
+        private void FnPITBG_19(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -439,12 +439,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0845); // You take one good step forward.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0865); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITBI_1A(Party party) {
+        private void FnPITBI_1A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -456,12 +456,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String088F); // You safely step forward.
             L003C: goto L005C;
             L003E: ShowMessage(party, String08A8); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITBJ_1B(Party party) {
+        private void FnPITBJ_1B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -473,12 +473,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String08D2); // You take a step in the right direction,
             L003C: goto L005C;
             L003E: ShowMessage(party, String08FA); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITBK_1C(Party party) {
+        private void FnPITBK_1C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -490,12 +490,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0924); // Your move is wise.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0937); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITBL_1D(Party party) {
+        private void FnPITBL_1D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -507,12 +507,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0961); // You select your next move wisely.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0983); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITBM_1E(Party party) {
+        private void FnPITBM_1E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -524,12 +524,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String09AD); // You move forward with confidence.
             L003C: goto L005C;
             L003E: ShowMessage(party, String09CF); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITCG_1F(Party party) {
+        private void FnPITCG_1F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -541,12 +541,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String09F9); // Your next step is a good one.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0A17); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITCH_20(Party party) {
+        private void FnPITCH_20(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -558,12 +558,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0A41); // You move ahead assuredly.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0A5B); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITCI_21(Party party) {
+        private void FnPITCI_21(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -575,12 +575,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0A85); // You choose your next step correctly.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0AAA); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITCJ_22(Party party) {
+        private void FnPITCJ_22(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -592,12 +592,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0AD4); // Your choice of movement saves you.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0AF7); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITCK_23(Party party) {
+        private void FnPITCK_23(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -609,12 +609,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0B21); // You step in the right direction.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0B42); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITCL_24(Party party) {
+        private void FnPITCL_24(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -626,12 +626,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0B6C); // You select your next step wisely.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0B8E); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITCM_25(Party party) {
+        private void FnPITCM_25(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -643,12 +643,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0BB8); // Your next step is sagely chosen.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0BD9); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITDG_26(Party party) {
+        private void FnPITDG_26(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -660,12 +660,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0C03); // You take a wise step forward.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0C21); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITDH_27(Party party) {
+        private void FnPITDH_27(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -677,12 +677,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0C4B); // You move forward wisely.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0C64); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITDI_28(Party party) {
+        private void FnPITDI_28(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -694,12 +694,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0C8E); // Your next step is wisely decided.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0CB0); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITDJ_29(Party party) {
+        private void FnPITDJ_29(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -711,12 +711,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0CDA); // You step ahead with confidence.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0CFA); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITDK_2A(Party party) {
+        private void FnPITDK_2A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -728,12 +728,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0D24); // You move forward carefully.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0D40); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITDL_2B(Party party) {
+        private void FnPITDL_2B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -745,12 +745,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0D6A); // You move ahead.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0D7A); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITDM_2C(Party party) {
+        private void FnPITDM_2C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -762,12 +762,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0DA4); // Your step is wisely selected.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0DC2); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITEG_2D(Party party) {
+        private void FnPITEG_2D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -779,12 +779,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0DEC); // You forge ahead.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0DFD); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITEH_2E(Party party) {
+        private void FnPITEH_2E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -796,12 +796,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0E27); // You select your next move wisely.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0E49); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITEI_2F(Party party) {
+        private void FnPITEI_2F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -813,12 +813,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0E73); // Good sense guides your feet.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0E90); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITEJ_30(Party party) {
+        private void FnPITEJ_30(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -830,12 +830,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0EBA); // You walk ahead.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0ECA); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITEK_31(Party party) {
+        private void FnPITEK_31(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -847,12 +847,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0EF4); // Your next step is assuredly taken.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0F17); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITFG_32(Party party) {
+        private void FnPITFG_32(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -864,12 +864,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0F41); // The next step is an intelligent one.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0F66); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITFH_33(Party party) {
+        private void FnPITFH_33(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -881,12 +881,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0F90); // You move safely ahead.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0FA7); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITFI_34(Party party) {
+        private void FnPITFI_34(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -898,12 +898,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String0FD1); // Your movement decision was correct.
             L003C: goto L005C;
             L003E: ShowMessage(party, String0FF5); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITFJ_35(Party party) {
+        private void FnPITFJ_35(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -915,12 +915,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String101F); // You move forward with confidence.
             L003C: goto L005C;
             L003E: ShowMessage(party, String1041); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITFK_36(Party party) {
+        private void FnPITFK_36(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -932,12 +932,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String106B); // You carefully selected your next step.
             L003C: goto L005C;
             L003E: ShowMessage(party, String1092); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITFL_37(Party party) {
+        private void FnPITFL_37(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -949,12 +949,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String10BC); // You make a sage choice.
             L003C: goto L005C;
             L003E: ShowMessage(party, String10D4); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnPITFM_38(Party party) {
+        private void FnPITFM_38(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -966,12 +966,12 @@ namespace XPT.Scripts.Maps {
             L002F: ShowMessage(party, String10FE); // You have made a wise decision.
             L003C: goto L005C;
             L003E: ShowMessage(party, String111D); // You step over the edge and into oblivion.
-            L004B: ax = GetMaxHits74(party);
-            L0052: DamagePlayer90(party, ax);
+            L004B: ax = GetMaxHits(party);
+            L0052: DamagePlayer(party, ax);
             L005C: return; // RETURN;
         }
 
-        private void FnENCPITBJ_39(Party party) {
+        private void FnENCPITBJ_39(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x19);
@@ -982,7 +982,7 @@ namespace XPT.Scripts.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnENCPITDI_3A(Party party) {
+        private void FnENCPITDI_3A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1F);
@@ -992,7 +992,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnPITENCDK_3B(Party party) {
+        private void FnPITENCDK_3B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1B);
@@ -1004,7 +1004,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnPITENCBL_3C(Party party) {
+        private void FnPITENCBL_3C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x24);
@@ -1015,7 +1015,7 @@ namespace XPT.Scripts.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnDOORARNK_3D(Party party) {
+        private void FnDOORARNK_3D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x01);
@@ -1023,29 +1023,29 @@ namespace XPT.Scripts.Maps {
             L0016: if (JumpEqual) goto L005B;
             L0018: PushStack(party, 0x01);
             L001C: PushStack(party, 0x03);
-            L0020: ax = GetCurrentTile20(party);
+            L0020: ax = GetCurrentTile(party);
             L0027: PushStack(party, ax);
-            L0028: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0028: SetWallPassable(party, PopStack(party), PopStack(party), PopStack(party));
             L0032: PushStack(party, 0x03);
-            L0036: ax = GetCurrentTile20(party);
+            L0036: ax = GetCurrentTile(party);
             L003D: PushStack(party, ax);
             L003E: PushStack(party, 0x01);
-            L0042: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0042: SetWallObject(party, PopStack(party), PopStack(party), PopStack(party));
             L004C: ShowMessage(party, String1147); // Andreas no longer defends this door.
             L0059: goto L0068;
             L005B: ShowMessage(party, String116C); // The Earth Elemental holds power over this door.
             L0068: return; // RETURN;
         }
 
-        private void FnTELEARNK_3E(Party party) {
+        private void FnTELEARNK_3E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String119C); // A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
-            L0010: TeleportPartyBC(party, 0x34, 0x02, 0x76, 0x03);
+            L0010: TeleportParty(party, 0x34, 0x02, 0x76, 0x03, isForwardMove);
             L002B: return; // RETURN;
         }
 
-        private void FnSETEKILL_3F(Party party) {
+        private void FnSETEKILL_3F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetState(party, 0x01, 0x01, 0x01);
