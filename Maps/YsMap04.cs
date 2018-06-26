@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace XPT.Scripts.Maps {
+namespace XPT.Scripts.Yserbius.Maps {
     class YserMap04 : AMapScripted {
         protected override int MapIndex => 4;
         
@@ -91,35 +91,35 @@ namespace XPT.Scripts.Maps {
         private const string String0F9C = "Spider webs envelop a pile of gold pieces on the floor.";
         
         // === Functions ================================================
-        private void FnTELPORTN_01(Party party) {
+        private void FnTELPORTN_01(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportPartyBC(party, 0x01, 0x04, 0x5F, 0x01);
+            L0003: TeleportParty(party, 0x01, 0x04, 0x5F, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnTELEMESG_02(Party party) {
+        private void FnTELEMESG_02(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // There is a teleport in the north wall to the Hall of Doors.
             L0010: return; // RETURN;
         }
 
-        private void FnTOSOLDQU_03(Party party) {
+        private void FnTOSOLDQU_03(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportPartyBC(party, 0x01, 0x06, 0x4F, 0x00);
+            L0003: TeleportParty(party, 0x01, 0x06, 0x4F, 0x00, isForwardMove);
             L001D: return; // RETURN;
         }
 
-        private void FnGATEMESG_04(Party party) {
+        private void FnGATEMESG_04(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0438); // The gateway leads to the SOLDIERS QUARTERS.
             L0010: return; // RETURN;
         }
 
-        private void FnNPCCHATA_05(Party party) {
+        private void FnNPCCHATA_05(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0464); // You encounter a Human Thief.
@@ -135,7 +135,7 @@ namespace XPT.Scripts.Maps {
             L006A: return; // RETURN;
         }
 
-        private void FnNPCCHATB_06(Party party) {
+        private void FnNPCCHATB_06(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05F0); // You encounter an Elf Barbarian.
@@ -149,7 +149,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnITEMAENC_07(Party party) {
+        private void FnITEMAENC_07(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x12);
@@ -178,14 +178,14 @@ namespace XPT.Scripts.Maps {
             L0125: return; // RETURN;
         }
 
-        private void FnTELPORTN_08(Party party) {
+        private void FnTELPORTN_08(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportPartyBC(party, 0x01, 0x04, 0x5F, 0x01);
+            L0003: TeleportParty(party, 0x01, 0x04, 0x5F, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnITEMBENC_09(Party party) {
+        private void FnITEMBENC_09(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x13);
@@ -220,7 +220,7 @@ namespace XPT.Scripts.Maps {
             L0181: return; // RETURN;
         }
 
-        private void FnITEMCENC_0A(Party party) {
+        private void FnITEMCENC_0A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x14);
@@ -263,7 +263,7 @@ namespace XPT.Scripts.Maps {
             L01DA: return; // RETURN;
         }
 
-        private void FnITEMDENC_0B(Party party) {
+        private void FnITEMDENC_0B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x15);
@@ -297,315 +297,315 @@ namespace XPT.Scripts.Maps {
             L016E: return; // RETURN;
         }
 
-        private void FnTRAPDORA_0D(Party party) {
+        private void FnTRAPDORA_0D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0005);
             L0012: if (JumpNotBelow) goto L0063;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L0063;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L0063;
-            L0039: ax = UsedItem54(party, 0xBD, 0xBD);
+            L0039: ax = HasUsedItem(party, 0xBD, 0xBD);
             L004C: if (JumpNotEqual) goto L0063;
-            L004E: ax = UsedItem54(party, 0xBE, 0xBE);
+            L004E: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008D;
             L0063: ShowMessage(party, String0883); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L0070: TeleportPartyBC(party, 0x02, 0x01, 0x85, 0x01);
+            L0070: TeleportParty(party, 0x02, 0x01, 0x85, 0x01, isForwardMove);
             L008B: goto L00B5;
             L008D: ShowMessage(party, String08D3); // A trapdoor in the floor opens.
-            L009A: TeleportPartyBC(party, 0x02, 0x01, 0x85, 0x01);
+            L009A: TeleportParty(party, 0x02, 0x01, 0x85, 0x01, isForwardMove);
             L00B5: return; // RETURN;
         }
 
-        private void FnTRAPDORB_0E(Party party) {
+        private void FnTRAPDORB_0E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0005);
             L0012: if (JumpNotBelow) goto L0063;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L0063;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L0063;
-            L0039: ax = UsedItem54(party, 0xBD, 0xBD);
+            L0039: ax = HasUsedItem(party, 0xBD, 0xBD);
             L004C: if (JumpNotEqual) goto L0063;
-            L004E: ax = UsedItem54(party, 0xBE, 0xBE);
+            L004E: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008D;
             L0063: ShowMessage(party, String08F2); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L0070: TeleportPartyBC(party, 0x02, 0x01, 0x86, 0x01);
+            L0070: TeleportParty(party, 0x02, 0x01, 0x86, 0x01, isForwardMove);
             L008B: goto L00B5;
             L008D: ShowMessage(party, String0942); // A trapdoor in the floor opens.
-            L009A: TeleportPartyBC(party, 0x02, 0x01, 0x86, 0x01);
+            L009A: TeleportParty(party, 0x02, 0x01, 0x86, 0x01, isForwardMove);
             L00B5: return; // RETURN;
         }
 
-        private void FnTRAPDORC_0F(Party party) {
+        private void FnTRAPDORC_0F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0006);
             L0012: if (JumpNotBelow) goto L0063;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L0063;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L0063;
-            L0039: ax = UsedItem54(party, 0xBD, 0xBD);
+            L0039: ax = HasUsedItem(party, 0xBD, 0xBD);
             L004C: if (JumpNotEqual) goto L0063;
-            L004E: ax = UsedItem54(party, 0xBE, 0xBE);
+            L004E: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008D;
             L0063: ShowMessage(party, String0961); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L0070: TeleportPartyBC(party, 0x02, 0x01, 0x98, 0x02);
+            L0070: TeleportParty(party, 0x02, 0x01, 0x98, 0x02, isForwardMove);
             L008B: goto L00B5;
             L008D: ShowMessage(party, String09B1); // A trapdoor in the floor opens.
-            L009A: TeleportPartyBC(party, 0x02, 0x01, 0x98, 0x02);
+            L009A: TeleportParty(party, 0x02, 0x01, 0x98, 0x02, isForwardMove);
             L00B5: return; // RETURN;
         }
 
-        private void FnTRAPDORD_10(Party party) {
+        private void FnTRAPDORD_10(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0006);
             L0012: if (JumpNotBelow) goto L0063;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L0063;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L0063;
-            L0039: ax = UsedItem54(party, 0xBD, 0xBD);
+            L0039: ax = HasUsedItem(party, 0xBD, 0xBD);
             L004C: if (JumpNotEqual) goto L0063;
-            L004E: ax = UsedItem54(party, 0xBE, 0xBE);
+            L004E: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008C;
             L0063: ShowMessage(party, String09D0); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L0070: TeleportPartyBC(party, 0x02, 0x01, 0xA6, 0x00);
+            L0070: TeleportParty(party, 0x02, 0x01, 0xA6, 0x00, isForwardMove);
             L008A: goto L00B3;
             L008C: ShowMessage(party, String0A20); // A trapdoor in the floor opens.
-            L0099: TeleportPartyBC(party, 0x02, 0x01, 0xA6, 0x00);
+            L0099: TeleportParty(party, 0x02, 0x01, 0xA6, 0x00, isForwardMove);
             L00B3: return; // RETURN;
         }
 
-        private void FnTRAPDORE_11(Party party) {
+        private void FnTRAPDORE_11(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0007);
             L0012: if (JumpNotBelow) goto L004E;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L004E;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L004E;
-            L0039: ax = UsedItem54(party, 0xBE, 0xBE);
+            L0039: ax = HasUsedItem(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0077;
             L004E: ShowMessage(party, String0A3F); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L005B: TeleportPartyBC(party, 0x02, 0x01, 0xA8, 0x00);
+            L005B: TeleportParty(party, 0x02, 0x01, 0xA8, 0x00, isForwardMove);
             L0075: goto L009E;
             L0077: ShowMessage(party, String0A8F); // A trapdoor in the floor opens.
-            L0084: TeleportPartyBC(party, 0x02, 0x01, 0xA8, 0x00);
+            L0084: TeleportParty(party, 0x02, 0x01, 0xA8, 0x00, isForwardMove);
             L009E: return; // RETURN;
         }
 
-        private void FnTRAPDORF_12(Party party) {
+        private void FnTRAPDORF_12(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0008);
             L0012: if (JumpNotBelow) goto L004E;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L004E;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L004E;
-            L0039: ax = UsedItem54(party, 0xBE, 0xBE);
+            L0039: ax = HasUsedItem(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0AAE); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L005B: TeleportPartyBC(party, 0x02, 0x01, 0xB5, 0x02);
+            L005B: TeleportParty(party, 0x02, 0x01, 0xB5, 0x02, isForwardMove);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0AFE); // A trapdoor in the floor opens.
-            L0085: TeleportPartyBC(party, 0x02, 0x01, 0xB5, 0x02);
+            L0085: TeleportParty(party, 0x02, 0x01, 0xB5, 0x02, isForwardMove);
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORG_13(Party party) {
+        private void FnTRAPDORG_13(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0005);
             L0012: if (JumpNotBelow) goto L0063;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L0063;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L0063;
-            L0039: ax = UsedItem54(party, 0xBD, 0xBD);
+            L0039: ax = HasUsedItem(party, 0xBD, 0xBD);
             L004C: if (JumpNotEqual) goto L0063;
-            L004E: ax = UsedItem54(party, 0xBE, 0xBE);
+            L004E: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008D;
             L0063: ShowMessage(party, String0B1D); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L0070: TeleportPartyBC(party, 0x02, 0x01, 0xC7, 0x01);
+            L0070: TeleportParty(party, 0x02, 0x01, 0xC7, 0x01, isForwardMove);
             L008B: goto L00B5;
             L008D: ShowMessage(party, String0B6D); // A trapdoor in the floor opens.
-            L009A: TeleportPartyBC(party, 0x02, 0x01, 0xC7, 0x01);
+            L009A: TeleportParty(party, 0x02, 0x01, 0xC7, 0x01, isForwardMove);
             L00B5: return; // RETURN;
         }
 
-        private void FnTRAPDORH_14(Party party) {
+        private void FnTRAPDORH_14(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0009);
             L0012: if (JumpNotBelow) goto L004E;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L004E;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L004E;
-            L0039: ax = UsedItem54(party, 0xBE, 0xBE);
+            L0039: ax = HasUsedItem(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0077;
             L004E: ShowMessage(party, String0B8C); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L005B: TeleportPartyBC(party, 0x02, 0x01, 0xCF, 0x00);
+            L005B: TeleportParty(party, 0x02, 0x01, 0xCF, 0x00, isForwardMove);
             L0075: goto L009E;
             L0077: ShowMessage(party, String0BDC); // A trapdoor in the floor opens.
-            L0084: TeleportPartyBC(party, 0x02, 0x01, 0xCF, 0x00);
+            L0084: TeleportParty(party, 0x02, 0x01, 0xCF, 0x00, isForwardMove);
             L009E: return; // RETURN;
         }
 
-        private void FnTRAPDOR_15(Party party) {
+        private void FnTRAPDOR_15(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0006);
             L0012: if (JumpNotBelow) goto L0063;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L0063;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L0063;
-            L0039: ax = UsedItem54(party, 0xBD, 0xBD);
+            L0039: ax = HasUsedItem(party, 0xBD, 0xBD);
             L004C: if (JumpNotEqual) goto L0063;
-            L004E: ax = UsedItem54(party, 0xBE, 0xBE);
+            L004E: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008C;
             L0063: ShowMessage(party, String0BFB); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L0070: TeleportPartyBC(party, 0x02, 0x01, 0xD6, 0x00);
+            L0070: TeleportParty(party, 0x02, 0x01, 0xD6, 0x00, isForwardMove);
             L008A: goto L00B3;
             L008C: ShowMessage(party, String0C4B); // A trapdoor in the floor opens.
-            L0099: TeleportPartyBC(party, 0x02, 0x01, 0xD6, 0x00);
+            L0099: TeleportParty(party, 0x02, 0x01, 0xD6, 0x00, isForwardMove);
             L00B3: return; // RETURN;
         }
 
-        private void FnTRAPDORJ_16(Party party) {
+        private void FnTRAPDORJ_16(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x000A);
             L0012: if (JumpNotBelow) goto L004E;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L004E;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L004E;
-            L0039: ax = UsedItem54(party, 0xBE, 0xBE);
+            L0039: ax = HasUsedItem(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0C6A); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L005B: TeleportPartyBC(party, 0x02, 0x01, 0xD8, 0x03);
+            L005B: TeleportParty(party, 0x02, 0x01, 0xD8, 0x03, isForwardMove);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0CBA); // A trapdoor in the floor opens.
-            L0085: TeleportPartyBC(party, 0x02, 0x01, 0xD8, 0x03);
+            L0085: TeleportParty(party, 0x02, 0x01, 0xD8, 0x03, isForwardMove);
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORK_17(Party party) {
+        private void FnTRAPDORK_17(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0006);
             L0012: if (JumpNotBelow) goto L0063;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L0063;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L0063;
-            L0039: ax = UsedItem54(party, 0xBD, 0xBD);
+            L0039: ax = HasUsedItem(party, 0xBD, 0xBD);
             L004C: if (JumpNotEqual) goto L0063;
-            L004E: ax = UsedItem54(party, 0xBE, 0xBE);
+            L004E: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008D;
             L0063: ShowMessage(party, String0CD9); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L0070: TeleportPartyBC(party, 0x02, 0x01, 0xE9, 0x03);
+            L0070: TeleportParty(party, 0x02, 0x01, 0xE9, 0x03, isForwardMove);
             L008B: goto L00B5;
             L008D: ShowMessage(party, String0D29); // A trapdoor in the floor opens.
-            L009A: TeleportPartyBC(party, 0x02, 0x01, 0xE9, 0x03);
+            L009A: TeleportParty(party, 0x02, 0x01, 0xE9, 0x03, isForwardMove);
             L00B5: return; // RETURN;
         }
 
-        private void FnTRAPDORL_18(Party party) {
+        private void FnTRAPDORL_18(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x000B);
             L0012: if (JumpNotBelow) goto L004E;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L004E;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L004E;
-            L0039: ax = UsedItem54(party, 0xBE, 0xBE);
+            L0039: ax = HasUsedItem(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0077;
             L004E: ShowMessage(party, String0D48); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L005B: TeleportPartyBC(party, 0x02, 0x01, 0xEB, 0x00);
+            L005B: TeleportParty(party, 0x02, 0x01, 0xEB, 0x00, isForwardMove);
             L0075: goto L009E;
             L0077: ShowMessage(party, String0D98); // A trapdoor in the floor opens.
-            L0084: TeleportPartyBC(party, 0x02, 0x01, 0xEB, 0x00);
+            L0084: TeleportParty(party, 0x02, 0x01, 0xEB, 0x00, isForwardMove);
             L009E: return; // RETURN;
         }
 
-        private void FnTRAPDORM_19(Party party) {
+        private void FnTRAPDORM_19(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x0008);
             L0012: if (JumpNotBelow) goto L004E;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L004E;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L004E;
-            L0039: ax = UsedItem54(party, 0xBE, 0xBE);
+            L0039: ax = HasUsedItem(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0077;
             L004E: ShowMessage(party, String0DB7); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L005B: TeleportPartyBC(party, 0x02, 0x01, 0xF5, 0x00);
+            L005B: TeleportParty(party, 0x02, 0x01, 0xF5, 0x00, isForwardMove);
             L0075: goto L009E;
             L0077: ShowMessage(party, String0E07); // A trapdoor in the floor opens.
-            L0084: TeleportPartyBC(party, 0x02, 0x01, 0xF5, 0x00);
+            L0084: TeleportParty(party, 0x02, 0x01, 0xF5, 0x00, isForwardMove);
             L009E: return; // RETURN;
         }
 
-        private void FnTRAPDORN_1A(Party party) {
+        private void FnTRAPDORN_1A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x000A);
             L0012: if (JumpNotBelow) goto L004E;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L004E;
-            L0024: ax = UsedItem54(party, 0xA2, 0xA2);
+            L0024: ax = HasUsedItem(party, 0xA2, 0xA2);
             L0037: if (JumpNotEqual) goto L004E;
-            L0039: ax = UsedItem54(party, 0xBE, 0xBE);
+            L0039: ax = HasUsedItem(party, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
             L004E: ShowMessage(party, String0E26); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L005B: TeleportPartyBC(party, 0x02, 0x01, 0xF7, 0x02);
+            L005B: TeleportParty(party, 0x02, 0x01, 0xF7, 0x02, isForwardMove);
             L0076: goto L00A0;
             L0078: ShowMessage(party, String0E76); // A trapdoor in the floor opens.
-            L0085: TeleportPartyBC(party, 0x02, 0x01, 0xF7, 0x02);
+            L0085: TeleportParty(party, 0x02, 0x01, 0xF7, 0x02, isForwardMove);
             L00A0: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_1B(Party party) {
+        private void FnTUFMNSTR_1B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = PartyCount(party);
@@ -625,7 +625,7 @@ namespace XPT.Scripts.Maps {
             L009D: return; // RETURN;
         }
 
-        private void FnGOLDENCA_1E(Party party) {
+        private void FnGOLDENCA_1E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x09);
@@ -653,7 +653,7 @@ namespace XPT.Scripts.Maps {
             L010F: return; // RETURN;
         }
 
-        private void FnGOLDBENC_1F(Party party) {
+        private void FnGOLDBENC_1F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x0A);
@@ -696,7 +696,7 @@ namespace XPT.Scripts.Maps {
             L01D7: return; // RETURN;
         }
 
-        private void FnGOLDCENC_20(Party party) {
+        private void FnGOLDCENC_20(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x0B);

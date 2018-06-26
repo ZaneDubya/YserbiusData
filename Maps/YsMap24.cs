@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace XPT.Scripts.Maps {
+namespace XPT.Scripts.Yserbius.Maps {
     class YserMap24 : AMapScripted {
         protected override int MapIndex => 24;
         
@@ -158,164 +158,154 @@ namespace XPT.Scripts.Maps {
         private const string String154A = "A strengthening, benevolent breeze warms your blood!";
         
         // === Functions ================================================
-        private void FnDROP_01(Party party) {
+        private void FnDROP_01(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // You fall through the abyss and land in the lava below.
-            L0010: ax = GetMaxHits74(party);
-            L0017: DamagePlayer90(party, ax);
+            L0010: ax = GetMaxHits(party);
+            L0017: DamagePlayer(party, ax);
             L0021: return; // RETURN;
         }
 
-        private void FnXOVER_02(Party party) {
+        private void FnXOVER_02(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetCurrentTile20(party);
+            L0003: ax = GetCurrentTile(party);
             L000A: Compare(ax, 0x0039);
             L000D: if (JumpNotEqual) goto L0063;
             L000F: ax = GetState(party, 0x01, 0x01);
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpEqual) goto L0043;
-            L0024: SetFloorObject38(party, 0x00, 0x39);
+            L0024: SetFloorObject(party, 0x00, 0x39);
             L0034: ShowMessage(party, String0433); // A magical platform forms a bridge across the abyss.
             L0041: goto L0061;
             L0043: ShowMessage(party, String0467); // You will need help to cross the abyss.  This time you die.
-            L0050: ax = GetMaxHits74(party);
-            L0057: DamagePlayer90(party, ax);
+            L0050: ax = GetMaxHits(party);
+            L0057: DamagePlayer(party, ax);
             L0061: goto L009B;
             L0063: ax = GetState(party, 0x01, 0x01);
             L0074: RefreshCompareFlags(ax);
             L0076: if (JumpEqual) goto L008A;
-            L0078: SetFloorObject38(party, 0x00, 0x39);
+            L0078: SetFloorObject(party, 0x00, 0x39);
             L0088: goto L009B;
-            L008A: SetFloorObject38(party, 0x01, 0x39);
+            L008A: SetFloorObject(party, 0x01, 0x39);
             L009B: return; // RETURN;
         }
 
-        private void FnXOVERON_03(Party party) {
+        private void FnXOVERON_03(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetState(party, 0x01, 0x01, 0x01);
-            L0018: SetFloorObject38(party, 0x00, 0x39);
+            L0018: SetFloorObject(party, 0x00, 0x39);
             L0028: ShowMessage(party, String04A2); // Something strange happens!
             L0035: ShowMessage(party, String04BD); // When you step onto the stone, a magical platform appears nearby.
             L0042: return; // RETURN;
         }
 
-        private void FnXOVEROFF_04(Party party) {
+        private void FnXOVEROFF_04(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetState(party, 0x01, 0x01, 0x00);
-            L0017: SetFloorObject38(party, 0x01, 0x39);
+            L0017: SetFloorObject(party, 0x01, 0x39);
             L0028: ShowMessage(party, String04FE); // A magical platform nearby seems to disappear.
             L0035: return; // RETURN;
         }
 
-        private void FnVORANTI_05(Party party) {
+        private void FnVORANTI_05(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String052C); // Many adventurers have been ambushed in VORANTI'S PASSAGE.
-            L0010: TeleportPartyBC(party, 0x34, 0x01, 0x4D, 0x01);
+            L0010: TeleportParty(party, 0x34, 0x01, 0x4D, 0x01, isForwardMove);
             L002B: return; // RETURN;
         }
 
-        private void FnMAGEOVRL_06(Party party) {
+        private void FnMAGEOVRL_06(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0566); // The passage leads to MAGE'S OVERLOOK.
-            L0010: TeleportPartyBC(party, 0x34, 0x01, 0x3D, 0x00);
+            L0010: TeleportParty(party, 0x34, 0x01, 0x3D, 0x00, isForwardMove);
             L002A: return; // RETURN;
         }
 
-        private void FnDRAWBRDG_07(Party party) {
+        private void FnDRAWBRDG_07(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String058C); // Iron rungs line an access shaft leading down to DRAWBRIDGE.
-            L0010: TeleportPartyBC(party, 0x36, 0x01, 0x6E, 0x02);
+            L0010: TeleportParty(party, 0x36, 0x01, 0x6E, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
 
-        private void FnCSTLGATE_08(Party party) {
+        private void FnCSTLGATE_08(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05C8); // The tunnels ahead leading to CASTLEGATE are well marked.
-            L0010: TeleportPartyBC(party, 0x36, 0x01, 0x4F, 0x00);
+            L0010: TeleportParty(party, 0x36, 0x01, 0x4F, 0x00, isForwardMove);
             L002A: return; // RETURN;
         }
 
-        private void FnVORANTI_09(Party party) {
+        private void FnVORANTI_09(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0601); // VORANTI'S PASSAGE is home to Voranti, the Dark Dwarf Thief.
             L0010: PushStack(party, 0x02);
-            L0014: ax = GetCurrentTile20(party);
-            L001B: TeleportPartyBC(party, 0x34, 0x01, ax, PopStack(party));
+            L0014: ax = GetCurrentTile(party);
+            L001B: TeleportParty(party, 0x34, 0x01, ax, PopStack(party), isForwardMove);
             L002F: return; // RETURN;
         }
 
-        private void FnZZYZX_0A(Party party) {
+        private void FnZZYZX_0A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String063D); // Dry desert winds parch your throat as you peer down the winding passages leading to ZZYZX.
-            L0010: TeleportPartyBC(party, 0x34, 0x01, 0xBC, 0x03);
+            L0010: TeleportParty(party, 0x34, 0x01, 0xBC, 0x03, isForwardMove);
             L002B: return; // RETURN;
         }
 
-        private void FnGRHALL_0B(Party party) {
+        private void FnGRHALL_0B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0698); // In the days of Arnakkian Slowfoot, the citizens of the Kingdom gathered in festive celebrations.  The GREAT HALL welcomed them with magical games conjured by Arnakkian.
-            L0010: TeleportPartyBC(party, 0x35, 0x02, 0x40, 0x02);
+            L0010: TeleportParty(party, 0x35, 0x02, 0x40, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
 
-        private void FnZEPHYR_0D(Party party) {
+        private void FnZEPHYR_0D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0741); // The ZEPHYR winds are known to be the swiftest of all the winds.
-            L0010: TeleportPartyBC(party, 0x34, 0x01, 0xC8, 0x01);
+            L0010: TeleportParty(party, 0x34, 0x01, 0xC8, 0x01, isForwardMove);
             L002B: return; // RETURN;
         }
 
-        private void FnLAVA_0E(Party party) {
+        private void FnLAVA_0E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0781); // You stumble into the lava pools.  You die.
-            L0010: ax = GetMaxHits74(party);
-            L0017: DamagePlayer90(party, ax);
+            L0010: ax = GetMaxHits(party);
+            L0017: DamagePlayer(party, ax);
             L0021: return; // RETURN;
         }
 
-        private void FnTROLS_0F(Party party) {
+        private void FnTROLS_0F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07AC); // Past this doorway are the corridors known as TROLLS END.
             L0010: return; // RETURN;
         }
 
-        private void FnDRTOVORA_10(Party party) {
+        private void FnDRTOVORA_10(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07E5); // To enter VORANTI'S PASSAGE, you must use his key!
-            L0010: ax = UsedItem54(party, 0xDF, 0xDF);
+            L0010: ax = HasUsedItem(party, 0xDF, 0xDF);
             L0023: if (JumpEqual) goto L006E;
             L0025: ShowMessage(party, String0817); // You unlock the door.
-            L0032: PushStack(party, 0x01);
-            L0036: ax = GetFacing24(party);
-            L003D: PushStack(party, ax);
-            L003E: ax = GetCurrentTile20(party);
-            L0045: PushStack(party, ax);
-            L0046: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
-            L0050: ax = GetFacing24(party);
-            L0057: PushStack(party, ax);
-            L0058: ax = GetCurrentTile20(party);
-            L005F: PushStack(party, ax);
-            L0060: PushStack(party, 0x01);
-            L0064: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
+            L0032: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
+            L0050: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
             L006E: return; // RETURN;
         }
 
-        private void FnHEAVFOUN_14(Party party) {
+        private void FnHEAVFOUN_14(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
@@ -325,28 +315,28 @@ namespace XPT.Scripts.Maps {
             L0030: if (JumpEqual) goto L0035;
             L0032: goto L011A;
             L0035: SetState(party, 0x02, 0x61, 0x01);
-            L004A: ax = GetSkillLevel5C(party, 0x13);
+            L004A: ax = GetSkillLevel(party, 0x13);
             L0056: RefreshCompareFlags(ax);
             L0058: if (JumpNotEqual) goto L007B;
-            L005A: SetSkillLevel60(party, 0x13, 0x02);
+            L005A: SetSkillLevel(party, 0x13, 0x02);
             L006B: ShowMessage(party, String086C); // You gain the Reverie skill!
             L0078: goto L0118;
-            L007B: ax = GetSkillLevel5C(party, 0x11);
+            L007B: ax = GetSkillLevel(party, 0x11);
             L0087: RefreshCompareFlags(ax);
             L0089: if (JumpNotEqual) goto L00AB;
-            L008B: SetSkillLevel60(party, 0x11, 0x02);
+            L008B: SetSkillLevel(party, 0x11, 0x02);
             L009C: ShowMessage(party, String0888); // You gain the Deflect Magic skill!
             L00A9: goto L0118;
-            L00AB: ax = GetSkillLevel5C(party, 0x12);
+            L00AB: ax = GetSkillLevel(party, 0x12);
             L00B7: RefreshCompareFlags(ax);
             L00B9: if (JumpNotEqual) goto L00DB;
-            L00BB: SetSkillLevel60(party, 0x12, 0x02);
+            L00BB: SetSkillLevel(party, 0x12, 0x02);
             L00CC: ShowMessage(party, String08AA); // You gain the Medic skill!
             L00D9: goto L0118;
-            L00DB: ax = GetSkillLevel5C(party, 0x10);
+            L00DB: ax = GetSkillLevel(party, 0x10);
             L00E7: RefreshCompareFlags(ax);
             L00E9: if (JumpNotEqual) goto L010B;
-            L00EB: SetSkillLevel60(party, 0x10, 0x02);
+            L00EB: SetSkillLevel(party, 0x10, 0x02);
             L00FC: ShowMessage(party, String08C4); // You gain the skill of Martial Arts!
             L0109: goto L0118;
             L010B: ShowMessage(party, String08E8); // The waters have no effect.
@@ -355,7 +345,7 @@ namespace XPT.Scripts.Maps {
             L0127: return; // RETURN;
         }
 
-        private void FnHEAVENCB_15(Party party) {
+        private void FnHEAVENCB_15(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x20);
@@ -368,7 +358,7 @@ namespace XPT.Scripts.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnHEAVENCC_16(Party party) {
+        private void FnHEAVENCC_16(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x20);
@@ -377,7 +367,7 @@ namespace XPT.Scripts.Maps {
             L0039: return; // RETURN;
         }
 
-        private void FnHEAVENCE_18(Party party) {
+        private void FnHEAVENCE_18(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1F);
@@ -387,18 +377,18 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnHEAVWIND_1A(Party party) {
+        private void FnHEAVWIND_1A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetAlignment80(party);
+            L0003: ax = GetAlignment(party);
             L000B: Compare(ax, 0x0001);
             L000E: if (JumpNotEqual) goto L004E;
             L0010: ShowMessage(party, String0923); // The fury of Heaven's Wind ripping through the corridor inflicts considerable damage.
-            L001D: ax = GetCurrentHits70(party);
+            L001D: ax = GetCurrentHits(party);
             L0024: bx = 0x0005;
             L0027: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
-            L002A: DamagePlayer90(party, ax);
-            L0034: ax = GetCurrentHits70(party);
+            L002A: DamagePlayer(party, ax);
+            L0034: ax = GetCurrentHits(party);
             L003B: RefreshCompareFlags(ax);
             L003D: if (JumpAbove) goto L004C;
             L003F: ShowMessage(party, String0978); // You have died.
@@ -407,53 +397,43 @@ namespace XPT.Scripts.Maps {
             L005B: return; // RETURN;
         }
 
-        private void FnTXTHEAV_1B(Party party) {
+        private void FnTXTHEAV_1B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09A9); // The forces of Chaos and Harmony compete in the cyclone known as HEAVENS FURY.
             L0010: return; // RETURN;
         }
 
-        private void FnBDRHEAVA_1C(Party party) {
+        private void FnBDRHEAVA_1C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = CheckStrengthA4(party);
+            L0003: ax = CheckStrength(party);
             L000F: Compare(ax, 0x0014);
             L0012: if (JumpBelow) goto L0041;
             L0014: ShowMessage(party, String09F7); // You force the massive door open by sheer muscle power.
-            L0021: PushStack(party, 0x01);
-            L0025: ax = GetFacing24(party);
-            L002C: PushStack(party, ax);
-            L002D: ax = GetCurrentTile20(party);
-            L0034: PushStack(party, ax);
-            L0035: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0021: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L003F: goto L004E;
             L0041: ShowMessage(party, String0A2E); // The door is stuck. You cannot force it open.
             L004E: return; // RETURN;
         }
 
-        private void FnSDRHEAVE_1D(Party party) {
+        private void FnSDRHEAVE_1D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = UsedSkill58(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
+            L0003: ax = HasUsedSkill(party, 0x0D); // returns 0 if did not use, compares to 2nd op if did use;
             L000F: Compare(ax, 0x000C);
             L0012: if (JumpNotBelow) goto L0039;
-            L0014: ax = UsedSpell64(party, 0x17); // returns 0 if did not use on map, level if used
+            L0014: ax = HasUsedSpell(party, 0x17); // returns 0 if did not use on map, level if used
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L0039;
-            L0024: ax = UsedItem54(party, 0xBE, 0xBE);
+            L0024: ax = HasUsedItem(party, 0xBE, 0xBE);
             L0037: if (JumpEqual) goto L0064;
-            L0039: PushStack(party, 0x01);
-            L003D: ax = GetFacing24(party);
-            L0044: PushStack(party, ax);
-            L0045: ax = GetCurrentTile20(party);
-            L004C: PushStack(party, ax);
-            L004D: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0039: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0057: ShowMessage(party, String0A5B); // You discover a secret door!
             L0064: return; // RETURN;
         }
 
-        private void FnTEMPENCA_1E(Party party) {
+        private void FnTEMPENCA_1E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x17);
@@ -463,7 +443,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnTEMPENCB_1F(Party party) {
+        private void FnTEMPENCB_1F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x17);
@@ -474,7 +454,7 @@ namespace XPT.Scripts.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnTEMPENCC_20(Party party) {
+        private void FnTEMPENCC_20(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x18);
@@ -484,7 +464,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnTEMPENCD_21(Party party) {
+        private void FnTEMPENCD_21(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x17);
@@ -494,7 +474,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnTEMPMAIN_22(Party party) {
+        private void FnTEMPMAIN_22(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A77); // Tempest unleashes its full torrent of wind as you approach!
@@ -504,7 +484,7 @@ namespace XPT.Scripts.Maps {
             L0041: AddEncounter(party, 0x04, 0x25);
             L0053: AddEncounter(party, 0x05, 0x18);
             L0065: AddEncounter(party, 0x06, 0x18);
-            L0077: ax = HasItem50(party, 0xE6);
+            L0077: ax = HasItem(party, 0xE6);
             L0085: if (JumpEqual) goto L00A7;
             L0087: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x00, 0x96);
             L00A5: goto L00C5;
@@ -512,33 +492,33 @@ namespace XPT.Scripts.Maps {
             L00C5: return; // RETURN;
         }
 
-        private void FnTEMPWIND_23(Party party) {
+        private void FnTEMPWIND_23(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem50(party, 0xE6);
+            L0003: ax = HasItem(party, 0xE6);
             L0011: if (JumpEqual) goto L0022;
             L0013: ShowMessage(party, String0ADC); // The Harvest Horn protects you from the dangerous winds!
             L0020: goto L0054;
             L0022: ShowMessage(party, String0B14); // The Tempest Winds rip through your armor, causing many wounds!
-            L002F: DamagePlayer90(party, 0x0064);
-            L003C: ax = GetCurrentHits70(party);
+            L002F: DamagePlayer(party, 0x0064);
+            L003C: ax = GetCurrentHits(party);
             L0043: RefreshCompareFlags(ax);
             L0045: if (JumpAbove) goto L0054;
             L0047: ShowMessage(party, String0B53); // You have died.
             L0054: return; // RETURN;
         }
 
-        private void FnFNTNHEAL_24(Party party) {
+        private void FnFNTNHEAL_24(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
-            L0010: ax = GetMaxHits74(party);
-            L0017: HealPlayer94(party, ax);
+            L0010: ax = GetMaxHits(party);
+            L0017: HealPlayer(party, ax);
             L0021: ShowMessage(party, String0B62); // The mystic waters of the Charter Fountain restore all your Health.
             L002E: return; // RETURN;
         }
 
-        private void FnFNTNMANA_25(Party party) {
+        private void FnFNTNMANA_25(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
@@ -547,24 +527,24 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnFNTNHEAL_26(Party party) {
+        private void FnFNTNHEAL_26(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
-            L0010: ax = GetMaxHits74(party);
-            L0017: HealPlayer94(party, ax);
+            L0010: ax = GetMaxHits(party);
+            L0017: HealPlayer(party, ax);
             L0021: ShowMessage(party, String0BE3); // The sparkling waters of the Ariel Fountain heal your many wounds.
             L002E: return; // RETURN;
         }
 
-        private void FnEXODENCA_27(Party party) {
+        private void FnEXODENCA_27(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x03);
             L0015: AddEncounter(party, 0x02, 0x03);
             L0027: AddEncounter(party, 0x03, 0x03);
             L0039: AddEncounter(party, 0x04, 0x03);
-            L004B: ax = HasItem50(party, 0xE0);
+            L004B: ax = HasItem(party, 0xE0);
             L0059: if (JumpEqual) goto L007C;
             L005B: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0xB6, 0xD0);
             L007A: goto L009B;
@@ -572,7 +552,7 @@ namespace XPT.Scripts.Maps {
             L009B: return; // RETURN;
         }
 
-        private void FnWINDENC_28(Party party) {
+        private void FnWINDENC_28(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x17);
@@ -582,7 +562,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnTXTEXOD_29(Party party) {
+        private void FnTXTEXOD_29(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x001E);
@@ -592,13 +572,13 @@ namespace XPT.Scripts.Maps {
             L0037: return; // RETURN;
         }
 
-        private void FnWINDENCA_2A(Party party) {
+        private void FnWINDENCA_2A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetRace78(party);
+            L0003: ax = GetRace(party);
             L000A: RefreshCompareFlags(ax);
             L000C: if (JumpEqual) goto L001A;
-            L000E: ax = GetRace78(party);
+            L000E: ax = GetRace(party);
             L0015: Compare(ax, 0x0006);
             L0018: if (JumpNotEqual) goto L0072;
             L001A: ax = GetState(party, 0x02, 0x5A);
@@ -606,19 +586,19 @@ namespace XPT.Scripts.Maps {
             L002D: if (JumpNotEqual) goto L0065;
             L002F: SetState(party, 0x02, 0x5A, 0x01);
             L0044: ShowMessage(party, String0D33); // Your initiative in combat improves.
-            L0051: ModifyAttributeA8(party, 0x03, 0x0003);
+            L0051: ModifyAttribute(party, 0x03, 0x0003);
             L0063: goto L0072;
             L0065: ShowMessage(party, String0D57); // Nothing happens.
             L0072: return; // RETURN;
         }
 
-        private void FnWINDENCB_2B(Party party) {
+        private void FnWINDENCB_2B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetRace78(party);
+            L0003: ax = GetRace(party);
             L000A: Compare(ax, 0x0002);
             L000D: if (JumpEqual) goto L001B;
-            L000F: ax = GetRace78(party);
+            L000F: ax = GetRace(party);
             L0016: Compare(ax, 0x0005);
             L0019: if (JumpNotEqual) goto L0073;
             L001B: ax = GetState(party, 0x02, 0x5B);
@@ -626,19 +606,19 @@ namespace XPT.Scripts.Maps {
             L002E: if (JumpNotEqual) goto L0066;
             L0030: SetState(party, 0x02, 0x5B, 0x01);
             L0045: ShowMessage(party, String0D68); // Your agility improves.
-            L0052: ModifyAttributeA8(party, 0x02, 0x0003);
+            L0052: ModifyAttribute(party, 0x02, 0x0003);
             L0064: goto L0073;
             L0066: ShowMessage(party, String0D7F); // Nothing happens.
             L0073: return; // RETURN;
         }
 
-        private void FnWINDENCC_2C(Party party) {
+        private void FnWINDENCC_2C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetRace78(party);
+            L0003: ax = GetRace(party);
             L000A: Compare(ax, 0x0001);
             L000D: if (JumpEqual) goto L001B;
-            L000F: ax = GetRace78(party);
+            L000F: ax = GetRace(party);
             L0016: Compare(ax, 0x0003);
             L0019: if (JumpNotEqual) goto L0072;
             L001B: ax = GetState(party, 0x02, 0x5C);
@@ -646,19 +626,19 @@ namespace XPT.Scripts.Maps {
             L002E: if (JumpNotEqual) goto L0065;
             L0030: SetState(party, 0x02, 0x5C, 0x01);
             L0045: ShowMessage(party, String0D90); // You feel much stronger.
-            L0052: ModifyAttributeA8(party, 0x00, 0x0003);
+            L0052: ModifyAttribute(party, 0x00, 0x0003);
             L0063: goto L0072;
             L0065: ShowMessage(party, String0DA8); // Nothing happens.
             L0072: return; // RETURN;
         }
 
-        private void FnWINDENCD_2D(Party party) {
+        private void FnWINDENCD_2D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetRace78(party);
+            L0003: ax = GetRace(party);
             L000A: Compare(ax, 0x0007);
             L000D: if (JumpEqual) goto L001B;
-            L000F: ax = GetRace78(party);
+            L000F: ax = GetRace(party);
             L0016: Compare(ax, 0x0004);
             L0019: if (JumpNotEqual) goto L0073;
             L001B: ax = GetState(party, 0x02, 0x5D);
@@ -666,93 +646,73 @@ namespace XPT.Scripts.Maps {
             L002E: if (JumpNotEqual) goto L0066;
             L0030: SetState(party, 0x02, 0x5D, 0x01);
             L0045: ShowMessage(party, String0DB9); // Your ability to defend yourself in combat improves.
-            L0052: ModifyAttributeA8(party, 0x01, 0x0003);
+            L0052: ModifyAttribute(party, 0x01, 0x0003);
             L0064: goto L0073;
             L0066: ShowMessage(party, String0DED); // Nothing happens.
             L0073: return; // RETURN;
         }
 
-        private void FnBDRWINDA_2E(Party party) {
+        private void FnBDRWINDA_2E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0DFE); // The door is barred to all but Humans and Halflings.
-            L0010: ax = GetRace78(party);
+            L0010: ax = GetRace(party);
             L0017: RefreshCompareFlags(ax);
             L0019: if (JumpEqual) goto L0027;
-            L001B: ax = GetRace78(party);
+            L001B: ax = GetRace(party);
             L0022: Compare(ax, 0x0006);
             L0025: if (JumpNotEqual) goto L0052;
-            L0027: PushStack(party, 0x01);
-            L002B: ax = GetFacing24(party);
-            L0032: PushStack(party, ax);
-            L0033: ax = GetCurrentTile20(party);
-            L003A: PushStack(party, ax);
-            L003B: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0027: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0045: ShowMessage(party, String0E32); // The enormous door opens for you.
             L0052: return; // RETURN;
         }
 
-        private void FnBDRWINDB_2F(Party party) {
+        private void FnBDRWINDB_2F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E53); // The door is barred to all but Elves and Gnomes.
-            L0010: ax = GetRace78(party);
+            L0010: ax = GetRace(party);
             L0017: Compare(ax, 0x0002);
             L001A: if (JumpEqual) goto L0028;
-            L001C: ax = GetRace78(party);
+            L001C: ax = GetRace(party);
             L0023: Compare(ax, 0x0005);
             L0026: if (JumpNotEqual) goto L0053;
-            L0028: PushStack(party, 0x01);
-            L002C: ax = GetFacing24(party);
-            L0033: PushStack(party, ax);
-            L0034: ax = GetCurrentTile20(party);
-            L003B: PushStack(party, ax);
-            L003C: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0028: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0046: ShowMessage(party, String0E83); // The tremendous door swings open as you approach.
             L0053: return; // RETURN;
         }
 
-        private void FnBDRWINDC_30(Party party) {
+        private void FnBDRWINDC_30(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0EB4); // The door is barred to all but Orcs and Trolls.
-            L0010: ax = GetRace78(party);
+            L0010: ax = GetRace(party);
             L0017: Compare(ax, 0x0001);
             L001A: if (JumpEqual) goto L0028;
-            L001C: ax = GetRace78(party);
+            L001C: ax = GetRace(party);
             L0023: Compare(ax, 0x0003);
             L0026: if (JumpNotEqual) goto L0053;
-            L0028: PushStack(party, 0x01);
-            L002C: ax = GetFacing24(party);
-            L0033: PushStack(party, ax);
-            L0034: ax = GetCurrentTile20(party);
-            L003B: PushStack(party, ax);
-            L003C: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0028: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0046: ShowMessage(party, String0EE3); // The heavy door creaks open as you draw near.
             L0053: return; // RETURN;
         }
 
-        private void FnBDRWINDD_31(Party party) {
+        private void FnBDRWINDD_31(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0F10); // The door is barred to all but Gremlins and Dwarves.
-            L0010: ax = GetRace78(party);
+            L0010: ax = GetRace(party);
             L0017: Compare(ax, 0x0004);
             L001A: if (JumpEqual) goto L0028;
-            L001C: ax = GetRace78(party);
+            L001C: ax = GetRace(party);
             L0023: Compare(ax, 0x0007);
             L0026: if (JumpNotEqual) goto L0053;
-            L0028: PushStack(party, 0x01);
-            L002C: ax = GetFacing24(party);
-            L0033: PushStack(party, ax);
-            L0034: ax = GetCurrentTile20(party);
-            L003B: PushStack(party, ax);
-            L003C: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
+            L0028: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0046: ShowMessage(party, String0F44); // The sealed door opens at your command.
             L0053: return; // RETURN;
         }
 
-        private void FnTXTWINDH_32(Party party) {
+        private void FnTXTWINDH_32(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0028);
@@ -761,7 +721,7 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnTROLENCA_33(Party party) {
+        private void FnTROLENCA_33(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x21);
@@ -771,7 +731,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnTROLENCB_34(Party party) {
+        private void FnTROLENCB_34(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1D);
@@ -784,7 +744,7 @@ namespace XPT.Scripts.Maps {
             L0090: return; // RETURN;
         }
 
-        private void FnTXTTROLA_36(Party party) {
+        private void FnTXTTROLA_36(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1022); // Next to bones is a message scratched on stone -- 
@@ -793,7 +753,7 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnTXTTROLB_37(Party party) {
+        private void FnTXTTROLB_37(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String10F0); // Behind a loose stone is a note.  You can barely read -- 
@@ -801,7 +761,7 @@ namespace XPT.Scripts.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnFNTNSTRN_38(Party party) {
+        private void FnFNTNSTRN_38(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
@@ -809,15 +769,15 @@ namespace XPT.Scripts.Maps {
             L0021: RefreshCompareFlags(ax);
             L0023: if (JumpNotEqual) goto L006C;
             L0025: SetState(party, 0x02, 0x4A, 0x01);
-            L003A: ModifyAttributeA8(party, 0x00, 0x0002);
-            L004B: ModifyAttributeA8(party, 0x01, 0x0002);
+            L003A: ModifyAttribute(party, 0x00, 0x0002);
+            L004B: ModifyAttribute(party, 0x01, 0x0002);
             L005D: ShowMessage(party, String116C); // The turgid water of the Troll Fountain tastes terrible, but it makes you feel stronger.
             L006A: goto L0079;
             L006C: ShowMessage(party, String11C4); // The fountain waters taste awful and make you nauseated.
             L0079: return; // RETURN;
         }
 
-        private void FnBACKENCA_39(Party party) {
+        private void FnBACKENCA_39(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x16);
@@ -827,7 +787,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnBACKENCB_3A(Party party) {
+        private void FnBACKENCB_3A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x21);
@@ -838,7 +798,7 @@ namespace XPT.Scripts.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnBACKENCC_3B(Party party) {
+        private void FnBACKENCC_3B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
@@ -848,28 +808,28 @@ namespace XPT.Scripts.Maps {
             L0030: if (JumpEqual) goto L0035;
             L0032: goto L0118;
             L0035: SetState(party, 0x02, 0x62, 0x01);
-            L004A: ax = GetSkillLevel5C(party, 0x00);
+            L004A: ax = GetSkillLevel(party, 0x00);
             L0055: RefreshCompareFlags(ax);
             L0057: if (JumpNotEqual) goto L0079;
-            L0059: SetSkillLevel60(party, 0x00, 0x02);
+            L0059: SetSkillLevel(party, 0x00, 0x02);
             L0069: ShowMessage(party, String125F); // You gain the skill of Athletics!
             L0076: goto L0116;
-            L0079: ax = GetSkillLevel5C(party, 0x02);
+            L0079: ax = GetSkillLevel(party, 0x02);
             L0085: RefreshCompareFlags(ax);
             L0087: if (JumpNotEqual) goto L00A9;
-            L0089: SetSkillLevel60(party, 0x02, 0x02);
+            L0089: SetSkillLevel(party, 0x02, 0x02);
             L009A: ShowMessage(party, String1280); // You gain the Berserker skill!
             L00A7: goto L0116;
-            L00A9: ax = GetSkillLevel5C(party, 0x03);
+            L00A9: ax = GetSkillLevel(party, 0x03);
             L00B5: RefreshCompareFlags(ax);
             L00B7: if (JumpNotEqual) goto L00D9;
-            L00B9: SetSkillLevel60(party, 0x03, 0x02);
+            L00B9: SetSkillLevel(party, 0x03, 0x02);
             L00CA: ShowMessage(party, String129E); // You gain the skill of Pursuit!
             L00D7: goto L0116;
-            L00D9: ax = GetSkillLevel5C(party, 0x01);
+            L00D9: ax = GetSkillLevel(party, 0x01);
             L00E5: RefreshCompareFlags(ax);
             L00E7: if (JumpNotEqual) goto L0109;
-            L00E9: SetSkillLevel60(party, 0x01, 0x02);
+            L00E9: SetSkillLevel(party, 0x01, 0x02);
             L00FA: ShowMessage(party, String12BD); // You gain the skill of Clubs and Axes!
             L0107: goto L0116;
             L0109: ShowMessage(party, String12E3); // The waters have no effect.
@@ -878,7 +838,7 @@ namespace XPT.Scripts.Maps {
             L0125: return; // RETURN;
         }
 
-        private void FnBACKENCD_3C(Party party) {
+        private void FnBACKENCD_3C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x21);
@@ -891,7 +851,7 @@ namespace XPT.Scripts.Maps {
             L0091: return; // RETURN;
         }
 
-        private void FnBACKENCE_3D(Party party) {
+        private void FnBACKENCE_3D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x26);
@@ -904,7 +864,7 @@ namespace XPT.Scripts.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnFNTNTROL_48(Party party) {
+        private void FnFNTNTROL_48(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
@@ -914,64 +874,64 @@ namespace XPT.Scripts.Maps {
             L0030: if (JumpEqual) goto L0035;
             L0032: goto L0240;
             L0035: SetState(party, 0x02, 0x4B, 0x01);
-            L004A: ax = GetSkillLevel5C(party, 0x04);
+            L004A: ax = GetSkillLevel(party, 0x04);
             L0056: RefreshCompareFlags(ax);
             L0058: if (JumpNotEqual) goto L007B;
-            L005A: SetSkillLevel60(party, 0x04, 0x02);
+            L005A: SetSkillLevel(party, 0x04, 0x02);
             L006B: ShowMessage(party, String1361); // You gain the skill of Leadership!
             L0078: goto L023E;
-            L007B: ax = GetSkillLevel5C(party, 0x06);
+            L007B: ax = GetSkillLevel(party, 0x06);
             L0087: RefreshCompareFlags(ax);
             L0089: if (JumpNotEqual) goto L00AC;
-            L008B: SetSkillLevel60(party, 0x06, 0x02);
+            L008B: SetSkillLevel(party, 0x06, 0x02);
             L009C: ShowMessage(party, String1383); // You gain the skill of Binding!
             L00A9: goto L023E;
-            L00AC: ax = GetSkillLevel5C(party, 0x05);
+            L00AC: ax = GetSkillLevel(party, 0x05);
             L00B8: RefreshCompareFlags(ax);
             L00BA: if (JumpNotEqual) goto L00DD;
-            L00BC: SetSkillLevel60(party, 0x05, 0x02);
+            L00BC: SetSkillLevel(party, 0x05, 0x02);
             L00CD: ShowMessage(party, String13A2); // You gain the skill of Fencing!
             L00DA: goto L023E;
-            L00DD: ax = GetSkillLevel5C(party, 0x07);
+            L00DD: ax = GetSkillLevel(party, 0x07);
             L00E9: RefreshCompareFlags(ax);
             L00EB: if (JumpNotEqual) goto L010E;
-            L00ED: SetSkillLevel60(party, 0x07, 0x02);
+            L00ED: SetSkillLevel(party, 0x07, 0x02);
             L00FE: ShowMessage(party, String13C1); // You gain the skill of Intimidation!
             L010B: goto L023E;
-            L010E: ax = GetSkillLevel5C(party, 0x02);
+            L010E: ax = GetSkillLevel(party, 0x02);
             L011A: RefreshCompareFlags(ax);
             L011C: if (JumpNotEqual) goto L013F;
-            L011E: SetSkillLevel60(party, 0x02, 0x02);
+            L011E: SetSkillLevel(party, 0x02, 0x02);
             L012F: ShowMessage(party, String13E5); // You gain the Berserker skill!
             L013C: goto L023E;
-            L013F: ax = GetSkillLevel5C(party, 0x0A);
+            L013F: ax = GetSkillLevel(party, 0x0A);
             L014B: RefreshCompareFlags(ax);
             L014D: if (JumpNotEqual) goto L0170;
-            L014F: SetSkillLevel60(party, 0x0A, 0x02);
+            L014F: SetSkillLevel(party, 0x0A, 0x02);
             L0160: ShowMessage(party, String1403); // You gain the skill of Furtiveness!
             L016D: goto L023E;
-            L0170: ax = GetSkillLevel5C(party, 0x0E);
+            L0170: ax = GetSkillLevel(party, 0x0E);
             L017C: RefreshCompareFlags(ax);
             L017E: if (JumpNotEqual) goto L01A1;
-            L0180: SetSkillLevel60(party, 0x0E, 0x02);
+            L0180: SetSkillLevel(party, 0x0E, 0x02);
             L0191: ShowMessage(party, String1426); // You gain the skill of Lockpicking!
             L019E: goto L023E;
-            L01A1: ax = GetSkillLevel5C(party, 0x0F);
+            L01A1: ax = GetSkillLevel(party, 0x0F);
             L01AD: RefreshCompareFlags(ax);
             L01AF: if (JumpNotEqual) goto L01D1;
-            L01B1: SetSkillLevel60(party, 0x0F, 0x02);
+            L01B1: SetSkillLevel(party, 0x0F, 0x02);
             L01C2: ShowMessage(party, String1449); // You gain the Pickpocket skill!
             L01CF: goto L023E;
-            L01D1: ax = GetSkillLevel5C(party, 0x13);
+            L01D1: ax = GetSkillLevel(party, 0x13);
             L01DD: RefreshCompareFlags(ax);
             L01DF: if (JumpNotEqual) goto L0201;
-            L01E1: SetSkillLevel60(party, 0x13, 0x02);
+            L01E1: SetSkillLevel(party, 0x13, 0x02);
             L01F2: ShowMessage(party, String1468); // You gain the Reverie skill!
             L01FF: goto L023E;
-            L0201: ax = GetSkillLevel5C(party, 0x17);
+            L0201: ax = GetSkillLevel(party, 0x17);
             L020D: RefreshCompareFlags(ax);
             L020F: if (JumpNotEqual) goto L0231;
-            L0211: SetSkillLevel60(party, 0x17, 0x02);
+            L0211: SetSkillLevel(party, 0x17, 0x02);
             L0222: ShowMessage(party, String1484); // You gain the Deep Trance skill!
             L022F: goto L023E;
             L0231: ShowMessage(party, String14A4); // Nothing happens.
@@ -981,18 +941,18 @@ namespace XPT.Scripts.Maps {
             L0262: return; // RETURN;
         }
 
-        private void FnHELLWIND_49(Party party) {
+        private void FnHELLWIND_49(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = GetAlignment80(party);
+            L0003: ax = GetAlignment(party);
             L000B: RefreshCompareFlags(ax);
             L000D: if (JumpNotEqual) goto L004D;
             L000F: ShowMessage(party, String14E6); // The full fury of Hell's Wind rips through the corridor, causing considerable damage.
-            L001C: ax = GetMaxHits74(party);
+            L001C: ax = GetMaxHits(party);
             L0023: bx = 0x0005;
             L0026: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
-            L0029: DamagePlayer90(party, ax);
-            L0033: ax = GetCurrentHits70(party);
+            L0029: DamagePlayer(party, ax);
+            L0033: ax = GetCurrentHits(party);
             L003A: RefreshCompareFlags(ax);
             L003C: if (JumpAbove) goto L004B;
             L003E: ShowMessage(party, String153B); // You have died.

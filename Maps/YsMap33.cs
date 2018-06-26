@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace XPT.Scripts.Maps {
+namespace XPT.Scripts.Yserbius.Maps {
     class YserMap33 : AMapScripted {
         protected override int MapIndex => 33;
         
@@ -71,26 +71,26 @@ namespace XPT.Scripts.Maps {
         private const string String0CA5 = "You leave this dimension and re-enter your world.";
         
         // === Functions ================================================
-        private void FnVOID_01(Party party) {
+        private void FnVOID_01(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The Ageless Void swallows you whole.
             L0010: ShowMessage(party, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
-            L001D: ax = GetMaxHits74(party);
-            L0024: DamagePlayer90(party, ax);
+            L001D: ax = GetMaxHits(party);
+            L0024: DamagePlayer(party, ax);
             L002E: return; // RETURN;
         }
 
-        private void FnLIFE_02(Party party) {
+        private void FnLIFE_02(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String046D); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
-            L0010: ax = GetMaxHits74(party);
-            L0017: DamagePlayer90(party, ax);
+            L0010: ax = GetMaxHits(party);
+            L0017: DamagePlayer(party, ax);
             L0021: return; // RETURN;
         }
 
-        private void FnTIMEA_03(Party party) {
+        private void FnTIMEA_03(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: // make space for tmp on stack: sp -= 2
@@ -116,20 +116,20 @@ namespace XPT.Scripts.Maps {
             L0077: goto L00E5;
             L0079: ShowMessage(party, String04E9); // A Timeswitch has been set.
             L0086: ShowMessage(party, String0504); // Two other Timeswitches must be set to reveal the platform.
-            L0093: SetFloorObject38(party, 0x03, 0xA8);
+            L0093: SetFloorObject(party, 0x03, 0xA8);
             L00A4: goto L00E5;
             L00A6: ShowMessage(party, String053F); // The second Timeswitch has been set.
-            L00B3: SetFloorObject38(party, 0x03, 0xA8);
+            L00B3: SetFloorObject(party, 0x03, 0xA8);
             L00C4: goto L00E5;
             L00C6: ShowMessage(party, String0563); // The third and final Timeswitch has been set.
-            L00D3: SetFloorObject38(party, 0x00, 0xA8);
+            L00D3: SetFloorObject(party, 0x00, 0xA8);
             L00E3: goto L00E5;
             L00E5: ShowMessage(party, String0590); // All is deathly quiet near the Fountain of Life.
             L00F2: // restore stack ptr: sp = bp;
             L00F4: return; // RETURN;
         }
 
-        private void FnTIMEB_04(Party party) {
+        private void FnTIMEB_04(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: // make space for tmp on stack: sp -= 2
@@ -155,20 +155,20 @@ namespace XPT.Scripts.Maps {
             L0077: goto L00E5;
             L0079: ShowMessage(party, String05E9); // A Timeswitch has been set.
             L0086: ShowMessage(party, String0604); // Two other Timeswitches must be set to reveal the platform.
-            L0093: SetFloorObject38(party, 0x03, 0xA8);
+            L0093: SetFloorObject(party, 0x03, 0xA8);
             L00A4: goto L00E5;
             L00A6: ShowMessage(party, String063F); // The second Timeswitch has been set.
-            L00B3: SetFloorObject38(party, 0x03, 0xA8);
+            L00B3: SetFloorObject(party, 0x03, 0xA8);
             L00C4: goto L00E5;
             L00C6: ShowMessage(party, String0663); // The third and final Timeswitch has been set.
-            L00D3: SetFloorObject38(party, 0x00, 0xA8);
+            L00D3: SetFloorObject(party, 0x00, 0xA8);
             L00E3: goto L00E5;
             L00E5: ShowMessage(party, String0690); // All is deathly quiet near the Fountain of Life.
             L00F2: // restore stack ptr: sp = bp;
             L00F4: return; // RETURN;
         }
 
-        private void FnTIMEC_05(Party party) {
+        private void FnTIMEC_05(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: // make space for tmp on stack: sp -= 2
@@ -194,20 +194,20 @@ namespace XPT.Scripts.Maps {
             L0077: goto L00E5;
             L0079: ShowMessage(party, String06E9); // A Timeswitch has been set.
             L0086: ShowMessage(party, String0704); // Two other Timeswitches must be set to reveal the platform.
-            L0093: SetFloorObject38(party, 0x03, 0xA8);
+            L0093: SetFloorObject(party, 0x03, 0xA8);
             L00A4: goto L00E5;
             L00A6: ShowMessage(party, String073F); // The second Timeswitch has been set.
-            L00B3: SetFloorObject38(party, 0x03, 0xA8);
+            L00B3: SetFloorObject(party, 0x03, 0xA8);
             L00C4: goto L00E5;
             L00C6: ShowMessage(party, String0763); // The third and final Timeswitch has been set.
-            L00D3: SetFloorObject38(party, 0x00, 0xA8);
+            L00D3: SetFloorObject(party, 0x00, 0xA8);
             L00E3: goto L00E5;
             L00E5: ShowMessage(party, String0790); // All is deathly quiet near the Fountain of Life.
             L00F2: // restore stack ptr: sp = bp;
             L00F4: return; // RETURN;
         }
 
-        private void FnTIMEELEM_06(Party party) {
+        private void FnTIMEELEM_06(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0011);
@@ -228,7 +228,7 @@ namespace XPT.Scripts.Maps {
             L00F4: return; // RETURN;
         }
 
-        private void FnTIMEPLAT_07(Party party) {
+        private void FnTIMEPLAT_07(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x00);
@@ -240,26 +240,26 @@ namespace XPT.Scripts.Maps {
             L002C: ax = GetState(party, 0x01, 0x02);
             L003D: RefreshCompareFlags(ax);
             L003F: if (JumpEqual) goto L007A;
-            L0041: SetFloorObject38(party, 0x00, 0xA8);
+            L0041: SetFloorObject(party, 0x00, 0xA8);
             L0051: ShowMessage(party, String090F); // You cross the Waters of Death safely.
             L005E: ShowMessage(party, String0935); // En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
             L006B: ShowPortrait(party, 0x0042);
             L0078: goto L00A9;
-            L007A: SetFloorObject38(party, 0x03, 0xA8);
+            L007A: SetFloorObject(party, 0x03, 0xA8);
             L008B: ShowMessage(party, String09AD); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
-            L0098: ax = GetMaxHits74(party);
-            L009F: DamagePlayer90(party, ax);
+            L0098: ax = GetMaxHits(party);
+            L009F: DamagePlayer(party, ax);
             L00A9: return; // RETURN;
         }
 
-        private void FnGOAL_08(Party party) {
+        private void FnGOAL_08(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: RemoveItem4C(party, 0xF4);
-            L000F: RemoveItem4C(party, 0xF5);
-            L001B: RemoveItem4C(party, 0xF6);
-            L0027: RemoveItem4C(party, 0xF7);
-            L0033: RemoveItem4C(party, 0xF3);
+            L0003: RemoveItem(party, 0xF4);
+            L000F: RemoveItem(party, 0xF5);
+            L001B: RemoveItem(party, 0xF6);
+            L0027: RemoveItem(party, 0xF7);
+            L0033: RemoveItem(party, 0xF3);
             L003F: ax = IsStateSet(party, 0x02, 0x6A);
             L0052: if (JumpEqual) goto L007E;
             L0054: ShowMessage(party, String0A00); // You have found the Fountain of Life, but the waters are drained.
@@ -278,11 +278,11 @@ namespace XPT.Scripts.Maps {
             L00EC: if (JumpNotEqual) goto L012A;
             L00EE: SetState(party, 0x02, 0x69, 0x01);
             L0103: SetState(party, 0x02, 0x6A, 0x01);
-            L0118: AddExperience98(party, 0x004C4B40);
+            L0118: AddExperience(party, 0x004C4B40);
             L012A: return; // RETURN;
         }
 
-        private void FnENCA_09(Party party) {
+        private void FnENCA_09(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0C2F); // Across the Waters of Death at the center of this finite square is the Fountain of Life.
@@ -296,7 +296,7 @@ namespace XPT.Scripts.Maps {
             L0089: return; // RETURN;
         }
 
-        private void FnENCB_0A(Party party) {
+        private void FnENCB_0A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x08);
@@ -308,7 +308,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCC_0B(Party party) {
+        private void FnENCC_0B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1B);
@@ -320,7 +320,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCD_0C(Party party) {
+        private void FnENCD_0C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x7B);
@@ -332,7 +332,7 @@ namespace XPT.Scripts.Maps {
             L002D: ax = GetState(party, 0x01, 0x7D);
             L003E: RefreshCompareFlags(ax);
             L0040: if (JumpEqual) goto L0052;
-            L0042: SetFloorObject38(party, 0x00, 0xA8);
+            L0042: SetFloorObject(party, 0x00, 0xA8);
             L0052: AddEncounter(party, 0x01, 0x19);
             L0064: AddEncounter(party, 0x02, 0x19);
             L0076: AddEncounter(party, 0x03, 0x1C);
@@ -342,7 +342,7 @@ namespace XPT.Scripts.Maps {
             L00BE: return; // RETURN;
         }
 
-        private void FnENCE_0D(Party party) {
+        private void FnENCE_0D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1E);
@@ -354,7 +354,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCF_0E(Party party) {
+        private void FnENCF_0E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x22);
@@ -366,7 +366,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnCROSSOVR_0F(Party party) {
+        private void FnCROSSOVR_0F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x00);
@@ -378,13 +378,13 @@ namespace XPT.Scripts.Maps {
             L002C: ax = GetState(party, 0x01, 0x02);
             L003D: RefreshCompareFlags(ax);
             L003F: if (JumpEqual) goto L0053;
-            L0041: SetFloorObject38(party, 0x00, 0xA8);
+            L0041: SetFloorObject(party, 0x00, 0xA8);
             L0051: goto L0064;
-            L0053: SetFloorObject38(party, 0x03, 0xA8);
+            L0053: SetFloorObject(party, 0x03, 0xA8);
             L0064: return; // RETURN;
         }
 
-        private void FnMAPCONV_10(Party party) {
+        private void FnMAPCONV_10(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: // make space for tmp on stack: sp -= 2
@@ -409,18 +409,18 @@ namespace XPT.Scripts.Maps {
             L00BC: tmp = dx;
             L00BF: Compare(tmp, 0xFE);
             L00C3: if (JumpNotEqual) goto L00D7;
-            L00C5: SetFloorObject38(party, 0x00, 0xA8);
+            L00C5: SetFloorObject(party, 0x00, 0xA8);
             L00D5: goto L00E8;
-            L00D7: SetFloorObject38(party, 0x03, 0xA8);
+            L00D7: SetFloorObject(party, 0x03, 0xA8);
             L00E8: // restore stack ptr: sp = bp;
             L00EA: return; // RETURN;
         }
 
-        private void FnTELEBACK_12(Party party) {
+        private void FnTELEBACK_12(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0CA5); // You leave this dimension and re-enter your world.
-            L0010: TeleportPartyBC(party, 0x38, 0x04, 0x88, 0x02);
+            L0010: TeleportParty(party, 0x38, 0x04, 0x88, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
 

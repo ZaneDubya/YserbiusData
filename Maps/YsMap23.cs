@@ -1,7 +1,7 @@
 #pragma warning disable
 using XPT.WorldData;
 
-namespace XPT.Scripts.Maps {
+namespace XPT.Scripts.Yserbius.Maps {
     class YserMap23 : AMapScripted {
         protected override int MapIndex => 23;
         
@@ -183,71 +183,71 @@ namespace XPT.Scripts.Maps {
         private const string String0BDA = "This gate returns you to MAGE'S OVERLOOK.";
         
         // === Functions ================================================
-        private void FnATELEA_01(Party party) {
+        private void FnATELEA_01(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // Runes on magic wall --
             L0010: ShowRunes(party, String0413); // Alchemy
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x8A, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x8A, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnRTELEB_02(Party party) {
+        private void FnRTELEB_02(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String041B); // Runes on magic wall --
             L0010: ShowRunes(party, String0432); // Reverie
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x38, 0x03);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x38, 0x03, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnNTELEC_03(Party party) {
+        private void FnNTELEC_03(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String043A); // Runes on magic wall --
             L0010: ShowRunes(party, String0451); // Netherworld
             L001D: SetState(party, 0x02, 0x49, 0x02);
-            L0032: TeleportPartyBC(party, 0x34, 0x02, 0xE0, 0x02);
+            L0032: TeleportParty(party, 0x34, 0x02, 0xE0, 0x02, isForwardMove);
             L004D: return; // RETURN;
         }
 
-        private void FnATELED_04(Party party) {
+        private void FnATELED_04(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String045D); // Runes on magic wall --
             L0010: ShowRunes(party, String0474); // Arcane
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xF2, 0x00);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xF2, 0x00, isForwardMove);
             L0037: return; // RETURN;
         }
 
-        private void FnKTELEE_05(Party party) {
+        private void FnKTELEE_05(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String047B); // Runes on magic wall --
             L0010: ShowRunes(party, String0492); // Karma
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xF5, 0x03);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xF5, 0x03, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnKTELEF_06(Party party) {
+        private void FnKTELEF_06(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0498); // Runes on magic wall --
             L0010: ShowRunes(party, String04AF); // Karma
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xE3, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xE3, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnITELEG_07(Party party) {
+        private void FnITELEG_07(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04B5); // Runes on magic wall --
             L0010: ShowRunes(party, String04CC); // Incantation
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xCC, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xCC, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnATELEH_08(Party party) {
+        private void FnATELEH_08(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x49);
@@ -255,20 +255,20 @@ namespace XPT.Scripts.Maps {
             L0017: if (JumpNotEqual) goto L004E;
             L0019: ShowMessage(party, String04D8); // Runes on magic wall --
             L0026: ShowRunes(party, String04EF); // Archaic
-            L0033: TeleportPartyBC(party, 0x34, 0x02, 0xFA, 0x02);
+            L0033: TeleportParty(party, 0x34, 0x02, 0xFA, 0x02, isForwardMove);
             L004E: return; // RETURN;
         }
 
-        private void FnNTELEI_09(Party party) {
+        private void FnNTELEI_09(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04F7); // Runes on magic wall --
             L0010: ShowRunes(party, String050E); // Netherworld
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x88, 0x00);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x88, 0x00, isForwardMove);
             L0037: return; // RETURN;
         }
 
-        private void FnARNKENCA_0A(Party party) {
+        private void FnARNKENCA_0A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetState(party, 0x02, 0x52, 0x01);
@@ -282,43 +282,43 @@ namespace XPT.Scripts.Maps {
             L00A1: return; // RETURN;
         }
 
-        private void FnTOENTRY_0C(Party party) {
+        private void FnTOENTRY_0C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0550); // The gate takes you back to the Labyrinth.
-            L0010: TeleportPartyBC(party, 0x34, 0x02, 0x30, 0x02);
+            L0010: TeleportParty(party, 0x34, 0x02, 0x30, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
 
-        private void FnETELEJ_0D(Party party) {
+        private void FnETELEJ_0D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String057A); // Runes on magic wall --
             L0010: ShowRunes(party, String0591); // Ethereal
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xBB, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xBB, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnNTELEK_0E(Party party) {
+        private void FnNTELEK_0E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String059A); // Runes on magic wall --
             L0010: ShowRunes(party, String05B1); // Netherworld
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xDA, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xDA, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnLTELEL_0F(Party party) {
+        private void FnLTELEL_0F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetState(party, 0x02, 0x49, 0x03);
             L0018: ShowMessage(party, String05BD); // Runes on magic wall --
             L0025: ShowRunes(party, String05D4); // Luck
-            L0032: TeleportPartyBC(party, 0x34, 0x02, 0xB9, 0x02);
+            L0032: TeleportParty(party, 0x34, 0x02, 0xB9, 0x02, isForwardMove);
             L004D: return; // RETURN;
         }
 
-        private void FnITELEG_10(Party party) {
+        private void FnITELEG_10(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x49);
@@ -326,37 +326,37 @@ namespace XPT.Scripts.Maps {
             L0017: if (JumpNotEqual) goto L0050;
             L0019: ShowMessage(party, String05D9); // Runes on magic wall --
             L0026: ShowRunes(party, String05F0); // Illusion
-            L0033: TeleportPartyBC(party, 0x34, 0x02, 0xCC, 0x02);
+            L0033: TeleportParty(party, 0x34, 0x02, 0xCC, 0x02, isForwardMove);
             L004E: goto L009B;
             L0050: ax = GetState(party, 0x02, 0x49);
             L0061: Compare(ax, 0x0004);
             L0064: if (JumpNotEqual) goto L009B;
             L0066: ShowMessage(party, String05F9); // Runes on magic wall --
             L0073: ShowRunes(party, String0610); // Invulnerable
-            L0080: TeleportPartyBC(party, 0x34, 0x02, 0xD8, 0x02);
+            L0080: TeleportParty(party, 0x34, 0x02, 0xD8, 0x02, isForwardMove);
             L009B: return; // RETURN;
         }
 
-        private void FnKTELEL_11(Party party) {
+        private void FnKTELEL_11(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetState(party, 0x02, 0x49, 0x04);
             L0018: ShowMessage(party, String061D); // Runes on magic wall --
             L0025: ShowRunes(party, String0634); // Karma
-            L0032: TeleportPartyBC(party, 0x34, 0x02, 0xB9, 0x02);
+            L0032: TeleportParty(party, 0x34, 0x02, 0xB9, 0x02, isForwardMove);
             L004D: return; // RETURN;
         }
 
-        private void FnLTELEN_12(Party party) {
+        private void FnLTELEN_12(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String063A); // Runes on magic wall --
             L0010: ShowRunes(party, String0651); // Luminous
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x6A, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x6A, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnENLKENCA_13(Party party) {
+        private void FnENLKENCA_13(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetState(party, 0x02, 0x53, 0x01);
@@ -370,80 +370,80 @@ namespace XPT.Scripts.Maps {
             L009F: return; // RETURN;
         }
 
-        private void FnDTELEO_15(Party party) {
+        private void FnDTELEO_15(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetState(party, 0x02, 0x49, 0x05);
             L0018: ShowMessage(party, String069E); // Runes on magic wall --
             L0025: ShowRunes(party, String06B5); // Dust
-            L0032: TeleportPartyBC(party, 0x34, 0x02, 0xB7, 0x02);
+            L0032: TeleportParty(party, 0x34, 0x02, 0xB7, 0x02, isForwardMove);
             L004D: return; // RETURN;
         }
 
-        private void FnETELEP_16(Party party) {
+        private void FnETELEP_16(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06BA); // Runes on magic wall --
             L0010: ShowRunes(party, String06D1); // Enchant
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xD6, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xD6, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnRTELEQ_17(Party party) {
+        private void FnRTELEQ_17(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06D9); // Runes on magic wall --
             L0010: ShowRunes(party, String06F0); // Magic
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xD0, 0x03);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xD0, 0x03, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnGTELER_18(Party party) {
+        private void FnGTELER_18(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06F6); // Runes on magic wall --
             L0010: ShowRunes(party, String070D); // Ghouls
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x68, 0x00);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x68, 0x00, isForwardMove);
             L0037: return; // RETURN;
         }
 
-        private void FnHTELES_19(Party party) {
+        private void FnHTELES_19(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0714); // Runes on magic wall --
             L0010: ShowRunes(party, String072B); // Hex
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xAD, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xAD, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnOTELET_1A(Party party) {
+        private void FnOTELET_1A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String072F); // Runes on magic wall --
             L0010: ShowRunes(party, String0746); // Obsession
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x7E, 0x00);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x7E, 0x00, isForwardMove);
             L0037: return; // RETURN;
         }
 
-        private void FnSTELEU_1B(Party party) {
+        private void FnSTELEU_1B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0750); // Runes on magic wall --
             L0010: ShowRunes(party, String0767); // Sorcery
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x5E, 0x00);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x5E, 0x00, isForwardMove);
             L0037: return; // RETURN;
         }
 
-        private void FnTTELEV_1C(Party party) {
+        private void FnTTELEV_1C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String076F); // Runes on magic wall --
             L0010: ShowRunes(party, String0786); // Talisman
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xC2, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xC2, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnARNAKEND_1D(Party party) {
+        private void FnARNAKEND_1D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x52);
@@ -454,67 +454,67 @@ namespace XPT.Scripts.Maps {
             L002B: if (JumpEqual) goto L0064;
             L002D: ShowMessage(party, String078F); // Both Arnakkian and Enlikil have been identified.
             L003A: ShowMessage(party, String07C0); // The Ghost takes you to the Guardians.
-            L0047: TeleportPartyBC(party, 0x33, 0x02, 0x56, 0x02);
+            L0047: TeleportParty(party, 0x33, 0x02, 0x56, 0x02, isForwardMove);
             L0062: goto L0071;
             L0064: ShowMessage(party, String07E6); // The master of this castle must be identified before the ghost may take you to him.
             L0071: return; // RETURN;
         }
 
-        private void FnDTELEX_1E(Party party) {
+        private void FnDTELEX_1E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0839); // Runes on magic wall --
             L0010: ShowRunes(party, String0850); // Druid
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x36, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x36, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnRTELEY_1F(Party party) {
+        private void FnRTELEY_1F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0856); // Runes on magic wall --
             L0010: ShowRunes(party, String086D); // Runes
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x3B, 0x00);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x3B, 0x00, isForwardMove);
             L0037: return; // RETURN;
         }
 
-        private void FnATELEZ_20(Party party) {
+        private void FnATELEZ_20(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0873); // Runes on magic wall --
             L0010: ShowRunes(party, String088A); // Alchemist
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x2C, 0x00);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x2C, 0x00, isForwardMove);
             L0037: return; // RETURN;
         }
 
-        private void FnGTELEAA_21(Party party) {
+        private void FnGTELEAA_21(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0894); // Runes on magic wall --
             L0010: ShowRunes(party, String08AB); // Ghost
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x3E, 0x03);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x3E, 0x03, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnOTELEBB_22(Party party) {
+        private void FnOTELEBB_22(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08B1); // Runes on magic wall --
             L0010: ShowRunes(party, String08C8); // Orb
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x8E, 0x00);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x8E, 0x00, isForwardMove);
             L0037: return; // RETURN;
         }
 
-        private void FnNTELECC_23(Party party) {
+        private void FnNTELECC_23(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08CC); // Runes on magic wall --
             L0010: ShowRunes(party, String08E3); // Nexus
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xFD, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xFD, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnDRAGENCA_24(Party party) {
+        private void FnDRAGENCA_24(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1A);
@@ -526,7 +526,7 @@ namespace XPT.Scripts.Maps {
             L007E: return; // RETURN;
         }
 
-        private void FnDRAGENCB_25(Party party) {
+        private void FnDRAGENCB_25(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1C);
@@ -538,26 +538,26 @@ namespace XPT.Scripts.Maps {
             L007F: return; // RETURN;
         }
 
-        private void FnZTELEDD_26(Party party) {
+        private void FnZTELEDD_26(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08E9); // Runes on magic wall --
             L0010: ShowRunes(party, String0900); // Zzyzx
             L001D: SetState(party, 0x02, 0x49, 0x01);
-            L0032: TeleportPartyBC(party, 0x34, 0x02, 0x27, 0x02);
+            L0032: TeleportParty(party, 0x34, 0x02, 0x27, 0x02, isForwardMove);
             L004D: return; // RETURN;
         }
 
-        private void FnITELEG_27(Party party) {
+        private void FnITELEG_27(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0906); // Runes on magic wall --
             L0010: ShowRunes(party, String091D); // Illusive
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xCC, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xCC, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnWTELEEE_28(Party party) {
+        private void FnWTELEEE_28(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x02, 0x49);
@@ -565,92 +565,92 @@ namespace XPT.Scripts.Maps {
             L0017: if (JumpNotEqual) goto L004E;
             L0019: ShowMessage(party, String0926); // Runes on magic wall --
             L0026: ShowRunes(party, String093D); // Wizard
-            L0033: TeleportPartyBC(party, 0x34, 0x02, 0xE6, 0x02);
+            L0033: TeleportParty(party, 0x34, 0x02, 0xE6, 0x02, isForwardMove);
             L004E: return; // RETURN;
         }
 
-        private void FnVTELEWW_29(Party party) {
+        private void FnVTELEWW_29(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0944); // Runes on magic wall --
             L0010: ShowRunes(party, String095B); // Vision
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x07, 0x01);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x07, 0x01, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnBTELEXX_2A(Party party) {
+        private void FnBTELEXX_2A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0962); // Runes on magic wall --
             L0010: ShowRunes(party, String0979); // Bewitch
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x1D, 0x00);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x1D, 0x00, isForwardMove);
             L0037: return; // RETURN;
         }
 
-        private void FnCTELEYY_2B(Party party) {
+        private void FnCTELEYY_2B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0981); // Runes on magic wall --
             L0010: ShowRunes(party, String0998); // Conjure
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xBD, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xBD, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnPTELEZZ_2C(Party party) {
+        private void FnPTELEZZ_2C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09A0); // Runes on magic wall --
             L0010: ShowRunes(party, String09B7); // Powerful
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x00, 0x33);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x00, 0x33, isForwardMove);
             L0037: return; // RETURN;
         }
 
-        private void FnMTELEXX_2D(Party party) {
+        private void FnMTELEXX_2D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09C0); // Runes on magic wall --
             L0010: ShowRunes(party, String09D7); // Magus
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x1D, 0x00);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x1D, 0x00, isForwardMove);
             L0037: return; // RETURN;
         }
 
-        private void FnJTELEYY_2E(Party party) {
+        private void FnJTELEYY_2E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09DD); // Runes on magic wall --
             L0010: ShowRunes(party, String09F4); // Jinx
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0xBD, 0x02);
+            L001D: TeleportParty(party, 0x34, 0x02, 0xBD, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnUTELEWW_2F(Party party) {
+        private void FnUTELEWW_2F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09F9); // Runes on magic wall --
             L0010: ShowRunes(party, String0A10); // Unspeller
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x07, 0x01);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x07, 0x01, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnXTELEWW_30(Party party) {
+        private void FnXTELEWW_30(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A1A); // Runes on magic wall --
             L0010: ShowRunes(party, String0A31); // XxxX
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x07, 0x01);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x07, 0x01, isForwardMove);
             L0038: return; // RETURN;
         }
 
-        private void FnYTELEZZ_31(Party party) {
+        private void FnYTELEZZ_31(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A36); // Runes on magic wall --
             L0010: ShowRunes(party, String0A4D); // Youth
-            L001D: TeleportPartyBC(party, 0x34, 0x02, 0x00, 0x33);
+            L001D: TeleportParty(party, 0x34, 0x02, 0x00, 0x33, isForwardMove);
             L0037: return; // RETURN;
         }
 
-        private void FnIENCA_32(Party party) {
+        private void FnIENCA_32(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x18);
@@ -660,7 +660,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnWIZENCA_34(Party party) {
+        private void FnWIZENCA_34(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1E);
@@ -673,7 +673,7 @@ namespace XPT.Scripts.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnWIZENCB_35(Party party) {
+        private void FnWIZENCB_35(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1D);
@@ -686,7 +686,7 @@ namespace XPT.Scripts.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnWIZENCC_36(Party party) {
+        private void FnWIZENCC_36(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1E);
@@ -696,16 +696,16 @@ namespace XPT.Scripts.Maps {
             L0059: return; // RETURN;
         }
 
-        private void FnPIT_37(Party party) {
+        private void FnPIT_37(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A53); // You fall into the pit and die.
-            L0010: ax = GetMaxHits74(party);
-            L0017: DamagePlayer90(party, ax);
+            L0010: ax = GetMaxHits(party);
+            L0017: DamagePlayer(party, ax);
             L0021: return; // RETURN;
         }
 
-        private void FnGHOSENCA_38(Party party) {
+        private void FnGHOSENCA_38(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x20);
@@ -717,7 +717,7 @@ namespace XPT.Scripts.Maps {
             L007D: return; // RETURN;
         }
 
-        private void FnTXTGHOSB_3B(Party party) {
+        private void FnTXTGHOSB_3B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A72); // A message is written on a scroll.
@@ -725,7 +725,7 @@ namespace XPT.Scripts.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnTXTGHOST_3D(Party party) {
+        private void FnTXTGHOST_3D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0029);
@@ -734,7 +734,7 @@ namespace XPT.Scripts.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnENDRENCA_3E(Party party) {
+        private void FnENDRENCA_3E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1F);
@@ -746,7 +746,7 @@ namespace XPT.Scripts.Maps {
             L007F: return; // RETURN;
         }
 
-        private void FnBADEXIT_41(Party party) {
+        private void FnBADEXIT_41(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1E);
@@ -758,7 +758,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENTRENCA_45(Party party) {
+        private void FnENTRENCA_45(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x24);
@@ -768,7 +768,7 @@ namespace XPT.Scripts.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnLICHDOOR_47(Party party) {
+        private void FnLICHDOOR_47(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x01);
@@ -784,25 +784,15 @@ namespace XPT.Scripts.Maps {
             L0045: ax = GetState(party, 0x01, 0x04);
             L0056: RefreshCompareFlags(ax);
             L0058: if (JumpEqual) goto L00A5;
-            L005A: PushStack(party, 0x01);
-            L005E: ax = GetFacing24(party);
-            L0065: PushStack(party, ax);
-            L0066: ax = GetCurrentTile20(party);
-            L006D: PushStack(party, ax);
-            L006E: SetWallPassable2C(party, PopStack(party), PopStack(party), PopStack(party));
-            L0078: ax = GetFacing24(party);
-            L007F: PushStack(party, ax);
-            L0080: ax = GetCurrentTile20(party);
-            L0087: PushStack(party, ax);
-            L0088: PushStack(party, 0x01);
-            L008C: SetWallObject30(party, PopStack(party), PopStack(party), PopStack(party));
+            L005A: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
+            L0078: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
             L0096: ShowMessage(party, String0B26); // The Wizard Door opens.
             L00A3: goto L00B2;
             L00A5: ShowMessage(party, String0B3D); // The symbol of the Four Corners magically radiates from this door.
             L00B2: return; // RETURN;
         }
 
-        private void FnENTRENCD_48(Party party) {
+        private void FnENTRENCD_48(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x19);
@@ -814,7 +804,7 @@ namespace XPT.Scripts.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnLICHA_49(Party party) {
+        private void FnLICHA_49(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x19);
@@ -827,11 +817,11 @@ namespace XPT.Scripts.Maps {
             L006C: goto L00B3;
             L006E: SetState(party, 0x02, 0x8B, 0x01);
             L0083: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0xB7, 0xD0);
-            L00A2: AddExperience98(party, 0x00002710);
+            L00A2: AddExperience(party, 0x00002710);
             L00B3: return; // RETURN;
         }
 
-        private void FnLICHB_4A(Party party) {
+        private void FnLICHB_4A(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x19);
@@ -844,11 +834,11 @@ namespace XPT.Scripts.Maps {
             L006C: goto L00B3;
             L006E: SetState(party, 0x02, 0x8C, 0x01);
             L0083: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0xCD, 0xBD);
-            L00A2: AddExperience98(party, 0x00002710);
+            L00A2: AddExperience(party, 0x00002710);
             L00B3: return; // RETURN;
         }
 
-        private void FnLICHC_4B(Party party) {
+        private void FnLICHC_4B(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x19);
@@ -861,11 +851,11 @@ namespace XPT.Scripts.Maps {
             L006C: goto L00B3;
             L006E: SetState(party, 0x02, 0x8D, 0x01);
             L0083: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0xC7, 0xB2);
-            L00A2: AddExperience98(party, 0x00002710);
+            L00A2: AddExperience(party, 0x00002710);
             L00B3: return; // RETURN;
         }
 
-        private void FnLICHD_4C(Party party) {
+        private void FnLICHD_4C(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x19);
@@ -878,11 +868,11 @@ namespace XPT.Scripts.Maps {
             L006C: goto L00B3;
             L006E: SetState(party, 0x02, 0x8E, 0x01);
             L0083: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0xAC, 0xB7);
-            L00A2: AddExperience98(party, 0x00002710);
+            L00A2: AddExperience(party, 0x00002710);
             L00B3: return; // RETURN;
         }
 
-        private void FnLICHMAIN_4D(Party party) {
+        private void FnLICHMAIN_4D(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0B7F); // The spirit of Arnakkian Slowfoot appears.
@@ -891,7 +881,7 @@ namespace XPT.Scripts.Maps {
             L0034: AddEncounter(party, 0x03, 0x27);
             L0046: AddEncounter(party, 0x04, 0x27);
             L0058: AddEncounter(party, 0x05, 0x28);
-            L006A: ax = HasItem50(party, 0xF7);
+            L006A: ax = HasItem(party, 0xF7);
             L0078: if (JumpEqual) goto L009A;
             L007A: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L0098: goto L00F6;
@@ -900,32 +890,32 @@ namespace XPT.Scripts.Maps {
             L00CB: RefreshCompareFlags(ax);
             L00CD: if (JumpNotEqual) goto L00F6;
             L00CF: SetState(party, 0x02, 0x89, 0x01);
-            L00E4: AddExperience98(party, 0x000B71B0);
+            L00E4: AddExperience(party, 0x000B71B0);
             L00F6: return; // RETURN;
         }
 
-        private void FnTXTLICH_4E(Party party) {
+        private void FnTXTLICH_4E(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0BA9); // Apprentices of Arnakkian roam these passageways.
             L0010: return; // RETURN;
         }
 
-        private void FnLABY_4F(Party party) {
+        private void FnLABY_4F(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportPartyBC(party, 0x34, 0x01, 0x3F, 0x00);
+            L0003: TeleportParty(party, 0x34, 0x01, 0x3F, 0x00, isForwardMove);
             L001D: return; // RETURN;
         }
 
-        private void FnTXTLABY_50(Party party) {
+        private void FnTXTLABY_50(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0BDA); // This gate returns you to MAGE'S OVERLOOK.
             L0010: return; // RETURN;
         }
 
-        private void FnSETLICHA_51(Party party) {
+        private void FnSETLICHA_51(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x01);
@@ -935,7 +925,7 @@ namespace XPT.Scripts.Maps {
             L002D: return; // RETURN;
         }
 
-        private void FnSETLICHB_52(Party party) {
+        private void FnSETLICHB_52(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x02);
@@ -945,7 +935,7 @@ namespace XPT.Scripts.Maps {
             L002D: return; // RETURN;
         }
 
-        private void FnSETLICHC_53(Party party) {
+        private void FnSETLICHC_53(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x03);
@@ -955,7 +945,7 @@ namespace XPT.Scripts.Maps {
             L002D: return; // RETURN;
         }
 
-        private void FnSETLICHD_54(Party party) {
+        private void FnSETLICHD_54(ServerMobile party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = GetState(party, 0x01, 0x04);
