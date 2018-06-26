@@ -101,7 +101,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The River of Eternity taps your life energy.
-            L0010: SetNoHealZoneC4(party);
+            L0010: SetNoHealZone(party);
             L0018: ax = GetMaxHits(party);
             L001F: bx = 0x0004;
             L0022: dx = ax % bx; ax = ax / bx; // (signed, dx = quotient)
