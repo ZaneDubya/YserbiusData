@@ -1,4 +1,4 @@
-Name,Mana,Data0,Data1,Data2,Data3,Data4,Data5
+Name,Mana,UseType,TargetType,Data0_hi,Data0_lo,Data1,Data2
 Backfire,10,4,8,5,0,5,0
 Backfire,15,4,8,9,0,10,0
 Backfire,20,4,8,16,0,10,0

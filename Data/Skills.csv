@@ -1,4 +1,4 @@
-Name,Data0,Data1,Data2,Data3,Data4,Data5
+Name,UseType,TargetType,Data0,Data1,Data2,Data3
 Athletics,1,1,1,0,0,0
 Athletics,1,1,1,1,0,0
 Athletics,1,1,1,1,0,0
@@ -239,18 +239,18 @@ Reverie,1,4,130,0,253,0
 Reverie,1,4,175,0,253,0
 Reverie,1,4,225,0,252,0
 Reverie,1,4,44,1,252,0
-Rune Reading,1,1,0,0,0,0
-Rune Reading,1,1,0,0,0,0
-Rune Reading,1,1,0,0,0,0
-Rune Reading,1,1,0,0,0,0
-Rune Reading,1,1,0,0,0,0
-Rune Reading,1,1,0,0,0,0
-Rune Reading,1,1,0,0,0,0
-Rune Reading,1,1,0,0,0,0
-Rune Reading,1,1,0,0,0,0
-Rune Reading,1,1,0,0,0,0
-Rune Reading,1,1,0,0,0,0
-Rune Reading,1,1,0,0,0,0
+Rune Reading,3,1,0,0,0,0
+Rune Reading,3,1,0,0,0,0
+Rune Reading,3,1,0,0,0,0
+Rune Reading,3,1,0,0,0,0
+Rune Reading,3,1,0,0,0,0
+Rune Reading,3,1,0,0,0,0
+Rune Reading,3,1,0,0,0,0
+Rune Reading,3,1,0,0,0,0
+Rune Reading,3,1,0,0,0,0
+Rune Reading,3,1,0,0,0,0
+Rune Reading,3,1,0,0,0,0
+Rune Reading,3,1,0,0,0,0
 Staff,1,1,1,2,0,0
 Staff,1,1,1,3,0,0
 Staff,1,1,2,4,0,0
@@ -287,15 +287,15 @@ Deep Trance,1,4,90,0,0,0
 Deep Trance,1,4,120,0,0,0
 Deep Trance,1,4,160,0,0,0
 Deep Trance,1,4,200,0,0,0
-????????,1,2,3,0,0,0
-????????,1,2,5,0,0,0
-????????,1,2,7,0,0,0
-????????,1,2,15,0,0,0
-????????,1,2,25,0,0,0
-????????,1,2,36,0,0,0
-????????,1,2,50,0,0,0
-????????,1,2,65,0,0,0
-????????,1,2,90,0,0,0
-????????,1,2,120,0,0,0
-????????,1,2,160,0,0,0
-????????,1,2,200,0,0,0
+Mana Restore,1,2,3,0,0,0
+Mana Restore,1,2,5,0,0,0
+Mana Restore,1,2,7,0,0,0
+Mana Restore,1,2,15,0,0,0
+Mana Restore,1,2,25,0,0,0
+Mana Restore,1,2,36,0,0,0
+Mana Restore,1,2,50,0,0,0
+Mana Restore,1,2,65,0,0,0
+Mana Restore,1,2,90,0,0,0
+Mana Restore,1,2,120,0,0,0
+Mana Restore,1,2,160,0,0,0
+Mana Restore,1,2,200,0,0,0
