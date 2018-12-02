@@ -4,7 +4,8 @@ using XPT.WorldData;
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap00 : AMapScripted {
         protected override int MapIndex => 0;
-        protected override int ChanceRandom => 0;
+        protected override int RandomEncounterChance => 0;
+        protected override int RandomEncounterExtraCount => 0;
 
         public YserMap00() {
             MapEvent01 = FnTOMINES_01;

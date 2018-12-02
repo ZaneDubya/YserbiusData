@@ -4,7 +4,9 @@ using XPT.WorldData;
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap01 : AMapScripted {
         protected override int MapIndex => 1;
-        
+        protected override int RandomEncounterChance => 15;
+        protected override int RandomEncounterExtraCount => 1;
+
         public YserMap01() {
             MapEvent01 = FnTOEXIT_01;
             MapEvent02 = FnTELEPORT_02;
