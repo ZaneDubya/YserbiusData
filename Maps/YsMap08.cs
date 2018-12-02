@@ -1,5 +1,6 @@
 #pragma warning disable
 using XPT.WorldData;
+using XPT.WorldData.Yserbius;
 
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap08 : AMapScripted {
@@ -47,14 +48,14 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String096E = "The Troll Knight blinks at you dumbly and falls asleep.";
         
         // === Functions ================================================
-        private void FnSTRSTELE_01(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSTELE_01(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x03, 0x01, 0xC2, 0x03, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnKEYDOOR_02(ServerMobile party, bool isForwardMove) {
+        private void FnKEYDOOR_02(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xDA, 0xDA);
@@ -68,16 +69,16 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnGOLDAENC_03(ServerMobile party, bool isForwardMove) {
+        private void FnGOLDAENC_03(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x18), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x18), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: ShowMessage(party, String044D); // Skeletons on the floor stir to life.
             L0026: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0xB6);
             L0045: goto L0088;
             L0047: AddTreasure(party, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xCF);
-            L0066: SetState(party, 0x02, 0x18, 0x01);
+            L0066: SetFlag(party, 0x02, 0x18, 0x01);
             L007B: ShowMessage(party, String0472); // Among the bones on the floor are pieces of gold. The bones begin to move.
             L0088: Compare(PartyCount(party), 0x0001);
             L0093: if (JumpNotEqual) goto L00AA;
@@ -98,7 +99,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0144: return; // RETURN;
         }
 
-        private void FnGOLDBENC_04(ServerMobile party, bool isForwardMove) {
+        private void FnGOLDBENC_04(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xC6);
@@ -134,7 +135,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0198: return; // RETURN;
         }
 
-        private void FnCROWN_05(ServerMobile party, bool isForwardMove) {
+        private void FnCROWN_05(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x69);
@@ -169,7 +170,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L018B: return; // RETURN;
         }
 
-        private void FnITEMBENC_06(ServerMobile party, bool isForwardMove) {
+        private void FnITEMBENC_06(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xBB);
@@ -198,7 +199,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0129: return; // RETURN;
         }
 
-        private void FnITEMCENC_07(ServerMobile party, bool isForwardMove) {
+        private void FnITEMCENC_07(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x64);
@@ -234,7 +235,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L017F: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_08(ServerMobile party, bool isForwardMove) {
+        private void FnSTRMNSTR_08(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -265,7 +266,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0152: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_09(ServerMobile party, bool isForwardMove) {
+        private void FnTUFMNSTR_09(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -292,19 +293,19 @@ namespace XPT.Scripts.Yserbius.Maps {
             L010A: return; // RETURN;
         }
 
-        private void FnSTRSMESS_0A(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSMESS_0A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String067B); // The stairs through the west gateway lead down a level.
             L0010: return; // RETURN;
         }
 
-        private void FnNPCCHATA_0B(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATA_0B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06B2); // A Human Wizard teleports into the room you occupy.
             L0010: ShowPortrait(party, 0x002B);
-            L001D: Compare(GetRandom(party, 0x000F), 0x000B);
+            L001D: Compare(GetRandom(0x000F), 0x000B);
             L002D: if (JumpAbove) goto L0058;
             L002F: ShowMessage(party, String06E5); // Be careful when you find the way to open the door that leads to the nether depths of this dungeon.
             L003C: ShowMessage(party, String0748); // All quest items from Cleowyn's Palace levels will be stripped from you.
@@ -314,12 +315,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0065: return; // RETURN;
         }
 
-        private void FnNPCCHATB_0C(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATB_0C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0830); // You encounter a sleepy Troll Knight.
             L0010: ShowPortrait(party, 0x001B);
-            L001D: Compare(GetRandom(party, 0x000F), 0x0009);
+            L001D: Compare(GetRandom(0x000F), 0x0009);
             L002D: if (JumpAbove) goto L004B;
             L002F: ShowMessage(party, String0855); // The Galabryan kings brought the great wizard Arnakkian Slowfoot to Twinion. The island grew famous and rich thanks to this wizard.
             L003C: ShowMessage(party, String08D8); // But the wizard had his own schemes, and soon he and good King Leowyn Galabryan were at loggerheads. Supposedly, the wizard had the king assassinated.

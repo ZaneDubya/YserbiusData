@@ -1,5 +1,6 @@
 #pragma warning disable
 using XPT.WorldData;
+using XPT.WorldData.Yserbius;
 
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap32 : AMapScripted {
@@ -51,7 +52,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String0A2B = "You enter another dimension.";
         
         // === Functions ================================================
-        private void FnVOID_01(ServerMobile party, bool isForwardMove) {
+        private void FnVOID_01(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The Ageless Void swallows you whole.
@@ -60,7 +61,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002E: return; // RETURN;
         }
 
-        private void FnISLEETRN_02(ServerMobile party, bool isForwardMove) {
+        private void FnISLEETRN_02(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String046D); // The Island of Eternity sits at the edge of time.
@@ -68,7 +69,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnENCSELF_03(ServerMobile party, bool isForwardMove) {
+        private void FnENCSELF_03(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x19);
@@ -80,7 +81,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCWINTR_04(ServerMobile party, bool isForwardMove) {
+        private void FnENCWINTR_04(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04E8); // A titanic Elemental appears!
@@ -102,7 +103,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00D8: return; // RETURN;
         }
 
-        private void FnRAINRED_05(ServerMobile party, bool isForwardMove) {
+        private void FnRAINRED_05(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06F2); // A streak of Red crosses the Ageless Void.
@@ -110,7 +111,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnRAINYEL_06(ServerMobile party, bool isForwardMove) {
+        private void FnRAINYEL_06(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String071C); // A streak of Yellow crosses the Ageless Void.
@@ -118,7 +119,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnRAINGRN_07(ServerMobile party, bool isForwardMove) {
+        private void FnRAINGRN_07(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0749); // A streak of Green crosses the Ageless Void.
@@ -126,7 +127,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnRAINBLU_08(ServerMobile party, bool isForwardMove) {
+        private void FnRAINBLU_08(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0775); // A streak of Blue crosses the Ageless Void.
@@ -134,7 +135,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnENCTIME_09(ServerMobile party, bool isForwardMove) {
+        private void FnENCTIME_09(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07A0); // Threads of blinding light appear from all directions, bending and weaving into a tight spiral before you.
@@ -146,7 +147,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0051: return; // RETURN;
         }
 
-        private void FnTELENW_0A(ServerMobile party, bool isForwardMove) {
+        private void FnTELENW_0A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09D4); // You enter another dimension.
@@ -154,7 +155,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnTELENE_0B(ServerMobile party, bool isForwardMove) {
+        private void FnTELENE_0B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09F1); // You enter another dimension.
@@ -162,7 +163,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnTELESE_0C(ServerMobile party, bool isForwardMove) {
+        private void FnTELESE_0C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A0E); // You enter another dimension.
@@ -170,7 +171,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnTELESW_0D(ServerMobile party, bool isForwardMove) {
+        private void FnTELESW_0D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A2B); // You enter another dimension.

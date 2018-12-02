@@ -1,5 +1,6 @@
 #pragma warning disable
 using XPT.WorldData;
+using XPT.WorldData.Yserbius;
 
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap00 : AMapScripted {
@@ -41,87 +42,87 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String0650 = "Only heroes of the twentieth level or higher may venture beyond this door.";
         
         // === Functions ================================================
-        private void FnTOMINES_01(ServerMobile party, bool isForwardMove) {
+        private void FnTOMINES_01(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x01, 0x02, 0xFD, 0x03, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnTOTREAS_02(ServerMobile party, bool isForwardMove) {
+        private void FnTOTREAS_02(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x01, 0x04, 0x10, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnTOSOLDQU_03(ServerMobile party, bool isForwardMove) {
+        private void FnTOSOLDQU_03(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x01, 0x06, 0x0F, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnEXITDUNG_04(ServerMobile party, bool isForwardMove) {
+        private void FnEXITDUNG_04(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ExitDungeon(party, isForwardMove);
             L000B: return; // RETURN;
         }
 
-        private void FnDOORMESA_05(ServerMobile party, bool isForwardMove) {
+        private void FnDOORMESA_05(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The gateway leads to THE MINES.
             L0010: return; // RETURN;
         }
 
-        private void FnDOORMESB_06(ServerMobile party, bool isForwardMove) {
+        private void FnDOORMESB_06(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String041C); // The gateway leads to THE HALL OF DOORS.
             L0010: return; // RETURN;
         }
 
-        private void FnDOORMESC_07(ServerMobile party, bool isForwardMove) {
+        private void FnDOORMESC_07(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0444); // The gateway leads to THE SOLDIERS  QUARTERS.
             L0010: return; // RETURN;
         }
 
-        private void FnDOORMESD_08(ServerMobile party, bool isForwardMove) {
+        private void FnDOORMESD_08(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0471); // The gateway is the DUNGEON EXIT.
-            L0010: ax = IsStateSet(party, 0x02, 0x6A);
+            L0010: ax = IsFlagOn(party, 0x02, 0x6A);
             L0023: if (JumpEqual) goto L003F;
             L0025: ShowMessage(party, String0492); // Hail, conquering HERO OF YSERBIUS!
             L0032: ShowMessage(party, String04B5); // All of Twinion bows to your prominence!!
             L003F: return; // RETURN;
         }
 
-        private void FnTELEPORT_09(ServerMobile party, bool isForwardMove) {
+        private void FnTELEPORT_09(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x33, 0x01, 0x5D, 0x00, isForwardMove);
             L001D: return; // RETURN;
         }
 
-        private void FnTELEMESS_0A(ServerMobile party, bool isForwardMove) {
+        private void FnTELEMESS_0A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04DE); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
-        private void FnDOORMESS_0B(ServerMobile party, bool isForwardMove) {
+        private void FnDOORMESS_0B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel(party, 0x0014);
             L0011: if (JumpNotEqual) goto L0016;
             L0013: goto L011F;
-            L0016: Compare(GetState(party, 0x02, 0x78), 0x0001);
+            L0016: Compare(GetFlag(party, 0x02, 0x78), 0x0001);
             L002A: if (JumpNotEqual) goto L005A;
             L002C: ShowMessage(party, String0504); // This room contains the gateway to the Labyrinth.
             L0039: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
@@ -131,7 +132,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006A: goto L0110;
             L006D: ShowMessage(party, String0535); // The Thieves' Key unlocks this door!
             L007A: ShowMessage(party, String0559); // This room contains the gateway to the Labyrinth.
-            L0087: SetState(party, 0x02, 0x78, 0x01);
+            L0087: SetFlag(party, 0x02, 0x78, 0x01);
             L009C: RemoveItem(party, 0xFB);
             L00A8: RemoveItem(party, 0xD2);
             L00B4: RemoveItem(party, 0xD3);
@@ -149,7 +150,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0156: return; // RETURN;
         }
 
-        private void FnPRTYPORT_0C(ServerMobile party, bool isForwardMove) {
+        private void FnPRTYPORT_0C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel(party, 0x0014);
@@ -161,7 +162,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0049: return; // RETURN;
         }
 
-        private void FnNOJOIN_0D(ServerMobile party, bool isForwardMove) {
+        private void FnNOJOIN_0D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetNoJoinArea(party);

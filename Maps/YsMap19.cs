@@ -1,5 +1,6 @@
 #pragma warning disable
 using XPT.WorldData;
+using XPT.WorldData.Yserbius;
 
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap19 : AMapScripted {
@@ -38,29 +39,29 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String0733 = "The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.";
         
         // === Functions ================================================
-        private void FnTELEPORT_01(ServerMobile party, bool isForwardMove) {
+        private void FnTELEPORT_01(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x05, 0x02, 0x00, 0x33, isForwardMove);
             L001D: return; // RETURN;
         }
 
-        private void FnTELEMESS_02(ServerMobile party, bool isForwardMove) {
+        private void FnTELEMESS_02(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
-        private void FnFOUNBLES_03(ServerMobile party, bool isForwardMove) {
+        private void FnFOUNBLES_03(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x3D), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x3D), 0x0001);
             L0017: if (JumpNotEqual) goto L0035;
             L0019: ShowPortrait(party, 0x0042);
             L0026: ShowMessage(party, String0422); // You sip from the Fountain of Restoration, but nothing happens.
             L0033: goto L0080;
-            L0035: SetState(party, 0x02, 0x3D, 0x01);
+            L0035: SetFlag(party, 0x02, 0x3D, 0x01);
             L004A: ShowPortrait(party, 0x0042);
             L0057: dx = GetMaxHits(party) - GetCurrentHits(party);
             L0069: HealPlayer(party, dx);
@@ -68,7 +69,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0080: return; // RETURN;
         }
 
-        private void FnQUESTENC_04(ServerMobile party, bool isForwardMove) {
+        private void FnQUESTENC_04(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x81);
@@ -108,7 +109,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L01E4: return; // RETURN;
         }
 
-        private void FnLKPKDORZ_05(ServerMobile party, bool isForwardMove) {
+        private void FnLKPKDORZ_05(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xE2, 0xE2);
@@ -122,7 +123,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnSTRDOOR_06(ServerMobile party, bool isForwardMove) {
+        private void FnSTRDOOR_06(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(party), 0x000E);
@@ -136,7 +137,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0089: return; // RETURN;
         }
 
-        private void FnAVEMNSTR_0B(ServerMobile party, bool isForwardMove) {
+        private void FnAVEMNSTR_0B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -165,7 +166,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L012E: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_0C(ServerMobile party, bool isForwardMove) {
+        private void FnSTRMNSTR_0C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -196,12 +197,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0152: return; // RETURN;
         }
 
-        private void FnNPCCHATA_0E(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATA_0E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05C5); // You encounter a Human Thief.
             L0010: ShowPortrait(party, 0x0022);
-            L001D: Compare(GetRandom(party, 0x000F), 0x000C);
+            L001D: Compare(GetRandom(0x000F), 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String05E2); // Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
             L003C: goto L004B;
@@ -209,12 +210,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_0F(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATB_0F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String067A); // You encounter an Elf Barbarian.
             L0010: ShowPortrait(party, 0x0018);
-            L001D: Compare(GetRandom(party, 0x000F), 0x0004);
+            L001D: Compare(GetRandom(0x000F), 0x0004);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String069A); // A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.
             L003C: goto L004B;

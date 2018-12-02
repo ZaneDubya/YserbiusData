@@ -1,5 +1,6 @@
 #pragma warning disable
 using XPT.WorldData;
+using XPT.WorldData.Yserbius;
 
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap02 : AMapScripted {
@@ -93,24 +94,24 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String0EC4 = "The door is currently impassable.";
         
         // === Functions ================================================
-        private void FnTOMINES_01(ServerMobile party, bool isForwardMove) {
+        private void FnTOMINES_01(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x01, 0x02, 0x7F, 0x00, isForwardMove);
             L001D: return; // RETURN;
         }
 
-        private void FnTOTREAS_02(ServerMobile party, bool isForwardMove) {
+        private void FnTOTREAS_02(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x01, 0x04, 0x05, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnKEYDOOR_03(ServerMobile party, bool isForwardMove) {
+        private void FnKEYDOOR_03(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x00), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x00), 0x0001);
             L0016: if (JumpNotEqual) goto L0063;
             L0018: ShowMessage(party, String03FC); // Cleowyn's Key has unlocked the door.
             L0025: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -121,7 +122,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnKEYMESSG_04(ServerMobile party, bool isForwardMove) {
+        private void FnKEYMESSG_04(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0465); // The tapestry shows a message in runes...
@@ -129,10 +130,10 @@ namespace XPT.Scripts.Yserbius.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_05(ServerMobile party, bool isForwardMove) {
+        private void FnLKPKDOOR_05(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x00), 0x0002);
+            L0003: Compare(GetFlag(party, 0x02, 0x00), 0x0002);
             L0016: if (JumpNotEqual) goto L0063;
             L0018: ShowMessage(party, String04B8); // Cleowyn's Lockpick has unlocked the door.
             L0025: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -143,7 +144,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnLKPKMESG_06(ServerMobile party, bool isForwardMove) {
+        private void FnLKPKMESG_06(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String04F6); // There are runes on the tapestry...
@@ -151,10 +152,10 @@ namespace XPT.Scripts.Yserbius.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnSTRDOOR_07(ServerMobile party, bool isForwardMove) {
+        private void FnSTRDOOR_07(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x00), 0x0003);
+            L0003: Compare(GetFlag(party, 0x02, 0x00), 0x0003);
             L0016: if (JumpNotEqual) goto L0063;
             L0018: ShowMessage(party, String0546); // The door has been forced open.
             L0025: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -165,7 +166,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnSTRMESSG_08(ServerMobile party, bool isForwardMove) {
+        private void FnSTRMESSG_08(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0587); // The tapestry has runes...
@@ -173,16 +174,16 @@ namespace XPT.Scripts.Yserbius.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnGOLDENC_09(ServerMobile party, bool isForwardMove) {
+        private void FnGOLDENC_09(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x05), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x05), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: ShowMessage(party, String05D1); // Aside from angry Rogues, the room is empty.
             L0026: AddTreasure(party, 0x0014, 0x00, 0x00, 0x00, 0x00, 0xB5);
             L0045: goto L0088;
             L0047: AddTreasure(party, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xCE);
-            L0066: SetState(party, 0x02, 0x05, 0x01);
+            L0066: SetFlag(party, 0x02, 0x05, 0x01);
             L007B: ShowMessage(party, String05FD); // A Rogue drops gold coins on the floor as the villains draw their weapons.
             L0088: Compare(PartyCount(party), 0x0001);
             L0093: if (JumpEqual) goto L00A2;
@@ -197,14 +198,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00FE: return; // RETURN;
         }
 
-        private void FnSTAIRS_0A(ServerMobile party, bool isForwardMove) {
+        private void FnSTAIRS_0A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x02, 0x02, 0x01, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnPALKEYEN_0B(ServerMobile party, bool isForwardMove) {
+        private void FnPALKEYEN_0B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xD9);
@@ -236,18 +237,18 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0151: return; // RETURN;
         }
 
-        private void FnTELEPORT_0C(ServerMobile party, bool isForwardMove) {
+        private void FnTELEPORT_0C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x04, 0x01, 0xF0, 0x03, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnLOWMNSTR_0D(ServerMobile party, bool isForwardMove) {
+        private void FnLOWMNSTR_0D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06A9); // You encounter Rogues.
-            L0010: Compare(GetRandom(party, 0x000F), 0x0006);
+            L0010: Compare(GetRandom(0x000F), 0x0006);
             L0020: if (JumpAbove) goto L0050;
             L0022: AddTreasure(party, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xB5);
             L0041: ShowMessage(party, String06BF); // If you are skilled enough, you may find teleports that speed your way to various levels of this dungeon.
@@ -269,7 +270,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0112: return; // RETURN;
         }
 
-        private void FnMODMNSTR_0E(ServerMobile party, bool isForwardMove) {
+        private void FnMODMNSTR_0E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -288,7 +289,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L009F: return; // RETURN;
         }
 
-        private void FnSTRMNST_0F(ServerMobile party, bool isForwardMove) {
+        private void FnSTRMNST_0F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -315,7 +316,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L010A: return; // RETURN;
         }
 
-        private void FnBADMNSTR_10(ServerMobile party, bool isForwardMove) {
+        private void FnBADMNSTR_10(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -347,49 +348,49 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0164: return; // RETURN;
         }
 
-        private void FnMESSAGEA_11(ServerMobile party, bool isForwardMove) {
+        private void FnMESSAGEA_11(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetState(party, 0x02, 0x00, 0x00);
+            L0003: SetFlag(party, 0x02, 0x00, 0x00);
             L0016: ShowMessage(party, String074E); // This gateway leads to THE MINES.
             L0023: return; // RETURN;
         }
 
-        private void FnMESSAGEB_12(ServerMobile party, bool isForwardMove) {
+        private void FnMESSAGEB_12(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetState(party, 0x02, 0x00, 0x00);
+            L0003: SetFlag(party, 0x02, 0x00, 0x00);
             L0016: ShowMessage(party, String076F); // This gateway leads to THE HALL OF DOORS.
             L0023: return; // RETURN;
         }
 
-        private void FnTELEMESS_13(ServerMobile party, bool isForwardMove) {
+        private void FnTELEMESS_13(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetState(party, 0x02, 0x00, 0x03);
+            L0003: SetFlag(party, 0x02, 0x00, 0x03);
             L0017: ShowMessage(party, String0798); // There is a teleport to the north.
             L0024: return; // RETURN;
         }
 
-        private void FnSTRSMESS_14(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSMESS_14(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetState(party, 0x02, 0x00, 0x01);
+            L0003: SetFlag(party, 0x02, 0x00, 0x01);
             L0017: ShowMessage(party, String07BA); // There are stairs to the west through the gateway.
             L0024: return; // RETURN;
         }
 
-        private void FnSTRSTLPT_15(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSTLPT_15(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x02, 0x02, 0x01, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnREGDOOR_16(ServerMobile party, bool isForwardMove) {
+        private void FnREGDOOR_16(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x00), 0x0004);
+            L0003: Compare(GetFlag(party, 0x02, 0x00), 0x0004);
             L0016: if (JumpNotEqual) goto L0063;
             L0018: ShowMessage(party, String07EC); // As you open the door, you hear locks click throughout the dungeon.
             L0025: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -400,12 +401,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnNPCCHATA_17(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATA_17(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0851); // You encounter an Elf Ranger.
             L0010: ShowPortrait(party, 0x001F);
-            L001D: Compare(GetRandom(party, 0x000F), 0x000B);
+            L001D: Compare(GetRandom(0x000F), 0x000B);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String086E); // You must solve the mystery of the linked Vestibule doors to continue farther down into the dungeon.
             L003C: goto L004B;
@@ -413,12 +414,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_18(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATB_18(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0914); // You encounter a Human Wizard.
             L0010: ShowPortrait(party, 0x002B);
-            L001D: Compare(GetRandom(party, 0x000F), 0x0009);
+            L001D: Compare(GetRandom(0x000F), 0x0009);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0932); // Centuries ago, Twinion was a thriving port town, ruled by the Galabryan dynasty. The kings welcomed all races and Guilds to the island. When the volcano Yserbius erupted, it almost buried Twinion under lava. If only we could find some way off this island!
             L003C: goto L004B;
@@ -426,12 +427,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATC_19(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATC_19(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A71); // You encounter a Gremlin Thief.
             L0010: ShowPortrait(party, 0x0026);
-            L001D: Compare(GetRandom(party, 0x000F), 0x000A);
+            L001D: Compare(GetRandom(0x000F), 0x000A);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0A90); // King Cleowyn created a clever maze of squares to discourage thieves and invaders. Mind you, no invaders ever thought Twinion rich enough to be worth their effort.
             L003C: goto L004B;
@@ -439,12 +440,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATD_1A(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATD_1A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0B69); // You encounter an Orc Knight.
             L0010: ShowPortrait(party, 0x001A);
-            L001D: Compare(GetRandom(party, 0x000F), 0x0008);
+            L001D: Compare(GetRandom(0x000F), 0x0008);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0B86); // The richness of fine armor and weapons in this dungeon baffles me. I've heard rumors that skilled dwarfs once crafted such armory, but the rogue dwarfs you encounter nowadays have no talent for such expert metallurgy.
             L003C: goto L004B;
@@ -452,12 +453,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATE_1B(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATE_1B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0C93); // You encounter an Elf Cleric.
             L0010: ShowPortrait(party, 0x0027);
-            L001D: Compare(GetRandom(party, 0x000F), 0x0008);
+            L001D: Compare(GetRandom(0x000F), 0x0008);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0CB0); // I have visited King Cleowyn's throne room, and what a disappointment it was. Not much treasure there and too many dead things. Perhaps I missed something.
             L003C: goto L004B;
@@ -465,12 +466,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnKEYDRA_1C(ServerMobile party, bool isForwardMove) {
+        private void FnKEYDRA_1C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xD3);
             L0011: if (JumpEqual) goto L0072;
-            L0013: SetState(party, 0x02, 0x00, 0x01);
+            L0013: SetFlag(party, 0x02, 0x00, 0x01);
             L0027: ShowMessage(party, String0D8C); // Cleowyn's Key unlocks the door.
             L0034: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
             L0052: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
@@ -480,12 +481,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L009C: return; // RETURN;
         }
 
-        private void FnLKPKDRA_1D(ServerMobile party, bool isForwardMove) {
+        private void FnLKPKDRA_1D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xD2);
             L0011: if (JumpEqual) goto L0072;
-            L0013: SetState(party, 0x02, 0x00, 0x02);
+            L0013: SetFlag(party, 0x02, 0x00, 0x02);
             L0027: ShowMessage(party, String0DC0); // Cleowyn's Lockpick has unlocked the door.
             L0034: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
             L0052: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
@@ -495,12 +496,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L009C: return; // RETURN;
         }
 
-        private void FnSTRNGDRA_1E(ServerMobile party, bool isForwardMove) {
+        private void FnSTRNGDRA_1E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(party), 0x0012);
             L0012: if (JumpBelow) goto L0073;
-            L0014: SetState(party, 0x02, 0x00, 0x03);
+            L0014: SetFlag(party, 0x02, 0x00, 0x03);
             L0028: ShowMessage(party, String0E3C); // You manage to force open the door.
             L0035: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
             L0053: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
@@ -510,14 +511,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L009D: return; // RETURN;
         }
 
-        private void FnREGDORA_1F(ServerMobile party, bool isForwardMove) {
+        private void FnREGDORA_1F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetState(party, 0x02, 0x00));
+            L0003: RefreshCompareFlags(GetFlag(party, 0x02, 0x00));
             L0015: if (JumpEqual) goto L002C;
-            L0017: Compare(GetState(party, 0x02, 0x00), 0x0004);
+            L0017: Compare(GetFlag(party, 0x02, 0x00), 0x0004);
             L002A: if (JumpNotEqual) goto L008B;
-            L002C: SetState(party, 0x02, 0x00, 0x04);
+            L002C: SetFlag(party, 0x02, 0x00, 0x04);
             L0040: ShowMessage(party, String0E81); // As you open the door, you hear locks click throughout the dungeon.
             L004D: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
             L006B: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);

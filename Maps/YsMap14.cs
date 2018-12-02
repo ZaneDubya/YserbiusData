@@ -1,5 +1,6 @@
 #pragma warning disable
 using XPT.WorldData;
+using XPT.WorldData.Yserbius;
 
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap14 : AMapScripted {
@@ -144,21 +145,21 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String11D6 = "There is a teleport in the west wall.";
         
         // === Functions ================================================
-        private void FnTORUNERM_01(ServerMobile party, bool isForwardMove) {
+        private void FnTORUNERM_01(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x03, 0x01, 0x1F, 0x00, isForwardMove);
             L001D: return; // RETURN;
         }
 
-        private void FnTOMAUS_02(ServerMobile party, bool isForwardMove) {
+        private void FnTOMAUS_02(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x03, 0x04, 0xF8, 0x03, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnSPECDOOR_03(ServerMobile party, bool isForwardMove) {
+        private void FnSPECDOOR_03(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xD2, 0xD2);
@@ -174,12 +175,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L009D: return; // RETURN;
         }
 
-        private void FnQUESTDOR_04(ServerMobile party, bool isForwardMove) {
+        private void FnQUESTDOR_04(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x2E), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x2E), 0x0001);
             L0017: if (JumpNotEqual) goto L0078;
-            L0019: SetState(party, 0x02, 0x2E, 0x00);
+            L0019: SetFlag(party, 0x02, 0x2E, 0x00);
             L002D: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L004B: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
             L0069: ShowMessage(party, String0421); // The door magically opens!
@@ -189,21 +190,21 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A2: return; // RETURN;
         }
 
-        private void FnSTRSTELE_05(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSTELE_05(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x04, 0x01, 0x1F, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnQSTCHARA_06(ServerMobile party, bool isForwardMove) {
+        private void FnQSTCHARA_06(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xF9);
             L0011: if (JumpEqual) goto L008C;
             L0013: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L0031: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
-            L004F: SetState(party, 0x02, 0x2E, 0x01);
+            L004F: SetFlag(party, 0x02, 0x2E, 0x01);
             L0064: ShowPortrait(party, 0x001C);
             L0071: RemoveItem(party, 0xF9);
             L007D: ShowMessage(party, String0454); // That is indeed the King's Pass. You may continue. If you ever return, I'll need to see another pass.
@@ -215,10 +216,10 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00D0: return; // RETURN;
         }
 
-        private void FnQSTCHARB_07(ServerMobile party, bool isForwardMove) {
+        private void FnQSTCHARB_07(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x22), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x22), 0x0001);
             L0017: if (JumpNotEqual) goto L0035;
             L0019: ShowPortrait(party, 0x002C);
             L0026: ShowMessage(party, String0578); // You have passed the Trial of Harmony. A great reward is yours, if you but look for it.
@@ -228,10 +229,10 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004F: return; // RETURN;
         }
 
-        private void FnQSTCHARC_08(ServerMobile party, bool isForwardMove) {
+        private void FnQSTCHARC_08(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x23), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x23), 0x0001);
             L0017: if (JumpNotEqual) goto L0035;
             L0019: ShowPortrait(party, 0x002D);
             L0026: ShowMessage(party, String0649); // You have passed the Trial of Chaos. A great reward is yours, if you but look for it.
@@ -241,21 +242,21 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004F: return; // RETURN;
         }
 
-        private void FnTELEPORT_09(ServerMobile party, bool isForwardMove) {
+        private void FnTELEPORT_09(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x02, 0x01, 0xF0, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnTELEPORT_0A(ServerMobile party, bool isForwardMove) {
+        private void FnTELEPORT_0A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x04, 0x01, 0x87, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnHUTHDOOR_0B(ServerMobile party, bool isForwardMove) {
+        private void FnHUTHDOOR_0B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetRace(party));
@@ -271,7 +272,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnORCLDOOR_0C(ServerMobile party, bool isForwardMove) {
+        private void FnORCLDOOR_0C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(party), 0x0001);
@@ -287,7 +288,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0090: return; // RETURN;
         }
 
-        private void FnELBADOOR_0D(ServerMobile party, bool isForwardMove) {
+        private void FnELBADOOR_0D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(party), 0x0002);
@@ -303,7 +304,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnTRRADOOR_0E(ServerMobile party, bool isForwardMove) {
+        private void FnTRRADOOR_0E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(party), 0x0003);
@@ -319,7 +320,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0090: return; // RETURN;
         }
 
-        private void FnDWKNDOOR_0F(ServerMobile party, bool isForwardMove) {
+        private void FnDWKNDOOR_0F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(party), 0x0004);
@@ -335,7 +336,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0090: return; // RETURN;
         }
 
-        private void FnGNWIDOOR_10(ServerMobile party, bool isForwardMove) {
+        private void FnGNWIDOOR_10(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(party), 0x0005);
@@ -351,7 +352,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0090: return; // RETURN;
         }
 
-        private void FnHAITDOOR_11(ServerMobile party, bool isForwardMove) {
+        private void FnHAITDOOR_11(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(party), 0x0006);
@@ -367,7 +368,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0094: return; // RETURN;
         }
 
-        private void FnGRITDOOR_12(ServerMobile party, bool isForwardMove) {
+        private void FnGRITDOOR_12(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(party), 0x0007);
@@ -383,7 +384,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0094: return; // RETURN;
         }
 
-        private void FnOTGGDOOR_13(ServerMobile party, bool isForwardMove) {
+        private void FnOTGGDOOR_13(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09A9); // A warning is on the door -
@@ -395,7 +396,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0038: return; // RETURN;
         }
 
-        private void FnHEDHDOOR_14(ServerMobile party, bool isForwardMove) {
+        private void FnHEDHDOOR_14(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A2E); // A warning is on the door -
@@ -407,7 +408,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0039: return; // RETURN;
         }
 
-        private void FnCHAOSDOR_15(ServerMobile party, bool isForwardMove) {
+        private void FnCHAOSDOR_15(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0AB3); // A sign is on the door -
@@ -425,7 +426,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00C8: return; // RETURN;
         }
 
-        private void FnHARMDOOR_16(ServerMobile party, bool isForwardMove) {
+        private void FnHARMDOOR_16(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0B25); // A sign is on the door -
@@ -443,16 +444,16 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00C7: return; // RETURN;
         }
 
-        private void FnPAYAENC_17(ServerMobile party, bool isForwardMove) {
+        private void FnPAYAENC_17(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x23), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x23), 0x0001);
             L0017: if (JumpEqual) goto L0025;
             L0019: RefreshCompareFlags(GetAlignment(party));
             L0023: if (JumpNotEqual) goto L0048;
             L0025: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xCE, 0xB7);
             L0045: goto L00E1;
-            L0048: SetState(party, 0x02, 0x23, 0x01);
+            L0048: SetFlag(party, 0x02, 0x23, 0x01);
             L005D: Compare(GetGuild(party), 0x0005);
             L0067: if (JumpEqual) goto L0075;
             L0069: Compare(GetGuild(party), 0x0004);
@@ -488,16 +489,16 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0209: return; // RETURN;
         }
 
-        private void FnPAYBENC_18(ServerMobile party, bool isForwardMove) {
+        private void FnPAYBENC_18(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x22), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x22), 0x0001);
             L0017: if (JumpEqual) goto L0026;
             L0019: Compare(GetAlignment(party), 0x0001);
             L0024: if (JumpNotEqual) goto L0049;
             L0026: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xCE, 0xB7);
             L0046: goto L011C;
-            L0049: SetState(party, 0x02, 0x22, 0x01);
+            L0049: SetFlag(party, 0x02, 0x22, 0x01);
             L005E: RefreshCompareFlags(GetGuild(party));
             L0067: if (JumpEqual) goto L0075;
             L0069: Compare(GetGuild(party), 0x0004);
@@ -539,168 +540,168 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0244: return; // RETURN;
         }
 
-        private void FnBLESSMES_19(ServerMobile party, bool isForwardMove) {
+        private void FnBLESSMES_19(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsStateUnset(party, 0x02, 0x2F);
+            L0003: ax = IsFlagOff(party, 0x02, 0x2F);
             L0016: if (JumpEqual) goto L0076;
             L0018: RefreshCompareFlags(GetRace(party));
             L0021: if (JumpEqual) goto L002F;
             L0023: Compare(GetGuild(party), 0x0003);
             L002D: if (JumpNotEqual) goto L0076;
-            L002F: SetState(party, 0x02, 0x2F, 0x01);
+            L002F: SetFlag(party, 0x02, 0x2F, 0x01);
             L0044: ModifyAttribute(party, 0x00, 0x0001);
             L0055: ModifyAttribute(party, 0x01, 0x0001);
             L0067: ShowMessage(party, String0BD7); // Blessed Human or Thief, you may continue the quest.
             L0074: goto L0098;
-            L0076: SetState(party, 0x02, 0x2F, 0x01);
+            L0076: SetFlag(party, 0x02, 0x2F, 0x01);
             L008B: ShowMessage(party, String0C0B); // The tapestry shows nothing of interest.
             L0098: return; // RETURN;
         }
 
-        private void FnBLESSMES_1A(ServerMobile party, bool isForwardMove) {
+        private void FnBLESSMES_1A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsStateUnset(party, 0x02, 0x30);
+            L0003: ax = IsFlagOff(party, 0x02, 0x30);
             L0016: if (JumpEqual) goto L0077;
             L0018: Compare(GetRace(party), 0x0001);
             L0022: if (JumpEqual) goto L0030;
             L0024: Compare(GetGuild(party), 0x0004);
             L002E: if (JumpNotEqual) goto L0077;
-            L0030: SetState(party, 0x02, 0x30, 0x01);
+            L0030: SetFlag(party, 0x02, 0x30, 0x01);
             L0045: ModifyAttribute(party, 0x00, 0x0001);
             L0056: ModifyAttribute(party, 0x01, 0x0001);
             L0068: ShowMessage(party, String0C33); // Blessed Orc or Cleric, you may continue the quest.
             L0075: goto L0099;
-            L0077: SetState(party, 0x02, 0x30, 0x01);
+            L0077: SetFlag(party, 0x02, 0x30, 0x01);
             L008C: ShowMessage(party, String0C66); // The tapestry shows a jumble of runes.
             L0099: return; // RETURN;
         }
 
-        private void FnBLESSMES_1B(ServerMobile party, bool isForwardMove) {
+        private void FnBLESSMES_1B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsStateUnset(party, 0x02, 0x31);
+            L0003: ax = IsFlagOff(party, 0x02, 0x31);
             L0016: if (JumpEqual) goto L0076;
             L0018: Compare(GetRace(party), 0x0002);
             L0022: if (JumpEqual) goto L002F;
             L0024: RefreshCompareFlags(GetGuild(party));
             L002D: if (JumpNotEqual) goto L0076;
-            L002F: SetState(party, 0x02, 0x31, 0x01);
+            L002F: SetFlag(party, 0x02, 0x31, 0x01);
             L0044: ModifyAttribute(party, 0x00, 0x0001);
             L0055: ModifyAttribute(party, 0x01, 0x0001);
             L0067: ShowMessage(party, String0C8C); // Blessed Elf or Barbarian, you may continue the quest.
             L0074: goto L0098;
-            L0076: SetState(party, 0x02, 0x31, 0x01);
+            L0076: SetFlag(party, 0x02, 0x31, 0x01);
             L008B: ShowMessage(party, String0CC2); // The tapestry is blank.
             L0098: return; // RETURN;
         }
 
-        private void FnBLESSMES_1C(ServerMobile party, bool isForwardMove) {
+        private void FnBLESSMES_1C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsStateUnset(party, 0x02, 0x32);
+            L0003: ax = IsFlagOff(party, 0x02, 0x32);
             L0016: if (JumpEqual) goto L0077;
             L0018: Compare(GetRace(party), 0x0003);
             L0022: if (JumpEqual) goto L0030;
             L0024: Compare(GetGuild(party), 0x0002);
             L002E: if (JumpNotEqual) goto L0077;
-            L0030: SetState(party, 0x02, 0x32, 0x01);
+            L0030: SetFlag(party, 0x02, 0x32, 0x01);
             L0045: ModifyAttribute(party, 0x00, 0x0001);
             L0056: ModifyAttribute(party, 0x01, 0x0001);
             L0068: ShowMessage(party, String0CD9); // Blessed Troll or Ranger, you may continue the quest.
             L0075: goto L0099;
-            L0077: SetState(party, 0x02, 0x32, 0x01);
+            L0077: SetFlag(party, 0x02, 0x32, 0x01);
             L008C: ShowMessage(party, String0D0E); // The tapestry is blank.
             L0099: return; // RETURN;
         }
 
-        private void FnBLESSMES_1D(ServerMobile party, bool isForwardMove) {
+        private void FnBLESSMES_1D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsStateUnset(party, 0x02, 0x33);
+            L0003: ax = IsFlagOff(party, 0x02, 0x33);
             L0016: if (JumpEqual) goto L0077;
             L0018: Compare(GetRace(party), 0x0004);
             L0022: if (JumpEqual) goto L0030;
             L0024: Compare(GetGuild(party), 0x0001);
             L002E: if (JumpNotEqual) goto L0077;
-            L0030: SetState(party, 0x02, 0x33, 0x01);
+            L0030: SetFlag(party, 0x02, 0x33, 0x01);
             L0045: ModifyAttribute(party, 0x00, 0x0001);
             L0056: ModifyAttribute(party, 0x01, 0x0001);
             L0068: ShowMessage(party, String0D25); // Blessed Dwarf or Knight, you may continue the quest.
             L0075: goto L0099;
-            L0077: SetState(party, 0x02, 0x33, 0x01);
+            L0077: SetFlag(party, 0x02, 0x33, 0x01);
             L008C: ShowMessage(party, String0D5A); // It is too dark to read the inscription.
             L0099: return; // RETURN;
         }
 
-        private void FnBLESSMES_1E(ServerMobile party, bool isForwardMove) {
+        private void FnBLESSMES_1E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsStateUnset(party, 0x02, 0x34);
+            L0003: ax = IsFlagOff(party, 0x02, 0x34);
             L0016: if (JumpEqual) goto L0077;
             L0018: Compare(GetRace(party), 0x0005);
             L0022: if (JumpEqual) goto L0030;
             L0024: Compare(GetGuild(party), 0x0005);
             L002E: if (JumpNotEqual) goto L0077;
-            L0030: SetState(party, 0x02, 0x34, 0x01);
+            L0030: SetFlag(party, 0x02, 0x34, 0x01);
             L0045: ModifyAttribute(party, 0x00, 0x0001);
             L0056: ModifyAttribute(party, 0x01, 0x0001);
             L0068: ShowMessage(party, String0D82); // Blessed Gnome or Wizard, you may continue the quest.
             L0075: goto L0099;
-            L0077: SetState(party, 0x02, 0x34, 0x01);
+            L0077: SetFlag(party, 0x02, 0x34, 0x01);
             L008C: ShowMessage(party, String0DB7); // An inscription on the tapestry fades away as you draw near.
             L0099: return; // RETURN;
         }
 
-        private void FnBLESSMES_1F(ServerMobile party, bool isForwardMove) {
+        private void FnBLESSMES_1F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsStateUnset(party, 0x02, 0x35);
+            L0003: ax = IsFlagOff(party, 0x02, 0x35);
             L0016: if (JumpEqual) goto L0087;
             L0018: Compare(GetRace(party), 0x0006);
             L0022: if (JumpEqual) goto L0034;
             L0024: ax = HasItem(party, 0xD3);
             L0032: if (JumpEqual) goto L0087;
-            L0034: SetState(party, 0x02, 0x35, 0x01);
+            L0034: SetFlag(party, 0x02, 0x35, 0x01);
             L0049: ShowMessage(party, String0DF3); // Blessed Halfling! Blessed Key of Cleowyn! With either, the quest may continue.
             L0056: Compare(GetRace(party), 0x0006);
             L0060: if (JumpNotEqual) goto L0085;
             L0062: ModifyAttribute(party, 0x00, 0x0001);
             L0073: ModifyAttribute(party, 0x01, 0x0001);
             L0085: goto L00A9;
-            L0087: SetState(party, 0x02, 0x35, 0x01);
+            L0087: SetFlag(party, 0x02, 0x35, 0x01);
             L009C: ShowMessage(party, String0E42); // The tapestry is empty.
             L00A9: return; // RETURN;
         }
 
-        private void FnBLESSMES_20(ServerMobile party, bool isForwardMove) {
+        private void FnBLESSMES_20(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsStateUnset(party, 0x02, 0x36);
+            L0003: ax = IsFlagOff(party, 0x02, 0x36);
             L0016: if (JumpEqual) goto L0087;
             L0018: Compare(GetRace(party), 0x0007);
             L0022: if (JumpEqual) goto L0034;
             L0024: ax = HasItem(party, 0xD2);
             L0032: if (JumpEqual) goto L0087;
-            L0034: SetState(party, 0x02, 0x36, 0x01);
+            L0034: SetFlag(party, 0x02, 0x36, 0x01);
             L0049: ShowMessage(party, String0E59); // Blessed Gremlin! Blessed Pick of Cleowyn! With either, the quest may continue.
             L0056: Compare(GetRace(party), 0x0007);
             L0060: if (JumpNotEqual) goto L0085;
             L0062: ModifyAttribute(party, 0x00, 0x0001);
             L0073: ModifyAttribute(party, 0x01, 0x0001);
             L0085: goto L00A9;
-            L0087: SetState(party, 0x02, 0x36, 0x01);
+            L0087: SetFlag(party, 0x02, 0x36, 0x01);
             L009C: ShowMessage(party, String0EA8); // The tapestry once held a woven message.
             L00A9: return; // RETURN;
         }
 
-        private void FnENDQSTDR_21(ServerMobile party, bool isForwardMove) {
+        private void FnENDQSTDR_21(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x22), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x22), 0x0001);
             L0017: if (JumpEqual) goto L002F;
-            L0019: Compare(GetState(party, 0x02, 0x23), 0x0001);
+            L0019: Compare(GetFlag(party, 0x02, 0x23), 0x0001);
             L002D: if (JumpNotEqual) goto L0078;
             L002F: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
             L004D: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
@@ -708,7 +709,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0078: return; // RETURN;
         }
 
-        private void FnQUESTBEN_22(ServerMobile party, bool isForwardMove) {
+        private void FnQUESTBEN_22(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0EE9); // Reptilian bodies rise from the shadows.
@@ -741,15 +742,15 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0171: return; // RETURN;
         }
 
-        private void FnGOLDAENC_23(ServerMobile party, bool isForwardMove) {
+        private void FnGOLDAENC_23(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsStateSet(party, 0x02, 0x24);
+            L0003: ax = IsFlagOn(party, 0x02, 0x24);
             L0016: if (JumpEqual) goto L0039;
             L0018: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0x00, 0xD1);
             L0037: goto L006E;
             L0039: AddTreasure(party, 0x0BB8, 0x00, 0x00, 0x00, 0xB7, 0xCF);
-            L0059: SetState(party, 0x02, 0x24, 0x01);
+            L0059: SetFlag(party, 0x02, 0x24, 0x01);
             L006E: Compare(PartyCount(party), 0x0001);
             L0079: if (JumpNotEqual) goto L0090;
             L007B: AddEncounter(party, 0x01, 0x1C);
@@ -773,15 +774,15 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0172: return; // RETURN;
         }
 
-        private void FnWEAPAENC_24(ServerMobile party, bool isForwardMove) {
+        private void FnWEAPAENC_24(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsStateSet(party, 0x02, 0x25);
+            L0003: ax = IsFlagOn(party, 0x02, 0x25);
             L0016: if (JumpEqual) goto L003A;
             L0018: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xCC, 0xCE);
             L0038: goto L006F;
             L003A: AddTreasure(party, 0x07D0, 0x00, 0x00, 0x00, 0xCC, 0x0D);
-            L005A: SetState(party, 0x02, 0x25, 0x01);
+            L005A: SetFlag(party, 0x02, 0x25, 0x01);
             L006F: ShowMessage(party, String0F6C); // You are challenged to combat.
             L007C: Compare(PartyCount(party), 0x0001);
             L0087: if (JumpNotEqual) goto L00B0;
@@ -805,15 +806,15 @@ namespace XPT.Scripts.Yserbius.Maps {
             L016E: return; // RETURN;
         }
 
-        private void FnMAGICENC_25(ServerMobile party, bool isForwardMove) {
+        private void FnMAGICENC_25(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x26), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x26), 0x0001);
             L0017: if (JumpNotEqual) goto L003A;
             L0019: AddTreasure(party, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L0038: goto L006E;
             L003A: AddTreasure(party, 0x0384, 0x00, 0x00, 0x00, 0x00, 0xB3);
-            L0059: SetState(party, 0x02, 0x26, 0x01);
+            L0059: SetFlag(party, 0x02, 0x26, 0x01);
             L006E: ShowMessage(party, String0F8A); // Ferocious enemies stop you.
             L007B: Compare(PartyCount(party), 0x0001);
             L0086: if (JumpEqual) goto L0095;
@@ -840,7 +841,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L01A3: return; // RETURN;
         }
 
-        private void FnQUESTAEN_26(ServerMobile party, bool isForwardMove) {
+        private void FnQUESTAEN_26(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xF9);
@@ -873,15 +874,15 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0187: return; // RETURN;
         }
 
-        private void FnITEMAENC_27(ServerMobile party, bool isForwardMove) {
+        private void FnITEMAENC_27(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x28), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x28), 0x0001);
             L0017: if (JumpNotEqual) goto L003A;
             L0019: AddTreasure(party, 0x012C, 0x00, 0x00, 0x00, 0x00, 0xB6);
             L0038: goto L006F;
             L003A: AddTreasure(party, 0x04B0, 0x00, 0x00, 0x00, 0xCF, 0xAA);
-            L005A: SetState(party, 0x02, 0x28, 0x01);
+            L005A: SetFlag(party, 0x02, 0x28, 0x01);
             L006F: ShowMessage(party, String0FE2); // Proud knights dispute your progress.
             L007C: Compare(PartyCount(party), 0x0001);
             L0087: if (JumpEqual) goto L0096;
@@ -900,15 +901,15 @@ namespace XPT.Scripts.Yserbius.Maps {
             L013A: return; // RETURN;
         }
 
-        private void FnGOLDBENC_28(ServerMobile party, bool isForwardMove) {
+        private void FnGOLDBENC_28(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x29), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x29), 0x0001);
             L0017: if (JumpNotEqual) goto L003A;
             L0019: AddTreasure(party, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCB);
             L0038: goto L006F;
             L003A: AddTreasure(party, 0x2710, 0x00, 0x00, 0x00, 0xB0, 0xCD);
-            L005A: SetState(party, 0x02, 0x29, 0x01);
+            L005A: SetFlag(party, 0x02, 0x29, 0x01);
             L006F: ShowMessage(party, String1007); // Strong enemies bar your way.
             L007C: Compare(PartyCount(party), 0x0001);
             L0087: if (JumpEqual) goto L0096;
@@ -928,7 +929,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L014C: return; // RETURN;
         }
 
-        private void FnDRKEYENC_29(ServerMobile party, bool isForwardMove) {
+        private void FnDRKEYENC_29(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xC3);
@@ -964,7 +965,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L01A3: return; // RETURN;
         }
 
-        private void FnSPKEYDOO_2A(ServerMobile party, bool isForwardMove) {
+        private void FnSPKEYDOO_2A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xE1, 0xE1);
@@ -980,15 +981,15 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A2: return; // RETURN;
         }
 
-        private void FnITEMBENC_2C(ServerMobile party, bool isForwardMove) {
+        private void FnITEMBENC_2C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x2A), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x2A), 0x0001);
             L0017: if (JumpNotEqual) goto L003A;
             L0019: AddTreasure(party, 0x001E, 0x00, 0x00, 0x00, 0x00, 0xB1);
             L0038: goto L006F;
             L003A: AddTreasure(party, 0x01F4, 0x00, 0x00, 0x00, 0xB1, 0x55);
-            L005A: SetState(party, 0x02, 0x2A, 0x01);
+            L005A: SetFlag(party, 0x02, 0x2A, 0x01);
             L006F: ShowMessage(party, String10C7); // Fierce opponents bar your way.
             L007C: Compare(PartyCount(party), 0x0001);
             L0087: if (JumpNotEqual) goto L00C2;
@@ -1016,20 +1017,20 @@ namespace XPT.Scripts.Yserbius.Maps {
             L01B6: return; // RETURN;
         }
 
-        private void FnGOLDPILE_2D(ServerMobile party, bool isForwardMove) {
+        private void FnGOLDPILE_2D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x2B), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x2B), 0x0001);
             L0017: if (JumpNotEqual) goto L0028;
             L0019: ShowMessage(party, String10E6); // This area has been looted.
             L0026: goto L005B;
             L0028: ModifyGold(party, 0x2EE0);
-            L0039: SetState(party, 0x02, 0x2B, 0x01);
+            L0039: SetFlag(party, 0x02, 0x2B, 0x01);
             L004E: ShowMessage(party, String1101); // You find 12000 Gold Pieces on the floor.
             L005B: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_2E(ServerMobile party, bool isForwardMove) {
+        private void FnSTRMNSTR_2E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -1056,7 +1057,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0119: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_2F(ServerMobile party, bool isForwardMove) {
+        private void FnTUFMNSTR_2F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String112A); // Your way is blocked.
@@ -1078,35 +1079,35 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00E0: return; // RETURN;
         }
 
-        private void FnGATEMESA_3A(ServerMobile party, bool isForwardMove) {
+        private void FnGATEMESA_3A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String113F); // The gateway leads to THE RUNE ROOM.
             L0010: return; // RETURN;
         }
 
-        private void FnGATEMESB_3B(ServerMobile party, bool isForwardMove) {
+        private void FnGATEMESB_3B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1163); // The gateway leads to THE MAUSOLEUM.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESS_3C(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSMESS_3C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1187); // Stairs past the south gateway lead down.
             L0010: return; // RETURN;
         }
 
-        private void FnTELEMESA_3D(ServerMobile party, bool isForwardMove) {
+        private void FnTELEMESA_3D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String11B0); // There is a teleport in the east wall.
             L0010: return; // RETURN;
         }
 
-        private void FnTELEMESB_3E(ServerMobile party, bool isForwardMove) {
+        private void FnTELEMESB_3E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String11D6); // There is a teleport in the west wall.

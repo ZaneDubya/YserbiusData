@@ -1,5 +1,6 @@
 #pragma warning disable
 using XPT.WorldData;
+using XPT.WorldData.Yserbius;
 
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap07 : AMapScripted {
@@ -63,21 +64,21 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String0AE2 = "The Halfling Cleric mumbles his prayers.";
         
         // === Functions ================================================
-        private void FnSTRSTELE_01(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSTELE_01(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x01, 0x03, 0x97, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnSTRSTELE_02(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSTELE_02(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x03, 0x01, 0x1F, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_03(ServerMobile party, bool isForwardMove) {
+        private void FnLKPKDOOR_03(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xC1, 0xC4);
@@ -93,7 +94,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L009E: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_04(ServerMobile party, bool isForwardMove) {
+        private void FnLKPKDOOR_04(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xBF, 0xC4);
@@ -114,7 +115,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00D0: return; // RETURN;
         }
 
-        private void FnRUNESIGN_05(ServerMobile party, bool isForwardMove) {
+        private void FnRUNESIGN_05(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String050E); // Runes can be seen on the tapestry...
@@ -122,14 +123,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnTOPALACA_06(ServerMobile party, bool isForwardMove) {
+        private void FnTOPALACA_06(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x02, 0x06, 0x03, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnLOWMNSTR_07(ServerMobile party, bool isForwardMove) {
+        private void FnLOWMNSTR_07(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -154,7 +155,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00E6: return; // RETURN;
         }
 
-        private void FnMEDMNSTR_08(ServerMobile party, bool isForwardMove) {
+        private void FnMEDMNSTR_08(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -187,7 +188,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0176: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_09(ServerMobile party, bool isForwardMove) {
+        private void FnSTRMNSTR_09(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -216,54 +217,54 @@ namespace XPT.Scripts.Yserbius.Maps {
             L012E: return; // RETURN;
         }
 
-        private void FnSTRSMESA_0A(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSMESA_0A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String056D); // The stairs through the west gateway lead up a level.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESB_0B(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSMESB_0B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05A2); // Through the north gateway are stairs going up to the next level.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESC_0C(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSMESC_0C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05E3); // The stairs to the east lead downstairs.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESD_0D(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSMESD_0D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String060B); // The stairs past the north gateway go down a level.
             L0010: return; // RETURN;
         }
 
-        private void FnGATEMESS_0E(ServerMobile party, bool isForwardMove) {
+        private void FnGATEMESS_0E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String063E); // The gateway leads to THE PALACE OF KING CLEOWYN.
             L0010: return; // RETURN;
         }
 
-        private void FnTOPALACB_0F(ServerMobile party, bool isForwardMove) {
+        private void FnTOPALACB_0F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x02, 0x06, 0x04, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnNPCCHATA_10(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATA_10(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String066F); // You encounter a Dwarf Thief.
             L0010: ShowPortrait(party, 0x0023);
-            L001D: Compare(GetRandom(party, 0x000F), 0x000B);
+            L001D: Compare(GetRandom(0x000F), 0x000B);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String068C); // The palace doors are locked. Somewhere on the first level is the object that will open these doors.
             L003C: goto L004B;
@@ -271,12 +272,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_11(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATB_11(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0742); // You encounter a Halfling Ranger.
             L0010: ShowPortrait(party, 0x0021);
-            L001D: Compare(GetRandom(party, 0x000F), 0x0008);
+            L001D: Compare(GetRandom(0x000F), 0x0008);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0763); // I know there are three secret areas on this level, but they cannot be entered from this corridor.
             L003C: goto L004B;
@@ -284,12 +285,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATC_12(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATC_12(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07F6); // You encounter a Dwarf Wizard.
             L0010: ShowPortrait(party, 0x002C);
-            L001D: Compare(GetRandom(party, 0x000F), 0x000C);
+            L001D: Compare(GetRandom(0x000F), 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0814); // Not all traps should be by-passed. I fell through one and, after some nosing around and polishing off some bothersome rogues and monsters, found a most useful key.
             L003C: goto L004B;
@@ -297,12 +298,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATD_13(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATD_13(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08E8); // You encounter an Orc Knight.
             L0010: ShowPortrait(party, 0x001A);
-            L001D: Compare(GetRandom(party, 0x000F), 0x0007);
+            L001D: Compare(GetRandom(0x000F), 0x0007);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0905); // King Cleowyn's Palace is an evil place, filled with the spirits of the tormented dead.  A cleric told me to look for an asymmetry in the Palace if I wished to learn the truth about the dead king.
             L003C: goto L004B;
@@ -310,26 +311,26 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnSTRSTELE_14(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSTELE_14(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x01, 0x03, 0x97, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnSTRSTELE_15(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSTELE_15(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x03, 0x01, 0x1F, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnNPCCHATE_16(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATE_16(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09F2); // You encounter a Halfling Cleric.
             L0010: ShowPortrait(party, 0x0029);
-            L001D: Compare(GetRandom(party, 0x000F), 0x000D);
+            L001D: Compare(GetRandom(0x000F), 0x000D);
             L002D: if (JumpAbove) goto L004B;
             L002F: ShowMessage(party, String0A13); // On the next level down you will find a dwarf by the name of Deldwinn.  He guards the entrance to King Cleowyn's Apartments.
             L003C: ShowMessage(party, String0A8F); // Do not try to fight Deldwinn, for he is enchanted and cannot be killed by mortals.

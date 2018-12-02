@@ -1,5 +1,6 @@
 #pragma warning disable
 using XPT.WorldData;
+using XPT.WorldData.Yserbius;
 
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap28 : AMapScripted {
@@ -191,10 +192,10 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String1DA0 = "It is known in the trees that Nature's Robe must be used for the harvest.'";
         
         // === Functions ================================================
-        private void FnALDBORA_01(ServerMobile party, bool isForwardMove) {
+        private void FnALDBORA_01(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
-            L0004: si = GetState(party, 0x01, 0x01);
+            L0004: si = GetFlag(party, 0x01, 0x01);
             L0017: ax = HasUsedItem(party, 0xE8, 0xE8);
             L002A: if (JumpNotEqual) goto L002F;
             L002C: goto L0414;
@@ -314,7 +315,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L045F: return; // RETURN (restoring si);
         }
 
-        private void FnENCA_02(ServerMobile party, bool isForwardMove) {
+        private void FnENCA_02(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07DD); // Dwarven Knights attempt an ambush.
@@ -325,7 +326,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0058: return; // RETURN;
         }
 
-        private void FnENCB_03(ServerMobile party, bool isForwardMove) {
+        private void FnENCB_03(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1F);
@@ -337,7 +338,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCC_04(ServerMobile party, bool isForwardMove) {
+        private void FnENCC_04(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1F);
@@ -347,7 +348,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnENCD_05(ServerMobile party, bool isForwardMove) {
+        private void FnENCD_05(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x18);
@@ -359,7 +360,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCE_06(ServerMobile party, bool isForwardMove) {
+        private void FnENCE_06(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x14);
@@ -369,7 +370,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnENCF_07(ServerMobile party, bool isForwardMove) {
+        private void FnENCF_07(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xFA);
@@ -385,7 +386,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A9: return; // RETURN;
         }
 
-        private void FnENCG_08(ServerMobile party, bool isForwardMove) {
+        private void FnENCG_08(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1A);
@@ -395,7 +396,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnENCH_09(ServerMobile party, bool isForwardMove) {
+        private void FnENCH_09(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x21);
@@ -405,7 +406,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnENCI_0A(ServerMobile party, bool isForwardMove) {
+        private void FnENCI_0A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1C);
@@ -421,7 +422,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00AB: return; // RETURN;
         }
 
-        private void FnCGATE_0B(ServerMobile party, bool isForwardMove) {
+        private void FnCGATE_0B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0858); // A path leads up to CASTLEGATE
@@ -429,7 +430,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnDWARF_0C(ServerMobile party, bool isForwardMove) {
+        private void FnDWARF_0C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel(party, 0x001E);
@@ -441,71 +442,71 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004A: return; // RETURN;
         }
 
-        private void FnNOJOIN_0D(ServerMobile party, bool isForwardMove) {
+        private void FnNOJOIN_0D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetNoJoinArea(party);
             L000B: return; // RETURN;
         }
 
-        private void FnBEECHWD_0E(ServerMobile party, bool isForwardMove) {
+        private void FnBEECHWD_0E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08FB); // Upon a wood sign is written -- 'Wilderness of BeechWood.'
-            L0010: RefreshCompareFlags(GetState(party, 0x01, 0x01));
+            L0010: RefreshCompareFlags(GetFlag(party, 0x01, 0x01));
             L0023: if (JumpNotEqual) goto L0079;
-            L0025: SetState(party, 0x01, 0x03, 0x01);
-            L003A: SetState(party, 0x01, 0x02, 0x02);
-            L004F: SetState(party, 0x01, 0x01, 0x03);
-            L0064: SetState(party, 0x01, 0x04, 0x04);
+            L0025: SetFlag(party, 0x01, 0x03, 0x01);
+            L003A: SetFlag(party, 0x01, 0x02, 0x02);
+            L004F: SetFlag(party, 0x01, 0x01, 0x03);
+            L0064: SetFlag(party, 0x01, 0x04, 0x04);
             L0079: return; // RETURN;
         }
 
-        private void FnOAKLEAF_0F(ServerMobile party, bool isForwardMove) {
+        private void FnOAKLEAF_0F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0935); // A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'
-            L0010: RefreshCompareFlags(GetState(party, 0x01, 0x02));
+            L0010: RefreshCompareFlags(GetFlag(party, 0x01, 0x02));
             L0023: if (JumpNotEqual) goto L0079;
-            L0025: SetState(party, 0x01, 0x03, 0x01);
-            L003A: SetState(party, 0x01, 0x02, 0x02);
-            L004F: SetState(party, 0x01, 0x01, 0x03);
-            L0064: SetState(party, 0x01, 0x04, 0x04);
+            L0025: SetFlag(party, 0x01, 0x03, 0x01);
+            L003A: SetFlag(party, 0x01, 0x02, 0x02);
+            L004F: SetFlag(party, 0x01, 0x01, 0x03);
+            L0064: SetFlag(party, 0x01, 0x04, 0x04);
             L0079: return; // RETURN;
         }
 
-        private void FnMAPLEBRS_10(ServerMobile party, bool isForwardMove) {
+        private void FnMAPLEBRS_10(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0978); // A sign of ancient wood reads -- 'Wilderness of MapleBrush.'
-            L0010: RefreshCompareFlags(GetState(party, 0x01, 0x03));
+            L0010: RefreshCompareFlags(GetFlag(party, 0x01, 0x03));
             L0023: if (JumpNotEqual) goto L0079;
-            L0025: SetState(party, 0x01, 0x03, 0x01);
-            L003A: SetState(party, 0x01, 0x02, 0x02);
-            L004F: SetState(party, 0x01, 0x01, 0x03);
-            L0064: SetState(party, 0x01, 0x04, 0x04);
+            L0025: SetFlag(party, 0x01, 0x03, 0x01);
+            L003A: SetFlag(party, 0x01, 0x02, 0x02);
+            L004F: SetFlag(party, 0x01, 0x01, 0x03);
+            L0064: SetFlag(party, 0x01, 0x04, 0x04);
             L0079: return; // RETURN;
         }
 
-        private void FnPINECONE_11(ServerMobile party, bool isForwardMove) {
+        private void FnPINECONE_11(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09B4); // In the dust of pine needles is written -- 'Wilderness of PineCone.'
-            L0010: RefreshCompareFlags(GetState(party, 0x01, 0x04));
+            L0010: RefreshCompareFlags(GetFlag(party, 0x01, 0x04));
             L0023: if (JumpNotEqual) goto L0079;
-            L0025: SetState(party, 0x01, 0x03, 0x01);
-            L003A: SetState(party, 0x01, 0x02, 0x02);
-            L004F: SetState(party, 0x01, 0x01, 0x03);
-            L0064: SetState(party, 0x01, 0x04, 0x04);
+            L0025: SetFlag(party, 0x01, 0x03, 0x01);
+            L003A: SetFlag(party, 0x01, 0x02, 0x02);
+            L004F: SetFlag(party, 0x01, 0x01, 0x03);
+            L0064: SetFlag(party, 0x01, 0x04, 0x04);
             L0079: return; // RETURN;
         }
 
-        private void FnBWACTOR_12(ServerMobile party, bool isForwardMove) {
+        private void FnBWACTOR_12(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String09F8); // We are the Wise Ones of Beechwood who serve the Seasons.
             L0011: ShowPortrait(party, 0x0027);
-            L001E: si = GetState(party, 0x01, 0x01);
+            L001E: si = GetFlag(party, 0x01, 0x01);
             L0031: bx = si;
             L0033: bx = bx - 1;
             L0034: Compare(bx, 0x03);
@@ -544,7 +545,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0100: if (JumpNotEqual) goto L0158;
             L0102: RemoveItem(party, 0xE5);
             L010E: GiveItem(party, 0xE8);
-            L011A: SetState(party, 0x01, 0x01, 0x02);
+            L011A: SetFlag(party, 0x01, 0x01, 0x02);
             L012F: ShowMessage(party, String0D08); // Spring thanks you for the Winter Waters.
             L013C: ShowMessage(party, String0D31); // See how soft Spring transforms into vibrant Summer!
             L0149: ShowMessage(party, String0D65); // Take this Summer Radiance for your troubles.
@@ -557,7 +558,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0180: if (JumpNotEqual) goto L01D8;
             L0182: RemoveItem(party, 0xE6);
             L018E: GiveItem(party, 0xE4);
-            L019A: SetState(party, 0x01, 0x01, 0x03);
+            L019A: SetFlag(party, 0x01, 0x01, 0x03);
             L01AF: ShowMessage(party, String0DBC); // Summer rejoices in the wondrous Harvest Horn.
             L01BC: ShowMessage(party, String0DEA); // Behold!  Summer ripens into mature Autumn!
             L01C9: ShowMessage(party, String0E15); // The golden Autumn Seeds are ample reward for your generosity.
@@ -570,7 +571,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0200: if (JumpNotEqual) goto L0258;
             L0202: RemoveItem(party, 0xE7);
             L020E: GiveItem(party, 0xE5);
-            L021A: SetState(party, 0x01, 0x01, 0x04);
+            L021A: SetFlag(party, 0x01, 0x01, 0x04);
             L022F: ShowMessage(party, String0E86); // Autumn gladly accepts the Spring Renewal.
             L023C: ShowMessage(party, String0EB0); // Lo!  Golden Autumn pales to white Winter and now sleeps under snowy blankets.
             L0249: ShowMessage(party, String0EFE); // These icy Winter Waters are a present to you.
@@ -583,7 +584,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0280: if (JumpNotEqual) goto L02D8;
             L0282: RemoveItem(party, 0xE4);
             L028E: GiveItem(party, 0xE7);
-            L029A: SetState(party, 0x01, 0x01, 0x01);
+            L029A: SetFlag(party, 0x01, 0x01, 0x01);
             L02AF: ShowMessage(party, String0F60); // These Autumn Seeds are wonderful, indeed!
             L02BC: ShowMessage(party, String0F8A); // See sleeping Winter blossom with new life!
             L02C9: ShowMessage(party, String0FB5); // You now receive the glory of Spring Renewal.  It is a priceless gift!
@@ -595,12 +596,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0301: return; // RETURN (restoring si);
         }
 
-        private void FnOLACTOR_13(ServerMobile party, bool isForwardMove) {
+        private void FnOLACTOR_13(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String1071); // We are the Clerics of Oakleaf who comfort the Seasons.
             L0011: ShowPortrait(party, 0x0027);
-            L001E: si = GetState(party, 0x01, 0x02);
+            L001E: si = GetFlag(party, 0x01, 0x02);
             L0031: bx = si;
             L0033: bx = bx - 1;
             L0034: Compare(bx, 0x03);
@@ -639,7 +640,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0100: if (JumpNotEqual) goto L0158;
             L0102: RemoveItem(party, 0xE5);
             L010E: GiveItem(party, 0xE8);
-            L011A: SetState(party, 0x01, 0x02, 0x02);
+            L011A: SetFlag(party, 0x01, 0x02, 0x02);
             L012F: ShowMessage(party, String1300); // Spring accepts the Winter Waters.
             L013C: ShowMessage(party, String1322); // Spring sings sweetly of its transformation into Summer!
             L0149: ShowMessage(party, String135A); // Summer Radiance is yours as happy reward.
@@ -652,7 +653,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0180: if (JumpNotEqual) goto L01D8;
             L0182: RemoveItem(party, 0xE6);
             L018E: GiveItem(party, 0xE4);
-            L019A: SetState(party, 0x01, 0x02, 0x03);
+            L019A: SetFlag(party, 0x01, 0x02, 0x03);
             L01AF: ShowMessage(party, String13B3); // Summer accepts the Harvest Horn.
             L01BC: ShowMessage(party, String13D4); // Summer mellows by the sweet music and is now Autumn!
             L01C9: ShowMessage(party, String1409); // Autumn Seeds are now yours to enjoy.
@@ -665,7 +666,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0200: if (JumpNotEqual) goto L0258;
             L0202: RemoveItem(party, 0xE7);
             L020E: GiveItem(party, 0xE5);
-            L021A: SetState(party, 0x01, 0x02, 0x04);
+            L021A: SetFlag(party, 0x01, 0x02, 0x04);
             L022F: ShowMessage(party, String1458); // Autumn shyly receives the Spring Renewal.
             L023C: ShowMessage(party, String1482); // Now Autumn turns to Winter, still clutching the hope of vernal renewal.
             L0249: ShowMessage(party, String14CA); // Winter Waters are yours, my friends.
@@ -678,7 +679,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0280: if (JumpNotEqual) goto L02D8;
             L0282: RemoveItem(party, 0xE4);
             L028E: GiveItem(party, 0xE7);
-            L029A: SetState(party, 0x01, 0x02, 0x01);
+            L029A: SetFlag(party, 0x01, 0x02, 0x01);
             L02AF: ShowMessage(party, String1510); // Autumn Seeds hold the germ of life!
             L02BC: ShowMessage(party, String1534); // Cold Winter is become warm Spring.  Rejoice!
             L02C9: ShowMessage(party, String1561); // The magnificent Spring Renewal is your just reward.
@@ -689,12 +690,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L02F4: return; // RETURN (restoring si);
         }
 
-        private void FnMBACTOR_14(ServerMobile party, bool isForwardMove) {
+        private void FnMBACTOR_14(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String15E2); // We are the Wardens of Maplebrush and hold the Seasons.
             L0011: ShowPortrait(party, 0x0027);
-            L001E: si = GetState(party, 0x01, 0x03);
+            L001E: si = GetFlag(party, 0x01, 0x03);
             L0031: bx = si;
             L0033: bx = bx - 1;
             L0034: Compare(bx, 0x03);
@@ -729,7 +730,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00CB: if (JumpNotEqual) goto L0116;
             L00CD: RemoveItem(party, 0xE5);
             L00D9: GiveItem(party, 0xE8);
-            L00E5: SetState(party, 0x01, 0x03, 0x02);
+            L00E5: SetFlag(party, 0x01, 0x03, 0x02);
             L00FA: ShowMessage(party, String171A); // From Winter Waters comes the change of Spring to Summer.
             L0107: ShowMessage(party, String1753); // You are rewarded.
             L0114: goto L0123;
@@ -741,7 +742,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L013E: if (JumpNotEqual) goto L0189;
             L0140: RemoveItem(party, 0xE6);
             L014C: GiveItem(party, 0xE4);
-            L0158: SetState(party, 0x01, 0x03, 0x03);
+            L0158: SetFlag(party, 0x01, 0x03, 0x03);
             L016D: ShowMessage(party, String1779); // The Harvest Horn blows Summer into Autumn.
             L017A: ShowMessage(party, String17A4); // A reward is yours.
             L0187: goto L0196;
@@ -753,7 +754,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L01B1: if (JumpNotEqual) goto L01FC;
             L01B3: RemoveItem(party, 0xE7);
             L01BF: GiveItem(party, 0xE5);
-            L01CB: SetState(party, 0x01, 0x03, 0x04);
+            L01CB: SetFlag(party, 0x01, 0x03, 0x04);
             L01E0: ShowMessage(party, String17CE); // The Spring Renewal eases Autumn's slide into Winter.
             L01ED: ShowMessage(party, String1803); // Enjoy your reward.
             L01FA: goto L0209;
@@ -765,7 +766,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0224: if (JumpNotEqual) goto L026F;
             L0226: RemoveItem(party, 0xE4);
             L0232: GiveItem(party, 0xE7);
-            L023E: SetState(party, 0x01, 0x03, 0x01);
+            L023E: SetFlag(party, 0x01, 0x03, 0x01);
             L0253: ShowMessage(party, String182E); // Winter devours the Autumn Seeds and becomes Spring.
             L0260: ShowMessage(party, String1862); // You are well rewarded.
             L026D: goto L027C;
@@ -775,12 +776,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L028B: return; // RETURN (restoring si);
         }
 
-        private void FnPCACTOR_15(ServerMobile party, bool isForwardMove) {
+        private void FnPCACTOR_15(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String18C1); // We are the Seasons incarnate in mortal form.
             L0011: ShowPortrait(party, 0x0027);
-            L001E: si = GetState(party, 0x01, 0x04);
+            L001E: si = GetFlag(party, 0x01, 0x04);
             L0031: bx = si;
             L0033: bx = bx - 1;
             L0034: Compare(bx, 0x03);
@@ -809,7 +810,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0094: if (JumpNotEqual) goto L00EC;
             L0096: RemoveItem(party, 0xE5);
             L00A2: GiveItem(party, 0xE8);
-            L00AE: SetState(party, 0x01, 0x04, 0x02);
+            L00AE: SetFlag(party, 0x01, 0x04, 0x02);
             L00C3: ShowMessage(party, String191E); // The Winter Waters you offer quench my thirst.
             L00D0: ShowMessage(party, String194C); // Look how I have become Summer!
             L00DD: ShowMessage(party, String196B); // Take my new Summer Radiance.
@@ -822,7 +823,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0114: if (JumpNotEqual) goto L016C;
             L0116: RemoveItem(party, 0xE6);
             L0122: GiveItem(party, 0xE4);
-            L012E: SetState(party, 0x01, 0x04, 0x03);
+            L012E: SetFlag(party, 0x01, 0x04, 0x03);
             L0143: ShowMessage(party, String19A6); // I blow the Harvest Horn you give me...
             L0150: ShowMessage(party, String19CD); // ...and I change to Autumn!
             L015D: ShowMessage(party, String19E8); // Have some of my Autumn Seeds as thanks.
@@ -835,7 +836,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0194: if (JumpNotEqual) goto L01EC;
             L0196: RemoveItem(party, 0xE7);
             L01A2: GiveItem(party, 0xE5);
-            L01AE: SetState(party, 0x01, 0x04, 0x04);
+            L01AE: SetFlag(party, 0x01, 0x04, 0x04);
             L01C3: ShowMessage(party, String1A35); // Because you give me Spring Renewal...
             L01D0: ShowMessage(party, String1A5B); // ...I can safely transform into Winter and still survive.
             L01DD: ShowMessage(party, String1A94); // May my Winter Waters refresh you.
@@ -848,7 +849,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0214: if (JumpNotEqual) goto L026C;
             L0216: RemoveItem(party, 0xE4);
             L0222: GiveItem(party, 0xE7);
-            L022E: SetState(party, 0x01, 0x04, 0x01);
+            L022E: SetFlag(party, 0x01, 0x04, 0x01);
             L0243: ShowMessage(party, String1AD4); // The Autumn Seeds awaken me from my long hibernation.
             L0250: ShowMessage(party, String1B09); // I am Spring again!
             L025D: ShowMessage(party, String1B1C); // Take the Renewal of Spring and rejoice with me!
@@ -859,7 +860,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0288: return; // RETURN (restoring si);
         }
 
-        private void FnINFO_16(ServerMobile party, bool isForwardMove) {
+        private void FnINFO_16(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x001F);
@@ -868,7 +869,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnINFO_17(ServerMobile party, bool isForwardMove) {
+        private void FnINFO_17(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0027);
@@ -877,7 +878,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnCAVEDOOR_18(ServerMobile party, bool isForwardMove) {
+        private void FnCAVEDOOR_18(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1C91); // A wooden sign says, 'To the cave of NeedleWood.'
@@ -889,21 +890,21 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0066: return; // RETURN;
         }
 
-        private void FnELFHOME_19(ServerMobile party, bool isForwardMove) {
+        private void FnELFHOME_19(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1CD4); // Young elves scurry and hide when you enter this elf home.
             L0010: return; // RETURN;
         }
 
-        private void FnELFHOME_1A(ServerMobile party, bool isForwardMove) {
+        private void FnELFHOME_1A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1D0E); // Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.
             L0010: return; // RETURN;
         }
 
-        private void FnINFO_1B(ServerMobile party, bool isForwardMove) {
+        private void FnINFO_1B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x001F);

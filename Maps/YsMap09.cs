@@ -1,5 +1,6 @@
 #pragma warning disable
 using XPT.WorldData;
+using XPT.WorldData.Yserbius;
 
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap09 : AMapScripted {
@@ -44,14 +45,14 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String07F1 = "The insane Gnome Thief crawls away.";
         
         // === Functions ================================================
-        private void FnSTRSTELE_01(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSTELE_01(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x03, 0x01, 0xD7, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnKEYDOOR_02(ServerMobile party, bool isForwardMove) {
+        private void FnKEYDOOR_02(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xDB, 0xDB);
@@ -65,15 +66,15 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnGOLDAENC_03(ServerMobile party, bool isForwardMove) {
+        private void FnGOLDAENC_03(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x19), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x19), 0x0001);
             L0017: if (JumpNotEqual) goto L003A;
             L0019: AddTreasure(party, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xAD);
             L0038: goto L006E;
             L003A: AddTreasure(party, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xCF);
-            L0059: SetState(party, 0x02, 0x19, 0x01);
+            L0059: SetFlag(party, 0x02, 0x19, 0x01);
             L006E: ShowMessage(party, String0451); // The room is crawling with Spinorpions.
             L007B: Compare(PartyCount(party), 0x0001);
             L0086: if (JumpNotEqual) goto L009D;
@@ -94,16 +95,16 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0137: return; // RETURN;
         }
 
-        private void FnGOLDBENC_04(ServerMobile party, bool isForwardMove) {
+        private void FnGOLDBENC_04(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x1A), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x1A), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: ShowMessage(party, String0478); // You are trapped by angry Ogres.
             L0026: AddTreasure(party, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xCE);
             L0045: goto L0088;
             L0047: AddTreasure(party, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xCF);
-            L0066: SetState(party, 0x02, 0x1A, 0x01);
+            L0066: SetFlag(party, 0x02, 0x1A, 0x01);
             L007B: ShowMessage(party, String0498); // Nasty Ogres contemptuously flick gold coins at you.
             L0088: Compare(PartyCount(party), 0x0001);
             L0093: if (JumpNotEqual) goto L00AA;
@@ -126,7 +127,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0168: return; // RETURN;
         }
 
-        private void FnCROWNENC_05(ServerMobile party, bool isForwardMove) {
+        private void FnCROWNENC_05(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x78);
@@ -167,16 +168,16 @@ namespace XPT.Scripts.Yserbius.Maps {
             L01E8: return; // RETURN;
         }
 
-        private void FnITEMBENC_06(ServerMobile party, bool isForwardMove) {
+        private void FnITEMBENC_06(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x1B), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x1B), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: ShowMessage(party, String057F); // Hobgoblins are waiting for you.
             L0026: AddTreasure(party, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xB6);
             L0045: goto L0089;
             L0047: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0xB6, 0x3D);
-            L0067: SetState(party, 0x02, 0x1B, 0x01);
+            L0067: SetFlag(party, 0x02, 0x1B, 0x01);
             L007C: ShowMessage(party, String059F); // Hobgoblins throw items aside so they can attack you.
             L0089: Compare(PartyCount(party), 0x0001);
             L0094: if (JumpNotEqual) goto L00BD;
@@ -207,7 +208,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L01EA: return; // RETURN;
         }
 
-        private void FnITEMCENC_07(ServerMobile party, bool isForwardMove) {
+        private void FnITEMCENC_07(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x07);
@@ -243,7 +244,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L017F: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_08(ServerMobile party, bool isForwardMove) {
+        private void FnSTRMNSTR_08(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -275,7 +276,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0164: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_09(ServerMobile party, bool isForwardMove) {
+        private void FnTUFMNSTR_09(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -299,7 +300,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00E3: return; // RETURN;
         }
 
-        private void FnVTFMNSTR_0A(ServerMobile party, bool isForwardMove) {
+        private void FnVTFMNSTR_0A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -328,19 +329,19 @@ namespace XPT.Scripts.Yserbius.Maps {
             L012E: return; // RETURN;
         }
 
-        private void FnSTRSMESS_0B(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSMESS_0B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05FF); // East past the gateway are stairs leading down a level.
             L0010: return; // RETURN;
         }
 
-        private void FnNPCCHATA_0C(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATA_0C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0636); // A Halfling Cleric creeps out of the shadows.
             L0010: ShowPortrait(party, 0x0029);
-            L001D: Compare(GetRandom(party, 0x000F), 0x000C);
+            L001D: Compare(GetRandom(0x000F), 0x000C);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0663); // You will need Cleowyn's Robe, Crown and Scepter to reach his hidden tomb in the Mausoleum.
             L003C: goto L004B;
@@ -348,12 +349,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_0D(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATB_0D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0711); // A half-mad Gnome Thief crawls into the room.
             L0010: ShowPortrait(party, 0x0024);
-            L001D: Compare(GetRandom(party, 0x000F), 0x000A);
+            L001D: Compare(GetRandom(0x000F), 0x000A);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String073E); // The wizard Arnakkian hired his own troops from the Snow Elves. It is said that these strange elves disappeared before the volcano erupted. Where they wound up is anybody's guess.
             L003C: goto L004B;

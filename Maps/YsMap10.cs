@@ -1,5 +1,6 @@
 #pragma warning disable
 using XPT.WorldData;
+using XPT.WorldData.Yserbius;
 
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap10 : AMapScripted {
@@ -45,14 +46,14 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String0952 = "The Gremlin Cleric ignores your questions as he becomes engrossed in his book.";
         
         // === Functions ================================================
-        private void FnSTRSTELE_01(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSTELE_01(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x03, 0x01, 0xCD, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnKEYDOOR_02(ServerMobile party, bool isForwardMove) {
+        private void FnKEYDOOR_02(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xDC, 0xDC);
@@ -66,7 +67,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnSCEPTENC_03(ServerMobile party, bool isForwardMove) {
+        private void FnSCEPTENC_03(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xE3);
@@ -102,7 +103,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L019C: return; // RETURN;
         }
 
-        private void FnITEMBENC_04(ServerMobile party, bool isForwardMove) {
+        private void FnITEMBENC_04(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xBD);
@@ -132,7 +133,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L013C: return; // RETURN;
         }
 
-        private void FnITEMCENC_05(ServerMobile party, bool isForwardMove) {
+        private void FnITEMCENC_05(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x56);
@@ -162,16 +163,16 @@ namespace XPT.Scripts.Yserbius.Maps {
             L013B: return; // RETURN;
         }
 
-        private void FnGOLDAENC_06(ServerMobile party, bool isForwardMove) {
+        private void FnGOLDAENC_06(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x1C), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x1C), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: AddTreasure(party, 0x00AF, 0x00, 0x00, 0x00, 0x00, 0xB6);
             L0038: ShowMessage(party, String0603); // Black Widows unweave an empty sack.
             L0045: goto L0088;
             L0047: AddTreasure(party, 0x1770, 0x00, 0x00, 0x00, 0x00, 0xB7);
-            L0066: SetState(party, 0x02, 0x1C, 0x01);
+            L0066: SetFlag(party, 0x02, 0x1C, 0x01);
             L007B: ShowMessage(party, String0627); // As you reach down to take a coin purse on the ground, you become entangled in a sticky web.
             L0088: Compare(PartyCount(party), 0x0001);
             L0093: if (JumpEqual) goto L00A2;
@@ -193,15 +194,15 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0156: return; // RETURN;
         }
 
-        private void FnGOLDBENC_07(ServerMobile party, bool isForwardMove) {
+        private void FnGOLDBENC_07(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x02, 0x1D), 0x0001);
+            L0003: Compare(GetFlag(party, 0x02, 0x1D), 0x0001);
             L0017: if (JumpNotEqual) goto L003A;
             L0019: AddTreasure(party, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L0038: goto L006E;
             L003A: AddTreasure(party, 0x2134, 0x00, 0x00, 0x00, 0x00, 0xCF);
-            L0059: SetState(party, 0x02, 0x1D, 0x01);
+            L0059: SetFlag(party, 0x02, 0x1D, 0x01);
             L006E: ShowMessage(party, String0683); // King Cleowyn's favorite pets still guard his secrets long after their master has died.
             L007B: Compare(PartyCount(party), 0x0001);
             L0086: if (JumpEqual) goto L0095;
@@ -224,7 +225,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L015B: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_08(ServerMobile party, bool isForwardMove) {
+        private void FnSTRMNSTR_08(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -251,7 +252,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0119: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_09(ServerMobile party, bool isForwardMove) {
+        private void FnTUFMNSTR_09(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -281,7 +282,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L014F: return; // RETURN;
         }
 
-        private void FnVTFMNSTR_0A(ServerMobile party, bool isForwardMove) {
+        private void FnVTFMNSTR_0A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -306,19 +307,19 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00F5: return; // RETURN;
         }
 
-        private void FnSTRSMESS_0B(ServerMobile party, bool isForwardMove) {
+        private void FnSTRSMESS_0B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06DA); // There are stairs through the north gateway.
             L0010: return; // RETURN;
         }
 
-        private void FnNPCCHATA_0C(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATA_0C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0706); // A dying Troll Knight lies on the floor.
             L0010: ShowPortrait(party, 0x001B);
-            L001D: Compare(GetRandom(party, 0x000F), 0x000A);
+            L001D: Compare(GetRandom(0x000F), 0x000A);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String072E); // Cleowyn's Crown is the final treasure needed to placate the dead king's spirit. Return the king's possessions quickly or suffer his eternal wrath.
             L003C: goto L004B;
@@ -326,12 +327,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_0D(ServerMobile party, bool isForwardMove) {
+        private void FnNPCCHATB_0D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0801); // A Gremlin Cleric sits on the floor, holding a thick book in her hands.
             L0010: ShowPortrait(party, 0x002A);
-            L001D: Compare(GetRandom(party, 0x000F), 0x000A);
+            L001D: Compare(GetRandom(0x000F), 0x000A);
             L002D: if (JumpAbove) goto L003E;
             L002F: ShowMessage(party, String0848); // The wizard Arnakkian desired immortality above all else. It is whispered that he trapped one of the Elementals and bade it obey his will and make him live forever. I believe Arnakkian got his wish, but the Elemental buried the wizard's castle under lava in revenge.
             L003C: goto L004B;

@@ -1,5 +1,6 @@
 #pragma warning disable
 using XPT.WorldData;
+using XPT.WorldData.Yserbius;
 
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap25 : AMapScripted {
@@ -153,7 +154,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String1682 = "A maze made out of dice lies just to the north.";
         
         // === Functions ================================================
-        private void FnCHESLITE_01(ServerMobile party, bool isForwardMove) {
+        private void FnCHESLITE_01(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: Compare(GetCurrentTile(party), 0x0062);
@@ -230,7 +231,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0193: return; // RETURN (restoring si);
         }
 
-        private void FnCHESDARK_02(ServerMobile party, bool isForwardMove) {
+        private void FnCHESDARK_02(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: Compare(GetCurrentTile(party), 0x0062);
@@ -307,7 +308,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0193: return; // RETURN (restoring si);
         }
 
-        private void FnVOID_03(ServerMobile party, bool isForwardMove) {
+        private void FnVOID_03(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String053E); // You fall to your death in the lava below!
@@ -315,11 +316,11 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0021: return; // RETURN;
         }
 
-        private void FnPOKERBRG_04(ServerMobile party, bool isForwardMove) {
+        private void FnPOKERBRG_04(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0568); // Planks of the Poker Bridge are made from used playing cards.
-            L0010: Compare(GetState(party, 0x01, 0x01), 0x0001);
+            L0010: Compare(GetFlag(party, 0x01, 0x01), 0x0001);
             L0024: if (JumpNotEqual) goto L0056;
             L0026: ShowMessage(party, String05A5); // The rickety bridge barely holds your weight.
             L0033: SetFloorObject(party, 0x00, 0xDD);
@@ -331,12 +332,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0081: return; // RETURN;
         }
 
-        private void FnPOKERSW_05(ServerMobile party, bool isForwardMove) {
+        private void FnPOKERSW_05(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xEC, 0xEC);
             L0016: if (JumpEqual) goto L005D;
-            L0018: SetState(party, 0x01, 0x01, 0x01);
+            L0018: SetFlag(party, 0x01, 0x01, 0x01);
             L002D: SetFloorObject(party, 0x00, 0xDD);
             L003D: SetFloorPassable(party, 0xDD, 0x01);
             L004E: ShowMessage(party, String0639); // The royal flush beats the Joker!  A bridge forms across the pit.
@@ -346,14 +347,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0077: return; // RETURN;
         }
 
-        private void FnHEARTSDR_06(ServerMobile party, bool isForwardMove) {
+        private void FnHEARTSDR_06(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0725); // The door bellows, 'I am all hearts!'
             L0010: return; // RETURN;
         }
 
-        private void FnMOONSW_07(ServerMobile party, bool isForwardMove) {
+        private void FnMOONSW_07(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xEB, 0xEB);
@@ -366,7 +367,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0060: return; // RETURN;
         }
 
-        private void FnBLAKJAK_08(ServerMobile party, bool isForwardMove) {
+        private void FnBLAKJAK_08(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xED, 0xED);
@@ -381,14 +382,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L007A: return; // RETURN;
         }
 
-        private void FnBLAKJAKK_09(ServerMobile party, bool isForwardMove) {
+        private void FnBLAKJAKK_09(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0898); // Stand back!  A King guards this wall!
             L0010: return; // RETURN;
         }
 
-        private void FnCRIB_0A(ServerMobile party, bool isForwardMove) {
+        private void FnCRIB_0A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xEA, 0xEA);
@@ -404,51 +405,51 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0087: return; // RETURN;
         }
 
-        private void FnCRIBJACK_0B(ServerMobile party, bool isForwardMove) {
+        private void FnCRIBJACK_0B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09A2); // I, the Jack, throw dust in your general direction.
             L0010: return; // RETURN;
         }
 
-        private void FnCRIBFIVE_0C(ServerMobile party, bool isForwardMove) {
+        private void FnCRIBFIVE_0C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09D5); // The 5 card smiles back.
             L0010: return; // RETURN;
         }
 
-        private void FnBRDGFALL_0D(ServerMobile party, bool isForwardMove) {
+        private void FnBRDGFALL_0D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09ED); // The Poker Bridge behind you collapses.
-            L0010: SetState(party, 0x01, 0x01, 0x00);
+            L0010: SetFlag(party, 0x01, 0x01, 0x00);
             L0024: SetFloorObject(party, 0x01, 0xDD);
             L0035: return; // RETURN;
         }
 
-        private void FnDICEPASS_0E(ServerMobile party, bool isForwardMove) {
+        private void FnDICEPASS_0E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A14); // Lucky Sevens! Lucky Sevens on the first roll!
             L0010: return; // RETURN;
         }
 
-        private void FnDICESNAK_0F(ServerMobile party, bool isForwardMove) {
+        private void FnDICESNAK_0F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A42); // The door says, 'Snake eyes' ...
             L0010: return; // RETURN;
         }
 
-        private void FnDICEBOXC_10(ServerMobile party, bool isForwardMove) {
+        private void FnDICEBOXC_10(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A62); // The door shows two squares of six.  'Box Cars' ...
             L0010: return; // RETURN;
         }
 
-        private void FnDICEENCA_11(ServerMobile party, bool isForwardMove) {
+        private void FnDICEENCA_11(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x0A);
@@ -460,7 +461,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnDICEENCB_12(ServerMobile party, bool isForwardMove) {
+        private void FnDICEENCB_12(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x0A);
@@ -472,14 +473,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnBLJKFOUN_13(ServerMobile party, bool isForwardMove) {
+        private void FnBLJKFOUN_13(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0A95); // The Blackjack Fountain is made of playing cards.
-            L0010: RefreshCompareFlags(GetState(party, 0x02, 0x7E));
+            L0010: RefreshCompareFlags(GetFlag(party, 0x02, 0x7E));
             L0023: if (JumpEqual) goto L0028;
             L0025: goto L00AF;
-            L0028: SetState(party, 0x02, 0x7E, 0x01);
+            L0028: SetFlag(party, 0x02, 0x7E, 0x01);
             L003D: RemoveItem(party, 0xEA);
             L0049: ShowPortrait(party, 0x0042);
             L0056: ModifyAttribute(party, 0x02, 0x0003);
@@ -493,14 +494,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00BC: return; // RETURN;
         }
 
-        private void FnCRIBFOUN_14(ServerMobile party, bool isForwardMove) {
+        private void FnCRIBFOUN_14(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0B8A); // The Cribbage Fountain is bedecked with golden pegs.
-            L0010: RefreshCompareFlags(GetState(party, 0x02, 0x7F));
+            L0010: RefreshCompareFlags(GetFlag(party, 0x02, 0x7F));
             L0023: if (JumpEqual) goto L0028;
             L0025: goto L00AB;
-            L0028: SetState(party, 0x02, 0x7F, 0x01);
+            L0028: SetFlag(party, 0x02, 0x7F, 0x01);
             L003D: ShowPortrait(party, 0x0042);
             L004A: RemoveItem(party, 0xED);
             L0056: ModifyAttribute(party, 0x03, 0x0003);
@@ -514,7 +515,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00B8: return; // RETURN;
         }
 
-        private void FnDICETRSA_15(ServerMobile party, bool isForwardMove) {
+        private void FnDICETRSA_15(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0C7F); // A message is inscribed on a wall -- 
@@ -523,7 +524,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnDICETRSB_16(ServerMobile party, bool isForwardMove) {
+        private void FnDICETRSB_16(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0D2A); // A note is inscribed on a wall -- 
@@ -532,7 +533,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnDICETRSC_17(ServerMobile party, bool isForwardMove) {
+        private void FnDICETRSC_17(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0DD0); // A message is written in blood on a wall -- 
@@ -542,7 +543,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0037: return; // RETURN;
         }
 
-        private void FnDICETRSD_18(ServerMobile party, bool isForwardMove) {
+        private void FnDICETRSD_18(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0EC8); // A message is written on a wall -- 
@@ -551,7 +552,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnDICETRSE_19(ServerMobile party, bool isForwardMove) {
+        private void FnDICETRSE_19(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0F7E); // A message is written on a wall -- 
@@ -560,7 +561,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnDICETRSF_1A(ServerMobile party, bool isForwardMove) {
+        private void FnDICETRSF_1A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x001F);
@@ -574,7 +575,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006B: return; // RETURN;
         }
 
-        private void FnDICETRSG_1B(ServerMobile party, bool isForwardMove) {
+        private void FnDICETRSG_1B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String11DE); // A message is scrawled on a wall -- 
@@ -583,7 +584,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnDICETRSH_1C(ServerMobile party, bool isForwardMove) {
+        private void FnDICETRSH_1C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String128C); // A message is carved in the floor -- 
@@ -591,7 +592,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnDICETRSI_1D(ServerMobile party, bool isForwardMove) {
+        private void FnDICETRSI_1D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String12ED); // A message is scribbled on a wall -- 
@@ -600,14 +601,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnBARD_22(ServerMobile party, bool isForwardMove) {
+        private void FnBARD_22(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String13A1); // A ghost elf bard sings a tale of how four colored magical gems placed side by side can form a rainbow to a far away island.
             L0010: return; // RETURN;
         }
 
-        private void FnAPPLES_23(ServerMobile party, bool isForwardMove) {
+        private void FnAPPLES_23(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String141D); // The spirit of a beautiful wench appears. She hold a wooden bucket filled wtih floating apples.
@@ -615,7 +616,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnAPPLEENC_24(ServerMobile party, bool isForwardMove) {
+        private void FnAPPLEENC_24(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String14CD); // You have accepted the ghost's challenge.
@@ -630,7 +631,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0096: return; // RETURN;
         }
 
-        private void FnCHESENCA_25(ServerMobile party, bool isForwardMove) {
+        private void FnCHESENCA_25(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1C);
@@ -642,7 +643,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnCHESENCB_26(ServerMobile party, bool isForwardMove) {
+        private void FnCHESENCB_26(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1E);
@@ -654,7 +655,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnCHESENCC_27(ServerMobile party, bool isForwardMove) {
+        private void FnCHESENCC_27(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1F);
@@ -666,7 +667,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnCHESENCD_28(ServerMobile party, bool isForwardMove) {
+        private void FnCHESENCD_28(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x20);
@@ -678,7 +679,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnCHESENCE_29(ServerMobile party, bool isForwardMove) {
+        private void FnCHESENCE_29(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x22);
@@ -695,7 +696,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00C0: return; // RETURN;
         }
 
-        private void FnCHESENCF_2A(ServerMobile party, bool isForwardMove) {
+        private void FnCHESENCF_2A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x18);
@@ -712,7 +713,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00C0: return; // RETURN;
         }
 
-        private void FnPOKRENCA_2B(ServerMobile party, bool isForwardMove) {
+        private void FnPOKRENCA_2B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1F);
@@ -724,7 +725,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnCRIBENCA_2C(ServerMobile party, bool isForwardMove) {
+        private void FnCRIBENCA_2C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x23);
@@ -735,7 +736,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006C: return; // RETURN;
         }
 
-        private void FnBLJKENCA_2D(ServerMobile party, bool isForwardMove) {
+        private void FnBLJKENCA_2D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x26);
@@ -748,7 +749,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnBLJKENCB_2E(ServerMobile party, bool isForwardMove) {
+        private void FnBLJKENCB_2E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x26);
@@ -761,7 +762,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnCRIBENCB_2F(ServerMobile party, bool isForwardMove) {
+        private void FnCRIBENCB_2F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1567); // You are able to dodge several bursts of flame as you enter a Dragon's Lair.
@@ -774,7 +775,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008B: return; // RETURN;
         }
 
-        private void FnVARYENCA_30(ServerMobile party, bool isForwardMove) {
+        private void FnVARYENCA_30(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x04);
@@ -784,7 +785,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnVARYENCB_31(ServerMobile party, bool isForwardMove) {
+        private void FnVARYENCB_31(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x0E);
@@ -794,7 +795,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnVARYENCE_34(ServerMobile party, bool isForwardMove) {
+        private void FnVARYENCE_34(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x13);
@@ -806,42 +807,42 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnGATEA_35(ServerMobile party, bool isForwardMove) {
+        private void FnGATEA_35(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x35, 0x01, 0x3F, 0x00, isForwardMove);
             L001D: return; // RETURN;
         }
 
-        private void FnTOLABY_36(ServerMobile party, bool isForwardMove) {
+        private void FnTOLABY_36(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String15B3); // The gate takes you back to the labyrinth.
             L0010: return; // RETURN;
         }
 
-        private void FnTXTCHESL_37(ServerMobile party, bool isForwardMove) {
+        private void FnTXTCHESL_37(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String15DD); // Use the red squares and you shall turn clockwise on your mount.
             L0010: return; // RETURN;
         }
 
-        private void FnTXTCHESD_38(ServerMobile party, bool isForwardMove) {
+        private void FnTXTCHESD_38(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String161D); // The stallion must go counterclockwise on blue squares!
             L0010: return; // RETURN;
         }
 
-        private void FnTXTDICEB_39(ServerMobile party, bool isForwardMove) {
+        private void FnTXTDICEB_39(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1654); // To the west you will find a second dice maze.
             L0010: return; // RETURN;
         }
 
-        private void FnTXTDICEA_3A(ServerMobile party, bool isForwardMove) {
+        private void FnTXTDICEA_3A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1682); // A maze made out of dice lies just to the north.

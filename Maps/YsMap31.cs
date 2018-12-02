@@ -1,5 +1,6 @@
 #pragma warning disable
 using XPT.WorldData;
+using XPT.WorldData.Yserbius;
 
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap31 : AMapScripted {
@@ -96,7 +97,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String117F = "You stand upon a platform in the center of the River of Eternity.";
         
         // === Functions ================================================
-        private void FnRIVER_01(ServerMobile party, bool isForwardMove) {
+        private void FnRIVER_01(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The River of Eternity taps your life energy.
@@ -111,14 +112,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0047: return; // RETURN;
         }
 
-        private void FnRIVRBANK_02(ServerMobile party, bool isForwardMove) {
+        private void FnRIVRBANK_02(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0438); // Only the bravest adventurers explore the River for hidden passages.
             L0010: return; // RETURN;
         }
 
-        private void FnVOID_03(ServerMobile party, bool isForwardMove) {
+        private void FnVOID_03(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String047C); // The Ageless Void swallows you whole.
@@ -126,7 +127,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0021: return; // RETURN;
         }
 
-        private void FnPLATA_04(ServerMobile party, bool isForwardMove) {
+        private void FnPLATA_04(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
@@ -136,12 +137,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L003B: return; // RETURN;
         }
 
-        private void FnPLATB_05(ServerMobile party, bool isForwardMove) {
+        private void FnPLATB_05(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetState(party, 0x02, 0x84));
+            L0003: RefreshCompareFlags(GetFlag(party, 0x02, 0x84));
             L0016: if (JumpNotEqual) goto L008E;
-            L0018: SetState(party, 0x02, 0x84, 0x01);
+            L0018: SetFlag(party, 0x02, 0x84, 0x01);
             L002D: ShowPortrait(party, 0x0042);
             L003A: ShowMessage(party, String04D1); // DragonBreath Fountain empowers you with improved attributes.
             L0047: ModifyAttribute(party, 0x00, 0x0001);
@@ -151,7 +152,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008E: return; // RETURN;
         }
 
-        private void FnPLATCTOA_06(ServerMobile party, bool isForwardMove) {
+        private void FnPLATCTOA_06(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0042);
@@ -161,7 +162,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L003B: return; // RETURN;
         }
 
-        private void FnPLATDTOB_07(ServerMobile party, bool isForwardMove) {
+        private void FnPLATDTOB_07(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String053D); // As you reach the platform, a magical field envelops you and teleports you to a moon tapestry.
@@ -169,7 +170,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnTAPMOONS_0C(ServerMobile party, bool isForwardMove) {
+        private void FnTAPMOONS_0C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xF2, 0xF2);
@@ -182,7 +183,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006C: return; // RETURN;
         }
 
-        private void FnTHEFCLUE_12(ServerMobile party, bool isForwardMove) {
+        private void FnTHEFCLUE_12(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0024);
@@ -194,46 +195,46 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0051: return; // RETURN;
         }
 
-        private void FnTHIEVES_13(ServerMobile party, bool isForwardMove) {
+        private void FnTHIEVES_13(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0751); // A doorway is marked -- 'Voranti's Treasure'
             L0010: return; // RETURN;
         }
 
-        private void FnRAINBOW_14(ServerMobile party, bool isForwardMove) {
+        private void FnRAINBOW_14(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String077D); // Various golden objects appear to be standing to the west, just at the edge of the Ageless Void.
             L0010: return; // RETURN;
         }
 
-        private void FnRAINRED_15(ServerMobile party, bool isForwardMove) {
+        private void FnRAINRED_15(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xF4, 0xF4);
             L0016: if (JumpNotEqual) goto L001B;
             L0018: goto L00B5;
             L001B: ShowMessage(party, String07DD); // A beam of red arcs over the Ageless Void.
-            L0028: SetState(party, 0x02, 0x80, 0x01);
-            L003D: RefreshCompareFlags(GetState(party, 0x02, 0x80));
+            L0028: SetFlag(party, 0x02, 0x80, 0x01);
+            L003D: RefreshCompareFlags(GetFlag(party, 0x02, 0x80));
             L0050: if (JumpEqual) goto L00B3;
-            L0052: RefreshCompareFlags(GetState(party, 0x02, 0x81));
+            L0052: RefreshCompareFlags(GetFlag(party, 0x02, 0x81));
             L0065: if (JumpEqual) goto L00B3;
-            L0067: RefreshCompareFlags(GetState(party, 0x02, 0x82));
+            L0067: RefreshCompareFlags(GetFlag(party, 0x02, 0x82));
             L007A: if (JumpEqual) goto L00B3;
-            L007C: RefreshCompareFlags(GetState(party, 0x02, 0x83));
+            L007C: RefreshCompareFlags(GetFlag(party, 0x02, 0x83));
             L008F: if (JumpEqual) goto L00B3;
-            L0091: SetState(party, 0x01, 0x01, 0x01);
+            L0091: SetFlag(party, 0x01, 0x01, 0x01);
             L00A6: ShowMessage(party, String0807); // A vibrant rainbow of color forms.
             L00B3: goto L00C2;
             L00B5: ShowMessage(party, String0829); // A golden statue appears to be capable of holding a gem.
             L00C2: ax = HasUsedItem(party, 0xF3, 0xF3);
             L00D5: if (JumpNotEqual) goto L00DA;
             L00D7: goto L015A;
-            L00DA: RefreshCompareFlags(GetState(party, 0x01, 0x01));
+            L00DA: RefreshCompareFlags(GetFlag(party, 0x01, 0x01));
             L00ED: if (JumpEqual) goto L015A;
-            L00EF: SetState(party, 0x01, 0x01, 0x01);
+            L00EF: SetFlag(party, 0x01, 0x01, 0x01);
             L0104: SetFloorObject(party, 0x42, 0x75);
             L0115: SetFloorObject(party, 0x42, 0x85);
             L0126: ShowMessage(party, String0861); // Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
@@ -243,30 +244,30 @@ namespace XPT.Scripts.Yserbius.Maps {
             L015A: return; // RETURN;
         }
 
-        private void FnRAINYEL_16(ServerMobile party, bool isForwardMove) {
+        private void FnRAINYEL_16(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xF5, 0xF5);
             L0016: if (JumpNotEqual) goto L001B;
             L0018: goto L00B3;
             L001B: ShowMessage(party, String0995); // A beam of yellow arcs over the Ageless Void.
-            L0028: SetState(party, 0x02, 0x81, 0x01);
-            L003D: RefreshCompareFlags(GetState(party, 0x02, 0x80));
+            L0028: SetFlag(party, 0x02, 0x81, 0x01);
+            L003D: RefreshCompareFlags(GetFlag(party, 0x02, 0x80));
             L0050: if (JumpEqual) goto L00B3;
-            L0052: RefreshCompareFlags(GetState(party, 0x02, 0x81));
+            L0052: RefreshCompareFlags(GetFlag(party, 0x02, 0x81));
             L0065: if (JumpEqual) goto L00B3;
-            L0067: RefreshCompareFlags(GetState(party, 0x02, 0x82));
+            L0067: RefreshCompareFlags(GetFlag(party, 0x02, 0x82));
             L007A: if (JumpEqual) goto L00B3;
-            L007C: RefreshCompareFlags(GetState(party, 0x02, 0x83));
+            L007C: RefreshCompareFlags(GetFlag(party, 0x02, 0x83));
             L008F: if (JumpEqual) goto L00B3;
-            L0091: SetState(party, 0x01, 0x01, 0x01);
+            L0091: SetFlag(party, 0x01, 0x01, 0x01);
             L00A6: ShowMessage(party, String09C2); // A vibrant rainbow of color forms.
             L00B3: ax = HasUsedItem(party, 0xF3, 0xF3);
             L00C6: if (JumpNotEqual) goto L00CB;
             L00C8: goto L014B;
-            L00CB: RefreshCompareFlags(GetState(party, 0x01, 0x01));
+            L00CB: RefreshCompareFlags(GetFlag(party, 0x01, 0x01));
             L00DE: if (JumpEqual) goto L014B;
-            L00E0: SetState(party, 0x01, 0x01, 0x01);
+            L00E0: SetFlag(party, 0x01, 0x01, 0x01);
             L00F5: SetFloorObject(party, 0x42, 0x75);
             L0106: SetFloorObject(party, 0x42, 0x85);
             L0117: ShowMessage(party, String09E4); // Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
@@ -276,30 +277,30 @@ namespace XPT.Scripts.Yserbius.Maps {
             L014B: return; // RETURN;
         }
 
-        private void FnRAINGRN_17(ServerMobile party, bool isForwardMove) {
+        private void FnRAINGRN_17(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xF6, 0xF6);
             L0016: if (JumpNotEqual) goto L001B;
             L0018: goto L00B3;
             L001B: ShowMessage(party, String0B18); // A beam of green arcs over the Ageless Void.
-            L0028: SetState(party, 0x02, 0x82, 0x01);
-            L003D: RefreshCompareFlags(GetState(party, 0x02, 0x80));
+            L0028: SetFlag(party, 0x02, 0x82, 0x01);
+            L003D: RefreshCompareFlags(GetFlag(party, 0x02, 0x80));
             L0050: if (JumpEqual) goto L00B3;
-            L0052: RefreshCompareFlags(GetState(party, 0x02, 0x81));
+            L0052: RefreshCompareFlags(GetFlag(party, 0x02, 0x81));
             L0065: if (JumpEqual) goto L00B3;
-            L0067: RefreshCompareFlags(GetState(party, 0x02, 0x82));
+            L0067: RefreshCompareFlags(GetFlag(party, 0x02, 0x82));
             L007A: if (JumpEqual) goto L00B3;
-            L007C: RefreshCompareFlags(GetState(party, 0x02, 0x83));
+            L007C: RefreshCompareFlags(GetFlag(party, 0x02, 0x83));
             L008F: if (JumpEqual) goto L00B3;
-            L0091: SetState(party, 0x01, 0x01, 0x01);
+            L0091: SetFlag(party, 0x01, 0x01, 0x01);
             L00A6: ShowMessage(party, String0B44); // A vibrant rainbow of color forms.
             L00B3: ax = HasUsedItem(party, 0xF3, 0xF3);
             L00C6: if (JumpNotEqual) goto L00CB;
             L00C8: goto L014B;
-            L00CB: RefreshCompareFlags(GetState(party, 0x01, 0x01));
+            L00CB: RefreshCompareFlags(GetFlag(party, 0x01, 0x01));
             L00DE: if (JumpEqual) goto L014B;
-            L00E0: SetState(party, 0x01, 0x01, 0x01);
+            L00E0: SetFlag(party, 0x01, 0x01, 0x01);
             L00F5: SetFloorObject(party, 0x42, 0x75);
             L0106: SetFloorObject(party, 0x42, 0x85);
             L0117: ShowMessage(party, String0B66); // Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
@@ -309,30 +310,30 @@ namespace XPT.Scripts.Yserbius.Maps {
             L014B: return; // RETURN;
         }
 
-        private void FnRAINBLU_18(ServerMobile party, bool isForwardMove) {
+        private void FnRAINBLU_18(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xF7, 0xF7);
             L0016: if (JumpNotEqual) goto L001B;
             L0018: goto L00B3;
             L001B: ShowMessage(party, String0C9A); // A beam of blue arcs over the Ageless Void.
-            L0028: SetState(party, 0x02, 0x83, 0x01);
-            L003D: RefreshCompareFlags(GetState(party, 0x02, 0x80));
+            L0028: SetFlag(party, 0x02, 0x83, 0x01);
+            L003D: RefreshCompareFlags(GetFlag(party, 0x02, 0x80));
             L0050: if (JumpEqual) goto L00B3;
-            L0052: RefreshCompareFlags(GetState(party, 0x02, 0x81));
+            L0052: RefreshCompareFlags(GetFlag(party, 0x02, 0x81));
             L0065: if (JumpEqual) goto L00B3;
-            L0067: RefreshCompareFlags(GetState(party, 0x02, 0x82));
+            L0067: RefreshCompareFlags(GetFlag(party, 0x02, 0x82));
             L007A: if (JumpEqual) goto L00B3;
-            L007C: RefreshCompareFlags(GetState(party, 0x02, 0x83));
+            L007C: RefreshCompareFlags(GetFlag(party, 0x02, 0x83));
             L008F: if (JumpEqual) goto L00B3;
-            L0091: SetState(party, 0x01, 0x01, 0x01);
+            L0091: SetFlag(party, 0x01, 0x01, 0x01);
             L00A6: ShowMessage(party, String0CC5); // A vibrant rainbow of color forms.
             L00B3: ax = HasUsedItem(party, 0xF3, 0xF3);
             L00C6: if (JumpNotEqual) goto L00CB;
             L00C8: goto L014B;
-            L00CB: RefreshCompareFlags(GetState(party, 0x01, 0x01));
+            L00CB: RefreshCompareFlags(GetFlag(party, 0x01, 0x01));
             L00DE: if (JumpEqual) goto L014B;
-            L00E0: SetState(party, 0x01, 0x01, 0x01);
+            L00E0: SetFlag(party, 0x01, 0x01, 0x01);
             L00F5: SetFloorObject(party, 0x42, 0x75);
             L0106: SetFloorObject(party, 0x42, 0x85);
             L0117: ShowMessage(party, String0CE7); // Your miniature Golden Boat floats out of your pack on a swirl of magic dust.
@@ -342,7 +343,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L014B: return; // RETURN;
         }
 
-        private void FnGATEA_19(ServerMobile party, bool isForwardMove) {
+        private void FnGATEA_19(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E1B); // This gate leads to the GIANTS' LAND
@@ -350,7 +351,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnENCA_1A(ServerMobile party, bool isForwardMove) {
+        private void FnENCA_1A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E3F); // A burst of moon light floods the room.
@@ -363,7 +364,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L007C: return; // RETURN;
         }
 
-        private void FnENCB_1B(ServerMobile party, bool isForwardMove) {
+        private void FnENCB_1B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x26);
@@ -374,7 +375,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnENCC_1C(ServerMobile party, bool isForwardMove) {
+        private void FnENCC_1C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E66); // Dragons defend their lair.
@@ -385,7 +386,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0058: return; // RETURN;
         }
 
-        private void FnENCD_1D(ServerMobile party, bool isForwardMove) {
+        private void FnENCD_1D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x19);
@@ -397,7 +398,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnTAPECLUE_1E(ServerMobile party, bool isForwardMove) {
+        private void FnTAPECLUE_1E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0E81); // Rune symbols decorate the tapestry -- 
@@ -407,10 +408,10 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0037: return; // RETURN;
         }
 
-        private void FnBOAT_1F(ServerMobile party, bool isForwardMove) {
+        private void FnBOAT_1F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetState(party, 0x01, 0x01));
+            L0003: RefreshCompareFlags(GetFlag(party, 0x01, 0x01));
             L0016: if (JumpEqual) goto L0075;
             L0018: ShowMessage(party, String0F59); // You step across the platform and into the Golden Boat.
             L0025: ShowMessage(party, String0F90); // The Zephyr Wind blows the lightest of breezes from the east and the Golden Boat sets sail west across the Rainbow.
@@ -424,21 +425,21 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0093: return; // RETURN;
         }
 
-        private void FnDOORWARN_20(ServerMobile party, bool isForwardMove) {
+        private void FnDOORWARN_20(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1123); // This door leads the way back to the Land of Giants.
             L0010: return; // RETURN;
         }
 
-        private void FnNOLIGHT_24(ServerMobile party, bool isForwardMove) {
+        private void FnNOLIGHT_24(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1157); // This side of the tapestry appears dark.
             L0010: return; // RETURN;
         }
 
-        private void FnPLATFORM_25(ServerMobile party, bool isForwardMove) {
+        private void FnPLATFORM_25(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String117F); // You stand upon a platform in the center of the River of Eternity.

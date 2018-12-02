@@ -1,5 +1,6 @@
 #pragma warning disable
 using XPT.WorldData;
+using XPT.WorldData.Yserbius;
 
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap21 : AMapScripted {
@@ -172,7 +173,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String119C = "A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.";
         
         // === Functions ================================================
-        private void FnPIT_01(ServerMobile party, bool isForwardMove) {
+        private void FnPIT_01(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // You step into a bottomless pit and die.
@@ -180,7 +181,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0021: return; // RETURN;
         }
 
-        private void FnENCGUARD_02(ServerMobile party, bool isForwardMove) {
+        private void FnENCGUARD_02(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0424); // Guardians stand ready.  'We are sworn to defend Arnakkian.'
@@ -189,17 +190,17 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0034: AddEncounter(party, 0x03, 0x27);
             L0046: AddEncounter(party, 0x04, 0x27);
             L0058: AddEncounter(party, 0x05, 0x27);
-            L006A: RefreshCompareFlags(GetState(party, 0x02, 0x88));
+            L006A: RefreshCompareFlags(GetFlag(party, 0x02, 0x88));
             L007D: if (JumpNotEqual) goto L00A6;
-            L007F: SetState(party, 0x02, 0x88, 0x01);
+            L007F: SetFlag(party, 0x02, 0x88, 0x01);
             L0094: AddExperience(party, 0x0007A120);
             L00A6: return; // RETURN;
         }
 
-        private void FnENCEARTH_03(ServerMobile party, bool isForwardMove) {
+        private void FnENCEARTH_03(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetState(party, 0x01, 0x01));
+            L0003: RefreshCompareFlags(GetFlag(party, 0x01, 0x01));
             L0016: if (JumpEqual) goto L001B;
             L0018: goto L0123;
             L001B: ShowMessage(party, String0460); // Earth Elemental Andreas rises from his mountainous perch.
@@ -214,30 +215,30 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A4: AddTreasure(party, 0x0000, 0x00, 0x00, 0x50, 0x50, 0xD0);
             L00C4: goto L0123;
             L00C6: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x88, 0x1D, 0xE9);
-            L00E7: RefreshCompareFlags(GetState(party, 0x02, 0x8A));
+            L00E7: RefreshCompareFlags(GetFlag(party, 0x02, 0x8A));
             L00FA: if (JumpNotEqual) goto L0123;
-            L00FC: SetState(party, 0x02, 0x8A, 0x01);
+            L00FC: SetFlag(party, 0x02, 0x8A, 0x01);
             L0111: AddExperience(party, 0x0003D090);
             L0123: return; // RETURN;
         }
 
-        private void FnGUARDIAN_04(ServerMobile party, bool isForwardMove) {
+        private void FnGUARDIAN_04(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String049A); // Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
             L0010: return; // RETURN;
         }
 
-        private void FnEARTHELE_05(ServerMobile party, bool isForwardMove) {
+        private void FnEARTHELE_05(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetState(party, 0x01, 0x01));
+            L0003: RefreshCompareFlags(GetFlag(party, 0x01, 0x01));
             L0016: if (JumpNotEqual) goto L0025;
             L0018: ShowMessage(party, String04EA); // The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
             L0025: return; // RETURN;
         }
 
-        private void FnPLATA_06(ServerMobile party, bool isForwardMove) {
+        private void FnPLATA_06(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0555); // The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
@@ -245,123 +246,123 @@ namespace XPT.Scripts.Yserbius.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnPLATB_07(ServerMobile party, bool isForwardMove) {
+        private void FnPLATB_07(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05FC); // Quiet solitude fills the chasm.  You are on the other side.
             L0010: return; // RETURN;
         }
 
-        private void FnYBOXA_08(ServerMobile party, bool isForwardMove) {
+        private void FnYBOXA_08(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0638); // The wall glows.
-            L0010: SetState(party, 0x01, 0x02, 0x01);
+            L0010: SetFlag(party, 0x01, 0x02, 0x01);
             L0025: return; // RETURN;
         }
 
-        private void FnYBOXB_09(ServerMobile party, bool isForwardMove) {
+        private void FnYBOXB_09(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0648); // The wall glows.
-            L0010: SetState(party, 0x01, 0x02, 0x02);
+            L0010: SetFlag(party, 0x01, 0x02, 0x02);
             L0025: return; // RETURN;
         }
 
-        private void FnYBOXC_0A(ServerMobile party, bool isForwardMove) {
+        private void FnYBOXC_0A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0658); // The wall glows.
-            L0010: SetState(party, 0x01, 0x02, 0x03);
+            L0010: SetFlag(party, 0x01, 0x02, 0x03);
             L0025: return; // RETURN;
         }
 
-        private void FnYBOXD_0B(ServerMobile party, bool isForwardMove) {
+        private void FnYBOXD_0B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0668); // The wall glows.
-            L0010: SetState(party, 0x01, 0x02, 0x04);
+            L0010: SetFlag(party, 0x01, 0x02, 0x04);
             L0025: return; // RETURN;
         }
 
-        private void FnYBOXE_0C(ServerMobile party, bool isForwardMove) {
+        private void FnYBOXE_0C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0678); // The wall glows.
-            L0010: SetState(party, 0x01, 0x02, 0x05);
+            L0010: SetFlag(party, 0x01, 0x02, 0x05);
             L0025: return; // RETURN;
         }
 
-        private void FnYBOXF_0D(ServerMobile party, bool isForwardMove) {
+        private void FnYBOXF_0D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0688); // The wall glows.
-            L0010: SetState(party, 0x01, 0x02, 0x06);
+            L0010: SetFlag(party, 0x01, 0x02, 0x06);
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXG_0E(ServerMobile party, bool isForwardMove) {
+        private void FnXBOXG_0E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0698); // The wall glows.
-            L0010: SetState(party, 0x01, 0x03, 0x01);
+            L0010: SetFlag(party, 0x01, 0x03, 0x01);
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXH_0F(ServerMobile party, bool isForwardMove) {
+        private void FnXBOXH_0F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06A8); // The wall glows.
-            L0010: SetState(party, 0x01, 0x03, 0x02);
+            L0010: SetFlag(party, 0x01, 0x03, 0x02);
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXI_10(ServerMobile party, bool isForwardMove) {
+        private void FnXBOXI_10(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06B8); // The wall glows.
-            L0010: SetState(party, 0x01, 0x03, 0x03);
+            L0010: SetFlag(party, 0x01, 0x03, 0x03);
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXJ_11(ServerMobile party, bool isForwardMove) {
+        private void FnXBOXJ_11(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06C8); // The wall glows.
-            L0010: SetState(party, 0x01, 0x03, 0x04);
+            L0010: SetFlag(party, 0x01, 0x03, 0x04);
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXK_12(ServerMobile party, bool isForwardMove) {
+        private void FnXBOXK_12(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06D8); // The wall glows.
-            L0010: SetState(party, 0x01, 0x03, 0x05);
+            L0010: SetFlag(party, 0x01, 0x03, 0x05);
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXL_13(ServerMobile party, bool isForwardMove) {
+        private void FnXBOXL_13(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06E8); // The wall glows.
-            L0010: SetState(party, 0x01, 0x03, 0x06);
+            L0010: SetFlag(party, 0x01, 0x03, 0x06);
             L0025: return; // RETURN;
         }
 
-        private void FnXBOXM_14(ServerMobile party, bool isForwardMove) {
+        private void FnXBOXM_14(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06F8); // The wall glows.
-            L0010: SetState(party, 0x01, 0x03, 0x07);
+            L0010: SetFlag(party, 0x01, 0x03, 0x07);
             L0025: return; // RETURN;
         }
 
-        private void FnPITAJ_15(ServerMobile party, bool isForwardMove) {
+        private void FnPITAJ_15(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0001);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0001);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0004);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0004);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0708); // Your decision on where to step next saves you.
             L003C: goto L005C;
@@ -370,12 +371,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITAK_16(ServerMobile party, bool isForwardMove) {
+        private void FnPITAK_16(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0001);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0001);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0005);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0005);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0761); // You selected your next move wisely.
             L003C: goto L005C;
@@ -384,12 +385,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITAL_17(ServerMobile party, bool isForwardMove) {
+        private void FnPITAL_17(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0001);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0001);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0006);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0006);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String07AF); // Your next step is a safe one.
             L003C: goto L005C;
@@ -398,12 +399,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITAM_18(ServerMobile party, bool isForwardMove) {
+        private void FnPITAM_18(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0001);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0001);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0007);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0007);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String07F7); // The step you take is wisely chosen.
             L003C: goto L005C;
@@ -412,12 +413,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITBG_19(ServerMobile party, bool isForwardMove) {
+        private void FnPITBG_19(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0002);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0002);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0001);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0001);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0845); // You take one good step forward.
             L003C: goto L005C;
@@ -426,12 +427,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITBI_1A(ServerMobile party, bool isForwardMove) {
+        private void FnPITBI_1A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0002);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0002);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0003);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0003);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String088F); // You safely step forward.
             L003C: goto L005C;
@@ -440,12 +441,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITBJ_1B(ServerMobile party, bool isForwardMove) {
+        private void FnPITBJ_1B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0002);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0002);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0004);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0004);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String08D2); // You take a step in the right direction,
             L003C: goto L005C;
@@ -454,12 +455,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITBK_1C(ServerMobile party, bool isForwardMove) {
+        private void FnPITBK_1C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0002);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0002);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0005);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0005);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0924); // Your move is wise.
             L003C: goto L005C;
@@ -468,12 +469,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITBL_1D(ServerMobile party, bool isForwardMove) {
+        private void FnPITBL_1D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0002);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0002);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0006);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0006);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0961); // You select your next move wisely.
             L003C: goto L005C;
@@ -482,12 +483,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITBM_1E(ServerMobile party, bool isForwardMove) {
+        private void FnPITBM_1E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0002);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0002);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0007);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0007);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String09AD); // You move forward with confidence.
             L003C: goto L005C;
@@ -496,12 +497,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITCG_1F(ServerMobile party, bool isForwardMove) {
+        private void FnPITCG_1F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0003);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0003);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0001);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0001);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String09F9); // Your next step is a good one.
             L003C: goto L005C;
@@ -510,12 +511,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITCH_20(ServerMobile party, bool isForwardMove) {
+        private void FnPITCH_20(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0003);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0003);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0002);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0002);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0A41); // You move ahead assuredly.
             L003C: goto L005C;
@@ -524,12 +525,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITCI_21(ServerMobile party, bool isForwardMove) {
+        private void FnPITCI_21(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0003);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0003);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0003);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0003);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0A85); // You choose your next step correctly.
             L003C: goto L005C;
@@ -538,12 +539,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITCJ_22(ServerMobile party, bool isForwardMove) {
+        private void FnPITCJ_22(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0003);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0003);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0004);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0004);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0AD4); // Your choice of movement saves you.
             L003C: goto L005C;
@@ -552,12 +553,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITCK_23(ServerMobile party, bool isForwardMove) {
+        private void FnPITCK_23(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0003);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0003);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0005);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0005);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0B21); // You step in the right direction.
             L003C: goto L005C;
@@ -566,12 +567,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITCL_24(ServerMobile party, bool isForwardMove) {
+        private void FnPITCL_24(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0003);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0003);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0006);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0006);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0B6C); // You select your next step wisely.
             L003C: goto L005C;
@@ -580,12 +581,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITCM_25(ServerMobile party, bool isForwardMove) {
+        private void FnPITCM_25(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0003);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0003);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0007);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0007);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0BB8); // Your next step is sagely chosen.
             L003C: goto L005C;
@@ -594,12 +595,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITDG_26(ServerMobile party, bool isForwardMove) {
+        private void FnPITDG_26(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0004);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0004);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0001);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0001);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0C03); // You take a wise step forward.
             L003C: goto L005C;
@@ -608,12 +609,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITDH_27(ServerMobile party, bool isForwardMove) {
+        private void FnPITDH_27(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0004);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0004);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0002);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0002);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0C4B); // You move forward wisely.
             L003C: goto L005C;
@@ -622,12 +623,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITDI_28(ServerMobile party, bool isForwardMove) {
+        private void FnPITDI_28(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0004);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0004);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0003);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0003);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0C8E); // Your next step is wisely decided.
             L003C: goto L005C;
@@ -636,12 +637,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITDJ_29(ServerMobile party, bool isForwardMove) {
+        private void FnPITDJ_29(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0004);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0004);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0004);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0004);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0CDA); // You step ahead with confidence.
             L003C: goto L005C;
@@ -650,12 +651,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITDK_2A(ServerMobile party, bool isForwardMove) {
+        private void FnPITDK_2A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0004);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0004);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0005);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0005);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0D24); // You move forward carefully.
             L003C: goto L005C;
@@ -664,12 +665,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITDL_2B(ServerMobile party, bool isForwardMove) {
+        private void FnPITDL_2B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0004);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0004);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0006);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0006);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0D6A); // You move ahead.
             L003C: goto L005C;
@@ -678,12 +679,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITDM_2C(ServerMobile party, bool isForwardMove) {
+        private void FnPITDM_2C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0004);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0004);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0007);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0007);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0DA4); // Your step is wisely selected.
             L003C: goto L005C;
@@ -692,12 +693,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITEG_2D(ServerMobile party, bool isForwardMove) {
+        private void FnPITEG_2D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0005);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0005);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0001);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0001);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0DEC); // You forge ahead.
             L003C: goto L005C;
@@ -706,12 +707,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITEH_2E(ServerMobile party, bool isForwardMove) {
+        private void FnPITEH_2E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0005);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0005);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0002);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0002);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0E27); // You select your next move wisely.
             L003C: goto L005C;
@@ -720,12 +721,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITEI_2F(ServerMobile party, bool isForwardMove) {
+        private void FnPITEI_2F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0005);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0005);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0003);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0003);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0E73); // Good sense guides your feet.
             L003C: goto L005C;
@@ -734,12 +735,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITEJ_30(ServerMobile party, bool isForwardMove) {
+        private void FnPITEJ_30(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0005);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0005);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0004);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0004);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0EBA); // You walk ahead.
             L003C: goto L005C;
@@ -748,12 +749,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITEK_31(ServerMobile party, bool isForwardMove) {
+        private void FnPITEK_31(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0005);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0005);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0005);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0005);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0EF4); // Your next step is assuredly taken.
             L003C: goto L005C;
@@ -762,12 +763,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITFG_32(ServerMobile party, bool isForwardMove) {
+        private void FnPITFG_32(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0006);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0006);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0001);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0001);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0F41); // The next step is an intelligent one.
             L003C: goto L005C;
@@ -776,12 +777,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITFH_33(ServerMobile party, bool isForwardMove) {
+        private void FnPITFH_33(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0006);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0006);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0002);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0002);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0F90); // You move safely ahead.
             L003C: goto L005C;
@@ -790,12 +791,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITFI_34(ServerMobile party, bool isForwardMove) {
+        private void FnPITFI_34(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0006);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0006);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0003);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0003);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String0FD1); // Your movement decision was correct.
             L003C: goto L005C;
@@ -804,12 +805,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITFJ_35(ServerMobile party, bool isForwardMove) {
+        private void FnPITFJ_35(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0006);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0006);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0004);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0004);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String101F); // You move forward with confidence.
             L003C: goto L005C;
@@ -818,12 +819,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITFK_36(ServerMobile party, bool isForwardMove) {
+        private void FnPITFK_36(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0006);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0006);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0005);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0005);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String106B); // You carefully selected your next step.
             L003C: goto L005C;
@@ -832,12 +833,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITFL_37(ServerMobile party, bool isForwardMove) {
+        private void FnPITFL_37(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0006);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0006);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0006);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0006);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String10BC); // You make a sage choice.
             L003C: goto L005C;
@@ -846,12 +847,12 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnPITFM_38(ServerMobile party, bool isForwardMove) {
+        private void FnPITFM_38(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetState(party, 0x01, 0x02), 0x0006);
+            L0003: Compare(GetFlag(party, 0x01, 0x02), 0x0006);
             L0017: if (JumpNotEqual) goto L003E;
-            L0019: Compare(GetState(party, 0x01, 0x03), 0x0007);
+            L0019: Compare(GetFlag(party, 0x01, 0x03), 0x0007);
             L002D: if (JumpNotEqual) goto L003E;
             L002F: ShowMessage(party, String10FE); // You have made a wise decision.
             L003C: goto L005C;
@@ -860,7 +861,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005C: return; // RETURN;
         }
 
-        private void FnENCPITBJ_39(ServerMobile party, bool isForwardMove) {
+        private void FnENCPITBJ_39(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x19);
@@ -871,7 +872,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnENCPITDI_3A(ServerMobile party, bool isForwardMove) {
+        private void FnENCPITDI_3A(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1F);
@@ -881,7 +882,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnPITENCDK_3B(ServerMobile party, bool isForwardMove) {
+        private void FnPITENCDK_3B(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1B);
@@ -893,7 +894,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnPITENCBL_3C(ServerMobile party, bool isForwardMove) {
+        private void FnPITENCBL_3C(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x24);
@@ -904,10 +905,10 @@ namespace XPT.Scripts.Yserbius.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnDOORARNK_3D(ServerMobile party, bool isForwardMove) {
+        private void FnDOORARNK_3D(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetState(party, 0x01, 0x01));
+            L0003: RefreshCompareFlags(GetFlag(party, 0x01, 0x01));
             L0016: if (JumpEqual) goto L005B;
             L0018: SetWallPassable(party, GetCurrentTile(party), 0x03, 0x01);
             L0032: SetWallObject(party, 0x01, GetCurrentTile(party), 0x03);
@@ -917,7 +918,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0068: return; // RETURN;
         }
 
-        private void FnTELEARNK_3E(ServerMobile party, bool isForwardMove) {
+        private void FnTELEARNK_3E(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String119C); // A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
@@ -925,10 +926,10 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnSETEKILL_3F(ServerMobile party, bool isForwardMove) {
+        private void FnSETEKILL_3F(ServerPlayer party, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetState(party, 0x01, 0x01, 0x01);
+            L0003: SetFlag(party, 0x01, 0x01, 0x01);
             L0018: return; // RETURN;
         }
 
