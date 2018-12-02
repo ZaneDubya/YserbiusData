@@ -5,8 +5,8 @@ using XPT.WorldData.Yserbius;
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap31 : AMapScripted {
         protected override int MapIndex => 31;
-        protected override int RandomEncounterChance => 0;
-        protected override int RandomEncounterExtraCount => 0;
+        protected override int RandomEncounterChance => 30;
+        protected override int RandomEncounterExtraCount => 2;
 
         public YserMap31() {
             MapEvent01 = FnRIVER_01;

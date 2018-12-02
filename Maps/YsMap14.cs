@@ -6,7 +6,7 @@ namespace XPT.Scripts.Yserbius.Maps {
     class YserMap14 : AMapScripted {
         protected override int MapIndex => 14;
         protected override int RandomEncounterChance => 10;
-        protected override int RandomEncounterExtraCount => 2;
+        protected override int RandomEncounterExtraCount => 1;
 
         public YserMap14() {
             MapEvent01 = FnTORUNERM_01;

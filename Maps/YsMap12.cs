@@ -5,8 +5,8 @@ using XPT.WorldData.Yserbius;
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap12 : AMapScripted {
         protected override int MapIndex => 12;
-        protected override int RandomEncounterChance => 15;
-        protected override int RandomEncounterExtraCount => 1;
+        protected override int RandomEncounterChance => 10;
+        protected override int RandomEncounterExtraCount => 0;
 
         public YserMap12() {
             MapEvent01 = FnSTRSTELE_01;

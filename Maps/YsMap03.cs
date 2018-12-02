@@ -5,7 +5,7 @@ using XPT.WorldData.Yserbius;
 namespace XPT.Scripts.Yserbius.Maps {
     class YserMap03 : AMapScripted {
         protected override int MapIndex => 3;
-        protected override int RandomEncounterChance => 12;
+        protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 0;
 
         public YserMap03() {
