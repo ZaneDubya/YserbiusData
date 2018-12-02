@@ -4,6 +4,9 @@
 # Mac garbage
 ._*
 
+# Windows garbage
+Thumbs.db
+
 # User-specific files
 *.suo
 *.user
