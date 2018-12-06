@@ -143,21 +143,21 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String1539 = "Echoes of ghostly laughter mock you.";
         
         // === Functions ================================================
-        private void FnTOCORRA_01(ServerPlayer party, bool isForwardMove) {
+        private void FnTOCORRA_01(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x02, 0x02, 0xF0, 0x03, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnIMPILLAR_02(ServerPlayer party, bool isForwardMove) {
+        private void FnIMPILLAR_02(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFloorPassable(party, 0x00, GetCurrentTile(party));
             L0017: return; // RETURN;
         }
 
-        private void FnILPILLAR_03(ServerPlayer party, bool isForwardMove) {
+        private void FnILPILLAR_03(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // As you step forward, the column slides away.
@@ -165,7 +165,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0021: return; // RETURN;
         }
 
-        private void FnPASSCOLM_04(ServerPlayer party, bool isForwardMove) {
+        private void FnPASSCOLM_04(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0429); // As you step forward, the column slides away.
@@ -173,7 +173,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0021: return; // RETURN;
         }
 
-        private void FnTAPESTRY_05(ServerPlayer party, bool isForwardMove) {
+        private void FnTAPESTRY_05(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xF8);
@@ -185,7 +185,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L003C: return; // RETURN;
         }
 
-        private void FnKNGGHST_06(ServerPlayer party, bool isForwardMove) {
+        private void FnKNGGHST_06(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xF8);
@@ -203,7 +203,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00BF: return; // RETURN;
         }
 
-        private void FnPIT_07(ServerPlayer party, bool isForwardMove) {
+        private void FnPIT_07(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFloorObject(party, 0x01, GetCurrentTile(party));
@@ -219,7 +219,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0091: return; // RETURN;
         }
 
-        private void FnAVRMNSTR_08(ServerPlayer party, bool isForwardMove) {
+        private void FnAVRMNSTR_08(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -248,7 +248,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L013D: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_09(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRMNSTR_09(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -273,7 +273,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00F5: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_0A(ServerPlayer party, bool isForwardMove) {
+        private void FnTUFMNSTR_0A(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -304,7 +304,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0152: return; // RETURN;
         }
 
-        private void FnWEAPBENC_0C(ServerPlayer party, bool isForwardMove) {
+        private void FnWEAPBENC_0C(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x35);
@@ -334,7 +334,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L013C: return; // RETURN;
         }
 
-        private void FnWEAPAENC_0D(ServerPlayer party, bool isForwardMove) {
+        private void FnWEAPAENC_0D(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddTreasure(party, 0x1964, 0x00, 0x00, 0x00, 0x00, 0x3B);
@@ -364,7 +364,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0157: return; // RETURN;
         }
 
-        private void FnWEAPCENC_0E(ServerPlayer party, bool isForwardMove) {
+        private void FnWEAPCENC_0E(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x16);
@@ -399,7 +399,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0196: return; // RETURN;
         }
 
-        private void FnSHLDENC_0F(ServerPlayer party, bool isForwardMove) {
+        private void FnSHLDENC_0F(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x4E);
@@ -436,7 +436,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L01BB: return; // RETURN;
         }
 
-        private void FnJACKTENC_10(ServerPlayer party, bool isForwardMove) {
+        private void FnJACKTENC_10(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x7A);
@@ -466,7 +466,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L013D: return; // RETURN;
         }
 
-        private void FnARMRBENC_11(ServerPlayer party, bool isForwardMove) {
+        private void FnARMRBENC_11(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x76);
@@ -501,7 +501,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0196: return; // RETURN;
         }
 
-        private void FnRUNES_12(ServerPlayer party, bool isForwardMove) {
+        private void FnRUNES_12(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0992); // There are runes on the wall...
@@ -509,7 +509,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_15(ServerPlayer party, bool isForwardMove) {
+        private void FnLKPKDOOR_15(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xC1, 0xC4);
@@ -525,7 +525,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L009E: return; // RETURN;
         }
 
-        private void FnSTRDOOR_16(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRDOOR_16(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(party), 0x000C);
@@ -539,7 +539,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0089: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_17(ServerPlayer party, bool isForwardMove) {
+        private void FnLKPKDOOR_17(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xC2, 0xC4);
@@ -555,7 +555,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L009E: return; // RETURN;
         }
 
-        private void FnTRAPDORA_18(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORA_18(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -574,7 +574,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORB_19(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORB_19(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -593,7 +593,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORC_1A(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORC_1A(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -612,7 +612,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORD_1B(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORD_1B(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -631,7 +631,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORE_1C(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORE_1C(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -650,7 +650,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L009E: return; // RETURN;
         }
 
-        private void FnTRAPDORF_1D(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORF_1D(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -669,7 +669,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORG_1E(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORG_1E(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -688,7 +688,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L009E: return; // RETURN;
         }
 
-        private void FnTRAPDORH_1F(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORH_1F(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -707,7 +707,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORI_20(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORI_20(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -726,7 +726,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L009E: return; // RETURN;
         }
 
-        private void FnTRAPDORJ_21(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORJ_21(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -745,7 +745,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORK_22(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORK_22(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -764,7 +764,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORL_23(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORL_23(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -783,7 +783,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORM_24(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORM_24(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -802,7 +802,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORN_25(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORN_25(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -821,7 +821,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORO_26(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORO_26(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -840,7 +840,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORP_27(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORP_27(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -859,7 +859,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTRAPDORQ_28(ServerPlayer party, bool isForwardMove) {
+        private void FnTRAPDORQ_28(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x000A);
@@ -878,21 +878,21 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnTOCORRB_29(ServerPlayer party, bool isForwardMove) {
+        private void FnTOCORRB_29(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x02, 0x02, 0xF1, 0x03, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnGATEMESS_2A(ServerPlayer party, bool isForwardMove) {
+        private void FnGATEMESS_2A(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0EF7); // The gateway leads to THE PALACE CORRIDOR.
             L0010: return; // RETURN;
         }
 
-        private void FnPASSCOLM_2B(ServerPlayer party, bool isForwardMove) {
+        private void FnPASSCOLM_2B(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0F21); // As you step forward, the column slides away.
@@ -900,14 +900,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0021: return; // RETURN;
         }
 
-        private void Fn_2C(ServerPlayer party, bool isForwardMove) {
+        private void Fn_2C(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0F4E); // You bump into the pillar.
             L0010: return; // RETURN;
         }
 
-        private void FnNPCCHATA_2D(ServerPlayer party, bool isForwardMove) {
+        private void FnNPCCHATA_2D(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0F68); // You encounter an Elf Ranger.
@@ -920,7 +920,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_2E(ServerPlayer party, bool isForwardMove) {
+        private void FnNPCCHATB_2E(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String106C); // You encounter a Gremlin Thief.
@@ -933,7 +933,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATC_2F(ServerPlayer party, bool isForwardMove) {
+        private void FnNPCCHATC_2F(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1115); // You encounter a Dwarf Knight.
@@ -946,7 +946,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnKINGMSG_30(ServerPlayer party, bool isForwardMove) {
+        private void FnKINGMSG_30(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xF8);

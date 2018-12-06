@@ -74,7 +74,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String0CA5 = "You leave this dimension and re-enter your world.";
         
         // === Functions ================================================
-        private void FnVOID_01(ServerPlayer party, bool isForwardMove) {
+        private void FnVOID_01(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String03FC); // The Ageless Void swallows you whole.
@@ -83,7 +83,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002E: return; // RETURN;
         }
 
-        private void FnLIFE_02(ServerPlayer party, bool isForwardMove) {
+        private void FnLIFE_02(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String046D); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
@@ -91,7 +91,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0021: return; // RETURN;
         }
 
-        private void FnTIMEA_03(ServerPlayer party, bool isForwardMove) {
+        private void FnTIMEA_03(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: // make space for tmp on stack: sp -= 2
@@ -122,7 +122,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00F4: return; // RETURN;
         }
 
-        private void FnTIMEB_04(ServerPlayer party, bool isForwardMove) {
+        private void FnTIMEB_04(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: // make space for tmp on stack: sp -= 2
@@ -153,7 +153,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00F4: return; // RETURN;
         }
 
-        private void FnTIMEC_05(ServerPlayer party, bool isForwardMove) {
+        private void FnTIMEC_05(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: // make space for tmp on stack: sp -= 2
@@ -184,7 +184,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00F4: return; // RETURN;
         }
 
-        private void FnTIMEELEM_06(ServerPlayer party, bool isForwardMove) {
+        private void FnTIMEELEM_06(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0011);
@@ -205,7 +205,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00F4: return; // RETURN;
         }
 
-        private void FnTIMEPLAT_07(ServerPlayer party, bool isForwardMove) {
+        private void FnTIMEPLAT_07(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(party, 0x01, 0x00));
@@ -225,7 +225,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A9: return; // RETURN;
         }
 
-        private void FnGOAL_08(ServerPlayer party, bool isForwardMove) {
+        private void FnGOAL_08(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RemoveItem(party, 0xF4);
@@ -254,7 +254,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L012A: return; // RETURN;
         }
 
-        private void FnENCA_09(ServerPlayer party, bool isForwardMove) {
+        private void FnENCA_09(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0C2F); // Across the Waters of Death at the center of this finite square is the Fountain of Life.
@@ -268,7 +268,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0089: return; // RETURN;
         }
 
-        private void FnENCB_0A(ServerPlayer party, bool isForwardMove) {
+        private void FnENCB_0A(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x08);
@@ -280,7 +280,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCC_0B(ServerPlayer party, bool isForwardMove) {
+        private void FnENCC_0B(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1B);
@@ -292,7 +292,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCD_0C(ServerPlayer party, bool isForwardMove) {
+        private void FnENCD_0C(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(party, 0x01, 0x7B));
@@ -311,7 +311,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00BE: return; // RETURN;
         }
 
-        private void FnENCE_0D(ServerPlayer party, bool isForwardMove) {
+        private void FnENCE_0D(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1E);
@@ -323,7 +323,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCF_0E(ServerPlayer party, bool isForwardMove) {
+        private void FnENCF_0E(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x22);
@@ -335,7 +335,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnCROSSOVR_0F(ServerPlayer party, bool isForwardMove) {
+        private void FnCROSSOVR_0F(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(party, 0x01, 0x00));
@@ -350,7 +350,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0064: return; // RETURN;
         }
 
-        private void FnMAPCONV_10(ServerPlayer party, bool isForwardMove) {
+        private void FnMAPCONV_10(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: // make space for tmp on stack: sp -= 2
@@ -375,7 +375,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00EA: return; // RETURN;
         }
 
-        private void FnTELEBACK_12(ServerPlayer party, bool isForwardMove) {
+        private void FnTELEBACK_12(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0CA5); // You leave this dimension and re-enter your world.

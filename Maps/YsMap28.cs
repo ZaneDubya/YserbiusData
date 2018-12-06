@@ -192,7 +192,7 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String1DA0 = "It is known in the trees that Nature's Robe must be used for the harvest.'";
         
         // === Functions ================================================
-        private void FnALDBORA_01(ServerPlayer party, bool isForwardMove) {
+        private void FnALDBORA_01(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: si = GetFlag(party, 0x01, 0x01);
@@ -315,7 +315,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L045F: return; // RETURN (restoring si);
         }
 
-        private void FnENCA_02(ServerPlayer party, bool isForwardMove) {
+        private void FnENCA_02(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String07DD); // Dwarven Knights attempt an ambush.
@@ -326,7 +326,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0058: return; // RETURN;
         }
 
-        private void FnENCB_03(ServerPlayer party, bool isForwardMove) {
+        private void FnENCB_03(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1F);
@@ -338,7 +338,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCC_04(ServerPlayer party, bool isForwardMove) {
+        private void FnENCC_04(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1F);
@@ -348,7 +348,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnENCD_05(ServerPlayer party, bool isForwardMove) {
+        private void FnENCD_05(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x18);
@@ -360,7 +360,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCE_06(ServerPlayer party, bool isForwardMove) {
+        private void FnENCE_06(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x14);
@@ -370,7 +370,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnENCF_07(ServerPlayer party, bool isForwardMove) {
+        private void FnENCF_07(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xFA);
@@ -386,7 +386,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A9: return; // RETURN;
         }
 
-        private void FnENCG_08(ServerPlayer party, bool isForwardMove) {
+        private void FnENCG_08(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1A);
@@ -396,7 +396,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnENCH_09(ServerPlayer party, bool isForwardMove) {
+        private void FnENCH_09(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x21);
@@ -406,7 +406,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnENCI_0A(ServerPlayer party, bool isForwardMove) {
+        private void FnENCI_0A(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(party, 0x01, 0x1C);
@@ -422,7 +422,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00AB: return; // RETURN;
         }
 
-        private void FnCGATE_0B(ServerPlayer party, bool isForwardMove) {
+        private void FnCGATE_0B(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0858); // A path leads up to CASTLEGATE
@@ -430,7 +430,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnDWARF_0C(ServerPlayer party, bool isForwardMove) {
+        private void FnDWARF_0C(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel(party, 0x001E);
@@ -442,14 +442,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004A: return; // RETURN;
         }
 
-        private void FnNOJOIN_0D(ServerPlayer party, bool isForwardMove) {
+        private void FnNOJOIN_0D(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetNoJoinArea(party);
             L000B: return; // RETURN;
         }
 
-        private void FnBEECHWD_0E(ServerPlayer party, bool isForwardMove) {
+        private void FnBEECHWD_0E(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String08FB); // Upon a wood sign is written -- 'Wilderness of BeechWood.'
@@ -462,7 +462,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0079: return; // RETURN;
         }
 
-        private void FnOAKLEAF_0F(ServerPlayer party, bool isForwardMove) {
+        private void FnOAKLEAF_0F(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0935); // A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'
@@ -475,7 +475,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0079: return; // RETURN;
         }
 
-        private void FnMAPLEBRS_10(ServerPlayer party, bool isForwardMove) {
+        private void FnMAPLEBRS_10(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0978); // A sign of ancient wood reads -- 'Wilderness of MapleBrush.'
@@ -488,7 +488,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0079: return; // RETURN;
         }
 
-        private void FnPINECONE_11(ServerPlayer party, bool isForwardMove) {
+        private void FnPINECONE_11(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09B4); // In the dust of pine needles is written -- 'Wilderness of PineCone.'
@@ -501,7 +501,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0079: return; // RETURN;
         }
 
-        private void FnBWACTOR_12(ServerPlayer party, bool isForwardMove) {
+        private void FnBWACTOR_12(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String09F8); // We are the Wise Ones of Beechwood who serve the Seasons.
@@ -596,7 +596,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0301: return; // RETURN (restoring si);
         }
 
-        private void FnOLACTOR_13(ServerPlayer party, bool isForwardMove) {
+        private void FnOLACTOR_13(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String1071); // We are the Clerics of Oakleaf who comfort the Seasons.
@@ -690,7 +690,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L02F4: return; // RETURN (restoring si);
         }
 
-        private void FnMBACTOR_14(ServerPlayer party, bool isForwardMove) {
+        private void FnMBACTOR_14(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String15E2); // We are the Wardens of Maplebrush and hold the Seasons.
@@ -776,7 +776,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L028B: return; // RETURN (restoring si);
         }
 
-        private void FnPCACTOR_15(ServerPlayer party, bool isForwardMove) {
+        private void FnPCACTOR_15(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
             L0004: ShowMessage(party, String18C1); // We are the Seasons incarnate in mortal form.
@@ -860,7 +860,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0288: return; // RETURN (restoring si);
         }
 
-        private void FnINFO_16(ServerPlayer party, bool isForwardMove) {
+        private void FnINFO_16(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x001F);
@@ -869,7 +869,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnINFO_17(ServerPlayer party, bool isForwardMove) {
+        private void FnINFO_17(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x0027);
@@ -878,7 +878,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnCAVEDOOR_18(ServerPlayer party, bool isForwardMove) {
+        private void FnCAVEDOOR_18(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1C91); // A wooden sign says, 'To the cave of NeedleWood.'
@@ -890,21 +890,21 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0066: return; // RETURN;
         }
 
-        private void FnELFHOME_19(ServerPlayer party, bool isForwardMove) {
+        private void FnELFHOME_19(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1CD4); // Young elves scurry and hide when you enter this elf home.
             L0010: return; // RETURN;
         }
 
-        private void FnELFHOME_1A(ServerPlayer party, bool isForwardMove) {
+        private void FnELFHOME_1A(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String1D0E); // Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.
             L0010: return; // RETURN;
         }
 
-        private void FnINFO_1B(ServerPlayer party, bool isForwardMove) {
+        private void FnINFO_1B(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(party, 0x001F);

@@ -46,14 +46,14 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String0952 = "The Gremlin Cleric ignores your questions as he becomes engrossed in his book.";
         
         // === Functions ================================================
-        private void FnSTRSTELE_01(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRSTELE_01(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x03, 0x01, 0xCD, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnKEYDOOR_02(ServerPlayer party, bool isForwardMove) {
+        private void FnKEYDOOR_02(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xDC, 0xDC);
@@ -67,7 +67,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnSCEPTENC_03(ServerPlayer party, bool isForwardMove) {
+        private void FnSCEPTENC_03(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xE3);
@@ -103,7 +103,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L019C: return; // RETURN;
         }
 
-        private void FnITEMBENC_04(ServerPlayer party, bool isForwardMove) {
+        private void FnITEMBENC_04(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0xBD);
@@ -133,7 +133,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L013C: return; // RETURN;
         }
 
-        private void FnITEMCENC_05(ServerPlayer party, bool isForwardMove) {
+        private void FnITEMCENC_05(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x56);
@@ -163,7 +163,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L013B: return; // RETURN;
         }
 
-        private void FnGOLDAENC_06(ServerPlayer party, bool isForwardMove) {
+        private void FnGOLDAENC_06(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(party, 0x02, 0x1C), 0x0001);
@@ -194,7 +194,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0156: return; // RETURN;
         }
 
-        private void FnGOLDBENC_07(ServerPlayer party, bool isForwardMove) {
+        private void FnGOLDBENC_07(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(party, 0x02, 0x1D), 0x0001);
@@ -225,7 +225,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L015B: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_08(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRMNSTR_08(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -252,7 +252,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0119: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_09(ServerPlayer party, bool isForwardMove) {
+        private void FnTUFMNSTR_09(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -282,7 +282,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L014F: return; // RETURN;
         }
 
-        private void FnVTFMNSTR_0A(ServerPlayer party, bool isForwardMove) {
+        private void FnVTFMNSTR_0A(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -307,14 +307,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00F5: return; // RETURN;
         }
 
-        private void FnSTRSMESS_0B(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRSMESS_0B(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06DA); // There are stairs through the north gateway.
             L0010: return; // RETURN;
         }
 
-        private void FnNPCCHATA_0C(ServerPlayer party, bool isForwardMove) {
+        private void FnNPCCHATA_0C(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0706); // A dying Troll Knight lies on the floor.
@@ -327,7 +327,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_0D(ServerPlayer party, bool isForwardMove) {
+        private void FnNPCCHATB_0D(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0801); // A Gremlin Cleric sits on the floor, holding a thick book in her hands.

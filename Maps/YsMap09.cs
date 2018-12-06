@@ -45,14 +45,14 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String07F1 = "The insane Gnome Thief crawls away.";
         
         // === Functions ================================================
-        private void FnSTRSTELE_01(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRSTELE_01(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x03, 0x01, 0xD7, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnKEYDOOR_02(ServerPlayer party, bool isForwardMove) {
+        private void FnKEYDOOR_02(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xDB, 0xDB);
@@ -66,7 +66,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnGOLDAENC_03(ServerPlayer party, bool isForwardMove) {
+        private void FnGOLDAENC_03(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(party, 0x02, 0x19), 0x0001);
@@ -95,7 +95,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0137: return; // RETURN;
         }
 
-        private void FnGOLDBENC_04(ServerPlayer party, bool isForwardMove) {
+        private void FnGOLDBENC_04(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(party, 0x02, 0x1A), 0x0001);
@@ -127,7 +127,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0168: return; // RETURN;
         }
 
-        private void FnCROWNENC_05(ServerPlayer party, bool isForwardMove) {
+        private void FnCROWNENC_05(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x78);
@@ -168,7 +168,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L01E8: return; // RETURN;
         }
 
-        private void FnITEMBENC_06(ServerPlayer party, bool isForwardMove) {
+        private void FnITEMBENC_06(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(party, 0x02, 0x1B), 0x0001);
@@ -208,7 +208,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L01EA: return; // RETURN;
         }
 
-        private void FnITEMCENC_07(ServerPlayer party, bool isForwardMove) {
+        private void FnITEMCENC_07(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x07);
@@ -244,7 +244,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L017F: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_08(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRMNSTR_08(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -276,7 +276,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0164: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_09(ServerPlayer party, bool isForwardMove) {
+        private void FnTUFMNSTR_09(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -300,7 +300,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00E3: return; // RETURN;
         }
 
-        private void FnVTFMNSTR_0A(ServerPlayer party, bool isForwardMove) {
+        private void FnVTFMNSTR_0A(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -329,14 +329,14 @@ namespace XPT.Scripts.Yserbius.Maps {
             L012E: return; // RETURN;
         }
 
-        private void FnSTRSMESS_0B(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRSMESS_0B(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String05FF); // East past the gateway are stairs leading down a level.
             L0010: return; // RETURN;
         }
 
-        private void FnNPCCHATA_0C(ServerPlayer party, bool isForwardMove) {
+        private void FnNPCCHATA_0C(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0636); // A Halfling Cleric creeps out of the shadows.
@@ -349,7 +349,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_0D(ServerPlayer party, bool isForwardMove) {
+        private void FnNPCCHATB_0D(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0711); // A half-mad Gnome Thief crawls into the room.

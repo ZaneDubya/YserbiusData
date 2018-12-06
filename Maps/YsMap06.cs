@@ -82,35 +82,35 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String0C3E = "The Human Thief points at something behind you. While your back is turned, she sneaks away.";
         
         // === Functions ================================================
-        private void FnSTRSTELE_01(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRSTELE_01(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x01, 0x04, 0x01, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnSTAIRSUP_02(ServerPlayer party, bool isForwardMove) {
+        private void FnSTAIRSUP_02(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x01, 0x06, 0x2E, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnTELPORTE_03(ServerPlayer party, bool isForwardMove) {
+        private void FnTELPORTE_03(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x02, 0x01, 0x07, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnTELPORTW_04(ServerPlayer party, bool isForwardMove) {
+        private void FnTELPORTW_04(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x02, 0x01, 0x04, 0x00, isForwardMove);
             L001D: return; // RETURN;
         }
 
-        private void FnHIDNDOOR_05(ServerPlayer party, bool isForwardMove) {
+        private void FnHIDNDOOR_05(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(party, 0x0D), 0x0006);
@@ -129,7 +129,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L00A0: return; // RETURN;
         }
 
-        private void FnGOLDAENC_06(ServerPlayer party, bool isForwardMove) {
+        private void FnGOLDAENC_06(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(party, 0x02, 0x16));
@@ -167,7 +167,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L01C9: return; // RETURN;
         }
 
-        private void FnFOUNTAIN_07(ServerPlayer party, bool isForwardMove) {
+        private void FnFOUNTAIN_07(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(party, 0x02, 0x1E), 0x0001);
@@ -182,7 +182,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0075: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_08(ServerPlayer party, bool isForwardMove) {
+        private void FnLKPKDOOR_08(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(party, 0xBF, 0xC4);
@@ -198,7 +198,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L009E: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_09(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRMNSTR_09(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -228,7 +228,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0140: return; // RETURN;
         }
 
-        private void FnVTFMNSTR_0A(ServerPlayer party, bool isForwardMove) {
+        private void FnVTFMNSTR_0A(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -258,7 +258,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0140: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_0B(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRMNSTR_0B(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -286,7 +286,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L011C: return; // RETURN;
         }
 
-        private void FnBADMNSTR_0C(ServerPlayer party, bool isForwardMove) {
+        private void FnBADMNSTR_0C(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(party), 0x0001);
@@ -316,7 +316,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0140: return; // RETURN;
         }
 
-        private void FnGOLDBENC_0D(ServerPlayer party, bool isForwardMove) {
+        private void FnGOLDBENC_0D(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(party, 0x02, 0x17), 0x0001);
@@ -349,7 +349,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L016B: return; // RETURN;
         }
 
-        private void FnWEAPENC_0E(ServerPlayer party, bool isForwardMove) {
+        private void FnWEAPENC_0E(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x18);
@@ -396,7 +396,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0236: return; // RETURN;
         }
 
-        private void FnARMORENC_0F(ServerPlayer party, bool isForwardMove) {
+        private void FnARMORENC_0F(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x7F);
@@ -427,7 +427,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0143: return; // RETURN;
         }
 
-        private void FnMAGICENC_10(ServerPlayer party, bool isForwardMove) {
+        private void FnMAGICENC_10(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x8B);
@@ -472,7 +472,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0212: return; // RETURN;
         }
 
-        private void FnITEMBENC_11(ServerPlayer party, bool isForwardMove) {
+        private void FnITEMBENC_11(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x52);
@@ -503,7 +503,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0143: return; // RETURN;
         }
 
-        private void FnITEMCENC_12(ServerPlayer party, bool isForwardMove) {
+        private void FnITEMCENC_12(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(party, 0x20);
@@ -546,70 +546,70 @@ namespace XPT.Scripts.Yserbius.Maps {
             L01EE: return; // RETURN;
         }
 
-        private void FnTELEPORT_13(ServerPlayer party, bool isForwardMove) {
+        private void FnTELEPORT_13(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x01, 0x04, 0x54, 0x03, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnSTRSMESS_14(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRSMESS_14(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0626); // The stairs through the south gateway lead upwards.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESS_15(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRSMESS_15(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0659); // Through the west gateway are stairs leading upwards.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESS_16(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRSMESS_16(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String068E); // The stairs through the north gateway lead upwards.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESS_17(ServerPlayer party, bool isForwardMove) {
+        private void FnSTRSMESS_17(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06C1); // The stairs past the north gateway lead up a level.
             L0010: return; // RETURN;
         }
 
-        private void FnTELEMESS_18(ServerPlayer party, bool isForwardMove) {
+        private void FnTELEMESS_18(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String06F4); // There is a teleport in the east wall.
             L0010: return; // RETURN;
         }
 
-        private void FnTELEMESS_19(ServerPlayer party, bool isForwardMove) {
+        private void FnTELEMESS_19(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String071A); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
-        private void FnTELEPORT_1A(ServerPlayer party, bool isForwardMove) {
+        private void FnTELEPORT_1A(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(party, 0x03, 0x03, 0xDD, 0x00, isForwardMove);
             L001D: return; // RETURN;
         }
 
-        private void FnTELEMESS_1B(ServerPlayer party, bool isForwardMove) {
+        private void FnTELEMESS_1B(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0740); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
-        private void FnNPCCHATA_1C(ServerPlayer party, bool isForwardMove) {
+        private void FnNPCCHATA_1C(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0766); // You encounter a Gnome Thief.
@@ -622,7 +622,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_1D(ServerPlayer party, bool isForwardMove) {
+        private void FnNPCCHATB_1D(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0862); // You encounter a Human Barbarian.
@@ -636,7 +636,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L0058: return; // RETURN;
         }
 
-        private void FnNPCCHATC_1E(ServerPlayer party, bool isForwardMove) {
+        private void FnNPCCHATC_1E(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String09A4); // You encounter an Orc Knight.
@@ -649,7 +649,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATD_1F(ServerPlayer party, bool isForwardMove) {
+        private void FnNPCCHATD_1F(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0AB2); // You encounter an Elf Cleric.
@@ -662,7 +662,7 @@ namespace XPT.Scripts.Yserbius.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATE_20(ServerPlayer party, bool isForwardMove) {
+        private void FnNPCCHATE_20(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(party, String0B77); // You encounter a Human Thief.
