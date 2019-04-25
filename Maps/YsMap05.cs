@@ -1,8 +1,10 @@
 #pragma warning disable
-using XPT.WorldData;
-using XPT.WorldData.Yserbius;
+using System.Collections.Generic;
+using XPT.Legacy;
+using XPT.Legacy.Entities;
+using XPT.Legacy.Yserbius;
 
-namespace XPT.Scripts.Yserbius.Maps {
+namespace XPT.Legacy.Maps {
     class YserMap05 : AMapScripted {
         protected override int MapIndex => 5;
         protected override int RandomEncounterChance => 10;
@@ -93,537 +95,537 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String0ED5 = "The Orc Barbarian watches you impassively, refusing to talk.";
         
         // === Functions ================================================
-        private void FnTOEXIT_01(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnTOEXIT_01(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x01, 0x01, 0x85, 0x03, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x01, 0x85, 0x03, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnTOTREAS_02(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnTOTREAS_02(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x01, 0x05, 0xA0, 0x02, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x05, 0xA0, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnSTAIRSD_03(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnSTAIRSD_03(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x02, 0x01, 0x81, 0x02, isForwardMove);
+            L0003: TeleportParty(player, 0x02, 0x01, 0x81, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnTELPORTS_04(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnTELPORTS_04(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x01, 0x06, 0xCD, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x06, 0xCD, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnTELPORTN_05(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnTELPORTN_05(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x01, 0x06, 0x3C, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x06, 0x3C, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnTELEPORT_06(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnTELEPORT_06(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x03, 0x02, 0xCA, 0x02, isForwardMove);
+            L0003: TeleportParty(player, 0x03, 0x02, 0xCA, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnTELPORTW_07(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnTELPORTW_07(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x01, 0x06, 0x77, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x06, 0x77, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnTELPORTE_08(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnTELPORTE_08(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x01, 0x06, 0x9E, 0x03, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x06, 0x9E, 0x03, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_09(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnLKPKDOOR_09(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(party, 0xC0, 0xC4);
+            L0003: ax = HasUsedItem(player, 0xC0, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: Compare(HasUsedSkill(party, 0x0E), 0x0005);
+            L0018: Compare(HasUsedSkill(player, 0x0E), 0x0005);
             L0027: if (JumpBelow) goto L0074;
-            L0029: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
-            L0047: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
-            L0065: ShowMessage(party, String03FC); // You successfully picked the locked door.
+            L0029: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
+            L0047: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
+            L0065: ShowMessage(player, String03FC); // You successfully picked the locked door.
             L0072: goto L009E;
-            L0074: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x00);
-            L0091: ShowMessage(party, String0425); // The door is locked.
+            L0074: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
+            L0091: ShowMessage(player, String0425); // The door is locked.
             L009E: return; // RETURN;
         }
 
-        private void FnITEMCENC_0A(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnITEMCENC_0A(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(party, 0x27);
+            L0003: ax = HasItem(player, 0x27);
             L0011: if (JumpEqual) goto L0041;
-            L0013: ShowMessage(party, String0439); // Dire Wolves prowl the area.
-            L0020: AddTreasure(party, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xB5);
+            L0013: ShowMessage(player, String0439); // Dire Wolves prowl the area.
+            L0020: AddTreasure(player, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xB5);
             L003F: goto L006D;
-            L0041: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x27);
-            L0060: ShowMessage(party, String0455); // A Dire Wolf holds something in its mouth.
-            L006D: Compare(PartyCount(party), 0x0001);
+            L0041: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x27);
+            L0060: ShowMessage(player, String0455); // A Dire Wolf holds something in its mouth.
+            L006D: Compare(PartyCount(player), 0x0001);
             L0078: if (JumpEqual) goto L0087;
-            L007A: Compare(PartyCount(party), 0x0002);
+            L007A: Compare(PartyCount(player), 0x0002);
             L0085: if (JumpNotEqual) goto L009B;
-            L0087: AddEncounter(party, 0x01, 0x27);
+            L0087: AddEncounter(player, 0x01, 0x27);
             L0099: goto L00D1;
-            L009B: AddEncounter(party, 0x01, 0x27);
-            L00AD: AddEncounter(party, 0x02, 0x27);
-            L00BF: AddEncounter(party, 0x03, 0x28);
+            L009B: AddEncounter(player, 0x01, 0x27);
+            L00AD: AddEncounter(player, 0x02, 0x27);
+            L00BF: AddEncounter(player, 0x03, 0x28);
             L00D1: return; // RETURN;
         }
 
-        private void FnGOLDAENC_0B(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnGOLDAENC_0B(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(party, 0x02, 0x0C), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSoldiersQuartersOgreGold), 0x0001);
             L0017: if (JumpNotEqual) goto L0048;
-            L0019: ShowMessage(party, String047F); // Copper Ogres are huddled around a small fire.
-            L0026: AddTreasure(party, 0x0032, 0x00, 0x00, 0x00, 0xB5, 0x12);
+            L0019: ShowMessage(player, String047F); // Copper Ogres are huddled around a small fire.
+            L0026: AddTreasure(player, 0x0032, 0x00, 0x00, 0x00, 0xB5, 0x12);
             L0046: goto L0089;
-            L0048: AddTreasure(party, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xB5);
-            L0067: ShowMessage(party, String04AD); // Copper Ogres are counting gold they have stolen.
-            L0074: SetFlag(party, 0x02, 0x0C, 0x01);
-            L0089: Compare(PartyCount(party), 0x0001);
+            L0048: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xB5);
+            L0067: ShowMessage(player, String04AD); // Copper Ogres are counting gold they have stolen.
+            L0074: SetFlag(player, FlagTypeDungeon, FlagSoldiersQuartersOgreGold, 0x01);
+            L0089: Compare(PartyCount(player), 0x0001);
             L0094: if (JumpNotEqual) goto L00AB;
-            L0096: AddEncounter(party, 0x01, 0x1A);
+            L0096: AddEncounter(player, 0x01, 0x1A);
             L00A8: goto L016C;
-            L00AB: Compare(PartyCount(party), 0x0002);
+            L00AB: Compare(PartyCount(player), 0x0002);
             L00B6: if (JumpNotEqual) goto L00DF;
-            L00B8: AddEncounter(party, 0x01, 0x19);
-            L00CA: AddEncounter(party, 0x02, 0x1A);
+            L00B8: AddEncounter(player, 0x01, 0x19);
+            L00CA: AddEncounter(player, 0x02, 0x1A);
             L00DC: goto L016C;
-            L00DF: Compare(PartyCount(party), 0x0003);
+            L00DF: Compare(PartyCount(player), 0x0003);
             L00EA: if (JumpNotEqual) goto L0124;
-            L00EC: AddEncounter(party, 0x01, 0x1A);
-            L00FE: AddEncounter(party, 0x02, 0x19);
-            L0110: AddEncounter(party, 0x03, 0x1A);
+            L00EC: AddEncounter(player, 0x01, 0x1A);
+            L00FE: AddEncounter(player, 0x02, 0x19);
+            L0110: AddEncounter(player, 0x03, 0x1A);
             L0122: goto L016C;
-            L0124: AddEncounter(party, 0x01, 0x1B);
-            L0136: AddEncounter(party, 0x02, 0x1A);
-            L0148: AddEncounter(party, 0x03, 0x19);
-            L015A: AddEncounter(party, 0x04, 0x1A);
+            L0124: AddEncounter(player, 0x01, 0x1B);
+            L0136: AddEncounter(player, 0x02, 0x1A);
+            L0148: AddEncounter(player, 0x03, 0x19);
+            L015A: AddEncounter(player, 0x04, 0x1A);
             L016C: return; // RETURN;
         }
 
-        private void FnGOLDBENC_0C(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnGOLDBENC_0C(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(party, 0x02, 0x0D), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSoldiersQuartersLionGold), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
-            L0019: ShowMessage(party, String04DE); // This room is the lair of Mountain Lions.
-            L0026: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0xCB, 0x35);
+            L0019: ShowMessage(player, String04DE); // This room is the lair of Mountain Lions.
+            L0026: AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0xCB, 0x35);
             L0045: goto L0088;
-            L0047: AddTreasure(party, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xB5);
-            L0066: ShowMessage(party, String0507); // Mountain Lions chew on a small bag.
-            L0073: SetFlag(party, 0x02, 0x0D, 0x01);
-            L0088: Compare(PartyCount(party), 0x0001);
+            L0047: AddTreasure(player, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xB5);
+            L0066: ShowMessage(player, String0507); // Mountain Lions chew on a small bag.
+            L0073: SetFlag(player, FlagTypeDungeon, FlagSoldiersQuartersLionGold, 0x01);
+            L0088: Compare(PartyCount(player), 0x0001);
             L0093: if (JumpNotEqual) goto L00AA;
-            L0095: AddEncounter(party, 0x01, 0x1C);
+            L0095: AddEncounter(player, 0x01, 0x1C);
             L00A7: goto L018F;
-            L00AA: Compare(PartyCount(party), 0x0002);
+            L00AA: Compare(PartyCount(player), 0x0002);
             L00B5: if (JumpNotEqual) goto L00DE;
-            L00B7: AddEncounter(party, 0x01, 0x1C);
-            L00C9: AddEncounter(party, 0x02, 0x1C);
+            L00B7: AddEncounter(player, 0x01, 0x1C);
+            L00C9: AddEncounter(player, 0x02, 0x1C);
             L00DB: goto L018F;
-            L00DE: Compare(PartyCount(party), 0x0003);
+            L00DE: Compare(PartyCount(player), 0x0003);
             L00E9: if (JumpNotEqual) goto L0135;
-            L00EB: AddEncounter(party, 0x01, 0x1C);
-            L00FD: AddEncounter(party, 0x02, 0x1C);
-            L010F: AddEncounter(party, 0x03, 0x1C);
-            L0121: AddEncounter(party, 0x04, 0x1C);
+            L00EB: AddEncounter(player, 0x01, 0x1C);
+            L00FD: AddEncounter(player, 0x02, 0x1C);
+            L010F: AddEncounter(player, 0x03, 0x1C);
+            L0121: AddEncounter(player, 0x04, 0x1C);
             L0133: goto L018F;
-            L0135: AddEncounter(party, 0x01, 0x1C);
-            L0147: AddEncounter(party, 0x02, 0x1C);
-            L0159: AddEncounter(party, 0x03, 0x1C);
-            L016B: AddEncounter(party, 0x04, 0x1C);
-            L017D: AddEncounter(party, 0x05, 0x1C);
+            L0135: AddEncounter(player, 0x01, 0x1C);
+            L0147: AddEncounter(player, 0x02, 0x1C);
+            L0159: AddEncounter(player, 0x03, 0x1C);
+            L016B: AddEncounter(player, 0x04, 0x1C);
+            L017D: AddEncounter(player, 0x05, 0x1C);
             L018F: return; // RETURN;
         }
 
-        private void FnGOLDCENC_0D(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnGOLDCENC_0D(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(party, 0x02, 0x0E), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSoldiersQuartersScorpionGold), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
-            L0019: ShowMessage(party, String052B); // You hear the angry snapping of pincers.
-            L0026: AddTreasure(party, 0x0032, 0x00, 0x00, 0x00, 0x00, 0xCB);
+            L0019: ShowMessage(player, String052B); // You hear the angry snapping of pincers.
+            L0026: AddTreasure(player, 0x0032, 0x00, 0x00, 0x00, 0x00, 0xCB);
             L0045: goto L0088;
-            L0047: AddTreasure(party, 0x02EE, 0x00, 0x00, 0x00, 0x00, 0xCE);
-            L0066: ShowMessage(party, String0553); // As you step forward to pick up some gold on the floor...
-            L0073: SetFlag(party, 0x02, 0x0E, 0x01);
-            L0088: Compare(PartyCount(party), 0x0001);
+            L0047: AddTreasure(player, 0x02EE, 0x00, 0x00, 0x00, 0x00, 0xCE);
+            L0066: ShowMessage(player, String0553); // As you step forward to pick up some gold on the floor...
+            L0073: SetFlag(player, FlagTypeDungeon, FlagSoldiersQuartersScorpionGold, 0x01);
+            L0088: Compare(PartyCount(player), 0x0001);
             L0093: if (JumpNotEqual) goto L00A9;
-            L0095: AddEncounter(party, 0x01, 0x09);
+            L0095: AddEncounter(player, 0x01, 0x09);
             L00A7: goto L0124;
-            L00A9: Compare(PartyCount(party), 0x0002);
+            L00A9: Compare(PartyCount(player), 0x0002);
             L00B4: if (JumpNotEqual) goto L00DC;
-            L00B6: AddEncounter(party, 0x01, 0x08);
-            L00C8: AddEncounter(party, 0x02, 0x09);
+            L00B6: AddEncounter(player, 0x01, 0x08);
+            L00C8: AddEncounter(player, 0x02, 0x09);
             L00DA: goto L0124;
-            L00DC: AddEncounter(party, 0x01, 0x08);
-            L00EE: AddEncounter(party, 0x02, 0x08);
-            L0100: AddEncounter(party, 0x03, 0x09);
-            L0112: AddEncounter(party, 0x04, 0x09);
+            L00DC: AddEncounter(player, 0x01, 0x08);
+            L00EE: AddEncounter(player, 0x02, 0x08);
+            L0100: AddEncounter(player, 0x03, 0x09);
+            L0112: AddEncounter(player, 0x04, 0x09);
             L0124: return; // RETURN;
         }
 
-        private void FnGOLDDENC_0E(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnGOLDDENC_0E(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(party, 0x02, 0x0F), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSoldiersQuartersImpGold), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
-            L0019: ShowMessage(party, String058C); // Imps spring an ambush on you.
-            L0026: AddTreasure(party, 0x0014, 0x00, 0x00, 0x00, 0x00, 0xB5);
+            L0019: ShowMessage(player, String058C); // Imps spring an ambush on you.
+            L0026: AddTreasure(player, 0x0014, 0x00, 0x00, 0x00, 0x00, 0xB5);
             L0045: goto L0088;
-            L0047: AddTreasure(party, 0x04B0, 0x00, 0x00, 0x00, 0x00, 0xCE);
-            L0066: ShowMessage(party, String05AA); // You see gold on the floor and something hiding in the shadows.
-            L0073: SetFlag(party, 0x02, 0x0F, 0x01);
-            L0088: Compare(PartyCount(party), 0x0001);
+            L0047: AddTreasure(player, 0x04B0, 0x00, 0x00, 0x00, 0x00, 0xCE);
+            L0066: ShowMessage(player, String05AA); // You see gold on the floor and something hiding in the shadows.
+            L0073: SetFlag(player, FlagTypeDungeon, FlagSoldiersQuartersImpGold, 0x01);
+            L0088: Compare(PartyCount(player), 0x0001);
             L0093: if (JumpNotEqual) goto L00BC;
-            L0095: AddEncounter(party, 0x01, 0x12);
-            L00A7: AddEncounter(party, 0x02, 0x12);
+            L0095: AddEncounter(player, 0x01, 0x12);
+            L00A7: AddEncounter(player, 0x02, 0x12);
             L00B9: goto L017A;
-            L00BC: Compare(PartyCount(party), 0x0002);
+            L00BC: Compare(PartyCount(player), 0x0002);
             L00C7: if (JumpEqual) goto L00D6;
-            L00C9: Compare(PartyCount(party), 0x0003);
+            L00C9: Compare(PartyCount(player), 0x0003);
             L00D4: if (JumpNotEqual) goto L0120;
-            L00D6: AddEncounter(party, 0x01, 0x11);
-            L00E8: AddEncounter(party, 0x02, 0x11);
-            L00FA: AddEncounter(party, 0x03, 0x12);
-            L010C: AddEncounter(party, 0x04, 0x12);
+            L00D6: AddEncounter(player, 0x01, 0x11);
+            L00E8: AddEncounter(player, 0x02, 0x11);
+            L00FA: AddEncounter(player, 0x03, 0x12);
+            L010C: AddEncounter(player, 0x04, 0x12);
             L011E: goto L017A;
-            L0120: AddEncounter(party, 0x01, 0x12);
-            L0132: AddEncounter(party, 0x02, 0x12);
-            L0144: AddEncounter(party, 0x03, 0x11);
-            L0156: AddEncounter(party, 0x05, 0x11);
-            L0168: AddEncounter(party, 0x06, 0x11);
+            L0120: AddEncounter(player, 0x01, 0x12);
+            L0132: AddEncounter(player, 0x02, 0x12);
+            L0144: AddEncounter(player, 0x03, 0x11);
+            L0156: AddEncounter(player, 0x05, 0x11);
+            L0168: AddEncounter(player, 0x06, 0x11);
             L017A: return; // RETURN;
         }
 
-        private void FnGOLDEENC_0F(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnGOLDEENC_0F(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(party, 0x02, 0x10), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSoldiersQuartersSkeletonGold), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
-            L0019: ShowMessage(party, String05E9); // You turn as you hear bones rattling.
-            L0026: AddTreasure(party, 0x0050, 0x00, 0x00, 0x00, 0x00, 0xB5);
+            L0019: ShowMessage(player, String05E9); // You turn as you hear bones rattling.
+            L0026: AddTreasure(player, 0x0050, 0x00, 0x00, 0x00, 0x00, 0xB5);
             L0045: goto L0088;
-            L0047: AddTreasure(party, 0x0FA0, 0x00, 0x00, 0x00, 0x00, 0xD1);
-            L0066: ShowMessage(party, String060E); // A skeleton has a coin bag tied to its belt.
-            L0073: SetFlag(party, 0x02, 0x10, 0x01);
-            L0088: Compare(PartyCount(party), 0x0001);
+            L0047: AddTreasure(player, 0x0FA0, 0x00, 0x00, 0x00, 0x00, 0xD1);
+            L0066: ShowMessage(player, String060E); // A skeleton has a coin bag tied to its belt.
+            L0073: SetFlag(player, FlagTypeDungeon, FlagSoldiersQuartersSkeletonGold, 0x01);
+            L0088: Compare(PartyCount(player), 0x0001);
             L0093: if (JumpNotEqual) goto L00BC;
-            L0095: AddEncounter(party, 0x01, 0x15);
-            L00A7: AddEncounter(party, 0x02, 0x15);
+            L0095: AddEncounter(player, 0x01, 0x15);
+            L00A7: AddEncounter(player, 0x02, 0x15);
             L00B9: goto L01B3;
-            L00BC: Compare(PartyCount(party), 0x0002);
+            L00BC: Compare(PartyCount(player), 0x0002);
             L00C7: if (JumpNotEqual) goto L0102;
-            L00C9: AddEncounter(party, 0x01, 0x15);
-            L00DB: AddEncounter(party, 0x02, 0x15);
-            L00ED: AddEncounter(party, 0x03, 0x15);
+            L00C9: AddEncounter(player, 0x01, 0x15);
+            L00DB: AddEncounter(player, 0x02, 0x15);
+            L00ED: AddEncounter(player, 0x03, 0x15);
             L00FF: goto L01B3;
-            L0102: Compare(PartyCount(party), 0x0003);
+            L0102: Compare(PartyCount(player), 0x0003);
             L010D: if (JumpNotEqual) goto L0159;
-            L010F: AddEncounter(party, 0x01, 0x15);
-            L0121: AddEncounter(party, 0x02, 0x15);
-            L0133: AddEncounter(party, 0x03, 0x15);
-            L0145: AddEncounter(party, 0x04, 0x15);
+            L010F: AddEncounter(player, 0x01, 0x15);
+            L0121: AddEncounter(player, 0x02, 0x15);
+            L0133: AddEncounter(player, 0x03, 0x15);
+            L0145: AddEncounter(player, 0x04, 0x15);
             L0157: goto L01B3;
-            L0159: AddEncounter(party, 0x01, 0x15);
-            L016B: AddEncounter(party, 0x02, 0x15);
-            L017D: AddEncounter(party, 0x03, 0x15);
-            L018F: AddEncounter(party, 0x04, 0x15);
-            L01A1: AddEncounter(party, 0x05, 0x15);
+            L0159: AddEncounter(player, 0x01, 0x15);
+            L016B: AddEncounter(player, 0x02, 0x15);
+            L017D: AddEncounter(player, 0x03, 0x15);
+            L018F: AddEncounter(player, 0x04, 0x15);
+            L01A1: AddEncounter(player, 0x05, 0x15);
             L01B3: return; // RETURN;
         }
 
-        private void FnGOLDFENC_10(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnGOLDFENC_10(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(party, 0x02, 0x11), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSoldiersQuartersSnakeGold), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
-            L0019: ShowMessage(party, String063A); // You stumble upon an almost empty nesting area.
-            L0026: AddTreasure(party, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xCB);
+            L0019: ShowMessage(player, String063A); // You stumble upon an almost empty nesting area.
+            L0026: AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xCB);
             L0044: goto L0122;
-            L0047: AddTreasure(party, 0x05DC, 0x00, 0x00, 0x00, 0x00, 0xCB);
-            L0066: ShowMessage(party, String0669); // Angry hissing distracts you as you reach down for some gold coins.
-            L0073: SetFlag(party, 0x02, 0x11, 0x01);
-            L0088: Compare(PartyCount(party), 0x0001);
+            L0047: AddTreasure(player, 0x05DC, 0x00, 0x00, 0x00, 0x00, 0xCB);
+            L0066: ShowMessage(player, String0669); // Angry hissing distracts you as you reach down for some gold coins.
+            L0073: SetFlag(player, FlagTypeDungeon, FlagSoldiersQuartersSnakeGold, 0x01);
+            L0088: Compare(PartyCount(player), 0x0001);
             L0093: if (JumpEqual) goto L00A2;
-            L0095: Compare(PartyCount(party), 0x0002);
+            L0095: Compare(PartyCount(player), 0x0002);
             L00A0: if (JumpNotEqual) goto L00C8;
-            L00A2: AddEncounter(party, 0x01, 0x07);
-            L00B4: AddEncounter(party, 0x02, 0x06);
+            L00A2: AddEncounter(player, 0x01, 0x07);
+            L00B4: AddEncounter(player, 0x02, 0x06);
             L00C6: goto L0122;
-            L00C8: AddEncounter(party, 0x01, 0x06);
-            L00DA: AddEncounter(party, 0x02, 0x06);
-            L00EC: AddEncounter(party, 0x03, 0x07);
-            L00FE: AddEncounter(party, 0x04, 0x07);
-            L0110: AddEncounter(party, 0x05, 0x06);
+            L00C8: AddEncounter(player, 0x01, 0x06);
+            L00DA: AddEncounter(player, 0x02, 0x06);
+            L00EC: AddEncounter(player, 0x03, 0x07);
+            L00FE: AddEncounter(player, 0x04, 0x07);
+            L0110: AddEncounter(player, 0x05, 0x06);
             L0122: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_13(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnTUFMNSTR_13(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String06AC); // You encounter Rogues.
+            L0003: ShowMessage(player, String06AC); // You encounter Rogues.
             L0010: Compare(GetRandom(0x000F), 0x0002);
             L0020: if (JumpAbove) goto L0031;
-            L0022: ShowMessage(party, String06C2); // The rooms in the center of this area once housed the king's soldiers.
+            L0022: ShowMessage(player, String06C2); // The rooms in the center of this area once housed the king's soldiers.
             L002F: goto L003E;
-            L0031: ShowMessage(party, String0708); // The Rogues laugh at you and attack.
-            L003E: Compare(PartyCount(party), 0x0001);
+            L0031: ShowMessage(player, String0708); // The Rogues laugh at you and attack.
+            L003E: Compare(PartyCount(player), 0x0001);
             L0049: if (JumpEqual) goto L0058;
-            L004B: Compare(PartyCount(party), 0x0002);
+            L004B: Compare(PartyCount(player), 0x0002);
             L0056: if (JumpNotEqual) goto L007F;
-            L0058: AddEncounter(party, 0x01, 0x1F);
-            L006A: AddEncounter(party, 0x02, 0x20);
+            L0058: AddEncounter(player, 0x01, 0x1F);
+            L006A: AddEncounter(player, 0x02, 0x20);
             L007C: goto L0142;
-            L007F: Compare(PartyCount(party), 0x0003);
+            L007F: Compare(PartyCount(player), 0x0003);
             L008A: if (JumpNotEqual) goto L00D6;
-            L008C: AddEncounter(party, 0x01, 0x1F);
-            L009E: AddEncounter(party, 0x02, 0x1F);
-            L00B0: AddEncounter(party, 0x05, 0x20);
-            L00C2: AddEncounter(party, 0x06, 0x21);
+            L008C: AddEncounter(player, 0x01, 0x1F);
+            L009E: AddEncounter(player, 0x02, 0x1F);
+            L00B0: AddEncounter(player, 0x05, 0x20);
+            L00C2: AddEncounter(player, 0x06, 0x21);
             L00D4: goto L0142;
-            L00D6: AddEncounter(party, 0x01, 0x1F);
-            L00E8: AddEncounter(party, 0x02, 0x1F);
-            L00FA: AddEncounter(party, 0x03, 0x20);
-            L010C: AddEncounter(party, 0x04, 0x20);
-            L011E: AddEncounter(party, 0x05, 0x21);
-            L0130: AddEncounter(party, 0x05, 0x21);
+            L00D6: AddEncounter(player, 0x01, 0x1F);
+            L00E8: AddEncounter(player, 0x02, 0x1F);
+            L00FA: AddEncounter(player, 0x03, 0x20);
+            L010C: AddEncounter(player, 0x04, 0x20);
+            L011E: AddEncounter(player, 0x05, 0x21);
+            L0130: AddEncounter(player, 0x05, 0x21);
             L0142: return; // RETURN;
         }
 
-        private void FnITEMAENC_15(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnITEMAENC_15(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(party, 0x03);
+            L0003: ax = HasItem(player, 0x03);
             L0011: if (JumpEqual) goto L0065;
-            L0013: ax = HasItem(party, 0x4F);
+            L0013: ax = HasItem(player, 0x4F);
             L0021: if (JumpEqual) goto L0044;
-            L0023: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0x00, 0xCE);
+            L0023: AddTreasure(player, 0x0064, 0x00, 0x00, 0x00, 0x00, 0xCE);
             L0042: goto L0063;
-            L0044: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x4F);
+            L0044: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x4F);
             L0063: goto L00B6;
-            L0065: ax = HasItem(party, 0x4F);
+            L0065: ax = HasItem(player, 0x4F);
             L0073: if (JumpEqual) goto L0096;
-            L0075: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x04);
+            L0075: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x04);
             L0094: goto L00B6;
-            L0096: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x4F, 0x04);
-            L00B6: ShowMessage(party, String072C); // You are waylaid by Rogues.
-            L00C3: Compare(PartyCount(party), 0x0001);
+            L0096: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x4F, 0x04);
+            L00B6: ShowMessage(player, String072C); // You are waylaid by Rogues.
+            L00C3: Compare(PartyCount(player), 0x0001);
             L00CE: if (JumpNotEqual) goto L00E5;
-            L00D0: AddEncounter(party, 0x01, 0x1F);
+            L00D0: AddEncounter(player, 0x01, 0x1F);
             L00E2: goto L01A6;
-            L00E5: Compare(PartyCount(party), 0x0002);
+            L00E5: Compare(PartyCount(player), 0x0002);
             L00F0: if (JumpNotEqual) goto L0119;
-            L00F2: AddEncounter(party, 0x01, 0x20);
-            L0104: AddEncounter(party, 0x02, 0x21);
+            L00F2: AddEncounter(player, 0x01, 0x20);
+            L0104: AddEncounter(player, 0x02, 0x21);
             L0116: goto L01A6;
-            L0119: Compare(PartyCount(party), 0x0003);
+            L0119: Compare(PartyCount(player), 0x0003);
             L0124: if (JumpNotEqual) goto L015E;
-            L0126: AddEncounter(party, 0x01, 0x1F);
-            L0138: AddEncounter(party, 0x02, 0x20);
-            L014A: AddEncounter(party, 0x03, 0x21);
+            L0126: AddEncounter(player, 0x01, 0x1F);
+            L0138: AddEncounter(player, 0x02, 0x20);
+            L014A: AddEncounter(player, 0x03, 0x21);
             L015C: goto L01A6;
-            L015E: AddEncounter(party, 0x01, 0x1F);
-            L0170: AddEncounter(party, 0x02, 0x1F);
-            L0182: AddEncounter(party, 0x03, 0x20);
-            L0194: AddEncounter(party, 0x05, 0x21);
+            L015E: AddEncounter(player, 0x01, 0x1F);
+            L0170: AddEncounter(player, 0x02, 0x1F);
+            L0182: AddEncounter(player, 0x03, 0x20);
+            L0194: AddEncounter(player, 0x05, 0x21);
             L01A6: return; // RETURN;
         }
 
-        private void FnITEMBENC_16(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnITEMBENC_16(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(party, 0x0F);
+            L0003: ax = HasItem(player, 0x0F);
             L0011: if (JumpEqual) goto L0066;
-            L0013: ax = HasItem(party, 0x7B);
+            L0013: ax = HasItem(player, 0x7B);
             L0021: if (JumpEqual) goto L0045;
-            L0023: AddTreasure(party, 0x0064, 0x00, 0x00, 0x00, 0xCE, 0xCC);
+            L0023: AddTreasure(player, 0x0064, 0x00, 0x00, 0x00, 0xCE, 0xCC);
             L0043: goto L0064;
-            L0045: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x7B);
+            L0045: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x7B);
             L0064: goto L00B7;
-            L0066: ax = HasItem(party, 0x7B);
+            L0066: ax = HasItem(player, 0x7B);
             L0074: if (JumpEqual) goto L0097;
-            L0076: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x0F);
+            L0076: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x0F);
             L0095: goto L00B7;
-            L0097: AddTreasure(party, 0x03E8, 0x00, 0x00, 0x00, 0x7B, 0x0F);
-            L00B7: ShowMessage(party, String0747); // You surprise some Rogues.
-            L00C4: Compare(PartyCount(party), 0x0001);
+            L0097: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x7B, 0x0F);
+            L00B7: ShowMessage(player, String0747); // You surprise some Rogues.
+            L00C4: Compare(PartyCount(player), 0x0001);
             L00CF: if (JumpNotEqual) goto L00E6;
-            L00D1: AddEncounter(party, 0x01, 0x23);
+            L00D1: AddEncounter(player, 0x01, 0x23);
             L00E3: goto L01CB;
-            L00E6: Compare(PartyCount(party), 0x0002);
+            L00E6: Compare(PartyCount(player), 0x0002);
             L00F1: if (JumpNotEqual) goto L011A;
-            L00F3: AddEncounter(party, 0x01, 0x22);
-            L0105: AddEncounter(party, 0x02, 0x23);
+            L00F3: AddEncounter(player, 0x01, 0x22);
+            L0105: AddEncounter(player, 0x02, 0x23);
             L0117: goto L01CB;
-            L011A: Compare(PartyCount(party), 0x0003);
+            L011A: Compare(PartyCount(player), 0x0003);
             L0125: if (JumpNotEqual) goto L0171;
-            L0127: AddEncounter(party, 0x01, 0x22);
-            L0139: AddEncounter(party, 0x02, 0x22);
-            L014B: AddEncounter(party, 0x03, 0x23);
-            L015D: AddEncounter(party, 0x04, 0x23);
+            L0127: AddEncounter(player, 0x01, 0x22);
+            L0139: AddEncounter(player, 0x02, 0x22);
+            L014B: AddEncounter(player, 0x03, 0x23);
+            L015D: AddEncounter(player, 0x04, 0x23);
             L016F: goto L01CB;
-            L0171: AddEncounter(party, 0x01, 0x23);
-            L0183: AddEncounter(party, 0x02, 0x23);
-            L0195: AddEncounter(party, 0x03, 0x23);
-            L01A7: AddEncounter(party, 0x04, 0x22);
-            L01B9: AddEncounter(party, 0x05, 0x21);
+            L0171: AddEncounter(player, 0x01, 0x23);
+            L0183: AddEncounter(player, 0x02, 0x23);
+            L0195: AddEncounter(player, 0x03, 0x23);
+            L01A7: AddEncounter(player, 0x04, 0x22);
+            L01B9: AddEncounter(player, 0x05, 0x21);
             L01CB: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_18(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnLKPKDOOR_18(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(party, 0xC1, 0xC4);
+            L0003: ax = HasUsedItem(player, 0xC1, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: Compare(HasUsedSkill(party, 0x0E), 0x0006);
+            L0018: Compare(HasUsedSkill(player, 0x0E), 0x0006);
             L0027: if (JumpBelow) goto L0074;
-            L0029: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
-            L0047: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
-            L0065: ShowMessage(party, String0761); // You successfully picked the locked door.
+            L0029: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
+            L0047: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
+            L0065: ShowMessage(player, String0761); // You successfully picked the locked door.
             L0072: goto L009E;
-            L0074: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x00);
-            L0091: ShowMessage(party, String078A); // The door is locked.
+            L0074: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
+            L0091: ShowMessage(player, String078A); // The door is locked.
             L009E: return; // RETURN;
         }
 
-        private void FnGATEMESA_19(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnGATEMESA_19(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String079E); // The gateway leads to THE DUNGEON ENTRANCE.
+            L0003: ShowMessage(player, String079E); // The gateway leads to THE DUNGEON ENTRANCE.
             L0010: return; // RETURN;
         }
 
-        private void FnGATEMESB_1A(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnGATEMESB_1A(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String07C9); // There is a sign on the east door - STAY OUT!
+            L0003: ShowMessage(player, String07C9); // There is a sign on the east door - STAY OUT!
             L0010: return; // RETURN;
         }
 
-        private void FnTELEMESC_1F(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnTELEMESC_1F(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String07F6); // Through the gateway you see stairs leading downwards.The stairs are rather long, at least 2 levels.
+            L0003: ShowMessage(player, String07F6); // Through the gateway you see stairs leading downwards.The stairs are rather long, at least 2 levels.
             L0010: return; // RETURN;
         }
 
-        private void FnTELEMESD_20(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnTELEMESD_20(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String085A); // There is a teleport in the south wall.
+            L0003: ShowMessage(player, String085A); // There is a teleport in the south wall.
             L0010: return; // RETURN;
         }
 
-        private void FnTELEMESE_21(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnTELEMESE_21(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String0881); // There is a teleport in the north wall.
+            L0003: ShowMessage(player, String0881); // There is a teleport in the north wall.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESB_22(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSMESB_22(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String08A8); // Through the north gateway you see stairs leading down to the next level.
+            L0003: ShowMessage(player, String08A8); // Through the north gateway you see stairs leading down to the next level.
             L0010: return; // RETURN;
         }
 
-        private void FnNPCCHATA_23(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATA_23(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowPortrait(party, 0x0016);
-            L0010: ShowMessage(party, String08F1); // You encounter a Human Barbarian.
+            L0003: ShowPortrait(player, 0x0016);
+            L0010: ShowMessage(player, String08F1); // You encounter a Human Barbarian.
             L001D: Compare(GetRandom(0x000F), 0x000B);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(party, String0912); // This area is called the Soldiers' Quarters. Why it is so named is beyond me. I've wandered these halls for weeks and have found nothing resembling living quarters, much less any soldiers.
+            L002F: ShowMessage(player, String0912); // This area is called the Soldiers' Quarters. Why it is so named is beyond me. I've wandered these halls for weeks and have found nothing resembling living quarters, much less any soldiers.
             L003C: goto L004B;
-            L003E: ShowMessage(party, String09CE); // The Human Barbarian is trying to count his fingers and so neglects to answer.
+            L003E: ShowMessage(player, String09CE); // The Human Barbarian is trying to count his fingers and so neglects to answer.
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_24(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATB_24(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String0A1C); // You encounter a Gremlin Wizard.
-            L0010: ShowPortrait(party, 0x002E);
+            L0003: ShowMessage(player, String0A1C); // You encounter a Gremlin Wizard.
+            L0010: ShowPortrait(player, 0x002E);
             L001D: Compare(GetRandom(0x000F), 0x000A);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(party, String0A3C); // The volcano Yserbius roils the sea and makes it unnavigable. We are doomed to live out our miserable lives, unknown to other peoples. I would give my left eyetooth for a way to escape this dull island.
+            L002F: ShowMessage(player, String0A3C); // The volcano Yserbius roils the sea and makes it unnavigable. We are doomed to live out our miserable lives, unknown to other peoples. I would give my left eyetooth for a way to escape this dull island.
             L003C: goto L004B;
-            L003E: ShowMessage(party, String0B06); // The Gremlin Wizards squeals in terror and flees.
+            L003E: ShowMessage(player, String0B06); // The Gremlin Wizards squeals in terror and flees.
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATC_25(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATC_25(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String0B37); // You encounter a Troll Ranger.
-            L0010: ShowPortrait(party, 0x0020);
+            L0003: ShowMessage(player, String0B37); // You encounter a Troll Ranger.
+            L0010: ShowPortrait(player, 0x0020);
             L001D: Compare(GetRandom(0x000F), 0x0007);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(party, String0B55); // Unless you have especially sharp eyes for traps, you should heed the sign at the end of the corridor. This bum leg of mine is proof of that sign's warning.
+            L002F: ShowMessage(player, String0B55); // Unless you have especially sharp eyes for traps, you should heed the sign at the end of the corridor. This bum leg of mine is proof of that sign's warning.
             L003C: goto L004B;
-            L003E: ShowMessage(party, String0BF1); // The Troll Ranger snarls a curse at you and limps away.
+            L003E: ShowMessage(player, String0BF1); // The Troll Ranger snarls a curse at you and limps away.
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATD_26(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATD_26(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String0C28); // You encounter an Elf Cleric.
-            L0010: ShowPortrait(party, 0x0027);
+            L0003: ShowMessage(player, String0C28); // You encounter an Elf Cleric.
+            L0010: ShowPortrait(player, 0x0027);
             L001D: Compare(GetRandom(0x000F), 0x000C);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(party, String0C45); // You may think you are limited only to those skills you acquire through your Guild. I know there are places in this dungeon where you may acquire new and different skills.
+            L002F: ShowMessage(player, String0C45); // You may think you are limited only to those skills you acquire through your Guild. I know there are places in this dungeon where you may acquire new and different skills.
             L003C: goto L005C;
-            L003E: ModifyGold(party, 0x0008);
-            L004F: ShowMessage(party, String0CF0); // The Elf Cleric gives you gold to leave him in peace.
+            L003E: ModifyGold(player, 0x0008);
+            L004F: ShowMessage(player, String0CF0); // The Elf Cleric gives you gold to leave him in peace.
             L005C: return; // RETURN;
         }
 
-        private void FnNPCCHATE_27(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATE_27(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String0D25); // You encounter a Troll Knight.
-            L0010: ShowPortrait(party, 0x001B);
+            L0003: ShowMessage(player, String0D25); // You encounter a Troll Knight.
+            L0010: ShowPortrait(player, 0x001B);
             L001D: Compare(GetRandom(0x000F), 0x0007);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(party, String0D43); // Under Cleowyn's palace is a strange maze. The maze is infested with thieves, and they seem to be the only ones who know how to get through the thing.
+            L002F: ShowMessage(player, String0D43); // Under Cleowyn's palace is a strange maze. The maze is infested with thieves, and they seem to be the only ones who know how to get through the thing.
             L003C: goto L004B;
-            L003E: ShowMessage(party, String0DD9); // The Troll Knight is lost in thought and does not hear you.
+            L003E: ShowMessage(player, String0DD9); // The Troll Knight is lost in thought and does not hear you.
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATF_28(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATF_28(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String0E14); // You encounter an Orc Barbarian.
-            L0010: ShowPortrait(party, 0x0017);
+            L0003: ShowMessage(player, String0E14); // You encounter an Orc Barbarian.
+            L0010: ShowPortrait(player, 0x0017);
             L001D: Compare(GetRandom(0x000F), 0x0009);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(party, String0E34); // A dwarf knight told me he encountered polar bears and ice lions deep in the dungeon. Whoever heard of polar bears and ice lions living inside an active volcano?
+            L002F: ShowMessage(player, String0E34); // A dwarf knight told me he encountered polar bears and ice lions deep in the dungeon. Whoever heard of polar bears and ice lions living inside an active volcano?
             L003C: goto L004B;
-            L003E: ShowMessage(party, String0ED5); // The Orc Barbarian watches you impassively, refusing to talk.
+            L003E: ShowMessage(player, String0ED5); // The Orc Barbarian watches you impassively, refusing to talk.
             L004B: return; // RETURN;
         }
 

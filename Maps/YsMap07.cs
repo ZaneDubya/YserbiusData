@@ -1,8 +1,10 @@
 #pragma warning disable
-using XPT.WorldData;
-using XPT.WorldData.Yserbius;
+using System.Collections.Generic;
+using XPT.Legacy;
+using XPT.Legacy.Entities;
+using XPT.Legacy.Yserbius;
 
-namespace XPT.Scripts.Yserbius.Maps {
+namespace XPT.Legacy.Maps {
     class YserMap07 : AMapScripted {
         protected override int MapIndex => 7;
         protected override int RandomEncounterChance => 10;
@@ -64,278 +66,278 @@ namespace XPT.Scripts.Yserbius.Maps {
         private const string String0AE2 = "The Halfling Cleric mumbles his prayers.";
         
         // === Functions ================================================
-        private void FnSTRSTELE_01(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSTELE_01(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x01, 0x03, 0x97, 0x02, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x03, 0x97, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnSTRSTELE_02(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSTELE_02(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x03, 0x01, 0x1F, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x03, 0x01, 0x1F, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_03(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnLKPKDOOR_03(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(party, 0xC1, 0xC4);
+            L0003: ax = HasUsedItem(player, 0xC1, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: Compare(HasUsedSkill(party, 0x0E), 0x0006);
+            L0018: Compare(HasUsedSkill(player, 0x0E), 0x0006);
             L0027: if (JumpBelow) goto L0074;
-            L0029: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
-            L0047: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
-            L0065: ShowMessage(party, String03FC); // You succeeded at opening the locked door.
+            L0029: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
+            L0047: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
+            L0065: ShowMessage(player, String03FC); // You succeeded at opening the locked door.
             L0072: goto L009E;
-            L0074: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x00);
-            L0091: ShowMessage(party, String0426); // The door is locked.
+            L0074: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
+            L0091: ShowMessage(player, String0426); // The door is locked.
             L009E: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_04(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnLKPKDOOR_04(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(party, 0xBF, 0xC4);
+            L0003: ax = HasUsedItem(player, 0xBF, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: Compare(HasUsedSkill(party, 0x0E), 0x0001);
+            L0018: Compare(HasUsedSkill(player, 0x0E), 0x0001);
             L0027: if (JumpBelow) goto L0046;
-            L0029: DamagePlayer(party, 0x0096);
-            L0036: ShowMessage(party, String043A); // Your attempt to open the door springs a trap. Dozens of darts attack you.
+            L0029: DamagePlayer(player, 0x0096);
+            L0036: ShowMessage(player, String043A); // Your attempt to open the door springs a trap. Dozens of darts attack you.
             L0043: goto L00D0;
-            L0046: ax = HasUsedItem(party, 0xD9, 0xD9);
+            L0046: ax = HasUsedItem(player, 0xD9, 0xD9);
             L0059: if (JumpEqual) goto L00A6;
-            L005B: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x01);
-            L0079: SetWallObject(party, 0x01, GetCurrentTile(party), GetFacing(party));
-            L0097: ShowMessage(party, String0484); // The key unlocked the massive door, bypassing a well hidden trap.
+            L005B: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
+            L0079: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
+            L0097: ShowMessage(player, String0484); // The key unlocked the massive door, bypassing a well hidden trap.
             L00A4: goto L00D0;
-            L00A6: SetWallPassable(party, GetCurrentTile(party), GetFacing(party), 0x00);
-            L00C3: ShowMessage(party, String04C5); // The Palace doors are locked.  Only the Palace key will open these doors.
+            L00A6: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
+            L00C3: ShowMessage(player, String04C5); // The Palace doors are locked.  Only the Palace key will open these doors.
             L00D0: return; // RETURN;
         }
 
-        private void FnRUNESIGN_05(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnRUNESIGN_05(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String050E); // Runes can be seen on the tapestry...
-            L0010: ShowRunes(party, String0533); // None shall pass save one who holds the Key to the Palace.
+            L0003: ShowMessage(player, String050E); // Runes can be seen on the tapestry...
+            L0010: ShowRunes(player, String0533); // None shall pass save one who holds the Key to the Palace.
             L001D: return; // RETURN;
         }
 
-        private void FnTOPALACA_06(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnTOPALACA_06(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x02, 0x06, 0x03, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x02, 0x06, 0x03, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnLOWMNSTR_07(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnLOWMNSTR_07(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(PartyCount(party), 0x0001);
+            L0003: Compare(PartyCount(player), 0x0001);
             L000E: if (JumpNotEqual) goto L0025;
-            L0010: AddEncounter(party, 0x01, 0x19);
+            L0010: AddEncounter(player, 0x01, 0x19);
             L0022: goto L00E6;
-            L0025: Compare(PartyCount(party), 0x0002);
+            L0025: Compare(PartyCount(player), 0x0002);
             L0030: if (JumpNotEqual) goto L0059;
-            L0032: AddEncounter(party, 0x01, 0x1A);
-            L0044: AddEncounter(party, 0x02, 0x1C);
+            L0032: AddEncounter(player, 0x01, 0x1A);
+            L0044: AddEncounter(player, 0x02, 0x1C);
             L0056: goto L00E6;
-            L0059: Compare(PartyCount(party), 0x0003);
+            L0059: Compare(PartyCount(player), 0x0003);
             L0064: if (JumpNotEqual) goto L009E;
-            L0066: AddEncounter(party, 0x01, 0x1A);
-            L0078: AddEncounter(party, 0x02, 0x1A);
-            L008A: AddEncounter(party, 0x03, 0x1B);
+            L0066: AddEncounter(player, 0x01, 0x1A);
+            L0078: AddEncounter(player, 0x02, 0x1A);
+            L008A: AddEncounter(player, 0x03, 0x1B);
             L009C: goto L00E6;
-            L009E: AddEncounter(party, 0x01, 0x19);
-            L00B0: AddEncounter(party, 0x02, 0x1C);
-            L00C2: AddEncounter(party, 0x03, 0x1B);
-            L00D4: AddEncounter(party, 0x04, 0x1A);
+            L009E: AddEncounter(player, 0x01, 0x19);
+            L00B0: AddEncounter(player, 0x02, 0x1C);
+            L00C2: AddEncounter(player, 0x03, 0x1B);
+            L00D4: AddEncounter(player, 0x04, 0x1A);
             L00E6: return; // RETURN;
         }
 
-        private void FnMEDMNSTR_08(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnMEDMNSTR_08(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(PartyCount(party), 0x0001);
+            L0003: Compare(PartyCount(player), 0x0001);
             L000E: if (JumpNotEqual) goto L0037;
-            L0010: AddEncounter(party, 0x01, 0x1E);
-            L0022: AddEncounter(party, 0x02, 0x20);
+            L0010: AddEncounter(player, 0x01, 0x1E);
+            L0022: AddEncounter(player, 0x02, 0x20);
             L0034: goto L0176;
-            L0037: Compare(PartyCount(party), 0x0002);
+            L0037: Compare(PartyCount(player), 0x0002);
             L0042: if (JumpNotEqual) goto L008F;
-            L0044: AddEncounter(party, 0x01, 0x1F);
-            L0056: AddEncounter(party, 0x02, 0x1F);
-            L0068: AddEncounter(party, 0x03, 0x1E);
-            L007A: AddEncounter(party, 0x04, 0x21);
+            L0044: AddEncounter(player, 0x01, 0x1F);
+            L0056: AddEncounter(player, 0x02, 0x1F);
+            L0068: AddEncounter(player, 0x03, 0x1E);
+            L007A: AddEncounter(player, 0x04, 0x21);
             L008C: goto L0176;
-            L008F: Compare(PartyCount(party), 0x0003);
+            L008F: Compare(PartyCount(player), 0x0003);
             L009A: if (JumpNotEqual) goto L010A;
-            L009C: AddEncounter(party, 0x01, 0x1E);
-            L00AE: AddEncounter(party, 0x02, 0x1F);
-            L00C0: AddEncounter(party, 0x03, 0x1E);
-            L00D2: AddEncounter(party, 0x04, 0x1F);
-            L00E4: AddEncounter(party, 0x05, 0x20);
-            L00F6: AddEncounter(party, 0x06, 0x20);
+            L009C: AddEncounter(player, 0x01, 0x1E);
+            L00AE: AddEncounter(player, 0x02, 0x1F);
+            L00C0: AddEncounter(player, 0x03, 0x1E);
+            L00D2: AddEncounter(player, 0x04, 0x1F);
+            L00E4: AddEncounter(player, 0x05, 0x20);
+            L00F6: AddEncounter(player, 0x06, 0x20);
             L0108: goto L0176;
-            L010A: AddEncounter(party, 0x01, 0x22);
-            L011C: AddEncounter(party, 0x02, 0x22);
-            L012E: AddEncounter(party, 0x03, 0x22);
-            L0140: AddEncounter(party, 0x04, 0x22);
-            L0152: AddEncounter(party, 0x05, 0x22);
-            L0164: AddEncounter(party, 0x06, 0x22);
+            L010A: AddEncounter(player, 0x01, 0x22);
+            L011C: AddEncounter(player, 0x02, 0x22);
+            L012E: AddEncounter(player, 0x03, 0x22);
+            L0140: AddEncounter(player, 0x04, 0x22);
+            L0152: AddEncounter(player, 0x05, 0x22);
+            L0164: AddEncounter(player, 0x06, 0x22);
             L0176: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_09(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnSTRMNSTR_09(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(PartyCount(party), 0x0001);
+            L0003: Compare(PartyCount(player), 0x0001);
             L000E: if (JumpNotEqual) goto L0025;
-            L0010: AddEncounter(party, 0x01, 0x23);
+            L0010: AddEncounter(player, 0x01, 0x23);
             L0022: goto L012E;
-            L0025: Compare(PartyCount(party), 0x0002);
+            L0025: Compare(PartyCount(player), 0x0002);
             L0030: if (JumpNotEqual) goto L0059;
-            L0032: AddEncounter(party, 0x01, 0x24);
-            L0044: AddEncounter(party, 0x02, 0x24);
+            L0032: AddEncounter(player, 0x01, 0x24);
+            L0044: AddEncounter(player, 0x02, 0x24);
             L0056: goto L012E;
-            L0059: Compare(PartyCount(party), 0x0003);
+            L0059: Compare(PartyCount(player), 0x0003);
             L0064: if (JumpNotEqual) goto L00C2;
-            L0066: AddEncounter(party, 0x01, 0x24);
-            L0078: AddEncounter(party, 0x02, 0x24);
-            L008A: AddEncounter(party, 0x03, 0x23);
-            L009C: AddEncounter(party, 0x04, 0x23);
-            L00AE: AddEncounter(party, 0x05, 0x26);
+            L0066: AddEncounter(player, 0x01, 0x24);
+            L0078: AddEncounter(player, 0x02, 0x24);
+            L008A: AddEncounter(player, 0x03, 0x23);
+            L009C: AddEncounter(player, 0x04, 0x23);
+            L00AE: AddEncounter(player, 0x05, 0x26);
             L00C0: goto L012E;
-            L00C2: AddEncounter(party, 0x01, 0x28);
-            L00D4: AddEncounter(party, 0x02, 0x25);
-            L00E6: AddEncounter(party, 0x03, 0x23);
-            L00F8: AddEncounter(party, 0x04, 0x27);
-            L010A: AddEncounter(party, 0x05, 0x24);
-            L011C: AddEncounter(party, 0x06, 0x28);
+            L00C2: AddEncounter(player, 0x01, 0x28);
+            L00D4: AddEncounter(player, 0x02, 0x25);
+            L00E6: AddEncounter(player, 0x03, 0x23);
+            L00F8: AddEncounter(player, 0x04, 0x27);
+            L010A: AddEncounter(player, 0x05, 0x24);
+            L011C: AddEncounter(player, 0x06, 0x28);
             L012E: return; // RETURN;
         }
 
-        private void FnSTRSMESA_0A(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSMESA_0A(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String056D); // The stairs through the west gateway lead up a level.
+            L0003: ShowMessage(player, String056D); // The stairs through the west gateway lead up a level.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESB_0B(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSMESB_0B(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String05A2); // Through the north gateway are stairs going up to the next level.
+            L0003: ShowMessage(player, String05A2); // Through the north gateway are stairs going up to the next level.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESC_0C(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSMESC_0C(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String05E3); // The stairs to the east lead downstairs.
+            L0003: ShowMessage(player, String05E3); // The stairs to the east lead downstairs.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESD_0D(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSMESD_0D(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String060B); // The stairs past the north gateway go down a level.
+            L0003: ShowMessage(player, String060B); // The stairs past the north gateway go down a level.
             L0010: return; // RETURN;
         }
 
-        private void FnGATEMESS_0E(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnGATEMESS_0E(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String063E); // The gateway leads to THE PALACE OF KING CLEOWYN.
+            L0003: ShowMessage(player, String063E); // The gateway leads to THE PALACE OF KING CLEOWYN.
             L0010: return; // RETURN;
         }
 
-        private void FnTOPALACB_0F(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnTOPALACB_0F(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x02, 0x06, 0x04, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x02, 0x06, 0x04, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnNPCCHATA_10(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATA_10(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String066F); // You encounter a Dwarf Thief.
-            L0010: ShowPortrait(party, 0x0023);
+            L0003: ShowMessage(player, String066F); // You encounter a Dwarf Thief.
+            L0010: ShowPortrait(player, 0x0023);
             L001D: Compare(GetRandom(0x000F), 0x000B);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(party, String068C); // The palace doors are locked. Somewhere on the first level is the object that will open these doors.
+            L002F: ShowMessage(player, String068C); // The palace doors are locked. Somewhere on the first level is the object that will open these doors.
             L003C: goto L004B;
-            L003E: ShowMessage(party, String06F0); // The Dwarf Thief is too busy removing darts from his leather shield to answer you.
+            L003E: ShowMessage(player, String06F0); // The Dwarf Thief is too busy removing darts from his leather shield to answer you.
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_11(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATB_11(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String0742); // You encounter a Halfling Ranger.
-            L0010: ShowPortrait(party, 0x0021);
+            L0003: ShowMessage(player, String0742); // You encounter a Halfling Ranger.
+            L0010: ShowPortrait(player, 0x0021);
             L001D: Compare(GetRandom(0x000F), 0x0008);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(party, String0763); // I know there are three secret areas on this level, but they cannot be entered from this corridor.
+            L002F: ShowMessage(player, String0763); // I know there are three secret areas on this level, but they cannot be entered from this corridor.
             L003C: goto L004B;
-            L003E: ShowMessage(party, String07C5); // The Halfling Ranger waves you away in annoyance.
+            L003E: ShowMessage(player, String07C5); // The Halfling Ranger waves you away in annoyance.
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATC_12(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATC_12(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String07F6); // You encounter a Dwarf Wizard.
-            L0010: ShowPortrait(party, 0x002C);
+            L0003: ShowMessage(player, String07F6); // You encounter a Dwarf Wizard.
+            L0010: ShowPortrait(player, 0x002C);
             L001D: Compare(GetRandom(0x000F), 0x000C);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(party, String0814); // Not all traps should be by-passed. I fell through one and, after some nosing around and polishing off some bothersome rogues and monsters, found a most useful key.
+            L002F: ShowMessage(player, String0814); // Not all traps should be by-passed. I fell through one and, after some nosing around and polishing off some bothersome rogues and monsters, found a most useful key.
             L003C: goto L004B;
-            L003E: ShowMessage(party, String08B8); // The Dwarf Wizard disappears in a puff of smoke.
+            L003E: ShowMessage(player, String08B8); // The Dwarf Wizard disappears in a puff of smoke.
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATD_13(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATD_13(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String08E8); // You encounter an Orc Knight.
-            L0010: ShowPortrait(party, 0x001A);
+            L0003: ShowMessage(player, String08E8); // You encounter an Orc Knight.
+            L0010: ShowPortrait(player, 0x001A);
             L001D: Compare(GetRandom(0x000F), 0x0007);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(party, String0905); // King Cleowyn's Palace is an evil place, filled with the spirits of the tormented dead.  A cleric told me to look for an asymmetry in the Palace if I wished to learn the truth about the dead king.
+            L002F: ShowMessage(player, String0905); // King Cleowyn's Palace is an evil place, filled with the spirits of the tormented dead.  A cleric told me to look for an asymmetry in the Palace if I wished to learn the truth about the dead king.
             L003C: goto L004B;
-            L003E: ShowMessage(party, String09C9); // The Orc Knight pretends not to hear you.
+            L003E: ShowMessage(player, String09C9); // The Orc Knight pretends not to hear you.
             L004B: return; // RETURN;
         }
 
-        private void FnSTRSTELE_14(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSTELE_14(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x01, 0x03, 0x97, 0x02, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x03, 0x97, 0x02, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnSTRSTELE_15(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSTELE_15(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(party, 0x03, 0x01, 0x1F, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x03, 0x01, 0x1F, 0x01, isForwardMove);
             L001E: return; // RETURN;
         }
 
-        private void FnNPCCHATE_16(IEnumerable<ServerPlayer> party, ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATE_16(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(party, String09F2); // You encounter a Halfling Cleric.
-            L0010: ShowPortrait(party, 0x0029);
+            L0003: ShowMessage(player, String09F2); // You encounter a Halfling Cleric.
+            L0010: ShowPortrait(player, 0x0029);
             L001D: Compare(GetRandom(0x000F), 0x000D);
             L002D: if (JumpAbove) goto L004B;
-            L002F: ShowMessage(party, String0A13); // On the next level down you will find a dwarf by the name of Deldwinn.  He guards the entrance to King Cleowyn's Apartments.
-            L003C: ShowMessage(party, String0A8F); // Do not try to fight Deldwinn, for he is enchanted and cannot be killed by mortals.
+            L002F: ShowMessage(player, String0A13); // On the next level down you will find a dwarf by the name of Deldwinn.  He guards the entrance to King Cleowyn's Apartments.
+            L003C: ShowMessage(player, String0A8F); // Do not try to fight Deldwinn, for he is enchanted and cannot be killed by mortals.
             L0049: goto L0058;
-            L004B: ShowMessage(party, String0AE2); // The Halfling Cleric mumbles his prayers.
+            L004B: ShowMessage(player, String0AE2); // The Halfling Cleric mumbles his prayers.
             L0058: return; // RETURN;
         }
 
