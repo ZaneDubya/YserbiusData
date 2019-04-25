@@ -73,7 +73,7 @@
         public const byte FlagLabyrinthIIMoonPrism = 0x46;
         public const byte FlagLabyrinthIIRangerSpear = 0x47;
         public const byte FlagLabyrinthIIHolyHalberd = 0x48;
-        // 49 is the spelling challenge - I think!
+        public const byte FlagSpellingChallenge = 0x49;
         public const byte FlagModAttr_TrollFountain = 0x4A;
         public const byte FlagLabryinthIIIMyMyFountain = 0x4B;
         // unused flag 0x4C
@@ -120,11 +120,11 @@
         // unused flag 0x75
         // unused flag 0x76
         // unused flag 0x77
-        public const byte FlagUnlockedLabrinthDoor = 0x78;
+        public const byte FlagUnlockedLabyrinthDoor = 0x78;
         public const byte FlagGaveHarvestHorn = 0x79;
         // unused flag 0x7a
         public const byte FlagUnknownSwitch1 = 0x7B;
-        public const byte FlagUnknownSwitch2 = 0x7;
+        public const byte FlagUnknownSwitch2 = 0x7C;
         public const byte FlagUnknownSwitch3 = 0x7D;
         public const byte FlagModAttr_BlackjackFountain = 0x7E;
         public const byte FlagModAttr_CribbageFountain = 0x7F;

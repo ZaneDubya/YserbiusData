@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using XPT.Legacy;
 using XPT.Legacy.Entities;
-using XPT.Legacy.Yserbius;
 
 namespace XPT.Legacy.Maps {
     class YserMap33 : AMapScripted {
@@ -248,7 +247,7 @@ namespace XPT.Legacy.Maps {
             L00CC: ShowMessage(player, String0BFF); // Farewell...this ending is just the beginning!!!
             L00D9: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagReceivedEnLiKilExperience));
             L00EC: if (JumpNotEqual) goto L012A;
-            L00EE: SetFlag(player, FlagTypeDungeon, 0x69, 0x01);
+            L00EE: SetFlag(player, FlagTypeDungeon, FlagReceivedEnLiKilExperience, 0x01);
             L0103: SetFlag(player, FlagTypeDungeon, FlagDefeatedEnLiKil, 0x01);
             L0118: AddExperience(player, 0x004C4B40);
             L012A: return; // RETURN;

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using XPT.Legacy;
 using XPT.Legacy.Entities;
-using XPT.Legacy.Yserbius;
 
 namespace XPT.Legacy.Maps {
     class YserMap00 : AMapScripted {
@@ -124,7 +123,7 @@ namespace XPT.Legacy.Maps {
             L0003: ax = CheckLevel(player, 0x0014);
             L0011: if (JumpNotEqual) goto L0016;
             L0013: goto L011F;
-            L0016: Compare(GetFlag(player, FlagTypeDungeon, FlagUnlockedLabrinthDoor), 0x0001);
+            L0016: Compare(GetFlag(player, FlagTypeDungeon, FlagUnlockedLabyrinthDoor), 0x0001);
             L002A: if (JumpNotEqual) goto L005A;
             L002C: ShowMessage(player, String0504); // This room contains the gateway to the Labyrinth.
             L0039: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
@@ -134,7 +133,7 @@ namespace XPT.Legacy.Maps {
             L006A: goto L0110;
             L006D: ShowMessage(player, String0535); // The Thieves' Key unlocks this door!
             L007A: ShowMessage(player, String0559); // This room contains the gateway to the Labyrinth.
-            L0087: SetFlag(player, FlagTypeDungeon, FlagUnlockedLabrinthDoor, 0x01);
+            L0087: SetFlag(player, FlagTypeDungeon, FlagUnlockedLabyrinthDoor, 0x01);
             L009C: RemoveItem(player, 0xFB);
             L00A8: RemoveItem(player, 0xD2);
             L00B4: RemoveItem(player, 0xD3);

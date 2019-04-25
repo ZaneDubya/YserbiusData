@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using XPT.Legacy;
 using XPT.Legacy.Assets;
 using XPT.Legacy.Entities;
-using XPT.Legacy.Yserbius;
 
 namespace XPT.Legacy.Maps {
     class YserMap14 : AMapScripted {

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using XPT.Legacy;
 using XPT.Legacy.Entities;
-using XPT.Legacy.Yserbius;
 
 namespace XPT.Legacy.Maps {
     class YserMap23 : AMapScripted {
@@ -211,7 +210,7 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(player, String043A); // Runes on magic wall --
             L0010: ShowRunes(player, String0451); // Netherworld
-            L001D: SetFlag(player, FlagTypeDungeon, 0x49, 0x02);
+            L001D: SetFlag(player, FlagTypeDungeon, FlagSpellingChallenge, 0x02);
             L0032: TeleportParty(player, 0x34, 0x02, 0xE0, 0x02, isForwardMove);
             L004D: return; // RETURN;
         }
@@ -255,7 +254,7 @@ namespace XPT.Legacy.Maps {
         private void FnATELEH_08(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, 0x49), 0x0002);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSpellingChallenge), 0x0002);
             L0017: if (JumpNotEqual) goto L004E;
             L0019: ShowMessage(player, String04D8); // Runes on magic wall --
             L0026: ShowRunes(player, String04EF); // Archaic
@@ -315,7 +314,7 @@ namespace XPT.Legacy.Maps {
         private void FnLTELEL_0F(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetFlag(player, FlagTypeDungeon, 0x49, 0x03);
+            L0003: SetFlag(player, FlagTypeDungeon, FlagSpellingChallenge, 0x03);
             L0018: ShowMessage(player, String05BD); // Runes on magic wall --
             L0025: ShowRunes(player, String05D4); // Luck
             L0032: TeleportParty(player, 0x34, 0x02, 0xB9, 0x02, isForwardMove);
@@ -325,13 +324,13 @@ namespace XPT.Legacy.Maps {
         private void FnITELEG_10(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, 0x49), 0x0003);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSpellingChallenge), 0x0003);
             L0017: if (JumpNotEqual) goto L0050;
             L0019: ShowMessage(player, String05D9); // Runes on magic wall --
             L0026: ShowRunes(player, String05F0); // Illusion
             L0033: TeleportParty(player, 0x34, 0x02, 0xCC, 0x02, isForwardMove);
             L004E: goto L009B;
-            L0050: Compare(GetFlag(player, FlagTypeDungeon, 0x49), 0x0004);
+            L0050: Compare(GetFlag(player, FlagTypeDungeon, FlagSpellingChallenge), 0x0004);
             L0064: if (JumpNotEqual) goto L009B;
             L0066: ShowMessage(player, String05F9); // Runes on magic wall --
             L0073: ShowRunes(player, String0610); // Invulnerable
@@ -342,7 +341,7 @@ namespace XPT.Legacy.Maps {
         private void FnKTELEL_11(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetFlag(player, FlagTypeDungeon, 0x49, 0x04);
+            L0003: SetFlag(player, FlagTypeDungeon, FlagSpellingChallenge, 0x04);
             L0018: ShowMessage(player, String061D); // Runes on magic wall --
             L0025: ShowRunes(player, String0634); // Karma
             L0032: TeleportParty(player, 0x34, 0x02, 0xB9, 0x02, isForwardMove);
@@ -375,7 +374,7 @@ namespace XPT.Legacy.Maps {
         private void FnDTELEO_15(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetFlag(player, FlagTypeDungeon, 0x49, 0x05);
+            L0003: SetFlag(player, FlagTypeDungeon, FlagSpellingChallenge, 0x05);
             L0018: ShowMessage(player, String069E); // Runes on magic wall --
             L0025: ShowRunes(player, String06B5); // Dust
             L0032: TeleportParty(player, 0x34, 0x02, 0xB7, 0x02, isForwardMove);
@@ -543,7 +542,7 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(player, String08E9); // Runes on magic wall --
             L0010: ShowRunes(player, String0900); // Zzyzx
-            L001D: SetFlag(player, FlagTypeDungeon, 0x49, 0x01);
+            L001D: SetFlag(player, FlagTypeDungeon, FlagSpellingChallenge, 0x01);
             L0032: TeleportParty(player, 0x34, 0x02, 0x27, 0x02, isForwardMove);
             L004D: return; // RETURN;
         }
@@ -560,7 +559,7 @@ namespace XPT.Legacy.Maps {
         private void FnWTELEEE_28(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, 0x49), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSpellingChallenge), 0x0001);
             L0017: if (JumpNotEqual) goto L004E;
             L0019: ShowMessage(player, String0926); // Runes on magic wall --
             L0026: ShowRunes(player, String093D); // Wizard
