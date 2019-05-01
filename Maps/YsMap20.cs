@@ -314,100 +314,37 @@ namespace XPT.Legacy.Maps {
             L006A: return; // RETURN;
         }
 
+        private void DoDefeatWind(ServerPlayer player, int windIndex, string windName) {
+            int countAlreadyDefeated = 
+                GetFlag(player, FlagTypeMap, 0x01) + GetFlag(player, FlagTypeMap, 0x02) + 
+                GetFlag(player, FlagTypeMap, 0x03) + GetFlag(player, FlagTypeMap, 0x04);
+            if (countAlreadyDefeated == 0) {
+                ShowMessage(player, $"The {windName} is the first to be defeated.");
+            }
+            ShowMessage(player, $"The {windName} has been quieted.");
+            SetFlag(player, FlagTypeMap, windIndex, 0x01);
+            int countNowDefeated =
+                GetFlag(player, FlagTypeMap, 0x01) + GetFlag(player, FlagTypeMap, 0x02) +
+                GetFlag(player, FlagTypeMap, 0x03) + GetFlag(player, FlagTypeMap, 0x04);
+            if (countNowDefeated == 4) {
+                ShowMessage(player, "A stillness fills the labryinth.");
+            }
+        }
+
         private void FnFLGWINDN_0D(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si);
-            L0004: si = 0x0001;
-            L0007: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
-            L001A: if (JumpNotEqual) goto L0070;
-            L001C: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x02));
-            L002F: if (JumpEqual) goto L0032;
-            L0031: si = si + 1;
-            L0032: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x03));
-            L0045: if (JumpEqual) goto L0048;
-            L0047: si = si + 1;
-            L0048: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x04));
-            L005B: if (JumpEqual) goto L005E;
-            L005D: si = si + 1;
-            L005E: SetFlag(player, 0xC4, 0xB8, si);
-            L0070: Compare(GetFlag(player, FlagTypeMap, 0x01), 0x0001);
-            L0084: if (JumpEqual) goto L0088;
-            L0086: goto L0095;
-            L0088: ShowMessage(player, String082D); // The North Wind is the first to be defeated.
-            L0095: ShowMessage(player, String0859); // The North Wind has been quieted.
-            L00A2: return; // RETURN (restoring si);
+            DoDefeatWind(player, 0x01, "North Wind");
         }
 
         private void FnFLGWINDE_0E(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si);
-            L0004: si = 0x0001;
-            L0007: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x02));
-            L001A: if (JumpNotEqual) goto L0070;
-            L001C: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
-            L002F: if (JumpEqual) goto L0032;
-            L0031: si = si + 1;
-            L0032: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x03));
-            L0045: if (JumpEqual) goto L0048;
-            L0047: si = si + 1;
-            L0048: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x04));
-            L005B: if (JumpEqual) goto L005E;
-            L005D: si = si + 1;
-            L005E: SetFlag(player, 0xC4, 0xB8, si);
-            L0070: Compare(GetFlag(player, FlagTypeMap, 0x02), 0x0001);
-            L0084: if (JumpEqual) goto L0088;
-            L0086: goto L0095;
-            L0088: ShowMessage(player, String087A); // The East Wind is the first to be defeated.
-            L0095: ShowMessage(player, String08A5); // The East Wind has been quieted.
-            L00A2: return; // RETURN (restoring si);
+            DoDefeatWind(player, 0x02, "East Wind");
         }
 
         private void FnFLGWINDS_0F(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si);
-            L0004: si = 0x0001;
-            L0007: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x03));
-            L001A: if (JumpNotEqual) goto L0070;
-            L001C: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
-            L002F: if (JumpEqual) goto L0032;
-            L0031: si = si + 1;
-            L0032: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x02));
-            L0045: if (JumpEqual) goto L0048;
-            L0047: si = si + 1;
-            L0048: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x04));
-            L005B: if (JumpEqual) goto L005E;
-            L005D: si = si + 1;
-            L005E: SetFlag(player, 0xC4, 0xB8, si);
-            L0070: Compare(GetFlag(player, FlagTypeMap, 0x03), 0x0001);
-            L0084: if (JumpEqual) goto L0088;
-            L0086: goto L0095;
-            L0088: ShowMessage(player, String08C5); // The South Wind is the first to be defeated.
-            L0095: ShowMessage(player, String08F1); // The South Wind has been quieted.
-            L00A2: return; // RETURN (restoring si);
+            DoDefeatWind(player, 0x03, "South Wind");
         }
 
         private void FnFLGWINDW_10(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si);
-            L0004: si = 0x0001;
-            L0007: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x04));
-            L001A: if (JumpNotEqual) goto L0070;
-            L001C: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
-            L002F: if (JumpEqual) goto L0032;
-            L0031: si = si + 1;
-            L0032: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x02));
-            L0045: if (JumpEqual) goto L0048;
-            L0047: si = si + 1;
-            L0048: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x03));
-            L005B: if (JumpEqual) goto L005E;
-            L005D: si = si + 1;
-            L005E: SetFlag(player, 0xC4, 0xB8, si);
-            L0070: Compare(GetFlag(player, FlagTypeMap, 0x04), 0x0001);
-            L0084: if (JumpEqual) goto L0088;
-            L0086: goto L0095;
-            L0088: ShowMessage(player, String0912); // The West Wind is the first to be defeated.
-            L0095: ShowMessage(player, String093D); // The West Wind has been quieted.
-            L00A2: return; // RETURN (restoring si);
+            DoDefeatWind(player, 0x04, "West Wind");
         }
 
         private void FnEXPRESS_11(ServerPlayer player, bool isForwardMove) {

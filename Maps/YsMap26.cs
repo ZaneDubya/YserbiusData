@@ -211,9 +211,6 @@ namespace XPT.Legacy.Maps {
             L0017: bx = 0x0004;
             L001A: dx = ax % bx; ax = ax / bx;
             L001D: DamagePlayer(player, ax);
-            L0027: RefreshCompareFlags(GetCurrentHits(player));
-            L0030: if (JumpAbove) goto L003F;
-            L0032: ShowMessage(player, String06BF); // You have died.
             L003F: return; // RETURN;
         }
 
@@ -600,9 +597,6 @@ namespace XPT.Legacy.Maps {
             L003E: bx = 0x0002;
             L0041: dx = ax % bx; ax = ax / bx;
             L0044: DamagePlayer(player, ax);
-            L004E: RefreshCompareFlags(GetCurrentHits(player));
-            L0057: if (JumpAbove) goto L0066;
-            L0059: ShowMessage(player, String1178); // You have died.
             L0066: return; // RETURN;
         }
 

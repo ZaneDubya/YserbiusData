@@ -360,7 +360,7 @@ namespace XPT.Legacy.Maps {
             L0017: if (JumpNotEqual) goto L0047;
             L0019: ShowMessage(player, String063A); // You stumble upon an almost empty nesting area.
             L0026: AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xCB);
-            L0044: goto L0122;
+            L0044: goto L0088;
             L0047: AddTreasure(player, 0x05DC, 0x00, 0x00, 0x00, 0x00, 0xCB);
             L0066: ShowMessage(player, String0669); // Angry hissing distracts you as you reach down for some gold coins.
             L0073: SetFlag(player, FlagTypeDungeon, FlagSoldiersQuartersSnakeGold, 0x01);

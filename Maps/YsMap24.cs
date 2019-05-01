@@ -378,9 +378,6 @@ namespace XPT.Legacy.Maps {
             L0024: bx = 0x0005;
             L0027: dx = ax % bx; ax = ax / bx;
             L002A: DamagePlayer(player, ax);
-            L0034: RefreshCompareFlags(GetCurrentHits(player));
-            L003D: if (JumpAbove) goto L004C;
-            L003F: ShowMessage(player, String0978); // You have died.
             L004C: goto L005B;
             L004E: ShowMessage(player, String0987); // A peaceful breeze cools your soul
             L005B: return; // RETURN;
@@ -487,9 +484,6 @@ namespace XPT.Legacy.Maps {
             L0020: goto L0054;
             L0022: ShowMessage(player, String0B14); // The Tempest Winds rip through your armor, causing many wounds!
             L002F: DamagePlayer(player, 0x0064);
-            L003C: RefreshCompareFlags(GetCurrentHits(player));
-            L0045: if (JumpAbove) goto L0054;
-            L0047: ShowMessage(player, String0B53); // You have died.
             L0054: return; // RETURN;
         }
 
@@ -897,9 +891,6 @@ namespace XPT.Legacy.Maps {
             L0023: bx = 0x0005;
             L0026: dx = ax % bx; ax = ax / bx;
             L0029: DamagePlayer(player, ax);
-            L0033: RefreshCompareFlags(GetCurrentHits(player));
-            L003C: if (JumpAbove) goto L004B;
-            L003E: ShowMessage(player, String153B); // You have died.
             L004B: goto L005A;
             L004D: ShowMessage(player, String154A); // A strengthening, benevolent breeze warms your blood!
             L005A: return; // RETURN;

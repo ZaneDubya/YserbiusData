@@ -334,9 +334,6 @@ namespace XPT.Legacy.Maps {
             L0003: ShowMessage(player, String0A59); // The door to WIND HOLLOW bursts open with terrible force, throwing all adventurers against the rocks...
             L0010: ShowMessage(player, String0AC0); // ...and inflicting heavy damage.
             L001D: DamagePlayer(player, 0x00C8);
-            L002A: RefreshCompareFlags(GetCurrentHits(player));
-            L0033: if (JumpAbove) goto L0042;
-            L0035: ShowMessage(player, String0AE0); // You have died.
             L0042: TeleportParty(player, 0x35, 0x01, 0xBC, 0x03, isForwardMove);
             L005D: return; // RETURN;
         }
@@ -416,9 +413,6 @@ namespace XPT.Legacy.Maps {
             L0017: bx = 0x0003;
             L001A: dx = ax % bx; ax = ax / bx;
             L001D: DamagePlayer(player, ax);
-            L0027: RefreshCompareFlags(GetCurrentHits(player));
-            L0030: if (JumpAbove) goto L003F;
-            L0032: ShowMessage(player, String0CFF); // You have died.
             L003F: return; // RETURN;
         }
 
@@ -1010,9 +1004,6 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ShowMessage(player, String160A); // The wind is nasty here!  You take 100 damage.
             L0010: DamagePlayer(player, 0x0064);
-            L001D: RefreshCompareFlags(GetCurrentHits(player));
-            L0026: if (JumpAbove) goto L0035;
-            L0028: ShowMessage(player, String1638); // You have died.
             L0035: return; // RETURN;
         }
 
@@ -1032,9 +1023,6 @@ namespace XPT.Legacy.Maps {
             L0017: bx = 0x0002;
             L001A: dx = ax % bx; ax = ax / bx;
             L001D: DamagePlayer(player, ax);
-            L0027: RefreshCompareFlags(GetCurrentHits(player));
-            L0030: if (JumpAbove) goto L003F;
-            L0032: ShowMessage(player, String16A7); // You have died.
             L003F: return; // RETURN;
         }
 
