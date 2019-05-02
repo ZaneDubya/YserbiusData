@@ -1,4 +1,3 @@
-#pragma warning disable
 using System.Collections.Generic;
 using XPT.Legacy;
 using XPT.Legacy.Entities;
@@ -38,881 +37,521 @@ namespace XPT.Legacy.Maps {
             MapEvent1A = FnELFHOME_1A;
             MapEvent1B = FnINFO_1B;
         }
-        
-        // === Strings ================================================
-        private const string String03FC = "The AldBora Tree bears... ";
-        private const string String0417 = "the knowledge of Athletics!";
-        private const string String0433 = "the knowledge of Clubs and Axes!";
-        private const string String0454 = "the knowledge of Berserker!";
-        private const string String0470 = "the knowledge of Pursuit!";
-        private const string String048A = "the knowledge of Leadership!";
-        private const string String04A7 = "the knowledge of Fencing!";
-        private const string String04C1 = "the knowledge of Binding!";
-        private const string String04DB = "the knowledge of Intimidation!";
-        private const string String04FA = "the knowledge of Archery!";
-        private const string String0514 = "the knowledge of Stamina!";
-        private const string String052E = "the knowledge of Furtiveness!";
-        private const string String054C = "the knowledge of Reading Tracks!";
-        private const string String056D = "the knowledge of Martial Arts!";
-        private const string String058C = "the knowledge of Deflect Magic!";
-        private const string String05AC = "the knowledge of Medic!";
-        private const string String05C4 = "the knowledge of Reverie!";
-        private const string String05DE = "the knowledge of Rune Reading!";
-        private const string String05FD = "the knowledge of Staff!";
-        private const string String0615 = "the knowledge of Channeling!";
-        private const string String0632 = "the knowledge of Deep Trance!";
-        private const string String0650 = "The leaves whisper, 'Defeat my enemies the four winds, South, North, East and West, and you will find a precious gem as green as my foliage.'";
-        private const string String06DE = "Spring flowers and new leaves appear on the magical Aldbora Tree.";
-        private const string String0720 = "The Aldbora Tree proudly displays its summer foliage.";
-        private const string String0756 = "Golden Autumn leaves fall from the Aldbora Tree.";
-        private const string String0787 = "In the Winter, the Aldbora Tree shows its age.  The fruits of Knowledge are now ripe.";
-        private const string String07DD = "Dwarven Knights attempt an ambush.";
-        private const string String0800 = "You see scattered bones and a bag under a Dragon.";
-        private const string String0832 = "A glowing yellow gem lights the area.";
-        private const string String0858 = "A path leads up to CASTLEGATE";
-        private const string String0876 = "A narrow tunnel appears, leading down to the DWARF KINGDOM.";
-        private const string String08B2 = "At level thirty, the entrance to the land of dwarfs will be open to you.";
-        private const string String08FB = "Upon a wood sign is written -- 'Wilderness of BeechWood.'";
-        private const string String0935 = "A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'";
-        private const string String0978 = "A sign of ancient wood reads -- 'Wilderness of MapleBrush.'";
-        private const string String09B4 = "In the dust of pine needles is written -- 'Wilderness of PineCone.'";
-        private const string String09F8 = "We are the Wise Ones of Beechwood who serve the Seasons.";
-        private const string String0A31 = "I am Lobard, and the Season I serve is gentle Spring.";
-        private const string String0A67 = "The soft breezes of Spring warned me of your coming.";
-        private const string String0A9C = "Wise are they who know how to please my master.";
-        private const string String0ACC = "My name is Shushian, servant to vibrant Summer.";
-        private const string String0AFC = "The Summer gently warms those who serve it and parches those who anger it.";
-        private const string String0B47 = "Why have you come to me in these sultry days of Summer?";
-        private const string String0B7F = "Distly Bombak, the vassal of Autumn, greets you.";
-        private const string String0BB0 = "Lovely Autumn in its varicolored foliage urges you to gather in your harvest before harsh Winter comes.";
-        private const string String0C18 = "Autumn begins to fade, and so asks why you have come.";
-        private const string String0C4E = "You may call me Karakiar, since that is my name. My liege is Winter.";
-        private const string String0C93 = "The bracing sting of Winter's winds refresh those who love its white wonderland.";
-        private const string String0CE4 = "Winter would know why you are here.";
-        private const string String0D08 = "Spring thanks you for the Winter Waters.";
-        private const string String0D31 = "See how soft Spring transforms into vibrant Summer!";
-        private const string String0D65 = "Take this Summer Radiance for your troubles.";
-        private const string String0D92 = "You dishonor Spring with your false gift.";
-        private const string String0DBC = "Summer rejoices in the wondrous Harvest Horn.";
-        private const string String0DEA = "Behold!  Summer ripens into mature Autumn!";
-        private const string String0E15 = "The golden Autumn Seeds are ample reward for your generosity.";
-        private const string String0E53 = "Summer burns in anger at your false gift.  Begone!";
-        private const string String0E86 = "Autumn gladly accepts the Spring Renewal.";
-        private const string String0EB0 = "Lo!  Golden Autumn pales to white Winter and now sleeps under snowy blankets.";
-        private const string String0EFE = "These icy Winter Waters are a present to you.";
-        private const string String0F2C = "Autumn is angry that you mock it with a false gift.";
-        private const string String0F60 = "These Autumn Seeds are wonderful, indeed!";
-        private const string String0F8A = "See sleeping Winter blossom with new life!";
-        private const string String0FB5 = "You now receive the glory of Spring Renewal.  It is a priceless gift!";
-        private const string String0FFB = "Winter turns a cold back on your poor gift.";
-        private const string String1027 = "Leave before Winter blasts you!";
-        private const string String1047 = "That item is of no interest to my master.";
-        private const string String1071 = "We are the Clerics of Oakleaf who comfort the Seasons.";
-        private const string String10A8 = "Call me Donbard.  I ease the distress of gentle Spring.";
-        private const string String10E0 = "Spring quakes in fear at your coming.";
-        private const string String1106 = "Why have you come to Spring's home?";
-        private const string String112A = "I am Shashamia, friend to the temperate Summer.";
-        private const string String115A = "Sullen summer is nervous around mortals.";
-        private const string String1183 = "Do you have some business with Summer?";
-        private const string String11AA = "Dindly Bindiak is my name.  Autumn is my friend.";
-        private const string String11DB = "Russet-clad Autumn welcomes you if you are true friends of the Seasons.";
-        private const string String1223 = "Autumn will fade away unless you tell me why you have come.";
-        private const string String125F = "I am called Kalakial, and I help poor Winter.";
-        private const string String128D = "Wistful Winter is too shy to speak to you directly.";
-        private const string String12C1 = "Winter wishes you to leave, so do quickly what you came to do.";
-        private const string String1300 = "Spring accepts the Winter Waters.";
-        private const string String1322 = "Spring sings sweetly of its transformation into Summer!";
-        private const string String135A = "Summer Radiance is yours as happy reward.";
-        private const string String1384 = "Spring departs at the sight of your poor gift.";
-        private const string String13B3 = "Summer accepts the Harvest Horn.";
-        private const string String13D4 = "Summer mellows by the sweet music and is now Autumn!";
-        private const string String1409 = "Autumn Seeds are now yours to enjoy.";
-        private const string String142E = "Summer shies away from your pitiful gift.";
-        private const string String1458 = "Autumn shyly receives the Spring Renewal.";
-        private const string String1482 = "Now Autumn turns to Winter, still clutching the hope of vernal renewal.";
-        private const string String14CA = "Winter Waters are yours, my friends.";
-        private const string String14EF = "Autumn rejects your horrid gift.";
-        private const string String1510 = "Autumn Seeds hold the germ of life!";
-        private const string String1534 = "Cold Winter is become warm Spring.  Rejoice!";
-        private const string String1561 = "The magnificent Spring Renewal is your just reward.";
-        private const string String1595 = "Winter weeps at your cruelty.";
-        private const string String15B3 = "No season is interested in the item you offer.";
-        private const string String15E2 = "We are the Wardens of Maplebrush and hold the Seasons.";
-        private const string String1619 = "You may not know my name.";
-        private const string String1633 = "It is Spring.  That is all you need know.";
-        private const string String165D = "My name is my secret.";
-        private const string String1673 = "It is Summer. That is all I'll say.";
-        private const string String1697 = "Never mind what my name is.";
-        private const string String16B3 = "It is Autumn.  That is enough for now.";
-        private const string String16DA = "Not even I know my true name.";
-        private const string String16F8 = "It is Winter.  I may say no more.";
-        private const string String171A = "From Winter Waters comes the change of Spring to Summer.";
-        private const string String1753 = "You are rewarded.";
-        private const string String1765 = "Wrong gift, mortal!";
-        private const string String1779 = "The Harvest Horn blows Summer into Autumn.";
-        private const string String17A4 = "A reward is yours.";
-        private const string String17B7 = "Wrong present, mortal!";
-        private const string String17CE = "The Spring Renewal eases Autumn's slide into Winter.";
-        private const string String1803 = "Enjoy your reward.";
-        private const string String1816 = "Not even close, mortal!";
-        private const string String182E = "Winter devours the Autumn Seeds and becomes Spring.";
-        private const string String1862 = "You are well rewarded.";
-        private const string String1879 = "Wrong, wrong, wrong, mortal!";
-        private const string String1896 = "Why do you offer the seasons such a thing?";
-        private const string String18C1 = "We are the Seasons incarnate in mortal form.";
-        private const string String18EE = "I am Spring";
-        private const string String18FA = "I am Summer";
-        private const string String1906 = "I am Autumn";
-        private const string String1912 = "I am Winter";
-        private const string String191E = "The Winter Waters you offer quench my thirst.";
-        private const string String194C = "Look how I have become Summer!";
-        private const string String196B = "Take my new Summer Radiance.";
-        private const string String1988 = "I have no need for that item.";
-        private const string String19A6 = "I blow the Harvest Horn you give me...";
-        private const string String19CD = "...and I change to Autumn!";
-        private const string String19E8 = "Have some of my Autumn Seeds as thanks.";
-        private const string String1A10 = "The present you offer I must reject.";
-        private const string String1A35 = "Because you give me Spring Renewal...";
-        private const string String1A5B = "...I can safely transform into Winter and still survive.";
-        private const string String1A94 = "May my Winter Waters refresh you.";
-        private const string String1AB6 = "I cannot accept your present.";
-        private const string String1AD4 = "The Autumn Seeds awaken me from my long hibernation.";
-        private const string String1B09 = "I am Spring again!";
-        private const string String1B1C = "Take the Renewal of Spring and rejoice with me!";
-        private const string String1B4C = "I have no use for what you offer.";
-        private const string String1B6E = "We Seasons cannot use the item you offer.";
-        private const string String1B98 = "'Welcome, Adventurer.  I am Varstad, counselor to the Elf King.";
-        private const string String1BD8 = "The magic Aldbora requires Summer Radiance to shed its knowledge fruit.'";
-        private const string String1C21 = "The storyteller Sorshian honors your arrival.";
-        private const string String1C4F = "'Only when the season is winter will the Aldbora shed its fruit.'";
-        private const string String1C91 = "A wooden sign says, 'To the cave of NeedleWood.'";
-        private const string String1CC2 = "The door unlocks.";
-        private const string String1CD4 = "Young elves scurry and hide when you enter this elf home.";
-        private const string String1D0E = "Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.";
-        private const string String1D79 = "'I am Fernank, Hunter to the Elf King.";
-        private const string String1DA0 = "It is known in the trees that Nature's Robe must be used for the harvest.'";
-        
+
+        private const int ItemAutumnSeeds = 0xE4;
+        private const int ItemWinterWaters = 0xE5;
+        private const int ItemHarvestHorn = 0xE6;
+        private const int ItemSpringRenewal = 0xE7;
+        private const int ItemSummerRadiance = 0xE8;
+        private const int ItemNaturesRobe = 0xE9;
+
+        // Map 28 - The Season's Quest
+        // The player enters the map with the Harvest Horn
+        // The player then travels to the four corners of the map, visiting the druids of each season, giving them an item and gaining one in return.
+        // After the fourth season, the player takes the final season item back to the AldBora tree, which bears the fruits of Wisdom.
+        // MapFlag 0x01 tracks the progress of the player. When the player enters the room MapFlag is set to 0x00.
+        // MF   Season  Event   Room    Item    Reward              e12     e13     e14     e15
+        // 00   Summer  13      LL      HH      Seeds               Spr     Sum     Win     Aut
+        // 01   Winter  15      UR      Seeds   Spring Renewal      Sum     Spr     Aut     Win
+        // 02   Autumn  12      UL      Renewal Winter Waters       Aut     Win     Sum     Spr
+        // 03   Spring  14      LR      Waters  Summer Radiance     Win     Aut     Spr     Sum
+        // 04   Tree    01      Center  SR      Skills
+
         // === Functions ================================================
         private void FnALDBORA_01(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si);
-            L0004: si = GetFlag(player, FlagTypeMap, 0x01);
-            L0017: ax = HasUsedItem(player, 0xE8, 0xE8);
-            L002A: if (JumpNotEqual) goto L002F;
-            L002C: goto L0414;
-            L002F: Compare(si, 0x04);
-            L0032: if (JumpEqual) goto L0037;
-            L0034: goto L0414;
-            L0037: ax = HasItem(player, 0xE9);
-            L0045: if (JumpNotEqual) goto L004A;
-            L0047: goto L0414;
-            L004A: ShowMessage(player, String03FC); // The AldBora Tree bears... 
-            L0057: RemoveItem(player, 0xE8);
-            L0063: RemoveItem(player, 0xE9);
-            L006F: RefreshCompareFlags(GetSkillLevel(player, 0x00));
-            L007C: if (JumpNotEqual) goto L009B;
-            L007E: SetSkillLevel(player, 0x00, 0x02);
-            L008E: ShowMessage(player, String0417); // the knowledge of Athletics!
-            L009B: RefreshCompareFlags(GetSkillLevel(player, 0x01));
-            L00A9: if (JumpNotEqual) goto L00C9;
-            L00AB: SetSkillLevel(player, 0x01, 0x02);
-            L00BC: ShowMessage(player, String0433); // the knowledge of Clubs and Axes!
-            L00C9: RefreshCompareFlags(GetSkillLevel(player, 0x02));
-            L00D7: if (JumpNotEqual) goto L00F7;
-            L00D9: SetSkillLevel(player, 0x02, 0x02);
-            L00EA: ShowMessage(player, String0454); // the knowledge of Berserker!
-            L00F7: RefreshCompareFlags(GetSkillLevel(player, 0x03));
-            L0105: if (JumpNotEqual) goto L0125;
-            L0107: SetSkillLevel(player, 0x03, 0x02);
-            L0118: ShowMessage(player, String0470); // the knowledge of Pursuit!
-            L0125: RefreshCompareFlags(GetSkillLevel(player, 0x04));
-            L0133: if (JumpNotEqual) goto L0153;
-            L0135: SetSkillLevel(player, 0x04, 0x02);
-            L0146: ShowMessage(player, String048A); // the knowledge of Leadership!
-            L0153: RefreshCompareFlags(GetSkillLevel(player, 0x05));
-            L0161: if (JumpNotEqual) goto L0181;
-            L0163: SetSkillLevel(player, 0x05, 0x02);
-            L0174: ShowMessage(player, String04A7); // the knowledge of Fencing!
-            L0181: RefreshCompareFlags(GetSkillLevel(player, 0x06));
-            L018F: if (JumpNotEqual) goto L01AF;
-            L0191: SetSkillLevel(player, 0x06, 0x02);
-            L01A2: ShowMessage(player, String04C1); // the knowledge of Binding!
-            L01AF: RefreshCompareFlags(GetSkillLevel(player, 0x07));
-            L01BD: if (JumpNotEqual) goto L01DD;
-            L01BF: SetSkillLevel(player, 0x07, 0x02);
-            L01D0: ShowMessage(player, String04DB); // the knowledge of Intimidation!
-            L01DD: RefreshCompareFlags(GetSkillLevel(player, 0x08));
-            L01EB: if (JumpNotEqual) goto L020B;
-            L01ED: SetSkillLevel(player, 0x08, 0x02);
-            L01FE: ShowMessage(player, String04FA); // the knowledge of Archery!
-            L020B: RefreshCompareFlags(GetSkillLevel(player, 0x09));
-            L0219: if (JumpNotEqual) goto L0239;
-            L021B: SetSkillLevel(player, 0x09, 0x02);
-            L022C: ShowMessage(player, String0514); // the knowledge of Stamina!
-            L0239: RefreshCompareFlags(GetSkillLevel(player, 0x0A));
-            L0247: if (JumpNotEqual) goto L0267;
-            L0249: SetSkillLevel(player, 0x0A, 0x02);
-            L025A: ShowMessage(player, String052E); // the knowledge of Furtiveness!
-            L0267: RefreshCompareFlags(GetSkillLevel(player, 0x0B));
-            L0275: if (JumpNotEqual) goto L0295;
-            L0277: SetSkillLevel(player, 0x0B, 0x02);
-            L0288: ShowMessage(player, String054C); // the knowledge of Reading Tracks!
-            L0295: RefreshCompareFlags(GetSkillLevel(player, 0x10));
-            L02A3: if (JumpNotEqual) goto L02C3;
-            L02A5: SetSkillLevel(player, 0x10, 0x02);
-            L02B6: ShowMessage(player, String056D); // the knowledge of Martial Arts!
-            L02C3: RefreshCompareFlags(GetSkillLevel(player, 0x11));
-            L02D1: if (JumpNotEqual) goto L02F1;
-            L02D3: SetSkillLevel(player, 0x11, 0x02);
-            L02E4: ShowMessage(player, String058C); // the knowledge of Deflect Magic!
-            L02F1: RefreshCompareFlags(GetSkillLevel(player, 0x12));
-            L02FF: if (JumpNotEqual) goto L031F;
-            L0301: SetSkillLevel(player, 0x12, 0x02);
-            L0312: ShowMessage(player, String05AC); // the knowledge of Medic!
-            L031F: RefreshCompareFlags(GetSkillLevel(player, 0x13));
-            L032D: if (JumpNotEqual) goto L034D;
-            L032F: SetSkillLevel(player, 0x13, 0x02);
-            L0340: ShowMessage(player, String05C4); // the knowledge of Reverie!
-            L034D: RefreshCompareFlags(GetSkillLevel(player, 0x14));
-            L035B: if (JumpNotEqual) goto L037B;
-            L035D: SetSkillLevel(player, 0x14, 0x02);
-            L036E: ShowMessage(player, String05DE); // the knowledge of Rune Reading!
-            L037B: RefreshCompareFlags(GetSkillLevel(player, 0x15));
-            L0389: if (JumpNotEqual) goto L03A9;
-            L038B: SetSkillLevel(player, 0x15, 0x02);
-            L039C: ShowMessage(player, String05FD); // the knowledge of Staff!
-            L03A9: RefreshCompareFlags(GetSkillLevel(player, 0x16));
-            L03B7: if (JumpNotEqual) goto L03D7;
-            L03B9: SetSkillLevel(player, 0x16, 0x02);
-            L03CA: ShowMessage(player, String0615); // the knowledge of Channeling!
-            L03D7: RefreshCompareFlags(GetSkillLevel(player, 0x17));
-            L03E5: if (JumpNotEqual) goto L0405;
-            L03E7: SetSkillLevel(player, 0x17, 0x02);
-            L03F8: ShowMessage(player, String0632); // the knowledge of Deep Trance!
-            L0405: ShowMessage(player, String0650); // The leaves whisper, 'Defeat my enemies the four winds, South, North, East and West, and you will find a precious gem as green as my foliage.'
-            L0412: goto L045F;
-            L0414: bx = si;
-            L0416: bx = bx - 1;
-            L0417: Compare(bx, 0x03);
-            L041A: if (JumpAbove) goto L045F;
-            L041C: switch (bx) {
+            switch (GetFlag(player, FlagTypeMap, 0x01)) {
                 case 0:
-                    goto L0423;
+                    ShowMessage(player, "The Aldbora Tree proudly displays its summer foliage.");
+                    if (HasItem(player, ItemHarvestHorn) == 1) {
+                        ShowMessage(player, "A whisper in the room: 'The procession of seasons may begin.'");
+                    }
+                    return;
                 case 1:
-                    goto L0432;
+                    ShowMessage(player, "In the Winter, the Aldbora Tree shows its age.");
+                    return;
                 case 2:
-                    goto L0441;
+                    ShowMessage(player, "Golden Autumn leaves fall from the Aldbora Tree.");
+                    return;
                 case 3:
-                    goto L0450;
+                    ShowMessage(player, "Spring flowers and new leaves appear on the magical Aldbora Tree.");
+                    return;
+                case 4:
+                    if (HasUsedItem(player, ItemSummerRadiance, ItemSummerRadiance) == 0) {
+                        ShowMessage(player, "The fruits of Knowledge are now ripe, and wait for the Radiance of Summer.");
+                        return;
+                    }
+                    else {
+                        if (HasItem(player, ItemNaturesRobe) == 0) {
+                            ShowMessage(player, "The fruits of Knowledge are useless without the vestments of Nature.");
+                            return;
+                        }
+                        ShowMessage(player, "The AldBora Tree bears fruit...");
+                        RemoveItem(player, ItemSummerRadiance);
+                        RemoveItem(player, ItemNaturesRobe);
+                        // barb:
+                        if (GetSkillLevel(player, 0x00) == 0) {
+                            SetSkillLevel(player, 0x00, 0x02);
+                            ShowMessage(player, "the knowledge of Athletics!");
+                        }
+                        if (GetSkillLevel(player, 0x01) == 0) {
+                            SetSkillLevel(player, 0x01, 0x02);
+                            ShowMessage(player, "the knowledge of Clubs and Axes!");
+                        }
+                        if (GetSkillLevel(player, 0x02) == 0) {
+                            SetSkillLevel(player, 0x02, 0x02);
+                            ShowMessage(player, "the knowledge of Berserker!");
+                        }
+                        if (GetSkillLevel(player, 0x03) == 0) {
+                            SetSkillLevel(player, 0x03, 0x02);
+                            ShowMessage(player, "the knowledge of Pursuit!");
+                        }
+                        // knight:
+                        if (GetSkillLevel(player, 0x04) == 0) {
+                            SetSkillLevel(player, 0x04, 0x02);
+                            ShowMessage(player, "the knowledge of Leadership!");
+                        }
+                        if (GetSkillLevel(player, 0x05) == 0) {
+                            SetSkillLevel(player, 0x05, 0x02);
+                            ShowMessage(player, "the knowledge of Fencing!");
+                        }
+                        if (GetSkillLevel(player, 0x06) == 0) {
+                            SetSkillLevel(player, 0x06, 0x02);
+                            ShowMessage(player, "the knowledge of Binding!");
+                        }
+                        if (GetSkillLevel(player, 0x07) == 0) {
+                            SetSkillLevel(player, 0x07, 0x02);
+                            ShowMessage(player, "the knowledge of Intimidation!");
+                        }
+                        // ranger:
+                        if (GetSkillLevel(player, 0x08) == 0) {
+                            SetSkillLevel(player, 0x08, 0x02);
+                            ShowMessage(player, "the knowledge of Archery!");
+                        }
+                        if (GetSkillLevel(player, 0x09) == 0) {
+                            SetSkillLevel(player, 0x09, 0x02);
+                            ShowMessage(player, "the knowledge of Stamina!");
+                        }
+                        if (GetSkillLevel(player, 0x0A) == 0) {
+                            SetSkillLevel(player, 0x0A, 0x02);
+                            ShowMessage(player, "the knowledge of Furtiveness!");
+                        }
+                        if (GetSkillLevel(player, 0x0B) == 0) {
+                            SetSkillLevel(player, 0x0B, 0x02);
+                            ShowMessage(player, "the knowledge of Reading Tracks!");
+                        }
+                        // cleric:
+                        if (GetSkillLevel(player, 0x10) == 0) {
+                            SetSkillLevel(player, 0x10, 0x02);
+                            ShowMessage(player, "the knowledge of Martial Arts!");
+                        }
+                        if (GetSkillLevel(player, 0x11) == 0) {
+                            SetSkillLevel(player, 0x11, 0x02);
+                            ShowMessage(player, "the knowledge of Deflect Magic!");
+                        }
+                        if (GetSkillLevel(player, 0x12) == 0) {
+                            SetSkillLevel(player, 0x12, 0x02);
+                            ShowMessage(player, "the knowledge of Medic!");
+                        }
+                        if (GetSkillLevel(player, 0x13) == 0) {
+                            SetSkillLevel(player, 0x13, 0x02);
+                            ShowMessage(player, "the knowledge of Reverie!");
+                        }
+                        // wizard:
+                        if (GetSkillLevel(player, 0x14) == 0) {
+                            SetSkillLevel(player, 0x14, 0x02);
+                            ShowMessage(player, "the knowledge of Rune Reading!");
+                        }
+                        if (GetSkillLevel(player, 0x15) == 0) {
+                            SetSkillLevel(player, 0x15, 0x02);
+                            ShowMessage(player, "the knowledge of Staff!");
+                        }
+                        if (GetSkillLevel(player, 0x16) == 0) {
+                            SetSkillLevel(player, 0x16, 0x02);
+                            ShowMessage(player, "the knowledge of Channeling!");
+                        }
+                        if (GetSkillLevel(player, 0x17) == 0) {
+                            SetSkillLevel(player, 0x17, 0x02);
+                            ShowMessage(player, "the knowledge of Deep Trance!");
+                        }
+                        ShowMessage(player, "The leaves whisper, 'Defeat my enemies the four winds, South, North, East and West, and you will find a precious gem as green as my foliage.'");
+                    }
+                    return;
             }
-            L0423: ShowMessage(player, String06DE); // Spring flowers and new leaves appear on the magical Aldbora Tree.
-            L0430: goto L045F;
-            L0432: ShowMessage(player, String0720); // The Aldbora Tree proudly displays its summer foliage.
-            L043F: goto L045F;
-            L0441: ShowMessage(player, String0756); // Golden Autumn leaves fall from the Aldbora Tree.
-            L044E: goto L045F;
-            L0450: ShowMessage(player, String0787); // In the Winter, the Aldbora Tree shows its age.  The fruits of Knowledge are now ripe.
-            L045D: goto L045F;
-            L045F: return; // RETURN (restoring si);
         }
 
         private void FnENCA_02(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String07DD); // Dwarven Knights attempt an ambush.
-            L0010: AddEncounter(player, 0x01, 0x20);
-            L0022: AddEncounter(player, 0x02, 0x20);
-            L0034: AddEncounter(player, 0x05, 0x22);
-            L0046: AddEncounter(player, 0x06, 0x22);
-            L0058: return; // RETURN;
+            ShowMessage(player, "Dwarven Knights attempt an ambush.");
+            AddEncounter(player, 0x01, 0x20);
+            AddEncounter(player, 0x02, 0x20);
+            AddEncounter(player, 0x05, 0x22);
+            AddEncounter(player, 0x06, 0x22);
         }
 
         private void FnENCB_03(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x1F);
-            L0015: AddEncounter(player, 0x02, 0x1E);
-            L0027: AddEncounter(player, 0x03, 0x1D);
-            L0039: AddEncounter(player, 0x04, 0x1B);
-            L004B: AddEncounter(player, 0x05, 0x23);
-            L005D: AddEncounter(player, 0x06, 0x23);
-            L006F: return; // RETURN;
+            AddEncounter(player, 0x01, 0x1F);
+            AddEncounter(player, 0x02, 0x1E);
+            AddEncounter(player, 0x03, 0x1D);
+            AddEncounter(player, 0x04, 0x1B);
+            AddEncounter(player, 0x05, 0x23);
+            AddEncounter(player, 0x06, 0x23);
         }
 
         private void FnENCC_04(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x1F);
-            L0015: AddEncounter(player, 0x02, 0x1F);
-            L0027: AddEncounter(player, 0x03, 0x24);
-            L0039: AddEncounter(player, 0x04, 0x19);
-            L004B: return; // RETURN;
+            AddEncounter(player, 0x01, 0x1F);
+            AddEncounter(player, 0x02, 0x1F);
+            AddEncounter(player, 0x03, 0x24);
+            AddEncounter(player, 0x04, 0x19);
         }
 
         private void FnENCD_05(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x18);
-            L0015: AddEncounter(player, 0x02, 0x1A);
-            L0027: AddEncounter(player, 0x03, 0x26);
-            L0039: AddEncounter(player, 0x04, 0x26);
-            L004B: AddEncounter(player, 0x05, 0x22);
-            L005D: AddEncounter(player, 0x06, 0x22);
-            L006F: return; // RETURN;
+            AddEncounter(player, 0x01, 0x18);
+            AddEncounter(player, 0x02, 0x1A);
+            AddEncounter(player, 0x03, 0x26);
+            AddEncounter(player, 0x04, 0x26);
+            AddEncounter(player, 0x05, 0x22);
+            AddEncounter(player, 0x06, 0x22);
         }
 
         private void FnENCE_06(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x14);
-            L0015: AddEncounter(player, 0x02, 0x16);
-            L0027: AddEncounter(player, 0x03, 0x26);
-            L0039: AddEncounter(player, 0x04, 0x27);
-            L004B: return; // RETURN;
+            AddEncounter(player, 0x01, 0x14);
+            AddEncounter(player, 0x02, 0x16);
+            AddEncounter(player, 0x03, 0x26);
+            AddEncounter(player, 0x04, 0x27);
         }
 
         private void FnENCF_07(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xFA);
-            L0011: if (JumpEqual) goto L0034;
-            L0013: AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0x00, 0xCE);
-            L0032: goto L0061;
-            L0034: AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0xD0, 0xFA);
-            L0054: ShowMessage(player, String0800); // You see scattered bones and a bag under a Dragon.
-            L0061: AddEncounter(player, 0x01, 0x1B);
-            L0073: AddEncounter(player, 0x02, 0x1B);
-            L0085: AddEncounter(player, 0x03, 0x19);
-            L0097: AddEncounter(player, 0x04, 0x19);
-            L00A9: return; // RETURN;
+            if (HasItem(player, 0xFA) == 1) {
+                AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0x00, 0xCE);
+            }
+            else {
+                AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0xD0, 0xFA);
+            }
+            ShowMessage(player, "You see scattered bones and a bag under a Dragon.");
+            AddEncounter(player, 0x01, 0x1B);
+            AddEncounter(player, 0x02, 0x1B);
+            AddEncounter(player, 0x03, 0x19);
+            AddEncounter(player, 0x04, 0x19);
         }
 
         private void FnENCG_08(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x1A);
-            L0015: AddEncounter(player, 0x02, 0x1A);
-            L0027: AddEncounter(player, 0x03, 0x1B);
-            L0039: AddEncounter(player, 0x04, 0x1B);
-            L004B: return; // RETURN;
+            AddEncounter(player, 0x01, 0x1A);
+            AddEncounter(player, 0x02, 0x1A);
+            AddEncounter(player, 0x03, 0x1B);
+            AddEncounter(player, 0x04, 0x1B);
         }
 
         private void FnENCH_09(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x21);
-            L0015: AddEncounter(player, 0x02, 0x22);
-            L0027: AddEncounter(player, 0x05, 0x26);
-            L0039: AddEncounter(player, 0x06, 0x28);
-            L004B: return; // RETURN;
+            AddEncounter(player, 0x01, 0x21);
+            AddEncounter(player, 0x02, 0x22);
+            AddEncounter(player, 0x05, 0x26);
+            AddEncounter(player, 0x06, 0x28);
         }
 
         private void FnENCI_0A(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x1C);
-            L0015: AddEncounter(player, 0x02, 0x1C);
-            L0027: AddEncounter(player, 0x03, 0x22);
-            L0039: AddEncounter(player, 0x04, 0x22);
-            L004B: ax = HasItem(player, 0xF5);
-            L0059: if (JumpEqual) goto L007D;
-            L005B: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xCF, 0xC6);
-            L007B: goto L00AB;
-            L007D: ShowMessage(player, String0832); // A glowing yellow gem lights the area.
-            L008A: AddTreasure(player, 0x2710, 0x00, 0x00, 0xD0, 0xD0, 0xF5);
-            L00AB: return; // RETURN;
+            AddEncounter(player, 0x01, 0x1C);
+            AddEncounter(player, 0x02, 0x1C);
+            AddEncounter(player, 0x03, 0x22);
+            AddEncounter(player, 0x04, 0x22);
+            if (HasItem(player, 0xF5) == 1) {
+                AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xCF, 0xC6);
+            }
+            else {
+                ShowMessage(player, "A glowing yellow gem lights the area.");
+                AddTreasure(player, 0x2710, 0x00, 0x00, 0xD0, 0xD0, 0xF5);
+            }
         }
 
         private void FnCGATE_0B(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0858); // A path leads up to CASTLEGATE
-            L0010: TeleportParty(player, 0x36, 0x01, 0x74, 0x01, isForwardMove);
-            L002B: return; // RETURN;
+            ShowMessage(player, "A path leads up to CASTLEGATE.");
+            TeleportParty(player, 0x36, 0x01, 0x74, 0x01, isForwardMove);
         }
 
         private void FnDWARF_0C(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ax = CheckLevel(player, 0x001E);
-            L0011: if (JumpEqual) goto L003D;
-            L0013: ShowMessage(player, String0876); // A narrow tunnel appears, leading down to the DWARF KINGDOM.
-            L0020: TeleportParty(player, 0x38, 0x01, 0x7A, 0x02, isForwardMove);
-            L003B: goto L004A;
-            L003D: ShowRunes(player, String08B2); // At level thirty, the entrance to the land of dwarfs will be open to you.
-            L004A: return; // RETURN;
+            if (CheckLevel(player, 0x001E) == 1) {
+                ShowMessage(player, "A narrow tunnel appears, leading down to the DWARF KINGDOM.");
+                TeleportParty(player, 0x38, 0x01, 0x7A, 0x02, isForwardMove);
+            }
+            else {
+                ShowMessage(player, "Runes are carved into the rockface:");
+                ShowRunes(player, "At level thirty, the entrance to the land of dwarfs will be open to you.");
+            }
         }
 
         private void FnNOJOIN_0D(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: SetNoJoinArea(player);
-            L000B: return; // RETURN;
+            SetNoJoinArea(player);
         }
 
         private void FnBEECHWD_0E(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String08FB); // Upon a wood sign is written -- 'Wilderness of BeechWood.'
-            L0010: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
-            L0023: if (JumpNotEqual) goto L0079;
-            L0025: SetFlag(player, FlagTypeMap, 0x03, 0x01);
-            L003A: SetFlag(player, FlagTypeMap, 0x02, 0x02);
-            L004F: SetFlag(player, FlagTypeMap, 0x01, 0x03);
-            L0064: SetFlag(player, FlagTypeMap, 0x04, 0x04);
-            L0079: return; // RETURN;
+            ShowMessage(player, "Upon a wood sign is written 'Wilderness of BeechWood.'");
         }
 
         private void FnOAKLEAF_0F(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0935); // A wreath of leaves encircles the words -- 'Wilderness of OakLeaf.'
-            L0010: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x02));
-            L0023: if (JumpNotEqual) goto L0079;
-            L0025: SetFlag(player, FlagTypeMap, 0x03, 0x01);
-            L003A: SetFlag(player, FlagTypeMap, 0x02, 0x02);
-            L004F: SetFlag(player, FlagTypeMap, 0x01, 0x03);
-            L0064: SetFlag(player, FlagTypeMap, 0x04, 0x04);
-            L0079: return; // RETURN;
+            ShowMessage(player, " A wreath of leaves encircles the words 'Wilderness of OakLeaf.'");
         }
 
         private void FnMAPLEBRS_10(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0978); // A sign of ancient wood reads -- 'Wilderness of MapleBrush.'
-            L0010: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x03));
-            L0023: if (JumpNotEqual) goto L0079;
-            L0025: SetFlag(player, FlagTypeMap, 0x03, 0x01);
-            L003A: SetFlag(player, FlagTypeMap, 0x02, 0x02);
-            L004F: SetFlag(player, FlagTypeMap, 0x01, 0x03);
-            L0064: SetFlag(player, FlagTypeMap, 0x04, 0x04);
-            L0079: return; // RETURN;
+            ShowMessage(player, "A sign of ancient wood reads 'Wilderness of MapleBrush.'");
         }
 
         private void FnPINECONE_11(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String09B4); // In the dust of pine needles is written -- 'Wilderness of PineCone.'
-            L0010: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x04));
-            L0023: if (JumpNotEqual) goto L0079;
-            L0025: SetFlag(player, FlagTypeMap, 0x03, 0x01);
-            L003A: SetFlag(player, FlagTypeMap, 0x02, 0x02);
-            L004F: SetFlag(player, FlagTypeMap, 0x01, 0x03);
-            L0064: SetFlag(player, FlagTypeMap, 0x04, 0x04);
-            L0079: return; // RETURN;
+            ShowMessage(player, "In the dust of pine needles is written 'Wilderness of PineCone.'");
         }
+
+        // === Event 12: The Wise Ones of Beechwood. At Stage 2, Autumn accepts Spring's Renewal here. ===============
+        // ===========================================================================================================
 
         private void FnBWACTOR_12(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si);
-            L0004: ShowMessage(player, String09F8); // We are the Wise Ones of Beechwood who serve the Seasons.
-            L0011: ShowPortrait(player, 0x0027);
-            L001E: si = GetFlag(player, FlagTypeMap, 0x01);
-            L0031: bx = si;
-            L0033: bx = bx - 1;
-            L0034: Compare(bx, 0x03);
-            L0037: if (JumpBelowOrEqual) goto L003C;
-            L0039: goto L00E8;
-            L003C: switch (bx) {
-                case 0:
-                    goto L0043;
-                case 1:
-                    goto L006D;
-                case 2:
-                    goto L0096;
-                case 3:
-                    goto L00BF;
+            ShowPortrait(player, 0x0027);
+            if (GetFlag(player, FlagTypeMap, 0x01) >= 4) {
+                ShowMessage(player, "The Wise Ones of Beechwood discuss the change in seasons.");
             }
-            L0043: ShowMessage(player, String0A31); // I am Lobard, and the Season I serve is gentle Spring.
-            L0050: ShowMessage(player, String0A67); // The soft breezes of Spring warned me of your coming.
-            L005D: ShowMessage(player, String0A9C); // Wise are they who know how to please my master.
-            L006A: goto L00E8;
-            L006C: // NOP
-            L006D: ShowMessage(player, String0ACC); // My name is Shushian, servant to vibrant Summer.
-            L007A: ShowMessage(player, String0AFC); // The Summer gently warms those who serve it and parches those who anger it.
-            L0087: ShowMessage(player, String0B47); // Why have you come to me in these sultry days of Summer?
-            L0094: goto L00E8;
-            L0096: ShowMessage(player, String0B7F); // Distly Bombak, the vassal of Autumn, greets you.
-            L00A3: ShowMessage(player, String0BB0); // Lovely Autumn in its varicolored foliage urges you to gather in your harvest before harsh Winter comes.
-            L00B0: ShowMessage(player, String0C18); // Autumn begins to fade, and so asks why you have come.
-            L00BD: goto L00E8;
-            L00BF: ShowMessage(player, String0C4E); // You may call me Karakiar, since that is my name. My liege is Winter.
-            L00CC: ShowMessage(player, String0C93); // The bracing sting of Winter's winds refresh those who love its white wonderland.
-            L00D9: ShowMessage(player, String0CE4); // Winter would know why you are here.
-            L00E6: goto L00E8;
-            L00E8: ax = HasUsedItem(player, 0xE5, 0xE5);
-            L00FB: if (JumpEqual) goto L0168;
-            L00FD: Compare(si, 0x01);
-            L0100: if (JumpNotEqual) goto L0158;
-            L0102: RemoveItem(player, 0xE5);
-            L010E: GiveItem(player, 0xE8);
-            L011A: SetFlag(player, FlagTypeMap, 0x01, 0x02);
-            L012F: ShowMessage(player, String0D08); // Spring thanks you for the Winter Waters.
-            L013C: ShowMessage(player, String0D31); // See how soft Spring transforms into vibrant Summer!
-            L0149: ShowMessage(player, String0D65); // Take this Summer Radiance for your troubles.
-            L0156: goto L0165;
-            L0158: ShowMessage(player, String0D92); // You dishonor Spring with your false gift.
-            L0165: goto L0301;
-            L0168: ax = HasUsedItem(player, 0xE6, 0xE6);
-            L017B: if (JumpEqual) goto L01E8;
-            L017D: Compare(si, 0x02);
-            L0180: if (JumpNotEqual) goto L01D8;
-            L0182: RemoveItem(player, 0xE6);
-            L018E: GiveItem(player, 0xE4);
-            L019A: SetFlag(player, FlagTypeMap, 0x01, 0x03);
-            L01AF: ShowMessage(player, String0DBC); // Summer rejoices in the wondrous Harvest Horn.
-            L01BC: ShowMessage(player, String0DEA); // Behold!  Summer ripens into mature Autumn!
-            L01C9: ShowMessage(player, String0E15); // The golden Autumn Seeds are ample reward for your generosity.
-            L01D6: goto L01E5;
-            L01D8: ShowMessage(player, String0E53); // Summer burns in anger at your false gift.  Begone!
-            L01E5: goto L0301;
-            L01E8: ax = HasUsedItem(player, 0xE7, 0xE7);
-            L01FB: if (JumpEqual) goto L0268;
-            L01FD: Compare(si, 0x03);
-            L0200: if (JumpNotEqual) goto L0258;
-            L0202: RemoveItem(player, 0xE7);
-            L020E: GiveItem(player, 0xE5);
-            L021A: SetFlag(player, FlagTypeMap, 0x01, 0x04);
-            L022F: ShowMessage(player, String0E86); // Autumn gladly accepts the Spring Renewal.
-            L023C: ShowMessage(player, String0EB0); // Lo!  Golden Autumn pales to white Winter and now sleeps under snowy blankets.
-            L0249: ShowMessage(player, String0EFE); // These icy Winter Waters are a present to you.
-            L0256: goto L0265;
-            L0258: ShowMessage(player, String0F2C); // Autumn is angry that you mock it with a false gift.
-            L0265: goto L0301;
-            L0268: ax = HasUsedItem(player, 0xE4, 0xE4);
-            L027B: if (JumpEqual) goto L02F4;
-            L027D: Compare(si, 0x04);
-            L0280: if (JumpNotEqual) goto L02D8;
-            L0282: RemoveItem(player, 0xE4);
-            L028E: GiveItem(player, 0xE7);
-            L029A: SetFlag(player, FlagTypeMap, 0x01, 0x01);
-            L02AF: ShowMessage(player, String0F60); // These Autumn Seeds are wonderful, indeed!
-            L02BC: ShowMessage(player, String0F8A); // See sleeping Winter blossom with new life!
-            L02C9: ShowMessage(player, String0FB5); // You now receive the glory of Spring Renewal.  It is a priceless gift!
-            L02D6: goto L02F2;
-            L02D8: ShowMessage(player, String0FFB); // Winter turns a cold back on your poor gift.
-            L02E5: ShowMessage(player, String1027); // Leave before Winter blasts you!
-            L02F2: goto L0301;
-            L02F4: ShowMessage(player, String1047); // That item is of no interest to my master.
-            L0301: return; // RETURN (restoring si);
+            else if (HasUsedItem(player, 0x00, 0xff) == 0) {
+                FnBWACTOR_12_Introduction(player);
+            }
+            else {
+                FnBWACTOR_12_UseItem(player);
+            }
         }
+
+        private void FnBWACTOR_12_Introduction(ServerPlayer player) {
+            ShowMessage(player, "We are the Wise Ones of Beechwood who serve the Seasons.");
+            switch (GetFlag(player, FlagTypeMap, 0x01)) {
+                case 0: // spring here
+                    ShowMessage(player, "I am Lobard, and the Season I serve is gentle Spring.");
+                    ShowMessage(player, "The soft breezes of Spring warned me of your coming.");
+                    ShowMessage(player, "Wise are they who know how to please my master.");
+                    break;
+                case 1: // summer here
+                    ShowMessage(player, "My name is Shushian, servant to vibrant Summer.");
+                    ShowMessage(player, "The Summer gently warms those who serve it and parches those who anger it.");
+                    ShowMessage(player, "Why have you come to me in these sultry days of Summer?");
+                    break;
+                case 2: // autumn here, active event.
+                    ShowMessage(player, "Distly Bombak, the vassal of Autumn, greets you.");
+                    ShowMessage(player, "Lovely Autumn in its varicolored foliage urges you to gather in your harvest before harsh Winter comes.");
+                    ShowMessage(player, "Autumn begins to fade, and so asks why you have come.");
+                    break;
+                case 3: // winter here
+                    ShowMessage(player, "You may call me Karakiar, since that is my name. My liege is Winter.");
+                    ShowMessage(player, "The bracing sting of Winter's winds refresh those who love its white wonderland.");
+                    ShowMessage(player, "Winter would know why you are here.");
+                    break;
+            }
+        }
+
+        private void FnBWACTOR_12_UseItem(ServerPlayer player) {
+            if (GetFlag(player, FlagTypeMap, 0x01) == 2 && HasUsedItem(player, ItemSpringRenewal, ItemSpringRenewal) == 1) {
+                RemoveItem(player, ItemSpringRenewal);
+                if (HasItem(player, ItemWinterWaters) == 0) {
+                    GiveItem(player, ItemWinterWaters);
+                }
+                SetFlag(player, FlagTypeMap, 0x01, 0x03);
+                ShowMessage(player, "Autumn gladly accepts the Spring Renewal.");
+                ShowMessage(player, "Lo! Golden Autumn pales to white Winter and now sleeps under snowy blankets.");
+                ShowMessage(player, "These icy Winter Waters are a present to you.");
+            }
+            else {
+                ShowMessage(player, "A Wise One scoffs. 'You dishonour the Seasons with this false gift.'");
+            }
+        }
+
+        // === Event 13: Clerics of Oakleaf. At Stage 0, Summer accepts the Harvest Horn here. =======================
+        // ===========================================================================================================
 
         private void FnOLACTOR_13(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si);
-            L0004: ShowMessage(player, String1071); // We are the Clerics of Oakleaf who comfort the Seasons.
-            L0011: ShowPortrait(player, 0x0027);
-            L001E: si = GetFlag(player, FlagTypeMap, 0x02);
-            L0031: bx = si;
-            L0033: bx = bx - 1;
-            L0034: Compare(bx, 0x03);
-            L0037: if (JumpBelowOrEqual) goto L003C;
-            L0039: goto L00E8;
-            L003C: switch (bx) {
-                case 0:
-                    goto L0043;
-                case 1:
-                    goto L006D;
-                case 2:
-                    goto L0096;
-                case 3:
-                    goto L00BF;
+            ShowPortrait(player, 0x0027);
+            if (GetFlag(player, FlagTypeMap, 0x01) >= 4) {
+                ShowMessage(player, "The Clerics softly sooth the seasons.");
             }
-            L0043: ShowMessage(player, String10A8); // Call me Donbard.  I ease the distress of gentle Spring.
-            L0050: ShowMessage(player, String10E0); // Spring quakes in fear at your coming.
-            L005D: ShowMessage(player, String1106); // Why have you come to Spring's home?
-            L006A: goto L00E8;
-            L006C: // NOP
-            L006D: ShowMessage(player, String112A); // I am Shashamia, friend to the temperate Summer.
-            L007A: ShowMessage(player, String115A); // Sullen summer is nervous around mortals.
-            L0087: ShowMessage(player, String1183); // Do you have some business with Summer?
-            L0094: goto L00E8;
-            L0096: ShowMessage(player, String11AA); // Dindly Bindiak is my name.  Autumn is my friend.
-            L00A3: ShowMessage(player, String11DB); // Russet-clad Autumn welcomes you if you are true friends of the Seasons.
-            L00B0: ShowMessage(player, String1223); // Autumn will fade away unless you tell me why you have come.
-            L00BD: goto L00E8;
-            L00BF: ShowMessage(player, String125F); // I am called Kalakial, and I help poor Winter.
-            L00CC: ShowMessage(player, String128D); // Wistful Winter is too shy to speak to you directly.
-            L00D9: ShowMessage(player, String12C1); // Winter wishes you to leave, so do quickly what you came to do.
-            L00E6: goto L00E8;
-            L00E8: ax = HasUsedItem(player, 0xE5, 0xE5);
-            L00FB: if (JumpEqual) goto L0168;
-            L00FD: Compare(si, 0x01);
-            L0100: if (JumpNotEqual) goto L0158;
-            L0102: RemoveItem(player, 0xE5);
-            L010E: GiveItem(player, 0xE8);
-            L011A: SetFlag(player, FlagTypeMap, 0x02, 0x02);
-            L012F: ShowMessage(player, String1300); // Spring accepts the Winter Waters.
-            L013C: ShowMessage(player, String1322); // Spring sings sweetly of its transformation into Summer!
-            L0149: ShowMessage(player, String135A); // Summer Radiance is yours as happy reward.
-            L0156: goto L0165;
-            L0158: ShowMessage(player, String1384); // Spring departs at the sight of your poor gift.
-            L0165: goto L02F4;
-            L0168: ax = HasUsedItem(player, 0xE6, 0xE6);
-            L017B: if (JumpEqual) goto L01E8;
-            L017D: Compare(si, 0x02);
-            L0180: if (JumpNotEqual) goto L01D8;
-            L0182: RemoveItem(player, 0xE6);
-            L018E: GiveItem(player, 0xE4);
-            L019A: SetFlag(player, FlagTypeMap, 0x02, 0x03);
-            L01AF: ShowMessage(player, String13B3); // Summer accepts the Harvest Horn.
-            L01BC: ShowMessage(player, String13D4); // Summer mellows by the sweet music and is now Autumn!
-            L01C9: ShowMessage(player, String1409); // Autumn Seeds are now yours to enjoy.
-            L01D6: goto L01E5;
-            L01D8: ShowMessage(player, String142E); // Summer shies away from your pitiful gift.
-            L01E5: goto L02F4;
-            L01E8: ax = HasUsedItem(player, 0xE7, 0xE7);
-            L01FB: if (JumpEqual) goto L0268;
-            L01FD: Compare(si, 0x03);
-            L0200: if (JumpNotEqual) goto L0258;
-            L0202: RemoveItem(player, 0xE7);
-            L020E: GiveItem(player, 0xE5);
-            L021A: SetFlag(player, FlagTypeMap, 0x02, 0x04);
-            L022F: ShowMessage(player, String1458); // Autumn shyly receives the Spring Renewal.
-            L023C: ShowMessage(player, String1482); // Now Autumn turns to Winter, still clutching the hope of vernal renewal.
-            L0249: ShowMessage(player, String14CA); // Winter Waters are yours, my friends.
-            L0256: goto L0265;
-            L0258: ShowMessage(player, String14EF); // Autumn rejects your horrid gift.
-            L0265: goto L02F4;
-            L0268: ax = HasUsedItem(player, 0xE4, 0xE4);
-            L027B: if (JumpEqual) goto L02E7;
-            L027D: Compare(si, 0x04);
-            L0280: if (JumpNotEqual) goto L02D8;
-            L0282: RemoveItem(player, 0xE4);
-            L028E: GiveItem(player, 0xE7);
-            L029A: SetFlag(player, FlagTypeMap, 0x02, 0x01);
-            L02AF: ShowMessage(player, String1510); // Autumn Seeds hold the germ of life!
-            L02BC: ShowMessage(player, String1534); // Cold Winter is become warm Spring.  Rejoice!
-            L02C9: ShowMessage(player, String1561); // The magnificent Spring Renewal is your just reward.
-            L02D6: goto L02E5;
-            L02D8: ShowMessage(player, String1595); // Winter weeps at your cruelty.
-            L02E5: goto L02F4;
-            L02E7: ShowMessage(player, String15B3); // No season is interested in the item you offer.
-            L02F4: return; // RETURN (restoring si);
+            else if (HasUsedItem(player, 0x00, 0xff) == 0) {
+                FnOLACTOR_13_Introduction(player);
+            }
+            else {
+                FnOLACTOR_13_UseItem(player);
+            }
         }
+
+        private void FnOLACTOR_13_Introduction(ServerPlayer player) {
+            ShowMessage(player, "We are the Clerics of Oakleaf who comfort the Seasons.");
+            switch (GetFlag(player, FlagTypeMap, 0x01)) {
+                case 0: // summer here, active event
+                    ShowMessage(player, "I am Shashamia, friend to the temperate Summer.");
+                    ShowMessage(player, "Sullen summer is nervous around mortals.");
+                    ShowMessage(player, "Do you have some business with Summer?");
+                    break;
+                case 1: // spring here
+                    ShowMessage(player, "Call me Donbard. I ease the distress of gentle Spring.");
+                    ShowMessage(player, "Spring quakes in fear at your coming.");
+                    ShowMessage(player, "Why have you come to Spring's home?");
+                    break;
+                case 2: // winter here
+                    ShowMessage(player, "I am called Kalakial, and I help poor Winter.");
+                    ShowMessage(player, "Wistful Winter is too shy to speak to you directly.");
+                    ShowMessage(player, "Winter wishes you to leave, so do quickly what you came to do.");
+                    break;
+                case 3: // autumn here
+                    ShowMessage(player, "Dindly Bindiak is my name. Autumn is my friend.");
+                    ShowMessage(player, "Russet-clad Autumn welcomes you if you are true friends of the Seasons.");
+                    ShowMessage(player, "Autumn will fade away unless you tell me why you have come.");
+                    break;
+            }
+        }
+
+        private void FnOLACTOR_13_UseItem(ServerPlayer player) {
+            if (GetFlag(player, FlagTypeMap, 0x01) == 0 && HasUsedItem(player, ItemHarvestHorn, ItemHarvestHorn) == 1) {
+                RemoveItem(player, ItemHarvestHorn);
+                if (HasItem(player, ItemAutumnSeeds) == 0) {
+                    GiveItem(player, ItemAutumnSeeds);
+                }
+                SetFlag(player, FlagTypeMap, 0x01, 0x01);
+                ShowMessage(player, "Summer accepts the Harvest Horn.");
+                ShowMessage(player, "Summer mellows by the sweet music and is now Autumn!");
+                ShowMessage(player, "Autumn Seeds are now yours to enjoy.");
+            }
+            else {
+                ShowMessage(player, "A Cleric chides you. 'The Seasons shy away from your pitiful gift.'");
+            }
+        }
+
+        // === Event 14: Wardens of Maplebrush. At Stage 3, Spring accepts the Winter Waters here. ===================
+        // ===========================================================================================================
 
         private void FnMBACTOR_14(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si);
-            L0004: ShowMessage(player, String15E2); // We are the Wardens of Maplebrush and hold the Seasons.
-            L0011: ShowPortrait(player, 0x0027);
-            L001E: si = GetFlag(player, FlagTypeMap, 0x03);
-            L0031: bx = si;
-            L0033: bx = bx - 1;
-            L0034: Compare(bx, 0x03);
-            L0037: if (JumpBelowOrEqual) goto L003C;
-            L0039: goto L00B3;
-            L003B: // NOP
-            L003C: switch (bx) {
-                case 0:
-                    goto L0043;
-                case 1:
-                    goto L005F;
-                case 2:
-                    goto L007B;
-                case 3:
-                    goto L0097;
+            ShowPortrait(player, 0x0027);
+            if (GetFlag(player, FlagTypeMap, 0x01) >= 4) {
+                ShowMessage(player, "The Wardens speak untold secrets.");
             }
-            L0043: ShowMessage(player, String1619); // You may not know my name.
-            L0050: ShowMessage(player, String1633); // It is Spring.  That is all you need know.
-            L005D: goto L00B3;
-            L005F: ShowMessage(player, String165D); // My name is my secret.
-            L006C: ShowMessage(player, String1673); // It is Summer. That is all I'll say.
-            L0079: goto L00B3;
-            L007B: ShowMessage(player, String1697); // Never mind what my name is.
-            L0088: ShowMessage(player, String16B3); // It is Autumn.  That is enough for now.
-            L0095: goto L00B3;
-            L0097: ShowMessage(player, String16DA); // Not even I know my true name.
-            L00A4: ShowMessage(player, String16F8); // It is Winter.  I may say no more.
-            L00B1: goto L00B3;
-            L00B3: ax = HasUsedItem(player, 0xE5, 0xE5);
-            L00C6: if (JumpEqual) goto L0126;
-            L00C8: Compare(si, 0x01);
-            L00CB: if (JumpNotEqual) goto L0116;
-            L00CD: RemoveItem(player, 0xE5);
-            L00D9: GiveItem(player, 0xE8);
-            L00E5: SetFlag(player, FlagTypeMap, 0x03, 0x02);
-            L00FA: ShowMessage(player, String171A); // From Winter Waters comes the change of Spring to Summer.
-            L0107: ShowMessage(player, String1753); // You are rewarded.
-            L0114: goto L0123;
-            L0116: ShowMessage(player, String1765); // Wrong gift, mortal!
-            L0123: goto L028B;
-            L0126: ax = HasUsedItem(player, 0xE6, 0xE6);
-            L0139: if (JumpEqual) goto L0199;
-            L013B: Compare(si, 0x02);
-            L013E: if (JumpNotEqual) goto L0189;
-            L0140: RemoveItem(player, 0xE6);
-            L014C: GiveItem(player, 0xE4);
-            L0158: SetFlag(player, FlagTypeMap, 0x03, 0x03);
-            L016D: ShowMessage(player, String1779); // The Harvest Horn blows Summer into Autumn.
-            L017A: ShowMessage(player, String17A4); // A reward is yours.
-            L0187: goto L0196;
-            L0189: ShowMessage(player, String17B7); // Wrong present, mortal!
-            L0196: goto L028B;
-            L0199: ax = HasUsedItem(player, 0xE7, 0xE7);
-            L01AC: if (JumpEqual) goto L020C;
-            L01AE: Compare(si, 0x03);
-            L01B1: if (JumpNotEqual) goto L01FC;
-            L01B3: RemoveItem(player, 0xE7);
-            L01BF: GiveItem(player, 0xE5);
-            L01CB: SetFlag(player, FlagTypeMap, 0x03, 0x04);
-            L01E0: ShowMessage(player, String17CE); // The Spring Renewal eases Autumn's slide into Winter.
-            L01ED: ShowMessage(player, String1803); // Enjoy your reward.
-            L01FA: goto L0209;
-            L01FC: ShowMessage(player, String1816); // Not even close, mortal!
-            L0209: goto L028B;
-            L020C: ax = HasUsedItem(player, 0xE4, 0xE4);
-            L021F: if (JumpEqual) goto L027E;
-            L0221: Compare(si, 0x04);
-            L0224: if (JumpNotEqual) goto L026F;
-            L0226: RemoveItem(player, 0xE4);
-            L0232: GiveItem(player, 0xE7);
-            L023E: SetFlag(player, FlagTypeMap, 0x03, 0x01);
-            L0253: ShowMessage(player, String182E); // Winter devours the Autumn Seeds and becomes Spring.
-            L0260: ShowMessage(player, String1862); // You are well rewarded.
-            L026D: goto L027C;
-            L026F: ShowMessage(player, String1879); // Wrong, wrong, wrong, mortal!
-            L027C: goto L028B;
-            L027E: ShowMessage(player, String1896); // Why do you offer the seasons such a thing?
-            L028B: return; // RETURN (restoring si);
+            else if (HasUsedItem(player, 0x00, 0xff) == 0) {
+                FnMBACTOR_14_Introduction(player);
+            }
+            else {
+                FnMBACTOR_14_UseItem(player);
+            }
         }
+
+        private void FnMBACTOR_14_Introduction(ServerPlayer player) {
+            ShowMessage(player, "We are the Wardens of Maplebrush and hold the Seasons.");
+            switch (GetFlag(player, FlagTypeMap, 0x01)) {
+                case 0: // winter here
+                    ShowMessage(player, "Not even I know my true name.");
+                    ShowMessage(player, "It is Winter. I may say no more.");
+                    break;
+                case 1: // autumn here
+                    ShowMessage(player, "Never mind what my name is.");
+                    ShowMessage(player, "It is Autumn. That is enough for now.");
+                    break;
+                case 2: // summer here
+                    ShowMessage(player, "My name is my secret.");
+                    ShowMessage(player, "It is Summer. That is all I will say.");
+                    break;
+                case 3: // spring here, active event
+                    ShowMessage(player, "You may not know my name.");
+                    ShowMessage(player, "It is Spring. That is all you need know.");
+                    break;
+            }
+        }
+
+        private void FnMBACTOR_14_UseItem(ServerPlayer player) {
+            if (GetFlag(player, FlagTypeMap, 0x01) == 3 && HasUsedItem(player, ItemWinterWaters, ItemWinterWaters) == 1) {
+                RemoveItem(player, ItemWinterWaters);
+                if (HasItem(player, ItemSummerRadiance) == 0) {
+                    GiveItem(player, ItemSummerRadiance);
+                }
+                SetFlag(player, FlagTypeMap, 0x01, 0x04);
+                ShowMessage(player, "From Winter Waters comes the change of Spring to Summer.");
+                ShowMessage(player, "You have been rewarded.");
+            }
+            else {
+                ShowMessage(player, "The Warden grows angry. 'Wrong, wrong, wrong, mortal!'");
+            }
+        }
+
+        // === Event 15: Seasons incarnate. At Stage 1, Winter accepts the Autumn Springs here. ======================
+        // ===========================================================================================================
 
         private void FnPCACTOR_15(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si);
-            L0004: ShowMessage(player, String18C1); // We are the Seasons incarnate in mortal form.
-            L0011: ShowPortrait(player, 0x0027);
-            L001E: si = GetFlag(player, FlagTypeMap, 0x04);
-            L0031: bx = si;
-            L0033: bx = bx - 1;
-            L0034: Compare(bx, 0x03);
-            L0037: if (JumpAbove) goto L007C;
-            L0039: switch (bx) {
-                case 0:
-                    goto L0040;
-                case 1:
-                    goto L004F;
-                case 2:
-                    goto L005E;
-                case 3:
-                    goto L006D;
+            ShowPortrait(player, 0x0027);
+            if (GetFlag(player, FlagTypeMap, 0x01) >= 4) {
+                ShowMessage(player, "The Seasons have no further use for you.");
             }
-            L0040: ShowMessage(player, String18EE); // I am Spring
-            L004D: goto L007C;
-            L004F: ShowMessage(player, String18FA); // I am Summer
-            L005C: goto L007C;
-            L005E: ShowMessage(player, String1906); // I am Autumn
-            L006B: goto L007C;
-            L006D: ShowMessage(player, String1912); // I am Winter
-            L007A: goto L007C;
-            L007C: ax = HasUsedItem(player, 0xE5, 0xE5);
-            L008F: if (JumpEqual) goto L00FC;
-            L0091: Compare(si, 0x01);
-            L0094: if (JumpNotEqual) goto L00EC;
-            L0096: RemoveItem(player, 0xE5);
-            L00A2: GiveItem(player, 0xE8);
-            L00AE: SetFlag(player, FlagTypeMap, 0x04, 0x02);
-            L00C3: ShowMessage(player, String191E); // The Winter Waters you offer quench my thirst.
-            L00D0: ShowMessage(player, String194C); // Look how I have become Summer!
-            L00DD: ShowMessage(player, String196B); // Take my new Summer Radiance.
-            L00EA: goto L00F9;
-            L00EC: ShowMessage(player, String1988); // I have no need for that item.
-            L00F9: goto L0288;
-            L00FC: ax = HasUsedItem(player, 0xE6, 0xE6);
-            L010F: if (JumpEqual) goto L017C;
-            L0111: Compare(si, 0x02);
-            L0114: if (JumpNotEqual) goto L016C;
-            L0116: RemoveItem(player, 0xE6);
-            L0122: GiveItem(player, 0xE4);
-            L012E: SetFlag(player, FlagTypeMap, 0x04, 0x03);
-            L0143: ShowMessage(player, String19A6); // I blow the Harvest Horn you give me...
-            L0150: ShowMessage(player, String19CD); // ...and I change to Autumn!
-            L015D: ShowMessage(player, String19E8); // Have some of my Autumn Seeds as thanks.
-            L016A: goto L0179;
-            L016C: ShowMessage(player, String1A10); // The present you offer I must reject.
-            L0179: goto L0288;
-            L017C: ax = HasUsedItem(player, 0xE7, 0xE7);
-            L018F: if (JumpEqual) goto L01FC;
-            L0191: Compare(si, 0x03);
-            L0194: if (JumpNotEqual) goto L01EC;
-            L0196: RemoveItem(player, 0xE7);
-            L01A2: GiveItem(player, 0xE5);
-            L01AE: SetFlag(player, FlagTypeMap, 0x04, 0x04);
-            L01C3: ShowMessage(player, String1A35); // Because you give me Spring Renewal...
-            L01D0: ShowMessage(player, String1A5B); // ...I can safely transform into Winter and still survive.
-            L01DD: ShowMessage(player, String1A94); // May my Winter Waters refresh you.
-            L01EA: goto L01F9;
-            L01EC: ShowMessage(player, String1AB6); // I cannot accept your present.
-            L01F9: goto L0288;
-            L01FC: ax = HasUsedItem(player, 0xE4, 0xE4);
-            L020F: if (JumpEqual) goto L027B;
-            L0211: Compare(si, 0x04);
-            L0214: if (JumpNotEqual) goto L026C;
-            L0216: RemoveItem(player, 0xE4);
-            L0222: GiveItem(player, 0xE7);
-            L022E: SetFlag(player, FlagTypeMap, 0x04, 0x01);
-            L0243: ShowMessage(player, String1AD4); // The Autumn Seeds awaken me from my long hibernation.
-            L0250: ShowMessage(player, String1B09); // I am Spring again!
-            L025D: ShowMessage(player, String1B1C); // Take the Renewal of Spring and rejoice with me!
-            L026A: goto L0279;
-            L026C: ShowMessage(player, String1B4C); // I have no use for what you offer.
-            L0279: goto L0288;
-            L027B: ShowMessage(player, String1B6E); // We Seasons cannot use the item you offer.
-            L0288: return; // RETURN (restoring si);
+            else if (HasUsedItem(player, 0x00, 0xff) == 0) {
+                FnPCACTOR_15_Introduction(player);
+            }
+            else {
+                FnPCACTOR_15_UseItem(player);
+            }
+
+        }
+        private void FnPCACTOR_15_Introduction(ServerPlayer player) {
+            ShowMessage(player, "We are the Seasons incarnate in mortal form.");
+            switch (GetFlag(player, FlagTypeMap, 0x01)) {
+                case 0: // autumn here
+                    ShowMessage(player, "I am Autumn.");
+                    break;
+                case 1: // winter here, active event
+                    ShowMessage(player, "I am Winter.");
+                    break;
+                case 2: // spring here
+                    ShowMessage(player, "I am Spring.");
+                    break;
+                case 3: // summer here
+                    ShowMessage(player, "I am Summer.");
+                    break;
+            }
         }
 
+        private void FnPCACTOR_15_UseItem(ServerPlayer player) {
+            if (GetFlag(player, FlagTypeMap, 0x01) == 1 && HasUsedItem(player, ItemAutumnSeeds, ItemAutumnSeeds) == 1) {
+                RemoveItem(player, ItemAutumnSeeds);
+                if (HasItem(player, ItemSpringRenewal) == 0) {
+                    GiveItem(player, ItemSpringRenewal);
+                }
+                SetFlag(player, FlagTypeMap, 0x01, 0x02);
+                ShowMessage(player, "The Autumn Seeds awaken me from my long hibernation.");
+                ShowMessage(player, "I am Spring again!");
+                ShowMessage(player, "Take the Renewal of Spring and rejoice with me!");
+            }
+            else {
+                ShowMessage(player, "The Season incarnate looks puzzled. 'I cannot accept this gift.'");
+            }
+        }
+
+        // === Remaining events - clues ==============================================================================
+        // ===========================================================================================================
+
         private void FnINFO_16(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowPortrait(player, 0x001F);
-            L0010: ShowMessage(player, String1B98); // 'Welcome, Adventurer.  I am Varstad, counselor to the Elf King.
-            L001D: ShowMessage(player, String1BD8); // The magic Aldbora requires Summer Radiance to shed its knowledge fruit.'
-            L002A: return; // RETURN;
+            ShowPortrait(player, 0x001F);
+            ShowMessage(player, "'Welcome, Adventurer.  I am Varstad, counselor to the Elf King.");
+            ShowMessage(player, "The magic Aldbora requires Summer Radiance to shed its knowledge fruit.'");
         }
 
         private void FnINFO_17(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowPortrait(player, 0x0027);
-            L0010: ShowMessage(player, String1C21); // The storyteller Sorshian honors your arrival.
-            L001D: ShowMessage(player, String1C4F); // 'Only when the season is winter will the Aldbora shed its fruit.'
-            L002A: return; // RETURN;
+            ShowPortrait(player, 0x0027);
+            ShowMessage(player, "The storyteller Sorshian honors your arrival.");
+            ShowMessage(player, "'Only when the Seasons have processed will the Aldora shed the fruits of Wisdom.'");
         }
 
         private void FnCAVEDOOR_18(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String1C91); // A wooden sign says, 'To the cave of NeedleWood.'
-            L0010: ax = HasUsedItem(player, 0xD8, 0xD8);
-            L0023: if (JumpEqual) goto L0066;
-            L0025: ShowMessage(player, String1CC2); // The door unlocks.
-            L0032: SetWallPassable(player, GetCurrentTile(player), 0x03, 0x01);
-            L004C: SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
-            L0066: return; // RETURN;
+            ShowMessage(player, "A wooden sign says, 'To the cave of NeedleWood.'");
+            if (HasUsedItem(player, 0xD8, 0xD8) == 1) {
+                ShowMessage(player, "The door unlocks.");
+                SetWallPassable(player, GetCurrentTile(player), 0x03, 0x01);
+                SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
+            }
         }
 
         private void FnELFHOME_19(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String1CD4); // Young elves scurry and hide when you enter this elf home.
-            L0010: return; // RETURN;
+            ShowMessage(player, "Young elves scurry and hide when you enter this elf home.");
         }
 
         private void FnELFHOME_1A(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String1D0E); // Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.
-            L0010: return; // RETURN;
+            ShowMessage(player, "Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.");
         }
 
         private void FnINFO_1B(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowPortrait(player, 0x001F);
-            L0010: ShowMessage(player, String1D79); // 'I am Fernank, Hunter to the Elf King.
-            L001D: ShowMessage(player, String1DA0); // It is known in the trees that Nature's Robe must be used for the harvest.'
-            L002A: return; // RETURN;
+            ShowPortrait(player, 0x001F);
+            ShowMessage(player, "'I am Fernank, Hunter to the Elf King.");
+            ShowMessage(player, "It is known in the trees that Nature's Robe must be used for the harvest.'");
         }
-
     }
 }
