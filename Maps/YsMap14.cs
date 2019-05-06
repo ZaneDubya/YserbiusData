@@ -422,7 +422,7 @@ namespace XPT.Legacy.Maps {
             L0066: goto L00C8;
             L0068:
             player.Gold = (int)(player.Gold * 0.95f);
-            player.Experience = CanoResourceProvider.GetProgressionLevel((int)player.Class, player.Level - 1).ExpNext;
+            player.Experience = LegacyAssets.GetProgressionLevel((int)player.Class, player.Level - 1).ExpNext;
             // L0067: ModifyGold(player, 0xFFFF78BA);
             // L007A: ModifyAttribute(player, 0x00, 0xFFFE);
             // L008B: ModifyAttribute(player, 0x01, 0xFFFE);
@@ -443,7 +443,7 @@ namespace XPT.Legacy.Maps {
             L0065: goto L00C7;
             L0067:
             player.Gold = (int)(player.Gold * 0.95f);
-            player.Experience = CanoResourceProvider.GetProgressionLevel((int)player.Class, player.Level - 1).ExpNext;
+            player.Experience = LegacyAssets.GetProgressionLevel((int)player.Class, player.Level - 1).ExpNext;
             // L0067: ModifyGold(player, 0xFFFF78BA);
             // L0079: ModifyAttribute(player, 0x00, 0xFFFE);
             // L008A: ModifyAttribute(player, 0x01, 0xFFFE);
