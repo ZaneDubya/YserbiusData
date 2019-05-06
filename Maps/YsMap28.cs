@@ -86,6 +86,7 @@ namespace XPT.Legacy.Maps {
                             return;
                         }
                         ShowMessage(player, "The AldBora Tree bears fruit...");
+                        SetFlag(player, FlagTypeDungeon, FlagTreeSkills, 0x01);
                         RemoveItem(player, ItemSummerRadiance);
                         RemoveItem(player, ItemNaturesRobe);
                         // barb:
