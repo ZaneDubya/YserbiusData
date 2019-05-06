@@ -156,157 +156,95 @@ namespace XPT.Legacy.Maps {
         
         // === Functions ================================================
         private void FnCHESLITE_01(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si);
-            L0004: Compare(GetCurrentTile(player), 0x0062);
-            L000E: if (JumpNotEqual) goto L001B;
-            L0010: RefreshCompareFlags(GetFacing(player));
-            L0019: if (JumpEqual) goto L0062;
-            L001B: Compare(GetCurrentTile(player), 0x0069);
-            L0025: if (JumpNotEqual) goto L0033;
-            L0027: Compare(GetFacing(player), 0x0002);
-            L0031: if (JumpEqual) goto L0062;
-            L0033: Compare(GetCurrentTile(player), 0x0092);
-            L003D: if (JumpNotEqual) goto L004A;
-            L003F: RefreshCompareFlags(GetFacing(player));
-            L0048: if (JumpEqual) goto L0062;
-            L004A: Compare(GetCurrentTile(player), 0x0099);
-            L0054: if (JumpNotEqual) goto L0072;
-            L0056: Compare(GetFacing(player), 0x0002);
-            L0060: if (JumpNotEqual) goto L0072;
-            L0062: ShowMessage(player, String03FC); // You may leave the chessboard through this opening.
-            L006F: goto L0193;
-            L0072: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L008F: ax = HasItem(player, 0xEE);
-            L009D: if (JumpNotEqual) goto L00A2;
-            L009F: goto L0186;
-            L00A2: Compare(GetFacing(player), 0x0003);
-            L00AC: if (JumpNotEqual) goto L00BA;
-            L00AE: si = GetCurrentTile(player) + 0xFFE1;
-            L00BA: Compare(GetFacing(player), 0x0002);
-            L00C4: if (JumpNotEqual) goto L00D2;
-            L00C6: si = GetCurrentTile(player) + 0x0012;
-            L00D2: Compare(GetFacing(player), 0x0001);
-            L00DC: if (JumpNotEqual) goto L00EA;
-            L00DE: si = GetCurrentTile(player) + 0x001F;
-            L00EA: RefreshCompareFlags(GetFacing(player));
-            L00F3: if (JumpNotEqual) goto L0101;
-            L00F5: si = GetCurrentTile(player) + 0xFFEE;
-            L0101: Compare(si, 0x42);
-            L0104: if (JumpLess) goto L010B;
-            L0106: Compare(si, 0x49);
-            L0109: if (JumpLessOrEqual) goto L0159;
-            L010B: Compare(si, 0x52);
-            L010E: if (JumpLess) goto L0115;
-            L0110: Compare(si, 0x59);
-            L0113: if (JumpLessOrEqual) goto L0159;
-            L0115: Compare(si, 0x62);
-            L0118: if (JumpLess) goto L011F;
-            L011A: Compare(si, 0x69);
-            L011D: if (JumpLessOrEqual) goto L0159;
-            L011F: Compare(si, 0x72);
-            L0122: if (JumpLess) goto L0129;
-            L0124: Compare(si, 0x79);
-            L0127: if (JumpLessOrEqual) goto L0159;
-            L0129: Compare(si, 0x0082);
-            L012D: if (JumpLess) goto L0135;
-            L012F: Compare(si, 0x0089);
-            L0133: if (JumpLessOrEqual) goto L0159;
-            L0135: Compare(si, 0x0092);
-            L0139: if (JumpLess) goto L0141;
-            L013B: Compare(si, 0x0099);
-            L013F: if (JumpLessOrEqual) goto L0159;
-            L0141: Compare(si, 0x00A2);
-            L0145: if (JumpLess) goto L014D;
-            L0147: Compare(si, 0x00A9);
-            L014B: if (JumpLessOrEqual) goto L0159;
-            L014D: Compare(si, 0x00B2);
-            L0151: if (JumpLess) goto L0177;
-            L0153: Compare(si, 0x00B9);
-            L0157: if (JumpGreater) goto L0177;
-            L0159: TeleportParty(player, 0x35, 0x02, si, GetFacing(player), isForwardMove);
-            L0175: goto L0184;
-            L0177: ShowMessage(player, String042F); // A knight move here would place you off the chessboard!
-            L0184: goto L0193;
-            L0186: ShowMessage(player, String0466); // With a chess piece you may step across the chessboard.
-            L0193: return; // RETURN (restoring si);
+            if (GetCurrentTile(player) == 0x0062 && GetFacing(player) == 0) {
+                ShowMessage(player, String03FC); // You may leave the chessboard through this opening.
+                return;
+            }
+            if (GetCurrentTile(player) == 0x0069 && GetFacing(player) == 2) {
+                ShowMessage(player, String03FC); // You may leave the chessboard through this opening.
+                return;
+            }
+            if (GetCurrentTile(player) == 0x0092 && GetFacing(player) == 0) {
+                ShowMessage(player, String03FC); // You may leave the chessboard through this opening.
+                return;
+            }
+            if (GetCurrentTile(player) == 0x0099 && GetFacing(player) == 2) {
+                ShowMessage(player, String03FC); // You may leave the chessboard through this opening.
+                return;
+            }
+            SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
+            if (HasItem(player, 0xEE) == 0) {
+                ShowMessage(player, String0466); // With a chess piece you may step across the chessboard.
+                return;
+            }
+            ushort nextTile = (ushort)GetCurrentTile(player);
+            switch (GetFacing(player)) {
+                case 0: // west
+                    nextTile += 0xFFEE;
+                    break;
+                case 1: // south
+                    nextTile += 0x001F; // 
+                    break;
+                case 2: // east
+                    nextTile += 0x0012; // -y, +x
+                    break;
+                case 3: // north
+                    nextTile += 0xFFE1; // 
+                    break;
+            }
+            int x = nextTile & 0x000f;
+            int y = nextTile & 0x00f0;
+            if (x < 2 || x > 9 || y < 0x40 || y > 0xB0) {
+                ShowMessage(player, String042F); // A knight move here would place you off the chessboard!
+                return;
+            }
+            TeleportParty(player, 0x35, 0x02, nextTile, GetFacing(player), isForwardMove);
         }
 
         private void FnCHESDARK_02(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si);
-            L0004: Compare(GetCurrentTile(player), 0x0062);
-            L000E: if (JumpNotEqual) goto L001B;
-            L0010: RefreshCompareFlags(GetFacing(player));
-            L0019: if (JumpEqual) goto L0062;
-            L001B: Compare(GetCurrentTile(player), 0x0069);
-            L0025: if (JumpNotEqual) goto L0033;
-            L0027: Compare(GetFacing(player), 0x0002);
-            L0031: if (JumpEqual) goto L0062;
-            L0033: Compare(GetCurrentTile(player), 0x0092);
-            L003D: if (JumpNotEqual) goto L004A;
-            L003F: RefreshCompareFlags(GetFacing(player));
-            L0048: if (JumpEqual) goto L0062;
-            L004A: Compare(GetCurrentTile(player), 0x0099);
-            L0054: if (JumpNotEqual) goto L0072;
-            L0056: Compare(GetFacing(player), 0x0002);
-            L0060: if (JumpNotEqual) goto L0072;
-            L0062: ShowMessage(player, String049D); // You may leave the chessboard through this opening.
-            L006F: goto L0193;
-            L0072: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L008F: ax = HasItem(player, 0xEE);
-            L009D: if (JumpNotEqual) goto L00A2;
-            L009F: goto L0186;
-            L00A2: Compare(GetFacing(player), 0x0003);
-            L00AC: if (JumpNotEqual) goto L00BA;
-            L00AE: si = GetCurrentTile(player) + 0xFFDF;
-            L00BA: Compare(GetFacing(player), 0x0002);
-            L00C4: if (JumpNotEqual) goto L00D2;
-            L00C6: si = GetCurrentTile(player) + 0xFFF2;
-            L00D2: Compare(GetFacing(player), 0x0001);
-            L00DC: if (JumpNotEqual) goto L00EA;
-            L00DE: si = GetCurrentTile(player) + 0x0021;
-            L00EA: RefreshCompareFlags(GetFacing(player));
-            L00F3: if (JumpNotEqual) goto L0101;
-            L00F5: si = GetCurrentTile(player) + 0x000E;
-            L0101: Compare(si, 0x42);
-            L0104: if (JumpLess) goto L010B;
-            L0106: Compare(si, 0x49);
-            L0109: if (JumpLessOrEqual) goto L0159;
-            L010B: Compare(si, 0x52);
-            L010E: if (JumpLess) goto L0115;
-            L0110: Compare(si, 0x59);
-            L0113: if (JumpLessOrEqual) goto L0159;
-            L0115: Compare(si, 0x62);
-            L0118: if (JumpLess) goto L011F;
-            L011A: Compare(si, 0x69);
-            L011D: if (JumpLessOrEqual) goto L0159;
-            L011F: Compare(si, 0x72);
-            L0122: if (JumpLess) goto L0129;
-            L0124: Compare(si, 0x79);
-            L0127: if (JumpLessOrEqual) goto L0159;
-            L0129: Compare(si, 0x0082);
-            L012D: if (JumpLess) goto L0135;
-            L012F: Compare(si, 0x0089);
-            L0133: if (JumpLessOrEqual) goto L0159;
-            L0135: Compare(si, 0x0092);
-            L0139: if (JumpLess) goto L0141;
-            L013B: Compare(si, 0x0099);
-            L013F: if (JumpLessOrEqual) goto L0159;
-            L0141: Compare(si, 0x00A2);
-            L0145: if (JumpLess) goto L014D;
-            L0147: Compare(si, 0x00A9);
-            L014B: if (JumpLessOrEqual) goto L0159;
-            L014D: Compare(si, 0x00B2);
-            L0151: if (JumpLess) goto L0177;
-            L0153: Compare(si, 0x00B9);
-            L0157: if (JumpGreater) goto L0177;
-            L0159: TeleportParty(player, 0x35, 0x02, si, GetFacing(player), isForwardMove);
-            L0175: goto L0184;
-            L0177: ShowMessage(player, String04D0); // A knight move here would place you off the chessboard!
-            L0184: goto L0193;
-            L0186: ShowMessage(player, String0507); // With a chess piece you may step across the chessboard.
-            L0193: return; // RETURN (restoring si);
+            if (GetCurrentTile(player) == 0x0062 && GetFacing(player) == 0) {
+                ShowMessage(player, String03FC); // You may leave the chessboard through this opening.
+                return;
+            }
+            if (GetCurrentTile(player) == 0x0069 && GetFacing(player) == 2) {
+                ShowMessage(player, String03FC); // You may leave the chessboard through this opening.
+                return;
+            }
+            if (GetCurrentTile(player) == 0x0092 && GetFacing(player) == 0) {
+                ShowMessage(player, String03FC); // You may leave the chessboard through this opening.
+                return;
+            }
+            if (GetCurrentTile(player) == 0x0099 && GetFacing(player) == 2) {
+                ShowMessage(player, String03FC); // You may leave the chessboard through this opening.
+                return;
+            }
+            SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
+            if (HasItem(player, 0xEE) == 0) {
+                ShowMessage(player, String0466); // With a chess piece you may step across the chessboard.
+                return;
+            }
+            ushort nextTile = (ushort)GetCurrentTile(player);
+            switch (GetFacing(player)) {
+                case 0: // west
+                    nextTile += 0x000E;
+                    break;
+                case 1: // south
+                    nextTile += 0x0021; // 
+                    break;
+                case 2: // east
+                    nextTile += 0xFFF2; // -y, +x
+                    break;
+                case 3: // north
+                    nextTile += 0xFFDF; // 
+                    break;
+            }
+            int x = nextTile & 0x000f;
+            int y = nextTile & 0x00f0;
+            if (x < 2 || x > 9 || y < 0x40 || y > 0xB0) {
+                ShowMessage(player, String042F); // A knight move here would place you off the chessboard!
+                return;
+            }
+            TeleportParty(player, 0x35, 0x02, nextTile, GetFacing(player), isForwardMove);
         }
 
         private void FnVOID_03(ServerPlayer player, bool isForwardMove) {
