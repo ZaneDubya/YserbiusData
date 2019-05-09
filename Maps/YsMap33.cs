@@ -76,310 +76,204 @@ namespace XPT.Legacy.Maps {
         
         // === Functions ================================================
         private void FnVOID_01(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String03FC); // The Ageless Void swallows you whole.
-            L0010: ShowMessage(player, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
-            L001D: DamagePlayer(player, GetMaxHits(player));
-            L002E: return; // RETURN;
+            ShowMessage(player, isForwardMove, String03FC); // The Ageless Void swallows you whole.
+            ShowMessage(player, isForwardMove, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
+            DamagePlayer(player, GetMaxHits(player));
         }
 
         private void FnLIFE_02(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String046D); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
-            L0010: DamagePlayer(player, GetMaxHits(player));
-            L0021: return; // RETURN;
+            ShowMessage(player, isForwardMove, String046D); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
+            DamagePlayer(player, GetMaxHits(player));
+        }
+
+        private void DoTimeSwitch(ServerPlayer player, bool isForwardMove, int switchIndex) {
+            SetFlag(player, FlagTypeDungeon, FlagKilledEnLiKilThisTime, 0);
+            SetFlag(player, FlagTypeDungeon, switchIndex, 1);
+            ShowMessage(player, isForwardMove, String04C0); // The wall sparkles with phantasmal light.
+            int setSwitchCount = GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) + GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2) + GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3);
+            if (setSwitchCount == 1) {
+                ShowMessage(player, isForwardMove, String04E9); // A Timeswitch has been set.
+                ShowMessage(player, isForwardMove, String0504); // Two other Timeswitches must be set to reveal the platform.
+            }
+            else if (setSwitchCount == 2) {
+                ShowMessage(player, isForwardMove, String053F); // The second Timeswitch has been set.
+            }
+            else if (setSwitchCount == 3) {
+                ShowMessage(player, isForwardMove, String0563); // The third and final Timeswitch has been set.
+            }
+            else {
+                ShowMessage(player, isForwardMove, String0590); // All is deathly quiet near the Fountain of Life.
+            }
         }
 
         private void FnTIMEA_03(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: // make space for tmp on stack: sp -= 2
-            L0005: SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1, 0x01);
-            L001A: ShowMessage(player, String04C0); // The wall sparkles with phantasmal light.
-            L0027: dx = GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) + GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2) + GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3);
-            L0062: tmp = dx;
-            L0065: Compare(tmp, 0x0001);
-            L006B: if (JumpEqual) goto L0079;
-            L006D: Compare(ax, 0x0002);
-            L0070: if (JumpEqual) goto L00A6;
-            L0072: Compare(ax, 0x0003);
-            L0075: if (JumpEqual) goto L00C6;
-            L0077: goto L00E5;
-            L0079: ShowMessage(player, String04E9); // A Timeswitch has been set.
-            L0086: ShowMessage(player, String0504); // Two other Timeswitches must be set to reveal the platform.
-            L0093: SetFloorItem(player, 0x03, 0xA8);
-            L00A4: goto L00E5;
-            L00A6: ShowMessage(player, String053F); // The second Timeswitch has been set.
-            L00B3: SetFloorItem(player, 0x03, 0xA8);
-            L00C4: goto L00E5;
-            L00C6: ShowMessage(player, String0563); // The third and final Timeswitch has been set.
-            L00D3: SetFloorItem(player, 0x00, 0xA8);
-            L00E3: goto L00E5;
-            L00E5: ShowMessage(player, String0590); // All is deathly quiet near the Fountain of Life.
-            L00F2: // restore stack ptr: sp = bp;
-            L00F4: return; // RETURN;
+            DoTimeSwitch(player, isForwardMove, FlagUnknownSwitch1);
         }
 
         private void FnTIMEB_04(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: // make space for tmp on stack: sp -= 2
-            L0005: SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2, 0x01);
-            L001A: ShowMessage(player, String05C0); // The wall sparkles with phantasmal light.
-            L0027: dx = GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) + GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2) + GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3);
-            L0062: tmp = dx;
-            L0065: Compare(tmp, 0x0001);
-            L006B: if (JumpEqual) goto L0079;
-            L006D: Compare(ax, 0x0002);
-            L0070: if (JumpEqual) goto L00A6;
-            L0072: Compare(ax, 0x0003);
-            L0075: if (JumpEqual) goto L00C6;
-            L0077: goto L00E5;
-            L0079: ShowMessage(player, String05E9); // A Timeswitch has been set.
-            L0086: ShowMessage(player, String0604); // Two other Timeswitches must be set to reveal the platform.
-            L0093: SetFloorItem(player, 0x03, 0xA8);
-            L00A4: goto L00E5;
-            L00A6: ShowMessage(player, String063F); // The second Timeswitch has been set.
-            L00B3: SetFloorItem(player, 0x03, 0xA8);
-            L00C4: goto L00E5;
-            L00C6: ShowMessage(player, String0663); // The third and final Timeswitch has been set.
-            L00D3: SetFloorItem(player, 0x00, 0xA8);
-            L00E3: goto L00E5;
-            L00E5: ShowMessage(player, String0690); // All is deathly quiet near the Fountain of Life.
-            L00F2: // restore stack ptr: sp = bp;
-            L00F4: return; // RETURN;
+            DoTimeSwitch(player, isForwardMove, FlagUnknownSwitch2);
         }
 
         private void FnTIMEC_05(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: // make space for tmp on stack: sp -= 2
-            L0005: SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3, 0x01);
-            L001A: ShowMessage(player, String06C0); // The wall sparkles with phantasmal light.
-            L0027: dx = GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) + GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2);
-            L004D: dx = dx + GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3);
-            L0062: tmp = dx;
-            L0065: Compare(tmp, 0x0001);
-            L006B: if (JumpEqual) goto L0079;
-            L006D: Compare(ax, 0x0002);
-            L0070: if (JumpEqual) goto L00A6;
-            L0072: Compare(ax, 0x0003);
-            L0075: if (JumpEqual) goto L00C6;
-            L0077: goto L00E5;
-            L0079: ShowMessage(player, String06E9); // A Timeswitch has been set.
-            L0086: ShowMessage(player, String0704); // Two other Timeswitches must be set to reveal the platform.
-            L0093: SetFloorItem(player, 0x03, 0xA8);
-            L00A4: goto L00E5;
-            L00A6: ShowMessage(player, String073F); // The second Timeswitch has been set.
-            L00B3: SetFloorItem(player, 0x03, 0xA8);
-            L00C4: goto L00E5;
-            L00C6: ShowMessage(player, String0763); // The third and final Timeswitch has been set.
-            L00D3: SetFloorItem(player, 0x00, 0xA8);
-            L00E3: goto L00E5;
-            L00E5: ShowMessage(player, String0790); // All is deathly quiet near the Fountain of Life.
-            L00F2: // restore stack ptr: sp = bp;
-            L00F4: return; // RETURN;
+            DoTimeSwitch(player, isForwardMove, FlagUnknownSwitch3);
         }
 
         private void FnTIMEELEM_06(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowPortrait(player, 0x0011);
-            L0010: ShowMessage(player, String07C0); // I am the Time Elemental, En-Li-Kil.
-            L001D: ShowMessage(player, String07E4); // You have traveled far...only to die!
-            L002A: ShowMessage(player, String0809); // Your arrival frees me from my long imprisonment here -- halfway between two worlds.
-            L0037: ShowMessage(player, String085D); // I destroyed that fool Arnakkian Slowfoot, and I shall destroy you as easily.
-            L0044: ShowMessage(player, String08AA); // Then I shall search out all mortals in your world and destroy them!
-            L0051: ShowMessage(player, String08EE); // I am En-Li-Kil!  The immortal!!!
-            L005E: SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1, 0x00);
-            L0072: SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2, 0x00);
-            L0086: SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3, 0x00);
-            L009A: AddEncounter(player, 0x01, 0x21);
-            L00AC: AddEncounter(player, 0x02, 0x23);
-            L00BE: AddEncounter(player, 0x03, 0x10);
-            L00D0: AddEncounter(player, 0x04, 0x19);
-            L00E2: AddEncounter(player, 0x06, 0x28);
-            L00F4: return; // RETURN;
+            ShowPortrait(player, 0x0011);
+            ShowMessage(player, isForwardMove, String07C0); // I am the Time Elemental, En-Li-Kil.
+            ShowMessage(player, isForwardMove, String07E4); // You have traveled far...only to die!
+            ShowMessage(player, isForwardMove, String0809); // Your arrival frees me from my long imprisonment here -- halfway between two worlds.
+            ShowMessage(player, isForwardMove, String085D); // I destroyed that fool Arnakkian Slowfoot, and I shall destroy you as easily.
+            ShowMessage(player, isForwardMove, String08AA); // Then I shall search out all mortals in your world and destroy them!
+            ShowMessage(player, isForwardMove, String08EE); // I am En-Li-Kil!  The immortal!!!
+            SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1, 0x00);
+            SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2, 0x00);
+            SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3, 0x00);
+            AddEncounter(player, 0x01, 0x21);
+            AddEncounter(player, 0x02, 0x23);
+            AddEncounter(player, 0x03, 0x10);
+            AddEncounter(player, 0x04, 0x19);
+            AddEncounter(player, 0x06, 0x28);
         }
 
         private void FnTIMEPLAT_07(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x00));
-            L0015: if (JumpEqual) goto L007A;
-            L0017: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
-            L002A: if (JumpEqual) goto L007A;
-            L002C: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x02));
-            L003F: if (JumpEqual) goto L007A;
-            L0041: SetFloorItem(player, 0x00, 0xA8);
-            L0051: ShowMessage(player, String090F); // You cross the Waters of Death safely.
-            L005E: ShowMessage(player, String0935); // En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
-            L006B: ShowPortrait(player, 0x0042);
-            L0078: goto L00A9;
-            L007A: SetFloorItem(player, 0x03, 0xA8);
-            L008B: ShowMessage(player, String09AD); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
-            L0098: DamagePlayer(player, GetMaxHits(player));
-            L00A9: return; // RETURN;
+            // the water tile between the final platform and en-li-kil.
+            int countSwitchesSet = 
+                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) + 
+                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2) + 
+                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3);
+            if (countSwitchesSet == 3 || (IsFlagOn(player, FlagTypeMap, 1) == 1)) {
+                SetFloorItem(player, 0x00, 0xA8);
+                ShowMessage(player, isForwardMove, String090F); // You cross the Waters of Death safely.
+                ShowMessage(player, isForwardMove, String0935); // En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
+                ShowPortrait(player, 0x0042);
+            }
+            else {
+                SetFloorItem(player, 0x03, 0xA8);
+                ShowMessage(player, isForwardMove, String09AD); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
+                DamagePlayer(player, GetMaxHits(player));
+            }
         }
 
         private void FnGOAL_08(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: RemoveItem(player, 0xF4);
-            L000F: RemoveItem(player, 0xF5);
-            L001B: RemoveItem(player, 0xF6);
-            L0027: RemoveItem(player, 0xF7);
-            L0033: RemoveItem(player, 0xF3);
-            L003F: ax = IsFlagOn(player, FlagTypeDungeon, FlagDefeatedEnLiKil);
-            L0052: if (JumpEqual) goto L007E;
-            L0054: ShowMessage(player, String0A00); // You have found the Fountain of Life, but the waters are drained.
-            L0061: ShowMessage(player, String0A41); // The Rainbow Gems and Golden Boat dissolve into dust.
-            L006E: ShowMessage(player, String0A76); // Humiliating En-Li-Kil a second time is reward enough.
-            L007B: goto L012A;
-            L007E: ShowMessage(player, String0AAC); // You stand on the Fountain of Life.
-            L008B: ShowMessage(player, String0ACF); // The Rainbow Gems and Golden Boat dissolve in the golden water.
-            L0098: ShowMessage(player, String0B0E); // You have defeated the Time Elemental En-Li-Kil.
-            L00A5: ShowMessage(player, String0B3E); // You have won the game of life and death.  You are now a HERO OF YSERBIUS.
-            L00B2: ShowMessage(player, String0B88); // Return to your home safely now.
-            L00BF: ShowMessage(player, String0BA8); // Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
-            L00CC: ShowMessage(player, String0BFF); // Farewell...this ending is just the beginning!!!
-            L00D9: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagReceivedEnLiKilExperience));
-            L00EC: if (JumpNotEqual) goto L012A;
-            L00EE: SetFlag(player, FlagTypeDungeon, FlagReceivedEnLiKilExperience, 0x01);
-            L0103: SetFlag(player, FlagTypeDungeon, FlagDefeatedEnLiKil, 0x01);
-            L0118: AddExperience(player, 0x004C4B40);
-            L012A: return; // RETURN;
+            RemoveItem(player, 0xF4);
+            RemoveItem(player, 0xF5);
+            RemoveItem(player, 0xF6);
+            RemoveItem(player, 0xF7);
+            RemoveItem(player, 0xF3);
+            if (GetFlag(player, FlagTypeDungeon, FlagKilledEnLiKilThisTime) == 1) {
+                ShowMessage(player, isForwardMove, "You stand amidst the Waters of Death, surrounded on all sides by the Ageless Void. All is peace here.");
+                return;
+            }
+            SetFlag(player, FlagTypeDungeon, FlagKilledEnLiKilThisTime, 1);
+            if (IsFlagOn(player, FlagTypeDungeon, FlagDefeatedEnLiKil) == 1) {
+                ShowMessage(player, isForwardMove, String0A00); // You have found the Fountain of Life, but the waters are drained.
+                ShowMessage(player, isForwardMove, String0A41); // The Rainbow Gems and Golden Boat dissolve into dust.
+                ShowMessage(player, isForwardMove, String0A76); // Humiliating En-Li-Kil a second time is reward enough.
+                return;
+            }
+            ShowMessage(player, isForwardMove, String0AAC); // You stand on the Fountain of Life.
+            ShowMessage(player, isForwardMove, String0ACF); // The Rainbow Gems and Golden Boat dissolve in the golden water.
+            ShowMessage(player, isForwardMove, String0B0E); // You have defeated the Time Elemental En-Li-Kil.
+            ShowMessage(player, isForwardMove, String0B3E); // You have won the game of life and death.  You are now a HERO OF YSERBIUS.
+            ShowMessage(player, isForwardMove, String0B88); // Return to your home safely now.
+            ShowMessage(player, isForwardMove, String0BA8); // Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
+            ShowMessage(player, isForwardMove, String0BFF); // Farewell...this ending is just the beginning!!!
+            if (GetFlag(player, FlagTypeDungeon, FlagReceivedEnLiKilExperience) == 0) {
+                SetFlag(player, FlagTypeDungeon, FlagReceivedEnLiKilExperience, 0x01);
+                SetFlag(player, FlagTypeDungeon, FlagDefeatedEnLiKil, 0x01);
+                AddExperience(player, 0x004C4B40);
+            }
         }
 
         private void FnENCA_09(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0C2F); // Across the Waters of Death at the center of this finite square is the Fountain of Life.
-            L0010: ShowMessage(player, String0C87); // The Fountain is well guarded.
-            L001D: AddEncounter(player, 0x01, 0x19);
-            L002F: AddEncounter(player, 0x02, 0x1B);
-            L0041: AddEncounter(player, 0x03, 0x19);
-            L0053: AddEncounter(player, 0x04, 0x1B);
-            L0065: AddEncounter(player, 0x05, 0x23);
-            L0077: AddEncounter(player, 0x06, 0x1D);
-            L0089: return; // RETURN;
+            ShowMessage(player, isForwardMove, String0C2F); // Across the Waters of Death at the center of this finite square is the Fountain of Life.
+            ShowMessage(player, isForwardMove, String0C87); // The Fountain is well guarded.
+            AddEncounter(player, 0x01, 0x19);
+            AddEncounter(player, 0x02, 0x1B);
+            AddEncounter(player, 0x03, 0x19);
+            AddEncounter(player, 0x04, 0x1B);
+            AddEncounter(player, 0x05, 0x23);
+            AddEncounter(player, 0x06, 0x1D);
         }
 
         private void FnENCB_0A(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x08);
-            L0015: AddEncounter(player, 0x02, 0x08);
-            L0027: AddEncounter(player, 0x03, 0x24);
-            L0039: AddEncounter(player, 0x04, 0x25);
-            L004B: AddEncounter(player, 0x05, 0x26);
-            L005D: AddEncounter(player, 0x06, 0x27);
-            L006F: return; // RETURN;
+            AddEncounter(player, 0x01, 0x08);
+            AddEncounter(player, 0x02, 0x08);
+            AddEncounter(player, 0x03, 0x24);
+            AddEncounter(player, 0x04, 0x25);
+            AddEncounter(player, 0x05, 0x26);
+            AddEncounter(player, 0x06, 0x27);
         }
 
         private void FnENCC_0B(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x1B);
-            L0015: AddEncounter(player, 0x02, 0x1B);
-            L0027: AddEncounter(player, 0x03, 0x1C);
-            L0039: AddEncounter(player, 0x04, 0x1C);
-            L004B: AddEncounter(player, 0x05, 0x1F);
-            L005D: AddEncounter(player, 0x06, 0x1F);
-            L006F: return; // RETURN;
+            AddEncounter(player, 0x01, 0x1B);
+            AddEncounter(player, 0x02, 0x1B);
+            AddEncounter(player, 0x03, 0x1C);
+            AddEncounter(player, 0x04, 0x1C);
+            AddEncounter(player, 0x05, 0x1F);
+            AddEncounter(player, 0x06, 0x1F);
         }
 
         private void FnENCD_0C(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x7B));
-            L0016: if (JumpEqual) goto L0052;
-            L0018: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x7C));
-            L002B: if (JumpEqual) goto L0052;
-            L002D: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x7D));
-            L0040: if (JumpEqual) goto L0052;
-            L0042: SetFloorItem(player, 0x00, 0xA8);
-            L0052: AddEncounter(player, 0x01, 0x19);
-            L0064: AddEncounter(player, 0x02, 0x19);
-            L0076: AddEncounter(player, 0x03, 0x1C);
-            L0088: AddEncounter(player, 0x04, 0x1C);
-            L009A: AddEncounter(player, 0x05, 0x1D);
-            L00AC: AddEncounter(player, 0x06, 0x1D);
-            L00BE: return; // RETURN;
+            AddEncounter(player, 0x01, 0x19);
+            AddEncounter(player, 0x02, 0x19);
+            AddEncounter(player, 0x03, 0x1C);
+            AddEncounter(player, 0x04, 0x1C);
+            AddEncounter(player, 0x05, 0x1D);
+            AddEncounter(player, 0x06, 0x1D);
         }
 
         private void FnENCE_0D(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x1E);
-            L0015: AddEncounter(player, 0x02, 0x1E);
-            L0027: AddEncounter(player, 0x03, 0x20);
-            L0039: AddEncounter(player, 0x04, 0x20);
-            L004B: AddEncounter(player, 0x05, 0x18);
-            L005D: AddEncounter(player, 0x06, 0x21);
-            L006F: return; // RETURN;
+            AddEncounter(player, 0x01, 0x1E);
+            AddEncounter(player, 0x02, 0x1E);
+            AddEncounter(player, 0x03, 0x20);
+            AddEncounter(player, 0x04, 0x20);
+            AddEncounter(player, 0x05, 0x18);
+            AddEncounter(player, 0x06, 0x21);
         }
 
         private void FnENCF_0E(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x22);
-            L0015: AddEncounter(player, 0x02, 0x22);
-            L0027: AddEncounter(player, 0x03, 0x1F);
-            L0039: AddEncounter(player, 0x04, 0x1F);
-            L004B: AddEncounter(player, 0x05, 0x23);
-            L005D: AddEncounter(player, 0x06, 0x23);
-            L006F: return; // RETURN;
+            AddEncounter(player, 0x01, 0x22);
+            AddEncounter(player, 0x02, 0x22);
+            AddEncounter(player, 0x03, 0x1F);
+            AddEncounter(player, 0x04, 0x1F);
+            AddEncounter(player, 0x05, 0x23);
+            AddEncounter(player, 0x06, 0x23);
         }
 
         private void FnCROSSOVR_0F(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x00));
-            L0015: if (JumpEqual) goto L0053;
-            L0017: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
-            L002A: if (JumpEqual) goto L0053;
-            L002C: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x02));
-            L003F: if (JumpEqual) goto L0053;
-            L0041: SetFloorItem(player, 0x00, 0xA8);
-            L0051: goto L0064;
-            L0053: SetFloorItem(player, 0x03, 0xA8);
-            L0064: return; // RETURN;
+            // the final platform, standing next to the bridged water tile to en-li-kil.
+            int countSwitchesSet =
+                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) +
+                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2) +
+                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3);
+            if (countSwitchesSet == 3) {
+                SetFloorItem(player, 0x00, 0xA8);
+                SetFlag(player, FlagTypeMap, 1, 1); // set a map flag allowing party members to not die even if they did not set the switches.
+            }
+            else {
+                SetFloorItem(player, 0x03, 0xA8);
+            }
         }
 
         private void FnMAPCONV_10(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: // make space for tmp on stack: sp -= 2
-            L0005: ax = IsFlagOn(player, FlagTypeDungeon, FlagUnknownSwitch1);
-            L0018: if (JumpEqual) goto L002E;
-            L001A: SetFlag(player, FlagTypeMap, 0x00, 0x01);
-            L002E: ax = IsFlagOn(player, FlagTypeDungeon, FlagUnknownSwitch2);
-            L0041: if (JumpEqual) goto L0058;
-            L0043: SetFlag(player, FlagTypeMap, 0x01, 0x01);
-            L0058: ax = IsFlagOn(player, FlagTypeDungeon, FlagUnknownSwitch3);
-            L006B: if (JumpEqual) goto L0082;
-            L006D: SetFlag(player, FlagTypeMap, 0x02, 0x01);
-            L0082: dx = GetFlag(player, FlagTypeMap, 0x00) + GetFlag(player, FlagTypeMap, 0x01);
-            L00A7: dx = dx + GetFlag(player, FlagTypeMap, 0x02);
-            L00BC: tmp = dx;
-            L00BF: Compare(tmp, 0xFE);
-            L00C3: if (JumpNotEqual) goto L00D7;
-            L00C5: SetFloorItem(player, 0x00, 0xA8);
-            L00D5: goto L00E8;
-            L00D7: SetFloorItem(player, 0x03, 0xA8);
-            L00E8: // restore stack ptr: sp = bp;
-            L00EA: return; // RETURN;
+            // beginning of the final platform, walking to the bridge to en-li-kil.
+            int countSwitchesSet =
+                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) +
+                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2) +
+                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3);
+            if (countSwitchesSet == 3 || (IsFlagOn(player, FlagTypeMap, 1) == 1)) {
+                SetFloorItem(player, 0x00, 0xA8);
+            }
+            else {
+                SetFloorItem(player, 0x03, 0xA8);
+            }
         }
 
         private void FnTELEBACK_12(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0CA5); // You leave this dimension and re-enter your world.
-            L0010: TeleportParty(player, 0x38, 0x04, 0x88, 0x02, isForwardMove);
-            L002B: return; // RETURN;
+            ShowMessage(player, isForwardMove, String0CA5); // You leave this dimension and re-enter your world.
+            TeleportParty(player, 0x38, 0x04, 0x88, 0x02, isForwardMove);
         }
 
     }

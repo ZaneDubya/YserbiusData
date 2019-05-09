@@ -105,7 +105,7 @@ namespace XPT.Legacy.Maps {
         private void FnTELEMESG_02(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String03FC); // There is a teleport in the north wall to the Hall of Doors.
+            L0003: ShowMessage(player, isForwardMove, String03FC); // There is a teleport in the north wall to the Hall of Doors.
             L0010: return; // RETURN;
         }
 
@@ -119,35 +119,35 @@ namespace XPT.Legacy.Maps {
         private void FnGATEMESG_04(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0438); // The gateway leads to the SOLDIERS QUARTERS.
+            L0003: ShowMessage(player, isForwardMove, String0438); // The gateway leads to the SOLDIERS QUARTERS.
             L0010: return; // RETURN;
         }
 
         private void FnNPCCHATA_05(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0464); // You encounter a Human Thief.
+            L0003: ShowMessage(player, isForwardMove, String0464); // You encounter a Human Thief.
             L0010: ShowPortrait(player, 0x0022);
             L001D: Compare(GetRandom(0x000F), 0x0009);
             L002D: if (JumpAbove) goto L004B;
-            L002F: ShowMessage(player, String0481); // King Cleowyn long sought the buried secrets of a great wizard whose castle lies buried inside this mountain. 
-            L003C: ShowMessage(player, String04EF); // The king died most horribly, it is said. His anguished death scream was heard across the island, but no one ever found his body. The dead wizard may have claimed the body, but no one knows for sure.
+            L002F: ShowMessage(player, isForwardMove, String0481); // King Cleowyn long sought the buried secrets of a great wizard whose castle lies buried inside this mountain. 
+            L003C: ShowMessage(player, isForwardMove, String04EF); // The king died most horribly, it is said. His anguished death scream was heard across the island, but no one ever found his body. The dead wizard may have claimed the body, but no one knows for sure.
             L0049: goto L006A;
             L004B: ModifyGold(player, 0xFFFF38BA);
-            L005D: ShowMessage(player, String05B6); // The Human Thief cadges some money from you and runs away.
+            L005D: ShowMessage(player, isForwardMove, String05B6); // The Human Thief cadges some money from you and runs away.
             L006A: return; // RETURN;
         }
 
         private void FnNPCCHATB_06(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String05F0); // You encounter an Elf Barbarian.
+            L0003: ShowMessage(player, isForwardMove, String05F0); // You encounter an Elf Barbarian.
             L0010: ShowPortrait(player, 0x0018);
             L001D: Compare(GetRandom(0x000F), 0x0007);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, String0610); // Two levels down is a most strange area. Six small rooms are accessible to anyone, but there is a large area I have not been able to reach. A wizard told me I should study my runes to solve the mystery of this area.
+            L002F: ShowMessage(player, isForwardMove, String0610); // Two levels down is a most strange area. Six small rooms are accessible to anyone, but there is a large area I have not been able to reach. A wizard told me I should study my runes to solve the mystery of this area.
             L003C: goto L004B;
-            L003E: ShowMessage(player, String06E7); // The Elf Barbarian is busy tending her many wounds and ignores you.
+            L003E: ShowMessage(player, isForwardMove, String06E7); // The Elf Barbarian is busy tending her many wounds and ignores you.
             L004B: return; // RETURN;
         }
 
@@ -156,12 +156,12 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagTreasuryWeapons), 0x0001);
             L0017: if (JumpNotEqual) goto L0048;
-            L0019: ShowMessage(player, String072A); // Monsters jump out of the shadows.
+            L0019: ShowMessage(player, isForwardMove, String072A); // Monsters jump out of the shadows.
             L0026: AddTreasure(player, 0x0064, 0x00, 0x00, 0x00, 0xCE, 0xB5);
             L0046: goto L008B;
             L0048: AddTreasure(player, 0x1770, 0x00, 0x00, 0xCE, 0x42, 0x0A);
             L0069: SetFlag(player, FlagTypeDungeon, FlagTreasuryWeapons, 0x01);
-            L007E: ShowMessage(player, String074C); // Monsters snarl as you approach a pile of weapons.
+            L007E: ShowMessage(player, isForwardMove, String074C); // Monsters snarl as you approach a pile of weapons.
             L008B: Compare(PartyCount(player), 0x0001);
             L0096: if (JumpEqual) goto L00A5;
             L0098: Compare(PartyCount(player), 0x0002);
@@ -189,12 +189,12 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagTreasuryWeapons2), 0x0001);
             L0017: if (JumpNotEqual) goto L0048;
-            L0019: ShowMessage(player, String077E); // Unclean spirits shriek as they attack.
+            L0019: ShowMessage(player, isForwardMove, String077E); // Unclean spirits shriek as they attack.
             L0026: AddTreasure(player, 0x0190, 0x00, 0x00, 0x00, 0xB5, 0xCB);
             L0046: goto L008A;
             L0048: AddTreasure(player, 0x0BB8, 0x00, 0x00, 0x00, 0x8A, 0x3B);
             L0068: SetFlag(player, FlagTypeDungeon, FlagTreasuryWeapons2, 0x01);
-            L007D: ShowMessage(player, String07A5); // Incubi surround you as you approach a weapon on the floor.
+            L007D: ShowMessage(player, isForwardMove, String07A5); // Incubi surround you as you approach a weapon on the floor.
             L008A: Compare(PartyCount(player), 0x0001);
             L0095: if (JumpNotEqual) goto L00BE;
             L0097: AddEncounter(player, 0x01, 0x24);
@@ -222,11 +222,11 @@ namespace XPT.Legacy.Maps {
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagTreasuryKingsGold4), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: AddTreasure(player, 0x0064, 0x00, 0x00, 0x00, 0x00, 0xCE);
-            L0038: ShowMessage(player, String07E0); // Skeletons attack you.
+            L0038: ShowMessage(player, isForwardMove, String07E0); // Skeletons attack you.
             L0045: goto L008B;
             L0047: AddTreasure(player, 0x0BB8, 0x00, 0xCC, 0x39, 0x8C, 0x1C);
             L0069: SetFlag(player, FlagTypeDungeon, FlagTreasuryKingsGold4, 0x01);
-            L007E: ShowMessage(player, String07F6); // Skeletons guard a precious hoard.
+            L007E: ShowMessage(player, isForwardMove, String07F6); // Skeletons guard a precious hoard.
             L008B: Compare(PartyCount(player), 0x0001);
             L0096: if (JumpNotEqual) goto L00BF;
             L0098: AddEncounter(player, 0x01, 0x03);
@@ -260,12 +260,12 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagTreasuryKingsGold5), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
-            L0019: ShowMessage(player, String0818); // The dead arise as you draw near.
+            L0019: ShowMessage(player, isForwardMove, String0818); // The dead arise as you draw near.
             L0026: AddTreasure(player, 0x0096, 0x00, 0x00, 0x00, 0x00, 0xB6);
             L0045: goto L0089;
             L0047: AddTreasure(player, 0x09C4, 0x00, 0x00, 0x00, 0xC2, 0x76);
             L0067: SetFlag(player, FlagTypeDungeon, FlagTreasuryKingsGold5, 0x01);
-            L007C: ShowMessage(player, String0839); // Your movement disturbs the dead who have guarded King Cleowyn's Treasury.
+            L007C: ShowMessage(player, isForwardMove, String0839); // Your movement disturbs the dead who have guarded King Cleowyn's Treasury.
             L0089: Compare(PartyCount(player), 0x0001);
             L0094: if (JumpNotEqual) goto L00BD;
             L0096: AddEncounter(player, 0x01, 0x08);
@@ -299,10 +299,10 @@ namespace XPT.Legacy.Maps {
             L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008D;
-            L0063: ShowMessage(player, String0883); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L0063: ShowMessage(player, isForwardMove, String0883); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: TeleportParty(player, 0x02, 0x01, 0x85, 0x01, isForwardMove);
             L008B: goto L00B5;
-            L008D: ShowMessage(player, String08D3); // A trapdoor in the floor opens.
+            L008D: ShowMessage(player, isForwardMove, String08D3); // A trapdoor in the floor opens.
             L009A: TeleportParty(player, 0x02, 0x01, 0x85, 0x01, isForwardMove);
             L00B5: return; // RETURN;
         }
@@ -320,10 +320,10 @@ namespace XPT.Legacy.Maps {
             L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008D;
-            L0063: ShowMessage(player, String08F2); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L0063: ShowMessage(player, isForwardMove, String08F2); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: TeleportParty(player, 0x02, 0x01, 0x86, 0x01, isForwardMove);
             L008B: goto L00B5;
-            L008D: ShowMessage(player, String0942); // A trapdoor in the floor opens.
+            L008D: ShowMessage(player, isForwardMove, String0942); // A trapdoor in the floor opens.
             L009A: TeleportParty(player, 0x02, 0x01, 0x86, 0x01, isForwardMove);
             L00B5: return; // RETURN;
         }
@@ -341,10 +341,10 @@ namespace XPT.Legacy.Maps {
             L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008D;
-            L0063: ShowMessage(player, String0961); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L0063: ShowMessage(player, isForwardMove, String0961); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: TeleportParty(player, 0x02, 0x01, 0x98, 0x02, isForwardMove);
             L008B: goto L00B5;
-            L008D: ShowMessage(player, String09B1); // A trapdoor in the floor opens.
+            L008D: ShowMessage(player, isForwardMove, String09B1); // A trapdoor in the floor opens.
             L009A: TeleportParty(player, 0x02, 0x01, 0x98, 0x02, isForwardMove);
             L00B5: return; // RETURN;
         }
@@ -362,10 +362,10 @@ namespace XPT.Legacy.Maps {
             L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008C;
-            L0063: ShowMessage(player, String09D0); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L0063: ShowMessage(player, isForwardMove, String09D0); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: TeleportParty(player, 0x02, 0x01, 0xA6, 0x00, isForwardMove);
             L008A: goto L00B3;
-            L008C: ShowMessage(player, String0A20); // A trapdoor in the floor opens.
+            L008C: ShowMessage(player, isForwardMove, String0A20); // A trapdoor in the floor opens.
             L0099: TeleportParty(player, 0x02, 0x01, 0xA6, 0x00, isForwardMove);
             L00B3: return; // RETURN;
         }
@@ -381,10 +381,10 @@ namespace XPT.Legacy.Maps {
             L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = HasUsedItem(player, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0077;
-            L004E: ShowMessage(player, String0A3F); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L004E: ShowMessage(player, isForwardMove, String0A3F); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: TeleportParty(player, 0x02, 0x01, 0xA8, 0x00, isForwardMove);
             L0075: goto L009E;
-            L0077: ShowMessage(player, String0A8F); // A trapdoor in the floor opens.
+            L0077: ShowMessage(player, isForwardMove, String0A8F); // A trapdoor in the floor opens.
             L0084: TeleportParty(player, 0x02, 0x01, 0xA8, 0x00, isForwardMove);
             L009E: return; // RETURN;
         }
@@ -400,10 +400,10 @@ namespace XPT.Legacy.Maps {
             L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = HasUsedItem(player, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
-            L004E: ShowMessage(player, String0AAE); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L004E: ShowMessage(player, isForwardMove, String0AAE); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: TeleportParty(player, 0x02, 0x01, 0xB5, 0x02, isForwardMove);
             L0076: goto L00A0;
-            L0078: ShowMessage(player, String0AFE); // A trapdoor in the floor opens.
+            L0078: ShowMessage(player, isForwardMove, String0AFE); // A trapdoor in the floor opens.
             L0085: TeleportParty(player, 0x02, 0x01, 0xB5, 0x02, isForwardMove);
             L00A0: return; // RETURN;
         }
@@ -421,10 +421,10 @@ namespace XPT.Legacy.Maps {
             L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008D;
-            L0063: ShowMessage(player, String0B1D); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L0063: ShowMessage(player, isForwardMove, String0B1D); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: TeleportParty(player, 0x02, 0x01, 0xC7, 0x01, isForwardMove);
             L008B: goto L00B5;
-            L008D: ShowMessage(player, String0B6D); // A trapdoor in the floor opens.
+            L008D: ShowMessage(player, isForwardMove, String0B6D); // A trapdoor in the floor opens.
             L009A: TeleportParty(player, 0x02, 0x01, 0xC7, 0x01, isForwardMove);
             L00B5: return; // RETURN;
         }
@@ -440,10 +440,10 @@ namespace XPT.Legacy.Maps {
             L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = HasUsedItem(player, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0077;
-            L004E: ShowMessage(player, String0B8C); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L004E: ShowMessage(player, isForwardMove, String0B8C); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: TeleportParty(player, 0x02, 0x01, 0xCF, 0x00, isForwardMove);
             L0075: goto L009E;
-            L0077: ShowMessage(player, String0BDC); // A trapdoor in the floor opens.
+            L0077: ShowMessage(player, isForwardMove, String0BDC); // A trapdoor in the floor opens.
             L0084: TeleportParty(player, 0x02, 0x01, 0xCF, 0x00, isForwardMove);
             L009E: return; // RETURN;
         }
@@ -461,10 +461,10 @@ namespace XPT.Legacy.Maps {
             L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008C;
-            L0063: ShowMessage(player, String0BFB); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L0063: ShowMessage(player, isForwardMove, String0BFB); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: TeleportParty(player, 0x02, 0x01, 0xD6, 0x00, isForwardMove);
             L008A: goto L00B3;
-            L008C: ShowMessage(player, String0C4B); // A trapdoor in the floor opens.
+            L008C: ShowMessage(player, isForwardMove, String0C4B); // A trapdoor in the floor opens.
             L0099: TeleportParty(player, 0x02, 0x01, 0xD6, 0x00, isForwardMove);
             L00B3: return; // RETURN;
         }
@@ -480,10 +480,10 @@ namespace XPT.Legacy.Maps {
             L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = HasUsedItem(player, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
-            L004E: ShowMessage(player, String0C6A); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L004E: ShowMessage(player, isForwardMove, String0C6A); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: TeleportParty(player, 0x02, 0x01, 0xD8, 0x03, isForwardMove);
             L0076: goto L00A0;
-            L0078: ShowMessage(player, String0CBA); // A trapdoor in the floor opens.
+            L0078: ShowMessage(player, isForwardMove, String0CBA); // A trapdoor in the floor opens.
             L0085: TeleportParty(player, 0x02, 0x01, 0xD8, 0x03, isForwardMove);
             L00A0: return; // RETURN;
         }
@@ -501,10 +501,10 @@ namespace XPT.Legacy.Maps {
             L004C: if (JumpNotEqual) goto L0063;
             L004E: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0061: if (JumpEqual) goto L008D;
-            L0063: ShowMessage(player, String0CD9); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L0063: ShowMessage(player, isForwardMove, String0CD9); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L0070: TeleportParty(player, 0x02, 0x01, 0xE9, 0x03, isForwardMove);
             L008B: goto L00B5;
-            L008D: ShowMessage(player, String0D29); // A trapdoor in the floor opens.
+            L008D: ShowMessage(player, isForwardMove, String0D29); // A trapdoor in the floor opens.
             L009A: TeleportParty(player, 0x02, 0x01, 0xE9, 0x03, isForwardMove);
             L00B5: return; // RETURN;
         }
@@ -520,10 +520,10 @@ namespace XPT.Legacy.Maps {
             L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = HasUsedItem(player, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0077;
-            L004E: ShowMessage(player, String0D48); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L004E: ShowMessage(player, isForwardMove, String0D48); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: TeleportParty(player, 0x02, 0x01, 0xEB, 0x00, isForwardMove);
             L0075: goto L009E;
-            L0077: ShowMessage(player, String0D98); // A trapdoor in the floor opens.
+            L0077: ShowMessage(player, isForwardMove, String0D98); // A trapdoor in the floor opens.
             L0084: TeleportParty(player, 0x02, 0x01, 0xEB, 0x00, isForwardMove);
             L009E: return; // RETURN;
         }
@@ -539,10 +539,10 @@ namespace XPT.Legacy.Maps {
             L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = HasUsedItem(player, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0077;
-            L004E: ShowMessage(player, String0DB7); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L004E: ShowMessage(player, isForwardMove, String0DB7); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: TeleportParty(player, 0x02, 0x01, 0xF5, 0x00, isForwardMove);
             L0075: goto L009E;
-            L0077: ShowMessage(player, String0E07); // A trapdoor in the floor opens.
+            L0077: ShowMessage(player, isForwardMove, String0E07); // A trapdoor in the floor opens.
             L0084: TeleportParty(player, 0x02, 0x01, 0xF5, 0x00, isForwardMove);
             L009E: return; // RETURN;
         }
@@ -558,10 +558,10 @@ namespace XPT.Legacy.Maps {
             L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = HasUsedItem(player, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0078;
-            L004E: ShowMessage(player, String0E26); // You detect a trapdoor in the floor, but not in time to prevent falling through!
+            L004E: ShowMessage(player, isForwardMove, String0E26); // You detect a trapdoor in the floor, but not in time to prevent falling through!
             L005B: TeleportParty(player, 0x02, 0x01, 0xF7, 0x02, isForwardMove);
             L0076: goto L00A0;
-            L0078: ShowMessage(player, String0E76); // A trapdoor in the floor opens.
+            L0078: ShowMessage(player, isForwardMove, String0E76); // A trapdoor in the floor opens.
             L0085: TeleportParty(player, 0x02, 0x01, 0xF7, 0x02, isForwardMove);
             L00A0: return; // RETURN;
         }
@@ -589,12 +589,12 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagTreasuryKingsGold), 0x0001);
             L0017: if (JumpNotEqual) goto L0046;
-            L0019: ShowMessage(player, String0E95); // Ghosts haunt the empty room.
+            L0019: ShowMessage(player, isForwardMove, String0E95); // Ghosts haunt the empty room.
             L0026: AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, 0x73);
             L0044: goto L0087;
             L0046: AddTreasure(player, 0x0FA0, 0x00, 0x00, 0x00, 0x00, 0xCE);
             L0065: SetFlag(player, FlagTypeDungeon, FlagTreasuryKingsGold, 0x01);
-            L007A: ShowMessage(player, String0EB2); // Spirits of the dead guard King Cleowyn's gold.
+            L007A: ShowMessage(player, isForwardMove, String0EB2); // Spirits of the dead guard King Cleowyn's gold.
             L0087: Compare(PartyCount(player), 0x0001);
             L0092: if (JumpEqual) goto L00A1;
             L0094: Compare(PartyCount(player), 0x0002);
@@ -614,12 +614,12 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagTreasuryKingsGold2), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
-            L0019: ShowMessage(player, String0EE1); // Bones of dead guards and one-time thieves rise to challenge you.
+            L0019: ShowMessage(player, isForwardMove, String0EE1); // Bones of dead guards and one-time thieves rise to challenge you.
             L0026: AddTreasure(player, 0x00FA, 0x00, 0x00, 0x00, 0x00, 0xB5);
             L0045: goto L0088;
             L0047: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xCB);
             L0066: SetFlag(player, FlagTypeDungeon, FlagTreasuryKingsGold2, 0x01);
-            L007B: ShowMessage(player, String0F22); // Skeletons of dead guards and the thieves they killed stand between you and Cleowyn's gold.
+            L007B: ShowMessage(player, isForwardMove, String0F22); // Skeletons of dead guards and the thieves they killed stand between you and Cleowyn's gold.
             L0088: Compare(PartyCount(player), 0x0001);
             L0093: if (JumpNotEqual) goto L00BC;
             L0095: AddEncounter(player, 0x01, 0x03);
@@ -653,12 +653,12 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagTreasuryKingsGold3), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
-            L0019: ShowMessage(player, String0F7D); // Spiders drop from the ceiling.
+            L0019: ShowMessage(player, isForwardMove, String0F7D); // Spiders drop from the ceiling.
             L0026: AddTreasure(player, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCE);
             L0045: goto L0088;
             L0047: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xBD);
             L0066: SetFlag(player, FlagTypeDungeon, FlagTreasuryKingsGold3, 0x01);
-            L007B: ShowMessage(player, String0F9C); // Spider webs envelop a pile of gold pieces on the floor.
+            L007B: ShowMessage(player, isForwardMove, String0F9C); // Spider webs envelop a pile of gold pieces on the floor.
             L0088: Compare(PartyCount(player), 0x0001);
             L0093: if (JumpNotEqual) goto L00BC;
             L0095: AddEncounter(player, 0x01, 0x16);

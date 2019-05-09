@@ -74,32 +74,32 @@ namespace XPT.Legacy.Maps {
         private void FnDOORMESA_05(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String03FC); // The gateway leads to THE MINES.
+            L0003: ShowMessage(player, isForwardMove, String03FC); // The gateway leads to THE MINES.
             L0010: return; // RETURN;
         }
 
         private void FnDOORMESB_06(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String041C); // The gateway leads to THE HALL OF DOORS.
+            L0003: ShowMessage(player, isForwardMove, String041C); // The gateway leads to THE HALL OF DOORS.
             L0010: return; // RETURN;
         }
 
         private void FnDOORMESC_07(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0444); // The gateway leads to THE SOLDIERS  QUARTERS.
+            L0003: ShowMessage(player, isForwardMove, String0444); // The gateway leads to THE SOLDIERS  QUARTERS.
             L0010: return; // RETURN;
         }
 
         private void FnDOORMESD_08(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0471); // The gateway is the DUNGEON EXIT.
+            L0003: ShowMessage(player, isForwardMove, String0471); // The gateway is the DUNGEON EXIT.
             L0010: ax = IsFlagOn(player, FlagTypeDungeon, FlagDefeatedEnLiKil);
             L0023: if (JumpEqual) goto L003F;
-            L0025: ShowMessage(player, String0492); // Hail, conquering HERO OF YSERBIUS!
-            L0032: ShowMessage(player, String04B5); // All of Twinion bows to your prominence!!
+            L0025: ShowMessage(player, isForwardMove, String0492); // Hail, conquering HERO OF YSERBIUS!
+            L0032: ShowMessage(player, isForwardMove, String04B5); // All of Twinion bows to your prominence!!
             L003F: return; // RETURN;
         }
 
@@ -113,7 +113,7 @@ namespace XPT.Legacy.Maps {
         private void FnTELEMESS_0A(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String04DE); // There is a teleport in the west wall.
+            L0003: ShowMessage(player, isForwardMove, String04DE); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
@@ -125,14 +125,14 @@ namespace XPT.Legacy.Maps {
             L0013: goto L011F;
             L0016: Compare(GetFlag(player, FlagTypeDungeon, FlagUnlockedLabyrinthDoor), 0x0001);
             L002A: if (JumpNotEqual) goto L005A;
-            L002C: ShowMessage(player, String0504); // This room contains the gateway to the Labyrinth.
+            L002C: ShowMessage(player, isForwardMove, String0504); // This room contains the gateway to the Labyrinth.
             L0039: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0057: goto L011D;
             L005A: ax = HasItem(player, 0xFB);
             L0068: if (JumpNotEqual) goto L006D;
             L006A: goto L0110;
-            L006D: ShowMessage(player, String0535); // The Thieves' Key unlocks this door!
-            L007A: ShowMessage(player, String0559); // This room contains the gateway to the Labyrinth.
+            L006D: ShowMessage(player, isForwardMove, String0535); // The Thieves' Key unlocks this door!
+            L007A: ShowMessage(player, isForwardMove, String0559); // This room contains the gateway to the Labyrinth.
             L0087: SetFlag(player, FlagTypeDungeon, FlagUnlockedLabyrinthDoor, 0x01);
             L009C: RemoveItem(player, 0xFB);
             L00A8: RemoveItem(player, 0xD2);
@@ -143,10 +143,10 @@ namespace XPT.Legacy.Maps {
             L00E4: RemoveItem(player, 0xF8);
             L00F0: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L010E: goto L011D;
-            L0110: ShowMessage(player, String058A); // The Thieves' Key is needed to unlock this door.
+            L0110: ShowMessage(player, isForwardMove, String058A); // The Thieves' Key is needed to unlock this door.
             L011D: goto L0156;
-            L011F: ShowMessage(player, String05BA); // The Thieves' Key is needed to unlock this door.
-            L012C: ShowMessage(player, String05EA); // Only heroes of the twentieth level or higher may venture beyond this door.
+            L011F: ShowMessage(player, isForwardMove, String05BA); // The Thieves' Key is needed to unlock this door.
+            L012C: ShowMessage(player, isForwardMove, String05EA); // Only heroes of the twentieth level or higher may venture beyond this door.
             L0139: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
             L0156: return; // RETURN;
         }
@@ -156,9 +156,9 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ax = CheckLevel(player, 0x0014);
             L0011: if (JumpEqual) goto L0022;
-            L0013: ShowMessage(player, String0635); // Good Journeys, brave hero.
+            L0013: ShowMessage(player, isForwardMove, String0635); // Good Journeys, brave hero.
             L0020: goto L0049;
-            L0022: ShowMessage(player, String0650); // Only heroes of the twentieth level or higher may venture beyond this door.
+            L0022: ShowMessage(player, isForwardMove, String0650); // Only heroes of the twentieth level or higher may venture beyond this door.
             L002F: TeleportParty(player, 0x01, 0x01, 0x02, 0x00, isForwardMove);
             L0049: return; // RETURN;
         }

@@ -98,75 +98,75 @@ namespace XPT.Legacy.Maps {
         private void FnNPCCHATA_03(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String03FC); // You encounter a Troll Cleric.
+            L0003: ShowMessage(player, isForwardMove, String03FC); // You encounter a Troll Cleric.
             L0010: ShowPortrait(player, 0x0028);
             L001D: Compare(GetRandom(0x000F), 0x000C);
             L002D: if (JumpAbove) goto L004B;
-            L002F: ShowMessage(player, String041A); // I have almost despaired of finding a way out of this prison. Yet there must be an exit of some kind - stairs or teleport. The guards must have had some way of leaving this area.
-            L003C: ShowMessage(player, String04CC); // To the east are the guard's living quarters and the interrogation rooms. The 36 prison cells are empty now, except for the resident spirits of those who perished here.
+            L002F: ShowMessage(player, isForwardMove, String041A); // I have almost despaired of finding a way out of this prison. Yet there must be an exit of some kind - stairs or teleport. The guards must have had some way of leaving this area.
+            L003C: ShowMessage(player, isForwardMove, String04CC); // To the east are the guard's living quarters and the interrogation rooms. The 36 prison cells are empty now, except for the resident spirits of those who perished here.
             L0049: goto L0058;
-            L004B: ShowMessage(player, String0574); // The Troll Cleric bounces her head on the floor in frustration. She must be insane.
+            L004B: ShowMessage(player, isForwardMove, String0574); // The Troll Cleric bounces her head on the floor in frustration. She must be insane.
             L0058: return; // RETURN;
         }
 
         private void FnNPCCHATB_04(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String05C7); // You encounter an Orc Ranger.
+            L0003: ShowMessage(player, isForwardMove, String05C7); // You encounter an Orc Ranger.
             L0010: ShowPortrait(player, 0x001E);
             L001D: Compare(GetRandom(0x000F), 0x0006);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, String05E4); // I have heard rumors that some few brave souls have escaped the dungeon. If you can find the Rainbow Bridge, you are near the exit.
+            L002F: ShowMessage(player, isForwardMove, String05E4); // I have heard rumors that some few brave souls have escaped the dungeon. If you can find the Rainbow Bridge, you are near the exit.
             L003C: goto L004B;
-            L003E: ShowMessage(player, String0667); // The Orc Ranger glares at you and refuses to speak.
+            L003E: ShowMessage(player, isForwardMove, String0667); // The Orc Ranger glares at you and refuses to speak.
             L004B: return; // RETURN;
         }
 
         private void FnNPCCHATC_05(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String069A); // You encounter a Halfling Thief.
+            L0003: ShowMessage(player, isForwardMove, String069A); // You encounter a Halfling Thief.
             L0010: ShowPortrait(player, 0x0025);
             L001D: Compare(GetRandom(0x000F), 0x000A);
             L002D: if (JumpAbove) goto L004B;
-            L002F: ShowMessage(player, String06BA); // A special challenge awaits the brave. If you dare continue after finding what the guard Deldwinn desires, great rewards await you.
-            L003C: ShowMessage(player, String073D); // Chaos should walk with Chaos and Harmony with Harmony to find the rewards.
+            L002F: ShowMessage(player, isForwardMove, String06BA); // A special challenge awaits the brave. If you dare continue after finding what the guard Deldwinn desires, great rewards await you.
+            L003C: ShowMessage(player, isForwardMove, String073D); // Chaos should walk with Chaos and Harmony with Harmony to find the rewards.
             L0049: goto L0058;
-            L004B: ShowMessage(player, String0788); // The Halfling Thief thumbs his nose at you and dashes off.
+            L004B: ShowMessage(player, isForwardMove, String0788); // The Halfling Thief thumbs his nose at you and dashes off.
             L0058: return; // RETURN;
         }
 
         private void FnNPCCHATD_06(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String07C2); // You encounter a Gnome Barbarian.
+            L0003: ShowMessage(player, isForwardMove, String07C2); // You encounter a Gnome Barbarian.
             L0010: ShowPortrait(player, 0x0019);
             L001D: Compare(GetRandom(0x000F), 0x000B);
             L002D: if (JumpAbove) goto L004B;
-            L002F: ShowMessage(player, String07E3); // Two wizards have crafted a Challenge for the brave. The Wizards' Challenge is on this level, but you cannot reach it from this prison area.
-            L003C: ShowMessage(player, String086F); // Know that race and Guild must walk together if the Challenge is to be overcome.
+            L002F: ShowMessage(player, isForwardMove, String07E3); // Two wizards have crafted a Challenge for the brave. The Wizards' Challenge is on this level, but you cannot reach it from this prison area.
+            L003C: ShowMessage(player, isForwardMove, String086F); // Know that race and Guild must walk together if the Challenge is to be overcome.
             L0049: goto L0058;
-            L004B: ShowMessage(player, String08BF); // The Gnome Barbarian becomes distracted as he tries to twiddle his thumbs and instead gets them entangled.
+            L004B: ShowMessage(player, isForwardMove, String08BF); // The Gnome Barbarian becomes distracted as he tries to twiddle his thumbs and instead gets them entangled.
             L0058: return; // RETURN;
         }
 
         private void FnNPCCHATE_07(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0929); // You encounter a Dwarf Wizard.
+            L0003: ShowMessage(player, isForwardMove, String0929); // You encounter a Dwarf Wizard.
             L0010: ShowPortrait(player, 0x002C);
             L001D: Compare(GetRandom(0x000F), 0x000C);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, String0947); // King Cleowyn built his palace inside this volcano because he hoped to unearth the secrets of the wizard Arnakkian. Many of the stones that form Cleowyn's palace were taken from the wizard's castle. No wonder this dungeon is cursed.
+            L002F: ShowMessage(player, isForwardMove, String0947); // King Cleowyn built his palace inside this volcano because he hoped to unearth the secrets of the wizard Arnakkian. Many of the stones that form Cleowyn's palace were taken from the wizard's castle. No wonder this dungeon is cursed.
             L003C: goto L004B;
-            L003E: ShowMessage(player, String0A2F); // The Dwarf Wizard smiles kindly, but she refuses to speak.
+            L003E: ShowMessage(player, isForwardMove, String0A2F); // The Dwarf Wizard smiles kindly, but she refuses to speak.
             L004B: return; // RETURN;
         }
 
         private void FnTELEMESG_08(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0A69); // There is a teleport in the west wall.
+            L0003: ShowMessage(player, isForwardMove, String0A69); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
@@ -176,10 +176,10 @@ namespace XPT.Legacy.Maps {
             L0003: ax = HasItem(player, 0x77);
             L0011: if (JumpEqual) goto L0041;
             L0013: AddTreasure(player, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xCE);
-            L0032: ShowMessage(player, String0A8F); // Incubi haunt the empty prison cell.
+            L0032: ShowMessage(player, isForwardMove, String0A8F); // Incubi haunt the empty prison cell.
             L003F: goto L006D;
             L0041: AddTreasure(player, 0x05DC, 0x00, 0x00, 0x00, 0x00, 0x77);
-            L0060: ShowMessage(player, String0AB3); // As you reach for a jacket lying on the floor, you see Incubi appear in the cell.
+            L0060: ShowMessage(player, isForwardMove, String0AB3); // As you reach for a jacket lying on the floor, you see Incubi appear in the cell.
             L006D: Compare(PartyCount(player), 0x0001);
             L0078: if (JumpNotEqual) goto L00A1;
             L007A: AddEncounter(player, 0x01, 0x25);
@@ -206,10 +206,10 @@ namespace XPT.Legacy.Maps {
             L0003: ax = HasItem(player, 0xC1);
             L0011: if (JumpEqual) goto L0041;
             L0013: AddTreasure(player, 0x00FA, 0x00, 0x00, 0x00, 0x00, 0xB6);
-            L0032: ShowMessage(player, String0B04); // Leeches and Black Widows live in the cell.
+            L0032: ShowMessage(player, isForwardMove, String0B04); // Leeches and Black Widows live in the cell.
             L003F: goto L006D;
             L0041: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0xC1);
-            L0060: ShowMessage(player, String0B2F); // Just out of reach behind a mass of Leeches and Black Widows is a lockpick.
+            L0060: ShowMessage(player, isForwardMove, String0B2F); // Just out of reach behind a mass of Leeches and Black Widows is a lockpick.
             L006D: Compare(PartyCount(player), 0x0001);
             L0078: if (JumpNotEqual) goto L00A1;
             L007A: AddEncounter(player, 0x01, 0x19);
@@ -239,10 +239,10 @@ namespace XPT.Legacy.Maps {
             L0003: ax = HasItem(player, 0x20);
             L0011: if (JumpEqual) goto L0041;
             L0013: AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0x00, 0xCC);
-            L0032: ShowMessage(player, String0B7A); // Hell Wolves appear in the cell.
+            L0032: ShowMessage(player, isForwardMove, String0B7A); // Hell Wolves appear in the cell.
             L003F: goto L006E;
             L0041: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xCF, 0x20);
-            L0061: ShowMessage(player, String0B9A); // A circle of Hell Wolves surrounds you and a mace lying on the floor.
+            L0061: ShowMessage(player, isForwardMove, String0B9A); // A circle of Hell Wolves surrounds you and a mace lying on the floor.
             L006E: Compare(PartyCount(player), 0x0001);
             L0079: if (JumpNotEqual) goto L00A2;
             L007B: AddEncounter(player, 0x01, 0x21);
@@ -272,10 +272,10 @@ namespace XPT.Legacy.Maps {
             L0003: ax = HasItem(player, 0x54);
             L0011: if (JumpEqual) goto L0041;
             L0013: AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0x00, 0xB6);
-            L0032: ShowMessage(player, String0BDF); // Phantasms creep into the empty cell.
+            L0032: ShowMessage(player, isForwardMove, String0BDF); // Phantasms creep into the empty cell.
             L003F: goto L006D;
             L0041: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0x54);
-            L0060: ShowMessage(player, String0C04); // Spirits of the dead guard their precious treasure.
+            L0060: ShowMessage(player, isForwardMove, String0C04); // Spirits of the dead guard their precious treasure.
             L006D: Compare(PartyCount(player), 0x0001);
             L0078: if (JumpEqual) goto L0087;
             L007A: Compare(PartyCount(player), 0x0002);
@@ -369,10 +369,10 @@ namespace XPT.Legacy.Maps {
             L0027: if (JumpBelow) goto L0074;
             L0029: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0047: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0065: ShowMessage(player, String0C37); // Your skill at picking locks soon has the door open.
+            L0065: ShowMessage(player, isForwardMove, String0C37); // Your skill at picking locks soon has the door open.
             L0072: goto L009E;
             L0074: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0091: ShowMessage(player, String0C6B); // The door is locked.
+            L0091: ShowMessage(player, isForwardMove, String0C6B); // The door is locked.
             L009E: return; // RETURN;
         }
 
@@ -385,10 +385,10 @@ namespace XPT.Legacy.Maps {
             L0027: if (JumpBelow) goto L0074;
             L0029: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0047: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0065: ShowMessage(player, String0C7F); // The lock of the door clicks open.
+            L0065: ShowMessage(player, isForwardMove, String0C7F); // The lock of the door clicks open.
             L0072: goto L009E;
             L0074: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0091: ShowMessage(player, String0CA1); // The door is locked.
+            L0091: ShowMessage(player, isForwardMove, String0CA1); // The door is locked.
             L009E: return; // RETURN;
         }
 
@@ -401,10 +401,10 @@ namespace XPT.Legacy.Maps {
             L0027: if (JumpBelow) goto L0074;
             L0029: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0047: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0065: ShowMessage(player, String0CB5); // You successfully pick the lock of the door.
+            L0065: ShowMessage(player, isForwardMove, String0CB5); // You successfully pick the lock of the door.
             L0072: goto L009E;
             L0074: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0091: ShowMessage(player, String0CE1); // The door is locked.
+            L0091: ShowMessage(player, isForwardMove, String0CE1); // The door is locked.
             L009E: return; // RETURN;
         }
 
@@ -417,10 +417,10 @@ namespace XPT.Legacy.Maps {
             L0027: if (JumpBelow) goto L0074;
             L0029: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0047: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0065: ShowMessage(player, String0CF5); // The lock of the door is quickly opened by your skillfulness.
+            L0065: ShowMessage(player, isForwardMove, String0CF5); // The lock of the door is quickly opened by your skillfulness.
             L0072: goto L009E;
             L0074: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0091: ShowMessage(player, String0D32); // The door is locked.
+            L0091: ShowMessage(player, isForwardMove, String0D32); // The door is locked.
             L009E: return; // RETURN;
         }
 
@@ -429,11 +429,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x000C);
             L0012: if (JumpBelow) goto L005F;
-            L0014: ShowMessage(player, String0D46); // You manage to force the door open.
+            L0014: ShowMessage(player, isForwardMove, String0D46); // You manage to force the door open.
             L0021: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L003F: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L005D: goto L0089;
-            L005F: ShowMessage(player, String0D69); // The door is stuck shut.
+            L005F: ShowMessage(player, isForwardMove, String0D69); // The door is stuck shut.
             L006C: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
             L0089: return; // RETURN;
         }
@@ -443,11 +443,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x000F);
             L0012: if (JumpBelow) goto L005F;
-            L0014: ShowMessage(player, String0D81); // The door flies open as you smash against it.
+            L0014: ShowMessage(player, isForwardMove, String0D81); // The door flies open as you smash against it.
             L0021: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L003F: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L005D: goto L0089;
-            L005F: ShowMessage(player, String0DAE); // The door is stuck and will not open.
+            L005F: ShowMessage(player, isForwardMove, String0DAE); // The door is stuck and will not open.
             L006C: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
             L0089: return; // RETURN;
         }
@@ -457,11 +457,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x0011);
             L0012: if (JumpBelow) goto L005F;
-            L0014: ShowMessage(player, String0DD3); // You push hard on the door and it creaks open.
+            L0014: ShowMessage(player, isForwardMove, String0DD3); // You push hard on the door and it creaks open.
             L0021: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L003F: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L005D: goto L0089;
-            L005F: ShowMessage(player, String0E01); // The door refuses to open. It is stuck.
+            L005F: ShowMessage(player, isForwardMove, String0E01); // The door refuses to open. It is stuck.
             L006C: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
             L0089: return; // RETURN;
         }
@@ -471,11 +471,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x0014);
             L0012: if (JumpBelow) goto L005F;
-            L0014: ShowMessage(player, String0E28); // You manage to open the door by brute strength.
+            L0014: ShowMessage(player, isForwardMove, String0E28); // You manage to open the door by brute strength.
             L0021: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L003F: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L005D: goto L0089;
-            L005F: ShowMessage(player, String0E57); // You are not strong enough to force the door open.
+            L005F: ShowMessage(player, isForwardMove, String0E57); // You are not strong enough to force the door open.
             L006C: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
             L0089: return; // RETURN;
         }

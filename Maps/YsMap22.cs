@@ -171,8 +171,8 @@ namespace XPT.Legacy.Maps {
         private void FnDROP_01(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String03FC); // Other pits in the Labyrinth provide access to hidden areas...
-            L0010: ShowMessage(player, String043A); // This pit, however, sends you to the gates of Death.
+            L0003: ShowMessage(player, isForwardMove, String03FC); // Other pits in the Labyrinth provide access to hidden areas...
+            L0010: ShowMessage(player, isForwardMove, String043A); // This pit, however, sends you to the gates of Death.
             L001D: DamagePlayer(player, GetMaxHits(player));
             L002E: return; // RETURN;
         }
@@ -185,10 +185,10 @@ namespace XPT.Legacy.Maps {
             L000F: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
             L0022: if (JumpEqual) goto L0043;
             L0024: SetFloorItem(player, 0x00, 0x47);
-            L0034: ShowMessage(player, String046E); // A magical platform forms a bridge across the abyss.
+            L0034: ShowMessage(player, isForwardMove, String046E); // A magical platform forms a bridge across the abyss.
             L0041: goto L006E;
-            L0043: ShowMessage(player, String04A2); // You fall into the abyss and die.
-            L0050: ShowMessage(player, String04C3); // With help, you might have been able to cross here.
+            L0043: ShowMessage(player, isForwardMove, String04A2); // You fall into the abyss and die.
+            L0050: ShowMessage(player, isForwardMove, String04C3); // With help, you might have been able to cross here.
             L005D: DamagePlayer(player, GetMaxHits(player));
             L006E: goto L00A8;
             L0070: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
@@ -204,15 +204,15 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeMap, 0x01, 0x01);
             L0018: SetFloorItem(player, 0x00, 0x47);
-            L0028: ShowMessage(player, String04F6); // Something strange happens!
-            L0035: ShowMessage(player, String0511); // When you step onto the stone, a magical platform appears nearby.
+            L0028: ShowMessage(player, isForwardMove, String04F6); // Something strange happens!
+            L0035: ShowMessage(player, isForwardMove, String0511); // When you step onto the stone, a magical platform appears nearby.
             L0042: return; // RETURN;
         }
 
         private void FnBAZAAR_04(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0552); // You do not suffer the death found in other pits in the Labyrinth.  Instead you are rewarded with a trip to CASTLEGATE BAZAAR.
+            L0003: ShowMessage(player, isForwardMove, String0552); // You do not suffer the death found in other pits in the Labyrinth.  Instead you are rewarded with a trip to CASTLEGATE BAZAAR.
             L0010: TeleportParty(player, 0x36, 0x01, 0x12, 0x03, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -220,9 +220,9 @@ namespace XPT.Legacy.Maps {
         private void FnHEAVENS_05(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String05D0); // The Dark Dwarf Voranti tricked the Lords of Harmony many moons ago.
-            L0010: ShowMessage(player, String0614); // He stole the secrets of the Winds from the Lords and has used them for his own purposes every since.
-            L001D: ShowMessage(player, String0679); // The Lords' Harmonic Shrine has now become the raging passageway known as HEAVEN'S FURY.
+            L0003: ShowMessage(player, isForwardMove, String05D0); // The Dark Dwarf Voranti tricked the Lords of Harmony many moons ago.
+            L0010: ShowMessage(player, isForwardMove, String0614); // He stole the secrets of the Winds from the Lords and has used them for his own purposes every since.
+            L001D: ShowMessage(player, isForwardMove, String0679); // The Lords' Harmonic Shrine has now become the raging passageway known as HEAVEN'S FURY.
             L002A: TeleportParty(player, 0x35, 0x01, 0xA3, 0x02, isForwardMove);
             L0045: return; // RETURN;
         }
@@ -230,8 +230,8 @@ namespace XPT.Legacy.Maps {
         private void FnEXODUS_06(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String06D1); // The survivors of the cataclysm named this place EXODUS.
-            L0010: ShowMessage(player, String0709); // It is here they escaped the horrors of Arnakkian's Castle and began their new subterranean life.
+            L0003: ShowMessage(player, isForwardMove, String06D1); // The survivors of the cataclysm named this place EXODUS.
+            L0010: ShowMessage(player, isForwardMove, String0709); // It is here they escaped the horrors of Arnakkian's Castle and began their new subterranean life.
             L001D: TeleportParty(player, 0x35, 0x01, 0x75, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
@@ -239,7 +239,7 @@ namespace XPT.Legacy.Maps {
         private void FnWINDHOLO_07(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String076A); // No adventurer dares camp in WIND HOLLOW.  At night the howling wind makes one deaf to the dangers.
+            L0003: ShowMessage(player, isForwardMove, String076A); // No adventurer dares camp in WIND HOLLOW.  At night the howling wind makes one deaf to the dangers.
             L0010: TeleportParty(player, 0x35, 0x01, 0x8A, 0x03, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -247,7 +247,7 @@ namespace XPT.Legacy.Maps {
         private void FnTEMPEST_08(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String07CD); // TEMPEST dares all to explore the magic rooms along her narrow corridor.
+            L0003: ShowMessage(player, isForwardMove, String07CD); // TEMPEST dares all to explore the magic rooms along her narrow corridor.
             L0010: TeleportParty(player, 0x35, 0x01, 0x9B, 0x01, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -255,7 +255,7 @@ namespace XPT.Legacy.Maps {
         private void FnWINDHOLO_09(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0815); // The barren rocks are swept clean by the violent winds that race through WIND HOLLOW.
+            L0003: ShowMessage(player, isForwardMove, String0815); // The barren rocks are swept clean by the violent winds that race through WIND HOLLOW.
             L0010: TeleportParty(player, 0x35, 0x01, 0x7D, 0x00, isForwardMove);
             L002A: return; // RETURN;
         }
@@ -263,7 +263,7 @@ namespace XPT.Legacy.Maps {
         private void FnBACKALLY_0A(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String086A); // 'Beware!  Those who enter the Labyrinth BACK ALLEY must guard against all!'
+            L0003: ShowMessage(player, isForwardMove, String086A); // 'Beware!  Those who enter the Labyrinth BACK ALLEY must guard against all!'
             L0010: TeleportParty(player, 0x35, 0x01, 0x4D, 0x00, isForwardMove);
             L002A: return; // RETURN;
         }
@@ -271,7 +271,7 @@ namespace XPT.Legacy.Maps {
         private void FnHEAVENS_0B(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String08B6); // Enter HEAVEN'S FURY if you must.  Here is where Voranti cursed the winds.
+            L0003: ShowMessage(player, isForwardMove, String08B6); // Enter HEAVEN'S FURY if you must.  Here is where Voranti cursed the winds.
             L0010: TeleportParty(player, 0x35, 0x01, 0xF3, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -279,7 +279,7 @@ namespace XPT.Legacy.Maps {
         private void FnLABYATIC_0C(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0900); // The gates of LABYRINTH ATTIC are a welcome sight.
+            L0003: ShowMessage(player, isForwardMove, String0900); // The gates of LABYRINTH ATTIC are a welcome sight.
             L0010: TeleportParty(player, 0x33, 0x01, 0xC3, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -287,7 +287,7 @@ namespace XPT.Legacy.Maps {
         private void FnWINDHOLO_0D(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0932); // The door leads to WYN SANCTUARY.
+            L0003: ShowMessage(player, isForwardMove, String0932); // The door leads to WYN SANCTUARY.
             L0010: TeleportParty(player, 0x33, 0x01, 0x6D, 0x00, isForwardMove);
             L002A: return; // RETURN;
         }
@@ -295,7 +295,7 @@ namespace XPT.Legacy.Maps {
         private void FnTHVTRESR_0E(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0953); // The gateway opens, revealing the secret chambers of the Labyrinth Thieves.
+            L0003: ShowMessage(player, isForwardMove, String0953); // The gateway opens, revealing the secret chambers of the Labyrinth Thieves.
             L0010: TeleportParty(player, 0x33, 0x01, 0x6E, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -303,7 +303,7 @@ namespace XPT.Legacy.Maps {
         private void FnLAVA_0F(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String099E); // You stumble into the lava pools.  You die.
+            L0003: ShowMessage(player, isForwardMove, String099E); // You stumble into the lava pools.  You die.
             L0010: DamagePlayer(player, GetMaxHits(player));
             L0021: return; // RETURN;
         }
@@ -311,19 +311,19 @@ namespace XPT.Legacy.Maps {
         private void FnDRTOBALY_10(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String09C9); // This door locks out all except those who have the alley key.
+            L0003: ShowMessage(player, isForwardMove, String09C9); // This door locks out all except those who have the alley key.
             L0010: ax = HasUsedItem(player, 0xE0, 0xE0);
             L0023: if (JumpEqual) goto L0066;
             L0025: SetWallPassable(player, GetCurrentTile(player), 0x03, 0x01);
             L003F: SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
-            L0059: ShowMessage(player, String0A06); // Your key unlocks the door.
+            L0059: ShowMessage(player, isForwardMove, String0A06); // Your key unlocks the door.
             L0066: return; // RETURN;
         }
 
         private void FnLABYATIC_14(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0A21); // You return to LABYRINTH ATTIC through a one-way tunnel.
+            L0003: ShowMessage(player, isForwardMove, String0A21); // You return to LABYRINTH ATTIC through a one-way tunnel.
             L0010: TeleportParty(player, 0x33, 0x01, 0x59, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -331,8 +331,8 @@ namespace XPT.Legacy.Maps {
         private void FnWINDHOLO_15(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0A59); // The door to WIND HOLLOW bursts open with terrible force, throwing all adventurers against the rocks...
-            L0010: ShowMessage(player, String0AC0); // ...and inflicting heavy damage.
+            L0003: ShowMessage(player, isForwardMove, String0A59); // The door to WIND HOLLOW bursts open with terrible force, throwing all adventurers against the rocks...
+            L0010: ShowMessage(player, isForwardMove, String0AC0); // ...and inflicting heavy damage.
             L001D: DamagePlayer(player, 0x00C8);
             L0042: TeleportParty(player, 0x35, 0x01, 0xBC, 0x03, isForwardMove);
             L005D: return; // RETURN;
@@ -341,8 +341,8 @@ namespace XPT.Legacy.Maps {
         private void FnMAGICRMS_16(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0AEF); // Runes can be the most powerful of weapons in the hands of an adept Wizard.
-            L0010: ShowMessage(player, String0B3A); // Here, the runes also protect the great mage's magical possessions against the unwanted.
+            L0003: ShowMessage(player, isForwardMove, String0AEF); // Runes can be the most powerful of weapons in the hands of an adept Wizard.
+            L0010: ShowMessage(player, isForwardMove, String0B3A); // Here, the runes also protect the great mage's magical possessions against the unwanted.
             L001D: TeleportParty(player, 0x34, 0x02, 0x30, 0x02, isForwardMove);
             L0038: return; // RETURN;
         }
@@ -381,7 +381,7 @@ namespace XPT.Legacy.Maps {
             L0097: SetFlag(player, FlagTypeDungeon, FlagGaveHarvestHorn, 0x01);
             L00AC: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, 0xF0);
             L00CB: AddExperience(player, 0x0003D090);
-            L00DD: ShowMessage(player, String0B92); // The Zephyr Wind whispers, 'I have taken the Harvest Horn, and I give you something to help defeat the Wind Elemental'.
+            L00DD: ShowMessage(player, isForwardMove, String0B92); // The Zephyr Wind whispers, 'I have taken the Harvest Horn, and I give you something to help defeat the Wind Elemental'.
             L00EA: AddEncounter(player, 0x01, 0x10);
             L00FC: AddEncounter(player, 0x02, 0x10);
             L010E: AddEncounter(player, 0x05, 0x0F);
@@ -392,7 +392,7 @@ namespace XPT.Legacy.Maps {
         private void FnTXTZEPHR_1B(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0C09); // The Zephyr Wind whistles 'No harm was intended, but I am sworn to serve the Wind Elemental.  Return the Harvest Horn to my Wyverns to release my bonds.'
+            L0003: ShowMessage(player, isForwardMove, String0C09); // The Zephyr Wind whistles 'No harm was intended, but I am sworn to serve the Wind Elemental.  Return the Harvest Horn to my Wyverns to release my bonds.'
             L0010: return; // RETURN;
         }
 
@@ -401,14 +401,14 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeMap, 0x01, 0x00);
             L0017: SetFloorItem(player, 0x01, 0x47);
-            L0028: ShowMessage(player, String0CA2); // A magical platform nearby seems to disappear.
+            L0028: ShowMessage(player, isForwardMove, String0CA2); // A magical platform nearby seems to disappear.
             L0035: return; // RETURN;
         }
 
         private void FnZEPHBLOW_1D(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0CD0); // The Zephyr Wind gusts in fury, causing damage!
+            L0003: ShowMessage(player, isForwardMove, String0CD0); // The Zephyr Wind gusts in fury, causing damage!
             L0010: ax = GetMaxHits(player);
             L0017: bx = 0x0003;
             L001A: dx = ax % bx; ax = ax / bx;
@@ -419,7 +419,7 @@ namespace XPT.Legacy.Maps {
         private void FnDRLPENCA_1E(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0D0E); // Wafts of reddish smoke eminate from the rooms ahead.
+            L0003: ShowMessage(player, isForwardMove, String0D0E); // Wafts of reddish smoke eminate from the rooms ahead.
             L0010: AddEncounter(player, 0x01, 0x19);
             L0022: AddEncounter(player, 0x02, 0x19);
             L0034: AddEncounter(player, 0x05, 0x0F);
@@ -430,7 +430,7 @@ namespace XPT.Legacy.Maps {
         private void FnDRLPENCB_1F(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0D43); // An acrid odor fills these chambers.
+            L0003: ShowMessage(player, isForwardMove, String0D43); // An acrid odor fills these chambers.
             L0010: AddEncounter(player, 0x01, 0x0F);
             L0022: AddEncounter(player, 0x02, 0x0F);
             L0034: AddEncounter(player, 0x05, 0x1B);
@@ -441,7 +441,7 @@ namespace XPT.Legacy.Maps {
         private void FnDRLPENCC_20(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0D67); // The fiery eyes of Ancient Dragons blaze through the thick clouds that fill the chamber.
+            L0003: ShowMessage(player, isForwardMove, String0D67); // The fiery eyes of Ancient Dragons blaze through the thick clouds that fill the chamber.
             L0010: AddEncounter(player, 0x01, 0x1C);
             L0022: AddEncounter(player, 0x02, 0x1C);
             L0034: AddEncounter(player, 0x03, 0x1C);
@@ -478,7 +478,7 @@ namespace XPT.Legacy.Maps {
             L0022: if (JumpNotEqual) goto L0039;
             L0024: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0037: if (JumpEqual) goto L0082;
-            L0039: ShowMessage(player, String0DBF); // You detect a secret door in the wall.
+            L0039: ShowMessage(player, isForwardMove, String0DBF); // You detect a secret door in the wall.
             L0046: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0064: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0082: return; // RETURN;
@@ -497,7 +497,7 @@ namespace XPT.Legacy.Maps {
         private void FnMGOVENCA_25(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0DE5); // A stash of wizard items is being raided.
+            L0003: ShowMessage(player, isForwardMove, String0DE5); // A stash of wizard items is being raided.
             L0010: AddEncounter(player, 0x01, 0x1F);
             L0022: AddEncounter(player, 0x02, 0x1F);
             L0034: AddEncounter(player, 0x03, 0x20);
@@ -529,7 +529,7 @@ namespace XPT.Legacy.Maps {
             L0031: if (JumpNotEqual) goto L0048;
             L0033: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0046: if (JumpEqual) goto L0091;
-            L0048: ShowMessage(player, String0E0E); // You locate a hidden door in the wall.
+            L0048: ShowMessage(player, isForwardMove, String0E0E); // You locate a hidden door in the wall.
             L0055: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0073: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0091: return; // RETURN;
@@ -558,13 +558,13 @@ namespace XPT.Legacy.Maps {
         private void FnVORAENCV_30(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0E34); // A powerful Dwarf Thief stands before you. 'I am Voranti, Lord of Dwarf Thieves!  Fight me if you must, but you shall not find my secret treasure!  Do not fear, for I will provide decent burial when I am finished.'
+            L0003: ShowMessage(player, isForwardMove, String0E34); // A powerful Dwarf Thief stands before you. 'I am Voranti, Lord of Dwarf Thieves!  Fight me if you must, but you shall not find my secret treasure!  Do not fear, for I will provide decent burial when I am finished.'
             L0010: Compare(GetRace(player), 0x0002);
             L001A: if (JumpNotEqual) goto L0029;
-            L001C: ShowMessage(player, String0F0A); // Voranti's dark eyes glow bright with hatred. 'As for you, miserable Elf, my pet gargoyles will pick your bones clean.'
+            L001C: ShowMessage(player, isForwardMove, String0F0A); // Voranti's dark eyes glow bright with hatred. 'As for you, miserable Elf, my pet gargoyles will pick your bones clean.'
             L0029: Compare(GetRace(player), 0x0004);
             L0033: if (JumpNotEqual) goto L0042;
-            L0035: ShowMessage(player, String0F81); // Voranti smiles sadly. 'It saddens me that I must kill a fellow dwarf, but you have brought death upon yourself.'
+            L0035: ShowMessage(player, isForwardMove, String0F81); // Voranti smiles sadly. 'It saddens me that I must kill a fellow dwarf, but you have brought death upon yourself.'
             L0042: AddEncounter(player, 0x01, 0x1C);
             L0054: AddEncounter(player, 0x05, 0x21);
             L0066: ax = HasItem(player, 0xED);
@@ -584,7 +584,7 @@ namespace XPT.Legacy.Maps {
             L0022: if (JumpNotEqual) goto L0039;
             L0024: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0037: if (JumpEqual) goto L0082;
-            L0039: ShowMessage(player, String0FF2); // You find a secret door in the wall.
+            L0039: ShowMessage(player, isForwardMove, String0FF2); // You find a secret door in the wall.
             L0046: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0064: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0082: return; // RETURN;
@@ -643,7 +643,7 @@ namespace XPT.Legacy.Maps {
         private void FnMOONENCE_36(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String1016); // A nest of young dragons!
+            L0003: ShowMessage(player, isForwardMove, String1016); // A nest of young dragons!
             L0010: AddEncounter(player, 0x01, 0x0E);
             L0022: AddEncounter(player, 0x02, 0x0E);
             L0034: AddEncounter(player, 0x03, 0x0F);
@@ -663,8 +663,8 @@ namespace XPT.Legacy.Maps {
         private void FnMOONENCG_38(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String102F); // A yellowed piece of paper  --
-            L0010: ShowMessage(player, String104D); // 'Help! My brother Orilon has been bitten by bears and is transformed.'  - signed Margery
+            L0003: ShowMessage(player, isForwardMove, String102F); // A yellowed piece of paper  --
+            L0010: ShowMessage(player, isForwardMove, String104D); // 'Help! My brother Orilon has been bitten by bears and is transformed.'  - signed Margery
             L001D: AddEncounter(player, 0x01, 0x28);
             L002F: AddEncounter(player, 0x02, 0x28);
             L0041: AddEncounter(player, 0x03, 0x28);
@@ -681,7 +681,7 @@ namespace XPT.Legacy.Maps {
         private void FnTXTMOONB_3A(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String10A6); // A note -- 'Only past the Darkside will you find En-Li-Kil himself.'
+            L0003: ShowMessage(player, isForwardMove, String10A6); // A note -- 'Only past the Darkside will you find En-Li-Kil himself.'
             L0010: return; // RETURN;
         }
 
@@ -709,10 +709,10 @@ namespace XPT.Legacy.Maps {
         private void FnBDRMOONB_3E(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String10EA); // This door requires immense strength to open.
+            L0003: ShowMessage(player, isForwardMove, String10EA); // This door requires immense strength to open.
             L0010: Compare(CheckStrength(player), 0x0015);
             L001F: if (JumpBelow) goto L006A;
-            L0021: ShowMessage(player, String1117); // You push against the door and barely manage to open it.
+            L0021: ShowMessage(player, isForwardMove, String1117); // You push against the door and barely manage to open it.
             L002E: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L004C: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L006A: return; // RETURN;
@@ -723,7 +723,7 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(player, 0xF2, 0xF2);
             L0016: if (JumpEqual) goto L0061;
-            L0018: ShowMessage(player, String114F); // Your Moon Prism reveals a secret door!
+            L0018: ShowMessage(player, isForwardMove, String114F); // Your Moon Prism reveals a secret door!
             L0025: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0043: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0061: return; // RETURN;
@@ -740,7 +740,7 @@ namespace XPT.Legacy.Maps {
             L0037: if (JumpNotEqual) goto L004E;
             L0039: ax = HasUsedItem(player, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0097;
-            L004E: ShowMessage(player, String1176); // You find a door hidden in the wall.
+            L004E: ShowMessage(player, isForwardMove, String1176); // You find a door hidden in the wall.
             L005B: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0079: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0097: return; // RETURN;
@@ -749,12 +749,12 @@ namespace XPT.Legacy.Maps {
         private void FnSDRMOONE_41(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String119A); // The signature of the spectrum appears on the wall.
+            L0003: ShowMessage(player, isForwardMove, String119A); // The signature of the spectrum appears on the wall.
             L0010: ax = HasUsedItem(player, 0xBD, 0xBD);
             L0023: if (JumpNotEqual) goto L003A;
             L0025: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0038: if (JumpEqual) goto L0083;
-            L003A: ShowMessage(player, String11CD); // In the wall is a secret door.
+            L003A: ShowMessage(player, isForwardMove, String11CD); // In the wall is a secret door.
             L0047: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0065: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0083: return; // RETURN;
@@ -782,7 +782,7 @@ namespace XPT.Legacy.Maps {
             L0031: if (JumpNotEqual) goto L0048;
             L0033: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0046: if (JumpEqual) goto L0091;
-            L0048: ShowMessage(player, String11EB); // Your Ranger skills help you locate a door hidden in the wall.
+            L0048: ShowMessage(player, isForwardMove, String11EB); // Your Ranger skills help you locate a door hidden in the wall.
             L0055: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0073: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0091: return; // RETURN;
@@ -800,7 +800,7 @@ namespace XPT.Legacy.Maps {
             L0031: if (JumpNotEqual) goto L0048;
             L0033: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0046: if (JumpEqual) goto L0091;
-            L0048: ShowMessage(player, String1229); // Your holy calling allows you find a door hidden in the wall.
+            L0048: ShowMessage(player, isForwardMove, String1229); // Your holy calling allows you find a door hidden in the wall.
             L0055: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0073: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0091: return; // RETURN;
@@ -811,11 +811,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x0014);
             L0012: if (JumpBelow) goto L005F;
-            L0014: ShowMessage(player, String1266); // You barely manage to force open the door.
+            L0014: ShowMessage(player, isForwardMove, String1266); // You barely manage to force open the door.
             L0021: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L003F: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L005D: goto L00A7;
-            L005F: ShowMessage(player, String1290); // The door is stuck shut.
+            L005F: ShowMessage(player, isForwardMove, String1290); // The door is stuck shut.
             L006C: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L008A: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
             L00A7: return; // RETURN;
@@ -830,7 +830,7 @@ namespace XPT.Legacy.Maps {
             L0022: if (JumpNotEqual) goto L0039;
             L0024: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0037: if (JumpEqual) goto L0082;
-            L0039: ShowMessage(player, String12A8); // Your training helps you find a secret door in the wall.
+            L0039: ShowMessage(player, isForwardMove, String12A8); // Your training helps you find a secret door in the wall.
             L0046: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0064: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0082: return; // RETURN;
@@ -839,7 +839,7 @@ namespace XPT.Legacy.Maps {
         private void FnSDRMOONN_47(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String12E0); // You detect a door cleverly hidden in the wall.
+            L0003: ShowMessage(player, isForwardMove, String12E0); // You detect a door cleverly hidden in the wall.
             L0010: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L002E: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L004C: return; // RETURN;
@@ -850,11 +850,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0xF2);
             L0011: if (JumpEqual) goto L0022;
-            L0013: ShowMessage(player, String130F); // Piles of dirt cover the floor.
+            L0013: ShowMessage(player, isForwardMove, String130F); // Piles of dirt cover the floor.
             L0020: goto L0050;
             L0022: GiveItem(player, 0xF2);
             L002E: SetFlag(player, FlagTypeDungeon, FlagLabyrinthIIMoonPrism, 0x01);
-            L0043: ShowMessage(player, String132E); // You find a Moon Prism on the floor.
+            L0043: ShowMessage(player, isForwardMove, String132E); // You find a Moon Prism on the floor.
             L0050: return; // RETURN;
         }
 
@@ -863,11 +863,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagLabyrinthIIRangerSpear), 0x0001);
             L0017: if (JumpNotEqual) goto L0028;
-            L0019: ShowMessage(player, String1352); // The floor is bare.
+            L0019: ShowMessage(player, isForwardMove, String1352); // The floor is bare.
             L0026: goto L0056;
             L0028: GiveItem(player, 0x37);
             L0034: SetFlag(player, FlagTypeDungeon, FlagLabyrinthIIRangerSpear, 0x01);
-            L0049: ShowMessage(player, String1365); // You find the Ranger Spear on the floor.
+            L0049: ShowMessage(player, isForwardMove, String1365); // You find the Ranger Spear on the floor.
             L0056: return; // RETURN;
         }
 
@@ -876,11 +876,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagLabyrinthIIHolyHalberd), 0x0001);
             L0017: if (JumpNotEqual) goto L0028;
-            L0019: ShowMessage(player, String138D); // There is nothing of interest in this area.
+            L0019: ShowMessage(player, isForwardMove, String138D); // There is nothing of interest in this area.
             L0026: goto L0056;
             L0028: GiveItem(player, 0x3D);
             L0034: SetFlag(player, FlagTypeDungeon, FlagLabyrinthIIHolyHalberd, 0x01);
-            L0049: ShowMessage(player, String13B8); // You find a Holy Halberd lying on the floor.
+            L0049: ShowMessage(player, isForwardMove, String13B8); // You find a Holy Halberd lying on the floor.
             L0056: return; // RETURN;
         }
 
@@ -888,7 +888,7 @@ namespace XPT.Legacy.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(player, 0x0042);
-            L0010: ShowMessage(player, String13E4); // Pictorials of War are painted on the walls surrounding Torbriar's Fountain.
+            L0010: ShowMessage(player, isForwardMove, String13E4); // Pictorials of War are painted on the walls surrounding Torbriar's Fountain.
             L001D: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagLabryinthITeachSkill1));
             L0030: if (JumpEqual) goto L0035;
             L0032: goto L017C;
@@ -896,36 +896,36 @@ namespace XPT.Legacy.Maps {
             L004A: RefreshCompareFlags(GetSkillLevel(player, 0x08));
             L0058: if (JumpNotEqual) goto L007B;
             L005A: SetSkillLevel(player, 0x08, 0x02);
-            L006B: ShowMessage(player, String1430); // You gain the skill of Archery!
+            L006B: ShowMessage(player, isForwardMove, String1430); // You gain the skill of Archery!
             L0078: goto L017A;
             L007B: RefreshCompareFlags(GetSkillLevel(player, 0x01));
             L0089: if (JumpNotEqual) goto L00AC;
             L008B: SetSkillLevel(player, 0x01, 0x02);
-            L009C: ShowMessage(player, String144F); // You gain the skill of Clubs and Axes!
+            L009C: ShowMessage(player, isForwardMove, String144F); // You gain the skill of Clubs and Axes!
             L00A9: goto L017A;
             L00AC: RefreshCompareFlags(GetSkillLevel(player, 0x05));
             L00BA: if (JumpNotEqual) goto L00DD;
             L00BC: SetSkillLevel(player, 0x05, 0x02);
-            L00CD: ShowMessage(player, String1475); // You gain the skill of Swordsmanship!
+            L00CD: ShowMessage(player, isForwardMove, String1475); // You gain the skill of Swordsmanship!
             L00DA: goto L017A;
             L00DD: RefreshCompareFlags(GetSkillLevel(player, 0x0C));
             L00EB: if (JumpNotEqual) goto L010D;
             L00ED: SetSkillLevel(player, 0x0C, 0x02);
-            L00FE: ShowMessage(player, String149A); // You gain the Bard skill!
+            L00FE: ShowMessage(player, isForwardMove, String149A); // You gain the Bard skill!
             L010B: goto L017A;
             L010D: RefreshCompareFlags(GetSkillLevel(player, 0x10));
             L011B: if (JumpNotEqual) goto L013D;
             L011D: SetSkillLevel(player, 0x10, 0x02);
-            L012E: ShowMessage(player, String14B3); // You gain the skill of Martial Arts!
+            L012E: ShowMessage(player, isForwardMove, String14B3); // You gain the skill of Martial Arts!
             L013B: goto L017A;
             L013D: RefreshCompareFlags(GetSkillLevel(player, 0x16));
             L014B: if (JumpNotEqual) goto L016D;
             L014D: SetSkillLevel(player, 0x16, 0x02);
-            L015E: ShowMessage(player, String14D7); // You gain the Channel skill!
+            L015E: ShowMessage(player, isForwardMove, String14D7); // You gain the Channel skill!
             L016B: goto L017A;
-            L016D: ShowMessage(player, String14F3); // The waters have no effect.
+            L016D: ShowMessage(player, isForwardMove, String14F3); // The waters have no effect.
             L017A: goto L0189;
-            L017C: ShowMessage(player, String150E); // Dust fills the fountain basin.
+            L017C: ShowMessage(player, isForwardMove, String150E); // Dust fills the fountain basin.
             L0189: return; // RETURN;
         }
 
@@ -959,7 +959,7 @@ namespace XPT.Legacy.Maps {
         private void FnTXTTORB_52(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String152D); // A bard's scroll sings a simple song of how someday bands of adventurers will form an invisible bridge across a deadly chasm.
+            L0003: ShowMessage(player, isForwardMove, String152D); // A bard's scroll sings a simple song of how someday bands of adventurers will form an invisible bridge across a deadly chasm.
             L0010: return; // RETURN;
         }
 
@@ -975,7 +975,7 @@ namespace XPT.Legacy.Maps {
             L0031: if (JumpNotEqual) goto L0048;
             L0033: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0046: if (JumpEqual) goto L0091;
-            L0048: ShowMessage(player, String15AA); // A secret door visible only to knights appears in the wall .
+            L0048: ShowMessage(player, isForwardMove, String15AA); // A secret door visible only to knights appears in the wall .
             L0055: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0073: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0091: return; // RETURN;
@@ -993,7 +993,7 @@ namespace XPT.Legacy.Maps {
             L0030: if (JumpNotEqual) goto L0047;
             L0032: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0045: if (JumpEqual) goto L0090;
-            L0047: ShowMessage(player, String15E6); // In the wall you find a hidden door.
+            L0047: ShowMessage(player, isForwardMove, String15E6); // In the wall you find a hidden door.
             L0054: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0072: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0090: return; // RETURN;
@@ -1002,7 +1002,7 @@ namespace XPT.Legacy.Maps {
         private void FnTORBWIND_55(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String160A); // The wind is nasty here!  You take 100 damage.
+            L0003: ShowMessage(player, isForwardMove, String160A); // The wind is nasty here!  You take 100 damage.
             L0010: DamagePlayer(player, 0x0064);
             L0035: return; // RETURN;
         }
@@ -1010,7 +1010,7 @@ namespace XPT.Legacy.Maps {
         private void FnMOONWIND_56(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String1647); // The Moon Hollow winds steals 300 Mana!
+            L0003: ShowMessage(player, isForwardMove, String1647); // The Moon Hollow winds steals 300 Mana!
             L0010: AddMana(player, 0xFED4);
             L001D: return; // RETURN;
         }
@@ -1018,7 +1018,7 @@ namespace XPT.Legacy.Maps {
         private void FnVORAWIND_57(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String166E); // A violent whirlwind pounds you, taking half your health!
+            L0003: ShowMessage(player, isForwardMove, String166E); // A violent whirlwind pounds you, taking half your health!
             L0010: ax = GetCurrentHits(player);
             L0017: bx = 0x0002;
             L001A: dx = ax % bx; ax = ax / bx;

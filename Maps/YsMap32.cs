@@ -56,8 +56,8 @@ namespace XPT.Legacy.Maps {
         private void FnVOID_01(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String03FC); // The Ageless Void swallows you whole.
-            L0010: ShowMessage(player, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
+            L0003: ShowMessage(player, isForwardMove, String03FC); // The Ageless Void swallows you whole.
+            L0010: ShowMessage(player, isForwardMove, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
             L001D: DamagePlayer(player, GetMaxHits(player));
             L002E: return; // RETURN;
         }
@@ -65,8 +65,8 @@ namespace XPT.Legacy.Maps {
         private void FnISLEETRN_02(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String046D); // The Island of Eternity sits at the edge of time.
-            L0010: ShowMessage(player, String049E); // Along its edge is the Ageless Void, a vastness where time does not exist.
+            L0003: ShowMessage(player, isForwardMove, String046D); // The Island of Eternity sits at the edge of time.
+            L0010: ShowMessage(player, isForwardMove, String049E); // Along its edge is the Ageless Void, a vastness where time does not exist.
             L001D: return; // RETURN;
         }
 
@@ -85,17 +85,17 @@ namespace XPT.Legacy.Maps {
         private void FnENCWINTR_04(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String04E8); // A titanic Elemental appears!
-            L0010: ShowMessage(player, String0505); // 'You have gotten past Zephyr, Tempest, ZZyzx, Heaven's Fury, and all other winds.  But now you face your greatest challenge!'
-            L001D: ShowMessage(player, String0583); // The sky above you darkens and dark clouds mass together. Tornadoes swirl around you.  Hurricane winds beat against you.  The clouds shine with the endless flash of lightning.
-            L002A: ShowMessage(player, String0632); // The winds rip at your weapons.
+            L0003: ShowMessage(player, isForwardMove, String04E8); // A titanic Elemental appears!
+            L0010: ShowMessage(player, isForwardMove, String0505); // 'You have gotten past Zephyr, Tempest, ZZyzx, Heaven's Fury, and all other winds.  But now you face your greatest challenge!'
+            L001D: ShowMessage(player, isForwardMove, String0583); // The sky above you darkens and dark clouds mass together. Tornadoes swirl around you.  Hurricane winds beat against you.  The clouds shine with the endless flash of lightning.
+            L002A: ShowMessage(player, isForwardMove, String0632); // The winds rip at your weapons.
             L0037: Compare(GetEquippedWeapon(player), 0x0009);
             L0042: if (JumpEqual) goto L0064;
-            L0044: ShowMessage(player, String0651); // Your weapon snaps in the wind!  It is gone.
+            L0044: ShowMessage(player, isForwardMove, String0651); // Your weapon snaps in the wind!  It is gone.
             L0051: RemoveItem(player, GetEquippedWeapon(player));
             L0062: goto L0071;
-            L0064: ShowMessage(player, String067D); // The Wind Sword resists the winds!  It will indeed be a good fight!
-            L0071: ShowMessage(player, String06C0); // You notice En-Li-Kil, the Time Elemental, vanish.
+            L0064: ShowMessage(player, isForwardMove, String067D); // The Wind Sword resists the winds!  It will indeed be a good fight!
+            L0071: ShowMessage(player, isForwardMove, String06C0); // You notice En-Li-Kil, the Time Elemental, vanish.
             L007E: AddEncounter(player, 0x01, 0x19);
             L0090: AddEncounter(player, 0x02, 0x19);
             L00A2: AddEncounter(player, 0x03, 0x19);
@@ -107,7 +107,7 @@ namespace XPT.Legacy.Maps {
         private void FnRAINRED_05(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String06F2); // A streak of Red crosses the Ageless Void.
+            L0003: ShowMessage(player, isForwardMove, String06F2); // A streak of Red crosses the Ageless Void.
             L0010: TeleportParty(player, 0x38, 0x03, 0x97, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -115,7 +115,7 @@ namespace XPT.Legacy.Maps {
         private void FnRAINYEL_06(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String071C); // A streak of Yellow crosses the Ageless Void.
+            L0003: ShowMessage(player, isForwardMove, String071C); // A streak of Yellow crosses the Ageless Void.
             L0010: TeleportParty(player, 0x38, 0x03, 0x87, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -123,7 +123,7 @@ namespace XPT.Legacy.Maps {
         private void FnRAINGRN_07(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0749); // A streak of Green crosses the Ageless Void.
+            L0003: ShowMessage(player, isForwardMove, String0749); // A streak of Green crosses the Ageless Void.
             L0010: TeleportParty(player, 0x38, 0x03, 0x77, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -131,7 +131,7 @@ namespace XPT.Legacy.Maps {
         private void FnRAINBLU_08(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0775); // A streak of Blue crosses the Ageless Void.
+            L0003: ShowMessage(player, isForwardMove, String0775); // A streak of Blue crosses the Ageless Void.
             L0010: TeleportParty(player, 0x38, 0x03, 0x67, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -139,19 +139,19 @@ namespace XPT.Legacy.Maps {
         private void FnENCTIME_09(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String07A0); // Threads of blinding light appear from all directions, bending and weaving into a tight spiral before you.
-            L0010: ShowMessage(player, String080A); // From within the luminary vortex, an ageless elemental appears.
-            L001D: ShowMessage(player, String0849); // 'I am Time, I am En-Li-Kil.  I have seen the birth of the universe and I will mark its death.'
-            L002A: ShowMessage(player, String08A8); // His face turns with age, then glows bright red.
-            L0037: ShowMessage(player, String08D8); // 'Arnakkian summoned me to this realm -- to watch over his soul -- to make him immortal.  He lost his body and his castle for his lust.
-            L0044: ShowMessage(player, String095F); // Mortal!  You have no business in the affairs of Time. I waste myself no more, my Wind Elemental will deal with you.'
+            L0003: ShowMessage(player, isForwardMove, String07A0); // Threads of blinding light appear from all directions, bending and weaving into a tight spiral before you.
+            L0010: ShowMessage(player, isForwardMove, String080A); // From within the luminary vortex, an ageless elemental appears.
+            L001D: ShowMessage(player, isForwardMove, String0849); // 'I am Time, I am En-Li-Kil.  I have seen the birth of the universe and I will mark its death.'
+            L002A: ShowMessage(player, isForwardMove, String08A8); // His face turns with age, then glows bright red.
+            L0037: ShowMessage(player, isForwardMove, String08D8); // 'Arnakkian summoned me to this realm -- to watch over his soul -- to make him immortal.  He lost his body and his castle for his lust.
+            L0044: ShowMessage(player, isForwardMove, String095F); // Mortal!  You have no business in the affairs of Time. I waste myself no more, my Wind Elemental will deal with you.'
             L0051: return; // RETURN;
         }
 
         private void FnTELENW_0A(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String09D4); // You enter another dimension.
+            L0003: ShowMessage(player, isForwardMove, String09D4); // You enter another dimension.
             L0010: TeleportParty(player, 0x39, 0x01, 0x54, 0x01, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -159,7 +159,7 @@ namespace XPT.Legacy.Maps {
         private void FnTELENE_0B(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String09F1); // You enter another dimension.
+            L0003: ShowMessage(player, isForwardMove, String09F1); // You enter another dimension.
             L0010: TeleportParty(player, 0x39, 0x01, 0x4A, 0x00, isForwardMove);
             L002A: return; // RETURN;
         }
@@ -167,7 +167,7 @@ namespace XPT.Legacy.Maps {
         private void FnTELESE_0C(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0A0E); // You enter another dimension.
+            L0003: ShowMessage(player, isForwardMove, String0A0E); // You enter another dimension.
             L0010: TeleportParty(player, 0x39, 0x01, 0xAB, 0x03, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -175,7 +175,7 @@ namespace XPT.Legacy.Maps {
         private void FnTELESW_0D(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0A2B); // You enter another dimension.
+            L0003: ShowMessage(player, isForwardMove, String0A2B); // You enter another dimension.
             L0010: TeleportParty(player, 0x39, 0x01, 0xB5, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }

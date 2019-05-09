@@ -97,7 +97,7 @@ namespace XPT.Legacy.Maps {
         private void FnPIT_01(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String03FC); // You step into a bottomless pit and die.
+            L0003: ShowMessage(player, isForwardMove, String03FC); // You step into a bottomless pit and die.
             L0010: DamagePlayer(player, GetMaxHits(player));
             L0021: return; // RETURN;
         }
@@ -105,7 +105,7 @@ namespace XPT.Legacy.Maps {
         private void FnENCGUARD_02(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0424); // Guardians stand ready.  'We are sworn to defend Arnakkian.'
+            L0003: ShowMessage(player, isForwardMove, String0424); // Guardians stand ready.  'We are sworn to defend Arnakkian.'
             L0010: AddEncounter(player, 0x01, 0x27);
             L0022: AddEncounter(player, 0x02, 0x27);
             L0034: AddEncounter(player, 0x03, 0x27);
@@ -124,7 +124,7 @@ namespace XPT.Legacy.Maps {
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
             L0016: if (JumpEqual) goto L001B;
             L0018: goto L0123;
-            L001B: ShowMessage(player, String0460); // Earth Elemental Andreas rises from his mountainous perch.
+            L001B: ShowMessage(player, isForwardMove, String0460); // Earth Elemental Andreas rises from his mountainous perch.
             L0028: AddEncounter(player, 0x01, 0x04);
             L003A: AddEncounter(player, 0x02, 0x04);
             L004C: AddEncounter(player, 0x03, 0x22);
@@ -146,7 +146,7 @@ namespace XPT.Legacy.Maps {
         private void FnGUARDIAN_04(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String049A); // Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
+            L0003: ShowMessage(player, isForwardMove, String049A); // Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
             L0010: return; // RETURN;
         }
 
@@ -155,85 +155,85 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
             L0016: if (JumpNotEqual) goto L0025;
-            L0018: ShowMessage(player, String04EA); // The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
+            L0018: ShowMessage(player, isForwardMove, String04EA); // The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
             L0025: return; // RETURN;
         }
 
         private void FnPLATA_06(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0555); // The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
-            L0010: ShowMessage(player, String05B8); // A voice whispers 'Only true friendship can bridge the gap of time.'
+            L0003: ShowMessage(player, isForwardMove, String0555); // The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
+            L0010: ShowMessage(player, isForwardMove, String05B8); // A voice whispers 'Only true friendship can bridge the gap of time.'
             L001D: return; // RETURN;
         }
 
         private void FnPLATB_07(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, String05FC); // Quiet solitude fills the chasm.  You are on the other side.
+            ShowMessage(player, isForwardMove, String05FC); // Quiet solitude fills the chasm.  You are on the other side.
             SetFlag(player, FlagTypeDungeon, FlagMedievaLandsCastleParapetsBridge, 1);
         }
 
         private void FnYBOXA_08(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "The wall glows when you touch it. You feel air rushing past you to the East.");
+            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(1, _TileBridgeX);
         }
 
         private void FnYBOXB_09(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "The wall glows when you touch it. You feel air rushing past you to the East.");
+            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(2, _TileBridgeX);
         }
 
         private void FnYBOXC_0A(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "The wall glows when you touch it. You feel air rushing past you to the East.");
+            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(3, _TileBridgeX);
         }
 
         private void FnYBOXD_0B(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "The wall glows when you touch it. You feel air rushing past you to the East.");
+            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(4, _TileBridgeX);
         }
 
         private void FnYBOXE_0C(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "The wall glows when you touch it. You feel air rushing past you to the East.");
+            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(5, _TileBridgeX);
         }
 
         private void FnYBOXF_0D(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "The wall glows when you touch it. You feel air rushing past you to the East.");
+            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(6, _TileBridgeX);
         }
 
         private void FnXBOXG_0E(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "The wall glows when you touch it. You feel air rushing past you to the North.");
+            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 1);
         }
 
         private void FnXBOXH_0F(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "The wall glows when you touch it. You feel air rushing past you to the North.");
+            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 2);
         }
 
         private void FnXBOXI_10(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "The wall glows when you touch it. You feel air rushing past you to the North.");
+            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 3);
         }
 
         private void FnXBOXJ_11(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "The wall glows when you touch it. You feel air rushing past you to the North.");
+            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 4);
         }
 
         private void FnXBOXK_12(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "The wall glows when you touch it. You feel air rushing past you to the North.");
+            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 5);
         }
 
         private void FnXBOXL_13(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "The wall glows when you touch it. You feel air rushing past you to the North.");
+            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 6);
         }
 
         private void FnXBOXM_14(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "The wall glows when you touch it. You feel air rushing past you to the North.");
+            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 7);
         }
 
@@ -247,18 +247,18 @@ namespace XPT.Legacy.Maps {
             foreach (ServerPlayer player in Mobiles) {
                 if (player.Position.X == playerX) {
                     if (playerY == player.Position.Y - 1) {
-                        ShowMessage(player, "A path forms in the air to the North.");
+                        ShowMessage(player, false, "A path forms in the air to the North.");
                     }
                     if (playerY == player.Position.Y + 1) {
-                        ShowMessage(player, "A path forms in the air to the South.");
+                        ShowMessage(player, false, "A path forms in the air to the South.");
                     }
                 }
                 if (player.Position.Y == playerY) {
                     if (playerX == player.Position.X - 1) {
-                        ShowMessage(player, "A path forms in the air to the West.");
+                        ShowMessage(player, false, "A path forms in the air to the West.");
                     }
                     if (playerX == player.Position.X + 1) {
-                        ShowMessage(player, "A path forms in the air to the East.");
+                        ShowMessage(player, false, "A path forms in the air to the East.");
                     }
                 }
             }
@@ -268,14 +268,14 @@ namespace XPT.Legacy.Maps {
             // the first tile is at map position 5, 6
             // this corresponds to tileBridgeX/Y 1/1
             if (_TileBridgeX == x && _TileBridgeY == y) {
-                ShowMessage(player, successMessage);
+                ShowMessage(player, false, successMessage);
                 return;
             }
             if (player.PartyLeader.HasItemByTypeIndex(245)) {
-                ShowMessage(player, "The yellow rainbow gem illuminates a path through the Void.");
+                ShowMessage(player, false, "The yellow rainbow gem illuminates a path through the Void.");
                 return;
             }
-            ShowMessage(player, String0737); // You step over the edge and into oblivion.
+            ShowMessage(player, false, String0737); // You step over the edge and into oblivion.
             DamagePlayer(player, GetMaxHits(player));
         }
 
@@ -474,16 +474,16 @@ namespace XPT.Legacy.Maps {
             L0016: if (JumpEqual) goto L005B;
             L0018: SetWallPassable(player, GetCurrentTile(player), 0x03, 0x01);
             L0032: SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
-            L004C: ShowMessage(player, String1147); // Andreas no longer defends this door.
+            L004C: ShowMessage(player, isForwardMove, String1147); // Andreas no longer defends this door.
             L0059: goto L0068;
-            L005B: ShowMessage(player, String116C); // The Earth Elemental holds power over this door.
+            L005B: ShowMessage(player, isForwardMove, String116C); // The Earth Elemental holds power over this door.
             L0068: return; // RETURN;
         }
 
         private void FnTELEARNK_3E(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String119C); // A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
+            L0003: ShowMessage(player, isForwardMove, String119C); // A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
             L0010: TeleportParty(player, 0x34, 0x02, 0x76, 0x03, isForwardMove);
             L002B: return; // RETURN;
         }

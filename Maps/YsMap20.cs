@@ -122,11 +122,6 @@ namespace XPT.Legacy.Maps {
         private const string String0B29 = "You discover the back entrance to the THIEVES' DEN.";
         private const string String0B5D = "You stumble into the lava pools and die.";
         private const string String0B86 = "Well worn trails greet those who dare travel the windswept corridors of the ZEPHYR.";
-        private const string String0BDA = "Skeletal voices echo...";
-        private const string String0BF2 = "'The four winds have been defeated!!!!";
-        private const string String0C19 = "ARGGG!  We cannot hold you back.  You are indeed a powerful force!!";
-        private const string String0C5D = "Enter the WIND KNIGHTS' TOMB if you dare, but if you have any honor, do not disturb our bones.'";
-        private const string String0CBD = "'Only Forces more powerful than all four winds can open this door!'";
         private const string String0D01 = "Welcome to LABYRINTH ATTIC!";
         private const string String0D1D = "Refresh yourself in the fountains nearby.  But do not take long!";
         private const string String0D5E = "Bands of travelers rest here before exploring the Wind Labyrinths.";
@@ -141,8 +136,6 @@ namespace XPT.Legacy.Maps {
         private const string String0F4C = "'The last of Arnakkian's Knights have been buried.  ";
         private const string String0F81 = "At last I can tell my secret!  I watched as Arnakkian challenged the Time Elemental En-Li-Kil and lost.";
         private const string String0FE9 = "His greed for immortality cursed us all.' -- Morgard, ArchCleric";
-        private const string String102A = "The Four Winds gather strength once again as they throw skeletal bones against the wall.";
-        private const string String1083 = "Monsters form out of the dust and winds.";
         private const string String10AC = "In the midst of sleeping Hobgoblins, a small tempest swirls.  It whispers that one's treasure comes from the directions of the winds.";
         private const string String1132 = "Then the tempest roars into a nightmare and wakens the hobgoblins.";
         private const string String1175 = "Sleeping adventurers are disturbed.";
@@ -194,460 +187,403 @@ namespace XPT.Legacy.Maps {
         private const string String19B7 = "I laughed when you troubled King Cleowyn's ghost!";
         private const string String19E9 = "But now you enter my tunnels!  Go back whence you came!";
         private const string String1A21 = "The Winds will keep these places clean.'";
-        
+
+        // === The Winds / Green Gem Quest ===================================
+        // The player must defeat the four winds in the correct order to open the Wind Knight tomb.
+        // The "winds" are encounter events 09, 0A, 0B, and 0C.
+        // After defeating a wind, the player must turn to face the door to exit the room.
+        // These doors are events 0D, 0E, 0F, and 10, which set MapFlags indicating defeat of a wind.
+        // The values of the flags will be the order in which the winds were defeated.
+        // The MapFlags are 01 (North wind), 02 (East wind), 03 (South wind), and 04 (West wind).
+        // Defeating the winds in any order will open the Wind Knight's Tomb.
+        // The winds must be defeated in a specific order to unlock the Green Gem:
+        //      03==1 (South at F2), 01==2 (North at B2), 02==3 (East at H2) and 04==4 (West at D2).
+        // The wind knight's tomb is filled with little one tile rooms. Most have encounter 1E.
+        // But it also has treasure encounters at 20, 21, 22, and 23. If the winds have been unlocked
+        // in the correct order, these treasure encounters will have treasure and the green gem.
+        // Otherwise they will have alternate treasure. So you have to do this multiple times to see everything.
+
+        private bool AreFourWindsDefeated(ServerPlayer player) {
+            if (GetFlag(player, FlagTypeMap, 0x01) != 0 &&
+                GetFlag(player, FlagTypeMap, 0x02) != 0 &&
+                GetFlag(player, FlagTypeMap, 0x03) != 0 &&
+                GetFlag(player, FlagTypeMap, 0x04) != 0) {
+                return true;
+            }
+            return false;
+        }
+
+        private bool AreFourWindsDefeatedInCorrectOrder(ServerPlayer player) {
+            if (GetFlag(player, FlagTypeMap, 0x01) == 2 &&
+                GetFlag(player, FlagTypeMap, 0x02) == 3 &&
+                GetFlag(player, FlagTypeMap, 0x03) == 1 &&
+                GetFlag(player, FlagTypeMap, 0x04) == 4) {
+                return true;
+            }
+            return false;
+        }
+
         // === Functions ================================================
         private void FnVOID_01(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String03FC); // You step into nothingness...
-            L0010: ShowMessage(player, String0419); //                                          ...and die!
-            L001D: DamagePlayer(player, GetMaxHits(player));
-            L002E: return; // RETURN;
+            ShowMessage(player, isForwardMove, String03FC); // You step into nothingness...
+            ShowMessage(player, isForwardMove, String0419); //                                          ...and die!
+            DamagePlayer(player, GetMaxHits(player));
         }
 
         private void FnMOONHOLO_02(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String044E); // Cast in shadowy blue light, the tunnels of MOON HOLLOW are a nexus to more dangerous locations.
-            L0010: TeleportParty(player, 0x34, 0x01, 0x03, 0x01, isForwardMove);
-            L002B: return; // RETURN;
+            ShowMessage(player, isForwardMove, String044E); // Cast in shadowy blue light, the tunnels of MOON HOLLOW are a nexus to more dangerous locations.
+            TeleportParty(player, 0x34, 0x01, 0x03, 0x01, isForwardMove);
         }
 
         private void FnZEPHYR_03(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String04AE); // Well worn trails greet those who dare travel the corridors of the ZEPHYR.
-            L0010: TeleportParty(player, 0x34, 0x01, 0xC3, 0x03, isForwardMove);
-            L002B: return; // RETURN;
+            ShowMessage(player, isForwardMove, String04AE); // Well worn trails greet those who dare travel the corridors of the ZEPHYR.
+            TeleportParty(player, 0x34, 0x01, 0xC3, 0x03, isForwardMove);
         }
 
         private void FnZZYZX_04(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String04F8); // Dry desert winds parch your throat as you peer down the winding passages leading to ZZYZX.
-            L0010: TeleportParty(player, 0x34, 0x01, 0x6D, 0x00, isForwardMove);
-            L002A: return; // RETURN;
+            ShowMessage(player, isForwardMove, String04F8); // Dry desert winds parch your throat as you peer down the winding passages leading to ZZYZX.
+            TeleportParty(player, 0x34, 0x01, 0x6D, 0x00, isForwardMove);
         }
 
         private void FnDRGNLEAP_05(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0553); // A brave step..
-            L0010: ShowMessage(player, String0562); // Death does not greet you now, but it will perhaps when you meet the DRAGONS OF THE LEAP.
-            L001D: TeleportParty(player, 0x34, 0x01, 0xCB, 0x01, isForwardMove);
-            L0038: return; // RETURN;
+            ShowMessage(player, isForwardMove, String0553); // A brave step..
+            ShowMessage(player, isForwardMove, String0562); // Death does not greet you now, but it will perhaps when you meet the DRAGONS OF THE LEAP.
+            TeleportParty(player, 0x34, 0x01, 0xCB, 0x01, isForwardMove);
         }
 
         private void FnTORBRIAR_06(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String05BB); // You drop into TORBRIAR'S TREASURE.
-            L0010: ShowMessage(player, String05DE); // An inscription on the wall reads...
-            L001D: ShowMessage(player, String0602); // 'We, the Knights of Torbriar, build this shrine to celebrate WarMaster Torbriar's stunning victory over the armies of Ogres and Trolls.'
-            L002A: TeleportParty(player, 0x34, 0x01, 0x35, 0x02, isForwardMove);
-            L0045: return; // RETURN;
+            ShowMessage(player, isForwardMove, String05BB); // You drop into TORBRIAR'S TREASURE.
+            ShowMessage(player, isForwardMove, String05DE); // An inscription on the wall reads...
+            ShowMessage(player, isForwardMove, String0602); // 'We, the Knights of Torbriar, build this shrine to celebrate WarMaster Torbriar's stunning victory over the armies of Ogres and Trolls.'
+            TeleportParty(player, 0x34, 0x01, 0x35, 0x02, isForwardMove);
         }
 
         private void FnMOONHOLO_07(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String068B); // You land squarely in the center of MOON HOLLOW!
-            L0010: ShowMessage(player, String06BB); // The howling of winds screams harsh against the blue light of a fool moon.
-            L001D: TeleportParty(player, 0x34, 0x01, 0x73, 0x02, isForwardMove);
-            L0038: return; // RETURN;
+            ShowMessage(player, isForwardMove, String068B); // You land squarely in the center of MOON HOLLOW!
+            ShowMessage(player, isForwardMove, String06BB); // The howling of winds screams harsh against the blue light of a fool moon.
+            TeleportParty(player, 0x34, 0x01, 0x73, 0x02, isForwardMove);
         }
 
         private void FnMAGEOVRL_08(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0705); // You drop into MAGES OVERLOOK.
-            L0010: ShowMessage(player, String0723); // Mages found this plateau useful for looking out over the labyrinth denizens following the great cataclysm.
-            L001D: TeleportParty(player, 0x34, 0x01, 0x7A, 0x03, isForwardMove);
-            L0038: return; // RETURN;
+            ShowMessage(player, isForwardMove, String0705); // You drop into MAGES OVERLOOK.
+            ShowMessage(player, isForwardMove, String0723); // Mages found this plateau useful for looking out over the labyrinth denizens following the great cataclysm.
+            TeleportParty(player, 0x34, 0x01, 0x7A, 0x03, isForwardMove);
         }
 
         private void FnENCWINDN_09(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String078E); // The North Wind blows a wintry chill.
-            L0010: AddEncounter(player, 0x01, 0x1B);
-            L0022: AddEncounter(player, 0x02, 0x1B);
-            L0034: AddEncounter(player, 0x03, 0x1B);
-            L0046: AddEncounter(player, 0x05, 0x19);
-            L0058: AddEncounter(player, 0x06, 0x1A);
-            L006A: return; // RETURN;
+            ShowMessage(player, isForwardMove, String078E); // The North Wind blows a wintry chill.
+            AddEncounter(player, 0x01, 0x1B);
+            AddEncounter(player, 0x02, 0x1B);
+            AddEncounter(player, 0x03, 0x1B);
+            AddEncounter(player, 0x05, 0x19);
+            AddEncounter(player, 0x06, 0x1A);
         }
 
         private void FnENCWINDE_0A(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String07B3); // Warriors of the East Wind challenge you.
-            L0010: AddEncounter(player, 0x01, 0x11);
-            L0022: AddEncounter(player, 0x02, 0x11);
-            L0034: AddEncounter(player, 0x04, 0x11);
-            L0046: AddEncounter(player, 0x05, 0x19);
-            L0058: AddEncounter(player, 0x06, 0x1A);
-            L006A: return; // RETURN;
+            ShowMessage(player, isForwardMove, String07B3); // Warriors of the East Wind challenge you.
+            AddEncounter(player, 0x01, 0x11);
+            AddEncounter(player, 0x02, 0x11);
+            AddEncounter(player, 0x04, 0x11);
+            AddEncounter(player, 0x05, 0x19);
+            AddEncounter(player, 0x06, 0x1A);
         }
 
         private void FnENCWINDS_0B(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String07DC); // Monsters materialize from the South Wind.
-            L0010: AddEncounter(player, 0x01, 0x1C);
-            L0022: AddEncounter(player, 0x02, 0x1C);
-            L0034: AddEncounter(player, 0x03, 0x1C);
-            L0046: AddEncounter(player, 0x05, 0x19);
-            L0058: AddEncounter(player, 0x06, 0x1A);
-            L006A: return; // RETURN;
+            ShowMessage(player, isForwardMove, String07DC); // Monsters materialize from the South Wind.
+            AddEncounter(player, 0x01, 0x1C);
+            AddEncounter(player, 0x02, 0x1C);
+            AddEncounter(player, 0x03, 0x1C);
+            AddEncounter(player, 0x05, 0x19);
+            AddEncounter(player, 0x06, 0x1A);
         }
 
         private void FnENCWINDW_0C(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0806); // The fury of the West Wind is upon you.
-            L0010: AddEncounter(player, 0x01, 0x1D);
-            L0022: AddEncounter(player, 0x02, 0x1D);
-            L0034: AddEncounter(player, 0x04, 0x1D);
-            L0046: AddEncounter(player, 0x05, 0x1A);
-            L0058: AddEncounter(player, 0x06, 0x19);
-            L006A: return; // RETURN;
+            ShowMessage(player, isForwardMove, String0806); // The fury of the West Wind is upon you.
+            AddEncounter(player, 0x01, 0x1D);
+            AddEncounter(player, 0x02, 0x1D);
+            AddEncounter(player, 0x04, 0x1D);
+            AddEncounter(player, 0x05, 0x1A);
+            AddEncounter(player, 0x06, 0x19);
         }
 
+        /// <summary>
+        /// MapFlags 1-4 are the order in which the player has bested the winds.
+        /// This sets those variables.
+        /// </summary>
         private void DoDefeatWind(ServerPlayer player, int windIndex, string windName) {
-            int countAlreadyDefeated = 
-                GetFlag(player, FlagTypeMap, 0x01) + GetFlag(player, FlagTypeMap, 0x02) + 
-                GetFlag(player, FlagTypeMap, 0x03) + GetFlag(player, FlagTypeMap, 0x04);
+            int countAlreadyDefeated =
+                (GetFlag(player, FlagTypeMap, 0x01) == 0 ? 0 : 1) +
+                (GetFlag(player, FlagTypeMap, 0x02) == 0 ? 0 : 1) +
+                (GetFlag(player, FlagTypeMap, 0x03) == 0 ? 0 : 1) +
+                (GetFlag(player, FlagTypeMap, 0x04) == 0 ? 0 : 1);
             if (countAlreadyDefeated == 0) {
-                ShowMessage(player, $"The {windName} is the first to be defeated.");
+                ShowMessage(player, false, $"The {windName} is the first to be defeated.");
             }
-            ShowMessage(player, $"The {windName} has been quieted.");
-            SetFlag(player, FlagTypeMap, windIndex, 0x01);
+            else {
+                ShowMessage(player, false, $"The {windName} has been quieted.");
+            }
+            if (GetFlag(player, FlagTypeMap, windIndex) == 0) {
+                SetFlag(player, FlagTypeMap, windIndex, (byte)(countAlreadyDefeated + 1));
+            }
             int countNowDefeated =
-                GetFlag(player, FlagTypeMap, 0x01) + GetFlag(player, FlagTypeMap, 0x02) +
-                GetFlag(player, FlagTypeMap, 0x03) + GetFlag(player, FlagTypeMap, 0x04);
+                (GetFlag(player, FlagTypeMap, 0x01) == 0 ? 0 : 1) +
+                (GetFlag(player, FlagTypeMap, 0x02) == 0 ? 0 : 1) +
+                (GetFlag(player, FlagTypeMap, 0x03) == 0 ? 0 : 1) +
+                (GetFlag(player, FlagTypeMap, 0x04) == 0 ? 0 : 1);
             if (countNowDefeated == 4) {
-                ShowMessage(player, "A stillness fills the labryinth.");
+                ShowMessage(player, false, "A stillness fills the labryinth.");
             }
         }
 
+        /// <summary>
+        /// North wind enconter.
+        /// </summary>
         private void FnFLGWINDN_0D(ServerPlayer player, bool isForwardMove) {
             DoDefeatWind(player, 0x01, "North Wind");
         }
 
+        /// <summary>
+        /// East wind encounter.
+        /// </summary>
         private void FnFLGWINDE_0E(ServerPlayer player, bool isForwardMove) {
             DoDefeatWind(player, 0x02, "East Wind");
         }
 
+        /// <summary>
+        /// South wind encounter.
+        /// </summary>
         private void FnFLGWINDS_0F(ServerPlayer player, bool isForwardMove) {
             DoDefeatWind(player, 0x03, "South Wind");
         }
 
+        /// <summary>
+        /// West wind encounter.
+        /// </summary>
         private void FnFLGWINDW_10(ServerPlayer player, bool isForwardMove) {
             DoDefeatWind(player, 0x04, "West Wind");
         }
 
         private void FnEXPRESS_11(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagLabyrinthICastleGateTeleport));
-            L0016: if (JumpEqual) goto L0046;
-            L0018: ShowMessage(player, String095D); // This wall is the teleport to CASTLEGATE.
-            L0025: TeleportParty(player, 0x36, 0x01, GetCurrentTile(player), 0x03, isForwardMove);
-            L0044: goto L0053;
-            L0046: ShowMessage(player, String0986); // There is something strange about this wall.
-            L0053: return; // RETURN;
+            if (GetFlag(player, FlagTypeDungeon, FlagLabyrinthICastleGateTeleport) == 0) {
+                ShowMessage(player, isForwardMove, String0986); // There is something strange about this wall.
+                return;
+            }
+            ShowMessage(player, isForwardMove, String095D); // This wall is the teleport to CASTLEGATE.
+            TeleportParty(player, 0x36, 0x01, GetCurrentTile(player), 0x03, isForwardMove);
         }
 
         private void FnTXTLABY_12(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String09B2); // You enter the Labyrinths of the Winds.
-            L0010: ShowMessage(player, String09D9); // A network of tunnels seems to wind its way past pits and lava.
-            L001D: return; // RETURN;
+            ShowMessage(player, isForwardMove, String09B2); // You enter the Labyrinths of the Winds.
+            ShowMessage(player, isForwardMove, String09D9); // A network of tunnels seems to wind its way past pits and lava.
         }
 
         private void FnWSTRES_13(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0A18); // Wyn's Fountain is old and cracked.
-            L0010: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagModAttr_WynFountain));
-            L0023: if (JumpNotEqual) goto L0082;
-            L0025: SetFlag(player, FlagTypeDungeon, FlagModAttr_WynFountain, 0x01);
-            L003A: ShowPortrait(player, 0x0042);
-            L0047: ModifyAttribute(player, 0x03, 0x0003);
-            L0059: ShowMessage(player, String0A3B); // A small puddle of magic water sits at the bottom.
-            L0066: ShowMessage(player, String0A6D); // It seems to instantly evaporate into a large steam cloud.
-            L0073: ShowMessage(player, String0AA7); // You feel you may be quicker in a fight.
-            L0080: goto L008F;
-            L0082: ShowMessage(player, String0ACF); // The basin is dust dry.
-            L008F: return; // RETURN;
+            ShowMessage(player, isForwardMove, String0A18); // Wyn's Fountain is old and cracked.
+            if (GetFlag(player, FlagTypeDungeon, FlagModAttr_WynFountain) == 0) {
+                SetFlag(player, FlagTypeDungeon, FlagModAttr_WynFountain, 0x01);
+                ShowPortrait(player, 0x0042);
+                ModifyAttribute(player, 0x03, 0x0003);
+                ShowMessage(player, isForwardMove, String0A3B); // A small puddle of magic water sits at the bottom.
+                ShowMessage(player, isForwardMove, String0A6D); // It seems to instantly evaporate into a large steam cloud.
+                ShowMessage(player, isForwardMove, String0AA7); // You feel you may be quicker in a fight.
+                return;
+            }
+            L0082: ShowMessage(player, isForwardMove, String0ACF); // The basin is dust dry.
         }
 
         private void FnMOUNTAIN_14(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x01, 0x01, 0x00, 0x33, isForwardMove);
-            L001D: return; // RETURN;
+            TeleportParty(player, 0x01, 0x01, 0x00, 0x33, isForwardMove);
         }
 
         private void FnTXTMNTN_15(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0AE6); // A twisting passage to the east offers a quick way to the entrance.
-            L0010: return; // RETURN;
+            ShowMessage(player, isForwardMove, String0AE6); // A twisting passage to the east offers a quick way to the entrance.
         }
 
         private void FnTHIEVMAZ_16(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0B29); // You discover the back entrance to the THIEVES' DEN.
-            L0010: TeleportParty(player, 0x05, 0x01, 0xBE, 0x01, isForwardMove);
-            L002B: return; // RETURN;
+            ShowMessage(player, isForwardMove, String0B29); // You discover the back entrance to the THIEVES' DEN.
+            TeleportParty(player, 0x05, 0x01, 0xBE, 0x01, isForwardMove);
         }
 
         private void FnLAVA_17(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0B5D); // You stumble into the lava pools and die.
-            L0010: DamagePlayer(player, GetMaxHits(player));
-            L0021: return; // RETURN;
+            ShowMessage(player, isForwardMove, String0B5D); // You stumble into the lava pools and die.
+            DamagePlayer(player, GetMaxHits(player));
         }
 
         private void FnZEPHYRB_18(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0B86); // Well worn trails greet those who dare travel the windswept corridors of the ZEPHYR.
-            L0010: TeleportParty(player, 0x34, 0x01, 0x6E, 0x01, isForwardMove);
-            L002B: return; // RETURN;
+            ShowMessage(player, isForwardMove, String0B86); // Well worn trails greet those who dare travel the windswept corridors of the ZEPHYR.
+            TeleportParty(player, 0x34, 0x01, 0x6E, 0x01, isForwardMove);
         }
 
         private void FnSDOORWKT_19(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0BDA); // Skeletal voices echo...
-            L0010: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
-            L0023: if (JumpNotEqual) goto L0028;
-            L0025: goto L00D7;
-            L0028: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x02));
-            L003B: if (JumpNotEqual) goto L0040;
-            L003D: goto L00D7;
-            L0040: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x03));
-            L0053: if (JumpNotEqual) goto L0058;
-            L0055: goto L00D7;
-            L0058: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x04));
-            L006B: if (JumpEqual) goto L00D7;
-            L006D: ShowPortrait(player, 0x000A);
-            L007A: ShowMessage(player, String0BF2); // 'The four winds have been defeated!!!!
-            L0087: ShowMessage(player, String0C19); // ARGGG!  We cannot hold you back.  You are indeed a powerful force!!
-            L0094: ShowMessage(player, String0C5D); // Enter the WIND KNIGHTS' TOMB if you dare, but if you have any honor, do not disturb our bones.'
-            L00A1: SetWallPassable(player, GetCurrentTile(player), 0x03, 0x01);
-            L00BB: SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
-            L00D5: goto L00E4;
-            L00D7: ShowMessage(player, String0CBD); // 'Only Forces more powerful than all four winds can open this door!'
-            L00E4: return; // RETURN;
+            ShowMessage(player, isForwardMove, "Skeletal voices echo...");
+            ShowPortrait(player, 0x000A);
+            if (AreFourWindsDefeated(player)) {
+                ShowMessage(player, isForwardMove, "'You have defeated the four winds! We cannot hold you back. Enter the WIND KNIGHTS' TOMB if you dare.");
+                SetWallPassable(player, GetCurrentTile(player), 0x03, 0x01);
+                SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
+            }
+            else {
+                ShowMessage(player, isForwardMove, "'Only Forces more powerful than the four winds can open this door!'");
+            }
         }
 
         private void FnTXTCAMP_1A(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowPortrait(player, 0x0028);
-            L0010: ShowMessage(player, String0D01); // Welcome to LABYRINTH ATTIC!
-            L001D: ShowMessage(player, String0D1D); // Refresh yourself in the fountains nearby.  But do not take long!
-            L002A: ShowMessage(player, String0D5E); // Bands of travelers rest here before exploring the Wind Labyrinths.
-            L0037: return; // RETURN;
+            ShowPortrait(player, 0x0028);
+            ShowMessage(player, isForwardMove, String0D01); // Welcome to LABYRINTH ATTIC!
+            ShowMessage(player, isForwardMove, String0D1D); // Refresh yourself in the fountains nearby.  But do not take long!
+            ShowMessage(player, isForwardMove, String0D5E); // Bands of travelers rest here before exploring the Wind Labyrinths.
         }
 
         private void FnKEYDOORW_1B(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, 0xDD, 0xDD);
-            L0016: if (JumpEqual) goto L0066;
-            L0018: SetWallPassable(player, GetCurrentTile(player), 0x00, 0x01);
-            L0031: SetWallItem(player, 0x01, GetCurrentTile(player), 0x00);
-            L004A: ShowMessage(player, String0DA1); // The door is unlocked.
-            L0057: ShowMessage(player, String0DB7); // The soft breezes seem to whisper - 'Beware, those who seek the treasure of WIND KNIGHTS' TOMB.'
-            L0064: goto L0073;
-            L0066: ShowMessage(player, String0E17); // Winds pound furiously at the door.
-            L0073: return; // RETURN;
+            if (HasUsedItem(player, 0xDD, 0xDD) == 1) {
+                SetWallPassable(player, GetCurrentTile(player), 0x00, 0x01);
+                SetWallItem(player, 0x01, GetCurrentTile(player), 0x00);
+                ShowMessage(player, isForwardMove, String0DA1); // The door is unlocked.
+                ShowMessage(player, isForwardMove, String0DB7); // The soft breezes seem to whisper - 'Beware, those who seek the treasure of WIND KNIGHTS' TOMB.'
+                return;
+            }
+            ShowMessage(player, isForwardMove, String0E17); // Winds pound furiously at the door.
         }
 
         private void FnTXTWYNS_1C(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0E3A); // The feeble survivors of Arnakkian's Experiment harbored hatred toward those who found home in the WYN SANCTUARY.
-            L0010: return; // RETURN;
+            ShowMessage(player, isForwardMove, String0E3A); // The feeble survivors of Arnakkian's Experiment harbored hatred toward those who found home in the WYN SANCTUARY.
         }
 
         private void FnPITINFO_1D(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowPortrait(player, 0x002A);
-            L0010: ShowMessage(player, String0EAB); // A Gremlin Cleric Appears
-            L001D: ShowMessage(player, String0EC4); // 'Take my advice - Jump only into the pits with floors beneath them.
-            L002A: ShowMessage(player, String0F08); // That is the way of the Labyrinth.'
-            L0037: return; // RETURN;
+            ShowPortrait(player, 0x002A);
+            ShowMessage(player, isForwardMove, String0EAB); // A Gremlin Cleric Appears
+            ShowMessage(player, isForwardMove, String0EC4); // 'Take my advice - Jump only into the pits with floors beneath them.
+            ShowMessage(player, isForwardMove, String0F08); // That is the way of the Labyrinth.'
         }
 
         private void FnWKTENCA_1E(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x15);
-            L0015: AddEncounter(player, 0x02, 0x15);
-            L0027: AddEncounter(player, 0x05, 0x1E);
-            L0039: AddEncounter(player, 0x06, 0x1E);
-            L004B: return; // RETURN;
+            AddEncounter(player, 0x01, 0x15);
+            AddEncounter(player, 0x02, 0x15);
+            AddEncounter(player, 0x05, 0x1E);
+            AddEncounter(player, 0x06, 0x1E);
         }
 
         private void FnWKTTEXT_1F(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0F2B); // A message is etched in stone -- 
-            L0010: ShowMessage(player, String0F4C); // 'The last of Arnakkian's Knights have been buried.  
-            L001D: ShowMessage(player, String0F81); // At last I can tell my secret!  I watched as Arnakkian challenged the Time Elemental En-Li-Kil and lost.
-            L002A: ShowMessage(player, String0FE9); // His greed for immortality cursed us all.' -- Morgard, ArchCleric
-            L0037: return; // RETURN;
+            ShowMessage(player, isForwardMove, String0F2B); // A message is etched in stone -- 
+            ShowMessage(player, isForwardMove, String0F4C); // 'The last of Arnakkian's Knights have been buried.  
+            ShowMessage(player, isForwardMove, String0F81); // At last I can tell my secret!  I watched as Arnakkian challenged the Time Elemental En-Li-Kil and lost.
+            ShowMessage(player, isForwardMove, String0FE9); // His greed for immortality cursed us all.' -- Morgard, ArchCleric
         }
 
         private void FnWKTENCC_20(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si, di);
-            L0005: di = 0;
-            L0007: si = 0;
-            L0009: AddEncounter(player, 0x01, 0x15);
-            L001B: AddEncounter(player, 0x02, 0x15);
-            L002D: AddEncounter(player, 0x03, 0x0D);
-            L003F: AddEncounter(player, 0x04, 0x0D);
-            L0051: AddEncounter(player, 0x05, 0x1E);
-            L0063: AddEncounter(player, 0x06, 0x1E);
-            L0075: Compare(GetFlag(player, FlagTypeMap, 0x01), 0x0001);
-            L0089: if (JumpNotEqual) goto L008E;
-            L008B: di = 0x000E;
-            L008E: Compare(GetFlag(player, FlagTypeMap, 0x02), 0x0002);
-            L00A2: if (JumpNotEqual) goto L00A7;
-            L00A4: si = 0x005B;
-            L00A7: Compare(GetFlag(player, FlagTypeMap, 0x03), 0x0002);
-            L00BB: if (JumpNotEqual) goto L00C0;
-            L00BD: si = 0x006F;
-            L00C0: AddTreasure(player, 0x07D0, 0x00, 0x00, si, di, 0xCF);
-            L00DC: return; // RETURN (restoring si);
+            AddEncounter(player, 0x01, 0x15);
+            AddEncounter(player, 0x02, 0x15);
+            AddEncounter(player, 0x03, 0x0D);
+            AddEncounter(player, 0x04, 0x0D);
+            AddEncounter(player, 0x05, 0x1E);
+            AddEncounter(player, 0x06, 0x1E);
+            if (AreFourWindsDefeatedInCorrectOrder(player)) {
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xCF); // Nothing extra.
+            }
+            else if (GetFlag(player, FlagTypeMap, 0x01) == 0x0001) { // did North first
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x0E, 0xCF); // Sword of Storms	
+            }
+            else if (GetFlag(player, FlagTypeMap, 0x03) == 0x0001) { // did East first
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x5B, 0xCF); // Shield of Silence	
+            }
+            else { // did West first.
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x6F, 0xCF); // Helm of Mercy	
+            }
         }
 
         private void FnWKTENCD_21(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si, di);
-            L0005: di = 0;
-            L0007: si = 0;
-            L0009: AddEncounter(player, 0x01, 0x1E);
-            L001B: AddEncounter(player, 0x02, 0x1E);
-            L002D: AddEncounter(player, 0x05, 0x0D);
-            L003F: AddEncounter(player, 0x06, 0x0D);
-            L0051: Compare(GetFlag(player, FlagTypeMap, 0x01), 0x0002);
-            L0065: if (JumpNotEqual) goto L006A;
-            L0067: di = 0x0022;
-            L006A: Compare(GetFlag(player, FlagTypeMap, 0x02), 0x0004);
-            L007E: if (JumpNotEqual) goto L0083;
-            L0080: si = 0x0058;
-            L0083: Compare(GetFlag(player, FlagTypeMap, 0x03), 0x0004);
-            L0097: if (JumpNotEqual) goto L009C;
-            L0099: si = 0x006D;
-            L009C: AddTreasure(player, 0x07D0, 0x00, 0x00, si, di, 0xCF);
-            L00B8: return; // RETURN (restoring si);
+            AddEncounter(player, 0x01, 0x1E);
+            AddEncounter(player, 0x02, 0x1E);
+            AddEncounter(player, 0x05, 0x0D);
+            AddEncounter(player, 0x06, 0x0D);
+            if (AreFourWindsDefeatedInCorrectOrder(player)) {
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xCF); // Nothing extra.
+            }
+            else if (GetFlag(player, FlagTypeMap, 0x01) == 0x0001) { // did North first
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x22, 0xCF); // Harmony Hammer	
+            }
+            else if (GetFlag(player, FlagTypeMap, 0x03) == 0x0001) { // did East first
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x58, 0xCF); // Shield of Sanity
+            }
+            else { // did West first.
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x6D, 0xCF); // Sallet of Victory
+            }
         }
 
         private void FnWKTENCE_22(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si, di);
-            L0005: di = 0;
-            L0007: si = 0;
-            L0009: ShowMessage(player, String102A); // The Four Winds gather strength once again as they throw skeletal bones against the wall.
-            L0016: ShowMessage(player, String1083); // Monsters form out of the dust and winds.
-            L0023: AddEncounter(player, 0x01, 0x14);
-            L0035: AddEncounter(player, 0x02, 0x1B);
-            L0047: AddEncounter(player, 0x03, 0x1C);
-            L0059: AddEncounter(player, 0x04, 0x1D);
-            L006B: AddEncounter(player, 0x05, 0x1E);
-            L007D: AddEncounter(player, 0x06, 0x1E);
-            L008F: Compare(GetFlag(player, FlagTypeMap, 0x01), 0x0003);
-            L00A3: if (JumpNotEqual) goto L00A8;
-            L00A5: di = 0x0029;
-            L00A8: Compare(GetFlag(player, FlagTypeMap, 0x02), 0x0001);
-            L00BC: if (JumpNotEqual) goto L00C1;
-            L00BE: si = 0x0086;
-            L00C1: Compare(GetFlag(player, FlagTypeMap, 0x03), 0x0001);
-            L00D5: if (JumpNotEqual) goto L0106;
-            L00D7: Compare(GetFlag(player, FlagTypeMap, 0x01), 0x0002);
-            L00EB: if (JumpNotEqual) goto L0106;
-            L00ED: Compare(GetFlag(player, FlagTypeMap, 0x02), 0x0003);
-            L0101: if (JumpNotEqual) goto L0106;
-            L0103: si = 0x00F6;
-            L0106: AddTreasure(player, 0x07D0, 0x00, 0x00, si, di, 0xCF);
-            L0122: return; // RETURN (restoring si);
+            AddEncounter(player, 0x01, 0x14);
+            AddEncounter(player, 0x02, 0x1B);
+            AddEncounter(player, 0x03, 0x1C);
+            AddEncounter(player, 0x04, 0x1D);
+            AddEncounter(player, 0x05, 0x1E);
+            AddEncounter(player, 0x06, 0x1E);
+            ShowMessage(player, isForwardMove, "The WIND KNIGHTS rise from their tombs.");
+            if (AreFourWindsDefeatedInCorrectOrder(player)) {
+                ShowMessage(player, isForwardMove, "You see a flash of green and then the dead are upon you.");
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xF6, 0xCF); // Green Gem
+            }
+            else if (GetFlag(player, FlagTypeMap, 0x01) == 0x0001) { // did North first
+                ShowMessage(player, isForwardMove, "You feel as if something is out of order, but that thought is shoved aside as the dead are upon you.");
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x29, 0xCF); // Mace of Chivalry	
+            }
+            else if (GetFlag(player, FlagTypeMap, 0x03) == 0x0001) { // did East first
+                ShowMessage(player, isForwardMove, "You feel as if something is out of order, but that thought is shoved aside as the dead are upon you.");
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x29, 0xCF); // War Harness
+            }
+            else { // did West first.
+                ShowMessage(player, isForwardMove, "You feel as if something is out of order, but that thought is shoved aside as the dead are upon you.");
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xCF); // Nothing extra.
+            }
         }
 
         private void FnWKTENCF_23(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN (saving si, di);
-            L0005: di = 0;
-            L0007: si = 0;
-            L0009: AddEncounter(player, 0x01, 0x1E);
-            L001B: AddEncounter(player, 0x02, 0x1E);
-            L002D: AddEncounter(player, 0x03, 0x1E);
-            L003F: AddEncounter(player, 0x04, 0x15);
-            L0051: AddEncounter(player, 0x05, 0x0C);
-            L0063: Compare(GetFlag(player, FlagTypeMap, 0x01), 0x0004);
-            L0077: if (JumpNotEqual) goto L007C;
-            L0079: di = 0x0031;
-            L007C: Compare(GetFlag(player, FlagTypeMap, 0x02), 0x0003);
-            L0090: if (JumpNotEqual) goto L0095;
-            L0092: si = 0x005A;
-            L0095: Compare(GetFlag(player, FlagTypeMap, 0x03), 0x0003);
-            L00A9: if (JumpNotEqual) goto L00AE;
-            L00AB: si = 0x0068;
-            L00AE: AddTreasure(player, 0x07D0, 0x00, 0x00, si, di, 0xCF);
-            L00CA: return; // RETURN (restoring si);
+            AddEncounter(player, 0x01, 0x1E);
+            AddEncounter(player, 0x02, 0x1E);
+            AddEncounter(player, 0x03, 0x1E);
+            AddEncounter(player, 0x04, 0x15);
+            AddEncounter(player, 0x05, 0x0C);
+            if (AreFourWindsDefeatedInCorrectOrder(player)) {
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xCF); // Nothing extra.
+            }
+            else if (GetFlag(player, FlagTypeMap, 0x01) == 0x0001) { // did North first
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x31, 0xCF); // Quarterstaff of Terror
+            }
+            else if (GetFlag(player, FlagTypeMap, 0x03) == 0x0001) { // did East first
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x5A, 0xCF); // Rotund Shield
+            }
+            else { // did West first.
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x68, 0xCF); // Headmail of Health
+            }
         }
 
         private void FnWKTENCG_24(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String10AC); // In the midst of sleeping Hobgoblins, a small tempest swirls.  It whispers that one's treasure comes from the directions of the winds.
-            L0010: ShowMessage(player, String1132); // Then the tempest roars into a nightmare and wakens the hobgoblins.
-            L001D: AddEncounter(player, 0x01, 0x22);
-            L002F: AddEncounter(player, 0x02, 0x22);
-            L0041: AddEncounter(player, 0x05, 0x0D);
-            L0053: AddEncounter(player, 0x06, 0x0D);
-            L0065: return; // RETURN;
+            ShowMessage(player, isForwardMove, String10AC); // In the midst of sleeping Hobgoblins, a small tempest swirls.  It whispers that one's treasure comes from the directions of the winds.
+            ShowMessage(player, isForwardMove, String1132); // Then the tempest roars into a nightmare and wakens the hobgoblins.
+            AddEncounter(player, 0x01, 0x22);
+            AddEncounter(player, 0x02, 0x22);
+            AddEncounter(player, 0x05, 0x0D);
+            AddEncounter(player, 0x06, 0x0D);
         }
 
         private void FnWKTENCH_25(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String1175); // Sleeping adventurers are disturbed.
-            L0010: AddEncounter(player, 0x01, 0x25);
-            L0022: AddEncounter(player, 0x02, 0x26);
-            L0034: AddEncounter(player, 0x05, 0x02);
-            L0046: AddEncounter(player, 0x06, 0x03);
-            L0058: return; // RETURN;
+            ShowMessage(player, isForwardMove, String1175); // Sleeping adventurers are disturbed.
+            AddEncounter(player, 0x01, 0x25);
+            AddEncounter(player, 0x02, 0x26);
+            AddEncounter(player, 0x05, 0x02);
+            AddEncounter(player, 0x06, 0x03);
         }
 
         private void FnWKTENCI_26(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String1199); // A dark corner hides an unlikely mix of beasts.
-            L0010: AddEncounter(player, 0x01, 0x1B);
-            L0022: AddEncounter(player, 0x02, 0x1B);
-            L0034: AddEncounter(player, 0x05, 0x21);
-            L0046: AddEncounter(player, 0x06, 0x21);
-            L0058: return; // RETURN;
+            ShowMessage(player, isForwardMove, String1199); // A dark corner hides an unlikely mix of beasts.
+            AddEncounter(player, 0x01, 0x1B);
+            AddEncounter(player, 0x02, 0x1B);
+            AddEncounter(player, 0x05, 0x21);
+            AddEncounter(player, 0x06, 0x21);
         }
 
         private void FnSIRFLAG_27(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String11C8); // Sirocco's powers no longer hold the Sirocco Door.
-            L0010: SetFlag(player, FlagTypeDungeon, FlagLabyrinthISiroccoDoorUnlocked, 0x01);
-            L0025: return; // RETURN;
+            ShowMessage(player, isForwardMove, String11C8); // Sirocco's powers no longer hold the Sirocco Door.
+            SetFlag(player, FlagTypeDungeon, FlagLabyrinthISiroccoDoorUnlocked, 0x01);
         }
 
         private void FnSIRDOOR_28(ServerPlayer player, bool isForwardMove) {
@@ -657,24 +593,21 @@ namespace XPT.Legacy.Maps {
             L0016: if (JumpEqual) goto L005B;
             L0018: SetWallPassable(player, GetCurrentTile(player), 0x01, 0x01);
             L0032: SetWallItem(player, 0x01, GetCurrentTile(player), 0x01);
-            L004C: ShowMessage(player, String11FA); // Sirocco's powers no longer hold this door.  It is open.
+            L004C: ShowMessage(player, isForwardMove, String11FA); // Sirocco's powers no longer hold this door.  It is open.
             L0059: goto L0075;
-            L005B: ShowMessage(player, String1232); // Sirocco's Door does not open.  In the distance, a wizard laughs aloud.
-            L0068: ShowMessage(player, String1279); // 'It is I, Sirocco, who bars your way!'
+            L005B: ShowMessage(player, isForwardMove, String1232); // Sirocco's Door does not open.  In the distance, a wizard laughs aloud.
+            L0068: ShowMessage(player, isForwardMove, String1279); // 'It is I, Sirocco, who bars your way!'
             L0075: return; // RETURN;
         }
 
         private void FnSIROCCO_29(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String12A0); // Sirocco, the wind labyrinth doorkeeper, materializes in the room.
-            L0010: ShowMessage(player, String12E2); // 'You dare challenge the winds??!
-            L001D: AddEncounter(player, 0x01, 0x1F);
-            L002F: AddEncounter(player, 0x02, 0x1F);
-            L0041: AddEncounter(player, 0x03, 0x1F);
-            L0053: AddEncounter(player, 0x04, 0x1F);
-            L0065: AddEncounter(player, 0x05, 0x1A);
-            L0077: return; // RETURN;
+            ShowMessage(player, isForwardMove, String12A0); // Sirocco, the wind labyrinth doorkeeper, materializes in the room.
+            ShowMessage(player, isForwardMove, String12E2); // 'You dare challenge the winds??!
+            AddEncounter(player, 0x01, 0x1F);
+            AddEncounter(player, 0x02, 0x1F);
+            AddEncounter(player, 0x03, 0x1F);
+            AddEncounter(player, 0x04, 0x1F);
+            AddEncounter(player, 0x05, 0x1A);
         }
 
         private void FnWSBIGDR_2A(ServerPlayer player, bool isForwardMove) {
@@ -682,91 +615,70 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x0012);
             L0012: if (JumpBelow) goto L0041;
-            L0014: ShowMessage(player, String1303); // You force the massive door open by sheer muscle power.
+            L0014: ShowMessage(player, isForwardMove, String1303); // You force the massive door open by sheer muscle power.
             L0021: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L003F: goto L006B;
-            L0041: ShowMessage(player, String133A); // The door is stuck. You are not strong enough to force it open.
+            L0041: ShowMessage(player, isForwardMove, String133A); // The door is stuck. You are not strong enough to force it open.
             L004E: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
             L006B: return; // RETURN;
         }
 
         private void FnWSENCA_2B(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String1379); // A nest of dragons sneers at you. 'The Sanctuary belongs to us!'
-            L0010: AddEncounter(player, 0x01, 0x20);
-            L0022: AddEncounter(player, 0x02, 0x20);
-            L0034: AddEncounter(player, 0x05, 0x28);
-            L0046: AddEncounter(player, 0x06, 0x28);
-            L0058: return; // RETURN;
+            ShowMessage(player, isForwardMove, String1379); // A nest of dragons sneers at you. 'The Sanctuary belongs to us!'
+            AddEncounter(player, 0x01, 0x20);
+            AddEncounter(player, 0x02, 0x20);
+            AddEncounter(player, 0x05, 0x28);
+            AddEncounter(player, 0x06, 0x28);
         }
 
         private void FnWSENCB_2C(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String13B9); // A band of sanctuary guards are alerted.
-            L0010: AddEncounter(player, 0x01, 0x1F);
-            L0022: AddEncounter(player, 0x02, 0x1F);
-            L0034: AddEncounter(player, 0x03, 0x21);
-            L0046: AddEncounter(player, 0x05, 0x20);
-            L0058: AddEncounter(player, 0x06, 0x20);
-            L006A: return; // RETURN;
+            ShowMessage(player, isForwardMove, String13B9); // A band of sanctuary guards are alerted.
+            AddEncounter(player, 0x01, 0x1F);
+            AddEncounter(player, 0x02, 0x1F);
+            AddEncounter(player, 0x03, 0x21);
+            AddEncounter(player, 0x05, 0x20);
+            AddEncounter(player, 0x06, 0x20);
         }
 
         private void FnWSENCC_2D(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String13E1); // Your path is blocked.
-            L0010: AddEncounter(player, 0x01, 0x24);
-            L0022: AddEncounter(player, 0x02, 0x24);
-            L0034: AddEncounter(player, 0x03, 0x23);
-            L0046: AddEncounter(player, 0x04, 0x1F);
-            L0058: AddEncounter(player, 0x05, 0x1C);
-            L006A: AddEncounter(player, 0x06, 0x20);
-            L007C: return; // RETURN;
+            ShowMessage(player, isForwardMove, String13E1); // Your path is blocked.
+            AddEncounter(player, 0x01, 0x24);
+            AddEncounter(player, 0x02, 0x24);
+            AddEncounter(player, 0x03, 0x23);
+            AddEncounter(player, 0x04, 0x1F);
+            AddEncounter(player, 0x05, 0x1C);
+            AddEncounter(player, 0x06, 0x20);
         }
 
         private void FnWSENCF_30(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String13F7); // Adventurers are disturbed.  'We are cursed to kill those who have seen our fate.'
-            L0010: AddEncounter(player, 0x01, 0x11);
-            L0022: AddEncounter(player, 0x02, 0x1E);
-            L0034: AddEncounter(player, 0x03, 0x1C);
-            L0046: AddEncounter(player, 0x04, 0x13);
-            L0058: return; // RETURN;
+            ShowMessage(player, isForwardMove, String13F7); // Adventurers are disturbed.  'We are cursed to kill those who have seen our fate.'
+            AddEncounter(player, 0x01, 0x11);
+            AddEncounter(player, 0x02, 0x1E);
+            AddEncounter(player, 0x03, 0x1C);
+            AddEncounter(player, 0x04, 0x13);
         }
 
         private void FnWSENCG_31(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x1F);
-            L0015: AddEncounter(player, 0x02, 0x1F);
-            L0027: AddEncounter(player, 0x05, 0x20);
-            L0039: AddEncounter(player, 0x06, 0x20);
-            L004B: return; // RETURN;
+            AddEncounter(player, 0x01, 0x1F);
+            AddEncounter(player, 0x02, 0x1F);
+            AddEncounter(player, 0x05, 0x20);
+            AddEncounter(player, 0x06, 0x20);
         }
 
         private void FnWSNOTE_32(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String1449); // Stuffed behind a rock, you find a magical note that reads... 
-            L0010: ShowRunes(player, String1487); // 'Red, Yellow, Green and Blue.  That is the order of the gems.'
-            L001D: ShowMessage(player, String14C6); // -- signed last Wyn Survivor, Kanasgwyn.
-            L002A: return; // RETURN;
+            ShowMessage(player, isForwardMove, String1449); // Stuffed behind a rock, you find a magical note that reads... 
+            ShowRunes(player, String1487); // 'Red, Yellow, Green and Blue.  That is the order of the gems.'
+            ShowMessage(player, isForwardMove, String14C6); // -- signed last Wyn Survivor, Kanasgwyn.
         }
 
         private void FnWSENCI_33(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String14EE); // Commanders of the Wyn Ogres have set up camp here.
-            L0010: AddEncounter(player, 0x01, 0x1F);
-            L0022: AddEncounter(player, 0x02, 0x1F);
-            L0034: AddEncounter(player, 0x03, 0x23);
-            L0046: AddEncounter(player, 0x04, 0x23);
-            L0058: AddEncounter(player, 0x05, 0x20);
-            L006A: AddEncounter(player, 0x06, 0x20);
-            L007C: return; // RETURN;
+            ShowMessage(player, isForwardMove, String14EE); // Commanders of the Wyn Ogres have set up camp here.
+            AddEncounter(player, 0x01, 0x1F);
+            AddEncounter(player, 0x02, 0x1F);
+            AddEncounter(player, 0x03, 0x23);
+            AddEncounter(player, 0x04, 0x23);
+            AddEncounter(player, 0x05, 0x20);
+            AddEncounter(player, 0x06, 0x20);
         }
 
         private void FnSDOORWS_34(ServerPlayer player, bool isForwardMove) {
@@ -779,22 +691,22 @@ namespace XPT.Legacy.Maps {
             L0024: ax = HasUsedItem(player, 0xBE, 0xBE);
             L0037: if (JumpEqual) goto L0064;
             L0039: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
-            L0057: ShowMessage(player, String1521); // You found a secret door!
+            L0057: ShowMessage(player, isForwardMove, String1521); // You found a secret door!
             L0064: return; // RETURN;
         }
 
         private void FnARKARCH_35(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String153A); // A message is inscribed on stone -- 
-            L0010: ShowMessage(player, String155E); // 'Labyrinth and lower levels first explored by Arkarch of the Snow Elves.'
+            L0003: ShowMessage(player, isForwardMove, String153A); // A message is inscribed on stone -- 
+            L0010: ShowMessage(player, isForwardMove, String155E); // 'Labyrinth and lower levels first explored by Arkarch of the Snow Elves.'
             L001D: return; // RETURN;
         }
 
         private void FnLAENCA_36(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String15A8); // Apprentice thieves jump you!  'We must earn our dues!'
+            L0003: ShowMessage(player, isForwardMove, String15A8); // Apprentice thieves jump you!  'We must earn our dues!'
             L0010: AddEncounter(player, 0x01, 0x26);
             L0022: AddEncounter(player, 0x02, 0x25);
             L0034: AddEncounter(player, 0x03, 0x27);
@@ -806,7 +718,7 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: HealPlayer(player, (ushort)GetMaxHits(player));
             L0014: ShowPortrait(player, 0x0042);
-            L0021: ShowMessage(player, String15DF); // Your many wounds and lingering diseases are removed by the sweet waters of WindyBless Fountain.
+            L0021: ShowMessage(player, isForwardMove, String15DF); // Your many wounds and lingering diseases are removed by the sweet waters of WindyBless Fountain.
             L002E: return; // RETURN;
         }
 
@@ -815,14 +727,14 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: AddMana(player, 0x012C);
             L0010: ShowPortrait(player, 0x0042);
-            L001D: ShowMessage(player, String163F); // The mystic waters of the NightWillow Fountain restore your Mana level.
+            L001D: ShowMessage(player, isForwardMove, String163F); // The mystic waters of the NightWillow Fountain restore your Mana level.
             L002A: return; // RETURN;
         }
 
         private void FnLAENCB_39(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String1686); // You stumble into a den of angry monsters.
+            L0003: ShowMessage(player, isForwardMove, String1686); // You stumble into a den of angry monsters.
             L0010: AddEncounter(player, 0x01, 0x21);
             L0022: AddEncounter(player, 0x02, 0x21);
             L0034: AddEncounter(player, 0x03, 0x1C);
@@ -844,7 +756,7 @@ namespace XPT.Legacy.Maps {
             L0039: ax = HasUsedItem(player, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0079;
             L004E: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
-            L006C: ShowMessage(player, String16B0); // You found a secret door!
+            L006C: ShowMessage(player, isForwardMove, String16B0); // You found a secret door!
             L0079: return; // RETURN;
         }
 
@@ -860,7 +772,7 @@ namespace XPT.Legacy.Maps {
             L0039: ax = HasUsedItem(player, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0079;
             L004E: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
-            L006C: ShowMessage(player, String16C9); // You discover a secret door!
+            L006C: ShowMessage(player, isForwardMove, String16C9); // You discover a secret door!
             L0079: return; // RETURN;
         }
 
@@ -876,7 +788,7 @@ namespace XPT.Legacy.Maps {
             L0039: ax = HasUsedItem(player, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0079;
             L004E: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
-            L006C: ShowMessage(player, String16E5); // A secret door suddenly appears!
+            L006C: ShowMessage(player, isForwardMove, String16E5); // A secret door suddenly appears!
             L0079: return; // RETURN;
         }
 
@@ -885,79 +797,61 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x0010);
             L0012: if (JumpBelow) goto L003F;
-            L0014: ShowMessage(player, String1705); // You bash the massive door open.
+            L0014: ShowMessage(player, isForwardMove, String1705); // You bash the massive door open.
             L0021: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L003F: return; // RETURN;
         }
 
         private void FnLTENCA_3E(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x0F);
-            L0015: AddEncounter(player, 0x02, 0x10);
-            L0027: AddEncounter(player, 0x05, 0x22);
-            L0039: AddEncounter(player, 0x06, 0x25);
-            L004B: return; // RETURN;
+            AddEncounter(player, 0x01, 0x0F);
+            AddEncounter(player, 0x02, 0x10);
+            AddEncounter(player, 0x05, 0x22);
+            AddEncounter(player, 0x06, 0x25);
         }
 
         private void FnLTENCB_3F(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String1725); // A note -- 'The Runes suggest a path to Arnakkian's Treasure Room.'
-            L0010: AddEncounter(player, 0x01, 0x23);
-            L0022: AddEncounter(player, 0x02, 0x22);
-            L0034: AddEncounter(player, 0x05, 0x25);
-            L0046: AddEncounter(player, 0x06, 0x26);
-            L0058: return; // RETURN;
+            ShowMessage(player, isForwardMove, String1725); // A note -- 'The Runes suggest a path to Arnakkian's Treasure Room.'
+            AddEncounter(player, 0x01, 0x23);
+            AddEncounter(player, 0x02, 0x22);
+            AddEncounter(player, 0x05, 0x25);
+            AddEncounter(player, 0x06, 0x26);
         }
 
         private void FnLTENCC_40(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String1768); // Upon the wall you see a message -- 
-            L0010: ShowMessage(player, String178C); // 'Beneath each pit is a floor or another pit.  Fall to the floors to find more passages.'
-            L001D: AddEncounter(player, 0x01, 0x22);
-            L002F: AddEncounter(player, 0x02, 0x22);
-            L0041: AddEncounter(player, 0x05, 0x25);
-            L0053: AddEncounter(player, 0x06, 0x27);
-            L0065: return; // RETURN;
+            ShowMessage(player, isForwardMove, String1768); // Upon the wall you see a message -- 
+            ShowMessage(player, isForwardMove, String178C); // 'Beneath each pit is a floor or another pit.  Fall to the floors to find more passages.'
+            AddEncounter(player, 0x01, 0x22);
+            AddEncounter(player, 0x02, 0x22);
+            AddEncounter(player, 0x05, 0x25);
+            AddEncounter(player, 0x06, 0x27);
         }
 
         private void FnLTENCD_41(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x0F);
-            L0015: AddEncounter(player, 0x02, 0x0F);
-            L0027: AddEncounter(player, 0x05, 0x26);
-            L0039: AddEncounter(player, 0x06, 0x27);
-            L004B: return; // RETURN;
+            AddEncounter(player, 0x01, 0x0F);
+            AddEncounter(player, 0x02, 0x0F);
+            AddEncounter(player, 0x05, 0x26);
+            AddEncounter(player, 0x06, 0x27);
         }
 
         private void FnLTENCE_42(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddEncounter(player, 0x01, 0x0D);
-            L0015: AddEncounter(player, 0x02, 0x23);
-            L0027: AddEncounter(player, 0x05, 0x24);
-            L0039: AddEncounter(player, 0x06, 0x18);
-            L004B: return; // RETURN;
+            AddEncounter(player, 0x01, 0x0D);
+            AddEncounter(player, 0x02, 0x23);
+            AddEncounter(player, 0x05, 0x24);
+            AddEncounter(player, 0x06, 0x18);
         }
 
         private void FnLTENCG_44(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String17E5); // Hobgoblins smile, then attack.
-            L0010: AddEncounter(player, 0x01, 0x22);
-            L0022: AddEncounter(player, 0x02, 0x22);
-            L0034: AddEncounter(player, 0x03, 0x0F);
-            L0046: AddEncounter(player, 0x04, 0x0F);
-            L0058: return; // RETURN;
+            ShowMessage(player, isForwardMove, String17E5); // Hobgoblins smile, then attack.
+            AddEncounter(player, 0x01, 0x22);
+            AddEncounter(player, 0x02, 0x22);
+            AddEncounter(player, 0x03, 0x0F);
+            AddEncounter(player, 0x04, 0x0F);
         }
 
         private void FnLTSKILL_45(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String1804); // A special thieves' shrine magically glows.
+            L0003: ShowMessage(player, isForwardMove, String1804); // A special thieves' shrine magically glows.
             L0010: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagLabryinthITeachSkill));
             L0023: if (JumpEqual) goto L0028;
             L0025: goto L010D;
@@ -965,81 +859,72 @@ namespace XPT.Legacy.Maps {
             L003D: RefreshCompareFlags(GetSkillLevel(player, 0x0D));
             L004B: if (JumpNotEqual) goto L006E;
             L004D: SetSkillLevel(player, 0x0D, 0x01);
-            L005E: ShowMessage(player, String182F); // You gain the skill of Detection!
+            L005E: ShowMessage(player, isForwardMove, String182F); // You gain the skill of Detection!
             L006B: goto L010B;
             L006E: RefreshCompareFlags(GetSkillLevel(player, 0x0E));
             L007C: if (JumpNotEqual) goto L009E;
             L007E: SetSkillLevel(player, 0x0E, 0x01);
-            L008F: ShowMessage(player, String1850); // You gain the skill of Lockpicking!
+            L008F: ShowMessage(player, isForwardMove, String1850); // You gain the skill of Lockpicking!
             L009C: goto L010B;
             L009E: RefreshCompareFlags(GetSkillLevel(player, 0x0C));
             L00AC: if (JumpNotEqual) goto L00CE;
             L00AE: SetSkillLevel(player, 0x0C, 0x02);
-            L00BF: ShowMessage(player, String1873); // You gain the Bard skill!
+            L00BF: ShowMessage(player, isForwardMove, String1873); // You gain the Bard skill!
             L00CC: goto L010B;
             L00CE: RefreshCompareFlags(GetSkillLevel(player, 0x0F));
             L00DC: if (JumpNotEqual) goto L00FE;
             L00DE: SetSkillLevel(player, 0x0F, 0x01);
-            L00EF: ShowMessage(player, String188C); // You gain the Pickpocketing skill!
+            L00EF: ShowMessage(player, isForwardMove, String188C); // You gain the Pickpocketing skill!
             L00FC: goto L010B;
-            L00FE: ShowMessage(player, String18AE); // Nothing happens.
+            L00FE: ShowMessage(player, isForwardMove, String18AE); // Nothing happens.
             L010B: goto L011A;
-            L010D: ShowMessage(player, String18BF); // The shrines does nothing.
+            L010D: ShowMessage(player, isForwardMove, String18BF); // The shrines does nothing.
             L011A: return; // RETURN;
         }
 
         private void FnLTENCI_46(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String18D9); // Thieves make a desperate stand.
-            L0010: AddEncounter(player, 0x01, 0x01);
-            L0022: AddEncounter(player, 0x02, 0x05);
-            L0034: AddEncounter(player, 0x03, 0x25);
-            L0046: AddEncounter(player, 0x04, 0x26);
-            L0058: return; // RETURN;
+            ShowMessage(player, isForwardMove, String18D9); // Thieves make a desperate stand.
+            AddEncounter(player, 0x01, 0x01);
+            AddEncounter(player, 0x02, 0x05);
+            AddEncounter(player, 0x03, 0x25);
+            AddEncounter(player, 0x04, 0x26);
         }
 
         private void FnLTENCJ_47(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String18F9); // Master Thieves Attack!
-            L0010: AddEncounter(player, 0x01, 0x04);
-            L0022: AddEncounter(player, 0x02, 0x08);
-            L0034: AddEncounter(player, 0x03, 0x25);
-            L0046: AddEncounter(player, 0x04, 0x26);
-            L0058: AddEncounter(player, 0x05, 0x27);
-            L006A: return; // RETURN;
+            ShowMessage(player, isForwardMove, String18F9); // Master Thieves Attack!
+            AddEncounter(player, 0x01, 0x04);
+            AddEncounter(player, 0x02, 0x08);
+            AddEncounter(player, 0x03, 0x25);
+            AddEncounter(player, 0x04, 0x26);
+            AddEncounter(player, 0x05, 0x27);
         }
 
         private void FnLTENCK_48(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String1910); // Master Thieves ready themselves.
-            L0010: AddEncounter(player, 0x01, 0x25);
-            L0022: AddEncounter(player, 0x02, 0x26);
-            L0034: AddEncounter(player, 0x03, 0x10);
-            L0046: AddEncounter(player, 0x04, 0x10);
-            L0058: AddEncounter(player, 0x05, 0x02);
-            L006A: AddEncounter(player, 0x06, 0x02);
-            L007C: ax = HasItem(player, 0xDD);
+            // BEGIN;
+            ShowMessage(player, isForwardMove, String1910); // Master Thieves ready themselves.
+            AddEncounter(player, 0x01, 0x25);
+            AddEncounter(player, 0x02, 0x26);
+            AddEncounter(player, 0x03, 0x10);
+            AddEncounter(player, 0x04, 0x10);
+            AddEncounter(player, 0x05, 0x02);
+            AddEncounter(player, 0x06, 0x02);
+            ax = HasItem(player, 0xDD);
             L008A: if (JumpEqual) goto L00AD;
             L008C: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L00AB: goto L00DB;
-            L00AD: ShowMessage(player, String1931); // Light sparks off a key tied to the neck of the leader.
+            L00AD: ShowMessage(player, isForwardMove, String1931); // Light sparks off a key tied to the neck of the leader.
             L00BA: AddTreasure(player, 0x3A98, 0x00, 0x00, 0x46, 0x61, 0xDD);
             L00DB: return; // RETURN;
         }
 
         private void FnTXTAWIND_49(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowPortrait(player, 0x000A);
-            L0010: ShowMessage(player, String1968); // A voice echoes through the winds...
-            L001D: ShowMessage(player, String198C); // 'You have traveled well, fair adventurers!
-            L002A: ShowMessage(player, String19B7); // I laughed when you troubled King Cleowyn's ghost!
-            L0037: ShowMessage(player, String19E9); // But now you enter my tunnels!  Go back whence you came!
-            L0044: ShowMessage(player, String1A21); // The Winds will keep these places clean.'
-            L0051: return; // RETURN;
+            ShowPortrait(player, 0x000A);
+            ShowMessage(player, isForwardMove, String1968); // A voice echoes through the winds...
+            ShowMessage(player, isForwardMove, String198C); // 'You have traveled well, fair adventurers!
+            ShowMessage(player, isForwardMove, String19B7); // I laughed when you troubled King Cleowyn's ghost!
+            ShowMessage(player, isForwardMove, String19E9); // But now you enter my tunnels!  Go back whence you came!
+            ShowMessage(player, isForwardMove, String1A21); // The Winds will keep these places clean.'
         }
 
     }

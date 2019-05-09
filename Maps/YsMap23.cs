@@ -190,7 +190,7 @@ namespace XPT.Legacy.Maps {
         private void FnATELEA_01(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String03FC); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String03FC); // Runes on magic wall --
             L0010: ShowRunes(player, String0413); // Alchemy
             L001D: TeleportParty(player, 0x34, 0x02, 0x8A, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -199,7 +199,7 @@ namespace XPT.Legacy.Maps {
         private void FnRTELEB_02(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String041B); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String041B); // Runes on magic wall --
             L0010: ShowRunes(player, String0432); // Reverie
             L001D: TeleportParty(player, 0x34, 0x02, 0x38, 0x03, isForwardMove);
             L0038: return; // RETURN;
@@ -208,7 +208,7 @@ namespace XPT.Legacy.Maps {
         private void FnNTELEC_03(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String043A); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String043A); // Runes on magic wall --
             L0010: ShowRunes(player, String0451); // Netherworld
             L001D: SetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress, 0x02);
             L0032: TeleportParty(player, 0x34, 0x02, 0xE0, 0x02, isForwardMove);
@@ -218,7 +218,7 @@ namespace XPT.Legacy.Maps {
         private void FnATELED_04(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String045D); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String045D); // Runes on magic wall --
             L0010: ShowRunes(player, String0474); // Arcane
             L001D: TeleportParty(player, 0x34, 0x02, 0xF2, 0x00, isForwardMove);
             L0037: return; // RETURN;
@@ -227,7 +227,7 @@ namespace XPT.Legacy.Maps {
         private void FnKTELEE_05(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String047B); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String047B); // Runes on magic wall --
             L0010: ShowRunes(player, String0492); // Karma
             L001D: TeleportParty(player, 0x34, 0x02, 0xF5, 0x03, isForwardMove);
             L0038: return; // RETURN;
@@ -236,7 +236,7 @@ namespace XPT.Legacy.Maps {
         private void FnKTELEF_06(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0498); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String0498); // Runes on magic wall --
             L0010: ShowRunes(player, String04AF); // Karma
             L001D: TeleportParty(player, 0x34, 0x02, 0xE3, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -245,7 +245,7 @@ namespace XPT.Legacy.Maps {
         private void FnITELEG_07(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String04B5); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String04B5); // Runes on magic wall --
             L0010: ShowRunes(player, String04CC); // Incantation
             L001D: TeleportParty(player, 0x34, 0x02, 0xCC, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -256,7 +256,7 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress), 0x0002);
             L0017: if (JumpNotEqual) goto L004E;
-            L0019: ShowMessage(player, String04D8); // Runes on magic wall --
+            L0019: ShowMessage(player, isForwardMove, String04D8); // Runes on magic wall --
             L0026: ShowRunes(player, String04EF); // Archaic
             L0033: TeleportParty(player, 0x34, 0x02, 0xFA, 0x02, isForwardMove);
             L004E: return; // RETURN;
@@ -265,7 +265,7 @@ namespace XPT.Legacy.Maps {
         private void FnNTELEI_09(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String04F7); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String04F7); // Runes on magic wall --
             L0010: ShowRunes(player, String050E); // Netherworld
             L001D: TeleportParty(player, 0x34, 0x02, 0x88, 0x00, isForwardMove);
             L0037: return; // RETURN;
@@ -275,7 +275,7 @@ namespace XPT.Legacy.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeDungeon, FlagWizardRoomArnakkian, 0x01);
-            L0018: ShowMessage(player, String051A); // Secrets follow when you spell that which powers time.
+            L0018: ShowMessage(player, isForwardMove, String051A); // Secrets follow when you spell that which powers time.
             L0025: AddEncounter(player, 0x01, 0x19);
             L0037: AddEncounter(player, 0x02, 0x19);
             L0049: AddEncounter(player, 0x03, 0x19);
@@ -288,7 +288,7 @@ namespace XPT.Legacy.Maps {
         private void FnTOENTRY_0C(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0550); // The gate takes you back to the Labyrinth.
+            L0003: ShowMessage(player, isForwardMove, String0550); // The gate takes you back to the Labyrinth.
             L0010: TeleportParty(player, 0x34, 0x02, 0x30, 0x02, isForwardMove);
             L002B: return; // RETURN;
         }
@@ -296,7 +296,7 @@ namespace XPT.Legacy.Maps {
         private void FnETELEJ_0D(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String057A); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String057A); // Runes on magic wall --
             L0010: ShowRunes(player, String0591); // Ethereal
             L001D: TeleportParty(player, 0x34, 0x02, 0xBB, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -305,7 +305,7 @@ namespace XPT.Legacy.Maps {
         private void FnNTELEK_0E(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String059A); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String059A); // Runes on magic wall --
             L0010: ShowRunes(player, String05B1); // Netherworld
             L001D: TeleportParty(player, 0x34, 0x02, 0xDA, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -315,7 +315,7 @@ namespace XPT.Legacy.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress, 0x03);
-            L0018: ShowMessage(player, String05BD); // Runes on magic wall --
+            L0018: ShowMessage(player, isForwardMove, String05BD); // Runes on magic wall --
             L0025: ShowRunes(player, String05D4); // Luck
             L0032: TeleportParty(player, 0x34, 0x02, 0xB9, 0x02, isForwardMove);
             L004D: return; // RETURN;
@@ -326,13 +326,13 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress), 0x0003);
             L0017: if (JumpNotEqual) goto L0050;
-            L0019: ShowMessage(player, String05D9); // Runes on magic wall --
+            L0019: ShowMessage(player, isForwardMove, String05D9); // Runes on magic wall --
             L0026: ShowRunes(player, String05F0); // Illusion
             L0033: TeleportParty(player, 0x34, 0x02, 0xCC, 0x02, isForwardMove);
             L004E: goto L009B;
             L0050: Compare(GetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress), 0x0004);
             L0064: if (JumpNotEqual) goto L009B;
-            L0066: ShowMessage(player, String05F9); // Runes on magic wall --
+            L0066: ShowMessage(player, isForwardMove, String05F9); // Runes on magic wall --
             L0073: ShowRunes(player, String0610); // Invulnerable
             L0080: TeleportParty(player, 0x34, 0x02, 0xD8, 0x02, isForwardMove);
             L009B: return; // RETURN;
@@ -342,7 +342,7 @@ namespace XPT.Legacy.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress, 0x04);
-            L0018: ShowMessage(player, String061D); // Runes on magic wall --
+            L0018: ShowMessage(player, isForwardMove, String061D); // Runes on magic wall --
             L0025: ShowRunes(player, String0634); // Karma
             L0032: TeleportParty(player, 0x34, 0x02, 0xB9, 0x02, isForwardMove);
             L004D: return; // RETURN;
@@ -351,7 +351,7 @@ namespace XPT.Legacy.Maps {
         private void FnLTELEN_12(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String063A); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String063A); // Runes on magic wall --
             L0010: ShowRunes(player, String0651); // Luminous
             L001D: TeleportParty(player, 0x34, 0x02, 0x6A, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -361,7 +361,7 @@ namespace XPT.Legacy.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeDungeon, FlagWizardRoomEnLiKil, 0x01);
-            L0018: ShowMessage(player, String065A); // Those which haunt this castle must be spelled to find their master.
+            L0018: ShowMessage(player, isForwardMove, String065A); // Those which haunt this castle must be spelled to find their master.
             L0025: AddEncounter(player, 0x01, 0x19);
             L0037: AddEncounter(player, 0x02, 0x19);
             L0049: AddEncounter(player, 0x03, 0x19);
@@ -375,7 +375,7 @@ namespace XPT.Legacy.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress, 0x05);
-            L0018: ShowMessage(player, String069E); // Runes on magic wall --
+            L0018: ShowMessage(player, isForwardMove, String069E); // Runes on magic wall --
             L0025: ShowRunes(player, String06B5); // Dust
             L0032: TeleportParty(player, 0x34, 0x02, 0xB7, 0x02, isForwardMove);
             L004D: return; // RETURN;
@@ -384,7 +384,7 @@ namespace XPT.Legacy.Maps {
         private void FnETELEP_16(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String06BA); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String06BA); // Runes on magic wall --
             L0010: ShowRunes(player, String06D1); // Enchant
             L001D: TeleportParty(player, 0x34, 0x02, 0xD6, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -393,7 +393,7 @@ namespace XPT.Legacy.Maps {
         private void FnRTELEQ_17(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String06D9); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String06D9); // Runes on magic wall --
             L0010: ShowRunes(player, String06F0); // Magic
             L001D: TeleportParty(player, 0x34, 0x02, 0xD0, 0x03, isForwardMove);
             L0038: return; // RETURN;
@@ -402,7 +402,7 @@ namespace XPT.Legacy.Maps {
         private void FnGTELER_18(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String06F6); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String06F6); // Runes on magic wall --
             L0010: ShowRunes(player, String070D); // Ghouls
             L001D: TeleportParty(player, 0x34, 0x02, 0x68, 0x00, isForwardMove);
             L0037: return; // RETURN;
@@ -411,7 +411,7 @@ namespace XPT.Legacy.Maps {
         private void FnHTELES_19(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0714); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String0714); // Runes on magic wall --
             L0010: ShowRunes(player, String072B); // Hex
             L001D: TeleportParty(player, 0x34, 0x02, 0xAD, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -420,7 +420,7 @@ namespace XPT.Legacy.Maps {
         private void FnOTELET_1A(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String072F); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String072F); // Runes on magic wall --
             L0010: ShowRunes(player, String0746); // Obsession
             L001D: TeleportParty(player, 0x34, 0x02, 0x7E, 0x00, isForwardMove);
             L0037: return; // RETURN;
@@ -429,7 +429,7 @@ namespace XPT.Legacy.Maps {
         private void FnSTELEU_1B(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0750); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String0750); // Runes on magic wall --
             L0010: ShowRunes(player, String0767); // Sorcery
             L001D: TeleportParty(player, 0x34, 0x02, 0x5E, 0x00, isForwardMove);
             L0037: return; // RETURN;
@@ -438,7 +438,7 @@ namespace XPT.Legacy.Maps {
         private void FnTTELEV_1C(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String076F); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String076F); // Runes on magic wall --
             L0010: ShowRunes(player, String0786); // Talisman
             L001D: TeleportParty(player, 0x34, 0x02, 0xC2, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -451,18 +451,18 @@ namespace XPT.Legacy.Maps {
             L0016: if (JumpEqual) goto L0064;
             L0018: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagWizardRoomEnLiKil));
             L002B: if (JumpEqual) goto L0064;
-            L002D: ShowMessage(player, String078F); // Both Arnakkian and Enlikil have been identified.
-            L003A: ShowMessage(player, String07C0); // The Ghost takes you to the Guardians.
+            L002D: ShowMessage(player, isForwardMove, String078F); // Both Arnakkian and Enlikil have been identified.
+            L003A: ShowMessage(player, isForwardMove, String07C0); // The Ghost takes you to the Guardians.
             L0047: TeleportParty(player, 0x33, 0x02, 0x56, 0x02, isForwardMove);
             L0062: goto L0071;
-            L0064: ShowMessage(player, String07E6); // The master of this castle must be identified before the ghost may take you to him.
+            L0064: ShowMessage(player, isForwardMove, String07E6); // The master of this castle must be identified before the ghost may take you to him.
             L0071: return; // RETURN;
         }
 
         private void FnDTELEX_1E(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0839); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String0839); // Runes on magic wall --
             L0010: ShowRunes(player, String0850); // Druid
             L001D: TeleportParty(player, 0x34, 0x02, 0x36, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -471,7 +471,7 @@ namespace XPT.Legacy.Maps {
         private void FnRTELEY_1F(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0856); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String0856); // Runes on magic wall --
             L0010: ShowRunes(player, String086D); // Runes
             L001D: TeleportParty(player, 0x34, 0x02, 0x3B, 0x00, isForwardMove);
             L0037: return; // RETURN;
@@ -480,7 +480,7 @@ namespace XPT.Legacy.Maps {
         private void FnATELEZ_20(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0873); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String0873); // Runes on magic wall --
             L0010: ShowRunes(player, String088A); // Alchemist
             L001D: TeleportParty(player, 0x34, 0x02, 0x2C, 0x00, isForwardMove);
             L0037: return; // RETURN;
@@ -489,7 +489,7 @@ namespace XPT.Legacy.Maps {
         private void FnGTELEAA_21(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0894); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String0894); // Runes on magic wall --
             L0010: ShowRunes(player, String08AB); // Ghost
             L001D: TeleportParty(player, 0x34, 0x02, 0x3E, 0x03, isForwardMove);
             L0038: return; // RETURN;
@@ -498,7 +498,7 @@ namespace XPT.Legacy.Maps {
         private void FnOTELEBB_22(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String08B1); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String08B1); // Runes on magic wall --
             L0010: ShowRunes(player, String08C8); // Orb
             L001D: TeleportParty(player, 0x34, 0x02, 0x8E, 0x00, isForwardMove);
             L0037: return; // RETURN;
@@ -507,7 +507,7 @@ namespace XPT.Legacy.Maps {
         private void FnNTELECC_23(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String08CC); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String08CC); // Runes on magic wall --
             L0010: ShowRunes(player, String08E3); // Nexus
             L001D: TeleportParty(player, 0x34, 0x02, 0xFD, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -540,7 +540,7 @@ namespace XPT.Legacy.Maps {
         private void FnZTELEDD_26(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String08E9); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String08E9); // Runes on magic wall --
             L0010: ShowRunes(player, String0900); // Zzyzx
             L001D: SetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress, 0x01);
             L0032: TeleportParty(player, 0x34, 0x02, 0x27, 0x02, isForwardMove);
@@ -550,7 +550,7 @@ namespace XPT.Legacy.Maps {
         private void FnITELEG_27(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0906); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String0906); // Runes on magic wall --
             L0010: ShowRunes(player, String091D); // Illusive
             L001D: TeleportParty(player, 0x34, 0x02, 0xCC, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -561,7 +561,7 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress), 0x0001);
             L0017: if (JumpNotEqual) goto L004E;
-            L0019: ShowMessage(player, String0926); // Runes on magic wall --
+            L0019: ShowMessage(player, isForwardMove, String0926); // Runes on magic wall --
             L0026: ShowRunes(player, String093D); // Wizard
             L0033: TeleportParty(player, 0x34, 0x02, 0xE6, 0x02, isForwardMove);
             L004E: return; // RETURN;
@@ -570,7 +570,7 @@ namespace XPT.Legacy.Maps {
         private void FnVTELEWW_29(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0944); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String0944); // Runes on magic wall --
             L0010: ShowRunes(player, String095B); // Vision
             L001D: TeleportParty(player, 0x34, 0x02, 0x07, 0x01, isForwardMove);
             L0038: return; // RETURN;
@@ -579,7 +579,7 @@ namespace XPT.Legacy.Maps {
         private void FnBTELEXX_2A(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0962); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String0962); // Runes on magic wall --
             L0010: ShowRunes(player, String0979); // Bewitch
             L001D: TeleportParty(player, 0x34, 0x02, 0x1D, 0x00, isForwardMove);
             L0037: return; // RETURN;
@@ -588,7 +588,7 @@ namespace XPT.Legacy.Maps {
         private void FnCTELEYY_2B(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0981); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String0981); // Runes on magic wall --
             L0010: ShowRunes(player, String0998); // Conjure
             L001D: TeleportParty(player, 0x34, 0x02, 0xBD, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -597,7 +597,7 @@ namespace XPT.Legacy.Maps {
         private void FnPTELEZZ_2C(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String09A0); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String09A0); // Runes on magic wall --
             L0010: ShowRunes(player, String09B7); // Powerful
             L001D: TeleportParty(player, 0x34, 0x02, 0x00, 0x33, isForwardMove);
             L0037: return; // RETURN;
@@ -606,7 +606,7 @@ namespace XPT.Legacy.Maps {
         private void FnMTELEXX_2D(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String09C0); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String09C0); // Runes on magic wall --
             L0010: ShowRunes(player, String09D7); // Magus
             L001D: TeleportParty(player, 0x34, 0x02, 0x1D, 0x00, isForwardMove);
             L0037: return; // RETURN;
@@ -615,7 +615,7 @@ namespace XPT.Legacy.Maps {
         private void FnJTELEYY_2E(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String09DD); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String09DD); // Runes on magic wall --
             L0010: ShowRunes(player, String09F4); // Jinx
             L001D: TeleportParty(player, 0x34, 0x02, 0xBD, 0x02, isForwardMove);
             L0038: return; // RETURN;
@@ -624,7 +624,7 @@ namespace XPT.Legacy.Maps {
         private void FnUTELEWW_2F(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String09F9); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String09F9); // Runes on magic wall --
             L0010: ShowRunes(player, String0A10); // Unspeller
             L001D: TeleportParty(player, 0x34, 0x02, 0x07, 0x01, isForwardMove);
             L0038: return; // RETURN;
@@ -633,7 +633,7 @@ namespace XPT.Legacy.Maps {
         private void FnXTELEWW_30(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0A1A); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String0A1A); // Runes on magic wall --
             L0010: ShowRunes(player, String0A31); // XxxX
             L001D: TeleportParty(player, 0x34, 0x02, 0x07, 0x01, isForwardMove);
             L0038: return; // RETURN;
@@ -642,7 +642,7 @@ namespace XPT.Legacy.Maps {
         private void FnYTELEZZ_31(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0A36); // Runes on magic wall --
+            L0003: ShowMessage(player, isForwardMove, String0A36); // Runes on magic wall --
             L0010: ShowRunes(player, String0A4D); // Youth
             L001D: TeleportParty(player, 0x34, 0x02, 0x00, 0x33, isForwardMove);
             L0037: return; // RETURN;
@@ -697,7 +697,7 @@ namespace XPT.Legacy.Maps {
         private void FnPIT_37(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0A53); // You fall into the pit and die.
+            L0003: ShowMessage(player, isForwardMove, String0A53); // You fall into the pit and die.
             L0010: DamagePlayer(player, GetMaxHits(player));
             L0021: return; // RETURN;
         }
@@ -717,8 +717,8 @@ namespace XPT.Legacy.Maps {
         private void FnTXTGHOSB_3B(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0A72); // A message is written on a scroll.
-            L0010: ShowMessage(player, String0A94); // 'To gain access to Arnakkian's Chamber, you must defeat his lich apprentices.'
+            L0003: ShowMessage(player, isForwardMove, String0A72); // A message is written on a scroll.
+            L0010: ShowMessage(player, isForwardMove, String0A94); // 'To gain access to Arnakkian's Chamber, you must defeat his lich apprentices.'
             L001D: return; // RETURN;
         }
 
@@ -726,8 +726,8 @@ namespace XPT.Legacy.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(player, 0x0029);
-            L0010: ShowMessage(player, String0AE3); // A Cleric appears..
-            L001D: ShowMessage(player, String0AF6); // 'Beyond the words lies the power of the earth.'
+            L0010: ShowMessage(player, isForwardMove, String0AE3); // A Cleric appears..
+            L001D: ShowMessage(player, isForwardMove, String0AF6); // 'Beyond the words lies the power of the earth.'
             L002A: return; // RETURN;
         }
 
@@ -779,9 +779,9 @@ namespace XPT.Legacy.Maps {
             L0058: if (JumpEqual) goto L00A5;
             L005A: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0078: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0096: ShowMessage(player, String0B26); // The Wizard Door opens.
+            L0096: ShowMessage(player, isForwardMove, String0B26); // The Wizard Door opens.
             L00A3: goto L00B2;
-            L00A5: ShowMessage(player, String0B3D); // The symbol of the Four Corners magically radiates from this door.
+            L00A5: ShowMessage(player, isForwardMove, String0B3D); // The symbol of the Four Corners magically radiates from this door.
             L00B2: return; // RETURN;
         }
 
@@ -862,30 +862,28 @@ namespace XPT.Legacy.Maps {
         }
 
         private void FnLICHMAIN_4D(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0B7F); // The spirit of Arnakkian Slowfoot appears.
-            L0010: AddEncounter(player, 0x01, 0x27);
-            L0022: AddEncounter(player, 0x02, 0x27);
-            L0034: AddEncounter(player, 0x03, 0x27);
-            L0046: AddEncounter(player, 0x04, 0x27);
-            L0058: AddEncounter(player, 0x05, 0x28);
-            L006A: ax = HasItem(player, 0xF7);
-            L0078: if (JumpEqual) goto L009A;
-            L007A: AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xCF);
-            L0098: goto L00F6;
-            L009A: AddTreasure(player, 0x0000, 0x00, 0x00, 0x50, 0x50, 0x2D);
-            L00BA: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagWizardRoomArnikkanExperience));
-            L00CD: if (JumpNotEqual) goto L00F6;
-            L00CF: SetFlag(player, FlagTypeDungeon, FlagWizardRoomArnikkanExperience, 0x01);
-            L00E4: AddExperience(player, 0x000B71B0);
-            L00F6: return; // RETURN;
+            ShowMessage(player, isForwardMove, String0B7F); // The spirit of Arnakkian Slowfoot appears.
+            AddEncounter(player, 0x01, 0x27);
+            AddEncounter(player, 0x02, 0x27);
+            AddEncounter(player, 0x03, 0x27);
+            AddEncounter(player, 0x04, 0x27);
+            AddEncounter(player, 0x05, 0x28);
+            if (HasItem(player, 0xF7) == 0) {
+                AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xF7);
+            }
+            else {
+                AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xCF);
+            }
+            if (GetFlag(player, FlagTypeDungeon, FlagWizardRoomArnikkanExperience) == 0) {
+                SetFlag(player, FlagTypeDungeon, FlagWizardRoomArnikkanExperience, 0x01);
+                AddExperience(player, 0x000B71B0);
+            }
         }
 
         private void FnTXTLICH_4E(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0BA9); // Apprentices of Arnakkian roam these passageways.
+            L0003: ShowMessage(player, isForwardMove, String0BA9); // Apprentices of Arnakkian roam these passageways.
             L0010: return; // RETURN;
         }
 
@@ -899,7 +897,7 @@ namespace XPT.Legacy.Maps {
         private void FnTXTLABY_50(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0BDA); // This gate returns you to MAGE'S OVERLOOK.
+            L0003: ShowMessage(player, isForwardMove, String0BDA); // This gate returns you to MAGE'S OVERLOOK.
             L0010: return; // RETURN;
         }
 

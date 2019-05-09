@@ -61,127 +61,127 @@ namespace XPT.Legacy.Maps {
         private void FnALDBORA_01(ServerPlayer player, bool isForwardMove) {
             switch (GetFlag(player, FlagTypeMap, 0x01)) {
                 case 0:
-                    ShowMessage(player, "The Aldbora Tree proudly displays its summer foliage.");
+                    ShowMessage(player, isForwardMove, "The Aldbora Tree proudly displays its summer foliage.");
                     if (HasItem(player, ItemHarvestHorn) == 1) {
-                        ShowMessage(player, "A whisper in the room: 'The procession of seasons may begin.'");
+                        ShowMessage(player, isForwardMove, "A whisper in the room: 'The procession of seasons may begin.'");
                     }
                     return;
                 case 1:
-                    ShowMessage(player, "In the Winter, the Aldbora Tree shows its age.");
+                    ShowMessage(player, isForwardMove, "In the Winter, the Aldbora Tree shows its age.");
                     return;
                 case 2:
-                    ShowMessage(player, "Golden Autumn leaves fall from the Aldbora Tree.");
+                    ShowMessage(player, isForwardMove, "Golden Autumn leaves fall from the Aldbora Tree.");
                     return;
                 case 3:
-                    ShowMessage(player, "Spring flowers and new leaves appear on the magical Aldbora Tree.");
+                    ShowMessage(player, isForwardMove, "Spring flowers and new leaves appear on the magical Aldbora Tree.");
                     return;
                 case 4:
                     if (HasUsedItem(player, ItemSummerRadiance, ItemSummerRadiance) == 0) {
-                        ShowMessage(player, "The fruits of Knowledge are now ripe, and wait for the Radiance of Summer.");
+                        ShowMessage(player, isForwardMove, "The fruits of Knowledge are now ripe, and wait for the Radiance of Summer.");
                         return;
                     }
                     else {
                         if (HasItem(player, ItemNaturesRobe) == 0) {
-                            ShowMessage(player, "The fruits of Knowledge are useless without the vestments of Nature.");
+                            ShowMessage(player, isForwardMove, "The fruits of Knowledge are useless without the vestments of Nature.");
                             return;
                         }
-                        ShowMessage(player, "The AldBora Tree bears fruit...");
+                        ShowMessage(player, isForwardMove, "The AldBora Tree bears fruit...");
                         SetFlag(player, FlagTypeDungeon, FlagTreeSkills, 0x01);
                         RemoveItem(player, ItemSummerRadiance);
                         RemoveItem(player, ItemNaturesRobe);
                         // barb:
                         if (GetSkillLevel(player, 0x00) == 0) {
                             SetSkillLevel(player, 0x00, 0x02);
-                            ShowMessage(player, "the knowledge of Athletics!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Athletics!");
                         }
                         if (GetSkillLevel(player, 0x01) == 0) {
                             SetSkillLevel(player, 0x01, 0x02);
-                            ShowMessage(player, "the knowledge of Clubs and Axes!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Clubs and Axes!");
                         }
                         if (GetSkillLevel(player, 0x02) == 0) {
                             SetSkillLevel(player, 0x02, 0x02);
-                            ShowMessage(player, "the knowledge of Berserker!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Berserker!");
                         }
                         if (GetSkillLevel(player, 0x03) == 0) {
                             SetSkillLevel(player, 0x03, 0x02);
-                            ShowMessage(player, "the knowledge of Pursuit!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Pursuit!");
                         }
                         // knight:
                         if (GetSkillLevel(player, 0x04) == 0) {
                             SetSkillLevel(player, 0x04, 0x02);
-                            ShowMessage(player, "the knowledge of Leadership!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Leadership!");
                         }
                         if (GetSkillLevel(player, 0x05) == 0) {
                             SetSkillLevel(player, 0x05, 0x02);
-                            ShowMessage(player, "the knowledge of Fencing!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Fencing!");
                         }
                         if (GetSkillLevel(player, 0x06) == 0) {
                             SetSkillLevel(player, 0x06, 0x02);
-                            ShowMessage(player, "the knowledge of Binding!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Binding!");
                         }
                         if (GetSkillLevel(player, 0x07) == 0) {
                             SetSkillLevel(player, 0x07, 0x02);
-                            ShowMessage(player, "the knowledge of Intimidation!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Intimidation!");
                         }
                         // ranger:
                         if (GetSkillLevel(player, 0x08) == 0) {
                             SetSkillLevel(player, 0x08, 0x02);
-                            ShowMessage(player, "the knowledge of Archery!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Archery!");
                         }
                         if (GetSkillLevel(player, 0x09) == 0) {
                             SetSkillLevel(player, 0x09, 0x02);
-                            ShowMessage(player, "the knowledge of Stamina!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Stamina!");
                         }
                         if (GetSkillLevel(player, 0x0A) == 0) {
                             SetSkillLevel(player, 0x0A, 0x02);
-                            ShowMessage(player, "the knowledge of Furtiveness!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Furtiveness!");
                         }
                         if (GetSkillLevel(player, 0x0B) == 0) {
                             SetSkillLevel(player, 0x0B, 0x02);
-                            ShowMessage(player, "the knowledge of Reading Tracks!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Reading Tracks!");
                         }
                         // cleric:
                         if (GetSkillLevel(player, 0x10) == 0) {
                             SetSkillLevel(player, 0x10, 0x02);
-                            ShowMessage(player, "the knowledge of Martial Arts!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Martial Arts!");
                         }
                         if (GetSkillLevel(player, 0x11) == 0) {
                             SetSkillLevel(player, 0x11, 0x02);
-                            ShowMessage(player, "the knowledge of Deflect Magic!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Deflect Magic!");
                         }
                         if (GetSkillLevel(player, 0x12) == 0) {
                             SetSkillLevel(player, 0x12, 0x02);
-                            ShowMessage(player, "the knowledge of Medic!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Medic!");
                         }
                         if (GetSkillLevel(player, 0x13) == 0) {
                             SetSkillLevel(player, 0x13, 0x02);
-                            ShowMessage(player, "the knowledge of Reverie!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Reverie!");
                         }
                         // wizard:
                         if (GetSkillLevel(player, 0x14) == 0) {
                             SetSkillLevel(player, 0x14, 0x02);
-                            ShowMessage(player, "the knowledge of Rune Reading!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Rune Reading!");
                         }
                         if (GetSkillLevel(player, 0x15) == 0) {
                             SetSkillLevel(player, 0x15, 0x02);
-                            ShowMessage(player, "the knowledge of Staff!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Staff!");
                         }
                         if (GetSkillLevel(player, 0x16) == 0) {
                             SetSkillLevel(player, 0x16, 0x02);
-                            ShowMessage(player, "the knowledge of Channeling!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Channeling!");
                         }
                         if (GetSkillLevel(player, 0x17) == 0) {
                             SetSkillLevel(player, 0x17, 0x02);
-                            ShowMessage(player, "the knowledge of Deep Trance!");
+                            ShowMessage(player, isForwardMove, "the knowledge of Deep Trance!");
                         }
-                        ShowMessage(player, "The leaves whisper, 'Defeat my enemies the four winds, South, North, East and West, and you will find a precious gem as green as my foliage.'");
+                        ShowMessage(player, isForwardMove, "The leaves whisper, 'Defeat my enemies the four winds, South, North, East and West, and you will find a precious gem as green as my foliage.'");
                     }
                     return;
             }
         }
 
         private void FnENCA_02(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "Dwarven Knights attempt an ambush.");
+            ShowMessage(player, isForwardMove, "Dwarven Knights attempt an ambush.");
             AddEncounter(player, 0x01, 0x20);
             AddEncounter(player, 0x02, 0x20);
             AddEncounter(player, 0x05, 0x22);
@@ -227,7 +227,7 @@ namespace XPT.Legacy.Maps {
             else {
                 AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0xD0, 0xFA);
             }
-            ShowMessage(player, "You see scattered bones and a bag under a Dragon.");
+            ShowMessage(player, isForwardMove, "You see scattered bones and a bag under a Dragon.");
             AddEncounter(player, 0x01, 0x1B);
             AddEncounter(player, 0x02, 0x1B);
             AddEncounter(player, 0x03, 0x19);
@@ -257,23 +257,24 @@ namespace XPT.Legacy.Maps {
                 AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xCF, 0xC6);
             }
             else {
-                ShowMessage(player, "A glowing yellow gem lights the area.");
+                ShowMessage(player, isForwardMove, "A glowing yellow gem lights the area.");
                 AddTreasure(player, 0x2710, 0x00, 0x00, 0xD0, 0xD0, 0xF5);
             }
         }
 
         private void FnCGATE_0B(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "A path leads up to CASTLEGATE.");
+            ShowMessage(player, isForwardMove, "A path leads up to CASTLEGATE.");
             TeleportParty(player, 0x36, 0x01, 0x74, 0x01, isForwardMove);
         }
 
         private void FnDWARF_0C(ServerPlayer player, bool isForwardMove) {
             if (CheckLevel(player, 0x001E) == 1) {
-                ShowMessage(player, "A narrow tunnel appears, leading down to the DWARF KINGDOM.");
+                ShowMessage(player, isForwardMove, "A narrow tunnel appears, leading down to the DWARF KINGDOM.");
+                SetWallItem(player, 0x00, GetCurrentTile(player), 0x03);
                 TeleportParty(player, 0x38, 0x01, 0x7A, 0x02, isForwardMove);
             }
             else {
-                ShowMessage(player, "Runes are carved into the rockface:");
+                ShowMessage(player, isForwardMove, "Runes are carved into the rockface:");
                 ShowRunes(player, "At level thirty, the entrance to the land of dwarfs will be open to you.");
             }
         }
@@ -283,19 +284,19 @@ namespace XPT.Legacy.Maps {
         }
 
         private void FnBEECHWD_0E(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "Upon a wood sign is written 'Wilderness of BeechWood.'");
+            ShowMessage(player, isForwardMove, "Upon a wood sign is written 'Wilderness of BeechWood.'");
         }
 
         private void FnOAKLEAF_0F(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, " A wreath of leaves encircles the words 'Wilderness of OakLeaf.'");
+            ShowMessage(player, isForwardMove, " A wreath of leaves encircles the words 'Wilderness of OakLeaf.'");
         }
 
         private void FnMAPLEBRS_10(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "A sign of ancient wood reads 'Wilderness of MapleBrush.'");
+            ShowMessage(player, isForwardMove, "A sign of ancient wood reads 'Wilderness of MapleBrush.'");
         }
 
         private void FnPINECONE_11(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "In the dust of pine needles is written 'Wilderness of PineCone.'");
+            ShowMessage(player, isForwardMove, "In the dust of pine needles is written 'Wilderness of PineCone.'");
         }
 
         // === Event 12: The Wise Ones of Beechwood. At Stage 2, Autumn accepts Spring's Renewal here. ===============
@@ -304,7 +305,7 @@ namespace XPT.Legacy.Maps {
         private void FnBWACTOR_12(ServerPlayer player, bool isForwardMove) {
             ShowPortrait(player, 0x0027);
             if (GetFlag(player, FlagTypeMap, 0x01) >= 4) {
-                ShowMessage(player, "The Wise Ones of Beechwood discuss the change in seasons.");
+                ShowMessage(player, isForwardMove, "The Wise Ones of Beechwood discuss the change in seasons.");
             }
             else if (HasUsedItem(player, 0x00, 0xff) == 0) {
                 FnBWACTOR_12_Introduction(player);
@@ -315,27 +316,27 @@ namespace XPT.Legacy.Maps {
         }
 
         private void FnBWACTOR_12_Introduction(ServerPlayer player) {
-            ShowMessage(player, "We are the Wise Ones of Beechwood who serve the Seasons.");
+            ShowMessage(player, false, "We are the Wise Ones of Beechwood who serve the Seasons.");
             switch (GetFlag(player, FlagTypeMap, 0x01)) {
                 case 0: // spring here
-                    ShowMessage(player, "I am Lobard, and the Season I serve is gentle Spring.");
-                    ShowMessage(player, "The soft breezes of Spring warned me of your coming.");
-                    ShowMessage(player, "Wise are they who know how to please my master.");
+                    ShowMessage(player, false, "I am Lobard, and the Season I serve is gentle Spring.");
+                    ShowMessage(player, false, "The soft breezes of Spring warned me of your coming.");
+                    ShowMessage(player, false, "Wise are they who know how to please my master.");
                     break;
                 case 1: // summer here
-                    ShowMessage(player, "My name is Shushian, servant to vibrant Summer.");
-                    ShowMessage(player, "The Summer gently warms those who serve it and parches those who anger it.");
-                    ShowMessage(player, "Why have you come to me in these sultry days of Summer?");
+                    ShowMessage(player, false, "My name is Shushian, servant to vibrant Summer.");
+                    ShowMessage(player, false, "The Summer gently warms those who serve it and parches those who anger it.");
+                    ShowMessage(player, false, "Why have you come to me in these sultry days of Summer?");
                     break;
                 case 2: // autumn here, active event.
-                    ShowMessage(player, "Distly Bombak, the vassal of Autumn, greets you.");
-                    ShowMessage(player, "Lovely Autumn in its varicolored foliage urges you to gather in your harvest before harsh Winter comes.");
-                    ShowMessage(player, "Autumn begins to fade, and so asks why you have come.");
+                    ShowMessage(player, false, "Distly Bombak, the vassal of Autumn, greets you.");
+                    ShowMessage(player, false, "Lovely Autumn in its varicolored foliage urges you to gather in your harvest before harsh Winter comes.");
+                    ShowMessage(player, false, "Autumn begins to fade, and so asks why you have come.");
                     break;
                 case 3: // winter here
-                    ShowMessage(player, "You may call me Karakiar, since that is my name. My liege is Winter.");
-                    ShowMessage(player, "The bracing sting of Winter's winds refresh those who love its white wonderland.");
-                    ShowMessage(player, "Winter would know why you are here.");
+                    ShowMessage(player, false, "You may call me Karakiar, since that is my name. My liege is Winter.");
+                    ShowMessage(player, false, "The bracing sting of Winter's winds refresh those who love its white wonderland.");
+                    ShowMessage(player, false, "Winter would know why you are here.");
                     break;
             }
         }
@@ -347,12 +348,12 @@ namespace XPT.Legacy.Maps {
                     GiveItem(player, ItemWinterWaters);
                 }
                 SetFlag(player, FlagTypeMap, 0x01, 0x03);
-                ShowMessage(player, "Autumn gladly accepts the Spring Renewal.");
-                ShowMessage(player, "Lo! Golden Autumn pales to white Winter and now sleeps under snowy blankets.");
-                ShowMessage(player, "These icy Winter Waters are a present to you.");
+                ShowMessage(player, false, "Autumn gladly accepts the Spring Renewal.");
+                ShowMessage(player, false, "Lo! Golden Autumn pales to white Winter and now sleeps under snowy blankets.");
+                ShowMessage(player, false, "These icy Winter Waters are a present to you.");
             }
             else {
-                ShowMessage(player, "A Wise One scoffs. 'You dishonour the Seasons with this false gift.'");
+                ShowMessage(player, false, "A Wise One scoffs. 'You dishonour the Seasons with this false gift.'");
             }
         }
 
@@ -362,7 +363,7 @@ namespace XPT.Legacy.Maps {
         private void FnOLACTOR_13(ServerPlayer player, bool isForwardMove) {
             ShowPortrait(player, 0x0027);
             if (GetFlag(player, FlagTypeMap, 0x01) >= 4) {
-                ShowMessage(player, "The Clerics softly sooth the seasons.");
+                ShowMessage(player, isForwardMove, "The Clerics softly sooth the seasons.");
             }
             else if (HasUsedItem(player, 0x00, 0xff) == 0) {
                 FnOLACTOR_13_Introduction(player);
@@ -373,27 +374,27 @@ namespace XPT.Legacy.Maps {
         }
 
         private void FnOLACTOR_13_Introduction(ServerPlayer player) {
-            ShowMessage(player, "We are the Clerics of Oakleaf who comfort the Seasons.");
+            ShowMessage(player, false, "We are the Clerics of Oakleaf who comfort the Seasons.");
             switch (GetFlag(player, FlagTypeMap, 0x01)) {
                 case 0: // summer here, active event
-                    ShowMessage(player, "I am Shashamia, friend to the temperate Summer.");
-                    ShowMessage(player, "Sullen summer is nervous around mortals.");
-                    ShowMessage(player, "Do you have some business with Summer?");
+                    ShowMessage(player, false, "I am Shashamia, friend to the temperate Summer.");
+                    ShowMessage(player, false, "Sullen summer is nervous around mortals.");
+                    ShowMessage(player, false, "Do you have some business with Summer?");
                     break;
                 case 1: // spring here
-                    ShowMessage(player, "Call me Donbard. I ease the distress of gentle Spring.");
-                    ShowMessage(player, "Spring quakes in fear at your coming.");
-                    ShowMessage(player, "Why have you come to Spring's home?");
+                    ShowMessage(player, false, "Call me Donbard. I ease the distress of gentle Spring.");
+                    ShowMessage(player, false, "Spring quakes in fear at your coming.");
+                    ShowMessage(player, false, "Why have you come to Spring's home?");
                     break;
                 case 2: // winter here
-                    ShowMessage(player, "I am called Kalakial, and I help poor Winter.");
-                    ShowMessage(player, "Wistful Winter is too shy to speak to you directly.");
-                    ShowMessage(player, "Winter wishes you to leave, so do quickly what you came to do.");
+                    ShowMessage(player, false, "I am called Kalakial, and I help poor Winter.");
+                    ShowMessage(player, false, "Wistful Winter is too shy to speak to you directly.");
+                    ShowMessage(player, false, "Winter wishes you to leave, so do quickly what you came to do.");
                     break;
                 case 3: // autumn here
-                    ShowMessage(player, "Dindly Bindiak is my name. Autumn is my friend.");
-                    ShowMessage(player, "Russet-clad Autumn welcomes you if you are true friends of the Seasons.");
-                    ShowMessage(player, "Autumn will fade away unless you tell me why you have come.");
+                    ShowMessage(player, false, "Dindly Bindiak is my name. Autumn is my friend.");
+                    ShowMessage(player, false, "Russet-clad Autumn welcomes you if you are true friends of the Seasons.");
+                    ShowMessage(player, false, "Autumn will fade away unless you tell me why you have come.");
                     break;
             }
         }
@@ -405,12 +406,12 @@ namespace XPT.Legacy.Maps {
                     GiveItem(player, ItemAutumnSeeds);
                 }
                 SetFlag(player, FlagTypeMap, 0x01, 0x01);
-                ShowMessage(player, "Summer accepts the Harvest Horn.");
-                ShowMessage(player, "Summer mellows by the sweet music and is now Autumn!");
-                ShowMessage(player, "Autumn Seeds are now yours to enjoy.");
+                ShowMessage(player, false, "Summer accepts the Harvest Horn.");
+                ShowMessage(player, false, "Summer mellows by the sweet music and is now Autumn!");
+                ShowMessage(player, false, "Autumn Seeds are now yours to enjoy.");
             }
             else {
-                ShowMessage(player, "A Cleric chides you. 'The Seasons shy away from your pitiful gift.'");
+                ShowMessage(player, false, "A Cleric chides you. 'The Seasons shy away from your pitiful gift.'");
             }
         }
 
@@ -420,7 +421,7 @@ namespace XPT.Legacy.Maps {
         private void FnMBACTOR_14(ServerPlayer player, bool isForwardMove) {
             ShowPortrait(player, 0x0027);
             if (GetFlag(player, FlagTypeMap, 0x01) >= 4) {
-                ShowMessage(player, "The Wardens speak untold secrets.");
+                ShowMessage(player, isForwardMove, "The Wardens speak untold secrets.");
             }
             else if (HasUsedItem(player, 0x00, 0xff) == 0) {
                 FnMBACTOR_14_Introduction(player);
@@ -431,23 +432,23 @@ namespace XPT.Legacy.Maps {
         }
 
         private void FnMBACTOR_14_Introduction(ServerPlayer player) {
-            ShowMessage(player, "We are the Wardens of Maplebrush and hold the Seasons.");
+            ShowMessage(player, false, "We are the Wardens of Maplebrush and hold the Seasons.");
             switch (GetFlag(player, FlagTypeMap, 0x01)) {
                 case 0: // winter here
-                    ShowMessage(player, "Not even I know my true name.");
-                    ShowMessage(player, "It is Winter. I may say no more.");
+                    ShowMessage(player, false, "Not even I know my true name.");
+                    ShowMessage(player, false, "It is Winter. I may say no more.");
                     break;
                 case 1: // autumn here
-                    ShowMessage(player, "Never mind what my name is.");
-                    ShowMessage(player, "It is Autumn. That is enough for now.");
+                    ShowMessage(player, false, "Never mind what my name is.");
+                    ShowMessage(player, false, "It is Autumn. That is enough for now.");
                     break;
                 case 2: // summer here
-                    ShowMessage(player, "My name is my secret.");
-                    ShowMessage(player, "It is Summer. That is all I will say.");
+                    ShowMessage(player, false, "My name is my secret.");
+                    ShowMessage(player, false, "It is Summer. That is all I will say.");
                     break;
                 case 3: // spring here, active event
-                    ShowMessage(player, "You may not know my name.");
-                    ShowMessage(player, "It is Spring. That is all you need know.");
+                    ShowMessage(player, false, "You may not know my name.");
+                    ShowMessage(player, false, "It is Spring. That is all you need know.");
                     break;
             }
         }
@@ -459,11 +460,11 @@ namespace XPT.Legacy.Maps {
                     GiveItem(player, ItemSummerRadiance);
                 }
                 SetFlag(player, FlagTypeMap, 0x01, 0x04);
-                ShowMessage(player, "From Winter Waters comes the change of Spring to Summer.");
-                ShowMessage(player, "You have been rewarded.");
+                ShowMessage(player, false, "From Winter Waters comes the change of Spring to Summer.");
+                ShowMessage(player, false, "You have been rewarded.");
             }
             else {
-                ShowMessage(player, "The Warden grows angry. 'Wrong, wrong, wrong, mortal!'");
+                ShowMessage(player, false, "The Warden grows angry. 'Wrong, wrong, wrong, mortal!'");
             }
         }
 
@@ -473,7 +474,7 @@ namespace XPT.Legacy.Maps {
         private void FnPCACTOR_15(ServerPlayer player, bool isForwardMove) {
             ShowPortrait(player, 0x0027);
             if (GetFlag(player, FlagTypeMap, 0x01) >= 4) {
-                ShowMessage(player, "The Seasons have no further use for you.");
+                ShowMessage(player, isForwardMove, "The Seasons have no further use for you.");
             }
             else if (HasUsedItem(player, 0x00, 0xff) == 0) {
                 FnPCACTOR_15_Introduction(player);
@@ -484,19 +485,19 @@ namespace XPT.Legacy.Maps {
 
         }
         private void FnPCACTOR_15_Introduction(ServerPlayer player) {
-            ShowMessage(player, "We are the Seasons incarnate in mortal form.");
+            ShowMessage(player, false, "We are the Seasons incarnate in mortal form.");
             switch (GetFlag(player, FlagTypeMap, 0x01)) {
                 case 0: // autumn here
-                    ShowMessage(player, "I am Autumn.");
+                    ShowMessage(player, false, "I am Autumn.");
                     break;
                 case 1: // winter here, active event
-                    ShowMessage(player, "I am Winter.");
+                    ShowMessage(player, false, "I am Winter.");
                     break;
                 case 2: // spring here
-                    ShowMessage(player, "I am Spring.");
+                    ShowMessage(player, false, "I am Spring.");
                     break;
                 case 3: // summer here
-                    ShowMessage(player, "I am Summer.");
+                    ShowMessage(player, false, "I am Summer.");
                     break;
             }
         }
@@ -508,12 +509,12 @@ namespace XPT.Legacy.Maps {
                     GiveItem(player, ItemSpringRenewal);
                 }
                 SetFlag(player, FlagTypeMap, 0x01, 0x02);
-                ShowMessage(player, "The Autumn Seeds awaken me from my long hibernation.");
-                ShowMessage(player, "I am Spring again!");
-                ShowMessage(player, "Take the Renewal of Spring and rejoice with me!");
+                ShowMessage(player, false, "The Autumn Seeds awaken me from my long hibernation.");
+                ShowMessage(player, false, "I am Spring again!");
+                ShowMessage(player, false, "Take the Renewal of Spring and rejoice with me!");
             }
             else {
-                ShowMessage(player, "The Season incarnate looks puzzled. 'I cannot accept this gift.'");
+                ShowMessage(player, false, "The Season incarnate looks puzzled. 'I cannot accept this gift.'");
             }
         }
 
@@ -522,37 +523,37 @@ namespace XPT.Legacy.Maps {
 
         private void FnINFO_16(ServerPlayer player, bool isForwardMove) {
             ShowPortrait(player, 0x001F);
-            ShowMessage(player, "'Welcome, Adventurer.  I am Varstad, counselor to the Elf King.");
-            ShowMessage(player, "The magic Aldbora requires Summer Radiance to shed its knowledge fruit.'");
+            ShowMessage(player, isForwardMove, "'Welcome, Adventurer.  I am Varstad, counselor to the Elf King.");
+            ShowMessage(player, isForwardMove, "The magic Aldbora requires Summer Radiance to shed its knowledge fruit.'");
         }
 
         private void FnINFO_17(ServerPlayer player, bool isForwardMove) {
             ShowPortrait(player, 0x0027);
-            ShowMessage(player, "The storyteller Sorshian honors your arrival.");
-            ShowMessage(player, "'Only when the Seasons have processed will the Aldora shed the fruits of Wisdom.'");
+            ShowMessage(player, isForwardMove, "The storyteller Sorshian honors your arrival.");
+            ShowMessage(player, isForwardMove, "'Only when the Seasons have processed will the Aldora shed the fruits of Wisdom.'");
         }
 
         private void FnCAVEDOOR_18(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "A wooden sign says, 'To the cave of NeedleWood.'");
+            ShowMessage(player, isForwardMove, "A wooden sign says, 'To the cave of NeedleWood.'");
             if (HasUsedItem(player, 0xD8, 0xD8) == 1) {
-                ShowMessage(player, "The door unlocks.");
+                ShowMessage(player, isForwardMove, "The door unlocks.");
                 SetWallPassable(player, GetCurrentTile(player), 0x03, 0x01);
                 SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
             }
         }
 
         private void FnELFHOME_19(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "Young elves scurry and hide when you enter this elf home.");
+            ShowMessage(player, isForwardMove, "Young elves scurry and hide when you enter this elf home.");
         }
 
         private void FnELFHOME_1A(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, "Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.");
+            ShowMessage(player, isForwardMove, "Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.");
         }
 
         private void FnINFO_1B(ServerPlayer player, bool isForwardMove) {
             ShowPortrait(player, 0x001F);
-            ShowMessage(player, "'I am Fernank, Hunter to the Elf King.");
-            ShowMessage(player, "It is known in the trees that Nature's Robe must be used for the harvest.'");
+            ShowMessage(player, isForwardMove, "'I am Fernank, Hunter to the Elf King.");
+            ShowMessage(player, isForwardMove, "It is known in the trees that Nature's Robe must be used for the harvest.'");
         }
     }
 }

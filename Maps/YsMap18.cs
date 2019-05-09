@@ -116,7 +116,7 @@ namespace XPT.Legacy.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFloorItem(player, 0x02, GetCurrentTile(player));
-            L0018: ShowMessage(player, String03FC); // You step into molten lava and your flesh burns.
+            L0018: ShowMessage(player, isForwardMove, String03FC); // You step into molten lava and your flesh burns.
             L0025: DamagePlayer(player, GetMaxHits(player));
             L0036: return; // RETURN;
         }
@@ -128,11 +128,11 @@ namespace XPT.Legacy.Maps {
             L0016: if (JumpEqual) goto L0063;
             L0018: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0036: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
-            L0054: ShowMessage(player, String042C); // The Lava Key opens the door.
+            L0054: ShowMessage(player, isForwardMove, String042C); // The Lava Key opens the door.
             L0061: goto L00AB;
             L0063: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0081: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L009E: ShowMessage(player, String0449); // The door is locked. It requires a special key.
+            L009E: ShowMessage(player, isForwardMove, String0449); // The door is locked. It requires a special key.
             L00AB: return; // RETURN;
         }
 
@@ -141,11 +141,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0xE2);
             L0011: if (JumpEqual) goto L0041;
-            L0013: ShowMessage(player, String0478); // Half-starved Rogues eye you hungrily.
+            L0013: ShowMessage(player, isForwardMove, String0478); // Half-starved Rogues eye you hungrily.
             L0020: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L003F: goto L006D;
             L0041: AddTreasure(player, 0x1F40, 0x00, 0x00, 0x00, 0x00, 0xE2);
-            L0060: ShowMessage(player, String049E); // A smirking Barbarian dangles a glowing red key in your face.
+            L0060: ShowMessage(player, isForwardMove, String049E); // A smirking Barbarian dangles a glowing red key in your face.
             L006D: Compare(PartyCount(player), 0x0001);
             L0078: if (JumpNotEqual) goto L00A1;
             L007A: AddEncounter(player, 0x01, 0x27);
@@ -180,12 +180,12 @@ namespace XPT.Legacy.Maps {
             L0003: Compare(GetFlag(player, FlagTypeMap, 0x01), 0x0001);
             L0017: if (JumpNotEqual) goto L0035;
             L0019: ShowPortrait(player, 0x0042);
-            L0026: ShowMessage(player, String04DB); // You sip from the Fountain of Hot Ice, but nothing happens.
+            L0026: ShowMessage(player, isForwardMove, String04DB); // You sip from the Fountain of Hot Ice, but nothing happens.
             L0033: goto L0071;
             L0035: HealPlayer(player, 0x07D0);
             L0042: SetFlag(player, FlagTypeMap, 0x01, 0x01);
             L0057: ShowPortrait(player, 0x0042);
-            L0064: ShowMessage(player, String0516); // You sip from the Fountain of Hot Ice and feel your Health restored.
+            L0064: ShowMessage(player, isForwardMove, String0516); // You sip from the Fountain of Hot Ice and feel your Health restored.
             L0071: return; // RETURN;
         }
 
@@ -198,10 +198,10 @@ namespace XPT.Legacy.Maps {
             L0027: if (JumpBelow) goto L0074;
             L0029: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0047: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0065: ShowMessage(player, String055A); // The door lock opens easily.
+            L0065: ShowMessage(player, isForwardMove, String055A); // The door lock opens easily.
             L0072: goto L009E;
             L0074: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0091: ShowMessage(player, String0576); // The door is locked.
+            L0091: ShowMessage(player, isForwardMove, String0576); // The door is locked.
             L009E: return; // RETURN;
         }
 
@@ -210,12 +210,12 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagLavaCellarGold), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
-            L0019: ShowMessage(player, String058A); // Angry Sabertooth Lions roar at you.
+            L0019: ShowMessage(player, isForwardMove, String058A); // Angry Sabertooth Lions roar at you.
             L0026: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L0045: goto L008A;
             L0047: AddTreasure(player, 0x2710, 0x00, 0x00, 0xB9, 0xD0, 0xD0);
             L0068: SetFlag(player, FlagTypeDungeon, FlagLavaCellarGold, 0x01);
-            L007D: ShowMessage(player, String05AE); // The lion lair you enter is littered with gold.
+            L007D: ShowMessage(player, isForwardMove, String05AE); // The lion lair you enter is littered with gold.
             L008A: Compare(PartyCount(player), 0x0001);
             L0095: if (JumpNotEqual) goto L00AC;
             L0097: AddEncounter(player, 0x01, 0x1B);
@@ -243,12 +243,12 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagLavaCellarGold1), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
-            L0019: ShowMessage(player, String05DD); // You step into a Wyvern den.
+            L0019: ShowMessage(player, isForwardMove, String05DD); // You step into a Wyvern den.
             L0026: AddTreasure(player, 0x1B58, 0x00, 0x00, 0x00, 0x00, 0xD0);
             L0045: goto L0089;
             L0047: AddTreasure(player, 0x2EE0, 0x00, 0x00, 0x00, 0xB9, 0xB4);
             L0067: SetFlag(player, FlagTypeDungeon, FlagLavaCellarGold1, 0x01);
-            L007C: ShowMessage(player, String05F9); // Gold coins are stuck to a Wyvern's scales.
+            L007C: ShowMessage(player, isForwardMove, String05F9); // Gold coins are stuck to a Wyvern's scales.
             L0089: Compare(PartyCount(player), 0x0001);
             L0094: if (JumpNotEqual) goto L00AB;
             L0096: AddEncounter(player, 0x01, 0x1F);
@@ -276,11 +276,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0xC4);
             L0011: if (JumpEqual) goto L0041;
-            L0013: ShowMessage(player, String0624); // You discover a Knights' sanctuary.
+            L0013: ShowMessage(player, isForwardMove, String0624); // You discover a Knights' sanctuary.
             L0020: AddTreasure(player, 0x0BB8, 0x00, 0x00, 0x00, 0x00, 0xB7);
             L003F: goto L006E;
             L0041: AddTreasure(player, 0x2328, 0x00, 0x00, 0x00, 0xD0, 0xC4);
-            L0061: ShowMessage(player, String0647); // A Knight drops a lockpick on the floor.
+            L0061: ShowMessage(player, isForwardMove, String0647); // A Knight drops a lockpick on the floor.
             L006E: Compare(PartyCount(player), 0x0001);
             L0079: if (JumpNotEqual) goto L0090;
             L007B: AddEncounter(player, 0x01, 0x23);
@@ -311,11 +311,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0xC9);
             L0011: if (JumpEqual) goto L0042;
-            L0013: ShowMessage(player, String066F); // This room is a Cleric stronghold.
+            L0013: ShowMessage(player, isForwardMove, String066F); // This room is a Cleric stronghold.
             L0020: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xCB, 0xB2);
             L0040: goto L006F;
             L0042: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0xCD, 0xC9);
-            L0062: ShowMessage(player, String0691); // A Cleric shows off a wand to his associates.
+            L0062: ShowMessage(player, isForwardMove, String0691); // A Cleric shows off a wand to his associates.
             L006F: Compare(PartyCount(player), 0x0001);
             L007A: if (JumpNotEqual) goto L0091;
             L007C: AddEncounter(player, 0x01, 0x25);
@@ -346,11 +346,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0xBE);
             L0011: if (JumpEqual) goto L0041;
-            L0013: ShowMessage(player, String06BE); // You step into a nest of Pincer Cobras.
+            L0013: ShowMessage(player, isForwardMove, String06BE); // You step into a nest of Pincer Cobras.
             L0020: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xB7);
             L003F: goto L006E;
             L0041: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0xD0, 0xBE);
-            L0061: ShowMessage(player, String06E5); // In a snake nest is a shining prism.
+            L0061: ShowMessage(player, isForwardMove, String06E5); // In a snake nest is a shining prism.
             L006E: Compare(PartyCount(player), 0x0001);
             L0079: if (JumpNotEqual) goto L00A2;
             L007B: AddEncounter(player, 0x01, 0x1D);
@@ -377,11 +377,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0x82);
             L0011: if (JumpEqual) goto L0042;
-            L0013: ShowMessage(player, String0709); // You interrupt a Wizards' coven.
+            L0013: ShowMessage(player, isForwardMove, String0709); // You interrupt a Wizards' coven.
             L0020: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xAA, 0xB9);
             L0040: goto L006F;
             L0042: AddTreasure(player, 0x1770, 0x00, 0x00, 0x00, 0xB9, 0x82);
-            L0062: ShowMessage(player, String0729); // The chief Wizard of the coven wears a round breastplate.
+            L0062: ShowMessage(player, isForwardMove, String0729); // The chief Wizard of the coven wears a round breastplate.
             L006F: Compare(PartyCount(player), 0x0001);
             L007A: if (JumpNotEqual) goto L00A3;
             L007C: AddEncounter(player, 0x01, 0x28);
@@ -408,11 +408,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0x9E);
             L0011: if (JumpEqual) goto L0042;
-            L0013: ShowMessage(player, String0762); // Rogue Rangers use this place as a safehold.
+            L0013: ShowMessage(player, isForwardMove, String0762); // Rogue Rangers use this place as a safehold.
             L0020: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xB6, 0xB8);
             L0040: goto L006F;
             L0042: AddTreasure(player, 0x1770, 0x00, 0x00, 0x00, 0xD0, 0x9E);
-            L0062: ShowMessage(player, String078E); // A sly Ranger hides something inside his jacket.
+            L0062: ShowMessage(player, isForwardMove, String078E); // A sly Ranger hides something inside his jacket.
             L006F: Compare(PartyCount(player), 0x0001);
             L007A: if (JumpNotEqual) goto L00A3;
             L007C: AddEncounter(player, 0x01, 0x20);
@@ -439,11 +439,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0x29);
             L0011: if (JumpEqual) goto L0041;
-            L0013: ShowMessage(player, String07BE); // Rogue Barbarians have a wrestling center here.
+            L0013: ShowMessage(player, isForwardMove, String07BE); // Rogue Barbarians have a wrestling center here.
             L0020: AddTreasure(player, 0x1B58, 0x00, 0x00, 0x00, 0x00, 0xAD);
             L003F: goto L006E;
             L0041: AddTreasure(player, 0x2328, 0x00, 0x00, 0x00, 0xB7, 0x29);
-            L0061: ShowMessage(player, String07ED); // A Barbarian throws a heavy mace aside to swing at you.
+            L0061: ShowMessage(player, isForwardMove, String07ED); // A Barbarian throws a heavy mace aside to swing at you.
             L006E: Compare(PartyCount(player), 0x0001);
             L0079: if (JumpNotEqual) goto L00A2;
             L007B: AddEncounter(player, 0x01, 0x26);
@@ -502,35 +502,35 @@ namespace XPT.Legacy.Maps {
         private void FnTELMESSA_25(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0824); // There is a teleport in the north wall.
+            L0003: ShowMessage(player, isForwardMove, String0824); // There is a teleport in the north wall.
             L0010: return; // RETURN;
         }
 
         private void FnTELMESSB_26(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String084B); // There is a teleport in the south wall.
+            L0003: ShowMessage(player, isForwardMove, String084B); // There is a teleport in the south wall.
             L0010: return; // RETURN;
         }
 
         private void FnTELMESSC_27(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0872); // There is a teleport in the east wall.
+            L0003: ShowMessage(player, isForwardMove, String0872); // There is a teleport in the east wall.
             L0010: return; // RETURN;
         }
 
         private void FnTELMESSD_28(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0898); // There is a teleport in the south wall.
+            L0003: ShowMessage(player, isForwardMove, String0898); // There is a teleport in the south wall.
             L0010: return; // RETURN;
         }
 
         private void FnLAVAMESS_29(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String08BF); // The heat of the adjacent lava weakens you.
+            L0003: ShowMessage(player, isForwardMove, String08BF); // The heat of the adjacent lava weakens you.
             L0010: DamagePlayer(player, 0x0005);
             L001D: return; // RETURN;
         }
@@ -538,52 +538,52 @@ namespace XPT.Legacy.Maps {
         private void FnNPCCHATA_2A(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String08EA); // You encounter a Troll Knight.
+            L0003: ShowMessage(player, isForwardMove, String08EA); // You encounter a Troll Knight.
             L0010: ShowPortrait(player, 0x001B);
             L001D: Compare(GetRandom(0x000F), 0x000C);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, String0908); // The only way to get out of this basement area is to go through the lava field. Touching the lava is deadly, as you might expect. However, even if you pass safely through the lava field, the great heat of the lava will sap your strength.
+            L002F: ShowMessage(player, isForwardMove, String0908); // The only way to get out of this basement area is to go through the lava field. Touching the lava is deadly, as you might expect. However, even if you pass safely through the lava field, the great heat of the lava will sap your strength.
             L003C: goto L004B;
-            L003E: ShowMessage(player, String09F5); // The Troll Knight scowls angrily, causing you to leave her alone.
+            L003E: ShowMessage(player, isForwardMove, String09F5); // The Troll Knight scowls angrily, causing you to leave her alone.
             L004B: return; // RETURN;
         }
 
         private void FnNPCCHATB_2B(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0A36); // You encounter a Dwarf Thief.
+            L0003: ShowMessage(player, isForwardMove, String0A36); // You encounter a Dwarf Thief.
             L0010: ShowPortrait(player, 0x0023);
             L001D: Compare(GetRandom(0x000F), 0x0009);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, String0A53); // I know there is a short cut through the lava field. If you can find the correct key, you will be able to use the short cut. The key also will lead you to riches.
+            L002F: ShowMessage(player, isForwardMove, String0A53); // I know there is a short cut through the lava field. If you can find the correct key, you will be able to use the short cut. The key also will lead you to riches.
             L003C: goto L004B;
-            L003E: ShowMessage(player, String0AF5); // The Dwarf Thief runs away.
+            L003E: ShowMessage(player, isForwardMove, String0AF5); // The Dwarf Thief runs away.
             L004B: return; // RETURN;
         }
 
         private void FnNPCCHATC_2C(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0B10); // You encounter a Halfling Ranger.
+            L0003: ShowMessage(player, isForwardMove, String0B10); // You encounter a Halfling Ranger.
             L0010: ShowPortrait(player, 0x0021);
             L001D: Compare(GetRandom(0x000F), 0x0007);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, String0B31); // The dwarves who built Cleowyn's Palace transported precious metals and building blocks up to the top level by means of a teleport. I believe the teleport is somewhere in this area.
+            L002F: ShowMessage(player, isForwardMove, String0B31); // The dwarves who built Cleowyn's Palace transported precious metals and building blocks up to the top level by means of a teleport. I believe the teleport is somewhere in this area.
             L003C: goto L004B;
-            L003E: ShowMessage(player, String0BE6); // The Halfling Ranger faints from heat stroke.
+            L003E: ShowMessage(player, isForwardMove, String0BE6); // The Halfling Ranger faints from heat stroke.
             L004B: return; // RETURN;
         }
 
         private void FnNPCCHATD_2D(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0C13); // You encounter a Gremlin Cleric.
+            L0003: ShowMessage(player, isForwardMove, String0C13); // You encounter a Gremlin Cleric.
             L0010: ShowPortrait(player, 0x002A);
             L001D: Compare(GetRandom(0x000F), 0x000C);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, String0C33); // Deep in the dungeon are the Pillow Labyrinths. They were formed from pillow lava that spilled into the sea. The labyrinth is formed from the hollow interior of the lava.
+            L002F: ShowMessage(player, isForwardMove, String0C33); // Deep in the dungeon are the Pillow Labyrinths. They were formed from pillow lava that spilled into the sea. The labyrinth is formed from the hollow interior of the lava.
             L003C: goto L004B;
-            L003E: ShowMessage(player, String0CDD); // The Gremlin Cleric is deep in meditation and does not answer you.
+            L003E: ShowMessage(player, isForwardMove, String0CDD); // The Gremlin Cleric is deep in meditation and does not answer you.
             L004B: return; // RETURN;
         }
 

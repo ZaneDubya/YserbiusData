@@ -170,10 +170,10 @@ namespace XPT.Legacy.Maps {
             L0026: if (JumpEqual) goto L0073;
             L0028: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0046: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0064: ShowMessage(player, String03FC); // The door opens.
+            L0064: ShowMessage(player, isForwardMove, String03FC); // The door opens.
             L0071: goto L009D;
             L0073: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0090: ShowMessage(player, String040C); // This door is locked.
+            L0090: ShowMessage(player, isForwardMove, String040C); // This door is locked.
             L009D: return; // RETURN;
         }
 
@@ -185,10 +185,10 @@ namespace XPT.Legacy.Maps {
             L0019: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorGaveKingsPassToGuard, 0x00);
             L002D: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L004B: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0069: ShowMessage(player, String0421); // The door magically opens!
+            L0069: ShowMessage(player, isForwardMove, String0421); // The door magically opens!
             L0076: goto L00A2;
             L0078: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0095: ShowMessage(player, String043B); // This door will not open.
+            L0095: ShowMessage(player, isForwardMove, String043B); // This door will not open.
             L00A2: return; // RETURN;
         }
 
@@ -209,12 +209,12 @@ namespace XPT.Legacy.Maps {
             L004F: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorGaveKingsPassToGuard, 0x01);
             L0064: ShowPortrait(player, 0x001C);
             L0071: RemoveItem(player, 0xF9);
-            L007D: ShowMessage(player, String0454); // That is indeed the King's Pass. You may continue. If you ever return, I'll need to see another pass.
+            L007D: ShowMessage(player, isForwardMove, String0454); // That is indeed the King's Pass. You may continue. If you ever return, I'll need to see another pass.
             L008A: goto L00D0;
             L008C: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
             L00A9: ShowPortrait(player, 0x001C);
-            L00B6: ShowMessage(player, String04B9); // None may pass. I am pledged to guard King Cleowyn's Apartments for eternity. Of course, if you had the King's Pass, I could let you through.
-            L00C3: ShowMessage(player, String0546); // Seek the Pass where Ranger and Troll are blessed.
+            L00B6: ShowMessage(player, isForwardMove, String04B9); // None may pass. I am pledged to guard King Cleowyn's Apartments for eternity. Of course, if you had the King's Pass, I could let you through.
+            L00C3: ShowMessage(player, isForwardMove, String0546); // Seek the Pass where Ranger and Troll are blessed.
             L00D0: return; // RETURN;
         }
 
@@ -224,10 +224,10 @@ namespace XPT.Legacy.Maps {
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorHarmony), 0x0001);
             L0017: if (JumpNotEqual) goto L0035;
             L0019: ShowPortrait(player, 0x002C);
-            L0026: ShowMessage(player, String0578); // You have passed the Trial of Harmony. A great reward is yours, if you but look for it.
+            L0026: ShowMessage(player, isForwardMove, String0578); // You have passed the Trial of Harmony. A great reward is yours, if you but look for it.
             L0033: goto L004F;
             L0035: ShowPortrait(player, 0x002C);
-            L0042: ShowMessage(player, String05CF); // You have mastered our Challenge. Congratulations! Behold the door of Harmony. Only those pledged to Harmony should enter.
+            L0042: ShowMessage(player, isForwardMove, String05CF); // You have mastered our Challenge. Congratulations! Behold the door of Harmony. Only those pledged to Harmony should enter.
             L004F: return; // RETURN;
         }
 
@@ -237,10 +237,10 @@ namespace XPT.Legacy.Maps {
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorChaos), 0x0001);
             L0017: if (JumpNotEqual) goto L0035;
             L0019: ShowPortrait(player, 0x002D);
-            L0026: ShowMessage(player, String0649); // You have passed the Trial of Chaos. A great reward is yours, if you but look for it.
+            L0026: ShowMessage(player, isForwardMove, String0649); // You have passed the Trial of Chaos. A great reward is yours, if you but look for it.
             L0033: goto L004F;
             L0035: ShowPortrait(player, 0x002D);
-            L0042: ShowMessage(player, String069E); // You have mastered our Challenge. Congratulations! Behold the door of Chaos. Only those pledged to Chaos should enter.
+            L0042: ShowMessage(player, isForwardMove, String069E); // You have mastered our Challenge. Congratulations! Behold the door of Chaos. Only those pledged to Chaos should enter.
             L004F: return; // RETURN;
         }
 
@@ -267,10 +267,10 @@ namespace XPT.Legacy.Maps {
             L0018: if (JumpNotEqual) goto L0065;
             L001A: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0038: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0056: ShowMessage(player, String0714); // The door is opened
+            L0056: ShowMessage(player, isForwardMove, String0714); // The door is opened
             L0063: goto L008F;
             L0065: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0082: ShowMessage(player, String0727); // The door can be opened only by a Human or Thief.
+            L0082: ShowMessage(player, isForwardMove, String0727); // The door can be opened only by a Human or Thief.
             L008F: return; // RETURN;
         }
 
@@ -283,10 +283,10 @@ namespace XPT.Legacy.Maps {
             L0019: if (JumpNotEqual) goto L0066;
             L001B: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0039: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0057: ShowMessage(player, String0758); // The lock of the door opens as you step forward.
+            L0057: ShowMessage(player, isForwardMove, String0758); // The lock of the door opens as you step forward.
             L0064: goto L0090;
             L0066: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0083: ShowMessage(player, String0788); // The door can be opened only by an Orc or Cleric.
+            L0083: ShowMessage(player, isForwardMove, String0788); // The door can be opened only by an Orc or Cleric.
             L0090: return; // RETURN;
         }
 
@@ -299,10 +299,10 @@ namespace XPT.Legacy.Maps {
             L0018: if (JumpNotEqual) goto L0065;
             L001A: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0038: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0056: ShowMessage(player, String07B9); // The lock opens as you approach.
+            L0056: ShowMessage(player, isForwardMove, String07B9); // The lock opens as you approach.
             L0063: goto L008F;
             L0065: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0082: ShowMessage(player, String07D9); // The door can be opened only by an Elf or Barbarian.
+            L0082: ShowMessage(player, isForwardMove, String07D9); // The door can be opened only by an Elf or Barbarian.
             L008F: return; // RETURN;
         }
 
@@ -315,10 +315,10 @@ namespace XPT.Legacy.Maps {
             L0019: if (JumpNotEqual) goto L0066;
             L001B: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0039: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0057: ShowMessage(player, String080D); // The door unlocks when you test it.
+            L0057: ShowMessage(player, isForwardMove, String080D); // The door unlocks when you test it.
             L0064: goto L0090;
             L0066: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0083: ShowMessage(player, String0830); // The door can be opened only by a Troll or Ranger.
+            L0083: ShowMessage(player, isForwardMove, String0830); // The door can be opened only by a Troll or Ranger.
             L0090: return; // RETURN;
         }
 
@@ -331,10 +331,10 @@ namespace XPT.Legacy.Maps {
             L0019: if (JumpNotEqual) goto L0066;
             L001B: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0039: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0057: ShowMessage(player, String0862); // The door opens as you advance.
+            L0057: ShowMessage(player, isForwardMove, String0862); // The door opens as you advance.
             L0064: goto L0090;
             L0066: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0083: ShowMessage(player, String0881); // The door can be opened only by a Dwarf or Knight.
+            L0083: ShowMessage(player, isForwardMove, String0881); // The door can be opened only by a Dwarf or Knight.
             L0090: return; // RETURN;
         }
 
@@ -347,10 +347,10 @@ namespace XPT.Legacy.Maps {
             L0019: if (JumpNotEqual) goto L0066;
             L001B: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0039: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0057: ShowMessage(player, String08B3); // The door is opened.
+            L0057: ShowMessage(player, isForwardMove, String08B3); // The door is opened.
             L0064: goto L0090;
             L0066: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0083: ShowMessage(player, String08C7); // The door can be opened only by a Gnome or Wizard.
+            L0083: ShowMessage(player, isForwardMove, String08C7); // The door can be opened only by a Gnome or Wizard.
             L0090: return; // RETURN;
         }
 
@@ -363,10 +363,10 @@ namespace XPT.Legacy.Maps {
             L001D: if (JumpEqual) goto L006A;
             L001F: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L003D: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L005B: ShowMessage(player, String08F9); // The door clicks open.
+            L005B: ShowMessage(player, isForwardMove, String08F9); // The door clicks open.
             L0068: goto L0094;
             L006A: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0087: ShowMessage(player, String090F); // The door can be opened only by a Halfling or by Cleowyn's Key.
+            L0087: ShowMessage(player, isForwardMove, String090F); // The door can be opened only by a Halfling or by Cleowyn's Key.
             L0094: return; // RETURN;
         }
 
@@ -379,46 +379,46 @@ namespace XPT.Legacy.Maps {
             L001D: if (JumpEqual) goto L006A;
             L001F: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L003D: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L005B: ShowMessage(player, String094E); // The lock opens for you.
+            L005B: ShowMessage(player, isForwardMove, String094E); // The lock opens for you.
             L0068: goto L0094;
             L006A: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0087: ShowMessage(player, String0966); // The door can be opened only by a Gremlin or by Cleowyn's Lockpick.
+            L0087: ShowMessage(player, isForwardMove, String0966); // The door can be opened only by a Gremlin or by Cleowyn's Lockpick.
             L0094: return; // RETURN;
         }
 
         private void FnOTGGDOOR_13(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String09A9); // A warning is on the door -
+            L0003: ShowMessage(player, isForwardMove, String09A9); // A warning is on the door -
             L0010: RefreshCompareFlags(GetAlignment(player));
             L001A: if (JumpNotEqual) goto L002B;
-            L001C: ShowMessage(player, String09C4); // 'Those honoring Harmony may safely enter.'
+            L001C: ShowMessage(player, isForwardMove, String09C4); // 'Those honoring Harmony may safely enter.'
             L0029: goto L0038;
-            L002B: ShowMessage(player, String09EF); // 'Woe to you who serve Chaos, if you dare cross the threshold.'
+            L002B: ShowMessage(player, isForwardMove, String09EF); // 'Woe to you who serve Chaos, if you dare cross the threshold.'
             L0038: return; // RETURN;
         }
 
         private void FnHEDHDOOR_14(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0A2E); // A warning is on the door -
+            L0003: ShowMessage(player, isForwardMove, String0A2E); // A warning is on the door -
             L0010: Compare(GetAlignment(player), 0x0001);
             L001B: if (JumpNotEqual) goto L002C;
-            L001D: ShowMessage(player, String0A49); // 'Those honoring Chaos may safely enter.'
+            L001D: ShowMessage(player, isForwardMove, String0A49); // 'Those honoring Chaos may safely enter.'
             L002A: goto L0039;
-            L002C: ShowMessage(player, String0A72); // 'Woe to you who serve Harmony, if you dare cross the threshold.'
+            L002C: ShowMessage(player, isForwardMove, String0A72); // 'Woe to you who serve Harmony, if you dare cross the threshold.'
             L0039: return; // RETURN;
         }
 
         private void FnCHAOSDOR_15(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0AB3); // A sign is on the door -
+            L0003: ShowMessage(player, isForwardMove, String0AB3); // A sign is on the door -
             L0010: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L002E: Compare(GetAlignment(player), 0x0001);
             L0039: if (JumpNotEqual) goto L0068;
             L003B: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
-            L0059: ShowMessage(player, String0ACB); // The way is clear for members of Chaos.
+            L0059: ShowMessage(player, isForwardMove, String0ACB); // The way is clear for members of Chaos.
             L0066: goto L00C8;
             L0068:
             player.Gold = (int)(player.Gold * 0.95f);
@@ -427,19 +427,19 @@ namespace XPT.Legacy.Maps {
             // L007A: ModifyAttribute(player, 0x00, 0xFFFE);
             // L008B: ModifyAttribute(player, 0x01, 0xFFFE);
             L009D: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
-            L00BB: ShowMessage(player, String0AF2); // Those not sworn to Chaos have been duly chastised.
+            L00BB: ShowMessage(player, isForwardMove, String0AF2); // Those not sworn to Chaos have been duly chastised.
             L00C8: return; // RETURN;
         }
 
         private void FnHARMDOOR_16(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0B25); // A sign is on the door -
+            L0003: ShowMessage(player, isForwardMove, String0B25); // A sign is on the door -
             L0010: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L002E: RefreshCompareFlags(GetAlignment(player));
             L0038: if (JumpNotEqual) goto L0067;
             L003A: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
-            L0058: ShowMessage(player, String0B3D); // The way is clear for members of Harmony.
+            L0058: ShowMessage(player, isForwardMove, String0B3D); // The way is clear for members of Harmony.
             L0065: goto L00C7;
             L0067:
             player.Gold = (int)(player.Gold * 0.95f);
@@ -448,7 +448,7 @@ namespace XPT.Legacy.Maps {
             // L0079: ModifyAttribute(player, 0x00, 0xFFFE);
             // L008A: ModifyAttribute(player, 0x01, 0xFFFE);
             L009C: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
-            L00BA: ShowMessage(player, String0B66); // Those not sworn to Harmony have been duly chastised.
+            L00BA: ShowMessage(player, isForwardMove, String0B66); // Those not sworn to Harmony have been duly chastised.
             L00C7: return; // RETURN;
         }
 
@@ -473,7 +473,7 @@ namespace XPT.Legacy.Maps {
             L00A1: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x2A);
             L00C0: goto L00E1;
             L00C2: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x4B);
-            L00E1: ShowMessage(player, String0B9B); // Rogues bar the way to Chaos.
+            L00E1: ShowMessage(player, isForwardMove, String0B9B); // Rogues bar the way to Chaos.
             L00EE: Compare(PartyCount(player), 0x0001);
             L00F9: if (JumpNotEqual) goto L0134;
             L00FB: AddEncounter(player, 0x01, 0x26);
@@ -524,7 +524,7 @@ namespace XPT.Legacy.Maps {
             L00DC: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x45);
             L00FB: goto L011C;
             L00FD: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0x06);
-            L011C: ShowMessage(player, String0BB8); // Rogues bar the way to Harmony.
+            L011C: ShowMessage(player, isForwardMove, String0BB8); // Rogues bar the way to Harmony.
             L0129: Compare(PartyCount(player), 0x0001);
             L0134: if (JumpNotEqual) goto L016F;
             L0136: AddEncounter(player, 0x01, 0x26);
@@ -560,10 +560,10 @@ namespace XPT.Legacy.Maps {
             L002F: SetFlag(player, FlagTypeDungeon, FlagModAttr_HumanThief, 0x01);
             L0044: ModifyAttribute(player, 0x00, 0x0001);
             L0055: ModifyAttribute(player, 0x01, 0x0001);
-            L0067: ShowMessage(player, String0BD7); // Blessed Human or Thief, you may continue the quest.
+            L0067: ShowMessage(player, isForwardMove, String0BD7); // Blessed Human or Thief, you may continue the quest.
             L0074: goto L0098;
             L0076: SetFlag(player, FlagTypeDungeon, FlagModAttr_HumanThief, 0x01);
-            L008B: ShowMessage(player, String0C0B); // The tapestry shows nothing of interest.
+            L008B: ShowMessage(player, isForwardMove, String0C0B); // The tapestry shows nothing of interest.
             L0098: return; // RETURN;
         }
 
@@ -579,10 +579,10 @@ namespace XPT.Legacy.Maps {
             L0030: SetFlag(player, FlagTypeDungeon, FlagModAttr_OrcCleric, 0x01);
             L0045: ModifyAttribute(player, 0x00, 0x0001);
             L0056: ModifyAttribute(player, 0x01, 0x0001);
-            L0068: ShowMessage(player, String0C33); // Blessed Orc or Cleric, you may continue the quest.
+            L0068: ShowMessage(player, isForwardMove, String0C33); // Blessed Orc or Cleric, you may continue the quest.
             L0075: goto L0099;
             L0077: SetFlag(player, FlagTypeDungeon, FlagModAttr_OrcCleric, 0x01);
-            L008C: ShowMessage(player, String0C66); // The tapestry shows a jumble of runes.
+            L008C: ShowMessage(player, isForwardMove, String0C66); // The tapestry shows a jumble of runes.
             L0099: return; // RETURN;
         }
 
@@ -598,10 +598,10 @@ namespace XPT.Legacy.Maps {
             L002F: SetFlag(player, FlagTypeDungeon, FlagModAttr_ElfBarb, 0x01);
             L0044: ModifyAttribute(player, 0x00, 0x0001);
             L0055: ModifyAttribute(player, 0x01, 0x0001);
-            L0067: ShowMessage(player, String0C8C); // Blessed Elf or Barbarian, you may continue the quest.
+            L0067: ShowMessage(player, isForwardMove, String0C8C); // Blessed Elf or Barbarian, you may continue the quest.
             L0074: goto L0098;
             L0076: SetFlag(player, FlagTypeDungeon, FlagModAttr_ElfBarb, 0x01);
-            L008B: ShowMessage(player, String0CC2); // The tapestry is blank.
+            L008B: ShowMessage(player, isForwardMove, String0CC2); // The tapestry is blank.
             L0098: return; // RETURN;
         }
 
@@ -617,10 +617,10 @@ namespace XPT.Legacy.Maps {
             L0030: SetFlag(player, FlagTypeDungeon, FlagModAttr_TrollRanger, 0x01);
             L0045: ModifyAttribute(player, 0x00, 0x0001);
             L0056: ModifyAttribute(player, 0x01, 0x0001);
-            L0068: ShowMessage(player, String0CD9); // Blessed Troll or Ranger, you may continue the quest.
+            L0068: ShowMessage(player, isForwardMove, String0CD9); // Blessed Troll or Ranger, you may continue the quest.
             L0075: goto L0099;
             L0077: SetFlag(player, FlagTypeDungeon, FlagModAttr_TrollRanger, 0x01);
-            L008C: ShowMessage(player, String0D0E); // The tapestry is blank.
+            L008C: ShowMessage(player, isForwardMove, String0D0E); // The tapestry is blank.
             L0099: return; // RETURN;
         }
 
@@ -636,10 +636,10 @@ namespace XPT.Legacy.Maps {
             L0030: SetFlag(player, FlagTypeDungeon, FlagModAttr_DwarfKnight, 0x01);
             L0045: ModifyAttribute(player, 0x00, 0x0001);
             L0056: ModifyAttribute(player, 0x01, 0x0001);
-            L0068: ShowMessage(player, String0D25); // Blessed Dwarf or Knight, you may continue the quest.
+            L0068: ShowMessage(player, isForwardMove, String0D25); // Blessed Dwarf or Knight, you may continue the quest.
             L0075: goto L0099;
             L0077: SetFlag(player, FlagTypeDungeon, FlagModAttr_DwarfKnight, 0x01);
-            L008C: ShowMessage(player, String0D5A); // It is too dark to read the inscription.
+            L008C: ShowMessage(player, isForwardMove, String0D5A); // It is too dark to read the inscription.
             L0099: return; // RETURN;
         }
 
@@ -655,10 +655,10 @@ namespace XPT.Legacy.Maps {
             L0030: SetFlag(player, FlagTypeDungeon, FlagModAttr_GnomeWizard, 0x01);
             L0045: ModifyAttribute(player, 0x00, 0x0001);
             L0056: ModifyAttribute(player, 0x01, 0x0001);
-            L0068: ShowMessage(player, String0D82); // Blessed Gnome or Wizard, you may continue the quest.
+            L0068: ShowMessage(player, isForwardMove, String0D82); // Blessed Gnome or Wizard, you may continue the quest.
             L0075: goto L0099;
             L0077: SetFlag(player, FlagTypeDungeon, FlagModAttr_GnomeWizard, 0x01);
-            L008C: ShowMessage(player, String0DB7); // An inscription on the tapestry fades away as you draw near.
+            L008C: ShowMessage(player, isForwardMove, String0DB7); // An inscription on the tapestry fades away as you draw near.
             L0099: return; // RETURN;
         }
 
@@ -672,14 +672,14 @@ namespace XPT.Legacy.Maps {
             L0024: ax = HasItem(player, 0xD3);
             L0032: if (JumpEqual) goto L0087;
             L0034: SetFlag(player, FlagTypeDungeon, FlagModAttr_HalflingKeyCleo, 0x01);
-            L0049: ShowMessage(player, String0DF3); // Blessed Halfling! Blessed Key of Cleowyn! With either, the quest may continue.
+            L0049: ShowMessage(player, isForwardMove, String0DF3); // Blessed Halfling! Blessed Key of Cleowyn! With either, the quest may continue.
             L0056: Compare(GetRace(player), 0x0006);
             L0060: if (JumpNotEqual) goto L0085;
             L0062: ModifyAttribute(player, 0x00, 0x0001);
             L0073: ModifyAttribute(player, 0x01, 0x0001);
             L0085: goto L00A9;
             L0087: SetFlag(player, FlagTypeDungeon, FlagModAttr_HalflingKeyCleo, 0x01);
-            L009C: ShowMessage(player, String0E42); // The tapestry is empty.
+            L009C: ShowMessage(player, isForwardMove, String0E42); // The tapestry is empty.
             L00A9: return; // RETURN;
         }
 
@@ -693,14 +693,14 @@ namespace XPT.Legacy.Maps {
             L0024: ax = HasItem(player, 0xD2);
             L0032: if (JumpEqual) goto L0087;
             L0034: SetFlag(player, FlagTypeDungeon, FlagModAttr_GremlinPickCleo, 0x01);
-            L0049: ShowMessage(player, String0E59); // Blessed Gremlin! Blessed Pick of Cleowyn! With either, the quest may continue.
+            L0049: ShowMessage(player, isForwardMove, String0E59); // Blessed Gremlin! Blessed Pick of Cleowyn! With either, the quest may continue.
             L0056: Compare(GetRace(player), 0x0007);
             L0060: if (JumpNotEqual) goto L0085;
             L0062: ModifyAttribute(player, 0x00, 0x0001);
             L0073: ModifyAttribute(player, 0x01, 0x0001);
             L0085: goto L00A9;
             L0087: SetFlag(player, FlagTypeDungeon, FlagModAttr_GremlinPickCleo, 0x01);
-            L009C: ShowMessage(player, String0EA8); // The tapestry once held a woven message.
+            L009C: ShowMessage(player, isForwardMove, String0EA8); // The tapestry once held a woven message.
             L00A9: return; // RETURN;
         }
 
@@ -713,19 +713,19 @@ namespace XPT.Legacy.Maps {
             L002D: if (JumpNotEqual) goto L0078;
             L002F: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L004D: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L006B: ShowMessage(player, String0ED0); // You found a secret door!
+            L006B: ShowMessage(player, isForwardMove, String0ED0); // You found a secret door!
             L0078: return; // RETURN;
         }
 
         private void FnQUESTBEN_22(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String0EE9); // Reptilian bodies rise from the shadows.
+            L0003: ShowMessage(player, isForwardMove, String0EE9); // Reptilian bodies rise from the shadows.
             L0010: ax = HasItem(player, 0xEE);
             L001E: if (JumpEqual) goto L0041;
             L0020: AddTreasure(player, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L003F: goto L006D;
-            L0041: ShowMessage(player, String0F11); // On the floor is a Chess Piece inscribed with the words - 'Property of Arnakkian Slowfoot.'
+            L0041: ShowMessage(player, isForwardMove, String0F11); // On the floor is a Chess Piece inscribed with the words - 'Property of Arnakkian Slowfoot.'
             L004E: AddTreasure(player, 0x0BB8, 0x00, 0x00, 0x00, 0x00, 0xEE);
             L006D: Compare(PartyCount(player), 0x0001);
             L0078: if (JumpNotEqual) goto L00A1;
@@ -791,7 +791,7 @@ namespace XPT.Legacy.Maps {
             L0038: goto L006F;
             L003A: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xCC, 0x0D);
             L005A: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorWeapon, 0x01);
-            L006F: ShowMessage(player, String0F6C); // You are challenged to combat.
+            L006F: ShowMessage(player, isForwardMove, String0F6C); // You are challenged to combat.
             L007C: Compare(PartyCount(player), 0x0001);
             L0087: if (JumpNotEqual) goto L00B0;
             L0089: AddEncounter(player, 0x01, 0x1D);
@@ -823,7 +823,7 @@ namespace XPT.Legacy.Maps {
             L0038: goto L006E;
             L003A: AddTreasure(player, 0x0384, 0x00, 0x00, 0x00, 0x00, 0xB3);
             L0059: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorWeapon2, 0x01);
-            L006E: ShowMessage(player, String0F8A); // Ferocious enemies stop you.
+            L006E: ShowMessage(player, isForwardMove, String0F8A); // Ferocious enemies stop you.
             L007B: Compare(PartyCount(player), 0x0001);
             L0086: if (JumpEqual) goto L0095;
             L0088: Compare(PartyCount(player), 0x0002);
@@ -855,11 +855,11 @@ namespace XPT.Legacy.Maps {
             L0003: ax = HasItem(player, 0xF9);
             L0011: if (JumpEqual) goto L0041;
             L0013: AddTreasure(player, 0x0384, 0x00, 0x00, 0x00, 0x00, 0xB0);
-            L0032: ShowMessage(player, String0FA6); // Elf Rangers await you.
+            L0032: ShowMessage(player, isForwardMove, String0FA6); // Elf Rangers await you.
             L003F: goto L007E;
             L0041: AddTreasure(player, 0x0FA0, 0x00, 0x00, 0x00, 0x00, 0xF9);
             L0060: AddExperience(player, 0x000001F4);
-            L0071: ShowMessage(player, String0FBD); // An Elf Ranger holds the King's Pass.
+            L0071: ShowMessage(player, isForwardMove, String0FBD); // An Elf Ranger holds the King's Pass.
             L007E: Compare(PartyCount(player), 0x0001);
             L0089: if (JumpNotEqual) goto L00B2;
             L008B: AddEncounter(player, 0x01, 0x1F);
@@ -891,7 +891,7 @@ namespace XPT.Legacy.Maps {
             L0038: goto L006F;
             L003A: AddTreasure(player, 0x04B0, 0x00, 0x00, 0x00, 0xCF, 0xAA);
             L005A: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorItem, 0x01);
-            L006F: ShowMessage(player, String0FE2); // Proud knights dispute your progress.
+            L006F: ShowMessage(player, isForwardMove, String0FE2); // Proud knights dispute your progress.
             L007C: Compare(PartyCount(player), 0x0001);
             L0087: if (JumpEqual) goto L0096;
             L0089: Compare(PartyCount(player), 0x0002);
@@ -918,7 +918,7 @@ namespace XPT.Legacy.Maps {
             L0038: goto L006F;
             L003A: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0xB0, 0xCD);
             L005A: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorGold1, 0x01);
-            L006F: ShowMessage(player, String1007); // Strong enemies bar your way.
+            L006F: ShowMessage(player, isForwardMove, String1007); // Strong enemies bar your way.
             L007C: Compare(PartyCount(player), 0x0001);
             L0087: if (JumpEqual) goto L0096;
             L0089: Compare(PartyCount(player), 0x0002);
@@ -943,11 +943,11 @@ namespace XPT.Legacy.Maps {
             L0003: ax = HasItem(player, 0xC3);
             L0011: if (JumpEqual) goto L0041;
             L0013: AddTreasure(player, 0x0320, 0x00, 0x00, 0x00, 0x00, 0xB5);
-            L0032: ShowMessage(player, String1024); // There is nothing of interest here.
+            L0032: ShowMessage(player, isForwardMove, String1024); // There is nothing of interest here.
             L003F: goto L006E;
             L0041: AddTreasure(player, 0x0000, 0x00, 0x00, 0x50, 0x50, 0xC3);
-            L0061: ShowMessage(player, String1047); // You see a lockpick on the floor.
-            L006E: ShowMessage(player, String1068); // Gallants challenge you.
+            L0061: ShowMessage(player, isForwardMove, String1047); // You see a lockpick on the floor.
+            L006E: ShowMessage(player, isForwardMove, String1068); // Gallants challenge you.
             L007B: Compare(PartyCount(player), 0x0001);
             L0086: if (JumpNotEqual) goto L00AF;
             L0088: AddEncounter(player, 0x01, 0x1A);
@@ -982,10 +982,10 @@ namespace XPT.Legacy.Maps {
             L002B: if (JumpEqual) goto L0078;
             L002D: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L004B: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0069: ShowMessage(player, String1080); // The key opens the door.
+            L0069: ShowMessage(player, isForwardMove, String1080); // The key opens the door.
             L0076: goto L00A2;
             L0078: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0095: ShowMessage(player, String1098); // The door is locked and requires a special key.
+            L0095: ShowMessage(player, isForwardMove, String1098); // The door is locked and requires a special key.
             L00A2: return; // RETURN;
         }
 
@@ -998,7 +998,7 @@ namespace XPT.Legacy.Maps {
             L0038: goto L006F;
             L003A: AddTreasure(player, 0x01F4, 0x00, 0x00, 0x00, 0xB1, 0x55);
             L005A: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorItem1, 0x01);
-            L006F: ShowMessage(player, String10C7); // Fierce opponents bar your way.
+            L006F: ShowMessage(player, isForwardMove, String10C7); // Fierce opponents bar your way.
             L007C: Compare(PartyCount(player), 0x0001);
             L0087: if (JumpNotEqual) goto L00C2;
             L0089: AddEncounter(player, 0x01, 0x25);
@@ -1030,11 +1030,11 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorGold2), 0x0001);
             L0017: if (JumpNotEqual) goto L0028;
-            L0019: ShowMessage(player, String10E6); // This area has been looted.
+            L0019: ShowMessage(player, isForwardMove, String10E6); // This area has been looted.
             L0026: goto L005B;
             L0028: ModifyGold(player, 0x2EE0);
             L0039: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorGold2, 0x01);
-            L004E: ShowMessage(player, String1101); // You find 12000 Gold Pieces on the floor.
+            L004E: ShowMessage(player, isForwardMove, String1101); // You find 12000 Gold Pieces on the floor.
             L005B: return; // RETURN;
         }
 
@@ -1068,7 +1068,7 @@ namespace XPT.Legacy.Maps {
         private void FnTUFMNSTR_2F(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String112A); // Your way is blocked.
+            L0003: ShowMessage(player, isForwardMove, String112A); // Your way is blocked.
             L0010: Compare(PartyCount(player), 0x0001);
             L001B: if (JumpEqual) goto L002A;
             L001D: Compare(PartyCount(player), 0x0002);
@@ -1090,35 +1090,35 @@ namespace XPT.Legacy.Maps {
         private void FnGATEMESA_3A(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String113F); // The gateway leads to THE RUNE ROOM.
+            L0003: ShowMessage(player, isForwardMove, String113F); // The gateway leads to THE RUNE ROOM.
             L0010: return; // RETURN;
         }
 
         private void FnGATEMESB_3B(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String1163); // The gateway leads to THE MAUSOLEUM.
+            L0003: ShowMessage(player, isForwardMove, String1163); // The gateway leads to THE MAUSOLEUM.
             L0010: return; // RETURN;
         }
 
         private void FnSTRSMESS_3C(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String1187); // Stairs past the south gateway lead down.
+            L0003: ShowMessage(player, isForwardMove, String1187); // Stairs past the south gateway lead down.
             L0010: return; // RETURN;
         }
 
         private void FnTELEMESA_3D(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String11B0); // There is a teleport in the east wall.
+            L0003: ShowMessage(player, isForwardMove, String11B0); // There is a teleport in the east wall.
             L0010: return; // RETURN;
         }
 
         private void FnTELEMESB_3E(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, String11D6); // There is a teleport in the west wall.
+            L0003: ShowMessage(player, isForwardMove, String11D6); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
