@@ -155,26 +155,26 @@ namespace XPT.Legacy.Maps {
         private const string String1682 = "A maze made out of dice lies just to the north.";
         
         // === Functions ================================================
-        private void FnCHESLITE_01(ServerPlayer player, bool isForwardMove) {
+        private void FnCHESLITE_01(ServerPlayer player, MapEventType type, bool doMsgs) {
             if (GetCurrentTile(player) == 0x0062 && GetFacing(player) == 0) {
-                ShowMessage(player, isForwardMove, String03FC); // You may leave the chessboard through this opening.
+                ShowMessage(player, doMsgs, String03FC); // You may leave the chessboard through this opening.
                 return;
             }
             if (GetCurrentTile(player) == 0x0069 && GetFacing(player) == 2) {
-                ShowMessage(player, isForwardMove, String03FC); // You may leave the chessboard through this opening.
+                ShowMessage(player, doMsgs, String03FC); // You may leave the chessboard through this opening.
                 return;
             }
             if (GetCurrentTile(player) == 0x0092 && GetFacing(player) == 0) {
-                ShowMessage(player, isForwardMove, String03FC); // You may leave the chessboard through this opening.
+                ShowMessage(player, doMsgs, String03FC); // You may leave the chessboard through this opening.
                 return;
             }
             if (GetCurrentTile(player) == 0x0099 && GetFacing(player) == 2) {
-                ShowMessage(player, isForwardMove, String03FC); // You may leave the chessboard through this opening.
+                ShowMessage(player, doMsgs, String03FC); // You may leave the chessboard through this opening.
                 return;
             }
             SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
             if (HasItem(player, 0xEE) == 0) {
-                ShowMessage(player, isForwardMove, String0466); // With a chess piece you may step across the chessboard.
+                ShowMessage(player, doMsgs, String0466); // With a chess piece you may step across the chessboard.
                 return;
             }
             ushort nextTile = (ushort)GetCurrentTile(player);
@@ -195,32 +195,32 @@ namespace XPT.Legacy.Maps {
             int x = nextTile & 0x000f;
             int y = nextTile & 0x00f0;
             if (x < 2 || x > 9 || y < 0x40 || y > 0xB0) {
-                ShowMessage(player, isForwardMove, String042F); // A knight move here would place you off the chessboard!
+                ShowMessage(player, doMsgs, String042F); // A knight move here would place you off the chessboard!
                 return;
             }
-            TeleportParty(player, 0x35, 0x02, nextTile, GetFacing(player), isForwardMove);
+            TeleportParty(player, 0x35, 0x02, nextTile, GetFacing(player), type);
         }
 
-        private void FnCHESDARK_02(ServerPlayer player, bool isForwardMove) {
+        private void FnCHESDARK_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             if (GetCurrentTile(player) == 0x0062 && GetFacing(player) == 0) {
-                ShowMessage(player, isForwardMove, String03FC); // You may leave the chessboard through this opening.
+                ShowMessage(player, doMsgs, String03FC); // You may leave the chessboard through this opening.
                 return;
             }
             if (GetCurrentTile(player) == 0x0069 && GetFacing(player) == 2) {
-                ShowMessage(player, isForwardMove, String03FC); // You may leave the chessboard through this opening.
+                ShowMessage(player, doMsgs, String03FC); // You may leave the chessboard through this opening.
                 return;
             }
             if (GetCurrentTile(player) == 0x0092 && GetFacing(player) == 0) {
-                ShowMessage(player, isForwardMove, String03FC); // You may leave the chessboard through this opening.
+                ShowMessage(player, doMsgs, String03FC); // You may leave the chessboard through this opening.
                 return;
             }
             if (GetCurrentTile(player) == 0x0099 && GetFacing(player) == 2) {
-                ShowMessage(player, isForwardMove, String03FC); // You may leave the chessboard through this opening.
+                ShowMessage(player, doMsgs, String03FC); // You may leave the chessboard through this opening.
                 return;
             }
             SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
             if (HasItem(player, 0xEE) == 0) {
-                ShowMessage(player, isForwardMove, String0466); // With a chess piece you may step across the chessboard.
+                ShowMessage(player, doMsgs, String0466); // With a chess piece you may step across the chessboard.
                 return;
             }
             ushort nextTile = (ushort)GetCurrentTile(player);
@@ -241,111 +241,111 @@ namespace XPT.Legacy.Maps {
             int x = nextTile & 0x000f;
             int y = nextTile & 0x00f0;
             if (x < 2 || x > 9 || y < 0x40 || y > 0xB0) {
-                ShowMessage(player, isForwardMove, String042F); // A knight move here would place you off the chessboard!
+                ShowMessage(player, doMsgs, String042F); // A knight move here would place you off the chessboard!
                 return;
             }
-            TeleportParty(player, 0x35, 0x02, nextTile, GetFacing(player), isForwardMove);
+            TeleportParty(player, 0x35, 0x02, nextTile, GetFacing(player), type);
         }
 
-        private void FnVOID_03(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String053E); // You fall to your death in the lava below!
+        private void FnVOID_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String053E); // You fall to your death in the lava below!
             DamagePlayer(player, GetMaxHits(player));
         }
 
-        private void FnPOKERBRG_04(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0568); // Planks of the Poker Bridge are made from used playing cards.
+        private void FnPOKERBRG_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0568); // Planks of the Poker Bridge are made from used playing cards.
             Compare(GetFlag(player, FlagTypeMap, 0x01), 0x0001);
             if (JumpNotEqual) {
-                ShowMessage(player, isForwardMove, String05D2); // The bridge collapses as you step on it, sending you to your death.
-                ShowMessage(player, isForwardMove, String0615); // The King laughs at his clever ruse.
+                ShowMessage(player, doMsgs, String05D2); // The bridge collapses as you step on it, sending you to your death.
+                ShowMessage(player, doMsgs, String0615); // The King laughs at his clever ruse.
                 DamagePlayer(player, GetMaxHits(player));
                 return;
             }
-            ShowMessage(player, isForwardMove, String05A5); // The rickety bridge barely holds your weight.
+            ShowMessage(player, doMsgs, String05A5); // The rickety bridge barely holds your weight.
             SetFloorItem(player, 0x00, 0xDD);
             SetFloorPassable(player, 0xDD, 0x01);
         }
 
-        private void FnPOKERSW_05(ServerPlayer player, bool isForwardMove) {
-            if (HasUsedItem(player, 0xEC, 0xEC) == 0) {
-                ShowMessage(player, isForwardMove, String067A); // A bottomless pit lies before you, and a broken bridge spans the pit.
-                ShowMessage(player, isForwardMove, String06BF); // Upon each board are the symbols for 10, Jack, Queen and Ace.  A voice proclaims, 'I call your bluff'.
+        private void FnPOKERSW_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+            if (HasUsedItem(player, type, ref doMsgs, 0xEC, 0xEC) == 0) {
+                ShowMessage(player, doMsgs, String067A); // A bottomless pit lies before you, and a broken bridge spans the pit.
+                ShowMessage(player, doMsgs, String06BF); // Upon each board are the symbols for 10, Jack, Queen and Ace.  A voice proclaims, 'I call your bluff'.
                 return;
             }
             SetFlag(player, FlagTypeMap, 0x01, 0x01);
             SetFloorItem(player, 0x00, 0xDD);
             SetFloorPassable(player, 0xDD, 0x01);
-            ShowMessage(player, isForwardMove, String0639); // The royal flush beats the Joker!  A bridge forms across the pit.
+            ShowMessage(player, doMsgs, String0639); // The royal flush beats the Joker!  A bridge forms across the pit.
         }
 
-        private void FnHEARTSDR_06(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0725); // The door bellows, 'I am all hearts!'
+        private void FnHEARTSDR_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0725); // The door bellows, 'I am all hearts!'
         }
 
-        private void FnMOONSW_07(ServerPlayer player, bool isForwardMove) {
-            if (HasUsedItem(player, 0xEB, 0xEB) == 0) {
-                ShowMessage(player, isForwardMove, String0774); // A small button, shaped like the crescent moon, lies just out of reach.
+        private void FnMOONSW_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+            if (HasUsedItem(player, type, ref doMsgs, 0xEB, 0xEB) == 0) {
+                ShowMessage(player, doMsgs, String0774); // A small button, shaped like the crescent moon, lies just out of reach.
                 return;
             }
             SetWallItem(player, 0x01, 0xBF, 0x03);
             SetWallPassable(player, 0xBF, 0x03, 0x01);
-            ShowMessage(player, isForwardMove, String074A); // The door proclaims,  'You shot the Moon!'
+            ShowMessage(player, doMsgs, String074A); // The door proclaims,  'You shot the Moon!'
         }
 
-        private void FnBLAKJAK_08(ServerPlayer player, bool isForwardMove) {
-            if (HasUsedItem(player, 0xED, 0xED) == 0) goto L0060;
+        private void FnBLAKJAK_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+            if (HasUsedItem(player, type, ref doMsgs, 0xED, 0xED) == 0) goto L0060;
             SetWallItem(player, 0x01, 0x8D, 0x01);
             SetWallPassable(player, 0x8D, 0x01, 0x01);
-            ShowMessage(player, isForwardMove, String07BB); // The Ace is played as eleven points, scoring the BlackJack!
-            ShowMessage(player, isForwardMove, String07F6); // A door unlocks...
+            ShowMessage(player, doMsgs, String07BB); // The Ace is played as eleven points, scoring the BlackJack!
+            ShowMessage(player, doMsgs, String07F6); // A door unlocks...
             return;
-            L0060: ShowMessage(player, isForwardMove, String0808); // You enter a treasure room without any treasure.
-            ShowMessage(player, isForwardMove, String0838); // A dwarf thief voice menacingly orders, 'The Kings guard their treasure.  Only one can find it.'
+            L0060: ShowMessage(player, doMsgs, String0808); // You enter a treasure room without any treasure.
+            ShowMessage(player, doMsgs, String0838); // A dwarf thief voice menacingly orders, 'The Kings guard their treasure.  Only one can find it.'
         }
 
-        private void FnBLAKJAKK_09(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0898); // Stand back!  A King guards this wall!
+        private void FnBLAKJAKK_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0898); // Stand back!  A King guards this wall!
         }
 
-        private void FnCRIB_0A(ServerPlayer player, bool isForwardMove) {
-            if (HasUsedItem(player, 0xEA, 0xEA) == 0) goto L0060;
+        private void FnCRIB_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+            if (HasUsedItem(player, type, ref doMsgs, 0xEA, 0xEA) == 0) goto L0060;
             SetWallItem(player, 0x01, 0x7D, 0x03);
             SetWallPassable(player, 0x7D, 0x03, 0x01);
-            ShowMessage(player, isForwardMove, String08BE); // The Jack scores the hand 22.  Cribbage is the game.
-            ShowMessage(player, isForwardMove, String08F2); // A door unlocks...
+            ShowMessage(player, doMsgs, String08BE); // The Jack scores the hand 22.  Cribbage is the game.
+            ShowMessage(player, doMsgs, String08F2); // A door unlocks...
             return;
-            L0060: ShowMessage(player, isForwardMove, String0904); // The 22nd room of this fine castle...
-            ShowMessage(player, isForwardMove, String0929); // On the floor is a five, on two walls are fives, and the third wall holds a Jack.
-            ShowMessage(player, isForwardMove, String097A); // A voice laughs, 'You stand on face up!'
+            L0060: ShowMessage(player, doMsgs, String0904); // The 22nd room of this fine castle...
+            ShowMessage(player, doMsgs, String0929); // On the floor is a five, on two walls are fives, and the third wall holds a Jack.
+            ShowMessage(player, doMsgs, String097A); // A voice laughs, 'You stand on face up!'
         }
 
-        private void FnCRIBJACK_0B(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String09A2); // I, the Jack, throw dust in your general direction.
+        private void FnCRIBJACK_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String09A2); // I, the Jack, throw dust in your general direction.
         }
 
-        private void FnCRIBFIVE_0C(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String09D5); // The 5 card smiles back.
+        private void FnCRIBFIVE_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String09D5); // The 5 card smiles back.
         }
 
-        private void FnBRDGFALL_0D(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String09ED); // The Poker Bridge behind you collapses.
+        private void FnBRDGFALL_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String09ED); // The Poker Bridge behind you collapses.
             SetFlag(player, FlagTypeMap, 0x01, 0x00);
             SetFloorItem(player, 0x01, 0xDD);
         }
 
-        private void FnDICEPASS_0E(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0A14); // Lucky Sevens! Lucky Sevens on the first roll!
+        private void FnDICEPASS_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0A14); // Lucky Sevens! Lucky Sevens on the first roll!
         }
 
-        private void FnDICESNAK_0F(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0A42); // The door says, 'Snake eyes' ...
+        private void FnDICESNAK_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0A42); // The door says, 'Snake eyes' ...
         }
 
-        private void FnDICEBOXC_10(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0A62); // The door shows two squares of six.  'Box Cars' ...
+        private void FnDICEBOXC_10(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0A62); // The door shows two squares of six.  'Box Cars' ...
         }
 
-        private void FnDICEENCA_11(ServerPlayer player, bool isForwardMove) {
+        private void FnDICEENCA_11(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x0A);
             AddEncounter(player, 0x02, 0x0A);
             AddEncounter(player, 0x03, 0x0A);
@@ -354,7 +354,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x04);
         }
 
-        private void FnDICEENCB_12(ServerPlayer player, bool isForwardMove) {
+        private void FnDICEENCB_12(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x0A);
             AddEncounter(player, 0x02, 0x0A);
             AddEncounter(player, 0x03, 0x0A);
@@ -363,8 +363,8 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x0A);
         }
 
-        private void FnBLJKFOUN_13(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0A95); // The Blackjack Fountain is made of playing cards.
+        private void FnBLJKFOUN_13(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0A95); // The Blackjack Fountain is made of playing cards.
             RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagModAttr_BlackjackFountain));
             if (JumpEqual) goto L0028;
             goto L00AF;
@@ -373,16 +373,16 @@ namespace XPT.Legacy.Maps {
             ShowPortrait(player, 0x0042);
             ModifyAttribute(player, 0x02, 0x0003);
             HealPlayer(player, (ushort)GetMaxHits(player));
-            ShowMessage(player, isForwardMove, String0AC6); // Still water fills the basin.
-            ShowMessage(player, isForwardMove, String0AE3); // A sip of it makes you feel healthier and more agile.
-            ShowMessage(player, isForwardMove, String0B18); // As you sip, a voice whispers -
-            ShowMessage(player, isForwardMove, String0B37); // 'The Jack has come home.  Thank you for your help.'
+            ShowMessage(player, doMsgs, String0AC6); // Still water fills the basin.
+            ShowMessage(player, doMsgs, String0AE3); // A sip of it makes you feel healthier and more agile.
+            ShowMessage(player, doMsgs, String0B18); // As you sip, a voice whispers -
+            ShowMessage(player, doMsgs, String0B37); // 'The Jack has come home.  Thank you for your help.'
             return;
-            L00AF: ShowMessage(player, isForwardMove, String0B6B); // The fountain is dry as a bone.
+            L00AF: ShowMessage(player, doMsgs, String0B6B); // The fountain is dry as a bone.
         }
 
-        private void FnCRIBFOUN_14(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0B8A); // The Cribbage Fountain is bedecked with golden pegs.
+        private void FnCRIBFOUN_14(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0B8A); // The Cribbage Fountain is bedecked with golden pegs.
             RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagModAttr_CribbageFountain));
             if (JumpEqual) goto L0028;
             goto L00AB;
@@ -391,86 +391,86 @@ namespace XPT.Legacy.Maps {
             RemoveItem(player, 0xED);
             ModifyAttribute(player, 0x03, 0x0003);
             AddMana(player, 0x0BB8);
-            ShowMessage(player, isForwardMove, String0BBE); // A puff of steam from the fountain blows in your face.
-            ShowMessage(player, isForwardMove, String0BF4); // Your Mana is restored and you feel readier to fight.
-            ShowMessage(player, isForwardMove, String0C29); // A voice whispers -
-            ShowMessage(player, isForwardMove, String0C3C); // 'The Ace has returned.  Three points for you.'
+            ShowMessage(player, doMsgs, String0BBE); // A puff of steam from the fountain blows in your face.
+            ShowMessage(player, doMsgs, String0BF4); // Your Mana is restored and you feel readier to fight.
+            ShowMessage(player, doMsgs, String0C29); // A voice whispers -
+            ShowMessage(player, doMsgs, String0C3C); // 'The Ace has returned.  Three points for you.'
             return;
-            L00AB: ShowMessage(player, isForwardMove, String0C6B); // The basin is empty.
+            L00AB: ShowMessage(player, doMsgs, String0C6B); // The basin is empty.
         }
 
-        private void FnDICETRSA_15(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0C7F); // A message is inscribed on a wall -- 
-            ShowRunes(player, String0CA4); // 'The Waters of Winter are needed to transform Spring into Summer.
-            ShowRunes(player, String0CE6); // In return for your deeds, you will receive the Radiance of Summer.'
+        private void FnDICETRSA_15(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0C7F); // A message is inscribed on a wall -- 
+            ShowRunes(player, doMsgs, String0CA4); // 'The Waters of Winter are needed to transform Spring into Summer.
+            ShowRunes(player, doMsgs, String0CE6); // In return for your deeds, you will receive the Radiance of Summer.'
         }
 
-        private void FnDICETRSB_16(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0D2A); // A note is inscribed on a wall -- 
-            ShowRunes(player, String0D4C); // 'To reach En-Li-Kil, you must defeat his Wind Elemental.
-            ShowRunes(player, String0D85); // Remember to use weapons that do not break when the Wind Elemental attacks.
+        private void FnDICETRSB_16(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0D2A); // A note is inscribed on a wall -- 
+            ShowRunes(player, doMsgs, String0D4C); // 'To reach En-Li-Kil, you must defeat his Wind Elemental.
+            ShowRunes(player, doMsgs, String0D85); // Remember to use weapons that do not break when the Wind Elemental attacks.
         }
 
-        private void FnDICETRSC_17(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0DD0); // A message is written in blood on a wall -- 
-            ShowRunes(player, String0DFC); // 'Be careful in the River of Eternity.
-            ShowRunes(player, String0E22); // The river takes one fourth of your full health every step you take with no opportunity to heal.
-            ShowRunes(player, String0E82); // 'A safe fourth square must be found to cross the Rivers of Eternity.'
+        private void FnDICETRSC_17(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0DD0); // A message is written in blood on a wall -- 
+            ShowRunes(player, doMsgs, String0DFC); // 'Be careful in the River of Eternity.
+            ShowRunes(player, doMsgs, String0E22); // The river takes one fourth of your full health every step you take with no opportunity to heal.
+            ShowRunes(player, doMsgs, String0E82); // 'A safe fourth square must be found to cross the Rivers of Eternity.'
         }
 
-        private void FnDICETRSD_18(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0EC8); // A message is written on a wall -- 
-            ShowRunes(player, String0EEB); // 'Use the outer walls to set the location of another's next step in the Parapet Chasm.
-            ShowRunes(player, String0F41); // Once across, encounter Andreas to gain access to Arnakkian.'
+        private void FnDICETRSD_18(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0EC8); // A message is written on a wall -- 
+            ShowRunes(player, doMsgs, String0EEB); // 'Use the outer walls to set the location of another's next step in the Parapet Chasm.
+            ShowRunes(player, doMsgs, String0F41); // Once across, encounter Andreas to gain access to Arnakkian.'
         }
 
-        private void FnDICETRSE_19(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0F7E); // A message is written on a wall -- 
-            ShowRunes(player, String0FA1); // 'The Promise of Spring Renewal must be sworn to convert Autumn to Winter.
-            ShowRunes(player, String0FEB); // In return you will receive the cold Waters of Winter.'
+        private void FnDICETRSE_19(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0F7E); // A message is written on a wall -- 
+            ShowRunes(player, doMsgs, String0FA1); // 'The Promise of Spring Renewal must be sworn to convert Autumn to Winter.
+            ShowRunes(player, doMsgs, String0FEB); // In return you will receive the cold Waters of Winter.'
         }
 
-        private void FnDICETRSF_1A(ServerPlayer player, bool isForwardMove) {
+        private void FnDICETRSF_1A(ServerPlayer player, MapEventType type, bool doMsgs) {
             ShowPortrait(player, 0x001F);
-            ShowMessage(player, isForwardMove, String1022); // An Elf Ranger appears.
-            ShowMessage(player, isForwardMove, String1039); // 'In levels below the labyrinth, Snow Elves hide from the curses 
-            ShowMessage(player, isForwardMove, String107A); // of Arnakkian and await the day they may return to their faraway land.
-            ShowMessage(player, isForwardMove, String10C0); // A proud tree may be found in their caves.
-            ShowMessage(player, isForwardMove, String10EA); // The Snow Elves call this grand tree the Aldbora.
-            ShowMessage(player, isForwardMove, String111B); // The Aldbora bears the fruit of knowledge to all adventurers during the season of winter.
-            ShowMessage(player, isForwardMove, String1174); // It lies dormant now, unable to ripen its fruit without the change of seasons and the Radiance of Summer.'
+            ShowMessage(player, doMsgs, String1022); // An Elf Ranger appears.
+            ShowMessage(player, doMsgs, String1039); // 'In levels below the labyrinth, Snow Elves hide from the curses 
+            ShowMessage(player, doMsgs, String107A); // of Arnakkian and await the day they may return to their faraway land.
+            ShowMessage(player, doMsgs, String10C0); // A proud tree may be found in their caves.
+            ShowMessage(player, doMsgs, String10EA); // The Snow Elves call this grand tree the Aldbora.
+            ShowMessage(player, doMsgs, String111B); // The Aldbora bears the fruit of knowledge to all adventurers during the season of winter.
+            ShowMessage(player, doMsgs, String1174); // It lies dormant now, unable to ripen its fruit without the change of seasons and the Radiance of Summer.'
         }
 
-        private void FnDICETRSG_1B(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String11DE); // A message is scrawled on a wall -- 
-            ShowRunes(player, String1202); // 'Use the Autumn Seeds to transform Winter into flowering Spring.
-            ShowRunes(player, String1243); // The promise of Spring Renewal for another year will be given in return.'
+        private void FnDICETRSG_1B(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String11DE); // A message is scrawled on a wall -- 
+            ShowRunes(player, doMsgs, String1202); // 'Use the Autumn Seeds to transform Winter into flowering Spring.
+            ShowRunes(player, doMsgs, String1243); // The promise of Spring Renewal for another year will be given in return.'
         }
 
-        private void FnDICETRSH_1C(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String128C); // A message is carved in the floor -- 
-            ShowRunes(player, String12B1); // 'The bones of a past king may be found in the Elven Caves.'
+        private void FnDICETRSH_1C(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String128C); // A message is carved in the floor -- 
+            ShowRunes(player, doMsgs, String12B1); // 'The bones of a past king may be found in the Elven Caves.'
         }
 
-        private void FnDICETRSI_1D(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String12ED); // A message is scribbled on a wall -- 
-            ShowRunes(player, String1312); // 'The trumpet sound of the Harvest Horn will announce Summer's conversion to Autumn.
-            ShowRunes(player, String1366); // From the conversion you will receive the seeds of Autumn.'
+        private void FnDICETRSI_1D(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String12ED); // A message is scribbled on a wall -- 
+            ShowRunes(player, doMsgs, String1312); // 'The trumpet sound of the Harvest Horn will announce Summer's conversion to Autumn.
+            ShowRunes(player, doMsgs, String1366); // From the conversion you will receive the seeds of Autumn.'
         }
 
-        private void FnBARD_22(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String13A1); // A ghost elf bard sings a tale of how four colored magical gems placed side by side can form a rainbow to a far away island.
+        private void FnBARD_22(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String13A1); // A ghost elf bard sings a tale of how four colored magical gems placed side by side can form a rainbow to a far away island.
         }
 
-        private void FnAPPLES_23(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String141D); // The spirit of a beautiful wench appears. She hold a wooden bucket filled wtih floating apples.
-            ShowMessage(player, isForwardMove, String147C); // 'Step forward and honor me with your kindness!  Bob for apples and win a prize.'
+        private void FnAPPLES_23(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String141D); // The spirit of a beautiful wench appears. She hold a wooden bucket filled wtih floating apples.
+            ShowMessage(player, doMsgs, String147C); // 'Step forward and honor me with your kindness!  Bob for apples and win a prize.'
         }
 
-        private void FnAPPLEENC_24(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String14CD); // You have accepted the ghost's challenge.
-            ShowMessage(player, isForwardMove, String14F6); // You close your eyes and dunk your head into the wood bucket.
-            ShowMessage(player, isForwardMove, String1533); // The ripe apples are rotten and filled with Leeches!
+        private void FnAPPLEENC_24(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String14CD); // You have accepted the ghost's challenge.
+            ShowMessage(player, doMsgs, String14F6); // You close your eyes and dunk your head into the wood bucket.
+            ShowMessage(player, doMsgs, String1533); // The ripe apples are rotten and filled with Leeches!
             AddEncounter(player, 0x01, 0x1A);
             AddEncounter(player, 0x02, 0x1A);
             AddEncounter(player, 0x03, 0x1B);
@@ -479,7 +479,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x1A);
         }
 
-        private void FnCHESENCA_25(ServerPlayer player, bool isForwardMove) {
+        private void FnCHESENCA_25(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1C);
             AddEncounter(player, 0x02, 0x1D);
             AddEncounter(player, 0x03, 0x1E);
@@ -488,7 +488,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x21);
         }
 
-        private void FnCHESENCB_26(ServerPlayer player, bool isForwardMove) {
+        private void FnCHESENCB_26(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1E);
             AddEncounter(player, 0x02, 0x1E);
             AddEncounter(player, 0x03, 0x1E);
@@ -497,7 +497,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x1E);
         }
 
-        private void FnCHESENCC_27(ServerPlayer player, bool isForwardMove) {
+        private void FnCHESENCC_27(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1F);
             AddEncounter(player, 0x02, 0x1F);
             AddEncounter(player, 0x03, 0x1F);
@@ -506,7 +506,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x1F);
         }
 
-        private void FnCHESENCD_28(ServerPlayer player, bool isForwardMove) {
+        private void FnCHESENCD_28(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x20);
             AddEncounter(player, 0x02, 0x20);
             AddEncounter(player, 0x03, 0x20);
@@ -515,7 +515,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x26);
         }
 
-        private void FnCHESENCE_29(ServerPlayer player, bool isForwardMove) {
+        private void FnCHESENCE_29(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x22);
             AddEncounter(player, 0x02, 0x22);
             AddEncounter(player, 0x03, 0x22);
@@ -530,7 +530,7 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnCHESENCF_2A(ServerPlayer player, bool isForwardMove) {
+        private void FnCHESENCF_2A(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x18);
             AddEncounter(player, 0x02, 0x18);
             AddEncounter(player, 0x03, 0x15);
@@ -545,7 +545,7 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnPOKRENCA_2B(ServerPlayer player, bool isForwardMove) {
+        private void FnPOKRENCA_2B(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1F);
             AddEncounter(player, 0x02, 0x1F);
             AddEncounter(player, 0x03, 0x1F);
@@ -554,7 +554,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x1F);
         }
 
-        private void FnCRIBENCA_2C(ServerPlayer player, bool isForwardMove) {
+        private void FnCRIBENCA_2C(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x23);
             AddEncounter(player, 0x02, 0x23);
             AddEncounter(player, 0x05, 0x23);
@@ -562,7 +562,7 @@ namespace XPT.Legacy.Maps {
             AddTreasure(player, 0x2710, 0x00, 0x00, 0xD0, 0xD0, 0x71);
         }
 
-        private void FnBLJKENCA_2D(ServerPlayer player, bool isForwardMove) {
+        private void FnBLJKENCA_2D(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x26);
             AddEncounter(player, 0x02, 0x26);
             AddEncounter(player, 0x03, 0x26);
@@ -572,7 +572,7 @@ namespace XPT.Legacy.Maps {
             AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0xD0, 0x1D);
         }
 
-        private void FnBLJKENCB_2E(ServerPlayer player, bool isForwardMove) {
+        private void FnBLJKENCB_2E(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x26);
             AddEncounter(player, 0x02, 0x26);
             AddEncounter(player, 0x03, 0x26);
@@ -582,8 +582,8 @@ namespace XPT.Legacy.Maps {
             AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0xD0, 0xBE);
         }
 
-        private void FnCRIBENCB_2F(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String1567); // You are able to dodge several bursts of flame as you enter a Dragon's Lair.
+        private void FnCRIBENCB_2F(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String1567); // You are able to dodge several bursts of flame as you enter a Dragon's Lair.
             AddEncounter(player, 0x01, 0x24);
             AddEncounter(player, 0x02, 0x24);
             AddEncounter(player, 0x03, 0x24);
@@ -592,21 +592,21 @@ namespace XPT.Legacy.Maps {
             AddTreasure(player, 0x2710, 0x00, 0x00, 0xCF, 0xBD, 0x5C);
         }
 
-        private void FnVARYENCA_30(ServerPlayer player, bool isForwardMove) {
+        private void FnVARYENCA_30(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x04);
             AddEncounter(player, 0x02, 0x04);
             AddEncounter(player, 0x04, 0x04);
             AddEncounter(player, 0x05, 0x04);
         }
 
-        private void FnVARYENCB_31(ServerPlayer player, bool isForwardMove) {
+        private void FnVARYENCB_31(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x0E);
             AddEncounter(player, 0x02, 0x0E);
             AddEncounter(player, 0x03, 0x0E);
             AddEncounter(player, 0x05, 0x0D);
         }
 
-        private void FnVARYENCE_34(ServerPlayer player, bool isForwardMove) {
+        private void FnVARYENCE_34(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x13);
             AddEncounter(player, 0x02, 0x13);
             AddEncounter(player, 0x03, 0x13);
@@ -615,28 +615,28 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x02);
         }
 
-        private void FnGATEA_35(ServerPlayer player, bool isForwardMove) {
-            TeleportParty(player, 0x35, 0x01, 0x3F, 0x00, isForwardMove);
+        private void FnGATEA_35(ServerPlayer player, MapEventType type, bool doMsgs) {
+            TeleportParty(player, 0x35, 0x01, 0x3F, 0x00, type);
         }
 
-        private void FnTOLABY_36(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String15B3); // The gate takes you back to the labyrinth.
+        private void FnTOLABY_36(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String15B3); // The gate takes you back to the labyrinth.
         }
 
-        private void FnTXTCHESL_37(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String15DD); // Use the red squares and you shall turn clockwise on your mount.
+        private void FnTXTCHESL_37(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String15DD); // Use the red squares and you shall turn clockwise on your mount.
         }
 
-        private void FnTXTCHESD_38(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String161D); // The stallion must go counterclockwise on blue squares!
+        private void FnTXTCHESD_38(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String161D); // The stallion must go counterclockwise on blue squares!
         }
 
-        private void FnTXTDICEB_39(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String1654); // To the west you will find a second dice maze.
+        private void FnTXTDICEB_39(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String1654); // To the west you will find a second dice maze.
         }
 
-        private void FnTXTDICEA_3A(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String1682); // A maze made out of dice lies just to the north.
+        private void FnTXTDICEA_3A(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String1682); // A maze made out of dice lies just to the north.
         }
 
     }

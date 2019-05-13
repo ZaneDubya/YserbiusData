@@ -101,10 +101,10 @@ namespace XPT.Legacy.Maps {
         private const string String0D16 = "Acquire the Sunbeam Key at the Dwarf Ceremonial Rock to access the Dwarf Kingdom.";
         
         // === Functions ================================================
-        private void FnRIVER_01(ServerPlayer player, bool isForwardMove) {
+        private void FnRIVER_01(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String03FC); // The River of Eternity taps your life energy.
+            L0003: ShowMessage(player, doMsgs, String03FC); // The River of Eternity taps your life energy.
             L0010: SetNoHealZone(player);
             L0018: ax = GetMaxHits(player);
             L001F: bx = 0x0004;
@@ -120,14 +120,14 @@ namespace XPT.Legacy.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnRIVRBANK_02(ServerPlayer player, bool isForwardMove) {
+        private void FnRIVRBANK_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0438); // Only the bravest adventurers explore the River for hidden passages.
+            L0003: ShowMessage(player, doMsgs, String0438); // Only the bravest adventurers explore the River for hidden passages.
             L0010: return; // RETURN;
         }
 
-        private void FnSTEPCYCL_03(ServerPlayer player, bool isForwardMove) {
+        private void FnSTEPCYCL_03(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0xD6);
@@ -137,13 +137,13 @@ namespace XPT.Legacy.Maps {
             L0028: SetWallPassable(player, GetCurrentTile(player), 0x00, 0x01);
             L0041: RemoveItem(player, 0xD6);
             L004D: SetFlag(player, FlagTypeDungeon, FlagUsedCyclopsMineKey, 0x01);
-            L0062: ShowMessage(player, isForwardMove, String047C); // Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
+            L0062: ShowMessage(player, doMsgs, String047C); // Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
             L006F: goto L007E;
-            L0071: ShowMessage(player, isForwardMove, String04DC); // The tapestry glows with the image of a Cyclops.
+            L0071: ShowMessage(player, doMsgs, String04DC); // The tapestry glows with the image of a Cyclops.
             L007E: return; // RETURN;
         }
 
-        private void FnSTEPMINE_04(ServerPlayer player, bool isForwardMove) {
+        private void FnSTEPMINE_04(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0xD5);
@@ -153,13 +153,13 @@ namespace XPT.Legacy.Maps {
             L0028: RemoveItem(player, 0xD5);
             L0034: SetFlag(player, FlagTypeDungeon, FlagUsedDwarfMineKey, 0x01);
             L0049: SetFloorItem(player, 0x9C, 0x00);
-            L0059: ShowMessage(player, isForwardMove, String050C); // Your Dwarf Mine Key activated this platform.
+            L0059: ShowMessage(player, doMsgs, String050C); // Your Dwarf Mine Key activated this platform.
             L0066: goto L0079;
             L0068: SetFloorItem(player, 0x9C, 0x03);
             L0079: return; // RETURN;
         }
 
-        private void FnSTEPHIDE_05(ServerPlayer player, bool isForwardMove) {
+        private void FnSTEPHIDE_05(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0xD7);
@@ -169,67 +169,67 @@ namespace XPT.Legacy.Maps {
             L0028: RemoveItem(player, 0xD7);
             L0034: SetFlag(player, FlagTypeDungeon, FlagUsedHiddenMineKey, 0x01);
             L0049: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
-            L0067: ShowMessage(player, isForwardMove, String0539); // Your Hidden Mine Key makes the wall become transparent.
+            L0067: ShowMessage(player, doMsgs, String0539); // Your Hidden Mine Key makes the wall become transparent.
             L0074: goto L0083;
-            L0076: ShowMessage(player, isForwardMove, String0571); // There is something strange about this wall.
+            L0076: ShowMessage(player, doMsgs, String0571); // There is something strange about this wall.
             L0083: return; // RETURN;
         }
 
-        private void FnASENDB_06(ServerPlayer player, bool isForwardMove) {
+        private void FnASENDB_06(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x38, 0x02, 0xCC, 0x02, isForwardMove);
+            L0003: TeleportParty(player, 0x38, 0x02, 0xCC, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnDSENDC_09(ServerPlayer player, bool isForwardMove) {
+        private void FnDSENDC_09(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x38, 0x02, 0xFD, 0x00, isForwardMove);
+            L0003: TeleportParty(player, 0x38, 0x02, 0xFD, 0x00, type);
             L001D: return; // RETURN;
         }
 
-        private void FnESENDF_0A(ServerPlayer player, bool isForwardMove) {
+        private void FnESENDF_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x38, 0x02, 0xFD, 0x00, isForwardMove);
+            L0003: TeleportParty(player, 0x38, 0x02, 0xFD, 0x00, type);
             L001D: return; // RETURN;
         }
 
-        private void FnSECDOORA_0C(ServerPlayer player, bool isForwardMove) {
+        private void FnSECDOORA_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(HasUsedSkill(player, 0x0D), 0x000B);
+            L0003: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0D), 0x000B);
             L0012: if (JumpNotBelow) goto L0029;
-            L0014: ax = HasUsedItem(player, 0xBE, 0xBE);
+            L0014: ax = HasUsedItem(player, type, ref doMsgs, 0xBE, 0xBE);
             L0027: if (JumpEqual) goto L0072;
-            L0029: ShowMessage(player, isForwardMove, String059D); // You locate a hidden door in the wall.
+            L0029: ShowMessage(player, doMsgs, String059D); // You locate a hidden door in the wall.
             L0036: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0054: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0072: return; // RETURN;
         }
 
-        private void FnSECDOORB_0D(ServerPlayer player, bool isForwardMove) {
+        private void FnSECDOORB_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(HasUsedSkill(player, 0x0D), 0x000B);
+            L0003: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0D), 0x000B);
             L0012: if (JumpNotBelow) goto L0029;
-            L0014: ax = HasUsedItem(player, 0xBE, 0xBE);
+            L0014: ax = HasUsedItem(player, type, ref doMsgs, 0xBE, 0xBE);
             L0027: if (JumpEqual) goto L0072;
-            L0029: ShowMessage(player, isForwardMove, String05C3); // You locate a hidden door in the wall.
+            L0029: ShowMessage(player, doMsgs, String05C3); // You locate a hidden door in the wall.
             L0036: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0054: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0072: return; // RETURN;
         }
 
-        private void FnSECDOORC_0E(ServerPlayer player, bool isForwardMove) {
+        private void FnSECDOORC_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(HasUsedSkill(player, 0x0D), 0x000B);
+            L0003: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0D), 0x000B);
             L0012: if (JumpNotBelow) goto L0029;
-            L0014: ax = HasUsedItem(player, 0xBE, 0xBE);
+            L0014: ax = HasUsedItem(player, type, ref doMsgs, 0xBE, 0xBE);
             L0027: if (JumpEqual) goto L0074;
-            L0029: ShowMessage(player, isForwardMove, String05E9); // You locate a hidden door in the wall.
+            L0029: ShowMessage(player, doMsgs, String05E9); // You locate a hidden door in the wall.
             L0036: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0054: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0072: goto L0091;
@@ -237,64 +237,60 @@ namespace XPT.Legacy.Maps {
             L0091: return; // RETURN;
         }
 
-        private void FnGSENDH_0F(ServerPlayer player, bool isForwardMove) {
+        private void FnGSENDH_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x38, 0x02, 0x02, 0x00, isForwardMove);
+            L0003: TeleportParty(player, 0x38, 0x02, 0x02, 0x00, type);
             L001D: return; // RETURN;
         }
 
-        private void FnISENDJ_11(ServerPlayer player, bool isForwardMove) {
+        private void FnISENDJ_11(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x38, 0x02, 0x60, 0x02, isForwardMove);
+            L0003: TeleportParty(player, 0x38, 0x02, 0x60, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnSUNBEAM_14(ServerPlayer player, bool isForwardMove) {
+        private void FnSUNBEAM_14(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0xEF);
             L0011: if (JumpEqual) goto L007B;
             L0013: ShowPortrait(player, 0x001C);
-            L0020: ShowMessage(player, isForwardMove, String060F); // A band of dwarves moves out of the shadows.
-            L002D: ShowMessage(player, isForwardMove, String063B); // The leader steps forward, his eyes fixed on the blue metal.
-            L003A: ShowMessage(player, isForwardMove, String0677); // 'This magnificent blue treasure you hold can certainly do YOU no good.  Perhaps we may offer you a TRADE to remove this rock from your hands.'
-            L0047: ShowMessage(player, isForwardMove, String0706); // A key appears from beneath his pack.
-            L0054: ShowMessage(player, isForwardMove, String072B); // 'We offer you this key to our kingdom in return.'
+            L0020: ShowMessage(player, doMsgs, String060F); // A band of dwarves moves out of the shadows.
+            L002D: ShowMessage(player, doMsgs, String063B); // The leader steps forward, his eyes fixed on the blue metal.
+            L003A: ShowMessage(player, doMsgs, String0677); // 'This magnificent blue treasure you hold can certainly do YOU no good.  Perhaps we may offer you a TRADE to remove this rock from your hands.'
+            L0047: ShowMessage(player, doMsgs, String0706); // A key appears from beneath his pack.
+            L0054: ShowMessage(player, doMsgs, String072B); // 'We offer you this key to our kingdom in return.'
             L0061: RemoveItem(player, 0xEF);
             L006D: GiveItem(player, 0xD4);
             L0079: goto L0088;
-            L007B: ShowMessage(player, isForwardMove, String075D); // A beam of bluish sunshine filters down from the surface above and reflects on a ceremonial dwarven rock.
+            L007B: ShowMessage(player, doMsgs, String075D); // A beam of bluish sunshine filters down from the surface above and reflects on a ceremonial dwarven rock.
             L0088: return; // RETURN;
         }
 
-        private void FnLAVA_15(ServerPlayer player, bool isForwardMove) {
+        private void FnLAVA_15(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String07C6); // You fall into a lava pit and die.
+            L0003: ShowMessage(player, doMsgs, String07C6); // You fall into a lava pit and die.
             L0010: DamagePlayer(player, GetMaxHits(player));
             L0021: return; // RETURN;
         }
 
-        private void FnGATEA_16(ServerPlayer player, bool isForwardMove) {
-            if (!isForwardMove) {
-                ShowMessage(player, isForwardMove, String07E8); // This gate leads to DWARF KINGDOM.
-            }
-            TeleportParty(player, 0x38, 0x01, 0x3F, 0x00, isForwardMove);
+        private void FnGATEA_16(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String07E8); // This gate leads to DWARF KINGDOM.
+            TeleportParty(player, 0x38, 0x01, 0x3F, 0x00, type);
         }
 
-        private void FnGATEB_17(ServerPlayer player, bool isForwardMove) {
-            if (!isForwardMove) {
-                ShowMessage(player, isForwardMove, String080A); // This gate leads to RIVERS END.
-            }
-            TeleportParty(player, 0x38, 0x03, 0x0B, 0x00, isForwardMove);
+        private void FnGATEB_17(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String080A); // This gate leads to RIVERS END.
+            TeleportParty(player, 0x38, 0x03, 0x0B, 0x00, type);
         }
 
-        private void Fn_18(ServerPlayer player, bool isForwardMove) {
+        private void Fn_18(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0829); // Hobgoblins appear from the surrounding walls.
+            L0003: ShowMessage(player, doMsgs, String0829); // Hobgoblins appear from the surrounding walls.
             L0010: AddEncounter(player, 0x01, 0x24);
             L0022: AddEncounter(player, 0x02, 0x24);
             L0034: AddEncounter(player, 0x03, 0x0E);
@@ -304,10 +300,10 @@ namespace XPT.Legacy.Maps {
             L007C: return; // RETURN;
         }
 
-        private void FnENCB_19(ServerPlayer player, bool isForwardMove) {
+        private void FnENCB_19(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0857); // The air is heavy with the scent of burnt flesh.
+            L0003: ShowMessage(player, doMsgs, String0857); // The air is heavy with the scent of burnt flesh.
             L0010: AddEncounter(player, 0x01, 0x12);
             L0022: AddEncounter(player, 0x02, 0x12);
             L0034: AddEncounter(player, 0x03, 0x28);
@@ -317,10 +313,10 @@ namespace XPT.Legacy.Maps {
             L007C: return; // RETURN;
         }
 
-        private void FnENCC_1A(ServerPlayer player, bool isForwardMove) {
+        private void FnENCC_1A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0887); // You wander into a renegade adventurer camp.
+            L0003: ShowMessage(player, doMsgs, String0887); // You wander into a renegade adventurer camp.
             L0010: AddEncounter(player, 0x01, 0x1E);
             L0022: AddEncounter(player, 0x02, 0x19);
             L0034: AddEncounter(player, 0x03, 0x1C);
@@ -330,10 +326,10 @@ namespace XPT.Legacy.Maps {
             L007C: return; // RETURN;
         }
 
-        private void FnENCD_1B(ServerPlayer player, bool isForwardMove) {
+        private void FnENCD_1B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String08B3); // A den of manticores is disturbed.
+            L0003: ShowMessage(player, doMsgs, String08B3); // A den of manticores is disturbed.
             L0010: AddEncounter(player, 0x01, 0x18);
             L0022: AddEncounter(player, 0x02, 0x18);
             L0034: AddEncounter(player, 0x03, 0x19);
@@ -343,10 +339,10 @@ namespace XPT.Legacy.Maps {
             L007C: return; // RETURN;
         }
 
-        private void FnENCE_1C(ServerPlayer player, bool isForwardMove) {
+        private void FnENCE_1C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String08D5); // Stone fragments litter the floor.
+            L0003: ShowMessage(player, doMsgs, String08D5); // Stone fragments litter the floor.
             L0010: AddEncounter(player, 0x01, 0x11);
             L0022: AddEncounter(player, 0x02, 0x11);
             L0034: AddEncounter(player, 0x03, 0x10);
@@ -356,7 +352,7 @@ namespace XPT.Legacy.Maps {
             L007C: return; // RETURN;
         }
 
-        private void FnENCF_1D(ServerPlayer player, bool isForwardMove) {
+        private void FnENCF_1D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x0B);
@@ -368,7 +364,7 @@ namespace XPT.Legacy.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCG_1E(ServerPlayer player, bool isForwardMove) {
+        private void FnENCG_1E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x0F);
@@ -380,10 +376,10 @@ namespace XPT.Legacy.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCH_1F(ServerPlayer player, bool isForwardMove) {
+        private void FnENCH_1F(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String08F7); // A huge Cyclops appears from behind large boulders.
+            L0003: ShowMessage(player, doMsgs, String08F7); // A huge Cyclops appears from behind large boulders.
             L0010: AddEncounter(player, 0x01, 0x0E);
             L0022: AddEncounter(player, 0x02, 0x0E);
             L0034: AddEncounter(player, 0x03, 0x21);
@@ -395,7 +391,7 @@ namespace XPT.Legacy.Maps {
             L0097: return; // RETURN;
         }
 
-        private void FnENCI_20(ServerPlayer player, bool isForwardMove) {
+        private void FnENCI_20(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x17);
@@ -405,7 +401,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnENCJ_21(ServerPlayer player, bool isForwardMove) {
+        private void FnENCJ_21(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x23);
@@ -417,7 +413,7 @@ namespace XPT.Legacy.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCK_22(ServerPlayer player, bool isForwardMove) {
+        private void FnENCK_22(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x18);
@@ -427,7 +423,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnENCL_23(ServerPlayer player, bool isForwardMove) {
+        private void FnENCL_23(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1F);
@@ -439,10 +435,10 @@ namespace XPT.Legacy.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCM_24(ServerPlayer player, bool isForwardMove) {
+        private void FnENCM_24(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String092A); // You encounter adventurers slaying a dragon.  They do not welcome your intrusion.
+            L0003: ShowMessage(player, doMsgs, String092A); // You encounter adventurers slaying a dragon.  They do not welcome your intrusion.
             L0010: AddEncounter(player, 0x01, 0x19);
             L0022: AddEncounter(player, 0x02, 0x1B);
             L0034: AddEncounter(player, 0x03, 0x1D);
@@ -452,7 +448,7 @@ namespace XPT.Legacy.Maps {
             L007C: return; // RETURN;
         }
 
-        private void FnENCN_25(ServerPlayer player, bool isForwardMove) {
+        private void FnENCN_25(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x23);
@@ -464,12 +460,12 @@ namespace XPT.Legacy.Maps {
             L006B: if (JumpEqual) goto L008F;
             L006D: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xB7, 0x98);
             L008D: goto L00BB;
-            L008F: ShowMessage(player, isForwardMove, String097B); // Creatures fight over a stone key.
+            L008F: ShowMessage(player, doMsgs, String097B); // Creatures fight over a stone key.
             L009C: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, 0xD5);
             L00BB: return; // RETURN;
         }
 
-        private void FnENCO_26(ServerPlayer player, bool isForwardMove) {
+        private void FnENCO_26(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x23);
@@ -481,91 +477,91 @@ namespace XPT.Legacy.Maps {
             L006B: if (JumpEqual) goto L008E;
             L006D: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xD0);
             L008C: goto L00BA;
-            L008E: ShowMessage(player, isForwardMove, String099D); // Creatures fight over a green tree-shaped key
+            L008E: ShowMessage(player, doMsgs, String099D); // Creatures fight over a green tree-shaped key
             L009B: AddTreasure(player, 0x2328, 0x00, 0x00, 0x00, 0x00, 0xD8);
             L00BA: return; // RETURN;
         }
 
-        private void FnHEALFA_27(ServerPlayer player, bool isForwardMove) {
+        private void FnHEALFA_27(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(player, 0x0042);
             L0010: HealPlayer(player, (ushort)GetMaxHits(player));
-            L0021: ShowMessage(player, isForwardMove, String09CA); // Your full health is restored by the ancient waters of RoundBrook Fountain.
+            L0021: ShowMessage(player, doMsgs, String09CA); // Your full health is restored by the ancient waters of RoundBrook Fountain.
             L002E: return; // RETURN;
         }
 
-        private void FnHEALFB_28(ServerPlayer player, bool isForwardMove) {
+        private void FnHEALFB_28(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(player, 0x0042);
             L0010: HealPlayer(player, (ushort)GetMaxHits(player));
-            L0021: ShowMessage(player, isForwardMove, String0A15); // You feel all your health restored after sipping from JasperStone Fountain.
+            L0021: ShowMessage(player, doMsgs, String0A15); // You feel all your health restored after sipping from JasperStone Fountain.
             L002E: return; // RETURN;
         }
 
-        private void FnHEALFC_29(ServerPlayer player, bool isForwardMove) {
+        private void FnHEALFC_29(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(player, 0x0042);
             L0010: HealPlayer(player, (ushort)GetMaxHits(player));
-            L0021: ShowMessage(player, isForwardMove, String0A60); // The waters of RockyFlat Fountain restores your health.
+            L0021: ShowMessage(player, doMsgs, String0A60); // The waters of RockyFlat Fountain restores your health.
             L002E: return; // RETURN;
         }
 
-        private void FnMANAFA_2A(ServerPlayer player, bool isForwardMove) {
+        private void FnMANAFA_2A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(player, 0x0042);
             L0010: AddMana(player, 0x07D0);
-            L001D: ShowMessage(player, isForwardMove, String0A97); // Your mana is recharged by drinking the magical waters of Omar Fountain.
+            L001D: ShowMessage(player, doMsgs, String0A97); // Your mana is recharged by drinking the magical waters of Omar Fountain.
             L002A: return; // RETURN;
         }
 
-        private void FnMANAFB_2B(ServerPlayer player, bool isForwardMove) {
+        private void FnMANAFB_2B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddMana(player, 0x07D0);
-            L0010: ShowMessage(player, isForwardMove, String0ADF); // Your magical powers are recharged by the heated steams of Venivor Geyser.
+            L0010: ShowMessage(player, doMsgs, String0ADF); // Your magical powers are recharged by the heated steams of Venivor Geyser.
             L001D: return; // RETURN;
         }
 
-        private void FnMANAFC_2C(ServerPlayer player, bool isForwardMove) {
+        private void FnMANAFC_2C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddMana(player, 0x07D0);
-            L0010: ShowMessage(player, isForwardMove, String0B29); // Your mana is increased in a whirlpool at the edge of the river.
+            L0010: ShowMessage(player, doMsgs, String0B29); // Your mana is increased in a whirlpool at the edge of the river.
             L001D: return; // RETURN;
         }
 
-        private void FnCLUEA_2D(ServerPlayer player, bool isForwardMove) {
+        private void FnCLUEA_2D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0B69); // A message is inscribed on the wall -- 
-            L0010: ShowRunes(player, String0B90); // The Tapestry of the Moons requires a spectrum of color to open.
+            L0003: ShowMessage(player, doMsgs, String0B69); // A message is inscribed on the wall -- 
+            L0010: ShowRunes(player, doMsgs, String0B90); // The Tapestry of the Moons requires a spectrum of color to open.
             L001D: return; // RETURN;
         }
 
-        private void FnCLUEB_2E(ServerPlayer player, bool isForwardMove) {
+        private void FnCLUEB_2E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0BD0); // A gust of wind from caverns above catches your attention.
-            L0010: ShowMessage(player, isForwardMove, String0C0A); // 'I am Zephyr.  
-            L001D: ShowMessage(player, isForwardMove, String0C1A); // 'Only the FlexSword can bend against the Wind Elemental's gail.'
+            L0003: ShowMessage(player, doMsgs, String0BD0); // A gust of wind from caverns above catches your attention.
+            L0010: ShowMessage(player, doMsgs, String0C0A); // 'I am Zephyr.  
+            L001D: ShowMessage(player, doMsgs, String0C1A); // 'Only the FlexSword can bend against the Wind Elemental's gail.'
             L002A: return; // RETURN;
         }
 
-        private void FnCLUEC_2F(ServerPlayer player, bool isForwardMove) {
+        private void FnCLUEC_2F(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0C5B); // A collection of runes reveals a message -- 
-            L0010: ShowRunes(player, String0C87); // It is said that the Dwarves can build magnificent creations and vessels out of golden threads.
+            L0003: ShowMessage(player, doMsgs, String0C5B); // A collection of runes reveals a message -- 
+            L0010: ShowRunes(player, doMsgs, String0C87); // It is said that the Dwarves can build magnificent creations and vessels out of golden threads.
             L001D: return; // RETURN;
         }
 
-        private void FnCLUED_30(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0CE6); // Written in blood on the wall is the message -- 
-            ShowRunes(player, String0D16); // Acquire the Sunbeam Key at the Dwarf Ceremonial Rock to access the Dwarf Kingdom.
+        private void FnCLUED_30(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0CE6); // Written in blood on the wall is the message -- 
+            ShowRunes(player, doMsgs, String0D16); // Acquire the Sunbeam Key at the Dwarf Ceremonial Rock to access the Dwarf Kingdom.
         }
 
     }

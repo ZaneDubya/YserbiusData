@@ -75,57 +75,57 @@ namespace XPT.Legacy.Maps {
         private const string String0CA5 = "You leave this dimension and re-enter your world.";
         
         // === Functions ================================================
-        private void FnVOID_01(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String03FC); // The Ageless Void swallows you whole.
-            ShowMessage(player, isForwardMove, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
+        private void FnVOID_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String03FC); // The Ageless Void swallows you whole.
+            ShowMessage(player, doMsgs, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
             DamagePlayer(player, GetMaxHits(player));
         }
 
-        private void FnLIFE_02(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String046D); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
+        private void FnLIFE_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String046D); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
             DamagePlayer(player, GetMaxHits(player));
         }
 
-        private void DoTimeSwitch(ServerPlayer player, bool isForwardMove, int switchIndex) {
+        private void DoTimeSwitch(ServerPlayer player, bool doMsgs, int switchIndex) {
             SetFlag(player, FlagTypeDungeon, FlagKilledEnLiKilThisTime, 0);
             SetFlag(player, FlagTypeDungeon, switchIndex, 1);
-            ShowMessage(player, isForwardMove, String04C0); // The wall sparkles with phantasmal light.
-            int setSwitchCount = GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) + GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2) + GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3);
+            ShowMessage(player, doMsgs, String04C0); // The wall sparkles with phantasmal light.
+            int setSwitchCount = player.MapData.GetFlag(FlagTypeDungeon, FlagUnknownSwitch1) + player.MapData.GetFlag(FlagTypeDungeon, FlagUnknownSwitch2) + player.MapData.GetFlag(FlagTypeDungeon, FlagUnknownSwitch3);
             if (setSwitchCount == 1) {
-                ShowMessage(player, isForwardMove, String04E9); // A Timeswitch has been set.
-                ShowMessage(player, isForwardMove, String0504); // Two other Timeswitches must be set to reveal the platform.
+                ShowMessage(player, doMsgs, String04E9); // A Timeswitch has been set.
+                ShowMessage(player, doMsgs, String0504); // Two other Timeswitches must be set to reveal the platform.
             }
             else if (setSwitchCount == 2) {
-                ShowMessage(player, isForwardMove, String053F); // The second Timeswitch has been set.
+                ShowMessage(player, doMsgs, String053F); // The second Timeswitch has been set.
             }
             else if (setSwitchCount == 3) {
-                ShowMessage(player, isForwardMove, String0563); // The third and final Timeswitch has been set.
+                ShowMessage(player, doMsgs, String0563); // The third and final Timeswitch has been set.
             }
             else {
-                ShowMessage(player, isForwardMove, String0590); // All is deathly quiet near the Fountain of Life.
+                ShowMessage(player, doMsgs, String0590); // All is deathly quiet near the Fountain of Life.
             }
         }
 
-        private void FnTIMEA_03(ServerPlayer player, bool isForwardMove) {
-            DoTimeSwitch(player, isForwardMove, FlagUnknownSwitch1);
+        private void FnTIMEA_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+            DoTimeSwitch(player, doMsgs, FlagUnknownSwitch1);
         }
 
-        private void FnTIMEB_04(ServerPlayer player, bool isForwardMove) {
-            DoTimeSwitch(player, isForwardMove, FlagUnknownSwitch2);
+        private void FnTIMEB_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+            DoTimeSwitch(player, doMsgs, FlagUnknownSwitch2);
         }
 
-        private void FnTIMEC_05(ServerPlayer player, bool isForwardMove) {
-            DoTimeSwitch(player, isForwardMove, FlagUnknownSwitch3);
+        private void FnTIMEC_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+            DoTimeSwitch(player, doMsgs, FlagUnknownSwitch3);
         }
 
-        private void FnTIMEELEM_06(ServerPlayer player, bool isForwardMove) {
+        private void FnTIMEELEM_06(ServerPlayer player, MapEventType type, bool doMsgs) {
             ShowPortrait(player, 0x0011);
-            ShowMessage(player, isForwardMove, String07C0); // I am the Time Elemental, En-Li-Kil.
-            ShowMessage(player, isForwardMove, String07E4); // You have traveled far...only to die!
-            ShowMessage(player, isForwardMove, String0809); // Your arrival frees me from my long imprisonment here -- halfway between two worlds.
-            ShowMessage(player, isForwardMove, String085D); // I destroyed that fool Arnakkian Slowfoot, and I shall destroy you as easily.
-            ShowMessage(player, isForwardMove, String08AA); // Then I shall search out all mortals in your world and destroy them!
-            ShowMessage(player, isForwardMove, String08EE); // I am En-Li-Kil!  The immortal!!!
+            ShowMessage(player, doMsgs, String07C0); // I am the Time Elemental, En-Li-Kil.
+            ShowMessage(player, doMsgs, String07E4); // You have traveled far...only to die!
+            ShowMessage(player, doMsgs, String0809); // Your arrival frees me from my long imprisonment here -- halfway between two worlds.
+            ShowMessage(player, doMsgs, String085D); // I destroyed that fool Arnakkian Slowfoot, and I shall destroy you as easily.
+            ShowMessage(player, doMsgs, String08AA); // Then I shall search out all mortals in your world and destroy them!
+            ShowMessage(player, doMsgs, String08EE); // I am En-Li-Kil!  The immortal!!!
             SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1, 0x00);
             SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2, 0x00);
             SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3, 0x00);
@@ -136,7 +136,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x28);
         }
 
-        private void FnTIMEPLAT_07(ServerPlayer player, bool isForwardMove) {
+        private void FnTIMEPLAT_07(ServerPlayer player, MapEventType type, bool doMsgs) {
             // the water tile between the final platform and en-li-kil.
             int countSwitchesSet = 
                 GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) + 
@@ -144,41 +144,41 @@ namespace XPT.Legacy.Maps {
                 GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3);
             if (countSwitchesSet == 3 || (IsFlagOn(player, FlagTypeMap, 1) == 1)) {
                 SetFloorItem(player, 0x00, 0xA8);
-                ShowMessage(player, isForwardMove, String090F); // You cross the Waters of Death safely.
-                ShowMessage(player, isForwardMove, String0935); // En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
+                ShowMessage(player, doMsgs, String090F); // You cross the Waters of Death safely.
+                ShowMessage(player, doMsgs, String0935); // En-Li-Kil stands guard at the other side, protecting the Fountain of Life. This was the goal Arnakkian Slowfoot sought.
                 ShowPortrait(player, 0x0042);
             }
             else {
                 SetFloorItem(player, 0x03, 0xA8);
-                ShowMessage(player, isForwardMove, String09AD); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
+                ShowMessage(player, doMsgs, String09AD); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
                 DamagePlayer(player, GetMaxHits(player));
             }
         }
 
-        private void FnGOAL_08(ServerPlayer player, bool isForwardMove) {
+        private void FnGOAL_08(ServerPlayer player, MapEventType type, bool doMsgs) {
             RemoveItem(player, 0xF4);
             RemoveItem(player, 0xF5);
             RemoveItem(player, 0xF6);
             RemoveItem(player, 0xF7);
             RemoveItem(player, 0xF3);
             if (GetFlag(player, FlagTypeDungeon, FlagKilledEnLiKilThisTime) == 1) {
-                ShowMessage(player, isForwardMove, "You stand amidst the Waters of Death, surrounded on all sides by the Ageless Void. All is peace here.");
+                ShowMessage(player, doMsgs, "You stand amidst the Waters of Death, surrounded on all sides by the Ageless Void. All is peace here.");
                 return;
             }
             SetFlag(player, FlagTypeDungeon, FlagKilledEnLiKilThisTime, 1);
             if (IsFlagOn(player, FlagTypeDungeon, FlagDefeatedEnLiKil) == 1) {
-                ShowMessage(player, isForwardMove, String0A00); // You have found the Fountain of Life, but the waters are drained.
-                ShowMessage(player, isForwardMove, String0A41); // The Rainbow Gems and Golden Boat dissolve into dust.
-                ShowMessage(player, isForwardMove, String0A76); // Humiliating En-Li-Kil a second time is reward enough.
+                ShowMessage(player, doMsgs, String0A00); // You have found the Fountain of Life, but the waters are drained.
+                ShowMessage(player, doMsgs, String0A41); // The Rainbow Gems and Golden Boat dissolve into dust.
+                ShowMessage(player, doMsgs, String0A76); // Humiliating En-Li-Kil a second time is reward enough.
                 return;
             }
-            ShowMessage(player, isForwardMove, String0AAC); // You stand on the Fountain of Life.
-            ShowMessage(player, isForwardMove, String0ACF); // The Rainbow Gems and Golden Boat dissolve in the golden water.
-            ShowMessage(player, isForwardMove, String0B0E); // You have defeated the Time Elemental En-Li-Kil.
-            ShowMessage(player, isForwardMove, String0B3E); // You have won the game of life and death.  You are now a HERO OF YSERBIUS.
-            ShowMessage(player, isForwardMove, String0B88); // Return to your home safely now.
-            ShowMessage(player, isForwardMove, String0BA8); // Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
-            ShowMessage(player, isForwardMove, String0BFF); // Farewell...this ending is just the beginning!!!
+            ShowMessage(player, doMsgs, String0AAC); // You stand on the Fountain of Life.
+            ShowMessage(player, doMsgs, String0ACF); // The Rainbow Gems and Golden Boat dissolve in the golden water.
+            ShowMessage(player, doMsgs, String0B0E); // You have defeated the Time Elemental En-Li-Kil.
+            ShowMessage(player, doMsgs, String0B3E); // You have won the game of life and death.  You are now a HERO OF YSERBIUS.
+            ShowMessage(player, doMsgs, String0B88); // Return to your home safely now.
+            ShowMessage(player, doMsgs, String0BA8); // Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
+            ShowMessage(player, doMsgs, String0BFF); // Farewell...this ending is just the beginning!!!
             if (GetFlag(player, FlagTypeDungeon, FlagReceivedEnLiKilExperience) == 0) {
                 SetFlag(player, FlagTypeDungeon, FlagReceivedEnLiKilExperience, 0x01);
                 SetFlag(player, FlagTypeDungeon, FlagDefeatedEnLiKil, 0x01);
@@ -186,9 +186,9 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnENCA_09(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0C2F); // Across the Waters of Death at the center of this finite square is the Fountain of Life.
-            ShowMessage(player, isForwardMove, String0C87); // The Fountain is well guarded.
+        private void FnENCA_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0C2F); // Across the Waters of Death at the center of this finite square is the Fountain of Life.
+            ShowMessage(player, doMsgs, String0C87); // The Fountain is well guarded.
             AddEncounter(player, 0x01, 0x19);
             AddEncounter(player, 0x02, 0x1B);
             AddEncounter(player, 0x03, 0x19);
@@ -197,7 +197,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x1D);
         }
 
-        private void FnENCB_0A(ServerPlayer player, bool isForwardMove) {
+        private void FnENCB_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x08);
             AddEncounter(player, 0x02, 0x08);
             AddEncounter(player, 0x03, 0x24);
@@ -206,7 +206,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x27);
         }
 
-        private void FnENCC_0B(ServerPlayer player, bool isForwardMove) {
+        private void FnENCC_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1B);
             AddEncounter(player, 0x02, 0x1B);
             AddEncounter(player, 0x03, 0x1C);
@@ -215,7 +215,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x1F);
         }
 
-        private void FnENCD_0C(ServerPlayer player, bool isForwardMove) {
+        private void FnENCD_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x19);
             AddEncounter(player, 0x02, 0x19);
             AddEncounter(player, 0x03, 0x1C);
@@ -224,7 +224,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x1D);
         }
 
-        private void FnENCE_0D(ServerPlayer player, bool isForwardMove) {
+        private void FnENCE_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1E);
             AddEncounter(player, 0x02, 0x1E);
             AddEncounter(player, 0x03, 0x20);
@@ -233,7 +233,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x21);
         }
 
-        private void FnENCF_0E(ServerPlayer player, bool isForwardMove) {
+        private void FnENCF_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x22);
             AddEncounter(player, 0x02, 0x22);
             AddEncounter(player, 0x03, 0x1F);
@@ -242,7 +242,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x23);
         }
 
-        private void FnCROSSOVR_0F(ServerPlayer player, bool isForwardMove) {
+        private void FnCROSSOVR_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
             // the final platform, standing next to the bridged water tile to en-li-kil.
             int countSwitchesSet =
                 GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) +
@@ -257,7 +257,7 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnMAPCONV_10(ServerPlayer player, bool isForwardMove) {
+        private void FnMAPCONV_10(ServerPlayer player, MapEventType type, bool doMsgs) {
             // beginning of the final platform, walking to the bridge to en-li-kil.
             int countSwitchesSet =
                 GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) +
@@ -271,9 +271,9 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnTELEBACK_12(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0CA5); // You leave this dimension and re-enter your world.
-            TeleportParty(player, 0x38, 0x04, 0x88, 0x02, isForwardMove);
+        private void FnTELEBACK_12(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0CA5); // You leave this dimension and re-enter your world.
+            TeleportParty(player, 0x38, 0x04, 0x88, 0x02, type);
         }
 
     }

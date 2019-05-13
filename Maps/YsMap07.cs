@@ -65,73 +65,73 @@ namespace XPT.Legacy.Maps {
         private const string String0AE2 = "The Halfling Cleric mumbles his prayers.";
         
         // === Functions ================================================
-        private void FnSTRSTELE_01(ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSTELE_01(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x01, 0x03, 0x97, 0x02, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x03, 0x97, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnSTRSTELE_02(ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSTELE_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x03, 0x01, 0x1F, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x03, 0x01, 0x1F, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_03(ServerPlayer player, bool isForwardMove) {
+        private void FnLKPKDOOR_03(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, 0xC1, 0xC4);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xC1, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: Compare(HasUsedSkill(player, 0x0E), 0x0006);
+            L0018: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0E), 0x0006);
             L0027: if (JumpBelow) goto L0074;
             L0029: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0047: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0065: ShowMessage(player, isForwardMove, String03FC); // You succeeded at opening the locked door.
+            L0065: ShowMessage(player, doMsgs, String03FC); // You succeeded at opening the locked door.
             L0072: goto L009E;
             L0074: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0091: ShowMessage(player, isForwardMove, String0426); // The door is locked.
+            L0091: ShowMessage(player, doMsgs, String0426); // The door is locked.
             L009E: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_04(ServerPlayer player, bool isForwardMove) {
+        private void FnLKPKDOOR_04(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, 0xBF, 0xC4);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xBF, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: Compare(HasUsedSkill(player, 0x0E), 0x0001);
+            L0018: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0E), 0x0001);
             L0027: if (JumpBelow) goto L0046;
             L0029: DamagePlayer(player, 0x0096);
-            L0036: ShowMessage(player, isForwardMove, String043A); // Your attempt to open the door springs a trap. Dozens of darts attack you.
+            L0036: ShowMessage(player, doMsgs, String043A); // Your attempt to open the door springs a trap. Dozens of darts attack you.
             L0043: goto L00D0;
-            L0046: ax = HasUsedItem(player, 0xD9, 0xD9);
+            L0046: ax = HasUsedItem(player, type, ref doMsgs, 0xD9, 0xD9);
             L0059: if (JumpEqual) goto L00A6;
             L005B: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0079: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0097: ShowMessage(player, isForwardMove, String0484); // The key unlocked the massive door, bypassing a well hidden trap.
+            L0097: ShowMessage(player, doMsgs, String0484); // The key unlocked the massive door, bypassing a well hidden trap.
             L00A4: goto L00D0;
             L00A6: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L00C3: ShowMessage(player, isForwardMove, String04C5); // The Palace doors are locked.  Only the Palace key will open these doors.
+            L00C3: ShowMessage(player, doMsgs, String04C5); // The Palace doors are locked.  Only the Palace key will open these doors.
             L00D0: return; // RETURN;
         }
 
-        private void FnRUNESIGN_05(ServerPlayer player, bool isForwardMove) {
+        private void FnRUNESIGN_05(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String050E); // Runes can be seen on the tapestry...
-            L0010: ShowRunes(player, String0533); // None shall pass save one who holds the Key to the Palace.
+            L0003: ShowMessage(player, doMsgs, String050E); // Runes can be seen on the tapestry...
+            L0010: ShowRunes(player, doMsgs, String0533); // None shall pass save one who holds the Key to the Palace.
             L001D: return; // RETURN;
         }
 
-        private void FnTOPALACA_06(ServerPlayer player, bool isForwardMove) {
+        private void FnTOPALACA_06(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x02, 0x06, 0x03, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x02, 0x06, 0x03, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnLOWMNSTR_07(ServerPlayer player, bool isForwardMove) {
+        private void FnLOWMNSTR_07(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -156,7 +156,7 @@ namespace XPT.Legacy.Maps {
             L00E6: return; // RETURN;
         }
 
-        private void FnMEDMNSTR_08(ServerPlayer player, bool isForwardMove) {
+        private void FnMEDMNSTR_08(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -189,7 +189,7 @@ namespace XPT.Legacy.Maps {
             L0176: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_09(ServerPlayer player, bool isForwardMove) {
+        private void FnSTRMNSTR_09(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -218,125 +218,125 @@ namespace XPT.Legacy.Maps {
             L012E: return; // RETURN;
         }
 
-        private void FnSTRSMESA_0A(ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSMESA_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String056D); // The stairs through the west gateway lead up a level.
+            L0003: ShowMessage(player, doMsgs, String056D); // The stairs through the west gateway lead up a level.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESB_0B(ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSMESB_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String05A2); // Through the north gateway are stairs going up to the next level.
+            L0003: ShowMessage(player, doMsgs, String05A2); // Through the north gateway are stairs going up to the next level.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESC_0C(ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSMESC_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String05E3); // The stairs to the east lead downstairs.
+            L0003: ShowMessage(player, doMsgs, String05E3); // The stairs to the east lead downstairs.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESD_0D(ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSMESD_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String060B); // The stairs past the north gateway go down a level.
+            L0003: ShowMessage(player, doMsgs, String060B); // The stairs past the north gateway go down a level.
             L0010: return; // RETURN;
         }
 
-        private void FnGATEMESS_0E(ServerPlayer player, bool isForwardMove) {
+        private void FnGATEMESS_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String063E); // The gateway leads to THE PALACE OF KING CLEOWYN.
+            L0003: ShowMessage(player, doMsgs, String063E); // The gateway leads to THE PALACE OF KING CLEOWYN.
             L0010: return; // RETURN;
         }
 
-        private void FnTOPALACB_0F(ServerPlayer player, bool isForwardMove) {
+        private void FnTOPALACB_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x02, 0x06, 0x04, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x02, 0x06, 0x04, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnNPCCHATA_10(ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATA_10(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String066F); // You encounter a Dwarf Thief.
+            L0003: ShowMessage(player, doMsgs, String066F); // You encounter a Dwarf Thief.
             L0010: ShowPortrait(player, 0x0023);
             L001D: Compare(GetRandom(0x000F), 0x000B);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, isForwardMove, String068C); // The palace doors are locked. Somewhere on the first level is the object that will open these doors.
+            L002F: ShowMessage(player, doMsgs, String068C); // The palace doors are locked. Somewhere on the first level is the object that will open these doors.
             L003C: goto L004B;
-            L003E: ShowMessage(player, isForwardMove, String06F0); // The Dwarf Thief is too busy removing darts from his leather shield to answer you.
+            L003E: ShowMessage(player, doMsgs, String06F0); // The Dwarf Thief is too busy removing darts from his leather shield to answer you.
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_11(ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATB_11(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0742); // You encounter a Halfling Ranger.
+            L0003: ShowMessage(player, doMsgs, String0742); // You encounter a Halfling Ranger.
             L0010: ShowPortrait(player, 0x0021);
             L001D: Compare(GetRandom(0x000F), 0x0008);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, isForwardMove, String0763); // I know there are three secret areas on this level, but they cannot be entered from this corridor.
+            L002F: ShowMessage(player, doMsgs, String0763); // I know there are three secret areas on this level, but they cannot be entered from this corridor.
             L003C: goto L004B;
-            L003E: ShowMessage(player, isForwardMove, String07C5); // The Halfling Ranger waves you away in annoyance.
+            L003E: ShowMessage(player, doMsgs, String07C5); // The Halfling Ranger waves you away in annoyance.
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATC_12(ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATC_12(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String07F6); // You encounter a Dwarf Wizard.
+            L0003: ShowMessage(player, doMsgs, String07F6); // You encounter a Dwarf Wizard.
             L0010: ShowPortrait(player, 0x002C);
             L001D: Compare(GetRandom(0x000F), 0x000C);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, isForwardMove, String0814); // Not all traps should be by-passed. I fell through one and, after some nosing around and polishing off some bothersome rogues and monsters, found a most useful key.
+            L002F: ShowMessage(player, doMsgs, String0814); // Not all traps should be by-passed. I fell through one and, after some nosing around and polishing off some bothersome rogues and monsters, found a most useful key.
             L003C: goto L004B;
-            L003E: ShowMessage(player, isForwardMove, String08B8); // The Dwarf Wizard disappears in a puff of smoke.
+            L003E: ShowMessage(player, doMsgs, String08B8); // The Dwarf Wizard disappears in a puff of smoke.
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATD_13(ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATD_13(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String08E8); // You encounter an Orc Knight.
+            L0003: ShowMessage(player, doMsgs, String08E8); // You encounter an Orc Knight.
             L0010: ShowPortrait(player, 0x001A);
             L001D: Compare(GetRandom(0x000F), 0x0007);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, isForwardMove, String0905); // King Cleowyn's Palace is an evil place, filled with the spirits of the tormented dead.  A cleric told me to look for an asymmetry in the Palace if I wished to learn the truth about the dead king.
+            L002F: ShowMessage(player, doMsgs, String0905); // King Cleowyn's Palace is an evil place, filled with the spirits of the tormented dead.  A cleric told me to look for an asymmetry in the Palace if I wished to learn the truth about the dead king.
             L003C: goto L004B;
-            L003E: ShowMessage(player, isForwardMove, String09C9); // The Orc Knight pretends not to hear you.
+            L003E: ShowMessage(player, doMsgs, String09C9); // The Orc Knight pretends not to hear you.
             L004B: return; // RETURN;
         }
 
-        private void FnSTRSTELE_14(ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSTELE_14(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x01, 0x03, 0x97, 0x02, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x03, 0x97, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnSTRSTELE_15(ServerPlayer player, bool isForwardMove) {
+        private void FnSTRSTELE_15(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x03, 0x01, 0x1F, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x03, 0x01, 0x1F, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnNPCCHATE_16(ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATE_16(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String09F2); // You encounter a Halfling Cleric.
+            L0003: ShowMessage(player, doMsgs, String09F2); // You encounter a Halfling Cleric.
             L0010: ShowPortrait(player, 0x0029);
             L001D: Compare(GetRandom(0x000F), 0x000D);
             L002D: if (JumpAbove) goto L004B;
-            L002F: ShowMessage(player, isForwardMove, String0A13); // On the next level down you will find a dwarf by the name of Deldwinn.  He guards the entrance to King Cleowyn's Apartments.
-            L003C: ShowMessage(player, isForwardMove, String0A8F); // Do not try to fight Deldwinn, for he is enchanted and cannot be killed by mortals.
+            L002F: ShowMessage(player, doMsgs, String0A13); // On the next level down you will find a dwarf by the name of Deldwinn.  He guards the entrance to King Cleowyn's Apartments.
+            L003C: ShowMessage(player, doMsgs, String0A8F); // Do not try to fight Deldwinn, for he is enchanted and cannot be killed by mortals.
             L0049: goto L0058;
-            L004B: ShowMessage(player, isForwardMove, String0AE2); // The Halfling Cleric mumbles his prayers.
+            L004B: ShowMessage(player, doMsgs, String0AE2); // The Halfling Cleric mumbles his prayers.
             L0058: return; // RETURN;
         }
 

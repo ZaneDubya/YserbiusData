@@ -40,46 +40,46 @@ namespace XPT.Legacy.Maps {
         private const string String0733 = "The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.";
         
         // === Functions ================================================
-        private void FnTELEPORT_01(ServerPlayer player, bool isForwardMove) {
+        private void FnTELEPORT_01(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x05, 0x02, 0x00, 0x33, isForwardMove);
+            L0003: TeleportParty(player, 0x05, 0x02, 0x00, 0x33, type);
             L001D: return; // RETURN;
         }
 
-        private void FnTELEMESS_02(ServerPlayer player, bool isForwardMove) {
+        private void FnTELEMESS_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String03FC); // There is a teleport in the west wall.
+            L0003: ShowMessage(player, doMsgs, String03FC); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
-        private void FnFOUNBLES_03(ServerPlayer player, bool isForwardMove) {
+        private void FnFOUNBLES_03(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagPitBottomFountainRestoration), 0x0001);
             L0017: if (JumpNotEqual) goto L0035;
             L0019: ShowPortrait(player, 0x0042);
-            L0026: ShowMessage(player, isForwardMove, String0422); // You sip from the Fountain of Restoration, but nothing happens.
+            L0026: ShowMessage(player, doMsgs, String0422); // You sip from the Fountain of Restoration, but nothing happens.
             L0033: goto L0080;
             L0035: SetFlag(player, FlagTypeDungeon, FlagPitBottomFountainRestoration, 0x01);
             L004A: ShowPortrait(player, 0x0042);
             L0057: dx = GetMaxHits(player) - GetCurrentHits(player);
             L0069: HealPlayer(player, (ushort)dx);
-            L0073: ShowMessage(player, isForwardMove, String0461); // You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.
+            L0073: ShowMessage(player, doMsgs, String0461); // You find the Fountain of Restoration and sip from it. You feel your Health greatly improve.
             L0080: return; // RETURN;
         }
 
-        private void FnQUESTENC_04(ServerPlayer player, bool isForwardMove) {
+        private void FnQUESTENC_04(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0x81);
             L0011: if (JumpEqual) goto L0043;
             L0013: AddTreasure(player, 0x01F4, 0x00, 0x00, 0xBD, 0xA5, 0xCD);
-            L0034: ShowMessage(player, isForwardMove, String04BD); // Monsters attack you.
+            L0034: ShowMessage(player, doMsgs, String04BD); // Monsters attack you.
             L0041: goto L0071;
             L0043: AddTreasure(player, 0x03E8, 0x00, 0x00, 0xA2, 0xD0, 0x81);
-            L0064: ShowMessage(player, isForwardMove, String04D2); // Among a horde of Nightmares and Cockatrices you spot armor and other items on the floor.
+            L0064: ShowMessage(player, doMsgs, String04D2); // Among a horde of Nightmares and Cockatrices you spot armor and other items on the floor.
             L0071: Compare(PartyCount(player), 0x0001);
             L007C: if (JumpNotEqual) goto L00B7;
             L007E: AddEncounter(player, 0x01, 0x26);
@@ -110,35 +110,35 @@ namespace XPT.Legacy.Maps {
             L01E4: return; // RETURN;
         }
 
-        private void FnLKPKDORZ_05(ServerPlayer player, bool isForwardMove) {
+        private void FnLKPKDORZ_05(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, 0xE2, 0xE2);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xE2, 0xE2);
             L0016: if (JumpEqual) goto L0063;
             L0018: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0036: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0054: ShowMessage(player, isForwardMove, String052B); // The door opens easily when you use the Lava Key.
+            L0054: ShowMessage(player, doMsgs, String052B); // The door opens easily when you use the Lava Key.
             L0061: goto L008D;
             L0063: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0080: ShowMessage(player, isForwardMove, String055C); // This door cannot be unlocked without the Lava Key.
+            L0080: ShowMessage(player, doMsgs, String055C); // This door cannot be unlocked without the Lava Key.
             L008D: return; // RETURN;
         }
 
-        private void FnSTRDOOR_06(ServerPlayer player, bool isForwardMove) {
+        private void FnSTRDOOR_06(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x000E);
             L0012: if (JumpBelow) goto L005F;
-            L0014: ShowMessage(player, isForwardMove, String058F); // You manage to force the door open.
+            L0014: ShowMessage(player, doMsgs, String058F); // You manage to force the door open.
             L0021: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L003F: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L005D: goto L0089;
-            L005F: ShowMessage(player, isForwardMove, String05B2); // The door is stuck.
+            L005F: ShowMessage(player, doMsgs, String05B2); // The door is stuck.
             L006C: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
             L0089: return; // RETURN;
         }
 
-        private void FnAVEMNSTR_0B(ServerPlayer player, bool isForwardMove) {
+        private void FnAVEMNSTR_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -167,7 +167,7 @@ namespace XPT.Legacy.Maps {
             L012E: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_0C(ServerPlayer player, bool isForwardMove) {
+        private void FnSTRMNSTR_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -198,29 +198,29 @@ namespace XPT.Legacy.Maps {
             L0152: return; // RETURN;
         }
 
-        private void FnNPCCHATA_0E(ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATA_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String05C5); // You encounter a Human Thief.
+            L0003: ShowMessage(player, doMsgs, String05C5); // You encounter a Human Thief.
             L0010: ShowPortrait(player, 0x0022);
             L001D: Compare(GetRandom(0x000F), 0x000C);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, isForwardMove, String05E2); // Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
+            L002F: ShowMessage(player, doMsgs, String05E2); // Find the Fountain of Tranquility if you are battle weary. Find it - if you can.
             L003C: goto L004B;
-            L003E: ShowMessage(player, isForwardMove, String0632); // The Human Thief cringes in terror and wraps herself up in a tight ball.
+            L003E: ShowMessage(player, doMsgs, String0632); // The Human Thief cringes in terror and wraps herself up in a tight ball.
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_0F(ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATB_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String067A); // You encounter an Elf Barbarian.
+            L0003: ShowMessage(player, doMsgs, String067A); // You encounter an Elf Barbarian.
             L0010: ShowPortrait(player, 0x0018);
             L001D: Compare(GetRandom(0x000F), 0x0004);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, isForwardMove, String069A); // A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.
+            L002F: ShowMessage(player, doMsgs, String069A); // A halfling thief told me of a wondrous world of four seasons deep in the heart of the dungeon. Of course, I did not believe him. Thieves are such liars.
             L003C: goto L004B;
-            L003E: ShowMessage(player, isForwardMove, String0733); // The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.
+            L003E: ShowMessage(player, doMsgs, String0733); // The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.
             L004B: return; // RETURN;
         }
 

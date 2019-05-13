@@ -88,212 +88,212 @@ namespace XPT.Legacy.Maps {
         private const string String0E8B = "Ogres are playing with items you identify as the Ring of Vigor, a Cudgel Insignia, and the Wand of Radiance.";
         
         // === Functions ================================================
-        private void FnTOEXIT_01(ServerPlayer player, bool isForwardMove) {
+        private void FnTOEXIT_01(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x01, 0x01, 0x3A, 0x00, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x01, 0x3A, 0x00, type);
             L001D: return; // RETURN;
         }
 
-        private void FnTOVEST_02(ServerPlayer player, bool isForwardMove) {
+        private void FnTOVEST_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x01, 0x03, 0xF5, 0x03, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x03, 0xF5, 0x03, type);
             L001E: return; // RETURN;
         }
 
-        private void FnGATEMSGA_03(ServerPlayer player, bool isForwardMove) {
+        private void FnGATEMSGA_03(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String03FC); // The gateway leads to THE VESTIBULE.
+            L0003: ShowMessage(player, doMsgs, String03FC); // The gateway leads to THE VESTIBULE.
             L0010: return; // RETURN;
         }
 
-        private void FnTELEPORT_04(ServerPlayer player, bool isForwardMove) {
+        private void FnTELEPORT_04(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x03, 0x04, 0xF7, 0x00, isForwardMove);
+            L0003: TeleportParty(player, 0x03, 0x04, 0xF7, 0x00, type);
             L001D: return; // RETURN;
         }
 
-        private void FnTELPORTW_05(ServerPlayer player, bool isForwardMove) {
+        private void FnTELPORTW_05(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x01, 0x04, 0x57, 0x02, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x04, 0x57, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnTELPORTE_06(ServerPlayer player, bool isForwardMove) {
+        private void FnTELPORTE_06(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x01, 0x04, 0x4F, 0x03, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x04, 0x4F, 0x03, type);
             L001E: return; // RETURN;
         }
 
-        private void FnTELPORTS_07(ServerPlayer player, bool isForwardMove) {
+        private void FnTELPORTS_07(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x01, 0x05, 0x8F, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x05, 0x8F, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnSTAIRMSG_08(ServerPlayer player, bool isForwardMove) {
+        private void FnSTAIRMSG_08(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0420); // Through the gateway to the west you see stairs leading down to the next level.
+            L0003: ShowMessage(player, doMsgs, String0420); // Through the gateway to the west you see stairs leading down to the next level.
             L0010: return; // RETURN;
         }
 
-        private void FnSTAIRSDN_09(ServerPlayer player, bool isForwardMove) {
+        private void FnSTAIRSDN_09(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x02, 0x01, 0x05, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x02, 0x01, 0x05, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_0A(ServerPlayer player, bool isForwardMove) {
+        private void FnLKPKDOOR_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, 0xC0, 0xC4);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xC0, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: Compare(HasUsedSkill(player, 0x0E), 0x0004);
+            L0018: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0E), 0x0004);
             L0027: if (JumpBelow) goto L0068;
             L0029: SetWallPassable(player, 0x6F, 0x03, 0x01);
             L003F: SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
-            L0059: ShowMessage(player, isForwardMove, String046F); // You successfully picked the locked door.
+            L0059: ShowMessage(player, doMsgs, String046F); // You successfully picked the locked door.
             L0066: goto L008A;
             L0068: SetWallPassable(player, 0x6F, 0x03, 0x00);
-            L007D: ShowMessage(player, isForwardMove, String0498); // The door is locked.
+            L007D: ShowMessage(player, doMsgs, String0498); // The door is locked.
             L008A: return; // RETURN;
         }
 
-        private void FnTELEPORT_0B(ServerPlayer player, bool isForwardMove) {
+        private void FnTELEPORT_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x02, 0x01, 0x0E, 0x02, isForwardMove);
+            L0003: TeleportParty(player, 0x02, 0x01, 0x0E, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_0C(ServerPlayer player, bool isForwardMove) {
+        private void FnLKPKDOOR_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, 0xC2, 0xC4);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xC2, 0xC4);
             L0016: if (JumpNotEqual) goto L0029;
-            L0018: Compare(HasUsedSkill(player, 0x0E), 0x0008);
+            L0018: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0E), 0x0008);
             L0027: if (JumpBelow) goto L0068;
             L0029: SetWallPassable(player, 0x40, 0x03, 0x01);
             L003F: SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
-            L0059: ShowMessage(player, isForwardMove, String04AC); // You successfully picked the locked door.
+            L0059: ShowMessage(player, doMsgs, String04AC); // You successfully picked the locked door.
             L0066: goto L008A;
             L0068: SetWallPassable(player, 0x40, 0x03, 0x00);
-            L007D: ShowMessage(player, isForwardMove, String04D5); // The door is locked.
+            L007D: ShowMessage(player, doMsgs, String04D5); // The door is locked.
             L008A: return; // RETURN;
         }
 
-        private void FnGATEMSGB_0D(ServerPlayer player, bool isForwardMove) {
+        private void FnGATEMSGB_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String04E9); // The gateway leads to THE MAIN DUNGEON ENTRANCE.
+            L0003: ShowMessage(player, doMsgs, String04E9); // The gateway leads to THE MAIN DUNGEON ENTRANCE.
             L0010: return; // RETURN;
         }
 
-        private void FnTELMESSA_0E(ServerPlayer player, bool isForwardMove) {
+        private void FnTELMESSA_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0519); // There is a teleport in the west wall.
+            L0003: ShowMessage(player, doMsgs, String0519); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
-        private void FnTELMESSB_0F(ServerPlayer player, bool isForwardMove) {
+        private void FnTELMESSB_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String053F); // There is a teleport in the south wall.
+            L0003: ShowMessage(player, doMsgs, String053F); // There is a teleport in the south wall.
             L0010: return; // RETURN;
         }
 
-        private void FnTELMESSC_10(ServerPlayer player, bool isForwardMove) {
+        private void FnTELMESSC_10(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0566); // There is a teleport in the west wall.
+            L0003: ShowMessage(player, doMsgs, String0566); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
-        private void FnTELMESSD_11(ServerPlayer player, bool isForwardMove) {
+        private void FnTELMESSD_11(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String058C); // There is a teleport in the north wall.
+            L0003: ShowMessage(player, doMsgs, String058C); // There is a teleport in the north wall.
             L0010: return; // RETURN;
         }
 
-        private void FnNPCCHATA_12(ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATA_12(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String05B3); // You encounter a Gnome Barbarian.
+            L0003: ShowMessage(player, doMsgs, String05B3); // You encounter a Gnome Barbarian.
             L0010: ShowPortrait(player, 0x0019);
             L001D: Compare(GetRandom(0x000F), 0x0008);
             L002D: if (JumpAbove) goto L004B;
-            L002F: ShowMessage(player, isForwardMove, String05D4); // My father told me an ancient story. A Galabryan king once brought a powerful wizard to Twinion. This wizard did something very bad and caused the volcano to erupt.
-            L003C: ShowMessage(player, isForwardMove, String0678); // Supposedly the wizard's castle is buried deep in the bowels of this mountain. It is his anguished spirit that keeps the volcano active.
+            L002F: ShowMessage(player, doMsgs, String05D4); // My father told me an ancient story. A Galabryan king once brought a powerful wizard to Twinion. This wizard did something very bad and caused the volcano to erupt.
+            L003C: ShowMessage(player, doMsgs, String0678); // Supposedly the wizard's castle is buried deep in the bowels of this mountain. It is his anguished spirit that keeps the volcano active.
             L0049: goto L0058;
-            L004B: ShowMessage(player, isForwardMove, String0700); // The Gnome Barbarian ignores you as he tries to remember his own name.
+            L004B: ShowMessage(player, doMsgs, String0700); // The Gnome Barbarian ignores you as he tries to remember his own name.
             L0058: return; // RETURN;
         }
 
-        private void FnNPCCHATB_13(ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATB_13(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0746); // You encounter a Dwarf Wizard.
+            L0003: ShowMessage(player, doMsgs, String0746); // You encounter a Dwarf Wizard.
             L0010: ShowPortrait(player, 0x002C);
             L001D: Compare(GetRandom(0x000F), 0x000C);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, isForwardMove, String0764); // Powerful magic once existed here. I've found scrolls and amulets and other magic charms that contain powerful spells. The Mana in these items is soon exhausted.
+            L002F: ShowMessage(player, doMsgs, String0764); // Powerful magic once existed here. I've found scrolls and amulets and other magic charms that contain powerful spells. The Mana in these items is soon exhausted.
             L003C: goto L005C;
             L003E: SetSpellLevel(player, 0x12, 0x01);
-            L004F: ShowMessage(player, isForwardMove, String0805); // The Dwarf Wizard offers to teach you the Bless spell since you didn't hurt her.
+            L004F: ShowMessage(player, doMsgs, String0805); // The Dwarf Wizard offers to teach you the Bless spell since you didn't hurt her.
             L005C: return; // RETURN;
         }
 
-        private void FnNPCCHATC_14(ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATC_14(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0855); // You encounter a Halfling Ranger.
+            L0003: ShowMessage(player, doMsgs, String0855); // You encounter a Halfling Ranger.
             L0010: ShowPortrait(player, 0x0021);
             L001D: Compare(GetRandom(0x000F), 0x000D);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, isForwardMove, String0876); // This place is called the Hall of Doors. Most doors lead nowhere. Others lead to wonders.
+            L002F: ShowMessage(player, doMsgs, String0876); // This place is called the Hall of Doors. Most doors lead nowhere. Others lead to wonders.
             L003C: goto L004B;
-            L003E: ShowMessage(player, isForwardMove, String08CF); // The Halfling Ranger wanders off in pursuit of friends.
+            L003E: ShowMessage(player, doMsgs, String08CF); // The Halfling Ranger wanders off in pursuit of friends.
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATD_15(ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATD_15(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0906); // You encounter a Troll Cleric.
+            L0003: ShowMessage(player, doMsgs, String0906); // You encounter a Troll Cleric.
             L0010: ShowPortrait(player, 0x0028);
             L001D: Compare(GetRandom(0x000F), 0x0006);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, isForwardMove, String0924); // Someone left a rune message on the floor. It said that to reach the King's Apartments, you must take a turn for the worse. I wonder if it means that you must be sick to find his quarters.
+            L002F: ShowMessage(player, doMsgs, String0924); // Someone left a rune message on the floor. It said that to reach the King's Apartments, you must take a turn for the worse. I wonder if it means that you must be sick to find his quarters.
             L003C: goto L004B;
-            L003E: ShowMessage(player, isForwardMove, String09E0); // The Troll Cleric is too busy counting her blessings to speak to you.
+            L003E: ShowMessage(player, doMsgs, String09E0); // The Troll Cleric is too busy counting her blessings to speak to you.
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATE_16(ServerPlayer player, bool isForwardMove) {
+        private void FnNPCCHATE_16(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0A25); // You encounter a Troll Knight.
+            L0003: ShowMessage(player, doMsgs, String0A25); // You encounter a Troll Knight.
             L0010: ShowPortrait(player, 0x001B);
             L001D: Compare(GetRandom(0x000F), 0x000B);
             L002D: if (JumpAbove) goto L003E;
-            L002F: ShowMessage(player, isForwardMove, String0A43); // A wise leader knows how to organize a party. Keep your fighters in front and your magicians safely in the rear. And as much as thieves are despised in general, they can serve you well, for their skills are impressive.
+            L002F: ShowMessage(player, doMsgs, String0A43); // A wise leader knows how to organize a party. Keep your fighters in front and your magicians safely in the rear. And as much as thieves are despised in general, they can serve you well, for their skills are impressive.
             L003C: goto L005C;
             L003E: ModifyGold(player, 0x000A);
-            L004F: ShowMessage(player, isForwardMove, String0B1D); // The Troll Knight gives you 10 Gold Pieces and departs in peace.
+            L004F: ShowMessage(player, doMsgs, String0B1D); // The Troll Knight gives you 10 Gold Pieces and departs in peace.
             L005C: return; // RETURN;
         }
 
-        private void FnLOWMNSTR_17(ServerPlayer player, bool isForwardMove) {
+        private void FnLOWMNSTR_17(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -310,16 +310,16 @@ namespace XPT.Legacy.Maps {
             L008B: return; // RETURN;
         }
 
-        private void FnLWRMNSTR_18(ServerPlayer player, bool isForwardMove) {
+        private void FnLWRMNSTR_18(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0B5D); // You encounter Goblins.
+            L0003: ShowMessage(player, doMsgs, String0B5D); // You encounter Goblins.
             L0010: Compare(GetRandom(0x000F), 0x0004);
             L0020: if (JumpAbove) goto L0031;
-            L0022: ShowMessage(player, isForwardMove, String0B74); // You should be gracious to us Goblins, or we will tell our masters the Goblin Kings that you are cruel and deserve to die most horribly.
+            L0022: ShowMessage(player, doMsgs, String0B74); // You should be gracious to us Goblins, or we will tell our masters the Goblin Kings that you are cruel and deserve to die most horribly.
             L002F: goto L004B;
-            L0031: ShowMessage(player, isForwardMove, String0BFC); // The Goblins refuse to talk.
-            L003E: ShowMessage(player, isForwardMove, String0C18); // They draw their weapons and attack!
+            L0031: ShowMessage(player, doMsgs, String0BFC); // The Goblins refuse to talk.
+            L003E: ShowMessage(player, doMsgs, String0C18); // They draw their weapons and attack!
             L004B: Compare(PartyCount(player), 0x0001);
             L0056: if (JumpNotEqual) goto L007F;
             L0058: AddEncounter(player, 0x01, 0x1C);
@@ -339,7 +339,7 @@ namespace XPT.Legacy.Maps {
             L011E: return; // RETURN;
         }
 
-        private void FnOGREENC_19(ServerPlayer player, bool isForwardMove) {
+        private void FnOGREENC_19(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -359,16 +359,16 @@ namespace XPT.Legacy.Maps {
             L00C1: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_1A(ServerPlayer player, bool isForwardMove) {
+        private void FnTUFMNSTR_1A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0C3C); // You encounter Rogues.
+            L0003: ShowMessage(player, doMsgs, String0C3C); // You encounter Rogues.
             L0010: Compare(GetRandom(0x000F), 0x0003);
             L0020: if (JumpAbove) goto L0031;
-            L0022: ShowMessage(player, isForwardMove, String0C52); // Bizarre creatures haunt this dungeon. Many know magic. A great evil must exist somewhere in the dungeon to spawn such a neverending host of monsters.
+            L0022: ShowMessage(player, doMsgs, String0C52); // Bizarre creatures haunt this dungeon. Many know magic. A great evil must exist somewhere in the dungeon to spawn such a neverending host of monsters.
             L002F: goto L004B;
-            L0031: ShowMessage(player, isForwardMove, String0CE8); // The Rogues refuse to talk.
-            L003E: ShowMessage(player, isForwardMove, String0D03); // They charge at you!
+            L0031: ShowMessage(player, doMsgs, String0CE8); // The Rogues refuse to talk.
+            L003E: ShowMessage(player, doMsgs, String0D03); // They charge at you!
             L004B: Compare(PartyCount(player), 0x0001);
             L0056: if (JumpNotEqual) goto L006C;
             L0058: AddEncounter(player, 0x01, 0x22);
@@ -385,11 +385,11 @@ namespace XPT.Legacy.Maps {
             L00E7: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_1B(ServerPlayer player, bool isForwardMove) {
+        private void FnSTRMNSTR_1B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0D17); // You encounter Rogues!
-            L0010: ShowMessage(player, isForwardMove, String0D2D); // The Rogues scowl at you and attack!
+            L0003: ShowMessage(player, doMsgs, String0D17); // You encounter Rogues!
+            L0010: ShowMessage(player, doMsgs, String0D2D); // The Rogues scowl at you and attack!
             L001D: Compare(PartyCount(player), 0x0001);
             L0028: if (JumpNotEqual) goto L003E;
             L002A: AddEncounter(player, 0x01, 0x28);
@@ -406,17 +406,17 @@ namespace XPT.Legacy.Maps {
             L00B9: return; // RETURN;
         }
 
-        private void FnWEAPENC_1C(ServerPlayer player, bool isForwardMove) {
+        private void FnWEAPENC_1C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagHallOfDoorsFoundSwords), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: AddTreasure(player, 0x0190, 0x00, 0x00, 0x00, 0x00, 0xCE);
-            L0038: ShowMessage(player, isForwardMove, String0D51); // It looks like the Rogues you encounter have already looted the room.
+            L0038: ShowMessage(player, doMsgs, String0D51); // It looks like the Rogues you encounter have already looted the room.
             L0045: goto L0089;
             L0047: AddTreasure(player, 0x05DC, 0x00, 0x00, 0x00, 0x0C, 0x05);
             L0067: SetFlag(player, FlagTypeDungeon, FlagHallOfDoorsFoundSwords, 0x01);
-            L007C: ShowMessage(player, isForwardMove, String0D96); // Rogues covet the Sword of the Flames and Sword of Decision you see lying on the floor.
+            L007C: ShowMessage(player, doMsgs, String0D96); // Rogues covet the Sword of the Flames and Sword of Decision you see lying on the floor.
             L0089: Compare(PartyCount(player), 0x0001);
             L0094: if (JumpNotEqual) goto L00AB;
             L0096: AddEncounter(player, 0x01, 0x26);
@@ -440,17 +440,17 @@ namespace XPT.Legacy.Maps {
             L017E: return; // RETURN;
         }
 
-        private void FnGOLDENC_1D(ServerPlayer player, bool isForwardMove) {
+        private void FnGOLDENC_1D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagHallOfDoorsFoundGold), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: AddTreasure(player, 0x0064, 0x00, 0x00, 0x00, 0x00, 0xCB);
-            L0038: ShowMessage(player, isForwardMove, String0DED); // Goblins grab their weapons as you enter the room.
+            L0038: ShowMessage(player, doMsgs, String0DED); // Goblins grab their weapons as you enter the room.
             L0045: goto L0089;
             L0047: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xCB, 0xB5);
             L0067: SetFlag(player, FlagTypeDungeon, FlagHallOfDoorsFoundGold, 0x01);
-            L007C: ShowMessage(player, isForwardMove, String0E1F); // Goblins are pitching Gold Pieces against the wall.
+            L007C: ShowMessage(player, doMsgs, String0E1F); // Goblins are pitching Gold Pieces against the wall.
             L0089: Compare(PartyCount(player), 0x0001);
             L0094: if (JumpEqual) goto L00A3;
             L0096: Compare(PartyCount(player), 0x0002);
@@ -465,17 +465,17 @@ namespace XPT.Legacy.Maps {
             L0111: return; // RETURN;
         }
 
-        private void FnMAGICENC_1E(ServerPlayer player, bool isForwardMove) {
+        private void FnMAGICENC_1E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagHallOfDoorsFoundOgreItems), 0x0001);
             L0017: if (JumpNotEqual) goto L0048;
             L0019: AddTreasure(player, 0x0078, 0x00, 0x00, 0x00, 0xCB, 0xB5);
-            L0039: ShowMessage(player, isForwardMove, String0E52); // Ogres grimace in pleasure as you walk into their ambush.
+            L0039: ShowMessage(player, doMsgs, String0E52); // Ogres grimace in pleasure as you walk into their ambush.
             L0046: goto L008B;
             L0048: AddTreasure(player, 0x1388, 0x00, 0x00, 0xC5, 0x8A, 0x8E);
             L0069: SetFlag(player, FlagTypeDungeon, FlagHallOfDoorsFoundOgreItems, 0x01);
-            L007E: ShowMessage(player, isForwardMove, String0E8B); // Ogres are playing with items you identify as the Ring of Vigor, a Cudgel Insignia, and the Wand of Radiance.
+            L007E: ShowMessage(player, doMsgs, String0E8B); // Ogres are playing with items you identify as the Ring of Vigor, a Cudgel Insignia, and the Wand of Radiance.
             L008B: Compare(PartyCount(player), 0x0001);
             L0096: if (JumpNotEqual) goto L00AD;
             L0098: AddEncounter(player, 0x01, 0x1F);

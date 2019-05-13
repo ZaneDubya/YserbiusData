@@ -43,81 +43,81 @@ namespace XPT.Legacy.Maps {
         private const string String0650 = "Only heroes of the twentieth level or higher may venture beyond this door.";
         
         // === Functions ================================================
-        private void FnTOMINES_01(ServerPlayer player, bool isForwardMove) {
+        private void FnTOMINES_01(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x01, 0x02, 0xFD, 0x03, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x02, 0xFD, 0x03, type);
             L001E: return; // RETURN;
         }
 
-        private void FnTOTREAS_02(ServerPlayer player, bool isForwardMove) {
+        private void FnTOTREAS_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x01, 0x04, 0x10, 0x02, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x04, 0x10, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnTOSOLDQU_03(ServerPlayer player, bool isForwardMove) {
+        private void FnTOSOLDQU_03(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x01, 0x06, 0x0F, 0x01, isForwardMove);
+            L0003: TeleportParty(player, 0x01, 0x06, 0x0F, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnEXITDUNG_04(ServerPlayer player, bool isForwardMove) {
+        private void FnEXITDUNG_04(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ExitDungeon(player, false, isForwardMove);
+            L0003: ExitDungeon(player, false, type);
             L000B: return; // RETURN;
         }
 
-        private void FnDOORMESA_05(ServerPlayer player, bool isForwardMove) {
+        private void FnDOORMESA_05(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String03FC); // The gateway leads to THE MINES.
+            L0003: ShowMessage(player, doMsgs, String03FC); // The gateway leads to THE MINES.
             L0010: return; // RETURN;
         }
 
-        private void FnDOORMESB_06(ServerPlayer player, bool isForwardMove) {
+        private void FnDOORMESB_06(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String041C); // The gateway leads to THE HALL OF DOORS.
+            L0003: ShowMessage(player, doMsgs, String041C); // The gateway leads to THE HALL OF DOORS.
             L0010: return; // RETURN;
         }
 
-        private void FnDOORMESC_07(ServerPlayer player, bool isForwardMove) {
+        private void FnDOORMESC_07(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0444); // The gateway leads to THE SOLDIERS  QUARTERS.
+            L0003: ShowMessage(player, doMsgs, String0444); // The gateway leads to THE SOLDIERS  QUARTERS.
             L0010: return; // RETURN;
         }
 
-        private void FnDOORMESD_08(ServerPlayer player, bool isForwardMove) {
+        private void FnDOORMESD_08(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0471); // The gateway is the DUNGEON EXIT.
+            L0003: ShowMessage(player, doMsgs, String0471); // The gateway is the DUNGEON EXIT.
             L0010: ax = IsFlagOn(player, FlagTypeDungeon, FlagDefeatedEnLiKil);
             L0023: if (JumpEqual) goto L003F;
-            L0025: ShowMessage(player, isForwardMove, String0492); // Hail, conquering HERO OF YSERBIUS!
-            L0032: ShowMessage(player, isForwardMove, String04B5); // All of Twinion bows to your prominence!!
+            L0025: ShowMessage(player, doMsgs, String0492); // Hail, conquering HERO OF YSERBIUS!
+            L0032: ShowMessage(player, doMsgs, String04B5); // All of Twinion bows to your prominence!!
             L003F: return; // RETURN;
         }
 
-        private void FnTELEPORT_09(ServerPlayer player, bool isForwardMove) {
+        private void FnTELEPORT_09(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x33, 0x01, 0x5D, 0x00, isForwardMove);
+            L0003: TeleportParty(player, 0x33, 0x01, 0x5D, 0x00, type);
             L001D: return; // RETURN;
         }
 
-        private void FnTELEMESS_0A(ServerPlayer player, bool isForwardMove) {
+        private void FnTELEMESS_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String04DE); // There is a teleport in the west wall.
+            L0003: ShowMessage(player, doMsgs, String04DE); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
-        private void FnDOORMESS_0B(ServerPlayer player, bool isForwardMove) {
+        private void FnDOORMESS_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel(player, 0x0014);
@@ -125,14 +125,14 @@ namespace XPT.Legacy.Maps {
             L0013: goto L011F;
             L0016: Compare(GetFlag(player, FlagTypeDungeon, FlagUnlockedLabyrinthDoor), 0x0001);
             L002A: if (JumpNotEqual) goto L005A;
-            L002C: ShowMessage(player, isForwardMove, String0504); // This room contains the gateway to the Labyrinth.
+            L002C: ShowMessage(player, doMsgs, String0504); // This room contains the gateway to the Labyrinth.
             L0039: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0057: goto L011D;
             L005A: ax = HasItem(player, 0xFB);
             L0068: if (JumpNotEqual) goto L006D;
             L006A: goto L0110;
-            L006D: ShowMessage(player, isForwardMove, String0535); // The Thieves' Key unlocks this door!
-            L007A: ShowMessage(player, isForwardMove, String0559); // This room contains the gateway to the Labyrinth.
+            L006D: ShowMessage(player, doMsgs, String0535); // The Thieves' Key unlocks this door!
+            L007A: ShowMessage(player, doMsgs, String0559); // This room contains the gateway to the Labyrinth.
             L0087: SetFlag(player, FlagTypeDungeon, FlagUnlockedLabyrinthDoor, 0x01);
             L009C: RemoveItem(player, 0xFB);
             L00A8: RemoveItem(player, 0xD2);
@@ -143,27 +143,27 @@ namespace XPT.Legacy.Maps {
             L00E4: RemoveItem(player, 0xF8);
             L00F0: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L010E: goto L011D;
-            L0110: ShowMessage(player, isForwardMove, String058A); // The Thieves' Key is needed to unlock this door.
+            L0110: ShowMessage(player, doMsgs, String058A); // The Thieves' Key is needed to unlock this door.
             L011D: goto L0156;
-            L011F: ShowMessage(player, isForwardMove, String05BA); // The Thieves' Key is needed to unlock this door.
-            L012C: ShowMessage(player, isForwardMove, String05EA); // Only heroes of the twentieth level or higher may venture beyond this door.
+            L011F: ShowMessage(player, doMsgs, String05BA); // The Thieves' Key is needed to unlock this door.
+            L012C: ShowMessage(player, doMsgs, String05EA); // Only heroes of the twentieth level or higher may venture beyond this door.
             L0139: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
             L0156: return; // RETURN;
         }
 
-        private void FnPRTYPORT_0C(ServerPlayer player, bool isForwardMove) {
+        private void FnPRTYPORT_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel(player, 0x0014);
             L0011: if (JumpEqual) goto L0022;
-            L0013: ShowMessage(player, isForwardMove, String0635); // Good Journeys, brave hero.
+            L0013: ShowMessage(player, doMsgs, String0635); // Good Journeys, brave hero.
             L0020: goto L0049;
-            L0022: ShowMessage(player, isForwardMove, String0650); // Only heroes of the twentieth level or higher may venture beyond this door.
-            L002F: TeleportParty(player, 0x01, 0x01, 0x02, 0x00, isForwardMove);
+            L0022: ShowMessage(player, doMsgs, String0650); // Only heroes of the twentieth level or higher may venture beyond this door.
+            L002F: TeleportParty(player, 0x01, 0x01, 0x02, 0x00, type);
             L0049: return; // RETURN;
         }
 
-        private void FnNOJOIN_0D(ServerPlayer player, bool isForwardMove) {
+        private void FnNOJOIN_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetNoJoinArea(player);

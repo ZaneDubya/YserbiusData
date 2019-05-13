@@ -94,18 +94,18 @@ namespace XPT.Legacy.Maps {
         private int _TileBridgeY = 0, _TileBridgeX = 0;
 
         // === Functions ================================================
-        private void FnPIT_01(ServerPlayer player, bool isForwardMove) {
+        private void FnPIT_01(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String03FC); // You step into a bottomless pit and die.
+            L0003: ShowMessage(player, doMsgs, String03FC); // You step into a bottomless pit and die.
             L0010: DamagePlayer(player, GetMaxHits(player));
             L0021: return; // RETURN;
         }
 
-        private void FnENCGUARD_02(ServerPlayer player, bool isForwardMove) {
+        private void FnENCGUARD_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0424); // Guardians stand ready.  'We are sworn to defend Arnakkian.'
+            L0003: ShowMessage(player, doMsgs, String0424); // Guardians stand ready.  'We are sworn to defend Arnakkian.'
             L0010: AddEncounter(player, 0x01, 0x27);
             L0022: AddEncounter(player, 0x02, 0x27);
             L0034: AddEncounter(player, 0x03, 0x27);
@@ -118,13 +118,13 @@ namespace XPT.Legacy.Maps {
             L00A6: return; // RETURN;
         }
 
-        private void FnENCEARTH_03(ServerPlayer player, bool isForwardMove) {
+        private void FnENCEARTH_03(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
             L0016: if (JumpEqual) goto L001B;
             L0018: goto L0123;
-            L001B: ShowMessage(player, isForwardMove, String0460); // Earth Elemental Andreas rises from his mountainous perch.
+            L001B: ShowMessage(player, doMsgs, String0460); // Earth Elemental Andreas rises from his mountainous perch.
             L0028: AddEncounter(player, 0x01, 0x04);
             L003A: AddEncounter(player, 0x02, 0x04);
             L004C: AddEncounter(player, 0x03, 0x22);
@@ -143,97 +143,97 @@ namespace XPT.Legacy.Maps {
             L0123: return; // RETURN;
         }
 
-        private void FnGUARDIAN_04(ServerPlayer player, bool isForwardMove) {
+        private void FnGUARDIAN_04(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String049A); // Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
+            L0003: ShowMessage(player, doMsgs, String049A); // Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
             L0010: return; // RETURN;
         }
 
-        private void FnEARTHELE_05(ServerPlayer player, bool isForwardMove) {
+        private void FnEARTHELE_05(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
             L0016: if (JumpNotEqual) goto L0025;
-            L0018: ShowMessage(player, isForwardMove, String04EA); // The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
+            L0018: ShowMessage(player, doMsgs, String04EA); // The earth elemental palace is filled with a bounty of priceless gems.  It seems to shake with great power.
             L0025: return; // RETURN;
         }
 
-        private void FnPLATA_06(ServerPlayer player, bool isForwardMove) {
+        private void FnPLATA_06(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0555); // The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
-            L0010: ShowMessage(player, isForwardMove, String05B8); // A voice whispers 'Only true friendship can bridge the gap of time.'
+            L0003: ShowMessage(player, doMsgs, String0555); // The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
+            L0010: ShowMessage(player, doMsgs, String05B8); // A voice whispers 'Only true friendship can bridge the gap of time.'
             L001D: return; // RETURN;
         }
 
-        private void FnPLATB_07(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String05FC); // Quiet solitude fills the chasm.  You are on the other side.
+        private void FnPLATB_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String05FC); // Quiet solitude fills the chasm.  You are on the other side.
             SetFlag(player, FlagTypeDungeon, FlagMedievaLandsCastleParapetsBridge, 1);
         }
 
-        private void FnYBOXA_08(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the East.");
+        private void FnYBOXA_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(1, _TileBridgeX);
         }
 
-        private void FnYBOXB_09(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the East.");
+        private void FnYBOXB_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(2, _TileBridgeX);
         }
 
-        private void FnYBOXC_0A(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the East.");
+        private void FnYBOXC_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(3, _TileBridgeX);
         }
 
-        private void FnYBOXD_0B(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the East.");
+        private void FnYBOXD_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(4, _TileBridgeX);
         }
 
-        private void FnYBOXE_0C(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the East.");
+        private void FnYBOXE_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(5, _TileBridgeX);
         }
 
-        private void FnYBOXF_0D(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the East.");
+        private void FnYBOXF_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(6, _TileBridgeX);
         }
 
-        private void FnXBOXG_0E(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
+        private void FnXBOXG_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 1);
         }
 
-        private void FnXBOXH_0F(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
+        private void FnXBOXH_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 2);
         }
 
-        private void FnXBOXI_10(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
+        private void FnXBOXI_10(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 3);
         }
 
-        private void FnXBOXJ_11(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
+        private void FnXBOXJ_11(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 4);
         }
 
-        private void FnXBOXK_12(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
+        private void FnXBOXK_12(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 5);
         }
 
-        private void FnXBOXL_13(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
+        private void FnXBOXL_13(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 6);
         }
 
-        private void FnXBOXM_14(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, "The wall glows when you touch it. You feel air rushing past you to the North.");
+        private void FnXBOXM_14(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 7);
         }
 
@@ -247,18 +247,18 @@ namespace XPT.Legacy.Maps {
             foreach (ServerPlayer player in Mobiles) {
                 if (player.Position.X == playerX) {
                     if (playerY == player.Position.Y - 1) {
-                        ShowMessage(player, false, "A path forms in the air to the North.");
+                        ShowMessage(player, true, "A path forms in the air to the North.");
                     }
                     if (playerY == player.Position.Y + 1) {
-                        ShowMessage(player, false, "A path forms in the air to the South.");
+                        ShowMessage(player, true, "A path forms in the air to the South.");
                     }
                 }
                 if (player.Position.Y == playerY) {
                     if (playerX == player.Position.X - 1) {
-                        ShowMessage(player, false, "A path forms in the air to the West.");
+                        ShowMessage(player, true, "A path forms in the air to the West.");
                     }
                     if (playerX == player.Position.X + 1) {
-                        ShowMessage(player, false, "A path forms in the air to the East.");
+                        ShowMessage(player, true, "A path forms in the air to the East.");
                     }
                 }
             }
@@ -268,162 +268,162 @@ namespace XPT.Legacy.Maps {
             // the first tile is at map position 5, 6
             // this corresponds to tileBridgeX/Y 1/1
             if (_TileBridgeX == x && _TileBridgeY == y) {
-                ShowMessage(player, false, successMessage);
+                ShowMessage(player, true, successMessage);
                 return;
             }
             if (player.PartyLeader.HasItemByTypeIndex(245)) {
-                ShowMessage(player, false, "The yellow rainbow gem illuminates a path through the Void.");
+                ShowMessage(player, true, "The yellow rainbow gem illuminates a path through the Void.");
                 return;
             }
-            ShowMessage(player, false, String0737); // You step over the edge and into oblivion.
+            ShowMessage(player, true, String0737); // You step over the edge and into oblivion.
             DamagePlayer(player, GetMaxHits(player));
         }
 
-        private void FnPITAJ_15(ServerPlayer player, bool isForwardMove) {
+        private void FnPITAJ_15(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 1, 4, "You step on solid air. This was a wise move.");
         }
 
-        private void FnPITAK_16(ServerPlayer player, bool isForwardMove) {
+        private void FnPITAK_16(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 1, 5, "You selected your next move wisely.");
         }
 
-        private void FnPITAL_17(ServerPlayer player, bool isForwardMove) {
+        private void FnPITAL_17(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 1, 6, "Your next step is a safe one.");
         }
 
-        private void FnPITAM_18(ServerPlayer player, bool isForwardMove) {
+        private void FnPITAM_18(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 1, 7, "The step you take is wisely chosen.");
         }
 
-        private void FnPITBG_19(ServerPlayer player, bool isForwardMove) {
+        private void FnPITBG_19(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 2, 1, "You take one good step forward.");
         }
 
-        private void FnPITBI_1A(ServerPlayer player, bool isForwardMove) {
+        private void FnPITBI_1A(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 2, 3, "You safely step forward.");
         }
 
-        private void FnPITBJ_1B(ServerPlayer player, bool isForwardMove) {
+        private void FnPITBJ_1B(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 2, 4, "You take a step in the right direction.");
         }
 
-        private void FnPITBK_1C(ServerPlayer player, bool isForwardMove) {
+        private void FnPITBK_1C(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 2, 5, "Your move is wise.");
         }
 
-        private void FnPITBL_1D(ServerPlayer player, bool isForwardMove) {
+        private void FnPITBL_1D(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 2, 6, "You select your next move wisely.");
         }
 
-        private void FnPITBM_1E(ServerPlayer player, bool isForwardMove) {
+        private void FnPITBM_1E(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 2, 7, "You move forward with confidence.");
         }
 
-        private void FnPITCG_1F(ServerPlayer player, bool isForwardMove) {
+        private void FnPITCG_1F(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 1, "Your next step is a good one.");
         }
 
-        private void FnPITCH_20(ServerPlayer player, bool isForwardMove) {
+        private void FnPITCH_20(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 2, "You move ahead assuredly.");
         }
 
-        private void FnPITCI_21(ServerPlayer player, bool isForwardMove) {
+        private void FnPITCI_21(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 3, "You choose your next step correctly.");
         }
 
-        private void FnPITCJ_22(ServerPlayer player, bool isForwardMove) {
+        private void FnPITCJ_22(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 4, "Your choice of movement saves you.");
         }
 
-        private void FnPITCK_23(ServerPlayer player, bool isForwardMove) {
+        private void FnPITCK_23(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 5, "You step in the right direction.");
         }
 
-        private void FnPITCL_24(ServerPlayer player, bool isForwardMove) {
+        private void FnPITCL_24(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 6, "You select your next step wisely.");
         }
 
-        private void FnPITCM_25(ServerPlayer player, bool isForwardMove) {
+        private void FnPITCM_25(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 7, "Your next step is sagely chosen.");
         }
 
-        private void FnPITDG_26(ServerPlayer player, bool isForwardMove) {
+        private void FnPITDG_26(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 1, "You take a wise step forward.");
         }
 
-        private void FnPITDH_27(ServerPlayer player, bool isForwardMove) {
+        private void FnPITDH_27(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 2, "You move forward wisely.");
         }
 
-        private void FnPITDI_28(ServerPlayer player, bool isForwardMove) {
+        private void FnPITDI_28(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 3, "Your next step is wisely decided.");
         }
 
-        private void FnPITDJ_29(ServerPlayer player, bool isForwardMove) {
+        private void FnPITDJ_29(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 4, "You step ahead with confidence.");
         }
 
-        private void FnPITDK_2A(ServerPlayer player, bool isForwardMove) {
+        private void FnPITDK_2A(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 5, "You move forward carefully.");
         }
 
-        private void FnPITDL_2B(ServerPlayer player, bool isForwardMove) {
+        private void FnPITDL_2B(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 6, "You move ahead.");
         }
 
-        private void FnPITDM_2C(ServerPlayer player, bool isForwardMove) {
+        private void FnPITDM_2C(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 7, "Your step is wisely selected.");
         }
 
-        private void FnPITEG_2D(ServerPlayer player, bool isForwardMove) {
+        private void FnPITEG_2D(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 5, 1, "You forge ahead.");
         }
 
-        private void FnPITEH_2E(ServerPlayer player, bool isForwardMove) {
+        private void FnPITEH_2E(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 5, 2, "You select your next move wisely.");
         }
 
-        private void FnPITEI_2F(ServerPlayer player, bool isForwardMove) {
+        private void FnPITEI_2F(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 5, 3, "Good sense guides your feet.");
         }
 
-        private void FnPITEJ_30(ServerPlayer player, bool isForwardMove) {
+        private void FnPITEJ_30(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 5, 4, "You walk ahead.");
         }
 
-        private void FnPITEK_31(ServerPlayer player, bool isForwardMove) {
+        private void FnPITEK_31(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 5, 5, "Your next step is assuredly taken.");
         }
 
-        private void FnPITFG_32(ServerPlayer player, bool isForwardMove) {
+        private void FnPITFG_32(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 1, "The next step is an intelligent one.");
         }
 
-        private void FnPITFH_33(ServerPlayer player, bool isForwardMove) {
+        private void FnPITFH_33(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 2, "You move safely ahead.");
         }
 
-        private void FnPITFI_34(ServerPlayer player, bool isForwardMove) {
+        private void FnPITFI_34(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 3, "Your move was correct.");
         }
 
-        private void FnPITFJ_35(ServerPlayer player, bool isForwardMove) {
+        private void FnPITFJ_35(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 4, "You move forward with confidence.");
         }
 
-        private void FnPITFK_36(ServerPlayer player, bool isForwardMove) {
+        private void FnPITFK_36(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 5, "You carefully selected your next step.");
         }
 
-        private void FnPITFL_37(ServerPlayer player, bool isForwardMove) {
+        private void FnPITFL_37(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 6, "You make a sage choice.");
         }
 
-        private void FnPITFM_38(ServerPlayer player, bool isForwardMove) {
+        private void FnPITFM_38(ServerPlayer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 7, "You have made a wise decision.");
         }
 
-        private void FnENCPITBJ_39(ServerPlayer player, bool isForwardMove) {
+        private void FnENCPITBJ_39(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x19);
@@ -434,7 +434,7 @@ namespace XPT.Legacy.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnENCPITDI_3A(ServerPlayer player, bool isForwardMove) {
+        private void FnENCPITDI_3A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1F);
@@ -444,7 +444,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnPITENCDK_3B(ServerPlayer player, bool isForwardMove) {
+        private void FnPITENCDK_3B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1B);
@@ -456,7 +456,7 @@ namespace XPT.Legacy.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnPITENCBL_3C(ServerPlayer player, bool isForwardMove) {
+        private void FnPITENCBL_3C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x24);
@@ -467,28 +467,28 @@ namespace XPT.Legacy.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnDOORARNK_3D(ServerPlayer player, bool isForwardMove) {
+        private void FnDOORARNK_3D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
             L0016: if (JumpEqual) goto L005B;
             L0018: SetWallPassable(player, GetCurrentTile(player), 0x03, 0x01);
             L0032: SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
-            L004C: ShowMessage(player, isForwardMove, String1147); // Andreas no longer defends this door.
+            L004C: ShowMessage(player, doMsgs, String1147); // Andreas no longer defends this door.
             L0059: goto L0068;
-            L005B: ShowMessage(player, isForwardMove, String116C); // The Earth Elemental holds power over this door.
+            L005B: ShowMessage(player, doMsgs, String116C); // The Earth Elemental holds power over this door.
             L0068: return; // RETURN;
         }
 
-        private void FnTELEARNK_3E(ServerPlayer player, bool isForwardMove) {
+        private void FnTELEARNK_3E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String119C); // A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
-            L0010: TeleportParty(player, 0x34, 0x02, 0x76, 0x03, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String119C); // A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
+            L0010: TeleportParty(player, 0x34, 0x02, 0x76, 0x03, type);
             L002B: return; // RETURN;
         }
 
-        private void FnSETEKILL_3F(ServerPlayer player, bool isForwardMove) {
+        private void FnSETEKILL_3F(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeMap, 0x01, 0x01);

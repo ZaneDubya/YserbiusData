@@ -187,95 +187,95 @@ namespace XPT.Legacy.Maps {
         private const string String0BDA = "This gate returns you to MAGE'S OVERLOOK.";
         
         // === Functions ================================================
-        private void FnATELEA_01(ServerPlayer player, bool isForwardMove) {
+        private void FnATELEA_01(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String03FC); // Runes on magic wall --
-            L0010: ShowRunes(player, String0413); // Alchemy
-            L001D: TeleportParty(player, 0x34, 0x02, 0x8A, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String03FC); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0413); // Alchemy
+            L001D: TeleportParty(player, 0x34, 0x02, 0x8A, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnRTELEB_02(ServerPlayer player, bool isForwardMove) {
+        private void FnRTELEB_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String041B); // Runes on magic wall --
-            L0010: ShowRunes(player, String0432); // Reverie
-            L001D: TeleportParty(player, 0x34, 0x02, 0x38, 0x03, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String041B); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0432); // Reverie
+            L001D: TeleportParty(player, 0x34, 0x02, 0x38, 0x03, type);
             L0038: return; // RETURN;
         }
 
-        private void FnNTELEC_03(ServerPlayer player, bool isForwardMove) {
+        private void FnNTELEC_03(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String043A); // Runes on magic wall --
-            L0010: ShowRunes(player, String0451); // Netherworld
+            L0003: ShowMessage(player, doMsgs, String043A); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0451); // Netherworld
             L001D: SetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress, 0x02);
-            L0032: TeleportParty(player, 0x34, 0x02, 0xE0, 0x02, isForwardMove);
+            L0032: TeleportParty(player, 0x34, 0x02, 0xE0, 0x02, type);
             L004D: return; // RETURN;
         }
 
-        private void FnATELED_04(ServerPlayer player, bool isForwardMove) {
+        private void FnATELED_04(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String045D); // Runes on magic wall --
-            L0010: ShowRunes(player, String0474); // Arcane
-            L001D: TeleportParty(player, 0x34, 0x02, 0xF2, 0x00, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String045D); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0474); // Arcane
+            L001D: TeleportParty(player, 0x34, 0x02, 0xF2, 0x00, type);
             L0037: return; // RETURN;
         }
 
-        private void FnKTELEE_05(ServerPlayer player, bool isForwardMove) {
+        private void FnKTELEE_05(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String047B); // Runes on magic wall --
-            L0010: ShowRunes(player, String0492); // Karma
-            L001D: TeleportParty(player, 0x34, 0x02, 0xF5, 0x03, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String047B); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0492); // Karma
+            L001D: TeleportParty(player, 0x34, 0x02, 0xF5, 0x03, type);
             L0038: return; // RETURN;
         }
 
-        private void FnKTELEF_06(ServerPlayer player, bool isForwardMove) {
+        private void FnKTELEF_06(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0498); // Runes on magic wall --
-            L0010: ShowRunes(player, String04AF); // Karma
-            L001D: TeleportParty(player, 0x34, 0x02, 0xE3, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0498); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String04AF); // Karma
+            L001D: TeleportParty(player, 0x34, 0x02, 0xE3, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnITELEG_07(ServerPlayer player, bool isForwardMove) {
+        private void FnITELEG_07(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String04B5); // Runes on magic wall --
-            L0010: ShowRunes(player, String04CC); // Incantation
-            L001D: TeleportParty(player, 0x34, 0x02, 0xCC, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String04B5); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String04CC); // Incantation
+            L001D: TeleportParty(player, 0x34, 0x02, 0xCC, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnATELEH_08(ServerPlayer player, bool isForwardMove) {
+        private void FnATELEH_08(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress), 0x0002);
             L0017: if (JumpNotEqual) goto L004E;
-            L0019: ShowMessage(player, isForwardMove, String04D8); // Runes on magic wall --
-            L0026: ShowRunes(player, String04EF); // Archaic
-            L0033: TeleportParty(player, 0x34, 0x02, 0xFA, 0x02, isForwardMove);
+            L0019: ShowMessage(player, doMsgs, String04D8); // Runes on magic wall --
+            L0026: ShowRunes(player, doMsgs, String04EF); // Archaic
+            L0033: TeleportParty(player, 0x34, 0x02, 0xFA, 0x02, type);
             L004E: return; // RETURN;
         }
 
-        private void FnNTELEI_09(ServerPlayer player, bool isForwardMove) {
+        private void FnNTELEI_09(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String04F7); // Runes on magic wall --
-            L0010: ShowRunes(player, String050E); // Netherworld
-            L001D: TeleportParty(player, 0x34, 0x02, 0x88, 0x00, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String04F7); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String050E); // Netherworld
+            L001D: TeleportParty(player, 0x34, 0x02, 0x88, 0x00, type);
             L0037: return; // RETURN;
         }
 
-        private void FnARNKENCA_0A(ServerPlayer player, bool isForwardMove) {
+        private void FnARNKENCA_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeDungeon, FlagWizardRoomArnakkian, 0x01);
-            L0018: ShowMessage(player, isForwardMove, String051A); // Secrets follow when you spell that which powers time.
+            L0018: ShowMessage(player, doMsgs, String051A); // Secrets follow when you spell that which powers time.
             L0025: AddEncounter(player, 0x01, 0x19);
             L0037: AddEncounter(player, 0x02, 0x19);
             L0049: AddEncounter(player, 0x03, 0x19);
@@ -285,83 +285,83 @@ namespace XPT.Legacy.Maps {
             L00A1: return; // RETURN;
         }
 
-        private void FnTOENTRY_0C(ServerPlayer player, bool isForwardMove) {
+        private void FnTOENTRY_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0550); // The gate takes you back to the Labyrinth.
-            L0010: TeleportParty(player, 0x34, 0x02, 0x30, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0550); // The gate takes you back to the Labyrinth.
+            L0010: TeleportParty(player, 0x34, 0x02, 0x30, 0x02, type);
             L002B: return; // RETURN;
         }
 
-        private void FnETELEJ_0D(ServerPlayer player, bool isForwardMove) {
+        private void FnETELEJ_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String057A); // Runes on magic wall --
-            L0010: ShowRunes(player, String0591); // Ethereal
-            L001D: TeleportParty(player, 0x34, 0x02, 0xBB, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String057A); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0591); // Ethereal
+            L001D: TeleportParty(player, 0x34, 0x02, 0xBB, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnNTELEK_0E(ServerPlayer player, bool isForwardMove) {
+        private void FnNTELEK_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String059A); // Runes on magic wall --
-            L0010: ShowRunes(player, String05B1); // Netherworld
-            L001D: TeleportParty(player, 0x34, 0x02, 0xDA, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String059A); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String05B1); // Netherworld
+            L001D: TeleportParty(player, 0x34, 0x02, 0xDA, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnLTELEL_0F(ServerPlayer player, bool isForwardMove) {
+        private void FnLTELEL_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress, 0x03);
-            L0018: ShowMessage(player, isForwardMove, String05BD); // Runes on magic wall --
-            L0025: ShowRunes(player, String05D4); // Luck
-            L0032: TeleportParty(player, 0x34, 0x02, 0xB9, 0x02, isForwardMove);
+            L0018: ShowMessage(player, doMsgs, String05BD); // Runes on magic wall --
+            L0025: ShowRunes(player, doMsgs, String05D4); // Luck
+            L0032: TeleportParty(player, 0x34, 0x02, 0xB9, 0x02, type);
             L004D: return; // RETURN;
         }
 
-        private void FnITELEG_10(ServerPlayer player, bool isForwardMove) {
+        private void FnITELEG_10(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress), 0x0003);
             L0017: if (JumpNotEqual) goto L0050;
-            L0019: ShowMessage(player, isForwardMove, String05D9); // Runes on magic wall --
-            L0026: ShowRunes(player, String05F0); // Illusion
-            L0033: TeleportParty(player, 0x34, 0x02, 0xCC, 0x02, isForwardMove);
+            L0019: ShowMessage(player, doMsgs, String05D9); // Runes on magic wall --
+            L0026: ShowRunes(player, doMsgs, String05F0); // Illusion
+            L0033: TeleportParty(player, 0x34, 0x02, 0xCC, 0x02, type);
             L004E: goto L009B;
             L0050: Compare(GetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress), 0x0004);
             L0064: if (JumpNotEqual) goto L009B;
-            L0066: ShowMessage(player, isForwardMove, String05F9); // Runes on magic wall --
-            L0073: ShowRunes(player, String0610); // Invulnerable
-            L0080: TeleportParty(player, 0x34, 0x02, 0xD8, 0x02, isForwardMove);
+            L0066: ShowMessage(player, doMsgs, String05F9); // Runes on magic wall --
+            L0073: ShowRunes(player, doMsgs, String0610); // Invulnerable
+            L0080: TeleportParty(player, 0x34, 0x02, 0xD8, 0x02, type);
             L009B: return; // RETURN;
         }
 
-        private void FnKTELEL_11(ServerPlayer player, bool isForwardMove) {
+        private void FnKTELEL_11(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress, 0x04);
-            L0018: ShowMessage(player, isForwardMove, String061D); // Runes on magic wall --
-            L0025: ShowRunes(player, String0634); // Karma
-            L0032: TeleportParty(player, 0x34, 0x02, 0xB9, 0x02, isForwardMove);
+            L0018: ShowMessage(player, doMsgs, String061D); // Runes on magic wall --
+            L0025: ShowRunes(player, doMsgs, String0634); // Karma
+            L0032: TeleportParty(player, 0x34, 0x02, 0xB9, 0x02, type);
             L004D: return; // RETURN;
         }
 
-        private void FnLTELEN_12(ServerPlayer player, bool isForwardMove) {
+        private void FnLTELEN_12(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String063A); // Runes on magic wall --
-            L0010: ShowRunes(player, String0651); // Luminous
-            L001D: TeleportParty(player, 0x34, 0x02, 0x6A, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String063A); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0651); // Luminous
+            L001D: TeleportParty(player, 0x34, 0x02, 0x6A, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnENLKENCA_13(ServerPlayer player, bool isForwardMove) {
+        private void FnENLKENCA_13(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeDungeon, FlagWizardRoomEnLiKil, 0x01);
-            L0018: ShowMessage(player, isForwardMove, String065A); // Those which haunt this castle must be spelled to find their master.
+            L0018: ShowMessage(player, doMsgs, String065A); // Those which haunt this castle must be spelled to find their master.
             L0025: AddEncounter(player, 0x01, 0x19);
             L0037: AddEncounter(player, 0x02, 0x19);
             L0049: AddEncounter(player, 0x03, 0x19);
@@ -371,149 +371,149 @@ namespace XPT.Legacy.Maps {
             L009F: return; // RETURN;
         }
 
-        private void FnDTELEO_15(ServerPlayer player, bool isForwardMove) {
+        private void FnDTELEO_15(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress, 0x05);
-            L0018: ShowMessage(player, isForwardMove, String069E); // Runes on magic wall --
-            L0025: ShowRunes(player, String06B5); // Dust
-            L0032: TeleportParty(player, 0x34, 0x02, 0xB7, 0x02, isForwardMove);
+            L0018: ShowMessage(player, doMsgs, String069E); // Runes on magic wall --
+            L0025: ShowRunes(player, doMsgs, String06B5); // Dust
+            L0032: TeleportParty(player, 0x34, 0x02, 0xB7, 0x02, type);
             L004D: return; // RETURN;
         }
 
-        private void FnETELEP_16(ServerPlayer player, bool isForwardMove) {
+        private void FnETELEP_16(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String06BA); // Runes on magic wall --
-            L0010: ShowRunes(player, String06D1); // Enchant
-            L001D: TeleportParty(player, 0x34, 0x02, 0xD6, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String06BA); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String06D1); // Enchant
+            L001D: TeleportParty(player, 0x34, 0x02, 0xD6, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnRTELEQ_17(ServerPlayer player, bool isForwardMove) {
+        private void FnRTELEQ_17(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String06D9); // Runes on magic wall --
-            L0010: ShowRunes(player, String06F0); // Magic
-            L001D: TeleportParty(player, 0x34, 0x02, 0xD0, 0x03, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String06D9); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String06F0); // Magic
+            L001D: TeleportParty(player, 0x34, 0x02, 0xD0, 0x03, type);
             L0038: return; // RETURN;
         }
 
-        private void FnGTELER_18(ServerPlayer player, bool isForwardMove) {
+        private void FnGTELER_18(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String06F6); // Runes on magic wall --
-            L0010: ShowRunes(player, String070D); // Ghouls
-            L001D: TeleportParty(player, 0x34, 0x02, 0x68, 0x00, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String06F6); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String070D); // Ghouls
+            L001D: TeleportParty(player, 0x34, 0x02, 0x68, 0x00, type);
             L0037: return; // RETURN;
         }
 
-        private void FnHTELES_19(ServerPlayer player, bool isForwardMove) {
+        private void FnHTELES_19(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0714); // Runes on magic wall --
-            L0010: ShowRunes(player, String072B); // Hex
-            L001D: TeleportParty(player, 0x34, 0x02, 0xAD, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0714); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String072B); // Hex
+            L001D: TeleportParty(player, 0x34, 0x02, 0xAD, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnOTELET_1A(ServerPlayer player, bool isForwardMove) {
+        private void FnOTELET_1A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String072F); // Runes on magic wall --
-            L0010: ShowRunes(player, String0746); // Obsession
-            L001D: TeleportParty(player, 0x34, 0x02, 0x7E, 0x00, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String072F); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0746); // Obsession
+            L001D: TeleportParty(player, 0x34, 0x02, 0x7E, 0x00, type);
             L0037: return; // RETURN;
         }
 
-        private void FnSTELEU_1B(ServerPlayer player, bool isForwardMove) {
+        private void FnSTELEU_1B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0750); // Runes on magic wall --
-            L0010: ShowRunes(player, String0767); // Sorcery
-            L001D: TeleportParty(player, 0x34, 0x02, 0x5E, 0x00, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0750); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0767); // Sorcery
+            L001D: TeleportParty(player, 0x34, 0x02, 0x5E, 0x00, type);
             L0037: return; // RETURN;
         }
 
-        private void FnTTELEV_1C(ServerPlayer player, bool isForwardMove) {
+        private void FnTTELEV_1C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String076F); // Runes on magic wall --
-            L0010: ShowRunes(player, String0786); // Talisman
-            L001D: TeleportParty(player, 0x34, 0x02, 0xC2, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String076F); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0786); // Talisman
+            L001D: TeleportParty(player, 0x34, 0x02, 0xC2, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnARNAKEND_1D(ServerPlayer player, bool isForwardMove) {
+        private void FnARNAKEND_1D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagWizardRoomArnakkian));
             L0016: if (JumpEqual) goto L0064;
             L0018: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagWizardRoomEnLiKil));
             L002B: if (JumpEqual) goto L0064;
-            L002D: ShowMessage(player, isForwardMove, String078F); // Both Arnakkian and Enlikil have been identified.
-            L003A: ShowMessage(player, isForwardMove, String07C0); // The Ghost takes you to the Guardians.
-            L0047: TeleportParty(player, 0x33, 0x02, 0x56, 0x02, isForwardMove);
+            L002D: ShowMessage(player, doMsgs, String078F); // Both Arnakkian and Enlikil have been identified.
+            L003A: ShowMessage(player, doMsgs, String07C0); // The Ghost takes you to the Guardians.
+            L0047: TeleportParty(player, 0x33, 0x02, 0x56, 0x02, type);
             L0062: goto L0071;
-            L0064: ShowMessage(player, isForwardMove, String07E6); // The master of this castle must be identified before the ghost may take you to him.
+            L0064: ShowMessage(player, doMsgs, String07E6); // The master of this castle must be identified before the ghost may take you to him.
             L0071: return; // RETURN;
         }
 
-        private void FnDTELEX_1E(ServerPlayer player, bool isForwardMove) {
+        private void FnDTELEX_1E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0839); // Runes on magic wall --
-            L0010: ShowRunes(player, String0850); // Druid
-            L001D: TeleportParty(player, 0x34, 0x02, 0x36, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0839); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0850); // Druid
+            L001D: TeleportParty(player, 0x34, 0x02, 0x36, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnRTELEY_1F(ServerPlayer player, bool isForwardMove) {
+        private void FnRTELEY_1F(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0856); // Runes on magic wall --
-            L0010: ShowRunes(player, String086D); // Runes
-            L001D: TeleportParty(player, 0x34, 0x02, 0x3B, 0x00, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0856); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String086D); // Runes
+            L001D: TeleportParty(player, 0x34, 0x02, 0x3B, 0x00, type);
             L0037: return; // RETURN;
         }
 
-        private void FnATELEZ_20(ServerPlayer player, bool isForwardMove) {
+        private void FnATELEZ_20(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0873); // Runes on magic wall --
-            L0010: ShowRunes(player, String088A); // Alchemist
-            L001D: TeleportParty(player, 0x34, 0x02, 0x2C, 0x00, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0873); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String088A); // Alchemist
+            L001D: TeleportParty(player, 0x34, 0x02, 0x2C, 0x00, type);
             L0037: return; // RETURN;
         }
 
-        private void FnGTELEAA_21(ServerPlayer player, bool isForwardMove) {
+        private void FnGTELEAA_21(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0894); // Runes on magic wall --
-            L0010: ShowRunes(player, String08AB); // Ghost
-            L001D: TeleportParty(player, 0x34, 0x02, 0x3E, 0x03, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0894); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String08AB); // Ghost
+            L001D: TeleportParty(player, 0x34, 0x02, 0x3E, 0x03, type);
             L0038: return; // RETURN;
         }
 
-        private void FnOTELEBB_22(ServerPlayer player, bool isForwardMove) {
+        private void FnOTELEBB_22(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String08B1); // Runes on magic wall --
-            L0010: ShowRunes(player, String08C8); // Orb
-            L001D: TeleportParty(player, 0x34, 0x02, 0x8E, 0x00, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String08B1); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String08C8); // Orb
+            L001D: TeleportParty(player, 0x34, 0x02, 0x8E, 0x00, type);
             L0037: return; // RETURN;
         }
 
-        private void FnNTELECC_23(ServerPlayer player, bool isForwardMove) {
+        private void FnNTELECC_23(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String08CC); // Runes on magic wall --
-            L0010: ShowRunes(player, String08E3); // Nexus
-            L001D: TeleportParty(player, 0x34, 0x02, 0xFD, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String08CC); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String08E3); // Nexus
+            L001D: TeleportParty(player, 0x34, 0x02, 0xFD, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnDRAGENCA_24(ServerPlayer player, bool isForwardMove) {
+        private void FnDRAGENCA_24(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1A);
@@ -525,7 +525,7 @@ namespace XPT.Legacy.Maps {
             L007E: return; // RETURN;
         }
 
-        private void FnDRAGENCB_25(ServerPlayer player, bool isForwardMove) {
+        private void FnDRAGENCB_25(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1C);
@@ -537,118 +537,118 @@ namespace XPT.Legacy.Maps {
             L007F: return; // RETURN;
         }
 
-        private void FnZTELEDD_26(ServerPlayer player, bool isForwardMove) {
+        private void FnZTELEDD_26(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String08E9); // Runes on magic wall --
-            L0010: ShowRunes(player, String0900); // Zzyzx
+            L0003: ShowMessage(player, doMsgs, String08E9); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0900); // Zzyzx
             L001D: SetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress, 0x01);
-            L0032: TeleportParty(player, 0x34, 0x02, 0x27, 0x02, isForwardMove);
+            L0032: TeleportParty(player, 0x34, 0x02, 0x27, 0x02, type);
             L004D: return; // RETURN;
         }
 
-        private void FnITELEG_27(ServerPlayer player, bool isForwardMove) {
+        private void FnITELEG_27(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0906); // Runes on magic wall --
-            L0010: ShowRunes(player, String091D); // Illusive
-            L001D: TeleportParty(player, 0x34, 0x02, 0xCC, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0906); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String091D); // Illusive
+            L001D: TeleportParty(player, 0x34, 0x02, 0xCC, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnWTELEEE_28(ServerPlayer player, bool isForwardMove) {
+        private void FnWTELEEE_28(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSpellingChallengeProgress), 0x0001);
             L0017: if (JumpNotEqual) goto L004E;
-            L0019: ShowMessage(player, isForwardMove, String0926); // Runes on magic wall --
-            L0026: ShowRunes(player, String093D); // Wizard
-            L0033: TeleportParty(player, 0x34, 0x02, 0xE6, 0x02, isForwardMove);
+            L0019: ShowMessage(player, doMsgs, String0926); // Runes on magic wall --
+            L0026: ShowRunes(player, doMsgs, String093D); // Wizard
+            L0033: TeleportParty(player, 0x34, 0x02, 0xE6, 0x02, type);
             L004E: return; // RETURN;
         }
 
-        private void FnVTELEWW_29(ServerPlayer player, bool isForwardMove) {
+        private void FnVTELEWW_29(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0944); // Runes on magic wall --
-            L0010: ShowRunes(player, String095B); // Vision
-            L001D: TeleportParty(player, 0x34, 0x02, 0x07, 0x01, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0944); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String095B); // Vision
+            L001D: TeleportParty(player, 0x34, 0x02, 0x07, 0x01, type);
             L0038: return; // RETURN;
         }
 
-        private void FnBTELEXX_2A(ServerPlayer player, bool isForwardMove) {
+        private void FnBTELEXX_2A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0962); // Runes on magic wall --
-            L0010: ShowRunes(player, String0979); // Bewitch
-            L001D: TeleportParty(player, 0x34, 0x02, 0x1D, 0x00, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0962); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0979); // Bewitch
+            L001D: TeleportParty(player, 0x34, 0x02, 0x1D, 0x00, type);
             L0037: return; // RETURN;
         }
 
-        private void FnCTELEYY_2B(ServerPlayer player, bool isForwardMove) {
+        private void FnCTELEYY_2B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0981); // Runes on magic wall --
-            L0010: ShowRunes(player, String0998); // Conjure
-            L001D: TeleportParty(player, 0x34, 0x02, 0xBD, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0981); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0998); // Conjure
+            L001D: TeleportParty(player, 0x34, 0x02, 0xBD, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnPTELEZZ_2C(ServerPlayer player, bool isForwardMove) {
+        private void FnPTELEZZ_2C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String09A0); // Runes on magic wall --
-            L0010: ShowRunes(player, String09B7); // Powerful
-            L001D: TeleportParty(player, 0x34, 0x02, 0x00, 0x33, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String09A0); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String09B7); // Powerful
+            L001D: TeleportParty(player, 0x34, 0x02, 0x00, 0x33, type);
             L0037: return; // RETURN;
         }
 
-        private void FnMTELEXX_2D(ServerPlayer player, bool isForwardMove) {
+        private void FnMTELEXX_2D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String09C0); // Runes on magic wall --
-            L0010: ShowRunes(player, String09D7); // Magus
-            L001D: TeleportParty(player, 0x34, 0x02, 0x1D, 0x00, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String09C0); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String09D7); // Magus
+            L001D: TeleportParty(player, 0x34, 0x02, 0x1D, 0x00, type);
             L0037: return; // RETURN;
         }
 
-        private void FnJTELEYY_2E(ServerPlayer player, bool isForwardMove) {
+        private void FnJTELEYY_2E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String09DD); // Runes on magic wall --
-            L0010: ShowRunes(player, String09F4); // Jinx
-            L001D: TeleportParty(player, 0x34, 0x02, 0xBD, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String09DD); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String09F4); // Jinx
+            L001D: TeleportParty(player, 0x34, 0x02, 0xBD, 0x02, type);
             L0038: return; // RETURN;
         }
 
-        private void FnUTELEWW_2F(ServerPlayer player, bool isForwardMove) {
+        private void FnUTELEWW_2F(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String09F9); // Runes on magic wall --
-            L0010: ShowRunes(player, String0A10); // Unspeller
-            L001D: TeleportParty(player, 0x34, 0x02, 0x07, 0x01, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String09F9); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0A10); // Unspeller
+            L001D: TeleportParty(player, 0x34, 0x02, 0x07, 0x01, type);
             L0038: return; // RETURN;
         }
 
-        private void FnXTELEWW_30(ServerPlayer player, bool isForwardMove) {
+        private void FnXTELEWW_30(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0A1A); // Runes on magic wall --
-            L0010: ShowRunes(player, String0A31); // XxxX
-            L001D: TeleportParty(player, 0x34, 0x02, 0x07, 0x01, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0A1A); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0A31); // XxxX
+            L001D: TeleportParty(player, 0x34, 0x02, 0x07, 0x01, type);
             L0038: return; // RETURN;
         }
 
-        private void FnYTELEZZ_31(ServerPlayer player, bool isForwardMove) {
+        private void FnYTELEZZ_31(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0A36); // Runes on magic wall --
-            L0010: ShowRunes(player, String0A4D); // Youth
-            L001D: TeleportParty(player, 0x34, 0x02, 0x00, 0x33, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0A36); // Runes on magic wall --
+            L0010: ShowRunes(player, doMsgs, String0A4D); // Youth
+            L001D: TeleportParty(player, 0x34, 0x02, 0x00, 0x33, type);
             L0037: return; // RETURN;
         }
 
-        private void FnIENCA_32(ServerPlayer player, bool isForwardMove) {
+        private void FnIENCA_32(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x18);
@@ -658,7 +658,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnWIZENCA_34(ServerPlayer player, bool isForwardMove) {
+        private void FnWIZENCA_34(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1E);
@@ -671,7 +671,7 @@ namespace XPT.Legacy.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnWIZENCB_35(ServerPlayer player, bool isForwardMove) {
+        private void FnWIZENCB_35(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1D);
@@ -684,7 +684,7 @@ namespace XPT.Legacy.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnWIZENCC_36(ServerPlayer player, bool isForwardMove) {
+        private void FnWIZENCC_36(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1E);
@@ -694,15 +694,15 @@ namespace XPT.Legacy.Maps {
             L0059: return; // RETURN;
         }
 
-        private void FnPIT_37(ServerPlayer player, bool isForwardMove) {
+        private void FnPIT_37(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0A53); // You fall into the pit and die.
+            L0003: ShowMessage(player, doMsgs, String0A53); // You fall into the pit and die.
             L0010: DamagePlayer(player, GetMaxHits(player));
             L0021: return; // RETURN;
         }
 
-        private void FnGHOSENCA_38(ServerPlayer player, bool isForwardMove) {
+        private void FnGHOSENCA_38(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x20);
@@ -714,24 +714,24 @@ namespace XPT.Legacy.Maps {
             L007D: return; // RETURN;
         }
 
-        private void FnTXTGHOSB_3B(ServerPlayer player, bool isForwardMove) {
+        private void FnTXTGHOSB_3B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0A72); // A message is written on a scroll.
-            L0010: ShowMessage(player, isForwardMove, String0A94); // 'To gain access to Arnakkian's Chamber, you must defeat his lich apprentices.'
+            L0003: ShowMessage(player, doMsgs, String0A72); // A message is written on a scroll.
+            L0010: ShowMessage(player, doMsgs, String0A94); // 'To gain access to Arnakkian's Chamber, you must defeat his lich apprentices.'
             L001D: return; // RETURN;
         }
 
-        private void FnTXTGHOST_3D(ServerPlayer player, bool isForwardMove) {
+        private void FnTXTGHOST_3D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(player, 0x0029);
-            L0010: ShowMessage(player, isForwardMove, String0AE3); // A Cleric appears..
-            L001D: ShowMessage(player, isForwardMove, String0AF6); // 'Beyond the words lies the power of the earth.'
+            L0010: ShowMessage(player, doMsgs, String0AE3); // A Cleric appears..
+            L001D: ShowMessage(player, doMsgs, String0AF6); // 'Beyond the words lies the power of the earth.'
             L002A: return; // RETURN;
         }
 
-        private void FnENDRENCA_3E(ServerPlayer player, bool isForwardMove) {
+        private void FnENDRENCA_3E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1F);
@@ -743,7 +743,7 @@ namespace XPT.Legacy.Maps {
             L007F: return; // RETURN;
         }
 
-        private void FnBADEXIT_41(ServerPlayer player, bool isForwardMove) {
+        private void FnBADEXIT_41(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1E);
@@ -755,7 +755,7 @@ namespace XPT.Legacy.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENTRENCA_45(ServerPlayer player, bool isForwardMove) {
+        private void FnENTRENCA_45(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x24);
@@ -765,7 +765,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnLICHDOOR_47(ServerPlayer player, bool isForwardMove) {
+        private void FnLICHDOOR_47(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
@@ -779,13 +779,13 @@ namespace XPT.Legacy.Maps {
             L0058: if (JumpEqual) goto L00A5;
             L005A: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0078: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L0096: ShowMessage(player, isForwardMove, String0B26); // The Wizard Door opens.
+            L0096: ShowMessage(player, doMsgs, String0B26); // The Wizard Door opens.
             L00A3: goto L00B2;
-            L00A5: ShowMessage(player, isForwardMove, String0B3D); // The symbol of the Four Corners magically radiates from this door.
+            L00A5: ShowMessage(player, doMsgs, String0B3D); // The symbol of the Four Corners magically radiates from this door.
             L00B2: return; // RETURN;
         }
 
-        private void FnENTRENCD_48(ServerPlayer player, bool isForwardMove) {
+        private void FnENTRENCD_48(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x19);
@@ -797,7 +797,7 @@ namespace XPT.Legacy.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnLICHA_49(ServerPlayer player, bool isForwardMove) {
+        private void FnLICHA_49(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x19);
@@ -813,7 +813,7 @@ namespace XPT.Legacy.Maps {
             L00B3: return; // RETURN;
         }
 
-        private void FnLICHB_4A(ServerPlayer player, bool isForwardMove) {
+        private void FnLICHB_4A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x19);
@@ -829,7 +829,7 @@ namespace XPT.Legacy.Maps {
             L00B3: return; // RETURN;
         }
 
-        private void FnLICHC_4B(ServerPlayer player, bool isForwardMove) {
+        private void FnLICHC_4B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x19);
@@ -845,7 +845,7 @@ namespace XPT.Legacy.Maps {
             L00B3: return; // RETURN;
         }
 
-        private void FnLICHD_4C(ServerPlayer player, bool isForwardMove) {
+        private void FnLICHD_4C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x19);
@@ -861,8 +861,8 @@ namespace XPT.Legacy.Maps {
             L00B3: return; // RETURN;
         }
 
-        private void FnLICHMAIN_4D(ServerPlayer player, bool isForwardMove) {
-            ShowMessage(player, isForwardMove, String0B7F); // The spirit of Arnakkian Slowfoot appears.
+        private void FnLICHMAIN_4D(ServerPlayer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0B7F); // The spirit of Arnakkian Slowfoot appears.
             AddEncounter(player, 0x01, 0x27);
             AddEncounter(player, 0x02, 0x27);
             AddEncounter(player, 0x03, 0x27);
@@ -880,28 +880,28 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnTXTLICH_4E(ServerPlayer player, bool isForwardMove) {
+        private void FnTXTLICH_4E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0BA9); // Apprentices of Arnakkian roam these passageways.
+            L0003: ShowMessage(player, doMsgs, String0BA9); // Apprentices of Arnakkian roam these passageways.
             L0010: return; // RETURN;
         }
 
-        private void FnLABY_4F(ServerPlayer player, bool isForwardMove) {
+        private void FnLABY_4F(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x34, 0x01, 0x3F, 0x00, isForwardMove);
+            L0003: TeleportParty(player, 0x34, 0x01, 0x3F, 0x00, type);
             L001D: return; // RETURN;
         }
 
-        private void FnTXTLABY_50(ServerPlayer player, bool isForwardMove) {
+        private void FnTXTLABY_50(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0BDA); // This gate returns you to MAGE'S OVERLOOK.
+            L0003: ShowMessage(player, doMsgs, String0BDA); // This gate returns you to MAGE'S OVERLOOK.
             L0010: return; // RETURN;
         }
 
-        private void FnSETLICHA_51(ServerPlayer player, bool isForwardMove) {
+        private void FnSETLICHA_51(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
@@ -910,7 +910,7 @@ namespace XPT.Legacy.Maps {
             L002D: return; // RETURN;
         }
 
-        private void FnSETLICHB_52(ServerPlayer player, bool isForwardMove) {
+        private void FnSETLICHB_52(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x02));
@@ -919,7 +919,7 @@ namespace XPT.Legacy.Maps {
             L002D: return; // RETURN;
         }
 
-        private void FnSETLICHC_53(ServerPlayer player, bool isForwardMove) {
+        private void FnSETLICHC_53(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x03));
@@ -928,7 +928,7 @@ namespace XPT.Legacy.Maps {
             L002D: return; // RETURN;
         }
 
-        private void FnSETLICHD_54(ServerPlayer player, bool isForwardMove) {
+        private void FnSETLICHD_54(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x04));

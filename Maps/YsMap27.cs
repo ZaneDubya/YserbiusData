@@ -33,73 +33,73 @@ namespace XPT.Legacy.Maps {
         private const string String05DC = "Carved on a recessed stone, you find a roster from a Arnakkian-era private guild.  None of the names are recognizable. ";
         
         // === Functions ================================================
-        private void FnGATEWAYA_01(ServerPlayer player, bool isForwardMove) {
+        private void FnGATEWAYA_01(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String03FC); // A Gateway back to the Labyrinth.
-            L0010: TeleportParty(player, 0x36, 0x01, 0x3F, 0x00, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String03FC); // A Gateway back to the Labyrinth.
+            L0010: TeleportParty(player, 0x36, 0x01, 0x3F, 0x00, type);
             L002A: return; // RETURN;
         }
 
-        private void FnXOVERA_02(ServerPlayer player, bool isForwardMove) {
+        private void FnXOVERA_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x36, 0x02, 0x57, 0x02, isForwardMove);
+            L0003: TeleportParty(player, 0x36, 0x02, 0x57, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnXOVERB_03(ServerPlayer player, bool isForwardMove) {
+        private void FnXOVERB_03(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String041D); // Gate to the entrance of Arnakkian's Arena.
-            L0010: TeleportParty(player, 0x36, 0x02, 0x51, 0x00, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String041D); // Gate to the entrance of Arnakkian's Arena.
+            L0010: TeleportParty(player, 0x36, 0x02, 0x51, 0x00, type);
             L002A: return; // RETURN;
         }
 
-        private void FnAREAA_04(ServerPlayer player, bool isForwardMove) {
+        private void FnAREAA_04(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0448); // Gate to the Red Arena Staging Area.
-            L0010: TeleportParty(player, 0x36, 0x02, 0x33, 0x03, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0448); // Gate to the Red Arena Staging Area.
+            L0010: TeleportParty(player, 0x36, 0x02, 0x33, 0x03, type);
             L002B: return; // RETURN;
         }
 
-        private void FnAREAB_05(ServerPlayer player, bool isForwardMove) {
+        private void FnAREAB_05(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String046C); // Gate to the Blue Arena Staging Area.
-            L0010: TeleportParty(player, 0x36, 0x02, 0xC3, 0x03, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String046C); // Gate to the Blue Arena Staging Area.
+            L0010: TeleportParty(player, 0x36, 0x02, 0xC3, 0x03, type);
             L002B: return; // RETURN;
         }
 
-        private void FnAREAC_06(ServerPlayer player, bool isForwardMove) {
+        private void FnAREAC_06(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0491); // Gate to the Green Arena Staging Area.
-            L0010: TeleportParty(player, 0x36, 0x02, 0xCC, 0x03, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0491); // Gate to the Green Arena Staging Area.
+            L0010: TeleportParty(player, 0x36, 0x02, 0xCC, 0x03, type);
             L002B: return; // RETURN;
         }
 
-        private void FnAREAD_07(ServerPlayer player, bool isForwardMove) {
+        private void FnAREAD_07(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String04B7); // Gate to the Yellow Arena Staging Area.
-            L0010: TeleportParty(player, 0x36, 0x02, 0x3C, 0x03, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String04B7); // Gate to the Yellow Arena Staging Area.
+            L0010: TeleportParty(player, 0x36, 0x02, 0x3C, 0x03, type);
             L002B: return; // RETURN;
         }
 
-        private void FnARENTEXT_09(ServerPlayer player, bool isForwardMove) {
+        private void FnARENTEXT_09(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String04DE); // In the time when Arnakkian bestrode the land of Twinion, a Great Arena was built where the bravest warriors and wisest mages could challenge each other in deadly battle.
-            L0010: ShowMessage(player, isForwardMove, String0588); // You stand in the nexus of the Arena.  Doorways lead to the four team staging areas.
+            L0003: ShowMessage(player, doMsgs, String04DE); // In the time when Arnakkian bestrode the land of Twinion, a Great Arena was built where the bravest warriors and wisest mages could challenge each other in deadly battle.
+            L0010: ShowMessage(player, doMsgs, String0588); // You stand in the nexus of the Arena.  Doorways lead to the four team staging areas.
             L001D: return; // RETURN;
         }
 
-        private void FnWAITTEXT_0A(ServerPlayer player, bool isForwardMove) {
+        private void FnWAITTEXT_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String05DC); // Carved on a recessed stone, you find a roster from a Arnakkian-era private guild.  None of the names are recognizable. 
+            L0003: ShowMessage(player, doMsgs, String05DC); // Carved on a recessed stone, you find a roster from a Arnakkian-era private guild.  None of the names are recognizable. 
             L0010: return; // RETURN;
         }
 

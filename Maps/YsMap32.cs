@@ -53,24 +53,24 @@ namespace XPT.Legacy.Maps {
         private const string String0A2B = "You enter another dimension.";
         
         // === Functions ================================================
-        private void FnVOID_01(ServerPlayer player, bool isForwardMove) {
+        private void FnVOID_01(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String03FC); // The Ageless Void swallows you whole.
-            L0010: ShowMessage(player, isForwardMove, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
+            L0003: ShowMessage(player, doMsgs, String03FC); // The Ageless Void swallows you whole.
+            L0010: ShowMessage(player, doMsgs, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
             L001D: DamagePlayer(player, GetMaxHits(player));
             L002E: return; // RETURN;
         }
 
-        private void FnISLEETRN_02(ServerPlayer player, bool isForwardMove) {
+        private void FnISLEETRN_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String046D); // The Island of Eternity sits at the edge of time.
-            L0010: ShowMessage(player, isForwardMove, String049E); // Along its edge is the Ageless Void, a vastness where time does not exist.
+            L0003: ShowMessage(player, doMsgs, String046D); // The Island of Eternity sits at the edge of time.
+            L0010: ShowMessage(player, doMsgs, String049E); // Along its edge is the Ageless Void, a vastness where time does not exist.
             L001D: return; // RETURN;
         }
 
-        private void FnENCSELF_03(ServerPlayer player, bool isForwardMove) {
+        private void FnENCSELF_03(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x19);
@@ -82,20 +82,20 @@ namespace XPT.Legacy.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCWINTR_04(ServerPlayer player, bool isForwardMove) {
+        private void FnENCWINTR_04(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String04E8); // A titanic Elemental appears!
-            L0010: ShowMessage(player, isForwardMove, String0505); // 'You have gotten past Zephyr, Tempest, ZZyzx, Heaven's Fury, and all other winds.  But now you face your greatest challenge!'
-            L001D: ShowMessage(player, isForwardMove, String0583); // The sky above you darkens and dark clouds mass together. Tornadoes swirl around you.  Hurricane winds beat against you.  The clouds shine with the endless flash of lightning.
-            L002A: ShowMessage(player, isForwardMove, String0632); // The winds rip at your weapons.
+            L0003: ShowMessage(player, doMsgs, String04E8); // A titanic Elemental appears!
+            L0010: ShowMessage(player, doMsgs, String0505); // 'You have gotten past Zephyr, Tempest, ZZyzx, Heaven's Fury, and all other winds.  But now you face your greatest challenge!'
+            L001D: ShowMessage(player, doMsgs, String0583); // The sky above you darkens and dark clouds mass together. Tornadoes swirl around you.  Hurricane winds beat against you.  The clouds shine with the endless flash of lightning.
+            L002A: ShowMessage(player, doMsgs, String0632); // The winds rip at your weapons.
             L0037: Compare(GetEquippedWeapon(player), 0x0009);
             L0042: if (JumpEqual) goto L0064;
-            L0044: ShowMessage(player, isForwardMove, String0651); // Your weapon snaps in the wind!  It is gone.
-            L0051: RemoveItem(player, GetEquippedWeapon(player));
+            L0044: ShowMessage(player, doMsgs, String0651); // Your weapon snaps in the wind!  It is gone.
+            L0051: RemoveItem(player, GetEquippedWeapon(player), true);
             L0062: goto L0071;
-            L0064: ShowMessage(player, isForwardMove, String067D); // The Wind Sword resists the winds!  It will indeed be a good fight!
-            L0071: ShowMessage(player, isForwardMove, String06C0); // You notice En-Li-Kil, the Time Elemental, vanish.
+            L0064: ShowMessage(player, doMsgs, String067D); // The Wind Sword resists the winds!  It will indeed be a good fight!
+            L0071: ShowMessage(player, doMsgs, String06C0); // You notice En-Li-Kil, the Time Elemental, vanish.
             L007E: AddEncounter(player, 0x01, 0x19);
             L0090: AddEncounter(player, 0x02, 0x19);
             L00A2: AddEncounter(player, 0x03, 0x19);
@@ -104,79 +104,79 @@ namespace XPT.Legacy.Maps {
             L00D8: return; // RETURN;
         }
 
-        private void FnRAINRED_05(ServerPlayer player, bool isForwardMove) {
+        private void FnRAINRED_05(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String06F2); // A streak of Red crosses the Ageless Void.
-            L0010: TeleportParty(player, 0x38, 0x03, 0x97, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String06F2); // A streak of Red crosses the Ageless Void.
+            L0010: TeleportParty(player, 0x38, 0x03, 0x97, 0x02, type);
             L002B: return; // RETURN;
         }
 
-        private void FnRAINYEL_06(ServerPlayer player, bool isForwardMove) {
+        private void FnRAINYEL_06(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String071C); // A streak of Yellow crosses the Ageless Void.
-            L0010: TeleportParty(player, 0x38, 0x03, 0x87, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String071C); // A streak of Yellow crosses the Ageless Void.
+            L0010: TeleportParty(player, 0x38, 0x03, 0x87, 0x02, type);
             L002B: return; // RETURN;
         }
 
-        private void FnRAINGRN_07(ServerPlayer player, bool isForwardMove) {
+        private void FnRAINGRN_07(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0749); // A streak of Green crosses the Ageless Void.
-            L0010: TeleportParty(player, 0x38, 0x03, 0x77, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0749); // A streak of Green crosses the Ageless Void.
+            L0010: TeleportParty(player, 0x38, 0x03, 0x77, 0x02, type);
             L002B: return; // RETURN;
         }
 
-        private void FnRAINBLU_08(ServerPlayer player, bool isForwardMove) {
+        private void FnRAINBLU_08(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0775); // A streak of Blue crosses the Ageless Void.
-            L0010: TeleportParty(player, 0x38, 0x03, 0x67, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0775); // A streak of Blue crosses the Ageless Void.
+            L0010: TeleportParty(player, 0x38, 0x03, 0x67, 0x02, type);
             L002B: return; // RETURN;
         }
 
-        private void FnENCTIME_09(ServerPlayer player, bool isForwardMove) {
+        private void FnENCTIME_09(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String07A0); // Threads of blinding light appear from all directions, bending and weaving into a tight spiral before you.
-            L0010: ShowMessage(player, isForwardMove, String080A); // From within the luminary vortex, an ageless elemental appears.
-            L001D: ShowMessage(player, isForwardMove, String0849); // 'I am Time, I am En-Li-Kil.  I have seen the birth of the universe and I will mark its death.'
-            L002A: ShowMessage(player, isForwardMove, String08A8); // His face turns with age, then glows bright red.
-            L0037: ShowMessage(player, isForwardMove, String08D8); // 'Arnakkian summoned me to this realm -- to watch over his soul -- to make him immortal.  He lost his body and his castle for his lust.
-            L0044: ShowMessage(player, isForwardMove, String095F); // Mortal!  You have no business in the affairs of Time. I waste myself no more, my Wind Elemental will deal with you.'
+            L0003: ShowMessage(player, doMsgs, String07A0); // Threads of blinding light appear from all directions, bending and weaving into a tight spiral before you.
+            L0010: ShowMessage(player, doMsgs, String080A); // From within the luminary vortex, an ageless elemental appears.
+            L001D: ShowMessage(player, doMsgs, String0849); // 'I am Time, I am En-Li-Kil.  I have seen the birth of the universe and I will mark its death.'
+            L002A: ShowMessage(player, doMsgs, String08A8); // His face turns with age, then glows bright red.
+            L0037: ShowMessage(player, doMsgs, String08D8); // 'Arnakkian summoned me to this realm -- to watch over his soul -- to make him immortal.  He lost his body and his castle for his lust.
+            L0044: ShowMessage(player, doMsgs, String095F); // Mortal!  You have no business in the affairs of Time. I waste myself no more, my Wind Elemental will deal with you.'
             L0051: return; // RETURN;
         }
 
-        private void FnTELENW_0A(ServerPlayer player, bool isForwardMove) {
+        private void FnTELENW_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String09D4); // You enter another dimension.
-            L0010: TeleportParty(player, 0x39, 0x01, 0x54, 0x01, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String09D4); // You enter another dimension.
+            L0010: TeleportParty(player, 0x39, 0x01, 0x54, 0x01, type);
             L002B: return; // RETURN;
         }
 
-        private void FnTELENE_0B(ServerPlayer player, bool isForwardMove) {
+        private void FnTELENE_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String09F1); // You enter another dimension.
-            L0010: TeleportParty(player, 0x39, 0x01, 0x4A, 0x00, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String09F1); // You enter another dimension.
+            L0010: TeleportParty(player, 0x39, 0x01, 0x4A, 0x00, type);
             L002A: return; // RETURN;
         }
 
-        private void FnTELESE_0C(ServerPlayer player, bool isForwardMove) {
+        private void FnTELESE_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0A0E); // You enter another dimension.
-            L0010: TeleportParty(player, 0x39, 0x01, 0xAB, 0x03, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0A0E); // You enter another dimension.
+            L0010: TeleportParty(player, 0x39, 0x01, 0xAB, 0x03, type);
             L002B: return; // RETURN;
         }
 
-        private void FnTELESW_0D(ServerPlayer player, bool isForwardMove) {
+        private void FnTELESW_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ShowMessage(player, isForwardMove, String0A2B); // You enter another dimension.
-            L0010: TeleportParty(player, 0x39, 0x01, 0xB5, 0x02, isForwardMove);
+            L0003: ShowMessage(player, doMsgs, String0A2B); // You enter another dimension.
+            L0010: TeleportParty(player, 0x39, 0x01, 0xB5, 0x02, type);
             L002B: return; // RETURN;
         }
 
