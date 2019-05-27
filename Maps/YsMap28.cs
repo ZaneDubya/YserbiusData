@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using XPT.Legacy;
 using XPT.Legacy.Entities;
 
 namespace XPT.Legacy.Maps {

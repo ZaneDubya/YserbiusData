@@ -557,12 +557,10 @@ namespace XPT.Legacy.Maps {
             L000E: Compare(GetRace(player), 0x0006);
             L0018: if (JumpNotEqual) goto L0072;
             L001A: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagModAttr_Map24Ini));
-            L002D: if (JumpNotEqual) goto L0065;
+            L002D: if (JumpNotEqual) goto L0072;
             L002F: SetFlag(player, FlagTypeDungeon, FlagModAttr_Map24Ini, 0x01);
             L0044: ShowMessage(player, doMsgs, String0D33); // Your initiative in combat improves.
             L0051: ModifyAttribute(player, 0x03, 0x0003);
-            L0063: goto L0072;
-            L0065: ShowMessage(player, doMsgs, String0D57); // Nothing happens.
             L0072: return; // RETURN;
         }
 
@@ -572,15 +570,13 @@ namespace XPT.Legacy.Maps {
             L0003: Compare(GetRace(player), 0x0002);
             L000D: if (JumpEqual) goto L001B;
             L000F: Compare(GetRace(player), 0x0005);
-            L0019: if (JumpNotEqual) goto L0073;
+            L0019: if (JumpNotEqual) goto L0066;
             L001B: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagModAttr_Map24Agi));
             L002E: if (JumpNotEqual) goto L0066;
             L0030: SetFlag(player, FlagTypeDungeon, FlagModAttr_Map24Agi, 0x01);
             L0045: ShowMessage(player, doMsgs, String0D68); // Your agility improves.
             L0052: ModifyAttribute(player, 0x02, 0x0003);
-            L0064: goto L0073;
-            L0066: ShowMessage(player, doMsgs, String0D7F); // Nothing happens.
-            L0073: return; // RETURN;
+            L0066: return; // RETURN;
         }
 
         private void FnWINDENCC_2C(ServerPlayer player, MapEventType type, bool doMsgs) {
@@ -591,12 +587,10 @@ namespace XPT.Legacy.Maps {
             L000F: Compare(GetRace(player), 0x0003);
             L0019: if (JumpNotEqual) goto L0072;
             L001B: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagModAttr_Map24Str));
-            L002E: if (JumpNotEqual) goto L0065;
+            L002E: if (JumpNotEqual) goto L0072;
             L0030: SetFlag(player, FlagTypeDungeon, FlagModAttr_Map24Str, 0x01);
             L0045: ShowMessage(player, doMsgs, String0D90); // You feel much stronger.
             L0052: ModifyAttribute(player, 0x00, 0x0003);
-            L0063: goto L0072;
-            L0065: ShowMessage(player, doMsgs, String0DA8); // Nothing happens.
             L0072: return; // RETURN;
         }
 
@@ -608,12 +602,10 @@ namespace XPT.Legacy.Maps {
             L000F: Compare(GetRace(player), 0x0004);
             L0019: if (JumpNotEqual) goto L0073;
             L001B: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagModAttr_Map24Def));
-            L002E: if (JumpNotEqual) goto L0066;
+            L002E: if (JumpNotEqual) goto L0073;
             L0030: SetFlag(player, FlagTypeDungeon, FlagModAttr_Map24Def, 0x01);
             L0045: ShowMessage(player, doMsgs, String0DB9); // Your ability to defend yourself in combat improves.
             L0052: ModifyAttribute(player, 0x01, 0x0003);
-            L0064: goto L0073;
-            L0066: ShowMessage(player, doMsgs, String0DED); // Nothing happens.
             L0073: return; // RETURN;
         }
 
