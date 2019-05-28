@@ -1,0 +1,245 @@
+#TWGENN.EXE, 244 strings
+Test
+Borland C++ - Copyright 1991 Borland Intl.
+Heap has been corrupted!
+resource.039
+Heap has been corrupted!
+TWINA
+DEFAULT
+twinchar.dat
+twinchar.dat
+twinchar.dat
+twinchar.dat
+Barbarian
+Knight
+Ranger
+Thief
+Cleric
+Wizard
+Male
+Female
+Human
+Troll
+Dwarf
+Gnome
+Halfling
+Gremlin
+Harmony
+Chaos
+Backfire
+Blast
+Control
+Curse
+Death Darts
+Dissipate
+Fireball
+Hail
+Lightning
+Petrify
+Poison Cloud
+Storm Wind
+Aura
+Light Shroud
+Energy Field
+Shield
+Refresh
+Teleport
+Bless
+Cure
+Heal
+Resist
+Resuscitate
+True Seeing
+Athletics
+Clubs/Axes
+Berserker
+Pursuit
+Leadership
+Fencing
+Binding
+Intimidate
+Archery
+Stamina
+Furtiveness
+Read Tracks
+Bard
+Detect
+Lockpick
+Pickpocket
+Martial Arts
+Deflect Magic
+Medic
+Reverie
+Rune Reading
+Staff
+Channel
+Deep Trance
+DONE
+GETTING STARTED
+GETTING STARTED
+ Do you really want to 
+replace this character?
+Do you really want to 
+delete this character?
+Do you really
+want to quit?
+resource.039
+resource.039
+ATTRIBUTES
+STRENGTH
+DEFENSE
+AGILITY
+INITIATIVE
+DEXTERITY
+HEALTH
+MANA
+POINTS
+REMAINING
+ NEXT
+PREVIOUS
+CANCEL
+DONE
+ SPELLS
+POINTS
+REMAINING
+ SKILLS
+POINTS
+REMAINING
+IDENTITY
+NAME
+EPITHET
+RACE
+GUILD
+ALIGNMENT
+Unnamed
+Unnamed
+ APPEARANCE
+FACE
+HEAD COVER
+COSTUME
+NOSE
+EYE COLOR
+FACIAL HAIR
+FACIAL VEIL
+ resource.040
+Unnamed
+automaps.dat
+ This is the Twinion Gallery.  Use the left and right arrows to select a character.  Press Replace to create a character of your own design, Delete to remove the current character, Play to enter Twinion, or Quit to return to the Waiting Room.
+twinchar.dat
+twinchar.dat
+GALLERY
+Slot %d: Vacant
+Level 
+twinchar.dat
+twinchar.dat
+REPLACE
+DELETE
+PLAY
+HELP
+QUIT
+ ON-LINE
+OFF-LINE
+OKAY
+CANCEL
+Application Orphaned.
+INN Net Connect Failure.
+INN Net Maintenance Failure.
+c:hostcomm.cpp
+application has been orphaned!
+TSN_NetSend() failed on command %d
+BBS Server is offline.
+INN NAK Error.
+Message : 
+Press the ENTER key to exit: 
+farmalloc() cannot alloc %u bytes
+NewHandle cannot alloc %d bytes, free = %d, largest = %d
+[Unknown]
+INN Timeout... Waiting.
+Unable To Join Map Group!
+Can't join when being joined.
+Can't join when leading party.
+Unable to Join Party here.
+Attempting to Join 
+Cannot Join.  Received No Response.
+Cannot Join.
+Received OK to Join
+Cannot Join.
+Now Following 
+Unable to Join Party here.
+Cannot Join.
+Leaving Party...
+You are now Playing Solo.
+Unable to Challenge during Join.
+Challenge combat in process!
+Unable to Challenge.
+Unable to Challenge.  Player may be in battle.
+Unable To Join Land!
+Invalid Land Group.
+Land Place Full.  Try another Place.
+Invalid Land Object.
+Land Group Locked.
+No Rights to Land.
+Incompatible Land Version.
+Create Map Group Failed!
+Create Player Object Failed!
+Create Personal Party Failed!
+Invalid Group
+Group Full
+Invalid Object
+Group Locked
+No Land Rights
+Incompatible Version
+rpgcomms.cpp
+TSN_NetSend() failed on command %d
+ has joined your party.
+ has left your party.
+ joining your party...
+Joining another player.
+In combat.
+Not party leader.
+Has a full party.
+Refuses additional followers.
+rpgbbs.cpp
+TSN_NetSend() failed on command %d
+ADLIB.ADV
+ADLIB.ADV
+ADLIB.ADV
+MT32MPU.ADV
+SBFM.ADV
+TIMBRE.AD
+Could not open TIMBRE.AD
+Could NOT find a Timbre.
+Low Memory. Not loading Sound & Music.
+Error Loading Sound Driver.
+Could not register sound driver.
+Driver NOT XMIDI.
+Could NOT find Sound Hardware at default location.
+Could not open an FX file.
+Could not read an FX file.
+Bad or Missing LSCI.CFG.
+THE DUNGEON CLOSES...
+music
+TANDYXL.DRV
+ADL.DRV
+MT32.DRV
+SNDBLAST.DRV
+0123456789ABCDEF
+vrhd`VRHD@
+$)48CHSXchr
+****.TSU
+#IMAGES.DAT
+PALETTE.DAT
+help.dat
+Press Any Key To Exit
+Memory Allocation Error
+Illegal Sprite Value
+Attempt To Dispose Null Ptr (MEMMGR)
+Attempt To Dispose Non-Allocated Ptr (MEMMGR)
+Attempt To Dispose Non-Linked Ptr (MEMMGR)
+Memory Allocation Error (MEMMGR)
+Unable to Obtain New Handle (MEMMGR)
+Illegal Sprite Parameters
+Version Control Error
+Unable To Find File : 
+palette.dat
+COMPAQ

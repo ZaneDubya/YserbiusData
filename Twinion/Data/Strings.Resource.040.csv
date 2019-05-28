@@ -1,0 +1,128 @@
+#Resource.040, 127 strings
+This is the Identity Screen.  Use this screen to name your character and to select a Race, a Sex, a Guild, and an Alignment.  Click on the left or right Arrow Button to change a selection.  When you are done selecting these items, click on NEXT to continue.
+This is the name field.  Type a name of up to 10 characters in length.  For example, you could call yourself 'Sir Fnord.'  You will not be able to change your name once you have finished creating this character, so choose carefully.
+This is the epithet field.  Use this space to give yourself an honorific title or to indicate your home town, your Guild, or any other unique feature.  The epithet can be up to 10 characters long.  For example, you might give yourself the epithet of 'the Bold.'
+This is the race field.  Select one of the 8 races for your character.  Each race has slightly different beginning character attributes.
+This is the sex field.  Select the gender for your character.  On the island Twinion, men and women are treated as equals.
+This is the guild field.  Select one of the 6 Guilds for your character.  The Guild indicates the career your character will follow in the game.  Each Guild offers different initial skills and magic spells.
+This is the alignment field.  Select one of the two alignments for your character.  The alignment indicates the basic philosophy of life your character follows.
+This is the Identity Screen.  Use this screen to modify your character's epithet, and to keep track of the number of experience points you need to advance to the next level.
+This is your character's name.
+This is the epithet field.  Use this space to give yourself an honorific title or to indicate your home town, your Guild, or any other unique feature.  The epithet can be up to 10 characters long.  For example, you might give yourself the epithet of 'Orc Killer.'
+Your experience level is an indicator of your overall competence and power.  As you rise in level, you will gain attribute, spell, and skill points, and your dexterity and health will automatically increase.  You will also gain new spells and skills.
+This is the number of experience points you need to acquire in order to reach the next experience level.
+This screen shows your character's Attributes, which are the components shown in numerical form that define your character's abilities.  Use this screen to assign Attribute Points to your character.  Click the Up Arrow button next to an Attribute to improve it and the Down Arrow button to remove a point you assigned.
+Strength represents your ability to inflict damage on an enemy during battle.  The higher your Strength, the more likely you are to hit an enemy.
+Defense represents your ability to defend yourself in battle.  The higher your Defense, the harder you are to hit.
+Agility represents your ability to escape the effects of a spell an enemy casts at you.  If you are agile enough, you receive reduced damage or no damage from a magic attack.
+Initiative represents your overall speed and coordination in combat.  The higher your Initiative, the more likely you will be to attack an enemy before he attacks you.
+Dexterity represents the damage you inflict on an enemy in a successful weapon attack.  Your Dexterity increases automatically when you gain an Experience Level.
+Health represents how much punishment you can take from attacks and magic spells.  The higher your Health, the more damage you can take.  If your Health reaches 0, you die and must be resuscitated.  Your Health increases automatically when you gain an Experience Level.
+This is the Appearance Screen.  Use this screen to design your character's appearance.  Click on the left or right Arrow  button to change a selection.  Start by selecting the face for your character, and then add whatever clothes and facial features you wish.
+Use these buttons to select your character's face.
+Use these buttons to select your character's hair or head covering.
+Use these buttons to select your character's clothing.
+Use these buttons to select your character's nose.
+Use these buttons to select your character's eye color.
+Use these buttons to select your character's facial hair.
+Use these buttons to select your character's veil.
+This screen shows the magic spells you know.  To get a description of a spell, click on its name with the mouse.  Use the plus and minus buttons to distribute your available spell points as you see fit.
+Backfire is used against one enemy magic caster. The spell may cause the enemy's next attack spell to be reduced in effectiveness or to rebound on the caster.  Backfire is an expensive spell to cast, but it can be very damaging to enemy magic casters. Make sure that the enemy you select uses magic, or the spell will be wasted.
+Blast is used against one enemy. It creates a powerful explosion that causes extensive damage to the target.  Blast is a very expensive spell to cast.
+Control temporarily changes the allegiance of one or more enemies to your side and makes them attack their former allies.  Control is an expensive spell to cast.  At higher levels, the spell controls more enemies.
+Curse is used against one group of enemies.  It temporarily reduces the enemies' physical combat capabilities and the damage they cause.  It does not affect enemies casting magic.  Curse is expensive to cast, but it can turn even the most powerful enemies into weaklings.
+Death Darts attack all enemies. A barrage of barbed missiles cause massive damage to all opponents.  Death Darts are very expensive to cast.
+Dissipate attacks one group of undead.  It causes damage to the dead enemies and at higher levels prevents them from paralyzing.  Dissipate is inexpensive to cast.
+Fireball attacks one group of enemies.  A ball of fire bounces back and forth among the enemy, causing great damage.  Fireball is very expensive to cast.
+Hail attacks all enemies.  A cloud appears above the enemy and pelters them with hailstones, causing moderate damage.  Hail is an inexpensive spell to cast.
+Lightning attacks a single enemy.  A flash of lightning strikes the enemy, doing moderate damage.  Lightning is inexpensive to cast.
+Petrify temporarily turns one enemy to stone for a short time.  While petrified, the enemy is unable to attack.  Petrify is moderately expensive to cast.
+Poison Cloud attacks one group of enemies. A venomous cloud envelops the group and does limited damage when it first poisons.  The poison continues to weaken the enemies until it is removed.  Poison Cloud is expensive to cast.
+Storm Wind attacks one group of enemies.  Hurricane winds do moderate damage to the enemy.  Storm Wind is inexpensive to cast, but the damage it causes is modest.
+Aura defends all members of your party. A glowing sphere encases your party, temporarily absorbing some damage from magic attacks and improving your Agility.  Aura is moderately expensive to cast.
+Light Shroud defends all members of your party from undead attack.  A shroud of pure light forms around the party and absorbs physical damage and debilitating states caused by undead.  Shroud is inexpensive to cast.
+Energy Field defends all members of your party.  The field surrounds your party and absorbs some damage from physical attacks.  Energy Field is moderately expensive to cast.
+Shield defends one member of your party.  The magic shield appears in front of the party member and absorbs some damage from physical attacks.  Shield is inexpensive to cast.
+Refresh is a modifier that restores limited Health to all members of a party.  It can be cast at any time.  Refresh is an expensive spell to cast.
+Teleport is a modifier that makes your party leave the dungeon.  It also saves your last position in the dungeon.  It can be cast only when you are not in combat.  Teleport becomes less costly to cast at higher levels.
+Bless is a modifier affecting one member of your party. The benediction temporarily increases the party member's effectiveness in combat.  Bless is moderately expensive to cast.
+Cure is a modifier affecting one member of your party. It offers the chance of removing such debilitating effects as poison, paralysis, and petrification from the party member.  Cure is moderately expensive to cast.
+Heal is a modifier affecting one member of your party.  It restores a limited amount of Health to the party member.  Heal is an inexpensive spell to cast.
+Resist is a modifier affecting one member of your party.  It temporarily enhances the member's resistance to enemy magic by reducing damage and increasing the member's Agility.  It also prevents enemy magic from inflicting debilitating states.  Resist is moderately expensive to cast.
+Resuscitate is a modifier affecting one member of your party.  It restores a dead party member to life with reduced Health and limited Mana.  Resuscitate is the most expensive spell to cast.
+True Seeing is a modifier affecting one member of your party.  It allows the member to detect items of interest in the dungeon, which are shown on the overhead map. The spell ends when the party moves.  True Seeing is inexpensive to cast.
+This screen shows the skills you know.  To get a description of a skill, click on its name with the mouse.  Use the plus and minus buttons to distribute your available skill points as you see fit.
+Athletics are a basic part of the Barbarian Guild's training and include proficiency in boxing, wrestling, and gymnastics.  They improve Agility and Initiative.  This skill is automatic and takes effect as soon as it is learned.
+Clubs/Axes are the weapons of choice for the Barbarian Guild.  A person with this skill has increased Strength and does more damage when wielding an club or axe.  This skill is automatic and takes effect when you are armed with the appropriate weapon during combat.
+Berserker is a form of madness that is encouraged by the Barbarian Guild.  A fighter becomes increasingly more destructive in physical combat when this madness is invoked.  However, there is a tradeoff, for the berserker is less concerned about defending his/her person and takes more damage from physical attacks.  This skill must be selected and can be used only during combat.
+Pursuit is the ability to deter enemies from fleeing from a combat.  As a barbarian becomes a better warrior, he/she has a better chance of preventing the enemy from escaping.  This skill must be selected and can only be used during combat.
+Leadership is one of the basic requirements for a knight.  When leading a party, a knight can give combat orders to his/her allies and make them attack more efficiently.  It increases the Strength, Defense and Initiative of all party members.  This skill must be selected, and the player using it must be the party leader.
+Fencing is taught to all knights because the sword is the preferred weapon of the Guild.  A person with this skill has increased Strength and does more damage when brandishing a blade weapon.  This skill is automatic and takes effect when you are armed with the appropriate weapon during combat.
+Binding is the ability to heal minor wounds by using whatever items and herbs that are at hand.  It restores a limited amount of Health to one party member.  This skill must be used, and the target of the healing must be selected.  It can be used only when a party is involved in combat.
+Intimidate is the fame acquired by a knight for his/her many feats of chivalry.  The fame of a knight is known to intimidate all opponents, causing them to attack more slowly and to flee more readily.  This skill must be selected and can be used only during combat.
+Archery is taught to all rangers because the bow is the preferred weapon of the Guild.  A person with this skill has increased Strength and does more damage when using a bow.  This skill is automatic and takes effect when you are armed with the appropriate weapon during combat.
+Stamina is demanded by the Ranger Guild for all its members, because life in the wilderness can be so fatiguing.  It reduces the amount of damage taken during physical combat.  This skill is automatic and takes effect as soon as it is acquired.
+Furtiveness is the ability to weave in and out of combat, so as to attack all the enemy, wherever they are in a battle order.  This skill allows a person to attack the enemy in the back row, and it increases the person's Strength and damage done during such an attack.  This skill must be selected and can be used only during combat.
+Read Tracks is the ability to detect the presence of potential opponents in the dungeon by studying their spoor.  The more proficient a person is with this skill, the more distant opponents can be detected.  This skill must be selected and is used outside of battle.
+Bard is the ability to sing enchanting songs in the midst of battle.  The strange music often throws enemies into confusion, making them slower attack and more willing to flee.  This skill must be selected and can be used only during combat.
+Detect is the ability to find traps before they go off and to locate secret doors.  As a person grows more proficient in this skill, he or she is more likely to spot such traps and doors.  This skill must be selected, and it is used only outside of combat.
+Lockpick is the ability to open stubborn locks and disable traps.  As a person grows more proficient in this skill, he or she becomes more adept at removing traps and opening locked doors.  This skill must be selected, and it is used only outside of combat.
+Pickpocket is the ability to steal an item from an opponent even in the thick of battle.  As a person grows more proficient in this skill, he or she is more likely to take an item.  This skill must be selected and can be used only during combat.
+Martial Arts are a basic part of the Cleric Guild's training and include proficiency with exotic weapons from far lands.  A person with this skill has improved Strength and does more damage when using a katana or nunchuka.  This skill is automatic and takes effect when you are armed with the appropriate weapon during combat.
+Deflect Magic is the ability to turn away incoming attack spells.  It reduces damage from magic and increases a person's Agility.  At higher levels it improves the Agility of all party members if a person with this skill leads the party.  This skill must be selected and can be used only during combat.
+Medic is the skill of healing taught to all clerics.  It removes debilitating states - poison, paralysis, and the like - from a party member either during or after combat.  This skill must be selected, and the target of the healing must be selected.
+Reverie is the ability to momentarily withdraw into oneself so as to draw in Mana from the surroundings.  Using this skill lowers the person's Initiative for the rest of the combat.  This skill must be selected and can be used only during combat.
+Rune Reading is the ability to translate the ancient mystic symbols found in the dungeon.  As a person grows more proficient in this skill, he or she can automatically translate more runes.  This skill must be selected, and it is used only outside of combat.
+Staff is weapon skill taught to all wizards because staffs are the preferred weapon of the Guild.  A person with this skill has increased Strength and does more damage when using a staff.  This skill is automatic and takes effect when you are armed with the appropriate weapon during combat.
+Channel is the ability to focus one's use of Mana in combat, making magic attacks more powerful. It both increases the amount of damage done and reduces the ability of the enemy to resist a spell. The skill must be selected and can be used only during combat. 
+Deep Trance is the ability to fall into a reverie during combat so as to draw in Mana from the surroundings. The amount of Mana restored is limited.  The skill must be selected and can be used only during combat.
+This screen shows the items which you may buy.  Use the Arrow Buttons to move the highlight bar and the Buy Button to buy the highlighted item.  Note that items in red type cannot be used by members of your Guild.
+This screen shows the items in your inventory which you may sell.  Use the Arrow Buttons to move the highlight bar and the Sell Button to sell the highlighted item.
+This is your character's guild.
+Barbarians are known for their great strength and combat abilities.
+Knights are well-rounded fighters and magic casters.
+Rangers are renowned for their archery and for their scouting talents.
+Thieves' skills and uncanny abilities to detect traps and secret doors make them valuable allies in the dungeon.
+Clerics are well-beloved spell casters, generally using their spells and skills to cure the sick and weak.
+Wizards are the masters of magic in all its forms.
+Mana represents the amount of magical energy you have at your disposal.  The more Mana you have the more spells you can cast.  Your Mana increases automatically when you gain an Experience Level.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1361 @@
+Map,Idx,NameSingle,NamePlural,Typ,Lvl,LvlRnd,Count,Adds,Flee%,Cast%,Drop%,XP,Gold
+0,0,Wolf,Wolves,1,1,0,1,0,4,0,0,0,0
+0,1,Wolf,Wolves,1,1,0,1,0,4,0,0,0,0
+0,2,Wolf,Wolves,1,1,0,1,0,4,0,0,0,0
+0,3,Wolf,Wolves,1,1,0,1,0,4,0,0,0,0
+0,4,Wolf,Wolves,1,1,0,1,0,4,0,0,0,0
+0,5,Wolf,Wolves,1,1,0,1,0,4,0,0,0,0
+0,6,Wolf,Wolves,1,1,0,1,0,4,0,0,0,0
+0,7,Wolf,Wolves,1,1,0,1,0,4,0,0,0,0
+0,8,Wolf,Wolves,1,1,0,1,0,4,0,0,0,0
+0,9,Wolf,Wolves,1,1,0,1,0,4,0,0,0,0
+0,10,Wolf,Wolves,1,1,0,1,0,4,0,0,0,0
+0,11,Wolf,Wolves,1,1,0,1,0,4,0,0,0,0
+0,12,Wolf,Wolves,1,1,1,1,0,4,0,0,0,0
+0,13,Wolf,Wolves,1,1,1,1,0,4,0,0,0,0
+0,14,Wolf,Wolves,1,1,1,1,0,4,0,0,0,0
+0,15,Wolf,Wolves,1,1,1,1,0,4,0,0,0,0
+0,16,Wolf,Wolves,1,1,1,1,0,4,0,0,0,0
+0,17,Wolf,Wolves,1,1,1,1,0,4,0,0,0,0
+0,18,Panthers,Panthers,1,1,1,1,0,4,0,0,0,0
+0,19,Slimes,Slimes,2,1,1,1,0,4,0,0,0,0
+0,20,Snakes,Snakes,3,1,1,1,0,4,0,0,0,0
+0,21,Tyrans,Tyrans,4,1,1,1,0,4,0,0,0,0
+0,22,White Death,White Deaths,5,1,4,2,0,50,0,25,400,250
+0,23,Medusas,Medusas,6,1,1,1,0,4,0,0,0,0
+0,24,Kaalroths,Kaalroths,7,1,1,1,0,4,0,0,0,0
+0,25,Skeletons,Skeletons,8,1,3,3,0,60,0,20,350,200
+0,26,Ghosts,Ghosts,9,1,1,1,0,4,0,0,0,0
+0,27,Undead,Undead,10,1,2,3,0,40,0,30,475,300
+0,28,Wraiths,Wraiths,11,1,1,2,0,50,0,30,400,225
+0,29,Vampires,Vampires,12,1,1,1,0,4,0,0,0,0
+0,30,Erebus Fiends,Erebus Fiends,13,1,2,2,0,0,0,30,450,250
+0,31,Dragons,Dragons,14,1,1,1,0,4,0,0,0,0
+0,32,Winged Asps,Winged Asps,15,1,1,1,0,4,0,0,0,0
+0,33,Bats,Bats,16,1,4,2,0,50,0,20,300,200
+0,34,Golems,Golems,17,1,0,1,0,0,0,40,500,300
+0,35,Giants,Giants,18,1,1,1,0,4,0,0,0,0
+0,36,Praxis,Praxis,19,1,1,1,0,4,0,0,0,0
+0,37,Night Elves,Night Elves,20,6,0,3,0,0,90,40,20,25
+0,38,Queen Aeowyn,Queen Aeowyn,21,1,1,1,0,4,0,0,0,0
+0,39,Shit Heads,Wolves,22,1,1,1,0,4,0,0,0,0
+1,0,Brown Bat,Brown Bats,16,1,0,1,0,4,0,0,8,10
+1,1,Brown Bat,Brown Bats,16,1,0,1,1,4,0,0,8,10
+1,2,Brown Bat,Brown Bats,16,1,0,2,0,6,0,0,8,10
+1,3,Brown Bat,Brown Bats,16,1,0,1,0,6,0,0,6,10
+1,4,Brown Bat,Brown Bats,16,1,0,1,1,6,0,0,6,10
+1,5,Duelist,Duelists,29,1,0,1,0,6,0,0,15,30
+1,6,Small Vampire Bat,Small Vampire Bats,16,1,1,1,1,6,0,0,10,15
+1,7,Mystic Mage,Mystic Mages,43,1,0,1,0,6,25,0,25,30
+1,8,Wizard,Wizards,45,1,0,1,1,6,25,0,25,30
+1,9,Brigand,Brigands,28,1,0,1,0,4,0,0,20,20
+1,10,Wizard,Wizards,43,1,0,1,1,6,35,30,20,40
+1,11,Mystic Mage,Mystic Mages,43,1,1,1,0,5,35,25,20,30
+1,12,Black Panther,Black Panthers,1,1,0,1,1,8,0,0,20,20
+1,13,Panther,Panthers,1,1,1,1,0,8,0,0,20,15
+1,14,Brigand,Brigands,28,1,0,1,1,10,0,25,25,40
+1,15,Panther,Panthers,1,1,1,1,0,10,0,25,15,15
+1,16,Brigand,Brigands,28,1,0,1,0,10,0,20,60,45
+1,17,Berserker,Berserkers,24,1,0,1,1,10,0,20,60,45
+1,18,Black Panther,Black Panthers,1,1,0,1,0,12,0,25,20,10
+1,19,Mystic Mage,Mystic Mages,43,1,0,1,1,18,20,25,40,35
+1,20,Black Panther,Black Panthers,1,1,0,1,0,10,0,25,15,20
+1,21,Mystic Mage,Mystic Mages,43,1,0,1,0,8,20,25,40,45
+1,22,Black Panther,Black Panthers,1,1,0,1,1,15,0,25,20,20
+1,23,Mystic Mage,Mystic Mages,43,1,1,1,0,18,20,25,50,45
+1,24,Wizard of Gnog,Wizards of Gnog,45,1,1,1,1,4,25,0,10,20
+1,25,Brigand,Brigands,28,1,1,1,1,4,0,0,10,30
+1,26,Wizard of Gnog,Wizards of Gnog,45,1,1,1,1,5,20,40,20,40
+1,27,Henchman,Henchmen,28,2,1,1,1,8,0,40,30,45
+1,28,Henchman,Henchmen,28,2,2,2,1,4,0,40,45,45
+1,29,Master Knight,Master Knights,28,1,2,1,1,6,5,35,45,90
+1,30,Berserker,Berserkers,24,2,0,1,1,20,0,0,40,60
+1,31,Crazed Barbarian,Crazed Barbarians,24,1,2,2,1,15,0,0,50,60
+1,32,Vicious Berserker,Vicious Berserkers,25,2,1,1,1,15,0,40,50,60
+1,33,Young Thief,Young Thieves,34,2,2,2,1,15,0,40,35,30
+1,34,Novice Thief,Novice Thieves,35,2,0,2,1,15,0,40,40,60
+1,35,Apprentice Thief,Apprentice Thieves,36,2,0,3,0,18,0,35,55,75
+1,36,Master Thief,Master Thieves,37,4,1,2,0,16,0,35,70,115
+1,37,Wizard of Gnog,Wizards of Gnog,45,2,1,2,1,16,30,35,30,40
+1,38,Duelist,Duelists,29,2,1,2,1,16,0,35,45,50
+1,39,Duelist,Duelists,29,2,2,2,1,12,0,35,45,50
+2,0,Brown Bat,Brown Bats,16,1,0,1,0,4,0,0,8,10
+2,1,Brown Bat,Brown Bats,16,1,0,1,1,4,0,0,8,10
+2,2,Brown Bat,Brown Bats,16,1,0,2,0,6,0,0,8,10
+2,3,Brown Bat,Brown Bats,16,1,0,1,0,6,0,0,6,10
+2,4,Brown Bat,Brown Bats,16,1,0,1,1,6,0,0,6,10
+2,5,Duelist,Duelists,29,1,0,1,0,6,0,0,15,30
+2,6,Small Vampire Bat,Small Vampire Bats,16,1,0,1,1,6,0,0,10,15
+2,7,Mystic Mage,Mystic Mages,43,1,0,1,0,6,25,0,25,30
+2,8,Wizard,Wizards,45,1,0,1,1,6,25,0,25,30
+2,9,Brigand,Brigands,28,1,0,1,0,4,0,0,20,20
+2,10,Wizard,Wizards,43,1,0,1,1,6,35,30,20,40
+2,11,Mystic Mage,Mystic Mages,43,1,1,1,0,5,35,25,20,30
+2,12,Black Panther,Black Panthers,1,1,0,1,1,8,0,0,20,20
+2,13,Panther,Panthers,1,1,1,1,0,8,0,0,20,15
+2,14,Brigand,Brigands,28,1,0,1,1,10,0,25,25,40
+2,15,Panther,Panthers,1,1,1,1,0,10,0,25,15,15
+2,16,Brigand,Brigands,28,1,0,1,0,10,0,20,60,45
+2,17,Berserker,Berserkers,24,1,0,1,1,10,0,20,60,45
+2,18,Black Panther,Black Panthers,1,1,0,1,0,12,0,25,20,10
+2,19,Mystic Mage,Mystic Mages,43,1,0,1,1,18,20,25,40,35
+2,20,Black Panther,Black Panthers,1,1,0,1,0,10,0,25,15,20
+2,21,Mystic Mage,Mystic Mages,43,1,0,1,0,8,20,25,40,45
+2,22,Black Panther,Black Panthers,1,1,0,1,1,15,0,25,20,20
+2,23,Mystic Mage,Mystic Mages,43,1,1,1,0,18,20,25,50,45
+2,24,Wizard of Gnog,Wizards of Gnog,45,1,1,1,1,4,25,0,10,20
+2,25,Brigand,Brigands,28,1,1,1,1,4,0,0,10,30
+2,26,Wizard of Gnog,Wizards of Gnog,45,1,1,1,1,5,20,40,20,20
+2,27,Henchman,Henchmen,28,2,1,1,1,8,0,40,30,45
+2,28,Henchman,Henchmen,28,2,2,2,1,4,0,40,37,45
+2,29,Master Knight,Master Knights,28,1,2,1,1,6,5,35,45,90
+2,30,Berserker,Berserkers,24,2,0,1,1,20,0,0,31,60
+2,31,Crazed Barbarian,Crazed Barbarians,24,1,2,2,1,15,0,0,35,60
+2,32,Vicious Berserker,Vicious Berserkers,25,2,1,1,1,15,0,40,45,60
+2,33,Young Thief,Young Thieves,34,2,2,2,1,15,0,40,20,20
+2,34,Novice Thief,Novice Thieves,35,2,0,2,1,15,0,40,40,60
+2,35,Apprentice Thief,Apprentice Thieves,36,2,0,3,0,18,0,35,55,75
+2,36,Master Thief,Master Thieves,37,4,1,2,0,16,0,35,67,105
+2,37,Wizard of Gnog,Wizards of Gnog,45,2,1,2,1,16,30,35,30,40
+2,38,Duelist,Duelists,29,2,1,2,1,16,0,35,45,50
+2,39,Duelist,Duelists,29,2,2,2,1,12,0,35,45,50
+3,0,Black Panther,Black Panthers,1,1,1,1,2,4,0,0,8,10
+3,1,Green Slime,Green Slimes,2,1,2,1,1,6,0,5,15,10
+3,2,Hanging Slime,Hanging Slimes,2,2,0,1,1,8,0,5,15,10
+3,3,Scourge,Scourges,2,1,0,1,2,6,0,5,20,10
+3,4,Green Slime,Green Slimes,2,1,1,1,1,6,0,10,15,20
+3,5,Fencing Master,Fencing Masters,26,2,0,1,2,6,0,20,25,25
+3,6,Small Vampire Bat,Small Vampire Bats,16,2,1,1,1,6,0,0,8,10
+3,7,Black Panther,Black Panthers,1,3,0,1,1,8,0,0,10,20
+3,8,Warlock,Warlocks,45,2,1,1,1,5,35,35,30,40
+3,9,Knight,Knights,28,1,1,1,1,3,20,35,30,50
+3,10,Wizard,Wizards,43,2,1,1,1,8,35,35,40,60
+3,11,Apprentice Priest,Apprentice Priests,41,2,1,1,1,10,25,35,55,40
+3,12,Black Panther,Black Panthers,1,1,0,1,1,20,0,0,20,15
+3,13,Panther,Panthers,1,1,1,1,1,20,0,0,20,15
+3,14,Novice Priest,Novice Priests,41,1,1,2,1,20,15,20,40,40
+3,15,Panther,Panthers,1,1,2,1,1,20,0,0,20,15
+3,16,Artisan Priest,Artisan Priests,41,2,0,1,1,24,25,10,40,45
+3,17,Female Ranger,Female Rangers,30,2,1,1,1,24,0,14,50,60
+3,18,Black Panther,Black Panthers,1,1,1,2,1,10,0,0,20,20
+3,19,Warlock,Warlocks,43,1,2,3,1,15,35,15,25,40
+3,20,Female Ranger,Female Rangers,30,1,1,1,1,12,0,15,55,50
+3,21,Warlock,Warlocks,43,1,1,1,2,12,35,15,50,50
+3,22,Novice Thief,Novice Thieves,34,1,1,2,1,12,0,15,30,40
+3,23,Mystic Mage,Mystic Mages,45,1,1,2,1,12,25,15,45,50
+3,24,Master Thief,Master Thieves,37,1,1,2,1,5,0,30,50,65
+3,25,Young Thief,Young Thieves,34,2,0,2,1,8,5,30,35,30
+3,26,Warlock,Warlocks,45,1,1,2,1,6,25,30,40,40
+3,27,Henchman,Henchmen,28,1,1,2,1,4,0,30,30,30
+3,28,Young Thief,Young Thieves,34,3,0,1,5,20,0,20,25,30
+3,29,Master Knight,Master Knight,26,3,1,2,2,18,10,25,60,75
+3,30,Berserker,Berserkers,24,3,1,3,2,18,0,10,30,30
+3,31,Enraged Barbarian,Enraged Barbarians,24,4,0,3,1,15,0,15,35,30
+3,32,Viking,Vikings,25,4,2,3,1,15,5,25,40,20
+3,33,Young Thief,Young Thieves,34,5,0,2,1,12,0,25,30,25
+3,34,Novice Thief,Novice Thieves,35,5,1,1,1,12,0,25,28,35
+3,35,Apprentice Thief,Apprentice Thieves,36,6,0,1,1,10,5,25,40,45
+3,36,Master Thief,Master Thieves,37,5,0,2,1,25,5,40,50,100
+3,37,Viking,Vikings,22,3,2,2,1,25,0,20,40,25
+3,38,Black Panther,Black Panthers,1,5,1,1,1,25,0,0,20,20
+3,39,Marauder,Marauders,37,6,0,1,1,20,0,35,60,50
+4,0,Brown Bat,Brown Bats,16,1,1,2,3,9,0,0,8,8
+4,1,Brown Bat,Brown Bats,16,1,2,6,6,10,0,0,8,8
+4,2,Brown Bat,Brown Bats,16,2,1,5,3,12,0,0,8,8
+4,3,Brown Bat,Brown Bats,16,1,2,3,4,15,0,0,8,8
+4,4,Brown Bat,Brown Bats,16,2,2,7,3,9,0,0,8,8
+4,5,Duelist,Duelists,29,3,1,1,1,5,10,15,25,25
+4,6,Small Vampire Bat,Small Vampire Bats,16,2,2,3,2,5,0,0,10,15
+4,7,Mystic Mage,Mystic Mages,43,2,1,1,1,15,35,25,25,25
+4,8,Wizard,Wizards,45,3,1,1,1,1,25,30,30,25
+4,9,Brigand,Brigands,29,3,1,1,1,5,10,0,40,40
+4,10,Wizard,Wizards,43,2,0,1,1,15,35,30,35,55
+4,11,Mystic Mage,Mystic Mages,43,3,1,1,0,15,35,25,50,55
+4,12,Black Panther,Black Panthers,1,2,1,1,0,10,0,0,20,20
+4,13,Panther,Panthers,1,2,0,1,1,10,0,0,15,20
+4,14,Coelus,Coeluses,4,1,1,1,0,1,0,0,60,15
+4,15,Panther,Panthers,1,1,1,1,2,10,0,0,20,20
+4,16,Brigand,Brigands,29,1,1,1,1,5,10,20,30,55
+4,17,Berserker,Berserkers,24,1,0,1,0,5,15,10,40,45
+4,18,Black Panther,Black Panthers,1,1,0,1,1,10,0,0,20,20
+4,19,Magician,Magicians,43,2,2,2,0,15,25,25,40,60
+4,20,Rogue,Rogues,35,2,1,1,2,5,15,15,40,50
+4,21,Nimble Thief,Nimble Thieves,36,2,2,1,1,5,15,40,44,75
+4,22,Coelus,Coeluses,4,1,1,1,0,1,0,0,50,80
+4,23,Magician,Magicians,43,2,0,2,0,15,35,25,45,40
+4,24,Wizard of Gnog,Wizards of Gnog,45,2,2,1,1,1,25,40,40,55
+4,25,Prisoner,Prisoners,28,3,1,2,1,5,0,0,45,20
+4,26,Wizard of Gnog,Wizards of Gnog,45,1,2,1,0,1,15,30,40,40
+4,27,Cloaked Thief,Cloaked Thieves,35,3,0,1,1,5,15,0,50,40
+4,28,Thief of Night,Thieves of Night,37,3,1,1,0,5,10,30,35,30
+4,29,Queen's Guard,Queen's Guards,28,3,2,1,0,5,20,0,40,30
+4,30,Hunter,Hunters,24,2,2,1,1,5,10,25,30,25
+4,31,Tracker,Trackers,30,3,1,1,1,5,10,35,30,25
+4,32,Assassin,Assassins,38,4,2,2,2,4,5,0,60,50
+4,33,Assassin,Assassins,37,5,1,1,1,1,5,0,66,50
+4,34,Huntsman,Huntsmen,31,5,0,2,1,10,10,20,35,36
+4,35,Ruffian,Ruffians,35,2,2,2,1,5,5,0,40,45
+4,36,Rogue Leader,Rogue Leader,36,6,0,1,0,0,25,40,125,250
+4,37,Jaguar,Jaguars,1,4,0,1,1,1,0,0,20,20
+4,38,Large Panther,Large Panthers,1,3,1,2,1,5,0,0,25,20
+4,39,Coelus,Coeluses,4,3,1,1,0,1,0,0,65,70
+5,0,Giant Bat,Giant Bats,16,4,1,3,3,0,0,0,10,8
+5,1,Green Slime,Green Slimes,2,1,3,1,2,0,0,0,10,10
+5,2,Grey Ooze,Grey Ooze,2,1,3,2,1,0,0,0,10,10
+5,3,Wall Scum,Wall Scums,2,2,2,1,2,0,0,0,10,10
+5,4,Yellow Jelly,Yellow Jellies,2,1,3,1,2,0,0,0,10,10
+5,5,Swordsman,Swordsmen,28,3,1,1,1,5,0,10,25,20
+5,6,Giant Bat,Giant Bats,16,2,1,4,2,0,0,0,10,10
+5,7,Berserker,Berserkers,24,1,0,1,1,5,0,20,22,30
+5,8,Warrior,Warriors,28,1,1,2,1,5,15,20,25,30
+5,9,Squire,Squires,28,1,1,1,1,5,0,20,25,30
+5,10,Servant of Gnog,Servants of Gnog,43,2,0,1,1,15,35,25,30,20
+5,11,Priest,Priests,41,2,1,1,1,7,25,20,35,25
+5,12,Swordsman,Swordsmen,28,1,1,1,1,5,0,0,25,30
+5,13,Servant of Gnog,Servants of Gnog,43,2,0,1,1,15,25,15,30,25
+5,14,Novice Priest,Novice Priests,41,2,2,1,2,7,35,15,29,30
+5,15,Enchanter,Enchanters,43,2,0,3,0,0,45,0,35,40
+5,16,Artisan Priestess,Artisan Priestesses,42,2,3,1,1,1,25,20,35,35
+5,17,Ranger,Rangers,31,3,1,1,0,5,0,0,22,30
+5,18,Holy Man,Holy Men,41,2,3,1,1,1,35,20,35,20
+5,19,Enchanter,Enchanters,43,2,0,3,0,0,46,20,35,25
+5,20,Witch,Witches,46,2,1,1,2,5,25,25,22,30
+5,21,Warlock,Warlocks,43,2,2,1,1,15,35,15,30,25
+5,22,Novice Thief,Novice Thieves,34,2,2,1,1,1,0,0,45,20
+5,23,Mage,Mage,45,3,0,1,0,15,45,15,40,30
+5,24,Master Thief,Master Thief,37,3,1,1,0,1,0,30,25,45
+5,25,Marauder,Marauders,38,3,1,1,1,0,0,30,35,50
+5,26,Mage,Mage,45,2,0,1,0,1,30,15,45,20
+5,27,Colossus of Aqueus,Colossus of Aqueus,18,2,1,1,0,0,0,0,60,45
+5,28,Colossus of Aqueus,Colossus of Aqueus,18,3,0,1,0,0,0,0,75,55
+5,29,Knight of Kilam,Knights of Kilam,26,4,1,1,2,1,0,0,45,40
+5,30,Hill Giant,Hill Giants,18,1,0,1,1,1,0,0,40,20
+5,31,Young Giant,Young Giants,18,1,0,1,0,1,0,0,35,15
+5,32,Seafarer,Seafarers,31,1,2,4,1,5,0,0,25,30
+5,33,Viking,Vikings,26,3,0,1,0,1,0,25,30,30
+5,34,Marauder,Marauders,38,3,1,1,1,0,0,30,35,40
+5,35,Novice Thief,Novice Thieves,35,1,0,2,1,10,0,0,12,20
+5,36,Apprentice Thief,Apprentice Thieves,36,2,1,2,1,10,0,0,20,30
+5,37,Master Thief,Master Thief,37,3,1,1,0,1,0,25,45,50
+5,38,Mad Warrior,Mad Warrior,22,4,1,1,0,0,0,0,75,50
+5,39,Lord Aqueus,Lord Aqueus,18,5,0,1,0,0,0,30,200,250
+6,0,Skeletal Thief,Skeletal Thieves,8,2,2,2,1,15,15,10,20,20
+6,1,Hill Giant,Hill Giants,18,1,2,1,3,5,0,5,20,20
+6,2,Gladiator,Gladiators,22,3,0,3,0,2,0,10,25,30
+6,3,Robber Knight,Robber Knights,26,4,1,3,1,10,15,10,45,25
+6,4,Archer,Archers,30,3,1,3,1,15,10,15,25,30
+6,5,Scoundrel,Scoundrels,35,2,1,3,0,10,12,20,25,20
+6,6,Malevolent Mage,Malevolent Mages,43,3,2,1,4,10,75,15,45,24
+6,7,Man of Piety,Men of Piety,41,3,1,2,3,10,75,12,30,25
+6,8,Skeletal Knight,Skeletal Knights,8,2,2,2,2,5,35,15,30,30
+6,9,Hill Giant,Hill Giants,18,1,2,2,2,5,0,15,25,30
+6,10,Skeletal Warrior,Skeletal Warriors,8,2,2,2,3,5,15,15,25,25
+6,11,Hill Giant,Hill Giants,18,3,0,1,3,5,0,50,20,45
+6,12,Skeletal Thief,Skeletal Thieves,8,2,1,2,1,15,15,20,20,20
+6,13,Hill Giant,Hill Giants,18,2,1,1,2,5,0,20,20,30
+6,14,Bowman,Bowmen,31,3,2,2,4,15,10,25,30,30
+6,15,Sorcerer,Sorcerers,44,4,1,1,3,5,85,25,35,35
+6,16,Skeletal Wizard,Skeletal Wizards,8,3,1,2,2,10,0,15,55,40
+6,17,Ghost,Ghosts,9,1,2,2,0,20,25,15,40,40
+6,18,Ghost,Ghosts,9,2,1,2,3,20,25,15,40,40
+6,19,Illusionist,Illusionists,43,5,0,2,3,5,10,30,30,40
+6,20,Wizard's Spirit,Wizards' Spirits,9,4,0,2,3,20,25,25,45,50
+6,21,Asp,Asps,3,3,2,2,4,10,0,0,15,15
+6,22,Man of Faith,Men of Faith,41,3,1,1,4,5,75,25,30,25
+6,23,Lancer,Lancers,28,3,1,2,3,10,25,20,40,20
+6,24,Scavenger,Scavengers,36,4,0,2,2,10,12,5,30,30
+6,25,Gladiator,Gladiators,24,3,1,1,3,1,15,10,30,33
+6,26,Squire,Squires,25,2,1,5,1,20,0,15,25,44
+6,27,Illusionist,Illusionists,46,4,0,2,2,5,80,20,45,26
+6,28,Rogue,Rogues,37,3,2,2,3,10,5,24,55,38
+6,29,Gendarme,Gendarmes,27,3,2,3,1,6,10,30,55,29
+6,30,Bowman,Bowmen,31,4,1,2,4,15,10,35,30,17
+6,31,Archer,Archers,30,3,2,3,1,15,10,25,30,34
+6,32,Lancer,Lancers,28,4,1,2,3,10,25,25,40,31
+6,33,Knight,Knights,26,3,2,2,1,1,20,30,30,38
+6,34,Novice Thief,Novice Thieves,35,3,2,2,1,10,0,35,33,25
+6,35,Apprentice Thief,Apprentice Thieves,36,3,2,2,2,10,20,30,30,46
+6,36,Master Thief,Master Thief,37,5,1,1,0,1,35,45,55,62
+6,37,Colossus,Colossus,18,4,1,1,0,1,0,15,100,60
+6,38,Devout Cleric,Devout Clerics,40,3,3,1,4,5,75,15,60,24
+6,39,Arch-Mage,Arch-Mages,43,4,1,1,4,10,85,20,60,66
+7,0,Brown Bat,Brown Bats,16,2,2,2,3,9,0,0,6,5
+7,1,Brown Bat,Brown Bats,16,3,1,2,3,10,0,0,6,5
+7,2,Brown Bat,Brown Bats,16,3,1,2,3,12,0,0,6,5
+7,3,Giant Bat,Giant Bats,16,3,2,2,3,15,0,0,6,5
+7,4,Vampire Bat,Vampire Bats,16,5,1,2,3,9,0,0,6,5
+7,5,Soldier,Soldiers,29,2,1,1,1,5,15,10,25,30
+7,6,Asp,Asps,3,3,1,3,2,5,0,0,6,10
+7,7,Python,Pythons,3,4,2,1,3,1,0,0,15,15
+7,8,Priest,Priests,41,4,1,1,2,1,60,20,35,25
+7,9,Foot Soldier,Foot Soldiers,29,3,3,1,2,5,15,10,25,40
+7,10,Wizard,Wizards,45,3,3,1,2,5,15,10,25,30
+7,11,Mystic Mage,Mystic Magi,43,2,0,1,0,15,55,15,30,40
+7,12,Slime,Slimes,2,2,1,2,2,5,0,0,6,15
+7,13,Panther,Panthers,1,4,1,1,1,10,0,0,10,15
+7,14,Brigand,Brigands,29,2,3,1,2,5,15,10,25,30
+7,15,Jaguar,Jaguars,1,3,2,1,2,5,0,10,15,20
+7,16,Warrior,Warriors,27,3,1,2,3,5,20,10,25,30
+7,17,Berserker,Berserkers,24,1,0,1,0,5,0,5,22,30
+7,18,Thief,Thieves,35,3,3,2,2,7,25,20,20,15
+7,19,Enchanter,Enchanters,41,6,0,2,2,1,15,15,25,45
+7,20,Wizard,Wizards,43,4,2,2,1,15,75,25,20,20
+7,21,Enchantress,Enchantresses,44,5,1,2,3,15,75,15,55,35
+7,22,Scribe,Scribes,37,2,2,2,2,1,15,15,25,20
+7,23,Hooded Thief,Hooded Thieves,35,4,2,2,2,7,25,20,40,25
+7,24,Barbarian,Barbarian,23,4,2,1,0,0,5,15,45,40
+7,25,Knight,Knight,29,4,3,1,0,0,15,15,45,40
+7,26,Ranger,Ranger,32,4,4,1,0,0,15,15,45,40
+7,27,Thief,Thief,34,4,3,1,0,0,20,15,45,40
+7,28,Cleric,Cleric,41,4,2,1,0,0,65,15,45,40
+7,29,Wizard,Wizard,45,4,2,1,0,0,75,15,45,40
+7,30,Berserker,Berserkers,24,3,2,2,1,5,5,5,25,30
+7,31,Young Thief,Young Thieves,34,3,1,4,1,5,25,9,20,20
+7,32,Vicious Berserker,Vicious Berserkers,25,3,0,1,0,1,25,12,30,45
+7,33,Lord Gnog,Lord Gnog,43,6,2,1,0,0,85,0,200,200
+7,34,Enormous Barbarian,Enormous Barbarian,22,5,2,1,0,0,0,5,80,70
+7,35,Ominous Wizard,Ominous Wizard,43,5,2,1,0,0,85,15,80,70
+7,36,Oozing Slime,Oozing Slimes,2,5,1,2,0,0,0,0,20,20
+7,37,Black Panther,Black Panthers,1,3,1,3,4,10,0,0,20,10
+7,38,Jaguar,Jaguars,1,4,1,3,3,5,0,0,25,10
+7,39,Queen's Guard,Queen's Guard,28,6,2,1,0,0,25,0,150,76
+8,0,Wraith,Wraiths,11,3,0,1,1,80,50,15,400,200
+8,1,Restless Phantom,Restless Phantoms,11,3,0,1,1,80,20,15,400,200
+8,2,Wraith,Wraiths,11,3,0,1,1,60,40,20,400,200
+8,3,Restless Phantom,Restless Phantoms,11,4,0,1,1,60,30,20,450,200
+8,4,Wraith,Wraiths,11,2,0,2,1,70,30,10,350,150
+8,5,Ghost,Ghosts,9,5,0,1,1,60,40,20,500,350
+8,6,Illusion,Illusions,9,3,1,1,2,60,60,15,325,75
+8,7,Illusion,Illusions,9,4,0,1,1,70,80,15,350,150
+8,8,Ghost,Ghosts,9,5,0,1,1,70,90,15,400,100
+8,9,Ghost,Ghosts,9,5,0,1,1,50,50,20,450,125
+8,10,Brown Bat,Brown Bats,16,4,0,2,2,80,0,20,200,100
+8,11,Brown Bat,Brown Bats,16,4,1,2,1,60,0,20,250,40
+8,12,Brown Bat,Brown Bats,16,5,0,1,2,60,0,25,300,60
+8,13,Brown Bat,Brown Bats,16,5,1,1,1,60,0,25,325,100
+8,14,Night Elf,Night Elves,20,2,1,1,1,50,0,20,400,200
+8,15,Night Elf,Night Elves,20,3,0,1,1,80,0,10,500,150
+8,16,Night Elf,Night Elves,20,3,1,1,1,80,0,15,600,275
+8,17,Night Elf Monk,Night Elf Monks,20,4,0,1,1,60,50,15,750,275
+8,18,Night Elf Monk,Night Elf Monks,20,4,1,1,0,60,75,20,850,300
+8,19,Sinister Wizard,Sinister Wizards,43,6,2,1,1,80,70,15,400,200
+8,20,Recluse,Recluses,40,6,2,1,1,80,50,15,400,250
+8,21,Sinister Wizard,Sinister Wizards,45,6,2,1,1,70,80,20,400,150
+8,22,Surly Barbarian,Surly Barbarians,25,5,2,2,1,70,40,20,300,120
+8,23,Mercenary,Mercenaries,29,6,2,1,1,50,40,15,400,130
+8,24,Raptor,Raptors,4,4,2,1,0,60,0,15,600,230
+8,25,Raptor,Raptors,4,5,1,1,0,60,0,20,800,300
+8,26,Spectre,Spectres,11,5,0,1,0,60,0,15,750,125
+8,27,Wraith,Wraiths,11,4,0,1,1,60,50,20,600,200
+8,28,Ghost,Ghosts,9,5,0,1,1,80,50,15,550,75
+8,29,Ghost,Ghosts,9,6,1,1,1,80,60,20,600,140
+8,30,Ghost,Ghosts,9,7,0,1,0,60,80,25,700,200
+8,31,Vampire Bat,Vampire Bats,16,7,0,1,1,70,0,25,650,125
+8,32,Vampire Bat,Vampire Bats,16,7,1,1,0,70,0,25,1000,200
+8,33,Winged Python,Winged Pythons,15,6,1,1,1,60,0,20,750,100
+8,34,Winged Asp,Winged Asps,15,4,0,2,1,80,0,10,300,50
+8,35,Winged Python,Winged Pythons,15,5,1,2,0,60,0,15,500,79
+8,36,Winged Python,Winged Pythons,15,7,0,1,1,60,0,20,600,150
+8,37,Enraged Barbarian,Enraged Barbarians,24,6,1,1,1,80,80,20,400,200
+8,38,Night Elf Warrior,Night Elf Warriors,20,7,0,1,0,80,30,25,1000,200
+8,39,Mercenary,Mercenaries,29,7,1,1,1,60,50,20,450,50
+9,0,Winged Asp,Winged Asps,15,4,0,3,0,80,0,15,250,50
+9,1,Winged Python,Winged Pythons,15,5,1,1,1,80,0,20,500,150
+9,2,Winged Python,Winged Pythons,15,6,0,1,1,70,0,20,550,100
+9,3,Winged Python,Winged Pythons,15,5,0,1,1,70,0,20,450,125
+9,4,Winged Python,Winged Pythons,15,7,0,1,0,60,0,25,750,175
+9,5,Vampire Sorceress,Vampire Sorceresses,12,4,1,1,1,80,0,15,550,150
+9,6,Vampire Sorceress,Vampire Sorceresses,12,5,0,1,1,80,0,15,600,200
+9,7,Vampire Sorceress,Vampire Sorceresses,12,5,1,1,0,60,0,20,700,200
+9,8,Vampire Sorceress,Vampire Sorceresses,12,6,0,1,0,60,0,25,750,250
+9,9,Flesh Golem,Flesh Golems,17,4,0,1,1,0,50,15,400,100
+9,10,Clay Golem,Clay Golems,17,6,1,1,0,0,0,15,650,150
+9,11,Clay Golem,Clay Golems,17,5,1,1,1,0,0,10,500,200
+9,12,Clay Golem,Clay Golems,17,6,0,1,0,0,0,15,600,150
+9,13,Clay Golem,Clay Golems,17,7,0,1,0,0,0,20,650,200
+9,14,Flesh Golem,Flesh Golems,17,4,0,1,2,0,75,10,400,100
+9,15,Vampire Sorceress,Vampire Sorceresses,12,5,2,1,0,60,0,20,800,150
+9,16,Desperado,Desperadoes,25,6,1,1,1,60,40,15,400,150
+9,17,Woodsman,Woodsmen,32,6,1,2,0,70,60,20,450,150
+9,18,Woodsman,Woodsmen,31,6,1,1,1,70,50,20,450,100
+9,19,Knave,Knaves,29,5,2,2,0,60,40,20,400,100
+9,20,Shrewd Thief,Shrewd Thieves,38,6,1,2,1,60,50,15,250,145
+9,21,Shrewd Thief,Shrewd Thieves,38,7,1,1,1,60,60,20,350,150
+9,22,Friar,Friars,41,6,1,1,1,70,80,15,400,75
+9,23,Friar,Friars,41,7,1,1,1,70,80,20,450,300
+9,24,Winged Python,Winged Pythons,15,7,0,1,0,70,0,20,800,75
+9,25,Winged Python,Winged Pythons,15,6,1,1,1,70,0,15,700,100
+9,26,Winged Python,Winged Pythons,15,5,1,2,0,60,0,15,600,50
+9,27,Vampire Sorceress,Vampire Sorceresses,12,7,0,1,0,60,0,15,1000,200
+9,28,Clay Golem,Clay Golems,17,6,1,1,1,0,0,15,650,120
+9,29,Clay Golem,Clay Golems,17,7,0,1,0,0,0,20,800,150
+9,30,Stone Golem,Stone Golem,17,8,0,1,0,0,0,30,1000,175
+9,31,Desperado,Desperadoes,22,7,1,1,1,50,25,20,400,100
+9,32,Desperado,Desperadoes,23,8,1,1,1,40,30,20,500,150
+9,33,Knave,Knaves,28,7,2,1,1,60,40,15,500,100
+9,34,Knave,Knaves,26,6,2,2,1,50,40,15,400,75
+9,35,Shrewd Thief,Shrewd Thieves,38,6,2,1,1,80,60,20,400,50
+9,36,Devious Sorcerer,Devious Sorcerers,43,8,1,2,0,80,90,20,500,75
+9,37,Devious Sorcerer,Devious Sorcerers,46,7,2,1,1,80,100,25,450,300
+9,38,Salosian Zealot,Salosian Zealots,42,5,1,2,1,70,100,25,200,40
+9,39,Were-Jaguar,Were-Jaguars,1,8,1,1,0,0,0,20,1000,450
+10,0,Night Elf,Night Elves,20,2,1,1,1,50,0,10,500,100
+10,1,Night Elf Monk,Night Elf Monks,20,4,0,1,1,50,50,15,650,150
+10,2,Night Elf Monk,Night Elf Monks,20,5,1,1,0,40,60,20,700,100
+10,3,Night Elf Monk,Night Elf Monks,20,6,0,1,0,40,40,20,800,250
+10,4,Night Elf Monk,Night Elf Monks,20,4,0,1,1,40,50,20,750,150
+10,5,Night Elf,Night Elves,20,3,0,1,1,60,0,15,550,100
+10,6,Grey Ooze,Grey Oozes,2,4,0,2,0,0,0,15,350,50
+10,7,Grey Ooze,Grey Oozes,2,4,1,1,1,0,0,15,450,100
+10,8,Grey Ooze,Grey Oozes,2,4,0,1,2,0,0,15,400,200
+10,9,Green Slime,Green Slimes,2,3,0,3,0,0,0,15,250,10
+10,10,Grey Ooze,Grey Oozes,2,5,0,1,1,50,0,15,500,25
+10,11,Skeletal Rogue,Skeletal Rogues,8,5,0,2,1,60,40,10,350,10
+10,12,Skeletal Warrior,Skeletal Warriors,8,5,1,1,1,50,30,20,500,100
+10,13,Skeletal Warrior,Skeletal Warriors,8,5,2,1,1,50,40,20,550,150
+10,14,Skeletal Savage,Skeletal Savages,8,5,1,1,2,40,50,10,400,100
+10,15,Ice Leech,Ice Leeches,5,1,1,1,1,40,0,10,500,300
+10,16,Ice Sleeth,Ice Sleeths,5,4,1,1,0,40,0,10,750,175
+10,17,Ice Leech,Ice Leeches,5,2,1,1,1,40,0,15,500,100
+10,18,Ice Sleeth,Ice Sleeths,5,4,0,1,0,40,0,20,700,250
+10,19,Barbarian Vandal,Barbarian Vandals,25,6,2,1,1,0,25,20,450,75
+10,20,Barbarian Vandal,Barbarian Vandals,22,7,1,1,1,0,20,20,400,100
+10,21,Woodsman,Woodsmen,32,6,1,1,1,60,25,15,400,100
+10,22,Ruthless Thief,Ruthless Thieves,35,6,0,2,1,60,40,20,350,200
+10,23,Ruthless Thief,Ruthless Thieves,35,4,2,2,1,50,50,15,300,300
+10,24,Wyvern,Wyverns,14,1,1,1,1,0,35,20,600,300
+10,25,Blue Dragon,Blue Dragons,14,3,0,1,0,0,40,20,600,250
+10,26,Blue Dragon,Blue Dragons,14,3,0,1,0,0,30,25,800,400
+10,27,Clay Golem,Clay Golems,17,5,1,1,1,0,0,20,800,150
+10,28,Hill Giant,Hill Giants,18,3,0,1,2,40,0,15,500,50
+10,29,Colossus,Colossuses,18,4,2,1,1,40,0,20,750,150
+10,30,Raptor,Raptors,4,6,0,1,0,60,0,10,500,50
+10,31,Raptor,Raptors,4,5,0,1,1,50,0,15,400,50
+10,32,Raptor,Raptors,4,6,1,1,0,40,0,20,550,100
+10,33,Colossus,Colossuses,18,6,0,1,0,0,0,20,750,200
+10,34,Frost Giant,Frost Giants,18,7,0,1,0,0,40,30,1000,250
+10,35,Night Elf Warrior,Night Elf Warriors,20,7,0,1,0,40,30,20,1000,200
+10,36,Night Elf Warrior,Night Elf Warriors,20,7,0,1,1,70,40,25,1000,225
+10,37,Devious Mage,Devious Mages,45,6,2,1,1,70,80,20,600,350
+10,38,Cleric of Nisym,Clerics of Nisym,40,7,1,1,1,60,70,20,500,300
+10,39,Ruthless Thief,Ruthless Thieves,38,6,1,1,2,50,50,25,400,100
+11,0,Grey Ooze,Grey Oozes,2,4,1,2,0,80,0,15,300,30
+11,1,Grey Ooze,Grey Oozes,2,6,0,1,1,70,0,15,400,75
+11,2,Grey Ooze,Grey Oozes,2,5,1,1,1,70,0,15,350,150
+11,3,Clay Golem,Clay Golems,17,5,0,1,1,80,0,15,500,200
+11,4,Clay Golem,Clay Golems,17,6,1,1,0,60,0,20,650,300
+11,5,Flesh Golem,Flesh Golems,17,4,0,2,0,80,0,15,400,70
+11,6,Clay Golem,Clay Golems,17,6,0,1,0,60,0,20,600,300
+11,7,Clay Golem,Clay Golems,17,5,0,1,1,70,0,15,650,200
+11,8,Ghoul,Ghouls,10,4,1,1,2,60,0,20,500,100
+11,9,Ghoul,Ghouls,10,4,2,1,1,70,0,15,600,120
+11,10,Ghoul,Ghouls,10,5,0,1,1,70,0,15,500,120
+11,11,Ghoul,Ghouls,10,6,0,1,0,60,0,20,750,250
+11,12,Ruffian,Ruffians,34,6,1,1,1,70,60,15,450,100
+11,13,Ruffian,Ruffians,34,7,2,1,2,70,60,15,500,200
+11,14,Druid,Druids,31,6,1,2,1,60,50,15,450,200
+11,15,Druid,Druids,31,7,1,1,1,60,40,15,600,300
+11,16,Minadarian Zealot,Minadarian Zealots,42,6,1,2,1,60,75,20,350,200
+11,17,Vicar of Eranel,Vicars of Eranel,41,6,1,2,0,70,80,20,400,125
+11,18,Wizard of Kodoa,Wizards of Kodoa,44,5,2,1,2,80,90,20,450,210
+11,19,Night Elf Monk,Night Elf Monks,20,3,1,1,1,80,70,20,500,120
+11,20,Night Elf Monk,Night Elf Monks,20,4,0,1,1,70,75,20,600,200
+11,21,Night Elf Monk,Night Elf Monks,20,4,1,1,1,70,80,25,650,200
+11,22,Night Elf Monk,Night Elf Monks,20,5,0,1,0,0,40,25,800,150
+11,23,Night Elf,Night Elves,20,3,0,2,0,0,0,15,400,160
+11,24,Grey Ooze,Grey Oozes,2,5,2,1,1,70,0,20,450,100
+11,25,Grey Ooze,Grey Oozes,2,6,0,1,1,70,0,15,500,150
+11,26,Flesh Golem,Flesh Golems,17,4,0,1,2,0,40,15,450,40
+11,27,Clay Golem,Clay Golems,17,7,0,1,1,0,0,20,700,125
+11,28,Clay Golem,Clay Golems,17,5,2,1,1,0,0,20,600,75
+11,29,Mummy,Mummies,10,7,0,1,1,50,0,15,750,250
+11,30,Mummy,Mummies,10,7,1,1,0,50,0,20,800,300
+11,31,Mummy,Mummies,10,8,0,1,0,50,0,20,900,450
+11,32,Ruffian,Ruffians,37,7,1,1,1,70,50,15,550,250
+11,33,Night Elf Warrior,Night Elf Warriors,20,7,0,1,0,60,40,25,1000,200
+11,34,Maverick,Mavericks,24,6,2,1,1,70,30,20,400,150
+11,35,Sentry,Sentries,29,7,1,1,1,50,50,20,450,175
+11,36,Sentry,Sentries,27,7,2,2,1,40,50,20,450,250
+11,37,Acolyte of Luapia,Acolytes of Luapia,40,8,0,1,0,80,60,20,500,200
+11,38,Minadarian Zealot,Minadarian Zealots,42,6,2,2,1,70,80,20,350,110
+11,39,Ruffian,Ruffians,35,8,0,1,1,60,60,20,550,200
+12,0,Medusa ,Medusas,6,5,0,2,1,70,0,20,600,100
+12,1,Guardian Medusa,Guardian Medusas,6,8,1,1,1,60,0,20,850,250
+12,2,Guardian Medusa,Guardian Medusas,6,6,2,1,1,50,0,20,700,300
+12,3,Guardian Medusa,Guardian Medusas,6,9,0,1,1,50,0,25,950,500
+12,4,Clay Golem,Clay Golems,17,5,2,1,2,60,0,15,550,125
+12,5,Clay Golem,Clay Golems,17,6,1,2,1,60,0,15,600,180
+12,6,Stone Golem,Stone Golems,17,8,0,2,0,0,0,20,700,350
+12,7,Stone Golem,Stone Golems,17,8,1,1,0,0,0,20,1100,500
+12,8,Stone Golem,Stone Golems,17,9,0,1,0,0,0,20,1200,400
+12,9,Fire Giant,Fire Giants,18,9,0,1,0,0,10,40,1000,350
+12,10,Frost Giant,Frost Giants,18,7,1,2,0,0,30,50,800,250
+12,11,Frost Giant,Frost Giants,18,7,0,2,1,0,25,20,700,125
+12,12,Frost Giant,Frost Giants,18,8,0,2,0,0,25,20,850,175
+12,13,Colossus,Colossuses,18,6,0,2,1,0,0,15,600,300
+12,14,Leosoian Assassin,Leosoian Assassins,25,7,2,2,2,70,20,15,400,225
+12,15,Night Elf Monk,Night Elf Monks,20,5,1,2,1,70,50,10,600,75
+12,16,Framian Guard,Framian Guards,26,8,2,2,1,50,20,20,650,185
+12,17,Night Elf Warrior,Night Elf Warriors,20,8,2,1,1,50,30,15,1100,200
+12,18,Raffish Thief,Raffish Thieves,38,8,1,3,1,60,20,20,400,200
+12,19,Rustic Cleric,Rustic Clerics,40,8,2,2,1,70,35,20,600,180
+12,20,Rustic Cleric,Rustic Clerics,39,8,2,2,1,60,60,20,600,150
+12,21,Warlock,Warlocks,45,9,1,1,2,70,90,20,650,250
+12,22,Warlock,Warlocks,45,10,0,1,1,70,100,20,700,300
+12,23,Warlock,Warlocks,45,9,1,2,1,70,75,20,600,275
+12,24,Fire Giant,Fire Giants,18,10,0,1,0,0,20,35,1750,400
+12,25,Vampire Bat,Vampire Bats,16,7,2,1,1,50,0,20,600,100
+12,26,Giant Vampire Bat,Giant Vampire Bats,16,11,0,1,0,40,0,20,1100,1000
+12,27,Spectre,Spectres,11,7,1,1,1,0,0,15,700,100
+12,28,Spectre,Spectres,11,7,0,2,0,0,0,25,650,125
+12,29,Spectre,Spectres,11,8,0,1,1,40,0,30,800,150
+12,30,Restless Phantom,Restless Phantoms,11,7,0,2,0,40,0,20,250,45
+12,31,Night Elf Conjurer,Night Elf Conjurers,20,11,0,1,0,60,50,40,1500,350
+12,32,Rosinean Archer,Rosinean Archers,33,8,2,2,1,50,25,25,500,50
+12,33,Rosinean Archer,Rosinean Archers,33,9,1,2,0,40,40,30,550,250
+12,34,Raffish Thief,Raffish Thieves,35,8,1,2,1,60,40,20,250,100
+12,35,Raffish Thief,Raffish Thieves,35,9,1,2,0,50,50,20,350,333
+12,36,Mummy,Mummies,10,7,1,2,0,60,0,20,800,200
+12,37,Ghost,Ghosts,9,9,0,1,0,50,20,20,1000,250
+12,38,Ghost,Ghosts,9,7,0,1,1,40,40,20,500,300
+12,39,Frost Giant,Frost Giants,18,7,0,2,0,50,45,20,250,150
+13,0,Skeletal Warrior,Skeletal Warriors,8,4,2,2,1,60,40,15,400,50
+13,1,Skeletal Ranger,Skeletal Rangers,8,8,0,1,1,50,50,20,700,200
+13,2,Skeletal Gladiator,Skeletal Gladiators,8,8,0,1,1,70,30,15,700,175
+13,3,Skeletal Warrior,Skeletal Warriors,8,4,1,2,2,60,20,15,350,50
+13,4,Skeletal Barbarian,Skeletal Barbarians,8,6,1,2,1,60,30,15,500,65
+13,5,Apparition,Apparitions,9,5,2,2,0,80,25,15,400,40
+13,6,Apparition,Apparitions,9,6,0,2,1,80,40,20,400,75
+13,7,Restless Spirit,Restless Spirits,9,8,0,1,1,50,35,15,750,125
+13,8,Ghost,Ghosts,9,7,0,2,0,50,60,15,600,175
+13,9,Ghoul,Ghouls,10,4,2,2,1,60,0,15,400,50
+13,10,Mummy,Mummies,10,7,1,1,1,60,0,15,750,250
+13,11,Ghoul,Ghouls,10,5,1,2,0,50,0,15,500,100
+13,12,Mummy,Mummies,10,8,0,1,1,50,0,20,800,225
+13,13,Mummy,Mummies,10,8,1,1,1,60,0,20,900,300
+13,14,Vampire Sorceress,Vampire Sorceresses,12,4,2,2,0,70,0,15,750,175
+13,15,Vampire Sorceress,Vampire Sorceresses,12,5,0,1,1,50,0,15,500,50
+13,16,Vampire Enchantress,Vampire Enchantresses,12,8,0,1,0,50,75,20,900,300
+13,17,Vampire Sorceress,Vampire Sorceresses,12,5,1,1,1,50,0,15,600,50
+13,18,Vampire Enchantress,Vampire Enchantresses,12,8,1,1,0,50,50,15,950,200
+13,19,Vandal,Vandals,37,8,2,2,0,70,50,20,500,150
+13,20,Vandal,Vandals,34,7,2,2,1,50,30,15,450,75
+13,21,Vandal,Vandals,37,7,1,2,1,60,40,15,400,125
+13,22,Grave Robber,Grave Robbers,24,7,2,2,1,60,30,15,500,150
+13,23,Grave Robber,Grave Robbers,23,8,1,2,0,60,20,20,550,225
+13,24,Skeletal Fiend,Skeletal Fiends,8,9,0,1,1,50,40,20,750,345
+13,25,Mummy,Mummies,10,8,1,1,1,50,0,20,750,289
+13,26,Restless Spirit,Restless Spirits,9,7,2,2,1,50,40,25,500,123
+13,27,Mummy,Mummies,10,9,0,1,1,40,0,25,900,400
+13,28,Vampire Sorceress,Vampire Sorceresses,12,5,0,2,0,50,0,25,250,100
+13,29,Vampire Enchantress,Vampire Enchantresses,12,9,0,1,0,50,60,25,1000,400
+13,30,Frost Giant,Frost Giants,18,7,1,1,1,50,40,25,700,175
+13,31,Green Dragon,Green Dragons,14,7,0,1,0,0,45,20,1000,300
+13,32,Vampire Bat,Vampire Bats,16,7,2,2,0,40,0,15,750,500
+13,33,Skeletal Giant,Skeletal Giants,8,5,1,2,0,0,50,20,250,100
+13,34,Frost Giant,Frost Giants,18,8,0,1,1,0,30,25,900,200
+13,35,Vandal,Vandals,34,9,1,2,0,70,40,25,650,100
+13,36,Grave Robber,Grave Robbers,22,9,0,1,1,60,25,20,750,225
+13,37,Thug,Thugs,28,8,1,2,0,50,35,20,500,345
+13,38,Malevolent Cleric,Malevolent Clerics,42,8,1,2,0,70,70,20,250,100
+13,39,Vandal,Vandals,38,10,0,1,1,60,50,25,700,200
+14,0,Jaguar,Jaguars,1,6,1,2,0,0,0,25,400,200
+14,1,Jaguar,Jaguars,1,7,0,1,1,0,0,25,500,250
+14,2,Jaguar,Jaguars,1,7,0,1,1,0,0,20,550,275
+14,3,Jaguar,Jaguars,1,5,1,2,1,0,0,20,450,100
+14,4,Ice Leech,Ice Leeches,5,3,0,2,1,70,0,25,450,25
+14,5,Ice Leech,Ice Leeches,5,2,1,2,1,70,0,20,400,150
+14,6,Ice Sleeth,Ice Sleeths,5,4,0,1,1,60,0,20,500,50
+14,7,Ice Sleeth,Ice Sleeths,5,5,0,1,0,60,0,25,650,100
+14,8,Ice Sleeth,Ice Sleeths,5,5,1,1,0,50,0,25,750,125
+14,9,Night Elf Warrior,Night Elf Warriors,20,7,0,1,0,50,20,25,900,300
+14,10,Night Elf Warrior,Night Elf Warriors,20,7,1,1,0,70,40,25,1000,250
+14,11,Night Elf Monk,Night Elf Monks,20,5,1,1,1,70,60,20,750,100
+14,12,Night Elf Monk,Night Elf Monks,20,6,0,1,1,70,70,25,800,125
+14,13,Night Elf Monk,Night Elf Monks,20,4,1,2,0,50,50,20,600,75
+14,14,Raptor,Raptors,4,4,1,2,1,0,0,15,300,50
+14,15,Raptor,Raptors,4,5,1,2,0,0,0,20,400,150
+14,16,Raptor,Raptors,4,5,2,2,0,0,0,20,450,200
+14,17,Raptor,Raptors,4,6,1,1,1,70,0,30,600,100
+14,18,Mage of Tresmed,Mages of Tresmed,45,7,1,2,1,80,90,30,400,150
+14,19,Mage of Tresmed,Mages of Tresmed,43,7,2,1,1,80,100,25,450,250
+14,20,Trebosian Guard,Trebosian Guards,28,7,1,1,1,50,30,25,400,100
+14,21,Hermit,Hermits,39,7,2,2,0,60,70,20,450,300
+14,22,Maoelian Woodsman,Maeolian Woodsmen,31,7,1,2,0,60,50,25,400,275
+14,23,Hermit,Hermits,42,6,2,2,1,60,70,30,350,157
+14,24,Jaguar,Jaguars,1,4,1,2,0,60,0,25,250,50
+14,25,Sularian Knight,Sularian Knights,26,7,1,2,0,50,40,25,250,100
+14,26,Were-Jaguar,Were-Jaguar,1,8,0,1,0,0,0,25,1000,200
+14,27,Night Elf,Night Elves,20,3,0,2,0,60,0,20,250,75
+14,28,Ice Leech,Ice Leeches,5,1,1,1,0,50,0,25,250,250
+14,29,Hermit,Hermits,40,7,2,2,0,60,75,30,450,200
+14,30,Night Elf Warrior,Night Elf Warriors,20,7,1,1,0,50,20,30,850,85
+14,31,Raptor,Raptors,4,8,0,1,0,50,0,30,750,335
+14,32,Black Dragon,Black Dragons,14,6,0,1,0,0,60,35,900,200
+14,33,Mage of Tresmed,Mages of Tresmed,43,7,2,2,0,0,90,30,450,222
+14,34,Trebosian Guard,Trebosian Guards,26,7,2,2,0,70,50,30,400,325
+14,35,Hermit,Hermits,41,6,2,1,2,80,80,30,300,125
+14,36,Vagrant,Vagrants,37,7,2,2,0,60,50,30,400,150
+14,37,Trebosian Guard,Trebosian Guards,27,7,2,2,0,50,40,25,400,100
+14,38,Woodsman of Ooslea,Woodsmen of Ooslea,32,7,2,2,0,70,50,30,500,125
+14,39,Mage of Tresmed,Mages of Tresmed,44,9,0,1,0,80,85,30,700,275
+15,0,Raptor,Raptors,4,8,0,1,1,70,0,15,750,300
+15,1,Raptor,Raptors,4,5,2,2,1,70,0,20,400,150
+15,2,Raptor,Raptors,4,7,1,2,1,60,0,15,600,225
+15,3,Deinon,Deinons,4,9,0,1,1,60,0,20,850,450
+15,4,Medusa,Medusas,6,4,1,2,0,60,0,15,400,120
+15,5,Medusa,Medusas,6,5,0,2,0,60,0,15,450,145
+15,6,Guardian Medusa,Guardian Medusas,6,6,0,1,1,60,0,15,650,150
+15,7,Guardian Medusa,Guardian Medusas,6,6,1,1,1,60,0,20,800,200
+15,8,Guardian Medusa,Guardian Medusas,6,6,0,2,0,40,0,20,650,300
+15,9,Blue Dragon,Blue Dragons,14,3,0,1,1,40,10,20,800,500
+15,10,Blue Dragon,Blue Dragons,14,4,0,1,1,40,10,20,850,600
+15,11,Blue Dragon,Blue Dragons,14,3,0,2,0,40,25,20,750,250
+15,12,Black Dragon,Black Dragons,14,5,0,1,0,50,20,30,1000,800
+15,13,Blue Dragon,Blue Dragons,14,3,1,1,1,50,10,15,850,200
+15,14,Colossus,Colossuses,18,5,1,2,0,50,0,20,500,100
+15,15,Colossus,Colossuses,18,5,0,2,1,50,0,15,450,100
+15,16,Colossus,Colossuses,18,6,0,1,1,0,0,20,600,200
+15,17,Frost Giant,Frost Giants,18,7,0,1,1,0,50,20,800,125
+15,18,Frost Giant,Frost Giants,18,7,1,1,1,0,40,20,850,180
+15,19,Frost Giant,Frost Giants,18,7,1,1,1,0,50,20,850,250
+15,20,Warlord of Zekad,Warlords of Zekad,26,8,1,2,1,60,50,15,500,250
+15,21,Belaodian Warlord,Belaodian Warlords,27,8,2,2,0,50,50,15,550,600
+15,22,Hermit,Hermits,41,7,2,2,0,70,70,15,450,452
+15,23,Druid of Deameol,Druids of Deameol,31,7,2,2,0,70,50,15,400,350
+15,24,Frost Giant,Frost Giants,18,7,0,1,0,50,30,20,500,200
+15,25,Deinon,Deinons,4,9,0,1,0,50,0,20,900,600
+15,26,Guardian Medusa,Guardian Medusas,6,8,1,1,0,40,0,20,1000,375
+15,27,Black Dragon,Black Dragons,14,5,0,1,0,0,20,20,750,300
+15,28,Black Dragon,Black Dragons,14,5,1,1,0,0,20,20,1250,300
+15,29,Medusa,Medusas,6,4,1,2,0,0,0,20,250,100
+15,30,Frost Giant,Frost Giants,18,8,0,2,0,0,50,25,900,500
+15,31,Fire Giant,Fire Giants,18,9,0,1,1,0,40,50,1100,1000
+15,32,Taurian Zealot,Taurian Zealots,39,7,1,2,0,0,40,20,250,750
+15,33,Fire Giant,Fire Giants,18,10,0,1,0,0,75,50,1250,1250
+15,34,Warlord of Zekad,Warlords of Zekad,26,7,1,2,0,50,40,20,250,255
+15,35,Warlord of Zekad,Warlords of Zekad,26,9,1,2,0,50,30,20,650,387
+15,36,Belaodian Warlord,Belaodian Warlords,27,8,1,2,0,40,30,15,550,239
+15,37,Belaodian Warlord,Belaodian Warlords,27,9,0,1,1,40,30,20,550,263
+15,38,Druid of Deameol,Druids of Deameol,31,8,2,2,1,70,20,15,450,542
+15,39,Druid of Deameol,Druids of Deameol,31,8,2,1,1,70,30,20,550,350
+16,0,Were-Jaguar,Were-Jaguars,1,8,1,1,0,0,0,20,800,368
+16,1,Jaguar,Jaguars,1,7,0,2,1,0,0,15,250,100
+16,2,Were-Jaguar,Were-Jaguars,1,8,0,1,1,0,0,15,400,200
+16,3,Deinon,Deinons,4,9,0,1,1,60,0,15,850,400
+16,4,Deinon,Deinons,4,9,1,1,0,60,0,15,1000,400
+16,5,Raptor,Raptors,4,7,1,2,1,50,0,15,600,278
+16,6,Deinon,Deinons,4,9,0,1,1,50,0,15,900,268
+16,7,Rabid Bat,Rabid Bats,16,5,2,1,1,80,0,20,600,78
+16,8,Rabid Bat,Rabid Bats,16,6,0,2,0,80,0,20,550,115
+16,9,Vampire Bat,Vampire Bats,16,6,1,1,1,60,0,20,600,135
+16,10,Vampire Bat,Vampire Bats,16,7,1,1,1,60,0,20,700,274
+16,11,Vampire Bat,Vampire Bats,16,8,0,1,0,60,0,20,750,125
+16,12,Ice Sleeth,Ice Sleeths,5,4,2,1,1,70,0,20,750,100
+16,13,Ice Sleeth,Ice Sleeths,5,6,1,1,1,70,0,20,850,255
+16,14,Ice Sleeth,Ice Sleeths,5,7,0,1,0,70,0,25,900,400
+16,15,Ice Leech,Ice Leeches,5,1,1,3,0,50,0,30,400,100
+16,16,Ice Leech,Ice Leeches,5,3,0,2,0,50,0,20,600,50
+16,17,Ice Leech,Ice Leeches,5,2,0,2,0,50,0,20,550,100
+16,18,White Death,White Deaths,5,8,0,1,0,50,60,20,1500,256
+16,19,Savage Barbarian,Savage Barbarians,23,9,0,2,0,40,20,20,550,356
+16,20,Savage Barbarian,Savage Barbarians,23,9,1,1,1,40,40,20,600,358
+16,21,Leosoian Archer,Leosoian Archers,33,7,3,2,1,80,50,20,300,200
+16,22,Davalonian Cleric,Davalonian Clerics,41,9,1,2,1,80,70,15,600,397
+16,23,Acolyte of Sraaden,Acolytes of Sraaden,40,7,3,2,0,60,75,20,550,300
+16,24,Were-Jaguar,Were-Jaguars,1,8,0,1,1,0,0,25,800,250
+16,25,Were-Jaguar,Were-Jaguars,1,9,0,1,0,0,0,25,1250,400
+16,26,Deinon,Deinons,4,9,1,1,0,50,0,15,1100,438
+16,27,Deinon,Deinons,4,9,0,1,1,50,0,15,1300,450
+16,28,Jasokian Druid,Jasokian Druids,30,9,0,2,0,50,30,20,250,450
+16,29,Giant Vampire Bat,Giant Vampire Bats,16,9,0,1,0,50,0,20,1400,253
+16,30,Ice Sleeth,Ice Sleeths,5,7,0,1,0,80,0,25,900,253
+16,31,White Death,White Deaths,5,8,0,1,1,60,50,15,1000,300
+16,32,Ice Leech,Ice Leeches,5,1,0,2,0,60,0,20,250,125
+16,33,Savage Barbarian,Savage Barbarians,23,9,1,2,0,40,40,15,650,350
+16,34,Savage Barbarian,Savage Barbarians,23,10,0,1,1,40,50,20,700,600
+16,35,Davalonian Cleric,Davalonian Clerics,41,8,1,2,0,80,70,15,250,350
+16,36,Legionnaire,Legionnaires,28,8,2,2,0,80,50,20,600,375
+16,37,Davalonian Cleric,Davalonian Clerics,41,8,2,2,0,80,70,20,550,250
+16,38,Acolyte of Sraaden,Acolytes of Sraaden,40,8,2,2,0,60,60,20,500,300
+16,39,Acolyte of Sraaden,Acolytes of Sraaden,40,9,1,2,0,60,70,20,650,687
+17,0,Python,Pythons,3,3,0,2,2,80,0,20,250,10
+17,1,Python,Pythons,3,4,0,2,1,70,0,20,300,25
+17,2,Pincer Python,Pincer Pythons,3,5,1,1,1,60,0,25,350,50
+17,3,Pincer Python,Pincer Pythons,3,6,0,1,1,0,0,25,400,65
+17,4,Pincer Python,Pincer Pythons,3,6,1,1,0,0,0,25,600,98
+17,5,Marillian Swindler,Marillian Swindlers,34,7,2,2,1,60,60,25,350,125
+17,6,Marillian Swindler,Marillian Swindlers,34,7,2,2,0,60,50,25,350,135
+17,7,Marillian Swindler,Marillian Swindlers,34,8,1,1,2,60,50,20,400,157
+17,8,Faenian Sorcerer,Faenian Sorcerers,45,7,2,2,0,80,90,20,350,210
+17,9,Enchantress of Cassille,Enchantresses of Cassille,46,8,2,1,1,80,80,25,450,325
+17,10,Enchantress of Cassille,Enchantresses of Cassille,46,9,0,1,1,80,85,30,500,450
+17,11,Clay Golem,Clay Golems,17,5,1,2,0,70,0,20,500,100
+17,12,Flesh Golem,Flesh Golems,17,4,0,2,0,70,40,20,400,50
+17,13,Clay Golem,Clay Golems,17,7,0,1,1,0,0,25,550,250
+17,14,Grey Ooze,Grey Oozes,2,6,1,1,1,70,0,20,400,100
+17,15,Grey Ooze,Grey Oozes,2,7,0,1,0,70,0,20,500,200
+17,16,Grey Ooze,Grey Oozes,2,6,0,2,0,70,0,20,400,75
+17,17,Grey Ooze,Grey Oozes,2,5,1,2,0,50,0,25,450,50
+17,18,Grey Ooze,Grey Oozes,2,4,2,2,1,50,0,25,300,100
+17,19,Winged Asp,Winged Asps,15,4,0,2,2,70,0,20,350,75
+17,20,Winged Python,Winged Pythons,15,5,0,2,0,60,0,20,400,50
+17,21,Winged Python,Winged Pythons,15,6,1,1,1,60,0,20,500,50
+17,22,Murderous Thief,Murderous Thieves,35,8,1,1,2,50,60,20,500,100
+17,23,Murderous Thief,Murderous Thieves,35,9,0,1,0,50,50,20,600,75
+17,24,Pincer Python,Pincer Pythons,3,5,1,1,1,60,0,15,500,50
+17,25,Guardian Medusa,Guardian Medusas,6,8,0,2,0,50,0,20,500,150
+17,26,Guardian Medusa,Guardian Medusas,6,6,1,1,1,60,0,25,500,400
+17,27,Marillian Swindler,Marillian Swindlers,34,8,2,1,2,70,50,20,250,300
+17,28,Marillian Swindler,Marillian Swindlers,34,7,1,2,1,70,50,15,400,100
+17,29,Night Elf Warrior,Night Elf Warriors,20,7,1,1,1,80,30,20,900,200
+17,30,Enchantress of Cassille,Enchantresses of Cassille,46,7,2,2,1,80,90,15,500,150
+17,31,Knight of Kaleaon,Knights of Kaleaon,27,7,2,2,1,70,50,20,600,250
+17,32,Flesh Golem,Flesh Golems,17,4,0,2,1,50,30,15,250,200
+17,33,Stone Golem,Stone Golems,17,8,0,1,0,0,0,25,750,100
+17,34,Grey Ooze,Grey Oozes,2,6,0,2,0,70,0,20,500,50
+17,35,Grey Ooze,Grey Oozes,2,7,0,1,1,70,0,20,600,125
+17,36,Black Sludge,Black Sludges,2,8,0,1,0,50,0,25,700,200
+17,37,Black Sludge,Black Sludges,2,8,1,1,0,50,0,25,500,250
+17,38,Winged Python,Winged Pythons,15,7,0,1,1,60,0,20,500,225
+17,39,Murderous Thief,Murderous Thieves,35,10,2,2,1,60,50,25,250,200
+18,0,Python,Pythons,3,4,1,2,1,80,0,15,300,50
+18,1,Python,Pythons,3,5,0,2,0,80,0,15,350,50
+18,2,Pincer Python,Pincer Pythons,3,6,1,1,1,80,0,15,550,100
+18,3,Pincer Python,Pincer Pythons,3,6,0,2,0,80,0,20,500,125
+18,4,Pincer Python,Pincer Pythons,3,6,1,1,1,70,0,20,550,200
+18,5,Pincer Python,Pincer Pythons,3,7,0,1,0,70,0,20,650,200
+18,6,Pincer Python,Pincer Pythons,3,8,0,1,0,70,0,20,750,150
+18,7,Pincer Python,Pincer Pythons,3,6,0,2,0,70,0,20,400,100
+18,8,Medusa,Medusas,6,5,0,2,1,60,0,20,500,50
+18,9,Medusa,Medusas,6,4,1,2,1,60,0,20,400,85
+18,10,Guardian Medusa,Guardian Medusas,6,6,2,1,0,60,0,20,750,150
+18,11,Guardian Medusa,Guardian Medusa,6,7,0,1,0,60,0,20,800,75
+18,12,Black Sludge,Black Sludges,2,8,0,1,0,60,0,15,700,200
+18,13,Grey Ooze,Grey Oozes,2,7,0,1,1,60,0,15,600,150
+18,14,Grey Ooze,Grey Oozes,2,6,1,1,1,50,0,20,500,80
+18,15,Grey Ooze,Grey Oozes,2,5,1,2,0,50,0,20,400,20
+18,16,Winged Python,Winged Pythons,15,5,1,2,1,70,0,15,400,25
+18,17,Winged Python,Winged Pythons,15,6,1,1,1,70,0,15,500,65
+18,18,Winged Python,Winged Pythons,15,7,0,1,0,70,0,15,600,100
+18,19,Winged Python,Winged Pythons,15,7,1,1,0,60,0,20,600,200
+18,20,Winged Python,Winged Pythons,15,8,0,1,0,60,0,25,900,400
+18,21,Winged Python,Winged Pythons,15,6,0,2,0,60,0,20,450,75
+18,22,Winged Python,Winged Pythons,15,5,0,2,1,60,0,25,400,50
+18,23,Giant Asp,Giant Asp,3,13,0,1,0,0,50,90,3500,3500
+18,24,Winged Asp,Winged Asps,15,3,1,3,0,0,0,10,100,45
+18,25,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,26,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,27,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,28,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,29,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,30,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,31,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,32,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,33,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,34,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,35,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,36,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,37,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,38,Null,Null,0,0,0,0,0,0,0,0,0,0
+18,39,Null,Null,0,0,0,0,0,0,0,0,0,0
+19,0,Night Elf Thief,Night Elf Thieves,20,7,2,2,2,35,25,25,475,115
+19,1,Erebus Stalker,Erebus Stalkers,13,1,1,1,2,30,45,25,600,160
+19,2,Ice Panther,Ice Panthers,1,11,0,2,1,20,0,0,550,150
+19,3,Kaalroth,Kaalroths,7,3,0,1,1,0,0,30,650,200
+19,4,Night Elf Thief,Night Elf Thieves,20,8,1,1,4,35,25,25,475,115
+19,5,Lesser Kaalroth,Lesser Kaalroths,7,1,1,2,1,25,0,5,625,175
+19,6,Were-Jaguar,Were-Jaguars,1,8,2,3,2,30,0,0,475,115
+19,7,Kaalroth,Kaalroths,7,2,1,1,3,0,0,30,625,175
+19,8,Dragon Slayer,Dragon Slayers,28,8,1,2,1,0,35,20,525,150
+19,9,Night Elf Lord,Night Elf Lords,20,10,0,2,2,0,45,10,565,165
+19,10,Ice Panther,Ice Panthers,1,11,1,1,1,20,0,0,550,160
+19,11,Were-Jaguar,Were-Jaguars,1,9,1,3,3,30,0,0,475,115
+19,12,Night Elf Thief,Night Elf Thieves,20,9,0,2,1,35,25,25,475,115
+19,13,Night Elf Lord,Night Elf Lords,20,10,1,1,1,0,45,10,565,165
+19,14,Kaalroth,Kaalroths,7,1,1,2,2,25,0,30,625,175
+19,15,Night Elf Thief,Night Elf Thieves,20,8,0,3,3,35,25,25,475,115
+19,16,Lesser Kaalroth,Lesser Kaalroths,7,1,1,3,2,25,0,5,600,170
+19,17,Were-Jaguar,Were-Jaguars,1,10,0,3,0,30,0,0,475,115
+19,18,Kaalroth,Kaalroths,7,3,0,1,2,25,0,30,625,175
+19,19,Dragon Slayer,Dragon Slayers,28,9,1,2,1,0,35,20,525,150
+19,20,Night Elf Lord,Night Elf Lords,20,11,0,1,1,0,45,10,565,165
+19,21,Shadow Warrior,Shadow Warriors,20,11,0,2,1,0,35,0,590,165
+19,22,Shadow Warrior,Shadow Warriors,20,11,1,1,2,0,35,0,605,170
+19,23,Qao's Servant,Qao's Servants,14,6,1,1,1,0,35,15,800,500
+19,24,Guild Member,Guild Members,35,9,1,1,2,25,35,20,455,150
+19,25,Guildsman,Guildsmen,37,9,2,1,1,0,45,25,465,150
+19,26,Praxis Thaumaturge,Praxis Thaumaturges,19,2,1,1,1,30,45,15,535,200
+19,27,Young Praxis,Young Praxis,19,1,0,1,3,40,55,10,550,210
+19,28,Shaman Praxis,Shaman Praxis,19,4,1,1,0,0,65,15,635,250
+19,29,Troll Warrior,Troll Warriors,27,10,1,1,2,40,25,20,485,175
+19,30,Erebus Fiend,Erebus Fiends,13,1,2,2,1,15,25,20,700,350
+19,31,Red Knight,Red Knight,26,10,0,1,0,0,35,15,500,175
+19,32,Dragon Knight,Dragon Knight,14,7,1,1,0,0,35,15,950,500
+19,33,Night Elf Bishop,Night Elf Bishop,20,10,1,1,0,0,35,15,800,450
+19,34,Knight of Darkness,Knight of Darkness,22,10,1,1,0,0,25,15,775,475
+19,35,Master Erebus,Master Erebus,13,10,1,1,0,0,55,30,900,600
+19,36,Master Praxis,Master Praxis,19,10,1,1,0,0,75,30,900,600
+19,37,Lava Rook,Lava Rooks,17,10,1,1,0,0,0,25,590,245
+19,38,Obsidian Rook,Obsidian Rook,17,11,0,1,0,0,0,25,610,250
+19,39,Obsidian Rook,Obsidian Rook,17,10,1,1,0,0,0,25,625,275
+20,0,Ice Sleeth,Ice Sleeths,5,6,0,1,1,50,0,15,800,200
+20,1,Ice Sleeth,Ice Sleeths,5,6,0,1,1,50,0,15,950,250
+20,2,White Death,White Deaths,5,8,1,1,0,50,60,15,1250,300
+20,3,White Death,White Deaths,5,8,0,1,0,70,70,15,1200,150
+20,4,White Death,White Deaths,5,8,1,1,0,60,60,15,1250,200
+20,5,White Death,White Deaths,5,9,0,1,0,50,70,20,1300,150
+20,6,Frost Giant,Frost Giants,18,7,1,1,1,60,60,15,800,150
+20,7,Fire Giant,Fire Giants,18,9,0,1,1,50,50,20,1100,150
+20,8,Black Dragon,Black Dragons,14,6,0,1,1,80,50,20,3000,400
+20,9,Frost Dragon,Frost Dragons,14,7,1,1,1,70,60,20,5000,350
+20,10,Frost Dragon,Frost Dragons,14,8,0,1,0,60,75,20,5000,400
+20,11,Ice Dragon,Ice Dragons,14,8,0,1,0,50,70,20,6000,500
+20,12,Ice Dragon,Ice Dragons,14,9,0,1,0,50,80,20,6000,500
+20,13,Fire Giant,Fire Giants,18,9,0,1,1,50,40,50,1100,400
+20,14,Frost Giant,Frost Giants,18,8,0,1,1,80,50,20,800,300
+20,15,Fire Giant,Fire Giants,18,9,0,1,0,40,50,20,1100,200
+20,16,Frost Giant,Frost Giants,18,8,0,1,1,60,50,20,800,150
+20,17,Fire Giant,Fire Giants,18,9,0,1,1,50,50,50,110,100
+20,18,Colossus,Colossuses,18,6,0,2,2,50,0,20,500,200
+20,19,Mercenary,Mercenaries,23,9,2,1,1,60,40,20,600,300
+20,20,Ruthless Assassin,Ruthless Assassins,28,9,1,2,1,50,50,20,550,100
+20,21,Woodsman of Deolma,Woodsmen of Deolma,32,10,0,1,1,70,60,20,500,300
+20,22,Ruffian,Ruffians,36,10,0,1,2,70,70,20,450,250
+20,23,Cleric of Xekal,Clerics of Xekal,42,10,1,1,1,80,80,20,600,240
+20,24,White Death,White Deaths,5,8,0,1,1,50,60,20,1250,120
+20,25,White Death,White Deaths,5,8,1,1,0,60,50,20,1300,150
+20,26,White Death,White Deaths,5,9,0,1,0,60,60,20,1500,400
+20,27,Fire Giant,Fire Giants,18,9,0,1,1,50,70,20,900,100
+20,28,Ice Dragon,Ice Dragons,14,8,0,1,1,60,70,20,6000,100
+20,29,Stone Golem,Stone Golems,17,8,1,1,1,70,0,25,1100,200
+20,30,Ice Leech,Ice Leeches,5,3,0,2,0,60,0,25,400,100
+20,31,Stone Golem,Stone Golems,17,9,0,2,0,70,0,25,900,250
+20,32,Mercenary,Mercenaries,22,9,1,2,1,80,50,25,700,180
+20,33,Meodarian Knight,Meodarian Knights,29,9,2,2,0,80,60,25,600,280
+20,34,Ealdoarian Archer,Ealdoarian Archers,30,8,3,2,1,80,70,25,500,180
+20,35,Ruffian,Ruffians,37,8,1,3,0,80,80,25,400,250
+20,36,Cleric of Xekal,Clerics of Xekal,39,9,1,2,1,80,90,25,450,100
+20,37,Ice Dragon,Ice Dragons,14,8,0,1,0,60,70,25,6000,200
+20,38,Gambril,Gambril,14,12,0,1,0,0,50,50,10000,5000
+20,39,Osterog,Osterog,14,12,0,1,0,0,50,50,10000,5000
+21,0,Lesser Kaalroth,Lesser Kaalroths,7,4,1,2,1,50,0,20,800,100
+21,1,Lesser Kaalroth,Lesser Kaalroths,7,5,0,2,1,50,0,15,850,150
+21,2,Lesser Kaalroth,Lesser Kaalroths,7,5,1,2,0,60,0,20,900,175
+21,3,Lesser Kaalroth,Lesser Kaalroths,7,6,0,1,1,60,0,20,1000,200
+21,4,Greater Kaalroth,Greater Kaalroths,7,7,0,1,0,80,50,20,1100,250
+21,5,Kaalroth,Kaalroths,7,2,1,3,1,70,0,20,700,100
+21,6,Clay Golem,Clay Golems,17,6,1,2,1,60,0,20,500,50
+21,7,Stone Golem,Stone Golems,17,8,0,2,0,0,0,20,600,75
+21,8,Stone Golem,Stone Golems,17,8,1,1,1,50,0,20,600,100
+21,9,Stone Golem,Stone Golems,17,9,0,1,1,40,0,20,650,250
+21,10,Stone Golem,Stone Golems,17,8,1,1,1,40,0,20,625,120
+21,11,Ghost,Ghosts,9,7,1,2,1,50,0,15,500,240
+21,12,Ghost,Ghosts,9,7,2,1,1,50,0,20,550,100
+21,13,Disturbed Spirit,Disturbed Spirits,9,8,1,1,1,60,0,15,750,50
+21,14,Poltergeist,Poltergeists,9,9,0,1,1,60,0,20,800,150
+21,15,Poltergeist,Poltergeists,9,9,1,1,0,70,0,15,800,250
+21,16,Cunning Thief,Cunning Thieves,35,9,1,3,1,80,60,15,400,75
+21,17,Cunning Thief,Cunning Thieves,35,10,1,2,2,80,50,15,500,50
+21,18,Ecclesiastic,Ecclesiastics,42,9,1,2,1,80,75,15,600,100
+21,19,Roanthan Cleric,Roanthan Clerics,41,9,2,2,1,80,80,15,650,125
+21,20,Maniacal Wizard,Maniacal Wizards,44,8,1,3,1,80,85,20,600,50
+21,21,Maniacal Wizard,Maniacal Wizards,44,10,0,1,1,80,85,25,700,75
+21,22,Deranged Mage,Deranged Mages,46,8,1,2,1,80,90,25,600,50
+21,23,Deranged Mage,Deranged Mages,46,10,0,1,1,80,40,20,700,90
+21,24,Guardian Medusa,Guardian Medusas,6,7,1,2,1,80,0,20,900,80
+21,25,Guardian Medusa,Guardian Medusas,6,9,0,2,0,80,0,25,1000,100
+21,26,Guardian Medusa,Guardian Medusas,6,10,0,1,1,80,0,20,1050,125
+21,27,Roanthan Cleric,Roanthan Clerics,41,8,1,2,0,80,65,25,450,250
+21,28,Medusa Priestess,Medusa Priestesses,6,11,0,1,0,80,75,25,1250,150
+21,29,Greater Kaalroth,Greater Kaalroths,7,8,0,1,0,70,60,20,1400,200
+21,30,Green Dragon,Green Dragons,14,8,0,1,1,60,50,20,6000,125
+21,31,Frost Dragon,Frost Dragons,14,9,0,1,1,70,50,20,6500,150
+21,32,Ice Dragon,Ice Dragons,14,9,0,1,0,70,60,20,6250,200
+21,33,Poltergeist,Poltergeists,9,10,0,1,0,80,50,20,1200,250
+21,34,Stone Golem,Stone Golems,17,9,1,1,0,80,0,20,1000,200
+21,35,Faloran Mage,Faloran Mages,43,10,0,1,1,80,90,20,800,150
+21,36,Faloran Mage,Faloran Mages,43,10,1,1,0,80,100,20,800,200
+21,37,Wizard of Noemel,Wizards of Noemel,45,10,0,1,0,80,100,20,1000,200
+21,38,Wizard of Noemel,Wizards of Noemel,45,10,1,1,0,80,100,20,1000,300
+21,39,Crazed Erebus Fiend,Crazed Erebus Fiend,13,15,0,1,0,0,50,20,10000,1000
+22,0,Were-Jaguar,Were-Jaguars,1,8,0,3,1,100,0,0,500,210
+22,1,Black Sludge,Black Sludges,3,8,1,3,1,0,0,0,575,225
+22,2,White Death,White Deaths,5,7,0,1,1,0,30,0,625,280
+22,3,Kaalroth Warrior,Kaalroth Warriors,7,6,1,1,1,60,0,25,650,300
+22,4,Clay Golem,Clay Golems,17,7,1,3,1,0,0,10,710,250
+22,5,Pincer Python,Pincer Pythons,3,7,1,3,1,90,0,0,665,200
+22,6,Jaguar,Jaguars,1,6,0,4,1,60,0,0,650,175
+22,7,Grey Ooze,Grey Oozes,3,7,0,3,2,0,0,0,625,150
+22,8,Ice Sleeth,Ice Sleeths,5,5,0,2,1,0,0,0,650,180
+22,9,Greater Kaalroth,Greater Kaalroths,7,7,0,1,1,50,20,25,750,185
+22,10,Stone Golem,Stone Golems,17,7,0,1,1,0,0,10,530,185
+22,11,Spitting Cobra,Spitting Cobras,3,8,1,2,1,20,0,0,430,190
+22,12,Jubidian Wizard,Jubidian Wizards,44,9,0,3,1,150,50,25,400,250
+22,13,Alastean Mage,Alastean Mages,45,9,1,2,2,125,55,25,650,300
+22,14,Elder of Oakleaf,Elders of Oakleaf,40,8,2,3,1,100,45,20,450,225
+22,15,Pillager,Pillagers,22,8,1,3,1,50,20,20,525,275
+22,16,Marauder,Marauders,24,9,1,2,2,50,10,20,625,300
+22,17,Palathian Paladin,Palathian Paladins,26,8,2,3,1,60,15,35,527,250
+22,18,Galabryan Gallant,Galabryan Gallants,29,9,1,2,3,60,20,35,500,260
+22,19,Deathland Tracker,Deathland Trackers,31,7,2,2,3,45,25,25,480,230
+22,20,Dakkarian Scout,Dakkarian Scouts,33,8,2,3,2,45,30,25,475,225
+22,21,Ornery Cutpurse,Ornery Cutpurses,34,9,1,3,1,125,20,30,450,225
+22,22,Petty Filcher,Petty Filchers,36,10,1,3,2,150,30,30,500,230
+22,23,White Dragon,White Dragons,14,9,0,1,0,0,35,60,4500,5000
+22,24,Clairvoyeur,Clairvoyeurs,43,8,0,2,3,75,40,30,550,230
+22,25,Daelian Mystic,Daelian Mystics,46,9,1,3,1,75,25,30,625,240
+22,26,Aldboran Patriarch,Aldboran Patriarchs,39,9,1,3,2,90,30,30,400,220
+22,27,Scribe of Wyvron,Scribes of Wyvron,41,9,1,2,3,90,35,30,425,225
+22,28,Thassaerean Thug,Thassaerean Thugs,23,10,0,3,2,20,10,30,540,240
+22,29,Emoire Errant,Emoire Errants,28,10,0,2,2,30,15,30,435,250
+22,30,Forester of Lymnia,Foresters of Lymnia,32,9,1,3,1,50,25,30,450,230
+22,31,Clay Golem,Clay Golems,17,7,0,2,1,0,0,15,490,200
+22,32,Stone Golem,Stone Golems,17,8,0,2,0,0,0,15,650,230
+22,33,Stone Golem,Stone Golems,17,8,1,1,1,0,0,15,700,260
+22,34,Kaalroth,Kaalroths,7,6,1,2,0,150,0,15,645,200
+22,35,Kaalroth,Kaalroths,7,7,0,1,1,135,0,20,750,225
+22,36,Greater Kaalroth,Greater Kaalroths,7,8,0,1,0,120,25,20,775,250
+22,37,Night Elf Warrior,Night Elf Warriors,20,8,1,2,1,100,0,35,625,325
+22,38,Night Elf Priestess,Night Elf Priestesses,20,9,0,1,1,30,25,40,600,500
+22,39,Night Elf Priestess,Night Elf Priestesses,20,9,1,1,0,30,25,40,550,500
+23,0,Viscous Slime,Viscous Slimes,2,8,2,3,1,0,0,20,800,500
+23,1,Viscous Slime,Viscous Slimes,2,9,2,1,2,0,0,20,800,500
+23,2,Ancient Cobra,Ancient Cobras,3,7,2,2,1,80,0,0,950,700
+23,3,Spirit of Babel,Spirits of Babel,11,8,2,2,2,45,0,0,850,900
+23,4,Spirit of Babel,Spirits of Babel,11,9,1,1,2,45,0,0,1000,900
+23,5,Ice Sleeth,Ice Sleeths,5,6,1,2,1,80,0,25,1000,800
+23,6,Ice Sleeth,Ice Sleeths,5,7,0,2,1,70,50,35,1111,1100
+23,7,White Death,White Deaths,5,7,1,1,2,60,50,25,800,1200
+23,8,White Death,White Deaths,5,8,1,1,1,60,65,30,1200,1600
+23,9,Death Frost,Death Frosts,5,6,1,2,1,80,0,20,700,1000
+23,10,Death Frost,Death Frosts,5,9,0,1,0,70,75,25,1500,1800
+23,11,Ancient Cobra,Ancient Cobras,3,7,2,2,1,80,0,0,750,1000
+23,12,Spirit of Babel,Spirits of Babel,11,10,0,1,1,45,0,0,1300,900
+23,13,Quetzalcoatl,Quetzalcoatls,15,7,2,2,1,80,0,0,750,1400
+23,14,Quetzalcoatl,Quetzalcoatls,15,8,1,2,0,80,0,0,950,1400
+23,15,Quetzalcoatl,Quetzalcoatls,15,9,0,1,1,80,0,0,1000,1400
+23,16,Quetzalcoatl,Quetzalcoatls,15,9,0,1,0,80,0,0,1000,1400
+23,17,Viscous Slime,Viscous Slimes,2,9,1,1,2,0,0,20,1200,2100
+23,18,Death Rogue,Death Rogues,31,9,0,2,0,10,40,25,1500,1000
+23,19,Death Rogue,Death Rogues,32,8,1,2,1,10,40,35,1800,900
+23,20,Death Rogue,Death Rogues,23,7,1,2,2,10,40,45,975,900
+23,21,Death Rogue,Death Rogues,37,6,2,2,1,10,40,25,1000,900
+23,22,Death Rogue,Death Rogues,39,8,2,1,1,10,40,25,1000,900
+23,23,Death Rogue,Death Rogues,41,11,0,1,0,10,40,25,2100,750
+23,24,Golem of Zhao,Golems of Zhao,17,10,1,2,0,0,0,5,3000,1000
+23,25,Kaalroth Warlord,Kaalroth Warlords,7,8,0,2,1,0,55,40,2500,1250
+23,26,Servant of Corpeus,Servants of Corpeus,7,5,1,3,1,10,0,20,1250,750
+23,27,Servant of Corpeus,Servants of Corpeus,7,6,2,2,2,25,0,15,1400,700
+23,28,Kaalroth Lord,Kaalroth Lords,7,7,1,1,0,0,40,20,1700,975
+23,29,Zhaoian Wizard,Zhaoian Wizards,43,9,1,1,1,0,75,25,2100,1050
+23,30,Guardian of Iron,Guardians of Iron,17,10,0,2,0,0,0,5,3000,1250
+23,31,Babbling Knight,Babbling Knights,26,9,1,1,0,50,15,10,2500,2000
+23,32,Confused Thief,Confused Thieves,36,8,1,2,1,25,25,25,2000,2000
+23,33,Holy Night Elf Warrior,Holy Night Elf Warriors,20,8,1,2,1,45,35,20,2400,1200
+23,34,Night Elf Guard,Night Elf Guards,20,7,2,3,1,70,25,5,1700,850
+23,35,Master of the Blade,Masters of the Blade,20,9,1,2,0,80,50,20,2500,1250
+23,36,Night Elf Berserker,Night Elf Berserkers,20,8,2,2,1,80,75,25,2425,900
+23,37,Mumbling Cleric,Mumbling Clerics,42,10,1,2,0,45,45,20,3500,900
+23,38,Giant Vampire Bat,Giant Vampire Bats,16,9,1,4,0,75,0,20,1000,1000
+23,39,Erebus Fiend,Erebus Fiends,13,8,1,2,0,0,50,40,3400,3100
+24,0,Chaotic Mage,Chaotic Mages,43,9,1,2,1,200,50,25,450,450
+24,1,Harmonic Mage,Harmonic Mages,44,9,1,2,1,150,50,25,450,400
+24,2,Servant of Chaos,Servants of Chaos,25,9,1,2,1,100,15,30,550,425
+24,3,Harmony's Guardian,Harmony's Guardians,23,9,1,2,1,130,10,30,550,425
+24,4,Elder of Anarchy,Elders of Anarchy,41,9,1,3,1,140,40,30,475,300
+24,5,Discordant Cleric,Discordant Clerics,42,9,1,2,1,125,40,30,475,300
+24,6,Chaosian Knight,Chaosian Knights,28,9,1,2,1,100,25,30,500,350
+24,7,Harmonia Paladin,Harmonia Paladins,27,9,0,3,1,90,30,30,500,350
+24,8,Amorphic Ranger,Amorphic Rangers,30,9,0,2,1,110,25,30,450,425
+24,9,Eurythmic Scout,Eurythmic Scouts,32,10,0,2,1,120,25,30,450,425
+24,10,Incoherent Thief,Incoherent Thieves,37,10,1,3,1,115,30,60,575,300
+24,11,Harmonious Bard,Harmonious Bards,38,9,1,2,1,125,30,60,575,300
+24,12,Stone Golem,Stone Golems,17,8,0,2,2,0,0,0,500,150
+24,13,Stone Golem,Stone Golems,17,8,1,2,1,0,0,0,500,150
+24,14,Stone Golem,Stone Golems,17,8,2,1,1,0,0,0,500,150
+24,15,Stone Golem,Stone Golems,17,9,1,1,0,0,0,0,500,150
+24,16,Frost Giant,Frost Giants,18,8,1,2,1,150,20,30,550,250
+24,17,Frost Giant,Frost Giants,18,9,0,1,1,150,20,30,550,250
+24,18,Fire Giant,Fire Giants,18,10,1,1,1,100,30,40,550,250
+24,19,Fire Giant,Fire Giants,18,11,0,1,0,100,30,40,550,250
+24,20,Praxis Priest,Praxis Priests,19,8,1,1,2,75,30,65,575,300
+24,21,Praxis Priest,Praxis Priests,19,9,0,2,0,75,30,65,575,300
+24,22,Praxis High Priest,Praxis High Priests,19,9,1,1,1,60,40,65,575,300
+24,23,Praxis Arch-Priest,Praxis Arch-Priests,19,9,0,1,0,60,40,65,575,300
+24,24,Right Arm of Unity,Right Arms of Unity,24,9,1,2,2,25,45,30,600,150
+24,25,Elder of Unity,Elders of Unity,40,9,1,3,1,50,50,35,550,175
+24,26,Greater Kaalroth,Greater Kaalroths,7,8,1,1,1,10,25,0,650,180
+24,27,Praxis High Priest,Praxis High Priests,19,8,1,1,1,50,40,30,650,190
+24,28,Guardian Medusa,Guardian Medusas,6,8,2,2,1,15,0,15,580,200
+24,29,Guardian Medusa,Guardian Medusas,6,9,2,1,1,50,0,15,580,210
+24,30,Fire Giant,Fire Giants,18,9,1,2,1,20,40,20,600,210
+24,31,Stone Golem,Stone Golems,17,10,0,2,1,0,0,0,600,220
+24,32,White Death,White Deaths,5,7,1,1,1,0,20,0,650,250
+24,33,White Dragon,White Dragons,14,8,0,1,1,130,35,0,4500,300
+24,34,Red Dragon,Red Dragons,14,9,1,1,0,125,50,0,6500,350
+24,35,Patriarch of Unity,Patriarchs of Unity,45,11,0,2,1,100,60,35,500,400
+24,36,Mysterion of Unity,Mystes of Unity,40,11,0,2,1,100,35,35,500,400
+24,37,Apostate of Unity,Apostates of Unity,38,11,0,2,0,100,20,35,500,400
+24,38,Acolyte of Unity,Acolytes of Unity,23,11,0,2,1,100,10,35,500,400
+24,39,Sacristan of Unity,Sacristans of Unity,30,11,0,2,1,100,25,35,500,400
+25,0,Lesser Kaalroth,Lesser Kaalroths,7,5,1,2,1,50,0,15,1100,145
+25,1,Lesser Kaalroth,Lesser Kaalroths,7,6,0,2,1,60,0,15,1150,125
+25,2,Greater Kaalroth,Greater Kaalroths,7,7,0,2,0,80,40,20,1250,150
+25,3,Greater Kaalroth,Greater Kaalroths,7,7,1,1,1,80,50,15,1300,200
+25,4,Greater Kaalroth,Greater Kaalroths,7,8,0,1,1,80,50,20,1350,250
+25,5,Ice Sleeth,Ice Sleeths,5,7,0,2,1,80,0,15,800,190
+25,6,White Death,White Deaths,5,8,0,2,1,70,50,15,900,150
+25,7,White Death,White Deaths,5,8,1,1,2,60,50,15,900,190
+25,8,White Death,White Deaths,5,8,1,1,1,60,65,20,950,175
+25,9,Ice Sleeth,Ice Sleeths,5,6,1,2,1,80,0,15,850,200
+25,10,White Death,White Deaths,5,9,1,1,0,70,75,20,1000,150
+25,11,Erebus Stalker,Erebus Stalkers,13,5,0,2,1,80,50,15,900,200
+25,12,Erebus Stalker,Erebus Stalkers,13,5,1,2,1,80,75,20,950,175
+25,13,Erebus Stalker,Erebus Stalkers,13,6,0,1,1,80,75,20,1050,200
+25,14,Erebus Stalker,Erebus Stalkers,13,6,1,1,1,80,75,20,1150,150
+25,15,Erebus Stalker,Erebus Stalkers,13,7,0,1,0,80,50,15,1200,200
+25,16,Frost Giant,Frost Giants,18,7,1,2,2,80,50,20,750,175
+25,17,Fire Giant,Fire Giants,18,9,1,1,1,70,50,50,1250,150
+25,18,Frost Giant,Frost Giants,18,8,0,2,1,50,40,15,800,180
+25,19,Frost Giant,Frost Giants,18,8,0,1,2,80,50,20,900,125
+25,20,Fire Giant,Fire Giants,18,9,0,1,1,80,75,20,1250,150
+25,21,Fire Giant,Fire Giants,18,10,0,1,0,0,30,15,1250,200
+25,22,Stone Giant,Stone Giants,18,11,0,1,0,80,60,20,1300,200
+25,23,Stone Giant,Stone Giants,18,11,0,1,0,80,40,20,1300,250
+25,24,White Dragon,White Dragons,14,9,1,1,1,80,75,20,5000,250
+25,25,Stone Golem,Stone Golems,17,8,0,2,1,80,0,20,800,160
+25,26,Stone Golem,Stone Golems,17,9,0,1,2,80,0,20,850,200
+25,27,Stone Golem,Stone Golems,17,9,1,1,2,80,0,20,875,175
+25,28,Fire Giant,Fire Giants,18,9,1,2,0,70,50,50,1200,250
+25,29,Fire Giant,Fire Giants,18,10,0,1,1,80,70,50,1250,200
+25,30,Wandering Spirit,Wandering Spirits,9,7,2,2,1,80,50,20,750,200
+25,31,Wandering Spirit,Wandering Spirits,9,8,2,2,1,80,70,20,800,125
+25,32,Banshee,Banshees,9,10,0,1,1,80,75,20,900,125
+25,33,Banshee,Banshees,9,10,1,1,1,70,75,25,950,125
+25,34,Banshee,Banshees,9,11,0,1,1,80,40,20,975,150
+25,35,Hoodlum of Liris,Hoodlums of Liris,34,9,2,2,2,80,70,20,500,250
+25,36,Acolyte of Esdiad,Acolytes of Esdiad,42,9,3,2,1,80,80,20,650,200
+25,37,Sinister Mage,Sinister Mages,44,9,1,2,1,80,100,20,600,150
+25,38,Arridian Ranger,Arridian Rangers,33,10,2,2,1,70,50,25,750,200
+25,39,Idisoian Knight,Idisoian Knights,29,9,2,2,1,80,50,20,650,200
+26,0,Golem Servant,Golem Servants,17,7,0,2,2,80,0,15,800,110
+26,1,Wicked Golem,Wicked Golems,17,8,1,2,1,80,0,20,850,105
+26,2,Wicked Golem,Wicked Golems,17,8,2,1,2,80,0,15,850,100
+26,3,Stone Golem,Stone Golems,17,9,1,1,2,70,0,20,900,125
+26,4,Stone Golem,Stone Golems,17,9,0,1,2,50,0,15,950,130
+26,5,Stone Golem,Stone Golems,17,10,0,1,1,60,0,15,975,150
+26,6,Iron Golem,Iron Golems,17,12,0,1,0,60,50,20,1250,180
+26,7,Green Dragon,Green Dragons,14,7,1,2,0,70,50,20,4000,125
+26,8,Green Dragon,Green Dragons,14,8,0,1,1,70,40,15,4400,200
+26,9,White Dragon,White Dragons,14,9,1,1,1,80,40,15,5000,250
+26,10,White Dragon,White Dragons,14,10,0,1,1,70,50,20,5250,125
+26,11,Frost Dragon,Frost Dragons,14,11,0,1,1,70,60,20,6000,175
+26,12,Ice Dragon,Ice Dragons,14,11,0,1,1,30,50,20,6250,200
+26,13,Shadow Giant,Shadow Giants,18,8,0,2,1,60,60,20,900,150
+26,14,Shadow Giant,Shadow Giants,18,9,0,2,0,40,50,50,1100,250
+26,15,Shadow Giant,Shadow Giants,18,9,1,2,0,40,50,45,1100,175
+26,16,Shadow Giant,Shadow Giants,18,10,0,1,1,60,40,40,1200,225
+26,17,Stone Giant,Stone Giants,18,11,0,1,1,70,50,20,1350,250
+26,18,Stone Giant,Stone Giants,18,11,1,1,0,70,40,20,1350,300
+26,19,Praxis Thaumaturge,Praxis Thaumaturges,19,3,0,3,1,70,40,15,900,100
+26,20,Praxis Thaumaturge,Praxis Thaumaturges,19,4,0,2,1,70,50,15,950,100
+26,21,Praxis Shaman,Praxis Shamans,19,5,0,1,1,60,60,20,975,125
+26,22,Praxis Shaman,Praxis Shamans,19,6,1,1,1,80,70,15,1025,200
+26,23,Praxis Shaman,Praxis Shamans,19,7,1,1,1,80,75,20,1100,175
+26,24,Mist Giant,Mist Giants,18,9,0,2,0,40,50,50,1100,125
+26,25,Mist Giant,Mist Giants,18,10,0,1,1,0,75,50,1200,200
+26,26,Stone Giant,Stone Giants,18,11,0,1,1,0,50,20,1350,125
+26,27,Guardian Medusa,Guardian Medusas,6,8,1,2,1,70,0,20,1000,300
+26,28,Medusa Priestess,Medusa Priestesses,6,11,0,1,1,80,75,20,1050,200
+26,29,Guardian Medusa,Guardian Medusas,6,9,1,1,2,80,0,30,1000,250
+26,30,Guardian Medusa,Guardian Medusas,6,8,2,1,2,80,0,20,900,125
+26,31,Winged Python,Winged Pythons,15,8,1,2,1,80,0,15,650,100
+26,32,Quetzalcoatl,Quetzalcoatls,15,10,0,1,1,60,50,30,1050,150
+26,33,Quetzalcoatl,Quetzalcoatls,15,10,1,1,1,60,60,30,1050,175
+26,34,Praxis Shaman,Praxis Shamans,19,8,1,1,1,80,50,20,900,100
+26,35,Praxis Shaman,Praxis Shamans,19,9,1,1,1,70,70,20,975,200
+26,36,Praxis Shaman,Praxis Shamans,19,8,0,2,0,80,60,15,1025,175
+26,37,Friar of Jadoe,Friars of Jadoe,41,10,2,2,0,80,80,15,1000,200
+26,38,Daodasian Swindler,Daodasian Swindlers,36,9,2,2,1,60,50,30,750,100
+26,39,Crazed Sorcerer,Crazed Sorcerers,45,9,3,2,1,80,100,20,800,200
+27,0,Greater Kaalroth,Greater Kaalroths,7,7,0,2,1,80,40,25,1000,200
+27,1,Greater Kaalroth,Greater Kaalroths,7,8,0,2,1,80,30,25,1050,250
+27,2,Greater Kaalroth,Greater Kaalroths,7,8,1,1,1,80,40,20,1050,300
+27,3,Greater Kaalroth,Greater Kaalroths,7,9,0,1,1,70,40,25,1150,300
+27,4,Greater Kaalroth,Greater Kaalroths,7,7,1,1,1,50,50,20,1000,250
+27,5,Greater Kaalroth,Greater Kaalroths,7,9,1,1,0,60,50,20,1200,350
+27,6,Erebus Stalker,Erebus Stalkers,13,5,1,2,1,60,50,20,800,100
+27,7,Erebus Stalker,Erebus Stalkers,13,6,1,1,2,70,50,20,900,200
+27,8,Erebus Stalker,Erebus Stalkers,13,7,0,1,1,70,40,20,1000,250
+27,9,Erebus Stalker,Erebus Stalkers,13,6,0,1,2,80,40,20,900,250
+27,10,Erebus Stalker,Erebus Stalkers,13,8,0,1,1,70,50,20,1050,250
+27,11,Erebus Stalker,Erebus Stalkers,13,9,1,1,0,70,60,20,1400,200
+27,12,Erebus Lord,Erebus Lords,13,10,0,1,0,80,50,20,1500,250
+27,13,Frost Giant,Frost Giants,18,7,1,3,1,60,60,20,850,75
+27,14,Mist Giant,Mist Giants,18,9,0,2,1,80,50,50,1100,100
+27,15,Mist Giant,Mist Giants,18,9,1,1,1,80,50,45,1100,250
+27,16,Mist Giant,Mist Giants,18,10,0,1,1,60,40,25,1200,100
+27,17,Stone Giant,Stone Giants,18,11,0,1,1,70,50,25,1300,250
+27,18,Stone Giant,Stone Giants,18,11,1,1,0,70,40,25,1300,350
+27,19,Praxis Shaman,Praxis Shamans,19,8,0,1,1,70,40,15,750,150
+27,20,Praxis Shaman,Praxis Shamans,19,8,1,1,1,70,50,15,750,200
+27,21,Night Elf Warrior,Night Elf Warriors,20,8,1,2,1,60,60,20,650,100
+27,22,Night Elf Warrior,Night Elf Warriors,20,9,1,1,2,80,70,20,675,250
+27,23,Night Elf Conjurer,Night Elf Conjurers,20,11,1,1,1,80,75,25,875,175
+27,24,Shadow Giant,Shadow Giants,18,9,0,2,0,70,50,50,1050,100
+27,25,Shadow Giant,Shadow Giants,18,10,0,1,1,0,75,50,1200,150
+27,26,Stone Giant,Stone Giants,18,11,0,1,1,0,50,25,1300,175
+27,27,Restless Spectre,Restless Spectres,11,7,1,2,1,70,0,15,900,100
+27,28,Restless Spectre,Restless Spectres,11,8,1,2,1,80,0,15,1000,125
+27,29,Restless Phantom,Restless Phantoms,11,9,1,1,1,80,0,20,1100,125
+27,30,Wandering Spectre,Wandering Spectres,11,10,0,1,1,80,0,20,1250,125
+27,31,White Death,White Deaths,5,8,1,2,0,80,50,15,975,250
+27,32,White Death,White Deaths,5,9,1,1,1,60,50,20,1025,300
+27,33,White Death,White Deaths,5,10,1,1,1,60,60,15,1200,250
+27,34,Praxis Shaman,Praxis Shamans,19,8,1,1,1,80,50,15,1150,250
+27,35,High Praxis Priest,High Praxis Priests,19,11,0,1,0,70,70,20,1300,350
+27,36,Praxis Shaman,Praxis Shamans,19,8,0,2,0,80,60,20,1750,250
+27,37,Acolyte of Kaleos,Acolytes of Kaleos,40,9,2,2,1,80,80,20,1150,100
+27,38,Knight of Vaddel,Knights of Vaddel,28,9,2,2,1,60,50,15,1250,100
+27,39,Ice Sleeth,Ice Sleeths,5,7,0,2,0,80,0,15,900,250
+28,0,Greater Kaalroth,Greater Kaalroths,7,10,1,1,0,0,65,20,1300,275
+28,1,Stone Giant,Stone Giants,18,9,1,1,1,0,45,0,1100,425
+28,2,Roving Warrior,Roving Warriors,29,10,2,1,1,25,25,20,900,150
+28,3,Conjurer,Conjurers,43,10,1,1,1,25,65,25,1000,150
+28,4,White Death,White Deaths,5,11,1,1,2,50,15,20,1200,300
+28,5,Greater Kaalroth,Greater Kaalroths,7,10,0,1,0,60,50,20,1350,275
+28,6,Erebus Stalker,Erebus Stalkers,13,7,2,2,1,60,50,20,1000,275
+28,7,Erebus Stalker,Erebus Stalkers,13,8,1,1,2,70,50,20,1200,275
+28,8,Erebus Stalker,Erebus Stalkers,13,9,0,1,1,70,40,20,1350,300
+28,9,Conjurer,Conjurers,43,9,1,1,1,25,65,25,1000,125
+28,10,Conjurer,Conjurers,43,10,1,1,1,25,65,25,1000,125
+28,11,Erebus Lord,Erebus Lords,13,10,1,1,0,70,60,20,1400,400
+28,12,Erebus Lord,Erebus Lords,13,9,0,1,0,80,50,20,1450,400
+28,13,Frost Giant,Frost Giant,18,7,1,2,1,60,60,20,1100,400
+28,14,Fire Giant,Fire Giants,18,9,0,2,1,80,50,50,1250,250
+28,15,Frost Giant,Frost Giants,18,7,1,2,1,60,60,20,1000,300
+28,16,Fire Giant,Fire Giants,18,10,0,1,1,60,40,25,1300,400
+28,17,Stone Giant,Stone Giants,18,11,0,1,1,70,50,25,1550,450
+28,18,Ice Sleeth,Ice Sleeths,5,9,1,1,1,0,25,50,1200,400
+28,19,Roving Warrior,Roving Warriors,29,7,2,1,1,25,25,20,1000,400
+28,20,Roving Warrior,Roving Warriors,29,8,2,1,1,25,25,20,1000,400
+28,21,Fire Giant,Fire Giants,18,9,0,1,1,0,75,50,1250,600
+28,22,Bronze Golem,Bronze Golem,17,10,0,1,1,0,0,50,1150,600
+28,23,Lava Sleeth,Lava Sleeths,5,9,1,1,1,0,75,50,1250,600
+28,24,Giant of the Lava,Giants of the Lava,18,9,1,2,1,0,35,5,1500,1000
+28,25,Reality's Keeper,Reality's Keepers,7,10,1,1,0,0,75,5,3500,1500
+28,26,Guardian Medusa,Guardian Medusas,6,6,1,1,1,0,0,25,1600,1750
+28,27,Keeper of the Faith,Keepers of the Faith,7,10,0,1,0,60,50,20,1750,1000
+28,28,Dragon of Corpeus,Dragons of Corpeus,14,8,1,1,0,0,65,20,3500,1000
+28,29,Servant of Corpeus,Servants of Corpeus,7,9,0,1,1,0,60,0,2500,1750
+28,30,Storm Giant,Storm Giants,18,9,1,1,1,0,50,0,2500,1750
+28,31,Giant of Stone,Giants of Stone,18,10,0,1,1,0,45,0,1500,1750
+28,32,Child of Astelligus,Children of Astelligus,20,9,2,2,1,60,30,20,800,600
+28,33,Astral Priest,Astral Priests,20,9,2,1,2,40,70,20,1500,1000
+28,34,Astral Spirit,Astral Spirits,11,9,0,1,1,30,0,20,1250,800
+28,35,Guardian of Circinus,Guardians of Circinus,19,10,1,1,1,0,60,20,1200,900
+28,36,Circinus Warrior,Circinus Warriors,19,8,1,2,1,40,50,20,800,750
+28,37,Death Knight,Death Knights,20,11,0,1,2,20,35,15,1000,700
+28,38,Guardian of the Portal,Guardians of the Portal,19,11,1,1,0,0,65,0,4000,2500
+28,39,Servant of Astelligus,Servants of Astelligus,13,9,2,1,1,0,50,0,2500,1200
+29,0,Greater Kaalroth,Greater Kaalroths,7,10,2,1,0,0,65,20,1300,275
+29,1,Stone Giant,Stone Giants,18,9,2,1,1,0,45,0,1100,425
+29,2,Roving Warrior,Roving Warriors,29,10,2,1,1,25,25,20,900,150
+29,3,Conjurer,Conjurers,43,10,1,1,1,25,65,25,1000,150
+29,4,White Death,White Deaths,5,11,1,1,2,50,15,20,1200,300
+29,5,Greater Kaalroth,Greater Kaalroths,7,10,0,1,0,60,50,20,1350,275
+29,6,Erebus Stalker,Erebus Stalkers,13,7,2,2,1,60,50,20,1000,275
+29,7,Erebus Stalker,Erebus Stalkers,13,8,1,1,2,70,50,20,1200,275
+29,8,Erebus Stalker,Erebus Stalkers,13,9,0,1,1,70,40,20,1350,300
+29,9,Conjurer,Conjurers,43,10,1,1,1,25,65,25,1000,125
+29,10,Conjurer,Conjurers,43,10,1,1,1,25,65,25,1000,125
+29,11,Erebus Lord,Erebus Lords,13,10,1,1,0,70,60,20,1400,400
+29,12,Erebus Lord,Erebus Lords,13,11,0,1,0,80,50,20,1450,400
+29,13,Frost Giant,Frost Giant,18,7,1,2,1,60,60,20,1100,400
+29,14,Dragon of Corpeus,Dragons of Corpeus,14,11,1,1,0,0,65,20,3500,1000
+29,15,Dragon of Corpeus,Dragons of Corpeus,14,11,1,1,0,0,65,20,3500,1000
+29,16,Dragon of Corpeus,Dragons of Corpeus,14,11,1,1,0,0,65,20,3500,1000
+29,17,Dragon of Corpeus,Dragons of Corpeus,14,11,1,1,0,0,65,20,3500,1000
+29,18,Dragon of Corpeus,Dragons of Corpeus,14,11,1,1,0,0,65,20,3500,1000
+29,19,Dragon of Corpeus,Dragons of Corpeus,14,11,1,1,0,0,65,20,3500,1000
+29,20,Dragon of Corpeus,Dragons of Corpeus,14,11,1,1,0,0,65,20,3500,1000
+29,21,Keeper of the Faith,Keepers of the Faith,7,10,0,1,0,60,50,20,1750,1000
+29,22,Keeper of the Faith,Keepers of the Faith,7,10,0,1,0,60,50,20,1750,1000
+29,23,Keeper of the Faith,Keepers of the Faith,7,10,0,1,0,60,50,20,1750,1000
+29,24,Keeper of the Faith,Keepers of the Faith,7,10,0,1,0,60,50,20,1750,1000
+29,25,Keeper of the Faith,Keepers of the Faith,7,10,0,1,0,60,50,20,1750,1000
+29,26,Keeper of the Faith,Keepers of the Faith,7,10,0,1,0,60,50,20,1750,1000
+29,27,Keeper of the Faith,Keepers of the Faith,7,10,0,1,0,60,50,20,1750,1000
+29,28,Dragon of Corpeus,Dragons of Corpeus,14,11,1,1,0,0,65,20,3500,1000
+29,29,Servant of Corpeus,Servants of Corpeus,7,12,1,1,1,0,60,0,2500,1750
+29,30,Storm Giant,Storm Giants,18,11,1,1,1,0,50,0,2500,1750
+29,31,Giant of Stone,Giants of Stone,18,11,0,1,1,0,45,0,1500,1750
+29,32,Astelligus,Astelligus,13,13,0,1,0,0,80,25,25000,5000
+29,33,Pluthros,Pluthros,13,13,0,1,0,0,80,25,25000,5000
+29,34,Malos,Malos,13,13,0,1,0,0,80,25,25000,5000
+29,35,Juvalad,Juvalad,13,13,0,1,0,0,80,25,25000,5000
+29,36,Corpeus,Corpeus,13,13,0,1,0,0,0,25,25000,5000
+29,37,Death Knight,Death Knights,20,11,0,1,2,20,10,15,1000,400
+29,38,Planar Guardian,Planar Guardians,19,11,0,1,1,0,50,0,2000,3500
+29,39,Planar Guardian,Planar Guardians,7,11,0,1,1,0,50,0,2000,3200
+30,0,Greater Kaalroth,Greater Kaalroths,7,10,2,1,0,0,65,20,1300,275
+30,1,Stone Giant,Stone Giants,18,9,2,1,1,0,45,0,1100,425
+30,2,Roving Warrior,Roving Warriors,29,10,2,1,1,25,25,20,900,150
+30,3,Conjurer,Conjurers,43,10,1,1,1,25,65,25,1000,150
+30,4,White Death,White Deaths,5,11,1,1,2,50,15,20,1200,300
+30,5,Greater Kaalroth,Greater Kaalroths,7,10,0,1,0,60,50,20,1350,275
+30,6,Erebus Stalker,Erebus Stalkers,13,8,2,2,1,60,50,20,1500,2000
+30,7,Erebus Stalker,Erebus Stalkers,13,9,1,1,2,70,50,20,1700,2000
+30,8,Erebus Stalker,Erebus Stalkers,13,10,0,1,1,70,40,20,1850,1500
+30,9,Conjurer,Conjurers,43,10,1,1,1,25,65,25,1500,2100
+30,10,Conjurer,Conjurers,43,11,1,1,1,25,65,25,1700,2200
+30,11,Erebus Lord,Erebus Lords,13,10,1,1,0,70,60,20,1900,2500
+30,12,Erebus Lord,Erebus Lords,13,11,0,1,0,80,50,20,1950,2600
+30,13,Frost Giant,Frost Giant,18,9,1,2,1,60,60,20,1600,2134
+30,14,Dark Knight,Dark Knight,26,11,1,1,0,0,25,40,3000,3578
+30,15,Ancient Mage,Ancient Mage,43,11,1,1,0,0,65,40,3000,3654
+30,16,Fearless Archer,Fearless Archer,31,11,1,1,0,0,30,40,3000,3542
+30,17,Thief of Fate,Thief of Fate,37,11,1,1,0,0,40,40,3500,4123
+30,18,Bishop of Darkness,Bishop of Darkness,41,11,1,1,0,0,65,40,3500,4554
+30,19,Bothan Warrior,Bothan Warrior,22,11,1,1,0,0,40,40,3500,3579
+30,20,Dragon of Time,Dragons of Time,14,11,1,1,0,0,65,20,3500,1000
+30,21,Roving Sleeth,Roving Sleeths,5,9,1,2,1,0,20,45,1900,2200
+30,22,Red Dragon,Red Dragon,14,11,1,1,0,0,40,30,2300,3000
+30,23,Huge Red Dragon,Huge Red Dragon,14,12,0,1,0,0,50,45,3200,4500
+30,24,Chaos' Servant,Chaos' Servants,13,10,0,1,1,0,25,20,2000,1500
+30,25,Disseminator,Disseminator,13,11,0,1,0,0,65,20,3500,2500
+30,26,Prisoner of Time,Prisoner of Time,7,12,0,1,0,0,50,40,2500,2100
+30,27,Kaalroth Mage,Kaalroth Magi,7,9,1,1,1,15,35,20,1750,1000
+30,28,Holy Messenger,Holy Messengers,20,10,1,1,1,0,25,45,2000,2000
+30,29,Small Dragon,Small Dragons,14,8,2,1,1,0,35,55,1500,2500
+30,30,Shade of Death,Shades of Death,11,10,0,2,0,0,0,30,2500,1750
+30,31,Ancient Red Dragon,Ancient Red Dragon,14,13,0,1,0,0,60,70,4000,7000
+30,32,Praxis Thaumaturge,Praxis Thaumaturges,19,10,1,1,1,0,25,40,3000,5000
+30,33,Death Shade,Death Shades,11,11,0,2,1,0,20,50,2700,3500
+30,34,Fury of Time,Fury of Time,18,12,0,1,0,0,25,35,3900,5000
+30,35,Guard of the Breach,Guards of the Breach,7,10,1,1,1,0,60,45,3500,6500
+30,36,Corpeus,Corpeus,13,13,0,1,0,0,80,25,25000,5000
+30,37,Death Knight,Death Knights,20,11,0,1,2,20,35,15,1000,400
+30,38,Planar Guardian,Planar Guardians,19,11,0,1,1,0,50,0,2000,3500
+30,39,Planar Guardian,Planar Guardians,7,11,0,1,1,0,50,0,2000,3200
+31,0,Greater Kaalroth,Greater Kaalroths,7,11,2,1,0,0,65,20,1300,275
+31,1,Stone Giant,Stone Giants,18,10,2,1,1,0,45,0,1100,425
+31,2,Roving Warrior,Roving Warriors,29,11,2,1,1,25,25,20,900,150
+31,3,Conjurer,Conjurers,43,11,1,1,1,25,65,25,1000,150
+31,4,White Death,White Deaths,5,12,1,1,2,50,15,20,1200,300
+31,5,Greater Kaalroth,Greater Kaalroths,7,11,0,1,0,60,50,20,1350,275
+31,6,Erebus Stalker,Erebus Stalkers,13,9,2,2,1,60,50,20,1500,2000
+31,7,Erebus Stalker,Erebus Stalkers,13,10,1,1,2,70,50,20,1700,2000
+31,8,Erebus Stalker,Erebus Stalkers,13,11,0,1,1,70,40,20,1850,1500
+31,9,Conjurer,Conjurers,43,11,1,1,1,25,65,25,1500,2100
+31,10,Conjurer,Conjurers,43,11,1,1,1,25,65,25,1700,2200
+31,11,Erebus Lord,Erebus Lords,13,11,1,1,0,70,60,20,1900,2500
+31,12,Erebus Lord,Erebus Lords,13,12,0,1,0,80,50,20,1950,2600
+31,13,Frost Giant,Frost Giant,18,11,1,2,1,60,60,20,1600,2134
+31,14,Dark Knight,Dark Knight,26,11,1,1,0,0,25,40,3000,3578
+31,15,Ancient Mage,Ancient Mage,43,11,1,1,0,0,65,40,3000,3654
+31,16,Fearless Archer,Fearless Archer,31,11,1,1,0,0,30,40,3000,3542
+31,17,Thief of Fate,Thief of Fate,37,11,1,1,0,0,40,40,3500,4123
+31,18,Bishop of Darkness,Bishop of Darkness,41,11,1,1,0,0,65,40,3500,4554
+31,19,Bothan Warrior,Bothan Warrior,22,12,1,1,0,0,40,40,3500,3579
+31,20,Dragon of Time,Dragons of Time,14,12,1,1,0,0,65,20,3500,1000
+31,21,Roving Sleeth,Roving Sleeths,5,10,1,2,1,0,20,45,1900,2200
+31,22,Red Dragon,Red Dragon,14,11,1,1,0,0,40,30,2300,3000
+31,23,Huge Red Dragon,Huge Red Dragon,14,12,0,1,0,0,50,45,3200,4500
+31,24,Storm Giant,Storm Giants,18,11,1,1,1,0,25,20,6500,4500
+31,25,Eos' Disciple,Eos' Disciples,24,11,1,1,0,0,65,20,7500,6500
+31,26,Neptune's Disciple,Neptune's Disciples,28,11,1,1,0,0,50,40,7500,6500
+31,27,Ares' Disciple,Ares' Disciples,26,11,1,1,0,0,35,20,7500,6500
+31,28,Gaea's Disciple,Gaea's Disciples,34,11,1,1,0,0,25,45,7500,6500
+31,29,Draco Lich,Draco Liches,14,12,1,1,0,0,35,55,8000,7800
+31,30,Queen's Guard,Queen's Guards,26,12,0,2,0,0,40,30,8500,9000
+31,31,Queen's Guard,Queen's Guards,22,13,0,1,1,0,60,70,10000,17000
+31,32,Master of the Portal,Masters of the Portal,20,11,2,2,1,0,25,40,10000,8000
+31,33,Guardian of Faith,Guardians of Faith,5,12,1,2,0,0,20,50,10000,10000
+31,34,Champion of Harmony,Champions of Harmony,19,12,0,1,0,0,25,35,12000,20000
+31,35,Lord of Time,Lords of Time,17,12,1,1,1,0,60,45,13000,15000
+31,36,Death Incarnate,Deaths Incarnate,7,12,1,1,0,0,80,25,25000,25000
+31,37,Champion of Chaos,Champions of Chaos,13,12,2,1,0,0,35,15,15000,20000
+31,38,Dralkarian Lord,Dralkarian Lords,13,13,0,5,0,0,70,0,45000,45000
+31,39,Queen Aeowyn,Queen Aeowyn,21,13,0,1,0,0,85,0,50000,50000
+32,0,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,1,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,2,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,3,Imperial Kaalroth,Imperial Kaalroths,7,9,2,4,2,0,20,20,5000,5000
+32,4,Imperial Kaalroth,Imperial Kaalroths,7,9,2,1,1,0,20,20,5000,5000
+32,5,Imperial Kaalroth,Imperial Kaalroths,7,9,2,4,2,0,20,20,5000,5000
+32,6,Imperial Kaalroth,Imperial Kaalroths,7,9,2,4,2,0,20,20,5000,5000
+32,7,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,8,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,9,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,10,Imperial Kaalroth,Imperial Kaalroths,7,9,2,3,2,0,20,20,5000,5000
+32,11,Imperial Kaalroth,Imperial Kaalroths,7,9,2,1,1,0,20,20,5000,5000
+32,12,Imperial Kaalroth,Imperial Kaalroths,7,9,2,4,2,0,20,20,5000,5000
+32,13,Imperial Kaalroth,Imperial Kaalroths,7,9,2,4,2,0,20,20,5000,5000
+32,14,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,15,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,16,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,17,Imperial Kaalroth,Imperial Kaalroths,7,10,2,4,2,0,20,20,5000,5000
+32,18,Imperial Kaalroth,Imperial Kaalroths,7,10,2,1,1,0,20,20,5000,5000
+32,19,Imperial Kaalroth,Imperial Kaalroths,7,11,2,4,2,0,20,20,5000,5000
+32,20,Imperial Kaalroth,Imperial Kaalroths,7,10,2,4,2,0,20,20,5000,5000
+32,21,Imperial Fiend,Imperial Fiends,13,10,2,3,3,0,40,30,5000,5000
+32,22,Imperial Fiend,Imperial Fiends,13,10,2,4,2,0,40,30,5000,5000
+32,23,Imperial Fiend,Imperial Fiends,13,10,1,5,1,0,40,30,5000,5000
+32,24,Praetorian Guard,Praetorian Guards,13,10,1,6,0,0,30,35,5000,5000
+32,25,Praetorian Guard,Praetorian Guards,13,11,2,6,0,0,30,35,5000,5000
+32,26,Shadax,Shadax,7,13,1,1,0,0,70,100,35000,15000
+32,27,Imperial Golem,Imperial Golems,17,10,1,2,0,0,0,20,5000,5000
+32,28,Imperial Golem,Imperial Golems,17,10,1,3,0,0,0,20,5000,5000
+32,29,Imperial Golem,Imperial Golems,17,10,2,4,0,0,0,20,5000,5000
+32,30,Imperial Golem,Imperial Golems,17,10,2,5,0,0,0,20,5000,5000
+32,31,Imperial Golem,Imperial Golems,17,11,1,4,0,0,0,20,5000,5000
+32,32,Imperial Golem,Imperial Golems,17,11,2,5,0,0,0,20,5000,5000
+32,33,Imperial Golem,Imperial Golems,17,11,2,6,0,0,0,20,5000,5000
+32,34,Kekeketl,Kekeketl,8,13,1,1,0,0,0,0,25000,7500
+32,35,Gaoler,Gaoler,18,12,2,1,0,0,0,100,20000,10000
+32,36,Choronzar,Choronzar,31,13,0,1,0,0,85,70,55000,25000
+32,37,Choronzar,Choronzar,31,15,0,1,0,0,70,70,30000,15000
+32,38,Chiss,Chiss,3,12,2,1,0,0,100,20,25000,35000
+32,39,Shadax,Shadax,13,13,2,1,0,0,70,70,5000,5000
+33,0,Imperial Panther,Imperial Panthers,1,10,2,4,2,0,0,15,5000,5000
+33,1,Imperial Sludge,Imperial Sludges,2,10,2,4,2,0,0,15,5000,5000
+33,2,Imperial Anaconda,Imperial Anacondas,3,11,1,4,2,0,0,15,5000,5000
+33,3,Imperial Raptor,Imperial Raptors,4,11,1,4,2,0,0,15,5000,5000
+33,4,Imperial Terror,Imperial Terrors,5,11,1,4,2,0,20,15,5000,5000
+33,5,Imperial Medusa,Imperial Medusas,6,10,2,4,2,0,0,15,5000,5000
+33,6,Imperial Kaalroth,Imperial Kaalroths,7,10,2,5,1,0,25,15,5000,5000
+33,7,Imperial Wight,Imperial Wights,8,10,2,5,1,0,30,15,5000,5000
+33,8,Imperial Shade,Imperial Shades,9,10,2,5,1,0,35,15,5000,5000
+33,9,Lich King,Lich Kings,10,10,2,5,1,0,65,15,5000,5000
+33,10,Imperial Wraith,Imperial Wraiths,11,10,2,6,0,0,0,15,5000,5000
+33,11,Vampire Queen,Vampire Queens,12,10,2,6,0,0,60,15,5000,5000
+33,12,Imperial Fiend,Imperial Fiends,13,10,2,6,0,0,30,15,5000,5000
+33,13,Ancient Dragon,Ancient Dragons,14,10,2,6,0,0,45,15,5000,5000
+33,14,Imperial Asp,Imperial Asps,15,10,2,6,0,0,0,15,5000,5000
+33,15,Imperial Bat,Imperial Bats,16,10,2,6,0,0,0,15,5000,5000
+33,16,Imperial Golem,Imperial Golems,17,10,2,6,0,0,0,15,5000,5000
+33,17,Imperial Giant,Imperial Giants,18,10,2,6,0,0,0,15,5000,5000
+33,18,Imperial Praxis,Imperial Praxis,19,11,2,6,0,0,25,15,5000,5000
+33,19,Night Elf Lord,Night Elf Lords,20,10,2,6,0,0,25,15,5000,5000
+33,20,Acme (tm) Super-Orc (R),Acme (tm) Super-Orcs (R),20,1,2,6,0,0,0,100,5000,5000
+33,21,Ancient Dragon,Ancient Dragons,14,10,2,6,0,0,45,15,5000,5000
+33,22,Lich King,Lich Kings,10,10,2,6,0,0,65,15,5000,5000
+33,23,Vampire Queen,Vampire Queens,12,10,2,6,0,0,60,15,5000,5000
+33,24,Praetorian Guard,Praetorian Guards,13,10,2,6,0,0,10,35,5000,5000
+33,25,Major Domo,Major Domo,41,12,2,1,0,0,50,35,5000,5000
+33,26,The Ogress,The Ogress,18,12,2,1,0,0,35,35,5000,5000
+33,27,Choronzar,Choronzar,31,13,2,1,0,0,50,0,5000,5000
+33,28,Imperial Kaalroth,Imperial Kaalroths,7,10,2,6,0,0,35,35,5000,5000
+33,29,Imperial Golem,Imperial Golems,17,10,2,6,0,0,0,35,5000,5000
+33,30,Imperial Fiend,Imperial Fiends,13,10,2,6,0,0,45,35,5000,5000
+33,31,Imperial Praxis,Imperial Praxis,19,10,2,6,0,0,60,35,5000,5000
+33,32,Imperial Wraith,Imperial Wraiths,11,11,2,4,0,0,40,25,5000,5000
+33,33,Imperial Wraith,Imperial Wraiths,11,11,2,5,0,0,40,25,5000,5000
+33,34,Imperial Wraith,Imperial Wraiths,11,11,2,6,0,0,40,25,5000,5000
+33,35,Pit Serpent,Pit Serpents,15,11,2,4,0,0,20,0,5000,5000
+33,36,Pit Serpent,Pit Serpents,15,11,2,5,0,0,30,0,5000,5000
+33,37,Pit Serpent,Pit Serpents,15,12,2,6,0,0,40,0,5000,5000
+33,38,Really Big Dragon,Really Big Dragons,14,13,2,1,0,0,60,85,50000,20000
+33,39,Shadax,Shadax,13,10,2,1,1,0,70,70,5000,5000

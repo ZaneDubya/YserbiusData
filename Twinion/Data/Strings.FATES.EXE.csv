@@ -1,0 +1,597 @@
+#FATES.EXE, 596 strings
+Test
+PATH=
+twinion.exe
+Borland C++ - Copyright 1991 Borland Intl.
+`id: ssvcid twinion.cpp 2.30 09/16/93 12:53`
+`idtag: ssvcid`
+Entering Twinion...
+DEFAULT
+Twinion
+Entering The Volcano...
+Your faithful companions abandon your corpse!
+PALETTE.DAT
+resource.035
+resource.xxx
+walls.dat
+PALETTE.DAT
+resource.036
+Your faithful companions abandon your corpse!
+Barbarian
+Knight
+Ranger
+Thief
+Cleric
+Wizard
+Male
+Female
+Human
+Troll
+Dwarf
+Gnome
+Halfling
+Gremlin
+Harmony
+Chaos
+Backfire
+Blast
+Control
+Curse
+Death Darts
+Dissipate
+Fireball
+Hail
+Lightning
+Petrify
+Poison Cloud
+Storm Wind
+Aura
+Light Shroud
+Energy Field
+Shield
+Refresh
+Teleport
+Bless
+Cure
+Heal
+Resist
+Resuscitate
+True Seeing
+Athletics
+Clubs/Axes
+Berserker
+Pursuit
+Leadership
+Fencing
+Binding
+Intimidate
+Archery
+Stamina
+Furtiveness
+Read Tracks
+Bard
+Detect
+Lockpick
+Pickpocket
+Martial Arts
+Deflect Magic
+Medic
+Reverie
+Rune Reading
+Staff
+Channel
+Deep Trance
+That item must be equipped to be effective!
+That item's skill properties are only effective in combat!
+That item's magic properties are only effective in combat!
+resource.038
+Throw away item?
+CLOSE
+You see: 
+That item is not usable by your guild!
+resource.038
+That item is not usable by your guild!
+You see: 
+You have died!
+Poison wracks your body!
+You have been poisoned!
+You encounter 
+resource.036
+Champion Battle!!
+ has left the fray!
+Illegal Network Message
+Passing adventurers return your corpse to your kin!
+That Item May Not Be Traded!
+Giving item to 
+ rejects your item!
+[Unknown]
+INN Timeout... Waiting.
+Unable To Join Map Group!
+Can't join when being joined.
+Can't join when leading party.
+Unable to Join Party here.
+Attempting to Join 
+Cannot Join.  Received No Response.
+Cannot Join.
+Received OK to Join
+Now Following 
+Leaving Party...
+You are now Playing Solo.
+Unable to Challenge during Join.
+Challenge combat in process!
+Unable to Challenge.
+Unable to Challenge.  Player may be in battle.
+Unable To Join Land!
+Invalid Land Group.
+Land Place Full.  Try another Place.
+Invalid Land Object.
+Land Group Locked.
+No Rights to Land.
+Incompatible Land Version.
+Create Map Group Failed!
+Create Player Object Failed!
+Create Personal Party Failed!
+Invalid Group
+Group Full
+Invalid Object
+Group Locked
+No Land Rights
+Incompatible Version
+rpgcomms.cpp
+TSN_NetSend() failed on command %d
+ has joined your party.
+ has left your party.
+ joining your party...
+Joining another player.
+In combat.
+Not party leader.
+Has a full party.
+Refuses additional followers.
+rpgbbs.cpp
+Application Orphaned.
+INN Net Connect Failure.
+INN Net Maintenance Failure.
+c:hostcomm.cpp
+application has been orphaned!
+TSN_NetSend() failed on command %d
+BBS Server is offline.
+INN NAK Error.
+Message : 
+Press the ENTER key to exit: 
+farmalloc() cannot alloc %u bytes
+NewHandle cannot alloc %d bytes, free = %d, largest = %d
+ADLIB.ADV
+MT32MPU.ADV
+SBFM.ADV
+TIMBRE.AD
+Could not open TIMBRE.AD
+Could NOT find a Timbre.
+Low Memory. Not loading Sound & Music.
+Error Loading Sound Driver.
+Could not register sound driver.
+Driver NOT XMIDI.
+Could NOT find Sound Hardware at default location.
+Could not open an FX file.
+Could not read an FX file.
+Bad or Missing LSCI.CFG.
+THE DUNGEON CLOSES...
+anim_seq
+0123456789ABCDEF
+vrhd`VRHD@
+$)48CHSXchr
+****.TSU
+IMAGES.DAT
+PALETTE.DAT
+help.dat
+Press Any Key To Exit
+Memory Allocation Error
+Illegal Sprite Value
+Attempt To Dispose Null Ptr (MEMMGR)
+Attempt To Dispose Non-Allocated Ptr (MEMMGR)
+Attempt To Dispose Non-Linked Ptr (MEMMGR)
+Memory Allocation Error (MEMMGR)
+Unable to Obtain New Handle (MEMMGR)
+Illegal Sprite Parameters
+Version Control Error
+Unable To Find File : 
+palette.dat
+resource.039
+ATTRIBUTES
+STRENGTH
+DEFENSE
+AGILITY
+INITIATIVE
+DEXTERITY
+HEALTH
+MANA
+POINTS
+REMAINING
+Choose Party Action
+Entering Battle
+Choose Your Action
+Use Weapon On...
+Use Item On...
+Cast Spell On...
+Spell Ready!
+Use Skill On...
+Skill Ready!
+Item Ready!
+Waiting For Others...
+Engaging Combat!
+You Are Dead!
+You Are Paralyzed!
+You Are Petrified!
+You cannot escape!
+You can't target Corpses!
+Target is out of range!
+That spell may be used only on Undead!
+That spell requires a friendly target!
+That item requires an enemy target!
+PALETTE.DAT
+a deep wound
+a sucking wound
+a devastating wound
+a crippling wound
+a mortal blow
+'s attack is too late!
+Controlled 
+ attacks 
+ but misses!
+ attack but miss!
+ dies from poison!
+ die from poison!
+ ran away!
+Spells cannot be cast here!
+ casts 
+ but it fails!
+A Controlled 
+ on all of the enemies
+ affecting 
+ on the party
+ on the party affecting 
+ on his allies
+ has died from poison!
+ incurs 
+ damage from poison!
+ attack 
+ inflicting 
+ causing 
+ damage
+ and killing 
+ has been killed!
+ has been 
+poisoned,
+paralyzed,
+petrified,
+controlled,
+confused,
+ successfully resists being 
+NEXT
+PREVIOUS
+CANCEL
+OPTIONS
+DONE
+Thank you for purchasing a 
+resource.038
+resource.039
+ITEMS
+ITEM
+PRICE
+GOLD
+Thank you for purchasing a 
+ARKARCH
+CANCEL
+You challenge 
+ to a battle!
+CHAMPION CHALLENGE
+MUTED
+ALLOWED
+twinchar.dat
+PARTY
+BATTLE
+PLAYER
+TAVERN
+CANCEL
+Message Not Sent!  Unable to Locate Player.
+SEND TO
+Do you really want to 
+quit to DOS?
+Do you really want to 
+quit to the Gallery?
+Do you really want to 
+quit to the MAP?
+Please wait for party to form.
+A Battle Begins!
+INVENTORY ITEMS
+QUEST ITEMS
+Using the item has no effect.
+SELECT SPELL TO CAST
+You only have 
+ mana points left!
+SELECT SKILL TO USE
+CHOOSE ITEM TO USE
+The battle ends dishonorably!
+You are able to flee.
+YOU WIN THE BATTLE!
+You found 
+ gold pieces and earned 
+ experience points!
+SELECT YOUR TREASURE
+Do you really want to 
+quit to DOS?
+Do you really want to 
+quit to the Gallery?
+Do you really want to 
+quit to the MAP?
+resource.040
+ARKARCH
+CANCEL
+LEAVE PARTY
+JOIN PARTY LEADER
+PARTY STATUS
+MUTED
+ALLOWED
+SELECT SPELL TO CAST
+CANCEL
+music
+TANDYXL.DRV
+ADL.DRV
+MT32.DRV
+SNDBLAST.DRV
+Congratulations!
+resource.039
+IDENTITY
+NAME
+EPITHET
+GUILD
+LEVEL
+EXP. NEEDED
+You have reached level %d!
+L1: Main Entrance
+L1: Gauntlet Gauche
+L1: Gauntlet Droit
+L2: Queen's Aqueduct
+L2: Twinion's Falls
+L2: The Reservoir
+L3: The Coliseum
+L3: Queen's Palace
+L4: Night Elf Ingress
+L4: aMAZEing
+L4: Armory
+L5: The Enclave
+L5: Cartography Shop
+L5: Graveyard
+L6: Twinion Keep
+L6: Race Track
+L6: Rat Race
+L7: Tipekans
+L7: Sn k  P t
+L8: Dragon's Ire
+L8: Dragon's Flame
+L9: Hocus Pocus
+L9: Hopeless Hallways
+L10: Halls of Babble
+L10: Concordia
+L10: Pandemonium
+L11: Trials
+L11: Tribulations
+     Celestial Boundary
+     Spheres Asunder
+L12: Dissemination
+L12: The Gateway
+     Choronzar's Demesne
+     The Funhouse
+VIEW OTHERS
+PARTY
+automaps.dat
+Illegal Map Number!
+OKAY
+ALL PLAYERS ON MAP
+PLAYERS IN LOCAL AREA
+BACK TO MAP
+PARTY
+ALL IN LOC
+ALL IN MAP
+Strength
+Defense
+Dexterity
+Agility
+Initiative
+Health
+Mana
+Gold
+APPEARANCE
+FACE
+HEAD COVER
+COSTUME
+NOSE
+EYE COLOR
+FACIAL HAIR
+FACIAL VEIL
+CLOSE
+STATS
+FACE
+This Message Section is Empty.
+FIRST
+LAST
+NEXT
+PREV
+DONE
+Message 
+ From 
+CLOSE
+TAVERN POSTS
+POST
+CANCEL
+I'm sure I can find a use for this 
+resource.038
+resource.039
+SELL
+ITEMS
+ITEM
+PRICE
+GOLD
+I'm sure I can find a use for this 
+dddd
+resource.037
+Clubs and Axes skill will be useful!
+ goes berserk!
+ pursues fleeing enemies!
+ inspires the party!
+Fencing skill will be useful!
+'s Bind skill mysteriously fails!
+'s Bind skill does not work on corpses!
+ restores 
+ to full health!
+ health points to 
+ intimidates the enemies!
+Archery skill will be useful!
+ prepares a sly attack!
+You sense enemies nearby
+ distracts the enemies with music!
+You detect nothing special!
+You failed to pick the lock!
+ steals an item from the enemy!
+ failed to steal an item!
+Martial Arts skill will be useful!
+ is protected from magic!
+ protects the party from magic!
+ cures 
+'s wounds!
+Your ills are cured!
+You failed to restore Mana!
+'s magic abilities increase!
+Staff skill will be useful!
+ strips the enemies magic defenses away!
+ restores mana
+ to maximum
+Your mana is 
+at maximum
+increased
+Mana restore failed!
+Skills cannot be used here!
+SKILLS
+POINTS
+REMAINING
+resource.037
+Spells can't be cast here!
+'s Refresh spell fails!
+Your 
+Cure spell failed!
+Your afflictions are cured!
+'s Heal spell failed!
+'s Heal spell will not work on corpses!
+ restores 
+ to full health!
+ health points to 
+The Heal spell cast on you fails!
+The dead cannot be healed!
+You are healed!
+Your health increases by 
+'s Resuscitate spell failed!
+Cannot resuscitate live people!
+ revives 
+The attempt to resuscitate you failed!
+You are revived!
+Secrets are suddenly revealed!
+Your paralysis fades!
+You are no longer petrified!
+You are no longer controlled!
+Your curse has been lifted!
+Your aura dissipates!
+Your energy field evaporates!
+Your magical shield disappears!
+Your light shroud winks out!
+The bless spell wears off!
+Your resistance to magic wanes!
+SPELLS
+POINTS
+REMAINING
+NAME
+EPITHET
+RACE
+GUILD
+ALIGNMENT
+LEVEL
+CANCEL
+SORT BY
+Level 
+Select target player...
+You cast 
+You use 
+Welcome to the Twinion Tavern.
+DONE
+The Fates of Twinion 1.0
+The Fates of Twinion created by:
+   Joe Ybarra    Mike Moore    Scot Amos
+   Andy Riedel  Mike McAulay   Len Micko
+ Mark Dickenson  Fred Butts  Botu Green
+Donna Taylor   Roy Eltham   Andrew Townsley
+M.S. Dunhour  Wendy Barlow  Sharon Chercowy
+Biard MacGuineas  Russell Lieblich  John Miles
+Producer Dave Brooks and all at INN.
+SAVE PLAYER
+QUIT TO GALLERY
+QUIT TO MAP
+QUIT TO DOS
+ABOUT
+COMPLAIN
+GAME COLOR
+DONE
+VOL DN
+VOL UP
+HALL OF HEROES
+ANIMATION ON
+ANIMATION OFF
+NO AUDIO
+AUDIO CUES
+SOUND ONLY
+MUSIC ONLY
+SOUND AND MUSIC
+   It is 
+      OPTIONS     
+Twinion
+Posting Complaint, Please Wait...
+Complaint has been posted.
+Complain to INN Host
+Opening Hall of Heroes... Please Wait.
+Congratulations, You have entered the Hall Of Heroes!
+DONE
+Opening the Hall of Heroes.  Please wait.
+The Hall of Heroes is closed.
+Hall of Heroes
+Level 
+Do you really want to 
+quit to DOS?
+Do you really want to 
+quit to the Gallery?
+POSTS
+SORT
+SHOW SORT
+PLACES
+OPTIONS
+Do you really want to
+quit to the MAP?
+ON-LINE
+OFF-LINE
+OKAY
+CANCEL
+Sunday
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+January
+February
+March
+April
+June
+July
+August
+September
+October
+November
+December
+COMPAQ
