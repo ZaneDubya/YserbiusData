@@ -1,0 +1,1361 @@
+Map,Idx,NameSingle,NamePlural,Typ,Lvl,LvlRnd,Count,Adds,Flee%,Cast%,Drop%,XP,Gold
+0,0,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,1,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,2,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,3,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,4,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,5,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,6,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,7,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,8,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,9,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,10,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,11,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,12,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,13,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,14,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,15,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,16,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,17,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,18,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,19,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,20,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,21,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,22,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,23,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+0,24,Wandering Wildcat,Wandering Wildcats,1,1,0,1,0,4,0,5,10,0
+0,25,Wandering Wildcat,Wandering Wildcats,1,1,0,1,0,4,0,5,10,0
+0,26,Wandering Wildcat,Wandering Wildcats,1,1,0,1,0,4,0,5,10,0
+0,27,Wandering Wildcat,Wandering Wildcats,1,1,0,1,0,4,0,5,10,0
+0,28,Wandering Wildcat,Wandering Wildcats,1,1,0,2,0,4,0,5,12,4
+0,29,Craven Kitty,Craven Kitties,1,1,0,1,0,4,0,5,10,0
+0,30,Craven Kitty,Craven Kitties,1,1,0,2,0,4,0,5,12,5
+0,31,Cat of Immense Girth,Fat Cats,1,1,0,1,0,4,0,5,10,0
+0,32,Cat of Immense Girth,Fat Cats,1,1,0,2,0,4,0,5,12,7
+0,33,Bothersome Bat,Bothersome Bats,16,1,0,1,0,4,0,5,11,0
+0,34,Bothersome Bat,Bothersome Bats,16,1,0,1,0,4,0,5,11,0
+0,35,Bothersome Bat,Bothersome Bats,16,1,0,3,0,4,0,5,14,9
+0,36,Bewildered Bat,Bewildered Bats,16,1,0,1,0,4,0,5,11,0
+0,37,Bewildered Bat,Bewildered Bats,16,1,0,1,0,4,0,5,11,0
+0,38,Bewildered Bat,Bewildered Bats,16,1,0,1,0,4,0,5,11,0
+0,39,Bewildered Bat,Bewildered Bats,16,1,0,3,0,4,0,5,14,9
+1,0,Flimsy Fruit Bat,Flimsy Fruit Bats,16,1,0,1,0,4,0,0,8,10
+1,1,Flimsy Fruit Bat,Flimsy Fruit Bats,16,1,0,1,1,4,0,0,8,10
+1,2,Flimsy Fruit Bat,Flimsy Fruit Bats,16,1,0,2,0,6,0,0,8,10
+1,3,Flimsy Fruit Bat,Flimsy Fruit Bats,16,1,0,1,0,6,0,0,6,10
+1,4,Flimsy Fruit Bat,Flimsy Fruit Bats,16,1,0,1,1,6,0,0,6,10
+1,5,Dainty McDinky Duenna,Dainty McDinky Duennas,29,1,0,1,0,6,0,0,15,30
+1,6,Fruit Bat,Fruit Bats,16,1,1,1,1,6,0,0,10,15
+1,7,Meek Monandliath Mage,Meek Monandliath Magi,43,1,0,1,0,6,25,0,25,30
+1,8,Meek McUgly Mage,Meek McUgly Magi,45,1,0,1,1,6,25,0,25,30
+1,9,Dainty McDoughty Dastard,Dainty McDoughty Dastards,28,1,0,1,0,4,0,0,20,20
+1,10,Meek Monandliath Mage,Meek Monandliath Magi,43,1,0,1,1,6,35,30,20,40
+1,11,Mild Monandliath Mage,Mild Monandliath Magi,43,1,1,1,0,5,35,25,20,30
+1,12,Cat of Immense Girth,Cats of Immense Girth,1,1,0,1,1,8,0,0,20,20
+1,13,Cat of Immense Girth,Cats of Immense Girth,1,1,1,1,0,8,0,0,20,15
+1,14,Dainty McDoughty Dastard,Dainty McDoughty Dastards,28,1,0,1,1,10,0,25,25,40
+1,15,Cat of Immense Girth,Cats of Immense Girth,1,1,1,1,0,10,0,25,15,15
+1,16,Dainty McDoughty Dastard,Dainty McDoughty Dastards,28,1,0,1,0,10,0,20,40,45
+1,17,Bilious Bucolic Basher,Bilious Bucolic Bashers,24,1,0,1,1,10,0,20,35,45
+1,18,Cat of Immense Girth,Cats of Immense Girth,1,1,0,1,0,12,0,25,20,10
+1,19,Meek Monandliath Mage,Meek Monandliath Magi,43,1,0,1,1,18,20,25,33,35
+1,20,Cat of Immense Girth,Cats of Immense Girth,1,1,0,1,0,10,0,25,15,20
+1,21,Meek Monandliath Mage,Meek Monandliath Magi,43,1,0,1,0,8,20,25,29,45
+1,22,Cat of Immense Girth,Cats of Immense Girth,1,2,0,1,1,15,0,25,20,20
+1,23,Mild Monandliath Mage,Mild Monandliath Magi,43,1,1,1,1,15,20,25,42,45
+1,24,Mild McUgly Mage,Mild McUgly Magi,45,2,0,1,1,4,25,0,10,20
+1,25,Dainty McDoughty Dastard,Dainty McDoughty Dastards,28,1,1,1,1,4,0,0,10,30
+1,26,Mild McUgly Mage,Mild McUgly Magi,45,1,1,1,1,5,20,40,20,40
+1,27,Delicate McDoughty Dastard,Delicate McDoughty Dastards,28,2,1,1,1,8,0,40,30,45
+1,28,Delicate McDoughty Dastard,Delicate McDoughty Dastards,28,2,1,2,1,4,0,40,31,45
+1,29,Dull McDoughty Dastard,Dull McDoughty Dastards,28,3,0,1,1,6,5,35,29,90
+1,30,Bilious Bucolic Basher,Bilious Bucolic Bashers,24,2,0,1,1,20,0,0,27,60
+1,31,Bilious Bucolic Basher,Bilious Bucolic Bashers,24,2,1,2,1,15,0,0,32,60
+1,32,Mild McUgly Murderer,Mild McUgly Murderers,25,2,1,1,1,15,0,40,33,60
+1,33,Puny Pennines Pickpocket,Puny Pennines Pickpockets,34,3,0,2,1,15,0,40,22,30
+1,34,Delicate McDoughty Dipper,Delicate McDoughty Dippers,35,2,0,2,1,15,0,40,26,60
+1,35,Mild McUgly Moocher,Mild McUgly Moochers,36,2,0,3,0,18,0,35,37,75
+1,36,Daring McDinky Dipper,Daring McDinky Dippers,37,2,1,2,0,16,0,35,42,115
+1,37,McUgly Mage,McUgly Magi,45,3,0,2,1,16,30,35,27,40
+1,38,Daring McDinky Deunna,Daring McDinky Duennas,29,2,0,2,1,16,0,35,29,50
+1,39,Dangerous McDinky Duenna,Dangerous McDinky Duennas,29,3,0,2,1,12,0,35,29,50
+2,0,Bobbing Bit of Bones,Bobbing Bits of Bones,8,1,1,2,1,0,15,10,31,31
+2,1,Rotting Roger,Rotting Rogers,10,1,0,3,1,0,0,5,31,33
+2,2,Bernician Barbarian,Bernician Barbarians,22,2,1,2,1,11,18,10,37,42
+2,3,Scottish Squire,Scottish Squires,26,2,1,2,1,10,15,10,59,37
+2,4,Scottish Snarer,Scottish Snarers,30,3,1,3,1,15,10,15,69,41
+2,5,McDoughty Moocher,McDoughty Moochers,35,2,1,3,0,10,17,20,36,36
+2,6,Malevolent Mage,Malevolent Mages,43,2,1,3,1,10,95,15,58,37
+2,7,Mystical McDinky Doctor,Mystical McDinky Doctors,41,3,1,3,1,10,75,12,42,38
+2,8,Bobbing Bit of Bones,Bobbing Bits of Bones,8,1,1,3,1,0,35,15,42,41
+2,9,Rotting Roger,Rotting Rogers,10,1,0,3,1,0,0,15,37,42
+2,10,Bobbing Bit of Bones,Bobbing Bits of Bones,8,1,1,3,1,0,33,15,37,46
+2,11,Rotting Roger,Rotting Rogers,10,1,0,3,1,0,0,50,31,57
+2,12,Bobbing Bit of Bones,Bobbing Bits of Bones,8,2,1,2,1,0,15,20,33,31
+2,13,Clanky old Construct,Clanky old Constructs,17,1,1,2,1,0,25,20,35,41
+2,14,Sneaky Sylvan Snarer,Sneaky Sylvan Snarers,31,1,1,4,1,15,25,55,56,42
+2,15,McDoughty Mage,McDoughty Magi,44,2,1,2,1,5,95,25,47,47
+2,16,Bouncing Bit of Bones,Bouncing Bits of Bones,8,2,1,3,1,0,11,15,68,47
+2,17,Small Spectral Spud,Small Spectral Spuds,9,1,1,1,1,11,25,15,51,53
+2,18,Small Spectral Spud,Small Spectral Spuds,9,1,1,2,1,11,25,15,53,55
+2,19,Wary Wessex Wizard,Wary Wessex Wizards,43,3,1,3,1,11,95,30,42,58
+2,20,Small Spectral Spud,Small Spectral Spuds,9,1,1,3,1,11,25,25,59,62
+2,21,Cute Cuddly Calf,Cute Cuddly Calves,3,2,1,4,1,10,0,0,29,29
+2,22,Faithful McFurry Father,Faithful McFurry Fathers,41,2,0,3,1,11,95,25,41,39
+2,23,Daring McDoughty Squire,Daring McDoughty Squires,28,3,1,4,1,10,25,20,43,29
+2,24,Antagonistic Elf,Antagonistic Elves,24,3,0,3,1,10,35,25,42,41
+2,25,Munching McUgly Moocher,Munching McUgly Moochers,36,3,1,3,1,11,15,10,43,43
+2,26,Mocking McUgly Barbarian,Mocking McUgly Barbarians,25,2,1,4,1,12,15,15,37,55
+2,27,Mocking McMinimal Mage,Mocking McMinimal Magi,46,1,1,2,1,12,95,20,59,36
+2,28,Merry McDinky Moocher,Merry McDinky Moochers,37,3,1,4,1,9,45,24,73,48
+2,29,Caber Clutcher,Caber Clutchers,27,2,0,2,1,9,10,30,77,39
+2,30,Sinister Sylvan Snarer,Sinister Sylvan Snarers,31,3,1,5,1,15,22,45,59,37
+2,31,Scary Scottish Snarer,Scary Scottish Snarers,30,3,1,3,1,15,10,25,44,44
+2,32,McDoughty Squire,McDoughty Squires,28,4,0,4,1,10,25,25,56,41
+2,33,Sneaky Scottish Squire,Sneaky Scottish Squires,26,3,1,2,1,9,20,30,43,48
+2,34,McDoughty Moocher,McDoughty Moochers,35,2,1,2,1,10,0,35,45,35
+2,35,Mean McUgly Moocher,Mean McUgly Moochers,36,2,1,3,1,10,20,30,47,56
+2,36,Masterful McDinky Moocher,Masterful McDinky Moochers,37,3,1,1,0,9,35,45,69,72
+2,37,Cud Chomping Calf,Cud Chomping Calves,3,5,0,2,1,9,0,15,100,70
+2,38,Northlands Nun,Northlands Nuns,40,3,0,3,1,9,75,15,77,34
+2,39,Wary Wessex Wizard,Wary Wessex Wizards,43,4,0,2,1,10,95,20,77,76
+3,0,Fruit Bat,Fruit Bats,16,2,1,3,1,0,0,0,19,8
+3,1,Scottish Slime,Scottish Slimes,2,1,2,2,1,0,0,0,29,10
+3,2,Scottish Slime,Scottish Slimes,2,1,2,2,1,0,0,0,19,10
+3,3,Strathclyde Slime,Strathclyde Slimes,2,2,2,2,1,0,0,0,21,10
+3,4,Scottish Slime,Scottish Slimes,2,1,3,2,1,0,0,0,21,10
+3,5,McDoughty Squire,McDoughty Squires,28,3,1,1,1,5,0,10,37,20
+3,6,Foul Fruit Bat,Foul Fruit Bats,16,2,1,3,1,0,0,0,20,10
+3,7,Sylvan Barbarian,Sylvan Barbarians,24,1,1,1,1,5,33,20,33,30
+3,8,McDoughty Squire,McDoughty Squires,28,1,1,2,1,5,15,20,36,30
+3,9,McDoughty Squire,McDoughty Squires,28,1,1,1,1,5,22,25,38,30
+3,10,Wessex Wizard,Wessex Wizard,43,2,1,1,1,15,95,25,42,20
+3,11,McDinky Doctor,McDinky Doctors,41,2,1,1,1,7,80,20,47,25
+3,12,McDoughty Squire,Angry McDoughty Squires,28,1,1,2,1,5,33,15,38,30
+3,13,Wessex Wizard,Wessex Wizards,43,2,0,1,1,15,95,15,42,25
+3,14,McFurry Father,McFurry Fathers,41,2,2,2,1,7,75,15,41,30
+3,15,Sorcerous Apprentices,Sorcerous Apprentices,43,2,0,3,0,0,95,0,47,40
+3,16,McMinimal Priest,McMinimal Priests,42,2,3,1,1,1,75,20,47,35
+3,17,Sylvan Snarer,Sylvan Snarers,31,2,1,1,1,5,15,0,33,30
+3,18,McFurry Father,McFurry Fathers,41,2,3,1,1,1,65,20,47,20
+3,19,Sorcerous Apprentice,Sorcerous Apprentices,43,2,0,2,1,11,97,20,47,25
+3,20,McMinimal Mage,McMinimal Magi,46,2,1,2,1,5,95,25,34,30
+3,21,Wessex Warlock,Wessex Warlocks,43,2,2,1,1,15,95,15,44,25
+3,22,Strathclyde Snitch,Strathclyde Snitches,34,2,2,1,1,1,0,25,55,20
+3,23,McUgly Mage,McUgly Magi,45,3,0,1,1,15,95,15,53,30
+3,24,Sylvan Barbarian,Sylvan Barbarians,24,3,0,2,1,1,35,30,58,45
+3,25,Malevolent McMinimal Moocher,Malevolent McMinimal Moochers,38,3,1,2,1,0,0,30,47,50
+3,26,Murderous McUgly Mage,Murderous McUgly Magi,45,3,1,2,1,1,95,15,59,20
+3,27,Wildcat,Wildcats,1,3,1,2,1,10,0,0,72,45
+3,28,Wildcat,Wildcats,1,3,1,2,1,10,0,0,83,55
+3,29,Scottish Squire,Savage Scottish Squires,26,2,2,2,1,1,15,0,56,40
+3,30,Miniature Minotaur,Miniature Minotaurs,3,2,1,2,1,1,0,0,59,20
+3,31,Minotaur Calf,Minotaur Calves,3,4,1,2,1,1,0,0,47,15
+3,32,Sneaky Sylvan Snarer,Sneaky Sylvan Snarers,31,2,2,3,1,5,25,25,41,30
+3,33,Savage Scottish Squire,Savage Scottish Squires,26,2,2,2,1,1,10,25,42,30
+3,34,Mean McMinimal Moocher,Mean McMinimal Moochers,38,3,1,2,1,11,22,30,47,40
+3,35,Masterful McDoughty Moocher,Masterful McDoughty Moochers,35,4,0,2,1,10,11,0,32,20
+3,36,McUgly Moocher,McUgly Moochers,36,3,1,2,1,10,0,0,36,30
+3,37,McFurry Felon,McFurry Felons,37,3,1,2,1,1,22,25,69,50
+3,38,Bernician Barbarian,Bernician Barbarians,22,3,1,2,0,0,0,0,94,50
+3,39,Medusa,Medusae,6,3,1,1,1,0,0,30,100,250
+4,0,Fruit Bat,Fruit Bats,16,1,2,3,1,9,0,0,14,5
+4,1,Feckless Fruit Bat,Feckless Fruit Bats,16,2,1,3,1,10,0,0,14,5
+4,2,Fierce Fruit Bat,Fierce Fruit Bats,16,1,1,3,1,12,0,0,14,5
+4,3,Foul Fruit Bat,Foul Fruit Bats,16,1,1,3,1,15,0,0,14,5
+4,4,Fiendish Fruit Bat,Fiendish Fruit Bats,16,2,1,3,1,9,0,0,14,5
+4,5,Wee Broth of a Giant,Wee Broths of a Giant,18,1,0,1,1,15,0,80,69,30
+4,6,Miniature Minotaur,Miniature Minotaurs,3,1,1,4,1,5,0,0,18,10
+4,7,Miniature Minotaur,Miniature Minotaurs,3,2,1,3,1,1,0,0,29,15
+4,8,Devout McDinky Doctor,Devout McDinky Doctors,41,1,1,2,1,1,80,20,47,25
+4,9,Mighty McDinky Squire,Mighty McDinky Squires,29,3,0,2,1,5,15,10,38,40
+4,10,Mystic McUgly Mage,Mystic McUgly Magi,45,2,0,2,1,5,95,10,39,30
+4,11,Wary Wessex Wizard,Wary Wessex Wizards,43,2,0,1,0,15,95,15,43,40
+4,12,Scottish Slime,Scottish Slimes,2,2,1,3,1,5,0,0,17,15
+4,13,Presumptious Puss,Presumptious Pusses,1,2,0,1,1,10,0,0,23,15
+4,14,Mirthful McDinky Squire,Mirthful McDinky Squires,29,3,0,2,1,5,15,10,38,30
+4,15,Peckish Puddy Pie,Peckish Puddy Pies,1,2,0,2,1,5,0,10,29,20
+4,16,Caber Clutcher,Caber Clutchers,27,1,1,3,1,5,20,10,37,30
+4,17,Sylvan Barbarian,Sylvan Barbarians,24,2,1,1,0,5,0,5,33,30
+4,18,McDoughty Moocher,McDoughty Moochers,35,2,1,3,1,7,25,20,32,15
+4,19,Devout McDinky Doctor,Devout McDinky Doctors,41,2,1,3,1,1,15,15,38,45
+4,20,Wild Wessex Wizard,Wild Wessex Wizards,43,2,1,2,1,15,75,25,35,20
+4,21,Delicate McDoughty Mage,Delicate McDoughty Magi,44,2,1,3,1,15,75,15,69,35
+4,22,Masterful McDinky Moocher,Masterful McDinky Moochers,37,2,1,3,1,1,15,15,38,20
+4,23,Mighty McDoughty Moocher,Mighty McDoughty Moochers,35,2,1,3,1,7,25,20,55,25
+4,24,Sinister Sylvan Barbarian,Sinister Sylvan Barbarians,24,3,0,2,1,0,45,15,59,40
+4,25,Merry McDinky Squire,Merry McDinky Squire,29,3,1,1,1,0,15,15,61,40
+4,26,Caber Snarer,Caber Snarers,32,3,1,1,1,0,15,15,63,40
+4,27,Sinister Strathclyde Snitch,Sinister Strathclyde Snitches,34,3,1,1,1,0,20,15,65,40
+4,28,Faithful McFurry Father,Faithful McFurry Fathers,41,2,1,1,1,0,65,15,67,40
+4,29,Masterful McUgly Mage,Masterful McUgly Magi,45,2,1,1,1,0,75,15,69,40
+4,30,Scottish Barbarian,Scottish Barbarians,23,3,1,2,1,5,5,5,38,30
+4,31,Strathclyde Snitch,Strathclyde Snitches,34,2,1,4,1,5,25,9,35,20
+4,32,Mighty McUgly Barbarian,Mighty McUgly Barbarians,25,2,1,1,1,1,25,12,42,45
+4,33,Whitby Wizard,Whitby Wizards,43,3,1,2,1,0,85,0,100,200
+4,34,Bernician Barbarian,Bernician Barbarian,22,2,1,2,1,0,0,5,77,70
+4,35,Wessex Wizard,Wessex Wizards,43,2,1,2,1,0,85,15,83,70
+4,36,Oozing Slime,Oozing Slimes,2,2,1,2,1,0,0,0,29,20
+4,37,Itty McKitty,Itty McKitty,1,3,1,4,1,10,0,0,31,10
+4,38,Itty Bitty McKitty,Itty Bitty McKitties,1,4,1,3,1,5,0,0,36,10
+4,39,Mighty McDoughty Man at Arms,Might McDoughty Men at Arms,28,3,1,2,1,0,25,0,90,76
+5,0,Fruit Bat,Fruit Bats,16,2,0,3,1,9,0,0,19,8
+5,1,Fetid Fruit Bat,Fetid Fruit Bats,16,2,1,3,1,10,0,0,19,8
+5,2,Fell Fruit Bat,Fell Fruit Bats,16,3,0,3,1,12,0,0,21,8
+5,3,Fierce Fruit Bat,Fierce Fruit Bats,16,3,1,3,1,15,0,0,23,8
+5,4,Ferocious Fruit Bat,Ferocious Fruit Bats,16,4,0,2,1,9,0,0,25,8
+5,5,McFurry Fighter,McFurry Fighters,29,2,1,1,1,11,27,27,47,25
+5,6,Fiendish Fruit Bat,Fiendish Fruit Bats,16,4,1,2,1,5,0,0,26,15
+5,7,Wessex Wizard,Wessex Wizards,43,2,1,1,1,15,95,25,58,25
+5,8,McUgly Mage,McUgly Magi,45,2,1,1,1,1,95,30,58,25
+5,9,McFurry Fighter,McFurry Fighters,29,2,1,1,1,5,21,0,55,40
+5,10,Sorcerous Apprentice,Sorcerous Apprentices,43,2,0,1,1,15,75,30,47,55
+5,11,Wessex Wizard,Wessex Wizards,43,2,1,1,0,15,95,25,65,55
+5,12,Puny Pookie Cat,Puny Pookie Cats,1,2,1,1,0,10,0,0,29,15
+5,13,Puny Pookie Cat,Puny Pookie Cats,1,2,1,1,1,10,0,0,29,20
+5,14,Miniature Minotaur,Miniature Minotaurs,3,2,0,1,1,1,0,0,77,15
+5,15,Puny Pookie Cat,Puny Pookie Cats,1,1,1,2,1,10,0,0,29,20
+5,16,McFurry Fighter,McFurry Fighters,29,1,1,1,1,5,10,20,42,55
+5,17,Sylvan Slayer,Sylvan Slayers,24,1,1,1,1,5,15,10,53,45
+5,18,Puny Pookie Cat,Puny Pookie Cats,1,1,1,1,1,10,0,0,31,20
+5,19,Wessex Wizard,Wessex Wizards,43,2,1,2,0,15,95,25,53,60
+5,20,McDoughty Moocher,McDoughty Moochers,35,2,1,2,1,5,15,25,52,50
+5,21,McUgly Moocher,McUgly Moochers,36,2,1,1,1,5,15,40,57,75
+5,22,Miniature Minotaur,Miniature Minotaurs,3,1,2,1,1,1,0,0,69,80
+5,23,Wessex Wizard,Wessez Wizard,43,2,0,2,0,15,95,25,60,40
+5,24,Sylvan Slayer,Sylvan Slayers,24,3,0,1,1,0,33,40,53,55
+5,25,McDoughty Marauder,McDoughty Marauders,28,3,1,2,1,5,0,0,56,20
+5,26,McUgly Mage,McUgly Magi,45,3,1,2,1,1,95,30,53,40
+5,27,McDoughty Moocher,McDoughty Moochers,35,3,0,1,1,5,15,0,64,40
+5,28,McDinky Moocher,McDinky Moochers,37,3,1,3,0,5,10,30,47,30
+5,29,McDoughty Marauder,McDoughty Marauders,28,4,0,1,1,5,20,20,55,30
+5,30,McUgly Mage,MgUgli Magi,45,3,1,1,1,5,95,25,45,25
+5,31,Scottish Snarer,Scottish Snarers,30,4,0,1,1,5,10,35,42,25
+5,32,McMinimal Moocher,McMinimal Moochers,38,3,1,3,1,4,65,0,77,50
+5,33,McFurry Felons,McFurry Felons,37,3,1,2,1,1,5,0,83,50
+5,34,Sylvan Snarer,Sylvan Snarers,31,3,1,2,1,10,10,20,47,36
+5,35,McDoughty Moocher,McDoughty Moochers,35,2,2,2,1,5,5,0,51,45
+5,36,McUgly Master Moocher,McUgly Master Moochers,36,4,0,1,1,0,25,40,100,250
+5,37,Peckish Puddie Pie,Peckish Puddie Pies,1,4,0,1,1,1,0,0,83,20
+5,38,Predatory Puddie Pie,Predatory Puddie Pies,1,4,1,2,1,5,0,0,77,20
+5,39,Minotaur Calf,Minotaur Calves,3,5,0,2,1,1,0,0,77,70
+6,0,Wildcat,Wildcats,1,4,0,2,1,4,0,0,22,12
+6,1,Smelly Scottish Slime,Smelly Scottish Slimes,2,3,0,1,1,6,0,5,25,10
+6,2,Scottish Slime,Scottish Slimes,2,2,0,1,1,8,0,5,27,10
+6,3,Scottish Slime,Scottish Slimes,2,2,0,2,1,6,0,5,31,10
+6,4,Scottish Slime,Scottish Slimes,2,2,1,1,1,6,0,10,29,20
+6,5,Scottish Squire,Scottish Squires,26,2,1,2,1,9,0,20,37,25
+6,6,Bobbing Bit of Bones,Bobbing Bits of Bones,8,2,1,1,1,11,0,0,33,15
+6,7,Bobbing Bit of Bones,Bobbing Bits of Bones,8,2,1,2,1,8,0,0,21,20
+6,8,McUgly Mage,McUgly Mages,45,2,1,1,1,15,95,35,42,40
+6,9,McDoughty Squire,McDoughty Squires,28,1,1,1,1,3,20,35,42,50
+6,10,Wessex Wizard,Wessex Wizards,43,2,1,1,1,8,35,35,53,60
+6,11,McFurry Father,McFurry Fathers,41,2,1,1,1,10,50,35,69,40
+6,12,Silly Spectral Spud,Silly Spectral Spuds,9,2,0,2,1,20,0,0,47,18
+6,13,Peckish Puddy Pie,Peckish Puddy Pies,1,3,0,1,1,20,0,0,47,14
+6,14,McDinky Doctor,McDinky Doctors,41,1,1,2,1,20,45,20,58,40
+6,15,Woeful Wildcat,Woeful Wildcats,1,2,1,1,1,20,0,0,34,15
+6,16,McFurry Father,McFurry Fathers,41,2,1,2,1,24,50,25,45,45
+6,17,Scottish Snarer,Scottish Snarers,30,2,1,1,1,24,0,14,67,60
+6,18,Bouncing Bit of Bones,Bouncing Bits of Bones,8,4,0,3,1,12,0,0,31,20
+6,19,Wessex Wizard,Wessex Wizards,43,2,1,2,1,15,95,25,38,40
+6,20,Not Quite Dead,Not Quite Deads,10,1,1,1,1,18,0,22,73,50
+6,21,Not Dead Yet,Not Dead Yets,10,2,1,2,1,12,0,85,59,55
+6,22,Strathclyde Snitch,Strathclyde Snitches,34,1,1,2,1,12,0,15,47,40
+6,23,MgUgly Mage,McUgly Mages,45,1,1,2,1,12,95,15,57,50
+6,24,Sylvan Barbarian,Sylvan Barbarians,24,3,0,2,1,1,55,30,66,65
+6,25,Strathclyde Snitch,Strathclyde Snitches,34,2,1,2,1,8,35,30,47,30
+6,26,McUgly Mage,McUgly Mages,45,2,1,2,1,9,95,30,52,40
+6,27,McDoughty Esquire,McDoughty Esquires,28,2,1,2,1,4,0,30,42,30
+6,28,Strathclyde Skulker,Strathclyde Skulkers,34,3,1,3,1,20,33,20,60,30
+6,29,Scottish Squire,Scottish Squires,26,2,1,2,1,18,25,25,69,75
+6,30,McDinky Moocher,McDinky Moochers,37,3,1,2,1,18,0,10,42,30
+6,31,Serious Spook,Serious Spooks,11,1,0,1,1,2,85,85,83,68
+6,32,McUgly Barbarian,McUgly Barbarians,25,3,1,2,1,15,40,25,59,20
+6,33,Child of the Night,Children of the Night,12,1,1,2,1,12,0,86,90,65
+6,34,McDoughty Moocher,McDoughty Moochers,35,3,1,2,1,12,0,25,55,35
+6,35,McUgly Moocher,McUgly Moochers,36,3,1,1,1,10,25,25,65,45
+6,36,Eensy Ectoplasm Egg,Eensy Ectoplasmic Eggs,9,3,0,3,1,25,35,65,100,100
+6,37,Bernician Barbarian ,Bernician Barbarians,22,3,1,3,1,25,0,20,57,25
+6,38,Vicious McKitty,Vicious McKitties,1,3,1,1,1,25,0,0,34,20
+6,39,Bashful Little Ghoul,Bashful Little Ghouls,10,4,0,1,1,20,0,90,77,210
+7,0,Hungry Fruit Bat,Hungry Fruit Bats,16,3,0,2,1,4,0,0,18,10
+7,1,Fruit Bat,Fruit Bats,16,2,0,1,1,4,0,0,16,10
+7,2,Killer Fruit Bat,Killer Fruit Bats,16,4,0,1,1,6,0,0,18,10
+7,3,Fruit Bat,Fruit Bats,16,2,0,1,1,6,0,0,16,10
+7,4,Fruit Bat,Fruit Bats,16,2,0,1,1,6,0,0,16,10
+7,5,McDinky Squire,McDinky Squires,29,1,1,1,1,15,0,22,29,30
+7,6,Vicious Fruit Bat,Vicious Fruit Bats,16,4,0,1,1,6,0,0,24,15
+7,7,Sorcerous Apprentice,Sorcerous Apprentices,43,1,1,1,1,15,95,25,55,30
+7,8,McUgly Mage,McUgly Mages,45,1,1,1,1,15,95,25,69,30
+7,9,McDoughty Squire,McDoughty Squires,28,1,0,2,1,11,0,0,31,20
+7,10,Sorcerous Apprentice,Sorcerous Apprentices,43,1,0,1,1,6,95,30,32,40
+7,11,Wessex Wizard,Wessex Wizards,43,1,1,1,0,5,95,25,33,30
+7,12,Not Very Tame Cat,Not Very Tame Cats,1,2,0,1,1,8,0,0,34,20
+7,13,Wildcat,Wildcats,1,4,0,1,0,8,0,0,69,25
+7,14,McDoughty Squire,McDoughty Squires,28,1,0,1,1,10,0,25,36,40
+7,15,Vicious McKitty,Vicious McKitties,1,3,0,1,1,10,0,25,47,35
+7,16,McDoughty Squire,McDoughty Squires,28,1,1,1,1,10,0,20,73,45
+7,17,Sylvan Barbarian,Sylvan Barbarians,24,1,1,1,1,10,0,20,77,45
+7,18,Puddy Pie,Puddy Pies,1,1,0,3,1,12,0,25,29,10
+7,19,Wessex Wizard,Wessex Wizards,43,1,1,1,1,18,95,25,53,35
+7,20,Not Very Tame Cat,Not Very Tame Cats,1,2,0,3,1,10,0,25,29,20
+7,21,Wessex Wizard,Wessex Wizards,43,2,1,2,1,8,95,40,83,45
+7,22,Wildcat,Wildcats,1,4,0,1,1,15,0,25,32,20
+7,23,Creepy Conjurer,Creepy Conjurers,43,1,1,2,1,18,100,25,83,55
+7,24,Sylvan Slasher,Sylvan Slashers,24,3,0,2,1,11,45,35,77,47
+7,25,McDoughty Squire,McDoughty Squires,28,2,1,1,1,11,0,0,19,30
+7,26,Short Spellcaster,Short Spellcasters,45,3,1,2,1,11,95,40,63,50
+7,27,McDoughty Squire,McDoughty Squires,28,2,1,2,1,11,0,40,45,45
+7,28,McDoughty Squire,McDoughty Squires,28,3,0,3,1,11,0,40,50,45
+7,29,McDoughty Squire,McDoughty Squires,28,2,1,2,1,11,40,35,77,90
+7,30,McUgly Mage,McUgly Magi,45,2,1,2,1,20,95,0,47,60
+7,31,Angry Elfighter,Angry Elfighters,24,2,1,2,1,15,0,0,47,60
+7,32,McUgly Barbarian,McUgly Barbarians,25,2,1,2,1,15,0,40,60,60
+7,33,Strathclyde Snitch,Strathclyde Snitches,34,2,1,2,1,15,0,40,29,20
+7,34,McDoughty Moocher,McDoughty Moochers,35,2,1,2,1,15,0,40,51,60
+7,35,McUgly Moocher,McUgly Moochers,36,3,0,3,1,18,0,35,69,75
+7,36,McDinky Moocher,McDinky Moochers,37,4,0,2,1,16,30,35,83,105
+7,37,McUgly Mage,McUgly Mages,45,3,1,3,1,16,95,80,99,80
+7,38,Dinky Duelist,Dinky Duelists,29,3,1,3,1,16,0,35,58,50
+7,39,Dinky Duelist,Dinky Duelists,29,4,0,3,1,12,0,35,57,50
+8,0,Nice Northlands Sister,Nice Northlands Sisters,40,5,0,1,1,40,50,15,422,200
+8,1,Naughty Northlands Sister,Naughty Northlands Sisters,40,6,0,1,1,40,20,15,477,200
+8,2,Nasty Northlands Sister,Nasty Northlands Sisters,40,7,0,1,1,40,40,20,656,200
+8,3,Clumsy Caber Caster,Clumsy Caber Casters,27,4,0,1,1,40,30,20,447,200
+8,4,Crabby Caber Caster,Crabby Caber Casters,27,5,0,1,1,40,30,30,550,150
+8,5,Cranky Caber Caster,Cranky Caber Casters,27,6,0,1,1,40,30,20,577,350
+8,6,Clumsy Caber Catcher,Clumsy Caber Catchers,32,6,0,1,1,40,40,15,377,186
+8,7,Crabby Caber Catcher,Crabby Caber Catchers,32,7,0,1,1,40,40,15,498,150
+8,8,Cranky Caber Catcher,Cranky Caber Catchers,32,8,0,1,1,40,40,15,545,133
+8,9,Careful Caber Catcher,Careful Caber Catchers,32,9,0,1,1,100,50,20,747,298
+8,10,Mocking McUgly Berserker,Mocking McUgly Berserkers,25,4,0,2,1,60,40,20,309,100
+8,11,Mean McUgly Berserker,Mean McUgly Berserkers,25,5,0,1,1,60,40,20,411,121
+8,12,Menacing McUgly Berserker,Menacing McUgly Berserkers,25,6,0,1,1,80,45,25,611,191
+8,13,Bothersome McUgly Burglar,Bothersome McUgly Burglars,36,5,0,2,1,40,50,25,366,100
+8,14,Bilious McUgly Burglar,Bilious McUgly Burglars,36,6,0,1,1,50,50,20,399,200
+8,15,Baleful McUgly Burglars,Baleful McUgly Burglars,36,7,0,2,1,55,45,18,499,150
+8,16,Evil McUgly Illusionist,Evil McUgly Illusionists,45,5,1,2,1,25,95,25,602,275
+8,17,Awful McUgly Illusionist,Awful McUgly Illusionists,45,7,0,2,1,30,95,25,751,313
+8,18,Blasted McMinimal Bishop,Blasted McMinimal Bishops,42,5,2,1,1,60,75,20,456,300
+8,19,Mean McMinimal Masher,Mean McMinimal Mashers,38,6,0,2,1,40,30,15,401,200
+8,20,Menacing McMinimal Masher,Menacing McMinimal Mashers,38,7,0,1,1,45,50,15,447,250
+8,21,Evil McMinimal Enchanter,Evil McMinimal Enchanters,46,5,1,2,1,45,95,20,324,150
+8,22,Awful McMinimal Enchanter,Awful McMinimal Enchanters,46,7,1,2,1,50,95,20,422,120
+8,23,Smallish Giant,Smallish Giants,18,4,1,1,1,50,0,0,896,130
+8,24,Monstrous McMinimal Masher,Monstrous McMinimal Mashers,38,8,0,2,1,60,40,15,602,230
+8,25,Scary McMinimal Sorceror,Scary McMinimal Sorcerors,46,9,0,1,1,40,95,20,800,300
+8,26,Giant,Giants,18,6,0,2,0,60,0,15,1211,125
+8,27,Monstrous Magical Servant,Monstrous Magical Servants,17,4,0,1,1,33,50,20,1151,200
+8,28,Menacing Magical Servant,Menacing Magical Servants,17,5,0,1,1,44,0,15,1255,422
+8,29,Conniving Construct,Conniving Constructs,17,3,0,2,1,55,75,20,1141,140
+8,30,Charging Construct,Charging Constructs,17,3,1,2,1,60,65,25,1231,200
+8,31,Not Very Large Giant,Not Very Large Giants,18,4,0,4,0,70,0,25,866,125
+8,32,Average Giant,Average Giants,18,5,0,3,1,70,0,25,904,200
+8,33,Evilly Average Giant,Evilly Average Giants,18,6,0,2,1,60,0,20,1133,100
+8,34,Pict,Picts,7,1,0,2,1,80,0,20,832,50
+8,35,Prowling Pict,Prowling Picts,7,2,0,1,1,80,0,30,991,79
+8,36,Predatory Pict,Predatory Picts,7,3,0,1,0,60,0,40,1040,150
+8,37,Fleance's Shade,Fleance's Shades,20,1,0,1,0,80,30,50,5000,2000
+8,38,Fleance's Ghost,Fleance's Ghost,20,2,0,1,0,80,30,30,7500,2500
+8,39,The Ghost of Fleance,The Ghost of Fleance,20,3,0,1,0,80,30,40,10000,3000
+9,0,Prowling Panther,Prowling Panthers,1,8,0,5,1,33,0,15,599,50
+9,1,Preying Panther,Preying Panthers,1,9,0,3,1,55,0,20,683,150
+9,2,Prowling Panther,Prowling Panthers,1,8,0,5,1,35,0,20,598,100
+9,3,Preying Panther,Preying Panthers,1,9,0,3,1,66,0,20,703,125
+9,4,Peckish Panther,Peckish Panthers,1,10,0,1,1,60,0,25,955,175
+9,5,Peckish Panther,Peckish Panthers,1,10,0,1,1,80,0,15,955,150
+9,6,Perturbed Panther,Perturbed Panthers,1,11,0,1,1,80,0,15,1121,200
+9,7,Perturbed Panther,Perturbed Panthers,1,11,0,1,0,80,0,20,1121,200
+9,8,Mighty McMinimal Masher,Mighty McMinimal Mashers,38,6,2,3,1,40,40,25,583,250
+9,9,Beastly McUgly Burglar,Beastly McUgly Burglars,36,5,2,4,1,44,50,15,647,100
+9,10,Careless Caber Casters,Careless Caber Casters,27,5,1,4,1,33,33,15,329,150
+9,11,Clumsy Caber Catcher,Clumsy Caber Catchers,32,7,2,4,1,0,33,10,488,200
+9,12,Knavish Scottish Knight,Knavish Scottish Knights,26,5,1,5,1,44,44,15,377,150
+9,13,Sneaky Scottish Scout,Sneaky Scottish Scouts,30,5,2,5,1,33,33,20,411,134
+9,14,Sinister Scottish Scout,Sinister Scottish Scouts,30,8,2,3,1,0,66,10,588,100
+9,15,Strathclyde Sneak,Strathclyde Sneaks,34,5,1,6,1,44,44,20,366,150
+9,16,Sinister Strathclyde Sneak,Sinister Strathclyde Sneaks,34,7,1,4,1,60,40,15,512,150
+9,17,McDinky Knight,McDinky Knights,29,5,1,4,1,44,60,20,841,150
+9,18,Slyfoot Scout,Slyfoot Scouts,33,5,1,5,1,33,33,20,599,100
+9,19,Sylvan Scout,Sylvan Scouts,31,5,1,5,1,33,40,20,555,100
+9,20,McDoughty Burglar,McDoughty Burglars,35,5,2,4,1,60,40,15,683,145
+9,21,Dwarf at Arms,Dwarves at Arms,28,5,2,5,1,44,45,20,547,150
+9,22,Minotaur,Minotaurs,3,5,0,5,1,70,0,15,577,75
+9,23,Marauding Minotaur,Marauding Minotaurs,3,6,0,3,1,70,0,20,611,300
+9,24,Nasty McDinky Knight,Nasty McDinky Knights,29,7,0,5,1,70,45,20,1121,75
+9,25,Sinister Slyfoot Scout,Sinister Slyfoot Scouts,33,7,1,3,1,44,25,15,1177,100
+9,26,Shrewd Sylvan Scout,Shrewd Sylvan Scouts,31,7,1,4,1,88,33,15,1345,50
+9,27,Imp,Imps,19,1,0,1,1,88,80,15,1323,200
+9,28,Evil Imp,Evil Imps,19,2,0,1,1,100,50,15,1451,120
+9,29,Joker,Jokers,19,3,0,1,1,122,70,20,1635,150
+9,30,Pict,Picts,7,1,0,3,0,60,0,30,1355,175
+9,31,Prowling Pict,Prowling Picts,7,2,0,2,1,80,0,20,1433,100
+9,32,Pursuing Pict,Pursuing Picts,7,3,0,1,1,100,0,20,1565,150
+9,33,Lethal Leopard,Lethal Leopards,1,11,0,2,1,60,0,15,1522,100
+9,34,Wimpy Wyvern,Wimpy Wyverns,14,2,0,2,1,50,40,15,1412,854
+9,35,Wyvern,Wyverns,14,3,0,2,1,80,60,20,1476,688
+9,36,Winglet,Winglets,14,4,0,1,1,120,60,20,1789,923
+9,37,Wandering Wraith,Wandering Wraiths,11,2,0,4,1,33,60,25,1122,300
+9,38,Wily Wraith,Wily Wraiths,11,3,0,4,1,44,80,25,1197,146
+9,39,Wary Wraith,Wary Wraiths,11,4,0,3,1,55,95,20,1255,450
+10,0,McUgly Berserker,McUgly Berserkers,25,4,1,3,1,50,44,18,544,100
+10,1,Mean McUgly Berserker,Mean McUgly Berserkers,25,6,0,2,1,50,50,21,765,150
+10,2,Stylish Scottish Berserker,Stylish Scottish Berserkers,23,5,1,3,1,40,35,15,897,100
+10,3,Snazzy Scottish Berserker,Snazzy Scottish Berserkers,23,7,1,3,1,40,40,22,1197,250
+10,4,Bouncy Bernician Berserker,Bouncy Bernician Berserkers,22,5,1,3,1,55,50,20,767,122
+10,5,Bright Bernician Berserker,Bright Bernician Berskers,22,7,1,2,1,60,0,15,1025,166
+10,6,Cool Caber Catcher,Cool Caber Catchers,32,7,1,3,1,45,35,15,511,50
+10,7,Cunning Caber Catcher,Cunning Caber Catchers,32,9,0,3,1,55,45,15,647,100
+10,8,Stylish Scottish Scout,Stylish Scottish Scouts,30,5,1,4,1,33,33,15,597,200
+10,9,Snazzy Scottish Scout,Snazzy Scottish Scouts,30,7,1,3,1,44,35,15,699,250
+10,10,Smokin' Scottish Scout,Smokin' Scottish Scouts,30,9,1,2,1,50,44,15,833,300
+10,11,Short Slyfoot Scout,Short Slyfoot Scouts,33,5,1,3,1,60,25,15,900,188
+10,12,Stout Slyfoot Scout,Stout Slyfoot Scouts,33,7,1,2,1,70,30,15,1031,266
+10,13,Sneaky Sylvan Scout,Sneaky Sylvan Scouts,31,5,1,3,1,50,40,15,801,150
+10,14,Sordid Sylvan Scout,Sordid Sylvan Scouts,31,7,1,2,1,40,50,15,945,223
+10,15,Bucolic Berserker,Bucolic Berserkers,24,5,1,3,1,40,36,15,721,188
+10,16,Brawny Bucolic Berserker,Brawny Bucolic Berserkers,24,7,1,1,1,40,42,15,997,288
+10,17,Smart Sylvan Scholar,Smart Sylvan Scholars,39,5,2,3,1,40,65,15,698,100
+10,18,Shrewd Sylvan Scholar,Shrewd Sylvan Scholars,39,8,1,1,1,40,65,20,1021,250
+10,19,Minotaur Heifer,Minotaur Heifers,3,6,0,1,1,45,0,20,599,75
+10,20,Mean Minotaur Heifer,Mean Minotaur Heifers,3,7,0,1,1,55,0,20,931,100
+10,21,Hissing Harpy,Hissing Harpies,15,1,1,2,1,60,0,15,599,100
+10,22,Horrid Harpy,Horrid Harpies,15,3,1,2,1,60,0,20,1120,200
+10,23,Piglet,Piglets,5,1,0,2,1,50,0,15,678,300
+10,24,Harpy,Harpies,15,1,0,1,1,0,0,20,812,300
+10,25,Hissing Harpy,Hissing Harpies,15,2,0,1,0,0,0,20,966,250
+10,26,Hateful Harpy,Hateful Harpies,15,3,0,1,0,0,0,25,1121,400
+10,27,Horrid Harpy,Horrid Harpies,15,4,0,1,1,0,0,20,1311,150
+10,28,Pugnacious Piglet,Pugnacious Piglets,5,2,0,2,1,40,0,15,1047,50
+10,29,Pugilistic Piglet,Pugilistic Piglets,5,3,0,2,1,40,0,20,1034,150
+10,30,Pig,Pigs,5,4,0,1,1,60,0,10,1133,50
+10,31,Pugnacious Pig,Pugnacious Pigs,5,5,0,1,1,65,0,15,1299,50
+10,32,Pugilistic Pig,Pugilistic Pigs,5,6,0,1,0,77,0,20,1602,100
+10,33,Minotaur Heifer,Minotaur Heifers,3,6,0,1,1,0,0,20,1092,200
+10,34,Mean Minotaur Heifer,Mean Minotaur Heifers,3,7,0,1,1,0,0,30,1213,250
+10,35,Snarling Spaniel,Snarling Spaniels,13,1,0,1,1,40,0,20,1244,200
+10,36,Spiteful Spaniel,Spiteful Spaniels,13,2,0,1,1,70,0,25,1356,225
+10,37,Mangy Mongrel,Mangy Mongrels,13,3,0,1,1,70,0,20,1512,350
+10,38,Wanton Winglet,Wanton Winglets,14,1,1,1,1,60,50,20,1466,300
+10,39,Wicked Winglet,Wicked Winglets,14,2,0,1,1,50,70,25,1755,100
+11,0,Slyfoot Scout,Slyfoot Scouts,33,5,1,3,1,80,50,15,400,30
+11,1,Slyfoot Scout,Slyfoot Scouts,33,7,1,1,1,70,50,15,529,75
+11,2,Bernician Berserker,Bernician Berserker,22,5,1,1,1,70,20,15,477,150
+11,3,Bernician Berserker,Bernician Berserker,22,7,1,1,1,80,40,15,668,200
+11,4,Caber Catcher,Caber Catchers,32,8,1,1,1,60,40,20,877,300
+11,5,Strathclyde Sorceror,Strathclyde Sorcerors,43,6,1,2,1,80,95,15,676,177
+11,6,McDinky Minister,McDinky Ministers,41,6,1,4,1,60,40,20,421,300
+11,7,Caber Chaplain,Caber Chaplains,40,6,1,4,1,70,40,15,477,200
+11,8,Strathclyde Sneak,Strathclyde Sneaks,34,6,1,1,1,60,33,20,694,100
+11,9,McDinky Kaniggit,McDinky Knights,29,6,1,4,1,70,35,15,833,120
+11,10,McMinimal Masher,McMinimal Mashers,38,6,1,4,1,70,35,15,702,120
+11,11,McUgly Mugger,McUgly Muggers,36,6,1,3,1,60,33,20,829,250
+11,12,Caber Kaniggit,Caber Casters,27,5,1,6,1,70,45,15,611,100
+11,13,McDoughty Dastard,McDoughty Dastards,35,6,1,4,1,70,60,15,688,200
+11,14,Snarling Spaniel,Snarling Spaniels,13,1,1,2,1,60,0,15,1021,200
+11,15,Harpy,Harpies,15,1,0,5,1,60,0,15,1098,300
+11,16,Hungry Harpy,Hungry Harpies,15,3,0,2,1,60,0,20,1272,287
+11,17,Rank Wraith,Rank Wraiths,41,2,1,2,1,70,60,20,1066,166
+11,18,Skeletal Soldier,Skeletal Soldiers,8,4,0,3,1,0,40,20,412,210
+11,19,Ghastly Ghost,Ghastly Ghosts,9,4,0,2,1,80,70,20,945,120
+11,20,Gruesome Ghost,Gruesome Ghosts,9,5,0,2,1,70,55,20,1177,200
+11,21,Vampire,Vampire,12,2,0,1,1,70,0,25,1162,200
+11,22,Vengeful Vampire,Vengeful Vampires,12,3,0,1,1,80,0,25,1309,150
+11,23,Hungry Ghoul,Hungry Ghouls,10,1,2,2,1,40,0,15,1388,160
+11,24,Gluttonous Ghoul,Gluttonous Ghouls,10,4,0,1,1,70,0,20,1542,100
+11,25,Ghostly General,Ghostly Generals,9,6,0,3,1,80,55,15,1622,150
+11,26,Sinister Skeletal Soldier,Sinister Skeletal Soldiers,8,5,0,4,1,0,40,15,699,150
+11,27,Rotten Wraith,Rotten Wraiths,11,4,0,3,1,50,95,20,1189,125
+11,28,Vengeful Vampiric Valet,Vengeful Vampiric Valets,12,4,0,3,1,0,0,20,1312,275
+11,29,Hungry Harpy Harlot,Hungry Harpy Harlots,15,4,0,3,1,50,0,15,1389,250
+11,30,Menacing Mongrel ,Menacing Mongrels,13,3,0,1,1,50,0,20,1341,300
+11,31,Monstrous Mongrel,Monstrous Mongrels,13,4,0,1,1,50,0,20,1477,450
+11,32,Meek Mongrel,Meek Mongrels,13,3,0,2,1,70,0,15,1183,250
+11,33,Mild Mongrel,Mild Mongrels,13,4,0,2,1,60,0,25,1231,200
+11,34,Sordid Scottish Scout,Sordid Scottish Scouts,30,10,0,1,1,70,30,20,1266,150
+11,35,Stealthy Sylvan Scout,Stealthy Sylvan Scouts,31,8,0,1,1,50,50,20,1311,175
+11,36,Scummy Sludge,Scummy Sludges,2,6,0,1,1,40,0,20,1032,250
+11,37,Mild Minotaur Minion,Mild Minotaur Minions,3,6,0,1,1,80,0,20,1131,200
+11,38,Murderous Minotaur Minion,Murderous Minotaur Minions,3,7,0,1,1,70,0,20,1466,110
+11,39,Murderous Medusa,Murderous Medusae,6,4,1,1,1,60,0,20,1334,200
+12,0,Shrewd Sylvan Scholar,Shrewd Sylvan Scholars,39,10,0,2,1,100,60,20,2001,800
+12,1,Smart Sylvan Scholar,Smart Sylvan Scholars,39,11,0,1,1,100,60,20,2576,844
+12,2,Normal Northlands Sister,Normal Northlands Sisters,40,8,1,2,1,80,50,20,2121,477
+12,3,Enormous Northlands Sister,Enormous Northlands Sisters,40,10,1,1,1,120,50,20,2883,555
+12,4,Sturdy Slyfoot Scout,Sturdy Slyfoot Scouts,33,9,0,1,1,80,45,15,2512,625
+12,5,Studly Slyfoot Scout,Studly Slyfoot Scouts,33,10,0,1,1,120,45,15,2555,725
+12,6,Swift Sylvan Scout,Swift Sylvan Scouts,31,9,1,2,1,80,65,20,2020,350
+12,7,Strong Sylvan Scout,Strong Sylvan Scouts,31,11,0,1,1,120,65,20,2983,650
+12,8,Caber Caster,Caber Casters,27,7,1,4,1,80,45,20,2039,400
+12,9,Caber Crusher,Caber Crushers,27,9,1,3,1,120,45,20,2847,400
+12,10,Colossal Caber Crusher,Colossul Caber Crushers,27,11,0,1,1,160,45,20,3955,555
+12,11,Caber Catcher,Caber Catchers,32,10,1,4,1,80,35,20,2010,125
+12,12,Caber Challenger,Caber Challengers,32,12,0,2,1,100,35,20,2893,125
+12,13,Meek McUgly Berserker,Meek McUgly Berserkers,25,7,1,4,1,55,35,15,1992,300
+12,14,Brave McUgly Basher,Brave McUgly Bashers,25,9,1,2,1,111,35,15,2447,300
+12,15,Scottish Battler,Scottish Battlers,23,9,1,3,1,130,35,10,2899,75
+12,16,Bernician Battler,Bernician Battlers,22,9,0,3,1,120,20,20,3234,185
+12,17,Big Bernician Battler,Big Bernician Battlers,22,10,0,2,1,120,20,20,3762,185
+12,18,Middling Giant,Middling Giants,18,7,0,3,1,60,20,20,3234,1155
+12,19,Golem,Golems,17,6,1,4,1,0,0,20,2443,288
+12,20,Material Golem,Material Golems,17,6,1,4,1,0,0,99,2145,3888
+12,21,Harpy Warrior,Harpy Warriors,15,6,1,2,1,70,0,20,2893,250
+12,22,Itty Piggy,Itty Piggies,5,4,1,3,1,70,0,20,2092,80
+12,23,Impractical Joker,Impractical Jokers,19,4,1,3,1,70,95,20,2567,800
+12,24,Brawny McUgly Basher,Brawny McUgly Bashers,25,11,0,1,1,111,35,15,3787,400
+12,25,Studly Slyfoot Scout,Studly Slyfoot Scouts,33,10,0,3,0,120,45,15,3622,725
+12,26,Colossal Caber Crusher,Colossul Caber Crushers,27,11,0,3,1,160,45,20,3993,555
+12,27,Smoking Scottish Battler,Smoking Scottish Battlers,23,11,0,3,0,130,35,10,3994,254
+12,28,Brawny Bernician Battler,Brawny Bernician Battlers,22,11,0,2,1,120,20,20,4747,185
+12,29,Above Average Giant,Above Average Giants,18,8,0,4,1,60,20,20,4099,1155
+12,30,Gargantuan Golem,Gargantuan Golems,17,9,0,2,1,0,0,20,4083,288
+12,31,Happy Harpy Warrior,Happy Harpy Warriors,15,8,0,2,1,70,0,20,4047,355
+12,32,Harpy Sergeant,Harpy Sergeants,15,9,0,2,1,80,0,20,5121,490
+12,33,Big Pig,Big Pigs,5,6,2,3,1,90,0,20,3387,99
+12,34,Snorting Sow,Snorting Sows,5,9,0,2,1,110,0,20,4377,120
+12,35,Discourteous Jester,Discourteous Jesters,19,6,0,3,1,110,95,20,4010,1000
+12,36,Jumping Japer,Jumping Japers,19,7,0,3,1,70,75,20,5223,1200
+12,37,Scorcher,Scorchers,14,5,0,4,0,90,40,20,4777,1400
+12,38,Seering Scorcher,Seering Scorchers,14,6,0,3,0,130,40,20,6111,1700
+12,39,Flaming Flitter,Flaming Flitters,14,7,0,2,0,160,40,20,7777,2000
+13,0,Mild McDinky Mendicant,Mild McDinky Mendicants,41,8,1,4,1,60,40,15,2233,290
+13,1,Merry McMinimal Matron,Merry McMinimal Matrons,42,8,1,3,1,50,90,20,2229,200
+13,2,Strathclyde Sorceror,Strathclyde Sorcerors,43,8,1,4,1,70,99,15,2129,175
+13,3,McUgly Mage,McUgly Magi,45,8,1,4,1,60,99,15,1992,388
+13,4,McDoughty Warlock,McDoughty Warlocks,44,8,1,5,1,60,95,15,2567,325
+13,5,Sneaky Sylvan Scholar,Sneaky Sylvan Scholars,39,10,1,3,1,80,75,15,2929,625
+13,6,Sinister Caber Sister,Sinister Caber Sisters,40,8,1,3,1,80,55,20,2322,250
+13,7,Banshee,Banshees,9,7,0,2,1,70,45,15,3343,500
+13,8,Bothersome Banshee,Bothersome Banshees,9,8,0,2,1,70,45,15,3876,500
+13,9,Material Ghoul,Material Ghouls,10,5,1,6,1,60,0,15,2783,4000
+13,10,Mummy Dearest,Mummies Dearest,10,7,0,6,1,60,0,15,3210,400
+13,11,Fearless Skeletal Warrior,Fearless Skeletal Warriors,8,6,1,5,0,0,45,15,2023,100
+13,12,Spectre,Spectres,11,5,0,8,0,50,0,20,2011,225
+13,13,Spooky Spectre,Spooky Spectres,11,6,0,6,0,50,0,20,2456,326
+13,14,Sinister Spectre,Sinister Spectres,11,7,0,4,0,70,0,20,3388,150
+13,15,Vampiric Vandal,Vampiric Vandals,12,6,0,6,0,100,0,15,2010,290
+13,16,Vicious Vampiric Vandal,Vicious Vampiric Vandals,12,7,0,6,0,100,0,15,2562,290
+13,17,Vampiric Enchanter,Vampiric Enchanters,12,8,0,4,0,100,65,15,3107,390
+13,18,Virulent Vampiric Vandal,Virulent Vampiric Vandals,12,8,1,1,0,50,50,15,3994,540
+13,19,Sinister Spectre,Sinister Spectres,11,7,0,4,0,70,0,20,3345,150
+13,20,Vampiric Vandal,Vampiric Vandals,12,6,0,6,0,100,0,15,2020,290
+13,21,Melodic Minotaur,Melodic Minotaurs,3,8,0,6,0,100,0,15,2494,290
+13,22,Medusa,Medusae,6,9,0,7,0,100,0,15,3433,390
+13,23,Medusa Obligata,Medusae Obligatae,6,8,0,7,0,60,0,20,3922,499
+13,24,Mean McDinky Mendicant,Mean McDinky Mendicants,41,9,0,7,1,60,40,15,4922,390
+13,25,Merry McMinimal Matron,Merry McMinimal Matrons,42,9,0,6,1,50,90,20,4777,200
+13,26,Northumbrian Necromance,Northumbrian Necromancers,43,9,0,7,1,70,99,15,4422,377
+13,27,Menacing McUgly Mage,Menacing McUgly Magi,45,9,0,7,1,60,99,15,4589,388
+13,28,McDoughty Warlock,McDoughty Warlocks,44,10,0,5,1,60,95,15,5423,506
+13,29,Sinister Caber Sister,Sinister Caber Sisters,40,11,0,3,1,80,65,20,5083,250
+13,30,Baleful Banshee,Baleful Banshees,9,9,0,2,1,70,45,15,5472,500
+13,31,Chrysanthemummy,Chrysanthemummies,10,10,0,7,0,0,0,20,6122,600
+13,32,Fearless Skeletal Warrior,Fearless Skeletal Warriors,8,8,0,7,0,0,45,15,5043,380
+13,33,Serious Sylvan Scholar,Serious Sylvan Scholars,39,11,0,6,0,50,50,20,4799,600
+13,34,Vehement Vampiric Vandal,Vehement Vampiric Vandals,12,9,0,1,1,0,50,25,5678,500
+13,35,Fierce Fossil,Fierce Fossils,8,9,0,8,0,0,40,25,6011,100
+13,36,Wicked Wailer,Wicked Wailers,9,9,0,4,1,60,65,20,6544,700
+13,37,Malcolm's Ghost,Shades of Malcolm,20,4,0,1,0,0,60,28,9000,1500
+13,38,Malcolm's Ghost,Shades of Malcolm,20,5,0,1,0,0,60,28,13500,2000
+13,39,Malcolm's Ghost,Shades of Malcolm,20,6,0,1,0,0,60,28,18000,2500
+14,0,Mild McDinky Mendicant,Mild McDinky Mendicants,41,8,1,4,1,60,40,15,2216,290
+14,1,Merry McMinimal Matron  ,Merry McMinimal Matrons,42,8,1,3,1,50,90,20,2232,200
+14,2,Sneaky Sylvan Scholar,Sneaky Sylvan Scholars,39,10,1,3,1,80,75,15,3947,625
+14,3,Sinister Caber Sister,Sinister Caber Sisters,40,8,1,3,1,80,55,20,2321,250
+14,4,Crabby Caber Crusher,Crabby Caber Crushers,27,7,1,5,1,70,35,25,2729,380
+14,5,Mild McDoughty Master,Mild McDoughty Masters,28,8,0,7,1,70,35,20,2468,150
+14,6,Mean McDoughty Master,Mean McDoughty Masters,28,9,0,5,1,120,35,20,3456,254
+14,7,Scottish Baron,Scottish Barons,26,7,1,7,1,60,41,25,2321,250
+14,8,McDinky Baron,McDinky Barons,29,8,0,4,1,120,35,25,2983,500
+14,9,Roaring McDoughty Robber,Roaring McDoughty Robbers,35,8,2,7,1,50,40,25,2654,300
+14,10,Garish McUgly Burglar,Garish McUgly Burglars,36,8,1,6,1,70,40,25,2542,250
+14,11,Morbid McMinimal Masher,Morbid McMinimal Mashers,38,9,0,7,1,70,60,20,2254,380
+14,12,Suspicious Strathclyde Sneak,Suspicious Strathclyde Sneaks,34,9,2,5,1,70,50,25,2576,400
+14,13,Malignant McDinky Masher,Malignant McDinky Mashers,37,6,1,4,1,50,60,20,3566,75
+14,14,Bothersome Banshee,Bothersome Banshees,9,8,0,2,1,70,45,15,3345,500
+14,15,Material Ghoul,Material Ghouls,10,5,1,6,1,60,0,15,2751,4000
+14,16,Mummy Dearest,Mummies Dearest,10,7,2,6,1,60,0,15,3757,400
+14,17,Fearless Skeletal Warrior,Fearless Skeletal Warriors,8,6,1,5,0,0,45,15,2001,100
+14,18,Spectre,Spectres,11,5,0,8,0,50,0,20,1999,225
+14,19,Spooky Spectre,Spooky Spectres,11,6,0,6,0,50,0,20,2546,326
+14,20,Sinister Spectre,Sinister Spectres,11,7,0,4,0,70,0,20,3334,150
+14,21,Vampiric Vandal,Vampiric Vandals,12,6,0,6,0,100,0,15,2123,290
+14,22,Vicious Vampiric Vandal,Vicious Vampiric Vandals,12,7,0,6,0,100,0,15,2667,290
+14,23,Bloodsucking Sorceror,Bloodsucking Sorcerors,12,8,0,4,0,100,65,15,3121,390
+14,24,Murderous McDoughty Master,Murderous McDoughty Masters,28,10,0,3,1,150,35,20,6985,620
+14,25,Brae Scottish Baron,Brae Scottish Barons,26,10,0,5,1,60,41,25,5651,250
+14,26,Cranky Caber Crusher,Cranky Caber Crushers,27,9,0,3,1,120,35,25,7012,380
+14,27,Bonny Scottish Baron,Bonny Scottish Barons,26,11,0,3,1,60,41,25,7121,550
+14,28,Brilliant McDinky Baron,Brilliant McDinky Barons,29,10,0,2,1,120,35,25,7343,500
+14,29,Stealthy Strathclyde Sneak,Stealthy Strathclyde Sneaks,34,12,0,3,1,120,50,25,5656,400
+14,30,Vehement Vampiric Vandal,Vehement Vampiric Vandals,12,9,0,1,1,0,50,25,5967,500
+14,31,Fierce Fossil,Fierce Fossils,8,8,0,8,0,0,40,25,4022,100
+14,32,Horrid Howler,Horrid Howlers,9,9,0,4,1,60,65,20,6576,700
+14,33,Decimating Spectre,Decimating Spectres,11,8,0,4,0,70,0,20,7221,450
+14,34,Murderous Mummy,Murderous Mummies,10,11,0,5,0,0,0,20,6221,600
+14,35,Fearless Skeletal Warrior,Fearless Skeletal Warriors,8,9,0,7,0,0,45,15,4888,380
+14,36,Serious Sylvan Scholar,Serious Sylvan Scholars,39,11,0,6,0,50,50,20,5565,600
+14,37,McMinimal Mugger,McMinimal Muggers,38,10,0,9,0,0,60,28,5100,1500
+14,38,McUgly Bandit,McUgly Bandits,36,10,0,9,0,0,95,28,5040,2000
+14,39,McDinky Mugger,McDinky Muggers,37,9,0,5,0,0,30,28,6332,2500
+15,0,Mild McDinky Mendicant,Mild McDinky Mendicants,41,8,1,4,1,60,40,15,2277,290
+15,1,Merry McMinimal Matron  ,Merry McMinimal Matrons,42,8,1,3,1,50,90,20,2269,200
+15,2,Sneaky Sylvan Scholar,Sneaky Sylvan Scholars,39,10,1,3,1,80,75,15,2299,625
+15,3,Sinister Caber Sister,Sinister Caber Sisters,40,8,1,3,1,80,55,20,2234,250
+15,4,Meek McUgly Berserker,Meek McUgly Berserkers,25,7,1,4,1,55,95,15,2000,300
+15,5,Brave McUgly Basher,Brave McUgly Bashers,25,9,1,2,1,111,35,15,2599,300
+15,6,Scottish Battler,Scottish Battlers,23,9,1,3,1,130,35,10,2791,75
+15,7,Bernician Battler,Bernician Battlers,22,9,0,3,1,120,20,20,3147,185
+15,8,Big Bernician Battler,Big Bernician Battlers,22,10,0,2,1,120,20,20,3692,185
+15,9,Brawny Bucolic Battler,Brawny Bucolic Battlers,24,9,1,4,1,90,30,20,2810,500
+15,10,Sturdy Slyfoot Scout,Sturdy Slyfoot Scouts,33,9,0,1,1,80,45,15,2505,625
+15,11,Studly Slyfoot Scout,Studly Slyfoot Scouts,33,10,0,1,1,120,45,15,3066,725
+15,12,Swift Sylvan Scout,Swift Sylvan Scouts,31,9,1,2,1,80,65,20,2030,350
+15,13,Strong Sylvan Scout,Strong Sylvan Scouts,31,11,0,1,1,120,65,20,2501,650
+15,14,Caber Catcher,Caber Catchers,32,10,1,4,1,80,35,20,2001,125
+15,15,Caber Challenger,Caber Challengers,32,12,0,2,1,100,35,20,2800,125
+15,16,Smoking Scottish Scout,Smoking Scottish Scouts,30,11,1,5,1,110,31,20,2218,200
+15,17,Hissing Guardian Medusa,Hissing Guardian Medusae,6,9,0,6,0,90,0,25,2787,800
+15,18,Horrible Horned Heifer,Horrible Horned Heifers,3,8,1,6,0,110,0,25,3347,350
+15,19,Vindictive Vampire Bat,Vindictive Vampire Bats,16,9,1,6,0,90,0,15,2629,51
+15,20,Looming Leopard,Looming Leopards,1,10,1,6,0,70,0,33,2210,500
+15,21,Nasty Neanderthal,Nasty Neanderthals,7,4,2,6,0,60,0,15,2491,500
+15,22,Pungent Pig,Pungent Pigs,5,4,2,6,0,110,0,15,3011,300
+15,23,Warring Spectre,Warring Spectres,11,5,1,6,0,90,0,15,2343,390
+15,24,Brawny Bucolic Battler,Brawny Bucolic Battlers,24,9,1,4,1,90,30,20,5231,500
+15,25,Brawny McUgly Basher,Brawny McUgly Bashers,25,11,0,1,1,111,99,15,5040,400
+15,26,Smoking Scottish Battler,Smoking Scottish Battlers,23,11,0,4,1,130,35,10,5234,354
+15,27,Brawny Bernician Battler,Brawny Bernician Battlers,22,11,0,3,1,120,20,20,6211,299
+15,28,Studly Slyfoot Scout,Studly Slyfoot Scouts,33,10,0,3,0,120,45,15,4789,725
+15,29,Horrible Guardian Medusa,Horrible Guardian Medusae,6,10,0,5,0,90,0,25,5432,1000
+15,30,Belligerent Brawny Bull,Belligerent Brawny Bulls,3,10,0,3,1,110,0,25,5678,750
+15,31,Virulent Vampire Bat,Virulent Vampire Bats,16,11,0,6,0,90,0,15,5220,155
+15,32,Lethal Leopard,Lethal Leopards,1,12,0,6,0,70,0,33,4783,280
+15,33,Noxious Neanderthal,Noxious Neanderthals,7,7,1,4,0,150,40,40,6787,500
+15,34,Potent Pig,Potent Pigs,5,7,1,4,0,150,0,15,6212,300
+15,35,Powerful Pig,Powerful Pigs,5,9,0,3,1,170,0,15,7612,300
+15,36,Howling Spectre,Howling Spectres,11,7,0,6,0,90,0,15,5335,390
+15,37,Bloodsucking Sorceror,Bloodsucking Sorcerors,12,8,0,5,0,120,99,33,6231,700
+15,38,Belligerent Bellowing Banshee,Belligerent Bellowing Banshees,9,9,1,4,0,120,80,50,7447,900
+15,39,Gray's Anatomy,Gray's Anatomies,8,9,1,6,0,0,69,70,5323,1200
+16,0,Vicious Viking,Vicious Vikings,22,12,1,2,0,150,20,20,5334,368
+16,1,Sylvan Swordswoman,Sylvan Swordswomen,24,12,1,2,0,180,20,15,5470,435
+16,2,Sinister Scottish Battler,Sinister Scottish Battlers,23,11,0,3,0,100,29,15,2808,622
+16,3,McUgly Murderer,McUgly Murderers,25,12,1,5,0,160,35,15,4829,400
+16,4,Serious Sylvan Slayer,Serious Sylvan Slayers,31,12,1,3,0,110,40,15,5128,454
+16,5,Cowardly Caber Challenger,Cowardly Caber Challengers,32,12,0,4,0,150,40,15,4047,477
+16,6,Sneaky Slyfoot Slayer,Sneaky Slyfoot Slayers,33,11,1,2,0,110,20,30,6029,555
+16,7,Spry Sylvan Saint,Spry Sylvan Saints,39,12,1,4,0,250,95,20,7002,454
+16,8,Northlands Abbess,Northlands Abbesses,40,12,0,2,0,94,95,20,5291,365
+16,9,Mighty McDinky Don,Mighty McDinky Dons,41,10,1,4,0,120,60,20,4747,427
+16,10,Mean McMinimal Minister,Mean McMinimal Ministers,42,10,1,5,0,60,95,20,3202,522
+16,11,Cunning Cur,Cunning Curs,13,8,0,3,0,60,0,20,2838,322
+16,12,Sneaky Shough,Sneaky Shoughs,13,9,0,3,0,70,0,20,3547,467
+16,13,Sinister Shough,Sinister Shoughs,13,10,0,3,0,70,0,20,4444,255
+16,14,Water-rug,Water-rugs,13,11,0,3,0,70,0,25,5704,400
+16,15,Haughty Harpy Sergeant,Haughty Harpy Sergeants,15,10,1,3,0,50,30,30,4590,699
+16,16,Proud Harpy Princess,Proud Harpy Princesses,15,12,0,2,1,50,30,20,6000,888
+16,17,Vengeful Vampire Bat,Vengeful Vampire Bats,16,11,1,4,0,50,0,20,3800,100
+16,18,Medusa Priestess,Medusa Priestesses,6,11,1,4,0,50,60,20,4577,963
+16,19,Savage Sirloin,Savage Sirloins,3,10,0,2,1,120,0,20,5300,676
+16,20,Hungry Hog,Hungry Hogs,5,10,1,3,0,40,0,20,5808,358
+16,21,Bag of Bones,Bags of Bones,8,9,1,3,0,80,90,20,5654,456
+16,22,Mean Old Mummy,Mean Old Mummies,10,8,1,4,0,80,0,15,4354,397
+16,23,Frightening Phantasm,Frightening Phantasms,9,10,1,3,1,60,75,20,5951,545
+16,24,Preening Harpy Princess,Preening Harpy Princesses,15,13,0,1,1,120,30,25,8299,654
+16,25,Wild Water-rug,Wild Water-rugs,13,12,0,1,1,190,0,25,7344,567
+16,26,Violent Vampyre Bat,Violent Vampyre Bat,16,13,0,1,1,200,60,15,8345,898
+16,27,Miserable Medusa Priestess,Miserable Medusa Priestesses,6,13,0,4,0,250,50,15,10256,1211
+16,28,Bad Bull,Bad Bulls,3,11,0,2,1,50,0,20,9753,722
+16,29,Bad Boar,Bad Boars,5,13,0,3,0,40,0,20,9876,612
+16,30,Bad Bag of Bones,Bad Bags of Bones,8,11,0,3,1,80,30,25,7989,253
+16,31,Napolean Boneyparts,Napolean Boneyparts,8,11,0,3,0,60,99,15,8755,300
+16,32,Gruesome Grandmummy,Gruesome Grandmummies,10,10,0,3,1,60,99,20,7941,541
+16,33,Unexplained Phenomenum,Unexplained Phenomena,9,12,0,2,1,40,80,15,7983,350
+16,34,Slimy Shrieking Spook,Slimy Shrieking Spooks,9,13,0,2,1,40,99,15,9383,892
+16,35,Violent Vampiric Vandal,Violent Vampiric Vandals,12,10,0,2,1,80,99,15,8933,787
+16,36,Blasted Bloodsucking Sorceror,Blasted Bloodsucking Sorcerors,12,11,0,1,1,80,99,20,11223,988
+16,37,Mighty McDinky Don,Mighty McDinky Dons,41,11,0,4,1,120,50,20,6210,667
+16,38,Spry Sylvan Saint,Spry Sylvan Saints,39,13,0,4,1,250,95,20,6788,454
+16,39,Sinister Slyfoot Slayer,Sinister Slyfoot Slayers,33,13,0,2,1,110,30,30,12232,1311
+17,0,Bitty Scottish Baron,Bitty Scottish Barons,26,9,0,8,0,80,40,20,3117,177
+17,1,Burly Scottish Baron,Burly Scottish Barons,26,10,0,7,0,80,75,20,3688,234
+17,2,Brawny Scottish Baron,Brawny Scottish Barons,26,11,0,6,0,80,40,20,4400,274
+17,3,Brave McDoughty Baron,Brave McDoughty Barons,28,11,1,7,1,90,40,25,3838,247
+17,4,Daring McDoughty Duke,Daring McDoughty Dukes,28,13,0,4,0,120,95,25,5668,429
+17,5,Murderous McDinky Marauder,Murderous McDinky Marauders,37,11,0,3,1,60,5,25,5611,462
+17,6,Dangerous McDinky Marauder,Dangerous McDinky Marauders,37,9,1,4,1,60,5,25,4921,454
+17,7,Feeble McDoughty Felon,Feeble McDoughty Felons,35,11,1,6,1,60,50,99,3716,187
+17,8,Frantic McDoughty Felon,Frantic McDoughty Felons,35,13,0,4,1,60,50,99,4333,161
+17,9,Melancholy McMinimal Masher,Melancholy McMinimal Mashers,38,10,1,8,1,80,80,25,3343,167
+17,10,Battered McUgly Burglar,Battered McUgly Burglars,36,10,1,7,1,80,99,30,3823,226
+17,11,Swarthy Stratclyde Smuggler,Swarthy Strathclyde Smugglers,34,13,0,6,0,70,78,20,4932,500
+17,12,Abominable Abbess,Abominable Abbesses,40,12,0,6,0,70,99,20,4941,488
+17,13,McMinimal Minister,McMinimal Ministers,42,10,1,7,1,77,99,25,3236,125
+17,14,Menacing McDinky Minister,Menacing McDinky Ministers,41,10,1,5,1,70,34,20,3841,309
+17,15,Pastoral Preacher,Pastoral Preachers,39,12,0,7,0,70,99,20,3945,101
+17,16,Skeletal Swashbuckler,Skeletal Swashbucklers,8,9,1,6,1,70,50,20,5555,150
+17,17,Gruesome Glop o'Gauze,Gruesome Glops o'Gauze,10,8,1,9,0,50,0,25,3365,378
+17,18,Forceful Phantasm,Forceful Phantasms,9,10,0,3,1,50,99,25,3389,277
+17,19,Phlogistic Phantasm,Phlogistic Phantasms,9,11,0,3,1,50,20,25,4465,367
+17,20,Savage Shough,Savage Shoughs,13,8,2,4,0,60,0,20,5000,222
+17,21,Harpy Bodyguard,Harpy Bodyguards,15,9,2,3,1,60,0,20,5011,477
+17,22,Celtic Shaman,Celtic Shamans,7,9,1,3,1,50,60,20,7040,911
+17,23,Nasty Jabber,Nasty Jabbers,19,8,1,3,0,50,70,20,5233,388
+17,24,Pastoral Preacher,Pastoral Preachers,39,13,0,6,0,70,99,20,5996,200
+17,25,Dangerous McDinky Duke,Dangerous McDinky Dukes,29,12,0,5,0,50,20,20,8021,677
+17,26,Colossal Caber Crusher,Colossal Caber Crushers,27,11,0,6,1,60,5,25,10022,656
+17,27,Skeletal Swashbuckler,Skeletal Swashbucklers,8,11,0,5,0,70,50,20,9323,244
+17,28,Lich,Liches,10,10,0,6,0,50,99,25,11543,1024
+17,29,Sorcerous Spook,Sorcerous Spooks,9,12,0,3,1,50,99,25,10323,622
+17,30,Slashing Spook,Slashing Spooks,9,13,0,3,1,50,20,25,13546,911
+17,31,Violent Vampiric Vandal,Violent Vampiric Vandals,12,10,0,5,1,70,50,20,7143,477
+17,32,Blasted Bloodsucking Sorceror,Blasted Bloodsucking Sorcerors,12,11,0,4,1,50,99,15,11431,512
+17,33,Sepulchric Spectre,Sepulchric Spectres,11,9,0,6,0,55,0,25,6665,266
+17,34,Spectral Swashbuckler,Spectral Swashbucklers,11,10,0,6,0,55,0,25,9321,244
+17,35,Wily Water-rug,Wily Water-rugs,13,12,0,4,0,60,0,20,10320,232
+17,36,Pestilential Harpy,Pestilential Harpies,15,13,0,3,1,60,30,20,10303,477
+17,37,Not Very Friendly Tiger,Not Very Friendly Tigers,1,13,0,1,0,94,0,25,8041,250
+17,38,Necromantic Neanderthal,Necromantic Neanderthals,7,11,0,3,1,50,60,20,12567,1001
+17,39,Putrescent Pincher,Putrescent Pinchers,19,10,1,3,0,50,99,20,13789,388
+18,0,Brawny McUgly Basher,Brawny McUgly Bashers,25,12,0,4,1,122,30,15,6969,390
+18,1,Mildly Vicious Viking,Mildly Vicious Vikings,22,12,0,4,0,122,25,15,7004,469
+18,2,Blasted Bucolic Battler,Blasted Bucolic Battlers,24,12,0,4,1,133,20,15,8001,611
+18,3,Daring McDoughty Dabbler,Daring McDoughty Dabblers,44,11,1,5,0,80,100,20,5804,383
+18,4,Sneaky McMinimal Sorceror,Sneaky McMinimal Sorcerors,46,10,0,4,1,70,100,20,4506,329
+18,5,Scary McMinimal Sorceror,Scary McMinimal Sorcerors,46,11,0,4,0,70,100,20,6601,491
+18,6,Weird McUgly Warlock,Weird McUgly Warlocks,45,10,0,5,1,70,100,20,5283,229
+18,7,Wary McUgly Warlock,Wary McUgly Warlocks,45,11,0,4,0,70,100,20,8747,381
+18,8,Northumbrian Necromancer,Northumbrian Necromancers,43,10,0,5,1,60,100,20,5910,288
+18,9,Nasty Northumbrian Necromancer,Nasty Northumbrian Necromancers,43,11,0,4,0,60,100,20,6666,505
+18,10,Mangy McDinky Marauder,Mangy McDinky Marauders,37,9,1,4,1,60,5,20,6808,483
+18,11,Felonious McDoughty Fink,Felonious McDoughty Finks,35,11,1,7,1,60,80,20,5125,470
+18,12,Grim McMinimal Masher,Grim McMinimal Mashers,38,10,1,6,1,60,80,25,6629,295
+18,13,Bad McUgly Burglar,Bad McUgly Burglars,36,10,1,5,1,60,100,15,6599,633
+18,14,Sinister Strathclyde Smuggler,Sinister Strathclyde Smugglers,34,13,0,6,1,50,50,20,7866,741
+18,15,Apprentice Pincher,Apprentice Pinchers,19,8,2,5,0,50,30,20,7688,855
+18,16,Pictish Prowler,Pictish Prowlers,7,9,1,4,1,70,30,15,6029,347
+18,17,Bloated Boar,Bloated Boars,5,10,1,4,1,70,0,15,6222,206
+18,18,Bass Brawling Bat,Bass Brawling Bats,16,11,1,8,0,70,0,15,3776,247
+18,19,Bloated Bag of Bones,Bloated Bags of Bones,8,9,2,4,1,60,55,20,3995,229
+18,20,Gargantuan Group o'Gauze,Gargantuan Groups o'Gauze,10,8,1,7,1,60,0,12,3088,201
+18,21,Wee Wary Wraiths,Wee Wary Wraiths,11,8,2,4,0,60,0,20,4888,208
+18,22,Goofy Galloping Ghost,Goofy Galloping Ghosts,9,10,3,4,1,60,45,25,6776,433
+18,23,Vacuous Vampiric Vizier,Vacuous Vampiric Viziers,12,9,1,5,1,66,50,90,5995,599
+18,24,Very Vicious Viking,Very Vicious Vikings,22,13,0,4,0,122,25,15,10155,500
+18,25,Brawny McUgly Basher,Brawny McUgly Bashers,25,13,0,3,0,122,35,25,9510,688
+18,26,Blasted Bucolic Battler,Blasted Bucolic Battlers,24,13,0,4,0,133,20,15,10000,1088
+18,27,Dangerous McDoughty Dabbler,Dangerous McDoughty Dabblers,44,13,0,5,0,80,100,20,7666,676
+18,28,Murderous McDinky Marauder,Murderous McDinky Marauders,37,11,0,3,0,60,5,20,8059,565
+18,29,Thoughtful McDoughty Thief,Thoughtful McDoughty Thieves,35,13,0,5,1,60,80,20,7474,1655
+18,30,Journeyman Jabber,Journeyman Jabbers,19,11,0,5,0,50,50,20,10053,989
+18,31,Pictish Priest,Pictish Priests,7,11,0,4,1,70,66,15,10955,955
+18,32,Raunchy Razorback,Raunchy Razorbacks,5,13,0,4,1,70,0,15,8050,206
+18,33,Vicious Vampyre Bat,Vicious Vampyre Bats,16,13,0,5,0,70,100,15,9505,217
+18,34,Little Ol' Lich,Little Ol' Liches,10,10,0,5,1,60,100,12,8786,200
+18,35,Great Gushing Ghost,Great Gushing Ghosts,9,13,0,3,1,60,45,25,13356,1200
+18,36,Violent Vampiric Vizier,Violent Vampiric Viziers,12,11,0,6,1,66,77,90,14211,2044
+18,37,Banquo's Ghost,Banquo's Ghost,20,7,0,1,0,0,30,99,16000,2222
+18,38,Banquo's Ghost,Banquo's Ghost,20,8,0,1,0,0,30,99,19000,3333
+18,39,Banquo's Ghost,Banquo's Ghost,20,9,0,1,0,0,30,99,22000,4444
+19,0,Brawny McUgly Basher,Brawny McUgly Bashers,25,12,0,4,1,122,30,15,5766,383
+19,1,Mildly Vicious Viking,Mildly Vicious Vikings,22,12,0,4,0,122,25,15,5668,405
+19,2,Blasted Bucolic Battler,Blasted Bucolic Battlers,24,12,0,4,1,133,20,15,6055,616
+19,3,Saucy Sylvan Slayer,Saucy Sylvan Slayers,31,12,1,5,0,80,33,20,4944,384
+19,4,Cautious Caber Crusher,Cautious Caber Crushers,32,12,0,8,0,70,40,20,4847,565
+19,5,Stout Slyfoot Scout,Stout Slyfoot Scouts,33,11,0,5,0,70,20,20,3895,502
+19,6,Short Slyfoot Slayer,Short Slyfoot Slayers,33,12,0,5,0,70,20,20,4900,477
+19,7,Abominable Abbess,Abominable Abbesses,40,12,0,6,0,70,90,20,5666,381
+19,8,Mean McMinimal Minister,Mean McMinimal Ministers,42,10,0,7,1,60,100,20,4429,285
+19,9,Monstrous McMinimal Minister,Monstrous McMinimal Ministers,42,11,0,6,0,60,100,20,5000,500
+19,10,Mean McDinky Minister,Mean McDinky Ministers,41,10,0,6,1,60,90,20,4117,474
+19,11,Felonious McDoughty Fink,Felonious McDoughty Finks,35,11,1,7,1,60,80,20,3899,480
+19,12,Grim McMinimal Masher,Grim McMinimal Mashers,38,10,1,6,1,60,80,25,4642,270
+19,13,Bad McUgly Burglar,Bad McUgly Burglars,36,10,1,6,1,60,100,15,5222,522
+19,14,Sinister Strathclyde Smuggler,Sinister Strathclyde Smugglers,34,13,0,4,1,50,50,20,5662,664
+19,15,Mangy McDinky Marauder,Mangy McDinky Marauders,37,9,0,5,0,50,30,20,4688,705
+19,16,Mean McDinky Marauder,Mean McDinky Marauders,37,10,0,5,0,50,30,20,5599,805
+19,17,Sweet Sylvan Saint,Sweet Sylvan Saints,39,12,0,6,1,70,90,15,4747,205
+19,18,Not A Small Giant,Not Small Giants,18,9,1,8,0,70,50,15,2929,217
+19,19,Argumentative Animatron,Argumentative Animatrons,17,10,0,7,1,60,0,20,4729,226
+19,20,Hungry Hunk o' Haggis,Hungry Hunks o' Haggis,2,11,0,9,0,60,0,12,2947,200
+19,21,Ferocious Flitter,Ferocious Flitters,14,8,0,6,0,60,50,20,3995,199
+19,22,Goofy Galloping Ghost,Goofy Galloping Ghosts,9,10,3,4,1,60,45,25,5066,477
+19,23,Vacuous Vampiric Vizier,Vacuous Vampiric Viziers,12,9,1,6,1,66,50,90,4966,699
+19,24,Murderous McDinky Marauder,Murderous McDinky Marauders,37,11,0,3,0,60,5,20,11333,666
+19,25,Thoughtful McDoughty Thief,Thoughtful McDoughty Thieves,35,13,0,5,1,60,80,20,8985,1454
+19,26,Sinister Strathclyde Smuggler,Sinister Strathclyde Smugglers,34,13,0,4,1,50,50,20,9022,767
+19,27,Saucy Sylvan Slayer,Saucy Sylvan Slayers,31,13,0,8,1,80,33,20,6656,388
+19,28,Strong Slyfoot Slayer,Strong Slyfoot Slayers,33,13,0,5,0,70,5,20,12323,494
+19,29,Monstrous McDinky Minister,Monstrous McDinky Ministers,41,11,0,6,1,60,80,20,9021,479
+19,30,Sour Sylvan Saint,Sour Sylvan Saints,39,12,0,6,1,70,90,15,7123,206
+19,31,Quite A Large Giant Actually,Quite Large Giants Actually,18,12,0,8,0,70,78,15,7098,216
+19,32,Angry Animatron,Angry Animatrons,17,11,0,5,1,60,0,20,9211,333
+19,33,Horrid Hunk o' Haggis,Horrid Hunks o' Haggis,2,12,0,9,0,60,0,12,6676,366
+19,34,Little Ol' Lich,Little Ol' Liches,10,10,0,4,1,60,100,12,8786,200
+19,35,Great Gushing Ghost,Great Gushing Ghosts,9,13,0,3,1,60,45,25,11356,1211
+19,36,Fiendish Flamer,Fiendish Flamers,14,9,0,6,0,60,50,20,8022,950
+19,37,Frightening Flamer,Frightening Flamers,14,10,0,6,0,60,50,20,12321,1741
+19,38,Felonious McDoughty Fink,Felonious McDoughty Finks,35,13,0,5,1,60,80,20,8985,1221
+19,39,Posh Plymouth Prowler,Posh Plymouth Prowlers,34,13,0,4,1,50,50,20,9022,755
+20,0,Roxburgh Robber,Roxburgh Robbers,34,14,0,4,0,60,75,15,5747,690
+20,1,Cumberland Conjurer,Cumberland Conjurers,43,12,0,4,0,60,95,15,6283,102
+20,2,McUgly Mangemonger,McUgly Mangemongers,25,14,0,4,0,60,20,15,5471,89
+20,3,Morbid McUgly Magician,Morbid McUgly Magicians,45,12,0,3,0,80,95,15,5983,179
+20,4,Large Lancashire Lion,Large Lancashire Lions,1,14,0,3,0,70,0,5,5000,20
+20,5,Hungry Hampshire Hog,Hungry Hampshire Hogs,5,14,0,3,0,80,0,25,5650,34
+20,6,Pungent Pict,Pungent Picts,7,12,0,4,0,70,50,15,6808,213
+20,7,Dastardly Demi-wolf,Dastardly Demi-wolves,13,13,0,2,0,90,0,25,6548,192
+20,8,Wyld Wyrm,Wyld Wyrms,14,14,0,2,0,90,50,25,10000,983
+20,9,Dumfries Dragon,Dumfries Dragons,14,12,0,2,0,90,50,25,6274,436
+20,10,Dryburgh Dragon,Dryburgh Dragons,14,13,0,2,0,90,50,25,7880,657
+20,11,Aberdeen Animatron,Aberdeen Animatrons,17,12,0,5,0,60,0,20,5606,53
+20,12,Merry McUgly Mugger,Merry McUgly Muggers,36,12,0,4,0,87,65,20,6115,367
+20,13,Murderous McUgly Mugger,Murderous McUgly Muggers,36,13,0,3,0,98,65,20,5331,477
+20,14,Malicious McMinimal Magician,Malicious McMinimal Magicians,46,12,0,4,0,90,95,20,5831,342
+20,15,Murderous McMinimal Magician,Murderous McMinimal Magicians,46,13,0,3,0,110,95,20,7258,432
+20,16,Malicious McMinimal Mother,Malicious McMinimal Mothers,42,12,0,4,0,70,95,20,5175,50
+20,17,Murderous McMinimal Mother,Murderous McMinimal Mothers,42,13,0,3,0,70,95,20,6683,110
+20,18,Malicious McMinimal Masher,Malicious McMinimal Mashers,38,12,0,4,0,60,45,20,6247,144
+20,19,Murderous McMinimal Masher,Murderous McMinimal Mashers,38,13,0,3,0,60,45,20,7951,234
+20,20,Sneaky Slyfoot Shaman,Sneaky Slyfoot Shamans,41,12,0,4,0,60,65,20,5888,323
+20,21,Sinister Slyfoot Shaman,Sinister Slyfoot Shamans,41,13,0,2,0,60,65,20,7599,332
+20,22,Mild McDinky Murderer,Mild McDinky Murderers,37,12,0,2,0,80,25,20,6676,222
+20,23,Mad McDinky Murderer,Mad McDinky Murderers,37,13,0,2,0,80,25,20,8484,311
+20,24,Raging Roxburgh Robber,Raging Roxburgh Robbers,34,15,0,3,0,60,75,15,9551,877
+20,25,Crafty Cumberland Conjurer,Crafty Cumberland Conjurers,43,13,0,3,0,60,95,15,10833,166
+20,26,Mad McUgly Mangemonger,Mad McUgly Mangemongers,25,15,0,3,0,60,20,15,9343,133
+20,27,Morbid McUgly Magician,Morbid McUgly Magicians,45,13,0,4,0,80,95,15,9466,234
+20,28,Lethal Lancaster Lion,Lethal Lancaster Lions,1,14,0,5,0,70,0,15,9547,24
+20,29,Raging Roxburgh Razorback,Raging Roxburgh Razorbacks,5,14,0,4,0,80,0,25,9950,54
+20,30,Cunning Clansman,Cunning Clansmen,7,13,0,4,0,70,50,15,11002,293
+20,31,Carlisle Colossus,Carlisle Colossi,17,13,0,3,0,60,0,20,10777,76
+20,32,Tynemouth Titan,Tynemouth Titans,18,13,0,3,0,90,0,25,10650,895
+20,33,McDinky Marquis,McDinky Marquises,29,13,0,3,0,90,15,25,9555,457
+20,34,Screaming Slyfoot Sergeant,Screaming Slyfoot Sergeants,33,14,0,2,1,90,35,25,12814,600
+20,35,Destructive Dryburgh Dragon,Destructive Dryburgh Dragons,14,14,0,3,0,90,50,25,13886,983
+20,36,Demonic Demi-wolf,Demonic Demi-wolves,13,14,0,3,0,90,0,25,11343,344
+20,37,Macduff's Ghost,Macduff's Ghost,20,10,0,1,0,0,25,25,24588,1441
+20,38,Macduff's Ghost,Macduff's Ghost,20,11,0,1,0,0,25,25,29211,2577
+20,39,Macduff's Ghost,Macduff's Ghost,20,12,0,1,0,0,25,25,34355,3880
+21,0,Roxburgh Robber,Roxburgh Robbers,34,14,0,5,1,50,75,15,6666,690
+21,1,Sly Sylvan Slasher,Sly Sylvan Slashers,24,14,0,4,0,50,15,15,6323,104
+21,2,Mild Minotaurs,Mild Minotaurs,3,12,0,4,0,100,0,25,6477,210
+21,3,Middling Minotaur,Middling Minotaurs,3,13,0,4,0,100,0,25,7001,435
+21,4,Eery Ectoplasmic Entity,Eery Ectoplasmic Entities,9,14,0,3,0,60,50,22,7429,287
+21,5,Puny Protoplasmic Phantom,Puny Protoplasmic Phantoms,11,11,0,4,1,70,95,25,6588,123
+21,6,Protoplasmic Phantom,Protoplasmic Phantoms,11,12,0,3,0,70,60,25,7578,234
+21,7,Nimble Nosferatu,Nimble Nosferatu,12,12,0,3,0,80,33,25,7247,192
+21,8,Sibilant Snakehead ,Sibilant Snakeheads,6,13,0,6,0,80,35,25,6656,240
+21,9,Scary Skull,Scary Skulls,8,12,0,4,0,80,0,25,6959,120
+21,10,Little Ol' Lich,Little Ol' Liches,10,11,0,5,0,80,95,25,6530,453
+21,11,Lucky Ol' Lich,Lucky Ol' Liches,10,12,0,5,0,80,95,25,7347,667
+21,12,Mangy McMinimal Minister,Mangy McMinimal Minister,42,12,1,5,0,77,65,20,6161,367
+21,13,Caber Champion,Caber Champions,27,12,0,4,0,88,30,20,6729,295
+21,14,Sly Sylvan Slayer,Sly Sylvan Slayers,31,14,0,4,1,80,25,20,6947,342
+21,15,Sinister Sylvan Slayer,Sinister Sylvan Slayers,31,15,0,4,1,80,25,20,8806,342
+21,16,Sly Sylvan Saint,Sly Sylvan Saints,39,14,0,5,1,60,95,20,6172,51
+21,17,Sinister Sylvan Saint,Sinister Sylvan Saints,39,15,0,4,1,60,95,20,7716,110
+21,18,Mild McDinky Murderer,Mild McDinky Murderers,37,12,0,6,1,70,25,20,7560,222
+21,19,Mad McDinky Murderer,Mad McDinky Murderers,37,13,0,6,1,70,25,20,9361,311
+21,20,Crafty Caber Champion,Crafty Caber Champions,27,13,0,4,0,88,30,20,8347,477
+21,21,Delicate McDinky Duke,Delicate McDinky Dukes,29,12,0,3,1,50,20,20,6500,200
+21,22,Testy Trollish Tracker,Testy Trollish Trackers,32,13,0,5,1,70,50,20,7511,222
+21,23,High Priestess,High Priestesses,40,12,0,4,0,50,80,20,7002,280
+21,24,Raging Roxburgh Robber,Raging Roxburgh Robbers,34,15,0,4,1,50,75,15,13767,877
+21,25,Sinister Sylvan Slasher,Sinister Sylvan Slashers,24,15,0,3,0,50,15,15,13566,231
+21,26,Carlisle Conjerer,Carlisle Conjurer,43,12,0,5,0,50,95,15,11500,133
+21,27,Cunning Carlisle Conjerer,Cunning Carlisle Conjurer,43,13,0,5,0,50,95,15,14000,320
+21,28,Evil Ectoplasmic Entity,Evil Ectoplasmic Entities,9,14,0,3,0,60,50,22,11432,287
+21,29,Powerful Protoplasmic Phantom,Powerful Protoplasmic Phantoms,11,13,0,3,0,70,35,25,15789,356
+21,30,Nasty Nosferatu,Nasty Nosferatu,12,13,0,2,0,80,33,25,16321,445
+21,31,Horrible High Priestess,Horrible High Priestesses,40,13,0,4,0,50,80,20,14833,76
+21,32,Daring McDinky Duke,Daring McDinky Dukes,29,13,0,3,1,50,20,20,13022,400
+21,33,Dour McDoughty Duke,Dour McDoughty Dukes,28,14,0,4,0,80,15,25,13500,457
+21,34,Sorcerous Slyfoot Slayer,Sorcerous Slyfoot Slayers,33,14,0,4,0,80,35,25,14651,356
+21,35,Lordly Ol' Lich,Lordly Ol' Liches,10,13,0,5,0,80,95,25,14653,891
+21,36,Frightening Femur,Frightening Femurs,8,13,0,4,0,80,0,25,12678,266
+21,37,Sorcerous Snakehead,Sorcerous Snakeheads,6,13,0,5,0,80,35,25,13987,673
+21,38,Mighty Minotaur,Mighty Minotaurs,3,14,0,2,0,100,0,25,12437,2011
+21,39,Key Lime Blancmange,Key Lime Blancmanges,2,13,0,8,0,0,0,25,10223,2
+22,0,Roxburgh Robber,Roxburgh Robbers,34,14,0,7,1,40,75,15,8991,700
+22,1,Sly Sylvan Slasher,Sly Sylvan Slashers,24,14,0,6,0,40,15,15,8356,104
+22,2,McUgly Mangemonger,McUgly Mangemongers,25,14,0,8,0,40,20,15,8544,89
+22,3,Small Scottish Thane,Small Scottish Thanes,26,12,0,7,0,60,25,15,8990,168
+22,4,Eery Ectoplasmic Entity,Eery Ectoplasmic Entities,9,14,0,5,0,50,50,22,9566,287
+22,5,Puny Protoplasmic Phantom,Puny Protoplasmic Phantoms,11,11,0,6,1,60,95,25,8492,123
+22,6,Protoplasmic Phantom,Protoplasmic Phantoms,11,12,0,5,0,60,60,25,11466,234
+22,7,Nimble Nosferatu,Nimble Nosferatu,12,12,0,5,0,70,33,25,11001,192
+22,8,Coy Caber Champion,Coy Caber Champions,27,12,0,6,0,70,35,25,8512,240
+22,9,Dumfries Dragon,Dumfries Dragons,14,12,0,5,0,70,50,25,11002,436
+22,10,Dryburgh Dragon,Dryburgh Dragons,14,13,0,5,0,70,50,25,12780,658
+22,11,Impincher,Impinchers,19,12,0,6,1,70,60,25,9058,295
+22,12,Merry McUgly Mugger,Merry McUgly Muggers,36,12,0,7,0,67,65,20,10695,367
+22,13,Murderous McUgly Mugger,Murderous McUgly Muggers,36,13,0,6,0,78,65,20,12466,477
+22,14,Sly Sylvan Slayer,Sly Sylvan Slayers,31,14,0,6,1,70,25,20,9055,366
+22,15,Sinister Sylvan Slayer,Sinister Sylvan Slayers,31,15,0,6,1,70,25,20,12355,342
+22,16,Sly Sylvan Saint,Sly Sylvan Saints,39,14,0,7,1,50,95,20,8447,51
+22,17,Sinister Sylvan Saint,Sinister Sylvan Saints,39,15,0,6,1,50,95,20,11044,111
+22,18,Malicious McMinimal Masher,Malicious McMinimal Mashers,38,12,0,6,1,40,45,20,10000,144
+22,19,Murderous McMinimal Masher,Murderous McMinimal Mashers,38,13,0,5,1,40,45,20,11555,234
+22,20,Dainty McDoughty Dipper,Dainty McDoughty Dippers,35,14,0,6,1,40,65,20,11255,323
+22,21,Daring McDoughty Dipper,Daring McDoughty Dippers,35,15,0,5,1,40,65,20,10888,332
+22,22,Testy Trollish Tracker,Testy Trollish Trackers,32,13,0,7,1,60,50,20,11755,222
+22,23,Sinister Scottish Slayer,Sinister Scottish Slayers,30,13,0,6,1,60,50,20,11899,311
+22,24,Raging Roxburgh Robber,Raging Roxburgh Robbers,34,15,0,5,1,40,75,15,12767,877
+22,25,Sinister Sylvan Slasher,Sinister Sylvan Slashers,24,15,0,4,0,40,15,15,12566,231
+22,26,Mad McUgly Mangemonger,Mad McUgly Mangemongers,25,15,0,5,0,40,20,15,13630,133
+22,27,Testy Scottish Thane,Testy Scottish Thanes,26,13,0,5,0,60,25,15,13583,234
+22,28,Evil Ectoplasmic Entity,Evil Ectoplasmic Entities,9,14,0,4,0,50,50,22,11132,287
+22,29,Powerful Protoplasmic Phantom,Powerful Protoplasmic Phantoms,11,13,0,4,0,60,35,25,13588,346
+22,30,Nasty Nosferatu,Nasty Nosferatu,12,13,0,3,0,70,33,25,14000,445
+22,31,Vampyre Bat,Vampyre Bats,16,13,0,5,0,40,80,20,13866,76
+22,32,Improper Pincher,Improper Pinchers,19,13,0,5,1,70,60,25,14843,499
+22,33,Dour McDoughty Duke,Dour McDoughty Dukes,28,14,0,5,0,70,15,25,12420,457
+22,34,Canny Caber Champion,Canny Caber Champions,27,13,0,5,0,70,35,25,13651,355
+22,35,Destructive Dryburgh Dragon,Destructive Dryburgh Dragons,14,14,0,4,0,70,50,25,17745,983
+22,36,Housesteads Harpy,Housesteads Harpies,15,13,0,5,0,70,50,25,10112,265
+22,37,Macbeth's Ghost,Macbeth's Ghost,20,13,0,1,0,0,50,25,24552,1988
+22,38,Macbeth's Ghost,Macbeth's Ghost,20,14,0,1,0,0,50,25,29145,2342
+22,39,Macbeth's Ghost,Macbeth's Ghost,20,15,0,1,0,0,50,25,34588,2947
+23,0,Grampian Goblin,Grampian Goblins,23,12,0,4,1,60,50,15,7522,340
+23,1,Lindisfarne Lord,Lindisfarne Lords,26,12,0,4,0,60,50,15,6454,104
+23,2,Mild Minotaur,Mild Minotaurs,3,12,0,3,0,110,0,25,6933,210
+23,3,Middling Minotaur,Middling Minotaurs,3,13,0,3,0,110,0,25,8002,435
+23,4,Eery Ectoplasmic Entity,Eery Ectoplasmic Entities,9,14,0,2,0,70,50,22,8432,287
+23,5,Puny Protoplasmic Phantom,Puny Protoplasmic Phantoms,11,11,0,3,1,80,95,25,7333,123
+23,6,Protoplasmic Phantom,Protoplasmic Phantoms,11,12,0,2,0,80,60,25,9565,234
+23,7,Nimble Nosferatu,Nimble Nosferatu,12,12,0,2,0,90,33,25,8545,192
+23,8,Sibilant Snakehead ,Sibilant Snakeheads,6,13,0,5,0,90,35,25,6511,240
+23,9,Scary Skull,Scary Skulls,8,12,0,3,0,90,0,25,7882,120
+23,10,Little Ol' Lich,Little Ol' Liches,10,11,0,4,0,90,95,25,6543,453
+23,11,Lucky Ol' Lich,Lucky Ol' Liches,10,12,0,4,0,90,95,25,8675,667
+23,12,Mean McUgly Marauder,Mean McUgly Marauders,36,12,0,5,0,87,85,20,6321,367
+23,13,Caber Champion,Caber Champions,27,12,0,3,0,98,30,20,7455,295
+23,14,Slyfoot Slayer,Slyfoot Slayers,33,12,0,3,0,90,35,25,7003,355
+23,15,Sneaky Slyfoot Slayer,Sneaky Slyfoot Slayers,33,13,0,3,0,90,35,25,9000,354
+23,16,Daring McDoughty Dipper,Daring McDoughty Dipper,35,14,0,5,1,70,95,20,8345,251
+23,17,Dastardly McDoughty Dipper,Dastardly McDoughty Dipper,35,15,0,5,1,70,70,20,9500,420
+23,18,Mild McDinky Murderer,Mild McDinky Murderers,37,12,0,5,1,80,25,20,9121,222
+23,19,Mad McDinky Murderer,Mad McDinky Murderers,37,13,0,5,1,80,25,20,10000,311
+23,20,Crafty Caber Champion,Crafty Caber Champions,27,13,0,3,0,98,30,20,10676,477
+23,21,Mean McMinimal Marauder,Mean McMinimal Marauders,38,12,0,3,0,90,15,25,8066,458
+23,22,Testy Trollish Tracker,Testy Trollish Trackers,32,13,0,4,1,80,50,20,9123,222
+23,23,High Priestess,High Priestesses,40,12,0,3,0,60,80,20,8000,288
+23,24,Gruesome Grampian Goblin,Gruesome Grampian Goblins,23,13,0,4,1,60,40,15,12003,505
+23,25,Lindisfarne Lord,Lindisfarne Lords,26,13,0,4,0,60,50,15,11002,304
+23,26,Carlisle Conjerer,Carlisle Conjurer,43,12,0,4,0,60,95,15,9505,133
+23,27,Cunning Carlisle Conjerer,Cunning Carlisle Conjurer,43,13,0,4,0,60,95,15,12088,320
+23,28,Evil Ectoplasmic Entity,Evil Ectoplasmic Entities,9,14,0,2,0,70,50,22,9432,287
+23,29,Powerful Protoplasmic Phantom,Powerful Protoplasmic Phantoms,11,13,0,2,0,80,35,25,13760,346
+23,30,Nasty Nosferatu,Nasty Nosferatu,12,13,0,2,0,90,33,25,14321,445
+23,31,Horrible High Priestess,Horrible High Priestesses,40,13,0,4,0,60,80,20,12833,176
+23,32,Marvelous McUgly Marauder,Marvelous McUgly Marauders,36,13,0,5,0,87,85,20,10001,500
+23,33,Masterful McMinimal Marauder,Masterful McMinimal Marauders,38,13,0,3,0,90,15,25,11334,458
+23,34,Sorcerous Scottish Slayer,Sorcerous Scottish Slayers,34,13,0,3,0,90,35,25,12651,355
+23,35,Lordly Ol' Lich,Lordly Ol' Liches,10,13,0,4,0,90,95,25,12750,891
+23,36,Frightening Femur,Frightening Femurs,8,13,0,3,0,90,0,25,10678,265
+23,37,Sorcerous Snakehead,Sorcerous Snakeheads,6,14,0,3,0,90,35,25,11980,673
+23,38,Mighty Minotaur,Mighty Minotaurs,3,14,0,3,0,110,0,25,10438,823
+23,39,Carlisle Colossus,Carlisle Colossi,17,13,0,3,0,110,30,25,13000,200
+24,0,Despicable McDinky,Despicable McDinkies,37,14,0,3,0,44,25,15,9500,340
+24,1,Mystical McDoughty,Mystical McDoughties,44,14,0,3,0,44,100,15,7877,343
+24,2,Regal Reiver,Regal Reivers,22,14,0,3,0,44,25,25,7799,402
+24,3,Sinister Scotswoman,Sinister Scotswomen,30,14,0,3,0,44,25,25,9588,340
+24,4,Sinister Scotsman,Sinister Scotsman,23,14,0,3,0,44,25,22,7866,343
+24,5,Sinister Slyfoot Sniper,Sinister Slyfoot Snipers,33,15,0,3,0,44,25,25,7755,402
+24,6,Demonic McDinky Duchess,Demonic McDinky Duchesses,29,14,1,3,0,44,25,25,9555,340
+24,7,Terrible McMinimal Thief,Terrible McMinimal Thieves,38,14,1,3,0,44,25,25,7877,343
+24,8,Mighty McUgly Marauder,Mighty McUgly Marauders,36,14,1,3,0,44,25,25,7755,402
+24,9,Murderous Maxwell Mage,Murderous Maxwell Magi,43,14,1,3,0,44,100,25,9555,340
+24,10,Necromantic Northlands Nun,Necromantic Northlands Nuns,40,14,1,3,0,44,90,25,7877,343
+24,11,Cannibalistic Caber Camper,Cannibalistic Caber Campers,32,14,1,3,0,44,25,25,7755,402
+24,12,Terrible Trollish Thane,Terrible Trollish Thanes,27,15,0,3,0,44,25,20,9555,340
+24,13,Ogrish Overlord,Ogrish Overlords,26,14,1,3,0,44,25,20,7877,343
+24,14,Mighty McMinimal Mage,Mighty McMinimal Magi,46,14,1,3,0,44,100,25,9555,340
+24,15,Sinister Slyfoot Saint,Sinister Slyfoot Saints,41,14,1,3,0,44,90,25,7877,343
+24,16,Harpier,Harpiers,15,14,0,1,0,44,95,25,11222,355
+24,17,Hell Kite,Hell Kites,16,14,0,2,0,44,95,25,15542,452
+24,18,Hellhound,Hellhounds,13,15,0,1,0,44,80,20,14521,442
+24,19,Cobra Queen,Cobra Queens,6,15,0,1,0,44,25,20,15551,311
+24,20,Hedgepig,Hedgepigs,5,15,0,1,0,44,0,20,13433,522
+24,21,Brahma Bully,Brahma Bullies,3,15,0,1,0,44,0,25,9213,458
+24,22,Key Lime Blancmange,Key Lime Blancmanges,2,15,0,1,0,44,0,20,8211,222
+24,23,Brinded Cat,Brinded Cats,1,15,0,1,0,44,0,15,14222,346
+24,24,Brinded Cat,Brinded Cats,1,15,0,2,0,44,0,15,14222,345
+24,25,Brinded Cat,Brinded Cats,1,15,0,3,0,44,0,15,14222,345
+24,26,Key Lime Blancmange,Key Lime Blancmanges,2,15,0,2,0,44,0,20,8211,222
+24,27,Brahma Bully,Brahma Bullies,3,15,0,2,0,44,0,25,9213,458
+24,28,Hedgepig,Hedgepigs,5,15,0,2,0,44,0,20,13433,522
+24,29,Hedgepig,Hedgepigs,5,15,0,3,0,44,0,20,13433,522
+24,30,Cobra Queen,Cobra Queens,6,15,0,2,0,44,25,20,15551,311
+24,31,Hellhound,Hellhounds,13,15,0,2,0,44,80,20,14521,442
+24,32,Greater Wyrm,Greater Wyrms,14,14,0,2,1,44,25,20,18000,500
+24,33,Debateable Dragon,Debateable Dragons,14,14,0,2,1,44,95,20,18000,511
+24,34,Harpier,Harpiers,15,14,0,2,0,44,50,25,11222,355
+24,35,Large Harpier,Large Harpiers,15,15,0,2,0,44,25,25,18883,566
+24,36,Huge Hell Kite,Huge Hell Kites,16,15,0,2,0,44,95,25,15542,452
+24,37,Lady Macbeth,Lady Macbeth,21,1,0,1,0,0,30,25,25000,25000
+24,38,Lady Macbeth,Lady Macbeth,21,2,0,1,0,0,30,25,30000,30000
+24,39,Lady Macbeth,Lady Macbeth,21,3,0,1,0,0,30,25,35000,35000
+25,0,Dastardly McDinky,Dastardly McDinkies,37,15,0,3,0,44,25,15,14442,583
+25,1,Monstrous McDoughty Mage,Monstrous McDoughty Magi,44,15,0,3,0,44,100,15,14442,547
+25,2,Royal Reiver,Royal Reivers,22,15,0,3,0,44,25,25,14442,504
+25,3,Raging Orc Ranger,Raging Orc Rangers,30,15,0,3,0,44,25,25,14442,525
+25,4,Berserk Orc Barbarian,Berserk Orc Barbarians,23,15,0,3,0,44,25,22,14442,585
+25,5,Dastardly McDoughty Duke,Dastardly McDoughty Dukes,28,15,0,3,0,44,25,25,14442,565
+25,6,Nasty Gnome Necromancer,Nasty Gnome Necromancers,45,14,1,3,0,44,100,25,14442,543
+25,7,Calcified Critter,Calcified Critters,8,14,0,3,0,44,0,25,12831,192
+25,8,Terrifying Tibia,Terrifying Tibias,8,15,0,3,0,44,0,25,16444,244
+25,9,Wormy Wizard,Wormy Wizards,10,14,0,3,0,44,100,25,15111,442
+25,10,Liddesdale Lich Lord,Liddesdale Lich Lords,10,15,0,3,0,44,100,25,16341,800
+25,11,Weird Wraith Wizard,Weird Wraith Wizards,11,14,0,3,0,44,95,25,14552,680
+25,12,Vampiric Vizier,Vampiric Viziers,12,14,0,3,0,44,50,15,16024,368
+25,13,Greatest Wyrm,Greatest Wyrm,14,15,0,3,0,44,30,20,16355,673
+25,14,Potent Prodder,Potent Prodders,19,14,0,3,0,44,95,15,15856,366
+25,15,Potent Prodder,Potent Prodders,19,14,0,3,0,44,95,15,14730,353
+25,16,Frightening Forker,Frightening Forkers,19,15,0,3,0,44,95,15,21111,320
+25,17,Terrible Tynesdale Titan,Terrible Tynesdale Titans,18,14,0,3,0,44,0,25,14111,346
+25,18,Cheviot Colossus,Cheviot Colossi,17,14,0,3,0,44,0,20,11676,478
+25,19,Roxburgh Robots,Roxburgh Robots,17,14,0,3,0,44,0,20,12676,477
+25,20,Charging Cheviot Colossus,Charging Cheviot Colossi,17,15,0,3,0,44,0,20,12676,477
+25,21,Cromagnan Conjuror,Cromagnon Conjurors,7,14,0,3,0,44,100,25,16879,445
+25,22,Careful Cromagnan Conjuror,Careful Cromagnon Conjurors,7,14,0,3,0,44,100,25,16879,445
+25,23,Cunning Cromagnan Conjuror,Cunning Cromagnon Conjurors,7,15,0,3,0,44,100,25,23133,445
+25,24,Vengeful Vampiric Vizier,Vengeful Vampiric Vizier,12,15,0,4,0,44,50,15,22942,500
+25,25,Wroth Wraith Wizard,Wroth Wraith Wizards,11,15,0,4,0,44,95,25,21121,667
+25,26,True Dragon,True Dragons,14,15,0,4,0,44,90,20,16621,673
+25,27,Frightening Forker,Frightening Forkers,19,15,0,4,0,44,95,15,21111,320
+25,28,Now That's A Giant,Now Those Are Giants,18,15,0,4,0,44,0,25,18332,346
+25,29,Raging Roxburgh Robot,Raging Roxburgh Robots,17,15,0,4,0,44,0,25,19311,346
+25,30,Crafty Cromagnan Conjuror,Crafty Cromagnon Conjurors,7,15,0,4,0,44,100,25,25001,444
+25,31,Galatea,Galatea,21,4,0,1,0,0,10,0,40000,6000
+25,32,Deirdre,Deirdre,21,5,0,1,0,0,10,0,45000,6000
+25,33,Cassandra,Cassandra,21,6,0,1,0,0,10,0,50000,6000
+25,34,Galatea,Galatea,21,7,0,1,0,0,30,0,40000,6000
+25,35,Deirdre,Deirdre,21,8,0,1,0,0,30,0,45000,6000
+25,36,Cassandra,Cassandra,21,9,0,1,0,0,30,0,50000,6000
+25,37,Galatea,Galatea,21,10,0,1,0,0,50,0,40000,6000
+25,38,Deirdre,Deirdre,21,11,0,1,0,0,50,0,45000,6000
+25,39,Cassandra,Cassandra,21,12,0,1,0,0,50,0,50000,6000
+26,0,Grampian Goblin,Grampian Goblins,23,12,0,4,1,60,50,15,7522,340
+26,1,Lindisfarne Lord,Lindisfarne Lords,26,12,0,4,0,60,50,15,6454,104
+26,2,Mild Minotaur,Mild Minotaurs,3,12,0,3,0,110,0,25,6933,210
+26,3,Middling Minotaur,Middling Minotaurs,3,13,0,3,0,110,0,25,8002,435
+26,4,Eery Ectoplasmic Entity,Eery Ectoplasmic Entities,9,14,0,2,0,70,50,22,8432,287
+26,5,Puny Protoplasmic Phantom,Puny Protoplasmic Phantoms,11,11,0,3,1,80,95,25,7333,123
+26,6,Protoplasmic Phantom,Protoplasmic Phantoms,11,12,0,2,0,80,60,25,9565,234
+26,7,Nimble Nosferatu,Nimble Nosferatu,12,12,0,2,0,90,33,25,8545,192
+26,8,Sibilant Snakehead ,Sibilant Snakeheads,6,13,0,4,0,90,35,25,6511,240
+26,9,Scary Skull,Scary Skulls,8,12,0,3,0,90,0,25,7882,120
+26,10,Little Ol' Lich,Little Ol' Liches,10,11,0,4,0,90,95,25,6543,453
+26,11,Lucky Ol' Lich,Lucky Ol' Liches,10,12,0,4,0,90,95,25,8675,667
+26,12,Mean McUgly Marauder,Mean McUgly Marauders,36,12,0,5,0,87,85,20,6321,367
+26,13,Caber Champion,Caber Champions,27,12,0,3,0,98,30,20,7455,295
+26,14,Slyfoot Slayer,Slyfoot Slayers,33,12,0,3,0,90,35,25,7003,355
+26,15,Sneaky Slyfoot Slayer,Sneaky Slyfoot Slayers,33,13,0,3,0,90,35,25,9000,354
+26,16,Daring McDoughty Dipper,Daring McDoughty Dipper,35,14,0,5,1,70,95,20,8345,251
+26,17,Dastardly McDoughty Dipper,Dastardly McDoughty Dipper,35,15,0,5,1,70,70,20,9500,420
+26,18,Mild McDinky Murderer,Mild McDinky Murderers,37,12,0,5,1,80,25,20,9121,222
+26,19,Mad McDinky Murderer,Mad McDinky Murderers,37,13,0,5,1,80,25,20,10000,311
+26,20,Crafty Caber Champion,Crafty Caber Champions,27,13,0,3,0,98,30,20,10676,477
+26,21,Mean McMinimal Marauder,Mean McMinimal Marauders,38,12,0,3,0,90,15,25,8066,458
+26,22,Testy Trollish Tracker,Testy Trollish Trackers,32,13,0,4,1,80,50,20,9123,222
+26,23,High Priestess,High Priestesses,40,12,0,3,0,60,80,20,8000,288
+26,24,Gruesome Grampian Goblin,Gruesome Grampian Goblins,23,13,0,4,1,60,40,15,12003,505
+26,25,Lindisfarne Lord,Lindisfarne Lords,26,13,0,4,0,60,50,15,11002,304
+26,26,Carlisle Conjerer,Carlisle Conjurer,43,12,0,4,0,60,95,15,9505,133
+26,27,Cunning Carlisle Conjerer,Cunning Carlisle Conjurer,43,13,0,4,0,60,95,15,12088,320
+26,28,Evil Ectoplasmic Entity,Evil Ectoplasmic Entities,9,14,0,2,0,70,50,22,9432,287
+26,29,Powerful Protoplasmic Phantom,Powerful Protoplasmic Phantoms,11,13,0,2,0,80,35,25,13760,346
+26,30,Nasty Nosferatu,Nasty Nosferatu,12,13,0,2,0,90,33,25,14321,445
+26,31,Horrible High Priestess,Horrible High Priestesses,40,13,0,4,0,60,80,20,12833,176
+26,32,Marvelous McUgly Marauder,Marvelous McUgly Marauders,36,13,0,5,0,87,85,20,10001,500
+26,33,Masterful McMinimal Marauder,Masterful McMinimal Marauders,38,13,0,3,0,90,15,25,11334,458
+26,34,Sorcerous Scottish Slayer,Sorcerous Scottish Slayers,34,13,0,3,0,90,35,25,12651,355
+26,35,Lordly Ol' Lich,Lordly Ol' Liches,10,13,0,4,0,90,95,25,12750,891
+26,36,Frightening Femur,Frightening Femurs,8,13,0,3,0,90,0,25,10678,265
+26,37,Sorcerous Snakehead,Sorcerous Snakeheads,6,14,0,2,0,90,35,25,11980,673
+26,38,Delicate Dryburgh Dragon,Delicate Dryburgh Dragons,14,10,0,5,0,110,60,25,9989,1507
+26,39,Delicate Dryburgh Dragon,Delicate Dryburgh Dragons,14,12,0,5,0,110,60,25,13021,1507
+27,0,Roxburgh Robber,Roxburgh Robbers,34,14,0,4,1,60,75,15,5666,690
+27,1,Sly Sylvan Slasher,Sly Sylvan Slashers,24,14,0,3,0,60,15,15,5323,104
+27,2,Mild Minotaur,Mild Minotaurs,3,12,0,3,0,110,0,25,5477,210
+27,3,Middling Minotaur,Middling Minotaurs,3,13,0,3,0,110,0,25,6001,435
+27,4,Eery Ectoplasmic Entity,Eery Ectoplasmic Entities,9,14,0,2,0,70,50,22,6429,287
+27,5,Puny Protoplasmic Phantom,Puny Protoplasmic Phantoms,11,11,0,3,1,80,95,25,5588,123
+27,6,Protoplasmic Phantom,Protoplasmic Phantoms,11,12,0,2,0,80,60,25,6578,234
+27,7,Nimble Nosferatu,Nimble Nosferatu,12,12,0,2,0,90,33,25,6247,192
+27,8,Sibilant Snakehead ,Sibilant Snakeheads,6,13,0,4,0,90,35,25,5656,240
+27,9,Scary Skull,Scary Skulls,8,12,0,3,0,90,0,25,5959,120
+27,10,Little Ol' Lich,Little Ol' Liches,10,11,0,4,0,90,95,25,5530,453
+27,11,Lucky Ol' Lich,Lucky Ol' Liches,10,12,0,4,0,90,95,25,6247,667
+27,12,Mangy McMinimal Minister,Mangy McMinimal Minister,42,12,1,4,0,87,65,20,5051,367
+27,13,Caber Champion,Caber Champions,27,12,0,3,0,98,30,20,5729,295
+27,14,Sly Sylvan Slayer,Sly Sylvan Slayers,31,14,0,3,1,90,25,20,5947,342
+27,15,Sinister Sylvan Slayer,Sinister Sylvan Slayers,31,15,0,3,1,90,25,20,7806,342
+27,16,Sly Sylvan Saint,Sly Sylvan Saints,39,14,0,4,1,70,95,20,5172,51
+27,17,Sinister Sylvan Saint,Sinister Sylvan Saints,39,15,0,3,1,70,95,20,6716,110
+27,18,Mild McDinky Murderer,Mild McDinky Murderers,37,12,0,5,1,80,25,20,6560,222
+27,19,Mad McDinky Murderer,Mad McDinky Murderers,37,13,0,5,1,80,25,20,8361,311
+27,20,Crafty Caber Champion,Crafty Caber Champions,27,13,0,3,0,98,30,20,7317,477
+27,21,Delicate McDinky Duke,Delicate McDinky Dukes,29,12,0,2,1,60,20,20,5500,200
+27,22,Testy Trollish Tracker,Testy Trollish Trackers,32,13,0,4,1,80,50,20,6511,222
+27,23,High Priestess,High Priestesses,40,12,0,3,0,60,80,20,6002,280
+27,24,Raging Roxburgh Robber,Raging Roxburgh Robbers,34,15,0,3,1,60,75,15,11767,877
+27,25,Sorcerous Snakehead,Sorcerous Snakeheads,6,13,0,5,0,80,35,25,13987,673
+27,26,Sorcerous Snakehead,Sorcerous Snakeheads,6,13,0,2,0,80,35,25,13987,673
+27,27,Sorcerous Snakehead,Sorcerous Snakeheads,6,13,0,5,0,80,35,25,13987,673
+27,28,Dastardly Dryburgh Drake,Dastardly Dryburgh Drakes,14,10,0,5,0,110,60,25,9989,1507
+27,29,Dastardly Dryburgh Drake,Dastardly Dryburgh Drakes,14,12,0,2,0,110,60,25,13021,1507
+27,30,Dastardly Dryburgh Drake,Dastardly Dryburgh Drakes,14,12,0,5,0,110,60,25,13021,1507
+27,31,Wolf,Wolves,13,11,0,5,0,80,0,25,8223,356
+27,32,Wolf,Wolves,13,12,0,2,0,80,0,25,8223,891
+27,33,Wolf,Wolves,13,12,0,5,0,80,0,25,8223,121
+27,34,Heckhound,Heckhounds,13,11,0,5,0,80,0,25,8223,356
+27,35,Heckhound,Heckhounds,13,12,0,2,0,80,0,25,8223,891
+27,36,Heckhound,Heckhounds,13,12,0,5,0,80,0,25,8223,121
+27,37,Highly Bovine Goat,Highly Bovine Goats,3,13,0,5,0,100,0,25,12437,2011
+27,38,Highly Bovine Goat,Highly Bovine Goats,3,14,0,2,0,100,0,25,12437,2011
+27,39,Highly Bovine Goat,Highly Bovine Goats,3,14,0,5,0,100,0,25,12437,2011
+28,0,Roxburgh Robber,Roxburgh Robbers,34,14,0,5,1,50,75,15,6666,690
+28,1,Sly Sylvan Slasher,Sly Sylvan Slashers,24,14,0,4,0,50,15,15,6323,104
+28,2,Mild Minotaur,Mild Minotaurs,3,12,0,4,0,100,0,25,6477,210
+28,3,Middling Minotaur,Middling Minotaurs,3,13,0,4,0,100,0,25,7001,435
+28,4,Eery Ectoplasmic Entity,Eery Ectoplasmic Entities,9,14,0,3,0,60,50,22,7429,287
+28,5,Puny Protoplasmic Phantom,Puny Protoplasmic Phantoms,11,11,0,4,1,70,95,25,6588,123
+28,6,Protoplasmic Phantom,Protoplasmic Phantoms,11,12,0,3,0,70,60,25,7578,234
+28,7,Nimble Nosferatu,Nimble Nosferatu,12,12,0,3,0,80,33,25,7247,192
+28,8,Sibilant Snakehead ,Sibilant Snakeheads,6,13,0,5,0,80,35,25,6656,240
+28,9,Scary Skull,Scary Skulls,8,12,0,4,0,80,0,25,6959,120
+28,10,Little Ol' Lich,Little Ol' Liches,10,11,0,5,0,80,95,25,6530,453
+28,11,Lucky Ol' Lich,Lucky Ol' Liches,10,12,0,5,0,80,95,25,7347,667
+28,12,Mangy McMinimal Minister,Mangy McMinimal Minister,42,12,1,5,0,77,65,20,6161,367
+28,13,Caber Champion,Caber Champions,27,12,0,4,0,88,30,20,6729,295
+28,14,Sly Sylvan Slayer,Sly Sylvan Slayers,31,14,0,4,1,80,25,20,6947,342
+28,15,Sinister Sylvan Slayer,Sinister Sylvan Slayers,31,15,0,4,1,80,25,20,8806,342
+28,16,Sly Sylvan Saint,Sly Sylvan Saints,39,14,0,5,1,60,95,20,6172,51
+28,17,Sinister Sylvan Saint,Sinister Sylvan Saints,39,15,0,4,1,60,95,20,7716,110
+28,18,Mild McDinky Murderer,Mild McDinky Murderers,37,12,0,6,1,70,25,20,7560,222
+28,19,Mad McDinky Murderer,Mad McDinky Murderers,37,13,0,6,1,70,25,20,9361,311
+28,20,Crafty Caber Champion,Crafty Caber Champions,27,13,0,4,0,88,30,20,8347,477
+28,21,Delicate McDinky Duke,Delicate McDinky Dukes,29,12,0,3,1,50,20,20,6500,200
+28,22,Testy Trollish Tracker,Testy Trollish Trackers,32,13,0,5,1,70,50,20,7511,222
+28,23,High Priestess,High Priestesses,40,12,0,4,0,50,80,20,7002,280
+28,24,Raging Roxburgh Robber,Raging Roxburgh Robbers,34,15,0,4,1,50,75,15,13767,877
+28,25,Sinister Sylvan Slasher,Sinister Sylvan Slashers,24,15,0,3,0,50,15,15,13566,231
+28,26,Carlisle Conjerer,Carlisle Conjurer,43,12,0,5,0,50,95,15,11500,133
+28,27,Cunning Carlisle Conjerer,Cunning Carlisle Conjurer,43,13,0,5,0,50,95,15,14000,320
+28,28,Evil Ectoplasmic Entity,Evil Ectoplasmic Entities,9,14,0,3,0,60,50,22,11432,287
+28,29,Powerful Protoplasmic Phantom,Powerful Protoplasmic Phantoms,11,13,0,3,0,70,35,25,15789,356
+28,30,Nasty Nosferatu,Nasty Nosferatu,12,13,0,2,0,80,33,25,16321,445
+28,31,Horrible High Priestess,Horrible High Priestesses,40,13,0,4,0,50,80,20,14833,76
+28,32,Daring McDinky Duke,Daring McDinky Dukes,29,13,0,3,1,50,20,20,13022,400
+28,33,Dour McDoughty Duke,Dour McDoughty Dukes,28,14,0,4,0,80,15,25,13500,457
+28,34,Dastardly Dryburgh Drake,Dastardly Dryburgh Drakes,14,10,0,5,0,110,60,25,9989,1507
+28,35,Dastardly Dryburgh Drake,Dastardly Dryburgh Drakes,14,12,0,2,0,110,60,25,13021,1507
+28,36,Dastardly Dryburgh Drake,Dastardly Dryburgh Drakes,14,12,0,5,0,110,60,25,13021,1507
+28,37,Sorcerous Snakehead,Sorcerous Snakeheads,6,13,0,5,0,80,35,25,13987,673
+28,38,Sorcerous Snakehead,Sorcerous Snakeheads,6,14,0,2,0,80,35,25,13987,673
+28,39,Sorcerous Snakehead,Sorcerous Snakeheads,6,14,0,5,0,80,35,25,13987,673
+29,0,Grampian Goblin,Grampian Goblins,23,12,0,5,1,50,50,15,8522,340
+29,1,Lindisfarne Lord,Lindisfarne Lords,26,12,0,5,0,50,50,15,7454,104
+29,2,Mild Minotaur,Mild Minotaurs,3,12,0,4,0,100,0,25,7933,210
+29,3,Middling Minotaur,Middling Minotaurs,3,13,0,4,0,100,0,25,9002,435
+29,4,Eery Ectoplasmic Entity,Eery Ectoplasmic Entities,9,14,0,3,0,60,50,22,9432,287
+29,5,Puny Protoplasmic Phantom,Puny Protoplasmic Phantoms,11,11,0,4,1,70,95,25,8323,123
+29,6,Protoplasmic Phantom,Protoplasmic Phantoms,11,12,0,3,0,70,60,25,10565,234
+29,7,Nimble Nosferatu,Nimble Nosferatu,12,12,0,3,0,80,33,25,9545,192
+29,8,Sibilant Snakehead ,Sibilant Snakeheads,6,13,0,5,0,80,35,25,7511,240
+29,9,Scary Skull,Scary Skulls,8,12,0,4,0,80,0,25,8842,120
+29,10,Little Ol' Lich,Little Ol' Liches,10,11,0,5,0,80,95,25,7543,453
+29,11,Lucky Ol' Lich,Lucky Ol' Liches,10,12,0,5,0,80,95,25,9675,667
+29,12,Mean McUgly Marauder,Mean McUgly Marauders,36,12,0,6,0,77,85,20,7321,367
+29,13,Caber Champion,Caber Champions,27,12,0,4,0,88,30,20,8455,295
+29,14,Slyfoot Slayer,Slyfoot Slayers,33,12,0,4,0,80,35,25,8003,355
+29,15,Sneaky Slyfoot Slayer,Sneaky Slyfoot Slayers,33,13,0,4,0,80,35,25,10000,354
+29,16,Daring McDoughty Dipper,Daring McDoughty Dipper,35,14,0,5,1,60,95,20,7345,251
+29,17,Dastardly McDoughty Dipper,Dastardly McDoughty Dipper,35,15,0,5,1,60,70,20,10500,420
+29,18,Mild McDinky Murderer,Mild McDinky Murderers,37,12,0,6,1,70,25,20,10121,222
+29,19,Mad McDinky Murderer,Mad McDinky Murderers,37,13,0,6,1,70,25,20,11000,311
+29,20,Crafty Caber Champion,Crafty Caber Champions,27,13,0,4,0,88,30,20,11676,477
+29,21,Mean McMinimal Marauder,Mean McMinimal Marauders,38,12,0,4,0,80,15,25,9066,458
+29,22,Testy Trollish Tracker,Testy Trollish Trackers,32,13,0,5,1,70,50,20,10121,222
+29,23,High Priestess,High Priestesses,40,12,0,4,0,50,80,20,9000,288
+29,24,Gruesome Grampian Goblin,Gruesome Grampian Goblins,23,13,0,5,1,50,40,15,14003,505
+29,25,Lindisfarne Lord,Lindisfarne Lords,26,13,0,5,0,50,50,15,13002,304
+29,26,Carlisle Conjerer,Carlisle Conjurer,43,12,0,5,0,50,95,15,11505,133
+29,27,Cunning Carlisle Conjerer,Cunning Carlisle Conjurer,43,13,0,5,0,50,95,15,14088,320
+29,28,Evil Ectoplasmic Entity,Evil Ectoplasmic Entities,9,14,0,3,0,60,50,22,11432,287
+29,29,Powerful Protoplasmic Phantom,Powerful Protoplasmic Phantoms,11,13,0,3,0,70,35,25,15760,346
+29,30,Nasty Nosferatu,Nasty Nosferatu,12,13,0,2,0,80,33,25,16321,445
+29,31,Horrible High Priestess,Horrible High Priestesses,40,13,0,4,0,50,80,20,14833,176
+29,32,Witch's Mummy,Witches' Mummy,10,12,0,5,0,80,95,25,14750,891
+29,33,Witch's Mummy,Witches' Mummy,10,13,0,2,0,80,95,25,14750,891
+29,34,Witch's Mummy,Witches' Mummy,10,13,0,5,0,80,95,25,14750,891
+29,35,Lordly Ol' Lich,Lordly Ol' Liches,10,13,0,5,0,80,95,25,14750,891
+29,36,Frightening Femur,Frightening Femurs,8,13,0,4,0,80,0,25,12678,265
+29,37,Brickbat,Brickbats,16,12,0,5,0,0,0,25,8223,121
+29,38,Vampyre Bat,Vampyre Bats,16,13,0,2,0,0,70,25,8223,121
+29,39,Vampyre Bat,Vampyre Bats,16,13,0,5,0,0,70,25,8223,121
+30,0,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,1,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,2,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,3,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,4,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,5,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,6,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,7,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,8,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,9,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,10,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,11,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,12,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,13,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,14,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,15,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,16,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,17,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,18,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,19,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,20,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,21,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,22,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,23,Panther,Panthers,1,1,0,1,0,4,0,0,6,0
+30,24,Wandering Wildcat,Wandering Wildcats,1,1,0,1,0,4,0,5,10,0
+30,25,Wandering Wildcat,Wandering Wildcats,1,1,0,1,0,4,0,5,10,0
+30,26,Wandering Wildcat,Wandering Wildcats,1,1,0,1,0,4,0,5,10,0
+30,27,Wandering Wildcat,Wandering Wildcats,1,1,0,1,0,4,0,5,10,0
+30,28,Wandering Wildcat,Wandering Wildcats,1,1,0,3,0,4,0,5,12,4
+30,29,Craven Kitty,Craven Kitties,1,1,0,1,0,4,0,5,10,0
+30,30,Craven Kitty,Craven Kitties,1,1,0,3,0,4,0,5,12,5
+30,31,Cat of Immense Girth,Fat Cats,1,1,0,1,0,4,0,5,10,0
+30,32,Cat of Immense Girth,Fat Cats,1,1,0,3,0,4,0,5,12,7
+30,33,Bothersome Bat,Bothersome Bats,16,1,0,1,0,4,0,5,11,0
+30,34,Bothersome Bat,Bothersome Bats,16,1,0,1,0,4,0,5,11,0
+30,35,Bothersome Bat,Bothersome Bats,16,1,0,3,0,4,0,5,14,9
+30,36,Bewildered Bat,Bewildered Bats,16,1,0,1,0,4,0,5,11,0
+30,37,Bewildered Bat,Bewildered Bats,16,1,0,1,0,4,0,5,11,0
+30,38,Bewildered Bat,Bewildered Bats,16,1,0,1,0,4,0,5,11,0
+30,39,Bewildered Bat,Bewildered Bats,16,1,0,3,0,4,0,5,14,9
+31,0,Greater Kaalroth,Greater Kaalroths,7,11,2,1,0,0,65,20,1300,275
+31,1,Stone Giant,Stone Giants,18,10,2,1,1,0,45,0,1100,425
+31,2,Roving Warrior,Roving Warriors,29,11,2,1,1,25,25,20,900,150
+31,3,Conjurer,Conjurers,43,11,1,1,1,25,65,25,1000,150
+31,4,White Death,White Deaths,5,12,1,1,2,50,15,20,1200,300
+31,5,Greater Kaalroth,Greater Kaalroths,7,11,0,1,0,60,50,20,1350,275
+31,6,Erebus Stalker,Erebus Stalkers,13,9,2,2,1,60,50,20,1500,2000
+31,7,Erebus Stalker,Erebus Stalkers,13,10,1,1,2,70,50,20,1700,2000
+31,8,Erebus Stalker,Erebus Stalkers,13,11,0,1,1,70,40,20,1850,1500
+31,9,Conjurer,Conjurers,43,11,1,1,1,25,65,25,1500,2100
+31,10,Conjurer,Conjurers,43,11,1,1,1,25,65,25,1700,2200
+31,11,Erebus Lord,Erebus Lords,13,11,1,1,0,70,60,20,1900,2500
+31,12,Erebus Lord,Erebus Lords,13,12,0,1,0,80,50,20,1950,2600
+31,13,Frost Giant,Frost Giant,18,11,1,2,1,60,60,20,1600,2134
+31,14,Dark Knight,Dark Knight,26,11,1,1,0,0,25,40,3000,3578
+31,15,Ancient Mage,Ancient Mage,43,11,1,1,0,0,65,40,3000,3654
+31,16,Fearless Archer,Fearless Archer,31,11,1,1,0,0,30,40,3000,3542
+31,17,Thief of Fate,Thief of Fate,37,11,1,1,0,0,40,40,3500,4123
+31,18,Bishop of Darkness,Bishop of Darkness,41,11,1,1,0,0,65,40,3500,4554
+31,19,Bothan Warrior,Bothan Warrior,22,12,1,1,0,0,40,40,3500,3579
+31,20,Dragon of Time,Dragons of Time,14,12,1,1,0,0,65,20,3500,1000
+31,21,Roving Sleeth,Roving Sleeths,5,10,1,2,1,0,20,45,1900,2200
+31,22,Red Dragon,Red Dragon,14,11,1,1,0,0,40,30,2300,3000
+31,23,Huge Red Dragon,Huge Red Dragon,14,12,0,1,0,0,50,45,3200,4500
+31,24,Storm Giant,Storm Giants,18,11,1,1,1,0,25,20,6500,4500
+31,25,Eos' Disciple,Eos' Disciples,24,11,1,1,0,0,65,20,7500,6500
+31,26,Neptune's Disciple,Neptune's Disciples,28,11,1,1,0,0,50,40,7500,6500
+31,27,Ares' Disciple,Ares' Disciples,26,11,1,1,0,0,35,20,7500,6500
+31,28,Gaea's Disciple,Gaea's Disciples,34,11,1,1,0,0,25,45,7500,6500
+31,29,Draco Lich,Draco Liches,14,12,1,1,0,0,35,55,8000,7800
+31,30,Queen's Guard,Queen's Guards,26,12,0,2,0,0,40,30,8500,9000
+31,31,Queen's Guard,Queen's Guards,22,13,0,1,1,0,60,70,10000,17000
+31,32,Master of the Portal,Masters of the Portal,20,11,2,2,1,0,25,40,10000,8000
+31,33,Guardian of Faith,Guardians of Faith,5,12,1,2,0,0,20,50,10000,10000
+31,34,Champion of Harmony,Champions of Harmony,19,12,0,1,0,0,25,35,12000,20000
+31,35,Lord of Time,Lords of Time,17,12,1,1,1,0,60,45,13000,15000
+31,36,Death Incarnate,Deaths Incarnate,7,12,1,1,0,0,80,25,25000,25000
+31,37,Champion of Chaos,Champions of Chaos,13,12,2,1,0,0,35,15,15000,20000
+31,38,Dralkarian Lord,Dralkarian Lords,13,13,0,5,0,0,70,0,45000,45000
+31,39,Queen Aeowyn,Queen Aeowyn,21,13,0,1,0,0,85,0,50000,50000
+32,0,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,1,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,2,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,3,Imperial Kaalroth,Imperial Kaalroths,7,9,2,4,2,0,20,20,5000,5000
+32,4,Imperial Kaalroth,Imperial Kaalroths,7,9,2,1,1,0,20,20,5000,5000
+32,5,Imperial Kaalroth,Imperial Kaalroths,7,9,2,4,2,0,20,20,5000,5000
+32,6,Imperial Kaalroth,Imperial Kaalroths,7,9,2,4,2,0,20,20,5000,5000
+32,7,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,8,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,9,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,10,Imperial Kaalroth,Imperial Kaalroths,7,9,2,3,2,0,20,20,5000,5000
+32,11,Imperial Kaalroth,Imperial Kaalroths,7,9,2,1,1,0,20,20,5000,5000
+32,12,Imperial Kaalroth,Imperial Kaalroths,7,9,2,4,2,0,20,20,5000,5000
+32,13,Imperial Kaalroth,Imperial Kaalroths,7,9,2,4,2,0,20,20,5000,5000
+32,14,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,15,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,16,Imperial Kaalroth,Imperial Kaalroths,7,9,2,2,2,0,20,20,5000,5000
+32,17,Imperial Kaalroth,Imperial Kaalroths,7,10,2,4,2,0,20,20,5000,5000
+32,18,Imperial Kaalroth,Imperial Kaalroths,7,10,2,1,1,0,20,20,5000,5000
+32,19,Imperial Kaalroth,Imperial Kaalroths,7,11,2,4,2,0,20,20,5000,5000
+32,20,Imperial Kaalroth,Imperial Kaalroths,7,10,2,4,2,0,20,20,5000,5000
+32,21,Imperial Fiend,Imperial Fiends,13,10,2,3,3,0,40,30,5000,5000
+32,22,Imperial Fiend,Imperial Fiends,13,10,2,4,2,0,40,30,5000,5000
+32,23,Imperial Fiend,Imperial Fiends,13,10,1,5,1,0,40,30,5000,5000
+32,24,Praetorian Guard,Praetorian Guards,13,10,1,6,0,0,30,35,5000,5000
+32,25,Praetorian Guard,Praetorian Guards,13,11,2,6,0,0,30,35,5000,5000
+32,26,Shadax,Shadax,7,13,1,1,0,0,70,100,35000,15000
+32,27,Imperial Golem,Imperial Golems,17,10,1,2,0,0,0,20,5000,5000
+32,28,Imperial Golem,Imperial Golems,17,10,1,3,0,0,0,20,5000,5000
+32,29,Imperial Golem,Imperial Golems,17,10,2,4,0,0,0,20,5000,5000
+32,30,Imperial Golem,Imperial Golems,17,10,2,5,0,0,0,20,5000,5000
+32,31,Imperial Golem,Imperial Golems,17,11,1,4,0,0,0,20,5000,5000
+32,32,Imperial Golem,Imperial Golems,17,11,2,5,0,0,0,20,5000,5000
+32,33,Imperial Golem,Imperial Golems,17,11,2,6,0,0,0,20,5000,5000
+32,34,Kekeketl,Kekeketl,8,13,1,1,0,0,0,0,25000,7500
+32,35,Gaoler,Gaoler,18,12,2,1,0,0,0,100,20000,10000
+32,36,Choronzar,Choronzar,31,13,0,1,0,0,85,70,55000,25000
+32,37,Choronzar,Choronzar,31,15,0,1,0,0,70,70,30000,15000
+32,38,Chiss,Chiss,3,12,2,1,0,0,100,20,25000,35000
+32,39,Shadax,Shadax,13,13,2,1,0,0,70,70,5000,5000
+33,0,Imperial Panther,Imperial Panthers,1,10,2,4,2,0,0,15,5000,5000
+33,1,Imperial Sludge,Imperial Sludges,2,10,2,4,2,0,0,15,5000,5000
+33,2,Imperial Anaconda,Imperial Anacondas,3,11,1,4,2,0,0,15,5000,5000
+33,3,Imperial Raptor,Imperial Raptors,4,11,1,4,2,0,0,15,5000,5000
+33,4,Imperial Terror,Imperial Terrors,5,11,1,4,2,0,20,15,5000,5000
+33,5,Imperial Medusa,Imperial Medusas,6,10,2,4,2,0,0,15,5000,5000
+33,6,Imperial Kaalroth,Imperial Kaalroths,7,10,2,5,1,0,25,15,5000,5000
+33,7,Imperial Wight,Imperial Wights,8,10,2,5,1,0,30,15,5000,5000
+33,8,Imperial Shade,Imperial Shades,9,10,2,5,1,0,35,15,5000,5000
+33,9,Lich King,Lich Kings,10,10,2,5,1,0,65,15,5000,5000
+33,10,Imperial Wraith,Imperial Wraiths,11,10,2,6,0,0,0,15,5000,5000
+33,11,Vampire Queen,Vampire Queens,12,10,2,6,0,0,60,15,5000,5000
+33,12,Imperial Fiend,Imperial Fiends,13,10,2,6,0,0,30,15,5000,5000
+33,13,Ancient Dragon,Ancient Dragons,14,10,2,6,0,0,45,15,5000,5000
+33,14,Imperial Asp,Imperial Asps,15,10,2,6,0,0,0,15,5000,5000
+33,15,Imperial Bat,Imperial Bats,16,10,2,6,0,0,0,15,5000,5000
+33,16,Imperial Golem,Imperial Golems,17,10,2,6,0,0,0,15,5000,5000
+33,17,Imperial Giant,Imperial Giants,18,10,2,6,0,0,0,15,5000,5000
+33,18,Imperial Praxis,Imperial Praxis,19,11,2,6,0,0,25,15,5000,5000
+33,19,Night Elf Lord,Night Elf Lords,20,10,2,6,0,0,25,15,5000,5000
+33,20,Acme (tm) Super-Orc (R),Acme (tm) Super-Orcs (R),20,1,2,6,0,0,0,100,5000,5000
+33,21,Ancient Dragon,Ancient Dragons,14,10,2,6,0,0,45,15,5000,5000
+33,22,Lich King,Lich Kings,10,10,2,6,0,0,65,15,5000,5000
+33,23,Vampire Queen,Vampire Queens,12,10,2,6,0,0,60,15,5000,5000
+33,24,Praetorian Guard,Praetorian Guards,13,10,2,6,0,0,10,35,5000,5000
+33,25,Major Domo,Major Domo,41,12,2,1,0,0,50,35,5000,5000
+33,26,The Ogress,The Ogress,18,12,2,1,0,0,35,35,5000,5000
+33,27,Choronzar,Choronzar,31,13,2,1,0,0,50,0,5000,5000
+33,28,Imperial Kaalroth,Imperial Kaalroths,7,10,2,6,0,0,35,35,5000,5000
+33,29,Imperial Golem,Imperial Golems,17,10,2,6,0,0,0,35,5000,5000
+33,30,Imperial Fiend,Imperial Fiends,13,10,2,6,0,0,45,35,5000,5000
+33,31,Imperial Praxis,Imperial Praxis,19,10,2,6,0,0,60,35,5000,5000
+33,32,Imperial Wraith,Imperial Wraiths,11,11,2,4,0,0,40,25,5000,5000
+33,33,Imperial Wraith,Imperial Wraiths,11,11,2,5,0,0,40,25,5000,5000
+33,34,Imperial Wraith,Imperial Wraiths,11,11,2,6,0,0,40,25,5000,5000
+33,35,Pit Serpent,Pit Serpents,15,11,2,4,0,0,20,0,5000,5000
+33,36,Pit Serpent,Pit Serpents,15,11,2,5,0,0,30,0,5000,5000
+33,37,Pit Serpent,Pit Serpents,15,12,2,6,0,0,40,0,5000,5000
+33,38,Really Big Dragon,Really Big Dragons,14,13,2,1,0,0,60,85,50000,20000
+33,39,Shadax,Shadax,13,10,2,1,1,0,70,70,5000,5000

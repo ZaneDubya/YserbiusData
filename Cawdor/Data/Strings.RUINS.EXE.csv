@@ -1,0 +1,606 @@
+#RUINS.EXE, 605 strings
+4Tx! 
+Test
+EMMXXXX0
+VDISK
+VDISK FAKE
+twinion.exe
+Borland C++ - Copyright 1991 Borland Intl.
+`id: ssvcid twinion.cpp 2.29 09/09/93 17:46`
+`idtag: ssvcid`
+Entering Cawdor...
+DEFAULT
+Entering the ruins...
+CAWDOR
+Your faithful companions abandon your corpse!
+PALETTE.DAT
+resource.035
+resource.xxx
+walls.dat
+PALETTE.DAT
+resource.036
+Your faithful companions abandon your corpse!
+Barbarian
+Knight
+Ranger
+Thief
+Cleric
+Wizard
+Male
+Female
+Human
+Troll
+Dwarf
+Gnome
+Halfling
+Gremlin
+Harmony
+Chaos
+Backfire
+Blast
+Control
+Curse
+Death Darts
+Dissipate
+Fireball
+Hail
+Lightning
+Petrify
+Poison Cloud
+Storm Wind
+Aura
+Light Shroud
+Energy Field
+Shield
+Refresh
+Teleport
+Bless
+Cure
+Heal
+Resist
+Resuscitate
+True Seeing
+Athletics
+Clubs/Axes
+Berserker
+Pursuit
+Leadership
+Fencing
+Binding
+Intimidate
+Archery
+Stamina
+Furtiveness
+Read Tracks
+Bard
+Detect
+Lockpick
+Pickpocket
+Martial Arts
+Deflect Magic
+Medic
+Reverie
+Rune Reading
+Staff
+Channel
+Deep Trance
+That item must be equipped to be effective!
+That item's skill properties are only effective in combat!
+That item's magic properties are only effective in combat!
+resource.038
+That item is not usable by your guild!
+You have died!
+Poison wracks your body!
+You have been poisoned!
+You encounter 
+resource.036
+Champion Battle!!
+ has left the fray!
+You have lost the challenge!
+Illegal Network Message
+Passing adventurers return your corpse to your kin!
+That Item May Not Be Traded!
+Giving item to 
+ rejects your item!
+CLOSE
+You see: 
+resource.038
+That item is not usable by your guild!
+You see: 
+Throw away item?
+[Unknown]
+Timeout Waiting for SETINT.
+charkey.dat
+Unable To Join Map Group!
+Can't join when being joined.
+Can't join when leading party.
+Unable to Join Party here.
+Attempting to Join 
+Cannot Join.  Received No Response.
+Cannot Join.
+Received OK to Join
+Now Following 
+Leaving Party...
+You are now Playing Solo.
+Unable to Challenge during Join.
+Challenge combat in process!
+Unable to Challenge.
+Unable to Challenge.  Player may be in battle.
+Unable To Join Land!
+Invalid Land Group.
+Land Place Full.  Try another Place.
+Invalid Land Object.
+Land Group Locked.
+No Rights to Land.
+Incompatible Land Version.
+Create Map Group Failed!
+Create Player Object Failed!
+Create Personal Party Failed!
+Invalid Group
+Group Full
+Invalid Object
+Group Locked
+No Land Rights
+Incompatible Version
+TSN_NetSend() failed on command %d
+ has joined your party.
+ has left your party.
+ joining your party...
+Joining another player.
+In combat.
+Not party leader.
+Has a full party.
+Refuses additional followers.
+Application Orphaned.
+INN Net Connect Failure.
+INN Net Maintenance Failure.
+application has been orphaned!
+TSN_NetSend() failed on command %d
+BBS Server is offline.
+GET INT Nak Error
+INN NAK Error.
+Message : 
+Press the ENTER key to exit: 
+farmalloc() cannot alloc %u bytes
+NewHandle cannot alloc %d bytes, free = %d, largest = %d
+ADLIB.ADV
+MT32MPU.ADV
+SBFM.ADV
+TIMBRE.AD
+Could not open TIMBRE.AD
+Could NOT find a Timbre.
+Low Memory. Not loading Sound & Music.
+Error Loading Sound Driver.
+Could not register sound driver.
+Driver NOT XMIDI.
+Could NOT find Sound Hardware at default location.
+Could not open an FX file.
+Could not read an FX file.
+Bad or Missing LSCI.CFG.
+THE DUNGEON CLOSES...
+anim_seq
+resource.039
+ATTRIBUTES
+STRENGTH
+DEFENSE
+AGILITY
+INITIATIVE
+DEXTERITY
+HEALTH
+MANA
+POINTS
+REMAINING
+NEXT
+PREVIOUS
+CANCEL
+OPTIONS
+DONE
+Thank you for purchasing a 
+resource.038
+resource.039
+ITEMS
+ITEM
+PRICE
+GOLD
+Thank you for purchasing a 
+Do you really want to 
+quit to DOS?
+Do you really want to 
+quit to the Gallery?
+Do you really want to 
+quit to the MAP?
+resource.040
+Congratulations!
+resource.039
+IDENTITY
+NAME
+EPITHET
+GUILD
+LEVEL
+EXP. NEEDED
+You have reached level %d!
+APPEARANCE
+FACE
+HEAD COVER
+COSTUME
+NOSE
+EYE COLOR
+FACIAL HAIR
+FACIAL VEIL
+I'm sure I can find a use for this 
+resource.038
+resource.039
+SELL
+ITEMS
+ITEM
+PRICE
+GOLD
+I'm sure I can find a use for this 
+SKILLS
+POINTS
+REMAINING
+SPELLS
+POINTS
+REMAINING
+OKAY
+ARKARCH
+CANCEL
+LEAVE PARTY
+JOIN PARTY LEADER
+PARTY STATUS
+MUTED
+ALLOWED
+NAME
+EPITHET
+RACE
+GUILD
+ALIGNMENT
+LEVEL
+CANCEL
+SORT BY
+SELECT SPELL TO CAST
+CANCEL
+ARKARCH
+CANCEL
+You challenge 
+ to a battle!
+CHAMPION CHALLENGE
+MUTED
+ALLOWED
+ALL PLAYERS ON MAP
+PLAYERS IN LOCAL AREA
+BACK TO MAP
+CHALLENGE
+PARTY
+ALL IN LOC
+ALL IN MAP
+Strength
+Defense
+Dexterity
+Agility
+Initiative
+Health
+Mana
+Gold
+dddd
+resource.037
+Clubs and Axes skill will be useful!
+ goes berserk!
+ pursues fleeing enemies!
+ inspires the party!
+Fencing skill will be useful!
+'s Bind skill mysteriously fails!
+'s Bind skill does not work on corpses!
+ restores 
+ to full health!
+ health points to 
+ intimidates the enemies!
+Archery skill will be useful!
+ prepares a sly attack!
+You check for tracks.
+ distracts the enemies with music!
+You detect nothing special!
+You failed to pick the lock!
+ steals an item from the enemy!
+ failed to steal an item!
+Martial Arts skill will be useful!
+ is protected from magic!
+ protects the party from magic!
+ cures 
+'s wounds!
+Your ills are cured!
+You failed to restore Mana!
+'s magic abilities increase!
+Staff skill will be useful!
+ strips the enemies magic defenses away!
+ restores mana
+ to maximum
+Your mana is 
+at maximum
+increased
+Mana restore failed!
+Skills cannot be used here!
+resource.037
+Spells can't be cast here!
+'s Refresh spell fails!
+Your 
+Cure spell failed!
+Your afflictions are cured!
+'s Heal spell failed!
+'s Heal spell will not work on corpses!
+ restores 
+ to full health!
+ health points to 
+ heals the enemy!
+The dead cannot be healed!
+You are healed!
+Your health increases by 
+'s Resuscitate spell failed!
+Cannot resuscitate live people!
+ revives 
+The attempt to resuscitate you failed!
+You are revived!
+Secrets are suddenly revealed!
+Your paralysis fades!
+You are no longer petrified!
+You are no longer controlled!
+Your curse has been lifted!
+Your aura dissipates!
+Your energy field evaporates!
+Your magical shield disappears!
+Your light shroud winks out!
+The bless spell wears off!
+Your resistance to magic wanes!
+cawchar.dat
+PARTY
+BATTLE
+PLAYER
+TAVERN
+CANCEL
+Message Not Sent!  Unable to Locate Player.
+SEND TO
+Do you really want to 
+quit to DOS?
+Do you really want to 
+quit to the Gallery?
+Do you really want to 
+quit to the MAP?
+Please wait for party to form.
+A Battle Begins!
+INVENTORY ITEMS
+QUEST ITEMS
+Using the item has no effect.
+SELECT SPELL TO CAST
+You only have 
+ mana points left!
+SELECT SKILL TO USE
+CHOOSE ITEM TO USE
+It is chivalric to allow one's foe to withdraw.
+You are able to flee.
+YOU WIN THE BATTLE!
+You found 
+ gold pieces and earned 
+ experience points!
+SELECT YOUR TREASURE
+;x!,;x!Choose Party Action
+Entering Battle
+Choose Your Action
+Use Weapon On...
+Use Item On...
+Cast Spell On...
+Spell Ready!
+Use Skill On...
+Skill Ready!
+Item Ready!
+Waiting For Others...
+Engaging Combat!
+You Are Dead!
+You Are Paralyzed!
+You Are Petrified!
+You cannot escape!
+You can't target Corpses!
+Target is out of range!
+That spell only works on the weaker forms of Undead!
+That spell requires a friendly target!
+That item requires an enemy target!
+PALETTE.DAT
+Bx!&Bx!7Bx!PBx!L1: Foyer of Cawdor
+L1: The Runed Room
+L2: The Skulkatorium
+L2: The Trophy Room
+L2: The Thaumaturgium
+L2: The Chivalrous Room
+L2: Sanctum Sanctorum
+L2: Uncivilization
+L3: The Gallery
+L3: The Pantry
+L3: The Brewery
+L3: The Lesser Hall
+L4: The Ballroom
+L4: The Music Room
+L4: The Cloak Room
+L4: The Library
+L5: The Chambers
+L5: The Kitchen
+L5: The Cabinet
+L5: The Conservatory
+L6: The Great Hall
+L7: Alchemia
+L7: The Aerie
+L6: Astrologia
+L8: The Bestiary
+The Crypt
+L6: Nasty Little Maze
+L6: The Parapets
+L7: The Attic
+L7: The Ruined Room
+L1: The Stables
+L12: The Gateway
+     Choronzar's Demesne
+     The Funhouse
+VIEW OTHERS
+PARTY
+automaps.dat
+Illegal Map Number!
+CLOSE
+STATS
+FACE
+Level 
+Select target player...
+You cast 
+You use 
+*!Welcome to The Rampant Cat Inn.
+Do you really want to 
+quit to DOS?
+Do you really want to 
+quit to the Gallery?
+POSTS
+SORT
+SHOW SORT
+MAIN GATE
+OPTIONS
+Do you really want to
+quit to the MAP?
+DONE
+The Ruins of Cawdor 1.0
+Designed by Richard Aronson
+Art Direction by Gloria Garland
+Art by Timothy Lee Ibbotson and Claudia Nolan
+Programmed by Richard Aronson 
+and Victor Grippi
+Produced by Christopher Donahue, Gano Haine, 
+and Bill Mortimer
+QA managed by Dan Ross
+Additional dialog by Winking Willy Shakespeare
+SAVE PLAYER
+QUIT TO GALLERY
+QUIT TO MAP
+QUIT TO DOS
+ABOUT
+COMPLAIN
+GAME COLOR
+DONE
+VOL DN
+VOL UP
+HALL OF HEROES
+ANIMATION ON
+ANIMATION OFF
+NO AUDIO
+AUDIO CUES
+SOUND ONLY
+MUSIC ONLY
+SOUND AND MUSIC
+   It is 
+The ImagiNation Network
+Cawdor
+Posting Complaint, Please Wait...
+Complaint has been posted.
+Complain to INN Host?
+To send a complaint to INN
+about this truly offensive
+message select YES
+Opening Hall of Heroes... Please Wait.
+Congratulations!  You have entered the Hall Of Heroes!
+DONE
+Opening the Hall of Heroes.  Please wait.
+The Hall of Heroes is closed.
+Hall of Heroes
+This Message Section is Empty.
+FIRST
+LAST
+NEXT
+PREV
+DONE
+Message 
+ From 
+CLOSE
+TAVERN POSTS
+POST
+CANCEL
+ON-LINE
+OFF-LINE
+OKAY
+CANCEL
+music
+TANDYXL.DRV
+ADL.DRV
+MT32.DRV
+SNDBLAST.DRV
+Qx!a deep wound
+a sucking wound
+a devastating wound
+a crippling wound
+a mortal blow
+'s attack is too late!
+Controlled 
+ attacks 
+ but misses!
+ attack but miss!
+ dies from poison!
+ die from poison!
+ ran away!
+Spells cannot be cast here!
+ casts 
+ but it fails!
+A Controlled 
+ on all of the enemies
+ affecting 
+ on the party
+ on the party affecting 
+ on his allies
+ has died from poison!
+ incurs 
+ damage from poison!
+ attack 
+ inflicting 
+ causing 
+ damage
+ and killing 
+ has been killed!
+ has been 
+poisoned,
+paralyzed,
+petrified,
+controlled,
+confused,
+ successfully resists being 
+0123456789ABCDEF
+vrhd`VRHD@
+$)48CHSXchr
+****.TSU
+x!IMAGES.DAT
+PALETTE.DAT
+help.dat
+help.dat
+Press Any Key To Exit
+Memory Allocation Error
+Illegal Sprite Value
+Attempt To Dispose Null Ptr (MEMMGR)
+Attempt To Dispose Non-Allocated Ptr (MEMMGR)
+Attempt To Dispose Non-Linked Ptr (MEMMGR)
+Memory Allocation Error (MEMMGR)
+Unable to Obtain New Handle (MEMMGR)
+Illegal Sprite Parameters
+Version Control Error
+Unable To Find File : 
+palette.dat
+x!Sun
+Sunday
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+January
+February
+March
+April
+June
+July
+August
+September
+October
+November
+December
+COMPAQ

@@ -1,0 +1,256 @@
+#HELP.DAT, 255 strings
+Takes you to the next screen. If you go to another screen, any points you have assigned to a skill, spell, or attribute become permanent.
+Takes you to the previous screen. If you go to another screen, any points you have assigned to a skill, spell, or attribute become permanent.
+Cancels any changes you make on the current screen.
+Lets you exit the Guild Hall to the main Cawdor screen.
+The number of available points you have to assign to attributes.
+The number of available points you have to assign to spells.
+Scrolls the spell list up.
+Scrolls the spell list down.
+Assigns a point to a spell.
+Removes a point assigned to a spell.
+The number of available points you have to assign to skills.
+Scrolls the skill list up.
+Scrolls the skill list down.
+Assigns a point to a skill.
+Removes a point assigned to a skill.
+This is the amount of gold you have.
+Scrolls the item list up.
+Scrolls the item list down.
+Click on button to buy the highlighted item.
+Swords are short-range weapons. They are particularly useful to a character with the Fencing skill.
+The Katana and Nunchukas are short-range weapons. They are particularly useful to a character with the Martial Arts skill.
+Axes are short-range weapons. They are particularly useful to a character with the Clubs and Axes skill.
+Clubs, maces, morningstars and hammers are short-range weapons. They are particularly useful to a character with the Clubs and Axes skill.
+Staffs, spears and halberds are long-range weapons. They are particularly useful to a character with the Staff skill.
+Bows and crossbows are missile weapons. They are particularly useful to a character with the Archery skill.
+Bucklers, shields and gauntlets are armor defenses carried on the arm. They reduce damage to a character from weapon attacks.
+Caps, head chainmail, hats and helmets are armor defenses worn on the head. They reduce damage to a character from weapon attacks.
+Jackets, body chainmail and breastplates are armor defenses worn on the body. They reduce damage to a character from weapon attacks.
+Talismans are badges worn for bonuses to a player's stats based on what the talisman is. The talisman must occupy one of the circles by the outline figure and automatically enhances the character's stats, as well as offers a skill for you to use.
+A resuscitator is used to bring a dead character back to life. It can be activated after combat if the dead character belongs to a party. It will not revive a character playing solo. The resuscitator disappears after being used three times.
+A scroll contains a single magic spell with multiple charges. When all charges are used, the scroll disappears. The cost of the scroll reflects the level of the spell and how powerful it is.
+This bottle contains a liquid that restores some health to a character.  The more expensive the potion, the greater the amount of health that will be restored.  All healing potions have about the same number of doses before the bottle is empty and discarded.
+Letters of Credit are a means of exchanging money between characters. They have no other function in the dungeon.
+This pass is used to teleport a character or party out of the dungeon, as long as the character using it is not in combat. The character or party can return to their last location in the dungeon by entering the lower entry of the dungeon. The pass disappears after 5 uses.
+This chart is used to decipher runes found in the dungeon. Stand in front of the runes and use the chart. All runes are translated. The chart disappears after 5 uses.
+Lockpicks are used to open locked doors in the dungeon. The sturdier the material from which a lockpick is made, the more difficult the locks it can pick. Lockpicks can be used repeatedly. Skeleton Keyrings can be used by any character, with or without the lockpick skill, but will wear out.
+This bottle contains a liquid that may remove such debilitating states as poison, paralysis and petrifaction.  There is no guarantee that the cure will work. The more expensive potions have a better chance of working and have more doses.  The bottle will be discarded when empty.
+This bottle contains a mystic liquid that restores a limited amount of mana.  The more expensive potions restore much greater amounts of mana but have fewer doses.  The bottle will be automatically discarded when it is empty.
+Click on button or press ENTER key to sell the highlighted item.
+This is another player. To talk to another player, left click on his or her name. Then type the message you want to send. You can chat with up to 10 players in the Tavern, Dungeon or Guild. Players in the Tavern and the Guild have their names in color. Players in the dungeon have grayed-out names.
+The number of players in this Cawdor game.
+Scrolls character names up.
+Scroll character names down.
+Goes to the first message.
+Goes to the last message.
+Goes to the next message.
+Goes to the previous message.
+To post a message, click ADD and type whatever you want to say. When you are finished, hit RETURN or click POST and the message will be posted to all players in this Tavern.
+Click to exit.
+Click on button to open Posts. You can leave messages here for other players, ask for help, and brag of your exploits. Each board holds 25 messages. Adding a new message after 25 erases the first. Be careful because you can't erase a new message you post. Click on CLOSE to exit Posts.
+Use this board to ask for clues or hints. You may wish to include your INN Mailbox number if you want a response.
+Use this board to leave messages for other players. You may wish to include your INN Mailbox number if you want a response.
+Use this board to brag of your exploits in the dungeon.
+Use this board to announce messages about private Guilds.
+Click with the left mouse button to sort players in the game by name, epithet, race, guild, alignment, and level. Then right click on SHOW SORT.
+Sorts players alphabetically by name.
+Sorts players alphabetically by epithet.
+Sort players by race.
+Sorts players by Guild.
+Sorts players by philosophical alignment.
+Exits the Sort option.
+Click this button after using the Sort option to see the results.
+Brings up the Options.
+Saves the current character you are playing.
+Saves the current character you are playing and returns you to the Gallery.
+Saves your current character and returns you to the main INN map.
+Saves your current character and returns you to DOS.
+Shows the game credits.
+Toggles sound effects and music on and off.
+Allows you to register a complaint against another user with INN.
+Allows you to select the background color for your Tavern and Guild screens. Click on button until you see a color you like. Then clicking the DONE button will show your changes.
+Exits the Options.
+Exits the Tavern and returns you to the main Cawdor screen.
+This is the current party leader. Click on the icon to bring up the character's face and statistics. Dragging an item on top of the icon and releasing it will give the item to that player.
+When an icon is present here, it represents another member of your party. Click on the icon to bring up the character's face and character information.  Dragging an item on top of the player and releasing it will give the item to that player.
+Brings up your character's attributes. You may also use the <F2> function key.
+Brings up your character's face.
+Place your head armor here.
+Place your body armor here.
+Place your weapon in this hand.
+Place your shield or gauntlets in this hand.
+Place a ring, medallion, amulet, talisman or stone here.
+Place a ring, medallion, amulet, talisman or stone here.
+This is the Holding Box. An item given to you by another character appears in this space. You must move the item into the Inventory Item Chest or Quest Item Bag before you can receive another one.
+This is your Inventory Item chest. Click on the chest to open it. Dragging an item on top of the chest and releasing it will place it in the chest if room is available.
+This is the Quest Item bag. Click on the bag to open it. Dragging an item on top of the bag and releasing it will place it in the bag if room is available.
+This is the garbage can. To get rid of an item, drag it to the can. You will be asked if you really want to throw the item away. Items placed here cannot be retrieved.
+Brings up the overhead map of the dungeon You may also use the numeric 5 or the <INS> key.
+Brings up your current spells.
+Brings up your current skills.
+Brings up the INN options.
+Scrolls up through messages.
+Scrolls down through messages.
+Toggles the auto-scrolling of messages on/off. The default is grey (on).
+The number by the spell name indicates the mana it costs to cast the spell. Currently usable spells are shown in white type. Click with the LEFT mouse button to cast a spell.
+The number by the skill name indicates its level. Currently usable skills are shown in white type. Click with the LEFT mouse button to use a skill.
+Click on an item with the LEFT mouse button to get its name. Hold the LEFT button while moving the mouse to drag an item to a new location. Click with the RIGHT mouse button to use an item. Click on CLOSE with the LEFT mouse button to close the chest.
+To talk to another player while in the dungeon, type the name of the player you wish to talk to. Make sure you spell the player's name correctly. Type a colon (:) after the name. Then type your message. To send the message, press the ENTER key. To include the rest of the members in your party in a conversation, type two colons after the name before typing the message.
+Click on this arrow or use the numeric 7 key to turn to the left without moving.
+Click on this arrow or use the numeric 8 key to move forward.
+Click on this arrow or use the numeric 9 key to turn to the right without moving.
+Click on this arrow or use the numeric 4 key to move left without turning.
+Click on this arrow or use the numeric 2 key to move backward.
+Click on this arrow or use the numeric 6 key to move right without turning.
+Allows you to view other characters in the dungeon. Only party leaders can do this.
+Allows you to form a party with other players. To form a party, move into a space with another player. Select the name of the player and then the JOIN option button. The player you select is now the leader of your party.
+Click here to close this display.
+Toggles between players on the map and those within the local area. NOTE: Only party leaders have full access to other players in the dungeon.
+Allows you to challenge another character to combat. To challenge another player or party to combat, move into the space the player or party occupies. Select the name of the player or party leader to begin combat.
+Returns you to the overhead map of the dungeon.
+Cancels the Party option.
+Toggles ability of others to join you. While this option is muted, others cannot join your party.
+Cancels the Challenge option.
+Toggles ability of others to challenge you. While this option is muted, others cannot challenge you.
+Sends the message you have typed to your entire party. This is the default message send mode and is the same as typing ENTER after completing your message.
+Sends the message you have typed to everyone on the map.
+Sends the message you have typed to everyone engaged in the current challenge battle.
+Cancels the current message.
+Adds one point to this attribute from your remaining attribute points if one can be added.
+Subtracts one point you just assigned to an attribute.
+Brings up the previous character in the Gallery.
+Brings up the next character in the Gallery.
+Click here to replace the currently selected character. You will be asked if you really want to do this.
+Click here to delete the currently selected character. You will be asked if you really want to do this.
+Enters The Ruins of Cawdor. You will be using the currently selected character to the left. You may also hit the ENTER key to play the currently selected character.
+Click here to quit The Ruins of Cawdor.
+Click here to cancel the join display.
+Click here to leave your current party.
+These are the names of the party leaders whose groups you may join. Click on a leader to join his or her party.
+Click here to display the previous face type.
+Click here to display the next face type.
+Click here to display the previous hair style.
+Click here to display the next hair style.
+Click here to display the previous garment style.
+Click here to display the next garment style.
+Click here to display the previous nose type.
+Click here to display the next nose type.
+Click here to display the previous eye color.
+Click here to display the next eye color.
+Click here to display the previous facial covering.
+Click here to display the next facial covering.
+Click here when finished.
+Use this to toggle animation on and off.
+The Crystal Ball casts True Seeing and can be used to detect some secret areas as well. The Hawk's Eye gives you the chance to spot nearby enemies through the bird's eyes it is named for.
+These are the names of the party leaders whose groups you may challenge. Click on a leader to challenge his or her party.
+Click here to attack with the weapon currently in hand. You must then select the group of monsters you wish to attack by clicking on the monster icons above.
+Click here to bring up a display of all the items you have which are useable in combat.
+These icons represent groups of enemy monsters. The number shows how many monsters are left in the group. Before selecting a combat action, you may view the monsters by clicking on these icons. After selecting an offensive combat option, click on the icon of the group you wish to attack.
+These icons represent your party members. The number shows how much health each member has. Before selecting a combat action, you may view the party by clicking on these icons. After selecting a friendly combat option, click on the icon of the member you wish to help.
+Click here to flee the current combat. Only party leaders have access to this option.
+These are items in your inventory which may be sold here in exchange for gold.
+Sorts players by character level.
+Click here to change your character's race to the previous race.
+Click here to change your character's race to the next race.
+Click here to change your character to the opposite sex.
+Click here to change your character to the previous guild.
+Click here to change your character to the next guild.
+Click here to change your character to the opposite alignment.
+Click here to get introductory help for The Ruins of Cawdor.
+Click here when finished with the introductory help.
+When you finish your character, you may wish to visit the Guild Hall, the structure to the lower right on the main Cawdor screen. Click on the Guild Hall to enter. There you can examine your character and buy and sell items. You may wish to buy a few extra potions before entering the Ruins.
+The Rampant Cat Inn, the building to the lower left foreground on the main Cawdor screen, is a general meeting place. There you will find other players with whom you can talk and ask help.
+There are two entries to the Ruins on the top of the main Cawdor screen. Clicking on the door in the center sends you to the Foyer of Cawdor. Clicking on the rope ladder to the right of the main gate either sends you to the place in the dungeon from which you last teleported out or to the Foyer. If you die in the dungeon, you always re-enter the Foyer.
+When you enter the Ruins for the first time, you must equip your character. Click on the Inventory Chest to open it. Click and drag the items to the appropriate circles on the outline figure above the chest. Don't worry - you can't put items where they don't belong.
+To get more help throughout the game, place the mouse cursor over the item in question and click the right mouse button. WARNING: Your character's items are used when you right click on them in the dungeon. You may get help for them only in the Guild.
+Brings up a listing of the most legendary players.
+Decreases the volume of music and sound effects.
+Increases the volume of music and sound effects.
+Scrolls the item list up by one page.
+Scrolls the item list down by one page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
