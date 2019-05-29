@@ -128,19 +128,19 @@ namespace XPT.Legacy.Maps {
             L002C: ShowMessage(player, doMsgs, String0504); // This room contains the gateway to the Labyrinth.
             L0039: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0057: goto L011D;
-            L005A: ax = HasItem(player, 0xFB);
+            L005A: ax = HasItem(player, ItemThievesKey);
             L0068: if (JumpNotEqual) goto L006D;
             L006A: goto L0110;
             L006D: ShowMessage(player, doMsgs, String0535); // The Thieves' Key unlocks this door!
             L007A: ShowMessage(player, doMsgs, String0559); // This room contains the gateway to the Labyrinth.
             L0087: SetFlag(player, FlagTypeDungeon, FlagUnlockedLabyrinthDoor, 0x01);
-            L009C: RemoveItem(player, 0xFB);
-            L00A8: RemoveItem(player, 0xD2);
-            L00B4: RemoveItem(player, 0xD3);
-            L00C0: RemoveItem(player, 0xD9);
-            L00CC: RemoveItem(player, 0xE1);
-            L00D8: RemoveItem(player, 0xE2);
-            L00E4: RemoveItem(player, 0xF8);
+            L009C: RemoveItem(player, ItemThievesKey);
+            L00A8: RemoveItem(player, ItemKingCleowynsLockpick);
+            L00B4: RemoveItem(player, ItemKingCleowynsKey);
+            L00C0: RemoveItem(player, ItemKeyToCleowynsPalace);
+            L00CC: RemoveItem(player, ItemKingsDomicileKey);
+            L00D8: RemoveItem(player, ItemLavaKey);
+            L00E4: RemoveItem(player, ItemKingsRing);
             L00F0: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L010E: goto L011D;
             L0110: ShowMessage(player, doMsgs, String058A); // The Thieves' Key is needed to unlock this door.

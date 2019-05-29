@@ -173,7 +173,7 @@ namespace XPT.Legacy.Maps {
                 return;
             }
             SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            if (HasItem(player, 0xEE) == 0) {
+            if (HasItem(player, ItemChessPiece) == 0) {
                 ShowMessage(player, doMsgs, String0466); // With a chess piece you may step across the chessboard.
                 return;
             }
@@ -219,7 +219,7 @@ namespace XPT.Legacy.Maps {
                 return;
             }
             SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            if (HasItem(player, 0xEE) == 0) {
+            if (HasItem(player, ItemChessPiece) == 0) {
                 ShowMessage(player, doMsgs, String0466); // With a chess piece you may step across the chessboard.
                 return;
             }
@@ -267,7 +267,7 @@ namespace XPT.Legacy.Maps {
         }
 
         private void FnPOKERSW_05(ServerPlayer player, MapEventType type, bool doMsgs) {
-            if (HasUsedItem(player, type, ref doMsgs, 0xEC, 0xEC) == 0) {
+            if (HasUsedItem(player, type, ref doMsgs, ItemKingOfSpades, ItemKingOfSpades) == 0) {
                 ShowMessage(player, doMsgs, String067A); // A bottomless pit lies before you, and a broken bridge spans the pit.
                 ShowMessage(player, doMsgs, String06BF); // Upon each board are the symbols for 10, Jack, Queen and Ace.  A voice proclaims, 'I call your bluff'.
                 return;
@@ -283,7 +283,7 @@ namespace XPT.Legacy.Maps {
         }
 
         private void FnMOONSW_07(ServerPlayer player, MapEventType type, bool doMsgs) {
-            if (HasUsedItem(player, type, ref doMsgs, 0xEB, 0xEB) == 0) {
+            if (HasUsedItem(player, type, ref doMsgs, ItemQueenOfSpades, ItemQueenOfSpades) == 0) {
                 ShowMessage(player, doMsgs, String0774); // A small button, shaped like the crescent moon, lies just out of reach.
                 return;
             }
@@ -293,7 +293,7 @@ namespace XPT.Legacy.Maps {
         }
 
         private void FnBLAKJAK_08(ServerPlayer player, MapEventType type, bool doMsgs) {
-            if (HasUsedItem(player, type, ref doMsgs, 0xED, 0xED) == 0) goto L0060;
+            if (HasUsedItem(player, type, ref doMsgs, ItemAceOfSpades, ItemAceOfSpades) == 0) goto L0060;
             SetWallItem(player, 0x01, 0x8D, 0x01);
             SetWallPassable(player, 0x8D, 0x01, 0x01);
             ShowMessage(player, doMsgs, String07BB); // The Ace is played as eleven points, scoring the BlackJack!
@@ -308,7 +308,7 @@ namespace XPT.Legacy.Maps {
         }
 
         private void FnCRIB_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
-            if (HasUsedItem(player, type, ref doMsgs, 0xEA, 0xEA) == 0) goto L0060;
+            if (HasUsedItem(player, type, ref doMsgs, ItemJackOfSpades, ItemJackOfSpades) == 0) goto L0060;
             SetWallItem(player, 0x01, 0x7D, 0x03);
             SetWallPassable(player, 0x7D, 0x03, 0x01);
             ShowMessage(player, doMsgs, String08BE); // The Jack scores the hand 22.  Cribbage is the game.
@@ -369,7 +369,7 @@ namespace XPT.Legacy.Maps {
             if (JumpEqual) goto L0028;
             goto L00AF;
             L0028: SetFlag(player, FlagTypeDungeon, FlagModAttr_BlackjackFountain, 0x01);
-            RemoveItem(player, 0xEA);
+            RemoveItem(player, ItemJackOfSpades);
             ShowPortrait(player, 0x0042);
             ModifyAttribute(player, 0x02, 0x0003);
             HealPlayer(player, (ushort)GetMaxHits(player));
@@ -388,7 +388,7 @@ namespace XPT.Legacy.Maps {
             goto L00AB;
             L0028: SetFlag(player, FlagTypeDungeon, FlagModAttr_CribbageFountain, 0x01);
             ShowPortrait(player, 0x0042);
-            RemoveItem(player, 0xED);
+            RemoveItem(player, ItemAceOfSpades);
             ModifyAttribute(player, 0x03, 0x0003);
             AddMana(player, 0x0BB8);
             ShowMessage(player, doMsgs, String0BBE); // A puff of steam from the fountain blows in your face.
@@ -522,8 +522,8 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x04, 0x22);
             AddEncounter(player, 0x05, 0x22);
             AddEncounter(player, 0x06, 0x1D);
-            if (HasItem(player, 0xEB) == 0) {
-                AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xEB, 0xD0);
+            if (HasItem(player, ItemQueenOfSpades) == 0) {
+                AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, ItemQueenOfSpades, 0xD0);
             }
             else {
                 AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x90, 0xAF);
@@ -537,8 +537,8 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x04, 0x18);
             AddEncounter(player, 0x05, 0x15);
             AddEncounter(player, 0x06, 0x1C);
-            if (HasItem(player, 0xEC) == 0) {
-                AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xEC, 0xD0);
+            if (HasItem(player, ItemKingOfSpades) == 0) {
+                AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, ItemKingOfSpades, 0xD0);
             }
             else {
                 AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x8D, 0xCF);

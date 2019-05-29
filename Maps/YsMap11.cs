@@ -177,7 +177,7 @@ namespace XPT.Legacy.Maps {
         private void FnTAPESTRY_05(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xF8);
+            L0003: ax = HasItem(player, ItemKingsRing);
             L0011: if (JumpEqual) goto L002F;
             L0013: ShowMessage(player, doMsgs, String0456); // Runes appear on the tapestry...
             L0020: ShowRunes(player, doMsgs, String0476); // Imps have hidden the Crown, Robe and Scepter. Only a master of the runes may find them. Two-faced Y is at the center of the quest. From Y, open O and E and I. When a rune key is used correctly, it will disappear.
@@ -189,15 +189,15 @@ namespace XPT.Legacy.Maps {
         private void FnKNGGHST_06(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xF8);
+            L0003: ax = HasItem(player, ItemKingsRing);
             L0011: if (JumpEqual) goto L005B;
             L0013: ShowMessage(player, doMsgs, String058C); // King Cleowyn's angry spirit appears.
             L0020: ShowMessage(player, doMsgs, String05B1); // He tears the Key to the Palace away from you as he and his courtiers attack.
             L002D: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xB7, 0xCF);
-            L004D: RemoveItem(player, 0xD9);
+            L004D: RemoveItem(player, ItemKeyToCleowynsPalace);
             L0059: goto L0089;
             L005B: ShowMessage(player, doMsgs, String05FE); // King Cleowyn and his dead courtiers appear to challenge you.
-            L0068: AddTreasure(player, 0x3A98, 0x00, 0x00, 0xF8, 0xB7, 0xCF);
+            L0068: AddTreasure(player, 0x3A98, 0x00, 0x00, ItemKingsRing, 0xB7, 0xCF);
             L0089: AddEncounter(player, 0x05, 0x25);
             L009B: AddEncounter(player, 0x01, 0x01);
             L00AD: AddEncounter(player, 0x02, 0x08);
@@ -950,7 +950,7 @@ namespace XPT.Legacy.Maps {
         private void FnKINGMSG_30(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xF8); // kings ring
+            L0003: ax = HasItem(player, ItemKingsRing); // kings ring
             L0011: if (JumpNotEqual) goto L0016;
             L0013: goto L00C8;
             L0016: ShowPortrait(player, 0x000A);

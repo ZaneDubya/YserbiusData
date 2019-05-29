@@ -130,7 +130,7 @@ namespace XPT.Legacy.Maps {
         private void FnHIDNDOOR_04(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xD4);
+            L0003: ax = HasItem(player, ItemSunbeamKey);
             L0011: if (JumpEqual) goto L0059;
             L0013: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0031: SetWallItem(player, 0x01, GetCurrentTile(player), 0x00);
@@ -222,7 +222,7 @@ namespace XPT.Legacy.Maps {
         private void FnSCEPNICH_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xE3);
+            L0003: ax = HasItem(player, ItemCleowynsSceptre);
             L0011: if (JumpEqual) goto L003D;
             L0013: ax = IsFlagOn(player, FlagTypeMap, 0x01);
             L0026: if (JumpEqual) goto L003D;
@@ -231,7 +231,7 @@ namespace XPT.Legacy.Maps {
             L003D: ax = IsFlagOn(player, FlagTypeMap, 0x03);
             L0050: if (JumpNotEqual) goto L0055;
             L0052: goto L00E0;
-            L0055: RemoveItem(player, 0xE3);
+            L0055: RemoveItem(player, ItemCleowynsSceptre);
             L0061: SetFlag(player, FlagTypeMap, 0x03, 0x01);
             L0076: SetWallPassable(player, GetCurrentTile(player), 0x03, 0x01);
             L0090: SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
@@ -401,11 +401,11 @@ namespace XPT.Legacy.Maps {
                 return;
             }
             if (GetFlag(player, FlagTypeDungeon, FlagMausoleumCryptState) == 0x01) {
-                if (HasItem(player, 0xFA) == 0x00) {
+                if (HasItem(player, ItemCleowynsBones) == 0x00) {
                     ShowMessage(player, doMsgs, String08EC); // There are no remains in the crypt, but you see a note. It reads - 'The bones of the cruel king have been given to the dwarfs to grind into powder. Cursed be ye who dare try to return Cleowyn to his crypt.'
                     return;
                 }
-                RemoveItem(player, 0xFA);
+                RemoveItem(player, ItemCleowynsBones);
                 GiveItem(player, 0x96);
                 SetFlag(player, FlagTypeDungeon, FlagMausoleumCryptState, 0x02);
                 AddExperience(player, 0x000B71B0);

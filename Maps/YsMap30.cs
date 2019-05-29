@@ -110,7 +110,7 @@ namespace XPT.Legacy.Maps {
             L001F: bx = 0x0004;
             L0022: dx = ax % bx; ax = ax / bx;
             L0025: DamagePlayer(player, ax);
-            L0047: ax = HasItem(player, 0xD5);
+            L0047: ax = HasItem(player, ItemDwarfMineKey);
             L0055: if (JumpNotEqual) goto L006C;
             L0057: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagUsedDwarfMineKey));
             L006A: if (JumpEqual) goto L007E;
@@ -130,12 +130,12 @@ namespace XPT.Legacy.Maps {
         private void FnSTEPCYCL_03(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xD6);
+            L0003: ax = HasItem(player, ItemCyclopsMineKey);
             L0011: if (JumpNotEqual) goto L0028;
             L0013: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagUsedCyclopsMineKey));
             L0026: if (JumpEqual) goto L0071;
             L0028: SetWallPassable(player, GetCurrentTile(player), 0x00, 0x01);
-            L0041: RemoveItem(player, 0xD6);
+            L0041: RemoveItem(player, ItemCyclopsMineKey);
             L004D: SetFlag(player, FlagTypeDungeon, FlagUsedCyclopsMineKey, 0x01);
             L0062: ShowMessage(player, doMsgs, String047C); // Your Cyclops' Mine Key makes the tapestry translucent, revealing new passages to the southwest.
             L006F: goto L007E;
@@ -146,11 +146,11 @@ namespace XPT.Legacy.Maps {
         private void FnSTEPMINE_04(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xD5);
+            L0003: ax = HasItem(player, ItemDwarfMineKey);
             L0011: if (JumpNotEqual) goto L0028;
             L0013: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagUsedDwarfMineKey));
             L0026: if (JumpEqual) goto L0068;
-            L0028: RemoveItem(player, 0xD5);
+            L0028: RemoveItem(player, ItemDwarfMineKey);
             L0034: SetFlag(player, FlagTypeDungeon, FlagUsedDwarfMineKey, 0x01);
             L0049: SetFloorItem(player, 0x9C, 0x00);
             L0059: ShowMessage(player, doMsgs, String050C); // Your Dwarf Mine Key activated this platform.
@@ -162,11 +162,11 @@ namespace XPT.Legacy.Maps {
         private void FnSTEPHIDE_05(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xD7);
+            L0003: ax = HasItem(player, ItemHiddenMineKey);
             L0011: if (JumpNotEqual) goto L0028;
             L0013: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagUsedHiddenMineKey));
             L0026: if (JumpEqual) goto L0076;
-            L0028: RemoveItem(player, 0xD7);
+            L0028: RemoveItem(player, ItemHiddenMineKey);
             L0034: SetFlag(player, FlagTypeDungeon, FlagUsedHiddenMineKey, 0x01);
             L0049: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0067: ShowMessage(player, doMsgs, String0539); // Your Hidden Mine Key makes the wall become transparent.
@@ -254,7 +254,7 @@ namespace XPT.Legacy.Maps {
         private void FnSUNBEAM_14(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xEF);
+            L0003: ax = HasItem(player, ItemBlueMetal);
             L0011: if (JumpEqual) goto L007B;
             L0013: ShowPortrait(player, 0x001C);
             L0020: ShowMessage(player, doMsgs, String060F); // A band of dwarves moves out of the shadows.
@@ -262,8 +262,8 @@ namespace XPT.Legacy.Maps {
             L003A: ShowMessage(player, doMsgs, String0677); // 'This magnificent blue treasure you hold can certainly do YOU no good.  Perhaps we may offer you a TRADE to remove this rock from your hands.'
             L0047: ShowMessage(player, doMsgs, String0706); // A key appears from beneath his pack.
             L0054: ShowMessage(player, doMsgs, String072B); // 'We offer you this key to our kingdom in return.'
-            L0061: RemoveItem(player, 0xEF);
-            L006D: GiveItem(player, 0xD4);
+            L0061: RemoveItem(player, ItemBlueMetal);
+            L006D: GiveItem(player, ItemSunbeamKey);
             L0079: goto L0088;
             L007B: ShowMessage(player, doMsgs, String075D); // A beam of bluish sunshine filters down from the surface above and reflects on a ceremonial dwarven rock.
             L0088: return; // RETURN;
@@ -383,11 +383,11 @@ namespace XPT.Legacy.Maps {
             L0010: AddEncounter(player, 0x01, 0x0E);
             L0022: AddEncounter(player, 0x02, 0x0E);
             L0034: AddEncounter(player, 0x03, 0x21);
-            L0046: ax = HasItem(player, 0xF1);
+            L0046: ax = HasItem(player, ItemCyclopsHead);
             L0054: if (JumpEqual) goto L0078;
             L0056: AddTreasure(player, 0x09C4, 0x00, 0x00, 0x00, 0xD0, 0xC6);
             L0076: goto L0097;
-            L0078: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, 0xF1);
+            L0078: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, ItemCyclopsHead);
             L0097: return; // RETURN;
         }
 
@@ -456,12 +456,12 @@ namespace XPT.Legacy.Maps {
             L0027: AddEncounter(player, 0x03, 0x12);
             L0039: AddEncounter(player, 0x04, 0x12);
             L004B: AddEncounter(player, 0x05, 0x22);
-            L005D: ax = HasItem(player, 0xD5);
+            L005D: ax = HasItem(player, ItemDwarfMineKey);
             L006B: if (JumpEqual) goto L008F;
             L006D: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xB7, 0x98);
             L008D: goto L00BB;
             L008F: ShowMessage(player, doMsgs, String097B); // Creatures fight over a stone key.
-            L009C: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, 0xD5);
+            L009C: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, ItemDwarfMineKey);
             L00BB: return; // RETURN;
         }
 
@@ -473,12 +473,12 @@ namespace XPT.Legacy.Maps {
             L0027: AddEncounter(player, 0x03, 0x12);
             L0039: AddEncounter(player, 0x04, 0x12);
             L004B: AddEncounter(player, 0x05, 0x22);
-            L005D: ax = HasItem(player, 0xD8);
+            L005D: ax = HasItem(player, ItemElfinCaveKey);
             L006B: if (JumpEqual) goto L008E;
             L006D: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xD0);
             L008C: goto L00BA;
             L008E: ShowMessage(player, doMsgs, String099D); // Creatures fight over a green tree-shaped key
-            L009B: AddTreasure(player, 0x2328, 0x00, 0x00, 0x00, 0x00, 0xD8);
+            L009B: AddTreasure(player, 0x2328, 0x00, 0x00, 0x00, 0x00, ItemElfinCaveKey);
             L00BA: return; // RETURN;
         }
 

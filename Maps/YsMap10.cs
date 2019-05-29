@@ -57,7 +57,7 @@ namespace XPT.Legacy.Maps {
         private void FnKEYDOOR_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xDC, 0xDC);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemRuneVowelKeyI, ItemRuneVowelKeyI);
             L0016: if (JumpEqual) goto L0063;
             L0018: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0036: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -71,13 +71,13 @@ namespace XPT.Legacy.Maps {
         private void FnSCEPTENC_03(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xE3);
+            L0003: ax = HasItem(player, ItemCleowynsSceptre);
             L0011: if (JumpEqual) goto L0041;
             L0013: ShowMessage(player, doMsgs, String045E); // The room has been ransacked.
             L0020: AddTreasure(player, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L003F: goto L0086;
-            L0041: AddTreasure(player, 0x1B58, 0x00, 0x00, 0x00, 0x00, 0xE3);
-            L0060: RemoveItem(player, 0xDC);
+            L0041: AddTreasure(player, 0x1B58, 0x00, 0x00, 0x00, 0x00, ItemCleowynsSceptre);
+            L0060: RemoveItem(player, ItemRuneVowelKeyI);
             L006C: ShowMessage(player, doMsgs, String047B); // The I Rune Key mysteriously vanishes as you move forward.
             L0079: ShowMessage(player, doMsgs, String04B5); // The beating of leathery wings overhead alerts you to your great danger. On the floor is the Scepter of King Cleowyn.
             L0086: Compare(PartyCount(player), 0x0001);

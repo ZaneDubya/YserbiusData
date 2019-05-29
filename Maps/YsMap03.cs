@@ -98,7 +98,7 @@ namespace XPT.Legacy.Maps {
         private void FnTOVEST_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x01, 0x03, 0xF5, 0x03, type);
+            L0003: TeleportParty(player, 0x01, 0x03, ItemRanbowGemYellow, 0x03, type);
             L001E: return; // RETURN;
         }
 

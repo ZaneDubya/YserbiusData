@@ -313,11 +313,11 @@ namespace XPT.Legacy.Maps {
             L0015: AddEncounter(player, 0x02, 0x10);
             L0027: AddEncounter(player, 0x03, 0x11);
             L0039: AddEncounter(player, 0x04, 0x1C);
-            L004B: ax = HasItem(player, 0xEF);
+            L004B: ax = HasItem(player, ItemBlueMetal);
             L0059: if (JumpEqual) goto L007C;
             L005B: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0xD0);
             L007A: goto L009B;
-            L007C: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xEF);
+            L007C: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, 0x00, ItemBlueMetal);
             L009B: return; // RETURN;
         }
 

@@ -209,12 +209,12 @@ namespace XPT.Legacy.Maps {
         private void FnPALKEYEN_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xD9);
+            L0003: ax = HasItem(player, ItemKeyToCleowynsPalace);
             L0011: if (JumpEqual) goto L0042;
             L0013: AddTreasure(player, 0x01F4, 0x00, 0x00, 0x00, 0xBC, 0xCE);
             L0033: ShowMessage(player, doMsgs, String0647); // The room is empty. Almost.
             L0040: goto L006E;
-            L0042: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0xD9);
+            L0042: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, ItemKeyToCleowynsPalace);
             L0061: ShowMessage(player, doMsgs, String0662); // A Key in the shape of a Palace lies in a corner, if you can get to it.
             L006E: Compare(PartyCount(player), 0x0001);
             L0079: if (JumpNotEqual) goto L0090;
@@ -470,7 +470,7 @@ namespace XPT.Legacy.Maps {
         private void FnKEYDRA_1C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xD3);
+            L0003: ax = HasItem(player, ItemKingCleowynsKey);
             L0011: if (JumpEqual) goto L0072;
             L0013: SetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType, 0x01);
             L0027: ShowMessage(player, doMsgs, String0D8C); // Cleowyn's Key unlocks the door.
@@ -485,7 +485,7 @@ namespace XPT.Legacy.Maps {
         private void FnLKPKDRA_1D(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xD2);
+            L0003: ax = HasItem(player, ItemKingCleowynsLockpick);
             L0011: if (JumpEqual) goto L0072;
             L0013: SetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType, 0x02);
             L0027: ShowMessage(player, doMsgs, String0DC0); // Cleowyn's Lockpick has unlocked the door.

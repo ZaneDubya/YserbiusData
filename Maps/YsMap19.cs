@@ -113,7 +113,7 @@ namespace XPT.Legacy.Maps {
         private void FnLKPKDORZ_05(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xE2, 0xE2);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemLavaKey, ItemLavaKey);
             L0016: if (JumpEqual) goto L0063;
             L0018: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0036: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));

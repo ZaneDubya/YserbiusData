@@ -504,7 +504,7 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xC3, 0xC4);
             L0016: if (JumpNotEqual) goto L003E;
-            L0018: ax = HasUsedItem(player, type, ref doMsgs, 0xE1, 0xE1);
+            L0018: ax = HasUsedItem(player, type, ref doMsgs, ItemKingsDomicileKey, ItemKingsDomicileKey);
             L002B: if (JumpNotEqual) goto L003E;
             L002D: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0E), 0x000A);
             L003C: if (JumpBelow) goto L0089;
@@ -522,7 +522,7 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xC3, 0xC4);
             L0016: if (JumpNotEqual) goto L003E;
-            L0018: ax = HasUsedItem(player, type, ref doMsgs, 0xE1, 0xE1);
+            L0018: ax = HasUsedItem(player, type, ref doMsgs, ItemKingsDomicileKey, ItemKingsDomicileKey);
             L002B: if (JumpNotEqual) goto L003E;
             L002D: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0E), 0x000B);
             L003C: if (JumpBelow) goto L0089;
@@ -540,7 +540,7 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xC4, 0xC4);
             L0016: if (JumpNotEqual) goto L003E;
-            L0018: ax = HasUsedItem(player, type, ref doMsgs, 0xE1, 0xE1);
+            L0018: ax = HasUsedItem(player, type, ref doMsgs, ItemKingsDomicileKey, ItemKingsDomicileKey);
             L002B: if (JumpNotEqual) goto L003E;
             L002D: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0E), 0x000C);
             L003C: if (JumpBelow) goto L0089;
@@ -584,7 +584,7 @@ namespace XPT.Legacy.Maps {
         private void FnITMDOORA_1C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xE1, 0xE1);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemKingsDomicileKey, ItemKingsDomicileKey);
             L0016: if (JumpEqual) goto L0063;
             L0018: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0036: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -1067,12 +1067,12 @@ namespace XPT.Legacy.Maps {
         private void FnKEYENC_30(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xE1);
+            L0003: ax = HasItem(player, ItemKingsDomicileKey);
             L0011: if (JumpEqual) goto L0042;
             L0013: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xB7, 0xCE);
             L0033: ShowMessage(player, doMsgs, String0B0A); // The room is jammed with Rogues.
             L0040: goto L006D;
-            L0042: AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xE1);
+            L0042: AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, ItemKingsDomicileKey);
             L0060: ShowMessage(player, doMsgs, String0B2A); // A Ranger wears the King's Domicile Key around his neck.
             L006D: Compare(PartyCount(player), 0x0001);
             L0078: if (JumpNotEqual) goto L00A1;

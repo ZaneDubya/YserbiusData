@@ -164,9 +164,9 @@ namespace XPT.Legacy.Maps {
         private void FnSPECDOOR_03(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xD2, 0xD2);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemKingCleowynsLockpick, ItemKingCleowynsLockpick);
             L0016: if (JumpNotEqual) goto L0028;
-            L0018: ax = HasItem(player, 0xF8);
+            L0018: ax = HasItem(player, ItemKingsRing);
             L0026: if (JumpEqual) goto L0073;
             L0028: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0046: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -202,13 +202,13 @@ namespace XPT.Legacy.Maps {
         private void FnQSTCHARA_06(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xF9);
+            L0003: ax = HasItem(player, ItemKingsPass);
             L0011: if (JumpEqual) goto L008C;
             L0013: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0031: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L004F: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorGaveKingsPassToGuard, 0x01);
             L0064: ShowPortrait(player, 0x001C);
-            L0071: RemoveItem(player, 0xF9);
+            L0071: RemoveItem(player, ItemKingsPass);
             L007D: ShowMessage(player, doMsgs, String0454); // That is indeed the King's Pass. You may continue. If you ever return, I'll need to see another pass.
             L008A: goto L00D0;
             L008C: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
@@ -359,7 +359,7 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetRace(player), 0x0006);
             L000D: if (JumpEqual) goto L001F;
-            L000F: ax = HasItem(player, 0xD3);
+            L000F: ax = HasItem(player, ItemKingCleowynsKey);
             L001D: if (JumpEqual) goto L006A;
             L001F: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L003D: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -375,7 +375,7 @@ namespace XPT.Legacy.Maps {
             L0000: // BEGIN;
             L0003: Compare(GetRace(player), 0x0007);
             L000D: if (JumpEqual) goto L001F;
-            L000F: ax = HasItem(player, 0xD2);
+            L000F: ax = HasItem(player, ItemKingCleowynsLockpick);
             L001D: if (JumpEqual) goto L006A;
             L001F: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L003D: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -669,7 +669,7 @@ namespace XPT.Legacy.Maps {
             L0016: if (JumpEqual) goto L0087;
             L0018: Compare(GetRace(player), 0x0006);
             L0022: if (JumpEqual) goto L0034;
-            L0024: ax = HasItem(player, 0xD3);
+            L0024: ax = HasItem(player, ItemKingCleowynsKey);
             L0032: if (JumpEqual) goto L0087;
             L0034: SetFlag(player, FlagTypeDungeon, FlagModAttr_HalflingKeyCleo, 0x01);
             L0049: ShowMessage(player, doMsgs, String0DF3); // Blessed Halfling! Blessed Key of Cleowyn! With either, the quest may continue.
@@ -690,7 +690,7 @@ namespace XPT.Legacy.Maps {
             L0016: if (JumpEqual) goto L0087;
             L0018: Compare(GetRace(player), 0x0007);
             L0022: if (JumpEqual) goto L0034;
-            L0024: ax = HasItem(player, 0xD2);
+            L0024: ax = HasItem(player, ItemKingCleowynsLockpick);
             L0032: if (JumpEqual) goto L0087;
             L0034: SetFlag(player, FlagTypeDungeon, FlagModAttr_GremlinPickCleo, 0x01);
             L0049: ShowMessage(player, doMsgs, String0E59); // Blessed Gremlin! Blessed Pick of Cleowyn! With either, the quest may continue.
@@ -721,12 +721,12 @@ namespace XPT.Legacy.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0EE9); // Reptilian bodies rise from the shadows.
-            L0010: ax = HasItem(player, 0xEE);
+            L0010: ax = HasItem(player, ItemChessPiece);
             L001E: if (JumpEqual) goto L0041;
             L0020: AddTreasure(player, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L003F: goto L006D;
             L0041: ShowMessage(player, doMsgs, String0F11); // On the floor is a Chess Piece inscribed with the words - 'Property of Arnakkian Slowfoot.'
-            L004E: AddTreasure(player, 0x0BB8, 0x00, 0x00, 0x00, 0x00, 0xEE);
+            L004E: AddTreasure(player, 0x0BB8, 0x00, 0x00, 0x00, 0x00, ItemChessPiece);
             L006D: Compare(PartyCount(player), 0x0001);
             L0078: if (JumpNotEqual) goto L00A1;
             L007A: AddEncounter(player, 0x01, 0x28);
@@ -852,12 +852,12 @@ namespace XPT.Legacy.Maps {
         private void FnQUESTAEN_26(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xF9);
+            L0003: ax = HasItem(player, ItemKingsPass);
             L0011: if (JumpEqual) goto L0041;
             L0013: AddTreasure(player, 0x0384, 0x00, 0x00, 0x00, 0x00, 0xB0);
             L0032: ShowMessage(player, doMsgs, String0FA6); // Elf Rangers await you.
             L003F: goto L007E;
-            L0041: AddTreasure(player, 0x0FA0, 0x00, 0x00, 0x00, 0x00, 0xF9);
+            L0041: AddTreasure(player, 0x0FA0, 0x00, 0x00, 0x00, 0x00, ItemKingsPass);
             L0060: AddExperience(player, 0x000001F4);
             L0071: ShowMessage(player, doMsgs, String0FBD); // An Elf Ranger holds the King's Pass.
             L007E: Compare(PartyCount(player), 0x0001);
@@ -976,9 +976,9 @@ namespace XPT.Legacy.Maps {
         private void FnSPKEYDOO_2A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xE1, 0xE1);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemKingsDomicileKey, ItemKingsDomicileKey);
             L0016: if (JumpNotEqual) goto L002D;
-            L0018: ax = HasUsedItem(player, type, ref doMsgs, 0xE2, 0xE2);
+            L0018: ax = HasUsedItem(player, type, ref doMsgs, ItemLavaKey, ItemLavaKey);
             L002B: if (JumpEqual) goto L0078;
             L002D: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L004B: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));

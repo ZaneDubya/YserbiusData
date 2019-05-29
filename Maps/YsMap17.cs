@@ -361,7 +361,7 @@ namespace XPT.Legacy.Maps {
         private void FnFLSPECD_13(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xFB);
+            L0003: ax = HasItem(player, ItemThievesKey);
             L0011: if (JumpEqual) goto L0023;
             L0013: ShowMessage(player, doMsgs, String07F8); // The room has been ransacked!
             L0020: goto L0150;
@@ -371,7 +371,7 @@ namespace XPT.Legacy.Maps {
             L0032: SetFlag(player, FlagTypeDungeon, FlagThievesDenTreasure1, 0x01);
             L0047: ShowMessage(player, doMsgs, String0815); // Your familiarity with thieving helps you avoid a vicious trap!
             L0054: ShowMessage(player, doMsgs, String0854); // You find some items and 5000 pieces of gold.
-            L0061: GiveItem(player, 0xFB);
+            L0061: GiveItem(player, ItemThievesKey);
             L006D: GiveItem(player, 0x33);
             L0079: GiveItem(player, 0x4C);
             L0085: GiveItem(player, 0xC9);
@@ -380,7 +380,7 @@ namespace XPT.Legacy.Maps {
             L00AE: goto L0150;
             L00B1: ShowMessage(player, doMsgs, String0881); // You find several items and 5000 pieces of gold.
             L00BE: ShowMessage(player, doMsgs, String08B1); // Unfortunately, you overlook the cleverly hidden trap that protects the treasure.
-            L00CB: GiveItem(player, 0xFB);
+            L00CB: GiveItem(player, ItemThievesKey);
             L00D7: GiveItem(player, 0x33);
             L00E3: GiveItem(player, 0x4C);
             L00EF: GiveItem(player, 0xC9);
@@ -549,7 +549,7 @@ namespace XPT.Legacy.Maps {
         private void FnHIDDORG_24(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xFB, 0xFB);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemThievesKey, ItemThievesKey);
             L0016: if (JumpEqual) goto L0063;
             L0018: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0036: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));

@@ -1,5 +1,55 @@
 ﻿namespace XPT.Legacy.Maps {
     public abstract partial class AMap {
+
+        // === Items =================================================================================================
+        // ===========================================================================================================
+
+        public const byte ItemKingCleowynsLockpick = 0xD2;
+        public const byte ItemKingCleowynsKey = 0xD3;
+        public const byte ItemSunbeamKey = 0xD4;
+        public const byte ItemDwarfMineKey = 0xD5;
+        public const byte ItemCyclopsMineKey = 0xD6;
+        public const byte ItemHiddenMineKey = 0xD7;
+        public const byte ItemElfinCaveKey = 0xD8;
+        public const byte ItemKeyToCleowynsPalace = 0xD9;
+        public const byte ItemRuneVowelKeyO = 0xDA;
+        public const byte ItemRuneVowelKeyE = 0xDB;
+        public const byte ItemRuneVowelKeyI = 0xDC;
+        public const byte ItemWindKnightsKey = 0xDD;
+        public const byte ItemThiefsLabyrinthKey = 0xDE; // never used???
+        public const byte ItemVorantisKey = 0xDF;
+        public const byte ItemKeyToBackAlley = 0xE0;
+        public const byte ItemKingsDomicileKey = 0xE1;
+        public const byte ItemLavaKey = 0xE2;
+        public const byte ItemCleowynsSceptre = 0xE3;
+        public const byte ItemAutumnSeeds = 0xE4;
+        public const byte ItemWinterWaters = 0xE5;
+        public const byte ItemHarvestHorn = 0xE6;
+        public const byte ItemSpringRenewal = 0xE7;
+        public const byte ItemSummerRadiance = 0xE8;
+        public const byte ItemNaturesRobe = 0xE9;
+        public const byte ItemJackOfSpades = 0xEA;
+        public const byte ItemQueenOfSpades = 0xEB;
+        public const byte ItemKingOfSpades = 0xEC;
+        public const byte ItemAceOfSpades = 0xED;
+        public const byte ItemChessPiece = 0xEE;
+        public const byte ItemBlueMetal = 0xEF;
+        public const byte ItemFlexMetal = 0xF0;
+        public const byte ItemCyclopsHead = 0xF1;
+        public const byte ItemMoonPrism = 0xF2;
+        public const byte ItemGoldenBoat = 0xF3;
+        public const byte ItemRanbowGemRed = 0xF4;
+        public const byte ItemRanbowGemYellow = 0xF5;
+        public const byte ItemRanbowGemGreen = 0xF6;
+        public const byte ItemRanbowGemBlue = 0xF7;
+        public const byte ItemKingsRing = 0xF8;
+        public const byte ItemKingsPass = 0xF9;
+        public const byte ItemCleowynsBones = 0xFA;
+        public const byte ItemThievesKey = 0xFB;
+        public const byte ItemLavaGlove = 0xFC; // never used???
+
+        // === Map Flags =============================================================================================
+        // ===========================================================================================================
         public const byte FlagVestibuleUnlockType = 0x00;
         // unused flag 0x01
         public const byte FlagMinesFound100Gold = 0x02;
@@ -73,7 +123,7 @@
         public const byte FlagLabyrinthIIMoonPrism = 0x46;
         public const byte FlagLabyrinthIIRangerSpear = 0x47;
         public const byte FlagLabyrinthIIHolyHalberd = 0x48;
-        public const byte FlagSpellingChallenge = 0x49;
+        public const byte FlagSpellingChallengeProgress = 0x49;
         public const byte FlagModAttr_TrollFountain = 0x4A;
         public const byte FlagLabryinthIIIMyMyFountain = 0x4B;
         // unused flag 0x4C
@@ -119,10 +169,10 @@
         // unused flag 0x74
         // unused flag 0x75
         // unused flag 0x76
-        // unused flag 0x77
+        public const byte FlagKilledEnLiKilThisTime = 0x77;
         public const byte FlagUnlockedLabyrinthDoor = 0x78;
         public const byte FlagGaveHarvestHorn = 0x79;
-        // unused flag 0x7a
+        public const byte FlagTreeSkills = 0x7A;
         public const byte FlagUnknownSwitch1 = 0x7B;
         public const byte FlagUnknownSwitch2 = 0x7C;
         public const byte FlagUnknownSwitch3 = 0x7D;
@@ -135,7 +185,7 @@
         public const byte FlagModAttr_DragonBreathFountain = 0x84;
         public const byte FlagLabryinthIVPhoenixReborn1 = 0x85;
         public const byte FlagLabryinthIVPhoenixReborn = 0x86;
-        // unused flag 0x87
+        public const byte FlagMedievaLandsCastleParapetsBridge = 0x87;
         public const byte FlagCastleParapetsGuardiansExperience = 0x88;
         public const byte FlagWizardRoomArnikkanExperience = 0x89;
         public const byte FlagCastleParapetsAndreasExperience = 0x8A;

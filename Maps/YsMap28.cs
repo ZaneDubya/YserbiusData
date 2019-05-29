@@ -36,12 +36,6 @@ namespace XPT.Legacy.Maps {
             MapEvent1B = FnINFO_1B;
         }
 
-        private const int ItemAutumnSeeds = 0xE4;
-        private const int ItemWinterWaters = 0xE5;
-        private const int ItemHarvestHorn = 0xE6;
-        private const int ItemSpringRenewal = 0xE7;
-        private const int ItemSummerRadiance = 0xE8;
-        private const int ItemNaturesRobe = 0xE9;
 
         // Map 28 - The Season's Quest
         // The player enters the map with the Harvest Horn
@@ -219,11 +213,11 @@ namespace XPT.Legacy.Maps {
         }
 
         private void FnENCF_07(ServerPlayer player, MapEventType type, bool doMsgs) {
-            if (HasItem(player, 0xFA) == 1) {
+            if (HasItem(player, ItemCleowynsBones) == 1) {
                 AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0x00, 0xCE);
             }
             else {
-                AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0xD0, 0xFA);
+                AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0xD0, ItemCleowynsBones);
             }
             ShowMessage(player, doMsgs, "You see scattered bones and a bag under a Dragon.");
             AddEncounter(player, 0x01, 0x1B);
@@ -251,12 +245,12 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x02, 0x1C);
             AddEncounter(player, 0x03, 0x22);
             AddEncounter(player, 0x04, 0x22);
-            if (HasItem(player, 0xF5) == 1) {
+            if (HasItem(player, ItemRanbowGemYellow) == 1) {
                 AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xCF, 0xC6);
             }
             else {
                 ShowMessage(player, doMsgs, "A glowing yellow gem lights the area.");
-                AddTreasure(player, 0x2710, 0x00, 0x00, 0xD0, 0xD0, 0xF5);
+                AddTreasure(player, 0x2710, 0x00, 0x00, 0xD0, 0xD0, ItemRanbowGemYellow);
             }
         }
 
@@ -533,7 +527,7 @@ namespace XPT.Legacy.Maps {
 
         private void FnCAVEDOOR_18(ServerPlayer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "A wooden sign says, 'To the cave of NeedleWood.'");
-            if (HasUsedItem(player, type, ref doMsgs, 0xD8, 0xD8) == 1) {
+            if (HasUsedItem(player, type, ref doMsgs, ItemElfinCaveKey, ItemElfinCaveKey) == 1) {
                 ShowMessage(player, doMsgs, "The door unlocks.");
                 SetWallPassable(player, GetCurrentTile(player), 0x03, 0x01);
                 SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);

@@ -162,11 +162,11 @@ namespace XPT.Legacy.Maps {
         private void FnSECDOORA_03(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xD4, 0xD4);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemSunbeamKey, ItemSunbeamKey);
             L0016: if (JumpNotEqual) goto L002D;
             L0018: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagUsedItemD4ToOpenDwarfDoor));
             L002B: if (JumpEqual) goto L0093;
-            L002D: RemoveItem(player, 0xD4);
+            L002D: RemoveItem(player, ItemSunbeamKey);
             L0039: SetFlag(player, FlagTypeDungeon, FlagUsedItemD4ToOpenDwarfDoor, 0x01);
             L004E: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L006C: SetWallItem(player, 0x01, GetCurrentTile(player), 0x01);
@@ -351,7 +351,7 @@ namespace XPT.Legacy.Maps {
         private void FnDWARKING_10(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xF4);
+            L0003: ax = HasItem(player, ItemRanbowGemRed);
             L0011: if (JumpNotEqual) goto L0061;
             L0013: ShowPortrait(player, 0x001C);
             L0020: ShowMessage(player, doMsgs, String085A); // The Dwarf King nods.
@@ -373,7 +373,7 @@ namespace XPT.Legacy.Maps {
             L0030: ShowMessage(player, doMsgs, String0995); // The dwarf takes the Flex Metal and smiles broadly. 'No greater pleasure can a dwarf blacksmith have than to test the powers of a new metal.'
             L003D: ShowMessage(player, doMsgs, String0A22); // After a few hours working the metal, she holds up a brilliant blue sword.
             L004A: ShowMessage(player, doMsgs, String0A6C); // 'There!  My finest weapon, made from your Flex Metal.  I dub it The Wind Sword!  May it destroy your enemies at first blow!'
-            L0057: RemoveItem(player, 0xF0);
+            L0057: RemoveItem(player, ItemFlexMetal);
             L0063: GiveItem(player, 0x09);
             L006F: goto L008B;
             L0071: ShowMessage(player, doMsgs, String0AE9); // The dwarf blacksmith cuts down the furnace, then turns to greet you. 
@@ -398,10 +398,10 @@ namespace XPT.Legacy.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(player, 0x002C);
-            L0010: ax = HasItem(player, 0xF3);
+            L0010: ax = HasItem(player, ItemGoldenBoat);
             L001E: if (JumpEqual) goto L0023;
             L0020: goto L00DD;
-            L0023: ax = HasItem(player, 0xF1);
+            L0023: ax = HasItem(player, ItemCyclopsHead);
             L0031: if (JumpEqual) goto L0099;
             L0033: ShowMessage(player, doMsgs, String0D66); // A mean, twisted smile appears across the face of the dwarf blacksmith.
             L0040: ShowMessage(player, doMsgs, String0DAD); // 'You have killed the cyclop!  My gold caves are won!
@@ -409,9 +409,9 @@ namespace XPT.Legacy.Maps {
             L005A: ShowMessage(player, doMsgs, String0E15); // A few hours pass as the blacksmith weaves a magnificent treasure from golden threads.  Then she appears again.
             L0067: ShowMessage(player, doMsgs, String0E84); // 'Here.  My proudest work!  A golden boat that can ride the rainbows.  May you find treasure wherever you go.'
             L0074: ShowMessage(player, doMsgs, String0EF2); // Then she scoots away.
-            L0081: RemoveItem(player, 0xF1);
-            L008D: GiveItem(player, 0xF3);
-            L0099: ax = HasItem(player, 0xF1);
+            L0081: RemoveItem(player, ItemCyclopsHead);
+            L008D: GiveItem(player, ItemGoldenBoat);
+            L0099: ax = HasItem(player, ItemCyclopsHead);
             L00A7: if (JumpNotEqual) goto L00DD;
             L00A9: ShowMessage(player, doMsgs, String0F08); // The old dwarf blacksmith at first does not hear you approach. Then she senses your presence and wheels on you. 
             L00B6: ShowMessage(player, doMsgs, String0F78); // 'A mean trick you play on a wise one!  No matter.  No doubt you're looking for another golden trinket of mine.
@@ -435,7 +435,7 @@ namespace XPT.Legacy.Maps {
             L0075: GiveItem(player, 0xBA);
             L0081: GiveItem(player, 0xBA);
             L008D: goto L00FB;
-            L008F: ax = HasItem(player, 0xD7); // has the hidden mine key?
+            L008F: ax = HasItem(player, ItemHiddenMineKey); // has the hidden mine key?
             L009D: if (JumpEqual) goto L00BB;
             L009F: ShowMessage(player, doMsgs, String112E); // The dwarf miner smiles as you approach.
             L00AC: ShowMessage(player, doMsgs, String1156); // 'Have you found my cave yet?  It is by the water's edge.'
@@ -444,7 +444,7 @@ namespace XPT.Legacy.Maps {
             L00C8: ShowMessage(player, doMsgs, String11C0); // 'Adventurers!  At last!  I've heard tales from the elders about your deeds.  I, too, have a cave, well hidden beyond the edges of the waters.
             L00D5: ShowMessage(player, doMsgs, String124E); // Monsters have forced me from my home. I am not strong enough to fight them.
             L00E2: ShowMessage(player, doMsgs, String129A); // Perhaps, if I give you the key to my small cave, you will do me a favor. Then I may repay you well some day.'
-            L00EF: GiveItem(player, 0xD7);
+            L00EF: GiveItem(player, ItemHiddenMineKey);
             L00FB: return; // RETURN;
         }
 
@@ -530,12 +530,12 @@ namespace XPT.Legacy.Maps {
             L0039: AddEncounter(player, 0x04, 0x19);
             L004B: AddEncounter(player, 0x05, 0x1B);
             L005D: AddEncounter(player, 0x06, 0x13);
-            L006F: ax = HasItem(player, 0xF4);
+            L006F: ax = HasItem(player, ItemRanbowGemRed);
             L007D: if (JumpEqual) goto L00A1;
             L007F: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xC6, 0xB7);
             L009F: goto L00D0;
             L00A1: ShowMessage(player, doMsgs, String1335); // A glowing red gem casts a beam from under the dragon's lair.
-            L00AE: AddTreasure(player, 0x2328, 0x00, 0x14, 0xD0, 0xD0, 0xF4);
+            L00AE: AddTreasure(player, 0x2328, 0x00, 0x14, 0xD0, 0xD0, ItemRanbowGemRed);
             L00D0: return; // RETURN;
         }
 
@@ -576,11 +576,11 @@ namespace XPT.Legacy.Maps {
         private void FnCYCLKEY_20(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xD6);
+            L0003: ax = HasItem(player, ItemCyclopsMineKey);
             L0011: if (JumpEqual) goto L0022;
             L0013: ShowMessage(player, doMsgs, String15A4); // The room has been emptied.
             L0020: goto L003B;
-            L0022: GiveItem(player, 0xD6);
+            L0022: GiveItem(player, ItemCyclopsMineKey);
             L002E: ShowMessage(player, doMsgs, String15BF); // You find a key to the Cyclop's Mine on the floor.
             L003B: return; // RETURN;
         }

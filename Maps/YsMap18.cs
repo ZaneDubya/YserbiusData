@@ -124,7 +124,7 @@ namespace XPT.Legacy.Maps {
         private void FnSPKEYDOR_13(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xE2, 0xE2);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemLavaKey, ItemLavaKey);
             L0016: if (JumpEqual) goto L0063;
             L0018: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0036: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
@@ -139,12 +139,12 @@ namespace XPT.Legacy.Maps {
         private void FnKEYENC_14(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xE2);
+            L0003: ax = HasItem(player, ItemLavaKey);
             L0011: if (JumpEqual) goto L0041;
             L0013: ShowMessage(player, doMsgs, String0478); // Half-starved Rogues eye you hungrily.
             L0020: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L003F: goto L006D;
-            L0041: AddTreasure(player, 0x1F40, 0x00, 0x00, 0x00, 0x00, 0xE2);
+            L0041: AddTreasure(player, 0x1F40, 0x00, 0x00, 0x00, 0x00, ItemLavaKey);
             L0060: ShowMessage(player, doMsgs, String049E); // A smirking Barbarian dangles a glowing red key in your face.
             L006D: Compare(PartyCount(player), 0x0001);
             L0078: if (JumpNotEqual) goto L00A1;

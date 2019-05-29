@@ -131,11 +131,11 @@ namespace XPT.Legacy.Maps {
             L005E: AddEncounter(player, 0x04, 0x0F);
             L0070: AddEncounter(player, 0x05, 0x23);
             L0082: AddEncounter(player, 0x06, 0x28);
-            L0094: ax = HasItem(player, 0xE9);
+            L0094: ax = HasItem(player, ItemNaturesRobe);
             L00A2: if (JumpEqual) goto L00C6;
             L00A4: AddTreasure(player, 0x0000, 0x00, 0x00, 0x50, 0x50, 0xD0);
             L00C4: goto L0123;
-            L00C6: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x88, 0x1D, 0xE9);
+            L00C6: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x88, 0x1D, ItemNaturesRobe);
             L00E7: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagCastleParapetsAndreasExperience));
             L00FA: if (JumpNotEqual) goto L0123;
             L00FC: SetFlag(player, FlagTypeDungeon, FlagCastleParapetsAndreasExperience, 0x01);

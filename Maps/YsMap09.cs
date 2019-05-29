@@ -56,7 +56,7 @@ namespace XPT.Legacy.Maps {
         private void FnKEYDOOR_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xDB, 0xDB);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemRuneVowelKeyE, ItemRuneVowelKeyE);
             L0016: if (JumpEqual) goto L0063;
             L0018: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0036: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -137,7 +137,7 @@ namespace XPT.Legacy.Maps {
             L0032: ShowMessage(player, doMsgs, String04CC); // A painful nip at your ankle warns you of great danger.
             L003F: goto L0087;
             L0041: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xCF, 0x78);
-            L0061: RemoveItem(player, 0xDB);
+            L0061: RemoveItem(player, ItemRuneVowelKeyE);
             L006D: ShowMessage(player, doMsgs, String0503); // The E Vowel Key fades away when you enter the room.
             L007A: ShowMessage(player, doMsgs, String0537); // Behind a writhing mass of ill-tempered snakes lies King Cleowyn's Robe.
             L0087: Compare(PartyCount(player), 0x0001);

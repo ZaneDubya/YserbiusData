@@ -59,7 +59,7 @@ namespace XPT.Legacy.Maps {
         private void FnKEYDOOR_02(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xDA, 0xDA);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemRuneVowelKeyO, ItemRuneVowelKeyO);
             L0016: if (JumpEqual) goto L0063;
             L0018: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0036: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -145,7 +145,7 @@ namespace XPT.Legacy.Maps {
             L0020: AddTreasure(player, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xD0);
             L003F: goto L0087;
             L0041: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xCF, 0x69);
-            L0061: RemoveItem(player, 0xDA);
+            L0061: RemoveItem(player, ItemRuneVowelKeyO);
             L006D: ShowMessage(player, doMsgs, String055A); // As you enter the room, the O Rune Key vanishes.
             L007A: ShowMessage(player, doMsgs, String058A); // You see a Lizardite proudly wearing the Crown of King Cleowyn.
             L0087: Compare(PartyCount(player), 0x0001);

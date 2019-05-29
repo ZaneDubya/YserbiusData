@@ -105,7 +105,7 @@ namespace XPT.Legacy.Maps {
             L0029: DamagePlayer(player, 0x0096);
             L0036: ShowMessage(player, doMsgs, String043A); // Your attempt to open the door springs a trap. Dozens of darts attack you.
             L0043: goto L00D0;
-            L0046: ax = HasUsedItem(player, type, ref doMsgs, 0xD9, 0xD9);
+            L0046: ax = HasUsedItem(player, type, ref doMsgs, ItemKeyToCleowynsPalace, ItemKeyToCleowynsPalace);
             L0059: if (JumpEqual) goto L00A6;
             L005B: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0079: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));

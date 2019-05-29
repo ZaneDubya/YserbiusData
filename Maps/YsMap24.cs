@@ -293,7 +293,7 @@ namespace XPT.Legacy.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String07E5); // To enter VORANTI'S PASSAGE, you must use his key!
-            L0010: ax = HasUsedItem(player, type, ref doMsgs, 0xDF, 0xDF);
+            L0010: ax = HasUsedItem(player, type, ref doMsgs, ItemVorantisKey, ItemVorantisKey);
             L0023: if (JumpEqual) goto L006E;
             L0025: ShowMessage(player, doMsgs, String0817); // You unlock the door.
             L0032: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
@@ -467,18 +467,18 @@ namespace XPT.Legacy.Maps {
             L0041: AddEncounter(player, 0x04, 0x25);
             L0053: AddEncounter(player, 0x05, 0x18);
             L0065: AddEncounter(player, 0x06, 0x18);
-            L0077: ax = HasItem(player, 0xE6);
+            L0077: ax = HasItem(player, ItemHarvestHorn);
             L0085: if (JumpEqual) goto L00A7;
             L0087: AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, 0x96);
             L00A5: goto L00C5;
-            L00A7: AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xE6);
+            L00A7: AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, ItemHarvestHorn);
             L00C5: return; // RETURN;
         }
 
         private void FnTEMPWIND_23(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xE6);
+            L0003: ax = HasItem(player, ItemHarvestHorn);
             L0011: if (JumpEqual) goto L0022;
             L0013: ShowMessage(player, doMsgs, String0ADC); // The Harvest Horn protects you from the dangerous winds!
             L0020: goto L0054;
@@ -521,11 +521,11 @@ namespace XPT.Legacy.Maps {
             L0015: AddEncounter(player, 0x02, 0x03);
             L0027: AddEncounter(player, 0x03, 0x03);
             L0039: AddEncounter(player, 0x04, 0x03);
-            L004B: ax = HasItem(player, 0xE0);
+            L004B: ax = HasItem(player, ItemKeyToBackAlley);
             L0059: if (JumpEqual) goto L007C;
             L005B: AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0xB6, 0xD0);
             L007A: goto L009B;
-            L007C: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xE0);
+            L007C: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, ItemKeyToBackAlley);
             L009B: return; // RETURN;
         }
 

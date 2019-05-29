@@ -149,7 +149,7 @@ namespace XPT.Legacy.Maps {
         private void FnTAPMOONS_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xF2, 0xF2);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemMoonPrism, ItemMoonPrism);
             L0016: if (JumpEqual) goto L005F;
             L0018: SetWallItem(player, 0x01, GetCurrentTile(player), 0x02);
             L0032: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
@@ -179,7 +179,7 @@ namespace XPT.Legacy.Maps {
         private void FnRAINRED_15(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xF4, 0xF4);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemRanbowGemRed, ItemRanbowGemRed);
             L0016: if (JumpNotEqual) goto L001B;
             L0018: goto L00B5;
             L001B: ShowMessage(player, doMsgs, String07DD); // A beam of red arcs over the Ageless Void.
@@ -196,7 +196,7 @@ namespace XPT.Legacy.Maps {
             L00A6: ShowMessage(player, doMsgs, String0807); // A vibrant rainbow of color forms.
             L00B3: goto L00C2;
             L00B5: ShowMessage(player, doMsgs, String0829); // A golden statue appears to be capable of holding a gem.
-            L00C2: ax = HasUsedItem(player, type, ref doMsgs, 0xF3, 0xF3);
+            L00C2: ax = HasUsedItem(player, type, ref doMsgs, ItemGoldenBoat, ItemGoldenBoat);
             L00D5: if (JumpNotEqual) goto L00DA;
             L00D7: goto L015A;
             L00DA: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
@@ -214,7 +214,7 @@ namespace XPT.Legacy.Maps {
         private void FnRAINYEL_16(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xF5, 0xF5);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemRanbowGemYellow, ItemRanbowGemYellow);
             L0016: if (JumpNotEqual) goto L001B;
             L0018: goto L00B3;
             L001B: ShowMessage(player, doMsgs, String0995); // A beam of yellow arcs over the Ageless Void.
@@ -229,7 +229,7 @@ namespace XPT.Legacy.Maps {
             L008F: if (JumpEqual) goto L00B3;
             L0091: SetFlag(player, FlagTypeMap, 0x01, 0x01);
             L00A6: ShowMessage(player, doMsgs, String09C2); // A vibrant rainbow of color forms.
-            L00B3: ax = HasUsedItem(player, type, ref doMsgs, 0xF3, 0xF3);
+            L00B3: ax = HasUsedItem(player, type, ref doMsgs, ItemGoldenBoat, ItemGoldenBoat);
             L00C6: if (JumpNotEqual) goto L00CB;
             L00C8: goto L014B;
             L00CB: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
@@ -247,7 +247,7 @@ namespace XPT.Legacy.Maps {
         private void FnRAINGRN_17(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xF6, 0xF6);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemRanbowGemGreen, ItemRanbowGemGreen);
             L0016: if (JumpNotEqual) goto L001B;
             L0018: goto L00B3;
             L001B: ShowMessage(player, doMsgs, String0B18); // A beam of green arcs over the Ageless Void.
@@ -262,7 +262,7 @@ namespace XPT.Legacy.Maps {
             L008F: if (JumpEqual) goto L00B3;
             L0091: SetFlag(player, FlagTypeMap, 0x01, 0x01);
             L00A6: ShowMessage(player, doMsgs, String0B44); // A vibrant rainbow of color forms.
-            L00B3: ax = HasUsedItem(player, type, ref doMsgs, 0xF3, 0xF3);
+            L00B3: ax = HasUsedItem(player, type, ref doMsgs, ItemGoldenBoat, ItemGoldenBoat);
             L00C6: if (JumpNotEqual) goto L00CB;
             L00C8: goto L014B;
             L00CB: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
@@ -280,7 +280,7 @@ namespace XPT.Legacy.Maps {
         private void FnRAINBLU_18(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xF7, 0xF7);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemRanbowGemBlue, ItemRanbowGemBlue);
             L0016: if (JumpNotEqual) goto L001B;
             L0018: goto L00B3;
             L001B: ShowMessage(player, doMsgs, String0C9A); // A beam of blue arcs over the Ageless Void.
@@ -295,7 +295,7 @@ namespace XPT.Legacy.Maps {
             L008F: if (JumpEqual) goto L00B3;
             L0091: SetFlag(player, FlagTypeMap, 0x01, 0x01);
             L00A6: ShowMessage(player, doMsgs, String0CC5); // A vibrant rainbow of color forms.
-            L00B3: ax = HasUsedItem(player, type, ref doMsgs, 0xF3, 0xF3);
+            L00B3: ax = HasUsedItem(player, type, ref doMsgs, ItemGoldenBoat, ItemGoldenBoat);
             L00C6: if (JumpNotEqual) goto L00CB;
             L00C8: goto L014B;
             L00CB: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));

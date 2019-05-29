@@ -312,7 +312,7 @@ namespace XPT.Legacy.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String09C9); // This door locks out all except those who have the alley key.
-            L0010: ax = HasUsedItem(player, type, ref doMsgs, 0xE0, 0xE0);
+            L0010: ax = HasUsedItem(player, type, ref doMsgs, ItemKeyToBackAlley, ItemKeyToBackAlley);
             L0023: if (JumpEqual) goto L0066;
             L0025: SetWallPassable(player, GetCurrentTile(player), 0x03, 0x01);
             L003F: SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
@@ -369,17 +369,17 @@ namespace XPT.Legacy.Maps {
             L0016: if (JumpEqual) goto L007B;
             L0018: ax = HasItem(player, 0x09);
             L0026: if (JumpNotEqual) goto L0038;
-            L0028: ax = HasItem(player, 0xF0);
+            L0028: ax = HasItem(player, ItemFlexMetal);
             L0036: if (JumpEqual) goto L005A;
             L0038: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, 0xB3, 0xD0);
             L0058: goto L0079;
-            L005A: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, 0xF0);
+            L005A: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, ItemFlexMetal);
             L0079: goto L00EA;
-            L007B: ax = HasItem(player, 0xE6);
+            L007B: ax = HasItem(player, ItemHarvestHorn);
             L0089: if (JumpEqual) goto L00EA;
-            L008B: RemoveItem(player, 0xE6);
+            L008B: RemoveItem(player, ItemHarvestHorn);
             L0097: SetFlag(player, FlagTypeDungeon, FlagGaveHarvestHorn, 0x01);
-            L00AC: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, 0xF0);
+            L00AC: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, ItemFlexMetal);
             L00CB: AddExperience(player, 0x0003D090);
             L00DD: ShowMessage(player, doMsgs, String0B92); // The Zephyr Wind whispers, 'I have taken the Harvest Horn, and I give you something to help defeat the Wind Elemental'.
             L00EA: AddEncounter(player, 0x01, 0x10);
@@ -448,11 +448,11 @@ namespace XPT.Legacy.Maps {
             L0046: AddEncounter(player, 0x04, 0x1C);
             L0058: AddEncounter(player, 0x05, 0x1A);
             L006A: AddEncounter(player, 0x06, 0x1A);
-            L007C: ax = HasItem(player, 0xDF);
+            L007C: ax = HasItem(player, ItemVorantisKey);
             L008A: if (JumpEqual) goto L00AD;
             L008C: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0xD1);
             L00AB: goto L00CE;
-            L00AD: AddTreasure(player, 0x4E20, 0x00, 0x00, 0xDF, 0x46, 0x6E);
+            L00AD: AddTreasure(player, 0x4E20, 0x00, 0x00, ItemVorantisKey, 0x46, 0x6E);
             L00CE: return; // RETURN;
         }
 
@@ -567,11 +567,11 @@ namespace XPT.Legacy.Maps {
             L0035: ShowMessage(player, doMsgs, String0F81); // Voranti smiles sadly. 'It saddens me that I must kill a fellow dwarf, but you have brought death upon yourself.'
             L0042: AddEncounter(player, 0x01, 0x1C);
             L0054: AddEncounter(player, 0x05, 0x21);
-            L0066: ax = HasItem(player, 0xED);
+            L0066: ax = HasItem(player, ItemAceOfSpades);
             L0074: if (JumpEqual) goto L0097;
             L0076: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xCC);
             L0095: goto L00B6;
-            L0097: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, 0xED);
+            L0097: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, ItemAceOfSpades);
             L00B6: return; // RETURN;
         }
 
@@ -670,11 +670,11 @@ namespace XPT.Legacy.Maps {
             L0041: AddEncounter(player, 0x03, 0x28);
             L0053: AddEncounter(player, 0x05, 0x24);
             L0065: AddEncounter(player, 0x06, 0x24);
-            L0077: ax = HasItem(player, 0xEA);
+            L0077: ax = HasItem(player, ItemJackOfSpades);
             L0085: if (JumpEqual) goto L00A8;
             L0087: AddTreasure(player, 0x2328, 0x00, 0x00, 0x00, 0x00, 0xBB);
             L00A6: goto L00C8;
-            L00A8: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, 0xEA, 0x85);
+            L00A8: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, ItemJackOfSpades, 0x85);
             L00C8: return; // RETURN;
         }
 
@@ -721,7 +721,7 @@ namespace XPT.Legacy.Maps {
         private void FnSDRMOONC_3F(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xF2, 0xF2);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemMoonPrism, ItemMoonPrism);
             L0016: if (JumpEqual) goto L0061;
             L0018: ShowMessage(player, doMsgs, String114F); // Your Moon Prism reveals a secret door!
             L0025: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -848,11 +848,11 @@ namespace XPT.Legacy.Maps {
         private void FnMOONTRSA_48(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xF2);
+            L0003: ax = HasItem(player, ItemMoonPrism);
             L0011: if (JumpEqual) goto L0022;
             L0013: ShowMessage(player, doMsgs, String130F); // Piles of dirt cover the floor.
             L0020: goto L0050;
-            L0022: GiveItem(player, 0xF2);
+            L0022: GiveItem(player, ItemMoonPrism);
             L002E: SetFlag(player, FlagTypeDungeon, FlagLabyrinthIIMoonPrism, 0x01);
             L0043: ShowMessage(player, doMsgs, String132E); // You find a Moon Prism on the floor.
             L0050: return; // RETURN;

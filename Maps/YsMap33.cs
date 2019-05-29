@@ -156,11 +156,11 @@ namespace XPT.Legacy.Maps {
         }
 
         private void FnGOAL_08(ServerPlayer player, MapEventType type, bool doMsgs) {
-            RemoveItem(player, 0xF4);
-            RemoveItem(player, 0xF5);
-            RemoveItem(player, 0xF6);
-            RemoveItem(player, 0xF7);
-            RemoveItem(player, 0xF3);
+            RemoveItem(player, ItemRanbowGemRed);
+            RemoveItem(player, ItemRanbowGemYellow);
+            RemoveItem(player, ItemRanbowGemGreen);
+            RemoveItem(player, ItemRanbowGemBlue);
+            RemoveItem(player, ItemGoldenBoat);
             if (GetFlag(player, FlagTypeDungeon, FlagKilledEnLiKilThisTime) == 1) {
                 ShowMessage(player, doMsgs, "You stand amidst the Waters of Death, surrounded on all sides by the Ageless Void. All is peace here.");
                 return;

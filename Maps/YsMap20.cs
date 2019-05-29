@@ -435,7 +435,7 @@ namespace XPT.Legacy.Maps {
         }
 
         private void FnKEYDOORW_1B(ServerPlayer player, MapEventType type, bool doMsgs) {
-            if (HasUsedItem(player, type, ref doMsgs, 0xDD, 0xDD) == 1) {
+            if (HasUsedItem(player, type, ref doMsgs, ItemWindKnightsKey, ItemWindKnightsKey) == 1) {
                 SetWallPassable(player, GetCurrentTile(player), 0x00, 0x01);
                 SetWallItem(player, 0x01, GetCurrentTile(player), 0x00);
                 ShowMessage(player, doMsgs, String0DA1); // The door is unlocked.
@@ -520,7 +520,7 @@ namespace XPT.Legacy.Maps {
             ShowMessage(player, doMsgs, "The WIND KNIGHTS rise from their tombs.");
             if (AreFourWindsDefeatedInCorrectOrder(player)) {
                 ShowMessage(player, doMsgs, "You see a flash of green and then the dead are upon you.");
-                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xF6, 0xCF); // Green Gem
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, ItemRanbowGemGreen, 0xCF); // Green Gem
             }
             else if (GetFlag(player, FlagTypeMap, 0x01) == 0x0001) { // did North first
                 ShowMessage(player, doMsgs, "You feel as if something is out of order, but that thought is shoved aside as the dead are upon you.");
@@ -909,12 +909,12 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x04, 0x10);
             AddEncounter(player, 0x05, 0x02);
             AddEncounter(player, 0x06, 0x02);
-            ax = HasItem(player, 0xDD);
+            ax = HasItem(player, ItemWindKnightsKey);
             L008A: if (JumpEqual) goto L00AD;
             L008C: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L00AB: goto L00DB;
             L00AD: ShowMessage(player, doMsgs, String1931); // Light sparks off a key tied to the neck of the leader.
-            L00BA: AddTreasure(player, 0x3A98, 0x00, 0x00, 0x46, 0x61, 0xDD);
+            L00BA: AddTreasure(player, 0x3A98, 0x00, 0x00, 0x46, 0x61, ItemWindKnightsKey);
             L00DB: return; // RETURN;
         }
 

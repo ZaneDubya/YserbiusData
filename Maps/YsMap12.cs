@@ -268,11 +268,11 @@ namespace XPT.Legacy.Maps {
         private void FnALLSWDOR_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xDA);
+            L0003: ax = HasItem(player, ItemRuneVowelKeyO);
             L0011: if (JumpNotEqual) goto L0033;
-            L0013: ax = HasItem(player, 0xDB);
+            L0013: ax = HasItem(player, ItemRuneVowelKeyE);
             L0021: if (JumpNotEqual) goto L0033;
-            L0023: ax = HasItem(player, 0xDC);
+            L0023: ax = HasItem(player, ItemRuneVowelKeyI);
             L0031: if (JumpEqual) goto L0076;
             L0033: ShowMessage(player, doMsgs, String067C); // A door appears in the south wall.
             L0040: SetWallItem(player, 0x01, GetCurrentTile(player), 0x01);
@@ -285,12 +285,12 @@ namespace XPT.Legacy.Maps {
         private void FnWKEYENC_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xDA);
+            L0003: ax = HasItem(player, ItemRuneVowelKeyO);
             L0011: if (JumpEqual) goto L0041;
             L0013: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0xBE);
             L0032: ShowMessage(player, doMsgs, String069E); // Monsters attack you.
             L003F: goto L006E;
-            L0041: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xCF, 0xDA);
+            L0041: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xCF, ItemRuneVowelKeyO);
             L0061: ShowMessage(player, doMsgs, String06B3); // A key dangles from a spider's mandible.
             L006E: Compare(PartyCount(player), 0x0001);
             L0079: if (JumpEqual) goto L0088;
@@ -313,12 +313,12 @@ namespace XPT.Legacy.Maps {
         private void FnCKEYENC_10(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xDB);
+            L0003: ax = HasItem(player, ItemRuneVowelKeyE);
             L0011: if (JumpEqual) goto L0041;
             L0013: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0xB6);
             L0032: ShowMessage(player, doMsgs, String06DB); // Silver Ogres spring a trap.
             L003F: goto L006F;
-            L0041: AddTreasure(player, 0x05DC, 0x00, 0x00, 0xCC, 0xD1, 0xDB);
+            L0041: AddTreasure(player, 0x05DC, 0x00, 0x00, 0xCC, 0xD1, ItemRuneVowelKeyE);
             L0062: ShowMessage(player, doMsgs, String06F7); // A Silver Ogre plays with an unusual key.
             L006F: Compare(PartyCount(player), 0x0001);
             L007A: if (JumpEqual) goto L0089;
@@ -339,12 +339,12 @@ namespace XPT.Legacy.Maps {
         private void FnEKEYENC_11(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xDC);
+            L0003: ax = HasItem(player, ItemRuneVowelKeyI);
             L0011: if (JumpEqual) goto L0041;
             L0013: AddTreasure(player, 0x0320, 0x00, 0x00, 0x00, 0x00, 0xB6);
             L0032: ShowMessage(player, doMsgs, String0720); // Lizardites have made this room their home.
             L003F: goto L006E;
-            L0041: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xB6, 0xDC);
+            L0041: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xB6, ItemRuneVowelKeyI);
             L0061: ShowMessage(player, doMsgs, String074B); // A Lizardite holds a key shaped like the rune sign for I.
             L006E: Compare(PartyCount(player), 0x0001);
             L0079: if (JumpEqual) goto L0088;
@@ -758,7 +758,7 @@ namespace XPT.Legacy.Maps {
         private void FnKINGDOOR_23(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xF8);
+            L0003: ax = HasItem(player, ItemKingsRing);
             L0011: if (JumpEqual) goto L005E;
             L0013: ShowMessage(player, doMsgs, String0CED); // The door is unlocked.
             L0020: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));

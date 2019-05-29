@@ -260,12 +260,12 @@ namespace XPT.Legacy.Maps {
         private void FnLCPKENC_09(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xD2);
+            L0003: ax = HasItem(player, ItemKingCleowynsLockpick);
             L0011: if (JumpEqual) goto L0041;
             L0013: ShowMessage(player, doMsgs, String05DC); // Cro-Lizards snarl at you.
             L0020: AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0x00, 0xCE);
             L003F: goto L006D;
-            L0041: AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0x00, 0xD2);
+            L0041: AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0x00, ItemKingCleowynsLockpick);
             L0060: ShowMessage(player, doMsgs, String05F6); // You see an interesting lockpick on the floor. On the shaft are the words - Property of King Cleowyn. The Cro-Lizards you see are also interested in the lockpick.
             L006D: Compare(PartyCount(player), 0x0001);
             L0078: if (JumpNotEqual) goto L008F;
@@ -295,7 +295,7 @@ namespace XPT.Legacy.Maps {
         private void FnKEYDOOR_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xD3, 0xD3);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemKingCleowynsKey, ItemKingCleowynsKey);
             L0016: if (JumpEqual) goto L0055;
             L0018: SetWallPassable(player, 0x04, 0x00, 0x01);
             L002D: SetWallItem(player, 0x01, GetCurrentTile(player), 0x00);
@@ -309,12 +309,12 @@ namespace XPT.Legacy.Maps {
         private void FnKEYENC_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0xD3);
+            L0003: ax = HasItem(player, ItemKingCleowynsKey);
             L0011: if (JumpEqual) goto L0041;
             L0013: AddTreasure(player, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xB5);
             L0032: ShowMessage(player, doMsgs, String06F1); // Some rather nasty monsters hang out here.
             L003F: goto L007A;
-            L0041: AddTreasure(player, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xD3);
+            L0041: AddTreasure(player, 0x00C8, 0x00, 0x00, 0x00, 0x00, ItemKingCleowynsKey);
             L0060: ShowMessage(player, doMsgs, String071B); // On the floor is a key. The grasp bears the Galabryan insignia and the initials KC. It must have belonged to King Cleowyn.  
             L006D: ShowMessage(player, doMsgs, String0797); // Between you and the key are monsters.
             L007A: Compare(PartyCount(player), 0x0001);

@@ -868,8 +868,8 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x03, 0x27);
             AddEncounter(player, 0x04, 0x27);
             AddEncounter(player, 0x05, 0x28);
-            if (HasItem(player, 0xF7) == 0) {
-                AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xF7);
+            if (HasItem(player, ItemRanbowGemBlue) == 0) {
+                AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, ItemRanbowGemBlue);
             }
             else {
                 AddTreasure(player, 0x0000, 0x00, 0x00, 0x00, 0x00, 0xCF);

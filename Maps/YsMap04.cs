@@ -540,10 +540,10 @@ namespace XPT.Legacy.Maps {
             L0039: ax = HasUsedItem(player, type, ref doMsgs, 0xBE, 0xBE);
             L004C: if (JumpEqual) goto L0077;
             L004E: ShowMessage(player, doMsgs, String0DB7); // You detect a trapdoor in the floor, but not in time to prevent falling through!
-            L005B: TeleportParty(player, 0x02, 0x01, 0xF5, 0x00, type);
+            L005B: TeleportParty(player, 0x02, 0x01, ItemRanbowGemYellow, 0x00, type);
             L0075: goto L009E;
             L0077: ShowMessage(player, doMsgs, String0E07); // A trapdoor in the floor opens.
-            L0084: TeleportParty(player, 0x02, 0x01, 0xF5, 0x00, type);
+            L0084: TeleportParty(player, 0x02, 0x01, ItemRanbowGemYellow, 0x00, type);
             L009E: return; // RETURN;
         }
 
