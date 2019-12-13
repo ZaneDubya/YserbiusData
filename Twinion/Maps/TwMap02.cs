@@ -258,11 +258,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0036: ShowMessage(player, String0723); // The refreshing waters heal your wounds.
             L0043: HealPlayer(player, GetMaxHits(player));
             L0054: goto L0063;
-0248  0056 FF 76 08  push word [bp+0x8]
-024B  0059 FF 76 06  push word [bp+0x6]
-024E  005C 0E     push cs
-024F  005D E8 05 00  call 0x65
-            L0060: // NOP
+            L0056: XCall Fn0065
             L0061: cx = PopStack(player);
             L0062: cx = PopStack(player);
             L0063: return; // RETURN;

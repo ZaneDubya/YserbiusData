@@ -312,11 +312,7 @@ namespace XPT.Scripts.Twinion.Maps {
 03F3  007C C4 5E 06  les bx, [bp+0x6]
 03F6  007F 26 FF 9F D8 00  call far word [es:bx+0xd8]
 03FB  0084 83 C4 0C  add sp, 0xc
-03FE  0087 FF 76 08  push word [bp+0x8]
-0401  008A FF 76 06  push word [bp+0x6]
-0404  008D 0E     push cs
-0405  008E E8 85 00  call 0x116
-            L0091: // NOP
+            L0087: XCall Fn0116
             L0092: cx = PopStack(player);
             L0093: cx = PopStack(player);
             L0094: Compare(PartyCount(player), 0x0001);

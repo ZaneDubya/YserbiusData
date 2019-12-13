@@ -135,7 +135,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0023: goto L00B7;
             L0026: Compare(GetFlag(player, 0x02, 0x00), 0x0001);
             L0039: if (JumpNotEqual) goto L004B;
-            L003B: XCall 0x009E
+            L003B: XCall Fn00E3
             L0046: cx = PopStack(player);
             L0047: cx = PopStack(player);
             L0048: goto L00E1;
@@ -152,11 +152,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0077: SetFlag(player, 0x02, 0x00, 0x01);
             L008B: RemoveItem(player, 0xEA);
             L0097: RemoveItem(player, 0xE0);
-01B2  00A3 FF 76 08  push word [bp+0x8]
-01B5  00A6 FF 76 06  push word [bp+0x6]
-01B8  00A9 0E     push cs
-01B9  00AA E8 36 00  call 0xe3
-            L00AD: // NOP
+            L00A3: XCall Fn00E3
             L00AE: cx = PopStack(player);
             L00AF: cx = PopStack(player);
             L00B0: goto L00E1;
@@ -181,11 +177,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L003A: if (JumpEqual) goto L0052;
             L003C: Compare(GetFlag(player, 0x02, 0x01), 0x0002);
             L0050: if (JumpNotEqual) goto L0060;
-0270  0052 FF 76 08  push word [bp+0x8]
-0273  0055 FF 76 06  push word [bp+0x6]
-0276  0058 0E     push cs
-0277  0059 E8 DC 00  call 0x138
-            L005C: // NOP
+            L0052: XCall Fn0138
             L005D: goto L0105;
             L0060: RefreshCompareFlags(GetFlag(player, 0x02, 0x01));
             L0073: if (JumpNotEqual) goto L00CC;
@@ -206,11 +198,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00CE: ShowMessage(player, String0777); // You must journey northward alone!
             L00DB: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
             L00F8: goto L0107;
-0318  00FA FF 76 08  push word [bp+0x8]
-031B  00FD FF 76 06  push word [bp+0x6]
-031E  0100 0E     push cs
-031F  0101 E8 05 00  call 0x109
-            L0104: // NOP
+            L00FA: XCall Fn0109
             L0105: cx = PopStack(player);
             L0106: cx = PopStack(player);
             L0107: return; // RETURN;

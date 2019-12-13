@@ -494,21 +494,13 @@ namespace XPT.Scripts.Twinion.Maps {
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, 0x02, 0x0F));
             L0016: if (JumpNotEqual) goto L0037;
-06E0  0018 FF 76 08  push word [bp+0x8]
-06E3  001B FF 76 06  push word [bp+0x6]
-06E6  001E 0E     push cs
-06E7  001F E8 45 00  call 0x67
-            L0022: // NOP
+            L0018: XCall Fn0067
             L0023: cx = PopStack(player);
             L0024: cx = PopStack(player);
             L0025: ShowMessage(player, String0CF6); // You hear the sounds of locking mechanisms being released by the opening of the sluice gates; as if some doors off to the west are now unlocked!
 06FA  0032 B8 01 00  mov ax, 0x1
             L0035: goto L0053;
-06FF  0037 FF 76 08  push word [bp+0x8]
-0702  003A FF 76 06  push word [bp+0x6]
-0705  003D 0E     push cs
-0706  003E E8 26 00  call 0x67
-            L0041: // NOP
+            L0037: XCall Fn0067
             L0042: cx = PopStack(player);
             L0043: cx = PopStack(player);
             L0044: ShowMessage(player, String0D86); // The sluice gates have been closed, slowing the waters' flow. A low rumbling sound can be heard as though some mechanism has just been locked down again.
@@ -629,11 +621,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L002F: if (JumpEqual) goto L0034;
             L0031: goto L00B1;
             L0033: // NOP
-09D9  0034 FF 76 08  push word [bp+0x8]
-09DC  0037 FF 76 06  push word [bp+0x6]
-09DF  003A 0E     push cs
-09E0  003B E8 A4 00  call 0xe2
-            L003E: // NOP
+            L0034: XCall Fn00E2
             L003F: cx = PopStack(player);
             L0040: cx = PopStack(player);
             L0041: ShowMessage(player, String109B); // You tell the Ranger where you recently saw a confused Cleric.
@@ -646,11 +634,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00AF: goto L00E0;
             L00B1: RefreshCompareFlags(GetFlag(player, 0x03, 0x0B));
             L00C4: if (JumpNotEqual) goto L00E0;
-0A6B  00C6 FF 76 08  push word [bp+0x8]
-0A6E  00C9 FF 76 06  push word [bp+0x6]
-0A71  00CC 0E     push cs
-0A72  00CD E8 12 00  call 0xe2
-            L00D0: // NOP
+            L00C6: XCall Fn00E2
             L00D1: cx = PopStack(player);
             L00D2: cx = PopStack(player);
             L00D3: ShowMessage(player, String1159); // 'Well, never mind then.' The Ranger turns and walks away.
@@ -879,11 +863,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0045: cx = PopStack(player);
             L0046: RefreshCompareFlags(ax);
             L0048: if (JumpNotEqual) goto L0097;
-0F8D  004A FF 76 08  push word [bp+0x8]
-0F90  004D FF 76 06  push word [bp+0x6]
-0F93  0050 0E     push cs
-0F94  0051 E8 47 01  call 0x19b
-            L0054: // NOP
+            L004A: XCall Fn019B
             L0055: cx = PopStack(player);
             L0056: cx = PopStack(player);
             L0057: ShowMessage(player, String1371); // A wizard here ponders a message on the wall: 'How do you keep an adventurer busy???'
@@ -907,11 +887,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00A4: cx = PopStack(player);
             L00A5: Compare(ax, 0x0001);
             L00A8: if (JumpNotEqual) goto L00EA;
-0FED  00AA FF 76 08  push word [bp+0x8]
-0FF0  00AD FF 76 06  push word [bp+0x6]
-0FF3  00B0 0E     push cs
-0FF4  00B1 E8 E7 00  call 0x19b
-            L00B4: // NOP
+            L00AA: XCall Fn019B
             L00B5: cx = PopStack(player);
             L00B6: cx = PopStack(player);
             L00B7: ShowMessage(player, String13F0); // 'I don't understand! I was just here!!'
@@ -942,11 +918,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L010C: Compare(GetFlag(player, 0x02, 0x2F), 0x0001);
             L0120: if (JumpNotEqual) goto L0124;
             L0122: goto L018A;
-1067  0124 FF 76 08  push word [bp+0x8]
-106A  0127 FF 76 06  push word [bp+0x6]
-106D  012A 0E     push cs
-106E  012B E8 6D 00  call 0x19b
-            L012E: // NOP
+            L0124: XCall Fn019B
             L012F: cx = PopStack(player);
             L0130: cx = PopStack(player);
             L0131: ShowMessage(player, String143A); // 'Aha! Now I get it! Such a simple puzzle, it eluded me at first! Learn from this that all is not as challenging as you may think!'
@@ -974,11 +946,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0184: cx = PopStack(player);
             L0185: Compare(ax, 0x0003);
             L0188: if (JumpNotEqual) goto L0197;
-10CD  018A FF 76 08  push word [bp+0x8]
-10D0  018D FF 76 06  push word [bp+0x6]
-10D3  0190 0E     push cs
-10D4  0191 E8 19 00  call 0x1ad
-            L0194: // NOP
+            L018A: XCall Fn01AD
             L0195: cx = PopStack(player);
             L0196: cx = PopStack(player);
             L0197: return; // RETURN (restoring si, di);
@@ -1352,11 +1320,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00B3: goto L00D9;
             L00B5: SetFlag(player, 0x02, 0x84, 0x01);
             L00CA: goto L00CC;
-1A9A  00CC FF 76 08  push word [bp+0x8]
-1A9D  00CF FF 76 06  push word [bp+0x6]
-1AA0  00D2 0E     push cs
-1AA1  00D3 E8 06 00  call 0xdc
-            L00D6: // NOP
+            L00CC: XCall Fn00DC
             L00D7: cx = PopStack(player);
             L00D8: cx = PopStack(player);
             L00D9: return; // RETURN (restoring si);

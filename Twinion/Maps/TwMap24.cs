@@ -663,11 +663,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0047: if (JumpEqual) goto L0069;
             L0049: Compare(PartyCount(player), 0x0001);
             L0054: if (JumpNotEqual) goto L0066;
-0C69  0056 FF 76 08  push word [bp+0x8]
-0C6C  0059 FF 76 06  push word [bp+0x6]
-0C6F  005C 0E     push cs
-0C70  005D E8 17 10  call 0x1077
-            L0060: // NOP
+            L0056: XCall Fn1077
             L0061: cx = PopStack(player);
             L0062: cx = PopStack(player);
             L0063: goto L01D6;
@@ -710,11 +706,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L01AB: Compare(PartyCount(player), 0x0001);
             L01B6: if (JumpNotEqual) goto L01BB;
             L01B8: goto L0056;
-0DCE  01BB FF 76 08  push word [bp+0x8]
-0DD1  01BE FF 76 06  push word [bp+0x6]
-0DD4  01C1 0E     push cs
-0DD5  01C2 E8 D1 0E  call 0x1096
-            L01C5: // NOP
+            L01BB: XCall Fn1096
             L01C6: goto L0061;
             L01C9: ShowMessage(player, String0D95); // You see a door upon which 'Chaos' is carved.
             L01D6: return; // RETURN;
@@ -731,11 +723,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0032: if (JumpEqual) goto L0054;
             L0034: Compare(PartyCount(player), 0x0001);
             L003F: if (JumpNotEqual) goto L0051;
-0E2C  0041 FF 76 08  push word [bp+0x8]
-0E2F  0044 FF 76 06  push word [bp+0x6]
-0E32  0047 0E     push cs
-0E33  0048 E8 54 0E  call 0xe9f
-            L004B: // NOP
+            L0041: XCall Fn0E9F
             L004C: cx = PopStack(player);
             L004D: cx = PopStack(player);
             L004E: goto L01BE;
@@ -783,11 +771,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0193: Compare(PartyCount(player), 0x0001);
             L019E: if (JumpNotEqual) goto L01A3;
             L01A0: goto L0041;
-0F8E  01A3 FF 76 08  push word [bp+0x8]
-0F91  01A6 FF 76 06  push word [bp+0x6]
-0F94  01A9 0E     push cs
-0F95  01AA E8 11 0D  call 0xebe
-            L01AD: // NOP
+            L01A3: XCall Fn0EBE
             L01AE: goto L004C;
             L01B1: ShowMessage(player, String0F4F); // You see a door upon which 'Harmony' is carved.
             L01BE: return; // RETURN;

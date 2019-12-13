@@ -230,24 +230,12 @@ namespace XPT.Scripts.Twinion.Maps {
             L0068: RefreshCompareFlags(ax);
             L006A: if (JumpEqual) goto L0093;
             L006C: ShowMessage(player, String05E2); // The tomb door opens.
-0146  0079 FF 76 08  push word [bp+0x8]
-0149  007C FF 76 06  push word [bp+0x6]
-014C  007F 0E     push cs
-014D  0080 E8 09 15  call 0x158c
-            L0083: // NOP
+            L0079: XCall Fn158C
             L0084: cx = PopStack(player);
             L0085: cx = PopStack(player);
-0153  0086 FF 76 08  push word [bp+0x8]
-0156  0089 FF 76 06  push word [bp+0x6]
-0159  008C 0E     push cs
-015A  008D E8 B7 14  call 0x1547
-            L0090: // NOP
+            L0086: XCall Fn1547
             L0091: goto L009E;
-0160  0093 FF 76 08  push word [bp+0x8]
-0163  0096 FF 76 06  push word [bp+0x6]
-0166  0099 0E     push cs
-0167  009A E8 CD 14  call 0x156a
-            L009D: // NOP
+            L0093: XCall Fn156A
             L009E: cx = PopStack(player);
             L009F: cx = PopStack(player);
             L00A0: return; // RETURN;
@@ -389,24 +377,12 @@ namespace XPT.Scripts.Twinion.Maps {
             L0068: RefreshCompareFlags(ax);
             L006A: if (JumpEqual) goto L0093;
             L006C: ShowMessage(player, String0748); // You discover a long forgotten door.
-03B1  0079 FF 76 08  push word [bp+0x8]
-03B4  007C FF 76 06  push word [bp+0x6]
-03B7  007F 0E     push cs
-03B8  0080 E8 9E 12  call 0x1321
-            L0083: // NOP
+            L0079: XCall Fn1321
             L0084: cx = PopStack(player);
             L0085: cx = PopStack(player);
-03BE  0086 FF 76 08  push word [bp+0x8]
-03C1  0089 FF 76 06  push word [bp+0x6]
-03C4  008C 0E     push cs
-03C5  008D E8 4C 12  call 0x12dc
-            L0090: // NOP
+            L0086: XCall Fn12DC
             L0091: goto L009E;
-03CB  0093 FF 76 08  push word [bp+0x8]
-03CE  0096 FF 76 06  push word [bp+0x6]
-03D1  0099 0E     push cs
-03D2  009A E8 62 12  call 0x12ff
-            L009D: // NOP
+            L0093: XCall Fn12FF
             L009E: cx = PopStack(player);
             L009F: cx = PopStack(player);
             L00A0: return; // RETURN;
@@ -506,11 +482,7 @@ namespace XPT.Scripts.Twinion.Maps {
         private void FnILL_10(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-0575  0003 FF 76 08  push word [bp+0x8]
-0578  0006 FF 76 06  push word [bp+0x6]
-057B  0009 0E     push cs
-057C  000A E8 95 10  call 0x10a2
-            L000D: // NOP
+            L0003: XCall Fn10A2
             L000E: cx = PopStack(player);
             L000F: cx = PopStack(player);
             L0010: return; // RETURN;
@@ -538,33 +510,17 @@ namespace XPT.Scripts.Twinion.Maps {
             L0027: Compare(HasUsedSkill(player, 0x0E), 0x000B);
             L0036: if (JumpBelow) goto L0061;
             L0038: ShowMessage(player, String07F6); // You have successfully unlocked the tomb door.
-05C9  0045 FF 76 08  push word [bp+0x8]
-05CC  0048 FF 76 06  push word [bp+0x6]
-05CF  004B 0E     push cs
-05D0  004C E8 86 10  call 0x10d5
-            L004F: // NOP
+            L0045: XCall Fn10D5
             L0050: cx = PopStack(player);
             L0051: cx = PopStack(player);
-05D6  0052 FF 76 08  push word [bp+0x8]
-05D9  0055 FF 76 06  push word [bp+0x6]
-05DC  0058 0E     push cs
-05DD  0059 E8 34 10  call 0x1090
-            L005C: // NOP
+            L0052: XCall Fn1090
             L005D: cx = PopStack(player);
             L005E: cx = PopStack(player);
             L005F: goto L0088;
-05E5  0061 FF 76 08  push word [bp+0x8]
-05E8  0064 FF 76 06  push word [bp+0x6]
-05EB  0067 0E     push cs
-05EC  0068 E8 48 10  call 0x10b3
-            L006B: // NOP
+            L0061: XCall Fn10B3
             L006C: cx = PopStack(player);
             L006D: cx = PopStack(player);
-05F2  006E FF 76 08  push word [bp+0x8]
-05F5  0071 FF 76 06  push word [bp+0x6]
-05F8  0074 0E     push cs
-05F9  0075 E8 5D 10  call 0x10d5
-            L0078: // NOP
+            L006E: XCall Fn10D5
             L0079: cx = PopStack(player);
             L007A: cx = PopStack(player);
             L007B: ShowMessage(player, String0824); // The door to the old tomb is locked.
@@ -1062,29 +1018,17 @@ namespace XPT.Scripts.Twinion.Maps {
             L0010: cx = PopStack(player);
             L0011: RefreshCompareFlags(ax);
             L0013: if (JumpEqual) goto L004E;
-0E7C  0015 FF 76 08  push word [bp+0x8]
-0E7F  0018 FF 76 06  push word [bp+0x6]
-0E82  001B 0E     push cs
-0E83  001C E8 8E 07  call 0x7ad
-            L001F: // NOP
+            L0015: XCall Fn07AD
             L0020: cx = PopStack(player);
             L0021: cx = PopStack(player);
-0E89  0022 FF 76 08  push word [bp+0x8]
-0E8C  0025 FF 76 06  push word [bp+0x6]
-0E8F  0028 0E     push cs
-0E90  0029 E8 C6 07  call 0x7f2
-            L002C: // NOP
+            L0022: XCall Fn07F2
             L002D: cx = PopStack(player);
             L002E: cx = PopStack(player);
             L002F: ShowMessage(player, String0F88); // The Luminous Lantern glows feebly for a few moments.
             L003C: ShowMessage(player, String0FBD); // You barely detect a rusty bolt that locks the mildewed door.
 0EB0  0049 B8 FA 0F  mov ax, 0xffa
             L004C: goto L005E;
-0EB5  004E FF 76 08  push word [bp+0x8]
-0EB8  0051 FF 76 06  push word [bp+0x6]
-0EBB  0054 0E     push cs
-0EBC  0055 E8 78 07  call 0x7d0
-            L0058: // NOP
+            L004E: XCall Fn07D0
             L0059: cx = PopStack(player);
             L005A: cx = PopStack(player);
             L005B: ShowMessage(player, String1033); // A locked door bars your way. Perhaps if you had a bit of light you could determine the cause.
@@ -1108,26 +1052,14 @@ namespace XPT.Scripts.Twinion.Maps {
             L0068: if (JumpNotEqual) goto L0080;
             L006A: Compare(GetFlag(player, 0x02, 0x3C), 0x0001);
             L007E: if (JumpNotEqual) goto L00B6;
-0F51  0080 FF 76 08  push word [bp+0x8]
-0F54  0083 FF 76 06  push word [bp+0x6]
-0F57  0086 0E     push cs
-0F58  0087 E8 B9 06  call 0x743
-            L008A: // NOP
+            L0080: XCall Fn0743
             L008B: cx = PopStack(player);
             L008C: cx = PopStack(player);
-0F5E  008D FF 76 08  push word [bp+0x8]
-0F61  0090 FF 76 06  push word [bp+0x6]
-0F64  0093 0E     push cs
-0F65  0094 E8 F1 06  call 0x788
-            L0097: // NOP
+            L008D: XCall Fn0788
             L0098: cx = PopStack(player);
             L0099: cx = PopStack(player);
             L009A: goto L00B6;
-0F6D  009C FF 76 08  push word [bp+0x8]
-0F70  009F FF 76 06  push word [bp+0x6]
-0F73  00A2 0E     push cs
-0F74  00A3 E8 C0 06  call 0x766
-            L00A6: // NOP
+            L009C: XCall Fn0766
             L00A7: cx = PopStack(player);
             L00A8: cx = PopStack(player);
             L00A9: ShowMessage(player, String114B); // Your entry is barred.

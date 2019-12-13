@@ -1265,11 +1265,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0029: Compare(GetFlag(player, 0x02, 0x06), 0x0001);
             L003D: if (JumpNotEqual) goto L0061;
             L003F: SetFlag(player, 0x02, 0x06, 0x02);
-13C5  0054 FF 76 08  push word [bp+0x8]
-13C8  0057 FF 76 06  push word [bp+0x6]
-13CB  005A 0E     push cs
-13CC  005B E8 05 00  call 0x63
-            L005E: // NOP
+            L0054: XCall Fn0063
             L005F: cx = PopStack(player);
             L0060: cx = PopStack(player);
             L0061: return; // RETURN;

@@ -164,11 +164,7 @@ namespace XPT.Scripts.Twinion.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, String03FC); // The molten lava incinerates you!
-001E  0010 FF 76 08  push word [bp+0x8]
-0021  0013 FF 76 06  push word [bp+0x6]
-0024  0016 0E     push cs
-0025  0017 E8 E2 15  call 0x15fc
-            L001A: // NOP
+            L0010: XCall Fn15FC
             L001B: cx = PopStack(player);
             L001C: cx = PopStack(player);
             L001D: return; // RETURN;
@@ -178,11 +174,7 @@ namespace XPT.Scripts.Twinion.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, String041D); // You fall helplessly into oblivion.
-003D  0010 FF 76 08  push word [bp+0x8]
-0040  0013 FF 76 06  push word [bp+0x6]
-0043  0016 0E     push cs
-0044  0017 E8 C3 15  call 0x15dd
-            L001A: // NOP
+            L0010: XCall Fn15DD
             L001B: cx = PopStack(player);
             L001C: cx = PopStack(player);
             L001D: return; // RETURN;
@@ -201,18 +193,10 @@ namespace XPT.Scripts.Twinion.Maps {
             L0015: if (JumpNotEqual) goto L004B;
             L0017: ShowMessage(player, String0440); // The unusual force within this green blue fluid saps your magic powers.
             L0024: AddMana(player, 0xFF9C);
-007D  0031 FF 76 08  push word [bp+0x8]
-0080  0034 FF 76 06  push word [bp+0x6]
-0083  0037 0E     push cs
-0084  0038 E8 B5 15  call 0x15f0
-            L003B: // NOP
+            L0031: XCall Fn15F0
             L003C: cx = PopStack(player);
             L003D: cx = PopStack(player);
-008A  003E FF 76 08  push word [bp+0x8]
-008D  0041 FF 76 06  push word [bp+0x6]
-0090  0044 0E     push cs
-0091  0045 E8 C4 15  call 0x160c
-            L0048: // NOP
+            L003E: XCall Fn160C
             L0049: cx = PopStack(player);
             L004A: cx = PopStack(player);
             L004B: return; // RETURN;
@@ -309,11 +293,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0061: PushStack(player, 0x01);
 0243  0065 B8 04 00  mov ax, 0x4
             L0068: goto L0051;
-0248  006A FF 76 08  push word [bp+0x8]
-024B  006D FF 76 06  push word [bp+0x6]
-024E  0070 0E     push cs
-024F  0071 E8 DD 00  call 0x151
-            L0074: // NOP
+            L006A: XCall Fn0151
             L0075: cx = PopStack(player);
             L0076: cx = PopStack(player);
             L0077: PushStack(player, 0x03);
@@ -328,17 +308,9 @@ namespace XPT.Scripts.Twinion.Maps {
             L009E: if (JumpNotEqual) goto L00CF;
             L00A0: Compare(tmp, 0xFE);
             L00A4: if (JumpNotEqual) goto L00B3;
-0284  00A6 FF 76 08  push word [bp+0x8]
-0287  00A9 FF 76 06  push word [bp+0x6]
-028A  00AC 0E     push cs
-028B  00AD E8 44 00  call 0xf4
-            L00B0: // NOP
+            L00A6: XCall Fn00F4
             L00B1: goto L00BE;
-0291  00B3 FF 76 08  push word [bp+0x8]
-0294  00B6 FF 76 06  push word [bp+0x6]
-0297  00B9 0E     push cs
-0298  00BA E8 75 00  call 0x132
-            L00BD: // NOP
+            L00B3: XCall Fn0132
             L00BE: cx = PopStack(player);
             L00BF: cx = PopStack(player);
 029E  00C0 57     push di
@@ -428,11 +400,7 @@ namespace XPT.Scripts.Twinion.Maps {
 0466  009A 0E     push cs
 0467  009B E8 DC FE  call 0xff7a
             L009E: goto L00AB;
-046C  00A0 FF 76 08  push word [bp+0x8]
-046F  00A3 FF 76 06  push word [bp+0x6]
-0472  00A6 0E     push cs
-0473  00A7 E8 72 11  call 0x121c
-            L00AA: // NOP
+            L00A0: XCall Fn121C
             L00AB: cx = PopStack(player);
             L00AC: cx = PopStack(player);
             L00AD: return; // RETURN;
@@ -474,11 +442,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0013: RefreshCompareFlags(ax);
             L0015: if (JumpNotEqual) goto L0042;
             L0017: ShowMessage(player, String0CEC); // The tremendous heat is devastating here.
-0584  0024 FF 76 08  push word [bp+0x8]
-0587  0027 FF 76 06  push word [bp+0x6]
-058A  002A 0E     push cs
-058B  002B E8 AE 10  call 0x10dc
-            L002E: // NOP
+            L0024: XCall Fn10DC
             L002F: cx = PopStack(player);
             L0030: cx = PopStack(player);
             L0031: PushStack(player, 0x01);
@@ -502,18 +466,10 @@ namespace XPT.Scripts.Twinion.Maps {
             L0013: RefreshCompareFlags(ax);
             L0015: if (JumpNotEqual) goto L003E;
             L0017: ShowMessage(player, String0D15); // As you round the corner of this Dragon's Lair, a series of fire-bursts fly from the shadows, scorching you.
-05C8  0024 FF 76 08  push word [bp+0x8]
-05CB  0027 FF 76 06  push word [bp+0x6]
-05CE  002A 0E     push cs
-05CF  002B E8 4E 10  call 0x107c
-            L002E: // NOP
+            L0024: XCall Fn107C
             L002F: cx = PopStack(player);
             L0030: cx = PopStack(player);
-05D5  0031 FF 76 08  push word [bp+0x8]
-05D8  0034 FF 76 06  push word [bp+0x6]
-05DB  0037 0E     push cs
-05DC  0038 E8 79 10  call 0x10b4
-            L003B: // NOP
+            L0031: XCall Fn10B4
             L003C: cx = PopStack(player);
             L003D: cx = PopStack(player);
             L003E: return; // RETURN;
@@ -533,18 +489,10 @@ namespace XPT.Scripts.Twinion.Maps {
             L001A: RefreshCompareFlags(ax);
             L001C: if (JumpNotEqual) goto L0045;
             L001E: ShowMessage(player, String0D81); // Poisonous gases seep into this area.
-060F  002B FF 76 08  push word [bp+0x8]
-0612  002E FF 76 06  push word [bp+0x6]
-0615  0031 0E     push cs
-0616  0032 E8 79 10  call 0x10ae
-            L0035: // NOP
+            L002B: XCall Fn10AE
             L0036: cx = PopStack(player);
             L0037: cx = PopStack(player);
-061C  0038 FF 76 08  push word [bp+0x8]
-061F  003B FF 76 06  push word [bp+0x6]
-0622  003E 0E     push cs
-0623  003F E8 32 10  call 0x1074
-            L0042: // NOP
+            L0038: XCall Fn1074
             L0043: cx = PopStack(player);
             L0044: cx = PopStack(player);
             L0045: return; // RETURN;
@@ -562,18 +510,10 @@ namespace XPT.Scripts.Twinion.Maps {
             L001F: cx = PopStack(player);
             L0020: RefreshCompareFlags(ax);
             L0022: if (JumpNotEqual) goto L0061;
-064F  0024 FF 76 08  push word [bp+0x8]
-0652  0027 FF 76 06  push word [bp+0x6]
-0655  002A 0E     push cs
-0656  002B E8 E3 0F  call 0x1011
-            L002E: // NOP
+            L0024: XCall Fn1011
             L002F: cx = PopStack(player);
             L0030: cx = PopStack(player);
-065C  0031 FF 76 08  push word [bp+0x8]
-065F  0034 FF 76 06  push word [bp+0x6]
-0662  0037 0E     push cs
-0663  0038 E8 2C 10  call 0x1067
-            L003B: // NOP
+            L0031: XCall Fn1067
             L003C: cx = PopStack(player);
             L003D: cx = PopStack(player);
             L003E: PushStack(player, 0x00);
@@ -582,11 +522,7 @@ namespace XPT.Scripts.Twinion.Maps {
 0674  0049 C4 5E 06  les bx, [bp+0x6]
 0677  004C 26 FF 9F 9C 00  call far word [es:bx+0x9c]
 067C  0051 83 C4 06  add sp, 0x6
-067F  0054 FF 76 08  push word [bp+0x8]
-0682  0057 FF 76 06  push word [bp+0x6]
-0685  005A 0E     push cs
-0686  005B E8 CF 0F  call 0x102d
-            L005E: // NOP
+            L0054: XCall Fn102D
             L005F: cx = PopStack(player);
             L0060: cx = PopStack(player);
             L0061: return; // RETURN;
@@ -624,11 +560,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0079: if (JumpNotEqual) goto L008B;
             L007B: ShowMessage(player, String0E2A); // You may leave the board through here.
             L0088: goto L0233;
-0730  008B FF 76 08  push word [bp+0x8]
-0733  008E FF 76 06  push word [bp+0x6]
-0736  0091 0E     push cs
-0737  0092 E8 AE 0E  call 0xf43
-            L0095: // NOP
+            L008B: XCall Fn0F43
             L0096: cx = PopStack(player);
             L0097: cx = PopStack(player);
 073D  0098 8B C7  mov ax, di
@@ -709,11 +641,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0206: if (JumpGreater) goto L0226;
             L0208: TeleportParty(player, 0x08, 0x01, si, GetFacing(player), isForwardMove);
             L0224: goto L0233;
-08CB  0226 FF 76 08  push word [bp+0x8]
-08CE  0229 FF 76 06  push word [bp+0x6]
-08D1  022C 0E     push cs
-08D2  022D E8 AB 0D  call 0xfdb
-            L0230: // NOP
+            L0226: XCall Fn0FDB
             L0231: cx = PopStack(player);
             L0232: cx = PopStack(player);
             L0233: return; // RETURN (restoring si, di);
@@ -764,11 +692,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0079: if (JumpNotEqual) goto L008B;
             L007B: ShowMessage(player, String0E2A); // You may leave the board through here.
             L0088: goto L0233;
-0998  008B FF 76 08  push word [bp+0x8]
-099B  008E FF 76 06  push word [bp+0x6]
-099E  0091 0E     push cs
-099F  0092 E8 46 0C  call 0xcdb
-            L0095: // NOP
+            L008B: XCall Fn0CDB
             L0096: cx = PopStack(player);
             L0097: cx = PopStack(player);
 09A5  0098 8B C7  mov ax, di
@@ -849,11 +773,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0206: if (JumpGreater) goto L0226;
             L0208: TeleportParty(player, 0x08, 0x01, si, GetFacing(player), isForwardMove);
             L0224: goto L0233;
-0B33  0226 FF 76 08  push word [bp+0x8]
-0B36  0229 FF 76 06  push word [bp+0x6]
-0B39  022C 0E     push cs
-0B3A  022D E8 43 0B  call 0xd73
-            L0230: // NOP
+            L0226: XCall Fn0D73
             L0231: cx = PopStack(player);
             L0232: cx = PopStack(player);
             L0233: return; // RETURN (restoring si, di);
@@ -862,11 +782,7 @@ namespace XPT.Scripts.Twinion.Maps {
         private void FnREDKNIGT_16(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
-0B48  0004 FF 76 08  push word [bp+0x8]
-0B4B  0007 FF 76 06  push word [bp+0x6]
-0B4E  000A 0E     push cs
-0B4F  000B E8 96 0A  call 0xaa4
-            L000E: // NOP
+            L0004: XCall Fn0AA4
             L000F: cx = PopStack(player);
             L0010: cx = PopStack(player);
             L0011: SetFlag(player, 0x02, 0x6F, 0x02);
@@ -911,11 +827,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00CD: if (JumpGreater) goto L00ED;
             L00CF: TeleportParty(player, 0x08, 0x01, si, GetFacing(player), isForwardMove);
             L00EB: goto L00FA;
-0C31  00ED FF 76 08  push word [bp+0x8]
-0C34  00F0 FF 76 06  push word [bp+0x6]
-0C37  00F3 0E     push cs
-0C38  00F4 E8 45 0A  call 0xb3c
-            L00F7: // NOP
+            L00ED: XCall Fn0B3C
             L00F8: cx = PopStack(player);
             L00F9: cx = PopStack(player);
             L00FA: return; // RETURN (restoring si);
@@ -924,11 +836,7 @@ namespace XPT.Scripts.Twinion.Maps {
         private void FnBLCKING_17(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
-0C45  0004 FF 76 08  push word [bp+0x8]
-0C48  0007 FF 76 06  push word [bp+0x6]
-0C4B  000A 0E     push cs
-0C4C  000B E8 99 09  call 0x9a7
-            L000E: // NOP
+            L0004: XCall Fn09A7
             L000F: cx = PopStack(player);
             L0010: cx = PopStack(player);
             L0011: SetFlag(player, 0x02, 0x6F, 0x03);
@@ -974,11 +882,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00BB: if (JumpGreater) goto L00DB;
             L00BD: TeleportParty(player, 0x08, 0x01, si, GetFacing(player), isForwardMove);
             L00D9: goto L00E8;
-0D1C  00DB FF 76 08  push word [bp+0x8]
-0D1F  00DE FF 76 06  push word [bp+0x6]
-0D22  00E1 0E     push cs
-0D23  00E2 E8 5A 09  call 0xa3f
-            L00E5: // NOP
+            L00DB: XCall Fn0A3F
             L00E6: cx = PopStack(player);
             L00E7: cx = PopStack(player);
             L00E8: return; // RETURN (restoring si);
@@ -987,11 +891,7 @@ namespace XPT.Scripts.Twinion.Maps {
         private void FnREDARCH_18(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN (saving si);
-0D30  0004 FF 76 08  push word [bp+0x8]
-0D33  0007 FF 76 06  push word [bp+0x6]
-0D36  000A 0E     push cs
-0D37  000B E8 AE 08  call 0x8bc
-            L000E: // NOP
+            L0004: XCall Fn08BC
             L000F: cx = PopStack(player);
             L0010: cx = PopStack(player);
             L0011: SetFlag(player, 0x02, 0x6F, 0x02);
@@ -1033,11 +933,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00BF: if (JumpGreater) goto L00DF;
             L00C1: TeleportParty(player, 0x08, 0x01, si, GetFacing(player), isForwardMove);
             L00DD: goto L00EC;
-0E0B  00DF FF 76 08  push word [bp+0x8]
-0E0E  00E2 FF 76 06  push word [bp+0x6]
-0E11  00E5 0E     push cs
-0E12  00E6 E8 6B 08  call 0x954
-            L00E9: // NOP
+            L00DF: XCall Fn0954
             L00EA: cx = PopStack(player);
             L00EB: cx = PopStack(player);
             L00EC: return; // RETURN (restoring si);
@@ -1055,18 +951,10 @@ namespace XPT.Scripts.Twinion.Maps {
             L0013: RefreshCompareFlags(ax);
             L0015: if (JumpNotEqual) goto L003E;
             L0017: ShowMessage(player, String0E50); // The lair is filled with lava pools and noxious odors.
-0E3F  0024 FF 76 08  push word [bp+0x8]
-0E42  0027 FF 76 06  push word [bp+0x6]
-0E45  002A 0E     push cs
-0E46  002B E8 49 08  call 0x877
-            L002E: // NOP
+            L0024: XCall Fn0877
             L002F: cx = PopStack(player);
             L0030: cx = PopStack(player);
-0E4C  0031 FF 76 08  push word [bp+0x8]
-0E4F  0034 FF 76 06  push word [bp+0x6]
-0E52  0037 0E     push cs
-0E53  0038 E8 02 08  call 0x83d
-            L003B: // NOP
+            L0031: XCall Fn083D
             L003C: cx = PopStack(player);
             L003D: cx = PopStack(player);
             L003E: return; // RETURN;
@@ -1083,11 +971,7 @@ namespace XPT.Scripts.Twinion.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, String0E86); // A group of young Erebus move towards you, mumbling in their guttural tongue.
-0E9B  0010 FF 76 08  push word [bp+0x8]
-0E9E  0013 FF 76 06  push word [bp+0x6]
-0EA1  0016 0E     push cs
-0EA2  0017 E8 84 06  call 0x69e
-            L001A: // NOP
+            L0010: XCall Fn069E
             L001B: cx = PopStack(player);
             L001C: cx = PopStack(player);
             L001D: Compare(PartyCount(player), 0x0001);
@@ -1115,33 +999,17 @@ namespace XPT.Scripts.Twinion.Maps {
             L0019: cx = PopStack(player);
             L001A: RefreshCompareFlags(ax);
             L001C: if (JumpNotEqual) goto L005F;
-0F16  001E FF 76 08  push word [bp+0x8]
-0F19  0021 FF 76 06  push word [bp+0x6]
-0F1C  0024 0E     push cs
-0F1D  0025 E8 4E 07  call 0x776
-            L0028: // NOP
+            L001E: XCall Fn0776
             L0029: cx = PopStack(player);
             L002A: cx = PopStack(player);
             L002B: ShowMessage(player, String0ED3); // The sweet waters feel refreshing at first, but soon make you feel nauseated.
-0F30  0038 FF 76 08  push word [bp+0x8]
-0F33  003B FF 76 06  push word [bp+0x6]
-0F36  003E 0E     push cs
-0F37  003F E8 58 07  call 0x79a
-            L0042: // NOP
+            L0038: XCall Fn079A
             L0043: cx = PopStack(player);
             L0044: cx = PopStack(player);
-0F3D  0045 FF 76 08  push word [bp+0x8]
-0F40  0048 FF 76 06  push word [bp+0x6]
-0F43  004B 0E     push cs
-0F44  004C E8 F5 06  call 0x744
-            L004F: // NOP
+            L0045: XCall Fn0744
             L0050: cx = PopStack(player);
             L0051: cx = PopStack(player);
-0F4A  0052 FF 76 08  push word [bp+0x8]
-0F4D  0055 FF 76 06  push word [bp+0x6]
-0F50  0058 0E     push cs
-0F51  0059 E8 04 07  call 0x760
-            L005C: // NOP
+            L0052: XCall Fn0760
             L005D: cx = PopStack(player);
             L005E: cx = PopStack(player);
             L005F: return; // RETURN;
@@ -1150,11 +1018,7 @@ namespace XPT.Scripts.Twinion.Maps {
         private void FnHEALFNT_22(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-0F5C  0003 FF 76 08  push word [bp+0x8]
-0F5F  0006 FF 76 06  push word [bp+0x6]
-0F62  0009 0E     push cs
-0F63  000A E8 08 07  call 0x715
-            L000D: // NOP
+            L0003: XCall Fn0715
             L000E: cx = PopStack(player);
             L000F: cx = PopStack(player);
             L0010: ShowMessage(player, String0F20); // The fountain's sickening waters churn in your stomach, but slowly you begin feeling revived and healthy!
@@ -1165,11 +1029,7 @@ namespace XPT.Scripts.Twinion.Maps {
         private void FnMANAFNT_23(ServerPlayer player, bool isForwardMove) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-0F8C  0003 FF 76 08  push word [bp+0x8]
-0F8F  0006 FF 76 06  push word [bp+0x6]
-0F92  0009 0E     push cs
-0F93  000A E8 D8 06  call 0x6e5
-            L000D: // NOP
+            L0003: XCall Fn06E5
             L000E: cx = PopStack(player);
             L000F: cx = PopStack(player);
             L0010: PushStack(player, 0x01);
@@ -1206,11 +1066,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0024: Compare(GetGuild(player), 0x0005);
             L002E: if (JumpNotEqual) goto L003D;
             L0030: AddMana(player, 0xFF06);
-1017  003D FF 76 08  push word [bp+0x8]
-101A  0040 FF 76 06  push word [bp+0x6]
-101D  0043 0E     push cs
-101E  0044 E8 37 06  call 0x67e
-            L0047: // NOP
+            L003D: XCall Fn067E
             L0048: cx = PopStack(player);
             L0049: cx = PopStack(player);
             L004A: return; // RETURN;
@@ -1262,11 +1118,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0030: RefreshCompareFlags(ax);
             L0032: if (JumpNotEqual) goto L0089;
             L0034: ShowMessage(player, String1371); // The lava glove allows you to open the portal.
-111F  0041 FF 76 08  push word [bp+0x8]
-1122  0044 FF 76 06  push word [bp+0x6]
-1125  0047 0E     push cs
-1126  0048 E8 2F 05  call 0x57a
-            L004B: // NOP
+            L0041: XCall Fn057A
             L004C: cx = PopStack(player);
             L004D: cx = PopStack(player);
 112C  004E FF 76 08  push word [bp+0x8]
@@ -1276,11 +1128,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0058: goto L0087;
             L005A: ShowRunes(player, String139F); // 'This portal may be opened by the owner of the Lava Glove.'
             L0067: SetFlag(player, 0x02, 0x80, 0x02);
-115A  007C FF 76 08  push word [bp+0x8]
-115D  007F FF 76 06  push word [bp+0x6]
-1160  0082 0E     push cs
-1161  0083 E8 84 04  call 0x50a
-            L0086: // NOP
+            L007C: XCall Fn050A
             L0087: cx = PopStack(player);
             L0088: cx = PopStack(player);
             L0089: return; // RETURN;
@@ -1290,11 +1138,7 @@ namespace XPT.Scripts.Twinion.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, String13DB); // Praxis thaumaturges hurl magical bolts at you.
-117E  0010 FF 76 08  push word [bp+0x8]
-1181  0013 FF 76 06  push word [bp+0x6]
-1184  0016 0E     push cs
-1185  0017 E8 A1 03  call 0x3bb
-            L001A: // NOP
+            L0010: XCall Fn03BB
             L001B: cx = PopStack(player);
             L001C: cx = PopStack(player);
             L001D: Compare(PartyCount(player), 0x0001);
@@ -1341,11 +1185,7 @@ namespace XPT.Scripts.Twinion.Maps {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, String156D); // War-hardened guildsmen attack!
-12A6  0010 FF 76 08  push word [bp+0x8]
-12A9  0013 FF 76 06  push word [bp+0x6]
-12AC  0016 0E     push cs
-12AD  0017 E8 79 02  call 0x293
-            L001A: // NOP
+            L0010: XCall Fn0293
             L001B: cx = PopStack(player);
             L001C: cx = PopStack(player);
             L001D: Compare(PartyCount(player), 0x0001);

@@ -333,11 +333,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0047: if (JumpGreater) goto L005A;
 042C  0049 0B F6  or si, si
             L004B: if (JumpEqual) goto L005A;
-0430  004D FF 76 08  push word [bp+0x8]
-0433  0050 FF 76 06  push word [bp+0x6]
-0436  0053 0E     push cs
-0437  0054 E8 BA 00  call 0x111
-            L0057: // NOP
+            L004D: XCall Fn0111
             L0058: goto L00CB;
 043D  005A B8 07 00  mov ax, 0x7
             L005D: goto L00BE;
@@ -357,11 +353,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0083: if (JumpEqual) goto L0087;
             L0085: goto L004D;
             L0087: goto L00BB;
-046C  0089 FF 76 08  push word [bp+0x8]
-046F  008C FF 76 06  push word [bp+0x6]
-0472  008F 0E     push cs
-0473  0090 E8 6C 00  call 0xff
-            L0093: // NOP
+            L0089: XCall Fn00FF
             L0094: cx = PopStack(player);
             L0095: cx = PopStack(player);
             L0096: Compare(si, 0x2E);
@@ -370,11 +362,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L009D: if (JumpEqual) goto L00A1;
             L009F: goto L004D;
             L00A1: goto L005A;
-0486  00A3 FF 76 08  push word [bp+0x8]
-0489  00A6 FF 76 06  push word [bp+0x6]
-048C  00A9 0E     push cs
-048D  00AA E8 52 00  call 0xff
-            L00AD: // NOP
+            L00A3: XCall Fn00FF
             L00AE: cx = PopStack(player);
             L00AF: cx = PopStack(player);
             L00B0: Compare(si, 0x2F);
@@ -498,22 +486,14 @@ namespace XPT.Scripts.Twinion.Maps {
             L0041: Compare(ax, 0x0003);
             L0044: if (JumpEqual) goto L00AF;
             L0046: goto L00D9;
-06CC  0049 FF 76 08  push word [bp+0x8]
-06CF  004C FF 76 06  push word [bp+0x6]
-06D2  004F 0E     push cs
-06D3  0050 E8 C8 00  call 0x11b
-            L0053: // NOP
+            L0049: XCall Fn011B
             L0054: cx = PopStack(player);
             L0055: cx = PopStack(player);
             L0056: ShowMessage(player, String0978); // 'Greetings to you! This is one of two mazes which comprise the Gauntlet quest.
             L0063: ShowMessage(player, String09C7); // Explore the area thoroughly, there are many shortcuts to help you here.'
             L0070: si = 0x0002;
             L0073: goto L00F6;
-06F9  0076 FF 76 08  push word [bp+0x8]
-06FC  0079 FF 76 06  push word [bp+0x6]
-06FF  007C 0E     push cs
-0700  007D E8 9B 00  call 0x11b
-            L0080: // NOP
+            L0076: XCall Fn011B
             L0081: cx = PopStack(player);
             L0082: cx = PopStack(player);
             L0083: ShowMessage(player, String0A10); // 'Might I be of service again?
@@ -521,21 +501,13 @@ namespace XPT.Scripts.Twinion.Maps {
             L009D: ShowMessage(player, String0A76); // The bats in the north east are horrible, but rewarding.'
             L00AA: si = 0x0003;
             L00AD: goto L00F6;
-0732  00AF FF 76 08  push word [bp+0x8]
-0735  00B2 FF 76 06  push word [bp+0x6]
-0738  00B5 0E     push cs
-0739  00B6 E8 62 00  call 0x11b
-            L00B9: // NOP
+            L00AF: XCall Fn011B
             L00BA: cx = PopStack(player);
             L00BB: cx = PopStack(player);
             L00BC: ShowMessage(player, String0AAF); // 'You want more info?...Hmmm, let's see...ah yes! How could I have forgotten!
             L00C9: ShowMessage(player, String0AFC); // Find your way to the south and east. The Snake River will grant you a quick way to the Coil Maze.'
             L00D6: si = 0x0004;
-075C  00D9 FF 76 08  push word [bp+0x8]
-075F  00DC FF 76 06  push word [bp+0x6]
-0762  00DF 0E     push cs
-0763  00E0 E8 38 00  call 0x11b
-            L00E3: // NOP
+            L00D9: XCall Fn011B
             L00E4: cx = PopStack(player);
             L00E5: cx = PopStack(player);
             L00E6: ShowMessage(player, String0B5F); // 'I can offer you no more advice. It's up to you which path you choose. But in time, all things come upon themselves.'

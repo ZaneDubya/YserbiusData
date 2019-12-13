@@ -430,11 +430,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L007E: goto L0044;
             L0080: Compare(GetFacing(player), 0x0003);
             L008A: if (JumpNotEqual) goto L0099;
-04A8  008C FF 76 08  push word [bp+0x8]
-04AB  008F FF 76 06  push word [bp+0x6]
-04AE  0092 0E     push cs
-04AF  0093 E8 1F 00  call 0xb5
-            L0096: // NOP
+            L008C: XCall Fn00B5
             L0097: cx = PopStack(player);
             L0098: cx = PopStack(player);
             L0099: // restore stack ptr: sp = bp;
@@ -603,11 +599,7 @@ namespace XPT.Scripts.Twinion.Maps {
 0748  0030 C4 5E 06  les bx, [bp+0x6]
 074B  0033 26 FF 9F 9C 00  call far word [es:bx+0x9c]
 0750  0038 83 C4 06  add sp, 0x6
-0753  003B FF 76 08  push word [bp+0x8]
-0756  003E FF 76 06  push word [bp+0x6]
-0759  0041 0E     push cs
-075A  0042 E8 6B 00  call 0xb0
-            L0045: // NOP
+            L003B: XCall Fn00B0
             L0046: cx = PopStack(player);
             L0047: cx = PopStack(player);
             L0048: return; // RETURN;
@@ -635,11 +627,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0042: bx = 0x0006;
             L0045: dx = ax % bx; ax = ax / bx;
             L0048: DamagePlayer(player, ax);
-07B4  0052 FF 76 08  push word [bp+0x8]
-07B7  0055 FF 76 06  push word [bp+0x6]
-07BA  0058 0E     push cs
-07BB  0059 E8 0A 00  call 0x66
-            L005C: // NOP
+            L0052: XCall Fn0066
             L005D: cx = PopStack(player);
             L005E: cx = PopStack(player);
             L005F: return; // RETURN;
@@ -1265,32 +1253,16 @@ namespace XPT.Scripts.Twinion.Maps {
             L0073: RefreshCompareFlags(ax);
             L0075: if (JumpNotEqual) goto L00DA;
             L0077: ShowPortrait(player, 0x0015);
-1385  0084 FF 76 08  push word [bp+0x8]
-1388  0087 FF 76 06  push word [bp+0x6]
-138B  008A 0E     push cs
-138C  008B E8 61 00  call 0xef
-            L008E: // NOP
+            L0084: XCall Fn00EF
             L008F: cx = PopStack(player);
             L0090: cx = PopStack(player);
-1392  0091 FF 76 08  push word [bp+0x8]
-1395  0094 FF 76 06  push word [bp+0x6]
-1398  0097 0E     push cs
-1399  0098 E8 DA 00  call 0x175
-            L009B: // NOP
+            L0091: XCall Fn0175
             L009C: cx = PopStack(player);
             L009D: cx = PopStack(player);
-139F  009E FF 76 08  push word [bp+0x8]
-13A2  00A1 FF 76 06  push word [bp+0x6]
-13A5  00A4 0E     push cs
-13A6  00A5 E8 DF 00  call 0x187
-            L00A8: // NOP
+            L009E: XCall Fn0187
             L00A9: cx = PopStack(player);
             L00AA: cx = PopStack(player);
-13AC  00AB FF 76 08  push word [bp+0x8]
-13AF  00AE FF 76 06  push word [bp+0x6]
-13B2  00B1 0E     push cs
-13B3  00B2 E8 91 00  call 0x146
-            L00B5: // NOP
+            L00AB: XCall Fn0146
             L00B6: cx = PopStack(player);
             L00B7: cx = PopStack(player);
             L00B8: PushStack(player, 0x01);

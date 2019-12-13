@@ -359,11 +359,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00BF: cx = PopStack(player);
             L00C0: RefreshCompareFlags(ax);
             L00C2: if (JumpEqual) goto L00D2;
-03A9  00C4 FF 76 08  push word [bp+0x8]
-03AC  00C7 FF 76 06  push word [bp+0x6]
-03AF  00CA 0E     push cs
-03B0  00CB E8 91 14  call 0x155f
-            L00CE: // NOP
+            L00C4: XCall Fn155F
             L00CF: goto L015C;
 03B7  00D2 56     push si
 03B8  00D3 56     push si
@@ -386,18 +382,10 @@ namespace XPT.Scripts.Twinion.Maps {
 040A  0125 B8 23 06  mov ax, 0x623
             L0128: goto L012D;
             L012A: ShowMessage(player, String064E); // 'Intrepid Gnome, if you have read the secret clues, use your tokens as the keys.'
-041C  0137 FF 76 08  push word [bp+0x8]
-041F  013A FF 76 06  push word [bp+0x6]
-0422  013D 0E     push cs
-0423  013E E8 41 14  call 0x1582
-            L0141: // NOP
+            L0137: XCall Fn1582
             L0142: goto L015C;
             L0144: ShowMessage(player, String06A0); // The doors remain open for you.
-0436  0151 FF 76 08  push word [bp+0x8]
-0439  0154 FF 76 06  push word [bp+0x6]
-043C  0157 0E     push cs
-043D  0158 E8 49 14  call 0x15a4
-            L015B: // NOP
+            L0151: XCall Fn15A4
             L015C: cx = PopStack(player);
             L015D: cx = PopStack(player);
 0443  015E 5F     pop di
@@ -473,11 +461,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00BF: cx = PopStack(player);
             L00C0: RefreshCompareFlags(ax);
             L00C2: if (JumpEqual) goto L00D2;
-0515  00C4 FF 76 08  push word [bp+0x8]
-0518  00C7 FF 76 06  push word [bp+0x6]
-051B  00CA 0E     push cs
-051C  00CB E8 25 13  call 0x13f3
-            L00CE: // NOP
+            L00C4: XCall Fn13F3
             L00CF: goto L015C;
 0523  00D2 56     push si
 0524  00D3 56     push si
@@ -500,18 +484,10 @@ namespace XPT.Scripts.Twinion.Maps {
 0576  0125 B8 23 06  mov ax, 0x623
             L0128: goto L012D;
             L012A: ShowMessage(player, String06BF); // 'Worthy Halfling, if you have read the secret clues, use your tokens as the keys.'
-0588  0137 FF 76 08  push word [bp+0x8]
-058B  013A FF 76 06  push word [bp+0x6]
-058E  013D 0E     push cs
-058F  013E E8 D5 12  call 0x1416
-            L0141: // NOP
+            L0137: XCall Fn1416
             L0142: goto L015C;
             L0144: ShowMessage(player, String06A0); // The doors remain open for you.
-05A2  0151 FF 76 08  push word [bp+0x8]
-05A5  0154 FF 76 06  push word [bp+0x6]
-05A8  0157 0E     push cs
-05A9  0158 E8 DD 12  call 0x1438
-            L015B: // NOP
+            L0151: XCall Fn1438
             L015C: cx = PopStack(player);
             L015D: cx = PopStack(player);
 05AF  015E 5F     pop di
@@ -587,11 +563,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00BF: cx = PopStack(player);
             L00C0: RefreshCompareFlags(ax);
             L00C2: if (JumpEqual) goto L00D2;
-0681  00C4 FF 76 08  push word [bp+0x8]
-0684  00C7 FF 76 06  push word [bp+0x6]
-0687  00CA 0E     push cs
-0688  00CB E8 B9 11  call 0x1287
-            L00CE: // NOP
+            L00C4: XCall Fn1287
             L00CF: goto L015C;
 068F  00D2 56     push si
 0690  00D3 56     push si
@@ -614,18 +586,10 @@ namespace XPT.Scripts.Twinion.Maps {
 06E2  0125 B8 23 06  mov ax, 0x623
             L0128: goto L012D;
             L012A: ShowMessage(player, String0712); // 'Brave Orc, if you have read the secret clues, use your tokens as the keys.'
-06F4  0137 FF 76 08  push word [bp+0x8]
-06F7  013A FF 76 06  push word [bp+0x6]
-06FA  013D 0E     push cs
-06FB  013E E8 69 11  call 0x12aa
-            L0141: // NOP
+            L0137: XCall Fn12AA
             L0142: goto L015C;
             L0144: ShowMessage(player, String06A0); // The doors remain open for you.
-070E  0151 FF 76 08  push word [bp+0x8]
-0711  0154 FF 76 06  push word [bp+0x6]
-0714  0157 0E     push cs
-0715  0158 E8 71 11  call 0x12cc
-            L015B: // NOP
+            L0151: XCall Fn12CC
             L015C: cx = PopStack(player);
             L015D: cx = PopStack(player);
 071B  015E 5F     pop di
@@ -701,11 +665,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00BF: cx = PopStack(player);
             L00C0: RefreshCompareFlags(ax);
             L00C2: if (JumpEqual) goto L00D2;
-07ED  00C4 FF 76 08  push word [bp+0x8]
-07F0  00C7 FF 76 06  push word [bp+0x6]
-07F3  00CA 0E     push cs
-07F4  00CB E8 4D 10  call 0x111b
-            L00CE: // NOP
+            L00C4: XCall Fn111B
             L00CF: goto L015C;
 07FB  00D2 56     push si
 07FC  00D3 56     push si
@@ -728,18 +688,10 @@ namespace XPT.Scripts.Twinion.Maps {
 084E  0125 B8 23 06  mov ax, 0x623
             L0128: goto L012D;
             L012A: ShowMessage(player, String075F); // 'Courageous Troll, if you have read the secret clues, use the tokens as the keys.'
-0860  0137 FF 76 08  push word [bp+0x8]
-0863  013A FF 76 06  push word [bp+0x6]
-0866  013D 0E     push cs
-0867  013E E8 FD 0F  call 0x113e
-            L0141: // NOP
+            L0137: XCall Fn113E
             L0142: goto L015C;
             L0144: ShowMessage(player, String06A0); // The doors remain open for you.
-087A  0151 FF 76 08  push word [bp+0x8]
-087D  0154 FF 76 06  push word [bp+0x6]
-0880  0157 0E     push cs
-0881  0158 E8 05 10  call 0x1160
-            L015B: // NOP
+            L0151: XCall Fn1160
             L015C: cx = PopStack(player);
             L015D: cx = PopStack(player);
 0887  015E 5F     pop di
@@ -937,11 +889,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00C0: cx = PopStack(player);
             L00C1: RefreshCompareFlags(ax);
             L00C3: if (JumpEqual) goto L00D3;
-0B9A  00C5 FF 76 08  push word [bp+0x8]
-0B9D  00C8 FF 76 06  push word [bp+0x6]
-0BA0  00CB 0E     push cs
-0BA1  00CC E8 A0 0C  call 0xd6f
-            L00CF: // NOP
+            L00C5: XCall Fn0D6F
             L00D0: goto L015D;
 0BA8  00D3 56     push si
 0BA9  00D4 56     push si
@@ -964,18 +912,10 @@ namespace XPT.Scripts.Twinion.Maps {
 0BFB  0126 B8 23 06  mov ax, 0x623
             L0129: goto L012E;
             L012B: ShowMessage(player, String0BCB); // 'Fearless Elf, if you have read the secret clues, use your tokens as the keys.'
-0C0D  0138 FF 76 08  push word [bp+0x8]
-0C10  013B FF 76 06  push word [bp+0x6]
-0C13  013E 0E     push cs
-0C14  013F E8 50 0C  call 0xd92
-            L0142: // NOP
+            L0138: XCall Fn0D92
             L0143: goto L015D;
             L0145: ShowMessage(player, String06A0); // The doors remain open for you.
-0C27  0152 FF 76 08  push word [bp+0x8]
-0C2A  0155 FF 76 06  push word [bp+0x6]
-0C2D  0158 0E     push cs
-0C2E  0159 E8 58 0C  call 0xdb4
-            L015C: // NOP
+            L0152: XCall Fn0DB4
             L015D: cx = PopStack(player);
             L015E: cx = PopStack(player);
 0C34  015F 5F     pop di
@@ -1051,11 +991,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00C0: cx = PopStack(player);
             L00C1: RefreshCompareFlags(ax);
             L00C3: if (JumpEqual) goto L00D3;
-0D07  00C5 FF 76 08  push word [bp+0x8]
-0D0A  00C8 FF 76 06  push word [bp+0x6]
-0D0D  00CB 0E     push cs
-0D0E  00CC E8 33 0B  call 0xc02
-            L00CF: // NOP
+            L00C5: XCall Fn0C02
             L00D0: goto L015D;
 0D15  00D3 56     push si
 0D16  00D4 56     push si
@@ -1078,18 +1014,10 @@ namespace XPT.Scripts.Twinion.Maps {
 0D68  0126 B8 23 06  mov ax, 0x623
             L0129: goto L012E;
             L012B: ShowMessage(player, String0C1B); // 'Valiant Dwarf, if you have read the secret clues, use your tokens as the keys.'
-0D7A  0138 FF 76 08  push word [bp+0x8]
-0D7D  013B FF 76 06  push word [bp+0x6]
-0D80  013E 0E     push cs
-0D81  013F E8 E3 0A  call 0xc25
-            L0142: // NOP
+            L0138: XCall Fn0C25
             L0143: goto L015D;
             L0145: ShowMessage(player, String06A0); // The doors remain open for you.
-0D94  0152 FF 76 08  push word [bp+0x8]
-0D97  0155 FF 76 06  push word [bp+0x6]
-0D9A  0158 0E     push cs
-0D9B  0159 E8 EB 0A  call 0xc47
-            L015C: // NOP
+            L0152: XCall Fn0C47
             L015D: cx = PopStack(player);
             L015E: cx = PopStack(player);
 0DA1  015F 5F     pop di
@@ -1187,11 +1115,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00C0: cx = PopStack(player);
             L00C1: RefreshCompareFlags(ax);
             L00C3: if (JumpEqual) goto L00D3;
-0ED3  00C5 FF 76 08  push word [bp+0x8]
-0ED6  00C8 FF 76 06  push word [bp+0x6]
-0ED9  00CB 0E     push cs
-0EDA  00CC E8 67 09  call 0xa36
-            L00CF: // NOP
+            L00C5: XCall Fn0A36
             L00D0: goto L015D;
 0EE1  00D3 56     push si
 0EE2  00D4 56     push si
@@ -1214,18 +1138,10 @@ namespace XPT.Scripts.Twinion.Maps {
 0F34  0126 B8 23 06  mov ax, 0x623
             L0129: goto L012E;
             L012B: ShowMessage(player, String0CBD); // 'Hardy Gremlin, if you have read the secret clues, use your tokens as the keys.'
-0F46  0138 FF 76 08  push word [bp+0x8]
-0F49  013B FF 76 06  push word [bp+0x6]
-0F4C  013E 0E     push cs
-0F4D  013F E8 17 09  call 0xa59
-            L0142: // NOP
+            L0138: XCall Fn0A59
             L0143: goto L015D;
             L0145: ShowMessage(player, String06A0); // The doors remain open for you.
-0F60  0152 FF 76 08  push word [bp+0x8]
-0F63  0155 FF 76 06  push word [bp+0x6]
-0F66  0158 0E     push cs
-0F67  0159 E8 1F 09  call 0xa7b
-            L015C: // NOP
+            L0152: XCall Fn0A7B
             L015D: cx = PopStack(player);
             L015E: cx = PopStack(player);
 0F6D  015F 5F     pop di
@@ -1301,11 +1217,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L00BF: cx = PopStack(player);
             L00C0: RefreshCompareFlags(ax);
             L00C2: if (JumpEqual) goto L00D2;
-103F  00C4 FF 76 08  push word [bp+0x8]
-1042  00C7 FF 76 06  push word [bp+0x6]
-1045  00CA 0E     push cs
-1046  00CB E8 FB 07  call 0x8c9
-            L00CE: // NOP
+            L00C4: XCall Fn08C9
             L00CF: goto L015C;
 104D  00D2 56     push si
 104E  00D3 56     push si
@@ -1328,18 +1240,10 @@ namespace XPT.Scripts.Twinion.Maps {
 10A0  0125 B8 23 06  mov ax, 0x623
             L0128: goto L012D;
             L012A: ShowMessage(player, String0D0E); // 'Adventurous Human, if you have read the secret clues, use the tokens as the keys.'
-10B2  0137 FF 76 08  push word [bp+0x8]
-10B5  013A FF 76 06  push word [bp+0x6]
-10B8  013D 0E     push cs
-10B9  013E E8 AB 07  call 0x8ec
-            L0141: // NOP
+            L0137: XCall Fn08EC
             L0142: goto L015C;
             L0144: ShowMessage(player, String06A0); // The doors remain open for you.
-10CC  0151 FF 76 08  push word [bp+0x8]
-10CF  0154 FF 76 06  push word [bp+0x6]
-10D2  0157 0E     push cs
-10D3  0158 E8 B3 07  call 0x90e
-            L015B: // NOP
+            L0151: XCall Fn090E
             L015C: cx = PopStack(player);
             L015D: cx = PopStack(player);
 10D9  015E 5F     pop di
@@ -1467,17 +1371,9 @@ namespace XPT.Scripts.Twinion.Maps {
             L006A: if (JumpEqual) goto L00A4;
             L006C: ShowMessage(player, String0FB2); // A secret door is revealed.
             L0079: SetWallObject(player, 0x01, GetCurrentTile(player), GetFacing(player));
-12F7  0097 FF 76 08  push word [bp+0x8]
-12FA  009A FF 76 06  push word [bp+0x6]
-12FD  009D 0E     push cs
-12FE  009E E8 88 05  call 0x629
-            L00A1: // NOP
+            L0097: XCall Fn0629
             L00A2: goto L00AF;
-1304  00A4 FF 76 08  push word [bp+0x8]
-1307  00A7 FF 76 06  push word [bp+0x6]
-130A  00AA 0E     push cs
-130B  00AB E8 59 05  call 0x607
-            L00AE: // NOP
+            L00A4: XCall Fn0607
             L00AF: cx = PopStack(player);
             L00B0: cx = PopStack(player);
             L00B1: return; // RETURN;

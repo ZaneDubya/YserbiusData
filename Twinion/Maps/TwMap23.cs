@@ -416,11 +416,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0192: cx = PopStack(player);
             L0193: RefreshCompareFlags(ax);
             L0195: if (JumpNotEqual) goto L01A9;
-0444  0197 FF 76 08  push word [bp+0x8]
-0447  019A FF 76 06  push word [bp+0x6]
-044A  019D 0E     push cs
-044B  019E E8 88 00  call 0x229
-            L01A1: // NOP
+            L0197: XCall Fn0229
             L01A2: cx = PopStack(player);
             L01A3: cx = PopStack(player);
 0451  01A4 B8 6C 08  mov ax, 0x86c
@@ -756,11 +752,7 @@ namespace XPT.Scripts.Twinion.Maps {
 07FB  0068 C7 46 FE 01 00  mov word [bp-0x2], 0x1
             L006D: si = 0x0003;
             L0070: goto L0089;
-0805  0072 FF 76 08  push word [bp+0x8]
-0808  0075 FF 76 06  push word [bp+0x6]
-080B  0078 0E     push cs
-080C  0079 E8 0E 06  call 0x68a
-            L007C: // NOP
+            L0072: XCall Fn068A
             L007D: cx = PopStack(player);
             L007E: cx = PopStack(player);
             L007F: di = 0;
@@ -811,11 +803,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0064: di = 0;
 08CF  0066 C7 46 FE 01 00  mov word [bp-0x2], 0x1
             L006B: goto L0054;
-08D6  006D FF 76 08  push word [bp+0x8]
-08D9  0070 FF 76 06  push word [bp+0x6]
-08DC  0073 0E     push cs
-08DD  0074 E8 3D 05  call 0x5b4
-            L0077: // NOP
+            L006D: XCall Fn05B4
             L0078: cx = PopStack(player);
             L0079: cx = PopStack(player);
             L007A: di = 0;
@@ -866,11 +854,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0064: di = 0;
 09A0  0066 C7 46 FE 01 00  mov word [bp-0x2], 0x1
             L006B: goto L0054;
-09A7  006D FF 76 08  push word [bp+0x8]
-09AA  0070 FF 76 06  push word [bp+0x6]
-09AD  0073 0E     push cs
-09AE  0074 E8 6C 04  call 0x4e3
-            L0077: // NOP
+            L006D: XCall Fn04E3
             L0078: cx = PopStack(player);
             L0079: cx = PopStack(player);
             L007A: di = 0;
@@ -921,11 +905,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0064: di = 0;
 0A71  0066 C7 46 FE 01 00  mov word [bp-0x2], 0x1
             L006B: goto L0054;
-0A78  006D FF 76 08  push word [bp+0x8]
-0A7B  0070 FF 76 06  push word [bp+0x6]
-0A7E  0073 0E     push cs
-0A7F  0074 E8 9B 03  call 0x412
-            L0077: // NOP
+            L006D: XCall Fn0412
             L0078: cx = PopStack(player);
             L0079: cx = PopStack(player);
             L007A: di = 0;
@@ -976,11 +956,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0064: di = 0;
 0B42  0066 C7 46 FE 01 00  mov word [bp-0x2], 0x1
             L006B: goto L0054;
-0B49  006D FF 76 08  push word [bp+0x8]
-0B4C  0070 FF 76 06  push word [bp+0x6]
-0B4F  0073 0E     push cs
-0B50  0074 E8 CA 02  call 0x341
-            L0077: // NOP
+            L006D: XCall Fn0341
             L0078: cx = PopStack(player);
             L0079: cx = PopStack(player);
             L007A: di = 0;
@@ -1031,11 +1007,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0064: di = 0;
 0C13  0066 C7 46 FE 01 00  mov word [bp-0x2], 0x1
             L006B: goto L0054;
-0C1A  006D FF 76 08  push word [bp+0x8]
-0C1D  0070 FF 76 06  push word [bp+0x6]
-0C20  0073 0E     push cs
-0C21  0074 E8 F9 01  call 0x270
-            L0077: // NOP
+            L006D: XCall Fn0270
             L0078: cx = PopStack(player);
             L0079: cx = PopStack(player);
             L007A: di = 0;
@@ -1086,11 +1058,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0064: di = 0;
 0CE4  0066 C7 46 FE 01 00  mov word [bp-0x2], 0x1
             L006B: goto L0054;
-0CEB  006D FF 76 08  push word [bp+0x8]
-0CEE  0070 FF 76 06  push word [bp+0x6]
-0CF1  0073 0E     push cs
-0CF2  0074 E8 28 01  call 0x19f
-            L0077: // NOP
+            L006D: XCall Fn019F
             L0078: cx = PopStack(player);
             L0079: cx = PopStack(player);
             L007A: di = 0;
@@ -1141,11 +1109,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0064: di = 0;
 0DB2  0066 C7 46 FE 01 00  mov word [bp-0x2], 0x1
             L006B: goto L0054;
-0DB9  006D FF 76 08  push word [bp+0x8]
-0DBC  0070 FF 76 06  push word [bp+0x6]
-0DBF  0073 0E     push cs
-0DC0  0074 E8 5A 00  call 0xd1
-            L0077: // NOP
+            L006D: XCall Fn00D1
             L0078: cx = PopStack(player);
             L0079: cx = PopStack(player);
             L007A: di = 0;
@@ -1239,11 +1203,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L01AE: Compare(si, 0x1F);
             L01B1: if (JumpLessOrEqual) goto L019B;
             L01B3: goto L02C8;
-0FE5  01B6 FF 76 08  push word [bp+0x8]
-0FE8  01B9 FF 76 06  push word [bp+0x6]
-0FEB  01BC 0E     push cs
-0FEC  01BD E8 2D 01  call 0x2ed
-            L01C0: // NOP
+            L01B6: XCall Fn02ED
             L01C1: goto L02D3;
             L01C4: dx = GetFlag(player, 0x03, 0x01) + GetFlag(player, 0x03, 0x02);
             L01EA: PushStack(player, dx);
@@ -1282,11 +1242,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L02AE: SetFlag(player, 0x02, 0xC7, 0x02);
             L02C3: goto L02D5;
             L02C5: goto L01B6;
-10F7  02C8 FF 76 08  push word [bp+0x8]
-10FA  02CB FF 76 06  push word [bp+0x6]
-10FD  02CE 0E     push cs
-10FE  02CF E8 09 00  call 0x2db
-            L02D2: // NOP
+            L02C8: XCall Fn02DB
             L02D3: cx = PopStack(player);
             L02D4: cx = PopStack(player);
 1104  02D5 5F     pop di

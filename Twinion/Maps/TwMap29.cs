@@ -158,11 +158,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0082: dx = ax % bx; ax = ax / bx;
             L0085: HealPlayer(player, ax);
             L008F: AddMana(player, 0x00C8);
-00BC  009C FF 76 08  push word [bp+0x8]
-00BF  009F FF 76 06  push word [bp+0x6]
-00C2  00A2 0E     push cs
-00C3  00A3 E8 A6 0F  call 0x104c
-            L00A6: // NOP
+            L009C: XCall Fn104C
             L00A7: cx = PopStack(player);
             L00A8: cx = PopStack(player);
             L00A9: return; // RETURN;
@@ -203,11 +199,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0083: dx = ax % bx; ax = ax / bx;
             L0086: HealPlayer(player, ax);
             L0090: AddMana(player, 0x00C8);
-0168  009D FF 76 08  push word [bp+0x8]
-016B  00A0 FF 76 06  push word [bp+0x6]
-016E  00A3 0E     push cs
-016F  00A4 E8 FA 0E  call 0xfa1
-            L00A7: // NOP
+            L009D: XCall Fn0FA1
             L00A8: cx = PopStack(player);
             L00A9: cx = PopStack(player);
             L00AA: return; // RETURN;
@@ -229,11 +221,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0021: dx = ax % bx; ax = ax / bx;
             L0024: DamagePlayer(player, ax);
             L002E: ShowMessage(player, String0554); // The forces of Fire sear and singe you as you travel through some small part of the Elemental plane.
-01B2  003B FF 76 08  push word [bp+0x8]
-01B5  003E FF 76 06  push word [bp+0x6]
-01B8  0041 0E     push cs
-01B9  0042 E8 B0 0E  call 0xef5
-            L0045: // NOP
+            L003B: XCall Fn0EF5
             L0046: cx = PopStack(player);
             L0047: cx = PopStack(player);
             L0048: return; // RETURN;
@@ -255,11 +243,7 @@ namespace XPT.Scripts.Twinion.Maps {
             L0021: dx = ax % bx; ax = ax / bx;
             L0024: DamagePlayer(player, ax);
             L002E: ShowMessage(player, String05B8); // The Waters here drench you with ominous force.
-01FC  003B FF 76 08  push word [bp+0x8]
-01FF  003E FF 76 06  push word [bp+0x6]
-0202  0041 0E     push cs
-0203  0042 E8 66 0E  call 0xeab
-            L0045: // NOP
+            L003B: XCall Fn0EAB
             L0046: cx = PopStack(player);
             L0047: cx = PopStack(player);
             L0048: return; // RETURN;
@@ -382,18 +366,10 @@ namespace XPT.Scripts.Twinion.Maps {
             L0037: if (JumpNotEqual) goto L006D;
             L0039: ShowMessage(player, String098F); // Malos weaves magical mists as he speaks at you, 'You dare to challenge the Guardian of the Elements! I shall not be so easy to defeat!
             L0046: ShowMessage(player, String0A16); // My ring shall be yours if you can conquer the Elements!'
-0411  0053 FF 76 08  push word [bp+0x8]
-0414  0056 FF 76 06  push word [bp+0x6]
-0417  0059 0E     push cs
-0418  005A E8 33 0C  call 0xc90
-            L005D: // NOP
+            L0053: XCall Fn0C90
             L005E: cx = PopStack(player);
             L005F: cx = PopStack(player);
-041E  0060 FF 76 08  push word [bp+0x8]
-0421  0063 FF 76 06  push word [bp+0x6]
-0424  0066 0E     push cs
-0425  0067 E8 7A 0C  call 0xce4
-            L006A: // NOP
+            L0060: XCall Fn0CE4
             L006B: cx = PopStack(player);
             L006C: cx = PopStack(player);
             L006D: Compare(PartyCount(player), 0x0001);
@@ -442,18 +418,10 @@ namespace XPT.Scripts.Twinion.Maps {
             L007B: RefreshCompareFlags(GetFlag(player, 0x02, 0x8E));
             L008E: if (JumpNotEqual) goto L00B7;
             L0090: ShowMessage(player, String0B47); // Juvalad rises before you, 'Foul fool! Do you not know death, when you see it? Die now and curse in vain!'
-0547  009D FF 76 08  push word [bp+0x8]
-054A  00A0 FF 76 06  push word [bp+0x6]
-054D  00A3 0E     push cs
-054E  00A4 E8 51 0B  call 0xbf8
-            L00A7: // NOP
+            L009D: XCall Fn0BF8
             L00A8: cx = PopStack(player);
             L00A9: cx = PopStack(player);
-0554  00AA FF 76 08  push word [bp+0x8]
-0557  00AD FF 76 06  push word [bp+0x6]
-055A  00B0 0E     push cs
-055B  00B1 E8 F0 0A  call 0xba4
-            L00B4: // NOP
+            L00AA: XCall Fn0BA4
             L00B5: cx = PopStack(player);
             L00B6: cx = PopStack(player);
             L00B7: Compare(PartyCount(player), 0x0001);
@@ -504,18 +472,10 @@ namespace XPT.Scripts.Twinion.Maps {
             L009A: if (JumpNotEqual) goto L00D0;
             L009C: ShowMessage(player, String0CA8); // Pluthros offers a resonating cry as you approach, 'You do not know of the prophecies! You are not one of the followers!
             L00A9: ShowMessage(player, String0D20); // Now I shall teach you the price of incredulity!'
-0696  00B6 FF 76 08  push word [bp+0x8]
-0699  00B9 FF 76 06  push word [bp+0x6]
-069C  00BC 0E     push cs
-069D  00BD E8 AE 09  call 0xa6e
-            L00C0: // NOP
+            L00B6: XCall Fn0A6E
             L00C1: cx = PopStack(player);
             L00C2: cx = PopStack(player);
-06A3  00C3 FF 76 08  push word [bp+0x8]
-06A6  00C6 FF 76 06  push word [bp+0x6]
-06A9  00C9 0E     push cs
-06AA  00CA E8 F5 09  call 0xac2
-            L00CD: // NOP
+            L00C3: XCall Fn0AC2
             L00CE: cx = PopStack(player);
             L00CF: cx = PopStack(player);
             L00D0: Compare(PartyCount(player), 0x0001);
@@ -547,18 +507,10 @@ namespace XPT.Scripts.Twinion.Maps {
             L001C: RefreshCompareFlags(GetFlag(player, 0x02, 0x8D));
             L002F: if (JumpNotEqual) goto L0058;
             L0031: ShowMessage(player, String0D7E); // Astelligus roars as you near his throne room, 'Damn you to Ashakkar! Your intrusion shall be short lived! I shall send you on your way to the next life!'
-076D  003E FF 76 08  push word [bp+0x8]
-0770  0041 FF 76 06  push word [bp+0x6]
-0773  0044 0E     push cs
-0774  0045 E8 2B 09  call 0x973
-            L0048: // NOP
+            L003E: XCall Fn0973
             L0049: cx = PopStack(player);
             L004A: cx = PopStack(player);
-077A  004B FF 76 08  push word [bp+0x8]
-077D  004E FF 76 06  push word [bp+0x6]
-0780  0051 0E     push cs
-0781  0052 E8 CA 08  call 0x91f
-            L0055: // NOP
+            L004B: XCall Fn091F
             L0056: cx = PopStack(player);
             L0057: cx = PopStack(player);
             L0058: Compare(PartyCount(player), 0x0001);
@@ -852,18 +804,10 @@ namespace XPT.Scripts.Twinion.Maps {
             L0077: RefreshCompareFlags(GetFlag(player, 0x02, 0x8C));
             L008A: if (JumpNotEqual) goto L00B3;
             L008C: ShowMessage(player, String155A); // Corpeus is here. His voice shakes the great hall: 'Puny mortal. You dare come to challenge me? For my ring, you must take my life. For your attempt, I will take yours!'
-0C60  0099 FF 76 08  push word [bp+0x8]
-0C63  009C FF 76 06  push word [bp+0x6]
-0C66  009F 0E     push cs
-0C67  00A0 E8 E4 03  call 0x487
-            L00A3: // NOP
+            L0099: XCall Fn0487
             L00A4: cx = PopStack(player);
             L00A5: cx = PopStack(player);
-0C6D  00A6 FF 76 08  push word [bp+0x8]
-0C70  00A9 FF 76 06  push word [bp+0x6]
-0C73  00AC 0E     push cs
-0C74  00AD E8 2B 04  call 0x4db
-            L00B0: // NOP
+            L00A6: XCall Fn04DB
             L00B1: cx = PopStack(player);
             L00B2: cx = PopStack(player);
             L00B3: Compare(PartyCount(player), 0x0001);
@@ -952,11 +896,7 @@ namespace XPT.Scripts.Twinion.Maps {
 0DB9  00C0 B8 8C 16  mov ax, 0x168c
             L00C3: goto L00C8;
             L00C5: ShowMessage(player, String16D1); // You must continue, for the Dralk's ring and his embodiment are gone from here.
-0DCB  00D2 FF 76 08  push word [bp+0x8]
-0DCE  00D5 FF 76 06  push word [bp+0x6]
-0DD1  00D8 0E     push cs
-0DD2  00D9 E8 AD 02  call 0x389
-            L00DC: // NOP
+            L00D2: XCall Fn0389
             L00DD: cx = PopStack(player);
             L00DE: cx = PopStack(player);
 0DD8  00DF 5F     pop di
