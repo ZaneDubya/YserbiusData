@@ -1,0 +1,63 @@
+Map Identifiers Array (unsigned ushorts).
+Each map has a unique map identifier comprised of map level and map number.
+The unique identifier == map level << 8 + map number.
+
+ushort[] MapIdentifiers = {
+	0x0101,0x0102,0x0103,
+	0x0201,0x0202,0x0203,
+	0x0301,0x0302,
+	0x0401,0x0402,0x0403,
+	0x0501,0x0502,0x0503,
+	0x0601,0x0602,0x0603,
+	0x0701,0x0702,
+	0x0801,0x0802,
+	0x0901,0x0902,
+	0x0A01,0x0A02,0x0A03,
+	0x0B01,0x0B02,0x0B03,0x0B04,
+	0x0C01,0x0C02,
+	0x0D01,0x0D02
+};
+
+Random encounter chance (bytes).
+Each map has a chance of spawning a random encounter when a player moves,
+so long as no scripted map event has fired.
+
+byte[] MapRandomEncounterChance = {
+	0,15,15,
+	12,12,5,
+	5,10,
+	5,15,12,
+	5,15,0,
+	10,10,10,
+	12,0,
+	15,10,
+	9,0,
+	12,5,15,
+	10,15,5,0,
+	10,0,
+	5,5,
+	10,10,
+	20,20,20,20
+};
+
+Random encounter adds (bytes).
+When a random encounter begins, the number of monsters in the enemy party will
+be equal to the number of players plus this number.
+
+byte[] RandomEncounterAdds = {
+	00,01,00,
+	00,01,00,
+	02,00,
+	01,00,02,
+	01,01,02,
+	02,00,00,
+	00,00,
+	02,01,
+	01,02,
+	02,02,02,
+	00,01,02,00,
+	01,00,
+	02,02,
+	01,01,
+	02,02,02,02
+};

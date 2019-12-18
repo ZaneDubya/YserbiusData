@@ -1,0 +1,30 @@
+Monster paperdoll appearance data.
+This is an enumeration of all paperdoll monster appearances.
+
+PaperdollAppearance[] MonsterAppearances[] = { 
+   { MALE,   4, 3, 6, 0, 2, 3, BARBARIAN },
+   { FEMALE, 5, 8, 6, 0, 1, 0, BARBARIAN },
+   { FEMALE, 7,11, 6, 0, 2, 0, BARBARIAN },
+   { MALE,   8, 0, 6, 1, 4, 1, BARBARIAN },
+   { MALE,   5, 4, 1, 0, 2, 2, KNIGHT },
+   { FEMALE, 6, 5, 1, 0, 1, 0, KNIGHT },
+   { MALE,   8, 6, 1, 0, 2, 0, KNIGHT },
+   { FEMALE,10, 9, 1, 1, 3, 0, KNIGHT },
+   { FEMALE,11, 6, 4, 0, 1, 4, RANGER },
+   { MALE,   7, 5, 4, 0, 2, 0, RANGER },
+   { MALE,   6, 0, 4, 0, 1, 3, RANGER },
+   { FEMALE,10, 8, 4, 1, 3, 0, RANGER },
+   { FEMALE, 3, 2, 3, 0, 2, 0, THIEF },
+   { MALE,   9, 0, 3, 0, 2, 2, THIEF },
+   { FEMALE, 9, 8, 3, 1, 4, 0, THIEF },
+   { MALE,  10, 2, 3, 1, 3, 1, THIEF },
+   { MALE,  10, 9, 3, 2, 1, 3, THIEF },
+   { MALE,   7, 8, 5, 0, 2, 1, CLERIC },
+   { FEMALE, 6, 3, 7, 0, 1, 4, CLERIC },
+   { MALE,  10, 8, 5, 1, 3, 0, CLERIC },
+   { FEMALE,10, 2, 7, 2, 1, 0, CLERIC },
+   { MALE,   8, 9, 9, 0, 2, 4, WIZARD },
+   { FEMALE, 7, 7,10, 0, 3, 6, WIZARD },
+   { MALE,   4, 5,10, 1, 2, 5, WIZARD },
+   { FEMALE, 1,12, 8, 1, 1, 0, WIZARD }
+ };
