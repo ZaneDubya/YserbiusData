@@ -1,1300 +1,698 @@
-#pragma warning disable
-using System.Collections.Generic;
-using XPT.WorldData;
-using XPT.WorldData.Yserbius;
-
-namespace XPT.Scripts.Twinion.Maps {
-    class TwMap10 : AMapScripted {
+namespace XPT.Twinion.Maps {
+    class TwMap10 : TwMap {
         protected override int MapIndex => 10;
-        protected override int RandomEncounterChance => 10;
-        protected override int RandomEncounterExtraCount => 0;
+        protected override int MapID => 0x0403;
+        protected override int RandomEncounterChance => 12;
+        protected override int RandomEncounterExtraCount => 2;
 
-        public TwMap10() {
-            MapEvent01 = FnWIZARD_01;
-            MapEvent02 = FnCLERIC_02;
-            MapEvent03 = FnTELEA_03;
-            MapEvent04 = FnAZAP_04;
-            MapEvent05 = FnTHIEF_05;
-            MapEvent06 = FnCLUEA_06;
-            MapEvent07 = FnTEXTA_07;
-            MapEvent08 = FnFTN_08;
-            MapEvent09 = FnITEMADR_09;
-            MapEvent0A = FnTELEC_0A;
-            MapEvent0B = FnFTNA_0B;
-            MapEvent0C = FnCLUEB_0C;
-            MapEvent0E = FnTELED_0E;
-            MapEvent10 = FnSECA_10;
-            MapEvent13 = FnTELEF_13;
-            MapEvent14 = FnMANADOWN_14;
-            MapEvent15 = FnITEMA_15;
-            MapEvent16 = FnKEY_16;
-            MapEvent17 = FnFELLOW_17;
-            MapEvent1A = FnBZAP_1A;
-            MapEvent1C = FnHEALDOWN_1C;
-            MapEvent1D = FnITEMC_1D;
-            MapEvent1F = FnTELEG_1F;
-            MapEvent22 = FnWIZDOOR_22;
-            MapEvent23 = FnWIZTELE_23;
-            MapEvent25 = FnFTNB_25;
-            MapEvent26 = FnCLEDR_26;
-            MapEvent27 = FnCLETELE_27;
-            MapEvent28 = FnITEMCDR_28;
-            MapEvent29 = FnITEMBDR_29;
-            MapEvent2A = FnTHDR_2A;
-            MapEvent2B = FnTHTELE_2B;
-            MapEvent2C = FnTELEH_2C;
-            MapEvent2D = FnLOCK_2D;
-            MapEvent2E = FnSTRENGTH_2E;
-            MapEvent2F = FnCLUEE_2F;
-            MapEvent30 = FnRADR_30;
-            MapEvent31 = FnRATELE_31;
-            MapEvent32 = FnTELEI_32;
-            MapEvent33 = FnKNDR_33;
-            MapEvent34 = FnKNTELE_34;
-            MapEvent35 = FnITEMD_35;
-            MapEvent36 = FnITEMB_36;
-            MapEvent37 = FnGOODIEA_37;
-            MapEvent38 = FnTELEJ_38;
-            MapEvent39 = FnBADOOR_39;
-            MapEvent3A = FnBATELE_3A;
-            MapEvent3B = FnFELLDOOR_3B;
-            MapEvent3D = FnKNIGHT_3D;
-            MapEvent3F = FnTELEK_3F;
-            MapEvent41 = FnRANGER_41;
-            MapEvent43 = FnBARB_43;
-            MapEvent44 = FnEZA_44;
-            MapEvent45 = FnMEDA_45;
-            MapEvent46 = FnHRDA_46;
-            MapEvent47 = FnEZB_47;
-            MapEvent49 = FnMEDB_49;
-            MapEvent4A = FnEZC_4A;
-            MapEvent4B = FnMEDC_4B;
-            MapEvent4C = Fn_4C;
+        protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            short flags;
+            flags = GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM);
+             + GET_FLAG(player, type, doMsgs, DUNGEON, JACKET);
+            if (GUILD() == WIZARD) {
+                FoundRoom(player, type, doMsgs);
+                switch (flags) {
+                    case 1:
+                        GiveExp(player, type, doMsgs);
+                        GIVE_ITEM(player, type, doMsgs, WIZARDSSASH);
+                        break;
+                    case 2:
+                        if (HAS_ITEM(player, type, doMsgs, WIZARDSSASH)) {
+                            EmptyRoom(player, type, doMsgs);
+                        }
+                        else {
+                            GIVE_ITEM(player, type, doMsgs, WIZARDSSASH);
+                            ArmReplace(player, type, doMsgs);
+                        }
+                        break;
+                    case 3:
+                        EmptyRoom(player, type, doMsgs);
+                        break;
+                }
+            }
+            else {
+                SHOW_TEXT(player, type, doMsgs, "Only Wizards gain their reward here.");
+            }
         }
-        
-        // === Strings ================================================
-        private const string String03FC = "Only Wizards gain their reward here.";
-        private const string String0421 = "Only Clerics gain their reward here.";
-        private const string String0446 = "The trap is disarmed.";
-        private const string String045C = "A trap unleashes a shower of arrows at you.";
-        private const string String0488 = "Only Thieves gain their reward here.";
-        private const string String04AD = "A message on the wall - 'One of your party members must stay in the Armory until light is shed on your purpose. He who remains must at least lead once upon your return. Then, you may alter your formation.'";
-        private const string String057B = "Do not proceed north unless you have disarmed the traps.";
-        private const string String05B4 = "The waters of Grimoire Fountain have no affect.";
-        private const string String05E4 = "The magical waters of Grimoire Fountain enlighten you in the art of healing.";
-        private const string String0631 = "The magical waters of Grimoire Fountain turn cold as you acquire the Hail spell.";
-        private const string String0682 = "The magical waters of Grimoire Fountain envelop you in a mystic aura which whispers its secrets in your ear.";
-        private const string String06EF = "The magical waters of Grimoire Fountain envelop you in a shroud of light.";
-        private const string String0739 = "The door swings open.";
-        private const string String074F = "The door to the south is locked.";
-        private const string String0770 = "The piercing waters of Saber Fountain restore you to full health.";
-        private const string String07B2 = "Debris litters the floor, a result of the prodding and poking of the walls by adventurers searching for secret doors.";
-        private const string String0828 = "A hidden door appears.";
-        private const string String083F = "You detect a secret door.";
-        private const string String0859 = "Miasmal gases seep up through the floor, sapping your mana.";
-        private const string String0895 = "You bump into a shield in the center of the room.";
-        private const string String08C7 = "It falls and hits a switch which unlocks a door and disarms traps.";
-        private const string String090A = "The armorer has taken your key and forged you another. It can be found from whence the original came. This key will enable you to access new doors.";
-        private const string String099E = "The Fellowship Key unlocks the door.";
-        private const string String09C3 = "The door is locked. On the door is a plaque, showing two arms clasped in friendship.";
-        private const string String0A18 = "Your helm protects you from the poisonous darts.";
-        private const string String0A49 = "Your helm is no protection from the poisonous darts that hit you.";
-        private const string String0A8B = "A loose shield that is mounted on the wall falls and smacks you on the head.";
-        private const string String0AD8 = "Your foot brushes a stick, which you see is actually a wand.";
-        private const string String0B15 = "As it begins to glow, you hear the unlocking of a door.";
-        private const string String0B4D = "The silvery waters of Trident Fountain replenish your mana.";
-        private const string String0B89 = "The silvery waters of Trident Fountain replenish your mana and empower you with the Resist spell.";
-        private const string String0BEB = "The silvery waters of Trident Fountain replenish your mana and empower you with the Shield spell.";
-        private const string String0C4D = "The door is open.";
-        private const string String0C5F = "The magic wand sign on the door has been zapped.";
-        private const string String0C90 = "The door is locked.";
-        private const string String0CA4 = "Upon the door is the sign of a magic wand. If the wand is zapped, the door will open.";
-        private const string String0CFA = "Someone has scrawled under the sign - 'When the wand is zapped, stay in the area until you open the door.'";
-        private const string String0D65 = "The guard sees your Spidersilk Helm and lets you enter.";
-        private const string String0D9D = "You see a guard at the door wiping tiny spiders from his helmet:";
-        private const string String0DDE = "'My hat's off to you,' he says, barking a shrill laugh.";
-        private const string String0E16 = "'The right helm lets you pass. The wrong helm won't.'";
-        private const string String0E4C = "You skillfully unlock the door.";
-        private const string String0E6C = "After considerable effort, you manage to force open the door.";
-        private const string String0EAA = "You are not strong enough to open the door.";
-        private const string String0ED6 = "You cannot find the strength to push open the door.";
-        private const string String0F0A = "A knight mumbles to himself -";
-        private const string String0F28 = "'Confusing li'l thief. He's obviously been in the lower depths of this bizarre Night Elf kingdom.'";
-        private const string String0F8B = "The knight notices you and turns to you.";
-        private const string String0FB4 = "'The dralks...or some such thing, they are what these Elves worship.'";
-        private const string String0FFA = "To The Vault.";
-        private const string String1008 = "A Lantern lies on the floor. It will help during your future explorations. Mark well that it was here when you needed it!";
-        private const string String1082 = "The Troll Cleric, seeing you are well protected, decides to leave.";
-        private const string String10C5 = "A Troll Cleric grabs your arm -";
-        private const string String10E5 = "'You will want this helm of protection to safeguard you on your journey.";
-        private const string String112E = "It's sure to impress some of the guards you'll meet in your journeys.";
-        private const string String1174 = "No need to thank me. I've taken..er..accepted your generous donation already.'";
-        private const string String11C3 = "A band of Night Elves tries to steal your armor.";
-        private const string String11F4 = "Fellowship Meeting Hall";
-        private const string String120C = "Only Knights gain their reward here.";
-        private const string String1231 = "Only Rangers gain their reward here.";
-        private const string String1256 = "Only Barbarians gain their reward here.";
-        private const string String127E = "Congratulations, you have found a secret armory room.";
-        private const string String12B4 = "In exchange, you must sacrifice the bone and your Fellowship!";
-        private const string String12F2 = "This Guild armor and experience will help you on your journey.";
-        private const string String1331 = "The room appears to have been looted.";
-        private const string String1357 = "Here's a replacement for your lost armor.";
-        private const string String1381 = "Your Skeleton Key unlocks the door.";
-        private const string String13A5 = "The door is locked. Someone has painted a skull and crossed arm bones on the door.";
-        
-        // === Functions ================================================
-        private void FnWIZARD_01(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: // make space for tmp on stack: sp -= 2
-            L0005: dx = GetFlag(player, 0x02, 0x45) + GetFlag(player, 0x02, 0x47);
-            L002B: tmp = dx;
-            L002E: Compare(GetGuild(player), 0x0005);
-            L0038: if (JumpEqual) goto L003D;
-            L003A: goto L00C1;
-            L003D: XCall Fn1654
-            L0048: cx = PopStack(player);
-            L0049: cx = PopStack(player);
-            L004A: Compare(tmp, 0x0001);
-            L0050: if (JumpEqual) goto L005E;
-            L0052: Compare(ax, 0x0002);
-            L0055: if (JumpEqual) goto L0078;
-            L0057: Compare(ax, 0x0003);
-            L005A: if (JumpEqual) goto L00B2;
-            L005C: goto L00CE;
-            L005E: XCall Fn168B
-            L0069: cx = PopStack(player);
-            L006A: cx = PopStack(player);
-            L006B: PushStack(player, 0x7C);
-0077  006F C4 5E 06  les bx, [bp+0x6]
-007A  0072 26 FF 5F 48  call far word [es:bx+0x48]
-            L0076: goto L00CD;
-            L0078: ax = HasItem(player, 0x7C);
-            L0086: if (JumpEqual) goto L0097;
-            L0088: XCall Fn16C3
-            L0093: cx = PopStack(player);
-            L0094: cx = PopStack(player);
-            L0095: goto L00CE;
-            L0097: GiveItem(player, 0x7C);
-            L00A3: XCall Fn16D5
-            L00AE: cx = PopStack(player);
-            L00AF: cx = PopStack(player);
-            L00B0: goto L00CE;
-            L00B2: XCall Fn16C3
-            L00BD: cx = PopStack(player);
-            L00BE: cx = PopStack(player);
-            L00BF: goto L00CE;
-            L00C1: ShowMessage(player, String03FC); // Only Wizards gain their reward here.
-            L00CE: // restore stack ptr: sp = bp;
-            L00D0: return; // RETURN;
+        protected override void FnEvent02(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            short flags;
+            flags = GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM);
+             + GET_FLAG(player, type, doMsgs, DUNGEON, JACKET);
+            if (GUILD() == CLERIC) {
+                FoundRoom(player, type, doMsgs);
+                switch (flags) {
+                    case 1:
+                        GiveExp(player, type, doMsgs);
+                        GIVE_ITEM(player, type, doMsgs, CLERICSCHAINMAIL);
+                        break;
+                    case 2:
+                        if (HAS_ITEM(player, type, doMsgs, CLERICSCHAINMAIL)) {
+                            EmptyRoom(player, type, doMsgs);
+                        }
+                        else {
+                            GIVE_ITEM(player, type, doMsgs, CLERICSCHAINMAIL);
+                            ArmReplace(player, type, doMsgs);
+                        }
+                        break;
+                    case 3:
+                        EmptyRoom(player, type, doMsgs);
+                        break;
+                }
+            }
+            else {
+                SHOW_TEXT(player, type, doMsgs, "Only Clerics gain their reward here.");
+            }
         }
-
-        private void FnCLERIC_02(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: // make space for tmp on stack: sp -= 2
-            L0005: dx = GetFlag(player, 0x02, 0x45) + GetFlag(player, 0x02, 0x47);
-            L002B: tmp = dx;
-            L002E: Compare(GetGuild(player), 0x0004);
-            L0038: if (JumpEqual) goto L003D;
-            L003A: goto L00C1;
-            L003D: XCall Fn1582
-            L0048: cx = PopStack(player);
-            L0049: cx = PopStack(player);
-            L004A: Compare(tmp, 0x0001);
-            L0050: if (JumpEqual) goto L005E;
-            L0052: Compare(ax, 0x0002);
-            L0055: if (JumpEqual) goto L0078;
-            L0057: Compare(ax, 0x0003);
-            L005A: if (JumpEqual) goto L00B2;
-            L005C: goto L00CE;
-            L005E: XCall Fn15B9
-            L0069: cx = PopStack(player);
-            L006A: cx = PopStack(player);
-            L006B: PushStack(player, 0x7B);
-0149  006F C4 5E 06  les bx, [bp+0x6]
-014C  0072 26 FF 5F 48  call far word [es:bx+0x48]
-            L0076: goto L00CD;
-            L0078: ax = HasItem(player, 0x7B);
-            L0086: if (JumpEqual) goto L0097;
-            L0088: XCall Fn15F1
-            L0093: cx = PopStack(player);
-            L0094: cx = PopStack(player);
-            L0095: goto L00CE;
-            L0097: GiveItem(player, 0x7B);
-            L00A3: XCall Fn1603
-            L00AE: cx = PopStack(player);
-            L00AF: cx = PopStack(player);
-            L00B0: goto L00CE;
-            L00B2: XCall Fn15F1
-            L00BD: cx = PopStack(player);
-            L00BE: cx = PopStack(player);
-            L00BF: goto L00CE;
-            L00C1: ShowMessage(player, String0421); // Only Clerics gain their reward here.
-            L00CE: // restore stack ptr: sp = bp;
-            L00D0: return; // RETURN;
+        protected override void FnEvent03(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            TELEPORT(player, type, doMsgs, 4, 3, 201, NORTH);
         }
-
-        private void FnTELEA_03(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x04, 0x03, 0xC9, 0x03, isForwardMove);
-            L001E: return; // RETURN;
+        protected override void FnEvent04(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            NO_HEAL_ZONE();
+            if (!GET_FLAG(player, type, doMsgs, ROOM, SHIELD_ZAP)) {
+                if (GET_FLAG(player, type, doMsgs, PARTY, ARMORY_ZAP_ONE) == 1) {
+                    SHOW_TEXT(player, type, doMsgs, "The trap is disarmed.");
+                }
+                else {
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 2);
+                    SHOW_TEXT(player, type, doMsgs, "A trap unleashes a shower of arrows at you.");
+                    SET_FLAG(player, type, doMsgs, ROOM, SHIELD_ZAP, 1);
+                }
+            }
         }
-
-        private void FnAZAP_04(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: SetNoHealZone(player);
-            L000B: PushStack(player, 0x04);
-            L000F: PushStack(player, 0x00);
-01DE  0012 C4 5E 06  les bx, [bp+0x6]
-01E1  0015 26 FF 5F 04  call far word [es:bx+0x4]
-            L0019: cx = PopStack(player);
-            L001A: cx = PopStack(player);
-            L001B: RefreshCompareFlags(ax);
-            L001D: if (JumpNotEqual) goto L007C;
-            L001F: Compare(GetFlag(player, 0x03, 0x02), 0x0001);
-            L0033: if (JumpNotEqual) goto L0044;
-            L0035: ShowMessage(player, String0446); // The trap is disarmed.
-            L0042: goto L007C;
-            L0044: ax = GetMaxHits(player);
-            L004B: bx = 0x0002;
-            L004E: dx = ax % bx; ax = ax / bx;
-            L0051: DamagePlayer(player, ax);
-            L005B: ShowMessage(player, String045C); // A trap unleashes a shower of arrows at you.
-            L0068: SetFlag(player, 0x00, 0x04, 0x01);
-            L007C: return; // RETURN;
+        protected override void FnEvent05(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            short flags;
+            flags = GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM);
+             + GET_FLAG(player, type, doMsgs, DUNGEON, JACKET);
+            if (GUILD() == THIEF) {
+                FoundRoom(player, type, doMsgs);
+                switch (flags) {
+                    case 1:
+                        GiveExp(player, type, doMsgs);
+                        GIVE_ITEM(player, type, doMsgs, THIEFSJACKET);
+                        break;
+                    case 2:
+                        if (HAS_ITEM(player, type, doMsgs, THIEFSJACKET)) {
+                            EmptyRoom(player, type, doMsgs);
+                        }
+                        else {
+                            GIVE_ITEM(player, type, doMsgs, THIEFSJACKET);
+                            ArmReplace(player, type, doMsgs);
+                        }
+                        break;
+                    case 3:
+                        EmptyRoom(player, type, doMsgs);
+                        break;
+                }
+            }
+            else {
+                SHOW_TEXT(player, type, doMsgs, "Only Thieves gain their reward here.");
+            }
         }
-
-        private void FnTHIEF_05(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: // make space for tmp on stack: sp -= 2
-            L0005: dx = GetFlag(player, 0x02, 0x45) + GetFlag(player, 0x02, 0x47);
-            L002B: tmp = dx;
-            L002E: Compare(GetGuild(player), 0x0003);
-            L0038: if (JumpEqual) goto L003D;
-            L003A: goto L00C1;
-            L003D: XCall Fn1412
-            L0048: cx = PopStack(player);
-            L0049: cx = PopStack(player);
-            L004A: Compare(tmp, 0x0001);
-            L0050: if (JumpEqual) goto L005E;
-            L0052: Compare(ax, 0x0002);
-            L0055: if (JumpEqual) goto L0078;
-            L0057: Compare(ax, 0x0003);
-            L005A: if (JumpEqual) goto L00B2;
-            L005C: goto L00CE;
-            L005E: XCall Fn1449
-            L0069: cx = PopStack(player);
-            L006A: cx = PopStack(player);
-            L006B: PushStack(player, 0x7A);
-02B9  006F C4 5E 06  les bx, [bp+0x6]
-02BC  0072 26 FF 5F 48  call far word [es:bx+0x48]
-            L0076: goto L00CD;
-            L0078: ax = HasItem(player, 0x7A);
-            L0086: if (JumpEqual) goto L0097;
-            L0088: XCall Fn1481
-            L0093: cx = PopStack(player);
-            L0094: cx = PopStack(player);
-            L0095: goto L00CE;
-            L0097: GiveItem(player, 0x7A);
-            L00A3: XCall Fn1493
-            L00AE: cx = PopStack(player);
-            L00AF: cx = PopStack(player);
-            L00B0: goto L00CE;
-            L00B2: XCall Fn1481
-            L00BD: cx = PopStack(player);
-            L00BE: cx = PopStack(player);
-            L00BF: goto L00CE;
-            L00C1: ShowMessage(player, String0488); // Only Thieves gain their reward here.
-            L00CE: // restore stack ptr: sp = bp;
-            L00D0: return; // RETURN;
+        protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_TEXT(player, type, doMsgs, "A message on the wall - 'One of your party members must stay in the Armory until light is shed on your purpose. He who remains must at least lead once upon your return. Then, you may alter your formation.'");
         }
-
-        private void FnCLUEA_06(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String04AD); // A message on the wall - 'One of your party members must stay in the Armory until light is shed on your purpose. He who remains must at least lead once upon your return. Then, you may alter your formation.'
-            L0010: return; // RETURN;
+        protected override void FnEvent07(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_TEXT(player, type, doMsgs, "Do not proceed north unless you have disarmed the traps.");
         }
-
-        private void FnTEXTA_07(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String057B); // Do not proceed north unless you have disarmed the traps.
-            L0010: return; // RETURN;
+        protected override void FnEvent08(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
+            if (GET_FLAG(player, type, doMsgs, DUNGEON, GRIMOIRE) == 1) {
+                SHOW_TEXT(player, type, doMsgs, "The waters of Grimoire Fountain have no affect.");
+            }
+            else {
+                if (GUILD() == KNIGHT) {
+                    SET_FLAG(player, type, doMsgs, DUNGEON, GRIMOIRE, 1);
+                    GIVE_SPELL(player, type, doMsgs, HEAL_SPELL, 1);
+                    SHOW_TEXT(player, type, doMsgs, "The magical waters of Grimoire Fountain enlighten you in the art of healing.");
+                }
+                else if (GUILD() == THIEF) {
+                    SET_FLAG(player, type, doMsgs, DUNGEON, GRIMOIRE, 1);
+                    GIVE_SPELL(player, type, doMsgs, HAIL_SPELL, 1);
+                    SHOW_TEXT(player, type, doMsgs, "The magical waters of Grimoire Fountain turn cold as you acquire the Hail spell.");
+                }
+                else if (GUILD() == WIZARD) {
+                    SET_FLAG(player, type, doMsgs, DUNGEON, GRIMOIRE, 1);
+                    GIVE_SPELL(player, type, doMsgs, AURA_SPELL, 1);
+                    SHOW_TEXT(player, type, doMsgs, "The magical waters of Grimoire Fountain envelop you in a mystic aura which whispers its secrets in your ear.");
+                }
+                else {
+                    SET_FLAG(player, type, doMsgs, DUNGEON, GRIMOIRE, 1);
+                    GIVE_SPELL(player, type, doMsgs, SHROUD_OF_LIGHT_SPELL, 1);
+                    SHOW_TEXT(player, type, doMsgs, "The magical waters of Grimoire Fountain envelop you in a shroud of light.");
+                }
+            }
         }
-
-        private void FnFTN_08(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowPortrait(player, 0x0042);
-            L0010: Compare(GetFlag(player, 0x02, 0x63), 0x0001);
-            L0024: if (JumpNotEqual) goto L002C;
-0366  0026 B8 B4 05  mov ax, 0x5b4
-            L0029: goto L00FB;
-            L002C: Compare(GetGuild(player), 0x0001);
-            L0036: if (JumpNotEqual) goto L0064;
-            L0038: SetFlag(player, 0x02, 0x63, 0x01);
-            L004D: SetSpellLevel(player, 0x14, 0x01);
-039E  005E B8 E4 05  mov ax, 0x5e4
-            L0061: goto L00FB;
-            L0064: Compare(GetGuild(player), 0x0003);
-            L006E: if (JumpNotEqual) goto L009B;
-            L0070: SetFlag(player, 0x02, 0x63, 0x01);
-            L0085: SetSpellLevel(player, 0x07, 0x01);
-03D6  0096 B8 31 06  mov ax, 0x631
-            L0099: goto L00FB;
-            L009B: Compare(GetGuild(player), 0x0005);
-            L00A5: if (JumpNotEqual) goto L00D2;
-            L00A7: SetFlag(player, 0x02, 0x63, 0x01);
-            L00BC: SetSpellLevel(player, 0x0C, 0x01);
-040D  00CD B8 82 06  mov ax, 0x682
-            L00D0: goto L00FB;
-            L00D2: SetFlag(player, 0x02, 0x63, 0x01);
-            L00E7: SetSpellLevel(player, 0x0D, 0x01);
-            L00F8: ShowMessage(player, String06EF); // The magical waters of Grimoire Fountain envelop you in a shroud of light.
-            L0105: return; // RETURN;
+        protected override void FnEvent09(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            if (GET_FLAG(player, type, doMsgs, PARTY, ARMORY_ZAP_ONE) == 1) {
+                WallClear(player, type, doMsgs);
+                SHOW_TEXT(player, type, doMsgs, "The door swings open.");
+            }
+            else {
+                SHOW_TEXT(player, type, doMsgs, "The door to the south is locked.");
+                WallBlock(player, type, doMsgs);
+            }
         }
-
-        private void FnITEMADR_09(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, 0x03, 0x02), 0x0001);
-            L0017: if (JumpNotEqual) goto L0035;
-            L0019: XCall Fn12BD
-            L0024: cx = PopStack(player);
-            L0025: cx = PopStack(player);
-            L0026: ShowMessage(player, String0739); // The door swings open.
-            L0033: goto L004F;
-            L0035: ShowMessage(player, String074F); // The door to the south is locked.
-            L0042: XCall Fn12FE
-            L004D: cx = PopStack(player);
-            L004E: cx = PopStack(player);
-            L004F: return; // RETURN;
+        protected override void FnEvent0A(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            TELEPORT(player, type, doMsgs, 4, 3, 113, EAST);
         }
-
-        private void FnTELEC_0A(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x04, 0x03, 0x71, 0x02, isForwardMove);
-            L001E: return; // RETURN;
+        protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
+            HEAL(player, type, doMsgs, MAX_HEALTH());
+            SHOW_TEXT(player, type, doMsgs, "The piercing waters of Saber Fountain restore you to full health.");
         }
-
-        private void FnFTNA_0B(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowPortrait(player, 0x0042);
-            L0010: HealPlayer(player, GetMaxHits(player));
-            L0021: ShowMessage(player, String0770); // The piercing waters of Saber Fountain restore you to full health.
-            L002E: return; // RETURN;
+        protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_TEXT(player, type, doMsgs, "Debris litters the floor, a result of the prodding and poking of the walls by adventurers searching for secret doors.");
         }
-
-        private void FnCLUEB_0C(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String07B2); // Debris litters the floor, a result of the prodding and poking of the walls by adventurers searching for secret doors.
-            L0010: return; // RETURN;
+        protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            TELEPORT(player, type, doMsgs, 4, 3, 245, WEST);
         }
-
-        private void FnTELED_0E(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x04, 0x03, 0xF5, 0x00, isForwardMove);
-            L001D: return; // RETURN;
-        }
-
-        private void FnSECA_10(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: // make space for tmp on stack: sp -= 2
-            L0005: Compare(HasUsedSkill(player, 0x0D), 0x0005);
-            L0014: if (JumpNotBelow) goto L006E;
-            L0016: RefreshCompareFlags(HasUsedSpell(player, 0x17));
-            L0024: if (JumpNotEqual) goto L006E;
-            L0026: PushStack(player, 0x68);
-            L002A: PushStack(player, ax);
-054E  002B C4 5E 06  les bx, [bp+0x6]
-0551  002E 26 FF 5F 54  call far word [es:bx+0x54]
-            L0032: cx = PopStack(player);
-            L0033: cx = PopStack(player);
-            L0034: RefreshCompareFlags(ax);
-            L0036: if (JumpNotEqual) goto L006E;
-            L0038: PushStack(player, 0x6E);
-            L003C: PushStack(player, ax);
-0560  003D C4 5E 06  les bx, [bp+0x6]
-0563  0040 26 FF 5F 54  call far word [es:bx+0x54]
-            L0044: cx = PopStack(player);
-            L0045: cx = PopStack(player);
-            L0046: RefreshCompareFlags(ax);
-            L0048: if (JumpNotEqual) goto L006E;
-            L004A: PushStack(player, 0x90);
-            L004E: PushStack(player, ax);
-0572  004F C4 5E 06  les bx, [bp+0x6]
-0575  0052 26 FF 5F 54  call far word [es:bx+0x54]
-            L0056: cx = PopStack(player);
-            L0057: cx = PopStack(player);
-            L0058: RefreshCompareFlags(ax);
-            L005A: if (JumpNotEqual) goto L006E;
-            L005C: PushStack(player, 0xA4);
-            L0060: PushStack(player, ax);
-0584  0061 C4 5E 06  les bx, [bp+0x6]
-0587  0064 26 FF 5F 54  call far word [es:bx+0x54]
-            L0068: cx = PopStack(player);
-            L0069: cx = PopStack(player);
-            L006A: RefreshCompareFlags(ax);
-            L006C: if (JumpEqual) goto L00AF;
-            L006E: ax = GetCurrentTile(player);
-0598  0075 89 46 FE  mov [bp-0x2], ax
-059B  0078 B9 04 00  mov cx, 0x4
-            L007B: bx = 0x05E3;
-05A1  007E 2E 8B 07  mov ax, [cs:bx]
-05A4  0081 3B 46 FE  cmp ax, [bp-0x2]
-            L0084: if (JumpEqual) goto L008C;
-05A9  0086 43     inc bx
-05AA  0087 43     inc bx
-05AB  0088 E2 F4  loop 0x7e
-            L008A: goto L00AA;
-05AF  008C 2E FF 67 08  jmp word [cs:bx+0x8]
-            L0090: ShowMessage(player, String0828); // A hidden door appears.
-            L009D: XCall Fn11E1
-            L00A8: goto L00BA;
-05CD  00AA B8 3F 08  mov ax, 0x83f
-            L00AD: goto L0093;
-            L00AF: XCall Fn1222
-            L00BA: cx = PopStack(player);
-            L00BB: cx = PopStack(player);
-            L00BC: // restore stack ptr: sp = bp;
-            L00BE: return; // RETURN;
-            // Extra data: 36 00 4D 00 57 00 E2 00 B3 05 B3 05 B3 05 B3 05 
-        }
-
-        private void FnTELEF_13(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x04, 0x03, 0xC7, 0x01, isForwardMove);
-            L001E: return; // RETURN;
-        }
-
-        private void FnMANADOWN_14(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: AddMana(player, 0xFF38);
-            L0010: ShowMessage(player, String0859); // Miasmal gases seep up through the floor, sapping your mana.
-            L001D: return; // RETURN;
-        }
-
-        private void FnITEMA_15(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: SetFlag(player, 0x03, 0x02, 0x01);
-            L0018: ShowMessage(player, String0895); // You bump into a shield in the center of the room.
-            L0025: ShowMessage(player, String08C7); // It falls and hits a switch which unlocks a door and disarms traps.
-            L0032: return; // RETURN;
-        }
-
-        private void FnKEY_16(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, 0x02, 0x45), 0x0001);
-            L0017: if (JumpNotEqual) goto L0026;
-            L0019: ShowMessage(player, String090A); // The armorer has taken your key and forged you another. It can be found from whence the original came. This key will enable you to access new doors.
-            L0026: return; // RETURN;
-        }
-
-        private void FnFELLOW_17(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: PushStack(player, 0xD8);
-            L0007: PushStack(player, ax);
-06A0  0008 C4 5E 06  les bx, [bp+0x6]
-06A3  000B 26 FF 5F 54  call far word [es:bx+0x54]
-            L000F: cx = PopStack(player);
-            L0010: cx = PopStack(player);
-            L0011: RefreshCompareFlags(ax);
-            L0013: if (JumpEqual) goto L0027;
-            L0015: XCall Fn106C
-            L0020: cx = PopStack(player);
-            L0021: cx = PopStack(player);
-06BA  0022 B8 9E 09  mov ax, 0x99e
-            L0025: goto L0037;
-            L0027: XCall Fn10AD
-            L0032: cx = PopStack(player);
-            L0033: cx = PopStack(player);
-            L0034: ShowMessage(player, String09C3); // The door is locked. On the door is a plaque, showing two arms clasped in friendship.
-            L0041: return; // RETURN;
-        }
-
-        private void FnBZAP_1A(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0x67);
-            L0011: if (JumpEqual) goto L0018;
-06F8  0013 B8 18 0A  mov ax, 0xa18
-            L0016: goto L004A;
-            L0018: ax = GetMaxHits(player);
-            L001F: bx = 0x0002;
-            L0022: dx = ax % bx; ax = ax / bx;
-            L0025: PushStack(player, ax);
-            L0026: PushStack(player, 0x05);
-            L002A: PushStack(player, 0x01);
-0713  002E C4 5E 06  les bx, [bp+0x6]
-0716  0031 26 FF 9F 9C 00  call far word [es:bx+0x9c]
-071B  0036 83 C4 06  add sp, 0x6
-071E  0039 C4 5E 06  les bx, [bp+0x6]
-0721  003C 26 FF 5F 3C  call far word [es:bx+0x3c]
-0725  0040 C4 5E 06  les bx, [bp+0x6]
-0728  0043 26 FF 5F 40  call far word [es:bx+0x40]
-            L0047: ShowMessage(player, String0A49); // Your helm is no protection from the poisonous darts that hit you.
-            L0054: return; // RETURN;
-        }
-
-        private void FnHEALDOWN_1C(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: PushStack(player, 0x04);
-            L0007: PushStack(player, 0x00);
-074A  000A C4 5E 06  les bx, [bp+0x6]
-074D  000D 26 FF 5F 04  call far word [es:bx+0x4]
-            L0011: cx = PopStack(player);
-            L0012: cx = PopStack(player);
-            L0013: RefreshCompareFlags(ax);
-            L0015: if (JumpNotEqual) goto L004F;
-            L0017: ax = GetMaxHits(player);
-            L001E: bx = 0x000A;
-            L0021: dx = ax % bx; ax = ax / bx;
-            L0024: DamagePlayer(player, ax);
-            L002E: ShowMessage(player, String0A8B); // A loose shield that is mounted on the wall falls and smacks you on the head.
-            L003B: SetFlag(player, 0x00, 0x04, 0x01);
-            L004F: return; // RETURN;
-        }
-
-        private void FnITEMC_1D(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: PushStack(player, 0x01);
-            L0007: PushStack(player, 0x03);
-            L000B: PushStack(player, ax);
-079D  000C C4 5E 06  les bx, [bp+0x6]
-07A0  000F 26 FF 1F  call far word [es:bx]
-07A3  0012 83 C4 06  add sp, 0x6
-            L0015: ShowMessage(player, String0AD8); // Your foot brushes a stick, which you see is actually a wand.
-            L0022: ShowMessage(player, String0B15); // As it begins to glow, you hear the unlocking of a door.
-            L002F: return; // RETURN;
-        }
-
-        private void FnTELEG_1F(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x04, 0x03, 0xC8, 0x02, isForwardMove);
-            L001E: return; // RETURN;
-        }
-
-        private void FnWIZDOOR_22(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(GetGuild(player), 0x0005);
-            L000D: if (JumpNotEqual) goto L001C;
-            L000F: XCall Fn0F76
-            L001A: cx = PopStack(player);
-            L001B: cx = PopStack(player);
-            L001C: return; // RETURN;
-        }
-
-        private void FnWIZTELE_23(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x04, 0x03, 0x10, 0x02, isForwardMove);
-            L001E: return; // RETURN;
-        }
-
-        private void FnFTNB_25(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowPortrait(player, 0x0042);
-            L0010: Compare(GetFlag(player, 0x02, 0x46), 0x0001);
-            L0024: if (JumpNotEqual) goto L0038;
-            L0026: AddMana(player, 0x2710);
-0867  0033 B8 4D 0B  mov ax, 0xb4d
-            L0036: goto L0090;
-            L0038: SetFlag(player, 0x02, 0x46, 0x01);
-            L004D: AddMana(player, 0x2710);
-            L005A: Compare(GetGuild(player), 0x0003);
-            L0064: if (JumpNotEqual) goto L007C;
-            L0066: SetSpellLevel(player, 0x15, 0x01);
-08AB  0077 B8 89 0B  mov ax, 0xb89
-            L007A: goto L0090;
-            L007C: SetSpellLevel(player, 0x0F, 0x01);
-            L008D: ShowMessage(player, String0BEB); // The silvery waters of Trident Fountain replenish your mana and empower you with the Shield spell.
-            L009A: return; // RETURN;
-        }
-
-        private void FnCLEDR_26(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(GetGuild(player), 0x0004);
-            L000D: if (JumpNotEqual) goto L001C;
-            L000F: XCall Fn0E97
-            L001A: cx = PopStack(player);
-            L001B: cx = PopStack(player);
-            L001C: return; // RETURN;
-        }
-
-        private void FnCLETELE_27(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x04, 0x03, 0x18, 0x00, isForwardMove);
-            L001D: return; // RETURN;
-        }
-
-        private void FnITEMCDR_28(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: PushStack(player, 0x03);
-            L0007: PushStack(player, ax);
-0915  0008 C4 5E 06  les bx, [bp+0x6]
-0918  000B 26 FF 5F 04  call far word [es:bx+0x4]
-            L000F: cx = PopStack(player);
-            L0010: cx = PopStack(player);
-            L0011: Compare(ax, 0x0001);
-            L0014: if (JumpNotEqual) goto L003F;
-            L0016: XCall Fn0DF7
-            L0021: cx = PopStack(player);
-            L0022: cx = PopStack(player);
-            L0023: ShowMessage(player, String0C4D); // The door is open.
-            L0030: ShowMessage(player, String0C5F); // The magic wand sign on the door has been zapped.
-            L003D: goto L0073;
-            L003F: ShowMessage(player, String0C90); // The door is locked.
-            L004C: ShowMessage(player, String0CA4); // Upon the door is the sign of a magic wand. If the wand is zapped, the door will open.
-            L0059: ShowMessage(player, String0CFA); // Someone has scrawled under the sign - 'When the wand is zapped, stay in the area until you open the door.'
-            L0066: XCall Fn0E38
-            L0071: cx = PopStack(player);
-            L0072: cx = PopStack(player);
-            L0073: return; // RETURN;
-        }
-
-        private void FnITEMBDR_29(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ax = HasItem(player, 0x67);
-            L0011: if (JumpEqual) goto L0025;
-            L0013: XCall Fn0D82
-            L001E: cx = PopStack(player);
-            L001F: cx = PopStack(player);
-09A2  0020 B8 65 0D  mov ax, 0xd65
-            L0023: goto L005C;
-            L0025: XCall Fn0DC3
-            L0030: cx = PopStack(player);
-            L0031: cx = PopStack(player);
-            L0032: ShowPortrait(player, 0x0016);
-            L003F: ShowMessage(player, String0D9D); // You see a guard at the door wiping tiny spiders from his helmet:
-            L004C: ShowMessage(player, String0DDE); // 'My hat's off to you,' he says, barking a shrill laugh.
-            L0059: ShowMessage(player, String0E16); // 'The right helm lets you pass. The wrong helm won't.'
-            L0066: return; // RETURN;
-        }
-
-        private void FnTHDR_2A(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(GetGuild(player), 0x0003);
-            L000D: if (JumpNotEqual) goto L001C;
-            L000F: XCall Fn0D7D
-            L001A: cx = PopStack(player);
-            L001B: cx = PopStack(player);
-            L001C: return; // RETURN;
-        }
-
-        private void FnTHTELE_2B(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x04, 0x03, 0x1E, 0x03, isForwardMove);
-            L001E: return; // RETURN;
-        }
-
-        private void FnTELEH_2C(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x04, 0x01, 0x3A, 0x01, isForwardMove);
-            L001E: return; // RETURN;
-        }
-
-        private void FnLOCK_2D(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: PushStack(player, 0xC0);
-            L0007: PushStack(player, ax);
-0A50  0008 C4 5E 06  les bx, [bp+0x6]
-0A53  000B 26 FF 5F 54  call far word [es:bx+0x54]
-            L000F: cx = PopStack(player);
-            L0010: cx = PopStack(player);
-            L0011: RefreshCompareFlags(ax);
-            L0013: if (JumpNotEqual) goto L0038;
-            L0015: PushStack(player, 0x6F);
-            L0019: PushStack(player, ax);
-0A62  001A C4 5E 06  les bx, [bp+0x6]
-0A65  001D 26 FF 5F 54  call far word [es:bx+0x54]
-            L0021: cx = PopStack(player);
-            L0022: cx = PopStack(player);
-            L0023: RefreshCompareFlags(ax);
-            L0025: if (JumpNotEqual) goto L0038;
-            L0027: Compare(HasUsedSkill(player, 0x0E), 0x0006);
-            L0036: if (JumpBelow) goto L0054;
-            L0038: ShowMessage(player, String0E4C); // You skillfully unlock the door.
-            L0045: XCall Fn0CBC
-            L0050: cx = PopStack(player);
-            L0051: cx = PopStack(player);
-            L0052: goto L006E;
-            L0054: XCall Fn0CFD
-            L005F: cx = PopStack(player);
-            L0060: cx = PopStack(player);
-            L0061: ShowMessage(player, String0C90); // The door is locked.
-            L006E: return; // RETURN;
-        }
-
-        private void FnSTRENGTH_2E(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetGuild(player));
-            L000C: if (JumpEqual) goto L001A;
-            L000E: Compare(GetGuild(player), 0x0001);
-            L0018: if (JumpNotEqual) goto L003F;
-            L001A: Compare(CheckStrength(player), 0x0018);
-            L0029: if (JumpBelow) goto L003D;
-            L002B: XCall Fn0C4C
-            L0036: cx = PopStack(player);
-            L0037: cx = PopStack(player);
-0AF0  0038 B8 6C 0E  mov ax, 0xe6c
-            L003B: goto L009F;
-            L003D: goto L006A;
-            L003F: Compare(GetGuild(player), 0x0004);
-            L0049: if (JumpEqual) goto L0057;
-            L004B: Compare(GetGuild(player), 0x0002);
-            L0055: if (JumpNotEqual) goto L007C;
-            L0057: Compare(CheckStrength(player), 0x0014);
-            L0066: if (JumpBelow) goto L006A;
-            L0068: goto L002B;
-            L006A: XCall Fn0C8D
-            L0075: cx = PopStack(player);
-            L0076: cx = PopStack(player);
-0B2F  0077 B8 AA 0E  mov ax, 0xeaa
-            L007A: goto L009F;
-            L007C: Compare(CheckStrength(player), 0x000F);
-            L008B: if (JumpBelow) goto L008F;
-            L008D: goto L002B;
-            L008F: XCall Fn0C8D
-            L009A: cx = PopStack(player);
-            L009B: cx = PopStack(player);
-            L009C: ShowMessage(player, String0ED6); // You cannot find the strength to push open the door.
-            L00A9: return; // RETURN;
-        }
-
-        private void FnCLUEE_2F(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowPortrait(player, 0x001C);
-            L0010: ShowMessage(player, String0F0A); // A knight mumbles to himself -
-            L001D: ShowMessage(player, String0F28); // 'Confusing li'l thief. He's obviously been in the lower depths of this bizarre Night Elf kingdom.'
-            L002A: ShowMessage(player, String0F8B); // The knight notices you and turns to you.
-            L0037: ShowMessage(player, String0FB4); // 'The dralks...or some such thing, they are what these Elves worship.'
-            L0044: return; // RETURN;
-        }
-
-        private void FnRADR_30(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(GetGuild(player), 0x0002);
-            L000D: if (JumpNotEqual) goto L001C;
-            L000F: XCall Fn0BBE
-            L001A: cx = PopStack(player);
-            L001B: cx = PopStack(player);
-            L001C: return; // RETURN;
-        }
-
-        private void FnRATELE_31(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x04, 0x03, 0xE1, 0x01, isForwardMove);
-            L001E: return; // RETURN;
-        }
-
-        private void FnTELEI_32(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String0FFA); // To The Vault.
-            L0010: TeleportParty(player, 0x05, 0x01, 0x46, 0x02, isForwardMove);
-            L002B: return; // RETURN;
-        }
-
-        private void FnKNDR_33(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(GetGuild(player), 0x0001);
-            L000D: if (JumpNotEqual) goto L001C;
-            L000F: XCall Fn0B53
-            L001A: cx = PopStack(player);
-            L001B: cx = PopStack(player);
-            L001C: return; // RETURN;
-        }
-
-        private void FnKNTELE_34(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x04, 0x03, 0xF8, 0x03, isForwardMove);
-            L001E: return; // RETURN;
-        }
-
-        private void FnITEMD_35(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: SetFlag(player, 0x03, 0x02, 0x00);
-            L0017: PushStack(player, 0x00);
-            L001A: PushStack(player, 0x03);
-            L001E: PushStack(player, ax);
-0C71  001F C4 5E 06  les bx, [bp+0x6]
-0C74  0022 26 FF 1F  call far word [es:bx]
-0C77  0025 83 C4 06  add sp, 0x6
-            L0028: ax = HasItem(player, 0xD1);
-            L0036: if (JumpEqual) goto L0047;
-            L0038: XCall Fn0A79
-            L0043: cx = PopStack(player);
-            L0044: cx = PopStack(player);
-            L0045: goto L0060;
-            L0047: GiveItem(player, 0xD1);
-            L0053: ShowMessage(player, String1008); // A Lantern lies on the floor. It will help during your future explorations. Mark well that it was here when you needed it!
-            L0060: return; // RETURN;
-        }
-
-        private void FnITEMB_36(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowPortrait(player, 0x0028);
-            L0010: ax = HasItem(player, 0x67);
-            L001E: if (JumpEqual) goto L0025;
-0CD4  0020 B8 82 10  mov ax, 0x1082
-            L0023: goto L006D;
-            L0025: GiveItem(player, 0x67);
-            L0031: ModifyGold(player, 0xFFFF78BA);
-            L0043: ShowMessage(player, String10C5); // A Troll Cleric grabs your arm -
-            L0050: ShowMessage(player, String10E5); // 'You will want this helm of protection to safeguard you on your journey.
-            L005D: ShowMessage(player, String112E); // It's sure to impress some of the guards you'll meet in your journeys.
-            L006A: ShowMessage(player, String1174); // No need to thank me. I've taken..er..accepted your generous donation already.'
-            L0077: return; // RETURN;
-        }
-
-        private void FnGOODIEA_37(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String11C3); // A band of Night Elves tries to steal your armor.
-            L0010: ax = HasItem(player, 0x9B);
-            L001E: if (JumpNotEqual) goto L0030;
-            L0020: ax = HasItem(player, 0xA1);
-            L002E: if (JumpEqual) goto L0042;
-0D5D  0030 B8 DC 05  mov ax, 0x5dc
-            L0033: PushStack(player, ax);
-            L0034: PushStack(player, 0x00);
-            L0037: PushStack(player, ax);
-            L0038: PushStack(player, ax);
-            L0039: PushStack(player, 0xB0);
-0D6A  003D B8 B6 00  mov ax, 0xb6
-            L0040: goto L0052;
-0D6F  0042 B8 B8 0B  mov ax, 0xbb8
-            L0045: PushStack(player, ax);
-            L0046: PushStack(player, 0x00);
-            L0049: PushStack(player, ax);
-            L004A: PushStack(player, ax);
-            L004B: PushStack(player, 0xA1);
-            L004F: PushStack(player, 0x9B);
-0D80  0053 C4 5E 06  les bx, [bp+0x6]
-0D83  0056 26 FF 9F D8 00  call far word [es:bx+0xd8]
-0D88  005B 83 C4 0C  add sp, 0xc
-            L005E: Compare(PartyCount(player), 0x0001);
-            L0069: if (JumpNotEqual) goto L0087;
-            L006B: AddEncounter(player, 0x01, 0x03);
-            L007D: PushStack(player, 0x04);
-0DAE  0081 B8 02 00  mov ax, 0x2
-            L0084: goto L011F;
-            L0087: Compare(PartyCount(player), 0x0002);
-            L0092: if (JumpNotEqual) goto L00D0;
-            L0094: AddEncounter(player, 0x01, 0x03);
-            L00A6: AddEncounter(player, 0x02, 0x03);
-            L00B8: AddEncounter(player, 0x03, 0x05);
-            L00CA: PushStack(player, 0x04);
-            L00CE: goto L011F;
-            L00D0: AddEncounter(player, 0x01, 0x03);
-            L00E2: AddEncounter(player, 0x02, 0x03);
-            L00F4: AddEncounter(player, 0x03, 0x05);
-            L0106: AddEncounter(player, 0x05, 0x04);
-            L0118: AddEncounter(player, 0x06, 0x04);
-            L012A: return; // RETURN;
-        }
-
-        private void FnTELEJ_38(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x05, 0x01, 0xEE, 0x00, isForwardMove);
-            L001D: return; // RETURN;
-        }
-
-        private void FnBADOOR_39(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetGuild(player));
-            L000C: if (JumpNotEqual) goto L001B;
-            L000E: XCall Fn08EF
-            L0019: cx = PopStack(player);
-            L001A: cx = PopStack(player);
-            L001B: return; // RETURN;
-        }
-
-        private void FnBATELE_3A(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x04, 0x03, 0xEE, 0x01, isForwardMove);
-            L001E: return; // RETURN;
-        }
-
-        private void FnFELLDOOR_3B(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ShowMessage(player, String11F4); // Fellowship Meeting Hall
-            L0010: return; // RETURN;
-        }
-
-        private void FnKNIGHT_3D(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: // make space for tmp on stack: sp -= 2
-            L0005: dx = GetFlag(player, 0x02, 0x45) + GetFlag(player, 0x02, 0x47);
-            L002B: tmp = dx;
-            L002E: Compare(GetGuild(player), 0x0001);
-            L0038: if (JumpEqual) goto L003D;
-            L003A: goto L00C1;
-            L003D: XCall Fn0790
-            L0048: cx = PopStack(player);
-            L0049: cx = PopStack(player);
-            L004A: Compare(tmp, 0x0001);
-            L0050: if (JumpEqual) goto L005E;
-            L0052: Compare(ax, 0x0002);
-            L0055: if (JumpEqual) goto L0078;
-            L0057: Compare(ax, 0x0003);
-            L005A: if (JumpEqual) goto L00B2;
-            L005C: goto L00CE;
-            L005E: XCall Fn07C7
-            L0069: cx = PopStack(player);
-            L006A: cx = PopStack(player);
-            L006B: PushStack(player, 0x78);
-0F3B  006F C4 5E 06  les bx, [bp+0x6]
-0F3E  0072 26 FF 5F 48  call far word [es:bx+0x48]
-            L0076: goto L00CD;
-            L0078: ax = HasItem(player, 0x78);
-            L0086: if (JumpEqual) goto L0097;
-            L0088: XCall Fn07FF
-            L0093: cx = PopStack(player);
-            L0094: cx = PopStack(player);
-            L0095: goto L00CE;
-            L0097: GiveItem(player, 0x78);
-            L00A3: XCall Fn0811
-            L00AE: cx = PopStack(player);
-            L00AF: cx = PopStack(player);
-            L00B0: goto L00CE;
-            L00B2: XCall Fn07FF
-            L00BD: cx = PopStack(player);
-            L00BE: cx = PopStack(player);
-            L00BF: goto L00CE;
-            L00C1: ShowMessage(player, String120C); // Only Knights gain their reward here.
-            L00CE: // restore stack ptr: sp = bp;
-            L00D0: return; // RETURN;
-        }
-
-        private void FnTELEK_3F(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: TeleportParty(player, 0x04, 0x03, 0xCE, 0x03, isForwardMove);
-            L001E: return; // RETURN;
-        }
-
-        private void FnRANGER_41(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: // make space for tmp on stack: sp -= 2
-            L0005: dx = GetFlag(player, 0x02, 0x45) + GetFlag(player, 0x02, 0x47);
-            L002B: tmp = dx;
-            L002E: Compare(GetGuild(player), 0x0002);
-            L0038: if (JumpEqual) goto L003D;
-            L003A: goto L00C1;
-            L003D: XCall Fn0694
-            L0048: cx = PopStack(player);
-            L0049: cx = PopStack(player);
-            L004A: Compare(tmp, 0x0001);
-            L0050: if (JumpEqual) goto L005E;
-            L0052: Compare(ax, 0x0002);
-            L0055: if (JumpEqual) goto L0078;
-            L0057: Compare(ax, 0x0003);
-            L005A: if (JumpEqual) goto L00B2;
-            L005C: goto L00CE;
-            L005E: XCall Fn06CB
-            L0069: cx = PopStack(player);
-            L006A: cx = PopStack(player);
-            L006B: PushStack(player, 0x79);
-1037  006F C4 5E 06  les bx, [bp+0x6]
-103A  0072 26 FF 5F 48  call far word [es:bx+0x48]
-            L0076: goto L00CD;
-            L0078: ax = HasItem(player, 0x79);
-            L0086: if (JumpEqual) goto L0097;
-            L0088: XCall Fn0703
-            L0093: cx = PopStack(player);
-            L0094: cx = PopStack(player);
-            L0095: goto L00CE;
-            L0097: GiveItem(player, 0x79);
-            L00A3: XCall Fn0715
-            L00AE: cx = PopStack(player);
-            L00AF: cx = PopStack(player);
-            L00B0: goto L00CE;
-            L00B2: XCall Fn0703
-            L00BD: cx = PopStack(player);
-            L00BE: cx = PopStack(player);
-            L00BF: goto L00CE;
-            L00C1: ShowMessage(player, String1231); // Only Rangers gain their reward here.
-            L00CE: // restore stack ptr: sp = bp;
-            L00D0: return; // RETURN;
-        }
-
-        private void FnBARB_43(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: // make space for tmp on stack: sp -= 2
-            L0005: dx = GetFlag(player, 0x02, 0x45) + GetFlag(player, 0x02, 0x47);
-            L002B: tmp = dx;
-            L002E: RefreshCompareFlags(GetGuild(player));
-            L0037: if (JumpEqual) goto L003C;
-            L0039: goto L00C0;
-            L003C: XCall Fn05BD
-            L0047: cx = PopStack(player);
-            L0048: cx = PopStack(player);
-            L0049: Compare(tmp, 0x0001);
-            L004F: if (JumpEqual) goto L005D;
-            L0051: Compare(ax, 0x0002);
-            L0054: if (JumpEqual) goto L0077;
-            L0056: Compare(ax, 0x0003);
-            L0059: if (JumpEqual) goto L00B1;
-            L005B: goto L00CD;
-            L005D: XCall Fn05F4
-            L0068: cx = PopStack(player);
-            L0069: cx = PopStack(player);
-            L006A: PushStack(player, 0x77);
-110D  006E C4 5E 06  les bx, [bp+0x6]
-1110  0071 26 FF 5F 48  call far word [es:bx+0x48]
-            L0075: goto L00CC;
-            L0077: ax = HasItem(player, 0x77);
-            L0085: if (JumpEqual) goto L0096;
-            L0087: XCall Fn062C
-            L0092: cx = PopStack(player);
-            L0093: cx = PopStack(player);
-            L0094: goto L00CD;
-            L0096: GiveItem(player, 0x77);
-            L00A2: XCall Fn063E
-            L00AD: cx = PopStack(player);
-            L00AE: cx = PopStack(player);
-            L00AF: goto L00CD;
-            L00B1: XCall Fn062C
-            L00BC: cx = PopStack(player);
-            L00BD: cx = PopStack(player);
-            L00BE: goto L00CD;
-            L00C0: ShowMessage(player, String1256); // Only Barbarians gain their reward here.
-            L00CD: // restore stack ptr: sp = bp;
-            L00CF: return; // RETURN;
-        }
-
-        private void FnEZA_44(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(PartyCount(player), 0x0001);
-            L000E: if (JumpNotEqual) goto L002C;
-            L0010: AddEncounter(player, 0x01, 0x07);
-            L0022: PushStack(player, 0x07);
-1196  0026 B8 02 00  mov ax, 0x2
-            L0029: goto L00B5;
-            L002C: Compare(PartyCount(player), 0x0002);
-            L0037: if (JumpNotEqual) goto L0066;
-            L0039: AddEncounter(player, 0x01, 0x09);
-            L004B: AddEncounter(player, 0x02, 0x09);
-            L005D: PushStack(player, 0x0B);
-11D1  0061 B8 03 00  mov ax, 0x3
-            L0064: goto L00B5;
-            L0066: AddEncounter(player, 0x01, 0x0A);
-            L0078: AddEncounter(player, 0x02, 0x0A);
-            L008A: AddEncounter(player, 0x03, 0x07);
-            L009C: AddEncounter(player, 0x05, 0x0B);
-            L00AE: AddEncounter(player, 0x06, 0x0B);
-            L00C0: return; // RETURN;
-        }
-
-        private void FnMEDA_45(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(PartyCount(player), 0x0001);
-            L000E: if (JumpNotEqual) goto L002B;
-            L0010: AddEncounter(player, 0x01, 0x1F);
-            L0022: PushStack(player, 0x20);
-1258  0026 B8 02 00  mov ax, 0x2
-            L0029: goto L00A2;
-            L002B: Compare(PartyCount(player), 0x0002);
-            L0036: if (JumpNotEqual) goto L0053;
-            L0038: AddEncounter(player, 0x01, 0x1F);
-            L004A: PushStack(player, 0x20);
-1280  004E B8 02 00  mov ax, 0x2
-            L0051: goto L0090;
-            L0053: AddEncounter(player, 0x01, 0x1F);
-            L0065: AddEncounter(player, 0x02, 0x1F);
-            L0077: AddEncounter(player, 0x03, 0x20);
-            L0089: AddEncounter(player, 0x04, 0x20);
-            L009B: AddEncounter(player, 0x06, 0x21);
-            L00AD: return; // RETURN;
-        }
-
-        private void FnHRDA_46(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(PartyCount(player), 0x0001);
-            L000E: if (JumpNotEqual) goto L0029;
-            L0010: PushStack(player, 0x01);
-            L0014: PushStack(player, ax);
-12F6  0015 C4 5E 06  les bx, [bp+0x6]
-12F9  0018 26 FF 9F D4 00  call far word [es:bx+0xd4]
-            L001D: cx = PopStack(player);
-            L001E: cx = PopStack(player);
-            L001F: PushStack(player, 0x04);
-1304  0023 B8 02 00  mov ax, 0x2
-            L0026: goto L00B2;
-            L0029: Compare(PartyCount(player), 0x0002);
-            L0034: if (JumpNotEqual) goto L0063;
-            L0036: AddEncounter(player, 0x01, 0x24);
-            L0048: AddEncounter(player, 0x02, 0x03);
-            L005A: PushStack(player, 0x27);
-133F  005E B8 06 00  mov ax, 0x6
-            L0061: goto L00B2;
-            L0063: AddEncounter(player, 0x01, 0x24);
-            L0075: AddEncounter(player, 0x02, 0x25);
-            L0087: AddEncounter(player, 0x03, 0x26);
-            L0099: AddEncounter(player, 0x04, 0x27);
-            L00AB: AddEncounter(player, 0x05, 0x28);
-            L00BD: return; // RETURN;
-        }
-
-        private void FnEZB_47(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(PartyCount(player), 0x0001);
-            L000E: if (JumpNotEqual) goto L001A;
-            L0010: PushStack(player, 0x0F);
-13B4  0014 B8 01 00  mov ax, 0x1
-            L0017: goto L00A3;
-            L001A: Compare(PartyCount(player), 0x0002);
-            L0025: if (JumpNotEqual) goto L0054;
-            L0027: AddEncounter(player, 0x01, 0x0C);
-            L0039: AddEncounter(player, 0x02, 0x0C);
-            L004B: PushStack(player, 0x0D);
-13EF  004F B8 03 00  mov ax, 0x3
-            L0052: goto L00A3;
-            L0054: AddEncounter(player, 0x01, 0x0C);
-            L0066: AddEncounter(player, 0x02, 0x0C);
-            L0078: AddEncounter(player, 0x03, 0x0F);
-            L008A: AddEncounter(player, 0x05, 0x0D);
-            L009C: AddEncounter(player, 0x06, 0x0D);
-            L00AE: return; // RETURN;
-        }
-
-        private void FnMEDB_49(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(PartyCount(player), 0x0001);
-            L000E: if (JumpNotEqual) goto L0029;
-            L0010: PushStack(player, 0x01);
-            L0014: PushStack(player, ax);
-146A  0015 C4 5E 06  les bx, [bp+0x6]
-146D  0018 26 FF 9F D4 00  call far word [es:bx+0xd4]
-            L001D: cx = PopStack(player);
-            L001E: cx = PopStack(player);
-            L001F: PushStack(player, 0x06);
-1478  0023 B8 02 00  mov ax, 0x2
-            L0026: goto L00AC;
-            L0029: Compare(PartyCount(player), 0x0002);
-            L0034: if (JumpNotEqual) goto L0060;
-            L0036: PushStack(player, 0x01);
-            L003A: PushStack(player, ax);
-1490  003B C4 5E 06  les bx, [bp+0x6]
-1493  003E 26 FF 9F D4 00  call far word [es:bx+0xd4]
-            L0043: cx = PopStack(player);
-            L0044: cx = PopStack(player);
-            L0045: AddEncounter(player, 0x02, 0x06);
-            L0057: PushStack(player, 0x02);
-14B0  005B B8 05 00  mov ax, 0x5
-            L005E: goto L00AC;
-            L0060: PushStack(player, 0x01);
-            L0064: PushStack(player, ax);
-14BA  0065 C4 5E 06  les bx, [bp+0x6]
-14BD  0068 26 FF 9F D4 00  call far word [es:bx+0xd4]
-            L006D: cx = PopStack(player);
-            L006E: cx = PopStack(player);
-            L006F: AddEncounter(player, 0x02, 0x06);
-            L0081: AddEncounter(player, 0x03, 0x06);
-            L0093: AddEncounter(player, 0x05, 0x03);
-            L00A5: AddEncounter(player, 0x06, 0x04);
-            L00B7: return; // RETURN;
-        }
-
-        private void FnEZC_4A(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(PartyCount(player), 0x0001);
-            L000E: if (JumpNotEqual) goto L001A;
-            L0010: PushStack(player, 0x1D);
-1522  0014 B8 01 00  mov ax, 0x1
-            L0017: goto L009F;
-            L001A: Compare(PartyCount(player), 0x0002);
-            L0025: if (JumpNotEqual) goto L0050;
-            L0027: AddEncounter(player, 0x01, 0x14);
-            L0039: AddEncounter(player, 0x02, 0x14);
-1559  004B B8 15 00  mov ax, 0x15
-            L004E: goto L009B;
-            L0050: AddEncounter(player, 0x01, 0x14);
-            L0062: AddEncounter(player, 0x02, 0x14);
-            L0074: AddEncounter(player, 0x03, 0x18);
-            L0086: AddEncounter(player, 0x04, 0x18);
-            L0098: AddEncounter(player, 0x06, 0x26);
-            L00AA: return; // RETURN;
-        }
-
-        private void FnMEDC_4B(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: Compare(PartyCount(player), 0x0001);
-            L000E: if (JumpNotEqual) goto L0019;
-            L0010: PushStack(player, 0x1C);
-15CE  0014 B8 01 00  mov ax, 0x1
-            L0017: goto L0090;
-            L0019: Compare(PartyCount(player), 0x0002);
-            L0024: if (JumpNotEqual) goto L0041;
-            L0026: AddEncounter(player, 0x01, 0x1C);
-            L0038: PushStack(player, 0x1C);
-15F6  003C B8 02 00  mov ax, 0x2
-            L003F: goto L007E;
-            L0041: AddEncounter(player, 0x01, 0x1C);
-            L0053: AddEncounter(player, 0x02, 0x1C);
-            L0065: AddEncounter(player, 0x04, 0x22);
-            L0077: AddEncounter(player, 0x05, 0x23);
-            L0089: AddEncounter(player, 0x06, 0x23);
-            L009B: return; // RETURN;
-        }
-
-        private void Fn_4C(ServerPlayer player, bool isForwardMove) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: return; // RETURN;
-            // Extra data: 55 8B EC B8 D8 00 50 C4 5E 06 26 FF 5F 4C 59 B8 D0 00 50 C4 5E 06 26 FF 5F 4C 59 B8 7E 12 50 C4 5E 06 26 FF 9F F8 00 59 B8 B4 12 50 C4 5E 06 26 FF 9F F8 00 59 5D CB 55 8B EC 33 C0 BA 50 C3 50 52 C4 5E 06 26 FF 9F 98 00 59 59 B8 01 00 50 B8 45 00 50 B8 02 00 50 C4 5E 06 26 FF 1F 83 C4 06 B8 F2 12 50 C4 5E 06 26 FF 9F F8 00 59 5D CB 55 8B EC B8 31 13 50 C4 5E 06 26 FF 9F F8 00 59 5D CB 55 8B EC B8 57 13 50 C4 5E 06 26 FF 9F F8 00 59 B8 02 00 50 B8 45 00 50 B8 02 00 50 C4 5E 06 26 FF 1F 83 C4 06 5D CB 55 8B EC B8 01 00 50 C4 5E 06 26 FF 5F 24 50 C4 5E 06 26 FF 5F 20 50 C4 5E 06 26 FF 5F 2C 83 C4 06 C4 5E 06 26 FF 5F 24 50 C4 5E 06 26 FF 5F 20 50 B8 01 00 50 C4 5E 06 26 FF 5F 30 83 C4 06 5D CB 55 8B EC 33 C0 50 C4 5E 06 26 FF 5F 24 50 C4 5E 06 26 FF 5F 20 50 C4 5E 06 26 FF 5F 2C 83 C4 06 5D CB 55 8B EC B8 D0 00 50 50 C4 5E 06 26 FF 5F 54 59 59 0B C0 74 41 B8 01 00 50 C4 5E 06 26 FF 5F 24 50 C4 5E 06 26 FF 5F 20 50 C4 5E 06 26 FF 5F 2C 83 C4 06 C4 5E 06 26 FF 5F 24 50 C4 5E 06 26 FF 5F 20 50 B8 01 00 50 C4 5E 06 26 FF 5F 30 83 C4 06 B8 81 13 EB 20 33 C0 50 C4 5E 06 26 FF 5F 24 50 C4 5E 06 26 FF 5F 20 50 C4 5E 06 26 FF 5F 2C 83 C4 06 B8 A5 13 50 C4 5E 06 26 FF 9F F8 00 59 5D CB 
-        }
-
-    }
-}
+        protected override void FnEvent10(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 5 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
+                switch (HERE()) {
+                    case 54:
+                        case 77:
+                            case 87:
+                                case 226:
+                                    SHOW_TEXT(player, type, doMsgs, "A hidden door appears.");
+                                    WallClear(player, type, doMsgs);
+                                    break;
+                                default:
+                                    SHOW_TEXT(player, type, doMsgs, "You detect a secret door.");
+                                    WallClear(player, type, doMsgs);
+                                    break;
+                            }
+                        }
+                        else {
+                            WallBlock(player, type, doMsgs);
+                        }
+                    }
+                    protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        TELEPORT(player, type, doMsgs, 4, 3, 199, SOUTH);
+                    }
+                    protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        MOD_MANA(player, type, doMsgs,  - , 200);
+                        SHOW_TEXT(player, type, doMsgs, "Miasmal gases seep up through the floor, sapping your mana.");
+                    }
+                    protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        SET_FLAG(player, type, doMsgs, PARTY, ARMORY_ZAP_ONE, 1);
+                        SHOW_TEXT(player, type, doMsgs, "You bump into a shield in the center of the room.");
+                        SHOW_TEXT(player, type, doMsgs, "It falls and hits a switch which unlocks a door and disarms traps.");
+                    }
+                    protected override void FnEvent16(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM) == 1) {
+                            SHOW_TEXT(player, type, doMsgs, "The armorer has taken your key and forged you another. It can be found from whence the original came. This key will enable you to access new doors.");
+                        }
+                    }
+                    protected override void FnEvent17(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (USED_ITEM(player, type, doMsgs, FELLOWSHIPKEY, FELLOWSHIPKEY)) {
+                            WallClear(player, type, doMsgs);
+                            SHOW_TEXT(player, type, doMsgs, "The Fellowship Key unlocks the door.");
+                        }
+                        else {
+                            WallBlock(player, type, doMsgs);
+                            SHOW_TEXT(player, type, doMsgs, "The door is locked. On the door is a plaque, showing two arms clasped in friendship.");
+                        }
+                    }
+                    protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (HAS_ITEM(player, type, doMsgs, SPIDERSILKHELM)) {
+                            SHOW_TEXT(player, type, doMsgs, "Your helm protects you from the poisonous darts.");
+                        }
+                        else {
+                            SET_PM(player, type, doMsgs, POISON, 5, MAX_HEALTH(),  / , 2);
+                            NO_SKILL();
+                            NO_SPELL();
+                            SHOW_TEXT(player, type, doMsgs, "Your helm is no protection from the poisonous darts that hit you.");
+                        }
+                    }
+                    protected override void FnEvent1C(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (GET_FLAG(player, type, doMsgs, ROOM, SHIELD_ZAP) == 0) {
+                            DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 10);
+                            SHOW_TEXT(player, type, doMsgs, "A loose shield that is mounted on the wall falls and smacks you on the head.");
+                            SET_FLAG(player, type, doMsgs, ROOM, SHIELD_ZAP, 1);
+                        }
+                    }
+                    protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        SET_FLAG(player, type, doMsgs, PARTY, ARMORY_ZAP_THREE, 1);
+                        SHOW_TEXT(player, type, doMsgs, "Your foot brushes a stick, which you see is actually a wand.");
+                        SHOW_TEXT(player, type, doMsgs, "As it begins to glow, you hear the unlocking of a door.");
+                    }
+                    protected override void FnEvent1F(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        TELEPORT(player, type, doMsgs, 4, 3, 200, EAST);
+                    }
+                    protected override void FnEvent22(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (GUILD() == WIZARD) {
+                            GuildDoor(player, type, doMsgs);
+                        }
+                    }
+                    protected override void FnEvent23(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        TELEPORT(player, type, doMsgs, 4, 3, 16, EAST);
+                    }
+                    protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
+                        if (GET_FLAG(player, type, doMsgs, DUNGEON, TRIDENT) == 1) {
+                            MOD_MANA(player, type, doMsgs, 10000);
+                            SHOW_TEXT(player, type, doMsgs, "The silvery waters of Trident Fountain replenish your mana.");
+                        }
+                        else {
+                            SET_FLAG(player, type, doMsgs, DUNGEON, TRIDENT, 1);
+                            MOD_MANA(player, type, doMsgs, 10000);
+                            if (GUILD() == THIEF) {
+                                GIVE_SPELL(player, type, doMsgs, RESIST_SPELL, 1);
+                                SHOW_TEXT(player, type, doMsgs, "The silvery waters of Trident Fountain replenish your mana and empower you with the Resist spell.");
+                            }
+                            else {
+                                GIVE_SPELL(player, type, doMsgs, SHIELD_SPELL, 1);
+                                SHOW_TEXT(player, type, doMsgs, "The silvery waters of Trident Fountain replenish your mana and empower you with the Shield spell.");
+                            }
+                        }
+                    }
+                    protected override void FnEvent26(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (GUILD() == CLERIC) {
+                            GuildDoor(player, type, doMsgs);
+                        }
+                    }
+                    protected override void FnEvent27(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        TELEPORT(player, type, doMsgs, 4, 3, 24, WEST);
+                    }
+                    protected override void FnEvent28(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (GET_FLAG(player, type, doMsgs, PARTY, ARMORY_ZAP_THREE) == 1) {
+                            WallClear(player, type, doMsgs);
+                            SHOW_TEXT(player, type, doMsgs, "The door is open.");
+                            SHOW_TEXT(player, type, doMsgs, "The magic wand sign on the door has been zapped.");
+                        }
+                        else {
+                            SHOW_TEXT(player, type, doMsgs, "The door is locked.");
+                            SHOW_TEXT(player, type, doMsgs, "Upon the door is the sign of a magic wand. If the wand is zapped, the door will open.");
+                            SHOW_TEXT(player, type, doMsgs, "Someone has scrawled under the sign - 'When the wand is zapped, stay in the area until you open the door.'");
+                            WallBlock(player, type, doMsgs);
+                        }
+                    }
+                    protected override void FnEvent29(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (HAS_ITEM(player, type, doMsgs, SPIDERSILKHELM)) {
+                            WallClear(player, type, doMsgs);
+                            SHOW_TEXT(player, type, doMsgs, "The guard sees your Spidersilk Helm and lets you enter.");
+                        }
+                        else {
+                            WallBlock(player, type, doMsgs);
+                            SHOW_PICTURE(player, type, doMsgs, HUMANBARBARIAN);
+                            SHOW_TEXT(player, type, doMsgs, "You see a guard at the door wiping tiny spiders from his helmet:");
+                            SHOW_TEXT(player, type, doMsgs, "'My hat's off to you,' he says, barking a shrill laugh.");
+                            SHOW_TEXT(player, type, doMsgs, "'The right helm lets you pass. The wrong helm won't.'");
+                        }
+                    }
+                    protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (GUILD() == THIEF) {
+                            GuildDoor(player, type, doMsgs);
+                        }
+                    }
+                    protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        TELEPORT(player, type, doMsgs, 4, 3, 30, NORTH);
+                    }
+                    protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        TELEPORT(player, type, doMsgs, 4, 1, 58, SOUTH);
+                    }
+                    protected override void FnEvent2D(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (USED_ITEM(player, type, doMsgs, BLUELOCKPICK, BLUELOCKPICK) || USED_ITEM(player, type, doMsgs, HELMOFGUILE, HELMOFGUILE) || USED_SKILL(player, type, doMsgs, LOCKPICK_SKILL) >= 6) {
+                            SHOW_TEXT(player, type, doMsgs, "You skillfully unlock the door.");
+                            WallClear(player, type, doMsgs);
+                        }
+                        else {
+                            WallBlock(player, type, doMsgs);
+                            SHOW_TEXT(player, type, doMsgs, "The door is locked.");
+                        }
+                    }
+                    protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (GUILD() == BARBARIAN || GUILD() == KNIGHT) {
+                            if (GET_STAT(player, type, doMsgs, STRENGTH) >= 24) {
+                                WallClear(player, type, doMsgs);
+                                SHOW_TEXT(player, type, doMsgs, "After considerable effort, you manage to force open the door.");
+                            }
+                            else {
+                                WallBlock(player, type, doMsgs);
+                                SHOW_TEXT(player, type, doMsgs, "You are not strong enough to open the door.");
+                            }
+                        }
+                        else if (GUILD() == CLERIC || GUILD() == RANGER) {
+                            if (GET_STAT(player, type, doMsgs, STRENGTH) >= 20) {
+                                WallClear(player, type, doMsgs);
+                                SHOW_TEXT(player, type, doMsgs, "After considerable effort, you manage to force open the door.");
+                            }
+                            else {
+                                WallBlock(player, type, doMsgs);
+                                SHOW_TEXT(player, type, doMsgs, "You are not strong enough to open the door.");
+                            }
+                        }
+                        else {
+                            if (GET_STAT(player, type, doMsgs, STRENGTH) >= 15) {
+                                WallClear(player, type, doMsgs);
+                                SHOW_TEXT(player, type, doMsgs, "After considerable effort, you manage to force open the door.");
+                            }
+                            else {
+                                WallBlock(player, type, doMsgs);
+                                SHOW_TEXT(player, type, doMsgs, "You cannot find the strength to push open the door.");
+                            }
+                        }
+                    }
+                    protected override void FnEvent2F(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        SHOW_PICTURE(player, type, doMsgs, DWARFKNIGHT);
+                        SHOW_TEXT(player, type, doMsgs, "A knight mumbles to himself -");
+                        SHOW_TEXT(player, type, doMsgs, "'Confusing li'l thief. He's obviously been in the lower depths of this bizarre Night Elf kingdom.'");
+                        SHOW_TEXT(player, type, doMsgs, "The knight notices you and turns to you.");
+                        SHOW_TEXT(player, type, doMsgs, "'The dralks...or some such thing, they are what these Elves worship.'");
+                    }
+                    protected override void FnEvent30(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (GUILD() == RANGER) {
+                            GuildDoor(player, type, doMsgs);
+                        }
+                    }
+                    protected override void FnEvent31(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        TELEPORT(player, type, doMsgs, 4, 3, 225, SOUTH);
+                    }
+                    protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        SHOW_TEXT(player, type, doMsgs, "To The Vault.");
+                        TELEPORT(player, type, doMsgs, 5, 1, 70, EAST);
+                    }
+                    protected override void FnEvent33(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (GUILD() == KNIGHT) {
+                            GuildDoor(player, type, doMsgs);
+                        }
+                    }
+                    protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        TELEPORT(player, type, doMsgs, 4, 3, 248, NORTH);
+                    }
+                    protected override void FnEvent35(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        SET_FLAG(player, type, doMsgs, PARTY, ARMORY_ZAP_ONE, 0);
+                        SET_FLAG(player, type, doMsgs, PARTY, ARMORY_ZAP_THREE, 0);
+                        if (HAS_ITEM(player, type, doMsgs, LUMINOUSLANTERN)) {
+                            EmptyRoom(player, type, doMsgs);
+                        }
+                        else {
+                            GIVE_ITEM(player, type, doMsgs, LUMINOUSLANTERN);
+                            SHOW_TEXT(player, type, doMsgs, "A Lantern lies on the floor. It will help during your future explorations. Mark well that it was here when you needed it!");
+                        }
+                    }
+                    protected override void FnEvent36(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        SHOW_PICTURE(player, type, doMsgs, TROLLCLERIC);
+                        if (HAS_ITEM(player, type, doMsgs, SPIDERSILKHELM)) {
+                            SHOW_TEXT(player, type, doMsgs, "The Troll Cleric, seeing you are well protected, decides to leave.");
+                        }
+                        else {
+                            GIVE_ITEM(player, type, doMsgs, SPIDERSILKHELM);
+                            MOD_GOLD(player, type, doMsgs,  - , 5000);
+                            SHOW_TEXT(player, type, doMsgs, "A Troll Cleric grabs your arm -");
+                            SHOW_TEXT(player, type, doMsgs, "'You will want this helm of protection to safeguard you on your journey.");
+                            SHOW_TEXT(player, type, doMsgs, "It's sure to impress some of the guards you'll meet in your journeys.");
+                            SHOW_TEXT(player, type, doMsgs, "No need to thank me. I've taken..er..accepted your generous donation already.'");
+                        }
+                    }
+                    protected override void FnEvent37(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        SHOW_TEXT(player, type, doMsgs, "A band of Night Elves tries to steal your armor.");
+                        if (HAS_ITEM(player, type, doMsgs, AMULETOFPROTECTION) || HAS_ITEM(player, type, doMsgs, BASALTSCROLL)) {
+                            SET_BOOTY(player, type, doMsgs, ELIXIROFHEALTH, CRYSTALSCROLL, 0, 0, 0, 1500);
+                        }
+                        else {
+                            SET_BOOTY(player, type, doMsgs, AMULETOFPROTECTION, BASALTSCROLL, 0, 0, 0, 3000);
+                        }
+                        if (PARTY_COUNT() == 1) {
+                            GET_MONSTER(player, type, doMsgs, 01, 3);
+                            GET_MONSTER(player, type, doMsgs, 02, 4);
+                        }
+                        else if (PARTY_COUNT() == 2) {
+                            GET_MONSTER(player, type, doMsgs, 01, 3);
+                            GET_MONSTER(player, type, doMsgs, 02, 3);
+                            GET_MONSTER(player, type, doMsgs, 03, 5);
+                            GET_MONSTER(player, type, doMsgs, 04, 4);
+                        }
+                        else {
+                            GET_MONSTER(player, type, doMsgs, 01, 3);
+                            GET_MONSTER(player, type, doMsgs, 02, 3);
+                            GET_MONSTER(player, type, doMsgs, 03, 5);
+                            GET_MONSTER(player, type, doMsgs, 05, 4);
+                            GET_MONSTER(player, type, doMsgs, 06, 4);
+                        }
+                    }
+                    protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        TELEPORT(player, type, doMsgs, 5, 1, 238, WEST);
+                    }
+                    protected override void FnEvent39(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (GUILD() == BARBARIAN) {
+                            GuildDoor(player, type, doMsgs);
+                        }
+                    }
+                    protected override void FnEvent3A(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        TELEPORT(player, type, doMsgs, 4, 3, 238, SOUTH);
+                    }
+                    protected override void FnEvent3B(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        SHOW_TEXT(player, type, doMsgs, "Fellowship Meeting Hall");
+                    }
+                    protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        short flags;
+                        flags = GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM);
+                         + GET_FLAG(player, type, doMsgs, DUNGEON, JACKET);
+                        if (GUILD() == KNIGHT) {
+                            FoundRoom(player, type, doMsgs);
+                            switch (flags) {
+                                case 1:
+                                    GiveExp(player, type, doMsgs);
+                                    GIVE_ITEM(player, type, doMsgs, KNIGHTSBREASTPLATE);
+                                    break;
+                                case 2:
+                                    if (HAS_ITEM(player, type, doMsgs, KNIGHTSBREASTPLATE)) {
+                                        EmptyRoom(player, type, doMsgs);
+                                    }
+                                    else {
+                                        GIVE_ITEM(player, type, doMsgs, KNIGHTSBREASTPLATE);
+                                        ArmReplace(player, type, doMsgs);
+                                    }
+                                    break;
+                                case 3:
+                                    EmptyRoom(player, type, doMsgs);
+                                    break;
+                            }
+                        }
+                        else {
+                            SHOW_TEXT(player, type, doMsgs, "Only Knights gain their reward here.");
+                        }
+                    }
+                    protected override void FnEvent3F(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        TELEPORT(player, type, doMsgs, 4, 3, 206, NORTH);
+                    }
+                    protected override void FnEvent41(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        short flags;
+                        flags = GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM);
+                         + GET_FLAG(player, type, doMsgs, DUNGEON, JACKET);
+                        if (GUILD() == RANGER) {
+                            FoundRoom(player, type, doMsgs);
+                            switch (flags) {
+                                case 1:
+                                    GiveExp(player, type, doMsgs);
+                                    GIVE_ITEM(player, type, doMsgs, RANGERSCHAINMAIL);
+                                    break;
+                                case 2:
+                                    if (HAS_ITEM(player, type, doMsgs, RANGERSCHAINMAIL)) {
+                                        EmptyRoom(player, type, doMsgs);
+                                    }
+                                    else {
+                                        GIVE_ITEM(player, type, doMsgs, RANGERSCHAINMAIL);
+                                        ArmReplace(player, type, doMsgs);
+                                    }
+                                    break;
+                                case 3:
+                                    EmptyRoom(player, type, doMsgs);
+                                    break;
+                            }
+                        }
+                        else {
+                            SHOW_TEXT(player, type, doMsgs, "Only Rangers gain their reward here.");
+                        }
+                    }
+                    protected override void FnEvent43(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        short flags;
+                        flags = GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM);
+                         + GET_FLAG(player, type, doMsgs, DUNGEON, JACKET);
+                        if (GUILD() == BARBARIAN) {
+                            FoundRoom(player, type, doMsgs);
+                            switch (flags) {
+                                case 1:
+                                    GiveExp(player, type, doMsgs);
+                                    GIVE_ITEM(player, type, doMsgs, BARBARIANSPLATE);
+                                    break;
+                                case 2:
+                                    if (HAS_ITEM(player, type, doMsgs, BARBARIANSPLATE)) {
+                                        EmptyRoom(player, type, doMsgs);
+                                    }
+                                    else {
+                                        GIVE_ITEM(player, type, doMsgs, BARBARIANSPLATE);
+                                        ArmReplace(player, type, doMsgs);
+                                    }
+                                    break;
+                                case 3:
+                                    EmptyRoom(player, type, doMsgs);
+                                    break;
+                            }
+                        }
+                        else {
+                            SHOW_TEXT(player, type, doMsgs, "Only Barbarians gain their reward here.");
+                        }
+                    }
+                    protected override void FnEvent44(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (PARTY_COUNT() == 1) {
+                            GET_MONSTER(player, type, doMsgs, 01, 7);
+                            GET_MONSTER(player, type, doMsgs, 02, 7);
+                        }
+                        else if (PARTY_COUNT() == 2) {
+                            GET_MONSTER(player, type, doMsgs, 01, 9);
+                            GET_MONSTER(player, type, doMsgs, 02, 9);
+                            GET_MONSTER(player, type, doMsgs, 03, 11);
+                        }
+                        else {
+                            GET_MONSTER(player, type, doMsgs, 01, 10);
+                            GET_MONSTER(player, type, doMsgs, 02, 10);
+                            GET_MONSTER(player, type, doMsgs, 03, 7);
+                            GET_MONSTER(player, type, doMsgs, 05, 11);
+                            GET_MONSTER(player, type, doMsgs, 06, 11);
+                        }
+                    }
+                    protected override void FnEvent45(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (PARTY_COUNT() == 1) {
+                            GET_MONSTER(player, type, doMsgs, 01, 31);
+                            GET_MONSTER(player, type, doMsgs, 02, 32);
+                        }
+                        else if (PARTY_COUNT() == 2) {
+                            GET_MONSTER(player, type, doMsgs, 01, 31);
+                            GET_MONSTER(player, type, doMsgs, 02, 32);
+                            GET_MONSTER(player, type, doMsgs, 06, 33);
+                        }
+                        else {
+                            GET_MONSTER(player, type, doMsgs, 01, 31);
+                            GET_MONSTER(player, type, doMsgs, 02, 31);
+                            GET_MONSTER(player, type, doMsgs, 03, 32);
+                            GET_MONSTER(player, type, doMsgs, 04, 32);
+                            GET_MONSTER(player, type, doMsgs, 06, 33);
+                        }
+                    }
+                    protected override void FnEvent46(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (PARTY_COUNT() == 1) {
+                            GET_MONSTER(player, type, doMsgs, 01, 1);
+                            GET_MONSTER(player, type, doMsgs, 02, 4);
+                        }
+                        else if (PARTY_COUNT() == 2) {
+                            GET_MONSTER(player, type, doMsgs, 01, 36);
+                            GET_MONSTER(player, type, doMsgs, 02, 3);
+                            GET_MONSTER(player, type, doMsgs, 06, 39);
+                        }
+                        else {
+                            GET_MONSTER(player, type, doMsgs, 01, 36);
+                            GET_MONSTER(player, type, doMsgs, 02, 37);
+                            GET_MONSTER(player, type, doMsgs, 03, 38);
+                            GET_MONSTER(player, type, doMsgs, 04, 39);
+                            GET_MONSTER(player, type, doMsgs, 05, 40);
+                        }
+                    }
+                    protected override void FnEvent47(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (PARTY_COUNT() == 1) {
+                            GET_MONSTER(player, type, doMsgs, 01, 15);
+                        }
+                        else if (PARTY_COUNT() == 2) {
+                            GET_MONSTER(player, type, doMsgs, 01, 12);
+                            GET_MONSTER(player, type, doMsgs, 02, 12);
+                            GET_MONSTER(player, type, doMsgs, 03, 13);
+                        }
+                        else {
+                            GET_MONSTER(player, type, doMsgs, 01, 12);
+                            GET_MONSTER(player, type, doMsgs, 02, 12);
+                            GET_MONSTER(player, type, doMsgs, 03, 15);
+                            GET_MONSTER(player, type, doMsgs, 05, 13);
+                            GET_MONSTER(player, type, doMsgs, 06, 13);
+                        }
+                    }
+                    protected override void FnEvent49(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (PARTY_COUNT() == 1) {
+                            GET_MONSTER(player, type, doMsgs, 01, 1);
+                            GET_MONSTER(player, type, doMsgs, 02, 6);
+                        }
+                        else if (PARTY_COUNT() == 2) {
+                            GET_MONSTER(player, type, doMsgs, 01, 1);
+                            GET_MONSTER(player, type, doMsgs, 02, 6);
+                            GET_MONSTER(player, type, doMsgs, 05, 2);
+                        }
+                        else {
+                            GET_MONSTER(player, type, doMsgs, 01, 1);
+                            GET_MONSTER(player, type, doMsgs, 02, 6);
+                            GET_MONSTER(player, type, doMsgs, 03, 6);
+                            GET_MONSTER(player, type, doMsgs, 05, 3);
+                            GET_MONSTER(player, type, doMsgs, 06, 4);
+                        }
+                    }
+                    protected override void FnEvent4A(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (PARTY_COUNT() == 1) {
+                            GET_MONSTER(player, type, doMsgs, 01, 29);
+                        }
+                        else if (PARTY_COUNT() == 2) {
+                            GET_MONSTER(player, type, doMsgs, 01, 20);
+                            GET_MONSTER(player, type, doMsgs, 02, 20);
+                            GET_MONSTER(player, type, doMsgs, 06, 21);
+                        }
+                        else {
+                            GET_MONSTER(player, type, doMsgs, 01, 20);
+                            GET_MONSTER(player, type, doMsgs, 02, 20);
+                            GET_MONSTER(player, type, doMsgs, 03, 24);
+                            GET_MONSTER(player, type, doMsgs, 04, 24);
+                            GET_MONSTER(player, type, doMsgs, 06, 38);
+                        }
+                    }
+                    protected override void FnEvent4B(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (PARTY_COUNT() == 1) {
+                            GET_MONSTER(player, type, doMsgs, 01, 28);
+                        }
+                        else if (PARTY_COUNT() == 2) {
+                            GET_MONSTER(player, type, doMsgs, 01, 28);
+                            GET_MONSTER(player, type, doMsgs, 02, 28);
+                            GET_MONSTER(player, type, doMsgs, 06, 35);
+                        }
+                        else {
+                            GET_MONSTER(player, type, doMsgs, 01, 28);
+                            GET_MONSTER(player, type, doMsgs, 02, 28);
+                            GET_MONSTER(player, type, doMsgs, 04, 34);
+                            GET_MONSTER(player, type, doMsgs, 05, 35);
+                            GET_MONSTER(player, type, doMsgs, 06, 35);
+                        }
+                    }
+                    private void FoundRoom(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        TAKE_ITEM(player, type, doMsgs, FELLOWSHIPKEY);
+                        TAKE_ITEM(player, type, doMsgs, SKELETONKEY);
+                        SHOW_TEXT(player, type, doMsgs, "Congratulations, you have found a secret armory room.");
+                        SHOW_TEXT(player, type, doMsgs, "In exchange, you must sacrifice the bone and your Fellowship!");
+                    }
+                    private void GiveExp(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        MOD_EXP(player, type, doMsgs, 50000);
+                        SET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM, 1);
+                        SHOW_TEXT(player, type, doMsgs, "This Guild armor and experience will help you on your journey.");
+                    }
+                    private void EmptyRoom(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        SHOW_TEXT(player, type, doMsgs, "The room appears to have been looted.");
+                    }
+                    private void ArmReplace(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        SHOW_TEXT(player, type, doMsgs, "Here's a replacement for your lost armor.");
+                        SET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM, 2);
+                    }
+                    private void WallClear(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+                        PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(), FACING());
+                    }
+                    private void WallBlock(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+                    }
+                    private void GuildDoor(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        if (USED_ITEM(player, type, doMsgs, SKELETONKEY, SKELETONKEY)) {
+                            CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+                            PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(), FACING());
+                            SHOW_TEXT(player, type, doMsgs, "Your Skeleton Key unlocks the door.");
+                        }
+                        else {
+                            BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+                            SHOW_TEXT(player, type, doMsgs, "The door is locked. Someone has painted a skull and crossed arm bones on the door.");
+                        }
+                    }
+                }
+            }
