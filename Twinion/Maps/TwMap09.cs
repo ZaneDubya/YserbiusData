@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap09 : TwMap {
         protected override int MapIndex => 9;
@@ -133,7 +136,7 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "A mist surrounds you absorbing some of your mana.");
-                MOD_MANA(player, type, doMsgs,  - , 100);
+                MOD_MANA(player, type, doMsgs,  - 100);
             }
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -257,7 +260,7 @@ namespace XPT.Twinion.Maps {
                     GIVE_ITEM(player, type, doMsgs, GLASSBOW);
                 }
                 else {
-                    MOD_GOLD(player, type, doMsgs,  - , 2000);
+                    MOD_GOLD(player, type, doMsgs,  - 2000);
                     SET_FLAG(player, type, doMsgs, DUNGEON, CHAOS_MAZE, 1);
                     SHOW_TEXT(player, type, doMsgs, "You are jumped by chaotic adventurers who steal 2,000 gold pieces.");
                 }
@@ -322,7 +325,7 @@ namespace XPT.Twinion.Maps {
                     GIVE_ITEM(player, type, doMsgs, HEAVENSWRATH);
                 }
                 else {
-                    MOD_GOLD(player, type, doMsgs,  - , 2000);
+                    MOD_GOLD(player, type, doMsgs,  - 2000);
                     SET_FLAG(player, type, doMsgs, DUNGEON, HARMONY_MAZE, 1);
                     SHOW_TEXT(player, type, doMsgs, "You are jumped by harmonic adventurers who steal 2,000 gold pieces.");
                 }
@@ -334,7 +337,7 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 if (GET_FLAG(player, type, doMsgs, ROOM, BRICK_ZAP) == 0) {
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 5);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 5);
                     SHOW_TEXT(player, type, doMsgs, "A loose brick falls from the maze wall and injures you.");
                     SET_FLAG(player, type, doMsgs, ROOM, BRICK_ZAP, 1);
                 }
@@ -359,7 +362,7 @@ namespace XPT.Twinion.Maps {
                     SHOW_TEXT(player, type, doMsgs, "You see a shield on the floor, but the way is blocked.");
                 }
                 else {
-                    MOD_EXP(player, type, doMsgs,  - , 5000);
+                    MOD_EXP(player, type, doMsgs,  - 5000);
                     SET_BOOTY(player, type, doMsgs, MANAPOTION, 0, 0, 0, 0, 1);
                     SHOW_TEXT(player, type, doMsgs, "You lose experience for not heeding warnings.");
                 }
@@ -396,7 +399,7 @@ namespace XPT.Twinion.Maps {
                     SHOW_TEXT(player, type, doMsgs, "You see a shield on the floor, but the way to it is blocked.");
                 }
                 else {
-                    MOD_EXP(player, type, doMsgs,  - , 5000);
+                    MOD_EXP(player, type, doMsgs,  - 5000);
                     SET_BOOTY(player, type, doMsgs, MANAPOTION, 0, 0, 0, 0, 1);
                     SHOW_TEXT(player, type, doMsgs, "You lose experience for not heeding warnings.");
                 }

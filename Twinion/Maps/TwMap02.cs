@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap02 : TwMap {
         protected override int MapIndex => 2;

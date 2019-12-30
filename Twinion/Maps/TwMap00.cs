@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap00 : TwMap {
         protected override int MapIndex => 0;
@@ -97,7 +100,7 @@ namespace XPT.Twinion.Maps {
             if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && !GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) {
                 SHOW_TEXT(player, type, doMsgs, "A maniacal fiend appears; removes an item you stole from him; and kills you outright.");
                 while HAS_ITEM(player, type, doMsgs, JESTERSCAP)TAKE_ITEM(player, type, doMsgs, JESTERSCAP);
-                MOD_GOLD(player, type, doMsgs,  - , 10000);
+                MOD_GOLD(player, type, doMsgs,  - 10000);
                 DAMAGE(player, type, doMsgs, MAX_HEALTH());
                 EXIT_DUNGEON();
             }

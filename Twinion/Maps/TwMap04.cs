@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap04 : TwMap {
         protected override int MapIndex => 4;
@@ -13,7 +16,7 @@ namespace XPT.Twinion.Maps {
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 if (!GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDAQUEUS)) {
                     SHOW_TEXT(player, type, doMsgs, "The rushing waters pummel your body.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 8,  + , 1);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 8 + 1);
                     if (HEALTH() <= 0) {
                         SHOW_TEXT(player, type, doMsgs, "You have been drowned by the force.");
                     }
@@ -29,7 +32,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent02(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "The magical force of the pump propels you southeastward and slams you squarely into a wall.");
-            DAMAGE(player, type, doMsgs, HEALTH(),  / , 2);
+            DAMAGE(player, type, doMsgs, HEALTH() / 2);
             TELEPORT(player, type, doMsgs, 2, 2, 170, EAST);
         }
         protected override void FnEvent03(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -206,8 +209,8 @@ namespace XPT.Twinion.Maps {
             }
             SHOW_TEXT(player, type, doMsgs, "Assassins!!");
             SET_FLAG(player, type, doMsgs, PARTY, FIGHT25, 1);
-            MOD_GOLD(player, type, doMsgs,  - , 1000);
-            DAMAGE(player, type, doMsgs, HEALTH(),  / , 6);
+            MOD_GOLD(player, type, doMsgs,  - 1000);
+            DAMAGE(player, type, doMsgs, HEALTH() / 6);
             if (PARTY_COUNT() == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 33);
                 GET_MONSTER(player, type, doMsgs, 05, 34);
@@ -443,7 +446,7 @@ namespace XPT.Twinion.Maps {
                 SHOW_PICTURE(player, type, doMsgs, HALFLINGTHIEF);
                 SHOW_TEXT(player, type, doMsgs, "A familiar looking thief lifts some more of your gold!");
                 SHOW_TEXT(player, type, doMsgs, "'Ahhh...this is quite generous! Thank you again for the offering!'");
-                MOD_GOLD(player, type, doMsgs,  - , 500);
+                MOD_GOLD(player, type, doMsgs,  - 500);
                 SET_FLAG(player, type, doMsgs, PARTY, HALFTHIEF, 1);
             }
             else {
@@ -545,7 +548,7 @@ namespace XPT.Twinion.Maps {
                 SHOW_WALL(player, type, doMsgs, 126, NORTH);
                 if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                     SHOW_TEXT(player, type, doMsgs, "The rushing waters pummel your body.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
                     SpringTrap(player, type, doMsgs);
                 }
             }
@@ -576,7 +579,7 @@ namespace XPT.Twinion.Maps {
                 BLOCK_WALL(player, type, doMsgs, 158, SOUTH);
                 if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                     SHOW_TEXT(player, type, doMsgs, "The rushing waters pummel your body.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
                     SpringTrap(player, type, doMsgs);
                 }
             }
@@ -592,7 +595,7 @@ namespace XPT.Twinion.Maps {
             BLOCK_WALL(player, type, doMsgs, 158, SOUTH);
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 SHOW_TEXT(player, type, doMsgs, "The rushing waters pummel your body.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
                 SpringTrap(player, type, doMsgs);
             }
         }
@@ -601,7 +604,7 @@ namespace XPT.Twinion.Maps {
                 if (GUILD() == THIEF || GUILD() == WIZARD) {
                     GIVE_SPELL(player, type, doMsgs, PETRIFY_SPELL, 1);
                     SHOW_PICTURE(player, type, doMsgs, GNOMEWIZARD);
-                    MOD_GOLD(player, type, doMsgs,  - , 1000);
+                    MOD_GOLD(player, type, doMsgs,  - 1000);
                     SHOW_TEXT(player, type, doMsgs, "An honorable merchant offers you a taste of his drink in exchange for some gold.");
                     SHOW_TEXT(player, type, doMsgs, "As you sip the thick grog, you learn the petrify spell!!");
                     SET_FLAG(player, type, doMsgs, DUNGEON, MERCHANT, 1);
@@ -610,7 +613,7 @@ namespace XPT.Twinion.Maps {
             else if (HEALTH() < MAX_HEALTH()) {
                 SHOW_PICTURE(player, type, doMsgs, GNOMEWIZARD);
                 SHOW_TEXT(player, type, doMsgs, "'A trifle of gold for a sup of health? Tis a fair lot, m'good champion.' You feel your health and mana restored!");
-                MOD_GOLD(player, type, doMsgs,  - , 100);
+                MOD_GOLD(player, type, doMsgs,  - 100);
                 MOD_MANA(player, type, doMsgs, 2000);
                 HEAL(player, type, doMsgs, MAX_HEALTH());
             }
@@ -648,7 +651,7 @@ namespace XPT.Twinion.Maps {
         private void HealUs(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
             SHOW_TEXT(player, type, doMsgs, "The waters offer limited refreshment, but nothing more.");
-            HEAL(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+            HEAL(player, type, doMsgs, MAX_HEALTH() / 4);
         }
         protected override void FnEvent33(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (!GET_FLAG(player, type, doMsgs, DUNGEON, RESIST)) {

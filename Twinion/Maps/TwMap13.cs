@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap13 : TwMap {
         protected override int MapIndex => 13;
@@ -119,7 +122,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             special2(player, type, doMsgs);
             if (!GET_FLAG(player, type, doMsgs, ROOM, GRAVE_ZAP)) {
-                DAMAGE(player, type, doMsgs, HEALTH(),  / , 4);
+                DAMAGE(player, type, doMsgs, HEALTH() / 4);
                 SHOW_TEXT(player, type, doMsgs, "A clumsy fall into an open grave injures you.");
                 SET_FLAG(player, type, doMsgs, ROOM, GRAVE_ZAP, 1);
             }
@@ -186,7 +189,7 @@ namespace XPT.Twinion.Maps {
             if (!GET_FLAG(player, type, doMsgs, ROOM, GRAVE_ZAP)) {
                 SHOW_TEXT(player, type, doMsgs, "Graverobbers, hearing your approach, ambush you. Sharp steel slices across your torso!");
                 if (HEALTH() > 1000) {
-                    DAMAGE(player, type, doMsgs, HEALTH(),  - , 500);
+                    DAMAGE(player, type, doMsgs, HEALTH() - 500);
                     SET_FLAG(player, type, doMsgs, ROOM, GRAVE_ZAP, 1);
                 }
             }
@@ -312,9 +315,9 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "The inscription on the tombstone has been eroded beyond recognition by the elements.");
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short mn1 = 0;;
-            short mn2 = 0;;
-            short i = 0;;
+            short mn1 = 0;
+            short mn2 = 0;
+            short i = 0;
             short pfv;
             pfv = GET_FLAG(player, type, doMsgs, PARTY, RANDOMMONST);
             switch (pfv) {

@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap06 : TwMap {
         protected override int MapIndex => 6;
@@ -69,7 +72,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short tally;
-            int exps = 0;;
+            int exps = 0;
             tally = GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTA);
              + GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTB);
              + GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTC);
@@ -679,7 +682,7 @@ namespace XPT.Twinion.Maps {
         private void Fountain(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
             SHOW_TEXT(player, type, doMsgs, "A bubbling fountain offers knowledge and refreshment.");
-            HEAL(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+            HEAL(player, type, doMsgs, MAX_HEALTH() / 4);
         }
         private void NoFount(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);

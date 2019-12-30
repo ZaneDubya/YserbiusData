@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap23 : TwMap {
         protected override int MapIndex => 23;
@@ -727,7 +730,7 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 short i;
-                short pl = 0;;
+                short pl = 0;
                 if (PARTY_LEVEL(player, type, doMsgs, 35)) {
                     pl = 1;
                 }
@@ -960,32 +963,32 @@ namespace XPT.Twinion.Maps {
                 if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                     switch (trap) {
                         case 1:
-                            DAMAGE(player, type, doMsgs, HEALTH(),  / , 6);
+                            DAMAGE(player, type, doMsgs, HEALTH() / 6);
                             SET_PM(player, type, doMsgs, POISON, 15, 100);
                             NO_SPELL();
                             SHOW_TEXT(player, type, doMsgs, "You spring a trap laced with poisoned darts.");
                             trap++;
                             break;
                         case 2:
-                            DAMAGE(player, type, doMsgs, HEALTH(),  / , 5);
+                            DAMAGE(player, type, doMsgs, HEALTH() / 5);
                             SHOW_TEXT(player, type, doMsgs, "You trigger some mage's trap. A cloud of acid surrounds you!!");
-                            MOD_GOLD(player, type, doMsgs,  - , 2000);
+                            MOD_GOLD(player, type, doMsgs,  - 2000);
                             trap++;
                             break;
                         case 3:
-                            DAMAGE(player, type, doMsgs, HEALTH(),  / , 4);
+                            DAMAGE(player, type, doMsgs, HEALTH() / 4);
                             SHOW_TEXT(player, type, doMsgs, "Fireballs slam into you as you set off another fiendish trap.");
                             trap++;
                             break;
                         case 4:
                             SET_PM(player, type, doMsgs, POISON, 15, 200);
-                            MOD_MANA(player, type, doMsgs,  - , 500);
+                            MOD_MANA(player, type, doMsgs,  - 500);
                             while HAS_ITEM(player, type, doMsgs, CURATIVEELIXIR)TAKE_ITEM(player, type, doMsgs, CURATIVEELIXIR);
                             SHOW_TEXT(player, type, doMsgs, "You clumsily set off a gas trap.");
                             trap++;
                             break;
                         default:
-                            DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 5);
+                            DAMAGE(player, type, doMsgs, MAX_HEALTH() / 5);
                             NO_HEAL_ZONE();
                             trap = 1;
                             NO_SPELL();
@@ -1072,7 +1075,7 @@ namespace XPT.Twinion.Maps {
                 if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && !GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED)) {
                     SHOW_TEXT(player, type, doMsgs, "A maniacal fiend appears; removes an item you stole from him; and kills you outright.");
                     while HAS_ITEM(player, type, doMsgs, JESTERSCAP)TAKE_ITEM(player, type, doMsgs, JESTERSCAP);
-                    MOD_GOLD(player, type, doMsgs,  - , 10000);
+                    MOD_GOLD(player, type, doMsgs,  - 10000);
                     DAMAGE(player, type, doMsgs, MAX_HEALTH());
                 }
             }

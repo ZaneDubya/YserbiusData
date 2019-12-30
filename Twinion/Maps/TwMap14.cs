@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap14 : TwMap {
         protected override int MapIndex => 14;
@@ -31,7 +34,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent07(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GET_FLAG(player, type, doMsgs, ROOM, KEEPPIT) == 0) {
                 SHOW_TEXT(player, type, doMsgs, "The pit isn't as deep as you feared, but you injure your ankle.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 10);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 10);
                 SET_FLAG(player, type, doMsgs, ROOM, KEEPPIT, 1);
             }
         }
@@ -377,7 +380,7 @@ namespace XPT.Twinion.Maps {
             if (GET_FLAG(player, type, doMsgs, ROOM, TROUGH) == 0) {
                 FntnPic(player, type, doMsgs);
                 SHOW_TEXT(player, type, doMsgs, "The stagnant waters of the Trough are poisonous!");
-                SET_PM(player, type, doMsgs, POISON, 10, MAX_HEALTH(),  / , 10);
+                SET_PM(player, type, doMsgs, POISON, 10, MAX_HEALTH() / 10);
                 SET_FLAG(player, type, doMsgs, ROOM, TROUGH, 1);
             }
         }

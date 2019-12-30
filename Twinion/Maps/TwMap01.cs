@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap01 : TwMap {
         protected override int MapIndex => 1;
@@ -160,7 +163,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_MAPS();
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 6);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 6);
                 if (HEALTH() > 0) {
                     SHOW_TEXT(player, type, doMsgs, "You must wade through a pool of guano here. The noxious odors are damaging to you.");
                     SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);

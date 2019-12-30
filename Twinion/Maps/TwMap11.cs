@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap11 : TwMap {
         protected override int MapIndex => 11;
@@ -8,7 +11,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_HEAL_ZONE();
             if (!GET_FLAG(player, type, doMsgs, ROOM, LAKE)) {
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
                 SHOW_TEXT(player, type, doMsgs, "The waters drain your life energy.");
                 SET_FLAG(player, type, doMsgs, ROOM, LAKE, 1);
             }

@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap07 : TwMap {
         protected override int MapIndex => 7;
@@ -159,12 +162,12 @@ namespace XPT.Twinion.Maps {
                         case 24:
                             SHOW_TEXT(player, type, doMsgs, "You launch a fireball across the chasm.");
                             SHOW_TEXT(player, type, doMsgs, "In seconds it turns back upon you!");
-                            DAMAGE(player, type, doMsgs, HEALTH(),  / , 6);
+                            DAMAGE(player, type, doMsgs, HEALTH() / 6);
                             break;
                         case 25:
                             SHOW_TEXT(player, type, doMsgs, "The fireball flies over the chasm into darkness.");
                             SHOW_TEXT(player, type, doMsgs, "It then comes hurtling back at you, exploding before you can escape its wrath.");
-                            DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 8);
+                            DAMAGE(player, type, doMsgs, MAX_HEALTH() / 8);
                             break;
                         case 41:
                             SHOW_TEXT(player, type, doMsgs, "You send a fireball hurtling across the chasm.");
@@ -201,7 +204,7 @@ namespace XPT.Twinion.Maps {
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 SHOW_TEXT(player, type, doMsgs, "Another trap is triggered, sending death darts tipped with poison showering down upon you.");
                 SET_PM(player, type, doMsgs, POISON, 5, 60);
-                DAMAGE(player, type, doMsgs, HEALTH(),  / , 6);
+                DAMAGE(player, type, doMsgs, HEALTH() / 6);
                 SprungTrap(player, type, doMsgs);
             }
         }
@@ -273,7 +276,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "An ominous Wizard admires the fallen hero he just incinerated. He then fires a barrage of fireballs at you!");
-            DAMAGE(player, type, doMsgs, HEALTH(),  / , 6);
+            DAMAGE(player, type, doMsgs, HEALTH() / 6);
             GET_MONSTER(player, type, doMsgs, 01, 36);
         }
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -503,7 +506,7 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "ALONE! ONLY ALONE MAY YOU PROCEED!!!");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 2);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 2);
                 TELEPORT(player, type, doMsgs, 3, 2, 142, WEST);
             }
         }
@@ -526,8 +529,8 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent3B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flag = 0;;
-            int exps = 0;;
+            short flag = 0;
+            int exps = 0;
             switch (HERE()) {
                 case 94:
                     flag = DIDUPPERRIGHT;
@@ -591,7 +594,7 @@ namespace XPT.Twinion.Maps {
                 else {
                     SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
                     SHOW_TEXT(player, type, doMsgs, "You are scalded by the burning waters.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 6);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 6);
                 }
             }
         }

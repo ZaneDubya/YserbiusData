@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap08 : TwMap {
         protected override int MapIndex => 8;
@@ -370,20 +373,20 @@ namespace XPT.Twinion.Maps {
             SHOW_PICTURE(player, type, doMsgs, HALFLINGTHIEF);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, SNICKER) == 0) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, SNICKER, 1);
-                MOD_GOLD(player, type, doMsgs,  - , 1000);
+                MOD_GOLD(player, type, doMsgs,  - 1000);
                 SHOW_TEXT(player, type, doMsgs, "You meet a thief named Snicker, 'Three brothers have I, and courtesy is very important to all of them. One will show you the true path to what you seek. But all are fond of red gems.");
                 SHOW_TEXT(player, type, doMsgs, "In exchange for this information, you find your purse a little lighter.'");
             }
             else if (GET_FLAG(player, type, doMsgs, DUNGEON, SNICKER) == 1) {
                 GIVE_ITEM(player, type, doMsgs, RINGOFTHIEVES);
                 SET_FLAG(player, type, doMsgs, DUNGEON, SNICKER, 2);
-                MOD_GOLD(player, type, doMsgs,  - , 5000);
+                MOD_GOLD(player, type, doMsgs,  - 5000);
                 SHOW_TEXT(player, type, doMsgs, "'Ah, my informants said you might return! You must learn to guard your pockets better. Since I've relieved you of your gold again, take this ring. It's magic will lead you to paths you might have missed without its magic.'");
             }
             else if (GET_FLAG(player, type, doMsgs, DUNGEON, SNICKER) == 2 && HAS_ITEM(player, type, doMsgs, KEYOFC)) {
                 GIVE_ITEM(player, type, doMsgs, IRONCROWN);
                 SET_FLAG(player, type, doMsgs, DUNGEON, SNICKER, 3);
-                MOD_GOLD(player, type, doMsgs,  - , 5000);
+                MOD_GOLD(player, type, doMsgs,  - 5000);
                 SHOW_TEXT(player, type, doMsgs, "'Greetings! I have pil...acquired this from an adventurer who bragged about the protective properties of the crown. I've taken your gold, you might as well have it. I'm sure I'll happen upon another.'");
             }
             else {
@@ -401,13 +404,13 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "You lose your footing on a loose rock and your bag of gold falls to the ground.");
             SHOW_TEXT(player, type, doMsgs, "You manage to gather all but 1000 pieces, which fall through cracks in the floor.");
-            MOD_GOLD(player, type, doMsgs,  - , 1000);
+            MOD_GOLD(player, type, doMsgs,  - 1000);
         }
         protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GET_FLAG(player, type, doMsgs, ROOM, SUNSET) == 0) {
                 FntnPic(player, type, doMsgs);
                 SHOW_TEXT(player, type, doMsgs, "The dark waters of Sunset Fountain poison you when you attempt to refresh yourself.");
-                SET_PM(player, type, doMsgs, POISON, 5, MAX_HEALTH(),  / , 10);
+                SET_PM(player, type, doMsgs, POISON, 5, MAX_HEALTH() / 10);
                 SET_FLAG(player, type, doMsgs, ROOM, SUNSET, 1);
             }
         }

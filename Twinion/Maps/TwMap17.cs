@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap17 : TwMap {
         protected override int MapIndex => 17;
@@ -83,10 +86,10 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;;
+            short i = 0;
             SHOW_TEXT(player, type, doMsgs, "You step into a dark alley.");
             SHOW_TEXT(player, type, doMsgs, "The cold steel of a thief's stiletto in your back cuts your odds of surviving this ambush!");
-            DAMAGE(player, type, doMsgs, HEALTH(),  / , 3);
+            DAMAGE(player, type, doMsgs, HEALTH() / 3);
             for (i = 1; i <= 2; i++) {
                 GET_MONSTER(player, type, doMsgs, i, 40);
             }
@@ -136,7 +139,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "Fumes momentarily overcome you, leeching away your spellcasting ability.");
-            MOD_MANA(player, type, doMsgs,  - , 300);
+            MOD_MANA(player, type, doMsgs,  - 300);
         }
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
             TELEPORT(player, type, doMsgs, 7, 1, 245, WEST);
@@ -150,7 +153,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent10(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "You disturb a sleeping thief.");
             SHOW_TEXT(player, type, doMsgs, "He gets revenge by deftly picking your pocket and fleeing.");
-            MOD_GOLD(player, type, doMsgs,  - , 1000);
+            MOD_GOLD(player, type, doMsgs,  - 1000);
         }
         protected override void FnEvent11(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, GNOMEWIZARD);
@@ -519,7 +522,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;;
+            short i = 0;
             switch (PARTY_COUNT()) {
                 case 1:
                     GET_MONSTER(player, type, doMsgs, 01, 27);

@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap05 : TwMap {
         protected override int MapIndex => 5;
@@ -10,7 +13,7 @@ namespace XPT.Twinion.Maps {
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 if (!GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDAQUEUS)) {
                     SHOW_TEXT(player, type, doMsgs, "The strong currents twist and pound your body.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 8,  + , 1);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 8 + 1);
                     if (HEALTH() <= 0) {
                         SHOW_TEXT(player, type, doMsgs, "You have been drowned by the force.");
                     }
@@ -32,7 +35,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent04(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "Churning magic pulls water from below and dumps it here. The thundering noise is painful.");
             SHOW_TEXT(player, type, doMsgs, "You feel you have acted unwisely...and you are proven correct as the force slams you against a very hard southern wall...");
-            DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 2);
+            DAMAGE(player, type, doMsgs, MAX_HEALTH() / 2);
             if (HEALTH() <= 0) {
                 SHOW_TEXT(player, type, doMsgs, "And kills you.");
                 EXIT_DUNGEON();
@@ -183,7 +186,7 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "I warned you to come alone!");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 3);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 3);
                 TELEPORT(player, type, doMsgs, 2, 3, 44, EAST);
             }
         }
@@ -203,9 +206,9 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "You see another dazzling carving, similar to the one in some maze above.");
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short itemA = 0;;
-            short itemB = 0;;
-            short itemC = 0;;
+            short itemA = 0;
+            short itemB = 0;
+            short itemC = 0;
             short i;
             if (!GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDAQUEUS)) {
                 SHOW_TEXT(player, type, doMsgs, "A gold throne sits to the north; to reach it you need only defeat he who guards it!");
@@ -293,7 +296,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short where = 0;;
+            short where = 0;
             if (PARTY_COUNT() == 1) {
                 if (!GET_FLAG(player, type, doMsgs, DUNGEON, SAVEDPARTY)) {
                     SHOW_PICTURE(player, type, doMsgs, DWARFKNIGHT);
@@ -332,11 +335,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short mn = 0;;
-            short mn2 = 0;;
-            short mn3 = 0;;
-            short g2 = 0;;
-            short g3 = 0;;
+            short mn = 0;
+            short mn2 = 0;
+            short mn3 = 0;
+            short g2 = 0;
+            short g3 = 0;
             SHOW_TEXT(player, type, doMsgs, "Young giants rush at you.");
             switch (PARTY_COUNT()) {
                 case 1:
@@ -361,13 +364,13 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short mn = 0;;
-            short mn2 = 0;;
-            short mn3 = 0;;
-            short mn4 = 0;;
-            short g2 = 0;;
-            short g3 = 0;;
-            short g4 = 0;;
+            short mn = 0;
+            short mn2 = 0;
+            short mn3 = 0;
+            short mn4 = 0;
+            short g2 = 0;
+            short g3 = 0;
+            short g4 = 0;
             SHOW_TEXT(player, type, doMsgs, "Frustrated adventurers, unable to find a secret passage here, turn to attack you!");
             switch (PARTY_COUNT()) {
                 case 1:
@@ -453,7 +456,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short howold;
             short i;
-            short giveem = 2;;
+            short giveem = 2;
             PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 127);
             if (PARTY_LEVEL(player, type, doMsgs, 12)) {
                 giveem = 1;
@@ -487,7 +490,7 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "'Forgive me.' So saying, Malik draws his stiletto and quickly carves a curious mark in your arm.");
                 SHOW_TEXT(player, type, doMsgs, "'Sartiq will trust you with the rest of the chant now. This mark will prove to him that you are an ally.'");
                 SHOW_TEXT(player, type, doMsgs, "'The agents of Aqueus would have attacked rather than bear such a scar. Farewell!'");
-                DAMAGE(player, type, doMsgs, HEALTH(),  / , 5);
+                DAMAGE(player, type, doMsgs, HEALTH() / 5);
                 SHOW_TEXT(player, type, doMsgs, "'Go, seek Sartiq again.'");
                 SET_FLAG(player, type, doMsgs, DUNGEON, METJUBILAH, 1);
             }
@@ -513,7 +516,7 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "'Good journeys to you. I wish you luck with these awful puzzles. What I know I shall share with you, for...say...these gold pieces?");
                 SHOW_TEXT(player, type, doMsgs, "Excellent! In the northwest corner, a door there is very stubborn. Merely approach and knock three times, and it will open!");
                 SHOW_TEXT(player, type, doMsgs, "Be on the lookout for a stern thief and an ancient giant. Together they will help you across the waters.'");
-                MOD_GOLD(player, type, doMsgs,  - , 1000);
+                MOD_GOLD(player, type, doMsgs,  - 1000);
                 SET_FLAG(player, type, doMsgs, DUNGEON, KILAM, 1);
             }
             else {
@@ -575,151 +578,151 @@ namespace XPT.Twinion.Maps {
             FntnPic(player, type, doMsgs);
             switch (GUILD()) {
                 case CLERIC:
-                    case WIZARD:
-                        if (!GET_FLAG(player, type, doMsgs, DUNGEON, STORM)) {
-                            GIVE_SPELL(player, type, doMsgs, STORM_WIND_SPELL, 1);
-                            SET_FLAG(player, type, doMsgs, DUNGEON, STORM, 1);
-                            CoolWater(player, type, doMsgs);
-                        }
-                        else {
-                            Refresh(player, type, doMsgs);
-                        }
-                        break;
-                    default:
+                case WIZARD:
+                    if (!GET_FLAG(player, type, doMsgs, DUNGEON, STORM)) {
+                        GIVE_SPELL(player, type, doMsgs, STORM_WIND_SPELL, 1);
+                        SET_FLAG(player, type, doMsgs, DUNGEON, STORM, 1);
+                        CoolWater(player, type, doMsgs);
+                    }
+                    else {
                         Refresh(player, type, doMsgs);
-                        break;
-                }
+                    }
+                    break;
+                default:
+                    Refresh(player, type, doMsgs);
+                    break;
             }
-            protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                FntnPic(player, type, doMsgs);
-                switch (GUILD()) {
-                    case CLERIC:
-                        case WIZARD:
-                            if (!GET_FLAG(player, type, doMsgs, DUNGEON, CURSED)) {
-                                GIVE_SPELL(player, type, doMsgs, CURSE_SPELL, 1);
-                                SET_FLAG(player, type, doMsgs, DUNGEON, CURSED, 1);
-                                CoolWater(player, type, doMsgs);
-                            }
-                            else {
-                                Refresh(player, type, doMsgs);
-                            }
-                            break;
-                        default:
-                            Refresh(player, type, doMsgs);
-                            break;
+        }
+        protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            FntnPic(player, type, doMsgs);
+            switch (GUILD()) {
+                case CLERIC:
+                case WIZARD:
+                    if (!GET_FLAG(player, type, doMsgs, DUNGEON, CURSED)) {
+                        GIVE_SPELL(player, type, doMsgs, CURSE_SPELL, 1);
+                        SET_FLAG(player, type, doMsgs, DUNGEON, CURSED, 1);
+                        CoolWater(player, type, doMsgs);
                     }
-                }
-                protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    FntnPic(player, type, doMsgs);
-                    switch (GUILD()) {
-                        case KNIGHT:
-                            case WIZARD:
-                                if (!GET_FLAG(player, type, doMsgs, DUNGEON, EFIELD)) {
-                                    GIVE_SPELL(player, type, doMsgs, ENERGY_FIELD_SPELL, 1);
-                                    SET_FLAG(player, type, doMsgs, DUNGEON, EFIELD, 1);
-                                    CoolWater(player, type, doMsgs);
-                                }
-                                else {
-                                    Refresh(player, type, doMsgs);
-                                }
-                                break;
-                            default:
-                                Refresh(player, type, doMsgs);
-                                break;
-                        }
+                    else {
+                        Refresh(player, type, doMsgs);
                     }
-                    protected override void FnEvent2D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                        FntnPic(player, type, doMsgs);
-                        switch (GUILD()) {
-                            case KNIGHT:
-                                if (!GET_FLAG(player, type, doMsgs, DUNGEON, SEETHEKNIGHT)) {
-                                    GIVE_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL, 1);
-                                    SET_FLAG(player, type, doMsgs, DUNGEON, SEETHEKNIGHT, 1);
-                                    SHOW_TEXT(player, type, doMsgs, "The warm waters satisfy your thirst for knowledge with a new spell!");
-                                }
-                                else {
-                                    Refresh(player, type, doMsgs);
-                                }
-                                break;
-                            case CLERIC:
-                                if (!GET_SKILL(player, type, doMsgs, CHANNEL_SKILL)) {
-                                    MOD_SKILL(player, type, doMsgs, CHANNEL_SKILL, 1);
-                                    SHOW_TEXT(player, type, doMsgs, "The warm waters satisfy your thirst for knowledge with a new skill!");
-                                }
-                                else {
-                                    Refresh(player, type, doMsgs);
-                                }
-                                break;
-                            default:
-                                Refresh(player, type, doMsgs);
-                                break;
-                        }
-                        FntnPic(player, type, doMsgs);
-                        switch (GUILD()) {
-                            case KNIGHT:
-                                case CLERIC:
-                                    if (!GET_SKILL(player, type, doMsgs, CHANNEL_SKILL)) {
-                                        MOD_SKILL(player, type, doMsgs, CHANNEL_SKILL, 1);
-                                        SHOW_TEXT(player, type, doMsgs, "The warm waters satisfy your thirst for knowledge with a new skill!");
-                                    }
-                                    else {
-                                        Refresh(player, type, doMsgs);
-                                    }
-                                    break;
-                                default:
-                                    Refresh(player, type, doMsgs);
-                                    break;
-                            }
-                        }
-                        protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                            WallBlock(player, type, doMsgs);
-                            SHOW_TEXT(player, type, doMsgs, "The fierce torrents bar your way. You must find an alternate way across.");
-                        }
-                        protected override void FnEvent2F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                            if (USED_ITEM(player, type, doMsgs, GREENLOCKPICK, BLUELOCKPICK) || USED_SKILL(player, type, doMsgs, LOCKPICK_SKILL) || USED_ITEM(player, type, doMsgs, HELMOFGUILE, HELMOFGUILE)) {
-                                SHOW_TEXT(player, type, doMsgs, "You've managed to unlock the gate.");
-                                WallClear(player, type, doMsgs);
-                            }
-                            else {
-                                WallBlock(player, type, doMsgs);
-                                SHOW_TEXT(player, type, doMsgs, "One well skilled with lockpicks may be able to open this magnificent gate.");
-                            }
-                        }
-                        private void FntnPic(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                            SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
-                        }
-                        private void SprungTrap(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                            SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
-                        }
-                        private void WallBlock(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                            BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
-                        }
-                        private void DamageBy2(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                            DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
-                        }
-                        private void CoolWater(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                            SHOW_TEXT(player, type, doMsgs, "The cool waters enlighten you with a new spell!");
-                        }
-                        private void Refresh(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                            HEAL(player, type, doMsgs, MAX_HEALTH());
-                            MOD_MANA(player, type, doMsgs, 2000);
-                            SHOW_TEXT(player, type, doMsgs, "The waters are refreshing!");
-                        }
-                        private void WallClear(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                            CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
-                        }
-                        private void PlaceDoor(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                            PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(), FACING());
-                        }
-                        protected override void FnEvent30(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 75);
-                            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 91);
-                            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 107);
-                            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 124);
-                            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 140);
-                            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 141);
-                            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 126);
-                            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 127);
-                        }
+                    break;
+                default:
+                    Refresh(player, type, doMsgs);
+                    break;
+            }
+        }
+        protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            FntnPic(player, type, doMsgs);
+            switch (GUILD()) {
+                case KNIGHT:
+                case WIZARD:
+                    if (!GET_FLAG(player, type, doMsgs, DUNGEON, EFIELD)) {
+                        GIVE_SPELL(player, type, doMsgs, ENERGY_FIELD_SPELL, 1);
+                        SET_FLAG(player, type, doMsgs, DUNGEON, EFIELD, 1);
+                        CoolWater(player, type, doMsgs);
                     }
-                }
+                    else {
+                        Refresh(player, type, doMsgs);
+                    }
+                    break;
+                default:
+                    Refresh(player, type, doMsgs);
+                    break;
+            }
+        }
+        protected override void FnEvent2D(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            FntnPic(player, type, doMsgs);
+            switch (GUILD()) {
+                case KNIGHT:
+                    if (!GET_FLAG(player, type, doMsgs, DUNGEON, SEETHEKNIGHT)) {
+                        GIVE_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL, 1);
+                        SET_FLAG(player, type, doMsgs, DUNGEON, SEETHEKNIGHT, 1);
+                        SHOW_TEXT(player, type, doMsgs, "The warm waters satisfy your thirst for knowledge with a new spell!");
+                    }
+                    else {
+                        Refresh(player, type, doMsgs);
+                    }
+                    break;
+                case CLERIC:
+                    if (!GET_SKILL(player, type, doMsgs, CHANNEL_SKILL)) {
+                        MOD_SKILL(player, type, doMsgs, CHANNEL_SKILL, 1);
+                        SHOW_TEXT(player, type, doMsgs, "The warm waters satisfy your thirst for knowledge with a new skill!");
+                    }
+                    else {
+                        Refresh(player, type, doMsgs);
+                    }
+                    break;
+                default:
+                    Refresh(player, type, doMsgs);
+                    break;
+            }
+            FntnPic(player, type, doMsgs);
+            switch (GUILD()) {
+                case KNIGHT:
+                case CLERIC:
+                    if (!GET_SKILL(player, type, doMsgs, CHANNEL_SKILL)) {
+                        MOD_SKILL(player, type, doMsgs, CHANNEL_SKILL, 1);
+                        SHOW_TEXT(player, type, doMsgs, "The warm waters satisfy your thirst for knowledge with a new skill!");
+                    }
+                    else {
+                        Refresh(player, type, doMsgs);
+                    }
+                    break;
+                default:
+                    Refresh(player, type, doMsgs);
+                    break;
+            }
+        }
+        protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            WallBlock(player, type, doMsgs);
+            SHOW_TEXT(player, type, doMsgs, "The fierce torrents bar your way. You must find an alternate way across.");
+        }
+        protected override void FnEvent2F(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            if (USED_ITEM(player, type, doMsgs, GREENLOCKPICK, BLUELOCKPICK) || USED_SKILL(player, type, doMsgs, LOCKPICK_SKILL) || USED_ITEM(player, type, doMsgs, HELMOFGUILE, HELMOFGUILE)) {
+                SHOW_TEXT(player, type, doMsgs, "You've managed to unlock the gate.");
+                WallClear(player, type, doMsgs);
+            }
+            else {
+                WallBlock(player, type, doMsgs);
+                SHOW_TEXT(player, type, doMsgs, "One well skilled with lockpicks may be able to open this magnificent gate.");
+            }
+        }
+        private void FntnPic(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
+        }
+        private void SprungTrap(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
+        }
+        private void WallBlock(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+        }
+        private void DamageBy2(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
+        }
+        private void CoolWater(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_TEXT(player, type, doMsgs, "The cool waters enlighten you with a new spell!");
+        }
+        private void Refresh(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            HEAL(player, type, doMsgs, MAX_HEALTH());
+            MOD_MANA(player, type, doMsgs, 2000);
+            SHOW_TEXT(player, type, doMsgs, "The waters are refreshing!");
+        }
+        private void WallClear(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+        }
+        private void PlaceDoor(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(), FACING());
+        }
+        protected override void FnEvent30(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 75);
+            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 91);
+            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 107);
+            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 124);
+            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 140);
+            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 141);
+            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 126);
+            PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 127);
+        }
+    }
+}

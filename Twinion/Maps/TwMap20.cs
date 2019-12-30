@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap20 : TwMap {
         protected override int MapIndex => 20;
@@ -111,7 +114,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, GREMLINWIZARD);
-            MOD_GOLD(player, type, doMsgs,  - , 1000);
+            MOD_GOLD(player, type, doMsgs,  - 1000);
             SHOW_TEXT(player, type, doMsgs, "'I am the wizard Majikyl. For a mere pittance I shall envelop you in a Vapor Cloud. This cloud will allow you to approach the dragon unseen.");
             SHOW_TEXT(player, type, doMsgs, "If you wish to continue, step through the door to the east.'");
         }
@@ -121,7 +124,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, HUMANWIZARD);
-            MOD_GOLD(player, type, doMsgs,  - , 1000);
+            MOD_GOLD(player, type, doMsgs,  - 1000);
             SHOW_TEXT(player, type, doMsgs, "'I am the wizard Artsenis. For this fee I will aid your quest. I shall place upon you a Chameleon Shroud spell. So disguised, you should be successful in approaching the dragon.");
             SHOW_TEXT(player, type, doMsgs, "If you choose to continue, step through the door to the south.'");
         }
@@ -139,7 +142,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent12(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, DWARFWIZARD);
-            MOD_GOLD(player, type, doMsgs,  - , 1000);
+            MOD_GOLD(player, type, doMsgs,  - 1000);
             SHOW_TEXT(player, type, doMsgs, "'I am the wizard Aillacsar. I shall take my fee for the Invisibility I cast upon you. It will get you close to your prey.");
             SHOW_TEXT(player, type, doMsgs, "If you choose to continue, walk east through the teleport.'");
         }
@@ -153,7 +156,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, GNOMEWIZARD);
-            MOD_GOLD(player, type, doMsgs,  - , 1000);
+            MOD_GOLD(player, type, doMsgs,  - 1000);
             SHOW_TEXT(player, type, doMsgs, "'I am the wizard Mirloch. Accept my magic for a small fee. I have cast upon you a Charismatic Aura. The enemy will look upon you as a friend.");
             SHOW_TEXT(player, type, doMsgs, "If you wish to continue, walk to the west through the teleport.");
         }
@@ -483,11 +486,11 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "As you push against the stubborn door, debris falls and injures you.");
                 if (GET_STAT(player, type, doMsgs, STRENGTH) >= 23) {
                     SET_FLAG(player, type, doMsgs, DUNGEON, DRAGSTR, 1);
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 3);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 3);
                 }
                 else {
                     SET_FLAG(player, type, doMsgs, DUNGEON, DRAGSTR, 1);
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
                 }
             }
         }
@@ -498,11 +501,11 @@ namespace XPT.Twinion.Maps {
             else {
                 SHOW_TEXT(player, type, doMsgs, "The walls collapse upon you! Amnesia causes you to forget your more recent experiences.");
                 if (GET_STAT(player, type, doMsgs, DEFENSE) >= 18) {
-                    MOD_EXP(player, type, doMsgs,  - , 10000);
+                    MOD_EXP(player, type, doMsgs,  - 10000);
                     SET_FLAG(player, type, doMsgs, DUNGEON, DRAGDEF, 1);
                 }
                 else {
-                    MOD_EXP(player, type, doMsgs,  - , 20000);
+                    MOD_EXP(player, type, doMsgs,  - 20000);
                     SET_FLAG(player, type, doMsgs, DUNGEON, DRAGDEF, 1);
                 }
             }
@@ -514,11 +517,11 @@ namespace XPT.Twinion.Maps {
             else {
                 SHOW_TEXT(player, type, doMsgs, "A thief runs by you and picks your pocket.");
                 if (GET_STAT(player, type, doMsgs, INITIATIVE) >= 13) {
-                    MOD_GOLD(player, type, doMsgs,  - , 25000);
+                    MOD_GOLD(player, type, doMsgs,  - 25000);
                     SET_FLAG(player, type, doMsgs, DUNGEON, DRAGINI, 1);
                 }
                 else {
-                    MOD_GOLD(player, type, doMsgs,  - , 50000);
+                    MOD_GOLD(player, type, doMsgs,  - 50000);
                     SET_FLAG(player, type, doMsgs, DUNGEON, DRAGINI, 1);
                 }
             }
@@ -530,11 +533,11 @@ namespace XPT.Twinion.Maps {
             else {
                 SHOW_TEXT(player, type, doMsgs, "You feel magical forces drain your mana.");
                 if (GET_STAT(player, type, doMsgs, AGILITY) >= 11) {
-                    MOD_MANA(player, type, doMsgs,  - , 200);
+                    MOD_MANA(player, type, doMsgs,  - 200);
                     SET_FLAG(player, type, doMsgs, DUNGEON, DRAGAGI, 1);
                 }
                 else {
-                    MOD_MANA(player, type, doMsgs,  - , 400);
+                    MOD_MANA(player, type, doMsgs,  - 400);
                     SET_FLAG(player, type, doMsgs, DUNGEON, DRAGAGI, 1);
                 }
             }

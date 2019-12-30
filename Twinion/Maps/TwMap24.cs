@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap24 : TwMap {
         protected override int MapIndex => 24;
@@ -114,8 +117,8 @@ namespace XPT.Twinion.Maps {
                         SHOW_TEXT(player, type, doMsgs, "Despite the pain, you manage to unlock the door.");
                         SET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGDAMAGE, 1);
                         MOD_EXP(player, type, doMsgs, 150000);
-                        MOD_STAT(player, type, doMsgs, STRENGTH,  - , 2);
-                        MOD_STAT(player, type, doMsgs, DEFENSE,  - , 2);
+                        MOD_STAT(player, type, doMsgs, STRENGTH,  - 2);
+                        MOD_STAT(player, type, doMsgs, DEFENSE,  - 2);
                         CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
                     }
                 }
@@ -141,8 +144,8 @@ namespace XPT.Twinion.Maps {
                         SHOW_TEXT(player, type, doMsgs, "Still, you manage to open the lock.");
                         SET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGDAMAGE, 1);
                         MOD_EXP(player, type, doMsgs, 150000);
-                        MOD_STAT(player, type, doMsgs, STRENGTH,  - , 2);
-                        MOD_STAT(player, type, doMsgs, DEFENSE,  - , 2);
+                        MOD_STAT(player, type, doMsgs, STRENGTH,  - 2);
+                        MOD_STAT(player, type, doMsgs, DEFENSE,  - 2);
                         CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
                     }
                 }
@@ -405,7 +408,7 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "'Hated Harmonic! Die for disobeying the elders who created these caverns!");
                 SHOW_TEXT(player, type, doMsgs, "We strip from you more strength than you can bear to lose!'");
                 SET_FLAG(player, type, doMsgs, DUNGEON, HARMONYPUNISH, 1);
-                MOD_STAT(player, type, doMsgs, STRENGTH,  - , 2);
+                MOD_STAT(player, type, doMsgs, STRENGTH,  - 2);
                 DAMAGE(player, type, doMsgs, MAX_HEALTH());
             }
             else if (ALIGN() == HARMONY && !GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) && GET_FLAG(player, type, doMsgs, DUNGEON, HARMONYPUNISH)) {
@@ -420,7 +423,7 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "'Hated Chaotic! Die for disobeying the elders who created these caverns!");
                 SHOW_TEXT(player, type, doMsgs, "We strip from you more strength than you can bear to lose!'");
                 SET_FLAG(player, type, doMsgs, DUNGEON, CHAOSPUNISH, 1);
-                MOD_STAT(player, type, doMsgs, STRENGTH,  - , 2);
+                MOD_STAT(player, type, doMsgs, STRENGTH,  - 2);
                 DAMAGE(player, type, doMsgs, MAX_HEALTH());
             }
             else if (ALIGN() == CHAOS && !GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) && GET_FLAG(player, type, doMsgs, DUNGEON, CHAOSPUNISH)) {

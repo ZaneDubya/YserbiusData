@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap19 : TwMap {
         protected override int MapIndex => 19;
@@ -16,7 +19,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent03(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 SHOW_TEXT(player, type, doMsgs, "The unusual force within this green blue fluid saps your magic powers.");
-                MOD_MANA(player, type, doMsgs,  - , 100);
+                MOD_MANA(player, type, doMsgs,  - 100);
                 DamageBy6(player, type, doMsgs);
                 SprungTrap(player, type, doMsgs);
             }
@@ -483,7 +486,7 @@ namespace XPT.Twinion.Maps {
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 SHOW_TEXT(player, type, doMsgs, "Fetid fumes reek of evil magic.");
                 if (GUILD() == WIZARD) {
-                    MOD_MANA(player, type, doMsgs,  - , 250);
+                    MOD_MANA(player, type, doMsgs,  - 250);
                 }
                 SprungTrap(player, type, doMsgs);
             }
@@ -635,9 +638,9 @@ namespace XPT.Twinion.Maps {
             WallBlock(player, type, doMsgs);
         }
         private void OfferBooty(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short itemA = 0;;
-            short itemB = 0;;
-            short itemC = 0;;
+            short itemA = 0;
+            short itemB = 0;
+            short itemC = 0;
             switch (HERE()) {
                 case 178:
                     itemA = MANAAMPHORA;
@@ -671,10 +674,10 @@ namespace XPT.Twinion.Maps {
             DAMAGE(player, type, doMsgs, MAX_HEALTH());
         }
         private void DamageBy2(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            DAMAGE(player, type, doMsgs, HEALTH(),  / , 2);
+            DAMAGE(player, type, doMsgs, HEALTH() / 2);
         }
         private void DamageBy6(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            DAMAGE(player, type, doMsgs, HEALTH(),  / , 6);
+            DAMAGE(player, type, doMsgs, HEALTH() / 6);
         }
         private void SprungTrap(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
@@ -692,8 +695,8 @@ namespace XPT.Twinion.Maps {
             if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && !GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) {
                 SHOW_TEXT(player, type, doMsgs, "A maniacal fiend appears; removes an item you stole from him; and kills you outright.");
                 while HAS_ITEM(player, type, doMsgs, JESTERSCAP)TAKE_ITEM(player, type, doMsgs, JESTERSCAP);
-                MOD_GOLD(player, type, doMsgs,  - , 10000);
-                MOD_EXP(player, type, doMsgs,  - , 200000);
+                MOD_GOLD(player, type, doMsgs,  - 10000);
+                MOD_EXP(player, type, doMsgs,  - 200000);
                 DAMAGE(player, type, doMsgs, MAX_HEALTH());
             }
             SHOW_TEXT(player, type, doMsgs, "This area is certainly not the grand entrance to the Dralkarian kingdom you had envisioned.");
@@ -748,7 +751,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flag = 222;;
+            short flag = 222;
             switch (HERE()) {
                 case 135:
                     flag = KILLEDEREBUS;
@@ -789,15 +792,15 @@ namespace XPT.Twinion.Maps {
             }
             switch (PARTY_COUNT()) {
                 case 1:
-                    case 2:
-                        for (i = 1; i <= 2; i++) {
+                case 2:
+                    for (i = 1; i <= 2; i++) {
+                        GET_MONSTER(player, type, doMsgs, i, 24);
+                    }
+                    default:
+                        for (i = 1; i <= 4; i++) {
                             GET_MONSTER(player, type, doMsgs, i, 24);
-                        }
-                        default:
-                            for (i = 1; i <= 4; i++) {
-                                GET_MONSTER(player, type, doMsgs, i, 24);
-                            }
                         }
                     }
                 }
             }
+        }

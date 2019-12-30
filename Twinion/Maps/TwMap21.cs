@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap21 : TwMap {
         protected override int MapIndex => 21;
@@ -60,7 +63,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "You throw a few coins into the well for luck.");
-            MOD_GOLD(player, type, doMsgs,  - , 100);
+            MOD_GOLD(player, type, doMsgs,  - 100);
         }
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "You marvel at the splendor of this wizard's home.");
@@ -101,7 +104,7 @@ namespace XPT.Twinion.Maps {
             NO_HEAL_ZONE();
             if (!GET_FLAG(player, type, doMsgs, ROOM, HURT)) {
                 SHOW_TEXT(player, type, doMsgs, "The mystical waters weaken you.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
                 SET_FLAG(player, type, doMsgs, ROOM, HURT, 1);
             }
         }
@@ -128,7 +131,7 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 SET_FLAG(player, type, doMsgs, DUNGEON, ALCHEMY, 1);
-                MOD_GOLD(player, type, doMsgs,  - , 20000);
+                MOD_GOLD(player, type, doMsgs,  - 20000);
                 GIVE_ITEM(player, type, doMsgs, MANAAMPHORA);
                 GIVE_ITEM(player, type, doMsgs, HEALAMPHORA);
                 SHOW_TEXT(player, type, doMsgs, "The shopkeeper is happy to take your gold.");
@@ -141,7 +144,7 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 SET_FLAG(player, type, doMsgs, DUNGEON, ARMORY, 1);
-                MOD_GOLD(player, type, doMsgs,  - , 5000);
+                MOD_GOLD(player, type, doMsgs,  - 5000);
                 GIVE_ITEM(player, type, doMsgs, ARCHEDDEATH);
                 GIVE_ITEM(player, type, doMsgs, STAFFOFTHEMAGUS);
                 GIVE_ITEM(player, type, doMsgs, BOWOFFLAMES);
@@ -155,7 +158,7 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 SET_FLAG(player, type, doMsgs, DUNGEON, GENERAL, 1);
-                MOD_GOLD(player, type, doMsgs,  - , 10000);
+                MOD_GOLD(player, type, doMsgs,  - 10000);
                 GIVE_ITEM(player, type, doMsgs, AMULETOFPROTECTION);
                 GIVE_ITEM(player, type, doMsgs, PIPESOFENCHANTMENT);
                 GIVE_ITEM(player, type, doMsgs, FREEDOMRING);
@@ -169,7 +172,7 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 SET_FLAG(player, type, doMsgs, DUNGEON, MAGIC_SHOP, 1);
-                MOD_GOLD(player, type, doMsgs,  - , 25000);
+                MOD_GOLD(player, type, doMsgs,  - 25000);
                 GIVE_ITEM(player, type, doMsgs, SYMBOLOFDEATH);
                 GIVE_ITEM(player, type, doMsgs, PUMMELSCROLL);
                 SHOW_TEXT(player, type, doMsgs, "You purchase scrolls.");
@@ -199,7 +202,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent24(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "A strange magical aura drains your mana.");
-            MOD_MANA(player, type, doMsgs,  - , 300);
+            MOD_MANA(player, type, doMsgs,  - 300);
         }
         protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "The acolytes of Nisym Temple restore your mana free of charge.");
@@ -209,7 +212,7 @@ namespace XPT.Twinion.Maps {
             SHOW_PICTURE(player, type, doMsgs, HALFLINGRANGER);
             SHOW_TEXT(player, type, doMsgs, "'Welcome to the Talisman Inn. I have taken payment for your accommodations. You will find your health improved after your brief rest.'");
             HEAL(player, type, doMsgs, MAX_HEALTH());
-            MOD_GOLD(player, type, doMsgs,  - , 1000);
+            MOD_GOLD(player, type, doMsgs,  - 1000);
         }
         protected override void FnEvent27(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, DWARFKNIGHT);

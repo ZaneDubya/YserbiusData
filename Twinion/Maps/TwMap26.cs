@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap26 : TwMap {
         protected override int MapIndex => 26;
@@ -195,7 +198,7 @@ namespace XPT.Twinion.Maps {
             NO_HEAL_ZONE();
             if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
                 SHOW_TEXT(player, type, doMsgs, "You slip on a loose rock and are injured.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 2);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 2);
                 SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
             }
         }
@@ -251,7 +254,7 @@ namespace XPT.Twinion.Maps {
             NO_HEAL_ZONE();
             if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
                 SHOW_TEXT(player, type, doMsgs, "You feel a ferocious bite on your leg.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 2);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 2);
                 SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
             }
         }
@@ -334,7 +337,7 @@ namespace XPT.Twinion.Maps {
             if (ALIGN() == HARMONY) {
                 SHOW_PICTURE(player, type, doMsgs, STONEGOLEM);
                 SHOW_TEXT(player, type, doMsgs, "The guard quickly draws his weapon and slashes you. As he laughs at his success, you reach behind him and throw the lock switch.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 5);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 5);
                 if ((GET_FLAG(player, type, doMsgs, DUNGEON, GUARD) == 1) && (GET_FLAG(player, type, doMsgs, DUNGEON, TC) == 1 || GET_FLAG(player, type, doMsgs, DUNGEON, TA) == 1)) {
                     SET_FLAG(player, type, doMsgs, DUNGEON, GUARD, 2);
                 }
@@ -704,7 +707,7 @@ namespace XPT.Twinion.Maps {
             BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
         }
         private void DamQuarter(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+            DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
             NO_HEAL_ZONE();
         }
         private void HealFtn(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -712,7 +715,7 @@ namespace XPT.Twinion.Maps {
             MOD_MANA(player, type, doMsgs, 10000);
         }
         private void OuchFtn(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SET_PM(player, type, doMsgs, POISON, 5, MAX_HEALTH(),  / , 5);
+            SET_PM(player, type, doMsgs, POISON, 5, MAX_HEALTH() / 5);
             SET_FLAG(player, type, doMsgs, ROOM, POISON_ME, 1);
         }
         private void Entmsg(TwPlayerServer player, MapEventType type, bool doMsgs) {

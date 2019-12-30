@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap29 : TwMap {
         protected override int MapIndex => 29;
@@ -12,15 +15,15 @@ namespace XPT.Twinion.Maps {
             NO_SPELL();
             NO_SKILL();
             NO_MANA_ZONE();
-            MOD_MANA(player, type, doMsgs,  - , 200);
+            MOD_MANA(player, type, doMsgs,  - 200);
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 if (ALIGN() == HARMONY) {
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 8);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 8);
                     SHOW_TEXT(player, type, doMsgs, "The vile evil that sustains this pocket of Ashakkar here drains life from you!");
                 }
                 else {
                     SHOW_TEXT(player, type, doMsgs, "You thrive on the vicious forces that exist here.");
-                    HEAL(player, type, doMsgs, HEALTH(),  / , 3);
+                    HEAL(player, type, doMsgs, HEALTH() / 3);
                     MOD_MANA(player, type, doMsgs, 200);
                 }
                 SprungTrap(player, type, doMsgs);
@@ -30,15 +33,15 @@ namespace XPT.Twinion.Maps {
             NO_SPELL();
             NO_SKILL();
             NO_MANA_ZONE();
-            MOD_MANA(player, type, doMsgs,  - , 200);
+            MOD_MANA(player, type, doMsgs,  - 200);
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 if (ALIGN() == CHAOS) {
-                    DAMAGE(player, type, doMsgs, HEALTH(),  / , 8);
+                    DAMAGE(player, type, doMsgs, HEALTH() / 8);
                     SHOW_TEXT(player, type, doMsgs, "Your struggle against the forces in this piece of Enakkar twists and drains your energy.");
                 }
                 else {
                     SHOW_TEXT(player, type, doMsgs, "You feel revived and refreshed as you travel through this segment of Enakkar.");
-                    HEAL(player, type, doMsgs, HEALTH(),  / , 3);
+                    HEAL(player, type, doMsgs, HEALTH() / 3);
                     MOD_MANA(player, type, doMsgs, 200);
                 }
                 SprungTrap(player, type, doMsgs);
@@ -46,14 +49,14 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent04(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
-                DAMAGE(player, type, doMsgs, HEALTH(),  / , 3);
+                DAMAGE(player, type, doMsgs, HEALTH() / 3);
                 SHOW_TEXT(player, type, doMsgs, "The forces of Fire sear and singe you as you travel through some small part of the Elemental plane.");
                 SprungTrap(player, type, doMsgs);
             }
         }
         protected override void FnEvent05(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
-                DAMAGE(player, type, doMsgs, HEALTH(),  / , 3);
+                DAMAGE(player, type, doMsgs, HEALTH() / 3);
                 SHOW_TEXT(player, type, doMsgs, "The Waters here drench you with ominous force.");
                 SprungTrap(player, type, doMsgs);
             }
@@ -362,7 +365,7 @@ namespace XPT.Twinion.Maps {
                             break;
                     }
                     SHOW_TEXT(player, type, doMsgs, "His magics swirl around you and hurl you through a vortex, back to the pathway.");
-                    DAMAGE(player, type, doMsgs, HEALTH(),  - , 10);
+                    DAMAGE(player, type, doMsgs, HEALTH() - 10);
                     TELEPORT(player, type, doMsgs, 11, portlvl, portroom, f1);
                 }
             }
@@ -498,12 +501,12 @@ namespace XPT.Twinion.Maps {
                     SHOW_TEXT(player, type, doMsgs, "'Did you truly believe I would share the greatest triumph with you! Your powers are no match for mine now! Away with you! Your faith in my friendship was your weakness! I alone shall breach The Gateway; I alone shall enter the next phase!'");
                     SHOW_TEXT(player, type, doMsgs, "Driven mad with power, Aeowyn hurls untamed forces upon you, stripping away parts of your attributes! A blast explodes on the southern wall, where a teleport will allow you escape.");
                     SHOW_TEXT(player, type, doMsgs, "The mad Queen, then dissipates into nothingness, only her evil laughter echoing as she heads off to The Gateway.");
-                    DAMAGE(player, type, doMsgs, HEALTH(),  / , 2);
+                    DAMAGE(player, type, doMsgs, HEALTH() / 2);
                     TAKE_ITEM(player, type, doMsgs, STARBURST);
                     if (!GET_FLAG(player, type, doMsgs, DUNGEON, ENDGAMETELE)) {
-                        MOD_STAT(player, type, doMsgs, STRENGTH,  - , 1);
-                        MOD_STAT(player, type, doMsgs, AGILITY,  - , 2);
-                        MOD_STAT(player, type, doMsgs, INITIATIVE,  - , 2);
+                        MOD_STAT(player, type, doMsgs, STRENGTH,  - 1);
+                        MOD_STAT(player, type, doMsgs, AGILITY,  - 2);
+                        MOD_STAT(player, type, doMsgs, INITIATIVE,  - 2);
                         SET_FLAG(player, type, doMsgs, DUNGEON, ENDGAMETELE, 1);
                     }
                 }

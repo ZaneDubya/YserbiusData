@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap30 : TwMap {
         protected override int MapIndex => 30;
@@ -365,7 +368,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 SHOW_TEXT(player, type, doMsgs, "You've sprung an ancient trap that seems not to have harmed you...much.");
-                DAMAGE(player, type, doMsgs, HEALTH(),  / , 4);
+                DAMAGE(player, type, doMsgs, HEALTH() / 4);
                 SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
             }
         }
@@ -373,7 +376,7 @@ namespace XPT.Twinion.Maps {
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 if (!GET_FLAG(player, type, doMsgs, PARTY, TORCHSWITCH)) {
                     SHOW_TEXT(player, type, doMsgs, "A dragon's face is carved on the wall where the torch here hangs. As you walk by the wall it comes to life and spews waves of fire over you!");
-                    DAMAGE(player, type, doMsgs, HEALTH(),  / , 5);
+                    DAMAGE(player, type, doMsgs, HEALTH() / 5);
                 }
                 else {
                     SHOW_TEXT(player, type, doMsgs, "The carved dragon on the wall remains silent.");
@@ -413,15 +416,15 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent1F(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "The Guardians here launch a spread of evil magic towards you. The mysterious vapors envelop your body as a ring of opaque fog.");
             SET_PM(player, type, doMsgs, POISON, 10, 700);
-            MOD_STAT(player, type, doMsgs, DEFENSE,  - , 1);
-            MOD_STAT(player, type, doMsgs, AGILITY,  - , 1);
+            MOD_STAT(player, type, doMsgs, DEFENSE,  - 1);
+            MOD_STAT(player, type, doMsgs, AGILITY,  - 1);
         }
         protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short i;
             SHOW_TEXT(player, type, doMsgs, "Creatures surprise you!");
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
-                DAMAGE(player, type, doMsgs, HEALTH(),  / , 6);
-                MOD_GOLD(player, type, doMsgs,  - , 2500);
+                DAMAGE(player, type, doMsgs, HEALTH() / 6);
+                MOD_GOLD(player, type, doMsgs,  - 2500);
                 SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
             }
             switch (PARTY_COUNT()) {

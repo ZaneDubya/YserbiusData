@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap25 : TwMap {
         protected override int MapIndex => 25;
@@ -86,7 +89,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent10(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            MOD_MANA(player, type, doMsgs,  - , 200);
+            MOD_MANA(player, type, doMsgs,  - 200);
             SHOW_TEXT(player, type, doMsgs, "Your constant running into invisible walls has taken a toll on your mana.");
             BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
         }
@@ -107,7 +110,7 @@ namespace XPT.Twinion.Maps {
                 GIVE_ITEM(player, type, doMsgs, ZEUSSCROLL);
                 GIVE_ITEM(player, type, doMsgs, PUMMELSCROLL);
                 GIVE_ITEM(player, type, doMsgs, SHIELDINGSCROLL);
-                MOD_GOLD(player, type, doMsgs,  - , 10000);
+                MOD_GOLD(player, type, doMsgs,  - 10000);
                 SHOW_TEXT(player, type, doMsgs, "You encounter a wizard selling scrolls.");
                 SHOW_TEXT(player, type, doMsgs, "'I see that you will be in need of magic as you travel through this area.  I accept your payment for these scrolls. May they aid you in your journey.'");
             }
@@ -118,7 +121,7 @@ namespace XPT.Twinion.Maps {
             NO_HEAL_ZONE();
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
                 SHOW_TEXT(player, type, doMsgs, "The water drains your energy as you wade through it.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
                 SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
             }
         }
@@ -129,7 +132,7 @@ namespace XPT.Twinion.Maps {
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
                 if (GUILD() == RANGER || GUILD() == CLERIC || GUILD() == WIZARD) {
                     SHOW_TEXT(player, type, doMsgs, "A water monster attacks you, but you manage to get away with minimal damage.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
                     SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
                 }
             }
@@ -157,7 +160,7 @@ namespace XPT.Twinion.Maps {
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
                 if (GUILD() == THIEF || GUILD() == BARBARIAN || GUILD() == KNIGHT) {
                     SHOW_TEXT(player, type, doMsgs, "A water monster attacks you, but you manage to get away with minimal damage.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
                     SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
                 }
             }
@@ -176,7 +179,7 @@ namespace XPT.Twinion.Maps {
             NO_HEAL_ZONE();
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
                 SHOW_TEXT(player, type, doMsgs, "The heat of the surrounding lava makes you weak.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
                 SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
             }
         }
@@ -226,7 +229,7 @@ namespace XPT.Twinion.Maps {
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
                 if (GUILD() == THIEF || GUILD() == BARBARIAN || GUILD() == KNIGHT) {
                     SHOW_TEXT(player, type, doMsgs, "Your heavy step causes a crack in the hardened lava and the still molten lava below splashes up and injures you.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
                     SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
                 }
             }
@@ -237,7 +240,7 @@ namespace XPT.Twinion.Maps {
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
                 if (GUILD() == RANGER || GUILD() == CLERIC || GUILD() == WIZARD) {
                     SHOW_TEXT(player, type, doMsgs, "Your heavy step causes a crack in the hardened lava and the still molten lava below splashes up and injures you.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
                     SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
                 }
             }
@@ -270,7 +273,7 @@ namespace XPT.Twinion.Maps {
             NO_HEAL_ZONE();
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
                 SHOW_TEXT(player, type, doMsgs, "You cut yourself on the jagged rock wall.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 3);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 3);
                 SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
             }
         }

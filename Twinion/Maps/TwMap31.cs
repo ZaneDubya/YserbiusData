@@ -1,3 +1,6 @@
+using XPT.Generic.Maps;
+using XPT.Twinion.Entities;
+
 namespace XPT.Twinion.Maps {
     class TwMap31 : TwMap {
         protected override int MapIndex => 31;
@@ -132,25 +135,25 @@ namespace XPT.Twinion.Maps {
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 switch (trap) {
                     case 1:
-                        DAMAGE(player, type, doMsgs, HEALTH(),  / , 3);
+                        DAMAGE(player, type, doMsgs, HEALTH() / 3);
                         NoMapsZone(player, type, doMsgs);
                         NoSpellZone(player, type, doMsgs);
                         SHOW_TEXT(player, type, doMsgs, "Evil winds rip through you, mauling you horribly.");
                         trap++;
                         break;
                     case 2:
-                        DAMAGE(player, type, doMsgs, HEALTH(),  - , 2000);
+                        DAMAGE(player, type, doMsgs, HEALTH() - 2000);
                         SET_PM(player, type, doMsgs, POISON, 15, 100);
                         SHOW_TEXT(player, type, doMsgs, "Poisoned gas strangles you as it dissipates.");
                         trap++;
                         break;
                     case 3:
-                        DAMAGE(player, type, doMsgs, HEALTH(),  / , 4);
+                        DAMAGE(player, type, doMsgs, HEALTH() / 4);
                         SHOW_TEXT(player, type, doMsgs, "A flash of magical light blinds you temporarily; causing you damage.");
                         trap++;
                         break;
                     case 4:
-                        MOD_MANA(player, type, doMsgs,  - , 2000);
+                        MOD_MANA(player, type, doMsgs,  - 2000);
                         while HAS_ITEM(player, type, doMsgs, ZEUSSCROLL)TAKE_ITEM(player, type, doMsgs, ZEUSSCROLL);
                         while HAS_ITEM(player, type, doMsgs, SOVEREIGNSCROLL)TAKE_ITEM(player, type, doMsgs, SOVEREIGNSCROLL);
                         SHOW_TEXT(player, type, doMsgs, "Mystical currents from an ancient snare steal from and damage you.");
@@ -158,12 +161,12 @@ namespace XPT.Twinion.Maps {
                         break;
                     case 5:
                         SHOW_TEXT(player, type, doMsgs, "A blast of fire greets you at this next snare.");
-                        MOD_MANA(player, type, doMsgs,  - , 200);
-                        DAMAGE(player, type, doMsgs, MAX_HEALTH(),  / , 4);
+                        MOD_MANA(player, type, doMsgs,  - 200);
+                        DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
                         trap++;
                         break;
                     default:
-                        DAMAGE(player, type, doMsgs, HEALTH(),  / , 3);
+                        DAMAGE(player, type, doMsgs, HEALTH() / 3);
                         NO_HEAL_ZONE();
                         trap = 1;
                         NoSpellZone(player, type, doMsgs);
@@ -312,7 +315,7 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "I have been imprisoned here in granite by the mad Queen! Her powers are farther reaching than you dare imagine. With the five rings, she is now trying to gain control of the Gateway.");
                 SHOW_TEXT(player, type, doMsgs, "I cannot defend the Gate from her powers, you must destroy her or all of time shall fold in upon itself. Our fate will be sealed in oblivion's tomb.'");
                 SHOW_TEXT(player, type, doMsgs, "The statue begins to crumble as you watch, 'Go! defeat her! I can no longer protect...' but its too late, the statue explodes into dust flying across the room and damaging you.");
-                DAMAGE(player, type, doMsgs, HEALTH(),  / , 5);
+                DAMAGE(player, type, doMsgs, HEALTH() / 5);
                 SET_FLAG(player, type, doMsgs, PARTY, KEEPER, 1);
             }
         }
@@ -430,230 +433,230 @@ namespace XPT.Twinion.Maps {
             SET_FLAG(player, type, doMsgs, PARTY, USEDNEPTRI, 1);
             switch (HERE()) {
                 case 160:
-                    case 192:
-                        CLEAR_FLOOR(player, type, doMsgs, 176);
-                        PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 176);
+                case 192:
+                    CLEAR_FLOOR(player, type, doMsgs, 176);
+                    PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 176);
+                    break;
+                default:
+                    CLEAR_FLOOR(player, type, doMsgs, 85);
+                    PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 85);
+                    break;
+            }
+        }
+        protected override void FnEvent28(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            if (GET_FLAG(player, type, doMsgs, PARTY, USEDNEPTRI) == 1) {
+                SHOW_TEXT(player, type, doMsgs, "The magic sustains the pool, allowing you to safely pass.");
+            }
+            else {
+                SHOW_TEXT(player, type, doMsgs, "The lava scorches and torments your body. The magical fluids then hurl you across the maze...");
+                DAMAGE(player, type, doMsgs, HEALTH() - 100);
+                TELEPORT(player, type, doMsgs, 12, 2, 191, SOUTH);
+            }
+        }
+        protected override void FnEvent29(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            short i;
+            if (STATE() != HERE()) {
+                SET_STATE(player, type, doMsgs, HERE());
+                switch (PARTY_COUNT()) {
+                    case 1:
+                        GET_MONSTER(player, type, doMsgs, 01, HALLGUARD3);
+                        GET_MONSTER(player, type, doMsgs, 02, HALLGUARD3);
+                        break;
+                    case 2:
+                        for (i = 1; i <= 3; i++) {
+                            GET_MONSTER(player, type, doMsgs, i, HALLGUARD3);
+                        }
                         break;
                     default:
-                        CLEAR_FLOOR(player, type, doMsgs, 85);
-                        PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 85);
+                        for (i = 1; i <= 5; i++) {
+                            GET_MONSTER(player, type, doMsgs, i, HALLGUARD3);
+                        }
                         break;
-                }
-            }
-            protected override void FnEvent28(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                if (GET_FLAG(player, type, doMsgs, PARTY, USEDNEPTRI) == 1) {
-                    SHOW_TEXT(player, type, doMsgs, "The magic sustains the pool, allowing you to safely pass.");
-                }
-                else {
-                    SHOW_TEXT(player, type, doMsgs, "The lava scorches and torments your body. The magical fluids then hurl you across the maze...");
-                    DAMAGE(player, type, doMsgs, HEALTH(),  - , 100);
-                    TELEPORT(player, type, doMsgs, 12, 2, 191, SOUTH);
-                }
-            }
-            protected override void FnEvent29(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
-                if (STATE() != HERE()) {
-                    SET_STATE(player, type, doMsgs, HERE());
-                    switch (PARTY_COUNT()) {
-                        case 1:
-                            GET_MONSTER(player, type, doMsgs, 01, HALLGUARD3);
-                            GET_MONSTER(player, type, doMsgs, 02, HALLGUARD3);
-                            break;
-                        case 2:
-                            for (i = 1; i <= 3; i++) {
-                                GET_MONSTER(player, type, doMsgs, i, HALLGUARD3);
-                            }
-                            break;
-                        default:
-                            for (i = 1; i <= 5; i++) {
-                                GET_MONSTER(player, type, doMsgs, i, HALLGUARD3);
-                            }
-                            break;
-                    }
-                }
-            }
-            protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
-                if (STATE() != HERE()) {
-                    SET_STATE(player, type, doMsgs, HERE());
-                    switch (PARTY_COUNT()) {
-                        case 1:
-                            GET_MONSTER(player, type, doMsgs, 01, HALLGUARD4);
-                            GET_MONSTER(player, type, doMsgs, 02, HALLGUARD4);
-                            break;
-                        case 2:
-                            for (i = 1; i <= 3; i++) {
-                                GET_MONSTER(player, type, doMsgs, i, HALLGUARD4);
-                            }
-                            break;
-                        default:
-                            for (i = 1; i <= 5; i++) {
-                                GET_MONSTER(player, type, doMsgs, i, HALLGUARD4);
-                            }
-                            break;
-                    }
-                }
-            }
-            protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
-                if (STATE() != HERE()) {
-                    SET_STATE(player, type, doMsgs, HERE());
-                    switch (PARTY_COUNT()) {
-                        case 1:
-                            GET_MONSTER(player, type, doMsgs, 01, HALLGUARD5);
-                            GET_MONSTER(player, type, doMsgs, 02, HALLGUARD5);
-                            break;
-                        case 2:
-                            for (i = 1; i <= 3; i++) {
-                                GET_MONSTER(player, type, doMsgs, i, HALLGUARD5);
-                            }
-                            break;
-                        default:
-                            for (i = 1; i <= 5; i++) {
-                                GET_MONSTER(player, type, doMsgs, i, HALLGUARD5);
-                            }
-                            break;
-                    }
-                }
-            }
-            protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                if (!GET_FLAG(player, type, doMsgs, PARTY, IHAVETHEFLAIL)) {
-                    if (USED_ITEM(player, type, doMsgs, GAEASFLAIL, GAEASFLAIL)) {
-                        SHOW_TEXT(player, type, doMsgs, "The pit before you congeals into a solid earthen floor! Gaea's power is obvious concerning the nature of things.");
-                        SET_FLAG(player, type, doMsgs, PARTY, USEDGAEAFLAIL, 1);
-                        switch (HERE()) {
-                            case 23:
-                                case 55:
-                                    CLEAR_FLOOR(player, type, doMsgs, 39);
-                                    PLACE_FLOOR_ITEM(player, type, doMsgs, NO_OBJECT, 39);
-                                    break;
-                            }
-                        }
-                        else if (USED_ITEM(player, type, doMsgs, SHORTSWORD, UNITYRING)) {
-                            SHOW_TEXT(player, type, doMsgs, "The pit remains open.");
-                            SET_FLAG(player, type, doMsgs, PARTY, USEDGAEAFLAIL, 0);
-                        }
-                        else {
-                            SHOW_TEXT(player, type, doMsgs, "An eerie black pit stretches deep into the earth here. Echoes of your every sound are barely audible whispers by the time they return.");
-                        }
-                    }
-                }
-                protected override void FnEvent2D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (!GET_FLAG(player, type, doMsgs, PARTY, IHAVETHEFLAIL)) {
-                        if (GET_FLAG(player, type, doMsgs, PARTY, USEDGAEAFLAIL) == 1) {
-                            SHOW_TEXT(player, type, doMsgs, "The flail keeps the earth intact, allowing you to safely pass.");
-                        }
-                        else {
-                            SHOW_TEXT(player, type, doMsgs, "The pit swallows you whole, this magical snare does not kill you, however, but you are swept away through the maze.");
-                            DAMAGE(player, type, doMsgs, HEALTH(),  - , 100);
-                            TELEPORT(player, type, doMsgs, 12, 2, 222, EAST);
-                        }
-                    }
-                }
-                protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (!HAS_ITEM(player, type, doMsgs, GAEASFLAIL)) {
-                        SET_FLAG(player, type, doMsgs, PARTY, IHAVETHEFLAIL, 1);
-                    }
-                }
-                protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SHOW_TEXT(player, type, doMsgs, "An ancient portal carved of pure magic and wrought with precious gemstones stands guard here.");
-                    if (PARTY_COUNT() == 1) {
-                        if ((GET_FLAG(player, type, doMsgs, DUNGEON, HALLOFDOOM) == 1) && (HAS_ITEM(player, type, doMsgs, SWORDOFARES) || HAS_ITEM(player, type, doMsgs, BOWOFEOS) || HAS_ITEM(player, type, doMsgs, GAEASFLAIL) || HAS_ITEM(player, type, doMsgs, NEPTUNESTRIDENT))) {
-                            SHOW_TEXT(player, type, doMsgs, "The ancient crystals merge into a teleport, allowing you to gain quick access to the Gateway's heart.");
-                            TELEPORT(player, type, doMsgs, 12, 2, 205, NORTH);
-                        }
-                        else {
-                            SHOW_TEXT(player, type, doMsgs, "Here you will enter the ancient Gods' treasure room.");
-                            TELEPORT(player, type, doMsgs, 12, 2, 219, SOUTH);
-                        }
-                    }
-                    else {
-                        SHOW_TEXT(player, type, doMsgs, "Be off!! Only one Hero may enter here at a time!");
-                        ROTATE(player, type, doMsgs, EAST);
-                    }
-                }
-                protected override void FnEvent33(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SET_FLAG(player, type, doMsgs, DUNGEON, ONLYONCE, 0);
-                    SHOW_TEXT(player, type, doMsgs, "From here you enter the heart of The Gateway.");
-                    TELEPORT(player, type, doMsgs, 12, 2, 246, EAST);
-                }
-                protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (!HAS_ITEM(player, type, doMsgs, STATUEOFSTORMGIANT)) {
-                        GIVE_ITEM(player, type, doMsgs, STATUEOFSTORMGIANT);
-                        SHOW_TEXT(player, type, doMsgs, "You pick up an odd statue. Perhaps it will protect you when you are alone.");
-                    }
-                    switch (HERE()) {
-                        case 238:
-                            SHOW_TEXT(player, type, doMsgs, "A jeweled carving depicts a band of travelers journeying through an ancient dungeon in search of some great treasure.");
-                            break;
-                        case 222:
-                            SHOW_TEXT(player, type, doMsgs, "This carving shows four ancient fragments brought unto themselves, forming some magical piece that allows access into a dark kingdom.");
-                            break;
-                        case 206:
-                            SHOW_TEXT(player, type, doMsgs, "Here you see a myriad of images strewn across various puzzles and hordes of vile creatures that scorn the travelers as they seek the treasure.");
-                            break;
-                        case 190:
-                            if (FLAG_ON(player, type, doMsgs, DUNGEON, KILLEDQUEEN)) {
-                                SHOW_TEXT(player, type, doMsgs, "Emblazoned in the stones you see your own image slaying the mad Queen and eventually entering the mystical Gateway of Immortality.");
-                            }
-                            else {
-                                SHOW_TEXT(player, type, doMsgs, "Shadowy, incoherent images flash across the stones as though some part of future history is yet to be completed.");
-                            }
-                            break;
-                    }
-                }
-                protected override void FnEvent35(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    TELEPORT(player, type, doMsgs, 12, 2, 150, WEST);
-                    SHOW_TEXT(player, type, doMsgs, "To the last pathway of challenge. From there you will ultimately meet your Fate.");
-                }
-                protected override void FnEvent36(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    NO_MAPS();
-                }
-                protected override void FnEvent37(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (!GET_FLAG(player, type, doMsgs, DUNGEON, FINISHEDGAME)) {
-                        SET_FLAG(player, type, doMsgs, DUNGEON, FINISHEDGAME, 1);
-                        SHOW_TEXT(player, type, doMsgs, "An eerie, shimmering portal hangs before you. This is the Gateway...the ingress into new adventures and future history.");
-                        SHOW_TEXT(player, type, doMsgs, "You will come back here in time, when you feel you are ready for new challenges and greater travels. Until then, you must rest and restore your drained powers for that day.");
-                        SHOW_TEXT(player, type, doMsgs, "There is a place, guarded by Shaddax, the Keeper, you must journey there and unravel the riddles placed in your path by some vile deity that inhabits another dimension.");
-                        SHOW_TEXT(player, type, doMsgs, "That is your task for now, you may return here when time dictates! Go now, seek Shaddax...you may find the entrance through Dragon's Ire! Go, brave champion!");
-                        TELEPORT(player, type, doMsgs, 1, 1, 3, SOUTH);
-                    }
-                    else {
-                        SHOW_TEXT(player, type, doMsgs, "The portal is here; but the future is not yours to see...yet.");
-                        TELEPORT(player, type, doMsgs, 1, 1, 3, SOUTH);
-                    }
-                }
-                private void AdvTxt(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SHOW_TEXT(player, type, doMsgs, "This portal will offer you no advancement without the proper artifact.");
-                }
-                private void AssaultTxt(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SHOW_TEXT(player, type, doMsgs, "Through here you begin the final assault.");
-                }
-                private void WallClear(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
-                }
-                private void AresText(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SHOW_TEXT(player, type, doMsgs, "Ares had visited this place many moons ago. As his mark, he left behind a legend that clever Night Elf craftsmen emblazoned with ancient runes upon this jeweled blade.");
-                }
-                private void NeptunesTxt(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SHOW_TEXT(player, type, doMsgs, "Lord Neptune, Master of the Wind and the Sea, used this Trident to command the waters that now surround Twinion to swirl into fury; crashing down upon his enemies. Its power is now yours to borrow.");
-                }
-                private void GaeasText(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SHOW_TEXT(player, type, doMsgs, "Gaea had exhausted herself in many travels, but her pleasures here have always been her favorite. She filled herself with energies and moved on to a new adventure via the Portal.");
-                    SHOW_TEXT(player, type, doMsgs, "Her flail now remains as her mark, and is offered to you to defend the Portal from abuse.");
-                }
-                private void EosText(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SHOW_TEXT(player, type, doMsgs, "Dawn shall come! Eos brings the sun, and the first arch of gold was wrought into this magnificent bow in honor of this goddess.");
-                    SHOW_TEXT(player, type, doMsgs, "Now the Bow of Eos, shall be your light and guide past the snares that await you along the paths to the Portal.");
-                }
-                private void NoMapsZone(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    NO_MAPS();
-                }
-                private void NoSpellZone(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    NO_SPELL();
-                }
-                private void SprungTrap(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
                 }
             }
         }
+        protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            short i;
+            if (STATE() != HERE()) {
+                SET_STATE(player, type, doMsgs, HERE());
+                switch (PARTY_COUNT()) {
+                    case 1:
+                        GET_MONSTER(player, type, doMsgs, 01, HALLGUARD4);
+                        GET_MONSTER(player, type, doMsgs, 02, HALLGUARD4);
+                        break;
+                    case 2:
+                        for (i = 1; i <= 3; i++) {
+                            GET_MONSTER(player, type, doMsgs, i, HALLGUARD4);
+                        }
+                        break;
+                    default:
+                        for (i = 1; i <= 5; i++) {
+                            GET_MONSTER(player, type, doMsgs, i, HALLGUARD4);
+                        }
+                        break;
+                }
+            }
+        }
+        protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            short i;
+            if (STATE() != HERE()) {
+                SET_STATE(player, type, doMsgs, HERE());
+                switch (PARTY_COUNT()) {
+                    case 1:
+                        GET_MONSTER(player, type, doMsgs, 01, HALLGUARD5);
+                        GET_MONSTER(player, type, doMsgs, 02, HALLGUARD5);
+                        break;
+                    case 2:
+                        for (i = 1; i <= 3; i++) {
+                            GET_MONSTER(player, type, doMsgs, i, HALLGUARD5);
+                        }
+                        break;
+                    default:
+                        for (i = 1; i <= 5; i++) {
+                            GET_MONSTER(player, type, doMsgs, i, HALLGUARD5);
+                        }
+                        break;
+                }
+            }
+        }
+        protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            if (!GET_FLAG(player, type, doMsgs, PARTY, IHAVETHEFLAIL)) {
+                if (USED_ITEM(player, type, doMsgs, GAEASFLAIL, GAEASFLAIL)) {
+                    SHOW_TEXT(player, type, doMsgs, "The pit before you congeals into a solid earthen floor! Gaea's power is obvious concerning the nature of things.");
+                    SET_FLAG(player, type, doMsgs, PARTY, USEDGAEAFLAIL, 1);
+                    switch (HERE()) {
+                        case 23:
+                        case 55:
+                            CLEAR_FLOOR(player, type, doMsgs, 39);
+                            PLACE_FLOOR_ITEM(player, type, doMsgs, NO_OBJECT, 39);
+                            break;
+                    }
+                }
+                else if (USED_ITEM(player, type, doMsgs, SHORTSWORD, UNITYRING)) {
+                    SHOW_TEXT(player, type, doMsgs, "The pit remains open.");
+                    SET_FLAG(player, type, doMsgs, PARTY, USEDGAEAFLAIL, 0);
+                }
+                else {
+                    SHOW_TEXT(player, type, doMsgs, "An eerie black pit stretches deep into the earth here. Echoes of your every sound are barely audible whispers by the time they return.");
+                }
+            }
+        }
+        protected override void FnEvent2D(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            if (!GET_FLAG(player, type, doMsgs, PARTY, IHAVETHEFLAIL)) {
+                if (GET_FLAG(player, type, doMsgs, PARTY, USEDGAEAFLAIL) == 1) {
+                    SHOW_TEXT(player, type, doMsgs, "The flail keeps the earth intact, allowing you to safely pass.");
+                }
+                else {
+                    SHOW_TEXT(player, type, doMsgs, "The pit swallows you whole, this magical snare does not kill you, however, but you are swept away through the maze.");
+                    DAMAGE(player, type, doMsgs, HEALTH() - 100);
+                    TELEPORT(player, type, doMsgs, 12, 2, 222, EAST);
+                }
+            }
+        }
+        protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            if (!HAS_ITEM(player, type, doMsgs, GAEASFLAIL)) {
+                SET_FLAG(player, type, doMsgs, PARTY, IHAVETHEFLAIL, 1);
+            }
+        }
+        protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_TEXT(player, type, doMsgs, "An ancient portal carved of pure magic and wrought with precious gemstones stands guard here.");
+            if (PARTY_COUNT() == 1) {
+                if ((GET_FLAG(player, type, doMsgs, DUNGEON, HALLOFDOOM) == 1) && (HAS_ITEM(player, type, doMsgs, SWORDOFARES) || HAS_ITEM(player, type, doMsgs, BOWOFEOS) || HAS_ITEM(player, type, doMsgs, GAEASFLAIL) || HAS_ITEM(player, type, doMsgs, NEPTUNESTRIDENT))) {
+                    SHOW_TEXT(player, type, doMsgs, "The ancient crystals merge into a teleport, allowing you to gain quick access to the Gateway's heart.");
+                    TELEPORT(player, type, doMsgs, 12, 2, 205, NORTH);
+                }
+                else {
+                    SHOW_TEXT(player, type, doMsgs, "Here you will enter the ancient Gods' treasure room.");
+                    TELEPORT(player, type, doMsgs, 12, 2, 219, SOUTH);
+                }
+            }
+            else {
+                SHOW_TEXT(player, type, doMsgs, "Be off!! Only one Hero may enter here at a time!");
+                ROTATE(player, type, doMsgs, EAST);
+            }
+        }
+        protected override void FnEvent33(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SET_FLAG(player, type, doMsgs, DUNGEON, ONLYONCE, 0);
+            SHOW_TEXT(player, type, doMsgs, "From here you enter the heart of The Gateway.");
+            TELEPORT(player, type, doMsgs, 12, 2, 246, EAST);
+        }
+        protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            if (!HAS_ITEM(player, type, doMsgs, STATUEOFSTORMGIANT)) {
+                GIVE_ITEM(player, type, doMsgs, STATUEOFSTORMGIANT);
+                SHOW_TEXT(player, type, doMsgs, "You pick up an odd statue. Perhaps it will protect you when you are alone.");
+            }
+            switch (HERE()) {
+                case 238:
+                    SHOW_TEXT(player, type, doMsgs, "A jeweled carving depicts a band of travelers journeying through an ancient dungeon in search of some great treasure.");
+                    break;
+                case 222:
+                    SHOW_TEXT(player, type, doMsgs, "This carving shows four ancient fragments brought unto themselves, forming some magical piece that allows access into a dark kingdom.");
+                    break;
+                case 206:
+                    SHOW_TEXT(player, type, doMsgs, "Here you see a myriad of images strewn across various puzzles and hordes of vile creatures that scorn the travelers as they seek the treasure.");
+                    break;
+                case 190:
+                    if (FLAG_ON(player, type, doMsgs, DUNGEON, KILLEDQUEEN)) {
+                        SHOW_TEXT(player, type, doMsgs, "Emblazoned in the stones you see your own image slaying the mad Queen and eventually entering the mystical Gateway of Immortality.");
+                    }
+                    else {
+                        SHOW_TEXT(player, type, doMsgs, "Shadowy, incoherent images flash across the stones as though some part of future history is yet to be completed.");
+                    }
+                    break;
+            }
+        }
+        protected override void FnEvent35(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            TELEPORT(player, type, doMsgs, 12, 2, 150, WEST);
+            SHOW_TEXT(player, type, doMsgs, "To the last pathway of challenge. From there you will ultimately meet your Fate.");
+        }
+        protected override void FnEvent36(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            NO_MAPS();
+        }
+        protected override void FnEvent37(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            if (!GET_FLAG(player, type, doMsgs, DUNGEON, FINISHEDGAME)) {
+                SET_FLAG(player, type, doMsgs, DUNGEON, FINISHEDGAME, 1);
+                SHOW_TEXT(player, type, doMsgs, "An eerie, shimmering portal hangs before you. This is the Gateway...the ingress into new adventures and future history.");
+                SHOW_TEXT(player, type, doMsgs, "You will come back here in time, when you feel you are ready for new challenges and greater travels. Until then, you must rest and restore your drained powers for that day.");
+                SHOW_TEXT(player, type, doMsgs, "There is a place, guarded by Shaddax, the Keeper, you must journey there and unravel the riddles placed in your path by some vile deity that inhabits another dimension.");
+                SHOW_TEXT(player, type, doMsgs, "That is your task for now, you may return here when time dictates! Go now, seek Shaddax...you may find the entrance through Dragon's Ire! Go, brave champion!");
+                TELEPORT(player, type, doMsgs, 1, 1, 3, SOUTH);
+            }
+            else {
+                SHOW_TEXT(player, type, doMsgs, "The portal is here; but the future is not yours to see...yet.");
+                TELEPORT(player, type, doMsgs, 1, 1, 3, SOUTH);
+            }
+        }
+        private void AdvTxt(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_TEXT(player, type, doMsgs, "This portal will offer you no advancement without the proper artifact.");
+        }
+        private void AssaultTxt(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_TEXT(player, type, doMsgs, "Through here you begin the final assault.");
+        }
+        private void WallClear(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+        }
+        private void AresText(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_TEXT(player, type, doMsgs, "Ares had visited this place many moons ago. As his mark, he left behind a legend that clever Night Elf craftsmen emblazoned with ancient runes upon this jeweled blade.");
+        }
+        private void NeptunesTxt(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_TEXT(player, type, doMsgs, "Lord Neptune, Master of the Wind and the Sea, used this Trident to command the waters that now surround Twinion to swirl into fury; crashing down upon his enemies. Its power is now yours to borrow.");
+        }
+        private void GaeasText(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_TEXT(player, type, doMsgs, "Gaea had exhausted herself in many travels, but her pleasures here have always been her favorite. She filled herself with energies and moved on to a new adventure via the Portal.");
+            SHOW_TEXT(player, type, doMsgs, "Her flail now remains as her mark, and is offered to you to defend the Portal from abuse.");
+        }
+        private void EosText(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SHOW_TEXT(player, type, doMsgs, "Dawn shall come! Eos brings the sun, and the first arch of gold was wrought into this magnificent bow in honor of this goddess.");
+            SHOW_TEXT(player, type, doMsgs, "Now the Bow of Eos, shall be your light and guide past the snares that await you along the paths to the Portal.");
+        }
+        private void NoMapsZone(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            NO_MAPS();
+        }
+        private void NoSpellZone(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            NO_SPELL();
+        }
+        private void SprungTrap(TwPlayerServer player, MapEventType type, bool doMsgs) {
+            SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
+        }
+    }
+}
