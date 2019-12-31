@@ -483,11 +483,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_SPELL(player, type, doMsgs);
             int flagtotal = 0;
-            flagtotal = GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDASTELLIGUS);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDPLUTHROS);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDMALOS);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDJUVALAD);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDCORPEUS);
+            flagtotal = GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDASTELLIGUS) + GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDPLUTHROS) + GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDMALOS) + GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDJUVALAD) + GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDCORPEUS);
             if (HAS_ITEM(player, type, doMsgs, DRALKARIANRING)) {
                 TAKE_ITEM(player, type, doMsgs, DRALKARIANRING);
                 MOD_EXP(player, type, doMsgs, 1000000);

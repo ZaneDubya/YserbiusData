@@ -109,8 +109,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int i = 0;
             SHOW_TEXT(player, type, doMsgs, "The boiling lava scorches you terribly.");
-            i = HEALTH(player, type, doMsgs);
-             - 1;
+            i = HEALTH(player, type, doMsgs) - 1;
             DAMAGE(player, type, doMsgs, i);
         }
         protected override void FnEvent02(TwPlayerServer player, MapEventType type, bool doMsgs) {

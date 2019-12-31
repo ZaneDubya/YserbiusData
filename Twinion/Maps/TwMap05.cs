@@ -332,8 +332,7 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "These torrential waters must be entered alone.");
-                where = HERE(player, type, doMsgs);
-                 - 1;
+                where = HERE(player, type, doMsgs) - 1;
                 TELEPORT(player, type, doMsgs, 2, 3, where, WEST);
             }
         }

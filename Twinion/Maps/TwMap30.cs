@@ -136,21 +136,17 @@ namespace XPT.Twinion.Maps {
                         charges++;
                         SET_FLAG(player, type, doMsgs, DUNGEON, ITEMUSES, charges);
                         if (FACING(player, type, doMsgs) == NORTH) {
-                            tilenumber = HERE(player, type, doMsgs);
+                            tilenumber = HERE(player, type, doMsgs) - 16;
                         }
-                         - 16;
                         if (FACING(player, type, doMsgs) == EAST) {
-                            tilenumber = HERE(player, type, doMsgs);
+                            tilenumber = HERE(player, type, doMsgs) + 1;
                         }
-                         + 1;
                         if (FACING(player, type, doMsgs) == SOUTH) {
-                            tilenumber = HERE(player, type, doMsgs);
+                            tilenumber = HERE(player, type, doMsgs) + 16;
                         }
-                         + 16;
                         if (FACING(player, type, doMsgs) == WEST) {
-                            tilenumber = HERE(player, type, doMsgs);
+                            tilenumber = HERE(player, type, doMsgs) - 1;
                         }
-                         - 1;
                         CLEAR_FLOOR(player, type, doMsgs, tilenumber);
                         PLACE_FLOOR_ITEM(player, type, doMsgs, 0, tilenumber);
                     }

@@ -408,6 +408,7 @@ namespace XPT.Twinion.Maps {
                     GET_MONSTER(player, type, doMsgs, 04, 27);
                     GET_MONSTER(player, type, doMsgs, 05, 12);
                     GET_MONSTER(player, type, doMsgs, 06, 31);
+                    break;
                 }
             }
             protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -670,8 +671,7 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 int where = 0;
-                where = HERE(player, type, doMsgs);
-                 + 16;
+                where = HERE(player, type, doMsgs) + 16;
                 if (PARTY_COUNT(player, type, doMsgs) > 1) {
                     TELEPORT(player, type, doMsgs, 2, 1, where, SOUTH);
                 }

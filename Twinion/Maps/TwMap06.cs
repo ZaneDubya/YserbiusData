@@ -73,10 +73,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int tally = 0;
             int exps = 0;
-            tally = GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTA);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTB);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTC);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTD);
+            tally = GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTA) + GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTB) + GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTC) + GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTD);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, TOTAL) < tally) {
                 SHOW_TEXT(player, type, doMsgs, "Well done! Proceed to the exit. The end of these Proving Grounds is near!");
                 switch (tally) {
@@ -540,10 +537,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int time = 0;
             SET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHA, 1);
-            time = GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHA);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHB);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHC);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHD);
+            time = GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHA) + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHB) + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHC) + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHD);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, ITEMTOTAL) < time) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, ITEMTOTAL, time);
                 SwitchCase(player, type, doMsgs);
@@ -552,10 +546,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent1F(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int time = 0;
             SET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHB, 1);
-            time = GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHA);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHB);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHC);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHD);
+            time = GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHA) + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHB) + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHC) + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHD);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, ITEMTOTAL) < time) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, ITEMTOTAL, time);
                 SwitchCase(player, type, doMsgs);
@@ -564,10 +555,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int time = 0;
             SET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHC, 1);
-            time = GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHA);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHB);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHC);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHD);
+            time = GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHA) + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHB) + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHC) + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHD);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, ITEMTOTAL) < time) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, ITEMTOTAL, time);
                 SwitchCase(player, type, doMsgs);
@@ -621,10 +609,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int time = 0;
             SET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHD, 1);
-            time = GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHA);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHB);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHC);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHD);
+            time = GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHA) + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHB) + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHC) + GET_FLAG(player, type, doMsgs, DUNGEON, ARENASTASHD);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, ITEMTOTAL) < time) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, ITEMTOTAL, time);
                 SwitchCase(player, type, doMsgs);

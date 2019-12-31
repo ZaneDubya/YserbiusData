@@ -136,14 +136,7 @@ namespace XPT.Twinion.Maps {
             int flagname = 0;
             int nextflag = 0;
             int tally = 0;
-            tally = GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHUMAN);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDDWARF);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDGNOME);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDGREMLIN);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDELF);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDTROLL);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDORC);
-             + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHALF);
+            tally = GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHUMAN) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDDWARF) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDGNOME) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDGREMLIN) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDELF) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDTROLL) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDORC) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHALF);
             switch (HERE(player, type, doMsgs)) {
                 case 83:
                     picture = HUMANBARBARIAN;
@@ -232,6 +225,7 @@ namespace XPT.Twinion.Maps {
                         break;
                     case GREMLIN:
                         SHOW_TEXT(player, type, doMsgs, "flat justitia, ruat coelum");
+                        break;
                     }
                 }
             }
@@ -639,14 +633,7 @@ namespace XPT.Twinion.Maps {
                     }
                     switch (word) {
                         case 2:
-                            valueB = GET_FLAG(player, type, doMsgs, PARTY, ELEMENTALW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, CHAOTICW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, MAGMAW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, PALACEW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, VOLCANOW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, LONGBOWW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, HARMONYW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, TWINIONW);
+                            valueB = GET_FLAG(player, type, doMsgs, PARTY, ELEMENTALW) + GET_FLAG(player, type, doMsgs, PARTY, CHAOTICW) + GET_FLAG(player, type, doMsgs, PARTY, MAGMAW) + GET_FLAG(player, type, doMsgs, PARTY, PALACEW) + GET_FLAG(player, type, doMsgs, PARTY, VOLCANOW) + GET_FLAG(player, type, doMsgs, PARTY, LONGBOWW) + GET_FLAG(player, type, doMsgs, PARTY, HARMONYW) + GET_FLAG(player, type, doMsgs, PARTY, TWINIONW);
                             if (valueB == 6) {
                                 SHOW_TEXT(player, type, doMsgs, "Your experience increases along with your gold and your strength!");
                                 MOD_GOLD(player, type, doMsgs, 250000);
@@ -668,14 +655,7 @@ namespace XPT.Twinion.Maps {
                             }
                             break;
                         case 1:
-                            valueA = GET_FLAG(player, type, doMsgs, PARTY, MYTHW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, ISLANDW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, LEGENDW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, EREBUSW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, ABYSSW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, WIZARDW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, GUILDW);
-                             + GET_FLAG(player, type, doMsgs, PARTY, ASPW);
+                            valueA = GET_FLAG(player, type, doMsgs, PARTY, MYTHW) + GET_FLAG(player, type, doMsgs, PARTY, ISLANDW) + GET_FLAG(player, type, doMsgs, PARTY, LEGENDW) + GET_FLAG(player, type, doMsgs, PARTY, EREBUSW) + GET_FLAG(player, type, doMsgs, PARTY, ABYSSW) + GET_FLAG(player, type, doMsgs, PARTY, WIZARDW) + GET_FLAG(player, type, doMsgs, PARTY, GUILDW) + GET_FLAG(player, type, doMsgs, PARTY, ASPW);
                             if (valueA == 8) {
                                 SHOW_TEXT(player, type, doMsgs, "You've set the first word. On to the next. Here's a taste of experience, gold and a little initiative!");
                                 MOD_STAT(player, type, doMsgs, INITIATIVE, 3);
@@ -731,14 +711,7 @@ namespace XPT.Twinion.Maps {
                     }
                     else {
                         int flagcount = 0;
-                        flagcount = GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHUMAN);
-                         + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDGNOME);
-                         + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHALF);
-                         + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDTROLL);
-                         + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDORC);
-                         + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDGREMLIN);
-                         + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDELF);
-                         + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDDWARF);
+                        flagcount = GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHUMAN) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDGNOME) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHALF) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDTROLL) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDORC) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDGREMLIN) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDELF) + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDDWARF);
                         if ((flagcount == 16) || (GET_FLAG(player, type, doMsgs, DUNGEON, KNOWSALL) == 1)) {
                             if ((GET_FLAG(player, type, doMsgs, DUNGEON, KNOWSALL) == 0)) {
                                 SET_FLAG(player, type, doMsgs, DUNGEON, KNOWSALL, 1);

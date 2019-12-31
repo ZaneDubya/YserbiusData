@@ -211,57 +211,45 @@ namespace XPT.Twinion.Maps {
                 switch (chesspiece) {
                     case 1:
                         if (FACING(player, type, doMsgs) == NORTH) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) - 15;
                         }
-                         - 15;
                         if (FACING(player, type, doMsgs) == EAST) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) + 17;
                         }
-                         + 17;
                         if (FACING(player, type, doMsgs) == SOUTH) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) + 15;
                         }
-                         + 15;
                         if (FACING(player, type, doMsgs) == WEST) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) - 17;
                         }
-                         - 17;
                         break;
                     case 2:
                         if (FACING(player, type, doMsgs) == NORTH) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) - 33;
                         }
-                         - 33;
                         if (FACING(player, type, doMsgs) == EAST) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) - 14;
                         }
-                         - 14;
                         if (FACING(player, type, doMsgs) == SOUTH) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) + 33;
                         }
-                         + 33;
                         if (FACING(player, type, doMsgs) == WEST) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) + 14;
                         }
-                         + 14;
                         break;
                     case 3:
                         if (FACING(player, type, doMsgs) == NORTH) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) - 16;
                         }
-                         - 16;
                         if (FACING(player, type, doMsgs) == EAST) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) + 1;
                         }
-                         + 1;
                         if (FACING(player, type, doMsgs) == SOUTH) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) + 16;
                         }
-                         + 16;
                         if (FACING(player, type, doMsgs) == WEST) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) - 1;
                         }
-                         - 1;
                         break;
                 }
                 if ((teleportRoom >= 37 && teleportRoom <= 42) || (teleportRoom >= 53 && teleportRoom <= 58) || (teleportRoom >= 68 && teleportRoom <= 75) || (teleportRoom >= 84 && teleportRoom <= 91) || (teleportRoom >= 101 && teleportRoom <= 106) || (teleportRoom >= 117 && teleportRoom <= 122)) {
@@ -296,57 +284,45 @@ namespace XPT.Twinion.Maps {
                 switch (chesspiece) {
                     case 1:
                         if (FACING(player, type, doMsgs) == NORTH) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) - 15;
                         }
-                         - 15;
                         if (FACING(player, type, doMsgs) == EAST) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) + 17;
                         }
-                         + 17;
                         if (FACING(player, type, doMsgs) == SOUTH) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) + 15;
                         }
-                         + 15;
                         if (FACING(player, type, doMsgs) == WEST) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) - 17;
                         }
-                         - 17;
                         break;
                     case 2:
                         if (FACING(player, type, doMsgs) == NORTH) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) - 31;
                         }
-                         - 31;
                         if (FACING(player, type, doMsgs) == EAST) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) + 18;
                         }
-                         + 18;
                         if (FACING(player, type, doMsgs) == SOUTH) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) + 31;
                         }
-                         + 31;
                         if (FACING(player, type, doMsgs) == WEST) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) - 18;
                         }
-                         - 18;
                         break;
                     case 3:
                         if (FACING(player, type, doMsgs) == NORTH) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) - 16;
                         }
-                         - 16;
                         if (FACING(player, type, doMsgs) == EAST) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) + 1;
                         }
-                         + 1;
                         if (FACING(player, type, doMsgs) == SOUTH) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) + 16;
                         }
-                         + 16;
                         if (FACING(player, type, doMsgs) == WEST) {
-                            teleportRoom = HERE(player, type, doMsgs);
+                            teleportRoom = HERE(player, type, doMsgs) - 1;
                         }
-                         - 1;
                         break;
                 }
                 if ((teleportRoom >= 37 && teleportRoom <= 42) || (teleportRoom >= 53 && teleportRoom <= 58) || (teleportRoom >= 68 && teleportRoom <= 75) || (teleportRoom >= 84 && teleportRoom <= 91) || (teleportRoom >= 101 && teleportRoom <= 106) || (teleportRoom >= 117 && teleportRoom <= 122)) {
@@ -362,21 +338,17 @@ namespace XPT.Twinion.Maps {
             WallBlock(player, type, doMsgs);
             SET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE, 2);
             if (FACING(player, type, doMsgs) == NORTH) {
-                teleportRoom = HERE(player, type, doMsgs);
+                teleportRoom = HERE(player, type, doMsgs) - 33;
             }
-             - 33;
             if (FACING(player, type, doMsgs) == EAST) {
-                teleportRoom = HERE(player, type, doMsgs);
+                teleportRoom = HERE(player, type, doMsgs) - 14;
             }
-             - 14;
             if (FACING(player, type, doMsgs) == SOUTH) {
-                teleportRoom = HERE(player, type, doMsgs);
+                teleportRoom = HERE(player, type, doMsgs) + 33;
             }
-             + 33;
             if (FACING(player, type, doMsgs) == WEST) {
-                teleportRoom = HERE(player, type, doMsgs);
+                teleportRoom = HERE(player, type, doMsgs) + 14;
             }
-             + 14;
             switch (HERE(player, type, doMsgs)) {
                 case 103:
                     if ((teleportRoom >= 37 && teleportRoom <= 42) || (teleportRoom >= 53 && teleportRoom <= 58) || (teleportRoom >= 68 && teleportRoom <= 75) || (teleportRoom >= 84 && teleportRoom <= 91) || (teleportRoom >= 101 && teleportRoom <= 106) || (teleportRoom >= 117 && teleportRoom <= 122)) {
@@ -393,21 +365,17 @@ namespace XPT.Twinion.Maps {
             WallBlock(player, type, doMsgs);
             SET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE, 3);
             if (FACING(player, type, doMsgs) == NORTH) {
-                teleportRoom = HERE(player, type, doMsgs);
+                teleportRoom = HERE(player, type, doMsgs) - 16;
             }
-             - 16;
             if (FACING(player, type, doMsgs) == EAST) {
-                teleportRoom = HERE(player, type, doMsgs);
+                teleportRoom = HERE(player, type, doMsgs) + 1;
             }
-             + 1;
             if (FACING(player, type, doMsgs) == SOUTH) {
-                teleportRoom = HERE(player, type, doMsgs);
+                teleportRoom = HERE(player, type, doMsgs) + 16;
             }
-             + 16;
             if (FACING(player, type, doMsgs) == WEST) {
-                teleportRoom = HERE(player, type, doMsgs);
+                teleportRoom = HERE(player, type, doMsgs) - 1;
             }
-             - 1;
             if ((teleportRoom >= 37 && teleportRoom <= 42) || (teleportRoom >= 53 && teleportRoom <= 58) || (teleportRoom >= 68 && teleportRoom <= 75) || (teleportRoom >= 84 && teleportRoom <= 91) || (teleportRoom >= 101 && teleportRoom <= 106) || (teleportRoom >= 117 && teleportRoom <= 122)) {
                 TELEPORT(player, type, doMsgs, 8, 1, teleportRoom, FACING(player, type, doMsgs));
             }
@@ -420,21 +388,17 @@ namespace XPT.Twinion.Maps {
             WallBlock(player, type, doMsgs);
             SET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE, 2);
             if (FACING(player, type, doMsgs) == NORTH) {
-                teleportRoom = HERE(player, type, doMsgs);
+                teleportRoom = HERE(player, type, doMsgs) - 31;
             }
-             - 31;
             if (FACING(player, type, doMsgs) == EAST) {
-                teleportRoom = HERE(player, type, doMsgs);
+                teleportRoom = HERE(player, type, doMsgs) + 18;
             }
-             + 18;
             if (FACING(player, type, doMsgs) == SOUTH) {
-                teleportRoom = HERE(player, type, doMsgs);
+                teleportRoom = HERE(player, type, doMsgs) + 31;
             }
-             + 31;
             if (FACING(player, type, doMsgs) == WEST) {
-                teleportRoom = HERE(player, type, doMsgs);
+                teleportRoom = HERE(player, type, doMsgs) - 18;
             }
-             - 18;
             if ((teleportRoom >= 37 && teleportRoom <= 42) || (teleportRoom >= 53 && teleportRoom <= 58) || (teleportRoom >= 68 && teleportRoom <= 75) || (teleportRoom >= 84 && teleportRoom <= 91) || (teleportRoom >= 101 && teleportRoom <= 106) || (teleportRoom >= 117 && teleportRoom <= 122)) {
                 TELEPORT(player, type, doMsgs, 8, 1, teleportRoom, FACING(player, type, doMsgs));
             }
@@ -808,6 +772,7 @@ namespace XPT.Twinion.Maps {
                             for (i = 1; i <= 4; i++) {
                                 GET_MONSTER(player, type, doMsgs, i, 24);
                             }
+                            break;
                         }
                     }
                 }

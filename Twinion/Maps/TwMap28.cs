@@ -1386,18 +1386,7 @@ namespace XPT.Twinion.Maps {
                 int setupport = 0;
                 int flag = 0;
                 flag = 0;
-                setupport = GET_FLAG(player, type, doMsgs, PARTY, DEATHW);
-                 + GET_FLAG(player, type, doMsgs, PARTY, WATERW);
-                 + GET_FLAG(player, type, doMsgs, PARTY, LIFEW);
-                 + GET_FLAG(player, type, doMsgs, PARTY, SANDSW);
-                 + GET_FLAG(player, type, doMsgs, PARTY, TOW);
-                 + GET_FLAG(player, type, doMsgs, PARTY, FOLLOWSW);
-                 + GET_FLAG(player, type, doMsgs, PARTY, TIMEW);
-                 + GET_FLAG(player, type, doMsgs, PARTY, MAGICW);
-                 + GET_FLAG(player, type, doMsgs, PARTY, LAVAW);
-                 + GET_FLAG(player, type, doMsgs, PARTY, FROMW);
-                 + GET_FLAG(player, type, doMsgs, PARTY, OFW);
-                 + GET_FLAG(player, type, doMsgs, PARTY, LEADSW);
+                setupport = GET_FLAG(player, type, doMsgs, PARTY, DEATHW) + GET_FLAG(player, type, doMsgs, PARTY, WATERW) + GET_FLAG(player, type, doMsgs, PARTY, LIFEW) + GET_FLAG(player, type, doMsgs, PARTY, SANDSW) + GET_FLAG(player, type, doMsgs, PARTY, TOW) + GET_FLAG(player, type, doMsgs, PARTY, FOLLOWSW) + GET_FLAG(player, type, doMsgs, PARTY, TIMEW) + GET_FLAG(player, type, doMsgs, PARTY, MAGICW) + GET_FLAG(player, type, doMsgs, PARTY, LAVAW) + GET_FLAG(player, type, doMsgs, PARTY, FROMW) + GET_FLAG(player, type, doMsgs, PARTY, OFW) + GET_FLAG(player, type, doMsgs, PARTY, LEADSW);
                 switch (setupport) {
                     case 15:
                         flag = 2;

@@ -67,8 +67,7 @@ namespace XPT.Twinion.Maps {
             int teleportRoom = 0;
             if (HAS_ITEM(player, type, doMsgs, ROPE)) {
                 if (FACING(player, type, doMsgs) == WEST) {
-                    teleportRoom = HERE(player, type, doMsgs);
-                     - 2;
+                    teleportRoom = HERE(player, type, doMsgs) - 2;
                     WallBlock(player, type, doMsgs);
                     SHOW_TEXT(player, type, doMsgs, "By throwing the Rope over a protruding rock, you manage to swing across the pit.");
                     TELEPORT(player, type, doMsgs, 4, 1, teleportRoom, EAST);
