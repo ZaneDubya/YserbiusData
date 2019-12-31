@@ -97,7 +97,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 12 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
+            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 12 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) >= 1 || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
                 SHOW_TEXT(player, type, doMsgs, "You find a secret door in the wall.");
                 CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
@@ -295,7 +295,7 @@ namespace XPT.Twinion.Maps {
                     WallText(player, type, doMsgs);
                 }
             }
-            else if (ALIGN(player, type, doMsgs) == CHAOS && HAS_ITEM(player, type, doMsgs, UNITYRING) && (FLAG_ON(player, type, doMsgs, DUNGEON, UNITYRINGTWO) == 0)) {
+            else if (ALIGN(player, type, doMsgs) == CHAOS && HAS_ITEM(player, type, doMsgs, UNITYRING) && !FLAG_ON(player, type, doMsgs, DUNGEON, UNITYRINGTWO)) {
                 SHOW_TEXT(player, type, doMsgs, "A heavenly voice proclaims -");
                 SHOW_TEXT(player, type, doMsgs, "'This is the Door of Chaos.");
                 SHOW_TEXT(player, type, doMsgs, "You must suffer much along the way, Beloved of Chaos, before the diverse ways are united.");
@@ -343,7 +343,7 @@ namespace XPT.Twinion.Maps {
                     WallText(player, type, doMsgs);
                 }
             }
-            else if (ALIGN(player, type, doMsgs) == HARMONY && HAS_ITEM(player, type, doMsgs, UNITYRING) && (FLAG_ON(player, type, doMsgs, DUNGEON, UNITYRINGONE) == 0)) {
+            else if (ALIGN(player, type, doMsgs) == HARMONY && HAS_ITEM(player, type, doMsgs, UNITYRING) && !FLAG_ON(player, type, doMsgs, DUNGEON, UNITYRINGONE)) {
                 SHOW_TEXT(player, type, doMsgs, "A heavenly voice proclaims -");
                 SHOW_TEXT(player, type, doMsgs, "'This is the Door of Harmony.");
                 SHOW_TEXT(player, type, doMsgs, "You must suffer much along the way, Beloved of Harmony, before the diverse ways are united.");
@@ -414,7 +414,7 @@ namespace XPT.Twinion.Maps {
                 MOD_STAT(player, type, doMsgs, STRENGTH,  - 2);
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
             }
-            else if (ALIGN(player, type, doMsgs) == HARMONY && (GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) == 0) && GET_FLAG(player, type, doMsgs, DUNGEON, HARMONYPUNISH)) {
+            else if (ALIGN(player, type, doMsgs) == HARMONY && (GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) == 0) && (GET_FLAG(player, type, doMsgs, DUNGEON, HARMONYPUNISH) != 0)) {
                 SHOW_TEXT(player, type, doMsgs, "A booming voice surrounds you -");
                 SHOW_TEXT(player, type, doMsgs, "'Die, thou miscreant spawn of Harmony! You may not traverse the way of Chaos yet!'");
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
@@ -429,20 +429,20 @@ namespace XPT.Twinion.Maps {
                 MOD_STAT(player, type, doMsgs, STRENGTH,  - 2);
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
             }
-            else if (ALIGN(player, type, doMsgs) == CHAOS && (GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) == 0) && GET_FLAG(player, type, doMsgs, DUNGEON, CHAOSPUNISH)) {
+            else if ((ALIGN(player, type, doMsgs) == CHAOS) && (GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) == 0) && (GET_FLAG(player, type, doMsgs, DUNGEON, CHAOSPUNISH) != 0)) {
                 SHOW_TEXT(player, type, doMsgs, "A booming voice surrounds you -");
                 SHOW_TEXT(player, type, doMsgs, "'Die, thou miscreant spawn of Chaos! You may not traverse the way of Harmony yet!'");
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
             }
         }
         protected override void FnEvent27(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if ((FLAG_ON(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) == 0)) {
+            if (!FLAG_ON(player, type, doMsgs, DUNGEON, UNITYRINGTHREE)) {
                 SHOW_PICTURE(player, type, doMsgs, HALFLINGCLERIC);
                 SHOW_TEXT(player, type, doMsgs, "'To finish this quest, you will have to visit places in the Hopeless Hallways you have not been able to enter.'");
             }
         }
         protected override void FnEvent28(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if ((HAS_ITEM(player, type, doMsgs, UNITYRING) == 0)) {
+            if (!HAS_ITEM(player, type, doMsgs, UNITYRING)) {
                 SHOW_PICTURE(player, type, doMsgs, DWARFKNIGHT);
                 SHOW_TEXT(player, type, doMsgs, "'You will have to detect the opening to the first secret room in Hopeless Hallways. It leads to the ring.'");
             }

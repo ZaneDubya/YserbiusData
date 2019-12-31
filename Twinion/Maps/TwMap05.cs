@@ -91,7 +91,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 2, 3, 175, EAST);
         }
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 6 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
+            if ((USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 6) || (USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) >= 1) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
                 SHOW_TEXT(player, type, doMsgs, "Aha! A secret door!");
                 PlaceDoor(player, type, doMsgs);
                 WallClear(player, type, doMsgs);
@@ -456,7 +456,6 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            int howold = 0;
             int i = 0;
             int giveem = 2;
             PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 127);
@@ -550,7 +549,7 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "They are badly hurt and huddled over one of their friends who appears to be dead.");
                 SHOW_TEXT(player, type, doMsgs, "'YOU!! YOU!! You are responsible for Shalana's death because you didn't rescue us! I should slice you in half!'");
                 SHOW_TEXT(player, type, doMsgs, "'You must try to do something to bring her back.'");
-                if (USED_ITEM(player, type, doMsgs, RESUSCITATOR, RESUSCITATOR) || USED_ITEM(player, type, doMsgs, LIFEGIVER, LIFEGIVER) || USED_ITEM(player, type, doMsgs, HEARTFLAIL, HEARTFLAIL) || USED_SPELL(player, type, doMsgs, RESUSCITATE_SPELL)) {
+                if (USED_ITEM(player, type, doMsgs, RESUSCITATOR, RESUSCITATOR) || USED_ITEM(player, type, doMsgs, LIFEGIVER, LIFEGIVER) || USED_ITEM(player, type, doMsgs, HEARTFLAIL, HEARTFLAIL) || (USED_SPELL(player, type, doMsgs, RESUSCITATE_SPELL) >= 1)) {
                     SHOW_TEXT(player, type, doMsgs, "Your skills and knowledge revive the half-drowned Shalana.");
                     SHOW_TEXT(player, type, doMsgs, "The leader clasps your hand in thanks.");
                     SHOW_TEXT(player, type, doMsgs, "'Ah, friend, forgive my angry words.'");
@@ -681,7 +680,7 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "The fierce torrents bar your way. You must find an alternate way across.");
         }
         protected override void FnEvent2F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (USED_ITEM(player, type, doMsgs, GREENLOCKPICK, BLUELOCKPICK) || USED_SKILL(player, type, doMsgs, LOCKPICK_SKILL) || USED_ITEM(player, type, doMsgs, HELMOFGUILE, HELMOFGUILE)) {
+            if (USED_ITEM(player, type, doMsgs, GREENLOCKPICK, BLUELOCKPICK) || (USED_SKILL(player, type, doMsgs, LOCKPICK_SKILL) >= 1) || USED_ITEM(player, type, doMsgs, HELMOFGUILE, HELMOFGUILE)) {
                 SHOW_TEXT(player, type, doMsgs, "You've managed to unlock the gate.");
                 WallClear(player, type, doMsgs);
             }

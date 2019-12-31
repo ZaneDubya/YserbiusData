@@ -278,7 +278,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if ((HAS_ITEM(player, type, doMsgs, BRASSRING) == 0)) {
+            if (!HAS_ITEM(player, type, doMsgs, BRASSRING)) {
                 SHOW_TEXT(player, type, doMsgs, "With a mighty tug you dislodge the brass ring from the armature.");
                 GIVE_ITEM(player, type, doMsgs, BRASSRING);
             }
@@ -659,7 +659,6 @@ namespace XPT.Twinion.Maps {
             SET_FLAG(player, type, doMsgs, PARTY, FAKE_CHOR_SEEN, flag);
         }
         protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "The boiling lava scorches you mildly.");
             DAMAGE(player, type, doMsgs, 1);
         }
@@ -796,13 +795,13 @@ namespace XPT.Twinion.Maps {
                             SHOW_TEXT(player, type, doMsgs, "All three wooden disks -- the completed Tower of Annoy!");
                         }
                         else {
-                            if (thisFlag & 0x4) {
+                            if (IsTrue(thisFlag & 0x4)) {
                                 SHOW_TEXT(player, type, doMsgs, "A large wooden disk.");
                             }
-                            if (thisFlag & 0x2) {
+                            if (IsTrue(thisFlag & 0x2)) {
                                 SHOW_TEXT(player, type, doMsgs, "A medium-sized wooden disk.");
                             }
-                            if (thisFlag & 0x1) {
+                            if (IsTrue(thisFlag & 0x1)) {
                                 SHOW_TEXT(player, type, doMsgs, "A small wooden disk.");
                             }
                         }
@@ -894,7 +893,6 @@ namespace XPT.Twinion.Maps {
                 }
                 protected override void FnEvent26(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     int monster = 0;
-                    int i = 0;
                     switch (HERE(player, type, doMsgs)) {
                         case 122:
                         case 88:
@@ -1174,7 +1172,6 @@ namespace XPT.Twinion.Maps {
                     TELEPORT(player, type, doMsgs, 13, 2, 222, SOUTH);
                 }
                 protected override void FnEvent35(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    int monster = 0;
                     NO_MAPS(player, type, doMsgs);
                     SHOW_TEXT(player, type, doMsgs, "From the darkness above you Choronzar's voice whispers, 'Good guess! % Too bad it was WRONG. %% Welcome to the Penalty Box...'");
                     SixMonst(player, type, doMsgs, MONST_PENALTY);
@@ -1195,7 +1192,6 @@ namespace XPT.Twinion.Maps {
                 }
                 protected override void FnEvent39(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     int twistyCnt = 0;
-                    int monster = 0;
                     NO_MAPS(player, type, doMsgs);
                     if (HERE(player, type, doMsgs) == 48) {
                         SET_FLAG(player, type, doMsgs, PARTY, MAJOR_DOMO, 6);
@@ -1244,7 +1240,6 @@ namespace XPT.Twinion.Maps {
                 protected override void FnEvent40(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     int item = 0;
                     int flag = 0;
-                    int i = 0;
                     if (FLAG_OFF(player, type, doMsgs, ROOM, DONE_IT)) {
                         SET_FLAG(player, type, doMsgs, ROOM, DONE_IT, 1);
                         flag = GET_FLAG(player, type, doMsgs, DUNGEON, FUN_BAR_COUNT);

@@ -64,7 +64,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GET_FLAG(player, type, doMsgs, DUNGEON, GETUNITYRING) == 1) {
                 SHOW_TEXT(player, type, doMsgs, "I am the lamp.");
-                if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 12 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
+                if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 12 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) >= 1 || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
                     SHOW_TEXT(player, type, doMsgs, "Throwing a trip mechanism opens a secret entrance.");
                     CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
                     PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(player, type, doMsgs), SOUTH);
@@ -481,7 +481,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent30(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) || HAS_ITEM(player, type, doMsgs, UNITYRING)) {
+            if (IsTrue(GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE)) || HAS_ITEM(player, type, doMsgs, UNITYRING)) {
                 SHOW_TEXT(player, type, doMsgs, "The floor of the room is bare.");
             }
             else {

@@ -115,7 +115,7 @@ namespace XPT.Twinion.Maps {
                     NeptunesTxt(player, type, doMsgs);
                     break;
             }
-            if ((HAS_ITEM(player, type, doMsgs, itemA) == 0)) {
+            if ((!HAS_ITEM(player, type, doMsgs, itemA))) {
                 GIVE_ITEM(player, type, doMsgs, itemA);
             }
         }
@@ -581,7 +581,7 @@ namespace XPT.Twinion.Maps {
                     }
                 }
                 protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if ((HAS_ITEM(player, type, doMsgs, GAEASFLAIL) == 0)) {
+                    if ((!HAS_ITEM(player, type, doMsgs, GAEASFLAIL))) {
                         SET_FLAG(player, type, doMsgs, PARTY, IHAVETHEFLAIL, 1);
                     }
                 }
@@ -608,7 +608,7 @@ namespace XPT.Twinion.Maps {
                     TELEPORT(player, type, doMsgs, 12, 2, 246, EAST);
                 }
                 protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if ((HAS_ITEM(player, type, doMsgs, STATUEOFSTORMGIANT) == 0)) {
+                    if ((!HAS_ITEM(player, type, doMsgs, STATUEOFSTORMGIANT))) {
                         GIVE_ITEM(player, type, doMsgs, STATUEOFSTORMGIANT);
                         SHOW_TEXT(player, type, doMsgs, "You pick up an odd statue. Perhaps it will protect you when you are alone.");
                     }

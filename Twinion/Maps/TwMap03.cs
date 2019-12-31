@@ -145,7 +145,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 6 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
+            if ((USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 6) || (USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) >= 1) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
                 SHOW_TEXT(player, type, doMsgs, "You've located a secret passageway!!");
                 WallClear(player, type, doMsgs);
                 PutDoor(player, type, doMsgs);
@@ -529,7 +529,7 @@ namespace XPT.Twinion.Maps {
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, GOTSCAR) == 1) {
                     SHOW_TEXT(player, type, doMsgs, "The thief glances in your direction, sees his mark, and ignores you.");
                 }
-                else if (FLAG_ON(player, type, doMsgs, DUNGEON, I_QUEST_RIGHT) == 1 && FLAG_ON(player, type, doMsgs, DUNGEON, I_QUEST_LEFT) == 1 || GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDAQUEUS) == 1) {
+                else if (FLAG_ON(player, type, doMsgs, DUNGEON, I_QUEST_RIGHT) && FLAG_ON(player, type, doMsgs, DUNGEON, I_QUEST_LEFT) || GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDAQUEUS) == 1) {
                     SET_FLAG(player, type, doMsgs, DUNGEON, ONE_AND_THREE_DONE, 1);
                     SHOW_TEXT(player, type, doMsgs, "'A scar for you to prove you've done this task. Pray thee, continue south.'");
                     DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 10);

@@ -1,3 +1,4 @@
+using System;
 using XPT.Generic.Maps;
 using XPT.Twinion.Entities;
 
@@ -72,7 +73,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent08(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GET_FLAG(player, type, doMsgs, DUNGEON, HINTEDATDOOR) == 1) {
-                if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 9 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
+                if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 9 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) >= 1 || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
                     SHOW_TEXT(player, type, doMsgs, "You manage to find the marked stone the old thief mentioned. The door is now open.");
                     CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                     PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
@@ -484,7 +485,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent36(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GET_FLAG(player, type, doMsgs, DUNGEON, DONEPROVING) == 2) {
                 SHOW_TEXT(player, type, doMsgs, "This portal will take you to the main entrance.");
-                if (HAS_ITEM(player, type, doMsgs, QUEENSKEY) || GET_FLAG(player, type, doMsgs, DUNGEON, DEEPPORTALS)) {
+                if (HAS_ITEM(player, type, doMsgs, QUEENSKEY) || IsTrue(GET_FLAG(player, type, doMsgs, DUNGEON, DEEPPORTALS))) {
                     TELEPORT(player, type, doMsgs, 1, 1, 204, EAST);
                 }
                 else {
@@ -528,7 +529,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent3A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 9 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
+            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 9 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) >= 1 || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
                 SHOW_TEXT(player, type, doMsgs, "You discern light seeping through the crack of a secret door!");
                 PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
@@ -565,6 +566,7 @@ namespace XPT.Twinion.Maps {
                 MOD_EXP(player, type, doMsgs, exps);
             }
         }
+
         private void TextStr(TwPlayerServer player, MapEventType type, bool doMsgs) {
             switch (HERE(player, type, doMsgs)) {
                 case 94:

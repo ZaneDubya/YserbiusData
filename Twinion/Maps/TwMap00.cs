@@ -98,7 +98,7 @@ namespace XPT.Twinion.Maps {
             PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         protected override void FnEvent09(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && (GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) == 0) & CHORONZAR_KILLED_BIT) {
+            if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && (GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) == 0) {
                 SHOW_TEXT(player, type, doMsgs, "A maniacal fiend appears; removes an item you stole from him; and kills you outright.");
                 while (HAS_ITEM(player, type, doMsgs, JESTERSCAP))
                     TAKE_ITEM(player, type, doMsgs, JESTERSCAP);

@@ -279,7 +279,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "Small pinholes of light seep through the cracks in the wall here.");
-            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 3 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM)) {
+            if ((USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 3) || (USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) >= 1) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM)) {
                 PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 SHOW_TEXT(player, type, doMsgs, "You've uncovered a hidden door!");
                 CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
@@ -299,7 +299,7 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "You spot the Lava Glove on the rogue leader's hand, as he signals his henchmen to attack!");
                 SET_BOOTY(player, type, doMsgs, LAVAGLOVE, MANAELIXIR, ELIXIROFHEALTH, 0, 0, 1000);
             }
-            else if ((HAS_ITEM(player, type, doMsgs, LAVAGLOVE) == 0)) {
+            else if (!HAS_ITEM(player, type, doMsgs, LAVAGLOVE)) {
                 SHOW_TEXT(player, type, doMsgs, "You spot the Lava Glove on the rogue leader's hand, as he signals his henchmen to attack!");
                 SET_BOOTY(player, type, doMsgs, LAVAGLOVE, HEALPOTION, 0, 0, 0, 250);
             }

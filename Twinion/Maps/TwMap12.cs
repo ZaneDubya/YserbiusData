@@ -585,7 +585,6 @@ namespace XPT.Twinion.Maps {
             int itemD = 0;
             int itemE = UNITYRING;
             int tile = 0;
-            int number = 0;
             if ((GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE) == 0)) {
                 if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == HUMAN) {
                     tile = HERE(player, type, doMsgs);
@@ -670,7 +669,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 5, 2, 45, SOUTH);
         }
         protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 8 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
+            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 8 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) >= 1 || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
                 SHOW_TEXT(player, type, doMsgs, "A secret door is revealed.");
                 PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 WallClear(player, type, doMsgs);

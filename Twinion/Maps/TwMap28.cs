@@ -138,7 +138,7 @@ namespace XPT.Twinion.Maps {
                 if (HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES)) {
                     Nothing(player, type, doMsgs);
                 }
-                else if ((HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES) == 0)) {
+                else if (!HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES)) {
                     SHOW_TEXT(player, type, doMsgs, "You take the Nimbus of the Fates.");
                     SHOW_TEXT(player, type, doMsgs, "With it, you may face Astelligus.");
                     GIVE_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES);
@@ -187,7 +187,7 @@ namespace XPT.Twinion.Maps {
                         facing2 = NORTH;
                         break;
                     case WEST:
-                        if ((GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM) <= 1) || ((HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES) == 0))) {
+                        if ((GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM) <= 1) || (!HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES))) {
                             if (GET_FLAG(player, type, doMsgs, PARTY, WHEREWEREYOU) == HERE(player, type, doMsgs)) {
                                 port1 = 232;
                             }
@@ -200,7 +200,7 @@ namespace XPT.Twinion.Maps {
                         facing2 = WEST;
                         break;
                 }
-                if (GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM) <= 1 || (HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES) == 0)) {
+                if (GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM) <= 1 || (!HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES))) {
                     TELEPORT(player, type, doMsgs, 11, 3, port1, facing1);
                 }
                 else if (HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES)) {
@@ -250,7 +250,7 @@ namespace XPT.Twinion.Maps {
                     facing2 = WEST;
                     break;
             }
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM) <= 1 || (HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES) == 0)) {
+            if (GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM) <= 1 || !HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES)) {
                 TELEPORT(player, type, doMsgs, 11, 3, port1, facing1);
             }
             else {
@@ -294,7 +294,7 @@ namespace XPT.Twinion.Maps {
                     facing2 = WEST;
                     break;
             }
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM) <= 1 || (HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES) == 0)) {
+            if (GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM) <= 1 || !HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES)) {
                 TELEPORT(player, type, doMsgs, 11, 3, port1, facing1);
             }
             else {
@@ -343,7 +343,7 @@ namespace XPT.Twinion.Maps {
                     facing2 = WEST;
                     break;
             }
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM) <= 1 || (HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES) == 0)) {
+            if (GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM) <= 1 || (!HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES))) {
                 TELEPORT(player, type, doMsgs, 11, 3, port1, facing1);
             }
             else {
@@ -387,7 +387,7 @@ namespace XPT.Twinion.Maps {
                     facing2 = WEST;
                     break;
             }
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM) <= 1 || (HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES) == 0)) {
+            if (GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM) <= 1 || (!HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES))) {
                 TELEPORT(player, type, doMsgs, 11, 3, port1, facing1);
             }
             else {
@@ -414,7 +414,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int i = 0;
             if (HERE(player, type, doMsgs) == 190) {
-                if ((HAS_ITEM(player, type, doMsgs, EYEOFCIRCINUS) == 0)) {
+                if ((!HAS_ITEM(player, type, doMsgs, EYEOFCIRCINUS))) {
                     SET_BOOTY(player, type, doMsgs, EYEOFCIRCINUS, MANAAMPHORA, SPIRITUALARMOR, 0, 0, 3000);
                     SHOW_TEXT(player, type, doMsgs, "Guardians of the Winds defend the Eye; the compass that will guide you towards the Nimbus.");
                 }
@@ -680,7 +680,7 @@ namespace XPT.Twinion.Maps {
             if ((GET_FLAG(player, type, doMsgs, DUNGEON, GOTPHYSITEM) == 0)) {
                 SET_BOOTY(player, type, doMsgs, REALITYSRAMPART, 0, 0, 0, 0, 15000);
             }
-            else if ((HAS_ITEM(player, type, doMsgs, REALITYSRAMPART) == 0)) {
+            else if ((!HAS_ITEM(player, type, doMsgs, REALITYSRAMPART))) {
                 SET_BOOTY(player, type, doMsgs, REALITYSRAMPART, 0, 0, 0, 0, 3500);
             }
             switch (PARTY_COUNT(player, type, doMsgs)) {
@@ -1024,7 +1024,6 @@ namespace XPT.Twinion.Maps {
                 NoMapsZone(player, type, doMsgs);
                 NoSpellZone(player, type, doMsgs);
                 int trap = 0;
-                int item = 0;
                 trap = GET_FLAG(player, type, doMsgs, PARTY, CASETRAP);
                 Compass(player, type, doMsgs);
                 if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
@@ -1113,7 +1112,7 @@ namespace XPT.Twinion.Maps {
                 ai = GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM);
                 NoMapsZone(player, type, doMsgs);
                 if (PARTY_LEADER(player, type, doMsgs)) {
-                    if ((ai <= 1) || ((HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES) == 0))) {
+                    if ((ai <= 1) || ((!HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES)))) {
                         switch (HERE(player, type, doMsgs)) {
                             case 228:
                                 flag = 236;

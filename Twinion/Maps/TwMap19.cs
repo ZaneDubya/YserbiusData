@@ -136,7 +136,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GUILD(player, type, doMsgs) == THIEF || GUILD(player, type, doMsgs) == WIZARD) {
-                if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 12 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
+                if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 12 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) >= 1 || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
                     SHOW_TEXT(player, type, doMsgs, "The ancient stones become a portal.");
                     FnEvent0A(player, type, doMsgs);
                 }
@@ -633,7 +633,7 @@ namespace XPT.Twinion.Maps {
                     itemC = SNAKESKINJACKET;
                     break;
             }
-            if (STATE(player, type, doMsgs) != HERE(player, type, doMsgs) && (HAS_ITEM(player, type, doMsgs, itemA) == 0)) {
+            if (STATE(player, type, doMsgs) != HERE(player, type, doMsgs) && !HAS_ITEM(player, type, doMsgs, itemA)) {
                 SET_BOOTY(player, type, doMsgs, itemA, itemB, itemC, 0, 0, 2000);
                 SET_STATE(player, type, doMsgs, HERE(player, type, doMsgs));
             }
@@ -663,7 +663,7 @@ namespace XPT.Twinion.Maps {
             SET_PM(player, type, doMsgs, POISON, 10, 150);
         }
         protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && (GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) == 0) & CHORONZAR_KILLED_BIT) {
+            if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && (GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) == 0) {
                 SHOW_TEXT(player, type, doMsgs, "A maniacal fiend appears; removes an item you stole from him; and kills you outright.");
                 while (HAS_ITEM(player, type, doMsgs, JESTERSCAP))
                     TAKE_ITEM(player, type, doMsgs, JESTERSCAP);
@@ -758,7 +758,7 @@ namespace XPT.Twinion.Maps {
             protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 int i = 0;
                 SHOW_TEXT(player, type, doMsgs, "Servants of Qao rise from the lava to repel encroaching invaders!");
-                if ((HAS_ITEM(player, type, doMsgs, HEALAMPHORA) == 0) && (GET_FLAG(player, type, doMsgs, PARTY, SERVANTS) == 0)) {
+                if (!HAS_ITEM(player, type, doMsgs, HEALAMPHORA) && (GET_FLAG(player, type, doMsgs, PARTY, SERVANTS) == 0)) {
                     SET_BOOTY(player, type, doMsgs, HEALAMPHORA, LIFEGIVER, SCORCHEDSCROLL, 0, 0, 2000);
                     SET_FLAG(player, type, doMsgs, PARTY, SERVANTS, 1);
                 }
@@ -768,6 +768,7 @@ namespace XPT.Twinion.Maps {
                         for (i = 1; i <= 2; i++) {
                             GET_MONSTER(player, type, doMsgs, i, 24);
                         }
+                    break;
                         default:
                             for (i = 1; i <= 4; i++) {
                                 GET_MONSTER(player, type, doMsgs, i, 24);

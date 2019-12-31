@@ -548,7 +548,6 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 12, 1, 144, NORTH);
         }
         protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "A war party of adventurers prepare an offensive.");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:

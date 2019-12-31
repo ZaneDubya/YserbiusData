@@ -299,7 +299,7 @@ namespace XPT.Twinion.Maps {
             NO_JOIN(player, type, doMsgs);
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if ((HAS_ITEM(player, type, doMsgs, SNAKECHARM) == 0)) {
+            if (!HAS_ITEM(player, type, doMsgs, SNAKECHARM)) {
                 SHOW_TEXT(player, type, doMsgs, "The Giant Asp laughs at your feeble attempts to kill him.");
                 SHOW_TEXT(player, type, doMsgs, "'You are not protected by that curs-s-sed S-s-snake Charm!'");
                 SHOW_TEXT(player, type, doMsgs, "The Giant Asp slays you with one mighty blow.");

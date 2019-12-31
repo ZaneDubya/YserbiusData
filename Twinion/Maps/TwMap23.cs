@@ -961,7 +961,6 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent36(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 int trap = 0;
-                int item = 0;
                 trap = GET_FLAG(player, type, doMsgs, PARTY, CASETRAP);
                 if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                     switch (trap) {

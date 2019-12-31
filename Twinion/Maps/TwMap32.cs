@@ -131,7 +131,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent04(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) != 0) {
                 TELEPORT(player, type, doMsgs, 13, 1, 74, EAST);
             }
             else {
@@ -263,7 +263,7 @@ namespace XPT.Twinion.Maps {
                     else {
                         ctrlFlags |= FED_FISH_LEFT_BIT;
                     }
-                    if ((ctrlFlags & FED_FISH_RIGHT_BIT) && (ctrlFlags & FED_FISH_LEFT_BIT)) {
+                    if (IsTrue(ctrlFlags & FED_FISH_RIGHT_BIT) && IsTrue(ctrlFlags & FED_FISH_LEFT_BIT)) {
                         ctrlFlags &= ~(FED_FISH_RIGHT_BIT | FED_FISH_LEFT_BIT);
                         cntFlag = 6;
                         SHOW_TEXT(player, type, doMsgs, "A swarm of fish churns the water in a mad feeding frenzy.");
@@ -288,7 +288,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1) & SIGNED_IN_BIT) {
+            if (IsTrue(GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1) & SIGNED_IN_BIT)) {
                 CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
             }
             else {
@@ -309,7 +309,7 @@ namespace XPT.Twinion.Maps {
             knownFlags = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN);
             switch (switchCode) {
                 case ((94 << 8) | NORTH):
-                    if (knownFlags & ALCHEMY_KNOWN_BIT) {
+                    if (IsTrue(knownFlags & ALCHEMY_KNOWN_BIT)) {
                         strPtr1 = alchemyStr;
                     }
                     break;
@@ -317,7 +317,7 @@ namespace XPT.Twinion.Maps {
                     strPtr1 = choronzarStr;
                     break;
                 case ((108 << 8) | WEST):
-                    if (knownFlags & NAOMI_KNOWN_BIT) {
+                    if (IsTrue(knownFlags & NAOMI_KNOWN_BIT)) {
                         strPtr1 = naomiStr;
                     }
                     break;
@@ -335,7 +335,7 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "This is a massive throne carved from a single block of polished obsidian.  It is inlaid with strange, beautiful sigils in a delicate silver filigree.");
             expFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1);
             killedFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
-            if ((killedFlag & CHORONZAR_KILLED_BIT) && (((expFlag & GOT_CHOR_EXP_BIT) == 0))) {
+            if (IsTrue(killedFlag & CHORONZAR_KILLED_BIT) && ((expFlag & GOT_CHOR_EXP_BIT) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "You thrill to the surge of life force coursing into you from the throne.");
                 MOD_EXP(player, type, doMsgs, 10000000);
                 expFlag |= GOT_CHOR_EXP_BIT;
@@ -363,7 +363,6 @@ namespace XPT.Twinion.Maps {
             BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            int switchFlag = 0;
             int alchFlag = 0;
             int takeItem = 0;
             string strPtr = string.Empty;
@@ -430,7 +429,6 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int monster = 0;
-            int i = 0;
             if (((GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) == 0)) {
                 switch (HERE(player, type, doMsgs)) {
                     case 35:
@@ -538,7 +536,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int steakCnt = 0;
             steakCnt = GET_FLAG(player, type, doMsgs, PARTY, STEAK_COUNT);
-            if (((HAS_ITEM(player, type, doMsgs, JUICYDRAGONSTEAK) == 0)) && (steakCnt < 6)) {
+            if (!HAS_ITEM(player, type, doMsgs, JUICYDRAGONSTEAK) && (steakCnt < 6)) {
                 SHOW_TEXT(player, type, doMsgs, "You find a package of juicy dragon steaks!");
                 steakCnt += 2;
                 GIVE_ITEM(player, type, doMsgs, JUICYDRAGONSTEAK);
@@ -598,13 +596,13 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent33(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int passFlag = 0;
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & GAOLER_KILLED_BIT) {
+            if (IsTrue(GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & GAOLER_KILLED_BIT)) {
                 CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "A slit in the door shoots open and a gutteral voice demands, 'Wot's th' password?'");
                 passFlag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
-                if (passFlag & PASSWORD_FOUND_BIT) {
+                if (IsTrue(passFlag & PASSWORD_FOUND_BIT)) {
                     SHOW_TEXT(player, type, doMsgs, "You reply 'the password is 'SMILE',' and the door creaks open. The gaoler growls, 'Come on in so's I can look at ye. One at a time!'");
                     CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
                 }
@@ -699,7 +697,7 @@ namespace XPT.Twinion.Maps {
             SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN, flagBits);
         }
         protected override void FnEvent64(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if ((HAS_ITEM(player, type, doMsgs, FUNHOUSEKEY) == 0)) {
+            if (!HAS_ITEM(player, type, doMsgs, FUNHOUSEKEY)) {
                 SHOW_TEXT(player, type, doMsgs, "A gigantic snake-woman looms over you, swaying hypnotically. 'Yessss,' she hisses, 'it will be sweet revenge to taste the mortal blood that stole my husband Shadax!'");
                 SET_BOOTY(player, type, doMsgs, FUNHOUSEKEY, 0, 0, 0, 0, 0);
                 GET_MONSTER(player, type, doMsgs, 1, MONST_CHISS);
@@ -743,7 +741,7 @@ namespace XPT.Twinion.Maps {
                     }
                     else {
                         SHOW_TEXT(player, type, doMsgs, "Naomi snaps, 'Have you brought my Spirit Bottle, or is this another feeble attempt to deceive me?'");
-                        if ((HAS_ITEM(player, type, doMsgs, NAOMISKEY) == 0)) {
+                        if (!HAS_ITEM(player, type, doMsgs, NAOMISKEY)) {
                             GIVE_ITEM(player, type, doMsgs, NAOMISKEY);
                         }
                     }
@@ -782,16 +780,15 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent6E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int ctrlFlag = 0;
             int deathFlag = 0;
-            int i = 0;
             int monster = 0;
             ctrlFlag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
             deathFlag = GET_FLAG(player, type, doMsgs, PARTY, DEATH_LEVEL);
-            if (FLAG_OFF(player, type, doMsgs, ROOM, SEEN_IT) && (ctrlFlag & SIGNED_IN_BIT)) {
+            if (FLAG_OFF(player, type, doMsgs, ROOM, SEEN_IT) && IsTrue(ctrlFlag & SIGNED_IN_BIT)) {
                 SHOW_TEXT(player, type, doMsgs, "You trudge forward down the Hall of Death.");
                 deathFlag++;
                 SET_FLAG(player, type, doMsgs, ROOM, SEEN_IT, 1);
             }
-            if (ctrlFlag & SIGNED_IN_BIT) {
+            if (IsTrue(ctrlFlag & SIGNED_IN_BIT)) {
                 monster = (deathFlag / 3);
                 if (monster > 6) {
                     monster = 6;
@@ -805,7 +802,7 @@ namespace XPT.Twinion.Maps {
             int flag = 0;
             int i = 0;
             int monster = MONST_HALL_DEATH_7;
-            if (GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1) & SIGNED_IN_BIT) {
+            if (IsTrue(GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1) & SIGNED_IN_BIT)) {
                 flag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
                 if (((flag & KEKEKETL_KILLED_BIT) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "This antechamber is littered with bones. As you step forward some of the grisly debris flies up and forms itself into a horrific, skeletal figure. 'I am Kekeketl,' it rasps. 'I am sworn to defend this place.'");
@@ -842,9 +839,9 @@ namespace XPT.Twinion.Maps {
             BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
             secretFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1);
             killedFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
-            if ((secretFlag & SECRET_PASSAGE_BIT) && ((killedFlag & CHORONZAR_KILLED_BIT) == 0)) {
+            if (IsTrue(secretFlag & SECRET_PASSAGE_BIT) && ((killedFlag & CHORONZAR_KILLED_BIT) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "You rush through the wall and surprise Choronzar pacing behind his throne!");
-                if (secretFlag & ANOINTED_BIT) {
+                if (IsTrue(secretFlag & ANOINTED_BIT)) {
                     SHOW_TEXT(player, type, doMsgs, "He shrieks and turns to flee, but you are upon him in an instant.");
                     monster = MONST_CHORONZAR_WIMPY;
                 }

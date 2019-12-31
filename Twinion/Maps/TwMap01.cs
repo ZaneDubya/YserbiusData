@@ -92,7 +92,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "Small pinholes of light seep through the cracks in the wall here.");
-            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 1 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM)) {
+            if ((USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 1) || (USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) >= 1) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM)) {
                 PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 SHOW_TEXT(player, type, doMsgs, "You've uncovered a hidden door!");
                 CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
@@ -234,6 +234,7 @@ namespace XPT.Twinion.Maps {
                         SHOW_TEXT(player, type, doMsgs, "'You want more info?...Hmmm, let's see...ah yes! How could I have forgotten!");
                         SHOW_TEXT(player, type, doMsgs, "Find your way to the south and east. The Snake River will grant you a quick way to the Coil Maze.'");
                         pfv = 4;
+                        break;
                         default:
                             PicShow(player, type, doMsgs);
                             SHOW_TEXT(player, type, doMsgs, "'I can offer you no more advice. It's up to you which path you choose. But in time, all things come upon themselves.'");

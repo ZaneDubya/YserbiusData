@@ -120,7 +120,7 @@ namespace XPT.Twinion.Maps {
             CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         protected override void FnEvent1C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 10 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
+            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 10 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) >= 1 || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
                 SHOW_TEXT(player, type, doMsgs, "A passageway appears.");
                 PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
@@ -498,7 +498,7 @@ namespace XPT.Twinion.Maps {
             if (HAS_ITEM(player, type, doMsgs, LIFEGIVER)) {
                 SET_BOOTY(player, type, doMsgs, BINDINGTALISMAN, JADEDRING, 0, 0, 0, 2000);
             }
-            else if ((HAS_ITEM(player, type, doMsgs, MANARESTORE) == 0)) {
+            else if (!HAS_ITEM(player, type, doMsgs, MANARESTORE)) {
                 SET_BOOTY(player, type, doMsgs, LIFEGIVER, MANARESTORE, HEALALLPOTION, 0, 0, 2000);
             }
             if (PARTY_COUNT(player, type, doMsgs) == 1) {
