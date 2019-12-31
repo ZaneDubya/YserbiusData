@@ -303,7 +303,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent22(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "Vicious creatures surround you!");
             if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 39);
@@ -399,8 +399,8 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent26(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flag = 0;
-            short flag2 = 0;
+            int flag = 0;
+            int flag2 = 0;
             switch (HERE(player, type, doMsgs)) {
                 case 199:
                     flag = WESTSIDE;
@@ -629,7 +629,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short spell = 0;
+            int spell = 0;
             if ((GET_FLAG(player, type, doMsgs, DUNGEON, FNTN) == 0)) {
                 if (GUILD(player, type, doMsgs) == CLERIC || GUILD(player, type, doMsgs) == WIZARD || GUILD(player, type, doMsgs) == RANGER) {
                     switch (GUILD(player, type, doMsgs)) {

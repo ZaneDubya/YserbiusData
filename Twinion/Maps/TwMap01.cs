@@ -35,7 +35,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 1, 2, 245, EAST);
         }
         protected override void FnEvent05(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short teleportroom = 0;
+            int teleportroom = 0;
             switch (HERE(player, type, doMsgs)) {
                 case 9:
                     teleportroom = 15;
@@ -113,7 +113,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short pfv = 0;
+            int pfv = 0;
             pfv = GET_FLAG(player, type, doMsgs, PARTY, BATSCAVE);
             switch (HERE(player, type, doMsgs)) {
                 case 94:
@@ -209,7 +209,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent12(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short pfv = 0;
+            int pfv = 0;
             pfv = GET_FLAG(player, type, doMsgs, PARTY, NPCINHALL);
             if (STATE(player, type, doMsgs) != HERE(player, type, doMsgs)) {
                 if (pfv == 0) {
@@ -312,7 +312,7 @@ namespace XPT.Twinion.Maps {
                 GET_MONSTER(player, type, doMsgs, 02, 35);
             }
             protected override void FnEvent17(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i = 0;
+                int i = 0;
                 if ((GET_FLAG(player, type, doMsgs, PARTY, PFBATTLE) == 0)) {
                     SET_BOOTY(player, type, doMsgs, HEALPOTION, CRYSTALBALL, 0, 0, 0, 25);
                     for (i = 1; i <= 2; i++) {
@@ -334,7 +334,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i = 0;
+                int i = 0;
                 switch (PARTY_COUNT(player, type, doMsgs)) {
                     case 1:
                         GET_MONSTER(player, type, doMsgs, 1, 38);
@@ -365,7 +365,7 @@ namespace XPT.Twinion.Maps {
                 MOD_MANA(player, type, doMsgs, 100);
             }
             protected override void FnEvent1C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short pfv = 0;
+                int pfv = 0;
                 if (GET_FLAG(player, type, doMsgs, PARTY, BIZARRE) == 50 && (GET_FLAG(player, type, doMsgs, DUNGEON, WIERDO) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "You've done something bizarre! Here's your reward!");
                     GIVE_ITEM(player, type, doMsgs, GAUNTLETSOFMERCY);
@@ -381,9 +381,9 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short portroom = 0;
-                short face = 0;
-                short ww = 0;
+                int portroom = 0;
+                int face = 0;
+                int ww = 0;
                 ww = GET_FLAG(player, type, doMsgs, PARTY, WHICHWAY);
                 SHOW_TEXT(player, type, doMsgs, "The magic waters pull you onward!");
                 if (ww == 1) {
@@ -578,7 +578,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short pfv = 0;
+                int pfv = 0;
                 pfv = GET_FLAG(player, type, doMsgs, PARTY, NPC2INHALL);
                 if (STATE(player, type, doMsgs) != HERE(player, type, doMsgs)) {
                     if (pfv == 0) {

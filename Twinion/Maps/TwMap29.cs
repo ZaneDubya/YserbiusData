@@ -65,7 +65,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "Violent forces whip into a fury of vorticies; forming an arsenal of Planar Guardians who prevent transgressions!!");
             for (i = 1; i <= 4; i++) {
                 GET_MONSTER(player, type, doMsgs, i, 39);
@@ -249,11 +249,11 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 1, 1, 14, NORTH);
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flag = 0;
-            short portroom1 = 0;
-            short portroom2 = 0;
-            short f1 = 0;
-            short f2 = 0;
+            int flag = 0;
+            int portroom1 = 0;
+            int portroom2 = 0;
+            int f1 = 0;
+            int f2 = 0;
             switch (HERE(player, type, doMsgs)) {
                 case 30:
                     flag = KILLEDCORPEUS;
@@ -307,10 +307,10 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short item = 0;
-            short portlvl = 0;
-            short portroom = 0;
-            short f1 = 0;
+            int item = 0;
+            int portlvl = 0;
+            int portroom = 0;
+            int f1 = 0;
             switch (HERE(player, type, doMsgs)) {
                 case 14:
                     item = REALITYSRAMPART;
@@ -440,8 +440,8 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flag = 0;
-            short itemA = 0;
+            int flag = 0;
+            int itemA = 0;
             switch (HERE(player, type, doMsgs)) {
                 case 104:
                     flag = KILLEDASTELLIGUS;
@@ -482,7 +482,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_SPELL(player, type, doMsgs);
-            short flagtotal = 0;
+            int flagtotal = 0;
             flagtotal = GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDASTELLIGUS);
              + GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDPLUTHROS);
              + GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDMALOS);

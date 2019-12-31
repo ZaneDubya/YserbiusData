@@ -48,8 +48,8 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent08(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short itemA = 0;
-            short life = 0;
+            int itemA = 0;
+            int life = 0;
             if (HAS_ITEM(player, type, doMsgs, RODOFTHESERPENT) || HAS_ITEM(player, type, doMsgs, SERPENTSFANG)) {
                 BootyStr(player, type, doMsgs);
             }
@@ -202,7 +202,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short life = 0;
+            int life = 0;
             switch (HERE(player, type, doMsgs)) {
                 case 58:
                     life = HUMAN;

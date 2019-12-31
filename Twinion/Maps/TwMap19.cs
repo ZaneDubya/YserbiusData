@@ -65,9 +65,9 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent08(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flag = 0;
-            short mn = 0;
-            short pflag = 0;
+            int flag = 0;
+            int mn = 0;
+            int pflag = 0;
             switch (HERE(player, type, doMsgs)) {
                 case 119:
                     flag = KILLEDEREBUS;
@@ -200,8 +200,8 @@ namespace XPT.Twinion.Maps {
             GET_MONSTER(player, type, doMsgs, 01, 32);
         }
         protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short teleportRoom = 0;
-            short chesspiece = 0;
+            int teleportRoom = 0;
+            int chesspiece = 0;
             chesspiece = GET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE);
             if (chesspiece == 2 && (HERE(player, type, doMsgs) == 70 && FACING(player, type, doMsgs) == WEST) || (HERE(player, type, doMsgs) == 73 && FACING(player, type, doMsgs) == EAST) || (HERE(player, type, doMsgs) == 86 && FACING(player, type, doMsgs) == WEST) || (HERE(player, type, doMsgs) == 89 && FACING(player, type, doMsgs) == EAST)) {
                 SHOW_TEXT(player, type, doMsgs, "You may leave the board through here.");
@@ -273,7 +273,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short mn = 0;
+            int mn = 0;
             switch (HERE(player, type, doMsgs)) {
                 case 102:
                     mn = 39;
@@ -285,8 +285,8 @@ namespace XPT.Twinion.Maps {
             GET_MONSTER(player, type, doMsgs, 01, mn);
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short teleportRoom = 0;
-            short chesspiece = 0;
+            int teleportRoom = 0;
+            int chesspiece = 0;
             chesspiece = GET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE);
             if (chesspiece == 2 && (HERE(player, type, doMsgs) == 70 && FACING(player, type, doMsgs) == WEST) || (HERE(player, type, doMsgs) == 73 && FACING(player, type, doMsgs) == EAST) || (HERE(player, type, doMsgs) == 86 && FACING(player, type, doMsgs) == WEST) || (HERE(player, type, doMsgs) == 89 && FACING(player, type, doMsgs) == EAST)) {
                 SHOW_TEXT(player, type, doMsgs, "You may leave the board through here.");
@@ -358,7 +358,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent16(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short teleportRoom = 0;
+            int teleportRoom = 0;
             WallBlock(player, type, doMsgs);
             SET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE, 2);
             if (FACING(player, type, doMsgs) == NORTH) {
@@ -389,7 +389,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent17(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short teleportRoom = 0;
+            int teleportRoom = 0;
             WallBlock(player, type, doMsgs);
             SET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE, 3);
             if (FACING(player, type, doMsgs) == NORTH) {
@@ -416,7 +416,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short teleportRoom = 0;
+            int teleportRoom = 0;
             WallBlock(player, type, doMsgs);
             SET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE, 2);
             if (FACING(player, type, doMsgs) == NORTH) {
@@ -610,9 +610,9 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 8, 2, 156, EAST);
         }
         protected override void FnEvent31(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short value = 0;
-            short chesspiece = 0;
-            short mn = 0;
+            int value = 0;
+            int chesspiece = 0;
+            int mn = 0;
             chesspiece = GET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE);
             chesspiece++;
             switch (chesspiece) {
@@ -645,9 +645,9 @@ namespace XPT.Twinion.Maps {
             WallBlock(player, type, doMsgs);
         }
         private void OfferBooty(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short itemA = 0;
-            short itemB = 0;
-            short itemC = 0;
+            int itemA = 0;
+            int itemB = 0;
+            int itemC = 0;
             switch (HERE(player, type, doMsgs)) {
                 case 178:
                     itemA = MANAAMPHORA;
@@ -712,8 +712,8 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "The crumbling stones and cracked granite act as testimony to the war brewing between the Praxis and Erebus armies that dominate this domain.");
             }
             protected override void FnEvent33(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short flag = 0;
-                short portroom = 0;
+                int flag = 0;
+                int portroom = 0;
                 switch (HERE(player, type, doMsgs)) {
                     case 119:
                         flag = KILLEDEREBUS;
@@ -759,7 +759,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short flag = 222;
+                int flag = 222;
                 switch (HERE(player, type, doMsgs)) {
                     case 135:
                         flag = KILLEDEREBUS;
@@ -792,7 +792,7 @@ namespace XPT.Twinion.Maps {
                 TELEPORT(player, type, doMsgs, 9, 2, 119, EAST);
             }
             protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i = 0;
+                int i = 0;
                 SHOW_TEXT(player, type, doMsgs, "Servants of Qao rise from the lava to repel encroaching invaders!");
                 if ((HAS_ITEM(player, type, doMsgs, HEALAMPHORA) == 0) && (GET_FLAG(player, type, doMsgs, PARTY, SERVANTS) == 0)) {
                     SET_BOOTY(player, type, doMsgs, HEALAMPHORA, LIFEGIVER, SCORCHEDSCROLL, 0, 0, 2000);

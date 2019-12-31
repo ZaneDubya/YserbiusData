@@ -286,7 +286,7 @@ namespace XPT.Twinion.Maps {
             GET_MONSTER(player, type, doMsgs, 01, 36);
         }
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             if ((GET_FLAG(player, type, doMsgs, PARTY, QUEENGUARD) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, DWARFKNIGHT);
                 SHOW_TEXT(player, type, doMsgs, "One of the Queen's Guards is here. 'No stealing!'");
@@ -349,7 +349,7 @@ namespace XPT.Twinion.Maps {
             GET_MONSTER(player, type, doMsgs, 04, 28);
         }
         protected override void FnEvent24(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             if (GET_FLAG(player, type, doMsgs, PARTY, MONSTERA) == 0) {
                 SHOW_TEXT(player, type, doMsgs, "Vicious beasts snarl at you.");
                 if (PARTY_COUNT(player, type, doMsgs) < 3) {
@@ -378,7 +378,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             if (GET_FLAG(player, type, doMsgs, PARTY, MONSTERB) == 0) {
                 SHOW_TEXT(player, type, doMsgs, "Vicious panthers growl as you approach.");
                 for (i = 1; i <= 4; i++) {
@@ -404,7 +404,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent27(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
-            short timesused = 0;
+            int timesused = 0;
             timesused = 0;
             if (GET_FLAG(player, type, doMsgs, PARTY, HEALFOUNTAIN) < 3) {
                 timesused = GET_FLAG(player, type, doMsgs, PARTY, MANAFOUNTAIN);
@@ -419,7 +419,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent28(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
-            short timesused = 0;
+            int timesused = 0;
             timesused = 0;
             if (GET_FLAG(player, type, doMsgs, PARTY, MANAFOUNTAIN) < 3) {
                 timesused = GET_FLAG(player, type, doMsgs, PARTY, MANAFOUNTAIN);
@@ -535,7 +535,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent3B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flag = 0;
+            int flag = 0;
             int exps = 0;
             switch (HERE(player, type, doMsgs)) {
                 case 94:

@@ -30,8 +30,8 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 6, 3, 164, NORTH);
         }
         protected override void FnEvent04(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short itemA = 0;
-            short life = 0;
+            int itemA = 0;
+            int life = 0;
             if (HAS_ITEM(player, type, doMsgs, RODOFTHESERPENT) || HAS_ITEM(player, type, doMsgs, SERPENTSFANG)) {
                 BootyStr(player, type, doMsgs);
             }
@@ -102,7 +102,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 6, 3, 47, WEST);
         }
         protected override void FnEvent09(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short life = 0;
+            int life = 0;
             switch (HERE(player, type, doMsgs)) {
                 case 34:
                     life = GNOME;

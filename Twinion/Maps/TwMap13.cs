@@ -187,7 +187,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
             FnEvent02(player, type, doMsgs);
-            short i = 0;
+            int i = 0;
             if ((GET_FLAG(player, type, doMsgs, ROOM, GRAVE_ZAP) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "Graverobbers, hearing your approach, ambush you. Sharp steel slices across your torso!");
                 if (HEALTH(player, type, doMsgs) > 1000) {
@@ -317,10 +317,10 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "The inscription on the tombstone has been eroded beyond recognition by the elements.");
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short mn1 = 0;
-            short mn2 = 0;
-            short i = 0;
-            short pfv = 0;
+            int mn1 = 0;
+            int mn2 = 0;
+            int i = 0;
+            int pfv = 0;
             pfv = GET_FLAG(player, type, doMsgs, PARTY, RANDOMMONST);
             switch (pfv) {
                 case 1:

@@ -47,10 +47,10 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 11, 4, 60, NORTH);
         }
         protected override void FnEvent05(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short itemA = 0;
-            short itemB = 0;
-            short manapts = 0;
-            short pool = 0;
+            int itemA = 0;
+            int itemB = 0;
+            int manapts = 0;
+            int pool = 0;
             pool = GET_FLAG(player, type, doMsgs, DUNGEON, POOLNUMBER);
             DamageBy6(player, type, doMsgs);
             if (HEALTH(player, type, doMsgs) > 0) {
@@ -110,7 +110,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 11, 4, 114, EAST);
         }
         protected override void FnEvent0A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             if ((GET_FLAG(player, type, doMsgs, DUNGEON, DIDASTRAL) == 0)) {
                 if (HAS_ITEM(player, type, doMsgs, NIMBUSOFTHEFATES)) {
                     Nothing(player, type, doMsgs);
@@ -154,10 +154,10 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short port1 = 0;
-            short port2 = 0;
-            short facing1 = 0;
-            short facing2 = 0;
+            int port1 = 0;
+            int port2 = 0;
+            int facing1 = 0;
+            int facing2 = 0;
             Compass(player, type, doMsgs);
             if (PARTY_LEADER(player, type, doMsgs)) {
                 switch (FACING(player, type, doMsgs)) {
@@ -209,10 +209,10 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short port1 = 0;
-            short port2 = 0;
-            short facing1 = 0;
-            short facing2 = 0;
+            int port1 = 0;
+            int port2 = 0;
+            int facing1 = 0;
+            int facing2 = 0;
             Compass(player, type, doMsgs);
             switch (FACING(player, type, doMsgs)) {
                 case WEST:
@@ -258,10 +258,10 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short port1 = 0;
-            short port2 = 0;
-            short facing1 = 0;
-            short facing2 = 0;
+            int port1 = 0;
+            int port2 = 0;
+            int facing1 = 0;
+            int facing2 = 0;
             Compass(player, type, doMsgs);
             switch (FACING(player, type, doMsgs)) {
                 case SOUTH:
@@ -302,10 +302,10 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short port1 = 0;
-            short port2 = 0;
-            short facing1 = 0;
-            short facing2 = 0;
+            int port1 = 0;
+            int port2 = 0;
+            int facing1 = 0;
+            int facing2 = 0;
             Compass(player, type, doMsgs);
             switch (FACING(player, type, doMsgs)) {
                 case NORTH:
@@ -351,10 +351,10 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent10(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short port1 = 0;
-            short port2 = 0;
-            short facing1 = 0;
-            short facing2 = 0;
+            int port1 = 0;
+            int port2 = 0;
+            int facing1 = 0;
+            int facing2 = 0;
             Compass(player, type, doMsgs);
             switch (FACING(player, type, doMsgs)) {
                 case NORTH:
@@ -406,13 +406,13 @@ namespace XPT.Twinion.Maps {
             GET_MONSTER(player, type, doMsgs, 01, 39);
         }
         protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             for (i = 1; i <= 2; i++) {
                 GET_MONSTER(player, type, doMsgs, i, 38);
             }
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             if (HERE(player, type, doMsgs) == 190) {
                 if ((HAS_ITEM(player, type, doMsgs, EYEOFCIRCINUS) == 0)) {
                     SET_BOOTY(player, type, doMsgs, EYEOFCIRCINUS, MANAAMPHORA, SPIRITUALARMOR, 0, 0, 3000);
@@ -434,7 +434,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "Restless entities battle eternally here.");
             if (PARTY_COUNT(player, type, doMsgs) < 3) {
                 for (i = 1; i <= 3; i++) {
@@ -471,7 +471,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                 case 2:
@@ -511,14 +511,14 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short mn = 0;
-            short mn2 = 0;
-            short pfv = 0;
-            short itemA = 0;
-            short itemB = 0;
-            short itemC = 0;
-            short gps = 0;
-            short g2 = 0;
+            int mn = 0;
+            int mn2 = 0;
+            int pfv = 0;
+            int itemA = 0;
+            int itemB = 0;
+            int itemC = 0;
+            int gps = 0;
+            int g2 = 0;
             pfv = GET_FLAG(player, type, doMsgs, PARTY, FIGHT_ME);
             if (pfv < 1) {
                 pfv = 1;
@@ -607,7 +607,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent22(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             if (GET_FLAG(player, type, doMsgs, PARTY, LAVA_A) == 1 || HAS_ITEM(player, type, doMsgs, GAUNTLETSOFMERCY) || HAS_ITEM(player, type, doMsgs, SKULLAEGIS)) {
                 SET_BOOTY(player, type, doMsgs, SAMURAISWORD, 0, 0, 0, 0, 2000);
             }
@@ -629,7 +629,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent23(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                 case 2:
@@ -645,7 +645,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent24(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     for (i = 1; i <= 2; i++) {
@@ -660,7 +660,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                 case 2:
@@ -676,7 +676,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent26(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             if ((GET_FLAG(player, type, doMsgs, DUNGEON, GOTPHYSITEM) == 0)) {
                 SET_BOOTY(player, type, doMsgs, REALITYSRAMPART, 0, 0, 0, 0, 15000);
             }
@@ -717,7 +717,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     for (i = 1; i <= 2; i++) {
@@ -737,7 +737,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     for (i = 1; i <= 2; i++) {
@@ -757,7 +757,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     for (i = 1; i <= 2; i++) {
@@ -784,10 +784,10 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 11, 3, 24, EAST);
         }
         protected override void FnEvent2F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short portnumber = 0;
-            short compass = 0;
-            short wall = 0;
-            short coord = 0;
+            int portnumber = 0;
+            int compass = 0;
+            int wall = 0;
+            int coord = 0;
             portnumber = GET_FLAG(player, type, doMsgs, DUNGEON, SWITCHESSET);
             NO_JOIN(player, type, doMsgs);
             switch (HERE(player, type, doMsgs)) {
@@ -845,7 +845,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short trap = 0;
+            int trap = 0;
             trap = GET_FLAG(player, type, doMsgs, PARTY, CASETRAP2);
             if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 if (GUILD(player, type, doMsgs) == THIEF || GUILD(player, type, doMsgs) == RANGER) {
@@ -903,8 +903,8 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent36(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 SHOW_PICTURE(player, type, doMsgs, GNOMEWIZARD);
-                short flag = 0;
-                short switches = 0;
+                int flag = 0;
+                int switches = 0;
                 switches = GET_FLAG(player, type, doMsgs, DUNGEON, SPOKEWITHGRATOK);
                 switch (HERE(player, type, doMsgs)) {
                     case 98:
@@ -983,7 +983,7 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "The magical fluids drain you.");
             }
             protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i = 0;
+                int i = 0;
                 SHOW_TEXT(player, type, doMsgs, "Medusas guard this gateway!");
                 switch (PARTY_COUNT(player, type, doMsgs)) {
                     case 1:
@@ -1004,7 +1004,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent39(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i = 0;
+                int i = 0;
                 switch (PARTY_COUNT(player, type, doMsgs)) {
                     case 1:
                     case 2:
@@ -1023,8 +1023,8 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "This hallway is laden with traps. You are powerless and confused.");
                 NoMapsZone(player, type, doMsgs);
                 NoSpellZone(player, type, doMsgs);
-                short trap = 0;
-                short item = 0;
+                int trap = 0;
+                int item = 0;
                 trap = GET_FLAG(player, type, doMsgs, PARTY, CASETRAP);
                 Compass(player, type, doMsgs);
                 if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
@@ -1106,9 +1106,9 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "An unseen force holds you back!");
             }
             protected override void FnEvent3E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short flag = 0;
-                short ai = 0;
-                short wwy = 0;
+                int flag = 0;
+                int ai = 0;
+                int wwy = 0;
                 wwy = GET_FLAG(player, type, doMsgs, PARTY, WHEREWEREYOU);
                 ai = GET_FLAG(player, type, doMsgs, DUNGEON, GOTASTRALITEM);
                 NoMapsZone(player, type, doMsgs);
@@ -1209,9 +1209,9 @@ namespace XPT.Twinion.Maps {
                 SET_FLAG(player, type, doMsgs, DUNGEON, GUARDIAN, 1);
             }
             protected override void FnEvent40(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short switchA = 0;
-                short valueA = 0;
-                short valueB = 0;
+                int switchA = 0;
+                int valueA = 0;
+                int valueB = 0;
                 switchA = GET_FLAG(player, type, doMsgs, PARTY, TORCH1);
                 switch (switchA) {
                     case 1:
@@ -1238,9 +1238,9 @@ namespace XPT.Twinion.Maps {
                 SET_FLAG(player, type, doMsgs, PARTY, TORCH1, switchA);
             }
             protected override void FnEvent41(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short switchA = 0;
-                short valueA = 0;
-                short valueB = 0;
+                int switchA = 0;
+                int valueA = 0;
+                int valueB = 0;
                 switchA = GET_FLAG(player, type, doMsgs, PARTY, TORCH2);
                 switch (switchA) {
                     case 1:
@@ -1267,9 +1267,9 @@ namespace XPT.Twinion.Maps {
                 SET_FLAG(player, type, doMsgs, PARTY, TORCH2, switchA);
             }
             protected override void FnEvent42(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short switchA = 0;
-                short valueA = 0;
-                short valueB = 0;
+                int switchA = 0;
+                int valueA = 0;
+                int valueB = 0;
                 switchA = GET_FLAG(player, type, doMsgs, PARTY, TORCH3);
                 switch (switchA) {
                     case 1:
@@ -1296,9 +1296,9 @@ namespace XPT.Twinion.Maps {
                 SET_FLAG(player, type, doMsgs, PARTY, TORCH3, switchA);
             }
             protected override void FnEvent43(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short switchA = 0;
-                short valueA = 0;
-                short valueB = 0;
+                int switchA = 0;
+                int valueA = 0;
+                int valueB = 0;
                 switchA = GET_FLAG(player, type, doMsgs, PARTY, TORCH4);
                 switch (switchA) {
                     case 1:
@@ -1325,9 +1325,9 @@ namespace XPT.Twinion.Maps {
                 SET_FLAG(player, type, doMsgs, PARTY, TORCH4, switchA);
             }
             protected override void FnEvent44(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short switchA = 0;
-                short valueA = 0;
-                short valueB = 0;
+                int switchA = 0;
+                int valueA = 0;
+                int valueB = 0;
                 switchA = GET_FLAG(player, type, doMsgs, PARTY, TORCH5);
                 switch (switchA) {
                     case 1:
@@ -1354,9 +1354,9 @@ namespace XPT.Twinion.Maps {
                 SET_FLAG(player, type, doMsgs, PARTY, TORCH5, switchA);
             }
             protected override void FnEvent45(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short switchA = 0;
-                short valueA = 0;
-                short valueB = 0;
+                int switchA = 0;
+                int valueA = 0;
+                int valueB = 0;
                 switchA = GET_FLAG(player, type, doMsgs, PARTY, TORCH6);
                 switch (switchA) {
                     case 1:
@@ -1383,8 +1383,8 @@ namespace XPT.Twinion.Maps {
                 SET_FLAG(player, type, doMsgs, PARTY, TORCH6, switchA);
             }
             protected override void FnEvent46(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short setupport = 0;
-                short flag = 0;
+                int setupport = 0;
+                int flag = 0;
                 flag = 0;
                 setupport = GET_FLAG(player, type, doMsgs, PARTY, DEATHW);
                  + GET_FLAG(player, type, doMsgs, PARTY, WATERW);

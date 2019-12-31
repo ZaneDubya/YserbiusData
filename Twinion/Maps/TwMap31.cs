@@ -96,7 +96,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent07(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short itemA = 0;
+            int itemA = 0;
             switch (HERE(player, type, doMsgs)) {
                 case 252:
                     itemA = GAEASFLAIL;
@@ -155,7 +155,7 @@ namespace XPT.Twinion.Maps {
             BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short trap = 0;
+            int trap = 0;
             trap = GET_FLAG(player, type, doMsgs, PARTY, CASETRAP2);
             if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 switch (trap) {
@@ -240,7 +240,7 @@ namespace XPT.Twinion.Maps {
                     NO_JOIN(player, type, doMsgs);
                 }
                 protected override void FnEvent12(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    short i = 0;
+                    int i = 0;
                     FnEvent15(player, type, doMsgs);
                     if (GET_FLAG(player, type, doMsgs, PARTY, STORMGIANT) != HERE(player, type, doMsgs)) {
                         if (PARTY_COUNT(player, type, doMsgs) == 1) {
@@ -350,28 +350,28 @@ namespace XPT.Twinion.Maps {
                     BLOCK_FLOOR(player, type, doMsgs, HERE(player, type, doMsgs));
                 }
                 protected override void FnEvent1F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    short i = 0;
+                    int i = 0;
                     SHOW_TEXT(player, type, doMsgs, "Eos' servants form from the morning mists which permeate this place.");
                     for (i = 1; i <= 2; i++) {
                         GET_MONSTER(player, type, doMsgs, i, EOSBATTLE);
                     }
                 }
                 protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    short i = 0;
+                    int i = 0;
                     SHOW_TEXT(player, type, doMsgs, "Descendents of Gaea rise from the earthen floor to challenge you!");
                     for (i = 1; i <= 2; i++) {
                         GET_MONSTER(player, type, doMsgs, i, GAEABATTLE);
                     }
                 }
                 protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    short i = 0;
+                    int i = 0;
                     SHOW_TEXT(player, type, doMsgs, "Ancient servants of Neptune rise from the waters and bar your way!");
                     for (i = 1; i <= 2; i++) {
                         GET_MONSTER(player, type, doMsgs, i, NEPTUNEBATTLE);
                     }
                 }
                 protected override void FnEvent22(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    short i = 0;
+                    int i = 0;
                     SHOW_TEXT(player, type, doMsgs, "Masters of Warfare, students of Ares, ambush you!");
                     for (i = 1; i <= 2; i++) {
                         GET_MONSTER(player, type, doMsgs, i, ARESBATTLE);
@@ -381,7 +381,7 @@ namespace XPT.Twinion.Maps {
                     SET_STATE(player, type, doMsgs, 0);
                 }
                 protected override void FnEvent24(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    short i = 0;
+                    int i = 0;
                     if (STATE(player, type, doMsgs) != HERE(player, type, doMsgs)) {
                         SET_STATE(player, type, doMsgs, HERE(player, type, doMsgs));
                         switch (PARTY_COUNT(player, type, doMsgs)) {
@@ -410,7 +410,7 @@ namespace XPT.Twinion.Maps {
                     SHOW_TEXT(player, type, doMsgs, "A challenge of outrageous proportions guards this passageway before you. Northward, two rows of beasts and man stand as guardians to the ultimate Gateway.");
                 }
                 protected override void FnEvent26(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    short i = 0;
+                    int i = 0;
                     if (STATE(player, type, doMsgs) != HERE(player, type, doMsgs)) {
                         SET_STATE(player, type, doMsgs, HERE(player, type, doMsgs));
                         switch (PARTY_COUNT(player, type, doMsgs)) {
@@ -481,7 +481,7 @@ namespace XPT.Twinion.Maps {
                     }
                 }
                 protected override void FnEvent29(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    short i = 0;
+                    int i = 0;
                     if (STATE(player, type, doMsgs) != HERE(player, type, doMsgs)) {
                         SET_STATE(player, type, doMsgs, HERE(player, type, doMsgs));
                         switch (PARTY_COUNT(player, type, doMsgs)) {
@@ -503,7 +503,7 @@ namespace XPT.Twinion.Maps {
                     }
                 }
                 protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    short i = 0;
+                    int i = 0;
                     if (STATE(player, type, doMsgs) != HERE(player, type, doMsgs)) {
                         SET_STATE(player, type, doMsgs, HERE(player, type, doMsgs));
                         switch (PARTY_COUNT(player, type, doMsgs)) {
@@ -525,7 +525,7 @@ namespace XPT.Twinion.Maps {
                     }
                 }
                 protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    short i = 0;
+                    int i = 0;
                     if (STATE(player, type, doMsgs) != HERE(player, type, doMsgs)) {
                         SET_STATE(player, type, doMsgs, HERE(player, type, doMsgs));
                         switch (PARTY_COUNT(player, type, doMsgs)) {

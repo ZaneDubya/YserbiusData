@@ -12,7 +12,7 @@ namespace XPT.Twinion.Maps {
         private const int ARMORY_ZAP_THREE = 3;
         private const int SHIELD_ZAP = 4;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flags = 0;
+            int flags = 0;
             flags = GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM);
              + GET_FLAG(player, type, doMsgs, DUNGEON, JACKET);
             if (GUILD(player, type, doMsgs) == WIZARD) {
@@ -41,7 +41,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent02(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flags = 0;
+            int flags = 0;
             flags = GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM);
              + GET_FLAG(player, type, doMsgs, DUNGEON, JACKET);
             if (GUILD(player, type, doMsgs) == CLERIC) {
@@ -86,7 +86,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent05(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flags = 0;
+            int flags = 0;
             flags = GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM);
              + GET_FLAG(player, type, doMsgs, DUNGEON, JACKET);
             if (GUILD(player, type, doMsgs) == THIEF) {
@@ -452,7 +452,7 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "Fellowship Meeting Hall");
         }
         protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flags = 0;
+            int flags = 0;
             flags = GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM);
              + GET_FLAG(player, type, doMsgs, DUNGEON, JACKET);
             if (GUILD(player, type, doMsgs) == KNIGHT) {
@@ -484,7 +484,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 4, 3, 206, NORTH);
         }
         protected override void FnEvent41(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flags = 0;
+            int flags = 0;
             flags = GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM);
              + GET_FLAG(player, type, doMsgs, DUNGEON, JACKET);
             if (GUILD(player, type, doMsgs) == RANGER) {
@@ -513,7 +513,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent43(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flags = 0;
+            int flags = 0;
             flags = GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM);
              + GET_FLAG(player, type, doMsgs, DUNGEON, JACKET);
             if (GUILD(player, type, doMsgs) == BARBARIAN) {

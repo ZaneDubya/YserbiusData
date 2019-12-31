@@ -21,7 +21,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 1, 1, 19, SOUTH);
         }
         protected override void FnEvent03(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short charges = 0;
+            int charges = 0;
             charges = GET_FLAG(player, type, doMsgs, DUNGEON, ITEMUSES);
             if ((GET_FLAG(player, type, doMsgs, ROOM, TOSOURCE) == 0)) {
                 if (FLAG_ON(player, type, doMsgs, DUNGEON, ITEMUSES)) {
@@ -87,7 +87,7 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "Odd shadows flicker and fold in on one another against the walls.  The shadows themselves seem alive.");
         }
         protected override void FnEvent0A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             if (HAS_ITEM(player, type, doMsgs, RODOFDISSEMINATION)) {
                 SHOW_TEXT(player, type, doMsgs, "Stains of combat cover the floor, but there is nothing of interest here... except a few Erebus fiends!");
             }
@@ -125,8 +125,8 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "A large Erebus Fiend orders his minions to attack you, as he waves a mystical staff about and sends magical flames at you from his fingertips!");
         }
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short charges = 0;
-            short tilenumber = 0;
+            int charges = 0;
+            int tilenumber = 0;
             charges = GET_FLAG(player, type, doMsgs, DUNGEON, ITEMUSES);
             SHOW_TEXT(player, type, doMsgs, "The statue seems to shimmer, yet it is apparently solid.");
             if (FLAG_ON(player, type, doMsgs, DUNGEON, ITEMUSES)) {
@@ -211,7 +211,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "You happen across some feuding Kaalroths that dismiss their argument for some tasty combat.");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
@@ -232,7 +232,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent10(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "A warring party of Night Elf Pilgrims drags you into the fray.");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
@@ -253,7 +253,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent11(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "You suddenly feel out matched as a small nest of dragons charges at you!");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
@@ -274,7 +274,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent12(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "Shimmering moans and shadowy figures surround you!");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
@@ -316,7 +316,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 12, 1, 193, NORTH);
         }
         protected override void FnEvent16(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "An arsenal of creatures bars your way here.");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
@@ -338,7 +338,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent17(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "Servants of Dissemination attack!");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
@@ -390,7 +390,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "'You must defeat us to proceed! We are everlasting forces here!'");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
@@ -425,7 +425,7 @@ namespace XPT.Twinion.Maps {
             MOD_STAT(player, type, doMsgs, AGILITY,  - 1);
         }
         protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "Creatures surprise you!");
             if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 6);
@@ -451,7 +451,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "You surprise some beasts examining an interesting sword.");
             if ((GET_FLAG(player, type, doMsgs, DUNGEON, GREATBOOTY) == 0)) {
                 SET_BOOTY(player, type, doMsgs, PHOSPHORESCENTBLADE, HEALAMPHORA, HEALAMPHORA, BARBARIANAXE, ETHERICVESTMENT, 25000);
@@ -486,7 +486,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 12, 1, 136, NORTH);
         }
         protected override void FnEvent24(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "Some young dragons are scrounging for food, they notice you and attempt to make you their meal.");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
@@ -507,7 +507,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "You've happened upon some very unpleasant sorts!");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
@@ -552,7 +552,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 12, 1, 144, NORTH);
         }
         protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "A war party of adventurers prepare an offensive.");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:

@@ -64,7 +64,7 @@ namespace XPT.Twinion.Maps {
             DamXit(player, type, doMsgs);
         }
         protected override void FnEvent07(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short teleportRoom = 0;
+            int teleportRoom = 0;
             if (HAS_ITEM(player, type, doMsgs, ROPE)) {
                 if (FACING(player, type, doMsgs) == WEST) {
                     teleportRoom = HERE(player, type, doMsgs);

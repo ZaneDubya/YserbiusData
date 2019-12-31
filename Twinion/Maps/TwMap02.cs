@@ -44,7 +44,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 if (HAS_ITEM(player, type, doMsgs, LAVAGLOVE) || GET_FLAG(player, type, doMsgs, DUNGEON, LAVAQUEST) == 2) {
-                    short teleportroom = 0;
+                    int teleportroom = 0;
                     TAKE_ITEM(player, type, doMsgs, LAVAGLOVE);
                     SHOW_TEXT(player, type, doMsgs, "You've won the challenge of the Gauntlet. I shall send you to its end.");
                     switch (GUILD(player, type, doMsgs)) {
@@ -100,9 +100,9 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if ((GET_FLAG(player, type, doMsgs, DUNGEON, FIRSTQUEST) == 0)) {
-                short skill = 0;
-                short spell = 0;
-                short itemA = 0;
+                int skill = 0;
+                int spell = 0;
+                int itemA = 0;
                 switch (HERE(player, type, doMsgs)) {
                     case 31:
                         SHOW_TEXT(player, type, doMsgs, "Well done, great Barbarian!");
@@ -154,7 +154,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             if (HAS_ITEM(player, type, doMsgs, READTRACKSTALISMAN)) {
                 SHOW_TEXT(player, type, doMsgs, "Mages hurl magic at you!");
             }
@@ -183,7 +183,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             if (HAS_ITEM(player, type, doMsgs, CRYSTALBALL)) {
                 SHOW_TEXT(player, type, doMsgs, "Some Berserkers turn to attack!");
             }
@@ -211,7 +211,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent16(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             if (HAS_ITEM(player, type, doMsgs, HEALPOTION)) {
                 SHOW_TEXT(player, type, doMsgs, "You encounter some novice adventurers.");
             }
@@ -238,7 +238,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent17(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     GET_MONSTER(player, type, doMsgs, 01, 35);
@@ -290,7 +290,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             if (HAS_ITEM(player, type, doMsgs, LAVAGLOVE)) {
                 SHOW_TEXT(player, type, doMsgs, "Rogues rush out at you from the shadows.");
                 SET_BOOTY(player, type, doMsgs, LONGSWORD, HEALPOTION, 0, 0, 0, 250);
@@ -357,7 +357,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if ((GET_FLAG(player, type, doMsgs, ROOM, GOTFLAG) == 0)) {
-                short i = 0;
+                int i = 0;
                 i = GET_FLAG(player, type, doMsgs, PARTY, BEENHERE);
                 if (i <= 1) {
                     i++;

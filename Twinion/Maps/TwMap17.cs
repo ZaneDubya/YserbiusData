@@ -86,7 +86,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "You step into a dark alley.");
             SHOW_TEXT(player, type, doMsgs, "The cold steel of a thief's stiletto in your back cuts your odds of surviving this ambush!");
             DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 3);
@@ -522,7 +522,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     GET_MONSTER(player, type, doMsgs, 01, 27);

@@ -209,10 +209,10 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "You see another dazzling carving, similar to the one in some maze above.");
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short itemA = 0;
-            short itemB = 0;
-            short itemC = 0;
-            short i = 0;
+            int itemA = 0;
+            int itemB = 0;
+            int itemC = 0;
+            int i = 0;
             if ((GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDAQUEUS) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "A gold throne sits to the north; to reach it you need only defeat he who guards it!");
                 SHOW_TEXT(player, type, doMsgs, "Lord Aqueus, an enormous giant, rises from his throne bellowing, 'You are no match for me, the Aqueduct's guardian.");
@@ -299,7 +299,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short where = 0;
+            int where = 0;
             if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 if ((GET_FLAG(player, type, doMsgs, DUNGEON, SAVEDPARTY) == 0)) {
                     SHOW_PICTURE(player, type, doMsgs, DWARFKNIGHT);
@@ -338,11 +338,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short mn = 0;
-            short mn2 = 0;
-            short mn3 = 0;
-            short g2 = 0;
-            short g3 = 0;
+            int mn = 0;
+            int mn2 = 0;
+            int mn3 = 0;
+            int g2 = 0;
+            int g3 = 0;
             SHOW_TEXT(player, type, doMsgs, "Young giants rush at you.");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
@@ -367,13 +367,13 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short mn = 0;
-            short mn2 = 0;
-            short mn3 = 0;
-            short mn4 = 0;
-            short g2 = 0;
-            short g3 = 0;
-            short g4 = 0;
+            int mn = 0;
+            int mn2 = 0;
+            int mn3 = 0;
+            int mn4 = 0;
+            int g2 = 0;
+            int g3 = 0;
+            int g4 = 0;
             SHOW_TEXT(player, type, doMsgs, "Frustrated adventurers, unable to find a secret passage here, turn to attack you!");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
@@ -410,7 +410,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     for (i = 1; i <= 2; i++) {
@@ -438,7 +438,7 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "Oh, I do wish there was a faster way through this maze of horrors and giants!'");
         }
         protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "Agents of Lord Aqueus charge you!");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
@@ -457,9 +457,9 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short howold = 0;
-            short i = 0;
-            short giveem = 2;
+            int howold = 0;
+            int i = 0;
+            int giveem = 2;
             PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 127);
             if (PARTY_LEVEL(player, type, doMsgs, 12)) {
                 giveem = 1;

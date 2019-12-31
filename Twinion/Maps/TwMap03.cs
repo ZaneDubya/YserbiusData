@@ -230,13 +230,13 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short mn = 0;
-            short mn2 = 0;
-            short mn3 = 0;
-            short mn4 = 0;
-            short g2 = 0;
-            short g3 = 0;
-            short g4 = 0;
+            int mn = 0;
+            int mn2 = 0;
+            int mn3 = 0;
+            int mn4 = 0;
+            int g2 = 0;
+            int g3 = 0;
+            int g4 = 0;
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     mn = 37;
@@ -272,13 +272,13 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short mn = 0;
-            short mn2 = 0;
-            short mn3 = 0;
-            short mn4 = 0;
-            short g2 = 0;
-            short g3 = 0;
-            short g4 = 0;
+            int mn = 0;
+            int mn2 = 0;
+            int mn3 = 0;
+            int mn4 = 0;
+            int g2 = 0;
+            int g3 = 0;
+            int g4 = 0;
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     mn = 34;
@@ -314,7 +314,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             if (HERE(player, type, doMsgs) == 228) {
                 SET_BOOTY(player, type, doMsgs, REDLOCKPICK, 0, 0, 0, 0, 100);
             }
@@ -323,11 +323,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short mn = 0;
-            short mn2 = 0;
-            short mn3 = 0;
-            short g2 = 0;
-            short g3 = 0;
+            int mn = 0;
+            int mn2 = 0;
+            int mn3 = 0;
+            int g2 = 0;
+            int g3 = 0;
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     mn = 3;
@@ -373,7 +373,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent23(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i = 0;
+            int i = 0;
             SHOW_TEXT(player, type, doMsgs, "You approach a band of Warriors, who howl furiously as they charge you with axes held high.");
             switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
@@ -418,7 +418,7 @@ namespace XPT.Twinion.Maps {
                 GET_MONSTER(player, type, doMsgs, 04, 23);
             }
             protected override void FnEvent26(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short itemA = 0;
+                int itemA = 0;
                 if ((GET_FLAG(player, type, doMsgs, DUNGEON, NPCGIFTONE) == 0)) {
                     SHOW_PICTURE(player, type, doMsgs, ORCRANGER);
                     SHOW_TEXT(player, type, doMsgs, "'Well done! You managed to complete that simple maze of doors.  A gift of experience, gold and booty is yours.'");
@@ -476,7 +476,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent29(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i = 0;
+                int i = 0;
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, NPCGIFTONE) <= 1) {
                     SHOW_PICTURE(player, type, doMsgs, HALFLINGTHIEF);
                     SHOW_TEXT(player, type, doMsgs, "'How lovely, what marvelous gold you had...'");
@@ -625,7 +625,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent35(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short flag = 0;
+                int flag = 0;
                 switch (HERE(player, type, doMsgs)) {
                     case 228:
                         flag = 1;
@@ -637,7 +637,7 @@ namespace XPT.Twinion.Maps {
                 SET_FLAG(player, type, doMsgs, PARTY, WESTENTRANCE, flag);
             }
             protected override void FnEvent36(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short flag = 0;
+                int flag = 0;
                 switch (HERE(player, type, doMsgs)) {
                     case 216:
                     case 234:
@@ -669,7 +669,7 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "You cannot join together here.");
             }
             protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                byte where = 0;
+                int where = 0;
                 where = HERE(player, type, doMsgs);
                  + 16;
                 if (PARTY_COUNT(player, type, doMsgs) > 1) {
