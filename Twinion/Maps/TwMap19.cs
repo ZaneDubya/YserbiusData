@@ -8,6 +8,13 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 15;
         protected override int RandomEncounterExtraCount => 2;
 
+        private const int GOTTEXT = 1;
+        private const int METQAO = 2;
+        private const int FIGHTEREBUS = 3;
+        private const int FIGHTPRAXIS = 4;
+        private const int SERVANTS = 5;
+        private const int SPRUNGTRAP = 1;
+        private const int CHORONZAR_KILLED_BIT = 4;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "The molten lava incinerates you!");
             DamageMax(player, type, doMsgs);
@@ -17,7 +24,7 @@ namespace XPT.Twinion.Maps {
             DamageMax(player, type, doMsgs);
         }
         protected override void FnEvent03(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "The unusual force within this green blue fluid saps your magic powers.");
                 MOD_MANA(player, type, doMsgs,  - 100);
                 DamageBy6(player, type, doMsgs);
@@ -45,7 +52,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent07(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE, 0);
-            if (!GET_FLAG(player, type, doMsgs, PARTY, GOTTEXT)) {
+            if ((GET_FLAG(player, type, doMsgs, PARTY, GOTTEXT) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "You enter an enormous chessboard arena. It differs greatly from the one built by Arnakkian so many moons ago.");
                 SHOW_TEXT(player, type, doMsgs, "The red marble and onyx floor are truly beautiful.");
                 SHOW_TEXT(player, type, doMsgs, "You notice, however, that the pieces are not mere toys. They are real creatures. A black dragon, a white knight, and many others are present.");
@@ -131,7 +138,7 @@ namespace XPT.Twinion.Maps {
             if (GUILD(player, type, doMsgs) == THIEF || GUILD(player, type, doMsgs) == WIZARD) {
                 if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 12 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
                     SHOW_TEXT(player, type, doMsgs, "The ancient stones become a portal.");
-                    special10(player, type, doMsgs);
+                    FnEvent0A(player, type, doMsgs);
                 }
             }
             else {
@@ -140,7 +147,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, REDDRAGON);
-            if (!GET_FLAG(player, type, doMsgs, PARTY, METQAO)) {
+            if ((GET_FLAG(player, type, doMsgs, PARTY, METQAO) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "Qao Tsur slowly opens his eyes, now thin slits of black in green-gold spheres. He sniffs at you.");
                 SHOW_TEXT(player, type, doMsgs, "His booming voice shakes the walls.");
                 SHOW_TEXT(player, type, doMsgs, "'So, mere mortals have at last appeared to seek the Dralkarians.");
@@ -159,14 +166,14 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "The tremendous heat is devastating here.");
                 DamageBy6(player, type, doMsgs);
                 SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
             }
         }
         protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "As you round the corner of this Dragon's Lair, a series of fire-bursts fly from the shadows, scorching you.");
                 DamageBy2(player, type, doMsgs);
                 SprungTrap(player, type, doMsgs);
@@ -174,7 +181,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent10(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_SPELL(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "Poisonous gases seep into this area.");
                 PoisonMe(player, type, doMsgs);
                 SprungTrap(player, type, doMsgs);
@@ -182,7 +189,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent11(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "An ancient Red Dragon lies on his mountain of gold and other booty. As you enter his lair, you are weakened by the tremendous heat.");
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 DamageBy6(player, type, doMsgs);
                 PoisonMe(player, type, doMsgs);
                 SET_PM(player, type, doMsgs, PARALYSIS, 50, 0);
@@ -436,7 +443,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "The lair is filled with lava pools and noxious odors.");
                 PoisonMe(player, type, doMsgs);
                 SprungTrap(player, type, doMsgs);
@@ -461,7 +468,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_SPELL(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 ShowFntn(player, type, doMsgs);
                 SHOW_TEXT(player, type, doMsgs, "The sweet waters feel refreshing at first, but soon make you feel nauseated.");
                 PoisonMe(player, type, doMsgs);
@@ -476,14 +483,14 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent23(TwPlayerServer player, MapEventType type, bool doMsgs) {
             ShowFntn(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "These sparkling waters are magical in nature and instantly restore your mana level.");
                 MOD_MANA(player, type, doMsgs, 5000);
                 SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
             }
         }
         protected override void FnEvent24(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "Fetid fumes reek of evil magic.");
                 if (GUILD(player, type, doMsgs) == WIZARD) {
                     MOD_MANA(player, type, doMsgs,  - 250);
@@ -513,10 +520,10 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent28(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "Archaic runes in some forgotten tongue cover this gateway.");
             if (HAS_ITEM(player, type, doMsgs, LAVAGLOVE)) {
-                if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+                if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "The lava glove allows you to open the portal.");
                     SprungTrap(player, type, doMsgs);
-                    special10(player, type, doMsgs);
+                    FnEvent0A(player, type, doMsgs);
                 }
             }
             else {
@@ -631,7 +638,7 @@ namespace XPT.Twinion.Maps {
         }
         private void MasterTxt(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "A hidden portal opens, allowing those who have defeated the Master an ingress.");
-            special10(player, type, doMsgs);
+            FnEvent0A(player, type, doMsgs);
         }
         private void SoloTxt(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "There's something strange about the wall here. Only alone, and once you've defeated a Master of the Arena, will you be able to see it!");
@@ -662,7 +669,7 @@ namespace XPT.Twinion.Maps {
                     itemC = SNAKESKINJACKET;
                     break;
             }
-            if (STATE(player, type, doMsgs) != HERE(player, type, doMsgs) && !HAS_ITEM(player, type, doMsgs, itemA)) {
+            if (STATE(player, type, doMsgs) != HERE(player, type, doMsgs) && (HAS_ITEM(player, type, doMsgs, itemA) == 0)) {
                 SET_BOOTY(player, type, doMsgs, itemA, itemB, itemC, 0, 0, 2000);
                 SET_STATE(player, type, doMsgs, HERE(player, type, doMsgs));
             }
@@ -692,7 +699,7 @@ namespace XPT.Twinion.Maps {
             SET_PM(player, type, doMsgs, POISON, 10, 150);
         }
         protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && !GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) {
+            if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && (GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) == 0) & CHORONZAR_KILLED_BIT) {
                 SHOW_TEXT(player, type, doMsgs, "A maniacal fiend appears; removes an item you stole from him; and kills you outright.");
                 while (HAS_ITEM(player, type, doMsgs, JESTERSCAP))
                     TAKE_ITEM(player, type, doMsgs, JESTERSCAP);
@@ -717,7 +724,7 @@ namespace XPT.Twinion.Maps {
                         portroom = 57;
                         break;
                 }
-                if (!GET_FLAG(player, type, doMsgs, DUNGEON, flag)) {
+                if ((GET_FLAG(player, type, doMsgs, DUNGEON, flag) == 0)) {
                     if (flag == KILLEDEREBUS) {
                         ErebusText1(player, type, doMsgs);
                     }
@@ -730,7 +737,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+                if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "Ancient carvings of living chess pieces decorate this mysterious portal. Heavy fumes of evil seep upwards from this portal to Dragon's Flame.");
                     SprungTrap(player, type, doMsgs);
                 }
@@ -787,7 +794,7 @@ namespace XPT.Twinion.Maps {
             protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 short i = 0;
                 SHOW_TEXT(player, type, doMsgs, "Servants of Qao rise from the lava to repel encroaching invaders!");
-                if (!HAS_ITEM(player, type, doMsgs, HEALAMPHORA) && !GET_FLAG(player, type, doMsgs, PARTY, SERVANTS)) {
+                if ((HAS_ITEM(player, type, doMsgs, HEALAMPHORA) == 0) && (GET_FLAG(player, type, doMsgs, PARTY, SERVANTS) == 0)) {
                     SET_BOOTY(player, type, doMsgs, HEALAMPHORA, LIFEGIVER, SCORCHEDSCROLL, 0, 0, 2000);
                     SET_FLAG(player, type, doMsgs, PARTY, SERVANTS, 1);
                 }

@@ -8,6 +8,8 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 15;
         protected override int RandomEncounterExtraCount => 0;
 
+        private const int BEENHERE = 1;
+        private const int GOTFLAG = 1;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "Through here is the Main Entrance.");
             TELEPORT(player, type, doMsgs, 1, 1, 140, WEST);
@@ -97,7 +99,7 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "The fountain does nothing for you.");
         }
         protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, FIRSTQUEST)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, FIRSTQUEST) == 0)) {
                 short skill = 0;
                 short spell = 0;
                 short itemA = 0;
@@ -293,11 +295,11 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "Rogues rush out at you from the shadows.");
                 SET_BOOTY(player, type, doMsgs, LONGSWORD, HEALPOTION, 0, 0, 0, 250);
             }
-            else if (GET_FLAG(player, type, doMsgs, DUNGEON, LAVAQUEST) == 2 || !GET_FLAG(player, type, doMsgs, DUNGEON, LAVAQUEST)) {
+            else if (GET_FLAG(player, type, doMsgs, DUNGEON, LAVAQUEST) == 2 || (GET_FLAG(player, type, doMsgs, DUNGEON, LAVAQUEST) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "You spot the Lava Glove on the rogue leader's hand, as he signals his henchmen to attack!");
                 SET_BOOTY(player, type, doMsgs, LAVAGLOVE, MANAELIXIR, ELIXIROFHEALTH, 0, 0, 1000);
             }
-            else if (!HAS_ITEM(player, type, doMsgs, LAVAGLOVE)) {
+            else if ((HAS_ITEM(player, type, doMsgs, LAVAGLOVE) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "You spot the Lava Glove on the rogue leader's hand, as he signals his henchmen to attack!");
                 SET_BOOTY(player, type, doMsgs, LAVAGLOVE, HEALPOTION, 0, 0, 0, 250);
             }
@@ -335,7 +337,7 @@ namespace XPT.Twinion.Maps {
             REMOVE_WALL_ITEM(player, type, doMsgs, 124, WEST);
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, PARTY, BEENHERE)) {
+            if ((GET_FLAG(player, type, doMsgs, PARTY, BEENHERE) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "Swords and sorcery come rushing at you!");
             }
             else if (GET_FLAG(player, type, doMsgs, PARTY, BEENHERE) == 1) {
@@ -354,7 +356,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, GOTFLAG)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, GOTFLAG) == 0)) {
                 short i = 0;
                 i = GET_FLAG(player, type, doMsgs, PARTY, BEENHERE);
                 if (i <= 1) {
@@ -411,7 +413,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (HAS_ITEM(player, type, doMsgs, LAVAGLOVE) && !GET_FLAG(player, type, doMsgs, DUNGEON, LAVAQUEST)) {
+            if (HAS_ITEM(player, type, doMsgs, LAVAGLOVE) && (GET_FLAG(player, type, doMsgs, DUNGEON, LAVAQUEST) == 0)) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, LAVAQUEST, 1);
                 SHOW_TEXT(player, type, doMsgs, "Well done! Now, to the ancient foundry near the heart of this level. You must step onto the foundry in the center to return the Gauntlet!");
                 SHOW_TEXT(player, type, doMsgs, "Hurry, your rewards await!");

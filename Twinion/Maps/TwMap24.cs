@@ -8,6 +8,9 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 5;
         protected override int RandomEncounterExtraCount => 2;
 
+        private const int RINGA = 1;
+        private const int RINGB = 2;
+        private const int RINGC = 3;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             TELEPORT(player, type, doMsgs, 9, 2, 120, WEST);
         }
@@ -292,7 +295,7 @@ namespace XPT.Twinion.Maps {
                     WallText(player, type, doMsgs);
                 }
             }
-            else if (ALIGN(player, type, doMsgs) == CHAOS && HAS_ITEM(player, type, doMsgs, UNITYRING) && !FLAG_ON(player, type, doMsgs, DUNGEON, UNITYRINGTWO)) {
+            else if (ALIGN(player, type, doMsgs) == CHAOS && HAS_ITEM(player, type, doMsgs, UNITYRING) && (FLAG_ON(player, type, doMsgs, DUNGEON, UNITYRINGTWO) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "A heavenly voice proclaims -");
                 SHOW_TEXT(player, type, doMsgs, "'This is the Door of Chaos.");
                 SHOW_TEXT(player, type, doMsgs, "You must suffer much along the way, Beloved of Chaos, before the diverse ways are united.");
@@ -340,7 +343,7 @@ namespace XPT.Twinion.Maps {
                     WallText(player, type, doMsgs);
                 }
             }
-            else if (ALIGN(player, type, doMsgs) == HARMONY && HAS_ITEM(player, type, doMsgs, UNITYRING) && !FLAG_ON(player, type, doMsgs, DUNGEON, UNITYRINGONE)) {
+            else if (ALIGN(player, type, doMsgs) == HARMONY && HAS_ITEM(player, type, doMsgs, UNITYRING) && (FLAG_ON(player, type, doMsgs, DUNGEON, UNITYRINGONE) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "A heavenly voice proclaims -");
                 SHOW_TEXT(player, type, doMsgs, "'This is the Door of Harmony.");
                 SHOW_TEXT(player, type, doMsgs, "You must suffer much along the way, Beloved of Harmony, before the diverse ways are united.");
@@ -403,7 +406,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (ALIGN(player, type, doMsgs) == HARMONY && !GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) && !GET_FLAG(player, type, doMsgs, DUNGEON, HARMONYPUNISH)) {
+            if (ALIGN(player, type, doMsgs) == HARMONY && (GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) == 0) && (GET_FLAG(player, type, doMsgs, DUNGEON, HARMONYPUNISH) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "An angry voice fills your head -");
                 SHOW_TEXT(player, type, doMsgs, "'Hated Harmonic! Die for disobeying the elders who created these caverns!");
                 SHOW_TEXT(player, type, doMsgs, "We strip from you more strength than you can bear to lose!'");
@@ -411,14 +414,14 @@ namespace XPT.Twinion.Maps {
                 MOD_STAT(player, type, doMsgs, STRENGTH,  - 2);
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
             }
-            else if (ALIGN(player, type, doMsgs) == HARMONY && !GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) && GET_FLAG(player, type, doMsgs, DUNGEON, HARMONYPUNISH)) {
+            else if (ALIGN(player, type, doMsgs) == HARMONY && (GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) == 0) && GET_FLAG(player, type, doMsgs, DUNGEON, HARMONYPUNISH)) {
                 SHOW_TEXT(player, type, doMsgs, "A booming voice surrounds you -");
                 SHOW_TEXT(player, type, doMsgs, "'Die, thou miscreant spawn of Harmony! You may not traverse the way of Chaos yet!'");
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
             }
         }
         protected override void FnEvent26(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (ALIGN(player, type, doMsgs) == CHAOS && !GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) && !GET_FLAG(player, type, doMsgs, DUNGEON, CHAOSPUNISH)) {
+            if (ALIGN(player, type, doMsgs) == CHAOS && (GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) == 0) && (GET_FLAG(player, type, doMsgs, DUNGEON, CHAOSPUNISH) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "An angry voice fills your head -");
                 SHOW_TEXT(player, type, doMsgs, "'Hated Chaotic! Die for disobeying the elders who created these caverns!");
                 SHOW_TEXT(player, type, doMsgs, "We strip from you more strength than you can bear to lose!'");
@@ -426,20 +429,20 @@ namespace XPT.Twinion.Maps {
                 MOD_STAT(player, type, doMsgs, STRENGTH,  - 2);
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
             }
-            else if (ALIGN(player, type, doMsgs) == CHAOS && !GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) && GET_FLAG(player, type, doMsgs, DUNGEON, CHAOSPUNISH)) {
+            else if (ALIGN(player, type, doMsgs) == CHAOS && (GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) == 0) && GET_FLAG(player, type, doMsgs, DUNGEON, CHAOSPUNISH)) {
                 SHOW_TEXT(player, type, doMsgs, "A booming voice surrounds you -");
                 SHOW_TEXT(player, type, doMsgs, "'Die, thou miscreant spawn of Chaos! You may not traverse the way of Harmony yet!'");
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
             }
         }
         protected override void FnEvent27(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!FLAG_ON(player, type, doMsgs, DUNGEON, UNITYRINGTHREE)) {
+            if ((FLAG_ON(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, HALFLINGCLERIC);
                 SHOW_TEXT(player, type, doMsgs, "'To finish this quest, you will have to visit places in the Hopeless Hallways you have not been able to enter.'");
             }
         }
         protected override void FnEvent28(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!HAS_ITEM(player, type, doMsgs, UNITYRING)) {
+            if ((HAS_ITEM(player, type, doMsgs, UNITYRING) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, DWARFKNIGHT);
                 SHOW_TEXT(player, type, doMsgs, "'You will have to detect the opening to the first secret room in Hopeless Hallways. It leads to the ring.'");
             }

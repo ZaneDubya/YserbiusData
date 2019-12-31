@@ -8,6 +8,7 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 0;
         protected override int RandomEncounterExtraCount => 0;
 
+        private const int CHORONZAR_KILLED_BIT = 4;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "This Gateway leads out of the Dungeon.");
             EXIT_DUNGEON(player, type, doMsgs);
@@ -66,7 +67,7 @@ namespace XPT.Twinion.Maps {
                     if (GET_FLAG(player, type, doMsgs, DUNGEON, DRAKSPORT) == 1 || GET_FLAG(player, type, doMsgs, DUNGEON, DRAKSPORT) == 2) {
                         NorthStr(player, type, doMsgs);
                     }
-                    else if (!GET_FLAG(player, type, doMsgs, DUNGEON, DRAKSPORT) && HAS_ITEM(player, type, doMsgs, WHOLEMAP)) {
+                    else if ((GET_FLAG(player, type, doMsgs, DUNGEON, DRAKSPORT) == 0) && HAS_ITEM(player, type, doMsgs, WHOLEMAP)) {
                         SHOW_TEXT(player, type, doMsgs, "Your map begins to glow with an eerie green light. The light then fades to red followed by blue and finally brilliant yellow.");
                         SHOW_TEXT(player, type, doMsgs, "The magical light of this most curious map dispels the door's magic!");
                         SHOW_TEXT(player, type, doMsgs, "The map, drained of its powers, crumbles into the nothingness from which it came.");
@@ -97,7 +98,7 @@ namespace XPT.Twinion.Maps {
             PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         protected override void FnEvent09(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && !GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) {
+            if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && (GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) == 0) & CHORONZAR_KILLED_BIT) {
                 SHOW_TEXT(player, type, doMsgs, "A maniacal fiend appears; removes an item you stole from him; and kills you outright.");
                 while (HAS_ITEM(player, type, doMsgs, JESTERSCAP))
                     TAKE_ITEM(player, type, doMsgs, JESTERSCAP);
@@ -135,7 +136,7 @@ namespace XPT.Twinion.Maps {
                         SHOW_TEXT(player, type, doMsgs, "Go, now! I shall be with thee! I will come to thee when I can. Fare thee well!'");
                         SET_FLAG(player, type, doMsgs, DUNGEON, DRAKSPORT, 2);
                     }
-                    else if (!GET_FLAG(player, type, doMsgs, DUNGEON, FINISHEDGAME)) {
+                    else if ((GET_FLAG(player, type, doMsgs, DUNGEON, FINISHEDGAME) == 0)) {
                         SHOW_TEXT(player, type, doMsgs, "Let us not dally...northward, onward to destiny.");
                     }
                 }
@@ -149,7 +150,7 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 NO_JOIN(player, type, doMsgs);
-                if (!GET_FLAG(player, type, doMsgs, DUNGEON, DEEPPORTALS)) {
+                if ((GET_FLAG(player, type, doMsgs, DUNGEON, DEEPPORTALS) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "Only more experienced heroes may venture beyond this gateway. And even then, you must have completed the Queen's proving grounds and acquired Her key!");
                     TELEPORT(player, type, doMsgs, 1, 1, 200, EAST);
                 }

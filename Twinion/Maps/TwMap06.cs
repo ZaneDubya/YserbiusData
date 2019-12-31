@@ -42,7 +42,7 @@ namespace XPT.Twinion.Maps {
             if (GUILD(player, type, doMsgs) != THIEF) {
                 if (GET_STAT(player, type, doMsgs, STRENGTH) >= 18) {
                     SHOW_TEXT(player, type, doMsgs, "You're strong enough to move the column and get around it.");
-                    special39(player, type, doMsgs);
+                    FnEvent27(player, type, doMsgs);
                 }
                 else {
                     BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
@@ -50,17 +50,17 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "Your abilities will allow you to squeeze through a narrow gap between the columns.");
-                special39(player, type, doMsgs);
+                FnEvent27(player, type, doMsgs);
             }
         }
         protected override void FnEvent09(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GUILD(player, type, doMsgs) == WIZARD || GUILD(player, type, doMsgs) == CLERIC) {
                 SHOW_TEXT(player, type, doMsgs, "Blessed are the Magi! For your wisdom is obvious; this magical pillar slides away allowing you to pass.");
-                special40(player, type, doMsgs);
+                FnEvent28(player, type, doMsgs);
             }
             else if (GUILD(player, type, doMsgs) == THIEF) {
                 SHOW_TEXT(player, type, doMsgs, "Your abilities will allow you to squeeze through a narrow gap between the columns.");
-                special40(player, type, doMsgs);
+                FnEvent28(player, type, doMsgs);
             }
             else {
                 BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
@@ -197,7 +197,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTA)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTA) == 0)) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTA, 1);
             }
             SHOW_TEXT(player, type, doMsgs, "A party of warriors intend to prevent you from completing this arena.");
@@ -298,7 +298,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTB)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTB) == 0)) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTB, 1);
             }
             SHOW_TEXT(player, type, doMsgs, "An odd array of mage and muscle stands before you.");
@@ -395,7 +395,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTC)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTC) == 0)) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTC, 1);
             }
             SHOW_TEXT(player, type, doMsgs, "The air is filled with bursts of magic as a party of enchanters attacks.");
@@ -508,7 +508,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTD)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTD) == 0)) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, QUADRANTD, 1);
             }
             SHOW_TEXT(player, type, doMsgs, "Assorted undead heroes challenge you at this exit.");
@@ -667,11 +667,11 @@ namespace XPT.Twinion.Maps {
             CLEAR_FLOOR(player, type, doMsgs, 73);
         }
         protected override void FnEvent29(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if ((GUILD(player, type, doMsgs) == RANGER) && (!GET_SKILL(player, type, doMsgs, REVERIE_SKILL))) {
+            if ((GUILD(player, type, doMsgs) == RANGER) && ((GET_SKILL(player, type, doMsgs, REVERIE_SKILL) == 0))) {
                 MOD_SKILL(player, type, doMsgs, REVERIE_SKILL, 1);
                 Fountain(player, type, doMsgs);
             }
-            else if ((GUILD(player, type, doMsgs) == THIEF) && (!GET_SKILL(player, type, doMsgs, REVERIE_SKILL))) {
+            else if ((GUILD(player, type, doMsgs) == THIEF) && ((GET_SKILL(player, type, doMsgs, REVERIE_SKILL) == 0))) {
                 MOD_SKILL(player, type, doMsgs, REVERIE_SKILL, 1);
                 Fountain(player, type, doMsgs);
             }
@@ -690,7 +690,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GUILD(player, type, doMsgs) == WIZARD || GUILD(player, type, doMsgs) == CLERIC) {
-                if (!GET_FLAG(player, type, doMsgs, DUNGEON, WIZFOUNTAIN)) {
+                if ((GET_FLAG(player, type, doMsgs, DUNGEON, WIZFOUNTAIN) == 0)) {
                     GIVE_SPELL(player, type, doMsgs, HAIL_SPELL, 1);
                     Fountain(player, type, doMsgs);
                     SET_FLAG(player, type, doMsgs, DUNGEON, WIZFOUNTAIN, 1);
@@ -701,7 +701,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if ((GUILD(player, type, doMsgs) == CLERIC) && (!GET_FLAG(player, type, doMsgs, DUNGEON, CLERICBACK))) {
+            if ((GUILD(player, type, doMsgs) == CLERIC) && ((GET_FLAG(player, type, doMsgs, DUNGEON, CLERICBACK) == 0))) {
                 GIVE_SPELL(player, type, doMsgs, BACKFIRE_SPELL, 1);
                 SET_FLAG(player, type, doMsgs, DUNGEON, CLERICBACK, 1);
                 Fountain(player, type, doMsgs);

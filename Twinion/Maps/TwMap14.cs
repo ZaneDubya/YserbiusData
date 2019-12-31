@@ -8,6 +8,9 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 2;
 
+        private const int DETECTED_DOOR = 1;
+        private const int KEEPPIT = 2;
+        private const int TROUGH = 3;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
@@ -336,7 +339,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             else if (GUILD(player, type, doMsgs) == CLERIC) {
-                if (!GET_FLAG(player, type, doMsgs, DUNGEON, BLESSCLERIC)) {
+                if ((GET_FLAG(player, type, doMsgs, DUNGEON, BLESSCLERIC) == 0)) {
                     GIVE_SPELL(player, type, doMsgs, BLESS_SPELL, 1);
                     SET_FLAG(player, type, doMsgs, DUNGEON, BLESSCLERIC, 1);
                     SHOW_TEXT(player, type, doMsgs, "Journey's End Fountain endows you with the Bless spell.");

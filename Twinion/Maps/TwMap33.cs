@@ -8,6 +8,58 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 5;
         protected override int RandomEncounterExtraCount => 2;
 
+        private const int SEEN_IT = 0;
+        private const int DONE_IT = 1;
+        private const int LETTER_STR_POS = 0;
+        private const int NUMBER_STR_POS = 0;
+        private const int CAROUSEL_REVS = 1;
+        private const int MONST_WIMPY_GRDS = 25;
+        private const int MONST_MAJOR_DOMO = 26;
+        private const int MONST_OGRESS = 27;
+        private const int MONST_FAKE_CHOR = 28;
+        private const int MONST_NEXUS_1 = 29;
+        private const int MONST_NEXUS_2 = 30;
+        private const int MONST_NEXUS_3 = 31;
+        private const int MONST_NEXUS_4 = 32;
+        private const int MONST_MIRRHALL_A = 33;
+        private const int MONST_MIRRHALL_B = 34;
+        private const int MONST_MIRRHALL_C = 35;
+        private const int MONST_VORTEX_1 = 36;
+        private const int MONST_VORTEX_2 = 37;
+        private const int MONST_VORTEX_3 = 38;
+        private const int MONST_PENALTY = 39;
+        private const int MONST_TWISTY = 13;
+        private const int SHADAX_KILLED_BIT = 1;
+        private const int CHISS_KILLED_BIT = 2;
+        private const int CHORONZAR_KILLED_BIT = 4;
+        private const int GAOLER_KILLED_BIT = 8;
+        private const int VORTEX_SQUARE = 0;
+        private const int VORTEX_FACING = 1;
+        private const int TWISTY_COUNT = 2;
+        private const int CHOR_TAUNT = 3;
+        private const int TOWER_DISKS1 = 4;
+        private const int TOWER_DISKS2 = 5;
+        private const int TOWER_DISKS3 = 6;
+        private const int CAROUSEL_CTRL = 7;
+        private const int EASTER_EGG = 8;
+        private const int COASTER_STOPPING = 9;
+        private const int FAKE_CHOR_KILLED = 10;
+        private const int CHOR_GHOST_SEEN = 11;
+        private const int FAKE_CHOR_SEEN = 12;
+        private const int CAROUSEL_CNT = 25;
+        private const int MAJOR_DOMO = 26;
+        private const int OGRESS_KILLED = 27;
+        private const int NEXUS_PUZZLE = 29;
+        private const int VORTEX_COUNT = 30;
+        private static int CHORONZAR_PIC = (10 + HUMANBARBARIAN - 1);
+        private static int MAJORDOMO_PIC = (18 + HUMANBARBARIAN - 1);
+        private static int ARCHITECT_PIC = (13 + HUMANBARBARIAN - 1);
+        private static int HANDMAIDEN_PIC = (3 + HUMANBARBARIAN - 1);
+        private static int ALCHEMIST_PIC = (25 + HUMANBARBARIAN - 1);
+        private static int MASTERPUZZLER_PIC = (22 + HUMANBARBARIAN - 1);
+        private static int PRISONER1_PIC = (4 + HUMANBARBARIAN - 1);
+        private static int PRISONER2_PIC = (6 + HUMANBARBARIAN - 1);
+        private static int PRISONER3_PIC = (9 + HUMANBARBARIAN - 1);
         string aStr = "ANOMIE";
         string bStr = "BEWILDERMENT";
         string cStr = "CONFUSION";
@@ -226,7 +278,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!HAS_ITEM(player, type, doMsgs, BRASSRING)) {
+            if ((HAS_ITEM(player, type, doMsgs, BRASSRING) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "With a mighty tug you dislodge the brass ring from the armature.");
                 GIVE_ITEM(player, type, doMsgs, BRASSRING);
             }
@@ -585,19 +637,19 @@ namespace XPT.Twinion.Maps {
             flag = GET_FLAG(player, type, doMsgs, PARTY, FAKE_CHOR_SEEN);
             switch (HERE(player, type, doMsgs)) {
                 case 165:
-                    if (!(flag & 1)) {
+                    if (((flag & 1) == 0)) {
                         SHOW_TEXT(player, type, doMsgs, "Ahead of you through the layers of smoke you see a massive golden throne.");
                         flag |= 1;
                     }
                     break;
                 case 166:
-                    if (!(flag & 2)) {
+                    if (((flag & 2) == 0)) {
                         SHOW_TEXT(player, type, doMsgs, "As you draw closer you make out an insoucient figure lounging on the throne, dressed in jester's motley.");
                         flag |= 2;
                     }
                     break;
                 case 167:
-                    if (!(flag & 4)) {
+                    if (((flag & 4) == 0)) {
                         SHOW_TEXT(player, type, doMsgs, "The crazed figure on the throne stands, stares at you briefly, then prances off to the southeast, cackling like a lunatic. He dives into a pit and vanishes.");
                         flag |= 4;
                     }
@@ -704,7 +756,7 @@ namespace XPT.Twinion.Maps {
                     targFlag = GET_FLAG(player, type, doMsgs, PARTY, TOWER_DISKS1 + targFlagOff);
                     thisFlag |= 0;
                     x8;
-                    while (!(thisFlag & thisBits))
+                    while (((thisFlag & thisBits) == 0))
                         thisBits <<  = 1;
                         thisFlag &= 0;
                         x07;
@@ -712,7 +764,7 @@ namespace XPT.Twinion.Maps {
                         x07;
                         targFlag |= 0;
                         x8;
-                        while (!(targFlag & thatBits))
+                        while (((targFlag & thatBits) == 0))
                             thatBits <<  = 1;
                             targFlag &= 0;
                             x07;
@@ -804,7 +856,7 @@ namespace XPT.Twinion.Maps {
                 }
                 protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     byte flag = 0;
-                    if (!(GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT)) {
+                    if (((GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) == 0)) {
                         flag = GET_FLAG(player, type, doMsgs, PARTY, CHOR_TAUNT);
                         if (flag <= 1) {
                             SHOW_PICTURE(player, type, doMsgs, CHORONZAR_PIC);
@@ -1159,7 +1211,7 @@ namespace XPT.Twinion.Maps {
                         }
                         else {
                             twistyCnt++;
-                            if (!(twistyCnt % 5) || !(twistyCnt % 7)) {
+                            if (((twistyCnt % 5) == 0) || ((twistyCnt % 7) == 0)) {
                                 SET_BOOTY(player, type, doMsgs, MANAAMPHORA, HEALAMPHORA, CUREPOTION, HACKSAWBLADE, 0, 0);
                                 SixMonst(player, type, doMsgs, MONST_TWISTY);
                                 SET_FLAG(player, type, doMsgs, ROOM, DONE_IT, 1);

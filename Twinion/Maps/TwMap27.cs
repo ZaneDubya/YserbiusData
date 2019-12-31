@@ -8,6 +8,8 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 15;
         protected override int RandomEncounterExtraCount => 1;
 
+        private const int POISON_ME = 1;
+        private const int TELE = 2;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             TELEPORT(player, type, doMsgs, 11, 1, 57, NORTH);
         }
@@ -32,7 +34,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 11, 2, 175, WEST);
         }
         protected override void FnEvent05(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                 if (GUILD(player, type, doMsgs) == CLERIC || GUILD(player, type, doMsgs) == THIEF || GUILD(player, type, doMsgs) == KNIGHT) {
                     switch (HERE(player, type, doMsgs)) {
                         case 65:
@@ -48,7 +50,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                 if (GUILD(player, type, doMsgs) == RANGER || GUILD(player, type, doMsgs) == WIZARD || GUILD(player, type, doMsgs) == BARBARIAN) {
                     switch (HERE(player, type, doMsgs)) {
                         case 67:
@@ -119,7 +121,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GUILD(player, type, doMsgs) == RANGER || GUILD(player, type, doMsgs) == WIZARD || GUILD(player, type, doMsgs) == BARBARIAN) {
                 NO_HEAL_ZONE(player, type, doMsgs);
-                if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+                if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "The hot lava sears you.");
                     DamQuarter(player, type, doMsgs);
                     SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
@@ -129,7 +131,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GUILD(player, type, doMsgs) == CLERIC || GUILD(player, type, doMsgs) == THIEF || GUILD(player, type, doMsgs) == KNIGHT) {
                 NO_HEAL_ZONE(player, type, doMsgs);
-                if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+                if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "The hot lava sears you.");
                     DamQuarter(player, type, doMsgs);
                     SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
@@ -138,7 +140,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_HEAL_ZONE(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "The lava crust breaks under your weight and you are injured.");
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 2);
                 SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
@@ -154,7 +156,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_HEAL_ZONE(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "You are able to kill a creature that attacks you, but you are injured.");
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 2);
                 SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
@@ -163,7 +165,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GUILD(player, type, doMsgs) == RANGER || GUILD(player, type, doMsgs) == WIZARD || GUILD(player, type, doMsgs) == BARBARIAN) {
                 NO_HEAL_ZONE(player, type, doMsgs);
-                if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+                if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "A whirlpool dashes you against some rocks.");
                     DamQuarter(player, type, doMsgs);
                     SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
@@ -173,7 +175,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent1F(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GUILD(player, type, doMsgs) == CLERIC || GUILD(player, type, doMsgs) == THIEF || GUILD(player, type, doMsgs) == KNIGHT) {
                 NO_HEAL_ZONE(player, type, doMsgs);
-                if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+                if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "A whirlpool dashes you against some rocks.");
                     DamQuarter(player, type, doMsgs);
                     SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
@@ -199,7 +201,7 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "I must find Thorzil!  His poison stash must be close to the way out.");
         }
         protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, IFLAME)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, IFLAME) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, HUMANBARBARIAN);
                 SHOW_TEXT(player, type, doMsgs, "'The elemental path is ever changing. Trust not the discoveries of your brethren for yours may differ in location and occurence.'");
             }
@@ -228,7 +230,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent29(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                 FntnPic(player, type, doMsgs);
                 SET_FLAG(player, type, doMsgs, DUNGEON, HEAVENFTNSIX, 1);
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, HEAVENFTNTWO) == 1 && GET_FLAG(player, type, doMsgs, DUNGEON, HEAVENFTNTHREE) == 1 && GET_FLAG(player, type, doMsgs, DUNGEON, HEAVENFTNFOUR) == 1 && GET_FLAG(player, type, doMsgs, DUNGEON, HEAVENFTNFIVE) == 1 && GET_FLAG(player, type, doMsgs, DUNGEON, HEAVENFTND) == 1) {
@@ -278,7 +280,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent2D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, FTNONOFF) == 1) {
                     FntnPic(player, type, doMsgs);
                     SHOW_TEXT(player, type, doMsgs, "The waters of Tribute Fountain have a tart taste and you become ill.");

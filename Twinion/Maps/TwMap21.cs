@@ -8,6 +8,11 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 9;
         protected override int RandomEncounterExtraCount => 1;
 
+        private const int HURT = 1;
+        private const int HOCUS_PASS = 1;
+        private const int FAERLUN = 2;
+        private const int HOCUS_BAT = 3;
+        private const int HOCUS_NEWT = 4;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             TELEPORT(player, type, doMsgs, 9, 1, 113, EAST);
         }
@@ -102,7 +107,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_HEAL_ZONE(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, HURT)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, HURT) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "The mystical waters weaken you.");
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 4);
                 SET_FLAG(player, type, doMsgs, ROOM, HURT, 1);
@@ -493,7 +498,7 @@ namespace XPT.Twinion.Maps {
             if (HAS_ITEM(player, type, doMsgs, LIFEGIVER)) {
                 SET_BOOTY(player, type, doMsgs, BINDINGTALISMAN, JADEDRING, 0, 0, 0, 2000);
             }
-            else if (!HAS_ITEM(player, type, doMsgs, MANARESTORE)) {
+            else if ((HAS_ITEM(player, type, doMsgs, MANARESTORE) == 0)) {
                 SET_BOOTY(player, type, doMsgs, LIFEGIVER, MANARESTORE, HEALALLPOTION, 0, 0, 2000);
             }
             if (PARTY_COUNT(player, type, doMsgs) == 1) {

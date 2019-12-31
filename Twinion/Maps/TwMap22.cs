@@ -8,6 +8,19 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 0;
         protected override int RandomEncounterExtraCount => 2;
 
+        private const int DOORA = 1;
+        private const int DOORB = 2;
+        private const int DOORC = 3;
+        private const int DOORD = 4;
+        private const int CLERICDOORA = 5;
+        private const int CLERICDOORB = 6;
+        private const int CLERICDOORC = 7;
+        private const int CLERICDOORD = 8;
+        private const int PITTWO = 9;
+        private const int PITTHREE = 10;
+        private const int PITFOUR = 11;
+        private const int PITFIVE = 12;
+        private const int PITSIX = 13;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             TELEPORT(player, type, doMsgs, 8, 1, 160, EAST);
         }
@@ -228,7 +241,7 @@ namespace XPT.Twinion.Maps {
             SET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORC, 0);
         }
         protected override void FnEvent24(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, EASTQUESTDONE)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, EASTQUESTDONE) == 0)) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, EASTQUESTDONE, 1);
                 SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
                 SHOW_TEXT(player, type, doMsgs, "The acid waters of the Fountain of the Bitter End at first burn your mouth.");

@@ -8,6 +8,8 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 0;
         protected override int RandomEncounterExtraCount => 2;
 
+        private const int GRAVE_ZAP = 1;
+        private const int RANDOMMONST = 1;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             TELEPORT(player, type, doMsgs, 6, 1, 132, NORTH);
             SHOW_TEXT(player, type, doMsgs, "To Carriage House");
@@ -40,7 +42,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent07(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "You see the NorthEast Gate to the East.");
         }
         protected override void FnEvent08(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -73,14 +75,14 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
             HEAL(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
             MOD_MANA(player, type, doMsgs, 10000);
             SHOW_TEXT(player, type, doMsgs, "Angel Fountain replenishes your Health and Mana.");
         }
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             TELEPORT(player, type, doMsgs, 5, 3, 28, NORTH);
             SHOW_TEXT(player, type, doMsgs, "The shadows of death that clutch at you evaporate as you are spirited to safety.");
         }
@@ -120,15 +122,15 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, GRAVE_ZAP)) {
+            FnEvent02(player, type, doMsgs);
+            if ((GET_FLAG(player, type, doMsgs, ROOM, GRAVE_ZAP) == 0)) {
                 DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 4);
                 SHOW_TEXT(player, type, doMsgs, "A clumsy fall into an open grave injures you.");
                 SET_FLAG(player, type, doMsgs, ROOM, GRAVE_ZAP, 1);
             }
         }
         protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "Scattered bones are all that's left of looted tombs.");
         }
         protected override void FnEvent10(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -147,10 +149,10 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent12(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
             if (GUILD(player, type, doMsgs) == BARBARIAN || GUILD(player, type, doMsgs) == KNIGHT || GUILD(player, type, doMsgs) == THIEF) {
-                if (!GET_SKILL(player, type, doMsgs, FURTIVENESS_SKILL)) {
+                if ((GET_SKILL(player, type, doMsgs, FURTIVENESS_SKILL) == 0)) {
                     MOD_SKILL(player, type, doMsgs, FURTIVENESS_SKILL, 1);
                     SHOW_TEXT(player, type, doMsgs, "Skeletal Fountain gives you the Furtiveness Skill.");
                 }
@@ -159,7 +161,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             else if (GUILD(player, type, doMsgs) == RANGER || GUILD(player, type, doMsgs) == WIZARD) {
-                if (!GET_SKILL(player, type, doMsgs, PICKPOCKET_SKILL)) {
+                if ((GET_SKILL(player, type, doMsgs, PICKPOCKET_SKILL) == 0)) {
                     MOD_SKILL(player, type, doMsgs, PICKPOCKET_SKILL, 1);
                     SHOW_TEXT(player, type, doMsgs, "Skeletal Fountain gives you the Pickpocket Skill.");
                 }
@@ -168,7 +170,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             else if (GUILD(player, type, doMsgs) == CLERIC) {
-                if (!GET_FLAG(player, type, doMsgs, DUNGEON, REFRESHCLERIC)) {
+                if ((GET_FLAG(player, type, doMsgs, DUNGEON, REFRESHCLERIC) == 0)) {
                     GIVE_SPELL(player, type, doMsgs, REFRESH_SPELL, 1);
                     SET_FLAG(player, type, doMsgs, DUNGEON, REFRESHCLERIC, 1);
                     SHOW_TEXT(player, type, doMsgs, "Skeletal Fountain gives you the power to refresh your party.");
@@ -179,14 +181,14 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "The howling wind uproots you and carries you off.");
             TELEPORT(player, type, doMsgs, 5, 3, 202, NORTH);
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             short i = 0;
-            if (!GET_FLAG(player, type, doMsgs, ROOM, GRAVE_ZAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, GRAVE_ZAP) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "Graverobbers, hearing your approach, ambush you. Sharp steel slices across your torso!");
                 if (HEALTH(player, type, doMsgs) > 1000) {
                     DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) - 500);
@@ -242,13 +244,13 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "The torch flares, lighting your lantern. You catch a brief glimpse of the graveyard before the wind douses your flame.");
             }
             else {
-                special2(player, type, doMsgs);
+                FnEvent02(player, type, doMsgs);
                 SHOW_TEXT(player, type, doMsgs, "The torch does not cast enough illumination to light your path, nor can it be removed.");
                 SHOW_TEXT(player, type, doMsgs, "A portable source of light would be particularly useful in the Graveyard.");
             }
         }
         protected override void FnEvent17(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "You become dizzy and sense that you are no longer inside the tomb.");
             TELEPORT(player, type, doMsgs, 5, 3, 69, EAST);
         }
@@ -303,15 +305,15 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "The worn tombstone bears the inscription, 'Wilthorg Zerium.'");
         }
         protected override void FnEvent1B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "You stumble upon the remains of Yartor Megilthorn.");
         }
         protected override void FnEvent1C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "The inscription on the tombstone has been eroded beyond recognition by the elements.");
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -361,26 +363,26 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "The magical aura emanating from the tomb lights your lantern for a brief moment.");
             }
             else {
-                special2(player, type, doMsgs);
+                FnEvent02(player, type, doMsgs);
                 SHOW_TEXT(player, type, doMsgs, "You overhear a group of adventurers discussing the strange flickering of their lantern in the tomb.");
             }
         }
         protected override void FnEvent1F(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "The volcanic activity has weakened some of the walls and tomb doors in this area.");
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
         }
         protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "A ghostly voice whispers, 'To the South you will meet four Spirits. Each will offer you a gift.");
             SHOW_TEXT(player, type, doMsgs, "Choose wisely for you will be able to accept only one gift. Once your decision is made, enter the door of your choice.'");
         }
         protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "The sorrowful wind whispers -");
             SHOW_TEXT(player, type, doMsgs, "'The Spirit to the East offers the gift of increased Strength.'");
         }
         protected override void FnEvent22(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_PICTURE(player, type, doMsgs, WRAITH);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, SPIRIT) == 1 || GET_FLAG(player, type, doMsgs, DUNGEON, SPIRIT) == 2) {
                 SHOW_TEXT(player, type, doMsgs, "You've already chosen your gift.");
@@ -392,7 +394,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent23(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 SHOW_TEXT(player, type, doMsgs, "You may rejoin your party.");
             }
@@ -432,12 +434,12 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "'Word has it that pieces of the map are scattered throughout the levels of the dungeon.'");
         }
         protected override void FnEvent27(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "A haunted voice quavers -");
             SHOW_TEXT(player, type, doMsgs, "'The Spirit to the East will offer the gift of increased Defense.'");
         }
         protected override void FnEvent28(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_PICTURE(player, type, doMsgs, WRAITH);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, SPIRIT) == 1 || GET_FLAG(player, type, doMsgs, DUNGEON, SPIRIT) == 2) {
                 SHOW_TEXT(player, type, doMsgs, "You've already chosen your gift.");
@@ -453,12 +455,12 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "'Trust the wrong thief with your goods and you may end up here permanently.'");
         }
         protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "A distant wraith wails -");
             SHOW_TEXT(player, type, doMsgs, "'The Spirit to the East blesses with the gift of increased Agility.'");
         }
         protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_PICTURE(player, type, doMsgs, WRAITH);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, SPIRIT) == 1 || GET_FLAG(player, type, doMsgs, DUNGEON, SPIRIT) == 2) {
                 SHOW_TEXT(player, type, doMsgs, "You've already chosen your gift.");
@@ -470,7 +472,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "The ground gives way and you slide into The Crypt.");
             TELEPORT(player, type, doMsgs, 6, 1, 221, SOUTH);
         }
@@ -486,12 +488,12 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "A nearby owl hoots -");
             SHOW_TEXT(player, type, doMsgs, "'The Spirit to the East can give you a gift that increases Initiative.'");
         }
         protected override void FnEvent2F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_PICTURE(player, type, doMsgs, WRAITH);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, SPIRIT) == 1 || GET_FLAG(player, type, doMsgs, DUNGEON, SPIRIT) == 2) {
                 SHOW_TEXT(player, type, doMsgs, "You've already chosen your gift.");
@@ -504,10 +506,10 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent30(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "You blink as you see a shadowy figure seemingly walking through a solid wall.");
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
         }
         protected override void FnEvent31(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            special2(player, type, doMsgs);
+            FnEvent02(player, type, doMsgs);
             SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
             HEAL(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
             SHOW_TEXT(player, type, doMsgs, "The waters of Twilight Fountain heal your wounds.");
@@ -611,7 +613,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent39(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, SPIRIT)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, SPIRIT) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, TROLLKNIGHT);
                 SHOW_TEXT(player, type, doMsgs, "'Ah, I see you haven't been blessed by the spirits yet!");
                 SHOW_TEXT(player, type, doMsgs, "Walk cautiously, my friend. The graveyard is as dangerous as it is rewarding. The benevolent spirits await thee!'");

@@ -8,6 +8,8 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 0;
 
+        private const int POISON_ME = 1;
+        private const int TELE = 2;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             TELEPORT(player, type, doMsgs, 11, 1, 57, NORTH);
         }
@@ -62,7 +64,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent07(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                 if (GUILD(player, type, doMsgs) == CLERIC || GUILD(player, type, doMsgs) == THIEF || GUILD(player, type, doMsgs) == KNIGHT) {
                     switch (HERE(player, type, doMsgs)) {
                         case 31:
@@ -96,7 +98,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 11, 1, 127, WEST);
         }
         protected override void FnEvent0A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                 if (GUILD(player, type, doMsgs) == RANGER || GUILD(player, type, doMsgs) == WIZARD || GUILD(player, type, doMsgs) == BARBARIAN) {
                     switch (HERE(player, type, doMsgs)) {
                         case 43:
@@ -196,7 +198,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_HEAL_ZONE(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "You slip on a loose rock and are injured.");
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 2);
                 SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
@@ -205,7 +207,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent1F(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GUILD(player, type, doMsgs) == RANGER || GUILD(player, type, doMsgs) == WIZARD || GUILD(player, type, doMsgs) == BARBARIAN) {
                 NO_HEAL_ZONE(player, type, doMsgs);
-                if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+                if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "Molten lava sears you.");
                     DamQuarter(player, type, doMsgs);
                     SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
@@ -215,7 +217,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GUILD(player, type, doMsgs) == CLERIC || GUILD(player, type, doMsgs) == THIEF || GUILD(player, type, doMsgs) == KNIGHT) {
                 NO_HEAL_ZONE(player, type, doMsgs);
-                if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+                if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "Molten lava sears you.");
                     DamQuarter(player, type, doMsgs);
                     SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
@@ -229,7 +231,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent22(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GUILD(player, type, doMsgs) == CLERIC || GUILD(player, type, doMsgs) == THIEF || GUILD(player, type, doMsgs) == KNIGHT) {
                 NO_HEAL_ZONE(player, type, doMsgs);
-                if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+                if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "The turbulence of the water weakens you.");
                     DamQuarter(player, type, doMsgs);
                     SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
@@ -239,7 +241,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent23(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GUILD(player, type, doMsgs) == RANGER || GUILD(player, type, doMsgs) == WIZARD || GUILD(player, type, doMsgs) == BARBARIAN) {
                 NO_HEAL_ZONE(player, type, doMsgs);
-                if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+                if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "The turbulence of the water weakens you.");
                     DamQuarter(player, type, doMsgs);
                     SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
@@ -252,7 +254,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_HEAL_ZONE(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "You feel a ferocious bite on your leg.");
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 2);
                 SET_FLAG(player, type, doMsgs, ROOM, TELE, 1);
@@ -300,7 +302,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 11, 1, 244, NORTH);
         }
         protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, HEAVENFTNSIX)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, HEAVENFTNSIX) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, GUARDIANPRAXIS);
                 SHOW_TEXT(player, type, doMsgs, "Worthy adventurers!  Be it known that Thorzil has been seen wreaking havoc with the fountains.");
                 SHOW_TEXT(player, type, doMsgs, "We hear he hides a worthy treasure, one that will aid in the killing of the Dralkarian Juvalad who reigns over us.  Explore and find him!");
@@ -474,7 +476,7 @@ namespace XPT.Twinion.Maps {
             HealFtn(player, type, doMsgs);
         }
         protected override void FnEvent3F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, TELE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, TELE) == 0)) {
                 FntnPic(player, type, doMsgs);
                 SHOW_TEXT(player, type, doMsgs, "You step into a fountain with discolored waters and feel your health diminish.");
                 DamQuarter(player, type, doMsgs);
@@ -726,7 +728,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent51(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GET_FLAG(player, type, doMsgs, DUNGEON, HEAVENFTNFOUR) == 1 && GET_FLAG(player, type, doMsgs, DUNGEON, HEAVENFTNSIX) == 1 && GET_FLAG(player, type, doMsgs, DUNGEON, HEAVENFTNTHREE) == 1) {
-                if (!GET_FLAG(player, type, doMsgs, DUNGEON, HEAVENFTNONE)) {
+                if ((GET_FLAG(player, type, doMsgs, DUNGEON, HEAVENFTNONE) == 0)) {
                     SHOW_PICTURE(player, type, doMsgs, DWARFWIZARD);
                     SHOW_TEXT(player, type, doMsgs, "'Please help me! I've been injured. My payment will be a secret that you need to know.'");
                     SHOW_TEXT(player, type, doMsgs, "You aid the ailing dwarf and listen to her story...");

@@ -8,6 +8,31 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 0;
         protected override int RandomEncounterExtraCount => 0;
 
+        private const int CASETRAP2 = 1;
+        private const int FIGHT_ME = 2;
+        private const int IMHERE = 3;
+        private const int KEEPER = 4;
+        private const int LASTBATTLE = 5;
+        private const int USEDNEPTRI = 6;
+        private const int USEDGAEAFLAIL = 7;
+        private const int IHAVETHEFLAIL = 8;
+        private const int SPRUNGTRAP = 1;
+        private const int STORMGIANTS = 25;
+        private const int EOSBATTLE = 26;
+        private const int NEPTUNEBATTLE = 27;
+        private const int ARESBATTLE = 28;
+        private const int GAEABATTLE = 29;
+        private const int QUEENSGUARDONE = 30;
+        private const int QUEENSGUARDTWO = 31;
+        private const int QUEENSGUARDTHREE = 32;
+        private const int QUEENSGUARDFOUR = 33;
+        private const int HALLGUARD1 = 34;
+        private const int HALLGUARD2 = 35;
+        private const int HALLGUARD3 = 36;
+        private const int HALLGUARD4 = 37;
+        private const int HALLGUARD5 = 38;
+        private const int DRAKSNUMBER = 39;
+        private const int QUEENSNUMBER = 40;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "Each of these four portals offers the passer-by an exotic weapon from a past visitor to this domain.");
             if (PARTY_COUNT(player, type, doMsgs) == 1) {
@@ -90,7 +115,7 @@ namespace XPT.Twinion.Maps {
                     NeptunesTxt(player, type, doMsgs);
                     break;
             }
-            if (!HAS_ITEM(player, type, doMsgs, itemA)) {
+            if ((HAS_ITEM(player, type, doMsgs, itemA) == 0)) {
                 GIVE_ITEM(player, type, doMsgs, itemA);
             }
         }
@@ -132,7 +157,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short trap = 0;
             trap = GET_FLAG(player, type, doMsgs, PARTY, CASETRAP2);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 switch (trap) {
                     case 1:
                         DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 3);
@@ -180,7 +205,7 @@ namespace XPT.Twinion.Maps {
                     }
                 }
                 protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (!GET_FLAG(player, type, doMsgs, DUNGEON, WONTHISGAME)) {
+                    if ((GET_FLAG(player, type, doMsgs, DUNGEON, WONTHISGAME) == 0)) {
                         SET_FLAG(player, type, doMsgs, DUNGEON, ENDGAMETELE, 2);
                         SHOW_TEXT(player, type, doMsgs, "You've defeated the Queen; preventing the her from threatening all the Portals that interconnect throughout this world and others.");
                         SHOW_TEXT(player, type, doMsgs, "Now, take these boosts to your attributes and to your wealths of knowledge and gold. You have restored the system to its rightful balance.");
@@ -216,11 +241,11 @@ namespace XPT.Twinion.Maps {
                 }
                 protected override void FnEvent12(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     short i = 0;
-                    special21(player, type, doMsgs);
+                    FnEvent15(player, type, doMsgs);
                     if (GET_FLAG(player, type, doMsgs, PARTY, STORMGIANT) != HERE(player, type, doMsgs)) {
                         if (PARTY_COUNT(player, type, doMsgs) == 1) {
                             SHOW_TEXT(player, type, doMsgs, "An ominous force stands before you!");
-                            if (HAS_ITEM(player, type, doMsgs, STATUEOFSTORMGIANT) && GET_FLAG(player, type, doMsgs, PARTY, IMHERE) != HERE(player, type, doMsgs) && !GET_FLAG(player, type, doMsgs, DUNGEON, ONLYONCE)) {
+                            if (HAS_ITEM(player, type, doMsgs, STATUEOFSTORMGIANT) && GET_FLAG(player, type, doMsgs, PARTY, IMHERE) != HERE(player, type, doMsgs) && (GET_FLAG(player, type, doMsgs, DUNGEON, ONLYONCE) == 0)) {
                                 WallClear(player, type, doMsgs);
                                 SET_FLAG(player, type, doMsgs, DUNGEON, ONLYONCE, 1);
                                 SHOW_TEXT(player, type, doMsgs, "Using one of the mystical statues, you turn into a Storm Giant and kill them all!");
@@ -243,7 +268,7 @@ namespace XPT.Twinion.Maps {
                 }
                 protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     NO_MAPS(player, type, doMsgs);
-                    if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+                    if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                         switch (FACING(player, type, doMsgs)) {
                             case NORTH:
                                 ROTATE(player, type, doMsgs, WEST);
@@ -266,7 +291,7 @@ namespace XPT.Twinion.Maps {
                 }
                 protected override void FnEvent16(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     NO_MAPS(player, type, doMsgs);
-                    if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+                    if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                         switch (FACING(player, type, doMsgs)) {
                             case NORTH:
                                 ROTATE(player, type, doMsgs, SOUTH);
@@ -295,7 +320,7 @@ namespace XPT.Twinion.Maps {
                     NoSpellZone(player, type, doMsgs);
                     NO_JOIN(player, type, doMsgs);
                     if (PARTY_COUNT(player, type, doMsgs) == 1) {
-                        if (!GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDQUEEN)) {
+                        if ((GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDQUEEN) == 0)) {
                             SHOW_TEXT(player, type, doMsgs, "Those who hath not faced the mad Queen must lead, lest your efforts are futile. You are one that may lead!");
                             SET_FLAG(player, type, doMsgs, PARTY, LASTBATTLE, 1);
                             TELEPORT(player, type, doMsgs, 12, 2, 104, EAST);
@@ -312,7 +337,7 @@ namespace XPT.Twinion.Maps {
                     }
                 }
                 protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (!GET_FLAG(player, type, doMsgs, PARTY, KEEPER)) {
+                    if ((GET_FLAG(player, type, doMsgs, PARTY, KEEPER) == 0)) {
                         SHOW_TEXT(player, type, doMsgs, "The statue of an ancient guardian greets you here. It writhes to life as you approach: 'Hail to thee! I am Chrysagorn, Keeper of the Portal and Servant to the Fates.");
                         SHOW_TEXT(player, type, doMsgs, "I have been imprisoned here in granite by the mad Queen! Her powers are farther reaching than you dare imagine. With the five rings, she is now trying to gain control of the Gateway.");
                         SHOW_TEXT(player, type, doMsgs, "I cannot defend the Gate from her powers, you must destroy her or all of time shall fold in upon itself. Our fate will be sealed in oblivion's tomb.'");
@@ -378,7 +403,7 @@ namespace XPT.Twinion.Maps {
                     }
                 }
                 protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (!GET_FLAG(player, type, doMsgs, DUNGEON, HALLOFDOOM)) {
+                    if ((GET_FLAG(player, type, doMsgs, DUNGEON, HALLOFDOOM) == 0)) {
                         SET_FLAG(player, type, doMsgs, DUNGEON, HALLOFDOOM, 1);
                     }
                     SHOW_TEXT(player, type, doMsgs, "This enormous hallway is adorned with precious jewels and artworks in every crevice. Golden statues in the images of greater deities and gods who hath passed this way line either side of the hall.");
@@ -522,7 +547,7 @@ namespace XPT.Twinion.Maps {
                     }
                 }
                 protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (!GET_FLAG(player, type, doMsgs, PARTY, IHAVETHEFLAIL)) {
+                    if ((GET_FLAG(player, type, doMsgs, PARTY, IHAVETHEFLAIL) == 0)) {
                         if (USED_ITEM(player, type, doMsgs, GAEASFLAIL, GAEASFLAIL)) {
                             SHOW_TEXT(player, type, doMsgs, "The pit before you congeals into a solid earthen floor! Gaea's power is obvious concerning the nature of things.");
                             SET_FLAG(player, type, doMsgs, PARTY, USEDGAEAFLAIL, 1);
@@ -544,7 +569,7 @@ namespace XPT.Twinion.Maps {
                     }
                 }
                 protected override void FnEvent2D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (!GET_FLAG(player, type, doMsgs, PARTY, IHAVETHEFLAIL)) {
+                    if ((GET_FLAG(player, type, doMsgs, PARTY, IHAVETHEFLAIL) == 0)) {
                         if (GET_FLAG(player, type, doMsgs, PARTY, USEDGAEAFLAIL) == 1) {
                             SHOW_TEXT(player, type, doMsgs, "The flail keeps the earth intact, allowing you to safely pass.");
                         }
@@ -556,7 +581,7 @@ namespace XPT.Twinion.Maps {
                     }
                 }
                 protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (!HAS_ITEM(player, type, doMsgs, GAEASFLAIL)) {
+                    if ((HAS_ITEM(player, type, doMsgs, GAEASFLAIL) == 0)) {
                         SET_FLAG(player, type, doMsgs, PARTY, IHAVETHEFLAIL, 1);
                     }
                 }
@@ -583,7 +608,7 @@ namespace XPT.Twinion.Maps {
                     TELEPORT(player, type, doMsgs, 12, 2, 246, EAST);
                 }
                 protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (!HAS_ITEM(player, type, doMsgs, STATUEOFSTORMGIANT)) {
+                    if ((HAS_ITEM(player, type, doMsgs, STATUEOFSTORMGIANT) == 0)) {
                         GIVE_ITEM(player, type, doMsgs, STATUEOFSTORMGIANT);
                         SHOW_TEXT(player, type, doMsgs, "You pick up an odd statue. Perhaps it will protect you when you are alone.");
                     }
@@ -615,7 +640,7 @@ namespace XPT.Twinion.Maps {
                     NO_MAPS(player, type, doMsgs);
                 }
                 protected override void FnEvent37(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (!GET_FLAG(player, type, doMsgs, DUNGEON, FINISHEDGAME)) {
+                    if ((GET_FLAG(player, type, doMsgs, DUNGEON, FINISHEDGAME) == 0)) {
                         SET_FLAG(player, type, doMsgs, DUNGEON, FINISHEDGAME, 1);
                         SHOW_TEXT(player, type, doMsgs, "An eerie, shimmering portal hangs before you. This is the Gateway...the ingress into new adventures and future history.");
                         SHOW_TEXT(player, type, doMsgs, "You will come back here in time, when you feel you are ready for new challenges and greater travels. Until then, you must rest and restore your drained powers for that day.");

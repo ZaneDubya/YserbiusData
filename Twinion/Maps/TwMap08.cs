@@ -8,6 +8,8 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 5;
         protected override int RandomEncounterExtraCount => 1;
 
+        private const int DETECTED_DOOR = 6;
+        private const int SUNSET = 7;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             FntnPic(player, type, doMsgs);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, SNOWY) == 1) {
@@ -20,13 +22,13 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "Your rope falls into the water.");
                 SET_FLAG(player, type, doMsgs, DUNGEON, SNOWY, 1);
                 if (GUILD(player, type, doMsgs) == BARBARIAN || GUILD(player, type, doMsgs) == RANGER || GUILD(player, type, doMsgs) == THIEF || GUILD(player, type, doMsgs) == WIZARD) {
-                    if (!GET_SKILL(player, type, doMsgs, SWORDSMANSHIP_SKILL)) {
+                    if ((GET_SKILL(player, type, doMsgs, SWORDSMANSHIP_SKILL) == 0)) {
                         MOD_SKILL(player, type, doMsgs, SWORDSMANSHIP_SKILL, 1);
                     }
                     SHOW_TEXT(player, type, doMsgs, "The chill waters of Snowy Fountain enrich you with the Fencing skill.");
                 }
                 else if (GUILD(player, type, doMsgs) == CLERIC || GUILD(player, type, doMsgs) == KNIGHT) {
-                    if (!GET_SKILL(player, type, doMsgs, CLUBS_AND_AXES_SKILL)) {
+                    if ((GET_SKILL(player, type, doMsgs, CLUBS_AND_AXES_SKILL) == 0)) {
                         MOD_SKILL(player, type, doMsgs, CLUBS_AND_AXES_SKILL, 1);
                     }
                     SHOW_TEXT(player, type, doMsgs, "The chill waters of Snowy Fountain enrich you with the Clubs and Axes skill.");

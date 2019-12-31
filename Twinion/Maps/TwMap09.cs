@@ -8,6 +8,7 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 15;
         protected override int RandomEncounterExtraCount => 0;
 
+        private const int BRICK_ZAP = 1;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, DWARFWIZARD);
             SHOW_TEXT(player, type, doMsgs, "You come across an aging magician. 'Be sure to open all doors in the dungeon. I have learned many a spell by being curious.'");

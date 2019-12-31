@@ -8,6 +8,9 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 0;
 
+        private const int DETECTED_DOOR = 1;
+        private const int HORSE = 2;
+        private const int POTION = 3;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (RACE(player, type, doMsgs) == GNOME) {
                 GuildDoor(player, type, doMsgs);
@@ -118,7 +121,7 @@ namespace XPT.Twinion.Maps {
                 EmptyRoom(player, type, doMsgs);
             }
             else if (RACE(player, type, doMsgs) == life) {
-                if (!GET_FLAG(player, type, doMsgs, DUNGEON, LEATHER_MAP)) {
+                if ((GET_FLAG(player, type, doMsgs, DUNGEON, LEATHER_MAP) == 0)) {
                     SET_FLAG(player, type, doMsgs, DUNGEON, LEATHER_MAP, 1);
                     MOD_EXP(player, type, doMsgs, 200000);
                     GlimpseMap(player, type, doMsgs);

@@ -8,6 +8,12 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 0;
 
+        private const int MONSTERA = 1;
+        private const int MONSTERB = 2;
+        private const int HEALFOUNTAIN = 3;
+        private const int MANAFOUNTAIN = 4;
+        private const int QUEENGUARD = 5;
+        private const int SPRUNGTRAP = 1;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GET_FLAG(player, type, doMsgs, DUNGEON, FINISHEDGAME) == 1) {
                 SHOW_TEXT(player, type, doMsgs, "You see an empty, cracked throne.");
@@ -153,7 +159,7 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "Guttural curses and howls of agony from a battlefield to the east chill your bones.");
         }
         protected override void FnEvent11(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, DIDFIREBALL)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, DIDFIREBALL) == 0)) {
                 if (USED_ITEM(player, type, doMsgs, FLAMETONGUE, FLAMETONGUE) || USED_ITEM(player, type, doMsgs, FLAMEBLADE, FLAMEBLADE) || USED_ITEM(player, type, doMsgs, WRATHOFFAITH, WRATHOFFAITH) || USED_ITEM(player, type, doMsgs, STAFFOFJUSTICE, STAFFOFJUSTICE) || USED_ITEM(player, type, doMsgs, BOWOFFLAMES, BOWOFFLAMES) || USED_ITEM(player, type, doMsgs, AEGISDDRACO, AEGISDDRACO) || USED_ITEM(player, type, doMsgs, NEROSLYRE, NEROSLYRE) || USED_ITEM(player, type, doMsgs, SCROLLOFTHESUN, SCROLLOFTHESUN) || USED_ITEM(player, type, doMsgs, SCORCHEDSCROLL, SCORCHEDSCROLL)) {
                     switch (HERE(player, type, doMsgs)) {
                         case 9:
@@ -194,14 +200,14 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "'Travel through here at your own risk!' Signed-Lord Gnog.");
         }
         protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "You set off a poisonous gas trap!");
                 SET_PM(player, type, doMsgs, POISON, 8, 70);
                 SprungTrap(player, type, doMsgs);
             }
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "Another trap is triggered, sending death darts tipped with poison showering down upon you.");
                 SET_PM(player, type, doMsgs, POISON, 5, 60);
                 DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 6);
@@ -221,7 +227,7 @@ namespace XPT.Twinion.Maps {
             REMOVE_WALL_ITEM(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 switch (FACING(player, type, doMsgs)) {
                     case NORTH:
                         ROTATE(player, type, doMsgs, WEST);
@@ -243,7 +249,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 switch (FACING(player, type, doMsgs)) {
                     case NORTH:
                         ROTATE(player, type, doMsgs, SOUTH);
@@ -281,7 +287,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short i = 0;
-            if (!GET_FLAG(player, type, doMsgs, PARTY, QUEENGUARD)) {
+            if ((GET_FLAG(player, type, doMsgs, PARTY, QUEENGUARD) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, DWARFKNIGHT);
                 SHOW_TEXT(player, type, doMsgs, "One of the Queen's Guards is here. 'No stealing!'");
                 SHOW_TEXT(player, type, doMsgs, "I'm sure you'll obey his wish!!");
@@ -549,7 +555,7 @@ namespace XPT.Twinion.Maps {
                     exps = 25000;
                     break;
             }
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, flag)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, flag) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, QUEENAEOWYN);
                 TextStr(player, type, doMsgs);
                 Queen(player, type, doMsgs);
@@ -576,7 +582,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         private void DoneProving(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, DONEPROVING)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, DONEPROVING) == 0)) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, DONEPROVING, 1);
             }
         }
@@ -584,7 +590,7 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "Now, to my throne room, I will wait for you there!");
         }
         protected override void FnEvent3C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, WIZSPELL)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, WIZSPELL) == 0)) {
                 if (GUILD(player, type, doMsgs) == WIZARD || GUILD(player, type, doMsgs) == THIEF) {
                     GIVE_SPELL(player, type, doMsgs, FIREBALL_SPELL, 1);
                     SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
@@ -599,7 +605,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, LORDGNOG)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, LORDGNOG) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "An elderly wizard sits here, poring over books.");
                 SHOW_TEXT(player, type, doMsgs, "'We meet at last. My envoys have told me so much about you.");
                 SHOW_TEXT(player, type, doMsgs, "They've helped me keep track of your achievements and failures.");
@@ -611,7 +617,7 @@ namespace XPT.Twinion.Maps {
             GET_MONSTER(player, type, doMsgs, 01, 34);
         }
         protected override void FnEvent3E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, LORDGNOG)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, LORDGNOG) == 0)) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, LORDGNOG, 1);
             }
         }

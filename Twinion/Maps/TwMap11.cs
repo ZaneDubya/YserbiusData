@@ -8,9 +8,10 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 5;
         protected override int RandomEncounterExtraCount => 1;
 
+        private const int LAKE = 1;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_HEAL_ZONE(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, LAKE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, LAKE) == 0)) {
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 4);
                 SHOW_TEXT(player, type, doMsgs, "The waters drain your life energy.");
                 SET_FLAG(player, type, doMsgs, ROOM, LAKE, 1);
@@ -184,14 +185,14 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_MAPS(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, LAKE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, LAKE) == 0)) {
                 ROTATE(player, type, doMsgs, WEST);
                 SET_FLAG(player, type, doMsgs, ROOM, LAKE, 1);
             }
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_MAPS(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, LAKE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, LAKE) == 0)) {
                 ROTATE(player, type, doMsgs, SOUTH);
                 SET_FLAG(player, type, doMsgs, ROOM, LAKE, 1);
             }
@@ -431,7 +432,7 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "The blackest pitch cannot compare to this Fate's home.");
         }
         protected override void FnEvent3A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, ORCKNIGHT);
                 SHOW_TEXT(player, type, doMsgs, "An Orc Knight is frantically searching the ground.");
                 SHOW_TEXT(player, type, doMsgs, "'All I need to get into the secret armory rooms is that blasted Skeleton Key I dropped somewhere back here!");

@@ -8,10 +8,13 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 5;
         protected override int RandomEncounterExtraCount => 0;
 
+        private const int PARTYTEXT = 1;
+        private const int MADKNIGHT = 2;
+        private const int SPRUNGTRAP = 1;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_HEAL_ZONE(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
-                if (!GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDAQUEUS)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
+                if ((GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDAQUEUS) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "The strong currents twist and pound your body.");
                     DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 8 + 1);
                     if (HEALTH(player, type, doMsgs) <= 0) {
@@ -46,7 +49,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent05(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 if (PARTY_COUNT(player, type, doMsgs) == 1) {
                     if (GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDCHANT) == 1) {
                         SHOW_TEXT(player, type, doMsgs, "Reciting the chant the old giant taught you causes the waters to part and allows you to proceed.");
@@ -152,9 +155,9 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
             PLACE_FLOOR_ITEM(player, type, doMsgs, WATER, 75);
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, PARTYTEXT)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, PARTYTEXT) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "You've reached the other side of the reservoir.");
-                if (!GET_FLAG(player, type, doMsgs, DUNGEON, SAVEDPARTY)) {
+                if ((GET_FLAG(player, type, doMsgs, DUNGEON, SAVEDPARTY) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "Peering back towards the distant shore, you see a small party struggling near the pump in the center.");
                     SHOW_TEXT(player, type, doMsgs, "Perhaps you could go help them.");
                     SET_FLAG(player, type, doMsgs, PARTY, PARTYTEXT, 1);
@@ -169,14 +172,14 @@ namespace XPT.Twinion.Maps {
                 }
                 else {
                     SHOW_TEXT(player, type, doMsgs, "You must be alone.");
-                    if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+                    if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                         ROTATE(player, type, doMsgs, EAST);
                         SprungTrap(player, type, doMsgs);
                     }
                 }
             }
             else {
-                special24(player, type, doMsgs);
+                FnEvent18(player, type, doMsgs);
                 WallBlock(player, type, doMsgs);
             }
         }
@@ -210,7 +213,7 @@ namespace XPT.Twinion.Maps {
             short itemB = 0;
             short itemC = 0;
             short i = 0;
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDAQUEUS)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDAQUEUS) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "A gold throne sits to the north; to reach it you need only defeat he who guards it!");
                 SHOW_TEXT(player, type, doMsgs, "Lord Aqueus, an enormous giant, rises from his throne bellowing, 'You are no match for me, the Aqueduct's guardian.");
                 SHOW_TEXT(player, type, doMsgs, "Come, let me teach you the price of ignorance!'");
@@ -298,7 +301,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent1B(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short where = 0;
             if (PARTY_COUNT(player, type, doMsgs) == 1) {
-                if (!GET_FLAG(player, type, doMsgs, DUNGEON, SAVEDPARTY)) {
+                if ((GET_FLAG(player, type, doMsgs, DUNGEON, SAVEDPARTY) == 0)) {
                     SHOW_PICTURE(player, type, doMsgs, DWARFKNIGHT);
                     SHOW_TEXT(player, type, doMsgs, "A weary party fights the torrential waters nearby.");
                     SHOW_TEXT(player, type, doMsgs, "'You! Yes, you! Come, help us. Help!!!'");
@@ -476,7 +479,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent22(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, PARTY, MADKNIGHT)) {
+            if ((GET_FLAG(player, type, doMsgs, PARTY, MADKNIGHT) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "A mad adventurer attacks you in a berserker's rage.");
                 GET_MONSTER(player, type, doMsgs, 01, 39);
                 SET_FLAG(player, type, doMsgs, PARTY, MADKNIGHT, 1);
@@ -484,7 +487,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent23(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, HALFLINGTHIEF);
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, METJUBILAH) && GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDCHANT) == 1) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, METJUBILAH) == 0) && GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDCHANT) == 1) {
                 SHOW_TEXT(player, type, doMsgs, "You find the thief Malik and recite the chant, hoping he will understand.");
                 SHOW_TEXT(player, type, doMsgs, "'Ah, you've found Sartiq! You must return, for your chant is not complete. He will teach you the rest when you return.'");
                 SHOW_TEXT(player, type, doMsgs, "'Forgive me.' So saying, Malik draws his stiletto and quickly carves a curious mark in your arm.");
@@ -505,13 +508,13 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "'There are many slippery traps and hidden doors here. If only I had a thief or a thief's toys.'");
         }
         protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDAQUEUS)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDAQUEUS) == 0)) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, KILLEDAQUEUS, 1);
             }
             SHOW_TEXT(player, type, doMsgs, "The throne room is decorated with marvelous carvings of precious jewels. No doubt the late Aqueus stole them from the river.");
         }
         protected override void FnEvent26(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, KILAM)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, KILAM) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, ELFRANGER);
                 SHOW_TEXT(player, type, doMsgs, "'Good journeys to you. I wish you luck with these awful puzzles. What I know I shall share with you, for...say...these gold pieces?");
                 SHOW_TEXT(player, type, doMsgs, "Excellent! In the northwest corner, a door there is very stubborn. Merely approach and knock three times, and it will open!");
@@ -579,7 +582,7 @@ namespace XPT.Twinion.Maps {
             switch (GUILD(player, type, doMsgs)) {
                 case CLERIC:
                 case WIZARD:
-                    if (!GET_FLAG(player, type, doMsgs, DUNGEON, STORM)) {
+                    if ((GET_FLAG(player, type, doMsgs, DUNGEON, STORM) == 0)) {
                         GIVE_SPELL(player, type, doMsgs, STORM_WIND_SPELL, 1);
                         SET_FLAG(player, type, doMsgs, DUNGEON, STORM, 1);
                         CoolWater(player, type, doMsgs);
@@ -598,7 +601,7 @@ namespace XPT.Twinion.Maps {
             switch (GUILD(player, type, doMsgs)) {
                 case CLERIC:
                 case WIZARD:
-                    if (!GET_FLAG(player, type, doMsgs, DUNGEON, CURSED)) {
+                    if ((GET_FLAG(player, type, doMsgs, DUNGEON, CURSED) == 0)) {
                         GIVE_SPELL(player, type, doMsgs, CURSE_SPELL, 1);
                         SET_FLAG(player, type, doMsgs, DUNGEON, CURSED, 1);
                         CoolWater(player, type, doMsgs);
@@ -617,7 +620,7 @@ namespace XPT.Twinion.Maps {
             switch (GUILD(player, type, doMsgs)) {
                 case KNIGHT:
                 case WIZARD:
-                    if (!GET_FLAG(player, type, doMsgs, DUNGEON, EFIELD)) {
+                    if ((GET_FLAG(player, type, doMsgs, DUNGEON, EFIELD) == 0)) {
                         GIVE_SPELL(player, type, doMsgs, ENERGY_FIELD_SPELL, 1);
                         SET_FLAG(player, type, doMsgs, DUNGEON, EFIELD, 1);
                         CoolWater(player, type, doMsgs);
@@ -635,7 +638,7 @@ namespace XPT.Twinion.Maps {
             FntnPic(player, type, doMsgs);
             switch (GUILD(player, type, doMsgs)) {
                 case KNIGHT:
-                    if (!GET_FLAG(player, type, doMsgs, DUNGEON, SEETHEKNIGHT)) {
+                    if ((GET_FLAG(player, type, doMsgs, DUNGEON, SEETHEKNIGHT) == 0)) {
                         GIVE_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL, 1);
                         SET_FLAG(player, type, doMsgs, DUNGEON, SEETHEKNIGHT, 1);
                         SHOW_TEXT(player, type, doMsgs, "The warm waters satisfy your thirst for knowledge with a new spell!");
@@ -645,7 +648,7 @@ namespace XPT.Twinion.Maps {
                     }
                     break;
                 case CLERIC:
-                    if (!GET_SKILL(player, type, doMsgs, CHANNEL_SKILL)) {
+                    if ((GET_SKILL(player, type, doMsgs, CHANNEL_SKILL) == 0)) {
                         MOD_SKILL(player, type, doMsgs, CHANNEL_SKILL, 1);
                         SHOW_TEXT(player, type, doMsgs, "The warm waters satisfy your thirst for knowledge with a new skill!");
                     }
@@ -661,7 +664,7 @@ namespace XPT.Twinion.Maps {
             switch (GUILD(player, type, doMsgs)) {
                 case KNIGHT:
                 case CLERIC:
-                    if (!GET_SKILL(player, type, doMsgs, CHANNEL_SKILL)) {
+                    if ((GET_SKILL(player, type, doMsgs, CHANNEL_SKILL) == 0)) {
                         MOD_SKILL(player, type, doMsgs, CHANNEL_SKILL, 1);
                         SHOW_TEXT(player, type, doMsgs, "The warm waters satisfy your thirst for knowledge with a new skill!");
                     }

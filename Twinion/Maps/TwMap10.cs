@@ -8,6 +8,9 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 12;
         protected override int RandomEncounterExtraCount => 2;
 
+        private const int ARMORY_ZAP_ONE = 2;
+        private const int ARMORY_ZAP_THREE = 3;
+        private const int SHIELD_ZAP = 4;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short flags = 0;
             flags = GET_FLAG(player, type, doMsgs, DUNGEON, ARMORY_ITEM);
@@ -71,7 +74,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent04(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_HEAL_ZONE(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SHIELD_ZAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SHIELD_ZAP) == 0)) {
                 if (GET_FLAG(player, type, doMsgs, PARTY, ARMORY_ZAP_ONE) == 1) {
                     SHOW_TEXT(player, type, doMsgs, "The trap is disarmed.");
                 }

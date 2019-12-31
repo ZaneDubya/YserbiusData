@@ -8,6 +8,8 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 0;
 
+        private const int DETECTED_DOOR = 1;
+        private const int HURT = 2;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (RACE(player, type, doMsgs) == GREMLIN) {
                 GuildDoor(player, type, doMsgs);
@@ -33,7 +35,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 6, 2, 160, EAST);
         }
         protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, LEATHER_MAP)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, LEATHER_MAP) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, ELFBARBARIAN);
                 SHOW_TEXT(player, type, doMsgs, "'At last! I've found my weapon, a clue and a map piece!'");
                 SHOW_TEXT(player, type, doMsgs, "The elf looks at you with a broad grin, 'It's my fourth and final piece you know. Now all I have to do is find my way out of here.'");
@@ -121,7 +123,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent0A(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
             if (GUILD(player, type, doMsgs) == BARBARIAN || GUILD(player, type, doMsgs) == CLERIC || GUILD(player, type, doMsgs) == RANGER || GUILD(player, type, doMsgs) == KNIGHT) {
-                if (!GET_SKILL(player, type, doMsgs, STAFF_SKILL)) {
+                if ((GET_SKILL(player, type, doMsgs, STAFF_SKILL) == 0)) {
                     HealFtn(player, type, doMsgs);
                     MOD_SKILL(player, type, doMsgs, STAFF_SKILL, 1);
                     SHOW_TEXT(player, type, doMsgs, "The crystal waters of Unity Fountain teach you the Staff skill.");
@@ -132,7 +134,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             else if (GUILD(player, type, doMsgs) == WIZARD) {
-                if (!GET_FLAG(player, type, doMsgs, DUNGEON, BLESSWIZ)) {
+                if ((GET_FLAG(player, type, doMsgs, DUNGEON, BLESSWIZ) == 0)) {
                     HealFtn(player, type, doMsgs);
                     GIVE_SPELL(player, type, doMsgs, BLESS_SPELL, 1);
                     SET_FLAG(player, type, doMsgs, DUNGEON, BLESSWIZ, 1);
@@ -144,7 +146,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             else if (GUILD(player, type, doMsgs) == THIEF) {
-                if (!GET_SKILL(player, type, doMsgs, RUNE_READING_SKILL)) {
+                if ((GET_SKILL(player, type, doMsgs, RUNE_READING_SKILL) == 0)) {
                     HealFtn(player, type, doMsgs);
                     MOD_SKILL(player, type, doMsgs, RUNE_READING_SKILL, 1);
                     SHOW_TEXT(player, type, doMsgs, "The crystal waters of Unity Fountain teaches you the Rune Reading skill.");
@@ -156,7 +158,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, LEATHER_MAP)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, LEATHER_MAP) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, GREMLINTHIEF);
                 SHOW_TEXT(player, type, doMsgs, "A thief emerges from the shadows.");
                 SHOW_TEXT(player, type, doMsgs, "'Psssst...let me give you some advice. Some of the walls in these rooms have been weakened. Just push and see!'");
@@ -164,7 +166,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, LEATHER_MAP)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, LEATHER_MAP) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, DWARFWIZARD);
                 SHOW_TEXT(player, type, doMsgs, "'Hehehehehe!  A champion you wish to be, yet things you must learn. Some doors here are to deceive, not to open. Learn it well.");
                 SHOW_TEXT(player, type, doMsgs, "By the way, you did bring your reforged Skeleton Key with you, didn't you?'");
@@ -193,7 +195,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent11(TwPlayerServer player, MapEventType type, bool doMsgs) {
             NO_HEAL_ZONE(player, type, doMsgs);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, HURT)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, HURT) == 0)) {
                 DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 4);
                 SHOW_TEXT(player, type, doMsgs, "You feel nauseous as you step through the stagnant puddle of water.");
                 SET_FLAG(player, type, doMsgs, ROOM, HURT, 1);
@@ -219,7 +221,7 @@ namespace XPT.Twinion.Maps {
                 EmptyRoom(player, type, doMsgs);
             }
             else if (RACE(player, type, doMsgs) == life) {
-                if (!GET_FLAG(player, type, doMsgs, DUNGEON, LEATHER_MAP)) {
+                if ((GET_FLAG(player, type, doMsgs, DUNGEON, LEATHER_MAP) == 0)) {
                     SET_FLAG(player, type, doMsgs, DUNGEON, LEATHER_MAP, 1);
                     MOD_EXP(player, type, doMsgs, 200000);
                     GlimpseMap(player, type, doMsgs);

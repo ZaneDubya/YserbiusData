@@ -105,7 +105,7 @@ namespace XPT.Twinion.Maps {
             short itemD = 0;
             short itemE = UNITYRING;
             short tile = 0;
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE) == 0)) {
                 if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == GNOME) {
                     tile = HERE(player, type, doMsgs);
                     switch (tile) {
@@ -161,7 +161,7 @@ namespace XPT.Twinion.Maps {
             short itemD = 0;
             short itemE = UNITYRING;
             short tile = 0;
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE) == 0)) {
                 if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == HALFLING) {
                     tile = HERE(player, type, doMsgs);
                     switch (tile) {
@@ -217,7 +217,7 @@ namespace XPT.Twinion.Maps {
             short itemD = 0;
             short itemE = UNITYRING;
             short tile = 0;
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE) == 0)) {
                 if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == ORC) {
                     tile = HERE(player, type, doMsgs);
                     switch (tile) {
@@ -273,7 +273,7 @@ namespace XPT.Twinion.Maps {
             short itemD = 0;
             short itemE = UNITYRING;
             short tile = 0;
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE) == 0)) {
                 if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == TROLL) {
                     tile = HERE(player, type, doMsgs);
                     switch (tile) {
@@ -339,7 +339,7 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "The Emerald Lockpick is exchanged for the Diamond Lockpick. If true, take the door to the south. If false, take the door to the east.");
         }
         protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE) == 0)) {
                 SHOW_PICTURE(player, type, doMsgs, QUEENAEOWYN);
                 SHOW_TEXT(player, type, doMsgs, "Queen Aeowyn materializes in the room.");
                 SHOW_TEXT(player, type, doMsgs, "'Greetings, my Champion. Now we may bond these fragments together in this magical space.'");
@@ -407,7 +407,7 @@ namespace XPT.Twinion.Maps {
             short itemD = 0;
             short itemE = UNITYRING;
             short tile = 0;
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE) == 0)) {
                 if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == ELF) {
                     tile = HERE(player, type, doMsgs);
                     switch (tile) {
@@ -463,7 +463,7 @@ namespace XPT.Twinion.Maps {
             short itemD = 0;
             short itemE = UNITYRING;
             short tile = 0;
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE) == 0)) {
                 if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == DWARF) {
                     tile = HERE(player, type, doMsgs);
                     switch (tile) {
@@ -529,7 +529,7 @@ namespace XPT.Twinion.Maps {
             short itemD = 0;
             short itemE = UNITYRING;
             short tile = 0;
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE) == 0)) {
                 if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == GREMLIN) {
                     tile = HERE(player, type, doMsgs);
                     switch (tile) {
@@ -586,7 +586,7 @@ namespace XPT.Twinion.Maps {
             short itemE = UNITYRING;
             short tile = 0;
             short number = 0;
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE) == 0)) {
                 if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == HUMAN) {
                     tile = HERE(player, type, doMsgs);
                     switch (tile) {

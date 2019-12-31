@@ -8,6 +8,11 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 1;
 
+        private const int NPCONE = 1;
+        private const int NPCTWO = 2;
+        private const int TORCHSWITCH = 3;
+        private const int SPRUNGTRAP = 1;
+        private const int TOSOURCE = 2;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
@@ -18,7 +23,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent03(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short charges = 0;
             charges = GET_FLAG(player, type, doMsgs, DUNGEON, ITEMUSES);
-            if (!GET_FLAG(player, type, doMsgs, ROOM, TOSOURCE)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, TOSOURCE) == 0)) {
                 if (FLAG_ON(player, type, doMsgs, DUNGEON, ITEMUSES)) {
                     if (USED_ITEM(player, type, doMsgs, RODOFDISSEMINATION, RODOFDISSEMINATION)) {
                         if (charges < 12) {
@@ -86,7 +91,7 @@ namespace XPT.Twinion.Maps {
             if (HAS_ITEM(player, type, doMsgs, RODOFDISSEMINATION)) {
                 SHOW_TEXT(player, type, doMsgs, "Stains of combat cover the floor, but there is nothing of interest here... except a few Erebus fiends!");
             }
-            else if (!GET_FLAG(player, type, doMsgs, DUNGEON, NICEBOOTY)) {
+            else if ((GET_FLAG(player, type, doMsgs, DUNGEON, NICEBOOTY) == 0)) {
                 SET_BOOTY(player, type, doMsgs, RODOFDISSEMINATION, MANAAMPHORA, ZEUSSCROLL, 0, 0, 10000);
                 SET_FLAG(player, type, doMsgs, DUNGEON, NICEBOOTY, 1);
                 ErebusTxt(player, type, doMsgs);
@@ -162,8 +167,8 @@ namespace XPT.Twinion.Maps {
             GET_MONSTER(player, type, doMsgs, 01, 27);
         }
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, TALKED_TO_NPC1)) {
-                if (!GET_FLAG(player, type, doMsgs, PARTY, NPCONE)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, TALKED_TO_NPC1) == 0)) {
+                if ((GET_FLAG(player, type, doMsgs, PARTY, NPCONE) == 0)) {
                     SHOW_PICTURE(player, type, doMsgs, KAALROTH);
                     SHOW_TEXT(player, type, doMsgs, "A sinewy beast stares angrily at you for your intrusion into his home.");
                     SHOW_TEXT(player, type, doMsgs, "'You have no business here. Leave before I become enraged and destroy you!'");
@@ -184,12 +189,12 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, KAALROTH);
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, TALKED_TO_NPC2)) {
-                if (!GET_FLAG(player, type, doMsgs, PARTY, NPCTWO)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, TALKED_TO_NPC2) == 0)) {
+                if ((GET_FLAG(player, type, doMsgs, PARTY, NPCTWO) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "A sinewy beast stares angrily at you for your intrusion into his home.");
                     SHOW_TEXT(player, type, doMsgs, "'Away with you, go bother my brother to the west.'");
                     SET_FLAG(player, type, doMsgs, PARTY, NPCTWO, 1);
-                    if (!GET_FLAG(player, type, doMsgs, PARTY, NPCONE)) {
+                    if ((GET_FLAG(player, type, doMsgs, PARTY, NPCONE) == 0)) {
                         SET_FLAG(player, type, doMsgs, PARTY, NPCONE, 1);
                     }
                 }
@@ -366,15 +371,15 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "Learn from me! Do not use the Portal below!'");
         }
         protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 SHOW_TEXT(player, type, doMsgs, "You've sprung an ancient trap that seems not to have harmed you...much.");
                 DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 4);
                 SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
             }
         }
         protected override void FnEvent1B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
-                if (!GET_FLAG(player, type, doMsgs, PARTY, TORCHSWITCH)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
+                if ((GET_FLAG(player, type, doMsgs, PARTY, TORCHSWITCH) == 0)) {
                     SHOW_TEXT(player, type, doMsgs, "A dragon's face is carved on the wall where the torch here hangs. As you walk by the wall it comes to life and spews waves of fire over you!");
                     DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 5);
                 }
@@ -422,7 +427,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short i = 0;
             SHOW_TEXT(player, type, doMsgs, "Creatures surprise you!");
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+            if ((GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP) == 0)) {
                 DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 6);
                 MOD_GOLD(player, type, doMsgs,  - 2500);
                 SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
@@ -448,7 +453,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short i = 0;
             SHOW_TEXT(player, type, doMsgs, "You surprise some beasts examining an interesting sword.");
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, GREATBOOTY)) {
+            if ((GET_FLAG(player, type, doMsgs, DUNGEON, GREATBOOTY) == 0)) {
                 SET_BOOTY(player, type, doMsgs, PHOSPHORESCENTBLADE, HEALAMPHORA, HEALAMPHORA, BARBARIANAXE, ETHERICVESTMENT, 25000);
                 SET_FLAG(player, type, doMsgs, DUNGEON, GREATBOOTY, 1);
             }
@@ -579,7 +584,7 @@ namespace XPT.Twinion.Maps {
             NO_MAPS(player, type, doMsgs);
         }
         protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (HAS_ITEM(player, type, doMsgs, RODOFDISSEMINATION) && !GET_FLAG(player, type, doMsgs, DUNGEON, ITEMUSES)) {
+            if (HAS_ITEM(player, type, doMsgs, RODOFDISSEMINATION) && (GET_FLAG(player, type, doMsgs, DUNGEON, ITEMUSES) == 0)) {
                 SET_FLAG(player, type, doMsgs, DUNGEON, ITEMUSES, 1);
                 SHOW_TEXT(player, type, doMsgs, "The Rod of Dissemination ignites with magical fury! Use it to blaze your own pathway through these magical walls.");
             }

@@ -8,6 +8,12 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 1;
 
+        private const int WIZCHOICE = 1;
+        private const int DRAGON_B = 9;
+        private const int DRAGON_A = 10;
+        private const int ONE_NORTH = 14;
+        private const int ONE_CENTER = 15;
+        private const int ONE_SOUTH = 16;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SET_FLAG(player, type, doMsgs, PARTY, WIZCHOICE, 1);
             TELEPORT(player, type, doMsgs, 8, 2, 124, SOUTH);
