@@ -58,10 +58,10 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent08(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flag;
-            short mn;
-            short pflag;
-            switch (HERE()) {
+            short flag = 0;
+            short mn = 0;
+            short pflag = 0;
+            switch (HERE(player, type, doMsgs)) {
                 case 119:
                     flag = KILLEDEREBUS;
                     pflag = FIGHTEREBUS;
@@ -114,10 +114,10 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "This chess master now lays dead upon his throne.");
         }
         protected override void FnEvent0A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+            CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 SHOW_TEXT(player, type, doMsgs, "An eerie blue light sifts through a fissure in the wall.");
                 SHOW_TEXT(player, type, doMsgs, "I wouldn't venture here until you've completed the tasks Aeowyn has enjoined you with - namely, destroying the Dralkarians!");
                 TELEPORT(player, type, doMsgs, 13, 1, 252, NORTH);
@@ -128,7 +128,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GUILD() == THIEF || GUILD() == WIZARD) {
+            if (GUILD(player, type, doMsgs) == THIEF || GUILD(player, type, doMsgs) == WIZARD) {
                 if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 12 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
                     SHOW_TEXT(player, type, doMsgs, "The ancient stones become a portal.");
                     special10(player, type, doMsgs);
@@ -173,7 +173,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent10(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_SPELL();
+            NO_SPELL(player, type, doMsgs);
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 SHOW_TEXT(player, type, doMsgs, "Poisonous gases seep into this area.");
                 PoisonMe(player, type, doMsgs);
@@ -193,72 +193,72 @@ namespace XPT.Twinion.Maps {
             GET_MONSTER(player, type, doMsgs, 01, 32);
         }
         protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short teleportRoom;
-            short chesspiece;
+            short teleportRoom = 0;
+            short chesspiece = 0;
             chesspiece = GET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE);
-            if (chesspiece == 2 && (HERE() == 70 &  & FACING() == WEST) |  | (HERE() == 73 &  & FACING() == EAST) |  | (HERE() == 86 &  & FACING() == WEST) |  | (HERE() == 89 &  & FACING() == EAST)) {
+            if (chesspiece == 2 && (HERE(player, type, doMsgs) == 70 && FACING(player, type, doMsgs) == WEST) || (HERE(player, type, doMsgs) == 73 && FACING(player, type, doMsgs) == EAST) || (HERE(player, type, doMsgs) == 86 && FACING(player, type, doMsgs) == WEST) || (HERE(player, type, doMsgs) == 89 && FACING(player, type, doMsgs) == EAST)) {
                 SHOW_TEXT(player, type, doMsgs, "You may leave the board through here.");
             }
             else {
                 WallBlock(player, type, doMsgs);
                 switch (chesspiece) {
                     case 1:
-                        if (FACING() == NORTH) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == NORTH) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          - 15;
-                        if (FACING() == EAST) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == EAST) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          + 17;
-                        if (FACING() == SOUTH) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == SOUTH) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          + 15;
-                        if (FACING() == WEST) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == WEST) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          - 17;
                         break;
                     case 2:
-                        if (FACING() == NORTH) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == NORTH) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          - 33;
-                        if (FACING() == EAST) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == EAST) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          - 14;
-                        if (FACING() == SOUTH) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == SOUTH) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          + 33;
-                        if (FACING() == WEST) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == WEST) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          + 14;
                         break;
                     case 3:
-                        if (FACING() == NORTH) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == NORTH) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          - 16;
-                        if (FACING() == EAST) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == EAST) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          + 1;
-                        if (FACING() == SOUTH) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == SOUTH) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          + 16;
-                        if (FACING() == WEST) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == WEST) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          - 1;
                         break;
                 }
-                if ((teleportRoom >= 37 &  & teleportRoom <= 42) |  | (teleportRoom >= 53 &  & teleportRoom <= 58) |  | (teleportRoom >= 68 &  & teleportRoom <= 75) |  | (teleportRoom >= 84 &  & teleportRoom <= 91) |  | (teleportRoom >= 101 &  & teleportRoom <= 106) |  | (teleportRoom >= 117 &  & teleportRoom <= 122)) {
-                    TELEPORT(player, type, doMsgs, 8, 1, teleportRoom, FACING());
+                if ((teleportRoom >= 37 && teleportRoom <= 42) || (teleportRoom >= 53 && teleportRoom <= 58) || (teleportRoom >= 68 && teleportRoom <= 75) || (teleportRoom >= 84 && teleportRoom <= 91) || (teleportRoom >= 101 && teleportRoom <= 106) || (teleportRoom >= 117 && teleportRoom <= 122)) {
+                    TELEPORT(player, type, doMsgs, 8, 1, teleportRoom, FACING(player, type, doMsgs));
                 }
                 else {
                     CantMove(player, type, doMsgs);
@@ -266,8 +266,8 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short mn;
-            switch (HERE()) {
+            short mn = 0;
+            switch (HERE(player, type, doMsgs)) {
                 case 102:
                     mn = 39;
                     break;
@@ -278,72 +278,72 @@ namespace XPT.Twinion.Maps {
             GET_MONSTER(player, type, doMsgs, 01, mn);
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short teleportRoom;
-            short chesspiece;
+            short teleportRoom = 0;
+            short chesspiece = 0;
             chesspiece = GET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE);
-            if (chesspiece == 2 && (HERE() == 70 &  & FACING() == WEST) |  | (HERE() == 73 &  & FACING() == EAST) |  | (HERE() == 86 &  & FACING() == WEST) |  | (HERE() == 89 &  & FACING() == EAST)) {
+            if (chesspiece == 2 && (HERE(player, type, doMsgs) == 70 && FACING(player, type, doMsgs) == WEST) || (HERE(player, type, doMsgs) == 73 && FACING(player, type, doMsgs) == EAST) || (HERE(player, type, doMsgs) == 86 && FACING(player, type, doMsgs) == WEST) || (HERE(player, type, doMsgs) == 89 && FACING(player, type, doMsgs) == EAST)) {
                 SHOW_TEXT(player, type, doMsgs, "You may leave the board through here.");
             }
             else {
                 WallBlock(player, type, doMsgs);
                 switch (chesspiece) {
                     case 1:
-                        if (FACING() == NORTH) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == NORTH) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          - 15;
-                        if (FACING() == EAST) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == EAST) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          + 17;
-                        if (FACING() == SOUTH) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == SOUTH) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          + 15;
-                        if (FACING() == WEST) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == WEST) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          - 17;
                         break;
                     case 2:
-                        if (FACING() == NORTH) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == NORTH) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          - 31;
-                        if (FACING() == EAST) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == EAST) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          + 18;
-                        if (FACING() == SOUTH) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == SOUTH) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          + 31;
-                        if (FACING() == WEST) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == WEST) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          - 18;
                         break;
                     case 3:
-                        if (FACING() == NORTH) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == NORTH) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          - 16;
-                        if (FACING() == EAST) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == EAST) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          + 1;
-                        if (FACING() == SOUTH) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == SOUTH) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          + 16;
-                        if (FACING() == WEST) {
-                            teleportRoom = HERE();
+                        if (FACING(player, type, doMsgs) == WEST) {
+                            teleportRoom = HERE(player, type, doMsgs);
                         }
                          - 1;
                         break;
                 }
-                if ((teleportRoom >= 37 &  & teleportRoom <= 42) |  | (teleportRoom >= 53 &  & teleportRoom <= 58) |  | (teleportRoom >= 68 &  & teleportRoom <= 75) |  | (teleportRoom >= 84 &  & teleportRoom <= 91) |  | (teleportRoom >= 101 &  & teleportRoom <= 106) |  | (teleportRoom >= 117 &  & teleportRoom <= 122)) {
-                    TELEPORT(player, type, doMsgs, 8, 1, teleportRoom, FACING());
+                if ((teleportRoom >= 37 && teleportRoom <= 42) || (teleportRoom >= 53 && teleportRoom <= 58) || (teleportRoom >= 68 && teleportRoom <= 75) || (teleportRoom >= 84 && teleportRoom <= 91) || (teleportRoom >= 101 && teleportRoom <= 106) || (teleportRoom >= 117 && teleportRoom <= 122)) {
+                    TELEPORT(player, type, doMsgs, 8, 1, teleportRoom, FACING(player, type, doMsgs));
                 }
                 else {
                     CantMove(player, type, doMsgs);
@@ -351,29 +351,29 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent16(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short teleportRoom;
+            short teleportRoom = 0;
             WallBlock(player, type, doMsgs);
             SET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE, 2);
-            if (FACING() == NORTH) {
-                teleportRoom = HERE();
+            if (FACING(player, type, doMsgs) == NORTH) {
+                teleportRoom = HERE(player, type, doMsgs);
             }
              - 33;
-            if (FACING() == EAST) {
-                teleportRoom = HERE();
+            if (FACING(player, type, doMsgs) == EAST) {
+                teleportRoom = HERE(player, type, doMsgs);
             }
              - 14;
-            if (FACING() == SOUTH) {
-                teleportRoom = HERE();
+            if (FACING(player, type, doMsgs) == SOUTH) {
+                teleportRoom = HERE(player, type, doMsgs);
             }
              + 33;
-            if (FACING() == WEST) {
-                teleportRoom = HERE();
+            if (FACING(player, type, doMsgs) == WEST) {
+                teleportRoom = HERE(player, type, doMsgs);
             }
              + 14;
-            switch (HERE()) {
+            switch (HERE(player, type, doMsgs)) {
                 case 103:
-                    if ((teleportRoom >= 37 &  & teleportRoom <= 42) |  | (teleportRoom >= 53 &  & teleportRoom <= 58) |  | (teleportRoom >= 68 &  & teleportRoom <= 75) |  | (teleportRoom >= 84 &  & teleportRoom <= 91) |  | (teleportRoom >= 101 &  & teleportRoom <= 106) |  | (teleportRoom >= 117 &  & teleportRoom <= 122)) {
-                        TELEPORT(player, type, doMsgs, 8, 1, teleportRoom, FACING());
+                    if ((teleportRoom >= 37 && teleportRoom <= 42) || (teleportRoom >= 53 && teleportRoom <= 58) || (teleportRoom >= 68 && teleportRoom <= 75) || (teleportRoom >= 84 && teleportRoom <= 91) || (teleportRoom >= 101 && teleportRoom <= 106) || (teleportRoom >= 117 && teleportRoom <= 122)) {
+                        TELEPORT(player, type, doMsgs, 8, 1, teleportRoom, FACING(player, type, doMsgs));
                     }
                     else {
                         CantMove(player, type, doMsgs);
@@ -382,54 +382,54 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent17(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short teleportRoom;
+            short teleportRoom = 0;
             WallBlock(player, type, doMsgs);
             SET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE, 3);
-            if (FACING() == NORTH) {
-                teleportRoom = HERE();
+            if (FACING(player, type, doMsgs) == NORTH) {
+                teleportRoom = HERE(player, type, doMsgs);
             }
              - 16;
-            if (FACING() == EAST) {
-                teleportRoom = HERE();
+            if (FACING(player, type, doMsgs) == EAST) {
+                teleportRoom = HERE(player, type, doMsgs);
             }
              + 1;
-            if (FACING() == SOUTH) {
-                teleportRoom = HERE();
+            if (FACING(player, type, doMsgs) == SOUTH) {
+                teleportRoom = HERE(player, type, doMsgs);
             }
              + 16;
-            if (FACING() == WEST) {
-                teleportRoom = HERE();
+            if (FACING(player, type, doMsgs) == WEST) {
+                teleportRoom = HERE(player, type, doMsgs);
             }
              - 1;
-            if ((teleportRoom >= 37 &  & teleportRoom <= 42) |  | (teleportRoom >= 53 &  & teleportRoom <= 58) |  | (teleportRoom >= 68 &  & teleportRoom <= 75) |  | (teleportRoom >= 84 &  & teleportRoom <= 91) |  | (teleportRoom >= 101 &  & teleportRoom <= 106) |  | (teleportRoom >= 117 &  & teleportRoom <= 122)) {
-                TELEPORT(player, type, doMsgs, 8, 1, teleportRoom, FACING());
+            if ((teleportRoom >= 37 && teleportRoom <= 42) || (teleportRoom >= 53 && teleportRoom <= 58) || (teleportRoom >= 68 && teleportRoom <= 75) || (teleportRoom >= 84 && teleportRoom <= 91) || (teleportRoom >= 101 && teleportRoom <= 106) || (teleportRoom >= 117 && teleportRoom <= 122)) {
+                TELEPORT(player, type, doMsgs, 8, 1, teleportRoom, FACING(player, type, doMsgs));
             }
             else {
                 CantMove(player, type, doMsgs);
             }
         }
         protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short teleportRoom;
+            short teleportRoom = 0;
             WallBlock(player, type, doMsgs);
             SET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE, 2);
-            if (FACING() == NORTH) {
-                teleportRoom = HERE();
+            if (FACING(player, type, doMsgs) == NORTH) {
+                teleportRoom = HERE(player, type, doMsgs);
             }
              - 31;
-            if (FACING() == EAST) {
-                teleportRoom = HERE();
+            if (FACING(player, type, doMsgs) == EAST) {
+                teleportRoom = HERE(player, type, doMsgs);
             }
              + 18;
-            if (FACING() == SOUTH) {
-                teleportRoom = HERE();
+            if (FACING(player, type, doMsgs) == SOUTH) {
+                teleportRoom = HERE(player, type, doMsgs);
             }
              + 31;
-            if (FACING() == WEST) {
-                teleportRoom = HERE();
+            if (FACING(player, type, doMsgs) == WEST) {
+                teleportRoom = HERE(player, type, doMsgs);
             }
              - 18;
-            if ((teleportRoom >= 37 &  & teleportRoom <= 42) |  | (teleportRoom >= 53 &  & teleportRoom <= 58) |  | (teleportRoom >= 68 &  & teleportRoom <= 75) |  | (teleportRoom >= 84 &  & teleportRoom <= 91) |  | (teleportRoom >= 101 &  & teleportRoom <= 106) |  | (teleportRoom >= 117 &  & teleportRoom <= 122)) {
-                TELEPORT(player, type, doMsgs, 8, 1, teleportRoom, FACING());
+            if ((teleportRoom >= 37 && teleportRoom <= 42) || (teleportRoom >= 53 && teleportRoom <= 58) || (teleportRoom >= 68 && teleportRoom <= 75) || (teleportRoom >= 84 && teleportRoom <= 91) || (teleportRoom >= 101 && teleportRoom <= 106) || (teleportRoom >= 117 && teleportRoom <= 122)) {
+                TELEPORT(player, type, doMsgs, 8, 1, teleportRoom, FACING(player, type, doMsgs));
             }
             else {
                 CantMove(player, type, doMsgs);
@@ -448,7 +448,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "A group of young Erebus move towards you, mumbling in their guttural tongue.");
             OfferBooty(player, type, doMsgs);
-            switch (PARTY_COUNT()) {
+            switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     GET_MONSTER(player, type, doMsgs, 01, 31);
                     break;
@@ -460,7 +460,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_SPELL();
+            NO_SPELL(player, type, doMsgs);
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 ShowFntn(player, type, doMsgs);
                 SHOW_TEXT(player, type, doMsgs, "The sweet waters feel refreshing at first, but soon make you feel nauseated.");
@@ -472,7 +472,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent22(TwPlayerServer player, MapEventType type, bool doMsgs) {
             ShowFntn(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "The fountain's sickening waters churn in your stomach, but slowly you begin feeling revived and healthy!");
-            HEAL(player, type, doMsgs, MAX_HEALTH());
+            HEAL(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
         }
         protected override void FnEvent23(TwPlayerServer player, MapEventType type, bool doMsgs) {
             ShowFntn(player, type, doMsgs);
@@ -485,7 +485,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent24(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                 SHOW_TEXT(player, type, doMsgs, "Fetid fumes reek of evil magic.");
-                if (GUILD() == WIZARD) {
+                if (GUILD(player, type, doMsgs) == WIZARD) {
                     MOD_MANA(player, type, doMsgs,  - 250);
                 }
                 SprungTrap(player, type, doMsgs);
@@ -528,7 +528,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "Praxis thaumaturges hurl magical bolts at you.");
             OfferBooty(player, type, doMsgs);
-            switch (PARTY_COUNT()) {
+            switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     GET_MONSTER(player, type, doMsgs, 01, 27);
                     GET_MONSTER(player, type, doMsgs, 02, 28);
@@ -560,7 +560,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent2D(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "War-hardened guildsmen attack!");
             OfferBooty(player, type, doMsgs);
-            switch (PARTY_COUNT()) {
+            switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     GET_MONSTER(player, type, doMsgs, 01, 25);
                     GET_MONSTER(player, type, doMsgs, 02, 30);
@@ -603,9 +603,9 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 8, 2, 156, EAST);
         }
         protected override void FnEvent31(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short value;
-            short chesspiece;
-            short mn;
+            short value = 0;
+            short chesspiece = 0;
+            short mn = 0;
             chesspiece = GET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE);
             chesspiece++;
             switch (chesspiece) {
@@ -641,7 +641,7 @@ namespace XPT.Twinion.Maps {
             short itemA = 0;
             short itemB = 0;
             short itemC = 0;
-            switch (HERE()) {
+            switch (HERE(player, type, doMsgs)) {
                 case 178:
                     itemA = MANAAMPHORA;
                     itemB = BLACKBLADE;
@@ -662,22 +662,22 @@ namespace XPT.Twinion.Maps {
                     itemC = SNAKESKINJACKET;
                     break;
             }
-            if (STATE() != HERE() && !HAS_ITEM(player, type, doMsgs, itemA)) {
+            if (STATE(player, type, doMsgs) != HERE(player, type, doMsgs) && !HAS_ITEM(player, type, doMsgs, itemA)) {
                 SET_BOOTY(player, type, doMsgs, itemA, itemB, itemC, 0, 0, 2000);
-                SET_STATE(player, type, doMsgs, HERE());
+                SET_STATE(player, type, doMsgs, HERE(player, type, doMsgs));
             }
         }
         private void WallBlock(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         private void DamageMax(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            DAMAGE(player, type, doMsgs, MAX_HEALTH());
+            DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
         }
         private void DamageBy2(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            DAMAGE(player, type, doMsgs, HEALTH() / 2);
+            DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 2);
         }
         private void DamageBy6(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            DAMAGE(player, type, doMsgs, HEALTH() / 6);
+            DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 6);
         }
         private void SprungTrap(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
@@ -694,113 +694,114 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && !GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) {
                 SHOW_TEXT(player, type, doMsgs, "A maniacal fiend appears; removes an item you stole from him; and kills you outright.");
-                while HAS_ITEM(player, type, doMsgs, JESTERSCAP)TAKE_ITEM(player, type, doMsgs, JESTERSCAP);
-                MOD_GOLD(player, type, doMsgs,  - 10000);
-                MOD_EXP(player, type, doMsgs,  - 200000);
-                DAMAGE(player, type, doMsgs, MAX_HEALTH());
+                while (HAS_ITEM(player, type, doMsgs, JESTERSCAP))
+                    TAKE_ITEM(player, type, doMsgs, JESTERSCAP);
+                    MOD_GOLD(player, type, doMsgs,  - 10000);
+                    MOD_EXP(player, type, doMsgs,  - 200000);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
+                }
+                SHOW_TEXT(player, type, doMsgs, "This area is certainly not the grand entrance to the Dralkarian kingdom you had envisioned.");
+                SHOW_TEXT(player, type, doMsgs, "The walls and floors are in decay, all covered with lichens and scorch marks. Pools of lava and shadow litter the floor.");
+                SHOW_TEXT(player, type, doMsgs, "The crumbling stones and cracked granite act as testimony to the war brewing between the Praxis and Erebus armies that dominate this domain.");
             }
-            SHOW_TEXT(player, type, doMsgs, "This area is certainly not the grand entrance to the Dralkarian kingdom you had envisioned.");
-            SHOW_TEXT(player, type, doMsgs, "The walls and floors are in decay, all covered with lichens and scorch marks. Pools of lava and shadow litter the floor.");
-            SHOW_TEXT(player, type, doMsgs, "The crumbling stones and cracked granite act as testimony to the war brewing between the Praxis and Erebus armies that dominate this domain.");
-        }
-        protected override void FnEvent33(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flag;
-            short portroom;
-            switch (HERE()) {
-                case 119:
-                    flag = KILLEDEREBUS;
-                    portroom = 54;
-                    break;
-                case 120:
-                    flag = KILLEDPRAXIS;
-                    portroom = 57;
-                    break;
+            protected override void FnEvent33(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                short flag = 0;
+                short portroom = 0;
+                switch (HERE(player, type, doMsgs)) {
+                    case 119:
+                        flag = KILLEDEREBUS;
+                        portroom = 54;
+                        break;
+                    case 120:
+                        flag = KILLEDPRAXIS;
+                        portroom = 57;
+                        break;
+                }
+                if (!GET_FLAG(player, type, doMsgs, DUNGEON, flag)) {
+                    if (flag == KILLEDEREBUS) {
+                        ErebusText1(player, type, doMsgs);
+                    }
+                    else {
+                        PraxisText1(player, type, doMsgs);
+                    }
+                    SET_FLAG(player, type, doMsgs, DUNGEON, flag, 1);
+                    SET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE, 2);
+                    TELEPORT(player, type, doMsgs, 8, 1, portroom, NORTH);
+                }
             }
-            if (!GET_FLAG(player, type, doMsgs, DUNGEON, flag)) {
-                if (flag == KILLEDEREBUS) {
-                    ErebusText1(player, type, doMsgs);
+            protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
+                    SHOW_TEXT(player, type, doMsgs, "Ancient carvings of living chess pieces decorate this mysterious portal. Heavy fumes of evil seep upwards from this portal to Dragon's Flame.");
+                    SprungTrap(player, type, doMsgs);
+                }
+                TELEPORT(player, type, doMsgs, 8, 2, 38, WEST);
+            }
+            protected override void FnEvent35(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                if (HAS_ITEM(player, type, doMsgs, LAVAGLOVE)) {
+                    SHOW_TEXT(player, type, doMsgs, "Your Lava Glove begins to glow with white-hot intensity...tugging you in this direction.");
+                }
+            }
+            protected override void FnEvent37(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                if (PARTY_COUNT(player, type, doMsgs) == 1) {
+                    if (GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDPRAXIS) == 2) {
+                        MasterTxt(player, type, doMsgs);
+                    }
                 }
                 else {
-                    PraxisText1(player, type, doMsgs);
-                }
-                SET_FLAG(player, type, doMsgs, DUNGEON, flag, 1);
-                SET_FLAG(player, type, doMsgs, DUNGEON, WHICHPIECE, 2);
-                TELEPORT(player, type, doMsgs, 8, 1, portroom, NORTH);
-            }
-        }
-        protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
-                SHOW_TEXT(player, type, doMsgs, "Ancient carvings of living chess pieces decorate this mysterious portal. Heavy fumes of evil seep upwards from this portal to Dragon's Flame.");
-                SprungTrap(player, type, doMsgs);
-            }
-            TELEPORT(player, type, doMsgs, 8, 2, 38, WEST);
-        }
-        protected override void FnEvent35(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (HAS_ITEM(player, type, doMsgs, LAVAGLOVE)) {
-                SHOW_TEXT(player, type, doMsgs, "Your Lava Glove begins to glow with white-hot intensity...tugging you in this direction.");
-            }
-        }
-        protected override void FnEvent37(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
-                if (GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDPRAXIS) == 2) {
-                    MasterTxt(player, type, doMsgs);
+                    SoloTxt(player, type, doMsgs);
                 }
             }
-            else {
-                SoloTxt(player, type, doMsgs);
-            }
-        }
-        protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flag = 222;
-            switch (HERE()) {
-                case 135:
-                    flag = KILLEDEREBUS;
-                    break;
-                case 136:
-                    flag = KILLEDPRAXIS;
-                    break;
-            }
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, flag) != 2 && GET_FLAG(player, type, doMsgs, DUNGEON, flag) == 1) {
-                SET_FLAG(player, type, doMsgs, DUNGEON, flag, 2);
-                MOD_EXP(player, type, doMsgs, 350000);
-                SHOW_TEXT(player, type, doMsgs, "Your prowess is acknowledged. Gain wisdom from your actions.");
-            }
-        }
-        protected override void FnEvent39(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
-                if (GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDEREBUS) == 2) {
-                    MasterTxt(player, type, doMsgs);
+            protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                short flag = 222;
+                switch (HERE(player, type, doMsgs)) {
+                    case 135:
+                        flag = KILLEDEREBUS;
+                        break;
+                    case 136:
+                        flag = KILLEDPRAXIS;
+                        break;
+                }
+                if (GET_FLAG(player, type, doMsgs, DUNGEON, flag) != 2 && GET_FLAG(player, type, doMsgs, DUNGEON, flag) == 1) {
+                    SET_FLAG(player, type, doMsgs, DUNGEON, flag, 2);
+                    MOD_EXP(player, type, doMsgs, 350000);
+                    SHOW_TEXT(player, type, doMsgs, "Your prowess is acknowledged. Gain wisdom from your actions.");
                 }
             }
-            else {
-                SoloTxt(player, type, doMsgs);
-            }
-        }
-        protected override void FnEvent3B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_JOIN();
-        }
-        protected override void FnEvent3C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "A dark portal offers you descent into untamed depths of this dark underworld.");
-            TELEPORT(player, type, doMsgs, 9, 2, 119, EAST);
-        }
-        protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i;
-            SHOW_TEXT(player, type, doMsgs, "Servants of Qao rise from the lava to repel encroaching invaders!");
-            if (!HAS_ITEM(player, type, doMsgs, HEALAMPHORA) && !GET_FLAG(player, type, doMsgs, PARTY, SERVANTS)) {
-                SET_BOOTY(player, type, doMsgs, HEALAMPHORA, LIFEGIVER, SCORCHEDSCROLL, 0, 0, 2000);
-                SET_FLAG(player, type, doMsgs, PARTY, SERVANTS, 1);
-            }
-            switch (PARTY_COUNT()) {
-                case 1:
-                case 2:
-                    for (i = 1; i <= 2; i++) {
-                        GET_MONSTER(player, type, doMsgs, i, 24);
+            protected override void FnEvent39(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                if (PARTY_COUNT(player, type, doMsgs) == 1) {
+                    if (GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDEREBUS) == 2) {
+                        MasterTxt(player, type, doMsgs);
                     }
-                    default:
-                        for (i = 1; i <= 4; i++) {
+                }
+                else {
+                    SoloTxt(player, type, doMsgs);
+                }
+            }
+            protected override void FnEvent3B(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                NO_JOIN(player, type, doMsgs);
+            }
+            protected override void FnEvent3C(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                SHOW_TEXT(player, type, doMsgs, "A dark portal offers you descent into untamed depths of this dark underworld.");
+                TELEPORT(player, type, doMsgs, 9, 2, 119, EAST);
+            }
+            protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                short i = 0;
+                SHOW_TEXT(player, type, doMsgs, "Servants of Qao rise from the lava to repel encroaching invaders!");
+                if (!HAS_ITEM(player, type, doMsgs, HEALAMPHORA) && !GET_FLAG(player, type, doMsgs, PARTY, SERVANTS)) {
+                    SET_BOOTY(player, type, doMsgs, HEALAMPHORA, LIFEGIVER, SCORCHEDSCROLL, 0, 0, 2000);
+                    SET_FLAG(player, type, doMsgs, PARTY, SERVANTS, 1);
+                }
+                switch (PARTY_COUNT(player, type, doMsgs)) {
+                    case 1:
+                    case 2:
+                        for (i = 1; i <= 2; i++) {
                             GET_MONSTER(player, type, doMsgs, i, 24);
+                        }
+                        default:
+                            for (i = 1; i <= 4; i++) {
+                                GET_MONSTER(player, type, doMsgs, i, 24);
+                            }
                         }
                     }
                 }
             }
-        }

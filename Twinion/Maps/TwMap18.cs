@@ -9,14 +9,14 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterExtraCount => 0;
 
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 25);
                 GET_MONSTER(player, type, doMsgs, 02, 25);
                 GET_MONSTER(player, type, doMsgs, 03, 25);
                 GET_MONSTER(player, type, doMsgs, 04, 25);
                 GET_MONSTER(player, type, doMsgs, 05, 1);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 25);
                 GET_MONSTER(player, type, doMsgs, 02, 25);
                 GET_MONSTER(player, type, doMsgs, 03, 25);
@@ -33,11 +33,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent02(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 2);
                 GET_MONSTER(player, type, doMsgs, 02, 14);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 3);
                 GET_MONSTER(player, type, doMsgs, 02, 5);
                 GET_MONSTER(player, type, doMsgs, 03, 14);
@@ -54,11 +54,11 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent03(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "The Snake Charm rattles at the Giant Asp as you approach.");
             SHOW_TEXT(player, type, doMsgs, "'Kill me if you can, foolish mortals-s-s.'");
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 1);
                 GET_MONSTER(player, type, doMsgs, 05, 24);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 3);
                 GET_MONSTER(player, type, doMsgs, 02, 6);
                 GET_MONSTER(player, type, doMsgs, 06, 24);
@@ -72,11 +72,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent04(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 14);
                 GET_MONSTER(player, type, doMsgs, 02, 19);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 14);
                 GET_MONSTER(player, type, doMsgs, 02, 17);
                 GET_MONSTER(player, type, doMsgs, 03, 21);
@@ -91,11 +91,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent05(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 11);
                 GET_MONSTER(player, type, doMsgs, 02, 16);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 11);
                 GET_MONSTER(player, type, doMsgs, 02, 12);
                 GET_MONSTER(player, type, doMsgs, 04, 16);
@@ -110,13 +110,13 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 23);
                 GET_MONSTER(player, type, doMsgs, 02, 11);
                 GET_MONSTER(player, type, doMsgs, 05, 25);
                 GET_MONSTER(player, type, doMsgs, 06, 25);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 7);
                 GET_MONSTER(player, type, doMsgs, 02, 22);
                 GET_MONSTER(player, type, doMsgs, 03, 25);
@@ -133,11 +133,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent07(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 18);
                 GET_MONSTER(player, type, doMsgs, 02, 17);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 8);
                 GET_MONSTER(player, type, doMsgs, 02, 8);
                 GET_MONSTER(player, type, doMsgs, 04, 17);
@@ -183,11 +183,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent09(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 17);
                 GET_MONSTER(player, type, doMsgs, 02, 18);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 17);
                 GET_MONSTER(player, type, doMsgs, 02, 19);
                 GET_MONSTER(player, type, doMsgs, 03, 19);
@@ -208,12 +208,12 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "Opening the door to the south reveals a shaft lined with rough walls. You use the notches as footholds to climb to the top.");
         }
         protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 2);
                 GET_MONSTER(player, type, doMsgs, 02, 6);
                 GET_MONSTER(player, type, doMsgs, 03, 13);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 1);
                 GET_MONSTER(player, type, doMsgs, 02, 4);
                 GET_MONSTER(player, type, doMsgs, 03, 6);
@@ -229,11 +229,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 14);
                 GET_MONSTER(player, type, doMsgs, 02, 19);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 23);
                 GET_MONSTER(player, type, doMsgs, 02, 22);
                 GET_MONSTER(player, type, doMsgs, 04, 21);
@@ -248,11 +248,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 12);
                 GET_MONSTER(player, type, doMsgs, 02, 16);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 16);
                 GET_MONSTER(player, type, doMsgs, 02, 15);
                 GET_MONSTER(player, type, doMsgs, 03, 12);
@@ -286,24 +286,24 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "I will leave you as food for my pets.'");
         }
         protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
-                CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 SHOW_TEXT(player, type, doMsgs, "Wicked hisses issue forth from the other side.");
             }
             else {
-                BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 SHOW_TEXT(player, type, doMsgs, "You must squeeze through this narrow opening one at a time.");
             }
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_JOIN();
+            NO_JOIN(player, type, doMsgs);
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (!HAS_ITEM(player, type, doMsgs, SNAKECHARM)) {
                 SHOW_TEXT(player, type, doMsgs, "The Giant Asp laughs at your feeble attempts to kill him.");
                 SHOW_TEXT(player, type, doMsgs, "'You are not protected by that curs-s-sed S-s-snake Charm!'");
                 SHOW_TEXT(player, type, doMsgs, "The Giant Asp slays you with one mighty blow.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH());
+                DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "The Giant Asp sees your Snake Charm and shrinks back.");

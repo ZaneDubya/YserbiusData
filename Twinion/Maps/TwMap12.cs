@@ -19,11 +19,11 @@ namespace XPT.Twinion.Maps {
             else {
                 SET_BOOTY(player, type, doMsgs, MANARESTORE, GAUNTLETSOFMERCY, 0, 0, 0, 3000);
             }
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 7);
                 GET_MONSTER(player, type, doMsgs, 02, 8);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 7);
                 GET_MONSTER(player, type, doMsgs, 02, 9);
                 GET_MONSTER(player, type, doMsgs, 06, 9);
@@ -51,8 +51,8 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent08(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short itemA = 0;
-            short race;
-            race = RACE();
+            short race = 0;
+            race = RACE(player, type, doMsgs);
             switch (race) {
                 case HUMAN:
                     itemA = CORAL;
@@ -73,8 +73,8 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent09(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short itemA = 0;
-            short race;
-            race = RACE();
+            short race = 0;
+            race = RACE(player, type, doMsgs);
             switch (race) {
                 case GREMLIN:
                 case GNOME:
@@ -104,10 +104,10 @@ namespace XPT.Twinion.Maps {
             short itemC = 0;
             short itemD = 0;
             short itemE = UNITYRING;
-            short tile;
+            short tile = 0;
             if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
-                if (PARTY_COUNT() == 1 && RACE() == GNOME) {
-                    tile = HERE();
+                if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == GNOME) {
+                    tile = HERE(player, type, doMsgs);
                     switch (tile) {
                         case 116:
                             itemA = EBONY;
@@ -160,10 +160,10 @@ namespace XPT.Twinion.Maps {
             short itemC = 0;
             short itemD = 0;
             short itemE = UNITYRING;
-            short tile;
+            short tile = 0;
             if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
-                if (PARTY_COUNT() == 1 && RACE() == HALFLING) {
-                    tile = HERE();
+                if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == HALFLING) {
+                    tile = HERE(player, type, doMsgs);
                     switch (tile) {
                         case 68:
                             itemA = TOPAZ;
@@ -216,10 +216,10 @@ namespace XPT.Twinion.Maps {
             short itemC = 0;
             short itemD = 0;
             short itemE = UNITYRING;
-            short tile;
+            short tile = 0;
             if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
-                if (PARTY_COUNT() == 1 && RACE() == ORC) {
-                    tile = HERE();
+                if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == ORC) {
+                    tile = HERE(player, type, doMsgs);
                     switch (tile) {
                         case 84:
                             itemA = PEARL;
@@ -272,10 +272,10 @@ namespace XPT.Twinion.Maps {
             short itemC = 0;
             short itemD = 0;
             short itemE = UNITYRING;
-            short tile;
+            short tile = 0;
             if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
-                if (PARTY_COUNT() == 1 && RACE() == TROLL) {
-                    tile = HERE();
+                if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == TROLL) {
+                    tile = HERE(player, type, doMsgs);
                     switch (tile) {
                         case 100:
                             itemA = OPAL;
@@ -365,11 +365,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_SPELL();
-            if (PARTY_COUNT() > 1) {
-                short racecheck;
-                short tile;
-                racecheck = RACE();
+            NO_SPELL(player, type, doMsgs);
+            if (PARTY_COUNT(player, type, doMsgs) > 1) {
+                short racecheck = 0;
+                short tile = 0;
+                racecheck = RACE(player, type, doMsgs);
                 switch (racecheck) {
                     case HALFLING:
                         tile = 68;
@@ -406,10 +406,10 @@ namespace XPT.Twinion.Maps {
             short itemC = 0;
             short itemD = 0;
             short itemE = UNITYRING;
-            short tile;
+            short tile = 0;
             if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
-                if (PARTY_COUNT() == 1 && RACE() == ELF) {
-                    tile = HERE();
+                if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == ELF) {
+                    tile = HERE(player, type, doMsgs);
                     switch (tile) {
                         case 132:
                             itemA = EBONY;
@@ -462,10 +462,10 @@ namespace XPT.Twinion.Maps {
             short itemC = 0;
             short itemD = 0;
             short itemE = UNITYRING;
-            short tile;
+            short tile = 0;
             if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
-                if (PARTY_COUNT() == 1 && RACE() == DWARF) {
-                    tile = HERE();
+                if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == DWARF) {
+                    tile = HERE(player, type, doMsgs);
                     switch (tile) {
                         case 148:
                             itemA = OPAL;
@@ -528,10 +528,10 @@ namespace XPT.Twinion.Maps {
             short itemC = 0;
             short itemD = 0;
             short itemE = UNITYRING;
-            short tile;
+            short tile = 0;
             if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
-                if (PARTY_COUNT() == 1 && RACE() == GREMLIN) {
-                    tile = HERE();
+                if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == GREMLIN) {
+                    tile = HERE(player, type, doMsgs);
                     switch (tile) {
                         case 164:
                             itemA = PEARL;
@@ -584,11 +584,11 @@ namespace XPT.Twinion.Maps {
             short itemC = 0;
             short itemD = 0;
             short itemE = UNITYRING;
-            short tile;
-            short number;
+            short tile = 0;
+            short number = 0;
             if (!GET_FLAG(player, type, doMsgs, DUNGEON, PATHWAYDONE)) {
-                if (PARTY_COUNT() == 1 && RACE() == HUMAN) {
-                    tile = HERE();
+                if (PARTY_COUNT(player, type, doMsgs) == 1 && RACE(player, type, doMsgs) == HUMAN) {
+                    tile = HERE(player, type, doMsgs);
                     switch (tile) {
                         case 180:
                             itemA = CORAL;
@@ -672,7 +672,7 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 8 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
                 SHOW_TEXT(player, type, doMsgs, "A secret door is revealed.");
-                PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(), FACING());
+                PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 WallClear(player, type, doMsgs);
             }
             else {
@@ -684,8 +684,8 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent3F(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short itemA = 0;
-            short race;
-            race = RACE();
+            short race = 0;
+            race = RACE(player, type, doMsgs);
             switch (race) {
                 case ORC:
                 case TROLL:
@@ -706,8 +706,8 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent41(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short itemA = 0;
-            short race;
-            race = RACE();
+            short race = 0;
+            race = RACE(player, type, doMsgs);
             switch (race) {
                 case DWARF:
                 case ELF:
@@ -757,7 +757,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent4B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 26);
                 GET_MONSTER(player, type, doMsgs, 02, 31);
             }
@@ -769,11 +769,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent4D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 6);
                 GET_MONSTER(player, type, doMsgs, 02, 7);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 6);
                 GET_MONSTER(player, type, doMsgs, 02, 6);
                 GET_MONSTER(player, type, doMsgs, 03, 7);
@@ -788,11 +788,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent4F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 35);
                 GET_MONSTER(player, type, doMsgs, 02, 27);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 35);
                 GET_MONSTER(player, type, doMsgs, 02, 36);
                 GET_MONSTER(player, type, doMsgs, 03, 28);
@@ -805,11 +805,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent50(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 6);
                 GET_MONSTER(player, type, doMsgs, 02, 36);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 6);
                 GET_MONSTER(player, type, doMsgs, 02, 5);
                 GET_MONSTER(player, type, doMsgs, 03, 14);
@@ -826,13 +826,13 @@ namespace XPT.Twinion.Maps {
         }
         private void DamXit(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "You failed to use the correct item.");
-            DAMAGE(player, type, doMsgs, MAX_HEALTH());
+            DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
         }
         private void WallBlock(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         private void WallClear(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+            CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
     }
 }

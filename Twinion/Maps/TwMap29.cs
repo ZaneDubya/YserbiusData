@@ -12,36 +12,36 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "You manage to move through the astral material.");
         }
         protected override void FnEvent02(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_SPELL();
-            NO_SKILL();
-            NO_MANA_ZONE();
+            NO_SPELL(player, type, doMsgs);
+            NO_SKILL(player, type, doMsgs);
+            NO_MANA_ZONE(player, type, doMsgs);
             MOD_MANA(player, type, doMsgs,  - 200);
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
-                if (ALIGN() == HARMONY) {
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 8);
+                if (ALIGN(player, type, doMsgs) == HARMONY) {
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 8);
                     SHOW_TEXT(player, type, doMsgs, "The vile evil that sustains this pocket of Ashakkar here drains life from you!");
                 }
                 else {
                     SHOW_TEXT(player, type, doMsgs, "You thrive on the vicious forces that exist here.");
-                    HEAL(player, type, doMsgs, HEALTH() / 3);
+                    HEAL(player, type, doMsgs, HEALTH(player, type, doMsgs) / 3);
                     MOD_MANA(player, type, doMsgs, 200);
                 }
                 SprungTrap(player, type, doMsgs);
             }
         }
         protected override void FnEvent03(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_SPELL();
-            NO_SKILL();
-            NO_MANA_ZONE();
+            NO_SPELL(player, type, doMsgs);
+            NO_SKILL(player, type, doMsgs);
+            NO_MANA_ZONE(player, type, doMsgs);
             MOD_MANA(player, type, doMsgs,  - 200);
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
-                if (ALIGN() == CHAOS) {
-                    DAMAGE(player, type, doMsgs, HEALTH() / 8);
+                if (ALIGN(player, type, doMsgs) == CHAOS) {
+                    DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 8);
                     SHOW_TEXT(player, type, doMsgs, "Your struggle against the forces in this piece of Enakkar twists and drains your energy.");
                 }
                 else {
                     SHOW_TEXT(player, type, doMsgs, "You feel revived and refreshed as you travel through this segment of Enakkar.");
-                    HEAL(player, type, doMsgs, HEALTH() / 3);
+                    HEAL(player, type, doMsgs, HEALTH(player, type, doMsgs) / 3);
                     MOD_MANA(player, type, doMsgs, 200);
                 }
                 SprungTrap(player, type, doMsgs);
@@ -49,20 +49,20 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent04(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
-                DAMAGE(player, type, doMsgs, HEALTH() / 3);
+                DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 3);
                 SHOW_TEXT(player, type, doMsgs, "The forces of Fire sear and singe you as you travel through some small part of the Elemental plane.");
                 SprungTrap(player, type, doMsgs);
             }
         }
         protected override void FnEvent05(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
-                DAMAGE(player, type, doMsgs, HEALTH() / 3);
+                DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 3);
                 SHOW_TEXT(player, type, doMsgs, "The Waters here drench you with ominous force.");
                 SprungTrap(player, type, doMsgs);
             }
         }
         protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short i;
+            short i = 0;
             SHOW_TEXT(player, type, doMsgs, "Violent forces whip into a fury of vorticies; forming an arsenal of Planar Guardians who prevent transgressions!!");
             for (i = 1; i <= 4; i++) {
                 GET_MONSTER(player, type, doMsgs, i, 39);
@@ -100,7 +100,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
             SHOW_TEXT(player, type, doMsgs, "Turbulent forces impede you from going any further in this direction.");
         }
         protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -110,7 +110,7 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "A maginficent likeness of some powerful demigod stands here as guardian to this chamber.");
         }
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_MANA_ZONE();
+            NO_MANA_ZONE(player, type, doMsgs);
             if (GET_FLAG(player, type, doMsgs, PARTY, DRAKFIGHT) == 1) {
                 if (!GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDMALOS)) {
                     SHOW_TEXT(player, type, doMsgs, "Malos weaves magical mists as he speaks at you, 'You dare to challenge the Guardian of the Elements! I shall not be so easy to defeat!");
@@ -118,7 +118,7 @@ namespace XPT.Twinion.Maps {
                     BootySet(player, type, doMsgs);
                     TextAtThrone(player, type, doMsgs);
                 }
-                switch (PARTY_COUNT()) {
+                switch (PARTY_COUNT(player, type, doMsgs)) {
                     case 1:
                         GET_MONSTER(player, type, doMsgs, 01, 35);
                         break;
@@ -138,16 +138,16 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (ALIGN() == CHAOS) {
-                if (GUILD() != WIZARD || GUILD() != CLERIC) {
-                    NO_SPELL();
-                    NO_MANA_ZONE();
+            if (ALIGN(player, type, doMsgs) == CHAOS) {
+                if (GUILD(player, type, doMsgs) != WIZARD || GUILD(player, type, doMsgs) != CLERIC) {
+                    NO_SPELL(player, type, doMsgs);
+                    NO_MANA_ZONE(player, type, doMsgs);
                     SHOW_TEXT(player, type, doMsgs, "Juvalad strips you of the ability to use magic! Your alignment opposes his own!");
                 }
                 else {
                     SHOW_TEXT(player, type, doMsgs, "Your alignment has weakened your magic; but your devotion lets you retain your spells, your skills though are useless!");
-                    NO_MANA_ZONE();
-                    NO_SKILL();
+                    NO_MANA_ZONE(player, type, doMsgs);
+                    NO_SKILL(player, type, doMsgs);
                 }
             }
             if (GET_FLAG(player, type, doMsgs, PARTY, DRAKFIGHT) == 1) {
@@ -156,7 +156,7 @@ namespace XPT.Twinion.Maps {
                     TextAtThrone(player, type, doMsgs);
                     BootySet(player, type, doMsgs);
                 }
-                switch (PARTY_COUNT()) {
+                switch (PARTY_COUNT(player, type, doMsgs)) {
                     case 1:
                         GET_MONSTER(player, type, doMsgs, 01, 36);
                         break;
@@ -176,17 +176,17 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent10(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (ALIGN() == HARMONY) {
+            if (ALIGN(player, type, doMsgs) == HARMONY) {
                 SHOW_TEXT(player, type, doMsgs, "Your alignment opposes Pluthros'!");
-                if (GUILD() != WIZARD || GUILD() != CLERIC) {
-                    NO_SPELL();
-                    NO_MANA_ZONE();
+                if (GUILD(player, type, doMsgs) != WIZARD || GUILD(player, type, doMsgs) != CLERIC) {
+                    NO_SPELL(player, type, doMsgs);
+                    NO_MANA_ZONE(player, type, doMsgs);
                     SHOW_TEXT(player, type, doMsgs, "For that, he strips your ability to use magic! ");
                 }
                 else {
                     SHOW_TEXT(player, type, doMsgs, "For that, he has weakened your magic; but your devotion let's you retain your spells! Your skills, however, are useless!");
-                    NO_MANA_ZONE();
-                    NO_SKILL();
+                    NO_MANA_ZONE(player, type, doMsgs);
+                    NO_SKILL(player, type, doMsgs);
                 }
             }
             if (GET_FLAG(player, type, doMsgs, PARTY, DRAKFIGHT) == 1) {
@@ -196,7 +196,7 @@ namespace XPT.Twinion.Maps {
                     BootySet(player, type, doMsgs);
                     TextAtThrone(player, type, doMsgs);
                 }
-                switch (PARTY_COUNT()) {
+                switch (PARTY_COUNT(player, type, doMsgs)) {
                     case 1:
                         GET_MONSTER(player, type, doMsgs, 01, 34);
                         break;
@@ -222,7 +222,7 @@ namespace XPT.Twinion.Maps {
                     TextAtThrone(player, type, doMsgs);
                     BootySet(player, type, doMsgs);
                 }
-                switch (PARTY_COUNT()) {
+                switch (PARTY_COUNT(player, type, doMsgs)) {
                     case 1:
                         GET_MONSTER(player, type, doMsgs, 01, 33);
                         break;
@@ -246,12 +246,12 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 1, 1, 14, NORTH);
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flag;
-            short portroom1;
-            short portroom2;
-            short f1;
-            short f2;
-            switch (HERE()) {
+            short flag = 0;
+            short portroom1 = 0;
+            short portroom2 = 0;
+            short f1 = 0;
+            short f2 = 0;
+            switch (HERE(player, type, doMsgs)) {
                 case 30:
                     flag = KILLEDCORPEUS;
                     portroom1 = 14;
@@ -288,14 +288,14 @@ namespace XPT.Twinion.Maps {
                     f2 = NORTH;
                     break;
             }
-            if ((PARTY_COUNT() == 1) && (!GET_FLAG(player, type, doMsgs, DUNGEON, flag) || GET_FLAG(player, type, doMsgs, DUNGEON, flag) == 2)) {
+            if ((PARTY_COUNT(player, type, doMsgs) == 1) && (!GET_FLAG(player, type, doMsgs, DUNGEON, flag) || GET_FLAG(player, type, doMsgs, DUNGEON, flag) == 2)) {
                 if (!GET_FLAG(player, type, doMsgs, DUNGEON, flag)) {
                     SET_FLAG(player, type, doMsgs, PARTY, DRAKFIGHT, 1);
                 }
                 TELEPORT(player, type, doMsgs, 11, 4, portroom1, f1);
                 SHOW_TEXT(player, type, doMsgs, "You are pulled into the antechamber of the throne room. You must not leave this realm, lest your efforts are wasted!");
             }
-            else if (PARTY_COUNT() > 1) {
+            else if (PARTY_COUNT(player, type, doMsgs) > 1) {
                 TELEPORT(player, type, doMsgs, 11, 4, portroom2, f2);
                 SHOW_TEXT(player, type, doMsgs, "You cannot step here together. Disband and return.");
             }
@@ -304,11 +304,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short item;
-            short portlvl;
-            short portroom;
-            short f1;
-            switch (HERE()) {
+            short item = 0;
+            short portlvl = 0;
+            short portroom = 0;
+            short f1 = 0;
+            switch (HERE(player, type, doMsgs)) {
                 case 14:
                     item = REALITYSRAMPART;
                     portlvl = 3;
@@ -346,7 +346,7 @@ namespace XPT.Twinion.Maps {
                     SHOW_TEXT(player, type, doMsgs, "As he notices you, he spots something you're carrying and beckons you forth with an evil grin.");
                 }
                 else {
-                    switch (HERE()) {
+                    switch (HERE(player, type, doMsgs)) {
                         case 14:
                             SHOW_TEXT(player, type, doMsgs, "Corpeus bellows at you, 'Without the Rampart, you have no defense. Away, come again once you've found my Reality!'");
                             break;
@@ -365,14 +365,14 @@ namespace XPT.Twinion.Maps {
                             break;
                     }
                     SHOW_TEXT(player, type, doMsgs, "His magics swirl around you and hurl you through a vortex, back to the pathway.");
-                    DAMAGE(player, type, doMsgs, HEALTH() - 10);
+                    DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) - 10);
                     TELEPORT(player, type, doMsgs, 11, portlvl, portroom, f1);
                 }
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "Away! You've left this domain and re-entered. You must remain here once you've started until you've killed the Dralk or died trying!");
                 SHOW_TEXT(player, type, doMsgs, "The Dralk sends you to the entrance of His home!");
-                switch (HERE()) {
+                switch (HERE(player, type, doMsgs)) {
                     case 160:
                         TELEPORT(player, type, doMsgs, 11, 4, 181, WEST);
                         break;
@@ -392,7 +392,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent16(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_FLOOR(player, type, doMsgs, HERE());
+            BLOCK_FLOOR(player, type, doMsgs, HERE(player, type, doMsgs));
         }
         protected override void FnEvent17(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (!GET_FLAG(player, type, doMsgs, PARTY, GOTTEXT)) {
@@ -402,14 +402,14 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GUILD() == WIZARD || GUILD() == CLERIC || GUILD() == RANGER || GUILD() == THIEF) {
+            if (GUILD(player, type, doMsgs) == WIZARD || GUILD(player, type, doMsgs) == CLERIC || GUILD(player, type, doMsgs) == RANGER || GUILD(player, type, doMsgs) == THIEF) {
                 SHOW_TEXT(player, type, doMsgs, "Your prowess with magic allows you to retain your abilities; but not to restore your mana!!!");
-                NO_MANA_ZONE();
+                NO_MANA_ZONE(player, type, doMsgs);
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "Your magical powers are feeble and lack the discipline of a Wizard or Cleric. Your magics are useless here!");
-                NO_SPELL();
-                NO_MANA_ZONE();
+                NO_SPELL(player, type, doMsgs);
+                NO_MANA_ZONE(player, type, doMsgs);
             }
             if (GET_FLAG(player, type, doMsgs, PARTY, DRAKFIGHT) == 1) {
                 if (!GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDCORPEUS)) {
@@ -417,7 +417,7 @@ namespace XPT.Twinion.Maps {
                     BootySet(player, type, doMsgs);
                     TextAtThrone(player, type, doMsgs);
                 }
-                switch (PARTY_COUNT()) {
+                switch (PARTY_COUNT(player, type, doMsgs)) {
                     case 1:
                         GET_MONSTER(player, type, doMsgs, 01, 37);
                         break;
@@ -437,9 +437,9 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short flag;
-            short itemA;
-            switch (HERE()) {
+            short flag = 0;
+            short itemA = 0;
+            switch (HERE(player, type, doMsgs)) {
                 case 104:
                     flag = KILLEDASTELLIGUS;
                     itemA = NIMBUSOFTHEFATES;
@@ -478,8 +478,8 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_SPELL();
-            short flagtotal;
+            NO_SPELL(player, type, doMsgs);
+            short flagtotal = 0;
             flagtotal = GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDASTELLIGUS);
              + GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDPLUTHROS);
              + GET_FLAG(player, type, doMsgs, DUNGEON, KILLEDMALOS);
@@ -501,7 +501,7 @@ namespace XPT.Twinion.Maps {
                     SHOW_TEXT(player, type, doMsgs, "'Did you truly believe I would share the greatest triumph with you! Your powers are no match for mine now! Away with you! Your faith in my friendship was your weakness! I alone shall breach The Gateway; I alone shall enter the next phase!'");
                     SHOW_TEXT(player, type, doMsgs, "Driven mad with power, Aeowyn hurls untamed forces upon you, stripping away parts of your attributes! A blast explodes on the southern wall, where a teleport will allow you escape.");
                     SHOW_TEXT(player, type, doMsgs, "The mad Queen, then dissipates into nothingness, only her evil laughter echoing as she heads off to The Gateway.");
-                    DAMAGE(player, type, doMsgs, HEALTH() / 2);
+                    DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 2);
                     TAKE_ITEM(player, type, doMsgs, STARBURST);
                     if (!GET_FLAG(player, type, doMsgs, DUNGEON, ENDGAMETELE)) {
                         MOD_STAT(player, type, doMsgs, STRENGTH,  - 1);

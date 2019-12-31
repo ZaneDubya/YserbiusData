@@ -91,14 +91,14 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent10(TwPlayerServer player, MapEventType type, bool doMsgs) {
             MOD_MANA(player, type, doMsgs,  - 200);
             SHOW_TEXT(player, type, doMsgs, "Your constant running into invisible walls has taken a toll on your mana.");
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
         }
         protected override void FnEvent11(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         protected override void FnEvent12(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_SKILL();
-            NO_SPELL();
+            NO_SKILL(player, type, doMsgs);
+            NO_SPELL(player, type, doMsgs);
         }
         protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GET_FLAG(player, type, doMsgs, DUNGEON, PANSCROLL) == 1) {
@@ -116,34 +116,34 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
-            NO_HEAL_ZONE();
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            NO_HEAL_ZONE(player, type, doMsgs);
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
                 SHOW_TEXT(player, type, doMsgs, "The water drains your energy as you wade through it.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 4);
                 SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
             }
         }
         protected override void FnEvent16(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
-            NO_HEAL_ZONE();
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
+            NO_HEAL_ZONE(player, type, doMsgs);
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
-                if (GUILD() == RANGER || GUILD() == CLERIC || GUILD() == WIZARD) {
+                if (GUILD(player, type, doMsgs) == RANGER || GUILD(player, type, doMsgs) == CLERIC || GUILD(player, type, doMsgs) == WIZARD) {
                     SHOW_TEXT(player, type, doMsgs, "A water monster attacks you, but you manage to get away with minimal damage.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 4);
                     SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
                 }
             }
         }
         protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "You fall into a bottomless pit.");
-            DAMAGE(player, type, doMsgs, MAX_HEALTH());
+            DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
         }
         protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, PANMANA) == 1) {
                 SHOW_TEXT(player, type, doMsgs, "The water flows briskly around you.");
             }
@@ -154,39 +154,39 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
-            NO_HEAL_ZONE();
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            NO_HEAL_ZONE(player, type, doMsgs);
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
-                if (GUILD() == THIEF || GUILD() == BARBARIAN || GUILD() == KNIGHT) {
+                if (GUILD(player, type, doMsgs) == THIEF || GUILD(player, type, doMsgs) == BARBARIAN || GUILD(player, type, doMsgs) == KNIGHT) {
                     SHOW_TEXT(player, type, doMsgs, "A water monster attacks you, but you manage to get away with minimal damage.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 4);
                     SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
                 }
             }
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                CLEAR_WALL(player, type, doMsgs, HERE(), NORTH);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
             }
             else {
-                BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
             }
         }
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
-            NO_HEAL_ZONE();
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            NO_HEAL_ZONE(player, type, doMsgs);
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
                 SHOW_TEXT(player, type, doMsgs, "The heat of the surrounding lava makes you weak.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 4);
                 SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
             }
         }
         protected override void FnEvent1F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, PANMONEY) == 1) {
                 SHOW_TEXT(player, type, doMsgs, "You find nothing.");
             }
@@ -201,60 +201,60 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                CLEAR_WALL(player, type, doMsgs, HERE(), SOUTH);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
             }
             else {
-                BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
             }
         }
         protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "You see a sign on the door. 'Adventurers!  Proceed through this door individually if you possess the magical Starburst.'");
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                    CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+                    CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 }
                 else {
-                    BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+                    BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                     SHOW_TEXT(player, type, doMsgs, "You must find the magical Starburst to gain entry.");
                 }
             }
             else {
-                BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
             }
         }
         protected override void FnEvent22(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
-            NO_HEAL_ZONE();
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
+            NO_HEAL_ZONE(player, type, doMsgs);
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
-                if (GUILD() == THIEF || GUILD() == BARBARIAN || GUILD() == KNIGHT) {
+                if (GUILD(player, type, doMsgs) == THIEF || GUILD(player, type, doMsgs) == BARBARIAN || GUILD(player, type, doMsgs) == KNIGHT) {
                     SHOW_TEXT(player, type, doMsgs, "Your heavy step causes a crack in the hardened lava and the still molten lava below splashes up and injures you.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 4);
                     SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
                 }
             }
         }
         protected override void FnEvent23(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            NO_HEAL_ZONE();
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            NO_HEAL_ZONE(player, type, doMsgs);
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
-                if (GUILD() == RANGER || GUILD() == CLERIC || GUILD() == WIZARD) {
+                if (GUILD(player, type, doMsgs) == RANGER || GUILD(player, type, doMsgs) == CLERIC || GUILD(player, type, doMsgs) == WIZARD) {
                     SHOW_TEXT(player, type, doMsgs, "Your heavy step causes a crack in the hardened lava and the still molten lava below splashes up and injures you.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 4);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 4);
                     SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
                 }
             }
         }
         protected override void FnEvent24(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "The swirling waters of Bedlam Whirlpool heal your wounds.");
-            HEAL(player, type, doMsgs, MAX_HEALTH());
+            HEAL(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
         }
         protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
             }
             else {
-                CLEAR_WALL(player, type, doMsgs, HERE(), EAST);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
             }
         }
         protected override void FnEvent26(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -269,17 +269,17 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent29(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
-            NO_HEAL_ZONE();
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+            NO_HEAL_ZONE(player, type, doMsgs);
             if (!GET_FLAG(player, type, doMsgs, ROOM, PORT)) {
                 SHOW_TEXT(player, type, doMsgs, "You cut yourself on the jagged rock wall.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH() / 3);
+                DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 3);
                 SET_FLAG(player, type, doMsgs, ROOM, PORT, 1);
             }
         }
         protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, PANLIFE) == 1) {
                 SHOW_TEXT(player, type, doMsgs, "You see a hole in the wall.");
             }
@@ -293,19 +293,19 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
             SHOW_TEXT(player, type, doMsgs, "The Lava Pool of Confusion restores your mana.");
             MOD_MANA(player, type, doMsgs, 10000);
         }
         protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 SHOW_TEXT(player, type, doMsgs, "You find that a boulder has blocked your path.");
-                if ((USED_ITEM(player, type, doMsgs, STARBURST, STARBURST)) && (GUILD() == GNOME || GUILD() == ELF)) {
+                if ((USED_ITEM(player, type, doMsgs, STARBURST, STARBURST)) && (GUILD(player, type, doMsgs) == GNOME || GUILD(player, type, doMsgs) == ELF)) {
                     SET_FLAG(player, type, doMsgs, PARTY, PANSTAR, 1);
-                    CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+                    CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                     SHOW_TEXT(player, type, doMsgs, "The magical Starburst shatters the boulder.");
                 }
                 else {
@@ -314,16 +314,16 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "The ground shows signs of damage from heavy boulders falling.");
-                CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
             }
         }
         protected override void FnEvent2D(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 SHOW_TEXT(player, type, doMsgs, "You find that a boulder has blocked your path.");
-                if ((USED_ITEM(player, type, doMsgs, STARBURST, STARBURST)) && (GUILD() == ORC || GUILD() == GREMLIN)) {
+                if ((USED_ITEM(player, type, doMsgs, STARBURST, STARBURST)) && (GUILD(player, type, doMsgs) == ORC || GUILD(player, type, doMsgs) == GREMLIN)) {
                     SET_FLAG(player, type, doMsgs, PARTY, PANSTAR, 1);
-                    CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+                    CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                     SHOW_TEXT(player, type, doMsgs, "The magical Starburst shatters the boulder.");
                 }
                 else {
@@ -332,16 +332,16 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "The ground shows signs of damage from heavy boulders falling.");
-                CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
             }
         }
         protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 SHOW_TEXT(player, type, doMsgs, "You find that a boulder has blocked your path.");
-                if ((USED_ITEM(player, type, doMsgs, STARBURST, STARBURST)) && (GUILD() == DWARF || GUILD() == TROLL)) {
+                if ((USED_ITEM(player, type, doMsgs, STARBURST, STARBURST)) && (GUILD(player, type, doMsgs) == DWARF || GUILD(player, type, doMsgs) == TROLL)) {
                     SET_FLAG(player, type, doMsgs, PARTY, PANSTAR, 1);
-                    CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+                    CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                     SHOW_TEXT(player, type, doMsgs, "The magical Starburst shatters the boulder.");
                 }
                 else {
@@ -350,16 +350,16 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "The ground shows signs of damage from heavy boulders falling.");
-                CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
             }
         }
         protected override void FnEvent2F(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                 SHOW_TEXT(player, type, doMsgs, "You find that a boulder has blocked your path.");
-                if ((USED_ITEM(player, type, doMsgs, STARBURST, STARBURST)) && (GUILD() == HALFLING || GUILD() == HUMAN)) {
+                if ((USED_ITEM(player, type, doMsgs, STARBURST, STARBURST)) && (GUILD(player, type, doMsgs) == HALFLING || GUILD(player, type, doMsgs) == HUMAN)) {
                     SET_FLAG(player, type, doMsgs, PARTY, PANSTAR, 1);
-                    CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+                    CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                     SHOW_TEXT(player, type, doMsgs, "The magical Starburst shatters the boulder.");
                 }
                 else {
@@ -368,12 +368,12 @@ namespace XPT.Twinion.Maps {
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "The ground shows signs of damage from heavy boulders falling.");
-                CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
             }
         }
         protected override void FnEvent30(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
             if (GET_FLAG(player, type, doMsgs, DUNGEON, PANBUCKS) == 1) {
                 SHOW_TEXT(player, type, doMsgs, "There is nothing but rubble on the ground.");
             }
@@ -401,9 +401,9 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "A thief pulls you aside. 'Pssst....I found a way to walk over the lava.  Just be sure it's crusted over.  Shhhhh, don't tell a soul.'");
         }
         protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
             SHOW_TEXT(player, type, doMsgs, "You see a hand written note on the back of a scroll.  It warns that what may harm one, may not harm another.");
         }
         protected override void FnEvent35(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -411,11 +411,11 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "'The time has come for you to begin your journey to meet the Dralkarians. You must travel through Pandemonium in order to seek the portals to the final paths. Of the 5 portals you shall make your choice.'");
         }
         protected override void FnEvent37(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 1);
                 GET_MONSTER(player, type, doMsgs, 05, 2);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 1);
                 GET_MONSTER(player, type, doMsgs, 02, 2);
                 GET_MONSTER(player, type, doMsgs, 05, 3);
@@ -430,11 +430,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 32);
                 GET_MONSTER(player, type, doMsgs, 02, 33);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 31);
                 GET_MONSTER(player, type, doMsgs, 02, 31);
                 GET_MONSTER(player, type, doMsgs, 03, 32);
@@ -449,12 +449,12 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent39(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 17);
                 GET_MONSTER(player, type, doMsgs, 02, 19);
                 GET_MONSTER(player, type, doMsgs, 06, 30);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 19);
                 GET_MONSTER(player, type, doMsgs, 02, 20);
                 GET_MONSTER(player, type, doMsgs, 05, 30);
@@ -469,11 +469,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent3A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 26);
                 GET_MONSTER(player, type, doMsgs, 05, 38);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 26);
                 GET_MONSTER(player, type, doMsgs, 02, 27);
                 GET_MONSTER(player, type, doMsgs, 03, 28);
@@ -488,11 +488,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent3B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 39);
                 GET_MONSTER(player, type, doMsgs, 05, 40);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 39);
                 GET_MONSTER(player, type, doMsgs, 02, 39);
                 GET_MONSTER(player, type, doMsgs, 03, 40);
@@ -507,11 +507,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent3C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
-            if (PARTY_COUNT() == 1) {
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 1);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 1);
                 GET_MONSTER(player, type, doMsgs, 02, 3);
             }
@@ -523,10 +523,10 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 13);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 12);
                 GET_MONSTER(player, type, doMsgs, 02, 13);
                 GET_MONSTER(player, type, doMsgs, 03, 36);
@@ -541,7 +541,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent3E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 SHOW_TEXT(player, type, doMsgs, "Now you may proceed to pick the path of your choice.");
             }
             else {
@@ -549,117 +549,117 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent3F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
         }
         protected override void FnEvent40(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
         }
         protected override void FnEvent41(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
         }
         protected override void FnEvent42(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
         }
         protected override void FnEvent43(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
         }
         protected override void FnEvent44(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
         }
         protected override void FnEvent45(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
         }
         protected override void FnEvent46(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
         }
         protected override void FnEvent47(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
         }
         protected override void FnEvent48(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
         }
         protected override void FnEvent49(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
         }
         protected override void FnEvent4A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
         }
         protected override void FnEvent4B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
         }
         protected override void FnEvent4C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
         }
         protected override void FnEvent4D(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
             }
             else {
-                CLEAR_WALL(player, type, doMsgs, HERE(), WEST);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
             }
         }
         protected override void FnEvent4E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                CLEAR_WALL(player, type, doMsgs, HERE(), SOUTH);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
             }
             else {
-                BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
             }
         }
         protected override void FnEvent4F(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
             }
             else {
-                CLEAR_WALL(player, type, doMsgs, HERE(), WEST);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
             }
         }
         protected override void FnEvent50(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                CLEAR_WALL(player, type, doMsgs, HERE(), SOUTH);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
             }
             else {
-                BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
             }
         }
         protected override void FnEvent51(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
-                CLEAR_WALL(player, type, doMsgs, HERE(), SOUTH);
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
             }
             else {
-                CLEAR_WALL(player, type, doMsgs, HERE(), EAST);
-                BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
             }
         }
         protected override void FnEvent52(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
             }
             else {
-                CLEAR_WALL(player, type, doMsgs, HERE(), SOUTH);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
             }
         }
         protected override void FnEvent53(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (HAS_ITEM(player, type, doMsgs, STARBURST)) {
-                BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
             }
             else {
-                CLEAR_WALL(player, type, doMsgs, HERE(), NORTH);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
             }
         }
         protected override void FnEvent54(TwPlayerServer player, MapEventType type, bool doMsgs) {

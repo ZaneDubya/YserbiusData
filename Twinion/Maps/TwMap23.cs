@@ -9,16 +9,16 @@ namespace XPT.Twinion.Maps {
         protected override int RandomEncounterExtraCount => 2;
 
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
-            PLACE_WALL_ITEM(player, type, doMsgs, PORTAL, HERE(), FACING());
+            CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
+            PLACE_WALL_ITEM(player, type, doMsgs, PORTAL, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         protected override void FnEvent02(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
-                short picture;
-                short flagname;
-                short nextflag;
-                short tile;
-                tile = HERE();
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
+                short picture = 0;
+                short flagname = 0;
+                short nextflag = 0;
+                short tile = 0;
+                tile = HERE(player, type, doMsgs);
                 switch (tile) {
                     case 74:
                         picture = HUMANBARBARIAN;
@@ -102,10 +102,10 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 9, 2, 120, WEST);
         }
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            short picture;
-            short flagname;
-            short nextflag;
-            short tally;
+            short picture = 0;
+            short flagname = 0;
+            short nextflag = 0;
+            short tally = 0;
             tally = GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHUMAN);
              + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDDWARF);
              + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDGNOME);
@@ -114,7 +114,7 @@ namespace XPT.Twinion.Maps {
              + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDTROLL);
              + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDORC);
              + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHALF);
-            switch (HERE()) {
+            switch (HERE(player, type, doMsgs)) {
                 case 83:
                     picture = HUMANBARBARIAN;
                     flagname = LEARNEDHUMAN;
@@ -178,7 +178,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             else {
-                switch (RACE()) {
+                switch (RACE(player, type, doMsgs)) {
                     case HUMAN:
                         SHOW_TEXT(player, type, doMsgs, "nemo me impune lacessit");
                         break;
@@ -206,7 +206,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             private void RaceText(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                switch (HERE()) {
+                switch (HERE(player, type, doMsgs)) {
                     case 83:
                         SHOW_TEXT(player, type, doMsgs, "'To the southeast ");
                         break;
@@ -234,12 +234,12 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short flagname;
-                short compass1;
-                short compass2;
-                short totile;
-                short tile;
-                tile = HERE();
+                short flagname = 0;
+                short compass1 = 0;
+                short compass2 = 0;
+                short totile = 0;
+                short tile = 0;
+                tile = HERE(player, type, doMsgs);
                 switch (tile) {
                     case 238:
                         flagname = LEARNEDHUMAN;
@@ -299,7 +299,7 @@ namespace XPT.Twinion.Maps {
                         break;
                 }
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, flagname) == 1) {
-                    PLACE_WALL_ITEM(player, type, doMsgs, GATEWAY, HERE(), compass1);
+                    PLACE_WALL_ITEM(player, type, doMsgs, GATEWAY, HERE(player, type, doMsgs), compass1);
                     SHOW_TEXT(player, type, doMsgs, "A gateway is here.");
                     TELEPORT(player, type, doMsgs, 10, 1, totile, compass2);
                 }
@@ -311,9 +311,9 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, ENDGAMETELE) == 1) {
-                    if (PARTY_COUNT() == 1) {
+                    if (PARTY_COUNT(player, type, doMsgs) == 1) {
                         SHOW_TEXT(player, type, doMsgs, "This wall glows with power, beckoning you to enter.");
-                        CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+                        CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                         TELEPORT(player, type, doMsgs, 10, 1, 22, NORTH);
                     }
                     else {
@@ -324,9 +324,9 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHUMAN) == 2) {
-                    short switchA;
-                    short valueA;
-                    short valueB;
+                    short switchA = 0;
+                    short valueA = 0;
+                    short valueB = 0;
                     switchA = GET_FLAG(player, type, doMsgs, PARTY, SWITCH30);
                     switch (switchA) {
                         case 1:
@@ -358,9 +358,9 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent1F(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHALF) == 2) {
-                    short switchA;
-                    short valueA;
-                    short valueB;
+                    short switchA = 0;
+                    short valueA = 0;
+                    short valueB = 0;
                     switchA = GET_FLAG(player, type, doMsgs, PARTY, SWITCH31);
                     switch (switchA) {
                         case 1:
@@ -392,9 +392,9 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDDWARF) == 2) {
-                    short switchA;
-                    short valueA;
-                    short valueB;
+                    short switchA = 0;
+                    short valueA = 0;
+                    short valueB = 0;
                     switchA = GET_FLAG(player, type, doMsgs, PARTY, SWITCH32);
                     switch (switchA) {
                         case 1:
@@ -426,9 +426,9 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDGNOME) == 2) {
-                    short switchA;
-                    short valueA;
-                    short valueB;
+                    short switchA = 0;
+                    short valueA = 0;
+                    short valueB = 0;
                     switchA = GET_FLAG(player, type, doMsgs, PARTY, SWITCH33);
                     switch (switchA) {
                         case 1:
@@ -460,9 +460,9 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent22(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDGREMLIN) == 2) {
-                    short switchA;
-                    short valueA;
-                    short valueB;
+                    short switchA = 0;
+                    short valueA = 0;
+                    short valueB = 0;
                     switchA = GET_FLAG(player, type, doMsgs, PARTY, SWITCH34);
                     switch (switchA) {
                         case 1:
@@ -494,9 +494,9 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent23(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDORC) == 2) {
-                    short switchA;
-                    short valueA;
-                    short valueB;
+                    short switchA = 0;
+                    short valueA = 0;
+                    short valueB = 0;
                     switchA = GET_FLAG(player, type, doMsgs, PARTY, SWITCH35);
                     switch (switchA) {
                         case 1:
@@ -528,9 +528,9 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent24(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDTROLL) == 2) {
-                    short switchA;
-                    short valueA;
-                    short valueB;
+                    short switchA = 0;
+                    short valueA = 0;
+                    short valueB = 0;
                     switchA = GET_FLAG(player, type, doMsgs, PARTY, SWITCH36);
                     switch (switchA) {
                         case 1:
@@ -562,9 +562,9 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDELF) == 2) {
-                    short switchA;
-                    short valueA;
-                    short valueB;
+                    short switchA = 0;
+                    short valueA = 0;
+                    short valueB = 0;
                     switchA = GET_FLAG(player, type, doMsgs, PARTY, SWITCH37);
                     switch (switchA) {
                         case 1:
@@ -599,10 +599,10 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent26(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 if (!GET_FLAG(player, type, doMsgs, DUNGEON, SPELLEDBOTH)) {
-                    short i;
-                    short word;
-                    short valueA;
-                    short valueB;
+                    short i = 0;
+                    short word = 0;
+                    short valueA = 0;
+                    short valueB = 0;
                     word = GET_FLAG(player, type, doMsgs, DUNGEON, SPELLINGWORD);
                     if (word == 0) {
                         word = 1;
@@ -671,7 +671,7 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent27(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 if (GET_FLAG(player, type, doMsgs, DUNGEON, SPELLEDBOTH) == 1) {
-                    if (PARTY_COUNT() == 1) {
+                    if (PARTY_COUNT(player, type, doMsgs) == 1) {
                         SHOW_TEXT(player, type, doMsgs, "The magical winds sweep you up and pull you down through the opening into Concordia.");
                         TELEPORT(player, type, doMsgs, 10, 2, 225, EAST);
                     }
@@ -685,9 +685,9 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent28(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
+                short i = 0;
                 if (!GET_FLAG(player, type, doMsgs, DUNGEON, KNOWSALL)) {
-                    if (PARTY_COUNT() != 1) {
+                    if (PARTY_COUNT(player, type, doMsgs) != 1) {
                         SHOW_TEXT(player, type, doMsgs, "Only alone may you pass through.");
                         TELEPORT(player, type, doMsgs, 10, 1, 6, EAST);
                     }
@@ -700,7 +700,7 @@ namespace XPT.Twinion.Maps {
                         }
                     }
                     else {
-                        short flagcount;
+                        short flagcount = 0;
                         flagcount = GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHUMAN);
                          + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDGNOME);
                          + GET_FLAG(player, type, doMsgs, DUNGEON, LEARNEDHALF);
@@ -729,7 +729,7 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
+                short i = 0;
                 short pl = 0;
                 if (PARTY_LEVEL(player, type, doMsgs, 35)) {
                     pl = 1;
@@ -762,7 +762,7 @@ namespace XPT.Twinion.Maps {
             }
             protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
                 if (!GET_FLAG(player, type, doMsgs, PARTY, FOTEREBUS)) {
-                    short i;
+                    short i = 0;
                     SHOW_TEXT(player, type, doMsgs, "Two Erebus fiends hiss as you approach.");
                     for (i = 1; i <= 2; i++) {
                         GET_MONSTER(player, type, doMsgs, i, 40);
@@ -770,9 +770,9 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
+                short i = 0;
                 SHOW_TEXT(player, type, doMsgs, "Hulking Kaalroths launch a fierce magical attack.");
-                switch (PARTY_COUNT()) {
+                switch (PARTY_COUNT(player, type, doMsgs)) {
                     case 1:
                         for (i = 1; i <= 2; i++) {
                             GET_MONSTER(player, type, doMsgs, i, 28);
@@ -794,17 +794,17 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent2D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
+                short i = 0;
                 SHOW_TEXT(player, type, doMsgs, "'You've slain many of our friends. It is your time now!'");
                 for (i = 1; i <= 2; i++) {
                     GET_MONSTER(player, type, doMsgs, i, 26);
                 }
             }
             protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
+                short i = 0;
                 if (GET_FLAG(player, type, doMsgs, PARTY, MIXEDONE) == 2) {
                     SHOW_TEXT(player, type, doMsgs, "Wizards and their servants are tending the fallen Golems you killed!");
-                    switch (PARTY_COUNT()) {
+                    switch (PARTY_COUNT(player, type, doMsgs)) {
                         case 1:
                             GET_MONSTER(player, type, doMsgs, 1, 25);
                             for (i = 5; i <= 6; i++) {
@@ -847,16 +847,16 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent30(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
+                short i = 0;
                 SHOW_TEXT(player, type, doMsgs, "A horde of Golems stir to life as they sense your approach!");
                 for (i = 1; i <= 4; i++) {
                     GET_MONSTER(player, type, doMsgs, i, 31);
                 }
             }
             protected override void FnEvent31(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
+                short i = 0;
                 SHOW_TEXT(player, type, doMsgs, "Babbling rogues, driven mad from their quests, see you as their next prey.");
-                switch (PARTY_COUNT()) {
+                switch (PARTY_COUNT(player, type, doMsgs)) {
                     case 1:
                         GET_MONSTER(player, type, doMsgs, 1, 32);
                         GET_MONSTER(player, type, doMsgs, 2, 33);
@@ -880,10 +880,10 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
+                short i = 0;
                 if (GET_FLAG(player, type, doMsgs, PARTY, ROGUES) == 1) {
                     SHOW_TEXT(player, type, doMsgs, "'OUT! Keep out of our domain!'");
-                    switch (PARTY_COUNT()) {
+                    switch (PARTY_COUNT(player, type, doMsgs)) {
                         case 1:
                             for (i = 1; i <= 2; i++) {
                                 GET_MONSTER(player, type, doMsgs, i, 34);
@@ -910,9 +910,9 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent33(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
+                short i = 0;
                 SHOW_TEXT(player, type, doMsgs, "More Night Elves have been called to defend their domain.");
-                switch (PARTY_COUNT()) {
+                switch (PARTY_COUNT(player, type, doMsgs)) {
                     case 1:
                         for (i = 1; i <= 2; i++) {
                             GET_MONSTER(player, type, doMsgs, i, 35);
@@ -936,9 +936,9 @@ namespace XPT.Twinion.Maps {
                 GET_MONSTER(player, type, doMsgs, 02, 38);
             }
             protected override void FnEvent35(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
+                short i = 0;
                 SHOW_TEXT(player, type, doMsgs, "A slew of bats rush through this hallway.");
-                switch (PARTY_COUNT()) {
+                switch (PARTY_COUNT(player, type, doMsgs)) {
                     case 1:
                         for (i = 1; i <= 2; i++) {
                             GET_MONSTER(player, type, doMsgs, i, 39);
@@ -957,138 +957,140 @@ namespace XPT.Twinion.Maps {
                 }
             }
             protected override void FnEvent36(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short trap;
-                short item;
+                short trap = 0;
+                short item = 0;
                 trap = GET_FLAG(player, type, doMsgs, PARTY, CASETRAP);
                 if (!GET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP)) {
                     switch (trap) {
                         case 1:
-                            DAMAGE(player, type, doMsgs, HEALTH() / 6);
+                            DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 6);
                             SET_PM(player, type, doMsgs, POISON, 15, 100);
-                            NO_SPELL();
+                            NO_SPELL(player, type, doMsgs);
                             SHOW_TEXT(player, type, doMsgs, "You spring a trap laced with poisoned darts.");
                             trap++;
                             break;
                         case 2:
-                            DAMAGE(player, type, doMsgs, HEALTH() / 5);
+                            DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 5);
                             SHOW_TEXT(player, type, doMsgs, "You trigger some mage's trap. A cloud of acid surrounds you!!");
                             MOD_GOLD(player, type, doMsgs,  - 2000);
                             trap++;
                             break;
                         case 3:
-                            DAMAGE(player, type, doMsgs, HEALTH() / 4);
+                            DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 4);
                             SHOW_TEXT(player, type, doMsgs, "Fireballs slam into you as you set off another fiendish trap.");
                             trap++;
                             break;
                         case 4:
                             SET_PM(player, type, doMsgs, POISON, 15, 200);
                             MOD_MANA(player, type, doMsgs,  - 500);
-                            while HAS_ITEM(player, type, doMsgs, CURATIVEELIXIR)TAKE_ITEM(player, type, doMsgs, CURATIVEELIXIR);
-                            SHOW_TEXT(player, type, doMsgs, "You clumsily set off a gas trap.");
-                            trap++;
+                            while (HAS_ITEM(player, type, doMsgs, CURATIVEELIXIR))
+                                TAKE_ITEM(player, type, doMsgs, CURATIVEELIXIR);
+                                SHOW_TEXT(player, type, doMsgs, "You clumsily set off a gas trap.");
+                                trap++;
+                                break;
+                            default:
+                                DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 5);
+                                NO_HEAL_ZONE(player, type, doMsgs);
+                                trap = 1;
+                                NO_SPELL(player, type, doMsgs);
+                                SHOW_TEXT(player, type, doMsgs, "A fierce whirlwind strikes you from some unseen sorcerer's hand!");
+                                break;
+                        }
+                        SET_FLAG(player, type, doMsgs, PARTY, CASETRAP, trap);
+                        SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
+                        SET_FLAG(player, type, doMsgs, PARTY, FOTEREBUS, 0);
+                    }
+                }
+                protected override void FnEvent37(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                    short i = 0;
+                    SHOW_TEXT(player, type, doMsgs, "Well-trained Night Elves guard these corridors.");
+                    switch (PARTY_COUNT(player, type, doMsgs)) {
+                        case 1:
+                            for (i = 1; i <= 3; i++) {
+                                GET_MONSTER(player, type, doMsgs, i, 34);
+                            }
+                            break;
+                        case 2:
+                            for (i = 1; i <= 2; i++) {
+                                GET_MONSTER(player, type, doMsgs, i, 34);
+                            }
+                            for (i = 5; i <= 6; i++) {
+                                GET_MONSTER(player, type, doMsgs, i, 34);
+                            }
                             break;
                         default:
-                            DAMAGE(player, type, doMsgs, MAX_HEALTH() / 5);
-                            NO_HEAL_ZONE();
-                            trap = 1;
-                            NO_SPELL();
-                            SHOW_TEXT(player, type, doMsgs, "A fierce whirlwind strikes you from some unseen sorcerer's hand!");
+                            for (i = 1; i <= 6; i++) {
+                                GET_MONSTER(player, type, doMsgs, i, 34);
+                            }
                             break;
                     }
-                    SET_FLAG(player, type, doMsgs, PARTY, CASETRAP, trap);
-                    SET_FLAG(player, type, doMsgs, ROOM, SPRUNGTRAP, 1);
-                    SET_FLAG(player, type, doMsgs, PARTY, FOTEREBUS, 0);
                 }
-            }
-            protected override void FnEvent37(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short i;
-                SHOW_TEXT(player, type, doMsgs, "Well-trained Night Elves guard these corridors.");
-                switch (PARTY_COUNT()) {
-                    case 1:
-                        for (i = 1; i <= 3; i++) {
-                            GET_MONSTER(player, type, doMsgs, i, 34);
+                protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                    SHOW_PICTURE(player, type, doMsgs, DWARFKNIGHT);
+                    SHOW_TEXT(player, type, doMsgs, "An ancient Knight whispers, 'The leader must be removed to see the summit. And even though the spells of royalty be at the end, they shall be the first.'");
+                }
+                protected override void FnEvent39(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                    SHOW_PICTURE(player, type, doMsgs, ORCRANGER);
+                    SHOW_TEXT(player, type, doMsgs, "'The nine switches are used to open the way down to the next area. You must learn which switches to turn on.");
+                    SHOW_TEXT(player, type, doMsgs, "Having the nine switches set in unison will unlock the way for you.'");
+                }
+                protected override void FnEvent3A(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                    SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
+                    SHOW_TEXT(player, type, doMsgs, "The cool waters satisfy and enrich you.");
+                    HEAL(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
+                    MOD_MANA(player, type, doMsgs, 2500);
+                }
+                protected override void FnEvent3B(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                    short flag = 0;
+                    short racecheck = 0;
+                    racecheck = RACE(player, type, doMsgs);
+                    switch (racecheck) {
+                        case HUMAN:
+                            flag = LEARNEDHUMAN;
+                            break;
+                        case ELF:
+                            flag = LEARNEDELF;
+                            break;
+                        case DWARF:
+                            flag = LEARNEDDWARF;
+                            break;
+                        case GNOME:
+                            flag = LEARNEDGNOME;
+                            break;
+                        case ORC:
+                            flag = LEARNEDORC;
+                            break;
+                        case TROLL:
+                            flag = LEARNEDTROLL;
+                            break;
+                        case HALFLING:
+                            flag = LEARNEDHALF;
+                            break;
+                        case GREMLIN:
+                            flag = LEARNEDGREMLIN;
+                            break;
+                    }
+                    if (!GET_FLAG(player, type, doMsgs, DUNGEON, flag)) {
+                        SET_FLAG(player, type, doMsgs, DUNGEON, flag, 1);
+                    }
+                    if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && !GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED)) {
+                        SHOW_TEXT(player, type, doMsgs, "A maniacal fiend appears; removes an item you stole from him; and kills you outright.");
+                        while (HAS_ITEM(player, type, doMsgs, JESTERSCAP))
+                            TAKE_ITEM(player, type, doMsgs, JESTERSCAP);
+                            MOD_GOLD(player, type, doMsgs,  - 10000);
+                            DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
                         }
-                        break;
-                    case 2:
-                        for (i = 1; i <= 2; i++) {
-                            GET_MONSTER(player, type, doMsgs, i, 34);
+                    }
+                    protected override void FnEvent3C(TwPlayerServer player, MapEventType type, bool doMsgs) {
+                        SHOW_TEXT(player, type, doMsgs, "The door glows with a magical force.");
+                        if (PARTY_COUNT(player, type, doMsgs) == 1) {
+                            SHOW_TEXT(player, type, doMsgs, "You may proceed alone.");
+                            CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                         }
-                        for (i = 5; i <= 6; i++) {
-                            GET_MONSTER(player, type, doMsgs, i, 34);
+                        else {
+                            SHOW_TEXT(player, type, doMsgs, "You must enter here one at a time.");
+                            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
                         }
-                        break;
-                    default:
-                        for (i = 1; i <= 6; i++) {
-                            GET_MONSTER(player, type, doMsgs, i, 34);
-                        }
-                        break;
+                    }
                 }
             }
-            protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                SHOW_PICTURE(player, type, doMsgs, DWARFKNIGHT);
-                SHOW_TEXT(player, type, doMsgs, "An ancient Knight whispers, 'The leader must be removed to see the summit. And even though the spells of royalty be at the end, they shall be the first.'");
-            }
-            protected override void FnEvent39(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                SHOW_PICTURE(player, type, doMsgs, ORCRANGER);
-                SHOW_TEXT(player, type, doMsgs, "'The nine switches are used to open the way down to the next area. You must learn which switches to turn on.");
-                SHOW_TEXT(player, type, doMsgs, "Having the nine switches set in unison will unlock the way for you.'");
-            }
-            protected override void FnEvent3A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
-                SHOW_TEXT(player, type, doMsgs, "The cool waters satisfy and enrich you.");
-                HEAL(player, type, doMsgs, MAX_HEALTH());
-                MOD_MANA(player, type, doMsgs, 2500);
-            }
-            protected override void FnEvent3B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                short flag;
-                short racecheck;
-                racecheck = RACE();
-                switch (racecheck) {
-                    case HUMAN:
-                        flag = LEARNEDHUMAN;
-                        break;
-                    case ELF:
-                        flag = LEARNEDELF;
-                        break;
-                    case DWARF:
-                        flag = LEARNEDDWARF;
-                        break;
-                    case GNOME:
-                        flag = LEARNEDGNOME;
-                        break;
-                    case ORC:
-                        flag = LEARNEDORC;
-                        break;
-                    case TROLL:
-                        flag = LEARNEDTROLL;
-                        break;
-                    case HALFLING:
-                        flag = LEARNEDHALF;
-                        break;
-                    case GREMLIN:
-                        flag = LEARNEDGREMLIN;
-                        break;
-                }
-                if (!GET_FLAG(player, type, doMsgs, DUNGEON, flag)) {
-                    SET_FLAG(player, type, doMsgs, DUNGEON, flag, 1);
-                }
-                if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && !GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED)) {
-                    SHOW_TEXT(player, type, doMsgs, "A maniacal fiend appears; removes an item you stole from him; and kills you outright.");
-                    while HAS_ITEM(player, type, doMsgs, JESTERSCAP)TAKE_ITEM(player, type, doMsgs, JESTERSCAP);
-                    MOD_GOLD(player, type, doMsgs,  - 10000);
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH());
-                }
-            }
-            protected override void FnEvent3C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                SHOW_TEXT(player, type, doMsgs, "The door glows with a magical force.");
-                if (PARTY_COUNT() == 1) {
-                    SHOW_TEXT(player, type, doMsgs, "You may proceed alone.");
-                    CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
-                }
-                else {
-                    SHOW_TEXT(player, type, doMsgs, "You must enter here one at a time.");
-                    BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
-                }
-            }
-        }
-    }

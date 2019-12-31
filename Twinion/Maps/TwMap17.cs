@@ -26,12 +26,12 @@ namespace XPT.Twinion.Maps {
                 }
                 else {
                     SHOW_PICTURE(player, type, doMsgs, DWARFTHIEF);
-                    switch (HERE()) {
+                    switch (HERE(player, type, doMsgs)) {
                         case 6:
-                            BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
+                            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
                             break;
                         case 49:
-                            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+                            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
                             break;
                     }
                     SHOW_TEXT(player, type, doMsgs, "The thief says, 'You have no key for passage. Return when you have the proper item.");
@@ -56,11 +56,11 @@ namespace XPT.Twinion.Maps {
             else {
                 SET_BOOTY(player, type, doMsgs, HOLLOWEDNUNCHUKAS, HARMSWAY, 0, 0, 0, 2000);
             }
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 39);
                 GET_MONSTER(player, type, doMsgs, 02, 5);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 39);
                 GET_MONSTER(player, type, doMsgs, 02, 39);
                 GET_MONSTER(player, type, doMsgs, 03, 25);
@@ -89,7 +89,7 @@ namespace XPT.Twinion.Maps {
             short i = 0;
             SHOW_TEXT(player, type, doMsgs, "You step into a dark alley.");
             SHOW_TEXT(player, type, doMsgs, "The cold steel of a thief's stiletto in your back cuts your odds of surviving this ambush!");
-            DAMAGE(player, type, doMsgs, HEALTH() / 3);
+            DAMAGE(player, type, doMsgs, HEALTH(player, type, doMsgs) / 3);
             for (i = 1; i <= 2; i++) {
                 GET_MONSTER(player, type, doMsgs, i, 40);
             }
@@ -99,7 +99,7 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 4, 1, 172, SOUTH);
         }
         protected override void FnEvent08(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 SHOW_TEXT(player, type, doMsgs, "You may rejoin your party.");
             }
             else {
@@ -123,7 +123,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GET_FLAG(player, type, doMsgs, DUNGEON, ROPE_FLAG) == 1) {
-                if (PARTY_COUNT() == 1) {
+                if (PARTY_COUNT(player, type, doMsgs) == 1) {
                     WallClear(player, type, doMsgs);
                     PlaceDoor(player, type, doMsgs);
                     SHOW_TEXT(player, type, doMsgs, "Your clever exchange of lockpicks now offers you a secret entrance into the Ballroom.");
@@ -179,11 +179,11 @@ namespace XPT.Twinion.Maps {
             TELEPORT(player, type, doMsgs, 7, 1, 234, WEST);
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_JOIN();
+            NO_JOIN(player, type, doMsgs);
             SHOW_TEXT(player, type, doMsgs, "You walk through the passage and step confidently onto Tipekans' Bridge.");
-            if (PARTY_COUNT() > 1) {
+            if (PARTY_COUNT(player, type, doMsgs) > 1) {
                 SHOW_TEXT(player, type, doMsgs, "The bridge collapses under the weight of your party and you plunge to your death.");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH());
+                DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "You manage to grab hold of an extending beam as the bridge collapses beneath you. The door here, unfortunately, is sealed forever shut.");
@@ -350,7 +350,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent27(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
-            HEAL(player, type, doMsgs, MAX_HEALTH());
+            HEAL(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
             MOD_MANA(player, type, doMsgs, 10000);
             SHOW_TEXT(player, type, doMsgs, "The cascading waters of Viper Fountain heal your wounds and restore your mana.");
         }
@@ -362,11 +362,11 @@ namespace XPT.Twinion.Maps {
             else {
                 SET_BOOTY(player, type, doMsgs, SCROLLOFDEATH, LEATHERJACKET, 0, 0, 0, 2500);
             }
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 33);
                 GET_MONSTER(player, type, doMsgs, 02, 34);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 33);
                 GET_MONSTER(player, type, doMsgs, 02, 34);
                 GET_MONSTER(player, type, doMsgs, 03, 5);
@@ -391,11 +391,11 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "A flash of steel is quickly doused as you near a shadowy alley.");
         }
         protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 16);
                 GET_MONSTER(player, type, doMsgs, 02, 18);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 16);
                 GET_MONSTER(player, type, doMsgs, 02, 15);
                 GET_MONSTER(player, type, doMsgs, 03, 19);
@@ -409,11 +409,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 9);
                 GET_MONSTER(player, type, doMsgs, 02, 7);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 7);
                 GET_MONSTER(player, type, doMsgs, 02, 23);
                 GET_MONSTER(player, type, doMsgs, 05, 9);
@@ -427,11 +427,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent2D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 26);
                 GET_MONSTER(player, type, doMsgs, 02, 28);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 28);
                 GET_MONSTER(player, type, doMsgs, 02, 28);
                 GET_MONSTER(player, type, doMsgs, 05, 26);
@@ -446,11 +446,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 13);
                 GET_MONSTER(player, type, doMsgs, 02, 33);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 12);
                 GET_MONSTER(player, type, doMsgs, 02, 13);
                 GET_MONSTER(player, type, doMsgs, 03, 14);
@@ -465,11 +465,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent2F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 19);
                 GET_MONSTER(player, type, doMsgs, 02, 37);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 18);
                 GET_MONSTER(player, type, doMsgs, 02, 16);
                 GET_MONSTER(player, type, doMsgs, 03, 19);
@@ -484,11 +484,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent30(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 6);
                 GET_MONSTER(player, type, doMsgs, 02, 9);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 6);
                 GET_MONSTER(player, type, doMsgs, 02, 8);
                 GET_MONSTER(player, type, doMsgs, 04, 28);
@@ -503,11 +503,11 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent31(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT() == 1) {
+            if (PARTY_COUNT(player, type, doMsgs) == 1) {
                 GET_MONSTER(player, type, doMsgs, 01, 28);
                 GET_MONSTER(player, type, doMsgs, 02, 37);
             }
-            else if (PARTY_COUNT() == 2) {
+            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
                 GET_MONSTER(player, type, doMsgs, 01, 28);
                 GET_MONSTER(player, type, doMsgs, 02, 28);
                 GET_MONSTER(player, type, doMsgs, 03, 26);
@@ -523,7 +523,7 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
             short i = 0;
-            switch (PARTY_COUNT()) {
+            switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     GET_MONSTER(player, type, doMsgs, 01, 27);
                     GET_MONSTER(player, type, doMsgs, 02, 35);
@@ -551,13 +551,13 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "An unsturdy bridge leads eastward towards an ancient door covered in lichens. The fragile bridge creaks warningly as you approach.");
         }
         private void WallBlock(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         private void WallClear(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            CLEAR_WALL(player, type, doMsgs, HERE(), FACING());
+            CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         private void PlaceDoor(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(), FACING());
+            PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
     }
 }

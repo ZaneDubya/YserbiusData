@@ -16,12 +16,10 @@ namespace XPT.Twinion.Maps {
         string anointStr = "'You have saved us from eternal torment. Our strength is now yours in the battle to come.'";
         string piranhaDeathStr = "You are swarmed by a school of vicious piranhas and torn to shreds.";
         string jostleStr = "You jostle each other and tumble into the water.";
-        void SixMonst(int *macros, ubyte monster) {
-            register;
-            ubyte i;
-            register;
-            ubyte num;
-            switch (PARTY_COUNT()) {
+        void SixMonst(int *macros, byte monster) {
+            byte i = 0;
+            byte num = 0;
+            switch (PARTY_COUNT(player, type, doMsgs)) {
                 case 1:
                     num = 2;
                     break;
@@ -41,18 +39,18 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            ushort i;
+            ushort i = 0;
             SHOW_TEXT(player, type, doMsgs, "The boiling lava scorches you terribly.");
-            i = HEALTH();
+            i = HEALTH(player, type, doMsgs);
              - 1;
             DAMAGE(player, type, doMsgs, i);
         }
         protected override void FnEvent02(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "You writhe in agony as the poisonous waters close over you");
-            DAMAGE(player, type, doMsgs, MAX_HEALTH());
+            DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
         }
         protected override void FnEvent03(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            switch (HERE()) {
+            switch (HERE(player, type, doMsgs)) {
                 case 4:
                 case 6:
                 case 8:
@@ -74,30 +72,29 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent05(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_FLOOR(player, type, doMsgs, HERE());
+            BLOCK_FLOOR(player, type, doMsgs, HERE(player, type, doMsgs));
         }
         protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
             TELEPORT(player, type, doMsgs, 13, 1, 56, NORTH);
         }
         protected override void FnEvent07(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte fishFlagubyte fishFlag;ubyte mapSquare;
+            byte fishFlag = 0byte fishFlag;byte mapSquare = 0;
             fishFlag = GET_FLAG(player, type, doMsgs, PARTY, FISH_FEEDING_CNT);
-            mapSquare = HERE();
-            if ((mapSquare <= 148) |  | (fishFlag == 0)) {
+            mapSquare = HERE(player, type, doMsgs);
+            if ((mapSquare <= 148) || (fishFlag == 0)) {
                 SHOW_TEXT(player, type, doMsgs, piranhaDeathStr);
-                DAMAGE(player, type, doMsgs, MAX_HEALTH());
+                DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
                 return;
                 ;
             }
             switch (fishFlag) {
                 case 0:
                     SHOW_TEXT(player, type, doMsgs, piranhaDeathStr);
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH());
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
                     break;
                 case 1:
                     SHOW_TEXT(player, type, doMsgs, "The piranhas have returned! They begin to snap and bite, mauling you horribly.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH() / 2);
+                    DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 2);
                     break;
                 case 2:
                     SHOW_TEXT(player, type, doMsgs, "The water to the north is less agitated than before.");
@@ -111,20 +108,20 @@ namespace XPT.Twinion.Maps {
             SET_FLAG(player, type, doMsgs, PARTY, FISH_FEEDING_CNT, fishFlag);
         }
         protected override void FnEvent08(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_JOIN();
-            if (PARTY_COUNT() > 1) {
+            NO_JOIN(player, type, doMsgs);
+            if (PARTY_COUNT(player, type, doMsgs) > 1) {
                 SHOW_TEXT(player, type, doMsgs, "The coaster cars are only big enough for one of you at a time.");
                 SET_FLAG(player, type, doMsgs, PARTY, COASTER_STOPPING, 0);
                 TELEPORT(player, type, doMsgs, 13, 1, 103, WEST);
             }
-            switch (HERE()) {
+            switch (HERE(player, type, doMsgs)) {
                 case 86:
                     SHOW_TEXT(player, type, doMsgs, "The coaster gains speed as it dips giddily into the darkness.");
                     TELEPORT(player, type, doMsgs, 13, 2, 255, WEST);
                     break;
                 case 102:
-                    BLOCK_WALL(player, type, doMsgs, HERE(), NORTH);
-                    BLOCK_WALL(player, type, doMsgs, HERE(), SOUTH);
+                    BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+                    BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
                     if (FLAG_ON(player, type, doMsgs, PARTY, COASTER_STOPPING)) {
                         SHOW_TEXT(player, type, doMsgs, "The coaster stops.");
                         SET_FLAG(player, type, doMsgs, PARTY, COASTER_STOPPING, 0);
@@ -143,40 +140,38 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent09(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte flag;
-            register;
-            ubyte square;
-            ubyte naomiFlag;
+            byte flag = 0;
+            byte square = 0;
+            byte naomiFlag = 0;
             flag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
-            square = HERE();
+            square = HERE(player, type, doMsgs);
             switch (square) {
                 case 132:
                     if (!(flag & POND_DESC_BIT)) {
                         SHOW_TEXT(player, type, doMsgs, "You are standing on a small jetty above a fish pond. Before you a raised, earthen pathway snakes out across the water.");
-                        if (PARTY_COUNT() > 1) {
+                        if (PARTY_COUNT(player, type, doMsgs) > 1) {
                             SHOW_TEXT(player, type, doMsgs, "The path is narrow and slippery. You had better proceed alone.");
                         }
-                        flag |  = POND_DESC_BIT;
+                        flag |= POND_DESC_BIT;
                         SET_FLAG(player, type, doMsgs, PARTY, CONTROL_1, flag);
                     }
                     break;
                 case 177:
-                    if (PARTY_COUNT() > 1) {
+                    if (PARTY_COUNT(player, type, doMsgs) > 1) {
                         SHOW_TEXT(player, type, doMsgs, jostleStr);
                         TELEPORT(player, type, doMsgs, 13, 1, square + 1, EAST);
                     }
-                    if (FACING() == SOUTH) {
+                    if (FACING(player, type, doMsgs) == SOUTH) {
                         naomiFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NAOMI_MET);
-                        if ((naomiFlag == 1) |  | (naomiFlag == 2)) {
+                        if ((naomiFlag == 1) || (naomiFlag == 2)) {
                             SHOW_TEXT(player, type, doMsgs, "To the south and east you can dimly make out the silhouette of a woman standing on a small island.");
                         }
                     }
                     break;
                 default:
-                    if (PARTY_COUNT() > 1) {
+                    if (PARTY_COUNT(player, type, doMsgs) > 1) {
                         SHOW_TEXT(player, type, doMsgs, jostleStr);
-                        if ((square == 161) |  | (square == 146)) {
+                        if ((square == 161) || (square == 146)) {
                             TELEPORT(player, type, doMsgs, 13, 1, square + 1, EAST);
                         }
                         else {
@@ -187,21 +182,20 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte ctrlFlagsubyte ctrlFlags;ubyte cntFlag;
+            byte ctrlFlags = 0byte ctrlFlags;byte cntFlag = 0;
             if (USED_ITEM(player, type, doMsgs, JUICYDRAGONSTEAK, JUICYDRAGONSTEAK)) {
                 TAKE_ITEM(player, type, doMsgs, JUICYDRAGONSTEAK);
                 ctrlFlags = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
                 cntFlag = GET_FLAG(player, type, doMsgs, PARTY, FISH_FEEDING_CNT);
                 if (cntFlag == 0) {
-                    if (HERE() == 132) {
-                        ctrlFlags |  = FED_FISH_RIGHT_BIT;
+                    if (HERE(player, type, doMsgs) == 132) {
+                        ctrlFlags |= FED_FISH_RIGHT_BIT;
                     }
                     else {
-                        ctrlFlags |  = FED_FISH_LEFT_BIT;
+                        ctrlFlags |= FED_FISH_LEFT_BIT;
                     }
-                    if ((ctrlFlags & FED_FISH_RIGHT_BIT) &  & (ctrlFlags & FED_FISH_LEFT_BIT)) {
-                        ctrlFlags &  = ~(FED_FISH_RIGHT_BIT | FED_FISH_LEFT_BIT);
+                    if ((ctrlFlags & FED_FISH_RIGHT_BIT) && (ctrlFlags & FED_FISH_LEFT_BIT)) {
+                        ctrlFlags &= ~(FED_FISH_RIGHT_BIT | FED_FISH_LEFT_BIT);
                         cntFlag = 6;
                         SHOW_TEXT(player, type, doMsgs, "A swarm of fish churns the water in a mad feeding frenzy.");
                     }
@@ -226,10 +220,10 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1) & SIGNED_IN_BIT) {
-                CLEAR_WALL(player, type, doMsgs, HERE(), EAST);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
             }
             else {
-                BLOCK_WALL(player, type, doMsgs, HERE(), EAST);
+                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
             }
         }
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -237,24 +231,23 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "Though I have struggled lifelong to uphold the right and good, now I must follow the sinister path...'");
         }
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ushort switchCode;
+            ushort switchCode = 0;
             char *strPtr1 = NULL;
-            ubyte knownFlags;
-            switchCode = HERE();
-            switchCode = switchCode <  < 8;
-            switchCode +  = FACING();
+            byte knownFlags = 0;
+            switchCode = HERE(player, type, doMsgs);
+            switchCode = switchCode << 8;
+            switchCode +  = FACING(player, type, doMsgs);
             knownFlags = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN);
             switch (switchCode) {
-                case ((94 <  < 8) | NORTH):
+                case ((94 << 8) | NORTH):
                     if (knownFlags & ALCHEMY_KNOWN_BIT) {
                         strPtr1 = alchemyStr;
                     }
                     break;
-                case ((94 <  < 8) | EAST):
+                case ((94 << 8) | EAST):
                     strPtr1 = choronzarStr;
                     break;
-                case ((108 <  < 8) | WEST):
+                case ((108 << 8) | WEST):
                     if (knownFlags & NAOMI_KNOWN_BIT) {
                         strPtr1 = naomiStr;
                     }
@@ -268,17 +261,15 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte expFlag;
-            register;
-            ubyte killedFlag;
+            byte expFlag = 0;
+            byte killedFlag = 0;
             SHOW_TEXT(player, type, doMsgs, "This is a massive throne carved from a single block of polished obsidian.  It is inlaid with strange, beautiful sigils in a delicate silver filigree.");
             expFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1);
             killedFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
-            if ((killedFlag & CHORONZAR_KILLED_BIT) &  & (!(expFlag & GOT_CHOR_EXP_BIT))) {
+            if ((killedFlag & CHORONZAR_KILLED_BIT) && (!(expFlag & GOT_CHOR_EXP_BIT))) {
                 SHOW_TEXT(player, type, doMsgs, "You thrill to the surge of life force coursing into you from the throne.");
                 MOD_EXP(player, type, doMsgs, 10000000);
-                expFlag |  = GOT_CHOR_EXP_BIT;
+                expFlag |= GOT_CHOR_EXP_BIT;
                 SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1, expFlag);
             }
         }
@@ -292,22 +283,20 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent12(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NAOMI_MET) >= 3) {
                 SHOW_TEXT(player, type, doMsgs, "You discover a narrow secret passageway.");
-                if (PARTY_COUNT() > 1) {
+                if (PARTY_COUNT(player, type, doMsgs) > 1) {
                     SHOW_TEXT(player, type, doMsgs, "You will have to squeeze through one at a time.");
                 }
                 SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1, GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1) | SECRET_PASSAGE_BIT);
-                CLEAR_WALL(player, type, doMsgs, HERE(), WEST);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
             }
         }
         protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(), FACING());
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ushort switchFlag;
-            register;
-            ubyte alchFlag;
-            ubyte takeItem = 0;
+            ushort switchFlag = 0;
+            byte alchFlag = 0;
+            byte takeItem = 0;
             char *strPtr = NULL;
             BLOCK_FLOOR(player, type, doMsgs, 13);
             BLOCK_FLOOR(player, type, doMsgs, 14);
@@ -371,32 +360,30 @@ namespace XPT.Twinion.Maps {
             SET_FLAG(player, type, doMsgs, PARTY, ALCHEMY_LEVEL, alchFlag);
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ushort monster;
-            register;
-            ushort i;
+            ushort monster = 0;
+            ushort i = 0;
             if (!(GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT)) {
-                switch (HERE()) {
+                switch (HERE(player, type, doMsgs)) {
                     case 35:
                         SHOW_TEXT(player, type, doMsgs, "Dazzled, you step into a brightly-lit, vaulted chamber. The musky smell of incense hangs in the air and the delicate music of chimes is audible in the distance.");
                         monster = MONST_PRAETORIAN_A;
-                        CLEAR_WALL(player, type, doMsgs, HERE(), WEST);
+                        CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
                         break;
                     case 36:
-                        if (FACING() == EAST) {
+                        if (FACING(player, type, doMsgs) == EAST) {
                             SHOW_TEXT(player, type, doMsgs, "Ahead of you through the layers of smoke you see a massive golden throne.");
                         }
                         monster = MONST_PRAETORIAN_A;
                         break;
                     case 37:
-                        if (FACING() == EAST) {
+                        if (FACING(player, type, doMsgs) == EAST) {
                             SHOW_TEXT(player, type, doMsgs, "As you draw closer you make out an insoucient figure lounging on the throne, dressed in jester's motley.");
                         }
                         monster = MONST_PRAETORIAN_B;
                         break;
                     case 38:
                     default:
-                        if (FACING() == EAST) {
+                        if (FACING(player, type, doMsgs) == EAST) {
                             SHOW_TEXT(player, type, doMsgs, "The crazed figure on the throne stands, stares at you briefly, then prances off to the southeast, cackling like a lunatic. He dives into a pit and vanishes.");
                         }
                         monster = MONST_PRAETORIAN_B;
@@ -406,17 +393,16 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent16(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte bootyFlag;
-            ubyte booty1 = 0ubyte booty1;ubyte booty2 = 0ubyte booty2;ubyte booty3 = 0;
+            byte bootyFlag = 0;
+            byte booty1 = 0byte booty1;byte booty2 = 0byte booty2;byte booty3 = 0;
             bootyFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_BOOTY);
-            switch (HERE()) {
+            switch (HERE(player, type, doMsgs)) {
                 case 57:
                     if (!(bootyFlag & 0x01)) {
                         booty1 = BIG_BOOTY_1;
                         booty2 = BIG_BOOTY_2;
                         booty3 = BIG_BOOTY_3;
-                        bootyFlag |  = 0;
+                        bootyFlag |= 0;
                         x01;
                     }
                     break;
@@ -425,7 +411,7 @@ namespace XPT.Twinion.Maps {
                         booty1 = BIG_BOOTY_4;
                         booty2 = BIG_BOOTY_5;
                         booty3 = BIG_BOOTY_6;
-                        bootyFlag |  = 0;
+                        bootyFlag |= 0;
                         x02;
                     }
                     break;
@@ -434,7 +420,7 @@ namespace XPT.Twinion.Maps {
                         booty1 = BIG_BOOTY_7;
                         booty2 = BIG_BOOTY_8;
                         booty3 = BIG_BOOTY_9;
-                        bootyFlag |  = 0;
+                        bootyFlag |= 0;
                         x04;
                     }
                     break;
@@ -443,7 +429,7 @@ namespace XPT.Twinion.Maps {
                         booty1 = BIG_BOOTY_10;
                         booty2 = BIG_BOOTY_11;
                         booty3 = BIG_BOOTY_12;
-                        bootyFlag |  = 0;
+                        bootyFlag |= 0;
                         x10;
                     }
                     break;
@@ -452,7 +438,7 @@ namespace XPT.Twinion.Maps {
                         booty1 = BIG_BOOTY_13;
                         booty2 = BIG_BOOTY_14;
                         booty3 = BIG_BOOTY_15;
-                        bootyFlag |  = 0;
+                        bootyFlag |= 0;
                         x20;
                     }
                     break;
@@ -462,7 +448,7 @@ namespace XPT.Twinion.Maps {
                         booty1 = BIG_BOOTY_16;
                         booty2 = BIG_BOOTY_17;
                         booty3 = BIG_BOOTY_18;
-                        bootyFlag |  = 0;
+                        bootyFlag |= 0;
                         x40;
                     }
                     break;
@@ -476,8 +462,8 @@ namespace XPT.Twinion.Maps {
             SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_BOOTY, bootyFlag);
         }
         protected override void FnEvent17(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (USED_ITEM(player, type, doMsgs, WEAPON_IN_HAND(), WEAPON_IN_HAND())) {
-                CLEAR_WALL(player, type, doMsgs, HERE(), NORTH);
+            if (USED_ITEM(player, type, doMsgs, WEAPON_IN_HAND(player, type, doMsgs), WEAPON_IN_HAND(player, type, doMsgs))) {
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
                 SHOW_TEXT(player, type, doMsgs, "You bash the lock off the door.");
             }
             else {
@@ -485,10 +471,9 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ushort steakCnt;
+            ushort steakCnt = 0;
             steakCnt = GET_FLAG(player, type, doMsgs, PARTY, STEAK_COUNT);
-            if ((!HAS_ITEM(player, type, doMsgs, JUICYDRAGONSTEAK)) &  & (steakCnt < 6)) {
+            if ((!HAS_ITEM(player, type, doMsgs, JUICYDRAGONSTEAK)) && (steakCnt < 6)) {
                 SHOW_TEXT(player, type, doMsgs, "You find a package of juicy dragon steaks!");
                 steakCnt +  = 2;
                 GIVE_ITEM(player, type, doMsgs, JUICYDRAGONSTEAK);
@@ -500,8 +485,8 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "A small brass sign on the door reads 'Madcap Labs. Absolutely NO solicitors!'");
         }
         protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_JOIN();
-            if (PARTY_COUNT() > 1) {
+            NO_JOIN(player, type, doMsgs);
+            if (PARTY_COUNT(player, type, doMsgs) > 1) {
                 SHOW_TEXT(player, type, doMsgs, "The passage is too narrow.");
                 TELEPORT(player, type, doMsgs, 13, 1, 12, WEST);
             }
@@ -509,8 +494,6 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "You are not worthy.");
                 TELEPORT(player, type, doMsgs, 13, 1, 12, WEST);
             }
-        }
-        protected override void FnEvent1B(TwPlayerServer player, MapEventType type, bool doMsgs) {
         }
         protected override void FnEvent1C(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SHOW_TEXT(player, type, doMsgs, "Above the door is a wooden sign: 'Library. SHHHH!!!!'");
@@ -522,11 +505,10 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte killedFlag;
+            byte killedFlag = 0;
             killedFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
-            if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) &  & !(killedFlag & CHORONZAR_KILLED_BIT)) {
-                killedFlag |  = CHORONZAR_KILLED_BIT;
+            if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && !(killedFlag & CHORONZAR_KILLED_BIT)) {
+                killedFlag |= CHORONZAR_KILLED_BIT;
                 SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED, killedFlag);
                 SHOW_TEXT(player, type, doMsgs, "Choronzar's body begins to deliquesce as hissing smoke pours from his bloodied clothes. The room bucks and lurches as shockwaves roll through, knocking you to your knees.");
                 SHOW_TEXT(player, type, doMsgs, "Over the din of the reverberations you hear a British voice asking 'what was that about HATS?' There is a sickening peal of hysterical, eldritch laughter. Then silence.");
@@ -542,58 +524,24 @@ namespace XPT.Twinion.Maps {
                 SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1, GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1) | ANOINTED_BIT);
             }
         }
-        protected override void FnEvent22(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent23(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent24(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent26(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent27(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent28(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent29(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent2D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent2F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent30(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent31(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
         protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte flag;
+            byte flag = 0;
             SHOW_TEXT(player, type, doMsgs, "On the south wall is a poster depicting a scantily-clad Kaalroth posing beside an enormous tankard of mead. Tearing it aside you discover the word 'SMILE' scrawled on the wall in charcoal.");
             flag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
-            flag |  = PASSWORD_FOUND_BIT;
+            flag |= PASSWORD_FOUND_BIT;
             SET_FLAG(player, type, doMsgs, PARTY, CONTROL_1, flag);
         }
         protected override void FnEvent33(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte passFlag;
+            byte passFlag = 0;
             if (GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & GAOLER_KILLED_BIT) {
-                CLEAR_WALL(player, type, doMsgs, HERE(), WEST);
+                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
             }
             else {
                 SHOW_TEXT(player, type, doMsgs, "A slit in the door shoots open and a gutteral voice demands, 'Wot's th' password?'");
                 passFlag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
                 if (passFlag & PASSWORD_FOUND_BIT) {
                     SHOW_TEXT(player, type, doMsgs, "You reply 'the password is 'SMILE',' and the door creaks open. The gaoler growls, 'Come on in so's I can look at ye. One at a time!'");
-                    CLEAR_WALL(player, type, doMsgs, HERE(), WEST);
+                    CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
                 }
                 else {
                     SHOW_TEXT(player, type, doMsgs, "You stammer helplessly, not knowing the password. 'Come back when ye've remembered it!' The slit slams shut.");
@@ -601,8 +549,7 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte flag;
+            byte flag = 0;
             flag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NAOMI_MET);
             if (flag == 0) {
                 flag++;
@@ -611,7 +558,7 @@ namespace XPT.Twinion.Maps {
                 SHOW_TEXT(player, type, doMsgs, "You step into the dismal little cell and draw up short. Before you stands a radiant woman in a flowing, violet gown. She is slender and graceful but her eyes bore into you with unnerving intensity.");
                 SHOW_TEXT(player, type, doMsgs, "'Enough!' she cries. 'I grow tired of these pathetic ruses. Tell your master my answer is 'NO!'' Before you can respond she stalks past you and is gone.");
                 flag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN);
-                flag |  = NAOMI_KNOWN_BIT;
+                flag |= NAOMI_KNOWN_BIT;
                 SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN, flag);
             }
         }
@@ -628,11 +575,10 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "Before you gleams a wondrous, cunningly crafted chariot. Fashioned of hardwood and steel, it has been gaudily painted in glossy red and green lacquers. In front of the first car two shiny rails extend into the darkness to the north.");
         }
         protected override void FnEvent39(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte puzzFlag;
+            byte puzzFlag = 0;
             SHOW_TEXT(player, type, doMsgs, "You pull the lever.");
             puzzFlag = GET_FLAG(player, type, doMsgs, PARTY, LEVER_PUZZLE);
-            switch (HERE()) {
+            switch (HERE(player, type, doMsgs)) {
                 case 87:
                     if (puzzFlag == 0) {
                         puzzFlag = 1;
@@ -681,92 +627,11 @@ namespace XPT.Twinion.Maps {
             SHOW_TEXT(player, type, doMsgs, "This is a storage room. Barrels and crates are stacked haphazardly.");
         }
         protected override void FnEvent3B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte flagBits;
+            byte flagBits = 0;
             SHOW_TEXT(player, type, doMsgs, "Buried beneath a stack of papers you find a scroll: 'Commander Shadax, It seems the princess prefers a gaol cell to the comforts of her chambers. Advise the Gaoler that she may come and go as she pleases. Signed, Choronzar'");
             flagBits = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN);
-            flagBits |  = NAOMI_KNOWN_BIT;
+            flagBits |= NAOMI_KNOWN_BIT;
             SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN, flagBits);
-        }
-        protected override void FnEvent3C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent3E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent3F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent40(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent41(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent42(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent43(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent44(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent45(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent46(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent47(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent48(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent49(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent4A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent4B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent4C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent4D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent4E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent4F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent50(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent51(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent52(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent53(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent54(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent55(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent56(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent57(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent58(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent59(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent5A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent5B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent5C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent5D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent5E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent5F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent60(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent61(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent62(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent63(TwPlayerServer player, MapEventType type, bool doMsgs) {
         }
         protected override void FnEvent64(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (!HAS_ITEM(player, type, doMsgs, FUNHOUSEKEY)) {
@@ -776,24 +641,21 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent65(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            ubyte flagBits;
+            byte flagBits = 0;
             flagBits = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
             if (!(flagBits & SHADAX_KILLED_BIT)) {
                 SHOW_TEXT(player, type, doMsgs, "You feel a rush of vertigo as you pass through the rift.");
                 SHOW_TEXT(player, type, doMsgs, "Before you towers an enormous Kaalroth in full battle dress. 'Who dares to invade the realm of Choronzar?', he roars. 'I, Shadax, shall see that you never return!'");
                 flagBits = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN);
-                flagBits |  = CHORONZAR_KNOWN_BIT;
+                flagBits |= CHORONZAR_KNOWN_BIT;
                 SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN, flagBits);
                 GET_MONSTER(player, type, doMsgs, 01, MONST_SHADAX);
             }
         }
-        protected override void FnEvent66(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
         protected override void FnEvent67(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte flag;
+            byte flag = 0;
             flag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NAOMI_MET);
-            if ((flag > 0) &  & (flag < 3) &  & FLAG_OFF(player, type, doMsgs, ROOM, SEEN_IT)) {
+            if ((flag > 0) && (flag < 3) && FLAG_OFF(player, type, doMsgs, ROOM, SEEN_IT)) {
                 SHOW_PICTURE(player, type, doMsgs, NAOMI_PIC);
                 SHOW_TEXT(player, type, doMsgs, "You clamber from the muddy water onto the island. Naomi is here.");
                 SET_FLAG(player, type, doMsgs, ROOM, SEEN_IT, 1);
@@ -827,13 +689,12 @@ namespace XPT.Twinion.Maps {
             SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NAOMI_MET, flag);
         }
         protected override void FnEvent68(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte flag;
+            byte flag = 0;
             flag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
             if (!(flag & SIGNED_IN_BIT)) {
                 SHOW_PICTURE(player, type, doMsgs, CONCIERGE_PIC);
                 SHOW_TEXT(player, type, doMsgs, "An owlish man sits poring over some documents behind an imposing, oaken desk. Without glancing up he gestures toward a ledger-book. 'Sign in please.'");
-                flag |  = SIGNED_IN_BIT;
+                flag |= SIGNED_IN_BIT;
                 SET_FLAG(player, type, doMsgs, PARTY, CONTROL_1, flag);
                 SET_FLAG(player, type, doMsgs, PARTY, DEATH_LEVEL, 0);
             }
@@ -854,15 +715,13 @@ namespace XPT.Twinion.Maps {
             SixMonst(player, type, doMsgs, MONST_GUARDB_WANDER);
         }
         protected override void FnEvent6E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            ubyte ctrlFlag;
-            ubyte deathFlag;
-            register;
-            ushort i;
-            register;
-            ushort monster;
+            byte ctrlFlag = 0;
+            byte deathFlag = 0;
+            ushort i = 0;
+            ushort monster = 0;
             ctrlFlag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
             deathFlag = GET_FLAG(player, type, doMsgs, PARTY, DEATH_LEVEL);
-            if (FLAG_OFF(player, type, doMsgs, ROOM, SEEN_IT) &  & (ctrlFlag & SIGNED_IN_BIT)) {
+            if (FLAG_OFF(player, type, doMsgs, ROOM, SEEN_IT) && (ctrlFlag & SIGNED_IN_BIT)) {
                 SHOW_TEXT(player, type, doMsgs, "You trudge forward down the Hall of Death.");
                 deathFlag++;
                 SET_FLAG(player, type, doMsgs, ROOM, SEEN_IT, 1);
@@ -878,49 +737,46 @@ namespace XPT.Twinion.Maps {
             SET_FLAG(player, type, doMsgs, PARTY, DEATH_LEVEL, deathFlag);
         }
         protected override void FnEvent6F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            ubyte flag;
-            register;
-            ushort i;
-            register;
+            byte flag = 0;
+            ushort i = 0;
             ushort monster = MONST_HALL_DEATH_7;
             if (GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1) & SIGNED_IN_BIT) {
                 flag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
                 if (!(flag & KEKEKETL_KILLED_BIT)) {
                     SHOW_TEXT(player, type, doMsgs, "This antechamber is littered with bones. As you step forward some of the grisly debris flies up and forms itself into a horrific, skeletal figure. 'I am Kekeketl,' it rasps. 'I am sworn to defend this place.'");
-                    flag |  = KEKEKETL_KILLED_BIT;
+                    flag |= KEKEKETL_KILLED_BIT;
                 }
                 else {
                     SHOW_TEXT(player, type, doMsgs, "You advance, and once more Kekeketl rises from the carnage. 'I have told thee, I am sworn to defend this place.'");
                 }
                 SET_FLAG(player, type, doMsgs, PARTY, CONTROL_1, flag);
                 GET_MONSTER(player, type, doMsgs, 01, MONST_KEKEKETL);
-                for (i = 2; i <= PARTY_COUNT() + 1; i++) {
+                for (i = 2; i <= PARTY_COUNT(player, type, doMsgs) + 1; i++) {
                     GET_MONSTER(player, type, doMsgs, i, monster);
                 }
             }
         }
         protected override void FnEvent70(TwPlayerServer player, MapEventType type, bool doMsgs) {
             if (!(GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & GAOLER_KILLED_BIT)) {
-                if (PARTY_COUNT() > 1) {
+                if (PARTY_COUNT(player, type, doMsgs) > 1) {
                     SHOW_TEXT(player, type, doMsgs, "As you step through the door the Gaoler pushes you back roughly. 'One at a time!' he growls.");
                     TELEPORT(player, type, doMsgs, 13, 1, 249, WEST);
                 }
                 SHOW_TEXT(player, type, doMsgs, "As you step into the light the Gaoler flies into a rage. 'Wot's this then?' he cries. 'Oi've been tricked!'");
                 GET_MONSTER(player, type, doMsgs, 01, MONST_GAOLER);
             }
-            CLEAR_WALL(player, type, doMsgs, HERE(), EAST);
+            CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
         }
         protected override void FnEvent71(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SixMonst(player, type, doMsgs, MONST_GUARDD_POST);
         }
         protected override void FnEvent72(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte secretFlagubyte secretFlag;ubyte killedFlag;
-            ushort monster;
-            BLOCK_WALL(player, type, doMsgs, HERE(), WEST);
+            byte secretFlag = 0byte secretFlag;byte killedFlag = 0;
+            ushort monster = 0;
+            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
             secretFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1);
             killedFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
-            if ((secretFlag & SECRET_PASSAGE_BIT) &  & !(killedFlag & CHORONZAR_KILLED_BIT)) {
+            if ((secretFlag & SECRET_PASSAGE_BIT) && !(killedFlag & CHORONZAR_KILLED_BIT)) {
                 SHOW_TEXT(player, type, doMsgs, "You rush through the wall and surprise Choronzar pacing behind his throne!");
                 if (secretFlag & ANOINTED_BIT) {
                     SHOW_TEXT(player, type, doMsgs, "He shrieks and turns to flee, but you are upon him in an instant.");
@@ -938,294 +794,16 @@ namespace XPT.Twinion.Maps {
             SixMonst(player, type, doMsgs, MONST_GUARDD_WANDER);
         }
         protected override void FnEvent74(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte flagBits;
+            byte flagBits = 0;
             flagBits = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
-            flagBits |  = SHADAX_KILLED_BIT;
+            flagBits |= SHADAX_KILLED_BIT;
             SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED, flagBits);
         }
         protected override void FnEvent75(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            register;
-            ubyte flag;
+            byte flag = 0;
             flag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
-            flag |  = GAOLER_KILLED_BIT;
+            flag |= GAOLER_KILLED_BIT;
             SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED, flag);
-        }
-        protected override void FnEvent76(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent77(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent78(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent79(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent7A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent7B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent7C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent7D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent7E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent7F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent80(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent81(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent82(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent83(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent84(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent85(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent86(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent87(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent88(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent89(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent8A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent8B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent8C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent8D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent8E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent8F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent90(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent91(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent92(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent93(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent94(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent95(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent96(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent97(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent98(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent99(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent9A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent9B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent9C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent9D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent9E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEvent9F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventA0(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventA1(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventA2(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventA3(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventA4(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventA5(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventA6(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventA7(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventA8(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventA9(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventAA(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventAB(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventAC(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventAD(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventAE(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventAF(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventB0(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventB1(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventB2(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventB3(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventB4(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventB5(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventB6(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventB7(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventB8(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventB9(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventBA(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventBB(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventBC(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventBD(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventBE(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventBF(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventC0(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventC1(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventC2(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventC3(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventC4(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventC5(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventC6(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventC7(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventC8(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventC9(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventCA(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventCB(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventCC(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventCD(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventCE(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventCF(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventD0(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventD1(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventD2(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventD3(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventD4(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventD5(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventD6(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventD7(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventD8(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventD9(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventDA(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventDB(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventDC(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventDD(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventDE(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventDF(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventE0(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventE1(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventE2(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventE3(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventE4(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventE5(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventE6(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventE7(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventE8(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventE9(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventEA(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventEB(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventEC(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventED(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventEE(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventEF(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventF0(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventF1(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventF2(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventF3(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventF4(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventF5(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventF6(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventF7(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventF8(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventF9(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventFA(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventFB(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventFC(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventFD(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventFE(TwPlayerServer player, MapEventType type, bool doMsgs) {
-        }
-        protected override void FnEventFF(TwPlayerServer player, MapEventType type, bool doMsgs) {
         }
     }
 }
