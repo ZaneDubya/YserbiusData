@@ -1,8 +1,9 @@
-using XPT.Legacy.Entities;
+using XPT.Games.Yserbius.Entities;
+using XPT.Games.Generic.Maps;
 
-namespace XPT.Legacy.Maps {
-    class YserMap28 : AMapScripted {
-        protected override int MapIndex => 28;
+namespace XPT.Games.Yserbius.Maps {
+    class YserMap28 : YsMap {
+        public override int MapIndex => 28;
         protected override int RandomEncounterChance => 11;
         protected override int RandomEncounterExtraCount => 1;
 
@@ -50,11 +51,11 @@ namespace XPT.Legacy.Maps {
         // 04   Tree    01      Center  SR      Skills
 
         // === Functions ================================================
-        private void FnALDBORA_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnALDBORA_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             switch (GetFlag(player, FlagTypeMap, 0x01)) {
                 case 0:
                     ShowMessage(player, doMsgs, "The Aldbora Tree proudly displays its summer foliage.");
-                    if (HasItem(player, ItemHarvestHorn) == 1) {
+                    if (HasItem(player, YsIndexes.ItemHarvestHorn) == 1) {
                         ShowMessage(player, doMsgs, "A whisper in the room: 'The procession of seasons may begin.'");
                     }
                     return;
@@ -68,19 +69,19 @@ namespace XPT.Legacy.Maps {
                     ShowMessage(player, doMsgs, "Spring flowers and new leaves appear on the magical Aldbora Tree.");
                     return;
                 case 4:
-                    if (HasUsedItem(player, type, ref doMsgs, ItemSummerRadiance, ItemSummerRadiance) == 0) {
+                    if (HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemSummerRadiance, YsIndexes.ItemSummerRadiance) == 0) {
                         ShowMessage(player, doMsgs, "The fruits of Knowledge are now ripe, and wait for the Radiance of Summer.");
                         return;
                     }
                     else {
-                        if (HasItem(player, ItemNaturesRobe) == 0) {
+                        if (HasItem(player, YsIndexes.ItemNaturesRobe) == 0) {
                             ShowMessage(player, doMsgs, "The fruits of Knowledge are useless without the vestments of Nature.");
                             return;
                         }
                         ShowMessage(player, doMsgs, "The AldBora Tree bears fruit...");
-                        SetFlag(player, FlagTypeDungeon, FlagTreeSkills, 0x01);
-                        RemoveItem(player, ItemSummerRadiance);
-                        RemoveItem(player, ItemNaturesRobe);
+                        SetFlag(player, FlagTypeDungeon, YsIndexes.FlagTreeSkills, 0x01);
+                        RemoveItem(player, YsIndexes.ItemSummerRadiance);
+                        RemoveItem(player, YsIndexes.ItemNaturesRobe);
                         // barb:
                         if (GetSkillLevel(player, 0x00) == 0) {
                             SetSkillLevel(player, 0x00, 0x02);
@@ -172,7 +173,7 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnENCA_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCA_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "Dwarven Knights attempt an ambush.");
             AddEncounter(player, 0x01, 0x20);
             AddEncounter(player, 0x02, 0x20);
@@ -180,7 +181,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x22);
         }
 
-        private void FnENCB_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCB_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1F);
             AddEncounter(player, 0x02, 0x1E);
             AddEncounter(player, 0x03, 0x1D);
@@ -189,14 +190,14 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x23);
         }
 
-        private void FnENCC_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCC_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1F);
             AddEncounter(player, 0x02, 0x1F);
             AddEncounter(player, 0x03, 0x24);
             AddEncounter(player, 0x04, 0x19);
         }
 
-        private void FnENCD_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCD_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x18);
             AddEncounter(player, 0x02, 0x1A);
             AddEncounter(player, 0x03, 0x26);
@@ -205,19 +206,19 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x22);
         }
 
-        private void FnENCE_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCE_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x14);
             AddEncounter(player, 0x02, 0x16);
             AddEncounter(player, 0x03, 0x26);
             AddEncounter(player, 0x04, 0x27);
         }
 
-        private void FnENCF_07(ServerPlayer player, MapEventType type, bool doMsgs) {
-            if (HasItem(player, ItemCleowynsBones) == 1) {
+        private void FnENCF_07(YsPlayerServer player, MapEventType type, bool doMsgs) {
+            if (HasItem(player, YsIndexes.ItemCleowynsBones) == 1) {
                 AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0x00, 0xCE);
             }
             else {
-                AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0xD0, ItemCleowynsBones);
+                AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0xD0, YsIndexes.ItemCleowynsBones);
             }
             ShowMessage(player, doMsgs, "You see scattered bones and a bag under a Dragon.");
             AddEncounter(player, 0x01, 0x1B);
@@ -226,40 +227,41 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x04, 0x19);
         }
 
-        private void FnENCG_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCG_08(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1A);
             AddEncounter(player, 0x02, 0x1A);
             AddEncounter(player, 0x03, 0x1B);
             AddEncounter(player, 0x04, 0x1B);
         }
 
-        private void FnENCH_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCH_09(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x21);
             AddEncounter(player, 0x02, 0x22);
             AddEncounter(player, 0x05, 0x26);
             AddEncounter(player, 0x06, 0x28);
         }
 
-        private void FnENCI_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCI_0A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1C);
             AddEncounter(player, 0x02, 0x1C);
             AddEncounter(player, 0x03, 0x22);
             AddEncounter(player, 0x04, 0x22);
-            if (HasItem(player, ItemRanbowGemYellow) == 1) {
+            if (HasItem(player, YsIndexes.ItemRanbowGemYellow) == 1) {
                 AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xCF, 0xC6);
             }
             else {
                 ShowMessage(player, doMsgs, "A glowing yellow gem lights the area.");
-                AddTreasure(player, 0x2710, 0x00, 0x00, 0xD0, 0xD0, ItemRanbowGemYellow);
+                AddTreasure(player, 0x2710, 0x00, 0x00, 0xD0, 0xD0, YsIndexes.ItemRanbowGemYellow);
+                SetFlag(player, FlagTypeDungeon, YsIndexes.FlagMedievaLandsSeenYellowGem, 1);
             }
         }
 
-        private void FnCGATE_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnCGATE_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "A path leads up to CASTLEGATE.");
             TeleportParty(player, 0x36, 0x01, 0x74, 0x01, type);
         }
 
-        private void FnDWARF_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDWARF_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             if (CheckLevel(player, 0x001E) == 1) {
                 ShowMessage(player, doMsgs, "A narrow tunnel appears, leading down to the DWARF KINGDOM.");
                 SetWallItem(player, 0x00, GetCurrentTile(player), 0x03);
@@ -271,30 +273,30 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnNOJOIN_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNOJOIN_0D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             SetNoJoinArea(player);
         }
 
-        private void FnBEECHWD_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBEECHWD_0E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "Upon a wood sign is written 'Wilderness of BeechWood.'");
         }
 
-        private void FnOAKLEAF_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnOAKLEAF_0F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, " A wreath of leaves encircles the words 'Wilderness of OakLeaf.'");
         }
 
-        private void FnMAPLEBRS_10(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMAPLEBRS_10(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "A sign of ancient wood reads 'Wilderness of MapleBrush.'");
         }
 
-        private void FnPINECONE_11(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPINECONE_11(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "In the dust of pine needles is written 'Wilderness of PineCone.'");
         }
 
         // === Event 12: The Wise Ones of Beechwood. At Stage 2, Autumn accepts Spring's Renewal here. ===============
         // ===========================================================================================================
 
-        private void FnBWACTOR_12(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBWACTOR_12(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowPortrait(player, 0x0027);
             if (GetFlag(player, FlagTypeMap, 0x01) >= 4) {
                 ShowMessage(player, doMsgs, "The Wise Ones of Beechwood discuss the change in seasons.");
@@ -307,7 +309,7 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnBWACTOR_12_Introduction(ServerPlayer player) {
+        private void FnBWACTOR_12_Introduction(YsPlayerServer player) {
             ShowMessage(player, true, "We are the Wise Ones of Beechwood who serve the Seasons.");
             switch (GetFlag(player, FlagTypeMap, 0x01)) {
                 case 0: // spring here
@@ -333,11 +335,11 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnBWACTOR_12_UseItem(ServerPlayer player, MapEventType type, bool doMsgs) {
-            if (GetFlag(player, FlagTypeMap, 0x01) == 2 && HasUsedItem(player, type, ref doMsgs, ItemSpringRenewal, ItemSpringRenewal) == 1) {
-                RemoveItem(player, ItemSpringRenewal);
-                if (HasItem(player, ItemWinterWaters) == 0) {
-                    GiveItem(player, ItemWinterWaters);
+        private void FnBWACTOR_12_UseItem(YsPlayerServer player, MapEventType type, bool doMsgs) {
+            if (GetFlag(player, FlagTypeMap, 0x01) == 2 && HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemSpringRenewal, YsIndexes.ItemSpringRenewal) == 1) {
+                RemoveItem(player, YsIndexes.ItemSpringRenewal);
+                if (HasItem(player, YsIndexes.ItemWinterWaters) == 0) {
+                    GiveItem(player, YsIndexes.ItemWinterWaters);
                 }
                 SetFlag(player, FlagTypeMap, 0x01, 0x03);
                 ShowMessage(player, true, "Autumn gladly accepts the Spring Renewal.");
@@ -352,7 +354,7 @@ namespace XPT.Legacy.Maps {
         // === Event 13: Clerics of Oakleaf. At Stage 0, Summer accepts the Harvest Horn here. =======================
         // ===========================================================================================================
 
-        private void FnOLACTOR_13(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnOLACTOR_13(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowPortrait(player, 0x0027);
             if (GetFlag(player, FlagTypeMap, 0x01) >= 4) {
                 ShowMessage(player, doMsgs, "The Clerics softly sooth the seasons.");
@@ -365,7 +367,7 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnOLACTOR_13_Introduction(ServerPlayer player) {
+        private void FnOLACTOR_13_Introduction(YsPlayerServer player) {
             ShowMessage(player, true, "We are the Clerics of Oakleaf who comfort the Seasons.");
             switch (GetFlag(player, FlagTypeMap, 0x01)) {
                 case 0: // summer here, active event
@@ -391,11 +393,11 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnOLACTOR_13_UseItem(ServerPlayer player, MapEventType type, bool doMsgs) {
-            if (GetFlag(player, FlagTypeMap, 0x01) == 0 && HasUsedItem(player, type, ref doMsgs, ItemHarvestHorn, ItemHarvestHorn) == 1) {
-                RemoveItem(player, ItemHarvestHorn);
-                if (HasItem(player, ItemAutumnSeeds) == 0) {
-                    GiveItem(player, ItemAutumnSeeds);
+        private void FnOLACTOR_13_UseItem(YsPlayerServer player, MapEventType type, bool doMsgs) {
+            if (GetFlag(player, FlagTypeMap, 0x01) == 0 && HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemHarvestHorn, YsIndexes.ItemHarvestHorn) == 1) {
+                RemoveItem(player, YsIndexes.ItemHarvestHorn);
+                if (HasItem(player, YsIndexes.ItemAutumnSeeds) == 0) {
+                    GiveItem(player, YsIndexes.ItemAutumnSeeds);
                 }
                 SetFlag(player, FlagTypeMap, 0x01, 0x01);
                 ShowMessage(player, true, "Summer accepts the Harvest Horn.");
@@ -410,7 +412,7 @@ namespace XPT.Legacy.Maps {
         // === Event 14: Wardens of Maplebrush. At Stage 3, Spring accepts the Winter Waters here. ===================
         // ===========================================================================================================
 
-        private void FnMBACTOR_14(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMBACTOR_14(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowPortrait(player, 0x0027);
             if (GetFlag(player, FlagTypeMap, 0x01) >= 4) {
                 ShowMessage(player, doMsgs, "The Wardens speak untold secrets.");
@@ -423,7 +425,7 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnMBACTOR_14_Introduction(ServerPlayer player) {
+        private void FnMBACTOR_14_Introduction(YsPlayerServer player) {
             ShowMessage(player, true, "We are the Wardens of Maplebrush and hold the Seasons.");
             switch (GetFlag(player, FlagTypeMap, 0x01)) {
                 case 0: // winter here
@@ -445,11 +447,11 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnMBACTOR_14_UseItem(ServerPlayer player, MapEventType type, bool doMsgs) {
-            if (GetFlag(player, FlagTypeMap, 0x01) == 3 && HasUsedItem(player, type, ref doMsgs, ItemWinterWaters, ItemWinterWaters) == 1) {
-                RemoveItem(player, ItemWinterWaters);
-                if (HasItem(player, ItemSummerRadiance) == 0) {
-                    GiveItem(player, ItemSummerRadiance);
+        private void FnMBACTOR_14_UseItem(YsPlayerServer player, MapEventType type, bool doMsgs) {
+            if (GetFlag(player, FlagTypeMap, 0x01) == 3 && HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemWinterWaters, YsIndexes.ItemWinterWaters) == 1) {
+                RemoveItem(player, YsIndexes.ItemWinterWaters);
+                if (HasItem(player, YsIndexes.ItemSummerRadiance) == 0) {
+                    GiveItem(player, YsIndexes.ItemSummerRadiance);
                 }
                 SetFlag(player, FlagTypeMap, 0x01, 0x04);
                 ShowMessage(player, true, "From Winter Waters comes the change of Spring to Summer.");
@@ -463,7 +465,7 @@ namespace XPT.Legacy.Maps {
         // === Event 15: Seasons incarnate. At Stage 1, Winter accepts the Autumn Springs here. ======================
         // ===========================================================================================================
 
-        private void FnPCACTOR_15(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPCACTOR_15(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowPortrait(player, 0x0027);
             if (GetFlag(player, FlagTypeMap, 0x01) >= 4) {
                 ShowMessage(player, doMsgs, "The Seasons have no further use for you.");
@@ -476,7 +478,7 @@ namespace XPT.Legacy.Maps {
             }
 
         }
-        private void FnPCACTOR_15_Introduction(ServerPlayer player) {
+        private void FnPCACTOR_15_Introduction(YsPlayerServer player) {
             ShowMessage(player, true, "We are the Seasons incarnate in mortal form.");
             switch (GetFlag(player, FlagTypeMap, 0x01)) {
                 case 0: // autumn here
@@ -494,11 +496,11 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnPCACTOR_15_UseItem(ServerPlayer player, MapEventType type, bool doMsgs) {
-            if (GetFlag(player, FlagTypeMap, 0x01) == 1 && HasUsedItem(player, type, ref doMsgs, ItemAutumnSeeds, ItemAutumnSeeds) == 1) {
-                RemoveItem(player, ItemAutumnSeeds);
-                if (HasItem(player, ItemSpringRenewal) == 0) {
-                    GiveItem(player, ItemSpringRenewal);
+        private void FnPCACTOR_15_UseItem(YsPlayerServer player, MapEventType type, bool doMsgs) {
+            if (GetFlag(player, FlagTypeMap, 0x01) == 1 && HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemAutumnSeeds, YsIndexes.ItemAutumnSeeds) == 1) {
+                RemoveItem(player, YsIndexes.ItemAutumnSeeds);
+                if (HasItem(player, YsIndexes.ItemSpringRenewal) == 0) {
+                    GiveItem(player, YsIndexes.ItemSpringRenewal);
                 }
                 SetFlag(player, FlagTypeMap, 0x01, 0x02);
                 ShowMessage(player, true, "The Autumn Seeds awaken me from my long hibernation.");
@@ -513,36 +515,36 @@ namespace XPT.Legacy.Maps {
         // === Remaining events - clues ==============================================================================
         // ===========================================================================================================
 
-        private void FnINFO_16(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnINFO_16(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowPortrait(player, 0x001F);
             ShowMessage(player, doMsgs, "'Welcome, Adventurer.  I am Varstad, counselor to the Elf King.");
             ShowMessage(player, doMsgs, "The magic Aldbora requires Summer Radiance to shed its knowledge fruit.'");
         }
 
-        private void FnINFO_17(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnINFO_17(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowPortrait(player, 0x0027);
             ShowMessage(player, doMsgs, "The storyteller Sorshian honors your arrival.");
             ShowMessage(player, doMsgs, "'Only when the Seasons have processed will the Aldora shed the fruits of Wisdom.'");
         }
 
-        private void FnCAVEDOOR_18(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnCAVEDOOR_18(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "A wooden sign says, 'To the cave of NeedleWood.'");
-            if (HasUsedItem(player, type, ref doMsgs, ItemElfinCaveKey, ItemElfinCaveKey) == 1) {
+            if (HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemElfinCaveKey, YsIndexes.ItemElfinCaveKey) == 1) {
                 ShowMessage(player, doMsgs, "The door unlocks.");
                 SetWallPassable(player, GetCurrentTile(player), 0x03, 0x01);
                 SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
             }
         }
 
-        private void FnELFHOME_19(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnELFHOME_19(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "Young elves scurry and hide when you enter this elf home.");
         }
 
-        private void FnELFHOME_1A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnELFHOME_1A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "Carvings of elfin rangers crossing glacial landscapes proudly mount the walls of a typical elfin dwelling.");
         }
 
-        private void FnINFO_1B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnINFO_1B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowPortrait(player, 0x001F);
             ShowMessage(player, doMsgs, "'I am Fernank, Hunter to the Elf King.");
             ShowMessage(player, doMsgs, "It is known in the trees that Nature's Robe must be used for the harvest.'");

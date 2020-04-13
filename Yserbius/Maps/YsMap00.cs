@@ -1,11 +1,13 @@
 #pragma warning disable
 using System.Collections.Generic;
-using XPT.Legacy;
-using XPT.Legacy.Entities;
+using XPT.Games.Generic.Entities;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Yserbius;
+using XPT.Games.Yserbius.Entities;
 
-namespace XPT.Legacy.Maps {
-    class YserMap00 : AMapScripted {
-        protected override int MapIndex => 0;
+namespace XPT.Games.Yserbius.Maps {
+    class YserMap00 : YsMap {
+        public override int MapIndex => 0;
         protected override int RandomEncounterChance => 0;
         protected override int RandomEncounterExtraCount => 0;
 
@@ -43,115 +45,124 @@ namespace XPT.Legacy.Maps {
         private const string String0650 = "Only heroes of the twentieth level or higher may venture beyond this door.";
         
         // === Functions ================================================
-        private void FnTOMINES_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTOMINES_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x01, 0x02, 0xFD, 0x03, type);
             L001E: return; // RETURN;
         }
 
-        private void FnTOTREAS_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTOTREAS_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x01, 0x04, 0x10, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnTOSOLDQU_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTOSOLDQU_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x01, 0x06, 0x0F, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnEXITDUNG_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnEXITDUNG_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ExitDungeon(player, false, type);
             L000B: return; // RETURN;
         }
 
-        private void FnDOORMESA_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDOORMESA_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String03FC); // The gateway leads to THE MINES.
             L0010: return; // RETURN;
         }
 
-        private void FnDOORMESB_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDOORMESB_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String041C); // The gateway leads to THE HALL OF DOORS.
             L0010: return; // RETURN;
         }
 
-        private void FnDOORMESC_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDOORMESC_07(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0444); // The gateway leads to THE SOLDIERS  QUARTERS.
             L0010: return; // RETURN;
         }
 
-        private void FnDOORMESD_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDOORMESD_08(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0471); // The gateway is the DUNGEON EXIT.
-            L0010: ax = IsFlagOn(player, FlagTypeDungeon, FlagDefeatedEnLiKil);
+            L0010: ax = IsFlagOn(player, FlagTypeDungeon, YsIndexes.FlagDefeatedEnLiKil);
             L0023: if (JumpEqual) goto L003F;
             L0025: ShowMessage(player, doMsgs, String0492); // Hail, conquering HERO OF YSERBIUS!
             L0032: ShowMessage(player, doMsgs, String04B5); // All of Twinion bows to your prominence!!
             L003F: return; // RETURN;
         }
 
-        private void FnTELEPORT_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEPORT_09(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x33, 0x01, 0x5D, 0x00, type);
             L001D: return; // RETURN;
         }
 
-        private void FnTELEMESS_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEMESS_0A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String04DE); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
-        private void FnDOORMESS_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
-            int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
-            L0000: // BEGIN;
-            L0003: ax = CheckLevel(player, 0x0014);
-            L0011: if (JumpNotEqual) goto L0016;
-            L0013: goto L011F;
-            L0016: Compare(GetFlag(player, FlagTypeDungeon, FlagUnlockedLabyrinthDoor), 0x0001);
-            L002A: if (JumpNotEqual) goto L005A;
-            L002C: ShowMessage(player, doMsgs, String0504); // This room contains the gateway to the Labyrinth.
-            L0039: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
-            L0057: goto L011D;
-            L005A: ax = HasItem(player, ItemThievesKey);
-            L0068: if (JumpNotEqual) goto L006D;
-            L006A: goto L0110;
-            L006D: ShowMessage(player, doMsgs, String0535); // The Thieves' Key unlocks this door!
-            L007A: ShowMessage(player, doMsgs, String0559); // This room contains the gateway to the Labyrinth.
-            L0087: SetFlag(player, FlagTypeDungeon, FlagUnlockedLabyrinthDoor, 0x01);
-            L009C: RemoveItem(player, ItemThievesKey);
-            L00A8: RemoveItem(player, ItemKingCleowynsLockpick);
-            L00B4: RemoveItem(player, ItemKingCleowynsKey);
-            L00C0: RemoveItem(player, ItemKeyToCleowynsPalace);
-            L00CC: RemoveItem(player, ItemKingsDomicileKey);
-            L00D8: RemoveItem(player, ItemLavaKey);
-            L00E4: RemoveItem(player, ItemKingsRing);
-            L00F0: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
-            L010E: goto L011D;
-            L0110: ShowMessage(player, doMsgs, String058A); // The Thieves' Key is needed to unlock this door.
-            L011D: goto L0156;
-            L011F: ShowMessage(player, doMsgs, String05BA); // The Thieves' Key is needed to unlock this door.
-            L012C: ShowMessage(player, doMsgs, String05EA); // Only heroes of the twentieth level or higher may venture beyond this door.
-            L0139: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
-            L0156: return; // RETURN;
+        private void FnDOORMESS_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
+            ShowMessage(player, doMsgs, String0504); // This room contains the gateway to the Labyrinth.
+            // party level check:
+            if (CheckLevel(player, 20) == 0) {
+                ShowMessage(player, doMsgs, String05EA); // Only heroes of the twentieth level or higher may venture beyond this door.
+                return;
+            }
+            // check if this player has already unlocked the door:
+            if (Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnlockedLabyrinthDoor), 0x0001)) {
+                if (player.IsPartyLeader) {
+                    ShowMessage(player, doMsgs, "The door is unlocked. The Labyrinth is open to you.");
+                    SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
+                }
+                else {
+                    ShowMessage(player, doMsgs, "You previously unlocked this door. When you lead a party, it will open for you.");
+                }
+                return;
+            }
+            // we haven't already unlocked the door. Check for thieves' key:
+            if (HasItem(player, YsIndexes.ItemThievesKey) == 1) {
+                if (player.IsPartyLeader) {
+                    ShowMessage(player, doMsgs, "The Thieves' Key unlocks this door! The Labyrinth is now open to you.");
+                    SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
+                }
+                else {
+                    ShowMessage(player, doMsgs, "The Thieves' Key unlocks this door! When you lead a party, it will open for you.");
+                }
+                ShowMessage(player, doMsgs, "You notice that your pack seems much lighter. To your surprise, Cleowyn's vestments and a number of keys have disappeared.");
+                SetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnlockedLabyrinthDoor, 0x01);
+                RemoveItem(player, YsIndexes.ItemThievesKey);
+                RemoveItem(player, YsIndexes.ItemKingCleowynsLockpick);
+                RemoveItem(player, YsIndexes.ItemKingCleowynsKey);
+                RemoveItem(player, YsIndexes.ItemKeyToCleowynsPalace);
+                RemoveItem(player, YsIndexes.ItemKingsDomicileKey);
+                RemoveItem(player, YsIndexes.ItemLavaKey);
+                RemoveItem(player, YsIndexes.ItemKingsRing);
+                SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
+                return;
+            }
+            // door is locked, no thieves' key:
+            ShowMessage(player, doMsgs, String05BA); // The Thieves' Key is needed to unlock this door.
         }
 
-        private void FnPRTYPORT_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPRTYPORT_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = CheckLevel(player, 0x0014);
@@ -163,7 +174,7 @@ namespace XPT.Legacy.Maps {
             L0049: return; // RETURN;
         }
 
-        private void FnNOJOIN_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNOJOIN_0D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetNoJoinArea(player);

@@ -1,11 +1,13 @@
 #pragma warning disable
 using System.Collections.Generic;
-using XPT.Legacy;
-using XPT.Legacy.Entities;
+using XPT.Games.Generic.Entities;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Yserbius;
+using XPT.Games.Yserbius.Entities;
 
-namespace XPT.Legacy.Maps {
-    class YserMap33 : AMapScripted {
-        protected override int MapIndex => 33;
+namespace XPT.Games.Yserbius.Maps {
+    class YserMap33 : YsMap {
+        public override int MapIndex => 33;
         protected override int RandomEncounterChance => 0;
         protected override int RandomEncounterExtraCount => 2;
 
@@ -75,22 +77,22 @@ namespace XPT.Legacy.Maps {
         private const string String0CA5 = "You leave this dimension and re-enter your world.";
         
         // === Functions ================================================
-        private void FnVOID_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnVOID_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String03FC); // The Ageless Void swallows you whole.
             ShowMessage(player, doMsgs, String0421); // Time freezes forever in your mind.  To the rest of the world, you are dead.
             DamagePlayer(player, GetMaxHits(player));
         }
 
-        private void FnLIFE_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLIFE_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String046D); // You are dragged into the Waters of Death. Your death agonies are mercifully short.
             DamagePlayer(player, GetMaxHits(player));
         }
 
-        private void DoTimeSwitch(ServerPlayer player, bool doMsgs, int switchIndex) {
-            SetFlag(player, FlagTypeDungeon, FlagKilledEnLiKilThisTime, 0);
+        private void DoTimeSwitch(YsPlayerServer player, bool doMsgs, int switchIndex) {
+            SetFlag(player, FlagTypeDungeon, YsIndexes.FlagKilledEnLiKilThisTime, 0);
             SetFlag(player, FlagTypeDungeon, switchIndex, 1);
             ShowMessage(player, doMsgs, String04C0); // The wall sparkles with phantasmal light.
-            int setSwitchCount = player.MapData.GetFlag(FlagTypeDungeon, FlagUnknownSwitch1) + player.MapData.GetFlag(FlagTypeDungeon, FlagUnknownSwitch2) + player.MapData.GetFlag(FlagTypeDungeon, FlagUnknownSwitch3);
+            int setSwitchCount = player.MapData.GetFlag(FlagTypeDungeon, YsIndexes.FlagUnknownSwitch1) + player.MapData.GetFlag(FlagTypeDungeon, YsIndexes.FlagUnknownSwitch2) + player.MapData.GetFlag(FlagTypeDungeon, YsIndexes.FlagUnknownSwitch3);
             if (setSwitchCount == 1) {
                 ShowMessage(player, doMsgs, String04E9); // A Timeswitch has been set.
                 ShowMessage(player, doMsgs, String0504); // Two other Timeswitches must be set to reveal the platform.
@@ -106,19 +108,19 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnTIMEA_03(ServerPlayer player, MapEventType type, bool doMsgs) {
-            DoTimeSwitch(player, doMsgs, FlagUnknownSwitch1);
+        private void FnTIMEA_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
+            DoTimeSwitch(player, doMsgs, YsIndexes.FlagUnknownSwitch1);
         }
 
-        private void FnTIMEB_04(ServerPlayer player, MapEventType type, bool doMsgs) {
-            DoTimeSwitch(player, doMsgs, FlagUnknownSwitch2);
+        private void FnTIMEB_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
+            DoTimeSwitch(player, doMsgs, YsIndexes.FlagUnknownSwitch2);
         }
 
-        private void FnTIMEC_05(ServerPlayer player, MapEventType type, bool doMsgs) {
-            DoTimeSwitch(player, doMsgs, FlagUnknownSwitch3);
+        private void FnTIMEC_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
+            DoTimeSwitch(player, doMsgs, YsIndexes.FlagUnknownSwitch3);
         }
 
-        private void FnTIMEELEM_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTIMEELEM_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowPortrait(player, 0x0011);
             ShowMessage(player, doMsgs, String07C0); // I am the Time Elemental, En-Li-Kil.
             ShowMessage(player, doMsgs, String07E4); // You have traveled far...only to die!
@@ -126,9 +128,9 @@ namespace XPT.Legacy.Maps {
             ShowMessage(player, doMsgs, String085D); // I destroyed that fool Arnakkian Slowfoot, and I shall destroy you as easily.
             ShowMessage(player, doMsgs, String08AA); // Then I shall search out all mortals in your world and destroy them!
             ShowMessage(player, doMsgs, String08EE); // I am En-Li-Kil!  The immortal!!!
-            SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1, 0x00);
-            SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2, 0x00);
-            SetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3, 0x00);
+            SetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnknownSwitch1, 0x00);
+            SetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnknownSwitch2, 0x00);
+            SetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnknownSwitch3, 0x00);
             AddEncounter(player, 0x01, 0x21);
             AddEncounter(player, 0x02, 0x23);
             AddEncounter(player, 0x03, 0x10);
@@ -136,12 +138,12 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x28);
         }
 
-        private void FnTIMEPLAT_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTIMEPLAT_07(YsPlayerServer player, MapEventType type, bool doMsgs) {
             // the water tile between the final platform and en-li-kil.
             int countSwitchesSet = 
-                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) + 
-                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2) + 
-                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3);
+                GetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnknownSwitch1) + 
+                GetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnknownSwitch2) + 
+                GetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnknownSwitch3);
             if (countSwitchesSet == 3 || (IsFlagOn(player, FlagTypeMap, 1) == 1)) {
                 SetFloorItem(player, 0x00, 0xA8);
                 ShowMessage(player, doMsgs, String090F); // You cross the Waters of Death safely.
@@ -155,18 +157,18 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnGOAL_08(ServerPlayer player, MapEventType type, bool doMsgs) {
-            RemoveItem(player, ItemRanbowGemRed);
-            RemoveItem(player, ItemRanbowGemYellow);
-            RemoveItem(player, ItemRanbowGemGreen);
-            RemoveItem(player, ItemRanbowGemBlue);
-            RemoveItem(player, ItemGoldenBoat);
-            if (GetFlag(player, FlagTypeDungeon, FlagKilledEnLiKilThisTime) == 1) {
+        private void FnGOAL_08(YsPlayerServer player, MapEventType type, bool doMsgs) {
+            RemoveItem(player, YsIndexes.ItemRanbowGemRed);
+            RemoveItem(player, YsIndexes.ItemRanbowGemYellow);
+            RemoveItem(player, YsIndexes.ItemRanbowGemGreen);
+            RemoveItem(player, YsIndexes.ItemRanbowGemBlue);
+            RemoveItem(player, YsIndexes.ItemGoldenBoat);
+            if (GetFlag(player, FlagTypeDungeon, YsIndexes.FlagKilledEnLiKilThisTime) == 1) {
                 ShowMessage(player, doMsgs, "You stand amidst the Waters of Death, surrounded on all sides by the Ageless Void. All is peace here.");
                 return;
             }
-            SetFlag(player, FlagTypeDungeon, FlagKilledEnLiKilThisTime, 1);
-            if (IsFlagOn(player, FlagTypeDungeon, FlagDefeatedEnLiKil) == 1) {
+            SetFlag(player, FlagTypeDungeon, YsIndexes.FlagKilledEnLiKilThisTime, 1);
+            if (IsFlagOn(player, FlagTypeDungeon, YsIndexes.FlagDefeatedEnLiKil) == 1) {
                 ShowMessage(player, doMsgs, String0A00); // You have found the Fountain of Life, but the waters are drained.
                 ShowMessage(player, doMsgs, String0A41); // The Rainbow Gems and Golden Boat dissolve into dust.
                 ShowMessage(player, doMsgs, String0A76); // Humiliating En-Li-Kil a second time is reward enough.
@@ -179,14 +181,14 @@ namespace XPT.Legacy.Maps {
             ShowMessage(player, doMsgs, String0B88); // Return to your home safely now.
             ShowMessage(player, doMsgs, String0BA8); // Soon you will be able to leave the volcano Yserbius and begin a new life of adventure!
             ShowMessage(player, doMsgs, String0BFF); // Farewell...this ending is just the beginning!!!
-            if (GetFlag(player, FlagTypeDungeon, FlagReceivedEnLiKilExperience) == 0) {
-                SetFlag(player, FlagTypeDungeon, FlagReceivedEnLiKilExperience, 0x01);
-                SetFlag(player, FlagTypeDungeon, FlagDefeatedEnLiKil, 0x01);
+            if (GetFlag(player, FlagTypeDungeon, YsIndexes.FlagReceivedEnLiKilExperience) == 0) {
+                SetFlag(player, FlagTypeDungeon, YsIndexes.FlagReceivedEnLiKilExperience, 0x01);
+                SetFlag(player, FlagTypeDungeon, YsIndexes.FlagDefeatedEnLiKil, 0x01);
                 AddExperience(player, 0x004C4B40);
             }
         }
 
-        private void FnENCA_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCA_09(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String0C2F); // Across the Waters of Death at the center of this finite square is the Fountain of Life.
             ShowMessage(player, doMsgs, String0C87); // The Fountain is well guarded.
             AddEncounter(player, 0x01, 0x19);
@@ -197,7 +199,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x1D);
         }
 
-        private void FnENCB_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCB_0A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x08);
             AddEncounter(player, 0x02, 0x08);
             AddEncounter(player, 0x03, 0x24);
@@ -206,7 +208,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x27);
         }
 
-        private void FnENCC_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCC_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1B);
             AddEncounter(player, 0x02, 0x1B);
             AddEncounter(player, 0x03, 0x1C);
@@ -215,7 +217,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x1F);
         }
 
-        private void FnENCD_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCD_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x19);
             AddEncounter(player, 0x02, 0x19);
             AddEncounter(player, 0x03, 0x1C);
@@ -224,7 +226,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x1D);
         }
 
-        private void FnENCE_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCE_0D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1E);
             AddEncounter(player, 0x02, 0x1E);
             AddEncounter(player, 0x03, 0x20);
@@ -233,7 +235,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x21);
         }
 
-        private void FnENCF_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCF_0E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x22);
             AddEncounter(player, 0x02, 0x22);
             AddEncounter(player, 0x03, 0x1F);
@@ -242,12 +244,12 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x23);
         }
 
-        private void FnCROSSOVR_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnCROSSOVR_0F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             // the final platform, standing next to the bridged water tile to en-li-kil.
             int countSwitchesSet =
-                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) +
-                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2) +
-                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3);
+                GetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnknownSwitch1) +
+                GetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnknownSwitch2) +
+                GetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnknownSwitch3);
             if (countSwitchesSet == 3) {
                 SetFloorItem(player, 0x00, 0xA8);
                 SetFlag(player, FlagTypeMap, 1, 1); // set a map flag allowing party members to not die even if they did not set the switches.
@@ -257,12 +259,12 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnMAPCONV_10(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMAPCONV_10(YsPlayerServer player, MapEventType type, bool doMsgs) {
             // beginning of the final platform, walking to the bridge to en-li-kil.
             int countSwitchesSet =
-                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch1) +
-                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch2) +
-                GetFlag(player, FlagTypeDungeon, FlagUnknownSwitch3);
+                GetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnknownSwitch1) +
+                GetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnknownSwitch2) +
+                GetFlag(player, FlagTypeDungeon, YsIndexes.FlagUnknownSwitch3);
             if (countSwitchesSet == 3 || (IsFlagOn(player, FlagTypeMap, 1) == 1)) {
                 SetFloorItem(player, 0x00, 0xA8);
             }
@@ -271,7 +273,7 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnTELEBACK_12(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEBACK_12(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String0CA5); // You leave this dimension and re-enter your world.
             TeleportParty(player, 0x38, 0x04, 0x88, 0x02, type);
         }

@@ -1,11 +1,13 @@
 #pragma warning disable
 using System.Collections.Generic;
-using XPT.Legacy;
-using XPT.Legacy.Entities;
+using XPT.Games.Generic.Entities;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Yserbius;
+using XPT.Games.Yserbius.Entities;
 
-namespace XPT.Legacy.Maps {
-    class YserMap19 : AMapScripted {
-        protected override int MapIndex => 19;
+namespace XPT.Games.Yserbius.Maps {
+    class YserMap19 : YsMap {
+        public override int MapIndex => 19;
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 1;
 
@@ -40,29 +42,29 @@ namespace XPT.Legacy.Maps {
         private const string String0733 = "The Elf Barbarian dismisses you as useless baggage and heads off to find true heroes.";
         
         // === Functions ================================================
-        private void FnTELEPORT_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEPORT_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x05, 0x02, 0x00, 0x33, type);
             L001D: return; // RETURN;
         }
 
-        private void FnTELEMESS_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEMESS_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String03FC); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
-        private void FnFOUNBLES_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnFOUNBLES_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagPitBottomFountainRestoration), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagPitBottomFountainRestoration), 0x0001);
             L0017: if (JumpNotEqual) goto L0035;
             L0019: ShowPortrait(player, 0x0042);
             L0026: ShowMessage(player, doMsgs, String0422); // You sip from the Fountain of Restoration, but nothing happens.
             L0033: goto L0080;
-            L0035: SetFlag(player, FlagTypeDungeon, FlagPitBottomFountainRestoration, 0x01);
+            L0035: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagPitBottomFountainRestoration, 0x01);
             L004A: ShowPortrait(player, 0x0042);
             L0057: dx = GetMaxHits(player) - GetCurrentHits(player);
             L0069: HealPlayer(player, (ushort)dx);
@@ -70,7 +72,7 @@ namespace XPT.Legacy.Maps {
             L0080: return; // RETURN;
         }
 
-        private void FnQUESTENC_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnQUESTENC_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0x81);
@@ -110,10 +112,10 @@ namespace XPT.Legacy.Maps {
             L01E4: return; // RETURN;
         }
 
-        private void FnLKPKDORZ_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLKPKDORZ_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemLavaKey, ItemLavaKey);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemLavaKey, YsIndexes.ItemLavaKey);
             L0016: if (JumpEqual) goto L0063;
             L0018: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0036: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -124,7 +126,7 @@ namespace XPT.Legacy.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnSTRDOOR_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRDOOR_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x000E);
@@ -138,7 +140,7 @@ namespace XPT.Legacy.Maps {
             L0089: return; // RETURN;
         }
 
-        private void FnAVEMNSTR_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnAVEMNSTR_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -167,7 +169,7 @@ namespace XPT.Legacy.Maps {
             L012E: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRMNSTR_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -198,7 +200,7 @@ namespace XPT.Legacy.Maps {
             L0152: return; // RETURN;
         }
 
-        private void FnNPCCHATA_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATA_0E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String05C5); // You encounter a Human Thief.
@@ -211,7 +213,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATB_0F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String067A); // You encounter an Elf Barbarian.

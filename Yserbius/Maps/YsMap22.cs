@@ -1,11 +1,13 @@
 #pragma warning disable
 using System.Collections.Generic;
-using XPT.Legacy;
-using XPT.Legacy.Entities;
+using XPT.Games.Generic.Entities;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Yserbius;
+using XPT.Games.Yserbius.Entities;
 
-namespace XPT.Legacy.Maps {
-    class YserMap22 : AMapScripted {
-        protected override int MapIndex => 22;
+namespace XPT.Games.Yserbius.Maps {
+    class YserMap22 : YsMap {
+        public override int MapIndex => 22;
         protected override int RandomEncounterChance => 12;
         protected override int RandomEncounterExtraCount => 2;
 
@@ -168,7 +170,7 @@ namespace XPT.Legacy.Maps {
         private const string String16A7 = "You have died.";
         
         // === Functions ================================================
-        private void FnDROP_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDROP_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String03FC); // Other pits in the Labyrinth provide access to hidden areas...
@@ -177,7 +179,7 @@ namespace XPT.Legacy.Maps {
             L002E: return; // RETURN;
         }
 
-        private void FnXOVER_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnXOVER_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetCurrentTile(player), 0x0047);
@@ -199,7 +201,7 @@ namespace XPT.Legacy.Maps {
             L00A8: return; // RETURN;
         }
 
-        private void FnXOVERON_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnXOVERON_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeMap, 0x01, 0x01);
@@ -209,7 +211,7 @@ namespace XPT.Legacy.Maps {
             L0042: return; // RETURN;
         }
 
-        private void FnBAZAAR_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBAZAAR_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0552); // You do not suffer the death found in other pits in the Labyrinth.  Instead you are rewarded with a trip to CASTLEGATE BAZAAR.
@@ -217,7 +219,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnHEAVENS_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnHEAVENS_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String05D0); // The Dark Dwarf Voranti tricked the Lords of Harmony many moons ago.
@@ -227,7 +229,7 @@ namespace XPT.Legacy.Maps {
             L0045: return; // RETURN;
         }
 
-        private void FnEXODUS_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnEXODUS_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String06D1); // The survivors of the cataclysm named this place EXODUS.
@@ -236,7 +238,7 @@ namespace XPT.Legacy.Maps {
             L0038: return; // RETURN;
         }
 
-        private void FnWINDHOLO_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWINDHOLO_07(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String076A); // No adventurer dares camp in WIND HOLLOW.  At night the howling wind makes one deaf to the dangers.
@@ -244,7 +246,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnTEMPEST_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTEMPEST_08(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String07CD); // TEMPEST dares all to explore the magic rooms along her narrow corridor.
@@ -252,7 +254,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnWINDHOLO_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWINDHOLO_09(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0815); // The barren rocks are swept clean by the violent winds that race through WIND HOLLOW.
@@ -260,7 +262,7 @@ namespace XPT.Legacy.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnBACKALLY_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBACKALLY_0A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String086A); // 'Beware!  Those who enter the Labyrinth BACK ALLEY must guard against all!'
@@ -268,7 +270,7 @@ namespace XPT.Legacy.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnHEAVENS_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnHEAVENS_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String08B6); // Enter HEAVEN'S FURY if you must.  Here is where Voranti cursed the winds.
@@ -276,7 +278,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnLABYATIC_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLABYATIC_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0900); // The gates of LABYRINTH ATTIC are a welcome sight.
@@ -284,7 +286,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnWINDHOLO_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWINDHOLO_0D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0932); // The door leads to WYN SANCTUARY.
@@ -292,7 +294,7 @@ namespace XPT.Legacy.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnTHVTRESR_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTHVTRESR_0E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0953); // The gateway opens, revealing the secret chambers of the Labyrinth Thieves.
@@ -300,7 +302,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnLAVA_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLAVA_0F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String099E); // You stumble into the lava pools.  You die.
@@ -308,11 +310,11 @@ namespace XPT.Legacy.Maps {
             L0021: return; // RETURN;
         }
 
-        private void FnDRTOBALY_10(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDRTOBALY_10(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String09C9); // This door locks out all except those who have the alley key.
-            L0010: ax = HasUsedItem(player, type, ref doMsgs, ItemKeyToBackAlley, ItemKeyToBackAlley);
+            L0010: ax = HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemKeyToBackAlley, YsIndexes.ItemKeyToBackAlley);
             L0023: if (JumpEqual) goto L0066;
             L0025: SetWallPassable(player, GetCurrentTile(player), 0x03, 0x01);
             L003F: SetWallItem(player, 0x01, GetCurrentTile(player), 0x03);
@@ -320,7 +322,7 @@ namespace XPT.Legacy.Maps {
             L0066: return; // RETURN;
         }
 
-        private void FnLABYATIC_14(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLABYATIC_14(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0A21); // You return to LABYRINTH ATTIC through a one-way tunnel.
@@ -328,7 +330,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnWINDHOLO_15(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWINDHOLO_15(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0A59); // The door to WIND HOLLOW bursts open with terrible force, throwing all adventurers against the rocks...
@@ -338,7 +340,7 @@ namespace XPT.Legacy.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnMAGICRMS_16(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMAGICRMS_16(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0AEF); // Runes can be the most powerful of weapons in the hands of an adept Wizard.
@@ -347,7 +349,7 @@ namespace XPT.Legacy.Maps {
             L0038: return; // RETURN;
         }
 
-        private void FnZEPHENCA_18(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnZEPHENCA_18(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x16);
@@ -362,24 +364,24 @@ namespace XPT.Legacy.Maps {
             L009D: return; // RETURN;
         }
 
-        private void FnZEPHENCB_19(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnZEPHENCB_19(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsFlagOn(player, FlagTypeDungeon, FlagGaveHarvestHorn);
+            L0003: ax = IsFlagOn(player, FlagTypeDungeon, YsIndexes.FlagGaveHarvestHorn);
             L0016: if (JumpEqual) goto L007B;
             L0018: ax = HasItem(player, 0x09);
             L0026: if (JumpNotEqual) goto L0038;
-            L0028: ax = HasItem(player, ItemFlexMetal);
+            L0028: ax = HasItem(player, YsIndexes.ItemFlexMetal);
             L0036: if (JumpEqual) goto L005A;
             L0038: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, 0xB3, 0xD0);
             L0058: goto L0079;
-            L005A: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, ItemFlexMetal);
+            L005A: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, YsIndexes.ItemFlexMetal);
             L0079: goto L00EA;
-            L007B: ax = HasItem(player, ItemHarvestHorn);
+            L007B: ax = HasItem(player, YsIndexes.ItemHarvestHorn);
             L0089: if (JumpEqual) goto L00EA;
-            L008B: RemoveItem(player, ItemHarvestHorn);
-            L0097: SetFlag(player, FlagTypeDungeon, FlagGaveHarvestHorn, 0x01);
-            L00AC: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, ItemFlexMetal);
+            L008B: RemoveItem(player, YsIndexes.ItemHarvestHorn);
+            L0097: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagGaveHarvestHorn, 0x01);
+            L00AC: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, YsIndexes.ItemFlexMetal);
             L00CB: AddExperience(player, 0x0003D090);
             L00DD: ShowMessage(player, doMsgs, String0B92); // The Zephyr Wind whispers, 'I have taken the Harvest Horn, and I give you something to help defeat the Wind Elemental'.
             L00EA: AddEncounter(player, 0x01, 0x10);
@@ -389,14 +391,14 @@ namespace XPT.Legacy.Maps {
             L0132: return; // RETURN;
         }
 
-        private void FnTXTZEPHR_1B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTXTZEPHR_1B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0C09); // The Zephyr Wind whistles 'No harm was intended, but I am sworn to serve the Wind Elemental.  Return the Harvest Horn to my Wyverns to release my bonds.'
             L0010: return; // RETURN;
         }
 
-        private void FnXOVEROFF_1C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnXOVEROFF_1C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeMap, 0x01, 0x00);
@@ -405,7 +407,7 @@ namespace XPT.Legacy.Maps {
             L0035: return; // RETURN;
         }
 
-        private void FnZEPHBLOW_1D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnZEPHBLOW_1D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0CD0); // The Zephyr Wind gusts in fury, causing damage!
@@ -416,7 +418,7 @@ namespace XPT.Legacy.Maps {
             L003F: return; // RETURN;
         }
 
-        private void FnDRLPENCA_1E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDRLPENCA_1E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0D0E); // Wafts of reddish smoke eminate from the rooms ahead.
@@ -427,7 +429,7 @@ namespace XPT.Legacy.Maps {
             L0058: return; // RETURN;
         }
 
-        private void FnDRLPENCB_1F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDRLPENCB_1F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0D43); // An acrid odor fills these chambers.
@@ -438,7 +440,7 @@ namespace XPT.Legacy.Maps {
             L0058: return; // RETURN;
         }
 
-        private void FnDRLPENCC_20(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDRLPENCC_20(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0D67); // The fiery eyes of Ancient Dragons blaze through the thick clouds that fill the chamber.
@@ -448,15 +450,15 @@ namespace XPT.Legacy.Maps {
             L0046: AddEncounter(player, 0x04, 0x1C);
             L0058: AddEncounter(player, 0x05, 0x1A);
             L006A: AddEncounter(player, 0x06, 0x1A);
-            L007C: ax = HasItem(player, ItemVorantisKey);
+            L007C: ax = HasItem(player, YsIndexes.ItemVorantisKey);
             L008A: if (JumpEqual) goto L00AD;
             L008C: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, 0xD1);
             L00AB: goto L00CE;
-            L00AD: AddTreasure(player, 0x4E20, 0x00, 0x00, ItemVorantisKey, 0x46, 0x6E);
+            L00AD: AddTreasure(player, 0x4E20, 0x00, 0x00, YsIndexes.ItemVorantisKey, 0x46, 0x6E);
             L00CE: return; // RETURN;
         }
 
-        private void FnZZYZENCA_21(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnZZYZENCA_21(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1E);
@@ -469,7 +471,7 @@ namespace XPT.Legacy.Maps {
             L0090: return; // RETURN;
         }
 
-        private void FnSDRZZYZA_23(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDRZZYZA_23(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0D), 0x000B);
@@ -484,7 +486,7 @@ namespace XPT.Legacy.Maps {
             L0082: return; // RETURN;
         }
 
-        private void FnZZYZENCC_24(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnZZYZENCC_24(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x10);
@@ -494,7 +496,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnMGOVENCA_25(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMGOVENCA_25(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0DE5); // A stash of wizard items is being raided.
@@ -506,7 +508,7 @@ namespace XPT.Legacy.Maps {
             L0079: return; // RETURN;
         }
 
-        private void FnMGOVENCB_26(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMGOVENCB_26(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1F);
@@ -517,7 +519,7 @@ namespace XPT.Legacy.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnSDRMGOVA_28(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDRMGOVA_28(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetClass(player), 0x0005);
@@ -535,7 +537,7 @@ namespace XPT.Legacy.Maps {
             L0091: return; // RETURN;
         }
 
-        private void FnVORAENCA_29(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnVORAENCA_29(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x22);
@@ -545,7 +547,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnVORAENCB_2A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnVORAENCB_2A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x22);
@@ -555,7 +557,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnVORAENCV_30(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnVORAENCV_30(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0E34); // A powerful Dwarf Thief stands before you. 'I am Voranti, Lord of Dwarf Thieves!  Fight me if you must, but you shall not find my secret treasure!  Do not fear, for I will provide decent burial when I am finished.'
@@ -567,15 +569,15 @@ namespace XPT.Legacy.Maps {
             L0035: ShowMessage(player, doMsgs, String0F81); // Voranti smiles sadly. 'It saddens me that I must kill a fellow dwarf, but you have brought death upon yourself.'
             L0042: AddEncounter(player, 0x01, 0x1C);
             L0054: AddEncounter(player, 0x05, 0x21);
-            L0066: ax = HasItem(player, ItemAceOfSpades);
+            L0066: ax = HasItem(player, YsIndexes.ItemAceOfSpades);
             L0074: if (JumpEqual) goto L0097;
             L0076: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xCC);
             L0095: goto L00B6;
-            L0097: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, ItemAceOfSpades);
+            L0097: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0x00, YsIndexes.ItemAceOfSpades);
             L00B6: return; // RETURN;
         }
 
-        private void FnSDRVORDW_31(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDRVORDW_31(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0D), 0x000B);
@@ -590,7 +592,7 @@ namespace XPT.Legacy.Maps {
             L0082: return; // RETURN;
         }
 
-        private void FnMOONENCA_32(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONENCA_32(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x0A);
@@ -605,7 +607,7 @@ namespace XPT.Legacy.Maps {
             L009E: return; // RETURN;
         }
 
-        private void FnMOONENCB_33(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONENCB_33(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x26);
@@ -617,7 +619,7 @@ namespace XPT.Legacy.Maps {
             L007D: return; // RETURN;
         }
 
-        private void FnMOONENCC_34(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONENCC_34(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x0E);
@@ -630,7 +632,7 @@ namespace XPT.Legacy.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnMOONENCD_35(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONENCD_35(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x24);
@@ -640,7 +642,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnMOONENCE_36(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONENCE_36(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String1016); // A nest of young dragons!
@@ -651,7 +653,7 @@ namespace XPT.Legacy.Maps {
             L0058: return; // RETURN;
         }
 
-        private void FnMOONENCF_37(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONENCF_37(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x24);
@@ -660,7 +662,7 @@ namespace XPT.Legacy.Maps {
             L0039: return; // RETURN;
         }
 
-        private void FnMOONENCG_38(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONENCG_38(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String102F); // A yellowed piece of paper  --
@@ -670,22 +672,22 @@ namespace XPT.Legacy.Maps {
             L0041: AddEncounter(player, 0x03, 0x28);
             L0053: AddEncounter(player, 0x05, 0x24);
             L0065: AddEncounter(player, 0x06, 0x24);
-            L0077: ax = HasItem(player, ItemJackOfSpades);
+            L0077: ax = HasItem(player, YsIndexes.ItemJackOfSpades);
             L0085: if (JumpEqual) goto L00A8;
             L0087: AddTreasure(player, 0x2328, 0x00, 0x00, 0x00, 0x00, 0xBB);
             L00A6: goto L00C8;
-            L00A8: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, ItemJackOfSpades, 0x85);
+            L00A8: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, YsIndexes.ItemJackOfSpades, 0x85);
             L00C8: return; // RETURN;
         }
 
-        private void FnTXTMOONB_3A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTXTMOONB_3A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String10A6); // A note -- 'Only past the Darkside will you find En-Li-Kil himself.'
             L0010: return; // RETURN;
         }
 
-        private void FnMOONENCJ_3B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONENCJ_3B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x12);
@@ -695,7 +697,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnMOONENCK_3C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONENCK_3C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x26);
@@ -706,7 +708,7 @@ namespace XPT.Legacy.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnBDRMOONB_3E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBDRMOONB_3E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String10EA); // This door requires immense strength to open.
@@ -718,10 +720,10 @@ namespace XPT.Legacy.Maps {
             L006A: return; // RETURN;
         }
 
-        private void FnSDRMOONC_3F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDRMOONC_3F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemMoonPrism, ItemMoonPrism);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemMoonPrism, YsIndexes.ItemMoonPrism);
             L0016: if (JumpEqual) goto L0061;
             L0018: ShowMessage(player, doMsgs, String114F); // Your Moon Prism reveals a secret door!
             L0025: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -729,7 +731,7 @@ namespace XPT.Legacy.Maps {
             L0061: return; // RETURN;
         }
 
-        private void FnSDRMOOND_40(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDRMOOND_40(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0D), 0x000B);
@@ -746,7 +748,7 @@ namespace XPT.Legacy.Maps {
             L0097: return; // RETURN;
         }
 
-        private void FnSDRMOONE_41(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDRMOONE_41(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String119A); // The signature of the spectrum appears on the wall.
@@ -760,7 +762,7 @@ namespace XPT.Legacy.Maps {
             L0083: return; // RETURN;
         }
 
-        private void FnMOONENCM_42(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONENCM_42(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x26);
@@ -770,7 +772,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnSDRMOONF_43(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDRMOONF_43(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetClass(player), 0x0002);
@@ -788,7 +790,7 @@ namespace XPT.Legacy.Maps {
             L0091: return; // RETURN;
         }
 
-        private void FnSDRMOONJ_44(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDRMOONJ_44(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetClass(player), 0x0004);
@@ -806,7 +808,7 @@ namespace XPT.Legacy.Maps {
             L0091: return; // RETURN;
         }
 
-        private void FnBDRMOONK_45(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBDRMOONK_45(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x0014);
@@ -821,7 +823,7 @@ namespace XPT.Legacy.Maps {
             L00A7: return; // RETURN;
         }
 
-        private void FnSDRMOONM_46(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDRMOONM_46(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0D), 0x0008);
@@ -836,7 +838,7 @@ namespace XPT.Legacy.Maps {
             L0082: return; // RETURN;
         }
 
-        private void FnSDRMOONN_47(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDRMOONN_47(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String12E0); // You detect a door cleverly hidden in the wall.
@@ -845,54 +847,55 @@ namespace XPT.Legacy.Maps {
             L004C: return; // RETURN;
         }
 
-        private void FnMOONTRSA_48(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONTRSA_48(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, ItemMoonPrism);
+            L0003: ax = HasItem(player, YsIndexes.ItemMoonPrism);
             L0011: if (JumpEqual) goto L0022;
             L0013: ShowMessage(player, doMsgs, String130F); // Piles of dirt cover the floor.
             L0020: goto L0050;
-            L0022: GiveItem(player, ItemMoonPrism);
-            L002E: SetFlag(player, FlagTypeDungeon, FlagLabyrinthIIMoonPrism, 0x01);
+            L0022: GiveItem(player, YsIndexes.ItemMoonPrism);
+            L002E: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagLabyrinthIIMoonPrism, 0x01);
             L0043: ShowMessage(player, doMsgs, String132E); // You find a Moon Prism on the floor.
+            SetFlag(player, FlagTypeDungeon, YsIndexes.FlagMedievaLandsGotMoonPrism, 1);
             L0050: return; // RETURN;
         }
 
-        private void FnMOONTRSB_49(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONTRSB_49(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagLabyrinthIIRangerSpear), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagLabyrinthIIRangerSpear), 0x0001);
             L0017: if (JumpNotEqual) goto L0028;
             L0019: ShowMessage(player, doMsgs, String1352); // The floor is bare.
             L0026: goto L0056;
             L0028: GiveItem(player, 0x37);
-            L0034: SetFlag(player, FlagTypeDungeon, FlagLabyrinthIIRangerSpear, 0x01);
+            L0034: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagLabyrinthIIRangerSpear, 0x01);
             L0049: ShowMessage(player, doMsgs, String1365); // You find the Ranger Spear on the floor.
             L0056: return; // RETURN;
         }
 
-        private void FnMOONTRSC_4A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONTRSC_4A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagLabyrinthIIHolyHalberd), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagLabyrinthIIHolyHalberd), 0x0001);
             L0017: if (JumpNotEqual) goto L0028;
             L0019: ShowMessage(player, doMsgs, String138D); // There is nothing of interest in this area.
             L0026: goto L0056;
             L0028: GiveItem(player, 0x3D);
-            L0034: SetFlag(player, FlagTypeDungeon, FlagLabyrinthIIHolyHalberd, 0x01);
+            L0034: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagLabyrinthIIHolyHalberd, 0x01);
             L0049: ShowMessage(player, doMsgs, String13B8); // You find a Holy Halberd lying on the floor.
             L0056: return; // RETURN;
         }
 
-        private void FnTORBFOUN_4B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTORBFOUN_4B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowPortrait(player, 0x0042);
             L0010: ShowMessage(player, doMsgs, String13E4); // Pictorials of War are painted on the walls surrounding Torbriar's Fountain.
-            L001D: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagLabryinthITeachSkill1));
+            L001D: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagLabryinthITeachSkill1));
             L0030: if (JumpEqual) goto L0035;
             L0032: goto L017C;
-            L0035: SetFlag(player, FlagTypeDungeon, FlagLabryinthITeachSkill1, 0x01);
+            L0035: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagLabryinthITeachSkill1, 0x01);
             L004A: RefreshCompareFlags(GetSkillLevel(player, 0x08));
             L0058: if (JumpNotEqual) goto L007B;
             L005A: SetSkillLevel(player, 0x08, 0x02);
@@ -929,7 +932,7 @@ namespace XPT.Legacy.Maps {
             L0189: return; // RETURN;
         }
 
-        private void FnTORBENCB_4C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTORBENCB_4C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x28);
@@ -946,7 +949,7 @@ namespace XPT.Legacy.Maps {
             L00B2: return; // RETURN;
         }
 
-        private void FnTORBENCC_4D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTORBENCC_4D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x28);
@@ -956,14 +959,14 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnTXTTORB_52(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTXTTORB_52(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String152D); // A bard's scroll sings a simple song of how someday bands of adventurers will form an invisible bridge across a deadly chasm.
             L0010: return; // RETURN;
         }
 
-        private void FnSDRTORBA_53(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDRTORBA_53(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetClass(player), 0x0001);
@@ -981,7 +984,7 @@ namespace XPT.Legacy.Maps {
             L0091: return; // RETURN;
         }
 
-        private void FnSDRTORBB_54(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDRTORBB_54(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetClass(player));
@@ -999,7 +1002,7 @@ namespace XPT.Legacy.Maps {
             L0090: return; // RETURN;
         }
 
-        private void FnTORBWIND_55(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTORBWIND_55(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String160A); // The wind is nasty here!  You take 100 damage.
@@ -1007,7 +1010,7 @@ namespace XPT.Legacy.Maps {
             L0035: return; // RETURN;
         }
 
-        private void FnMOONWIND_56(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONWIND_56(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String1647); // The Moon Hollow winds steals 300 Mana!
@@ -1015,7 +1018,7 @@ namespace XPT.Legacy.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnVORAWIND_57(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnVORAWIND_57(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String166E); // A violent whirlwind pounds you, taking half your health!

@@ -1,11 +1,13 @@
 #pragma warning disable
 using System.Collections.Generic;
-using XPT.Legacy;
-using XPT.Legacy.Entities;
+using XPT.Games.Generic.Entities;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Yserbius;
+using XPT.Games.Yserbius.Entities;
 
-namespace XPT.Legacy.Maps {
-    class YserMap20 : AMapScripted {
-        protected override int MapIndex => 20;
+namespace XPT.Games.Yserbius.Maps {
+    class YserMap20 : YsMap {
+        public override int MapIndex => 20;
         protected override int RandomEncounterChance => 12;
         protected override int RandomEncounterExtraCount => 2;
 
@@ -203,7 +205,7 @@ namespace XPT.Legacy.Maps {
         // in the correct order, these treasure encounters will have treasure and the green gem.
         // Otherwise they will have alternate treasure. So you have to do this multiple times to see everything.
 
-        private bool AreFourWindsDefeated(ServerPlayer player) {
+        private bool AreFourWindsDefeated(YsPlayerServer player) {
             if (GetFlag(player, FlagTypeMap, 0x01) != 0 &&
                 GetFlag(player, FlagTypeMap, 0x02) != 0 &&
                 GetFlag(player, FlagTypeMap, 0x03) != 0 &&
@@ -213,7 +215,7 @@ namespace XPT.Legacy.Maps {
             return false;
         }
 
-        private bool AreFourWindsDefeatedInCorrectOrder(ServerPlayer player) {
+        private bool AreFourWindsDefeatedInCorrectOrder(YsPlayerServer player) {
             if (GetFlag(player, FlagTypeMap, 0x01) == 2 &&
                 GetFlag(player, FlagTypeMap, 0x02) == 3 &&
                 GetFlag(player, FlagTypeMap, 0x03) == 1 &&
@@ -224,53 +226,53 @@ namespace XPT.Legacy.Maps {
         }
 
         // === Functions ================================================
-        private void FnVOID_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnVOID_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String03FC); // You step into nothingness...
             ShowMessage(player, doMsgs, String0419); //                                          ...and die!
             DamagePlayer(player, GetMaxHits(player));
         }
 
-        private void FnMOONHOLO_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONHOLO_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String044E); // Cast in shadowy blue light, the tunnels of MOON HOLLOW are a nexus to more dangerous locations.
             TeleportParty(player, 0x34, 0x01, 0x03, 0x01, type);
         }
 
-        private void FnZEPHYR_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnZEPHYR_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String04AE); // Well worn trails greet those who dare travel the corridors of the ZEPHYR.
             TeleportParty(player, 0x34, 0x01, 0xC3, 0x03, type);
         }
 
-        private void FnZZYZX_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnZZYZX_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String04F8); // Dry desert winds parch your throat as you peer down the winding passages leading to ZZYZX.
             TeleportParty(player, 0x34, 0x01, 0x6D, 0x00, type);
         }
 
-        private void FnDRGNLEAP_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDRGNLEAP_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String0553); // A brave step..
             ShowMessage(player, doMsgs, String0562); // Death does not greet you now, but it will perhaps when you meet the DRAGONS OF THE LEAP.
             TeleportParty(player, 0x34, 0x01, 0xCB, 0x01, type);
         }
 
-        private void FnTORBRIAR_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTORBRIAR_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String05BB); // You drop into TORBRIAR'S TREASURE.
             ShowMessage(player, doMsgs, String05DE); // An inscription on the wall reads...
             ShowMessage(player, doMsgs, String0602); // 'We, the Knights of Torbriar, build this shrine to celebrate WarMaster Torbriar's stunning victory over the armies of Ogres and Trolls.'
             TeleportParty(player, 0x34, 0x01, 0x35, 0x02, type);
         }
 
-        private void FnMOONHOLO_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOONHOLO_07(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String068B); // You land squarely in the center of MOON HOLLOW!
             ShowMessage(player, doMsgs, String06BB); // The howling of winds screams harsh against the blue light of a fool moon.
             TeleportParty(player, 0x34, 0x01, 0x73, 0x02, type);
         }
 
-        private void FnMAGEOVRL_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMAGEOVRL_08(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String0705); // You drop into MAGES OVERLOOK.
             ShowMessage(player, doMsgs, String0723); // Mages found this plateau useful for looking out over the labyrinth denizens following the great cataclysm.
             TeleportParty(player, 0x34, 0x01, 0x7A, 0x03, type);
         }
 
-        private void FnENCWINDN_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCWINDN_09(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String078E); // The North Wind blows a wintry chill.
             AddEncounter(player, 0x01, 0x1B);
             AddEncounter(player, 0x02, 0x1B);
@@ -279,7 +281,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x1A);
         }
 
-        private void FnENCWINDE_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCWINDE_0A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String07B3); // Warriors of the East Wind challenge you.
             AddEncounter(player, 0x01, 0x11);
             AddEncounter(player, 0x02, 0x11);
@@ -288,7 +290,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x1A);
         }
 
-        private void FnENCWINDS_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCWINDS_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String07DC); // Monsters materialize from the South Wind.
             AddEncounter(player, 0x01, 0x1C);
             AddEncounter(player, 0x02, 0x1C);
@@ -297,7 +299,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x1A);
         }
 
-        private void FnENCWINDW_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCWINDW_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String0806); // The fury of the West Wind is upon you.
             AddEncounter(player, 0x01, 0x1D);
             AddEncounter(player, 0x02, 0x1D);
@@ -310,7 +312,7 @@ namespace XPT.Legacy.Maps {
         /// MapFlags 1-4 are the order in which the player has bested the winds.
         /// This sets those variables.
         /// </summary>
-        private void DoDefeatWind(ServerPlayer player, int windIndex, string windName) {
+        private void DoDefeatWind(YsPlayerServer player, int windIndex, string windName) {
             int countAlreadyDefeated =
                 (GetFlag(player, FlagTypeMap, 0x01) == 0 ? 0 : 1) +
                 (GetFlag(player, FlagTypeMap, 0x02) == 0 ? 0 : 1) +
@@ -338,33 +340,33 @@ namespace XPT.Legacy.Maps {
         /// <summary>
         /// North wind enconter.
         /// </summary>
-        private void FnFLGWINDN_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnFLGWINDN_0D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoDefeatWind(player, 0x01, "North Wind");
         }
 
         /// <summary>
         /// East wind encounter.
         /// </summary>
-        private void FnFLGWINDE_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnFLGWINDE_0E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoDefeatWind(player, 0x02, "East Wind");
         }
 
         /// <summary>
         /// South wind encounter.
         /// </summary>
-        private void FnFLGWINDS_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnFLGWINDS_0F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoDefeatWind(player, 0x03, "South Wind");
         }
 
         /// <summary>
         /// West wind encounter.
         /// </summary>
-        private void FnFLGWINDW_10(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnFLGWINDW_10(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoDefeatWind(player, 0x04, "West Wind");
         }
 
-        private void FnEXPRESS_11(ServerPlayer player, MapEventType type, bool doMsgs) {
-            if (GetFlag(player, FlagTypeDungeon, FlagLabyrinthICastleGateTeleport) == 0) {
+        private void FnEXPRESS_11(YsPlayerServer player, MapEventType type, bool doMsgs) {
+            if (GetFlag(player, FlagTypeDungeon, YsIndexes.FlagLabyrinthICastleGateTeleport) == 0) {
                 ShowMessage(player, doMsgs, String0986); // There is something strange about this wall.
                 return;
             }
@@ -372,15 +374,15 @@ namespace XPT.Legacy.Maps {
             TeleportParty(player, 0x36, 0x01, GetCurrentTile(player), 0x03, type);
         }
 
-        private void FnTXTLABY_12(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTXTLABY_12(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String09B2); // You enter the Labyrinths of the Winds.
             ShowMessage(player, doMsgs, String09D9); // A network of tunnels seems to wind its way past pits and lava.
         }
 
-        private void FnWSTRES_13(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWSTRES_13(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String0A18); // Wyn's Fountain is old and cracked.
-            if (GetFlag(player, FlagTypeDungeon, FlagModAttr_WynFountain) == 0) {
-                SetFlag(player, FlagTypeDungeon, FlagModAttr_WynFountain, 0x01);
+            if (GetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_WynFountain) == 0) {
+                SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_WynFountain, 0x01);
                 ShowPortrait(player, 0x0042);
                 ModifyAttribute(player, 0x03, 0x0003);
                 ShowMessage(player, doMsgs, String0A3B); // A small puddle of magic water sits at the bottom.
@@ -391,30 +393,30 @@ namespace XPT.Legacy.Maps {
             L0082: ShowMessage(player, doMsgs, String0ACF); // The basin is dust dry.
         }
 
-        private void FnMOUNTAIN_14(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMOUNTAIN_14(YsPlayerServer player, MapEventType type, bool doMsgs) {
             TeleportParty(player, 0x01, 0x01, 0x00, 0x33, type);
         }
 
-        private void FnTXTMNTN_15(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTXTMNTN_15(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String0AE6); // A twisting passage to the east offers a quick way to the entrance.
         }
 
-        private void FnTHIEVMAZ_16(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTHIEVMAZ_16(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String0B29); // You discover the back entrance to the THIEVES' DEN.
             TeleportParty(player, 0x05, 0x01, 0xBE, 0x01, type);
         }
 
-        private void FnLAVA_17(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLAVA_17(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String0B5D); // You stumble into the lava pools and die.
             DamagePlayer(player, GetMaxHits(player));
         }
 
-        private void FnZEPHYRB_18(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnZEPHYRB_18(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String0B86); // Well worn trails greet those who dare travel the windswept corridors of the ZEPHYR.
             TeleportParty(player, 0x34, 0x01, 0x6E, 0x01, type);
         }
 
-        private void FnSDOORWKT_19(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDOORWKT_19(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "Skeletal voices echo...");
             ShowPortrait(player, 0x000A);
             if (AreFourWindsDefeated(player)) {
@@ -427,15 +429,15 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnTXTCAMP_1A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTXTCAMP_1A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowPortrait(player, 0x0028);
             ShowMessage(player, doMsgs, String0D01); // Welcome to LABYRINTH ATTIC!
             ShowMessage(player, doMsgs, String0D1D); // Refresh yourself in the fountains nearby.  But do not take long!
             ShowMessage(player, doMsgs, String0D5E); // Bands of travelers rest here before exploring the Wind Labyrinths.
         }
 
-        private void FnKEYDOORW_1B(ServerPlayer player, MapEventType type, bool doMsgs) {
-            if (HasUsedItem(player, type, ref doMsgs, ItemWindKnightsKey, ItemWindKnightsKey) == 1) {
+        private void FnKEYDOORW_1B(YsPlayerServer player, MapEventType type, bool doMsgs) {
+            if (HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemWindKnightsKey, YsIndexes.ItemWindKnightsKey) == 1) {
                 SetWallPassable(player, GetCurrentTile(player), 0x00, 0x01);
                 SetWallItem(player, 0x01, GetCurrentTile(player), 0x00);
                 ShowMessage(player, doMsgs, String0DA1); // The door is unlocked.
@@ -445,32 +447,32 @@ namespace XPT.Legacy.Maps {
             ShowMessage(player, doMsgs, String0E17); // Winds pound furiously at the door.
         }
 
-        private void FnTXTWYNS_1C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTXTWYNS_1C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String0E3A); // The feeble survivors of Arnakkian's Experiment harbored hatred toward those who found home in the WYN SANCTUARY.
         }
 
-        private void FnPITINFO_1D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITINFO_1D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowPortrait(player, 0x002A);
             ShowMessage(player, doMsgs, String0EAB); // A Gremlin Cleric Appears
             ShowMessage(player, doMsgs, String0EC4); // 'Take my advice - Jump only into the pits with floors beneath them.
             ShowMessage(player, doMsgs, String0F08); // That is the way of the Labyrinth.'
         }
 
-        private void FnWKTENCA_1E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWKTENCA_1E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x15);
             AddEncounter(player, 0x02, 0x15);
             AddEncounter(player, 0x05, 0x1E);
             AddEncounter(player, 0x06, 0x1E);
         }
 
-        private void FnWKTTEXT_1F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWKTTEXT_1F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String0F2B); // A message is etched in stone -- 
             ShowMessage(player, doMsgs, String0F4C); // 'The last of Arnakkian's Knights have been buried.  
             ShowMessage(player, doMsgs, String0F81); // At last I can tell my secret!  I watched as Arnakkian challenged the Time Elemental En-Li-Kil and lost.
             ShowMessage(player, doMsgs, String0FE9); // His greed for immortality cursed us all.' -- Morgard, ArchCleric
         }
 
-        private void FnWKTENCC_20(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWKTENCC_20(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x15);
             AddEncounter(player, 0x02, 0x15);
             AddEncounter(player, 0x03, 0x0D);
@@ -491,7 +493,7 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnWKTENCD_21(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWKTENCD_21(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1E);
             AddEncounter(player, 0x02, 0x1E);
             AddEncounter(player, 0x05, 0x0D);
@@ -510,7 +512,7 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnWKTENCE_22(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWKTENCE_22(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x14);
             AddEncounter(player, 0x02, 0x1B);
             AddEncounter(player, 0x03, 0x1C);
@@ -520,7 +522,8 @@ namespace XPT.Legacy.Maps {
             ShowMessage(player, doMsgs, "The WIND KNIGHTS rise from their tombs.");
             if (AreFourWindsDefeatedInCorrectOrder(player)) {
                 ShowMessage(player, doMsgs, "You see a flash of green and then the dead are upon you.");
-                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, ItemRanbowGemGreen, 0xCF); // Green Gem
+                AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, YsIndexes.ItemRanbowGemGreen, 0xCF); // Green Gem
+                SetFlag(player, FlagTypeDungeon, YsIndexes.FlagMedievaLandsSeenGreenGem, 1);
             }
             else if (GetFlag(player, FlagTypeMap, 0x01) == 0x0001) { // did North first
                 ShowMessage(player, doMsgs, "You feel as if something is out of order, but that thought is shoved aside as the dead are upon you.");
@@ -536,7 +539,7 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnWKTENCF_23(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWKTENCF_23(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1E);
             AddEncounter(player, 0x02, 0x1E);
             AddEncounter(player, 0x03, 0x1E);
@@ -556,7 +559,7 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void FnWKTENCG_24(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWKTENCG_24(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String10AC); // In the midst of sleeping Hobgoblins, a small tempest swirls.  It whispers that one's treasure comes from the directions of the winds.
             ShowMessage(player, doMsgs, String1132); // Then the tempest roars into a nightmare and wakens the hobgoblins.
             AddEncounter(player, 0x01, 0x22);
@@ -565,7 +568,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x0D);
         }
 
-        private void FnWKTENCH_25(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWKTENCH_25(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String1175); // Sleeping adventurers are disturbed.
             AddEncounter(player, 0x01, 0x25);
             AddEncounter(player, 0x02, 0x26);
@@ -573,7 +576,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x03);
         }
 
-        private void FnWKTENCI_26(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWKTENCI_26(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String1199); // A dark corner hides an unlikely mix of beasts.
             AddEncounter(player, 0x01, 0x1B);
             AddEncounter(player, 0x02, 0x1B);
@@ -581,15 +584,15 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x21);
         }
 
-        private void FnSIRFLAG_27(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSIRFLAG_27(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String11C8); // Sirocco's powers no longer hold the Sirocco Door.
-            SetFlag(player, FlagTypeDungeon, FlagLabyrinthISiroccoDoorUnlocked, 0x01);
+            SetFlag(player, FlagTypeDungeon, YsIndexes.FlagLabyrinthISiroccoDoorUnlocked, 0x01);
         }
 
-        private void FnSIRDOOR_28(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSIRDOOR_28(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagLabyrinthISiroccoDoorUnlocked));
+            L0003: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagLabyrinthISiroccoDoorUnlocked));
             L0016: if (JumpEqual) goto L005B;
             L0018: SetWallPassable(player, GetCurrentTile(player), 0x01, 0x01);
             L0032: SetWallItem(player, 0x01, GetCurrentTile(player), 0x01);
@@ -600,7 +603,7 @@ namespace XPT.Legacy.Maps {
             L0075: return; // RETURN;
         }
 
-        private void FnSIROCCO_29(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSIROCCO_29(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String12A0); // Sirocco, the wind labyrinth doorkeeper, materializes in the room.
             ShowMessage(player, doMsgs, String12E2); // 'You dare challenge the winds??!
             AddEncounter(player, 0x01, 0x1F);
@@ -610,7 +613,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x05, 0x1A);
         }
 
-        private void FnWSBIGDR_2A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWSBIGDR_2A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x0012);
@@ -623,7 +626,7 @@ namespace XPT.Legacy.Maps {
             L006B: return; // RETURN;
         }
 
-        private void FnWSENCA_2B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWSENCA_2B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String1379); // A nest of dragons sneers at you. 'The Sanctuary belongs to us!'
             AddEncounter(player, 0x01, 0x20);
             AddEncounter(player, 0x02, 0x20);
@@ -631,7 +634,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x28);
         }
 
-        private void FnWSENCB_2C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWSENCB_2C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String13B9); // A band of sanctuary guards are alerted.
             AddEncounter(player, 0x01, 0x1F);
             AddEncounter(player, 0x02, 0x1F);
@@ -640,7 +643,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x20);
         }
 
-        private void FnWSENCC_2D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWSENCC_2D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String13E1); // Your path is blocked.
             AddEncounter(player, 0x01, 0x24);
             AddEncounter(player, 0x02, 0x24);
@@ -650,7 +653,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x20);
         }
 
-        private void FnWSENCF_30(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWSENCF_30(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String13F7); // Adventurers are disturbed.  'We are cursed to kill those who have seen our fate.'
             AddEncounter(player, 0x01, 0x11);
             AddEncounter(player, 0x02, 0x1E);
@@ -658,20 +661,20 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x04, 0x13);
         }
 
-        private void FnWSENCG_31(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWSENCG_31(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x1F);
             AddEncounter(player, 0x02, 0x1F);
             AddEncounter(player, 0x05, 0x20);
             AddEncounter(player, 0x06, 0x20);
         }
 
-        private void FnWSNOTE_32(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWSNOTE_32(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String1449); // Stuffed behind a rock, you find a magical note that reads... 
             ShowRunes(player, doMsgs, String1487); // 'Red, Yellow, Green and Blue.  That is the order of the gems.'
             ShowMessage(player, doMsgs, String14C6); // -- signed last Wyn Survivor, Kanasgwyn.
         }
 
-        private void FnWSENCI_33(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWSENCI_33(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String14EE); // Commanders of the Wyn Ogres have set up camp here.
             AddEncounter(player, 0x01, 0x1F);
             AddEncounter(player, 0x02, 0x1F);
@@ -681,7 +684,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x20);
         }
 
-        private void FnSDOORWS_34(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDOORWS_34(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0D), 0x000A);
@@ -695,7 +698,7 @@ namespace XPT.Legacy.Maps {
             L0064: return; // RETURN;
         }
 
-        private void FnARKARCH_35(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnARKARCH_35(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String153A); // A message is inscribed on stone -- 
@@ -703,7 +706,7 @@ namespace XPT.Legacy.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnLAENCA_36(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLAENCA_36(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String15A8); // Apprentice thieves jump you!  'We must earn our dues!'
@@ -713,7 +716,7 @@ namespace XPT.Legacy.Maps {
             L0046: return; // RETURN;
         }
 
-        private void FnFNTNHEAL_37(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnFNTNHEAL_37(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: HealPlayer(player, (ushort)GetMaxHits(player));
@@ -722,7 +725,7 @@ namespace XPT.Legacy.Maps {
             L002E: return; // RETURN;
         }
 
-        private void FnFNTNMANA_38(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnFNTNMANA_38(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddMana(player, 0x012C);
@@ -731,7 +734,7 @@ namespace XPT.Legacy.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnLAENCB_39(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLAENCB_39(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String1686); // You stumble into a den of angry monsters.
@@ -744,7 +747,7 @@ namespace XPT.Legacy.Maps {
             L007C: return; // RETURN;
         }
 
-        private void FnSDOORLTA_3A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDOORLTA_3A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0D), 0x000A);
@@ -760,7 +763,7 @@ namespace XPT.Legacy.Maps {
             L0079: return; // RETURN;
         }
 
-        private void FnSDOORLTB_3B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDOORLTB_3B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0D), 0x000A);
@@ -776,7 +779,7 @@ namespace XPT.Legacy.Maps {
             L0079: return; // RETURN;
         }
 
-        private void FnSDOORLTC_3C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSDOORLTC_3C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(HasUsedSkill(player, type, ref doMsgs, 0x0D), 0x000A);
@@ -792,7 +795,7 @@ namespace XPT.Legacy.Maps {
             L0079: return; // RETURN;
         }
 
-        private void FnBDOORLTD_3D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBDOORLTD_3D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x0010);
@@ -802,14 +805,14 @@ namespace XPT.Legacy.Maps {
             L003F: return; // RETURN;
         }
 
-        private void FnLTENCA_3E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLTENCA_3E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x0F);
             AddEncounter(player, 0x02, 0x10);
             AddEncounter(player, 0x05, 0x22);
             AddEncounter(player, 0x06, 0x25);
         }
 
-        private void FnLTENCB_3F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLTENCB_3F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String1725); // A note -- 'The Runes suggest a path to Arnakkian's Treasure Room.'
             AddEncounter(player, 0x01, 0x23);
             AddEncounter(player, 0x02, 0x22);
@@ -817,7 +820,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x26);
         }
 
-        private void FnLTENCC_40(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLTENCC_40(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String1768); // Upon the wall you see a message -- 
             ShowMessage(player, doMsgs, String178C); // 'Beneath each pit is a floor or another pit.  Fall to the floors to find more passages.'
             AddEncounter(player, 0x01, 0x22);
@@ -826,21 +829,21 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x06, 0x27);
         }
 
-        private void FnLTENCD_41(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLTENCD_41(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x0F);
             AddEncounter(player, 0x02, 0x0F);
             AddEncounter(player, 0x05, 0x26);
             AddEncounter(player, 0x06, 0x27);
         }
 
-        private void FnLTENCE_42(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLTENCE_42(YsPlayerServer player, MapEventType type, bool doMsgs) {
             AddEncounter(player, 0x01, 0x0D);
             AddEncounter(player, 0x02, 0x23);
             AddEncounter(player, 0x05, 0x24);
             AddEncounter(player, 0x06, 0x18);
         }
 
-        private void FnLTENCG_44(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLTENCG_44(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String17E5); // Hobgoblins smile, then attack.
             AddEncounter(player, 0x01, 0x22);
             AddEncounter(player, 0x02, 0x22);
@@ -848,14 +851,14 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x04, 0x0F);
         }
 
-        private void FnLTSKILL_45(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLTSKILL_45(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String1804); // A special thieves' shrine magically glows.
-            L0010: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagLabryinthITeachSkill));
+            L0010: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagLabryinthITeachSkill));
             L0023: if (JumpEqual) goto L0028;
             L0025: goto L010D;
-            L0028: SetFlag(player, FlagTypeDungeon, FlagLabryinthITeachSkill, 0x01);
+            L0028: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagLabryinthITeachSkill, 0x01);
             L003D: RefreshCompareFlags(GetSkillLevel(player, 0x0D));
             L004B: if (JumpNotEqual) goto L006E;
             L004D: SetSkillLevel(player, 0x0D, 0x01);
@@ -882,7 +885,7 @@ namespace XPT.Legacy.Maps {
             L011A: return; // RETURN;
         }
 
-        private void FnLTENCI_46(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLTENCI_46(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String18D9); // Thieves make a desperate stand.
             AddEncounter(player, 0x01, 0x01);
             AddEncounter(player, 0x02, 0x05);
@@ -890,7 +893,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x04, 0x26);
         }
 
-        private void FnLTENCJ_47(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLTENCJ_47(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String18F9); // Master Thieves Attack!
             AddEncounter(player, 0x01, 0x04);
             AddEncounter(player, 0x02, 0x08);
@@ -899,7 +902,7 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x05, 0x27);
         }
 
-        private void FnLTENCK_48(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLTENCK_48(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             // BEGIN;
             ShowMessage(player, doMsgs, String1910); // Master Thieves ready themselves.
@@ -909,16 +912,16 @@ namespace XPT.Legacy.Maps {
             AddEncounter(player, 0x04, 0x10);
             AddEncounter(player, 0x05, 0x02);
             AddEncounter(player, 0x06, 0x02);
-            ax = HasItem(player, ItemWindKnightsKey);
+            ax = HasItem(player, YsIndexes.ItemWindKnightsKey);
             L008A: if (JumpEqual) goto L00AD;
             L008C: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L00AB: goto L00DB;
             L00AD: ShowMessage(player, doMsgs, String1931); // Light sparks off a key tied to the neck of the leader.
-            L00BA: AddTreasure(player, 0x3A98, 0x00, 0x00, 0x46, 0x61, ItemWindKnightsKey);
+            L00BA: AddTreasure(player, 0x3A98, 0x00, 0x00, 0x46, 0x61, YsIndexes.ItemWindKnightsKey);
             L00DB: return; // RETURN;
         }
 
-        private void FnTXTAWIND_49(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTXTAWIND_49(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowPortrait(player, 0x000A);
             ShowMessage(player, doMsgs, String1968); // A voice echoes through the winds...
             ShowMessage(player, doMsgs, String198C); // 'You have traveled well, fair adventurers!

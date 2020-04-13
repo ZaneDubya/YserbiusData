@@ -1,13 +1,15 @@
 #pragma warning disable
 using System;
 using System.Collections.Generic;
-using XPT.Legacy;
-using XPT.Legacy.Entities;
+using XPT.Games.Generic.Entities;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Yserbius;
+using XPT.Games.Yserbius.Entities;
 
-namespace XPT.Legacy.Maps {
-    class YserMap21 : AMapScripted {
+namespace XPT.Games.Yserbius.Maps {
+    class YserMap21 : YsMap {
 
-        protected override int MapIndex => 21;
+        public override int MapIndex => 21;
         protected override int RandomEncounterChance => 0;
         protected override int RandomEncounterExtraCount => 0;
 
@@ -94,7 +96,7 @@ namespace XPT.Legacy.Maps {
         private int _TileBridgeY = 0, _TileBridgeX = 0;
 
         // === Functions ================================================
-        private void FnPIT_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPIT_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String03FC); // You step into a bottomless pit and die.
@@ -102,7 +104,7 @@ namespace XPT.Legacy.Maps {
             L0021: return; // RETURN;
         }
 
-        private void FnENCGUARD_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCGUARD_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0424); // Guardians stand ready.  'We are sworn to defend Arnakkian.'
@@ -111,14 +113,14 @@ namespace XPT.Legacy.Maps {
             L0034: AddEncounter(player, 0x03, 0x27);
             L0046: AddEncounter(player, 0x04, 0x27);
             L0058: AddEncounter(player, 0x05, 0x27);
-            L006A: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagCastleParapetsGuardiansExperience));
+            L006A: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagCastleParapetsGuardiansExperience));
             L007D: if (JumpNotEqual) goto L00A6;
-            L007F: SetFlag(player, FlagTypeDungeon, FlagCastleParapetsGuardiansExperience, 0x01);
+            L007F: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagCastleParapetsGuardiansExperience, 0x01);
             L0094: AddExperience(player, 0x0007A120);
             L00A6: return; // RETURN;
         }
 
-        private void FnENCEARTH_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCEARTH_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
@@ -131,26 +133,26 @@ namespace XPT.Legacy.Maps {
             L005E: AddEncounter(player, 0x04, 0x0F);
             L0070: AddEncounter(player, 0x05, 0x23);
             L0082: AddEncounter(player, 0x06, 0x28);
-            L0094: ax = HasItem(player, ItemNaturesRobe);
+            L0094: ax = HasItem(player, YsIndexes.ItemNaturesRobe);
             L00A2: if (JumpEqual) goto L00C6;
             L00A4: AddTreasure(player, 0x0000, 0x00, 0x00, 0x50, 0x50, 0xD0);
             L00C4: goto L0123;
-            L00C6: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x88, 0x1D, ItemNaturesRobe);
-            L00E7: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagCastleParapetsAndreasExperience));
+            L00C6: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x88, 0x1D, YsIndexes.ItemNaturesRobe);
+            L00E7: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagCastleParapetsAndreasExperience));
             L00FA: if (JumpNotEqual) goto L0123;
-            L00FC: SetFlag(player, FlagTypeDungeon, FlagCastleParapetsAndreasExperience, 0x01);
+            L00FC: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagCastleParapetsAndreasExperience, 0x01);
             L0111: AddExperience(player, 0x0003D090);
             L0123: return; // RETURN;
         }
 
-        private void FnGUARDIAN_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGUARDIAN_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String049A); // Enlikil's Phantasm Guardians stand watch over the entrance to Arnakkian's Tomb.
             L0010: return; // RETURN;
         }
 
-        private void FnEARTHELE_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnEARTHELE_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
@@ -159,7 +161,7 @@ namespace XPT.Legacy.Maps {
             L0025: return; // RETURN;
         }
 
-        private void FnPLATA_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPLATA_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0555); // The Endless Void has ruptured your dimensionand forms a chasm between here and a distant platform.
@@ -167,72 +169,72 @@ namespace XPT.Legacy.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnPLATB_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPLATB_07(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, String05FC); // Quiet solitude fills the chasm.  You are on the other side.
-            SetFlag(player, FlagTypeDungeon, FlagMedievaLandsCastleParapetsBridge, 1);
+            SetFlag(player, FlagTypeDungeon, YsIndexes.FlagMedievaLandsCastleParapetsBridge, 1);
         }
 
-        private void FnYBOXA_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnYBOXA_08(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(1, _TileBridgeX);
         }
 
-        private void FnYBOXB_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnYBOXB_09(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(2, _TileBridgeX);
         }
 
-        private void FnYBOXC_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnYBOXC_0A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(3, _TileBridgeX);
         }
 
-        private void FnYBOXD_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnYBOXD_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(4, _TileBridgeX);
         }
 
-        private void FnYBOXE_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnYBOXE_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(5, _TileBridgeX);
         }
 
-        private void FnYBOXF_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnYBOXF_0D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the East.");
             SetBridgeVariables(6, _TileBridgeX);
         }
 
-        private void FnXBOXG_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnXBOXG_0E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 1);
         }
 
-        private void FnXBOXH_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnXBOXH_0F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 2);
         }
 
-        private void FnXBOXI_10(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnXBOXI_10(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 3);
         }
 
-        private void FnXBOXJ_11(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnXBOXJ_11(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 4);
         }
 
-        private void FnXBOXK_12(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnXBOXK_12(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 5);
         }
 
-        private void FnXBOXL_13(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnXBOXL_13(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 6);
         }
 
-        private void FnXBOXM_14(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnXBOXM_14(YsPlayerServer player, MapEventType type, bool doMsgs) {
             ShowMessage(player, doMsgs, "The wall glows when you touch it. You feel air rushing past you to the North.");
             SetBridgeVariables(_TileBridgeY, 7);
         }
@@ -244,7 +246,7 @@ namespace XPT.Legacy.Maps {
             _TileBridgeY = y;
             int playerX = _TileBridgeX + 5;
             int playerY = _TileBridgeY + 4;
-            foreach (ServerPlayer player in Mobiles) {
+            foreach (YsPlayerServer player in Mobiles) {
                 if (player.Position.X == playerX) {
                     if (playerY == player.Position.Y - 1) {
                         ShowMessage(player, true, "A path forms in the air to the North.");
@@ -264,14 +266,14 @@ namespace XPT.Legacy.Maps {
             }
         }
 
-        private void DoAttemptWalkThroughVoid(ServerPlayer player, int y, int x, string successMessage) {
+        private void DoAttemptWalkThroughVoid(YsPlayerServer player, int y, int x, string successMessage) {
             // the first tile is at map position 5, 6
             // this corresponds to tileBridgeX/Y 1/1
             if (_TileBridgeX == x && _TileBridgeY == y) {
                 ShowMessage(player, true, successMessage);
                 return;
             }
-            if (player.PartyLeader.HasItemByTypeIndex(245)) {
+            if (player.GetPartyLeader().HasItemByTypeIndex(245)) {
                 ShowMessage(player, true, "The yellow rainbow gem illuminates a path through the Void.");
                 return;
             }
@@ -279,151 +281,151 @@ namespace XPT.Legacy.Maps {
             DamagePlayer(player, GetMaxHits(player));
         }
 
-        private void FnPITAJ_15(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITAJ_15(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 1, 4, "You step on solid air. This was a wise move.");
         }
 
-        private void FnPITAK_16(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITAK_16(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 1, 5, "You selected your next move wisely.");
         }
 
-        private void FnPITAL_17(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITAL_17(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 1, 6, "Your next step is a safe one.");
         }
 
-        private void FnPITAM_18(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITAM_18(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 1, 7, "The step you take is wisely chosen.");
         }
 
-        private void FnPITBG_19(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITBG_19(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 2, 1, "You take one good step forward.");
         }
 
-        private void FnPITBI_1A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITBI_1A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 2, 3, "You safely step forward.");
         }
 
-        private void FnPITBJ_1B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITBJ_1B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 2, 4, "You take a step in the right direction.");
         }
 
-        private void FnPITBK_1C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITBK_1C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 2, 5, "Your move is wise.");
         }
 
-        private void FnPITBL_1D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITBL_1D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 2, 6, "You select your next move wisely.");
         }
 
-        private void FnPITBM_1E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITBM_1E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 2, 7, "You move forward with confidence.");
         }
 
-        private void FnPITCG_1F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITCG_1F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 1, "Your next step is a good one.");
         }
 
-        private void FnPITCH_20(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITCH_20(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 2, "You move ahead assuredly.");
         }
 
-        private void FnPITCI_21(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITCI_21(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 3, "You choose your next step correctly.");
         }
 
-        private void FnPITCJ_22(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITCJ_22(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 4, "Your choice of movement saves you.");
         }
 
-        private void FnPITCK_23(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITCK_23(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 5, "You step in the right direction.");
         }
 
-        private void FnPITCL_24(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITCL_24(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 6, "You select your next step wisely.");
         }
 
-        private void FnPITCM_25(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITCM_25(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 3, 7, "Your next step is sagely chosen.");
         }
 
-        private void FnPITDG_26(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITDG_26(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 1, "You take a wise step forward.");
         }
 
-        private void FnPITDH_27(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITDH_27(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 2, "You move forward wisely.");
         }
 
-        private void FnPITDI_28(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITDI_28(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 3, "Your next step is wisely decided.");
         }
 
-        private void FnPITDJ_29(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITDJ_29(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 4, "You step ahead with confidence.");
         }
 
-        private void FnPITDK_2A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITDK_2A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 5, "You move forward carefully.");
         }
 
-        private void FnPITDL_2B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITDL_2B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 6, "You move ahead.");
         }
 
-        private void FnPITDM_2C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITDM_2C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 4, 7, "Your step is wisely selected.");
         }
 
-        private void FnPITEG_2D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITEG_2D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 5, 1, "You forge ahead.");
         }
 
-        private void FnPITEH_2E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITEH_2E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 5, 2, "You select your next move wisely.");
         }
 
-        private void FnPITEI_2F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITEI_2F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 5, 3, "Good sense guides your feet.");
         }
 
-        private void FnPITEJ_30(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITEJ_30(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 5, 4, "You walk ahead.");
         }
 
-        private void FnPITEK_31(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITEK_31(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 5, 5, "Your next step is assuredly taken.");
         }
 
-        private void FnPITFG_32(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITFG_32(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 1, "The next step is an intelligent one.");
         }
 
-        private void FnPITFH_33(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITFH_33(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 2, "You move safely ahead.");
         }
 
-        private void FnPITFI_34(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITFI_34(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 3, "Your move was correct.");
         }
 
-        private void FnPITFJ_35(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITFJ_35(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 4, "You move forward with confidence.");
         }
 
-        private void FnPITFK_36(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITFK_36(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 5, "You carefully selected your next step.");
         }
 
-        private void FnPITFL_37(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITFL_37(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 6, "You make a sage choice.");
         }
 
-        private void FnPITFM_38(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITFM_38(YsPlayerServer player, MapEventType type, bool doMsgs) {
             DoAttemptWalkThroughVoid(player, 6, 7, "You have made a wise decision.");
         }
 
-        private void FnENCPITBJ_39(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCPITBJ_39(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x19);
@@ -434,7 +436,7 @@ namespace XPT.Legacy.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnENCPITDI_3A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCPITDI_3A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1F);
@@ -444,7 +446,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnPITENCDK_3B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITENCDK_3B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x1B);
@@ -456,7 +458,7 @@ namespace XPT.Legacy.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnPITENCBL_3C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPITENCBL_3C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x24);
@@ -467,7 +469,7 @@ namespace XPT.Legacy.Maps {
             L005D: return; // RETURN;
         }
 
-        private void FnDOORARNK_3D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDOORARNK_3D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetFlag(player, FlagTypeMap, 0x01));
@@ -480,7 +482,7 @@ namespace XPT.Legacy.Maps {
             L0068: return; // RETURN;
         }
 
-        private void FnTELEARNK_3E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEARNK_3E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String119C); // A magic field grabs you and teleports you down into Arnakkian's tomb.  The laugh of an ancient archmage fills the chamber.
@@ -488,7 +490,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnSETEKILL_3F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSETEKILL_3F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFlag(player, FlagTypeMap, 0x01, 0x01);

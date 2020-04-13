@@ -1,11 +1,13 @@
 #pragma warning disable
 using System.Collections.Generic;
-using XPT.Legacy;
-using XPT.Legacy.Entities;
+using XPT.Games.Generic.Entities;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Yserbius;
+using XPT.Games.Yserbius.Entities;
 
-namespace XPT.Legacy.Maps {
-    class YserMap07 : AMapScripted {
-        protected override int MapIndex => 7;
+namespace XPT.Games.Yserbius.Maps {
+    class YserMap07 : YsMap {
+        public override int MapIndex => 7;
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 0;
 
@@ -65,21 +67,21 @@ namespace XPT.Legacy.Maps {
         private const string String0AE2 = "The Halfling Cleric mumbles his prayers.";
         
         // === Functions ================================================
-        private void FnSTRSTELE_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSTELE_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x01, 0x03, 0x97, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnSTRSTELE_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSTELE_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x03, 0x01, 0x1F, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLKPKDOOR_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xC1, 0xC4);
@@ -95,7 +97,7 @@ namespace XPT.Legacy.Maps {
             L009E: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLKPKDOOR_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xBF, 0xC4);
@@ -105,7 +107,7 @@ namespace XPT.Legacy.Maps {
             L0029: DamagePlayer(player, 0x0096);
             L0036: ShowMessage(player, doMsgs, String043A); // Your attempt to open the door springs a trap. Dozens of darts attack you.
             L0043: goto L00D0;
-            L0046: ax = HasUsedItem(player, type, ref doMsgs, ItemKeyToCleowynsPalace, ItemKeyToCleowynsPalace);
+            L0046: ax = HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemKeyToCleowynsPalace, YsIndexes.ItemKeyToCleowynsPalace);
             L0059: if (JumpEqual) goto L00A6;
             L005B: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0079: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -116,7 +118,7 @@ namespace XPT.Legacy.Maps {
             L00D0: return; // RETURN;
         }
 
-        private void FnRUNESIGN_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnRUNESIGN_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String050E); // Runes can be seen on the tapestry...
@@ -124,14 +126,14 @@ namespace XPT.Legacy.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnTOPALACA_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTOPALACA_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x02, 0x06, 0x03, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnLOWMNSTR_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLOWMNSTR_07(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -156,7 +158,7 @@ namespace XPT.Legacy.Maps {
             L00E6: return; // RETURN;
         }
 
-        private void FnMEDMNSTR_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMEDMNSTR_08(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -189,7 +191,7 @@ namespace XPT.Legacy.Maps {
             L0176: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRMNSTR_09(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -218,49 +220,49 @@ namespace XPT.Legacy.Maps {
             L012E: return; // RETURN;
         }
 
-        private void FnSTRSMESA_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSMESA_0A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String056D); // The stairs through the west gateway lead up a level.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESB_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSMESB_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String05A2); // Through the north gateway are stairs going up to the next level.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESC_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSMESC_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String05E3); // The stairs to the east lead downstairs.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESD_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSMESD_0D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String060B); // The stairs past the north gateway go down a level.
             L0010: return; // RETURN;
         }
 
-        private void FnGATEMESS_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGATEMESS_0E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String063E); // The gateway leads to THE PALACE OF KING CLEOWYN.
             L0010: return; // RETURN;
         }
 
-        private void FnTOPALACB_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTOPALACB_0F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x02, 0x06, 0x04, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnNPCCHATA_10(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATA_10(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String066F); // You encounter a Dwarf Thief.
@@ -273,7 +275,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_11(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATB_11(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0742); // You encounter a Halfling Ranger.
@@ -286,7 +288,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATC_12(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATC_12(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String07F6); // You encounter a Dwarf Wizard.
@@ -299,7 +301,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATD_13(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATD_13(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String08E8); // You encounter an Orc Knight.
@@ -312,21 +314,21 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnSTRSTELE_14(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSTELE_14(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x01, 0x03, 0x97, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnSTRSTELE_15(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSTELE_15(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x03, 0x01, 0x1F, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnNPCCHATE_16(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATE_16(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String09F2); // You encounter a Halfling Cleric.

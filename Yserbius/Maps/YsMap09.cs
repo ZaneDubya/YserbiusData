@@ -1,11 +1,13 @@
 #pragma warning disable
 using System.Collections.Generic;
-using XPT.Legacy;
-using XPT.Legacy.Entities;
+using XPT.Games.Generic.Entities;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Yserbius;
+using XPT.Games.Yserbius.Entities;
 
-namespace XPT.Legacy.Maps {
-    class YserMap09 : AMapScripted {
-        protected override int MapIndex => 9;
+namespace XPT.Games.Yserbius.Maps {
+    class YserMap09 : YsMap {
+        public override int MapIndex => 9;
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 0;
 
@@ -46,17 +48,17 @@ namespace XPT.Legacy.Maps {
         private const string String07F1 = "The insane Gnome Thief crawls away.";
         
         // === Functions ================================================
-        private void FnSTRSTELE_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSTELE_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x03, 0x01, 0xD7, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnKEYDOOR_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnKEYDOOR_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemRuneVowelKeyE, ItemRuneVowelKeyE);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemRuneVowelKeyE, YsIndexes.ItemRuneVowelKeyE);
             L0016: if (JumpEqual) goto L0063;
             L0018: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0036: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -67,15 +69,15 @@ namespace XPT.Legacy.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnGOLDAENC_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGOLDAENC_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSecretRoom2Gold), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagSecretRoom2Gold), 0x0001);
             L0017: if (JumpNotEqual) goto L003A;
             L0019: AddTreasure(player, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xAD);
             L0038: goto L006E;
             L003A: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xCF);
-            L0059: SetFlag(player, FlagTypeDungeon, FlagSecretRoom2Gold, 0x01);
+            L0059: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagSecretRoom2Gold, 0x01);
             L006E: ShowMessage(player, doMsgs, String0451); // The room is crawling with Spinorpions.
             L007B: Compare(PartyCount(player), 0x0001);
             L0086: if (JumpNotEqual) goto L009D;
@@ -96,16 +98,16 @@ namespace XPT.Legacy.Maps {
             L0137: return; // RETURN;
         }
 
-        private void FnGOLDBENC_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGOLDBENC_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSecretRoom2Gold1), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagSecretRoom2Gold1), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: ShowMessage(player, doMsgs, String0478); // You are trapped by angry Ogres.
             L0026: AddTreasure(player, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xCE);
             L0045: goto L0088;
             L0047: AddTreasure(player, 0x1388, 0x00, 0x00, 0x00, 0x00, 0xCF);
-            L0066: SetFlag(player, FlagTypeDungeon, FlagSecretRoom2Gold1, 0x01);
+            L0066: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagSecretRoom2Gold1, 0x01);
             L007B: ShowMessage(player, doMsgs, String0498); // Nasty Ogres contemptuously flick gold coins at you.
             L0088: Compare(PartyCount(player), 0x0001);
             L0093: if (JumpNotEqual) goto L00AA;
@@ -128,7 +130,7 @@ namespace XPT.Legacy.Maps {
             L0168: return; // RETURN;
         }
 
-        private void FnCROWNENC_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnCROWNENC_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0x78);
@@ -137,7 +139,7 @@ namespace XPT.Legacy.Maps {
             L0032: ShowMessage(player, doMsgs, String04CC); // A painful nip at your ankle warns you of great danger.
             L003F: goto L0087;
             L0041: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xCF, 0x78);
-            L0061: RemoveItem(player, ItemRuneVowelKeyE);
+            L0061: RemoveItem(player, YsIndexes.ItemRuneVowelKeyE);
             L006D: ShowMessage(player, doMsgs, String0503); // The E Vowel Key fades away when you enter the room.
             L007A: ShowMessage(player, doMsgs, String0537); // Behind a writhing mass of ill-tempered snakes lies King Cleowyn's Robe.
             L0087: Compare(PartyCount(player), 0x0001);
@@ -169,16 +171,16 @@ namespace XPT.Legacy.Maps {
             L01E8: return; // RETURN;
         }
 
-        private void FnITEMBENC_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnITEMBENC_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSecretRoom2Gold2), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagSecretRoom2Gold2), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: ShowMessage(player, doMsgs, String057F); // Hobgoblins are waiting for you.
             L0026: AddTreasure(player, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xB6);
             L0045: goto L0089;
             L0047: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0xB6, 0x3D);
-            L0067: SetFlag(player, FlagTypeDungeon, FlagSecretRoom2Gold2, 0x01);
+            L0067: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagSecretRoom2Gold2, 0x01);
             L007C: ShowMessage(player, doMsgs, String059F); // Hobgoblins throw items aside so they can attack you.
             L0089: Compare(PartyCount(player), 0x0001);
             L0094: if (JumpNotEqual) goto L00BD;
@@ -209,7 +211,7 @@ namespace XPT.Legacy.Maps {
             L01EA: return; // RETURN;
         }
 
-        private void FnITEMCENC_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnITEMCENC_07(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0x07);
@@ -245,7 +247,7 @@ namespace XPT.Legacy.Maps {
             L017F: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRMNSTR_08(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -277,7 +279,7 @@ namespace XPT.Legacy.Maps {
             L0164: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTUFMNSTR_09(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -301,7 +303,7 @@ namespace XPT.Legacy.Maps {
             L00E3: return; // RETURN;
         }
 
-        private void FnVTFMNSTR_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnVTFMNSTR_0A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -330,14 +332,14 @@ namespace XPT.Legacy.Maps {
             L012E: return; // RETURN;
         }
 
-        private void FnSTRSMESS_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSMESS_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String05FF); // East past the gateway are stairs leading down a level.
             L0010: return; // RETURN;
         }
 
-        private void FnNPCCHATA_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATA_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0636); // A Halfling Cleric creeps out of the shadows.
@@ -350,7 +352,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATB_0D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0711); // A half-mad Gnome Thief crawls into the room.

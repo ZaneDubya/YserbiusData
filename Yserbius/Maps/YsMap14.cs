@@ -1,12 +1,17 @@
 #pragma warning disable
 using System.Collections.Generic;
-using XPT.Legacy;
-using XPT.Legacy.Assets;
-using XPT.Legacy.Entities;
+using XPT.Games.Generic.Entities;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Yserbius;
+using XPT.Games.Yserbius.Assets;
+using XPT.Games.Yserbius.Entities;
 
-namespace XPT.Legacy.Maps {
-    class YserMap14 : AMapScripted {
-        protected override int MapIndex => 14;
+namespace XPT.Games.Yserbius.Maps {
+    /// <summary>
+    /// L3: Great Corridor
+    /// </summary>
+    class YserMap14 : YsMap {
+        public override int MapIndex => 14;
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 1;
 
@@ -147,26 +152,26 @@ namespace XPT.Legacy.Maps {
         private const string String11D6 = "There is a teleport in the west wall.";
         
         // === Functions ================================================
-        private void FnTORUNERM_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTORUNERM_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x03, 0x01, 0x1F, 0x00, type);
             L001D: return; // RETURN;
         }
 
-        private void FnTOMAUS_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTOMAUS_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x03, 0x04, 0xF8, 0x03, type);
             L001E: return; // RETURN;
         }
 
-        private void FnSPECDOOR_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSPECDOOR_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemKingCleowynsLockpick, ItemKingCleowynsLockpick);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemKingCleowynsLockpick, YsIndexes.ItemKingCleowynsLockpick);
             L0016: if (JumpNotEqual) goto L0028;
-            L0018: ax = HasItem(player, ItemKingsRing);
+            L0018: ax = HasItem(player, YsIndexes.ItemKingsRing);
             L0026: if (JumpEqual) goto L0073;
             L0028: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0046: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -177,12 +182,12 @@ namespace XPT.Legacy.Maps {
             L009D: return; // RETURN;
         }
 
-        private void FnQUESTDOR_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnQUESTDOR_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorGaveKingsPassToGuard), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorGaveKingsPassToGuard), 0x0001);
             L0017: if (JumpNotEqual) goto L0078;
-            L0019: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorGaveKingsPassToGuard, 0x00);
+            L0019: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorGaveKingsPassToGuard, 0x00);
             L002D: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L004B: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0069: ShowMessage(player, doMsgs, String0421); // The door magically opens!
@@ -192,23 +197,23 @@ namespace XPT.Legacy.Maps {
             L00A2: return; // RETURN;
         }
 
-        private void FnSTRSTELE_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSTELE_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x04, 0x01, 0x1F, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnQSTCHARA_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnQSTCHARA_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, ItemKingsPass);
+            L0003: ax = HasItem(player, YsIndexes.ItemKingsPass);
             L0011: if (JumpEqual) goto L008C;
             L0013: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0031: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
-            L004F: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorGaveKingsPassToGuard, 0x01);
+            L004F: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorGaveKingsPassToGuard, 0x01);
             L0064: ShowPortrait(player, 0x001C);
-            L0071: RemoveItem(player, ItemKingsPass);
+            L0071: RemoveItem(player, YsIndexes.ItemKingsPass);
             L007D: ShowMessage(player, doMsgs, String0454); // That is indeed the King's Pass. You may continue. If you ever return, I'll need to see another pass.
             L008A: goto L00D0;
             L008C: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x00);
@@ -218,10 +223,10 @@ namespace XPT.Legacy.Maps {
             L00D0: return; // RETURN;
         }
 
-        private void FnQSTCHARB_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnQSTCHARB_07(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorHarmony), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorHarmony), 0x0001);
             L0017: if (JumpNotEqual) goto L0035;
             L0019: ShowPortrait(player, 0x002C);
             L0026: ShowMessage(player, doMsgs, String0578); // You have passed the Trial of Harmony. A great reward is yours, if you but look for it.
@@ -231,10 +236,10 @@ namespace XPT.Legacy.Maps {
             L004F: return; // RETURN;
         }
 
-        private void FnQSTCHARC_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnQSTCHARC_08(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorChaos), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorChaos), 0x0001);
             L0017: if (JumpNotEqual) goto L0035;
             L0019: ShowPortrait(player, 0x002D);
             L0026: ShowMessage(player, doMsgs, String0649); // You have passed the Trial of Chaos. A great reward is yours, if you but look for it.
@@ -244,21 +249,21 @@ namespace XPT.Legacy.Maps {
             L004F: return; // RETURN;
         }
 
-        private void FnTELEPORT_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEPORT_09(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x02, 0x01, 0xF0, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnTELEPORT_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEPORT_0A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x04, 0x01, 0x87, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnHUTHDOOR_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnHUTHDOOR_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: RefreshCompareFlags(GetRace(player));
@@ -274,7 +279,7 @@ namespace XPT.Legacy.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnORCLDOOR_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnORCLDOOR_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(player), 0x0001);
@@ -290,7 +295,7 @@ namespace XPT.Legacy.Maps {
             L0090: return; // RETURN;
         }
 
-        private void FnELBADOOR_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnELBADOOR_0D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(player), 0x0002);
@@ -306,7 +311,7 @@ namespace XPT.Legacy.Maps {
             L008F: return; // RETURN;
         }
 
-        private void FnTRRADOOR_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTRRADOOR_0E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(player), 0x0003);
@@ -322,7 +327,7 @@ namespace XPT.Legacy.Maps {
             L0090: return; // RETURN;
         }
 
-        private void FnDWKNDOOR_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDWKNDOOR_0F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(player), 0x0004);
@@ -338,7 +343,7 @@ namespace XPT.Legacy.Maps {
             L0090: return; // RETURN;
         }
 
-        private void FnGNWIDOOR_10(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGNWIDOOR_10(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(player), 0x0005);
@@ -354,12 +359,12 @@ namespace XPT.Legacy.Maps {
             L0090: return; // RETURN;
         }
 
-        private void FnHAITDOOR_11(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnHAITDOOR_11(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(player), 0x0006);
             L000D: if (JumpEqual) goto L001F;
-            L000F: ax = HasItem(player, ItemKingCleowynsKey);
+            L000F: ax = HasItem(player, YsIndexes.ItemKingCleowynsKey);
             L001D: if (JumpEqual) goto L006A;
             L001F: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L003D: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -370,12 +375,12 @@ namespace XPT.Legacy.Maps {
             L0094: return; // RETURN;
         }
 
-        private void FnGRITDOOR_12(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGRITDOOR_12(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(GetRace(player), 0x0007);
             L000D: if (JumpEqual) goto L001F;
-            L000F: ax = HasItem(player, ItemKingCleowynsLockpick);
+            L000F: ax = HasItem(player, YsIndexes.ItemKingCleowynsLockpick);
             L001D: if (JumpEqual) goto L006A;
             L001F: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L003D: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -386,7 +391,7 @@ namespace XPT.Legacy.Maps {
             L0094: return; // RETURN;
         }
 
-        private void FnOTGGDOOR_13(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnOTGGDOOR_13(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String09A9); // A warning is on the door -
@@ -398,7 +403,7 @@ namespace XPT.Legacy.Maps {
             L0038: return; // RETURN;
         }
 
-        private void FnHEDHDOOR_14(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnHEDHDOOR_14(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0A2E); // A warning is on the door -
@@ -410,7 +415,7 @@ namespace XPT.Legacy.Maps {
             L0039: return; // RETURN;
         }
 
-        private void FnCHAOSDOR_15(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnCHAOSDOR_15(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0AB3); // A sign is on the door -
@@ -431,7 +436,7 @@ namespace XPT.Legacy.Maps {
             L00C8: return; // RETURN;
         }
 
-        private void FnHARMDOOR_16(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnHARMDOOR_16(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0B25); // A sign is on the door -
@@ -452,16 +457,16 @@ namespace XPT.Legacy.Maps {
             L00C7: return; // RETURN;
         }
 
-        private void FnPAYAENC_17(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPAYAENC_17(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorChaos), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorChaos), 0x0001);
             L0017: if (JumpEqual) goto L0025;
             L0019: RefreshCompareFlags(GetAlignment(player));
             L0023: if (JumpNotEqual) goto L0048;
             L0025: AddTreasure(player, 0x0064, 0x00, 0x00, 0x00, 0xCE, 0xB7);
             L0045: goto L00E1;
-            L0048: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorChaos, 0x01);
+            L0048: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorChaos, 0x01);
             L005D: Compare(GetClass(player), 0x0005);
             L0067: if (JumpEqual) goto L0075;
             L0069: Compare(GetClass(player), 0x0004);
@@ -497,16 +502,16 @@ namespace XPT.Legacy.Maps {
             L0209: return; // RETURN;
         }
 
-        private void FnPAYBENC_18(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPAYBENC_18(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorHarmony), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorHarmony), 0x0001);
             L0017: if (JumpEqual) goto L0026;
             L0019: Compare(GetAlignment(player), 0x0001);
             L0024: if (JumpNotEqual) goto L0049;
             L0026: AddTreasure(player, 0x0064, 0x00, 0x00, 0x00, 0xCE, 0xB7);
             L0046: goto L011C;
-            L0049: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorHarmony, 0x01);
+            L0049: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorHarmony, 0x01);
             L005E: RefreshCompareFlags(GetClass(player));
             L0067: if (JumpEqual) goto L0075;
             L0069: Compare(GetClass(player), 0x0004);
@@ -548,168 +553,168 @@ namespace XPT.Legacy.Maps {
             L0244: return; // RETURN;
         }
 
-        private void FnBLESSMES_19(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBLESSMES_19(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsFlagOff(player, FlagTypeDungeon, FlagModAttr_HumanThief);
+            L0003: ax = IsFlagOff(player, FlagTypeDungeon, YsIndexes.FlagModAttr_HumanThief);
             L0016: if (JumpEqual) goto L0076;
             L0018: RefreshCompareFlags(GetRace(player));
             L0021: if (JumpEqual) goto L002F;
             L0023: Compare(GetClass(player), 0x0003);
             L002D: if (JumpNotEqual) goto L0076;
-            L002F: SetFlag(player, FlagTypeDungeon, FlagModAttr_HumanThief, 0x01);
+            L002F: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_HumanThief, 0x01);
             L0044: ModifyAttribute(player, 0x00, 0x0001);
             L0055: ModifyAttribute(player, 0x01, 0x0001);
             L0067: ShowMessage(player, doMsgs, String0BD7); // Blessed Human or Thief, you may continue the quest.
             L0074: goto L0098;
-            L0076: SetFlag(player, FlagTypeDungeon, FlagModAttr_HumanThief, 0x01);
+            L0076: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_HumanThief, 0x01);
             L008B: ShowMessage(player, doMsgs, String0C0B); // The tapestry shows nothing of interest.
             L0098: return; // RETURN;
         }
 
-        private void FnBLESSMES_1A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBLESSMES_1A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsFlagOff(player, FlagTypeDungeon, FlagModAttr_OrcCleric);
+            L0003: ax = IsFlagOff(player, FlagTypeDungeon, YsIndexes.FlagModAttr_OrcCleric);
             L0016: if (JumpEqual) goto L0077;
             L0018: Compare(GetRace(player), 0x0001);
             L0022: if (JumpEqual) goto L0030;
             L0024: Compare(GetClass(player), 0x0004);
             L002E: if (JumpNotEqual) goto L0077;
-            L0030: SetFlag(player, FlagTypeDungeon, FlagModAttr_OrcCleric, 0x01);
+            L0030: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_OrcCleric, 0x01);
             L0045: ModifyAttribute(player, 0x00, 0x0001);
             L0056: ModifyAttribute(player, 0x01, 0x0001);
             L0068: ShowMessage(player, doMsgs, String0C33); // Blessed Orc or Cleric, you may continue the quest.
             L0075: goto L0099;
-            L0077: SetFlag(player, FlagTypeDungeon, FlagModAttr_OrcCleric, 0x01);
+            L0077: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_OrcCleric, 0x01);
             L008C: ShowMessage(player, doMsgs, String0C66); // The tapestry shows a jumble of runes.
             L0099: return; // RETURN;
         }
 
-        private void FnBLESSMES_1B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBLESSMES_1B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsFlagOff(player, FlagTypeDungeon, FlagModAttr_ElfBarb);
+            L0003: ax = IsFlagOff(player, FlagTypeDungeon, YsIndexes.FlagModAttr_ElfBarb);
             L0016: if (JumpEqual) goto L0076;
             L0018: Compare(GetRace(player), 0x0002);
             L0022: if (JumpEqual) goto L002F;
             L0024: RefreshCompareFlags(GetClass(player));
             L002D: if (JumpNotEqual) goto L0076;
-            L002F: SetFlag(player, FlagTypeDungeon, FlagModAttr_ElfBarb, 0x01);
+            L002F: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_ElfBarb, 0x01);
             L0044: ModifyAttribute(player, 0x00, 0x0001);
             L0055: ModifyAttribute(player, 0x01, 0x0001);
             L0067: ShowMessage(player, doMsgs, String0C8C); // Blessed Elf or Barbarian, you may continue the quest.
             L0074: goto L0098;
-            L0076: SetFlag(player, FlagTypeDungeon, FlagModAttr_ElfBarb, 0x01);
+            L0076: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_ElfBarb, 0x01);
             L008B: ShowMessage(player, doMsgs, String0CC2); // The tapestry is blank.
             L0098: return; // RETURN;
         }
 
-        private void FnBLESSMES_1C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBLESSMES_1C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsFlagOff(player, FlagTypeDungeon, FlagModAttr_TrollRanger);
+            L0003: ax = IsFlagOff(player, FlagTypeDungeon, YsIndexes.FlagModAttr_TrollRanger);
             L0016: if (JumpEqual) goto L0077;
             L0018: Compare(GetRace(player), 0x0003);
             L0022: if (JumpEqual) goto L0030;
             L0024: Compare(GetClass(player), 0x0002);
             L002E: if (JumpNotEqual) goto L0077;
-            L0030: SetFlag(player, FlagTypeDungeon, FlagModAttr_TrollRanger, 0x01);
+            L0030: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_TrollRanger, 0x01);
             L0045: ModifyAttribute(player, 0x00, 0x0001);
             L0056: ModifyAttribute(player, 0x01, 0x0001);
             L0068: ShowMessage(player, doMsgs, String0CD9); // Blessed Troll or Ranger, you may continue the quest.
             L0075: goto L0099;
-            L0077: SetFlag(player, FlagTypeDungeon, FlagModAttr_TrollRanger, 0x01);
+            L0077: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_TrollRanger, 0x01);
             L008C: ShowMessage(player, doMsgs, String0D0E); // The tapestry is blank.
             L0099: return; // RETURN;
         }
 
-        private void FnBLESSMES_1D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBLESSMES_1D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsFlagOff(player, FlagTypeDungeon, FlagModAttr_DwarfKnight);
+            L0003: ax = IsFlagOff(player, FlagTypeDungeon, YsIndexes.FlagModAttr_DwarfKnight);
             L0016: if (JumpEqual) goto L0077;
             L0018: Compare(GetRace(player), 0x0004);
             L0022: if (JumpEqual) goto L0030;
             L0024: Compare(GetClass(player), 0x0001);
             L002E: if (JumpNotEqual) goto L0077;
-            L0030: SetFlag(player, FlagTypeDungeon, FlagModAttr_DwarfKnight, 0x01);
+            L0030: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_DwarfKnight, 0x01);
             L0045: ModifyAttribute(player, 0x00, 0x0001);
             L0056: ModifyAttribute(player, 0x01, 0x0001);
             L0068: ShowMessage(player, doMsgs, String0D25); // Blessed Dwarf or Knight, you may continue the quest.
             L0075: goto L0099;
-            L0077: SetFlag(player, FlagTypeDungeon, FlagModAttr_DwarfKnight, 0x01);
+            L0077: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_DwarfKnight, 0x01);
             L008C: ShowMessage(player, doMsgs, String0D5A); // It is too dark to read the inscription.
             L0099: return; // RETURN;
         }
 
-        private void FnBLESSMES_1E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBLESSMES_1E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsFlagOff(player, FlagTypeDungeon, FlagModAttr_GnomeWizard);
+            L0003: ax = IsFlagOff(player, FlagTypeDungeon, YsIndexes.FlagModAttr_GnomeWizard);
             L0016: if (JumpEqual) goto L0077;
             L0018: Compare(GetRace(player), 0x0005);
             L0022: if (JumpEqual) goto L0030;
             L0024: Compare(GetClass(player), 0x0005);
             L002E: if (JumpNotEqual) goto L0077;
-            L0030: SetFlag(player, FlagTypeDungeon, FlagModAttr_GnomeWizard, 0x01);
+            L0030: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_GnomeWizard, 0x01);
             L0045: ModifyAttribute(player, 0x00, 0x0001);
             L0056: ModifyAttribute(player, 0x01, 0x0001);
             L0068: ShowMessage(player, doMsgs, String0D82); // Blessed Gnome or Wizard, you may continue the quest.
             L0075: goto L0099;
-            L0077: SetFlag(player, FlagTypeDungeon, FlagModAttr_GnomeWizard, 0x01);
+            L0077: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_GnomeWizard, 0x01);
             L008C: ShowMessage(player, doMsgs, String0DB7); // An inscription on the tapestry fades away as you draw near.
             L0099: return; // RETURN;
         }
 
-        private void FnBLESSMES_1F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBLESSMES_1F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsFlagOff(player, FlagTypeDungeon, FlagModAttr_HalflingKeyCleo);
+            L0003: ax = IsFlagOff(player, FlagTypeDungeon, YsIndexes.FlagModAttr_HalflingKeyCleo);
             L0016: if (JumpEqual) goto L0087;
             L0018: Compare(GetRace(player), 0x0006);
             L0022: if (JumpEqual) goto L0034;
-            L0024: ax = HasItem(player, ItemKingCleowynsKey);
+            L0024: ax = HasItem(player, YsIndexes.ItemKingCleowynsKey);
             L0032: if (JumpEqual) goto L0087;
-            L0034: SetFlag(player, FlagTypeDungeon, FlagModAttr_HalflingKeyCleo, 0x01);
+            L0034: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_HalflingKeyCleo, 0x01);
             L0049: ShowMessage(player, doMsgs, String0DF3); // Blessed Halfling! Blessed Key of Cleowyn! With either, the quest may continue.
             L0056: Compare(GetRace(player), 0x0006);
             L0060: if (JumpNotEqual) goto L0085;
             L0062: ModifyAttribute(player, 0x00, 0x0001);
             L0073: ModifyAttribute(player, 0x01, 0x0001);
             L0085: goto L00A9;
-            L0087: SetFlag(player, FlagTypeDungeon, FlagModAttr_HalflingKeyCleo, 0x01);
+            L0087: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_HalflingKeyCleo, 0x01);
             L009C: ShowMessage(player, doMsgs, String0E42); // The tapestry is empty.
             L00A9: return; // RETURN;
         }
 
-        private void FnBLESSMES_20(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBLESSMES_20(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsFlagOff(player, FlagTypeDungeon, FlagModAttr_GremlinPickCleo);
+            L0003: ax = IsFlagOff(player, FlagTypeDungeon, YsIndexes.FlagModAttr_GremlinPickCleo);
             L0016: if (JumpEqual) goto L0087;
             L0018: Compare(GetRace(player), 0x0007);
             L0022: if (JumpEqual) goto L0034;
-            L0024: ax = HasItem(player, ItemKingCleowynsLockpick);
+            L0024: ax = HasItem(player, YsIndexes.ItemKingCleowynsLockpick);
             L0032: if (JumpEqual) goto L0087;
-            L0034: SetFlag(player, FlagTypeDungeon, FlagModAttr_GremlinPickCleo, 0x01);
+            L0034: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_GremlinPickCleo, 0x01);
             L0049: ShowMessage(player, doMsgs, String0E59); // Blessed Gremlin! Blessed Pick of Cleowyn! With either, the quest may continue.
             L0056: Compare(GetRace(player), 0x0007);
             L0060: if (JumpNotEqual) goto L0085;
             L0062: ModifyAttribute(player, 0x00, 0x0001);
             L0073: ModifyAttribute(player, 0x01, 0x0001);
             L0085: goto L00A9;
-            L0087: SetFlag(player, FlagTypeDungeon, FlagModAttr_GremlinPickCleo, 0x01);
+            L0087: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagModAttr_GremlinPickCleo, 0x01);
             L009C: ShowMessage(player, doMsgs, String0EA8); // The tapestry once held a woven message.
             L00A9: return; // RETURN;
         }
 
-        private void FnENDQSTDR_21(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENDQSTDR_21(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorHarmony), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorHarmony), 0x0001);
             L0017: if (JumpEqual) goto L002F;
-            L0019: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorChaos), 0x0001);
+            L0019: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorChaos), 0x0001);
             L002D: if (JumpNotEqual) goto L0078;
             L002F: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L004D: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -717,16 +722,16 @@ namespace XPT.Legacy.Maps {
             L0078: return; // RETURN;
         }
 
-        private void FnQUESTBEN_22(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnQUESTBEN_22(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0EE9); // Reptilian bodies rise from the shadows.
-            L0010: ax = HasItem(player, ItemChessPiece);
+            L0010: ax = HasItem(player, YsIndexes.ItemChessPiece);
             L001E: if (JumpEqual) goto L0041;
             L0020: AddTreasure(player, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L003F: goto L006D;
             L0041: ShowMessage(player, doMsgs, String0F11); // On the floor is a Chess Piece inscribed with the words - 'Property of Arnakkian Slowfoot.'
-            L004E: AddTreasure(player, 0x0BB8, 0x00, 0x00, 0x00, 0x00, ItemChessPiece);
+            L004E: AddTreasure(player, 0x0BB8, 0x00, 0x00, 0x00, 0x00, YsIndexes.ItemChessPiece);
             L006D: Compare(PartyCount(player), 0x0001);
             L0078: if (JumpNotEqual) goto L00A1;
             L007A: AddEncounter(player, 0x01, 0x28);
@@ -750,15 +755,15 @@ namespace XPT.Legacy.Maps {
             L0171: return; // RETURN;
         }
 
-        private void FnGOLDAENC_23(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGOLDAENC_23(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsFlagOn(player, FlagTypeDungeon, FlagGreatCorridorGold);
+            L0003: ax = IsFlagOn(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorGold);
             L0016: if (JumpEqual) goto L0039;
             L0018: AddTreasure(player, 0x0064, 0x00, 0x00, 0x00, 0x00, 0xD1);
             L0037: goto L006E;
             L0039: AddTreasure(player, 0x0BB8, 0x00, 0x00, 0x00, 0xB7, 0xCF);
-            L0059: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorGold, 0x01);
+            L0059: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorGold, 0x01);
             L006E: Compare(PartyCount(player), 0x0001);
             L0079: if (JumpNotEqual) goto L0090;
             L007B: AddEncounter(player, 0x01, 0x1C);
@@ -782,15 +787,15 @@ namespace XPT.Legacy.Maps {
             L0172: return; // RETURN;
         }
 
-        private void FnWEAPAENC_24(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnWEAPAENC_24(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = IsFlagOn(player, FlagTypeDungeon, FlagGreatCorridorWeapon);
+            L0003: ax = IsFlagOn(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorWeapon);
             L0016: if (JumpEqual) goto L003A;
             L0018: AddTreasure(player, 0x0064, 0x00, 0x00, 0x00, 0xCC, 0xCE);
             L0038: goto L006F;
             L003A: AddTreasure(player, 0x07D0, 0x00, 0x00, 0x00, 0xCC, 0x0D);
-            L005A: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorWeapon, 0x01);
+            L005A: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorWeapon, 0x01);
             L006F: ShowMessage(player, doMsgs, String0F6C); // You are challenged to combat.
             L007C: Compare(PartyCount(player), 0x0001);
             L0087: if (JumpNotEqual) goto L00B0;
@@ -814,15 +819,15 @@ namespace XPT.Legacy.Maps {
             L016E: return; // RETURN;
         }
 
-        private void FnMAGICENC_25(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMAGICENC_25(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorWeapon2), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorWeapon2), 0x0001);
             L0017: if (JumpNotEqual) goto L003A;
             L0019: AddTreasure(player, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L0038: goto L006E;
             L003A: AddTreasure(player, 0x0384, 0x00, 0x00, 0x00, 0x00, 0xB3);
-            L0059: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorWeapon2, 0x01);
+            L0059: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorWeapon2, 0x01);
             L006E: ShowMessage(player, doMsgs, String0F8A); // Ferocious enemies stop you.
             L007B: Compare(PartyCount(player), 0x0001);
             L0086: if (JumpEqual) goto L0095;
@@ -849,15 +854,15 @@ namespace XPT.Legacy.Maps {
             L01A3: return; // RETURN;
         }
 
-        private void FnQUESTAEN_26(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnQUESTAEN_26(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, ItemKingsPass);
+            L0003: ax = HasItem(player, YsIndexes.ItemKingsPass);
             L0011: if (JumpEqual) goto L0041;
             L0013: AddTreasure(player, 0x0384, 0x00, 0x00, 0x00, 0x00, 0xB0);
             L0032: ShowMessage(player, doMsgs, String0FA6); // Elf Rangers await you.
             L003F: goto L007E;
-            L0041: AddTreasure(player, 0x0FA0, 0x00, 0x00, 0x00, 0x00, ItemKingsPass);
+            L0041: AddTreasure(player, 0x0FA0, 0x00, 0x00, 0x00, 0x00, YsIndexes.ItemKingsPass);
             L0060: AddExperience(player, 0x000001F4);
             L0071: ShowMessage(player, doMsgs, String0FBD); // An Elf Ranger holds the King's Pass.
             L007E: Compare(PartyCount(player), 0x0001);
@@ -882,15 +887,15 @@ namespace XPT.Legacy.Maps {
             L0187: return; // RETURN;
         }
 
-        private void FnITEMAENC_27(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnITEMAENC_27(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorItem), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorItem), 0x0001);
             L0017: if (JumpNotEqual) goto L003A;
             L0019: AddTreasure(player, 0x012C, 0x00, 0x00, 0x00, 0x00, 0xB6);
             L0038: goto L006F;
             L003A: AddTreasure(player, 0x04B0, 0x00, 0x00, 0x00, 0xCF, 0xAA);
-            L005A: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorItem, 0x01);
+            L005A: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorItem, 0x01);
             L006F: ShowMessage(player, doMsgs, String0FE2); // Proud knights dispute your progress.
             L007C: Compare(PartyCount(player), 0x0001);
             L0087: if (JumpEqual) goto L0096;
@@ -909,15 +914,15 @@ namespace XPT.Legacy.Maps {
             L013A: return; // RETURN;
         }
 
-        private void FnGOLDBENC_28(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGOLDBENC_28(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorGold1), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorGold1), 0x0001);
             L0017: if (JumpNotEqual) goto L003A;
             L0019: AddTreasure(player, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCB);
             L0038: goto L006F;
             L003A: AddTreasure(player, 0x2710, 0x00, 0x00, 0x00, 0xB0, 0xCD);
-            L005A: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorGold1, 0x01);
+            L005A: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorGold1, 0x01);
             L006F: ShowMessage(player, doMsgs, String1007); // Strong enemies bar your way.
             L007C: Compare(PartyCount(player), 0x0001);
             L0087: if (JumpEqual) goto L0096;
@@ -937,7 +942,7 @@ namespace XPT.Legacy.Maps {
             L014C: return; // RETURN;
         }
 
-        private void FnDRKEYENC_29(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnDRKEYENC_29(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0xC3);
@@ -973,12 +978,12 @@ namespace XPT.Legacy.Maps {
             L01A3: return; // RETURN;
         }
 
-        private void FnSPKEYDOO_2A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSPKEYDOO_2A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemKingsDomicileKey, ItemKingsDomicileKey);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemKingsDomicileKey, YsIndexes.ItemKingsDomicileKey);
             L0016: if (JumpNotEqual) goto L002D;
-            L0018: ax = HasUsedItem(player, type, ref doMsgs, ItemLavaKey, ItemLavaKey);
+            L0018: ax = HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemLavaKey, YsIndexes.ItemLavaKey);
             L002B: if (JumpEqual) goto L0078;
             L002D: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L004B: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -989,15 +994,15 @@ namespace XPT.Legacy.Maps {
             L00A2: return; // RETURN;
         }
 
-        private void FnITEMBENC_2C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnITEMBENC_2C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorItem1), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorItem1), 0x0001);
             L0017: if (JumpNotEqual) goto L003A;
             L0019: AddTreasure(player, 0x001E, 0x00, 0x00, 0x00, 0x00, 0xB1);
             L0038: goto L006F;
             L003A: AddTreasure(player, 0x01F4, 0x00, 0x00, 0x00, 0xB1, 0x55);
-            L005A: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorItem1, 0x01);
+            L005A: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorItem1, 0x01);
             L006F: ShowMessage(player, doMsgs, String10C7); // Fierce opponents bar your way.
             L007C: Compare(PartyCount(player), 0x0001);
             L0087: if (JumpNotEqual) goto L00C2;
@@ -1025,20 +1030,20 @@ namespace XPT.Legacy.Maps {
             L01B6: return; // RETURN;
         }
 
-        private void FnGOLDPILE_2D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGOLDPILE_2D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagGreatCorridorGold2), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorGold2), 0x0001);
             L0017: if (JumpNotEqual) goto L0028;
             L0019: ShowMessage(player, doMsgs, String10E6); // This area has been looted.
             L0026: goto L005B;
             L0028: ModifyGold(player, 0x2EE0);
-            L0039: SetFlag(player, FlagTypeDungeon, FlagGreatCorridorGold2, 0x01);
+            L0039: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagGreatCorridorGold2, 0x01);
             L004E: ShowMessage(player, doMsgs, String1101); // You find 12000 Gold Pieces on the floor.
             L005B: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_2E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRMNSTR_2E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -1065,7 +1070,7 @@ namespace XPT.Legacy.Maps {
             L0119: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_2F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTUFMNSTR_2F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String112A); // Your way is blocked.
@@ -1087,35 +1092,35 @@ namespace XPT.Legacy.Maps {
             L00E0: return; // RETURN;
         }
 
-        private void FnGATEMESA_3A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGATEMESA_3A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String113F); // The gateway leads to THE RUNE ROOM.
             L0010: return; // RETURN;
         }
 
-        private void FnGATEMESB_3B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGATEMESB_3B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String1163); // The gateway leads to THE MAUSOLEUM.
             L0010: return; // RETURN;
         }
 
-        private void FnSTRSMESS_3C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSMESS_3C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String1187); // Stairs past the south gateway lead down.
             L0010: return; // RETURN;
         }
 
-        private void FnTELEMESA_3D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEMESA_3D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String11B0); // There is a teleport in the east wall.
             L0010: return; // RETURN;
         }
 
-        private void FnTELEMESB_3E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEMESB_3E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String11D6); // There is a teleport in the west wall.

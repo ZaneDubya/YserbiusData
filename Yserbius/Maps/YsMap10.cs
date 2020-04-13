@@ -1,11 +1,13 @@
 #pragma warning disable
 using System.Collections.Generic;
-using XPT.Legacy;
-using XPT.Legacy.Entities;
+using XPT.Games.Generic.Entities;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Yserbius;
+using XPT.Games.Yserbius.Entities;
 
-namespace XPT.Legacy.Maps {
-    class YserMap10 : AMapScripted {
-        protected override int MapIndex => 10;
+namespace XPT.Games.Yserbius.Maps {
+    class YserMap10 : YsMap {
+        public override int MapIndex => 10;
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 0;
 
@@ -47,17 +49,17 @@ namespace XPT.Legacy.Maps {
         private const string String0952 = "The Gremlin Cleric ignores your questions as he becomes engrossed in his book.";
         
         // === Functions ================================================
-        private void FnSTRSTELE_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSTELE_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x03, 0x01, 0xCD, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnKEYDOOR_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnKEYDOOR_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasUsedItem(player, type, ref doMsgs, ItemRuneVowelKeyI, ItemRuneVowelKeyI);
+            L0003: ax = HasUsedItem(player, type, ref doMsgs, YsIndexes.ItemRuneVowelKeyI, YsIndexes.ItemRuneVowelKeyI);
             L0016: if (JumpEqual) goto L0063;
             L0018: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
             L0036: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -68,16 +70,16 @@ namespace XPT.Legacy.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnSCEPTENC_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSCEPTENC_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, ItemCleowynsSceptre);
+            L0003: ax = HasItem(player, YsIndexes.ItemCleowynsSceptre);
             L0011: if (JumpEqual) goto L0041;
             L0013: ShowMessage(player, doMsgs, String045E); // The room has been ransacked.
             L0020: AddTreasure(player, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L003F: goto L0086;
-            L0041: AddTreasure(player, 0x1B58, 0x00, 0x00, 0x00, 0x00, ItemCleowynsSceptre);
-            L0060: RemoveItem(player, ItemRuneVowelKeyI);
+            L0041: AddTreasure(player, 0x1B58, 0x00, 0x00, 0x00, 0x00, YsIndexes.ItemCleowynsSceptre);
+            L0060: RemoveItem(player, YsIndexes.ItemRuneVowelKeyI);
             L006C: ShowMessage(player, doMsgs, String047B); // The I Rune Key mysteriously vanishes as you move forward.
             L0079: ShowMessage(player, doMsgs, String04B5); // The beating of leathery wings overhead alerts you to your great danger. On the floor is the Scepter of King Cleowyn.
             L0086: Compare(PartyCount(player), 0x0001);
@@ -104,7 +106,7 @@ namespace XPT.Legacy.Maps {
             L019C: return; // RETURN;
         }
 
-        private void FnITEMBENC_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnITEMBENC_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0xBD);
@@ -134,7 +136,7 @@ namespace XPT.Legacy.Maps {
             L013C: return; // RETURN;
         }
 
-        private void FnITEMCENC_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnITEMCENC_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0x56);
@@ -164,16 +166,16 @@ namespace XPT.Legacy.Maps {
             L013B: return; // RETURN;
         }
 
-        private void FnGOLDAENC_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGOLDAENC_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSecretRoom3Gold), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagSecretRoom3Gold), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: AddTreasure(player, 0x00AF, 0x00, 0x00, 0x00, 0x00, 0xB6);
             L0038: ShowMessage(player, doMsgs, String0603); // Black Widows unweave an empty sack.
             L0045: goto L0088;
             L0047: AddTreasure(player, 0x1770, 0x00, 0x00, 0x00, 0x00, 0xB7);
-            L0066: SetFlag(player, FlagTypeDungeon, FlagSecretRoom3Gold, 0x01);
+            L0066: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagSecretRoom3Gold, 0x01);
             L007B: ShowMessage(player, doMsgs, String0627); // As you reach down to take a coin purse on the ground, you become entangled in a sticky web.
             L0088: Compare(PartyCount(player), 0x0001);
             L0093: if (JumpEqual) goto L00A2;
@@ -195,15 +197,15 @@ namespace XPT.Legacy.Maps {
             L0156: return; // RETURN;
         }
 
-        private void FnGOLDBENC_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGOLDBENC_07(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagSecretRoom3Gold2), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagSecretRoom3Gold2), 0x0001);
             L0017: if (JumpNotEqual) goto L003A;
             L0019: AddTreasure(player, 0x00C8, 0x00, 0x00, 0x00, 0x00, 0xCF);
             L0038: goto L006E;
             L003A: AddTreasure(player, 0x2134, 0x00, 0x00, 0x00, 0x00, 0xCF);
-            L0059: SetFlag(player, FlagTypeDungeon, FlagSecretRoom3Gold2, 0x01);
+            L0059: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagSecretRoom3Gold2, 0x01);
             L006E: ShowMessage(player, doMsgs, String0683); // King Cleowyn's favorite pets still guard his secrets long after their master has died.
             L007B: Compare(PartyCount(player), 0x0001);
             L0086: if (JumpEqual) goto L0095;
@@ -226,7 +228,7 @@ namespace XPT.Legacy.Maps {
             L015B: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRMNSTR_08(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -253,7 +255,7 @@ namespace XPT.Legacy.Maps {
             L0119: return; // RETURN;
         }
 
-        private void FnTUFMNSTR_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTUFMNSTR_09(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -283,7 +285,7 @@ namespace XPT.Legacy.Maps {
             L014F: return; // RETURN;
         }
 
-        private void FnVTFMNSTR_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnVTFMNSTR_0A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -308,14 +310,14 @@ namespace XPT.Legacy.Maps {
             L00F5: return; // RETURN;
         }
 
-        private void FnSTRSMESS_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSMESS_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String06DA); // There are stairs through the north gateway.
             L0010: return; // RETURN;
         }
 
-        private void FnNPCCHATA_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATA_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0706); // A dying Troll Knight lies on the floor.
@@ -328,7 +330,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATB_0D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0801); // A Gremlin Cleric sits on the floor, holding a thick book in her hands.

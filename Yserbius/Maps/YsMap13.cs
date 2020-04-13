@@ -1,11 +1,13 @@
 #pragma warning disable
 using System.Collections.Generic;
-using XPT.Legacy;
-using XPT.Legacy.Entities;
+using XPT.Games.Generic.Entities;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Yserbius;
+using XPT.Games.Yserbius.Entities;
 
-namespace XPT.Legacy.Maps {
-    class YserMap13 : AMapScripted {
-        protected override int MapIndex => 13;
+namespace XPT.Games.Yserbius.Maps {
+    class YserMap13 : YsMap {
+        public override int MapIndex => 13;
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 0;
 
@@ -80,14 +82,14 @@ namespace XPT.Legacy.Maps {
         private const string String0E57 = "You are not strong enough to force the door open.";
         
         // === Functions ================================================
-        private void FnTELEPORT_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEPORT_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x01, 0x06, 0xDC, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnPIT_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPIT_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: SetFloorItem(player, 0x01, GetCurrentTile(player));
@@ -95,7 +97,7 @@ namespace XPT.Legacy.Maps {
             L0033: return; // RETURN;
         }
 
-        private void FnNPCCHATA_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATA_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String03FC); // You encounter a Troll Cleric.
@@ -109,7 +111,7 @@ namespace XPT.Legacy.Maps {
             L0058: return; // RETURN;
         }
 
-        private void FnNPCCHATB_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATB_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String05C7); // You encounter an Orc Ranger.
@@ -122,7 +124,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATC_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATC_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String069A); // You encounter a Halfling Thief.
@@ -136,7 +138,7 @@ namespace XPT.Legacy.Maps {
             L0058: return; // RETURN;
         }
 
-        private void FnNPCCHATD_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATD_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String07C2); // You encounter a Gnome Barbarian.
@@ -150,7 +152,7 @@ namespace XPT.Legacy.Maps {
             L0058: return; // RETURN;
         }
 
-        private void FnNPCCHATE_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATE_07(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0929); // You encounter a Dwarf Wizard.
@@ -163,14 +165,14 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnTELEMESG_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEMESG_08(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0A69); // There is a teleport in the west wall.
             L0010: return; // RETURN;
         }
 
-        private void FnITEMAENC_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnITEMAENC_09(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0x77);
@@ -200,7 +202,7 @@ namespace XPT.Legacy.Maps {
             L0152: return; // RETURN;
         }
 
-        private void FnITEMBENC_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnITEMBENC_0A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0xC1);
@@ -233,7 +235,7 @@ namespace XPT.Legacy.Maps {
             L0171: return; // RETURN;
         }
 
-        private void FnITEMCENC_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnITEMCENC_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0x20);
@@ -266,7 +268,7 @@ namespace XPT.Legacy.Maps {
             L0171: return; // RETURN;
         }
 
-        private void FnITEMDENC_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnITEMDENC_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasItem(player, 0x54);
@@ -299,7 +301,7 @@ namespace XPT.Legacy.Maps {
             L0171: return; // RETURN;
         }
 
-        private void FnSTRMNSTR_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRMNSTR_0D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -327,7 +329,7 @@ namespace XPT.Legacy.Maps {
             L012B: return; // RETURN;
         }
 
-        private void FnAVEMNSTR_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnAVEMNSTR_0E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -360,7 +362,7 @@ namespace XPT.Legacy.Maps {
             L0176: return; // RETURN;
         }
 
-        private void FnLKPKDORA_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLKPKDORA_0F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xBF, 0xC4);
@@ -376,7 +378,7 @@ namespace XPT.Legacy.Maps {
             L009E: return; // RETURN;
         }
 
-        private void FnLKPKDORB_10(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLKPKDORB_10(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xC0, 0xC4);
@@ -392,7 +394,7 @@ namespace XPT.Legacy.Maps {
             L009E: return; // RETURN;
         }
 
-        private void FnLKPKDORC_11(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLKPKDORC_11(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xC2, 0xC4);
@@ -408,7 +410,7 @@ namespace XPT.Legacy.Maps {
             L009E: return; // RETURN;
         }
 
-        private void FnLKPKDORD_12(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLKPKDORD_12(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ax = HasUsedItem(player, type, ref doMsgs, 0xC3, 0xC4);
@@ -424,7 +426,7 @@ namespace XPT.Legacy.Maps {
             L009E: return; // RETURN;
         }
 
-        private void FnSTRNDORA_13(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRNDORA_13(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x000C);
@@ -438,7 +440,7 @@ namespace XPT.Legacy.Maps {
             L0089: return; // RETURN;
         }
 
-        private void FnSTRDOORB_14(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRDOORB_14(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x000F);
@@ -452,7 +454,7 @@ namespace XPT.Legacy.Maps {
             L0089: return; // RETURN;
         }
 
-        private void FnSTRDOORC_15(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRDOORC_15(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x0011);
@@ -466,7 +468,7 @@ namespace XPT.Legacy.Maps {
             L0089: return; // RETURN;
         }
 
-        private void FnSTRDOORD_16(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRDOORD_16(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x0014);

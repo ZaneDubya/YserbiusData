@@ -1,11 +1,13 @@
 #pragma warning disable
 using System.Collections.Generic;
-using XPT.Legacy;
-using XPT.Legacy.Entities;
+using XPT.Games.Generic.Entities;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Yserbius;
+using XPT.Games.Yserbius.Entities;
 
-namespace XPT.Legacy.Maps {
-    class YserMap02 : AMapScripted {
-        protected override int MapIndex => 2;
+namespace XPT.Games.Yserbius.Maps {
+    class YserMap02 : YsMap {
+        public override int MapIndex => 2;
         protected override int RandomEncounterChance => 10;
         protected override int RandomEncounterExtraCount => 0;
 
@@ -95,24 +97,24 @@ namespace XPT.Legacy.Maps {
         private const string String0EC4 = "The door is currently impassable.";
         
         // === Functions ================================================
-        private void FnTOMINES_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTOMINES_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x01, 0x02, 0x7F, 0x00, type);
             L001D: return; // RETURN;
         }
 
-        private void FnTOTREAS_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTOTREAS_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x01, 0x04, 0x05, 0x01, type);
             L001E: return; // RETURN;
         }
 
-        private void FnKEYDOOR_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnKEYDOOR_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType), 0x0001);
             L0016: if (JumpNotEqual) goto L0063;
             L0018: ShowMessage(player, doMsgs, String03FC); // Cleowyn's Key has unlocked the door.
             L0025: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -123,7 +125,7 @@ namespace XPT.Legacy.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnKEYMESSG_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnKEYMESSG_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0465); // The tapestry shows a message in runes...
@@ -131,10 +133,10 @@ namespace XPT.Legacy.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnLKPKDOOR_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLKPKDOOR_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType), 0x0002);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType), 0x0002);
             L0016: if (JumpNotEqual) goto L0063;
             L0018: ShowMessage(player, doMsgs, String04B8); // Cleowyn's Lockpick has unlocked the door.
             L0025: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -145,7 +147,7 @@ namespace XPT.Legacy.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnLKPKMESG_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLKPKMESG_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String04F6); // There are runes on the tapestry...
@@ -153,10 +155,10 @@ namespace XPT.Legacy.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnSTRDOOR_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRDOOR_07(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType), 0x0003);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType), 0x0003);
             L0016: if (JumpNotEqual) goto L0063;
             L0018: ShowMessage(player, doMsgs, String0546); // The door has been forced open.
             L0025: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -167,7 +169,7 @@ namespace XPT.Legacy.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnSTRMESSG_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRMESSG_08(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0587); // The tapestry has runes...
@@ -175,16 +177,16 @@ namespace XPT.Legacy.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnGOLDENC_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnGOLDENC_09(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagVestibuleFoundCoins), 0x0001);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleFoundCoins), 0x0001);
             L0017: if (JumpNotEqual) goto L0047;
             L0019: ShowMessage(player, doMsgs, String05D1); // Aside from angry Rogues, the room is empty.
             L0026: AddTreasure(player, 0x0014, 0x00, 0x00, 0x00, 0x00, 0xB5);
             L0045: goto L0088;
             L0047: AddTreasure(player, 0x01F4, 0x00, 0x00, 0x00, 0x00, 0xCE);
-            L0066: SetFlag(player, FlagTypeDungeon, FlagVestibuleFoundCoins, 0x01);
+            L0066: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleFoundCoins, 0x01);
             L007B: ShowMessage(player, doMsgs, String05FD); // A Rogue drops gold coins on the floor as the villains draw their weapons.
             L0088: Compare(PartyCount(player), 0x0001);
             L0093: if (JumpEqual) goto L00A2;
@@ -199,22 +201,22 @@ namespace XPT.Legacy.Maps {
             L00FE: return; // RETURN;
         }
 
-        private void FnSTAIRS_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTAIRS_0A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x02, 0x02, 0x01, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnPALKEYEN_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnPALKEYEN_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, ItemKeyToCleowynsPalace);
+            L0003: ax = HasItem(player, YsIndexes.ItemKeyToCleowynsPalace);
             L0011: if (JumpEqual) goto L0042;
             L0013: AddTreasure(player, 0x01F4, 0x00, 0x00, 0x00, 0xBC, 0xCE);
             L0033: ShowMessage(player, doMsgs, String0647); // The room is empty. Almost.
             L0040: goto L006E;
-            L0042: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, ItemKeyToCleowynsPalace);
+            L0042: AddTreasure(player, 0x03E8, 0x00, 0x00, 0x00, 0x00, YsIndexes.ItemKeyToCleowynsPalace);
             L0061: ShowMessage(player, doMsgs, String0662); // A Key in the shape of a Palace lies in a corner, if you can get to it.
             L006E: Compare(PartyCount(player), 0x0001);
             L0079: if (JumpNotEqual) goto L0090;
@@ -238,14 +240,14 @@ namespace XPT.Legacy.Maps {
             L0151: return; // RETURN;
         }
 
-        private void FnTELEPORT_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEPORT_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x04, 0x01, 0xF0, 0x03, type);
             L001E: return; // RETURN;
         }
 
-        private void FnLOWMNSTR_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLOWMNSTR_0D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String06A9); // You encounter Rogues.
@@ -271,7 +273,7 @@ namespace XPT.Legacy.Maps {
             L0112: return; // RETURN;
         }
 
-        private void FnMODMNSTR_0E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMODMNSTR_0E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -290,7 +292,7 @@ namespace XPT.Legacy.Maps {
             L009F: return; // RETURN;
         }
 
-        private void FnSTRMNST_0F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRMNST_0F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -317,7 +319,7 @@ namespace XPT.Legacy.Maps {
             L010A: return; // RETURN;
         }
 
-        private void FnBADMNSTR_10(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnBADMNSTR_10(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(PartyCount(player), 0x0001);
@@ -349,49 +351,49 @@ namespace XPT.Legacy.Maps {
             L0164: return; // RETURN;
         }
 
-        private void FnMESSAGEA_11(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMESSAGEA_11(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType, 0x00);
+            L0003: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType, 0x00);
             L0016: ShowMessage(player, doMsgs, String074E); // This gateway leads to THE MINES.
             L0023: return; // RETURN;
         }
 
-        private void FnMESSAGEB_12(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnMESSAGEB_12(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType, 0x00);
+            L0003: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType, 0x00);
             L0016: ShowMessage(player, doMsgs, String076F); // This gateway leads to THE HALL OF DOORS.
             L0023: return; // RETURN;
         }
 
-        private void FnTELEMESS_13(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELEMESS_13(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType, 0x03);
+            L0003: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType, 0x03);
             L0017: ShowMessage(player, doMsgs, String0798); // There is a teleport to the north.
             L0024: return; // RETURN;
         }
 
-        private void FnSTRSMESS_14(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSMESS_14(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: SetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType, 0x01);
+            L0003: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType, 0x01);
             L0017: ShowMessage(player, doMsgs, String07BA); // There are stairs to the west through the gateway.
             L0024: return; // RETURN;
         }
 
-        private void FnSTRSTLPT_15(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRSTLPT_15(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: TeleportParty(player, 0x02, 0x02, 0x01, 0x02, type);
             L001E: return; // RETURN;
         }
 
-        private void FnREGDOOR_16(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnREGDOOR_16(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: Compare(GetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType), 0x0004);
+            L0003: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType), 0x0004);
             L0016: if (JumpNotEqual) goto L0063;
             L0018: ShowMessage(player, doMsgs, String07EC); // As you open the door, you hear locks click throughout the dungeon.
             L0025: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
@@ -402,7 +404,7 @@ namespace XPT.Legacy.Maps {
             L008D: return; // RETURN;
         }
 
-        private void FnNPCCHATA_17(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATA_17(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0851); // You encounter an Elf Ranger.
@@ -415,7 +417,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATB_18(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATB_18(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0914); // You encounter a Human Wizard.
@@ -428,7 +430,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATC_19(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATC_19(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0A71); // You encounter a Gremlin Thief.
@@ -441,7 +443,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATD_1A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATD_1A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0B69); // You encounter an Orc Knight.
@@ -454,7 +456,7 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnNPCCHATE_1B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnNPCCHATE_1B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0C93); // You encounter an Elf Cleric.
@@ -467,12 +469,12 @@ namespace XPT.Legacy.Maps {
             L004B: return; // RETURN;
         }
 
-        private void FnKEYDRA_1C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnKEYDRA_1C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, ItemKingCleowynsKey);
+            L0003: ax = HasItem(player, YsIndexes.ItemKingCleowynsKey);
             L0011: if (JumpEqual) goto L0072;
-            L0013: SetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType, 0x01);
+            L0013: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType, 0x01);
             L0027: ShowMessage(player, doMsgs, String0D8C); // Cleowyn's Key unlocks the door.
             L0034: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0052: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
@@ -482,12 +484,12 @@ namespace XPT.Legacy.Maps {
             L009C: return; // RETURN;
         }
 
-        private void FnLKPKDRA_1D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnLKPKDRA_1D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: ax = HasItem(player, ItemKingCleowynsLockpick);
+            L0003: ax = HasItem(player, YsIndexes.ItemKingCleowynsLockpick);
             L0011: if (JumpEqual) goto L0072;
-            L0013: SetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType, 0x02);
+            L0013: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType, 0x02);
             L0027: ShowMessage(player, doMsgs, String0DC0); // Cleowyn's Lockpick has unlocked the door.
             L0034: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0052: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
@@ -497,12 +499,12 @@ namespace XPT.Legacy.Maps {
             L009C: return; // RETURN;
         }
 
-        private void FnSTRNGDRA_1E(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnSTRNGDRA_1E(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: Compare(CheckStrength(player), 0x0012);
             L0012: if (JumpBelow) goto L0073;
-            L0014: SetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType, 0x03);
+            L0014: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType, 0x03);
             L0028: ShowMessage(player, doMsgs, String0E3C); // You manage to force open the door.
             L0035: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L0053: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);
@@ -512,14 +514,14 @@ namespace XPT.Legacy.Maps {
             L009D: return; // RETURN;
         }
 
-        private void FnREGDORA_1F(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnREGDORA_1F(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
-            L0003: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType));
+            L0003: RefreshCompareFlags(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType));
             L0015: if (JumpEqual) goto L002C;
-            L0017: Compare(GetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType), 0x0004);
+            L0017: Compare(GetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType), 0x0004);
             L002A: if (JumpNotEqual) goto L008B;
-            L002C: SetFlag(player, FlagTypeDungeon, FlagVestibuleUnlockType, 0x04);
+            L002C: SetFlag(player, FlagTypeDungeon, YsIndexes.FlagVestibuleUnlockType, 0x04);
             L0040: ShowMessage(player, doMsgs, String0E81); // As you open the door, you hear locks click throughout the dungeon.
             L004D: SetWallItem(player, 0x01, GetCurrentTile(player), GetFacing(player));
             L006B: SetWallPassable(player, GetCurrentTile(player), GetFacing(player), 0x01);

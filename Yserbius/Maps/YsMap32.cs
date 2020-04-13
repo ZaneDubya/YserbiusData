@@ -1,11 +1,13 @@
 #pragma warning disable
 using System.Collections.Generic;
-using XPT.Legacy;
-using XPT.Legacy.Entities;
+using XPT.Games.Generic.Entities;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Yserbius;
+using XPT.Games.Yserbius.Entities;
 
-namespace XPT.Legacy.Maps {
-    class YserMap32 : AMapScripted {
-        protected override int MapIndex => 32;
+namespace XPT.Games.Yserbius.Maps {
+    class YserMap32 : YsMap {
+        public override int MapIndex => 32;
         protected override int RandomEncounterChance => 0;
         protected override int RandomEncounterExtraCount => 2;
 
@@ -53,7 +55,7 @@ namespace XPT.Legacy.Maps {
         private const string String0A2B = "You enter another dimension.";
         
         // === Functions ================================================
-        private void FnVOID_01(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnVOID_01(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String03FC); // The Ageless Void swallows you whole.
@@ -62,7 +64,7 @@ namespace XPT.Legacy.Maps {
             L002E: return; // RETURN;
         }
 
-        private void FnISLEETRN_02(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnISLEETRN_02(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String046D); // The Island of Eternity sits at the edge of time.
@@ -70,7 +72,7 @@ namespace XPT.Legacy.Maps {
             L001D: return; // RETURN;
         }
 
-        private void FnENCSELF_03(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCSELF_03(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: AddEncounter(player, 0x01, 0x19);
@@ -82,7 +84,7 @@ namespace XPT.Legacy.Maps {
             L006F: return; // RETURN;
         }
 
-        private void FnENCWINTR_04(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCWINTR_04(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String04E8); // A titanic Elemental appears!
@@ -104,7 +106,7 @@ namespace XPT.Legacy.Maps {
             L00D8: return; // RETURN;
         }
 
-        private void FnRAINRED_05(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnRAINRED_05(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String06F2); // A streak of Red crosses the Ageless Void.
@@ -112,7 +114,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnRAINYEL_06(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnRAINYEL_06(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String071C); // A streak of Yellow crosses the Ageless Void.
@@ -120,7 +122,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnRAINGRN_07(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnRAINGRN_07(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0749); // A streak of Green crosses the Ageless Void.
@@ -128,7 +130,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnRAINBLU_08(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnRAINBLU_08(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0775); // A streak of Blue crosses the Ageless Void.
@@ -136,7 +138,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnENCTIME_09(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnENCTIME_09(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String07A0); // Threads of blinding light appear from all directions, bending and weaving into a tight spiral before you.
@@ -148,7 +150,7 @@ namespace XPT.Legacy.Maps {
             L0051: return; // RETURN;
         }
 
-        private void FnTELENW_0A(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELENW_0A(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String09D4); // You enter another dimension.
@@ -156,7 +158,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnTELENE_0B(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELENE_0B(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String09F1); // You enter another dimension.
@@ -164,7 +166,7 @@ namespace XPT.Legacy.Maps {
             L002A: return; // RETURN;
         }
 
-        private void FnTELESE_0C(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELESE_0C(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0A0E); // You enter another dimension.
@@ -172,7 +174,7 @@ namespace XPT.Legacy.Maps {
             L002B: return; // RETURN;
         }
 
-        private void FnTELESW_0D(ServerPlayer player, MapEventType type, bool doMsgs) {
+        private void FnTELESW_0D(YsPlayerServer player, MapEventType type, bool doMsgs) {
             int ax = 0, bx = 0, cx = 0, dx = 0, si = 0, di = 0, tmp = 0;
             L0000: // BEGIN;
             L0003: ShowMessage(player, doMsgs, String0A2B); // You enter another dimension.
