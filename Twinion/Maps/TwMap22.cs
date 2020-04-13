@@ -1,10 +1,14 @@
-using XPT.Generic.Maps;
-using XPT.Twinion.Entities;
+using XPT.Games.Generic.Constants;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Twinion.Entities;
 
-namespace XPT.Twinion.Maps {
+namespace XPT.Games.Twinion.Maps {
+    /// <summary>
+    /// L9: Hopeless Falls
+    /// </summary>
     class TwMap22 : TwMap {
-        protected override int MapIndex => 22;
-        protected override int MapID => 0x0902;
+        public override int MapIndex => 22;
+        public override int MapID => 0x0902;
         protected override int RandomEncounterChance => 0;
         protected override int RandomEncounterExtraCount => 2;
 
@@ -22,633 +26,633 @@ namespace XPT.Twinion.Maps {
         private const int PITFIVE = 12;
         private const int PITSIX = 13;
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 8, 1, 160, EAST);
+            TeleportParty(player, type, doMsgs, 8, 1, 160, Direction.East);
         }
         protected override void FnEvent03(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 9, 2, 0, EAST);
+            TeleportParty(player, type, doMsgs, 9, 2, 0, Direction.East);
         }
         protected override void FnEvent04(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_RUNES(player, type, doMsgs, "The path to glory lies eastward.");
+            ShowRunes(player, type, ref doMsgs, "The path to glory lies eastward.");
         }
         protected override void FnEvent05(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 9, 2, 4, EAST);
+            TeleportParty(player, type, doMsgs, 9, 2, 4, Direction.East);
         }
         protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_RUNES(player, type, doMsgs, "The second path points east.");
+            ShowRunes(player, type, ref doMsgs, "The second path points east.");
         }
         protected override void FnEvent07(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 9, 2, 8, EAST);
+            TeleportParty(player, type, doMsgs, 9, 2, 8, Direction.East);
         }
         protected override void FnEvent08(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_RUNES(player, type, doMsgs, "A third path is to the east.");
+            ShowRunes(player, type, ref doMsgs, "A third path is to the east.");
         }
         protected override void FnEvent09(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 9, 2, 12, EAST);
+            TeleportParty(player, type, doMsgs, 9, 2, 12, Direction.East);
         }
         protected override void FnEvent0A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_RUNES(player, type, doMsgs, "Behold, the last path awaits you.");
+            ShowRunes(player, type, ref doMsgs, "Behold, the last path awaits you.");
         }
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 9, 2, 233, EAST);
+            TeleportParty(player, type, doMsgs, 9, 2, 233, Direction.East);
         }
         protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "This pit is particularly fatal.");
-            DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
+            ShowText(player, type, doMsgs, "This pit is particularly fatal.");
+            DoDamage(player, type, doMsgs, GetHealthMax(player, type, doMsgs));
         }
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "The pit you step on is an illusion.");
+            ShowText(player, type, doMsgs, "The pit you step on is an illusion.");
         }
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 9, 2, 121, NORTH);
+            TeleportParty(player, type, doMsgs, 9, 2, 121, Direction.North);
         }
         protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, GETUNITYRING) == 1) {
-                SHOW_TEXT(player, type, doMsgs, "I am the lamp.");
-                if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 12 || USED_SPELL(player, type, doMsgs, TRUE_SEEING_SPELL) >= 1 || USED_ITEM(player, type, doMsgs, HELMOFWISDOM, HELMOFWISDOM) || USED_ITEM(player, type, doMsgs, VALKYRIESHELM, VALKYRIESHELM) || USED_ITEM(player, type, doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || USED_ITEM(player, type, doMsgs, CRYSTALBALL, CRYSTALBALL)) {
-                    SHOW_TEXT(player, type, doMsgs, "Throwing a trip mechanism opens a secret entrance.");
-                    CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
-                    PLACE_WALL_ITEM(player, type, doMsgs, DOOR, HERE(player, type, doMsgs), SOUTH);
+            if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.GETUNITYRING) == 1) {
+                ShowText(player, type, doMsgs, "I am the lamp.");
+                if (HasUsedSkill(player, type, ref doMsgs, DETECT_SKILL) >= 12 || HasUsedSpell(player, type, ref doMsgs, TRUE_SEEING_SPELL) >= 1 || UsedItem(player, type, ref doMsgs, HELMOFWISDOM, HELMOFWISDOM) || UsedItem(player, type, ref doMsgs, VALKYRIESHELM, VALKYRIESHELM) || UsedItem(player, type, ref doMsgs, RINGOFTHIEVES, RINGOFTHIEVES) || UsedItem(player, type, ref doMsgs, CRYSTALBALL, CRYSTALBALL)) {
+                    ShowText(player, type, doMsgs, "Throwing a trip mechanism opens a secret entrance.");
+                    ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.South);
+                    SetWallItem(player, type, doMsgs, DOOR, GetTile(player, type, doMsgs), Direction.South);
                 }
             }
             else {
-                SHOW_TEXT(player, type, doMsgs, "I am the lamp.");
+                ShowText(player, type, doMsgs, "I am the lamp.");
             }
         }
         protected override void FnEvent10(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 9, 2, 50, NORTH);
+            TeleportParty(player, type, doMsgs, 9, 2, 50, Direction.North);
         }
         protected override void FnEvent11(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "Walk to the next door southeast of here.");
-            SHOW_TEXT(player, type, doMsgs, "Do not leave the map until you have the ring.");
-            SET_FLAG(player, type, doMsgs, PARTY, CLERICDOORA, 1);
+            ShowText(player, type, doMsgs, "Walk to the next door southeast of here.");
+            ShowText(player, type, doMsgs, "Do not leave the map until you have the ring.");
+            SetFlag(player, type, doMsgs, FlagTypeParty, CLERICDOORA, 1);
         }
         protected override void FnEvent12(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 9, 2, 100, EAST);
+            TeleportParty(player, type, doMsgs, 9, 2, 100, Direction.East);
         }
         protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "The next door is to the southeast.");
-            SET_FLAG(player, type, doMsgs, PARTY, CLERICDOORB, 1);
+            ShowText(player, type, doMsgs, "The next door is to the southeast.");
+            SetFlag(player, type, doMsgs, FlagTypeParty, CLERICDOORB, 1);
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "The next door is west northwest.");
-            SET_FLAG(player, type, doMsgs, PARTY, CLERICDOORC, 1);
+            ShowText(player, type, doMsgs, "The next door is west northwest.");
+            SetFlag(player, type, doMsgs, FlagTypeParty, CLERICDOORC, 1);
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "You must find the last door on your own!");
-            SET_FLAG(player, type, doMsgs, PARTY, CLERICDOORD, 1);
+            ShowText(player, type, doMsgs, "You must find the last door on your own!");
+            SetFlag(player, type, doMsgs, FlagTypeParty, CLERICDOORD, 1);
         }
         protected override void FnEvent16(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 9, 2, 180, SOUTH);
+            TeleportParty(player, type, doMsgs, 9, 2, 180, Direction.South);
         }
         protected override void FnEvent17(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, NPCENDCHAT) == 1) {
-                SHOW_TEXT(player, type, doMsgs, "The door unlocks as you approach.");
-                SET_FLAG(player, type, doMsgs, PARTY, DOORA, 1);
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
+            if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.NPCENDCHAT) == 1) {
+                ShowText(player, type, doMsgs, "The door unlocks as you approach.");
+                SetFlag(player, type, doMsgs, FlagTypeParty, DOORA, 1);
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.North);
             }
             else {
-                SHOW_TEXT(player, type, doMsgs, "Nothing you try opens the door.");
+                ShowText(player, type, doMsgs, "Nothing you try opens the door.");
             }
         }
         protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if ((GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORB) == 1) || (GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORC) == 1) || (GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORD) == 1)) {
-                SHOW_TEXT(player, type, doMsgs, "The door swings open.");
-                SET_FLAG(player, type, doMsgs, PARTY, DOORB, 1);
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
+            if ((GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORB) == 1) || (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORC) == 1) || (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORD) == 1)) {
+                ShowText(player, type, doMsgs, "The door swings open.");
+                SetFlag(player, type, doMsgs, FlagTypeParty, DOORB, 1);
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.West);
             }
             else {
-                SHOW_TEXT(player, type, doMsgs, "The door does not budge.");
+                ShowText(player, type, doMsgs, "The door does not budge.");
             }
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORC) == 1) {
-                SHOW_TEXT(player, type, doMsgs, "The lock on the door clicks open.");
-                SET_FLAG(player, type, doMsgs, PARTY, DOORC, 1);
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+            if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORC) == 1) {
+                ShowText(player, type, doMsgs, "The lock on the door clicks open.");
+                SetFlag(player, type, doMsgs, FlagTypeParty, DOORC, 1);
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.East);
             }
             else {
-                SHOW_TEXT(player, type, doMsgs, "You push against the door, but nothing happens.");
+                ShowText(player, type, doMsgs, "You push against the door, but nothing happens.");
             }
         }
         protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORD) == 1) {
-                SHOW_TEXT(player, type, doMsgs, "The doorknob twists easily at your touch.");
-                SET_FLAG(player, type, doMsgs, PARTY, DOORD, 1);
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
+            if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORD) == 1) {
+                ShowText(player, type, doMsgs, "The doorknob twists easily at your touch.");
+                SetFlag(player, type, doMsgs, FlagTypeParty, DOORD, 1);
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.West);
             }
             else {
-                SHOW_TEXT(player, type, doMsgs, "The heavy door will not move.");
+                ShowText(player, type, doMsgs, "The heavy door will not move.");
             }
         }
         protected override void FnEvent1B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (FLAG_ON(player, type, doMsgs, DUNGEON, UNITYRINGTHREE)) {
-                if (USED_ITEM(player, type, doMsgs, REDLOCKPICK, BLUELOCKPICK) || USED_ITEM(player, type, doMsgs, HELMOFGUILE, HELMOFGUILE) || USED_SKILL(player, type, doMsgs, LOCKPICK_SKILL) >= 10) {
-                    CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
-                    SHOW_TEXT(player, type, doMsgs, "The lock pops open at your deft touch.");
+            if (IsFlagOn(player, type, doMsgs, FlagTypeDungeon, TwIndexes.UNITYRINGTHREE)) {
+                if (UsedItem(player, type, ref doMsgs, REDLOCKPICK, BLUELOCKPICK) || UsedItem(player, type, ref doMsgs, HELMOFGUILE, HELMOFGUILE) || HasUsedSkill(player, type, ref doMsgs, LOCKPICK_SKILL) >= 10) {
+                    ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), GetFacing(player, type, doMsgs));
+                    ShowText(player, type, doMsgs, "The lock pops open at your deft touch.");
                 }
                 else {
-                    BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
-                    SHOW_TEXT(player, type, doMsgs, "The door lock looks particularly nasty.");
+                    SetWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), GetFacing(player, type, doMsgs));
+                    ShowText(player, type, doMsgs, "The door lock looks particularly nasty.");
                 }
             }
             else {
-                SHOW_TEXT(player, type, doMsgs, "Finish Concordia and you may pass.");
+                ShowText(player, type, doMsgs, "Finish Concordia and you may pass.");
             }
         }
         protected override void FnEvent1C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, NPCKEYCLUE) == 1) {
-                SHOW_TEXT(player, type, doMsgs, "The words of the Elf Cleric come to mind as you stare at the star-shaped keyhole in the door.");
-                SHOW_TEXT(player, type, doMsgs, "A brilliant glow effuses from the keyhole.");
-                SHOW_TEXT(player, type, doMsgs, "Then there is a click, and the door opens.");
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.NPCKEYCLUE) == 1) {
+                ShowText(player, type, doMsgs, "The words of the Elf Cleric come to mind as you stare at the star-shaped keyhole in the door.");
+                ShowText(player, type, doMsgs, "A brilliant glow effuses from the keyhole.");
+                ShowText(player, type, doMsgs, "Then there is a click, and the door opens.");
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.South);
             }
-            else if (GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE) == 1) {
-                SHOW_TEXT(player, type, doMsgs, "The star-shaped keyhole glows and the lock clicks open.");
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            else if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.UNITYRINGTHREE) == 1) {
+                ShowText(player, type, doMsgs, "The star-shaped keyhole glows and the lock clicks open.");
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.South);
             }
             else {
-                SHOW_TEXT(player, type, doMsgs, "The keyhole in the door is shaped like a radiant star.");
+                ShowText(player, type, doMsgs, "The keyhole in the door is shaped like a radiant star.");
             }
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (FLAG_ON(player, type, doMsgs, DUNGEON, EASTQUESTDONE)) {
-                SHOW_TEXT(player, type, doMsgs, "The room is empty.");
+            if (IsFlagOn(player, type, doMsgs, FlagTypeDungeon, TwIndexes.EASTQUESTDONE)) {
+                ShowText(player, type, doMsgs, "The room is empty.");
             }
             else {
-                SHOW_PICTURE(player, type, doMsgs, HALFLINGCLERIC);
-                SHOW_TEXT(player, type, doMsgs, "A Halfling Cleric bows politely.");
-                SHOW_TEXT(player, type, doMsgs, "'From south to north four times the pathway eastward lies.");
-                SHOW_TEXT(player, type, doMsgs, "Farthest east and north is your reward.");
-                SHOW_TEXT(player, type, doMsgs, "But once may the brave heart succeed and then the way is forever closed.'");
+                ShowPortrait(player, type, doMsgs, HALFLINGCLERIC);
+                ShowText(player, type, doMsgs, "A Halfling Cleric bows politely.");
+                ShowText(player, type, doMsgs, "'From south to north four times the pathway eastward lies.");
+                ShowText(player, type, doMsgs, "Farthest east and north is your reward.");
+                ShowText(player, type, doMsgs, "But once may the brave heart succeed and then the way is forever closed.'");
             }
         }
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (FLAG_ON(player, type, doMsgs, DUNGEON, EASTQUESTDONE)) {
-                SHOW_TEXT(player, type, doMsgs, "You see a torn robe on the floor.");
+            if (IsFlagOn(player, type, doMsgs, FlagTypeDungeon, TwIndexes.EASTQUESTDONE)) {
+                ShowText(player, type, doMsgs, "You see a torn robe on the floor.");
             }
             else {
-                SHOW_PICTURE(player, type, doMsgs, TROLLCLERIC);
-                SHOW_TEXT(player, type, doMsgs, "A Troll Cleric approaches.");
-                SHOW_TEXT(player, type, doMsgs, "'Beyond the many doors is a quest that will test the bravest of heroes.");
-                SHOW_TEXT(player, type, doMsgs, "Find my fellow clerics to start the quest.");
-                SHOW_TEXT(player, type, doMsgs, "Also, know that the nature of pits may change as you succeed.'");
+                ShowPortrait(player, type, doMsgs, TROLLCLERIC);
+                ShowText(player, type, doMsgs, "A Troll Cleric approaches.");
+                ShowText(player, type, doMsgs, "'Beyond the many doors is a quest that will test the bravest of heroes.");
+                ShowText(player, type, doMsgs, "Find my fellow clerics to start the quest.");
+                ShowText(player, type, doMsgs, "Also, know that the nature of pits may change as you succeed.'");
             }
         }
         protected override void FnEvent1F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (FLAG_ON(player, type, doMsgs, DUNGEON, EASTQUESTDONE)) {
-                SHOW_TEXT(player, type, doMsgs, "The room is bare.");
+            if (IsFlagOn(player, type, doMsgs, FlagTypeDungeon, TwIndexes.EASTQUESTDONE)) {
+                ShowText(player, type, doMsgs, "The room is bare.");
             }
             else {
-                SHOW_PICTURE(player, type, doMsgs, ELFCLERIC);
-                SHOW_TEXT(player, type, doMsgs, "An Elf Cleric steps out of the shadows.");
-                if (FLAG_ON(player, type, doMsgs, DUNGEON, NPCKEYCLUE)) {
-                    SHOW_TEXT(player, type, doMsgs, "'Back again? I said to look for the star-hole door.'");
+                ShowPortrait(player, type, doMsgs, ELFCLERIC);
+                ShowText(player, type, doMsgs, "An Elf Cleric steps out of the shadows.");
+                if (IsFlagOn(player, type, doMsgs, FlagTypeDungeon, TwIndexes.NPCKEYCLUE)) {
+                    ShowText(player, type, doMsgs, "'Back again? I said to look for the star-hole door.'");
                 }
                 else {
-                    SHOW_TEXT(player, type, doMsgs, "'I give you the key to the star-hole door. Think of the shining sun and the way to the quest will be open.'");
-                    SET_FLAG(player, type, doMsgs, DUNGEON, NPCKEYCLUE, 1);
+                    ShowText(player, type, doMsgs, "'I give you the key to the star-hole door. Think of the shining sun and the way to the quest will be open.'");
+                    SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.NPCKEYCLUE, 1);
                 }
             }
         }
         protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (FLAG_ON(player, type, doMsgs, DUNGEON, EASTQUESTDONE)) {
-                SHOW_TEXT(player, type, doMsgs, "In the distance you hear the growl of monsters.");
+            if (IsFlagOn(player, type, doMsgs, FlagTypeDungeon, TwIndexes.EASTQUESTDONE)) {
+                ShowText(player, type, doMsgs, "In the distance you hear the growl of monsters.");
             }
             else {
-                SHOW_PICTURE(player, type, doMsgs, ELFCLERIC);
-                if (FLAG_ON(player, type, doMsgs, DUNGEON, NPCENDCHAT)) {
-                    SHOW_TEXT(player, type, doMsgs, "'As I said earlier, the first door will now open for you.'");
+                ShowPortrait(player, type, doMsgs, ELFCLERIC);
+                if (IsFlagOn(player, type, doMsgs, FlagTypeDungeon, TwIndexes.NPCENDCHAT)) {
+                    ShowText(player, type, doMsgs, "'As I said earlier, the first door will now open for you.'");
                 }
                 else {
-                    SHOW_TEXT(player, type, doMsgs, "You interrupt the meditations of an Elf Cleric.");
-                    SHOW_TEXT(player, type, doMsgs, "'The first door will now open for you.'");
-                    SET_FLAG(player, type, doMsgs, DUNGEON, NPCENDCHAT, 1);
+                    ShowText(player, type, doMsgs, "You interrupt the meditations of an Elf Cleric.");
+                    ShowText(player, type, doMsgs, "'The first door will now open for you.'");
+                    SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.NPCENDCHAT, 1);
                 }
             }
         }
         protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "Know that the next door is now open.");
-            SET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORB, 1);
+            ShowText(player, type, doMsgs, "Know that the next door is now open.");
+            SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORB, 1);
         }
         protected override void FnEvent22(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "Know that the next door is now open.");
-            SET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORC, 1);
-            SET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORB, 0);
+            ShowText(player, type, doMsgs, "Know that the next door is now open.");
+            SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORC, 1);
+            SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORB, 0);
         }
         protected override void FnEvent23(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "Know that the next door is now open.");
-            SET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORD, 1);
-            SET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORC, 0);
+            ShowText(player, type, doMsgs, "Know that the next door is now open.");
+            SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORD, 1);
+            SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORC, 0);
         }
         protected override void FnEvent24(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if ((GET_FLAG(player, type, doMsgs, DUNGEON, EASTQUESTDONE) == 0)) {
-                SET_FLAG(player, type, doMsgs, DUNGEON, EASTQUESTDONE, 1);
-                SHOW_PICTURE(player, type, doMsgs, FOUNTAIN);
-                SHOW_TEXT(player, type, doMsgs, "The acid waters of the Fountain of the Bitter End at first burn your mouth.");
-                SHOW_TEXT(player, type, doMsgs, "After a moment the acid taste changes to sweet water.");
-                SHOW_TEXT(player, type, doMsgs, "You have transformed the Fountain of the Bitter End into the Fountain of the Better End.");
-                SHOW_TEXT(player, type, doMsgs, "You feel ready to take on whole armies.");
-                MOD_STAT(player, type, doMsgs, INITIATIVE, 3);
-                MOD_STAT(player, type, doMsgs, AGILITY, 2);
-                MOD_EXP(player, type, doMsgs, 750000);
-                SET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORB, 2);
-                SET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORC, 2);
-                SET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORD, 2);
-                SET_FLAG(player, type, doMsgs, DUNGEON, NPCKEYCLUE, 2);
+            if ((GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.EASTQUESTDONE) == 0)) {
+                SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.EASTQUESTDONE, 1);
+                ShowPortrait(player, type, doMsgs, FOUNTAIN);
+                ShowText(player, type, doMsgs, "The acid waters of the Fountain of the Bitter End at first burn your mouth.");
+                ShowText(player, type, doMsgs, "After a moment the acid taste changes to sweet water.");
+                ShowText(player, type, doMsgs, "You have transformed the Fountain of the Bitter End into the Fountain of the Better End.");
+                ShowText(player, type, doMsgs, "You feel ready to take on whole armies.");
+                ModAttribute(player, type, doMsgs, INITIATIVE, 3);
+                ModAttribute(player, type, doMsgs, AGILITY, 2);
+                ModifyExperience(player, type, doMsgs, 750000);
+                SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORB, 2);
+                SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORC, 2);
+                SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORD, 2);
+                SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.NPCKEYCLUE, 2);
             }
             else {
-                SHOW_TEXT(player, type, doMsgs, "The Fountain of the Better End is dry.");
+                ShowText(player, type, doMsgs, "The Fountain of the Better End is dry.");
             }
         }
         protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT(player, type, doMsgs) == 1) {
-                GET_MONSTER(player, type, doMsgs, 01, 22);
-                GET_MONSTER(player, type, doMsgs, 02, 21);
-                GET_MONSTER(player, type, doMsgs, 06, 27);
+            if (GetPartyCount(player, type, doMsgs) == 1) {
+                AddEncounter(player, type, doMsgs, 01, 22);
+                AddEncounter(player, type, doMsgs, 02, 21);
+                AddEncounter(player, type, doMsgs, 06, 27);
             }
-            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
-                GET_MONSTER(player, type, doMsgs, 01, 30);
-                GET_MONSTER(player, type, doMsgs, 02, 31);
-                GET_MONSTER(player, type, doMsgs, 03, 29);
-                GET_MONSTER(player, type, doMsgs, 06, 26);
+            else if (GetPartyCount(player, type, doMsgs) == 2) {
+                AddEncounter(player, type, doMsgs, 01, 30);
+                AddEncounter(player, type, doMsgs, 02, 31);
+                AddEncounter(player, type, doMsgs, 03, 29);
+                AddEncounter(player, type, doMsgs, 06, 26);
             }
             else {
-                GET_MONSTER(player, type, doMsgs, 01, 3);
-                GET_MONSTER(player, type, doMsgs, 02, 3);
-                GET_MONSTER(player, type, doMsgs, 03, 36);
-                GET_MONSTER(player, type, doMsgs, 04, 37);
-                GET_MONSTER(player, type, doMsgs, 05, 24);
-                GET_MONSTER(player, type, doMsgs, 06, 24);
+                AddEncounter(player, type, doMsgs, 01, 3);
+                AddEncounter(player, type, doMsgs, 02, 3);
+                AddEncounter(player, type, doMsgs, 03, 36);
+                AddEncounter(player, type, doMsgs, 04, 37);
+                AddEncounter(player, type, doMsgs, 05, 24);
+                AddEncounter(player, type, doMsgs, 06, 24);
             }
         }
         protected override void FnEvent26(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT(player, type, doMsgs) == 1) {
-                GET_MONSTER(player, type, doMsgs, 01, 27);
-                GET_MONSTER(player, type, doMsgs, 02, 28);
+            if (GetPartyCount(player, type, doMsgs) == 1) {
+                AddEncounter(player, type, doMsgs, 01, 27);
+                AddEncounter(player, type, doMsgs, 02, 28);
             }
-            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
-                GET_MONSTER(player, type, doMsgs, 01, 35);
-                GET_MONSTER(player, type, doMsgs, 02, 36);
-                GET_MONSTER(player, type, doMsgs, 06, 12);
+            else if (GetPartyCount(player, type, doMsgs) == 2) {
+                AddEncounter(player, type, doMsgs, 01, 35);
+                AddEncounter(player, type, doMsgs, 02, 36);
+                AddEncounter(player, type, doMsgs, 06, 12);
             }
-            else if (PARTY_COUNT(player, type, doMsgs) == 3) {
-                GET_MONSTER(player, type, doMsgs, 01, 32);
-                GET_MONSTER(player, type, doMsgs, 02, 34);
-                GET_MONSTER(player, type, doMsgs, 03, 34);
-                GET_MONSTER(player, type, doMsgs, 04, 32);
+            else if (GetPartyCount(player, type, doMsgs) == 3) {
+                AddEncounter(player, type, doMsgs, 01, 32);
+                AddEncounter(player, type, doMsgs, 02, 34);
+                AddEncounter(player, type, doMsgs, 03, 34);
+                AddEncounter(player, type, doMsgs, 04, 32);
             }
             else {
-                GET_MONSTER(player, type, doMsgs, 01, 32);
-                GET_MONSTER(player, type, doMsgs, 02, 34);
-                GET_MONSTER(player, type, doMsgs, 03, 34);
-                GET_MONSTER(player, type, doMsgs, 04, 32);
-                GET_MONSTER(player, type, doMsgs, 05, 40);
+                AddEncounter(player, type, doMsgs, 01, 32);
+                AddEncounter(player, type, doMsgs, 02, 34);
+                AddEncounter(player, type, doMsgs, 03, 34);
+                AddEncounter(player, type, doMsgs, 04, 32);
+                AddEncounter(player, type, doMsgs, 05, 40);
             }
         }
         protected override void FnEvent27(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT(player, type, doMsgs) == 1 || PARTY_COUNT(player, type, doMsgs) == 2) {
-                GET_MONSTER(player, type, doMsgs, 01, 31);
-                GET_MONSTER(player, type, doMsgs, 02, 29);
-                GET_MONSTER(player, type, doMsgs, 05, 13);
+            if (GetPartyCount(player, type, doMsgs) == 1 || GetPartyCount(player, type, doMsgs) == 2) {
+                AddEncounter(player, type, doMsgs, 01, 31);
+                AddEncounter(player, type, doMsgs, 02, 29);
+                AddEncounter(player, type, doMsgs, 05, 13);
             }
-            else if (PARTY_COUNT(player, type, doMsgs) == 3) {
-                GET_MONSTER(player, type, doMsgs, 01, 18);
-                GET_MONSTER(player, type, doMsgs, 02, 19);
-                GET_MONSTER(player, type, doMsgs, 03, 19);
-                GET_MONSTER(player, type, doMsgs, 05, 26);
-                GET_MONSTER(player, type, doMsgs, 06, 28);
+            else if (GetPartyCount(player, type, doMsgs) == 3) {
+                AddEncounter(player, type, doMsgs, 01, 18);
+                AddEncounter(player, type, doMsgs, 02, 19);
+                AddEncounter(player, type, doMsgs, 03, 19);
+                AddEncounter(player, type, doMsgs, 05, 26);
+                AddEncounter(player, type, doMsgs, 06, 28);
             }
             else {
-                GET_MONSTER(player, type, doMsgs, 01, 23);
-                GET_MONSTER(player, type, doMsgs, 02, 23);
-                GET_MONSTER(player, type, doMsgs, 03, 31);
-                GET_MONSTER(player, type, doMsgs, 04, 30);
-                GET_MONSTER(player, type, doMsgs, 05, 26);
-                GET_MONSTER(player, type, doMsgs, 06, 26);
+                AddEncounter(player, type, doMsgs, 01, 23);
+                AddEncounter(player, type, doMsgs, 02, 23);
+                AddEncounter(player, type, doMsgs, 03, 31);
+                AddEncounter(player, type, doMsgs, 04, 30);
+                AddEncounter(player, type, doMsgs, 05, 26);
+                AddEncounter(player, type, doMsgs, 06, 26);
             }
         }
         protected override void FnEvent28(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
+            ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), GetFacing(player, type, doMsgs));
         }
         protected override void FnEvent29(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT(player, type, doMsgs) == 1) {
-                GET_MONSTER(player, type, doMsgs, 01, 29);
-                GET_MONSTER(player, type, doMsgs, 02, 26);
+            if (GetPartyCount(player, type, doMsgs) == 1) {
+                AddEncounter(player, type, doMsgs, 01, 29);
+                AddEncounter(player, type, doMsgs, 02, 26);
             }
-            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
-                GET_MONSTER(player, type, doMsgs, 01, 29);
-                GET_MONSTER(player, type, doMsgs, 02, 29);
-                GET_MONSTER(player, type, doMsgs, 05, 26);
-                GET_MONSTER(player, type, doMsgs, 06, 26);
+            else if (GetPartyCount(player, type, doMsgs) == 2) {
+                AddEncounter(player, type, doMsgs, 01, 29);
+                AddEncounter(player, type, doMsgs, 02, 29);
+                AddEncounter(player, type, doMsgs, 05, 26);
+                AddEncounter(player, type, doMsgs, 06, 26);
             }
             else {
-                GET_MONSTER(player, type, doMsgs, 01, 29);
-                GET_MONSTER(player, type, doMsgs, 02, 29);
-                GET_MONSTER(player, type, doMsgs, 03, 29);
-                GET_MONSTER(player, type, doMsgs, 04, 29);
-                GET_MONSTER(player, type, doMsgs, 05, 26);
-                GET_MONSTER(player, type, doMsgs, 06, 26);
+                AddEncounter(player, type, doMsgs, 01, 29);
+                AddEncounter(player, type, doMsgs, 02, 29);
+                AddEncounter(player, type, doMsgs, 03, 29);
+                AddEncounter(player, type, doMsgs, 04, 29);
+                AddEncounter(player, type, doMsgs, 05, 26);
+                AddEncounter(player, type, doMsgs, 06, 26);
             }
         }
         protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT(player, type, doMsgs) == 1) {
-                GET_MONSTER(player, type, doMsgs, 01, 32);
-                GET_MONSTER(player, type, doMsgs, 02, 32);
+            if (GetPartyCount(player, type, doMsgs) == 1) {
+                AddEncounter(player, type, doMsgs, 01, 32);
+                AddEncounter(player, type, doMsgs, 02, 32);
             }
-            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
-                GET_MONSTER(player, type, doMsgs, 01, 32);
-                GET_MONSTER(player, type, doMsgs, 02, 32);
-                GET_MONSTER(player, type, doMsgs, 05, 34);
-                GET_MONSTER(player, type, doMsgs, 06, 34);
+            else if (GetPartyCount(player, type, doMsgs) == 2) {
+                AddEncounter(player, type, doMsgs, 01, 32);
+                AddEncounter(player, type, doMsgs, 02, 32);
+                AddEncounter(player, type, doMsgs, 05, 34);
+                AddEncounter(player, type, doMsgs, 06, 34);
             }
             else {
-                GET_MONSTER(player, type, doMsgs, 01, 32);
-                GET_MONSTER(player, type, doMsgs, 02, 32);
-                GET_MONSTER(player, type, doMsgs, 03, 33);
-                GET_MONSTER(player, type, doMsgs, 04, 34);
-                GET_MONSTER(player, type, doMsgs, 06, 34);
+                AddEncounter(player, type, doMsgs, 01, 32);
+                AddEncounter(player, type, doMsgs, 02, 32);
+                AddEncounter(player, type, doMsgs, 03, 33);
+                AddEncounter(player, type, doMsgs, 04, 34);
+                AddEncounter(player, type, doMsgs, 06, 34);
             }
         }
         protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT(player, type, doMsgs) == 1) {
-                GET_MONSTER(player, type, doMsgs, 01, 32);
-                GET_MONSTER(player, type, doMsgs, 02, 4);
+            if (GetPartyCount(player, type, doMsgs) == 1) {
+                AddEncounter(player, type, doMsgs, 01, 32);
+                AddEncounter(player, type, doMsgs, 02, 4);
             }
-            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
-                GET_MONSTER(player, type, doMsgs, 01, 32);
-                GET_MONSTER(player, type, doMsgs, 02, 32);
-                GET_MONSTER(player, type, doMsgs, 04, 37);
+            else if (GetPartyCount(player, type, doMsgs) == 2) {
+                AddEncounter(player, type, doMsgs, 01, 32);
+                AddEncounter(player, type, doMsgs, 02, 32);
+                AddEncounter(player, type, doMsgs, 04, 37);
             }
-            else if (PARTY_COUNT(player, type, doMsgs) == 3) {
-                GET_MONSTER(player, type, doMsgs, 01, 32);
-                GET_MONSTER(player, type, doMsgs, 02, 32);
-                GET_MONSTER(player, type, doMsgs, 03, 37);
-                GET_MONSTER(player, type, doMsgs, 04, 37);
+            else if (GetPartyCount(player, type, doMsgs) == 3) {
+                AddEncounter(player, type, doMsgs, 01, 32);
+                AddEncounter(player, type, doMsgs, 02, 32);
+                AddEncounter(player, type, doMsgs, 03, 37);
+                AddEncounter(player, type, doMsgs, 04, 37);
             }
             else {
-                GET_MONSTER(player, type, doMsgs, 01, 34);
-                GET_MONSTER(player, type, doMsgs, 02, 34);
-                GET_MONSTER(player, type, doMsgs, 03, 36);
-                GET_MONSTER(player, type, doMsgs, 04, 36);
-                GET_MONSTER(player, type, doMsgs, 05, 38);
-                GET_MONSTER(player, type, doMsgs, 06, 38);
+                AddEncounter(player, type, doMsgs, 01, 34);
+                AddEncounter(player, type, doMsgs, 02, 34);
+                AddEncounter(player, type, doMsgs, 03, 36);
+                AddEncounter(player, type, doMsgs, 04, 36);
+                AddEncounter(player, type, doMsgs, 05, 38);
+                AddEncounter(player, type, doMsgs, 06, 38);
             }
         }
         protected override void FnEvent2C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT(player, type, doMsgs) == 1) {
-                GET_MONSTER(player, type, doMsgs, 01, 32);
-                GET_MONSTER(player, type, doMsgs, 02, 33);
+            if (GetPartyCount(player, type, doMsgs) == 1) {
+                AddEncounter(player, type, doMsgs, 01, 32);
+                AddEncounter(player, type, doMsgs, 02, 33);
             }
-            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
-                GET_MONSTER(player, type, doMsgs, 01, 34);
-                GET_MONSTER(player, type, doMsgs, 02, 34);
-                GET_MONSTER(player, type, doMsgs, 05, 35);
-                GET_MONSTER(player, type, doMsgs, 06, 9);
+            else if (GetPartyCount(player, type, doMsgs) == 2) {
+                AddEncounter(player, type, doMsgs, 01, 34);
+                AddEncounter(player, type, doMsgs, 02, 34);
+                AddEncounter(player, type, doMsgs, 05, 35);
+                AddEncounter(player, type, doMsgs, 06, 9);
             }
-            else if (PARTY_COUNT(player, type, doMsgs) == 3) {
-                GET_MONSTER(player, type, doMsgs, 01, 33);
-                GET_MONSTER(player, type, doMsgs, 02, 33);
-                GET_MONSTER(player, type, doMsgs, 03, 35);
-                GET_MONSTER(player, type, doMsgs, 04, 35);
-                GET_MONSTER(player, type, doMsgs, 05, 34);
+            else if (GetPartyCount(player, type, doMsgs) == 3) {
+                AddEncounter(player, type, doMsgs, 01, 33);
+                AddEncounter(player, type, doMsgs, 02, 33);
+                AddEncounter(player, type, doMsgs, 03, 35);
+                AddEncounter(player, type, doMsgs, 04, 35);
+                AddEncounter(player, type, doMsgs, 05, 34);
             }
             else {
-                GET_MONSTER(player, type, doMsgs, 01, 38);
-                GET_MONSTER(player, type, doMsgs, 02, 38);
-                GET_MONSTER(player, type, doMsgs, 03, 38);
-                GET_MONSTER(player, type, doMsgs, 04, 38);
-                GET_MONSTER(player, type, doMsgs, 05, 24);
-                GET_MONSTER(player, type, doMsgs, 06, 24);
+                AddEncounter(player, type, doMsgs, 01, 38);
+                AddEncounter(player, type, doMsgs, 02, 38);
+                AddEncounter(player, type, doMsgs, 03, 38);
+                AddEncounter(player, type, doMsgs, 04, 38);
+                AddEncounter(player, type, doMsgs, 05, 24);
+                AddEncounter(player, type, doMsgs, 06, 24);
             }
         }
         protected override void FnEvent2D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT(player, type, doMsgs) == 1) {
-                GET_MONSTER(player, type, doMsgs, 01, 35);
-                GET_MONSTER(player, type, doMsgs, 02, 9);
+            if (GetPartyCount(player, type, doMsgs) == 1) {
+                AddEncounter(player, type, doMsgs, 01, 35);
+                AddEncounter(player, type, doMsgs, 02, 9);
             }
-            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
-                GET_MONSTER(player, type, doMsgs, 01, 35);
-                GET_MONSTER(player, type, doMsgs, 02, 3);
-                GET_MONSTER(player, type, doMsgs, 05, 7);
-                GET_MONSTER(player, type, doMsgs, 06, 9);
+            else if (GetPartyCount(player, type, doMsgs) == 2) {
+                AddEncounter(player, type, doMsgs, 01, 35);
+                AddEncounter(player, type, doMsgs, 02, 3);
+                AddEncounter(player, type, doMsgs, 05, 7);
+                AddEncounter(player, type, doMsgs, 06, 9);
             }
             else {
-                GET_MONSTER(player, type, doMsgs, 01, 4);
-                GET_MONSTER(player, type, doMsgs, 02, 4);
-                GET_MONSTER(player, type, doMsgs, 03, 5);
-                GET_MONSTER(player, type, doMsgs, 04, 5);
-                GET_MONSTER(player, type, doMsgs, 05, 24);
-                GET_MONSTER(player, type, doMsgs, 06, 24);
+                AddEncounter(player, type, doMsgs, 01, 4);
+                AddEncounter(player, type, doMsgs, 02, 4);
+                AddEncounter(player, type, doMsgs, 03, 5);
+                AddEncounter(player, type, doMsgs, 04, 5);
+                AddEncounter(player, type, doMsgs, 05, 24);
+                AddEncounter(player, type, doMsgs, 06, 24);
             }
         }
         protected override void FnEvent2E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT(player, type, doMsgs) == 1) {
-                GET_MONSTER(player, type, doMsgs, 01, 38);
-                GET_MONSTER(player, type, doMsgs, 02, 38);
+            if (GetPartyCount(player, type, doMsgs) == 1) {
+                AddEncounter(player, type, doMsgs, 01, 38);
+                AddEncounter(player, type, doMsgs, 02, 38);
             }
-            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
-                GET_MONSTER(player, type, doMsgs, 01, 38);
-                GET_MONSTER(player, type, doMsgs, 02, 38);
-                GET_MONSTER(player, type, doMsgs, 05, 39);
+            else if (GetPartyCount(player, type, doMsgs) == 2) {
+                AddEncounter(player, type, doMsgs, 01, 38);
+                AddEncounter(player, type, doMsgs, 02, 38);
+                AddEncounter(player, type, doMsgs, 05, 39);
             }
             else {
-                GET_MONSTER(player, type, doMsgs, 01, 1);
-                GET_MONSTER(player, type, doMsgs, 02, 5);
-                GET_MONSTER(player, type, doMsgs, 03, 38);
-                GET_MONSTER(player, type, doMsgs, 04, 38);
-                GET_MONSTER(player, type, doMsgs, 05, 39);
-                GET_MONSTER(player, type, doMsgs, 06, 40);
+                AddEncounter(player, type, doMsgs, 01, 1);
+                AddEncounter(player, type, doMsgs, 02, 5);
+                AddEncounter(player, type, doMsgs, 03, 38);
+                AddEncounter(player, type, doMsgs, 04, 38);
+                AddEncounter(player, type, doMsgs, 05, 39);
+                AddEncounter(player, type, doMsgs, 06, 40);
             }
         }
         protected override void FnEvent2F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_COUNT(player, type, doMsgs) == 1) {
-                GET_MONSTER(player, type, doMsgs, 01, 32);
-                GET_MONSTER(player, type, doMsgs, 02, 33);
+            if (GetPartyCount(player, type, doMsgs) == 1) {
+                AddEncounter(player, type, doMsgs, 01, 32);
+                AddEncounter(player, type, doMsgs, 02, 33);
             }
-            else if (PARTY_COUNT(player, type, doMsgs) == 2) {
-                GET_MONSTER(player, type, doMsgs, 01, 33);
-                GET_MONSTER(player, type, doMsgs, 02, 34);
-                GET_MONSTER(player, type, doMsgs, 05, 33);
-                GET_MONSTER(player, type, doMsgs, 06, 34);
+            else if (GetPartyCount(player, type, doMsgs) == 2) {
+                AddEncounter(player, type, doMsgs, 01, 33);
+                AddEncounter(player, type, doMsgs, 02, 34);
+                AddEncounter(player, type, doMsgs, 05, 33);
+                AddEncounter(player, type, doMsgs, 06, 34);
             }
             else {
-                GET_MONSTER(player, type, doMsgs, 01, 34);
-                GET_MONSTER(player, type, doMsgs, 02, 34);
-                GET_MONSTER(player, type, doMsgs, 03, 33);
-                GET_MONSTER(player, type, doMsgs, 04, 33);
-                GET_MONSTER(player, type, doMsgs, 05, 35);
-                GET_MONSTER(player, type, doMsgs, 06, 35);
+                AddEncounter(player, type, doMsgs, 01, 34);
+                AddEncounter(player, type, doMsgs, 02, 34);
+                AddEncounter(player, type, doMsgs, 03, 33);
+                AddEncounter(player, type, doMsgs, 04, 33);
+                AddEncounter(player, type, doMsgs, 05, 35);
+                AddEncounter(player, type, doMsgs, 06, 35);
             }
         }
         protected override void FnEvent30(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (IsTrue(GET_FLAG(player, type, doMsgs, DUNGEON, UNITYRINGTHREE)) || HAS_ITEM(player, type, doMsgs, UNITYRING)) {
-                SHOW_TEXT(player, type, doMsgs, "The floor of the room is bare.");
+            if (IsTrue(GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.UNITYRINGTHREE)) || HasItem(player, type, doMsgs, UNITYRING)) {
+                ShowText(player, type, doMsgs, "The floor of the room is bare.");
             }
             else {
-                GIVE_ITEM(player, type, doMsgs, UNITYRING);
-                GIVE_ITEM(player, type, doMsgs, TWINBOLTS);
-                MOD_EXP(player, type, doMsgs, 350000);
-                SHOW_TEXT(player, type, doMsgs, "On the floor is a ring bearing the ");
-                SHOW_TEXT(player, type, doMsgs, "linked symbols of Chaos and Harmony.");
-                SHOW_TEXT(player, type, doMsgs, "You place the Unity Ring on your finger.");
+                GiveItem(player, type, doMsgs, UNITYRING);
+                GiveItem(player, type, doMsgs, TWINBOLTS);
+                ModifyExperience(player, type, doMsgs, 350000);
+                ShowText(player, type, doMsgs, "On the floor is a ring bearing the ");
+                ShowText(player, type, doMsgs, "linked symbols of Chaos and Harmony.");
+                ShowText(player, type, doMsgs, "You place the Unity Ring on your finger.");
             }
         }
         protected override void FnEvent31(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_MAPS(player, type, doMsgs);
-            if (HERE(player, type, doMsgs) == 224) {
-                NO_JOIN(player, type, doMsgs);
+            DisableAutomaps(player, type, doMsgs);
+            if (GetTile(player, type, doMsgs) == 224) {
+                DisablePartyJoining(player, type, doMsgs);
             }
         }
         protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_LEADER(player, type, doMsgs)) {
-                if (GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORD) == 1) {
-                    SHOW_TEXT(player, type, doMsgs, "The pit swallows you up and spits you out at...");
-                    TELEPORT(player, type, doMsgs, 7, 1, 32, EAST);
+            if (IsPartyLeader(player, type, doMsgs)) {
+                if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORD) == 1) {
+                    ShowText(player, type, doMsgs, "The pit swallows you up and spits you out at...");
+                    TeleportParty(player, type, doMsgs, 7, 1, 32, Direction.East);
                 }
                 else {
-                    SHOW_TEXT(player, type, doMsgs, "The pit is only a painted illusion.");
+                    ShowText(player, type, doMsgs, "The pit is only a painted illusion.");
                 }
             }
         }
         protected override void FnEvent33(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORC) == 1) {
-                SHOW_TEXT(player, type, doMsgs, "An endless pit to death...");
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
+            if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORC) == 1) {
+                ShowText(player, type, doMsgs, "An endless pit to death...");
+                DoDamage(player, type, doMsgs, GetHealthMax(player, type, doMsgs));
             }
             else {
-                SHOW_TEXT(player, type, doMsgs, "The pit you step on is a simple illusion.");
+                ShowText(player, type, doMsgs, "The pit you step on is a simple illusion.");
             }
         }
         protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_LEADER(player, type, doMsgs)) {
-                if (GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORB) == 1) {
-                    SHOW_TEXT(player, type, doMsgs, "This pit leads to...");
-                    TELEPORT(player, type, doMsgs, 9, 2, 120, WEST);
+            if (IsPartyLeader(player, type, doMsgs)) {
+                if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORB) == 1) {
+                    ShowText(player, type, doMsgs, "This pit leads to...");
+                    TeleportParty(player, type, doMsgs, 9, 2, 120, Direction.West);
                 }
                 else {
-                    SHOW_TEXT(player, type, doMsgs, "The pit is a simple illusion.");
+                    ShowText(player, type, doMsgs, "The pit is a simple illusion.");
                 }
             }
         }
         protected override void FnEvent35(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_LEADER(player, type, doMsgs)) {
-                if (GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORD) == 1) {
-                    SHOW_TEXT(player, type, doMsgs, "The pit is just an illusion.");
+            if (IsPartyLeader(player, type, doMsgs)) {
+                if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORD) == 1) {
+                    ShowText(player, type, doMsgs, "The pit is just an illusion.");
                 }
                 else {
-                    SHOW_TEXT(player, type, doMsgs, "The pit drops you off at...");
-                    TELEPORT(player, type, doMsgs, 6, 2, 48, EAST);
+                    ShowText(player, type, doMsgs, "The pit drops you off at...");
+                    TeleportParty(player, type, doMsgs, 6, 2, 48, Direction.East);
                 }
             }
         }
         protected override void FnEvent36(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_LEADER(player, type, doMsgs)) {
-                if (GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORC) == 1) {
-                    SHOW_TEXT(player, type, doMsgs, "You step on an illusionary pit.");
+            if (IsPartyLeader(player, type, doMsgs)) {
+                if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORC) == 1) {
+                    ShowText(player, type, doMsgs, "You step on an illusionary pit.");
                 }
                 else {
-                    SHOW_TEXT(player, type, doMsgs, "The pit is a far step to...");
-                    TELEPORT(player, type, doMsgs, 5, 2, 247, NORTH);
+                    ShowText(player, type, doMsgs, "The pit is a far step to...");
+                    TeleportParty(player, type, doMsgs, 5, 2, 247, Direction.North);
                 }
             }
         }
         protected override void FnEvent37(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_LEADER(player, type, doMsgs)) {
-                if ((GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORC) == 1) || (GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORD) == 1)) {
-                    SHOW_TEXT(player, type, doMsgs, "The pit is a clever illusion.");
+            if (IsPartyLeader(player, type, doMsgs)) {
+                if ((GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORC) == 1) || (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORD) == 1)) {
+                    ShowText(player, type, doMsgs, "The pit is a clever illusion.");
                 }
                 else {
-                    SHOW_TEXT(player, type, doMsgs, "You step into an endless pit to...");
-                    TELEPORT(player, type, doMsgs, 1, 1, 204, EAST);
+                    ShowText(player, type, doMsgs, "You step into an endless pit to...");
+                    TeleportParty(player, type, doMsgs, 1, 1, 204, Direction.East);
                 }
             }
         }
         protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (PARTY_LEADER(player, type, doMsgs)) {
-                if ((GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORB) == 1) || (GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORD) == 1)) {
-                    SHOW_TEXT(player, type, doMsgs, "The pit is an illusion.");
+            if (IsPartyLeader(player, type, doMsgs)) {
+                if ((GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORB) == 1) || (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORD) == 1)) {
+                    ShowText(player, type, doMsgs, "The pit is an illusion.");
                 }
                 else {
-                    SHOW_TEXT(player, type, doMsgs, "The pit you step into leads...");
-                    TELEPORT(player, type, doMsgs, 3, 2, 82, EAST);
+                    ShowText(player, type, doMsgs, "The pit you step into leads...");
+                    TeleportParty(player, type, doMsgs, 3, 2, 82, Direction.East);
                 }
             }
         }
         protected override void FnEvent39(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "A return to Dragon's Ire.");
-            TELEPORT(player, type, doMsgs, 8, 1, 160, EAST);
+            ShowText(player, type, doMsgs, "A return to Dragon's Ire.");
+            TeleportParty(player, type, doMsgs, 8, 1, 160, Direction.East);
         }
         protected override void FnEvent3A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "Hocus Pocus is just ahead.");
-            TELEPORT(player, type, doMsgs, 9, 1, 167, SOUTH);
+            ShowText(player, type, doMsgs, "Hocus Pocus is just ahead.");
+            TeleportParty(player, type, doMsgs, 9, 1, 167, Direction.South);
         }
         protected override void FnEvent3B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "In the distance you hear babbling.");
-            TELEPORT(player, type, doMsgs, 10, 1, 88, NORTH);
+            ShowText(player, type, doMsgs, "In the distance you hear babbling.");
+            TeleportParty(player, type, doMsgs, 10, 1, 88, Direction.North);
         }
         protected override void FnEvent3C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "Step through to Concordia.");
-            TELEPORT(player, type, doMsgs, 10, 2, 225, NORTH);
+            ShowText(player, type, doMsgs, "Step through to Concordia.");
+            TeleportParty(player, type, doMsgs, 10, 2, 225, Direction.North);
         }
         protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "Pandemonium awaits!");
-            TELEPORT(player, type, doMsgs, 10, 3, 159, WEST);
+            ShowText(player, type, doMsgs, "Pandemonium awaits!");
+            TeleportParty(player, type, doMsgs, 10, 3, 159, Direction.West);
         }
         protected override void FnEvent3E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, EASTQUESTDONE) == 1) {
-                SHOW_TEXT(player, type, doMsgs, "Who hath tasted of the Fountain of the Better End may no longer pass.");
-                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+            if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.EASTQUESTDONE) == 1) {
+                ShowText(player, type, doMsgs, "Who hath tasted of the Fountain of the Better End may no longer pass.");
+                SetWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.East);
             }
             else {
-                if (PARTY_COUNT(player, type, doMsgs) == 1) {
-                    SHOW_TEXT(player, type, doMsgs, "Pass through the door.");
-                    CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+                if (GetPartyCount(player, type, doMsgs) == 1) {
+                    ShowText(player, type, doMsgs, "Pass through the door.");
+                    ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.East);
                 }
                 else {
-                    SHOW_TEXT(player, type, doMsgs, "One adventurer at a time may pass through this door.");
+                    ShowText(player, type, doMsgs, "One adventurer at a time may pass through this door.");
                 }
             }
         }
         protected override void FnEvent3F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "The pit drops you into darkness.");
-            TELEPORT(player, type, doMsgs, 5, 3, 103, NORTH);
+            ShowText(player, type, doMsgs, "The pit drops you into darkness.");
+            TeleportParty(player, type, doMsgs, 5, 3, 103, Direction.North);
         }
         protected override void FnEvent40(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "This pit leads to...");
-            TELEPORT(player, type, doMsgs, 9, 2, 41, WEST);
+            ShowText(player, type, doMsgs, "This pit leads to...");
+            TeleportParty(player, type, doMsgs, 9, 2, 41, Direction.West);
         }
         protected override void FnEvent41(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "The pit is an endless abyss to...");
-            TELEPORT(player, type, doMsgs, 5, 2, 189, NORTH);
+            ShowText(player, type, doMsgs, "The pit is an endless abyss to...");
+            TeleportParty(player, type, doMsgs, 5, 2, 189, Direction.North);
         }
         protected override void FnEvent42(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, PARTY, CLERICDOORA) == 1) {
-                SHOW_TEXT(player, type, doMsgs, "On the door is a picture of a Cleric.");
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
+            if (GetFlag(player, type, doMsgs, FlagTypeParty, CLERICDOORA) == 1) {
+                ShowText(player, type, doMsgs, "On the door is a picture of a Cleric.");
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.West);
             }
         }
         protected override void FnEvent43(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, PARTY, CLERICDOORB) == 1) {
-                SHOW_TEXT(player, type, doMsgs, "On the door is a picture of a Cleric.");
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            if (GetFlag(player, type, doMsgs, FlagTypeParty, CLERICDOORB) == 1) {
+                ShowText(player, type, doMsgs, "On the door is a picture of a Cleric.");
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.South);
             }
         }
         protected override void FnEvent44(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, PARTY, CLERICDOORC) == 1) {
-                SHOW_TEXT(player, type, doMsgs, "On the door is a picture of a Cleric.");
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+            if (GetFlag(player, type, doMsgs, FlagTypeParty, CLERICDOORC) == 1) {
+                ShowText(player, type, doMsgs, "On the door is a picture of a Cleric.");
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.East);
             }
         }
         protected override void FnEvent45(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, PARTY, CLERICDOORD) == 1) {
-                SHOW_TEXT(player, type, doMsgs, "On the door is a picture of a Cleric.");
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
+            if (GetFlag(player, type, doMsgs, FlagTypeParty, CLERICDOORD) == 1) {
+                ShowText(player, type, doMsgs, "On the door is a picture of a Cleric.");
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.South);
             }
         }
         protected override void FnEvent46(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, OPENDOORB) == 1) {
-                SHOW_TEXT(player, type, doMsgs, "Proceed.");
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
+            if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.OPENDOORB) == 1) {
+                ShowText(player, type, doMsgs, "Proceed.");
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.West);
             }
         }
     }

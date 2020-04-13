@@ -1,10 +1,11 @@
-using XPT.Generic.Maps;
-using XPT.Twinion.Entities;
+using XPT.Games.Generic.Constants;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Twinion.Entities;
 
-namespace XPT.Twinion.Maps {
+namespace XPT.Games.Twinion.Maps {
     class TwMap32 : TwMap {
-        protected override int MapIndex => 32;
-        protected override int MapID => 0x0D01;
+        public override int MapIndex => 32;
+        public override int MapID => 0x0D01;
         protected override int RandomEncounterChance => 5;
         protected override int RandomEncounterExtraCount => 2;
 
@@ -87,7 +88,7 @@ namespace XPT.Twinion.Maps {
         private void SixMonst(TwPlayerServer player, MapEventType type, bool doMsgs, int monster) {
             int i = 0;
             int num = 0;
-            switch (PARTY_COUNT(player, type, doMsgs)) {
+            switch (GetPartyCount(player, type, doMsgs)) {
                 case 1:
                     num = 2;
                     break;
@@ -103,21 +104,21 @@ namespace XPT.Twinion.Maps {
                     break;
             }
             for (i = 1; i <= num; i++) {
-                GET_MONSTER(player, type, doMsgs, i, monster);
+                AddEncounter(player, type, doMsgs, i, monster);
             }
         }
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int i = 0;
-            SHOW_TEXT(player, type, doMsgs, "The boiling lava scorches you terribly.");
-            i = HEALTH(player, type, doMsgs) - 1;
-            DAMAGE(player, type, doMsgs, i);
+            ShowText(player, type, doMsgs, "The boiling lava scorches you terribly.");
+            i = GetHealthCurrent(player, type, doMsgs) - 1;
+            DoDamage(player, type, doMsgs, i);
         }
         protected override void FnEvent02(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "You writhe in agony as the poisonous waters close over you");
-            DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
+            ShowText(player, type, doMsgs, "You writhe in agony as the poisonous waters close over you");
+            DoDamage(player, type, doMsgs, GetHealthMax(player, type, doMsgs));
         }
         protected override void FnEvent03(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            switch (HERE(player, type, doMsgs)) {
+            switch (GetTile(player, type, doMsgs)) {
                 case 4:
                 case 6:
                 case 8:
@@ -126,84 +127,84 @@ namespace XPT.Twinion.Maps {
                 case 70:
                 case 72:
                 default:
-                    TELEPORT(player, type, doMsgs, 8, 1, 0, EAST);
+                    TeleportParty(player, type, doMsgs, 8, 1, 0, Direction.East);
                     break;
             }
         }
         protected override void FnEvent04(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if ((GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) != 0) {
-                TELEPORT(player, type, doMsgs, 13, 1, 74, EAST);
+            if ((GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) != 0) {
+                TeleportParty(player, type, doMsgs, 13, 1, 74, Direction.East);
             }
             else {
-                TELEPORT(player, type, doMsgs, 8, 1, 0, EAST);
+                TeleportParty(player, type, doMsgs, 8, 1, 0, Direction.East);
             }
         }
         protected override void FnEvent05(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_FLOOR(player, type, doMsgs, HERE(player, type, doMsgs));
+            SetTileBlock(player, type, doMsgs, GetTile(player, type, doMsgs));
         }
         protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 13, 1, 56, NORTH);
+            TeleportParty(player, type, doMsgs, 13, 1, 56, Direction.North);
         }
         protected override void FnEvent07(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int fishFlag = 0;
             int mapSquare = 0;
-            fishFlag = GET_FLAG(player, type, doMsgs, PARTY, FISH_FEEDING_CNT);
-            mapSquare = HERE(player, type, doMsgs);
+            fishFlag = GetFlag(player, type, doMsgs, FlagTypeParty, FISH_FEEDING_CNT);
+            mapSquare = GetTile(player, type, doMsgs);
             if ((mapSquare <= 148) || (fishFlag == 0)) {
-                SHOW_TEXT(player, type, doMsgs, piranhaDeathStr);
-                DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
+                ShowText(player, type, doMsgs, piranhaDeathStr);
+                DoDamage(player, type, doMsgs, GetHealthMax(player, type, doMsgs));
                 return;
                 ;
             }
             switch (fishFlag) {
                 case 0:
-                    SHOW_TEXT(player, type, doMsgs, piranhaDeathStr);
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
+                    ShowText(player, type, doMsgs, piranhaDeathStr);
+                    DoDamage(player, type, doMsgs, GetHealthMax(player, type, doMsgs));
                     break;
                 case 1:
-                    SHOW_TEXT(player, type, doMsgs, "The piranhas have returned! They begin to snap and bite, mauling you horribly.");
-                    DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs) / 2);
+                    ShowText(player, type, doMsgs, "The piranhas have returned! They begin to snap and bite, mauling you horribly.");
+                    DoDamage(player, type, doMsgs, GetHealthMax(player, type, doMsgs) / 2);
                     break;
                 case 2:
-                    SHOW_TEXT(player, type, doMsgs, "The water to the north is less agitated than before.");
+                    ShowText(player, type, doMsgs, "The water to the north is less agitated than before.");
                     break;
                 case 3:
                 default:
-                    SHOW_TEXT(player, type, doMsgs, "Gingerly you wade through the pond. North of you the water continues to seethe where the piranhas are feeding.");
+                    ShowText(player, type, doMsgs, "Gingerly you wade through the pond. North of you the water continues to seethe where the piranhas are feeding.");
                     break;
             }
             fishFlag--;
-            SET_FLAG(player, type, doMsgs, PARTY, FISH_FEEDING_CNT, fishFlag);
+            SetFlag(player, type, doMsgs, FlagTypeParty, FISH_FEEDING_CNT, fishFlag);
         }
         protected override void FnEvent08(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_JOIN(player, type, doMsgs);
-            if (PARTY_COUNT(player, type, doMsgs) > 1) {
-                SHOW_TEXT(player, type, doMsgs, "The coaster cars are only big enough for one of you at a time.");
-                SET_FLAG(player, type, doMsgs, PARTY, COASTER_STOPPING, 0);
-                TELEPORT(player, type, doMsgs, 13, 1, 103, WEST);
+            DisablePartyJoining(player, type, doMsgs);
+            if (GetPartyCount(player, type, doMsgs) > 1) {
+                ShowText(player, type, doMsgs, "The coaster cars are only big enough for one of you at a time.");
+                SetFlag(player, type, doMsgs, FlagTypeParty, COASTER_STOPPING, 0);
+                TeleportParty(player, type, doMsgs, 13, 1, 103, Direction.West);
             }
-            switch (HERE(player, type, doMsgs)) {
+            switch (GetTile(player, type, doMsgs)) {
                 case 86:
-                    SHOW_TEXT(player, type, doMsgs, "The coaster gains speed as it dips giddily into the darkness.");
-                    TELEPORT(player, type, doMsgs, 13, 2, 255, WEST);
+                    ShowText(player, type, doMsgs, "The coaster gains speed as it dips giddily into the darkness.");
+                    TeleportParty(player, type, doMsgs, 13, 2, 255, Direction.West);
                     break;
                 case 102:
-                    BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
-                    BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), SOUTH);
-                    if (FLAG_ON(player, type, doMsgs, PARTY, COASTER_STOPPING)) {
-                        SHOW_TEXT(player, type, doMsgs, "The coaster stops.");
-                        SET_FLAG(player, type, doMsgs, PARTY, COASTER_STOPPING, 0);
-                        TELEPORT(player, type, doMsgs, 13, 1, 103, EAST);
+                    SetWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.North);
+                    SetWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.South);
+                    if (IsFlagOn(player, type, doMsgs, FlagTypeParty, COASTER_STOPPING)) {
+                        ShowText(player, type, doMsgs, "The coaster stops.");
+                        SetFlag(player, type, doMsgs, FlagTypeParty, COASTER_STOPPING, 0);
+                        TeleportParty(player, type, doMsgs, 13, 1, 103, Direction.East);
                     }
-                    else if (HAS_ITEM(player, type, doMsgs, FUNHOUSEKEY)) {
-                        SHOW_TEXT(player, type, doMsgs, "You twist the Funhouse Key in the keyhole. With a lurch the car begins to rumble forward along the rails.");
-                        TELEPORT(player, type, doMsgs, 13, 1, 86, NORTH);
+                    else if (HasItem(player, type, doMsgs, FUNHOUSEKEY)) {
+                        ShowText(player, type, doMsgs, "You twist the Funhouse Key in the keyhole. With a lurch the car begins to rumble forward along the rails.");
+                        TeleportParty(player, type, doMsgs, 13, 1, 86, Direction.North);
                     }
                     break;
                 case 118:
                 default:
-                    SET_FLAG(player, type, doMsgs, PARTY, COASTER_STOPPING, 1);
-                    TELEPORT(player, type, doMsgs, 13, 1, 102, NORTH);
+                    SetFlag(player, type, doMsgs, FlagTypeParty, COASTER_STOPPING, 1);
+                    TeleportParty(player, type, doMsgs, 13, 1, 102, Direction.North);
                     break;
             }
         }
@@ -211,39 +212,39 @@ namespace XPT.Twinion.Maps {
             int flag = 0;
             int square = 0;
             int naomiFlag = 0;
-            flag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
-            square = HERE(player, type, doMsgs);
+            flag = GetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1);
+            square = GetTile(player, type, doMsgs);
             switch (square) {
                 case 132:
                     if (((flag & POND_DESC_BIT) == 0)) {
-                        SHOW_TEXT(player, type, doMsgs, "You are standing on a small jetty above a fish pond. Before you a raised, earthen pathway snakes out across the water.");
-                        if (PARTY_COUNT(player, type, doMsgs) > 1) {
-                            SHOW_TEXT(player, type, doMsgs, "The path is narrow and slippery. You had better proceed alone.");
+                        ShowText(player, type, doMsgs, "You are standing on a small jetty above a fish pond. Before you a raised, earthen pathway snakes out across the water.");
+                        if (GetPartyCount(player, type, doMsgs) > 1) {
+                            ShowText(player, type, doMsgs, "The path is narrow and slippery. You had better proceed alone.");
                         }
                         flag |= POND_DESC_BIT;
-                        SET_FLAG(player, type, doMsgs, PARTY, CONTROL_1, flag);
+                        SetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1, flag);
                     }
                     break;
                 case 177:
-                    if (PARTY_COUNT(player, type, doMsgs) > 1) {
-                        SHOW_TEXT(player, type, doMsgs, jostleStr);
-                        TELEPORT(player, type, doMsgs, 13, 1, square + 1, EAST);
+                    if (GetPartyCount(player, type, doMsgs) > 1) {
+                        ShowText(player, type, doMsgs, jostleStr);
+                        TeleportParty(player, type, doMsgs, 13, 1, square + 1, Direction.East);
                     }
-                    if (FACING(player, type, doMsgs) == SOUTH) {
-                        naomiFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NAOMI_MET);
+                    if (GetFacing(player, type, doMsgs) == Direction.South) {
+                        naomiFlag = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NAOMI_MET);
                         if ((naomiFlag == 1) || (naomiFlag == 2)) {
-                            SHOW_TEXT(player, type, doMsgs, "To the south and east you can dimly make out the silhouette of a woman standing on a small island.");
+                            ShowText(player, type, doMsgs, "To the south and east you can dimly make out the silhouette of a woman standing on a small island.");
                         }
                     }
                     break;
                 default:
-                    if (PARTY_COUNT(player, type, doMsgs) > 1) {
-                        SHOW_TEXT(player, type, doMsgs, jostleStr);
+                    if (GetPartyCount(player, type, doMsgs) > 1) {
+                        ShowText(player, type, doMsgs, jostleStr);
                         if ((square == 161) || (square == 146)) {
-                            TELEPORT(player, type, doMsgs, 13, 1, square + 1, EAST);
+                            TeleportParty(player, type, doMsgs, 13, 1, square + 1, Direction.East);
                         }
                         else {
-                            TELEPORT(player, type, doMsgs, 13, 1, square - 16, EAST);
+                            TeleportParty(player, type, doMsgs, 13, 1, square - 16, Direction.East);
                         }
                     }
                     break;
@@ -252,12 +253,12 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent0A(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int ctrlFlags = 0;
             int cntFlag = 0;
-            if (USED_ITEM(player, type, doMsgs, JUICYDRAGONSTEAK, JUICYDRAGONSTEAK)) {
-                TAKE_ITEM(player, type, doMsgs, JUICYDRAGONSTEAK);
-                ctrlFlags = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
-                cntFlag = GET_FLAG(player, type, doMsgs, PARTY, FISH_FEEDING_CNT);
+            if (UsedItem(player, type, ref doMsgs, JUICYDRAGONSTEAK, JUICYDRAGONSTEAK)) {
+                RemoveItem(player, type, doMsgs, JUICYDRAGONSTEAK);
+                ctrlFlags = GetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1);
+                cntFlag = GetFlag(player, type, doMsgs, FlagTypeParty, FISH_FEEDING_CNT);
                 if (cntFlag == 0) {
-                    if (HERE(player, type, doMsgs) == 132) {
+                    if (GetTile(player, type, doMsgs) == 132) {
                         ctrlFlags |= FED_FISH_RIGHT_BIT;
                     }
                     else {
@@ -266,57 +267,57 @@ namespace XPT.Twinion.Maps {
                     if (IsTrue(ctrlFlags & FED_FISH_RIGHT_BIT) && IsTrue(ctrlFlags & FED_FISH_LEFT_BIT)) {
                         ctrlFlags &= ~(FED_FISH_RIGHT_BIT | FED_FISH_LEFT_BIT);
                         cntFlag = 6;
-                        SHOW_TEXT(player, type, doMsgs, "A swarm of fish churns the water in a mad feeding frenzy.");
+                        ShowText(player, type, doMsgs, "A swarm of fish churns the water in a mad feeding frenzy.");
                     }
                     else {
-                        SHOW_TEXT(player, type, doMsgs, "The nearby fish quickly gather and begin tearing at the steak.");
+                        ShowText(player, type, doMsgs, "The nearby fish quickly gather and begin tearing at the steak.");
                     }
                 }
                 else {
                     cntFlag = 6;
                 }
-                SET_FLAG(player, type, doMsgs, PARTY, CONTROL_1, ctrlFlags);
-                SET_FLAG(player, type, doMsgs, PARTY, FISH_FEEDING_CNT, cntFlag);
+                SetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1, ctrlFlags);
+                SetFlag(player, type, doMsgs, FlagTypeParty, FISH_FEEDING_CNT, cntFlag);
             }
-            else if (FLAG_OFF(player, type, doMsgs, PARTY, FISH_FEEDING_CNT)) {
-                SHOW_TEXT(player, type, doMsgs, "As you approach the water's edge you see the fish gathering expectantly.");
+            else if (IsFlagOff(player, type, doMsgs, FlagTypeParty, FISH_FEEDING_CNT)) {
+                ShowText(player, type, doMsgs, "As you approach the water's edge you see the fish gathering expectantly.");
             }
         }
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (FLAG_OFF(player, type, doMsgs, PARTY, FISH_FEEDING_CNT)) {
-                SHOW_TEXT(player, type, doMsgs, "Nasty-looking fish dart through the dark water below.");
+            if (IsFlagOff(player, type, doMsgs, FlagTypeParty, FISH_FEEDING_CNT)) {
+                ShowText(player, type, doMsgs, "Nasty-looking fish dart through the dark water below.");
             }
         }
         protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (IsTrue(GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1) & SIGNED_IN_BIT)) {
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+            if (IsTrue(GetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1) & SIGNED_IN_BIT)) {
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.East);
             }
             else {
-                BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+                SetWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.East);
             }
         }
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "Beneath some debris you find a water-damaged book entitled Journal of Bragadan the Brave. The only legible entry reads '...believe I have found a way through the accursed lever maze.");
-            SHOW_TEXT(player, type, doMsgs, "Though I have struggled lifelong to uphold the right and good, now I must follow the sinister path...'");
+            ShowText(player, type, doMsgs, "Beneath some debris you find a water-damaged book entitled Journal of Bragadan the Brave. The only legible entry reads '...believe I have found a way through the accursed lever maze.");
+            ShowText(player, type, doMsgs, "Though I have struggled lifelong to uphold the right and good, now I must follow the sinister path...'");
         }
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int switchCode = 0;
             string strPtr1 = string.Empty;
             int knownFlags = 0;
-            switchCode = HERE(player, type, doMsgs);
+            switchCode = GetTile(player, type, doMsgs);
             switchCode = switchCode << 8;
-            switchCode += FACING(player, type, doMsgs);
-            knownFlags = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN);
+            switchCode += (int)GetFacing(player, type, doMsgs);
+            knownFlags = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_KNOWN);
             switch (switchCode) {
-                case ((94 << 8) | NORTH):
+                case ((94 << 8) | (int)Direction.North):
                     if (IsTrue(knownFlags & ALCHEMY_KNOWN_BIT)) {
                         strPtr1 = alchemyStr;
                     }
                     break;
-                case ((94 << 8) | EAST):
+                case ((94 << 8) | (int)Direction.East):
                     strPtr1 = choronzarStr;
                     break;
-                case ((108 << 8) | WEST):
+                case ((108 << 8) | (int)Direction.West):
                     if (IsTrue(knownFlags & NAOMI_KNOWN_BIT)) {
                         strPtr1 = naomiStr;
                     }
@@ -325,56 +326,56 @@ namespace XPT.Twinion.Maps {
                     break;
             }
             if (strPtr1 != null) {
-                SHOW_TEXT(player, type, doMsgs, "Poring over the dusty tomes you learn the following:");
-                SHOW_TEXT(player, type, doMsgs, strPtr1);
+                ShowText(player, type, doMsgs, "Poring over the dusty tomes you learn the following:");
+                ShowText(player, type, doMsgs, strPtr1);
             }
         }
         protected override void FnEvent0F(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int expFlag = 0;
             int killedFlag = 0;
-            SHOW_TEXT(player, type, doMsgs, "This is a massive throne carved from a single block of polished obsidian.  It is inlaid with strange, beautiful sigils in a delicate silver filigree.");
-            expFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1);
-            killedFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
+            ShowText(player, type, doMsgs, "This is a massive throne carved from a single block of polished obsidian.  It is inlaid with strange, beautiful sigils in a delicate silver filigree.");
+            expFlag = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_CONTROL_1);
+            killedFlag = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED);
             if (IsTrue(killedFlag & CHORONZAR_KILLED_BIT) && ((expFlag & GOT_CHOR_EXP_BIT) == 0)) {
-                SHOW_TEXT(player, type, doMsgs, "You thrill to the surge of life force coursing into you from the throne.");
-                MOD_EXP(player, type, doMsgs, 10000000);
+                ShowText(player, type, doMsgs, "You thrill to the surge of life force coursing into you from the throne.");
+                ModifyExperience(player, type, doMsgs, 10000000);
                 expFlag |= GOT_CHOR_EXP_BIT;
-                SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1, expFlag);
+                SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_CONTROL_1, expFlag);
             }
         }
         protected override void FnEvent10(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "Embedded in the front panel of the car is a keyhole.");
+            ShowText(player, type, doMsgs, "Embedded in the front panel of the car is a keyhole.");
         }
         protected override void FnEvent11(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "The glowing rift is the only way back to your world.");
-            TELEPORT(player, type, doMsgs, 8, 1, 0, EAST);
+            ShowText(player, type, doMsgs, "The glowing rift is the only way back to your world.");
+            TeleportParty(player, type, doMsgs, 8, 1, 0, Direction.East);
         }
         protected override void FnEvent12(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NAOMI_MET) >= 3) {
-                SHOW_TEXT(player, type, doMsgs, "You discover a narrow secret passageway.");
-                if (PARTY_COUNT(player, type, doMsgs) > 1) {
-                    SHOW_TEXT(player, type, doMsgs, "You will have to squeeze through one at a time.");
+            if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NAOMI_MET) >= 3) {
+                ShowText(player, type, doMsgs, "You discover a narrow secret passageway.");
+                if (GetPartyCount(player, type, doMsgs) > 1) {
+                    ShowText(player, type, doMsgs, "You will have to squeeze through one at a time.");
                 }
-                SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1, GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1) | SECRET_PASSAGE_BIT);
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
+                SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_CONTROL_1, GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_CONTROL_1) | SECRET_PASSAGE_BIT);
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.West);
             }
         }
         protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
+            SetWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), GetFacing(player, type, doMsgs));
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int alchFlag = 0;
             int takeItem = 0;
             string strPtr = string.Empty;
-            BLOCK_FLOOR(player, type, doMsgs, 13);
-            BLOCK_FLOOR(player, type, doMsgs, 14);
-            BLOCK_FLOOR(player, type, doMsgs, 15);
-            BLOCK_FLOOR(player, type, doMsgs, 31);
-            BLOCK_FLOOR(player, type, doMsgs, 57);
-            alchFlag = GET_FLAG(player, type, doMsgs, PARTY, ALCHEMY_LEVEL);
-            SHOW_TEXT(player, type, doMsgs, "Alchemical implements of all descriptions clutter this workbench, including four large black kettles full of bubbling liquid.");
-            SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN, GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN) | ALCHEMY_KNOWN_BIT);
-            if (USED_ITEM(player, type, doMsgs, SILVERBAR, SILVERBAR)) {
+            SetTileBlock(player, type, doMsgs, 13);
+            SetTileBlock(player, type, doMsgs, 14);
+            SetTileBlock(player, type, doMsgs, 15);
+            SetTileBlock(player, type, doMsgs, 31);
+            SetTileBlock(player, type, doMsgs, 57);
+            alchFlag = GetFlag(player, type, doMsgs, FlagTypeParty, ALCHEMY_LEVEL);
+            ShowText(player, type, doMsgs, "Alchemical implements of all descriptions clutter this workbench, including four large black kettles full of bubbling liquid.");
+            SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_KNOWN, GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_KNOWN) | ALCHEMY_KNOWN_BIT);
+            if (UsedItem(player, type, ref doMsgs, SILVERBAR, SILVERBAR)) {
                 takeItem = SILVERBAR;
                 if (alchFlag == 0) {
                     alchFlag = 1;
@@ -385,7 +386,7 @@ namespace XPT.Twinion.Maps {
                     alchFlag = 0;
                 }
             }
-            else if (USED_ITEM(player, type, doMsgs, GOLDBAR, GOLDBAR)) {
+            else if (UsedItem(player, type, ref doMsgs, GOLDBAR, GOLDBAR)) {
                 takeItem = GOLDBAR;
                 if (alchFlag == 1) {
                     alchFlag = 2;
@@ -396,7 +397,7 @@ namespace XPT.Twinion.Maps {
                     alchFlag = 0;
                 }
             }
-            else if (USED_ITEM(player, type, doMsgs, PLATINUMBAR, PLATINUMBAR)) {
+            else if (UsedItem(player, type, ref doMsgs, PLATINUMBAR, PLATINUMBAR)) {
                 takeItem = PLATINUMBAR;
                 if (alchFlag == 2) {
                     alchFlag = 3;
@@ -407,11 +408,11 @@ namespace XPT.Twinion.Maps {
                     alchFlag = 0;
                 }
             }
-            else if (USED_ITEM(player, type, doMsgs, PRICELESSBAR, PRICELESSBAR)) {
+            else if (UsedItem(player, type, ref doMsgs, PRICELESSBAR, PRICELESSBAR)) {
                 takeItem = PRICELESSBAR;
                 if (alchFlag == 3) {
                     alchFlag = 4;
-                    SHOW_TEXT(player, type, doMsgs, "Eerie green light floods the room as all of the cauldrons begin to boil violently. With an unearthly moan the spirits trapped within begin to stream forth in twisting, vaporous tendrils.");
+                    ShowText(player, type, doMsgs, "Eerie green light floods the room as all of the cauldrons begin to boil violently. With an unearthly moan the spirits trapped within begin to stream forth in twisting, vaporous tendrils.");
                     strPtr = anointStr;
                 }
                 else {
@@ -420,38 +421,38 @@ namespace XPT.Twinion.Maps {
                 }
             }
             if (takeItem != 0) {
-                TAKE_ITEM(player, type, doMsgs, takeItem);
+                RemoveItem(player, type, doMsgs, takeItem);
             }
             if (strPtr != null) {
-                SHOW_TEXT(player, type, doMsgs, strPtr);
+                ShowText(player, type, doMsgs, strPtr);
             }
-            SET_FLAG(player, type, doMsgs, PARTY, ALCHEMY_LEVEL, alchFlag);
+            SetFlag(player, type, doMsgs, FlagTypeParty, ALCHEMY_LEVEL, alchFlag);
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int monster = 0;
-            if (((GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) == 0)) {
-                switch (HERE(player, type, doMsgs)) {
+            if (((GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) == 0)) {
+                switch (GetTile(player, type, doMsgs)) {
                     case 35:
-                        SHOW_TEXT(player, type, doMsgs, "Dazzled, you step into a brightly-lit, vaulted chamber. The musky smell of incense hangs in the air and the delicate music of chimes is audible in the distance.");
+                        ShowText(player, type, doMsgs, "Dazzled, you step into a brightly-lit, vaulted chamber. The musky smell of incense hangs in the air and the delicate music of chimes is audible in the distance.");
                         monster = MONST_PRAETORIAN_A;
-                        CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
+                        ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.West);
                         break;
                     case 36:
-                        if (FACING(player, type, doMsgs) == EAST) {
-                            SHOW_TEXT(player, type, doMsgs, "Ahead of you through the layers of smoke you see a massive golden throne.");
+                        if (GetFacing(player, type, doMsgs) == Direction.East) {
+                            ShowText(player, type, doMsgs, "Ahead of you through the layers of smoke you see a massive golden throne.");
                         }
                         monster = MONST_PRAETORIAN_A;
                         break;
                     case 37:
-                        if (FACING(player, type, doMsgs) == EAST) {
-                            SHOW_TEXT(player, type, doMsgs, "As you draw closer you make out an insoucient figure lounging on the throne, dressed in jester's motley.");
+                        if (GetFacing(player, type, doMsgs) == Direction.East) {
+                            ShowText(player, type, doMsgs, "As you draw closer you make out an insoucient figure lounging on the throne, dressed in jester's motley.");
                         }
                         monster = MONST_PRAETORIAN_B;
                         break;
                     case 38:
                     default:
-                        if (FACING(player, type, doMsgs) == EAST) {
-                            SHOW_TEXT(player, type, doMsgs, "The crazed figure on the throne stands, stares at you briefly, then prances off to the southeast, cackling like a lunatic. He dives into a pit and vanishes.");
+                        if (GetFacing(player, type, doMsgs) == Direction.East) {
+                            ShowText(player, type, doMsgs, "The crazed figure on the throne stands, stares at you briefly, then prances off to the southeast, cackling like a lunatic. He dives into a pit and vanishes.");
                         }
                         monster = MONST_PRAETORIAN_B;
                         break;
@@ -464,8 +465,8 @@ namespace XPT.Twinion.Maps {
             int booty1 = 0;
             int booty2 = 0;
             int booty3 = 0;
-            bootyFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_BOOTY);
-            switch (HERE(player, type, doMsgs)) {
+            bootyFlag = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_BOOTY);
+            switch (GetTile(player, type, doMsgs)) {
                 case 57:
                     if (((bootyFlag & 0x01) == 0)) {
                         booty1 = BIG_BOOTY_1;
@@ -517,131 +518,131 @@ namespace XPT.Twinion.Maps {
                     break;
             }
             if (booty1 != 0) {
-                SHOW_TEXT(player, type, doMsgs, "There is a pile of treasure here!");
-                GIVE_ITEM(player, type, doMsgs, booty1);
-                GIVE_ITEM(player, type, doMsgs, booty2);
-                GIVE_ITEM(player, type, doMsgs, booty3);
+                ShowText(player, type, doMsgs, "There is a pile of treasure here!");
+                GiveItem(player, type, doMsgs, booty1);
+                GiveItem(player, type, doMsgs, booty2);
+                GiveItem(player, type, doMsgs, booty3);
             }
-            SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_BOOTY, bootyFlag);
+            SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_BOOTY, bootyFlag);
         }
         protected override void FnEvent17(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (USED_ITEM(player, type, doMsgs, WEAPON_IN_HAND(player, type, doMsgs), WEAPON_IN_HAND(player, type, doMsgs))) {
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), NORTH);
-                SHOW_TEXT(player, type, doMsgs, "You bash the lock off the door.");
+            if (UsedItem(player, type, ref doMsgs, GetPartyLeaderWeapon(player, type, doMsgs), GetPartyLeaderWeapon(player, type, doMsgs))) {
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.North);
+                ShowText(player, type, doMsgs, "You bash the lock off the door.");
             }
             else {
-                SHOW_TEXT(player, type, doMsgs, "The door is held shut by a hefty padlock which does not appear to have a keyhole.");
+                ShowText(player, type, doMsgs, "The door is held shut by a hefty padlock which does not appear to have a keyhole.");
             }
         }
         protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int steakCnt = 0;
-            steakCnt = GET_FLAG(player, type, doMsgs, PARTY, STEAK_COUNT);
-            if (!HAS_ITEM(player, type, doMsgs, JUICYDRAGONSTEAK) && (steakCnt < 6)) {
-                SHOW_TEXT(player, type, doMsgs, "You find a package of juicy dragon steaks!");
+            steakCnt = GetFlag(player, type, doMsgs, FlagTypeParty, STEAK_COUNT);
+            if (!HasItem(player, type, doMsgs, JUICYDRAGONSTEAK) && (steakCnt < 6)) {
+                ShowText(player, type, doMsgs, "You find a package of juicy dragon steaks!");
                 steakCnt += 2;
-                GIVE_ITEM(player, type, doMsgs, JUICYDRAGONSTEAK);
-                GIVE_ITEM(player, type, doMsgs, JUICYDRAGONSTEAK);
+                GiveItem(player, type, doMsgs, JUICYDRAGONSTEAK);
+                GiveItem(player, type, doMsgs, JUICYDRAGONSTEAK);
             }
-            SET_FLAG(player, type, doMsgs, PARTY, STEAK_COUNT, steakCnt);
+            SetFlag(player, type, doMsgs, FlagTypeParty, STEAK_COUNT, steakCnt);
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "A small brass sign on the door reads 'Madcap Labs. Absolutely NO solicitors!'");
+            ShowText(player, type, doMsgs, "A small brass sign on the door reads 'Madcap Labs. Absolutely NO solicitors!'");
         }
         protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_JOIN(player, type, doMsgs);
-            if (PARTY_COUNT(player, type, doMsgs) > 1) {
-                SHOW_TEXT(player, type, doMsgs, "The passage is too narrow.");
-                TELEPORT(player, type, doMsgs, 13, 1, 12, WEST);
+            DisablePartyJoining(player, type, doMsgs);
+            if (GetPartyCount(player, type, doMsgs) > 1) {
+                ShowText(player, type, doMsgs, "The passage is too narrow.");
+                TeleportParty(player, type, doMsgs, 13, 1, 12, Direction.West);
             }
-            else if (GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NAOMI_MET) < 3) {
-                SHOW_TEXT(player, type, doMsgs, "You are not worthy.");
-                TELEPORT(player, type, doMsgs, 13, 1, 12, WEST);
+            else if (GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NAOMI_MET) < 3) {
+                ShowText(player, type, doMsgs, "You are not worthy.");
+                TeleportParty(player, type, doMsgs, 13, 1, 12, Direction.West);
             }
         }
         protected override void FnEvent1C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "Above the door is a wooden sign: 'Library. SHHHH!!!!'");
+            ShowText(player, type, doMsgs, "Above the door is a wooden sign: 'Library. SHHHH!!!!'");
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 12) {
-                SHOW_TEXT(player, type, doMsgs, "You discover a secret compartment in the floor of the closet. A scroll reads 'Commander Shadax, You are to step up the acquisition of mortals for my experiments immediately. Signed, Choronzar'");
-                SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN, GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN) | ALCHEMY_KNOWN_BIT);
+            if (HasUsedSkill(player, type, ref doMsgs, DETECT_SKILL) >= 12) {
+                ShowText(player, type, doMsgs, "You discover a secret compartment in the floor of the closet. A scroll reads 'Commander Shadax, You are to step up the acquisition of mortals for my experiments immediately. Signed, Choronzar'");
+                SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_KNOWN, GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_KNOWN) | ALCHEMY_KNOWN_BIT);
             }
         }
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int killedFlag = 0;
-            killedFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
-            if (HAS_ITEM(player, type, doMsgs, JESTERSCAP) && ((killedFlag & CHORONZAR_KILLED_BIT) == 0)) {
+            killedFlag = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED);
+            if (HasItem(player, type, doMsgs, JESTERSCAP) && ((killedFlag & CHORONZAR_KILLED_BIT) == 0)) {
                 killedFlag |= CHORONZAR_KILLED_BIT;
-                SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED, killedFlag);
-                SHOW_TEXT(player, type, doMsgs, "Choronzar's body begins to deliquesce as hissing smoke pours from his bloodied clothes. The room bucks and lurches as shockwaves roll through, knocking you to your knees.");
-                SHOW_TEXT(player, type, doMsgs, "Over the din of the reverberations you hear a British voice asking 'what was that about HATS?' There is a sickening peal of hysterical, eldritch laughter. Then silence.");
+                SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED, killedFlag);
+                ShowText(player, type, doMsgs, "Choronzar's body begins to deliquesce as hissing smoke pours from his bloodied clothes. The room bucks and lurches as shockwaves roll through, knocking you to your knees.");
+                ShowText(player, type, doMsgs, "Over the din of the reverberations you hear a British voice asking 'what was that about HATS?' There is a sickening peal of hysterical, eldritch laughter. Then silence.");
             }
         }
         protected override void FnEvent1F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "This is a freezer-locker.  Oversized blocks of ice stacked half-way to the ceiling keep it very cold in here.");
+            ShowText(player, type, doMsgs, "This is a freezer-locker.  Oversized blocks of ice stacked half-way to the ceiling keep it very cold in here.");
         }
         protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
         }
         protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, PARTY, ALCHEMY_LEVEL) == 4) {
-                SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1, GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1) | ANOINTED_BIT);
+            if (GetFlag(player, type, doMsgs, FlagTypeParty, ALCHEMY_LEVEL) == 4) {
+                SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_CONTROL_1, GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_CONTROL_1) | ANOINTED_BIT);
             }
         }
         protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int flag = 0;
-            SHOW_TEXT(player, type, doMsgs, "On the south wall is a poster depicting a scantily-clad Kaalroth posing beside an enormous tankard of mead. Tearing it aside you discover the word 'SMILE' scrawled on the wall in charcoal.");
-            flag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
+            ShowText(player, type, doMsgs, "On the south wall is a poster depicting a scantily-clad Kaalroth posing beside an enormous tankard of mead. Tearing it aside you discover the word 'SMILE' scrawled on the wall in charcoal.");
+            flag = GetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1);
             flag |= PASSWORD_FOUND_BIT;
-            SET_FLAG(player, type, doMsgs, PARTY, CONTROL_1, flag);
+            SetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1, flag);
         }
         protected override void FnEvent33(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int passFlag = 0;
-            if (IsTrue(GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & GAOLER_KILLED_BIT)) {
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
+            if (IsTrue(GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED) & GAOLER_KILLED_BIT)) {
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.West);
             }
             else {
-                SHOW_TEXT(player, type, doMsgs, "A slit in the door shoots open and a gutteral voice demands, 'Wot's th' password?'");
-                passFlag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
+                ShowText(player, type, doMsgs, "A slit in the door shoots open and a gutteral voice demands, 'Wot's th' password?'");
+                passFlag = GetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1);
                 if (IsTrue(passFlag & PASSWORD_FOUND_BIT)) {
-                    SHOW_TEXT(player, type, doMsgs, "You reply 'the password is 'SMILE',' and the door creaks open. The gaoler growls, 'Come on in so's I can look at ye. One at a time!'");
-                    CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
+                    ShowText(player, type, doMsgs, "You reply 'the password is 'SMILE',' and the door creaks open. The gaoler growls, 'Come on in so's I can look at ye. One at a time!'");
+                    ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.West);
                 }
                 else {
-                    SHOW_TEXT(player, type, doMsgs, "You stammer helplessly, not knowing the password. 'Come back when ye've remembered it!' The slit slams shut.");
+                    ShowText(player, type, doMsgs, "You stammer helplessly, not knowing the password. 'Come back when ye've remembered it!' The slit slams shut.");
                 }
             }
         }
         protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int flag = 0;
-            flag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NAOMI_MET);
+            flag = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NAOMI_MET);
             if (flag == 0) {
                 flag++;
-                SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NAOMI_MET, flag);
-                SHOW_PICTURE(player, type, doMsgs, NAOMI_PIC);
-                SHOW_TEXT(player, type, doMsgs, "You step into the dismal little cell and draw up short. Before you stands a radiant woman in a flowing, violet gown. She is slender and graceful but her eyes bore into you with unnerving intensity.");
-                SHOW_TEXT(player, type, doMsgs, "'Enough!' she cries. 'I grow tired of these pathetic ruses. Tell your master my answer is 'NO!'' Before you can respond she stalks past you and is gone.");
-                flag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN);
+                SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NAOMI_MET, flag);
+                ShowPortrait(player, type, doMsgs, NAOMI_PIC);
+                ShowText(player, type, doMsgs, "You step into the dismal little cell and draw up short. Before you stands a radiant woman in a flowing, violet gown. She is slender and graceful but her eyes bore into you with unnerving intensity.");
+                ShowText(player, type, doMsgs, "'Enough!' she cries. 'I grow tired of these pathetic ruses. Tell your master my answer is 'NO!'' Before you can respond she stalks past you and is gone.");
+                flag = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_KNOWN);
                 flag |= NAOMI_KNOWN_BIT;
-                SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN, flag);
+                SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_KNOWN, flag);
             }
         }
         protected override void FnEvent35(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "Charts and war-trophies decorate the walls of this military command center. Several crude desks are strewn with scrolls and parchments.");
+            ShowText(player, type, doMsgs, "Charts and war-trophies decorate the walls of this military command center. Several crude desks are strewn with scrolls and parchments.");
         }
         protected override void FnEvent36(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "This room, though spartan, appears to be the personal quarters of a high-ranking officer.");
+            ShowText(player, type, doMsgs, "This room, though spartan, appears to be the personal quarters of a high-ranking officer.");
         }
         protected override void FnEvent37(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "A portrait on the north wall depicts Shadax and a snake-woman posing in their wedding clothes. 'Shadax and Chiss, 8743 A.C.'");
+            ShowText(player, type, doMsgs, "A portrait on the north wall depicts Shadax and a snake-woman posing in their wedding clothes. 'Shadax and Chiss, 8743 A.C.'");
         }
         protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "Before you gleams a wondrous, cunningly crafted chariot. Fashioned of hardwood and steel, it has been gaudily painted in glossy red and green lacquers. In front of the first car two shiny rails extend into the darkness to the north.");
+            ShowText(player, type, doMsgs, "Before you gleams a wondrous, cunningly crafted chariot. Fashioned of hardwood and steel, it has been gaudily painted in glossy red and green lacquers. In front of the first car two shiny rails extend into the darkness to the north.");
         }
         protected override void FnEvent39(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int puzzFlag = 0;
-            SHOW_TEXT(player, type, doMsgs, "You pull the lever.");
-            puzzFlag = GET_FLAG(player, type, doMsgs, PARTY, LEVER_PUZZLE);
-            switch (HERE(player, type, doMsgs)) {
+            ShowText(player, type, doMsgs, "You pull the lever.");
+            puzzFlag = GetFlag(player, type, doMsgs, FlagTypeParty, LEVER_PUZZLE);
+            switch (GetTile(player, type, doMsgs)) {
                 case 87:
                     if (puzzFlag == 0) {
                         puzzFlag = 1;
@@ -668,8 +669,8 @@ namespace XPT.Twinion.Maps {
                     break;
                 case 121:
                     if (puzzFlag == 3) {
-                        PLACE_WALL_ITEM(player, type, doMsgs, DOOR, 127, NORTH);
-                        CLEAR_WALL(player, type, doMsgs, 127, NORTH);
+                        SetWallItem(player, type, doMsgs, DOOR, 127, Direction.North);
+                        ClearWallBlock(player, type, doMsgs, 127, Direction.North);
                         puzzFlag = 4;
                     }
                     break;
@@ -678,88 +679,88 @@ namespace XPT.Twinion.Maps {
                     break;
             }
             if (puzzFlag == 0) {
-                SHOW_TEXT(player, type, doMsgs, "Mocking laughter echoes from far away.");
+                ShowText(player, type, doMsgs, "Mocking laughter echoes from far away.");
             }
             else if (puzzFlag == 4) {
                 puzzFlag = 0;
-                SHOW_TEXT(player, type, doMsgs, "You hear a rumbling sound to the east.");
+                ShowText(player, type, doMsgs, "You hear a rumbling sound to the east.");
             }
-            SET_FLAG(player, type, doMsgs, PARTY, LEVER_PUZZLE, puzzFlag);
+            SetFlag(player, type, doMsgs, FlagTypeParty, LEVER_PUZZLE, puzzFlag);
         }
         protected override void FnEvent3A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "This is a storage room. Barrels and crates are stacked haphazardly.");
+            ShowText(player, type, doMsgs, "This is a storage room. Barrels and crates are stacked haphazardly.");
         }
         protected override void FnEvent3B(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int flagBits = 0;
-            SHOW_TEXT(player, type, doMsgs, "Buried beneath a stack of papers you find a scroll: 'Commander Shadax, It seems the princess prefers a gaol cell to the comforts of her chambers. Advise the Gaoler that she may come and go as she pleases. Signed, Choronzar'");
-            flagBits = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN);
+            ShowText(player, type, doMsgs, "Buried beneath a stack of papers you find a scroll: 'Commander Shadax, It seems the princess prefers a gaol cell to the comforts of her chambers. Advise the Gaoler that she may come and go as she pleases. Signed, Choronzar'");
+            flagBits = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_KNOWN);
             flagBits |= NAOMI_KNOWN_BIT;
-            SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN, flagBits);
+            SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_KNOWN, flagBits);
         }
         protected override void FnEvent64(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!HAS_ITEM(player, type, doMsgs, FUNHOUSEKEY)) {
-                SHOW_TEXT(player, type, doMsgs, "A gigantic snake-woman looms over you, swaying hypnotically. 'Yessss,' she hisses, 'it will be sweet revenge to taste the mortal blood that stole my husband Shadax!'");
-                SET_BOOTY(player, type, doMsgs, FUNHOUSEKEY, 0, 0, 0, 0, 0);
-                GET_MONSTER(player, type, doMsgs, 1, MONST_CHISS);
+            if (!HasItem(player, type, doMsgs, FUNHOUSEKEY)) {
+                ShowText(player, type, doMsgs, "A gigantic snake-woman looms over you, swaying hypnotically. 'Yessss,' she hisses, 'it will be sweet revenge to taste the mortal blood that stole my husband Shadax!'");
+                SetTreasure(player, type, doMsgs, FUNHOUSEKEY, 0, 0, 0, 0, 0);
+                AddEncounter(player, type, doMsgs, 1, MONST_CHISS);
             }
         }
         protected override void FnEvent65(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int flagBits = 0;
-            flagBits = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
+            flagBits = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED);
             if (((flagBits & SHADAX_KILLED_BIT) == 0)) {
-                SHOW_TEXT(player, type, doMsgs, "You feel a rush of vertigo as you pass through the rift.");
-                SHOW_TEXT(player, type, doMsgs, "Before you towers an enormous Kaalroth in full battle dress. 'Who dares to invade the realm of Choronzar?', he roars. 'I, Shadax, shall see that you never return!'");
-                flagBits = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN);
+                ShowText(player, type, doMsgs, "You feel a rush of vertigo as you pass through the rift.");
+                ShowText(player, type, doMsgs, "Before you towers an enormous Kaalroth in full battle dress. 'Who dares to invade the realm of Choronzar?', he roars. 'I, Shadax, shall see that you never return!'");
+                flagBits = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_KNOWN);
                 flagBits |= CHORONZAR_KNOWN_BIT;
-                SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_KNOWN, flagBits);
-                GET_MONSTER(player, type, doMsgs, 01, MONST_SHADAX);
+                SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_KNOWN, flagBits);
+                AddEncounter(player, type, doMsgs, 01, MONST_SHADAX);
             }
         }
         protected override void FnEvent67(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int flag = 0;
-            flag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NAOMI_MET);
-            if ((flag > 0) && (flag < 3) && FLAG_OFF(player, type, doMsgs, ROOM, SEEN_IT)) {
-                SHOW_PICTURE(player, type, doMsgs, NAOMI_PIC);
-                SHOW_TEXT(player, type, doMsgs, "You clamber from the muddy water onto the island. Naomi is here.");
-                SET_FLAG(player, type, doMsgs, ROOM, SEEN_IT, 1);
+            flag = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NAOMI_MET);
+            if ((flag > 0) && (flag < 3) && IsFlagOff(player, type, doMsgs, FlagTypeTile, SEEN_IT)) {
+                ShowPortrait(player, type, doMsgs, NAOMI_PIC);
+                ShowText(player, type, doMsgs, "You clamber from the muddy water onto the island. Naomi is here.");
+                SetFlag(player, type, doMsgs, FlagTypeTile, SEEN_IT, 1);
             }
             switch (flag) {
                 case 1:
-                    SHOW_TEXT(player, type, doMsgs, "'Well,' she says icily, 'you are persistent in your mendacity, I grant you that.' She smiles slyly. 'If you really want me to believe you were not sent by Choronzar then find and return my Spirit Bottle!'");
-                    GIVE_ITEM(player, type, doMsgs, NAOMISKEY);
+                    ShowText(player, type, doMsgs, "'Well,' she says icily, 'you are persistent in your mendacity, I grant you that.' She smiles slyly. 'If you really want me to believe you were not sent by Choronzar then find and return my Spirit Bottle!'");
+                    GiveItem(player, type, doMsgs, NAOMISKEY);
                     flag++;
                     break;
                 case 2:
-                    if (USED_ITEM(player, type, doMsgs, SPIRITBOTTLE, SPIRITBOTTLE)) {
-                        TAKE_ITEM(player, type, doMsgs, SPIRITBOTTLE);
-                        SHOW_TEXT(player, type, doMsgs, "You offer the Spirit Bottle to Naomi. She snatches it from your hand and squints at it suspiciously. Then her eyes widen and her expression softens.");
-                        SHOW_TEXT(player, type, doMsgs, "'I have misjudged you,' she says quietly. 'My debt to you is so great that I can never hope to repay it. Still, I will do what I can.");
-                        SHOW_TEXT(player, type, doMsgs, "I once saw Choronzar slip through a secret passageway in the back of his laboratory. I believe it leads to his throne room!  Perhaps you can use it to circumvent his many guards.");
-                        SHOW_TEXT(player, type, doMsgs, "Now I must go. Farewell, and may Fortune smile upon you always!' She uncorks the bottle and a cloud of coruscating crimson fog quickly envelops her.  'I no longer exist here!'");
-                        SHOW_TEXT(player, type, doMsgs, "When the fog clears Naomi is gone.");
+                    if (UsedItem(player, type, ref doMsgs, SPIRITBOTTLE, SPIRITBOTTLE)) {
+                        RemoveItem(player, type, doMsgs, SPIRITBOTTLE);
+                        ShowText(player, type, doMsgs, "You offer the Spirit Bottle to Naomi. She snatches it from your hand and squints at it suspiciously. Then her eyes widen and her expression softens.");
+                        ShowText(player, type, doMsgs, "'I have misjudged you,' she says quietly. 'My debt to you is so great that I can never hope to repay it. Still, I will do what I can.");
+                        ShowText(player, type, doMsgs, "I once saw Choronzar slip through a secret passageway in the back of his laboratory. I believe it leads to his throne room!  Perhaps you can use it to circumvent his many guards.");
+                        ShowText(player, type, doMsgs, "Now I must go. Farewell, and may Fortune smile upon you always!' She uncorks the bottle and a cloud of coruscating crimson fog quickly envelops her.  'I no longer exist here!'");
+                        ShowText(player, type, doMsgs, "When the fog clears Naomi is gone.");
                         flag++;
                     }
                     else {
-                        SHOW_TEXT(player, type, doMsgs, "Naomi snaps, 'Have you brought my Spirit Bottle, or is this another feeble attempt to deceive me?'");
-                        if (!HAS_ITEM(player, type, doMsgs, NAOMISKEY)) {
-                            GIVE_ITEM(player, type, doMsgs, NAOMISKEY);
+                        ShowText(player, type, doMsgs, "Naomi snaps, 'Have you brought my Spirit Bottle, or is this another feeble attempt to deceive me?'");
+                        if (!HasItem(player, type, doMsgs, NAOMISKEY)) {
+                            GiveItem(player, type, doMsgs, NAOMISKEY);
                         }
                     }
                     break;
                 default:
                     break;
             }
-            SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NAOMI_MET, flag);
+            SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NAOMI_MET, flag);
         }
         protected override void FnEvent68(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int flag = 0;
-            flag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
+            flag = GetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1);
             if (((flag & SIGNED_IN_BIT) == 0)) {
-                SHOW_PICTURE(player, type, doMsgs, CONCIERGE_PIC);
-                SHOW_TEXT(player, type, doMsgs, "An owlish man sits poring over some documents behind an imposing, oaken desk. Without glancing up he gestures toward a ledger-book. 'Sign in please.'");
+                ShowPortrait(player, type, doMsgs, CONCIERGE_PIC);
+                ShowText(player, type, doMsgs, "An owlish man sits poring over some documents behind an imposing, oaken desk. Without glancing up he gestures toward a ledger-book. 'Sign in please.'");
                 flag |= SIGNED_IN_BIT;
-                SET_FLAG(player, type, doMsgs, PARTY, CONTROL_1, flag);
-                SET_FLAG(player, type, doMsgs, PARTY, DEATH_LEVEL, 0);
+                SetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1, flag);
+                SetFlag(player, type, doMsgs, FlagTypeParty, DEATH_LEVEL, 0);
             }
         }
         protected override void FnEvent69(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -781,12 +782,12 @@ namespace XPT.Twinion.Maps {
             int ctrlFlag = 0;
             int deathFlag = 0;
             int monster = 0;
-            ctrlFlag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
-            deathFlag = GET_FLAG(player, type, doMsgs, PARTY, DEATH_LEVEL);
-            if (FLAG_OFF(player, type, doMsgs, ROOM, SEEN_IT) && IsTrue(ctrlFlag & SIGNED_IN_BIT)) {
-                SHOW_TEXT(player, type, doMsgs, "You trudge forward down the Hall of Death.");
+            ctrlFlag = GetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1);
+            deathFlag = GetFlag(player, type, doMsgs, FlagTypeParty, DEATH_LEVEL);
+            if (IsFlagOff(player, type, doMsgs, FlagTypeTile, SEEN_IT) && IsTrue(ctrlFlag & SIGNED_IN_BIT)) {
+                ShowText(player, type, doMsgs, "You trudge forward down the Hall of Death.");
                 deathFlag++;
-                SET_FLAG(player, type, doMsgs, ROOM, SEEN_IT, 1);
+                SetFlag(player, type, doMsgs, FlagTypeTile, SEEN_IT, 1);
             }
             if (IsTrue(ctrlFlag & SIGNED_IN_BIT)) {
                 monster = (deathFlag / 3);
@@ -796,38 +797,38 @@ namespace XPT.Twinion.Maps {
                 monster += MONST_HALL_DEATH_1;
                 SixMonst(player, type, doMsgs, monster);
             }
-            SET_FLAG(player, type, doMsgs, PARTY, DEATH_LEVEL, deathFlag);
+            SetFlag(player, type, doMsgs, FlagTypeParty, DEATH_LEVEL, deathFlag);
         }
         protected override void FnEvent6F(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int flag = 0;
             int i = 0;
             int monster = MONST_HALL_DEATH_7;
-            if (IsTrue(GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1) & SIGNED_IN_BIT)) {
-                flag = GET_FLAG(player, type, doMsgs, PARTY, CONTROL_1);
+            if (IsTrue(GetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1) & SIGNED_IN_BIT)) {
+                flag = GetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1);
                 if (((flag & KEKEKETL_KILLED_BIT) == 0)) {
-                    SHOW_TEXT(player, type, doMsgs, "This antechamber is littered with bones. As you step forward some of the grisly debris flies up and forms itself into a horrific, skeletal figure. 'I am Kekeketl,' it rasps. 'I am sworn to defend this place.'");
+                    ShowText(player, type, doMsgs, "This antechamber is littered with bones. As you step forward some of the grisly debris flies up and forms itself into a horrific, skeletal figure. 'I am Kekeketl,' it rasps. 'I am sworn to defend this place.'");
                     flag |= KEKEKETL_KILLED_BIT;
                 }
                 else {
-                    SHOW_TEXT(player, type, doMsgs, "You advance, and once more Kekeketl rises from the carnage. 'I have told thee, I am sworn to defend this place.'");
+                    ShowText(player, type, doMsgs, "You advance, and once more Kekeketl rises from the carnage. 'I have told thee, I am sworn to defend this place.'");
                 }
-                SET_FLAG(player, type, doMsgs, PARTY, CONTROL_1, flag);
-                GET_MONSTER(player, type, doMsgs, 01, MONST_KEKEKETL);
-                for (i = 2; i <= PARTY_COUNT(player, type, doMsgs) + 1; i++) {
-                    GET_MONSTER(player, type, doMsgs, i, monster);
+                SetFlag(player, type, doMsgs, FlagTypeParty, CONTROL_1, flag);
+                AddEncounter(player, type, doMsgs, 01, MONST_KEKEKETL);
+                for (i = 2; i <= GetPartyCount(player, type, doMsgs) + 1; i++) {
+                    AddEncounter(player, type, doMsgs, i, monster);
                 }
             }
         }
         protected override void FnEvent70(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (((GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & GAOLER_KILLED_BIT) == 0)) {
-                if (PARTY_COUNT(player, type, doMsgs) > 1) {
-                    SHOW_TEXT(player, type, doMsgs, "As you step through the door the Gaoler pushes you back roughly. 'One at a time!' he growls.");
-                    TELEPORT(player, type, doMsgs, 13, 1, 249, WEST);
+            if (((GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED) & GAOLER_KILLED_BIT) == 0)) {
+                if (GetPartyCount(player, type, doMsgs) > 1) {
+                    ShowText(player, type, doMsgs, "As you step through the door the Gaoler pushes you back roughly. 'One at a time!' he growls.");
+                    TeleportParty(player, type, doMsgs, 13, 1, 249, Direction.West);
                 }
-                SHOW_TEXT(player, type, doMsgs, "As you step into the light the Gaoler flies into a rage. 'Wot's this then?' he cries. 'Oi've been tricked!'");
-                GET_MONSTER(player, type, doMsgs, 01, MONST_GAOLER);
+                ShowText(player, type, doMsgs, "As you step into the light the Gaoler flies into a rage. 'Wot's this then?' he cries. 'Oi've been tricked!'");
+                AddEncounter(player, type, doMsgs, 01, MONST_GAOLER);
             }
-            CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
+            ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.East);
         }
         protected override void FnEvent71(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SixMonst(player, type, doMsgs, MONST_GUARDD_POST);
@@ -836,21 +837,21 @@ namespace XPT.Twinion.Maps {
             int secretFlag = 0;
             int killedFlag = 0;
             int monster = 0;
-            BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
-            secretFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_CONTROL_1);
-            killedFlag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
+            SetWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.West);
+            secretFlag = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_CONTROL_1);
+            killedFlag = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED);
             if (IsTrue(secretFlag & SECRET_PASSAGE_BIT) && ((killedFlag & CHORONZAR_KILLED_BIT) == 0)) {
-                SHOW_TEXT(player, type, doMsgs, "You rush through the wall and surprise Choronzar pacing behind his throne!");
+                ShowText(player, type, doMsgs, "You rush through the wall and surprise Choronzar pacing behind his throne!");
                 if (IsTrue(secretFlag & ANOINTED_BIT)) {
-                    SHOW_TEXT(player, type, doMsgs, "He shrieks and turns to flee, but you are upon him in an instant.");
+                    ShowText(player, type, doMsgs, "He shrieks and turns to flee, but you are upon him in an instant.");
                     monster = MONST_CHORONZAR_WIMPY;
                 }
                 else {
-                    SHOW_TEXT(player, type, doMsgs, "He smiles grimly. 'So it comes to this? % I hope you know what you're doing.'");
+                    ShowText(player, type, doMsgs, "He smiles grimly. 'So it comes to this? % I hope you know what you're doing.'");
                     monster = MONST_CHORONZAR_TOUGH;
                 }
-                SET_BOOTY(player, type, doMsgs, JESTERSCAP, 0, 0, 0, 0, 0);
-                GET_MONSTER(player, type, doMsgs, 1, monster);
+                SetTreasure(player, type, doMsgs, JESTERSCAP, 0, 0, 0, 0, 0);
+                AddEncounter(player, type, doMsgs, 1, monster);
             }
         }
         protected override void FnEvent73(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -858,15 +859,15 @@ namespace XPT.Twinion.Maps {
         }
         protected override void FnEvent74(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int flagBits = 0;
-            flagBits = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
+            flagBits = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED);
             flagBits |= SHADAX_KILLED_BIT;
-            SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED, flagBits);
+            SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED, flagBits);
         }
         protected override void FnEvent75(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int flag = 0;
-            flag = GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED);
+            flag = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED);
             flag |= GAOLER_KILLED_BIT;
-            SET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED, flag);
+            SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED, flag);
         }
     }
 }

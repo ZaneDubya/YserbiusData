@@ -1,10 +1,11 @@
-using XPT.Generic.Maps;
-using XPT.Twinion.Entities;
+using XPT.Games.Generic.Constants;
+using XPT.Games.Generic.Maps;
+using XPT.Games.Twinion.Entities;
 
-namespace XPT.Twinion.Maps {
+namespace XPT.Games.Twinion.Maps {
     class TwMap33 : TwMap {
-        protected override int MapIndex => 33;
-        protected override int MapID => 0x0D02;
+        public override int MapIndex => 33;
+        public override int MapID => 0x0D02;
         protected override int RandomEncounterChance => 5;
         protected override int RandomEncounterExtraCount => 2;
 
@@ -85,7 +86,6 @@ namespace XPT.Twinion.Maps {
         string door1Str = "The middle door does not lead to the maze.";
         string door2Str = "I do not lead to the maze.";
         string door3Str = "'I lead to the maze.'";
-        string redHerring = "Pushing the BIG RED BUTTON opens the door to the Easter Egg.";
         string majorDomo1 = "As you step through the archway a bald, portly, little man in coat and tails hails you. 'Greetings', he beams, 'and welcome to the Halfway House! I am the Major Domo.'";
         string majorDomo2 = "The Major Domo falls into step with you. 'You look tired,' he observes, 'but you've come the right place!' He pauses to blot at his brow with a flannel kerchief. 'The pools will have you feeling right in a jiffy!'";
         string majorDomo3 = "The Major Domo continues: 'You mustn't give up, you know. A real adventurer NEVER gives up. Surrender is expressly forbidden by the Hero's Creed and reflects very poorly upon one's ancestry.'";
@@ -94,7 +94,7 @@ namespace XPT.Twinion.Maps {
         private void SixMonst(TwPlayerServer player, MapEventType type, bool doMsgs, int monster) {
             int i = 0;
             int num = 0;
-            switch (PARTY_COUNT(player, type, doMsgs)) {
+            switch (GetPartyCount(player, type, doMsgs)) {
                 case 1:
                     num = 2;
                     break;
@@ -110,68 +110,68 @@ namespace XPT.Twinion.Maps {
                     break;
             }
             for (i = 1; i <= num; i++) {
-                GET_MONSTER(player, type, doMsgs, i, monster);
+                AddEncounter(player, type, doMsgs, i, monster);
             }
         }
         protected override void FnEvent01(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            NO_JOIN(player, type, doMsgs);
-            if (PARTY_COUNT(player, type, doMsgs) > 1) {
-                SHOW_TEXT(player, type, doMsgs, "The coaster cars are only big enough for one of you at a time.");
-                SET_FLAG(player, type, doMsgs, PARTY, COASTER_STOPPING, 0);
-                TELEPORT(player, type, doMsgs, 13, 2, 222, NORTH);
+            DisablePartyJoining(player, type, doMsgs);
+            if (GetPartyCount(player, type, doMsgs) > 1) {
+                ShowText(player, type, doMsgs, "The coaster cars are only big enough for one of you at a time.");
+                SetFlag(player, type, doMsgs, FlagTypeParty, COASTER_STOPPING, 0);
+                TeleportParty(player, type, doMsgs, 13, 2, 222, Direction.North);
             }
-            switch (HERE(player, type, doMsgs)) {
+            switch (GetTile(player, type, doMsgs)) {
                 case 235:
-                    ROTATE(player, type, doMsgs, EAST);
-                    TELEPORT(player, type, doMsgs, 13, 2, 236, EAST);
+                    SetFacing(player, type, doMsgs, Direction.East);
+                    TeleportParty(player, type, doMsgs, 13, 2, 236, Direction.East);
                     break;
                 case 236:
-                    TELEPORT(player, type, doMsgs, 13, 2, 237, EAST);
+                    TeleportParty(player, type, doMsgs, 13, 2, 237, Direction.East);
                     break;
                 case 237:
-                    SET_FLAG(player, type, doMsgs, PARTY, COASTER_STOPPING, 1);
-                    TELEPORT(player, type, doMsgs, 13, 2, 238, EAST);
+                    SetFlag(player, type, doMsgs, FlagTypeParty, COASTER_STOPPING, 1);
+                    TeleportParty(player, type, doMsgs, 13, 2, 238, Direction.East);
                     break;
                 case 238:
-                    BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), EAST);
-                    BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
-                    if (FLAG_ON(player, type, doMsgs, PARTY, COASTER_STOPPING)) {
-                        SHOW_TEXT(player, type, doMsgs, "The coaster stops.");
-                        SET_FLAG(player, type, doMsgs, PARTY, COASTER_STOPPING, 0);
-                        TELEPORT(player, type, doMsgs, 13, 2, 222, NORTH);
+                    SetWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.East);
+                    SetWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.West);
+                    if (IsFlagOn(player, type, doMsgs, FlagTypeParty, COASTER_STOPPING)) {
+                        ShowText(player, type, doMsgs, "The coaster stops.");
+                        SetFlag(player, type, doMsgs, FlagTypeParty, COASTER_STOPPING, 0);
+                        TeleportParty(player, type, doMsgs, 13, 2, 222, Direction.North);
                     }
-                    else if (HAS_ITEM(player, type, doMsgs, FUNHOUSEKEY)) {
-                        SHOW_TEXT(player, type, doMsgs, "You twist the Funhouse Key in the keyhole. With a lurch the car begins to rumble forward along the rails.");
-                        TELEPORT(player, type, doMsgs, 13, 2, 239, EAST);
+                    else if (HasItem(player, type, doMsgs, FUNHOUSEKEY)) {
+                        ShowText(player, type, doMsgs, "You twist the Funhouse Key in the keyhole. With a lurch the car begins to rumble forward along the rails.");
+                        TeleportParty(player, type, doMsgs, 13, 2, 239, Direction.East);
                     }
                     break;
                 case 239:
-                    TELEPORT(player, type, doMsgs, 13, 1, 118, NORTH);
+                    TeleportParty(player, type, doMsgs, 13, 1, 118, Direction.North);
                     break;
                 case 251:
-                    ROTATE(player, type, doMsgs, NORTH);
-                    TELEPORT(player, type, doMsgs, 13, 2, 235, NORTH);
+                    SetFacing(player, type, doMsgs, Direction.North);
+                    TeleportParty(player, type, doMsgs, 13, 2, 235, Direction.North);
                     break;
                 case 252:
                 case 253:
                 case 254:
                 case 255:
-                    TELEPORT(player, type, doMsgs, 13, 2, HERE(player, type, doMsgs) - 1, WEST);
+                    TeleportParty(player, type, doMsgs, 13, 2, GetTile(player, type, doMsgs) - 1, Direction.West);
                     break;
             }
         }
         protected override void FnEvent03(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            switch (FACING(player, type, doMsgs)) {
-                case NORTH:
-                    SHOW_TEXT(player, type, doMsgs, "WELCOME TO THE FUNHOUSE!!!");
-                    SHOW_TEXT(player, type, doMsgs, "Rules of the Establishment:");
-                    SHOW_TEXT(player, type, doMsgs, "1. No spitting.");
-                    SHOW_TEXT(player, type, doMsgs, "2. No cussing.");
-                    SHOW_TEXT(player, type, doMsgs, "3. Please don't feed the monsters!");
-                    SHOW_TEXT(player, type, doMsgs, "     -- the Management");
+            switch (GetFacing(player, type, doMsgs)) {
+                case Direction.North:
+                    ShowText(player, type, doMsgs, "WELCOME TO THE FUNHOUSE!!!");
+                    ShowText(player, type, doMsgs, "Rules of the Establishment:");
+                    ShowText(player, type, doMsgs, "1. No spitting.");
+                    ShowText(player, type, doMsgs, "2. No cussing.");
+                    ShowText(player, type, doMsgs, "3. Please don't feed the monsters!");
+                    ShowText(player, type, doMsgs, "     -- the Management");
                     break;
-                case SOUTH:
-                    SHOW_TEXT(player, type, doMsgs, "The roller coaster is here.");
+                case Direction.South:
+                    ShowText(player, type, doMsgs, "The roller coaster is here.");
                     break;
                 default:
                     break;
@@ -180,8 +180,8 @@ namespace XPT.Twinion.Maps {
         protected override void FnEvent04(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int square = 245;
             int picture = 0;
-            SHOW_TEXT(player, type, doMsgs, "The magic mirror twists and warps your reflection.");
-            switch (HERE(player, type, doMsgs)) {
+            ShowText(player, type, doMsgs, "The magic mirror twists and warps your reflection.");
+            switch (GetTile(player, type, doMsgs)) {
                 case 138:
                     picture = GNOMEBARBARIAN;
                     break;
@@ -216,61 +216,61 @@ namespace XPT.Twinion.Maps {
                 default:
                     break;
             }
-            SHOW_PICTURE(player, type, doMsgs, picture);
-            TELEPORT(player, type, doMsgs, 13, 2, square, SOUTH);
+            ShowPortrait(player, type, doMsgs, picture);
+            TeleportParty(player, type, doMsgs, 13, 2, square, Direction.South);
         }
         protected override void FnEvent05(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int cntFlag = 0;
-            NO_JOIN(player, type, doMsgs);
-            if (PARTY_COUNT(player, type, doMsgs) > 1) {
-                SHOW_TEXT(player, type, doMsgs, "The horse you are riding is only big enough for one. You lose your grip!");
-                TELEPORT(player, type, doMsgs, 13, 2, 141, WEST);
+            DisablePartyJoining(player, type, doMsgs);
+            if (GetPartyCount(player, type, doMsgs) > 1) {
+                ShowText(player, type, doMsgs, "The horse you are riding is only big enough for one. You lose your grip!");
+                TeleportParty(player, type, doMsgs, 13, 2, 141, Direction.West);
             }
-            if (FLAG_OFF(player, type, doMsgs, PARTY, CAROUSEL_CTRL)) {
-                cntFlag = GET_FLAG(player, type, doMsgs, PARTY, CAROUSEL_CNT);
-                switch ((HERE(player, type, doMsgs) << 8) + FACING(player, type, doMsgs)) {
-                    case ((141 << 8) + WEST):
+            if (IsFlagOff(player, type, doMsgs, FlagTypeParty, CAROUSEL_CTRL)) {
+                cntFlag = GetFlag(player, type, doMsgs, FlagTypeParty, CAROUSEL_CNT);
+                switch ((GetTile(player, type, doMsgs) << 8) + (int)GetFacing(player, type, doMsgs)) {
+                    case ((141 << 8) + (int)Direction.West):
                         if (cntFlag > 0) {
                             cntFlag--;
-                            SET_FLAG(player, type, doMsgs, PARTY, CAROUSEL_CNT, cntFlag);
-                            ROTATE(player, type, doMsgs, SOUTH);
-                            TELEPORT(player, type, doMsgs, 13, 2, 157, SOUTH);
+                            SetFlag(player, type, doMsgs, FlagTypeParty, CAROUSEL_CNT, cntFlag);
+                            SetFacing(player, type, doMsgs, Direction.South);
+                            TeleportParty(player, type, doMsgs, 13, 2, 157, Direction.South);
                         }
                         else {
-                            SHOW_TEXT(player, type, doMsgs, "The ride ends.");
-                            TELEPORT(player, type, doMsgs, 13, 2, 140, WEST);
+                            ShowText(player, type, doMsgs, "The ride ends.");
+                            TeleportParty(player, type, doMsgs, 13, 2, 140, Direction.West);
                         }
                         break;
-                    case ((141 << 8) + SOUTH):
-                    case ((141 << 8) + EAST):
-                    case ((141 << 8) + NORTH):
-                        ROTATE(player, type, doMsgs, SOUTH);
-                        TELEPORT(player, type, doMsgs, 13, 2, 157, SOUTH);
+                    case ((141 << 8) + (int)Direction.South):
+                    case ((141 << 8) + (int)Direction.East):
+                    case ((141 << 8) + (int)Direction.North):
+                        SetFacing(player, type, doMsgs, Direction.South);
+                        TeleportParty(player, type, doMsgs, 13, 2, 157, Direction.South);
                         break;
-                    case ((142 << 8) + WEST):
-                        TELEPORT(player, type, doMsgs, 13, 2, 141, WEST);
+                    case ((142 << 8) + (int)Direction.West):
+                        TeleportParty(player, type, doMsgs, 13, 2, 141, Direction.West);
                         break;
-                    case ((143 << 8) + NORTH):
-                        ROTATE(player, type, doMsgs, WEST);
-                        TELEPORT(player, type, doMsgs, 13, 2, 142, WEST);
+                    case ((143 << 8) + (int)Direction.North):
+                        SetFacing(player, type, doMsgs, Direction.West);
+                        TeleportParty(player, type, doMsgs, 13, 2, 142, Direction.West);
                         break;
-                    case ((157 << 8) + SOUTH):
-                        TELEPORT(player, type, doMsgs, 13, 2, 173, SOUTH);
+                    case ((157 << 8) + (int)Direction.South):
+                        TeleportParty(player, type, doMsgs, 13, 2, 173, Direction.South);
                         break;
-                    case ((159 << 8) + NORTH):
-                        TELEPORT(player, type, doMsgs, 13, 2, 143, NORTH);
+                    case ((159 << 8) + (int)Direction.North):
+                        TeleportParty(player, type, doMsgs, 13, 2, 143, Direction.North);
                         break;
-                    case ((173 << 8) + SOUTH):
-                        ROTATE(player, type, doMsgs, EAST);
-                        TELEPORT(player, type, doMsgs, 13, 2, 174, EAST);
+                    case ((173 << 8) + (int)Direction.South):
+                        SetFacing(player, type, doMsgs, Direction.East);
+                        TeleportParty(player, type, doMsgs, 13, 2, 174, Direction.East);
                         break;
-                    case ((174 << 8) + EAST):
-                        TELEPORT(player, type, doMsgs, 13, 2, 175, EAST);
+                    case ((174 << 8) + (int)Direction.East):
+                        TeleportParty(player, type, doMsgs, 13, 2, 175, Direction.East);
                         break;
-                    case ((175 << 8) + EAST):
-                        SHOW_TEXT(player, type, doMsgs, "You reach for the brass ring, but it's stuck.");
-                        ROTATE(player, type, doMsgs, NORTH);
-                        TELEPORT(player, type, doMsgs, 13, 2, 159, NORTH);
+                    case ((175 << 8) + (int)Direction.East):
+                        ShowText(player, type, doMsgs, "You reach for the brass ring, but it's stuck.");
+                        SetFacing(player, type, doMsgs, Direction.North);
+                        TeleportParty(player, type, doMsgs, 13, 2, 159, Direction.North);
                         break;
                     default:
                         break;
@@ -278,55 +278,55 @@ namespace XPT.Twinion.Maps {
             }
         }
         protected override void FnEvent06(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (!HAS_ITEM(player, type, doMsgs, BRASSRING)) {
-                SHOW_TEXT(player, type, doMsgs, "With a mighty tug you dislodge the brass ring from the armature.");
-                GIVE_ITEM(player, type, doMsgs, BRASSRING);
+            if (!HasItem(player, type, doMsgs, BRASSRING)) {
+                ShowText(player, type, doMsgs, "With a mighty tug you dislodge the brass ring from the armature.");
+                GiveItem(player, type, doMsgs, BRASSRING);
             }
         }
         protected override void FnEvent07(TwPlayerServer player, MapEventType type, bool doMsgs) {
             string str = string.Empty;
-            if (GET_FLAG(player, type, doMsgs, PARTY, CAROUSEL_CTRL) == 0) {
-                SHOW_TEXT(player, type, doMsgs, "You throw the rusty knife switch.");
-                SET_FLAG(player, type, doMsgs, PARTY, CAROUSEL_CTRL, 1);
+            if (GetFlag(player, type, doMsgs, FlagTypeParty, CAROUSEL_CTRL) == 0) {
+                ShowText(player, type, doMsgs, "You throw the rusty knife switch.");
+                SetFlag(player, type, doMsgs, FlagTypeParty, CAROUSEL_CTRL, 1);
             }
         }
         protected override void FnEvent08(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (FLAG_ON(player, type, doMsgs, ROOM, DONE_IT)) {
-                TELEPORT(player, type, doMsgs, 13, 2, 194, NORTH);
+            if (IsFlagOn(player, type, doMsgs, FlagTypeTile, DONE_IT)) {
+                TeleportParty(player, type, doMsgs, 13, 2, 194, Direction.North);
             }
-            else if (USED_ITEM(player, type, doMsgs, NAOMISKEY, NAOMISKEY)) {
-                SET_FLAG(player, type, doMsgs, ROOM, DONE_IT, 1);
-                SHOW_TEXT(player, type, doMsgs, "You unlock the door.");
+            else if (UsedItem(player, type, ref doMsgs, NAOMISKEY, NAOMISKEY)) {
+                SetFlag(player, type, doMsgs, FlagTypeTile, DONE_IT, 1);
+                ShowText(player, type, doMsgs, "You unlock the door.");
             }
             else {
-                SHOW_TEXT(player, type, doMsgs, "This door requires a special key.");
+                ShowText(player, type, doMsgs, "This door requires a special key.");
             }
         }
         protected override void FnEvent09(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 13, 2, 103, WEST);
+            TeleportParty(player, type, doMsgs, 13, 2, 103, Direction.West);
         }
         protected override void FnEvent0A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            BLOCK_FLOOR(player, type, doMsgs, HERE(player, type, doMsgs));
+            SetTileBlock(player, type, doMsgs, GetTile(player, type, doMsgs));
         }
         protected override void FnEvent0B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (HEALTH(player, type, doMsgs) != MAX_HEALTH(player, type, doMsgs)) {
-                SHOW_TEXT(player, type, doMsgs, "The cool water invigorates you.");
-                HEAL(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
+            if (GetHealthCurrent(player, type, doMsgs) != GetHealthMax(player, type, doMsgs)) {
+                ShowText(player, type, doMsgs, "The cool water invigorates you.");
+                ModifyHealth(player, type, doMsgs, GetHealthMax(player, type, doMsgs));
             }
         }
         protected override void FnEvent0C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "The fizzy water refreshes you.");
-            MOD_MANA(player, type, doMsgs, 30000);
+            ShowText(player, type, doMsgs, "The fizzy water refreshes you.");
+            ModifyMana(player, type, doMsgs, 30000);
         }
         protected override void FnEvent0D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 13, 2, 48, EAST);
+            TeleportParty(player, type, doMsgs, 13, 2, 48, Direction.East);
         }
         protected override void FnEvent0E(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int flag = 0;
             string strPtr = string.Empty;
-            flag = GET_FLAG(player, type, doMsgs, PARTY, MAJOR_DOMO);
+            flag = GetFlag(player, type, doMsgs, FlagTypeParty, MAJOR_DOMO);
             if (flag <= 4) {
-                SHOW_PICTURE(player, type, doMsgs, MAJORDOMO_PIC);
+                ShowPortrait(player, type, doMsgs, MAJORDOMO_PIC);
             }
             switch (flag) {
                 case 0:
@@ -347,326 +347,326 @@ namespace XPT.Twinion.Maps {
             }
             if (strPtr != null) {
                 flag++;
-                SET_FLAG(player, type, doMsgs, PARTY, MAJOR_DOMO, flag);
-                SHOW_TEXT(player, type, doMsgs, strPtr);
+                SetFlag(player, type, doMsgs, FlagTypeParty, MAJOR_DOMO, flag);
+                ShowText(player, type, doMsgs, strPtr);
             }
         }
         protected override void FnEvent10(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (GET_FLAG(player, type, doMsgs, PARTY, MAJOR_DOMO) == 6) {
-                SHOW_TEXT(player, type, doMsgs, "The Major Domo spies you. His eyes widen and he begins to shake with rage. 'No no no! You musn't give up, whatever you do! Show some pluck, some spirit, some gumption for heaven's sake!' He begins to whack at you with an andiron.");
-                SET_FLAG(player, type, doMsgs, PARTY, MAJOR_DOMO, 7);
-                GET_MONSTER(player, type, doMsgs, 01, MONST_MAJOR_DOMO);
+            if (GetFlag(player, type, doMsgs, FlagTypeParty, MAJOR_DOMO) == 6) {
+                ShowText(player, type, doMsgs, "The Major Domo spies you. His eyes widen and he begins to shake with rage. 'No no no! You musn't give up, whatever you do! Show some pluck, some spirit, some gumption for heaven's sake!' He begins to whack at you with an andiron.");
+                SetFlag(player, type, doMsgs, FlagTypeParty, MAJOR_DOMO, 7);
+                AddEncounter(player, type, doMsgs, 01, MONST_MAJOR_DOMO);
             }
         }
         protected override void FnEvent11(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int switchFlag = 0;
             int destSquare = 0;
-            int destFacing = 0;
-            switchFlag = HERE(player, type, doMsgs);
+            Direction destFacing = 0;
+            switchFlag = GetTile(player, type, doMsgs);
             switchFlag <<= 8;
-            switchFlag += FACING(player, type, doMsgs);
+            switchFlag += (int)GetFacing(player, type, doMsgs);
             switch (switchFlag) {
-                case ((48 << 8) + NORTH):
+                case ((48 << 8) + (int)Direction.North):
                     destSquare = 117;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((48 << 8) + EAST):
+                case ((48 << 8) + (int)Direction.East):
                     destSquare = 48;
-                    destFacing = EAST;
+                    destFacing = Direction.East;
                     break;
-                case ((48 << 8) + WEST):
+                case ((48 << 8) + (int)Direction.West):
                     destSquare = 65;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((64 << 8) + EAST):
+                case ((64 << 8) + (int)Direction.East):
                     destSquare = 160;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((64 << 8) + SOUTH):
+                case ((64 << 8) + (int)Direction.South):
                     destSquare = 101;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((64 << 8) + WEST):
+                case ((64 << 8) + (int)Direction.West):
                     destSquare = 112;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((112 << 8) + NORTH):
+                case ((112 << 8) + (int)Direction.North):
                     destSquare = 102;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((112 << 8) + EAST):
+                case ((112 << 8) + (int)Direction.East):
                     destSquare = 116;
-                    destFacing = EAST;
+                    destFacing = Direction.East;
                     break;
-                case ((112 << 8) + WEST):
+                case ((112 << 8) + (int)Direction.West):
                     destSquare = 119;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((128 << 8) + EAST):
+                case ((128 << 8) + (int)Direction.East):
                     destSquare = 64;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((128 << 8) + SOUTH):
+                case ((128 << 8) + (int)Direction.South):
                     destSquare = 112;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((128 << 8) + WEST):
+                case ((128 << 8) + (int)Direction.West):
                     destSquare = 144;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((144 << 8) + NORTH):
+                case ((144 << 8) + (int)Direction.North):
                     destSquare = 160;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((144 << 8) + EAST):
+                case ((144 << 8) + (int)Direction.East):
                     destSquare = 117;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((144 << 8) + WEST):
+                case ((144 << 8) + (int)Direction.West):
                     destSquare = 48;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((160 << 8) + EAST):
+                case ((160 << 8) + (int)Direction.East):
                     destSquare = 128;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((160 << 8) + SOUTH):
+                case ((160 << 8) + (int)Direction.South):
                     destSquare = 144;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((160 << 8) + WEST):
+                case ((160 << 8) + (int)Direction.West):
                     destSquare = 101;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((116 << 8) + NORTH):
+                case ((116 << 8) + (int)Direction.North):
                     destSquare = 128;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((116 << 8) + SOUTH):
+                case ((116 << 8) + (int)Direction.South):
                     destSquare = 119;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((116 << 8) + WEST):
+                case ((116 << 8) + (int)Direction.West):
                     destSquare = 48;
-                    destFacing = EAST;
+                    destFacing = Direction.East;
                     break;
-                case ((117 << 8) + NORTH):
+                case ((117 << 8) + (int)Direction.North):
                     destSquare = 117;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((117 << 8) + EAST):
+                case ((117 << 8) + (int)Direction.East):
                     destSquare = 102;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((117 << 8) + SOUTH):
+                case ((117 << 8) + (int)Direction.South):
                     destSquare = 160;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((101 << 8) + NORTH):
+                case ((101 << 8) + (int)Direction.North):
                     destSquare = 116;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((101 << 8) + SOUTH):
+                case ((101 << 8) + (int)Direction.South):
                     destSquare = 64;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((101 << 8) + WEST):
+                case ((101 << 8) + (int)Direction.West):
                     destSquare = 128;
-                    destFacing = EAST;
+                    destFacing = Direction.East;
                     break;
-                case ((102 << 8) + NORTH):
+                case ((102 << 8) + (int)Direction.North):
                     destSquare = 144;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((102 << 8) + EAST):
+                case ((102 << 8) + (int)Direction.East):
                     destSquare = 117;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((102 << 8) + SOUTH):
+                case ((102 << 8) + (int)Direction.South):
                     destSquare = 2;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((118 << 8) + NORTH):
+                case ((118 << 8) + (int)Direction.North):
                     destSquare = 128;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((118 << 8) + SOUTH):
+                case ((118 << 8) + (int)Direction.South):
                     destSquare = 144;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((118 << 8) + WEST):
+                case ((118 << 8) + (int)Direction.West):
                     destSquare = 117;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((119 << 8) + NORTH):
+                case ((119 << 8) + (int)Direction.North):
                     destSquare = 101;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((119 << 8) + EAST):
+                case ((119 << 8) + (int)Direction.East):
                     destSquare = 11;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((119 << 8) + SOUTH):
+                case ((119 << 8) + (int)Direction.South):
                     destSquare = 48;
-                    destFacing = EAST;
+                    destFacing = Direction.East;
                     break;
-                case ((11 << 8) + NORTH):
+                case ((11 << 8) + (int)Direction.North):
                     destSquare = 31;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((11 << 8) + EAST):
+                case ((11 << 8) + (int)Direction.East):
                     destSquare = 102;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((11 << 8) + WEST):
+                case ((11 << 8) + (int)Direction.West):
                     destSquare = 27;
-                    destFacing = EAST;
+                    destFacing = Direction.East;
                     break;
-                case ((27 << 8) + EAST):
+                case ((27 << 8) + (int)Direction.East):
                     destSquare = 116;
-                    destFacing = EAST;
+                    destFacing = Direction.East;
                     break;
-                case ((27 << 8) + SOUTH):
+                case ((27 << 8) + (int)Direction.South):
                     destSquare = 118;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((27 << 8) + WEST):
+                case ((27 << 8) + (int)Direction.West):
                     destSquare = 30;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((14 << 8) + NORTH):
+                case ((14 << 8) + (int)Direction.North):
                     destSquare = 64;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((14 << 8) + EAST):
+                case ((14 << 8) + (int)Direction.East):
                     destSquare = 79;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((14 << 8) + WEST):
+                case ((14 << 8) + (int)Direction.West):
                     destSquare = 128;
-                    destFacing = EAST;
+                    destFacing = Direction.East;
                     break;
-                case ((30 << 8) + EAST):
+                case ((30 << 8) + (int)Direction.East):
                     destSquare = 15;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((30 << 8) + SOUTH):
+                case ((30 << 8) + (int)Direction.South):
                     destSquare = 144;
-                    destFacing = EAST;
+                    destFacing = Direction.East;
                     break;
-                case ((30 << 8) + WEST):
+                case ((30 << 8) + (int)Direction.West):
                     destSquare = 11;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((15 << 8) + NORTH):
+                case ((15 << 8) + (int)Direction.North):
                     destSquare = 48;
-                    destFacing = EAST;
+                    destFacing = Direction.East;
                     break;
-                case ((15 << 8) + EAST):
+                case ((15 << 8) + (int)Direction.East):
                     destSquare = 15;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((15 << 8) + WEST):
+                case ((15 << 8) + (int)Direction.West):
                     destSquare = 102;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((31 << 8) + EAST):
+                case ((31 << 8) + (int)Direction.East):
                     destSquare = 27;
-                    destFacing = EAST;
+                    destFacing = Direction.East;
                     break;
-                case ((31 << 8) + SOUTH):
+                case ((31 << 8) + (int)Direction.South):
                     destSquare = 160;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((31 << 8) + WEST):
+                case ((31 << 8) + (int)Direction.West):
                     destSquare = 30;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((78 << 8) + NORTH):
+                case ((78 << 8) + (int)Direction.North):
                     destSquare = 112;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((78 << 8) + SOUTH):
+                case ((78 << 8) + (int)Direction.South):
                     destSquare = 27;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((78 << 8) + WEST):
+                case ((78 << 8) + (int)Direction.West):
                     destSquare = 30;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
-                case ((79 << 8) + NORTH):
+                case ((79 << 8) + (int)Direction.North):
                     destSquare = 15;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
-                case ((79 << 8) + EAST):
+                case ((79 << 8) + (int)Direction.East):
                     destSquare = 85;
-                    destFacing = NORTH;
+                    destFacing = Direction.North;
                     break;
-                case ((79 << 8) + SOUTH):
+                case ((79 << 8) + (int)Direction.South):
                     destSquare = 160;
-                    destFacing = WEST;
+                    destFacing = Direction.West;
                     break;
                 default:
                     destSquare = 222;
-                    destFacing = SOUTH;
+                    destFacing = Direction.South;
                     break;
             }
-            TELEPORT(player, type, doMsgs, 13, 2, destSquare, destFacing);
+            TeleportParty(player, type, doMsgs, 13, 2, destSquare, destFacing);
         }
         protected override void FnEvent12(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "A sign on the wall proclaims 'This way to the Ogress!'");
+            ShowText(player, type, doMsgs, "A sign on the wall proclaims 'This way to the Ogress!'");
         }
         protected override void FnEvent13(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (FLAG_OFF(player, type, doMsgs, PARTY, OGRESS_KILLED)) {
-                SET_FLAG(player, type, doMsgs, PARTY, OGRESS_KILLED, 1);
-                SHOW_TEXT(player, type, doMsgs, "Squatting in a pile of refuse is a repulsive, mottle-skinned creature. 'Ah!' she gurgles, smacking her rubbery lips, 'You must be dinner!'");
-                SET_BOOTY(player, type, doMsgs, 0, 0, 0, 0, 0, 0);
-                GET_MONSTER(player, type, doMsgs, 01, MONST_OGRESS);
+            if (IsFlagOff(player, type, doMsgs, FlagTypeParty, OGRESS_KILLED)) {
+                SetFlag(player, type, doMsgs, FlagTypeParty, OGRESS_KILLED, 1);
+                ShowText(player, type, doMsgs, "Squatting in a pile of refuse is a repulsive, mottle-skinned creature. 'Ah!' she gurgles, smacking her rubbery lips, 'You must be dinner!'");
+                SetTreasure(player, type, doMsgs, 0, 0, 0, 0, 0, 0);
+                AddEncounter(player, type, doMsgs, 01, MONST_OGRESS);
             }
         }
         protected override void FnEvent14(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 13, 2, 164, EAST);
+            TeleportParty(player, type, doMsgs, 13, 2, 164, Direction.East);
         }
         protected override void FnEvent15(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            TELEPORT(player, type, doMsgs, 13, 2, 164, EAST);
+            TeleportParty(player, type, doMsgs, 13, 2, 164, Direction.East);
         }
         protected override void FnEvent16(TwPlayerServer player, MapEventType type, bool doMsgs) {
             SixMonst(player, type, doMsgs, MONST_WIMPY_GRDS);
         }
         protected override void FnEvent17(TwPlayerServer player, MapEventType type, bool doMsgs) {
             int flag = 0;
-            flag = GET_FLAG(player, type, doMsgs, PARTY, FAKE_CHOR_SEEN);
-            switch (HERE(player, type, doMsgs)) {
+            flag = GetFlag(player, type, doMsgs, FlagTypeParty, FAKE_CHOR_SEEN);
+            switch (GetTile(player, type, doMsgs)) {
                 case 165:
                     if (((flag & 1) == 0)) {
-                        SHOW_TEXT(player, type, doMsgs, "Ahead of you through the layers of smoke you see a massive golden throne.");
+                        ShowText(player, type, doMsgs, "Ahead of you through the layers of smoke you see a massive golden throne.");
                         flag |= 1;
                     }
                     break;
                 case 166:
                     if (((flag & 2) == 0)) {
-                        SHOW_TEXT(player, type, doMsgs, "As you draw closer you make out an insoucient figure lounging on the throne, dressed in jester's motley.");
+                        ShowText(player, type, doMsgs, "As you draw closer you make out an insoucient figure lounging on the throne, dressed in jester's motley.");
                         flag |= 2;
                     }
                     break;
                 case 167:
                     if (((flag & 4) == 0)) {
-                        SHOW_TEXT(player, type, doMsgs, "The crazed figure on the throne stands, stares at you briefly, then prances off to the southeast, cackling like a lunatic. He dives into a pit and vanishes.");
+                        ShowText(player, type, doMsgs, "The crazed figure on the throne stands, stares at you briefly, then prances off to the southeast, cackling like a lunatic. He dives into a pit and vanishes.");
                         flag |= 4;
                     }
                     break;
             }
-            SET_FLAG(player, type, doMsgs, PARTY, FAKE_CHOR_SEEN, flag);
+            SetFlag(player, type, doMsgs, FlagTypeParty, FAKE_CHOR_SEEN, flag);
         }
         protected override void FnEvent18(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "The boiling lava scorches you mildly.");
-            DAMAGE(player, type, doMsgs, 1);
+            ShowText(player, type, doMsgs, "The boiling lava scorches you mildly.");
+            DoDamage(player, type, doMsgs, 1);
         }
         protected override void FnEvent19(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            SHOW_TEXT(player, type, doMsgs, "The brackish water offends your nostrils.");
+            ShowText(player, type, doMsgs, "The brackish water offends your nostrils.");
         }
         protected override void FnEvent1A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            switch (HERE(player, type, doMsgs)) {
+            switch (GetTile(player, type, doMsgs)) {
                 case 4:
                 case 6:
                 case 8:
@@ -675,44 +675,44 @@ namespace XPT.Twinion.Maps {
                 case 70:
                 case 72:
                 default:
-                    TELEPORT(player, type, doMsgs, 13, 2, 222, NORTH);
+                    TeleportParty(player, type, doMsgs, 13, 2, 222, Direction.North);
                     break;
             }
         }
         protected override void FnEvent1B(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            switch (HERE(player, type, doMsgs)) {
+            switch (GetTile(player, type, doMsgs)) {
                 case 201:
-                    TELEPORT(player, type, doMsgs, 13, 2, 218, SOUTH);
+                    TeleportParty(player, type, doMsgs, 13, 2, 218, Direction.South);
                     break;
                 case 202:
                 default:
-                    TELEPORT(player, type, doMsgs, 13, 2, 185, NORTH);
+                    TeleportParty(player, type, doMsgs, 13, 2, 185, Direction.North);
                     break;
             }
         }
         protected override void FnEvent1C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (FLAG_OFF(player, type, doMsgs, PARTY, FAKE_CHOR_KILLED)) {
-                SET_FLAG(player, type, doMsgs, PARTY, FAKE_CHOR_KILLED, 1);
-                SHOW_TEXT(player, type, doMsgs, "You set upon Choronzar as he scurries away. 'No!,' he squeals, 'you can't do this!'");
-                GET_MONSTER(player, type, doMsgs, 01, MONST_FAKE_CHOR);
+            if (IsFlagOff(player, type, doMsgs, FlagTypeParty, FAKE_CHOR_KILLED)) {
+                SetFlag(player, type, doMsgs, FlagTypeParty, FAKE_CHOR_KILLED, 1);
+                ShowText(player, type, doMsgs, "You set upon Choronzar as he scurries away. 'No!,' he squeals, 'you can't do this!'");
+                AddEncounter(player, type, doMsgs, 01, MONST_FAKE_CHOR);
             }
         }
         protected override void FnEvent1D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-            if (FLAG_OFF(player, type, doMsgs, ROOM, SEEN_IT)) {
-                SET_FLAG(player, type, doMsgs, ROOM, SEEN_IT, 1);
-                SHOW_TEXT(player, type, doMsgs, "A golden sarcophagus of regal dimensions glows dully in the torchlight. Upon further inspection you notice a ring-shaped indentation in the lid.");
+            if (IsFlagOff(player, type, doMsgs, FlagTypeTile, SEEN_IT)) {
+                SetFlag(player, type, doMsgs, FlagTypeTile, SEEN_IT, 1);
+                ShowText(player, type, doMsgs, "A golden sarcophagus of regal dimensions glows dully in the torchlight. Upon further inspection you notice a ring-shaped indentation in the lid.");
             }
-            if (USED_ITEM(player, type, doMsgs, BRASSRING, BRASSRING)) {
-                if (FLAG_OFF(player, type, doMsgs, ROOM, DONE_IT)) {
-                    SET_FLAG(player, type, doMsgs, ROOM, DONE_IT, 1);
+            if (UsedItem(player, type, ref doMsgs, BRASSRING, BRASSRING)) {
+                if (IsFlagOff(player, type, doMsgs, FlagTypeTile, DONE_IT)) {
+                    SetFlag(player, type, doMsgs, FlagTypeTile, DONE_IT, 1);
                 }
-                SHOW_TEXT(player, type, doMsgs, "You place the Brass Ring in the indentation. There is a hissing sound and a flash of intense white light, then the Brass Ring is gone. A portal has opened to the west!");
-                TAKE_ITEM(player, type, doMsgs, BRASSRING);
-                HIDE_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
-                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), WEST);
-                SET_FLAG(player, type, doMsgs, PARTY, TOWER_DISKS1, 1);
-                SET_FLAG(player, type, doMsgs, PARTY, TOWER_DISKS2, 2);
-                SET_FLAG(player, type, doMsgs, PARTY, TOWER_DISKS3, 4);
+                ShowText(player, type, doMsgs, "You place the Brass Ring in the indentation. There is a hissing sound and a flash of intense white light, then the Brass Ring is gone. A portal has opened to the west!");
+                RemoveItem(player, type, doMsgs, BRASSRING);
+                SetWallInvisible(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.West);
+                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), Direction.West);
+                SetFlag(player, type, doMsgs, FlagTypeParty, TOWER_DISKS1, 1);
+                SetFlag(player, type, doMsgs, FlagTypeParty, TOWER_DISKS2, 2);
+                SetFlag(player, type, doMsgs, FlagTypeParty, TOWER_DISKS3, 4);
             }
         }
         protected override void FnEvent1E(TwPlayerServer player, MapEventType type, bool doMsgs) {
@@ -723,7 +723,7 @@ namespace XPT.Twinion.Maps {
             int thisBits = 0x01;
             int thatBits = 0x01;
             int switchFlag = 0;
-            switchFlag = HERE(player, type, doMsgs);
+            switchFlag = GetTile(player, type, doMsgs);
             switch (switchFlag) {
                 case 214:
                     thisFlagOff = 0;
@@ -735,26 +735,26 @@ namespace XPT.Twinion.Maps {
                     thisFlagOff = 2;
                     break;
             }
-            thisFlag = GET_FLAG(player, type, doMsgs, PARTY, TOWER_DISKS1 + thisFlagOff);
-            if (USED_ITEM(player, type, doMsgs, FUNHOUSEKEY, FUNHOUSEKEY)) {
+            thisFlag = GetFlag(player, type, doMsgs, FlagTypeParty, TOWER_DISKS1 + thisFlagOff);
+            if (UsedItem(player, type, ref doMsgs, FUNHOUSEKEY, FUNHOUSEKEY)) {
                 switchFlag <<= 8;
-                switchFlag |= FACING(player, type, doMsgs);
+                switchFlag |= (int)GetFacing(player, type, doMsgs);
                 switch (switchFlag) {
-                    case ((214 << 8) | SOUTH):
+                    case ((214 << 8) | (int)Direction.South):
                         targFlagOff = 1;
                         break;
-                    case ((230 << 8) | NORTH):
+                    case ((230 << 8) | (int)Direction.North):
                         targFlagOff = 0;
                         break;
-                    case ((230 << 8) | SOUTH):
+                    case ((230 << 8) | (int)Direction.South):
                         targFlagOff = 2;
                         break;
-                    case ((246 << 8) | NORTH):
+                    case ((246 << 8) | (int)Direction.North):
                         targFlagOff = 1;
                         break;
                 }
                 if (targFlagOff != 100) {
-                    targFlag = GET_FLAG(player, type, doMsgs, PARTY, TOWER_DISKS1 + targFlagOff);
+                    targFlag = GetFlag(player, type, doMsgs, FlagTypeParty, TOWER_DISKS1 + targFlagOff);
                     thisFlag |= 0x8;
                     while (((thisFlag & thisBits) == 0))
                         thisBits <<= 1;
@@ -768,56 +768,56 @@ namespace XPT.Twinion.Maps {
                             if ((thisBits != 0) && ((thatBits == 0) || (thisBits < thatBits))) {
                                 switch (thisBits) {
                                     case 1:
-                                        SHOW_TEXT(player, type, doMsgs, "The small wooden disk spins into the air and lands gracefully on the next peg.");
+                                        ShowText(player, type, doMsgs, "The small wooden disk spins into the air and lands gracefully on the next peg.");
                                         break;
                                     case 2:
-                                        SHOW_TEXT(player, type, doMsgs, "The medium wooden disk spins into the air and lands gracefully on the next peg.");
+                                        ShowText(player, type, doMsgs, "The medium wooden disk spins into the air and lands gracefully on the next peg.");
                                         break;
                                     case 3:
-                                        SHOW_TEXT(player, type, doMsgs, "The large wooden disk spins into the air and lands gracefully on the next peg.");
+                                        ShowText(player, type, doMsgs, "The large wooden disk spins into the air and lands gracefully on the next peg.");
                                         break;
                                 }
                                 targFlag |= thisBits;
                                 thisFlag &= ~thisBits;
-                                SET_FLAG(player, type, doMsgs, PARTY, TOWER_DISKS1 + thisFlagOff, thisFlag);
-                                SET_FLAG(player, type, doMsgs, PARTY, TOWER_DISKS1 + targFlagOff, targFlag);
-                                SET_FLAG(player, type, doMsgs, ROOM, SEEN_IT, 0);
+                                SetFlag(player, type, doMsgs, FlagTypeParty, TOWER_DISKS1 + thisFlagOff, thisFlag);
+                                SetFlag(player, type, doMsgs, FlagTypeParty, TOWER_DISKS1 + targFlagOff, targFlag);
+                                SetFlag(player, type, doMsgs, FlagTypeTile, SEEN_IT, 0);
                             }
                         }
                     }
-                    if (FLAG_OFF(player, type, doMsgs, ROOM, SEEN_IT)) {
-                        SET_FLAG(player, type, doMsgs, ROOM, SEEN_IT, 1);
-                        SHOW_TEXT(player, type, doMsgs, "There is an iron peg sticking up from the floor here. Impaled on the peg you see:");
+                    if (IsFlagOff(player, type, doMsgs, FlagTypeTile, SEEN_IT)) {
+                        SetFlag(player, type, doMsgs, FlagTypeTile, SEEN_IT, 1);
+                        ShowText(player, type, doMsgs, "There is an iron peg sticking up from the floor here. Impaled on the peg you see:");
                         if (thisFlag == 0) {
-                            SHOW_TEXT(player, type, doMsgs, "Nothing.");
+                            ShowText(player, type, doMsgs, "Nothing.");
                         }
                         else if (thisFlag == 0x07) {
-                            SHOW_TEXT(player, type, doMsgs, "All three wooden disks -- the completed Tower of Annoy!");
+                            ShowText(player, type, doMsgs, "All three wooden disks -- the completed Tower of Annoy!");
                         }
                         else {
                             if (IsTrue(thisFlag & 0x4)) {
-                                SHOW_TEXT(player, type, doMsgs, "A large wooden disk.");
+                                ShowText(player, type, doMsgs, "A large wooden disk.");
                             }
                             if (IsTrue(thisFlag & 0x2)) {
-                                SHOW_TEXT(player, type, doMsgs, "A medium-sized wooden disk.");
+                                ShowText(player, type, doMsgs, "A medium-sized wooden disk.");
                             }
                             if (IsTrue(thisFlag & 0x1)) {
-                                SHOW_TEXT(player, type, doMsgs, "A small wooden disk.");
+                                ShowText(player, type, doMsgs, "A small wooden disk.");
                             }
                         }
                     }
                 }
                 protected override void FnEvent1F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (FLAG_OFF(player, type, doMsgs, PARTY, EASTER_EGG)) {
-                        SHOW_TEXT(player, type, doMsgs, "You plunge to your doom.");
-                        DAMAGE(player, type, doMsgs, MAX_HEALTH(player, type, doMsgs));
+                    if (IsFlagOff(player, type, doMsgs, FlagTypeParty, EASTER_EGG)) {
+                        ShowText(player, type, doMsgs, "You plunge to your doom.");
+                        DoDamage(player, type, doMsgs, GetHealthMax(player, type, doMsgs));
                     }
                 }
                 protected override void FnEvent20(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     string strPtr = string.Empty;
                     int flagOff = 0;
                     int flag = 0;
-                    switch (HERE(player, type, doMsgs)) {
+                    switch (GetTile(player, type, doMsgs)) {
                         case 214:
                             strPtr = door1Str;
                             flagOff = 0;
@@ -831,69 +831,69 @@ namespace XPT.Twinion.Maps {
                             flagOff = 2;
                             break;
                     }
-                    if (FLAG_OFF(player, type, doMsgs, ROOM, SEEN_IT)) {
-                        SET_FLAG(player, type, doMsgs, ROOM, SEEN_IT, 1);
-                        SHOW_TEXT(player, type, doMsgs, "A sepuchral voice speaks from the door:");
-                        SHOW_TEXT(player, type, doMsgs, strPtr);
+                    if (IsFlagOff(player, type, doMsgs, FlagTypeTile, SEEN_IT)) {
+                        SetFlag(player, type, doMsgs, FlagTypeTile, SEEN_IT, 1);
+                        ShowText(player, type, doMsgs, "A sepuchral voice speaks from the door:");
+                        ShowText(player, type, doMsgs, strPtr);
                     }
-                    flag = GET_FLAG(player, type, doMsgs, PARTY, TOWER_DISKS1 + flagOff);
+                    flag = GetFlag(player, type, doMsgs, FlagTypeParty, TOWER_DISKS1 + flagOff);
                     if (flag == 0x07) {
                         switch (flagOff) {
                             case 0:
-                                TELEPORT(player, type, doMsgs, 13, 2, 176, SOUTH);
+                                TeleportParty(player, type, doMsgs, 13, 2, 176, Direction.South);
                                 break;
                             case 1:
                             case 2:
-                                TELEPORT(player, type, doMsgs, 13, 2, 245, SOUTH);
+                                TeleportParty(player, type, doMsgs, 13, 2, 245, Direction.South);
                                 break;
                         }
                     }
                 }
                 protected override void FnEvent21(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     int flag = 0;
-                    if (((GET_FLAG(player, type, doMsgs, DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) == 0)) {
-                        flag = GET_FLAG(player, type, doMsgs, PARTY, CHOR_TAUNT);
+                    if (((GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) == 0)) {
+                        flag = GetFlag(player, type, doMsgs, FlagTypeParty, CHOR_TAUNT);
                         if (flag <= 1) {
-                            SHOW_PICTURE(player, type, doMsgs, CHORONZAR_PIC);
+                            ShowPortrait(player, type, doMsgs, CHORONZAR_PIC);
                         }
                         switch (flag) {
                             case 0:
-                                SHOW_TEXT(player, type, doMsgs, "The door across the chasm opens and a strange figure in red and green jester's motley capers through. 'How delightful! % It is SO rare these days that I entertain mortals. %%' He grins and cocks his head, jingling the bells on his cap.");
-                                SHOW_TEXT(player, type, doMsgs, "'You needn't look so crestfallen...surely you didn't mistake my little simulacrum for the real thing! %' He giggles to himself and stares vacantly into the distance for a moment.");
-                                SHOW_TEXT(player, type, doMsgs, "You've created quite a stir here in my household %, and I'm sure you are MOST charming -- for mortals %% -- but I really MUST insist that you leave now.");
-                                SHOW_TEXT(player, type, doMsgs, "I have plans -- so MANY plans %% -- and I simply can't allow any interference from the likes of you.  I trust you know the way out. % Good Bye! %%'");
+                                ShowText(player, type, doMsgs, "The door across the chasm opens and a strange figure in red and green jester's motley capers through. 'How delightful! % It is SO rare these days that I entertain mortals. %%' He grins and cocks his head, jingling the bells on his cap.");
+                                ShowText(player, type, doMsgs, "'You needn't look so crestfallen...surely you didn't mistake my little simulacrum for the real thing! %' He giggles to himself and stares vacantly into the distance for a moment.");
+                                ShowText(player, type, doMsgs, "You've created quite a stir here in my household %, and I'm sure you are MOST charming -- for mortals %% -- but I really MUST insist that you leave now.");
+                                ShowText(player, type, doMsgs, "I have plans -- so MANY plans %% -- and I simply can't allow any interference from the likes of you.  I trust you know the way out. % Good Bye! %%'");
                                 break;
                             case 1:
-                                SHOW_TEXT(player, type, doMsgs, "Choronzar's face twists into a rictus of rage. 'What!?! ^', he shrieks. 'Still here!? ^' Frothy flecks of spittle fly from his lips.");
-                                SHOW_TEXT(player, type, doMsgs, "'You poor, pathetic mortals. %^ How strange it must be to crawl about the surface of your dirty world, knowing that you are doomed to die -- like a condemned criminal who knows not when the executioner will call.");
-                                SHOW_TEXT(player, type, doMsgs, "You realize the cause is hopeless, yet you persist!' He sighs. 'So be it. % Continue on if you must, for the Riddle Room is far beyond your puny powers of comprehension. ^%' He whirls abruptly and stalks away through the door to the West.");
+                                ShowText(player, type, doMsgs, "Choronzar's face twists into a rictus of rage. 'What!?! ^', he shrieks. 'Still here!? ^' Frothy flecks of spittle fly from his lips.");
+                                ShowText(player, type, doMsgs, "'You poor, pathetic mortals. %^ How strange it must be to crawl about the surface of your dirty world, knowing that you are doomed to die -- like a condemned criminal who knows not when the executioner will call.");
+                                ShowText(player, type, doMsgs, "You realize the cause is hopeless, yet you persist!' He sighs. 'So be it. % Continue on if you must, for the Riddle Room is far beyond your puny powers of comprehension. ^%' He whirls abruptly and stalks away through the door to the West.");
                                 break;
                         }
-                        SET_FLAG(player, type, doMsgs, PARTY, CHOR_TAUNT, ++flag);
+                        SetFlag(player, type, doMsgs, FlagTypeParty, CHOR_TAUNT, ++flag);
                     }
                 }
                 protected override void FnEvent22(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    TELEPORT(player, type, doMsgs, 13, 2, 230, EAST);
+                    TeleportParty(player, type, doMsgs, 13, 2, 230, Direction.East);
                 }
                 protected override void FnEvent23(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    switch (HERE(player, type, doMsgs)) {
+                    switch (GetTile(player, type, doMsgs)) {
                         case 242:
-                            TELEPORT(player, type, doMsgs, 13, 2, 123, NORTH);
+                            TeleportParty(player, type, doMsgs, 13, 2, 123, Direction.North);
                             break;
                         case 29:
-                            TELEPORT(player, type, doMsgs, 13, 2, 22, NORTH);
+                            TeleportParty(player, type, doMsgs, 13, 2, 22, Direction.North);
                             break;
                         default:
-                            TELEPORT(player, type, doMsgs, 13, 2, 245, SOUTH);
+                            TeleportParty(player, type, doMsgs, 13, 2, 245, Direction.South);
                             break;
                     }
                 }
                 protected override void FnEvent25(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SHOW_TEXT(player, type, doMsgs, "A gleaming platinum plaque set into the floor reads: 'Riddle me this: I am He who lurks at the end of Life. Mine is the power to alter that which came before Me.'");
+                    ShowText(player, type, doMsgs, "A gleaming platinum plaque set into the floor reads: 'Riddle me this: I am He who lurks at the end of Life. Mine is the power to alter that which came before Me.'");
                 }
                 protected override void FnEvent26(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     int monster = 0;
-                    switch (HERE(player, type, doMsgs)) {
+                    switch (GetTile(player, type, doMsgs)) {
                         case 122:
                         case 88:
                         case 56:
@@ -944,58 +944,58 @@ namespace XPT.Twinion.Maps {
                     int i = 0;
                     int treasure = 0;
                     int square = 0;
-                    int facing = 0;
-                    NO_MAPS(player, type, doMsgs);
-                    SHOW_TEXT(player, type, doMsgs, "You continue to tumble through the Vortex, buffeted by gusts of stale wind.");
-                    flag = GET_FLAG(player, type, doMsgs, PARTY, VORTEX_COUNT);
-                    SET_FLAG(player, type, doMsgs, PARTY, VORTEX_COUNT, flag + 1);
+                    Direction facing = 0;
+                    DisableAutomaps(player, type, doMsgs);
+                    ShowText(player, type, doMsgs, "You continue to tumble through the Vortex, buffeted by gusts of stale wind.");
+                    flag = GetFlag(player, type, doMsgs, FlagTypeParty, VORTEX_COUNT);
+                    SetFlag(player, type, doMsgs, FlagTypeParty, VORTEX_COUNT, flag + 1);
                     switch (flag % 9) {
                         case 0:
                             square = 38;
-                            facing = NORTH;
+                            facing = Direction.North;
                             break;
                         case 1:
                             square = 7;
-                            facing = WEST;
+                            facing = Direction.West;
                             break;
                         case 2:
                             square = 21;
-                            facing = EAST;
+                            facing = Direction.East;
                             break;
                         case 3:
                             square = 5;
-                            facing = EAST;
+                            facing = Direction.East;
                             break;
                         case 4:
                             square = 22;
-                            facing = NORTH;
+                            facing = Direction.North;
                             break;
                         case 5:
                             square = 39;
-                            facing = WEST;
+                            facing = Direction.West;
                             break;
                         case 6:
                             square = 23;
-                            facing = WEST;
+                            facing = Direction.West;
                             break;
                         case 7:
                             square = 37;
-                            facing = EAST;
+                            facing = Direction.East;
                             break;
                         case 8:
                         default:
                             square = 6;
-                            facing = SOUTH;
+                            facing = Direction.South;
                             break;
                     }
-                    if (HERE(player, type, doMsgs) == 6) {
-                        PLACE_WALL_ITEM(player, type, doMsgs, GATEWAY, 6, NORTH);
+                    if (GetTile(player, type, doMsgs) == 6) {
+                        SetWallItem(player, type, doMsgs, GATEWAY, 6, Direction.North);
                     }
                     else {
-                        REMOVE_WALL_ITEM(player, type, doMsgs, 6, NORTH);
+                        ClearWallItem(player, type, doMsgs, 6, Direction.North);
                     }
-                    SET_FLAG(player, type, doMsgs, PARTY, VORTEX_SQUARE, square);
-                    SET_FLAG(player, type, doMsgs, PARTY, VORTEX_FACING, facing);
+                    SetFlag(player, type, doMsgs, FlagTypeParty, VORTEX_SQUARE, square);
+                    SetFlag(player, type, doMsgs, FlagTypeParty, VORTEX_FACING, (int)facing);
                     if ((flag != 0) && (flag % 7) == 0) {
                         treasure = SPIRITBOTTLE;
                     }
@@ -1003,19 +1003,19 @@ namespace XPT.Twinion.Maps {
                         treasure = CUREPOTION;
                     }
                     flag %= 3;
-                    SET_BOOTY(player, type, doMsgs, CUREPOTION, CUREPOTION, CUREPOTION, treasure, CUREPOTION, 0);
-                    for (i = 1; i <= (PARTY_COUNT(player, type, doMsgs) + 1); i++) {
-                        GET_MONSTER(player, type, doMsgs, i, MONST_VORTEX_1 + flag);
+                    SetTreasure(player, type, doMsgs, CUREPOTION, CUREPOTION, CUREPOTION, treasure, CUREPOTION, 0);
+                    for (i = 1; i <= (GetPartyCount(player, type, doMsgs) + 1); i++) {
+                        AddEncounter(player, type, doMsgs, i, MONST_VORTEX_1 + flag);
                     }
                 }
                 protected override void FnEvent28(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     string strPtr1 = string.Empty;
                     string strPtr2 = string.Empty;
-                    if (USED_ITEM(player, type, doMsgs, HACKSAWBLADE, HACKSAWBLADE) && FLAG_OFF(player, type, doMsgs, ROOM, DONE_IT)) {
-                        SET_FLAG(player, type, doMsgs, ROOM, DONE_IT, 1);
-                        SHOW_TEXT(player, type, doMsgs, "With a CRACK the shackles burst open in a shower of sparks.  The Hacksaw Blade has been ruined as well.");
-                        TAKE_ITEM(player, type, doMsgs, HACKSAWBLADE);
-                        switch (HERE(player, type, doMsgs)) {
+                    if (UsedItem(player, type, ref doMsgs, HACKSAWBLADE, HACKSAWBLADE) && IsFlagOff(player, type, doMsgs, FlagTypeTile, DONE_IT)) {
+                        SetFlag(player, type, doMsgs, FlagTypeTile, DONE_IT, 1);
+                        ShowText(player, type, doMsgs, "With a CRACK the shackles burst open in a shower of sparks.  The Hacksaw Blade has been ruined as well.");
+                        RemoveItem(player, type, doMsgs, HACKSAWBLADE);
+                        switch (GetTile(player, type, doMsgs)) {
                             case 0:
                                 strPtr1 = menageRescueThanks;
                                 break;
@@ -1041,41 +1041,41 @@ namespace XPT.Twinion.Maps {
                                 break;
                         }
                     }
-                    else if (FLAG_OFF(player, type, doMsgs, ROOM, SEEN_IT)) {
-                        SET_FLAG(player, type, doMsgs, ROOM, SEEN_IT, 1);
-                        switch (HERE(player, type, doMsgs)) {
+                    else if (IsFlagOff(player, type, doMsgs, FlagTypeTile, SEEN_IT)) {
+                        SetFlag(player, type, doMsgs, FlagTypeTile, SEEN_IT, 1);
+                        switch (GetTile(player, type, doMsgs)) {
                             case 0:
-                                SHOW_PICTURE(player, type, doMsgs, PRISONER1_PIC);
+                                ShowPortrait(player, type, doMsgs, PRISONER1_PIC);
                                 strPtr1 = menageDescPrisoner;
                                 strPtr2 = menageWeird1;
                                 break;
                             case 16:
-                                SHOW_PICTURE(player, type, doMsgs, ARCHITECT_PIC);
+                                ShowPortrait(player, type, doMsgs, ARCHITECT_PIC);
                                 strPtr1 = menageDescPrisoner;
                                 strPtr2 = menageWeird2;
                                 break;
                             case 18:
-                                SHOW_PICTURE(player, type, doMsgs, HANDMAIDEN_PIC);
+                                ShowPortrait(player, type, doMsgs, HANDMAIDEN_PIC);
                                 strPtr1 = menageDescPrisoner;
                                 strPtr2 = menageWeird3;
                                 break;
                             case 20:
-                                SHOW_PICTURE(player, type, doMsgs, PRISONER2_PIC);
+                                ShowPortrait(player, type, doMsgs, PRISONER2_PIC);
                                 strPtr1 = menageDescPrisoner;
                                 strPtr2 = menageWeird4;
                                 break;
                             case 36:
-                                SHOW_PICTURE(player, type, doMsgs, ALCHEMIST_PIC);
+                                ShowPortrait(player, type, doMsgs, ALCHEMIST_PIC);
                                 strPtr1 = menageDescPrisoner;
                                 strPtr2 = menageWeird5;
                                 break;
                             case 49:
-                                SHOW_PICTURE(player, type, doMsgs, MASTERPUZZLER_PIC);
+                                ShowPortrait(player, type, doMsgs, MASTERPUZZLER_PIC);
                                 strPtr1 = menageDescPrisoner;
                                 strPtr2 = menageWeird6;
                                 break;
                             case 50:
-                                SHOW_PICTURE(player, type, doMsgs, PRISONER3_PIC);
+                                ShowPortrait(player, type, doMsgs, PRISONER3_PIC);
                                 strPtr1 = menageDescPrisoner;
                                 strPtr2 = menageWeird7;
                                 break;
@@ -1085,18 +1085,18 @@ namespace XPT.Twinion.Maps {
                         }
                     }
                     if (strPtr1 != null) {
-                        SHOW_TEXT(player, type, doMsgs, strPtr1);
+                        ShowText(player, type, doMsgs, strPtr1);
                     }
                     if (strPtr2 != null) {
-                        SHOW_TEXT(player, type, doMsgs, "As if in a feverish dream, the prisoner cries out:");
-                        SHOW_TEXT(player, type, doMsgs, strPtr2);
+                        ShowText(player, type, doMsgs, "As if in a feverish dream, the prisoner cries out:");
+                        ShowText(player, type, doMsgs, strPtr2);
                     }
                 }
                 protected override void FnEvent29(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    TELEPORT(player, type, doMsgs, 13, 2, 101, NORTH);
+                    TeleportParty(player, type, doMsgs, 13, 2, 101, Direction.North);
                 }
                 protected override void FnEvent2A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SET_FLAG(player, type, doMsgs, PARTY, CAROUSEL_CNT, CAROUSEL_REVS);
+                    SetFlag(player, type, doMsgs, FlagTypeParty, CAROUSEL_CNT, CAROUSEL_REVS);
                 }
                 protected override void FnEvent2B(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     SixMonst(player, type, doMsgs, MONST_MIRRHALL_A);
@@ -1111,9 +1111,9 @@ namespace XPT.Twinion.Maps {
                     string strPtr = string.Empty;
                     int nexFlags1 = 0;
                     int square = -1;
-                    nexFlags1 = GET_FLAG(player, type, doMsgs, PARTY, NEXUS_PUZZLE);
+                    nexFlags1 = GetFlag(player, type, doMsgs, FlagTypeParty, NEXUS_PUZZLE);
                     if (nexFlags1 == 0) {
-                        switch (HERE(player, type, doMsgs)) {
+                        switch (GetTile(player, type, doMsgs)) {
                             case 106:
                                 square = 123;
                                 strPtr = aStr;
@@ -1132,7 +1132,7 @@ namespace XPT.Twinion.Maps {
                                 break;
                             case 44:
                                 strPtr = eStr;
-                                CLEAR_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
+                                ClearWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), GetFacing(player, type, doMsgs));
                                 break;
                             case 61:
                                 square = 123;
@@ -1150,101 +1150,101 @@ namespace XPT.Twinion.Maps {
                                 break;
                         }
                         if (square !=  - 1) {
-                            TELEPORT(player, type, doMsgs, 13, 2, square, NORTH);
+                            TeleportParty(player, type, doMsgs, 13, 2, square, Direction.North);
                         }
                     }
                     if (strPtr != null) {
-                        SHOW_TEXT(player, type, doMsgs, "Above the door a stone tablet reads:");
-                        SHOW_TEXT(player, type, doMsgs, strPtr);
+                        ShowText(player, type, doMsgs, "Above the door a stone tablet reads:");
+                        ShowText(player, type, doMsgs, strPtr);
                     }
                 }
                 protected override void FnEvent30(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    TELEPORT(player, type, doMsgs, 13, 2, 242, WEST);
+                    TeleportParty(player, type, doMsgs, 13, 2, 242, Direction.West);
                 }
                 protected override void FnEvent32(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
+                    SetWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), GetFacing(player, type, doMsgs));
                 }
                 protected override void FnEvent33(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    BLOCK_WALL(player, type, doMsgs, HERE(player, type, doMsgs), FACING(player, type, doMsgs));
-                    TELEPORT(player, type, doMsgs, 13, 2, GET_FLAG(player, type, doMsgs, PARTY, VORTEX_SQUARE), GET_FLAG(player, type, doMsgs, PARTY, VORTEX_FACING));
+                    SetWallBlock(player, type, doMsgs, GetTile(player, type, doMsgs), GetFacing(player, type, doMsgs));
+                    TeleportParty(player, type, doMsgs, 13, 2, GetFlag(player, type, doMsgs, FlagTypeParty, VORTEX_SQUARE), (Direction)GetFlag(player, type, doMsgs, FlagTypeParty, VORTEX_FACING));
                 }
                 protected override void FnEvent34(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    TELEPORT(player, type, doMsgs, 13, 2, 222, SOUTH);
+                    TeleportParty(player, type, doMsgs, 13, 2, 222, Direction.South);
                 }
                 protected override void FnEvent35(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    NO_MAPS(player, type, doMsgs);
-                    SHOW_TEXT(player, type, doMsgs, "From the darkness above you Choronzar's voice whispers, 'Good guess! % Too bad it was WRONG. %% Welcome to the Penalty Box...'");
+                    DisableAutomaps(player, type, doMsgs);
+                    ShowText(player, type, doMsgs, "From the darkness above you Choronzar's voice whispers, 'Good guess! % Too bad it was WRONG. %% Welcome to the Penalty Box...'");
                     SixMonst(player, type, doMsgs, MONST_PENALTY);
                 }
                 protected override void FnEvent36(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    TELEPORT(player, type, doMsgs, 13, 2, 171, NORTH);
+                    TeleportParty(player, type, doMsgs, 13, 2, 171, Direction.North);
                 }
                 protected override void FnEvent37(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    TELEPORT(player, type, doMsgs, 13, 2, 222, EAST);
+                    TeleportParty(player, type, doMsgs, 13, 2, 222, Direction.East);
                 }
                 protected override void FnEvent38(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SHOW_TEXT(player, type, doMsgs, "A wooden sign hanging from the ceiling reads:");
-                    SHOW_TEXT(player, type, doMsgs, "'HALL OF MIRRORS.");
-                    SHOW_TEXT(player, type, doMsgs, "These mirrors show thine own face,");
-                    SHOW_TEXT(player, type, doMsgs, "Distorted and impure.");
-                    SHOW_TEXT(player, type, doMsgs, "But seek the dour countenance,");
-                    SHOW_TEXT(player, type, doMsgs, "Brow girdled with azure.'");
+                    ShowText(player, type, doMsgs, "A wooden sign hanging from the ceiling reads:");
+                    ShowText(player, type, doMsgs, "'HALL OF MIRRORS.");
+                    ShowText(player, type, doMsgs, "These mirrors show thine own face,");
+                    ShowText(player, type, doMsgs, "Distorted and impure.");
+                    ShowText(player, type, doMsgs, "But seek the dour countenance,");
+                    ShowText(player, type, doMsgs, "Brow girdled with azure.'");
                 }
                 protected override void FnEvent39(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     int twistyCnt = 0;
-                    NO_MAPS(player, type, doMsgs);
-                    if (HERE(player, type, doMsgs) == 48) {
-                        SET_FLAG(player, type, doMsgs, PARTY, MAJOR_DOMO, 6);
+                    DisableAutomaps(player, type, doMsgs);
+                    if (GetTile(player, type, doMsgs) == 48) {
+                        SetFlag(player, type, doMsgs, FlagTypeParty, MAJOR_DOMO, 6);
                     }
-                    if (FLAG_OFF(player, type, doMsgs, ROOM, DONE_IT)) {
-                        twistyCnt = GET_FLAG(player, type, doMsgs, PARTY, TWISTY_COUNT);
-                        if (USED_SKILL(player, type, doMsgs, DETECT_SKILL) >= 1) {
-                            SHOW_TEXT(player, type, doMsgs, "Your search reveals monsters!");
+                    if (IsFlagOff(player, type, doMsgs, FlagTypeTile, DONE_IT)) {
+                        twistyCnt = GetFlag(player, type, doMsgs, FlagTypeParty, TWISTY_COUNT);
+                        if (HasUsedSkill(player, type, ref doMsgs, DETECT_SKILL) >= 1) {
+                            ShowText(player, type, doMsgs, "Your search reveals monsters!");
                             SixMonst(player, type, doMsgs, MONST_TWISTY);
-                            SET_FLAG(player, type, doMsgs, ROOM, DONE_IT, 1);
+                            SetFlag(player, type, doMsgs, FlagTypeTile, DONE_IT, 1);
                         }
                         else {
                             twistyCnt++;
                             if (((twistyCnt % 5) == 0) || ((twistyCnt % 7) == 0)) {
-                                SET_BOOTY(player, type, doMsgs, MANAAMPHORA, HEALAMPHORA, CUREPOTION, HACKSAWBLADE, 0, 0);
+                                SetTreasure(player, type, doMsgs, MANAAMPHORA, HEALAMPHORA, CUREPOTION, HACKSAWBLADE, 0, 0);
                                 SixMonst(player, type, doMsgs, MONST_TWISTY);
-                                SET_FLAG(player, type, doMsgs, ROOM, DONE_IT, 1);
+                                SetFlag(player, type, doMsgs, FlagTypeTile, DONE_IT, 1);
                             }
                         }
-                        SET_FLAG(player, type, doMsgs, PARTY, TWISTY_COUNT, twistyCnt);
+                        SetFlag(player, type, doMsgs, FlagTypeParty, TWISTY_COUNT, twistyCnt);
                     }
                 }
                 protected override void FnEvent3A(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    NO_MAPS(player, type, doMsgs);
+                    DisableAutomaps(player, type, doMsgs);
                 }
                 protected override void FnEvent3C(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    NO_MAPS(player, type, doMsgs);
-                    if (FLAG_OFF(player, type, doMsgs, ROOM, SEEN_IT)) {
-                        SET_FLAG(player, type, doMsgs, ROOM, SEEN_IT, 1);
-                        SHOW_TEXT(player, type, doMsgs, "An exquisitely delicate egg of opal and white gold rests atop a polished marble dais. Congratulations! You have found the Easter Egg.");
-                        GIVE_ITEM(player, type, doMsgs, EASTEREGG);
+                    DisableAutomaps(player, type, doMsgs);
+                    if (IsFlagOff(player, type, doMsgs, FlagTypeTile, SEEN_IT)) {
+                        SetFlag(player, type, doMsgs, FlagTypeTile, SEEN_IT, 1);
+                        ShowText(player, type, doMsgs, "An exquisitely delicate egg of opal and white gold rests atop a polished marble dais. Congratulations! You have found the Easter Egg.");
+                        GiveItem(player, type, doMsgs, EASTEREGG);
                     }
                 }
                 protected override void FnEvent3D(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SHOW_TEXT(player, type, doMsgs, "This is a massive throne carved from a single block of polished obsidian. It is inlaid with strange, beautiful sigils in delicate silver filigree.");
+                    ShowText(player, type, doMsgs, "This is a massive throne carved from a single block of polished obsidian. It is inlaid with strange, beautiful sigils in delicate silver filigree.");
                 }
                 protected override void FnEvent3E(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (FLAG_OFF(player, type, doMsgs, PARTY, CHOR_GHOST_SEEN)) {
-                        SET_FLAG(player, type, doMsgs, PARTY, CHOR_GHOST_SEEN, 1);
-                        SHOW_TEXT(player, type, doMsgs, "Wailing piteously, the spirit of Choronzar drifts from his fallen body into the tomb.");
+                    if (IsFlagOff(player, type, doMsgs, FlagTypeParty, CHOR_GHOST_SEEN)) {
+                        SetFlag(player, type, doMsgs, FlagTypeParty, CHOR_GHOST_SEEN, 1);
+                        ShowText(player, type, doMsgs, "Wailing piteously, the spirit of Choronzar drifts from his fallen body into the tomb.");
                     }
                 }
                 protected override void FnEvent3F(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    TELEPORT(player, type, doMsgs, 13, 2, 227, WEST);
+                    TeleportParty(player, type, doMsgs, 13, 2, 227, Direction.West);
                 }
                 protected override void FnEvent40(TwPlayerServer player, MapEventType type, bool doMsgs) {
                     int item = 0;
                     int flag = 0;
-                    if (FLAG_OFF(player, type, doMsgs, ROOM, DONE_IT)) {
-                        SET_FLAG(player, type, doMsgs, ROOM, DONE_IT, 1);
-                        flag = GET_FLAG(player, type, doMsgs, DUNGEON, FUN_BAR_COUNT);
+                    if (IsFlagOff(player, type, doMsgs, FlagTypeTile, DONE_IT)) {
+                        SetFlag(player, type, doMsgs, FlagTypeTile, DONE_IT, 1);
+                        flag = GetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.FUN_BAR_COUNT);
                         if (flag < 100) {
-                            switch (HERE(player, type, doMsgs)) {
+                            switch (GetTile(player, type, doMsgs)) {
                                 case 215:
                                     item = SILVERBAR;
                                     break;
@@ -1262,31 +1262,31 @@ namespace XPT.Twinion.Maps {
                                     item = PLATINUMBAR;
                                     break;
                             }
-                            SHOW_TEXT(player, type, doMsgs, "This vast stack of ingots seems virtually inexhaustible.");
-                            GIVE_ITEM(player, type, doMsgs, item);
-                            GIVE_ITEM(player, type, doMsgs, item);
-                            GIVE_ITEM(player, type, doMsgs, item);
-                            GIVE_ITEM(player, type, doMsgs, item);
-                            GIVE_ITEM(player, type, doMsgs, item);
+                            ShowText(player, type, doMsgs, "This vast stack of ingots seems virtually inexhaustible.");
+                            GiveItem(player, type, doMsgs, item);
+                            GiveItem(player, type, doMsgs, item);
+                            GiveItem(player, type, doMsgs, item);
+                            GiveItem(player, type, doMsgs, item);
+                            GiveItem(player, type, doMsgs, item);
                             flag += 5;
                         }
-                        SET_FLAG(player, type, doMsgs, DUNGEON, FUN_BAR_COUNT, flag);
+                        SetFlag(player, type, doMsgs, FlagTypeDungeon, TwIndexes.FUN_BAR_COUNT, flag);
                     }
                 }
                 protected override void FnEvent41(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    if (FLAG_OFF(player, type, doMsgs, ROOM, DONE_IT)) {
-                        if (USED_ITEM(player, type, doMsgs, JESTERSCAP, JESTERSCAP)) {
-                            SET_FLAG(player, type, doMsgs, ROOM, DONE_IT, 1);
+                    if (IsFlagOff(player, type, doMsgs, FlagTypeTile, DONE_IT)) {
+                        if (UsedItem(player, type, ref doMsgs, JESTERSCAP, JESTERSCAP)) {
+                            SetFlag(player, type, doMsgs, FlagTypeTile, DONE_IT, 1);
                         }
                     }
                     else {
-                        if (USED_ITEM(player, type, doMsgs, PRICELESSBAR, PRICELESSBAR)) {
-                            SET_FLAG(player, type, doMsgs, PARTY, EASTER_EGG, 1);
+                        if (UsedItem(player, type, ref doMsgs, PRICELESSBAR, PRICELESSBAR)) {
+                            SetFlag(player, type, doMsgs, FlagTypeParty, EASTER_EGG, 1);
                         }
                     }
                 }
                 protected override void FnEvent43(TwPlayerServer player, MapEventType type, bool doMsgs) {
-                    SHOW_RUNES(player, type, doMsgs, "The Tower disks are controlled by the Funhouse Key.");
+                    ShowRunes(player, type, ref doMsgs, "The Tower disks are controlled by the Funhouse Key.");
                 }
             }
         }
