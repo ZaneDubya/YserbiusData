@@ -159,5 +159,6 @@ TITLE.EXE       Exe         Partial         66400 = ident?
                                             66432 = 8b structs
                                             80188-82908 = Font data
 YSBOX.EXE       Exe         No              141776 = 8b structs
+                                            To start the game, directly going to the volcano screen: ysbox.exe 703
 YSERBIUS.EXE    Exe         No
-YSGENN.EXE      Exe         No
+YSGENN.EXE      Exe         No              To start the game, directly going to the character generator: ysgenn.exe 730
