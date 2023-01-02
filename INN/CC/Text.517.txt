@@ -1,0 +1,71 @@
+0,"   %s has joined this game, and taken the vacant seat. Play resumes!"
+1,"(Spades Msg) Somebody else came into this game and grabbed the vacant seat before you could take it."
+2,"   %s is about to enter this game. Should this member just view your cards like a typical watcher, or replace %s instead?"
+3,"   %s left this game before it could properly begin."
+4,"   %s left the game. If all the players had INN v2.4 or later, it would be possible to finish when %s comes back. However, this is a mixed-version game. It must break up."
+5,"   %s entered again, then left before Spades could re-adjust! Unfortunately, everyone will have to return to the Waiting Room now."
+6,"   %s just left too. Unfortunately, everyone will have to return to the Waiting Room now."
+7,"   %s left the game. But if you are patient, that person can ask to watch, rejoin, and finish the game. (This is possible when all the players have INN v2.4 or later.)"
+8,"   Sorry-- but you cannot do anything more in this game without a 4th player to continue it."
+9,"   %s, you are taking a vacant seat at this table. You aren't just watching-- you are playing this game!"
+10,"   We're sorry, but allowing you to go \"Blind Nil\" before %s returns could make this game unjoinable. A default decision of \"no\" will be sent to the other players.
+
+   The best workaround in this situation is to bid \"Nil\" on the next hand. Just remember that your score will be 100 points off during the remainder of the game."
+11,"   The player you were watching left before you could get an update of the game. Returning you to the Waiting Room."
+12,"   Error: The player that left this game quit at a particularly sensitive point, causing you to be out-of-synch with the other players. If no-one else has this problem, then you can still rejoin the game and finish it.
+
+   (We're sorry, but this this can't be fixed in a 2.x INN version.) "
+13,"   Error: The player that left this game quit at a particularly sensitive point, causing you to be out-of-synch with the other players. You can't continue watching under these conditions.
+
+   (We're sorry, but this this can't be fixed in a 2.x INN version.)"
+14,"   Error: You are in a mutual resynchronization deadlock with another player in this game. It's time to give up and return to the Waiting Room."
+15,"   Since %s left in the middle of a claim, we'll just assume it would have been accepted anyway."
+16,"   The halted state of this game was not the same across the remaining players' machines. Unlike Hearts, (which aborts the game under these conditions), Spades will attempt to salvage the game when it is rejoined. "
+17,"   The halted state of this game was not the same across the remaining players' machines. The watchers must leave, because the players are going to resynchronize in an attempt to salvage this game. "
+18,"   Trouble! %s is out-of-synch with you. That player will try resynchonizing with a third player at the table in an attempt to stabilize this game. (If you see this error message again, then maybe you should resynchronize too.) "
+19,"   A player left the game before you could get an update of the table. You may try watching again when there are four players."
+20,"   Because Game Privacy was active before Spades was interrupted, it is assumed that %s will take the vacant seat. Allowing %s to become a regular watcher would defeat the purpose of Game Privacy. "
+21,"   Please wait a few seconds more for the other players to acknowledge your presence."
+22,"SPADELOG.%d"
+23,"SPADELOG.W%d"
+24,"I am %s."
+25,"%s has seat %d, at posn %d on my screen."
+26,"(%s will go Blind Nil.)"
+27,"%d %d %d %d = tricksTaken"
+28,"%d %d %d %d = sandBags"
+29,"%d %d %d %d = bidding"
+30,"%d %d %d %d = scoresOld (w/o bags)"
+31," %d %d %d %d = scoresNew (w/o bags)"
+32,"random seed = $%x"
+33,"%s wins the trick."
+34,"%d %d %d %d = bids after msg from %s"
+35,"%s sent GOING_BLIND %d"
+36,"%s plays %s"
+37,"%d %d %d %d = bids AFTER I BID"
+38,"*********** THIS IS A NEW SESSION **********"
+39,"Got CLAIM CARDS from %s. bySmartCards=%d, fromClaimer=%d, agrees=%d, claimRound=%d, tricksThen=%d"
+40,"I said %d to an EARLY claim"
+41,"I have initiated an early claim"
+42,"I made an automatic claim agreement"
+43,"Normal claim accept"
+44,"Normal claim refuse"
+45,"claimingCardsScript doit: register = %d, whoLastSaidNo is %s"
+46,"GRPDEL: %s left the game, short %d now"
+47,"ReturnPlayer: %s fhel= %d"
+48,"Got BACK-IN-GAME from %s, droppedPlayers=%d"
+49,"I sent READY, reg = %d"
+50,"MaybeAutoPlay: %s has STRONG cards"
+51,"MaybeAutoPlay: %s has WEAK cards"
+52,"Can't use %s's CLAIM CARDS msg yet."
+53,"*** RE-SYNCH to be attempted for reason %d, with %s."
+54,"Bad Msg $%x! state %d, from %s."
+55,"OUT OF SYNCH! i=%d, sanity=$%x mine=$%x"
+56,"Allowing %s to be joiner"
+57,"Remove %s from table"
+58,"GAME HELD: state $%x"
+59,"(%d) %s into waitingWatchers"
+60,"Try BACK IN GAME from %s"
+61,"Seated joiner posn %d"
+62,"Bad time for joiner!"
+63,"(%d) Told %s to scram!"
+64,"-Never Mind-"

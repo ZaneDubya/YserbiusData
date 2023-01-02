@@ -1,0 +1,79 @@
+0,"...waiting as the game inviter sets the table rules for this game..."
+1,"...waiting for all players to familiarize themselves with the table rules..."
+2,"You can't lead a spade until somebody trumps with a spade."
+3,"You must follow the suit led whenever you can."
+4,"You just put a card in there-- wait for the other players."
+5,"
+S P A D E S
+
+Written by Sean D. Wagle
+
+Art by Eric Apel
+ "
+6,"   What do you want help with?"
+7,"   \"Spades\" is a trick-oriented game similar to \"Bridge.\" Each hand, you bid for the number of tricks that you think you can take. The spades are always the trump suit."
+8,"   Most of the time, you will want to bid and take as many tricks as possible. The only time you won't is when you bid \"Nil\" (a bid of zero), or \"Blind Nil\" (a bid of zero before you have looked at your cards). These special bids are worth a lot of points."
+9,"   In each hand that you win at least the number of tricks that you have bid, you get 10 points times your bid. Also, you get 1 point for each \"sandbag\" (overtrick). If you bid \"Nil\" and succeed, you get 100 points. \"Blind Nil\" is worth 200 points."
+10,"   If you fail to make your bid, your penalty is as great as what you could have earned. Thus, if you bid 5 and only take 4, you will lose 50 points. If you bid \"Nil,\" or \"Blind Nil,\" and are unsuccessful, you will lose 100 and 200 points, respectively."
+11,"   The game is over when a player reaches %d points in a cutthroat game, or %d points in a partnership game. The player/team with the highest score wins.
+
+If in a partnership game, if one team falls to a score of %d points or less, and the other team is positive, the positive team wins. "
+12,"   Spades was released in version 2.3 of ImagiNation. You cannot play Spades at all with people who use earlier versions than 2.3, or \"Single Disk\" startup copies of ImagiNation.
+
+   The Leave/Rejoin capability was added to Spades in version 2.4. The game will not wait for a departed player if anyone in the game has version 2.3.
+
+   Later versions (if any) before 3.0 will still be backward compatible with your current one. "
+13,"   Using this variation will penalize any player taking 10 or more sandbags by 100 points. An example of how it works will follow:"
+14,"   Example: A team has 208 points, having already taken 8 sandbags. They bid 4, and proceed to take 7 tricks, yielding 3 new sandbags.
+
+The adjusted score is 208 + 40 contract points = 248. Then the 3 sandbags are added, (but the tens column does not increment) yielding 241 points. Finally, the 100 point sandbag penalty is subtracted from the score, producing the new score of 141."
+15,"   The maximum bid is 10, which is worth 200 points, not the usual 100. This variant is designed to tempt players to be more daring; if a contract of 8 or 9 is a sure thing, why not go 10 for the BIG points?
+
+The penalty for failure is -200 points."
+16,"   Each player MUST play his/her lowest held club on the first trick. If no clubs are held, a player can toss any card. This variation helps prevent players from going \"Nil\" for 100 points too often, because it would be dangerous to do so with, say, a 7 as the lowest held club!"
+17,"   Some players do NOT require a trump spade to be played before spades can be a led."
+18,"   The lowest bid between two players is 3. The second bidder must ensure this, so if your partner bid first, and went \"Nil,\" then you MUST bid to take 3 or more tricks."
+19,"   More table rules are being considered for v3.0. If you want to see them implemented, leave feedback on the Help Room's suggestion board."
+20,"Error, nobody holds played card $%x"
+21,"   This is the most common way to play. Players form two partnerships like in bridge, and try to get a cumulative score of %d points. In a partnership game, play also ends when one of the teams have a score of %d or less, and the other team is positive."
+22,"   In this version of Spades, each player plays for himself ('Cutthroat Style'). The game ends at %d points instead of %d, since an individual's score usually increases slower than a partnership score."
+23,"   ImagiNation supports some rule variations to \"Spades.\" (They are more commonly used among east coast players.) These are only active in a \"Customized\" game, *IF* the game inviter set them before the cards are first dealt."
+24,"   If you bid %d, then you and your partner are bidding more than 10 to make \"%s.\" I won't let you make that mistake."
+25,"   Under the customized game rules, a minumum bid of %d is required in partnership. To accomplish this, %s's attempted bid of %d was forced to %d."
+26,"   %s failed to make \"%s.\" The penalty on that player is -200 points!@"
+27,"   %s managed to make \"%s,\" which is worth 200 points!@"
+28,"   %s and %s failed to make \"%s.\" The penalty on them is -200 points!@"
+29,"%s and %s managed to to make \"%s.\" That is worth 200 points!@"
+30,"   \"Spades\" is a fairly modern card game which is still growing and changing across the USA, with relatively little official documentation of the variations in play."
+31,"   Common variants, like passing card(s) on \"Blind Nil,\" bidding 10 for 200 points, not requiring spades to be broken before leading them, and others, are possible for version 3.0 if there is enough interest in them."
+32,"   \"Spades\" specific items in the options button have been consolidated here for your convenience."
+33,"%s is not ready to conclude this hand. Play continues."
+34,"   %s does not want to end the hand yet. Since you agreed, \"Smart Cards\" will play the rest of your hand, to help speed up the game."
+35,"   Drag a card by moving the mouse to it and pressing the left button, then moving the mouse and releasing the button. You can quick-play a card with one click of the right mouse button.
+   With a keyboard, move the pointer to a card with the arrow (or keypad) keys, press [Enter], press the up arrow, then press [Enter] again."
+36,"   This button will attempt to claim the rest of the tricks, with the other players' consent."
+37,"Don't bother-- \"Smart Cards\" is running, so this hand will end soon."
+38,"When it is your turn to lead the first card of a trick, you may ask to claim the rest of the cards."
+39,"Unfortunately, I can't let you use that button so soon! Just wait a little longer."
+40,"You haven't played any cards yet-- there's no reason the other players would let you claim the rest!"
+41,"   Your partner will sit across from you. You will work as a team to get the combined number of tricks bid, (except when one of you bids Nil.)"
+42,"   Each player bids individually for the number of tricks he expects to take-- there are no partnerships."
+43,"   Because there is a tie between the winning players, another hand will be played."
+44,"   If you bid %d, then you are bidding over 13 with your partner! (Impossible to succeed.) Try a smaller bid."
+45,"   If you're sure you want to go \"Blind Nil\" during the next hand, left-click on this button."
+46,"   You can change your mind and NOT go \"Blind Nil\" during the next hand if you left click on this button."
+47,"   %s wants to claim the remaining tricks before \"Smart Cards\" is active. Will you agree to end the hand?"
+48,"Hang on, the game is still being set up."
+49,"There is no previous trick."
+50,"   If you want a prompt to confirm your bid, highlight the CONFIRM BID button."
+51,"   This button will show you the cumulative scores, and the number of rounds played."
+52,"   This button will show you the last trick played, as well as who led that trick, and who took it."
+53,"   This button will remind you of any active Spades variations that are in force for this game."
+54,"   Each trick taken above bid is a sandbag, and counts +1 point. A -100 penalty will be imposed on any %s that takes over 10 bags! (Also, the +10 benefit you had from those bags is removed.)"
+55,"   Each trick taken above bid is a sandbag, and counts +1 point. The game inviter has chosen to NOT penalize a %s that takes more than 10 bags."
+56,"   The scores are not yet available."
+57,"   Warning: Spades is out-of-synch. Allowing the game to continue might cause more serious errors. The safest thing to do is return to the WaitRoom.
+
+(Debugging info: msg $%x (from %s) in game state $%x. Msg WordAt:0 is $%x.)"
+58,"Error, no match with msg $%x and state $%x!"
+59,"   Warning: This game is out-of-synch, for reason #%d. Since everyone has INN v2.4 (or greater), an update from %s will be attempted to try and recover from this situation. "

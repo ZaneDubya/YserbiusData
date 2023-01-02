@@ -1,0 +1,7 @@
+0,"  Stratego is a game of strategy where you operate with only limited knowledge of where your opponent's pieces are.  The object is to find and capture your opponent's flag.
+"
+1,"  All pieces may move one space vertically or horizontally. In addition, the Scout (rank 9) may move any number of spaces vertically or horizontally (like the Rook in Chess)."
+2,"  To attack your opponent you move into a space occupied by an opponent's piece. Lower numbered pieces beat higher numbered ones, except the Spy which wins only when attacking the Marshal. Also, Bombs \"beat\" all pieces except for the Miner."
+3,"  The Bombs and the Flag cannot be moved. If you get into a position where you cannot move any piece (either all the moving pieces are captured or trapped behind bombs), you lose."
+4,"  Three optional rules may be activated during setup mode by pressing the RULES button. This will bring up a window in which you may change the rule settings. When you click OK your opponent will be consulted about the rule change."
+5,"  For more help on optional rules, specific pieces, or other buttons, right-click on the appropriate button or piece."

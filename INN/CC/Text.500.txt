@@ -1,0 +1,56 @@
+0,"   Select this button to claim a number of the remaining tricks."
+1,"   Select this button to accept a claim."
+2,"   Select this button to reject a claim."
+3,"   Select this button to continue play after an alert."
+4,"Begin another round"
+5,"Aborting watch attempt."
+6,"Choose your partner:"
+7,"Bridge
+
+By
+Richard Aronson
+"
+8,"   You have changed the bid -- are you sure you want to pass?"
+9,"   BUG!! Returning to Waiting Room. If you are watching, this bug does not happen all the time... so you could try watching again."
+10,"   Waiting until everyone is done with score."
+11,"   Do you want to play another rubber?"
+12,"   Waiting for responses to your claim."
+13,"   Waiting until everyone is done with claim."
+14,"   Waiting until everyone is done with alert."
+15,"   Are you sure you want to pass?"
+16,"   You cannot double when there is no current bid."
+17,"   You cannot double on your own bid."
+18,"   You cannot double on your partner's bid."
+19,"You can't double again."
+20,"   You can only redouble if the current bid was made by you or your partner."
+21,"You can't redouble again."
+22,"Your bid of %d %s must be
+greater than the current bid of
+%d %s. Please re-bid."
+23,"   You must follow with a %s."
+24,"
+The declarer was %svulnerable.
+"
+25,"The game has been %s.
+"
+26,"Grand Total Score
+  We    They
+  %2d   %2d
+"
+27,"Try #%d...please wait."
+28,"   %s, you are the dummy. You must sit out this round."
+29,"Claim %d/13"
+30,"   The declarer (%s) has claimed %d of the remaining %d tricks.%s"
+31,"   %s claim for %d of the remaining tricks has been accepted."
+32,"   %s claim for %d of the remaining tricks has been rejected. Continue play!"
+33,"   %s pressed the ALERT button.
+%s"
+34,"Choose your scoring option:"
+35,"   Do you want to keep the same partners?"
+36,"   What variation of Chicago do you want to play?"
+37,"   In rubber Bridge, you play until one side has made two games, which ends the rubber."
+38,"   No scoring Bridge is an option for folks who just like to play cards. Since you don't deal with messages about the score, play goes a little faster than in the other options."
+39,"   Chicago Bridge rubbers are always four hands long. This makes for a game of a fixed length, and is almost always faster than rubber Bridge. In all Chicago rubbers nobody is vulnerable on the first hand and everybody is vulnerable on the fourth hand. Second and third hand vulnerabilities vary based on Chicago option."
+40,"   In an Authentic Chicago rubber, dealer's side is vulnerable on the second and third hands. Part scores can accumulate towards a game, honors apply, and fourth hand part scores earn a bonus of 100 points."
+41,"   In an Cavendish Chicago rubber, dealer's side is not vulnerable on the second and third hands. This allows both partnerships a chance to make a first seat non-vulnerable preempt. Part scores can accumulate towards a game, honors apply, and fourth hand part scores earn a bonus of 100 points."
+42,"   In a Duplicate Style Chicage rubber, dealer's side is vulnerable on the second and third hands, all partscores earn a 50 point bonus but partscores cannot accumulate towards a game, and no honors are awarded."

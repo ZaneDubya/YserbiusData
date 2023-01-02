@@ -1,0 +1,6 @@
+0,"Set Up Your Pieces"
+1,"Place all your pieces onto the board."
+2,"Rescue a Piece"
+3,"You may now place one of these captured pieces into your setup area."
+4,"Captured Pieces"
+5,"These pieces have been captured during the game."

@@ -1,0 +1,71 @@
+0,"   This is your first visit to the \"INNtroductions\" personal ads after installing our software. INNtroductions can help you meet people in ImagiNation that share your interests, even if they aren't online at the same time you are. "
+1,"   Error, you are not connected to INN. You have to be connected to some part of CasinoLand in order to browse the personal ads."
+2,"                 Goodbye!
+
+   Did you know that you can turn off many of the help messages and safety confirmations? It's done by toggling VERBOSE from yellow to black in your Options panel.
+"
+3,"Err: Unable to delete personal ad at index #%d."
+4,"   INN was unable to post your ad... You should try again later when the system is less busy."
+5,"   \"INNtroductions\" could not verify the mailbox on your persona because the Post Office is currently closed. You can still read advertisements, but you will be prevented from posting any new ones until the Post Office is available."
+6,"
+(Online personal advertisements)
+
+Programmed by Sean D. Wagle
+Art by Gloria Garland
+"
+7,"   This place does not have personal ads. You'll need to \"Go To\" another place and look there."
+8,"   Duplicate Personal Ad types of %d!"
+9,"   There are %d ads to retrieve from \"%s\" in order to get you updated. Try to be patient while they are obtained-- but if you just can't stand the wait, use the \"Enough\" button to quit early."
+10,"   You just submitted an ad to this category %s.
+
+   However, if there are any other appropriate categories, you can post there. Also, if there is another \"%s\" category in a different part of CasinoLand, you can submit an ad there as well."
+11,"   No personal ads have been published there yet."
+12,"   There are just so many new ads here! This program has a \"fresh ads cache limit\" of %d, so that's all that can be handled today, even though there were still more of them on ImagiNation. "
+13,"
+   The dark gray ads are recent; the light gray ads are old. Clicking on an ad will give you details about the person who placed it."
+14,"   Sorry, but the mailbox on your persona could not be verified, so you can't submit a personal ad. "
+15,"
+   %s, even though CasinoLand is an adult environment, you are expected to understand all the \"INNtroductions\" guidelines before submitting an ad. Any inappropriate submissions will be deleted and could result in disciplinary action. "
+16,"
+   %s, The gender of your persona is different from that of people who usually post here. Perhaps you'd like to choose another persona before trying to place an ad in \"%s\"? "
+17,"   Left click this box to read personal ads (posts) in \"%s.\" These ads were submitted by ImagiNation members. "
+18,"   Left click this box to submit a personal ad (post) to \"%s.\" Anyone who reads your ad can reply to you via E-mail. "
+19,"   %s, it is very important that you read the file \"PRSNLADS.DOC\" (which was installed in your main INN directory) before placing an ad or responding to one. Even though you are in CasinoLand, INN still has behavior standards for this area.
+
+   In brief, you should never provide your real name, phone number, or street address in an ad. Also, if you supply any of this information in E-mail to another person, it is at your own risk. INN has no responsibility for the resulting loss in privacy from your actions.
+
+"
+20,"   Even though this is an adult area, anything posted that violates Community Standards will be removed.
+
+   Click the \"Agreed\" button if you are ready to follow ImagiNation's policies for \"INNtroductions.\" If you are not, you can leave this room via the \"WaitRoom\" button. "
+21,"   Click the \"Agreed\" button if you are ready to follow INN's policies for this area of CasinoLand. If you are not, you can leave this room via the WAITROOM button."
+22,"   FYI: A valid INN mailbox is required in order to submit a personal ad. Without this minor loss of anonymity, how could anyone ever contact you?
+
+   The mailbox on your persona, %s, is %U. %s for this account %s: %s."
+23,"   Get helpful prompts and messages. Yellow is ON; black is OFF. "
+24,"   Do you want to erase your cache file for \"%s?\" That will cause a complete re-download of every ad in this category, the next time you read them. "
+25,"What mail box will you use
+to identify yourself here?"
+26,"   Whew! There were %d new ads downloaded to your disk drive. If you check this category regularly, you'll probably find that less frustrating. There won't be as many new ads on each download-- and you'll spend less time waiting to get updated. "
+27,"   Select this to return to the Waiting Room."
+28,"   If you think you've gotten enough ads during a download, and you don't ever want to see the extras, use this button.
+
+   What you will have done is to obtain the most recent ads, but left the oldest ones on INN. "
+29,"   You can halt the download here to write the most recently posted ads on your disk. Be aware that there are older ads in this category that you will NEVER see, even if you start a new download some time in the future.
+
+   If you really want ALL the ads that you haven't obtained yet, you should allow this download to finish. (It can take several minutes, but rarely more.) "
+30,"   Hang on! Download at least five ads before interrupting this process. I know it's boring to wait, but you'd lose more than you gain by quitting so early!"
+31,"
+   There is so much to explain about ImagiNation's personal ads! The best reference is the \"PRSNLADS.DOC\" file, which was installed with the rest of your software.
+
+   There is right-button help on all the buttons in \"INNtroductions.\" Just use that, if you are unsure what something does."
+32,"
+   \"INNtroductions\" has eight possible screens that you might see, depending on how thoroughly you explore it. But there are really only two access methods: reading and submitting. All the other screens are sub-functions of those... reading ads, or submitting new ones."
+33,"
+   Reading ads allows you to read the text submitted by other members, view their personas, add them to your address book, examine their personality profiles, or match their profiles to yours if you have submitted an ad of your own."
+34,"
+   Submitting ads allows you to fill out a \"coupon\" which contains your own personalized headline and message, include an online \"photograph,\" or complete your own personality survey.
+
+   Warning: You are unable to delete your own ad after it is printed, so be prepared to stand by what you submit! After you submit an ad, you must wait three days before submitting another one to the same category. Finally, the ad must protect your anonymity. "
+35,"
+   There are a lot of context-sensitive help messages and safety confirmations to guide you through \"INNtroductions.\" When you have a thorough understanding of \"INNtroductions,\" you might want to turn off these prompts through the VERBOSE button in your Options panel."

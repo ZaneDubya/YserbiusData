@@ -1,0 +1,5 @@
+0,"   When active, the Aggressor Advantage rule gives ties to the attacker rather than causing both pieces to be captured."
+1,"   When active, only the defender sees both pieces involved in a battle."
+2,"   When active, you may \"rescue\" captured pieces by moving any piece (except a scout) onto your opponent's back row. You may make only two rescues per game and they cannot both be made by the same piece. Rescued pieces can be placed anywhere in your own setup area."
+3,"   Select this button to finalize your rule changes and send a request to accept the changes to your opponent."
+4,"   Select this button to cancel without causing any change in the optional rule settings."

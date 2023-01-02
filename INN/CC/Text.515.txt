@@ -1,0 +1,70 @@
+0,"   Be patient while %s considers going \"Blind Nil.\" (But table talk is permissable since the cards have not been dealt yet.)"
+1,"... The game will be updated soon. You may wait until it is ready or you may exit by using the OPTIONS button ..."
+2,"Wait for your turn to play a card."
+3,"   %s bid \"Blind Nil,\" and took %d trick%c. The penalty is -200 points!@"
+4,"   %s bid \"Blind Nil\" and made it. That's worth +200 points!@"
+5,"   %s bid \"Nil,\" and took %d trick%c. The penalty is -100 points!@"
+6,"   %s bid \"Nil\" and made it. That's worth +100 points!@"
+7,"   %s failed to get %d trick%c. The penalty on that player is -%d points!@"
+8,"   %s and %s failed to get %d trick%c. The penalty on them is -%d points!@"
+9,"   %s has accumulated 10 or more sandbags and is penalized -100 points!@"
+10,"   %s and %s have accumulated 10 or more sandbags and are penalized -100 points!@"
+11,"Spades Scores"
+12,"Round: %d
+
+             Score
+%11s: %3d   
+%11s: %3d   
+%11s: %3d   
+%11s: %3d   
+ "
+13,"Round: %d
+
+             Score Bags 
+%11s: %3d  %2d   
+%11s: %3d  %2d   
+%11s: %3d  %2d   
+%11s: %3d  %2d   
+ "
+14,"Round: %d
+
+             Score
+%11s &       
+%11s : %3d   
+
+%11s &       
+%11s : %3d   
+ "
+15,"Round: %d
+
+             Score Bags
+%11s &          
+%11s : %3d   %2d 
+
+%11s &          
+%11s : %3d   %2d 
+ "
+16,"%s led,
+Taken by %s:"
+17,"   %s has chosen to play \"%s,\" with the sandbags penalty turned %s."
+18,"   %s will take the rest of the tricks no matter how the other players play. Will you allow the claim?"
+19,"   Your cards are so weak, it is impossible for you to take another trick during this hand. Will you allow the computer to play for you?"
+20,"...waiting for everyone to enter \"Spades\"..."
+21,"   Do you want to play with the sandbags penalty?
+
+   If you answer yes, overtricks will accumulate and cause a 100 point penalty when the 10th sandbag is taken."
+22,"   Everyone has agreed to the claim, conceding the rest of the tricks to %s."
+23,"... wait for the claiming consensus ..."
+24,"   A cutthroat game ends when a player passes %d points, so the winner is %s!
+
+
+ "
+25,"   A partnership game ends when one team passes %d points, or when one team is 0 or above and the other is below %d. Therefore, the game is won by %s!
+
+
+ "
+26,"%s commits to a \"Blind Nil\" bid!"
+27,"   %s decided not to go \"Blind Nil\" after all."
+28,"   Choose a partner, or choose \"No Partner\" for a Cutthroat game."
+29,"   Are you sure you want to bid for %d trick(s)?"
+30,"   (It would be polite to ask your partner if \"Blind Nil\" is OK before confirming it)"

@@ -1,0 +1,65 @@
+0,"   It is not your turn; you need to wait for your opponent to move."
+1,"Aborting watch request."
+2,"Waiting for a player to move... attempt %d"
+3,"You may only watch this game."
+4,"You can't resign the game at this time."
+5,"Wait until it is your turn to resign."
+6,"   RESIGN means you give up the game to your opponent. You can start a new game afterward."
+7,"   Think fast, clocks will be used! Each player has a %d minute timer."
+8,"   You cannot move there; that square is already occupied. Place your chip on an empty square."
+9,"   I have received a move that appeared legal on the other player's screen, but lands on an occupied square (%d) on your screen."
+10,"   That is not a legal move. You must enclose at least one opposing piece between one of yours (already on the board) and the new one you put down."
+11,"   Your opponent made a move which appeared legal to him, but fails to entrap any of your pieces. (Square %d)"
+12,"   An unusually long watcher update delay caused your screen to already be out of date. (Screen move = %d, opponent's = %d)."
+13,"   The game message sequence number of your game is %d, but the GMSN from your opponent is %d. Aborting."
+14,"   Congratulations! You win the coin toss. You make the first move and play the WHITE pieces."
+15,"   You lost the coin toss. The other player will make the first move, and you will follow using the BLACK pieces."
+16,"   Neither player can make a move. The game will be won by the player with the most pieces, even though there are still empty squares on the board."
+17,"   Beginning FlipFlop players will want to have the Verbose option ON because it will cause the game to explain all events in detailed text messages. Experienced players familiar with those explanations may want to have it OFF. "
+18,"   ATTENTION: A file called \"%s\" will be written to your local drive, as a debugging aid for the programmer. Make a copy if this file if you get a PMachine."
+19,"Error, someone has an uninitialized sid. Values now: ($%x $%x)"
+20,"
+FlipFlop
+
+by: Sean D. Wagle
+
+"
+21,"   You move by laying a NEW piece on the board.
+
+   When you do this, you must trap at least one of the opposing pieces in a straight line, vertically, horizontally, or diagonally."
+22,"   You trap the opposing piece by enclosing it between an existing piece of your color and the one you put down.
+
+   It is possible to trap more than one opposing piece at a time, in more than one direction at a time, in a single move!"
+23,"   The game is won by the player with the most pieces of his color at game end."
+24,"   The game ends when neither player can make a move (usually when the board is completely filled with pieces).
+
+   It is possible for a game to end in a draw."
+25,"   The WHITE player always goes first. Whoever wins the initial coin toss plays white.
+
+   In successive games, the player to move first rotates back and forth, so that each player has an equal number of chances to be first."
+26,"   The corner squares are the only places on the board which can never be taken away from you, if you possess them.
+
+   Conversely, if you put one of your pieces right next to a corner, then your opponent may take it on the next turn. Use caution near corners."
+27,"   If you have only a few pieces during the middle of the game, you're doing better than it looks, because you have more valid moves available than your opponent does.
+
+   If you can force your opponent to have only one valid move available, it will usually be a bad one, from his point of view."
+28,"   It is even possible to leave your opponent with no legal move at all-- in which case you get another turn!"
+29,"   Arrow keys move the cursor as usual.
+
+   [PageUP], [PageDown], [End] and [Home] keys take the cursor to the corners of the board."
+30,"   [Shift-Tab] and [Tab] work similarly to left arrow and right arrow.
+
+   The [Enter] key selects the square to place a FlipFlop piece on.
+
+   To talk to your opponent, just start typing the message you want to send."
+31,"   Clocked games are available when both players have version 2.4 (or newer) of ImagiNation. The inviting player gets the first chance to decide what time will be set for the clocks (if they are used at all). "
+32,"   The other player can offer a different time setting if he/she does not want to use the one offered by the inviter.
+
+   Each clock is a game clock-- the total number of minutes that player has to make all moves in the game."
+33,"   Clocks will appear to have been stopped while you type a chat or examine your options, but they will readjust for lost time when you click a dialog away. So don't dawdle when it's your turn... it'll cost you! "
+34,"Error, unknown sid passed in TOSS COIN message to identify the first player."
+35,"Your first game ended in a draw. Try again?"
+36,"(%d game%s ended in a draw)."
+37,"You have played %d games, and all of them ended in a draw!"
+38,"   Neither you, nor %s, can make a move! The game will be won by the player with the most pieces, even though the board still has empty squares."
+39,"...%s is deciding whether this will be a clocked game..."

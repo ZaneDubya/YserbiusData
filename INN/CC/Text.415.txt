@@ -1,0 +1,20 @@
+0,"Start a new game of FlipFlop with %s?"
+1,"The %s clock expired! %s ran out of time, and lost the game."
+2,"The player you watched won %d of %d game%s. 
+%s"
+3,"Congrats! You have a %d game winning streak. 
+%s"
+4,"Your opponent has a %d game winning streak. 
+%s"
+5,"You have won %d out of %d completed game%s. 
+%s"
+6,"%s lost the game, because that player's time ran out."
+7,"The player you are watching gets a second move, because %s was forced to PASS."
+8,"The player you are watching PASSES, because no legal move is available."
+9,"Good work... %s can't move! You get to play again."
+10,"By denying you access to a legal square, your opponent has forced you to PASS."
+11,"%s played first this game, so
+%s will do so in the next one.
+As always, player one is WHITE."
+12,"FYI: My opponent and I both have v2.4 (or greater) of INN. We were playing a clocked game, and the %s clock expired. This forces me to resign the game."
+13,"   When both of you have v2.4 or greater FlipFlop can be directed as a clocked game, given both player's consent. "

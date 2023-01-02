@@ -1,0 +1,15 @@
+0,"   %s has left the line to play Red Baron.  You'll have to form a new group and get back in line!"
+1,"   Do you want to cancel your %s request?"
+2,"   You need to select someone before clicking on the %s button."
+3,"   You must select someone who is playing a game."
+4,"Where would you like to go?
+"
+5,"You're #%2d in line."
+6,"Please enter the name of the person you wish to locate:"
+7,"There is no one available who is interested in playing %s right now who is of the skill levels that you chose.
+
+However, there %s %d player%s of %s who %s interested."
+8,"There is no one available who is interested in playing %s right now."
+9,"The following people are interested in playing %s now and are between the skill levels that you chose:
+
+%s."

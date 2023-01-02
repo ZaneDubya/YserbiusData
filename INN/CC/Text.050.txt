@@ -1,0 +1,18 @@
+0,"   The Little Red Funhouse is the place for learning in ImagiNation. Here you'll find lots of interactive games and activities. "
+1,"   This is the Map that shows you all of the places you can visit in ImagiNation. CasinoLand, the Post Office and the Mall are to the left. To the right are MedievaLand, SierraLand and the Little Red Funhouse. The Arena, Town Hall and the Clubhouse are in the center of the map. "
+2,"   This is the Map that shows you all of the places you can visit in ImagiNation. The Post Office and the Mall are to the left. To the right are MedievaLand, SierraLand and the Little Red Funhouse. The Arena, Town Hall and the Clubhouse are in the center of the map. "
+3,"   Now, click somewhere on the Map to find out more about that place. Have fun! "
+4,"   This is CasinoLand, an adults only area.  In CasinoLand you can \"gamble\" on games such as BlackJack, Poker, Roulette, and Slot Machines. You can also hang out, chat and flirt for a while in Lefty's Bar.  Looking for a special someone? Check out the \"INNtroductions\" personal ads here.
+
+   Remember that ImagiNation Community Standards apply even in the adults-only CasinoLand. If you're not certain what kind of behavior or comments are acceptable, check the Community Standards notice in the Town Hall. "
+5,"   This is SierraLand, an electronic amusement park for kids of all ages where you can play Red Baron, NTN Trivia, PaintBall, SneakATac, Boogers, Graffiti, MiniGolf, INN 3-D Golf, RocketQuiz, Yacht, and Stratego. After the game, chat with your friends at the Hard Disk Cafe. "
+6,"   The Clubhouse is the place to go when you want to meet new people, chat with old friends or join an online conference.
+
+   You can also play classic games here like Backgammon, Bridge, Checkers, Chess, Cribbage, Euchre, FlipFlop, Hearts, NTN Trivia, Spades and Go. "
+7,"   MedievaLand is a fantasy-filled place where you can become a knight, wizard, or another character of your own creation. "
+8,"   The Mall is your online resource for a variety of great products and services.
+
+   It's also the place to go when you want to add new services to your ImagiNation membership. "
+9,"   The Post Office is where ImagiNation members send and receive letters, and get online newsletters. "
+10,"   The Town Hall is the place to go when you need information about billing, service hours and more. "
+11,"   The Arena is where new games are showcased as they become available. You'll find sports and action games here, including Front Page Sports: Football Online, 3-D Golf, and Red Baron. "

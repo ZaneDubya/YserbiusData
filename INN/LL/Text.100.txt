@@ -1,0 +1,4 @@
+0,"   Before you can interact with other members, you must create a persona. A persona is a name and face that people will see when they look at you while in ImagiNation.
+   Click on CREATE to make a persona to use in CasinoLand. "
+1,"   Select one of the personas you have created by clicking on it with the left mouse button.
+   Click on PLAY to enter CasinoLand. "

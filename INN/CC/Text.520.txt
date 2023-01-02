@@ -1,0 +1,53 @@
+0,"   What would you like help on?"
+1,"   Using the mouse, click on a card and hold down the button. Drag the card to the middle of the screen. You may also right-click the card for faster play.
+   With a keyboard, move the pointer to a card with the arrow (or keypad) keys, press [Enter], press the up arrow, then press [Enter] again."
+2,"   Euchre is a four-player partnership game and is played with a short deck of either 24 or 32 cards. The 24-card deck uses the cards of a regular deck from 9-Ace. The 32-card deck uses the cards 7-Ace."
+3,"   Each player is dealt 5 cards. The remaining cards of the deck are placed near the dealer. The top card of the deck is flipped over and placed on top of the deck. Beginning with the player to the left of the dealer, each player may either \"Pass\" or \"Order it up,\" thus making the suit of the top card trump."
+4,"   If someone \"Orders it up,\" the DEALER (not necessarily the player who \"orders it up\") picks up the top card and places it in his hand. Then the dealer discards one card face down on top of the deck. If all four players passed during the first round of bidding then the offer to make trump goes around the table one more time. This time, a player may call out any suit that is different from the suit of the top card, or they may again \"Pass.\" "
+5,"   If all four players pass on the second round of bidding, the hand folds and the next hand is dealt and the deal advances. Some players play that the dealer cannot let the hand fold and must call a trump suit. You are welcome to adopt this rule by mutual consent and bid accordingly. We call this option \"Stick the Dealer.\" "
+6,"   As soon as the trump suit has been called, the bidding stops and the play usually begins with the player on the left of the dealer. (The exception is when the hand is called \"Alone\" - explained later.) The maker of trump and his partner are obligated to win at least 3 of the 5 tricks with the suit called as trump. The trick is won by the highest card of the suit lead, or if trump is played on the trick, it is won by the highest trump on the trick. The winner of a trick leads the next trick."
+7,"   In Euchre, the two Jacks of the same color as the trump suit become the highest two trump cards. The Jack of trumps is called the \"Right Bower\" and is the highest trump. The other Jack of the same color as the trump suit is called the \"Left Bower\" and is the second highest trump. For example, if clubs are trump, the trump suit is ranked as follows: Jack of Clubs (Right Bower), Jack of Spades (Left Bower), A, K, Q, 10, 9 of clubs (8, 7 also if the 32-card deck is being used)."
+8,"   The maker of trump is allowed to play the hand \"Alone\" if he feels that his hand is so strong that he does not need his partner's help. When a hand is played alone, the first lead is made by the player to the left of the player who called \"Alone.\" The advantage of playing alone is that it is worth more points when all five tricks are taken. The alone player is still only obligated to take three tricks as usual."
+9,"                Scoring is as follows:
+
+Maker's team wins 3 or 4 tricks: 1 point.
+Maker's team wins 5 tricks: 2 points.
+Maker wins 5 tricks Alone: 4 points.
+Maker's team fails to win at least 3 tricks:
+      Opponents get 2 points.
+
+The match is played to 10 points."
+10,"Euchre
+
+by
+
+Warren Schwader"
+11,"   Waiting until everyone is done with the score."
+12,"   Watching will begin momentarily. The game that you will be watching is not yet at a point where it is ready to allow watchers, it may take a minute to get in. You may wait if you want or use the OPTIONS button to leave."
+13,"%s, you are watching!"
+14,"   Aborting watch attempt. You might try again in a few minutes."
+15,"   The players are still choosing 3 cards to pass. Please try again in a few minutes, when the tricks are being played."
+16,"   Please wait until the trick is finished."
+17,"Please, wait for your turn."
+18,"You must follow with a %s."
+19,"%s, you will lead."
+20,"   Shows the game score as of the end of the last round."
+21,"   Waiting for everyone to come into Euchre..."
+22,"Please wait while setting up..."
+23,"Shuffling..."
+24,"After %d Hand%s
+
+%10s & %10s: %2d
+%10s & %10s: %2d"
+25,"   The winners are %s and %s!!!"
+26,"   The score is not available now. Wait until the game has begun."
+27,"   Choose the size of the deck that you want to use.  24-card Euchre uses the cards 9 thru Ace.  32-card Euchre uses the cards 7 thru Ace."
+28,"   %s, please choose your Euchre partner."
+29,"   Please wait while %s is choosing the variant..."
+30,"   Waiting for all players to familiarize themselves with the variant chosen."
+31,"   %s has chosen 32-card Euchre. The player that will be sitting across from you will be your partner."
+32,"   %s has chosen 24-card Euchre. The player that will be sitting across from you will be your partner."
+33,"   32-card deck Euchre uses all of the cards of a regular deck from 7 through Ace."
+34,"   24-card deck Euchre uses all of the cards of a regular deck from 9 through Ace."
+35,"What do you Bid?"
+36,"What do you Bid?"

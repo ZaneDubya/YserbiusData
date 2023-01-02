@@ -1,0 +1,69 @@
+0,"SYSOP TEXT"
+1,"Talk to user"
+2,"   Select to talk to a user as a SYSOP. (Hot Key: Alt-T)"
+3,"Broadcast msg"
+4,"   Select to send a message to everyone in this place."
+5,"Change Handle"
+6,"   Select to change your name.(Hot Key: Alt-H)"
+7,"Logout user"
+8,"   Select to log a selected user out. (Hot Key: Alt-L)"
+9,"Sysop Notes"
+10,"   Select to write a note, including info on people as needed.(Hot Key: Alt-U)"
+11,"Inspect ID"
+12,"   Select to evaluate user account status. (Hot Key: Alt-I)"
+13,"List Room"
+14,"   Select to view a list of everyone in this room."
+15,"List Host"
+16,"   Select to view a list of everyone on this physical host."
+17,"Problem Child"
+18,"   Select to automatically report someone. (Hot Key: Alt-P)"
+19,"View File"
+20,"   Select to view a text file while in the map or waiting room. (Hot Key: Alt-E)"
+21,"Annoyance: Repeated messages and such things."
+22,"Entrapment: Soliciting rude comments, then complaining."
+23,"Harassment: Sending threatening messages to people."
+24,"Lewdness: Soliciting sex from (not too receptive) people."
+25,"Name: User name/alias is inappropriate."
+26,"Obscenity: Bad and/or abusive language."
+27,"Hacking: Suspected, admitted, or confirmed hacking. (KILL THEM)"
+28,"INN impersonator: Telling people you're an INN representative."
+29,"   %U has successfully been logged out."
+30,"   %U was not found on the system."
+31,"Logout command sent for %s."
+32,"Send message to UID:"
+33,"Enter SYSOP message:"
+34,"   Since you have agreed to use \"Game Privacy,\" you may not use this feature for the duration of the game."
+35,"Logout %s [%U]?"
+36," Message: You have been logged out for "
+37," Message: You have been logged out of the system."
+38,"   %s could not be logged out because the software has no UID to uniquely identify it. Try again in a minute or two."
+39,"Enter your new name:"
+40,"Users logged at %s"
+41,"%-10s[%-10U]%s"
+42,"Enter comments on selected users:"
+43,"Enter User ID to inspect."
+44,"Getting a user list."
+45,"%s %U
+is in: %s
+%sSID: %u
+Host: %u
+LandType: %u
+LandNumber: %u"
+46,"%s[%U],%d,%s
+SID: %u
+"
+47,"Could not get information on this user."
+48,"Due to abuse this has been made a supervisor-only function."
+49,"Select someone to talk to first."
+50,"Enter your message:"
+51,"You are not allowed to chat with people from here."
+52,"No selected players are currently able to chat."
+53,"You have privacy on. Turn it off now?"
+54,"   The following people couldn't hear your message: %s."
+55,"   %s can't hear you because %s doesn't support chatting."
+56,"Offense: %s PC Name: %s [%s] Age: %s City: %s Hobbies: %s Name: %s [%U] Place: %s Comment: %s "
+57,"Enter the UID to log out:"
+58,"   The message was not sent to the following members because you don't know their UID number:
+"
+59,"
+   The message was sent to any other members you selected."

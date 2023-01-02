@@ -1,0 +1,114 @@
+0,"Which color do you prefer?
+(White always goes first)"
+1,"   Select to accept this move. Click on OPTIONS and turn VERIFY MOVES off to keep these buttons from popping up each move."
+2,"   Select to put the piece back. Click on OPTIONS and turn VERIFY MOVES off to keep these buttons from popping up each move."
+3,"   Select to start a new game of chess."
+4,"   Select to accept the draw that your opponent offered with his or her last move."
+5,"   Select to reject the draw that your opponent offered with his or her last move and continue play."
+6,"The players are loading
+a new game from a file.
+Please wait."
+7,"The clocks show how much time each player has left to play.
+The clocks are currently set to
+%s"
+8,"
+Art by Eric Apel
+Coded by William Mortimer
+Designed by William Mortimer,
+Warren Schwader & INNChess"
+9,"Game saved at %s on %s
+%s
+%s"
+10,"Game saved at %s on %s
+%s"
+11,"Who will play white?"
+12,"   When this button is yellow, you can make any legal move and evaluate it. If it is acceptable click on the OK button; if it is not, click on CANCEL."
+13,"   This selection allows you to see which pieces have been captured during the current game."
+14,"   Would you like to offer a draw to %s with your next move?
+
+   If you choose to offer a draw, move a piece and your draw offer will be given to your opponent with your move."
+15,"   To offer a draw, select this button when it is your turn and make your move. If the player declines, then you must continue. If the draw is accepted you begin a new game. The number of draws is recorded in the scoreboard."
+16,"   Are you sure you would like to resign from this game of chess with %s?"
+17,"%d %s Played
+%d %s
+
+%s has won %d %s
+for a score of %d.%d
+
+%s has won %d %s
+for a score of %d.%d"
+18,"   Save the current on/off condition of the clock display, move list, board labels, and move verify?"
+19,"   Your clock has expired. Technically, you lose the game on time. Would you like to request that you and your opponent continue the game and add %d minute(s) to your clock and %d minute(s) to your opponent's clock?"
+20,"   %s's clock has expired. Technically, you win the game on time. %s has requested that the game continue and that %d minute(s) be added to your clock and %d minutes be added to his or her clock."
+21,"   %s does not want to continue with the game. You lose on time."
+22,"   %s has allowed you to continue with the game. %d minute(s) will be added to your clock. %d minute(s) will be added to %s's clock."
+23,"   %s and %s have decided to continue with the game. %d minute(s) will be added to %s's clock. %d minute(s) will be added to %s's clock."
+24,"%s has agreed to your clock settings of
+%s."
+25,"The players have agreed to clock settings of
+%s."
+26,"   %s has accepted your draw offer. The game is a draw."
+27,"   %s has rejected your draw offer. Please continue playing."
+28,"   Your opponent has offered a draw with this move. To accept the draw, click on the ACCEPT button. To reject the draw and continue playing, click on the REJECT button."
+29,"   A draw has been offered with this move."
+30,"   Neither you nor your opponent have sufficient material to win. The game is a draw."
+31,"   Neither player has sufficient material to win. The game is a draw."
+32,"   50 consecutive moves have been made without capturing a piece or moving a pawn. The game is a draw."
+33,"   The same board position has been repeated three times during the game. The game is a draw."
+34,"   %s has accepted your request to load a game."
+35,"   %s has rejected your request to load a game. Please continue."
+36,"   %s has cancelled the request to load a game. Please continue."
+37,"Promote your pawn to..."
+38,"   Kings move one square in any direction unless castling."
+39,"   To castle, move the king two spaces toward the rook. The rook is placed on the square next to the king towards the center."
+40,"Castling is legal if:
+   1) Neither the king nor the rook have moved yet,
+   2) no pieces stand between the king and the rook,
+   3) no enemy piece attacks squares which the king must travel over, and
+   4) the king is not in check."
+41,"   Queens move any number of squares in a straight line, horizontally, vertically or diagonally."
+42,"   Bishops move any number of squares in a straight diagonal line."
+43,"   Knights move in an L-shaped pattern of \"two squares straight and over one.\" They are the only piece allowed to jump OVER other pieces."
+44,"   Rooks move any distance in a straight line, horizontally or vertically."
+45,"   On their 1st move, pawns move straight forward one or two squares. From then on they: a) move straight forward one square onto an empty square, OR b) capture by moving one square diagonally forward and removing an opponent's piece there. Pawns never move backwards."
+46,"Promotion:
+   If a pawn reaches the opposite side of the board, it is replaced by a queen, rook, bishop or knight of the same color."
+47,"En Passant:
+   If an opponent's pawn moves forward two squares ending up next to one of your pawns, it can be captured as if it had only moved one square. You have this option only on the first move after the opponent's pawn moves."
+48,"   This display shows a list of moves that have been made in the current game. Left-click on the arrows to scroll up or down through the move list. Right-click on the arrows to jump to the beginning or end of the move list."
+49,"   Left-click on the move list on the text of a move to request to restore a game to that point in the game."
+50,"   Would you like to request to restore this game to just after the %s ply of move %d?"
+51,"Who will move first?"
+52,"%s would like to load a saved game from a Forsythe file.
+
+Game saved at: %s on %s
+%s
+%s will play white.
+
+Will you allow the file to be loaded?"
+53,"%s would like to load a saved game from a Move List file.
+
+Game saved at: %s on %s
+%s
+%s
+%s will play white.
+
+Will you allow the file to be loaded?"
+54,"%s would like to restore the state of the game to just after
+
+MOVE %d, %s PLY.
+
+Will you allow the game to be restored?"
+55,"%s would like to play without clocks."
+56,"%s would like to play with the current setting of
+%s."
+57,"%s would like to play with the clocks set to
+GAME IN %d MINUTES."
+58,"%s would like to play with the clocks set to
+%d MOVES IN %d MINUTES
+with a secondary time of
+%s."
+59,"%s would like to play with your clock set to
+GAME IN %d MINUTES
+and his or her clock set to
+GAME IN %d MINUTES."
