@@ -1,9 +1,7 @@
 0,"   This is the Waiting Room for ImagiNation. Here you can find out who is connected to the network, see what they're doing, talk to them, and invite them to play games."
 1,"   While here, you may specify the people you want to interact with by \"selecting\" them. This is done by clicking on their names using the left mouse button (or THE mouse button if you have a one-button mouse). When you select someone, their name will change from green to red, indicating that they are selected. You can \"de-select\" someone in the same fashion."
-2,"   You may talk to a person by selecting them, then typing your message. What you type will be sent only to those people you have selected.
-   When you receive a message, you can respond to it by clicking the reply button. COMPLAIN will post a copy of a message with your comments to ImagiNation. The OK button simply clears the message when you are finished reading. "
-3,"   To find out what a button on the screen does, simply click on it using the right mouse button. If your mouse only has one button, hold down the Shift key on your keyboard while clicking the button.
-"
+2,"   You may talk to a person by selecting them, then typing your message. What you type will be sent only to those people you have selected.\n   When you receive a message, you can respond to it by clicking the reply button. COMPLAIN will post a copy of a message with your comments to ImagiNation. The OK button simply clears the message when you are finished reading. "
+3,"   To find out what a button on the screen does, simply click on it using the right mouse button. If your mouse only has one button, hold down the Shift key on your keyboard while clicking the button.\n"
 4,"   You can select these arrows to go to other pages of members."
 5,"   When there is more than one page of members, arrows will appear here so that you can go to additional pages of members."
 6,"   This shows how many other people are in this Waiting Room."
@@ -16,29 +14,23 @@
 13,"   Select this option to change your cursor shape."
 14,"   Select the people at whom you wish to look, then click on this button."
 15,"   When nobody is selected, this button will start a new game.  When one person who is playing a game is selected, this button will allow you to join that person's existing game as a player.  When one or more persons that are not playing a game are selected, this button will allow you to invite them to play a game."
-16,"   Select the people to whom you are interested in talking, then click on this button. To cancel a message, press the [Esc] key.
-   A shortcut is to just select the people to whom you want to talk and then just start typing. Clicking on this button is optional."
+16,"   Select the people to whom you are interested in talking, then click on this button. To cancel a message, press the [Esc] key.\n   A shortcut is to just select the people to whom you want to talk and then just start typing. Clicking on this button is optional."
 17,"   Select this button to go places and do things."
 18,"Please enter the name of the person you wish to locate:"
 19,"   You must enter a name, or click on Cancel to leave."
-20,"Please select the game you are interested in.
-A list of people who are available with matching interests will be presented."
+20,"Please select the game you are interested in.\nA list of people who are available with matching interests will be presented."
 21,"Sorry, but you have the wrong version for this place."
 22,"Sorry, but you do not have access to this land."
 23,"Sorry, but that place is not available."
 24,"   You need to select one person to which you wish to give money before choosing this option."
 25,"   You can only give money to someone in the Waiting Room."
 26,"The amount must be between 1 and 9999."
-27,"Explain your gift?
-(Optional - hit [Enter] for none)."
+27,"Explain your gift?\n(Optional - hit [Enter] for none)."
 28,"You can't give away more money than you have!"
 29,"You can't give away all your money! You'd better keep at least $100."
 30,"   While you're in the Waiting Room, you can see everyone's name. "
 31,"   Click on a person's name to select it. Talk to selected people by clicking on TALK. Invite them to play a game by clicking on INVITE. "
 32,"   People playing a game have a picture on their nameplate which represents the game they are playing."
 33,"   To watch a game, highlight the name of the person who is playing a game, and click on WATCH."
-34,"
-   Click on LOOK to see the faces of selected people.
-   To quickly look at one person, right-click on that person's name. "
-35,"   Press STOP GUIDE to turn the INN Guide off, or press OK to leave the Guide on.
-   Now it's your turn. Feel free to explore, meet people, and play games. Have fun using your ImagiNation! "
+34,"\n   Click on LOOK to see the faces of selected people.\n   To quickly look at one person, right-click on that person's name. "
+35,"   Press STOP GUIDE to turn the INN Guide off, or press OK to leave the Guide on.\n   Now it's your turn. Feel free to explore, meet people, and play games. Have fun using your ImagiNation! "

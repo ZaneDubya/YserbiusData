@@ -5,11 +5,7 @@
 4,"Begin next hand"
 5,"The state of the Bridge game did not allow you to watch it. Since this problem generally only occurs when the game is just starting or if one of the players is not responding to a scoring message, an alert, or a claim, feel free to try again."
 6,"Please choose your Bridge partner."
-7,"Bridge
-
-By
-Richard Aronson
-"
+7,"Bridge\n\nBy\nRichard Aronson\n"
 8,"  You have changed the bid -- are you sure you want to pass?"
 9,"   We're sorry, but you have fallen out of synch with the rest of the Bridge players and we have to return you to the Waiting Room. This may happen when the player you asked has an older version of ImagiNation than you do, or if you are trying to watch before the game is ready."
 10,"Waiting until everyone is done with score."
@@ -23,27 +19,18 @@ Richard Aronson
 18,"You can't double again."
 19,"You can only redouble if the current bid was made by you or your partner."
 20,"You can't redouble again."
-21,"Your bid of %d %s must be
-greater than the current bid of
-%d %s. Please re-bid."
+21,"Your bid of %d %s must be\ngreater than the current bid of\n%d %s. Please re-bid."
 22,"You must follow with a %s."
-23,"
-The declarer was %svulnerable.
-"
-24,"The contract was %s.
-"
-25,"Rubber Total Score
-  We    They
-  %2d   %2d
-"
+23,"\nThe declarer was %svulnerable.\n"
+24,"The contract was %s.\n"
+25,"Rubber Total Score\n  We    They\n  %2d   %2d\n"
 26,"This is try #%d of twenty. The game you are attempting to watch is not at a point that will allow watching. You can wait until the game allows watching or use the options button to end this watching attempt."
 27,"%s, you are the dummy. You must sit out this round."
 28,"Claim %d/13"
 29,"  The declarer (%s) has claimed %d of the remaining %d tricks.%s"
 30,"%s claim for %d of the remaining tricks has been accepted."
 31,"%s claim for %d of the remaining tricks has been rejected.   Continue play!"
-32,"  %s pressed the ALERT button.
-%s"
+32,"  %s pressed the ALERT button.\n%s"
 33,"Choose your scoring option:"
 34,"What variation of Chicago do you want to play?"
 35,"%s scored a GRAND slam earning a bonus of %d points and a game bonus of %d points!"
@@ -59,10 +46,7 @@ The declarer was %svulnerable.
 45,"%s made the contract and gets 50 points for the partscore for a total of %d points."
 46,"%s gets 100 points for the fourth deal partscore."
 47,"   While a hand is still being played, this option will review the last claimed trick."
-48,"Running Total Score
-  We    They
-  %2d   %2d
-"
+48,"Running Total Score\n  We    They\n  %2d   %2d\n"
 49,"%s made a grand slam earning a score of %d."
 50,"%s made a small slam with an overtrick earning a score of %d."
 51,"%s made a small slam earning a score of %d."

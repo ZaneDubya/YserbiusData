@@ -5,10 +5,8 @@
 4,"   Left-click on the STOP GUIDE button to stop the INN Guide."
 5,"   This is the Waiting Room for ImagiNation. Here you can find out who is connected to the network, see what they're doing, talk to them, and invite them to play games."
 6,"   While here, you may specify the people you want to interact with by \"selecting\" them. This is done by clicking on their names using the left mouse button (or THE mouse button if you have a one-button mouse). When you select someone, their name will change from yellow to red, indicating that they are selected. You can \"deselect\" someone in the same fashion. "
-7,"   You may talk to a person by selecting them, then typing your message. What you type will be sent only to those people you have selected.
-   When you receive a message, you can respond to it by clicking the reply button. COMPLAIN will post a copy of a message with your comments on the Sysop's BBS. The OK button simply clears the message when you are finished reading. "
-8,"   To find out what a button on the screen does, simply click on it using the right mouse button. If your mouse only has one button, hold down the Shift key on your keyboard while clicking the button.
-"
+7,"   You may talk to a person by selecting them, then typing your message. What you type will be sent only to those people you have selected.\n   When you receive a message, you can respond to it by clicking the reply button. COMPLAIN will post a copy of a message with your comments on the Sysop's BBS. The OK button simply clears the message when you are finished reading. "
+8,"   To find out what a button on the screen does, simply click on it using the right mouse button. If your mouse only has one button, hold down the Shift key on your keyboard while clicking the button.\n"
 9,"Got a QUEUE GROUP SID message from %s when I had no gameGroup."
 10,"   You can select these arrows to go to other pages of members."
 11,"   When there is more than one page of users, arrows will appear here so that you can go to additional pages of users."
@@ -37,8 +35,7 @@
 34,"   You cannot do anything else while waiting to %s. If you wish to cancel this %s, click on the CANCEL button."
 35,"%s is not in %s right now."
 36,"   You must enter a name, or click on Cancel to leave."
-37,"Sorry, but the trivia room names and info is too big.
-This will not be saved."
+37,"Sorry, but the trivia room names and info is too big.\nThis will not be saved."
 38,"Trivia is not supported at this place."
 39,"Sorry, but this trivia room is full right now."
 40,"   %s requires between %d and %d players. Counting yourself, there are %d of them."
@@ -55,6 +52,5 @@ This will not be saved."
 51,"   Select this option to change the trivia room info and/or names. Hot key is [ALT-Q]"
 52,"   When nobody is selected, this button will start a new game.  When one or more people that are not playing a game are selected, this button will allow you to invite them to play a game."
 53,"   Select the person you wish to watch in a game, then click on this button."
-54,"   Select the people to whom you are interested in talking, then click on this button. To cancel a message, press the [Esc] key.
-   A shortcut is to select the people to whom you want to talk and then just start typing. Clicking on this button is optional."
+54,"   Select the people to whom you are interested in talking, then click on this button. To cancel a message, press the [Esc] key.\n   A shortcut is to select the people to whom you want to talk and then just start typing. Clicking on this button is optional."
 55,"   Select this button to go places and do things."

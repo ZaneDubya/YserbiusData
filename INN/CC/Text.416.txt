@@ -18,44 +18,19 @@
 17,"   Beginning FlipFlop players will want to have the Verbose option ON because it will cause the game to explain all events in detailed text messages. Experienced players familiar with those explanations may want to have it OFF. "
 18,"   ATTENTION: A file called \"%s\" will be written to your local drive, as a debugging aid for the programmer. Make a copy if this file if you get a PMachine."
 19,"Error, someone has an uninitialized sid. Values now: ($%x $%x)"
-20,"
-FlipFlop
-
-by: Sean D. Wagle
-
-"
-21,"   You move by laying a NEW piece on the board.
-
-   When you do this, you must trap at least one of the opposing pieces in a straight line, vertically, horizontally, or diagonally."
-22,"   You trap the opposing piece by enclosing it between an existing piece of your color and the one you put down.
-
-   It is possible to trap more than one opposing piece at a time, in more than one direction at a time, in a single move!"
+20,"\nFlipFlop\n\nby: Sean D. Wagle\n\n"
+21,"   You move by laying a NEW piece on the board.\n\n   When you do this, you must trap at least one of the opposing pieces in a straight line, vertically, horizontally, or diagonally."
+22,"   You trap the opposing piece by enclosing it between an existing piece of your color and the one you put down.\n\n   It is possible to trap more than one opposing piece at a time, in more than one direction at a time, in a single move!"
 23,"   The game is won by the player with the most pieces of his color at game end."
-24,"   The game ends when neither player can make a move (usually when the board is completely filled with pieces).
-
-   It is possible for a game to end in a draw."
-25,"   The WHITE player always goes first. Whoever wins the initial coin toss plays white.
-
-   In successive games, the player to move first rotates back and forth, so that each player has an equal number of chances to be first."
-26,"   The corner squares are the only places on the board which can never be taken away from you, if you possess them.
-
-   Conversely, if you put one of your pieces right next to a corner, then your opponent may take it on the next turn. Use caution near corners."
-27,"   If you have only a few pieces during the middle of the game, you're doing better than it looks, because you have more valid moves available than your opponent does.
-
-   If you can force your opponent to have only one valid move available, it will usually be a bad one, from his point of view."
+24,"   The game ends when neither player can make a move (usually when the board is completely filled with pieces).\n\n   It is possible for a game to end in a draw."
+25,"   The WHITE player always goes first. Whoever wins the initial coin toss plays white.\n\n   In successive games, the player to move first rotates back and forth, so that each player has an equal number of chances to be first."
+26,"   The corner squares are the only places on the board which can never be taken away from you, if you possess them.\n\n   Conversely, if you put one of your pieces right next to a corner, then your opponent may take it on the next turn. Use caution near corners."
+27,"   If you have only a few pieces during the middle of the game, you're doing better than it looks, because you have more valid moves available than your opponent does.\n\n   If you can force your opponent to have only one valid move available, it will usually be a bad one, from his point of view."
 28,"   It is even possible to leave your opponent with no legal move at all-- in which case you get another turn!"
-29,"   Arrow keys move the cursor as usual.
-
-   [PageUP], [PageDown], [End] and [Home] keys take the cursor to the corners of the board."
-30,"   [Shift-Tab] and [Tab] work similarly to left arrow and right arrow.
-
-   The [Enter] key selects the square to place a FlipFlop piece on.
-
-   To talk to your opponent, just start typing the message you want to send."
+29,"   Arrow keys move the cursor as usual.\n\n   [PageUP], [PageDown], [End] and [Home] keys take the cursor to the corners of the board."
+30,"   [Shift-Tab] and [Tab] work similarly to left arrow and right arrow.\n\n   The [Enter] key selects the square to place a FlipFlop piece on.\n\n   To talk to your opponent, just start typing the message you want to send."
 31,"   Clocked games are available when both players have version 2.4 (or newer) of ImagiNation. The inviting player gets the first chance to decide what time will be set for the clocks (if they are used at all). "
-32,"   The other player can offer a different time setting if he/she does not want to use the one offered by the inviter.
-
-   Each clock is a game clock-- the total number of minutes that player has to make all moves in the game."
+32,"   The other player can offer a different time setting if he/she does not want to use the one offered by the inviter.\n\n   Each clock is a game clock-- the total number of minutes that player has to make all moves in the game."
 33,"   Clocks will appear to have been stopped while you type a chat or examine your options, but they will readjust for lost time when you click a dialog away. So don't dawdle when it's your turn... it'll cost you! "
 34,"Error, unknown sid passed in TOSS COIN message to identify the first player."
 35,"Your first game ended in a draw. Try again?"

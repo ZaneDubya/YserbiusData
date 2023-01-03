@@ -1,3 +1,1 @@
-0,"   This is where you decide how you want your persona to look.
-   Click on the arrows to change your persona's hair, face, clothes, etc....
-   Click on GO ON when you are finished. "
+0,"   This is where you decide how you want your persona to look.\n   Click on the arrows to change your persona's hair, face, clothes, etc....\n   Click on GO ON when you are finished. "

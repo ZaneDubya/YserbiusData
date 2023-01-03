@@ -1,17 +1,8 @@
-0,"Poker
-\"The funnest game in town\"
-Copyright 1992 INN
-
-Programming By
-Stephen L. Nichols
-Art By
-Eric Apel
-"
+0,"Poker\n\"The funnest game in town\"\nCopyright 1992 INN\n\nProgramming By\nStephen L. Nichols\nArt By\nEric Apel\n"
 1,"   The objective of Poker is to win individual hands by either obtaining the highest poker hand or tricking your opponents into thinking that you have the highest poker hand, thus forcing them to fold."
 2,"   Rank: The numerical value of a card or cards. The displayed numeral in the upper left and lower right corners of the card denote it's value. Face cards are the exception to this rule. the Jack is worth 11. The Queen is worth 12. The King is worth 13. The Ace is worth either 14 or 1."
 3,"   Suit: The symbol associated with a particular card or cards. There are four suits that exist in a Poker deck of cards -- diamonds, hearts, spades and clubs. The diamonds look just like little red diamonds. The hearts look just like little red hearts. The spades look like a small black object that comes to a point at the top. The clubs look just like little black three-leaf clovers."
-4,"Following is a list of poker hand ranks that are listed in high-low order from the upper left to the lower right. You can click on any one of them to find out more about that particular hand.
-"
+4,"Following is a list of poker hand ranks that are listed in high-low order from the upper left to the lower right. You can click on any one of them to find out more about that particular hand.\n"
 5,"A Straight Flush consists of five cards in suit and sequence and is the highest ranking poker hand. The example hand, to the left, would be called a Nine-High Straight Flush."
 6,"A Four of a Kind consists of four cards of any one rank together with any fifth card and ranks just below the Straight Flush. The example hand, to left, would be call Four Twos."
 7,"A Full House consists of any three of one kind and any pair of another kind. This hand ranks just below a Four of a Kind. The example hand, to the left, would be called a Sixes-High Full House."

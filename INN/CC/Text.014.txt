@@ -1,13 +1,5 @@
-0,"   Welcome to the ImagiNation Network, the premier interactive entertainment service! You are just moments away from becoming a member.
-
-   IMPORTANT: You will be asked to provide some basic personal information, including your CREDIT CARD number.
-
-   If you do not have a credit card, you will not be able to register online. Please consult the enclosed material for other payment options and call 1-800-IMAGIN-1 to register. "
-1,"BILLING INFORMATION: 
-
-   You are about to register for the full membership in The ImagiNation Network. Rates are outlined on the rate card enclosed with this software, and are subject to change.
-
-   After you register, your initial free hours included in your offer must be used within the next 30 days. All charges you incur beyond your free hours, including future monthly charges, will be billed automatically to your credit card. You may cancel your membership at any time by calling 1-800-IMAGIN-1. "
+0,"   Welcome to the ImagiNation Network, the premier interactive entertainment service! You are just moments away from becoming a member.\n\n   IMPORTANT: You will be asked to provide some basic personal information, including your CREDIT CARD number.\n\n   If you do not have a credit card, you will not be able to register online. Please consult the enclosed material for other payment options and call 1-800-IMAGIN-1 to register. "
+1,"BILLING INFORMATION: \n\n   You are about to register for the full membership in The ImagiNation Network. Rates are outlined on the rate card enclosed with this software, and are subject to change.\n\n   After you register, your initial free hours included in your offer must be used within the next 30 days. All charges you incur beyond your free hours, including future monthly charges, will be billed automatically to your credit card. You may cancel your membership at any time by calling 1-800-IMAGIN-1. "
 2,"   You have successfully completed the form. You may press the button marked \"Done\" at any time to send your data to ImagiNation."
 3,"   Sorry, unknown problem encountered. We cannot process your membership at this time."
 4,"Initializing modem link to ImagiNation."
@@ -38,16 +30,9 @@
 29,"   Check this box if you are using a Visa Card."
 30,"   Check this box if you are using a Master Card."
 31,"   Check this box if you are using a Discover Card."
-32,"   Check this box if you have a 
-5 1/4 inch disk drive."
-33,"   Check this box if you have a 
-3 1/2 inch disk drive."
-34,"   Check this box if you have a 
-CD-ROM drive."
-35,"   ImagiNation is primarily a night time and weekend service. Weekday rates are billed at 5 to 8 times rates charged for evening and weekend usage.
-
-   Check this box if you want to be able to access ImagiNation during the higher rate daytime weekday hours."
-36,"   ImagiNation is primarily a night time and weekend service. Weekday rates are billed at 5 to 8 times rates charged for evening and weekend usage.
-
-   Check this box if you do NOT want to be able to access ImagiNation during the higher rate daytime hours. Your new account will automatically be protected from these more significant charges."
+32,"   Check this box if you have a \n5 1/4 inch disk drive."
+33,"   Check this box if you have a \n3 1/2 inch disk drive."
+34,"   Check this box if you have a \nCD-ROM drive."
+35,"   ImagiNation is primarily a night time and weekend service. Weekday rates are billed at 5 to 8 times rates charged for evening and weekend usage.\n\n   Check this box if you want to be able to access ImagiNation during the higher rate daytime weekday hours."
+36,"   ImagiNation is primarily a night time and weekend service. Weekday rates are billed at 5 to 8 times rates charged for evening and weekend usage.\n\n   Check this box if you do NOT want to be able to access ImagiNation during the higher rate daytime hours. Your new account will automatically be protected from these more significant charges."
 37,"   This is the online signup section of ImagiNation. This lets us know who you are. All you need to do is fill this out like a regular form. If you need any help, simply click on the HELP button. "

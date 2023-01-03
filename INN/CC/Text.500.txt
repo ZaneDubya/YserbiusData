@@ -5,11 +5,7 @@
 4,"Begin another round"
 5,"Aborting watch attempt."
 6,"Choose your partner:"
-7,"Bridge
-
-By
-Richard Aronson
-"
+7,"Bridge\n\nBy\nRichard Aronson\n"
 8,"   You have changed the bid -- are you sure you want to pass?"
 9,"   BUG!! Returning to Waiting Room. If you are watching, this bug does not happen all the time... so you could try watching again."
 10,"   Waiting until everyone is done with score."
@@ -24,27 +20,18 @@ Richard Aronson
 19,"You can't double again."
 20,"   You can only redouble if the current bid was made by you or your partner."
 21,"You can't redouble again."
-22,"Your bid of %d %s must be
-greater than the current bid of
-%d %s. Please re-bid."
+22,"Your bid of %d %s must be\ngreater than the current bid of\n%d %s. Please re-bid."
 23,"   You must follow with a %s."
-24,"
-The declarer was %svulnerable.
-"
-25,"The game has been %s.
-"
-26,"Grand Total Score
-  We    They
-  %2d   %2d
-"
+24,"\nThe declarer was %svulnerable.\n"
+25,"The game has been %s.\n"
+26,"Grand Total Score\n  We    They\n  %2d   %2d\n"
 27,"Try #%d...please wait."
 28,"   %s, you are the dummy. You must sit out this round."
 29,"Claim %d/13"
 30,"   The declarer (%s) has claimed %d of the remaining %d tricks.%s"
 31,"   %s claim for %d of the remaining tricks has been accepted."
 32,"   %s claim for %d of the remaining tricks has been rejected. Continue play!"
-33,"   %s pressed the ALERT button.
-%s"
+33,"   %s pressed the ALERT button.\n%s"
 34,"Choose your scoring option:"
 35,"   Do you want to keep the same partners?"
 36,"   What variation of Chicago do you want to play?"

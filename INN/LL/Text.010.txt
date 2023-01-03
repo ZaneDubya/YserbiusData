@@ -2,14 +2,8 @@
 1," If you still have a problem, call 1-800-IMAGIN-1."
 2,"%d hour%s and %d minute%s"
 3,"%d minute%s"
-4,"Thank you for using
-ImagiNation.
-See you soon!
-
-Your time online this session:
-%s."
-5,"   The INN Guide will provide an introduction to the ImagiNation Network and explain how to use your ImagiNation.
-   Would you like the INN Guide to help you? "
+4,"Thank you for using\nImagiNation.\nSee you soon!\n\nYour time online this session:\n%s."
+5,"   The INN Guide will provide an introduction to the ImagiNation Network and explain how to use your ImagiNation.\n   Would you like the INN Guide to help you? "
 6,"   Click the \"Yes\" button with your left mouse button to activate the INN Guide."
 7,"   Click the \"No\" button with your left mouse button to continue without the INN Guide."
 8,"Error: unable to update %s"
@@ -18,7 +12,4 @@ Your time online this session:
 11,"   Left-click on the STOP GUIDE button to stop the INN Guide."
 12,"   Left-click on the YES button to confirm."
 13,"   Left-click on the NO button to continue the INN Guide."
-14,"   Do you really want to turn the INN Guide off?
-   If you select YES you may restart the guide by pressing the OPTIONS button (when available), selecting PREFERENCES, and pressing the INN GUIDE button.
-   Press YES to confirm.
-   Press NO to continue the INN Guide."
+14,"   Do you really want to turn the INN Guide off?\n   If you select YES you may restart the guide by pressing the OPTIONS button (when available), selecting PREFERENCES, and pressing the INN GUIDE button.\n   Press YES to confirm.\n   Press NO to continue the INN Guide."

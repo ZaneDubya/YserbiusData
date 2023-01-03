@@ -10,59 +10,20 @@
 9,"   %s has accumulated 10 or more sandbags and is penalized -100 points!@"
 10,"   %s and %s have accumulated 10 or more sandbags and are penalized -100 points!@"
 11,"Spades Scores"
-12,"Round: %d
-
-             Score
-%11s: %3d   
-%11s: %3d   
-%11s: %3d   
-%11s: %3d   
- "
-13,"Round: %d
-
-             Score Bags 
-%11s: %3d  %2d   
-%11s: %3d  %2d   
-%11s: %3d  %2d   
-%11s: %3d  %2d   
- "
-14,"Round: %d
-
-             Score
-%11s &       
-%11s : %3d   
-
-%11s &       
-%11s : %3d   
- "
-15,"Round: %d
-
-             Score Bags
-%11s &          
-%11s : %3d   %2d 
-
-%11s &          
-%11s : %3d   %2d 
- "
-16,"%s led,
-Taken by %s:"
+12,"Round: %d\n\n             Score\n%11s: %3d   \n%11s: %3d   \n%11s: %3d   \n%11s: %3d   \n "
+13,"Round: %d\n\n             Score Bags \n%11s: %3d  %2d   \n%11s: %3d  %2d   \n%11s: %3d  %2d   \n%11s: %3d  %2d   \n "
+14,"Round: %d\n\n             Score\n%11s &       \n%11s : %3d   \n\n%11s &       \n%11s : %3d   \n "
+15,"Round: %d\n\n             Score Bags\n%11s &          \n%11s : %3d   %2d \n\n%11s &          \n%11s : %3d   %2d \n "
+16,"%s led,\nTaken by %s:"
 17,"   %s has chosen to play \"%s,\" with the sandbags penalty turned %s."
 18,"   %s will take the rest of the tricks no matter how the other players play. Will you allow the claim?"
 19,"   Your cards are so weak, it is impossible for you to take another trick during this hand. Will you allow the computer to play for you?"
 20,"...waiting for everyone to enter \"Spades\"..."
-21,"   Do you want to play with the sandbags penalty?
-
-   If you answer yes, overtricks will accumulate and cause a 100 point penalty when the 10th sandbag is taken."
+21,"   Do you want to play with the sandbags penalty?\n\n   If you answer yes, overtricks will accumulate and cause a 100 point penalty when the 10th sandbag is taken."
 22,"   Everyone has agreed to the claim, conceding the rest of the tricks to %s."
 23,"... wait for the claiming consensus ..."
-24,"   A cutthroat game ends when a player passes %d points, so the winner is %s!
-
-
- "
-25,"   A partnership game ends when one team passes %d points, or when one team is 0 or above and the other is below %d. Therefore, the game is won by %s!
-
-
- "
+24,"   A cutthroat game ends when a player passes %d points, so the winner is %s!\n\n\n "
+25,"   A partnership game ends when one team passes %d points, or when one team is 0 or above and the other is below %d. Therefore, the game is won by %s!\n\n\n "
 26,"%s commits to a \"Blind Nil\" bid!"
 27,"   %s decided not to go \"Blind Nil\" after all."
 28,"   Choose a partner, or choose \"No Partner\" for a Cutthroat game."

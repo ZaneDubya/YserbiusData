@@ -16,10 +16,7 @@
 15,"   The Novell station name you have specified is too short. Please use the name of a valid INN Host."
 16,"   The Novell station name you have specified is too long. Please use the name of a valid INN Host."
 17,"   No such Novell workstation is connected to the LAN. Please specify the name or logical connection number (obtained by invoking userlist.exe) of a valid INN Host."
-18,"   There is no response from that Novell workstation. 
-Either:
-(1) The workstation name or logical-connection specified is NOT a INN Host workstation.
-(2) The ImagiNation Network is off-line for maintenance."
+18,"   There is no response from that Novell workstation. \nEither:\n(1) The workstation name or logical-connection specified is NOT a INN Host workstation.\n(2) The ImagiNation Network is off-line for maintenance."
 19,"   The Novell driver was unable to install correctly on your workstation. The Netware Socket could not be opened: perhaps you are not logged into the network."
 20,"   The current driver you are running does not support reconnecting, so you cannot go to a new place."
 21,"ERR NO RECONNECT PROMPT"

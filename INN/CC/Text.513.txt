@@ -1,18 +1,10 @@
 0,"   The player you were watching left before you could get an update of the game. Returning you to the Waiting Room."
-1,"   %s left the game, but it can be continued if you all wait and allow that person to return as a watcher.
-
-   Since this happened during a claim, the game will assume that everyone would have agreed to the claim anyway, and skip to the end of the hand."
-2,"   %s left the game, but it can be continued if you all wait and allow that person to return as a watcher.
-
-   Since this happened in the midst of the passing-3-cards phase, the game must be reset to just after the deal. You'll still pass cards when the game resumes."
+1,"   %s left the game, but it can be continued if you all wait and allow that person to return as a watcher.\n\n   Since this happened during a claim, the game will assume that everyone would have agreed to the claim anyway, and skip to the end of the hand."
+2,"   %s left the game, but it can be continued if you all wait and allow that person to return as a watcher.\n\n   Since this happened in the midst of the passing-3-cards phase, the game must be reset to just after the deal. You'll still pass cards when the game resumes."
 3,"   %s left during the scoring of this round. However, this game can be continued if you all wait and allow that person to return as a watcher."
 4,"   %s left the game, but it can be continued if you all wait and allow that person to return as a watcher."
-5,"   Error: The player that left this game quit at a particularly sensitive point, causing you to be out-of-synch with the other players. If no-one else has this problem, then you can still rejoin the game and finish it.
-
-   (We're sorry, but this can't be fixed in a 2.x INN version.)"
-6,"   Error: The player that left this game quit at a particularly sensitive point, causing you to be out-of-synch with the other players. You can't continue watching under these conditions.
-
-   (We're sorry, but this can't be fixed in a 2.x INN version.) "
+5,"   Error: The player that left this game quit at a particularly sensitive point, causing you to be out-of-synch with the other players. If no-one else has this problem, then you can still rejoin the game and finish it.\n\n   (We're sorry, but this can't be fixed in a 2.x INN version.)"
+6,"   Error: The player that left this game quit at a particularly sensitive point, causing you to be out-of-synch with the other players. You can't continue watching under these conditions.\n\n   (We're sorry, but this can't be fixed in a 2.x INN version.) "
 7," (Hearts Msg) You had to leave because somebody else came into the game and grabbed the vacant seat before you could take it."
 8,"   %s is about to enter this game. Should this member just view your cards like a typical watcher, or replace %s instead?"
 9,"   %s, you are taking a vacant seat at this table. You aren't just watching -- you are playing this game!"

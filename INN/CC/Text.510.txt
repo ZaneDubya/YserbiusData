@@ -1,29 +1,17 @@
 0,"Smart cards allow you to speed up the game when the outcome of a hand is indisputable."
 1,"   What would you like help on?"
-2,"   Using the mouse, click on a card and hold down the button. Drag the card to the middle of the screen.
-   With a keyboard, move the pointer to a card with the arrow (or keypad) keys, press [Enter], press the up arrow, then press [Enter] again."
+2,"   Using the mouse, click on a card and hold down the button. Drag the card to the middle of the screen.\n   With a keyboard, move the pointer to a card with the arrow (or keypad) keys, press [Enter], press the up arrow, then press [Enter] again."
 3,"   Hearts is a card game to be played by three or four players. At the beginning of a round of play the deck is shuffled and all of the cards are dealt to the players. In a three player game, the two of diamonds is tossed out to make an even deck. Each player passes their three least desirable cards to the opponent on their left."
 4,"   The player with the deuce of clubs begins play by leading with that card. Each player must \"follow suit,\" meaning that if a club is put down, each other player must play a club unless they don't have one, in which case they may put down any card they like."
-5,"   After each player has played a card, the one who played the highest card following the lead suit wins the trick. The winner leads the next hand.
-   Each card you win with a heart on it counts one point against you. This version of the game is \"Black Lady\" Hearts. If you \"win\" the Queen of Spades, 13 points are counted against you."
-6,"   There is an automatic scoring convention in Hearts called \"Shooting The Moon.\" If you get all the hearts (13 of them) and the Queen of Spades, everyone else will have 26 points scored against them.
-   After each round, the scores are tabulated. Play will continue until a player's score reaches 100 points. The player with the LOWEST score wins."
-7,"Black Lady Hearts
-by
-David Slayback
-
-\"Smart Cards\" added by
-Sean D. Wagle"
+5,"   After each player has played a card, the one who played the highest card following the lead suit wins the trick. The winner leads the next hand.\n   Each card you win with a heart on it counts one point against you. This version of the game is \"Black Lady\" Hearts. If you \"win\" the Queen of Spades, 13 points are counted against you."
+6,"   There is an automatic scoring convention in Hearts called \"Shooting The Moon.\" If you get all the hearts (13 of them) and the Queen of Spades, everyone else will have 26 points scored against them.\n   After each round, the scores are tabulated. Play will continue until a player's score reaches 100 points. The player with the LOWEST score wins."
+7,"Black Lady Hearts\nby\nDavid Slayback\n\n\"Smart Cards\" added by\nSean D. Wagle"
 8,"There are no point cards still being held, so the remaining tricks are irrelevant. Would you like to let the computer discard the rest?"
 9,"You will take the rest of the deck, regardless of what the other players do. Would you like the computer lead for the rest of this hand?"
 10,"The player that took the last trick will take the rest of the deck. For speed, would you like to let the computer play your remaining cards?"
 11,"Your cards are so weak, it is impossible for you to take another trick during this hand. Would you like to let the computer discard for you?"
 12,"Waiting until everyone is done with score."
-13,"After %d Round%s
-
-%10s: %3d
-%10s: %3d
-%10s: %3d"
+13,"After %d Round%s\n\n%10s: %3d\n%10s: %3d\n%10s: %3d"
 14,"Try #%d... The game that you are trying to watch is not yet at a point where it allows watchers. You may wait a short while longer or you may use the options button to leave."
 15,"%s, you are watching!"
 16,"%s shot the moon!"
@@ -48,9 +36,4 @@ Sean D. Wagle"
 35,"Please wait while setting up..."
 36,"Please wait for setup..."
 37,"Shuffling..."
-38,"After %d Round%s
-
-%10s: %3d
-%10s: %3d
-%10s: %3d
-%10s: %3d"
+38,"After %d Round%s\n\n%10s: %3d\n%10s: %3d\n%10s: %3d\n%10s: %3d"

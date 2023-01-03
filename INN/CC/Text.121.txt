@@ -8,31 +8,16 @@
 7,"   You must select someone who is playing a game."
 8,"   You need to select someone to talk to before typing."
 9,"   %s has invited you to play %s%s"
-10,".
-
-TEAM 1: %s, %s, %s, & %s
-                         vs.
-TEAM 2: %s, %s, %s, & %s
-
-"
-11,"Table 1: %s-%s vs %s-%s
-Table 2: %s-%s vs %s-%s"
-12,"
-
-   \"Game Privacy\" would be used so that watchers could not enter the game, and players could not chat to people in the Waiting Room. "
+10,".\n\nTEAM 1: %s, %s, %s, & %s\n                         vs.\nTEAM 2: %s, %s, %s, & %s\n\n"
+11,"Table 1: %s-%s vs %s-%s\nTable 2: %s-%s vs %s-%s"
+12,"\n\n   \"Game Privacy\" would be used so that watchers could not enter the game, and players could not chat to people in the Waiting Room. "
 13,"Please enter the name of the person you wish to locate:"
 14,"%s is not in %s right now."
-15,"There is no one available who is interested in playing %s right now who is of the skill levels that you chose.
-
-However, there %s %d player%s of %s who %s interested."
+15,"There is no one available who is interested in playing %s right now who is of the skill levels that you chose.\n\nHowever, there %s %d player%s of %s who %s interested."
 16,"There is no one available who is interested in playing %s right now."
-17,"The following people are interested in playing %s now and are between the skill levels that you chose:
-
-%s."
+17,"The following people are interested in playing %s now and are between the skill levels that you chose:\n\n%s."
 18,"Conference Info: %s"
 19,"Sorry, but this conference room is full right now."
-20,"Enter member name to be moderator:
-(Must have exact case match)
-"
+20,"Enter member name to be moderator:\n(Must have exact case match)\n"
 21,"Trivia is not supported at this place."
 22,"Sorry, but this trivia room is full right now."

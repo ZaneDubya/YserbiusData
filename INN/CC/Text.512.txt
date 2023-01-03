@@ -1,27 +1,12 @@
 0,"   What would you like help on?"
-1,"   Using the mouse, click on a card and hold down the button. Drag the card to the middle of the screen. You may also right-click the card for faster play.
-   With a keyboard, move the pointer to a card with the arrow (or keypad) keys, press [Enter], press the up arrow, then press [Enter] again."
+1,"   Using the mouse, click on a card and hold down the button. Drag the card to the middle of the screen. You may also right-click the card for faster play.\n   With a keyboard, move the pointer to a card with the arrow (or keypad) keys, press [Enter], press the up arrow, then press [Enter] again."
 2,"   Hearts is played by three or four players. At the beginning of a round of play the deck is shuffled and all of the cards are dealt to the players. In a three-player game, the two of diamonds is removed to make an even deck. You will pass three cards as directed to a new player on each hand, followed by a final hand which does not require passing of cards. "
 3,"   The player with the two of clubs begins play by leading with that card. Each player must \"follow suit,\" meaning that if a club is put down, each other player must play a club unless they don't have one, in which case they may put down any card they like."
-4,"   After each player has played a card, the one who played the highest card following the lead suit wins the trick. The winner leads the next trick.
-   Each card that you take with a heart on it counts one point against you. If you take the Queen of Spades, 13 points are counted against you for it."
-5,"   If you get all the hearts (13 of them) and the Queen of Spades, everyone else will have 26 points scored against them and you will receive zero. This is called \"Shooting the Moon.\"
-   After each hand, the scores are tabulated. Play will continue until a player's score reaches 100 points. The player with the LOWEST score wins."
+4,"   After each player has played a card, the one who played the highest card following the lead suit wins the trick. The winner leads the next trick.\n   Each card that you take with a heart on it counts one point against you. If you take the Queen of Spades, 13 points are counted against you for it."
+5,"   If you get all the hearts (13 of them) and the Queen of Spades, everyone else will have 26 points scored against them and you will receive zero. This is called \"Shooting the Moon.\"\n   After each hand, the scores are tabulated. Play will continue until a player's score reaches 100 points. The player with the LOWEST score wins."
 6,"   If you have chosen to play the \"Omnibus\" variation of Hearts, the player who takes the 10 of diamonds wins 10 points to their favor. Thus, negative scores are possible. While playing Omnibus Hearts, you must also take the 10 of diamonds in order to Shoot the Moon. The score for shooting the moon while playing Omnibus Hearts is the same as Black Lady Hearts."
 7,"   To \"Shoot the Moon\" while playing Partnership Hearts the team must get all of the point cards. Points for \"Shooting\" are the same as in Black Lady Hearts."
-8,"H E A R T S
-
-Original Game:
-Dave Slayback
-
-Partnership/Omnibus:
-Warren Schwader
-
-Smart Cards with Claim,
-Leave & Rejoin:
-Sean D. Wagle
-
-Art by Eric Apel "
+8,"H E A R T S\n\nOriginal Game:\nDave Slayback\n\nPartnership/Omnibus:\nWarren Schwader\n\nSmart Cards with Claim,\nLeave & Rejoin:\nSean D. Wagle\n\nArt by Eric Apel "
 9,"   Try #%d. The game that you are trying to watch is not yet at a point where it allows watchers. You may wait if you want or use the OPTIONS button to leave."
 10,"%s, you are watching!"
 11,"   Aborting watch attempt. You might try again in a few minutes."
@@ -34,11 +19,8 @@ Art by Eric Apel "
 18,"...waiting for everyone to come into Hearts..."
 19,"...please wait while setting up..."
 20,"   The score is not available now. Wait until the game has begun."
-21,"%s, please choose your partner,
-(or you may select \"No Partner\")."
-22,"   Would you like to play the \"Omnibus\" variant of Hearts?
-
-   In Omnibus Hearts, the 10 of Diamonds counts 10 points in favor of the player who takes it, and it must be taken too in order to \"Shoot the Moon.\""
+21,"%s, please choose your partner,\n(or you may select \"No Partner\")."
+22,"   Would you like to play the \"Omnibus\" variant of Hearts?\n\n   In Omnibus Hearts, the 10 of Diamonds counts 10 points in favor of the player who takes it, and it must be taken too in order to \"Shoot the Moon.\""
 23,"   Please wait while %s is choosing the game options..."
 24,"   %s has chosen to play Partnership Omnibus Hearts. The player that will be sitting across from you will be your partner."
 25,"   %s has chosen to play Partnership Hearts. The player that will be sitting across from you will be your partner."

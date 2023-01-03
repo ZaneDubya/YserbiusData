@@ -1,2 +1,1 @@
-0,"   The yellow bar in the \"gauge\" next to a room name shows how many people are in that room.
-   Click on the name of the room you wish to enter. "
+0,"   The yellow bar in the \"gauge\" next to a room name shows how many people are in that room.\n   Click on the name of the room you wish to enter. "

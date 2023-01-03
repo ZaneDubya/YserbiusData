@@ -4,11 +4,11 @@
 3,"Broadcast msg"
 4,"   Select to send a message to everyone in this place."
 5,"Change Handle"
-6,"   Select to change your name.(Hot Key: Alt-H)"
+6,"   Select to change your name.\r(Hot Key: Alt-H)"
 7,"Logout user"
 8,"   Select to log a selected user out. (Hot Key: Alt-L)"
 9,"Sysop Notes"
-10,"   Select to write a note, including info on people as needed.(Hot Key: Alt-U)"
+10,"   Select to write a note, including info on people as needed.\r(Hot Key: Alt-U)"
 11,"Inspect ID"
 12,"   Select to evaluate user account status. (Hot Key: Alt-I)"
 13,"List Room"
@@ -38,20 +38,13 @@
 37," Message: You have been logged out of the system."
 38,"   %s could not be logged out because the software has no UID to uniquely identify it. Try again in a minute or two."
 39,"Enter your new name:"
-40,"Users logged at %s"
+40,"\rUsers logged at %s\r\r"
 41,"%-10s[%-10U]%s"
 42,"Enter comments on selected users:"
 43,"Enter User ID to inspect."
 44,"Getting a user list."
-45,"%s %U
-is in: %s
-%sSID: %u
-Host: %u
-LandType: %u
-LandNumber: %u"
-46,"%s[%U],%d,%s
-SID: %u
-"
+45,"%s %U\nis in: %s\n%sSID: %u\nHost: %u\nLandType: %u\nLandNumber: %u"
+46,"%s[%U],%d,%s\nSID: %u\n"
 47,"Could not get information on this user."
 48,"Due to abuse this has been made a supervisor-only function."
 49,"Select someone to talk to first."
@@ -61,9 +54,7 @@ SID: %u
 53,"You have privacy on. Turn it off now?"
 54,"   The following people couldn't hear your message: %s."
 55,"   %s can't hear you because %s doesn't support chatting."
-56,"Offense: %s PC Name: %s [%s] Age: %s City: %s Hobbies: %s Name: %s [%U] Place: %s Comment: %s "
+56,"Offense: %s\r PC Name: %s [%s]\r Age: %s\r City: %s\r Hobbies: %s\r Name: %s [%U]\r Place: %s\r Comment: %s "
 57,"Enter the UID to log out:"
-58,"   The message was not sent to the following members because you don't know their UID number:
-"
-59,"
-   The message was sent to any other members you selected."
+58,"   The message was not sent to the following members because you don't know their UID number:\n"
+59,"\n   The message was sent to any other members you selected."

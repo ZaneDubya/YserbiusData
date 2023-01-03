@@ -9,23 +9,9 @@
 8,"You must follow with a %s."
 9,"   You cannot lead with a heart until hearts have been broken (someone has played a heart or the Queen of Spades) or unless you only have hearts left."
 10,"...shuffling..."
-11,"After %d Round%s
-
-              Hand   Total
-%10s: %3s%s   %4d
-%10s: %3s%s   %4d
-%10s: %3s%s   %4d"
-12,"After %d Round%s
-
-              Hand   Total
-%10s: %3s%s   %4d
-%10s: %3s%s   %4d
-%10s: %3s%s   %4d
-%10s: %3s%s   %4d"
-13,"After %d Round%s       
-                          Hand Total
-%23s: %3s%s %4d
-%23s: %3s%s %4d"
+11,"After %d Round%s\n\n              Hand   Total\n%10s: %3s%s   %4d\n%10s: %3s%s   %4d\n%10s: %3s%s   %4d"
+12,"After %d Round%s\n\n              Hand   Total\n%10s: %3s%s   %4d\n%10s: %3s%s   %4d\n%10s: %3s%s   %4d\n%10s: %3s%s   %4d"
+13,"After %d Round%s       \n                          Hand Total\n%23s: %3s%s %4d\n%23s: %3s%s %4d"
 14,"   We have a tie between %s who each had a low score of %d!!!"
 15,"%s shot the moon!"
 16,"%s and %s shot the moon!"
@@ -37,20 +23,6 @@
 22,"   %s didn't want the cards to be claimed, (but since \"Smart Cards\" is active on your machine, it won't take long to finish this hand.) "
 23,"... wait for the claiming consensus ..."
 24,"   Will you allow %s to claim the rest of the tricks, even though this hand is still theoretically contestable?"
-25,"After %d Round%s
-
-              Hand   Total
-%10s: %3s%s   %4d
-%10s: %3s%s   %4d
-%10s: %3s%s   %4d"
-26,"After %d Round%s
-
-              Hand   Total
-%10s: %3s%s   %4d
-%10s: %3s%s   %4d
-%10s: %3s%s   %4d
-%10s: %3s%s   %4d"
-27,"After %d Round%s       
-                          Hand Total
-%23s: %3s%s %4d
-%23s: %3s%s %4d"
+25,"After %d Round%s\n\n              Hand   Total\n%10s: %3s%s   %4d\n%10s: %3s%s   %4d\n%10s: %3s%s   %4d"
+26,"After %d Round%s\n\n              Hand   Total\n%10s: %3s%s   %4d\n%10s: %3s%s   %4d\n%10s: %3s%s   %4d\n%10s: %3s%s   %4d"
+27,"After %d Round%s       \n                          Hand Total\n%23s: %3s%s %4d\n%23s: %3s%s %4d"

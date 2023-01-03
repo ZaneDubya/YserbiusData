@@ -2,8 +2,5 @@
 1,"   Click on a person's name to select it. Talk to selected people by clicking on TALK. Invite them to play a game by clicking on INVITE. "
 2,"   People playing a game have a picture next to their name which represents the game they are playing. "
 3,"   To watch a game, highlight the name of the person who is playing a game, and click on WATCH. "
-4,"
-   Click on LOOK to see the faces of selected people.
-   To quickly look at one person, right-click on that person's name. "
-5,"   Press STOP GUIDE to turn the INN Guide off, or press OK to leave the Guide on.
-   Now it's your turn. Feel free to explore, meet people, and play games. Have fun using your ImagiNation! "
+4,"\n   Click on LOOK to see the faces of selected people.\n   To quickly look at one person, right-click on that person's name. "
+5,"   Press STOP GUIDE to turn the INN Guide off, or press OK to leave the Guide on.\n   Now it's your turn. Feel free to explore, meet people, and play games. Have fun using your ImagiNation! "
