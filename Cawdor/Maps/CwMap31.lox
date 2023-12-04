@@ -27,464 +27,464 @@
 #define DRAKSNUMBER 39
 #define QUEENSNUMBER 40
 
-fun MapEvent01(macros) {
-    macros.ShowText("Each of these four portals offers the passer-by an exotic weapon from a past visitor to this domain.");
-    if (macros.PartyCount == 1) {
-        if (macros.HasItem(SWORDOFARES) || macros.HasItem(BOWOFEOS) || macros.HasItem(GAEASFLAIL) || macros.HasItem(NEPTUNESTRIDENT)) {
-            macros.ShowText("You cannot enter here, you already have one of the weapons of the Gods.");
-            macros.BlockWall(macros.Here, macros.Facing);
+fun MapEvent01(context) {
+    context.ShowText("Each of these four portals offers the passer-by an exotic weapon from a past visitor to this domain.");
+    if (context.PartyCount == 1) {
+        if (context.HasItem(SWORDOFARES) || context.HasItem(BOWOFEOS) || context.HasItem(GAEASFLAIL) || context.HasItem(NEPTUNESTRIDENT)) {
+            context.ShowText("You cannot enter here, you already have one of the weapons of the Gods.");
+            context.BlockWall(context.Here, context.Facing);
         }
         else {
-            macros.ShowText("Enter, and claim one of the four artifacts for your reward. You may only have one!");
-            macros.ShowText("Arm yourself with whichever artifact you choose before you challenge she who threatens the Gateway's existence.");
-            WallClear(macros);
+            context.ShowText("Enter, and claim one of the four artifacts for your reward. You may only have one!");
+            context.ShowText("Arm yourself with whichever artifact you choose before you challenge she who threatens the Gateway's existence.");
+            WallClear(context);
         }
     }
     else {
-        macros.ShowText("Be off!! Only one Hero may enter here at a time!");
-        macros.BlockWall(macros.Here, macros.Facing);
+        context.ShowText("Be off!! Only one Hero may enter here at a time!");
+        context.BlockWall(context.Here, context.Facing);
     }
 }
 
-fun MapEvent02(macros) {
-    if (macros.HasItem(SWORDOFARES)) {
-        AssaultTxt(macros);
-        macros.Teleport(12, 2, 68, NORTH);
+fun MapEvent02(context) {
+    if (context.HasItem(SWORDOFARES)) {
+        AssaultTxt(context);
+        context.Teleport(12, 2, 68, NORTH);
     }
     else {
-        AdvTxt(macros);
-        WallClear(macros);
+        AdvTxt(context);
+        WallClear(context);
     }
 }
 
-fun MapEvent03(macros) {
-    if (macros.HasItem(BOWOFEOS)) {
-        AssaultTxt(macros);
-        macros.Teleport(12, 2, 64, NORTH);
+fun MapEvent03(context) {
+    if (context.HasItem(BOWOFEOS)) {
+        AssaultTxt(context);
+        context.Teleport(12, 2, 64, NORTH);
     }
     else {
-        AdvTxt(macros);
-        WallClear(macros);
+        AdvTxt(context);
+        WallClear(context);
     }
 }
 
-fun MapEvent04(macros) {
-    if (macros.HasItem(NEPTUNESTRIDENT)) {
-        AssaultTxt(macros);
-        macros.Teleport(12, 2, 67, NORTH);
+fun MapEvent04(context) {
+    if (context.HasItem(NEPTUNESTRIDENT)) {
+        AssaultTxt(context);
+        context.Teleport(12, 2, 67, NORTH);
     }
     else {
-        AdvTxt(macros);
-        WallClear(macros);
+        AdvTxt(context);
+        WallClear(context);
     }
 }
 
-fun MapEvent05(macros) {
-    macros.PlaceWallItem(PORTAL, macros.Here, macros.Facing);
-    WallClear(macros);
+fun MapEvent05(context) {
+    context.PlaceWallItem(PORTAL, context.Here, context.Facing);
+    WallClear(context);
 }
 
-fun MapEvent06(macros) {
-    if (macros.HasItem(GAEASFLAIL)) {
-        AssaultTxt(macros);
-        macros.Teleport(12, 2, 65, NORTH);
+fun MapEvent06(context) {
+    if (context.HasItem(GAEASFLAIL)) {
+        AssaultTxt(context);
+        context.Teleport(12, 2, 65, NORTH);
     }
     else {
-        AdvTxt(macros);
-        WallClear(macros);
+        AdvTxt(context);
+        WallClear(context);
     }
 }
 
-fun MapEvent07(macros) {
+fun MapEvent07(context) {
     var itemA;
-    switch (macros.Here) {
+    switch (context.Here) {
         case 252:
             itemA = GAEASFLAIL;
-            GaeasText(macros);
+            GaeasText(context);
             break;
         case 234:
             itemA = SWORDOFARES;
-            AresText(macros);
+            AresText(context);
             break;
         case 203:
             itemA = BOWOFEOS;
-            EosText(macros);
+            EosText(context);
             break;
         case 221:
             itemA = NEPTUNESTRIDENT;
-            NeptunesTxt(macros);
+            NeptunesTxt(context);
             break;
     }
-    if (!macros.HasItem(itemA)) {
-        macros.GiveItem(itemA);
+    if (!context.HasItem(itemA)) {
+        context.GiveItem(itemA);
     }
 }
 
-fun MapEvent08(macros) {
-    macros.ShowText("WARNING: This will only take you back to the Keepers room. You must retrace your steps or take a different path to proceed from there.");
-    macros.Teleport(12, 2, 0, EAST);
+fun MapEvent08(context) {
+    context.ShowText("WARNING: This will only take you back to the Keepers room. You must retrace your steps or take a different path to proceed from there.");
+    context.Teleport(12, 2, 0, EAST);
 }
 
-fun MapEvent0A(macros) {
-    macros.ShowText("Pure Dissemination lies through this portal.");
-    macros.Teleport(12, 1, 255, WEST);
+fun MapEvent0A(context) {
+    context.ShowText("Pure Dissemination lies through this portal.");
+    context.Teleport(12, 1, 255, WEST);
 }
 
-fun MapEvent0B(macros) {
-    if (macros.GetFlag(PARTY, LASTBATTLE) == 1) {
-        macros.ShowText("Before you, now mad with power and muttering spells upon spells, hovers Aeowyn. Using the Rings of Fate, she is trying to manipulate the Gateway of Immortality. Shaping its destination and purpose.");
-        macros.ShowText("She scorns you as you approach, 'FOOL! MORTAL! You were so easily subdued; so quick to crave the power I offered; you lost sight of yourself and succumbed to my desires.");
-        macros.ShowText("You shall learn the price of your ignorance! For only now, at the end do you understand. Had you kept the rings, had you breached the seal alone, then you may have had this power. But now, I WILL DESTROY YOU!'");
-        macros.ShowText("Aeowyn conjures four guardsmen to her aid, as well as summoning from their entombment, the five Dralkarians...");
-        macros.GetMonster(1, QUEENSGUARDONE);
-        macros.GetMonster(2, QUEENSGUARDTWO);
-        macros.GetMonster(3, QUEENSGUARDTHREE);
-        macros.GetMonster(4, QUEENSGUARDFOUR);
-        macros.GetMonster(5, DRAKSNUMBER);
-        macros.GetMonster(6, QUEENSNUMBER);
+fun MapEvent0B(context) {
+    if (context.GetFlag(PARTY, LASTBATTLE) == 1) {
+        context.ShowText("Before you, now mad with power and muttering spells upon spells, hovers Aeowyn. Using the Rings of Fate, she is trying to manipulate the Gateway of Immortality. Shaping its destination and purpose.");
+        context.ShowText("She scorns you as you approach, 'FOOL! MORTAL! You were so easily subdued; so quick to crave the power I offered; you lost sight of yourself and succumbed to my desires.");
+        context.ShowText("You shall learn the price of your ignorance! For only now, at the end do you understand. Had you kept the rings, had you breached the seal alone, then you may have had this power. But now, I WILL DESTROY YOU!'");
+        context.ShowText("Aeowyn conjures four guardsmen to her aid, as well as summoning from their entombment, the five Dralkarians...");
+        context.GetMonster(1, QUEENSGUARDONE);
+        context.GetMonster(2, QUEENSGUARDTWO);
+        context.GetMonster(3, QUEENSGUARDTHREE);
+        context.GetMonster(4, QUEENSGUARDFOUR);
+        context.GetMonster(5, DRAKSNUMBER);
+        context.GetMonster(6, QUEENSNUMBER);
     }
     else {
-        macros.ShowText("Guardians of the Gateway are summoned to its defense as you attempt to gain access to its secrets.");
-        macros.GetMonster(1, QUEENSGUARDONE);
-        macros.GetMonster(2, QUEENSGUARDTWO);
-        macros.GetMonster(3, QUEENSGUARDTHREE);
-        macros.GetMonster(4, QUEENSGUARDFOUR);
-        macros.GetMonster(5, DRAKSNUMBER);
+        context.ShowText("Guardians of the Gateway are summoned to its defense as you attempt to gain access to its secrets.");
+        context.GetMonster(1, QUEENSGUARDONE);
+        context.GetMonster(2, QUEENSGUARDTWO);
+        context.GetMonster(3, QUEENSGUARDTHREE);
+        context.GetMonster(4, QUEENSGUARDFOUR);
+        context.GetMonster(5, DRAKSNUMBER);
     }
 }
 
-fun MapEvent0C(macros) {
-    macros.ShowText("An illusionary door fades away as you approach.");
-    macros.RemoveWallItem(macros.Here, macros.Facing);
-    macros.BlockWall(macros.Here, macros.Facing);
+fun MapEvent0C(context) {
+    context.ShowText("An illusionary door fades away as you approach.");
+    context.RemoveWallItem(context.Here, context.Facing);
+    context.BlockWall(context.Here, context.Facing);
 }
 
-fun MapEvent0D(macros) {
+fun MapEvent0D(context) {
     var trap;
-    trap = macros.GetFlag(PARTY, CASETRAP2);
-    if (!macros.GetFlag(ROOM, SPRUNGTRAP)) {
+    trap = context.GetFlag(PARTY, CASETRAP2);
+    if (!context.GetFlag(ROOM, SPRUNGTRAP)) {
         switch (trap) {
             case 1:
-                macros.Damage(macros.Health / 3);
-                NoMapsZone(macros);
-                NoSpellZone(macros);
-                macros.ShowText("Evil winds rip through you, mauling you horribly.");
+                context.Damage(context.Health / 3);
+                NoMapsZone(context);
+                NoSpellZone(context);
+                context.ShowText("Evil winds rip through you, mauling you horribly.");
                 trap++;
                 break;
             case 2:
-                macros.Damage(macros.Health - 2000);
-                macros.SetPm(POISON, 15, 100);
-                macros.ShowText("Poisoned gas strangles you as it dissipates.");
+                context.Damage(context.Health - 2000);
+                context.SetPm(POISON, 15, 100);
+                context.ShowText("Poisoned gas strangles you as it dissipates.");
                 trap++;
                 break;
             case 3:
-                macros.Damage(macros.Health / 4);
-                macros.ShowText("A flash of magical light blinds you temporarily; causing you damage.");
+                context.Damage(context.Health / 4);
+                context.ShowText("A flash of magical light blinds you temporarily; causing you damage.");
                 trap++;
                 break;
             case 4:
-                macros.ModMana(-2000);
-                while (macros.HasItem(ZEUSSCROLL)) {
-                    macros.TakeItem(ZEUSSCROLL);
+                context.ModMana(-2000);
+                while (context.HasItem(ZEUSSCROLL)) {
+                    context.TakeItem(ZEUSSCROLL);
                 }
-                while (macros.HasItem(SOVEREIGNSCROLL)) {
-                    macros.TakeItem(SOVEREIGNSCROLL);
+                while (context.HasItem(SOVEREIGNSCROLL)) {
+                    context.TakeItem(SOVEREIGNSCROLL);
                 }
-                macros.ShowText("Mystical currents from an ancient snare steal from and damage you.");
+                context.ShowText("Mystical currents from an ancient snare steal from and damage you.");
                 trap++;
                 break;
             case 5:
-                macros.ShowText("A blast of fire greets you at this next snare.");
-                macros.ModMana(-200);
-                macros.Damage(macros.MaxHealth / 4);
+                context.ShowText("A blast of fire greets you at this next snare.");
+                context.ModMana(-200);
+                context.Damage(context.MaxHealth / 4);
                 trap++;
                 break;
             default: 
-                macros.Damage(macros.Health / 3);
-                macros.NoHealZone;
+                context.Damage(context.Health / 3);
+                context.NoHealZone;
                 trap = 1;
-                NoSpellZone(macros);
-                macros.ShowText("Evil laughter echoes off the walls as yet another snare harms you.");
+                NoSpellZone(context);
+                context.ShowText("Evil laughter echoes off the walls as yet another snare harms you.");
                 break;
         }
-        macros.SetFlag(PARTY, CASETRAP2, trap);
-        SprungTrap(macros);
+        context.SetFlag(PARTY, CASETRAP2, trap);
+        SprungTrap(context);
     }
 }
 
-fun MapEvent0E(macros) {
-    if (!macros.GetFlag(DUNGEON, WONTHISGAME)) {
-        macros.SetFlag(DUNGEON, ENDGAMETELE, 2);
-        macros.ShowText("You've defeated the Queen; preventing the her from threatening all the Portals that interconnect throughout this world and others.");
-        macros.ShowText("Now, take these boosts to your attributes and to your wealths of knowledge and gold. You have restored the system to its rightful balance.");
-        macros.ShowText("In time, when you are ready, the portal will grant you access to new planes of existence! But that, is another story...");
-        macros.SetFlag(DUNGEON, WONTHISGAME, 1);
-        macros.SetFlag(DUNGEON, WINNER, 1);
-        macros.ModExp(7500000);
-        macros.ModGold(2000000);
-        macros.ModStat(STRENGTH, 3);
-        macros.ModStat(AGILITY, 3);
-        macros.ModStat(DEFENSE, 3);
-        macros.ModStat(INITIATIVE, 3);
-        if (macros.Guild != WIZARD) {
-            macros.ShowText("You are bestowed with a new spell!");
-            macros.GiveSpell(DEATH_DARTS_SPELL, 6);
+fun MapEvent0E(context) {
+    if (!context.GetFlag(DUNGEON, WONTHISGAME)) {
+        context.SetFlag(DUNGEON, ENDGAMETELE, 2);
+        context.ShowText("You've defeated the Queen; preventing the her from threatening all the Portals that interconnect throughout this world and others.");
+        context.ShowText("Now, take these boosts to your attributes and to your wealths of knowledge and gold. You have restored the system to its rightful balance.");
+        context.ShowText("In time, when you are ready, the portal will grant you access to new planes of existence! But that, is another story...");
+        context.SetFlag(DUNGEON, WONTHISGAME, 1);
+        context.SetFlag(DUNGEON, WINNER, 1);
+        context.ModExp(7500000);
+        context.ModGold(2000000);
+        context.ModStat(STRENGTH, 3);
+        context.ModStat(AGILITY, 3);
+        context.ModStat(DEFENSE, 3);
+        context.ModStat(INITIATIVE, 3);
+        if (context.Guild != WIZARD) {
+            context.ShowText("You are bestowed with a new spell!");
+            context.GiveSpell(DEATH_DARTS_SPELL, 6);
         }
         else {
-            macros.ShowText("Mighty sorcerer, gain knowledge to control life from death.");
-            macros.GiveSpell(RESUSCITATE_SPELL, 6);
+            context.ShowText("Mighty sorcerer, gain knowledge to control life from death.");
+            context.GiveSpell(RESUSCITATE_SPELL, 6);
         }
     }
     else {
-        macros.ShowText("The portal glows with power. You may enter it now, but it will not take you to your true destination yet.");
-        macros.ShowText("The future has taken root in the present. All will be explained... with Yserbius III!!%%");
+        context.ShowText("The portal glows with power. You may enter it now, but it will not take you to your true destination yet.");
+        context.ShowText("The future has taken root in the present. All will be explained... with Yserbius III!!%%");
     }
 }
 
-fun MapEvent0F(macros) {
-    macros.ShowText("Here you must go, but only after you've retrieved one of the mystic artifacts that travelers of this portal have left as gifts.");
-    macros.Teleport(12, 2, 232, SOUTH);
+fun MapEvent0F(context) {
+    context.ShowText("Here you must go, but only after you've retrieved one of the mystic artifacts that travelers of this portal have left as gifts.");
+    context.Teleport(12, 2, 232, SOUTH);
 }
 
-fun MapEvent10(macros) {
-    macros.NoJoin;
+fun MapEvent10(context) {
+    context.NoJoin;
 }
 
-fun MapEvent12(macros) {
+fun MapEvent12(context) {
     var i;
-    special21(macros);
-    if (macros.GetFlag(PARTY, STORMGIANT) != macros.Here) {
-        if (macros.PartyCount == 1) {
-            macros.ShowText("An ominous force stands before you!");
-            if (macros.HasItem(STATUEOFSTORMGIANT) && macros.GetFlag(PARTY, IMHERE) != macros.Here && !macros.GetFlag(DUNGEON, ONLYONCE)) {
-                WallClear(macros);
-                macros.SetFlag(DUNGEON, ONLYONCE, 1);
-                macros.ShowText("Using one of the mystical statues, you turn into a Storm Giant and kill them all!");
-                macros.ModGold(10000);
-                macros.GiveItem(PHOSPHORESCENTBLADE);
-                macros.GiveItem(HEALAMPHORA);
-                macros.GiveItem(ZEUSSCROLL);
-                macros.SetFlag(PARTY, IMHERE, macros.Here);
+    special21(context);
+    if (context.GetFlag(PARTY, STORMGIANT) != context.Here) {
+        if (context.PartyCount == 1) {
+            context.ShowText("An ominous force stands before you!");
+            if (context.HasItem(STATUEOFSTORMGIANT) && context.GetFlag(PARTY, IMHERE) != context.Here && !context.GetFlag(DUNGEON, ONLYONCE)) {
+                WallClear(context);
+                context.SetFlag(DUNGEON, ONLYONCE, 1);
+                context.ShowText("Using one of the mystical statues, you turn into a Storm Giant and kill them all!");
+                context.ModGold(10000);
+                context.GiveItem(PHOSPHORESCENTBLADE);
+                context.GiveItem(HEALAMPHORA);
+                context.GiveItem(ZEUSSCROLL);
+                context.SetFlag(PARTY, IMHERE, context.Here);
             }
         }
         else {
-            if (macros.GetFlag(PARTY, IMHERE) != macros.Here) {
-                macros.ShowText("Had you been alone and with their talisman, you may have stood a chance!");
+            if (context.GetFlag(PARTY, IMHERE) != context.Here) {
+                context.ShowText("Had you been alone and with their talisman, you may have stood a chance!");
                 for (i = 1; i <= 4; i++) {
-                macros.GetMonster(i, STORMGIANTS);
+                context.GetMonster(i, STORMGIANTS);
                 }
-                macros.SetFlag(PARTY, IMHERE, macros.Here);
+                context.SetFlag(PARTY, IMHERE, context.Here);
             }
         }
-        macros.SetFlag(PARTY, STORMGIANT, macros.Here);
+        context.SetFlag(PARTY, STORMGIANT, context.Here);
     }
 }
 
-fun MapEvent15(macros) {
-    macros.NoMaps;
-    if (!macros.GetFlag(ROOM, SPRUNGTRAP)) {
-        switch (macros.Facing) {
+fun MapEvent15(context) {
+    context.NoMaps;
+    if (!context.GetFlag(ROOM, SPRUNGTRAP)) {
+        switch (context.Facing) {
             case NORTH:
-                macros.Rotate(WEST);
-                SprungTrap(macros);
+                context.Rotate(WEST);
+                SprungTrap(context);
                 break;
             case SOUTH:
-                macros.Rotate(EAST);
-                SprungTrap(macros);
+                context.Rotate(EAST);
+                SprungTrap(context);
                 break;
             case EAST:
-                macros.Rotate(SOUTH);
-                SprungTrap(macros);
+                context.Rotate(SOUTH);
+                SprungTrap(context);
                 break;
             case WEST:
-                macros.Rotate(EAST);
-                SprungTrap(macros);
+                context.Rotate(EAST);
+                SprungTrap(context);
                 break;
         }
     }
 }
 
-fun MapEvent16(macros) {
-    macros.NoMaps;
-    if (!macros.GetFlag(ROOM, SPRUNGTRAP)) {
-        switch (macros.Facing) {
+fun MapEvent16(context) {
+    context.NoMaps;
+    if (!context.GetFlag(ROOM, SPRUNGTRAP)) {
+        switch (context.Facing) {
             case NORTH:
-                macros.Rotate(SOUTH);
-                macros.Rotate(WEST);
-                macros.Rotate(SOUTH);
-                SprungTrap(macros);
+                context.Rotate(SOUTH);
+                context.Rotate(WEST);
+                context.Rotate(SOUTH);
+                SprungTrap(context);
                 break;
             case SOUTH:
-                macros.Rotate(WEST);
-                SprungTrap(macros);
+                context.Rotate(WEST);
+                SprungTrap(context);
                 break;
             case EAST:
-                macros.Rotate(NORTH);
-                SprungTrap(macros);
+                context.Rotate(NORTH);
+                SprungTrap(context);
                 break;
             case WEST:
-                macros.Rotate(EAST);
-                macros.Teleport(12, 2, macros.Here, EAST);
-                SprungTrap(macros);
+                context.Rotate(EAST);
+                context.Teleport(12, 2, context.Here, EAST);
+                SprungTrap(context);
                 break;
         }
     }
 }
 
-fun MapEvent17(macros) {
-    macros.NoMaps;
-    NoSpellZone(macros);
-    macros.NoJoin;
-    if (macros.PartyCount == 1) {
-        if (!macros.GetFlag(DUNGEON, KILLEDQUEEN)) {
-            macros.ShowText("Those who hath not faced the mad Queen must lead, lest your efforts are futile. You are one that may lead!");
-            macros.SetFlag(PARTY, LASTBATTLE, 1);
-            macros.Teleport(12, 2, 104, EAST);
+fun MapEvent17(context) {
+    context.NoMaps;
+    NoSpellZone(context);
+    context.NoJoin;
+    if (context.PartyCount == 1) {
+        if (!context.GetFlag(DUNGEON, KILLEDQUEEN)) {
+            context.ShowText("Those who hath not faced the mad Queen must lead, lest your efforts are futile. You are one that may lead!");
+            context.SetFlag(PARTY, LASTBATTLE, 1);
+            context.Teleport(12, 2, 104, EAST);
         }
         else {
-            macros.ShowText("You have already defeated the Queen, you cannot face that which is no more.");
-            macros.SetFlag(PARTY, LASTBATTLE, 0);
-            macros.Teleport(12, 2, 104, EAST);
+            context.ShowText("You have already defeated the Queen, you cannot face that which is no more.");
+            context.SetFlag(PARTY, LASTBATTLE, 0);
+            context.Teleport(12, 2, 104, EAST);
         }
     }
     else {
-        macros.ShowText("Step forth ALONE!");
-        macros.Teleport(12, 2, 119, NORTH);
+        context.ShowText("Step forth ALONE!");
+        context.Teleport(12, 2, 119, NORTH);
     }
 }
 
-fun MapEvent19(macros) {
-    if (!macros.GetFlag(PARTY, KEEPER)) {
-        macros.ShowText("The statue of an ancient guardian greets you here. It writhes to life as you approach: 'Hail to thee! I am Chrysagorn, Keeper of the Portal and Servant to the Fates.");
-        macros.ShowText("I have been imprisoned here in granite by the mad Queen! Her powers are farther reaching than you dare imagine. With the five rings, she is now trying to gain control of the Gateway.");
-        macros.ShowText("I cannot defend the Gate from her powers, you must destroy her or all of time shall fold in upon itself. Our fate will be sealed in oblivion's tomb.'");
-        macros.ShowText("The statue begins to crumble as you watch, 'Go! defeat her! I can no longer protect...' but its too late, the statue explodes into dust flying across the room and damaging you.");
-        macros.Damage(macros.Health / 5);
-        macros.SetFlag(PARTY, KEEPER, 1);
+fun MapEvent19(context) {
+    if (!context.GetFlag(PARTY, KEEPER)) {
+        context.ShowText("The statue of an ancient guardian greets you here. It writhes to life as you approach: 'Hail to thee! I am Chrysagorn, Keeper of the Portal and Servant to the Fates.");
+        context.ShowText("I have been imprisoned here in granite by the mad Queen! Her powers are farther reaching than you dare imagine. With the five rings, she is now trying to gain control of the Gateway.");
+        context.ShowText("I cannot defend the Gate from her powers, you must destroy her or all of time shall fold in upon itself. Our fate will be sealed in oblivion's tomb.'");
+        context.ShowText("The statue begins to crumble as you watch, 'Go! defeat her! I can no longer protect...' but its too late, the statue explodes into dust flying across the room and damaging you.");
+        context.Damage(context.Health / 5);
+        context.SetFlag(PARTY, KEEPER, 1);
     }
 }
 
-fun MapEvent1A(macros) {
-    macros.BlockFloor(macros.Here);
+fun MapEvent1A(context) {
+    context.BlockFloor(context.Here);
 }
 
-fun MapEvent1F(macros) {
+fun MapEvent1F(context) {
     var i;
-    macros.ShowText("Eos' servants form from the morning mists which permeate this place.");
+    context.ShowText("Eos' servants form from the morning mists which permeate this place.");
     for (i = 1; i <= 2; i++) {
-    macros.GetMonster(i, EOSBATTLE);
+    context.GetMonster(i, EOSBATTLE);
     }
 }
 
-fun MapEvent20(macros) {
+fun MapEvent20(context) {
     var i;
-    macros.ShowText("Descendents of Gaea rise from the earthen floor to challenge you!");
+    context.ShowText("Descendents of Gaea rise from the earthen floor to challenge you!");
     for (i = 1; i <= 2; i++) {
-    macros.GetMonster(i, GAEABATTLE);
+    context.GetMonster(i, GAEABATTLE);
     }
 }
 
-fun MapEvent21(macros) {
+fun MapEvent21(context) {
     var i;
-    macros.ShowText("Ancient servants of Neptune rise from the waters and bar your way!");
+    context.ShowText("Ancient servants of Neptune rise from the waters and bar your way!");
     for (i = 1; i <= 2; i++) {
-    macros.GetMonster(i, NEPTUNEBATTLE);
+    context.GetMonster(i, NEPTUNEBATTLE);
     }
 }
 
-fun MapEvent22(macros) {
+fun MapEvent22(context) {
     var i;
-    macros.ShowText("Masters of Warfare, students of Ares, ambush you!");
+    context.ShowText("Masters of Warfare, students of Ares, ambush you!");
     for (i = 1; i <= 2; i++) {
-    macros.GetMonster(i, ARESBATTLE);
+    context.GetMonster(i, ARESBATTLE);
     }
 }
 
-fun MapEvent23(macros) {
-    macros.SetState(0);
+fun MapEvent23(context) {
+    context.SetState(0);
 }
 
-fun MapEvent24(macros) {
+fun MapEvent24(context) {
     var i;
-    if (macros.State != macros.Here) {
-        macros.SetState(macros.Here);
-        switch (macros.PartyCount) {
+    if (context.State != context.Here) {
+        context.SetState(context.Here);
+        switch (context.PartyCount) {
             case 1:
-                macros.GetMonster(1, HALLGUARD1);
-                macros.GetMonster(2, HALLGUARD1);
+                context.GetMonster(1, HALLGUARD1);
+                context.GetMonster(2, HALLGUARD1);
                 break;
             case 2:
                 for (i = 1; i <= 3; i++) {
-                macros.GetMonster(i, HALLGUARD1);
+                context.GetMonster(i, HALLGUARD1);
                 }
                 break;
             default: 
                 for (i = 1; i <= 5; i++) {
-                macros.GetMonster(i, HALLGUARD1);
+                context.GetMonster(i, HALLGUARD1);
                 }
                 break;
         }
     }
 }
 
-fun MapEvent25(macros) {
-    if (!macros.GetFlag(DUNGEON, HALLOFDOOM)) {
-        macros.SetFlag(DUNGEON, HALLOFDOOM, 1);
+fun MapEvent25(context) {
+    if (!context.GetFlag(DUNGEON, HALLOFDOOM)) {
+        context.SetFlag(DUNGEON, HALLOFDOOM, 1);
     }
-    macros.ShowText("This enormous hallway is adorned with precious jewels and artworks in every crevice. Golden statues in the images of greater deities and gods who hath passed this way line either side of the hall.");
-    macros.ShowText("A challenge of outrageous proportions guards this passageway before you. Northward, two rows of beasts and man stand as guardians to the ultimate Gateway.");
+    context.ShowText("This enormous hallway is adorned with precious jewels and artworks in every crevice. Golden statues in the images of greater deities and gods who hath passed this way line either side of the hall.");
+    context.ShowText("A challenge of outrageous proportions guards this passageway before you. Northward, two rows of beasts and man stand as guardians to the ultimate Gateway.");
 }
 
-fun MapEvent26(macros) {
+fun MapEvent26(context) {
     var i;
-    if (macros.State != macros.Here) {
-        macros.SetState(macros.Here);
-        switch (macros.PartyCount) {
+    if (context.State != context.Here) {
+        context.SetState(context.Here);
+        switch (context.PartyCount) {
             case 1:
-                macros.GetMonster(1, HALLGUARD2);
-                macros.GetMonster(2, HALLGUARD2);
+                context.GetMonster(1, HALLGUARD2);
+                context.GetMonster(2, HALLGUARD2);
                 break;
             case 2:
                 for (i = 1; i <= 3; i++) {
-                macros.GetMonster(i, HALLGUARD2);
+                context.GetMonster(i, HALLGUARD2);
                 }
                 break;
             default: 
                 for (i = 1; i <= 5; i++) {
-                macros.GetMonster(i, HALLGUARD2);
+                context.GetMonster(i, HALLGUARD2);
                 }
                 break;
         }
     }
 }
 
-fun MapEvent27(macros) {
-    if (macros.UsedItem(NEPTUNESTRIDENT, NEPTUNESTRIDENT)) {
-        macros.ShowText("The lava before you swirls into a wading pool! Neptune himself has used such power to bypass these foul snares.");
-        ClearMe(macros);
+fun MapEvent27(context) {
+    if (context.UsedItem(NEPTUNESTRIDENT, NEPTUNESTRIDENT)) {
+        context.ShowText("The lava before you swirls into a wading pool! Neptune himself has used such power to bypass these foul snares.");
+        ClearMe(context);
     }
     else {
-        if (macros.UsedItem(GAEASFLAIL, GAEASFLAIL)) {
-            macros.ShowText("The lava hardens into solid rock! Gaea herself has used such powers to pass safely by such traps!");
-            ClearMe(macros);
+        if (context.UsedItem(GAEASFLAIL, GAEASFLAIL)) {
+            context.ShowText("The lava hardens into solid rock! Gaea herself has used such powers to pass safely by such traps!");
+            ClearMe(context);
         }
         else {
-            if (macros.UsedItem(BOWOFEOS, BOWOFEOS)) {
-                macros.ShowText("Dawn's light shines bright upon the bow forming a golden arch across the lava!");
-                ClearMe(macros);
+            if (context.UsedItem(BOWOFEOS, BOWOFEOS)) {
+                context.ShowText("Dawn's light shines bright upon the bow forming a golden arch across the lava!");
+                ClearMe(context);
             }
             else {
-                if (macros.UsedItem(SWORDOFARES, SWORDOFARES)) {
-                    macros.ShowText("The sword summons a powerful Ice Elemental! The elemental sinks into the lava, quenching the raging war between fire and ice!");
-                    ClearMe(macros);
+                if (context.UsedItem(SWORDOFARES, SWORDOFARES)) {
+                    context.ShowText("The sword summons a powerful Ice Elemental! The elemental sinks into the lava, quenching the raging war between fire and ice!");
+                    ClearMe(context);
                 }
                 else {
-                    if (macros.UsedItem(SHORTSWORD, UNITYRING)) {
-                        macros.ShowText("The lava resumes its form.");
-                        macros.SetFlag(PARTY, USEDNEPTRI, 0);
+                    if (context.UsedItem(SHORTSWORD, UNITYRING)) {
+                        context.ShowText("The lava resumes its form.");
+                        context.SetFlag(PARTY, USEDNEPTRI, 0);
                     }
                     else {
-                        macros.ShowText("A vile pool of molten lava bubbles violently before you. You must find a way to alter this pool of sure death.");
+                        context.ShowText("A vile pool of molten lava bubbles violently before you. You must find a way to alter this pool of sure death.");
                     }
                 }
             }
@@ -492,257 +492,257 @@ fun MapEvent27(macros) {
     }
 }
 
-fun ClearMe(macros) {
-    macros.SetFlag(PARTY, USEDNEPTRI, 1);
-    switch (macros.Here) {
+fun ClearMe(context) {
+    context.SetFlag(PARTY, USEDNEPTRI, 1);
+    switch (context.Here) {
         case 160:
         case 192:
-            macros.ClearFloor(176);
-            macros.PlaceFloorItem(WATER, 176);
+            context.ClearFloor(176);
+            context.PlaceFloorItem(WATER, 176);
             break;
         default: 
-            macros.ClearFloor(85);
-            macros.PlaceFloorItem(WATER, 85);
+            context.ClearFloor(85);
+            context.PlaceFloorItem(WATER, 85);
             break;
     }
 }
 
-fun MapEvent28(macros) {
-    if (macros.GetFlag(PARTY, USEDNEPTRI) == 1) {
-        macros.ShowText("The magic sustains the pool, allowing you to safely pass.");
+fun MapEvent28(context) {
+    if (context.GetFlag(PARTY, USEDNEPTRI) == 1) {
+        context.ShowText("The magic sustains the pool, allowing you to safely pass.");
     }
     else {
-        macros.ShowText("The lava scorches and torments your body. The magical fluids then hurl you across the maze...");
-        macros.Damage(macros.Health - 100);
-        macros.Teleport(12, 2, 191, SOUTH);
+        context.ShowText("The lava scorches and torments your body. The magical fluids then hurl you across the maze...");
+        context.Damage(context.Health - 100);
+        context.Teleport(12, 2, 191, SOUTH);
     }
 }
 
-fun MapEvent29(macros) {
+fun MapEvent29(context) {
     var i;
-    if (macros.State != macros.Here) {
-        macros.SetState(macros.Here);
-        switch (macros.PartyCount) {
+    if (context.State != context.Here) {
+        context.SetState(context.Here);
+        switch (context.PartyCount) {
             case 1:
-                macros.GetMonster(1, HALLGUARD3);
-                macros.GetMonster(2, HALLGUARD3);
+                context.GetMonster(1, HALLGUARD3);
+                context.GetMonster(2, HALLGUARD3);
                 break;
             case 2:
                 for (i = 1; i <= 3; i++) {
-                macros.GetMonster(i, HALLGUARD3);
+                context.GetMonster(i, HALLGUARD3);
                 }
                 break;
             default: 
                 for (i = 1; i <= 5; i++) {
-                macros.GetMonster(i, HALLGUARD3);
+                context.GetMonster(i, HALLGUARD3);
                 }
                 break;
         }
     }
 }
 
-fun MapEvent2A(macros) {
+fun MapEvent2A(context) {
     var i;
-    if (macros.State != macros.Here) {
-        macros.SetState(macros.Here);
-        switch (macros.PartyCount) {
+    if (context.State != context.Here) {
+        context.SetState(context.Here);
+        switch (context.PartyCount) {
             case 1:
-                macros.GetMonster(1, HALLGUARD4);
-                macros.GetMonster(2, HALLGUARD4);
+                context.GetMonster(1, HALLGUARD4);
+                context.GetMonster(2, HALLGUARD4);
                 break;
             case 2:
                 for (i = 1; i <= 3; i++) {
-                macros.GetMonster(i, HALLGUARD4);
+                context.GetMonster(i, HALLGUARD4);
                 }
                 break;
             default: 
                 for (i = 1; i <= 5; i++) {
-                macros.GetMonster(i, HALLGUARD4);
+                context.GetMonster(i, HALLGUARD4);
                 }
                 break;
         }
     }
 }
 
-fun MapEvent2B(macros) {
+fun MapEvent2B(context) {
     var i;
-    if (macros.State != macros.Here) {
-        macros.SetState(macros.Here);
-        switch (macros.PartyCount) {
+    if (context.State != context.Here) {
+        context.SetState(context.Here);
+        switch (context.PartyCount) {
             case 1:
-                macros.GetMonster(1, HALLGUARD5);
-                macros.GetMonster(2, HALLGUARD5);
+                context.GetMonster(1, HALLGUARD5);
+                context.GetMonster(2, HALLGUARD5);
                 break;
             case 2:
                 for (i = 1; i <= 3; i++) {
-                macros.GetMonster(i, HALLGUARD5);
+                context.GetMonster(i, HALLGUARD5);
                 }
                 break;
             default: 
                 for (i = 1; i <= 5; i++) {
-                macros.GetMonster(i, HALLGUARD5);
+                context.GetMonster(i, HALLGUARD5);
                 }
                 break;
         }
     }
 }
 
-fun MapEvent2C(macros) {
-    if (!macros.GetFlag(PARTY, IHAVETHEFLAIL)) {
-        if (macros.UsedItem(GAEASFLAIL, GAEASFLAIL)) {
-            macros.ShowText("The pit before you congeals into a solid earthen floor! Gaea's power is obvious concerning the nature of things.");
-            macros.SetFlag(PARTY, USEDGAEAFLAIL, 1);
-            switch (macros.Here) {
+fun MapEvent2C(context) {
+    if (!context.GetFlag(PARTY, IHAVETHEFLAIL)) {
+        if (context.UsedItem(GAEASFLAIL, GAEASFLAIL)) {
+            context.ShowText("The pit before you congeals into a solid earthen floor! Gaea's power is obvious concerning the nature of things.");
+            context.SetFlag(PARTY, USEDGAEAFLAIL, 1);
+            switch (context.Here) {
                 case 23:
                 case 55:
-                    macros.ClearFloor(39);
-                    macros.PlaceFloorItem(NO_OBJECT, 39);
+                    context.ClearFloor(39);
+                    context.PlaceFloorItem(NO_OBJECT, 39);
                     break;
             }
         }
         else {
-            if (macros.UsedItem(SHORTSWORD, UNITYRING)) {
-                macros.ShowText("The pit remains open.");
-                macros.SetFlag(PARTY, USEDGAEAFLAIL, 0);
+            if (context.UsedItem(SHORTSWORD, UNITYRING)) {
+                context.ShowText("The pit remains open.");
+                context.SetFlag(PARTY, USEDGAEAFLAIL, 0);
             }
             else {
-                macros.ShowText("An eerie black pit stretches deep into the earth here. Echoes of your every sound are barely audible whispers by the time they return.");
+                context.ShowText("An eerie black pit stretches deep into the earth here. Echoes of your every sound are barely audible whispers by the time they return.");
             }
         }
     }
 }
 
-fun MapEvent2D(macros) {
-    if (!macros.GetFlag(PARTY, IHAVETHEFLAIL)) {
-        if (macros.GetFlag(PARTY, USEDGAEAFLAIL) == 1) {
-            macros.ShowText("The flail keeps the earth intact, allowing you to safely pass.");
+fun MapEvent2D(context) {
+    if (!context.GetFlag(PARTY, IHAVETHEFLAIL)) {
+        if (context.GetFlag(PARTY, USEDGAEAFLAIL) == 1) {
+            context.ShowText("The flail keeps the earth intact, allowing you to safely pass.");
         }
         else {
-            macros.ShowText("The pit swallows you whole, this magical snare does not kill you, however, but you are swept away through the maze.");
-            macros.Damage(macros.Health - 100);
-            macros.Teleport(12, 2, 222, EAST);
+            context.ShowText("The pit swallows you whole, this magical snare does not kill you, however, but you are swept away through the maze.");
+            context.Damage(context.Health - 100);
+            context.Teleport(12, 2, 222, EAST);
         }
     }
 }
 
-fun MapEvent2E(macros) {
-    if (!macros.HasItem(GAEASFLAIL)) {
-        macros.SetFlag(PARTY, IHAVETHEFLAIL, 1);
+fun MapEvent2E(context) {
+    if (!context.HasItem(GAEASFLAIL)) {
+        context.SetFlag(PARTY, IHAVETHEFLAIL, 1);
     }
 }
 
-fun MapEvent32(macros) {
-    macros.ShowText("An ancient portal carved of pure magic and wrought with precious gemstones stands guard here.");
-    if (macros.PartyCount == 1) {
-        if ((macros.GetFlag(DUNGEON, HALLOFDOOM) == 1) && (macros.HasItem(SWORDOFARES) || macros.HasItem(BOWOFEOS) || macros.HasItem(GAEASFLAIL) || macros.HasItem(NEPTUNESTRIDENT))) {
-            macros.ShowText("The ancient crystals merge into a teleport, allowing you to gain quick access to the Gateway's heart.");
-            macros.Teleport(12, 2, 205, NORTH);
+fun MapEvent32(context) {
+    context.ShowText("An ancient portal carved of pure magic and wrought with precious gemstones stands guard here.");
+    if (context.PartyCount == 1) {
+        if ((context.GetFlag(DUNGEON, HALLOFDOOM) == 1) && (context.HasItem(SWORDOFARES) || context.HasItem(BOWOFEOS) || context.HasItem(GAEASFLAIL) || context.HasItem(NEPTUNESTRIDENT))) {
+            context.ShowText("The ancient crystals merge into a teleport, allowing you to gain quick access to the Gateway's heart.");
+            context.Teleport(12, 2, 205, NORTH);
         }
         else {
-            macros.ShowText("Here you will enter the ancient Gods' treasure room.");
-            macros.Teleport(12, 2, 219, SOUTH);
+            context.ShowText("Here you will enter the ancient Gods' treasure room.");
+            context.Teleport(12, 2, 219, SOUTH);
         }
     }
     else {
-        macros.ShowText("Be off!! Only one Hero may enter here at a time!");
-        macros.Rotate(EAST);
+        context.ShowText("Be off!! Only one Hero may enter here at a time!");
+        context.Rotate(EAST);
     }
 }
 
-fun MapEvent33(macros) {
-    macros.SetFlag(DUNGEON, ONLYONCE, 0);
-    macros.ShowText("From here you enter the heart of The Gateway.");
-    macros.Teleport(12, 2, 246, EAST);
+fun MapEvent33(context) {
+    context.SetFlag(DUNGEON, ONLYONCE, 0);
+    context.ShowText("From here you enter the heart of The Gateway.");
+    context.Teleport(12, 2, 246, EAST);
 }
 
-fun MapEvent34(macros) {
-    if (!macros.HasItem(STATUEOFSTORMGIANT)) {
-        macros.GiveItem(STATUEOFSTORMGIANT);
-        macros.ShowText("You pick up an odd statue. Perhaps it will protect you when you are alone.");
+fun MapEvent34(context) {
+    if (!context.HasItem(STATUEOFSTORMGIANT)) {
+        context.GiveItem(STATUEOFSTORMGIANT);
+        context.ShowText("You pick up an odd statue. Perhaps it will protect you when you are alone.");
     }
-    switch (macros.Here) {
+    switch (context.Here) {
         case 238:
-            macros.ShowText("A jeweled carving depicts a band of travelers journeying through an ancient dungeon in search of some great treasure.");
+            context.ShowText("A jeweled carving depicts a band of travelers journeying through an ancient dungeon in search of some great treasure.");
             break;
         case 222:
-            macros.ShowText("This carving shows four ancient fragments brought unto themselves, forming some magical piece that allows access into a dark kingdom.");
+            context.ShowText("This carving shows four ancient fragments brought unto themselves, forming some magical piece that allows access into a dark kingdom.");
             break;
         case 206:
-            macros.ShowText("Here you see a myriad of images strewn across various puzzles and hordes of vile creatures that scorn the travelers as they seek the treasure.");
+            context.ShowText("Here you see a myriad of images strewn across various puzzles and hordes of vile creatures that scorn the travelers as they seek the treasure.");
             break;
         case 190:
-            if (macros.FlagOn(DUNGEON, KILLEDQUEEN)) {
-                macros.ShowText("Emblazoned in the stones you see your own image slaying the mad Queen and eventually entering the mystical Gateway of Immortality.");
+            if (context.FlagOn(DUNGEON, KILLEDQUEEN)) {
+                context.ShowText("Emblazoned in the stones you see your own image slaying the mad Queen and eventually entering the mystical Gateway of Immortality.");
             }
             else {
-                macros.ShowText("Shadowy, incoherent images flash across the stones as though some part of future history is yet to be completed.");
+                context.ShowText("Shadowy, incoherent images flash across the stones as though some part of future history is yet to be completed.");
             }
             break;
     }
 }
 
-fun MapEvent35(macros) {
-    macros.Teleport(12, 2, 150, WEST);
-    macros.ShowText("To the last pathway of challenge. From there you will ultimately meet your Fate.");
+fun MapEvent35(context) {
+    context.Teleport(12, 2, 150, WEST);
+    context.ShowText("To the last pathway of challenge. From there you will ultimately meet your Fate.");
 }
 
-fun MapEvent36(macros) {
-    macros.NoMaps;
+fun MapEvent36(context) {
+    context.NoMaps;
 }
 
-fun MapEvent37(macros) {
-    if (!macros.GetFlag(DUNGEON, FINISHEDGAME)) {
-        macros.SetFlag(DUNGEON, FINISHEDGAME, 1);
-        macros.ShowText("An eerie, shimmering portal hangs before you. This is the Gateway...the ingress into new adventures and future history.");
-        macros.ShowText("You will come back here in time, when you feel you are ready for new challenges and greater travels. Until then, you must rest and restore your drained powers for that day.");
-        macros.ShowText("There is a place, guarded by Shaddax, the Keeper, you must journey there and unravel the riddles placed in your path by some vile deity that inhabits another dimension.");
-        macros.ShowText("That is your task for now, you may return here when time dictates! Go now, seek Shaddax...you may find the entrance through Dragon's Ire! Go, brave champion!");
-        macros.Teleport(1, 1, 3, SOUTH);
+fun MapEvent37(context) {
+    if (!context.GetFlag(DUNGEON, FINISHEDGAME)) {
+        context.SetFlag(DUNGEON, FINISHEDGAME, 1);
+        context.ShowText("An eerie, shimmering portal hangs before you. This is the Gateway...the ingress into new adventures and future history.");
+        context.ShowText("You will come back here in time, when you feel you are ready for new challenges and greater travels. Until then, you must rest and restore your drained powers for that day.");
+        context.ShowText("There is a place, guarded by Shaddax, the Keeper, you must journey there and unravel the riddles placed in your path by some vile deity that inhabits another dimension.");
+        context.ShowText("That is your task for now, you may return here when time dictates! Go now, seek Shaddax...you may find the entrance through Dragon's Ire! Go, brave champion!");
+        context.Teleport(1, 1, 3, SOUTH);
     }
     else {
-        macros.ShowText("The portal is here; but the future is not yours to see...yet.");
-        macros.Teleport(1, 1, 3, SOUTH);
+        context.ShowText("The portal is here; but the future is not yours to see...yet.");
+        context.Teleport(1, 1, 3, SOUTH);
     }
 }
 
-fun AdvTxt(macros) {
-    macros.ShowText("This portal will offer you no advancement without the proper artifact.");
+fun AdvTxt(context) {
+    context.ShowText("This portal will offer you no advancement without the proper artifact.");
 }
 
-fun AssaultTxt(macros) {
-    macros.ShowText("Through here you begin the final assault.");
+fun AssaultTxt(context) {
+    context.ShowText("Through here you begin the final assault.");
 }
 
-fun WallClear(macros) {
-    macros.ClearWall(macros.Here, macros.Facing);
+fun WallClear(context) {
+    context.ClearWall(context.Here, context.Facing);
 }
 
-fun AresText(macros) {
-    macros.ShowText("Ares had visited this place many moons ago. As his mark, he left behind a legend that clever Night Elf craftsmen emblazoned with ancient runes upon this jeweled blade.");
+fun AresText(context) {
+    context.ShowText("Ares had visited this place many moons ago. As his mark, he left behind a legend that clever Night Elf craftsmen emblazoned with ancient runes upon this jeweled blade.");
 }
 
-fun NeptunesTxt(macros) {
-    macros.ShowText("Lord Neptune, Master of the Wind and the Sea, used this Trident to command the waters that now surround Twinion to swirl into fury; crashing down upon his enemies. Its power is now yours to borrow.");
+fun NeptunesTxt(context) {
+    context.ShowText("Lord Neptune, Master of the Wind and the Sea, used this Trident to command the waters that now surround Twinion to swirl into fury; crashing down upon his enemies. Its power is now yours to borrow.");
 }
 
-fun GaeasText(macros) {
-    macros.ShowText("Gaea had exhausted herself in many travels, but her pleasures here have always been her favorite. She filled herself with energies and moved on to a new adventure via the Portal.");
-    macros.ShowText("Her flail now remains as her mark, and is offered to you to defend the Portal from abuse.");
+fun GaeasText(context) {
+    context.ShowText("Gaea had exhausted herself in many travels, but her pleasures here have always been her favorite. She filled herself with energies and moved on to a new adventure via the Portal.");
+    context.ShowText("Her flail now remains as her mark, and is offered to you to defend the Portal from abuse.");
 }
 
-fun EosText(macros) {
-    macros.ShowText("Dawn shall come! Eos brings the sun, and the first arch of gold was wrought into this magnificent bow in honor of this goddess.");
-    macros.ShowText("Now the Bow of Eos, shall be your light and guide past the snares that await you along the paths to the Portal.");
+fun EosText(context) {
+    context.ShowText("Dawn shall come! Eos brings the sun, and the first arch of gold was wrought into this magnificent bow in honor of this goddess.");
+    context.ShowText("Now the Bow of Eos, shall be your light and guide past the snares that await you along the paths to the Portal.");
 }
 
-fun NoMapsZone(macros) {
-    macros.NoMaps;
+fun NoMapsZone(context) {
+    context.NoMaps;
 }
 
-fun NoSpellZone(macros) {
-    macros.NoSpell;
+fun NoSpellZone(context) {
+    context.NoSpell;
 }
 
-fun SprungTrap(macros) {
-    macros.SetFlag(ROOM, SPRUNGTRAP, 1);
+fun SprungTrap(context) {
+    context.SetFlag(ROOM, SPRUNGTRAP, 1);
 }

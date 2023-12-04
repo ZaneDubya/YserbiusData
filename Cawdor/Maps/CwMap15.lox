@@ -8,440 +8,440 @@
 #define GIVERING 10
 #define MANNANANREWARD 11
 
-fun MapEvent01(macros) {
-    macros.ShowText("You cannot decipher these books.");
+fun MapEvent01(context) {
+    context.ShowText("You cannot decipher these books.");
 }
 
-fun MapEvent02(macros) {
-    macros.ShowText("These books contain nothing of interest to you.");
+fun MapEvent02(context) {
+    context.ShowText("These books contain nothing of interest to you.");
 }
 
-fun MapEvent03(macros) {
-    macros.ShowText("This area has been badly damaged in some battle.  Scorch marks abound, and the thick magical chains that normally bind the books to the walls end in empty links.");
+fun MapEvent03(context) {
+    context.ShowText("This area has been badly damaged in some battle.  Scorch marks abound, and the thick magical chains that normally bind the books to the walls end in empty links.");
 }
 
-fun MapEvent07(macros) {
-    if ((macros.PartyGuild(CLERIC) && macros.PartyGuild(KNIGHT)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, LEVEL3ROOM3) == 1)) {
-        macros.ShowPicture(TROLLKNIGHT);
-        macros.ShowText("'Two trolls, a knight and a cleric by their garb, courteously hold open a secret door for you.  'Watch your back in here,' they caution you.  'There is many a dagger in amongst the cloaks.'");
-        macros.ClearWall(macros.Here, macros.Facing);
-        macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
-        macros.Teleport(6, 1, 159, WEST);
+fun MapEvent07(context) {
+    if ((context.PartyGuild(CLERIC) && context.PartyGuild(KNIGHT)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, LEVEL3ROOM3) == 1)) {
+        context.ShowPicture(TROLLKNIGHT);
+        context.ShowText("'Two trolls, a knight and a cleric by their garb, courteously hold open a secret door for you.  'Watch your back in here,' they caution you.  'There is many a dagger in amongst the cloaks.'");
+        context.ClearWall(context.Here, context.Facing);
+        context.PlaceWallItem(DOOR, context.Here, context.Facing);
+        context.Teleport(6, 1, 159, WEST);
     }
     else {
-        macros.ShowText("The door to the Cloak Room refuses to budge.");
+        context.ShowText("The door to the Cloak Room refuses to budge.");
     }
 }
 
-fun MapEvent08(macros) {
-    macros.ShowText("This door leads to the Ballroom.");
-    macros.Teleport(5, 2, 12, SOUTH);
+fun MapEvent08(context) {
+    context.ShowText("This door leads to the Ballroom.");
+    context.Teleport(5, 2, 12, SOUTH);
 }
 
-fun MapEvent09(macros) {
-    macros.ShowPicture(HUMANWIZARD);
-    macros.SetFlag(DUNGEON, LEVEL3ROOM4, 1);
-    if (macros.GetFlag(PARTY, SAWLIBRARIAN) == 1) {
-        macros.ShowText("'Carry on, carry on.  And do try to refrain from using fire spells.'");
+fun MapEvent09(context) {
+    context.ShowPicture(HUMANWIZARD);
+    context.SetFlag(DUNGEON, LEVEL3ROOM4, 1);
+    if (context.GetFlag(PARTY, SAWLIBRARIAN) == 1) {
+        context.ShowText("'Carry on, carry on.  And do try to refrain from using fire spells.'");
     }
     else {
-        macros.SetFlag(PARTY, SAWLIBRARIAN, 1);
-        if (macros.GetFlag(DUNGEON, SAWMARIAN) == 0) {
-            macros.SetFlag(DUNGEON, SAWMARIAN, 1);
-            macros.ShowText("'Welcome to the Tomes of Cawdor.  I do not recall seeing thee before, so I shall give thee our rules.");
-            macros.ShowText("Please try not to use fireballs and other fire spells.  The books all have magical protections upon them, but they are not perfect.");
-            macros.ShowText("Attempting to steal a book is usually fatal.  Magical protections, eh?");
-            macros.ShowText("Finally, they are referenced by row and column.  Each room's books have a common theme.  Happy reading.'");
+        context.SetFlag(PARTY, SAWLIBRARIAN, 1);
+        if (context.GetFlag(DUNGEON, SAWMARIAN) == 0) {
+            context.SetFlag(DUNGEON, SAWMARIAN, 1);
+            context.ShowText("'Welcome to the Tomes of Cawdor.  I do not recall seeing thee before, so I shall give thee our rules.");
+            context.ShowText("Please try not to use fireballs and other fire spells.  The books all have magical protections upon them, but they are not perfect.");
+            context.ShowText("Attempting to steal a book is usually fatal.  Magical protections, eh?");
+            context.ShowText("Finally, they are referenced by row and column.  Each room's books have a common theme.  Happy reading.'");
         }
         else {
-            macros.ShowText("'Welcome back!  Remember, no fire, no theft, and nobody gets hurt.'");
+            context.ShowText("'Welcome back!  Remember, no fire, no theft, and nobody gets hurt.'");
         }
     }
 }
 
-fun MapEvent0B(macros) {
-    macros.ShowText("The Plaque on the door reads 'O'");
+fun MapEvent0B(context) {
+    context.ShowText("The Plaque on the door reads 'O'");
 }
 
-fun MapEvent0C(macros) {
-    macros.ShowText("The Plaque on the door reads 'C'");
+fun MapEvent0C(context) {
+    context.ShowText("The Plaque on the door reads 'C'");
 }
 
-fun MapEvent0D(macros) {
-    if ((macros.GetFlag(PARTY, GIVEDAGGER) == 1) && (!(macros.HasItem(OHTHERESDAGGER))) && (macros.Here == 46)) {
-        macros.SetFlag(PARTY, GIVEDAGGER, 0);
-        macros.GiveItem(OHTHERESDAGGER);
-        macros.GiveItem(BARDICHE);
-        macros.GiveItem(WULFHERDSSHIELD);
-        if ((macros.HasItem(MANNANANSRING))) {
-            macros.TakeItem(MANNANANSRING);
-        }
-    }
-    else {
-        macros.ShowText("The Plaque on the door reads 'N'");
-    }
-}
-
-fun MapEvent0E(macros) {
-    if ((macros.GetFlag(PARTY, GIVEDAGGER) == 1) && (!(macros.HasItem(OHTHERESDAGGER))) && (macros.Here == 29)) {
-        macros.SetFlag(PARTY, GIVEDAGGER, 0);
-        macros.GiveItem(OHTHERESDAGGER);
-        macros.GiveItem(BARDICHE);
-        macros.GiveItem(WULFHERDSSHIELD);
-        if ((macros.HasItem(MANNANANSRING))) {
-            macros.TakeItem(MANNANANSRING);
+fun MapEvent0D(context) {
+    if ((context.GetFlag(PARTY, GIVEDAGGER) == 1) && (!(context.HasItem(OHTHERESDAGGER))) && (context.Here == 46)) {
+        context.SetFlag(PARTY, GIVEDAGGER, 0);
+        context.GiveItem(OHTHERESDAGGER);
+        context.GiveItem(BARDICHE);
+        context.GiveItem(WULFHERDSSHIELD);
+        if ((context.HasItem(MANNANANSRING))) {
+            context.TakeItem(MANNANANSRING);
         }
     }
     else {
-        macros.ShowText("The Plaque on the door reads 'W'");
+        context.ShowText("The Plaque on the door reads 'N'");
     }
 }
 
-fun MapEvent0F(macros) {
-    macros.ShowRunes("Spears, sticks, staves, and monsters.");
-}
-
-fun MapEvent10(macros) {
-    macros.ShowRunes("Armor, shields, helms, swords, and mythology.");
-}
-
-fun MapEvent11(macros) {
-    macros.ShowRunes("Gloves, history, poisons, axes, and mana.");
-}
-
-fun MapEvent12(macros) {
-    macros.ShowRunes("Defense, bows, initiative, curing, and jewelry.");
-}
-
-fun MapEvent13(macros) {
-    macros.ShowRunes("Stoning, attack, hammers, healing, and paralysis.");
-}
-
-fun MapEvent14(macros) {
-    macros.ShowRunes("Axes, spears, hammers, swords, and jewelry.");
-}
-
-fun MapEvent15(macros) {
-    macros.ShowRunes("Paralysis, helms, monsters, mana, and bows.");
-}
-
-fun MapEvent16(macros) {
-    macros.ShowRunes("Defense, monsters, attack, history, and mythology.");
-}
-
-fun MapEvent17(macros) {
-    macros.ShowRunes("Shields, initiative, poison, healing, and sticks.");
-}
-
-fun MapEvent18(macros) {
-    macros.ShowRunes("Staves, armor, stonings, curing, and gloves.");
-}
-
-fun Found(macros) {
-    macros.ShowText("After searching through many books, this is the information you find that interests you:");
-}
-
-fun Intact(macros) {
-    macros.ShowText("In this corner of the room a few books are somewhat intact.");
-}
-
-fun MapEvent19(macros) {
-    Found(macros);
-    macros.ShowRunes("These are the spell levels of swords: ");
-    macros.ShowRunes(" Martel's, Storm Wind, six; Hengist's, Fireball, five; Talorcan's, Petrify, three; Edwin's, Hail, six; Oswald's Bane, Dissipate, six.");
-    macros.ShowRunes("Ecgfrith's, Blast, eight; Athelstan's, Poison Cloud, two; Scramasax, Poison Cloud, seven.");
-}
-
-fun MapEvent1A(macros) {
-    Found(macros);
-    macros.ShowRunes("These swords have special powers against certain foes:  ");
-    macros.ShowRunes("Martel's, Mammals, Defense; Lowland Stabber, NPC's, Attack; Oswald's Bane, Undead, Damage; Ecgfrith's, Mammals, Damage; Athelstan's, Hybrids, Damage.");
-    macros.ShowRunes("Claymore, Winged Creatures, Damage; Lodbrok's, Macbeth's Ilk, Damage.");
-}
-
-fun MapEvent1C(macros) {
-    Found(macros);
-    macros.ShowRunes("These swords absorb damage: ");
-    macros.ShowRunes("Seax and Claymore.");
-}
-
-fun MapEvent1D(macros) {
-    Found(macros);
-    macros.ShowRunes("These are the spell levels of axes: ");
-    macros.ShowRunes("Duncan's, Heal, three; Donalbain's, Poison Cloud, three; Banquo's, Backfire, six; The Axe of Angus, Dissipate, twelve.");
-}
-
-fun MapEvent1E(macros) {
-    Found(macros);
-    macros.ShowRunes("These axes have special powers against certain foes:");
-    macros.ShowRunes("Malcolm's Chopper, Undead, Damage; Banquo's, Demi-humanoids, Damage.");
-}
-
-fun MapEvent20(macros) {
-    Found(macros);
-    macros.ShowRunes("The only axe that absorbs damage is Banquo's, and that is not much.");
-}
-
-fun MapEvent21(macros) {
-    Found(macros);
-    macros.ShowRunes("These are the spell levels of clubs and hammers: ");
-    macros.ShowRunes("Cathness's, Petrify, three; Strathclyde's, Heal, six; Hecate's, Backfire, ten; Fleance's, Cure, ten; Horsa's, Fireball, six; Macduff's Maul, Blast, ten.");
-}
-
-fun MapEvent22(macros) {
-    Found(macros);
-    macros.ShowRunes("These clubs and hammers have special powers against certain foes:");
-    macros.ShowRunes("Cathness's, Winged Creatures, Damage; Hilda's, Ghosts, Attack; Horsa's, Hybrids, Damage; Macduff's Maul, Giants, Lots of damage.");
-}
-
-fun MapEvent24(macros) {
-    Found(macros);
-    macros.ShowRunes("These are the spell levels of spears: ");
-    macros.ShowRunes("Ascomanni, Poison Cloud, five; Tapering, Lightning, nine; Bayonet, Resuscitate, eight; Leaf, Backfire, six; Oswy's Javelin, Control, eight; Lugh's, Death Darts, six.");
-}
-
-fun MapEvent25(macros) {
-    Found(macros);
-    macros.ShowRunes("These spears do extra damage against certain foes:");
-    macros.ShowRunes("Lozenge, Giants, (lots); Leaf, Demi-humanoids; Lance, Hybrids.");
-}
-
-fun MapEvent27(macros) {
-    Found(macros);
-    macros.ShowRunes("All spears and staves take away from the force of your enemy's blows in combat.");
-}
-
-fun MapEvent28(macros) {
-    Found(macros);
-    macros.ShowRunes("These are the spell levels of staves: ");
-    macros.ShowRunes("Elchere's, Fireball, nine; Coerl's, Dissipate, seven; Osric's, Blast, eleven; Swithun's, Petrify, ten; Aldhelm's, Death Darts, twelve.");
-}
-
-fun MapEvent29(macros) {
-    Found(macros);
-    macros.ShowRunes("These staves do extra damage against certain foes:");
-    macros.ShowRunes("Wulfherd's, Wizards and Clerics, (lots); Swithun's, Giants.");
-}
-
-fun MapEvent2A(macros) {
-    Found(macros);
-    macros.ShowRunes("These are the spell levels of bows: ");
-    macros.ShowRunes("Hunting, Dissipate, seven; Welsh Longbow, Storm Wind, five; Bernician, Blast, eight; Deiran, Fireball, four; Bow of Badonicus, Backfire, six.");
-    macros.ShowRunes("Yew Bow of York, Lightning, four; Dalriadan, Death Darts, six.");
-}
-
-fun MapEvent2B(macros) {
-    Found(macros);
-    macros.ShowRunes("These bows do extra damage against certain foes:");
-    macros.ShowRunes("Hunting, Undead; Composite, Mammals; Welsh Longbow, Hybrids; Bow of Badonicus, Magi; Yew Bow of York, Macbeth's Ilk; Brunanburh, Dragons; Dalriadan, Undead.");
-}
-
-fun MapEvent2C(macros) {
-    Found(macros);
-    macros.ShowRunes("No bows absorb any extra damage.");
-}
-
-fun MapEvent2D(macros) {
-    Found(macros);
-    macros.ShowRunes("These are the spell levels of shields: ");
-    macros.ShowRunes("Linden, Heal, four; Iron Bossed, Hail, two; Shield Wall, Fireball, five; Guardian of Wessex, Backfire, six; ");
-    macros.ShowRunes("Ethelbald's, Energy Field, six; Ealstan's Absorber, Shroud of Light, seven; My Lady's Favor, Control, six.");
-    macros.ShowRunes("Spiked, Death Darts, ten; Hadrian's Wall, Shield, twelve.  The Pointed Shield can Deflect Magic and Edwin's Defender Channels.");
-}
-
-fun MapEvent2E(macros) {
-    Found(macros);
-    macros.ShowRunes("These shields have extra defenses against certain foes:");
-    macros.ShowRunes("Flat, Macbeth's Ilk; Shield Wall, Dragons; Guardian of Wessex and Ethelbald's Buckler, Magi; Wulfherd's, Ghosts; My Lady's Favor, Undead; Edwin's Defender, Ghosts.");
-}
-
-fun MapEvent30(macros) {
-    Found(macros);
-    macros.ShowRunes("These are the spell levels of headgear: ");
-    macros.ShowRunes("Turkish Hat, Lightning, five; Huda's Headgear, Control, eleven; Antlered Helm, True Seeing, nine; Unicorn Horn Helm, Blast, nine.");
-    macros.ShowRunes("Rhino Horn Helm, Death Darts, seven; Ironside's Headgear, Backfire, four; Ealstan's Cap can perform Deep Trance, Wulfherd's Helm can Read Runes.");
-    macros.ShowRunes("Deer Horned Helm Pursues, Spiked Helm Binds, Reindeer Horn Helm Tracks, Ivar's Helm Detects, and Alfred's Hat Picks Locks.");
-}
-
-fun MapEvent31(macros) {
-    Found(macros);
-    macros.ShowRunes("These helms give extra physical or magical defense against certain foes:");
-    macros.ShowRunes("Ealstan's Cap, Magi; Antlered Helm, Giants; Unicorn Horn Helm, Magi; Phrygian Cap, Demi-humanoids; Alfred's Hat, Dragons; Ironside's Headgear, Giants.");
-}
-
-fun MapEvent33(macros) {
-    Found(macros);
-    macros.ShowRunes("No known armor casts spells.  Holy Vestments: Furtiveness; Wizard's Tabard Deflects Magic; Thief's Tabard: Deep Trance; Ranger's Tabard: Medic; Mendicant's Tunic: Berserker.");
-}
-
-fun MapEvent34(macros) {
-    Found(macros);
-    macros.ShowRunes("These armors have extra defenses against certain foes: ");
-    macros.ShowRunes("Adamantine Plate, Magi; Holy Vestments, Non-Magi; Thief's Tabard, Undead; Ranger's Tabard, Magi; Barbarian's Tabard, Macbeth's Ilk; Disbelieving Tunic, Demi-humanoids.");
-}
-
-fun MapEvent35(macros) {
-    if ((!(macros.HasItem(MANNANANSRING))) && (!(macros.HasItem(OHTHERESDAGGER))) && (macros.GetFlag(PARTY, GIVERING) == 1)) {
-        macros.ShowText("What an incredible stroke of luck!  Despite all the unfriendly things you did last time, you have stumbled upon Manannan Mac Lir's Ring!");
-        macros.ShowText("If you really believe it was just luck, I have some swampland in the Shetlands I want to sell you.");
-        macros.GiveItem(MANNANANSRING);
-        macros.SetFlag(PARTY, GIVERING, 2);
+fun MapEvent0E(context) {
+    if ((context.GetFlag(PARTY, GIVEDAGGER) == 1) && (!(context.HasItem(OHTHERESDAGGER))) && (context.Here == 29)) {
+        context.SetFlag(PARTY, GIVEDAGGER, 0);
+        context.GiveItem(OHTHERESDAGGER);
+        context.GiveItem(BARDICHE);
+        context.GiveItem(WULFHERDSSHIELD);
+        if ((context.HasItem(MANNANANSRING))) {
+            context.TakeItem(MANNANANSRING);
+        }
     }
     else {
-        if (macros.Facing == NORTH) {
-            macros.ShowText("These books contain nothing of interest to you.");
+        context.ShowText("The Plaque on the door reads 'W'");
+    }
+}
+
+fun MapEvent0F(context) {
+    context.ShowRunes("Spears, sticks, staves, and monsters.");
+}
+
+fun MapEvent10(context) {
+    context.ShowRunes("Armor, shields, helms, swords, and mythology.");
+}
+
+fun MapEvent11(context) {
+    context.ShowRunes("Gloves, history, poisons, axes, and mana.");
+}
+
+fun MapEvent12(context) {
+    context.ShowRunes("Defense, bows, initiative, curing, and jewelry.");
+}
+
+fun MapEvent13(context) {
+    context.ShowRunes("Stoning, attack, hammers, healing, and paralysis.");
+}
+
+fun MapEvent14(context) {
+    context.ShowRunes("Axes, spears, hammers, swords, and jewelry.");
+}
+
+fun MapEvent15(context) {
+    context.ShowRunes("Paralysis, helms, monsters, mana, and bows.");
+}
+
+fun MapEvent16(context) {
+    context.ShowRunes("Defense, monsters, attack, history, and mythology.");
+}
+
+fun MapEvent17(context) {
+    context.ShowRunes("Shields, initiative, poison, healing, and sticks.");
+}
+
+fun MapEvent18(context) {
+    context.ShowRunes("Staves, armor, stonings, curing, and gloves.");
+}
+
+fun Found(context) {
+    context.ShowText("After searching through many books, this is the information you find that interests you:");
+}
+
+fun Intact(context) {
+    context.ShowText("In this corner of the room a few books are somewhat intact.");
+}
+
+fun MapEvent19(context) {
+    Found(context);
+    context.ShowRunes("These are the spell levels of swords: ");
+    context.ShowRunes(" Martel's, Storm Wind, six; Hengist's, Fireball, five; Talorcan's, Petrify, three; Edwin's, Hail, six; Oswald's Bane, Dissipate, six.");
+    context.ShowRunes("Ecgfrith's, Blast, eight; Athelstan's, Poison Cloud, two; Scramasax, Poison Cloud, seven.");
+}
+
+fun MapEvent1A(context) {
+    Found(context);
+    context.ShowRunes("These swords have special powers against certain foes:  ");
+    context.ShowRunes("Martel's, Mammals, Defense; Lowland Stabber, NPC's, Attack; Oswald's Bane, Undead, Damage; Ecgfrith's, Mammals, Damage; Athelstan's, Hybrids, Damage.");
+    context.ShowRunes("Claymore, Winged Creatures, Damage; Lodbrok's, Macbeth's Ilk, Damage.");
+}
+
+fun MapEvent1C(context) {
+    Found(context);
+    context.ShowRunes("These swords absorb damage: ");
+    context.ShowRunes("Seax and Claymore.");
+}
+
+fun MapEvent1D(context) {
+    Found(context);
+    context.ShowRunes("These are the spell levels of axes: ");
+    context.ShowRunes("Duncan's, Heal, three; Donalbain's, Poison Cloud, three; Banquo's, Backfire, six; The Axe of Angus, Dissipate, twelve.");
+}
+
+fun MapEvent1E(context) {
+    Found(context);
+    context.ShowRunes("These axes have special powers against certain foes:");
+    context.ShowRunes("Malcolm's Chopper, Undead, Damage; Banquo's, Demi-humanoids, Damage.");
+}
+
+fun MapEvent20(context) {
+    Found(context);
+    context.ShowRunes("The only axe that absorbs damage is Banquo's, and that is not much.");
+}
+
+fun MapEvent21(context) {
+    Found(context);
+    context.ShowRunes("These are the spell levels of clubs and hammers: ");
+    context.ShowRunes("Cathness's, Petrify, three; Strathclyde's, Heal, six; Hecate's, Backfire, ten; Fleance's, Cure, ten; Horsa's, Fireball, six; Macduff's Maul, Blast, ten.");
+}
+
+fun MapEvent22(context) {
+    Found(context);
+    context.ShowRunes("These clubs and hammers have special powers against certain foes:");
+    context.ShowRunes("Cathness's, Winged Creatures, Damage; Hilda's, Ghosts, Attack; Horsa's, Hybrids, Damage; Macduff's Maul, Giants, Lots of damage.");
+}
+
+fun MapEvent24(context) {
+    Found(context);
+    context.ShowRunes("These are the spell levels of spears: ");
+    context.ShowRunes("Ascomanni, Poison Cloud, five; Tapering, Lightning, nine; Bayonet, Resuscitate, eight; Leaf, Backfire, six; Oswy's Javelin, Control, eight; Lugh's, Death Darts, six.");
+}
+
+fun MapEvent25(context) {
+    Found(context);
+    context.ShowRunes("These spears do extra damage against certain foes:");
+    context.ShowRunes("Lozenge, Giants, (lots); Leaf, Demi-humanoids; Lance, Hybrids.");
+}
+
+fun MapEvent27(context) {
+    Found(context);
+    context.ShowRunes("All spears and staves take away from the force of your enemy's blows in combat.");
+}
+
+fun MapEvent28(context) {
+    Found(context);
+    context.ShowRunes("These are the spell levels of staves: ");
+    context.ShowRunes("Elchere's, Fireball, nine; Coerl's, Dissipate, seven; Osric's, Blast, eleven; Swithun's, Petrify, ten; Aldhelm's, Death Darts, twelve.");
+}
+
+fun MapEvent29(context) {
+    Found(context);
+    context.ShowRunes("These staves do extra damage against certain foes:");
+    context.ShowRunes("Wulfherd's, Wizards and Clerics, (lots); Swithun's, Giants.");
+}
+
+fun MapEvent2A(context) {
+    Found(context);
+    context.ShowRunes("These are the spell levels of bows: ");
+    context.ShowRunes("Hunting, Dissipate, seven; Welsh Longbow, Storm Wind, five; Bernician, Blast, eight; Deiran, Fireball, four; Bow of Badonicus, Backfire, six.");
+    context.ShowRunes("Yew Bow of York, Lightning, four; Dalriadan, Death Darts, six.");
+}
+
+fun MapEvent2B(context) {
+    Found(context);
+    context.ShowRunes("These bows do extra damage against certain foes:");
+    context.ShowRunes("Hunting, Undead; Composite, Mammals; Welsh Longbow, Hybrids; Bow of Badonicus, Magi; Yew Bow of York, Macbeth's Ilk; Brunanburh, Dragons; Dalriadan, Undead.");
+}
+
+fun MapEvent2C(context) {
+    Found(context);
+    context.ShowRunes("No bows absorb any extra damage.");
+}
+
+fun MapEvent2D(context) {
+    Found(context);
+    context.ShowRunes("These are the spell levels of shields: ");
+    context.ShowRunes("Linden, Heal, four; Iron Bossed, Hail, two; Shield Wall, Fireball, five; Guardian of Wessex, Backfire, six; ");
+    context.ShowRunes("Ethelbald's, Energy Field, six; Ealstan's Absorber, Shroud of Light, seven; My Lady's Favor, Control, six.");
+    context.ShowRunes("Spiked, Death Darts, ten; Hadrian's Wall, Shield, twelve.  The Pointed Shield can Deflect Magic and Edwin's Defender Channels.");
+}
+
+fun MapEvent2E(context) {
+    Found(context);
+    context.ShowRunes("These shields have extra defenses against certain foes:");
+    context.ShowRunes("Flat, Macbeth's Ilk; Shield Wall, Dragons; Guardian of Wessex and Ethelbald's Buckler, Magi; Wulfherd's, Ghosts; My Lady's Favor, Undead; Edwin's Defender, Ghosts.");
+}
+
+fun MapEvent30(context) {
+    Found(context);
+    context.ShowRunes("These are the spell levels of headgear: ");
+    context.ShowRunes("Turkish Hat, Lightning, five; Huda's Headgear, Control, eleven; Antlered Helm, True Seeing, nine; Unicorn Horn Helm, Blast, nine.");
+    context.ShowRunes("Rhino Horn Helm, Death Darts, seven; Ironside's Headgear, Backfire, four; Ealstan's Cap can perform Deep Trance, Wulfherd's Helm can Read Runes.");
+    context.ShowRunes("Deer Horned Helm Pursues, Spiked Helm Binds, Reindeer Horn Helm Tracks, Ivar's Helm Detects, and Alfred's Hat Picks Locks.");
+}
+
+fun MapEvent31(context) {
+    Found(context);
+    context.ShowRunes("These helms give extra physical or magical defense against certain foes:");
+    context.ShowRunes("Ealstan's Cap, Magi; Antlered Helm, Giants; Unicorn Horn Helm, Magi; Phrygian Cap, Demi-humanoids; Alfred's Hat, Dragons; Ironside's Headgear, Giants.");
+}
+
+fun MapEvent33(context) {
+    Found(context);
+    context.ShowRunes("No known armor casts spells.  Holy Vestments: Furtiveness; Wizard's Tabard Deflects Magic; Thief's Tabard: Deep Trance; Ranger's Tabard: Medic; Mendicant's Tunic: Berserker.");
+}
+
+fun MapEvent34(context) {
+    Found(context);
+    context.ShowRunes("These armors have extra defenses against certain foes: ");
+    context.ShowRunes("Adamantine Plate, Magi; Holy Vestments, Non-Magi; Thief's Tabard, Undead; Ranger's Tabard, Magi; Barbarian's Tabard, Macbeth's Ilk; Disbelieving Tunic, Demi-humanoids.");
+}
+
+fun MapEvent35(context) {
+    if ((!(context.HasItem(MANNANANSRING))) && (!(context.HasItem(OHTHERESDAGGER))) && (context.GetFlag(PARTY, GIVERING) == 1)) {
+        context.ShowText("What an incredible stroke of luck!  Despite all the unfriendly things you did last time, you have stumbled upon Manannan Mac Lir's Ring!");
+        context.ShowText("If you really believe it was just luck, I have some swampland in the Shetlands I want to sell you.");
+        context.GiveItem(MANNANANSRING);
+        context.SetFlag(PARTY, GIVERING, 2);
+    }
+    else {
+        if (context.Facing == NORTH) {
+            context.ShowText("These books contain nothing of interest to you.");
         }
     }
 }
 
-fun MapEvent36(macros) {
-    Intact(macros);
-    macros.ShowRunes("Succubus Pipes cast Control at level eight.");
-    macros.ShowRunes("Alcuin's Ring and the Holy Relic absorb more damage than any other pieces of jewelry.");
-    macros.ShowRunes("Finally, Ohthere's Dagger has a power over water, but the book is charred before it says what.");
+fun MapEvent36(context) {
+    Intact(context);
+    context.ShowRunes("Succubus Pipes cast Control at level eight.");
+    context.ShowRunes("Alcuin's Ring and the Holy Relic absorb more damage than any other pieces of jewelry.");
+    context.ShowRunes("Finally, Ohthere's Dagger has a power over water, but the book is charred before it says what.");
 }
 
-fun MapEvent37(macros) {
-    Intact(macros);
-    macros.ShowRunes("These are the powers of gloves:  ");
-    macros.ShowRunes("Aldhelm's, Heal, three; Alcuin's, Energy Field, eight; ");
-    macros.ShowRunes("The Gorgon's Gauntlets are tremendously powerful weapons if wielded by one with the Martial Arts skill.  They also cast Petrify at eight and do extra damage to giants.");
-    macros.ShowRunes("The Adamantine Gloves absorb the most damage, add to Martial Arts attacks, cast Resist at eight, and provide extra defense against dragons.");
+fun MapEvent37(context) {
+    Intact(context);
+    context.ShowRunes("These are the powers of gloves:  ");
+    context.ShowRunes("Aldhelm's, Heal, three; Alcuin's, Energy Field, eight; ");
+    context.ShowRunes("The Gorgon's Gauntlets are tremendously powerful weapons if wielded by one with the Martial Arts skill.  They also cast Petrify at eight and do extra damage to giants.");
+    context.ShowRunes("The Adamantine Gloves absorb the most damage, add to Martial Arts attacks, cast Resist at eight, and provide extra defense against dragons.");
 }
 
-fun MapEvent38(macros) {
-    Intact(macros);
-    macros.ShowRunes("Evidently, sticks are the preferred weapons of clerics, as gloves are their preferred shields.");
-    macros.ShowRunes("Alcuin's Sticks See Truly at twelve and do extra damage against Non-Magi.  Menteth's Maul casts Death Darts at ten and does huge amounts of damage, while exposing the user to many counterattacks.");
+fun MapEvent38(context) {
+    Intact(context);
+    context.ShowRunes("Evidently, sticks are the preferred weapons of clerics, as gloves are their preferred shields.");
+    context.ShowRunes("Alcuin's Sticks See Truly at twelve and do extra damage against Non-Magi.  Menteth's Maul casts Death Darts at ten and does huge amounts of damage, while exposing the user to many counterattacks.");
 }
 
-fun MapEvent39(macros) {
-    Intact(macros);
-    macros.ShowRunes("Woe betide us, for no longer do items prevent paralysis!");
+fun MapEvent39(context) {
+    Intact(context);
+    context.ShowRunes("Woe betide us, for no longer do items prevent paralysis!");
 }
 
-fun MapEvent3A(macros) {
-    Intact(macros);
-    macros.ShowRunes("These items are the best weapons of each class:  ");
-    macros.ShowRunes("Claymore, Lodbrok's Blade, Banquo's Axe, Menteth's or MacDuff's Maul, Horsa's or Hilda's Hammer, Swithun's Staff, Brunanburh or Dalriadan Bow, Gorgon's Gauntlets, or Thor's Bane.");
-    macros.ShowRunes("Alcuin's Cap makes a lowly wizard as powerful as a mighty barbarian.");
-    macros.ShowRunes("The items listed as powerful against Macbeth's Ilk for their spells have a second power: if equipped, they make a warrior fight as many against Macbeth's Ilk!  This last is very useful.");
+fun MapEvent3A(context) {
+    Intact(context);
+    context.ShowRunes("These items are the best weapons of each class:  ");
+    context.ShowRunes("Claymore, Lodbrok's Blade, Banquo's Axe, Menteth's or MacDuff's Maul, Horsa's or Hilda's Hammer, Swithun's Staff, Brunanburh or Dalriadan Bow, Gorgon's Gauntlets, or Thor's Bane.");
+    context.ShowRunes("Alcuin's Cap makes a lowly wizard as powerful as a mighty barbarian.");
+    context.ShowRunes("The items listed as powerful against Macbeth's Ilk for their spells have a second power: if equipped, they make a warrior fight as many against Macbeth's Ilk!  This last is very useful.");
 }
 
-fun MapEvent3B(macros) {
-    Intact(macros);
-    macros.ShowRunes("Magi are wizards and clerics; non-magi are thieves, barbarians, knights, and rangers; mammals are boars, panthers, and hounds; winged creatures are harpies and bats; hybrids are medusae and minotaurs.");
-    macros.ShowRunes("Undead are vampires, skeletons, wraiths, and zombies; demi-humanoids are imps and picts; giants and golems are giants.  All for purposes of items having special effects.");
+fun MapEvent3B(context) {
+    Intact(context);
+    context.ShowRunes("Magi are wizards and clerics; non-magi are thieves, barbarians, knights, and rangers; mammals are boars, panthers, and hounds; winged creatures are harpies and bats; hybrids are medusae and minotaurs.");
+    context.ShowRunes("Undead are vampires, skeletons, wraiths, and zombies; demi-humanoids are imps and picts; giants and golems are giants.  All for purposes of items having special effects.");
 }
 
-fun MapEvent3C(macros) {
-    Intact(macros);
-    macros.ShowRunes("You learn that ghosts are ghosts, slimes are slimes, and dragons are dragons.  Hey!  Did I promise that you'd be excited by everything you'd learn here?");
+fun MapEvent3C(context) {
+    Intact(context);
+    context.ShowRunes("You learn that ghosts are ghosts, slimes are slimes, and dragons are dragons.  Hey!  Did I promise that you'd be excited by everything you'd learn here?");
 }
 
-fun MapEvent3D(macros) {
-    if ((!(macros.HasItem(MANNANANSRING))) && (!(macros.HasItem(OHTHERESDAGGER))) && (macros.GetFlag(PARTY, GIVERING) == 0) && (macros.GetFlag(DUNGEON, SUMMONEDMANNANAN) == 1)) {
-        macros.SetFlag(PARTY, GIVERING, 1);
-        macros.ShowText("Something shimmers into visibility in the northwest corner of this room.");
+fun MapEvent3D(context) {
+    if ((!(context.HasItem(MANNANANSRING))) && (!(context.HasItem(OHTHERESDAGGER))) && (context.GetFlag(PARTY, GIVERING) == 0) && (context.GetFlag(DUNGEON, SUMMONEDMANNANAN) == 1)) {
+        context.SetFlag(PARTY, GIVERING, 1);
+        context.ShowText("Something shimmers into visibility in the northwest corner of this room.");
     }
     else {
-        if ((macros.UsedItem(MANNANANSRING, MANNANANSRING)) && (macros.GetFlag(PARTY, MANNANANREWARD) == 0)) {
-            macros.ShowPicture(HUMANBARBARIAN);
-            macros.SetFlag(PARTY, MANNANANREWARD, 1);
-            macros.SetFlag(PARTY, GIVEDAGGER, 1);
-            macros.ShowText("*");
-            macros.ShowText("*");
-            macros.ShowText("*");
-            macros.ShowText("You see an image coalesce in the middle of the room.  Standing amidst a storm-tossed sea, you again see Mannanan Mac Lir.");
-            macros.ShowText("'Hah!  I knew you were of sterner stuff than the last batch of bacon-brains Galatea sent.  I bring you greetings, and rewards.'");
-            macros.ShowText("'My cousin Mider has long been denied many of the spirits those witches have had bound to this place these many decades, so we approve of her quest, and yours.'");
-            macros.ModExp(1000000);
-            macros.ShowText("'You may or may not find the weapon and shield useful.  They are but trinkets.  The dagger, however, is essential.'");
-            macros.ShowText("'You will need it in the Kitchen, in an area where spells will fail you and skill not avail you.'");
-            macros.ShowText("Mannanan tosses the dagger, which lands at your feet and slides behind you.");
-            macros.ShowText("'I do not choose this enforced indirection, but as your life has rules and obligations, so does even the Sea God's.  My blessing upon you, child....'");
-            macros.ShowText("The image fades, although the floor looks rather damper than it was.");
-            macros.TakeItem(MANNANANSRING);
+        if ((context.UsedItem(MANNANANSRING, MANNANANSRING)) && (context.GetFlag(PARTY, MANNANANREWARD) == 0)) {
+            context.ShowPicture(HUMANBARBARIAN);
+            context.SetFlag(PARTY, MANNANANREWARD, 1);
+            context.SetFlag(PARTY, GIVEDAGGER, 1);
+            context.ShowText("*");
+            context.ShowText("*");
+            context.ShowText("*");
+            context.ShowText("You see an image coalesce in the middle of the room.  Standing amidst a storm-tossed sea, you again see Mannanan Mac Lir.");
+            context.ShowText("'Hah!  I knew you were of sterner stuff than the last batch of bacon-brains Galatea sent.  I bring you greetings, and rewards.'");
+            context.ShowText("'My cousin Mider has long been denied many of the spirits those witches have had bound to this place these many decades, so we approve of her quest, and yours.'");
+            context.ModExp(1000000);
+            context.ShowText("'You may or may not find the weapon and shield useful.  They are but trinkets.  The dagger, however, is essential.'");
+            context.ShowText("'You will need it in the Kitchen, in an area where spells will fail you and skill not avail you.'");
+            context.ShowText("Mannanan tosses the dagger, which lands at your feet and slides behind you.");
+            context.ShowText("'I do not choose this enforced indirection, but as your life has rules and obligations, so does even the Sea God's.  My blessing upon you, child....'");
+            context.ShowText("The image fades, although the floor looks rather damper than it was.");
+            context.TakeItem(MANNANANSRING);
         }
     }
 }
 
-fun MapEvent3E(macros) {
-    Found(macros);
-    macros.ShowRunes("Mannanan Mac Lir is the son of the god of the sea.  He controls the waters, and grants favors concerning water to those he would aid.  ");
-    macros.ShowRunes("His spears are Yellow Shaft and Red Javelin.  His sword, The Retaliator, never fails to slay.");
+fun MapEvent3E(context) {
+    Found(context);
+    context.ShowRunes("Mannanan Mac Lir is the son of the god of the sea.  He controls the waters, and grants favors concerning water to those he would aid.  ");
+    context.ShowRunes("His spears are Yellow Shaft and Red Javelin.  His sword, The Retaliator, never fails to slay.");
 }
 
-fun MapEvent3F(macros) {
-    Found(macros);
-    macros.ShowRunes("Lugh of the Long Spear is a god of the sun.  In battle he shines so brightly that none may look upon him, and his living spear fights by itself.  He is a master of all skills.");
+fun MapEvent3F(context) {
+    Found(context);
+    context.ShowRunes("Lugh of the Long Spear is a god of the sun.  In battle he shines so brightly that none may look upon him, and his living spear fights by itself.  He is a master of all skills.");
 }
 
-fun MapEvent40(macros) {
-    Found(macros);
-    macros.ShowRunes("Nuada Silverhand is a god of war and, until he lost his hand in battle, the king of the Celtic gods.  ");
-    macros.ShowRunes("Diancecht made his silver hand, and Miach, Diancecht's son, healed the severed hand, allowing Nuada to again become king of the gods.");
+fun MapEvent40(context) {
+    Found(context);
+    context.ShowRunes("Nuada Silverhand is a god of war and, until he lost his hand in battle, the king of the Celtic gods.  ");
+    context.ShowRunes("Diancecht made his silver hand, and Miach, Diancecht's son, healed the severed hand, allowing Nuada to again become king of the gods.");
 }
 
-fun MapEvent41(macros) {
-    Found(macros);
-    macros.ShowRunes("Cuchulain, son of Lugh, also is a god of the sun.  He is so hot that he melts snow for thirty feet around him.  When he baths, in the sea, it boils.  His spear, the Gae Bolg, never fails to pierce its target.");
+fun MapEvent41(context) {
+    Found(context);
+    context.ShowRunes("Cuchulain, son of Lugh, also is a god of the sun.  He is so hot that he melts snow for thirty feet around him.  When he baths, in the sea, it boils.  His spear, the Gae Bolg, never fails to pierce its target.");
 }
 
-fun MapEvent42(macros) {
-    Found(macros);
-    macros.ShowRunes("Diancecht is a god of healing.  So long as the head is not severed or the brain or spine broken he can restore any wound.  He is the grandfather of Lugh.");
+fun MapEvent42(context) {
+    Found(context);
+    context.ShowRunes("Diancecht is a god of healing.  So long as the head is not severed or the brain or spine broken he can restore any wound.  He is the grandfather of Lugh.");
 }
 
-fun MapEvent43(macros) {
-    Found(macros);
-    macros.ShowRunes("Brigit, daughter of The Dagda, is a goddess of fire, the hearth, and poetry.  When she was born, the house burst into flames.  When her son, Ruadan, was killed, she invented 'keening.'");
+fun MapEvent43(context) {
+    Found(context);
+    context.ShowRunes("Brigit, daughter of The Dagda, is a goddess of fire, the hearth, and poetry.  When she was born, the house burst into flames.  When her son, Ruadan, was killed, she invented 'keening.'");
 }
 
-fun MapEvent44(macros) {
-    Found(macros);
-    macros.ShowRunes("Alcuin was an English scholar from York.  He served Charlemagne in France.  Alcuin was perhaps the greatest mind of his time, and items bearing his name can be assumed to be particularly useful.");
+fun MapEvent44(context) {
+    Found(context);
+    context.ShowRunes("Alcuin was an English scholar from York.  He served Charlemagne in France.  Alcuin was perhaps the greatest mind of his time, and items bearing his name can be assumed to be particularly useful.");
 }
 
-fun MapEvent45(macros) {
-    Found(macros);
-    macros.ShowRunes("Oswald, Oswy, and Ecgfrith were early kings of newly united Northumbria.  At the battle of Nechtanemsmere, the Scottish Picts defeated Ecgfrith and ended Northumbria's eminence.");
+fun MapEvent45(context) {
+    Found(context);
+    context.ShowRunes("Oswald, Oswy, and Ecgfrith were early kings of newly united Northumbria.  At the battle of Nechtanemsmere, the Scottish Picts defeated Ecgfrith and ended Northumbria's eminence.");
 }
 
-fun MapEvent46(macros) {
-    Found(macros);
-    macros.ShowRunes("Streoneshalh was a holy place of old, though we now know it as Whitby Abbey.  Hilda was Streoneshalh's first Abbess.");
+fun MapEvent46(context) {
+    Found(context);
+    context.ShowRunes("Streoneshalh was a holy place of old, though we now know it as Whitby Abbey.  Hilda was Streoneshalh's first Abbess.");
 }
 
-fun MapEvent47(macros) {
-    Found(macros);
-    macros.ShowRunes("Aldhelm was the Bishop of Sherbourne and a great musician.  He installed the first organ in England.  While in his seventies he travelled carrying a staff and a harp.");
+fun MapEvent47(context) {
+    Found(context);
+    context.ShowRunes("Aldhelm was the Bishop of Sherbourne and a great musician.  He installed the first organ in England.  While in his seventies he travelled carrying a staff and a harp.");
 }
 
-fun MapEvent48(macros) {
-    Found(macros);
-    macros.ShowRunes("Ohthere was a Norse sea captain.  A fearless sailor, he was the first civilised man recorded to have found the White Sea, as documented by King Alfred the Great.");
+fun MapEvent48(context) {
+    Found(context);
+    context.ShowRunes("Ohthere was a Norse sea captain.  A fearless sailor, he was the first civilised man recorded to have found the White Sea, as documented by King Alfred the Great.");
 }
 
-fun MapEvent49(macros) {
-    Found(macros);
-    macros.ShowRunes("Eadburga was Queen of Wessex.  Her husband, Beorhtric, ruled with great wisdom for sixteen years, until she realized that he favored the advice of an alderman named Warr over hers.  ");
-    macros.ShowRunes("She poisoned Warr, not knowing that Beorhtric too would sip of Warr's drink, and thus killed her husband as well.");
+fun MapEvent49(context) {
+    Found(context);
+    context.ShowRunes("Eadburga was Queen of Wessex.  Her husband, Beorhtric, ruled with great wisdom for sixteen years, until she realized that he favored the advice of an alderman named Warr over hers.  ");
+    context.ShowRunes("She poisoned Warr, not knowing that Beorhtric too would sip of Warr's drink, and thus killed her husband as well.");
 }
 
-fun MapEvent4A(macros) {
-    Found(macros);
-    macros.ShowRunes("Alfred the Great was the finest Saxon king of England.  Outnumbered, with most of his kingdom conquered, he subdued or drove off the Danes, and eventually unified all of England.  ");
-    macros.ShowRunes("He built England's first navy, ending at last the waves of invaders from the continent.");
-    macros.ShowRunes("Alfred codified the laws, encouraged the arts, and was a heck of a nice guy.  Magic items bearing his name can be assumed to be fairly powerful.");
+fun MapEvent4A(context) {
+    Found(context);
+    context.ShowRunes("Alfred the Great was the finest Saxon king of England.  Outnumbered, with most of his kingdom conquered, he subdued or drove off the Danes, and eventually unified all of England.  ");
+    context.ShowRunes("He built England's first navy, ending at last the waves of invaders from the continent.");
+    context.ShowRunes("Alfred codified the laws, encouraged the arts, and was a heck of a nice guy.  Magic items bearing his name can be assumed to be fairly powerful.");
 }
 
-fun MapEvent4B(macros) {
-    Found(macros);
-    macros.ShowRunes("The Dagda is the god of the earth.  His cauldron, the Undry, feeds all according to their merits, and none leave it unsatisfied.  When he plays his living harp, the seasons change.");
+fun MapEvent4B(context) {
+    Found(context);
+    context.ShowRunes("The Dagda is the god of the earth.  His cauldron, the Undry, feeds all according to their merits, and none leave it unsatisfied.  When he plays his living harp, the seasons change.");
 }
 
-fun MapEvent4C(macros) {
-    Found(macros);
-    macros.ShowRunes("Ogma Honeymouthed is one of the sons of Dagda.  He is the god of literature and eloquence.  He is the champion of the Tuatha De' Dannan and inventor of the Ogam alphabet.");
+fun MapEvent4C(context) {
+    Found(context);
+    context.ShowRunes("Ogma Honeymouthed is one of the sons of Dagda.  He is the god of literature and eloquence.  He is the champion of the Tuatha De' Dannan and inventor of the Ogam alphabet.");
 }

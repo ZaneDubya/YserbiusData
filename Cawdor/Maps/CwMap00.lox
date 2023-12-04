@@ -24,517 +24,517 @@
 #define LOWLEVEL 21
 #define SAWSTAIRS 22
 
-fun MapEvent01(macros) {
-    macros.ExitDungeon();
+fun MapEvent01(context) {
+    context.ExitDungeon();
 }
 
-fun MapEvent02(macros) {
-    macros.ShowText("The torches are well maintained despite the decrepit nature of this place.");
+fun MapEvent02(context) {
+    context.ShowText("The torches are well maintained despite the decrepit nature of this place.");
 }
 
-fun MapEvent03(macros) {
-    macros.ShowText("The flickering torchlight illumines the area.");
+fun MapEvent03(context) {
+    context.ShowText("The flickering torchlight illumines the area.");
 }
 
-fun MapEvent04(macros) {
-    macros.ShowText("This gateway leads to The Lesser Runed Room.");
+fun MapEvent04(context) {
+    context.ShowText("This gateway leads to The Lesser Runed Room.");
 }
 
-fun MapEvent05(macros) {
-    macros.ShowText("These arches lead to The Lesser Runed Room.");
+fun MapEvent05(context) {
+    context.ShowText("These arches lead to The Lesser Runed Room.");
 }
 
-fun MapEvent06(macros) {
-    if (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1) {
-        macros.ShowText("This door leads to a narrow rising stairwell.");
-        if (macros.PartyCount == 1) {
-            macros.Teleport(4, 1, 250, NORTH);
+fun MapEvent06(context) {
+    if (context.GetFlag(DUNGEON, GOT_SHIELD) == 1) {
+        context.ShowText("This door leads to a narrow rising stairwell.");
+        if (context.PartyCount == 1) {
+            context.Teleport(4, 1, 250, NORTH);
         }
         else {
-            macros.ShowText("This narrow stairwell forces you to climb it single file.");
-            macros.BlockWall(macros.Here, macros.Facing);
+            context.ShowText("This narrow stairwell forces you to climb it single file.");
+            context.BlockWall(context.Here, context.Facing);
         }
     }
     else {
-        if (macros.GetFlag(PARTY, SAWSTAIRS) == 1) {
-            macros.ShowText("The door slams shut in front of your face and disappears to boot!  How rude!");
-            macros.ShowText("You hear a faint whisper, 'Thou art not yet ready to face the tests and travails upstairs.'");
-            macros.BlockWall(macros.Here, macros.Facing);
-            macros.RemoveWallItem(macros.Here, macros.Facing);
-            macros.SetFlag(PARTY, SAWSTAIRS, 0);
+        if (context.GetFlag(PARTY, SAWSTAIRS) == 1) {
+            context.ShowText("The door slams shut in front of your face and disappears to boot!  How rude!");
+            context.ShowText("You hear a faint whisper, 'Thou art not yet ready to face the tests and travails upstairs.'");
+            context.BlockWall(context.Here, context.Facing);
+            context.RemoveWallItem(context.Here, context.Facing);
+            context.SetFlag(PARTY, SAWSTAIRS, 0);
         }
     }
 }
 
-fun MapEvent08(macros) {
-    macros.ShowText("To the south is the exit from the Ruins of Cawdor.");
+fun MapEvent08(context) {
+    context.ShowText("To the south is the exit from the Ruins of Cawdor.");
 }
 
-fun MapEvent09(macros) {
-    macros.Teleport(1, 2, 128, EAST);
+fun MapEvent09(context) {
+    context.Teleport(1, 2, 128, EAST);
 }
 
-fun MapEvent0A(macros) {
+fun MapEvent0A(context) {
     var i;
     i = 0;
-    i = macros.GetFlag(DUNGEON, RUNECOUNTER);
+    i = context.GetFlag(DUNGEON, RUNECOUNTER);
     i++;
     if (i > 3) {
-        macros.ShowPicture(DWARFWIZARD);
-        if (macros.GetFlag(PARTY, FLUNG) == 1) {
-            macros.ShowText("Big mistake!");
-            macros.Damage(macros.MaxHealth);
-            macros.ModGold(-3000);
-            macros.ModExp(-1000);
+        context.ShowPicture(DWARFWIZARD);
+        if (context.GetFlag(PARTY, FLUNG) == 1) {
+            context.ShowText("Big mistake!");
+            context.Damage(context.MaxHealth);
+            context.ModGold(-3000);
+            context.ModExp(-1000);
         }
         else {
-            macros.ShowText("*");
-            macros.ShowText("*");
-            macros.ShowText("*");
-            macros.ShowText("The bearded face, now angry, reappears in the roiling and churning fountain.  Your legs convulse from sudden agony.  'Arroint thee, rump-fed runion!  Stay out of my fountain!'");
-            macros.SetFlag(PARTY, FLUNG, 1);
-            macros.Damage(macros.MaxHealth / 2);
-            if (macros.Health > 0) {
-                macros.ShowText("Talk about suffering from water damage.");
+            context.ShowText("*");
+            context.ShowText("*");
+            context.ShowText("*");
+            context.ShowText("The bearded face, now angry, reappears in the roiling and churning fountain.  Your legs convulse from sudden agony.  'Arroint thee, rump-fed runion!  Stay out of my fountain!'");
+            context.SetFlag(PARTY, FLUNG, 1);
+            context.Damage(context.MaxHealth / 2);
+            if (context.Health > 0) {
+                context.ShowText("Talk about suffering from water damage.");
             }
             else {
-                macros.ShowText("Talk about your bad luck.  You met a watery death 100 miles from the ocean, and you aren't even a sailor!");
+                context.ShowText("Talk about your bad luck.  You met a watery death 100 miles from the ocean, and you aren't even a sailor!");
             }
         }
     }
     else {
         if (i == 3) {
-            macros.ShowPicture(DWARFWIZARD);
-            macros.ShowText("*");
-            macros.ShowText("*");
-            macros.ShowText("*");
-            macros.ShowText("An old bearded face appears, mirrorlike, in the waters of the fountain.  It speaks to you.");
-            macros.ShowText("'If thou are so fascinated with runes, then I shall grant thee the skill to read them, an thou dost leave me alone henceforth.  Now begone!");
-            macros.ModSkill(RUNE_READING_SKILL, 1);
-            macros.SetFlag(DUNGEON, RUNECOUNTER, 4);
+            context.ShowPicture(DWARFWIZARD);
+            context.ShowText("*");
+            context.ShowText("*");
+            context.ShowText("*");
+            context.ShowText("An old bearded face appears, mirrorlike, in the waters of the fountain.  It speaks to you.");
+            context.ShowText("'If thou are so fascinated with runes, then I shall grant thee the skill to read them, an thou dost leave me alone henceforth.  Now begone!");
+            context.ModSkill(RUNE_READING_SKILL, 1);
+            context.SetFlag(DUNGEON, RUNECOUNTER, 4);
         }
         else {
-            macros.ShowPicture(FOUNTAIN);
-            macros.ShowText("It feels good to splash around in this old runed fountain.");
-            macros.SetFlag(DUNGEON, RUNECOUNTER, i);
+            context.ShowPicture(FOUNTAIN);
+            context.ShowText("It feels good to splash around in this old runed fountain.");
+            context.SetFlag(DUNGEON, RUNECOUNTER, i);
         }
     }
 }
 
-fun MapEvent0B(macros) {
-    if (macros.GetFlag(DUNGEON, SAWSHIELDGUY) == 0) {
-        macros.ShowPicture(HUMANWIZARD);
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("'Hah!  Hit me!  I dare thee!  'Tis right; thou cannot! I deduced and deciphered what to do in the six main rooms on this level, and now I know the Shield Spell.  I am for the higher regions, thou ignorant clod; the real treasure awaits upstairs.  And I shall be eating of the fatted calf whilst thou still toils in the tedium down here!  Ah hah hah hah!");
-        macros.ShowText("The wizard wobbles off, laughing maniacally, obviously at least a gill over his limit.  But drunk on liquor or power, or just insane, that shield spell sounds very useful.");
-        macros.SetFlag(DUNGEON, SAWSHIELDGUY, 1);
+fun MapEvent0B(context) {
+    if (context.GetFlag(DUNGEON, SAWSHIELDGUY) == 0) {
+        context.ShowPicture(HUMANWIZARD);
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("'Hah!  Hit me!  I dare thee!  'Tis right; thou cannot! I deduced and deciphered what to do in the six main rooms on this level, and now I know the Shield Spell.  I am for the higher regions, thou ignorant clod; the real treasure awaits upstairs.  And I shall be eating of the fatted calf whilst thou still toils in the tedium down here!  Ah hah hah hah!");
+        context.ShowText("The wizard wobbles off, laughing maniacally, obviously at least a gill over his limit.  But drunk on liquor or power, or just insane, that shield spell sounds very useful.");
+        context.SetFlag(DUNGEON, SAWSHIELDGUY, 1);
     }
 }
 
-fun MapEvent0C(macros) {
-    macros.ShowText("This is Lady Macbeth");
-    macros.GetMonster(1, 21);
+fun MapEvent0C(context) {
+    context.ShowText("This is Lady Macbeth");
+    context.GetMonster(1, 21);
 }
 
-fun MapEvent0D(macros) {
-    if (macros.GetFlag(PARTY, WAR1) == 0) {
-        macros.SetFlag(PARTY, WAR1, 1);
-        macros.GetMonster(1, 25);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(2, 30);
+fun MapEvent0D(context) {
+    if (context.GetFlag(PARTY, WAR1) == 0) {
+        context.SetFlag(PARTY, WAR1, 1);
+        context.GetMonster(1, 25);
+        if (context.PartyCount > 1) {
+            context.GetMonster(2, 30);
         }
     }
 }
 
-fun MapEvent0E(macros) {
-    if (macros.GetFlag(PARTY, WAR2) == 0) {
-        macros.SetFlag(PARTY, WAR2, 1);
-        macros.GetMonster(1, 26);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(2, 30);
+fun MapEvent0E(context) {
+    if (context.GetFlag(PARTY, WAR2) == 0) {
+        context.SetFlag(PARTY, WAR2, 1);
+        context.GetMonster(1, 26);
+        if (context.PartyCount > 1) {
+            context.GetMonster(2, 30);
         }
     }
 }
 
-fun MapEvent0F(macros) {
-    if (macros.GetFlag(PARTY, WAR3) == 0) {
-        macros.SetFlag(PARTY, WAR3, 1);
-        macros.GetMonster(1, 27);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(2, 30);
+fun MapEvent0F(context) {
+    if (context.GetFlag(PARTY, WAR3) == 0) {
+        context.SetFlag(PARTY, WAR3, 1);
+        context.GetMonster(1, 27);
+        if (context.PartyCount > 1) {
+            context.GetMonster(2, 30);
         }
     }
 }
 
-fun MapEvent10(macros) {
-    if (macros.GetFlag(PARTY, WAR4) == 0) {
-        macros.SetFlag(PARTY, WAR4, 1);
-        macros.SetBooty(SHORTSWORD, 0, 0, 0, 0, 0);
-        macros.GetMonster(1, 28);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(2, 31);
+fun MapEvent10(context) {
+    if (context.GetFlag(PARTY, WAR4) == 0) {
+        context.SetFlag(PARTY, WAR4, 1);
+        context.SetBooty(SHORTSWORD, 0, 0, 0, 0, 0);
+        context.GetMonster(1, 28);
+        if (context.PartyCount > 1) {
+            context.GetMonster(2, 31);
         }
     }
 }
 
-fun MapEvent11(macros) {
-    if (macros.GetFlag(PARTY, WAR5) == 0) {
-        macros.SetFlag(PARTY, WAR5, 1);
-        macros.SetBooty(SHORTSWORD, BUCKLER, 0, 0, 0, 0);
-        macros.GetMonster(1, 29);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(2, 31);
+fun MapEvent11(context) {
+    if (context.GetFlag(PARTY, WAR5) == 0) {
+        context.SetFlag(PARTY, WAR5, 1);
+        context.SetBooty(SHORTSWORD, BUCKLER, 0, 0, 0, 0);
+        context.GetMonster(1, 29);
+        if (context.PartyCount > 1) {
+            context.GetMonster(2, 31);
         }
     }
 }
 
-fun MapEvent12(macros) {
-    if (macros.GetFlag(PARTY, WAR6) == 0) {
-        macros.SetFlag(PARTY, WAR6, 1);
-        macros.SetBooty(SHORTSWORD, 0, 0, 0, 0, 0);
-        macros.GetMonster(1, 33);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(2, 25);
+fun MapEvent12(context) {
+    if (context.GetFlag(PARTY, WAR6) == 0) {
+        context.SetFlag(PARTY, WAR6, 1);
+        context.SetBooty(SHORTSWORD, 0, 0, 0, 0, 0);
+        context.GetMonster(1, 33);
+        if (context.PartyCount > 1) {
+            context.GetMonster(2, 25);
         }
     }
 }
 
-fun MapEvent13(macros) {
-    if (macros.GetFlag(PARTY, WAR7) == 0) {
-        macros.SetFlag(PARTY, WAR7, 1);
-        macros.GetMonster(1, 32);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(2, 30);
+fun MapEvent13(context) {
+    if (context.GetFlag(PARTY, WAR7) == 0) {
+        context.SetFlag(PARTY, WAR7, 1);
+        context.GetMonster(1, 32);
+        if (context.PartyCount > 1) {
+            context.GetMonster(2, 30);
         }
     }
 }
 
-fun MapEvent14(macros) {
-    if (macros.GetFlag(PARTY, WAR8) == 0) {
-        macros.SetFlag(PARTY, WAR8, 1);
-        macros.GetMonster(1, 34);
-        if (macros.PartyCount > 1) {
-            macros.ShowText("You're being driven batty!");
-            macros.GetMonster(2, 37);
+fun MapEvent14(context) {
+    if (context.GetFlag(PARTY, WAR8) == 0) {
+        context.SetFlag(PARTY, WAR8, 1);
+        context.GetMonster(1, 34);
+        if (context.PartyCount > 1) {
+            context.ShowText("You're being driven batty!");
+            context.GetMonster(2, 37);
         }
     }
 }
 
-fun MapEvent15(macros) {
-    if (macros.GetFlag(PARTY, WAR9) == 0) {
-        macros.SetFlag(PARTY, WAR9, 1);
-        macros.GetMonster(1, 35);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(2, 38);
+fun MapEvent15(context) {
+    if (context.GetFlag(PARTY, WAR9) == 0) {
+        context.SetFlag(PARTY, WAR9, 1);
+        context.GetMonster(1, 35);
+        if (context.PartyCount > 1) {
+            context.GetMonster(2, 38);
         }
     }
 }
 
-fun MapEvent16(macros) {
-    macros.ShowText("To the north is the doorway to the Barbarian's Room.");
+fun MapEvent16(context) {
+    context.ShowText("To the north is the doorway to the Barbarian's Room.");
 }
 
-fun MapEvent17(macros) {
-    macros.ShowText("To the east is the doorway to the Barbarian's Room.");
+fun MapEvent17(context) {
+    context.ShowText("To the east is the doorway to the Barbarian's Room.");
 }
 
-fun MapEvent18(macros) {
-    if (macros.PartyGuild(CLERIC)) {
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("A gravelly voice, a voice created by too many centuries smoking bad cigars, gruffly speaks.");
-        macros.ShowText("'About time you got here, kid. Have I got some tasks for you!'");
-        macros.PlaceWallItem(DOOR, 64, WEST);
+fun MapEvent18(context) {
+    if (context.PartyGuild(CLERIC)) {
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("A gravelly voice, a voice created by too many centuries smoking bad cigars, gruffly speaks.");
+        context.ShowText("'About time you got here, kid. Have I got some tasks for you!'");
+        context.PlaceWallItem(DOOR, 64, WEST);
     }
     else {
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("An old voice, a prehistoric voice, a voice so steeped in primordial ooze you can almost smell the tar, says, 'I wouldn't go forward if I were you, kid.  If you can't trust me, who can you trust?'");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("An old voice, a prehistoric voice, a voice so steeped in primordial ooze you can almost smell the tar, says, 'I wouldn't go forward if I were you, kid.  If you can't trust me, who can you trust?'");
     }
 }
 
-fun MapEvent19(macros) {
-    macros.ShowText("To the north is the doorway to the Knight's Room.");
+fun MapEvent19(context) {
+    context.ShowText("To the north is the doorway to the Knight's Room.");
 }
 
-fun MapEvent1A(macros) {
-    macros.ShowText("To the east is the doorway to the Knight's Room.");
+fun MapEvent1A(context) {
+    context.ShowText("To the east is the doorway to the Knight's Room.");
 }
 
-fun MapEvent1B(macros) {
-    macros.ShowText("You approach the portal to the Mage's Room.");
+fun MapEvent1B(context) {
+    context.ShowText("You approach the portal to the Mage's Room.");
 }
 
-fun MapEvent1C(macros) {
-    macros.ShowText("The door to the Ranger's room is nigh!");
+fun MapEvent1C(context) {
+    context.ShowText("The door to the Ranger's room is nigh!");
 }
 
-fun MapEvent1D(macros) {
-    macros.ShowText("Happy is the traveller who can enter the Ranger's Room!");
+fun MapEvent1D(context) {
+    context.ShowText("Happy is the traveller who can enter the Ranger's Room!");
 }
 
-fun MapEvent1E(macros) {
-    if (macros.Guild == THIEF) {
-        macros.ShowText("Enter, brother, and welcome!");
+fun MapEvent1E(context) {
+    if (context.Guild == THIEF) {
+        context.ShowText("Enter, brother, and welcome!");
     }
     else {
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("A voice whispers from the shadows....'Psst!  You better be one of the Brotherhood if you want to get through there, buddy.'");
-        macros.ShowText("'I mean the Brotherhood of Thieves, pal.'");
-        macros.ShowText("The voice did not sound friendly.");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("A voice whispers from the shadows....'Psst!  You better be one of the Brotherhood if you want to get through there, buddy.'");
+        context.ShowText("'I mean the Brotherhood of Thieves, pal.'");
+        context.ShowText("The voice did not sound friendly.");
     }
 }
 
-fun MapEvent1F(macros) {
-    if ((macros.PartyGuild(THIEF)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
-        macros.ShowText("Someone in your party gives the secret thievish countersign.  The door swings open.");
+fun MapEvent1F(context) {
+    if ((context.PartyGuild(THIEF)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+        context.ShowText("Someone in your party gives the secret thievish countersign.  The door swings open.");
     }
     else {
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("You hear a sound....");
-        macros.ShowText("6,198 thieves, wielding nastily stained weapons, and most with a nimbus of magical defenses already cast, step forward to block your path.  'Hmmm,' you think to yourself. 'That doorway's awfully crowded right now. Maybe I'll go find a thief and come back later.'");
-        macros.BlockWall(macros.Here, EAST);
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("You hear a sound....");
+        context.ShowText("6,198 thieves, wielding nastily stained weapons, and most with a nimbus of magical defenses already cast, step forward to block your path.  'Hmmm,' you think to yourself. 'That doorway's awfully crowded right now. Maybe I'll go find a thief and come back later.'");
+        context.BlockWall(context.Here, EAST);
     }
 }
 
-fun MapEvent20(macros) {
-    if ((macros.PartyGuild(RANGER)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
-        macros.ShowText("The magical wood of this door responds to your presence by swinging open before you.");
+fun MapEvent20(context) {
+    if ((context.PartyGuild(RANGER)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+        context.ShowText("The magical wood of this door responds to your presence by swinging open before you.");
     }
     else {
-        macros.ShowText("After three bruised knuckles, one barked shin, and two stubbed toes, you decide there is no way in unless you find a ranger.");
-        macros.BlockWall(macros.Here, NORTH);
+        context.ShowText("After three bruised knuckles, one barked shin, and two stubbed toes, you decide there is no way in unless you find a ranger.");
+        context.BlockWall(context.Here, NORTH);
     }
 }
 
-fun MapEvent21(macros) {
-    if ((macros.PartyGuild(WIZARD)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
-        macros.ShowText("The door opens itself before one schooled in the magical arts.  The Mage's Room beckons.");
+fun MapEvent21(context) {
+    if ((context.PartyGuild(WIZARD)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+        context.ShowText("The door opens itself before one schooled in the magical arts.  The Mage's Room beckons.");
     }
     else {
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("Everything you try, every skill, every spell, every item, plea, and curse, avails you nought. ");
-        macros.ShowText("Only a mage and that mage's party can pass.");
-        macros.BlockWall(macros.Here, NORTH);
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("Everything you try, every skill, every spell, every item, plea, and curse, avails you nought. ");
+        context.ShowText("Only a mage and that mage's party can pass.");
+        context.BlockWall(context.Here, NORTH);
     }
 }
 
-fun MapEvent22(macros) {
-    if ((macros.PartyGuild(KNIGHT)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("A bright light shines down upon you, and bathed in its benificence, the door opens.");
+fun MapEvent22(context) {
+    if ((context.PartyGuild(KNIGHT)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("A bright light shines down upon you, and bathed in its benificence, the door opens.");
     }
     else {
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("An indirect light grow steadily brighter and the door creaks, but as if failing to find what it seeks, it stills.  You cannot enter.");
-        macros.BlockWall(macros.Here, NORTH);
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("An indirect light grow steadily brighter and the door creaks, but as if failing to find what it seeks, it stills.  You cannot enter.");
+        context.BlockWall(context.Here, NORTH);
     }
 }
 
-fun MapEvent23(macros) {
-    if ((macros.PartyGuild(CLERIC)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("Angelic singing fills the room. Seraphim and cherubim greet you with the sound of heaven's host.  The samite colored door opens wide.");
-        macros.ShowText("Well, maybe under all that paint it's samite colored.");
+fun MapEvent23(context) {
+    if ((context.PartyGuild(CLERIC)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("Angelic singing fills the room. Seraphim and cherubim greet you with the sound of heaven's host.  The samite colored door opens wide.");
+        context.ShowText("Well, maybe under all that paint it's samite colored.");
     }
     else {
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("A voice created by decades of simmering in bad cigars greets you gruffly.  'Talking lions out of lamb chops was easier than giving you a hint. Go away!'");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("A voice created by decades of simmering in bad cigars greets you gruffly.  'Talking lions out of lamb chops was easier than giving you a hint. Go away!'");
     }
 }
 
-fun MapEvent24(macros) {
-    if ((macros.PartyGuild(BARBARIAN)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("You hear the distinct sound of sniffing just before the door opens.  You don't know whether to be pleased or disappointed.");
+fun MapEvent24(context) {
+    if ((context.PartyGuild(BARBARIAN)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("You hear the distinct sound of sniffing just before the door opens.  You don't know whether to be pleased or disappointed.");
     }
     else {
-        macros.ShowPicture(HUMANBARBARIAN);
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("'This door will open for neither cents nor sense, unless it senses the scents of a barbarian,' he says.");
-        macros.BlockWall(macros.Here, WEST);
+        context.ShowPicture(HUMANBARBARIAN);
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("'This door will open for neither cents nor sense, unless it senses the scents of a barbarian,' he says.");
+        context.BlockWall(context.Here, WEST);
     }
 }
 
-fun MapEvent25(macros) {
-    if ((macros.PartyGuild(CLERIC)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
-        macros.Teleport(3, 1, 79, WEST);
+fun MapEvent25(context) {
+    if ((context.PartyGuild(CLERIC)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+        context.Teleport(3, 1, 79, WEST);
     }
     else {
-        macros.Teleport(1, 1, 66, EAST);
+        context.Teleport(1, 1, 66, EAST);
     }
 }
 
-fun MapEvent26(macros) {
-    if ((macros.PartyGuild(WIZARD)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
-        macros.Teleport(2, 2, 247, NORTH);
+fun MapEvent26(context) {
+    if ((context.PartyGuild(WIZARD)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+        context.Teleport(2, 2, 247, NORTH);
     }
 }
 
-fun MapEvent27(macros) {
-    if ((macros.PartyGuild(BARBARIAN)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
-        macros.Teleport(3, 2, 159, WEST);
+fun MapEvent27(context) {
+    if ((context.PartyGuild(BARBARIAN)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+        context.Teleport(3, 2, 159, WEST);
     }
 }
 
-fun MapEvent28(macros) {
-    if ((macros.PartyGuild(KNIGHT)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
-        macros.Teleport(2, 3, 243, NORTH);
+fun MapEvent28(context) {
+    if ((context.PartyGuild(KNIGHT)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+        context.Teleport(2, 3, 243, NORTH);
     }
 }
 
-fun MapEvent29(macros) {
-    if ((macros.PartyGuild(RANGER)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
-        macros.Teleport(2, 1, 252, NORTH);
+fun MapEvent29(context) {
+    if ((context.PartyGuild(RANGER)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+        context.Teleport(2, 1, 252, NORTH);
     }
     else {
-        macros.BlockWall(macros.Here, NORTH);
-        macros.Damage(1);
-        macros.ShowText("Ooh!  You stubbed your toe a good one, there!  Keep that up and in addition to being dead as a door knob you'll be dead from a door, Nob!");
+        context.BlockWall(context.Here, NORTH);
+        context.Damage(1);
+        context.ShowText("Ooh!  You stubbed your toe a good one, there!  Keep that up and in addition to being dead as a door knob you'll be dead from a door, Nob!");
     }
 }
 
-fun MapEvent2A(macros) {
-    if ((macros.PartyGuild(THIEF)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
-        macros.Teleport(1, 3, 48, EAST);
+fun MapEvent2A(context) {
+    if ((context.PartyGuild(THIEF)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+        context.Teleport(1, 3, 48, EAST);
     }
     else {
-        macros.BlockWall(macros.Here, EAST);
+        context.BlockWall(context.Here, EAST);
     }
 }
 
-fun MapEvent2B(macros) {
-    if (macros.GetFlag(PARTY, WAR10) == 0) {
-        macros.SetFlag(PARTY, WAR10, 1);
-        macros.SetBooty(CLUB, 0, 0, 0, 0, 0);
-        macros.GetMonster(1, 36);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(2, 39);
+fun MapEvent2B(context) {
+    if (context.GetFlag(PARTY, WAR10) == 0) {
+        context.SetFlag(PARTY, WAR10, 1);
+        context.SetBooty(CLUB, 0, 0, 0, 0, 0);
+        context.GetMonster(1, 36);
+        if (context.PartyCount > 1) {
+            context.GetMonster(2, 39);
         }
     }
 }
 
-fun MapEvent2C(macros) {
-    if (macros.GetFlag(PARTY, WAR11) == 0) {
-        macros.SetFlag(PARTY, WAR11, 1);
-        macros.SetBooty(BENEFICIALBALM, 0, 0, 0, 0, 0);
-        macros.GetMonster(1, 36);
-        macros.GetMonster(2, 40);
+fun MapEvent2C(context) {
+    if (context.GetFlag(PARTY, WAR11) == 0) {
+        context.SetFlag(PARTY, WAR11, 1);
+        context.SetBooty(BENEFICIALBALM, 0, 0, 0, 0, 0);
+        context.GetMonster(1, 36);
+        context.GetMonster(2, 40);
     }
 }
 
-fun MapEvent2D(macros) {
-    if (macros.GetFlag(PARTY, WAR12) == 0) {
-        macros.SetFlag(PARTY, WAR12, 1);
-        macros.GetMonster(1, 25);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(2, 34);
+fun MapEvent2D(context) {
+    if (context.GetFlag(PARTY, WAR12) == 0) {
+        context.SetFlag(PARTY, WAR12, 1);
+        context.GetMonster(1, 25);
+        if (context.PartyCount > 1) {
+            context.GetMonster(2, 34);
         }
     }
 }
 
-fun MapEvent2E(macros) {
-    if (macros.GetFlag(PARTY, WAR13) == 0) {
-        macros.SetFlag(PARTY, WAR13, 1);
-        macros.SetBooty(BUCKLER, 0, 0, 0, 0, 0);
-        macros.GetMonster(1, 37);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(2, 40);
+fun MapEvent2E(context) {
+    if (context.GetFlag(PARTY, WAR13) == 0) {
+        context.SetFlag(PARTY, WAR13, 1);
+        context.SetBooty(BUCKLER, 0, 0, 0, 0, 0);
+        context.GetMonster(1, 37);
+        if (context.PartyCount > 1) {
+            context.GetMonster(2, 40);
         }
     }
 }
 
-fun MapEvent2F(macros) {
-    if (macros.GetFlag(PARTY, WAR14) == 0) {
-        macros.SetFlag(PARTY, WAR14, 1);
-        macros.SetBooty(BENEFICIALBALM, 0, 0, 0, 0, 0);
-        macros.GetMonster(1, 1);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(2, 2);
-            macros.GetMonster(3, 3);
+fun MapEvent2F(context) {
+    if (context.GetFlag(PARTY, WAR14) == 0) {
+        context.SetFlag(PARTY, WAR14, 1);
+        context.SetBooty(BENEFICIALBALM, 0, 0, 0, 0, 0);
+        context.GetMonster(1, 1);
+        if (context.PartyCount > 2) {
+            context.GetMonster(2, 2);
+            context.GetMonster(3, 3);
         }
     }
 }
 
-fun MapEvent30(macros) {
-    if (macros.GetFlag(PARTY, WAR15) == 0) {
-        macros.SetFlag(PARTY, WAR15, 1);
-        macros.SetBooty(BENEFICIALBALM, SHORTBOW, 0, 0, 0, 0);
-        macros.GetMonster(1, 29);
-        macros.GetMonster(2, 31);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(5, 33);
-            macros.GetMonster(4, 40);
-            macros.GetMonster(3, 36);
+fun MapEvent30(context) {
+    if (context.GetFlag(PARTY, WAR15) == 0) {
+        context.SetFlag(PARTY, WAR15, 1);
+        context.SetBooty(BENEFICIALBALM, SHORTBOW, 0, 0, 0, 0);
+        context.GetMonster(1, 29);
+        context.GetMonster(2, 31);
+        if (context.PartyCount > 2) {
+            context.GetMonster(5, 33);
+            context.GetMonster(4, 40);
+            context.GetMonster(3, 36);
         }
     }
 }
 
-fun MapEvent31(macros) {
-    if (macros.GetFlag(PARTY, WAR16) == 0) {
-        macros.SetFlag(PARTY, WAR16, 1);
-        macros.SetBooty(BENEFICIALBALM, BUCKLER, SHORTBOW, 0, 0, 0);
-        macros.GetMonster(1, 36);
-        macros.GetMonster(2, 36);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(3, 40);
-            macros.GetMonster(4, 40);
+fun MapEvent31(context) {
+    if (context.GetFlag(PARTY, WAR16) == 0) {
+        context.SetFlag(PARTY, WAR16, 1);
+        context.SetBooty(BENEFICIALBALM, BUCKLER, SHORTBOW, 0, 0, 0);
+        context.GetMonster(1, 36);
+        context.GetMonster(2, 36);
+        if (context.PartyCount > 2) {
+            context.GetMonster(3, 40);
+            context.GetMonster(4, 40);
         }
     }
 }
 
-fun MapEvent32(macros) {
-    if (macros.GetFlag(PARTY, WAR17) == 0) {
-        macros.SetFlag(PARTY, WAR17, 1);
-        macros.GetMonster(1, 1);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(2, 2);
-            macros.GetMonster(3, 3);
+fun MapEvent32(context) {
+    if (context.GetFlag(PARTY, WAR17) == 0) {
+        context.SetFlag(PARTY, WAR17, 1);
+        context.GetMonster(1, 1);
+        if (context.PartyCount > 2) {
+            context.GetMonster(2, 2);
+            context.GetMonster(3, 3);
         }
     }
 }
 
-fun MapEvent33(macros) {
-    if (macros.GetFlag(PARTY, WAR18) == 0) {
-        macros.SetFlag(PARTY, WAR18, 1);
-        macros.GetMonster(1, 1);
-        macros.GetMonster(2, 4);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(3, 2);
-            macros.GetMonster(4, 3);
+fun MapEvent33(context) {
+    if (context.GetFlag(PARTY, WAR18) == 0) {
+        context.SetFlag(PARTY, WAR18, 1);
+        context.GetMonster(1, 1);
+        context.GetMonster(2, 4);
+        if (context.PartyCount > 2) {
+            context.GetMonster(3, 2);
+            context.GetMonster(4, 3);
         }
     }
 }
 
-fun MapEvent34(macros) {
-    if (macros.GetFlag(DUNGEON, GOT_SHIELD) == 1) {
-        macros.PlaceWallItem(DOOR, 251, SOUTH);
-        macros.ClearWall(251, SOUTH);
-        macros.SetFlag(PARTY, SAWSTAIRS, 1);
+fun MapEvent34(context) {
+    if (context.GetFlag(DUNGEON, GOT_SHIELD) == 1) {
+        context.PlaceWallItem(DOOR, 251, SOUTH);
+        context.ClearWall(251, SOUTH);
+        context.SetFlag(PARTY, SAWSTAIRS, 1);
     }
     else {
-        macros.BlockWall(251, SOUTH);
+        context.BlockWall(251, SOUTH);
     }
 }

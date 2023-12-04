@@ -78,10 +78,10 @@ var anointStr = "'You have saved us from eternal torment. Our strength is now yo
 var piranhaDeathStr = "You are swarmed by a school of vicious piranhas and torn to shreds.";
 var jostleStr = "You jostle each other and tumble into the water.";
 
-fun SixMonst(macros, monster) {
+fun SixMonst(context, monster) {
     var i;
     var num;
-    switch (macros.PartyCount) {
+    switch (context.PartyCount) {
         case 1:
             num = 2;
             break;
@@ -97,24 +97,24 @@ fun SixMonst(macros, monster) {
             break;
     }
     for (i = 1; i <= num; i++) {
-        macros.GetMonster(i, monster);
+        context.GetMonster(i, monster);
     }
 }
 
-fun MapEvent01(macros) {
+fun MapEvent01(context) {
     var i;
-    macros.ShowText("The boiling lava scorches you terribly.");
-    i = macros.Health - 1;
-    macros.Damage(i);
+    context.ShowText("The boiling lava scorches you terribly.");
+    i = context.Health - 1;
+    context.Damage(i);
 }
 
-fun MapEvent02(macros) {
-    macros.ShowText("You writhe in agony as the poisonous waters close over you");
-    macros.Damage(macros.MaxHealth);
+fun MapEvent02(context) {
+    context.ShowText("You writhe in agony as the poisonous waters close over you");
+    context.Damage(context.MaxHealth);
 }
 
-fun MapEvent03(macros) {
-    switch (macros.Here) {
+fun MapEvent03(context) {
+    switch (context.Here) {
         case 4:
         case 6:
         case 8:
@@ -123,146 +123,146 @@ fun MapEvent03(macros) {
         case 70:
         case 72:
         default: 
-            macros.Teleport(8, 1, 0, EAST);
+            context.Teleport(8, 1, 0, EAST);
             break;
     }
 }
 
-fun MapEvent04(macros) {
-    if (macros.GetFlag(DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) {
-        macros.Teleport(13, 1, 74, EAST);
+fun MapEvent04(context) {
+    if (context.GetFlag(DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT) {
+        context.Teleport(13, 1, 74, EAST);
     }
     else {
-        macros.Teleport(8, 1, 0, EAST);
+        context.Teleport(8, 1, 0, EAST);
     }
 }
 
-fun MapEvent05(macros) {
-    macros.BlockFloor(macros.Here);
+fun MapEvent05(context) {
+    context.BlockFloor(context.Here);
 }
 
-fun MapEvent06(macros) {
-    macros.Teleport(13, 1, 56, NORTH);
+fun MapEvent06(context) {
+    context.Teleport(13, 1, 56, NORTH);
 }
 
-fun MapEvent07(macros) {
+fun MapEvent07(context) {
     var fishFlag;
     var mapSquare;
-    fishFlag = macros.GetFlag(PARTY, FISH_FEEDING_CNT);
-    mapSquare = macros.Here;
+    fishFlag = context.GetFlag(PARTY, FISH_FEEDING_CNT);
+    mapSquare = context.Here;
     if ((mapSquare <= 148) || (fishFlag == 0)) {
-        macros.ShowText(piranhaDeathStr);
-        macros.Damage(macros.MaxHealth);
+        context.ShowText(piranhaDeathStr);
+        context.Damage(context.MaxHealth);
         return;
     }
     switch (fishFlag) {
         case 0:
-            macros.ShowText(piranhaDeathStr);
-            macros.Damage(macros.MaxHealth);
+            context.ShowText(piranhaDeathStr);
+            context.Damage(context.MaxHealth);
             break;
         case 1:
-            macros.ShowText("The piranhas have returned! They begin to snap and bite, mauling you horribly.");
-            macros.Damage(macros.MaxHealth / 2);
+            context.ShowText("The piranhas have returned! They begin to snap and bite, mauling you horribly.");
+            context.Damage(context.MaxHealth / 2);
             break;
         case 2:
-            macros.ShowText("The water to the north is less agitated than before.");
+            context.ShowText("The water to the north is less agitated than before.");
             break;
         case 3:
         default: 
-            macros.ShowText("Gingerly you wade through the pond. North of you the water continues to seethe where the piranhas are feeding.");
+            context.ShowText("Gingerly you wade through the pond. North of you the water continues to seethe where the piranhas are feeding.");
             break;
     }
     fishFlag--;
-    macros.SetFlag(PARTY, FISH_FEEDING_CNT, fishFlag);
+    context.SetFlag(PARTY, FISH_FEEDING_CNT, fishFlag);
 }
 
-fun MapEvent08(macros) {
-    macros.NoJoin;
-    if (macros.PartyCount > 1) {
-        macros.ShowText("The coaster cars are only big enough for one of you at a time.");
-        macros.SetFlag(PARTY, COASTER_STOPPING, 0);
-        macros.Teleport(13, 1, 103, WEST);
+fun MapEvent08(context) {
+    context.NoJoin;
+    if (context.PartyCount > 1) {
+        context.ShowText("The coaster cars are only big enough for one of you at a time.");
+        context.SetFlag(PARTY, COASTER_STOPPING, 0);
+        context.Teleport(13, 1, 103, WEST);
     }
-    switch (macros.Here) {
+    switch (context.Here) {
         case 86:
-            macros.ShowText("The coaster gains speed as it dips giddily into the darkness.");
-            macros.Teleport(13, 2, 255, WEST);
+            context.ShowText("The coaster gains speed as it dips giddily into the darkness.");
+            context.Teleport(13, 2, 255, WEST);
             break;
         case 102:
-            macros.BlockWall(macros.Here, NORTH);
-            macros.BlockWall(macros.Here, SOUTH);
-            if (macros.FlagOn(PARTY, COASTER_STOPPING)) {
-                macros.ShowText("The coaster stops.");
-                macros.SetFlag(PARTY, COASTER_STOPPING, 0);
-                macros.Teleport(13, 1, 103, EAST);
+            context.BlockWall(context.Here, NORTH);
+            context.BlockWall(context.Here, SOUTH);
+            if (context.FlagOn(PARTY, COASTER_STOPPING)) {
+                context.ShowText("The coaster stops.");
+                context.SetFlag(PARTY, COASTER_STOPPING, 0);
+                context.Teleport(13, 1, 103, EAST);
             }
             else {
-                if (macros.HasItem(FUNHOUSEKEY)) {
-                    macros.ShowText("You twist the Funhouse Key in the keyhole. With a lurch the car begins to rumble forward along the rails.");
-                    macros.Teleport(13, 1, 86, NORTH);
+                if (context.HasItem(FUNHOUSEKEY)) {
+                    context.ShowText("You twist the Funhouse Key in the keyhole. With a lurch the car begins to rumble forward along the rails.");
+                    context.Teleport(13, 1, 86, NORTH);
                 }
             }
             break;
         case 118:
         default: 
-            macros.SetFlag(PARTY, COASTER_STOPPING, 1);
-            macros.Teleport(13, 1, 102, NORTH);
+            context.SetFlag(PARTY, COASTER_STOPPING, 1);
+            context.Teleport(13, 1, 102, NORTH);
             break;
     }
 }
 
-fun MapEvent09(macros) {
+fun MapEvent09(context) {
     var flag;
     var square;
     var naomiFlag;
-    flag = macros.GetFlag(PARTY, CONTROL_1);
-    square = macros.Here;
+    flag = context.GetFlag(PARTY, CONTROL_1);
+    square = context.Here;
     switch (square) {
         case 132:
             if (!(flag & POND_DESC_BIT)) {
-                macros.ShowText("You are standing on a small jetty above a fish pond. Before you a raised, earthen pathway snakes out across the water.");
-                if (macros.PartyCount > 1) {
-                    macros.ShowText("The path is narrow and slippery. You had better proceed alone.");
+                context.ShowText("You are standing on a small jetty above a fish pond. Before you a raised, earthen pathway snakes out across the water.");
+                if (context.PartyCount > 1) {
+                    context.ShowText("The path is narrow and slippery. You had better proceed alone.");
                 }
                 flag = flag | POND_DESC_BIT;
-                macros.SetFlag(PARTY, CONTROL_1, flag);
+                context.SetFlag(PARTY, CONTROL_1, flag);
             }
             break;
         case 177:
-            if (macros.PartyCount > 1) {
-                macros.ShowText(jostleStr);
-                macros.Teleport(13, 1, square + 1, EAST);
+            if (context.PartyCount > 1) {
+                context.ShowText(jostleStr);
+                context.Teleport(13, 1, square + 1, EAST);
             }
-            if (macros.Facing == SOUTH) {
-                naomiFlag = macros.GetFlag(DUNGEON, CHOR_NAOMI_MET);
+            if (context.Facing == SOUTH) {
+                naomiFlag = context.GetFlag(DUNGEON, CHOR_NAOMI_MET);
                 if ((naomiFlag == 1) || (naomiFlag == 2)) {
-                    macros.ShowText("To the south and east you can dimly make out the silhouette of a woman standing on a small island.");
+                    context.ShowText("To the south and east you can dimly make out the silhouette of a woman standing on a small island.");
                 }
             }
             break;
         default: 
-            if (macros.PartyCount > 1) {
-                macros.ShowText(jostleStr);
+            if (context.PartyCount > 1) {
+                context.ShowText(jostleStr);
                 if ((square == 161) || (square == 146)) {
-                    macros.Teleport(13, 1, square + 1, EAST);
+                    context.Teleport(13, 1, square + 1, EAST);
                 }
                 else {
-                    macros.Teleport(13, 1, square - 16, EAST);
+                    context.Teleport(13, 1, square - 16, EAST);
                 }
             }
             break;
     }
 }
 
-fun MapEvent0A(macros) {
+fun MapEvent0A(context) {
     var ctrlFlags;
     var cntFlag;
-    if (macros.UsedItem(JUICYDRAGONSTEAK, JUICYDRAGONSTEAK)) {
-        macros.TakeItem(JUICYDRAGONSTEAK);
-        ctrlFlags = macros.GetFlag(PARTY, CONTROL_1);
-        cntFlag = macros.GetFlag(PARTY, FISH_FEEDING_CNT);
+    if (context.UsedItem(JUICYDRAGONSTEAK, JUICYDRAGONSTEAK)) {
+        context.TakeItem(JUICYDRAGONSTEAK);
+        ctrlFlags = context.GetFlag(PARTY, CONTROL_1);
+        cntFlag = context.GetFlag(PARTY, FISH_FEEDING_CNT);
         if (cntFlag == 0) {
-            if (macros.Here == 132) {
+            if (context.Here == 132) {
                 ctrlFlags = ctrlFlags | FED_FISH_RIGHT_BIT;
             }
             else {
@@ -271,53 +271,53 @@ fun MapEvent0A(macros) {
             if ((ctrlFlags & FED_FISH_RIGHT_BIT) && (ctrlFlags & FED_FISH_LEFT_BIT)) {
                 ctrlFlags = ctrlFlags & ~(FED_FISH_RIGHT_BIT | FED_FISH_LEFT_BIT);
                 cntFlag = 6;
-                macros.ShowText("A swarm of fish churns the water in a mad feeding frenzy.");
+                context.ShowText("A swarm of fish churns the water in a mad feeding frenzy.");
             }
             else {
-                macros.ShowText("The nearby fish quickly gather and begin tearing at the steak.");
+                context.ShowText("The nearby fish quickly gather and begin tearing at the steak.");
             }
         }
         else {
             cntFlag = 6;
         }
-        macros.SetFlag(PARTY, CONTROL_1, ctrlFlags);
-        macros.SetFlag(PARTY, FISH_FEEDING_CNT, cntFlag);
+        context.SetFlag(PARTY, CONTROL_1, ctrlFlags);
+        context.SetFlag(PARTY, FISH_FEEDING_CNT, cntFlag);
     }
     else {
-        if (macros.FlagOff(PARTY, FISH_FEEDING_CNT)) {
-            macros.ShowText("As you approach the water's edge you see the fish gathering expectantly.");
+        if (context.FlagOff(PARTY, FISH_FEEDING_CNT)) {
+            context.ShowText("As you approach the water's edge you see the fish gathering expectantly.");
         }
     }
 }
 
-fun MapEvent0B(macros) {
-    if (macros.FlagOff(PARTY, FISH_FEEDING_CNT)) {
-        macros.ShowText("Nasty-looking fish dart through the dark water below.");
+fun MapEvent0B(context) {
+    if (context.FlagOff(PARTY, FISH_FEEDING_CNT)) {
+        context.ShowText("Nasty-looking fish dart through the dark water below.");
     }
 }
 
-fun MapEvent0C(macros) {
-    if (macros.GetFlag(PARTY, CONTROL_1) & SIGNED_IN_BIT) {
-        macros.ClearWall(macros.Here, EAST);
+fun MapEvent0C(context) {
+    if (context.GetFlag(PARTY, CONTROL_1) & SIGNED_IN_BIT) {
+        context.ClearWall(context.Here, EAST);
     }
     else {
-        macros.BlockWall(macros.Here, EAST);
+        context.BlockWall(context.Here, EAST);
     }
 }
 
-fun MapEvent0D(macros) {
-    macros.ShowText("Beneath some debris you find a water-damaged book entitled Journal of Bragadan the Brave. The only legible entry reads '...believe I have found a way through the accursed lever maze.");
-    macros.ShowText("Though I have struggled lifelong to uphold the right and good, now I must follow the sinister path...'");
+fun MapEvent0D(context) {
+    context.ShowText("Beneath some debris you find a water-damaged book entitled Journal of Bragadan the Brave. The only legible entry reads '...believe I have found a way through the accursed lever maze.");
+    context.ShowText("Though I have struggled lifelong to uphold the right and good, now I must follow the sinister path...'");
 }
 
-fun MapEvent0E(macros) {
+fun MapEvent0E(context) {
     var switchCode;
     var strPtr1;
     var knownFlags;
-    switchCode = macros.Here;
+    switchCode = context.Here;
     switchCode = switchCode * 256;
-    switchCode = switchCode + macros.Facing;
-    knownFlags = macros.GetFlag(DUNGEON, CHOR_KNOWN);
+    switchCode = switchCode + context.Facing;
+    knownFlags = context.GetFlag(DUNGEON, CHOR_KNOWN);
     switch (switchCode) {
         case ((94 * 256) | NORTH):
             if (knownFlags & ALCHEMY_KNOWN_BIT) {
@@ -336,63 +336,63 @@ fun MapEvent0E(macros) {
             break;
     }
     if (strPtr1 != NULL) {
-        macros.ShowText("Poring over the dusty tomes you learn the following:");
-        macros.ShowText(strPtr1);
+        context.ShowText("Poring over the dusty tomes you learn the following:");
+        context.ShowText(strPtr1);
     }
 }
 
-fun MapEvent0F(macros) {
+fun MapEvent0F(context) {
     var expFlag;
     var killedFlag;
-    macros.ShowText("This is a massive throne carved from a single block of polished obsidian.  It is inlaid with strange, beautiful sigils in a delicate silver filigree.");
-    expFlag = macros.GetFlag(DUNGEON, CHOR_CONTROL_1);
-    killedFlag = macros.GetFlag(DUNGEON, CHOR_NPC_KILLED);
+    context.ShowText("This is a massive throne carved from a single block of polished obsidian.  It is inlaid with strange, beautiful sigils in a delicate silver filigree.");
+    expFlag = context.GetFlag(DUNGEON, CHOR_CONTROL_1);
+    killedFlag = context.GetFlag(DUNGEON, CHOR_NPC_KILLED);
     if ((killedFlag & CHORONZAR_KILLED_BIT) && (!(expFlag & GOT_CHOR_EXP_BIT))) {
-        macros.ShowText("You thrill to the surge of life force coursing into you from the throne.");
-        macros.ModExp(10000000);
+        context.ShowText("You thrill to the surge of life force coursing into you from the throne.");
+        context.ModExp(10000000);
         expFlag = expFlag | GOT_CHOR_EXP_BIT;
-        macros.SetFlag(DUNGEON, CHOR_CONTROL_1, expFlag);
+        context.SetFlag(DUNGEON, CHOR_CONTROL_1, expFlag);
     }
 }
 
-fun MapEvent10(macros) {
-    macros.ShowText("Embedded in the front panel of the car is a keyhole.");
+fun MapEvent10(context) {
+    context.ShowText("Embedded in the front panel of the car is a keyhole.");
 }
 
-fun MapEvent11(macros) {
-    macros.ShowText("The glowing rift is the only way back to your world.");
-    macros.Teleport(8, 1, 0, EAST);
+fun MapEvent11(context) {
+    context.ShowText("The glowing rift is the only way back to your world.");
+    context.Teleport(8, 1, 0, EAST);
 }
 
-fun MapEvent12(macros) {
-    if (macros.GetFlag(DUNGEON, CHOR_NAOMI_MET) >= 3) {
-        macros.ShowText("You discover a narrow secret passageway.");
-        if (macros.PartyCount > 1) {
-            macros.ShowText("You will have to squeeze through one at a time.");
+fun MapEvent12(context) {
+    if (context.GetFlag(DUNGEON, CHOR_NAOMI_MET) >= 3) {
+        context.ShowText("You discover a narrow secret passageway.");
+        if (context.PartyCount > 1) {
+            context.ShowText("You will have to squeeze through one at a time.");
         }
-        macros.SetFlag(DUNGEON, CHOR_CONTROL_1, macros.GetFlag(DUNGEON, CHOR_CONTROL_1) | SECRET_PASSAGE_BIT);
-        macros.ClearWall(macros.Here, WEST);
+        context.SetFlag(DUNGEON, CHOR_CONTROL_1, context.GetFlag(DUNGEON, CHOR_CONTROL_1) | SECRET_PASSAGE_BIT);
+        context.ClearWall(context.Here, WEST);
     }
 }
 
-fun MapEvent13(macros) {
-    macros.BlockWall(macros.Here, macros.Facing);
+fun MapEvent13(context) {
+    context.BlockWall(context.Here, context.Facing);
 }
 
-fun MapEvent14(macros) {
+fun MapEvent14(context) {
     var switchFlag;
     var alchFlag;
     var takeItem = 0;
     var strPtr;
-    macros.BlockFloor(13);
-    macros.BlockFloor(14);
-    macros.BlockFloor(15);
-    macros.BlockFloor(31);
-    macros.BlockFloor(57);
-    alchFlag = macros.GetFlag(PARTY, ALCHEMY_LEVEL);
-    macros.ShowText("Alchemical implements of all descriptions clutter this workbench, including four large black kettles full of bubbling liquid.");
-    macros.SetFlag(DUNGEON, CHOR_KNOWN, macros.GetFlag(DUNGEON, CHOR_KNOWN) | ALCHEMY_KNOWN_BIT);
-    if (macros.UsedItem(SILVERBAR, SILVERBAR)) {
+    context.BlockFloor(13);
+    context.BlockFloor(14);
+    context.BlockFloor(15);
+    context.BlockFloor(31);
+    context.BlockFloor(57);
+    alchFlag = context.GetFlag(PARTY, ALCHEMY_LEVEL);
+    context.ShowText("Alchemical implements of all descriptions clutter this workbench, including four large black kettles full of bubbling liquid.");
+    context.SetFlag(DUNGEON, CHOR_KNOWN, context.GetFlag(DUNGEON, CHOR_KNOWN) | ALCHEMY_KNOWN_BIT);
+    if (context.UsedItem(SILVERBAR, SILVERBAR)) {
         takeItem = SILVERBAR;
         if (alchFlag == 0) {
             alchFlag = 1;
@@ -404,7 +404,7 @@ fun MapEvent14(macros) {
         }
     }
     else {
-        if (macros.UsedItem(GOLDBAR, GOLDBAR)) {
+        if (context.UsedItem(GOLDBAR, GOLDBAR)) {
             takeItem = GOLDBAR;
             if (alchFlag == 1) {
                 alchFlag = 2;
@@ -416,7 +416,7 @@ fun MapEvent14(macros) {
             }
         }
         else {
-            if (macros.UsedItem(PLATINUMBAR, PLATINUMBAR)) {
+            if (context.UsedItem(PLATINUMBAR, PLATINUMBAR)) {
                 takeItem = PLATINUMBAR;
                 if (alchFlag == 2) {
                     alchFlag = 3;
@@ -428,11 +428,11 @@ fun MapEvent14(macros) {
                 }
             }
             else {
-                if (macros.UsedItem(PRICELESSBAR, PRICELESSBAR)) {
+                if (context.UsedItem(PRICELESSBAR, PRICELESSBAR)) {
                     takeItem = PRICELESSBAR;
                     if (alchFlag == 3) {
                         alchFlag = 4;
-                        macros.ShowText("Eerie green light floods the room as all of the cauldrons begin to boil violently. With an unearthly moan the spirits trapped within begin to stream forth in twisting, vaporous tendrils.");
+                        context.ShowText("Eerie green light floods the room as all of the cauldrons begin to boil violently. With an unearthly moan the spirits trapped within begin to stream forth in twisting, vaporous tendrils.");
                         strPtr = anointStr;
                     }
                     else {
@@ -444,55 +444,55 @@ fun MapEvent14(macros) {
         }
     }
     if (takeItem != 0) {
-        macros.TakeItem(takeItem);
+        context.TakeItem(takeItem);
     }
     if (strPtr != NULL) {
-        macros.ShowText(strPtr);
+        context.ShowText(strPtr);
     }
-    macros.SetFlag(PARTY, ALCHEMY_LEVEL, alchFlag);
+    context.SetFlag(PARTY, ALCHEMY_LEVEL, alchFlag);
 }
 
-fun MapEvent15(macros) {
+fun MapEvent15(context) {
     var monster;
     var i;
-    if (!(macros.GetFlag(DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT)) {
-        switch (macros.Here) {
+    if (!(context.GetFlag(DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT)) {
+        switch (context.Here) {
             case 35:
-                macros.ShowText("Dazzled, you step into a brightly-lit, vaulted chamber. The musky smell of incense hangs in the air and the delicate music of chimes is audible in the distance.");
+                context.ShowText("Dazzled, you step into a brightly-lit, vaulted chamber. The musky smell of incense hangs in the air and the delicate music of chimes is audible in the distance.");
                 monster = MONST_PRAETORIAN_A;
-                macros.ClearWall(macros.Here, WEST);
+                context.ClearWall(context.Here, WEST);
                 break;
             case 36:
-                if (macros.Facing == EAST) {
-                    macros.ShowText("Ahead of you through the layers of smoke you see a massive golden throne.");
+                if (context.Facing == EAST) {
+                    context.ShowText("Ahead of you through the layers of smoke you see a massive golden throne.");
                 }
                 monster = MONST_PRAETORIAN_A;
                 break;
             case 37:
-                if (macros.Facing == EAST) {
-                    macros.ShowText("As you draw closer you make out an insoucient figure lounging on the throne, dressed in jester's motley.");
+                if (context.Facing == EAST) {
+                    context.ShowText("As you draw closer you make out an insoucient figure lounging on the throne, dressed in jester's motley.");
                 }
                 monster = MONST_PRAETORIAN_B;
                 break;
             case 38:
             default: 
-                if (macros.Facing == EAST) {
-                    macros.ShowText("The crazed figure on the throne stands, stares at you briefly, then prances off to the southeast, cackling like a lunatic. He dives into a pit and vanishes.");
+                if (context.Facing == EAST) {
+                    context.ShowText("The crazed figure on the throne stands, stares at you briefly, then prances off to the southeast, cackling like a lunatic. He dives into a pit and vanishes.");
                 }
                 monster = MONST_PRAETORIAN_B;
                 break;
         }
-        SixMonst(macros, monster);
+        SixMonst(context, monster);
     }
 }
 
-fun MapEvent16(macros) {
+fun MapEvent16(context) {
     var bootyFlag;
     var booty1 = 0;
     var booty2 = 0;
     var booty3 = 0;
-    bootyFlag = macros.GetFlag(DUNGEON, CHOR_BOOTY);
-    switch (macros.Here) {
+    bootyFlag = context.GetFlag(DUNGEON, CHOR_BOOTY);
+    switch (context.Here) {
         case 57:
             if (!(bootyFlag & 1)) {
                 booty1 = BIG_BOOTY_1;
@@ -544,148 +544,148 @@ fun MapEvent16(macros) {
             break;
     }
     if (booty1 != 0) {
-        macros.ShowText("There is a pile of treasure here!");
-        macros.GiveItem(booty1);
-        macros.GiveItem(booty2);
-        macros.GiveItem(booty3);
+        context.ShowText("There is a pile of treasure here!");
+        context.GiveItem(booty1);
+        context.GiveItem(booty2);
+        context.GiveItem(booty3);
     }
-    macros.SetFlag(DUNGEON, CHOR_BOOTY, bootyFlag);
+    context.SetFlag(DUNGEON, CHOR_BOOTY, bootyFlag);
 }
 
-fun MapEvent17(macros) {
-    if (macros.UsedItem(macros.WeaponInHand, macros.WeaponInHand)) {
-        macros.ClearWall(macros.Here, NORTH);
-        macros.ShowText("You bash the lock off the door.");
+fun MapEvent17(context) {
+    if (context.UsedItem(context.WeaponInHand, context.WeaponInHand)) {
+        context.ClearWall(context.Here, NORTH);
+        context.ShowText("You bash the lock off the door.");
     }
     else {
-        macros.ShowText("The door is held shut by a hefty padlock which does not appear to have a keyhole.");
+        context.ShowText("The door is held shut by a hefty padlock which does not appear to have a keyhole.");
     }
 }
 
-fun MapEvent18(macros) {
+fun MapEvent18(context) {
     var steakCnt;
-    steakCnt = macros.GetFlag(PARTY, STEAK_COUNT);
-    if ((!macros.HasItem(JUICYDRAGONSTEAK)) && (steakCnt < 6)) {
-        macros.ShowText("You find a package of juicy dragon steaks!");
+    steakCnt = context.GetFlag(PARTY, STEAK_COUNT);
+    if ((!context.HasItem(JUICYDRAGONSTEAK)) && (steakCnt < 6)) {
+        context.ShowText("You find a package of juicy dragon steaks!");
         steakCnt = steakCnt + 2;
-        macros.GiveItem(JUICYDRAGONSTEAK);
-        macros.GiveItem(JUICYDRAGONSTEAK);
+        context.GiveItem(JUICYDRAGONSTEAK);
+        context.GiveItem(JUICYDRAGONSTEAK);
     }
-    macros.SetFlag(PARTY, STEAK_COUNT, steakCnt);
+    context.SetFlag(PARTY, STEAK_COUNT, steakCnt);
 }
 
-fun MapEvent19(macros) {
-    macros.ShowText("A small brass sign on the door reads 'Madcap Labs. Absolutely NO solicitors!'");
+fun MapEvent19(context) {
+    context.ShowText("A small brass sign on the door reads 'Madcap Labs. Absolutely NO solicitors!'");
 }
 
-fun MapEvent1A(macros) {
-    macros.NoJoin;
-    if (macros.PartyCount > 1) {
-        macros.ShowText("The passage is too narrow.");
-        macros.Teleport(13, 1, 12, WEST);
+fun MapEvent1A(context) {
+    context.NoJoin;
+    if (context.PartyCount > 1) {
+        context.ShowText("The passage is too narrow.");
+        context.Teleport(13, 1, 12, WEST);
     }
     else {
-        if (macros.GetFlag(DUNGEON, CHOR_NAOMI_MET) < 3) {
-            macros.ShowText("You are not worthy.");
-            macros.Teleport(13, 1, 12, WEST);
+        if (context.GetFlag(DUNGEON, CHOR_NAOMI_MET) < 3) {
+            context.ShowText("You are not worthy.");
+            context.Teleport(13, 1, 12, WEST);
         }
     }
 }
 
-fun MapEvent1C(macros) {
-    macros.ShowText("Above the door is a wooden sign: 'Library. SHHHH!!!!'");
+fun MapEvent1C(context) {
+    context.ShowText("Above the door is a wooden sign: 'Library. SHHHH!!!!'");
 }
 
-fun MapEvent1D(macros) {
-    if (macros.UsedSkill(DETECT_SKILL) >= 12) {
-        macros.ShowText("You discover a secret compartment in the floor of the closet. A scroll reads 'Commander Shadax, You are to step up the acquisition of mortals for my experiments immediately. Signed, Choronzar'");
-        macros.SetFlag(DUNGEON, CHOR_KNOWN, macros.GetFlag(DUNGEON, CHOR_KNOWN) | ALCHEMY_KNOWN_BIT);
+fun MapEvent1D(context) {
+    if (context.UsedSkill(DETECT_SKILL) >= 12) {
+        context.ShowText("You discover a secret compartment in the floor of the closet. A scroll reads 'Commander Shadax, You are to step up the acquisition of mortals for my experiments immediately. Signed, Choronzar'");
+        context.SetFlag(DUNGEON, CHOR_KNOWN, context.GetFlag(DUNGEON, CHOR_KNOWN) | ALCHEMY_KNOWN_BIT);
     }
 }
 
-fun MapEvent1E(macros) {
+fun MapEvent1E(context) {
     var killedFlag;
-    killedFlag = macros.GetFlag(DUNGEON, CHOR_NPC_KILLED);
-    if (macros.HasItem(JESTERSCAP) && !(killedFlag & CHORONZAR_KILLED_BIT)) {
+    killedFlag = context.GetFlag(DUNGEON, CHOR_NPC_KILLED);
+    if (context.HasItem(JESTERSCAP) && !(killedFlag & CHORONZAR_KILLED_BIT)) {
         killedFlag = killedFlag | CHORONZAR_KILLED_BIT;
-        macros.SetFlag(DUNGEON, CHOR_NPC_KILLED, killedFlag);
-        macros.ShowText("Choronzar's body begins to deliquesce as hissing smoke pours from his bloodied clothes. The room bucks and lurches as shockwaves roll through, knocking you to your knees.");
-        macros.ShowText("Over the din of the reverberations you hear a British voice asking 'what was that about HATS?' There is a sickening peal of hysterical, eldritch laughter. Then silence.");
+        context.SetFlag(DUNGEON, CHOR_NPC_KILLED, killedFlag);
+        context.ShowText("Choronzar's body begins to deliquesce as hissing smoke pours from his bloodied clothes. The room bucks and lurches as shockwaves roll through, knocking you to your knees.");
+        context.ShowText("Over the din of the reverberations you hear a British voice asking 'what was that about HATS?' There is a sickening peal of hysterical, eldritch laughter. Then silence.");
     }
 }
 
-fun MapEvent1F(macros) {
-    macros.ShowText("This is a freezer-locker.  Oversized blocks of ice stacked half-way to the ceiling keep it very cold in here.");
+fun MapEvent1F(context) {
+    context.ShowText("This is a freezer-locker.  Oversized blocks of ice stacked half-way to the ceiling keep it very cold in here.");
 }
 
-fun MapEvent21(macros) {
-    if (macros.GetFlag(PARTY, ALCHEMY_LEVEL) == 4) {
-        macros.SetFlag(DUNGEON, CHOR_CONTROL_1, macros.GetFlag(DUNGEON, CHOR_CONTROL_1) | ANOINTED_BIT);
+fun MapEvent21(context) {
+    if (context.GetFlag(PARTY, ALCHEMY_LEVEL) == 4) {
+        context.SetFlag(DUNGEON, CHOR_CONTROL_1, context.GetFlag(DUNGEON, CHOR_CONTROL_1) | ANOINTED_BIT);
     }
 }
 
-fun MapEvent32(macros) {
+fun MapEvent32(context) {
     var flag;
-    macros.ShowText("On the south wall is a poster depicting a scantily-clad Kaalroth posing beside an enormous tankard of mead. Tearing it aside you discover the word 'SMILE' scrawled on the wall in charcoal.");
-    flag = macros.GetFlag(PARTY, CONTROL_1);
+    context.ShowText("On the south wall is a poster depicting a scantily-clad Kaalroth posing beside an enormous tankard of mead. Tearing it aside you discover the word 'SMILE' scrawled on the wall in charcoal.");
+    flag = context.GetFlag(PARTY, CONTROL_1);
     flag = flag | PASSWORD_FOUND_BIT;
-    macros.SetFlag(PARTY, CONTROL_1, flag);
+    context.SetFlag(PARTY, CONTROL_1, flag);
 }
 
-fun MapEvent33(macros) {
+fun MapEvent33(context) {
     var passFlag;
-    if (macros.GetFlag(DUNGEON, CHOR_NPC_KILLED) & GAOLER_KILLED_BIT) {
-        macros.ClearWall(macros.Here, WEST);
+    if (context.GetFlag(DUNGEON, CHOR_NPC_KILLED) & GAOLER_KILLED_BIT) {
+        context.ClearWall(context.Here, WEST);
     }
     else {
-        macros.ShowText("A slit in the door shoots open and a gutteral voice demands, 'Wot's th' password?'");
-        passFlag = macros.GetFlag(PARTY, CONTROL_1);
+        context.ShowText("A slit in the door shoots open and a gutteral voice demands, 'Wot's th' password?'");
+        passFlag = context.GetFlag(PARTY, CONTROL_1);
         if (passFlag & PASSWORD_FOUND_BIT) {
-            macros.ShowText("You reply 'the password is 'SMILE',' and the door creaks open. The gaoler growls, 'Come on in so's I can look at ye. One at a time!'");
-            macros.ClearWall(macros.Here, WEST);
+            context.ShowText("You reply 'the password is 'SMILE',' and the door creaks open. The gaoler growls, 'Come on in so's I can look at ye. One at a time!'");
+            context.ClearWall(context.Here, WEST);
         }
         else {
-            macros.ShowText("You stammer helplessly, not knowing the password. 'Come back when ye've remembered it!' The slit slams shut.");
+            context.ShowText("You stammer helplessly, not knowing the password. 'Come back when ye've remembered it!' The slit slams shut.");
         }
     }
 }
 
-fun MapEvent34(macros) {
+fun MapEvent34(context) {
     var flag;
-    flag = macros.GetFlag(DUNGEON, CHOR_NAOMI_MET);
+    flag = context.GetFlag(DUNGEON, CHOR_NAOMI_MET);
     if (flag == 0) {
         flag++;
-        macros.SetFlag(DUNGEON, CHOR_NAOMI_MET, flag);
-        macros.ShowPicture(NAOMI_PIC);
-        macros.ShowText("You step into the dismal little cell and draw up short. Before you stands a radiant woman in a flowing, violet gown. She is slender and graceful but her eyes bore into you with unnerving intensity.");
-        macros.ShowText("'Enough!' she cries. 'I grow tired of these pathetic ruses. Tell your master my answer is 'NO!'' Before you can respond she stalks past you and is gone.");
-        flag = macros.GetFlag(DUNGEON, CHOR_KNOWN);
+        context.SetFlag(DUNGEON, CHOR_NAOMI_MET, flag);
+        context.ShowPicture(NAOMI_PIC);
+        context.ShowText("You step into the dismal little cell and draw up short. Before you stands a radiant woman in a flowing, violet gown. She is slender and graceful but her eyes bore into you with unnerving intensity.");
+        context.ShowText("'Enough!' she cries. 'I grow tired of these pathetic ruses. Tell your master my answer is 'NO!'' Before you can respond she stalks past you and is gone.");
+        flag = context.GetFlag(DUNGEON, CHOR_KNOWN);
         flag = flag | NAOMI_KNOWN_BIT;
-        macros.SetFlag(DUNGEON, CHOR_KNOWN, flag);
+        context.SetFlag(DUNGEON, CHOR_KNOWN, flag);
     }
 }
 
-fun MapEvent35(macros) {
-    macros.ShowText("Charts and war-trophies decorate the walls of this military command center. Several crude desks are strewn with scrolls and parchments.");
+fun MapEvent35(context) {
+    context.ShowText("Charts and war-trophies decorate the walls of this military command center. Several crude desks are strewn with scrolls and parchments.");
 }
 
-fun MapEvent36(macros) {
-    macros.ShowText("This room, though spartan, appears to be the personal quarters of a high-ranking officer.");
+fun MapEvent36(context) {
+    context.ShowText("This room, though spartan, appears to be the personal quarters of a high-ranking officer.");
 }
 
-fun MapEvent37(macros) {
-    macros.ShowText("A portrait on the north wall depicts Shadax and a snake-woman posing in their wedding clothes. 'Shadax and Chiss, 8743 A.C.'");
+fun MapEvent37(context) {
+    context.ShowText("A portrait on the north wall depicts Shadax and a snake-woman posing in their wedding clothes. 'Shadax and Chiss, 8743 A.C.'");
 }
 
-fun MapEvent38(macros) {
-    macros.ShowText("Before you gleams a wondrous, cunningly crafted chariot. Fashioned of hardwood and steel, it has been gaudily painted in glossy red and green lacquers. In front of the first car two shiny rails extend into the darkness to the north.");
+fun MapEvent38(context) {
+    context.ShowText("Before you gleams a wondrous, cunningly crafted chariot. Fashioned of hardwood and steel, it has been gaudily painted in glossy red and green lacquers. In front of the first car two shiny rails extend into the darkness to the north.");
 }
 
-fun MapEvent39(macros) {
+fun MapEvent39(context) {
     var puzzFlag;
-    macros.ShowText("You pull the lever.");
-    puzzFlag = macros.GetFlag(PARTY, LEVER_PUZZLE);
-    switch (macros.Here) {
+    context.ShowText("You pull the lever.");
+    puzzFlag = context.GetFlag(PARTY, LEVER_PUZZLE);
+    switch (context.Here) {
         case 87:
             if (puzzFlag == 0) {
                 puzzFlag = 1;
@@ -712,8 +712,8 @@ fun MapEvent39(macros) {
             break;
         case 121:
             if (puzzFlag == 3) {
-                macros.PlaceWallItem(DOOR, 127, NORTH);
-                macros.ClearWall(127, NORTH);
+                context.PlaceWallItem(DOOR, 127, NORTH);
+                context.ClearWall(127, NORTH);
                 puzzFlag = 4;
             }
             break;
@@ -722,130 +722,130 @@ fun MapEvent39(macros) {
             break;
     }
     if (puzzFlag == 0) {
-        macros.ShowText("Mocking laughter echoes from far away.");
+        context.ShowText("Mocking laughter echoes from far away.");
     }
     else {
         if (puzzFlag == 4) {
             puzzFlag = 0;
-            macros.ShowText("You hear a rumbling sound to the east.");
+            context.ShowText("You hear a rumbling sound to the east.");
         }
     }
-    macros.SetFlag(PARTY, LEVER_PUZZLE, puzzFlag);
+    context.SetFlag(PARTY, LEVER_PUZZLE, puzzFlag);
 }
 
-fun MapEvent3A(macros) {
-    macros.ShowText("This is a storage room. Barrels and crates are stacked haphazardly.");
+fun MapEvent3A(context) {
+    context.ShowText("This is a storage room. Barrels and crates are stacked haphazardly.");
 }
 
-fun MapEvent3B(macros) {
+fun MapEvent3B(context) {
     var flagBits;
-    macros.ShowText("Buried beneath a stack of papers you find a scroll: 'Commander Shadax, It seems the princess prefers a gaol cell to the comforts of her chambers. Advise the Gaoler that she may come and go as she pleases. Signed, Choronzar'");
-    flagBits = macros.GetFlag(DUNGEON, CHOR_KNOWN);
+    context.ShowText("Buried beneath a stack of papers you find a scroll: 'Commander Shadax, It seems the princess prefers a gaol cell to the comforts of her chambers. Advise the Gaoler that she may come and go as she pleases. Signed, Choronzar'");
+    flagBits = context.GetFlag(DUNGEON, CHOR_KNOWN);
     flagBits = flagBits | NAOMI_KNOWN_BIT;
-    macros.SetFlag(DUNGEON, CHOR_KNOWN, flagBits);
+    context.SetFlag(DUNGEON, CHOR_KNOWN, flagBits);
 }
 
-fun MapEvent64(macros) {
-    if (!macros.HasItem(FUNHOUSEKEY)) {
-        macros.ShowText("A gigantic snake-woman looms over you, swaying hypnotically. 'Yessss,' she hisses, 'it will be sweet revenge to taste the mortal blood that stole my husband Shadax!'");
-        macros.SetBooty(FUNHOUSEKEY, 0, 0, 0, 0, 0);
-        macros.GetMonster(1, MONST_CHISS);
+fun MapEvent64(context) {
+    if (!context.HasItem(FUNHOUSEKEY)) {
+        context.ShowText("A gigantic snake-woman looms over you, swaying hypnotically. 'Yessss,' she hisses, 'it will be sweet revenge to taste the mortal blood that stole my husband Shadax!'");
+        context.SetBooty(FUNHOUSEKEY, 0, 0, 0, 0, 0);
+        context.GetMonster(1, MONST_CHISS);
     }
 }
 
-fun MapEvent65(macros) {
+fun MapEvent65(context) {
     var flagBits;
-    flagBits = macros.GetFlag(DUNGEON, CHOR_NPC_KILLED);
+    flagBits = context.GetFlag(DUNGEON, CHOR_NPC_KILLED);
     if (!(flagBits & SHADAX_KILLED_BIT)) {
-        macros.ShowText("You feel a rush of vertigo as you pass through the rift.");
-        macros.ShowText("Before you towers an enormous Kaalroth in full battle dress. 'Who dares to invade the realm of Choronzar?', he roars. 'I, Shadax, shall see that you never return!'");
-        flagBits = macros.GetFlag(DUNGEON, CHOR_KNOWN);
+        context.ShowText("You feel a rush of vertigo as you pass through the rift.");
+        context.ShowText("Before you towers an enormous Kaalroth in full battle dress. 'Who dares to invade the realm of Choronzar?', he roars. 'I, Shadax, shall see that you never return!'");
+        flagBits = context.GetFlag(DUNGEON, CHOR_KNOWN);
         flagBits = flagBits | CHORONZAR_KNOWN_BIT;
-        macros.SetFlag(DUNGEON, CHOR_KNOWN, flagBits);
-        macros.GetMonster(1, MONST_SHADAX);
+        context.SetFlag(DUNGEON, CHOR_KNOWN, flagBits);
+        context.GetMonster(1, MONST_SHADAX);
     }
 }
 
-fun MapEvent67(macros) {
+fun MapEvent67(context) {
     var flag;
-    flag = macros.GetFlag(DUNGEON, CHOR_NAOMI_MET);
-    if ((flag > 0) && (flag < 3) && macros.FlagOff(ROOM, SEEN_IT)) {
-        macros.ShowPicture(NAOMI_PIC);
-        macros.ShowText("You clamber from the muddy water onto the island. Naomi is here.");
-        macros.SetFlag(ROOM, SEEN_IT, 1);
+    flag = context.GetFlag(DUNGEON, CHOR_NAOMI_MET);
+    if ((flag > 0) && (flag < 3) && context.FlagOff(ROOM, SEEN_IT)) {
+        context.ShowPicture(NAOMI_PIC);
+        context.ShowText("You clamber from the muddy water onto the island. Naomi is here.");
+        context.SetFlag(ROOM, SEEN_IT, 1);
     }
     switch (flag) {
         case 1:
-            macros.ShowText("'Well,' she says icily, 'you are persistent in your mendacity, I grant you that.' She smiles slyly. 'If you really want me to believe you were not sent by Choronzar then find and return my Spirit Bottle!'");
-            macros.GiveItem(NAOMISKEY);
+            context.ShowText("'Well,' she says icily, 'you are persistent in your mendacity, I grant you that.' She smiles slyly. 'If you really want me to believe you were not sent by Choronzar then find and return my Spirit Bottle!'");
+            context.GiveItem(NAOMISKEY);
             flag++;
             break;
         case 2:
-            if (macros.UsedItem(SPIRITBOTTLE, SPIRITBOTTLE)) {
-                macros.TakeItem(SPIRITBOTTLE);
-                macros.ShowText("You offer the Spirit Bottle to Naomi. She snatches it from your hand and squints at it suspiciously. Then her eyes widen and her expression softens.");
-                macros.ShowText("'I have misjudged you,' she says quietly. 'My debt to you is so great that I can never hope to repay it. Still, I will do what I can.");
-                macros.ShowText("I once saw Choronzar slip through a secret passageway in the back of his laboratory. I believe it leads to his throne room!  Perhaps you can use it to circumvent his many guards.");
-                macros.ShowText("Now I must go. Farewell, and may Fortune smile upon you always!' She uncorks the bottle and a cloud of coruscating crimson fog quickly envelops her.  'I no longer exist here!'");
-                macros.ShowText("When the fog clears Naomi is gone.");
+            if (context.UsedItem(SPIRITBOTTLE, SPIRITBOTTLE)) {
+                context.TakeItem(SPIRITBOTTLE);
+                context.ShowText("You offer the Spirit Bottle to Naomi. She snatches it from your hand and squints at it suspiciously. Then her eyes widen and her expression softens.");
+                context.ShowText("'I have misjudged you,' she says quietly. 'My debt to you is so great that I can never hope to repay it. Still, I will do what I can.");
+                context.ShowText("I once saw Choronzar slip through a secret passageway in the back of his laboratory. I believe it leads to his throne room!  Perhaps you can use it to circumvent his many guards.");
+                context.ShowText("Now I must go. Farewell, and may Fortune smile upon you always!' She uncorks the bottle and a cloud of coruscating crimson fog quickly envelops her.  'I no longer exist here!'");
+                context.ShowText("When the fog clears Naomi is gone.");
                 flag++;
             }
             else {
-                macros.ShowText("Naomi snaps, 'Have you brought my Spirit Bottle, or is this another feeble attempt to deceive me?'");
-                if (!macros.HasItem(NAOMISKEY)) {
-                    macros.GiveItem(NAOMISKEY);
+                context.ShowText("Naomi snaps, 'Have you brought my Spirit Bottle, or is this another feeble attempt to deceive me?'");
+                if (!context.HasItem(NAOMISKEY)) {
+                    context.GiveItem(NAOMISKEY);
                 }
             }
             break;
         default: 
             break;
     }
-    macros.SetFlag(DUNGEON, CHOR_NAOMI_MET, flag);
+    context.SetFlag(DUNGEON, CHOR_NAOMI_MET, flag);
 }
 
-fun MapEvent68(macros) {
+fun MapEvent68(context) {
     var flag;
-    flag = macros.GetFlag(PARTY, CONTROL_1);
+    flag = context.GetFlag(PARTY, CONTROL_1);
     if (!(flag & SIGNED_IN_BIT)) {
-        macros.ShowPicture(CONCIERGE_PIC);
-        macros.ShowText("An owlish man sits poring over some documents behind an imposing, oaken desk. Without glancing up he gestures toward a ledger-book. 'Sign in please.'");
+        context.ShowPicture(CONCIERGE_PIC);
+        context.ShowText("An owlish man sits poring over some documents behind an imposing, oaken desk. Without glancing up he gestures toward a ledger-book. 'Sign in please.'");
         flag = flag | SIGNED_IN_BIT;
-        macros.SetFlag(PARTY, CONTROL_1, flag);
-        macros.SetFlag(PARTY, DEATH_LEVEL, 0);
+        context.SetFlag(PARTY, CONTROL_1, flag);
+        context.SetFlag(PARTY, DEATH_LEVEL, 0);
     }
 }
 
-fun MapEvent69(macros) {
-    SixMonst(macros, MONST_GUARDA_POST);
+fun MapEvent69(context) {
+    SixMonst(context, MONST_GUARDA_POST);
 }
 
-fun MapEvent6A(macros) {
-    SixMonst(macros, MONST_GUARDA_WANDER);
+fun MapEvent6A(context) {
+    SixMonst(context, MONST_GUARDA_WANDER);
 }
 
-fun MapEvent6B(macros) {
-    SixMonst(macros, MONST_GUARDA_RELAX);
+fun MapEvent6B(context) {
+    SixMonst(context, MONST_GUARDA_RELAX);
 }
 
-fun MapEvent6C(macros) {
-    SixMonst(macros, MONST_GUARDB_POST);
+fun MapEvent6C(context) {
+    SixMonst(context, MONST_GUARDB_POST);
 }
 
-fun MapEvent6D(macros) {
-    SixMonst(macros, MONST_GUARDB_WANDER);
+fun MapEvent6D(context) {
+    SixMonst(context, MONST_GUARDB_WANDER);
 }
 
-fun MapEvent6E(macros) {
+fun MapEvent6E(context) {
     var ctrlFlag;
     var deathFlag;
     var i;
     var monster;
-    ctrlFlag = macros.GetFlag(PARTY, CONTROL_1);
-    deathFlag = macros.GetFlag(PARTY, DEATH_LEVEL);
-    if (macros.FlagOff(ROOM, SEEN_IT) && (ctrlFlag & SIGNED_IN_BIT)) {
-        macros.ShowText("You trudge forward down the Hall of Death.");
+    ctrlFlag = context.GetFlag(PARTY, CONTROL_1);
+    deathFlag = context.GetFlag(PARTY, DEATH_LEVEL);
+    if (context.FlagOff(ROOM, SEEN_IT) && (ctrlFlag & SIGNED_IN_BIT)) {
+        context.ShowText("You trudge forward down the Hall of Death.");
         deathFlag++;
-        macros.SetFlag(ROOM, SEEN_IT, 1);
+        context.SetFlag(ROOM, SEEN_IT, 1);
     }
     if (ctrlFlag & SIGNED_IN_BIT) {
         monster = (deathFlag / 3);
@@ -853,84 +853,84 @@ fun MapEvent6E(macros) {
             monster = 6;
         }
         monster = monster + MONST_HALL_DEATH_1;
-        SixMonst(macros, monster);
+        SixMonst(context, monster);
     }
-    macros.SetFlag(PARTY, DEATH_LEVEL, deathFlag);
+    context.SetFlag(PARTY, DEATH_LEVEL, deathFlag);
 }
 
-fun MapEvent6F(macros) {
+fun MapEvent6F(context) {
     var flag;
     var i;
     var monster = MONST_HALL_DEATH_7;
-    if (macros.GetFlag(PARTY, CONTROL_1) & SIGNED_IN_BIT) {
-        flag = macros.GetFlag(PARTY, CONTROL_1);
+    if (context.GetFlag(PARTY, CONTROL_1) & SIGNED_IN_BIT) {
+        flag = context.GetFlag(PARTY, CONTROL_1);
         if (!(flag & KEKEKETL_KILLED_BIT)) {
-            macros.ShowText("This antechamber is littered with bones. As you step forward some of the grisly debris flies up and forms itself into a horrific, skeletal figure. 'I am Kekeketl,' it rasps. 'I am sworn to defend this place.'");
+            context.ShowText("This antechamber is littered with bones. As you step forward some of the grisly debris flies up and forms itself into a horrific, skeletal figure. 'I am Kekeketl,' it rasps. 'I am sworn to defend this place.'");
             flag = flag | KEKEKETL_KILLED_BIT;
         }
         else {
-            macros.ShowText("You advance, and once more Kekeketl rises from the carnage. 'I have told thee, I am sworn to defend this place.'");
+            context.ShowText("You advance, and once more Kekeketl rises from the carnage. 'I have told thee, I am sworn to defend this place.'");
         }
-        macros.SetFlag(PARTY, CONTROL_1, flag);
-        macros.GetMonster(1, MONST_KEKEKETL);
-        for (i = 2; i <= macros.PartyCount + 1; i++) {
-            macros.GetMonster(i, monster);
+        context.SetFlag(PARTY, CONTROL_1, flag);
+        context.GetMonster(1, MONST_KEKEKETL);
+        for (i = 2; i <= context.PartyCount + 1; i++) {
+            context.GetMonster(i, monster);
         }
     }
 }
 
-fun MapEvent70(macros) {
-    if (!(macros.GetFlag(DUNGEON, CHOR_NPC_KILLED) & GAOLER_KILLED_BIT)) {
-        if (macros.PartyCount > 1) {
-            macros.ShowText("As you step through the door the Gaoler pushes you back roughly. 'One at a time!' he growls.");
-            macros.Teleport(13, 1, 249, WEST);
+fun MapEvent70(context) {
+    if (!(context.GetFlag(DUNGEON, CHOR_NPC_KILLED) & GAOLER_KILLED_BIT)) {
+        if (context.PartyCount > 1) {
+            context.ShowText("As you step through the door the Gaoler pushes you back roughly. 'One at a time!' he growls.");
+            context.Teleport(13, 1, 249, WEST);
         }
-        macros.ShowText("As you step into the light the Gaoler flies into a rage. 'Wot's this then?' he cries. 'Oi've been tricked!'");
-        macros.GetMonster(1, MONST_GAOLER);
+        context.ShowText("As you step into the light the Gaoler flies into a rage. 'Wot's this then?' he cries. 'Oi've been tricked!'");
+        context.GetMonster(1, MONST_GAOLER);
     }
-    macros.ClearWall(macros.Here, EAST);
+    context.ClearWall(context.Here, EAST);
 }
 
-fun MapEvent71(macros) {
-    SixMonst(macros, MONST_GUARDD_POST);
+fun MapEvent71(context) {
+    SixMonst(context, MONST_GUARDD_POST);
 }
 
-fun MapEvent72(macros) {
+fun MapEvent72(context) {
     var secretFlag;
     var killedFlag;
     var monster;
-    macros.BlockWall(macros.Here, WEST);
-    secretFlag = macros.GetFlag(DUNGEON, CHOR_CONTROL_1);
-    killedFlag = macros.GetFlag(DUNGEON, CHOR_NPC_KILLED);
+    context.BlockWall(context.Here, WEST);
+    secretFlag = context.GetFlag(DUNGEON, CHOR_CONTROL_1);
+    killedFlag = context.GetFlag(DUNGEON, CHOR_NPC_KILLED);
     if ((secretFlag & SECRET_PASSAGE_BIT) && !(killedFlag & CHORONZAR_KILLED_BIT)) {
-        macros.ShowText("You rush through the wall and surprise Choronzar pacing behind his throne!");
+        context.ShowText("You rush through the wall and surprise Choronzar pacing behind his throne!");
         if (secretFlag & ANOINTED_BIT) {
-            macros.ShowText("He shrieks and turns to flee, but you are upon him in an instant.");
+            context.ShowText("He shrieks and turns to flee, but you are upon him in an instant.");
             monster = MONST_CHORONZAR_WIMPY;
         }
         else {
-            macros.ShowText("He smiles grimly. 'So it comes to this? % I hope you know what you're doing.'");
+            context.ShowText("He smiles grimly. 'So it comes to this? % I hope you know what you're doing.'");
             monster = MONST_CHORONZAR_TOUGH;
         }
-        macros.SetBooty(JESTERSCAP, 0, 0, 0, 0, 0);
-        macros.GetMonster(1, monster);
+        context.SetBooty(JESTERSCAP, 0, 0, 0, 0, 0);
+        context.GetMonster(1, monster);
     }
 }
 
-fun MapEvent73(macros) {
-    SixMonst(macros, MONST_GUARDD_WANDER);
+fun MapEvent73(context) {
+    SixMonst(context, MONST_GUARDD_WANDER);
 }
 
-fun MapEvent74(macros) {
+fun MapEvent74(context) {
     var flagBits;
-    flagBits = macros.GetFlag(DUNGEON, CHOR_NPC_KILLED);
+    flagBits = context.GetFlag(DUNGEON, CHOR_NPC_KILLED);
     flagBits = flagBits | SHADAX_KILLED_BIT;
-    macros.SetFlag(DUNGEON, CHOR_NPC_KILLED, flagBits);
+    context.SetFlag(DUNGEON, CHOR_NPC_KILLED, flagBits);
 }
 
-fun MapEvent75(macros) {
+fun MapEvent75(context) {
     var flag;
-    flag = macros.GetFlag(DUNGEON, CHOR_NPC_KILLED);
+    flag = context.GetFlag(DUNGEON, CHOR_NPC_KILLED);
     flag = flag | GAOLER_KILLED_BIT;
-    macros.SetFlag(DUNGEON, CHOR_NPC_KILLED, flag);
+    context.SetFlag(DUNGEON, CHOR_NPC_KILLED, flag);
 }

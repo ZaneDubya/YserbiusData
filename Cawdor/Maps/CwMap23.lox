@@ -26,13 +26,13 @@
 #define ALFRED 23
 #define UPSTAIRS 24
 
-fun MapEvent01(macros) {
+fun MapEvent01(context) {
     var j;
-    if (macros.GetFlag(ROOM, DETECTED_BOTTLE) == 0) {
-        macros.ShowText("In a hidden wall recess with a sign reading 'For 'Emergency Use' you find a bottle labelled 'Woad Wine.'");
-        macros.SetFlag(ROOM, DETECTED_BOTTLE, 1);
-        macros.GiveItem(WOADWINE);
-        j = macros.GetFlag(PARTY, CTR);
+    if (context.GetFlag(ROOM, DETECTED_BOTTLE) == 0) {
+        context.ShowText("In a hidden wall recess with a sign reading 'For 'Emergency Use' you find a bottle labelled 'Woad Wine.'");
+        context.SetFlag(ROOM, DETECTED_BOTTLE, 1);
+        context.GiveItem(WOADWINE);
+        j = context.GetFlag(PARTY, CTR);
         if (j >= 30) {
             (j = 0);
         }
@@ -42,76 +42,76 @@ fun MapEvent01(macros) {
         if (j >= 10) {
             j = (j - 10);
         }
-        macros.SetFlag(PARTY, CTR, j);
+        context.SetFlag(PARTY, CTR, j);
         switch (j) {
             case 0:
-                macros.ShowText("You call this an emergency?  It's not like your poisoned or anything.  Oh, all right, take the wine and stop whining.");
+                context.ShowText("You call this an emergency?  It's not like your poisoned or anything.  Oh, all right, take the wine and stop whining.");
                 break;
             case 1:
-                macros.ShowText("The way you've been blundering around here, you better believe this is an emergency....");
-                macros.ShowText("Now, now.  Don't take it personally.  You're really a very good player.  I was just teasing you.  There's no need to hit that complain button.  I'm sorry.  Really I am!");
+                context.ShowText("The way you've been blundering around here, you better believe this is an emergency....");
+                context.ShowText("Now, now.  Don't take it personally.  You're really a very good player.  I was just teasing you.  There's no need to hit that complain button.  I'm sorry.  Really I am!");
                 break;
             case 2:
-                macros.ShowText("Lessee.  Something's sucking the very mana out of you, and you don't know why.  Yup, this is an emergency.");
+                context.ShowText("Lessee.  Something's sucking the very mana out of you, and you don't know why.  Yup, this is an emergency.");
                 break;
             case 3:
-                macros.ShowText("Well, I'm not going to tell you how to play.  But I think your parents raised a good little adventurer who wouldn't take emergency supplies unless you really needed them.");
-                macros.ShowText("So if you want to risk breaking dear old mumsy's heart, that's up to you.");
+                context.ShowText("Well, I'm not going to tell you how to play.  But I think your parents raised a good little adventurer who wouldn't take emergency supplies unless you really needed them.");
+                context.ShowText("So if you want to risk breaking dear old mumsy's heart, that's up to you.");
                 break;
             case 4:
-                macros.ShowText("Take the potion, take the potion!  Believe you me, any second now you're going to need it!");
+                context.ShowText("Take the potion, take the potion!  Believe you me, any second now you're going to need it!");
                 break;
             case 5:
-                macros.ShowText("Go ahead!  Drink up, me hearties!  I get 5000 gold pieces for each replacement bottle.  Wassail!");
+                context.ShowText("Go ahead!  Drink up, me hearties!  I get 5000 gold pieces for each replacement bottle.  Wassail!");
                 break;
             case 6:
-                macros.ShowText("Look, in Scotland in the 1200's Woad wine is not a controlled substance.  Enjoy!");
+                context.ShowText("Look, in Scotland in the 1200's Woad wine is not a controlled substance.  Enjoy!");
                 break;
             case 7:
-                macros.ShowText("Yucko!  They must not have a potion rotation policy.  This potion is spoiled.");
-                macros.ModMana(-2000);
-                macros.SetPm(POISON, 3, 200);
+                context.ShowText("Yucko!  They must not have a potion rotation policy.  This potion is spoiled.");
+                context.ModMana(-2000);
+                context.SetPm(POISON, 3, 200);
                 break;
             case 8:
-                macros.ShowText("The way they suck mana out of you around here, you feel like a sponge run over by a steam roller.  So don't turn your nose up at available supplies.");
+                context.ShowText("The way they suck mana out of you around here, you feel like a sponge run over by a steam roller.  So don't turn your nose up at available supplies.");
                 break;
             case 9:
-                macros.ShowText("It's alright to drink that.  Nobody's watching but us RAM chips.");
+                context.ShowText("It's alright to drink that.  Nobody's watching but us RAM chips.");
                 break;
         }
     }
     else {
-        macros.ShowText("The emergency supply cabinet is empty.");
+        context.ShowText("The emergency supply cabinet is empty.");
     }
 }
 
-fun MapEvent03(macros) {
-    if (macros.GetFlag(PARTY, UPSTAIRS) == 0) {
-        macros.SetFlag(PARTY, UPSTAIRS, 1);
-        macros.ShowPicture(TROLLCLERIC);
-        macros.ShowText("A nice Northlands Nun clutches you by the shoulders.  Her unblinking gaze causes you to feel fainthearted.  Then you hear her intone: ");
-        macros.ShowText("'I saw thee in a place disturbed.");
-        macros.ShowText("A brush with quite a deadly herb.");
-        macros.ShowText("A hoof now tamed that once was wild.");
-        macros.ShowText("A nasty little maze defiled.");
-        macros.ShowText("To snare the song that thy heart sings");
-        macros.ShowText("Thus must thou seek out higher things.'");
-        macros.ModMana(-5000);
-        macros.Damage(8000);
-        macros.ShowText("In retrospect, you're not sure just how nice she was.");
+fun MapEvent03(context) {
+    if (context.GetFlag(PARTY, UPSTAIRS) == 0) {
+        context.SetFlag(PARTY, UPSTAIRS, 1);
+        context.ShowPicture(TROLLCLERIC);
+        context.ShowText("A nice Northlands Nun clutches you by the shoulders.  Her unblinking gaze causes you to feel fainthearted.  Then you hear her intone: ");
+        context.ShowText("'I saw thee in a place disturbed.");
+        context.ShowText("A brush with quite a deadly herb.");
+        context.ShowText("A hoof now tamed that once was wild.");
+        context.ShowText("A nasty little maze defiled.");
+        context.ShowText("To snare the song that thy heart sings");
+        context.ShowText("Thus must thou seek out higher things.'");
+        context.ModMana(-5000);
+        context.Damage(8000);
+        context.ShowText("In retrospect, you're not sure just how nice she was.");
     }
 }
 
-fun MapEvent04(macros) {
-    macros.ShowText("The writing on the the door to the south reads: 'Professor Simon Charlatanus, Chairman of the School of Astrology.'  The door to the west reads: 'Authorized Personnel Only.'  Officious words for the thirteenth century, aren't they.");
+fun MapEvent04(context) {
+    context.ShowText("The writing on the the door to the south reads: 'Professor Simon Charlatanus, Chairman of the School of Astrology.'  The door to the west reads: 'Authorized Personnel Only.'  Officious words for the thirteenth century, aren't they.");
 }
 
-fun MapEvent05(macros) {
+fun MapEvent05(context) {
     var i;
     i = 0;
     var k;
     k = 0;
-    i = macros.GetFlag(DUNGEON, RANDCTR);
+    i = context.GetFlag(DUNGEON, RANDCTR);
     i++;
     k = i;
     if (k > 19) {
@@ -129,427 +129,427 @@ fun MapEvent05(macros) {
     if (i > 30) {
         i = 0;
     }
-    macros.SetFlag(DUNGEON, RANDCTR, i);
+    context.SetFlag(DUNGEON, RANDCTR, i);
     switch (k) {
         case 0:
-            macros.ShowText("You hear some footsteps running away.");
+            context.ShowText("You hear some footsteps running away.");
             break;
         case 1:
-            macros.ShowText("A passing soothsayer lays his hands on your forehead and walks away shaking his head sadly.  You feel tired.");
-            macros.ModMana(-700);
+            context.ShowText("A passing soothsayer lays his hands on your forehead and walks away shaking his head sadly.  You feel tired.");
+            context.ModMana(-700);
             break;
         case 2:
-            macros.ShowText("You have walked into a negatively charged ley line.  Can that take it out of you or what?  I hate when that happens!");
-            macros.ModMana(-1400);
+            context.ShowText("You have walked into a negatively charged ley line.  Can that take it out of you or what?  I hate when that happens!");
+            context.ModMana(-1400);
             break;
         case 3:
-            macros.ShowText("A fortune teller dances up to you seductively, takes your palm, grimaces, and rushes away, leaving you perplexed and with a headache.");
-            macros.ModMana(-2100);
+            context.ShowText("A fortune teller dances up to you seductively, takes your palm, grimaces, and rushes away, leaving you perplexed and with a headache.");
+            context.ModMana(-2100);
             break;
         case 4:
-            macros.ShowText("You know how good you feel if you stumble across a positively charged ley line?  You know know how much better you feel if you find the intersection of two such ley lines?");
-            macros.ShowText("You know how much it would hurt if they were negatively charged ley lines.  No, really!  You know!");
-            macros.ModMana(-4000);
+            context.ShowText("You know how good you feel if you stumble across a positively charged ley line?  You know know how much better you feel if you find the intersection of two such ley lines?");
+            context.ShowText("You know how much it would hurt if they were negatively charged ley lines.  No, really!  You know!");
+            context.ModMana(-4000);
             break;
         case 5:
-            macros.ShowText("You pass by an ornate arcane metallic plate that cheerfully sucks some mana out of you.");
-            macros.ShowText("At least it thanked you for your donation.");
-            macros.ModMana(-400);
+            context.ShowText("You pass by an ornate arcane metallic plate that cheerfully sucks some mana out of you.");
+            context.ShowText("At least it thanked you for your donation.");
+            context.ModMana(-400);
             break;
         case 6:
-            macros.ShowPicture(DWARFTHIEF);
-            macros.ShowText("'Care to try these exquisitely loaded dice, squire?'");
-            macros.ShowText("What could it hurt?  They seem heavier than you expected.  You give them a roll.  It's a seven!");
-            macros.ShowText("The dwarf snatches the dice, squints at them distrustfully, and departs.");
-            macros.ModMana(-400);
+            context.ShowPicture(DWARFTHIEF);
+            context.ShowText("'Care to try these exquisitely loaded dice, squire?'");
+            context.ShowText("What could it hurt?  They seem heavier than you expected.  You give them a roll.  It's a seven!");
+            context.ShowText("The dwarf snatches the dice, squints at them distrustfully, and departs.");
+            context.ModMana(-400);
             break;
         case 7:
-            macros.ShowPicture(DRAGON);
-            macros.ShowText("'A thousand pardons, humanoid, but hast thou seen a dwarf peddling loaded dice hereabouts.  He is a thief of great subtlety, for the dice - wait!  You there!  Halt!'");
-            macros.ShowText("The dragon rushes off.");
+            context.ShowPicture(DRAGON);
+            context.ShowText("'A thousand pardons, humanoid, but hast thou seen a dwarf peddling loaded dice hereabouts.  He is a thief of great subtlety, for the dice - wait!  You there!  Halt!'");
+            context.ShowText("The dragon rushes off.");
             break;
         case 8:
-            macros.ShowPicture(GNOMETHIEF);
-            macros.ShowText("'Alagests?  Tomes?  Celestiae?  Horoscopes?  Orreries?  Pieces of the true cross?  Isn't there anything you want to buy?'");
-            macros.ShowText("Actually, you were rather interested in an orrery until she peddled a piece of the true cross.");
+            context.ShowPicture(GNOMETHIEF);
+            context.ShowText("'Alagests?  Tomes?  Celestiae?  Horoscopes?  Orreries?  Pieces of the true cross?  Isn't there anything you want to buy?'");
+            context.ShowText("Actually, you were rather interested in an orrery until she peddled a piece of the true cross.");
             break;
         case 9:
-            macros.ShowText("You find a gold piece.  How nice.");
-            macros.ModGold(1);
-            macros.ModMana(-2000);
+            context.ShowText("You find a gold piece.  How nice.");
+            context.ModGold(1);
+            context.ModMana(-2000);
             break;
     }
 }
 
-fun MapEvent06(macros) {
-    macros.ShowText("A cold breeze sends shivers down your spine.");
+fun MapEvent06(context) {
+    context.ShowText("A cold breeze sends shivers down your spine.");
 }
 
-fun MapEvent07(macros) {
-    macros.ShowText("You return to The Great Hall.");
-    macros.Teleport(8, 2, 11, SOUTH);
+fun MapEvent07(context) {
+    context.ShowText("You return to The Great Hall.");
+    context.Teleport(8, 2, 11, SOUTH);
 }
 
-fun MapEvent08(macros) {
-    macros.SetFlag(DUNGEON, LEVEL5ROOM4, 1);
+fun MapEvent08(context) {
+    context.SetFlag(DUNGEON, LEVEL5ROOM4, 1);
 }
 
-fun MapEvent09(macros) {
-    macros.ShowPicture(GNOMEWIZARD);
-    macros.ShowText("You join a long but fast moving queue.");
-    if (macros.GetFlag(PARTY, GOTCHARGED) == 0) {
-        macros.ShowText("'Hurry up.  Hurry up.  Stand on the mark.  Touch the plate.  Let the ley lines flow through you.  That's enough!  Now make a donation.  Very good.  Move along!");
-        macros.SetFlag(PARTY, GOTCHARGED, 1);
-        macros.ModMana(5000);
-        macros.ModGold(-500);
-        macros.ShowText("Wow!  Do you feel magically recharged!  You leave the gnome 500 gold pieces and resolve to remember this spot.");
+fun MapEvent09(context) {
+    context.ShowPicture(GNOMEWIZARD);
+    context.ShowText("You join a long but fast moving queue.");
+    if (context.GetFlag(PARTY, GOTCHARGED) == 0) {
+        context.ShowText("'Hurry up.  Hurry up.  Stand on the mark.  Touch the plate.  Let the ley lines flow through you.  That's enough!  Now make a donation.  Very good.  Move along!");
+        context.SetFlag(PARTY, GOTCHARGED, 1);
+        context.ModMana(5000);
+        context.ModGold(-500);
+        context.ShowText("Wow!  Do you feel magically recharged!  You leave the gnome 500 gold pieces and resolve to remember this spot.");
     }
     else {
-        macros.ShowText("'Greedyguts!  One visit per day!  Move along!'");
-        macros.ShowText("Perhaps you can come back after this gnome's shift is over.  But from the muttering of the folks immediately behind you, you decide to migrate.");
+        context.ShowText("'Greedyguts!  One visit per day!  Move along!'");
+        context.ShowText("Perhaps you can come back after this gnome's shift is over.  But from the muttering of the folks immediately behind you, you decide to migrate.");
     }
 }
 
-fun MapEvent0A(macros) {
-    macros.ShowText("There is nothing useful in this pile of rubble.");
+fun MapEvent0A(context) {
+    context.ShowText("There is nothing useful in this pile of rubble.");
 }
 
-fun MapEvent0B(macros) {
-    macros.ShowText("The sign on the door reads:  'Lillibeth Armstrong, Deputy Chairperson of the Department of Astrology.'  You didn't know they had political correctness in the 13th century.");
-    macros.ShowText("Then again, someone powerful enough to be the deputy chairperson could probably turn you into a newt if you called her a man.");
+fun MapEvent0B(context) {
+    context.ShowText("The sign on the door reads:  'Lillibeth Armstrong, Deputy Chairperson of the Department of Astrology.'  You didn't know they had political correctness in the 13th century.");
+    context.ShowText("Then again, someone powerful enough to be the deputy chairperson could probably turn you into a newt if you called her a man.");
 }
 
-fun MapEvent0C(macros) {
-    if (macros.GetFlag(PARTY, SAWDRAGON) == 0) {
-        macros.ShowPicture(DRAGON);
-        macros.ShowText("'I say, couldst thou be a chap and direct me towards Lillibeth Armstrong?  She turned me into a newt and promised to turn me back today.'");
-        macros.ShowText("The dragon sees you staring at him and looks down at himself.");
-        macros.ShowText("'No, really she did!  I'm just a REALLY big newt!'");
-        macros.ShowText("You apologise for not knowing her whereabouts and leave before he can see your smile.");
+fun MapEvent0C(context) {
+    if (context.GetFlag(PARTY, SAWDRAGON) == 0) {
+        context.ShowPicture(DRAGON);
+        context.ShowText("'I say, couldst thou be a chap and direct me towards Lillibeth Armstrong?  She turned me into a newt and promised to turn me back today.'");
+        context.ShowText("The dragon sees you staring at him and looks down at himself.");
+        context.ShowText("'No, really she did!  I'm just a REALLY big newt!'");
+        context.ShowText("You apologise for not knowing her whereabouts and leave before he can see your smile.");
     }
 }
 
-fun MapEvent0D(macros) {
-    if (macros.GetFlag(PARTY, WAR6) == 0) {
-        macros.SetFlag(PARTY, WAR6, 1);
-        macros.SetPm(POISON, 5, 1000);
-        macros.ShowText("Yikes!  Those cobra headed medusae have spit poison upon you!");
-        macros.SetBooty(ALFREDSROBES, ADDERFORK, DRAGONFLAGON, 0, 0, 3100);
-        macros.GetMonster(1, 39);
-        macros.GetMonster(5, 38);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(2, 39);
-            macros.GetMonster(6, 38);
+fun MapEvent0D(context) {
+    if (context.GetFlag(PARTY, WAR6) == 0) {
+        context.SetFlag(PARTY, WAR6, 1);
+        context.SetPm(POISON, 5, 1000);
+        context.ShowText("Yikes!  Those cobra headed medusae have spit poison upon you!");
+        context.SetBooty(ALFREDSROBES, ADDERFORK, DRAGONFLAGON, 0, 0, 3100);
+        context.GetMonster(1, 39);
+        context.GetMonster(5, 38);
+        if (context.PartyCount > 2) {
+            context.GetMonster(2, 39);
+            context.GetMonster(6, 38);
         }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(3, 39);
-            macros.GetMonster(4, 38);
-        }
-    }
-    else {
-        macros.ShowText("If you'd killed them a little less thoroughly you probably could have made some change by selling minotaur and medusa parts over in alchemia.  Not that that was any reason to pull your blows!");
-    }
-}
-
-fun MapEvent0E(macros) {
-    if (macros.GetFlag(PARTY, WAR7) == 0) {
-        macros.SetFlag(PARTY, WAR7, 1);
-        macros.SetPm(POISON, 5, 1000);
-        macros.ShowText("A bunch of folks huddle over an ancient prophecy, glance at you, look at the alagest again, nod, and decide that you look enough like the picture to attack!");
-        if (macros.PartyCount > 2) {
-            macros.ShowText("You know, this could really make you regret the fact that your face looks familiar to everyone.");
-        }
-        macros.SetBooty(ALCUINSRING, LADYSSCROLL, WITCHESMUMMY, 0, 0, 1647);
-        macros.GetMonster(1, 34);
-        macros.GetMonster(2, 35);
-        macros.GetMonster(5, 33);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(4, 35);
-            macros.GetMonster(3, 34);
-        }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(6, 33);
+        if (context.PartyCount > 3) {
+            context.GetMonster(3, 39);
+            context.GetMonster(4, 38);
         }
     }
     else {
-        macros.ShowText("Hmm.  Maybe your picture really is in a bunch of old predictions.  It would explain why so many folks attack you on sight.  Perhaps you should change hairstyles.");
+        context.ShowText("If you'd killed them a little less thoroughly you probably could have made some change by selling minotaur and medusa parts over in alchemia.  Not that that was any reason to pull your blows!");
     }
 }
 
-fun MapEvent0F(macros) {
-    if (macros.GetFlag(PARTY, WAR1) == 0) {
-        macros.SetFlag(PARTY, WAR1, 1);
-        macros.ShowText("You can call them goblins.  Or you can call them orcs.  Or you can call them kobolds.  Or you can call them hobgoblins.  But you better not call them friendly!");
-        if (macros.PartyCount > 3) {
-            macros.ShowText("In fact, downright unfriendly seems about the right term for them!");
+fun MapEvent0E(context) {
+    if (context.GetFlag(PARTY, WAR7) == 0) {
+        context.SetFlag(PARTY, WAR7, 1);
+        context.SetPm(POISON, 5, 1000);
+        context.ShowText("A bunch of folks huddle over an ancient prophecy, glance at you, look at the alagest again, nod, and decide that you look enough like the picture to attack!");
+        if (context.PartyCount > 2) {
+            context.ShowText("You know, this could really make you regret the fact that your face looks familiar to everyone.");
         }
-        macros.SetBooty(HORSASHAMMER, ALFREDSHAT, LAVENDERLOTION, 0, 0, 847);
-        macros.GetMonster(1, 25);
-        macros.GetMonster(2, 26);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(3, 25);
-            macros.GetMonster(4, 26);
+        context.SetBooty(ALCUINSRING, LADYSSCROLL, WITCHESMUMMY, 0, 0, 1647);
+        context.GetMonster(1, 34);
+        context.GetMonster(2, 35);
+        context.GetMonster(5, 33);
+        if (context.PartyCount > 2) {
+            context.GetMonster(4, 35);
+            context.GetMonster(3, 34);
         }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(5, 26);
-            macros.GetMonster(6, 25);
+        if (context.PartyCount > 3) {
+            context.GetMonster(6, 33);
         }
     }
     else {
-        macros.ShowText("All that remains of your battle here is a few goblin gobbets.");
+        context.ShowText("Hmm.  Maybe your picture really is in a bunch of old predictions.  It would explain why so many folks attack you on sight.  Perhaps you should change hairstyles.");
     }
 }
 
-fun MapEvent10(macros) {
-    if (macros.GetFlag(PARTY, WAR2) == 0) {
-        macros.SetFlag(PARTY, WAR2, 1);
-        macros.ShowText("Psst!  Yes, I mean you!  I have a secret for you.  In case you hadn't figured it out, Cawdor is haunted!");
-        macros.SetBooty(DALRIADANBOW, WOADWINE, GAUZERING, 0, 0, 447);
-        macros.GetMonster(1, 29);
-        macros.GetMonster(2, 30);
-        macros.GetMonster(5, 36);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(3, 29);
-            macros.GetMonster(6, 36);
+fun MapEvent0F(context) {
+    if (context.GetFlag(PARTY, WAR1) == 0) {
+        context.SetFlag(PARTY, WAR1, 1);
+        context.ShowText("You can call them goblins.  Or you can call them orcs.  Or you can call them kobolds.  Or you can call them hobgoblins.  But you better not call them friendly!");
+        if (context.PartyCount > 3) {
+            context.ShowText("In fact, downright unfriendly seems about the right term for them!");
         }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(4, 30);
-            macros.GetMonster(3, 34);
+        context.SetBooty(HORSASHAMMER, ALFREDSHAT, LAVENDERLOTION, 0, 0, 847);
+        context.GetMonster(1, 25);
+        context.GetMonster(2, 26);
+        if (context.PartyCount > 1) {
+            context.GetMonster(3, 25);
+            context.GetMonster(4, 26);
         }
-    }
-    else {
-        macros.ShowText("That was some nasty battle you had here.  Fortunately your dry cleaner knows how to remove ectoplasm stains.");
-    }
-}
-
-fun MapEvent11(macros) {
-    if (macros.GetFlag(PARTY, WAR3) == 0) {
-        macros.SetFlag(PARTY, WAR3, 1);
-        macros.ModMana(-2000);
-        macros.ShowText("You knew vampires liked to suck blood.  You didn't know that the vampires around here like to suck mana instead.");
-        if (macros.PartyCount > 3) {
-            macros.ShowText("And you hate those liches to pieces!  Sheesh!");
-        }
-        macros.SetBooty(IRONSIDESHEADGEAR, ADAMANTINELOCKPICK, HURLYBURLY, 0, 0, 839);
-        macros.GetMonster(1, 31);
-        macros.GetMonster(2, 31);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(4, 31);
-            macros.GetMonster(3, 31);
-        }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(5, 36);
-            macros.GetMonster(6, 36);
+        if (context.PartyCount > 3) {
+            context.GetMonster(5, 26);
+            context.GetMonster(6, 25);
         }
     }
     else {
-        macros.ShowText("Your battle here explains why greensleeves is such a popular song: it's from all the ectoplasm!");
+        context.ShowText("All that remains of your battle here is a few goblin gobbets.");
     }
 }
 
-fun MapEvent12(macros) {
-    if (macros.GetFlag(PARTY, WAR4) == 0) {
-        macros.SetFlag(PARTY, WAR4, 1);
-        macros.ShowText("The Carlisle Rugby Team has decided you're their next match!  And these guys play for keeps!");
-        if (macros.PartyCount > 3) {
-            macros.ShowText("The big one's battle cry is, 'Scrum and get it!'");
+fun MapEvent10(context) {
+    if (context.GetFlag(PARTY, WAR2) == 0) {
+        context.SetFlag(PARTY, WAR2, 1);
+        context.ShowText("Psst!  Yes, I mean you!  I have a secret for you.  In case you hadn't figured it out, Cawdor is haunted!");
+        context.SetBooty(DALRIADANBOW, WOADWINE, GAUZERING, 0, 0, 447);
+        context.GetMonster(1, 29);
+        context.GetMonster(2, 30);
+        context.GetMonster(5, 36);
+        if (context.PartyCount > 2) {
+            context.GetMonster(3, 29);
+            context.GetMonster(6, 36);
         }
-        macros.SetBooty(HADRIANSWALL, RHINOHORNHELM, 0, 0, 0, 212);
-        macros.GetMonster(1, 40);
-        macros.GetMonster(2, 27);
-        macros.GetMonster(5, 28);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(6, 28);
-            macros.GetMonster(3, 27);
-        }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(4, 40);
+        if (context.PartyCount > 3) {
+            context.GetMonster(4, 30);
+            context.GetMonster(3, 34);
         }
     }
     else {
-        macros.ShowText("All that remains of your scrimmage here is the deflated bladder that used to be the ball.");
+        context.ShowText("That was some nasty battle you had here.  Fortunately your dry cleaner knows how to remove ectoplasm stains.");
     }
 }
 
-fun MapEvent13(macros) {
-    if (macros.GetFlag(PARTY, WAR5) == 0) {
-        macros.SetFlag(PARTY, WAR5, 1);
-        macros.ShowText("Ordinarily you believe in respecting other people's religious beliefs.  But these priestesses believe in raising undead to kill unbelievers!");
-        if (macros.PartyCount > 3) {
-            macros.ShowText("They also believe in unfair numbers, sucking mana, and using poison.");
-            macros.ModMana(-2000);
-            macros.SetPm(POISON, 5, 800);
+fun MapEvent11(context) {
+    if (context.GetFlag(PARTY, WAR3) == 0) {
+        context.SetFlag(PARTY, WAR3, 1);
+        context.ModMana(-2000);
+        context.ShowText("You knew vampires liked to suck blood.  You didn't know that the vampires around here like to suck mana instead.");
+        if (context.PartyCount > 3) {
+            context.ShowText("And you hate those liches to pieces!  Sheesh!");
         }
-        macros.SetBooty(SWITHUNSSTAFF, PALACECHALICE, 0, 0, 0, 1212);
-        macros.GetMonster(1, 37);
-        macros.GetMonster(2, 37);
-        macros.GetMonster(5, 32);
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(6, 32);
-            macros.GetMonster(3, 37);
-            macros.GetMonster(4, 32);
+        context.SetBooty(IRONSIDESHEADGEAR, ADAMANTINELOCKPICK, HURLYBURLY, 0, 0, 839);
+        context.GetMonster(1, 31);
+        context.GetMonster(2, 31);
+        if (context.PartyCount > 2) {
+            context.GetMonster(4, 31);
+            context.GetMonster(3, 31);
+        }
+        if (context.PartyCount > 3) {
+            context.GetMonster(5, 36);
+            context.GetMonster(6, 36);
         }
     }
     else {
-        macros.ShowText("It's a shame: you fought all these skeletons, and not a single skeleton key ring out of it.");
+        context.ShowText("Your battle here explains why greensleeves is such a popular song: it's from all the ectoplasm!");
     }
 }
 
-fun MapEvent14(macros) {
-    if (macros.GetFlag(PARTY, ALDHELM) == 0) {
-        macros.SetFlag(PARTY, ALDHELM, 1);
-        macros.SetFlag(DUNGEON, ALDHELMPROPHECY, 1);
-        macros.ShowPicture(TROLLCLERIC);
-        macros.ShowText("A troll cleric lays a hand upon thy forehead and rolls her eyes back into her head.  In a quavering, eery voice she makes her pronouncement.");
-        macros.ShowText("'I sense a power of goodness in thee.  Aldhelm's grace could fall upon thee!  An thou dost invoke of spirit of Aldhelm as thou dost descend beneath the Ruins, then Aldhelm will guide thee in safety and surety.  But thou must gather sufficient of Aldhelm to summon Aldhelm.");
-        macros.ShowText("Her eyes refocus.  Blushing, she departs.");
+fun MapEvent12(context) {
+    if (context.GetFlag(PARTY, WAR4) == 0) {
+        context.SetFlag(PARTY, WAR4, 1);
+        context.ShowText("The Carlisle Rugby Team has decided you're their next match!  And these guys play for keeps!");
+        if (context.PartyCount > 3) {
+            context.ShowText("The big one's battle cry is, 'Scrum and get it!'");
+        }
+        context.SetBooty(HADRIANSWALL, RHINOHORNHELM, 0, 0, 0, 212);
+        context.GetMonster(1, 40);
+        context.GetMonster(2, 27);
+        context.GetMonster(5, 28);
+        if (context.PartyCount > 2) {
+            context.GetMonster(6, 28);
+            context.GetMonster(3, 27);
+        }
+        if (context.PartyCount > 3) {
+            context.GetMonster(4, 40);
+        }
+    }
+    else {
+        context.ShowText("All that remains of your scrimmage here is the deflated bladder that used to be the ball.");
     }
 }
 
-fun MapEvent15(macros) {
-    if (macros.GetFlag(PARTY, ALCUIN) == 0) {
-        macros.SetFlag(PARTY, ALCUIN, 1);
-        macros.SetFlag(DUNGEON, ALCUINPROPHECY, 1);
-        macros.ShowPicture(GREMLINWIZARD);
-        macros.ShowText("You overhear a snippet of conversation.");
-        macros.ShowText("'....their party leader, somehow, invoked Alcuin's spirit, who in his goodness did defeat the evil locks that were upon the door.");
-        macros.ShowText("Then the sisters did attack in such wise and vigor as to thwart my further observ....'");
+fun MapEvent13(context) {
+    if (context.GetFlag(PARTY, WAR5) == 0) {
+        context.SetFlag(PARTY, WAR5, 1);
+        context.ShowText("Ordinarily you believe in respecting other people's religious beliefs.  But these priestesses believe in raising undead to kill unbelievers!");
+        if (context.PartyCount > 3) {
+            context.ShowText("They also believe in unfair numbers, sucking mana, and using poison.");
+            context.ModMana(-2000);
+            context.SetPm(POISON, 5, 800);
+        }
+        context.SetBooty(SWITHUNSSTAFF, PALACECHALICE, 0, 0, 0, 1212);
+        context.GetMonster(1, 37);
+        context.GetMonster(2, 37);
+        context.GetMonster(5, 32);
+        if (context.PartyCount > 3) {
+            context.GetMonster(6, 32);
+            context.GetMonster(3, 37);
+            context.GetMonster(4, 32);
+        }
+    }
+    else {
+        context.ShowText("It's a shame: you fought all these skeletons, and not a single skeleton key ring out of it.");
     }
 }
 
-fun MapEvent16(macros) {
-    if (macros.GetFlag(PARTY, ALFRED) == 0) {
-        macros.SetFlag(PARTY, ALFRED, 1);
-        macros.SetFlag(DUNGEON, ALFREDPROPHECY, 1);
-        macros.ShowPicture(GREMLINWIZARD);
-        macros.ShowText("A gremlin wizard appears before you, gazing deep into your eyes.");
-        macros.ShowText("'Hear me and heed me!  Thou hast the flavor of greatness in thy soul.");
-        macros.ShowText("Deep within the Bestiary, after thou hast defeated the eight foretold, an thou dost invoke the spirit of Alfred the Great, so shall he heal thee.  But thou must catch his spirit's attention when thou dost approach him.");
-        macros.ShowText("Nay, I will not explain!  An thou canst not decipher this plain prophecy, then thou art not so great as I think.'  She departs.");
+fun MapEvent14(context) {
+    if (context.GetFlag(PARTY, ALDHELM) == 0) {
+        context.SetFlag(PARTY, ALDHELM, 1);
+        context.SetFlag(DUNGEON, ALDHELMPROPHECY, 1);
+        context.ShowPicture(TROLLCLERIC);
+        context.ShowText("A troll cleric lays a hand upon thy forehead and rolls her eyes back into her head.  In a quavering, eery voice she makes her pronouncement.");
+        context.ShowText("'I sense a power of goodness in thee.  Aldhelm's grace could fall upon thee!  An thou dost invoke of spirit of Aldhelm as thou dost descend beneath the Ruins, then Aldhelm will guide thee in safety and surety.  But thou must gather sufficient of Aldhelm to summon Aldhelm.");
+        context.ShowText("Her eyes refocus.  Blushing, she departs.");
     }
 }
 
-fun MapEvent17(macros) {
-    macros.Teleport(11, 2, 127, WEST);
-}
-
-fun MapEvent19(macros) {
-    if (macros.GetFlag(PARTY, AA) == 0) {
-        macros.SetFlag(PARTY, AA, 1);
-        macros.ShowPicture(GNOMEWIZARD);
-        macros.ShowText("An astrologer is lecturing his pupils as they walk by.");
-        macros.ShowText("'...shall be the counting of the cats, and the counting of the cats shall be three.  But greater than the cats is the hedgepig, who shall count once more than the....");
+fun MapEvent15(context) {
+    if (context.GetFlag(PARTY, ALCUIN) == 0) {
+        context.SetFlag(PARTY, ALCUIN, 1);
+        context.SetFlag(DUNGEON, ALCUINPROPHECY, 1);
+        context.ShowPicture(GREMLINWIZARD);
+        context.ShowText("You overhear a snippet of conversation.");
+        context.ShowText("'....their party leader, somehow, invoked Alcuin's spirit, who in his goodness did defeat the evil locks that were upon the door.");
+        context.ShowText("Then the sisters did attack in such wise and vigor as to thwart my further observ....'");
     }
 }
 
-fun MapEvent1B(macros) {
+fun MapEvent16(context) {
+    if (context.GetFlag(PARTY, ALFRED) == 0) {
+        context.SetFlag(PARTY, ALFRED, 1);
+        context.SetFlag(DUNGEON, ALFREDPROPHECY, 1);
+        context.ShowPicture(GREMLINWIZARD);
+        context.ShowText("A gremlin wizard appears before you, gazing deep into your eyes.");
+        context.ShowText("'Hear me and heed me!  Thou hast the flavor of greatness in thy soul.");
+        context.ShowText("Deep within the Bestiary, after thou hast defeated the eight foretold, an thou dost invoke the spirit of Alfred the Great, so shall he heal thee.  But thou must catch his spirit's attention when thou dost approach him.");
+        context.ShowText("Nay, I will not explain!  An thou canst not decipher this plain prophecy, then thou art not so great as I think.'  She departs.");
+    }
+}
+
+fun MapEvent17(context) {
+    context.Teleport(11, 2, 127, WEST);
+}
+
+fun MapEvent19(context) {
+    if (context.GetFlag(PARTY, AA) == 0) {
+        context.SetFlag(PARTY, AA, 1);
+        context.ShowPicture(GNOMEWIZARD);
+        context.ShowText("An astrologer is lecturing his pupils as they walk by.");
+        context.ShowText("'...shall be the counting of the cats, and the counting of the cats shall be three.  But greater than the cats is the hedgepig, who shall count once more than the....");
+    }
+}
+
+fun MapEvent1B(context) {
     var i;
-    if (macros.GetFlag(PARTY, AB) == 0) {
-        i = macros.GetFlag(PARTY, CTR);
-        macros.SetFlag(PARTY, AB, 1);
+    if (context.GetFlag(PARTY, AB) == 0) {
+        i = context.GetFlag(PARTY, CTR);
+        context.SetFlag(PARTY, AB, 1);
         if (i < 4) {
-            macros.ShowPicture(HUMANWIZARD);
-            macros.ShowText("An astrologer is instructing a customer in the proper reading of a chart as they walk past.");
-            macros.ShowText("'...must always take care to interpret these wisely.  Thy chart in the near future shows a path fraught both with peril and excitement, for women will respond with favor upon thy wooing.  Heed both the portents and....'");
+            context.ShowPicture(HUMANWIZARD);
+            context.ShowText("An astrologer is instructing a customer in the proper reading of a chart as they walk past.");
+            context.ShowText("'...must always take care to interpret these wisely.  Thy chart in the near future shows a path fraught both with peril and excitement, for women will respond with favor upon thy wooing.  Heed both the portents and....'");
         }
         else {
-            macros.ShowPicture(HUMANBARBARIAN);
-            macros.ShowText("A customer pleads with his astrologer for aid.");
-            macros.ShowText("'...not tell me that merely smiling at Rowena Sly would lead to her six large swineherding brothers demanding our immediate betrothal!  Will the stench of the sty ever be free from my nostrils?  There must be some way I can avoid....'");
+            context.ShowPicture(HUMANBARBARIAN);
+            context.ShowText("A customer pleads with his astrologer for aid.");
+            context.ShowText("'...not tell me that merely smiling at Rowena Sly would lead to her six large swineherding brothers demanding our immediate betrothal!  Will the stench of the sty ever be free from my nostrils?  There must be some way I can avoid....'");
         }
     }
 }
 
-fun MapEvent1C(macros) {
-    if (macros.GetFlag(PARTY, AC) == 0) {
-        macros.SetFlag(PARTY, AC, 1);
-        macros.ShowPicture(HUMANWIZARD);
-        macros.ShowText("An astrologer is walking past, reading aloud, his head buried in a dusty tome.");
-        macros.ShowText("'Mewed?  That must be a reference to defeat, death, destruction, for brinded cats are the most fierce of all the felines.");
-        macros.ShowText("Thrice is obvious enough.  And whining and cries must likewise refer to combat with four hedgepigs and a harpier.");
-        macros.ShowText("But where can one insure eight consecutive battles of the proper form?  And why would any man of science choose such an empirical approach....'");
+fun MapEvent1C(context) {
+    if (context.GetFlag(PARTY, AC) == 0) {
+        context.SetFlag(PARTY, AC, 1);
+        context.ShowPicture(HUMANWIZARD);
+        context.ShowText("An astrologer is walking past, reading aloud, his head buried in a dusty tome.");
+        context.ShowText("'Mewed?  That must be a reference to defeat, death, destruction, for brinded cats are the most fierce of all the felines.");
+        context.ShowText("Thrice is obvious enough.  And whining and cries must likewise refer to combat with four hedgepigs and a harpier.");
+        context.ShowText("But where can one insure eight consecutive battles of the proper form?  And why would any man of science choose such an empirical approach....'");
     }
 }
 
-fun MapEvent1D(macros) {
+fun MapEvent1D(context) {
     var i;
-    if (macros.GetFlag(PARTY, AE) == 0) {
-        i = macros.GetFlag(PARTY, CTR);
-        macros.SetFlag(PARTY, AE, 1);
+    if (context.GetFlag(PARTY, AE) == 0) {
+        i = context.GetFlag(PARTY, CTR);
+        context.SetFlag(PARTY, AE, 1);
         if (i < 4) {
-            macros.ShowPicture(GREMLINWIZARD);
-            macros.ShowText("An astrologer lectures her pupil.");
-            macros.ShowText("'six planets are Venus, Earth, Mars, Luna, Jupiter, and Saturn.  I care not that thy calculations gain historical accuracy if thou dost assume nine planets circling the sun.");
-            macros.ShowText("Wouldst thou regress the science of astrology back a millenium?  Count the six, and cease thy false beliefs that any do circle the sun, for the Earth is the center of the universe!'");
+            context.ShowPicture(GREMLINWIZARD);
+            context.ShowText("An astrologer lectures her pupil.");
+            context.ShowText("'six planets are Venus, Earth, Mars, Luna, Jupiter, and Saturn.  I care not that thy calculations gain historical accuracy if thou dost assume nine planets circling the sun.");
+            context.ShowText("Wouldst thou regress the science of astrology back a millenium?  Count the six, and cease thy false beliefs that any do circle the sun, for the Earth is the center of the universe!'");
         }
         else {
-            macros.ShowPicture(GREMLINWIZARD);
-            macros.ShowText("An astrologer lectures her pupil.");
-            macros.ShowText("'I care not a fig if Caesar's death was predictable.  Professor Charlatanus is a staunch anti-Caesarian who made his career by showing the soothsayer's errors.");
-            macros.ShowText("This is academia!  New ideas lead to loss of grants and sinecures.  We are not here to research more accurate astrological methods.  We are here to receive our degrees and further the existing dogma....'");
+            context.ShowPicture(GREMLINWIZARD);
+            context.ShowText("An astrologer lectures her pupil.");
+            context.ShowText("'I care not a fig if Caesar's death was predictable.  Professor Charlatanus is a staunch anti-Caesarian who made his career by showing the soothsayer's errors.");
+            context.ShowText("This is academia!  New ideas lead to loss of grants and sinecures.  We are not here to research more accurate astrological methods.  We are here to receive our degrees and further the existing dogma....'");
         }
     }
 }
 
-fun MapEvent1E(macros) {
+fun MapEvent1E(context) {
     var i;
-    if (macros.GetFlag(PARTY, AE) == 0) {
-        i = macros.GetFlag(PARTY, CTR);
-        macros.SetFlag(PARTY, AE, 1);
+    if (context.GetFlag(PARTY, AE) == 0) {
+        i = context.GetFlag(PARTY, CTR);
+        context.SetFlag(PARTY, AE, 1);
         if (i < 7) {
-            macros.ShowPicture(GREMLINWIZARD);
-            macros.ShowText("Two astrologers converse.");
-            macros.ShowText("'Well, I foresee that thou shalt not be given consort an thou dost not return with two loaves of fresh bread and some stewing meat,' she says.");
-            macros.ShowText("'Well, I foresee that thou shalt spend the night under the loquat tree and thou dost treat me so rudely,' he rejoins.");
+            context.ShowPicture(GREMLINWIZARD);
+            context.ShowText("Two astrologers converse.");
+            context.ShowText("'Well, I foresee that thou shalt not be given consort an thou dost not return with two loaves of fresh bread and some stewing meat,' she says.");
+            context.ShowText("'Well, I foresee that thou shalt spend the night under the loquat tree and thou dost treat me so rudely,' he rejoins.");
         }
         else {
-            macros.ShowPicture(HUMANWIZARD);
-            macros.ShowText("Two astrologers converse.");
-            macros.ShowText("'Well, I foretell that thou wilt be eating thy own cooking, and no doubt dying young from it, an thou dost refuse to aid in our lavendry,' she shouts.");
-            macros.ShowText("'Balderdash!  I foresee that thou shalt starve in the streets an thou dost treat me so,' he replies.");
-            macros.ShowText("You know, it's amazing how accurate these astrological predictions can get these days.  The science has really taken off with the perfection of the abacus.");
+            context.ShowPicture(HUMANWIZARD);
+            context.ShowText("Two astrologers converse.");
+            context.ShowText("'Well, I foretell that thou wilt be eating thy own cooking, and no doubt dying young from it, an thou dost refuse to aid in our lavendry,' she shouts.");
+            context.ShowText("'Balderdash!  I foresee that thou shalt starve in the streets an thou dost treat me so,' he replies.");
+            context.ShowText("You know, it's amazing how accurate these astrological predictions can get these days.  The science has really taken off with the perfection of the abacus.");
         }
     }
 }
 
-fun MapEvent1F(macros) {
+fun MapEvent1F(context) {
     var i;
-    if (macros.GetFlag(PARTY, AF) == 0) {
-        i = macros.GetFlag(PARTY, CTR);
-        macros.SetFlag(PARTY, AF, 1);
+    if (context.GetFlag(PARTY, AF) == 0) {
+        i = context.GetFlag(PARTY, CTR);
+        context.SetFlag(PARTY, AF, 1);
         if (i < 8) {
-            macros.ShowPicture(DWARFWIZARD);
-            macros.ShowText("Two astrologers are laughing as they walk past.");
-            macros.ShowText("'...his star charts?'");
-            macros.ShowText("'Aye!  I put Jupiter in Libra, and Mars in Capricorn, and the fool drew up a chart for old Stowlugs Elliot predicting a good night for reiving.  ");
-            macros.ShowText("The Elliots were overtaken and outnumbered by a hot trod, and barely one in ten escaped.  So Stowlugs is seeking....'");
+            context.ShowPicture(DWARFWIZARD);
+            context.ShowText("Two astrologers are laughing as they walk past.");
+            context.ShowText("'...his star charts?'");
+            context.ShowText("'Aye!  I put Jupiter in Libra, and Mars in Capricorn, and the fool drew up a chart for old Stowlugs Elliot predicting a good night for reiving.  ");
+            context.ShowText("The Elliots were overtaken and outnumbered by a hot trod, and barely one in ten escaped.  So Stowlugs is seeking....'");
         }
         else {
-            macros.ShowPicture(ELFCLERIC);
-            macros.ShowText("An astrologer is being carried off.");
-            macros.ShowText("'...you must see, Master Elliot, that it was a good night for reiving metaphysically, a sign from above that thou should cease reiving.'");
-            macros.ShowText("'I can agree with all that thou dost say, but on behalf of my captured kinsmen I am about to give thee thine own sign from above, and it will be far more physical than meta.'  Stowlugs pats his sword.");
-            macros.ShowText("Gee!  Astrology is a cutthroat business?");
+            context.ShowPicture(ELFCLERIC);
+            context.ShowText("An astrologer is being carried off.");
+            context.ShowText("'...you must see, Master Elliot, that it was a good night for reiving metaphysically, a sign from above that thou should cease reiving.'");
+            context.ShowText("'I can agree with all that thou dost say, but on behalf of my captured kinsmen I am about to give thee thine own sign from above, and it will be far more physical than meta.'  Stowlugs pats his sword.");
+            context.ShowText("Gee!  Astrology is a cutthroat business?");
         }
     }
 }
 
-fun MapEvent20(macros) {
+fun MapEvent20(context) {
     var i;
-    if (macros.GetFlag(PARTY, AG) == 0) {
-        i = macros.GetFlag(PARTY, CTR);
-        macros.SetFlag(PARTY, AG, 1);
+    if (context.GetFlag(PARTY, AG) == 0) {
+        i = context.GetFlag(PARTY, CTR);
+        context.SetFlag(PARTY, AG, 1);
         if (i < 7) {
-            macros.ShowPicture(ELFCLERIC);
-            macros.ShowText("An astrologer is talking to his owl familiar as they walk past.");
-            macros.ShowText("'...a great rocket I shall launch thee into the Celestium, wherein you shall be able to see and record the most accurate star charts yet made.");
-            macros.ShowText("Thy nephew Owlbert is purely mistaken.  The air is thin, but every fool knows that thou wilt be sustained by the music of the spheres.  Think of the adventure!");
+            context.ShowPicture(ELFCLERIC);
+            context.ShowText("An astrologer is talking to his owl familiar as they walk past.");
+            context.ShowText("'...a great rocket I shall launch thee into the Celestium, wherein you shall be able to see and record the most accurate star charts yet made.");
+            context.ShowText("Thy nephew Owlbert is purely mistaken.  The air is thin, but every fool knows that thou wilt be sustained by the music of the spheres.  Think of the adventure!");
         }
         else {
-            macros.ShowPicture(ELFCLERIC);
-            macros.ShowText("An astrologer is talking to his slightly singed owl familiar as they walk past.");
-            macros.ShowText("'...sometimes rockets explode.  It was thine own fault for not flapping thy wings and aiding the rocket's flight.");
-            macros.ShowText("Thy tailfeathers will grow back!  Cease thy prattling!  Of course thou must flap.  Every fool knows that if you run backwards on a boat, then the boat moves forward faster.  So thou must fly downwards with....'");
+            context.ShowPicture(ELFCLERIC);
+            context.ShowText("An astrologer is talking to his slightly singed owl familiar as they walk past.");
+            context.ShowText("'...sometimes rockets explode.  It was thine own fault for not flapping thy wings and aiding the rocket's flight.");
+            context.ShowText("Thy tailfeathers will grow back!  Cease thy prattling!  Of course thou must flap.  Every fool knows that if you run backwards on a boat, then the boat moves forward faster.  So thou must fly downwards with....'");
         }
     }
 }

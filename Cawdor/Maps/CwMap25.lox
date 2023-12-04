@@ -15,506 +15,506 @@
 #define SAWCALTROPS 11
 #define FINISHEDROOM 12
 
-fun MapEvent01(macros) {
+fun MapEvent01(context) {
     var i;
-    i = macros.GetFlag(DUNGEON, JOURNALMESSAGES);
+    i = context.GetFlag(DUNGEON, JOURNALMESSAGES);
     i++;
-    if (macros.GetFlag(PARTY, SAWBOOKMSG) == 0) {
-        macros.SetFlag(PARTY, SAWBOOKMSG, 1);
-        macros.ShowText("You find a leather-bound journal on the desk.  It seems the Wyrd Sisters could use their powers to travel forward and backward in time, committing atrocities untold throughout the ages.");
+    if (context.GetFlag(PARTY, SAWBOOKMSG) == 0) {
+        context.SetFlag(PARTY, SAWBOOKMSG, 1);
+        context.ShowText("You find a leather-bound journal on the desk.  It seems the Wyrd Sisters could use their powers to travel forward and backward in time, committing atrocities untold throughout the ages.");
     }
-    if (macros.UsedSkill(DETECT_SKILL) >= 1 || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.UsedItem(IVARSHELM, IVARSHELM) || macros.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || macros.UsedItem(ALCUINSRING, ALCUINSRING) || macros.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || macros.UsedItem(CRYSTALBALL, CRYSTALBALL) || macros.FlagOn(ROOM, DETECTED_DOOR)) {
-        macros.SetFlag(DUNGEON, JOURNALMESSAGES, i);
-        macros.SetFlag(ROOM, DETECTED_DOOR, 0);
+    if (context.UsedSkill(DETECT_SKILL) >= 1 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.UsedItem(CRYSTALBALL, CRYSTALBALL) || context.FlagOn(ROOM, DETECTED_DOOR)) {
+        context.SetFlag(DUNGEON, JOURNALMESSAGES, i);
+        context.SetFlag(ROOM, DETECTED_DOOR, 0);
         switch (i) {
             case 1:
-                macros.ShowText("You're not exactly sure what it means, but in another 700 years Cassandra will be responsible for cancelling 'Star Trek.'");
+                context.ShowText("You're not exactly sure what it means, but in another 700 years Cassandra will be responsible for cancelling 'Star Trek.'");
                 break;
             case 2:
-                macros.ShowText("You have no idea why Galatea is proud of having broken up the Beetles.  You've stomped on many an insect without feeling any special pride.");
+                context.ShowText("You have no idea why Galatea is proud of having broken up the Beetles.  You've stomped on many an insect without feeling any special pride.");
                 break;
             case 3:
-                macros.ShowText("This page is written in a language you do not recognise.");
+                context.ShowText("This page is written in a language you do not recognise.");
                 break;
             case 4:
-                macros.ShowText("Cassandra was the one that gave Nero a box of safety matches without telling him to close the cover before striking.");
+                context.ShowText("Cassandra was the one that gave Nero a box of safety matches without telling him to close the cover before striking.");
                 break;
             case 5:
-                macros.ShowText("Deirdre invented pay privies.  Curse her black heart!");
+                context.ShowText("Deirdre invented pay privies.  Curse her black heart!");
                 break;
             case 6:
-                macros.ShowText("Again you are unclear about what this means, but Deirdre seems responsible for 'Ishtar,' 'Hudson Hawk,' and several Police Academy sequels.");
+                context.ShowText("Again you are unclear about what this means, but Deirdre seems responsible for 'Ishtar,' 'Hudson Hawk,' and several Police Academy sequels.");
                 break;
             case 7:
-                macros.ShowText("Cassandra mentions Tiny Tim.");
+                context.ShowText("Cassandra mentions Tiny Tim.");
                 break;
             case 8:
-                macros.ShowText("Galatea takes great pride in the divide error on the Pentium chip.");
+                context.ShowText("Galatea takes great pride in the divide error on the Pentium chip.");
                 break;
             case 9:
-                macros.ShowText("This page is written in a language you do not recognise.");
+                context.ShowText("This page is written in a language you do not recognise.");
                 break;
             case 10:
-                macros.ShowText("Deirdre was responsible for the complete disappearance of 'Leisure Suit Larry Four.'");
+                context.ShowText("Deirdre was responsible for the complete disappearance of 'Leisure Suit Larry Four.'");
                 break;
             case 11:
-                macros.ShowText("They mutated the giant rat of Sumatra.");
+                context.ShowText("They mutated the giant rat of Sumatra.");
                 break;
             case 12:
-                macros.ShowText("Cassandra invented the designated hitter and astroturf.  Whatever they are.");
+                context.ShowText("Cassandra invented the designated hitter and astroturf.  Whatever they are.");
                 break;
             case 13:
-                macros.ShowText("Deirdre invented the English method of measuring distance.  Cassandra did metric.");
+                context.ShowText("Deirdre invented the English method of measuring distance.  Cassandra did metric.");
                 break;
             case 14:
-                macros.ShowText("Galatea invented Roman numerals.");
+                context.ShowText("Galatea invented Roman numerals.");
                 break;
             case 15:
-                macros.ShowText("Galatea invented light beer.  You are surprised she mentions that; nearly everyone you know likes Pilsner.");
+                context.ShowText("Galatea invented light beer.  You are surprised she mentions that; nearly everyone you know likes Pilsner.");
                 break;
             case 17:
-                macros.ShowText("None of the witches invented spam, but they would love the autograph of whoever did.");
+                context.ShowText("None of the witches invented spam, but they would love the autograph of whoever did.");
                 break;
             case 18:
-                macros.ShowText("Cassandra is responsible for the new luggage system at Denver Airport.");
+                context.ShowText("Cassandra is responsible for the new luggage system at Denver Airport.");
                 break;
             case 19:
-                macros.ShowText("Deirdre created cold fusion and the comet Kahoutek.");
+                context.ShowText("Deirdre created cold fusion and the comet Kahoutek.");
                 break;
             case 21:
-                macros.ShowText("You have no idea what a telescope is, let alone a Hubbell Space Telescope, but Cassandra could not hold her pen steady from the laughing when she recorded it.");
+                context.ShowText("You have no idea what a telescope is, let alone a Hubbell Space Telescope, but Cassandra could not hold her pen steady from the laughing when she recorded it.");
                 break;
             case 22:
-                macros.ShowText("Galatea will someday convince the great lady Rose Anne that she can sing.");
+                context.ShowText("Galatea will someday convince the great lady Rose Anne that she can sing.");
                 break;
             case 24:
-                macros.ShowText("It took the collaborative efforts of all three witches combined to invent airplane food.");
+                context.ShowText("It took the collaborative efforts of all three witches combined to invent airplane food.");
                 break;
             case 25:
-                macros.ShowText("Cassandra invents homework.  Galatea invents housework.  Deirdre invents busywork.");
+                context.ShowText("Cassandra invents homework.  Galatea invents housework.  Deirdre invents busywork.");
                 break;
             case 27:
-                macros.ShowText("Deirdre invented disco.  Galatea helped.");
+                context.ShowText("Deirdre invented disco.  Galatea helped.");
                 break;
             case 29:
-                macros.ShowText("Galatea was responsible for the great cricket strike of 1994-1995.");
+                context.ShowText("Galatea was responsible for the great cricket strike of 1994-1995.");
                 break;
             case 30:
-                macros.ShowText("Cassandra invented reverse Polish notation.");
+                context.ShowText("Cassandra invented reverse Polish notation.");
                 break;
             case 31:
-                macros.ShowText("Deirdre convinced one Michael, from Jordan, that he was a cricket player.");
+                context.ShowText("Deirdre convinced one Michael, from Jordan, that he was a cricket player.");
                 break;
             case 33:
-                macros.ShowText("Galatea invented betamax, quadrophonic, and eight track tapes.");
+                context.ShowText("Galatea invented betamax, quadrophonic, and eight track tapes.");
                 break;
             case 34:
-                macros.ShowText("This writing is obscure, but it seems that Deirdre will harm the monarch Martin Mac sorely by altering his staff during the final round of a tourney to win the Holy Grail.");
+                context.ShowText("This writing is obscure, but it seems that Deirdre will harm the monarch Martin Mac sorely by altering his staff during the final round of a tourney to win the Holy Grail.");
                 break;
             case 36:
-                macros.ShowText("It seems to have been Cassandra's control spell that convinced a Mr. Lincoln to go to the Ford Theatre.");
+                context.ShowText("It seems to have been Cassandra's control spell that convinced a Mr. Lincoln to go to the Ford Theatre.");
                 break;
             case 47:
-                macros.ShowText("All three working together in huge collaborative effort make a major start on inventing advertising, but they must leave it to future villains to perfect it.");
+                context.ShowText("All three working together in huge collaborative effort make a major start on inventing advertising, but they must leave it to future villains to perfect it.");
                 break;
             case 60:
-                macros.ShowText("I'll do you a favor; this is the last non-blank page you will want to find here.");
+                context.ShowText("I'll do you a favor; this is the last non-blank page you will want to find here.");
                 break;
             case 126:
-                macros.ShowText("You feel a terminal case of boredom coming on.");
+                context.ShowText("You feel a terminal case of boredom coming on.");
                 break;
             case 127:
-                macros.Damage(macros.MaxHealth);
+                context.Damage(context.MaxHealth);
                 break;
             default: 
-                macros.ShowText("This page is blank.");
+                context.ShowText("This page is blank.");
                 break;
         }
     }
 }
 
-fun MapEvent02(macros) {
-    if (macros.UsedSkill(DETECT_SKILL) > 11 || macros.FlagOn(ROOM, DETECTED_DOOR)) {
-        macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
-        macros.SetFlag(ROOM, DETECTED_DOOR, 1);
-        if ((macros.GetSkill(LOCKPICK_SKILL) > 11) && (macros.UsedItem(ADAMANTINELOCKPICK, ADAMANTINELOCKPICK))) {
-            macros.ShowText("You have unlocked the hidden door!");
-            macros.ClearWall(macros.Here, macros.Facing);
+fun MapEvent02(context) {
+    if (context.UsedSkill(DETECT_SKILL) > 11 || context.FlagOn(ROOM, DETECTED_DOOR)) {
+        context.PlaceWallItem(DOOR, context.Here, context.Facing);
+        context.SetFlag(ROOM, DETECTED_DOOR, 1);
+        if ((context.GetSkill(LOCKPICK_SKILL) > 11) && (context.UsedItem(ADAMANTINELOCKPICK, ADAMANTINELOCKPICK))) {
+            context.ShowText("You have unlocked the hidden door!");
+            context.ClearWall(context.Here, context.Facing);
         }
         else {
-            macros.BlockWall(macros.Here, macros.Facing);
-            if ((macros.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (macros.UsedItem(SILVERLOCKPICK, COLDSTEELLOCKPICK))) {
-                macros.TakeItem(WOODENLOCKPICK);
-                macros.TakeItem(BRASSLOCKPICK);
-                macros.TakeItem(IRONLOCKPICK);
-                macros.TakeItem(SILVERLOCKPICK);
-                macros.TakeItem(STEELLOCKPICK);
-                macros.TakeItem(COLDSTEELLOCKPICK);
-                macros.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
+            context.BlockWall(context.Here, context.Facing);
+            if ((context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, COLDSTEELLOCKPICK))) {
+                context.TakeItem(WOODENLOCKPICK);
+                context.TakeItem(BRASSLOCKPICK);
+                context.TakeItem(IRONLOCKPICK);
+                context.TakeItem(SILVERLOCKPICK);
+                context.TakeItem(STEELLOCKPICK);
+                context.TakeItem(COLDSTEELLOCKPICK);
+                context.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
             }
             else {
-                macros.BlockWall(macros.Here, macros.Facing);
-                macros.ShowText("You detect a hidden door, but it is locked.");
+                context.BlockWall(context.Here, context.Facing);
+                context.ShowText("You detect a hidden door, but it is locked.");
             }
         }
     }
     else {
-        macros.BlockWall(macros.Here, macros.Facing);
+        context.BlockWall(context.Here, context.Facing);
     }
 }
 
-fun MapEvent03(macros) {
-    if (((macros.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (macros.HasItem(SILVERLOCKPICK) || macros.HasItem(STEELLOCKPICK) || macros.HasItem(COLDSTEELLOCKPICK) || macros.HasItem(ADAMANTINELOCKPICK))) || ((macros.GetSkill(LOCKPICK_SKILL) >= 9) && ((macros.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (macros.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK))) || (macros.UsedItem(SKELETONKEYRING, SKELETONKEYRING)))) {
-        macros.ShowText("That was a stiff lock, but you finally got it open.");
-        macros.ClearWall(macros.Here, macros.Facing);
+fun MapEvent03(context) {
+    if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkill(LOCKPICK_SKILL) >= 9) && ((context.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING)))) {
+        context.ShowText("That was a stiff lock, but you finally got it open.");
+        context.ClearWall(context.Here, context.Facing);
     }
     else {
-        macros.BlockWall(macros.Here, macros.Facing);
-        if (macros.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) {
-            macros.TakeItem(WOODENLOCKPICK);
-            macros.TakeItem(BRASSLOCKPICK);
-            macros.TakeItem(IRONLOCKPICK);
-            macros.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
+        context.BlockWall(context.Here, context.Facing);
+        if (context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) {
+            context.TakeItem(WOODENLOCKPICK);
+            context.TakeItem(BRASSLOCKPICK);
+            context.TakeItem(IRONLOCKPICK);
+            context.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
         }
         else {
-            macros.BlockWall(macros.Here, macros.Facing);
-            macros.ShowText("Funny how an irksome little lock on a flimsy little door can keep out a big strong person like you.");
+            context.BlockWall(context.Here, context.Facing);
+            context.ShowText("Funny how an irksome little lock on a flimsy little door can keep out a big strong person like you.");
         }
     }
 }
 
-fun MapEvent04(macros) {
-    if (macros.UsedSkill(READ_TRACKS_SKILL) > 11) {
-        macros.ShowText("Cautious is as cautious does.  Or, to put it another way, you know what lies ahead of you; better not to walk right into it.");
-        macros.SetFlag(PARTY, TRACKING, 1);
+fun MapEvent04(context) {
+    if (context.UsedSkill(READ_TRACKS_SKILL) > 11) {
+        context.ShowText("Cautious is as cautious does.  Or, to put it another way, you know what lies ahead of you; better not to walk right into it.");
+        context.SetFlag(PARTY, TRACKING, 1);
     }
 }
 
-fun MapEvent05(macros) {
-    macros.ShowText("This door leads to stairs going up.  There's a trap door at the top of the stairs, with a hint of light outlining its seams.");
-    macros.Teleport(1, 1, 231, SOUTH);
+fun MapEvent05(context) {
+    context.ShowText("This door leads to stairs going up.  There's a trap door at the top of the stairs, with a hint of light outlining its seams.");
+    context.Teleport(1, 1, 231, SOUTH);
 }
 
-fun MapEvent09(macros) {
-    if (macros.GetFlag(DUNGEON, WONGAME) == 0) {
-        macros.SetFlag(DUNGEON, WONGAME, 1);
-        macros.ShowPicture(LADYMACBETH);
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.Heal(macros.MaxHealth);
-        macros.ModMana(10000);
-        macros.ModExp(10000000);
-        macros.ModGold(1000000);
-        macros.ShowText("A shimmering spell brings Galatea's image before you.");
-        macros.ShowText("'My glorious hero!  I am at last dead, and thou hast all my best wishes and benifences.");
-        macros.ShowText("The residue of evil still resides here.  A few of the more powerful creatures may still return from whence they skulked, nursing their wounds, and thou mayest choose to seek them out lest they serve as hazards to others.");
-        macros.ShowText("My final spell shall inscribe thy name for all time amongst the greatest heroes of our ages.  A thousand thanks, do not suffice for my gratitude!");
-        macros.ShowText("An thou so choosest, thou wilt find many doors open to thee that hitherto kept thee out.  But whether thou dost tarry here or not, thou shalt always know that thou wert mine own hero and Savior.'");
+fun MapEvent09(context) {
+    if (context.GetFlag(DUNGEON, WONGAME) == 0) {
+        context.SetFlag(DUNGEON, WONGAME, 1);
+        context.ShowPicture(LADYMACBETH);
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.Heal(context.MaxHealth);
+        context.ModMana(10000);
+        context.ModExp(10000000);
+        context.ModGold(1000000);
+        context.ShowText("A shimmering spell brings Galatea's image before you.");
+        context.ShowText("'My glorious hero!  I am at last dead, and thou hast all my best wishes and benifences.");
+        context.ShowText("The residue of evil still resides here.  A few of the more powerful creatures may still return from whence they skulked, nursing their wounds, and thou mayest choose to seek them out lest they serve as hazards to others.");
+        context.ShowText("My final spell shall inscribe thy name for all time amongst the greatest heroes of our ages.  A thousand thanks, do not suffice for my gratitude!");
+        context.ShowText("An thou so choosest, thou wilt find many doors open to thee that hitherto kept thee out.  But whether thou dost tarry here or not, thou shalt always know that thou wert mine own hero and Savior.'");
     }
     else {
-        if (macros.GetFlag(PARTY, FINISHEDROOM) == 0) {
-            macros.SetFlag(PARTY, FINISHEDROOM, 1);
-            macros.ShowPicture(LADYMACBETH);
-            macros.ShowText("*");
-            macros.ShowText("*");
-            macros.ShowText("*");
-            macros.Heal(macros.MaxHealth);
-            macros.ModMana(10000);
-            macros.ShowText("The spell again brings Galatea's image before you.");
-            macros.ShowText("'My glorious hero!  I am at last dead, and thou hast all my best wishes and benifences.");
-            macros.ShowText("Some evil still resides here.  Creatures may still return from whence they skulked, nursing their wounds and their grudges, and thou mayest choose to seek them out lest they serve as hazards to others.");
-            macros.ShowText("An thou so choosest, thou wilt find many doors open to thee that hitherto kept thee out.  But whether thou dost tarry here or not, thou shalt always know that thou wert mine own hero and Savior.'");
+        if (context.GetFlag(PARTY, FINISHEDROOM) == 0) {
+            context.SetFlag(PARTY, FINISHEDROOM, 1);
+            context.ShowPicture(LADYMACBETH);
+            context.ShowText("*");
+            context.ShowText("*");
+            context.ShowText("*");
+            context.Heal(context.MaxHealth);
+            context.ModMana(10000);
+            context.ShowText("The spell again brings Galatea's image before you.");
+            context.ShowText("'My glorious hero!  I am at last dead, and thou hast all my best wishes and benifences.");
+            context.ShowText("Some evil still resides here.  Creatures may still return from whence they skulked, nursing their wounds and their grudges, and thou mayest choose to seek them out lest they serve as hazards to others.");
+            context.ShowText("An thou so choosest, thou wilt find many doors open to thee that hitherto kept thee out.  But whether thou dost tarry here or not, thou shalt always know that thou wert mine own hero and Savior.'");
         }
         else {
-            macros.ShowText("You feel refreshed, as if somehow Galatea's sacrifice has sanctified this room.  The room remains empty save for the desk along the north wall.");
-            macros.Heal(macros.MaxHealth);
-            macros.ModMana(10000);
+            context.ShowText("You feel refreshed, as if somehow Galatea's sacrifice has sanctified this room.  The room remains empty save for the desk along the north wall.");
+            context.Heal(context.MaxHealth);
+            context.ModMana(10000);
         }
     }
-    if (macros.GetFlag(DUNGEON, WINNER) == 0) {
-        macros.SetFlag(DUNGEON, WINNER, 1);
+    if (context.GetFlag(DUNGEON, WINNER) == 0) {
+        context.SetFlag(DUNGEON, WINNER, 1);
     }
 }
 
-fun MapEvent0A(macros) {
-    if (macros.GetFlag(PARTY, WAR2) == 0) {
-        macros.SetFlag(PARTY, WAR2, 1);
-        macros.GetMonster(1, 32);
-        macros.GetMonster(2, 33);
-        macros.GetMonster(3, 34);
+fun MapEvent0A(context) {
+    if (context.GetFlag(PARTY, WAR2) == 0) {
+        context.SetFlag(PARTY, WAR2, 1);
+        context.GetMonster(1, 32);
+        context.GetMonster(2, 33);
+        context.GetMonster(3, 34);
     }
     else {
-        macros.ShowText("Not only did the Wyrd Sisters live messy, but they died messy, too!");
+        context.ShowText("Not only did the Wyrd Sisters live messy, but they died messy, too!");
     }
 }
 
-fun MapEvent0B(macros) {
-    if (macros.GetFlag(PARTY, WAR2) == 0) {
-        macros.SetFlag(PARTY, WAR2, 1);
-        macros.GetMonster(1, 35);
-        macros.GetMonster(2, 36);
-        macros.GetMonster(3, 37);
+fun MapEvent0B(context) {
+    if (context.GetFlag(PARTY, WAR2) == 0) {
+        context.SetFlag(PARTY, WAR2, 1);
+        context.GetMonster(1, 35);
+        context.GetMonster(2, 36);
+        context.GetMonster(3, 37);
     }
     else {
-        macros.ShowText("If you've seen one witch's lair, you've seen them all.  Well, actually not.  Some witches live in very nice lairs, with well-shrubbed gardens.");
+        context.ShowText("If you've seen one witch's lair, you've seen them all.  Well, actually not.  Some witches live in very nice lairs, with well-shrubbed gardens.");
     }
 }
 
-fun MapEvent0C(macros) {
-    if (macros.GetFlag(PARTY, WAR2) == 0) {
-        macros.SetFlag(PARTY, WAR2, 1);
-        macros.GetMonster(1, 38);
-        macros.GetMonster(2, 39);
-        macros.GetMonster(3, 40);
+fun MapEvent0C(context) {
+    if (context.GetFlag(PARTY, WAR2) == 0) {
+        context.SetFlag(PARTY, WAR2, 1);
+        context.GetMonster(1, 38);
+        context.GetMonster(2, 39);
+        context.GetMonster(3, 40);
     }
     else {
-        macros.ShowText("The Wyrd Sisters had the second largest collection of human skulls you've ever seen.");
+        context.ShowText("The Wyrd Sisters had the second largest collection of human skulls you've ever seen.");
     }
 }
 
-fun MapEvent0D(macros) {
-    if (macros.GetFlag(PARTY, WAR2) == 0) {
-        macros.SetFlag(PARTY, WAR2, 1);
-        macros.GetMonster(1, 32);
-        macros.GetMonster(2, 33);
-        macros.GetMonster(3, 34);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(5, 24);
+fun MapEvent0D(context) {
+    if (context.GetFlag(PARTY, WAR2) == 0) {
+        context.SetFlag(PARTY, WAR2, 1);
+        context.GetMonster(1, 32);
+        context.GetMonster(2, 33);
+        context.GetMonster(3, 34);
+        if (context.PartyCount > 2) {
+            context.GetMonster(5, 24);
         }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(6, 28);
-            macros.GetMonster(4, 28);
-        }
-    }
-    else {
-        macros.ShowText("Judging by the labels on the boxes, the Wyrd Sisters also had a thriving business counterfeiting pieces of the True Cross.");
-    }
-}
-
-fun MapEvent0E(macros) {
-    if (macros.GetFlag(PARTY, WAR2) == 0) {
-        macros.SetFlag(PARTY, WAR2, 1);
-        macros.GetMonster(1, 35);
-        macros.GetMonster(2, 36);
-        macros.GetMonster(3, 37);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(5, 31);
-        }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(6, 31);
-            macros.GetMonster(4, 31);
+        if (context.PartyCount > 3) {
+            context.GetMonster(6, 28);
+            context.GetMonster(4, 28);
         }
     }
     else {
-        macros.ShowText("For some strange reason, the Wyrd Sisters have many boxes full of merchandise from a Beatles Reunion Tour.");
+        context.ShowText("Judging by the labels on the boxes, the Wyrd Sisters also had a thriving business counterfeiting pieces of the True Cross.");
     }
 }
 
-fun MapEvent0F(macros) {
-    if (macros.GetFlag(PARTY, WAR2) == 0) {
-        macros.SetFlag(PARTY, WAR2, 1);
-        macros.GetMonster(1, 38);
-        macros.GetMonster(2, 39);
-        macros.GetMonster(3, 40);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(5, 27);
-            macros.GetMonster(6, 27);
+fun MapEvent0E(context) {
+    if (context.GetFlag(PARTY, WAR2) == 0) {
+        context.SetFlag(PARTY, WAR2, 1);
+        context.GetMonster(1, 35);
+        context.GetMonster(2, 36);
+        context.GetMonster(3, 37);
+        if (context.PartyCount > 2) {
+            context.GetMonster(5, 31);
         }
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(4, 27);
+        if (context.PartyCount > 3) {
+            context.GetMonster(6, 31);
+            context.GetMonster(4, 31);
         }
     }
     else {
-        macros.ShowText("Gosh!  The Wyrd Sisters were Avon Ladies!  That must be how Shakespeare knew about them, Stratford and all.");
+        context.ShowText("For some strange reason, the Wyrd Sisters have many boxes full of merchandise from a Beatles Reunion Tour.");
     }
 }
 
-fun MapEvent10(macros) {
-    macros.SetFlag(PARTY, TRACKING, 0);
-    if (macros.GetFlag(PARTY, WAR1) == 0) {
-        macros.ShowText("They were waiting for you!");
-        macros.Damage(macros.MaxHealth / 3);
-        macros.ModMana(-600);
-        macros.SetFlag(PARTY, WAR1, 1);
-        macros.ShowText("There really are quite a lot of them!");
-        macros.GetMonster(1, 30);
-        macros.GetMonster(5, 27);
-        if (macros.PartyCount > 1) {
-            macros.GetMonster(2, 30);
+fun MapEvent0F(context) {
+    if (context.GetFlag(PARTY, WAR2) == 0) {
+        context.SetFlag(PARTY, WAR2, 1);
+        context.GetMonster(1, 38);
+        context.GetMonster(2, 39);
+        context.GetMonster(3, 40);
+        if (context.PartyCount > 1) {
+            context.GetMonster(5, 27);
+            context.GetMonster(6, 27);
         }
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(6, 27);
-        }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(3, 30);
-            macros.GetMonster(4, 27);
+        if (context.PartyCount > 2) {
+            context.GetMonster(4, 27);
         }
     }
     else {
-        macros.ShowText("All that remains of your combat here is a small pool of burnt oil and some grungy spare parts.");
+        context.ShowText("Gosh!  The Wyrd Sisters were Avon Ladies!  That must be how Shakespeare knew about them, Stratford and all.");
     }
 }
 
-fun MapEvent11(macros) {
-    macros.SetFlag(PARTY, TRACKING, 0);
-    if (macros.GetFlag(PARTY, WAR1) == 0) {
-        macros.SetFlag(PARTY, WAR1, 1);
-        macros.GetMonster(1, 30);
-        macros.GetMonster(5, 27);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(2, 30);
-            macros.GetMonster(6, 28);
+fun MapEvent10(context) {
+    context.SetFlag(PARTY, TRACKING, 0);
+    if (context.GetFlag(PARTY, WAR1) == 0) {
+        context.ShowText("They were waiting for you!");
+        context.Damage(context.MaxHealth / 3);
+        context.ModMana(-600);
+        context.SetFlag(PARTY, WAR1, 1);
+        context.ShowText("There really are quite a lot of them!");
+        context.GetMonster(1, 30);
+        context.GetMonster(5, 27);
+        if (context.PartyCount > 1) {
+            context.GetMonster(2, 30);
         }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(3, 30);
-            macros.GetMonster(4, 28);
+        if (context.PartyCount > 2) {
+            context.GetMonster(6, 27);
+        }
+        if (context.PartyCount > 3) {
+            context.GetMonster(3, 30);
+            context.GetMonster(4, 27);
         }
     }
     else {
-        macros.ShowText("All that remains of your combat here is a small pool of burnt oil and some grungy spare parts.");
+        context.ShowText("All that remains of your combat here is a small pool of burnt oil and some grungy spare parts.");
     }
 }
 
-fun MapEvent12(macros) {
-    macros.ShowText("You take four deep slow quiet breaths to prepare, and then charge!");
-    if (macros.GetFlag(PARTY, TRACKING) == 0) {
-        if (macros.GetFlag(PARTY, SAWCALTROPS) == 0) {
-            macros.ShowText("Unfortunately, you are charging down a hallway liberally littered with caltrops!");
-            macros.Damage(macros.MaxHealth / 2);
-            macros.ModMana(-2000);
-            macros.SetFlag(PARTY, SAWCALTROPS, 1);
+fun MapEvent11(context) {
+    context.SetFlag(PARTY, TRACKING, 0);
+    if (context.GetFlag(PARTY, WAR1) == 0) {
+        context.SetFlag(PARTY, WAR1, 1);
+        context.GetMonster(1, 30);
+        context.GetMonster(5, 27);
+        if (context.PartyCount > 2) {
+            context.GetMonster(2, 30);
+            context.GetMonster(6, 28);
         }
-        if (macros.HasItem(HEALINGLOCKET)) {
-            macros.Teleport(10, 3, 4, WEST);
+        if (context.PartyCount > 3) {
+            context.GetMonster(3, 30);
+            context.GetMonster(4, 28);
+        }
+    }
+    else {
+        context.ShowText("All that remains of your combat here is a small pool of burnt oil and some grungy spare parts.");
+    }
+}
+
+fun MapEvent12(context) {
+    context.ShowText("You take four deep slow quiet breaths to prepare, and then charge!");
+    if (context.GetFlag(PARTY, TRACKING) == 0) {
+        if (context.GetFlag(PARTY, SAWCALTROPS) == 0) {
+            context.ShowText("Unfortunately, you are charging down a hallway liberally littered with caltrops!");
+            context.Damage(context.MaxHealth / 2);
+            context.ModMana(-2000);
+            context.SetFlag(PARTY, SAWCALTROPS, 1);
+        }
+        if (context.HasItem(HEALINGLOCKET)) {
+            context.Teleport(10, 3, 4, WEST);
         }
         else {
-            if (macros.PartyLevel(60)) {
-                macros.Teleport(10, 3, 6, WEST);
+            if (context.PartyLevel(60)) {
+                context.Teleport(10, 3, 6, WEST);
             }
             else {
-                macros.Teleport(10, 3, 5, WEST);
+                context.Teleport(10, 3, 5, WEST);
             }
         }
     }
     else {
-        if (macros.HasItem(HEALINGLOCKET)) {
-            macros.Teleport(10, 3, 1, WEST);
+        if (context.HasItem(HEALINGLOCKET)) {
+            context.Teleport(10, 3, 1, WEST);
         }
         else {
-            if (macros.PartyLevel(80)) {
-                macros.Teleport(10, 3, 3, WEST);
+            if (context.PartyLevel(80)) {
+                context.Teleport(10, 3, 3, WEST);
             }
             else {
-                macros.Teleport(10, 3, 2, WEST);
+                context.Teleport(10, 3, 2, WEST);
             }
         }
     }
 }
 
-fun MapEvent13(macros) {
-    if (macros.GetFlag(PARTY, TRACKING) == 0) {
-        macros.Teleport(10, 3, 14, WEST);
+fun MapEvent13(context) {
+    if (context.GetFlag(PARTY, TRACKING) == 0) {
+        context.Teleport(10, 3, 14, WEST);
     }
     else {
-        macros.Teleport(10, 3, 13, WEST);
+        context.Teleport(10, 3, 13, WEST);
     }
 }
 
-fun MapEvent14(macros) {
-    macros.Teleport(10, 2, 255, EAST);
+fun MapEvent14(context) {
+    context.Teleport(10, 2, 255, EAST);
 }
 
-fun MapEvent15(macros) {
-    if ((macros.HasItem(ALCUINSCAP)) && (macros.HasItem(ALCUINSSTICKS)) && (macros.HasItem(ALCUINSRING))) {
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("An old, quavering voice whispers from thin air.");
-        macros.ShowText("'Well done, young questor.  Thou hast summoned me from afar to aid thee, as was foretold.  I lack the power to take thee very far, but every step I enable thee to bypass is a fiercesome monster avoided.'");
-        macros.ShowText("'Now may fortune favor thee.'");
-        macros.Teleport(10, 3, 112, NORTH);
+fun MapEvent15(context) {
+    if ((context.HasItem(ALCUINSCAP)) && (context.HasItem(ALCUINSSTICKS)) && (context.HasItem(ALCUINSRING))) {
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("An old, quavering voice whispers from thin air.");
+        context.ShowText("'Well done, young questor.  Thou hast summoned me from afar to aid thee, as was foretold.  I lack the power to take thee very far, but every step I enable thee to bypass is a fiercesome monster avoided.'");
+        context.ShowText("'Now may fortune favor thee.'");
+        context.Teleport(10, 3, 112, NORTH);
     }
     else {
-        macros.ClearWall(macros.Here, macros.Facing);
+        context.ClearWall(context.Here, context.Facing);
     }
 }
 
-fun MapEvent16(macros) {
-    if (((macros.HasItem(ALDHELMSSTAFF)) && (macros.HasItem(ALDHELMSGAUNTLETS)) && (macros.HasItem(ALDHELMSHARP)))) {
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("A beatific figure, old, wise, and happy, appears before you.");
-        macros.ShowText("'I am Aldhelm.  All this reappearing and miracle working and transporting really takes it out of a saint.  Thy need is for an angel, not a saint, but they are always so busy, guarding this, dancing on the heads of pins.");
-        macros.ShowText("Ah well.  What I can do, I do.  Bon chance, young friend.'");
-        macros.SetFlag(DUNGEON, ALDHELMBLESSING, 1);
-        macros.Teleport(10, 3, 12, WEST);
+fun MapEvent16(context) {
+    if (((context.HasItem(ALDHELMSSTAFF)) && (context.HasItem(ALDHELMSGAUNTLETS)) && (context.HasItem(ALDHELMSHARP)))) {
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("A beatific figure, old, wise, and happy, appears before you.");
+        context.ShowText("'I am Aldhelm.  All this reappearing and miracle working and transporting really takes it out of a saint.  Thy need is for an angel, not a saint, but they are always so busy, guarding this, dancing on the heads of pins.");
+        context.ShowText("Ah well.  What I can do, I do.  Bon chance, young friend.'");
+        context.SetFlag(DUNGEON, ALDHELMBLESSING, 1);
+        context.Teleport(10, 3, 12, WEST);
     }
     else {
-        if ((macros.HasItem(ALDHELMSSTAFF)) || (macros.HasItem(ALDHELMSGAUNTLETS)) || (macros.HasItem(ALDHELMSHARP))) {
-            macros.ShowText("A voice, thin and reedy, calls out to you as if from a great distance.");
-            macros.ShowText("'It takes all my power to speak to thee hear, as poorly equipped as thou art.  And yet I, Aldhelm, can give thee one bit of advice.");
-            macros.ShowText("There are portals, well hidden and well sealed, that will greatly speed thy passage north through the Crypt.  An thou canst make use of them, then thou wilt find thy life much easier.");
+        if ((context.HasItem(ALDHELMSSTAFF)) || (context.HasItem(ALDHELMSGAUNTLETS)) || (context.HasItem(ALDHELMSHARP))) {
+            context.ShowText("A voice, thin and reedy, calls out to you as if from a great distance.");
+            context.ShowText("'It takes all my power to speak to thee hear, as poorly equipped as thou art.  And yet I, Aldhelm, can give thee one bit of advice.");
+            context.ShowText("There are portals, well hidden and well sealed, that will greatly speed thy passage north through the Crypt.  An thou canst make use of them, then thou wilt find thy life much easier.");
         }
-        macros.ClearWall(macros.Here, macros.Facing);
+        context.ClearWall(context.Here, context.Facing);
     }
 }
 
-fun MapEvent17(macros) {
-    if ((macros.HasItem(ALFREDSHAT)) && (macros.HasItem(ALFREDSGLOVES)) && (macros.HasItem(ALFREDSROBES))) {
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("A resonant voice speaks to you from thin air.");
-        macros.ShowText("'I am Alfred, late the king of this land.  Thou hast shown courage in facing thy travails, and wisdom in gathering the items thou needst to summon me.");
-        macros.ShowText("Hear me!  The Serpentine Crypt is a death trap, pure and simple.  I will now let you bypass some, but only some, of its length.  Help given once may yet be given again there, but thou shouldst neither expect nor seek it.");
-        macros.ShowText("And I can advise thee in this small matter: Cassandra is the mightiest of the Wyrd Sisters.  Thou shouldst focus thy efforts on her first.  Good luck!'");
-        macros.Teleport(10, 3, 48, NORTH);
+fun MapEvent17(context) {
+    if ((context.HasItem(ALFREDSHAT)) && (context.HasItem(ALFREDSGLOVES)) && (context.HasItem(ALFREDSROBES))) {
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("A resonant voice speaks to you from thin air.");
+        context.ShowText("'I am Alfred, late the king of this land.  Thou hast shown courage in facing thy travails, and wisdom in gathering the items thou needst to summon me.");
+        context.ShowText("Hear me!  The Serpentine Crypt is a death trap, pure and simple.  I will now let you bypass some, but only some, of its length.  Help given once may yet be given again there, but thou shouldst neither expect nor seek it.");
+        context.ShowText("And I can advise thee in this small matter: Cassandra is the mightiest of the Wyrd Sisters.  Thou shouldst focus thy efforts on her first.  Good luck!'");
+        context.Teleport(10, 3, 48, NORTH);
     }
     else {
-        macros.ClearWall(macros.Here, macros.Facing);
+        context.ClearWall(context.Here, context.Facing);
     }
 }
 
-fun MapEvent18(macros) {
-    if (macros.GetFlag(PARTY, WAR3) == 0) {
-        macros.SetFlag(PARTY, WAR3, 1);
-        macros.ShowText("Hey!  You just got some free tickets to a giant's game.  And you get to be the ball!");
-        macros.GetMonster(1, 29);
-        macros.GetMonster(2, 29);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(3, 29);
-            macros.GetMonster(4, 29);
+fun MapEvent18(context) {
+    if (context.GetFlag(PARTY, WAR3) == 0) {
+        context.SetFlag(PARTY, WAR3, 1);
+        context.ShowText("Hey!  You just got some free tickets to a giant's game.  And you get to be the ball!");
+        context.GetMonster(1, 29);
+        context.GetMonster(2, 29);
+        if (context.PartyCount > 2) {
+            context.GetMonster(3, 29);
+            context.GetMonster(4, 29);
         }
-        if (macros.PartyCount > 3) {
-            macros.ShowText("And they even brought their own impires.");
-            macros.GetMonster(5, 28);
-            macros.GetMonster(6, 28);
-        }
-    }
-    else {
-        macros.ShowText("All that remains of your battle here is a broken club and some spilled beer.");
-    }
-}
-
-fun MapEvent19(macros) {
-    if (macros.GetFlag(PARTY, WAR4) == 0) {
-        macros.SetFlag(PARTY, WAR4, 1);
-        macros.ShowText("The good news is that the wraiths and vampires are arguing about who gets dibs on your corpse.  The bad news is that they are attacking while arguing!");
-        macros.GetMonster(1, 25);
-        macros.GetMonster(5, 26);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(2, 25);
-            macros.GetMonster(6, 26);
-        }
-        if (macros.PartyCount > 3) {
-            macros.ShowText("And they even brought their own impires.");
-            macros.GetMonster(3, 25);
-            macros.GetMonster(4, 26);
+        if (context.PartyCount > 3) {
+            context.ShowText("And they even brought their own impires.");
+            context.GetMonster(5, 28);
+            context.GetMonster(6, 28);
         }
     }
     else {
-        macros.ShowText("'The undead you fought here should have spent less time arguing and more time fighting,' you think to yourself.");
+        context.ShowText("All that remains of your battle here is a broken club and some spilled beer.");
+    }
+}
+
+fun MapEvent19(context) {
+    if (context.GetFlag(PARTY, WAR4) == 0) {
+        context.SetFlag(PARTY, WAR4, 1);
+        context.ShowText("The good news is that the wraiths and vampires are arguing about who gets dibs on your corpse.  The bad news is that they are attacking while arguing!");
+        context.GetMonster(1, 25);
+        context.GetMonster(5, 26);
+        if (context.PartyCount > 2) {
+            context.GetMonster(2, 25);
+            context.GetMonster(6, 26);
+        }
+        if (context.PartyCount > 3) {
+            context.ShowText("And they even brought their own impires.");
+            context.GetMonster(3, 25);
+            context.GetMonster(4, 26);
+        }
+    }
+    else {
+        context.ShowText("'The undead you fought here should have spent less time arguing and more time fighting,' you think to yourself.");
     }
 }

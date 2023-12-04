@@ -30,330 +30,330 @@
 #define GUARDFIGHT0501 26
 #define WAR18 27
 
-fun MapEvent02(macros) {
-    if ((macros.UsedSkill(DETECT_SKILL) >= 4) || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.UsedItem(CRYSTALBALL, CRYSTALBALL) || macros.UsedItem(ALCUINSRING, ALCUINSRING) || macros.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || macros.FlagOn(ROOM, DETECTED_DOOR)) {
-        macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
-        macros.SetFlag(ROOM, DETECTED_DOOR, 1);
-        if (((macros.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (macros.HasItem(WOODENLOCKPICK) || macros.HasItem(BRASSLOCKPICK) || macros.HasItem(IRONLOCKPICK) || macros.HasItem(SILVERLOCKPICK) || macros.HasItem(STEELLOCKPICK) || macros.HasItem(COLDSTEELLOCKPICK) || macros.HasItem(ADAMANTINELOCKPICK))) || ((macros.GetSkill(LOCKPICK_SKILL) >= 6) && ((macros.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (macros.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (macros.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
-            macros.ShowText("You have unlocked the hidden door!");
-            macros.ClearWall(macros.Here, macros.Facing);
-            macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
+fun MapEvent02(context) {
+    if ((context.UsedSkill(DETECT_SKILL) >= 4) || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(CRYSTALBALL, CRYSTALBALL) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.FlagOn(ROOM, DETECTED_DOOR)) {
+        context.PlaceWallItem(DOOR, context.Here, context.Facing);
+        context.SetFlag(ROOM, DETECTED_DOOR, 1);
+        if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(WOODENLOCKPICK) || context.HasItem(BRASSLOCKPICK) || context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkill(LOCKPICK_SKILL) >= 6) && ((context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+            context.ShowText("You have unlocked the hidden door!");
+            context.ClearWall(context.Here, context.Facing);
+            context.PlaceWallItem(DOOR, context.Here, context.Facing);
         }
         else {
-            macros.ShowText("You detect a hidden door, but it is locked.");
-            macros.BlockWall(macros.Here, macros.Facing);
+            context.ShowText("You detect a hidden door, but it is locked.");
+            context.BlockWall(context.Here, context.Facing);
         }
     }
     else {
-        macros.BlockWall(macros.Here, macros.Facing);
+        context.BlockWall(context.Here, context.Facing);
     }
 }
 
-fun MapEvent05(macros) {
-    macros.ShowText("This way to the Brewery.  And all you teamsters should remember: if you must drive, don't drink.  If you must drink, don't drive.");
-    macros.ShowText("Of course, in cyberspace there are no accidents.  Only fiendish designs.  And typos.");
-    macros.Teleport(4, 3, 10, SOUTH);
+fun MapEvent05(context) {
+    context.ShowText("This way to the Brewery.  And all you teamsters should remember: if you must drive, don't drink.  If you must drink, don't drive.");
+    context.ShowText("Of course, in cyberspace there are no accidents.  Only fiendish designs.  And typos.");
+    context.Teleport(4, 3, 10, SOUTH);
 }
 
-fun MapEvent06(macros) {
-    if (macros.GetFlag(PARTY, KILLEDWIZ) == 1) {
-        macros.ShowText("I guess you're gonna find out who slew the sorceror.");
-        macros.ShowText("Or, more likely, what.");
+fun MapEvent06(context) {
+    if (context.GetFlag(PARTY, KILLEDWIZ) == 1) {
+        context.ShowText("I guess you're gonna find out who slew the sorceror.");
+        context.ShowText("Or, more likely, what.");
     }
-    if ((macros.GetFlag(PARTY, KILLEDWIZ) == 1) || (macros.GetFlag(PARTY, WAR1) < 2)) {
-        macros.SetFlag(PARTY, KILLEDWIZ, 2);
-        macros.SetFlag(PARTY, KILLEDWIZ2, 2);
-        macros.Damage(macros.MaxHealth / 5);
-        if (macros.GetFlag(PARTY, WAR1) == 1) {
-            macros.SetFlag(PARTY, WAR1, 2);
+    if ((context.GetFlag(PARTY, KILLEDWIZ) == 1) || (context.GetFlag(PARTY, WAR1) < 2)) {
+        context.SetFlag(PARTY, KILLEDWIZ, 2);
+        context.SetFlag(PARTY, KILLEDWIZ2, 2);
+        context.Damage(context.MaxHealth / 5);
+        if (context.GetFlag(PARTY, WAR1) == 1) {
+            context.SetFlag(PARTY, WAR1, 2);
         }
         else {
-            macros.SetFlag(PARTY, WAR1, 1);
+            context.SetFlag(PARTY, WAR1, 1);
         }
-        if (macros.GetFlag(PARTY, WAR1) == 2) {
-            macros.ShowText("This looks ugly.  At least the survivors will be more experienced.");
+        if (context.GetFlag(PARTY, WAR1) == 2) {
+            context.ShowText("This looks ugly.  At least the survivors will be more experienced.");
         }
-        macros.SetBooty(EDWINSPEACEGIVER, HUNTINGBOW, IRONBOSSEDSHIELD, 0, 0, 288);
-        macros.GetMonster(1, 26);
-        macros.GetMonster(2, 27);
-        if (macros.GetFlag(PARTY, WAR1) == 2) {
-            macros.GetMonster(3, 32);
-            macros.GetMonster(4, 32);
-            macros.GetMonster(5, 28);
-            macros.GetMonster(6, 28);
+        context.SetBooty(EDWINSPEACEGIVER, HUNTINGBOW, IRONBOSSEDSHIELD, 0, 0, 288);
+        context.GetMonster(1, 26);
+        context.GetMonster(2, 27);
+        if (context.GetFlag(PARTY, WAR1) == 2) {
+            context.GetMonster(3, 32);
+            context.GetMonster(4, 32);
+            context.GetMonster(5, 28);
+            context.GetMonster(6, 28);
         }
         else {
-            if (macros.PartyCount > 2) {
-                macros.GetMonster(5, 26);
-                macros.GetMonster(6, 27);
+            if (context.PartyCount > 2) {
+                context.GetMonster(5, 26);
+                context.GetMonster(6, 27);
             }
         }
     }
 }
 
-fun MapEvent07(macros) {
-    if (macros.GetFlag(DUNGEON, BEENIN0501) == 0) {
-        macros.SetFlag(DUNGEON, BEENIN0501, 1);
-        macros.SetFlag(PARTY, KILLEDWIZ, 1);
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowPicture(GREMLINWIZARD);
-        macros.ShowText("'Hush!  I have little time; our enemies track me as I speak.");
-        macros.ShowText("The undying now own this room, and a vampiric king holds a great prize, even thou he himself is but a servant to the Macbeths.  He has protected himself with a maze of death.  An thou canst cast enough dissipate spells, thou mayst win clear to - to....'");
-        macros.ShowText("With a groan, the wizard slumps over, dead.");
+fun MapEvent07(context) {
+    if (context.GetFlag(DUNGEON, BEENIN0501) == 0) {
+        context.SetFlag(DUNGEON, BEENIN0501, 1);
+        context.SetFlag(PARTY, KILLEDWIZ, 1);
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowPicture(GREMLINWIZARD);
+        context.ShowText("'Hush!  I have little time; our enemies track me as I speak.");
+        context.ShowText("The undying now own this room, and a vampiric king holds a great prize, even thou he himself is but a servant to the Macbeths.  He has protected himself with a maze of death.  An thou canst cast enough dissipate spells, thou mayst win clear to - to....'");
+        context.ShowText("With a groan, the wizard slumps over, dead.");
     }
 }
 
-fun MapEvent08(macros) {
-    if (macros.GetFlag(PARTY, SAWSKELETONMSG) == 0) {
-        macros.SetFlag(PARTY, SAWSKELETONMSG, 1);
-        macros.ShowText("You see a huge pile of skeleton bones.  You shiver as you realize that not only are several skeletons advancing towards you, but that the remaining bones are reforming into more skeletons.  This is not a good place to be.");
+fun MapEvent08(context) {
+    if (context.GetFlag(PARTY, SAWSKELETONMSG) == 0) {
+        context.SetFlag(PARTY, SAWSKELETONMSG, 1);
+        context.ShowText("You see a huge pile of skeleton bones.  You shiver as you realize that not only are several skeletons advancing towards you, but that the remaining bones are reforming into more skeletons.  This is not a good place to be.");
     }
     else {
-        macros.ShowText("'Tis yet another pile of regenerating skeletons.");
+        context.ShowText("'Tis yet another pile of regenerating skeletons.");
     }
-    macros.SetBooty(0, 0, 0, 0, 0, 0);
-    macros.GetMonster(1, 19);
-    macros.GetMonster(2, 19);
-    if (macros.PartyCount > 3) {
-        macros.GetMonster(3, 27);
-        macros.GetMonster(4, 27);
+    context.SetBooty(0, 0, 0, 0, 0, 0);
+    context.GetMonster(1, 19);
+    context.GetMonster(2, 19);
+    if (context.PartyCount > 3) {
+        context.GetMonster(3, 27);
+        context.GetMonster(4, 27);
     }
 }
 
-fun MapEvent09(macros) {
-    macros.Teleport(4, 2, 128, EAST);
-    macros.ShowText("This doorway leads to the Pantry.");
+fun MapEvent09(context) {
+    context.Teleport(4, 2, 128, EAST);
+    context.ShowText("This doorway leads to the Pantry.");
 }
 
-fun MapEvent0A(macros) {
-    if (macros.GetFlag(PARTY, SAWSKELETONMSG2) == 0) {
-        macros.SetFlag(PARTY, SAWSKELETONMSG2, 1);
-        macros.ShowText("You see a huge pile of skeleton bones.  Your blood runs cold as you realize that not only are many large and ominous skeletons advancing towards you, but that the remaining bones are reforming into more skeletons.  This is not a good place to be.");
+fun MapEvent0A(context) {
+    if (context.GetFlag(PARTY, SAWSKELETONMSG2) == 0) {
+        context.SetFlag(PARTY, SAWSKELETONMSG2, 1);
+        context.ShowText("You see a huge pile of skeleton bones.  Your blood runs cold as you realize that not only are many large and ominous skeletons advancing towards you, but that the remaining bones are reforming into more skeletons.  This is not a good place to be.");
     }
     else {
-        macros.ShowText("'Tis yet another huge pile of regenerating skeletons.");
+        context.ShowText("'Tis yet another huge pile of regenerating skeletons.");
     }
-    macros.SetBooty(0, 0, 0, 0, 0, 0);
-    macros.GetMonster(1, 27);
-    macros.GetMonster(2, 27);
-    macros.GetMonster(5, 19);
-    macros.GetMonster(6, 19);
-    if (macros.PartyCount > 3) {
-        macros.GetMonster(3, 27);
-        macros.GetMonster(4, 27);
+    context.SetBooty(0, 0, 0, 0, 0, 0);
+    context.GetMonster(1, 27);
+    context.GetMonster(2, 27);
+    context.GetMonster(5, 19);
+    context.GetMonster(6, 19);
+    if (context.PartyCount > 3) {
+        context.GetMonster(3, 27);
+        context.GetMonster(4, 27);
     }
 }
 
-fun MapEvent0E(macros) {
-    if (macros.GetFlag(PARTY, WAR17) == 0) {
-        macros.SetFlag(PARTY, WAR17, 1);
-        macros.ShowText("Who needs napalm when you have fireballs?  Ouch!");
-        macros.Damage(macros.MaxHealth / 3);
-        if (macros.PartyCount > 3) {
-            macros.ShowText("Bad ghouls bad ghouls.  Whatcha gonna do?");
+fun MapEvent0E(context) {
+    if (context.GetFlag(PARTY, WAR17) == 0) {
+        context.SetFlag(PARTY, WAR17, 1);
+        context.ShowText("Who needs napalm when you have fireballs?  Ouch!");
+        context.Damage(context.MaxHealth / 3);
+        if (context.PartyCount > 3) {
+            context.ShowText("Bad ghouls bad ghouls.  Whatcha gonna do?");
         }
-        macros.SetBooty(BINDINGTALISMAN, TONGUEOFDOG, CATHNESSSCLUB, REDTARTANCLOAK, 0, 125);
-        macros.GetMonster(1, 29);
-        macros.GetMonster(5, 28);
-        if (macros.PartyLevel(12)) {
-            if (macros.PartyCount > 2) {
-                macros.GetMonster(2, 29);
-                macros.GetMonster(6, 28);
+        context.SetBooty(BINDINGTALISMAN, TONGUEOFDOG, CATHNESSSCLUB, REDTARTANCLOAK, 0, 125);
+        context.GetMonster(1, 29);
+        context.GetMonster(5, 28);
+        if (context.PartyLevel(12)) {
+            if (context.PartyCount > 2) {
+                context.GetMonster(2, 29);
+                context.GetMonster(6, 28);
             }
-            if (macros.PartyCount > 3) {
-                macros.GetMonster(4, 25);
-                macros.GetMonster(3, 25);
-            }
-        }
-        else {
-            if (macros.PartyCount > 2) {
-                macros.GetMonster(2, 23);
-                macros.GetMonster(6, 18);
-            }
-            if (macros.PartyCount > 3) {
-                macros.GetMonster(4, 24);
-                macros.GetMonster(3, 24);
-            }
-        }
-    }
-    else {
-        macros.ShowText("You're just grateful that that fireball ambush didn't barbecue the Tongue of Dog.  In fact, you're grateful it didn't barbecue you, either!");
-    }
-}
-
-fun MapEvent0F(macros) {
-    if (macros.GetFlag(PARTY, WAR2) == 0) {
-        macros.SetFlag(PARTY, WAR2, 1);
-        if (macros.GetFlag(PARTY, WAR12) == 1) {
-            macros.ShowText("You really feel hounded.  Perhaps you are cursed.");
-        }
-        else {
-            macros.ShowText("The good news is that these aren't the dogs of war.  The bad news is they are the dogs of unpleasant arguments.");
-        }
-        if ((macros.PartyCount > 3) && (macros.GetFlag(PARTY, WAR12) == 0)) {
-            macros.ShowText("Backed by a pack of dogs of disagreements.");
-        }
-        macros.SetBooty(0, 0, 0, 0, 0, 187);
-        macros.GetMonster(1, 31);
-        macros.GetMonster(2, 32);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(3, 33);
-            macros.GetMonster(4, 34);
-        }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(5, 33);
-            macros.GetMonster(6, 34);
-        }
-    }
-    else {
-        macros.ShowText("The battle you fought here left you dog-tired.");
-    }
-}
-
-fun MapEvent10(macros) {
-    if (macros.GetFlag(PARTY, WAR3) == 0) {
-        macros.SetFlag(PARTY, WAR3, 1);
-        macros.ShowText("Yuk!  Somebody should clean out the drains once in a while!");
-        macros.SetBooty(MALCOLMSCHOPPER, BOOMERANGSCROLL, PETUNIAPOULTICE, 0, 0, 125);
-        macros.GetMonster(1, 37);
-        macros.GetMonster(2, 37);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(3, 37);
-            macros.GetMonster(4, 37);
-        }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(5, 37);
-            macros.GetMonster(6, 37);
-        }
-    }
-    else {
-        macros.ShowText("It took you hours to get all the slime out of your hair after the battle you had here.");
-    }
-}
-
-fun MapEvent11(macros) {
-    if (macros.GetFlag(PARTY, WAR4) == 0) {
-        macros.SetFlag(PARTY, WAR4, 1);
-        macros.ShowText("You've found a hive of harpies, assuming harpies hang in hives.");
-        if (macros.PartyCount > 3) {
-            macros.ShowText("This many harpies is giving you a bad case of hives.");
-        }
-        macros.SetBooty(TAPERINGSPEAR, LEFTARMSCROLL, PETUNIAPOULTICE, 0, 0, 953);
-        macros.GetMonster(1, 16);
-        macros.GetMonster(2, 30);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(3, 17);
-            macros.GetMonster(4, 30);
-        }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(5, 17);
-            macros.GetMonster(6, 30);
-        }
-    }
-    else {
-        if (macros.GetFlag(PARTY, SAWCARD) == 0) {
-            macros.SetFlag(PARTY, SAWCARD, 1);
-            macros.ShowText("You examine the battleground.  Amidst all the feathers and flesh of the fiends you fought is a small piece of white paper with the name 'A. Hitchcock' printed on it, and written on the back the words 'Call me.'");
-            macros.ShowText("'Call me what?' you wonder.");
-        }
-        else {
-            macros.ShowText("All the remains of your battle here are some fractured feathers and a broken beak.");
-        }
-    }
-}
-
-fun MapEvent12(macros) {
-    if (macros.GetFlag(PARTY, WAR5) == 0) {
-        macros.SetFlag(PARTY, WAR5, 1);
-        macros.ShowText("A party has been arranged on your behalf.");
-        macros.ShowText("Unfortunately, it appears to be a hanging party arranged by those arrayed rangers.  En garde!");
-        macros.SetBooty(PERSEUSSRING, EALSTANSCAP, MERLINSSUPPORT, 0, 0, 562);
-        macros.GetMonster(1, 35);
-        macros.GetMonster(5, 36);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(2, 35);
-            macros.GetMonster(6, 36);
-        }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(4, 35);
-            macros.GetMonster(3, 36);
-        }
-    }
-    else {
-        macros.ShowText("You remember the rangers here.  You just picked them up and squeezed them and loved them, and now they don't move no more.");
-        macros.ShowText("Good thing for you, too");
-    }
-}
-
-fun MapEvent13(macros) {
-    if (macros.GetFlag(PARTY, WAR6) == 0) {
-        macros.SetFlag(PARTY, WAR6, 1);
-        macros.ShowText("It must be Balkan Night in Cawdor.  You see minotaurs and medusae arrayed against you.");
-        if (macros.PartyCount > 3) {
-            macros.ShowText("In fact, you're balkin' at the thought of fighting these guys!");
-        }
-        macros.SetBooty(WULFHERDSHELM, TRACKINGTALISMAN, WOODSMANSAXE, 0, 0, 125);
-        macros.GetMonster(1, 39);
-        macros.GetMonster(2, 38);
-        macros.GetMonster(3, 40);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(4, 39);
-        }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(5, 38);
-            macros.GetMonster(6, 40);
-        }
-    }
-    else {
-        macros.ShowText("Sometimes the good guys win.  Or at least run away.");
-    }
-}
-
-fun MapEvent14(macros) {
-    if (macros.GetFlag(PARTY, WAR7) == 0) {
-        macros.SetFlag(PARTY, WAR7, 1);
-        macros.ShowText("Yup.  That's an incoming fireball.  You recognise it from the pain.");
-        macros.Damage(macros.MaxHealth / 3);
-        if (macros.PartyCount > 3) {
-            macros.ShowText("And these must be the ghouls Mom warned you about.");
-        }
-        macros.SetBooty(BINDINGTALISMAN, TONGUEOFDOG, CATHNESSSCLUB, REDTARTANCLOAK, 0, 125);
-        macros.GetMonster(1, 29);
-        macros.GetMonster(5, 28);
-        if (macros.PartyLevel(12)) {
-            if (macros.PartyCount > 2) {
-                macros.GetMonster(2, 29);
-                macros.GetMonster(6, 28);
-            }
-            if (macros.PartyCount > 3) {
-                macros.GetMonster(4, 25);
-                macros.GetMonster(3, 25);
+            if (context.PartyCount > 3) {
+                context.GetMonster(4, 25);
+                context.GetMonster(3, 25);
             }
         }
         else {
-            if (macros.PartyCount > 2) {
-                macros.GetMonster(2, 23);
-                macros.GetMonster(6, 18);
+            if (context.PartyCount > 2) {
+                context.GetMonster(2, 23);
+                context.GetMonster(6, 18);
             }
-            if (macros.PartyCount > 3) {
-                macros.GetMonster(4, 24);
-                macros.GetMonster(3, 24);
+            if (context.PartyCount > 3) {
+                context.GetMonster(4, 24);
+                context.GetMonster(3, 24);
             }
         }
     }
     else {
-        macros.ShowText("Your bones still ache from the battle you fought here.  But you think the Tongue of Dog you won will more than make up for your aches, heh heh.");
+        context.ShowText("You're just grateful that that fireball ambush didn't barbecue the Tongue of Dog.  In fact, you're grateful it didn't barbecue you, either!");
     }
 }
 
-fun MapEvent15(macros) {
+fun MapEvent0F(context) {
+    if (context.GetFlag(PARTY, WAR2) == 0) {
+        context.SetFlag(PARTY, WAR2, 1);
+        if (context.GetFlag(PARTY, WAR12) == 1) {
+            context.ShowText("You really feel hounded.  Perhaps you are cursed.");
+        }
+        else {
+            context.ShowText("The good news is that these aren't the dogs of war.  The bad news is they are the dogs of unpleasant arguments.");
+        }
+        if ((context.PartyCount > 3) && (context.GetFlag(PARTY, WAR12) == 0)) {
+            context.ShowText("Backed by a pack of dogs of disagreements.");
+        }
+        context.SetBooty(0, 0, 0, 0, 0, 187);
+        context.GetMonster(1, 31);
+        context.GetMonster(2, 32);
+        if (context.PartyCount > 2) {
+            context.GetMonster(3, 33);
+            context.GetMonster(4, 34);
+        }
+        if (context.PartyCount > 3) {
+            context.GetMonster(5, 33);
+            context.GetMonster(6, 34);
+        }
+    }
+    else {
+        context.ShowText("The battle you fought here left you dog-tired.");
+    }
+}
+
+fun MapEvent10(context) {
+    if (context.GetFlag(PARTY, WAR3) == 0) {
+        context.SetFlag(PARTY, WAR3, 1);
+        context.ShowText("Yuk!  Somebody should clean out the drains once in a while!");
+        context.SetBooty(MALCOLMSCHOPPER, BOOMERANGSCROLL, PETUNIAPOULTICE, 0, 0, 125);
+        context.GetMonster(1, 37);
+        context.GetMonster(2, 37);
+        if (context.PartyCount > 2) {
+            context.GetMonster(3, 37);
+            context.GetMonster(4, 37);
+        }
+        if (context.PartyCount > 3) {
+            context.GetMonster(5, 37);
+            context.GetMonster(6, 37);
+        }
+    }
+    else {
+        context.ShowText("It took you hours to get all the slime out of your hair after the battle you had here.");
+    }
+}
+
+fun MapEvent11(context) {
+    if (context.GetFlag(PARTY, WAR4) == 0) {
+        context.SetFlag(PARTY, WAR4, 1);
+        context.ShowText("You've found a hive of harpies, assuming harpies hang in hives.");
+        if (context.PartyCount > 3) {
+            context.ShowText("This many harpies is giving you a bad case of hives.");
+        }
+        context.SetBooty(TAPERINGSPEAR, LEFTARMSCROLL, PETUNIAPOULTICE, 0, 0, 953);
+        context.GetMonster(1, 16);
+        context.GetMonster(2, 30);
+        if (context.PartyCount > 2) {
+            context.GetMonster(3, 17);
+            context.GetMonster(4, 30);
+        }
+        if (context.PartyCount > 3) {
+            context.GetMonster(5, 17);
+            context.GetMonster(6, 30);
+        }
+    }
+    else {
+        if (context.GetFlag(PARTY, SAWCARD) == 0) {
+            context.SetFlag(PARTY, SAWCARD, 1);
+            context.ShowText("You examine the battleground.  Amidst all the feathers and flesh of the fiends you fought is a small piece of white paper with the name 'A. Hitchcock' printed on it, and written on the back the words 'Call me.'");
+            context.ShowText("'Call me what?' you wonder.");
+        }
+        else {
+            context.ShowText("All the remains of your battle here are some fractured feathers and a broken beak.");
+        }
+    }
+}
+
+fun MapEvent12(context) {
+    if (context.GetFlag(PARTY, WAR5) == 0) {
+        context.SetFlag(PARTY, WAR5, 1);
+        context.ShowText("A party has been arranged on your behalf.");
+        context.ShowText("Unfortunately, it appears to be a hanging party arranged by those arrayed rangers.  En garde!");
+        context.SetBooty(PERSEUSSRING, EALSTANSCAP, MERLINSSUPPORT, 0, 0, 562);
+        context.GetMonster(1, 35);
+        context.GetMonster(5, 36);
+        if (context.PartyCount > 2) {
+            context.GetMonster(2, 35);
+            context.GetMonster(6, 36);
+        }
+        if (context.PartyCount > 3) {
+            context.GetMonster(4, 35);
+            context.GetMonster(3, 36);
+        }
+    }
+    else {
+        context.ShowText("You remember the rangers here.  You just picked them up and squeezed them and loved them, and now they don't move no more.");
+        context.ShowText("Good thing for you, too");
+    }
+}
+
+fun MapEvent13(context) {
+    if (context.GetFlag(PARTY, WAR6) == 0) {
+        context.SetFlag(PARTY, WAR6, 1);
+        context.ShowText("It must be Balkan Night in Cawdor.  You see minotaurs and medusae arrayed against you.");
+        if (context.PartyCount > 3) {
+            context.ShowText("In fact, you're balkin' at the thought of fighting these guys!");
+        }
+        context.SetBooty(WULFHERDSHELM, TRACKINGTALISMAN, WOODSMANSAXE, 0, 0, 125);
+        context.GetMonster(1, 39);
+        context.GetMonster(2, 38);
+        context.GetMonster(3, 40);
+        if (context.PartyCount > 2) {
+            context.GetMonster(4, 39);
+        }
+        if (context.PartyCount > 3) {
+            context.GetMonster(5, 38);
+            context.GetMonster(6, 40);
+        }
+    }
+    else {
+        context.ShowText("Sometimes the good guys win.  Or at least run away.");
+    }
+}
+
+fun MapEvent14(context) {
+    if (context.GetFlag(PARTY, WAR7) == 0) {
+        context.SetFlag(PARTY, WAR7, 1);
+        context.ShowText("Yup.  That's an incoming fireball.  You recognise it from the pain.");
+        context.Damage(context.MaxHealth / 3);
+        if (context.PartyCount > 3) {
+            context.ShowText("And these must be the ghouls Mom warned you about.");
+        }
+        context.SetBooty(BINDINGTALISMAN, TONGUEOFDOG, CATHNESSSCLUB, REDTARTANCLOAK, 0, 125);
+        context.GetMonster(1, 29);
+        context.GetMonster(5, 28);
+        if (context.PartyLevel(12)) {
+            if (context.PartyCount > 2) {
+                context.GetMonster(2, 29);
+                context.GetMonster(6, 28);
+            }
+            if (context.PartyCount > 3) {
+                context.GetMonster(4, 25);
+                context.GetMonster(3, 25);
+            }
+        }
+        else {
+            if (context.PartyCount > 2) {
+                context.GetMonster(2, 23);
+                context.GetMonster(6, 18);
+            }
+            if (context.PartyCount > 3) {
+                context.GetMonster(4, 24);
+                context.GetMonster(3, 24);
+            }
+        }
+    }
+    else {
+        context.ShowText("Your bones still ache from the battle you fought here.  But you think the Tongue of Dog you won will more than make up for your aches, heh heh.");
+    }
+}
+
+fun MapEvent15(context) {
     var i;
     i = 0;
     var k;
     k = 0;
-    i = macros.GetFlag(PARTY, CTR);
+    i = context.GetFlag(PARTY, CTR);
     i++;
     k = i;
     if (k > 19) {
@@ -377,269 +377,269 @@ fun MapEvent15(macros) {
     if (i > 30) {
         i = 0;
     }
-    macros.SetFlag(PARTY, CTR, i);
+    context.SetFlag(PARTY, CTR, i);
     if ((i == 26) | (i == 20) | (i == 14) | (i == 8) | (i == 2)) {
         switch (k) {
             case 0:
-                macros.ShowText("You hear some footsteps running away.");
+                context.ShowText("You hear some footsteps running away.");
                 break;
             case 1:
-                if (macros.GetFlag(PARTY, SAWCLERIC) == 2) {
-                    macros.ShowText("You see a ghoul dragging a corpse.  It decides it likes dead meat better than live, and runs off.");
+                if (context.GetFlag(PARTY, SAWCLERIC) == 2) {
+                    context.ShowText("You see a ghoul dragging a corpse.  It decides it likes dead meat better than live, and runs off.");
                 }
-                if (macros.GetFlag(PARTY, SAWCLERIC) == 1) {
-                    macros.ShowText("You find the body of the panicked elf cleric, drained of its blood.  There was reason to panic after all.");
-                    macros.SetFlag(PARTY, SAWCLERIC, 2);
+                if (context.GetFlag(PARTY, SAWCLERIC) == 1) {
+                    context.ShowText("You find the body of the panicked elf cleric, drained of its blood.  There was reason to panic after all.");
+                    context.SetFlag(PARTY, SAWCLERIC, 2);
                 }
-                if (macros.GetFlag(PARTY, SAWCLERIC) == 0) {
-                    macros.ShowText("You hear someone running towards you.");
-                    macros.ShowPicture(ELFCLERIC);
-                    macros.ShowText("*");
-                    macros.ShowText("*");
-                    macros.ShowText("*");
-                    macros.ShowText("'By all the saints, thou must know this! We fought the vampires here, and one of us, wielding Malcolm's Chopper, harmed it, but not as much as the Hunting Bow or Oswald's Bane.  My comrades there lie dead.  I dare no longer stay.'");
-                    macros.ShowText("The cleric departs, rapidly.");
-                    macros.SetFlag(PARTY, SAWCLERIC, 1);
+                if (context.GetFlag(PARTY, SAWCLERIC) == 0) {
+                    context.ShowText("You hear someone running towards you.");
+                    context.ShowPicture(ELFCLERIC);
+                    context.ShowText("*");
+                    context.ShowText("*");
+                    context.ShowText("*");
+                    context.ShowText("'By all the saints, thou must know this! We fought the vampires here, and one of us, wielding Malcolm's Chopper, harmed it, but not as much as the Hunting Bow or Oswald's Bane.  My comrades there lie dead.  I dare no longer stay.'");
+                    context.ShowText("The cleric departs, rapidly.");
+                    context.SetFlag(PARTY, SAWCLERIC, 1);
                 }
                 break;
             case 2:
-                macros.ShowPicture(DRAGON);
-                macros.ShowText("The dragon examines you with a baleful eye.  It has seen better days.");
-                macros.ShowText("'Thou art living, and I am desperate.  I must have a petunia poultice.  I will pay well for one.'");
-                if (macros.HasItem(PETUNIAPOULTICE)) {
-                    macros.TakeItem(PETUNIAPOULTICE);
-                    macros.ModGold(5500);
-                    macros.ShowText("'I thank thee, and give thee enough to buy ten more to replace that which I have taken.  Fare thee well!'");
+                context.ShowPicture(DRAGON);
+                context.ShowText("The dragon examines you with a baleful eye.  It has seen better days.");
+                context.ShowText("'Thou art living, and I am desperate.  I must have a petunia poultice.  I will pay well for one.'");
+                if (context.HasItem(PETUNIAPOULTICE)) {
+                    context.TakeItem(PETUNIAPOULTICE);
+                    context.ModGold(5500);
+                    context.ShowText("'I thank thee, and give thee enough to buy ten more to replace that which I have taken.  Fare thee well!'");
                 }
                 else {
-                    macros.ShowText("'Thou hast none?  I can see the truth in thee.  An thou dost find one, thou wilt be well rewarded to find me with it.  Fare thee well.'");
+                    context.ShowText("'Thou hast none?  I can see the truth in thee.  An thou dost find one, thou wilt be well rewarded to find me with it.  Fare thee well.'");
                 }
                 break;
             case 3:
-                if (macros.GetFlag(DUNGEON, SEENRORY) == 1) {
-                    macros.ShowText("It was here that Rory taught you about the Gaelic Garlic's power against undead.  You know not whether the tear in your eye is from the memory or from a faint residue of the pungent bud.");
+                if (context.GetFlag(DUNGEON, SEENRORY) == 1) {
+                    context.ShowText("It was here that Rory taught you about the Gaelic Garlic's power against undead.  You know not whether the tear in your eye is from the memory or from a faint residue of the pungent bud.");
                 }
                 else {
-                    macros.ShowPicture(HALFLINGTHIEF);
-                    macros.ShowText("*");
-                    macros.ShowText("*");
-                    macros.ShowText("*");
-                    macros.ShowText("The thief looks somewhat bruised.");
-                    macros.ShowText("'Ah! 'Tis my friends, not more of these thrice bedamned undead.  I must say, My Lady's Favor is well and good, as is the Thief's Tabard and the Gaelic Garlic, but none match the power of the Holy Relic against them.  Would that I had one!  May fortune favor thee.'");
-                    macros.ShowText("The halfling limps off, smiling grimly.");
+                    context.ShowPicture(HALFLINGTHIEF);
+                    context.ShowText("*");
+                    context.ShowText("*");
+                    context.ShowText("*");
+                    context.ShowText("The thief looks somewhat bruised.");
+                    context.ShowText("'Ah! 'Tis my friends, not more of these thrice bedamned undead.  I must say, My Lady's Favor is well and good, as is the Thief's Tabard and the Gaelic Garlic, but none match the power of the Holy Relic against them.  Would that I had one!  May fortune favor thee.'");
+                    context.ShowText("The halfling limps off, smiling grimly.");
                 }
                 break;
             case 4:
-                macros.ShowPicture(GREMLINTHIEF);
-                macros.ShowText("*");
-                macros.ShowText("*");
-                macros.ShowText("*");
-                macros.ShowText("A slew o'Slyfeet decide, rather insultingly, that they are bigger than you are.");
-                macros.SetBooty(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 147);
-                macros.GetMonster(1, 1);
-                if (macros.PartyCount > 1) {
-                    macros.GetMonster(5, 2);
+                context.ShowPicture(GREMLINTHIEF);
+                context.ShowText("*");
+                context.ShowText("*");
+                context.ShowText("*");
+                context.ShowText("A slew o'Slyfeet decide, rather insultingly, that they are bigger than you are.");
+                context.SetBooty(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 147);
+                context.GetMonster(1, 1);
+                if (context.PartyCount > 1) {
+                    context.GetMonster(5, 2);
                 }
-                if (macros.PartyCount > 2) {
-                    macros.GetMonster(2, 1);
-                    macros.GetMonster(6, 2);
+                if (context.PartyCount > 2) {
+                    context.GetMonster(2, 1);
+                    context.GetMonster(6, 2);
                 }
                 break;
         }
     }
 }
 
-fun MapEvent16(macros) {
-    if (macros.GetFlag(PARTY, ELFWARNING) == 0) {
-        macros.SetFlag(PARTY, ELFWARNING, 1);
-        macros.ShowPicture(ELFCLERIC);
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("*");
-        macros.ShowText("'I have been waiting for thee.  Pay close heed!'");
-        if (macros.GetFlag(PARTY, WAR7) == 0) {
-            macros.ShowText("'The Vampiric Servant who rules this level can most oft be found upon his throne nigh unto the very center of this room.");
-            macros.ShowText("An thou defeats him, then thou shalt earn thereby a Tongue of Dog.  This puissant part has but one charge: use it wisely!'");
+fun MapEvent16(context) {
+    if (context.GetFlag(PARTY, ELFWARNING) == 0) {
+        context.SetFlag(PARTY, ELFWARNING, 1);
+        context.ShowPicture(ELFCLERIC);
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("*");
+        context.ShowText("'I have been waiting for thee.  Pay close heed!'");
+        if (context.GetFlag(PARTY, WAR7) == 0) {
+            context.ShowText("'The Vampiric Servant who rules this level can most oft be found upon his throne nigh unto the very center of this room.");
+            context.ShowText("An thou defeats him, then thou shalt earn thereby a Tongue of Dog.  This puissant part has but one charge: use it wisely!'");
         }
         else {
-            macros.ShowText("'I did observe thee defeat the Vampire who, until today, held sway here.  The item thou should prize above all others from him is the Tongue of Dog.");
-            macros.ShowText("Use it wisely; that item doth possess but one charge.  One very potent charge.'");
+            context.ShowText("'I did observe thee defeat the Vampire who, until today, held sway here.  The item thou should prize above all others from him is the Tongue of Dog.");
+            context.ShowText("Use it wisely; that item doth possess but one charge.  One very potent charge.'");
         }
     }
 }
 
-fun MapEvent17(macros) {
-    if (macros.GetFlag(PARTY, SAWHINT) == 0) {
-        macros.SetFlag(PARTY, SAWHINT, 1);
-        macros.ShowText("This large, well appointed room features many fine marble columns.  Towards the center of the room you think you can see a throne.");
-        macros.ShowText("A small piece of paper on the ground catches your eye.  As you look more closely, its letters flame up, reading: 'Spiral-G.'  The card soon burns to ash.");
+fun MapEvent17(context) {
+    if (context.GetFlag(PARTY, SAWHINT) == 0) {
+        context.SetFlag(PARTY, SAWHINT, 1);
+        context.ShowText("This large, well appointed room features many fine marble columns.  Towards the center of the room you think you can see a throne.");
+        context.ShowText("A small piece of paper on the ground catches your eye.  As you look more closely, its letters flame up, reading: 'Spiral-G.'  The card soon burns to ash.");
     }
     else {
-        macros.ShowText("The throne room remains as you last saw it: a dangerous place for the quick and the dead.");
+        context.ShowText("The throne room remains as you last saw it: a dangerous place for the quick and the dead.");
     }
 }
 
-fun MapEvent19(macros) {
-    if (macros.GetFlag(PARTY, WAR13) == 0) {
-        macros.SetFlag(PARTY, WAR13, 1);
-        macros.ShowText("Yuk!  Somebody should clean out the drains once in a while!");
-        macros.SetBooty(MALCOLMSCHOPPER, BOOMERANGSCROLL, PETUNIAPOULTICE, 0, 0, 125);
-        macros.GetMonster(1, 37);
-        macros.GetMonster(2, 37);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(3, 37);
-            macros.GetMonster(4, 37);
+fun MapEvent19(context) {
+    if (context.GetFlag(PARTY, WAR13) == 0) {
+        context.SetFlag(PARTY, WAR13, 1);
+        context.ShowText("Yuk!  Somebody should clean out the drains once in a while!");
+        context.SetBooty(MALCOLMSCHOPPER, BOOMERANGSCROLL, PETUNIAPOULTICE, 0, 0, 125);
+        context.GetMonster(1, 37);
+        context.GetMonster(2, 37);
+        if (context.PartyCount > 2) {
+            context.GetMonster(3, 37);
+            context.GetMonster(4, 37);
         }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(5, 37);
-            macros.GetMonster(6, 37);
+        if (context.PartyCount > 3) {
+            context.GetMonster(5, 37);
+            context.GetMonster(6, 37);
         }
     }
     else {
-        macros.ShowText("It took you hours to get all the slime out of your hair after the battle you had here.");
+        context.ShowText("It took you hours to get all the slime out of your hair after the battle you had here.");
     }
 }
 
-fun MapEvent1A(macros) {
-    if (macros.GetFlag(PARTY, WAR12) == 0) {
-        macros.SetFlag(PARTY, WAR12, 1);
-        if (macros.GetFlag(PARTY, WAR2) == 1) {
-            macros.ShowText("You really feel hounded.  Perhaps you are cursed.");
+fun MapEvent1A(context) {
+    if (context.GetFlag(PARTY, WAR12) == 0) {
+        context.SetFlag(PARTY, WAR12, 1);
+        if (context.GetFlag(PARTY, WAR2) == 1) {
+            context.ShowText("You really feel hounded.  Perhaps you are cursed.");
         }
         else {
-            macros.ShowText("The good news is that these aren't the dogs of war.  The bad news is they are the dogs of unpleasant arguments.");
+            context.ShowText("The good news is that these aren't the dogs of war.  The bad news is they are the dogs of unpleasant arguments.");
         }
-        if ((macros.PartyCount > 3) && (macros.GetFlag(PARTY, WAR2) == 0)) {
-            macros.ShowText("Backed by a pack of dogs of disagreements.");
+        if ((context.PartyCount > 3) && (context.GetFlag(PARTY, WAR2) == 0)) {
+            context.ShowText("Backed by a pack of dogs of disagreements.");
         }
-        macros.SetBooty(0, 0, 0, 0, 0, 187);
-        macros.GetMonster(1, 31);
-        macros.GetMonster(2, 32);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(3, 33);
-            macros.GetMonster(4, 34);
+        context.SetBooty(0, 0, 0, 0, 0, 187);
+        context.GetMonster(1, 31);
+        context.GetMonster(2, 32);
+        if (context.PartyCount > 2) {
+            context.GetMonster(3, 33);
+            context.GetMonster(4, 34);
         }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(5, 33);
-            macros.GetMonster(6, 34);
+        if (context.PartyCount > 3) {
+            context.GetMonster(5, 33);
+            context.GetMonster(6, 34);
         }
     }
     else {
-        macros.ShowText("The battle you fought here left you dog-tired.");
+        context.ShowText("The battle you fought here left you dog-tired.");
     }
 }
 
-fun MapEvent1B(macros) {
-    if (macros.GetFlag(PARTY, WAR14) == 0) {
-        macros.SetFlag(PARTY, WAR14, 1);
-        macros.ShowText("You've found a hive of harpies, assuming harpies hang in hives.");
-        if (macros.PartyCount > 3) {
-            macros.ShowText("This many harpies is giving you a bad case of hives.");
+fun MapEvent1B(context) {
+    if (context.GetFlag(PARTY, WAR14) == 0) {
+        context.SetFlag(PARTY, WAR14, 1);
+        context.ShowText("You've found a hive of harpies, assuming harpies hang in hives.");
+        if (context.PartyCount > 3) {
+            context.ShowText("This many harpies is giving you a bad case of hives.");
         }
-        macros.SetBooty(TAPERINGSPEAR, LEFTARMSCROLL, PETUNIAPOULTICE, 0, 0, 953);
-        macros.GetMonster(1, 16);
-        macros.GetMonster(2, 30);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(3, 17);
-            macros.GetMonster(4, 30);
+        context.SetBooty(TAPERINGSPEAR, LEFTARMSCROLL, PETUNIAPOULTICE, 0, 0, 953);
+        context.GetMonster(1, 16);
+        context.GetMonster(2, 30);
+        if (context.PartyCount > 2) {
+            context.GetMonster(3, 17);
+            context.GetMonster(4, 30);
         }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(5, 17);
-            macros.GetMonster(6, 30);
+        if (context.PartyCount > 3) {
+            context.GetMonster(5, 17);
+            context.GetMonster(6, 30);
         }
     }
     else {
-        if (macros.GetFlag(PARTY, SAWCARD) == 0) {
-            macros.SetFlag(PARTY, SAWCARD, 1);
-            macros.ShowText("You examine the battleground.  Amidst all the feathers and flesh of the fiends you fought is a small piece of white paper with the name 'A. Hitchcock' printed on it, and written on the back the words 'Call me.'");
-            macros.ShowText("'Call me what?' you wonder.");
+        if (context.GetFlag(PARTY, SAWCARD) == 0) {
+            context.SetFlag(PARTY, SAWCARD, 1);
+            context.ShowText("You examine the battleground.  Amidst all the feathers and flesh of the fiends you fought is a small piece of white paper with the name 'A. Hitchcock' printed on it, and written on the back the words 'Call me.'");
+            context.ShowText("'Call me what?' you wonder.");
         }
         else {
-            macros.ShowText("All the remains of your battle here are some fractured feathers and a broken beak.");
+            context.ShowText("All the remains of your battle here are some fractured feathers and a broken beak.");
         }
     }
 }
 
-fun MapEvent1C(macros) {
-    if (macros.GetFlag(PARTY, WAR15) == 0) {
-        macros.SetFlag(PARTY, WAR15, 1);
-        macros.ShowText("A party has been arranged on your behalf.");
-        macros.ShowText("Unfortunately, it appears to be a hanging party arranged by those arrayed rangers.  En garde!");
-        macros.SetBooty(PERSEUSSRING, EALSTANSCAP, MERLINSSUPPORT, 0, 0, 562);
-        macros.GetMonster(1, 35);
-        macros.GetMonster(5, 36);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(2, 35);
-            macros.GetMonster(6, 36);
+fun MapEvent1C(context) {
+    if (context.GetFlag(PARTY, WAR15) == 0) {
+        context.SetFlag(PARTY, WAR15, 1);
+        context.ShowText("A party has been arranged on your behalf.");
+        context.ShowText("Unfortunately, it appears to be a hanging party arranged by those arrayed rangers.  En garde!");
+        context.SetBooty(PERSEUSSRING, EALSTANSCAP, MERLINSSUPPORT, 0, 0, 562);
+        context.GetMonster(1, 35);
+        context.GetMonster(5, 36);
+        if (context.PartyCount > 2) {
+            context.GetMonster(2, 35);
+            context.GetMonster(6, 36);
         }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(4, 35);
-            macros.GetMonster(3, 36);
+        if (context.PartyCount > 3) {
+            context.GetMonster(4, 35);
+            context.GetMonster(3, 36);
         }
     }
     else {
-        macros.ShowText("You remember the rangers here.  You just picked them up and squeezed them and loved them, and now they don't move no more.");
-        macros.ShowText("Good thing for you, too");
+        context.ShowText("You remember the rangers here.  You just picked them up and squeezed them and loved them, and now they don't move no more.");
+        context.ShowText("Good thing for you, too");
     }
 }
 
-fun MapEvent1D(macros) {
-    if (macros.GetFlag(PARTY, WAR16) == 0) {
-        macros.SetFlag(PARTY, WAR16, 1);
-        macros.ShowText("You recognise the minotaurs and medusae from your studies in recent history.  You just hope that you aren't about to join them as yet another statistic.");
-        macros.SetBooty(WULFHERDSHELM, TRACKINGTALISMAN, WOODSMANSAXE, 0, 0, 125);
-        macros.GetMonster(1, 39);
-        macros.GetMonster(2, 38);
-        macros.GetMonster(3, 40);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(4, 39);
+fun MapEvent1D(context) {
+    if (context.GetFlag(PARTY, WAR16) == 0) {
+        context.SetFlag(PARTY, WAR16, 1);
+        context.ShowText("You recognise the minotaurs and medusae from your studies in recent history.  You just hope that you aren't about to join them as yet another statistic.");
+        context.SetBooty(WULFHERDSHELM, TRACKINGTALISMAN, WOODSMANSAXE, 0, 0, 125);
+        context.GetMonster(1, 39);
+        context.GetMonster(2, 38);
+        context.GetMonster(3, 40);
+        if (context.PartyCount > 2) {
+            context.GetMonster(4, 39);
         }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(5, 38);
-            macros.GetMonster(6, 40);
+        if (context.PartyCount > 3) {
+            context.GetMonster(5, 38);
+            context.GetMonster(6, 40);
         }
     }
     else {
-        macros.ShowText("Sometimes the good guys win.  This was one of them. Or at least close enough for jazz.");
+        context.ShowText("Sometimes the good guys win.  This was one of them. Or at least close enough for jazz.");
     }
 }
 
-fun MapEvent1E(macros) {
-    if (macros.GetFlag(PARTY, WAR18) == 0) {
-        macros.SetFlag(PARTY, WAR18, 1);
-        macros.ShowText("My gosh!  It's one of your childhood heroes: The Lonely Ranger!");
-        macros.ShowText("Unfortunately, you don't seem to be one of his heroes.  And in that crowd, who has time to be lonely?");
-        macros.SetBooty(PERSEUSSRING, EALSTANSCAP, MERLINSSUPPORT, 0, 0, 562);
-        macros.GetMonster(1, 35);
-        macros.GetMonster(5, 36);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(2, 35);
-            macros.GetMonster(6, 36);
+fun MapEvent1E(context) {
+    if (context.GetFlag(PARTY, WAR18) == 0) {
+        context.SetFlag(PARTY, WAR18, 1);
+        context.ShowText("My gosh!  It's one of your childhood heroes: The Lonely Ranger!");
+        context.ShowText("Unfortunately, you don't seem to be one of his heroes.  And in that crowd, who has time to be lonely?");
+        context.SetBooty(PERSEUSSRING, EALSTANSCAP, MERLINSSUPPORT, 0, 0, 562);
+        context.GetMonster(1, 35);
+        context.GetMonster(5, 36);
+        if (context.PartyCount > 2) {
+            context.GetMonster(2, 35);
+            context.GetMonster(6, 36);
         }
-        if (macros.PartyCount > 3) {
-            macros.GetMonster(4, 35);
-            macros.GetMonster(3, 36);
+        if (context.PartyCount > 3) {
+            context.GetMonster(4, 35);
+            context.GetMonster(3, 36);
         }
     }
     else {
-        macros.ShowText("All that remains of your battle here is a broken old decoder ring.");
+        context.ShowText("All that remains of your battle here is a broken old decoder ring.");
     }
 }
 
-fun MapEvent1F(macros) {
-    if (macros.GetFlag(PARTY, GUARDFIGHT0501) == 0) {
-        macros.ShowText("This entrance to The Lesser Hall is guarded!");
-        macros.SetFlag(PARTY, GUARDFIGHT0501, 1);
-        macros.SetBooty(SILVERLOCKPICK, DRAKESBANE, ELDERBERRYELIXIR, PETUNIAPOULTICE, 0, 547);
-        macros.GetMonster(1, 25);
-        macros.GetMonster(5, 28);
-        if (macros.PartyCount > 2) {
-            macros.GetMonster(2, 25);
-            macros.GetMonster(6, 28);
+fun MapEvent1F(context) {
+    if (context.GetFlag(PARTY, GUARDFIGHT0501) == 0) {
+        context.ShowText("This entrance to The Lesser Hall is guarded!");
+        context.SetFlag(PARTY, GUARDFIGHT0501, 1);
+        context.SetBooty(SILVERLOCKPICK, DRAKESBANE, ELDERBERRYELIXIR, PETUNIAPOULTICE, 0, 547);
+        context.GetMonster(1, 25);
+        context.GetMonster(5, 28);
+        if (context.PartyCount > 2) {
+            context.GetMonster(2, 25);
+            context.GetMonster(6, 28);
         }
     }
     else {
-        macros.ShowText("Hmmm.  Cigarette butts, candy wrappers, loaded dice: there might not be any guards here now, but there used to be.");
-        macros.ShowText("And not very tidy guards, either!");
+        context.ShowText("Hmmm.  Cigarette butts, candy wrappers, loaded dice: there might not be any guards here now, but there used to be.");
+        context.ShowText("And not very tidy guards, either!");
     }
 }

@@ -85,10 +85,10 @@ var majorDomo3 = "The Major Domo continues: 'You mustn't give up, you know. A re
 var majorDomo4 = "'And besides, you're halfway there! That's why we call this place the Halfway House, after all.  It's all downhill from here!'";
 var majorDomo5 = "The Major Domo prattles on: 'So take your time, catch your breath, and steel yourself for the glorious battles to come. Farewell!'";
 
-fun SixMonst(macros, monster) {
+fun SixMonst(context, monster) {
     var i;
     var num;
-    switch (macros.PartyCount) {
+    switch (context.PartyCount) {
         case 1:
             num = 2;
             break;
@@ -104,83 +104,83 @@ fun SixMonst(macros, monster) {
             break;
     }
     for (i = 1; i <= num; i++) {
-        macros.GetMonster(i, monster);
+        context.GetMonster(i, monster);
     }
 }
 
-fun MapEvent01(macros) {
-    macros.NoJoin;
-    if (macros.PartyCount > 1) {
-        macros.ShowText("The coaster cars are only big enough for one of you at a time.");
-        macros.SetFlag(PARTY, COASTER_STOPPING, 0);
-        macros.Teleport(13, 2, 222, NORTH);
+fun MapEvent01(context) {
+    context.NoJoin;
+    if (context.PartyCount > 1) {
+        context.ShowText("The coaster cars are only big enough for one of you at a time.");
+        context.SetFlag(PARTY, COASTER_STOPPING, 0);
+        context.Teleport(13, 2, 222, NORTH);
     }
-    switch (macros.Here) {
+    switch (context.Here) {
         case 235:
-            macros.Rotate(EAST);
-            macros.Teleport(13, 2, 236, EAST);
+            context.Rotate(EAST);
+            context.Teleport(13, 2, 236, EAST);
             break;
         case 236:
-            macros.Teleport(13, 2, 237, EAST);
+            context.Teleport(13, 2, 237, EAST);
             break;
         case 237:
-            macros.SetFlag(PARTY, COASTER_STOPPING, 1);
-            macros.Teleport(13, 2, 238, EAST);
+            context.SetFlag(PARTY, COASTER_STOPPING, 1);
+            context.Teleport(13, 2, 238, EAST);
             break;
         case 238:
-            macros.BlockWall(macros.Here, EAST);
-            macros.BlockWall(macros.Here, WEST);
-            if (macros.FlagOn(PARTY, COASTER_STOPPING)) {
-                macros.ShowText("The coaster stops.");
-                macros.SetFlag(PARTY, COASTER_STOPPING, 0);
-                macros.Teleport(13, 2, 222, NORTH);
+            context.BlockWall(context.Here, EAST);
+            context.BlockWall(context.Here, WEST);
+            if (context.FlagOn(PARTY, COASTER_STOPPING)) {
+                context.ShowText("The coaster stops.");
+                context.SetFlag(PARTY, COASTER_STOPPING, 0);
+                context.Teleport(13, 2, 222, NORTH);
             }
             else {
-                if (macros.HasItem(FUNHOUSEKEY)) {
-                    macros.ShowText("You twist the Funhouse Key in the keyhole. With a lurch the car begins to rumble forward along the rails.");
-                    macros.Teleport(13, 2, 239, EAST);
+                if (context.HasItem(FUNHOUSEKEY)) {
+                    context.ShowText("You twist the Funhouse Key in the keyhole. With a lurch the car begins to rumble forward along the rails.");
+                    context.Teleport(13, 2, 239, EAST);
                 }
             }
             break;
         case 239:
-            macros.Teleport(13, 1, 118, NORTH);
+            context.Teleport(13, 1, 118, NORTH);
             break;
         case 251:
-            macros.Rotate(NORTH);
-            macros.Teleport(13, 2, 235, NORTH);
+            context.Rotate(NORTH);
+            context.Teleport(13, 2, 235, NORTH);
             break;
         case 252:
         case 253:
         case 254:
         case 255:
-            macros.Teleport(13, 2, macros.Here - 1, WEST);
+            context.Teleport(13, 2, context.Here - 1, WEST);
             break;
     }
 }
 
-fun MapEvent03(macros) {
-    switch (macros.Facing) {
+fun MapEvent03(context) {
+    switch (context.Facing) {
         case NORTH:
-            macros.ShowText("WELCOME TO THE FUNHOUSE!!!");
-            macros.ShowText("Rules of the Establishment:");
-            macros.ShowText("1. No spitting.");
-            macros.ShowText("2. No cussing.");
-            macros.ShowText("3. Please don't feed the monsters!");
-            macros.ShowText("     -- the Management");
+            context.ShowText("WELCOME TO THE FUNHOUSE!!!");
+            context.ShowText("Rules of the Establishment:");
+            context.ShowText("1. No spitting.");
+            context.ShowText("2. No cussing.");
+            context.ShowText("3. Please don't feed the monsters!");
+            context.ShowText("     -- the Management");
             break;
         case SOUTH:
-            macros.ShowText("The roller coaster is here.");
+            context.ShowText("The roller coaster is here.");
             break;
         default: 
             break;
     }
 }
 
-fun MapEvent04(macros) {
+fun MapEvent04(context) {
     var square = 245;
     var picture;
-    macros.ShowText("The magic mirror twists and warps your reflection.");
-    switch (macros.Here) {
+    context.ShowText("The magic mirror twists and warps your reflection.");
+    switch (context.Here) {
         case 138:
             picture = GNOMEBARBARIAN;
             break;
@@ -215,62 +215,62 @@ fun MapEvent04(macros) {
         default: 
             break;
     }
-    macros.ShowPicture(picture);
-    macros.Teleport(13, 2, square, SOUTH);
+    context.ShowPicture(picture);
+    context.Teleport(13, 2, square, SOUTH);
 }
 
-fun MapEvent05(macros) {
+fun MapEvent05(context) {
     var cntFlag;
-    macros.NoJoin;
-    if (macros.PartyCount > 1) {
-        macros.ShowText("The horse you are riding is only big enough for one. You lose your grip!");
-        macros.Teleport(13, 2, 141, WEST);
+    context.NoJoin;
+    if (context.PartyCount > 1) {
+        context.ShowText("The horse you are riding is only big enough for one. You lose your grip!");
+        context.Teleport(13, 2, 141, WEST);
     }
-    if (macros.FlagOff(PARTY, CAROUSEL_CTRL)) {
-        cntFlag = macros.GetFlag(PARTY, CAROUSEL_CNT);
-        switch ((macros.Here * 256) + macros.Facing) {
+    if (context.FlagOff(PARTY, CAROUSEL_CTRL)) {
+        cntFlag = context.GetFlag(PARTY, CAROUSEL_CNT);
+        switch ((context.Here * 256) + context.Facing) {
             case ((141 * 256) + WEST):
                 if (cntFlag > 0) {
                     cntFlag--;
-                    macros.SetFlag(PARTY, CAROUSEL_CNT, cntFlag);
-                    macros.Rotate(SOUTH);
-                    macros.Teleport(13, 2, 157, SOUTH);
+                    context.SetFlag(PARTY, CAROUSEL_CNT, cntFlag);
+                    context.Rotate(SOUTH);
+                    context.Teleport(13, 2, 157, SOUTH);
                 }
                 else {
-                    macros.ShowText("The ride ends.");
-                    macros.Teleport(13, 2, 140, WEST);
+                    context.ShowText("The ride ends.");
+                    context.Teleport(13, 2, 140, WEST);
                 }
                 break;
             case ((141 * 256) + SOUTH):
             case ((141 * 256) + EAST):
             case ((141 * 256) + NORTH):
-                macros.Rotate(SOUTH);
-                macros.Teleport(13, 2, 157, SOUTH);
+                context.Rotate(SOUTH);
+                context.Teleport(13, 2, 157, SOUTH);
                 break;
             case ((142 * 256) + WEST):
-                macros.Teleport(13, 2, 141, WEST);
+                context.Teleport(13, 2, 141, WEST);
                 break;
             case ((143 * 256) + NORTH):
-                macros.Rotate(WEST);
-                macros.Teleport(13, 2, 142, WEST);
+                context.Rotate(WEST);
+                context.Teleport(13, 2, 142, WEST);
                 break;
             case ((157 * 256) + SOUTH):
-                macros.Teleport(13, 2, 173, SOUTH);
+                context.Teleport(13, 2, 173, SOUTH);
                 break;
             case ((159 * 256) + NORTH):
-                macros.Teleport(13, 2, 143, NORTH);
+                context.Teleport(13, 2, 143, NORTH);
                 break;
             case ((173 * 256) + SOUTH):
-                macros.Rotate(EAST);
-                macros.Teleport(13, 2, 174, EAST);
+                context.Rotate(EAST);
+                context.Teleport(13, 2, 174, EAST);
                 break;
             case ((174 * 256) + EAST):
-                macros.Teleport(13, 2, 175, EAST);
+                context.Teleport(13, 2, 175, EAST);
                 break;
             case ((175 * 256) + EAST):
-                macros.ShowText("You reach for the brass ring, but it's stuck.");
-                macros.Rotate(NORTH);
-                macros.Teleport(13, 2, 159, NORTH);
+                context.ShowText("You reach for the brass ring, but it's stuck.");
+                context.Rotate(NORTH);
+                context.Teleport(13, 2, 159, NORTH);
                 break;
             default: 
                 break;
@@ -278,66 +278,66 @@ fun MapEvent05(macros) {
     }
 }
 
-fun MapEvent06(macros) {
-    if (!macros.HasItem(BRASSRING)) {
-        macros.ShowText("With a mighty tug you dislodge the brass ring from the armature.");
-        macros.GiveItem(BRASSRING);
+fun MapEvent06(context) {
+    if (!context.HasItem(BRASSRING)) {
+        context.ShowText("With a mighty tug you dislodge the brass ring from the armature.");
+        context.GiveItem(BRASSRING);
     }
 }
 
-fun MapEvent07(macros) {
+fun MapEvent07(context) {
     char * str;
-    if (macros.GetFlag(PARTY, CAROUSEL_CTRL) == 0) {
-        macros.ShowText("You throw the rusty knife switch.");
-        macros.SetFlag(PARTY, CAROUSEL_CTRL, 1);
+    if (context.GetFlag(PARTY, CAROUSEL_CTRL) == 0) {
+        context.ShowText("You throw the rusty knife switch.");
+        context.SetFlag(PARTY, CAROUSEL_CTRL, 1);
     }
 }
 
-fun MapEvent08(macros) {
-    if (macros.FlagOn(ROOM, DONE_IT)) {
-        macros.Teleport(13, 2, 194, NORTH);
+fun MapEvent08(context) {
+    if (context.FlagOn(ROOM, DONE_IT)) {
+        context.Teleport(13, 2, 194, NORTH);
     }
     else {
-        if (macros.UsedItem(NAOMISKEY, NAOMISKEY)) {
-            macros.SetFlag(ROOM, DONE_IT, 1);
-            macros.ShowText("You unlock the door.");
+        if (context.UsedItem(NAOMISKEY, NAOMISKEY)) {
+            context.SetFlag(ROOM, DONE_IT, 1);
+            context.ShowText("You unlock the door.");
         }
         else {
-            macros.ShowText("This door requires a special key.");
+            context.ShowText("This door requires a special key.");
         }
     }
 }
 
-fun MapEvent09(macros) {
-    macros.Teleport(13, 2, 103, WEST);
+fun MapEvent09(context) {
+    context.Teleport(13, 2, 103, WEST);
 }
 
-fun MapEvent0A(macros) {
-    macros.BlockFloor(macros.Here);
+fun MapEvent0A(context) {
+    context.BlockFloor(context.Here);
 }
 
-fun MapEvent0B(macros) {
-    if (macros.Health != macros.MaxHealth) {
-        macros.ShowText("The cool water invigorates you.");
-        macros.Heal(macros.MaxHealth);
+fun MapEvent0B(context) {
+    if (context.Health != context.MaxHealth) {
+        context.ShowText("The cool water invigorates you.");
+        context.Heal(context.MaxHealth);
     }
 }
 
-fun MapEvent0C(macros) {
-    macros.ShowText("The fizzy water refreshes you.");
-    macros.ModMana(30000);
+fun MapEvent0C(context) {
+    context.ShowText("The fizzy water refreshes you.");
+    context.ModMana(30000);
 }
 
-fun MapEvent0D(macros) {
-    macros.Teleport(13, 2, 48, EAST);
+fun MapEvent0D(context) {
+    context.Teleport(13, 2, 48, EAST);
 }
 
-fun MapEvent0E(macros) {
+fun MapEvent0E(context) {
     var flag;
     var strPtr;
-    flag = macros.GetFlag(PARTY, MAJOR_DOMO);
+    flag = context.GetFlag(PARTY, MAJOR_DOMO);
     if (flag <= 4) {
-        macros.ShowPicture(MAJORDOMO_PIC);
+        context.ShowPicture(MAJORDOMO_PIC);
     }
     switch (flag) {
         case 0:
@@ -358,26 +358,26 @@ fun MapEvent0E(macros) {
     }
     if (strPtr != NULL) {
         flag++;
-        macros.SetFlag(PARTY, MAJOR_DOMO, flag);
-        macros.ShowText(strPtr);
+        context.SetFlag(PARTY, MAJOR_DOMO, flag);
+        context.ShowText(strPtr);
     }
 }
 
-fun MapEvent10(macros) {
-    if (macros.GetFlag(PARTY, MAJOR_DOMO) == 6) {
-        macros.ShowText("The Major Domo spies you. His eyes widen and he begins to shake with rage. 'No no no! You musn't give up, whatever you do! Show some pluck, some spirit, some gumption for heaven's sake!' He begins to whack at you with an andiron.");
-        macros.SetFlag(PARTY, MAJOR_DOMO, 7);
-        macros.GetMonster(1, MONST_MAJOR_DOMO);
+fun MapEvent10(context) {
+    if (context.GetFlag(PARTY, MAJOR_DOMO) == 6) {
+        context.ShowText("The Major Domo spies you. His eyes widen and he begins to shake with rage. 'No no no! You musn't give up, whatever you do! Show some pluck, some spirit, some gumption for heaven's sake!' He begins to whack at you with an andiron.");
+        context.SetFlag(PARTY, MAJOR_DOMO, 7);
+        context.GetMonster(1, MONST_MAJOR_DOMO);
     }
 }
 
-fun MapEvent11(macros) {
+fun MapEvent11(context) {
     var switchFlag;
     var destSquare;
     var destFacing;
-    switchFlag = macros.Here;
+    switchFlag = context.Here;
     switchFlag = switchFlag * 256;
-    switchFlag = switchFlag + macros.Facing;
+    switchFlag = switchFlag + context.Facing;
     switch (switchFlag) {
         case ((48 * 256) + NORTH):
             destSquare = 117;
@@ -624,72 +624,72 @@ fun MapEvent11(macros) {
             destFacing = SOUTH;
             break;
     }
-    macros.Teleport(13, 2, destSquare, destFacing);
+    context.Teleport(13, 2, destSquare, destFacing);
 }
 
-fun MapEvent12(macros) {
-    macros.ShowText("A sign on the wall proclaims 'This way to the Ogress!'");
+fun MapEvent12(context) {
+    context.ShowText("A sign on the wall proclaims 'This way to the Ogress!'");
 }
 
-fun MapEvent13(macros) {
-    if (macros.FlagOff(PARTY, OGRESS_KILLED)) {
-        macros.SetFlag(PARTY, OGRESS_KILLED, 1);
-        macros.ShowText("Squatting in a pile of refuse is a repulsive, mottle-skinned creature. 'Ah!' she gurgles, smacking her rubbery lips, 'You must be dinner!'");
-        macros.SetBooty(0, 0, 0, 0, 0, 0);
-        macros.GetMonster(1, MONST_OGRESS);
+fun MapEvent13(context) {
+    if (context.FlagOff(PARTY, OGRESS_KILLED)) {
+        context.SetFlag(PARTY, OGRESS_KILLED, 1);
+        context.ShowText("Squatting in a pile of refuse is a repulsive, mottle-skinned creature. 'Ah!' she gurgles, smacking her rubbery lips, 'You must be dinner!'");
+        context.SetBooty(0, 0, 0, 0, 0, 0);
+        context.GetMonster(1, MONST_OGRESS);
     }
 }
 
-fun MapEvent14(macros) {
-    macros.Teleport(13, 2, 164, EAST);
+fun MapEvent14(context) {
+    context.Teleport(13, 2, 164, EAST);
 }
 
-fun MapEvent15(macros) {
-    macros.Teleport(13, 2, 164, EAST);
+fun MapEvent15(context) {
+    context.Teleport(13, 2, 164, EAST);
 }
 
-fun MapEvent16(macros) {
-    SixMonst(macros, MONST_WIMPY_GRDS);
+fun MapEvent16(context) {
+    SixMonst(context, MONST_WIMPY_GRDS);
 }
 
-fun MapEvent17(macros) {
+fun MapEvent17(context) {
     var flag;
-    flag = macros.GetFlag(PARTY, FAKE_CHOR_SEEN);
-    switch (macros.Here) {
+    flag = context.GetFlag(PARTY, FAKE_CHOR_SEEN);
+    switch (context.Here) {
         case 165:
             if (!(flag & 1)) {
-                macros.ShowText("Ahead of you through the layers of smoke you see a massive golden throne.");
+                context.ShowText("Ahead of you through the layers of smoke you see a massive golden throne.");
                 flag = flag | 1;
             }
             break;
         case 166:
             if (!(flag & 2)) {
-                macros.ShowText("As you draw closer you make out an insoucient figure lounging on the throne, dressed in jester's motley.");
+                context.ShowText("As you draw closer you make out an insoucient figure lounging on the throne, dressed in jester's motley.");
                 flag = flag | 2;
             }
             break;
         case 167:
             if (!(flag & 4)) {
-                macros.ShowText("The crazed figure on the throne stands, stares at you briefly, then prances off to the southeast, cackling like a lunatic. He dives into a pit and vanishes.");
+                context.ShowText("The crazed figure on the throne stands, stares at you briefly, then prances off to the southeast, cackling like a lunatic. He dives into a pit and vanishes.");
                 flag = flag | 4;
             }
             break;
     }
-    macros.SetFlag(PARTY, FAKE_CHOR_SEEN, flag);
+    context.SetFlag(PARTY, FAKE_CHOR_SEEN, flag);
 }
 
-fun MapEvent18(macros) {
+fun MapEvent18(context) {
     var i;
-    macros.ShowText("The boiling lava scorches you mildly.");
-    macros.Damage(1);
+    context.ShowText("The boiling lava scorches you mildly.");
+    context.Damage(1);
 }
 
-fun MapEvent19(macros) {
-    macros.ShowText("The brackish water offends your nostrils.");
+fun MapEvent19(context) {
+    context.ShowText("The brackish water offends your nostrils.");
 }
 
-fun MapEvent1A(macros) {
-    switch (macros.Here) {
+fun MapEvent1A(context) {
+    switch (context.Here) {
         case 4:
         case 6:
         case 8:
@@ -698,51 +698,51 @@ fun MapEvent1A(macros) {
         case 70:
         case 72:
         default: 
-            macros.Teleport(13, 2, 222, NORTH);
+            context.Teleport(13, 2, 222, NORTH);
             break;
     }
 }
 
-fun MapEvent1B(macros) {
-    switch (macros.Here) {
+fun MapEvent1B(context) {
+    switch (context.Here) {
         case 201:
-            macros.Teleport(13, 2, 218, SOUTH);
+            context.Teleport(13, 2, 218, SOUTH);
             break;
         case 202:
         default: 
-            macros.Teleport(13, 2, 185, NORTH);
+            context.Teleport(13, 2, 185, NORTH);
             break;
     }
 }
 
-fun MapEvent1C(macros) {
-    if (macros.FlagOff(PARTY, FAKE_CHOR_KILLED)) {
-        macros.SetFlag(PARTY, FAKE_CHOR_KILLED, 1);
-        macros.ShowText("You set upon Choronzar as he scurries away. 'No!,' he squeals, 'you can't do this!'");
-        macros.GetMonster(1, MONST_FAKE_CHOR);
+fun MapEvent1C(context) {
+    if (context.FlagOff(PARTY, FAKE_CHOR_KILLED)) {
+        context.SetFlag(PARTY, FAKE_CHOR_KILLED, 1);
+        context.ShowText("You set upon Choronzar as he scurries away. 'No!,' he squeals, 'you can't do this!'");
+        context.GetMonster(1, MONST_FAKE_CHOR);
     }
 }
 
-fun MapEvent1D(macros) {
-    if (macros.FlagOff(ROOM, SEEN_IT)) {
-        macros.SetFlag(ROOM, SEEN_IT, 1);
-        macros.ShowText("A golden sarcophagus of regal dimensions glows dully in the torchlight. Upon further inspection you notice a ring-shaped indentation in the lid.");
+fun MapEvent1D(context) {
+    if (context.FlagOff(ROOM, SEEN_IT)) {
+        context.SetFlag(ROOM, SEEN_IT, 1);
+        context.ShowText("A golden sarcophagus of regal dimensions glows dully in the torchlight. Upon further inspection you notice a ring-shaped indentation in the lid.");
     }
-    if (macros.UsedItem(BRASSRING, BRASSRING)) {
-        if (macros.FlagOff(ROOM, DONE_IT)) {
-            macros.SetFlag(ROOM, DONE_IT, 1);
+    if (context.UsedItem(BRASSRING, BRASSRING)) {
+        if (context.FlagOff(ROOM, DONE_IT)) {
+            context.SetFlag(ROOM, DONE_IT, 1);
         }
-            macros.ShowText("You place the Brass Ring in the indentation. There is a hissing sound and a flash of intense white light, then the Brass Ring is gone. A portal has opened to the west!");
-            macros.TakeItem(BRASSRING);
-            macros.HideWall(macros.Here, WEST);
-            macros.ClearWall(macros.Here, WEST);
-            macros.SetFlag(PARTY, TOWER_DISKS1, 1);
-            macros.SetFlag(PARTY, TOWER_DISKS2, 2);
-            macros.SetFlag(PARTY, TOWER_DISKS3, 4);
+            context.ShowText("You place the Brass Ring in the indentation. There is a hissing sound and a flash of intense white light, then the Brass Ring is gone. A portal has opened to the west!");
+            context.TakeItem(BRASSRING);
+            context.HideWall(context.Here, WEST);
+            context.ClearWall(context.Here, WEST);
+            context.SetFlag(PARTY, TOWER_DISKS1, 1);
+            context.SetFlag(PARTY, TOWER_DISKS2, 2);
+            context.SetFlag(PARTY, TOWER_DISKS3, 4);
     }
 }
 
-fun MapEvent1E(macros) {
+fun MapEvent1E(context) {
     var thisFlag;
     var targFlag;
     var thisFlagOff;
@@ -750,7 +750,7 @@ fun MapEvent1E(macros) {
     var thisBits = 1;
     var thatBits = 1;
     var switchFlag;
-    switchFlag = macros.Here;
+    switchFlag = context.Here;
     switch (switchFlag) {
         case 214:
             thisFlagOff = 0;
@@ -762,10 +762,10 @@ fun MapEvent1E(macros) {
             thisFlagOff = 2;
             break;
     }
-    thisFlag = macros.GetFlag(PARTY, TOWER_DISKS1 + thisFlagOff);
-    if (macros.UsedItem(FUNHOUSEKEY, FUNHOUSEKEY)) {
+    thisFlag = context.GetFlag(PARTY, TOWER_DISKS1 + thisFlagOff);
+    if (context.UsedItem(FUNHOUSEKEY, FUNHOUSEKEY)) {
         switchFlag = switchFlag * 256;
-        switchFlag = switchFlag | macros.Facing;
+        switchFlag = switchFlag | context.Facing;
         switch (switchFlag) {
             case ((214 * 256) | SOUTH):
                 targFlagOff = 1;
@@ -781,7 +781,7 @@ fun MapEvent1E(macros) {
                 break;
         }
         if (targFlagOff != 100) {
-            targFlag = macros.GetFlag(PARTY, TOWER_DISKS1 + targFlagOff);
+            targFlag = context.GetFlag(PARTY, TOWER_DISKS1 + targFlagOff);
             thisFlag = thisFlag | 8;
             while (!(thisFlag & thisBits)) {
                     thisBits = thisBits * 2;
@@ -797,60 +797,60 @@ fun MapEvent1E(macros) {
             if ((thisBits != 0) && ((thatBits == 0) || (thisBits < thatBits))) {
                 switch (thisBits) {
                     case 1:
-                        macros.ShowText("The small wooden disk spins into the air and lands gracefully on the next peg.");
+                        context.ShowText("The small wooden disk spins into the air and lands gracefully on the next peg.");
                         break;
                     case 2:
-                        macros.ShowText("The medium wooden disk spins into the air and lands gracefully on the next peg.");
+                        context.ShowText("The medium wooden disk spins into the air and lands gracefully on the next peg.");
                         break;
                     case 3:
-                        macros.ShowText("The large wooden disk spins into the air and lands gracefully on the next peg.");
+                        context.ShowText("The large wooden disk spins into the air and lands gracefully on the next peg.");
                         break;
                 }
                 targFlag = targFlag | thisBits;
                 thisFlag = thisFlag & ~thisBits;
-                macros.SetFlag(PARTY, TOWER_DISKS1 + thisFlagOff, thisFlag);
-                macros.SetFlag(PARTY, TOWER_DISKS1 + targFlagOff, targFlag);
-                macros.SetFlag(ROOM, SEEN_IT, 0);
+                context.SetFlag(PARTY, TOWER_DISKS1 + thisFlagOff, thisFlag);
+                context.SetFlag(PARTY, TOWER_DISKS1 + targFlagOff, targFlag);
+                context.SetFlag(ROOM, SEEN_IT, 0);
             }
         }
     }
-    if (macros.FlagOff(ROOM, SEEN_IT)) {
-        macros.SetFlag(ROOM, SEEN_IT, 1);
-        macros.ShowText("There is an iron peg sticking up from the floor here. Impaled on the peg you see:");
+    if (context.FlagOff(ROOM, SEEN_IT)) {
+        context.SetFlag(ROOM, SEEN_IT, 1);
+        context.ShowText("There is an iron peg sticking up from the floor here. Impaled on the peg you see:");
         if (thisFlag == 0) {
-            macros.ShowText("Nothing.");
+            context.ShowText("Nothing.");
         }
         else {
             if (thisFlag == 7) {
-                macros.ShowText("All three wooden disks -- the completed Tower of Annoy!");
+                context.ShowText("All three wooden disks -- the completed Tower of Annoy!");
             }
             else {
                 if (thisFlag & 4) {
-                    macros.ShowText("A large wooden disk.");
+                    context.ShowText("A large wooden disk.");
                 }
                 if (thisFlag & 2) {
-                    macros.ShowText("A medium-sized wooden disk.");
+                    context.ShowText("A medium-sized wooden disk.");
                 }
                 if (thisFlag & 1) {
-                    macros.ShowText("A small wooden disk.");
+                    context.ShowText("A small wooden disk.");
                 }
             }
         }
     }
 }
 
-fun MapEvent1F(macros) {
-    if (macros.FlagOff(PARTY, EASTER_EGG)) {
-        macros.ShowText("You plunge to your doom.");
-        macros.Damage(macros.MaxHealth);
+fun MapEvent1F(context) {
+    if (context.FlagOff(PARTY, EASTER_EGG)) {
+        context.ShowText("You plunge to your doom.");
+        context.Damage(context.MaxHealth);
     }
 }
 
-fun MapEvent20(macros) {
+fun MapEvent20(context) {
     var strPtr;
     var flagOff;
     var flag;
-    switch (macros.Here) {
+    switch (context.Here) {
         case 214:
             strPtr = door1Str;
             flagOff = 0;
@@ -864,75 +864,75 @@ fun MapEvent20(macros) {
             flagOff = 2;
             break;
     }
-    if (macros.FlagOff(ROOM, SEEN_IT)) {
-        macros.SetFlag(ROOM, SEEN_IT, 1);
-        macros.ShowText("A sepuchral voice speaks from the door:");
-        macros.ShowText(strPtr);
+    if (context.FlagOff(ROOM, SEEN_IT)) {
+        context.SetFlag(ROOM, SEEN_IT, 1);
+        context.ShowText("A sepuchral voice speaks from the door:");
+        context.ShowText(strPtr);
     }
-    flag = macros.GetFlag(PARTY, TOWER_DISKS1 + flagOff);
+    flag = context.GetFlag(PARTY, TOWER_DISKS1 + flagOff);
     if (flag == 7) {
         switch (flagOff) {
             case 0:
-                macros.Teleport(13, 2, 176, SOUTH);
+                context.Teleport(13, 2, 176, SOUTH);
                 break;
             case 1:
             case 2:
-                macros.Teleport(13, 2, 245, SOUTH);
+                context.Teleport(13, 2, 245, SOUTH);
                 break;
         }
     }
 }
 
-fun MapEvent21(macros) {
+fun MapEvent21(context) {
     var flag;
-    if (!(macros.GetFlag(DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT)) {
-        flag = macros.GetFlag(PARTY, CHOR_TAUNT);
+    if (!(context.GetFlag(DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT)) {
+        flag = context.GetFlag(PARTY, CHOR_TAUNT);
         if (flag <= 1) {
-            macros.ShowPicture(CHORONZAR_PIC);
+            context.ShowPicture(CHORONZAR_PIC);
         }
         switch (flag) {
             case 0:
-                macros.ShowText("The door across the chasm opens and a strange figure in red and green jester's motley capers through. 'How delightful! % It is SO rare these days that I entertain mortals. %%' He grins and cocks his head, jingling the bells on his cap.");
-                macros.ShowText("'You needn't look so crestfallen...surely you didn't mistake my little simulacrum for the real thing! %' He giggles to himself and stares vacantly into the distance for a moment.");
-                macros.ShowText("You've created quite a stir here in my household %, and I'm sure you are MOST charming -- for mortals %% -- but I really MUST insist that you leave now.");
-                macros.ShowText("I have plans -- so MANY plans %% -- and I simply can't allow any interference from the likes of you.  I trust you know the way out. % Good Bye! %%'");
+                context.ShowText("The door across the chasm opens and a strange figure in red and green jester's motley capers through. 'How delightful! % It is SO rare these days that I entertain mortals. %%' He grins and cocks his head, jingling the bells on his cap.");
+                context.ShowText("'You needn't look so crestfallen...surely you didn't mistake my little simulacrum for the real thing! %' He giggles to himself and stares vacantly into the distance for a moment.");
+                context.ShowText("You've created quite a stir here in my household %, and I'm sure you are MOST charming -- for mortals %% -- but I really MUST insist that you leave now.");
+                context.ShowText("I have plans -- so MANY plans %% -- and I simply can't allow any interference from the likes of you.  I trust you know the way out. % Good Bye! %%'");
                 break;
             case 1:
-                macros.ShowText("Choronzar's face twists into a rictus of rage. 'What!?! ^', he shrieks. 'Still here!? ^' Frothy flecks of spittle fly from his lips.");
-                macros.ShowText("'You poor, pathetic mortals. %^ How strange it must be to crawl about the surface of your dirty world, knowing that you are doomed to die -- like a condemned criminal who knows not when the executioner will call.");
-                macros.ShowText("You realize the cause is hopeless, yet you persist!' He sighs. 'So be it. % Continue on if you must, for the Riddle Room is far beyond your puny powers of comprehension. ^%' He whirls abruptly and stalks away through the door to the West.");
+                context.ShowText("Choronzar's face twists into a rictus of rage. 'What!?! ^', he shrieks. 'Still here!? ^' Frothy flecks of spittle fly from his lips.");
+                context.ShowText("'You poor, pathetic mortals. %^ How strange it must be to crawl about the surface of your dirty world, knowing that you are doomed to die -- like a condemned criminal who knows not when the executioner will call.");
+                context.ShowText("You realize the cause is hopeless, yet you persist!' He sighs. 'So be it. % Continue on if you must, for the Riddle Room is far beyond your puny powers of comprehension. ^%' He whirls abruptly and stalks away through the door to the West.");
                 break;
         }
-        macros.SetFlag(PARTY, CHOR_TAUNT, flag + 1);
+        context.SetFlag(PARTY, CHOR_TAUNT, flag + 1);
     }
 }
 
-fun MapEvent22(macros) {
-    macros.Teleport(13, 2, 230, EAST);
+fun MapEvent22(context) {
+    context.Teleport(13, 2, 230, EAST);
 }
 
-fun MapEvent23(macros) {
-    switch (macros.Here) {
+fun MapEvent23(context) {
+    switch (context.Here) {
         case 242:
-            macros.Teleport(13, 2, 123, NORTH);
+            context.Teleport(13, 2, 123, NORTH);
             break;
         case 29:
-            macros.Teleport(13, 2, 22, NORTH);
+            context.Teleport(13, 2, 22, NORTH);
             break;
         default: 
-            macros.Teleport(13, 2, 245, SOUTH);
+            context.Teleport(13, 2, 245, SOUTH);
             break;
     }
 }
 
-fun MapEvent25(macros) {
-    macros.ShowText("A gleaming platinum plaque set into the floor reads: 'Riddle me this: I am He who lurks at the end of Life. Mine is the power to alter that which came before Me.'");
+fun MapEvent25(context) {
+    context.ShowText("A gleaming platinum plaque set into the floor reads: 'Riddle me this: I am He who lurks at the end of Life. Mine is the power to alter that which came before Me.'");
 }
 
-fun MapEvent26(macros) {
+fun MapEvent26(context) {
     var monster;
     var i;
-    switch (macros.Here) {
+    switch (context.Here) {
         case 122:
         case 88:
         case 56:
@@ -976,19 +976,19 @@ fun MapEvent26(macros) {
         default: 
             break;
     }
-    SixMonst(macros, monster);
+    SixMonst(context, monster);
 }
 
-fun MapEvent27(macros) {
+fun MapEvent27(context) {
     var flag;
     var i;
     var treasure;
     var square;
     var facing;
-    macros.NoMaps;
-    macros.ShowText("You continue to tumble through the Vortex, buffeted by gusts of stale wind.");
-    flag = macros.GetFlag(PARTY, VORTEX_COUNT);
-    macros.SetFlag(PARTY, VORTEX_COUNT, flag + 1);
+    context.NoMaps;
+    context.ShowText("You continue to tumble through the Vortex, buffeted by gusts of stale wind.");
+    flag = context.GetFlag(PARTY, VORTEX_COUNT);
+    context.SetFlag(PARTY, VORTEX_COUNT, flag + 1);
     switch (flag % 9) {
         case 0:
             square = 38;
@@ -1028,14 +1028,14 @@ fun MapEvent27(macros) {
             facing = SOUTH;
             break;
     }
-    if (macros.Here == 6) {
-        macros.PlaceWallItem(GATEWAY, 6, NORTH);
+    if (context.Here == 6) {
+        context.PlaceWallItem(GATEWAY, 6, NORTH);
     }
     else {
-        macros.RemoveWallItem(6, NORTH);
+        context.RemoveWallItem(6, NORTH);
     }
-    macros.SetFlag(PARTY, VORTEX_SQUARE, square);
-    macros.SetFlag(PARTY, VORTEX_FACING, facing);
+    context.SetFlag(PARTY, VORTEX_SQUARE, square);
+    context.SetFlag(PARTY, VORTEX_FACING, facing);
     if ((flag != 0) && (flag % 7) == 0) {
         treasure = SPIRITBOTTLE;
     }
@@ -1043,20 +1043,20 @@ fun MapEvent27(macros) {
         treasure = CUREPOTION;
     }
     flag = flag % 3;
-    macros.SetBooty(CUREPOTION, CUREPOTION, CUREPOTION, treasure, CUREPOTION, 0);
-    for (i = 1; i <= (macros.PartyCount + 1); i++) {
-        macros.GetMonster(i, MONST_VORTEX_1 + flag);
+    context.SetBooty(CUREPOTION, CUREPOTION, CUREPOTION, treasure, CUREPOTION, 0);
+    for (i = 1; i <= (context.PartyCount + 1); i++) {
+        context.GetMonster(i, MONST_VORTEX_1 + flag);
     }
 }
 
-fun MapEvent28(macros) {
+fun MapEvent28(context) {
     var strPtr1;
     var strPtr2;
-    if (macros.UsedItem(HACKSAWBLADE, HACKSAWBLADE) && macros.FlagOff(ROOM, DONE_IT)) {
-        macros.SetFlag(ROOM, DONE_IT, 1);
-        macros.ShowText("With a CRACK the shackles burst open in a shower of sparks.  The Hacksaw Blade has been ruined as well.");
-        macros.TakeItem(HACKSAWBLADE);
-        switch (macros.Here) {
+    if (context.UsedItem(HACKSAWBLADE, HACKSAWBLADE) && context.FlagOff(ROOM, DONE_IT)) {
+        context.SetFlag(ROOM, DONE_IT, 1);
+        context.ShowText("With a CRACK the shackles burst open in a shower of sparks.  The Hacksaw Blade has been ruined as well.");
+        context.TakeItem(HACKSAWBLADE);
+        switch (context.Here) {
             case 0:
                 strPtr1 = menageRescueThanks;
                 break;
@@ -1083,41 +1083,41 @@ fun MapEvent28(macros) {
         }
     }
     else {
-        if (macros.FlagOff(ROOM, SEEN_IT)) {
-            macros.SetFlag(ROOM, SEEN_IT, 1);
-            switch (macros.Here) {
+        if (context.FlagOff(ROOM, SEEN_IT)) {
+            context.SetFlag(ROOM, SEEN_IT, 1);
+            switch (context.Here) {
                 case 0:
-                    macros.ShowPicture(PRISONER1_PIC);
+                    context.ShowPicture(PRISONER1_PIC);
                     strPtr1 = menageDescPrisoner;
                     strPtr2 = menageWeird1;
                     break;
                 case 16:
-                    macros.ShowPicture(ARCHITECT_PIC);
+                    context.ShowPicture(ARCHITECT_PIC);
                     strPtr1 = menageDescPrisoner;
                     strPtr2 = menageWeird2;
                     break;
                 case 18:
-                    macros.ShowPicture(HANDMAIDEN_PIC);
+                    context.ShowPicture(HANDMAIDEN_PIC);
                     strPtr1 = menageDescPrisoner;
                     strPtr2 = menageWeird3;
                     break;
                 case 20:
-                    macros.ShowPicture(PRISONER2_PIC);
+                    context.ShowPicture(PRISONER2_PIC);
                     strPtr1 = menageDescPrisoner;
                     strPtr2 = menageWeird4;
                     break;
                 case 36:
-                    macros.ShowPicture(ALCHEMIST_PIC);
+                    context.ShowPicture(ALCHEMIST_PIC);
                     strPtr1 = menageDescPrisoner;
                     strPtr2 = menageWeird5;
                     break;
                 case 49:
-                    macros.ShowPicture(MASTERPUZZLER_PIC);
+                    context.ShowPicture(MASTERPUZZLER_PIC);
                     strPtr1 = menageDescPrisoner;
                     strPtr2 = menageWeird6;
                     break;
                 case 50:
-                    macros.ShowPicture(PRISONER3_PIC);
+                    context.ShowPicture(PRISONER3_PIC);
                     strPtr1 = menageDescPrisoner;
                     strPtr2 = menageWeird7;
                     break;
@@ -1128,41 +1128,41 @@ fun MapEvent28(macros) {
         }
     }
     if (strPtr1 != NULL) {
-        macros.ShowText(strPtr1);
+        context.ShowText(strPtr1);
     }
     if (strPtr2 != NULL) {
-        macros.ShowText("As if in a feverish dream, the prisoner cries out:");
-        macros.ShowText(strPtr2);
+        context.ShowText("As if in a feverish dream, the prisoner cries out:");
+        context.ShowText(strPtr2);
     }
 }
 
-fun MapEvent29(macros) {
-    macros.Teleport(13, 2, 101, NORTH);
+fun MapEvent29(context) {
+    context.Teleport(13, 2, 101, NORTH);
 }
 
-fun MapEvent2A(macros) {
-    macros.SetFlag(PARTY, CAROUSEL_CNT, CAROUSEL_REVS);
+fun MapEvent2A(context) {
+    context.SetFlag(PARTY, CAROUSEL_CNT, CAROUSEL_REVS);
 }
 
-fun MapEvent2B(macros) {
-    SixMonst(macros, MONST_MIRRHALL_A);
+fun MapEvent2B(context) {
+    SixMonst(context, MONST_MIRRHALL_A);
 }
 
-fun MapEvent2C(macros) {
-    SixMonst(macros, MONST_MIRRHALL_B);
+fun MapEvent2C(context) {
+    SixMonst(context, MONST_MIRRHALL_B);
 }
 
-fun MapEvent2D(macros) {
-    SixMonst(macros, MONST_MIRRHALL_C);
+fun MapEvent2D(context) {
+    SixMonst(context, MONST_MIRRHALL_C);
 }
 
-fun MapEvent2F(macros) {
+fun MapEvent2F(context) {
     var strPtr;
     var nexFlags1;
     var square = -1;
-    nexFlags1 = macros.GetFlag(PARTY, NEXUS_PUZZLE);
+    nexFlags1 = context.GetFlag(PARTY, NEXUS_PUZZLE);
     if (nexFlags1 == 0) {
-        switch (macros.Here) {
+        switch (context.Here) {
             case 106:
                 square = 123;
                 strPtr = aStr;
@@ -1181,7 +1181,7 @@ fun MapEvent2F(macros) {
                 break;
             case 44:
                 strPtr = eStr;
-                macros.ClearWall(macros.Here, macros.Facing);
+                context.ClearWall(context.Here, context.Facing);
                 break;
             case 61:
                 square = 123;
@@ -1199,119 +1199,119 @@ fun MapEvent2F(macros) {
                 break;
         }
         if (square != -1) {
-            macros.Teleport(13, 2, square, NORTH);
+            context.Teleport(13, 2, square, NORTH);
         }
     }
     if (strPtr != NULL) {
-        macros.ShowText("Above the door a stone tablet reads:");
-        macros.ShowText(strPtr);
+        context.ShowText("Above the door a stone tablet reads:");
+        context.ShowText(strPtr);
     }
 }
 
-fun MapEvent30(macros) {
-    macros.Teleport(13, 2, 242, WEST);
+fun MapEvent30(context) {
+    context.Teleport(13, 2, 242, WEST);
 }
 
-fun MapEvent32(macros) {
-    macros.BlockWall(macros.Here, macros.Facing);
+fun MapEvent32(context) {
+    context.BlockWall(context.Here, context.Facing);
 }
 
-fun MapEvent33(macros) {
-    macros.BlockWall(macros.Here, macros.Facing);
-    macros.Teleport(13, 2, macros.GetFlag(PARTY, VORTEX_SQUARE), macros.GetFlag(PARTY, VORTEX_FACING));
+fun MapEvent33(context) {
+    context.BlockWall(context.Here, context.Facing);
+    context.Teleport(13, 2, context.GetFlag(PARTY, VORTEX_SQUARE), context.GetFlag(PARTY, VORTEX_FACING));
 }
 
-fun MapEvent34(macros) {
-    macros.Teleport(13, 2, 222, SOUTH);
+fun MapEvent34(context) {
+    context.Teleport(13, 2, 222, SOUTH);
 }
 
-fun MapEvent35(macros) {
+fun MapEvent35(context) {
     var monster;
-    macros.NoMaps;
-    macros.ShowText("From the darkness above you Choronzar's voice whispers, 'Good guess! % Too bad it was WRONG. %% Welcome to the Penalty Box...'");
-    SixMonst(macros, MONST_PENALTY);
+    context.NoMaps;
+    context.ShowText("From the darkness above you Choronzar's voice whispers, 'Good guess! % Too bad it was WRONG. %% Welcome to the Penalty Box...'");
+    SixMonst(context, MONST_PENALTY);
 }
 
-fun MapEvent36(macros) {
-    macros.Teleport(13, 2, 171, NORTH);
+fun MapEvent36(context) {
+    context.Teleport(13, 2, 171, NORTH);
 }
 
-fun MapEvent37(macros) {
-    macros.Teleport(13, 2, 222, EAST);
+fun MapEvent37(context) {
+    context.Teleport(13, 2, 222, EAST);
 }
 
-fun MapEvent38(macros) {
-    macros.ShowText("A wooden sign hanging from the ceiling reads:");
-    macros.ShowText("'HALL OF MIRRORS.");
-    macros.ShowText("These mirrors show thine own face,");
-    macros.ShowText("Distorted and impure.");
-    macros.ShowText("But seek the dour countenance,");
-    macros.ShowText("Brow girdled with azure.'");
+fun MapEvent38(context) {
+    context.ShowText("A wooden sign hanging from the ceiling reads:");
+    context.ShowText("'HALL OF MIRRORS.");
+    context.ShowText("These mirrors show thine own face,");
+    context.ShowText("Distorted and impure.");
+    context.ShowText("But seek the dour countenance,");
+    context.ShowText("Brow girdled with azure.'");
 }
 
-fun MapEvent39(macros) {
+fun MapEvent39(context) {
     var twistyCnt;
     var monster;
-    macros.NoMaps;
-    if (macros.Here == 48) {
-        macros.SetFlag(PARTY, MAJOR_DOMO, 6);
+    context.NoMaps;
+    if (context.Here == 48) {
+        context.SetFlag(PARTY, MAJOR_DOMO, 6);
     }
-    if (macros.FlagOff(ROOM, DONE_IT)) {
-        twistyCnt = macros.GetFlag(PARTY, TWISTY_COUNT);
-        if (macros.UsedSkill(DETECT_SKILL) >= 1) {
-            macros.ShowText("Your search reveals monsters!");
-            SixMonst(macros, MONST_TWISTY);
-            macros.SetFlag(ROOM, DONE_IT, 1);
+    if (context.FlagOff(ROOM, DONE_IT)) {
+        twistyCnt = context.GetFlag(PARTY, TWISTY_COUNT);
+        if (context.UsedSkill(DETECT_SKILL) >= 1) {
+            context.ShowText("Your search reveals monsters!");
+            SixMonst(context, MONST_TWISTY);
+            context.SetFlag(ROOM, DONE_IT, 1);
         }
         else {
             twistyCnt++;
             if (!(twistyCnt % 5) || !(twistyCnt % 7)) {
-                macros.SetBooty(MANAAMPHORA, HEALAMPHORA, CUREPOTION, HACKSAWBLADE, 0, 0);
-                SixMonst(macros, MONST_TWISTY);
-                macros.SetFlag(ROOM, DONE_IT, 1);
+                context.SetBooty(MANAAMPHORA, HEALAMPHORA, CUREPOTION, HACKSAWBLADE, 0, 0);
+                SixMonst(context, MONST_TWISTY);
+                context.SetFlag(ROOM, DONE_IT, 1);
             }
         }
-        macros.SetFlag(PARTY, TWISTY_COUNT, twistyCnt);
+        context.SetFlag(PARTY, TWISTY_COUNT, twistyCnt);
     }
 }
 
-fun MapEvent3A(macros) {
-    macros.NoMaps;
+fun MapEvent3A(context) {
+    context.NoMaps;
 }
 
-fun MapEvent3C(macros) {
-    macros.NoMaps;
-    if (macros.FlagOff(ROOM, SEEN_IT)) {
-        macros.SetFlag(ROOM, SEEN_IT, 1);
-        macros.ShowText("An exquisitely delicate egg of opal and white gold rests atop a polished marble dais. Congratulations! You have found the Easter Egg.");
-        macros.GiveItem(EASTEREGG);
+fun MapEvent3C(context) {
+    context.NoMaps;
+    if (context.FlagOff(ROOM, SEEN_IT)) {
+        context.SetFlag(ROOM, SEEN_IT, 1);
+        context.ShowText("An exquisitely delicate egg of opal and white gold rests atop a polished marble dais. Congratulations! You have found the Easter Egg.");
+        context.GiveItem(EASTEREGG);
     }
 }
 
-fun MapEvent3D(macros) {
-    macros.ShowText("This is a massive throne carved from a single block of polished obsidian. It is inlaid with strange, beautiful sigils in delicate silver filigree.");
+fun MapEvent3D(context) {
+    context.ShowText("This is a massive throne carved from a single block of polished obsidian. It is inlaid with strange, beautiful sigils in delicate silver filigree.");
 }
 
-fun MapEvent3E(macros) {
-    if (macros.FlagOff(PARTY, CHOR_GHOST_SEEN)) {
-        macros.SetFlag(PARTY, CHOR_GHOST_SEEN, 1);
-        macros.ShowText("Wailing piteously, the spirit of Choronzar drifts from his fallen body into the tomb.");
+fun MapEvent3E(context) {
+    if (context.FlagOff(PARTY, CHOR_GHOST_SEEN)) {
+        context.SetFlag(PARTY, CHOR_GHOST_SEEN, 1);
+        context.ShowText("Wailing piteously, the spirit of Choronzar drifts from his fallen body into the tomb.");
     }
 }
 
-fun MapEvent3F(macros) {
-    macros.Teleport(13, 2, 227, WEST);
+fun MapEvent3F(context) {
+    context.Teleport(13, 2, 227, WEST);
 }
 
-fun MapEvent40(macros) {
+fun MapEvent40(context) {
     var item;
     var flag;
     var i;
-    if (macros.FlagOff(ROOM, DONE_IT)) {
-        macros.SetFlag(ROOM, DONE_IT, 1);
-        flag = macros.GetFlag(DUNGEON, FUN_BAR_COUNT);
+    if (context.FlagOff(ROOM, DONE_IT)) {
+        context.SetFlag(ROOM, DONE_IT, 1);
+        flag = context.GetFlag(DUNGEON, FUN_BAR_COUNT);
         if (flag < 100) {
-            switch (macros.Here) {
+            switch (context.Here) {
                 case 215:
                     item = SILVERBAR;
                     break;
@@ -1329,31 +1329,31 @@ fun MapEvent40(macros) {
                     item = PLATINUMBAR;
                     break;
             }
-            macros.ShowText("This vast stack of ingots seems virtually inexhaustible.");
-            macros.GiveItem(item);
-            macros.GiveItem(item);
-            macros.GiveItem(item);
-            macros.GiveItem(item);
-            macros.GiveItem(item);
+            context.ShowText("This vast stack of ingots seems virtually inexhaustible.");
+            context.GiveItem(item);
+            context.GiveItem(item);
+            context.GiveItem(item);
+            context.GiveItem(item);
+            context.GiveItem(item);
             flag = flag + 5;
         }
-        macros.SetFlag(DUNGEON, FUN_BAR_COUNT, flag);
+        context.SetFlag(DUNGEON, FUN_BAR_COUNT, flag);
     }
 }
 
-fun MapEvent41(macros) {
-    if (macros.FlagOff(ROOM, DONE_IT)) {
-        if (macros.UsedItem(JESTERSCAP, JESTERSCAP)) {
-            macros.SetFlag(ROOM, DONE_IT, 1);
+fun MapEvent41(context) {
+    if (context.FlagOff(ROOM, DONE_IT)) {
+        if (context.UsedItem(JESTERSCAP, JESTERSCAP)) {
+            context.SetFlag(ROOM, DONE_IT, 1);
         }
     }
     else {
-        if (macros.UsedItem(PRICELESSBAR, PRICELESSBAR)) {
-            macros.SetFlag(PARTY, EASTER_EGG, 1);
+        if (context.UsedItem(PRICELESSBAR, PRICELESSBAR)) {
+            context.SetFlag(PARTY, EASTER_EGG, 1);
         }
     }
 }
 
-fun MapEvent43(macros) {
-    macros.ShowRunes("The Tower disks are controlled by the Funhouse Key.");
+fun MapEvent43(context) {
+    context.ShowRunes("The Tower disks are controlled by the Funhouse Key.");
 }
