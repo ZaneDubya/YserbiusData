@@ -1,0 +1,1100 @@
+#include "defines.loh"
+#include "flags.loh"
+
+#define DETECTED_DOOR 1
+#define ARRIVED_HERE 2
+#define WAR1 5
+#define WAR2 6
+#define WAR3 7
+#define WAR4 8
+#define WAR5 9
+#define WAR6 10
+#define WAR7 11
+#define CTR 12
+#define TRACKING 13
+#define WHATFIGHT 14
+#define MOREBOAR 15
+#define MORESLIME 16
+#define MOREPANTHER 17
+#define MOREDOG 18
+#define MOREBAT 19
+#define MOREHARPY 20
+#define MOREMINOTAUR 21
+#define MOREMEDUSA 22
+#define USEDPRUNES 23
+#define GOTMESSAGE 24
+#define LANTERNMESSAGE 25
+
+fun MapEvent02(macros) {
+    if (macros.UsedSkill(DETECT_SKILL) > 11 || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.FlagOn(ROOM, DETECTED_DOOR)) {
+        macros.PlaceWallItem(PORTAL, macros.Here, macros.Facing);
+        macros.SetFlag(ROOM, DETECTED_DOOR, 1);
+        if (((macros.UsedSkill(LOCKPICK_SKILL) > 11) && (macros.HasItem(COLDSTEELLOCKPICK) || macros.HasItem(ADAMANTINELOCKPICK))) || ((macros.GetSkill(LOCKPICK_SKILL) > 11) && (macros.UsedItem(COLDSTEELLOCKPICK, ADAMANTINELOCKPICK)))) {
+            macros.ShowText("You have unlocked the hidden door.");
+            macros.ClearWall(macros.Here, macros.Facing);
+        }
+        else {
+            macros.BlockWall(macros.Here, macros.Facing);
+            macros.ShowText("You detect a hidden door, but it is locked.");
+            if ((macros.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (macros.UsedItem(SILVERLOCKPICK, STEELLOCKPICK))) {
+                macros.TakeItem(WOODENLOCKPICK);
+                macros.TakeItem(BRASSLOCKPICK);
+                macros.TakeItem(IRONLOCKPICK);
+                macros.TakeItem(SILVERLOCKPICK);
+                macros.TakeItem(STEELLOCKPICK);
+                macros.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
+            }
+        }
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+    }
+}
+
+fun MapEvent04(macros) {
+    macros.ShowText("You return to The Runed Room.");
+    macros.Teleport(1, 2, 159, WEST);
+}
+
+fun CheckMap(macros) {
+    var i;
+    if (!(macros.HasItem(LANTERN))) {
+        if (macros.HasItem(BRIEFCANDLE)) {
+            i = (macros.GetFlag(DUNGEON, CANDLECOUNTER));
+            i++;
+            if (i > 10) {
+                macros.SetFlag(DUNGEON, CANDLECOUNTER, 0);
+                macros.TakeItem(BRIEFCANDLE);
+                macros.ShowText("Out out, brief candle.  Light's but a making shadow; a poor photon, that glints and flashes its hour upon the gaze, and then is seen no more.");
+                macros.ShowText("In other words, it got dark.");
+            }
+            else {
+                macros.ShowText("Your sputtering little candle provides barely enough illumination, but it won't last forever.");
+                macros.SetFlag(DUNGEON, CANDLECOUNTER, i);
+            }
+        }
+        else {
+            macros.NoMaps;
+            macros.ShowText("It sure is dark down here.  There's no way you'll be able to spot an ambush or protect yourself fully while it's so dark.  In fact, yup, that hurt!");
+            macros.Damage(500);
+        }
+    }
+    else {
+        if (macros.GetFlag(PARTY, LANTERNMESSAGE) == 0) {
+            macros.ShowText("Darn useful items, these lanterns.  Getting one was a bright idea.");
+            macros.SetFlag(PARTY, LANTERNMESSAGE, 1);
+        }
+        if (macros.GetFlag(DUNGEON, LANTERNREWARD) == 0) {
+            macros.SetFlag(DUNGEON, LANTERNREWARD, 1);
+            macros.ModExp(600000);
+        }
+    }
+    if (macros.UsedItem(THEPRUNESOFCAWDOR, THEPRUNESOFCAWDOR)) {
+        macros.SetFlag(PARTY, USEDPRUNES, 1);
+    }
+    else {
+        macros.SetFlag(PARTY, USEDPRUNES, 0);
+    }
+}
+
+fun MapEvent07(macros) {
+    CheckMap(macros);
+}
+
+fun MapEvent08(macros) {
+    var i;
+    if (!(macros.HasItem(LANTERN))) {
+        if (macros.HasItem(BRIEFCANDLE)) {
+            i = (macros.GetFlag(DUNGEON, CANDLECOUNTER));
+            i++;
+            if (i > 10) {
+                macros.SetFlag(DUNGEON, CANDLECOUNTER, 0);
+                macros.TakeItem(BRIEFCANDLE);
+                macros.ShowText("Out out, brief candle.  Light's but a making shadow; a poor photon, that glints and flashes its hour upon the gaze, and then is seen no more.");
+                macros.ShowText("In other words, it got dark.");
+            }
+            else {
+                macros.ShowText("Your sputtering little candle provides barely enough illumination, but it won't last forever.");
+                macros.SetFlag(DUNGEON, CANDLECOUNTER, i);
+            }
+        }
+        else {
+            macros.NoMaps;
+            macros.ShowText("It sure is dark down here.");
+        }
+    }
+    else {
+        if (macros.GetFlag(PARTY, LANTERNMESSAGE) == 0) {
+            macros.ShowText("Darn useful items, these lanterns.");
+            macros.SetFlag(PARTY, LANTERNMESSAGE, 1);
+        }
+        if (macros.GetFlag(DUNGEON, LANTERNREWARD) == 0) {
+            macros.SetFlag(DUNGEON, LANTERNREWARD, 1);
+            macros.ModExp(600000);
+            macros.ShowText("In fact, you deserve a reward for thinking of it.");
+        }
+    }
+}
+
+fun Quiet(macros) {
+    macros.ShowText("This room is empty.  But you hear movement around you.");
+    macros.SetFlag(ROOM, ARRIVED_HERE, 1);
+}
+
+fun MapEvent09(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(DUNGEON, LOOKINGFORLADY) == 213) {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 212);
+    }
+    else {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREHARPY) == 0) {
+        macros.SetFlag(PARTY, MOREHARPY, 1);
+        macros.SetBooty(LAVENDERLOTION, WOADWINE, 0, 0, 0, 100);
+        macros.GetMonster(5, 35);
+        macros.GetMonster(1, 17);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(2, 17);
+            macros.GetMonster(6, 35);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(3, 36);
+            macros.GetMonster(4, 36);
+        }
+    }
+    else {
+        Quiet(macros);
+    }
+}
+
+fun MapEvent0A(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(DUNGEON, LOOKINGFORLADY) == 184) {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 183);
+    }
+    else {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREPANTHER) == 0) {
+        macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+        macros.GetMonster(1, 26);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(2, 25);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 25);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 26);
+        }
+    }
+    else {
+        Quiet(macros);
+    }
+}
+
+fun MapEvent0B(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(DUNGEON, LOOKINGFORLADY) == 183) {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 167);
+    }
+    else {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREPANTHER) == 0) {
+        macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+        macros.GetMonster(1, 26);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(2, 25);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 25);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 26);
+        }
+    }
+    else {
+        Quiet(macros);
+    }
+}
+
+fun MapEvent0C(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(DUNGEON, LOOKINGFORLADY) == 167) {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 166);
+    }
+    else {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREPANTHER) == 0) {
+        macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+        macros.GetMonster(1, 26);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(2, 25);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 25);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 26);
+        }
+    }
+    else {
+        Quiet(macros);
+    }
+}
+
+fun MapEvent0D(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(DUNGEON, LOOKINGFORLADY) == 166) {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 165);
+    }
+    else {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREBOAR) == 0) {
+        macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+        macros.GetMonster(1, 29);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(2, 30);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 29);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 30);
+        }
+    }
+    else {
+        Quiet(macros);
+    }
+}
+
+fun MapEvent0E(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(DUNGEON, LOOKINGFORLADY) == 165) {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 181);
+    }
+    else {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREBOAR) == 0) {
+        macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+        macros.GetMonster(1, 29);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(2, 30);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 29);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 30);
+        }
+    }
+    else {
+        Quiet(macros);
+    }
+}
+
+fun MapEvent0F(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(DUNGEON, LOOKINGFORLADY) == 181) {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 197);
+    }
+    else {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREBOAR) == 0) {
+        macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+        macros.GetMonster(1, 29);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(2, 30);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 29);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 30);
+        }
+    }
+    else {
+        Quiet(macros);
+    }
+}
+
+fun MapEvent10(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(DUNGEON, LOOKINGFORLADY) == 197) {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 213);
+    }
+    else {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREBOAR) == 0) {
+        macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+        macros.GetMonster(1, 29);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(2, 30);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 29);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 30);
+        }
+    }
+    else {
+        Quiet(macros);
+    }
+}
+
+fun MapEvent11(macros) {
+    CheckMap(macros);
+    if ((macros.GetFlag(DUNGEON, LOOKINGFORLADY) == 212) || (macros.GetFlag(DUNGEON, FOUGHTLADY) == 1)) {
+        if (macros.HasItem(LEADENDAGGER)) {
+            macros.Teleport(10, 2, 228, SOUTH);
+        }
+        else {
+            if (macros.PartyLevel(70)) {
+                macros.Teleport(10, 2, 231, EAST);
+            }
+            else {
+                if (macros.PartyLevel(50)) {
+                    macros.Teleport(10, 2, 230, EAST);
+                }
+                else {
+                    macros.Teleport(10, 2, 229, EAST);
+                }
+            }
+        }
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 0);
+    }
+}
+
+fun MapEvent12(macros) {
+    macros.ShowPicture(PANTHER);
+    if (macros.GetFlag(ROOM, ARRIVED_HERE) == 1) {
+        macros.SetFlag(PARTY, WHATFIGHT, PANTHER);
+    }
+    macros.ClearWall(macros.Here, macros.Facing);
+}
+
+fun MapEvent13(macros) {
+    macros.ShowPicture(SLIME);
+    if (macros.GetFlag(ROOM, ARRIVED_HERE) == 1) {
+        macros.SetFlag(PARTY, WHATFIGHT, SLIME);
+    }
+    macros.ClearWall(macros.Here, macros.Facing);
+}
+
+fun MapEvent14(macros) {
+    macros.ShowPicture(BOAR);
+    if (macros.GetFlag(ROOM, ARRIVED_HERE) == 1) {
+        macros.SetFlag(PARTY, WHATFIGHT, BOAR);
+    }
+    macros.ClearWall(macros.Here, macros.Facing);
+}
+
+fun MapEvent15(macros) {
+    macros.ShowPicture(HOUND);
+    if (macros.GetFlag(ROOM, ARRIVED_HERE) == 1) {
+        macros.SetFlag(PARTY, WHATFIGHT, HOUND);
+    }
+    macros.ClearWall(macros.Here, macros.Facing);
+}
+
+fun MapEvent16(macros) {
+    macros.ShowPicture(BAT);
+    if (macros.GetFlag(ROOM, ARRIVED_HERE) == 1) {
+        macros.SetFlag(PARTY, WHATFIGHT, BAT);
+    }
+    macros.ClearWall(macros.Here, macros.Facing);
+}
+
+fun MapEvent17(macros) {
+    macros.ShowPicture(HARPY);
+    if (macros.GetFlag(ROOM, ARRIVED_HERE) == 1) {
+        macros.SetFlag(PARTY, WHATFIGHT, HARPY);
+    }
+    macros.ClearWall(macros.Here, macros.Facing);
+}
+
+fun MapEvent18(macros) {
+    macros.ShowPicture(MEDUSA);
+    if (macros.GetFlag(ROOM, ARRIVED_HERE) == 1) {
+        macros.SetFlag(PARTY, WHATFIGHT, MEDUSA);
+    }
+    macros.ClearWall(macros.Here, macros.Facing);
+}
+
+fun MapEvent19(macros) {
+    macros.ShowPicture(MINOTAUR);
+    if (macros.GetFlag(ROOM, ARRIVED_HERE) == 1) {
+        macros.SetFlag(PARTY, WHATFIGHT, MINOTAUR);
+    }
+    macros.ClearWall(macros.Here, macros.Facing);
+}
+
+fun MapEvent1A(macros) {
+    macros.SetFlag(DUNGEON, LOOKINGFORLADY, 0);
+}
+
+fun MapEvent1B(macros) {
+    if (macros.GetFlag(PARTY, USEDPRUNES) == 1) {
+        macros.SetFlag(PARTY, MOREBOAR, 1);
+        macros.ShowText("The boars have run away from the Prunes of Cawdor!");
+        macros.SetFlag(PARTY, USEDPRUNES, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREBOAR) == 0) {
+        macros.SetFlag(PARTY, MOREBOAR, 1);
+        macros.SetBooty(LAVENDERLOTION, WOADWINE, 0, 0, 0, 100);
+        macros.GetMonster(1, 21);
+        macros.GetMonster(2, 21);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 29);
+            macros.GetMonster(4, 29);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 29);
+            macros.GetMonster(6, 29);
+        }
+    }
+    else {
+        macros.ShowText("You have already cleaned out the sty.");
+    }
+    CheckMap(macros);
+}
+
+fun MapEvent1C(macros) {
+    if (macros.GetFlag(PARTY, USEDPRUNES) == 1) {
+        macros.SetFlag(PARTY, MOREMINOTAUR, 1);
+        macros.ShowText("The minotaurs have run away from the Prunes of Cawdor!");
+        macros.SetFlag(PARTY, USEDPRUNES, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREMINOTAUR) == 0) {
+        macros.SetFlag(PARTY, MOREMINOTAUR, 1);
+        macros.SetBooty(LAVENDERLOTION, WOADWINE, 0, 0, 0, 100);
+        macros.GetMonster(1, 22);
+        macros.GetMonster(2, 22);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 28);
+            macros.GetMonster(4, 28);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 28);
+            macros.GetMonster(6, 28);
+        }
+    }
+    else {
+        macros.ShowText("You have already cleaned out the barn.");
+    }
+    CheckMap(macros);
+}
+
+fun MapEvent1D(macros) {
+    if (macros.GetFlag(PARTY, USEDPRUNES) == 1) {
+        macros.SetFlag(PARTY, MORESLIME, 1);
+        macros.ShowText("The slimes have run away from the Prunes of Cawdor!");
+        macros.SetFlag(PARTY, USEDPRUNES, 0);
+    }
+    if (macros.GetFlag(PARTY, MORESLIME) == 0) {
+        macros.SetFlag(PARTY, MORESLIME, 1);
+        macros.SetBooty(LAVENDERLOTION, WOADWINE, 0, 0, 0, 100);
+        macros.GetMonster(1, 23);
+        macros.GetMonster(2, 27);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 23);
+            macros.GetMonster(4, 27);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 27);
+            macros.GetMonster(6, 27);
+        }
+    }
+    else {
+        macros.ShowText("You have already cleaned out the drains.");
+    }
+    CheckMap(macros);
+}
+
+fun MapEvent1E(macros) {
+    if (macros.GetFlag(PARTY, USEDPRUNES) == 1) {
+        macros.SetFlag(PARTY, MOREBAT, 1);
+        macros.ShowText("The bats have run away from the Prunes of Cawdor!");
+        macros.SetFlag(PARTY, USEDPRUNES, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREBAT) == 0) {
+        macros.SetFlag(PARTY, MOREBAT, 1);
+        macros.SetBooty(LAVENDERLOTION, WOADWINE, 0, 0, 0, 100);
+        macros.GetMonster(1, 18);
+        macros.GetMonster(2, 37);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 18);
+            macros.GetMonster(4, 18);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 37);
+            macros.GetMonster(6, 37);
+        }
+    }
+    else {
+        macros.ShowText("You have already cleaned out the cave.");
+    }
+    CheckMap(macros);
+}
+
+fun MapEvent1F(macros) {
+    if (macros.GetFlag(PARTY, USEDPRUNES) == 1) {
+        macros.SetFlag(PARTY, MOREMEDUSA, 1);
+        macros.ShowText("The medusa have run away from the Prunes of Cawdor!");
+        macros.SetFlag(PARTY, USEDPRUNES, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREMEDUSA) == 0) {
+        macros.SetFlag(PARTY, MOREMEDUSA, 1);
+        macros.SetBooty(LAVENDERLOTION, WOADWINE, 0, 0, 0, 100);
+        macros.GetMonster(1, 20);
+        macros.GetMonster(2, 31);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 20);
+            macros.GetMonster(4, 31);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 20);
+            macros.GetMonster(6, 31);
+        }
+    }
+    else {
+        macros.ShowText("You have already cleaned out the pit.");
+    }
+    CheckMap(macros);
+}
+
+fun MapEvent20(macros) {
+    if (macros.GetFlag(PARTY, USEDPRUNES) == 1) {
+        macros.SetFlag(PARTY, MOREPANTHER, 1);
+        macros.ShowText("The brinded cats have run away from the Prunes of Cawdor!");
+        macros.SetFlag(PARTY, USEDPRUNES, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREPANTHER) == 0) {
+        macros.SetFlag(PARTY, MOREPANTHER, 1);
+        macros.SetBooty(LAVENDERLOTION, WOADWINE, 0, 0, 0, 100);
+        macros.GetMonster(1, 24);
+        macros.GetMonster(2, 24);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 24);
+            macros.GetMonster(4, 25);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 24);
+            macros.GetMonster(6, 25);
+        }
+    }
+    else {
+        macros.ShowText("You have already cleaned out the pride.");
+    }
+    CheckMap(macros);
+}
+
+fun MapEvent21(macros) {
+    if (macros.GetFlag(PARTY, USEDPRUNES) == 1) {
+        macros.SetFlag(PARTY, MOREHARPY, 1);
+        macros.ShowText("The harpies have run away from the Prunes of Cawdor!");
+        macros.SetFlag(PARTY, USEDPRUNES, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREHARPY) == 0) {
+        macros.SetFlag(PARTY, MOREHARPY, 1);
+        macros.SetBooty(LAVENDERLOTION, WOADWINE, 0, 0, 0, 100);
+        macros.GetMonster(5, 36);
+        macros.GetMonster(1, 36);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(2, 36);
+            macros.GetMonster(6, 35);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(3, 36);
+            macros.GetMonster(4, 36);
+        }
+    }
+    else {
+        macros.ShowText("You have already cleaned out the roost.");
+    }
+    CheckMap(macros);
+}
+
+fun MapEvent22(macros) {
+    if (macros.GetFlag(PARTY, USEDPRUNES) == 1) {
+        macros.SetFlag(PARTY, MOREDOG, 1);
+        macros.ShowText("The hell hounds have run away from the Prunes of Cawdor!");
+        macros.SetFlag(PARTY, USEDPRUNES, 0);
+    }
+    if (macros.GetFlag(PARTY, MOREDOG) == 0) {
+        macros.SetFlag(PARTY, MOREDOG, 1);
+        macros.SetBooty(LAVENDERLOTION, WOADWINE, 0, 0, 0, 100);
+        macros.GetMonster(1, 19);
+        macros.GetMonster(5, 32);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(2, 19);
+            macros.GetMonster(5, 32);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(3, 19);
+            macros.GetMonster(4, 32);
+        }
+    }
+    else {
+        macros.ShowText("You have already cleaned out the kennels.");
+    }
+    CheckMap(macros);
+}
+
+fun MapEvent23(macros) {
+    var i;
+    if (macros.Here == 184) {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 184);
+    }
+    else {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 0);
+    }
+    i = macros.GetFlag(PARTY, WHATFIGHT);
+    CheckMap(macros);
+    if (macros.GetFlag(PARTY, USEDPRUNES) == 1) {
+        macros.SetFlag(PARTY, USEDPRUNES, 0);
+        macros.ShowText("The beasts have run from the Prunes of Cawdor.");
+        macros.ShowText("Isn't that a tasteful turn of phrase?");
+    }
+    else {
+        switch (i) {
+            case PANTHER:
+                if (macros.GetFlag(PARTY, MOREPANTHER) == 0) {
+                    macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+                    macros.GetMonster(1, 24);
+                    if (macros.PartyCount > 2) {
+                        macros.GetMonster(2, 24);
+                    }
+                    if (macros.PartyCount > 3) {
+                        macros.GetMonster(3, 24);
+                    }
+                }
+                else {
+                    Quiet(macros);
+                }
+                break;
+            case SLIME:
+                if (macros.GetFlag(PARTY, MORESLIME) == 0) {
+                    macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+                    macros.GetMonster(1, 23);
+                    if (macros.PartyCount > 2) {
+                        macros.GetMonster(2, 23);
+                    }
+                    if (macros.PartyCount > 3) {
+                        macros.GetMonster(3, 23);
+                    }
+                }
+                else {
+                    Quiet(macros);
+                }
+                break;
+            case MINOTAUR:
+                if (macros.GetFlag(PARTY, MOREMINOTAUR) == 0) {
+                    macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+                    macros.GetMonster(1, 22);
+                    if (macros.PartyCount > 2) {
+                        macros.GetMonster(2, 22);
+                    }
+                    if (macros.PartyCount > 3) {
+                        macros.GetMonster(3, 22);
+                    }
+                }
+                else {
+                    Quiet(macros);
+                }
+                break;
+            case BOAR:
+                if (macros.GetFlag(PARTY, MOREBOAR) == 0) {
+                    macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+                    macros.GetMonster(1, 21);
+                    if (macros.PartyCount > 2) {
+                        macros.GetMonster(2, 21);
+                    }
+                    if (macros.PartyCount > 3) {
+                        macros.GetMonster(3, 21);
+                    }
+                }
+                else {
+                    Quiet(macros);
+                }
+                break;
+            case MEDUSA:
+                if (macros.GetFlag(PARTY, MOREMEDUSA) == 0) {
+                    macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+                    macros.GetMonster(1, 20);
+                    if (macros.PartyCount > 2) {
+                        macros.GetMonster(2, 20);
+                    }
+                    if (macros.PartyCount > 3) {
+                        macros.GetMonster(3, 20);
+                    }
+                }
+                else {
+                    Quiet(macros);
+                }
+                break;
+            case HOUND:
+                if (macros.GetFlag(PARTY, MOREDOG) == 0) {
+                    macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+                    macros.GetMonster(1, 19);
+                    if (macros.PartyCount > 2) {
+                        macros.GetMonster(2, 19);
+                    }
+                    if (macros.PartyCount > 3) {
+                        macros.GetMonster(3, 19);
+                    }
+                }
+                else {
+                    Quiet(macros);
+                }
+                break;
+            case HARPY:
+                if (macros.GetFlag(PARTY, MOREHARPY) == 0) {
+                    macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+                    macros.GetMonster(1, 17);
+                    if (macros.PartyCount > 2) {
+                        macros.GetMonster(2, 17);
+                    }
+                    if (macros.PartyCount > 3) {
+                        macros.GetMonster(3, 17);
+                    }
+                }
+                else {
+                    Quiet(macros);
+                }
+                break;
+            case BAT:
+                if (macros.GetFlag(PARTY, MOREBAT) == 0) {
+                    macros.SetBooty(DRAGONFLAGON, PALACECHALICE, 0, 0, 0, 400);
+                    macros.GetMonster(1, 18);
+                    if (macros.PartyCount > 2) {
+                        macros.GetMonster(2, 18);
+                    }
+                    if (macros.PartyCount > 3) {
+                        macros.GetMonster(3, 18);
+                    }
+                }
+                else {
+                    Quiet(macros);
+                }
+                break;
+            default: 
+                Quiet(macros);
+                break;
+        }
+    }
+    macros.SetFlag(ROOM, ARRIVED_HERE, 1);
+}
+
+fun MapEvent24(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(DUNGEON, LOOKINGFORLADY) == 213) {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 212);
+    }
+    else {
+        macros.SetFlag(DUNGEON, LOOKINGFORLADY, 0);
+    }
+}
+
+fun MapEvent25(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 0) {
+        macros.ShowText("'Screw your courage to the sticking place and you'll not fail!  Avaunt!");
+        macros.SetFlag(PARTY, WAR1, 1);
+        macros.SetBooty(BLUEBANNER, HURLYBURLY, LEADENDAGGER, BLUEBANNER, LEADENDAGGER, 10000);
+        macros.GetMonster(1, 38);
+        macros.GetMonster(5, 37);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(6, 37);
+            macros.GetMonster(2, 32);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(3, 32);
+            macros.GetMonster(4, 32);
+        }
+    }
+    else {
+        macros.ShowText("That was no way to treat a lady.  Then again, she wasn't much of a lady, was she?");
+    }
+}
+
+fun MapEvent26(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 0) {
+        macros.ShowText("'Screw your courage to the sticking place and you'll not fail!  Avaunt!");
+        macros.SetFlag(PARTY, WAR1, 1);
+        macros.SetBooty(BLUEBANNER, HURLYBURLY, LEADENDAGGER, BLUEBANNER, LEADENDAGGER, 10000);
+        macros.GetMonster(1, 39);
+        macros.GetMonster(5, 35);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(6, 37);
+            macros.GetMonster(2, 36);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(3, 32);
+            macros.GetMonster(4, 32);
+        }
+    }
+    else {
+        macros.ShowText("That was no way to treat a lady.  Then again, she wasn't much of a lady, was she?");
+    }
+}
+
+fun MapEvent27(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 0) {
+        macros.ShowText("'Screw your courage to the sticking place and you'll not fail!  Avaunt!");
+        macros.SetFlag(PARTY, WAR1, 1);
+        macros.SetBooty(BLUEBANNER, HURLYBURLY, LEADENDAGGER, BLUEBANNER, LEADENDAGGER, 10000);
+        macros.GetMonster(1, 40);
+        macros.GetMonster(5, 34);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(6, 37);
+            macros.GetMonster(2, 32);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(3, 33);
+            macros.GetMonster(4, 33);
+        }
+    }
+    else {
+        macros.ShowText("That was no way to treat a lady.  Then again, she wasn't much of a lady, was she?");
+    }
+}
+
+fun MapEvent28(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 0) {
+        macros.ShowText("'Screw your courage to the sticking place and you'll not fail!  Avaunt!");
+        macros.SetFlag(PARTY, WAR1, 1);
+        macros.SetBooty(BLUEBANNER, HURLYBURLY, LEADENDAGGER, BLUEBANNER, LEADENDAGGER, 10000);
+        macros.GetMonster(1, 40);
+        macros.GetMonster(5, 34);
+        macros.GetMonster(6, 36);
+        macros.GetMonster(2, 34);
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(3, 36);
+            macros.GetMonster(4, 36);
+        }
+    }
+    else {
+        macros.ShowText("That was no way to treat a lady.  Then again, she wasn't much of a lady, was she?");
+    }
+}
+
+fun MapEvent29(macros) {
+    macros.SetFlag(DUNGEON, FOUGHTLADY, 1);
+    macros.ShowText("This section of the bestiary is better lit with torches.");
+}
+
+fun MapEvent2A(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(PARTY, WAR2) == 0) {
+        macros.SetFlag(PARTY, WAR2, 1);
+        macros.ShowText("They may have left the door open, but they sure didn't leave it unguarded!");
+        macros.SetBooty(SPIKEDSHIELD, WOADWINE, ALDHELMSGAUNTLETS, ADAMANTINELOCKPICK, ALCUINSSTICKS, 1447);
+        macros.GetMonster(1, 33);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(2, 34);
+            macros.GetMonster(3, 33);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(4, 34);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 33);
+            macros.GetMonster(6, 34);
+        }
+    }
+    else {
+        macros.ShowText("Those wyrms won't be dragon you into their petty squabbles again.");
+    }
+}
+
+fun MapEvent2B(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(PARTY, WAR3) == 0) {
+        macros.SetFlag(PARTY, WAR3, 1);
+        macros.ShowText("I guess they are calling it the bestiary for a reason!");
+        macros.SetBooty(ALDHELMSSTAFF, WOADWINE, ALCUINSCAP, ALFREDSGLOVES, 0, 1447);
+        macros.GetMonster(1, 32);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(2, 29);
+            macros.GetMonster(3, 29);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(4, 32);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 29);
+            macros.GetMonster(6, 32);
+        }
+    }
+    else {
+        macros.ShowText("Bowser won't be playing any more.  Heh heh.");
+    }
+}
+
+fun MapEvent2C(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(PARTY, WAR4) == 0) {
+        macros.SetFlag(PARTY, WAR4, 1);
+        macros.ShowText("You wouldn't have thought this corridor left enough room for harpies to fly.  But they're managing it!");
+        macros.SetBooty(ALDHELMSHARP, WOADWINE, ALFREDSHAT, 0, 0, 1447);
+        macros.GetMonster(1, 35);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(2, 35);
+            macros.GetMonster(3, 18);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(4, 18);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 18);
+            macros.GetMonster(6, 18);
+        }
+    }
+    else {
+        macros.ShowText("You made sure that those bats won't ever get tangled in anyone's hair ever again.");
+    }
+}
+
+fun MapEvent2D(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(PARTY, WAR5) == 0) {
+        macros.SetFlag(PARTY, WAR5, 1);
+        macros.ShowText("Tchee!  You joined this quest for the glory and the greater good, but these guys seem you're just in it to rob them of their share of the treasure.  En garde!");
+        macros.SetBooty(ALFREDSROBES, WOADWINE, ALCUINSRING, 0, 0, 1447);
+        macros.GetMonster(1, 13);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(2, 3);
+            macros.GetMonster(5, 10);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(4, 14);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(3, 16);
+            macros.GetMonster(6, 15);
+        }
+    }
+    else {
+        macros.ShowText("Turns out that you did reduce their share of the treasure.  Serves them right for attacking you.");
+    }
+}
+
+fun MapEvent2E(macros) {
+    if ((macros.HasItem(ALCUINSCAP)) && (macros.HasItem(ALCUINSSTICKS)) && (macros.HasItem(ALCUINSRING))) {
+        macros.ShowText("An old, quavering voice whispers from thin air.");
+        macros.ShowText("'Well done, young questor.  Thou hast summoned me from afar to aid thee, as was foretold.  I will take thee to the beginning of the path thou must walk, bypassing many a beast and battle.'");
+        if (!(macros.HasItem(LANTERN))) {
+            macros.ShowText("'And a bit of advice.  Light is cheap, and life more cheaply ended for one who walks in darkness.  As my life was spent enlightening people, I suggest that thou dost visit the store ere returning to this dark and darksome place.'");
+        }
+        macros.ShowText("'Now may fortune favor thee.'");
+        if (macros.GetFlag(DUNGEON, FOUGHTLADY) == 1) {
+            macros.Teleport(10, 2, 212, SOUTH);
+        }
+        else {
+            macros.Teleport(10, 2, 184, WEST);
+        }
+    }
+    else {
+        macros.ClearWall(macros.Here, macros.Facing);
+    }
+}
+
+fun MapEvent2F(macros) {
+    if (macros.GetFlag(PARTY, WAR6) == 0) {
+        macros.SetFlag(PARTY, WAR6, 1);
+        macros.ShowText("You don't know which is worse: the slimy snakes, or the snaky slimes!");
+        macros.SetBooty(SPIKEDSHIELD, WOADWINE, ALCUINSCAP, ADAMANTINELOCKPICK, 0, 1447);
+        macros.GetMonster(1, 20);
+        macros.GetMonster(2, 23);
+        macros.GetMonster(3, 20);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(4, 23);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 20);
+            macros.GetMonster(6, 20);
+        }
+    }
+    else {
+        macros.ShowText("You're not exactly sure what it was you faced here, but whatever it was, it was green.");
+    }
+}
+
+fun MapEvent30(macros) {
+    if ((macros.GetFlag(DUNGEON, FOUGHTLADY) == 1) || (macros.GetFlag(DUNGEON, WONGAME) == 1)) {
+        if ((macros.HasItem(ALFREDSHAT)) && (macros.HasItem(ALFREDSGLOVES)) && (macros.HasItem(ALFREDSROBES))) {
+            macros.ShowText("A resonant voice speaks to you from thin air.");
+            macros.ShowText("'I am Alfred, late the king of this land.  Hear me!  The Serpentine Crypt is a death trap, pure and simple.  I will now let you bypass some of its length.");
+            macros.ShowText("Help given once may yet be given again there, but thou shouldst neither expect nor seek it.  And I can advice thee in this small matter: Cassandra is the mightiest of the Wyrd Sisters.  Thou shouldst focus thy efforts on her first.  Good luck!'");
+            macros.Teleport(10, 3, 176, NORTH);
+        }
+        else {
+            macros.Teleport(10, 3, 240, EAST);
+        }
+    }
+    else {
+        macros.ShowText("The door refuses to budge.  You feel a mystical link between this door and some entity near here, one you have not yet defeated.");
+        macros.BlockWall(macros.Here, macros.Facing);
+    }
+}
+
+fun MapEvent31(macros) {
+    CheckMap(macros);
+    if (macros.GetFlag(DUNGEON, SEENRORY) == 1) {
+        macros.ShowText("Rory's body remains imbedded in the ceiling, a grim reminder of what must be faced down here.");
+    }
+    else {
+        macros.SetFlag(DUNGEON, SEENRORY, 1);
+        macros.ShowText("Something up above catches your eye.  You look up, and see your old friend Rory Applebush, the cheerful halfling you half expected to find juggling the Wyrd Sisters's eyeteeth, imbedded in the ceiling.");
+        macros.ShowText("The stone has melted, sealing him in, unretrievable.  He died in agony.  Nobody said this quest would be easy.  Nobody said it would be this hard, either.");
+    }
+}
+
+fun MapEvent32(macros) {
+    var i;
+    CheckMap(macros);
+    if (macros.GetFlag(PARTY, GOTMESSAGE) == 0) {
+        macros.SetFlag(PARTY, GOTMESSAGE, 1);
+        macros.ShowPicture(HALFLINGCLERIC);
+        i = macros.GetFlag(DUNGEON, MESSAGECOUNTER);
+        i++;
+        macros.SetFlag(DUNGEON, MESSAGECOUNTER, i);
+        switch (i) {
+            case 1:
+                macros.ShowText("'Turn back!  No quest is worth the risk of facing what Rory faced.  Merciful heavens, but thou must turn back.'  He rushes up the stairs.");
+                break;
+            case 2:
+                macros.ShowText("'Drat this place!  This infernal blackness forced me to use my candle, which did not last long.  A hundred curses upon the darkness!'");
+                break;
+            case 3:
+                macros.ShowText("'I have learned something of the bestiary.  It is my secret, but I will tell thee this much.  The Wyrd Sisters do breed the beasts in lairs.  Seal the lairs and thou need not face the beasts.'");
+                break;
+            case 4:
+                macros.ShowText("'There is a path that includes the cats and the pigs off to the West.  It involves doubling back, thou, and I've not completed it nor seen where a harpier might be found.  Yet!'");
+                break;
+            case 5:
+                macros.ShowText("'The end of the path lies three rooms to the west of where we must enter the maze!  I will try backtracking!'");
+                break;
+            case 6:
+                macros.ShowText("'The prophecy about Aldhelm is true!  I need not face Rory's unyielding gaze as I enter this room, but I must always face it on the way out, alas.");
+                break;
+            case 7:
+                macros.ShowText("'Alcuin spoke to me!  I now know the path!  I refer thee to the Library, to Astrologia, an thou dost not yet know the way to find her Ladyship.");
+                break;
+            default: 
+                macros.ShowText("'I seek a way to free Rory's corpse.  At the least he deserves a decent burial.  But the dragon's flames were hot enough to melt the very stone.  I know not what Rory said, but it must have infuriated the wyrm!'");
+                break;
+        }
+    }
+}

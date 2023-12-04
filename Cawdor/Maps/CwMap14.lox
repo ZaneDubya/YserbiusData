@@ -1,0 +1,646 @@
+#include "defines.loh"
+#include "flags.loh"
+
+#define DETECTED_DOOR 1
+#define WAR1 1
+#define WAR2 2
+#define WAR3 3
+#define WAR4 4
+#define WAR5 5
+#define WAR6 6
+#define WAR7 7
+#define CTR 8
+#define TRACKING 9
+#define SEENHELPFULTHIEF 10
+#define FOUGHTDOORGUARD1 11
+#define FOUGHTGUILDMASTERS 12
+#define FOUGHTDOORGUARD2 13
+#define HEARDTHIEVES 14
+#define HEARDTHIEVES2 15
+#define HEARDTHIEVES3 16
+#define HEARDTHIEVES4 17
+#define SEENHELPFULTHIEF2 18
+#define SEENHELPFULTHIEF3 19
+#define SAWTHIEF 20
+#define WAR8 21
+#define PIGFOOT 22
+
+fun MapEvent01(macros) {
+    macros.ShowText("A cold breeze sends shivers down your spine.");
+    if (macros.UsedSkill(DETECT_SKILL) >= 6 || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.UsedItem(CRYSTALBALL, CRYSTALBALL) || macros.UsedItem(IVARSHELM, IVARSHELM) || macros.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || macros.UsedItem(ALCUINSRING, ALCUINSRING) || macros.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || macros.FlagOn(ROOM, DETECTED_DOOR)) {
+        macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
+        macros.ShowText("You've uncovered a hidden door!");
+        macros.ClearWall(macros.Here, macros.Facing);
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+        macros.RemoveWallItem(macros.Here, macros.Facing);
+    }
+}
+
+fun MapEvent02(macros) {
+    if (macros.UsedSkill(DETECT_SKILL) >= 9 || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.UsedItem(CRYSTALBALL, CRYSTALBALL) || macros.UsedItem(IVARSHELM, IVARSHELM) || macros.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || macros.UsedItem(ALCUINSRING, ALCUINSRING) || macros.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || macros.FlagOn(ROOM, DETECTED_DOOR)) {
+        macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
+        macros.SetFlag(ROOM, DETECTED_DOOR, 1);
+        if (((macros.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (macros.HasItem(BRASSLOCKPICK) || macros.HasItem(IRONLOCKPICK) || macros.HasItem(SILVERLOCKPICK) || macros.HasItem(STEELLOCKPICK) || macros.HasItem(COLDSTEELLOCKPICK) || macros.HasItem(ADAMANTINELOCKPICK))) || ((macros.GetSkill(LOCKPICK_SKILL) >= 6) && ((macros.UsedItem(BRASSLOCKPICK, IRONLOCKPICK)) || (macros.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (macros.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+            macros.ShowText("You have unlocked the hidden door!");
+            macros.ClearWall(macros.Here, macros.Facing);
+        }
+        else {
+            macros.BlockWall(macros.Here, macros.Facing);
+            if (macros.UsedItem(WOODENLOCKPICK, WOODENLOCKPICK)) {
+                macros.TakeItem(WOODENLOCKPICK);
+                macros.ShowText("Your wooden lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
+            }
+            else {
+                macros.BlockWall(macros.Here, macros.Facing);
+                macros.ShowText("You detect a hidden door, but it is locked.");
+            }
+        }
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+    }
+}
+
+fun MapEvent03(macros) {
+    if (((macros.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (macros.HasItem(BRASSLOCKPICK) || macros.HasItem(IRONLOCKPICK) || macros.HasItem(SILVERLOCKPICK) || macros.HasItem(STEELLOCKPICK) || macros.HasItem(COLDSTEELLOCKPICK) || macros.HasItem(ADAMANTINELOCKPICK))) || ((macros.GetSkill(LOCKPICK_SKILL) >= 6) && ((macros.UsedItem(BRASSLOCKPICK, IRONLOCKPICK)) || (macros.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK))) || (macros.UsedItem(SKELETONKEYRING, SKELETONKEYRING)))) {
+        macros.ShowText("That was a stiff lock, but you finally got it open.");
+        macros.ClearWall(macros.Here, macros.Facing);
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+        if (macros.UsedItem(WOODENLOCKPICK, WOODENLOCKPICK)) {
+            macros.TakeItem(WOODENLOCKPICK);
+            macros.ShowText("Your wooden lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
+        }
+        else {
+            macros.BlockWall(macros.Here, macros.Facing);
+            macros.ShowText("Funny how an irksome little lock on a flimsy little door can keep out a big strong person like you.");
+        }
+    }
+}
+
+fun MapEvent04(macros) {
+    if ((macros.UsedSkill(READ_TRACKS_SKILL) >= 1) || macros.UsedItem(HAWKSEYE, HAWKSEYE) || macros.UsedItem(REINDEERHORNHELM, REINDEERHORNHELM) || macros.UsedItem(TRACKINGTALISMAN, TRACKINGTALISMAN)) {
+        macros.ShowText("You move warily in case there is an ambush ahead.");
+        macros.SetFlag(PARTY, TRACKING, 1);
+    }
+}
+
+fun MapEvent05(macros) {
+    var i;
+    i = 0;
+    var k;
+    k = 0;
+    i = macros.GetFlag(PARTY, CTR);
+    i++;
+    k = i;
+    if (k > 19) {
+        k = (k - 20);
+    }
+    if (k > 14) {
+        k = (k - 15);
+    }
+    if (k > 9) {
+        k = (k - 10);
+    }
+    if (k > 4) {
+        k = (k - 5);
+    }
+    if (k < 0) {
+        k = 0;
+    }
+    if (k > 29) {
+        k = 0;
+    }
+    if (i > 30) {
+        i = 0;
+    }
+    macros.SetFlag(PARTY, CTR, i);
+    if ((i == 26) | (i == 20) | (i == 14) | (i == 8) | (i == 2)) {
+        switch (k) {
+            case 0:
+                macros.ShowText("You hear some footsteps running away.");
+                break;
+            case 1:
+                macros.ShowText("You hear someone running towards you.");
+                macros.ShowPicture(GREMLINTHIEF);
+                macros.ShowText("A gremlin thief examines you carefully.");
+                if (macros.PartyGuild(THIEF)) {
+                    macros.ShowText("'Welcome, cuz.  To enter the thief's quarter you must seek out the Northbound secret door on the Western wall, or the Westbound secret door on the Northern Wall.  Au revoir....'");
+                }
+                else {
+                    macros.ShowText("'I know that thou art new here, so I will give you this free advise.  This room is intended for thieves.  You are no thief.  A word to the wise....'");
+                    macros.ShowText("The gremlin wanders off warily.");
+                }
+                break;
+            case 2:
+                macros.ShowPicture(HARPY);
+                macros.ShowText("A harpy flaps toward you.");
+                macros.ShowText("'Two-legged unwinged type, I am misplaced.  Can you give me directions to the music room?  I need to take some, ah, harp lessons.'");
+                macros.ShowText("You point a direction other than your intended path, grateful that you will not have to fight her.  She flies off.");
+                break;
+            case 3:
+                if (macros.GetFlag(DUNGEON, SEENRORY) == 1) {
+                    macros.ShowText("Once upon a midnight past you were well met at midnight.  But it will never be dark enough so that Rory can brighten it again.");
+                }
+                else {
+                    macros.ShowPicture(HALFLINGTHIEF);
+                    macros.ShowText("'Well met at midnight.  I can caution thee that without a thief, or some other means of detection, thou wilt have difficulty in fully navigating this room.  May fortune favor thy footsteps....'");
+                    macros.ShowText("He saunters off, smiling.");
+                }
+                break;
+            case 4:
+                macros.ShowText("A somewhat sweaty horde o'halflings decides, rather insultingly, that they are bigger than you are.");
+                macros.SetBooty(LARGELETTEROFCREDIT, LAVENDERLOTION, 0, 0, 0, 293);
+                macros.GetMonster(1, 29);
+                if (macros.PartyCount > 1) {
+                    macros.GetMonster(5, 29);
+                }
+                if (macros.PartyCount > 2) {
+                    macros.GetMonster(2, 29);
+                    macros.GetMonster(6, 29);
+                }
+                break;
+        }
+    }
+}
+
+fun MapEvent06(macros) {
+    macros.ShowText("A cold breeze sends shivers down your spine.");
+}
+
+fun MapEvent07(macros) {
+    if ((macros.PartyGuild(WIZARD) && macros.PartyGuild(CLERIC)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, LEVEL3ROOM2) == 1)) {
+        macros.ShowPicture(GREMLINWIZARD);
+        macros.ShowText("A gremlin wizard and a gremlin cleric courteously hold open a very thick door for you.  'Allow us,' they say.  'There are so many undead in here it is a pleasure to let in fresh clerics.'");
+        macros.Teleport(5, 3, 12, SOUTH);
+    }
+    else {
+        macros.ShowText("Struggle though you will, you are unable to open the door that leads to the Music Room.");
+    }
+}
+
+fun MapEvent08(macros) {
+    if ((macros.PartyGuild(BARBARIAN) && macros.PartyGuild(RANGER)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, LEVEL3ROOM4) == 1)) {
+        macros.ShowPicture(ELFBARBARIAN);
+        macros.ShowText("Two elves, a barbarian and a ranger by their appearance, courteously hold open a secret door for you.  'Watch out for the boars in here,' they warn you.  'Some of the most deadly go on two legs.'");
+        macros.Teleport(6, 2, 144, EAST);
+    }
+    else {
+        macros.ShowText("The door to the Library refuses to budge.");
+    }
+}
+
+fun MapEvent09(macros) {
+    if (macros.GetFlag(PARTY, SAWTHIEF) == 0) {
+        macros.ShowPicture(DWARFTHIEF);
+        macros.SetFlag(DUNGEON, LEVEL3ROOM3, 1);
+        macros.SetFlag(PARTY, SAWTHIEF, 1);
+        macros.ShowText("'Now listen up, 'cause I'm only going to say this once.  This is the cloak room, known for cloak and dagger stuff, which means thieves.");
+        macros.ShowText("If you can prove yourself by getting into the guild hall, well and good.  But if you embarass yourself in the guild hall, well, they toast tenderfeet here.");
+        macros.ShowText("The guild master is having a big meeting right now and nothing livens a meeting like a display of precision dagger throwing.  So watch your back, leave the masters alone, and don't go triggering any traps.'");
+        macros.ShowText("The thief departs.");
+    }
+}
+
+fun MapEvent0A(macros) {
+    if (macros.GetFlag(PARTY, SEENHELPFULTHIEF) == 0) {
+        macros.ShowPicture(HALFLINGTHIEF);
+        macros.SetFlag(PARTY, SEENHELPFULTHIEF, 1);
+        macros.ShowText("'Psst!  Aye, thou art the ones I have sought.  I send thee greetings and warnings from Galatea.");
+        macros.ShowText("The Masters of the Thieves's Guild in Cawdor (TGIC) (tm) worry that their collusions with our common foes will be exposed.  They have set mighty traps for thee, but that which they have baited the trap with, Lugh's Spear, is well worth the effort.");
+        macros.ShowText("Beware the halflings; they are the most dangerous of the bodyguards!  The choice is thine, an thou hast any choice.  Grace go with thee!'");
+        macros.ShowText("The thief departs.");
+    }
+}
+
+fun MapEvent0B(macros) {
+    macros.ShowText("A sign over the door reads: 'Ye Cat Dragged Inn'");
+}
+
+fun MapEvent0C(macros) {
+    macros.ShowText("A sign over the door reads: 'Ye Cat Dragged Out'");
+}
+
+fun MapEvent0D(macros) {
+    macros.ShowText("A sign over the door reads: 'Ye Cat's Own Chamber'");
+}
+
+fun MapEvent0E(macros) {
+    macros.ShowPicture(HALFLINGTHIEF);
+    macros.ShowText("A halfling peers at you cautiously.");
+    macros.ShowText("'That be a private meeting in there, that be.  A fellow might walk in there clad in armor, but get carried out clad in pine, an thou dost catch my drift.'");
+    macros.SetFlag(PARTY, TRACKING, 0);
+}
+
+fun MapEvent0F(macros) {
+    if (macros.GetFlag(PARTY, FOUGHTDOORGUARD1) == 1) {
+        macros.ShowText("That will be the last time they underestimate you!");
+    }
+    else {
+        macros.SetFlag(PARTY, FOUGHTDOORGUARD1, 1);
+        if (macros.GetFlag(PARTY, FOUGHTDOORGUARD2) == 0) {
+            macros.RemoveWallItem(macros.Here, WEST);
+            macros.BlockWall(macros.Here, WEST);
+            macros.ShowText("If you weren't too busy being damaged, you would notice that one of these guys has pulled a lever and a thick wall slid down to cover the door.");
+        }
+        else {
+            macros.ShowText("This time you attacked before the guard could seal the door!  Good going!");
+        }
+        if ((macros.GetFlag(PARTY, TRACKING) == 0) && (macros.GetFlag(PARTY, FOUGHTDOORGUARD2) == 0)) {
+            macros.ShowText("Not another ambush!  Yow!");
+            macros.SetPm(POISON, 10, 400);
+            macros.Damage(macros.MaxHealth / 2);
+        }
+        else {
+            macros.ShowText("You dive to the left and avoid the poisoned arrows.");
+            macros.Damage(macros.MaxHealth / 4);
+            macros.SetPm(POISON, 5, 200);
+            macros.ShowText("Make that MOST of the poisoned arrows.");
+        }
+        macros.SetFlag(PARTY, TRACKING, 0);
+        macros.SetBooty(LOWLANDSTABBER, ANTLEREDHELM, LAVENDERLOTION, 0, 0, 488);
+        macros.GetMonster(1, 38);
+        macros.GetMonster(5, 39);
+        macros.GetMonster(2, 40);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(6, 39);
+            macros.GetMonster(4, 40);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 40);
+        }
+    }
+}
+
+fun MapEvent10(macros) {
+    if (macros.GetFlag(PARTY, FOUGHTDOORGUARD2) == 1) {
+        macros.ShowText("That will be the last time they underestimate you!");
+    }
+    else {
+        macros.SetFlag(PARTY, FOUGHTDOORGUARD2, 1);
+        if (macros.GetFlag(PARTY, FOUGHTDOORGUARD1) == 0) {
+            macros.RemoveWallItem(macros.Here, WEST);
+            macros.BlockWall(macros.Here, WEST);
+            macros.ShowText("If you weren't too busy being damaged, you would notice that one of these guys has pulled a lever and a thick wall slid down to cover the door.");
+        }
+        else {
+            macros.ShowText("This time you attacked before the guard could seal the door!  Good going!");
+        }
+        if ((macros.GetFlag(PARTY, TRACKING) == 0) && (macros.GetFlag(PARTY, FOUGHTDOORGUARD1) == 0)) {
+            macros.ShowText("Not another ambush!  Yow!");
+            macros.SetPm(POISON, 10, 400);
+            macros.Damage(macros.MaxHealth / 2);
+        }
+        else {
+            macros.ShowText("You dive to the right and avoid the poisoned arrows.");
+            macros.Damage(macros.MaxHealth / 4);
+            macros.SetPm(POISON, 5, 200);
+            macros.ShowText("Make that MOST of the poisoned arrows.");
+        }
+        macros.SetFlag(PARTY, TRACKING, 0);
+        macros.SetBooty(SUCCUBUSPIPES, DRAGONFLAGON, 0, 0, 0, 488);
+        macros.GetMonster(1, 38);
+        macros.GetMonster(5, 39);
+        macros.GetMonster(2, 40);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(6, 39);
+            macros.GetMonster(4, 40);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 40);
+        }
+    }
+}
+
+fun MapEvent11(macros) {
+    macros.SetFlag(PARTY, TRACKING, 0);
+}
+
+fun MapEvent12(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 0) {
+        if (macros.GetFlag(PARTY, TRACKING) == 0) {
+            macros.ShowText("Now you understand!  When your mother told you that whenever you were in a strange building you should always check your tracks, she didn't mean wipe your feet; she meant watch out for ambushes.");
+            macros.Damage(macros.MaxHealth / 4);
+            macros.SetPm(POISON, 6, 200);
+        }
+        else {
+            macros.ShowText("Funny, but you would not expect vampires to poison the blood they would soon be drinking, but judging by those dripping quarrels, if they had surprised you, they would have poisoned you.");
+        }
+        macros.SetFlag(PARTY, WAR1, 1);
+        macros.SetBooty(DONALBAINSAXE, HOWLETWING, LAVENDERLOTION, 0, 0, 325);
+        macros.GetMonster(1, 31);
+        macros.GetMonster(5, 33);
+        macros.GetMonster(2, 31);
+        macros.GetMonster(6, 33);
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 31);
+            macros.GetMonster(3, 31);
+        }
+    }
+    else {
+        macros.ShowText("All that remains of your battle here are some damaged dentures.  I guess they don't make vampires like they used to.");
+    }
+}
+
+fun MapEvent13(macros) {
+    if (macros.GetFlag(PARTY, WAR2) == 1) {
+        macros.ShowText("All that remains of your battle here is a badly damaged kilt.");
+    }
+    else {
+        macros.ShowText("That's not the Highland Fling those orcs are doing.  It looks more like the dagger fling, or perhaps the sword dance!");
+        macros.SetFlag(PARTY, WAR2, 1);
+        macros.SetBooty(STRATHCLYDESCLUB, VOLLEYSCROLL, ELDERBERRYELIXIR, 0, 0, 325);
+        macros.GetMonster(1, 26);
+        macros.GetMonster(5, 28);
+        macros.GetMonster(2, 26);
+        macros.GetMonster(6, 28);
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 28);
+            macros.GetMonster(3, 28);
+        }
+    }
+}
+
+fun MapEvent14(macros) {
+    macros.ShowText("Dare I say it?  You have found the regenerating skeletons in the closet!");
+    macros.GetMonster(1, 32);
+    macros.GetMonster(2, 32);
+    macros.GetMonster(5, 32);
+    macros.GetMonster(6, 32);
+    if (macros.PartyCount > 3) {
+        macros.GetMonster(3, 32);
+        macros.GetMonster(4, 32);
+    }
+}
+
+fun MapEvent15(macros) {
+    if (macros.GetFlag(PARTY, WAR3) == 0) {
+        if (macros.GetFlag(PARTY, TRACKING) == 0) {
+            macros.ShowText("Who would have thought that undead could have the intelligence to set an ambush?  Obviously not you, because they caught you flatfooted.");
+            macros.Damage(macros.MaxHealth / 4);
+            macros.SetPm(POISON, 6, 200);
+        }
+        else {
+            macros.ShowText("'Tis a bunch o'wraiths holding a wrap party!");
+        }
+        macros.SetFlag(PARTY, WAR3, 1);
+        macros.SetBooty(DONALBAINSAXE, HOWLETWING, LAVENDERLOTION, 0, 0, 325);
+        macros.GetMonster(1, 36);
+        macros.GetMonster(5, 34);
+        macros.GetMonster(2, 36);
+        macros.GetMonster(6, 34);
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 34);
+            macros.GetMonster(3, 34);
+        }
+    }
+    else {
+        macros.ShowText("You want to have a little talk with whoever is making all these undead.");
+    }
+}
+
+fun MapEvent16(macros) {
+    if (macros.GetFlag(PARTY, FOUGHTGUILDMASTERS) == 0) {
+        macros.SetFlag(PARTY, FOUGHTGUILDMASTERS, 1);
+        if (macros.GetFlag(PARTY, SEENHELPFULTHIEF) == 1) {
+            macros.Damage(macros.MaxHealth / 4);
+            macros.ShowText("The friendly thief's warning about the guildmaster's intentions cause you to enter the room dodging.  This reduces the amount of damage you take.");
+        }
+        else {
+            macros.Damage(macros.MaxHealth / 2);
+            macros.ShowText("As a conoisseur of combat, you can appreciate a well planned ambush.  You would appreciate it more if you weren't the target.");
+        }
+        macros.SetBooty(WULFHERDSSHIELD, WITCHESTHUMB, LAVENDERLOTION, 0, 0, 325);
+        macros.GetMonster(1, 40);
+        macros.GetMonster(5, 39);
+        macros.GetMonster(2, 40);
+        macros.GetMonster(6, 39);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(4, 40);
+            macros.GetMonster(3, 40);
+        }
+    }
+    else {
+        macros.ShowText("The guildmaster's area is quiet.  We had some really scary music composed to play now, but after six beta testers took an axe to their speakers upon hearing it, we decided to leave well enough alone.");
+    }
+}
+
+fun MapEvent17(macros) {
+    if (macros.GetFlag(PARTY, WAR4) == 1) {
+        macros.ShowText("You're just grateful that the baron efforts here didn't bear fruit.");
+    }
+    else {
+        macros.ShowText("It's time to grin and baron it.");
+        macros.SetFlag(PARTY, WAR4, 1);
+        macros.SetBooty(PUMMELSCROLL, DEFENDINGSCROLL, LAVENDERLOTION, WILLOWBARKWINE, 0, 325);
+        macros.GetMonster(1, 29);
+        macros.GetMonster(5, 28);
+        macros.GetMonster(2, 29);
+        macros.GetMonster(6, 26);
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 26);
+            macros.GetMonster(3, 26);
+        }
+    }
+}
+
+fun MapEvent18(macros) {
+    if (macros.GetFlag(PARTY, WAR5) == 1) {
+        macros.ShowText("You're glad those undead didn't turn you into their deathday present.");
+    }
+    else {
+        macros.ShowText("It could be worse.  There could be more of them.  They could be tougher.  You could be wounded....");
+        macros.ShowText("Oh, right, you're now about to be wounded.");
+        macros.SetFlag(PARTY, WAR5, 1);
+        macros.SetBooty(OXYMORONSCROLL, HIPPOCRATICSCROLL, STREONESHALHSAID, 0, 0, 425);
+        macros.GetMonster(1, 35);
+        macros.GetMonster(5, 34);
+        macros.GetMonster(2, 35);
+        macros.GetMonster(6, 34);
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 33);
+            macros.GetMonster(3, 33);
+        }
+    }
+}
+
+fun MapEvent19(macros) {
+    if (macros.GetFlag(PARTY, WAR6) == 1) {
+        macros.ShowText("You know, I wonder if other big groups of adventurers feel the same way you do when they see you coming.  Well, however they felt, they kept coming, until there were no more to come.");
+    }
+    else {
+        macros.ShowText("Funny how a great bunch of guys will send a round of drinks your way in the Rampant Cat Inn but send a round of missiles your way once they're in here.");
+        macros.SetFlag(PARTY, WAR6, 1);
+        macros.SetBooty(REVERSINGAMULET, MERLINSWILL, ELDERBERRYELIXIR, LEAFSPEAR, 0, 325);
+        macros.GetMonster(1, 27);
+        macros.GetMonster(5, 37);
+        macros.GetMonster(2, 25);
+        macros.GetMonster(6, 30);
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 25);
+            macros.GetMonster(3, 27);
+        }
+    }
+}
+
+fun MapEvent1A(macros) {
+    if (macros.GetFlag(PARTY, WAR7) == 1) {
+        macros.ShowText("'You know, vampires are the best reason you can think of for tighter immigration laws.  Let's send those Transylvanians back where they belong!");
+    }
+    else {
+        macros.ShowText("You know, with all these vampires here, this must be your lucky day.  What?  You say you're not a coffin salesman?  Then I guess it's your unlucky day.");
+        macros.SetFlag(PARTY, WAR7, 1);
+        macros.SetBooty(ADAMANTINEPLATE, TOEOFFROG, SKELETONKEYRING, 0, 0, 325);
+        macros.GetMonster(1, 31);
+        macros.GetMonster(5, 24);
+        macros.GetMonster(2, 31);
+        macros.GetMonster(6, 24);
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 23);
+            macros.GetMonster(3, 31);
+        }
+    }
+}
+
+fun MapEvent1B(macros) {
+    macros.ShowPicture(DWARFTHIEF);
+    macros.ShowText("A group of thieves are talking amongst themselves.");
+    if (macros.GetFlag(PARTY, HEARDTHIEVES) == 0) {
+        macros.SetFlag(PARTY, HEARDTHIEVES, 1);
+        macros.ShowText("You eavesdrop unobtrusively.  One of them said, 'Aye, someone used Ohthere's Dagger to walk over the Dissolving Pool upstairs.  Were it not for the guards, they would have won the Leaden - '");
+        macros.ShowText("They notice you listening and immediately stop talking.  They stare at you until you walk away.");
+    }
+    else {
+        macros.ShowText("The thieves stop talking at your approach, and stare at you until you walk away.");
+    }
+}
+
+fun MapEvent1C(macros) {
+    macros.ShowPicture(GNOMETHIEF);
+    macros.ShowText("A group of thieves are talking amongst themselves.");
+    if (macros.GetFlag(PARTY, HEARDTHIEVES2) == 0) {
+        macros.SetFlag(PARTY, HEARDTHIEVES2, 1);
+        macros.ShowText("You eavesdrop unobtrusively.  One of them said, 'Things are all topsy-turvy upstairs.  In the kitchen they have sealed up the chimney, so thou mayst die without knowing thou wert being poi - '");
+        macros.ShowText("They notice you listening and immediately stop talking.  They stare at you until you walk away.");
+    }
+    else {
+        macros.ShowText("The thieves stop talking at your approach, and stare at you until you walk away.");
+    }
+}
+
+fun MapEvent1D(macros) {
+    macros.ShowPicture(GNOMETHIEF);
+    macros.ShowText("A group of thieves are talking amongst themselves.");
+    if (macros.GetFlag(PARTY, HEARDTHIEVES3) == 0) {
+        macros.SetFlag(PARTY, HEARDTHIEVES3, 1);
+        macros.ShowText("You eavesdrop unobtrusively.  You overhear: '... so in the Library I finally deciphered an ancient tome that told me that I could protect myself against poison by using any of the gloves or gauntlets save - ");
+        macros.ShowText("They notice you listening and immediately stop talking.  They stare at you until you walk away.");
+    }
+    else {
+        macros.ShowText("The thieves stop talking at your approach, and stare at you until you walk away.");
+    }
+}
+
+fun MapEvent1E(macros) {
+    macros.ShowPicture(HUMANTHIEF);
+    macros.ShowText("A group of thieves are talking amongst themselves.");
+    if (macros.GetFlag(PARTY, HEARDTHIEVES4) == 0) {
+        macros.SetFlag(PARTY, HEARDTHIEVES4, 1);
+        macros.ShowText("You eavesdrop unobtrusively.  You overhear: ");
+        macros.ShowText("'... and by my troth, those gorgons can paralyze thee just by touch!  But I found that the pungent punch of that bud of great worth, equipped as a ring but used as a pomade, ready to hand, to wit, the - Hoi!  This is a private conversation, cousin!'");
+        macros.ShowText("They notice you listening and immediately stop talking.  They stare at you until you walk away.");
+    }
+    else {
+        macros.ShowText("The thieves stop talking at your approach, and stare at you until you walk away.");
+    }
+}
+
+fun MapEvent1F(macros) {
+    macros.ShowText("You find the shards of a broken mirror, evidently smashed by the guildmaster lest you use it to divine secrets he was willing to die to protect.");
+    macros.SetFlag(PARTY, SEENHELPFULTHIEF3, 1);
+}
+
+fun MapEvent20(macros) {
+    if (macros.UsedSkill(DETECT_SKILL) >= 12 || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.UsedItem(IVARSHELM, IVARSHELM) || macros.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || macros.UsedItem(ALCUINSRING, ALCUINSRING) || macros.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || macros.FlagOn(ROOM, DETECTED_DOOR)) {
+        macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
+        macros.ShowText("You think you have rearranged the shards into something that makes sense.  The words you read are: 'poisoned dagger Gorgon's Garlic,' but you do not know what else to make of them.");
+        macros.ClearWall(macros.Here, macros.Facing);
+    }
+}
+
+fun MapEvent21(macros) {
+    if (macros.GetFlag(PARTY, SEENHELPFULTHIEF2) == 0) {
+        macros.ShowPicture(HALFLINGTHIEF);
+        macros.SetFlag(PARTY, SEENHELPFULTHIEF2, 1);
+        macros.ShowText("A drunken thief wobbles towards you, singing.");
+        macros.ShowText("'Oh, the master has a mirror, ");
+        macros.ShowText("T'was stolen from a saint. ");
+        macros.ShowText("And though they use it now for ill,");
+        macros.ShowText("It does not feel their taint.");
+        macros.ShowText("It tries to help those true of heart,");
+        macros.ShowText("And hinder those who ain't....'");
+        macros.ShowText("The thief staggers off.");
+    }
+}
+
+fun MapEvent22(macros) {
+    if (macros.GetFlag(PARTY, SEENHELPFULTHIEF3) == 0) {
+        macros.SetFlag(PARTY, SEENHELPFULTHIEF3, 1);
+        macros.ShowPicture(HALFLINGTHIEF);
+        macros.ShowText("A halfling thief gasps his last breath.");
+        macros.ShowText("'The mirror!  Dost thou understand?  I delayed the one whose task was to smash it.  There may yet be a message for thee, for thee....'  You hear the death rattle in his throat.  Before you can try healing or resuscitating him, his body turns to vapor.  He is gone.");
+    }
+}
+
+fun MapEvent23(macros) {
+    if (!macros.HasItem(LUGHSSPEAR)) {
+        macros.GiveItem(LUGHSSPEAR);
+        macros.ShowText("It sure figures that sneaky folks like these thieves would put Lugh's Spear in a secret closet, unguarded.");
+    }
+    else {
+        macros.ShowText("This closet is empty.");
+    }
+}
+
+fun MapEvent24(macros) {
+    if (macros.GetFlag(PARTY, WAR8) == 0) {
+        if (macros.GetFlag(PARTY, TRACKING) == 0) {
+            macros.ShowText("Now you understand!  When your mother told you that whenever you were in a strange building you should always check your tracks, she didn't mean wipe your feet; she meant watch out for ambushes.");
+            macros.Damage(macros.MaxHealth / 4);
+            macros.SetPm(POISON, 6, 200);
+        }
+        else {
+            macros.ShowText("Funny, but you would not expect vampires to poison the blood they would soon be drinking, but judging by those dripping quarrels, if they had surprised you, they would have poisoned you.");
+        }
+        macros.SetFlag(PARTY, WAR8, 1);
+        macros.SetBooty(DONALBAINSAXE, HOWLETWING, LAVENDERLOTION, 0, 0, 325);
+        macros.GetMonster(1, 31);
+        macros.GetMonster(5, 33);
+        macros.GetMonster(2, 31);
+        macros.GetMonster(6, 33);
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 31);
+            macros.GetMonster(3, 31);
+        }
+    }
+    else {
+        macros.ShowText("All that remains of your battle here are some damaged dentures.  I guess they don't make vampires like they used to.");
+    }
+}
+
+fun MapEvent25(macros) {
+    macros.ShowPicture(HALFLINGCLERIC);
+    macros.ShowText("A group of folks are talking amongst themselves.");
+    if (macros.GetFlag(PARTY, PIGFOOT) == 0) {
+        macros.SetFlag(PARTY, PIGFOOT, 1);
+        macros.ShowText("You eavesdrop unobtrusively.  The halfling cleric looks very familiar, for some reason, although far less clerical with collar loosened and tankard at hand.");
+        macros.ShowText("'Indeed, I have sold forty-seven lucky pig's feet so far.  Tis the perfect, scam, cuz, for by the time the buyer learns that they do not work, the dragon has eaten him!'");
+        macros.ShowText("They notice you listening and immediately stop talking.  They stare at you until you walk away.");
+    }
+    else {
+        macros.ShowText("The thieves stop talking at your approach, and stare at you until you walk away.");
+    }
+}

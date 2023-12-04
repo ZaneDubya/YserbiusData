@@ -1,0 +1,601 @@
+#include "defines.loh"
+#include "flags.loh"
+
+#define DETECTED_DOOR 1
+#define WAR1 1
+#define WAR2 2
+#define WAR3 3
+#define WAR4 4
+#define WAR5 5
+#define WAR6 6
+#define WAR7 7
+#define CTR 8
+#define TRACKING 9
+#define BEENINROOM 10
+#define SEENBIGVAT 11
+#define SEENDRYINGVATS 12
+#define SEENBOAR 13
+#define SEENKNIGHT 14
+#define SAWMILKER 15
+#define IGNORED 16
+#define UNLOCKEDNOW 17
+
+fun MapEvent01(macros) {
+    macros.ShowText("A stray breeze kicks up the scent of fermentation.");
+    if (macros.UsedSkill(DETECT_SKILL) >= 3 || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.UsedItem(CRYSTALBALL, CRYSTALBALL) || macros.UsedItem(ALCUINSRING, ALCUINSRING) || macros.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS)) {
+        macros.ShowText("You've uncovered a hidden door!");
+        macros.ClearWall(macros.Here, macros.Facing);
+        macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+        macros.RemoveWallItem(macros.Here, macros.Facing);
+    }
+}
+
+fun MapEvent02(macros) {
+    macros.SetFlag(DUNGEON, LEVEL2ROOM3, 1);
+    if (macros.GetFlag(PARTY, UNLOCKEDNOW) == 1) {
+        macros.Teleport(5, 1, 250, NORTH);
+    }
+    else {
+        if ((macros.Facing == NORTH) && (macros.UsedSkill(DETECT_SKILL) >= 4 || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.UsedItem(CRYSTALBALL, CRYSTALBALL) || macros.UsedItem(ALCUINSRING, ALCUINSRING) || macros.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || (macros.GetFlag(ROOM, DETECTED_DOOR) == 1) || (macros.GetFlag(DUNGEON, BEENIN0501) == 1) || (macros.GetFlag(DUNGEON, WONGAME) == 1))) {
+            macros.PlaceWallItem(DOOR, macros.Here, NORTH);
+            macros.BlockWall(macros.Here, macros.Facing);
+            macros.SetFlag(ROOM, DETECTED_DOOR, 1);
+            if (((macros.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (macros.HasItem(WOODENLOCKPICK) || macros.HasItem(BRASSLOCKPICK) || macros.HasItem(IRONLOCKPICK) || macros.HasItem(SILVERLOCKPICK) || macros.HasItem(STEELLOCKPICK) || macros.HasItem(COLDSTEELLOCKPICK) || macros.HasItem(ADAMANTINELOCKPICK))) || ((macros.GetSkill(LOCKPICK_SKILL) >= 6) && ((macros.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (macros.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (macros.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+                macros.ShowText("You have unlocked the hidden door!");
+                macros.SetFlag(PARTY, UNLOCKEDNOW, 1);
+            }
+            else {
+                macros.BlockWall(macros.Here, NORTH);
+                macros.ShowText("There is a door here, but it is locked.");
+            }
+        }
+        else {
+            macros.BlockWall(macros.Here, NORTH);
+            macros.SetFlag(ROOM, DETECTED_DOOR, 0);
+        }
+    }
+}
+
+fun MapEvent03(macros) {
+    if (((macros.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (macros.HasItem(WOODENLOCKPICK) || macros.HasItem(BRASSLOCKPICK) || macros.HasItem(IRONLOCKPICK) || macros.HasItem(SILVERLOCKPICK) || macros.HasItem(STEELLOCKPICK) || macros.HasItem(COLDSTEELLOCKPICK) || macros.HasItem(ADAMANTINELOCKPICK))) || ((macros.GetSkill(LOCKPICK_SKILL) >= 1) && ((macros.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (macros.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (macros.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+        macros.ShowText("You've picked the lock. Proceed.");
+        macros.ClearWall(macros.Here, macros.Facing);
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+        macros.ShowText("Funny how an irksome little lock on a flimsy little door can keep out a big strong person like you.");
+    }
+}
+
+fun MapEvent04(macros) {
+    if ((macros.UsedSkill(READ_TRACKS_SKILL) >= 1) || macros.UsedItem(HAWKSEYE, HAWKSEYE) || macros.UsedItem(REINDEERHORNHELM, REINDEERHORNHELM) || macros.UsedItem(TRACKINGTALISMAN, TRACKINGTALISMAN)) {
+        macros.ShowText("You find some tracks indicating that something headed off this way.");
+    }
+}
+
+fun MapEvent05(macros) {
+    var i;
+    i = 0;
+    var k;
+    k = 0;
+    i = macros.GetFlag(PARTY, CTR);
+    i++;
+    k = i;
+    if (k > 19) {
+        k = (k - 20);
+    }
+    if (k > 14) {
+        k = (k - 15);
+    }
+    if (k > 9) {
+        k = (k - 10);
+    }
+    if (k > 4) {
+        k = (k - 5);
+    }
+    if (k < 0) {
+        k = 0;
+    }
+    if (k > 29) {
+        k = 0;
+    }
+    if (i > 30) {
+        i = 0;
+    }
+    macros.SetFlag(PARTY, CTR, i);
+    if ((i == 26) | (i == 20) | (i == 14) | (i == 8) | (i == 2)) {
+        switch (k) {
+            case 0:
+                macros.ShowText("You hear some hooves running away.");
+                break;
+            case 1:
+                macros.ShowText("You hear someone running towards you.");
+                macros.ShowPicture(ORCKNIGHT);
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("The knight tenses, but relaxes when he sees you take a friendly posture.");
+                macros.ShowText("'I can share some news with thee.  A friend of mine was able to use Lodbrok's Blade to send several of the undead kings to their true deaths, but not Lady Macbeth.  He never solved the animal riddle of The Bestiary.'");
+                macros.ShowText("He limps off.");
+                break;
+            case 2:
+                if (macros.PartyLevel(8)) {
+                    macros.ShowPicture(DRAGON);
+                    macros.ShowText("'Nay!  Put down thy blades.  I am not here to fight thee.  I was told that there were vats full of gold in the Brewery, but all I have found are vats full of ale.  Hast thou?'");
+                    macros.ShowText("You shake your head.");
+                    macros.ShowText("'No, I did not really expect thee to tell me where the liquid gold can be found.'  She departs.");
+                }
+                else {
+                    macros.ShowText("Some maddened minotaurs decide that you are trespassing.  They will prosecute you themselves.");
+                    macros.SetBooty(PETUNIAPOULTICE, 0, 0, 0, 0, 182);
+                    macros.GetMonster(1, 20);
+                    macros.GetMonster(2, 21);
+                    if (macros.PartyCount > 3) {
+                        macros.GetMonster(3, 20);
+                    }
+                }
+                break;
+            case 3:
+                if (macros.GetFlag(DUNGEON, SEENRORY) == 1) {
+                    macros.ShowText("Here is yet another spot that poor Rory sought dragons.  If only he had not found them.");
+                }
+                else {
+                    macros.ShowPicture(HALFLINGTHIEF);
+                    macros.ShowText("*");
+                    macros.ShowText("*");
+                    macros.ShowText("*");
+                    macros.ShowText("'Again our paths cross!  This a pleasant spot for a halfling, no?  But let me warn you:  if you do proceed northwards you will want as many items against undead as you can wield.  Me?  I'm looking for dragons.  Be seeing you!'");
+                    macros.ShowText("The halfling struts off, smiling.");
+                }
+                break;
+            case 4:
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("A puny pack o'piglets decides, rather insultingly, that they are bigger than you are.");
+                if (macros.PartyCount > 2) {
+                    macros.ShowText("Okay, so it's not such a puny pack.");
+                }
+                macros.SetBooty(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 93);
+                macros.GetMonster(1, 24);
+                if (macros.PartyCount > 1) {
+                    macros.GetMonster(2, 24);
+                }
+                if (macros.PartyCount > 2) {
+                    macros.GetMonster(3, 24);
+                    macros.GetMonster(4, 24);
+                }
+                break;
+        }
+    }
+}
+
+fun MapEvent06(macros) {
+    if (macros.GetFlag(PARTY, BEENINROOM) == 0) {
+        macros.SetFlag(DUNGEON, LEVEL2ROOM3, 1);
+        macros.SetFlag(PARTY, BEENINROOM, 1);
+        macros.ShowText("Boy, is that a heady smell!  This large room is filled with vats.  You suspect that someday whatever is in those vats will turn into ale.  Medieval water quality and sanitation being what it is, it is far safer to drink small ale (low alcohol) than water these days.");
+    }
+    if (macros.Facing == EAST) {
+        macros.ShowText("To the east is The Gallery.");
+    }
+}
+
+fun MapEvent07(macros) {
+    macros.ShowText("There is no obvious way to get into that vat.  Besides, doing so would probably kill you.");
+}
+
+fun MapEvent08(macros) {
+    macros.Teleport(4, 1, 192, EAST);
+}
+
+fun MapEvent09(macros) {
+    macros.ShowText("These vats don't reverberate as much as the ones in the other room, but there's still no way in.");
+}
+
+fun MapEvent0A(macros) {
+    if ((macros.UsedSkill(READ_TRACKS_SKILL) >= 1) || macros.UsedItem(HAWKSEYE, HAWKSEYE) || macros.UsedItem(REINDEERHORNHELM, REINDEERHORNHELM) || macros.UsedItem(TRACKINGTALISMAN, TRACKINGTALISMAN)) {
+        macros.ShowText("You find some footprints heading to the north.");
+        macros.SetFlag(PARTY, TRACKING, 1);
+    }
+    else {
+        macros.SetFlag(PARTY, TRACKING, 0);
+    }
+}
+
+fun MapEvent0B(macros) {
+    if ((macros.UsedSkill(READ_TRACKS_SKILL) >= 1) || macros.UsedItem(HAWKSEYE, HAWKSEYE) || macros.UsedItem(REINDEERHORNHELM, REINDEERHORNHELM) || macros.UsedItem(TRACKINGTALISMAN, TRACKINGTALISMAN)) {
+        macros.ShowText("You find some footprints heading to the west.");
+        macros.SetFlag(PARTY, TRACKING, 1);
+        if (macros.Here == 22) {
+            macros.ShowText("No, you're not the only one who finds that odd.");
+        }
+    }
+    else {
+        macros.SetFlag(PARTY, TRACKING, 0);
+    }
+    if (macros.GetFlag(PARTY, SEENDRYINGVATS) == 0) {
+        macros.ShowText("This room has not as heavy an odor as the other rooms you've encountered in the brewery.");
+        macros.SetFlag(PARTY, SEENDRYINGVATS, 1);
+    }
+}
+
+fun MapEvent0C(macros) {
+    if ((macros.GetFlag(DUNGEON, VATCRACK) == 1) || ((macros.UsedSkill(DETECT_SKILL) >= 3 || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.UsedItem(CRYSTALBALL, CRYSTALBALL) || macros.UsedItem(ALCUINSRING, ALCUINSRING) || macros.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS)) && (macros.GetFlag(PARTY, TRACKING) == 1))) {
+        macros.ShowText("If you work on this seam you might just....");
+        macros.ShowText("Yes!  You have managed to pry open a secret door.");
+        macros.SetFlag(DUNGEON, VATCRACK, 1);
+        macros.ClearWall(macros.Here, macros.Facing);
+        macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
+    }
+}
+
+fun MapEvent0D(macros) {
+    macros.SetFlag(PARTY, TRACKING, 0);
+}
+
+fun MapEvent0E(macros) {
+    macros.ShowText("There's a short little tunnel through here.");
+    macros.Teleport(4, 3, 19, WEST);
+}
+
+fun MapEvent0F(macros) {
+    macros.ShowText("You follow the tunnel back into the vat.");
+    macros.Teleport(4, 3, 21, EAST);
+}
+
+fun MapEvent10(macros) {
+    macros.SetFlag(DUNGEON, WENTUP0401, 1);
+    if ((macros.GetFlag(DUNGEON, LEVEL2ROOM4) == 1) || (macros.GetFlag(DUNGEON, WENTUP0401) == 1)) {
+        macros.ClearWall(13, EAST);
+        macros.PlaceWallItem(DOOR, 13, EAST);
+    }
+    else {
+        macros.RemoveWallItem(13, EAST);
+        macros.BlockWall(13, EAST);
+    }
+    if (macros.GetFlag(PARTY, BEENINROOM) == 0) {
+        macros.SetFlag(PARTY, BEENINROOM, 1);
+        macros.SetFlag(PARTY, SEENBIGVAT, 1);
+        macros.ShowText("Boy, is that a heady smell!  This large room is dominated by one big vat in the center, but there is a pile of smaller vats in the northeast corner.  The smell is almost thick enough to chew.");
+    }
+    else {
+        if (macros.GetFlag(PARTY, SEENBIGVAT) == 0) {
+            macros.ShowText("Jehosophat!  That has to be the biggest barrel o'brew you've ever seen!  Some smaller vats are piled in the northeast corner of the room.");
+            macros.SetFlag(PARTY, SEENBIGVAT, 1);
+        }
+    }
+}
+
+fun MapEvent11(macros) {
+    if ((macros.GetFlag(DUNGEON, WONGAME) == 1) || ((macros.GetFlag(PARTY, WAR1) == 1) && (macros.GetFlag(PARTY, WAR2) == 1) && (macros.GetFlag(PARTY, WAR3) == 1) && (macros.GetFlag(PARTY, WAR4) == 1) && (macros.GetFlag(PARTY, WAR5) == 1) && (macros.GetFlag(PARTY, WAR6) == 1) && (macros.GetFlag(PARTY, WAR7) == 1))) {
+        macros.SetFlag(DUNGEON, LEVEL2ROOM3, 1);
+        macros.ClearWall(30, NORTH);
+        macros.PlaceWallItem(DOOR, 30, NORTH);
+    }
+    else {
+        macros.RemoveWallItem(30, NORTH);
+        macros.BlockWall(30, NORTH);
+    }
+}
+
+fun MapEvent12(macros) {
+    macros.ShowPicture(MINOTAUR);
+    if (macros.GetFlag(PARTY, SEENBOAR) == 0) {
+        macros.SetFlag(PARTY, SEENBOAR, 1);
+        macros.ShowText("'Not so fast!  I be the bouncer of this, The Raging Boar Inn, and we have a few ground rules.  There's to be no pinching of the employees.  There's to be no pinching of the silverware.  In fact, no pinching!  Any questions?'");
+        macros.ShowText("You shake your head.  You can live with that.");
+    }
+    else {
+        if (macros.Facing == EAST) {
+            macros.ShowText("Thankee kindly for frequenting the Boar.");
+        }
+    }
+}
+
+fun MapEvent13(macros) {
+    if (macros.GetFlag(PARTY, IGNORED) == 0) {
+        if (macros.GetFlag(PARTY, SAWMILKER) == 1) {
+            macros.ShowText("The dairy man, er, pig, does not want to talk to you.");
+            macros.SetFlag(PARTY, IGNORED, 1);
+        }
+        else {
+            macros.SetFlag(PARTY, SAWMILKER, 1);
+            macros.ShowPicture(BOAR);
+            if (macros.HasItem(MILKOFHUMANKINDNESS)) {
+                macros.ShowText("'One at a time!  One at a time!  I must respect the ancient traditions of my family and not sell thee any more until thou hast used the first one, preferably against someone named Macbeth.  Get thee gone!");
+            }
+            else {
+                if (macros.HasItem(GREATLETTEROFCREDIT)) {
+                    macros.ShowText("'Excellent!  Excellent!  Thou hast come with that which I require!  The deal is done!'  You shake hands, uh, paws, uh, appendages on the deal.");
+                    macros.TakeItem(GREATLETTEROFCREDIT);
+                    macros.GiveItem(MILKOFHUMANKINDNESS);
+                }
+                else {
+                    macros.ShowText("Folly!  Folly!  I cannot trade my dairywares unless thou brings me something of great value in exchange!  Return when thou dost wish to trade, no sooner!");
+                }
+            }
+        }
+    }
+}
+
+fun MapEvent14(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 0) {
+        macros.SetFlag(PARTY, WAR1, 1);
+        macros.ShowText("It looks like you have found the raging boars!");
+        if (macros.PartyCount > 3) {
+            macros.ShowText("And, sadly, they have found you.");
+        }
+        if ((macros.GetFlag(PARTY, WAR2) == 1) && (macros.GetFlag(PARTY, WAR3) == 1) && (macros.GetFlag(PARTY, WAR4) == 1) && (macros.GetFlag(PARTY, WAR5) == 1) && (macros.GetFlag(PARTY, WAR6) == 1) && (macros.GetFlag(PARTY, WAR7) == 1) && (!(macros.HasItem(CRACKOFDOOM))) && macros.FlagOn(DUNGEON, WENTUP0401)) {
+            macros.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        }
+        else {
+            macros.SetBooty(HENGISTSSWORD, BERSERKERTALISMAN, PETUNIAPOULTICE, CRYSTALBALL, 0, 125);
+        }
+        macros.GetMonster(1, 29);
+        macros.GetMonster(2, 30);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 31);
+            macros.GetMonster(4, 31);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 31);
+            macros.GetMonster(6, 31);
+        }
+    }
+    else {
+        macros.ShowText("Boy, was there some shakin' and bacon here.");
+    }
+}
+
+fun MapEvent15(macros) {
+    if (macros.GetFlag(PARTY, WAR2) == 0) {
+        macros.SetFlag(PARTY, WAR2, 1);
+        macros.ShowText("I guess we know what they meant by pigs having wings.");
+        if ((macros.GetFlag(PARTY, WAR1) == 1) && (macros.GetFlag(PARTY, WAR3) == 1) && (macros.GetFlag(PARTY, WAR4) == 1) && (macros.GetFlag(PARTY, WAR5) == 1) && (macros.GetFlag(PARTY, WAR6) == 1) && (macros.GetFlag(PARTY, WAR7) == 1) && (!(macros.HasItem(CRACKOFDOOM))) && macros.FlagOn(DUNGEON, WENTUP0401)) {
+            macros.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        }
+        else {
+            macros.SetBooty(0, 0, 0, 0, 0, 187);
+        }
+        macros.GetMonster(1, 32);
+        macros.GetMonster(5, 39);
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(3, 32);
+            macros.GetMonster(6, 39);
+        }
+    }
+    else {
+        macros.ShowText("All that remains from your battle here is an overcooked pork rind.");
+    }
+}
+
+fun MapEvent16(macros) {
+    if (macros.GetFlag(PARTY, WAR3) == 0) {
+        macros.SetFlag(PARTY, WAR3, 1);
+        macros.ShowText("While you are wondering if the phrase 'silly Scottish pig dogs' is copyrighted, a group of them attack!");
+        if ((macros.GetFlag(PARTY, WAR1) == 1) && (macros.GetFlag(PARTY, WAR2) == 1) && (macros.GetFlag(PARTY, WAR4) == 1) && (macros.GetFlag(PARTY, WAR5) == 1) && (macros.GetFlag(PARTY, WAR6) == 1) && (macros.GetFlag(PARTY, WAR7) == 1) && (!(macros.HasItem(CRACKOFDOOM))) && macros.FlagOn(DUNGEON, WENTUP0401)) {
+            macros.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        }
+        else {
+            macros.SetBooty(SAXONSTICKS, BOOMERANGSCROLL, PETUNIAPOULTICE, 0, 0, 125);
+        }
+        if (macros.PartyLevel(12)) {
+            macros.GetMonster(1, 38);
+            macros.GetMonster(2, 37);
+            macros.GetMonster(3, 33);
+            if (macros.PartyCount > 3) {
+                macros.GetMonster(5, 31);
+                macros.GetMonster(4, 32);
+                macros.GetMonster(6, 36);
+            }
+        }
+        else {
+            macros.GetMonster(1, 36);
+            macros.GetMonster(2, 31);
+            if (macros.PartyCount > 2) {
+                macros.GetMonster(3, 31);
+                macros.GetMonster(4, 36);
+            }
+            if (macros.PartyCount > 3) {
+                macros.GetMonster(5, 30);
+                macros.GetMonster(6, 37);
+            }
+        }
+    }
+    else {
+        macros.ShowText("All that remains from your battle here is a broken dog collar and a nice leatherette chew toy.");
+    }
+}
+
+fun MapEvent17(macros) {
+    if (macros.GetFlag(PARTY, WAR4) == 0) {
+        macros.SetFlag(PARTY, WAR4, 1);
+        macros.ShowText("Ee aiyee aiyo!  You have NO interest in eating any of the eggs from those chickens!");
+        if ((macros.GetFlag(PARTY, WAR1) == 1) && (macros.GetFlag(PARTY, WAR2) == 1) && (macros.GetFlag(PARTY, WAR3) == 1) && (macros.GetFlag(PARTY, WAR5) == 1) && (macros.GetFlag(PARTY, WAR6) == 1) && (macros.GetFlag(PARTY, WAR7) == 1) && (!(macros.HasItem(CRACKOFDOOM))) && macros.FlagOn(DUNGEON, WENTUP0401)) {
+            macros.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        }
+        else {
+            macros.SetBooty(HIPPOCRATESSRING, LEFTARMSCROLL, PETUNIAPOULTICE, 0, 0, 953);
+        }
+        if (macros.PartyLevel(12)) {
+            macros.GetMonster(1, 28);
+            macros.GetMonster(2, 35);
+            macros.GetMonster(3, 33);
+            if (macros.PartyCount > 3) {
+                macros.GetMonster(4, 27);
+                macros.GetMonster(5, 32);
+                macros.GetMonster(6, 34);
+            }
+        }
+        else {
+            macros.GetMonster(1, 34);
+            macros.GetMonster(2, 26);
+            if (macros.PartyCount > 2) {
+                macros.GetMonster(3, 27);
+                macros.GetMonster(4, 29);
+            }
+            if (macros.PartyCount > 3) {
+                macros.GetMonster(5, 30);
+                macros.GetMonster(6, 34);
+            }
+        }
+    }
+    else {
+        macros.ShowText("You must have fought enough cholesterol here to clog Loch Lomond.");
+    }
+}
+
+fun MapEvent18(macros) {
+    if (macros.GetFlag(PARTY, WAR5) == 0) {
+        macros.SetFlag(PARTY, WAR5, 1);
+        macros.ShowText("It looks like a happy horde of harpies.  And to think that when you came in here, you thought Harp meant lager, not monster.");
+        if (macros.PartyCount > 3) {
+            macros.ShowText("Or maybe, at the worst, a Marx brothers movie.");
+        }
+        if ((macros.GetFlag(PARTY, WAR1) == 1) && (macros.GetFlag(PARTY, WAR2) == 1) && (macros.GetFlag(PARTY, WAR3) == 1) && (macros.GetFlag(PARTY, WAR4) == 1) && (macros.GetFlag(PARTY, WAR6) == 1) && (macros.GetFlag(PARTY, WAR7) == 1) && (!(macros.HasItem(CRACKOFDOOM))) && macros.FlagOn(DUNGEON, WENTUP0401)) {
+            macros.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        }
+        else {
+            macros.SetBooty(BAYONETSPEAR, IVARSGAUNTLETS, PETUNIAPOULTICE, ELDERBERRYELIXIR, 0, 125);
+        }
+        macros.GetMonster(1, 25);
+        macros.GetMonster(5, 26);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(2, 27);
+            macros.GetMonster(6, 28);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 25);
+            macros.GetMonster(3, 26);
+        }
+    }
+    else {
+        macros.ShowText("All that remains from your ferocious fight is a feather and a few faintly fetid fumes.");
+    }
+}
+
+fun MapEvent19(macros) {
+    if (macros.GetFlag(PARTY, WAR6) == 0) {
+        macros.SetFlag(PARTY, WAR6, 1);
+        macros.ShowText("You know, with all these barrels, this place does kind of remind you of a labyrinth.");
+        if ((macros.GetFlag(PARTY, WAR1) == 1) && (macros.GetFlag(PARTY, WAR2) == 1) && (macros.GetFlag(PARTY, WAR3) == 1) && (macros.GetFlag(PARTY, WAR4) == 1) && (macros.GetFlag(PARTY, WAR5) == 1) && (macros.GetFlag(PARTY, WAR7) == 1) && (!(macros.HasItem(CRACKOFDOOM))) && macros.FlagOn(DUNGEON, WENTUP0401)) {
+            macros.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        }
+        else {
+            macros.SetBooty(STEELBREASTPLATE, HALFPLATE, WOOLENCLOAK, 0, 0, 125);
+        }
+        macros.GetMonster(1, 34);
+        macros.GetMonster(2, 35);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 34);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 35);
+        }
+    }
+    else {
+        macros.ShowText("All that remains from your battle here is a broken axe handle and one shredded black glove.");
+    }
+}
+
+fun MapEvent1A(macros) {
+    if (macros.GetFlag(PARTY, WAR7) == 0) {
+        macros.SetFlag(PARTY, WAR7, 1);
+        macros.ShowText("You were warned there would be bodyguards.  You just didn't know how unfriendly they would be.  A wave of magic flashes over you.");
+        macros.Damage(macros.MaxHealth / 4);
+        if ((macros.GetFlag(PARTY, WAR1) == 1) && (macros.GetFlag(PARTY, WAR2) == 1) && (macros.GetFlag(PARTY, WAR3) == 1) && (macros.GetFlag(PARTY, WAR4) == 1) && (macros.GetFlag(PARTY, WAR5) == 1) && (macros.GetFlag(PARTY, WAR6) == 1) && (!(macros.HasItem(CRACKOFDOOM))) && macros.FlagOn(DUNGEON, WENTUP0401)) {
+            macros.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        }
+        else {
+            if (!(macros.HasItem(EYEOFNEWT))) {
+                macros.SetBooty(BAYONETSPEAR, EYEOFNEWT, PETUNIAPOULTICE, ELDERBERRYELIXIR, 0, 245);
+            }
+            else {
+                macros.SetBooty(BAYONETSPEAR, PETUNIAPOULTICE, ELDERBERRYELIXIR, 0, 0, 245);
+            }
+        }
+        macros.GetMonster(1, 32);
+        macros.GetMonster(5, 40);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(2, 33);
+            macros.GetMonster(6, 40);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(3, 33);
+            macros.GetMonster(4, 32);
+        }
+    }
+    else {
+        macros.ShowText("'Just another example of pigs a'dragon,' you say as you survey the remains of this battle.");
+    }
+}
+
+fun MapEvent1B(macros) {
+    if (macros.GetFlag(PARTY, SEENKNIGHT) == 0) {
+        macros.ShowPicture(ORCKNIGHT);
+        macros.SetFlag(PARTY, SEENKNIGHT, 1);
+        macros.ShowText("A badly battered knight grimaces as you pass.");
+        macros.ShowText("'I must warn thee, friends.  In the last room down the hall is a man with an endless supply of a priceless treasure, but if thou canst not defeat the pigs at the top of the hall thou wilt surely not defeat his bodyguards.");
+    }
+}
+
+fun MapEvent1C(macros) {
+    macros.ShowText("The sign on the door to the west reads, 'In this room, pigs have wings.'");
+}
+
+fun MapEvent1D(macros) {
+    macros.ShowText("The sign on the door to the west reads, 'In this room you can find silly Scottish pig dogs.");
+}
+
+fun MapEvent1E(macros) {
+    macros.ShowText("The sign on the door to the west reads, 'Old MacDonald's Room");
+}
+
+fun MapEvent1F(macros) {
+    macros.ShowText("The sign on the door has been torn in twain.  The part that remains says, 'Harp....'");
+}
+
+fun MapEvent20(macros) {
+    macros.Teleport(5, 1, 250, NORTH);
+}
+
+fun MapEvent21(macros) {
+    macros.ShowText("The sign on the door has been torn in twain.  The part that remains says, '....ease'");
+}
+
+fun MapEvent22(macros) {
+    macros.SetFlag(DUNGEON, WENTLEFT0401, 0);
+    macros.SetFlag(DUNGEON, WENTUP0401, 0);
+}
+
+fun MapEvent23(macros) {
+    macros.ShowText("'No guts, no glory,' you tell yourself, hoping that you are ready to face Fleance.");
+}
+
+fun MapEvent24(macros) {
+    macros.Teleport(4, 1, 0, EAST);
+}
+
+fun MapEvent25(macros) {
+    if ((macros.UsedSkill(READ_TRACKS_SKILL) >= 1) || macros.UsedItem(HAWKSEYE, HAWKSEYE) || macros.UsedItem(REINDEERHORNHELM, REINDEERHORNHELM) || macros.UsedItem(TRACKINGTALISMAN, TRACKINGTALISMAN)) {
+        macros.ShowText("You find some footprints heading to the west.");
+        macros.SetFlag(PARTY, TRACKING, 1);
+        macros.ShowText("No, you're not the only one who finds that odd.");
+    }
+}
+
+fun MapEvent26(macros) {
+    if ((macros.GetFlag(DUNGEON, WONGAME) == 1) || ((macros.GetFlag(PARTY, WAR1) == 1) && (macros.GetFlag(PARTY, WAR2) == 1) && (macros.GetFlag(PARTY, WAR3) == 1) && (macros.GetFlag(PARTY, WAR4) == 1) && (macros.GetFlag(PARTY, WAR5) == 1) && (macros.GetFlag(PARTY, WAR6) == 1) && (macros.GetFlag(PARTY, WAR7) == 1))) {
+        macros.SetFlag(DUNGEON, LEVEL2ROOM3, 1);
+        macros.ClearWall(13, EAST);
+        macros.PlaceWallItem(DOOR, 13, EAST);
+    }
+    else {
+        macros.RemoveWallItem(13, EAST);
+        macros.BlockWall(13, EAST);
+    }
+}

@@ -1,0 +1,469 @@
+#include "defines.loh"
+#include "flags.loh"
+
+#define PIGFOOT 1
+
+fun MapEvent01(macros) {
+    macros.ShowText("This gateway leads to the Foyer of Cawdor.");
+}
+
+fun MapEvent02(macros) {
+    macros.ShowText("A: This wyrd sister lives no more");
+}
+
+fun MapEvent03(macros) {
+    macros.ShowText("A: Save words here writ in living stone.");
+}
+
+fun MapEvent04(macros) {
+    macros.ShowText("A: And for a life knee deep in gore");
+}
+
+fun MapEvent05(macros) {
+    macros.ShowText("A: Beyond the grave I must atone.");
+}
+
+fun MapEvent06(macros) {
+    macros.ShowText("A: Cawdor's bones are full of beasts.");
+}
+
+fun MapEvent07(macros) {
+    macros.ShowText("A: Thy challenge: to defeat them.");
+}
+
+fun MapEvent08(macros) {
+    macros.ShowText("A: To help my soul I can at least");
+}
+
+fun MapEvent09(macros) {
+    macros.ShowText("A: Leave hints an thou canst read them.");
+}
+
+fun MapEvent0A(macros) {
+    macros.ShowText("A: Each clue thou findst upon these walls");
+}
+
+fun MapEvent0B(macros) {
+    macros.ShowText("A: Is split in sections various.");
+}
+
+fun MapEvent0C(macros) {
+    macros.ShowText("A: Together they will tell thee all");
+}
+
+fun MapEvent0D(macros) {
+    macros.ShowText("A: To kill the most nefarious.");
+}
+
+fun MapEvent0E(macros) {
+    macros.ShowText("A: Not all my clues are openly writ.");
+}
+
+fun MapEvent0F(macros) {
+    macros.ShowText("A: Some messages are obscure.");
+}
+
+fun MapEvent10(macros) {
+    macros.ShowText("A: But when deciphered by thine own wit");
+}
+
+fun MapEvent11(macros) {
+    macros.ShowText("A: Thy victory they'll ensure.");
+}
+
+fun MapEvent12(macros) {
+    macros.ShowRunes("B: Cawdor's doors have mighty wards,");
+}
+
+fun MapEvent13(macros) {
+    macros.ShowRunes("B: Protections hale and hearty.");
+}
+
+fun MapEvent14(macros) {
+    macros.ShowRunes("B: An thou wouldst earn thy just rewards");
+}
+
+fun MapEvent15(macros) {
+    macros.ShowRunes("B: Thou wilt need a balanced party.");
+}
+
+fun MapEvent16(macros) {
+    macros.ShowText("B: Thou canst not force an entryway");
+}
+
+fun MapEvent17(macros) {
+    macros.ShowText("B: Be thou strong or willful.");
+}
+
+fun MapEvent18(macros) {
+    macros.ShowText("B: But oft a group can make their way");
+}
+
+fun MapEvent19(macros) {
+    macros.ShowText("B: As can a thief most skillful.");
+}
+
+fun MapEvent1A(macros) {
+    macros.ShowRunes("The Brinded Cat is a giant beast; ");
+    macros.ShowRunes("Its fur is hard and curly. ");
+    macros.ShowRunes("But it cannot resist the power ");
+    macros.ShowRunes("Of the mighty Hurlyburly.");
+}
+
+fun MapEvent1B(macros) {
+    macros.ShowRunes("The Harpier's bite can strike thee dead,");
+    macros.ShowRunes("Diseased and full of blindness.");
+    macros.ShowRunes("But thou canst face its awesome dread,");
+    macros.ShowRunes("With the Milk of Human Kindness.");
+}
+
+fun MapEvent1C(macros) {
+    macros.ShowRunes("The dragon, fenny snake, and wolf,");
+    macros.ShowRunes("The adder, newt, and frog,");
+    macros.ShowRunes("The blind-worm, bat, goat, and witch,");
+    macros.ShowRunes("The lizard, howlet, and dog,");
+    macros.ShowRunes("Use thou which they do have within,");
+    macros.ShowRunes("To drive them full agog.");
+}
+
+fun MapEvent1D(macros) {
+    macros.ShowRunes("King Hadrian's great masonic fame,");
+    macros.ShowRunes("Was his engirdling wall.");
+    macros.ShowRunes("The Shield thou finds that bears his name");
+    macros.ShowRunes("Ensures that thou won't fall.");
+}
+
+fun MapEvent1E(macros) {
+    macros.ShowRunes("Hilda, Whitby's Abbess,");
+    macros.ShowRunes("Healed with her self-named glove.");
+    macros.ShowRunes("Streoneshalh, the mail of plate,");
+    macros.ShowRunes("Defends with Hilda's love.");
+}
+
+fun MapEvent1F(macros) {
+    macros.ShowRunes("The Scramasax the Picts did use");
+    macros.ShowRunes("Its poisons did not scare them.");
+    macros.ShowRunes("An thou dost find such doughty blades,");
+    macros.ShowRunes("Then let thy foes beware them.");
+}
+
+fun MapEvent20(macros) {
+    macros.ShowRunes("When things are bleak, thy foes are nigh,");
+    macros.ShowRunes("The darkness seems most Stygian,");
+    macros.ShowRunes("An thou wouldst find help from on high,");
+    macros.ShowRunes("Then use the Cap of Phrygian.");
+}
+
+fun MapEvent21(macros) {
+    macros.ShowRunes("When runes are seen yet make no sense,");
+    macros.ShowRunes("They set thy head to stewin'");
+    macros.ShowRunes("There's still a chance: do not be tense.");
+    macros.ShowRunes("An thou hast the Cap of Alcuin.");
+    macros.ShowRunes("But 'ware the usage of the cap.");
+    macros.ShowRunes("Thou wilt not be overjoyed.");
+    macros.ShowRunes("An thou dost use it like foolscap");
+    macros.ShowRunes("Thou wilt find thy cap destroyed.");
+}
+
+fun MapEvent22(macros) {
+    macros.ShowRunes("D: gYoun allcomM saw a volley dal");
+}
+
+fun MapEvent23(macros) {
+    macros.ShowRunes("D: siH cafe thob raif dan swimone");
+}
+
+fun MapEvent24(macros) {
+    macros.ShowRunes("D: If hout muts ghfti mih hent eb dlag");
+}
+
+fun MapEvent25(macros) {
+    macros.ShowRunes("D: uToh wares het rnwoC of soCimrn");
+}
+
+fun MapEvent26(macros) {
+    macros.ShowRunes("E: Mdgi moysry ie hpt Lhtsashi");
+}
+
+fun MapEvent27(macros) {
+    macros.ShowRunes("E: 'Ttg hsio ta mrrr hge sdkeeaa");
+}
+
+fun MapEvent28(macros) {
+    macros.ShowRunes("E: Utplus teys hahh a mrgstro giin");
+}
+
+fun MapEvent29(macros) {
+    macros.ShowRunes("E: Agg wadddi a Lleeee Darnns.");
+}
+
+fun MapEvent2A(macros) {
+    macros.ShowRunes("J: Tk dBfg oiea ihlaneol dqrsuctoe' ssome");
+}
+
+fun MapEvent2B(macros) {
+    macros.ShowRunes("J: Tnbt fhewal oeo nyudnis entrgs");
+}
+
+fun MapEvent2C(macros) {
+    macros.ShowRunes("J: TBt otkhhh lhn hii oeue ealss etl t'ss");
+}
+
+fun MapEvent2D(macros) {
+    macros.ShowRunes("J: TOs hdhrei yeat min ngsge.");
+}
+
+fun MapEvent2E(macros) {
+    var i;
+    i = macros.GetFlag(DUNGEON, CAPCOUNTER);
+    i++;
+    if (macros.UsedItem(ALCUINSCAP, ALCUINSCAP)) {
+        if (i > 6) {
+            i = 0;
+            macros.TakeItem(ALCUINSCAP);
+        }
+        macros.SetFlag(DUNGEON, CAPCOUNTER, i);
+        macros.ShowText("Alcuin's cap glows warm to the touch.  You can read the runes!");
+        macros.ShowText("F: Macduff's heroic fighting spirit.");
+    }
+    else {
+        macros.ShowRunes("F: sashfff'rherMocugdctingiiiipt");
+    }
+}
+
+fun MapEvent2F(macros) {
+    var i;
+    i = macros.GetFlag(DUNGEON, CAPCOUNTER);
+    i++;
+    if (macros.UsedItem(ALCUINSCAP, ALCUINSCAP)) {
+        if (i > 6) {
+            i = 0;
+            macros.TakeItem(ALCUINSCAP);
+        }
+        macros.SetFlag(DUNGEON, CAPCOUNTER, i);
+        macros.ShowText("Alcuin's cap glows warm to the touch.  You can read the runes!");
+        macros.ShowText("F: Will set thy face to frowning.");
+    }
+    else {
+        macros.ShowRunes("F: illsetttcygaehirooffwWnn.");
+    }
+}
+
+fun MapEvent30(macros) {
+    var i;
+    i = macros.GetFlag(DUNGEON, CAPCOUNTER);
+    i++;
+    if (macros.UsedItem(ALCUINSCAP, ALCUINSCAP)) {
+        if (i > 6) {
+            i = 0;
+            macros.TakeItem(ALCUINSCAP);
+        }
+        macros.SetFlag(DUNGEON, CAPCOUNTER, i);
+        macros.ShowText("Alcuin's cap glows warm to the touch.  You can read the runes!");
+        macros.ShowText("F: If thou wouldst know how not to fear it");
+    }
+    else {
+        macros.ShowRunes("F: Iiahhuuldsknwwwnooooootttttffre");
+    }
+}
+
+fun MapEvent31(macros) {
+    var i;
+    i = macros.GetFlag(DUNGEON, CAPCOUNTER);
+    i++;
+    if (macros.UsedItem(ALCUINSCAP, ALCUINSCAP)) {
+        if (i > 6) {
+            i = 0;
+            macros.TakeItem(ALCUINSCAP);
+        }
+        macros.SetFlag(DUNGEON, CAPCOUNTER, i);
+        macros.ShowText("Alcuin's cap glows warm to the touch.  You can read the runes!");
+        macros.ShowText("F: Then use the Cup of Drowning.");
+    }
+    else {
+        macros.ShowRunes("F: TtCfDsroowighheeennnuup.");
+    }
+}
+
+fun MapEvent32(macros) {
+    var i;
+    i = macros.GetFlag(DUNGEON, CAPCOUNTER);
+    i++;
+    if (macros.UsedItem(ALCUINSCAP, ALCUINSCAP)) {
+        if (i > 6) {
+            i = 0;
+            macros.TakeItem(ALCUINSCAP);
+        }
+        macros.SetFlag(DUNGEON, CAPCOUNTER, i);
+        macros.ShowText("Alcuin's cap glows warm to the touch.  You can read the runes!");
+        macros.ShowText("G: Macbeth's shade is strongest of all");
+    }
+    else {
+        macros.ShowRunes("G: aaaaaaaaa abbBc cc dddeeeeee ee eee");
+    }
+}
+
+fun MapEvent33(macros) {
+    var i;
+    i = macros.GetFlag(DUNGEON, CAPCOUNTER);
+    i++;
+    if (macros.UsedItem(ALCUINSCAP, ALCUINSCAP)) {
+        if (i > 6) {
+            i = 0;
+            macros.TakeItem(ALCUINSCAP);
+        }
+        macros.SetFlag(DUNGEON, CAPCOUNTER, i);
+        macros.ShowText("Alcuin's cap glows warm to the touch.  You can read the runes!");
+        macros.ShowText("G: But an thou earns his pocket");
+    }
+    else {
+        macros.ShowRunes("G: ffg gh hhhh hhhhH iii iikkll");
+    }
+}
+
+fun MapEvent34(macros) {
+    var i;
+    i = macros.GetFlag(DUNGEON, CAPCOUNTER);
+    i++;
+    if (macros.UsedItem(ALCUINSCAP, ALCUINSCAP)) {
+        if (i > 6) {
+            i = 0;
+            macros.TakeItem(ALCUINSCAP);
+        }
+        macros.SetFlag(DUNGEON, CAPCOUNTER, i);
+        macros.ShowText("Alcuin's cap glows warm to the touch.  You can read the runes!");
+        macros.ShowText("G: Then in thy hands mayhaps will fall");
+    }
+    else {
+        macros.ShowRunes("G: llll ll LmM nnnnn nnooooo pprr ssss");
+    }
+}
+
+fun MapEvent35(macros) {
+    var i;
+    i = macros.GetFlag(DUNGEON, CAPCOUNTER);
+    i++;
+    if (macros.UsedItem(ALCUINSCAP, ALCUINSCAP)) {
+        if (i > 6) {
+            i = 0;
+            macros.TakeItem(ALCUINSCAP);
+        }
+        macros.SetFlag(DUNGEON, CAPCOUNTER, i);
+        macros.ShowText("Alcuin's cap glows warm to the touch.  You can read the runes!");
+        macros.ShowText("G: The blessed Healing Locket.");
+    }
+    else {
+        macros.ShowRunes("G: sss ssssttt tttttTT uuwyy'");
+    }
+}
+
+fun MapEvent36(macros) {
+    macros.ShowRunes("H:  Thou hast solved clues that I did brew");
+    macros.ShowRunes("H:  With means anagrammatic.");
+    macros.ShowRunes("H:  But these last clues are those that thou");
+    macros.ShowRunes("H:  Solve with means cryptographic.");
+}
+
+fun MapEvent37(macros) {
+    if (macros.UsedItem(ALCUINSCAP, ALCUINSCAP)) {
+        macros.TakeItem(ALCUINSCAP);
+        macros.SetFlag(DUNGEON, CAPCOUNTER, 0);
+        macros.ShowText("Alcuin's cap glows red hot, and then dissolves into wisps of steam.  But at least you get to read the runes!");
+        macros.ShowText("I: The Healing Locket's all that might");
+        macros.ShowText("I: Ward off my sisters's power.");
+        macros.ShowText("I: Use it steadfastly through the fight");
+        macros.ShowText("I: And watch it make them glower.");
+    }
+    else {
+        macros.ShowRunes("I:  Bkw Kwqgmoy Glhuwb'c qgg bkqb amykb");
+        macros.ShowRunes("I:  Nqti ljj ap cmcbwtc'c flnwt.");
+        macros.ShowRunes("I:  Scw mb cbwqijqcbgp bktlsyk bkw jmykb");
+        macros.ShowRunes("I:  Qoi nqbhk mb aquw bkwa yglnwt.");
+    }
+}
+
+fun MapEvent38(macros) {
+    if ((macros.GetFlag(DUNGEON, MACBETHREWARD) == 0) && (macros.GetFlag(DUNGEON, WONGAME) == 0)) {
+        macros.ShowText("The doors refuse to budge.");
+    }
+    else {
+        if (macros.PartyCount > 1) {
+            macros.ShowText("These narrow stairs will force you to descend single file.");
+        }
+        else {
+            macros.ShowText("Whoever last passed these doors did not pull them to.  You carefully make sure they stay ajar as you pass.  They lead to stairs descending into darkness.");
+            if (((macros.HasItem(ALDHELMSSTAFF)) && (macros.HasItem(ALDHELMSGAUNTLETS)) && (macros.HasItem(ALDHELMSHARP)) && (macros.GetFlag(DUNGEON, ALDHELMPROPHECY) == 1)) || (macros.GetFlag(DUNGEON, ALDHELMBLESSING) == 1)) {
+                macros.ShowText("A beatific figure, old, wise, and happy, appears before you.");
+                macros.ShowText("'I am Aldhelm.  Long have I hoped to aid one of good heart in ridding this earth of the canker of the Wyrd Sisters.");
+                macros.ShowText("There is a secret path, somewhat safer, that will lead thee to thy goal.  It will bypass many fiercesome beasts set here to sap thy will and vigor.  Take it, and my blessing.'");
+                if (!(macros.HasItem(LANTERN))) {
+                    macros.GiveItem(LANTERN);
+                }
+                macros.SetFlag(DUNGEON, ALDHELMBLESSING, 1);
+                macros.Teleport(10, 2, 0, EAST);
+            }
+            else {
+                macros.Teleport(10, 2, 16, EAST);
+            }
+        }
+    }
+}
+
+fun MapEvent39(macros) {
+    macros.Teleport(1, 1, 175, WEST);
+}
+
+fun MapEvent3A(macros) {
+    macros.SetFlag(DUNGEON, BEENINRUNEDROOM, 1);
+}
+
+fun MapEvent3C(macros) {
+    macros.ShowRunes("C:  Fancel epadsce teh mrrrduee's balde");
+}
+
+fun MapEvent3D(macros) {
+    macros.ShowRunes("C:  Btu he sllit flees hsi golom.");
+}
+
+fun MapEvent3E(macros) {
+    macros.ShowRunes("C:  If thuo wosdutl bets daeeft hsi shead");
+}
+
+fun MapEvent3F(macros) {
+    macros.ShowRunes("C:  Tehn wedil teh Cckar of Dmoo.");
+}
+
+fun MapEvent40(macros) {
+    if (macros.GetFlag(DUNGEON, HEARDJOKE1) == 0) {
+        macros.SetFlag(DUNGEON, HEARDJOKE1, 1);
+        macros.ShowPicture(DRAGON);
+        macros.ShowText("*");
+        macros.ShowText("*");
+        macros.ShowText("*");
+        macros.ShowText("By all the fins and feathers!  An enormous red dragon rears up and speaks to you.");
+        if ((macros.GetFlag(DUNGEON, HEARDJOKE4) == 0) && (macros.GetFlag(DUNGEON, HEARDJOKE2) == 0) && (macros.GetFlag(DUNGEON, HEARDJOKE3) == 0)) {
+            macros.ShowText("'Hmm.  There are two ways this could go.  We could have similar senses of humor, and part friends, or I could just eat thee.  So.  Wouldst hear a joke about a stupid green dragon named Gwalter the Dim?'");
+        }
+        else {
+            macros.ShowText("'Ah!  I remember thee.  As I recall, thou didst enjoy my last joke.  Wouldst thou hear another?'");
+        }
+        macros.ShowText("You quickly nod.");
+        macros.ShowText("'There was a very stupid green dragon named Gwalter the Dim.  Do not laugh yet!  One day Gwalter received three wishes from a djinn.  For his first wish he asked for a bag that would always be full of gold, no matter how much he removed.  Lo and behold!  His wish was granted.");
+        macros.ShowText("The genie asked what he wanted for his other wishes.  Gwalter asked for two more of those bags.  Get it?'");
+        macros.ShowText("You laugh politely.");
+        macros.ShowText("'Good enough.  But remember; 'tis only the green drakes that exhibit such stupidity.  I shall remember thee.'");
+        macros.ShowText("The dragon departs.");
+    }
+}
+
+fun MapEvent41(macros) {
+    if (macros.GetFlag(PARTY, PIGFOOT) == 0) {
+        macros.SetFlag(PARTY, PIGFOOT, 1);
+        macros.ShowPicture(HALFLINGCLERIC);
+        macros.ShowText("A halfling cleric approaches you surreptitiously.");
+        macros.ShowText("'Psst!  Cuz!  Thou dost look like a being of wit and wisdom.  I will gladly share with thee a great secret.'");
+        macros.ShowText("He opens his coat to show, pinned to the inside, a slightly turned pig's foot.");
+        macros.ShowText("'This is the Lucky Pig's Foot.  It is the sovereign against dragons, for wyrms cannot abide the smell of burnt pig's foot.  Thou needst only to brandish it boldly before thee in battle....'");
+        macros.ShowText("His voice trails off as he sees someone approaching, waving another lucky pig's foot.  'Anon!'");
+    }
+}

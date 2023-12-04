@@ -1,0 +1,576 @@
+#include "defines.loh"
+#include "flags.loh"
+
+#define DETECTED_DOOR 1
+#define WAR1 1
+#define WAR2 2
+#define WAR3 3
+#define WAR4 4
+#define WAR5 5
+#define WAR6 6
+#define WAR7 7
+#define CTR 8
+#define TRACKING 9
+#define WHATSHEREMESSAGE 10
+#define THIEFMESSAGE 11
+#define WAR8 12
+#define SAWDUNG 13
+#define SAWSHOVEL 14
+#define KILLED241 15
+#define KILLED242 16
+#define GOTBANBOOTY 17
+#define GIVESTICKS 18
+
+fun MapEvent01(macros) {
+    if (macros.GetFlag(DUNGEON, GOTSTICK0702) == 1) {
+        macros.ShowText("How many treasures do you expect to find in a garbage heap?  I mean, if you get the reputation as the kind of adventurer who thinks garbage is treasure you can count on a lot fewer free drinks in the Rampant Cat Inn, I am sure.");
+    }
+    else {
+        if (macros.UsedSkill(DETECT_SKILL) >= 9 || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.UsedItem(IVARSHELM, IVARSHELM) || macros.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || macros.UsedItem(ALCUINSRING, ALCUINSRING) || macros.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS)) {
+            macros.ShowText("Duck!");
+            macros.ShowText("Well, you probably wouldn't have ducked if I'd said 'Sticks!'  In any case, a set of spring propelled sticks came flying out of this hidden closet to land to the west.");
+            macros.SetFlag(PARTY, GIVESTICKS, 1);
+            macros.ModExp(10000);
+        }
+        else {
+            macros.ShowText("It was a garbage heap when you walked in, and it will be a garbage heap after you walk out.");
+        }
+    }
+}
+
+fun MapEvent02(macros) {
+    if (macros.GetFlag(PARTY, GIVESTICKS) == 1) {
+        macros.SetFlag(PARTY, GIVESTICKS, 0);
+        macros.ShowText("How useful!  'Tis a set of Alcuin's Sticks. But consider the moral implications.  Someone left these sticks here for an emergency, spring loaded for immediate grasping and usage.");
+        macros.ShowText("If you take them, you could be responsible for their owners' death!");
+        macros.ShowText("This slows you down for about 0.2 seconds.  Knowing Cawdor as you do by now, the original owner is probably long dead!");
+        macros.GiveItem(ALCUINSSTICKS);
+    }
+}
+
+fun MapEvent04(macros) {
+    if ((macros.UsedSkill(READ_TRACKS_SKILL) >= 9) || macros.UsedItem(REINDEERHORNHELM, REINDEERHORNHELM) || macros.UsedItem(TRACKINGTALISMAN, TRACKINGTALISMAN)) {
+        macros.ShowText("You find some tracks indicating that something headed off this way.");
+        macros.SetFlag(PARTY, TRACKING, 1);
+    }
+}
+
+fun MapEvent05(macros) {
+    var i;
+    i = 0;
+    var k;
+    k = 0;
+    i = macros.GetFlag(PARTY, CTR);
+    i++;
+    k = i;
+    if (k > 19) {
+        k = (k - 20);
+    }
+    if (k > 14) {
+        k = (k - 15);
+    }
+    if (k > 9) {
+        k = (k - 10);
+    }
+    if (k > 4) {
+        k = (k - 5);
+    }
+    if (k < 0) {
+        k = 0;
+    }
+    if (k > 29) {
+        k = 0;
+    }
+    if (i > 30) {
+        i = 0;
+    }
+    macros.SetFlag(PARTY, CTR, i);
+    if ((i == 26) | (i == 20) | (i == 14) | (i == 8) | (i == 2)) {
+        switch (k) {
+            case 0:
+                macros.ShowText("You hear some footsteps running away.");
+                break;
+            case 1:
+                macros.ShowText("You hear someone ambling towards you.");
+                macros.ShowPicture(HALFLINGKNIGHT);
+                macros.ShowText("'By the sun and the moon, what kind of lunatic designed this place?  Everything is small doors and, struggle though I will, I lack all notion of how to find the lair of Banquo's ghost.  Canst thou help me?'");
+                if (macros.GetFlag(DUNGEON, FOUGHTBANQUO) == 1) {
+                    macros.ShowText("You tell her the entrance to Banquo's lair is in the northwest corner of the Kitchen.  She thanks you graciously and departs.");
+                }
+                else {
+                    macros.ShowText("You shrug, not knowing where to find Banquo's ghost yourself.");
+                    macros.ShowText("'Alas.  It is no more than I expected,' she says.");
+                }
+                break;
+            case 2:
+                macros.ShowPicture(DRAGON);
+                macros.ShowText("'I say, chaps, be a good fellow and point me in the direction of the kitchen.  My cousins Carmen and Darryl said that there is an infinitude of food there, but I've been wandering this trackless place for hours trying to find it!'");
+                macros.ShowText("You suggest that the dragon strive ever southeastward, comforted by the knowledge that you won't have to be in the kitchen when the dragon arrives there.");
+                break;
+            case 3:
+                if (macros.GetFlag(DUNGEON, SEENRORY) == 1) {
+                    macros.ShowText("It was just like Rory to chase Banquo's ghost into a pit, wasn't it.  At least his warning was timely, even though his death was not.");
+                }
+                else {
+                    macros.ShowPicture(HALFLINGTHIEF);
+                    macros.ShowText("Rory is limping somewhat.");
+                    macros.ShowText("Well met!  I must say, there are many advantages to being discorporeal.");
+                    macros.ShowText("I chased Banquo's ghost straight into his hidey hole, but whereas he floated down and flew off, I fell like a, well, like a halfling, and turned my ankle, preventing my pursuit. ");
+                    macros.ShowText("It's back to the kitchen for me, if I can just find it!");
+                }
+                break;
+            case 4:
+                macros.ShowPicture(ORCBARBARIAN);
+                macros.ShowText("A bunch of barbarians decides that - no, it's impossible to know why barbarians choose to do anything.  Be that as it may, they are choosing to attack you.");
+                macros.SetBooty(LARGELETTEROFCREDIT, DEADLYSCROLL, FLEANCESFLAIL, 0, 0, 393);
+                macros.GetMonster(1, 25);
+                if (macros.PartyCount > 1) {
+                    macros.GetMonster(5, 26);
+                }
+                if (macros.PartyCount > 2) {
+                    macros.GetMonster(2, 27);
+                    macros.GetMonster(6, 27);
+                }
+                break;
+        }
+    }
+}
+
+fun MapEvent06(macros) {
+    macros.ShowText("A cold breeze sends shivers down your spine.");
+}
+
+fun MapEvent07(macros) {
+    if (macros.PartyGuild(THIEF) && (macros.GetFlag(PARTY, THIEFMESSAGE) == 0) && (macros.GetFlag(PARTY, WHATSHEREMESSAGE) == 1)) {
+        macros.ShowPicture(GREMLINTHIEF);
+        macros.SetFlag(PARTY, THIEFMESSAGE, 1);
+        macros.ShowText("Psst!  Cuz.  Pay little attention to that old fool.  Thou art here for the loot.  I can give thee some advice.  Herein thou mayst find Fleance's Flail, Oswy's Javelin, the Camlunn Crossbow, Edwin's Defender, the Phrygian Cap, and Aldhelm's Harp and Gauntlets.");
+        macros.ShowText("Where?  What beings guard them?  Why, an I knew that, I could take them for myself.  Why am I telling thee this?  Could it be the gold pieces I lifted from thy purse, cuz?  Anon!'");
+        macros.ShowText("He scampers off.");
+        macros.ModGold(-500);
+    }
+}
+
+fun MapEvent08(macros) {
+    if (macros.GetFlag(PARTY, WAR8) == 0) {
+        macros.SetFlag(PARTY, WAR8, 1);
+        if (macros.GetFlag(PARTY, TRACKING) == 1) {
+            macros.ShowText("Hah!  You got them before their ambush was ready!");
+        }
+        else {
+            macros.ShowText("Oh dear.  Perhaps you could do something to prevent every group of monsters you meet from ambushing you.");
+            macros.Damage(600);
+        }
+        macros.SetFlag(PARTY, TRACKING, 0);
+        macros.SetBooty(ALDHELMSGAUNTLETS, WOADWINE, LAVENDERLOTION, 0, 0, 1929);
+        macros.GetMonster(1, 25);
+        macros.GetMonster(2, 25);
+        macros.GetMonster(5, 28);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(6, 28);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(4, 28);
+            macros.GetMonster(3, 28);
+        }
+    }
+    else {
+        macros.ShowText("No signs remain of your battle here save for a discarded mallet and a slightly singed magic wand.");
+    }
+}
+
+fun MapEvent09(macros) {
+    macros.ShowText("This cabinet is empty.");
+}
+
+fun MapEvent0A(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 0) {
+        macros.SetFlag(PARTY, WAR1, 1);
+        macros.SetFlag(DUNGEON, LEVEL4ROOM3, 1);
+        macros.SetFlag(DUNGEON, FOUGHTBANQUO, 1);
+        macros.SetFlag(PARTY, KILLED242, 1);
+        macros.ShowText("There is Banquo's Ghost.  Get him while he's hot!");
+        macros.GetMonster(1, 37);
+        macros.GetMonster(5, 38);
+        macros.GetMonster(2, 37);
+        macros.GetMonster(6, 37);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 37);
+            macros.GetMonster(4, 37);
+        }
+    }
+    else {
+        if (macros.GetFlag(PARTY, KILLED242) == 1) {
+            macros.ShowText("That was quite a host Banquo had.  It was a good thing that you were up to his brand of 'hospitality.'");
+        }
+    }
+}
+
+fun MapEvent0B(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 0) {
+        macros.SetFlag(PARTY, WAR1, 1);
+        macros.SetFlag(DUNGEON, LEVEL4ROOM3, 1);
+        macros.SetFlag(DUNGEON, FOUGHTBANQUO, 1);
+        macros.SetFlag(PARTY, KILLED241, 1);
+        macros.ShowText("Ouch!  The ambush is bad enough, but Banquo's Ghost is shaking his gory locks at you.  Have at him!");
+        macros.Damage(1000);
+        macros.GetMonster(1, 37);
+        macros.GetMonster(5, 39);
+        macros.GetMonster(2, 37);
+        macros.GetMonster(6, 37);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 37);
+            macros.GetMonster(4, 37);
+        }
+    }
+    else {
+        if (macros.GetFlag(PARTY, KILLED242) == 1) {
+            macros.ShowText("Judging from the ambush he had arranged, it was a good thing you caught Banquo unawares.  If that was fighting him unawares, you most definitely did not want to fight him prepared.");
+        }
+    }
+}
+
+fun MapEvent0C(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 0) {
+        macros.SetFlag(PARTY, WAR1, 1);
+        macros.SetFlag(DUNGEON, LEVEL4ROOM3, 1);
+        macros.SetFlag(DUNGEON, FOUGHTBANQUO, 1);
+        macros.ShowText("Ouch!  The ambush is bad enough, but Banquo's Ghost is shaking his gory locks at you.  Have at him!");
+        macros.Damage(2000);
+        macros.GetMonster(1, 37);
+        macros.GetMonster(5, 40);
+        macros.GetMonster(2, 37);
+        macros.GetMonster(6, 37);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 37);
+            macros.GetMonster(4, 37);
+        }
+    }
+    else {
+        if ((macros.GetFlag(PARTY, KILLED242) == 1) || (macros.GetFlag(PARTY, KILLED241) == 1)) {
+            macros.ShowText("Judging from the ambush he had arranged, it was a good thing you caught Banquo unawares.  If that was fighting him unawares, you most definitely did not want to fight him prepared.");
+        }
+        else {
+            macros.ShowText("You realize now that the horridly debilitating effects of the Dissolving Pool were what prevented you from reacting swiftly enough to avoid this ambush.  Next time - ah, who wants to fight Banquo again?");
+        }
+    }
+}
+
+fun MapEvent0D(macros) {
+    macros.ShowText("This must have been Banquo's escape route.  It's a good thing you didn't give him the chance to use it.  But from the sharp spikes you're encountering as you fall, it's a bad thing you are using it now!");
+    macros.Damage(2000);
+    macros.Teleport(6, 1, 208, macros.Facing);
+}
+
+fun MapEvent0E(macros) {
+    macros.SetFlag(DUNGEON, LEVEL4ROOM3, 1);
+    if (macros.GetFlag(PARTY, WHATSHEREMESSAGE) == 0) {
+        macros.SetFlag(PARTY, WHATSHEREMESSAGE, 1);
+        macros.ShowPicture(HUMANWIZARD);
+        macros.ShowText("'Hmmph.  Adventurers!  Ah, well.  The Wizard's Guild has thoroughly investigated this room.  An thou hast not yet faced Banquo's ghost, thou shalt not do so from here.");
+        macros.ShowText("There are many private lockers here, some well and thoroughly trapped, so burgle at thy own risk.");
+        macros.ShowText("The door to the Kitchen is on the south wall near the east wall, and the door to the Conservatory is on the east wall nearer the south wall than the north, but more towards the middle.  Now be off with thee!");
+    }
+}
+
+fun MapEvent0F(macros) {
+    if ((macros.PartyGuild(KNIGHT) && macros.PartyGuild(CLERIC) && macros.PartyGuild(THIEF)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, LEVEL4ROOM2) == 1)) {
+        macros.ShowPicture(HALFLINGKNIGHT);
+        macros.ShowText("Three halflings, two of whom look badly wounded and in serious need of a smithy, hold the door open for you.");
+        macros.ShowText("'Go on in, go on in,' they say.  'But do not travel this path in ignorance.  There are more fiercesome beasts within than yet we have encountered, and lacking the wherewithal to withstand the Dissolving Pool we were forced to flee Banquo's unknightly assault.");
+        macros.ShowText("Mayhaps thou wilt receive better fortune than we had, cousin.");
+        macros.ClearWall(macros.Here, macros.Facing);
+        macros.Teleport(7, 1, 12, SOUTH);
+    }
+    else {
+        macros.ShowText("Struggle though you will, you are unable to open the door that leads to the Kitchen.");
+    }
+}
+
+fun MapEvent10(macros) {
+    if ((macros.PartyGuild(CLERIC) && macros.PartyGuild(RANGER) && macros.PartyGuild(THIEF)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, LEVEL4ROOM4) == 1)) {
+        macros.ShowPicture(HALFLINGCLERIC);
+        macros.ShowText("Three halflings catch the door before it closes.");
+        macros.ShowText("'Well met!  There are enough undead in there for all of us, and some giants and dragons as well.  May providence smile upon thy works.'");
+        macros.Teleport(8, 1, 160, EAST);
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+        macros.ShowText("The door to the Conservatory refuses to budge.");
+    }
+}
+
+fun MapEvent11(macros) {
+    macros.ShowText("I guess this large cabinet is empty.");
+}
+
+fun MapEvent12(macros) {
+    macros.ShowText("All that you find in this cabinet is a punctured peruke.");
+}
+
+fun MapEvent13(macros) {
+    macros.ShowText("All that you find in this cabinet are some barbarian's unmentionables.  And believe you me, the way they smell is unmentionable.  This is a family network, you know!");
+}
+
+fun MapEvent14(macros) {
+    macros.ShowText("Some imps must have been living here, because you find a broken pitchfork.  It has some magical engraving on it, but the piece you have left is too incomplete to decipher.");
+}
+
+fun MapEvent15(macros) {
+    macros.ShowText("You find a scrap of parchment.  It reads, 'Ware the Haggis of Horror, for it is to be feared above all the other slimes.  It can dissolve - oh no!  It can dissolve me!'");
+    macros.ShowText("Evidently the writer of this parchment was dissatisfied with the conclusion of his investigations.");
+}
+
+fun MapEvent16(macros) {
+    macros.ShowText("You find a soiled toga with the runes for the letters 'K' and 'D' on its back.");
+}
+
+fun MapEvent17(macros) {
+    macros.ShowText("This room must be the garbage dump for this level.  There are more broken things in here than you can shake a stick at.  In fact, shaking a stick at them is probably what broke most of them!");
+}
+
+fun MapEvent18(macros) {
+    macros.ShowText("Evidently a bunch of bats made this their lair for a while, but you don't guano know how you can tell.");
+}
+
+fun MapEvent19(macros) {
+    macros.ShowText("Uggh!  A herd of pigs must have been living here, and the smell's enough to drop a rhino in its tracks!  You barely make it to the door.");
+    macros.Damage(100);
+}
+
+fun MapEvent1A(macros) {
+    macros.ShowText("You find some old celtic symbols scrawled upon a wall, but they are too faded to decipher.");
+}
+
+fun MapEvent1B(macros) {
+    macros.ShowText("A ratty piece of cloth is draped on the north wall.");
+}
+
+fun MapEvent1C(macros) {
+    macros.ShowRunes("Woe is me!  My parents visited Cawdor Castle and got eaten by a dragon, and all I inherited was this crummy old tunic.");
+}
+
+fun MapEvent1D(macros) {
+    macros.ShowText("That pile of cloth in the corner is either some leftovers from a mummy, some discarded bandages, or some red handkerchiefs.  You decide that you really don't want to know which.");
+}
+
+fun MapEvent1E(macros) {
+    macros.ShowText("You find the remains of a halfling, with a crude note pinned to his chest.  It reads, 'He stole the silverware.");
+}
+
+fun MapEvent1F(macros) {
+    if (macros.GetFlag(PARTY, WAR3) == 0) {
+        macros.SetFlag(PARTY, WAR3, 1);
+        macros.ShowText("Great Bats o'Fire!  Those bats are breathing flames!  'Tis a shame they appear to have no taste for roast pork.");
+        macros.SetBooty(OSWYSJAVELIN, WOADWINE, LAVENDERLOTION, 0, 0, 847);
+        macros.GetMonster(1, 33);
+        macros.GetMonster(2, 33);
+        macros.GetMonster(5, 34);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(6, 34);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(4, 34);
+            macros.GetMonster(3, 34);
+        }
+    }
+    else {
+        macros.ShowText("You are still a tad puzzled that that razorback was able to fight so well with Oswy's Javelin stuck in him.  But you're also greatful that the guardians of that javelin were not able to wield it against you.");
+    }
+}
+
+fun MapEvent20(macros) {
+    macros.ShowText("You find a scorched rabbit's foot.  You know, if it wasn't lucky for the rabbit, why would it be lucky for anyone else?");
+}
+
+fun MapEvent21(macros) {
+    macros.ShowText("You find a holey shield.  No, I don't mean sanctified.");
+}
+
+fun MapEvent22(macros) {
+    if (macros.GetFlag(DUNGEON, SEENHOFFA) == 0) {
+        macros.SetFlag(DUNGEON, SEENHOFFA, 1);
+        macros.ShowText("A rift appears in the fabric of space and time, and, with corruscating effects too spectacular for this game's budget, a man appears.");
+        macros.ShowText("He says, 'I'm Jimmy Hoffa.  So, like, they got Teamsters here?'  You suggest he try the Cat Dragged Inn one level down.  'Tanks,' he says, tipping you a worthless piece of green paper for your troubles.  He departs.");
+    }
+    else {
+        macros.ShowText("You find a worthless piece of green paper with indecipherable runes on it.  You decide to leave it here to confuse you the next time you come here.");
+    }
+}
+
+fun MapEvent23(macros) {
+    macros.SetFlag(PARTY, SAWDUNG, 1);
+    macros.ShowText("I'd try and describe the moldy pile of dragon droppings you find here, but the English language doesn't have the right words.  If only you spoke bloodhound.");
+    if (macros.GetFlag(PARTY, SAWSHOVEL) == 1) {
+        macros.ShowText("You think about retrieving the broken shovel you left behind, but decide wisely that it's not your job.");
+    }
+}
+
+fun MapEvent24(macros) {
+    macros.ShowText("You find a discarded potion bottle.  Fortunately, you don't know of any conceivable use for Eau d'Troll, so you wisely leave it behind.");
+}
+
+fun MapEvent25(macros) {
+    macros.ShowText("You find a few harpy feathers.  They might be worth something if only you could force yourself to pick them up.");
+}
+
+fun MapEvent26(macros) {
+    macros.ShowText("You find a broken shield.");
+}
+
+fun MapEvent27(macros) {
+    macros.ShowText("You find a nice bunch of flowers arranged nicely in a vase.");
+}
+
+fun MapEvent28(macros) {
+    macros.ShowText("You find a scrap of paper.  It has a picture of the Mongol hordes on the front, and on the back is written, 'I visited Ulan Bator and was tortured by Genghis Khan.  Wish you were here.  Wish I wasn't!'");
+}
+
+fun MapEvent29(macros) {
+    macros.ShowText("You find a scrap of paper offering you a ten percent discount on having your scales polished at Smaug's Buff and Wax.  Lo, how the mighty have fallen.");
+}
+
+fun MapEvent2A(macros) {
+    macros.ShowText("You find the worn nub of a candle.");
+}
+
+fun MapEvent2B(macros) {
+    if (macros.GetFlag(PARTY, WAR4) == 0) {
+        macros.SetFlag(PARTY, WAR4, 1);
+        macros.ShowText("Uh oh!  These guys can and are using Camlunn's crossbow, because that's a quarrel sticking out of you!");
+        macros.SetBooty(CAMLUNNCROSSBOW, JUNIPERJUICE, LAVENDERLOTION, 0, 0, 847);
+        macros.GetMonster(1, 29);
+        macros.GetMonster(2, 29);
+        macros.GetMonster(5, 30);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(6, 30);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 29);
+            macros.GetMonster(3, 29);
+        }
+    }
+    else {
+        macros.ShowText("Those thieves proved rather quarrelsome, but you managed to prevail.");
+        macros.ShowText("What?  You expected every pun to be a gem?  Try Quest for Glory I VGA if that's what you want.");
+    }
+}
+
+fun MapEvent2C(macros) {
+    if (macros.GetFlag(PARTY, WAR5) == 0) {
+        macros.SetFlag(PARTY, WAR5, 1);
+        if (macros.GetFlag(PARTY, TRACKING) == 0) {
+            macros.ShowText("Yikes!  Those imps and picts are prepared!");
+            macros.Damage(1000);
+        }
+        else {
+            macros.ShowText("Strike another blow for moving cautiously!  Because you spotted their tracks, they couldn't spring that ambush on you!");
+        }
+        macros.SetFlag(PARTY, TRACKING, 0);
+        macros.SetBooty(EDWINSDEFENDER, WOADWINE, LAVENDERLOTION, 0, 0, 847);
+        macros.GetMonster(1, 31);
+        macros.GetMonster(2, 31);
+        macros.GetMonster(5, 32);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(6, 32);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(4, 31);
+            macros.GetMonster(3, 32);
+        }
+    }
+    else {
+        if ((macros.Guild == KNIGHT) || (macros.Guild == WIZARD)) {
+            macros.ShowText("You went to all this trouble fighting imps and picts and gosh all, and you can't use this stupid shield after all, even if your name was Edwin.");
+        }
+        else {
+            macros.ShowText("Hey!  This Edwin's defender is one snazzy shield!  It's almost enough to make up for the fact that now everyone calls you Edwin!");
+        }
+    }
+}
+
+fun MapEvent2D(macros) {
+    if (macros.GetFlag(PARTY, WAR6) == 0) {
+        macros.SetFlag(PARTY, WAR6, 1);
+        macros.ShowText("You must have found the guardians of the Phrygian Caps, because those elves are wearing them!");
+        macros.SetBooty(PHRYGIANCAP, WOADWINE, 0, 0, 0, 1543);
+        macros.GetMonster(1, 27);
+        macros.GetMonster(2, 27);
+        macros.GetMonster(5, 28);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(6, 28);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(4, 27);
+            macros.GetMonster(3, 27);
+        }
+    }
+    else {
+        macros.ShowText("All that remains of your battle here is a broken noseguard.");
+    }
+}
+
+fun MapEvent2E(macros) {
+    if (macros.GetFlag(PARTY, WAR7) == 0) {
+        macros.SetFlag(PARTY, WAR7, 1);
+        macros.ShowText("Yes, these are the folks with Aldhelm's Harp.  You can tell because they are using it to lob fireballs at you!");
+        macros.Damage(600);
+        macros.SetBooty(ALDHELMSHARP, WOADWINE, LAVENDERLOTION, 0, 0, 1929);
+        macros.GetMonster(1, 26);
+        macros.GetMonster(2, 26);
+        macros.GetMonster(5, 28);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(6, 28);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(4, 28);
+            macros.GetMonster(3, 28);
+        }
+    }
+    else {
+        macros.ShowText("You've heard many a bard play sweet music, but the fireballs from Aldhelm's Harp that you won here sizzle with a sweet sound all their own.");
+    }
+}
+
+fun MapEvent2F(macros) {
+    macros.ShowText("You find several empty wineskins and, scrawled on the wall, the words, 'Oberon's a real fairy.'");
+}
+
+fun MapEvent30(macros) {
+    macros.ShowText("You find a scrap of paper reading, 'Fine fresh firewood, only a farthing for a firtle of faggots.  See S. Stump at the Greenbriar Market.");
+}
+
+fun MapEvent31(macros) {
+    macros.ShowText("You find some old rocks.  Or maybe it's dwarven waybread.  The two are generally interchangeable.");
+}
+
+fun MapEvent32(macros) {
+    macros.ShowText("Ah, the flotsam and jetsam of a thousand worlds could have drifted the tides of time and space to wind up here.  But didn't.");
+}
+
+fun MapEvent33(macros) {
+    macros.ShowText("You find a broken shovel.");
+    macros.SetFlag(PARTY, SAWSHOVEL, 1);
+    if (macros.GetFlag(PARTY, SAWDUNG) == 1) {
+        macros.ShowText("You think about using it on the dragon droppings, but wisely decide that it's not your job.");
+    }
+}
+
+fun MapEvent34(macros) {
+    macros.ShowText("You find a broken bhodhron.  Alas, 'twill beat no more.");
+}
+
+fun MapEvent35(macros) {
+    macros.ShowText("You find some discarded bagpipes.  In a fit of incredible wisdom, you decide not to fiddle with them.  Either they wouldn't play, which would be bad, or they would play, which would be worse.");
+}
+
+fun MapEvent36(macros) {
+    if ((macros.GetFlag(PARTY, WAR1) == 1) && (macros.GetFlag(PARTY, GOTBANBOOTY) == 0)) {
+        macros.SetFlag(PARTY, GOTBANBOOTY, 1);
+        macros.GiveItem(CUPOFDROWNING);
+        macros.GiveItem(DRAGONFLAGON);
+        macros.GiveItem(SEAX);
+        macros.ModGold(9872);
+        macros.ShowText("There's something so delightful about liberating someone's ill-gotten booty.  You assume any ghost's booty is going to be ill-gotten.");
+    }
+}

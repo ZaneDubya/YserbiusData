@@ -1,0 +1,611 @@
+#include "defines.loh"
+#include "flags.loh"
+
+#define DETECTED_DOOR 1
+#define CTR 1
+#define VISITEDFORGE 2
+#define VISITEDTACK 3
+#define VISITEDCARDING 4
+#define VISITEDMEDICINE 5
+#define GOTTPMESSAGE 6
+#define WAR6 7
+#define WAR7 8
+#define WAR8 9
+#define WAR9 10
+#define WAR10 11
+#define WAR11 12
+#define WAR12 13
+#define WAR13 14
+#define WAR14 15
+#define WAR15 16
+#define VISITEDLOFT 17
+#define VISITEDDOOR1 18
+#define VISITEDDOOR2 19
+#define GOTH1 20
+#define GOTH2 21
+#define GOTH3 22
+#define GOTH4 23
+#define GOTSWORD 24
+#define BEENHERE 25
+
+fun MapEvent01(macros) {
+    var i;
+    i = 0;
+    i = macros.GetFlag(DUNGEON, SEENSMITH);
+    macros.ShowPicture(TROLLRANGER);
+    if (i == 0) {
+        macros.SetFlag(DUNGEON, SEENSMITH, 1);
+        macros.ShowText("A brawny blacksmith works at his anvil.  To the south you see a hotly glowing furnace.  He offers a large calloused hand in greeting.");
+        macros.ShowText("'Good grip on thee, eh?  I am Braddock Smith, and a better one thou wilt not find hereabouts.  And there be no friendlier one alive, mark my words.'  His words are kindly spoken, but shouted so loud as to hurt your ears.");
+        macros.ShowText("'I am all but deaf, which may account for my pleasure in working here, where conversation is banned by my work.  So my labor has a caveat, if not a price.'");
+        macros.ShowText("'Bring me that which thou wouldst have me fix, and the tool that thou wouldst have me use, and I will do the work anon for but five pieces of gold.  My tools are scattered hereabouts.  Seek and thou shalt find.'");
+        macros.ShowText("'And I do toss lesser samples of my work hither and yon, so if thou dost stumble upon anything like that around here, why, 'tis thine, with my blessing.'");
+        macros.ShowText("'Canst not expect a friendlier forger than that, no?'  He returns to his hammering with a smile.");
+    }
+    else {
+        if ((macros.HasItem(HORSESHOE)) && (macros.HasItem(ROPE)) && (macros.HasItem(TONGS))) {
+            macros.TakeItem(HORSESHOE);
+            if (macros.HasItem(HORSESHOE)) {
+                macros.TakeItem(HORSESHOE);
+                if (macros.HasItem(HORSESHOE)) {
+                    macros.ShowText("You make some feeble motions and gestures which would not earn you many points at charades.  Braddock, however, understands you.");
+                    macros.ShowText("'Eureka!' cries Braddock.  'Thou dost want me to conjoin these three horseshoes with thy stout rope!'");
+                    macros.TakeItem(HORSESHOE);
+                    macros.TakeItem(ROPE);
+                    macros.TakeItem(TONGS);
+                    macros.GiveItem(GRAPPLINGHOOK);
+                }
+                else {
+                    macros.ShowText("'I am truly sorry, but I do not know what I could make out of so few horseshoes.'");
+                    macros.GiveItem(HORSESHOE);
+                    macros.GiveItem(HORSESHOE);
+                }
+            }
+            else {
+                macros.ShowText("'I am truly sorry, but I do not know what I could make out of just one horseshoe.'");
+                macros.GiveItem(HORSESHOE);
+            }
+        }
+        else {
+            if ((macros.HasItem(GRAPPLINGHOOK)) && (macros.HasItem(RASPFILE))) {
+                macros.ShowText("You make some gestures that border so closely on the obscene that we are not allowed to describe or detail them further.  After all, this isn't the Internet.");
+                macros.ShowText("But Braddock seems to understand what you want.");
+                macros.ShowText("'Ah hah!  Yon dull hook does not match the bite of thy sharp wit!  Give me but a few seconds and I shall improve it.'");
+                macros.TakeItem(GRAPPLINGHOOK);
+                macros.TakeItem(RASPFILE);
+                macros.GiveItem(SHARPGRAPPLINGHOOK);
+            }
+            else {
+                if ((macros.HasItem(ASHRUBBERY)) && (macros.HasItem(CARDINGBRUSH))) {
+                    macros.ShowText("It takes far less than one hundred strokes before Braddock understands that you would like these fibres made into rope.");
+                    macros.ShowText("'Ah hah!  I do have the hang of it!  Thou dost wish to have that which in turn may give thee the hang of it!'");
+                    macros.TakeItem(ASHRUBBERY);
+                    macros.TakeItem(CARDINGBRUSH);
+                    macros.GiveItem(ROPE);
+                }
+                else {
+                    switch (i) {
+                        case 1:
+                            macros.ShowText("'Thou wilt have to wait until I have fixed this leftward tendency in Farmer Joan's plow.  We all want to see Joan plow right.'");
+                            break;
+                        case 2:
+                            macros.ShowText("'I must finish affixing these arrowheads to their shafts with this wire.  I believe in wiring a head for arrow's salvation.'");
+                            break;
+                        case 3:
+                            macros.ShowText("'Prithee, but I must first finish patching this soup pot.  Master Whitchurch has a huge joint of beef he would make into soup.'");
+                            macros.ShowText("*** Warning!  Warning! ***");
+                            macros.ShowText("We must apologise, but the rest of this well-aged joke must be censored.");
+                            break;
+                        case 4:
+                            macros.ShowText("'I beg thy pardon, but for the good of all Scotland I must needs patch Mistress Sly's chastity belt afore the lads who are restraining her tire of their tasks.'");
+                            break;
+                        case 5:
+                            macros.ShowText("'Bide a wee.  Master Foote would have his blade polished afore the guild meeting tomorrow.  It will not take long, for Foote keeps his weapon in good repair.'");
+                            break;
+                        case 6:
+                            macros.ShowText("'I must beg off for the nonce, for I have been commissioned by the Bright family butchers to sharpen all their blades.  And know you: the Brights have some of the dullest blades in Scotland.'");
+                            break;
+                        case 7:
+                            macros.ShowText("'Hold!  Mistress Styx has enlisted me to sharpen her fine embroidery needles.  'Twill not take long, but cannot be delayed.'");
+                            break;
+                        case 8:
+                            macros.ShowText("'Glad would I be to help thee now, but when a lass as comely as Mistress Perchworthy needs her fishing hooks and cleaning knives sharpened, well, I am but trollish.'");
+                            break;
+                        case 9:
+                            macros.ShowText("'Nay not!  The gauntlets that are all that do restrain the wandering fingers of Guildmaster Ticklebottom are in disarray, and I will have the good will of half the women hereabouts an I do repair them.'");
+                            break;
+                        case 10:
+                            macros.ShowText("'Prithee pardon, but the good Mistress Catherine Bright has broken her rolling pin against her slothful drunken spouse's head.'");
+                            macros.ShowText("'She has promised me a fresh gooseberry pie an I do repair it today, and all hereabouts do know she has the best touch with goose, uh, berries, in Inverness.'");
+                            break;
+                    }
+                    i++;
+                    if (i > 10) {
+                        (i = 1);
+                    }
+                    macros.SetFlag(DUNGEON, SEENSMITH, i);
+                }
+            }
+        }
+    }
+}
+
+fun MapEvent02(macros) {
+    macros.ShowText("Yowee!  This forge is hot!");
+    macros.Damage(5);
+}
+
+fun MapEvent03(macros) {
+    if (macros.GetFlag(PARTY, VISITEDFORGE) == 0) {
+        macros.SetFlag(PARTY, VISITEDFORGE, 1);
+        if (macros.Facing == WEST) {
+            if (macros.GetFlag(DUNGEON, SEENSMITH) == 0) {
+                macros.ShowText("This area has been set up for a blacksmith.  Directly in front of you a mighty artisan works a blade on his anvil.  To the south heat pours from a forge.  Tools of the trade are scattered about.");
+            }
+            else {
+                macros.ShowText("Braddock whistles almost, but not quite, in tune with the ringing his hammer makes.");
+            }
+        }
+    }
+    else {
+        if (macros.Facing == WEST) {
+            macros.ShowText("The forge is as you left it.");
+        }
+    }
+}
+
+fun MapEvent04(macros) {
+    if (macros.GetFlag(PARTY, VISITEDTACK) == 0) {
+        macros.SetFlag(PARTY, VISITEDTACK, 1);
+        macros.ShowText("This room is filled with saddles, blankets, bridles, stirrups, and all manner of gear needed to ride a horse.");
+        macros.ShowText("Why, there's even a bearskin rug for those of you into bear back riding!");
+    }
+    else {
+        macros.ShowText("The tack room is as you left it.");
+    }
+}
+
+fun MapEvent05(macros) {
+    var i;
+    i = 0;
+    var k;
+    k = 0;
+    i = macros.GetFlag(PARTY, CTR);
+    i++;
+    k = i;
+    if (k > 19) {
+        k = (k - 20);
+    }
+    if (k > 14) {
+        k = (k - 15);
+    }
+    if (k > 9) {
+        k = (k - 10);
+    }
+    if (k > 4) {
+        k = (k - 5);
+    }
+    if (k < 0) {
+        k = 0;
+    }
+    if (k > 29) {
+        k = 0;
+    }
+    if (i > 30) {
+        i = 0;
+    }
+    macros.SetFlag(PARTY, CTR, i);
+    if ((i == 26) | (i == 20) | (i == 14) | (i == 8) | (i == 2)) {
+        switch (k) {
+            case 0:
+                macros.ShowText("You hear some footsteps running away.");
+                break;
+            case 1:
+                macros.ShowText("You hear someone running towards you.");
+                macros.ShowPicture(GREMLINTHIEF);
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("A gargantuan gang of gremlins runs past you. One of them falls out and talks briefly.");
+                macros.ShowText("'Hide me!  Protect me!  Save me!  A press gang snapped me up and I cannot take any more of this!'");
+                macros.ShowText("A burly sergeant wraps a whip around the gremlin's neck, jerking him back into the squad.  You decide not to interfere.");
+                break;
+            case 2:
+                macros.ShowPicture(DRAGON);
+                macros.ShowText("The dragon examines you with a baleful eye.  It has seen better days.");
+                macros.ShowText("'Wouldst thou help a wyrm in need of a reviving morsel?  Thou hast two legs; surely thou couldst spare me one.  Wouldst thou resist my efforts to consume thee, then?  I feared so.  Were I not wounded, though...'  It limps off.");
+                break;
+            case 3:
+                macros.ShowPicture(HALFLINGTHIEF);
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("'I think we have met before.  In sooth, did I not offer thee some dragonish drachmas?  Howsomever, now that I am equipped with Brunanburh's bow I find my relationships with dragons much improved.  I doubt that the wyrms would say the same, though.'");
+                macros.ShowText("The halfling struts off, smiling.");
+                break;
+            case 4:
+                macros.ShowPicture(GREMLINTHIEF);
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("A somewhat battered gang o'gremlins decides, rather insultingly, that they are bigger than you are.");
+                macros.SetBooty(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 93);
+                macros.GetMonster(1, 25);
+                if (macros.PartyCount > 1) {
+                    macros.GetMonster(5, 26);
+                }
+                if (macros.PartyCount > 2) {
+                    macros.GetMonster(2, 25);
+                    macros.GetMonster(6, 26);
+                }
+                break;
+        }
+    }
+}
+
+fun MapEvent06(macros) {
+    macros.ShowText("A cold breeze sends shivers down your spine.");
+}
+
+fun MapEvent07(macros) {
+    macros.ShowText("This door leads back to The Foyer of Cawdor.");
+    macros.Teleport(1, 1, 253, NORTH);
+}
+
+fun MapEvent08(macros) {
+    if (macros.GetFlag(PARTY, VISITEDCARDING) == 0) {
+        macros.SetFlag(PARTY, VISITEDCARDING, 1);
+        macros.ShowText("This room is filled with all manner of brushes, combs, and buckets.  A fountain bubbles freshly in the corner, supplying water for the buckets and, via troughs, for the horse stalls hereabouts.");
+        macros.ShowText("You have the uncomfortable feeling that if you stay around here too long someone is going to make you start using all this cleaning equipment.");
+    }
+    else {
+        macros.ShowText("The grooming room is as you left it.");
+    }
+}
+
+fun MapEvent09(macros) {
+    macros.ShowText("There.  You're wet now.  I still have no T-Shirt art, so you'll just have to be satisfied with using your ImagiNation.");
+    macros.SetFlag(DUNGEON, BARBWASHED, 1);
+    if (macros.PartyGuild(BARBARIAN)) {
+        macros.ShowText("This is just the kind of behavior that can get you drummed out of the FBI (Filthy Barbarians, Indeed!).");
+    }
+}
+
+fun MapEvent0A(macros) {
+    macros.ShowText("The banging is much louder here.");
+    macros.Teleport(12, 1, 168, SOUTH);
+}
+
+fun MapEvent0B(macros) {
+    macros.ShowText("The banging is much louder here.");
+}
+
+fun MapEvent0C(macros) {
+    if ((macros.GetFlag(PARTY, GOTTPMESSAGE) == 0) && (macros.Facing == SOUTH)) {
+        macros.SetFlag(PARTY, GOTTPMESSAGE, 1);
+        macros.ShowText("Holy Mother of Pearl!  The entire wall swiveled sideways and, well, here you are!");
+    }
+}
+
+fun MapEvent0D(macros) {
+    macros.SetFlag(PARTY, GOTTPMESSAGE, 1);
+}
+
+fun MapEvent0E(macros) {
+    if (macros.GetFlag(PARTY, VISITEDMEDICINE) == 0) {
+        macros.SetFlag(PARTY, VISITEDMEDICINE, 1);
+        macros.ShowText("This room is filled with everything a thirteenth century veterinarian could want to treat a sick horse.  Aside from shelves stocked full of remedies, there are also restraints, slings, picks, files, and bandages.");
+        macros.ShowText("Kind of makes you think that healthy as a horse is an exaggeration, doesn't it.");
+    }
+    else {
+        macros.ShowText("The veterinarium is as you left it.");
+    }
+}
+
+fun MapEvent0F(macros) {
+    if ((macros.Race == ORC) || (macros.Race == ELF) || (macros.Race == TROLL) || (macros.Race == HUMAN)) {
+        macros.ShowText("You glance over the Dutch door to see a dark but empty stall.");
+    }
+    else {
+        macros.ShowText("You are too short to see over the dutch door, but the stall sounds quiet.");
+    }
+}
+
+fun MapEvent10(macros) {
+    if ((macros.Race == ORC) || (macros.Race == ELF) || (macros.Race == TROLL) || (macros.Race == HUMAN)) {
+        macros.ShowText("You think you see something small flitting around near the back of the stall.");
+    }
+    else {
+        macros.ShowText("You are too short to see over the dutch door, but you think you hear the sounds of movement.");
+    }
+}
+
+fun MapEvent11(macros) {
+    if (macros.GetFlag(PARTY, WAR6) == 1) {
+        macros.ShowText("There is nothing still lurking in these shadows.  Or, rather, if there is still something lurking, it is darned good at lurking and shows no inclination to stop.");
+    }
+    else {
+        macros.SetFlag(PARTY, WAR6, 1);
+        macros.ShowText("No need to panic.  It's only bats.  Big, bloodthirsty bats, but still only bats.");
+        macros.GetMonster(1, 34);
+        macros.GetMonster(2, 34);
+    }
+}
+
+fun MapEvent12(macros) {
+    if (macros.GetFlag(PARTY, WAR7) == 1) {
+        macros.ShowText("No more bats here, or at least no more bats with a taste for flesh.");
+    }
+    else {
+        macros.SetFlag(PARTY, WAR7, 1);
+        macros.ShowText("You're not sure, but you think they're humming 'The Battle Hymn of the Republic.'");
+        macros.GetMonster(1, 34);
+        macros.GetMonster(2, 34);
+    }
+}
+
+fun MapEvent13(macros) {
+    if (macros.GetFlag(PARTY, WAR8) == 1) {
+        macros.ShowText("This stall has been thoroughly debatted.");
+    }
+    else {
+        macros.SetFlag(PARTY, WAR8, 1);
+        macros.ShowText("You better batten down your hatches.");
+        macros.GetMonster(1, 34);
+        macros.GetMonster(2, 37);
+    }
+}
+
+fun MapEvent14(macros) {
+    if (macros.GetFlag(PARTY, WAR9) == 1) {
+        macros.ShowText("The stall is no longer occupied.");
+    }
+    else {
+        macros.SetFlag(PARTY, WAR9, 1);
+        macros.ShowText("Uh oh!  Prepare to be battered!");
+        macros.GetMonster(1, 34);
+        macros.GetMonster(2, 37);
+    }
+}
+
+fun MapEvent15(macros) {
+    if (macros.GetFlag(PARTY, WAR10) == 1) {
+        macros.ShowText("It's quiet here.  Almost too quiet.  Almost, but not quite.");
+    }
+    else {
+        macros.SetFlag(PARTY, WAR10, 1);
+        macros.ShowText("'Tis a batty batch!");
+        macros.GetMonster(1, 34);
+        macros.GetMonster(2, 37);
+    }
+}
+
+fun MapEvent16(macros) {
+    if (macros.GetFlag(PARTY, WAR11) == 1) {
+        macros.ShowText("The only time you ever saw a stall this empty, you were trying to convince the birthday boy not to go home before his surprise party was set up.");
+    }
+    else {
+        macros.SetFlag(PARTY, WAR11, 1);
+        macros.ShowText("You better get ready for the bloodbat!");
+        macros.ShowText("I know, I know, it's dreadful, but how many bad bat jokes must one man write?");
+        macros.GetMonster(1, 34);
+        macros.GetMonster(2, 37);
+    }
+}
+
+fun MapEvent17(macros) {
+    if (macros.GetFlag(PARTY, WAR12) == 1) {
+        macros.ShowText("This box has been thoroughly decatted.");
+    }
+    else {
+        macros.SetFlag(PARTY, WAR12, 1);
+        macros.ShowText("Did I say small and flitting?  Boy, I better make that appointment with the optometrist soon!");
+        macros.GetMonster(1, 30);
+        macros.GetMonster(2, 32);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(3, 25);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(4, 25);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 25);
+            macros.GetMonster(6, 25);
+        }
+    }
+}
+
+fun MapEvent18(macros) {
+    if (macros.GetFlag(PARTY, WAR13) == 1) {
+        macros.ShowText("No, I guess there wasn't anything flitting around back here.");
+    }
+    else {
+        macros.SetFlag(PARTY, WAR13, 1);
+        macros.ShowText("It's incredible, I know, but somehow those bats are about 83 percent teeth!");
+        macros.GetMonster(1, 34);
+        macros.GetMonster(2, 37);
+    }
+}
+
+fun MapEvent19(macros) {
+    if (macros.GetFlag(PARTY, WAR14) == 1) {
+        macros.ShowText("The cat's away.  I guess you can play.");
+    }
+    else {
+        macros.SetFlag(PARTY, WAR14, 1);
+        macros.ShowText("This must be the downhill end of the Stables, because it looks like all the world's cats have flowed down here.  And let me tell you, they did not want to have their nap interrupted!");
+        macros.GetMonster(1, 31);
+        macros.GetMonster(2, 29);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(3, 33);
+            macros.GetMonster(4, 33);
+        }
+    }
+}
+
+fun MapEvent1A(macros) {
+    if (macros.GetFlag(PARTY, GOTH1) == 0) {
+        macros.ShowText("You stumble over something.");
+        macros.GiveItem(HORSESHOE);
+        macros.SetFlag(PARTY, GOTH1, 1);
+    }
+}
+
+fun MapEvent1B(macros) {
+    if (macros.GetFlag(PARTY, GOTH2) == 0) {
+        macros.ShowText("You stumble over something.");
+        macros.GiveItem(HORSESHOE);
+        macros.SetFlag(PARTY, GOTH2, 1);
+    }
+}
+
+fun MapEvent1C(macros) {
+    if (macros.GetFlag(PARTY, GOTH3) == 0) {
+        macros.ShowText("You stumble over something.");
+        macros.GiveItem(HORSESHOE);
+        macros.SetFlag(PARTY, GOTH3, 1);
+    }
+}
+
+fun MapEvent1D(macros) {
+    if (macros.GetFlag(PARTY, GOTH4) == 0) {
+        macros.ShowText("You stumble over something.");
+        macros.GiveItem(HORSESHOE);
+        macros.SetFlag(PARTY, GOTH4, 1);
+    }
+}
+
+fun MapEvent1E(macros) {
+    if (macros.GetFlag(PARTY, GOTSWORD) == 0) {
+        macros.ShowText("You stumble over something.");
+        macros.GiveItem(SHORTSWORD);
+        macros.SetFlag(PARTY, GOTSWORD, 1);
+    }
+}
+
+fun MapEvent20(macros) {
+    if (macros.GetFlag(PARTY, VISITEDLOFT) == 0) {
+        macros.SetFlag(PARTY, VISITEDLOFT, 1);
+        macros.ShowText("This appears to be a hay storage area.  It is full of horse forage.  At the end of the large room there used to be double doors, but they have been blocked by a landslide outside.");
+    }
+}
+
+fun MapEvent21(macros) {
+    var i;
+    i = macros.GetFlag(DUNGEON, BLOCKEDMSG);
+    if (macros.GetFlag(PARTY, VISITEDDOOR1) == 0) {
+        macros.SetFlag(PARTY, VISITEDDOOR1, 1);
+        macros.ShowText("There used to be double doors leading out from here, but they are blocked by large quantities of dirt and rocks.  Whether this was a landslide or just deliberate mischief is unknowable.");
+    }
+    else {
+        if (i > 12) {
+            macros.ShowText("The back door to the stables is still blocked.");
+        }
+        else {
+            switch (i) {
+                case 0:
+                    macros.ShowText("The back door to the stables is still blocked.");
+                    break;
+                case 1:
+                    macros.ShowText("Nope, that's one thoroughly blocked door.");
+                    break;
+                case 2:
+                    macros.ShowText("In regard to the matter of the unblocking of the back door, I'm afraid I have nothing to report.");
+                    break;
+                case 3:
+                    macros.ShowText("Wow!  Ahead of you the gates of heaven shine brightly.  Eternal joy awaits you!  Hosanna!  Hosanna!");
+                    macros.ShowText("No, I was just putting you on.  The door's still blocked.");
+                    break;
+                case 4:
+                    macros.ShowText("Lovely view, if you like rocks.");
+                    break;
+                case 5:
+                    macros.ShowText("Some good workmanship went into these doors.  Shame that better workmanship went into the rocks that are blocking it.");
+                    break;
+                case 6:
+                    macros.ShowText("I have bad news and I have good news.  The bad news is that the dreaded Heiser gang is just outside, ready to carve you up.  The good news is, the door is still blocked.");
+                    break;
+                case 7:
+                    macros.ShowText("I have reviewed your plan to clear the door.  I'll let you invent tempered steel, the internal combustion engine, and vulcanized tires.  I am too kind.");
+                    macros.ShowText("However, the gas station is right out.");
+                    break;
+                case 8:
+                    macros.ShowText("Let me give you a broad hint.  When we wrote this game we just didn't think that anyone would want to spend their time moving dirt.  The door's blocked and it's going to stay blocked!");
+                    break;
+                case 9:
+                    macros.ShowText("In utter frustration you take a running charge at the pile of rubble blocking the door.");
+                    macros.Damage(2);
+                    macros.ShowText("That hurt.  But at least you now know that the door is safe from the likes of you!");
+                    break;
+                case 10:
+                    macros.ShowText("All right already!  You have proven your diligence.  Here is a small reward.  Now stop bothering the nice door; what did it ever do to you?");
+                    macros.ModExp(500);
+                    break;
+            }
+            i++;
+            if (i == 10) {
+                (i = 13);
+            }
+            macros.SetFlag(DUNGEON, BLOCKEDMSG, i);
+        }
+    }
+}
+
+fun MapEvent22(macros) {
+    if (macros.GetFlag(PARTY, VISITEDDOOR2) == 0) {
+        macros.SetFlag(PARTY, VISITEDDOOR2, 1);
+        macros.ShowText("There used to be windows opening to the south from here, but they have been smashed by a huge pile of rubble just outside.");
+    }
+    else {
+        macros.ShowText("The windows are still blocked.  Hey, if there wasn't some serious disrepair here and there we'd have named this place The Fixed of Cawdor.");
+    }
+}
+
+fun MapEvent23(macros) {
+    macros.ShowText("You find an assortment of files.");
+    if (macros.HasItem(GRAPPLINGHOOK)) {
+        macros.ShowText("Not that I know what you might want to do with it, but here's one that looks interesting.");
+        macros.GiveItem(RASPFILE);
+    }
+}
+
+fun MapEvent24(macros) {
+    macros.ShowText("You find an assortment of saws.  You'd take that nice electric table saw, but you haven't seen an electrical outlet since entering Cawdor.");
+    macros.ShowText("Neither have you found any gasoline for that chainsaw.");
+    macros.ShowText("In general disappointment you test the handsaws.  Much to your surprise, you find one with a good heft.  Life isn't all bad after all.");
+    macros.GiveItem(HANDSAW);
+}
+
+fun MapEvent25(macros) {
+    macros.ShowText("You find an assortment of grommeting tools and riveting punches.  This one seems marginally more useful than the others.");
+    macros.GiveItem(HOLEPUNCH);
+}
+
+fun MapEvent26(macros) {
+    macros.ShowText("You find an assortment of implements for cleaning, roughening, smoothing, and polishing.");
+    if (macros.HasItem(ASHRUBBERY)) {
+        macros.ShowText("Not that I know what you might want to do with it, but here's one that looks interesting.");
+        macros.GiveItem(CARDINGBRUSH);
+    }
+}
+
+fun MapEvent27(macros) {
+    macros.ShowText("You find enough grips, clamps, and pliers to handle the even the spikiest hairdo!");
+    if ((macros.HasItem(HORSESHOE)) && (macros.HasItem(ROPE))) {
+        macros.ShowText("In fact, these are the very 'Tongs of Terror' that Master Hieronymous Snivel will be wielding on innocent toothache victims a few years hence.");
+        macros.GiveItem(TONGS);
+    }
+}
+
+fun MapEvent28(macros) {
+    macros.ShowText("You find an assortment of hammers, mallets, and other tools for beating and straightening metal.");
+    macros.GiveItem(MALLET);
+}
+
+fun MapEvent29(macros) {
+    if (macros.GetFlag(PARTY, BEENHERE) == 0) {
+        macros.SetFlag(PARTY, BEENHERE, 1);
+        macros.ShowText("This place has all the familiar odors of a well kept stable: horses, leather, hay, sweat.  Somewhere to the south someone is banging, making a lot of noise.");
+        macros.ShowText("I said familiar, not pleasant.");
+    }
+}

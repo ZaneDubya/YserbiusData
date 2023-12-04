@@ -1,0 +1,712 @@
+#include "defines.loh"
+#include "flags.loh"
+
+#define DETECTED_DOOR 1
+#define WAR1 1
+#define WAR2 2
+#define WAR3 3
+#define WAR4 4
+#define WAR5 5
+#define WAR6 6
+#define WAR7 7
+#define CTR 8
+#define TRACKING 9
+#define BEENHERE 10
+#define SEENSTORAGE 11
+#define DRAGONWARNING 12
+#define ELFHEALED 13
+#define BIGBATTLEWARNING 14
+#define SEENBOLTS 15
+#define SEENROCKS 16
+#define SEENPITCH 17
+#define SEENNASTY 18
+
+fun MapEvent05(macros) {
+    var i;
+    i = 0;
+    var k;
+    k = 0;
+    i = macros.GetFlag(PARTY, CTR);
+    i++;
+    k = i;
+    if (k > 19) {
+        k = (k - 20);
+    }
+    if (k > 14) {
+        k = (k - 15);
+    }
+    if (k > 9) {
+        k = (k - 10);
+    }
+    if (k > 4) {
+        k = (k - 5);
+    }
+    if (k < 0) {
+        k = 0;
+    }
+    if (k > 29) {
+        k = 0;
+    }
+    if (i > 30) {
+        i = 0;
+    }
+    macros.SetFlag(PARTY, CTR, i);
+    if ((i == 26) | (i == 20) | (i == 14) | (i == 8) | (i == 2)) {
+        switch (k) {
+            case 0:
+                macros.ShowText("You hear some footsteps running away.");
+                break;
+            case 1:
+                macros.ShowText("You hear someone strolling towards you.");
+                macros.ShowPicture(GREMLINWIZARD);
+                macros.ShowText("The gremlin greets you heartily.");
+                macros.ShowText("'I just received the strangest prophecy in Astrologia.  But I think I see through some of it.  The deadly herbs are in Althea's demesne.  I should go look her up.'");
+                macros.ShowText("She remains standing there, lost in thought.");
+                break;
+            case 2:
+                macros.ShowPicture(DRAGON);
+                if (macros.GetFlag(DUNGEON, HEARDJOKE7) == 0) {
+                    macros.ShowText("The dragon examines you with a hint of recognition.");
+                    macros.ShowText("'Ah!  Whither hast thou been? I have heard yet another green dragon joke, and my thoughts turned to thee.  Wouldst hear it?'");
+                    macros.ShowText("You nod.  Or is it more of a shrug?");
+                    macros.ShowText("'Why is a green dragon's head like the lower left store room in here?'");
+                    macros.ShowText("You ask why.");
+                    macros.ShowText("'They're both filled with large round hard useless objects!'");
+                    macros.ShowText("'Aren't they both filled with rocks?' you ask politely.");
+                    macros.ShowText("'That too!'  The dragon falls over, laughing uncontrollably.  You would shake your head, but prudence dictates a quiet retreat.");
+                    macros.SetFlag(DUNGEON, HEARDJOKE7, 1);
+                }
+                else {
+                    macros.ShowText("'Ah, my friend!  Look not so worried.  I am sure I will hear or devise another green dragon joke before long!'");
+                    macros.ShowText("It wouldn't do to say this, but the prospect of yet another dragon joke is why you looked so worried.");
+                }
+                break;
+            case 3:
+                macros.ShowPicture(HALFLINGKNIGHT);
+                macros.ShowText("A downtrodden halfling knight ambles aimlessly by you.");
+                macros.ShowText("'Serves me right to expect anything cobbled together from horseshoes to bear my weight,' she mutters as she passes.");
+                break;
+            case 4:
+                macros.ShowText("A boisterous band of burglars decides, reasonably, that they are bigger than you are.");
+                macros.SetBooty(LARGELETTEROFCREDIT, WOADWINE, 0, 0, 0, 1193);
+                macros.GetMonster(1, 25);
+                if (macros.PartyCount > 1) {
+                    macros.GetMonster(5, 25);
+                }
+                if (macros.PartyCount > 2) {
+                    macros.GetMonster(2, 25);
+                    macros.GetMonster(6, 25);
+                }
+                break;
+        }
+    }
+}
+
+fun MapEvent06(macros) {
+    macros.ShowText("A cold breeze sends shivers down your spine.");
+}
+
+fun MapEvent07(macros) {
+    macros.ShowText("This door leads to the Nasty Little Maze.");
+    macros.Teleport(11, 1, 11, SOUTH);
+}
+
+fun MapEvent08(macros) {
+    macros.ShowText("This door leads to the Astrologia.");
+    macros.Teleport(10, 1, 112, EAST);
+}
+
+fun MapEvent09(macros) {
+    if (macros.GetFlag(DUNGEON, SEENRORY) == 0) {
+        if (macros.GetFlag(PARTY, BEENHERE) == 0) {
+            macros.SetFlag(PARTY, BEENHERE, 1);
+            macros.ShowPicture(HALFLINGTHIEF);
+            macros.ShowText("Rory's clothes are sweat stained, and his brow furrowed.  Still, a smile crosses his face as he greets you.");
+            macros.ShowText("'Ah, 'tis good to have a chance for a breather, for this is a fractious place created by a devious and disturbed mind.");
+            macros.ShowText("'It is called the Parapets, but insofar as I can determine it is a loathsome play on words, for many are the corners filled with pairs of groups of great beasts.");
+            macros.ShowText("'I know not what manner of being keeps drakes, wolves, medusae, or minotaurs for pets, and I do not care to meet him.");
+            macros.ShowText("'I can say this; the tongue of dog, tooth of wolf, and scale of dragon, have been most useful here.  But I have yet to find that which cows the medusae or minotaurs.");
+            macros.ShowText("'I'm for the lower levels and regrouping.  Good luck, and watch thy back!'");
+        }
+        else {
+            macros.ShowText("The howls of a hundred creatures echo through the parapets.");
+        }
+    }
+    else {
+        macros.ShowText("Once upon a time Rory gave you some good advice here, but his days as your adviser are ended.");
+    }
+}
+
+fun MapEvent0A(macros) {
+    macros.ShowText("The torches are smoky, creating an eery mood in here.");
+}
+
+fun MapEvent0B(macros) {
+    macros.ShowText("The windows are hinged, allowing easy opening for airing the place out or, more likely, for firing ranged weapons and dumping noxious compounds on an enemy.");
+    macros.ShowText("If they were just a little more corroded, though, leaning out could well prove fatal.");
+}
+
+fun MapEvent0C(macros) {
+    macros.ShowPicture(ELFRANGER);
+    macros.ShowText("The caption reads:  'The late William o'the Dales, undisputed record holder and winner of the 1168 ballista catch.'");
+}
+
+fun MapEvent0D(macros) {
+    macros.ShowPicture(DWARFKNIGHT);
+    macros.ShowText("The caption reads:  'Jonny of the Mountain Hall, who once slew a trio of giants with but a single toss of his mighty hammer.'");
+}
+
+fun MapEvent0E(macros) {
+    macros.ShowPicture(GNOMEWIZARD);
+    macros.ShowText("The caption reads:  'Richard of the Storm, who did devise a formula for capturing the Greek Fire.  All we ever found was the hilt of his dagger.  Requiescat en Pacem.'");
+}
+
+fun MapEvent0F(macros) {
+    macros.ShowPicture(HUMANWIZARD);
+    macros.ShowText("The caption reads:  'Edward of the White Cathedral, who first poured heated pitch on those outside the keep.  It worked so well when the Picts attacked that the survivors of the first spill forgave him.'");
+}
+
+fun MapEvent10(macros) {
+    macros.ShowPicture(TROLLRANGER);
+    macros.ShowText("The caption reads:  'Eric the Steady, son of Eric the Sufferer, who proved that a truly strong troll can catch and hold a 2800 pound boulder.  For 1.2 seconds.  Before being squashed.");
+}
+
+fun MapEvent11(macros) {
+    macros.ShowPicture(ELFBARBARIAN);
+    macros.ShowText("The caption reads:  'Deborah of the Marble Chapel, who asked the innocent question that exposed a plot long buried.'");
+}
+
+fun MapEvent12(macros) {
+    macros.ShowPicture(HUMANBARBARIAN);
+    macros.ShowText("The caption reads:  'Jimmy of the Blood, as noted a painter as he was a general.'");
+}
+
+fun MapEvent13(macros) {
+    macros.ShowPicture(HUMANWIZARD);
+    macros.ShowText("The caption reads:  'Geordie the Skunkcatcher, who shot the sheriff and escaped to tell about it.'");
+}
+
+fun MapEvent14(macros) {
+    macros.ShowPicture(ORCKNIGHT);
+    macros.ShowText("The caption reads:  'Scotty the Smith, who proved that a truly inspired archer, from these very parapets, can indeed place an arrow into the heart of a general atop Stormcrow hill.'");
+}
+
+fun MapEvent15(macros) {
+    macros.ShowPicture(ORCBARBARIAN);
+    macros.ShowText("The caption reads:  'Mandy of the Inks, who demonstrated that by predesignating targets and marking their aims afore the battle, one can have great success at shooting during the battle.'");
+}
+
+fun MapEvent16(macros) {
+    macros.ShowPicture(ELFCLERIC);
+    macros.ShowText("The caption reads:  'Richard of the Irish River, who demonstrated that not only does fine wine raise the will to fight, but that at need and sufficient height an empty wine bottle can kill.'");
+}
+
+fun MapEvent17(macros) {
+    macros.ShowPicture(HUMANWIZARD);
+    macros.ShowText("The caption reads:  'Mickey of the Upper Dells, who most cunningly proved that a boulder is better than a pebble when stoning an enemy.'");
+}
+
+fun MapEvent18(macros) {
+    macros.ShowPicture(TROLLRANGER);
+    macros.ShowText("The caption reads:  'Clifford the Quiet, master of the crossbow and the galley oar.'");
+}
+
+fun MapEvent19(macros) {
+    macros.ShowPicture(HUMANTHIEF);
+    macros.ShowText("The caption reads:  'Cynthia of the Cats, creator of the pegasus brigade and discoverer of the remarkable fertilizing qualities of pegasus droppings.  Retired.'");
+}
+
+fun MapEvent1A(macros) {
+    macros.ShowPicture(HALFLINGTHIEF);
+    macros.ShowText("The caption reads:  'Richard, son of the Emerald Isles, who showed that a bag of gems might buy what an army could not take.'");
+}
+
+fun MapEvent1B(macros) {
+    macros.ShowPicture(ORCBARBARIAN);
+    macros.ShowText("The caption reads:  'Molly of the Concentric Circles, who in giving her life did ensure Scotty's fame.'");
+}
+
+fun MapEvent1C(macros) {
+    if (macros.GetFlag(PARTY, SEENSTORAGE) == 0) {
+        macros.SetFlag(PARTY, SEENSTORAGE, 1);
+        macros.ShowText("You see a large storage area.  The smell in here is unpleasant, and the sounds are noisome and diverse.  On either wall is a plaque explaining where various armaments are stored.");
+        macros.ShowText("That is, assuming any armaments remain.");
+    }
+    else {
+        macros.ShowText("The storage area remains as you left it.");
+    }
+}
+
+fun MapEvent1D(macros) {
+    macros.ShowText("The plaque explains that quarrels and bolts were stored in the lower right area, stones and rocks in the lower left, oil and pitch in the upper right, and 'nasties, heh heh' in the upper left.");
+    macros.ShowText("But judging from the sounds nearby, the equipment rooms have been taken over by rude and unpleasant creatures who did not bother to update the plaques.  Shame on them!");
+}
+
+fun MapEvent1E(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 1) {
+        macros.Teleport(11, 2, 195, macros.Facing);
+    }
+    else {
+        macros.ShowText("From the sounds on the other side of this door, you prepare yourself for immediate battle after going though it.");
+        if (macros.HasItem(GALLOFGOAT)) {
+            macros.Teleport(11, 2, 210, macros.Facing);
+        }
+        else {
+            macros.Teleport(11, 2, 225, macros.Facing);
+        }
+    }
+}
+
+fun MapEvent1F(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 0) {
+        macros.SetFlag(PARTY, WAR1, 1);
+        macros.ShowText("Ayee!  It's the flock of killer goats!");
+        macros.ShowText("Oh, all right, I'll admit they sure look like minotaurs, but believe me, they sure smell like goats.");
+        macros.SetBooty(ALFREDSHAT, ALDHELMSGAUNTLETS, DRAGONFLAGON, 0, 0, 1219);
+        macros.GetMonster(1, 38);
+        macros.GetMonster(2, 39);
+        macros.GetMonster(3, 39);
+        macros.GetMonster(4, 38);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 39);
+            macros.GetMonster(6, 38);
+        }
+    }
+    else {
+        macros.ShowText("Your epic struggle with the bovine goats left goatees scattered all over the place (heh heh).");
+    }
+}
+
+fun MapEvent20(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 0) {
+        macros.SetFlag(PARTY, WAR1, 1);
+        macros.ShowText("Ayee!  It's the flock of killer goats!");
+        macros.ShowText("Oh, all right, I'll admit they sure look like minotaurs, but believe me, they sure smell like goats.");
+        macros.SetBooty(ALFREDSHAT, ALDHELMSGAUNTLETS, DRAGONFLAGON, 0, 0, 1219);
+        macros.GetMonster(1, 40);
+        macros.GetMonster(2, 39);
+        macros.GetMonster(3, 40);
+        macros.GetMonster(4, 39);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 40);
+            macros.GetMonster(6, 40);
+        }
+    }
+    else {
+        macros.ShowText("Your epic struggle with the bovine goats left goatees scattered all over the place (heh heh).");
+    }
+}
+
+fun MapEvent21(macros) {
+    if (macros.GetFlag(PARTY, WAR2) == 1) {
+        macros.Teleport(11, 2, 51, macros.Facing);
+    }
+    else {
+        macros.ShowText("You think you hear the sounds of a baying wolf through this door, and prepare yourself for combat.");
+        macros.ShowText("Hmm.  Bay o'wolf.  Maybe there's a story in there.");
+        if (macros.HasItem(TOOTHOFWOLF)) {
+            macros.Teleport(11, 2, 17, macros.Facing);
+        }
+        else {
+            macros.Teleport(11, 2, 34, macros.Facing);
+        }
+    }
+}
+
+fun MapEvent22(macros) {
+    if (macros.GetFlag(PARTY, WAR2) == 0) {
+        macros.SetFlag(PARTY, WAR2, 1);
+        macros.ShowText("My goodness!  Look at all those wolves packed in here.  Hmm.  Wolvespacked.  Maybe there's a story there.");
+        macros.SetBooty(TOOTHOFWOLF, GORGONSGAUNTLETS, DRAGONFLAGON, 0, 0, 1219);
+        macros.GetMonster(1, 34);
+        macros.GetMonster(2, 34);
+        macros.GetMonster(3, 34);
+        macros.GetMonster(4, 34);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 34);
+            macros.GetMonster(6, 34);
+        }
+    }
+    else {
+        macros.ShowText("You find the signs of your battle with the wolves all over this area.");
+        macros.ShowText("You've already performed all the dentistry possible here, with complete disregard for the wolf's place on the endangered species list.");
+    }
+}
+
+fun MapEvent23(macros) {
+    if (macros.GetFlag(PARTY, WAR2) == 0) {
+        macros.SetFlag(PARTY, WAR2, 1);
+        macros.ShowText("My goodness!  Look at all those wolves packed in here.  Hmm.  Wolvespacked.  Maybe there's a story there.");
+        macros.SetBooty(TOOTHOFWOLF, GORGONSGAUNTLETS, DRAGONFLAGON, 0, 0, 1219);
+        macros.GetMonster(1, 32);
+        macros.GetMonster(2, 33);
+        macros.GetMonster(3, 32);
+        macros.GetMonster(4, 33);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 32);
+            macros.GetMonster(6, 33);
+        }
+    }
+    else {
+        macros.ShowText("You find the signs of your battle with the wolves all over this area.");
+        macros.ShowText("You've already performed all the dentistry possible here, with complete disregard for the wolf's place on the endangered species list.");
+    }
+}
+
+fun MapEvent24(macros) {
+    if (macros.GetFlag(PARTY, WAR3) == 1) {
+        macros.Teleport(11, 2, 60, macros.Facing);
+    }
+    else {
+        macros.ShowText("You think you hear the growls of a great mastiff, a giant hound, through the door.");
+        macros.ShowText("Hmm.  The Hound of - naw, there's no way to fit any decent story into that title.");
+        if (macros.HasItem(TONGUEOFDOG)) {
+            macros.Teleport(11, 2, 45, macros.Facing);
+        }
+        else {
+            macros.Teleport(11, 2, 30, macros.Facing);
+        }
+    }
+}
+
+fun MapEvent25(macros) {
+    if (macros.GetFlag(PARTY, WAR3) == 0) {
+        macros.SetFlag(PARTY, WAR3, 1);
+        macros.ShowText("Have you ever heard of puppy love.  Well, these dogs haven't!  Watch out!");
+        macros.SetBooty(TONGUEOFDOG, TONGUEOFDOG, DRAGONFLAGON, 0, 0, 1219);
+        macros.GetMonster(1, 36);
+        macros.GetMonster(2, 35);
+        macros.GetMonster(3, 36);
+        macros.GetMonster(4, 35);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 36);
+            macros.GetMonster(6, 35);
+        }
+    }
+    else {
+        macros.ShowText("Reminders of your battle in this area still dog your footsteps.  Yuk.");
+        macros.ShowText("You've already taught those puppies the value of love.  Tough love.  Really really tough love.");
+    }
+}
+
+fun MapEvent26(macros) {
+    if (macros.GetFlag(PARTY, WAR3) == 0) {
+        macros.SetFlag(PARTY, WAR3, 1);
+        macros.ShowText("Have you ever heard of puppy love.  Well, these dogs haven't!  Watch out!");
+        macros.SetBooty(TONGUEOFDOG, TONGUEOFDOG, DRAGONFLAGON, 0, 0, 1219);
+        macros.GetMonster(1, 37);
+        macros.GetMonster(2, 37);
+        macros.GetMonster(3, 37);
+        macros.GetMonster(4, 37);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 37);
+            macros.GetMonster(6, 37);
+        }
+    }
+    else {
+        macros.ShowText("Reminders of your battle in this area still dog your footsteps.  Yuk.");
+        macros.ShowText("You've already taught those puppies the value of love.  Tough love.  Really really tough love.");
+    }
+}
+
+fun MapEvent27(macros) {
+    if (macros.GetFlag(PARTY, WAR4) == 1) {
+        macros.Teleport(11, 2, 204, macros.Facing);
+    }
+    else {
+        macros.ShowText("You hear a lot of hissing through this door, as if a veritable snakepit.  You'd put on your hightop boots, if you had any.");
+        if (macros.HasItem(BLINDWORMSTING)) {
+            macros.Teleport(11, 2, 221, macros.Facing);
+        }
+        else {
+            macros.Teleport(11, 2, 238, macros.Facing);
+        }
+    }
+}
+
+fun MapEvent28(macros) {
+    if (macros.GetFlag(PARTY, WAR4) == 0) {
+        macros.SetFlag(PARTY, WAR4, 1);
+        macros.ShowText("See!  High topped boots wouldn't have helped you anyways!");
+        macros.SetBooty(BLINDWORMSTING, BLINDWORMSTING, DRAGONFLAGON, 0, 0, 1219);
+        macros.GetMonster(1, 26);
+        macros.GetMonster(2, 27);
+        macros.GetMonster(3, 26);
+        macros.GetMonster(4, 27);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 26);
+            macros.GetMonster(6, 27);
+        }
+    }
+    else {
+        macros.ShowText("Boy, the snake skins sure got spattered everywhere.");
+        macros.ShowText("Hmm.  You probably could get some high topped snake skin boots made, if you knew a cobbler.  But any cobblers left around here have already been eaten by the halflings.");
+    }
+}
+
+fun MapEvent29(macros) {
+    if (macros.GetFlag(PARTY, WAR4) == 0) {
+        macros.SetFlag(PARTY, WAR4, 1);
+        macros.ShowText("See!  High topped boots wouldn't have helped you anyways!");
+        macros.SetBooty(BLINDWORMSTING, BLINDWORMSTING, DRAGONFLAGON, 0, 0, 1219);
+        macros.GetMonster(1, 28);
+        macros.GetMonster(2, 28);
+        macros.GetMonster(3, 28);
+        macros.GetMonster(4, 28);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 28);
+            macros.GetMonster(6, 28);
+        }
+    }
+    else {
+        macros.ShowText("Boy, the snake skins sure got spattered everywhere.");
+        macros.ShowText("Hmm.  You probably could get some high topped snake skin boots made, if you knew a cobbler.  But any cobblers left around here have already been eaten by the halflings.");
+    }
+}
+
+fun MapEvent2A(macros) {
+    macros.ShowPicture(ELFCLERIC);
+    if (macros.GetFlag(PARTY, WAR5) == 0) {
+        if (macros.GetFlag(PARTY, DRAGONWARNING) == 0) {
+            macros.SetFlag(PARTY, DRAGONWARNING, 1);
+            macros.ShowText("'Look, friend, I've been told to keep everyone out of this room.  There are dragons in here, large violent firebreathing, uh....'");
+            macros.ShowText("His voice trails off as he hears your party mutter 'Cool!' 'About time!' 'Let's break some drake!' and other inappropriate epithets, combined with a loosening of your weapons.");
+            macros.ShowText("'Well, I am not about to stand in your way,' he continues, 'but never let it be said that thou wert unwarned.'");
+        }
+        else {
+            macros.ShowText("'I am glad thou hast heeded my warning,' says the elf.");
+            if (macros.GetFlag(PARTY, ELFHEALED) == 0) {
+                macros.SetFlag(PARTY, ELFHEALED, 1);
+                macros.ShowText("'And for thy wisdom, a small reward.'");
+                macros.Heal(1000);
+            }
+        }
+    }
+    else {
+        if (macros.GetFlag(PARTY, DRAGONWARNING) == 0) {
+            macros.SetFlag(PARTY, DRAGONWARNING, 1);
+            macros.ShowText("You wave various trophies taken from the drakes in the cleric's face.  When adventurers are as tough as you've become, you don't need to be courteous.");
+        }
+        else {
+            macros.ShowText("The elf shakes his head, sadly.");
+        }
+    }
+}
+
+fun MapEvent2B(macros) {
+    if (macros.GetFlag(PARTY, WAR5) == 1) {
+        macros.Teleport(11, 2, 169, macros.Facing);
+    }
+    else {
+        macros.ShowText("Naw.  It couldn't be.  But you'd swear that you heard some faint voices quietly chanting 'munchies' repeatedly.");
+        if (macros.HasItem(SCALEOFDRAGON)) {
+            macros.Teleport(11, 2, 170, macros.Facing);
+        }
+        else {
+            macros.Teleport(11, 2, 187, macros.Facing);
+        }
+    }
+}
+
+fun MapEvent2C(macros) {
+    if (macros.GetFlag(PARTY, WAR5) == 0) {
+        macros.SetFlag(PARTY, WAR5, 1);
+        macros.ShowText("Uh oh!  Why do you suddenly feel like a snack pack?");
+        macros.SetBooty(SCALEOFDRAGON, SCALEOFDRAGON, DRAGONFLAGON, 0, 0, 1219);
+        macros.GetMonster(1, 29);
+        macros.GetMonster(2, 30);
+        macros.GetMonster(3, 29);
+        macros.GetMonster(4, 30);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 29);
+            macros.GetMonster(6, 30);
+        }
+    }
+    else {
+        macros.ShowText("You see some spattered pieces of dragon.");
+        macros.ShowText("I guess sometimes the snackees win!");
+    }
+}
+
+fun MapEvent2D(macros) {
+    if (macros.GetFlag(PARTY, WAR5) == 0) {
+        macros.SetFlag(PARTY, WAR5, 1);
+        macros.ShowText("Uh oh!  Why do you suddenly feel like a snack pack?");
+        macros.SetBooty(SCALEOFDRAGON, SCALEOFDRAGON, DRAGONFLAGON, 0, 0, 1219);
+        macros.GetMonster(1, 31);
+        macros.GetMonster(2, 31);
+        macros.GetMonster(3, 31);
+        macros.GetMonster(4, 31);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 31);
+            macros.GetMonster(6, 31);
+        }
+    }
+    else {
+        macros.ShowText("You see some spattered pieces of dragon.");
+        macros.ShowText("I guess sometimes the snackees win!");
+    }
+}
+
+fun MapEvent2E(macros) {
+    macros.ShowPicture(ELFCLERIC);
+    if (macros.GetFlag(PARTY, WAR6) == 0) {
+        if (macros.GetFlag(PARTY, BIGBATTLEWARNING) == 0) {
+            macros.SetFlag(PARTY, BIGBATTLEWARNING, 1);
+            macros.ShowText("The elf looks you very seriously in the eye.");
+            macros.ShowText("'Some battles cannot be won,' he says.  'An thou dost enter here, it is upon thy head.'");
+            macros.ShowText("'There are not just drakes within, but they are equipped with the most puissant weapons of the old magics, weapons designed to destroy armies.'");
+            macros.ShowText("'I do beg of thee, leave off.  This is not the place for aught but heroes from the age of legend.'");
+        }
+        else {
+            macros.ShowText("'Thou hast been warned,' the elf says.");
+        }
+    }
+    else {
+        if (macros.GetFlag(PARTY, BIGBATTLEWARNING) == 0) {
+            macros.SetFlag(PARTY, DRAGONWARNING, 1);
+            macros.ShowText("'Some battles just needed someone tougher to fight them,' you tell the elf, a broad smile on your face.");
+        }
+        else {
+            macros.ShowText("The elf shakes his head, sadly.");
+        }
+    }
+}
+
+fun MapEvent2F(macros) {
+    if (macros.GetFlag(PARTY, WAR6) == 0) {
+        macros.Damage(macros.MaxHealth / 2);
+        macros.ModMana(-4999);
+        macros.SetFlag(PARTY, WAR6, 1);
+        macros.ShowText("Hmm.  Could the sudden wave of fatigue be being hit by 'nasties' or is it just the realization that there are a whole lot of dragons in front of you?");
+        macros.SetBooty(SCALEOFDRAGON, SCALEOFDRAGON, DRAGONFLAGON, 0, 0, 1219);
+        macros.GetMonster(1, 31);
+        macros.GetMonster(2, 31);
+        macros.GetMonster(3, 31);
+        macros.GetMonster(4, 31);
+        macros.GetMonster(5, 31);
+        macros.GetMonster(6, 31);
+    }
+    else {
+        macros.ShowText("Well, you're just as happy not to have to go through that all over again.  Dragons are bad enough, but setting them up with 'nasties' for an ambush was too much.");
+    }
+}
+
+fun MapEvent30(macros) {
+    if (macros.GetFlag(PARTY, SEENBOLTS) == 0) {
+        macros.SetFlag(PARTY, SEENBOLTS, 1);
+        macros.ShowText("If you intended to pick a quarrel, you've come to the right place.  It's a shame that they were all designed for larger bows than you bear.");
+    }
+    else {
+        macros.ShowText("There are many useless sharp pointy things here.  Useless to you, anyways.");
+    }
+}
+
+fun MapEvent31(macros) {
+    if (macros.GetFlag(PARTY, SEENROCKS) == 0) {
+        macros.SetFlag(PARTY, SEENROCKS, 1);
+        macros.ShowText("If you intended to pick a quarry, you've come to the right place.  It's a shame that they were all designed for catapults.  Besides, your backpack is only rated for 200 pounds.");
+        macros.ShowText("And never you mind how all that gold fits in there.  We'll just call it magic and leave well enough alone.");
+    }
+    else {
+        macros.ShowText("There are many useless round hard things here.  Useless to you, anyways.");
+    }
+}
+
+fun MapEvent32(macros) {
+    if (macros.GetFlag(PARTY, SEENPITCH) == 0) {
+        macros.SetFlag(PARTY, SEENPITCH, 1);
+        macros.ShowText("If you intended to pick a barrel, you've come to the right place.  It's a shame that they were all designed for boiling pots, and are far too large to carry.");
+    }
+    else {
+        macros.ShowText("If you ever need oil, tar, or pitch, you know where to get some.");
+    }
+}
+
+fun MapEvent33(macros) {
+    if (macros.GetFlag(PARTY, SEENNASTY) == 0) {
+        macros.SetFlag(PARTY, SEENNASTY, 1);
+        macros.ShowText("Okay.  The place reeks.  Your head hurts, and you're not sure of your ability to cast spells.");
+        macros.ShowText("Other than that, this place isn't nasty at all.");
+        macros.Damage(macros.MaxHealth / 3);
+        macros.ModMana(-2000);
+    }
+    else {
+        macros.ShowText("There are many useless round hard things here.  Useless to you, anyways.");
+        macros.Damage(macros.MaxHealth / 3);
+        macros.ModMana(-2000);
+    }
+}
+
+fun MapEvent34(macros) {
+    macros.NoSpell;
+    macros.Damage(1444);
+    macros.ShowText("This is a nasty place.");
+}
+
+fun MapEvent35(macros) {
+    macros.ModMana(-1444);
+    macros.ShowText("This is a nasty place.");
+}
+
+fun MapEvent36(macros) {
+    macros.NoManaZone;
+    macros.Damage(1444);
+    macros.ShowText("This is a nasty place.");
+}
+
+fun MapEvent37(macros) {
+    macros.NoHealZone;
+    macros.NoManaZone;
+    macros.NoSpell;
+    macros.Damage(2667);
+    macros.ModMana(-1444);
+    if (macros.Facing == EAST) {
+        macros.Rotate(NORTH);
+    }
+    else {
+        if (macros.Facing == NORTH) {
+            macros.Rotate(SOUTH);
+        }
+        else {
+            if (macros.Facing == SOUTH) {
+                macros.Rotate(EAST);
+            }
+        }
+    }
+    macros.ShowText("This is a very nasty place.");
+}
+
+fun MapEvent38(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 1) {
+        macros.ShowText("Your epic struggle with the bovine goats left goatees scattered all over the place (heh heh).");
+    }
+}
+
+fun MapEvent39(macros) {
+    if (macros.GetFlag(PARTY, WAR4) == 1) {
+        macros.ShowText("Boy, the snake skins sure got spattered everywhere.");
+        macros.ShowText("You probably could get some high topped snake skin boots made, if you knew a cobbler.  But any cobblers left around here have already been eaten by the halflings.");
+    }
+}
+
+fun MapEvent3A(macros) {
+    if (macros.GetFlag(PARTY, WAR5) == 1) {
+        macros.ShowText("You see some spattered pieces of dragon.");
+        macros.ShowText("I guess sometimes the snackees win!");
+    }
+}
+
+fun MapEvent3B(macros) {
+    if (macros.GetFlag(PARTY, WAR3) == 1) {
+        macros.ShowText("Reminders of your battle in this area still dog your footsteps.  Yuk.");
+        macros.ShowText("You've already taught those puppies the value of love.  Tough love.  Really really tough love.");
+    }
+}
+
+fun MapEvent3C(macros) {
+    if (macros.GetFlag(PARTY, WAR2) == 1) {
+        macros.ShowText("You find the signs of your battle with the wolves all over this area.");
+        macros.ShowText("You've already performed all the dentistry possible here, with complete disregard for the wolf's place on the endangered species list.");
+    }
+}

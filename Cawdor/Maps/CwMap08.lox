@@ -1,0 +1,731 @@
+#include "defines.loh"
+#include "flags.loh"
+
+#define DETECTED_DOOR 1
+#define ONTRAIL 2
+#define S28 3
+#define S29 4
+#define S30 5
+#define S31 6
+#define TRACKING 1
+#define NORTHDOOR 2
+#define DID_FLEANCE 3
+#define WAR1 4
+#define WAR2 5
+#define WAR3 6
+#define WAR4 7
+#define WAR5 8
+#define WAR6 9
+#define WAR7 10
+#define CTR 11
+#define ELFWARNING 12
+#define NARROW 13
+#define NARROW2 14
+#define SEENGALMSG 15
+#define READYTOGO 16
+#define GOTFLEANCELOOT 17
+
+fun MapEvent01(macros) {
+    macros.ShowText("It sure is drafty in here.");
+    if (macros.UsedSkill(DETECT_SKILL) >= 2 || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.UsedItem(CRYSTALBALL, CRYSTALBALL) || macros.UsedItem(IVARSHELM, IVARSHELM) || macros.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || macros.UsedItem(ALCUINSRING, ALCUINSRING) || macros.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS)) {
+        macros.ClearWall(macros.Here, macros.Facing);
+        macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
+        macros.ShowText("You've uncovered a hidden door!");
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+        macros.RemoveWallItem(macros.Here, macros.Facing);
+    }
+}
+
+fun MapEvent02(macros) {
+    if ((macros.UsedSkill(DETECT_SKILL) >= 2) || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.UsedItem(CRYSTALBALL, CRYSTALBALL) || macros.UsedItem(IVARSHELM, IVARSHELM) || macros.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || macros.UsedItem(ALCUINSRING, ALCUINSRING) || macros.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || macros.FlagOn(ROOM, DETECTED_DOOR)) {
+        macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
+        macros.SetFlag(ROOM, DETECTED_DOOR, 1);
+        if (((macros.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (macros.HasItem(WOODENLOCKPICK) || macros.HasItem(BRASSLOCKPICK) || macros.HasItem(IRONLOCKPICK) || macros.HasItem(SILVERLOCKPICK) || macros.HasItem(STEELLOCKPICK) || macros.HasItem(COLDSTEELLOCKPICK) || macros.HasItem(ADAMANTINELOCKPICK))) || ((macros.GetSkill(LOCKPICK_SKILL) >= 6) && ((macros.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (macros.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (macros.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+            macros.ShowText("You have unlocked the hidden door!");
+            macros.ClearWall(macros.Here, macros.Facing);
+        }
+        else {
+            macros.ShowText("You detect a hidden door, but it is locked.");
+            macros.BlockWall(macros.Here, macros.Facing);
+        }
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+    }
+}
+
+fun MapEvent03(macros) {
+    if (((macros.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (macros.HasItem(WOODENLOCKPICK) || macros.HasItem(BRASSLOCKPICK) || macros.HasItem(IRONLOCKPICK) || macros.HasItem(SILVERLOCKPICK) || macros.HasItem(STEELLOCKPICK) || macros.HasItem(COLDSTEELLOCKPICK) || macros.HasItem(ADAMANTINELOCKPICK))) || ((macros.GetSkill(LOCKPICK_SKILL) >= 3) && ((macros.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (macros.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (macros.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+        macros.ShowText("You've picked the lock. Proceed.");
+        macros.ClearWall(macros.Here, macros.Facing);
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+        macros.ShowText("Funny how an irksome little lock on a flimsy little door can keep out a big strong person like you.");
+    }
+}
+
+fun MapEvent04(macros) {
+    if (macros.GetFlag(PARTY, DID_FLEANCE) == 0) {
+        if ((macros.GetFlag(PARTY, TRACKING) == 0) && (macros.GetFlag(ROOM, ONTRAIL) == 0)) {
+            if ((macros.UsedSkill(READ_TRACKS_SKILL) > 4) || macros.UsedItem(HAWKSEYE, HAWKSEYE) || macros.UsedItem(REINDEERHORNHELM, REINDEERHORNHELM) || macros.UsedItem(TRACKINGTALISMAN, TRACKINGTALISMAN)) {
+                macros.ShowText("You are watching out for ambushes.");
+                macros.SetFlag(PARTY, TRACKING, 1);
+                macros.SetFlag(ROOM, ONTRAIL, 1);
+            }
+            else {
+                if (macros.GetFlag(PARTY, READYTOGO) == 0) {
+                    macros.SetFlag(PARTY, TRACKING, 0);
+                    macros.ShowText("AMBUSH!  Something ghostly and ghastly cast a fireball at you and then retreated!");
+                    macros.Damage(macros.MaxHealth / 5);
+                }
+            }
+        }
+        else {
+            if ((macros.UsedSkill(READ_TRACKS_SKILL) > 4) || macros.UsedItem(HAWKSEYE, HAWKSEYE) || macros.UsedItem(REINDEERHORNHELM, REINDEERHORNHELM) || macros.UsedItem(TRACKINGTALISMAN, TRACKINGTALISMAN)) {
+                macros.ShowText("Some faint tracks lure you onward.");
+                macros.SetFlag(ROOM, ONTRAIL, 1);
+                macros.SetFlag(PARTY, TRACKING, 1);
+            }
+            else {
+                macros.SetFlag(PARTY, TRACKING, 0);
+                if ((macros.UsedSkill(READ_TRACKS_SKILL) < 3) && (macros.UsedSkill(READ_TRACKS_SKILL) >= 1)) {
+                    macros.ShowText("You find some marks, but you are not adequately skilled to correctly interpret them.");
+                }
+            }
+        }
+    }
+}
+
+fun MapEvent05(macros) {
+    macros.Teleport(1, 1, 251, NORTH);
+}
+
+fun MapEvent06(macros) {
+    macros.ShowText("This way to the Foyer of Cawdor.");
+}
+
+fun MapEvent07(macros) {
+    macros.NoJoin;
+    if (macros.PartyCount > 1) {
+        macros.ShowText("You try squeezing down this narrow corridor, but it's so tight that - aargh!  You've been impaled on your companion's weapon!");
+        macros.Damage(macros.MaxHealth);
+    }
+    else {
+        if (macros.GetFlag(DUNGEON, SEENGALATEA0401) == 0) {
+            macros.SetFlag(DUNGEON, SEENGALATEA0401, 1);
+            macros.ShowText("*");
+            macros.ShowText("*");
+            macros.ShowText("*");
+            macros.ShowPicture(LADYMACBETH);
+            macros.ShowText("Galatea greets you. 'My sisters oft frequent these higher levels.  Our chance of detection doth grow.");
+            macros.ShowText("As I wish that thou shalt come to end my unending life of drudgery, and to free those I have enslaved o'er the many centuries, I must hope that thou shalt grow wise in the ways of combat.  There is much to battle here.  I shall begin by rewarding thee in experience.'");
+            macros.ModExp(100000);
+            if ((macros.Guild == THIEF) && (macros.GetSkill(ARCHERY_SKILL) == 0)) {
+                macros.ShowText("'I think me that proficiency with a bow will best serve thee now.'  You now know that skill!");
+                macros.ModSkill(ARCHERY_SKILL, 1);
+            }
+            if ((macros.Guild == BARBARIAN) && (macros.GetSkill(MARTIAL_ARTS_SKILL) == 0)) {
+                macros.ShowText("'Thou art, by thy nature, less proficient with tools and weapons of complexity.  An thou art to progress in combat ways, thou shouldst know of the simplest combat weapons, those of the martial artist.  Behold!'  You know the martial arts skill!");
+                macros.ModSkill(MARTIAL_ARTS_SKILL, 1);
+            }
+            if (((macros.Guild == CLERIC) && (macros.GetSkill(STAFF_SKILL) == 0))) {
+                macros.ShowText("'I think me thou art long past time to know the combat ways of quarterstaves.' You realize that you now know that skill!");
+                macros.ModSkill(STAFF_SKILL, 1);
+            }
+            if (((macros.Guild == KNIGHT) || (macros.Guild == WIZARD)) && (macros.GetSkill(BARD_SKILL) == 0)) {
+                macros.ShowText("'As thou art naturally a leader, it is now time that thou dost know how to inflict confusion on thy enemies.  Behold!'  You now know the Bard skill!");
+                macros.ModSkill(BARD_SKILL, 1);
+            }
+            if ((macros.Guild == RANGER) && (macros.GetSkill(FURTIVENESS_SKILL) == 0)) {
+                macros.ShowText("'As thou art a woodsman, thou shouldst learn how to stalk thine foes, to increase the force of thy blows against them.' You know how to be furtive!");
+                macros.ModSkill(FURTIVENESS_SKILL, 1);
+            }
+            if (macros.GetSkill(RUNE_READING_SKILL) == 0) {
+                macros.ShowText("'Some of thy gifts and rewards are hidden behind cloaks of repetition and drudgery, to deceive my less patient sisters.  Thou hast not explored fully the runed area of the Foyer, wherein a gift can be won, an thou art adequately patient.");
+                macros.ShowText("Use that gift in The Runed Room, where I have placed hints more obvious, an thou hast the skill to decipher them.'");
+            }
+            else {
+                if (macros.GetFlag(DUNGEON, BEENINRUNEDROOM) == 0) {
+                    macros.ShowText("'Thou mayst find my clues to thee in The Runed Room more direct, since my sisters lack the wit and wherewithal to decipher them.'");
+                }
+                else {
+                    macros.ShowText("'I hope that thou didst have the wisdom and patience to decipher the clues I had hidden for thee in The Runed Room, but an thou hast not, then thou shalt have to proceed using what means thou dost possess.'");
+                }
+            }
+            macros.ShowText("She smiles.  'Even the most casual stroll through Fleance's lair, aye, and all his undead brethren, can bring great reward.  So leave not the Ruins precipitously!'");
+            macros.ShowText("Galatea gets a distant look in her eyes.  'I dare no longer stay.  Good fortune!'  She disappears.");
+        }
+        else {
+            if (macros.GetFlag(DUNGEON, GFIGHT) == 0) {
+                macros.ShowText("It looks like someone is investigating your meeting with Galatea here earlier!");
+                macros.SetFlag(DUNGEON, GFIGHT, 1);
+                macros.GetMonster(1, 1);
+                macros.GetMonster(5, 1);
+            }
+        }
+    }
+}
+
+fun MapEvent08(macros) {
+    macros.NoJoin;
+    macros.SetFlag(DUNGEON, LEVEL2ROOM1, 1);
+    if (macros.PartyCount > 1) {
+        macros.ShowText("You try squeezing down this narrow corridor, but it's so tight that - aargh!  You've been impaled on your companion's weapon!");
+        macros.Damage(macros.MaxHealth);
+    }
+    else {
+        if (macros.GetFlag(PARTY, NARROW) == 0) {
+            macros.SetFlag(PARTY, NARROW, 1);
+            macros.ShowText("This narrow corridor forces you to proceed single file.");
+        }
+        if ((macros.GetFlag(DUNGEON, FOUGHTFLEANCE) == 0) && (macros.GetFlag(PARTY, DID_FLEANCE) == 0)) {
+            macros.BlockWall(249, SOUTH);
+            macros.RemoveWallItem(249, SOUTH);
+        }
+        macros.SetFlag(DUNGEON, WENTLEFT0401, 0);
+        macros.SetFlag(DUNGEON, WENTUP0401, 0);
+    }
+}
+
+fun MapEvent09(macros) {
+    if ((macros.GetFlag(DUNGEON, FOUGHTFLEANCE) == 1) || (macros.GetFlag(PARTY, DID_FLEANCE) == 1)) {
+        macros.SetFlag(DUNGEON, FOUGHTFLEANCE, 1);
+        macros.Teleport(5, 2, 250, NORTH);
+    }
+    else {
+        macros.ShowText("Galatea's voice whispers, 'It is not safe to assay the next level leaving the Ghost of Fleance behind thee.'");
+    }
+}
+
+fun MapEvent0A(macros) {
+    if ((macros.PartyGuild(THIEF) && macros.PartyGuild(RANGER)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, LEVEL2ROOM2) == 1)) {
+        macros.ShowPicture(ELFRANGER);
+        macros.ShowText("'Two elves, a thief and a ranger by their appearance, courteously hold open a secret door for you.  'There is no harm in my holding the door open for you,' he says.");
+        macros.ClearWall(macros.Here, macros.Facing);
+        macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
+        macros.SetFlag(DUNGEON, WENTLEFT0401, 0);
+        macros.SetFlag(DUNGEON, WENTUP0401, 1);
+        macros.Teleport(4, 2, 253, NORTH);
+    }
+    else {
+        if (macros.GetFlag(PARTY, NORTHDOOR) == 1) {
+            macros.ShowText("Search though you may, you can not find the door that you know is right here!");
+        }
+    }
+}
+
+fun MapEvent0C(macros) {
+    if ((macros.PartyGuild(BARBARIAN) && macros.PartyGuild(RANGER)) || (macros.PartyGuild(BARBARIAN) && macros.PartyGuild(WIZARD)) || (macros.PartyGuild(WIZARD) && macros.PartyGuild(RANGER)) || (macros.GetFlag(DUNGEON, WONGAME) == 1) || (macros.GetFlag(DUNGEON, LEVEL2ROOM3) == 1)) {
+        macros.ShowPicture(ELFBARBARIAN);
+        macros.ShowText("'Two elves, a ranger and a barbarian by their appearance, courteously hold open a very thick door for you.  'There is no harm in our holding the door open for you,' they say.");
+        macros.ClearWall(macros.Here, macros.Facing);
+        macros.SetFlag(DUNGEON, WENTLEFT0401, 1);
+        macros.SetFlag(DUNGEON, WENTUP0401, 0);
+        macros.Teleport(4, 3, 207, WEST);
+    }
+    else {
+        macros.ShowText("Struggle though you will, the door to the Brewery will not open.");
+    }
+}
+
+fun MapEvent0E(macros) {
+    if (macros.GetFlag(PARTY, WAR1) == 0) {
+        macros.SetFlag(PARTY, WAR1, 1);
+        macros.ShowText("Ware!");
+        macros.SetBooty(HENGISTSSWORD, SMALLLETTEROFCREDIT, PETUNIAPOULTICE, 0, 0, 125);
+        macros.GetMonster(1, 25);
+        macros.GetMonster(5, 26);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(2, 25);
+            macros.GetMonster(6, 26);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 25);
+            macros.GetMonster(3, 25);
+        }
+    }
+    else {
+        macros.ShowText("All that remains from your battle here is a badly abused magic wand.");
+    }
+}
+
+fun MapEvent0F(macros) {
+    if (macros.GetFlag(PARTY, WAR2) == 0) {
+        macros.SetFlag(PARTY, WAR2, 1);
+        macros.ShowText("The good news is these guys will have to bend down to hit you.  The bad news is that they are very flexible.");
+        if (macros.PartyCount > 3) {
+            macros.ShowText("In fact, it looks like a veritable dancing troop of damaging titans.");
+        }
+        macros.SetBooty(0, 0, 0, 0, 0, 187);
+        macros.GetMonster(1, 27);
+        macros.GetMonster(2, 32);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 33);
+            macros.GetMonster(4, 34);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 33);
+            macros.GetMonster(6, 34);
+        }
+    }
+    else {
+        macros.ShowText("All that remains from your battle here is a piece of scorched tutu.  Makes you wonder, doesn't it.");
+    }
+}
+
+fun MapEvent10(macros) {
+    if (macros.GetFlag(PARTY, WAR3) == 0) {
+        macros.SetFlag(PARTY, WAR3, 1);
+        macros.ShowText("At least you can tell that those brain pans can't possibly hold enough brains to know how to cast spells against you. ");
+        macros.SetBooty(ASCOMANNISPEAR, BOOMERANGSCROLL, PETUNIAPOULTICE, 0, 0, 125);
+        macros.GetMonster(1, 35);
+        macros.GetMonster(2, 36);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 36);
+            macros.GetMonster(4, 37);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(5, 35);
+            macros.GetMonster(6, 37);
+        }
+    }
+    else {
+        macros.ShowText("All that remains from your battle here is a broken club and a scrap of fur.");
+    }
+}
+
+fun MapEvent11(macros) {
+    if (macros.GetFlag(PARTY, WAR4) == 0) {
+        macros.SetFlag(PARTY, WAR4, 1);
+        macros.ShowText("Someone went to a lot of effort to defend this spot.");
+        if (macros.PartyCount > 3) {
+            macros.ShowText("This many golems is enough to make one glum.");
+        }
+        macros.SetBooty(POLEARM, LEFTARMSCROLL, PETUNIAPOULTICE, 0, 0, 953);
+        macros.GetMonster(1, 29);
+        macros.GetMonster(5, 28);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(2, 29);
+            macros.GetMonster(6, 30);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 31);
+            macros.GetMonster(3, 31);
+        }
+    }
+    else {
+        macros.ShowText("The frightening thought is not that someone can make such horrid humanoids.  The frightening thought is that they can give them spellcasting abilities.  You feel fortunate to have survived.");
+    }
+}
+
+fun MapEvent12(macros) {
+    if (macros.GetFlag(PARTY, WAR5) == 0) {
+        macros.SetFlag(PARTY, WAR5, 1);
+        macros.ShowText("'Tis a veritable gaggle of giants and gremlins.");
+        macros.SetBooty(PERSEUSSRING, EALSTANSCAP, MERLINSSUPPORT, 0, 0, 562);
+        macros.GetMonster(1, 27);
+        macros.GetMonster(5, 26);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(2, 27);
+            macros.GetMonster(6, 26);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 27);
+            macros.GetMonster(3, 26);
+        }
+    }
+    else {
+        macros.ShowText("The bones that remain here are big or small, but none are sized in-between.");
+    }
+}
+
+fun MapEvent13(macros) {
+    if (macros.GetFlag(PARTY, WAR6) == 0) {
+        macros.SetFlag(PARTY, WAR6, 1);
+        macros.ShowText("It looks like you're facing the Picts of the litter.");
+        macros.SetBooty(WULFHERDSHELM, TRACKINGTALISMAN, WOODSMANSAXE, 0, 0, 125);
+        macros.GetMonster(1, 35);
+        macros.GetMonster(2, 36);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 35);
+        }
+        if (macros.PartyCount > 3) {
+            macros.GetMonster(4, 36);
+            macros.GetMonster(5, 37);
+        }
+    }
+    else {
+        macros.ShowText("This place was thoroughly depicted earlier.");
+    }
+}
+
+fun MapEvent14(macros) {
+    if (macros.GetFlag(PARTY, WAR7) == 0) {
+        macros.SetFlag(PARTY, WAR7, 1);
+        macros.ShowText("Oh my singed tailfeathers!  They got you from behind!");
+        macros.Damage(macros.MaxHealth / 4);
+        if (macros.PartyCount > 3) {
+            macros.ShowText("And getting you from in front doesn't look much better, either.");
+        }
+        macros.SetBooty(BINDINGTALISMAN, BLESSPOTION, CATHNESSSCLUB, REDTARTANCLOAK, 0, 125);
+        macros.GetMonster(1, 37);
+        macros.GetMonster(5, 28);
+        if (macros.PartyLevel(12)) {
+            if (macros.PartyCount > 2) {
+                macros.GetMonster(2, 37);
+                macros.GetMonster(6, 30);
+            }
+            if (macros.PartyCount > 3) {
+                macros.GetMonster(4, 37);
+                macros.GetMonster(3, 28);
+            }
+        }
+        else {
+            if (macros.PartyCount > 2) {
+                macros.GetMonster(2, 35);
+                macros.GetMonster(6, 30);
+            }
+            if (macros.PartyCount > 3) {
+                macros.GetMonster(4, 31);
+                macros.GetMonster(3, 31);
+            }
+        }
+    }
+    else {
+        macros.ShowText("Your bones still ache from the battle you fought here.");
+    }
+}
+
+fun MapEvent15(macros) {
+    var i;
+    i = 0;
+    var k;
+    k = 0;
+    i = macros.GetFlag(PARTY, CTR);
+    i++;
+    k = i;
+    if (k > 19) {
+        k = (k - 20);
+    }
+    if (k > 14) {
+        k = (k - 15);
+    }
+    if (k > 9) {
+        k = (k - 10);
+    }
+    if (k > 4) {
+        k = (k - 5);
+    }
+    if (k < 0) {
+        k = 0;
+    }
+    if (k > 29) {
+        k = 0;
+    }
+    if (i > 30) {
+        i = 0;
+    }
+    macros.SetFlag(PARTY, CTR, i);
+    if ((i == 26) | (i == 20) | (i == 14) | (i == 8) | (i == 2)) {
+        switch (k) {
+            case 0:
+                macros.ShowText("You hear some footsteps running away.");
+                break;
+            case 1:
+                macros.ShowText("You hear someone running towards you.");
+                macros.ShowPicture(GREMLINTHIEF);
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("A gargantuan gang of gremlins runs past you. One of them falls out and talks briefly.");
+                macros.ShowText("'Hide me!  Protect me!  Save me!  A press gang snapped me up and I cannot take any more of this!'");
+                macros.ShowText("A burly sergeant wraps a whip around the gremlin's neck, jerking him back into the squad.  You decide not to interfere.");
+                break;
+            case 2:
+                macros.ShowPicture(DRAGON);
+                macros.ShowText("The dragon examines you with a baleful eye.  It has seen better days.");
+                macros.ShowText("'Wouldst thou help a wyrm in need of a reviving morsel?  Thou hast two legs; surely thou couldst spare me one.  Wouldst thou resist my efforts to consume thee, then?  I feared so.  Were I not wounded, though...'  It limps off.");
+                break;
+            case 3:
+                if (macros.GetFlag(DUNGEON, SEENRORY) == 0) {
+                    macros.ShowPicture(HALFLINGTHIEF);
+                    macros.ShowText("*");
+                    macros.ShowText("*");
+                    macros.ShowText("*");
+                    macros.ShowText("'I think we have met before.  In sooth, did I not offer thee some dragonish drachmas?  Howsomever, now that I am equipped with Brunanburh's bow I find my relationships with dragons much improved.  I doubt that the wyrms would say the same, though.'");
+                    macros.ShowText("The halfling struts off, smiling.");
+                }
+                else {
+                    macros.ShowText("It was here that you once met Rory Applebush.  You sigh deeply with the memory.");
+                }
+                break;
+            case 4:
+                macros.ShowPicture(GREMLINTHIEF);
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("A somewhat battered gang o'gremlins decides, rather insultingly, that they are bigger than you are.");
+                macros.SetBooty(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 93);
+                macros.GetMonster(1, 25);
+                if (macros.PartyCount > 1) {
+                    macros.GetMonster(5, 26);
+                }
+                if (macros.PartyCount > 2) {
+                    macros.GetMonster(2, 25);
+                    macros.GetMonster(6, 26);
+                }
+                break;
+        }
+    }
+}
+
+fun MapEvent16(macros) {
+    if (macros.GetFlag(PARTY, ELFWARNING) == 0) {
+        macros.SetFlag(PARTY, ELFWARNING, 1);
+        macros.ShowPicture(ELFCLERIC);
+        macros.ShowText("*");
+        macros.ShowText("*");
+        macros.ShowText("*");
+        macros.ShowText("'She said thou wouldst be coming, but we must take care.  The walls have ears.  That said, I can only suggest that thou shouldst seek thy doom in the other rooms on this level, and to be as constant as a clock.'  With a wink and a nod, the elf departs.");
+    }
+}
+
+fun MapEvent17(macros) {
+    if (macros.PartyCount > 1) {
+        macros.BlockWall(macros.Here, SOUTH);
+        if ((macros.Facing == SOUTH) || (macros.GetFlag(PARTY, NARROW2) == 0)) {
+            macros.ShowText("The narrow corridor to the south forces you to enter it single file.");
+            macros.SetFlag(PARTY, NARROW2, 1);
+        }
+    }
+    else {
+        macros.ClearWall(macros.Here, SOUTH);
+    }
+}
+
+fun MapEvent18(macros) {
+    if ((macros.UsedSkill(READ_TRACKS_SKILL) > 3) || macros.UsedItem(HAWKSEYE, HAWKSEYE) || macros.UsedItem(REINDEERHORNHELM, REINDEERHORNHELM) || macros.UsedItem(TRACKINGTALISMAN, TRACKINGTALISMAN)) {
+        macros.SetFlag(PARTY, TRACKING, 1);
+        macros.ShowText("You move vewwy vewwy quiet.  You found some twacks, hehehehehehe.");
+    }
+    else {
+        if ((macros.UsedSkill(READ_TRACKS_SKILL) < 4) && (macros.UsedSkill(READ_TRACKS_SKILL) >= 1)) {
+            macros.ShowText("You find some marks, but you are not adequately skilled to correctly interpret them.");
+        }
+    }
+}
+
+fun MapEvent19(macros) {
+    macros.NoJoin;
+    if (macros.PartyCount > 1) {
+        macros.ShowText("You try squeezing down this narrow corridor, but it's so tight that - aargh!  You've been impaled on your companion's weapon!");
+        macros.Damage(macros.MaxHealth);
+    }
+}
+
+fun MapEvent1A(macros) {
+    macros.SetFlag(DUNGEON, LEVEL2ROOM1, 1);
+}
+
+fun MapEvent1B(macros) {
+    var i;
+    if (macros.GetFlag(PARTY, SEENGALMSG) == 0) {
+        i = macros.GetFlag(DUNGEON, GALLERYMESSAGES);
+        i++;
+        macros.SetFlag(PARTY, SEENGALMSG, 1);
+        macros.ShowText("This appears to be what's left of a large picture gallery.  Many holes in the wall and piles of marble dust provide mute testimony to its ransacking.");
+        if (i > 10) {
+            i = 0;
+        }
+        else {
+            switch (i) {
+                case 1:
+                    macros.ShowText("Sometimes barbarians can be so barbaric!");
+                    break;
+                case 2:
+                    macros.ShowText("Obviously some civil libertarians were offended by all the pictures that were hung here.");
+                    break;
+                case 3:
+                    macros.ShowText("Whoever did this may not have known art, but they sure knew what they did not like!");
+                    break;
+                case 4:
+                    macros.ShowText("Considering that Monet won't be born for another six centuries, this was not a complete catastrophe.");
+                    break;
+                case 5:
+                    macros.ShowText("You find a portrait of the woman who posed for the Venus de Milo!  How about that!  She really had no arms!");
+                    break;
+                case 6:
+                    macros.ShowText("You find Rosetta's stone.  Sadly, Rosetta seems to have broken it against Edith's head.");
+                    break;
+                case 7:
+                    macros.ShowText("You find some pre-Columbian artifacts.  In fact, you yourself are a pre-Columbian artifact!");
+                    break;
+                case 8:
+                    macros.ShowText("Nine hundred years from now, this empty gallery with broken walls will be considered a classic example of destructionist art.");
+                    break;
+                case 9:
+                    macros.ShowText("You know, this would be a decent fixer upper if there were just more foot traffic.");
+                    break;
+                case 10:
+                    macros.ShowText("You find a post-it reminding someone to change the notation from mostly harmless to quite dangerous, actually.");
+                    break;
+            }
+        }
+        macros.SetFlag(DUNGEON, GALLERYMESSAGES, i);
+    }
+}
+
+fun MapEvent1C(macros) {
+    if ((macros.GetFlag(PARTY, READYTOGO) == 1) || (macros.GetFlag(ROOM, S28) == 1) || (macros.HasItem(CRACKOFDOOM))) {
+        macros.ShowText("You see Fleance peering in at you, and charge!");
+        macros.Teleport(4, 1, 4, NORTH);
+    }
+    else {
+        macros.ClearWall(macros.Here, macros.Facing);
+    }
+}
+
+fun MapEvent1D(macros) {
+    if ((macros.GetFlag(PARTY, READYTOGO) == 1) || (macros.GetFlag(ROOM, S29) == 1)) {
+        macros.ShowText("You see Fleance peering in at you, and charge!");
+        macros.Teleport(4, 1, 5, NORTH);
+    }
+    else {
+        if (macros.GetFlag(PARTY, TRACKING) == 1) {
+            macros.SetFlag(PARTY, READYTOGO, 1);
+            if (!(macros.PartyLevel(20))) {
+                macros.ShowText("You feel like you are being watched.");
+                macros.SetFlag(ROOM, S29, 1);
+            }
+            else {
+                macros.ClearWall(macros.Here, macros.Facing);
+            }
+        }
+        else {
+            macros.ClearWall(macros.Here, macros.Facing);
+        }
+    }
+}
+
+fun MapEvent1E(macros) {
+    if ((macros.GetFlag(PARTY, READYTOGO) == 1) || (macros.GetFlag(ROOM, S30) == 1) || (macros.GetFlag(DUNGEON, WONGAME) == 1)) {
+        macros.ShowText("Heck with bobbing and weaving.  You see Fleance peering in at you, and charge!");
+        macros.Teleport(4, 1, 5, NORTH);
+    }
+    else {
+        if (macros.GetFlag(PARTY, TRACKING) == 1) {
+            macros.ShowText("You bob and weave cautiously forward.");
+            macros.SetFlag(ROOM, S30, 1);
+            macros.SetFlag(PARTY, READYTOGO, 1);
+        }
+        else {
+            macros.ClearWall(macros.Here, macros.Facing);
+        }
+    }
+}
+
+fun MapEvent1F(macros) {
+    if ((macros.GetFlag(PARTY, READYTOGO) == 1) || (macros.GetFlag(ROOM, S31) == 1) || (macros.GetFlag(DUNGEON, WONGAME) == 1)) {
+        macros.ShowText("You see Fleance's Ghost up ahead of you, and charge!");
+        macros.Teleport(4, 1, 6, NORTH);
+    }
+    else {
+        if (macros.GetFlag(PARTY, TRACKING) == 1) {
+            macros.ShowText("Wait for it.");
+            macros.SetFlag(ROOM, S31, 1);
+            macros.SetFlag(PARTY, READYTOGO, 1);
+        }
+        else {
+            macros.ShowText("You find something inscribed in blood above what appears to be a finger bone in the wall to the north.");
+            macros.ShowText("It reads, 'I sought Fleance'");
+            macros.ShowText("'But now I die'");
+            macros.ShowText("'Caught by ill chance'");
+            macros.ShowText("'With no Hawk's Eye.'");
+        }
+    }
+}
+
+fun MapEvent20(macros) {
+    if (macros.GetFlag(PARTY, DID_FLEANCE) == 0) {
+        macros.ShowText("You knew this was coming.");
+        macros.SetFlag(PARTY, DID_FLEANCE, 1);
+        macros.SetBooty(PETUNIAPOULTICE, ELDERBERRYELIXIR, 0, 0, 0, 1988);
+        macros.GetMonster(1, 38);
+        macros.GetMonster(2, 37);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 36);
+            macros.GetMonster(4, 35);
+            if (macros.PartyCount > 3) {
+                macros.GetMonster(5, 31);
+                macros.GetMonster(6, 31);
+            }
+        }
+    }
+    else {
+        macros.SetFlag(DUNGEON, FOUGHTFLEANCE, 1);
+        macros.ShowText("It appears that your moves were fancier than Fleance's.");
+    }
+}
+
+fun MapEvent21(macros) {
+    if (macros.GetFlag(PARTY, DID_FLEANCE) == 0) {
+        macros.ShowText("You knew this was coming.");
+        macros.SetFlag(PARTY, DID_FLEANCE, 1);
+        macros.SetBooty(PETUNIAPOULTICE, ELDERBERRYELIXIR, 0, 0, 0, 1988);
+        macros.GetMonster(1, 39);
+        macros.GetMonster(2, 37);
+        macros.GetMonster(3, 36);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(4, 35);
+            macros.GetMonster(5, 31);
+            if (macros.PartyCount > 3) {
+                macros.GetMonster(6, 31);
+            }
+        }
+    }
+    else {
+        macros.SetFlag(DUNGEON, FOUGHTFLEANCE, 1);
+        macros.ShowText("It appears that your moves were fancier than Fleance's.");
+    }
+}
+
+fun MapEvent22(macros) {
+    if (macros.GetFlag(PARTY, DID_FLEANCE) == 0) {
+        macros.ShowText("You knew this was coming.");
+        macros.SetFlag(PARTY, DID_FLEANCE, 1);
+        macros.SetBooty(PETUNIAPOULTICE, ELDERBERRYELIXIR, 0, 0, 0, 1988);
+        macros.GetMonster(1, 40);
+        macros.GetMonster(2, 37);
+        macros.GetMonster(3, 36);
+        macros.GetMonster(4, 35);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 31);
+            macros.GetMonster(6, 31);
+        }
+    }
+    else {
+        macros.SetFlag(DUNGEON, FOUGHTFLEANCE, 1);
+        macros.ShowText("It appears that your moves were fancier than Fleance's.");
+    }
+}
+
+fun MapEvent23(macros) {
+    macros.SetFlag(PARTY, DID_FLEANCE, 1);
+}
+
+fun MapEvent24(macros) {
+    if (macros.GetFlag(PARTY, GOTFLEANCELOOT) == 0) {
+        macros.GiveItem(CROWNOFCRIMSON);
+        macros.GiveItem(PETUNIAPOULTICE);
+        macros.GiveItem(ELDERBERRYELIXIR);
+        macros.SetFlag(DUNGEON, FOUGHTFLEANCE, 1);
+        macros.SetFlag(PARTY, GOTFLEANCELOOT, 1);
+        macros.ShowText("You find some useful things in Fleance's lair.");
+    }
+    else {
+        macros.ShowText("This part of Fleance's lair is empty.  Almost too empty.  Well, okay, you're here, so it's not too empty.");
+    }
+}

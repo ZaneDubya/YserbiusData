@@ -1,0 +1,744 @@
+#include "defines.loh"
+#include "flags.loh"
+
+#define DETECTED_DOOR 1
+#define WAR1 1
+#define WAR2 2
+#define WAR3 3
+#define WAR4 4
+#define WAR5 5
+#define WAR6 6
+#define WAR7 7
+#define CTR 8
+#define TRACKING 9
+#define SAWATTIC 10
+#define TRACKCTR 11
+#define SAWDUST 12
+#define GOTTODAYSMILK 13
+#define WAR8 14
+
+fun MapEvent01(macros) {
+    macros.ShowText("A cold breeze sends shivers down your spine.");
+    if (macros.UsedSkill(DETECT_SKILL) >= 9 || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.UsedItem(IVARSHELM, IVARSHELM) || macros.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || macros.UsedItem(ALCUINSRING, ALCUINSRING) || macros.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || macros.FlagOn(ROOM, DETECTED_DOOR)) {
+        macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
+        macros.ShowText("You've uncovered a hidden door!");
+        macros.ClearWall(macros.Here, macros.Facing);
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+        macros.RemoveWallItem(macros.Here, macros.Facing);
+    }
+}
+
+fun MapEvent02(macros) {
+    if (macros.UsedSkill(DETECT_SKILL) >= 11 || macros.UsedSpell(TRUE_SEEING_SPELL) || macros.UsedItem(IVARSHELM, IVARSHELM) || macros.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || macros.UsedItem(ALCUINSRING, ALCUINSRING) || macros.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || macros.FlagOn(ROOM, DETECTED_DOOR)) {
+        macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
+        macros.SetFlag(ROOM, DETECTED_DOOR, 1);
+        if (((macros.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (macros.HasItem(COLDSTEELLOCKPICK) || macros.HasItem(ADAMANTINELOCKPICK))) || ((macros.GetSkill(LOCKPICK_SKILL) >= 11) && (macros.UsedItem(COLDSTEELLOCKPICK, ADAMANTINELOCKPICK))) || (macros.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+            macros.ShowText("You have unlocked the hidden door!");
+            macros.ClearWall(macros.Here, macros.Facing);
+        }
+        else {
+            macros.BlockWall(macros.Here, macros.Facing);
+            if ((macros.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (macros.UsedItem(SILVERLOCKPICK, STEELLOCKPICK))) {
+                macros.TakeItem(WOODENLOCKPICK);
+                macros.TakeItem(BRASSLOCKPICK);
+                macros.TakeItem(IRONLOCKPICK);
+                macros.TakeItem(SILVERLOCKPICK);
+                macros.TakeItem(STEELLOCKPICK);
+                macros.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
+            }
+            else {
+                macros.BlockWall(macros.Here, macros.Facing);
+                macros.ShowText("You detect a hidden door, but it is locked.");
+            }
+        }
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+    }
+}
+
+fun MapEvent03(macros) {
+    if (((macros.GetSkill(LOCKPICK_SKILL) >= 11) && ((macros.UsedItem(COLDSTEELLOCKPICK, ADAMANTINELOCKPICK))) || (macros.UsedItem(SKELETONKEYRING, SKELETONKEYRING)))) {
+        macros.ShowText("That was a stiff lock, but you finally got it open.");
+        macros.ClearWall(macros.Here, macros.Facing);
+    }
+    else {
+        macros.BlockWall(macros.Here, macros.Facing);
+        if ((macros.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (macros.UsedItem(SILVERLOCKPICK, STEELLOCKPICK))) {
+            macros.TakeItem(WOODENLOCKPICK);
+            macros.TakeItem(BRASSLOCKPICK);
+            macros.TakeItem(IRONLOCKPICK);
+            macros.TakeItem(SILVERLOCKPICK);
+            macros.TakeItem(STEELLOCKPICK);
+            macros.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
+        }
+        else {
+            macros.BlockWall(macros.Here, macros.Facing);
+            macros.ShowText("Funny how an irksome little lock on a flimsy little door can keep out a big strong person like you.");
+        }
+    }
+}
+
+fun MapEvent04(macros) {
+    var i;
+    i = 0;
+    i = macros.GetFlag(PARTY, TRACKCTR);
+    if ((macros.UsedSkill(READ_TRACKS_SKILL) >= 9) || macros.UsedItem(REINDEERHORNHELM, REINDEERHORNHELM) || macros.UsedItem(TRACKINGTALISMAN, TRACKINGTALISMAN)) {
+        i++;
+        macros.ShowText("You find some tracks indicating that something headed off this way.");
+        macros.SetFlag(PARTY, TRACKING, 1);
+        if (i == 2) {
+            macros.ShowText("Obviously, their mothers never taught them the importance of a doormat.");
+        }
+        if (i == 4) {
+            macros.ShowText("Neither did the gnome barbarian downstairs.");
+        }
+        if (i == 5) {
+            macros.ShowText("In fact, if you didn't think you were getting close, you would definitely be getting bored.");
+            i = 0;
+        }
+        if (macros.Here > 246) {
+            macros.SetFlag(PARTY, TRACKCTR, i);
+        }
+        else {
+            macros.SetFlag(PARTY, TRACKCTR, 0);
+            i = 0;
+        }
+    }
+}
+
+fun MapEvent05(macros) {
+    var i;
+    i = 0;
+    var k;
+    k = 0;
+    i = macros.GetFlag(PARTY, CTR);
+    i++;
+    k = i;
+    if (k > 19) {
+        k = (k - 20);
+    }
+    if (k > 14) {
+        k = (k - 15);
+    }
+    if (k > 9) {
+        k = (k - 10);
+    }
+    if (k > 4) {
+        k = (k - 5);
+    }
+    if (k < 0) {
+        k = 0;
+    }
+    if (k > 29) {
+        k = 0;
+    }
+    if (i > 30) {
+        i = 0;
+    }
+    macros.SetFlag(PARTY, CTR, i);
+    if ((i == 26) | (i == 20) | (i == 14) | (i == 8) | (i == 2)) {
+        switch (k) {
+            case 0:
+                macros.ShowText("You hear some footsteps running away.");
+                break;
+            case 1:
+                macros.ShowText("You hear someone running towards you.");
+                macros.ShowPicture(GREMLINTHIEF);
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("A gargantuan gang of gremlins runs past you. One of them falls out and talks briefly.");
+                macros.ShowText("'Hide me!  Protect me!  Save me!  A press gang snapped me up and I cannot take any more of this!'");
+                macros.ShowText("A burly sergeant wraps a whip around the gremlin's neck, jerking him back into the squad.  You decide not to interfere.");
+                break;
+            case 2:
+                macros.ShowPicture(DRAGON);
+                macros.ShowText("The dragon examines you with a baleful eye.  It has seen better days.");
+                macros.ShowText("'Wouldst thou help a wyrm in need of a reviving morsel?  Thou hast two legs; surely thou couldst spare me one.  Wouldst thou resist my efforts to consume thee, then?  I feared so.  Were I not wounded, though...'  It limps off.");
+                break;
+            case 3:
+                macros.ShowPicture(HALFLINGTHIEF);
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("'I think we have met before.  In sooth, did I not offer thee some dragonish drachmas?  Howsomever, now that I am equipped with Brunanburh's bow I find my relationships with dragons much improved.  I doubt that the wyrms would say the same, though.'");
+                macros.ShowText("The halfling struts off, smiling.");
+                break;
+            case 4:
+                macros.ShowPicture(GREMLINTHIEF);
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("*");
+                macros.ShowText("A somewhat battered gang o'gremlins decides, rather insultingly, that they are bigger than you are.");
+                macros.SetBooty(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 93);
+                macros.GetMonster(1, 25);
+                if (macros.PartyCount > 1) {
+                    macros.GetMonster(5, 26);
+                }
+                if (macros.PartyCount > 2) {
+                    macros.GetMonster(2, 25);
+                    macros.GetMonster(6, 26);
+                }
+                break;
+        }
+    }
+}
+
+fun MapEvent06(macros) {
+    macros.ShowText("A cold breeze sends shivers down your spine.");
+}
+
+fun MapEvent07(macros) {
+    macros.ShowText("This door leads to Alchemia.");
+    macros.Teleport(9, 1, 251, NORTH);
+}
+
+fun MapEvent08(macros) {
+    macros.ShowText("This door leads back into The Ruined Room.");
+    macros.Teleport(11, 4, 63, WEST);
+}
+
+fun MapEvent09(macros) {
+    if (macros.GetFlag(DUNGEON, SEENRORY) == 0) {
+        if (macros.GetFlag(DUNGEON, LEVEL6ROOM3) == 0) {
+            macros.SetFlag(DUNGEON, LEVEL6ROOM3, 1);
+            macros.ShowPicture(HALFLINGTHIEF);
+            macros.ShowText("Rory's face is streaked with dust.  He pats several huge clouds off his clothes before greeting you.");
+            macros.ShowText("'Welcome to the Attic.  It is a dusty place of small interest.  What little I have learned I will divulge to thee.'");
+            macros.ShowText("'Most of this room is storage, and although there are one or two things worth detecting for, none are worth overly much.'");
+            macros.ShowText("'Many of the doors are locked, and the locks are most difficult to pick.  Thou wilt need the nimblest of fingers and the finest of picks, or a goodly supply of skeleton keys.'");
+            macros.ShowText("'There are dragons and medusae nesting to the south, and the dust does make tracking rather easy.  Still, getting to the southmost wall is not easy.'");
+            macros.ShowText("'I am bound for Alchemia, which is another kettle of fish entirely, or so I have been told.'");
+        }
+        else {
+            if (macros.GetFlag(PARTY, SAWATTIC) == 0) {
+                macros.SetFlag(PARTY, SAWATTIC, 1);
+                macros.ShowPicture(HALFLINGTHIEF);
+                macros.ShowText("'Ah, you have found me out!'  Rory grins bashfully.  'But it was in no wise my intent to keep a secret from thee.");
+                macros.ShowText("'I only recently learned that the milk of human kindness is not only a might heal, but that its beneficence extends to your entire party.'");
+                macros.ShowText("'Since I have improved upon both the picks and my skill with them since we last spoke, I have found a large supply of this milk, and do merely return to replenish my pack.'");
+                macros.ShowText("'Where?  Why, to the south, and warded well, but not so well as to prevent me from ah, how to say, claiming my spoils?  Through the secret door and turn left.'");
+            }
+            else {
+                macros.ShowText("Dusty, musty, and dry: yup, it smells like an attic.");
+            }
+        }
+    }
+    else {
+        macros.ShowText("In the dusty floor you see one halfling foot print, and cannot but wonder if it is Rory's.");
+    }
+}
+
+fun MapEvent0A(macros) {
+    macros.SetFlag(PARTY, TRACKING, 0);
+}
+
+fun MapEvent0B(macros) {
+    if ((macros.GetFlag(PARTY, TRACKING) == 1) && (macros.GetFlag(PARTY, WAR1) == 0)) {
+        macros.SetBooty(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 1244);
+        macros.SetFlag(PARTY, WAR1, 1);
+        macros.GetMonster(1, 25);
+        macros.GetMonster(5, 28);
+        macros.GetMonster(2, 26);
+        macros.GetMonster(6, 28);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 27);
+            macros.GetMonster(4, 27);
+        }
+    }
+    else {
+        if (macros.GetFlag(PARTY, WAR1) == 1) {
+            macros.ShowText("Aye, that was a nasty group you fought here.  But they are here to fight no more.");
+        }
+        else {
+            if (macros.PartyLevel(40)) {
+                macros.ShowText("Well, this sure looks like a lair, but whoever was in it got while the getting was good.");
+            }
+            else {
+                macros.ShowText("Egads!  They were waiting for you with open arms and loaded crossbows!");
+                macros.Damage(macros.MaxHealth / 3);
+                macros.SetFlag(PARTY, WAR1, 1);
+                macros.ModMana(-4000);
+                macros.SetFlag(PARTY, WAR1, 1);
+                macros.SetBooty(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 1244);
+                macros.GetMonster(1, 25);
+                macros.GetMonster(5, 28);
+                macros.GetMonster(2, 26);
+                macros.GetMonster(6, 28);
+                if (macros.PartyCount > 2) {
+                    macros.GetMonster(3, 27);
+                    macros.GetMonster(4, 27);
+                }
+            }
+        }
+    }
+}
+
+fun MapEvent0C(macros) {
+    if (macros.GetFlag(PARTY, WAR2) == 1) {
+        macros.ShowText("You have already cleaned out this lair.  No need to fear any further ambushes, at least for today.");
+        macros.ClearWall(macros.Here, macros.Facing);
+        macros.PlaceWallItem(macros.Here, macros.Facing, DOOR);
+    }
+    else {
+        if (macros.GetFlag(PARTY, TRACKING) == 1) {
+            if (macros.HasItem(TOEOFFROG)) {
+                macros.ShowText("Congratulations!  By tracking carefully and by possessing the critical item needed to cow these wyrms, you are going to have a much easier time with this battle!");
+                macros.ShowText("Although the notion of a cowed wyrm is a bit much for you to imagine all at once.");
+                macros.Teleport(11, 3, 240, WEST);
+            }
+            else {
+                macros.ShowText("You carefully sneak up to the door.  You can almost feel it pulse with their breathing.  You take a deep breath in preparation, and charge!");
+                macros.ShowText("Well, wouldn't you rather I described your entrance as a heroic charge rather than a cautious peeking around the door?  I know I would!");
+                macros.Teleport(11, 3, 241, WEST);
+            }
+        }
+        else {
+            if (macros.HasItem(TOEOFFROG)) {
+                macros.ShowText("Your froggy toe begins to pulse, as if detecting those beasts against which it is purposed.  Hearing them prepare for you, you charge to the attack!");
+                macros.ShowText("And next time, maybe you won't have to charge through sheets of flame!");
+                macros.Damage(4000);
+                macros.Teleport(11, 3, 242, WEST);
+            }
+            else {
+                macros.ClearWall(macros.Here, macros.Facing);
+                macros.PlaceWallItem(DOOR, macros.Here, macros.Facing);
+            }
+        }
+    }
+}
+
+fun MapEvent0D(macros) {
+    if (macros.GetFlag(PARTY, WAR2) == 0) {
+        macros.NoManaZone;
+        macros.NoHealZone;
+        macros.ShowText("Everything's perfectly normal, if you call receiving a sudden faceful of mana sucking poison normal.  No, wait.  It will come to you if you just give it a second.  Eureka!");
+        macros.ShowText("It's one of those, what do they call it?  Deathtraps!  That's the ticket!");
+        macros.Damage(macros.MaxHealth / 2);
+        macros.ModMana(-5000);
+    }
+    else {
+        macros.ShowText("Fortunately for you nobody's left to wyrm the ambush.");
+    }
+}
+
+fun MapEvent0E(macros) {
+    if (macros.GetFlag(PARTY, WAR2) == 0) {
+        macros.ShowText("There they are, ready and waiting!");
+        macros.SetFlag(PARTY, WAR2, 1);
+        macros.SetBooty(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 3244);
+        macros.GetMonster(1, 37);
+        macros.GetMonster(5, 37);
+        macros.GetMonster(2, 37);
+        macros.GetMonster(6, 37);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 37);
+            macros.GetMonster(4, 37);
+        }
+    }
+    else {
+        macros.ShowText("The lair is empty.");
+    }
+}
+
+fun MapEvent0F(macros) {
+    if (macros.GetFlag(PARTY, WAR2) == 0) {
+        macros.ShowText("There they are, ready and waiting!");
+        macros.SetFlag(PARTY, WAR2, 1);
+        macros.SetBooty(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 3244);
+        macros.GetMonster(1, 37);
+        macros.GetMonster(5, 37);
+        macros.GetMonster(2, 37);
+        macros.GetMonster(6, 36);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 36);
+            macros.GetMonster(4, 37);
+        }
+    }
+    else {
+        macros.ShowText("The lair is empty.");
+    }
+}
+
+fun MapEvent10(macros) {
+    if (macros.GetFlag(PARTY, WAR2) == 0) {
+        macros.ShowText("There they are, ready and waiting!");
+        macros.SetFlag(PARTY, WAR2, 1);
+        macros.SetBooty(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 3244);
+        macros.GetMonster(1, 37);
+        macros.GetMonster(5, 36);
+        macros.GetMonster(2, 37);
+        macros.GetMonster(6, 36);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 36);
+            macros.GetMonster(4, 36);
+        }
+    }
+    else {
+        macros.ShowText("The lair is empty.");
+    }
+}
+
+fun MapEvent11(macros) {
+    if (macros.GetFlag(PARTY, WAR2) == 0) {
+        macros.ShowText("There they are, ready and waiting!");
+        macros.SetFlag(PARTY, WAR2, 1);
+        macros.SetBooty(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 3244);
+        macros.GetMonster(1, 35);
+        macros.GetMonster(5, 36);
+        macros.GetMonster(2, 35);
+        macros.GetMonster(6, 36);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 36);
+            macros.GetMonster(4, 36);
+        }
+    }
+    else {
+        macros.ShowText("The lair is empty.");
+    }
+}
+
+fun MapEvent12(macros) {
+    if (macros.GetFlag(PARTY, WAR3) == 1) {
+        macros.ClearWall(macros.Here, macros.Facing);
+    }
+    else {
+        if ((macros.GetFlag(PARTY, TRACKING) == 1) && (macros.HasItem(FILLETOFAFENNYSNAKE))) {
+            macros.ShowText("Ah ha!  Medusa ho!  And no, that is most definitely not street slang!  Boy, I always have to watch what I say around you, don't I?");
+            macros.Teleport(11, 3, 237, EAST);
+        }
+        else {
+            if (macros.HasItem(FILLETOFAFENNYSNAKE)) {
+                macros.ShowText("Medusae ho!  You charge into their ambush, having little choice in the matter!");
+                macros.Damage(3000);
+                macros.ModMana(-1000);
+                macros.Teleport(11, 3, 238, EAST);
+            }
+            else {
+                if (macros.GetFlag(PARTY, TRACKING) == 1) {
+                    macros.ShowText("Medusae ho!  You charge into their ambush, having little choice in the matter!");
+                    macros.Teleport(11, 3, 239, EAST);
+                }
+                else {
+                    macros.ShowText("Medusae ho!  You charge into their ambush, having little choice in the matter!");
+                    macros.Damage(3000);
+                    macros.ModMana(-1000);
+                    macros.Teleport(11, 3, 239, EAST);
+                }
+            }
+        }
+    }
+}
+
+fun MapEvent13(macros) {
+    if (macros.GetFlag(PARTY, SAWDUST) == 0) {
+        macros.ShowText("There are some footprints in the dust leading to the east on the southern side of the partition.");
+        macros.SetFlag(PARTY, SAWDUST, 1);
+    }
+    else {
+        macros.ShowText("This closet appears much the same as the last time you were here.");
+    }
+}
+
+fun MapEvent14(macros) {
+    if (macros.GetFlag(PARTY, WAR3) == 0) {
+        macros.SetFlag(PARTY, WAR3, 1);
+        macros.SetBooty(MILKOFHUMANKINDNESS, FILLETOFAFENNYSNAKE, 0, 0, 0, 1244);
+        macros.GetMonster(1, 38);
+        macros.GetMonster(5, 39);
+        macros.GetMonster(2, 38);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(6, 39);
+            macros.GetMonster(3, 38);
+            macros.GetMonster(4, 38);
+        }
+    }
+    else {
+        macros.ShowText("You now know exactly how many snake steaks there are in a medusa's coif; exactly one fenny filet's worth!");
+    }
+}
+
+fun MapEvent15(macros) {
+    if (macros.GetFlag(PARTY, WAR3) == 0) {
+        macros.SetFlag(PARTY, WAR3, 1);
+        macros.SetBooty(MILKOFHUMANKINDNESS, FILLETOFAFENNYSNAKE, 0, 0, 0, 1244);
+        macros.GetMonster(1, 39);
+        macros.GetMonster(5, 40);
+        macros.GetMonster(2, 40);
+        macros.GetMonster(6, 39);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 40);
+            macros.GetMonster(4, 38);
+        }
+    }
+    else {
+        macros.ShowText("You now know exactly how many snake steaks there are in a medusa's coif; exactly one fenny filet's worth!");
+    }
+}
+
+fun MapEvent16(macros) {
+    if (macros.GetFlag(PARTY, WAR3) == 0) {
+        macros.SetFlag(PARTY, WAR3, 1);
+        macros.SetBooty(MILKOFHUMANKINDNESS, FILLETOFAFENNYSNAKE, 0, 0, 0, 1244);
+        macros.GetMonster(1, 40);
+        macros.GetMonster(5, 40);
+        macros.GetMonster(2, 40);
+        macros.GetMonster(6, 40);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(3, 40);
+            macros.GetMonster(4, 40);
+        }
+    }
+    else {
+        macros.ShowText("You now know exactly how many snake steaks there are in a medusa's coif; exactly one fenny filet's worth!");
+    }
+}
+
+fun MapEvent17(macros) {
+    macros.ShowPicture(MINOTAUR);
+    if (macros.GetFlag(PARTY, GOTTODAYSMILK) == 1) {
+        macros.ShowText("'Beat it, kid, you bother me.'");
+    }
+    else {
+        macros.ShowText("The minotaur is calling out, and there is rather a long line waiting in front of him.  You step in line and listen to his patter.");
+        macros.ShowText("'Step right up, step right up, the freshest dairy product known to cow.  Yes indeed, the fabled milk of human kindness, just five hundred smackeroos and a suitable container.'");
+        macros.ShowText("'One to a customer, no need to shove, there's plenty more where that came from.  Hey there, whippersnapper, what's your hurry?  Everyone gets their turn.'");
+        if (macros.HasItem(BLUEBERRYBREW)) {
+            macros.TakeItem(BLUEBERRYBREW);
+            macros.GiveItem(MILKOFHUMANKINDNESS);
+            macros.ModGold(-500);
+            macros.SetFlag(PARTY, GOTTODAYSMILK, 1);
+        }
+        else {
+            if (macros.HasItem(ELDERBERRYELIXIR)) {
+                macros.TakeItem(ELDERBERRYELIXIR);
+                macros.GiveItem(MILKOFHUMANKINDNESS);
+                macros.ModGold(-500);
+                macros.SetFlag(PARTY, GOTTODAYSMILK, 1);
+            }
+            else {
+                if (macros.HasItem(WOADWINE)) {
+                    macros.TakeItem(WOADWINE);
+                    macros.GiveItem(MILKOFHUMANKINDNESS);
+                    macros.ModGold(-500);
+                    macros.SetFlag(PARTY, GOTTODAYSMILK, 1);
+                }
+                else {
+                    macros.ShowText("'I said suitable, and those lousy bottles are at least a pants leg shy.  Come back with a bottle that held something that won't spoil the ineluctable flavor of the milk and you'll get some.'");
+                    macros.ShowText("'Now off with you.  I've got paying customers waiting, and the line isn't moving with you parked here!  Begone, rapscallion!'");
+                }
+            }
+        }
+        if (macros.GetFlag(PARTY, GOTTODAYSMILK) == 1) {
+            macros.ShowText("'It's been a business doing kefir with you.  Be sure and keep that bottle sealed until you use it.  Why, just last week the seal dropped a bottle and it took a set of superhuman lungs to retrieve it!'");
+            macros.ShowText("This guy's weird (heck, this whole game is listing about three degrees to port) but the milk of human kindness is well worth the effort.");
+        }
+    }
+}
+
+fun MapEvent18(macros) {
+    if (macros.GetFlag(PARTY, WAR4) == 0) {
+        macros.SetFlag(PARTY, WAR4, 1);
+        if (macros.GetFlag(PARTY, GOTTODAYSMILK) == 1) {
+            macros.ShowText("A miserly mob of 'Mc's' decides they can take your milk from you!");
+        }
+        else {
+            macros.ShowText("A menacing mob of 'Mc's' decides that they can use their milk of human kindness to defeat you!");
+        }
+        macros.SetBooty(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
+        macros.GetMonster(1, 33);
+        macros.GetMonster(2, 34);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(3, 34);
+            macros.GetMonster(4, 33);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 34);
+            macros.GetMonster(6, 33);
+        }
+    }
+    else {
+        macros.ShowText("You really put those dukes up to a fight!");
+    }
+}
+
+fun MapEvent19(macros) {
+    if (macros.GetFlag(PARTY, WAR5) == 0) {
+        macros.SetFlag(PARTY, WAR5, 1);
+        macros.ShowText("A terrible team of trolls decides that you are interupting their services.  Or, knowing trolls, maybe they are just a might peckish.");
+        macros.SetBooty(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
+        macros.GetMonster(1, 32);
+        macros.GetMonster(2, 32);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(3, 32);
+            macros.GetMonster(4, 32);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 32);
+            macros.GetMonster(6, 32);
+        }
+    }
+    else {
+        macros.ShowText("You really showed them who was in con-troll!");
+    }
+}
+
+fun MapEvent1A(macros) {
+    if (macros.GetFlag(PARTY, WAR6) == 0) {
+        macros.SetFlag(PARTY, WAR6, 1);
+        macros.ShowText("Eewwe!  Evil Ectoplasmic Entities!  And you just had your armor deslimed!");
+        macros.SetBooty(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
+        macros.GetMonster(1, 29);
+        macros.GetMonster(2, 29);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(3, 29);
+            macros.GetMonster(4, 29);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 29);
+            macros.GetMonster(6, 29);
+        }
+    }
+    else {
+        macros.ShowText("You already ended those entity's enmity entirely!");
+    }
+}
+
+fun MapEvent1B(macros) {
+    if (macros.GetFlag(PARTY, WAR7) == 0) {
+        macros.SetFlag(PARTY, WAR7, 1);
+        macros.ShowText("Are those but phantoms of the mind, or are they real?  Either way, they are trying to kill you!");
+        macros.SetBooty(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
+        macros.GetMonster(1, 30);
+        macros.GetMonster(2, 30);
+        if (macros.PartyCount > 1) {
+            macros.GetMonster(3, 30);
+            macros.GetMonster(4, 30);
+        }
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 30);
+            macros.GetMonster(6, 30);
+        }
+    }
+    else {
+        macros.ShowText("They called themselves powerful protoplasmic phantoms, but you thought they fought like normal run of the mill protoplasmic phantoms.  Or maybe you're just getting good at this!");
+    }
+}
+
+fun MapEvent1C(macros) {
+    if (macros.GetFlag(PARTY, WAR8) == 0) {
+        macros.SetFlag(PARTY, WAR8, 1);
+        macros.ShowText("A veritable village of vampires has decided that you are the blood bank.  And they intend to make a withdrawal!");
+        macros.SetBooty(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
+        macros.GetMonster(1, 31);
+        macros.GetMonster(2, 31);
+        macros.GetMonster(3, 31);
+        macros.GetMonster(4, 31);
+        if (macros.PartyCount > 2) {
+            macros.GetMonster(5, 31);
+            macros.GetMonster(6, 31);
+        }
+    }
+    else {
+        macros.ShowText("You really showed them that the blood bank was closed.");
+    }
+}
+
+fun MapEvent1D(macros) {
+    macros.NoManaZone;
+    macros.NoHealZone;
+    macros.ShowText("This room is so dusty that you can barely breath.  In fact, the dust is chokingly thick!");
+    macros.Damage(1000);
+}
+
+fun MapEvent1E(macros) {
+    macros.ShowText("You find an old dressmaker's dummy.");
+}
+
+fun MapEvent1F(macros) {
+    macros.ShowText("You find an empty trunk.  Not an elephant's, either.");
+}
+
+fun MapEvent20(macros) {
+    macros.ShowText("You find a cigar box full of old baseball cards.  However, since you don't know what a baseball card is, you ignore it.");
+}
+
+fun MapEvent21(macros) {
+    macros.ShowText("You find an old sled.  Evidently it didn't go into the furnace after all.");
+}
+
+fun MapEvent22(macros) {
+    macros.ShowText("You find a pair of red sequined dancing shoes.");
+}
+
+fun MapEvent23(macros) {
+    macros.ShowText("You find a thing shaped like a four battery flashlight.  When you twist it a beam of gleaming light extends out about four feet, making a funny humming noise.  You decide it's worthless in a fantasy game, and discard it.");
+}
+
+fun MapEvent24(macros) {
+    macros.ShowText("You find an old blonde fright wig and a rubber horn.  And two hard-boiled eggs.");
+}
+
+fun MapEvent25(macros) {
+    macros.ShowText("You find a large warhammer with adornments of lightning worked into it, but you're not strong enough to lift it.");
+}
+
+fun MapEvent26(macros) {
+    macros.ShowText("You find a black cricket bat.");
+}
+
+fun MapEvent27(macros) {
+    macros.ShowText("You find a philosopher's stone.  Not being a philosopher, you leave it behind.");
+}
+
+fun MapEvent28(macros) {
+    macros.ShowText("You find a pair of x-ray glasses.  At your first glance you can see through the armor and clothes of a member of the opposite sex three rooms away.  You blush beet red and quickly take them off.");
+}
+
+fun MapEvent29(macros) {
+    macros.ShowText("You find a Walther PPK.  You use it to crack a walnut.  It doesn't do a very good job, so you abandon it.");
+}
+
+fun MapEvent2A(macros) {
+    macros.ShowText("You find a black cape with a strange serpentine emblem on it.  You decide to leave it here.");
+}
+
+fun MapEvent2B(macros) {
+    macros.ShowText("You find a long cherry wood pipe and some pipe tobacco stuffed inside a slipper.  However, you don't smoke, or at least you restrict your smoking to the aftermath of being fireballed.");
+}
+
+fun MapEvent2C(macros) {
+    macros.ShowText("You find an ornate, gilded bottle.  You shake it a few times to see if it's empty, thoroughly smashing the genie inside.  There will be no wishes for you today!");
+}
+
+fun MapEvent2D(macros) {
+    macros.ShowText("You find a pair of old football shoes.");
+}
+
+fun MapEvent2E(macros) {
+    macros.ShowText("You find a set of tiki lamps.  They don't taste very good, so you leave them behind.");
+}
+
+fun MapEvent2F(macros) {
+    macros.ShowText("You find a set of oars, but, and this is indeed a sad commentary on your life, no boat to row.");
+}
+
+fun MapEvent30(macros) {
+    macros.ShowText("You find an old orange life preserver.  Funny, it didn't seem to do much for the stiff wearing it.");
+}
+
+fun MapEvent31(macros) {
+    macros.ShowText("You find an old bowling ball.");
+}
+
+fun MapEvent32(macros) {
+    macros.ShowText("You find a carton full of baby pictures.  Yes, wraiths are just as ugly as babies as they are fully grown.  You leave it.");
+}
+
+fun MapEvent33(macros) {
+    macros.ShowText("There is a sign on the wall that reads: 'The Wizards of Cawdor (WoC) have thoroughly examined the room at the end of this hall.  It contains nothing of value or interest for you, and will almost certainly kill you.  Enter at your own risk.'");
+    macros.ShowText("Not a very cheery message, is it?  And everybody knows that wizards never lie.  I hear there's a new Mead Hall that just opened downstairs.  Suppose we go there instead?");
+}

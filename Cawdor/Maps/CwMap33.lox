@@ -1,0 +1,1359 @@
+#include "defines.loh"
+#include "flags.loh"
+
+#define SEEN_IT 0
+#define DONE_IT 1
+#define LETTER_STR_POS 0
+#define NUMBER_STR_POS 0
+#define CAROUSEL_REVS 1
+#define MONST_WIMPY_GRDS 25
+#define MONST_MAJOR_DOMO 26
+#define MONST_OGRESS 27
+#define MONST_FAKE_CHOR 28
+#define MONST_NEXUS_1 29
+#define MONST_NEXUS_2 30
+#define MONST_NEXUS_3 31
+#define MONST_NEXUS_4 32
+#define MONST_MIRRHALL_A 33
+#define MONST_MIRRHALL_B 34
+#define MONST_MIRRHALL_C 35
+#define MONST_VORTEX_1 36
+#define MONST_VORTEX_2 37
+#define MONST_VORTEX_3 38
+#define MONST_PENALTY 39
+#define MONST_TWISTY 13
+#define SHADAX_KILLED_BIT 0x01
+#define CHISS_KILLED_BIT 0x02
+#define CHORONZAR_KILLED_BIT 0x04
+#define GAOLER_KILLED_BIT 0x08
+#define VORTEX_SQUARE 0
+#define VORTEX_FACING 1
+#define TWISTY_COUNT 2
+#define CHOR_TAUNT 3
+#define TOWER_DISKS1 4
+#define TOWER_DISKS2 5
+#define TOWER_DISKS3 6
+#define CAROUSEL_CTRL 7
+#define EASTER_EGG 8
+#define COASTER_STOPPING 9
+#define FAKE_CHOR_KILLED 10
+#define CHOR_GHOST_SEEN 11
+#define FAKE_CHOR_SEEN 12
+#define CAROUSEL_CNT 25
+#define MAJOR_DOMO 26
+#define OGRESS_KILLED 27
+#define NEXUS_PUZZLE 29
+#define VORTEX_COUNT 30
+#define CHORONZAR_PIC (10 + HUMANBARBARIAN - 1)
+#define MAJORDOMO_PIC (18 + HUMANBARBARIAN - 1)
+#define ARCHITECT_PIC (13 + HUMANBARBARIAN - 1)
+#define HANDMAIDEN_PIC (3 + HUMANBARBARIAN - 1)
+#define ALCHEMIST_PIC (25 + HUMANBARBARIAN - 1)
+#define MASTERPUZZLER_PIC (22 + HUMANBARBARIAN - 1)
+#define PRISONER1_PIC (4 + HUMANBARBARIAN - 1)
+#define PRISONER2_PIC (6 + HUMANBARBARIAN - 1)
+#define PRISONER3_PIC (9 + HUMANBARBARIAN - 1)
+var aStr = "ANOMIE";
+var bStr = "BEWILDERMENT";
+var cStr = "CONFUSION";
+var dStr = "DESPAIR";
+var eStr = "ENNUI";
+var fStr = "FATALISM";
+var gStr = "GRIEF";
+var hStr = "HOPELESSNESS";
+var menageDescDefault = "There is a pile of moldering bones here, bound by rusty chains.";
+var menageDescPrisoner = "A wild-eyed, delirious prisoner is slumped in the corner, confined by a glowing neck-manacle.";
+var menageRescueThanks = "The prisoner rises, bows deeply, and thanks you.";
+var menageTwistyClue = "'I am Shelia, erstwhile architect to His Madness. I was ordered to design the chambers of this maze to be indistinguishable. But a number of them have unique features. As for the rest, perhaps a clever party could mark them also...'";
+var menageDoorsClue = "'I am Gravus, a Master Puzzlemaker. I created the traps here. The Puzzlers' Code prohibits divulging solutions, but listen: At least one door speaks the truth, and at least one lies. But first you must raise The Tower.";
+var menageAlchemyClue = "'Choronzar has been performing alchemical experiments using the precious metals. If you can complete these experiments perhaps they will help you defeat him.'";
+var menageBottleClue = "'I was taken with my lady Naomi from her chamber room on the very eve of her wedding. Twas awful! Now Choronzar's stolen her spirit and locked it in a bottle so we can never leave! One of the other prisoners told me it was tossed into The Vortex.'";
+var menageWeird1 = "'... it's a ramshonkle junkycam ...'";
+var menageWeird2 = "'... flowing with and curling in ... it doesn't make any go ...'";
+var menageWeird3 = "'... she was a beautiful lad ...'";
+var menageWeird4 = "'... the three-eyed man in the kingdom of the blind ... ' the brabham and the braugham ...'";
+var menageWeird5 = "'... giant meteor, KILL ME NOW ...'";
+var menageWeird6 = "'... a godzillion ... killyajolts ... a hundred jillion killyazolts ... '";
+var menageWeird7 = "'... is points-of-light happy? .... no, points-of-light is not happy ...'";
+var door1Str = "The middle door does not lead to the maze.";
+var door2Str = "I do not lead to the maze.";
+var door3Str = "'I lead to the maze.'";
+var redHerring = "Pushing the BIG RED BUTTON opens the door to the Easter Egg.";
+var majorDomo1 = "As you step through the archway a bald, portly, little man in coat and tails hails you. 'Greetings', he beams, 'and welcome to the Halfway House! I am the Major Domo.'";
+var majorDomo2 = "The Major Domo falls into step with you. 'You look tired,' he observes, 'but you've come the right place!' He pauses to blot at his brow with a flannel kerchief. 'The pools will have you feeling right in a jiffy!'";
+var majorDomo3 = "The Major Domo continues: 'You mustn't give up, you know. A real adventurer NEVER gives up. Surrender is expressly forbidden by the Hero's Creed and reflects very poorly upon one's ancestry.'";
+var majorDomo4 = "'And besides, you're halfway there! That's why we call this place the Halfway House, after all.  It's all downhill from here!'";
+var majorDomo5 = "The Major Domo prattles on: 'So take your time, catch your breath, and steel yourself for the glorious battles to come. Farewell!'";
+
+fun SixMonst(macros, monster) {
+    var i;
+    var num;
+    switch (macros.PartyCount) {
+        case 1:
+            num = 2;
+            break;
+        case 2:
+            num = 3;
+            break;
+        case 3:
+            num = 5;
+            break;
+        case 4:
+        default: 
+            num = 6;
+            break;
+    }
+    for (i = 1; i <= num; i++) {
+        macros.GetMonster(i, monster);
+    }
+}
+
+fun MapEvent01(macros) {
+    macros.NoJoin;
+    if (macros.PartyCount > 1) {
+        macros.ShowText("The coaster cars are only big enough for one of you at a time.");
+        macros.SetFlag(PARTY, COASTER_STOPPING, 0);
+        macros.Teleport(13, 2, 222, NORTH);
+    }
+    switch (macros.Here) {
+        case 235:
+            macros.Rotate(EAST);
+            macros.Teleport(13, 2, 236, EAST);
+            break;
+        case 236:
+            macros.Teleport(13, 2, 237, EAST);
+            break;
+        case 237:
+            macros.SetFlag(PARTY, COASTER_STOPPING, 1);
+            macros.Teleport(13, 2, 238, EAST);
+            break;
+        case 238:
+            macros.BlockWall(macros.Here, EAST);
+            macros.BlockWall(macros.Here, WEST);
+            if (macros.FlagOn(PARTY, COASTER_STOPPING)) {
+                macros.ShowText("The coaster stops.");
+                macros.SetFlag(PARTY, COASTER_STOPPING, 0);
+                macros.Teleport(13, 2, 222, NORTH);
+            }
+            else {
+                if (macros.HasItem(FUNHOUSEKEY)) {
+                    macros.ShowText("You twist the Funhouse Key in the keyhole. With a lurch the car begins to rumble forward along the rails.");
+                    macros.Teleport(13, 2, 239, EAST);
+                }
+            }
+            break;
+        case 239:
+            macros.Teleport(13, 1, 118, NORTH);
+            break;
+        case 251:
+            macros.Rotate(NORTH);
+            macros.Teleport(13, 2, 235, NORTH);
+            break;
+        case 252:
+        case 253:
+        case 254:
+        case 255:
+            macros.Teleport(13, 2, macros.Here - 1, WEST);
+            break;
+    }
+}
+
+fun MapEvent03(macros) {
+    switch (macros.Facing) {
+        case NORTH:
+            macros.ShowText("WELCOME TO THE FUNHOUSE!!!");
+            macros.ShowText("Rules of the Establishment:");
+            macros.ShowText("1. No spitting.");
+            macros.ShowText("2. No cussing.");
+            macros.ShowText("3. Please don't feed the monsters!");
+            macros.ShowText("     -- the Management");
+            break;
+        case SOUTH:
+            macros.ShowText("The roller coaster is here.");
+            break;
+        default: 
+            break;
+    }
+}
+
+fun MapEvent04(macros) {
+    var square = 245;
+    var picture;
+    macros.ShowText("The magic mirror twists and warps your reflection.");
+    switch (macros.Here) {
+        case 138:
+            picture = GNOMEBARBARIAN;
+            break;
+        case 139:
+            picture = ORCBARBARIAN;
+            break;
+        case 154:
+            picture = ELFBARBARIAN;
+            break;
+        case 171:
+            picture = HUMANBARBARIAN;
+            square = 54;
+            break;
+        case 187:
+            picture = ORCKNIGHT;
+            break;
+        case 190:
+            picture = TROLLKNIGHT;
+            break;
+        case 204:
+            picture = DWARFKNIGHT;
+            break;
+        case 207:
+            picture = HALFLINGKNIGHT;
+            break;
+        case 219:
+            picture = ORCRANGER;
+            break;
+        case 221:
+            picture = ELFRANGER;
+            break;
+        default: 
+            break;
+    }
+    macros.ShowPicture(picture);
+    macros.Teleport(13, 2, square, SOUTH);
+}
+
+fun MapEvent05(macros) {
+    var cntFlag;
+    macros.NoJoin;
+    if (macros.PartyCount > 1) {
+        macros.ShowText("The horse you are riding is only big enough for one. You lose your grip!");
+        macros.Teleport(13, 2, 141, WEST);
+    }
+    if (macros.FlagOff(PARTY, CAROUSEL_CTRL)) {
+        cntFlag = macros.GetFlag(PARTY, CAROUSEL_CNT);
+        switch ((macros.Here * 256) + macros.Facing) {
+            case ((141 * 256) + WEST):
+                if (cntFlag > 0) {
+                    cntFlag--;
+                    macros.SetFlag(PARTY, CAROUSEL_CNT, cntFlag);
+                    macros.Rotate(SOUTH);
+                    macros.Teleport(13, 2, 157, SOUTH);
+                }
+                else {
+                    macros.ShowText("The ride ends.");
+                    macros.Teleport(13, 2, 140, WEST);
+                }
+                break;
+            case ((141 * 256) + SOUTH):
+            case ((141 * 256) + EAST):
+            case ((141 * 256) + NORTH):
+                macros.Rotate(SOUTH);
+                macros.Teleport(13, 2, 157, SOUTH);
+                break;
+            case ((142 * 256) + WEST):
+                macros.Teleport(13, 2, 141, WEST);
+                break;
+            case ((143 * 256) + NORTH):
+                macros.Rotate(WEST);
+                macros.Teleport(13, 2, 142, WEST);
+                break;
+            case ((157 * 256) + SOUTH):
+                macros.Teleport(13, 2, 173, SOUTH);
+                break;
+            case ((159 * 256) + NORTH):
+                macros.Teleport(13, 2, 143, NORTH);
+                break;
+            case ((173 * 256) + SOUTH):
+                macros.Rotate(EAST);
+                macros.Teleport(13, 2, 174, EAST);
+                break;
+            case ((174 * 256) + EAST):
+                macros.Teleport(13, 2, 175, EAST);
+                break;
+            case ((175 * 256) + EAST):
+                macros.ShowText("You reach for the brass ring, but it's stuck.");
+                macros.Rotate(NORTH);
+                macros.Teleport(13, 2, 159, NORTH);
+                break;
+            default: 
+                break;
+        }
+    }
+}
+
+fun MapEvent06(macros) {
+    if (!macros.HasItem(BRASSRING)) {
+        macros.ShowText("With a mighty tug you dislodge the brass ring from the armature.");
+        macros.GiveItem(BRASSRING);
+    }
+}
+
+fun MapEvent07(macros) {
+    char * str;
+    if (macros.GetFlag(PARTY, CAROUSEL_CTRL) == 0) {
+        macros.ShowText("You throw the rusty knife switch.");
+        macros.SetFlag(PARTY, CAROUSEL_CTRL, 1);
+    }
+}
+
+fun MapEvent08(macros) {
+    if (macros.FlagOn(ROOM, DONE_IT)) {
+        macros.Teleport(13, 2, 194, NORTH);
+    }
+    else {
+        if (macros.UsedItem(NAOMISKEY, NAOMISKEY)) {
+            macros.SetFlag(ROOM, DONE_IT, 1);
+            macros.ShowText("You unlock the door.");
+        }
+        else {
+            macros.ShowText("This door requires a special key.");
+        }
+    }
+}
+
+fun MapEvent09(macros) {
+    macros.Teleport(13, 2, 103, WEST);
+}
+
+fun MapEvent0A(macros) {
+    macros.BlockFloor(macros.Here);
+}
+
+fun MapEvent0B(macros) {
+    if (macros.Health != macros.MaxHealth) {
+        macros.ShowText("The cool water invigorates you.");
+        macros.Heal(macros.MaxHealth);
+    }
+}
+
+fun MapEvent0C(macros) {
+    macros.ShowText("The fizzy water refreshes you.");
+    macros.ModMana(30000);
+}
+
+fun MapEvent0D(macros) {
+    macros.Teleport(13, 2, 48, EAST);
+}
+
+fun MapEvent0E(macros) {
+    var flag;
+    var strPtr;
+    flag = macros.GetFlag(PARTY, MAJOR_DOMO);
+    if (flag <= 4) {
+        macros.ShowPicture(MAJORDOMO_PIC);
+    }
+    switch (flag) {
+        case 0:
+            strPtr = majorDomo1;
+            break;
+        case 1:
+            strPtr = majorDomo2;
+            break;
+        case 2:
+            strPtr = majorDomo3;
+            break;
+        case 3:
+            strPtr = majorDomo4;
+            break;
+        case 4:
+            strPtr = majorDomo5;
+            break;
+    }
+    if (strPtr != NULL) {
+        flag++;
+        macros.SetFlag(PARTY, MAJOR_DOMO, flag);
+        macros.ShowText(strPtr);
+    }
+}
+
+fun MapEvent10(macros) {
+    if (macros.GetFlag(PARTY, MAJOR_DOMO) == 6) {
+        macros.ShowText("The Major Domo spies you. His eyes widen and he begins to shake with rage. 'No no no! You musn't give up, whatever you do! Show some pluck, some spirit, some gumption for heaven's sake!' He begins to whack at you with an andiron.");
+        macros.SetFlag(PARTY, MAJOR_DOMO, 7);
+        macros.GetMonster(1, MONST_MAJOR_DOMO);
+    }
+}
+
+fun MapEvent11(macros) {
+    var switchFlag;
+    var destSquare;
+    var destFacing;
+    switchFlag = macros.Here;
+    switchFlag = switchFlag * 256;
+    switchFlag = switchFlag + macros.Facing;
+    switch (switchFlag) {
+        case ((48 * 256) + NORTH):
+            destSquare = 117;
+            destFacing = SOUTH;
+            break;
+        case ((48 * 256) + EAST):
+            destSquare = 48;
+            destFacing = EAST;
+            break;
+        case ((48 * 256) + WEST):
+            destSquare = 65;
+            destFacing = SOUTH;
+            break;
+        case ((64 * 256) + EAST):
+            destSquare = 160;
+            destFacing = WEST;
+            break;
+        case ((64 * 256) + SOUTH):
+            destSquare = 101;
+            destFacing = NORTH;
+            break;
+        case ((64 * 256) + WEST):
+            destSquare = 112;
+            destFacing = SOUTH;
+            break;
+        case ((112 * 256) + NORTH):
+            destSquare = 102;
+            destFacing = NORTH;
+            break;
+        case ((112 * 256) + EAST):
+            destSquare = 116;
+            destFacing = EAST;
+            break;
+        case ((112 * 256) + WEST):
+            destSquare = 119;
+            destFacing = WEST;
+            break;
+        case ((128 * 256) + EAST):
+            destSquare = 64;
+            destFacing = NORTH;
+            break;
+        case ((128 * 256) + SOUTH):
+            destSquare = 112;
+            destFacing = WEST;
+            break;
+        case ((128 * 256) + WEST):
+            destSquare = 144;
+            destFacing = WEST;
+            break;
+        case ((144 * 256) + NORTH):
+            destSquare = 160;
+            destFacing = NORTH;
+            break;
+        case ((144 * 256) + EAST):
+            destSquare = 117;
+            destFacing = WEST;
+            break;
+        case ((144 * 256) + WEST):
+            destSquare = 48;
+            destFacing = SOUTH;
+            break;
+        case ((160 * 256) + EAST):
+            destSquare = 128;
+            destFacing = NORTH;
+            break;
+        case ((160 * 256) + SOUTH):
+            destSquare = 144;
+            destFacing = SOUTH;
+            break;
+        case ((160 * 256) + WEST):
+            destSquare = 101;
+            destFacing = SOUTH;
+            break;
+        case ((116 * 256) + NORTH):
+            destSquare = 128;
+            destFacing = NORTH;
+            break;
+        case ((116 * 256) + SOUTH):
+            destSquare = 119;
+            destFacing = WEST;
+            break;
+        case ((116 * 256) + WEST):
+            destSquare = 48;
+            destFacing = EAST;
+            break;
+        case ((117 * 256) + NORTH):
+            destSquare = 117;
+            destFacing = SOUTH;
+            break;
+        case ((117 * 256) + EAST):
+            destSquare = 102;
+            destFacing = SOUTH;
+            break;
+        case ((117 * 256) + SOUTH):
+            destSquare = 160;
+            destFacing = WEST;
+            break;
+        case ((101 * 256) + NORTH):
+            destSquare = 116;
+            destFacing = NORTH;
+            break;
+        case ((101 * 256) + SOUTH):
+            destSquare = 64;
+            destFacing = NORTH;
+            break;
+        case ((101 * 256) + WEST):
+            destSquare = 128;
+            destFacing = EAST;
+            break;
+        case ((102 * 256) + NORTH):
+            destSquare = 144;
+            destFacing = SOUTH;
+            break;
+        case ((102 * 256) + EAST):
+            destSquare = 117;
+            destFacing = SOUTH;
+            break;
+        case ((102 * 256) + SOUTH):
+            destSquare = 2;
+            destFacing = SOUTH;
+            break;
+        case ((118 * 256) + NORTH):
+            destSquare = 128;
+            destFacing = NORTH;
+            break;
+        case ((118 * 256) + SOUTH):
+            destSquare = 144;
+            destFacing = SOUTH;
+            break;
+        case ((118 * 256) + WEST):
+            destSquare = 117;
+            destFacing = NORTH;
+            break;
+        case ((119 * 256) + NORTH):
+            destSquare = 101;
+            destFacing = NORTH;
+            break;
+        case ((119 * 256) + EAST):
+            destSquare = 11;
+            destFacing = WEST;
+            break;
+        case ((119 * 256) + SOUTH):
+            destSquare = 48;
+            destFacing = EAST;
+            break;
+        case ((11 * 256) + NORTH):
+            destSquare = 31;
+            destFacing = NORTH;
+            break;
+        case ((11 * 256) + EAST):
+            destSquare = 102;
+            destFacing = WEST;
+            break;
+        case ((11 * 256) + WEST):
+            destSquare = 27;
+            destFacing = EAST;
+            break;
+        case ((27 * 256) + EAST):
+            destSquare = 116;
+            destFacing = EAST;
+            break;
+        case ((27 * 256) + SOUTH):
+            destSquare = 118;
+            destFacing = NORTH;
+            break;
+        case ((27 * 256) + WEST):
+            destSquare = 30;
+            destFacing = NORTH;
+            break;
+        case ((14 * 256) + NORTH):
+            destSquare = 64;
+            destFacing = WEST;
+            break;
+        case ((14 * 256) + EAST):
+            destSquare = 79;
+            destFacing = WEST;
+            break;
+        case ((14 * 256) + WEST):
+            destSquare = 128;
+            destFacing = EAST;
+            break;
+        case ((30 * 256) + EAST):
+            destSquare = 15;
+            destFacing = WEST;
+            break;
+        case ((30 * 256) + SOUTH):
+            destSquare = 144;
+            destFacing = EAST;
+            break;
+        case ((30 * 256) + WEST):
+            destSquare = 11;
+            destFacing = WEST;
+            break;
+        case ((15 * 256) + NORTH):
+            destSquare = 48;
+            destFacing = EAST;
+            break;
+        case ((15 * 256) + EAST):
+            destSquare = 15;
+            destFacing = WEST;
+            break;
+        case ((15 * 256) + WEST):
+            destSquare = 102;
+            destFacing = NORTH;
+            break;
+        case ((31 * 256) + EAST):
+            destSquare = 27;
+            destFacing = EAST;
+            break;
+        case ((31 * 256) + SOUTH):
+            destSquare = 160;
+            destFacing = NORTH;
+            break;
+        case ((31 * 256) + WEST):
+            destSquare = 30;
+            destFacing = WEST;
+            break;
+        case ((78 * 256) + NORTH):
+            destSquare = 112;
+            destFacing = SOUTH;
+            break;
+        case ((78 * 256) + SOUTH):
+            destSquare = 27;
+            destFacing = NORTH;
+            break;
+        case ((78 * 256) + WEST):
+            destSquare = 30;
+            destFacing = WEST;
+            break;
+        case ((79 * 256) + NORTH):
+            destSquare = 15;
+            destFacing = SOUTH;
+            break;
+        case ((79 * 256) + EAST):
+            destSquare = 85;
+            destFacing = NORTH;
+            break;
+        case ((79 * 256) + SOUTH):
+            destSquare = 160;
+            destFacing = WEST;
+            break;
+        default: 
+            destSquare = 222;
+            destFacing = SOUTH;
+            break;
+    }
+    macros.Teleport(13, 2, destSquare, destFacing);
+}
+
+fun MapEvent12(macros) {
+    macros.ShowText("A sign on the wall proclaims 'This way to the Ogress!'");
+}
+
+fun MapEvent13(macros) {
+    if (macros.FlagOff(PARTY, OGRESS_KILLED)) {
+        macros.SetFlag(PARTY, OGRESS_KILLED, 1);
+        macros.ShowText("Squatting in a pile of refuse is a repulsive, mottle-skinned creature. 'Ah!' she gurgles, smacking her rubbery lips, 'You must be dinner!'");
+        macros.SetBooty(0, 0, 0, 0, 0, 0);
+        macros.GetMonster(1, MONST_OGRESS);
+    }
+}
+
+fun MapEvent14(macros) {
+    macros.Teleport(13, 2, 164, EAST);
+}
+
+fun MapEvent15(macros) {
+    macros.Teleport(13, 2, 164, EAST);
+}
+
+fun MapEvent16(macros) {
+    SixMonst(macros, MONST_WIMPY_GRDS);
+}
+
+fun MapEvent17(macros) {
+    var flag;
+    flag = macros.GetFlag(PARTY, FAKE_CHOR_SEEN);
+    switch (macros.Here) {
+        case 165:
+            if (!(flag & 1)) {
+                macros.ShowText("Ahead of you through the layers of smoke you see a massive golden throne.");
+                flag = flag | 1;
+            }
+            break;
+        case 166:
+            if (!(flag & 2)) {
+                macros.ShowText("As you draw closer you make out an insoucient figure lounging on the throne, dressed in jester's motley.");
+                flag = flag | 2;
+            }
+            break;
+        case 167:
+            if (!(flag & 4)) {
+                macros.ShowText("The crazed figure on the throne stands, stares at you briefly, then prances off to the southeast, cackling like a lunatic. He dives into a pit and vanishes.");
+                flag = flag | 4;
+            }
+            break;
+    }
+    macros.SetFlag(PARTY, FAKE_CHOR_SEEN, flag);
+}
+
+fun MapEvent18(macros) {
+    var i;
+    macros.ShowText("The boiling lava scorches you mildly.");
+    macros.Damage(1);
+}
+
+fun MapEvent19(macros) {
+    macros.ShowText("The brackish water offends your nostrils.");
+}
+
+fun MapEvent1A(macros) {
+    switch (macros.Here) {
+        case 4:
+        case 6:
+        case 8:
+        case 10:
+        case 68:
+        case 70:
+        case 72:
+        default: 
+            macros.Teleport(13, 2, 222, NORTH);
+            break;
+    }
+}
+
+fun MapEvent1B(macros) {
+    switch (macros.Here) {
+        case 201:
+            macros.Teleport(13, 2, 218, SOUTH);
+            break;
+        case 202:
+        default: 
+            macros.Teleport(13, 2, 185, NORTH);
+            break;
+    }
+}
+
+fun MapEvent1C(macros) {
+    if (macros.FlagOff(PARTY, FAKE_CHOR_KILLED)) {
+        macros.SetFlag(PARTY, FAKE_CHOR_KILLED, 1);
+        macros.ShowText("You set upon Choronzar as he scurries away. 'No!,' he squeals, 'you can't do this!'");
+        macros.GetMonster(1, MONST_FAKE_CHOR);
+    }
+}
+
+fun MapEvent1D(macros) {
+    if (macros.FlagOff(ROOM, SEEN_IT)) {
+        macros.SetFlag(ROOM, SEEN_IT, 1);
+        macros.ShowText("A golden sarcophagus of regal dimensions glows dully in the torchlight. Upon further inspection you notice a ring-shaped indentation in the lid.");
+    }
+    if (macros.UsedItem(BRASSRING, BRASSRING)) {
+        if (macros.FlagOff(ROOM, DONE_IT)) {
+            macros.SetFlag(ROOM, DONE_IT, 1);
+        }
+            macros.ShowText("You place the Brass Ring in the indentation. There is a hissing sound and a flash of intense white light, then the Brass Ring is gone. A portal has opened to the west!");
+            macros.TakeItem(BRASSRING);
+            macros.HideWall(macros.Here, WEST);
+            macros.ClearWall(macros.Here, WEST);
+            macros.SetFlag(PARTY, TOWER_DISKS1, 1);
+            macros.SetFlag(PARTY, TOWER_DISKS2, 2);
+            macros.SetFlag(PARTY, TOWER_DISKS3, 4);
+    }
+}
+
+fun MapEvent1E(macros) {
+    var thisFlag;
+    var targFlag;
+    var thisFlagOff;
+    var targFlagOff = 100;
+    var thisBits = 1;
+    var thatBits = 1;
+    var switchFlag;
+    switchFlag = macros.Here;
+    switch (switchFlag) {
+        case 214:
+            thisFlagOff = 0;
+            break;
+        case 230:
+            thisFlagOff = 1;
+            break;
+        case 246:
+            thisFlagOff = 2;
+            break;
+    }
+    thisFlag = macros.GetFlag(PARTY, TOWER_DISKS1 + thisFlagOff);
+    if (macros.UsedItem(FUNHOUSEKEY, FUNHOUSEKEY)) {
+        switchFlag = switchFlag * 256;
+        switchFlag = switchFlag | macros.Facing;
+        switch (switchFlag) {
+            case ((214 * 256) | SOUTH):
+                targFlagOff = 1;
+                break;
+            case ((230 * 256) | NORTH):
+                targFlagOff = 0;
+                break;
+            case ((230 * 256) | SOUTH):
+                targFlagOff = 2;
+                break;
+            case ((246 * 256) | NORTH):
+                targFlagOff = 1;
+                break;
+        }
+        if (targFlagOff != 100) {
+            targFlag = macros.GetFlag(PARTY, TOWER_DISKS1 + targFlagOff);
+            thisFlag = thisFlag | 8;
+            while (!(thisFlag & thisBits)) {
+                    thisBits = thisBits * 2;
+            }
+            thisFlag = thisFlag & 7;
+            thisBits = thisBits & 7;
+            targFlag = targFlag | 8;
+            while (!(targFlag & thatBits)) {
+                    thatBits = thatBits * 2;
+            }
+            targFlag = targFlag & 7;
+            thatBits = thatBits & 7;
+            if ((thisBits != 0) && ((thatBits == 0) || (thisBits < thatBits))) {
+                switch (thisBits) {
+                    case 1:
+                        macros.ShowText("The small wooden disk spins into the air and lands gracefully on the next peg.");
+                        break;
+                    case 2:
+                        macros.ShowText("The medium wooden disk spins into the air and lands gracefully on the next peg.");
+                        break;
+                    case 3:
+                        macros.ShowText("The large wooden disk spins into the air and lands gracefully on the next peg.");
+                        break;
+                }
+                targFlag = targFlag | thisBits;
+                thisFlag = thisFlag & ~thisBits;
+                macros.SetFlag(PARTY, TOWER_DISKS1 + thisFlagOff, thisFlag);
+                macros.SetFlag(PARTY, TOWER_DISKS1 + targFlagOff, targFlag);
+                macros.SetFlag(ROOM, SEEN_IT, 0);
+            }
+        }
+    }
+    if (macros.FlagOff(ROOM, SEEN_IT)) {
+        macros.SetFlag(ROOM, SEEN_IT, 1);
+        macros.ShowText("There is an iron peg sticking up from the floor here. Impaled on the peg you see:");
+        if (thisFlag == 0) {
+            macros.ShowText("Nothing.");
+        }
+        else {
+            if (thisFlag == 7) {
+                macros.ShowText("All three wooden disks -- the completed Tower of Annoy!");
+            }
+            else {
+                if (thisFlag & 4) {
+                    macros.ShowText("A large wooden disk.");
+                }
+                if (thisFlag & 2) {
+                    macros.ShowText("A medium-sized wooden disk.");
+                }
+                if (thisFlag & 1) {
+                    macros.ShowText("A small wooden disk.");
+                }
+            }
+        }
+    }
+}
+
+fun MapEvent1F(macros) {
+    if (macros.FlagOff(PARTY, EASTER_EGG)) {
+        macros.ShowText("You plunge to your doom.");
+        macros.Damage(macros.MaxHealth);
+    }
+}
+
+fun MapEvent20(macros) {
+    var strPtr;
+    var flagOff;
+    var flag;
+    switch (macros.Here) {
+        case 214:
+            strPtr = door1Str;
+            flagOff = 0;
+            break;
+        case 230:
+            strPtr = door2Str;
+            flagOff = 1;
+            break;
+        case 246:
+            strPtr = door3Str;
+            flagOff = 2;
+            break;
+    }
+    if (macros.FlagOff(ROOM, SEEN_IT)) {
+        macros.SetFlag(ROOM, SEEN_IT, 1);
+        macros.ShowText("A sepuchral voice speaks from the door:");
+        macros.ShowText(strPtr);
+    }
+    flag = macros.GetFlag(PARTY, TOWER_DISKS1 + flagOff);
+    if (flag == 7) {
+        switch (flagOff) {
+            case 0:
+                macros.Teleport(13, 2, 176, SOUTH);
+                break;
+            case 1:
+            case 2:
+                macros.Teleport(13, 2, 245, SOUTH);
+                break;
+        }
+    }
+}
+
+fun MapEvent21(macros) {
+    var flag;
+    if (!(macros.GetFlag(DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT)) {
+        flag = macros.GetFlag(PARTY, CHOR_TAUNT);
+        if (flag <= 1) {
+            macros.ShowPicture(CHORONZAR_PIC);
+        }
+        switch (flag) {
+            case 0:
+                macros.ShowText("The door across the chasm opens and a strange figure in red and green jester's motley capers through. 'How delightful! % It is SO rare these days that I entertain mortals. %%' He grins and cocks his head, jingling the bells on his cap.");
+                macros.ShowText("'You needn't look so crestfallen...surely you didn't mistake my little simulacrum for the real thing! %' He giggles to himself and stares vacantly into the distance for a moment.");
+                macros.ShowText("You've created quite a stir here in my household %, and I'm sure you are MOST charming -- for mortals %% -- but I really MUST insist that you leave now.");
+                macros.ShowText("I have plans -- so MANY plans %% -- and I simply can't allow any interference from the likes of you.  I trust you know the way out. % Good Bye! %%'");
+                break;
+            case 1:
+                macros.ShowText("Choronzar's face twists into a rictus of rage. 'What!?! ^', he shrieks. 'Still here!? ^' Frothy flecks of spittle fly from his lips.");
+                macros.ShowText("'You poor, pathetic mortals. %^ How strange it must be to crawl about the surface of your dirty world, knowing that you are doomed to die -- like a condemned criminal who knows not when the executioner will call.");
+                macros.ShowText("You realize the cause is hopeless, yet you persist!' He sighs. 'So be it. % Continue on if you must, for the Riddle Room is far beyond your puny powers of comprehension. ^%' He whirls abruptly and stalks away through the door to the West.");
+                break;
+        }
+        macros.SetFlag(PARTY, CHOR_TAUNT, flag + 1);
+    }
+}
+
+fun MapEvent22(macros) {
+    macros.Teleport(13, 2, 230, EAST);
+}
+
+fun MapEvent23(macros) {
+    switch (macros.Here) {
+        case 242:
+            macros.Teleport(13, 2, 123, NORTH);
+            break;
+        case 29:
+            macros.Teleport(13, 2, 22, NORTH);
+            break;
+        default: 
+            macros.Teleport(13, 2, 245, SOUTH);
+            break;
+    }
+}
+
+fun MapEvent25(macros) {
+    macros.ShowText("A gleaming platinum plaque set into the floor reads: 'Riddle me this: I am He who lurks at the end of Life. Mine is the power to alter that which came before Me.'");
+}
+
+fun MapEvent26(macros) {
+    var monster;
+    var i;
+    switch (macros.Here) {
+        case 122:
+        case 88:
+        case 56:
+        case 26:
+        case 28:
+        case 62:
+        case 94:
+        case 124:
+            monster = MONST_NEXUS_1;
+            break;
+        case 121:
+        case 72:
+        case 40:
+        case 10:
+        case 13:
+        case 63:
+        case 95:
+        case 125:
+            monster = MONST_NEXUS_2;
+            break;
+        case 120:
+        case 71:
+        case 24:
+        case 9:
+        case 12:
+        case 47:
+        case 111:
+        case 126:
+            monster = MONST_NEXUS_3;
+            break;
+        case 104:
+        case 55:
+        case 25:
+        case 8:
+        case 29:
+        case 46:
+        case 127:
+        case 110:
+            monster = MONST_NEXUS_4;
+            break;
+        default: 
+            break;
+    }
+    SixMonst(macros, monster);
+}
+
+fun MapEvent27(macros) {
+    var flag;
+    var i;
+    var treasure;
+    var square;
+    var facing;
+    macros.NoMaps;
+    macros.ShowText("You continue to tumble through the Vortex, buffeted by gusts of stale wind.");
+    flag = macros.GetFlag(PARTY, VORTEX_COUNT);
+    macros.SetFlag(PARTY, VORTEX_COUNT, flag + 1);
+    switch (flag % 9) {
+        case 0:
+            square = 38;
+            facing = NORTH;
+            break;
+        case 1:
+            square = 7;
+            facing = WEST;
+            break;
+        case 2:
+            square = 21;
+            facing = EAST;
+            break;
+        case 3:
+            square = 5;
+            facing = EAST;
+            break;
+        case 4:
+            square = 22;
+            facing = NORTH;
+            break;
+        case 5:
+            square = 39;
+            facing = WEST;
+            break;
+        case 6:
+            square = 23;
+            facing = WEST;
+            break;
+        case 7:
+            square = 37;
+            facing = EAST;
+            break;
+        case 8:
+        default: 
+            square = 6;
+            facing = SOUTH;
+            break;
+    }
+    if (macros.Here == 6) {
+        macros.PlaceWallItem(GATEWAY, 6, NORTH);
+    }
+    else {
+        macros.RemoveWallItem(6, NORTH);
+    }
+    macros.SetFlag(PARTY, VORTEX_SQUARE, square);
+    macros.SetFlag(PARTY, VORTEX_FACING, facing);
+    if ((flag != 0) && (flag % 7) == 0) {
+        treasure = SPIRITBOTTLE;
+    }
+    else {
+        treasure = CUREPOTION;
+    }
+    flag = flag % 3;
+    macros.SetBooty(CUREPOTION, CUREPOTION, CUREPOTION, treasure, CUREPOTION, 0);
+    for (i = 1; i <= (macros.PartyCount + 1); i++) {
+        macros.GetMonster(i, MONST_VORTEX_1 + flag);
+    }
+}
+
+fun MapEvent28(macros) {
+    var strPtr1;
+    var strPtr2;
+    if (macros.UsedItem(HACKSAWBLADE, HACKSAWBLADE) && macros.FlagOff(ROOM, DONE_IT)) {
+        macros.SetFlag(ROOM, DONE_IT, 1);
+        macros.ShowText("With a CRACK the shackles burst open in a shower of sparks.  The Hacksaw Blade has been ruined as well.");
+        macros.TakeItem(HACKSAWBLADE);
+        switch (macros.Here) {
+            case 0:
+                strPtr1 = menageRescueThanks;
+                break;
+            case 16:
+                strPtr1 = menageTwistyClue;
+                break;
+            case 18:
+                strPtr1 = menageBottleClue;
+                break;
+            case 20:
+                strPtr1 = menageRescueThanks;
+                break;
+            case 36:
+                strPtr1 = menageAlchemyClue;
+                break;
+            case 49:
+                strPtr1 = menageDoorsClue;
+                break;
+            case 50:
+                strPtr1 = menageRescueThanks;
+                break;
+            default: 
+                break;
+        }
+    }
+    else {
+        if (macros.FlagOff(ROOM, SEEN_IT)) {
+            macros.SetFlag(ROOM, SEEN_IT, 1);
+            switch (macros.Here) {
+                case 0:
+                    macros.ShowPicture(PRISONER1_PIC);
+                    strPtr1 = menageDescPrisoner;
+                    strPtr2 = menageWeird1;
+                    break;
+                case 16:
+                    macros.ShowPicture(ARCHITECT_PIC);
+                    strPtr1 = menageDescPrisoner;
+                    strPtr2 = menageWeird2;
+                    break;
+                case 18:
+                    macros.ShowPicture(HANDMAIDEN_PIC);
+                    strPtr1 = menageDescPrisoner;
+                    strPtr2 = menageWeird3;
+                    break;
+                case 20:
+                    macros.ShowPicture(PRISONER2_PIC);
+                    strPtr1 = menageDescPrisoner;
+                    strPtr2 = menageWeird4;
+                    break;
+                case 36:
+                    macros.ShowPicture(ALCHEMIST_PIC);
+                    strPtr1 = menageDescPrisoner;
+                    strPtr2 = menageWeird5;
+                    break;
+                case 49:
+                    macros.ShowPicture(MASTERPUZZLER_PIC);
+                    strPtr1 = menageDescPrisoner;
+                    strPtr2 = menageWeird6;
+                    break;
+                case 50:
+                    macros.ShowPicture(PRISONER3_PIC);
+                    strPtr1 = menageDescPrisoner;
+                    strPtr2 = menageWeird7;
+                    break;
+                default: 
+                    strPtr1 = menageDescDefault;
+                    break;
+            }
+        }
+    }
+    if (strPtr1 != NULL) {
+        macros.ShowText(strPtr1);
+    }
+    if (strPtr2 != NULL) {
+        macros.ShowText("As if in a feverish dream, the prisoner cries out:");
+        macros.ShowText(strPtr2);
+    }
+}
+
+fun MapEvent29(macros) {
+    macros.Teleport(13, 2, 101, NORTH);
+}
+
+fun MapEvent2A(macros) {
+    macros.SetFlag(PARTY, CAROUSEL_CNT, CAROUSEL_REVS);
+}
+
+fun MapEvent2B(macros) {
+    SixMonst(macros, MONST_MIRRHALL_A);
+}
+
+fun MapEvent2C(macros) {
+    SixMonst(macros, MONST_MIRRHALL_B);
+}
+
+fun MapEvent2D(macros) {
+    SixMonst(macros, MONST_MIRRHALL_C);
+}
+
+fun MapEvent2F(macros) {
+    var strPtr;
+    var nexFlags1;
+    var square = -1;
+    nexFlags1 = macros.GetFlag(PARTY, NEXUS_PUZZLE);
+    if (nexFlags1 == 0) {
+        switch (macros.Here) {
+            case 106:
+                square = 123;
+                strPtr = aStr;
+                break;
+            case 89:
+                square = 123;
+                strPtr = bStr;
+                break;
+            case 57:
+                square = 123;
+                strPtr = cStr;
+                break;
+            case 42:
+                square = 123;
+                strPtr = dStr;
+                break;
+            case 44:
+                strPtr = eStr;
+                macros.ClearWall(macros.Here, macros.Facing);
+                break;
+            case 61:
+                square = 123;
+                strPtr = fStr;
+                break;
+            case 93:
+                square = 123;
+                strPtr = gStr;
+                break;
+            case 108:
+                square = 123;
+                strPtr = hStr;
+                break;
+            default: 
+                break;
+        }
+        if (square != -1) {
+            macros.Teleport(13, 2, square, NORTH);
+        }
+    }
+    if (strPtr != NULL) {
+        macros.ShowText("Above the door a stone tablet reads:");
+        macros.ShowText(strPtr);
+    }
+}
+
+fun MapEvent30(macros) {
+    macros.Teleport(13, 2, 242, WEST);
+}
+
+fun MapEvent32(macros) {
+    macros.BlockWall(macros.Here, macros.Facing);
+}
+
+fun MapEvent33(macros) {
+    macros.BlockWall(macros.Here, macros.Facing);
+    macros.Teleport(13, 2, macros.GetFlag(PARTY, VORTEX_SQUARE), macros.GetFlag(PARTY, VORTEX_FACING));
+}
+
+fun MapEvent34(macros) {
+    macros.Teleport(13, 2, 222, SOUTH);
+}
+
+fun MapEvent35(macros) {
+    var monster;
+    macros.NoMaps;
+    macros.ShowText("From the darkness above you Choronzar's voice whispers, 'Good guess! % Too bad it was WRONG. %% Welcome to the Penalty Box...'");
+    SixMonst(macros, MONST_PENALTY);
+}
+
+fun MapEvent36(macros) {
+    macros.Teleport(13, 2, 171, NORTH);
+}
+
+fun MapEvent37(macros) {
+    macros.Teleport(13, 2, 222, EAST);
+}
+
+fun MapEvent38(macros) {
+    macros.ShowText("A wooden sign hanging from the ceiling reads:");
+    macros.ShowText("'HALL OF MIRRORS.");
+    macros.ShowText("These mirrors show thine own face,");
+    macros.ShowText("Distorted and impure.");
+    macros.ShowText("But seek the dour countenance,");
+    macros.ShowText("Brow girdled with azure.'");
+}
+
+fun MapEvent39(macros) {
+    var twistyCnt;
+    var monster;
+    macros.NoMaps;
+    if (macros.Here == 48) {
+        macros.SetFlag(PARTY, MAJOR_DOMO, 6);
+    }
+    if (macros.FlagOff(ROOM, DONE_IT)) {
+        twistyCnt = macros.GetFlag(PARTY, TWISTY_COUNT);
+        if (macros.UsedSkill(DETECT_SKILL) >= 1) {
+            macros.ShowText("Your search reveals monsters!");
+            SixMonst(macros, MONST_TWISTY);
+            macros.SetFlag(ROOM, DONE_IT, 1);
+        }
+        else {
+            twistyCnt++;
+            if (!(twistyCnt % 5) || !(twistyCnt % 7)) {
+                macros.SetBooty(MANAAMPHORA, HEALAMPHORA, CUREPOTION, HACKSAWBLADE, 0, 0);
+                SixMonst(macros, MONST_TWISTY);
+                macros.SetFlag(ROOM, DONE_IT, 1);
+            }
+        }
+        macros.SetFlag(PARTY, TWISTY_COUNT, twistyCnt);
+    }
+}
+
+fun MapEvent3A(macros) {
+    macros.NoMaps;
+}
+
+fun MapEvent3C(macros) {
+    macros.NoMaps;
+    if (macros.FlagOff(ROOM, SEEN_IT)) {
+        macros.SetFlag(ROOM, SEEN_IT, 1);
+        macros.ShowText("An exquisitely delicate egg of opal and white gold rests atop a polished marble dais. Congratulations! You have found the Easter Egg.");
+        macros.GiveItem(EASTEREGG);
+    }
+}
+
+fun MapEvent3D(macros) {
+    macros.ShowText("This is a massive throne carved from a single block of polished obsidian. It is inlaid with strange, beautiful sigils in delicate silver filigree.");
+}
+
+fun MapEvent3E(macros) {
+    if (macros.FlagOff(PARTY, CHOR_GHOST_SEEN)) {
+        macros.SetFlag(PARTY, CHOR_GHOST_SEEN, 1);
+        macros.ShowText("Wailing piteously, the spirit of Choronzar drifts from his fallen body into the tomb.");
+    }
+}
+
+fun MapEvent3F(macros) {
+    macros.Teleport(13, 2, 227, WEST);
+}
+
+fun MapEvent40(macros) {
+    var item;
+    var flag;
+    var i;
+    if (macros.FlagOff(ROOM, DONE_IT)) {
+        macros.SetFlag(ROOM, DONE_IT, 1);
+        flag = macros.GetFlag(DUNGEON, FUN_BAR_COUNT);
+        if (flag < 100) {
+            switch (macros.Here) {
+                case 215:
+                    item = SILVERBAR;
+                    break;
+                case 216:
+                    item = GOLDBAR;
+                    break;
+                case 231:
+                    item = SLIVERBAR;
+                    break;
+                case 247:
+                    item = PRICELESSBAR;
+                    break;
+                case 248:
+                default: 
+                    item = PLATINUMBAR;
+                    break;
+            }
+            macros.ShowText("This vast stack of ingots seems virtually inexhaustible.");
+            macros.GiveItem(item);
+            macros.GiveItem(item);
+            macros.GiveItem(item);
+            macros.GiveItem(item);
+            macros.GiveItem(item);
+            flag = flag + 5;
+        }
+        macros.SetFlag(DUNGEON, FUN_BAR_COUNT, flag);
+    }
+}
+
+fun MapEvent41(macros) {
+    if (macros.FlagOff(ROOM, DONE_IT)) {
+        if (macros.UsedItem(JESTERSCAP, JESTERSCAP)) {
+            macros.SetFlag(ROOM, DONE_IT, 1);
+        }
+    }
+    else {
+        if (macros.UsedItem(PRICELESSBAR, PRICELESSBAR)) {
+            macros.SetFlag(PARTY, EASTER_EGG, 1);
+        }
+    }
+}
+
+fun MapEvent43(macros) {
+    macros.ShowRunes("The Tower disks are controlled by the Funhouse Key.");
+}
