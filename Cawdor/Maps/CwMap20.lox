@@ -181,7 +181,7 @@ fun MapEvent07(context) {
 }
 
 fun MapEvent08(context) {
-    context.NoJoin;
+    context.NoJoinZone();
     if ((context.GetFlag(DUNGEON, LEVEL5ROOM1) == 0) && (context.GetFlag(DUNGEON, FOUGHTMACDUFF) == 0) && (context.GetFlag(PARTY, SAWMACDUFF) == 0)) {
         context.SetFlag(DUNGEON, LEVEL5ROOM1, 1);
         context.ShowText("You suddenly feel better, as if someone were helping you from afar.");

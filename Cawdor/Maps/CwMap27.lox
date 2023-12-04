@@ -639,7 +639,7 @@ fun MapEvent33(context) {
 }
 
 fun MapEvent34(context) {
-    context.NoSpell;
+    context.NoSpellZone();
     context.Damage(1444);
     context.ShowText("This is a nasty place.");
 }
@@ -650,15 +650,15 @@ fun MapEvent35(context) {
 }
 
 fun MapEvent36(context) {
-    context.NoManaZone;
+    context.NoManaZone();
     context.Damage(1444);
     context.ShowText("This is a nasty place.");
 }
 
 fun MapEvent37(context) {
-    context.NoHealZone;
-    context.NoManaZone;
-    context.NoSpell;
+    context.NoHealZone();
+    context.NoManaZone();
+    context.NoSpellZone();
     context.Damage(2667);
     context.ModMana(-1444);
     if (context.Facing == EAST) {

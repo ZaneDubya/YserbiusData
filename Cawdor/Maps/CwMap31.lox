@@ -201,7 +201,7 @@ fun MapEvent0D(context) {
                 break;
             default: 
                 context.Damage(context.Health / 3);
-                context.NoHealZone;
+                context.NoHealZone();
                 trap = 1;
                 NoSpellZone(context);
                 context.ShowText("Evil laughter echoes off the walls as yet another snare harms you.");
@@ -247,7 +247,7 @@ fun MapEvent0F(context) {
 }
 
 fun MapEvent10(context) {
-    context.NoJoin;
+    context.NoJoinZone();
 }
 
 fun MapEvent12(context) {
@@ -281,7 +281,7 @@ fun MapEvent12(context) {
 }
 
 fun MapEvent15(context) {
-    context.NoMaps;
+    context.NoMaps();
     if (!context.GetFlag(ROOM, SPRUNGTRAP)) {
         switch (context.Facing) {
             case NORTH:
@@ -305,7 +305,7 @@ fun MapEvent15(context) {
 }
 
 fun MapEvent16(context) {
-    context.NoMaps;
+    context.NoMaps();
     if (!context.GetFlag(ROOM, SPRUNGTRAP)) {
         switch (context.Facing) {
             case NORTH:
@@ -332,9 +332,9 @@ fun MapEvent16(context) {
 }
 
 fun MapEvent17(context) {
-    context.NoMaps;
+    context.NoMaps();
     NoSpellZone(context);
-    context.NoJoin;
+    context.NoJoinZone();
     if (context.PartyCount == 1) {
         if (!context.GetFlag(DUNGEON, KILLEDQUEEN)) {
             context.ShowText("Those who hath not faced the mad Queen must lead, lest your efforts are futile. You are one that may lead!");
@@ -687,7 +687,7 @@ fun MapEvent35(context) {
 }
 
 fun MapEvent36(context) {
-    context.NoMaps;
+    context.NoMaps();
 }
 
 fun MapEvent37(context) {
@@ -736,11 +736,11 @@ fun EosText(context) {
 }
 
 fun NoMapsZone(context) {
-    context.NoMaps;
+    context.NoMaps();
 }
 
 fun NoSpellZone(context) {
-    context.NoSpell;
+    context.NoSpellZone();
 }
 
 fun SprungTrap(context) {

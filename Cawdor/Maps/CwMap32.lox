@@ -177,7 +177,7 @@ fun MapEvent07(context) {
 }
 
 fun MapEvent08(context) {
-    context.NoJoin;
+    context.NoJoinZone();
     if (context.PartyCount > 1) {
         context.ShowText("The coaster cars are only big enough for one of you at a time.");
         context.SetFlag(PARTY, COASTER_STOPPING, 0);
@@ -579,7 +579,7 @@ fun MapEvent19(context) {
 }
 
 fun MapEvent1A(context) {
-    context.NoJoin;
+    context.NoJoinZone();
     if (context.PartyCount > 1) {
         context.ShowText("The passage is too narrow.");
         context.Teleport(13, 1, 12, WEST);

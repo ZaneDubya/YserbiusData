@@ -96,7 +96,7 @@ fun MapEvent06(context) {
 }
 
 fun MapEvent07(context) {
-    context.NoJoin;
+    context.NoJoinZone();
     if (context.PartyCount > 1) {
         context.ShowText("You try squeezing down this narrow corridor, but it's so tight that - aargh!  You've been impaled on your companion's weapon!");
         context.Damage(context.MaxHealth);
@@ -158,13 +158,13 @@ fun MapEvent07(context) {
 }
 
 fun MapEvent08(context) {
-    context.NoJoin;
+    context.NoJoinZone();
     if (context.PartyCount > 1) {
         context.ShowText("You try squeezing down this narrow corridor, but it's so tight that - aargh!  You've been impaled on your companion's weapon!");
         context.Damage(context.MaxHealth);
     }
     else {
-        context.NoJoin;
+        context.NoJoinZone();
         if (context.GetFlag(PARTY, NARROW) == 0) {
             context.SetFlag(PARTY, NARROW, 1);
             context.ShowText("This narrow corridor forces you to proceed single file.");
@@ -184,7 +184,7 @@ fun MapEvent08(context) {
 }
 
 fun MapEvent09(context) {
-    context.NoJoin;
+    context.NoJoinZone();
     if (context.PartyCount > 1) {
         context.ShowText("You try squeezing down this narrow corridor, but it's so tight that - aargh!  You've been impaled on your companion's weapon!");
         context.Damage(context.MaxHealth);

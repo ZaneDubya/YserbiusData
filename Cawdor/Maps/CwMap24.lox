@@ -74,7 +74,7 @@ fun CheckMap(context) {
             }
         }
         else {
-            context.NoMaps;
+            context.NoMaps();
             context.ShowText("It sure is dark down here.  There's no way you'll be able to spot an ambush or protect yourself fully while it's so dark.  In fact, yup, that hurt!");
             context.Damage(500);
         }
@@ -119,7 +119,7 @@ fun MapEvent08(context) {
             }
         }
         else {
-            context.NoMaps;
+            context.NoMaps();
             context.ShowText("It sure is dark down here.");
         }
     }

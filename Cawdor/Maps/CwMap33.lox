@@ -109,7 +109,7 @@ fun SixMonst(context, monster) {
 }
 
 fun MapEvent01(context) {
-    context.NoJoin;
+    context.NoJoinZone();
     if (context.PartyCount > 1) {
         context.ShowText("The coaster cars are only big enough for one of you at a time.");
         context.SetFlag(PARTY, COASTER_STOPPING, 0);
@@ -221,7 +221,7 @@ fun MapEvent04(context) {
 
 fun MapEvent05(context) {
     var cntFlag;
-    context.NoJoin;
+    context.NoJoinZone();
     if (context.PartyCount > 1) {
         context.ShowText("The horse you are riding is only big enough for one. You lose your grip!");
         context.Teleport(13, 2, 141, WEST);
@@ -985,7 +985,7 @@ fun MapEvent27(context) {
     var treasure;
     var square;
     var facing;
-    context.NoMaps;
+    context.NoMaps();
     context.ShowText("You continue to tumble through the Vortex, buffeted by gusts of stale wind.");
     flag = context.GetFlag(PARTY, VORTEX_COUNT);
     context.SetFlag(PARTY, VORTEX_COUNT, flag + 1);
@@ -1227,7 +1227,7 @@ fun MapEvent34(context) {
 
 fun MapEvent35(context) {
     var monster;
-    context.NoMaps;
+    context.NoMaps();
     context.ShowText("From the darkness above you Choronzar's voice whispers, 'Good guess! % Too bad it was WRONG. %% Welcome to the Penalty Box...'");
     SixMonst(context, MONST_PENALTY);
 }
@@ -1252,7 +1252,7 @@ fun MapEvent38(context) {
 fun MapEvent39(context) {
     var twistyCnt;
     var monster;
-    context.NoMaps;
+    context.NoMaps();
     if (context.Here == 48) {
         context.SetFlag(PARTY, MAJOR_DOMO, 6);
     }
@@ -1276,11 +1276,11 @@ fun MapEvent39(context) {
 }
 
 fun MapEvent3A(context) {
-    context.NoMaps;
+    context.NoMaps();
 }
 
 fun MapEvent3C(context) {
-    context.NoMaps;
+    context.NoMaps();
     if (context.FlagOff(ROOM, SEEN_IT)) {
         context.SetFlag(ROOM, SEEN_IT, 1);
         context.ShowText("An exquisitely delicate egg of opal and white gold rests atop a polished marble dais. Congratulations! You have found the Easter Egg.");

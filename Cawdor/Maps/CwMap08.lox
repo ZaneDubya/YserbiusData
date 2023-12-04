@@ -108,7 +108,7 @@ fun MapEvent06(context) {
 }
 
 fun MapEvent07(context) {
-    context.NoJoin;
+    context.NoJoinZone();
     if (context.PartyCount > 1) {
         context.ShowText("You try squeezing down this narrow corridor, but it's so tight that - aargh!  You've been impaled on your companion's weapon!");
         context.Damage(context.MaxHealth);
@@ -170,7 +170,7 @@ fun MapEvent07(context) {
 }
 
 fun MapEvent08(context) {
-    context.NoJoin;
+    context.NoJoinZone();
     context.SetFlag(DUNGEON, LEVEL2ROOM1, 1);
     if (context.PartyCount > 1) {
         context.ShowText("You try squeezing down this narrow corridor, but it's so tight that - aargh!  You've been impaled on your companion's weapon!");
@@ -519,7 +519,7 @@ fun MapEvent18(context) {
 }
 
 fun MapEvent19(context) {
-    context.NoJoin;
+    context.NoJoinZone();
     if (context.PartyCount > 1) {
         context.ShowText("You try squeezing down this narrow corridor, but it's so tight that - aargh!  You've been impaled on your companion's weapon!");
         context.Damage(context.MaxHealth);

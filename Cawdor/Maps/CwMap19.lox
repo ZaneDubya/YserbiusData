@@ -171,8 +171,8 @@ fun MapEvent0B(context) {
 fun MapEvent0C(context) {
     if (context.GetFlag(PARTY, WAR1) == 0) {
         context.SetFlag(PARTY, WAR1, 1);
-        context.NoSpell;
-        context.NoSkill;
+        context.NoSpellZone();
+        context.NoSkillZone();
         context.ShowText("'There is one, and only one, good thing about being here.  There was no way on earth those dragons could have set an ambush for you.  Of course, just getting here was like an ambush in and of itself.");
         context.SetBooty(SCRAMASAX, ALFREDSGLOVES, THEDAGDASHARP, 0, 0, 9872);
         context.GetMonster(1, 37);
@@ -335,8 +335,8 @@ fun MapEvent13(context) {
 fun MapEvent14(context) {
     if (context.GetFlag(PARTY, WAR6) == 0) {
         context.SetFlag(PARTY, WAR6, 1);
-        context.NoHealZone;
-        context.NoManaZone;
+        context.NoHealZone();
+        context.NoManaZone();
         context.ShowText("Oh, dear.  It's just a little ol' lich and a great gushing ghost.  Nothing to worry about, really.");
         context.SetBooty(YEWBOWOFYORK, WOADWINE, GORGONSGAUNTLETS, 0, 0, 1543);
         context.GetMonster(1, 36);
@@ -384,8 +384,8 @@ fun MapEvent17(context) {
 }
 
 fun MapEvent18(context) {
-    context.NoSkill;
-    context.NoSpell;
+    context.NoSkillZone();
+    context.NoSpellZone();
     if (context.GetFlag(PARTY, ENTEREDBADROOM) == 1) {
         context.ShowText("The sign over the door reads:  'Warning! As thou dost value thy life and thy sanity, thou shouldst - oh, fie upon it!  Thou didst not believe me heretofore, and thou wilt not believe me now.'");
     }
@@ -397,22 +397,22 @@ fun MapEvent18(context) {
 }
 
 fun MapEvent19(context) {
-    context.NoSpell;
-    context.NoSkill;
+    context.NoSpellZone();
+    context.NoSkillZone();
     context.Damage(100);
     context.ShowText("Your hands shake noticeably.  You realize you lack the composure to use either spells or skills in here, and that the sharp acidic air is definitely doing bad things to your hair.");
 }
 
 fun MapEvent1A(context) {
-    context.NoSpell;
-    context.NoSkill;
+    context.NoSpellZone();
+    context.NoSkillZone();
     context.Damage(300);
     context.ShowText("Yes, this is an unpleasantly murky room.  The fumes in here could disorient a dragon, and you are no dragon.");
 }
 
 fun MapEvent1B(context) {
-    context.NoSpell;
-    context.NoSkill;
+    context.NoSpellZone();
+    context.NoSkillZone();
     context.Damage(500);
     if (context.GetFlag(PARTY, GIVESHRUB) == 1) {
         context.ShowText("You retrieve your fallen shrubbery.");
@@ -429,8 +429,8 @@ fun MapEvent1B(context) {
 }
 
 fun MapEvent1C(context) {
-    context.NoSpell;
-    context.NoSkill;
+    context.NoSpellZone();
+    context.NoSkillZone();
     context.Damage(800);
     context.ShowText("The bad news is that you've found the source of the smell: some large, bushy, thick foliage lining this wall.  It looks like hemp with an attitude.  What?  And there isn't any good news.");
     if (context.UsedItem(HANDSAW, HANDSAW)) {
@@ -442,18 +442,18 @@ fun MapEvent1C(context) {
 
 fun MapEvent1D(context) {
     context.SetFlag(PARTY, ENTEREDBADROOM, 1);
-    context.NoSpell;
+    context.NoSpellZone();
     context.ShowText("The fumes here make it impossible for you to concentrate enough to cast spells.");
 }
 
 fun MapEvent1E(context) {
-    context.NoSpell;
+    context.NoSpellZone();
     context.Damage(50);
     context.ShowText("Not only are these fumes disorienting, but they are also making your eyes water and your lungs hurt.");
 }
 
 fun MapEvent1F(context) {
-    context.NoSpell;
+    context.NoSpellZone();
     context.Damage(200);
     context.ShowText("What the heck are these flowers anyway?  You think you can recognise two types of lotuses and three varieties of poppies, but, let's face it, you are no druid.  In any case, if you stay here too much longer you will stay here for way too much longer.");
 }
@@ -486,34 +486,34 @@ fun MapEvent21(context) {
 }
 
 fun MapEvent22(context) {
-    context.NoManaZone;
-    context.NoHealZone;
+    context.NoManaZone();
+    context.NoHealZone();
     context.Damage(50);
     context.ShowText("You think that maybe something is wrong with you, but you just can't make yourself care enough to deal with it.");
 }
 
 fun MapEvent23(context) {
-    context.NoManaZone;
-    context.NoHealZone;
+    context.NoManaZone();
+    context.NoHealZone();
     context.Damage(150);
     context.ShowText("No, really, it's just a flesh wound.  You can survive it.");
 }
 
 fun MapEvent24(context) {
-    context.NoSkill;
+    context.NoSkillZone();
     context.Damage(50);
     context.ShowText("How odd!  Although mentally you feel fine, and you are quite certain you can cast spells if need be, your hand eye coordination has quite disappeared and you are sure you are completely lacking your skills!");
     context.ShowText("If only you could bottle this, you could be a really big hit at the parties back home.");
 }
 
 fun MapEvent25(context) {
-    context.NoSkill;
+    context.NoSkillZone();
     context.Damage(100);
     context.ShowText("Yes, you have indeed lost your skills and coordination.  In fact, it might be a good idea to depart lest it be permanent.");
 }
 
 fun MapEvent26(context) {
-    context.NoSkill;
+    context.NoSkillZone();
     context.Damage(200);
     context.ShowText("You decide to put the toxic room high on your list of places never to come back to.");
 }

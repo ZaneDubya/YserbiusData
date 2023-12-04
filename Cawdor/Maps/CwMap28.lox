@@ -313,8 +313,8 @@ fun MapEvent0C(context) {
 
 fun MapEvent0D(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
-        context.NoManaZone;
-        context.NoHealZone;
+        context.NoManaZone();
+        context.NoHealZone();
         context.ShowText("Everything's perfectly normal, if you call receiving a sudden faceful of mana sucking poison normal.  No, wait.  It will come to you if you just give it a second.  Eureka!");
         context.ShowText("It's one of those, what do they call it?  Deathtraps!  That's the ticket!");
         context.Damage(context.MaxHealth / 2);
@@ -648,8 +648,8 @@ fun MapEvent1C(context) {
 }
 
 fun MapEvent1D(context) {
-    context.NoManaZone;
-    context.NoHealZone;
+    context.NoManaZone();
+    context.NoHealZone();
     context.ShowText("This room is so dusty that you can barely breath.  In fact, the dust is chokingly thick!");
     context.Damage(1000);
 }
