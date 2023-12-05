@@ -229,7 +229,7 @@ fun MapEvent05(context) {
     if (context.FlagOff(PARTY, CAROUSEL_CTRL)) {
         cntFlag = context.GetFlag(PARTY, CAROUSEL_CNT);
         switch ((context.Here * 256) + context.Facing) {
-            case ((141 * 256) + WEST):
+            case 36096:
                 if (cntFlag > 0) {
                     cntFlag--;
                     context.SetFlag(PARTY, CAROUSEL_CNT, cntFlag);
@@ -241,33 +241,33 @@ fun MapEvent05(context) {
                     context.Teleport(13, 2, 140, WEST);
                 }
                 break;
-            case ((141 * 256) + SOUTH):
-            case ((141 * 256) + EAST):
-            case ((141 * 256) + NORTH):
+            case 36097:
+            case 36098:
+            case 36099:
                 context.Rotate(SOUTH);
                 context.Teleport(13, 2, 157, SOUTH);
                 break;
-            case ((142 * 256) + WEST):
+            case 36352:
                 context.Teleport(13, 2, 141, WEST);
                 break;
-            case ((143 * 256) + NORTH):
+            case 36611:
                 context.Rotate(WEST);
                 context.Teleport(13, 2, 142, WEST);
                 break;
-            case ((157 * 256) + SOUTH):
+            case 40193:
                 context.Teleport(13, 2, 173, SOUTH);
                 break;
-            case ((159 * 256) + NORTH):
+            case 40707:
                 context.Teleport(13, 2, 143, NORTH);
                 break;
-            case ((173 * 256) + SOUTH):
+            case 44289:
                 context.Rotate(EAST);
                 context.Teleport(13, 2, 174, EAST);
                 break;
-            case ((174 * 256) + EAST):
+            case 44546:
                 context.Teleport(13, 2, 175, EAST);
                 break;
-            case ((175 * 256) + EAST):
+            case 44802:
                 context.ShowText("You reach for the brass ring, but it's stuck.");
                 context.Rotate(NORTH);
                 context.Teleport(13, 2, 159, NORTH);
@@ -379,243 +379,243 @@ fun MapEvent11(context) {
     switchFlag = switchFlag * 256;
     switchFlag = switchFlag + context.Facing;
     switch (switchFlag) {
-        case ((48 * 256) + NORTH):
+        case 12291:
             destSquare = 117;
             destFacing = SOUTH;
             break;
-        case ((48 * 256) + EAST):
+        case 12290:
             destSquare = 48;
             destFacing = EAST;
             break;
-        case ((48 * 256) + WEST):
+        case 12288:
             destSquare = 65;
             destFacing = SOUTH;
             break;
-        case ((64 * 256) + EAST):
+        case 16386:
             destSquare = 160;
             destFacing = WEST;
             break;
-        case ((64 * 256) + SOUTH):
+        case 16385:
             destSquare = 101;
             destFacing = NORTH;
             break;
-        case ((64 * 256) + WEST):
+        case 16384:
             destSquare = 112;
             destFacing = SOUTH;
             break;
-        case ((112 * 256) + NORTH):
+        case 28675:
             destSquare = 102;
             destFacing = NORTH;
             break;
-        case ((112 * 256) + EAST):
+        case 28674:
             destSquare = 116;
             destFacing = EAST;
             break;
-        case ((112 * 256) + WEST):
+        case 28672:
             destSquare = 119;
             destFacing = WEST;
             break;
-        case ((128 * 256) + EAST):
+        case 32770:
             destSquare = 64;
             destFacing = NORTH;
             break;
-        case ((128 * 256) + SOUTH):
+        case 32769:
             destSquare = 112;
             destFacing = WEST;
             break;
-        case ((128 * 256) + WEST):
+        case 32768:
             destSquare = 144;
             destFacing = WEST;
             break;
-        case ((144 * 256) + NORTH):
+        case 36867:
             destSquare = 160;
             destFacing = NORTH;
             break;
-        case ((144 * 256) + EAST):
+        case 36866:
             destSquare = 117;
             destFacing = WEST;
             break;
-        case ((144 * 256) + WEST):
+        case 36864:
             destSquare = 48;
             destFacing = SOUTH;
             break;
-        case ((160 * 256) + EAST):
+        case 40962:
             destSquare = 128;
             destFacing = NORTH;
             break;
-        case ((160 * 256) + SOUTH):
+        case 40961:
             destSquare = 144;
             destFacing = SOUTH;
             break;
-        case ((160 * 256) + WEST):
+        case 40960:
             destSquare = 101;
             destFacing = SOUTH;
             break;
-        case ((116 * 256) + NORTH):
+        case 29699:
             destSquare = 128;
             destFacing = NORTH;
             break;
-        case ((116 * 256) + SOUTH):
+        case 29697:
             destSquare = 119;
             destFacing = WEST;
             break;
-        case ((116 * 256) + WEST):
+        case 29696:
             destSquare = 48;
             destFacing = EAST;
             break;
-        case ((117 * 256) + NORTH):
+        case 29955:
             destSquare = 117;
             destFacing = SOUTH;
             break;
-        case ((117 * 256) + EAST):
+        case 29954:
             destSquare = 102;
             destFacing = SOUTH;
             break;
-        case ((117 * 256) + SOUTH):
+        case 29953:
             destSquare = 160;
             destFacing = WEST;
             break;
-        case ((101 * 256) + NORTH):
+        case 25859:
             destSquare = 116;
             destFacing = NORTH;
             break;
-        case ((101 * 256) + SOUTH):
+        case 25857:
             destSquare = 64;
             destFacing = NORTH;
             break;
-        case ((101 * 256) + WEST):
+        case 25856:
             destSquare = 128;
             destFacing = EAST;
             break;
-        case ((102 * 256) + NORTH):
+        case 26115:
             destSquare = 144;
             destFacing = SOUTH;
             break;
-        case ((102 * 256) + EAST):
+        case 26114:
             destSquare = 117;
             destFacing = SOUTH;
             break;
-        case ((102 * 256) + SOUTH):
+        case 26113:
             destSquare = 2;
             destFacing = SOUTH;
             break;
-        case ((118 * 256) + NORTH):
+        case 30211:
             destSquare = 128;
             destFacing = NORTH;
             break;
-        case ((118 * 256) + SOUTH):
+        case 30209:
             destSquare = 144;
             destFacing = SOUTH;
             break;
-        case ((118 * 256) + WEST):
+        case 30208:
             destSquare = 117;
             destFacing = NORTH;
             break;
-        case ((119 * 256) + NORTH):
+        case 30467:
             destSquare = 101;
             destFacing = NORTH;
             break;
-        case ((119 * 256) + EAST):
+        case 30466:
             destSquare = 11;
             destFacing = WEST;
             break;
-        case ((119 * 256) + SOUTH):
+        case 30465:
             destSquare = 48;
             destFacing = EAST;
             break;
-        case ((11 * 256) + NORTH):
+        case 2819:
             destSquare = 31;
             destFacing = NORTH;
             break;
-        case ((11 * 256) + EAST):
+        case 2818:
             destSquare = 102;
             destFacing = WEST;
             break;
-        case ((11 * 256) + WEST):
+        case 2816:
             destSquare = 27;
             destFacing = EAST;
             break;
-        case ((27 * 256) + EAST):
+        case 6914:
             destSquare = 116;
             destFacing = EAST;
             break;
-        case ((27 * 256) + SOUTH):
+        case 6913:
             destSquare = 118;
             destFacing = NORTH;
             break;
-        case ((27 * 256) + WEST):
+        case 6912:
             destSquare = 30;
             destFacing = NORTH;
             break;
-        case ((14 * 256) + NORTH):
+        case 3587:
             destSquare = 64;
             destFacing = WEST;
             break;
-        case ((14 * 256) + EAST):
+        case 3586:
             destSquare = 79;
             destFacing = WEST;
             break;
-        case ((14 * 256) + WEST):
+        case 3584:
             destSquare = 128;
             destFacing = EAST;
             break;
-        case ((30 * 256) + EAST):
+        case 7682:
             destSquare = 15;
             destFacing = WEST;
             break;
-        case ((30 * 256) + SOUTH):
+        case 7681:
             destSquare = 144;
             destFacing = EAST;
             break;
-        case ((30 * 256) + WEST):
+        case 7680:
             destSquare = 11;
             destFacing = WEST;
             break;
-        case ((15 * 256) + NORTH):
+        case 3843:
             destSquare = 48;
             destFacing = EAST;
             break;
-        case ((15 * 256) + EAST):
+        case 3842:
             destSquare = 15;
             destFacing = WEST;
             break;
-        case ((15 * 256) + WEST):
+        case 3840:
             destSquare = 102;
             destFacing = NORTH;
             break;
-        case ((31 * 256) + EAST):
+        case 7938:
             destSquare = 27;
             destFacing = EAST;
             break;
-        case ((31 * 256) + SOUTH):
+        case 7937:
             destSquare = 160;
             destFacing = NORTH;
             break;
-        case ((31 * 256) + WEST):
+        case 7936:
             destSquare = 30;
             destFacing = WEST;
             break;
-        case ((78 * 256) + NORTH):
+        case 19971:
             destSquare = 112;
             destFacing = SOUTH;
             break;
-        case ((78 * 256) + SOUTH):
+        case 19969:
             destSquare = 27;
             destFacing = NORTH;
             break;
-        case ((78 * 256) + WEST):
+        case 19968:
             destSquare = 30;
             destFacing = WEST;
             break;
-        case ((79 * 256) + NORTH):
+        case 20227:
             destSquare = 15;
             destFacing = SOUTH;
             break;
-        case ((79 * 256) + EAST):
+        case 20226:
             destSquare = 85;
             destFacing = NORTH;
             break;
-        case ((79 * 256) + SOUTH):
+        case 20225:
             destSquare = 160;
             destFacing = WEST;
             break;
@@ -767,16 +767,16 @@ fun MapEvent1E(context) {
         switchFlag = switchFlag * 256;
         switchFlag = switchFlag | context.Facing;
         switch (switchFlag) {
-            case ((214 * 256) | SOUTH):
+            case 54785:
                 targFlagOff = 1;
                 break;
-            case ((230 * 256) | NORTH):
+            case 58883:
                 targFlagOff = 0;
                 break;
-            case ((230 * 256) | SOUTH):
+            case 58881:
                 targFlagOff = 2;
                 break;
-            case ((246 * 256) | NORTH):
+            case 62979:
                 targFlagOff = 1;
                 break;
         }

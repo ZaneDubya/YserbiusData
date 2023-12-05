@@ -1,3 +1,7 @@
+#define NORTH 3
+#define EAST 2
+#define SOUTH 1
+#define WEST 0
 #define ROOM 0
 #define MAP 1
 #define DUNGEON 2

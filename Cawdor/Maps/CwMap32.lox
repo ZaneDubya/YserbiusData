@@ -319,15 +319,15 @@ fun MapEvent0E(context) {
     switchCode = switchCode + context.Facing;
     knownFlags = context.GetFlag(DUNGEON, CHOR_KNOWN);
     switch (switchCode) {
-        case ((94 * 256) | NORTH):
+        case 24067:
             if (knownFlags & ALCHEMY_KNOWN_BIT) {
                 strPtr1 = alchemyStr;
             }
             break;
-        case ((94 * 256) | EAST):
+        case 24066:
             strPtr1 = choronzarStr;
             break;
-        case ((108 * 256) | WEST):
+        case 27648:
             if (knownFlags & NAOMI_KNOWN_BIT) {
                 strPtr1 = naomiStr;
             }
