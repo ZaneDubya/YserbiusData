@@ -32,7 +32,7 @@ fun MapEvent01(context) {
     var i;
     i = 0;
     i = context.GetFlag(DUNGEON, SEENSMITH);
-    context.ShowPicture(TROLLRANGER);
+    context.ShowPortrait(TROLLRANGER);
     if (i == 0) {
         context.SetFlag(DUNGEON, SEENSMITH, 1);
         context.ShowText("A brawny blacksmith works at his anvil.  To the south you see a hotly glowing furnace.  He offers a large calloused hand in greeting.");
@@ -132,13 +132,13 @@ fun MapEvent01(context) {
 
 fun MapEvent02(context) {
     context.ShowText("Yowee!  This forge is hot!");
-    context.Damage(5);
+    context.DamagePlayer(5);
 }
 
 fun MapEvent03(context) {
     if (context.GetFlag(PARTY, VISITEDFORGE) == 0) {
         context.SetFlag(PARTY, VISITEDFORGE, 1);
-        if (context.Facing == WEST) {
+        if (context.GetFacing == WEST) {
             if (context.GetFlag(DUNGEON, SEENSMITH) == 0) {
                 context.ShowText("This area has been set up for a blacksmith.  Directly in front of you a mighty artisan works a blade on his anvil.  To the south heat pours from a forge.  Tools of the trade are scattered about.");
             }
@@ -148,7 +148,7 @@ fun MapEvent03(context) {
         }
     }
     else {
-        if (context.Facing == WEST) {
+        if (context.GetFacing == WEST) {
             context.ShowText("The forge is as you left it.");
         }
     }
@@ -202,7 +202,7 @@ fun MapEvent05(context) {
                 break;
             case 1:
                 context.ShowText("You hear someone running towards you.");
-                context.ShowPicture(GREMLINTHIEF);
+                context.ShowPortrait(GREMLINTHIEF);
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("*");
@@ -211,12 +211,12 @@ fun MapEvent05(context) {
                 context.ShowText("A burly sergeant wraps a whip around the gremlin's neck, jerking him back into the squad.  You decide not to interfere.");
                 break;
             case 2:
-                context.ShowPicture(DRAGON);
+                context.ShowPortrait(DRAGON);
                 context.ShowText("The dragon examines you with a baleful eye.  It has seen better days.");
                 context.ShowText("'Wouldst thou help a wyrm in need of a reviving morsel?  Thou hast two legs; surely thou couldst spare me one.  Wouldst thou resist my efforts to consume thee, then?  I feared so.  Were I not wounded, though...'  It limps off.");
                 break;
             case 3:
-                context.ShowPicture(HALFLINGTHIEF);
+                context.ShowPortrait(HALFLINGTHIEF);
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("*");
@@ -224,19 +224,19 @@ fun MapEvent05(context) {
                 context.ShowText("The halfling struts off, smiling.");
                 break;
             case 4:
-                context.ShowPicture(GREMLINTHIEF);
+                context.ShowPortrait(GREMLINTHIEF);
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("A somewhat battered gang o'gremlins decides, rather insultingly, that they are bigger than you are.");
-                context.SetBooty(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 93);
-                context.GetMonster(1, 25);
+                context.SetTreasure(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 93);
+                context.AddEncounter(1, 25);
                 if (context.PartyCount > 1) {
-                    context.GetMonster(5, 26);
+                    context.AddEncounter(5, 26);
                 }
                 if (context.PartyCount > 2) {
-                    context.GetMonster(2, 25);
-                    context.GetMonster(6, 26);
+                    context.AddEncounter(2, 25);
+                    context.AddEncounter(6, 26);
                 }
                 break;
         }
@@ -266,7 +266,7 @@ fun MapEvent08(context) {
 fun MapEvent09(context) {
     context.ShowText("There.  You're wet now.  I still have no T-Shirt art, so you'll just have to be satisfied with using your ImagiNation.");
     context.SetFlag(DUNGEON, BARBWASHED, 1);
-    if (context.PartyGuild(BARBARIAN)) {
+    if (context.GetGuildAny(BARBARIAN)) {
         context.ShowText("This is just the kind of behavior that can get you drummed out of the FBI (Filthy Barbarians, Indeed!).");
     }
 }
@@ -281,7 +281,7 @@ fun MapEvent0B(context) {
 }
 
 fun MapEvent0C(context) {
-    if ((context.GetFlag(PARTY, GOTTPMESSAGE) == 0) && (context.Facing == SOUTH)) {
+    if ((context.GetFlag(PARTY, GOTTPMESSAGE) == 0) && (context.GetFacing == SOUTH)) {
         context.SetFlag(PARTY, GOTTPMESSAGE, 1);
         context.ShowText("Holy Mother of Pearl!  The entire wall swiveled sideways and, well, here you are!");
     }
@@ -303,7 +303,7 @@ fun MapEvent0E(context) {
 }
 
 fun MapEvent0F(context) {
-    if ((context.Race == ORC) || (context.Race == ELF) || (context.Race == TROLL) || (context.Race == HUMAN)) {
+    if ((context.GetRace == ORC) || (context.GetRace == ELF) || (context.GetRace == TROLL) || (context.GetRace == HUMAN)) {
         context.ShowText("You glance over the Dutch door to see a dark but empty stall.");
     }
     else {
@@ -312,7 +312,7 @@ fun MapEvent0F(context) {
 }
 
 fun MapEvent10(context) {
-    if ((context.Race == ORC) || (context.Race == ELF) || (context.Race == TROLL) || (context.Race == HUMAN)) {
+    if ((context.GetRace == ORC) || (context.GetRace == ELF) || (context.GetRace == TROLL) || (context.GetRace == HUMAN)) {
         context.ShowText("You think you see something small flitting around near the back of the stall.");
     }
     else {
@@ -327,8 +327,8 @@ fun MapEvent11(context) {
     else {
         context.SetFlag(PARTY, WAR6, 1);
         context.ShowText("No need to panic.  It's only bats.  Big, bloodthirsty bats, but still only bats.");
-        context.GetMonster(1, 34);
-        context.GetMonster(2, 34);
+        context.AddEncounter(1, 34);
+        context.AddEncounter(2, 34);
     }
 }
 
@@ -339,8 +339,8 @@ fun MapEvent12(context) {
     else {
         context.SetFlag(PARTY, WAR7, 1);
         context.ShowText("You're not sure, but you think they're humming 'The Battle Hymn of the Republic.'");
-        context.GetMonster(1, 34);
-        context.GetMonster(2, 34);
+        context.AddEncounter(1, 34);
+        context.AddEncounter(2, 34);
     }
 }
 
@@ -351,8 +351,8 @@ fun MapEvent13(context) {
     else {
         context.SetFlag(PARTY, WAR8, 1);
         context.ShowText("You better batten down your hatches.");
-        context.GetMonster(1, 34);
-        context.GetMonster(2, 37);
+        context.AddEncounter(1, 34);
+        context.AddEncounter(2, 37);
     }
 }
 
@@ -363,8 +363,8 @@ fun MapEvent14(context) {
     else {
         context.SetFlag(PARTY, WAR9, 1);
         context.ShowText("Uh oh!  Prepare to be battered!");
-        context.GetMonster(1, 34);
-        context.GetMonster(2, 37);
+        context.AddEncounter(1, 34);
+        context.AddEncounter(2, 37);
     }
 }
 
@@ -375,8 +375,8 @@ fun MapEvent15(context) {
     else {
         context.SetFlag(PARTY, WAR10, 1);
         context.ShowText("'Tis a batty batch!");
-        context.GetMonster(1, 34);
-        context.GetMonster(2, 37);
+        context.AddEncounter(1, 34);
+        context.AddEncounter(2, 37);
     }
 }
 
@@ -388,8 +388,8 @@ fun MapEvent16(context) {
         context.SetFlag(PARTY, WAR11, 1);
         context.ShowText("You better get ready for the bloodbat!");
         context.ShowText("I know, I know, it's dreadful, but how many bad bat jokes must one man write?");
-        context.GetMonster(1, 34);
-        context.GetMonster(2, 37);
+        context.AddEncounter(1, 34);
+        context.AddEncounter(2, 37);
     }
 }
 
@@ -400,17 +400,17 @@ fun MapEvent17(context) {
     else {
         context.SetFlag(PARTY, WAR12, 1);
         context.ShowText("Did I say small and flitting?  Boy, I better make that appointment with the optometrist soon!");
-        context.GetMonster(1, 30);
-        context.GetMonster(2, 32);
+        context.AddEncounter(1, 30);
+        context.AddEncounter(2, 32);
         if (context.PartyCount > 1) {
-            context.GetMonster(3, 25);
+            context.AddEncounter(3, 25);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 25);
+            context.AddEncounter(4, 25);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 25);
-            context.GetMonster(6, 25);
+            context.AddEncounter(5, 25);
+            context.AddEncounter(6, 25);
         }
     }
 }
@@ -422,8 +422,8 @@ fun MapEvent18(context) {
     else {
         context.SetFlag(PARTY, WAR13, 1);
         context.ShowText("It's incredible, I know, but somehow those bats are about 83 percent teeth!");
-        context.GetMonster(1, 34);
-        context.GetMonster(2, 37);
+        context.AddEncounter(1, 34);
+        context.AddEncounter(2, 37);
     }
 }
 
@@ -434,11 +434,11 @@ fun MapEvent19(context) {
     else {
         context.SetFlag(PARTY, WAR14, 1);
         context.ShowText("This must be the downhill end of the Stables, because it looks like all the world's cats have flowed down here.  And let me tell you, they did not want to have their nap interrupted!");
-        context.GetMonster(1, 31);
-        context.GetMonster(2, 29);
+        context.AddEncounter(1, 31);
+        context.AddEncounter(2, 29);
         if (context.PartyCount > 1) {
-            context.GetMonster(3, 33);
-            context.GetMonster(4, 33);
+            context.AddEncounter(3, 33);
+            context.AddEncounter(4, 33);
         }
     }
 }
@@ -534,12 +534,12 @@ fun MapEvent21(context) {
                     break;
                 case 9:
                     context.ShowText("In utter frustration you take a running charge at the pile of rubble blocking the door.");
-                    context.Damage(2);
+                    context.DamagePlayer(2);
                     context.ShowText("That hurt.  But at least you now know that the door is safe from the likes of you!");
                     break;
                 case 10:
                     context.ShowText("All right already!  You have proven your diligence.  Here is a small reward.  Now stop bothering the nice door; what did it ever do to you?");
-                    context.ModExp(500);
+                    context.AddExperience(500);
                     break;
             }
             i++;

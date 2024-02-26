@@ -32,13 +32,13 @@
 
 fun MapEvent01(context) {
     context.SetFlag(DUNGEON, ENTEREDSANCTUM, 1);
-    if (context.Facing == EAST) {
+    if (context.GetFacing == EAST) {
         context.ShowText("This way to the Foyer of Cawdor.");
     }
 }
 
 fun MapEvent02(context) {
-    context.ShowPicture(ELFCLERIC);
+    context.ShowPortrait(ELFCLERIC);
     if (context.GetFlag(DUNGEON, CLERICROOM) == 1) {
         if ((context.GetFlag(PARTY, SAWDESK) == 0) && (context.GetFlag(PARTY, BEENHERE) == 0)) {
             context.ShowText("*");
@@ -51,14 +51,14 @@ fun MapEvent02(context) {
         else {
             if (context.GetFlag(PARTY, SAWDESK) == 2) {
                 context.ShowText("'I suppose that this once I can cast a simple healing spell upon thee without endangering either of our souls,' he says, winking.");
-                context.Heal(context.MaxHealth);
+                context.HealPlayer(context.GetMaxHealth);
                 context.SetFlag(PARTY, SAWDESK, 1);
                 context.ShowText("The elf closes his eyes and begins chanting.");
             }
         }
     }
     else {
-        if ((context.GetFlag(DUNGEON, GOT_HAIL) == 0) && (context.Guild == CLERIC)) {
+        if ((context.GetFlag(DUNGEON, GOT_HAIL) == 0) && (context.GetGuild == CLERIC)) {
             context.ShowText("*");
             context.ShowText("*");
             context.ShowText("*");
@@ -68,7 +68,7 @@ fun MapEvent02(context) {
             context.ShowText("You assure him that you will.");
             context.ShowText("'Then I can warn thee that, although thou shalt find thy spell of dissipate most puissant against them, that there are others here, some beasts, some beings lured by the unholy prospect of unending life, who will also try to defeat thee.");
             context.ShowText("To assist thee against these such, I shall give unto thee the spell of Hail.  May it serve thee well!'");
-            context.ModSpell(HAIL_SPELL, 1);
+            context.ModSpellLevel(HAIL_SPELL, 1);
             context.ShowText("The cleric gestures; you now know that spell!");
             context.ShowText("'My blessing upon thee; and remember, there is no dishonor in retreating from a more powerful foe.'  The elf closes his eyes and begins chanting again.");
             context.SetFlag(DUNGEON, GOT_HAIL, 1);
@@ -79,9 +79,9 @@ fun MapEvent02(context) {
                 context.ShowText("Although we are discouraged from worldly things, nonetheless thou shalt need a heavy purse to obtain the items which shall sustain and support thee in our cause.'");
                 context.GiveItem(SMALLLETTEROFCREDIT);
                 context.ShowText("'And thou dost know well that thou hast acted in a state of grace, for thou art rewarded in other ways.  Behold!'");
-                context.ModExp(4000);
-                if ((context.GetSkill(BINDING_SKILL) == 0) && (context.Guild == CLERIC)) {
-                    context.ModSkill(BINDING_SKILL, 1);
+                context.AddExperience(4000);
+                if ((context.GetSkillLevel(BINDING_SKILL) == 0) && (context.GetGuild == CLERIC)) {
+                    context.ModSkillLevel(BINDING_SKILL, 1);
                     context.ShowText("You now know the skill of binding!");
                 }
                 context.ShowText("'May I offer my personal gratitude for all that thou hast done here.'  He shakes your hand, and then returns to his chanting.");
@@ -90,7 +90,7 @@ fun MapEvent02(context) {
             else {
                 if ((!(context.GetFlag(PARTY, WAR1) == 0)) && (!(context.GetFlag(PARTY, WAR2) == 0)) && (!(context.GetFlag(PARTY, WAR3) == 0)) && (!(context.GetFlag(PARTY, WAR4) == 0)) && (!(context.GetFlag(PARTY, WAR5) == 0)) && (!(context.GetFlag(PARTY, WAR6) == 0))) {
                     context.ShowText("'I do appreciate thy efforts against the unholy creatures that reside within, and yet I have not the wherewithal to reward thee fully for thy repeated efforts.  This will have to suffice.'");
-                    context.ModExp(1000);
+                    context.AddExperience(1000);
                     context.GiveItem(SMALLLETTEROFCREDIT);
                     context.ShowText("'But now I fear me that thou art needed elsewhere.  Farewell....'");
                     context.Teleport(1, 1, 64, WEST);
@@ -108,16 +108,16 @@ fun MapEvent03(context) {
     if (context.GetFlag(PARTY, WAR1) == 0) {
         context.SetFlag(PARTY, WAR1, 1);
         context.ShowText("What a motley crew.  Motley, but ready to rumble.");
-        context.SetBooty(SCROLLOFPROTECTION, SMALLLETTEROFCREDIT, 0, 0, 0, 125);
-        context.GetMonster(1, 40);
-        context.GetMonster(5, 32);
+        context.SetTreasure(SCROLLOFPROTECTION, SMALLLETTEROFCREDIT, 0, 0, 0, 125);
+        context.AddEncounter(1, 40);
+        context.AddEncounter(5, 32);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 26);
-            context.GetMonster(6, 27);
+            context.AddEncounter(2, 26);
+            context.AddEncounter(6, 27);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 38);
-            context.GetMonster(3, 29);
+            context.AddEncounter(4, 38);
+            context.AddEncounter(3, 29);
         }
     }
     else {
@@ -127,7 +127,7 @@ fun MapEvent03(context) {
 
 fun MapEvent04(context) {
     if (((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1)) || (context.GetFlag(DUNGEON, CLERICROOM) == 1) || (context.GetFlag(DUNGEON, CLERICROOM) == 2)) {
-        context.ClearWall(context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
         if ((!(context.GetFlag(PARTY, LOUDLY) == 2)) && ((context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING)))) {
             context.ShowText("You think the tool will enable you to proceed discreetly.");
             context.SetFlag(PARTY, LOUDLY, 3);
@@ -175,23 +175,23 @@ fun MapEvent06(context) {
     if ((i == 26) | (i == 20) | (i == 14) | (i == 8) | (i == 2)) {
         switch (k) {
             case 0:
-                context.ShowPicture(HALFLINGTHIEF);
+                context.ShowPortrait(HALFLINGTHIEF);
                 context.ShowText("You see a heavily scarred and well equipped halfling thief scuttling from pillar to post.  He wears a Thief's Tabard and carries a Dalriadan Bow, and you can hear him softly chanting, 'Here, ghoulie ghoulie ghoulie.'");
                 context.ShowText("You wisely decide to let him go his own way.");
                 break;
             case 1:
-                context.ShowPicture(ORCKNIGHT);
+                context.ShowPortrait(ORCKNIGHT);
                 context.ShowText("A large orcish knight, bearing Wulfherd's Shield and Hilda's Hammer, greets you.");
                 context.ShowText("'Hail and well met.  I have equipped myself for a return engagement with a certain ghost, who killed my brother.  He was about fourteen feet tall, bright puce.  Hast thou seen him?' You shake your head.  He sighs. 'Until we meet again, then.'");
                 break;
             case 2:
-                context.ShowPicture(HALFLINGKNIGHT);
+                context.ShowPortrait(HALFLINGKNIGHT);
                 context.ShowText("A small, smiling halfling knight, wearing a Holy Relic, bearing Oswald's Bane, and wielding Malcolm's Chopper, is noisily stalking an obviously empty part of the room.  Her eyes are filled with madness as they meet yours.");
                 context.ShowText("'Shh!  I have found that which will enable me to defeat all forms of undead.  By conquering death I shall live forever!  Do not follow me!  He is MINE!'");
                 context.ShowText("You see no reason to argue, as the knight clatters off.");
                 break;
             case 3:
-                context.ShowPicture(DWARFWIZARD);
+                context.ShowPortrait(DWARFWIZARD);
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("*");
@@ -216,7 +216,7 @@ fun MapEvent08(context) {
         context.ShowText("'I'm sorry, but there's nothing else I can do for you here.'");
     }
     else {
-        context.ShowPicture(LADYMACBETH);
+        context.ShowPortrait(LADYMACBETH);
         context.SetFlag(PARTY, BEENHERE, 1);
         if ((context.GetFlag(DUNGEON, BARBARIANROOM) == 1) && (context.GetFlag(DUNGEON, WIZARDROOM) == 1) && (context.GetFlag(DUNGEON, KNIGHTROOM) == 1) && (context.GetFlag(DUNGEON, RANGERROOM) == 1) && (context.GetFlag(DUNGEON, THIEFROOM) == 1)) {
             context.ShowText("*");
@@ -245,12 +245,12 @@ fun MapEvent08(context) {
                 context.SetFlag(DUNGEON, GOT_HEAL, 1);
             }
             else {
-                if (context.Guild == CLERIC) {
+                if (context.GetGuild == CLERIC) {
                     context.ShowText("Galatea draws you aside for a private message.");
                     context.ShowText("'Thou hast already received all the rewards thou hast earned and that I can safely grant thee here, lest my sisters notice and suspect the usage of my power.'");
                 }
                 else {
-                    if (context.PartyGuild(CLERIC)) {
+                    if (context.GetGuildAny(CLERIC)) {
                         context.ShowText("Galatea pulls your party's clerics aside for a few private words, and then returns.");
                     }
                     if (context.GetFlag(DUNGEON, SANCTREWARD) == 0) {
@@ -274,16 +274,16 @@ fun MapEvent0A(context) {
     else {
         context.SetFlag(PARTY, WAR3, 1);
         context.ShowText("Some ghouls just don't take no for an answer.");
-        context.SetBooty(BLUEBERRYBREW, PETUNIAPOULTICE, 0, 0, 0, 207);
-        context.GetMonster(1, 40);
-        context.GetMonster(5, 32);
+        context.SetTreasure(BLUEBERRYBREW, PETUNIAPOULTICE, 0, 0, 0, 207);
+        context.AddEncounter(1, 40);
+        context.AddEncounter(5, 32);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 40);
-            context.GetMonster(6, 25);
+            context.AddEncounter(2, 40);
+            context.AddEncounter(6, 25);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(3, 30);
-            context.GetMonster(4, 31);
+            context.AddEncounter(3, 30);
+            context.AddEncounter(4, 31);
         }
     }
 }
@@ -294,7 +294,7 @@ fun MapEvent0B(context) {
     }
     else {
         context.ShowText("You've just found crypt central!");
-        if (context.Here == 136) {
+        if (context.GetTile == 136) {
             if (context.GetFlag(PARTY, WAR4) == 3) {
                 context.SetFlag(PARTY, WAR4, 1);
                 context.ShowText("Again!");
@@ -315,16 +315,16 @@ fun MapEvent0B(context) {
         if (context.PartyCount > 2) {
             context.ShowText("And you without your Red Cross card.");
         }
-        context.SetBooty(SCROLLOFPROTECTION, REDTARTANCLOAK, BLUEBERRYBREW, 0, 0, 188);
-        context.GetMonster(1, 40);
-        context.GetMonster(2, 34);
+        context.SetTreasure(SCROLLOFPROTECTION, REDTARTANCLOAK, BLUEBERRYBREW, 0, 0, 188);
+        context.AddEncounter(1, 40);
+        context.AddEncounter(2, 34);
         if (context.PartyCount > 1) {
-            context.GetMonster(5, 32);
+            context.AddEncounter(5, 32);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 34);
-            context.GetMonster(4, 34);
-            context.GetMonster(6, 32);
+            context.AddEncounter(3, 34);
+            context.AddEncounter(4, 34);
+            context.AddEncounter(6, 32);
         }
     }
 }
@@ -335,7 +335,7 @@ fun MapEvent0C(context) {
     }
     else {
         context.ShowText("The good news is there don't appear to be any undead in this group of folks attacking you.");
-        if (context.Here == 248) {
+        if (context.GetTile == 248) {
             if (context.GetFlag(PARTY, WAR5) == 3) {
                 context.SetFlag(PARTY, WAR5, 1);
                 context.ShowText("Again!");
@@ -356,16 +356,16 @@ fun MapEvent0C(context) {
         if (context.PartyCount > 2) {
             context.ShowText("The bad news is, there probably doesn't need to be!");
         }
-        context.SetBooty(PETUNIAPOULTICE, TURGEISSTRIPPER, BLUEBERRYBREW, 0, 0, 188);
-        context.GetMonster(1, 25);
-        context.GetMonster(2, 39);
+        context.SetTreasure(PETUNIAPOULTICE, TURGEISSTRIPPER, BLUEBERRYBREW, 0, 0, 188);
+        context.AddEncounter(1, 25);
+        context.AddEncounter(2, 39);
         if (context.PartyCount > 1) {
-            context.GetMonster(5, 25);
+            context.AddEncounter(5, 25);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 33);
-            context.GetMonster(4, 35);
-            context.GetMonster(6, 36);
+            context.AddEncounter(3, 33);
+            context.AddEncounter(4, 35);
+            context.AddEncounter(6, 36);
         }
     }
 }
@@ -378,11 +378,11 @@ fun MapEvent0D(context) {
         context.SetFlag(PARTY, WAR6, 1);
         if (context.GetFlag(PARTY, LOUDLY) == 0) {
             context.ShowText("The canny undead were lying in wait.");
-            context.Damage(context.Health / 3);
+            context.DamagePlayer(context.GetHealth / 3);
         }
         else {
             context.ShowText("There are the makings of an ambush here, but you seem to have caught them unawares.  Then again, who can tell what undead are thinking.");
-            context.ModExp(500);
+            context.AddExperience(500);
             if (context.GetFlag(PARTY, WASLOUD) == 1) {
                 context.ShowText("You're thinking it's a good thing that undead have short attention spans.");
             }
@@ -391,14 +391,14 @@ fun MapEvent0D(context) {
             context.ShowText("This looked bad enough, but as the rest of them shamble forwards, it looks worse.");
         }
         context.SetFlag(PARTY, LOUDLY, 0);
-        context.SetBooty(PETUNIAPOULTICE, BLUEBERRYBREW, 0, 0, 0, 542);
-        context.GetMonster(1, 40);
-        context.GetMonster(2, 40);
-        context.GetMonster(5, 37);
-        context.GetMonster(6, 37);
+        context.SetTreasure(PETUNIAPOULTICE, BLUEBERRYBREW, 0, 0, 0, 542);
+        context.AddEncounter(1, 40);
+        context.AddEncounter(2, 40);
+        context.AddEncounter(5, 37);
+        context.AddEncounter(6, 37);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 40);
-            context.GetMonster(4, 40);
+            context.AddEncounter(3, 40);
+            context.AddEncounter(4, 40);
         }
     }
 }
@@ -440,26 +440,26 @@ fun MapEvent11(context) {
     else {
         if (context.GetFlag(PARTY, TRACKING) == 0) {
             context.ShowText("Oh fie!  'Tis an ambush!");
-            context.Damage(context.MaxHealth / 4);
+            context.DamagePlayer(context.GetMaxHealth / 4);
         }
         else {
             context.ShowText("Your careful approach prevents you from being surprised.  Well done!");
-            context.ModExp(500);
+            context.AddExperience(500);
         }
         context.SetFlag(PARTY, WAR2, 1);
         if (context.PartyCount > 3) {
             context.ShowText("You have a job ahead of you.");
         }
-        context.SetBooty(BEGONIABALM, BLUEBERRYBREW, 0, 0, 0, 542);
-        context.GetMonster(1, 40);
-        context.GetMonster(2, 40);
+        context.SetTreasure(BEGONIABALM, BLUEBERRYBREW, 0, 0, 0, 542);
+        context.AddEncounter(1, 40);
+        context.AddEncounter(2, 40);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 32);
-            context.GetMonster(6, 32);
+            context.AddEncounter(5, 32);
+            context.AddEncounter(6, 32);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(3, 40);
-            context.GetMonster(4, 40);
+            context.AddEncounter(3, 40);
+            context.AddEncounter(4, 40);
         }
     }
 }
@@ -589,19 +589,19 @@ fun MapEvent21(context) {
 
 fun MapEvent22(context) {
     if (context.GetFlag(PARTY, HEARDGARLIC) == 0) {
-        context.ShowPicture(HALFLINGCLERIC);
+        context.ShowPortrait(HALFLINGCLERIC);
         context.ShowText("'Ah!  So thou, too, hast heard of the tremendous powers the Gaelic Garlic has against undead.  But there is none to be found this way.  I am most sure of that.'");
         context.SetFlag(PARTY, HEARDGARLIC, 1);
     }
 }
 
 fun MapEvent23(context) {
-    context.ShowPicture(FOUNTAIN);
+    context.ShowPortrait(FOUNTAIN);
     context.ShowText("This warm, almost hot fountain provides some relief to your bruises, but does nothing special for you.");
 }
 
 fun MapEvent24(context) {
-    context.ShowPicture(FOUNTAIN);
+    context.ShowPortrait(FOUNTAIN);
     context.ShowText("This cold fountain provides a refreshing drink for you, but does nothing special otherwise.");
 }
 

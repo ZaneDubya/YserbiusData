@@ -22,13 +22,13 @@
 
 fun MapEvent01(context) {
     context.SetFlag(DUNGEON, ENTEREDTROPHY, 1);
-    if (context.Facing == SOUTH) {
+    if (context.GetFacing == SOUTH) {
         context.ShowText("This way to the Foyer of Cawdor.");
     }
 }
 
 fun MapEvent02(context) {
-    context.ShowPicture(ELFRANGER);
+    context.ShowPortrait(ELFRANGER);
     if ((!(context.GetFlag(PARTY, WAR1) == 0)) && (!(context.GetFlag(PARTY, WAR2) == 0)) && (!(context.GetFlag(PARTY, WAR3) == 0)) && (!(context.GetFlag(PARTY, WAR4) == 0)) && (!(context.GetFlag(PARTY, WAR5) == 0)) && (!(context.GetFlag(PARTY, WAR6) == 0))) {
         if (context.GetFlag(PARTY, GAVEBOW) == 0) {
             context.ShowText("'Impressive.  Thou hast proven thyself far too lucky to be other than skilled.  I guess the best thing to do is give you something else exemplifying a ranger.'");
@@ -93,15 +93,15 @@ fun MapEvent05(context) {
         else {
             context.SetFlag(PARTY, WAR1, 3);
             context.ShowText("With a bullish bellow you are beset!");
-            context.SetBooty(SCROLLOFPROTECTION, BLUEBERRYBREW, 0, 0, 0, 125);
-            context.GetMonster(1, 25);
-            context.GetMonster(2, 32);
+            context.SetTreasure(SCROLLOFPROTECTION, BLUEBERRYBREW, 0, 0, 0, 125);
+            context.AddEncounter(1, 25);
+            context.AddEncounter(2, 32);
             if (context.PartyCount > 1) {
-                context.GetMonster(5, 32);
+                context.AddEncounter(5, 32);
             }
             if (context.PartyCount > 2) {
-                context.GetMonster(4, 40);
-                context.GetMonster(6, 31);
+                context.AddEncounter(4, 40);
+                context.AddEncounter(6, 31);
             }
         }
     }
@@ -148,7 +148,7 @@ fun MapEvent06(context) {
                     context.ShowText("Ah, yes, 'tis another halfling mob.  But Rory will never again greet you here.");
                 }
                 else {
-                    context.ShowPicture(HALFLINGTHIEF);
+                    context.ShowPortrait(HALFLINGTHIEF);
                     context.ShowText("*");
                     context.ShowText("*");
                     context.ShowText("*");
@@ -162,7 +162,7 @@ fun MapEvent06(context) {
                     context.ShowText("You find a few slightly singed halflings.");
                 }
                 else {
-                    context.ShowPicture(DRAGON);
+                    context.ShowPortrait(DRAGON);
                     context.ShowText("The dragon inhales deeply, preparatory to breathing on you, but pauses.");
                     if (context.GetFlag(DUNGEON, SAWRAGNAROK) == 1) {
                         context.ShowText("*");
@@ -185,7 +185,7 @@ fun MapEvent06(context) {
                 }
                 break;
             case 3:
-                context.ShowPicture(HALFLINGTHIEF);
+                context.ShowPortrait(HALFLINGTHIEF);
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("*");
@@ -199,13 +199,13 @@ fun MapEvent06(context) {
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("A somewhat battered gang o'gremlins decides, rather insultingly, that they are bigger than you are.");
-                context.SetBooty(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 93);
-                context.GetMonster(1, 35);
+                context.SetTreasure(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 93);
+                context.AddEncounter(1, 35);
                 if (context.PartyCount > 1) {
-                    context.GetMonster(2, 26);
+                    context.AddEncounter(2, 26);
                 }
                 if (context.PartyCount > 2) {
-                    context.GetMonster(3, 35);
+                    context.AddEncounter(3, 35);
                 }
                 break;
         }
@@ -229,15 +229,15 @@ fun MapEvent07(context) {
             if (context.PartyCount > 2) {
                 context.ShowText("No matter how many of them there are.");
             }
-            context.SetBooty(BERSERKERTALISMAN, BEGONIABALM, 0, 0, 0, 147);
-            context.GetMonster(1, 25);
-            context.GetMonster(2, 26);
+            context.SetTreasure(BERSERKERTALISMAN, BEGONIABALM, 0, 0, 0, 147);
+            context.AddEncounter(1, 25);
+            context.AddEncounter(2, 26);
             if (context.PartyCount > 1) {
-                context.GetMonster(3, 33);
+                context.AddEncounter(3, 33);
             }
             if (context.PartyCount > 2) {
-                context.GetMonster(4, 36);
-                context.GetMonster(5, 37);
+                context.AddEncounter(4, 36);
+                context.AddEncounter(5, 37);
             }
         }
     }
@@ -255,7 +255,7 @@ fun MapEvent08(context) {
         context.ShowText("'Prithee pardon, but there is naught I can do for thee here and now.'");
     }
     else {
-        context.ShowPicture(LADYMACBETH);
+        context.ShowPortrait(LADYMACBETH);
         context.SetFlag(PARTY, BEENHERE, 1);
         context.SetFlag(DUNGEON, RANGERROOM, 1);
         if ((context.GetFlag(DUNGEON, BARBARIANROOM) == 1) && (context.GetFlag(DUNGEON, CLERICROOM) == 1) && (context.GetFlag(DUNGEON, KNIGHTROOM) == 1) && (context.GetFlag(DUNGEON, WIZARDROOM) == 1) && (context.GetFlag(DUNGEON, THIEFROOM) == 1) && (context.GetFlag(DUNGEON, GOT_SHIELD) == 0)) {
@@ -266,33 +266,33 @@ fun MapEvent08(context) {
             context.ShowText("You realize that you now know that spell!");
             context.GiveSpell(SHIELD_SPELL, 1);
             context.SetFlag(DUNGEON, GOT_SHIELD, 1);
-            if ((!context.GetSkill(BINDING_SKILL)) && (context.Guild == RANGER)) {
+            if ((!context.GetSkillLevel(BINDING_SKILL)) && (context.GetGuild == RANGER)) {
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("Galatea takes you aside so that only you can hear her remarks.");
                 context.ShowText("'Well met, honored hunter!  May thy arrows fly swift and true.  An thou dost continue on this, the quest for my salvation, then I think me the skill of binding will serve thee well.'");
-                context.ModSkill(BINDING_SKILL, 1);
+                context.ModSkillLevel(BINDING_SKILL, 1);
             }
         }
         else {
-            if ((!context.GetSkill(BINDING_SKILL)) && (context.Guild == RANGER) && (!(context.GetFlag(PARTY, WAR1) == 0)) && (!(context.GetFlag(PARTY, WAR2) == 0)) && (!(context.GetFlag(PARTY, WAR3) == 0)) && (!(context.GetFlag(PARTY, WAR4) == 0)) && (!(context.GetFlag(PARTY, WAR5) == 0)) && (!(context.GetFlag(PARTY, WAR6) == 0))) {
+            if ((!context.GetSkillLevel(BINDING_SKILL)) && (context.GetGuild == RANGER) && (!(context.GetFlag(PARTY, WAR1) == 0)) && (!(context.GetFlag(PARTY, WAR2) == 0)) && (!(context.GetFlag(PARTY, WAR3) == 0)) && (!(context.GetFlag(PARTY, WAR4) == 0)) && (!(context.GetFlag(PARTY, WAR5) == 0)) && (!(context.GetFlag(PARTY, WAR6) == 0))) {
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("Galatea takes you aside so that only you can hear her remarks.");
                 context.ShowText("'Well met, honored hunter!  May thy arrows fly swift and true.  An thou dost continue on this, the quest for my salvation, then I think me the skill of binding will serve thee well.'");
-                context.ModSkill(BINDING_SKILL, 1);
+                context.ModSkillLevel(BINDING_SKILL, 1);
             }
             else {
-                if (context.Guild == RANGER) {
+                if (context.GetGuild == RANGER) {
                     context.ShowText("*");
                     context.ShowText("*");
                     context.ShowText("*");
                     context.ShowText("'Thou hast already received all the rewards thou hast earned and that I can safely grant thee here, lest my sisters notice and suspect the usage of my power.'");
                 }
                 else {
-                    if (context.PartyGuild(RANGER)) {
+                    if (context.GetGuildAny(RANGER)) {
                         context.ShowText("Galatea pulls your party's rangers aside for a few private words, and then returns.");
                     }
                     if (context.GetFlag(DUNGEON, THAUMREWARD) == 0) {
@@ -312,7 +312,7 @@ fun MapEvent08(context) {
 fun MapEvent09(context) {
     if (!(context.GetFlag(PARTY, SAWTHIEF) == 0)) {
         context.SetFlag(PARTY, SAWTHIEF, 1);
-        context.ShowPicture(HUMANTHIEF);
+        context.ShowPortrait(HUMANTHIEF);
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("*");
@@ -339,19 +339,19 @@ fun MapEvent0A(context) {
             context.ShowText("The good news is you caught those cats.  The bad news is that you were only tracking a fraction of them, and didn't notice their master's tracks at all.");
             if (context.PartyCount > 2) {
                 context.ShowText("And the really bad news is that their masters were waiting for you with fireballs!");
-                context.Damage(context.Health / 5);
+                context.DamagePlayer(context.GetHealth / 5);
             }
-            context.SetBooty(CROSSBOW, BEGONIABALM, 0, 0, 0, 147);
-            context.GetMonster(1, 25);
-            context.GetMonster(2, 29);
+            context.SetTreasure(CROSSBOW, BEGONIABALM, 0, 0, 0, 147);
+            context.AddEncounter(1, 25);
+            context.AddEncounter(2, 29);
             if (context.PartyCount > 1) {
-                context.GetMonster(3, 28);
-                context.GetMonster(4, 29);
+                context.AddEncounter(3, 28);
+                context.AddEncounter(4, 29);
             }
             if (context.PartyCount > 2) {
-                context.GetMonster(5, 27);
-                context.GetMonster(6, 27);
-                context.Damage(context.Health / 5);
+                context.AddEncounter(5, 27);
+                context.AddEncounter(6, 27);
+                context.DamagePlayer(context.GetHealth / 5);
             }
         }
     }
@@ -374,16 +374,16 @@ fun MapEvent0B(context) {
             if (context.PartyCount > 2) {
                 context.ShowText("Make that an awful lot of them.");
             }
-            context.SetBooty(SCROLLOFPROTECTION, CONVEXSHIELD, BLUEBERRYBREW, 0, 0, 188);
-            context.GetMonster(1, 25);
-            context.GetMonster(2, 34);
+            context.SetTreasure(SCROLLOFPROTECTION, CONVEXSHIELD, BLUEBERRYBREW, 0, 0, 188);
+            context.AddEncounter(1, 25);
+            context.AddEncounter(2, 34);
             if (context.PartyCount > 1) {
-                context.GetMonster(3, 30);
+                context.AddEncounter(3, 30);
             }
             if (context.PartyCount > 2) {
-                context.GetMonster(4, 30);
-                context.GetMonster(5, 34);
-                context.GetMonster(6, 34);
+                context.AddEncounter(4, 30);
+                context.AddEncounter(5, 34);
+                context.AddEncounter(6, 34);
             }
         }
     }
@@ -403,16 +403,16 @@ fun MapEvent0C(context) {
         if (context.GetFlag(PARTY, WAR5) == 0) {
             context.SetFlag(PARTY, WAR5, 3);
             context.ShowText("You wanted them.  Now you get them.");
-            context.SetBooty(SCROLLOFPROTECTION, CONVEXSHIELD, EDWINSPEACEGIVER, 0, 0, 188);
-            context.GetMonster(1, 25);
-            context.GetMonster(2, 35);
-            context.GetMonster(3, 38);
+            context.SetTreasure(SCROLLOFPROTECTION, CONVEXSHIELD, EDWINSPEACEGIVER, 0, 0, 188);
+            context.AddEncounter(1, 25);
+            context.AddEncounter(2, 35);
+            context.AddEncounter(3, 38);
             if (context.PartyCount > 2) {
-                context.GetMonster(4, 39);
+                context.AddEncounter(4, 39);
             }
             if (context.PartyCount > 3) {
-                context.GetMonster(5, 25);
-                context.GetMonster(6, 25);
+                context.AddEncounter(5, 25);
+                context.AddEncounter(6, 25);
             }
         }
         else {
@@ -437,7 +437,7 @@ fun MapEvent0E(context) {
 fun MapEvent0F(context) {
     if (context.GetFlag(DUNGEON, HEARDJOKE4) == 0) {
         context.SetFlag(DUNGEON, HEARDJOKE4, 1);
-        context.ShowPicture(DRAGON);
+        context.ShowPortrait(DRAGON);
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("*");
@@ -468,16 +468,16 @@ fun MapEvent11(context) {
             if (context.GetFlag(PARTY, TRACK6) == 1) {
                 context.SetFlag(PARTY, WAR6, 3);
                 context.ShowText("Just once you wish you weren't outnumbered.");
-                context.SetBooty(PETUNIAPOULTICE, BLUEBERRYBREW, 0, 0, 0, 542);
-                context.GetMonster(1, 25);
-                context.GetMonster(2, 39);
-                context.GetMonster(5, 23);
+                context.SetTreasure(PETUNIAPOULTICE, BLUEBERRYBREW, 0, 0, 0, 542);
+                context.AddEncounter(1, 25);
+                context.AddEncounter(2, 39);
+                context.AddEncounter(5, 23);
                 if (context.PartyCount > 2) {
-                    context.GetMonster(6, 23);
+                    context.AddEncounter(6, 23);
                 }
                 if (context.PartyCount > 3) {
-                    context.GetMonster(3, 39);
-                    context.GetMonster(4, 39);
+                    context.AddEncounter(3, 39);
+                    context.AddEncounter(4, 39);
                 }
             }
             else {
@@ -689,7 +689,7 @@ fun MapEvent2B(context) {
 
 fun MapEvent2C(context) {
     if (context.GetFlag(PARTY, WAR5) == 0) {
-        if ((context.UsedSkill(READ_TRACKS_SKILL) > 2) && (!(context.GetSkill(READ_TRACKS_SKILL)))) {
+        if ((context.UsedSkill(READ_TRACKS_SKILL) > 2) && (!(context.GetSkillLevel(READ_TRACKS_SKILL)))) {
             context.SetFlag(PARTY, TRACK5, 1);
             context.ShowText("*");
             context.ShowText("*");

@@ -97,24 +97,24 @@ fun SixMonst(context, monster) {
             break;
     }
     for (i = 1; i <= num; i++) {
-        context.GetMonster(i, monster);
+        context.AddEncounter(i, monster);
     }
 }
 
 fun MapEvent01(context) {
     var i;
     context.ShowText("The boiling lava scorches you terribly.");
-    i = context.Health - 1;
-    context.Damage(i);
+    i = context.GetHealth - 1;
+    context.DamagePlayer(i);
 }
 
 fun MapEvent02(context) {
     context.ShowText("You writhe in agony as the poisonous waters close over you");
-    context.Damage(context.MaxHealth);
+    context.DamagePlayer(context.GetMaxHealth);
 }
 
 fun MapEvent03(context) {
-    switch (context.Here) {
+    switch (context.GetTile) {
         case 4:
         case 6:
         case 8:
@@ -138,7 +138,7 @@ fun MapEvent04(context) {
 }
 
 fun MapEvent05(context) {
-    context.BlockFloor(context.Here);
+    context.SetFloorBlock(context.GetTile);
 }
 
 fun MapEvent06(context) {
@@ -149,20 +149,20 @@ fun MapEvent07(context) {
     var fishFlag;
     var mapSquare;
     fishFlag = context.GetFlag(PARTY, FISH_FEEDING_CNT);
-    mapSquare = context.Here;
+    mapSquare = context.GetTile;
     if ((mapSquare <= 148) || (fishFlag == 0)) {
         context.ShowText(piranhaDeathStr);
-        context.Damage(context.MaxHealth);
+        context.DamagePlayer(context.GetMaxHealth);
         return;
     }
     switch (fishFlag) {
         case 0:
             context.ShowText(piranhaDeathStr);
-            context.Damage(context.MaxHealth);
+            context.DamagePlayer(context.GetMaxHealth);
             break;
         case 1:
             context.ShowText("The piranhas have returned! They begin to snap and bite, mauling you horribly.");
-            context.Damage(context.MaxHealth / 2);
+            context.DamagePlayer(context.GetMaxHealth / 2);
             break;
         case 2:
             context.ShowText("The water to the north is less agitated than before.");
@@ -183,15 +183,15 @@ fun MapEvent08(context) {
         context.SetFlag(PARTY, COASTER_STOPPING, 0);
         context.Teleport(13, 1, 103, WEST);
     }
-    switch (context.Here) {
+    switch (context.GetTile) {
         case 86:
             context.ShowText("The coaster gains speed as it dips giddily into the darkness.");
             context.Teleport(13, 2, 255, WEST);
             break;
         case 102:
-            context.BlockWall(context.Here, NORTH);
-            context.BlockWall(context.Here, SOUTH);
-            if (context.FlagOn(PARTY, COASTER_STOPPING)) {
+            context.SetWallBlock(context.GetTile, NORTH);
+            context.SetWallBlock(context.GetTile, SOUTH);
+            if (context.IsFlagOn(PARTY, COASTER_STOPPING)) {
                 context.ShowText("The coaster stops.");
                 context.SetFlag(PARTY, COASTER_STOPPING, 0);
                 context.Teleport(13, 1, 103, EAST);
@@ -216,7 +216,7 @@ fun MapEvent09(context) {
     var square;
     var naomiFlag;
     flag = context.GetFlag(PARTY, CONTROL_1);
-    square = context.Here;
+    square = context.GetTile;
     switch (square) {
         case 132:
             if (!(flag & POND_DESC_BIT)) {
@@ -233,7 +233,7 @@ fun MapEvent09(context) {
                 context.ShowText(jostleStr);
                 context.Teleport(13, 1, square + 1, EAST);
             }
-            if (context.Facing == SOUTH) {
+            if (context.GetFacing == SOUTH) {
                 naomiFlag = context.GetFlag(DUNGEON, CHOR_NAOMI_MET);
                 if ((naomiFlag == 1) || (naomiFlag == 2)) {
                     context.ShowText("To the south and east you can dimly make out the silhouette of a woman standing on a small island.");
@@ -262,7 +262,7 @@ fun MapEvent0A(context) {
         ctrlFlags = context.GetFlag(PARTY, CONTROL_1);
         cntFlag = context.GetFlag(PARTY, FISH_FEEDING_CNT);
         if (cntFlag == 0) {
-            if (context.Here == 132) {
+            if (context.GetTile == 132) {
                 ctrlFlags = ctrlFlags | FED_FISH_RIGHT_BIT;
             }
             else {
@@ -284,24 +284,24 @@ fun MapEvent0A(context) {
         context.SetFlag(PARTY, FISH_FEEDING_CNT, cntFlag);
     }
     else {
-        if (context.FlagOff(PARTY, FISH_FEEDING_CNT)) {
+        if (context.IsFlagOff(PARTY, FISH_FEEDING_CNT)) {
             context.ShowText("As you approach the water's edge you see the fish gathering expectantly.");
         }
     }
 }
 
 fun MapEvent0B(context) {
-    if (context.FlagOff(PARTY, FISH_FEEDING_CNT)) {
+    if (context.IsFlagOff(PARTY, FISH_FEEDING_CNT)) {
         context.ShowText("Nasty-looking fish dart through the dark water below.");
     }
 }
 
 fun MapEvent0C(context) {
     if (context.GetFlag(PARTY, CONTROL_1) & SIGNED_IN_BIT) {
-        context.ClearWall(context.Here, EAST);
+        context.ClearWallBlock(context.GetTile, EAST);
     }
     else {
-        context.BlockWall(context.Here, EAST);
+        context.SetWallBlock(context.GetTile, EAST);
     }
 }
 
@@ -314,9 +314,9 @@ fun MapEvent0E(context) {
     var switchCode;
     var strPtr1;
     var knownFlags;
-    switchCode = context.Here;
+    switchCode = context.GetTile;
     switchCode = switchCode * 256;
-    switchCode = switchCode + context.Facing;
+    switchCode = switchCode + context.GetFacing;
     knownFlags = context.GetFlag(DUNGEON, CHOR_KNOWN);
     switch (switchCode) {
         case 24067:
@@ -349,7 +349,7 @@ fun MapEvent0F(context) {
     killedFlag = context.GetFlag(DUNGEON, CHOR_NPC_KILLED);
     if ((killedFlag & CHORONZAR_KILLED_BIT) && (!(expFlag & GOT_CHOR_EXP_BIT))) {
         context.ShowText("You thrill to the surge of life force coursing into you from the throne.");
-        context.ModExp(10000000);
+        context.AddExperience(10000000);
         expFlag = expFlag | GOT_CHOR_EXP_BIT;
         context.SetFlag(DUNGEON, CHOR_CONTROL_1, expFlag);
     }
@@ -371,12 +371,12 @@ fun MapEvent12(context) {
             context.ShowText("You will have to squeeze through one at a time.");
         }
         context.SetFlag(DUNGEON, CHOR_CONTROL_1, context.GetFlag(DUNGEON, CHOR_CONTROL_1) | SECRET_PASSAGE_BIT);
-        context.ClearWall(context.Here, WEST);
+        context.ClearWallBlock(context.GetTile, WEST);
     }
 }
 
 fun MapEvent13(context) {
-    context.BlockWall(context.Here, context.Facing);
+    context.SetWallBlock(context.GetTile, context.GetFacing);
 }
 
 fun MapEvent14(context) {
@@ -384,11 +384,11 @@ fun MapEvent14(context) {
     var alchFlag;
     var takeItem = 0;
     var strPtr;
-    context.BlockFloor(13);
-    context.BlockFloor(14);
-    context.BlockFloor(15);
-    context.BlockFloor(31);
-    context.BlockFloor(57);
+    context.SetFloorBlock(13);
+    context.SetFloorBlock(14);
+    context.SetFloorBlock(15);
+    context.SetFloorBlock(31);
+    context.SetFloorBlock(57);
     alchFlag = context.GetFlag(PARTY, ALCHEMY_LEVEL);
     context.ShowText("Alchemical implements of all descriptions clutter this workbench, including four large black kettles full of bubbling liquid.");
     context.SetFlag(DUNGEON, CHOR_KNOWN, context.GetFlag(DUNGEON, CHOR_KNOWN) | ALCHEMY_KNOWN_BIT);
@@ -456,27 +456,27 @@ fun MapEvent15(context) {
     var monster;
     var i;
     if (!(context.GetFlag(DUNGEON, CHOR_NPC_KILLED) & CHORONZAR_KILLED_BIT)) {
-        switch (context.Here) {
+        switch (context.GetTile) {
             case 35:
                 context.ShowText("Dazzled, you step into a brightly-lit, vaulted chamber. The musky smell of incense hangs in the air and the delicate music of chimes is audible in the distance.");
                 monster = MONST_PRAETORIAN_A;
-                context.ClearWall(context.Here, WEST);
+                context.ClearWallBlock(context.GetTile, WEST);
                 break;
             case 36:
-                if (context.Facing == EAST) {
+                if (context.GetFacing == EAST) {
                     context.ShowText("Ahead of you through the layers of smoke you see a massive golden throne.");
                 }
                 monster = MONST_PRAETORIAN_A;
                 break;
             case 37:
-                if (context.Facing == EAST) {
+                if (context.GetFacing == EAST) {
                     context.ShowText("As you draw closer you make out an insoucient figure lounging on the throne, dressed in jester's motley.");
                 }
                 monster = MONST_PRAETORIAN_B;
                 break;
             case 38:
             default: 
-                if (context.Facing == EAST) {
+                if (context.GetFacing == EAST) {
                     context.ShowText("The crazed figure on the throne stands, stares at you briefly, then prances off to the southeast, cackling like a lunatic. He dives into a pit and vanishes.");
                 }
                 monster = MONST_PRAETORIAN_B;
@@ -492,7 +492,7 @@ fun MapEvent16(context) {
     var booty2 = 0;
     var booty3 = 0;
     bootyFlag = context.GetFlag(DUNGEON, CHOR_BOOTY);
-    switch (context.Here) {
+    switch (context.GetTile) {
         case 57:
             if (!(bootyFlag & 1)) {
                 booty1 = BIG_BOOTY_1;
@@ -553,8 +553,8 @@ fun MapEvent16(context) {
 }
 
 fun MapEvent17(context) {
-    if (context.UsedItem(context.WeaponInHand, context.WeaponInHand)) {
-        context.ClearWall(context.Here, NORTH);
+    if (context.UsedItem(context.GetEquippedWeapon, context.GetEquippedWeapon)) {
+        context.ClearWallBlock(context.GetTile, NORTH);
         context.ShowText("You bash the lock off the door.");
     }
     else {
@@ -635,14 +635,14 @@ fun MapEvent32(context) {
 fun MapEvent33(context) {
     var passFlag;
     if (context.GetFlag(DUNGEON, CHOR_NPC_KILLED) & GAOLER_KILLED_BIT) {
-        context.ClearWall(context.Here, WEST);
+        context.ClearWallBlock(context.GetTile, WEST);
     }
     else {
         context.ShowText("A slit in the door shoots open and a gutteral voice demands, 'Wot's th' password?'");
         passFlag = context.GetFlag(PARTY, CONTROL_1);
         if (passFlag & PASSWORD_FOUND_BIT) {
             context.ShowText("You reply 'the password is 'SMILE',' and the door creaks open. The gaoler growls, 'Come on in so's I can look at ye. One at a time!'");
-            context.ClearWall(context.Here, WEST);
+            context.ClearWallBlock(context.GetTile, WEST);
         }
         else {
             context.ShowText("You stammer helplessly, not knowing the password. 'Come back when ye've remembered it!' The slit slams shut.");
@@ -656,7 +656,7 @@ fun MapEvent34(context) {
     if (flag == 0) {
         flag++;
         context.SetFlag(DUNGEON, CHOR_NAOMI_MET, flag);
-        context.ShowPicture(NAOMI_PIC);
+        context.ShowPortrait(NAOMI_PIC);
         context.ShowText("You step into the dismal little cell and draw up short. Before you stands a radiant woman in a flowing, violet gown. She is slender and graceful but her eyes bore into you with unnerving intensity.");
         context.ShowText("'Enough!' she cries. 'I grow tired of these pathetic ruses. Tell your master my answer is 'NO!'' Before you can respond she stalks past you and is gone.");
         flag = context.GetFlag(DUNGEON, CHOR_KNOWN);
@@ -685,7 +685,7 @@ fun MapEvent39(context) {
     var puzzFlag;
     context.ShowText("You pull the lever.");
     puzzFlag = context.GetFlag(PARTY, LEVER_PUZZLE);
-    switch (context.Here) {
+    switch (context.GetTile) {
         case 87:
             if (puzzFlag == 0) {
                 puzzFlag = 1;
@@ -712,8 +712,8 @@ fun MapEvent39(context) {
             break;
         case 121:
             if (puzzFlag == 3) {
-                context.PlaceWallItem(DOOR, 127, NORTH);
-                context.ClearWall(127, NORTH);
+                context.SetWallItem(DOOR, 127, NORTH);
+                context.ClearWallBlock(127, NORTH);
                 puzzFlag = 4;
             }
             break;
@@ -748,8 +748,8 @@ fun MapEvent3B(context) {
 fun MapEvent64(context) {
     if (!context.HasItem(FUNHOUSEKEY)) {
         context.ShowText("A gigantic snake-woman looms over you, swaying hypnotically. 'Yessss,' she hisses, 'it will be sweet revenge to taste the mortal blood that stole my husband Shadax!'");
-        context.SetBooty(FUNHOUSEKEY, 0, 0, 0, 0, 0);
-        context.GetMonster(1, MONST_CHISS);
+        context.SetTreasure(FUNHOUSEKEY, 0, 0, 0, 0, 0);
+        context.AddEncounter(1, MONST_CHISS);
     }
 }
 
@@ -762,15 +762,15 @@ fun MapEvent65(context) {
         flagBits = context.GetFlag(DUNGEON, CHOR_KNOWN);
         flagBits = flagBits | CHORONZAR_KNOWN_BIT;
         context.SetFlag(DUNGEON, CHOR_KNOWN, flagBits);
-        context.GetMonster(1, MONST_SHADAX);
+        context.AddEncounter(1, MONST_SHADAX);
     }
 }
 
 fun MapEvent67(context) {
     var flag;
     flag = context.GetFlag(DUNGEON, CHOR_NAOMI_MET);
-    if ((flag > 0) && (flag < 3) && context.FlagOff(ROOM, SEEN_IT)) {
-        context.ShowPicture(NAOMI_PIC);
+    if ((flag > 0) && (flag < 3) && context.IsFlagOff(ROOM, SEEN_IT)) {
+        context.ShowPortrait(NAOMI_PIC);
         context.ShowText("You clamber from the muddy water onto the island. Naomi is here.");
         context.SetFlag(ROOM, SEEN_IT, 1);
     }
@@ -807,7 +807,7 @@ fun MapEvent68(context) {
     var flag;
     flag = context.GetFlag(PARTY, CONTROL_1);
     if (!(flag & SIGNED_IN_BIT)) {
-        context.ShowPicture(CONCIERGE_PIC);
+        context.ShowPortrait(CONCIERGE_PIC);
         context.ShowText("An owlish man sits poring over some documents behind an imposing, oaken desk. Without glancing up he gestures toward a ledger-book. 'Sign in please.'");
         flag = flag | SIGNED_IN_BIT;
         context.SetFlag(PARTY, CONTROL_1, flag);
@@ -842,7 +842,7 @@ fun MapEvent6E(context) {
     var monster;
     ctrlFlag = context.GetFlag(PARTY, CONTROL_1);
     deathFlag = context.GetFlag(PARTY, DEATH_LEVEL);
-    if (context.FlagOff(ROOM, SEEN_IT) && (ctrlFlag & SIGNED_IN_BIT)) {
+    if (context.IsFlagOff(ROOM, SEEN_IT) && (ctrlFlag & SIGNED_IN_BIT)) {
         context.ShowText("You trudge forward down the Hall of Death.");
         deathFlag++;
         context.SetFlag(ROOM, SEEN_IT, 1);
@@ -872,9 +872,9 @@ fun MapEvent6F(context) {
             context.ShowText("You advance, and once more Kekeketl rises from the carnage. 'I have told thee, I am sworn to defend this place.'");
         }
         context.SetFlag(PARTY, CONTROL_1, flag);
-        context.GetMonster(1, MONST_KEKEKETL);
+        context.AddEncounter(1, MONST_KEKEKETL);
         for (i = 2; i <= context.PartyCount + 1; i++) {
-            context.GetMonster(i, monster);
+            context.AddEncounter(i, monster);
         }
     }
 }
@@ -886,9 +886,9 @@ fun MapEvent70(context) {
             context.Teleport(13, 1, 249, WEST);
         }
         context.ShowText("As you step into the light the Gaoler flies into a rage. 'Wot's this then?' he cries. 'Oi've been tricked!'");
-        context.GetMonster(1, MONST_GAOLER);
+        context.AddEncounter(1, MONST_GAOLER);
     }
-    context.ClearWall(context.Here, EAST);
+    context.ClearWallBlock(context.GetTile, EAST);
 }
 
 fun MapEvent71(context) {
@@ -899,7 +899,7 @@ fun MapEvent72(context) {
     var secretFlag;
     var killedFlag;
     var monster;
-    context.BlockWall(context.Here, WEST);
+    context.SetWallBlock(context.GetTile, WEST);
     secretFlag = context.GetFlag(DUNGEON, CHOR_CONTROL_1);
     killedFlag = context.GetFlag(DUNGEON, CHOR_NPC_KILLED);
     if ((secretFlag & SECRET_PASSAGE_BIT) && !(killedFlag & CHORONZAR_KILLED_BIT)) {
@@ -912,8 +912,8 @@ fun MapEvent72(context) {
             context.ShowText("He smiles grimly. 'So it comes to this? % I hope you know what you're doing.'");
             monster = MONST_CHORONZAR_TOUGH;
         }
-        context.SetBooty(JESTERSCAP, 0, 0, 0, 0, 0);
-        context.GetMonster(1, monster);
+        context.SetTreasure(JESTERSCAP, 0, 0, 0, 0, 0);
+        context.AddEncounter(1, monster);
     }
 }
 

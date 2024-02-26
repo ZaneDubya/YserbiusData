@@ -21,11 +21,11 @@ fun MapEvent03(context) {
 }
 
 fun MapEvent07(context) {
-    if ((context.PartyGuild(CLERIC) && context.PartyGuild(KNIGHT)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, LEVEL3ROOM3) == 1)) {
-        context.ShowPicture(TROLLKNIGHT);
+    if ((context.GetGuildAny(CLERIC) && context.GetGuildAny(KNIGHT)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, LEVEL3ROOM3) == 1)) {
+        context.ShowPortrait(TROLLKNIGHT);
         context.ShowText("'Two trolls, a knight and a cleric by their garb, courteously hold open a secret door for you.  'Watch your back in here,' they caution you.  'There is many a dagger in amongst the cloaks.'");
-        context.ClearWall(context.Here, context.Facing);
-        context.PlaceWallItem(DOOR, context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
+        context.SetWallItem(DOOR, context.GetTile, context.GetFacing);
         context.Teleport(6, 1, 159, WEST);
     }
     else {
@@ -39,7 +39,7 @@ fun MapEvent08(context) {
 }
 
 fun MapEvent09(context) {
-    context.ShowPicture(HUMANWIZARD);
+    context.ShowPortrait(HUMANWIZARD);
     context.SetFlag(DUNGEON, LEVEL3ROOM4, 1);
     if (context.GetFlag(PARTY, SAWLIBRARIAN) == 1) {
         context.ShowText("'Carry on, carry on.  And do try to refrain from using fire spells.'");
@@ -68,7 +68,7 @@ fun MapEvent0C(context) {
 }
 
 fun MapEvent0D(context) {
-    if ((context.GetFlag(PARTY, GIVEDAGGER) == 1) && (!(context.HasItem(OHTHERESDAGGER))) && (context.Here == 46)) {
+    if ((context.GetFlag(PARTY, GIVEDAGGER) == 1) && (!(context.HasItem(OHTHERESDAGGER))) && (context.GetTile == 46)) {
         context.SetFlag(PARTY, GIVEDAGGER, 0);
         context.GiveItem(OHTHERESDAGGER);
         context.GiveItem(BARDICHE);
@@ -83,7 +83,7 @@ fun MapEvent0D(context) {
 }
 
 fun MapEvent0E(context) {
-    if ((context.GetFlag(PARTY, GIVEDAGGER) == 1) && (!(context.HasItem(OHTHERESDAGGER))) && (context.Here == 29)) {
+    if ((context.GetFlag(PARTY, GIVEDAGGER) == 1) && (!(context.HasItem(OHTHERESDAGGER))) && (context.GetTile == 29)) {
         context.SetFlag(PARTY, GIVEDAGGER, 0);
         context.GiveItem(OHTHERESDAGGER);
         context.GiveItem(BARDICHE);
@@ -288,7 +288,7 @@ fun MapEvent35(context) {
         context.SetFlag(PARTY, GIVERING, 2);
     }
     else {
-        if (context.Facing == NORTH) {
+        if (context.GetFacing == NORTH) {
             context.ShowText("These books contain nothing of interest to you.");
         }
     }
@@ -346,7 +346,7 @@ fun MapEvent3D(context) {
     }
     else {
         if ((context.UsedItem(MANNANANSRING, MANNANANSRING)) && (context.GetFlag(PARTY, MANNANANREWARD) == 0)) {
-            context.ShowPicture(HUMANBARBARIAN);
+            context.ShowPortrait(HUMANBARBARIAN);
             context.SetFlag(PARTY, MANNANANREWARD, 1);
             context.SetFlag(PARTY, GIVEDAGGER, 1);
             context.ShowText("*");
@@ -355,7 +355,7 @@ fun MapEvent3D(context) {
             context.ShowText("You see an image coalesce in the middle of the room.  Standing amidst a storm-tossed sea, you again see Mannanan Mac Lir.");
             context.ShowText("'Hah!  I knew you were of sterner stuff than the last batch of bacon-brains Galatea sent.  I bring you greetings, and rewards.'");
             context.ShowText("'My cousin Mider has long been denied many of the spirits those witches have had bound to this place these many decades, so we approve of her quest, and yours.'");
-            context.ModExp(1000000);
+            context.AddExperience(1000000);
             context.ShowText("'You may or may not find the weapon and shield useful.  They are but trinkets.  The dagger, however, is essential.'");
             context.ShowText("'You will need it in the Kitchen, in an area where spells will fail you and skill not avail you.'");
             context.ShowText("Mannanan tosses the dagger, which lands at your feet and slides behind you.");

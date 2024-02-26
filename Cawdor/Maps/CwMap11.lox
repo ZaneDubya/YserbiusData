@@ -31,21 +31,21 @@
 #define WAR18 27
 
 fun MapEvent02(context) {
-    if ((context.UsedSkill(DETECT_SKILL) >= 4) || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(CRYSTALBALL, CRYSTALBALL) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.FlagOn(ROOM, DETECTED_DOOR)) {
-        context.PlaceWallItem(DOOR, context.Here, context.Facing);
+    if ((context.UsedSkill(DETECT_SKILL) >= 4) || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(CRYSTALBALL, CRYSTALBALL) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.IsFlagOn(ROOM, DETECTED_DOOR)) {
+        context.SetWallItem(DOOR, context.GetTile, context.GetFacing);
         context.SetFlag(ROOM, DETECTED_DOOR, 1);
-        if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(WOODENLOCKPICK) || context.HasItem(BRASSLOCKPICK) || context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkill(LOCKPICK_SKILL) >= 6) && ((context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+        if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(WOODENLOCKPICK) || context.HasItem(BRASSLOCKPICK) || context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkillLevel(LOCKPICK_SKILL) >= 6) && ((context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
             context.ShowText("You have unlocked the hidden door!");
-            context.ClearWall(context.Here, context.Facing);
-            context.PlaceWallItem(DOOR, context.Here, context.Facing);
+            context.ClearWallBlock(context.GetTile, context.GetFacing);
+            context.SetWallItem(DOOR, context.GetTile, context.GetFacing);
         }
         else {
             context.ShowText("You detect a hidden door, but it is locked.");
-            context.BlockWall(context.Here, context.Facing);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
         }
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
     }
 }
 
@@ -63,7 +63,7 @@ fun MapEvent06(context) {
     if ((context.GetFlag(PARTY, KILLEDWIZ) == 1) || (context.GetFlag(PARTY, WAR1) < 2)) {
         context.SetFlag(PARTY, KILLEDWIZ, 2);
         context.SetFlag(PARTY, KILLEDWIZ2, 2);
-        context.Damage(context.MaxHealth / 5);
+        context.DamagePlayer(context.GetMaxHealth / 5);
         if (context.GetFlag(PARTY, WAR1) == 1) {
             context.SetFlag(PARTY, WAR1, 2);
         }
@@ -73,19 +73,19 @@ fun MapEvent06(context) {
         if (context.GetFlag(PARTY, WAR1) == 2) {
             context.ShowText("This looks ugly.  At least the survivors will be more experienced.");
         }
-        context.SetBooty(EDWINSPEACEGIVER, HUNTINGBOW, IRONBOSSEDSHIELD, 0, 0, 288);
-        context.GetMonster(1, 26);
-        context.GetMonster(2, 27);
+        context.SetTreasure(EDWINSPEACEGIVER, HUNTINGBOW, IRONBOSSEDSHIELD, 0, 0, 288);
+        context.AddEncounter(1, 26);
+        context.AddEncounter(2, 27);
         if (context.GetFlag(PARTY, WAR1) == 2) {
-            context.GetMonster(3, 32);
-            context.GetMonster(4, 32);
-            context.GetMonster(5, 28);
-            context.GetMonster(6, 28);
+            context.AddEncounter(3, 32);
+            context.AddEncounter(4, 32);
+            context.AddEncounter(5, 28);
+            context.AddEncounter(6, 28);
         }
         else {
             if (context.PartyCount > 2) {
-                context.GetMonster(5, 26);
-                context.GetMonster(6, 27);
+                context.AddEncounter(5, 26);
+                context.AddEncounter(6, 27);
             }
         }
     }
@@ -98,7 +98,7 @@ fun MapEvent07(context) {
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("*");
-        context.ShowPicture(GREMLINWIZARD);
+        context.ShowPortrait(GREMLINWIZARD);
         context.ShowText("'Hush!  I have little time; our enemies track me as I speak.");
         context.ShowText("The undying now own this room, and a vampiric king holds a great prize, even thou he himself is but a servant to the Macbeths.  He has protected himself with a maze of death.  An thou canst cast enough dissipate spells, thou mayst win clear to - to....'");
         context.ShowText("With a groan, the wizard slumps over, dead.");
@@ -113,12 +113,12 @@ fun MapEvent08(context) {
     else {
         context.ShowText("'Tis yet another pile of regenerating skeletons.");
     }
-    context.SetBooty(0, 0, 0, 0, 0, 0);
-    context.GetMonster(1, 19);
-    context.GetMonster(2, 19);
+    context.SetTreasure(0, 0, 0, 0, 0, 0);
+    context.AddEncounter(1, 19);
+    context.AddEncounter(2, 19);
     if (context.PartyCount > 3) {
-        context.GetMonster(3, 27);
-        context.GetMonster(4, 27);
+        context.AddEncounter(3, 27);
+        context.AddEncounter(4, 27);
     }
 }
 
@@ -135,14 +135,14 @@ fun MapEvent0A(context) {
     else {
         context.ShowText("'Tis yet another huge pile of regenerating skeletons.");
     }
-    context.SetBooty(0, 0, 0, 0, 0, 0);
-    context.GetMonster(1, 27);
-    context.GetMonster(2, 27);
-    context.GetMonster(5, 19);
-    context.GetMonster(6, 19);
+    context.SetTreasure(0, 0, 0, 0, 0, 0);
+    context.AddEncounter(1, 27);
+    context.AddEncounter(2, 27);
+    context.AddEncounter(5, 19);
+    context.AddEncounter(6, 19);
     if (context.PartyCount > 3) {
-        context.GetMonster(3, 27);
-        context.GetMonster(4, 27);
+        context.AddEncounter(3, 27);
+        context.AddEncounter(4, 27);
     }
 }
 
@@ -150,31 +150,31 @@ fun MapEvent0E(context) {
     if (context.GetFlag(PARTY, WAR17) == 0) {
         context.SetFlag(PARTY, WAR17, 1);
         context.ShowText("Who needs napalm when you have fireballs?  Ouch!");
-        context.Damage(context.MaxHealth / 3);
+        context.DamagePlayer(context.GetMaxHealth / 3);
         if (context.PartyCount > 3) {
             context.ShowText("Bad ghouls bad ghouls.  Whatcha gonna do?");
         }
-        context.SetBooty(BINDINGTALISMAN, TONGUEOFDOG, CATHNESSSCLUB, REDTARTANCLOAK, 0, 125);
-        context.GetMonster(1, 29);
-        context.GetMonster(5, 28);
-        if (context.PartyLevel(12)) {
+        context.SetTreasure(BINDINGTALISMAN, TONGUEOFDOG, CATHNESSSCLUB, REDTARTANCLOAK, 0, 125);
+        context.AddEncounter(1, 29);
+        context.AddEncounter(5, 28);
+        if (context.CheckPartyLevel(12)) {
             if (context.PartyCount > 2) {
-                context.GetMonster(2, 29);
-                context.GetMonster(6, 28);
+                context.AddEncounter(2, 29);
+                context.AddEncounter(6, 28);
             }
             if (context.PartyCount > 3) {
-                context.GetMonster(4, 25);
-                context.GetMonster(3, 25);
+                context.AddEncounter(4, 25);
+                context.AddEncounter(3, 25);
             }
         }
         else {
             if (context.PartyCount > 2) {
-                context.GetMonster(2, 23);
-                context.GetMonster(6, 18);
+                context.AddEncounter(2, 23);
+                context.AddEncounter(6, 18);
             }
             if (context.PartyCount > 3) {
-                context.GetMonster(4, 24);
-                context.GetMonster(3, 24);
+                context.AddEncounter(4, 24);
+                context.AddEncounter(3, 24);
             }
         }
     }
@@ -195,16 +195,16 @@ fun MapEvent0F(context) {
         if ((context.PartyCount > 3) && (context.GetFlag(PARTY, WAR12) == 0)) {
             context.ShowText("Backed by a pack of dogs of disagreements.");
         }
-        context.SetBooty(0, 0, 0, 0, 0, 187);
-        context.GetMonster(1, 31);
-        context.GetMonster(2, 32);
+        context.SetTreasure(0, 0, 0, 0, 0, 187);
+        context.AddEncounter(1, 31);
+        context.AddEncounter(2, 32);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 33);
-            context.GetMonster(4, 34);
+            context.AddEncounter(3, 33);
+            context.AddEncounter(4, 34);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 33);
-            context.GetMonster(6, 34);
+            context.AddEncounter(5, 33);
+            context.AddEncounter(6, 34);
         }
     }
     else {
@@ -216,16 +216,16 @@ fun MapEvent10(context) {
     if (context.GetFlag(PARTY, WAR3) == 0) {
         context.SetFlag(PARTY, WAR3, 1);
         context.ShowText("Yuk!  Somebody should clean out the drains once in a while!");
-        context.SetBooty(MALCOLMSCHOPPER, BOOMERANGSCROLL, PETUNIAPOULTICE, 0, 0, 125);
-        context.GetMonster(1, 37);
-        context.GetMonster(2, 37);
+        context.SetTreasure(MALCOLMSCHOPPER, BOOMERANGSCROLL, PETUNIAPOULTICE, 0, 0, 125);
+        context.AddEncounter(1, 37);
+        context.AddEncounter(2, 37);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 37);
-            context.GetMonster(4, 37);
+            context.AddEncounter(3, 37);
+            context.AddEncounter(4, 37);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 37);
-            context.GetMonster(6, 37);
+            context.AddEncounter(5, 37);
+            context.AddEncounter(6, 37);
         }
     }
     else {
@@ -240,16 +240,16 @@ fun MapEvent11(context) {
         if (context.PartyCount > 3) {
             context.ShowText("This many harpies is giving you a bad case of hives.");
         }
-        context.SetBooty(TAPERINGSPEAR, LEFTARMSCROLL, PETUNIAPOULTICE, 0, 0, 953);
-        context.GetMonster(1, 16);
-        context.GetMonster(2, 30);
+        context.SetTreasure(TAPERINGSPEAR, LEFTARMSCROLL, PETUNIAPOULTICE, 0, 0, 953);
+        context.AddEncounter(1, 16);
+        context.AddEncounter(2, 30);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 17);
-            context.GetMonster(4, 30);
+            context.AddEncounter(3, 17);
+            context.AddEncounter(4, 30);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 17);
-            context.GetMonster(6, 30);
+            context.AddEncounter(5, 17);
+            context.AddEncounter(6, 30);
         }
     }
     else {
@@ -269,16 +269,16 @@ fun MapEvent12(context) {
         context.SetFlag(PARTY, WAR5, 1);
         context.ShowText("A party has been arranged on your behalf.");
         context.ShowText("Unfortunately, it appears to be a hanging party arranged by those arrayed rangers.  En garde!");
-        context.SetBooty(PERSEUSSRING, EALSTANSCAP, MERLINSSUPPORT, 0, 0, 562);
-        context.GetMonster(1, 35);
-        context.GetMonster(5, 36);
+        context.SetTreasure(PERSEUSSRING, EALSTANSCAP, MERLINSSUPPORT, 0, 0, 562);
+        context.AddEncounter(1, 35);
+        context.AddEncounter(5, 36);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 35);
-            context.GetMonster(6, 36);
+            context.AddEncounter(2, 35);
+            context.AddEncounter(6, 36);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 35);
-            context.GetMonster(3, 36);
+            context.AddEncounter(4, 35);
+            context.AddEncounter(3, 36);
         }
     }
     else {
@@ -294,16 +294,16 @@ fun MapEvent13(context) {
         if (context.PartyCount > 3) {
             context.ShowText("In fact, you're balkin' at the thought of fighting these guys!");
         }
-        context.SetBooty(WULFHERDSHELM, TRACKINGTALISMAN, WOODSMANSAXE, 0, 0, 125);
-        context.GetMonster(1, 39);
-        context.GetMonster(2, 38);
-        context.GetMonster(3, 40);
+        context.SetTreasure(WULFHERDSHELM, TRACKINGTALISMAN, WOODSMANSAXE, 0, 0, 125);
+        context.AddEncounter(1, 39);
+        context.AddEncounter(2, 38);
+        context.AddEncounter(3, 40);
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 39);
+            context.AddEncounter(4, 39);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 38);
-            context.GetMonster(6, 40);
+            context.AddEncounter(5, 38);
+            context.AddEncounter(6, 40);
         }
     }
     else {
@@ -315,31 +315,31 @@ fun MapEvent14(context) {
     if (context.GetFlag(PARTY, WAR7) == 0) {
         context.SetFlag(PARTY, WAR7, 1);
         context.ShowText("Yup.  That's an incoming fireball.  You recognise it from the pain.");
-        context.Damage(context.MaxHealth / 3);
+        context.DamagePlayer(context.GetMaxHealth / 3);
         if (context.PartyCount > 3) {
             context.ShowText("And these must be the ghouls Mom warned you about.");
         }
-        context.SetBooty(BINDINGTALISMAN, TONGUEOFDOG, CATHNESSSCLUB, REDTARTANCLOAK, 0, 125);
-        context.GetMonster(1, 29);
-        context.GetMonster(5, 28);
-        if (context.PartyLevel(12)) {
+        context.SetTreasure(BINDINGTALISMAN, TONGUEOFDOG, CATHNESSSCLUB, REDTARTANCLOAK, 0, 125);
+        context.AddEncounter(1, 29);
+        context.AddEncounter(5, 28);
+        if (context.CheckPartyLevel(12)) {
             if (context.PartyCount > 2) {
-                context.GetMonster(2, 29);
-                context.GetMonster(6, 28);
+                context.AddEncounter(2, 29);
+                context.AddEncounter(6, 28);
             }
             if (context.PartyCount > 3) {
-                context.GetMonster(4, 25);
-                context.GetMonster(3, 25);
+                context.AddEncounter(4, 25);
+                context.AddEncounter(3, 25);
             }
         }
         else {
             if (context.PartyCount > 2) {
-                context.GetMonster(2, 23);
-                context.GetMonster(6, 18);
+                context.AddEncounter(2, 23);
+                context.AddEncounter(6, 18);
             }
             if (context.PartyCount > 3) {
-                context.GetMonster(4, 24);
-                context.GetMonster(3, 24);
+                context.AddEncounter(4, 24);
+                context.AddEncounter(3, 24);
             }
         }
     }
@@ -393,7 +393,7 @@ fun MapEvent15(context) {
                 }
                 if (context.GetFlag(PARTY, SAWCLERIC) == 0) {
                     context.ShowText("You hear someone running towards you.");
-                    context.ShowPicture(ELFCLERIC);
+                    context.ShowPortrait(ELFCLERIC);
                     context.ShowText("*");
                     context.ShowText("*");
                     context.ShowText("*");
@@ -403,7 +403,7 @@ fun MapEvent15(context) {
                 }
                 break;
             case 2:
-                context.ShowPicture(DRAGON);
+                context.ShowPortrait(DRAGON);
                 context.ShowText("The dragon examines you with a baleful eye.  It has seen better days.");
                 context.ShowText("'Thou art living, and I am desperate.  I must have a petunia poultice.  I will pay well for one.'");
                 if (context.HasItem(PETUNIAPOULTICE)) {
@@ -420,7 +420,7 @@ fun MapEvent15(context) {
                     context.ShowText("It was here that Rory taught you about the Gaelic Garlic's power against undead.  You know not whether the tear in your eye is from the memory or from a faint residue of the pungent bud.");
                 }
                 else {
-                    context.ShowPicture(HALFLINGTHIEF);
+                    context.ShowPortrait(HALFLINGTHIEF);
                     context.ShowText("*");
                     context.ShowText("*");
                     context.ShowText("*");
@@ -430,19 +430,19 @@ fun MapEvent15(context) {
                 }
                 break;
             case 4:
-                context.ShowPicture(GREMLINTHIEF);
+                context.ShowPortrait(GREMLINTHIEF);
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("A slew o'Slyfeet decide, rather insultingly, that they are bigger than you are.");
-                context.SetBooty(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 147);
-                context.GetMonster(1, 1);
+                context.SetTreasure(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 147);
+                context.AddEncounter(1, 1);
                 if (context.PartyCount > 1) {
-                    context.GetMonster(5, 2);
+                    context.AddEncounter(5, 2);
                 }
                 if (context.PartyCount > 2) {
-                    context.GetMonster(2, 1);
-                    context.GetMonster(6, 2);
+                    context.AddEncounter(2, 1);
+                    context.AddEncounter(6, 2);
                 }
                 break;
         }
@@ -452,7 +452,7 @@ fun MapEvent15(context) {
 fun MapEvent16(context) {
     if (context.GetFlag(PARTY, ELFWARNING) == 0) {
         context.SetFlag(PARTY, ELFWARNING, 1);
-        context.ShowPicture(ELFCLERIC);
+        context.ShowPortrait(ELFCLERIC);
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("*");
@@ -483,16 +483,16 @@ fun MapEvent19(context) {
     if (context.GetFlag(PARTY, WAR13) == 0) {
         context.SetFlag(PARTY, WAR13, 1);
         context.ShowText("Yuk!  Somebody should clean out the drains once in a while!");
-        context.SetBooty(MALCOLMSCHOPPER, BOOMERANGSCROLL, PETUNIAPOULTICE, 0, 0, 125);
-        context.GetMonster(1, 37);
-        context.GetMonster(2, 37);
+        context.SetTreasure(MALCOLMSCHOPPER, BOOMERANGSCROLL, PETUNIAPOULTICE, 0, 0, 125);
+        context.AddEncounter(1, 37);
+        context.AddEncounter(2, 37);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 37);
-            context.GetMonster(4, 37);
+            context.AddEncounter(3, 37);
+            context.AddEncounter(4, 37);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 37);
-            context.GetMonster(6, 37);
+            context.AddEncounter(5, 37);
+            context.AddEncounter(6, 37);
         }
     }
     else {
@@ -512,16 +512,16 @@ fun MapEvent1A(context) {
         if ((context.PartyCount > 3) && (context.GetFlag(PARTY, WAR2) == 0)) {
             context.ShowText("Backed by a pack of dogs of disagreements.");
         }
-        context.SetBooty(0, 0, 0, 0, 0, 187);
-        context.GetMonster(1, 31);
-        context.GetMonster(2, 32);
+        context.SetTreasure(0, 0, 0, 0, 0, 187);
+        context.AddEncounter(1, 31);
+        context.AddEncounter(2, 32);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 33);
-            context.GetMonster(4, 34);
+            context.AddEncounter(3, 33);
+            context.AddEncounter(4, 34);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 33);
-            context.GetMonster(6, 34);
+            context.AddEncounter(5, 33);
+            context.AddEncounter(6, 34);
         }
     }
     else {
@@ -536,16 +536,16 @@ fun MapEvent1B(context) {
         if (context.PartyCount > 3) {
             context.ShowText("This many harpies is giving you a bad case of hives.");
         }
-        context.SetBooty(TAPERINGSPEAR, LEFTARMSCROLL, PETUNIAPOULTICE, 0, 0, 953);
-        context.GetMonster(1, 16);
-        context.GetMonster(2, 30);
+        context.SetTreasure(TAPERINGSPEAR, LEFTARMSCROLL, PETUNIAPOULTICE, 0, 0, 953);
+        context.AddEncounter(1, 16);
+        context.AddEncounter(2, 30);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 17);
-            context.GetMonster(4, 30);
+            context.AddEncounter(3, 17);
+            context.AddEncounter(4, 30);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 17);
-            context.GetMonster(6, 30);
+            context.AddEncounter(5, 17);
+            context.AddEncounter(6, 30);
         }
     }
     else {
@@ -565,16 +565,16 @@ fun MapEvent1C(context) {
         context.SetFlag(PARTY, WAR15, 1);
         context.ShowText("A party has been arranged on your behalf.");
         context.ShowText("Unfortunately, it appears to be a hanging party arranged by those arrayed rangers.  En garde!");
-        context.SetBooty(PERSEUSSRING, EALSTANSCAP, MERLINSSUPPORT, 0, 0, 562);
-        context.GetMonster(1, 35);
-        context.GetMonster(5, 36);
+        context.SetTreasure(PERSEUSSRING, EALSTANSCAP, MERLINSSUPPORT, 0, 0, 562);
+        context.AddEncounter(1, 35);
+        context.AddEncounter(5, 36);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 35);
-            context.GetMonster(6, 36);
+            context.AddEncounter(2, 35);
+            context.AddEncounter(6, 36);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 35);
-            context.GetMonster(3, 36);
+            context.AddEncounter(4, 35);
+            context.AddEncounter(3, 36);
         }
     }
     else {
@@ -587,16 +587,16 @@ fun MapEvent1D(context) {
     if (context.GetFlag(PARTY, WAR16) == 0) {
         context.SetFlag(PARTY, WAR16, 1);
         context.ShowText("You recognise the minotaurs and medusae from your studies in recent history.  You just hope that you aren't about to join them as yet another statistic.");
-        context.SetBooty(WULFHERDSHELM, TRACKINGTALISMAN, WOODSMANSAXE, 0, 0, 125);
-        context.GetMonster(1, 39);
-        context.GetMonster(2, 38);
-        context.GetMonster(3, 40);
+        context.SetTreasure(WULFHERDSHELM, TRACKINGTALISMAN, WOODSMANSAXE, 0, 0, 125);
+        context.AddEncounter(1, 39);
+        context.AddEncounter(2, 38);
+        context.AddEncounter(3, 40);
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 39);
+            context.AddEncounter(4, 39);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 38);
-            context.GetMonster(6, 40);
+            context.AddEncounter(5, 38);
+            context.AddEncounter(6, 40);
         }
     }
     else {
@@ -609,16 +609,16 @@ fun MapEvent1E(context) {
         context.SetFlag(PARTY, WAR18, 1);
         context.ShowText("My gosh!  It's one of your childhood heroes: The Lonely Ranger!");
         context.ShowText("Unfortunately, you don't seem to be one of his heroes.  And in that crowd, who has time to be lonely?");
-        context.SetBooty(PERSEUSSRING, EALSTANSCAP, MERLINSSUPPORT, 0, 0, 562);
-        context.GetMonster(1, 35);
-        context.GetMonster(5, 36);
+        context.SetTreasure(PERSEUSSRING, EALSTANSCAP, MERLINSSUPPORT, 0, 0, 562);
+        context.AddEncounter(1, 35);
+        context.AddEncounter(5, 36);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 35);
-            context.GetMonster(6, 36);
+            context.AddEncounter(2, 35);
+            context.AddEncounter(6, 36);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 35);
-            context.GetMonster(3, 36);
+            context.AddEncounter(4, 35);
+            context.AddEncounter(3, 36);
         }
     }
     else {
@@ -630,12 +630,12 @@ fun MapEvent1F(context) {
     if (context.GetFlag(PARTY, GUARDFIGHT0501) == 0) {
         context.ShowText("This entrance to The Lesser Hall is guarded!");
         context.SetFlag(PARTY, GUARDFIGHT0501, 1);
-        context.SetBooty(SILVERLOCKPICK, DRAKESBANE, ELDERBERRYELIXIR, PETUNIAPOULTICE, 0, 547);
-        context.GetMonster(1, 25);
-        context.GetMonster(5, 28);
+        context.SetTreasure(SILVERLOCKPICK, DRAKESBANE, ELDERBERRYELIXIR, PETUNIAPOULTICE, 0, 547);
+        context.AddEncounter(1, 25);
+        context.AddEncounter(5, 28);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 25);
-            context.GetMonster(6, 28);
+            context.AddEncounter(2, 25);
+            context.AddEncounter(6, 28);
         }
     }
     else {

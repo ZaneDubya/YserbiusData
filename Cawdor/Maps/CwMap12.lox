@@ -21,42 +21,42 @@
 fun MapEvent01(context) {
     context.ShowText("It sure is drafty in here.");
     if (context.UsedSkill(DETECT_SKILL) >= 6 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(CRYSTALBALL, CRYSTALBALL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS)) {
-        context.ClearWall(context.Here, context.Facing);
-        context.PlaceWallItem(DOOR, context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
+        context.SetWallItem(DOOR, context.GetTile, context.GetFacing);
         context.ShowText("You've uncovered a hidden door!");
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
-        context.RemoveWallItem(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
+        context.ClearWallItem(context.GetTile, context.GetFacing);
     }
 }
 
 fun MapEvent02(context) {
-    if ((context.UsedSkill(DETECT_SKILL) >= 6) || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(CRYSTALBALL, CRYSTALBALL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.FlagOn(ROOM, DETECTED_DOOR)) {
-        context.PlaceWallItem(DOOR, context.Here, context.Facing);
+    if ((context.UsedSkill(DETECT_SKILL) >= 6) || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(CRYSTALBALL, CRYSTALBALL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.IsFlagOn(ROOM, DETECTED_DOOR)) {
+        context.SetWallItem(DOOR, context.GetTile, context.GetFacing);
         context.SetFlag(ROOM, DETECTED_DOOR, 1);
-        if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkill(LOCKPICK_SKILL) >= 6) && ((context.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+        if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkillLevel(LOCKPICK_SKILL) >= 6) && ((context.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
             context.ShowText("You have unlocked the hidden door!");
-            context.ClearWall(context.Here, context.Facing);
-            context.PlaceWallItem(DOOR, context.Here, context.Facing);
+            context.ClearWallBlock(context.GetTile, context.GetFacing);
+            context.SetWallItem(DOOR, context.GetTile, context.GetFacing);
         }
         else {
             context.ShowText("You detect a hidden door, but it is locked.");
-            context.BlockWall(context.Here, context.Facing);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
         }
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
     }
 }
 
 fun MapEvent03(context) {
-    if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkill(LOCKPICK_SKILL) >= 6) && ((context.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+    if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkillLevel(LOCKPICK_SKILL) >= 6) && ((context.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
         context.ShowText("You've picked the lock. Proceed.");
-        context.ClearWall(context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
         context.ShowText("Funny how an irksome little lock on a flimsy little door can keep out a big strong person like you.");
     }
 }
@@ -71,7 +71,7 @@ fun MapEvent04(context) {
         else {
             context.SetFlag(PARTY, TRACKING, 0);
             context.ShowText("AMBUSH!  Something ghostly and ghastly cast a fireball at you and then retreated!");
-            context.Damage(context.MaxHealth / 4);
+            context.DamagePlayer(context.GetMaxHealth / 4);
             context.ShowText("We did damage - did we get Ambush msg?");
         }
     }
@@ -99,42 +99,42 @@ fun MapEvent07(context) {
     context.NoJoinZone();
     if (context.PartyCount > 1) {
         context.ShowText("You try squeezing down this narrow corridor, but it's so tight that - aargh!  You've been impaled on your companion's weapon!");
-        context.Damage(context.MaxHealth);
+        context.DamagePlayer(context.GetMaxHealth);
     }
     else {
         if (context.GetFlag(DUNGEON, SEENGALATEA0502) == 0) {
             context.SetFlag(DUNGEON, SEENGALATEA0502, 1);
             context.ShowText("Galatea greets you. 'Thou hast matched my hopes and exceeded my expectations, and earned thereby many rewards.  I shall begin by granting thee abilities and experience.'");
-            if (((context.Guild == WIZARD) || (context.Guild == THIEF)) && (context.GetSkill(DEFLECT_MAGIC_SKILL) == 0)) {
+            if (((context.GetGuild == WIZARD) || (context.GetGuild == THIEF)) && (context.GetSkillLevel(DEFLECT_MAGIC_SKILL) == 0)) {
                 context.ShowText("'As thy foes grow ever more canny and cunning, thou shouldst know how to minimize the damage from their spells.'  You now know how to deflect magic!");
-                context.ModSkill(DEFLECT_MAGIC_SKILL, 1);
+                context.ModSkillLevel(DEFLECT_MAGIC_SKILL, 1);
             }
-            if ((context.Guild == BARBARIAN) && (context.GetSkill(BINDING_SKILL) == 0)) {
+            if ((context.GetGuild == BARBARIAN) && (context.GetSkillLevel(BINDING_SKILL) == 0)) {
                 context.ShowText("'Child of nature, thou wilt find it easy to learn and to use a skill of natural healing, of binding thy own wounds or those of thy companions.Behold!'  You know the binding skill!");
-                context.ModSkill(BINDING_SKILL, 1);
+                context.ModSkillLevel(BINDING_SKILL, 1);
             }
-            if (((context.Guild == CLERIC) && (context.GetSkill(DEEP_TRANCE_SKILL) == 0))) {
+            if (((context.GetGuild == CLERIC) && (context.GetSkillLevel(DEEP_TRANCE_SKILL) == 0))) {
                 context.ShowText("'As thou dost learn more puissant and costly spells, so shouldst thou also know better how to replenish the mana on which thou dost draw to cast them.  Behold!'  You now know how to enter a deep trance!");
-                context.ModSkill(DEEP_TRANCE_SKILL, 1);
+                context.ModSkillLevel(DEEP_TRANCE_SKILL, 1);
             }
-            if (((context.Guild == KNIGHT) || (context.Guild == RANGER)) && (context.GetSkill(ATHLETICS_SKILL) == 0)) {
+            if (((context.GetGuild == KNIGHT) || (context.GetGuild == RANGER)) && (context.GetSkillLevel(ATHLETICS_SKILL) == 0)) {
                 context.ShowText("'As thou must face ever greater evils, thou shouldst know better how to use thy body, both to cause damage and to avoid damage.  Behold!'  You now know the athletics skill!");
-                context.ModSkill(ATHLETICS_SKILL, 1);
+                context.ModSkillLevel(ATHLETICS_SKILL, 1);
             }
-            if (context.GetSkill(RUNE_READING_SKILL) == 0) {
+            if (context.GetSkillLevel(RUNE_READING_SKILL) == 0) {
                 context.ShowText("'I must speak plain, for thou hast avoided the meaning I tried to impart thee before.");
                 context.ShowText("There is a fountain in the Foyer.  An thou dost enter it thrice, then thou shalt be granted the skill of reading runes.  That skill will prove most educational an thou dost ply it in The Runed Room.'");
-                context.ModExp(300000);
+                context.AddExperience(300000);
             }
             else {
                 if (context.GetFlag(DUNGEON, BEENINRUNEDROOM) == 0) {
                     context.ShowText("'I am most pleased that thou didst learn the secret of the Runed Fountain.");
                     context.ShowText("For the skill thou hast shown at deciphering my riddles I do grant thee an extra portion of experience I withhold from thy less persistent comrades.  But I refer thee to study of The Runed Room.'");
-                    context.ModExp(600000);
+                    context.AddExperience(600000);
                 }
                 else {
                     context.ShowText("'Thou hast been truly diligent in thy pursuit of knowledge and the study of runes.  I am most pleased with thee, and do grant thee a reward commensurate with my pleasure.'");
-                    context.ModExp(900000);
+                    context.AddExperience(900000);
                 }
             }
             context.ShowText("'On this level is The Library.  Not all the wisdom in The Library is obvious, either to find or to decipher.  But there is much to learn about the hidden powers of certain objects, an thou dost invest the effort.");
@@ -150,8 +150,8 @@ fun MapEvent07(context) {
             if (context.GetFlag(DUNGEON, GFIGHT0502) == 0) {
                 context.ShowText("It looks like someone is investigating yourmeeting with Galatea here earlier!");
                 context.SetFlag(DUNGEON, GFIGHT0502, 1);
-                context.GetMonster(1, 22);
-                context.GetMonster(5, 24);
+                context.AddEncounter(1, 22);
+                context.AddEncounter(5, 24);
             }
         }
     }
@@ -161,7 +161,7 @@ fun MapEvent08(context) {
     context.NoJoinZone();
     if (context.PartyCount > 1) {
         context.ShowText("You try squeezing down this narrow corridor, but it's so tight that - aargh!  You've been impaled on your companion's weapon!");
-        context.Damage(context.MaxHealth);
+        context.DamagePlayer(context.GetMaxHealth);
     }
     else {
         context.NoJoinZone();
@@ -170,11 +170,11 @@ fun MapEvent08(context) {
             context.ShowText("This narrow corridor forces you to proceed single file.");
         }
         if (context.GetFlag(DUNGEON, FOUGHTMALCOLM) == 0) {
-            context.RemoveWallItem(249, SOUTH);
-            context.BlockWall(249, SOUTH);
+            context.ClearWallItem(249, SOUTH);
+            context.SetWallBlock(249, SOUTH);
         }
         else {
-            if (context.Facing == SOUTH) {
+            if (context.GetFacing == SOUTH) {
                 context.ShowText("There are stairs leading up at the end of this hallway.");
             }
         }
@@ -187,7 +187,7 @@ fun MapEvent09(context) {
     context.NoJoinZone();
     if (context.PartyCount > 1) {
         context.ShowText("You try squeezing down this narrow corridor, but it's so tight that - aargh!  You've been impaled on your companion's weapon!");
-        context.Damage(context.MaxHealth);
+        context.DamagePlayer(context.GetMaxHealth);
     }
     else {
         if (context.GetFlag(DUNGEON, FOUGHTMALCOLM) == 1) {
@@ -200,8 +200,8 @@ fun MapEvent09(context) {
 }
 
 fun MapEvent0A(context) {
-    if ((context.PartyGuild(BARBARIAN) && context.PartyGuild(RANGER)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, LEVEL3ROOM4) == 1)) {
-        context.ShowPicture(ELFBARBARIAN);
+    if ((context.GetGuildAny(BARBARIAN) && context.GetGuildAny(RANGER)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, LEVEL3ROOM4) == 1)) {
+        context.ShowPortrait(ELFBARBARIAN);
         context.ShowText("Two elves, a barbarian and a ranger by their appearance, courteously hold open a secret door for you.  'Watch out for the boars in here,' they warn you.  'Some of the most deadly go on two legs.'");
         context.SetFlag(DUNGEON, WENTLEFT0502, 0);
         context.SetFlag(DUNGEON, WENTUP0502, 1);
@@ -217,10 +217,10 @@ fun MapEvent0B(context) {
 }
 
 fun MapEvent0C(context) {
-    if ((context.PartyGuild(WIZARD) && context.PartyGuild(CLERIC)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, LEVEL3ROOM2) == 1)) {
-        context.ShowPicture(GREMLINWIZARD);
+    if ((context.GetGuildAny(WIZARD) && context.GetGuildAny(CLERIC)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, LEVEL3ROOM2) == 1)) {
+        context.ShowPortrait(GREMLINWIZARD);
         context.ShowText("A gremlin wizard and a gremlin cleric courteously hold open a very thick door for you.  'Allow us,' they say.  'There are so many undead in here it is a pleasure to let in fresh clerics.'");
-        context.ClearWall(context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
         context.SetFlag(DUNGEON, WENTLEFT0502, 1);
         context.SetFlag(DUNGEON, WENTUP0502, 0);
         context.Teleport(5, 3, 191, WEST);
@@ -233,7 +233,7 @@ fun MapEvent0C(context) {
 fun MapEvent0D(context) {
     if (context.GetFlag(PARTY, SAWBONES) == 0) {
         context.SetFlag(PARTY, SAWBONES, 1);
-        context.ShowPicture(8);
+        context.ShowPortrait(8);
         context.ShowText("'Good gentles, could you please give a lost soul some directions?  My mission is rather confused.  I must go to Elsinore Castle for an omelet and danish, or something like that.  Do you know where that is?'");
         context.ShowText("You shake your head.");
         context.ShowText("'Ah, well, that's afterlife, as they say.  No rest for the Yorick.  Be seeing you....'  The skeleton departs.");
@@ -247,27 +247,27 @@ fun MapEvent0E(context) {
         if (context.PartyCount > 2) {
             context.ShowText("Along with some impertinent imps.");
         }
-        context.SetBooty(TALORCANSCLAYMORE, LARGELETTEROFCREDIT, PETUNIAPOULTICE, 0, 0, 325);
-        context.GetMonster(1, 32);
-        context.GetMonster(2, 33);
+        context.SetTreasure(TALORCANSCLAYMORE, LARGELETTEROFCREDIT, PETUNIAPOULTICE, 0, 0, 325);
+        context.AddEncounter(1, 32);
+        context.AddEncounter(2, 33);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 36);
-            context.GetMonster(6, 37);
+            context.AddEncounter(5, 36);
+            context.AddEncounter(6, 37);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 32);
-            context.GetMonster(3, 32);
+            context.AddEncounter(4, 32);
+            context.AddEncounter(3, 32);
         }
     }
     else {
         if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (context.GetFlag(PARTY, GOTALLWAR) == 0)) {
             context.GiveItem(MANNANANSRING);
             context.SetFlag(PARTY, GOTALLWAR, 1);
-            context.ShowPicture(LADYMACBETH);
+            context.ShowPortrait(LADYMACBETH);
             context.ShowText("'Huzzah!  Thou hast completely, if temporarily, rid this room of agents of my sisters, and I have drawn the duty to investigate!");
             context.ShowText("I can now give thee this ring.  An thou dost use it while in water, then thou canst summon Mannanan Mac Lir, who will give thee aid of another sort.'");
-            context.ModExp(300000);
-            context.Heal(context.MaxHealth);
+            context.AddExperience(300000);
+            context.HealPlayer(context.GetMaxHealth);
             context.ShowText("'I have healed thee and granted thee another reward of experience, but our time together grows short.  I must urge thee to leave this area now.' She disappears.");
         }
         else {
@@ -283,27 +283,27 @@ fun MapEvent0F(context) {
         if (context.PartyCount > 3) {
             context.ShowText("In fact, even near you might be close enough!");
         }
-        context.SetBooty(LAVENDERLOTION, 0, 0, 0, 0, 487);
-        context.GetMonster(1, 30);
-        context.GetMonster(2, 31);
+        context.SetTreasure(LAVENDERLOTION, 0, 0, 0, 0, 487);
+        context.AddEncounter(1, 30);
+        context.AddEncounter(2, 31);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 31);
-            context.GetMonster(4, 31);
+            context.AddEncounter(3, 31);
+            context.AddEncounter(4, 31);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 30);
-            context.GetMonster(6, 30);
+            context.AddEncounter(5, 30);
+            context.AddEncounter(6, 30);
         }
     }
     else {
         if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (context.GetFlag(PARTY, GOTALLWAR) == 0)) {
             context.GiveItem(MANNANANSRING);
             context.SetFlag(PARTY, GOTALLWAR, 1);
-            context.ShowPicture(LADYMACBETH);
+            context.ShowPortrait(LADYMACBETH);
             context.ShowText("'Huzzah!  Thou hast completely, if temporarily, rid this room of agents of my sisters, and I have drawn the duty to investigate!");
             context.ShowText("I can now give thee this ring.  An thou dost use it while in water, then thou canst summon Mannanan Mac Lir, who will give thee aid of another sort.'");
-            context.ModExp(300000);
-            context.Heal(context.MaxHealth);
+            context.AddExperience(300000);
+            context.HealPlayer(context.GetMaxHealth);
             context.ShowText("'I have healed thee and granted thee another reward of experience, but our time together grows short.  I must urge thee to leave this area now.' She disappears.");
         }
         else {
@@ -319,27 +319,27 @@ fun MapEvent10(context) {
         if (context.PartyCount > 3) {
             context.ShowText("And the larger half at that!");
         }
-        context.SetBooty(ELDERBERRYELIXIR, STEELLOCKPICK, LAVENDERLOTION, 0, 0, 625);
-        context.GetMonster(1, 35);
-        context.GetMonster(2, 34);
+        context.SetTreasure(ELDERBERRYELIXIR, STEELLOCKPICK, LAVENDERLOTION, 0, 0, 625);
+        context.AddEncounter(1, 35);
+        context.AddEncounter(2, 34);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 35);
-            context.GetMonster(4, 34);
+            context.AddEncounter(3, 35);
+            context.AddEncounter(4, 34);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 35);
-            context.GetMonster(6, 34);
+            context.AddEncounter(5, 35);
+            context.AddEncounter(6, 34);
         }
     }
     else {
         if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (context.GetFlag(PARTY, GOTALLWAR) == 0)) {
             context.GiveItem(MANNANANSRING);
             context.SetFlag(PARTY, GOTALLWAR, 1);
-            context.ShowPicture(LADYMACBETH);
+            context.ShowPortrait(LADYMACBETH);
             context.ShowText("'Huzzah!  Thou hast completely, if temporarily, rid this room of agents of my sisters, and I have drawn the duty to investigate!");
             context.ShowText("I can now give thee this ring.  An thou dost use it while in water, then thou canst summon Mannanan Mac Lir, who will give thee aid of another sort.'");
-            context.ModExp(300000);
-            context.Heal(context.MaxHealth);
+            context.AddExperience(300000);
+            context.HealPlayer(context.GetMaxHealth);
             context.ShowText("'I have healed thee and granted thee another reward of experience, but our time together grows short.  I must urge thee to leave this area now.' She disappears.");
         }
         else {
@@ -352,27 +352,27 @@ fun MapEvent11(context) {
     if (context.GetFlag(PARTY, WAR4) == 0) {
         context.SetFlag(PARTY, WAR4, 1);
         context.ShowText("It looks like dragons all the way down!");
-        context.SetBooty(SCALEOFDRAGON, ADAMANTINEPLATE, LAVENDERLOTION, 0, 0, 953);
-        context.GetMonster(1, 39);
-        context.GetMonster(5, 38);
+        context.SetTreasure(SCALEOFDRAGON, ADAMANTINEPLATE, LAVENDERLOTION, 0, 0, 953);
+        context.AddEncounter(1, 39);
+        context.AddEncounter(5, 38);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 39);
-            context.GetMonster(6, 38);
+            context.AddEncounter(2, 39);
+            context.AddEncounter(6, 38);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 39);
-            context.GetMonster(3, 38);
+            context.AddEncounter(4, 39);
+            context.AddEncounter(3, 38);
         }
     }
     else {
         if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (context.GetFlag(PARTY, GOTALLWAR) == 0)) {
             context.GiveItem(MANNANANSRING);
             context.SetFlag(PARTY, GOTALLWAR, 1);
-            context.ShowPicture(LADYMACBETH);
+            context.ShowPortrait(LADYMACBETH);
             context.ShowText("'Huzzah!  Thou hast completely, if temporarily, rid this room of agents of my sisters, and I have drawn the duty to investigate!");
             context.ShowText("I can now give thee this ring.  An thou dost use it while in water, then thou canst summon Mannanan Mac Lir, who will give thee aid of another sort.'");
-            context.ModExp(300000);
-            context.Heal(context.MaxHealth);
+            context.AddExperience(300000);
+            context.HealPlayer(context.GetMaxHealth);
             context.ShowText("'I have healed thee and granted thee another reward of experience, but our time together grows short.  I must urge thee to leave this area now.' She disappears.");
         }
         else {
@@ -385,27 +385,27 @@ fun MapEvent12(context) {
     if (context.GetFlag(PARTY, WAR5) == 0) {
         context.SetFlag(PARTY, WAR5, 1);
         context.ShowText("You liked it better on the lower levels when all the dragons did was steal from you.");
-        context.SetBooty(SCALEOFDRAGON, ELCHERESSTAFF, MERLINSEASE, 0, 0, 562);
-        context.GetMonster(1, 40);
-        context.GetMonster(5, 40);
+        context.SetTreasure(SCALEOFDRAGON, ELCHERESSTAFF, MERLINSEASE, 0, 0, 562);
+        context.AddEncounter(1, 40);
+        context.AddEncounter(5, 40);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 40);
-            context.GetMonster(6, 40);
+            context.AddEncounter(2, 40);
+            context.AddEncounter(6, 40);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 40);
-            context.GetMonster(3, 40);
+            context.AddEncounter(4, 40);
+            context.AddEncounter(3, 40);
         }
     }
     else {
         if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (context.GetFlag(PARTY, GOTALLWAR) == 0)) {
             context.GiveItem(MANNANANSRING);
             context.SetFlag(PARTY, GOTALLWAR, 1);
-            context.ShowPicture(LADYMACBETH);
+            context.ShowPortrait(LADYMACBETH);
             context.ShowText("'Huzzah!  Thou hast completely, if temporarily, rid this room of agents of my sisters, and I have drawn the duty to investigate!");
             context.ShowText("I can now give thee this ring.  An thou dost use it while in water, then thou canst summon Mannanan Mac Lir, who will give thee aid of another sort.'");
-            context.ModExp(300000);
-            context.Heal(context.MaxHealth);
+            context.AddExperience(300000);
+            context.HealPlayer(context.GetMaxHealth);
             context.ShowText("'I have healed thee and granted thee another reward of experience, but our time together grows short.  I must urge thee to leave this area now.' She disappears.");
         }
         else {
@@ -418,27 +418,27 @@ fun MapEvent13(context) {
     if (context.GetFlag(PARTY, WAR6) == 0) {
         context.SetFlag(PARTY, WAR6, 1);
         context.ShowText("Some adventurers are friendly.  These aren't.");
-        context.SetBooty(COERLSSTAFF, DEIRANBOW, ELDERBERRYELIXIR, 0, 0, 525);
-        context.GetMonster(1, 29);
-        context.GetMonster(2, 28);
+        context.SetTreasure(COERLSSTAFF, DEIRANBOW, ELDERBERRYELIXIR, 0, 0, 525);
+        context.AddEncounter(1, 29);
+        context.AddEncounter(2, 28);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 29);
+            context.AddEncounter(3, 29);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 29);
-            context.GetMonster(5, 27);
-            context.GetMonster(6, 27);
+            context.AddEncounter(4, 29);
+            context.AddEncounter(5, 27);
+            context.AddEncounter(6, 27);
         }
     }
     else {
         if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (context.GetFlag(PARTY, GOTALLWAR) == 0)) {
             context.GiveItem(MANNANANSRING);
             context.SetFlag(PARTY, GOTALLWAR, 1);
-            context.ShowPicture(LADYMACBETH);
+            context.ShowPortrait(LADYMACBETH);
             context.ShowText("'Huzzah!  Thou hast completely, if temporarily, rid this room of agents of my sisters, and I have drawn the duty to investigate!");
             context.ShowText("I can now give thee this ring.  An thou dost use it while in water, then thou canst summon Mannanan Mac Lir, who will give thee aid of another sort.'");
-            context.ModExp(300000);
-            context.Heal(context.MaxHealth);
+            context.AddExperience(300000);
+            context.HealPlayer(context.GetMaxHealth);
             context.ShowText("'I have healed thee and granted thee another reward of experience, but our time together grows short.  I must urge thee to leave this area now.' She disappears.");
         }
         else {
@@ -455,28 +455,28 @@ fun MapEvent14(context) {
         if (context.PartyCount > 3) {
             context.ShowText("And the gnomes aren't slouches, either.");
         }
-        context.Damage(context.MaxHealth / 3);
-        context.SetBooty(SPIKEDSHIELD, PUMMELSCROLL, BERNICIANBOW, 0, 0, 625);
-        context.GetMonster(1, 25);
-        context.GetMonster(5, 26);
+        context.DamagePlayer(context.GetMaxHealth / 3);
+        context.SetTreasure(SPIKEDSHIELD, PUMMELSCROLL, BERNICIANBOW, 0, 0, 625);
+        context.AddEncounter(1, 25);
+        context.AddEncounter(5, 26);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 25);
-            context.GetMonster(6, 26);
+            context.AddEncounter(2, 25);
+            context.AddEncounter(6, 26);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 26);
-            context.GetMonster(3, 26);
+            context.AddEncounter(4, 26);
+            context.AddEncounter(3, 26);
         }
     }
     else {
         if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (context.GetFlag(PARTY, GOTALLWAR) == 0)) {
             context.GiveItem(MANNANANSRING);
             context.SetFlag(PARTY, GOTALLWAR, 1);
-            context.ShowPicture(LADYMACBETH);
+            context.ShowPortrait(LADYMACBETH);
             context.ShowText("'Huzzah!  Thou hast completely, if temporarily, rid this room of agents of my sisters, and I have drawn the duty to investigate!");
             context.ShowText("I can now give thee this ring.  An thou dost use it while in water, then thou canst summon Mannanan Mac Lir, who will give thee aid of another sort.'");
-            context.ModExp(300000);
-            context.Heal(context.MaxHealth);
+            context.AddExperience(300000);
+            context.HealPlayer(context.GetMaxHealth);
             context.ShowText("'I have healed thee and granted thee another reward of experience, but our time together grows short.  I must urge thee to leave this area now.' She disappears.");
         }
         else {
@@ -522,14 +522,14 @@ fun MapEvent15(context) {
                 break;
             case 1:
                 context.ShowText("You hear someone running towards you.");
-                context.ShowPicture(GREMLINTHIEF);
+                context.ShowPortrait(GREMLINTHIEF);
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("'Have you seen my crumhorn?  I know I left it here somewhere.  If I find it not, then I cannot play for Her Ladyship!  Fie!  Thou art no use to me!'  The gremlin rushes off.");
                 break;
             case 2:
-                context.ShowPicture(9);
+                context.ShowPortrait(9);
                 context.ShowText("'I seek Hamlet, the Dane.  Lost, am I, and bound by an idle curse to this blasted heath.  If thou dost find the Prince of Denmark, give him his father's warning, that his uncle, now the king, means him no good.'");
                 break;
             case 3:
@@ -537,7 +537,7 @@ fun MapEvent15(context) {
                     context.ShowText("It was Rory who told you about Manannan's summoning, but Manannan himself cannot bring Rory back to life.");
                 }
                 else {
-                    context.ShowPicture(HALFLINGTHIEF);
+                    context.ShowPortrait(HALFLINGTHIEF);
                     context.ShowText("*");
                     context.ShowText("*");
                     context.ShowText("*");
@@ -551,14 +551,14 @@ fun MapEvent15(context) {
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("A pummelled posse of imps decides, rather insultingly, that they are bigger than you are.");
-                context.SetBooty(PETUNIAPOULTICE, POINTEDSHIELD, ELDERBERRYELIXIR, 0, 0, 193);
-                context.GetMonster(1, 24);
+                context.SetTreasure(PETUNIAPOULTICE, POINTEDSHIELD, ELDERBERRYELIXIR, 0, 0, 193);
+                context.AddEncounter(1, 24);
                 if (context.PartyCount > 1) {
-                    context.GetMonster(5, 24);
+                    context.AddEncounter(5, 24);
                 }
                 if (context.PartyCount > 2) {
-                    context.GetMonster(2, 24);
-                    context.GetMonster(6, 24);
+                    context.AddEncounter(2, 24);
+                    context.AddEncounter(6, 24);
                 }
                 break;
         }
@@ -568,7 +568,7 @@ fun MapEvent15(context) {
 fun MapEvent16(context) {
     if (context.GetFlag(PARTY, ELFWARNING) == 0) {
         context.SetFlag(PARTY, ELFWARNING, 1);
-        context.ShowPicture(ELFCLERIC);
+        context.ShowPortrait(ELFCLERIC);
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("*");
@@ -585,14 +585,14 @@ fun MapEvent16(context) {
 
 fun MapEvent17(context) {
     if (context.PartyCount > 1) {
-        context.BlockWall(context.Here, SOUTH);
-        if ((context.Facing == SOUTH) || (context.GetFlag(PARTY, NARROW2) == 0)) {
+        context.SetWallBlock(context.GetTile, SOUTH);
+        if ((context.GetFacing == SOUTH) || (context.GetFlag(PARTY, NARROW2) == 0)) {
             context.ShowText("The narrow corridor to the south forces you to enter it single file.");
             context.SetFlag(PARTY, NARROW2, 1);
         }
     }
     else {
-        context.ClearWall(context.Here, SOUTH);
+        context.ClearWallBlock(context.GetTile, SOUTH);
     }
 }
 

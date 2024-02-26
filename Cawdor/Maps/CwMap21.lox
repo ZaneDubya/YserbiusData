@@ -83,10 +83,10 @@ fun MapEvent01(context) {
 }
 
 fun MapEvent02(context) {
-    if (context.UsedSkill(DETECT_SKILL) >= 11 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || (context.GetFlag(DUNGEON, WONGAME) == 1) || context.FlagOn(ROOM, DETECTED_DOOR)) {
-        context.PlaceWallItem(PORTAL, context.Here, context.Facing);
+    if (context.UsedSkill(DETECT_SKILL) >= 11 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || (context.GetFlag(DUNGEON, WONGAME) == 1) || context.IsFlagOn(ROOM, DETECTED_DOOR)) {
+        context.SetWallItem(PORTAL, context.GetTile, context.GetFacing);
         context.SetFlag(ROOM, DETECTED_DOOR, 1);
-        if ((((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) || (context.UsedSkill(LOCKPICK_SKILL) > 9)) && (context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || ((context.GetSkill(LOCKPICK_SKILL) >= 10) && (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) {
+        if ((((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) || (context.UsedSkill(LOCKPICK_SKILL) > 9)) && (context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || ((context.GetSkillLevel(LOCKPICK_SKILL) >= 10) && (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) {
             if (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING)) {
                 context.TakeItem(SKELETONKEYRING);
                 context.ShowText("You mangled your skeleton keys, but the door is unlocked.  Now for Macbeth!");
@@ -94,10 +94,10 @@ fun MapEvent02(context) {
             else {
                 context.ShowText("You have unlocked the hidden door.  Now for Macbeth!");
             }
-            context.ClearWall(context.Here, context.Facing);
+            context.ClearWallBlock(context.GetTile, context.GetFacing);
         }
         else {
-            context.BlockWall(context.Here, context.Facing);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
             context.ShowText("You detect a hidden door, but it is locked.");
             if (context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) {
                 context.TakeItem(WOODENLOCKPICK);
@@ -108,17 +108,17 @@ fun MapEvent02(context) {
         }
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
     }
 }
 
 fun MapEvent03(context) {
-    if ((((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) || (context.UsedSkill(LOCKPICK_SKILL) > 9)) && (context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkill(LOCKPICK_SKILL) >= 9) && ((context.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK))) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING)))) {
+    if ((((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) || (context.UsedSkill(LOCKPICK_SKILL) > 9)) && (context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkillLevel(LOCKPICK_SKILL) >= 9) && ((context.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK))) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING)))) {
         context.ShowText("That was a stiff lock, but you finally got it open.");
-        context.ClearWall(context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
         if (context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) {
             context.TakeItem(WOODENLOCKPICK);
             context.TakeItem(BRASSLOCKPICK);
@@ -126,7 +126,7 @@ fun MapEvent03(context) {
             context.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
         }
         else {
-            context.BlockWall(context.Here, context.Facing);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
             context.ShowText("This classroom, for so it is labelled, is probably locked for a reason.  I mean a reason other than to annoy you.");
         }
     }
@@ -169,23 +169,23 @@ fun MapEvent05(context) {
                 break;
             case 1:
                 context.ShowText("You've wandered into a cloud of noxious gas!  You've been poisoned.");
-                context.Damage(500);
-                context.SetPm(POISON, 3, 500);
+                context.DamagePlayer(500);
+                context.SetPoison(POISON, 3, 500);
                 break;
             case 2:
                 context.ShowText("You've wandered into a patch of a nasty poison gas!  You've been poisoned.");
-                context.Damage(1000);
-                context.SetPm(POISON, 4, 1000);
+                context.DamagePlayer(1000);
+                context.SetPoison(POISON, 4, 1000);
                 break;
             case 3:
                 context.ShowText("Hoo boy!  This was one super stinkerino cloud of gas!  Have you ever been poisoned!");
-                context.Damage(1500);
-                context.SetPm(POISON, 5, 1500);
+                context.DamagePlayer(1500);
+                context.SetPoison(POISON, 5, 1500);
                 break;
             case 4:
                 context.ShowText("Sulfur and brimstone!  The poor fool that brewed up this batch of noxious clouds must have died in the process, because you can barely fight off the effects!");
-                context.Damage(2000);
-                context.SetPm(POISON, 6, 2000);
+                context.DamagePlayer(2000);
+                context.SetPoison(POISON, 6, 2000);
                 break;
         }
     }
@@ -245,16 +245,16 @@ fun MapEvent0F(context) {
         if (context.PartyCount > 3) {
             context.ShowText("Oh, great.  Those liches are letting the slimes run interference for them!");
         }
-        context.SetBooty(BANQUOSAXE, ALFREDSHAT, LAVENDERLOTION, 0, 0, 847);
-        context.GetMonster(1, 40);
-        context.GetMonster(2, 40);
+        context.SetTreasure(BANQUOSAXE, ALFREDSHAT, LAVENDERLOTION, 0, 0, 847);
+        context.AddEncounter(1, 40);
+        context.AddEncounter(2, 40);
         if (context.PartyCount > 1) {
-            context.GetMonster(3, 40);
-            context.GetMonster(4, 40);
+            context.AddEncounter(3, 40);
+            context.AddEncounter(4, 40);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 36);
-            context.GetMonster(6, 36);
+            context.AddEncounter(5, 36);
+            context.AddEncounter(6, 36);
         }
     }
     else {
@@ -266,17 +266,17 @@ fun MapEvent10(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.SetFlag(PARTY, WAR2, 1);
         context.ShowText("You knew there were crazed alchemists about.  You may have found their ringleaders.");
-        context.SetPm(POISON, 5, 500);
-        context.SetBooty(ALCUINSRING, WOADWINE, GAUZERING, 0, 0, 447);
-        context.GetMonster(1, 35);
-        context.GetMonster(2, 33);
+        context.SetPoison(POISON, 5, 500);
+        context.SetTreasure(ALCUINSRING, WOADWINE, GAUZERING, 0, 0, 447);
+        context.AddEncounter(1, 35);
+        context.AddEncounter(2, 33);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 32);
-            context.GetMonster(6, 32);
+            context.AddEncounter(5, 32);
+            context.AddEncounter(6, 32);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 34);
-            context.GetMonster(3, 34);
+            context.AddEncounter(4, 34);
+            context.AddEncounter(3, 34);
         }
     }
     else {
@@ -287,21 +287,21 @@ fun MapEvent10(context) {
 fun MapEvent11(context) {
     if (context.GetFlag(PARTY, WAR3) == 0) {
         context.SetFlag(PARTY, WAR3, 1);
-        context.SetPm(POISON, 5, 500);
+        context.SetPoison(POISON, 5, 500);
         context.ShowText("It figures the undead would be immune to the poison clouds around here.  What didn't figure was that they would learn how to use poison themselves!");
         if (context.PartyCount > 3) {
             context.ShowText("In fact, they are out in force!");
         }
-        context.SetBooty(MYLADYSFAVOR, WOOLOFBAT, LAVENDERLOTION, 0, 0, 839);
-        context.GetMonster(1, 30);
-        context.GetMonster(2, 31);
+        context.SetTreasure(MYLADYSFAVOR, WOOLOFBAT, LAVENDERLOTION, 0, 0, 839);
+        context.AddEncounter(1, 30);
+        context.AddEncounter(2, 31);
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 37);
-            context.GetMonster(3, 37);
+            context.AddEncounter(4, 37);
+            context.AddEncounter(3, 37);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 29);
-            context.GetMonster(6, 29);
+            context.AddEncounter(5, 29);
+            context.AddEncounter(6, 29);
         }
     }
     else {
@@ -316,16 +316,16 @@ fun MapEvent12(context) {
     if (context.GetFlag(PARTY, WAR4) == 0) {
         context.SetFlag(PARTY, WAR4, 1);
         context.ShowText("If potions gone wrong account for the existence of of these half humans, you're going to strongly consider leaving this room while you're still you!");
-        context.SetBooty(LODBROKSBLADE, RHINOHORNHELM, 0, 0, 0, 212);
-        context.GetMonster(1, 39);
-        context.GetMonster(2, 39);
-        context.GetMonster(5, 38);
+        context.SetTreasure(LODBROKSBLADE, RHINOHORNHELM, 0, 0, 0, 212);
+        context.AddEncounter(1, 39);
+        context.AddEncounter(2, 39);
+        context.AddEncounter(5, 38);
         if (context.PartyCount > 2) {
-            context.GetMonster(6, 38);
-            context.GetMonster(3, 39);
+            context.AddEncounter(6, 38);
+            context.AddEncounter(3, 39);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 39);
+            context.AddEncounter(4, 39);
         }
     }
     else {
@@ -337,15 +337,15 @@ fun MapEvent13(context) {
     if (context.GetFlag(PARTY, WAR5) == 0) {
         context.SetFlag(PARTY, WAR5, 1);
         context.ShowText("Gee.  In all the fairy tales you heard when you were growing up, there were good fairies and kindly old wizards.  These guys obviously didn't hear the same stories.");
-        context.SetPm(POISON, 5, 800);
-        context.SetBooty(HILDASHAMMER, ADAMANTINEGLOVE, 0, 0, 0, 212);
-        context.GetMonster(1, 25);
-        context.GetMonster(2, 25);
-        context.GetMonster(5, 27);
-        context.GetMonster(6, 28);
+        context.SetPoison(POISON, 5, 800);
+        context.SetTreasure(HILDASHAMMER, ADAMANTINEGLOVE, 0, 0, 0, 212);
+        context.AddEncounter(1, 25);
+        context.AddEncounter(2, 25);
+        context.AddEncounter(5, 27);
+        context.AddEncounter(6, 28);
         if (context.PartyCount > 3) {
-            context.GetMonster(3, 27);
-            context.GetMonster(4, 28);
+            context.AddEncounter(3, 27);
+            context.AddEncounter(4, 28);
         }
     }
     else {
@@ -356,7 +356,7 @@ fun MapEvent13(context) {
 fun MapEvent14(context) {
     if (context.GetFlag(PARTY, SAWTHRONE) == 0) {
         context.SetFlag(PARTY, SAWTHRONE, 1);
-        context.ShowPicture(DWARFKNIGHT);
+        context.ShowPortrait(DWARFKNIGHT);
         context.ShowText("You overhear a snippet of conversation as two knights stroll by.");
         context.ShowText("'...southwest corner.  We tried an assault in force, but Macbeth's defenses were most puissant and we lost many brave knights.  I think me there must be another way to....'");
     }
@@ -365,19 +365,19 @@ fun MapEvent14(context) {
 fun MapEvent15(context) {
     if (context.GetFlag(PARTY, WAR6) == 0) {
         context.SetFlag(PARTY, WAR6, 1);
-        context.SetPm(POISON, 5, 1000);
+        context.SetPoison(POISON, 5, 1000);
         context.ShowText("It's poison using folks like these that give elves a bad name.");
         context.ShowText("Oh, sure, they haven't had a bad name so far, but if you survive you're sure going to warn all your friends!");
-        context.SetBooty(MENDICANTSTUNIC, ADDERFORK, DRAGONFLAGON, 0, 0, 3100);
-        context.GetMonster(1, 26);
-        context.GetMonster(5, 26);
+        context.SetTreasure(MENDICANTSTUNIC, ADDERFORK, DRAGONFLAGON, 0, 0, 3100);
+        context.AddEncounter(1, 26);
+        context.AddEncounter(5, 26);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 26);
-            context.GetMonster(6, 26);
+            context.AddEncounter(2, 26);
+            context.AddEncounter(6, 26);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(3, 26);
-            context.GetMonster(4, 26);
+            context.AddEncounter(3, 26);
+            context.AddEncounter(4, 26);
         }
     }
     else {
@@ -388,18 +388,18 @@ fun MapEvent15(context) {
 fun MapEvent16(context) {
     if (context.GetFlag(PARTY, WAR7) == 0) {
         context.SetFlag(PARTY, WAR7, 1);
-        context.SetPm(POISON, 5, 1000);
+        context.SetPoison(POISON, 5, 1000);
         context.ShowText("You wish that whoever was burying these undead would do a better job of it next time!");
-        context.SetBooty(ALCUINSRING, LADYSSCROLL, PALACECHALICE, 0, 0, 1647);
-        context.GetMonster(1, 29);
-        context.GetMonster(2, 30);
-        context.GetMonster(5, 36);
+        context.SetTreasure(ALCUINSRING, LADYSSCROLL, PALACECHALICE, 0, 0, 1647);
+        context.AddEncounter(1, 29);
+        context.AddEncounter(2, 30);
+        context.AddEncounter(5, 36);
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 31);
-            context.GetMonster(3, 31);
+            context.AddEncounter(4, 31);
+            context.AddEncounter(3, 31);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(6, 36);
+            context.AddEncounter(6, 36);
         }
     }
     else {
@@ -414,7 +414,7 @@ fun MapEvent17(context) {
 fun MapEvent18(context) {
     if (context.GetFlag(PARTY, SAWTROLL) == 0) {
         context.SetFlag(PARTY, SAWTROLL, 1);
-        context.ShowPicture(TROLLCLERIC);
+        context.ShowPortrait(TROLLCLERIC);
         context.ShowText("You overhear a snippet of conversation as two trolls limp past.  The speaker leans heavily on the other one.");
         context.ShowText("'...odds blood!  I did but wander too near to suit the madman, and was wounded nigh unto death by his defenders!  No parley, no opportunity to....");
     }
@@ -423,7 +423,7 @@ fun MapEvent18(context) {
 fun MapEvent19(context) {
     if (context.GetFlag(PARTY, AA) == 0) {
         context.SetFlag(PARTY, AA, 1);
-        context.ShowPicture(GNOMEWIZARD);
+        context.ShowPortrait(GNOMEWIZARD);
         context.ShowText("An alchemist is lecturing his pupils as they walk by.");
         context.ShowText("'...three parts hemlock, and a gill of powdered bone of a murderer.  Mix them with a cup of dragon's blood, and set them to simmer for at least six hours, adding water....'");
     }
@@ -432,7 +432,7 @@ fun MapEvent19(context) {
 fun MapEvent1A(context) {
     if (context.GetFlag(PARTY, SAWHOB) == 0) {
         context.SetFlag(PARTY, SAWHOB, 1);
-        context.ShowPicture(HALFLINGTHIEF);
+        context.ShowPortrait(HALFLINGTHIEF);
         context.ShowText("'God ye a good 'un, gentle friends.  I must say, hitherto I drastically underestimated the value of Juniper Juice, but I must admit that were it not for the plentiful compartments well-stocked hereabouts, I'd be a dead Hob.'");
         context.ShowText("The halfling wanders off, coughing.");
     }
@@ -444,14 +444,14 @@ fun MapEvent1B(context) {
         i = context.GetFlag(PARTY, CTR);
         context.SetFlag(PARTY, AB, 1);
         if (i < 7) {
-            context.ShowPicture(HUMANWIZARD);
+            context.ShowPortrait(HUMANWIZARD);
             context.ShowText("An alchemist is instructing a customer in the proper application of a potion as they walk past.");
             context.ShowText("'...then you must cover yourselves in good goose grease and climb atop the hill nigh onto the cemetary.");
             context.ShowText("There you must howl at the moon fiercely, and then moon the moon most vigorously, with many a bounce.  Then return to thy home swinging a dead rat....'");
             context.ShowText("Some cures are worse than the disease.");
         }
         else {
-            context.ShowPicture(HUMANBARBARIAN);
+            context.ShowPortrait(HUMANBARBARIAN);
             context.ShowText("A customer pleads with his alchemist for a cure.");
             context.ShowText("'...know I swung a dead cat over my head.  I know 'twas not thy fault for the potion's misuse.  But as I value my life, Master Phickett, I must have redress.");
             context.ShowText("I till my fields and she is upon me.  At the Rampant Cat Inn she is upon me.  Even when I do visit the privy....'");
@@ -463,7 +463,7 @@ fun MapEvent1B(context) {
 fun MapEvent1C(context) {
     if (context.GetFlag(PARTY, AC) == 0) {
         context.SetFlag(PARTY, AC, 1);
-        context.ShowPicture(HUMANWIZARD);
+        context.ShowPortrait(HUMANWIZARD);
         context.ShowText("An alchemist is walking past, reading aloud, his head buried in a dusty tome.");
         context.ShowText("'...reserving the juice for gravy.  For the stuffing, for every five pounds of bird use one quarter loaf of bread, four handfuls of clean mushrooms, one cup of plums or prunes, a dozen chestnuts, a bay leaf, half a gill of stock....'");
         context.ShowText("Even alchemists have to eat.");
@@ -476,13 +476,13 @@ fun MapEvent1D(context) {
         i = context.GetFlag(PARTY, CTR);
         context.SetFlag(PARTY, AE, 1);
         if (i < 7) {
-            context.ShowPicture(GREMLINWIZARD);
+            context.ShowPortrait(GREMLINWIZARD);
             context.ShowText("An alchemist instructs her pupil.");
             context.ShowText("'I care not that thou gavest the dragon's blood to that charlatan, Hippocrates Phickett!  Thou didst check out the blood and thou must replace it!");
             context.ShowText("So pop along to the Aerie next door and bring us back half a barrel of fresh dragon's blood, or thou wilt be drinking experimentals until thy face melts!'");
         }
         else {
-            context.ShowPicture(GREMLINWIZARD);
+            context.ShowPortrait(GREMLINWIZARD);
             context.ShowText("'...on earth possessed thee to promise the dragon a constant supply of dragon flagon in exchange for his blood?  Do you think we care for thy piddling little life?");
             context.ShowText("This is a business, not a playground!  Stop snivelling!  All undergraduates must replace any used supplies.  It is in thy enrollment papers!  We care not that thou didst not apply lemon juice to expose the secret writing!  'Ods bodkins!'");
         }
@@ -495,14 +495,14 @@ fun MapEvent1E(context) {
         i = context.GetFlag(PARTY, CTR);
         context.SetFlag(PARTY, AE, 1);
         if (i < 7) {
-            context.ShowPicture(GREMLINWIZARD);
+            context.ShowPortrait(GREMLINWIZARD);
             context.ShowText("Two alchemists converse.");
             context.ShowText("'...s'truth!  I replaced his sandalwood incense with poison ivy.  Did his spell work?  Do eggs bounce?");
             context.ShowText("He has such a rash that he is red as an imp from scratching!  And he attributes it all to supernatural inter....'");
             context.ShowText("Life's one big prank at Alchemical U.");
         }
         else {
-            context.ShowPicture(HUMANWIZARD);
+            context.ShowPortrait(HUMANWIZARD);
             context.ShowText("An alchemist rushes past, talking to himself and scratching vigorously.");
             context.ShowText("'...not have been a piece of the true cross.  It must have been a false piece of the true cross.  None would dare sabotage such an expensive attempt to create a philosopher's stone.");
             context.ShowText("But what can I use in its stead?  Perhaps the hem of a saint's cloak.  But which saint?'");
@@ -516,14 +516,14 @@ fun MapEvent1F(context) {
         i = context.GetFlag(PARTY, CTR);
         context.SetFlag(PARTY, AF, 1);
         if (i < 7) {
-            context.ShowPicture(ELFCLERIC);
+            context.ShowPortrait(ELFCLERIC);
             context.ShowText("Two alchemists are laughing loudly as they walk past.");
             context.ShowText("'...ments!  Elements, by all the saints in heaven!  And molecules, she called them.  Miniscule particles too small to be seen.  She called for purifying.  Purifying!");
             context.ShowText("God's teeth!  Isn't unicorn scat already pure?  And then she said there is a tonic, and something subby tonic.  Most of us were rolling in the aisles by....'");
             context.ShowText("It all sounds rather silly, doesn't it?");
         }
         else {
-            context.ShowPicture(DWARFWIZARD);
+            context.ShowPortrait(DWARFWIZARD);
             context.ShowText("Two alchemists are arguing loudly as they walk past.");
             context.ShowText("'...ments!  Elements, from the Greek!  Thou art a full professor; I assume a certain degree of education!");
             context.ShowText("I made a microscope from pieces of curved glass and discovered that all that our gross senses perceive is in turn composed of smaller parts.  Yes, glass!");
@@ -538,13 +538,13 @@ fun MapEvent20(context) {
         i = context.GetFlag(PARTY, CTR);
         context.SetFlag(PARTY, AG, 1);
         if (i < 7) {
-            context.ShowPicture(ELFCLERIC);
+            context.ShowPortrait(ELFCLERIC);
             context.ShowText("An alchemist is talking to his owl familiar as they walk past.");
             context.ShowText("'...I know it is storming outside.  That is the point!  You must fly into the teeth of the storm trailing this silver wire.  When lightning strikes the wire, it will conduct electricity.  What?");
             context.ShowText("No, lightning will not hurt you!  Lightning doesn't hurt birds; every fool knows that!  I care not about your old fowl's tale about your uncle Owlfred!  Were you there?  Then....'");
         }
         else {
-            context.ShowPicture(ELFCLERIC);
+            context.ShowPortrait(ELFCLERIC);
             context.ShowText("An alchemist is talking to his slightly singed owl familiar as they walk past.");
             context.ShowText("'...It must not have been natural lightning, I tell you!  Oh, thou and thy uncle Owlfred again.  Thy tailfeathers will grow back!");
             context.ShowText("Cease thy prattling!  If thou hadst not dropped the wire, then I would not need to repeat this experiment.  No, I am not going to find a sea bird familiar.  Every fool knows that wet feathers help birds fly!  Wouldst thou....'");
@@ -599,11 +599,11 @@ fun MapEvent2B(context) {
 
 fun MapEvent2C(context) {
     context.ShowText("You are grateful for the fresh air.  The weather outside is cold and blustery, but refreshing all the same.");
-    context.Heal(12);
+    context.HealPlayer(12);
 }
 
 fun MapEvent2D(context) {
     context.ShowText("This is one nasty little corridor.  Huge clouds of fumes are wafting in through overhead vents, as if it is intended to poison anyone who walks in here.  Like you, for instance!");
-    context.Damage(1000);
-    context.SetPm(POISON, 5, 1000);
+    context.DamagePlayer(1000);
+    context.SetPoison(POISON, 5, 1000);
 }

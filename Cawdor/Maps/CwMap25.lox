@@ -23,7 +23,7 @@ fun MapEvent01(context) {
         context.SetFlag(PARTY, SAWBOOKMSG, 1);
         context.ShowText("You find a leather-bound journal on the desk.  It seems the Wyrd Sisters could use their powers to travel forward and backward in time, committing atrocities untold throughout the ages.");
     }
-    if (context.UsedSkill(DETECT_SKILL) >= 1 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.UsedItem(CRYSTALBALL, CRYSTALBALL) || context.FlagOn(ROOM, DETECTED_DOOR)) {
+    if (context.UsedSkill(DETECT_SKILL) >= 1 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.UsedItem(CRYSTALBALL, CRYSTALBALL) || context.IsFlagOn(ROOM, DETECTED_DOOR)) {
         context.SetFlag(DUNGEON, JOURNALMESSAGES, i);
         context.SetFlag(ROOM, DETECTED_DOOR, 0);
         switch (i) {
@@ -124,7 +124,7 @@ fun MapEvent01(context) {
                 context.ShowText("You feel a terminal case of boredom coming on.");
                 break;
             case 127:
-                context.Damage(context.MaxHealth);
+                context.DamagePlayer(context.GetMaxHealth);
                 break;
             default: 
                 context.ShowText("This page is blank.");
@@ -134,15 +134,15 @@ fun MapEvent01(context) {
 }
 
 fun MapEvent02(context) {
-    if (context.UsedSkill(DETECT_SKILL) > 11 || context.FlagOn(ROOM, DETECTED_DOOR)) {
-        context.PlaceWallItem(DOOR, context.Here, context.Facing);
+    if (context.UsedSkill(DETECT_SKILL) > 11 || context.IsFlagOn(ROOM, DETECTED_DOOR)) {
+        context.SetWallItem(DOOR, context.GetTile, context.GetFacing);
         context.SetFlag(ROOM, DETECTED_DOOR, 1);
-        if ((context.GetSkill(LOCKPICK_SKILL) > 11) && (context.UsedItem(ADAMANTINELOCKPICK, ADAMANTINELOCKPICK))) {
+        if ((context.GetSkillLevel(LOCKPICK_SKILL) > 11) && (context.UsedItem(ADAMANTINELOCKPICK, ADAMANTINELOCKPICK))) {
             context.ShowText("You have unlocked the hidden door!");
-            context.ClearWall(context.Here, context.Facing);
+            context.ClearWallBlock(context.GetTile, context.GetFacing);
         }
         else {
-            context.BlockWall(context.Here, context.Facing);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
             if ((context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, COLDSTEELLOCKPICK))) {
                 context.TakeItem(WOODENLOCKPICK);
                 context.TakeItem(BRASSLOCKPICK);
@@ -153,23 +153,23 @@ fun MapEvent02(context) {
                 context.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
             }
             else {
-                context.BlockWall(context.Here, context.Facing);
+                context.SetWallBlock(context.GetTile, context.GetFacing);
                 context.ShowText("You detect a hidden door, but it is locked.");
             }
         }
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
     }
 }
 
 fun MapEvent03(context) {
-    if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkill(LOCKPICK_SKILL) >= 9) && ((context.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING)))) {
+    if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkillLevel(LOCKPICK_SKILL) >= 9) && ((context.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING)))) {
         context.ShowText("That was a stiff lock, but you finally got it open.");
-        context.ClearWall(context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
         if (context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) {
             context.TakeItem(WOODENLOCKPICK);
             context.TakeItem(BRASSLOCKPICK);
@@ -177,7 +177,7 @@ fun MapEvent03(context) {
             context.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
         }
         else {
-            context.BlockWall(context.Here, context.Facing);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
             context.ShowText("Funny how an irksome little lock on a flimsy little door can keep out a big strong person like you.");
         }
     }
@@ -198,13 +198,13 @@ fun MapEvent05(context) {
 fun MapEvent09(context) {
     if (context.GetFlag(DUNGEON, WONGAME) == 0) {
         context.SetFlag(DUNGEON, WONGAME, 1);
-        context.ShowPicture(LADYMACBETH);
+        context.ShowPortrait(LADYMACBETH);
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("*");
-        context.Heal(context.MaxHealth);
+        context.HealPlayer(context.GetMaxHealth);
         context.ModMana(10000);
-        context.ModExp(10000000);
+        context.AddExperience(10000000);
         context.ModGold(1000000);
         context.ShowText("A shimmering spell brings Galatea's image before you.");
         context.ShowText("'My glorious hero!  I am at last dead, and thou hast all my best wishes and benifences.");
@@ -215,11 +215,11 @@ fun MapEvent09(context) {
     else {
         if (context.GetFlag(PARTY, FINISHEDROOM) == 0) {
             context.SetFlag(PARTY, FINISHEDROOM, 1);
-            context.ShowPicture(LADYMACBETH);
+            context.ShowPortrait(LADYMACBETH);
             context.ShowText("*");
             context.ShowText("*");
             context.ShowText("*");
-            context.Heal(context.MaxHealth);
+            context.HealPlayer(context.GetMaxHealth);
             context.ModMana(10000);
             context.ShowText("The spell again brings Galatea's image before you.");
             context.ShowText("'My glorious hero!  I am at last dead, and thou hast all my best wishes and benifences.");
@@ -228,7 +228,7 @@ fun MapEvent09(context) {
         }
         else {
             context.ShowText("You feel refreshed, as if somehow Galatea's sacrifice has sanctified this room.  The room remains empty save for the desk along the north wall.");
-            context.Heal(context.MaxHealth);
+            context.HealPlayer(context.GetMaxHealth);
             context.ModMana(10000);
         }
     }
@@ -240,9 +240,9 @@ fun MapEvent09(context) {
 fun MapEvent0A(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.SetFlag(PARTY, WAR2, 1);
-        context.GetMonster(1, 32);
-        context.GetMonster(2, 33);
-        context.GetMonster(3, 34);
+        context.AddEncounter(1, 32);
+        context.AddEncounter(2, 33);
+        context.AddEncounter(3, 34);
     }
     else {
         context.ShowText("Not only did the Wyrd Sisters live messy, but they died messy, too!");
@@ -252,9 +252,9 @@ fun MapEvent0A(context) {
 fun MapEvent0B(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.SetFlag(PARTY, WAR2, 1);
-        context.GetMonster(1, 35);
-        context.GetMonster(2, 36);
-        context.GetMonster(3, 37);
+        context.AddEncounter(1, 35);
+        context.AddEncounter(2, 36);
+        context.AddEncounter(3, 37);
     }
     else {
         context.ShowText("If you've seen one witch's lair, you've seen them all.  Well, actually not.  Some witches live in very nice lairs, with well-shrubbed gardens.");
@@ -264,9 +264,9 @@ fun MapEvent0B(context) {
 fun MapEvent0C(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.SetFlag(PARTY, WAR2, 1);
-        context.GetMonster(1, 38);
-        context.GetMonster(2, 39);
-        context.GetMonster(3, 40);
+        context.AddEncounter(1, 38);
+        context.AddEncounter(2, 39);
+        context.AddEncounter(3, 40);
     }
     else {
         context.ShowText("The Wyrd Sisters had the second largest collection of human skulls you've ever seen.");
@@ -276,15 +276,15 @@ fun MapEvent0C(context) {
 fun MapEvent0D(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.SetFlag(PARTY, WAR2, 1);
-        context.GetMonster(1, 32);
-        context.GetMonster(2, 33);
-        context.GetMonster(3, 34);
+        context.AddEncounter(1, 32);
+        context.AddEncounter(2, 33);
+        context.AddEncounter(3, 34);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 24);
+            context.AddEncounter(5, 24);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(6, 28);
-            context.GetMonster(4, 28);
+            context.AddEncounter(6, 28);
+            context.AddEncounter(4, 28);
         }
     }
     else {
@@ -295,15 +295,15 @@ fun MapEvent0D(context) {
 fun MapEvent0E(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.SetFlag(PARTY, WAR2, 1);
-        context.GetMonster(1, 35);
-        context.GetMonster(2, 36);
-        context.GetMonster(3, 37);
+        context.AddEncounter(1, 35);
+        context.AddEncounter(2, 36);
+        context.AddEncounter(3, 37);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 31);
+            context.AddEncounter(5, 31);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(6, 31);
-            context.GetMonster(4, 31);
+            context.AddEncounter(6, 31);
+            context.AddEncounter(4, 31);
         }
     }
     else {
@@ -314,15 +314,15 @@ fun MapEvent0E(context) {
 fun MapEvent0F(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.SetFlag(PARTY, WAR2, 1);
-        context.GetMonster(1, 38);
-        context.GetMonster(2, 39);
-        context.GetMonster(3, 40);
+        context.AddEncounter(1, 38);
+        context.AddEncounter(2, 39);
+        context.AddEncounter(3, 40);
         if (context.PartyCount > 1) {
-            context.GetMonster(5, 27);
-            context.GetMonster(6, 27);
+            context.AddEncounter(5, 27);
+            context.AddEncounter(6, 27);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 27);
+            context.AddEncounter(4, 27);
         }
     }
     else {
@@ -334,21 +334,21 @@ fun MapEvent10(context) {
     context.SetFlag(PARTY, TRACKING, 0);
     if (context.GetFlag(PARTY, WAR1) == 0) {
         context.ShowText("They were waiting for you!");
-        context.Damage(context.MaxHealth / 3);
+        context.DamagePlayer(context.GetMaxHealth / 3);
         context.ModMana(-600);
         context.SetFlag(PARTY, WAR1, 1);
         context.ShowText("There really are quite a lot of them!");
-        context.GetMonster(1, 30);
-        context.GetMonster(5, 27);
+        context.AddEncounter(1, 30);
+        context.AddEncounter(5, 27);
         if (context.PartyCount > 1) {
-            context.GetMonster(2, 30);
+            context.AddEncounter(2, 30);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(6, 27);
+            context.AddEncounter(6, 27);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(3, 30);
-            context.GetMonster(4, 27);
+            context.AddEncounter(3, 30);
+            context.AddEncounter(4, 27);
         }
     }
     else {
@@ -360,15 +360,15 @@ fun MapEvent11(context) {
     context.SetFlag(PARTY, TRACKING, 0);
     if (context.GetFlag(PARTY, WAR1) == 0) {
         context.SetFlag(PARTY, WAR1, 1);
-        context.GetMonster(1, 30);
-        context.GetMonster(5, 27);
+        context.AddEncounter(1, 30);
+        context.AddEncounter(5, 27);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 30);
-            context.GetMonster(6, 28);
+            context.AddEncounter(2, 30);
+            context.AddEncounter(6, 28);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(3, 30);
-            context.GetMonster(4, 28);
+            context.AddEncounter(3, 30);
+            context.AddEncounter(4, 28);
         }
     }
     else {
@@ -381,7 +381,7 @@ fun MapEvent12(context) {
     if (context.GetFlag(PARTY, TRACKING) == 0) {
         if (context.GetFlag(PARTY, SAWCALTROPS) == 0) {
             context.ShowText("Unfortunately, you are charging down a hallway liberally littered with caltrops!");
-            context.Damage(context.MaxHealth / 2);
+            context.DamagePlayer(context.GetMaxHealth / 2);
             context.ModMana(-2000);
             context.SetFlag(PARTY, SAWCALTROPS, 1);
         }
@@ -389,7 +389,7 @@ fun MapEvent12(context) {
             context.Teleport(10, 3, 4, WEST);
         }
         else {
-            if (context.PartyLevel(60)) {
+            if (context.CheckPartyLevel(60)) {
                 context.Teleport(10, 3, 6, WEST);
             }
             else {
@@ -402,7 +402,7 @@ fun MapEvent12(context) {
             context.Teleport(10, 3, 1, WEST);
         }
         else {
-            if (context.PartyLevel(80)) {
+            if (context.CheckPartyLevel(80)) {
                 context.Teleport(10, 3, 3, WEST);
             }
             else {
@@ -436,7 +436,7 @@ fun MapEvent15(context) {
         context.Teleport(10, 3, 112, NORTH);
     }
     else {
-        context.ClearWall(context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
     }
 }
 
@@ -457,7 +457,7 @@ fun MapEvent16(context) {
             context.ShowText("'It takes all my power to speak to thee hear, as poorly equipped as thou art.  And yet I, Aldhelm, can give thee one bit of advice.");
             context.ShowText("There are portals, well hidden and well sealed, that will greatly speed thy passage north through the Crypt.  An thou canst make use of them, then thou wilt find thy life much easier.");
         }
-        context.ClearWall(context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
     }
 }
 
@@ -473,7 +473,7 @@ fun MapEvent17(context) {
         context.Teleport(10, 3, 48, NORTH);
     }
     else {
-        context.ClearWall(context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
     }
 }
 
@@ -481,16 +481,16 @@ fun MapEvent18(context) {
     if (context.GetFlag(PARTY, WAR3) == 0) {
         context.SetFlag(PARTY, WAR3, 1);
         context.ShowText("Hey!  You just got some free tickets to a giant's game.  And you get to be the ball!");
-        context.GetMonster(1, 29);
-        context.GetMonster(2, 29);
+        context.AddEncounter(1, 29);
+        context.AddEncounter(2, 29);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 29);
-            context.GetMonster(4, 29);
+            context.AddEncounter(3, 29);
+            context.AddEncounter(4, 29);
         }
         if (context.PartyCount > 3) {
             context.ShowText("And they even brought their own impires.");
-            context.GetMonster(5, 28);
-            context.GetMonster(6, 28);
+            context.AddEncounter(5, 28);
+            context.AddEncounter(6, 28);
         }
     }
     else {
@@ -502,16 +502,16 @@ fun MapEvent19(context) {
     if (context.GetFlag(PARTY, WAR4) == 0) {
         context.SetFlag(PARTY, WAR4, 1);
         context.ShowText("The good news is that the wraiths and vampires are arguing about who gets dibs on your corpse.  The bad news is that they are attacking while arguing!");
-        context.GetMonster(1, 25);
-        context.GetMonster(5, 26);
+        context.AddEncounter(1, 25);
+        context.AddEncounter(5, 26);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 25);
-            context.GetMonster(6, 26);
+            context.AddEncounter(2, 25);
+            context.AddEncounter(6, 26);
         }
         if (context.PartyCount > 3) {
             context.ShowText("And they even brought their own impires.");
-            context.GetMonster(3, 25);
-            context.GetMonster(4, 26);
+            context.AddEncounter(3, 25);
+            context.AddEncounter(4, 26);
         }
     }
     else {

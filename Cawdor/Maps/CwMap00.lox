@@ -52,15 +52,15 @@ fun MapEvent06(context) {
         }
         else {
             context.ShowText("This narrow stairwell forces you to climb it single file.");
-            context.BlockWall(context.Here, context.Facing);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
         }
     }
     else {
         if (context.GetFlag(PARTY, SAWSTAIRS) == 1) {
             context.ShowText("The door slams shut in front of your face and disappears to boot!  How rude!");
             context.ShowText("You hear a faint whisper, 'Thou art not yet ready to face the tests and travails upstairs.'");
-            context.BlockWall(context.Here, context.Facing);
-            context.RemoveWallItem(context.Here, context.Facing);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
+            context.ClearWallItem(context.GetTile, context.GetFacing);
             context.SetFlag(PARTY, SAWSTAIRS, 0);
         }
     }
@@ -80,12 +80,12 @@ fun MapEvent0A(context) {
     i = context.GetFlag(DUNGEON, RUNECOUNTER);
     i++;
     if (i > 3) {
-        context.ShowPicture(DWARFWIZARD);
+        context.ShowPortrait(DWARFWIZARD);
         if (context.GetFlag(PARTY, FLUNG) == 1) {
             context.ShowText("Big mistake!");
-            context.Damage(context.MaxHealth);
+            context.DamagePlayer(context.GetMaxHealth);
             context.ModGold(-3000);
-            context.ModExp(-1000);
+            context.AddExperience(-1000);
         }
         else {
             context.ShowText("*");
@@ -93,8 +93,8 @@ fun MapEvent0A(context) {
             context.ShowText("*");
             context.ShowText("The bearded face, now angry, reappears in the roiling and churning fountain.  Your legs convulse from sudden agony.  'Arroint thee, rump-fed runion!  Stay out of my fountain!'");
             context.SetFlag(PARTY, FLUNG, 1);
-            context.Damage(context.MaxHealth / 2);
-            if (context.Health > 0) {
+            context.DamagePlayer(context.GetMaxHealth / 2);
+            if (context.GetHealth > 0) {
                 context.ShowText("Talk about suffering from water damage.");
             }
             else {
@@ -104,17 +104,17 @@ fun MapEvent0A(context) {
     }
     else {
         if (i == 3) {
-            context.ShowPicture(DWARFWIZARD);
+            context.ShowPortrait(DWARFWIZARD);
             context.ShowText("*");
             context.ShowText("*");
             context.ShowText("*");
             context.ShowText("An old bearded face appears, mirrorlike, in the waters of the fountain.  It speaks to you.");
             context.ShowText("'If thou are so fascinated with runes, then I shall grant thee the skill to read them, an thou dost leave me alone henceforth.  Now begone!");
-            context.ModSkill(RUNE_READING_SKILL, 1);
+            context.ModSkillLevel(RUNE_READING_SKILL, 1);
             context.SetFlag(DUNGEON, RUNECOUNTER, 4);
         }
         else {
-            context.ShowPicture(FOUNTAIN);
+            context.ShowPortrait(FOUNTAIN);
             context.ShowText("It feels good to splash around in this old runed fountain.");
             context.SetFlag(DUNGEON, RUNECOUNTER, i);
         }
@@ -123,7 +123,7 @@ fun MapEvent0A(context) {
 
 fun MapEvent0B(context) {
     if (context.GetFlag(DUNGEON, SAWSHIELDGUY) == 0) {
-        context.ShowPicture(HUMANWIZARD);
+        context.ShowPortrait(HUMANWIZARD);
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("*");
@@ -135,15 +135,15 @@ fun MapEvent0B(context) {
 
 fun MapEvent0C(context) {
     context.ShowText("This is Lady Macbeth");
-    context.GetMonster(1, 21);
+    context.AddEncounter(1, 21);
 }
 
 fun MapEvent0D(context) {
     if (context.GetFlag(PARTY, WAR1) == 0) {
         context.SetFlag(PARTY, WAR1, 1);
-        context.GetMonster(1, 25);
+        context.AddEncounter(1, 25);
         if (context.PartyCount > 1) {
-            context.GetMonster(2, 30);
+            context.AddEncounter(2, 30);
         }
     }
 }
@@ -151,9 +151,9 @@ fun MapEvent0D(context) {
 fun MapEvent0E(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.SetFlag(PARTY, WAR2, 1);
-        context.GetMonster(1, 26);
+        context.AddEncounter(1, 26);
         if (context.PartyCount > 1) {
-            context.GetMonster(2, 30);
+            context.AddEncounter(2, 30);
         }
     }
 }
@@ -161,9 +161,9 @@ fun MapEvent0E(context) {
 fun MapEvent0F(context) {
     if (context.GetFlag(PARTY, WAR3) == 0) {
         context.SetFlag(PARTY, WAR3, 1);
-        context.GetMonster(1, 27);
+        context.AddEncounter(1, 27);
         if (context.PartyCount > 1) {
-            context.GetMonster(2, 30);
+            context.AddEncounter(2, 30);
         }
     }
 }
@@ -171,10 +171,10 @@ fun MapEvent0F(context) {
 fun MapEvent10(context) {
     if (context.GetFlag(PARTY, WAR4) == 0) {
         context.SetFlag(PARTY, WAR4, 1);
-        context.SetBooty(SHORTSWORD, 0, 0, 0, 0, 0);
-        context.GetMonster(1, 28);
+        context.SetTreasure(SHORTSWORD, 0, 0, 0, 0, 0);
+        context.AddEncounter(1, 28);
         if (context.PartyCount > 1) {
-            context.GetMonster(2, 31);
+            context.AddEncounter(2, 31);
         }
     }
 }
@@ -182,10 +182,10 @@ fun MapEvent10(context) {
 fun MapEvent11(context) {
     if (context.GetFlag(PARTY, WAR5) == 0) {
         context.SetFlag(PARTY, WAR5, 1);
-        context.SetBooty(SHORTSWORD, BUCKLER, 0, 0, 0, 0);
-        context.GetMonster(1, 29);
+        context.SetTreasure(SHORTSWORD, BUCKLER, 0, 0, 0, 0);
+        context.AddEncounter(1, 29);
         if (context.PartyCount > 1) {
-            context.GetMonster(2, 31);
+            context.AddEncounter(2, 31);
         }
     }
 }
@@ -193,10 +193,10 @@ fun MapEvent11(context) {
 fun MapEvent12(context) {
     if (context.GetFlag(PARTY, WAR6) == 0) {
         context.SetFlag(PARTY, WAR6, 1);
-        context.SetBooty(SHORTSWORD, 0, 0, 0, 0, 0);
-        context.GetMonster(1, 33);
+        context.SetTreasure(SHORTSWORD, 0, 0, 0, 0, 0);
+        context.AddEncounter(1, 33);
         if (context.PartyCount > 1) {
-            context.GetMonster(2, 25);
+            context.AddEncounter(2, 25);
         }
     }
 }
@@ -204,9 +204,9 @@ fun MapEvent12(context) {
 fun MapEvent13(context) {
     if (context.GetFlag(PARTY, WAR7) == 0) {
         context.SetFlag(PARTY, WAR7, 1);
-        context.GetMonster(1, 32);
+        context.AddEncounter(1, 32);
         if (context.PartyCount > 1) {
-            context.GetMonster(2, 30);
+            context.AddEncounter(2, 30);
         }
     }
 }
@@ -214,10 +214,10 @@ fun MapEvent13(context) {
 fun MapEvent14(context) {
     if (context.GetFlag(PARTY, WAR8) == 0) {
         context.SetFlag(PARTY, WAR8, 1);
-        context.GetMonster(1, 34);
+        context.AddEncounter(1, 34);
         if (context.PartyCount > 1) {
             context.ShowText("You're being driven batty!");
-            context.GetMonster(2, 37);
+            context.AddEncounter(2, 37);
         }
     }
 }
@@ -225,9 +225,9 @@ fun MapEvent14(context) {
 fun MapEvent15(context) {
     if (context.GetFlag(PARTY, WAR9) == 0) {
         context.SetFlag(PARTY, WAR9, 1);
-        context.GetMonster(1, 35);
+        context.AddEncounter(1, 35);
         if (context.PartyCount > 1) {
-            context.GetMonster(2, 38);
+            context.AddEncounter(2, 38);
         }
     }
 }
@@ -241,13 +241,13 @@ fun MapEvent17(context) {
 }
 
 fun MapEvent18(context) {
-    if (context.PartyGuild(CLERIC)) {
+    if (context.GetGuildAny(CLERIC)) {
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("A gravelly voice, a voice created by too many centuries smoking bad cigars, gruffly speaks.");
         context.ShowText("'About time you got here, kid. Have I got some tasks for you!'");
-        context.PlaceWallItem(DOOR, 64, WEST);
+        context.SetWallItem(DOOR, 64, WEST);
     }
     else {
         context.ShowText("*");
@@ -278,7 +278,7 @@ fun MapEvent1D(context) {
 }
 
 fun MapEvent1E(context) {
-    if (context.Guild == THIEF) {
+    if (context.GetGuild == THIEF) {
         context.ShowText("Enter, brother, and welcome!");
     }
     else {
@@ -292,7 +292,7 @@ fun MapEvent1E(context) {
 }
 
 fun MapEvent1F(context) {
-    if ((context.PartyGuild(THIEF)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+    if ((context.GetGuildAny(THIEF)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
         context.ShowText("Someone in your party gives the secret thievish countersign.  The door swings open.");
     }
     else {
@@ -301,22 +301,22 @@ fun MapEvent1F(context) {
         context.ShowText("*");
         context.ShowText("You hear a sound....");
         context.ShowText("6,198 thieves, wielding nastily stained weapons, and most with a nimbus of magical defenses already cast, step forward to block your path.  'Hmmm,' you think to yourself. 'That doorway's awfully crowded right now. Maybe I'll go find a thief and come back later.'");
-        context.BlockWall(context.Here, EAST);
+        context.SetWallBlock(context.GetTile, EAST);
     }
 }
 
 fun MapEvent20(context) {
-    if ((context.PartyGuild(RANGER)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+    if ((context.GetGuildAny(RANGER)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
         context.ShowText("The magical wood of this door responds to your presence by swinging open before you.");
     }
     else {
         context.ShowText("After three bruised knuckles, one barked shin, and two stubbed toes, you decide there is no way in unless you find a ranger.");
-        context.BlockWall(context.Here, NORTH);
+        context.SetWallBlock(context.GetTile, NORTH);
     }
 }
 
 fun MapEvent21(context) {
-    if ((context.PartyGuild(WIZARD)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+    if ((context.GetGuildAny(WIZARD)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
         context.ShowText("The door opens itself before one schooled in the magical arts.  The Mage's Room beckons.");
     }
     else {
@@ -325,12 +325,12 @@ fun MapEvent21(context) {
         context.ShowText("*");
         context.ShowText("Everything you try, every skill, every spell, every item, plea, and curse, avails you nought. ");
         context.ShowText("Only a mage and that mage's party can pass.");
-        context.BlockWall(context.Here, NORTH);
+        context.SetWallBlock(context.GetTile, NORTH);
     }
 }
 
 fun MapEvent22(context) {
-    if ((context.PartyGuild(KNIGHT)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+    if ((context.GetGuildAny(KNIGHT)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("*");
@@ -341,12 +341,12 @@ fun MapEvent22(context) {
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("An indirect light grow steadily brighter and the door creaks, but as if failing to find what it seeks, it stills.  You cannot enter.");
-        context.BlockWall(context.Here, NORTH);
+        context.SetWallBlock(context.GetTile, NORTH);
     }
 }
 
 fun MapEvent23(context) {
-    if ((context.PartyGuild(CLERIC)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+    if ((context.GetGuildAny(CLERIC)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("*");
@@ -362,24 +362,24 @@ fun MapEvent23(context) {
 }
 
 fun MapEvent24(context) {
-    if ((context.PartyGuild(BARBARIAN)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+    if ((context.GetGuildAny(BARBARIAN)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("You hear the distinct sound of sniffing just before the door opens.  You don't know whether to be pleased or disappointed.");
     }
     else {
-        context.ShowPicture(HUMANBARBARIAN);
+        context.ShowPortrait(HUMANBARBARIAN);
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("'This door will open for neither cents nor sense, unless it senses the scents of a barbarian,' he says.");
-        context.BlockWall(context.Here, WEST);
+        context.SetWallBlock(context.GetTile, WEST);
     }
 }
 
 fun MapEvent25(context) {
-    if ((context.PartyGuild(CLERIC)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+    if ((context.GetGuildAny(CLERIC)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
         context.Teleport(3, 1, 79, WEST);
     }
     else {
@@ -388,50 +388,50 @@ fun MapEvent25(context) {
 }
 
 fun MapEvent26(context) {
-    if ((context.PartyGuild(WIZARD)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+    if ((context.GetGuildAny(WIZARD)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
         context.Teleport(2, 2, 247, NORTH);
     }
 }
 
 fun MapEvent27(context) {
-    if ((context.PartyGuild(BARBARIAN)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+    if ((context.GetGuildAny(BARBARIAN)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
         context.Teleport(3, 2, 159, WEST);
     }
 }
 
 fun MapEvent28(context) {
-    if ((context.PartyGuild(KNIGHT)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+    if ((context.GetGuildAny(KNIGHT)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
         context.Teleport(2, 3, 243, NORTH);
     }
 }
 
 fun MapEvent29(context) {
-    if ((context.PartyGuild(RANGER)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+    if ((context.GetGuildAny(RANGER)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
         context.Teleport(2, 1, 252, NORTH);
     }
     else {
-        context.BlockWall(context.Here, NORTH);
-        context.Damage(1);
+        context.SetWallBlock(context.GetTile, NORTH);
+        context.DamagePlayer(1);
         context.ShowText("Ooh!  You stubbed your toe a good one, there!  Keep that up and in addition to being dead as a door knob you'll be dead from a door, Nob!");
     }
 }
 
 fun MapEvent2A(context) {
-    if ((context.PartyGuild(THIEF)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
+    if ((context.GetGuildAny(THIEF)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, GOT_SHIELD) == 1)) {
         context.Teleport(1, 3, 48, EAST);
     }
     else {
-        context.BlockWall(context.Here, EAST);
+        context.SetWallBlock(context.GetTile, EAST);
     }
 }
 
 fun MapEvent2B(context) {
     if (context.GetFlag(PARTY, WAR10) == 0) {
         context.SetFlag(PARTY, WAR10, 1);
-        context.SetBooty(CLUB, 0, 0, 0, 0, 0);
-        context.GetMonster(1, 36);
+        context.SetTreasure(CLUB, 0, 0, 0, 0, 0);
+        context.AddEncounter(1, 36);
         if (context.PartyCount > 1) {
-            context.GetMonster(2, 39);
+            context.AddEncounter(2, 39);
         }
     }
 }
@@ -439,18 +439,18 @@ fun MapEvent2B(context) {
 fun MapEvent2C(context) {
     if (context.GetFlag(PARTY, WAR11) == 0) {
         context.SetFlag(PARTY, WAR11, 1);
-        context.SetBooty(BENEFICIALBALM, 0, 0, 0, 0, 0);
-        context.GetMonster(1, 36);
-        context.GetMonster(2, 40);
+        context.SetTreasure(BENEFICIALBALM, 0, 0, 0, 0, 0);
+        context.AddEncounter(1, 36);
+        context.AddEncounter(2, 40);
     }
 }
 
 fun MapEvent2D(context) {
     if (context.GetFlag(PARTY, WAR12) == 0) {
         context.SetFlag(PARTY, WAR12, 1);
-        context.GetMonster(1, 25);
+        context.AddEncounter(1, 25);
         if (context.PartyCount > 1) {
-            context.GetMonster(2, 34);
+            context.AddEncounter(2, 34);
         }
     }
 }
@@ -458,10 +458,10 @@ fun MapEvent2D(context) {
 fun MapEvent2E(context) {
     if (context.GetFlag(PARTY, WAR13) == 0) {
         context.SetFlag(PARTY, WAR13, 1);
-        context.SetBooty(BUCKLER, 0, 0, 0, 0, 0);
-        context.GetMonster(1, 37);
+        context.SetTreasure(BUCKLER, 0, 0, 0, 0, 0);
+        context.AddEncounter(1, 37);
         if (context.PartyCount > 1) {
-            context.GetMonster(2, 40);
+            context.AddEncounter(2, 40);
         }
     }
 }
@@ -469,11 +469,11 @@ fun MapEvent2E(context) {
 fun MapEvent2F(context) {
     if (context.GetFlag(PARTY, WAR14) == 0) {
         context.SetFlag(PARTY, WAR14, 1);
-        context.SetBooty(BENEFICIALBALM, 0, 0, 0, 0, 0);
-        context.GetMonster(1, 1);
+        context.SetTreasure(BENEFICIALBALM, 0, 0, 0, 0, 0);
+        context.AddEncounter(1, 1);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 2);
-            context.GetMonster(3, 3);
+            context.AddEncounter(2, 2);
+            context.AddEncounter(3, 3);
         }
     }
 }
@@ -481,13 +481,13 @@ fun MapEvent2F(context) {
 fun MapEvent30(context) {
     if (context.GetFlag(PARTY, WAR15) == 0) {
         context.SetFlag(PARTY, WAR15, 1);
-        context.SetBooty(BENEFICIALBALM, SHORTBOW, 0, 0, 0, 0);
-        context.GetMonster(1, 29);
-        context.GetMonster(2, 31);
+        context.SetTreasure(BENEFICIALBALM, SHORTBOW, 0, 0, 0, 0);
+        context.AddEncounter(1, 29);
+        context.AddEncounter(2, 31);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 33);
-            context.GetMonster(4, 40);
-            context.GetMonster(3, 36);
+            context.AddEncounter(5, 33);
+            context.AddEncounter(4, 40);
+            context.AddEncounter(3, 36);
         }
     }
 }
@@ -495,12 +495,12 @@ fun MapEvent30(context) {
 fun MapEvent31(context) {
     if (context.GetFlag(PARTY, WAR16) == 0) {
         context.SetFlag(PARTY, WAR16, 1);
-        context.SetBooty(BENEFICIALBALM, BUCKLER, SHORTBOW, 0, 0, 0);
-        context.GetMonster(1, 36);
-        context.GetMonster(2, 36);
+        context.SetTreasure(BENEFICIALBALM, BUCKLER, SHORTBOW, 0, 0, 0);
+        context.AddEncounter(1, 36);
+        context.AddEncounter(2, 36);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 40);
-            context.GetMonster(4, 40);
+            context.AddEncounter(3, 40);
+            context.AddEncounter(4, 40);
         }
     }
 }
@@ -508,10 +508,10 @@ fun MapEvent31(context) {
 fun MapEvent32(context) {
     if (context.GetFlag(PARTY, WAR17) == 0) {
         context.SetFlag(PARTY, WAR17, 1);
-        context.GetMonster(1, 1);
+        context.AddEncounter(1, 1);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 2);
-            context.GetMonster(3, 3);
+            context.AddEncounter(2, 2);
+            context.AddEncounter(3, 3);
         }
     }
 }
@@ -519,22 +519,22 @@ fun MapEvent32(context) {
 fun MapEvent33(context) {
     if (context.GetFlag(PARTY, WAR18) == 0) {
         context.SetFlag(PARTY, WAR18, 1);
-        context.GetMonster(1, 1);
-        context.GetMonster(2, 4);
+        context.AddEncounter(1, 1);
+        context.AddEncounter(2, 4);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 2);
-            context.GetMonster(4, 3);
+            context.AddEncounter(3, 2);
+            context.AddEncounter(4, 3);
         }
     }
 }
 
 fun MapEvent34(context) {
     if (context.GetFlag(DUNGEON, GOT_SHIELD) == 1) {
-        context.PlaceWallItem(DOOR, 251, SOUTH);
-        context.ClearWall(251, SOUTH);
+        context.SetWallItem(DOOR, 251, SOUTH);
+        context.ClearWallBlock(251, SOUTH);
         context.SetFlag(PARTY, SAWSTAIRS, 1);
     }
     else {
-        context.BlockWall(251, SOUTH);
+        context.SetWallBlock(251, SOUTH);
     }
 }

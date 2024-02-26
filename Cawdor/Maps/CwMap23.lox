@@ -70,7 +70,7 @@ fun MapEvent01(context) {
             case 7:
                 context.ShowText("Yucko!  They must not have a potion rotation policy.  This potion is spoiled.");
                 context.ModMana(-2000);
-                context.SetPm(POISON, 3, 200);
+                context.SetPoison(POISON, 3, 200);
                 break;
             case 8:
                 context.ShowText("The way they suck mana out of you around here, you feel like a sponge run over by a steam roller.  So don't turn your nose up at available supplies.");
@@ -88,7 +88,7 @@ fun MapEvent01(context) {
 fun MapEvent03(context) {
     if (context.GetFlag(PARTY, UPSTAIRS) == 0) {
         context.SetFlag(PARTY, UPSTAIRS, 1);
-        context.ShowPicture(TROLLCLERIC);
+        context.ShowPortrait(TROLLCLERIC);
         context.ShowText("A nice Northlands Nun clutches you by the shoulders.  Her unblinking gaze causes you to feel fainthearted.  Then you hear her intone: ");
         context.ShowText("'I saw thee in a place disturbed.");
         context.ShowText("A brush with quite a deadly herb.");
@@ -97,7 +97,7 @@ fun MapEvent03(context) {
         context.ShowText("To snare the song that thy heart sings");
         context.ShowText("Thus must thou seek out higher things.'");
         context.ModMana(-5000);
-        context.Damage(8000);
+        context.DamagePlayer(8000);
         context.ShowText("In retrospect, you're not sure just how nice she was.");
     }
 }
@@ -157,19 +157,19 @@ fun MapEvent05(context) {
             context.ModMana(-400);
             break;
         case 6:
-            context.ShowPicture(DWARFTHIEF);
+            context.ShowPortrait(DWARFTHIEF);
             context.ShowText("'Care to try these exquisitely loaded dice, squire?'");
             context.ShowText("What could it hurt?  They seem heavier than you expected.  You give them a roll.  It's a seven!");
             context.ShowText("The dwarf snatches the dice, squints at them distrustfully, and departs.");
             context.ModMana(-400);
             break;
         case 7:
-            context.ShowPicture(DRAGON);
+            context.ShowPortrait(DRAGON);
             context.ShowText("'A thousand pardons, humanoid, but hast thou seen a dwarf peddling loaded dice hereabouts.  He is a thief of great subtlety, for the dice - wait!  You there!  Halt!'");
             context.ShowText("The dragon rushes off.");
             break;
         case 8:
-            context.ShowPicture(GNOMETHIEF);
+            context.ShowPortrait(GNOMETHIEF);
             context.ShowText("'Alagests?  Tomes?  Celestiae?  Horoscopes?  Orreries?  Pieces of the true cross?  Isn't there anything you want to buy?'");
             context.ShowText("Actually, you were rather interested in an orrery until she peddled a piece of the true cross.");
             break;
@@ -195,7 +195,7 @@ fun MapEvent08(context) {
 }
 
 fun MapEvent09(context) {
-    context.ShowPicture(GNOMEWIZARD);
+    context.ShowPortrait(GNOMEWIZARD);
     context.ShowText("You join a long but fast moving queue.");
     if (context.GetFlag(PARTY, GOTCHARGED) == 0) {
         context.ShowText("'Hurry up.  Hurry up.  Stand on the mark.  Touch the plate.  Let the ley lines flow through you.  That's enough!  Now make a donation.  Very good.  Move along!");
@@ -221,7 +221,7 @@ fun MapEvent0B(context) {
 
 fun MapEvent0C(context) {
     if (context.GetFlag(PARTY, SAWDRAGON) == 0) {
-        context.ShowPicture(DRAGON);
+        context.ShowPortrait(DRAGON);
         context.ShowText("'I say, couldst thou be a chap and direct me towards Lillibeth Armstrong?  She turned me into a newt and promised to turn me back today.'");
         context.ShowText("The dragon sees you staring at him and looks down at himself.");
         context.ShowText("'No, really she did!  I'm just a REALLY big newt!'");
@@ -232,18 +232,18 @@ fun MapEvent0C(context) {
 fun MapEvent0D(context) {
     if (context.GetFlag(PARTY, WAR6) == 0) {
         context.SetFlag(PARTY, WAR6, 1);
-        context.SetPm(POISON, 5, 1000);
+        context.SetPoison(POISON, 5, 1000);
         context.ShowText("Yikes!  Those cobra headed medusae have spit poison upon you!");
-        context.SetBooty(ALFREDSROBES, ADDERFORK, DRAGONFLAGON, 0, 0, 3100);
-        context.GetMonster(1, 39);
-        context.GetMonster(5, 38);
+        context.SetTreasure(ALFREDSROBES, ADDERFORK, DRAGONFLAGON, 0, 0, 3100);
+        context.AddEncounter(1, 39);
+        context.AddEncounter(5, 38);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 39);
-            context.GetMonster(6, 38);
+            context.AddEncounter(2, 39);
+            context.AddEncounter(6, 38);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(3, 39);
-            context.GetMonster(4, 38);
+            context.AddEncounter(3, 39);
+            context.AddEncounter(4, 38);
         }
     }
     else {
@@ -254,21 +254,21 @@ fun MapEvent0D(context) {
 fun MapEvent0E(context) {
     if (context.GetFlag(PARTY, WAR7) == 0) {
         context.SetFlag(PARTY, WAR7, 1);
-        context.SetPm(POISON, 5, 1000);
+        context.SetPoison(POISON, 5, 1000);
         context.ShowText("A bunch of folks huddle over an ancient prophecy, glance at you, look at the alagest again, nod, and decide that you look enough like the picture to attack!");
         if (context.PartyCount > 2) {
             context.ShowText("You know, this could really make you regret the fact that your face looks familiar to everyone.");
         }
-        context.SetBooty(ALCUINSRING, LADYSSCROLL, WITCHESMUMMY, 0, 0, 1647);
-        context.GetMonster(1, 34);
-        context.GetMonster(2, 35);
-        context.GetMonster(5, 33);
+        context.SetTreasure(ALCUINSRING, LADYSSCROLL, WITCHESMUMMY, 0, 0, 1647);
+        context.AddEncounter(1, 34);
+        context.AddEncounter(2, 35);
+        context.AddEncounter(5, 33);
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 35);
-            context.GetMonster(3, 34);
+            context.AddEncounter(4, 35);
+            context.AddEncounter(3, 34);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(6, 33);
+            context.AddEncounter(6, 33);
         }
     }
     else {
@@ -283,16 +283,16 @@ fun MapEvent0F(context) {
         if (context.PartyCount > 3) {
             context.ShowText("In fact, downright unfriendly seems about the right term for them!");
         }
-        context.SetBooty(HORSASHAMMER, ALFREDSHAT, LAVENDERLOTION, 0, 0, 847);
-        context.GetMonster(1, 25);
-        context.GetMonster(2, 26);
+        context.SetTreasure(HORSASHAMMER, ALFREDSHAT, LAVENDERLOTION, 0, 0, 847);
+        context.AddEncounter(1, 25);
+        context.AddEncounter(2, 26);
         if (context.PartyCount > 1) {
-            context.GetMonster(3, 25);
-            context.GetMonster(4, 26);
+            context.AddEncounter(3, 25);
+            context.AddEncounter(4, 26);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 26);
-            context.GetMonster(6, 25);
+            context.AddEncounter(5, 26);
+            context.AddEncounter(6, 25);
         }
     }
     else {
@@ -304,17 +304,17 @@ fun MapEvent10(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.SetFlag(PARTY, WAR2, 1);
         context.ShowText("Psst!  Yes, I mean you!  I have a secret for you.  In case you hadn't figured it out, Cawdor is haunted!");
-        context.SetBooty(DALRIADANBOW, WOADWINE, GAUZERING, 0, 0, 447);
-        context.GetMonster(1, 29);
-        context.GetMonster(2, 30);
-        context.GetMonster(5, 36);
+        context.SetTreasure(DALRIADANBOW, WOADWINE, GAUZERING, 0, 0, 447);
+        context.AddEncounter(1, 29);
+        context.AddEncounter(2, 30);
+        context.AddEncounter(5, 36);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 29);
-            context.GetMonster(6, 36);
+            context.AddEncounter(3, 29);
+            context.AddEncounter(6, 36);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 30);
-            context.GetMonster(3, 34);
+            context.AddEncounter(4, 30);
+            context.AddEncounter(3, 34);
         }
     }
     else {
@@ -330,16 +330,16 @@ fun MapEvent11(context) {
         if (context.PartyCount > 3) {
             context.ShowText("And you hate those liches to pieces!  Sheesh!");
         }
-        context.SetBooty(IRONSIDESHEADGEAR, ADAMANTINELOCKPICK, HURLYBURLY, 0, 0, 839);
-        context.GetMonster(1, 31);
-        context.GetMonster(2, 31);
+        context.SetTreasure(IRONSIDESHEADGEAR, ADAMANTINELOCKPICK, HURLYBURLY, 0, 0, 839);
+        context.AddEncounter(1, 31);
+        context.AddEncounter(2, 31);
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 31);
-            context.GetMonster(3, 31);
+            context.AddEncounter(4, 31);
+            context.AddEncounter(3, 31);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 36);
-            context.GetMonster(6, 36);
+            context.AddEncounter(5, 36);
+            context.AddEncounter(6, 36);
         }
     }
     else {
@@ -354,16 +354,16 @@ fun MapEvent12(context) {
         if (context.PartyCount > 3) {
             context.ShowText("The big one's battle cry is, 'Scrum and get it!'");
         }
-        context.SetBooty(HADRIANSWALL, RHINOHORNHELM, 0, 0, 0, 212);
-        context.GetMonster(1, 40);
-        context.GetMonster(2, 27);
-        context.GetMonster(5, 28);
+        context.SetTreasure(HADRIANSWALL, RHINOHORNHELM, 0, 0, 0, 212);
+        context.AddEncounter(1, 40);
+        context.AddEncounter(2, 27);
+        context.AddEncounter(5, 28);
         if (context.PartyCount > 2) {
-            context.GetMonster(6, 28);
-            context.GetMonster(3, 27);
+            context.AddEncounter(6, 28);
+            context.AddEncounter(3, 27);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 40);
+            context.AddEncounter(4, 40);
         }
     }
     else {
@@ -378,16 +378,16 @@ fun MapEvent13(context) {
         if (context.PartyCount > 3) {
             context.ShowText("They also believe in unfair numbers, sucking mana, and using poison.");
             context.ModMana(-2000);
-            context.SetPm(POISON, 5, 800);
+            context.SetPoison(POISON, 5, 800);
         }
-        context.SetBooty(SWITHUNSSTAFF, PALACECHALICE, 0, 0, 0, 1212);
-        context.GetMonster(1, 37);
-        context.GetMonster(2, 37);
-        context.GetMonster(5, 32);
+        context.SetTreasure(SWITHUNSSTAFF, PALACECHALICE, 0, 0, 0, 1212);
+        context.AddEncounter(1, 37);
+        context.AddEncounter(2, 37);
+        context.AddEncounter(5, 32);
         if (context.PartyCount > 3) {
-            context.GetMonster(6, 32);
-            context.GetMonster(3, 37);
-            context.GetMonster(4, 32);
+            context.AddEncounter(6, 32);
+            context.AddEncounter(3, 37);
+            context.AddEncounter(4, 32);
         }
     }
     else {
@@ -399,7 +399,7 @@ fun MapEvent14(context) {
     if (context.GetFlag(PARTY, ALDHELM) == 0) {
         context.SetFlag(PARTY, ALDHELM, 1);
         context.SetFlag(DUNGEON, ALDHELMPROPHECY, 1);
-        context.ShowPicture(TROLLCLERIC);
+        context.ShowPortrait(TROLLCLERIC);
         context.ShowText("A troll cleric lays a hand upon thy forehead and rolls her eyes back into her head.  In a quavering, eery voice she makes her pronouncement.");
         context.ShowText("'I sense a power of goodness in thee.  Aldhelm's grace could fall upon thee!  An thou dost invoke of spirit of Aldhelm as thou dost descend beneath the Ruins, then Aldhelm will guide thee in safety and surety.  But thou must gather sufficient of Aldhelm to summon Aldhelm.");
         context.ShowText("Her eyes refocus.  Blushing, she departs.");
@@ -410,7 +410,7 @@ fun MapEvent15(context) {
     if (context.GetFlag(PARTY, ALCUIN) == 0) {
         context.SetFlag(PARTY, ALCUIN, 1);
         context.SetFlag(DUNGEON, ALCUINPROPHECY, 1);
-        context.ShowPicture(GREMLINWIZARD);
+        context.ShowPortrait(GREMLINWIZARD);
         context.ShowText("You overhear a snippet of conversation.");
         context.ShowText("'....their party leader, somehow, invoked Alcuin's spirit, who in his goodness did defeat the evil locks that were upon the door.");
         context.ShowText("Then the sisters did attack in such wise and vigor as to thwart my further observ....'");
@@ -421,7 +421,7 @@ fun MapEvent16(context) {
     if (context.GetFlag(PARTY, ALFRED) == 0) {
         context.SetFlag(PARTY, ALFRED, 1);
         context.SetFlag(DUNGEON, ALFREDPROPHECY, 1);
-        context.ShowPicture(GREMLINWIZARD);
+        context.ShowPortrait(GREMLINWIZARD);
         context.ShowText("A gremlin wizard appears before you, gazing deep into your eyes.");
         context.ShowText("'Hear me and heed me!  Thou hast the flavor of greatness in thy soul.");
         context.ShowText("Deep within the Bestiary, after thou hast defeated the eight foretold, an thou dost invoke the spirit of Alfred the Great, so shall he heal thee.  But thou must catch his spirit's attention when thou dost approach him.");
@@ -436,7 +436,7 @@ fun MapEvent17(context) {
 fun MapEvent19(context) {
     if (context.GetFlag(PARTY, AA) == 0) {
         context.SetFlag(PARTY, AA, 1);
-        context.ShowPicture(GNOMEWIZARD);
+        context.ShowPortrait(GNOMEWIZARD);
         context.ShowText("An astrologer is lecturing his pupils as they walk by.");
         context.ShowText("'...shall be the counting of the cats, and the counting of the cats shall be three.  But greater than the cats is the hedgepig, who shall count once more than the....");
     }
@@ -448,12 +448,12 @@ fun MapEvent1B(context) {
         i = context.GetFlag(PARTY, CTR);
         context.SetFlag(PARTY, AB, 1);
         if (i < 4) {
-            context.ShowPicture(HUMANWIZARD);
+            context.ShowPortrait(HUMANWIZARD);
             context.ShowText("An astrologer is instructing a customer in the proper reading of a chart as they walk past.");
             context.ShowText("'...must always take care to interpret these wisely.  Thy chart in the near future shows a path fraught both with peril and excitement, for women will respond with favor upon thy wooing.  Heed both the portents and....'");
         }
         else {
-            context.ShowPicture(HUMANBARBARIAN);
+            context.ShowPortrait(HUMANBARBARIAN);
             context.ShowText("A customer pleads with his astrologer for aid.");
             context.ShowText("'...not tell me that merely smiling at Rowena Sly would lead to her six large swineherding brothers demanding our immediate betrothal!  Will the stench of the sty ever be free from my nostrils?  There must be some way I can avoid....'");
         }
@@ -463,7 +463,7 @@ fun MapEvent1B(context) {
 fun MapEvent1C(context) {
     if (context.GetFlag(PARTY, AC) == 0) {
         context.SetFlag(PARTY, AC, 1);
-        context.ShowPicture(HUMANWIZARD);
+        context.ShowPortrait(HUMANWIZARD);
         context.ShowText("An astrologer is walking past, reading aloud, his head buried in a dusty tome.");
         context.ShowText("'Mewed?  That must be a reference to defeat, death, destruction, for brinded cats are the most fierce of all the felines.");
         context.ShowText("Thrice is obvious enough.  And whining and cries must likewise refer to combat with four hedgepigs and a harpier.");
@@ -477,13 +477,13 @@ fun MapEvent1D(context) {
         i = context.GetFlag(PARTY, CTR);
         context.SetFlag(PARTY, AE, 1);
         if (i < 4) {
-            context.ShowPicture(GREMLINWIZARD);
+            context.ShowPortrait(GREMLINWIZARD);
             context.ShowText("An astrologer lectures her pupil.");
             context.ShowText("'six planets are Venus, Earth, Mars, Luna, Jupiter, and Saturn.  I care not that thy calculations gain historical accuracy if thou dost assume nine planets circling the sun.");
             context.ShowText("Wouldst thou regress the science of astrology back a millenium?  Count the six, and cease thy false beliefs that any do circle the sun, for the Earth is the center of the universe!'");
         }
         else {
-            context.ShowPicture(GREMLINWIZARD);
+            context.ShowPortrait(GREMLINWIZARD);
             context.ShowText("An astrologer lectures her pupil.");
             context.ShowText("'I care not a fig if Caesar's death was predictable.  Professor Charlatanus is a staunch anti-Caesarian who made his career by showing the soothsayer's errors.");
             context.ShowText("This is academia!  New ideas lead to loss of grants and sinecures.  We are not here to research more accurate astrological methods.  We are here to receive our degrees and further the existing dogma....'");
@@ -497,13 +497,13 @@ fun MapEvent1E(context) {
         i = context.GetFlag(PARTY, CTR);
         context.SetFlag(PARTY, AE, 1);
         if (i < 7) {
-            context.ShowPicture(GREMLINWIZARD);
+            context.ShowPortrait(GREMLINWIZARD);
             context.ShowText("Two astrologers converse.");
             context.ShowText("'Well, I foresee that thou shalt not be given consort an thou dost not return with two loaves of fresh bread and some stewing meat,' she says.");
             context.ShowText("'Well, I foresee that thou shalt spend the night under the loquat tree and thou dost treat me so rudely,' he rejoins.");
         }
         else {
-            context.ShowPicture(HUMANWIZARD);
+            context.ShowPortrait(HUMANWIZARD);
             context.ShowText("Two astrologers converse.");
             context.ShowText("'Well, I foretell that thou wilt be eating thy own cooking, and no doubt dying young from it, an thou dost refuse to aid in our lavendry,' she shouts.");
             context.ShowText("'Balderdash!  I foresee that thou shalt starve in the streets an thou dost treat me so,' he replies.");
@@ -518,14 +518,14 @@ fun MapEvent1F(context) {
         i = context.GetFlag(PARTY, CTR);
         context.SetFlag(PARTY, AF, 1);
         if (i < 8) {
-            context.ShowPicture(DWARFWIZARD);
+            context.ShowPortrait(DWARFWIZARD);
             context.ShowText("Two astrologers are laughing as they walk past.");
             context.ShowText("'...his star charts?'");
             context.ShowText("'Aye!  I put Jupiter in Libra, and Mars in Capricorn, and the fool drew up a chart for old Stowlugs Elliot predicting a good night for reiving.  ");
             context.ShowText("The Elliots were overtaken and outnumbered by a hot trod, and barely one in ten escaped.  So Stowlugs is seeking....'");
         }
         else {
-            context.ShowPicture(ELFCLERIC);
+            context.ShowPortrait(ELFCLERIC);
             context.ShowText("An astrologer is being carried off.");
             context.ShowText("'...you must see, Master Elliot, that it was a good night for reiving metaphysically, a sign from above that thou should cease reiving.'");
             context.ShowText("'I can agree with all that thou dost say, but on behalf of my captured kinsmen I am about to give thee thine own sign from above, and it will be far more physical than meta.'  Stowlugs pats his sword.");
@@ -540,13 +540,13 @@ fun MapEvent20(context) {
         i = context.GetFlag(PARTY, CTR);
         context.SetFlag(PARTY, AG, 1);
         if (i < 7) {
-            context.ShowPicture(ELFCLERIC);
+            context.ShowPortrait(ELFCLERIC);
             context.ShowText("An astrologer is talking to his owl familiar as they walk past.");
             context.ShowText("'...a great rocket I shall launch thee into the Celestium, wherein you shall be able to see and record the most accurate star charts yet made.");
             context.ShowText("Thy nephew Owlbert is purely mistaken.  The air is thin, but every fool knows that thou wilt be sustained by the music of the spheres.  Think of the adventure!");
         }
         else {
-            context.ShowPicture(ELFCLERIC);
+            context.ShowPortrait(ELFCLERIC);
             context.ShowText("An astrologer is talking to his slightly singed owl familiar as they walk past.");
             context.ShowText("'...sometimes rockets explode.  It was thine own fault for not flapping thy wings and aiding the rocket's flight.");
             context.ShowText("Thy tailfeathers will grow back!  Cease thy prattling!  Of course thou must flap.  Every fool knows that if you run backwards on a boat, then the boat moves forward faster.  So thou must fly downwards with....'");

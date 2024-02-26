@@ -32,7 +32,7 @@ fun MapEvent01(context) {
     if (context.PartyCount == 1) {
         if (context.HasItem(SWORDOFARES) || context.HasItem(BOWOFEOS) || context.HasItem(GAEASFLAIL) || context.HasItem(NEPTUNESTRIDENT)) {
             context.ShowText("You cannot enter here, you already have one of the weapons of the Gods.");
-            context.BlockWall(context.Here, context.Facing);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
         }
         else {
             context.ShowText("Enter, and claim one of the four artifacts for your reward. You may only have one!");
@@ -42,7 +42,7 @@ fun MapEvent01(context) {
     }
     else {
         context.ShowText("Be off!! Only one Hero may enter here at a time!");
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
     }
 }
 
@@ -80,7 +80,7 @@ fun MapEvent04(context) {
 }
 
 fun MapEvent05(context) {
-    context.PlaceWallItem(PORTAL, context.Here, context.Facing);
+    context.SetWallItem(PORTAL, context.GetTile, context.GetFacing);
     WallClear(context);
 }
 
@@ -97,7 +97,7 @@ fun MapEvent06(context) {
 
 fun MapEvent07(context) {
     var itemA;
-    switch (context.Here) {
+    switch (context.GetTile) {
         case 252:
             itemA = GAEASFLAIL;
             GaeasText(context);
@@ -136,27 +136,27 @@ fun MapEvent0B(context) {
         context.ShowText("She scorns you as you approach, 'FOOL! MORTAL! You were so easily subdued; so quick to crave the power I offered; you lost sight of yourself and succumbed to my desires.");
         context.ShowText("You shall learn the price of your ignorance! For only now, at the end do you understand. Had you kept the rings, had you breached the seal alone, then you may have had this power. But now, I WILL DESTROY YOU!'");
         context.ShowText("Aeowyn conjures four guardsmen to her aid, as well as summoning from their entombment, the five Dralkarians...");
-        context.GetMonster(1, QUEENSGUARDONE);
-        context.GetMonster(2, QUEENSGUARDTWO);
-        context.GetMonster(3, QUEENSGUARDTHREE);
-        context.GetMonster(4, QUEENSGUARDFOUR);
-        context.GetMonster(5, DRAKSNUMBER);
-        context.GetMonster(6, QUEENSNUMBER);
+        context.AddEncounter(1, QUEENSGUARDONE);
+        context.AddEncounter(2, QUEENSGUARDTWO);
+        context.AddEncounter(3, QUEENSGUARDTHREE);
+        context.AddEncounter(4, QUEENSGUARDFOUR);
+        context.AddEncounter(5, DRAKSNUMBER);
+        context.AddEncounter(6, QUEENSNUMBER);
     }
     else {
         context.ShowText("Guardians of the Gateway are summoned to its defense as you attempt to gain access to its secrets.");
-        context.GetMonster(1, QUEENSGUARDONE);
-        context.GetMonster(2, QUEENSGUARDTWO);
-        context.GetMonster(3, QUEENSGUARDTHREE);
-        context.GetMonster(4, QUEENSGUARDFOUR);
-        context.GetMonster(5, DRAKSNUMBER);
+        context.AddEncounter(1, QUEENSGUARDONE);
+        context.AddEncounter(2, QUEENSGUARDTWO);
+        context.AddEncounter(3, QUEENSGUARDTHREE);
+        context.AddEncounter(4, QUEENSGUARDFOUR);
+        context.AddEncounter(5, DRAKSNUMBER);
     }
 }
 
 fun MapEvent0C(context) {
     context.ShowText("An illusionary door fades away as you approach.");
-    context.RemoveWallItem(context.Here, context.Facing);
-    context.BlockWall(context.Here, context.Facing);
+    context.ClearWallItem(context.GetTile, context.GetFacing);
+    context.SetWallBlock(context.GetTile, context.GetFacing);
 }
 
 fun MapEvent0D(context) {
@@ -165,20 +165,20 @@ fun MapEvent0D(context) {
     if (!context.GetFlag(ROOM, SPRUNGTRAP)) {
         switch (trap) {
             case 1:
-                context.Damage(context.Health / 3);
+                context.DamagePlayer(context.GetHealth / 3);
                 NoMapsZone(context);
                 NoSpellZone(context);
                 context.ShowText("Evil winds rip through you, mauling you horribly.");
                 trap++;
                 break;
             case 2:
-                context.Damage(context.Health - 2000);
-                context.SetPm(POISON, 15, 100);
+                context.DamagePlayer(context.GetHealth - 2000);
+                context.SetPoison(POISON, 15, 100);
                 context.ShowText("Poisoned gas strangles you as it dissipates.");
                 trap++;
                 break;
             case 3:
-                context.Damage(context.Health / 4);
+                context.DamagePlayer(context.GetHealth / 4);
                 context.ShowText("A flash of magical light blinds you temporarily; causing you damage.");
                 trap++;
                 break;
@@ -196,11 +196,11 @@ fun MapEvent0D(context) {
             case 5:
                 context.ShowText("A blast of fire greets you at this next snare.");
                 context.ModMana(-200);
-                context.Damage(context.MaxHealth / 4);
+                context.DamagePlayer(context.GetMaxHealth / 4);
                 trap++;
                 break;
             default: 
-                context.Damage(context.Health / 3);
+                context.DamagePlayer(context.GetHealth / 3);
                 context.NoHealZone();
                 trap = 1;
                 NoSpellZone(context);
@@ -220,13 +220,13 @@ fun MapEvent0E(context) {
         context.ShowText("In time, when you are ready, the portal will grant you access to new planes of existence! But that, is another story...");
         context.SetFlag(DUNGEON, WONTHISGAME, 1);
         context.SetFlag(DUNGEON, WINNER, 1);
-        context.ModExp(7500000);
+        context.AddExperience(7500000);
         context.ModGold(2000000);
         context.ModStat(STRENGTH, 3);
         context.ModStat(AGILITY, 3);
         context.ModStat(DEFENSE, 3);
         context.ModStat(INITIATIVE, 3);
-        if (context.Guild != WIZARD) {
+        if (context.GetGuild != WIZARD) {
             context.ShowText("You are bestowed with a new spell!");
             context.GiveSpell(DEATH_DARTS_SPELL, 6);
         }
@@ -253,10 +253,10 @@ fun MapEvent10(context) {
 fun MapEvent12(context) {
     var i;
     special21(context);
-    if (context.GetFlag(PARTY, STORMGIANT) != context.Here) {
+    if (context.GetFlag(PARTY, STORMGIANT) != context.GetTile) {
         if (context.PartyCount == 1) {
             context.ShowText("An ominous force stands before you!");
-            if (context.HasItem(STATUEOFSTORMGIANT) && context.GetFlag(PARTY, IMHERE) != context.Here && !context.GetFlag(DUNGEON, ONLYONCE)) {
+            if (context.HasItem(STATUEOFSTORMGIANT) && context.GetFlag(PARTY, IMHERE) != context.GetTile && !context.GetFlag(DUNGEON, ONLYONCE)) {
                 WallClear(context);
                 context.SetFlag(DUNGEON, ONLYONCE, 1);
                 context.ShowText("Using one of the mystical statues, you turn into a Storm Giant and kill them all!");
@@ -264,40 +264,40 @@ fun MapEvent12(context) {
                 context.GiveItem(PHOSPHORESCENTBLADE);
                 context.GiveItem(HEALAMPHORA);
                 context.GiveItem(ZEUSSCROLL);
-                context.SetFlag(PARTY, IMHERE, context.Here);
+                context.SetFlag(PARTY, IMHERE, context.GetTile);
             }
         }
         else {
-            if (context.GetFlag(PARTY, IMHERE) != context.Here) {
+            if (context.GetFlag(PARTY, IMHERE) != context.GetTile) {
                 context.ShowText("Had you been alone and with their talisman, you may have stood a chance!");
                 for (i = 1; i <= 4; i++) {
-                context.GetMonster(i, STORMGIANTS);
+                context.AddEncounter(i, STORMGIANTS);
                 }
-                context.SetFlag(PARTY, IMHERE, context.Here);
+                context.SetFlag(PARTY, IMHERE, context.GetTile);
             }
         }
-        context.SetFlag(PARTY, STORMGIANT, context.Here);
+        context.SetFlag(PARTY, STORMGIANT, context.GetTile);
     }
 }
 
 fun MapEvent15(context) {
     context.NoMaps();
     if (!context.GetFlag(ROOM, SPRUNGTRAP)) {
-        switch (context.Facing) {
+        switch (context.GetFacing) {
             case NORTH:
-                context.Rotate(WEST);
+                context.SetFacing(WEST);
                 SprungTrap(context);
                 break;
             case SOUTH:
-                context.Rotate(EAST);
+                context.SetFacing(EAST);
                 SprungTrap(context);
                 break;
             case EAST:
-                context.Rotate(SOUTH);
+                context.SetFacing(SOUTH);
                 SprungTrap(context);
                 break;
             case WEST:
-                context.Rotate(EAST);
+                context.SetFacing(EAST);
                 SprungTrap(context);
                 break;
         }
@@ -307,24 +307,24 @@ fun MapEvent15(context) {
 fun MapEvent16(context) {
     context.NoMaps();
     if (!context.GetFlag(ROOM, SPRUNGTRAP)) {
-        switch (context.Facing) {
+        switch (context.GetFacing) {
             case NORTH:
-                context.Rotate(SOUTH);
-                context.Rotate(WEST);
-                context.Rotate(SOUTH);
+                context.SetFacing(SOUTH);
+                context.SetFacing(WEST);
+                context.SetFacing(SOUTH);
                 SprungTrap(context);
                 break;
             case SOUTH:
-                context.Rotate(WEST);
+                context.SetFacing(WEST);
                 SprungTrap(context);
                 break;
             case EAST:
-                context.Rotate(NORTH);
+                context.SetFacing(NORTH);
                 SprungTrap(context);
                 break;
             case WEST:
-                context.Rotate(EAST);
-                context.Teleport(12, 2, context.Here, EAST);
+                context.SetFacing(EAST);
+                context.Teleport(12, 2, context.GetTile, EAST);
                 SprungTrap(context);
                 break;
         }
@@ -359,20 +359,20 @@ fun MapEvent19(context) {
         context.ShowText("I have been imprisoned here in granite by the mad Queen! Her powers are farther reaching than you dare imagine. With the five rings, she is now trying to gain control of the Gateway.");
         context.ShowText("I cannot defend the Gate from her powers, you must destroy her or all of time shall fold in upon itself. Our fate will be sealed in oblivion's tomb.'");
         context.ShowText("The statue begins to crumble as you watch, 'Go! defeat her! I can no longer protect...' but its too late, the statue explodes into dust flying across the room and damaging you.");
-        context.Damage(context.Health / 5);
+        context.DamagePlayer(context.GetHealth / 5);
         context.SetFlag(PARTY, KEEPER, 1);
     }
 }
 
 fun MapEvent1A(context) {
-    context.BlockFloor(context.Here);
+    context.SetFloorBlock(context.GetTile);
 }
 
 fun MapEvent1F(context) {
     var i;
     context.ShowText("Eos' servants form from the morning mists which permeate this place.");
     for (i = 1; i <= 2; i++) {
-    context.GetMonster(i, EOSBATTLE);
+    context.AddEncounter(i, EOSBATTLE);
     }
 }
 
@@ -380,7 +380,7 @@ fun MapEvent20(context) {
     var i;
     context.ShowText("Descendents of Gaea rise from the earthen floor to challenge you!");
     for (i = 1; i <= 2; i++) {
-    context.GetMonster(i, GAEABATTLE);
+    context.AddEncounter(i, GAEABATTLE);
     }
 }
 
@@ -388,7 +388,7 @@ fun MapEvent21(context) {
     var i;
     context.ShowText("Ancient servants of Neptune rise from the waters and bar your way!");
     for (i = 1; i <= 2; i++) {
-    context.GetMonster(i, NEPTUNEBATTLE);
+    context.AddEncounter(i, NEPTUNEBATTLE);
     }
 }
 
@@ -396,31 +396,31 @@ fun MapEvent22(context) {
     var i;
     context.ShowText("Masters of Warfare, students of Ares, ambush you!");
     for (i = 1; i <= 2; i++) {
-    context.GetMonster(i, ARESBATTLE);
+    context.AddEncounter(i, ARESBATTLE);
     }
 }
 
 fun MapEvent23(context) {
-    context.SetState(0);
+    context.SetTileState(0);
 }
 
 fun MapEvent24(context) {
     var i;
-    if (context.State != context.Here) {
-        context.SetState(context.Here);
+    if (context.GetTileState != context.GetTile) {
+        context.SetTileState(context.GetTile);
         switch (context.PartyCount) {
             case 1:
-                context.GetMonster(1, HALLGUARD1);
-                context.GetMonster(2, HALLGUARD1);
+                context.AddEncounter(1, HALLGUARD1);
+                context.AddEncounter(2, HALLGUARD1);
                 break;
             case 2:
                 for (i = 1; i <= 3; i++) {
-                context.GetMonster(i, HALLGUARD1);
+                context.AddEncounter(i, HALLGUARD1);
                 }
                 break;
             default: 
                 for (i = 1; i <= 5; i++) {
-                context.GetMonster(i, HALLGUARD1);
+                context.AddEncounter(i, HALLGUARD1);
                 }
                 break;
         }
@@ -437,21 +437,21 @@ fun MapEvent25(context) {
 
 fun MapEvent26(context) {
     var i;
-    if (context.State != context.Here) {
-        context.SetState(context.Here);
+    if (context.GetTileState != context.GetTile) {
+        context.SetTileState(context.GetTile);
         switch (context.PartyCount) {
             case 1:
-                context.GetMonster(1, HALLGUARD2);
-                context.GetMonster(2, HALLGUARD2);
+                context.AddEncounter(1, HALLGUARD2);
+                context.AddEncounter(2, HALLGUARD2);
                 break;
             case 2:
                 for (i = 1; i <= 3; i++) {
-                context.GetMonster(i, HALLGUARD2);
+                context.AddEncounter(i, HALLGUARD2);
                 }
                 break;
             default: 
                 for (i = 1; i <= 5; i++) {
-                context.GetMonster(i, HALLGUARD2);
+                context.AddEncounter(i, HALLGUARD2);
                 }
                 break;
         }
@@ -494,15 +494,15 @@ fun MapEvent27(context) {
 
 fun ClearMe(context) {
     context.SetFlag(PARTY, USEDNEPTRI, 1);
-    switch (context.Here) {
+    switch (context.GetTile) {
         case 160:
         case 192:
-            context.ClearFloor(176);
-            context.PlaceFloorItem(WATER, 176);
+            context.ClearFloorBlock(176);
+            context.SetFloorItem(WATER, 176);
             break;
         default: 
-            context.ClearFloor(85);
-            context.PlaceFloorItem(WATER, 85);
+            context.ClearFloorBlock(85);
+            context.SetFloorItem(WATER, 85);
             break;
     }
 }
@@ -513,28 +513,28 @@ fun MapEvent28(context) {
     }
     else {
         context.ShowText("The lava scorches and torments your body. The magical fluids then hurl you across the maze...");
-        context.Damage(context.Health - 100);
+        context.DamagePlayer(context.GetHealth - 100);
         context.Teleport(12, 2, 191, SOUTH);
     }
 }
 
 fun MapEvent29(context) {
     var i;
-    if (context.State != context.Here) {
-        context.SetState(context.Here);
+    if (context.GetTileState != context.GetTile) {
+        context.SetTileState(context.GetTile);
         switch (context.PartyCount) {
             case 1:
-                context.GetMonster(1, HALLGUARD3);
-                context.GetMonster(2, HALLGUARD3);
+                context.AddEncounter(1, HALLGUARD3);
+                context.AddEncounter(2, HALLGUARD3);
                 break;
             case 2:
                 for (i = 1; i <= 3; i++) {
-                context.GetMonster(i, HALLGUARD3);
+                context.AddEncounter(i, HALLGUARD3);
                 }
                 break;
             default: 
                 for (i = 1; i <= 5; i++) {
-                context.GetMonster(i, HALLGUARD3);
+                context.AddEncounter(i, HALLGUARD3);
                 }
                 break;
         }
@@ -543,21 +543,21 @@ fun MapEvent29(context) {
 
 fun MapEvent2A(context) {
     var i;
-    if (context.State != context.Here) {
-        context.SetState(context.Here);
+    if (context.GetTileState != context.GetTile) {
+        context.SetTileState(context.GetTile);
         switch (context.PartyCount) {
             case 1:
-                context.GetMonster(1, HALLGUARD4);
-                context.GetMonster(2, HALLGUARD4);
+                context.AddEncounter(1, HALLGUARD4);
+                context.AddEncounter(2, HALLGUARD4);
                 break;
             case 2:
                 for (i = 1; i <= 3; i++) {
-                context.GetMonster(i, HALLGUARD4);
+                context.AddEncounter(i, HALLGUARD4);
                 }
                 break;
             default: 
                 for (i = 1; i <= 5; i++) {
-                context.GetMonster(i, HALLGUARD4);
+                context.AddEncounter(i, HALLGUARD4);
                 }
                 break;
         }
@@ -566,21 +566,21 @@ fun MapEvent2A(context) {
 
 fun MapEvent2B(context) {
     var i;
-    if (context.State != context.Here) {
-        context.SetState(context.Here);
+    if (context.GetTileState != context.GetTile) {
+        context.SetTileState(context.GetTile);
         switch (context.PartyCount) {
             case 1:
-                context.GetMonster(1, HALLGUARD5);
-                context.GetMonster(2, HALLGUARD5);
+                context.AddEncounter(1, HALLGUARD5);
+                context.AddEncounter(2, HALLGUARD5);
                 break;
             case 2:
                 for (i = 1; i <= 3; i++) {
-                context.GetMonster(i, HALLGUARD5);
+                context.AddEncounter(i, HALLGUARD5);
                 }
                 break;
             default: 
                 for (i = 1; i <= 5; i++) {
-                context.GetMonster(i, HALLGUARD5);
+                context.AddEncounter(i, HALLGUARD5);
                 }
                 break;
         }
@@ -592,11 +592,11 @@ fun MapEvent2C(context) {
         if (context.UsedItem(GAEASFLAIL, GAEASFLAIL)) {
             context.ShowText("The pit before you congeals into a solid earthen floor! Gaea's power is obvious concerning the nature of things.");
             context.SetFlag(PARTY, USEDGAEAFLAIL, 1);
-            switch (context.Here) {
+            switch (context.GetTile) {
                 case 23:
                 case 55:
-                    context.ClearFloor(39);
-                    context.PlaceFloorItem(NO_OBJECT, 39);
+                    context.ClearFloorBlock(39);
+                    context.SetFloorItem(NO_OBJECT, 39);
                     break;
             }
         }
@@ -619,7 +619,7 @@ fun MapEvent2D(context) {
         }
         else {
             context.ShowText("The pit swallows you whole, this magical snare does not kill you, however, but you are swept away through the maze.");
-            context.Damage(context.Health - 100);
+            context.DamagePlayer(context.GetHealth - 100);
             context.Teleport(12, 2, 222, EAST);
         }
     }
@@ -645,7 +645,7 @@ fun MapEvent32(context) {
     }
     else {
         context.ShowText("Be off!! Only one Hero may enter here at a time!");
-        context.Rotate(EAST);
+        context.SetFacing(EAST);
     }
 }
 
@@ -660,7 +660,7 @@ fun MapEvent34(context) {
         context.GiveItem(STATUEOFSTORMGIANT);
         context.ShowText("You pick up an odd statue. Perhaps it will protect you when you are alone.");
     }
-    switch (context.Here) {
+    switch (context.GetTile) {
         case 238:
             context.ShowText("A jeweled carving depicts a band of travelers journeying through an ancient dungeon in search of some great treasure.");
             break;
@@ -671,7 +671,7 @@ fun MapEvent34(context) {
             context.ShowText("Here you see a myriad of images strewn across various puzzles and hordes of vile creatures that scorn the travelers as they seek the treasure.");
             break;
         case 190:
-            if (context.FlagOn(DUNGEON, KILLEDQUEEN)) {
+            if (context.IsFlagOn(DUNGEON, KILLEDQUEEN)) {
                 context.ShowText("Emblazoned in the stones you see your own image slaying the mad Queen and eventually entering the mystical Gateway of Immortality.");
             }
             else {
@@ -714,7 +714,7 @@ fun AssaultTxt(context) {
 }
 
 fun WallClear(context) {
-    context.ClearWall(context.Here, context.Facing);
+    context.ClearWallBlock(context.GetTile, context.GetFacing);
 }
 
 fun AresText(context) {

@@ -58,13 +58,13 @@ fun MapEvent05(context) {
                 break;
             case 1:
                 context.ShowText("You hear someone strolling towards you.");
-                context.ShowPicture(GREMLINWIZARD);
+                context.ShowPortrait(GREMLINWIZARD);
                 context.ShowText("The gremlin greets you heartily.");
                 context.ShowText("'I just received the strangest prophecy in Astrologia.  But I think I see through some of it.  The deadly herbs are in Althea's demesne.  I should go look her up.'");
                 context.ShowText("She remains standing there, lost in thought.");
                 break;
             case 2:
-                context.ShowPicture(DRAGON);
+                context.ShowPortrait(DRAGON);
                 if (context.GetFlag(DUNGEON, HEARDJOKE7) == 0) {
                     context.ShowText("The dragon examines you with a hint of recognition.");
                     context.ShowText("'Ah!  Whither hast thou been? I have heard yet another green dragon joke, and my thoughts turned to thee.  Wouldst hear it?'");
@@ -82,20 +82,20 @@ fun MapEvent05(context) {
                 }
                 break;
             case 3:
-                context.ShowPicture(HALFLINGKNIGHT);
+                context.ShowPortrait(HALFLINGKNIGHT);
                 context.ShowText("A downtrodden halfling knight ambles aimlessly by you.");
                 context.ShowText("'Serves me right to expect anything cobbled together from horseshoes to bear my weight,' she mutters as she passes.");
                 break;
             case 4:
                 context.ShowText("A boisterous band of burglars decides, reasonably, that they are bigger than you are.");
-                context.SetBooty(LARGELETTEROFCREDIT, WOADWINE, 0, 0, 0, 1193);
-                context.GetMonster(1, 25);
+                context.SetTreasure(LARGELETTEROFCREDIT, WOADWINE, 0, 0, 0, 1193);
+                context.AddEncounter(1, 25);
                 if (context.PartyCount > 1) {
-                    context.GetMonster(5, 25);
+                    context.AddEncounter(5, 25);
                 }
                 if (context.PartyCount > 2) {
-                    context.GetMonster(2, 25);
-                    context.GetMonster(6, 25);
+                    context.AddEncounter(2, 25);
+                    context.AddEncounter(6, 25);
                 }
                 break;
         }
@@ -120,7 +120,7 @@ fun MapEvent09(context) {
     if (context.GetFlag(DUNGEON, SEENRORY) == 0) {
         if (context.GetFlag(PARTY, BEENHERE) == 0) {
             context.SetFlag(PARTY, BEENHERE, 1);
-            context.ShowPicture(HALFLINGTHIEF);
+            context.ShowPortrait(HALFLINGTHIEF);
             context.ShowText("Rory's clothes are sweat stained, and his brow furrowed.  Still, a smile crosses his face as he greets you.");
             context.ShowText("'Ah, 'tis good to have a chance for a breather, for this is a fractious place created by a devious and disturbed mind.");
             context.ShowText("'It is called the Parapets, but insofar as I can determine it is a loathsome play on words, for many are the corners filled with pairs of groups of great beasts.");
@@ -147,82 +147,82 @@ fun MapEvent0B(context) {
 }
 
 fun MapEvent0C(context) {
-    context.ShowPicture(ELFRANGER);
+    context.ShowPortrait(ELFRANGER);
     context.ShowText("The caption reads:  'The late William o'the Dales, undisputed record holder and winner of the 1168 ballista catch.'");
 }
 
 fun MapEvent0D(context) {
-    context.ShowPicture(DWARFKNIGHT);
+    context.ShowPortrait(DWARFKNIGHT);
     context.ShowText("The caption reads:  'Jonny of the Mountain Hall, who once slew a trio of giants with but a single toss of his mighty hammer.'");
 }
 
 fun MapEvent0E(context) {
-    context.ShowPicture(GNOMEWIZARD);
+    context.ShowPortrait(GNOMEWIZARD);
     context.ShowText("The caption reads:  'Richard of the Storm, who did devise a formula for capturing the Greek Fire.  All we ever found was the hilt of his dagger.  Requiescat en Pacem.'");
 }
 
 fun MapEvent0F(context) {
-    context.ShowPicture(HUMANWIZARD);
+    context.ShowPortrait(HUMANWIZARD);
     context.ShowText("The caption reads:  'Edward of the White Cathedral, who first poured heated pitch on those outside the keep.  It worked so well when the Picts attacked that the survivors of the first spill forgave him.'");
 }
 
 fun MapEvent10(context) {
-    context.ShowPicture(TROLLRANGER);
+    context.ShowPortrait(TROLLRANGER);
     context.ShowText("The caption reads:  'Eric the Steady, son of Eric the Sufferer, who proved that a truly strong troll can catch and hold a 2800 pound boulder.  For 1.2 seconds.  Before being squashed.");
 }
 
 fun MapEvent11(context) {
-    context.ShowPicture(ELFBARBARIAN);
+    context.ShowPortrait(ELFBARBARIAN);
     context.ShowText("The caption reads:  'Deborah of the Marble Chapel, who asked the innocent question that exposed a plot long buried.'");
 }
 
 fun MapEvent12(context) {
-    context.ShowPicture(HUMANBARBARIAN);
+    context.ShowPortrait(HUMANBARBARIAN);
     context.ShowText("The caption reads:  'Jimmy of the Blood, as noted a painter as he was a general.'");
 }
 
 fun MapEvent13(context) {
-    context.ShowPicture(HUMANWIZARD);
+    context.ShowPortrait(HUMANWIZARD);
     context.ShowText("The caption reads:  'Geordie the Skunkcatcher, who shot the sheriff and escaped to tell about it.'");
 }
 
 fun MapEvent14(context) {
-    context.ShowPicture(ORCKNIGHT);
+    context.ShowPortrait(ORCKNIGHT);
     context.ShowText("The caption reads:  'Scotty the Smith, who proved that a truly inspired archer, from these very parapets, can indeed place an arrow into the heart of a general atop Stormcrow hill.'");
 }
 
 fun MapEvent15(context) {
-    context.ShowPicture(ORCBARBARIAN);
+    context.ShowPortrait(ORCBARBARIAN);
     context.ShowText("The caption reads:  'Mandy of the Inks, who demonstrated that by predesignating targets and marking their aims afore the battle, one can have great success at shooting during the battle.'");
 }
 
 fun MapEvent16(context) {
-    context.ShowPicture(ELFCLERIC);
+    context.ShowPortrait(ELFCLERIC);
     context.ShowText("The caption reads:  'Richard of the Irish River, who demonstrated that not only does fine wine raise the will to fight, but that at need and sufficient height an empty wine bottle can kill.'");
 }
 
 fun MapEvent17(context) {
-    context.ShowPicture(HUMANWIZARD);
+    context.ShowPortrait(HUMANWIZARD);
     context.ShowText("The caption reads:  'Mickey of the Upper Dells, who most cunningly proved that a boulder is better than a pebble when stoning an enemy.'");
 }
 
 fun MapEvent18(context) {
-    context.ShowPicture(TROLLRANGER);
+    context.ShowPortrait(TROLLRANGER);
     context.ShowText("The caption reads:  'Clifford the Quiet, master of the crossbow and the galley oar.'");
 }
 
 fun MapEvent19(context) {
-    context.ShowPicture(HUMANTHIEF);
+    context.ShowPortrait(HUMANTHIEF);
     context.ShowText("The caption reads:  'Cynthia of the Cats, creator of the pegasus brigade and discoverer of the remarkable fertilizing qualities of pegasus droppings.  Retired.'");
 }
 
 fun MapEvent1A(context) {
-    context.ShowPicture(HALFLINGTHIEF);
+    context.ShowPortrait(HALFLINGTHIEF);
     context.ShowText("The caption reads:  'Richard, son of the Emerald Isles, who showed that a bag of gems might buy what an army could not take.'");
 }
 
 fun MapEvent1B(context) {
-    context.ShowPicture(ORCBARBARIAN);
+    context.ShowPortrait(ORCBARBARIAN);
     context.ShowText("The caption reads:  'Molly of the Concentric Circles, who in giving her life did ensure Scotty's fame.'");
 }
 
@@ -244,15 +244,15 @@ fun MapEvent1D(context) {
 
 fun MapEvent1E(context) {
     if (context.GetFlag(PARTY, WAR1) == 1) {
-        context.Teleport(11, 2, 195, context.Facing);
+        context.Teleport(11, 2, 195, context.GetFacing);
     }
     else {
         context.ShowText("From the sounds on the other side of this door, you prepare yourself for immediate battle after going though it.");
         if (context.HasItem(GALLOFGOAT)) {
-            context.Teleport(11, 2, 210, context.Facing);
+            context.Teleport(11, 2, 210, context.GetFacing);
         }
         else {
-            context.Teleport(11, 2, 225, context.Facing);
+            context.Teleport(11, 2, 225, context.GetFacing);
         }
     }
 }
@@ -262,14 +262,14 @@ fun MapEvent1F(context) {
         context.SetFlag(PARTY, WAR1, 1);
         context.ShowText("Ayee!  It's the flock of killer goats!");
         context.ShowText("Oh, all right, I'll admit they sure look like minotaurs, but believe me, they sure smell like goats.");
-        context.SetBooty(ALFREDSHAT, ALDHELMSGAUNTLETS, DRAGONFLAGON, 0, 0, 1219);
-        context.GetMonster(1, 38);
-        context.GetMonster(2, 39);
-        context.GetMonster(3, 39);
-        context.GetMonster(4, 38);
+        context.SetTreasure(ALFREDSHAT, ALDHELMSGAUNTLETS, DRAGONFLAGON, 0, 0, 1219);
+        context.AddEncounter(1, 38);
+        context.AddEncounter(2, 39);
+        context.AddEncounter(3, 39);
+        context.AddEncounter(4, 38);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 39);
-            context.GetMonster(6, 38);
+            context.AddEncounter(5, 39);
+            context.AddEncounter(6, 38);
         }
     }
     else {
@@ -282,14 +282,14 @@ fun MapEvent20(context) {
         context.SetFlag(PARTY, WAR1, 1);
         context.ShowText("Ayee!  It's the flock of killer goats!");
         context.ShowText("Oh, all right, I'll admit they sure look like minotaurs, but believe me, they sure smell like goats.");
-        context.SetBooty(ALFREDSHAT, ALDHELMSGAUNTLETS, DRAGONFLAGON, 0, 0, 1219);
-        context.GetMonster(1, 40);
-        context.GetMonster(2, 39);
-        context.GetMonster(3, 40);
-        context.GetMonster(4, 39);
+        context.SetTreasure(ALFREDSHAT, ALDHELMSGAUNTLETS, DRAGONFLAGON, 0, 0, 1219);
+        context.AddEncounter(1, 40);
+        context.AddEncounter(2, 39);
+        context.AddEncounter(3, 40);
+        context.AddEncounter(4, 39);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 40);
-            context.GetMonster(6, 40);
+            context.AddEncounter(5, 40);
+            context.AddEncounter(6, 40);
         }
     }
     else {
@@ -299,16 +299,16 @@ fun MapEvent20(context) {
 
 fun MapEvent21(context) {
     if (context.GetFlag(PARTY, WAR2) == 1) {
-        context.Teleport(11, 2, 51, context.Facing);
+        context.Teleport(11, 2, 51, context.GetFacing);
     }
     else {
         context.ShowText("You think you hear the sounds of a baying wolf through this door, and prepare yourself for combat.");
         context.ShowText("Hmm.  Bay o'wolf.  Maybe there's a story in there.");
         if (context.HasItem(TOOTHOFWOLF)) {
-            context.Teleport(11, 2, 17, context.Facing);
+            context.Teleport(11, 2, 17, context.GetFacing);
         }
         else {
-            context.Teleport(11, 2, 34, context.Facing);
+            context.Teleport(11, 2, 34, context.GetFacing);
         }
     }
 }
@@ -317,14 +317,14 @@ fun MapEvent22(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.SetFlag(PARTY, WAR2, 1);
         context.ShowText("My goodness!  Look at all those wolves packed in here.  Hmm.  Wolvespacked.  Maybe there's a story there.");
-        context.SetBooty(TOOTHOFWOLF, GORGONSGAUNTLETS, DRAGONFLAGON, 0, 0, 1219);
-        context.GetMonster(1, 34);
-        context.GetMonster(2, 34);
-        context.GetMonster(3, 34);
-        context.GetMonster(4, 34);
+        context.SetTreasure(TOOTHOFWOLF, GORGONSGAUNTLETS, DRAGONFLAGON, 0, 0, 1219);
+        context.AddEncounter(1, 34);
+        context.AddEncounter(2, 34);
+        context.AddEncounter(3, 34);
+        context.AddEncounter(4, 34);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 34);
-            context.GetMonster(6, 34);
+            context.AddEncounter(5, 34);
+            context.AddEncounter(6, 34);
         }
     }
     else {
@@ -337,14 +337,14 @@ fun MapEvent23(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.SetFlag(PARTY, WAR2, 1);
         context.ShowText("My goodness!  Look at all those wolves packed in here.  Hmm.  Wolvespacked.  Maybe there's a story there.");
-        context.SetBooty(TOOTHOFWOLF, GORGONSGAUNTLETS, DRAGONFLAGON, 0, 0, 1219);
-        context.GetMonster(1, 32);
-        context.GetMonster(2, 33);
-        context.GetMonster(3, 32);
-        context.GetMonster(4, 33);
+        context.SetTreasure(TOOTHOFWOLF, GORGONSGAUNTLETS, DRAGONFLAGON, 0, 0, 1219);
+        context.AddEncounter(1, 32);
+        context.AddEncounter(2, 33);
+        context.AddEncounter(3, 32);
+        context.AddEncounter(4, 33);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 32);
-            context.GetMonster(6, 33);
+            context.AddEncounter(5, 32);
+            context.AddEncounter(6, 33);
         }
     }
     else {
@@ -355,16 +355,16 @@ fun MapEvent23(context) {
 
 fun MapEvent24(context) {
     if (context.GetFlag(PARTY, WAR3) == 1) {
-        context.Teleport(11, 2, 60, context.Facing);
+        context.Teleport(11, 2, 60, context.GetFacing);
     }
     else {
         context.ShowText("You think you hear the growls of a great mastiff, a giant hound, through the door.");
         context.ShowText("Hmm.  The Hound of - naw, there's no way to fit any decent story into that title.");
         if (context.HasItem(TONGUEOFDOG)) {
-            context.Teleport(11, 2, 45, context.Facing);
+            context.Teleport(11, 2, 45, context.GetFacing);
         }
         else {
-            context.Teleport(11, 2, 30, context.Facing);
+            context.Teleport(11, 2, 30, context.GetFacing);
         }
     }
 }
@@ -373,14 +373,14 @@ fun MapEvent25(context) {
     if (context.GetFlag(PARTY, WAR3) == 0) {
         context.SetFlag(PARTY, WAR3, 1);
         context.ShowText("Have you ever heard of puppy love.  Well, these dogs haven't!  Watch out!");
-        context.SetBooty(TONGUEOFDOG, TONGUEOFDOG, DRAGONFLAGON, 0, 0, 1219);
-        context.GetMonster(1, 36);
-        context.GetMonster(2, 35);
-        context.GetMonster(3, 36);
-        context.GetMonster(4, 35);
+        context.SetTreasure(TONGUEOFDOG, TONGUEOFDOG, DRAGONFLAGON, 0, 0, 1219);
+        context.AddEncounter(1, 36);
+        context.AddEncounter(2, 35);
+        context.AddEncounter(3, 36);
+        context.AddEncounter(4, 35);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 36);
-            context.GetMonster(6, 35);
+            context.AddEncounter(5, 36);
+            context.AddEncounter(6, 35);
         }
     }
     else {
@@ -393,14 +393,14 @@ fun MapEvent26(context) {
     if (context.GetFlag(PARTY, WAR3) == 0) {
         context.SetFlag(PARTY, WAR3, 1);
         context.ShowText("Have you ever heard of puppy love.  Well, these dogs haven't!  Watch out!");
-        context.SetBooty(TONGUEOFDOG, TONGUEOFDOG, DRAGONFLAGON, 0, 0, 1219);
-        context.GetMonster(1, 37);
-        context.GetMonster(2, 37);
-        context.GetMonster(3, 37);
-        context.GetMonster(4, 37);
+        context.SetTreasure(TONGUEOFDOG, TONGUEOFDOG, DRAGONFLAGON, 0, 0, 1219);
+        context.AddEncounter(1, 37);
+        context.AddEncounter(2, 37);
+        context.AddEncounter(3, 37);
+        context.AddEncounter(4, 37);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 37);
-            context.GetMonster(6, 37);
+            context.AddEncounter(5, 37);
+            context.AddEncounter(6, 37);
         }
     }
     else {
@@ -411,15 +411,15 @@ fun MapEvent26(context) {
 
 fun MapEvent27(context) {
     if (context.GetFlag(PARTY, WAR4) == 1) {
-        context.Teleport(11, 2, 204, context.Facing);
+        context.Teleport(11, 2, 204, context.GetFacing);
     }
     else {
         context.ShowText("You hear a lot of hissing through this door, as if a veritable snakepit.  You'd put on your hightop boots, if you had any.");
         if (context.HasItem(BLINDWORMSTING)) {
-            context.Teleport(11, 2, 221, context.Facing);
+            context.Teleport(11, 2, 221, context.GetFacing);
         }
         else {
-            context.Teleport(11, 2, 238, context.Facing);
+            context.Teleport(11, 2, 238, context.GetFacing);
         }
     }
 }
@@ -428,14 +428,14 @@ fun MapEvent28(context) {
     if (context.GetFlag(PARTY, WAR4) == 0) {
         context.SetFlag(PARTY, WAR4, 1);
         context.ShowText("See!  High topped boots wouldn't have helped you anyways!");
-        context.SetBooty(BLINDWORMSTING, BLINDWORMSTING, DRAGONFLAGON, 0, 0, 1219);
-        context.GetMonster(1, 26);
-        context.GetMonster(2, 27);
-        context.GetMonster(3, 26);
-        context.GetMonster(4, 27);
+        context.SetTreasure(BLINDWORMSTING, BLINDWORMSTING, DRAGONFLAGON, 0, 0, 1219);
+        context.AddEncounter(1, 26);
+        context.AddEncounter(2, 27);
+        context.AddEncounter(3, 26);
+        context.AddEncounter(4, 27);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 26);
-            context.GetMonster(6, 27);
+            context.AddEncounter(5, 26);
+            context.AddEncounter(6, 27);
         }
     }
     else {
@@ -448,14 +448,14 @@ fun MapEvent29(context) {
     if (context.GetFlag(PARTY, WAR4) == 0) {
         context.SetFlag(PARTY, WAR4, 1);
         context.ShowText("See!  High topped boots wouldn't have helped you anyways!");
-        context.SetBooty(BLINDWORMSTING, BLINDWORMSTING, DRAGONFLAGON, 0, 0, 1219);
-        context.GetMonster(1, 28);
-        context.GetMonster(2, 28);
-        context.GetMonster(3, 28);
-        context.GetMonster(4, 28);
+        context.SetTreasure(BLINDWORMSTING, BLINDWORMSTING, DRAGONFLAGON, 0, 0, 1219);
+        context.AddEncounter(1, 28);
+        context.AddEncounter(2, 28);
+        context.AddEncounter(3, 28);
+        context.AddEncounter(4, 28);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 28);
-            context.GetMonster(6, 28);
+            context.AddEncounter(5, 28);
+            context.AddEncounter(6, 28);
         }
     }
     else {
@@ -465,7 +465,7 @@ fun MapEvent29(context) {
 }
 
 fun MapEvent2A(context) {
-    context.ShowPicture(ELFCLERIC);
+    context.ShowPortrait(ELFCLERIC);
     if (context.GetFlag(PARTY, WAR5) == 0) {
         if (context.GetFlag(PARTY, DRAGONWARNING) == 0) {
             context.SetFlag(PARTY, DRAGONWARNING, 1);
@@ -478,7 +478,7 @@ fun MapEvent2A(context) {
             if (context.GetFlag(PARTY, ELFHEALED) == 0) {
                 context.SetFlag(PARTY, ELFHEALED, 1);
                 context.ShowText("'And for thy wisdom, a small reward.'");
-                context.Heal(1000);
+                context.HealPlayer(1000);
             }
         }
     }
@@ -495,15 +495,15 @@ fun MapEvent2A(context) {
 
 fun MapEvent2B(context) {
     if (context.GetFlag(PARTY, WAR5) == 1) {
-        context.Teleport(11, 2, 169, context.Facing);
+        context.Teleport(11, 2, 169, context.GetFacing);
     }
     else {
         context.ShowText("Naw.  It couldn't be.  But you'd swear that you heard some faint voices quietly chanting 'munchies' repeatedly.");
         if (context.HasItem(SCALEOFDRAGON)) {
-            context.Teleport(11, 2, 170, context.Facing);
+            context.Teleport(11, 2, 170, context.GetFacing);
         }
         else {
-            context.Teleport(11, 2, 187, context.Facing);
+            context.Teleport(11, 2, 187, context.GetFacing);
         }
     }
 }
@@ -512,14 +512,14 @@ fun MapEvent2C(context) {
     if (context.GetFlag(PARTY, WAR5) == 0) {
         context.SetFlag(PARTY, WAR5, 1);
         context.ShowText("Uh oh!  Why do you suddenly feel like a snack pack?");
-        context.SetBooty(SCALEOFDRAGON, SCALEOFDRAGON, DRAGONFLAGON, 0, 0, 1219);
-        context.GetMonster(1, 29);
-        context.GetMonster(2, 30);
-        context.GetMonster(3, 29);
-        context.GetMonster(4, 30);
+        context.SetTreasure(SCALEOFDRAGON, SCALEOFDRAGON, DRAGONFLAGON, 0, 0, 1219);
+        context.AddEncounter(1, 29);
+        context.AddEncounter(2, 30);
+        context.AddEncounter(3, 29);
+        context.AddEncounter(4, 30);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 29);
-            context.GetMonster(6, 30);
+            context.AddEncounter(5, 29);
+            context.AddEncounter(6, 30);
         }
     }
     else {
@@ -532,14 +532,14 @@ fun MapEvent2D(context) {
     if (context.GetFlag(PARTY, WAR5) == 0) {
         context.SetFlag(PARTY, WAR5, 1);
         context.ShowText("Uh oh!  Why do you suddenly feel like a snack pack?");
-        context.SetBooty(SCALEOFDRAGON, SCALEOFDRAGON, DRAGONFLAGON, 0, 0, 1219);
-        context.GetMonster(1, 31);
-        context.GetMonster(2, 31);
-        context.GetMonster(3, 31);
-        context.GetMonster(4, 31);
+        context.SetTreasure(SCALEOFDRAGON, SCALEOFDRAGON, DRAGONFLAGON, 0, 0, 1219);
+        context.AddEncounter(1, 31);
+        context.AddEncounter(2, 31);
+        context.AddEncounter(3, 31);
+        context.AddEncounter(4, 31);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 31);
-            context.GetMonster(6, 31);
+            context.AddEncounter(5, 31);
+            context.AddEncounter(6, 31);
         }
     }
     else {
@@ -549,7 +549,7 @@ fun MapEvent2D(context) {
 }
 
 fun MapEvent2E(context) {
-    context.ShowPicture(ELFCLERIC);
+    context.ShowPortrait(ELFCLERIC);
     if (context.GetFlag(PARTY, WAR6) == 0) {
         if (context.GetFlag(PARTY, BIGBATTLEWARNING) == 0) {
             context.SetFlag(PARTY, BIGBATTLEWARNING, 1);
@@ -575,17 +575,17 @@ fun MapEvent2E(context) {
 
 fun MapEvent2F(context) {
     if (context.GetFlag(PARTY, WAR6) == 0) {
-        context.Damage(context.MaxHealth / 2);
+        context.DamagePlayer(context.GetMaxHealth / 2);
         context.ModMana(-4999);
         context.SetFlag(PARTY, WAR6, 1);
         context.ShowText("Hmm.  Could the sudden wave of fatigue be being hit by 'nasties' or is it just the realization that there are a whole lot of dragons in front of you?");
-        context.SetBooty(SCALEOFDRAGON, SCALEOFDRAGON, DRAGONFLAGON, 0, 0, 1219);
-        context.GetMonster(1, 31);
-        context.GetMonster(2, 31);
-        context.GetMonster(3, 31);
-        context.GetMonster(4, 31);
-        context.GetMonster(5, 31);
-        context.GetMonster(6, 31);
+        context.SetTreasure(SCALEOFDRAGON, SCALEOFDRAGON, DRAGONFLAGON, 0, 0, 1219);
+        context.AddEncounter(1, 31);
+        context.AddEncounter(2, 31);
+        context.AddEncounter(3, 31);
+        context.AddEncounter(4, 31);
+        context.AddEncounter(5, 31);
+        context.AddEncounter(6, 31);
     }
     else {
         context.ShowText("Well, you're just as happy not to have to go through that all over again.  Dragons are bad enough, but setting them up with 'nasties' for an ambush was too much.");
@@ -628,19 +628,19 @@ fun MapEvent33(context) {
         context.SetFlag(PARTY, SEENNASTY, 1);
         context.ShowText("Okay.  The place reeks.  Your head hurts, and you're not sure of your ability to cast spells.");
         context.ShowText("Other than that, this place isn't nasty at all.");
-        context.Damage(context.MaxHealth / 3);
+        context.DamagePlayer(context.GetMaxHealth / 3);
         context.ModMana(-2000);
     }
     else {
         context.ShowText("There are many useless round hard things here.  Useless to you, anyways.");
-        context.Damage(context.MaxHealth / 3);
+        context.DamagePlayer(context.GetMaxHealth / 3);
         context.ModMana(-2000);
     }
 }
 
 fun MapEvent34(context) {
     context.NoSpellZone();
-    context.Damage(1444);
+    context.DamagePlayer(1444);
     context.ShowText("This is a nasty place.");
 }
 
@@ -651,7 +651,7 @@ fun MapEvent35(context) {
 
 fun MapEvent36(context) {
     context.NoManaZone();
-    context.Damage(1444);
+    context.DamagePlayer(1444);
     context.ShowText("This is a nasty place.");
 }
 
@@ -659,18 +659,18 @@ fun MapEvent37(context) {
     context.NoHealZone();
     context.NoManaZone();
     context.NoSpellZone();
-    context.Damage(2667);
+    context.DamagePlayer(2667);
     context.ModMana(-1444);
-    if (context.Facing == EAST) {
-        context.Rotate(NORTH);
+    if (context.GetFacing == EAST) {
+        context.SetFacing(NORTH);
     }
     else {
-        if (context.Facing == NORTH) {
-            context.Rotate(SOUTH);
+        if (context.GetFacing == NORTH) {
+            context.SetFacing(SOUTH);
         }
         else {
-            if (context.Facing == SOUTH) {
-                context.Rotate(EAST);
+            if (context.GetFacing == SOUTH) {
+                context.SetFacing(EAST);
             }
         }
     }

@@ -24,12 +24,12 @@ fun MapEvent01(context) {
     context.ShowText("A stray breeze kicks up the scent of fermentation.");
     if (context.UsedSkill(DETECT_SKILL) >= 3 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(CRYSTALBALL, CRYSTALBALL) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS)) {
         context.ShowText("You've uncovered a hidden door!");
-        context.ClearWall(context.Here, context.Facing);
-        context.PlaceWallItem(DOOR, context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
+        context.SetWallItem(DOOR, context.GetTile, context.GetFacing);
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
-        context.RemoveWallItem(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
+        context.ClearWallItem(context.GetTile, context.GetFacing);
     }
 }
 
@@ -39,33 +39,33 @@ fun MapEvent02(context) {
         context.Teleport(5, 1, 250, NORTH);
     }
     else {
-        if ((context.Facing == NORTH) && (context.UsedSkill(DETECT_SKILL) >= 4 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(CRYSTALBALL, CRYSTALBALL) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || (context.GetFlag(ROOM, DETECTED_DOOR) == 1) || (context.GetFlag(DUNGEON, BEENIN0501) == 1) || (context.GetFlag(DUNGEON, WONGAME) == 1))) {
-            context.PlaceWallItem(DOOR, context.Here, NORTH);
-            context.BlockWall(context.Here, context.Facing);
+        if ((context.GetFacing == NORTH) && (context.UsedSkill(DETECT_SKILL) >= 4 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(CRYSTALBALL, CRYSTALBALL) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || (context.GetFlag(ROOM, DETECTED_DOOR) == 1) || (context.GetFlag(DUNGEON, BEENIN0501) == 1) || (context.GetFlag(DUNGEON, WONGAME) == 1))) {
+            context.SetWallItem(DOOR, context.GetTile, NORTH);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
             context.SetFlag(ROOM, DETECTED_DOOR, 1);
-            if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(WOODENLOCKPICK) || context.HasItem(BRASSLOCKPICK) || context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkill(LOCKPICK_SKILL) >= 6) && ((context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+            if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(WOODENLOCKPICK) || context.HasItem(BRASSLOCKPICK) || context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkillLevel(LOCKPICK_SKILL) >= 6) && ((context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
                 context.ShowText("You have unlocked the hidden door!");
                 context.SetFlag(PARTY, UNLOCKEDNOW, 1);
             }
             else {
-                context.BlockWall(context.Here, NORTH);
+                context.SetWallBlock(context.GetTile, NORTH);
                 context.ShowText("There is a door here, but it is locked.");
             }
         }
         else {
-            context.BlockWall(context.Here, NORTH);
+            context.SetWallBlock(context.GetTile, NORTH);
             context.SetFlag(ROOM, DETECTED_DOOR, 0);
         }
     }
 }
 
 fun MapEvent03(context) {
-    if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(WOODENLOCKPICK) || context.HasItem(BRASSLOCKPICK) || context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkill(LOCKPICK_SKILL) >= 1) && ((context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+    if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(WOODENLOCKPICK) || context.HasItem(BRASSLOCKPICK) || context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkillLevel(LOCKPICK_SKILL) >= 1) && ((context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
         context.ShowText("You've picked the lock. Proceed.");
-        context.ClearWall(context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
         context.ShowText("Funny how an irksome little lock on a flimsy little door can keep out a big strong person like you.");
     }
 }
@@ -113,7 +113,7 @@ fun MapEvent05(context) {
                 break;
             case 1:
                 context.ShowText("You hear someone running towards you.");
-                context.ShowPicture(ORCKNIGHT);
+                context.ShowPortrait(ORCKNIGHT);
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("*");
@@ -122,19 +122,19 @@ fun MapEvent05(context) {
                 context.ShowText("He limps off.");
                 break;
             case 2:
-                if (context.PartyLevel(8)) {
-                    context.ShowPicture(DRAGON);
+                if (context.CheckPartyLevel(8)) {
+                    context.ShowPortrait(DRAGON);
                     context.ShowText("'Nay!  Put down thy blades.  I am not here to fight thee.  I was told that there were vats full of gold in the Brewery, but all I have found are vats full of ale.  Hast thou?'");
                     context.ShowText("You shake your head.");
                     context.ShowText("'No, I did not really expect thee to tell me where the liquid gold can be found.'  She departs.");
                 }
                 else {
                     context.ShowText("Some maddened minotaurs decide that you are trespassing.  They will prosecute you themselves.");
-                    context.SetBooty(PETUNIAPOULTICE, 0, 0, 0, 0, 182);
-                    context.GetMonster(1, 20);
-                    context.GetMonster(2, 21);
+                    context.SetTreasure(PETUNIAPOULTICE, 0, 0, 0, 0, 182);
+                    context.AddEncounter(1, 20);
+                    context.AddEncounter(2, 21);
                     if (context.PartyCount > 3) {
-                        context.GetMonster(3, 20);
+                        context.AddEncounter(3, 20);
                     }
                 }
                 break;
@@ -143,7 +143,7 @@ fun MapEvent05(context) {
                     context.ShowText("Here is yet another spot that poor Rory sought dragons.  If only he had not found them.");
                 }
                 else {
-                    context.ShowPicture(HALFLINGTHIEF);
+                    context.ShowPortrait(HALFLINGTHIEF);
                     context.ShowText("*");
                     context.ShowText("*");
                     context.ShowText("*");
@@ -159,14 +159,14 @@ fun MapEvent05(context) {
                 if (context.PartyCount > 2) {
                     context.ShowText("Okay, so it's not such a puny pack.");
                 }
-                context.SetBooty(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 93);
-                context.GetMonster(1, 24);
+                context.SetTreasure(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 93);
+                context.AddEncounter(1, 24);
                 if (context.PartyCount > 1) {
-                    context.GetMonster(2, 24);
+                    context.AddEncounter(2, 24);
                 }
                 if (context.PartyCount > 2) {
-                    context.GetMonster(3, 24);
-                    context.GetMonster(4, 24);
+                    context.AddEncounter(3, 24);
+                    context.AddEncounter(4, 24);
                 }
                 break;
         }
@@ -179,7 +179,7 @@ fun MapEvent06(context) {
         context.SetFlag(PARTY, BEENINROOM, 1);
         context.ShowText("Boy, is that a heady smell!  This large room is filled with vats.  You suspect that someday whatever is in those vats will turn into ale.  Medieval water quality and sanitation being what it is, it is far safer to drink small ale (low alcohol) than water these days.");
     }
-    if (context.Facing == EAST) {
+    if (context.GetFacing == EAST) {
         context.ShowText("To the east is The Gallery.");
     }
 }
@@ -210,7 +210,7 @@ fun MapEvent0B(context) {
     if ((context.UsedSkill(READ_TRACKS_SKILL) >= 1) || context.UsedItem(HAWKSEYE, HAWKSEYE) || context.UsedItem(REINDEERHORNHELM, REINDEERHORNHELM) || context.UsedItem(TRACKINGTALISMAN, TRACKINGTALISMAN)) {
         context.ShowText("You find some footprints heading to the west.");
         context.SetFlag(PARTY, TRACKING, 1);
-        if (context.Here == 22) {
+        if (context.GetTile == 22) {
             context.ShowText("No, you're not the only one who finds that odd.");
         }
     }
@@ -228,8 +228,8 @@ fun MapEvent0C(context) {
         context.ShowText("If you work on this seam you might just....");
         context.ShowText("Yes!  You have managed to pry open a secret door.");
         context.SetFlag(DUNGEON, VATCRACK, 1);
-        context.ClearWall(context.Here, context.Facing);
-        context.PlaceWallItem(DOOR, context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
+        context.SetWallItem(DOOR, context.GetTile, context.GetFacing);
     }
 }
 
@@ -250,12 +250,12 @@ fun MapEvent0F(context) {
 fun MapEvent10(context) {
     context.SetFlag(DUNGEON, WENTUP0401, 1);
     if ((context.GetFlag(DUNGEON, LEVEL2ROOM4) == 1) || (context.GetFlag(DUNGEON, WENTUP0401) == 1)) {
-        context.ClearWall(13, EAST);
-        context.PlaceWallItem(DOOR, 13, EAST);
+        context.ClearWallBlock(13, EAST);
+        context.SetWallItem(DOOR, 13, EAST);
     }
     else {
-        context.RemoveWallItem(13, EAST);
-        context.BlockWall(13, EAST);
+        context.ClearWallItem(13, EAST);
+        context.SetWallBlock(13, EAST);
     }
     if (context.GetFlag(PARTY, BEENINROOM) == 0) {
         context.SetFlag(PARTY, BEENINROOM, 1);
@@ -273,24 +273,24 @@ fun MapEvent10(context) {
 fun MapEvent11(context) {
     if ((context.GetFlag(DUNGEON, WONGAME) == 1) || ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1))) {
         context.SetFlag(DUNGEON, LEVEL2ROOM3, 1);
-        context.ClearWall(30, NORTH);
-        context.PlaceWallItem(DOOR, 30, NORTH);
+        context.ClearWallBlock(30, NORTH);
+        context.SetWallItem(DOOR, 30, NORTH);
     }
     else {
-        context.RemoveWallItem(30, NORTH);
-        context.BlockWall(30, NORTH);
+        context.ClearWallItem(30, NORTH);
+        context.SetWallBlock(30, NORTH);
     }
 }
 
 fun MapEvent12(context) {
-    context.ShowPicture(MINOTAUR);
+    context.ShowPortrait(MINOTAUR);
     if (context.GetFlag(PARTY, SEENBOAR) == 0) {
         context.SetFlag(PARTY, SEENBOAR, 1);
         context.ShowText("'Not so fast!  I be the bouncer of this, The Raging Boar Inn, and we have a few ground rules.  There's to be no pinching of the employees.  There's to be no pinching of the silverware.  In fact, no pinching!  Any questions?'");
         context.ShowText("You shake your head.  You can live with that.");
     }
     else {
-        if (context.Facing == EAST) {
+        if (context.GetFacing == EAST) {
             context.ShowText("Thankee kindly for frequenting the Boar.");
         }
     }
@@ -304,7 +304,7 @@ fun MapEvent13(context) {
         }
         else {
             context.SetFlag(PARTY, SAWMILKER, 1);
-            context.ShowPicture(BOAR);
+            context.ShowPortrait(BOAR);
             if (context.HasItem(MILKOFHUMANKINDNESS)) {
                 context.ShowText("'One at a time!  One at a time!  I must respect the ancient traditions of my family and not sell thee any more until thou hast used the first one, preferably against someone named Macbeth.  Get thee gone!");
             }
@@ -329,21 +329,21 @@ fun MapEvent14(context) {
         if (context.PartyCount > 3) {
             context.ShowText("And, sadly, they have found you.");
         }
-        if ((context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.FlagOn(DUNGEON, WENTUP0401)) {
-            context.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        if ((context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.IsFlagOn(DUNGEON, WENTUP0401)) {
+            context.SetTreasure(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
         }
         else {
-            context.SetBooty(HENGISTSSWORD, BERSERKERTALISMAN, PETUNIAPOULTICE, CRYSTALBALL, 0, 125);
+            context.SetTreasure(HENGISTSSWORD, BERSERKERTALISMAN, PETUNIAPOULTICE, CRYSTALBALL, 0, 125);
         }
-        context.GetMonster(1, 29);
-        context.GetMonster(2, 30);
+        context.AddEncounter(1, 29);
+        context.AddEncounter(2, 30);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 31);
-            context.GetMonster(4, 31);
+            context.AddEncounter(3, 31);
+            context.AddEncounter(4, 31);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(5, 31);
-            context.GetMonster(6, 31);
+            context.AddEncounter(5, 31);
+            context.AddEncounter(6, 31);
         }
     }
     else {
@@ -355,17 +355,17 @@ fun MapEvent15(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.SetFlag(PARTY, WAR2, 1);
         context.ShowText("I guess we know what they meant by pigs having wings.");
-        if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.FlagOn(DUNGEON, WENTUP0401)) {
-            context.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.IsFlagOn(DUNGEON, WENTUP0401)) {
+            context.SetTreasure(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
         }
         else {
-            context.SetBooty(0, 0, 0, 0, 0, 187);
+            context.SetTreasure(0, 0, 0, 0, 0, 187);
         }
-        context.GetMonster(1, 32);
-        context.GetMonster(5, 39);
+        context.AddEncounter(1, 32);
+        context.AddEncounter(5, 39);
         if (context.PartyCount > 3) {
-            context.GetMonster(3, 32);
-            context.GetMonster(6, 39);
+            context.AddEncounter(3, 32);
+            context.AddEncounter(6, 39);
         }
     }
     else {
@@ -377,32 +377,32 @@ fun MapEvent16(context) {
     if (context.GetFlag(PARTY, WAR3) == 0) {
         context.SetFlag(PARTY, WAR3, 1);
         context.ShowText("While you are wondering if the phrase 'silly Scottish pig dogs' is copyrighted, a group of them attack!");
-        if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.FlagOn(DUNGEON, WENTUP0401)) {
-            context.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.IsFlagOn(DUNGEON, WENTUP0401)) {
+            context.SetTreasure(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
         }
         else {
-            context.SetBooty(SAXONSTICKS, BOOMERANGSCROLL, PETUNIAPOULTICE, 0, 0, 125);
+            context.SetTreasure(SAXONSTICKS, BOOMERANGSCROLL, PETUNIAPOULTICE, 0, 0, 125);
         }
-        if (context.PartyLevel(12)) {
-            context.GetMonster(1, 38);
-            context.GetMonster(2, 37);
-            context.GetMonster(3, 33);
+        if (context.CheckPartyLevel(12)) {
+            context.AddEncounter(1, 38);
+            context.AddEncounter(2, 37);
+            context.AddEncounter(3, 33);
             if (context.PartyCount > 3) {
-                context.GetMonster(5, 31);
-                context.GetMonster(4, 32);
-                context.GetMonster(6, 36);
+                context.AddEncounter(5, 31);
+                context.AddEncounter(4, 32);
+                context.AddEncounter(6, 36);
             }
         }
         else {
-            context.GetMonster(1, 36);
-            context.GetMonster(2, 31);
+            context.AddEncounter(1, 36);
+            context.AddEncounter(2, 31);
             if (context.PartyCount > 2) {
-                context.GetMonster(3, 31);
-                context.GetMonster(4, 36);
+                context.AddEncounter(3, 31);
+                context.AddEncounter(4, 36);
             }
             if (context.PartyCount > 3) {
-                context.GetMonster(5, 30);
-                context.GetMonster(6, 37);
+                context.AddEncounter(5, 30);
+                context.AddEncounter(6, 37);
             }
         }
     }
@@ -415,32 +415,32 @@ fun MapEvent17(context) {
     if (context.GetFlag(PARTY, WAR4) == 0) {
         context.SetFlag(PARTY, WAR4, 1);
         context.ShowText("Ee aiyee aiyo!  You have NO interest in eating any of the eggs from those chickens!");
-        if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.FlagOn(DUNGEON, WENTUP0401)) {
-            context.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.IsFlagOn(DUNGEON, WENTUP0401)) {
+            context.SetTreasure(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
         }
         else {
-            context.SetBooty(HIPPOCRATESSRING, LEFTARMSCROLL, PETUNIAPOULTICE, 0, 0, 953);
+            context.SetTreasure(HIPPOCRATESSRING, LEFTARMSCROLL, PETUNIAPOULTICE, 0, 0, 953);
         }
-        if (context.PartyLevel(12)) {
-            context.GetMonster(1, 28);
-            context.GetMonster(2, 35);
-            context.GetMonster(3, 33);
+        if (context.CheckPartyLevel(12)) {
+            context.AddEncounter(1, 28);
+            context.AddEncounter(2, 35);
+            context.AddEncounter(3, 33);
             if (context.PartyCount > 3) {
-                context.GetMonster(4, 27);
-                context.GetMonster(5, 32);
-                context.GetMonster(6, 34);
+                context.AddEncounter(4, 27);
+                context.AddEncounter(5, 32);
+                context.AddEncounter(6, 34);
             }
         }
         else {
-            context.GetMonster(1, 34);
-            context.GetMonster(2, 26);
+            context.AddEncounter(1, 34);
+            context.AddEncounter(2, 26);
             if (context.PartyCount > 2) {
-                context.GetMonster(3, 27);
-                context.GetMonster(4, 29);
+                context.AddEncounter(3, 27);
+                context.AddEncounter(4, 29);
             }
             if (context.PartyCount > 3) {
-                context.GetMonster(5, 30);
-                context.GetMonster(6, 34);
+                context.AddEncounter(5, 30);
+                context.AddEncounter(6, 34);
             }
         }
     }
@@ -456,21 +456,21 @@ fun MapEvent18(context) {
         if (context.PartyCount > 3) {
             context.ShowText("Or maybe, at the worst, a Marx brothers movie.");
         }
-        if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.FlagOn(DUNGEON, WENTUP0401)) {
-            context.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.IsFlagOn(DUNGEON, WENTUP0401)) {
+            context.SetTreasure(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
         }
         else {
-            context.SetBooty(BAYONETSPEAR, IVARSGAUNTLETS, PETUNIAPOULTICE, ELDERBERRYELIXIR, 0, 125);
+            context.SetTreasure(BAYONETSPEAR, IVARSGAUNTLETS, PETUNIAPOULTICE, ELDERBERRYELIXIR, 0, 125);
         }
-        context.GetMonster(1, 25);
-        context.GetMonster(5, 26);
+        context.AddEncounter(1, 25);
+        context.AddEncounter(5, 26);
         if (context.PartyCount > 2) {
-            context.GetMonster(2, 27);
-            context.GetMonster(6, 28);
+            context.AddEncounter(2, 27);
+            context.AddEncounter(6, 28);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 25);
-            context.GetMonster(3, 26);
+            context.AddEncounter(4, 25);
+            context.AddEncounter(3, 26);
         }
     }
     else {
@@ -482,19 +482,19 @@ fun MapEvent19(context) {
     if (context.GetFlag(PARTY, WAR6) == 0) {
         context.SetFlag(PARTY, WAR6, 1);
         context.ShowText("You know, with all these barrels, this place does kind of remind you of a labyrinth.");
-        if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.FlagOn(DUNGEON, WENTUP0401)) {
-            context.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR7) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.IsFlagOn(DUNGEON, WENTUP0401)) {
+            context.SetTreasure(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
         }
         else {
-            context.SetBooty(STEELBREASTPLATE, HALFPLATE, WOOLENCLOAK, 0, 0, 125);
+            context.SetTreasure(STEELBREASTPLATE, HALFPLATE, WOOLENCLOAK, 0, 0, 125);
         }
-        context.GetMonster(1, 34);
-        context.GetMonster(2, 35);
+        context.AddEncounter(1, 34);
+        context.AddEncounter(2, 35);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 34);
+            context.AddEncounter(3, 34);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 35);
+            context.AddEncounter(4, 35);
         }
     }
     else {
@@ -506,27 +506,27 @@ fun MapEvent1A(context) {
     if (context.GetFlag(PARTY, WAR7) == 0) {
         context.SetFlag(PARTY, WAR7, 1);
         context.ShowText("You were warned there would be bodyguards.  You just didn't know how unfriendly they would be.  A wave of magic flashes over you.");
-        context.Damage(context.MaxHealth / 4);
-        if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.FlagOn(DUNGEON, WENTUP0401)) {
-            context.SetBooty(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
+        context.DamagePlayer(context.GetMaxHealth / 4);
+        if ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (!(context.HasItem(CRACKOFDOOM))) && context.IsFlagOn(DUNGEON, WENTUP0401)) {
+            context.SetTreasure(CRACKOFDOOM, PETUNIAPOULTICE, ELDERBERRYELIXIR, CRACKOFDOOM, 0, 477);
         }
         else {
             if (!(context.HasItem(EYEOFNEWT))) {
-                context.SetBooty(BAYONETSPEAR, EYEOFNEWT, PETUNIAPOULTICE, ELDERBERRYELIXIR, 0, 245);
+                context.SetTreasure(BAYONETSPEAR, EYEOFNEWT, PETUNIAPOULTICE, ELDERBERRYELIXIR, 0, 245);
             }
             else {
-                context.SetBooty(BAYONETSPEAR, PETUNIAPOULTICE, ELDERBERRYELIXIR, 0, 0, 245);
+                context.SetTreasure(BAYONETSPEAR, PETUNIAPOULTICE, ELDERBERRYELIXIR, 0, 0, 245);
             }
         }
-        context.GetMonster(1, 32);
-        context.GetMonster(5, 40);
+        context.AddEncounter(1, 32);
+        context.AddEncounter(5, 40);
         if (context.PartyCount > 1) {
-            context.GetMonster(2, 33);
-            context.GetMonster(6, 40);
+            context.AddEncounter(2, 33);
+            context.AddEncounter(6, 40);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(3, 33);
-            context.GetMonster(4, 32);
+            context.AddEncounter(3, 33);
+            context.AddEncounter(4, 32);
         }
     }
     else {
@@ -536,7 +536,7 @@ fun MapEvent1A(context) {
 
 fun MapEvent1B(context) {
     if (context.GetFlag(PARTY, SEENKNIGHT) == 0) {
-        context.ShowPicture(ORCKNIGHT);
+        context.ShowPortrait(ORCKNIGHT);
         context.SetFlag(PARTY, SEENKNIGHT, 1);
         context.ShowText("A badly battered knight grimaces as you pass.");
         context.ShowText("'I must warn thee, friends.  In the last room down the hall is a man with an endless supply of a priceless treasure, but if thou canst not defeat the pigs at the top of the hall thou wilt surely not defeat his bodyguards.");
@@ -591,11 +591,11 @@ fun MapEvent25(context) {
 fun MapEvent26(context) {
     if ((context.GetFlag(DUNGEON, WONGAME) == 1) || ((context.GetFlag(PARTY, WAR1) == 1) && (context.GetFlag(PARTY, WAR2) == 1) && (context.GetFlag(PARTY, WAR3) == 1) && (context.GetFlag(PARTY, WAR4) == 1) && (context.GetFlag(PARTY, WAR5) == 1) && (context.GetFlag(PARTY, WAR6) == 1) && (context.GetFlag(PARTY, WAR7) == 1))) {
         context.SetFlag(DUNGEON, LEVEL2ROOM3, 1);
-        context.ClearWall(13, EAST);
-        context.PlaceWallItem(DOOR, 13, EAST);
+        context.ClearWallBlock(13, EAST);
+        context.SetWallItem(DOOR, 13, EAST);
     }
     else {
-        context.RemoveWallItem(13, EAST);
-        context.BlockWall(13, EAST);
+        context.ClearWallItem(13, EAST);
+        context.SetWallBlock(13, EAST);
     }
 }

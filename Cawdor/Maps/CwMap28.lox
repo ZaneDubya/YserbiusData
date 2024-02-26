@@ -19,27 +19,27 @@
 
 fun MapEvent01(context) {
     context.ShowText("A cold breeze sends shivers down your spine.");
-    if (context.UsedSkill(DETECT_SKILL) >= 9 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.FlagOn(ROOM, DETECTED_DOOR)) {
-        context.PlaceWallItem(DOOR, context.Here, context.Facing);
+    if (context.UsedSkill(DETECT_SKILL) >= 9 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.IsFlagOn(ROOM, DETECTED_DOOR)) {
+        context.SetWallItem(DOOR, context.GetTile, context.GetFacing);
         context.ShowText("You've uncovered a hidden door!");
-        context.ClearWall(context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
-        context.RemoveWallItem(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
+        context.ClearWallItem(context.GetTile, context.GetFacing);
     }
 }
 
 fun MapEvent02(context) {
-    if (context.UsedSkill(DETECT_SKILL) >= 11 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.FlagOn(ROOM, DETECTED_DOOR)) {
-        context.PlaceWallItem(DOOR, context.Here, context.Facing);
+    if (context.UsedSkill(DETECT_SKILL) >= 11 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.IsFlagOn(ROOM, DETECTED_DOOR)) {
+        context.SetWallItem(DOOR, context.GetTile, context.GetFacing);
         context.SetFlag(ROOM, DETECTED_DOOR, 1);
-        if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkill(LOCKPICK_SKILL) >= 11) && (context.UsedItem(COLDSTEELLOCKPICK, ADAMANTINELOCKPICK))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+        if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkillLevel(LOCKPICK_SKILL) >= 11) && (context.UsedItem(COLDSTEELLOCKPICK, ADAMANTINELOCKPICK))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
             context.ShowText("You have unlocked the hidden door!");
-            context.ClearWall(context.Here, context.Facing);
+            context.ClearWallBlock(context.GetTile, context.GetFacing);
         }
         else {
-            context.BlockWall(context.Here, context.Facing);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
             if ((context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, STEELLOCKPICK))) {
                 context.TakeItem(WOODENLOCKPICK);
                 context.TakeItem(BRASSLOCKPICK);
@@ -49,23 +49,23 @@ fun MapEvent02(context) {
                 context.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
             }
             else {
-                context.BlockWall(context.Here, context.Facing);
+                context.SetWallBlock(context.GetTile, context.GetFacing);
                 context.ShowText("You detect a hidden door, but it is locked.");
             }
         }
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
     }
 }
 
 fun MapEvent03(context) {
-    if (((context.GetSkill(LOCKPICK_SKILL) >= 11) && ((context.UsedItem(COLDSTEELLOCKPICK, ADAMANTINELOCKPICK))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING)))) {
+    if (((context.GetSkillLevel(LOCKPICK_SKILL) >= 11) && ((context.UsedItem(COLDSTEELLOCKPICK, ADAMANTINELOCKPICK))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING)))) {
         context.ShowText("That was a stiff lock, but you finally got it open.");
-        context.ClearWall(context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
         if ((context.UsedItem(WOODENLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, STEELLOCKPICK))) {
             context.TakeItem(WOODENLOCKPICK);
             context.TakeItem(BRASSLOCKPICK);
@@ -75,7 +75,7 @@ fun MapEvent03(context) {
             context.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
         }
         else {
-            context.BlockWall(context.Here, context.Facing);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
             context.ShowText("Funny how an irksome little lock on a flimsy little door can keep out a big strong person like you.");
         }
     }
@@ -99,7 +99,7 @@ fun MapEvent04(context) {
             context.ShowText("In fact, if you didn't think you were getting close, you would definitely be getting bored.");
             i = 0;
         }
-        if (context.Here > 246) {
+        if (context.GetTile > 246) {
             context.SetFlag(PARTY, TRACKCTR, i);
         }
         else {
@@ -146,7 +146,7 @@ fun MapEvent05(context) {
                 break;
             case 1:
                 context.ShowText("You hear someone running towards you.");
-                context.ShowPicture(GREMLINTHIEF);
+                context.ShowPortrait(GREMLINTHIEF);
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("*");
@@ -155,12 +155,12 @@ fun MapEvent05(context) {
                 context.ShowText("A burly sergeant wraps a whip around the gremlin's neck, jerking him back into the squad.  You decide not to interfere.");
                 break;
             case 2:
-                context.ShowPicture(DRAGON);
+                context.ShowPortrait(DRAGON);
                 context.ShowText("The dragon examines you with a baleful eye.  It has seen better days.");
                 context.ShowText("'Wouldst thou help a wyrm in need of a reviving morsel?  Thou hast two legs; surely thou couldst spare me one.  Wouldst thou resist my efforts to consume thee, then?  I feared so.  Were I not wounded, though...'  It limps off.");
                 break;
             case 3:
-                context.ShowPicture(HALFLINGTHIEF);
+                context.ShowPortrait(HALFLINGTHIEF);
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("*");
@@ -168,19 +168,19 @@ fun MapEvent05(context) {
                 context.ShowText("The halfling struts off, smiling.");
                 break;
             case 4:
-                context.ShowPicture(GREMLINTHIEF);
+                context.ShowPortrait(GREMLINTHIEF);
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("*");
                 context.ShowText("A somewhat battered gang o'gremlins decides, rather insultingly, that they are bigger than you are.");
-                context.SetBooty(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 93);
-                context.GetMonster(1, 25);
+                context.SetTreasure(SMALLLETTEROFCREDIT, LEFTARMSCROLL, 0, 0, 0, 93);
+                context.AddEncounter(1, 25);
                 if (context.PartyCount > 1) {
-                    context.GetMonster(5, 26);
+                    context.AddEncounter(5, 26);
                 }
                 if (context.PartyCount > 2) {
-                    context.GetMonster(2, 25);
-                    context.GetMonster(6, 26);
+                    context.AddEncounter(2, 25);
+                    context.AddEncounter(6, 26);
                 }
                 break;
         }
@@ -205,7 +205,7 @@ fun MapEvent09(context) {
     if (context.GetFlag(DUNGEON, SEENRORY) == 0) {
         if (context.GetFlag(DUNGEON, LEVEL6ROOM3) == 0) {
             context.SetFlag(DUNGEON, LEVEL6ROOM3, 1);
-            context.ShowPicture(HALFLINGTHIEF);
+            context.ShowPortrait(HALFLINGTHIEF);
             context.ShowText("Rory's face is streaked with dust.  He pats several huge clouds off his clothes before greeting you.");
             context.ShowText("'Welcome to the Attic.  It is a dusty place of small interest.  What little I have learned I will divulge to thee.'");
             context.ShowText("'Most of this room is storage, and although there are one or two things worth detecting for, none are worth overly much.'");
@@ -216,7 +216,7 @@ fun MapEvent09(context) {
         else {
             if (context.GetFlag(PARTY, SAWATTIC) == 0) {
                 context.SetFlag(PARTY, SAWATTIC, 1);
-                context.ShowPicture(HALFLINGTHIEF);
+                context.ShowPortrait(HALFLINGTHIEF);
                 context.ShowText("'Ah, you have found me out!'  Rory grins bashfully.  'But it was in no wise my intent to keep a secret from thee.");
                 context.ShowText("'I only recently learned that the milk of human kindness is not only a might heal, but that its beneficence extends to your entire party.'");
                 context.ShowText("'Since I have improved upon both the picks and my skill with them since we last spoke, I have found a large supply of this milk, and do merely return to replenish my pack.'");
@@ -238,15 +238,15 @@ fun MapEvent0A(context) {
 
 fun MapEvent0B(context) {
     if ((context.GetFlag(PARTY, TRACKING) == 1) && (context.GetFlag(PARTY, WAR1) == 0)) {
-        context.SetBooty(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 1244);
+        context.SetTreasure(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 1244);
         context.SetFlag(PARTY, WAR1, 1);
-        context.GetMonster(1, 25);
-        context.GetMonster(5, 28);
-        context.GetMonster(2, 26);
-        context.GetMonster(6, 28);
+        context.AddEncounter(1, 25);
+        context.AddEncounter(5, 28);
+        context.AddEncounter(2, 26);
+        context.AddEncounter(6, 28);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 27);
-            context.GetMonster(4, 27);
+            context.AddEncounter(3, 27);
+            context.AddEncounter(4, 27);
         }
     }
     else {
@@ -254,23 +254,23 @@ fun MapEvent0B(context) {
             context.ShowText("Aye, that was a nasty group you fought here.  But they are here to fight no more.");
         }
         else {
-            if (context.PartyLevel(40)) {
+            if (context.CheckPartyLevel(40)) {
                 context.ShowText("Well, this sure looks like a lair, but whoever was in it got while the getting was good.");
             }
             else {
                 context.ShowText("Egads!  They were waiting for you with open arms and loaded crossbows!");
-                context.Damage(context.MaxHealth / 3);
+                context.DamagePlayer(context.GetMaxHealth / 3);
                 context.SetFlag(PARTY, WAR1, 1);
                 context.ModMana(-4000);
                 context.SetFlag(PARTY, WAR1, 1);
-                context.SetBooty(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 1244);
-                context.GetMonster(1, 25);
-                context.GetMonster(5, 28);
-                context.GetMonster(2, 26);
-                context.GetMonster(6, 28);
+                context.SetTreasure(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 1244);
+                context.AddEncounter(1, 25);
+                context.AddEncounter(5, 28);
+                context.AddEncounter(2, 26);
+                context.AddEncounter(6, 28);
                 if (context.PartyCount > 2) {
-                    context.GetMonster(3, 27);
-                    context.GetMonster(4, 27);
+                    context.AddEncounter(3, 27);
+                    context.AddEncounter(4, 27);
                 }
             }
         }
@@ -280,8 +280,8 @@ fun MapEvent0B(context) {
 fun MapEvent0C(context) {
     if (context.GetFlag(PARTY, WAR2) == 1) {
         context.ShowText("You have already cleaned out this lair.  No need to fear any further ambushes, at least for today.");
-        context.ClearWall(context.Here, context.Facing);
-        context.PlaceWallItem(context.Here, context.Facing, DOOR);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
+        context.SetWallItem(context.GetTile, context.GetFacing, DOOR);
     }
     else {
         if (context.GetFlag(PARTY, TRACKING) == 1) {
@@ -300,12 +300,12 @@ fun MapEvent0C(context) {
             if (context.HasItem(TOEOFFROG)) {
                 context.ShowText("Your froggy toe begins to pulse, as if detecting those beasts against which it is purposed.  Hearing them prepare for you, you charge to the attack!");
                 context.ShowText("And next time, maybe you won't have to charge through sheets of flame!");
-                context.Damage(4000);
+                context.DamagePlayer(4000);
                 context.Teleport(11, 3, 242, WEST);
             }
             else {
-                context.ClearWall(context.Here, context.Facing);
-                context.PlaceWallItem(DOOR, context.Here, context.Facing);
+                context.ClearWallBlock(context.GetTile, context.GetFacing);
+                context.SetWallItem(DOOR, context.GetTile, context.GetFacing);
             }
         }
     }
@@ -317,7 +317,7 @@ fun MapEvent0D(context) {
         context.NoHealZone();
         context.ShowText("Everything's perfectly normal, if you call receiving a sudden faceful of mana sucking poison normal.  No, wait.  It will come to you if you just give it a second.  Eureka!");
         context.ShowText("It's one of those, what do they call it?  Deathtraps!  That's the ticket!");
-        context.Damage(context.MaxHealth / 2);
+        context.DamagePlayer(context.GetMaxHealth / 2);
         context.ModMana(-5000);
     }
     else {
@@ -329,14 +329,14 @@ fun MapEvent0E(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.ShowText("There they are, ready and waiting!");
         context.SetFlag(PARTY, WAR2, 1);
-        context.SetBooty(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 3244);
-        context.GetMonster(1, 37);
-        context.GetMonster(5, 37);
-        context.GetMonster(2, 37);
-        context.GetMonster(6, 37);
+        context.SetTreasure(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 3244);
+        context.AddEncounter(1, 37);
+        context.AddEncounter(5, 37);
+        context.AddEncounter(2, 37);
+        context.AddEncounter(6, 37);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 37);
-            context.GetMonster(4, 37);
+            context.AddEncounter(3, 37);
+            context.AddEncounter(4, 37);
         }
     }
     else {
@@ -348,14 +348,14 @@ fun MapEvent0F(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.ShowText("There they are, ready and waiting!");
         context.SetFlag(PARTY, WAR2, 1);
-        context.SetBooty(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 3244);
-        context.GetMonster(1, 37);
-        context.GetMonster(5, 37);
-        context.GetMonster(2, 37);
-        context.GetMonster(6, 36);
+        context.SetTreasure(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 3244);
+        context.AddEncounter(1, 37);
+        context.AddEncounter(5, 37);
+        context.AddEncounter(2, 37);
+        context.AddEncounter(6, 36);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 36);
-            context.GetMonster(4, 37);
+            context.AddEncounter(3, 36);
+            context.AddEncounter(4, 37);
         }
     }
     else {
@@ -367,14 +367,14 @@ fun MapEvent10(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.ShowText("There they are, ready and waiting!");
         context.SetFlag(PARTY, WAR2, 1);
-        context.SetBooty(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 3244);
-        context.GetMonster(1, 37);
-        context.GetMonster(5, 36);
-        context.GetMonster(2, 37);
-        context.GetMonster(6, 36);
+        context.SetTreasure(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 3244);
+        context.AddEncounter(1, 37);
+        context.AddEncounter(5, 36);
+        context.AddEncounter(2, 37);
+        context.AddEncounter(6, 36);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 36);
-            context.GetMonster(4, 36);
+            context.AddEncounter(3, 36);
+            context.AddEncounter(4, 36);
         }
     }
     else {
@@ -386,14 +386,14 @@ fun MapEvent11(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.ShowText("There they are, ready and waiting!");
         context.SetFlag(PARTY, WAR2, 1);
-        context.SetBooty(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 3244);
-        context.GetMonster(1, 35);
-        context.GetMonster(5, 36);
-        context.GetMonster(2, 35);
-        context.GetMonster(6, 36);
+        context.SetTreasure(MILKOFHUMANKINDNESS, DRAGONFLAGON, 0, 0, 0, 3244);
+        context.AddEncounter(1, 35);
+        context.AddEncounter(5, 36);
+        context.AddEncounter(2, 35);
+        context.AddEncounter(6, 36);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 36);
-            context.GetMonster(4, 36);
+            context.AddEncounter(3, 36);
+            context.AddEncounter(4, 36);
         }
     }
     else {
@@ -403,7 +403,7 @@ fun MapEvent11(context) {
 
 fun MapEvent12(context) {
     if (context.GetFlag(PARTY, WAR3) == 1) {
-        context.ClearWall(context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
     }
     else {
         if ((context.GetFlag(PARTY, TRACKING) == 1) && (context.HasItem(FILLETOFAFENNYSNAKE))) {
@@ -413,7 +413,7 @@ fun MapEvent12(context) {
         else {
             if (context.HasItem(FILLETOFAFENNYSNAKE)) {
                 context.ShowText("Medusae ho!  You charge into their ambush, having little choice in the matter!");
-                context.Damage(3000);
+                context.DamagePlayer(3000);
                 context.ModMana(-1000);
                 context.Teleport(11, 3, 238, EAST);
             }
@@ -424,7 +424,7 @@ fun MapEvent12(context) {
                 }
                 else {
                     context.ShowText("Medusae ho!  You charge into their ambush, having little choice in the matter!");
-                    context.Damage(3000);
+                    context.DamagePlayer(3000);
                     context.ModMana(-1000);
                     context.Teleport(11, 3, 239, EAST);
                 }
@@ -446,14 +446,14 @@ fun MapEvent13(context) {
 fun MapEvent14(context) {
     if (context.GetFlag(PARTY, WAR3) == 0) {
         context.SetFlag(PARTY, WAR3, 1);
-        context.SetBooty(MILKOFHUMANKINDNESS, FILLETOFAFENNYSNAKE, 0, 0, 0, 1244);
-        context.GetMonster(1, 38);
-        context.GetMonster(5, 39);
-        context.GetMonster(2, 38);
+        context.SetTreasure(MILKOFHUMANKINDNESS, FILLETOFAFENNYSNAKE, 0, 0, 0, 1244);
+        context.AddEncounter(1, 38);
+        context.AddEncounter(5, 39);
+        context.AddEncounter(2, 38);
         if (context.PartyCount > 2) {
-            context.GetMonster(6, 39);
-            context.GetMonster(3, 38);
-            context.GetMonster(4, 38);
+            context.AddEncounter(6, 39);
+            context.AddEncounter(3, 38);
+            context.AddEncounter(4, 38);
         }
     }
     else {
@@ -464,14 +464,14 @@ fun MapEvent14(context) {
 fun MapEvent15(context) {
     if (context.GetFlag(PARTY, WAR3) == 0) {
         context.SetFlag(PARTY, WAR3, 1);
-        context.SetBooty(MILKOFHUMANKINDNESS, FILLETOFAFENNYSNAKE, 0, 0, 0, 1244);
-        context.GetMonster(1, 39);
-        context.GetMonster(5, 40);
-        context.GetMonster(2, 40);
-        context.GetMonster(6, 39);
+        context.SetTreasure(MILKOFHUMANKINDNESS, FILLETOFAFENNYSNAKE, 0, 0, 0, 1244);
+        context.AddEncounter(1, 39);
+        context.AddEncounter(5, 40);
+        context.AddEncounter(2, 40);
+        context.AddEncounter(6, 39);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 40);
-            context.GetMonster(4, 38);
+            context.AddEncounter(3, 40);
+            context.AddEncounter(4, 38);
         }
     }
     else {
@@ -482,14 +482,14 @@ fun MapEvent15(context) {
 fun MapEvent16(context) {
     if (context.GetFlag(PARTY, WAR3) == 0) {
         context.SetFlag(PARTY, WAR3, 1);
-        context.SetBooty(MILKOFHUMANKINDNESS, FILLETOFAFENNYSNAKE, 0, 0, 0, 1244);
-        context.GetMonster(1, 40);
-        context.GetMonster(5, 40);
-        context.GetMonster(2, 40);
-        context.GetMonster(6, 40);
+        context.SetTreasure(MILKOFHUMANKINDNESS, FILLETOFAFENNYSNAKE, 0, 0, 0, 1244);
+        context.AddEncounter(1, 40);
+        context.AddEncounter(5, 40);
+        context.AddEncounter(2, 40);
+        context.AddEncounter(6, 40);
         if (context.PartyCount > 2) {
-            context.GetMonster(3, 40);
-            context.GetMonster(4, 40);
+            context.AddEncounter(3, 40);
+            context.AddEncounter(4, 40);
         }
     }
     else {
@@ -498,7 +498,7 @@ fun MapEvent16(context) {
 }
 
 fun MapEvent17(context) {
-    context.ShowPicture(MINOTAUR);
+    context.ShowPortrait(MINOTAUR);
     if (context.GetFlag(PARTY, GOTTODAYSMILK) == 1) {
         context.ShowText("'Beat it, kid, you bother me.'");
     }
@@ -548,16 +548,16 @@ fun MapEvent18(context) {
         else {
             context.ShowText("A menacing mob of 'Mc's' decides that they can use their milk of human kindness to defeat you!");
         }
-        context.SetBooty(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
-        context.GetMonster(1, 33);
-        context.GetMonster(2, 34);
+        context.SetTreasure(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
+        context.AddEncounter(1, 33);
+        context.AddEncounter(2, 34);
         if (context.PartyCount > 1) {
-            context.GetMonster(3, 34);
-            context.GetMonster(4, 33);
+            context.AddEncounter(3, 34);
+            context.AddEncounter(4, 33);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 34);
-            context.GetMonster(6, 33);
+            context.AddEncounter(5, 34);
+            context.AddEncounter(6, 33);
         }
     }
     else {
@@ -569,16 +569,16 @@ fun MapEvent19(context) {
     if (context.GetFlag(PARTY, WAR5) == 0) {
         context.SetFlag(PARTY, WAR5, 1);
         context.ShowText("A terrible team of trolls decides that you are interupting their services.  Or, knowing trolls, maybe they are just a might peckish.");
-        context.SetBooty(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
-        context.GetMonster(1, 32);
-        context.GetMonster(2, 32);
+        context.SetTreasure(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
+        context.AddEncounter(1, 32);
+        context.AddEncounter(2, 32);
         if (context.PartyCount > 1) {
-            context.GetMonster(3, 32);
-            context.GetMonster(4, 32);
+            context.AddEncounter(3, 32);
+            context.AddEncounter(4, 32);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 32);
-            context.GetMonster(6, 32);
+            context.AddEncounter(5, 32);
+            context.AddEncounter(6, 32);
         }
     }
     else {
@@ -590,16 +590,16 @@ fun MapEvent1A(context) {
     if (context.GetFlag(PARTY, WAR6) == 0) {
         context.SetFlag(PARTY, WAR6, 1);
         context.ShowText("Eewwe!  Evil Ectoplasmic Entities!  And you just had your armor deslimed!");
-        context.SetBooty(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
-        context.GetMonster(1, 29);
-        context.GetMonster(2, 29);
+        context.SetTreasure(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
+        context.AddEncounter(1, 29);
+        context.AddEncounter(2, 29);
         if (context.PartyCount > 1) {
-            context.GetMonster(3, 29);
-            context.GetMonster(4, 29);
+            context.AddEncounter(3, 29);
+            context.AddEncounter(4, 29);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 29);
-            context.GetMonster(6, 29);
+            context.AddEncounter(5, 29);
+            context.AddEncounter(6, 29);
         }
     }
     else {
@@ -611,16 +611,16 @@ fun MapEvent1B(context) {
     if (context.GetFlag(PARTY, WAR7) == 0) {
         context.SetFlag(PARTY, WAR7, 1);
         context.ShowText("Are those but phantoms of the mind, or are they real?  Either way, they are trying to kill you!");
-        context.SetBooty(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
-        context.GetMonster(1, 30);
-        context.GetMonster(2, 30);
+        context.SetTreasure(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
+        context.AddEncounter(1, 30);
+        context.AddEncounter(2, 30);
         if (context.PartyCount > 1) {
-            context.GetMonster(3, 30);
-            context.GetMonster(4, 30);
+            context.AddEncounter(3, 30);
+            context.AddEncounter(4, 30);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 30);
-            context.GetMonster(6, 30);
+            context.AddEncounter(5, 30);
+            context.AddEncounter(6, 30);
         }
     }
     else {
@@ -632,14 +632,14 @@ fun MapEvent1C(context) {
     if (context.GetFlag(PARTY, WAR8) == 0) {
         context.SetFlag(PARTY, WAR8, 1);
         context.ShowText("A veritable village of vampires has decided that you are the blood bank.  And they intend to make a withdrawal!");
-        context.SetBooty(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
-        context.GetMonster(1, 31);
-        context.GetMonster(2, 31);
-        context.GetMonster(3, 31);
-        context.GetMonster(4, 31);
+        context.SetTreasure(MILKOFHUMANKINDNESS, LAVENDERLOTION, 0, 0, 0, 837);
+        context.AddEncounter(1, 31);
+        context.AddEncounter(2, 31);
+        context.AddEncounter(3, 31);
+        context.AddEncounter(4, 31);
         if (context.PartyCount > 2) {
-            context.GetMonster(5, 31);
-            context.GetMonster(6, 31);
+            context.AddEncounter(5, 31);
+            context.AddEncounter(6, 31);
         }
     }
     else {
@@ -651,7 +651,7 @@ fun MapEvent1D(context) {
     context.NoManaZone();
     context.NoHealZone();
     context.ShowText("This room is so dusty that you can barely breath.  In fact, the dust is chokingly thick!");
-    context.Damage(1000);
+    context.DamagePlayer(1000);
 }
 
 fun MapEvent1E(context) {

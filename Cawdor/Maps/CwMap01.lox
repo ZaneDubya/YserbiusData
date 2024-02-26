@@ -436,7 +436,7 @@ fun MapEvent3F(context) {
 fun MapEvent40(context) {
     if (context.GetFlag(DUNGEON, HEARDJOKE1) == 0) {
         context.SetFlag(DUNGEON, HEARDJOKE1, 1);
-        context.ShowPicture(DRAGON);
+        context.ShowPortrait(DRAGON);
         context.ShowText("*");
         context.ShowText("*");
         context.ShowText("*");
@@ -459,7 +459,7 @@ fun MapEvent40(context) {
 fun MapEvent41(context) {
     if (context.GetFlag(PARTY, PIGFOOT) == 0) {
         context.SetFlag(PARTY, PIGFOOT, 1);
-        context.ShowPicture(HALFLINGCLERIC);
+        context.ShowPortrait(HALFLINGCLERIC);
         context.ShowText("A halfling cleric approaches you surreptitiously.");
         context.ShowText("'Psst!  Cuz!  Thou dost look like a being of wit and wisdom.  I will gladly share with thee a great secret.'");
         context.ShowText("He opens his coat to show, pinned to the inside, a slightly turned pig's foot.");

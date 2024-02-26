@@ -93,53 +93,53 @@ fun MapEvent01(context) {
     if (context.UsedSkill(DETECT_SKILL) >= 4 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS)) {
         context.ShowText("I guess you weren't above stealing a spoon.  You find six gold pieces worth of random silverware.");
         context.ModGold(6);
-        if (!(context.Guild == THIEF)) {
+        if (!(context.GetGuild == THIEF)) {
             context.ShowText("But you sure feel bad doing it.  Cheap, somehow.  As if it is beneath the dignity of your profession to be reduced to filching forks.");
-            context.ModExp(-500);
+            context.AddExperience(-500);
         }
     }
 }
 
 fun MapEvent02(context) {
-    if (context.UsedSkill(DETECT_SKILL) >= 9 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.FlagOn(ROOM, DETECTED_DOOR)) {
-        context.PlaceWallItem(DOOR, context.Here, context.Facing);
+    if (context.UsedSkill(DETECT_SKILL) >= 9 || context.UsedSpell(TRUE_SEEING_SPELL) || context.UsedItem(IVARSHELM, IVARSHELM) || context.UsedItem(ANTLEREDHELM, ANTLEREDHELM) || context.UsedItem(ALCUINSRING, ALCUINSRING) || context.UsedItem(ALCUINSSTICKS, ALCUINSSTICKS) || context.IsFlagOn(ROOM, DETECTED_DOOR)) {
+        context.SetWallItem(DOOR, context.GetTile, context.GetFacing);
         context.SetFlag(ROOM, DETECTED_DOOR, 1);
-        if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(BRASSLOCKPICK) || context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkill(LOCKPICK_SKILL) >= 9) && ((context.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
+        if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(BRASSLOCKPICK) || context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkillLevel(LOCKPICK_SKILL) >= 9) && ((context.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK)))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING))) {
             context.ShowText("You have unlocked the hidden door!");
-            context.ClearWall(context.Here, context.Facing);
+            context.ClearWallBlock(context.GetTile, context.GetFacing);
         }
         else {
-            context.BlockWall(context.Here, context.Facing);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
             if (context.UsedItem(WOODENLOCKPICK, BRASSLOCKPICK)) {
                 context.TakeItem(WOODENLOCKPICK);
                 context.TakeItem(BRASSLOCKPICK);
                 context.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
             }
             else {
-                context.BlockWall(context.Here, context.Facing);
+                context.SetWallBlock(context.GetTile, context.GetFacing);
                 context.ShowText("You detect a hidden door, but it is locked.");
             }
         }
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
     }
 }
 
 fun MapEvent03(context) {
-    if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(BRASSLOCKPICK) || context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkill(LOCKPICK_SKILL) >= 9) && ((context.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING)))) {
+    if (((context.UsedItem(ALFREDSHAT, ALFREDSHAT)) && (context.HasItem(BRASSLOCKPICK) || context.HasItem(IRONLOCKPICK) || context.HasItem(SILVERLOCKPICK) || context.HasItem(STEELLOCKPICK) || context.HasItem(COLDSTEELLOCKPICK) || context.HasItem(ADAMANTINELOCKPICK))) || ((context.GetSkillLevel(LOCKPICK_SKILL) >= 9) && ((context.UsedItem(IRONLOCKPICK, IRONLOCKPICK)) || (context.UsedItem(SILVERLOCKPICK, ADAMANTINELOCKPICK))) || (context.UsedItem(SKELETONKEYRING, SKELETONKEYRING)))) {
         context.ShowText("That was a stiff lock, but you finally got it open.");
-        context.ClearWall(context.Here, context.Facing);
+        context.ClearWallBlock(context.GetTile, context.GetFacing);
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
         if (context.UsedItem(WOODENLOCKPICK, BRASSLOCKPICK)) {
             context.TakeItem(WOODENLOCKPICK);
             context.TakeItem(BRASSLOCKPICK);
             context.ShowText("Your lockpick is no more.  It has ceased to key.  It's a stick.  Bereft of heft, it rests in pieces.  This is an ex-lockpick.");
         }
         else {
-            context.BlockWall(context.Here, context.Facing);
+            context.SetWallBlock(context.GetTile, context.GetFacing);
             context.ShowText("Funny how an irksome little lock on a flimsy little door can keep out a big strong person like you.");
         }
     }
@@ -189,13 +189,13 @@ fun MapEvent05(context) {
                 break;
             case 1:
                 context.ShowText("You hear someone staggering towards you.");
-                context.ShowPicture(HALFLINGKNIGHT);
+                context.ShowPortrait(HALFLINGKNIGHT);
                 context.ShowText("A happy halfling knight doffs his cap in your general direction.  Or perhaps that should be a halfling aleknight.");
                 context.ShowText("'By my stars and HIC! garters!  This is a great place, is it not?  No matter how much I drink in the cooling room, they keep on putting out more.  I will say this for the Lords of Cawdor: they keep a fine cellar.'");
                 context.ShowText("The halfling wobbles off, happily.");
                 break;
             case 2:
-                context.ShowPicture(DRAGON);
+                context.ShowPortrait(DRAGON);
                 context.ShowText("The dragon opens his mouth wide, and as you cower in terror, issues forth a tremendous belch.");
                 context.ShowText("'What fears thee so?  I am but taking my constitutional.  There is so much food here that I need not prey on thee.  But I must walk frequently lest I not fit through the doors.  Adieu, little one, adieu.'");
                 break;
@@ -204,23 +204,23 @@ fun MapEvent05(context) {
                     context.ShowText("Somehow, now that he's gone, the Prunes of Cawdor that Rory told you about will seem less, well, pruney.");
                 }
                 else {
-                    context.ShowPicture(HALFLINGTHIEF);
+                    context.ShowPortrait(HALFLINGTHIEF);
                     context.ShowText("'Ah!  Mine bosom companions, chums, friends of great worth!  I am most cheered to see thee, for I have learned that in this very Kitchen one can find The Prunes of Cawdor!");
                     context.ShowText("Used with wit and wisdom, they make certain monsters run away.  'S'truth!  As true as my name is Rory Applebush!  Good seeking!'");
                     context.ShowText("Rory struts off, smiling.");
                 }
                 break;
             case 4:
-                context.ShowPicture(GREMLINTHIEF);
+                context.ShowPortrait(GREMLINTHIEF);
                 context.ShowText("A clutch of clerics decides that they must preach at you of the Gospel of the Bigger Stick!");
-                context.SetBooty(LARGELETTEROFCREDIT, DEADLYSCROLL, 0, 0, 0, 393);
-                context.GetMonster(1, 25);
+                context.SetTreasure(LARGELETTEROFCREDIT, DEADLYSCROLL, 0, 0, 0, 393);
+                context.AddEncounter(1, 25);
                 if (context.PartyCount > 1) {
-                    context.GetMonster(5, 25);
+                    context.AddEncounter(5, 25);
                 }
                 if (context.PartyCount > 2) {
-                    context.GetMonster(2, 25);
-                    context.GetMonster(6, 25);
+                    context.AddEncounter(2, 25);
+                    context.AddEncounter(6, 25);
                 }
                 break;
         }
@@ -232,7 +232,7 @@ fun MapEvent06(context) {
 }
 
 fun MapEvent07(context) {
-    if (context.WeaponInHand == OHTHERESDAGGER) {
+    if (context.GetEquippedWeapon == OHTHERESDAGGER) {
         context.ShowText("The power of the dagger you are holding lifts you above the acidic waters of The Dissolving Pool.");
     }
     else {
@@ -240,13 +240,13 @@ fun MapEvent07(context) {
             context.ShowText("Ohthere's Dagger glows, as if it wants to help you, but it seems ineffective from its current location.");
         }
         context.ShowText("Those boiling hot acidic waters really sting!");
-        context.Damage(2000);
+        context.DamagePlayer(2000);
     }
 }
 
 fun MapEvent08(context) {
     var i;
-    if (context.WeaponInHand == OHTHERESDAGGER) {
+    if (context.GetEquippedWeapon == OHTHERESDAGGER) {
         context.ShowText("The power of the dagger you are holding lifts you above the acidic waters of The Dissolving Pool.");
     }
     else {
@@ -255,7 +255,7 @@ fun MapEvent08(context) {
         if (context.GetFlag(PARTY, TOOKPOTIONS) == 1) {
             context.ShowText("This isn't good.  The hot waters of the Dissolving Pool have cracked all your potion bottles!");
         }
-        context.Damage(2000);
+        context.DamagePlayer(2000);
     }
 }
 
@@ -265,7 +265,7 @@ fun MapEvent09(context) {
         context.Teleport(7, 2, 242, EAST);
     }
     else {
-        if (context.PartyLevel(28)) {
+        if (context.CheckPartyLevel(28)) {
             context.Teleport(7, 2, 240, EAST);
         }
         else {
@@ -305,19 +305,19 @@ fun MapEvent10(context) {
 
 fun MapEvent11(context) {
     context.ShowText("Yes, it's a group of lumbar lumberjacks, with more regenerating right next door!  And to top it off, they don't appear to be affected by the stifling heat in here the way you are.");
-    context.Damage(context.MaxHealth / 3);
-    context.SetBooty(0, 0, 0, 0, 0, 2);
-    context.GetMonster(1, 28);
-    context.GetMonster(5, 28);
+    context.DamagePlayer(context.GetMaxHealth / 3);
+    context.SetTreasure(0, 0, 0, 0, 0, 2);
+    context.AddEncounter(1, 28);
+    context.AddEncounter(5, 28);
     if (context.PartyCount > 2) {
-        context.GetMonster(2, 28);
-        context.GetMonster(6, 28);
+        context.AddEncounter(2, 28);
+        context.AddEncounter(6, 28);
     }
 }
 
 fun MapEvent12(context) {
     context.ShowText("In wisdom or great folly you enter the flames, and let me tell you, it sure is warm in here!  About 5000 hit points warm!");
-    context.Damage(5000);
+    context.DamagePlayer(5000);
     context.ShowText("Wait for it!");
     context.ShowText("**********");
     context.ShowText("**********");
@@ -327,18 +327,18 @@ fun MapEvent12(context) {
 
 fun MapEvent13(context) {
     context.ShowText("If you wanted to kill yourself, couldn't you have found a gas oven?  These ovens are too hot to be comfortable, and, like I said, they are empty and uninteresting.");
-    context.Damage(500);
+    context.DamagePlayer(500);
 }
 
 fun MapEvent14(context) {
     context.ShowText("Look, mate, it's an oven.  It gets hot.  Very hot.  You put things in it and they get cooked.  Like you are getting cooked right now.  Would I lie to you?");
     context.ShowText("All right, all right.  Yes, I would lie to you.  But I'm not lying to you now.  This is a hot hot oven.  Nothing more.  Nothing less.");
-    context.Damage(1500);
+    context.DamagePlayer(1500);
 }
 
 fun MapEvent15(context) {
     context.ShowText("Through a leaded glass window in the oven doors you can see a hot oven glowing cheerily.  The doors are very warm to your touch, enough to inflict a slight burn.  The oven is empty and uninteresting.");
-    context.Damage(10);
+    context.DamagePlayer(10);
 }
 
 fun Cooler(context) {
@@ -346,7 +346,7 @@ fun Cooler(context) {
 }
 
 fun MapEvent16(context) {
-    if (context.Facing == EAST) {
+    if (context.GetFacing == EAST) {
         context.ShowText("The sign on the door reads: 'The Freezer.'");
     }
     else {
@@ -363,10 +363,10 @@ fun MapEvent17(context) {
         context.ShowText("Boy, is it cold in here!  The entire south and east walls are packed with ice, some of which has been chipped off for personal use, no doubt.");
         context.ShowText("Many kinds of foodstuffs, including sides of beef, several types of plucked poultry, hogs, sheep, and fish, are stored in here, as well as many things you do not recognise.  Whoever stocked this freezer has a good appetite and a better purse.");
         context.ShowText("Now that you've adjusted a bit, you realize that the bitter cold is enough to wound you.");
-        context.Damage(50);
+        context.DamagePlayer(50);
     }
     else {
-        context.Damage(50);
+        context.DamagePlayer(50);
     }
 }
 
@@ -375,22 +375,22 @@ fun MapEvent18(context) {
         context.SetFlag(PARTY, WAR1, 1);
         context.ShowText("How nice.  That spook wants to play, and is throwing a snowball at you.");
         context.ShowText("Gadzooks!  That's no snowball.  That's a fireball!");
-        context.Damage(1000);
-        context.SetBooty(ATHELSTANSSWORD, GAUZERING, PETUNIAPOULTICE, 0, 0, 825);
-        context.GetMonster(1, 30);
-        context.GetMonster(2, 30);
-        context.GetMonster(5, 31);
+        context.DamagePlayer(1000);
+        context.SetTreasure(ATHELSTANSSWORD, GAUZERING, PETUNIAPOULTICE, 0, 0, 825);
+        context.AddEncounter(1, 30);
+        context.AddEncounter(2, 30);
+        context.AddEncounter(5, 31);
         if (context.PartyCount > 2) {
-            context.GetMonster(6, 31);
+            context.AddEncounter(6, 31);
         }
         if (context.PartyCount > 3) {
-            context.GetMonster(4, 30);
-            context.GetMonster(3, 30);
+            context.AddEncounter(4, 30);
+            context.AddEncounter(3, 30);
         }
     }
     else {
         context.ShowText("The way you splattered those spooks, maybe they were slowed down a bit by the cold.  Speaking of which, it is still cold enough to hurt here.");
-        context.Damage(100);
+        context.DamagePlayer(100);
     }
 }
 
@@ -398,33 +398,33 @@ fun MapEvent19(context) {
     if (context.GetFlag(PARTY, WAR2) == 0) {
         context.SetFlag(PARTY, WAR2, 1);
         context.ShowText("The good news is that the undead think this is a cool place to hang out.  The bad news is that the undead think you are uncool.");
-        context.Damage(1500);
-        context.SetBooty(ALFREDSGLOVES, DEADLYSCROLL, LAVENDERLOTION, 0, 0, 666);
-        context.GetMonster(1, 34);
-        context.GetMonster(2, 35);
-        context.GetMonster(5, 29);
+        context.DamagePlayer(1500);
+        context.SetTreasure(ALFREDSGLOVES, DEADLYSCROLL, LAVENDERLOTION, 0, 0, 666);
+        context.AddEncounter(1, 34);
+        context.AddEncounter(2, 35);
+        context.AddEncounter(5, 29);
         if (context.PartyCount > 1) {
-            context.GetMonster(6, 29);
+            context.AddEncounter(6, 29);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 34);
-            context.GetMonster(3, 35);
+            context.AddEncounter(4, 34);
+            context.AddEncounter(3, 35);
         }
     }
     else {
         context.ShowText("You fought the undead, but kept your cool.  In fact, you kept it a tad too cool.");
-        context.Damage(800);
+        context.DamagePlayer(800);
     }
 }
 
 fun MapEvent1A(context) {
     context.ShowText("It sure is cold in here.");
-    context.Damage(100);
+    context.DamagePlayer(100);
 }
 
 fun MapEvent1B(context) {
     context.ShowText("That's better!  Even though you are right next to the blocks of ice, it doesn't hurt any more.  That is better, isn't it?");
-    context.Damage(500);
+    context.DamagePlayer(500);
 }
 
 fun MapEvent1C(context) {
@@ -448,16 +448,16 @@ fun MapEvent1F(context) {
     if (context.GetFlag(PARTY, WAR3) == 0) {
         context.SetFlag(PARTY, WAR3, 1);
         context.ShowText("Tchee!  A bunch of vampires invite you to dinner, and you don't have any garlic to bring them!");
-        context.SetBooty(FLAIL, BOWOFBADONICUS, LAVENDERLOTION, 0, 0, 847);
-        context.GetMonster(1, 32);
-        context.GetMonster(2, 32);
-        context.GetMonster(5, 33);
+        context.SetTreasure(FLAIL, BOWOFBADONICUS, LAVENDERLOTION, 0, 0, 847);
+        context.AddEncounter(1, 32);
+        context.AddEncounter(2, 32);
+        context.AddEncounter(5, 33);
         if (context.PartyCount > 1) {
-            context.GetMonster(6, 33);
+            context.AddEncounter(6, 33);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 33);
-            context.GetMonster(3, 33);
+            context.AddEncounter(4, 33);
+            context.AddEncounter(3, 33);
         }
     }
     else {
@@ -487,7 +487,7 @@ fun MapEvent22(context) {
 }
 
 fun MapEvent23(context) {
-    if (context.Facing == SOUTH) {
+    if (context.GetFacing == SOUTH) {
         context.ShowText("The sign on the door reads: 'The Freezer.'");
     }
     else {
@@ -552,16 +552,16 @@ fun MapEvent2B(context) {
     if (context.GetFlag(PARTY, WAR4) == 0) {
         context.SetFlag(PARTY, WAR4, 1);
         context.ShowText("This must have good salads here, because they have attracted a party of adventurers.  Unfortunately, the adventurers want to fight you for the table.");
-        context.SetBooty(LUGHSSPEAR, JUNIPERJUICE, LAVENDERLOTION, 0, 0, 847);
-        context.GetMonster(1, 27);
-        context.GetMonster(2, 26);
-        context.GetMonster(5, 25);
+        context.SetTreasure(LUGHSSPEAR, JUNIPERJUICE, LAVENDERLOTION, 0, 0, 847);
+        context.AddEncounter(1, 27);
+        context.AddEncounter(2, 26);
+        context.AddEncounter(5, 25);
         if (context.PartyCount > 1) {
-            context.GetMonster(6, 25);
+            context.AddEncounter(6, 25);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 26);
-            context.GetMonster(3, 27);
+            context.AddEncounter(4, 26);
+            context.AddEncounter(3, 27);
         }
     }
     else {
@@ -573,16 +573,16 @@ fun MapEvent2C(context) {
     if (context.GetFlag(PARTY, WAR5) == 0) {
         context.SetFlag(PARTY, WAR5, 1);
         context.ShowText("It isn't hard to figure out that all this meat is what has lured those dogs and cats here.  It's just a shame that they seem to prefer adventurers to beef.  You must be the other other white meat.");
-        context.SetBooty(IVARSHELM, WOADWINE, LAVENDERLOTION, 0, 0, 847);
-        context.GetMonster(1, 36);
-        context.GetMonster(2, 38);
-        context.GetMonster(5, 36);
+        context.SetTreasure(IVARSHELM, WOADWINE, LAVENDERLOTION, 0, 0, 847);
+        context.AddEncounter(1, 36);
+        context.AddEncounter(2, 38);
+        context.AddEncounter(5, 36);
         if (context.PartyCount > 1) {
-            context.GetMonster(6, 38);
+            context.AddEncounter(6, 38);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 36);
-            context.GetMonster(3, 38);
+            context.AddEncounter(4, 36);
+            context.AddEncounter(3, 38);
         }
     }
     else {
@@ -594,16 +594,16 @@ fun MapEvent2D(context) {
     if (context.GetFlag(PARTY, WAR6) == 0) {
         context.SetFlag(PARTY, WAR6, 1);
         context.ShowText("It's an aerial assault!");
-        context.SetBooty(GUARDIANOFWESSEX, WOADWINE, 0, 0, 0, 1543);
-        context.GetMonster(1, 37);
-        context.GetMonster(2, 37);
-        context.GetMonster(5, 40);
+        context.SetTreasure(GUARDIANOFWESSEX, WOADWINE, 0, 0, 0, 1543);
+        context.AddEncounter(1, 37);
+        context.AddEncounter(2, 37);
+        context.AddEncounter(5, 40);
         if (context.PartyCount > 1) {
-            context.GetMonster(6, 40);
+            context.AddEncounter(6, 40);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 40);
-            context.GetMonster(3, 40);
+            context.AddEncounter(4, 40);
+            context.AddEncounter(3, 40);
         }
     }
     else {
@@ -615,16 +615,16 @@ fun MapEvent2E(context) {
     if (context.GetFlag(PARTY, WAR7) == 0) {
         context.SetFlag(PARTY, WAR7, 1);
         context.ShowText("You didn't want to fight imps?  Well, that's what you pict.");
-        context.SetBooty(ALFREDSHAT, WOADWINE, LAVENDERLOTION, 0, 0, 1929);
-        context.GetMonster(1, 39);
-        context.GetMonster(2, 39);
-        context.GetMonster(5, 40);
+        context.SetTreasure(ALFREDSHAT, WOADWINE, LAVENDERLOTION, 0, 0, 1929);
+        context.AddEncounter(1, 39);
+        context.AddEncounter(2, 39);
+        context.AddEncounter(5, 40);
         if (context.PartyCount > 1) {
-            context.GetMonster(6, 40);
+            context.AddEncounter(6, 40);
         }
         if (context.PartyCount > 2) {
-            context.GetMonster(4, 40);
-            context.GetMonster(3, 40);
+            context.AddEncounter(4, 40);
+            context.AddEncounter(3, 40);
         }
     }
     else {
@@ -633,14 +633,14 @@ fun MapEvent2E(context) {
 }
 
 fun MapEvent2F(context) {
-    if ((context.PartyGuild(CLERIC) && context.PartyGuild(BARBARIAN) && context.PartyGuild(THIEF)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, LEVEL4ROOM3) == 1)) {
-        context.ShowPicture(HALFLINGCLERIC);
+    if ((context.GetGuildAny(CLERIC) && context.GetGuildAny(BARBARIAN) && context.GetGuildAny(THIEF)) || (context.GetFlag(DUNGEON, WONGAME) == 1) || (context.GetFlag(DUNGEON, LEVEL4ROOM3) == 1)) {
+        context.ShowPortrait(HALFLINGCLERIC);
         context.ShowText("Some short adventurers hold the door for you.");
         context.ShowText("'Well met!  There are enough undead in there for all of us, and some giants and dragons as well.  May providence smile upon thy works.'");
         context.Teleport(7, 2, 252, NORTH);
     }
     else {
-        context.BlockWall(context.Here, context.Facing);
+        context.SetWallBlock(context.GetTile, context.GetFacing);
         if (context.GetFlag(DUNGEON, OOPSMESSAGE0701) == 0) {
             context.SetFlag(DUNGEON, OOPSMESSAGE0701, 1);
             context.ShowText("Not another locked door!  This one leads to The Cabinet, or at least it would if you had the right combination of people to get it open.");
